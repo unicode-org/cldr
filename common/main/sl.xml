@@ -14,6 +14,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>{0}, {1}</localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">afarščina</language>
@@ -38,6 +39,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="anp">angikaščina</language>
 			<language type="apa">apaški jezik</language>
 			<language type="ar">arabščina</language>
+			<language type="ar_001" draft="contributed">sodobna standardna arabščina</language>
 			<language type="arc">aramejščina</language>
 			<language type="arn">aravkanščina</language>
 			<language type="arp">arapaščina</language>
@@ -144,12 +146,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU" draft="contributed">avstralska angleščina</language>
 			<language type="en_CA" draft="contributed">kanadska angleščina</language>
 			<language type="en_GB">angleščina (VB)</language>
+			<language type="en_GB" alt="short" draft="contributed">en_GB</language>
 			<language type="en_US">angleščina (ZDA)</language>
+			<language type="en_US" alt="short" draft="contributed">angleščina (ZDA)</language>
 			<language type="enm">srednja angleščina</language>
 			<language type="eo">esperanto</language>
 			<language type="es">španščina</language>
 			<language type="es_419">latinskoameriška španščina</language>
 			<language type="es_ES">iberska španščina</language>
+			<language type="es_MX" draft="contributed">es_MX</language>
 			<language type="et">estonščina</language>
 			<language type="eu">baskovščina</language>
 			<language type="ewo">evondovščina</language>
@@ -504,6 +509,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="zap">zapoteščina</language>
 			<language type="zbl">znakovni jezik Bliss</language>
 			<language type="zen">zenaščina</language>
+			<language type="zgh" draft="contributed">standardni maroški tamazig</language>
 			<language type="zh">kitajščina</language>
 			<language type="zh_Hans">poenostavljena kitajščina</language>
 			<language type="zh_Hant">tradicionalna kitajščina</language>
@@ -756,6 +762,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FR">Francija</territory>
 			<territory type="GA">Gabon</territory>
 			<territory type="GB">Velika Britanija</territory>
+			<territory type="GB" alt="short" draft="contributed">ZK</territory>
 			<territory type="GD">Grenada</territory>
 			<territory type="GE">Gruzija</territory>
 			<territory type="GF">Francoska Gvajana</territory>
@@ -920,6 +927,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Druga ameriška ozemlja v Tihem oceanu</territory>
 			<territory type="US">Združene države Amerike</territory>
+			<territory type="US" alt="short" draft="contributed">ZDA</territory>
 			<territory type="UY">Urugvaj</territory>
 			<territory type="UZ">Uzbekistan</territory>
 			<territory type="VA">Vatikan</territory>
@@ -931,7 +939,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="VU">Vanuatu</territory>
 			<territory type="WF">Wallis in Futuna</territory>
 			<territory type="WS">Samoa</territory>
-			<territory type="XK">Kosovo</territory>
+			<territory type="XK" draft="contributed">Kosovo</territory>
 			<territory type="YE">Jemen</territory>
 			<territory type="YT">Mayotte</territory>
 			<territory type="ZA">Južnoafriška republika</territory>
@@ -1062,8 +1070,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="searchjl" key="collation" draft="contributed">Iskanje po začetnem soglasniku hangul</type>
 			<type type="secondary" key="colStrength" draft="contributed">Razvrščanje naglasov</type>
 			<type type="shifted" key="colAlternate" draft="contributed">Razvrščanje s prezrtjem simbolov</type>
+			<type type="standard" key="collation" draft="contributed">Standardno razvrščanje</type>
 			<type type="stroke" key="collation">razvrščanje po zaporedju pisanja pismenk</type>
 			<type type="taml" key="numbers" draft="contributed">Tamilske številke</type>
+			<type type="tamldec" key="numbers" draft="contributed">Tamilske števke</type>
 			<type type="telu" key="numbers" draft="contributed">Teluške števke</type>
 			<type type="tertiary" key="colStrength" draft="contributed">Razvrščanje po naglasih/velikih črkah/malih črkah/širini</type>
 			<type type="thai" key="numbers" draft="contributed">Tajske števke</type>
@@ -1135,7 +1145,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d. MM. y GGGGG</pattern>
+							<pattern>d. MM. yy GGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1163,10 +1173,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Gy" draft="contributed">y G</dateFormatItem>
 						<dateFormatItem id="GyM" draft="contributed">M/y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="contributed">d. MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, d. MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">E, d. MMM y G</dateFormatItem>
 						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
 						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
 						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>
@@ -1180,15 +1191,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">d. MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d. MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
+						<dateFormatItem id="yyyy" draft="contributed">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM" draft="contributed">M/y G</dateFormatItem>
-						<dateFormatItem id="yyyyMd">d. M. y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">E, d. M. y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMd" draft="contributed">d. M. y G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd" draft="contributed">E, d. M. y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM" draft="contributed">MMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd" draft="contributed">d. MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E, d. MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd" draft="contributed">E, d. MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM" draft="contributed">MMMM y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ" draft="contributed">QQQ y G</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ" draft="contributed">QQQQ y G</dateFormatItem>
 					</availableFormats>
@@ -1252,39 +1263,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">E, d. MMM – E, d. MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">y–y G</greatestDifference>
+							<greatestDifference id="y">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">M.–M. y G</greatestDifference>
-							<greatestDifference id="y">M. y – M. y G</greatestDifference>
+							<greatestDifference id="M">M.–M. y</greatestDifference>
+							<greatestDifference id="y">M. y – M. y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">d. M. y – d. M. y G</greatestDifference>
-							<greatestDifference id="M">d. M. – d. M. y G</greatestDifference>
-							<greatestDifference id="y">d. M. y – d. M. y G</greatestDifference>
+							<greatestDifference id="d">d. M. y – d. M. y</greatestDifference>
+							<greatestDifference id="M">d. M. – d. M. y</greatestDifference>
+							<greatestDifference id="y">d. M. y – d. M. y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, d. – E, d. M. y G</greatestDifference>
-							<greatestDifference id="M">E, d. M. – E, d. M. y G</greatestDifference>
-							<greatestDifference id="y">E, d. M. y – E, d. M. y G</greatestDifference>
+							<greatestDifference id="d">E, d. – E, d. M. y</greatestDifference>
+							<greatestDifference id="M">E, d. M. – E, d. M. y</greatestDifference>
+							<greatestDifference id="y">E, d. M. y – E, d. M. y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM – MMM y G</greatestDifference>
-							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="M">MMM – MMM y</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d.–d. MMM y G</greatestDifference>
-							<greatestDifference id="M">d. MMM – d. MMM y G</greatestDifference>
-							<greatestDifference id="y">d. MMM y – d. MMM y G</greatestDifference>
+							<greatestDifference id="d">d.–d. MMM y</greatestDifference>
+							<greatestDifference id="M">d. MMM – d. MMM y</greatestDifference>
+							<greatestDifference id="y">d. MMM y – d. MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d. MMM – E, d. MMM y G</greatestDifference>
-							<greatestDifference id="M">E, d. MMM – E, d. MMM y G</greatestDifference>
-							<greatestDifference id="y">E, d. MMM y – E, d. MMM y G</greatestDifference>
+							<greatestDifference id="d">E, d. MMM – E, d. MMM y</greatestDifference>
+							<greatestDifference id="M">E, d. MMM – E, d. MMM y</greatestDifference>
+							<greatestDifference id="y">E, d. MMM y – E, d. MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M" draft="contributed">MMMM–MMMM y G</greatestDifference>
-							<greatestDifference id="y" draft="contributed">MMMM y – MMMM y G</greatestDifference>
+							<greatestDifference id="M" draft="contributed">MMMM–MMMM y</greatestDifference>
+							<greatestDifference id="y" draft="contributed">MMMM y – MMMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1305,6 +1316,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="10">okt.</month>
 							<month type="11">nov.</month>
 							<month type="12">dec.</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">j</month>
+							<month type="2">f</month>
+							<month type="3">m</month>
+							<month type="4">a</month>
+							<month type="5">m</month>
+							<month type="6">j</month>
+							<month type="7">j</month>
+							<month type="8">a</month>
+							<month type="9">s</month>
+							<month type="10">o</month>
+							<month type="11">n</month>
+							<month type="12">d</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">januar</month>
@@ -1350,6 +1375,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">n</month>
 							<month type="12">d</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">januar</month>
+							<month type="2">februar</month>
+							<month type="3">marec</month>
+							<month type="4">april</month>
+							<month type="5">maj</month>
+							<month type="6">junij</month>
+							<month type="7">julij</month>
+							<month type="8">avgust</month>
+							<month type="9">september</month>
+							<month type="10">oktober</month>
+							<month type="11">november</month>
+							<month type="12">december</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1362,6 +1401,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="thu">čet.</day>
 							<day type="fri">pet.</day>
 							<day type="sat">sob.</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">n</day>
+							<day type="mon">p</day>
+							<day type="tue">t</day>
+							<day type="wed">s</day>
+							<day type="thu">č</day>
+							<day type="fri">p</day>
+							<day type="sat">s</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun" draft="contributed">ned.</day>
@@ -1410,6 +1458,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri" draft="contributed">pet.</day>
 							<day type="sat" draft="contributed">sob.</day>
 						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">nedelja</day>
+							<day type="mon">ponedeljek</day>
+							<day type="tue">torek</day>
+							<day type="wed">sreda</day>
+							<day type="thu">četrtek</day>
+							<day type="fri">petek</day>
+							<day type="sat">sobota</day>
+						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
@@ -1434,11 +1491,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">Q1</quarter>
+							<quarter type="2">Q2</quarter>
+							<quarter type="3">Q3</quarter>
+							<quarter type="4">Q4</quarter>
+						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1" draft="contributed">1</quarter>
 							<quarter type="2" draft="contributed">2</quarter>
 							<quarter type="3" draft="contributed">3</quarter>
 							<quarter type="4" draft="contributed">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">1. četrtletje</quarter>
+							<quarter type="2">2. četrtletje</quarter>
+							<quarter type="3">3. četrtletje</quarter>
+							<quarter type="4">4. četrtletje</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1457,7 +1526,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</eraNames>
 					<eraAbbr>
 						<era type="0">pr. n. št.</era>
+						<era type="0" alt="variant" draft="contributed">pr. n. št.</era>
 						<era type="1">po Kr.</era>
+						<era type="1" alt="variant" draft="contributed">po n. št.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1528,10 +1599,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d" draft="contributed">d</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="contributed">E h.mm a</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E HH.mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="contributed">E h.mm.ss a</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E HH.mm.ss</dateFormatItem>
+						<dateFormatItem id="Gy" draft="contributed">y G</dateFormatItem>
 						<dateFormatItem id="GyM" draft="contributed">M/y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMM" draft="contributed">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd" draft="contributed">d. MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, d. MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd" draft="contributed">E, d. MMM y G</dateFormatItem>
 						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
 						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
 						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>
@@ -1556,6 +1632,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yQQQ" draft="contributed">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ" draft="contributed">QQQQ y</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone" draft="contributed">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
@@ -1687,6 +1766,41 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="weekday">
 				<displayName>Dan v tednu</displayName>
 			</field>
+			<field type="sun">
+				<relative type="-1" draft="contributed">Prejšnjo nedeljo</relative>
+				<relative type="0" draft="contributed">To nedeljo</relative>
+				<relative type="1" draft="contributed">Naslednjo nedeljo</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1" draft="contributed">Prejšnji ponedeljek</relative>
+				<relative type="0" draft="contributed">Ta ponedeljek</relative>
+				<relative type="1" draft="contributed">Naslednji ponedeljek</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1" draft="contributed">Prejšnji torek</relative>
+				<relative type="0" draft="contributed">Ta torek</relative>
+				<relative type="1" draft="contributed">Naslednji torek</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1" draft="contributed">Prejšnjo sredo</relative>
+				<relative type="0" draft="contributed">To sredo</relative>
+				<relative type="1" draft="contributed">Naslednjo sredo</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1" draft="contributed">Prejšnji četrtek</relative>
+				<relative type="0" draft="contributed">Ta četrtek</relative>
+				<relative type="1" draft="contributed">Naslednji četrtek</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1" draft="contributed">Prejšnji petek</relative>
+				<relative type="0" draft="contributed">Ta petek</relative>
+				<relative type="1" draft="contributed">Naslednji petek</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1" draft="contributed">Prejšnjo soboto</relative>
+				<relative type="0" draft="contributed">To soboto</relative>
+				<relative type="1" draft="contributed">Naslednjo soboto</relative>
+			</field>
 			<field type="dayperiod">
 				<displayName>Čas dneva</displayName>
 			</field>
@@ -1708,6 +1822,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat draft="contributed">GMT</gmtZeroFormat>
 			<regionFormat draft="contributed">{0} čas</regionFormat>
+			<regionFormat type="daylight" draft="contributed">{0} (+1)</regionFormat>
+			<regionFormat type="standard" draft="contributed">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>neznano</exemplarCity>
@@ -1718,20 +1834,149 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Dubai">
 				<exemplarCity draft="contributed">Dubaj</exemplarCity>
 			</zone>
+			<zone type="Asia/Kabul">
+				<exemplarCity draft="contributed">Kabul</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity draft="contributed">Antigua</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity draft="contributed">Anguilla</exemplarCity>
+			</zone>
 			<zone type="Europe/Tirane">
 				<exemplarCity draft="contributed">Tirana</exemplarCity>
 			</zone>
 			<zone type="Asia/Yerevan">
 				<exemplarCity draft="contributed">Erevan</exemplarCity>
 			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity draft="contributed">Luanda</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Rothera">
+				<exemplarCity draft="contributed">Rothera</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity draft="contributed">Palmer</exemplarCity>
+			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Južni tečaj</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity draft="contributed">Syowa</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity draft="contributed">Mawson</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity draft="contributed">Davis</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity draft="contributed">Vostok</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity draft="contributed">Casey</exemplarCity>
+			</zone>
+			<zone type="Antarctica/DumontDUrville">
+				<exemplarCity draft="contributed">Dumont d’Urville</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity draft="contributed">Macquarie</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity draft="contributed">McMurdo</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity draft="contributed">Rio Gallegos</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity draft="contributed">Mendoza</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity draft="contributed">San Juan</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity draft="contributed">Ushuaia</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity draft="contributed">La Rioja</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity draft="contributed">San Luis</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity draft="contributed">Catamarca</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity draft="contributed">Salta</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity draft="contributed">Jujuy</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity draft="contributed">Tucuman</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
 				<exemplarCity>Kordova</exemplarCity>
 			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity draft="contributed">Buenos Aires</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pago_Pago">
+				<exemplarCity draft="contributed">Pago Pago</exemplarCity>
+			</zone>
 			<zone type="Europe/Vienna">
 				<exemplarCity draft="contributed">Dunaj</exemplarCity>
+			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity draft="contributed">Perth</exemplarCity>
+			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity draft="contributed">Eucla</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity draft="contributed">Darwin</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity draft="contributed">Adelaide</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity draft="contributed">Broken Hill</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity draft="contributed">Currie</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity draft="contributed">Melbourne</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity draft="contributed">Hobart</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity draft="contributed">Lindeman</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity draft="contributed">Sydney</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity draft="contributed">Brisbane</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity draft="contributed">Lord Howe</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity draft="contributed">Aruba</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity draft="contributed">Mariehamn</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity draft="contributed">Baku</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity draft="contributed">Sarajevo</exemplarCity>
+			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity draft="contributed">Barbados</exemplarCity>
 			</zone>
 			<zone type="Asia/Dhaka">
 				<exemplarCity draft="contributed">Daka</exemplarCity>
@@ -1739,11 +1984,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Brussels">
 				<exemplarCity draft="contributed">Bruselj</exemplarCity>
 			</zone>
+			<zone type="Africa/Ouagadougou">
+				<exemplarCity draft="contributed">Ouagadougou</exemplarCity>
+			</zone>
 			<zone type="Europe/Sofia">
 				<exemplarCity draft="contributed">Sofija</exemplarCity>
 			</zone>
 			<zone type="Asia/Bahrain">
 				<exemplarCity draft="contributed">Bahrajn</exemplarCity>
+			</zone>
+			<zone type="Africa/Bujumbura">
+				<exemplarCity draft="contributed">Bujumbura</exemplarCity>
+			</zone>
+			<zone type="Africa/Porto-Novo">
+				<exemplarCity draft="contributed">Porto-Novo</exemplarCity>
 			</zone>
 			<zone type="America/St_Barthelemy">
 				<exemplarCity draft="contributed">Saint Barthélemy</exemplarCity>
@@ -1754,8 +2008,161 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Brunei">
 				<exemplarCity draft="contributed">Brunej</exemplarCity>
 			</zone>
+			<zone type="America/La_Paz">
+				<exemplarCity draft="contributed">La Paz</exemplarCity>
+			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity draft="contributed">Kralendijk</exemplarCity>
+			</zone>
+			<zone type="America/Eirunepe">
+				<exemplarCity draft="contributed">Eirunepe</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity draft="contributed">Rio Branco</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity draft="contributed">Porto Velho</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity draft="contributed">Boa Vista</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity draft="contributed">Manaus</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity draft="contributed">Cuiaba</exemplarCity>
+			</zone>
+			<zone type="America/Santarem">
+				<exemplarCity draft="contributed">Santarem</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity draft="contributed">Campo Grande</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity draft="contributed">Belem</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity draft="contributed">Araguaina</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity draft="contributed">Sao Paulo</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity draft="contributed">Bahia</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity draft="contributed">Fortaleza</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity draft="contributed">Maceio</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity draft="contributed">Recife</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity draft="contributed">Noronha</exemplarCity>
+			</zone>
+			<zone type="America/Nassau">
+				<exemplarCity draft="contributed">Nassau</exemplarCity>
+			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity draft="contributed">Thimphu</exemplarCity>
+			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity draft="contributed">Gaborone</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity draft="contributed">Minsk</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity draft="contributed">Belize</exemplarCity>
+			</zone>
+			<zone type="America/Dawson">
+				<exemplarCity draft="contributed">Dawson</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity draft="contributed">Whitehorse</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity draft="contributed">Inuvik</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity draft="contributed">Vancouver</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity draft="contributed">Dawson Creek</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity draft="contributed">Creston</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity draft="contributed">Yellowknife</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity draft="contributed">Edmonton</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity draft="contributed">Swift Current</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity draft="contributed">Cambridge Bay</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity draft="contributed">Regina</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity draft="contributed">Winnipeg</exemplarCity>
+			</zone>
+			<zone type="America/Resolute">
+				<exemplarCity draft="contributed">Resolute</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity draft="contributed">Rainy River</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity draft="contributed">Rankin Inlet</exemplarCity>
+			</zone>
+			<zone type="America/Coral_Harbour">
+				<exemplarCity draft="contributed">Atikokan</exemplarCity>
+			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity draft="contributed">Thunder Bay</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity draft="contributed">Nipigon</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity draft="contributed">Toronto</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity draft="contributed">Montreal</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity draft="contributed">Iqaluit</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity draft="contributed">Pangnirtung</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity draft="contributed">Moncton</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity draft="contributed">Halifax</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity draft="contributed">Goose Bay</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity draft="contributed">Glace Bay</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity draft="contributed">Blanc-Sablon</exemplarCity>
+			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity draft="contributed">St. John’s</exemplarCity>
+			</zone>
+			<zone type="Indian/Cocos">
+				<exemplarCity draft="contributed">Kokosovi otoki</exemplarCity>
 			</zone>
 			<zone type="Africa/Kinshasa">
 				<exemplarCity>Kinšasa</exemplarCity>
@@ -1763,20 +2170,53 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Africa/Lubumbashi">
 				<exemplarCity>Lubumbaši</exemplarCity>
 			</zone>
+			<zone type="Africa/Bangui">
+				<exemplarCity draft="contributed">Bangui</exemplarCity>
+			</zone>
+			<zone type="Africa/Brazzaville">
+				<exemplarCity draft="contributed">Brazzaville</exemplarCity>
+			</zone>
+			<zone type="Europe/Zurich">
+				<exemplarCity draft="contributed">Zurich</exemplarCity>
+			</zone>
 			<zone type="Africa/Abidjan">
 				<exemplarCity draft="contributed">Abidžan</exemplarCity>
+			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity draft="contributed">Rarotonga</exemplarCity>
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>Velikonočni otok</exemplarCity>
 			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity draft="contributed">Santiago</exemplarCity>
+			</zone>
+			<zone type="Africa/Douala">
+				<exemplarCity draft="contributed">Douala</exemplarCity>
+			</zone>
 			<zone type="Asia/Kashgar">
 				<exemplarCity>Kašgar</exemplarCity>
+			</zone>
+			<zone type="Asia/Urumqi">
+				<exemplarCity draft="contributed">Urumči</exemplarCity>
+			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity draft="contributed">Čongčing</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Šangaj</exemplarCity>
 			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity draft="contributed">Harbin</exemplarCity>
+			</zone>
+			<zone type="America/Bogota">
+				<exemplarCity draft="contributed">Bogota</exemplarCity>
+			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity draft="contributed">Kostarika</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity draft="contributed">Havana</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity draft="contributed">Zelenortski otoki</exemplarCity>
@@ -1784,8 +2224,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Curacao">
 				<exemplarCity draft="contributed">Curaçao</exemplarCity>
 			</zone>
+			<zone type="Indian/Christmas">
+				<exemplarCity draft="contributed">Božični otok</exemplarCity>
+			</zone>
 			<zone type="Asia/Nicosia">
 				<exemplarCity draft="contributed">Nikozija</exemplarCity>
+			</zone>
+			<zone type="Europe/Prague">
+				<exemplarCity draft="contributed">Praga</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity draft="contributed">Busingen</exemplarCity>
+			</zone>
+			<zone type="Europe/Berlin">
+				<exemplarCity draft="contributed">Berlin</exemplarCity>
 			</zone>
 			<zone type="Africa/Djibouti">
 				<exemplarCity draft="contributed">Džibuti</exemplarCity>
@@ -1796,8 +2248,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Dominica">
 				<exemplarCity draft="contributed">Dominika</exemplarCity>
 			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity draft="contributed">Santo Domingo</exemplarCity>
+			</zone>
 			<zone type="Africa/Algiers">
 				<exemplarCity draft="contributed">Alžir</exemplarCity>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity draft="contributed">Galapagos</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity draft="contributed">Guayaquil</exemplarCity>
 			</zone>
 			<zone type="Europe/Tallinn">
 				<exemplarCity draft="contributed">Talin</exemplarCity>
@@ -1805,14 +2266,41 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Africa/Cairo">
 				<exemplarCity draft="contributed">Kairo</exemplarCity>
 			</zone>
+			<zone type="Africa/El_Aaiun">
+				<exemplarCity draft="contributed">El Aaiun</exemplarCity>
+			</zone>
+			<zone type="Africa/Asmera">
+				<exemplarCity draft="contributed">Asmara</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Canary">
 				<exemplarCity>Kanarski otoki</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity draft="contributed">Ceuta</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity draft="contributed">Madrid</exemplarCity>
 			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity draft="contributed">Adis Abeba</exemplarCity>
 			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity draft="contributed">Helsinki</exemplarCity>
+			</zone>
 			<zone type="Pacific/Fiji">
 				<exemplarCity draft="contributed">Fidži</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Stanley">
+				<exemplarCity draft="contributed">Stanley</exemplarCity>
+			</zone>
+			<zone type="Pacific/Truk">
+				<exemplarCity draft="contributed">Chuuk</exemplarCity>
+			</zone>
+			<zone type="Pacific/Ponape">
+				<exemplarCity draft="contributed">Pohnpei</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity draft="contributed">Kosrae</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity draft="contributed">Faroe</exemplarCity>
@@ -1820,14 +2308,71 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Paris">
 				<exemplarCity draft="contributed">Pariz</exemplarCity>
 			</zone>
+			<zone type="Africa/Libreville">
+				<exemplarCity draft="contributed">Libreville</exemplarCity>
+			</zone>
+			<zone type="Europe/London">
+				<long>
+					<daylight draft="contributed">britanski poletni čas</daylight>
+				</long>
+				<exemplarCity draft="contributed">London</exemplarCity>
+			</zone>
+			<zone type="America/Grenada">
+				<exemplarCity draft="contributed">Grenada</exemplarCity>
+			</zone>
+			<zone type="Asia/Tbilisi">
+				<exemplarCity draft="contributed">Tbilisi</exemplarCity>
+			</zone>
+			<zone type="America/Cayenne">
+				<exemplarCity draft="contributed">Cayenne</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity draft="contributed">Guernsey</exemplarCity>
+			</zone>
 			<zone type="Africa/Accra">
 				<exemplarCity draft="contributed">Akra</exemplarCity>
+			</zone>
+			<zone type="Europe/Gibraltar">
+				<exemplarCity draft="contributed">Gibraltar</exemplarCity>
+			</zone>
+			<zone type="America/Thule">
+				<exemplarCity draft="contributed">Thule</exemplarCity>
+			</zone>
+			<zone type="America/Godthab">
+				<exemplarCity draft="contributed">Nuuk</exemplarCity>
+			</zone>
+			<zone type="America/Scoresbysund">
+				<exemplarCity draft="contributed">Ittoqqortoormiit</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity draft="contributed">Danmarkshavn</exemplarCity>
+			</zone>
+			<zone type="Africa/Banjul">
+				<exemplarCity draft="contributed">Banjul</exemplarCity>
+			</zone>
+			<zone type="Africa/Conakry">
+				<exemplarCity draft="contributed">Conakry</exemplarCity>
+			</zone>
+			<zone type="America/Guadeloupe">
+				<exemplarCity draft="contributed">Guadeloupe</exemplarCity>
+			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity draft="contributed">Malabo</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity draft="contributed">Atene</exemplarCity>
 			</zone>
+			<zone type="Atlantic/South_Georgia">
+				<exemplarCity draft="contributed">Južna Georgia</exemplarCity>
+			</zone>
 			<zone type="America/Guatemala">
 				<exemplarCity draft="contributed">Gvatemala</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guam">
+				<exemplarCity draft="contributed">Guam</exemplarCity>
+			</zone>
+			<zone type="Africa/Bissau">
+				<exemplarCity draft="contributed">Bissau</exemplarCity>
 			</zone>
 			<zone type="America/Guyana">
 				<exemplarCity draft="contributed">Gvajana</exemplarCity>
@@ -1835,14 +2380,47 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Hong_Kong">
 				<exemplarCity draft="contributed">Hongkong</exemplarCity>
 			</zone>
+			<zone type="America/Tegucigalpa">
+				<exemplarCity draft="contributed">Tegucigalpa</exemplarCity>
+			</zone>
+			<zone type="Europe/Zagreb">
+				<exemplarCity draft="contributed">Zagreb</exemplarCity>
+			</zone>
+			<zone type="America/Port-au-Prince">
+				<exemplarCity draft="contributed">Port-au-Prince</exemplarCity>
+			</zone>
 			<zone type="Europe/Budapest">
 				<exemplarCity draft="contributed">Budimpešta</exemplarCity>
 			</zone>
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Džakarta</exemplarCity>
 			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity draft="contributed">Pontianak</exemplarCity>
+			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity>Makasar</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity draft="contributed">Jayapura</exemplarCity>
+			</zone>
+			<zone type="Europe/Dublin">
+				<long>
+					<daylight draft="contributed">irski poletni čas</daylight>
+				</long>
+				<exemplarCity draft="contributed">Dublin</exemplarCity>
+			</zone>
+			<zone type="Asia/Jerusalem">
+				<exemplarCity draft="contributed">Jeruzalem</exemplarCity>
+			</zone>
+			<zone type="Europe/Isle_of_Man">
+				<exemplarCity draft="contributed">Otok Man</exemplarCity>
+			</zone>
+			<zone type="Asia/Calcutta">
+				<exemplarCity draft="contributed">Kolkata</exemplarCity>
+			</zone>
+			<zone type="Indian/Chagos">
+				<exemplarCity draft="contributed">Chagos</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity draft="contributed">Bagdad</exemplarCity>
@@ -1850,8 +2428,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Tehran">
 				<exemplarCity draft="contributed">Teheran</exemplarCity>
 			</zone>
+			<zone type="Atlantic/Reykjavik">
+				<exemplarCity draft="contributed">Reykjavik</exemplarCity>
+			</zone>
 			<zone type="Europe/Rome">
 				<exemplarCity draft="contributed">Rim</exemplarCity>
+			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity draft="contributed">Jersey</exemplarCity>
 			</zone>
 			<zone type="America/Jamaica">
 				<exemplarCity draft="contributed">Jamajka</exemplarCity>
@@ -1862,8 +2446,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Tokyo">
 				<exemplarCity draft="contributed">Tokio</exemplarCity>
 			</zone>
+			<zone type="Africa/Nairobi">
+				<exemplarCity draft="contributed">Nairobi</exemplarCity>
+			</zone>
 			<zone type="Asia/Bishkek">
 				<exemplarCity draft="contributed">Biškek</exemplarCity>
+			</zone>
+			<zone type="Asia/Phnom_Penh">
+				<exemplarCity draft="contributed">Phnom Penh</exemplarCity>
+			</zone>
+			<zone type="Pacific/Enderbury">
+				<exemplarCity draft="contributed">Enderbury</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity draft="contributed">Kiritimati</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity draft="contributed">Tarawa</exemplarCity>
+			</zone>
+			<zone type="Indian/Comoro">
+				<exemplarCity draft="contributed">Komori</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity draft="contributed">St. Kitts</exemplarCity>
@@ -1877,6 +2479,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Kuwait">
 				<exemplarCity draft="contributed">Kuvajt</exemplarCity>
 			</zone>
+			<zone type="America/Cayman">
+				<exemplarCity draft="contributed">Kajman</exemplarCity>
+			</zone>
 			<zone type="Asia/Aqtau">
 				<exemplarCity>Aktau</exemplarCity>
 			</zone>
@@ -1886,8 +2491,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aktobe</exemplarCity>
 			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity draft="contributed">Kizlorda</exemplarCity>
+			</zone>
 			<zone type="Asia/Almaty">
 				<exemplarCity>Almati</exemplarCity>
+			</zone>
+			<zone type="Asia/Vientiane">
+				<exemplarCity draft="contributed">Vientiane</exemplarCity>
 			</zone>
 			<zone type="Asia/Beirut">
 				<exemplarCity draft="contributed">Bejrut</exemplarCity>
@@ -1895,26 +2506,206 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/St_Lucia">
 				<exemplarCity draft="contributed">St. Lucia</exemplarCity>
 			</zone>
+			<zone type="Europe/Vaduz">
+				<exemplarCity draft="contributed">Vaduz</exemplarCity>
+			</zone>
+			<zone type="Asia/Colombo">
+				<exemplarCity draft="contributed">Colombo</exemplarCity>
+			</zone>
+			<zone type="Africa/Monrovia">
+				<exemplarCity draft="contributed">Monrovia</exemplarCity>
+			</zone>
+			<zone type="Africa/Maseru">
+				<exemplarCity draft="contributed">Maseru</exemplarCity>
+			</zone>
 			<zone type="Europe/Vilnius">
 				<exemplarCity draft="contributed">Vilna</exemplarCity>
 			</zone>
 			<zone type="Europe/Luxembourg">
 				<exemplarCity draft="contributed">Luksemburg</exemplarCity>
 			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity draft="contributed">Riga</exemplarCity>
+			</zone>
+			<zone type="Africa/Tripoli">
+				<exemplarCity draft="contributed">Tripoli</exemplarCity>
+			</zone>
+			<zone type="Africa/Casablanca">
+				<exemplarCity draft="contributed">Casablanca</exemplarCity>
+			</zone>
 			<zone type="Europe/Monaco">
 				<exemplarCity draft="contributed">Monako</exemplarCity>
+			</zone>
+			<zone type="Europe/Chisinau">
+				<exemplarCity draft="contributed">Chisinau</exemplarCity>
+			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity draft="contributed">Podgorica</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity draft="contributed">Marigot</exemplarCity>
+			</zone>
+			<zone type="Indian/Antananarivo">
+				<exemplarCity draft="contributed">Antananarivo</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity draft="contributed">Kwajalein</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity draft="contributed">Majuro</exemplarCity>
+			</zone>
+			<zone type="Europe/Skopje">
+				<exemplarCity draft="contributed">Skopje</exemplarCity>
+			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity draft="contributed">Bamako</exemplarCity>
+			</zone>
+			<zone type="Asia/Rangoon">
+				<exemplarCity draft="contributed">Rangun</exemplarCity>
+			</zone>
+			<zone type="Asia/Hovd">
+				<exemplarCity draft="contributed">Hovd</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan Bator</exemplarCity>
 			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity draft="contributed">Čojbalsan</exemplarCity>
+			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity draft="contributed">Macao</exemplarCity>
+			</zone>
+			<zone type="Pacific/Saipan">
+				<exemplarCity draft="contributed">Saipan</exemplarCity>
 			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity draft="contributed">Martinik</exemplarCity>
 			</zone>
+			<zone type="Africa/Nouakchott">
+				<exemplarCity draft="contributed">Nouakchott</exemplarCity>
+			</zone>
+			<zone type="America/Montserrat">
+				<exemplarCity draft="contributed">Montserrat</exemplarCity>
+			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity draft="contributed">Malta</exemplarCity>
+			</zone>
+			<zone type="Indian/Mauritius">
+				<exemplarCity draft="contributed">Mauritius</exemplarCity>
+			</zone>
 			<zone type="Indian/Maldives">
 				<exemplarCity draft="contributed">Maldivi</exemplarCity>
+			</zone>
+			<zone type="Africa/Blantyre">
+				<exemplarCity draft="contributed">Blantyre</exemplarCity>
+			</zone>
+			<zone type="America/Tijuana">
+				<exemplarCity draft="contributed">Tijuana</exemplarCity>
+			</zone>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity draft="contributed">Santa Isabel</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity draft="contributed">Hermosillo</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity draft="contributed">Mazatlan</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity draft="contributed">Chihuahua</exemplarCity>
+			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity draft="contributed">Bahia Banderas</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity draft="contributed">Ojinaga</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity draft="contributed">Monterrey</exemplarCity>
+			</zone>
+			<zone type="America/Mexico_City">
+				<exemplarCity draft="contributed">Ciudad Mexico</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity draft="contributed">Matamoros</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity draft="contributed">Merida</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity draft="contributed">Cancun</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity draft="contributed">Kuala Lumpur</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity draft="contributed">Kuching</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity draft="contributed">Maputo</exemplarCity>
+			</zone>
+			<zone type="Africa/Windhoek">
+				<exemplarCity draft="contributed">Windhoek</exemplarCity>
+			</zone>
+			<zone type="Pacific/Noumea">
+				<exemplarCity draft="contributed">Noumea</exemplarCity>
+			</zone>
+			<zone type="Africa/Niamey">
+				<exemplarCity draft="contributed">Niamey</exemplarCity>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity draft="contributed">Norfolk</exemplarCity>
+			</zone>
+			<zone type="Africa/Lagos">
+				<exemplarCity draft="contributed">Lagos</exemplarCity>
+			</zone>
+			<zone type="America/Managua">
+				<exemplarCity draft="contributed">Managua</exemplarCity>
+			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity draft="contributed">Amsterdam</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity draft="contributed">Oslo</exemplarCity>
+			</zone>
+			<zone type="Asia/Katmandu">
+				<exemplarCity draft="contributed">Katmandu</exemplarCity>
+			</zone>
+			<zone type="Pacific/Nauru">
+				<exemplarCity draft="contributed">Nauru</exemplarCity>
+			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity draft="contributed">Niue</exemplarCity>
+			</zone>
+			<zone type="Pacific/Chatham">
+				<exemplarCity draft="contributed">Chatham</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity draft="contributed">Auckland</exemplarCity>
+			</zone>
+			<zone type="Asia/Muscat">
+				<exemplarCity draft="contributed">Muškat</exemplarCity>
+			</zone>
+			<zone type="America/Panama">
+				<exemplarCity draft="contributed">Panama</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity draft="contributed">Lima</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<exemplarCity draft="contributed">Tahiti</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity draft="contributed">Marquesas</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity draft="contributed">Gambier</exemplarCity>
+			</zone>
+			<zone type="Pacific/Port_Moresby">
+				<exemplarCity draft="contributed">Port Moresby</exemplarCity>
+			</zone>
+			<zone type="Asia/Manila">
+				<exemplarCity draft="contributed">Manila</exemplarCity>
 			</zone>
 			<zone type="Asia/Karachi">
 				<exemplarCity draft="contributed">Karači</exemplarCity>
@@ -1922,14 +2713,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Warsaw">
 				<exemplarCity draft="contributed">Varšava</exemplarCity>
 			</zone>
+			<zone type="America/Miquelon">
+				<exemplarCity draft="contributed">Miquelon</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pitcairn">
+				<exemplarCity draft="contributed">Pitcairn</exemplarCity>
+			</zone>
 			<zone type="America/Puerto_Rico">
 				<exemplarCity draft="contributed">Portoriko</exemplarCity>
+			</zone>
+			<zone type="Asia/Gaza">
+				<exemplarCity draft="contributed">Gaza</exemplarCity>
+			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity draft="contributed">Hebron</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azori</exemplarCity>
 			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity draft="contributed">Madeira</exemplarCity>
+			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity draft="contributed">Lizbona</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity draft="contributed">Palau</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
 				<exemplarCity draft="contributed">Asunción</exemplarCity>
@@ -1937,23 +2746,62 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Qatar">
 				<exemplarCity draft="contributed">Katar</exemplarCity>
 			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity draft="contributed">Reunion</exemplarCity>
+			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity draft="contributed">Bukarešta</exemplarCity>
+			</zone>
+			<zone type="Europe/Belgrade">
+				<exemplarCity draft="contributed">Belgrade</exemplarCity>
+			</zone>
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity draft="contributed">Kaliningrad</exemplarCity>
 			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskva</exemplarCity>
 			</zone>
+			<zone type="Europe/Volgograd">
+				<exemplarCity draft="contributed">Volgograd</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity draft="contributed">Samara</exemplarCity>
+			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Jekaterinburg</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity draft="contributed">Omsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity draft="contributed">Novosibirsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity draft="contributed">Novokuznetsk</exemplarCity>
 			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>Krasnojarsk</exemplarCity>
 			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity draft="contributed">Irkutsk</exemplarCity>
+			</zone>
 			<zone type="Asia/Yakutsk">
 				<exemplarCity>Jakutsk</exemplarCity>
 			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity draft="contributed">Vladivostok</exemplarCity>
+			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity draft="contributed">Handiga</exemplarCity>
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Sahalin</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity draft="contributed">Ust-Nera</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity draft="contributed">Magadan</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamčatka</exemplarCity>
@@ -1961,11 +2809,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Anadyr">
 				<exemplarCity>Anadir</exemplarCity>
 			</zone>
+			<zone type="Africa/Kigali">
+				<exemplarCity draft="contributed">Kigali</exemplarCity>
+			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity draft="contributed">Rijad</exemplarCity>
 			</zone>
+			<zone type="Pacific/Guadalcanal">
+				<exemplarCity draft="contributed">Guadalcanal</exemplarCity>
+			</zone>
+			<zone type="Indian/Mahe">
+				<exemplarCity draft="contributed">Mahe</exemplarCity>
+			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity draft="contributed">Kartum</exemplarCity>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity draft="contributed">Stockholm</exemplarCity>
 			</zone>
 			<zone type="Asia/Singapore">
 				<exemplarCity draft="contributed">Singapur</exemplarCity>
@@ -1973,8 +2833,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Atlantic/St_Helena">
 				<exemplarCity draft="contributed">St. Helena</exemplarCity>
 			</zone>
+			<zone type="Europe/Ljubljana">
+				<exemplarCity draft="contributed">Ljubljana</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity draft="contributed">Longyearbyen</exemplarCity>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity draft="contributed">Bratislava</exemplarCity>
+			</zone>
+			<zone type="Africa/Freetown">
+				<exemplarCity draft="contributed">Freetown</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity draft="contributed">San Marino</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity draft="contributed">Dakar</exemplarCity>
+			</zone>
 			<zone type="Africa/Mogadishu">
 				<exemplarCity draft="contributed">Mogadišu</exemplarCity>
+			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity draft="contributed">Paramaribo</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity draft="contributed">Juba</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity draft="contributed">São Tomé</exemplarCity>
@@ -1988,8 +2872,56 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Damascus">
 				<exemplarCity draft="contributed">Damask</exemplarCity>
 			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity draft="contributed">Mbabane</exemplarCity>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<exemplarCity draft="contributed">Grand Turk</exemplarCity>
+			</zone>
+			<zone type="Africa/Ndjamena">
+				<exemplarCity draft="contributed">Ndjamena</exemplarCity>
+			</zone>
+			<zone type="Indian/Kerguelen">
+				<exemplarCity draft="contributed">Kerguelen</exemplarCity>
+			</zone>
+			<zone type="Africa/Lome">
+				<exemplarCity draft="contributed">Lome</exemplarCity>
+			</zone>
+			<zone type="Asia/Bangkok">
+				<exemplarCity draft="contributed">Bangkok</exemplarCity>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<exemplarCity draft="contributed">Dušanbe</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fakaofo">
+				<exemplarCity draft="contributed">Fakaofo</exemplarCity>
+			</zone>
+			<zone type="Asia/Dili">
+				<exemplarCity draft="contributed">Dili</exemplarCity>
+			</zone>
 			<zone type="Asia/Ashgabat">
 				<exemplarCity draft="contributed">Ašgabat</exemplarCity>
+			</zone>
+			<zone type="Africa/Tunis">
+				<exemplarCity draft="contributed">Tunis</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity draft="contributed">Tongatapu</exemplarCity>
+			</zone>
+			<zone type="Europe/Istanbul">
+				<exemplarCity draft="contributed">Istanbul</exemplarCity>
+			</zone>
+			<zone type="America/Port_of_Spain">
+				<exemplarCity draft="contributed">Port of Spain</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity draft="contributed">Funafuti</exemplarCity>
+			</zone>
+			<zone type="Asia/Taipei">
+				<exemplarCity draft="contributed">Tajpej</exemplarCity>
+			</zone>
+			<zone type="Africa/Dar_es_Salaam">
+				<exemplarCity draft="contributed">Dar es Salaam</exemplarCity>
 			</zone>
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Užgorod</exemplarCity>
@@ -1997,8 +2929,65 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kijev</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity draft="contributed">Simferopol</exemplarCity>
+			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporožje</exemplarCity>
+			</zone>
+			<zone type="Africa/Kampala">
+				<exemplarCity draft="contributed">Kampala</exemplarCity>
+			</zone>
+			<zone type="Pacific/Midway">
+				<exemplarCity draft="contributed">Midway</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity draft="contributed">Johnston</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity draft="contributed">Wake</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity draft="contributed">Adak</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity draft="contributed">Nome</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity draft="contributed">Honolulu</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity draft="contributed">Anchorage</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity draft="contributed">Yakutat</exemplarCity>
+			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity draft="contributed">Sitka</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity draft="contributed">Juneau</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity draft="contributed">Metlakatla</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity draft="contributed">Los Angeles</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity draft="contributed">Boise</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity draft="contributed">Phoenix</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity draft="contributed">Shiprock</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity draft="contributed">Denver</exemplarCity>
+			</zone>
+			<zone type="America/North_Dakota/Beulah">
+				<exemplarCity draft="contributed">Beulah, North Dakota</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
 				<exemplarCity>New Salem, Severna Dakota</exemplarCity>
@@ -2006,17 +2995,98 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Center, Severna Dakota</exemplarCity>
 			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity draft="contributed">Chicago</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity draft="contributed">Menominee</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vincennes">
+				<exemplarCity draft="contributed">Vincennes, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Petersburg">
+				<exemplarCity draft="contributed">Petersburg, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Tell_City">
+				<exemplarCity draft="contributed">Tell City, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Knox">
+				<exemplarCity draft="contributed">Knox, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Winamac">
+				<exemplarCity draft="contributed">Winamac, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Marengo">
+				<exemplarCity draft="contributed">Marengo, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity draft="contributed">Indianapolis</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity draft="contributed">Louisville</exemplarCity>
+			</zone>
+			<zone type="America/Indiana/Vevay">
+				<exemplarCity draft="contributed">Vevay, Indiana</exemplarCity>
+			</zone>
+			<zone type="America/Kentucky/Monticello">
+				<exemplarCity draft="contributed">Monticello, Kentucky</exemplarCity>
+			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity draft="contributed">Detroit</exemplarCity>
+			</zone>
+			<zone type="America/New_York">
+				<exemplarCity draft="contributed">New York</exemplarCity>
+			</zone>
+			<zone type="America/Montevideo">
+				<exemplarCity draft="contributed">Montevideo</exemplarCity>
+			</zone>
+			<zone type="Asia/Samarkand">
+				<exemplarCity draft="contributed">Samarkand</exemplarCity>
+			</zone>
 			<zone type="Asia/Tashkent">
 				<exemplarCity>Taškent</exemplarCity>
 			</zone>
+			<zone type="Europe/Vatican">
+				<exemplarCity draft="contributed">Vatikan</exemplarCity>
+			</zone>
 			<zone type="America/St_Vincent">
 				<exemplarCity draft="contributed">St. Vincent</exemplarCity>
+			</zone>
+			<zone type="America/Caracas">
+				<exemplarCity draft="contributed">Caracas</exemplarCity>
+			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity draft="contributed">Tortola</exemplarCity>
 			</zone>
 			<zone type="America/St_Thomas">
 				<exemplarCity draft="contributed">St. Thomas</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity draft="contributed">Hošiminh</exemplarCity>
+			</zone>
+			<zone type="Pacific/Efate">
+				<exemplarCity draft="contributed">Efate</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<exemplarCity draft="contributed">Wallis</exemplarCity>
+			</zone>
+			<zone type="Pacific/Apia">
+				<exemplarCity draft="contributed">Apia</exemplarCity>
+			</zone>
+			<zone type="Asia/Aden">
+				<exemplarCity draft="contributed">Aden</exemplarCity>
+			</zone>
+			<zone type="Indian/Mayotte">
+				<exemplarCity draft="contributed">Mayotte</exemplarCity>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<exemplarCity draft="contributed">Johannesburg</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity draft="contributed">Lusaka</exemplarCity>
+			</zone>
+			<zone type="Africa/Harare">
+				<exemplarCity draft="contributed">Harare</exemplarCity>
 			</zone>
 			<metazone type="Afghanistan">
 				<long>
@@ -2764,7 +3834,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Suriname">
 				<long>
-					<standard>Surinamski čas</standard>
+					<standard draft="contributed">Surinamski čas</standard>
 				</long>
 			</metazone>
 			<metazone type="Syowa">
@@ -2898,6 +3968,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>e</exponential>
+			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -3030,8 +4101,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>¤#,##0.00</pattern>
-					<pattern alt="accounting">¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern alt="accounting" draft="contributed">¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
@@ -3144,6 +4215,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BMD">
 				<displayName>bermudski dolar</displayName>
+				<displayName count="one">bermudski dolar</displayName>
+				<displayName count="two">bermudski dolar</displayName>
+				<displayName count="few">bermudski dolar</displayName>
+				<displayName count="other">bermudski dolar</displayName>
+				<symbol draft="contributed">BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>brunejski dolar</displayName>
@@ -3195,9 +4271,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BZD">
 				<displayName>belizejski dolar</displayName>
+				<displayName count="one">belizejski dolar</displayName>
+				<displayName count="two">belizejski dolar</displayName>
+				<displayName count="few">belizejski dolar</displayName>
+				<displayName count="other">belizejski dolar</displayName>
+				<symbol draft="contributed">BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>kanadski dolar</displayName>
+				<displayName count="one">kanadski dolar</displayName>
+				<displayName count="two">kanadski dolar</displayName>
+				<displayName count="few">kanadski dolar</displayName>
+				<displayName count="other">kanadski dolar</displayName>
+				<symbol draft="contributed">CAD</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>kongoški frank</displayName>
@@ -3228,6 +4314,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="CRC">
 				<displayName>kostariški kolon</displayName>
+				<displayName count="one">kostariški kolon</displayName>
+				<displayName count="two">kostariški kolon</displayName>
+				<displayName count="few">kostariški kolon</displayName>
+				<displayName count="other">kostariški kolon</displayName>
 			</currency>
 			<currency type="CSD">
 				<displayName>stari srbski dinar</displayName>
@@ -3907,104 +4997,177 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other" draft="provisional">ZWL</displayName>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast" draft="contributed">⩾{0}</pattern>
+			<pattern type="range" draft="contributed">{0}–{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0} °</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} °</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} °</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}′</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}′</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}″</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}″</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one" draft="contributed">{0} jutro</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} jutri</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} jutra</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} juter</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one" draft="contributed">{0} ha</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ha</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ha</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ha</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one" draft="contributed">{0} ft²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ft²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ft²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one" draft="contributed">{0} m²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one" draft="contributed">{0} mi²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi²</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<unitPattern count="one">{0} dan</unitPattern>
-				<unitPattern count="two">{0} dni</unitPattern>
-				<unitPattern count="few">{0} dnevi</unitPattern>
-				<unitPattern count="other">{0} dni</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} dan</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} dni</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} dnevi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} dni</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="one">Čez {0} dan</unitPattern>
-				<unitPattern count="two">Čez {0} dni</unitPattern>
-				<unitPattern count="few">Čez {0} dni</unitPattern>
-				<unitPattern count="other">Čez {0} dni</unitPattern>
+				<unitPattern count="one" draft="contributed">Čez {0} dan</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} dni</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} dni</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} dni</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
-				<unitPattern count="one">Pred {0} dnevom</unitPattern>
-				<unitPattern count="two">Pred {0} dnevoma</unitPattern>
-				<unitPattern count="few">Pred {0} dnevi</unitPattern>
-				<unitPattern count="other">Pred {0} dnevi</unitPattern>
+				<unitPattern count="one" draft="contributed">Pred {0} dnevom</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} dnevoma</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} dnevi</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} dnevi</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="one">{0} ura</unitPattern>
-				<unitPattern count="two">{0} uri</unitPattern>
-				<unitPattern count="few">{0} ure</unitPattern>
-				<unitPattern count="other">{0} ur</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ura</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} uri</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ure</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ur</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
-				<unitPattern count="one">Čez {0} h</unitPattern>
-				<unitPattern count="two">Čez {0} h</unitPattern>
-				<unitPattern count="few">Čez {0} h</unitPattern>
-				<unitPattern count="other">Čez {0} h</unitPattern>
+				<unitPattern count="one" draft="contributed">Čez {0} h</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} h</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} h</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} h</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
-				<unitPattern count="one">Pred {0} h</unitPattern>
-				<unitPattern count="two">Pred {0} h</unitPattern>
-				<unitPattern count="few">Pred {0} h</unitPattern>
-				<unitPattern count="other">Pred {0} h</unitPattern>
+				<unitPattern count="one" draft="contributed">Pred {0} h</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} h</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} h</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} h</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one">{0} minuta</unitPattern>
-				<unitPattern count="two">{0} minuti</unitPattern>
-				<unitPattern count="few">{0} minute</unitPattern>
-				<unitPattern count="other">{0} minut</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} minuta</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} minuti</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} minute</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} minut</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
-				<unitPattern count="one">Čez {0} min.</unitPattern>
-				<unitPattern count="two">Čez {0} min.</unitPattern>
-				<unitPattern count="few">Čez {0} min.</unitPattern>
-				<unitPattern count="other">Čez {0} min.</unitPattern>
+				<unitPattern count="one" draft="contributed">Čez {0} min.</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} min.</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} min.</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} min.</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
-				<unitPattern count="one">Pred {0} min.</unitPattern>
-				<unitPattern count="two">Pred {0} min.</unitPattern>
-				<unitPattern count="few">Pred {0} min.</unitPattern>
-				<unitPattern count="other">Pred {0} min.</unitPattern>
+				<unitPattern count="one" draft="contributed">Pred {0} min.</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} min.</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} min.</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} min.</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="one">{0} mesec</unitPattern>
-				<unitPattern count="two">{0} meseca</unitPattern>
-				<unitPattern count="few">{0} meseci</unitPattern>
-				<unitPattern count="other">{0} mesecev</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} mesec</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} meseca</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} meseci</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mesecev</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
-				<unitPattern count="one">Čez {0} mesec</unitPattern>
-				<unitPattern count="two">Čez {0} meseca</unitPattern>
-				<unitPattern count="few">Čez {0} mesece</unitPattern>
-				<unitPattern count="other">Čez {0} mesecev</unitPattern>
+				<unitPattern count="one" draft="contributed">Čez {0} mesec</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} meseca</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} mesece</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} mesecev</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
-				<unitPattern count="one">Pred {0} mesecem</unitPattern>
-				<unitPattern count="two">Pred {0} meseci</unitPattern>
-				<unitPattern count="few">Pred {0} meseci</unitPattern>
-				<unitPattern count="other">Pred {0} meseci</unitPattern>
+				<unitPattern count="one" draft="contributed">Pred {0} mesecem</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} meseci</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} meseci</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} meseci</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="one">{0} sekunda</unitPattern>
-				<unitPattern count="two">{0} sekundi</unitPattern>
-				<unitPattern count="few">{0} sekunde</unitPattern>
-				<unitPattern count="other">{0} sekund</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} sekunda</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} sekundi</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} sekunde</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} sekund</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
-				<unitPattern count="one">Čez {0} sekundo</unitPattern>
-				<unitPattern count="two">Čez {0} sekundi</unitPattern>
-				<unitPattern count="few">Čez {0} sekunde</unitPattern>
-				<unitPattern count="other">Čez {0} sekundi</unitPattern>
+				<unitPattern count="one" draft="contributed">Čez {0} sekundo</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} sekundi</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} sekunde</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} sekundi</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
-				<unitPattern count="one">Pred {0} sekundo</unitPattern>
-				<unitPattern count="two">Pred {0} sekundama</unitPattern>
-				<unitPattern count="few">Pred {0} sekundami</unitPattern>
-				<unitPattern count="other">Pred {0} sekundami</unitPattern>
+				<unitPattern count="one" draft="contributed">Pred {0} sekundo</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} sekundama</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} sekundami</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} sekundami</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="one">{0} teden</unitPattern>
-				<unitPattern count="two">{0} tedna</unitPattern>
-				<unitPattern count="few">{0} tedni</unitPattern>
-				<unitPattern count="other">{0} tednov</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} teden</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} tedna</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} tedni</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} tednov</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
 				<unitPattern count="one">Čez {0} teden</unitPattern>
@@ -4013,72 +5176,935 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">Čez {0} tednov</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
-				<unitPattern count="one">Pred {0} tednom</unitPattern>
-				<unitPattern count="two">Pred {0} tednoma</unitPattern>
-				<unitPattern count="few">Pred {0} tedni</unitPattern>
-				<unitPattern count="other">Pred {0} tedni</unitPattern>
+				<unitPattern count="one" draft="contributed">Pred {0} tednom</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} tednoma</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} tedni</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} tedni</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<unitPattern count="one">{0} leto</unitPattern>
-				<unitPattern count="two">{0} leti</unitPattern>
-				<unitPattern count="few">{0} leta</unitPattern>
-				<unitPattern count="other">{0} let</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} leto</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} leti</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} leta</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} let</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
-				<unitPattern count="one">Čez {0} leto</unitPattern>
-				<unitPattern count="two">Čez {0} leti</unitPattern>
-				<unitPattern count="few">Čez {0} leta</unitPattern>
-				<unitPattern count="other">Čez {0} let</unitPattern>
+				<unitPattern count="one" draft="contributed">Čez {0} leto</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} leti</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} leta</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} let</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
-				<unitPattern count="one">Pred {0} letom</unitPattern>
-				<unitPattern count="two">Pred {0} leti</unitPattern>
-				<unitPattern count="few">Pred {0} leti</unitPattern>
-				<unitPattern count="other">Pred {0} leti</unitPattern>
+				<unitPattern count="one" draft="contributed">Pred {0} letom</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} leti</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} leti</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} leti</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} cm</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ft</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one" draft="contributed">{0} in</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} in</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} in</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} in</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one" draft="contributed">{0} km</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one" draft="contributed">{0} svetlobno leto</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} svetlobni leti</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} svetlobna leta</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} svetlobnih let</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one" draft="contributed">{0} mm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one" draft="contributed">{0} pm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} pm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} pm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} yd</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one" draft="contributed">{0} kg</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kg</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kg</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one" draft="contributed">{0} oz</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} oz</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} oz</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} oz</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one" draft="contributed">{0} lb</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} lb</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lb</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lb</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one" draft="contributed">{0} KM</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} KM</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} KM</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} KM</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mbar</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mbar</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one" draft="contributed">{0} m/s</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m/s</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m/s</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one" draft="contributed">{0} mi/h</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi/h</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi/h</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one" draft="contributed">{0} °F</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} °F</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} °F</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one" draft="contributed">{0} km³</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km³</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0} °</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} °</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} °</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}′</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}′</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}″</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}″</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one" draft="contributed">{0} jut.</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} jut.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} jut.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} jut.</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one" draft="contributed">{0} ha</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ha</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ha</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ha</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one" draft="contributed">{0} ft²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ft²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ft²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one" draft="contributed">{0} m²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one" draft="contributed">{0} mi²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi²</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<unitPattern count="one">{0} d</unitPattern>
-				<unitPattern count="two">{0} d</unitPattern>
-				<unitPattern count="few">{0} d</unitPattern>
-				<unitPattern count="other">{0} d</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} d</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} d</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} d</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} d</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one" draft="contributed">Čez {0} d</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} d</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} d</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} d</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one" draft="contributed">Pred {0} d</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} d</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} d</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} d</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="one">{0} h</unitPattern>
-				<unitPattern count="two">{0} h</unitPattern>
-				<unitPattern count="few">{0} h</unitPattern>
-				<unitPattern count="other">{0} h</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} h</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} h</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} h</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one" draft="contributed">Čez {0} h</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} h</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} h</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one" draft="contributed">Pred {0} h</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} h</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} h</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} h</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one">{0} min</unitPattern>
-				<unitPattern count="two">{0} min</unitPattern>
-				<unitPattern count="few">{0} min</unitPattern>
-				<unitPattern count="other">{0} min</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} min</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} min</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} min</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one" draft="contributed">Čez {0} min</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} min</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} min</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} min</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one" draft="contributed">Pred {0} min</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} min</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} min</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} min</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="one">{0} m</unitPattern>
-				<unitPattern count="two">{0} m</unitPattern>
-				<unitPattern count="few">{0} m</unitPattern>
-				<unitPattern count="other">{0} m</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one" draft="contributed">Čez {0} m</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} m</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} m</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} m</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one" draft="contributed">Pred {0} m</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} m</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} m</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} m</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="one">{0} s</unitPattern>
-				<unitPattern count="two">{0} s</unitPattern>
-				<unitPattern count="few">{0} s</unitPattern>
-				<unitPattern count="other">{0} s</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} s</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} s</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} s</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} s</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one" draft="contributed">Čez {0} s</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} s</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} s</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} s</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one" draft="contributed">Pred {0} s</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} s</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} s</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} s</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="one">{0} t</unitPattern>
-				<unitPattern count="two">{0} t</unitPattern>
-				<unitPattern count="few">{0} t</unitPattern>
-				<unitPattern count="other">{0} t</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} t</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one" draft="contributed">Čez {0} t</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} t</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} t</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} t</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one" draft="contributed">Pred {0} t</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} t</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} t</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} t</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<unitPattern count="one">{0} l</unitPattern>
-				<unitPattern count="two">{0} l</unitPattern>
-				<unitPattern count="few">{0} l</unitPattern>
-				<unitPattern count="other">{0} l</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one" draft="contributed">Čez {0} l</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} l</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} l</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} l</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one" draft="contributed">Pred {0} l</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} l</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} l</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} l</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} cm</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ft</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one" draft="contributed">{0} in</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} in</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} in</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} in</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one" draft="contributed">{0} km</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one" draft="contributed">{0} sv. let</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} sv. leti</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} sv. leta</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} sv. let</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one" draft="contributed">{0} mm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one" draft="contributed">{0} pm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} pm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} pm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} yd</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one" draft="contributed">{0} kg</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kg</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kg</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one" draft="contributed">{0} oz</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} oz</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} oz</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} oz</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one" draft="contributed">{0} lb</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} lb</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lb</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lb</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one" draft="contributed">{0} KM</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} KM</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} KM</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} KM</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mbar</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mbar</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one" draft="contributed">{0} m/s</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m/s</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m/s</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one" draft="contributed">{0} mi/h</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi/h</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi/h</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one" draft="contributed">{0} °F</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} °F</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} °F</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one" draft="contributed">{0} km³</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km³</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern draft="contributed">h.mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern draft="contributed">h.mm.ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern draft="contributed">m.ss</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0} °</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} °</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} °</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="two">{0}′</unitPattern>
+				<unitPattern count="few">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}″</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}″</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one" draft="contributed">{0} jut.</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} jut.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} jut.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} jut.</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one" draft="contributed">{0} ha</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ha</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ha</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ha</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one" draft="contributed">{0} ft²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ft²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ft²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one" draft="contributed">{0} m²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one" draft="contributed">{0} mi²</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi²</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi²</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="one" draft="contributed">{0} d</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} d</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} d</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} d</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one" draft="contributed">Čez {0} d</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} d</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} d</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} d</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one" draft="contributed">Pred {0} d</unitPattern>
+				<unitPattern count="two" draft="contributed">-{0} d</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} d</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} d</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one" draft="contributed">{0} h</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} h</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} h</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one" draft="contributed">Čez {0} h</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} h</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} h</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} h</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one" draft="contributed">Pred {0} h</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} h</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} h</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} h</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one" draft="contributed">{0} min</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} min</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} min</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one" draft="contributed">Čez {0} min</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} min</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} min</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} min</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one" draft="contributed">Pred {0} min</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} min</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} min</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} min</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one" draft="contributed">Čez {0} m</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} m</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} m</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} m</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one" draft="contributed">Pred {0} m</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} m</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} m</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} m</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one" draft="contributed">{0} s</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} s</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} s</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} s</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one" draft="contributed">Čez {0} s</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} s</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} s</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} s</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one" draft="contributed">Pred {0} s</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} s</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} s</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} s</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} t</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} t</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one" draft="contributed">Čez {0} t</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} t</unitPattern>
+				<unitPattern count="few" draft="contributed">+{0} w</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} t</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one" draft="contributed">Pred {0} t</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} t</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} t</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} t</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one" draft="contributed">Čez {0} l</unitPattern>
+				<unitPattern count="two" draft="contributed">Čez {0} l</unitPattern>
+				<unitPattern count="few" draft="contributed">Čez {0} l</unitPattern>
+				<unitPattern count="other" draft="contributed">Čez {0} l</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one" draft="contributed">Pred {0} l</unitPattern>
+				<unitPattern count="two" draft="contributed">Pred {0} l</unitPattern>
+				<unitPattern count="few" draft="contributed">Pred {0} l</unitPattern>
+				<unitPattern count="other" draft="contributed">Pred {0} l</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} cm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} cm</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ft</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one" draft="contributed">{0} in</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} in</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} in</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} in</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one" draft="contributed">{0} km</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one" draft="contributed">{0} ly</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} sv. l.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} sv. l.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} sv. l.</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one" draft="contributed">{0} mm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one" draft="contributed">{0} pm</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} pm</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} pm</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} yd</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one" draft="contributed">{0} kg</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kg</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kg</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one" draft="contributed">{0} oz</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} oz</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} oz</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} oz</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one" draft="contributed">{0} lb</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} lb</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} lb</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lb</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one" draft="contributed">{0} KM</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} KM</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} KM</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hp</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mbar</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mbar</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one" draft="contributed">{0} m/s</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} m/s</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} m/s</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one" draft="contributed">{0} mi/h</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi/h</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi/h</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one" draft="contributed">{0} °F</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} °F</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} °F</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one" draft="contributed">{0} km³</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} km³</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} km³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
@@ -4097,4 +6123,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

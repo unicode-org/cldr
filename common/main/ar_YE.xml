@@ -12,10 +12,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<territory type="YE"/>
 	</identity>
 	<numbers>
+		<symbols numberSystem="arab">
+			<decimal>٫</decimal>
+			<group>٬</group>
+			<percentSign>٪</percentSign>
+			<plusSign>+</plusSign>
+			<perMille>؉</perMille>
+		</symbols>
+		<symbols numberSystem="latn">
+			<decimal>.</decimal>
+			<group>,</group>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<perMille>‰</perMille>
+		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#0.###;#0.###-</pattern>
+					<pattern>#,##0.###;#,##0.###-</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -28,4 +42,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencyFormats>
 	</numbers>
 </ldml>
-

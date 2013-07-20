@@ -12,8 +12,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="contributed">{0} ({1})</localePattern>
-			<localeSeparator draft="contributed">{0}, {1}</localeSeparator>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>{0}, {1}</localeSeparator>
 			<localeKeyTypePattern>{0}:‏ {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
@@ -40,6 +40,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="anp" draft="contributed">אנג'יקה</language>
 			<language type="apa">שפה אפאצ׳ית</language>
 			<language type="ar">ערבית</language>
+			<language type="ar_001" draft="contributed">ערבית ספרותית</language>
 			<language type="arc">ארמית</language>
 			<language type="arn" draft="contributed">אראוקנית</language>
 			<language type="arp" draft="contributed">ארפהו</language>
@@ -129,7 +130,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="cu">סלאבית כנסייתית עתיקה</language>
 			<language type="cus" draft="contributed">השפה הקושיטית</language>
 			<language type="cv" draft="contributed">צ'ובאש</language>
-			<language type="cy">וולשית</language>
+			<language type="cy">ולשית</language>
 			<language type="da">דנית</language>
 			<language type="dak">דקוטה</language>
 			<language type="dar" draft="contributed">דרגווה</language>
@@ -164,12 +165,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU">אנגלית אוסטרלית</language>
 			<language type="en_CA">אנגלית קנדית</language>
 			<language type="en_GB">אנגלית בריטית</language>
+			<language type="en_GB" alt="short" draft="contributed">אנגלית (בריטניה)</language>
 			<language type="en_US">אנגלית אמריקנית</language>
+			<language type="en_US" alt="short" draft="contributed">אנגלית (ארה&quot;ב)</language>
 			<language type="enm">אנגלית תיכונה</language>
 			<language type="eo">אספרנטו</language>
 			<language type="es">ספרדית</language>
 			<language type="es_419">ספרדית לטינו־אמריקאית</language>
 			<language type="es_ES">ספרדית אירופאית</language>
+			<language type="es_MX" draft="contributed">ספרדית מקסיקנית</language>
 			<language type="et">אסטונית</language>
 			<language type="eu">בסקית</language>
 			<language type="ewo" draft="contributed">אוונדו</language>
@@ -252,6 +256,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="iu">אינוקטיטוט</language>
 			<language type="ja">יפנית</language>
 			<language type="jbo" draft="contributed">לויבאן</language>
+			<language type="jgo">נגומה</language>
 			<language type="jmc" draft="contributed">מצ'אמה</language>
 			<language type="jpr">פרסית יהודית</language>
 			<language type="jrb">ערבית יהודית</language>
@@ -331,7 +336,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="mai">מאיטילית</language>
 			<language type="mak" draft="contributed">מקסאר</language>
 			<language type="man" draft="contributed">מנדינגו</language>
-			<language type="map">אוסטרונזית</language>
+			<language type="map">שפה אוסטרונזית</language>
 			<language type="mas">מאסאית</language>
 			<language type="mde" draft="contributed">מאבא</language>
 			<language type="mdf" draft="contributed">מוקשה</language>
@@ -342,6 +347,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="mg">מלגשית</language>
 			<language type="mga">אירית תיכונה</language>
 			<language type="mgh" draft="contributed">מקואה-מיטו</language>
+			<language type="mgo">מטא</language>
 			<language type="mh" draft="contributed">מרשאלס</language>
 			<language type="mi">מאורית</language>
 			<language type="mic" draft="contributed">מיקמק</language>
@@ -429,10 +435,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="pro" draft="contributed">פרובנסאל עתיקה</language>
 			<language type="ps">פאשטו</language>
 			<language type="ps" alt="variant" draft="contributed">פושטו</language>
-			<language type="pt">פורטוגזית</language>
+			<language type="pt">פורטוגלית</language>
 			<language type="pt_BR">פורטוגזית ברזילאית</language>
 			<language type="pt_PT">פורטוגזית אירופאית</language>
-			<language type="qu" draft="contributed">קצ'ואה</language>
+			<language type="qu">קצ׳ואה</language>
 			<language type="raj">ראג׳סטן</language>
 			<language type="rap" draft="contributed">רפאנוי</language>
 			<language type="rar" draft="contributed">ררוטונגאן</language>
@@ -501,7 +507,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ssa" draft="contributed">השפה הנילו-סהרנית</language>
 			<language type="ssy" draft="contributed">סאהו</language>
 			<language type="st">ססות׳ו</language>
-			<language type="su">סודנית</language>
+			<language type="su">סונדנית</language>
 			<language type="suk" draft="contributed">סוקומה</language>
 			<language type="sus" draft="contributed">סוסו</language>
 			<language type="sux">שומרית</language>
@@ -519,7 +525,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ter" draft="contributed">טרנו</language>
 			<language type="tet" draft="contributed">טטום</language>
 			<language type="tg">טג׳יקית</language>
-			<language type="th">תאי</language>
+			<language type="th">תאית</language>
 			<language type="ti">טיגרינאית</language>
 			<language type="tig" draft="contributed">טיגרית</language>
 			<language type="tiv" draft="contributed">טיב</language>
@@ -585,6 +591,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="zap" draft="contributed">זאפוטק</language>
 			<language type="zbl" draft="contributed">בליסימבולס</language>
 			<language type="zen" draft="contributed">זנאגה</language>
+			<language type="zgh" draft="contributed">תמזיע׳ת מרוקאית תקנית</language>
 			<language type="zh">סינית</language>
 			<language type="zh_Hans">סינית (מפושטת)</language>
 			<language type="zh_Hant">סינית מסורתית</language>
@@ -618,9 +625,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Guru" draft="contributed">גורמוקי</script>
 			<script type="Hang">האנגול</script>
 			<script type="Hani">האן</script>
-			<script type="Hans">האן מפושט</script>
+			<script type="Hans">מפושט</script>
 			<script type="Hans" alt="stand-alone">כתב האן פשוט</script>
-			<script type="Hant">האן מסורתי</script>
+			<script type="Hant">מסורתי</script>
 			<script type="Hant" alt="stand-alone">כתב האן מסורתי</script>
 			<script type="Hebr">עברי</script>
 			<script type="Hira" draft="contributed">הירגאנה</script>
@@ -660,7 +667,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Zsym" draft="contributed">סמלים</script>
 			<script type="Zxxx">לא כתוב</script>
 			<script type="Zyyy" draft="contributed">רגיל</script>
-			<script type="Zzzz">כתב לא ידוע או לא תקף</script>
+			<script type="Zzzz">כתב שאינו ידוע</script>
 		</scripts>
 		<territories>
 			<territory type="001">העולם</territory>
@@ -682,7 +689,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="035">דרום־מזרח אסיה</territory>
 			<territory type="039">דרום אירופה</territory>
 			<territory type="053">אוסטרלאסיה</territory>
-			<territory type="054">מלנסיה</territory>
+			<territory type="054">מלנזיה</territory>
 			<territory type="057">אזור מיקרונזיה</territory>
 			<territory type="061">פולינזיה</territory>
 			<territory type="142">אסיה</territory>
@@ -709,8 +716,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="AT">אוסטריה</territory>
 			<territory type="AU">אוסטרליה</territory>
 			<territory type="AW">ארובה</territory>
-			<territory type="AX">איי אלנד</territory>
-			<territory type="AZ">אזרביג׳ן</territory>
+			<territory type="AX">איי אולנד</territory>
+			<territory type="AZ">אזרבייג׳ן</territory>
 			<territory type="BA">בוסניה והרצגובינה</territory>
 			<territory type="BB">ברבדוס</territory>
 			<territory type="BD">בנגלדש</territory>
@@ -779,7 +786,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FO">איי פארו</territory>
 			<territory type="FR">צרפת</territory>
 			<territory type="GA">גאבון</territory>
-			<territory type="GB">בריטניה</territory>
+			<territory type="GB">הממלכה המאוחדת</territory>
+			<territory type="GB" alt="short" draft="contributed">בריטניה</territory>
 			<territory type="GD">גרנדה</territory>
 			<territory type="GE">גאורגיה</territory>
 			<territory type="GF">גיאנה הצרפתית</territory>
@@ -825,8 +833,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="KI">קיריבאטי</territory>
 			<territory type="KM">קומורוס</territory>
 			<territory type="KN">סנט קיטס ונוויס</territory>
-			<territory type="KP">צפ' קוריאה</territory>
-			<territory type="KR">דר' קוריאה</territory>
+			<territory type="KP">קוריאה הצפונית</territory>
+			<territory type="KR">קוריאה הדרומית</territory>
 			<territory type="KW">כווית</territory>
 			<territory type="KY">איי קיימן</territory>
 			<territory type="KZ">קזחסטן</territory>
@@ -861,7 +869,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MS">מונסראט</territory>
 			<territory type="MT">מלטה</territory>
 			<territory type="MU">מאוריציוס</territory>
-			<territory type="MV">מלדיבים</territory>
+			<territory type="MV">האיים המלדיביים</territory>
 			<territory type="MW">מלאווי</territory>
 			<territory type="MX">מקסיקו</territory>
 			<territory type="MY">מלזיה</territory>
@@ -909,7 +917,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SG">סינגפור</territory>
 			<territory type="SH">סנט הלנה</territory>
 			<territory type="SI">סלובניה</territory>
-			<territory type="SJ">סוולבארד וז׳אן מאיין</territory>
+			<territory type="SJ">סוולבארד ויאן מאיין</territory>
 			<territory type="SK">סלובקיה</territory>
 			<territory type="SL">סיירה לאונה</territory>
 			<territory type="SM">סן מרינו</territory>
@@ -930,7 +938,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TH">תאילנד</territory>
 			<territory type="TJ">טג׳יקיסטן</territory>
 			<territory type="TK">טוקלאו</territory>
-			<territory type="TL">מזרח טימור</territory>
+			<territory type="TL">טימור לסטה</territory>
 			<territory type="TL" alt="variant" draft="contributed">מזרח טימור</territory>
 			<territory type="TM">טורקמניסטן</territory>
 			<territory type="TN">תוניסיה</territory>
@@ -944,6 +952,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="UG">אוגנדה</territory>
 			<territory type="UM">איים לחוף ארצות הברית</territory>
 			<territory type="US">ארצות הברית</territory>
+			<territory type="US" alt="short" draft="contributed">ארה&quot;ב</territory>
 			<territory type="UY">אורוגוואי</territory>
 			<territory type="UZ">אוזבקיסטן</territory>
 			<territory type="VA">הוותיקן</territory>
@@ -955,7 +964,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="VU">ונואטו</territory>
 			<territory type="WF">איי ווליס ופוטונה</territory>
 			<territory type="WS">סמואה</territory>
-			<territory type="XK">קוסובו</territory>
+			<territory type="XK" draft="contributed">קוסובו</territory>
 			<territory type="YE">תימן</territory>
 			<territory type="YT">מאיוט</territory>
 			<territory type="ZA">דרום אפריקה</territory>
@@ -1027,6 +1036,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="indian" key="calendar" draft="contributed">לוח השנה ההודי הלאומי</type>
 			<type type="islamic" key="calendar">לוח שנה מוסלמי</type>
 			<type type="islamic-civil" key="calendar">לוח שנה מוסלמי-אזרחי</type>
+			<type type="islamic-tbla" key="calendar" draft="contributed">לוח שנה מוסלמי-אסטרולוגי</type>
 			<type type="japanese" key="calendar">לוח שנה יפני</type>
 			<type type="jpan" key="numbers" draft="contributed">מספרים יפניים</type>
 			<type type="jpanfin" key="numbers" draft="contributed">מספרים פיננסיים יפניים</type>
@@ -1061,6 +1071,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="searchjl" key="collation" draft="contributed">חפש לפי העיצור הראשון באותיות הנגול</type>
 			<type type="secondary" key="colStrength" draft="contributed">מיין לפי הטעמות</type>
 			<type type="shifted" key="colAlternate" draft="contributed">מיין תוך התעלמות מסמלים</type>
+			<type type="standard" key="collation" draft="contributed">סדר מיון רגיל</type>
 			<type type="stroke" key="collation" draft="contributed">סדר מיון לפי ספירת תווים</type>
 			<type type="taml" key="numbers" draft="contributed">מספרים טמיליים</type>
 			<type type="tamldec" key="numbers" draft="contributed">ספרות טמיליות</type>
@@ -1115,6 +1126,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
 		<ellipsis type="initial" draft="contributed">…{0}</ellipsis>
 		<ellipsis type="medial" draft="contributed">{0}…{1}</ellipsis>
+		<ellipsis type="word-final" draft="contributed">{0} …</ellipsis>
+		<ellipsis type="word-initial" draft="contributed">… {0}</ellipsis>
+		<ellipsis type="word-medial" draft="contributed">{0} … {1}</ellipsis>
 		<moreInformation draft="contributed">?</moreInformation>
 	</characters>
 	<delimiters>
@@ -1151,12 +1165,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
+							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
+							<pattern draft="contributed">{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1376,6 +1390,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11" draft="contributed">11</month>
 							<month type="12" draft="contributed">12</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ינואר</month>
+							<month type="2">פברואר</month>
+							<month type="3">מרץ</month>
+							<month type="4">אפריל</month>
+							<month type="5">מאי</month>
+							<month type="6">יוני</month>
+							<month type="7">יולי</month>
+							<month type="8">אוגוסט</month>
+							<month type="9">ספטמבר</month>
+							<month type="10">אוקטובר</month>
+							<month type="11">נובמבר</month>
+							<month type="12">דצמבר</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1399,13 +1427,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="sat">ש׳</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun" draft="contributed">א'</day>
-							<day type="mon" draft="contributed">ב'</day>
-							<day type="tue" draft="contributed">ג'</day>
-							<day type="wed" draft="contributed">ד'</day>
-							<day type="thu" draft="contributed">ה'</day>
-							<day type="fri" draft="contributed">ו'</day>
-							<day type="sat" draft="contributed">ש'</day>
+							<day type="sun">א׳</day>
+							<day type="mon">ב׳</day>
+							<day type="tue">ג׳</day>
+							<day type="wed">ד׳</day>
+							<day type="thu">ה׳</day>
+							<day type="fri">ו׳</day>
+							<day type="sat">ש׳</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">יום ראשון</day>
@@ -1424,8 +1452,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="tue">ג׳</day>
 							<day type="wed">ד׳</day>
 							<day type="thu">ה׳</day>
-							<day type="fri">ו</day>
-							<day type="sat">ש</day>
+							<day type="fri">ו׳</day>
+							<day type="sat">ש׳</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun" draft="contributed">א'</day>
@@ -1436,10 +1464,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri" draft="contributed">ו'</day>
 							<day type="sat" draft="contributed">ש'</day>
 						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">יום ראשון</day>
+							<day type="mon">יום שני</day>
+							<day type="tue">יום שלישי</day>
+							<day type="wed">יום רביעי</day>
+							<day type="thu">יום חמישי</day>
+							<day type="fri">יום שישי</day>
+							<day type="sat">יום שבת</day>
+						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">רבעון 1</quarter>
+							<quarter type="2">רבעון 2</quarter>
+							<quarter type="3">רבעון 3</quarter>
+							<quarter type="4">רבעון 4</quarter>
+						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
 							<quarter type="2">2</quarter>
@@ -1454,11 +1497,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">רבעון 1</quarter>
+							<quarter type="2">רבעון 2</quarter>
+							<quarter type="3">רבעון 3</quarter>
+							<quarter type="4">רבעון 4</quarter>
+						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">ר1</quarter>
 							<quarter type="2">ר2</quarter>
 							<quarter type="3">ר3</quarter>
 							<quarter type="4">ר4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">רבעון 1</quarter>
+							<quarter type="2">רבעון 2</quarter>
+							<quarter type="3">רבעון 3</quarter>
+							<quarter type="4">רבעון 4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1477,7 +1532,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</eraNames>
 					<eraAbbr>
 						<era type="0">לפנה״ס</era>
+						<era type="0" alt="variant" draft="contributed">BCE</era>
 						<era type="1">לסה״נ</era>
+						<era type="1" alt="variant" draft="contributed">CE</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1527,12 +1584,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
+							<pattern draft="contributed">{1} בשעה {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern draft="provisional">{1} {0}</pattern>
+							<pattern draft="contributed">{1} בשעה {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1548,6 +1605,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E ה-d</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E H:mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="contributed">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E H:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d בMMM y G</dateFormatItem>
@@ -1577,6 +1638,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yQQQ" draft="contributed">y QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ" draft="contributed">y QQQQ</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone" draft="contributed">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback draft="contributed">{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
@@ -1587,7 +1651,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="H" draft="contributed">HH–HH</greatestDifference>
+							<greatestDifference id="H">H–H</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
@@ -1595,8 +1659,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="H" draft="contributed">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="contributed">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="H">H:mm–H:mm</greatestDifference>
+							<greatestDifference id="m">H:mm–H:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
@@ -1604,33 +1668,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H" draft="contributed">HH:mm–HH:mm v</greatestDifference>
-							<greatestDifference id="m" draft="contributed">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="H">H:mm–H:mm v</greatestDifference>
+							<greatestDifference id="m">H:mm–H:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">h a – h a v</greatestDifference>
 							<greatestDifference id="h">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H" draft="contributed">HH–HH v</greatestDifference>
+							<greatestDifference id="H">H–H v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M–M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
-							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="d">d.M–d.M</greatestDifference>
+							<greatestDifference id="M">d.M–d.M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">EEEE dd/MM – EEEE dd/MM</greatestDifference>
-							<greatestDifference id="M">EEEE dd/MM – EEEE dd/MM</greatestDifference>
+							<greatestDifference id="d">EEEE d.M–EEEE d.M</greatestDifference>
+							<greatestDifference id="M">EEEE d.M – EEEE d.M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">MMM–MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
 							<greatestDifference id="d">d–d MMM</greatestDifference>
-							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM–d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">EEEE d MMM – EEEE d MMM</greatestDifference>
@@ -1643,18 +1707,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
-							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
+							<greatestDifference id="M">M.y–M.y</greatestDifference>
+							<greatestDifference id="y">M.y‏-M.y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd/MM/y – dd/MM/y</greatestDifference>
-							<greatestDifference id="M">dd/MM/y – dd/MM/y</greatestDifference>
-							<greatestDifference id="y">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="d">dd.M.y – dd.M.y</greatestDifference>
+							<greatestDifference id="M">d.M.y – d.M.y</greatestDifference>
+							<greatestDifference id="y">d.M.y – d.M.y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">EEEE dd/MM/y – EEEE dd/MM/y</greatestDifference>
-							<greatestDifference id="M">EEEE dd/MM/y – EEEE dd/MM/y</greatestDifference>
-							<greatestDifference id="y">EEEE dd/MM/y – EEEE dd/MM/y</greatestDifference>
+							<greatestDifference id="d">EEEE d.M.y – EEEE d.M.y</greatestDifference>
+							<greatestDifference id="M">EEEE d.M.y – EEEE d.M.y</greatestDifference>
+							<greatestDifference id="y">EEEE d.M.y – EEEE d.M.y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">MMM–MMM y</greatestDifference>
@@ -1682,7 +1746,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<monthContext type="format">
 						<monthWidth type="abbreviated">
 							<month type="1">תשרי</month>
-							<month type="2">חשוון</month>
+							<month type="2">חשון</month>
 							<month type="3">כסלו</month>
 							<month type="4">טבת</month>
 							<month type="5">שבט</month>
@@ -1714,7 +1778,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">תשרי</month>
-							<month type="2">חשוון</month>
+							<month type="2">חשון</month>
 							<month type="3">כסלו</month>
 							<month type="4">טבת</month>
 							<month type="5">שבט</month>
@@ -1741,7 +1805,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="7" yeartype="leap">אדר ב׳</month>
 							<month type="8">ניסן</month>
 							<month type="9">אייר</month>
-							<month type="10">סיוון</month>
+							<month type="10">סיון</month>
 							<month type="11">תמוז</month>
 							<month type="12">אב</month>
 							<month type="13">אלול</month>
@@ -2009,21 +2073,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year">
 				<displayName>שנה</displayName>
-				<relative type="-1">שנה שעברה</relative>
+				<relative type="-1">השנה שעברה</relative>
 				<relative type="0">השנה</relative>
-				<relative type="1">שנה הבאה</relative>
+				<relative type="1">השנה הבאה</relative>
 			</field>
 			<field type="month">
 				<displayName>חודש</displayName>
-				<relative type="-1">חודש שעבר</relative>
+				<relative type="-1">החודש שעבר</relative>
 				<relative type="0">החודש</relative>
-				<relative type="1">חודש הבא</relative>
+				<relative type="1">החודש הבא</relative>
 			</field>
 			<field type="week">
 				<displayName>שבוע</displayName>
-				<relative type="-1">שבוע שעבר</relative>
+				<relative type="-1">השבוע שעבר</relative>
 				<relative type="0">השבוע</relative>
-				<relative type="1">שבוע הבא</relative>
+				<relative type="1">השבוע הבא</relative>
 			</field>
 			<field type="day">
 				<displayName>יום</displayName>
@@ -2036,8 +2100,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="weekday">
 				<displayName>יום בשבוע</displayName>
 			</field>
+			<field type="sun">
+				<relative type="-1" draft="contributed">יום ראשון שעבר</relative>
+				<relative type="0" draft="provisional">יום ראשון</relative>
+				<relative type="1" draft="contributed">יום ראשון הבא</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1" draft="contributed">יום שני שעבר</relative>
+				<relative type="0">יום שני הזה</relative>
+				<relative type="1" draft="contributed">יום שני הבא</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1" draft="contributed">יום שלישי שעבר</relative>
+				<relative type="0" draft="provisional">יום שלישי</relative>
+				<relative type="1" draft="contributed">יום שלישי הבא</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1" draft="contributed">יום רביעי שעבר</relative>
+				<relative type="0" draft="provisional">יום רביעי</relative>
+				<relative type="1" draft="contributed">יום רביעי הבא</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1" draft="contributed">יום חמישי שעבר</relative>
+				<relative type="0" draft="provisional">יום חמישי</relative>
+				<relative type="1" draft="contributed">יום חמישי הבא</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1" draft="contributed">יום שישי שעבר</relative>
+				<relative type="0" draft="provisional">יום שישי</relative>
+				<relative type="1" draft="contributed">יום שישי הבא</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1" draft="provisional">השבת שעברה</relative>
+				<relative type="0" draft="provisional">השבת הזאת</relative>
+				<relative type="1" draft="provisional">השבת הבאה</relative>
+			</field>
 			<field type="dayperiod">
-				<displayName>לפה״צ/אחה״צ</displayName>
+				<displayName>לפנה״צ/אחה״צ</displayName>
 			</field>
 			<field type="hour">
 				<displayName>שעה</displayName>
@@ -2057,6 +2156,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat draft="contributed">GMT</gmtZeroFormat>
 			<regionFormat>שעון {0}</regionFormat>
+			<regionFormat type="daylight" draft="contributed">שעון {0} (קיץ)</regionFormat>
+			<regionFormat type="standard" draft="contributed">שעון {0} (חורף)</regionFormat>
 			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>עיר לא ידועה</exemplarCity>
@@ -2111,6 +2212,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity draft="contributed">דומון ד׳אורווי</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity draft="contributed">מקרי</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity draft="contributed">מקמרדו</exemplarCity>
@@ -2241,6 +2345,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/La_Paz">
 				<exemplarCity draft="contributed">לה פאס</exemplarCity>
 			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity draft="contributed">קרלנדייק</exemplarCity>
+			</zone>
 			<zone type="America/Eirunepe">
 				<exemplarCity draft="contributed">אירונפי</exemplarCity>
 			</zone>
@@ -2318,6 +2425,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>אמריקה/דוסון-קריק</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity draft="contributed">קרסטון</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity draft="contributed">ילונייף</exemplarCity>
@@ -2456,6 +2566,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity draft="contributed">פראג</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity draft="contributed">בוזינגן</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity draft="contributed">ברלין</exemplarCity>
@@ -2823,6 +2936,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Tijuana">
 				<exemplarCity draft="contributed">טיחואנה</exemplarCity>
 			</zone>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity draft="contributed">סנטה איסבל</exemplarCity>
+			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity draft="contributed">ארמוסיו</exemplarCity>
 			</zone>
@@ -2832,11 +2948,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Chihuahua">
 				<exemplarCity draft="contributed">צ'יוואווה</exemplarCity>
 			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity draft="contributed">באהיה בנדרס</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity draft="contributed">אוג׳ינאגה</exemplarCity>
+			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>אמריקה/מונטריי</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>אמריקה/מקסיקו סיטי</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity draft="contributed">מטמורוס</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
 				<exemplarCity draft="contributed">מרידה</exemplarCity>
@@ -2934,6 +3059,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Gaza">
 				<exemplarCity draft="contributed">עזה</exemplarCity>
 			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity draft="contributed">חברון</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity draft="contributed">האיים האזורים</exemplarCity>
 			</zone>
@@ -2982,6 +3110,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>אסיה/נובוסיבירסק</exemplarCity>
 			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity draft="contributed">נובוקוזנטסק</exemplarCity>
+			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity draft="contributed">קרסנויארסק</exemplarCity>
 			</zone>
@@ -2994,8 +3125,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Vladivostok">
 				<exemplarCity draft="contributed">ולדיווסטוק</exemplarCity>
 			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity draft="contributed">חנדיגה</exemplarCity>
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity draft="contributed">סחלין</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity draft="contributed">אוסט-נרה</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity draft="contributed">מגדן</exemplarCity>
@@ -3053,6 +3190,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Paramaribo">
 				<exemplarCity draft="contributed">פרמריבו</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity draft="contributed">ג׳ובה</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity draft="contributed">סאו טומה</exemplarCity>
@@ -3156,8 +3296,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Yakutat">
 				<exemplarCity draft="contributed">יקוטאט</exemplarCity>
 			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity draft="contributed">סיטקה</exemplarCity>
+			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity draft="contributed">ג'ונו</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity draft="contributed">מטלקטלה</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>אמריקה/לוס-אנג׳לס</exemplarCity>
@@ -4168,6 +4314,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -4301,6 +4448,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>#,##0.00 ¤</pattern>
+					<pattern alt="accounting" draft="contributed">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one" draft="contributed">{0} {1}</unitPattern>
@@ -4314,21 +4462,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="AED">
 				<displayName>דירהם של איחוד הנסיכויות הערביות</displayName>
+				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>אפגני אפגני</displayName>
+				<symbol draft="contributed">AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>לק אלבני</displayName>
+				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>דראם ארמני</displayName>
+				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>גילדן של האנטילים ההולנדיים</displayName>
+				<symbol draft="contributed">ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>קואנזה אנגולי</displayName>
+				<symbol draft="contributed">AOA</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>קואנזה חדש אנגולי (1990-2000)</displayName>
@@ -4341,33 +4495,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ARS">
 				<displayName>פזו ארגנטינאי</displayName>
+				<symbol draft="contributed">ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>שילינג אוסטרי</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName>דולר אוסטרלי</displayName>
+				<symbol draft="contributed">A$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>פלורין של ארובה</displayName>
+				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>מנאט אזרביג׳אני (1993-2006)</displayName>
 			</currency>
 			<currency type="AZN">
 				<displayName>מאנאט אזרביג׳ני</displayName>
+				<symbol draft="contributed">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName draft="contributed">דינר של בוסניה־הרצגובינה</displayName>
 			</currency>
 			<currency type="BAM">
 				<displayName>מארק בר המרה של בוסניה־הרצגובינה</displayName>
+				<symbol draft="contributed">BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>דולר ברבדיאני</displayName>
+				<symbol draft="contributed">BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>טאקה בנגלדשי</displayName>
+				<symbol draft="contributed">BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>פרנק בלגי (בר המרה)</displayName>
@@ -4380,21 +4541,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BGN">
 				<displayName>לב בולגרי</displayName>
+				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>דינר בחרייני</displayName>
+				<symbol draft="contributed">BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>פרנק בורונדי</displayName>
+				<symbol draft="contributed">BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>דולר ברמודה</displayName>
+				<displayName count="one">דולר ברמודה</displayName>
+				<displayName count="two">דולר ברמודה</displayName>
+				<displayName count="many">דולר ברמודה</displayName>
+				<displayName count="other">דולר ברמודה</displayName>
+				<symbol draft="contributed">BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>דולר ברוניי</displayName>
+				<symbol draft="contributed">BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>בוליביאנו</displayName>
+				<symbol draft="contributed">BOB</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>פזו בוליבי</displayName>
@@ -4407,33 +4578,51 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BRL">
 				<displayName>ריאל ברזילאי</displayName>
+				<symbol draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>דולר בהאמי</displayName>
+				<symbol draft="contributed">BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>נגולטרום בהוטני</displayName>
+				<symbol draft="contributed">BTN</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>פולה בוצוואני</displayName>
+				<symbol draft="contributed">BWP</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName draft="contributed">רובל בלרוסי</displayName>
+				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>דולר בליזי</displayName>
+				<displayName count="one">דולר בליזי</displayName>
+				<displayName count="two">דולר בליזי</displayName>
+				<displayName count="many">דולר בליזי</displayName>
+				<displayName count="other">דולר בליזי</displayName>
+				<symbol draft="contributed">BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>דולר קנדי</displayName>
+				<displayName count="one">דולר קנדי</displayName>
+				<displayName count="two">דולר קנדי</displayName>
+				<displayName count="many">דולר קנדי</displayName>
+				<displayName count="other">דולר קנדי</displayName>
+				<symbol draft="contributed">CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>פרנק קונגולזי</displayName>
+				<symbol draft="contributed">CDF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>פרנק שוויצרי</displayName>
+				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>פזו צ׳ילאני</displayName>
+				<symbol draft="contributed">CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>יואן רנמינבי סיני</displayName>
@@ -4441,30 +4630,41 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="two">יואן רנמינבי סיני</displayName>
 				<displayName count="many">יואן רנמינבי סיני</displayName>
 				<displayName count="other">יואן רנמינבי סיני</displayName>
+				<symbol draft="contributed">CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>פזו קולומביאני</displayName>
+				<symbol draft="contributed">COP</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>קולון קוסטה־ריקני</displayName>
+				<displayName count="one">קולון קוסטה־ריקני</displayName>
+				<displayName count="two">קולון קוסטה־ריקני</displayName>
+				<displayName count="many">קולון קוסטה־ריקני</displayName>
+				<displayName count="other">קולון קוסטה־ריקני</displayName>
+				<symbol draft="contributed">CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>דינר סרבי ישן</displayName>
 			</currency>
 			<currency type="CUC">
 				<displayName draft="contributed">פזו קובני להמרה</displayName>
+				<symbol draft="contributed">CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>פזו קובני</displayName>
+				<symbol draft="contributed">CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName draft="contributed">אסקודו כף ורדה</displayName>
+				<symbol draft="contributed">CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>לירה קפריסאית</displayName>
 			</currency>
 			<currency type="CZK">
 				<displayName>קורונה צ׳כית</displayName>
+				<symbol draft="contributed">CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>מרק מזרח גרמני</displayName>
@@ -4474,15 +4674,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="DJF">
 				<displayName>פרנק ג׳יבוטי</displayName>
+				<symbol draft="contributed">DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>כתר דני</displayName>
+				<symbol draft="contributed">DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>פזו דומיניקני</displayName>
+				<symbol draft="contributed">DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>דינר אלג׳ירי</displayName>
+				<symbol draft="contributed">DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>סוקר אקואדורי</displayName>
@@ -4492,9 +4696,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="EGP">
 				<displayName>לירה מיצרית</displayName>
+				<symbol draft="contributed">EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>נאקפה אריתראי</displayName>
+				<symbol draft="contributed">ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName draft="provisional">פזטה [ESA]</displayName>
@@ -4507,66 +4713,91 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ETB">
 				<displayName>ביר אתיופי</displayName>
+				<symbol draft="contributed">ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>אירו</displayName>
+				<symbol draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>מרק פיני</displayName>
 			</currency>
 			<currency type="FJD">
 				<displayName>דולר פיג׳י</displayName>
+				<symbol draft="contributed">FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>לירה של איי פוקלנד</displayName>
+				<symbol draft="contributed">FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>פרנק צרפתי</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>לירה שטרלינג</displayName>
+				<symbol draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>לרי גאורגי</displayName>
+				<symbol draft="contributed">GEL</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName draft="contributed">סדי גאני</displayName>
+				<symbol draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>פאונד גיברלטר</displayName>
+				<symbol draft="contributed">GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>דלאסי גמבי</displayName>
+				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>פרנק גינאי</displayName>
+				<symbol draft="contributed">GNF</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName draft="contributed">דרכמה</displayName>
 			</currency>
 			<currency type="GTQ">
 				<displayName>קצל גואטמלי</displayName>
+				<displayName count="one">קצל גואטמלי</displayName>
+				<displayName count="two">קצל גואטמלי</displayName>
+				<displayName count="many">קצל גואטמלי</displayName>
+				<displayName count="other">קצל גואטמלי</displayName>
+				<symbol draft="contributed">GTQ</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>פזו גינאי</displayName>
 			</currency>
 			<currency type="GYD">
 				<displayName>דולר גיאני</displayName>
+				<symbol draft="contributed">GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>דולר הונג קונגי</displayName>
+				<symbol draft="contributed">HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>למפירה הונדורי</displayName>
+				<displayName count="one">למפירה הונדורי</displayName>
+				<displayName count="two">למפירה הונדורי</displayName>
+				<displayName count="many">למפירה הונדורי</displayName>
+				<displayName count="other">למפירה הונדורי</displayName>
+				<symbol draft="contributed">HNL</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>קונה קרואטי</displayName>
+				<symbol draft="contributed">HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>גארד האיטי</displayName>
+				<symbol draft="contributed">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>פורינט הונגרי</displayName>
+				<symbol draft="contributed">HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>רופיה אינדונזית</displayName>
@@ -4574,6 +4805,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="two">רופיה אינדונזית</displayName>
 				<displayName count="many">רופיה אינדונזית</displayName>
 				<displayName count="other">רופיה אינדונזית</displayName>
+				<symbol draft="contributed">IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>לירה אירית</displayName>
@@ -4596,132 +4828,179 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="two">רופי הודית</displayName>
 				<displayName count="many">רופי הודית</displayName>
 				<displayName count="other">רופי הודית</displayName>
+				<symbol draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>דינר עירקי</displayName>
+				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>ריאל איראני</displayName>
+				<symbol draft="contributed">IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>קרונה איסלנדית</displayName>
+				<symbol draft="contributed">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>לירה איטלקית</displayName>
 			</currency>
 			<currency type="JMD">
 				<displayName>דולר ג׳מאיקני</displayName>
+				<symbol draft="contributed">JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>דינר ירדני</displayName>
+				<symbol draft="contributed">JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>ין יפני</displayName>
+				<symbol draft="contributed">JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>שילינג קנייאתי</displayName>
+				<symbol draft="contributed">KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>סום קירגיזי</displayName>
+				<symbol draft="contributed">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>ריל קמבודי</displayName>
+				<symbol draft="contributed">KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>פרנק קומורואי</displayName>
+				<symbol draft="contributed">KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>וון צפון קוראני</displayName>
+				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>וון דרום קוראני</displayName>
+				<symbol draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>דינר כוויתי</displayName>
+				<symbol draft="contributed">KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>דולר קיימאני</displayName>
+				<symbol draft="contributed">KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>טנגה קזחסטני</displayName>
+				<symbol draft="contributed">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>קיפ לאי</displayName>
+				<symbol draft="contributed">LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>לירה לבנונית</displayName>
+				<symbol draft="contributed">LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>רופי סרי לנקי</displayName>
+				<symbol draft="contributed">LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>דולר ליברי</displayName>
+				<symbol draft="contributed">LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>לוטי לסותי</displayName>
 			</currency>
 			<currency type="LTL">
 				<displayName draft="contributed">ליטא ליטאי</displayName>
+				<symbol draft="contributed">LTL</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>פרנק לוקסמבורגי</displayName>
 			</currency>
 			<currency type="LVL">
 				<displayName>לט לטבי</displayName>
+				<symbol draft="contributed">LVL</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>דינר לובי</displayName>
+				<symbol draft="contributed">LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>דירהם מרוקאי</displayName>
+				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>פרנק מרוקאי</displayName>
 			</currency>
 			<currency type="MDL">
 				<displayName>ליאו מולדובני</displayName>
+				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName draft="contributed">אריארי מלגשי</displayName>
+				<symbol draft="contributed">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>פרנק מדגסקארי</displayName>
 			</currency>
 			<currency type="MKD">
 				<displayName draft="contributed">דינר מקדוני</displayName>
+				<symbol draft="contributed">MKD</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>קיאט מיאנמרי</displayName>
+				<symbol draft="contributed">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName draft="contributed">טוגריק מונגולי</displayName>
+				<symbol draft="contributed">MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName draft="contributed">פטקה של מקאו</displayName>
+				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName draft="contributed">אוגוויה מאוריטני</displayName>
+				<symbol draft="contributed">MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>לירה מלטית</displayName>
 			</currency>
 			<currency type="MUR">
 				<displayName>רופי מאוריציני</displayName>
+				<symbol draft="contributed">MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>רופיה מלדיבית</displayName>
+				<symbol draft="contributed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>קואצ׳ה מלאוי</displayName>
+				<symbol draft="contributed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>פזו מקסיקני</displayName>
+				<displayName count="one">פזו מקסיקני</displayName>
+				<displayName count="two">פזו מקסיקני</displayName>
+				<displayName count="many">פזו מקסיקני</displayName>
+				<displayName count="other">פזו מקסיקני</displayName>
+				<symbol draft="contributed">MX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>פזו מקסיקני (1861 - 1992)</displayName>
 			</currency>
 			<currency type="MYR">
 				<displayName>רינגיט מלזי</displayName>
+				<symbol draft="contributed">MYR</symbol>
+			</currency>
+			<currency type="MZE">
+				<displayName>אסקודו מוזמביקי</displayName>
+				<displayName count="one">אסקודו מוזמביקי</displayName>
+				<displayName count="two">אסקודואים מוזמביקיים</displayName>
+				<displayName count="many">אסקודו מוזמביקי</displayName>
+				<displayName count="other">אסקודואים מוזמביקיים</displayName>
 			</currency>
 			<currency type="MZM">
 				<displayName>מטיקל</displayName>
@@ -4732,48 +5011,66 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="two" draft="contributed">מטיקל מוזמביני</displayName>
 				<displayName count="many" draft="contributed">מטיקל מוזמביני</displayName>
 				<displayName count="other" draft="contributed">מטיקל מוזמביני</displayName>
+				<symbol draft="contributed">MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>דולר נמיבי</displayName>
+				<symbol draft="contributed">NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>נאירה ניגרי</displayName>
+				<symbol draft="contributed">NGN</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>קורדובה ניקראגי</displayName>
+				<displayName count="one">קורדובה ניקראגי</displayName>
+				<displayName count="two">קורדובה ניקראגי</displayName>
+				<displayName count="many">קורדובה ניקראגי</displayName>
+				<displayName count="other">קורדובה ניקראגי</displayName>
+				<symbol draft="contributed">NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>גילדן הולנדי</displayName>
 			</currency>
 			<currency type="NOK">
 				<displayName>כתר נורבגי</displayName>
+				<symbol draft="contributed">NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>רופי נפאלי</displayName>
+				<symbol draft="contributed">NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>דולר ניו זילנדי</displayName>
+				<symbol draft="contributed">NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName draft="contributed">ריאל עומאני</displayName>
+				<symbol draft="contributed">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>בלבואה פנמי</displayName>
+				<symbol draft="contributed">PAB</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>סול פרואני חדש</displayName>
+				<symbol draft="contributed">PEN</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>קינה של פפואה גינאה החדשה</displayName>
+				<symbol draft="contributed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>פזו פיליפיני</displayName>
+				<symbol draft="contributed">PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>רופי פקיסטני</displayName>
+				<symbol draft="contributed">PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>זלוטי פולני</displayName>
+				<symbol draft="contributed">PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName draft="provisional">זלוטי (1950 - 1995)</displayName>
@@ -4783,54 +5080,67 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="PYG">
 				<displayName>גוורני פראגוואי</displayName>
+				<symbol draft="contributed">PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>ריאל קטארי</displayName>
+				<symbol draft="contributed">QAR</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>לאו רומני ישן</displayName>
 			</currency>
 			<currency type="RON">
 				<displayName>לאו רומני חדש</displayName>
+				<symbol draft="contributed">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName draft="contributed">דינר סרבי</displayName>
+				<symbol draft="contributed">RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>רובל</displayName>
+				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>רובל רוסי (1991 - 1998)</displayName>
 			</currency>
 			<currency type="RWF">
 				<displayName>פרנק רואנדי</displayName>
+				<symbol draft="contributed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>ריאל סעודי</displayName>
+				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>דולר איי שלמה</displayName>
+				<symbol draft="contributed">SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>רופי סיישלי</displayName>
+				<symbol draft="contributed">SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>דינר סודני</displayName>
 			</currency>
 			<currency type="SDG">
 				<displayName draft="contributed">לירה סודנית</displayName>
+				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>לירה סודנית (1957-1998)</displayName>
 			</currency>
 			<currency type="SEK">
 				<displayName>כתר שוודי</displayName>
+				<symbol draft="contributed">SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>דולר סינגפורי</displayName>
+				<symbol draft="contributed">SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>פאונד סנט הלני</displayName>
+				<symbol draft="contributed">SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>טולאר סלובני</displayName>
@@ -4840,12 +5150,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="SLL">
 				<displayName>ליאון סיירה לאוני</displayName>
+				<symbol draft="contributed">SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>שילינג סומאלי</displayName>
+				<symbol draft="contributed">SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>דולר סורינאמי</displayName>
+				<symbol draft="contributed">SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>גילדר סורינאמי</displayName>
@@ -4856,36 +5169,52 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="two" draft="contributed">לירה דרום סודאנית</displayName>
 				<displayName count="many" draft="contributed">לירה דרום סודאנית</displayName>
 				<displayName count="other" draft="contributed">לירה דרום סודאנית</displayName>
+				<symbol draft="contributed">SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>דוברה של סן טומה ופרינסיפה</displayName>
+				<symbol draft="contributed">STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>רובל סובייטי</displayName>
 			</currency>
+			<currency type="SVC">
+				<displayName>קולון סלבדורי</displayName>
+				<displayName count="one">קולון סלבדורי</displayName>
+				<displayName count="two">קולונים סלבדוריים</displayName>
+				<displayName count="many">קולון סלבדורי</displayName>
+				<displayName count="other">קולונים סלבדוריים</displayName>
+			</currency>
 			<currency type="SYP">
 				<displayName>לירה סורית</displayName>
+				<symbol draft="contributed">SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>לילנגני סווזי</displayName>
+				<symbol draft="contributed">SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>בהט תאילנדי</displayName>
+				<symbol draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>סומוני טג׳קיסטני</displayName>
+				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>מנאט טורקמאני</displayName>
 			</currency>
 			<currency type="TMT">
 				<displayName draft="contributed">מנאט טורקמני</displayName>
+				<symbol draft="contributed">TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>דינר טוניסאי</displayName>
+				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>פאאמגה טונגי</displayName>
+				<symbol draft="contributed">TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>אסקודו טימוראי</displayName>
@@ -4899,9 +5228,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="two">לירה טורקית חדשה</displayName>
 				<displayName count="many">לירה טורקית חדשה</displayName>
 				<displayName count="other">לירה טורקית חדשה</displayName>
+				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>דולר טרינידדי</displayName>
+				<symbol draft="contributed">TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>דולר טייוואני חדש</displayName>
@@ -4909,21 +5240,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="two">דולר טאייוני חדש</displayName>
 				<displayName count="many">דולר טאייוני חדש</displayName>
 				<displayName count="other">דולר טאייוני חדש</displayName>
+				<symbol draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>שילינג טנזני</displayName>
+				<symbol draft="contributed">TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>גריבנה אוקראיני</displayName>
+				<symbol draft="contributed">UAH</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>שילינג אוגנדי (1966 - 1987)</displayName>
 			</currency>
 			<currency type="UGX">
 				<displayName>שילינג אוגנדי</displayName>
+				<symbol draft="contributed">UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>דולר אמריקאי</displayName>
+				<displayName count="one">דולר אמריקאי</displayName>
+				<displayName count="two">דולר אמריקאי</displayName>
+				<displayName count="many">דולר אמריקאי</displayName>
+				<displayName count="other">דולר אמריקאי</displayName>
+				<symbol draft="contributed">US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>דולר אמריקאי (היום הבא)</displayName>
@@ -4933,27 +5273,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="UYU">
 				<displayName>פזו אורוגוואי</displayName>
+				<symbol draft="contributed">UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>סום אוזבקי</displayName>
+				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>בוליבר ונצואלי (1871-2008)</displayName>
 			</currency>
 			<currency type="VEF">
 				<displayName>בוליבר ונצואלי</displayName>
+				<symbol draft="contributed">VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>דונג וייטנאמי</displayName>
+				<symbol draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>ואטו של ונואטו</displayName>
+				<symbol draft="contributed">VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>טאלה סמואי</displayName>
+				<symbol draft="contributed">WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>פרנק CFA BEAC</displayName>
+				<symbol draft="contributed">FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName draft="contributed">כסף</displayName>
@@ -4963,6 +5310,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XCD">
 				<displayName>דולר מזרח קריבי</displayName>
+				<symbol draft="contributed">EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>זכויות משיכה מיוחדות</displayName>
@@ -4972,12 +5320,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XOF">
 				<displayName draft="contributed">פרנק CFA BCEAO</displayName>
+				<symbol draft="contributed">CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="contributed">פלדיום</displayName>
 			</currency>
 			<currency type="XPF">
 				<displayName draft="contributed">פרנק CFP</displayName>
+				<symbol draft="contributed">CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName draft="contributed">פלטינה</displayName>
@@ -4993,6 +5343,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="YER">
 				<displayName>ריאל תימני</displayName>
+				<symbol draft="contributed">YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName draft="provisional">דינר יגוסלבי חדש</displayName>
@@ -5005,12 +5356,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ZAR">
 				<displayName>ראנד דרום אפריקאי</displayName>
+				<symbol draft="contributed">ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>קוואצ׳ה זמבית (1968-2012)</displayName>
 			</currency>
 			<currency type="ZMW">
 				<displayName>קוואצ׳ה זמבית</displayName>
+				<symbol draft="contributed">ZMW</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>זאיר חדש</displayName>
@@ -5019,178 +5372,1114 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>דולר זימבבואי</displayName>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast" draft="contributed">⩾{0}+</pattern>
+			<pattern type="range" draft="contributed">{0}-{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern draft="contributed">{0} לכל {1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one" draft="contributed">כוח ג'י {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} כוח ג'י</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} כוח ג'י</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} כוח ג'י</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">מעלה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מעלות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מעלות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מעלות</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} דקות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} דקות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} דקות</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one" draft="contributed">שנייה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שניות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שניות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שניות</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one" draft="contributed">אקר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אקר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אקר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אקר</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one" draft="contributed">הקטאר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} הקטאר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} הקטאר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} הקטאר</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one" draft="contributed">רגל רבועה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} רגל רבועה</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} רגל רבועה</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} רגל רבועה</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one" draft="contributed">קילומטר רבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קילומטר רבוע</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קילומטר רבוע</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קילומטר רבוע</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one" draft="contributed">מטר רבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מטר רבוע</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מטר רבוע</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מטר רבוע</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one" draft="contributed">מייל רבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מייל רבוע</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מייל רבוע</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מייל רבוע</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<unitPattern count="one">‏{0} יום</unitPattern>
-				<unitPattern count="two">{0} ימים</unitPattern>
-				<unitPattern count="many">{0} ימים</unitPattern>
-				<unitPattern count="other">{0} ימים</unitPattern>
+				<unitPattern count="one" draft="contributed">‏יום {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ימים</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ימים</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ימים</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="one">בעוד {0} ימים</unitPattern>
-				<unitPattern count="two">בעוד {0} ימים</unitPattern>
-				<unitPattern count="many">בעוד {0} ימים</unitPattern>
-				<unitPattern count="other">בעוד {0} ימים</unitPattern>
+				<unitPattern count="one" draft="contributed">בעוד יום {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} ימים</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} ימים</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} ימים</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
-				<unitPattern count="one">לפני {0} ימים</unitPattern>
-				<unitPattern count="two">לפני {0} ימים</unitPattern>
-				<unitPattern count="many">לפני {0} ימים</unitPattern>
-				<unitPattern count="other">לפני {0} ימים</unitPattern>
+				<unitPattern count="one" draft="contributed">לפני יום {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} ימים</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} ימים</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} ימים</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="one">{0} שעה</unitPattern>
-				<unitPattern count="two">{0} שעות</unitPattern>
-				<unitPattern count="many">{0} שעות</unitPattern>
-				<unitPattern count="other">{0} שעות</unitPattern>
+				<unitPattern count="one" draft="contributed">שעה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שעות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שעות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שעות</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
-				<unitPattern count="one">בעוד {0} שעות</unitPattern>
-				<unitPattern count="two">בעוד {0} שעות</unitPattern>
-				<unitPattern count="many">בעוד {0} שעות</unitPattern>
-				<unitPattern count="other">בעוד {0} שעות</unitPattern>
+				<unitPattern count="one" draft="contributed">בעוד שעה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שעות</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שעות</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שעות</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
-				<unitPattern count="one">לפני {0} שעות</unitPattern>
-				<unitPattern count="two">לפני {0} שעות</unitPattern>
-				<unitPattern count="many">לפני {0} שעות</unitPattern>
-				<unitPattern count="other">לפני {0} שעות</unitPattern>
+				<unitPattern count="one" draft="contributed">לפני שעה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שעות</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שעות</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שעות</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one" draft="contributed">אלפית שנייה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אלפיות שנייה</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אלפיות שנייה</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אלפיות שנייה</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one">{0} דקה</unitPattern>
-				<unitPattern count="two">{0} דקות</unitPattern>
-				<unitPattern count="many">{0} דקות</unitPattern>
-				<unitPattern count="other">{0} דקות</unitPattern>
+				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} דקות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} דקות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} דקות</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
-				<unitPattern count="one">בעוד {0} דקות</unitPattern>
-				<unitPattern count="two">בעוד {0} דקות</unitPattern>
-				<unitPattern count="many">בעוד {0} דקות</unitPattern>
-				<unitPattern count="other">בעוד {0} דקות</unitPattern>
+				<unitPattern count="one" draft="contributed">בעוד דקה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} דקות</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} דקות</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} דקות</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
-				<unitPattern count="one">לפני {0} דקות</unitPattern>
-				<unitPattern count="two">לפני {0} דקות</unitPattern>
-				<unitPattern count="many">לפני {0} דקות</unitPattern>
-				<unitPattern count="other">לפני {0} דקות</unitPattern>
+				<unitPattern count="one" draft="contributed">לפני דקה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} דקות</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} דקות</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} דקות</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="one">{0} חודש</unitPattern>
-				<unitPattern count="two">{0} חודשים</unitPattern>
-				<unitPattern count="many">{0} חודשים</unitPattern>
-				<unitPattern count="other">{0} חודשים</unitPattern>
+				<unitPattern count="one" draft="contributed">חודש {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} חודשים</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} חודשים</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} חודשים</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
-				<unitPattern count="one">בעוד {0} חודשים</unitPattern>
-				<unitPattern count="two">בעוד {0} חודשים</unitPattern>
-				<unitPattern count="many">בעוד {0} חודשים</unitPattern>
-				<unitPattern count="other">בעוד {0} חודשים</unitPattern>
+				<unitPattern count="one" draft="contributed">בעוד חודש {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} חודשים</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} חודשים</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} חודשים</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
-				<unitPattern count="one">לפני {0} חודשים</unitPattern>
-				<unitPattern count="two">לפני {0} חודשים</unitPattern>
-				<unitPattern count="many">לפני {0} חודשים</unitPattern>
-				<unitPattern count="other">לפני {0} חודשים</unitPattern>
+				<unitPattern count="one" draft="contributed">לפני חודש {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} חודשים</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} חודשים</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} חודשים</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="one">{0} שניה</unitPattern>
-				<unitPattern count="two">{0} שניות</unitPattern>
-				<unitPattern count="many">‏{0} שניות</unitPattern>
-				<unitPattern count="other">{0} שניות</unitPattern>
+				<unitPattern count="one" draft="contributed">שנייה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שניות</unitPattern>
+				<unitPattern count="many" draft="contributed">‏{0} שניות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שניות</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
-				<unitPattern count="one">בעוד {0} שניות</unitPattern>
-				<unitPattern count="two">בעוד {0} שניות</unitPattern>
-				<unitPattern count="many">בעוד {0} שניות</unitPattern>
-				<unitPattern count="other">בעוד {0} שניות</unitPattern>
+				<unitPattern count="one" draft="contributed">בעוד שנייה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שניות</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שניות</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שניות</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
-				<unitPattern count="one">לפני {0} שניות</unitPattern>
-				<unitPattern count="two">לפני {0} שניות</unitPattern>
-				<unitPattern count="many">לפני {0} שניות</unitPattern>
-				<unitPattern count="other">לפני {0} שניות</unitPattern>
+				<unitPattern count="one" draft="contributed">לפני שנייה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שניות</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שניות</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שניות</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="one">{0} שבוע</unitPattern>
-				<unitPattern count="two">{0} שבועות</unitPattern>
-				<unitPattern count="many">{0} שבועות</unitPattern>
-				<unitPattern count="other">{0} שבועות</unitPattern>
+				<unitPattern count="one" draft="contributed">שבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שבועות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שבועות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שבועות</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
-				<unitPattern count="one">בעוד {0} שבועות</unitPattern>
-				<unitPattern count="two">בעוד {0} שבועות</unitPattern>
-				<unitPattern count="many">בעוד {0} שבועות</unitPattern>
-				<unitPattern count="other">בעוד {0} שבועות</unitPattern>
+				<unitPattern count="one" draft="contributed">בעוד שבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שבועות</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שבועות</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שבועות</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
-				<unitPattern count="one">לפני {0} שבועות</unitPattern>
-				<unitPattern count="two">לפני {0} שבועות</unitPattern>
-				<unitPattern count="many">לפני {0} שבועות</unitPattern>
-				<unitPattern count="other">לפני {0} שבועות</unitPattern>
+				<unitPattern count="one" draft="contributed">לפני שבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שבועות</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שבועות</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שבועות</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<unitPattern count="one">{0} שנה</unitPattern>
-				<unitPattern count="two">{0} שנים</unitPattern>
-				<unitPattern count="many">{0} שנים</unitPattern>
-				<unitPattern count="other">{0} שנים</unitPattern>
+				<unitPattern count="one" draft="contributed">שנה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שנים</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שנים</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שנים</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
-				<unitPattern count="one">בעוד {0} שנים</unitPattern>
-				<unitPattern count="two">בעוד {0} שנים</unitPattern>
-				<unitPattern count="many">בעוד {0} שנים</unitPattern>
-				<unitPattern count="other">בעוד {0} שנים</unitPattern>
+				<unitPattern count="one" draft="contributed">בעוד שנה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שנים</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שנים</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שנים</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
-				<unitPattern count="one">לפני {0} שנים</unitPattern>
-				<unitPattern count="two">לפני {0} שנים</unitPattern>
-				<unitPattern count="many">לפני {0} שנים</unitPattern>
-				<unitPattern count="other">לפני {0} שנים</unitPattern>
+				<unitPattern count="one" draft="contributed">לפני שנה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שנים</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שנים</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שנים</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one" draft="contributed">סנטימטר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} סנטימטר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} סנטימטר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} סנטימטר</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one" draft="contributed">רגל {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} רגל</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} רגל</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} רגל</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one" draft="contributed">אינץ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אינץ'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אינץ'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אינץ'</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one" draft="contributed">קילומטר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קילומטר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קילומטר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קילומטר</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one" draft="contributed">שנת אור {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שנות אור</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שנות אור</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שנות אור</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one" draft="contributed">מטר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מטר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מטר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מטר</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one" draft="contributed">מייל {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מייל</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מייל</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מייל</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one" draft="contributed">מילימטר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מילימטר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מילימטר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מילימטר</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one" draft="contributed">פיקומטר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} פיקומטר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} פיקומטר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} פיקומטר</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one" draft="contributed">יארד {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} יארד</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} יארד</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} יארד</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one" draft="contributed">גרם {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} גרם</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} גרם</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} גרם</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one" draft="contributed">קילוגרם {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קילוגרם</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קילוגרם</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קילוגרם</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one" draft="contributed">אונקיה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אונקיות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אונקיות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אונקיות</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one" draft="contributed">ליברה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ליבראות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ליבראות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ליבראות</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one" draft="contributed">כוח סוס {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} כוח סוס</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} כוח סוס</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} כוח סוס</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one" draft="contributed">קילוואט {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קילוואט</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קילוואט</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קילוואט</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one" draft="contributed">ואט {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ואט</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ואט</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ואט</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one" draft="contributed">הקטופסקל {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} הקטופסקל</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} הקטופסקל</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} הקטופסקל</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one" draft="contributed">אינץ' כספית {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אינץ' כספית</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אינץ' כספית</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אינץ' כספית</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} מיליבר</unitPattern>
+				<unitPattern count="two">{0} מיליבר</unitPattern>
+				<unitPattern count="many">{0} מיליבר</unitPattern>
+				<unitPattern count="other">{0} מיליבר</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one" draft="contributed">{0} קילומטר לשעה</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קילומטר לשעה</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קילומטר לשעה</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קילומטר לשעה</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one" draft="contributed">{0} מטר לשנייה</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מטר לשנייה</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מטר לשנייה</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מטר לשנייה</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one" draft="contributed">{0} מייל לשעה</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מייל לשעה</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מייל לשעה</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מייל לשעה</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one" draft="contributed">מעלת צלזיוס {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מעלות צלזיוס</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מעלות צלזיוס</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מעלות צלזיוס</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one" draft="contributed">מעלת פרנהייט {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מעלות פרנהייט</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מעלות פרנהייט</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מעלות פרנהייט</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one" draft="contributed">{0} קילומטר מעוקב</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קילומטר מעוקב</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קילומטר מעוקב</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קילומטר מעוקב</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one" draft="contributed">{0} מייל מעוקב</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מייל מעוקב</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מייל מעוקב</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מייל מעוקב</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one" draft="contributed">{0} ליטר</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ליטר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ליטר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ליטר</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">מעלה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מעלות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מעלות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מעלות</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} דקות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} דקות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} דקות</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one" draft="contributed">שנייה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שניות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שניות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שניות</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one" draft="contributed">אקר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אקר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אקר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אקר</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one" draft="contributed">הקטאר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} הקטאר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} הקטאר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} הקטאר</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one" draft="contributed">רגל רבועה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} רגל רבועה</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} רגל רבועה</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} רגל רבועה</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one" draft="contributed">קמ&quot;ר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קמ&quot;ר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קמ&quot;ר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קמ&quot;ר</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one" draft="contributed">מ&quot;ר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מ&quot;ר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מ&quot;ר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מ&quot;ר</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one" draft="contributed">מייל רבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מייל רבוע</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מייל רבוע</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מייל רבוע</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<unitPattern count="one">{0} יום</unitPattern>
-				<unitPattern count="two">{0} ימים</unitPattern>
-				<unitPattern count="many">{0} ימים</unitPattern>
-				<unitPattern count="other">{0} ימים</unitPattern>
+				<unitPattern count="one" draft="contributed">‏יום {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ימים</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ימים</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ימים</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one" draft="contributed">בעוד יום {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} ימים</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} ימים</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} ימים</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one" draft="contributed">לפני יום {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} ימים</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} ימים</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} ימים</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="one">{0} שעה</unitPattern>
-				<unitPattern count="two">{0} שעות</unitPattern>
-				<unitPattern count="many">{0} שעות</unitPattern>
-				<unitPattern count="other">{0} שעות</unitPattern>
+				<unitPattern count="one" draft="contributed">שעה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שעות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שעות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שעות</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one" draft="contributed">בעוד שעה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שעות</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שעות</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שעות</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one" draft="contributed">לפני שעה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שעות</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שעות</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שעות</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one">{0} דק׳</unitPattern>
-				<unitPattern count="two">{0} דק׳</unitPattern>
-				<unitPattern count="many">{0} דק׳</unitPattern>
-				<unitPattern count="other">{0} דק׳</unitPattern>
+				<unitPattern count="one" draft="contributed">דק׳ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} דק׳</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} דק׳</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} דק׳</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one" draft="contributed">בעוד דקה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} דקות</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} דקות</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} דקות</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one" draft="contributed">לפני דקה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} דקות</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} דקות</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} דקות</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="one">{0} חודש</unitPattern>
-				<unitPattern count="two">{0} חודשים</unitPattern>
-				<unitPattern count="many">{0} חודשים</unitPattern>
-				<unitPattern count="other">{0} חודשים</unitPattern>
+				<unitPattern count="one" draft="contributed">חודש {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} חודשים</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} חודשים</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} חודשים</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one" draft="contributed">בעוד חודש {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} חודשים</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} חודשים</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} חודשים</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one" draft="contributed">לפני חודש {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} חודשים</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} חודשים</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} חודשים</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="one">{0} שנ׳</unitPattern>
-				<unitPattern count="two">{0} שנ׳</unitPattern>
-				<unitPattern count="many">{0} שנ׳</unitPattern>
-				<unitPattern count="other">{0} שניות</unitPattern>
+				<unitPattern count="one" draft="contributed">שנ׳ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שנ׳</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שנ׳</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שנ'</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one" draft="contributed">בעוד שנ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שנ'</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שנ'</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שנ'</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one" draft="contributed">לפני שנ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שנ'</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שנ'</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שנ'</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="one">{0} שבוע</unitPattern>
-				<unitPattern count="two">{0} שבועות</unitPattern>
-				<unitPattern count="many">{0} שבועות</unitPattern>
-				<unitPattern count="other">{0} שבועות</unitPattern>
+				<unitPattern count="one" draft="contributed">שבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שבועות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שבועות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שבועות</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one" draft="contributed">בעוד שבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שב'</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שב'</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שב'</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one" draft="contributed">לפני שבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שב'</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שב'</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שב'</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<unitPattern count="one">{0} שנה</unitPattern>
-				<unitPattern count="two">{0} שנים</unitPattern>
-				<unitPattern count="many">{0} שנים</unitPattern>
-				<unitPattern count="other">{0} שנים</unitPattern>
+				<unitPattern count="one" draft="contributed">שנה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שנים</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שנים</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שנים</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one" draft="contributed">בעוד שנה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שנים</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שנים</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שנים</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one" draft="contributed">לפני שנה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שנים</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שנים</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שנים</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one" draft="contributed">ס&quot;מ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ס&quot;מ</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ס&quot;מ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ס&quot;מ</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one" draft="contributed">רגל {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} רגל</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} רגל</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} רגל</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one" draft="contributed">אינץ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אינץ'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אינץ'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אינץ'</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one" draft="contributed">ק&quot;מ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ק&quot;מ</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ק&quot;מ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ק&quot;מ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one" draft="contributed">שנת אור {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שנות אור</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שנות אור</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שנות אור</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one" draft="contributed">מ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מ'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מ'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מ'</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one" draft="contributed">מייל {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מייל</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מייל</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מייל</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one" draft="contributed">מ&quot;מ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מ&quot;מ</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מ&quot;מ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מ&quot;מ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one" draft="contributed">פיקומטר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} פיקומטר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} פיקומטר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} פיקומטר</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one" draft="contributed">יארד {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} יארד</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} יארד</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} יארד</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one" draft="contributed">גר' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} גר'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} גר'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} גר'</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one" draft="contributed">ק&quot;ג {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ק&quot;ג</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ק&quot;ג</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ק&quot;ג</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one" draft="contributed">אונקיה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אונקיות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אונקיות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אונקיות</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one" draft="contributed">ליברה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ליבראות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ליבראות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ליבראות</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one" draft="contributed">כ&quot;ס {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} כ&quot;ס</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} כ&quot;ס</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} כ&quot;ס</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">מיליבר {0}</unitPattern>
+				<unitPattern count="two">{0} מיליבר</unitPattern>
+				<unitPattern count="many">{0} מיליבר</unitPattern>
+				<unitPattern count="other">{0} מיליבר</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one" draft="contributed">{0} קמ&quot;ש</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קמ&quot;ש</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קמ&quot;ש</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קמ&quot;ש</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one" draft="contributed">{0} מ/ש</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מ/ש</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מ/ש</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מ/ש</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one" draft="contributed">{0} mph</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mph</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} mph</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mph</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one" draft="contributed">{0}°C</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}°C</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}°C</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}°F</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}°F</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one" draft="contributed">{0} קמ&quot;ק</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קמ&quot;ק</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קמ&quot;ק</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קמ&quot;ק</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one" draft="contributed">{0} ל'</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ל'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ל'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ל'</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern draft="contributed">h:mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern draft="contributed">h:mm:ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern draft="contributed">m:ss</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} g</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} דקות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} דקות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} דקות</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one" draft="contributed">שנ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שנ'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שנ'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שנ'</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one" draft="contributed">אקר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אקר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אקר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אקר</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one" draft="contributed">הקטאר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} הקטאר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} הקטאר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} הקטאר</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one" draft="contributed">רגל רבועה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} רגל רבועה</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} רגל רבועה</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} רגל רבועה</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one" draft="contributed">קמ&quot;ר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קמ&quot;ר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קמ&quot;ר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קמ&quot;ר</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one" draft="contributed">מ&quot;ר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מ&quot;ר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מ&quot;ר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מ&quot;ר</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one" draft="contributed">מייל רבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מייל רבוע</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מייל רבוע</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מייל רבוע</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="one" draft="contributed">‏יום {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ימים</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ימים</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ימים</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one" draft="contributed">בעוד יום {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} ימים</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} ימים</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} ימים</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one" draft="contributed">לפני יום {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} ימים</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} ימים</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} ימים</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one" draft="contributed">שעה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שעות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שעות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שעות</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one" draft="contributed">בעוד שעה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שעות</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שעות</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שעות</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one" draft="contributed">לפני שעה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שעות</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שעות</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שעות</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one" draft="contributed">דק׳ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} דק׳</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} דק׳</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} דק׳</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one" draft="contributed">בעוד דקה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} דקות</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} דקות</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} דקות</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one" draft="contributed">לפני דקה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} דקות</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} דקות</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} דקות</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one" draft="contributed">חודש {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ח'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ח'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ח'</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one" draft="contributed">בעוד חודש {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} חודשים</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} חודשים</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} חודשים</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one" draft="contributed">לפני חודש {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} חודשים</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} חודשים</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} חודשים</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one" draft="contributed">שנ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שנ'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שנ'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שנ'</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one" draft="contributed">בעוד שנ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שנ'</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שנ'</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שנ'</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one" draft="contributed">לפני שנ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שנ'</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שנ'</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שנ'</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one" draft="contributed">שבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שבועות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שבועות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שבועות</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one" draft="contributed">בעוד שבוע {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שבועות</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שבועות</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שבועות</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one" draft="contributed">לפני שב' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שבועות</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שבועות</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שבועות</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one" draft="contributed">שנה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שנים</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שנים</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שנים</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one" draft="contributed">בעוד שנה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">בעוד {0} שנים</unitPattern>
+				<unitPattern count="many" draft="contributed">בעוד {0} שנים</unitPattern>
+				<unitPattern count="other" draft="contributed">בעוד {0} שנים</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one" draft="contributed">לפני שנה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">לפני {0} שנים</unitPattern>
+				<unitPattern count="many" draft="contributed">לפני {0} שנים</unitPattern>
+				<unitPattern count="other" draft="contributed">לפני {0} שנים</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one" draft="contributed">ס&quot;מ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ס&quot;מ</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ס&quot;מ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ס&quot;מ</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one" draft="contributed">רגל {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} רגל</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} רגל</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} רגל</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one" draft="contributed">אינץ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אינץ'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אינץ'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אינץ'</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one" draft="contributed">ק&quot;מ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ק&quot;מ</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ק&quot;מ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ק&quot;מ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one" draft="contributed">שנת אור {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} שנות אור</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} שנות אור</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} שנות אור</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one" draft="contributed">מ' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מ'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מ'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מ'</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one" draft="contributed">מייל {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מייל</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מייל</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מייל</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one" draft="contributed">מ&quot;מ {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מ&quot;מ</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מ&quot;מ</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מ&quot;מ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one" draft="contributed">פיקומטר {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} פיקומטר</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} פיקומטר</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} פיקומטר</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one" draft="contributed">יארד {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} יארד</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} יארד</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} יארד</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one" draft="contributed">גר' {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} גר'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} גר'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} גר'</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one" draft="contributed">ק&quot;ג {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ק&quot;ג</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ק&quot;ג</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ק&quot;ג</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one" draft="contributed">אונקיה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} אונקיות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} אונקיות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} אונקיות</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one" draft="contributed">ליברה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ליבראות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ליבראות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ליבראות</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one" draft="contributed">כ&quot;ס {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} כ&quot;ס</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} כ&quot;ס</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} כ&quot;ס</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} W</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">מיליבר {0}</unitPattern>
+				<unitPattern count="two">{0} מיליבר</unitPattern>
+				<unitPattern count="many">{0} מיליבר</unitPattern>
+				<unitPattern count="other">{0} מיליבר</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one" draft="contributed">{0} קמ&quot;ש</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קמ&quot;ש</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קמ&quot;ש</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קמ&quot;ש</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one" draft="contributed">{0} מ/ש</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מ/ש</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מ/ש</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מ/ש</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one" draft="contributed">{0} mph</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mph</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} mph</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mph</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one" draft="contributed">{0}°C</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}°C</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}°C</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}°F</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}°F</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one" draft="contributed">{0} קמ&quot;ק</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} קמ&quot;ק</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} קמ&quot;ק</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} קמ&quot;ק</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} mi³</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one" draft="contributed">{0} ל'</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} ל'</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ל'</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ל'</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
@@ -5209,4 +6498,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

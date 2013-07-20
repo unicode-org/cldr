@@ -14,7 +14,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<localeDisplayPattern>
 			<localePattern>{0}({1})</localePattern>
 			<localeSeparator>{0}, {1}</localeSeparator>
-			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">아파르어</language>
@@ -40,6 +40,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="anp">앙가어</language>
 			<language type="apa">아파치어</language>
 			<language type="ar">아랍어</language>
+			<language type="ar_001" draft="contributed">현대 표준 아랍어</language>
 			<language type="arc">아람어</language>
 			<language type="arn">아라우칸어</language>
 			<language type="arp">아라파호어</language>
@@ -64,7 +65,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bat">발트어 (기타)</language>
 			<language type="bax" draft="contributed">바문어</language>
 			<language type="bbj" draft="contributed">고말라어</language>
-			<language type="be">벨로루시어</language>
+			<language type="be">벨라루스어</language>
 			<language type="bej">베자어</language>
 			<language type="bem">벰바어</language>
 			<language type="ber">베르베르어</language>
@@ -136,7 +137,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="dav" draft="contributed">타이타어</language>
 			<language type="day">다야크어</language>
 			<language type="de">독일어</language>
-			<language type="de_AT">독일어 (오스트리아)</language>
+			<language type="de_AT">독일어(오스트리아)</language>
 			<language type="de_CH">고지 독일어 (스위스)</language>
 			<language type="del">델라웨어어</language>
 			<language type="den">슬라브어</language>
@@ -164,12 +165,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU">영어(호주)</language>
 			<language type="en_CA">영어 (캐나다)</language>
 			<language type="en_GB">영어 (영국식)</language>
+			<language type="en_GB" alt="short" draft="contributed">영어(영국)</language>
 			<language type="en_US">영어 (미국식)</language>
+			<language type="en_US" alt="short" draft="contributed">영어(미국)</language>
 			<language type="enm">영어, 중세</language>
 			<language type="eo">에스페란토어</language>
 			<language type="es">스페인어</language>
 			<language type="es_419">중남미 스페인어</language>
 			<language type="es_ES">유럽식 스페인어</language>
+			<language type="es_MX" draft="contributed">스페인어(멕시코)</language>
 			<language type="et">에스토니아어</language>
 			<language type="eu">바스크어</language>
 			<language type="ewo">이원도어</language>
@@ -256,7 +260,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="jpr">유대-페르시아어</language>
 			<language type="jrb">유대-아라비아어</language>
 			<language type="jv">자바어</language>
-			<language type="ka">그루지야어</language>
+			<language type="ka">조지아어</language>
 			<language type="kaa">카라칼파크어</language>
 			<language type="kab">커바일어</language>
 			<language type="kac">카친어</language>
@@ -283,7 +287,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="kln" draft="contributed">칼렌진어</language>
 			<language type="km">캄보디아어</language>
 			<language type="kmb">킴분두어</language>
-			<language type="kn">카나다어</language>
+			<language type="kn">칸나다어</language>
 			<language type="ko">한국어</language>
 			<language type="kok">코카니어</language>
 			<language type="kos">코스라이엔어</language>
@@ -339,7 +343,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="men">멘데어</language>
 			<language type="mer" draft="contributed">메루어</language>
 			<language type="mfe" draft="provisional">모리스얀어</language>
-			<language type="mg">마다가스카르어</language>
+			<language type="mg">말라가시어</language>
 			<language type="mga">아일랜드어, 중세</language>
 			<language type="mgh" draft="contributed">마크후와-메토어</language>
 			<language type="mh">마셜제도어</language>
@@ -427,7 +431,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="pon">폼페이어</language>
 			<language type="pra">프라크리트어</language>
 			<language type="pro">고대 프로방스어</language>
-			<language type="ps">파시토어 (푸시토)</language>
+			<language type="ps">파슈토어</language>
 			<language type="ps" alt="variant" draft="contributed">파슈토어</language>
 			<language type="pt">포르투갈어</language>
 			<language type="pt_BR">포르투갈어 (브라질)</language>
@@ -585,6 +589,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="zap">사포테크어</language>
 			<language type="zbl">블리스 심볼</language>
 			<language type="zen">제나가어</language>
+			<language type="zgh" draft="contributed">표준 모로코 타마제크어</language>
 			<language type="zh">중국어</language>
 			<language type="zh_Hans">중국어(간체)</language>
 			<language type="zh_Hant">중국어(번체)</language>
@@ -875,8 +880,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FR">프랑스</territory>
 			<territory type="GA">가봉</territory>
 			<territory type="GB">영국</territory>
+			<territory type="GB" alt="short" draft="contributed">영국</territory>
 			<territory type="GD">그레나다</territory>
-			<territory type="GE">그루지야</territory>
+			<territory type="GE">조지아</territory>
 			<territory type="GF">프랑스령 기아나</territory>
 			<territory type="GG">건지</territory>
 			<territory type="GH">가나</territory>
@@ -1039,6 +1045,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="UG">우간다</territory>
 			<territory type="UM">미국령 해외 제도</territory>
 			<territory type="US">미국</territory>
+			<territory type="US" alt="short" draft="contributed">미국</territory>
 			<territory type="UY">우루과이</territory>
 			<territory type="UZ">우즈베키스탄</territory>
 			<territory type="VA">바티칸</territory>
@@ -1050,7 +1057,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="VU">바누아투</territory>
 			<territory type="WF">왈리스-푸투나 제도</territory>
 			<territory type="WS">사모아</territory>
-			<territory type="XK">코소보</territory>
+			<territory type="XK" draft="contributed">코소보</territory>
 			<territory type="YE">예멘</territory>
 			<territory type="YT">마요티</territory>
 			<territory type="ZA">남아프리카</territory>
@@ -1092,7 +1099,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<variant type="PAMAKA" draft="contributed">파마카 방언</variant>
 			<variant type="PINYIN" draft="provisional">병음 로마자 표기법</variant>
 			<variant type="POLYTON" draft="provisional">복음</variant>
-			<variant type="POSIX" draft="provisional">컴퓨터</variant>
+			<variant type="POSIX" draft="contributed">Computer</variant>
 			<variant type="PUTER" draft="contributed">퓨터</variant>
 			<variant type="REVISED">개정</variant>
 			<variant type="ROZAJ" draft="provisional">레지아어</variant>
@@ -1211,6 +1218,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="searchjl" key="collation" draft="contributed">한글 자음으로 검색</type>
 			<type type="secondary" key="colStrength" draft="contributed">악센트 정렬</type>
 			<type type="shifted" key="colAlternate" draft="contributed">기호 무시 정렬</type>
+			<type type="standard" key="collation" draft="contributed">표준 정렬 순서</type>
 			<type type="stroke" key="collation">자획순</type>
 			<type type="sund" key="numbers" draft="contributed">순다 숫자</type>
 			<type type="taml" key="numbers">타밀어 숫자</type>
@@ -1261,6 +1269,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
 		<ellipsis type="initial" draft="contributed">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
+		<ellipsis type="word-final" draft="contributed">{0} …</ellipsis>
+		<ellipsis type="word-initial" draft="contributed">… {0}</ellipsis>
+		<ellipsis type="word-medial" draft="contributed">{0} … {1}</ellipsis>
 		<moreInformation draft="contributed">?</moreInformation>
 	</characters>
 	<delimiters>
@@ -1407,6 +1418,264 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyQQQQ">U년 QQQQ</dateFormatItem>
 					</availableFormats>
 				</dateTimeFormats>
+			</calendar>
+			<calendar type="coptic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">투트</month>
+							<month type="2" draft="contributed">바바흐</month>
+							<month type="3" draft="contributed">하투르</month>
+							<month type="4" draft="contributed">키야흐크</month>
+							<month type="5" draft="contributed">투바흐</month>
+							<month type="6" draft="contributed">암쉬르</month>
+							<month type="7" draft="contributed">바라마트</month>
+							<month type="8" draft="contributed">바라문다흐</month>
+							<month type="9" draft="contributed">바샨스</month>
+							<month type="10" draft="contributed">바우나흐</month>
+							<month type="11" draft="contributed">아비브</month>
+							<month type="12" draft="contributed">미스라</month>
+							<month type="13" draft="contributed">나시</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">투트</month>
+							<month type="2" draft="contributed">바바흐</month>
+							<month type="3" draft="contributed">하투르</month>
+							<month type="4" draft="contributed">키야흐크</month>
+							<month type="5" draft="contributed">투바흐</month>
+							<month type="6" draft="contributed">암쉬르</month>
+							<month type="7" draft="contributed">바라마트</month>
+							<month type="8" draft="contributed">바라문다흐</month>
+							<month type="9" draft="contributed">바샨스</month>
+							<month type="10" draft="contributed">바우나흐</month>
+							<month type="11" draft="contributed">아비브</month>
+							<month type="12" draft="contributed">미스라</month>
+							<month type="13" draft="contributed">나시</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">투트</month>
+							<month type="2" draft="contributed">바바흐</month>
+							<month type="3" draft="contributed">하투르</month>
+							<month type="4" draft="contributed">키야흐크</month>
+							<month type="5" draft="contributed">투바흐</month>
+							<month type="6" draft="contributed">암쉬르</month>
+							<month type="7" draft="contributed">바라마트</month>
+							<month type="8" draft="contributed">바라문다흐</month>
+							<month type="9" draft="contributed">바샨스</month>
+							<month type="10" draft="contributed">바우나흐</month>
+							<month type="11" draft="contributed">아비브</month>
+							<month type="12" draft="contributed">미스라</month>
+							<month type="13" draft="contributed">나시</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+			</calendar>
+			<calendar type="dangi">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">1월</month>
+							<month type="2" draft="contributed">2월</month>
+							<month type="3" draft="contributed">3월</month>
+							<month type="4" draft="contributed">4월</month>
+							<month type="5" draft="contributed">5월</month>
+							<month type="6" draft="contributed">6월</month>
+							<month type="7" draft="contributed">7월</month>
+							<month type="8" draft="contributed">8월</month>
+							<month type="9" draft="contributed">9월</month>
+							<month type="10" draft="contributed">10월</month>
+							<month type="11" draft="contributed">11월</month>
+							<month type="12" draft="contributed">12월</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">1월</month>
+							<month type="2" draft="contributed">2월</month>
+							<month type="3" draft="contributed">3월</month>
+							<month type="4" draft="contributed">4월</month>
+							<month type="5" draft="contributed">5월</month>
+							<month type="6" draft="contributed">6월</month>
+							<month type="7" draft="contributed">7월</month>
+							<month type="8" draft="contributed">8월</month>
+							<month type="9" draft="contributed">9월</month>
+							<month type="10" draft="contributed">10월</month>
+							<month type="11" draft="contributed">11월</month>
+							<month type="12" draft="contributed">12월</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">1월</month>
+							<month type="2" draft="contributed">2월</month>
+							<month type="3" draft="contributed">3월</month>
+							<month type="4" draft="contributed">4월</month>
+							<month type="5" draft="contributed">5월</month>
+							<month type="6" draft="contributed">6월</month>
+							<month type="7" draft="contributed">7월</month>
+							<month type="8" draft="contributed">8월</month>
+							<month type="9" draft="contributed">9월</month>
+							<month type="10" draft="contributed">10월</month>
+							<month type="11" draft="contributed">11월</month>
+							<month type="12" draft="contributed">12월</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">1월</month>
+							<month type="2" draft="contributed">2월</month>
+							<month type="3" draft="contributed">3월</month>
+							<month type="4" draft="contributed">4월</month>
+							<month type="5" draft="contributed">5월</month>
+							<month type="6" draft="contributed">6월</month>
+							<month type="7" draft="contributed">7월</month>
+							<month type="8" draft="contributed">8월</month>
+							<month type="9" draft="contributed">9월</month>
+							<month type="10" draft="contributed">10월</month>
+							<month type="11" draft="contributed">11월</month>
+							<month type="12" draft="contributed">12월</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<cyclicNameSets>
+					<cyclicNameSet type="dayParts">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1" draft="contributed">자</cyclicName>
+								<cyclicName type="2" draft="contributed">축</cyclicName>
+								<cyclicName type="3" draft="contributed">인</cyclicName>
+								<cyclicName type="4" draft="contributed">묘</cyclicName>
+								<cyclicName type="5" draft="contributed">진</cyclicName>
+								<cyclicName type="6" draft="contributed">사</cyclicName>
+								<cyclicName type="7" draft="contributed">오</cyclicName>
+								<cyclicName type="8" draft="contributed">미</cyclicName>
+								<cyclicName type="9" draft="contributed">신</cyclicName>
+								<cyclicName type="10" draft="contributed">유</cyclicName>
+								<cyclicName type="11" draft="contributed">술</cyclicName>
+								<cyclicName type="12" draft="contributed">해</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="zodiacs">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1" draft="contributed">자</cyclicName>
+								<cyclicName type="2" draft="contributed">축</cyclicName>
+								<cyclicName type="3" draft="contributed">인</cyclicName>
+								<cyclicName type="4" draft="contributed">묘</cyclicName>
+								<cyclicName type="5" draft="contributed">진</cyclicName>
+								<cyclicName type="6" draft="contributed">사</cyclicName>
+								<cyclicName type="7" draft="contributed">오</cyclicName>
+								<cyclicName type="8" draft="contributed">미</cyclicName>
+								<cyclicName type="9" draft="contributed">신</cyclicName>
+								<cyclicName type="10" draft="contributed">유</cyclicName>
+								<cyclicName type="11" draft="contributed">술</cyclicName>
+								<cyclicName type="12" draft="contributed">해</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>U년 M월 d일 EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>U년 M월 d일</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>y. M. d.</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>y. M. d.</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+			<calendar type="ethiopic">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">매스캐램</month>
+							<month type="2" draft="contributed">테켐트</month>
+							<month type="3" draft="contributed">헤다르</month>
+							<month type="4" draft="contributed">타흐사스</month>
+							<month type="5" draft="contributed">테르</month>
+							<month type="6" draft="contributed">얘카티트</month>
+							<month type="7" draft="contributed">매가비트</month>
+							<month type="8" draft="contributed">미야지야</month>
+							<month type="9" draft="contributed">겐보트</month>
+							<month type="10" draft="contributed">새네</month>
+							<month type="11" draft="contributed">함레</month>
+							<month type="12" draft="contributed">내하세</month>
+							<month type="13" draft="contributed">파구맨</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">매스캐램</month>
+							<month type="2" draft="contributed">테켐트</month>
+							<month type="3" draft="contributed">헤다르</month>
+							<month type="4" draft="contributed">타흐사스</month>
+							<month type="5" draft="contributed">테르</month>
+							<month type="6" draft="contributed">얘카티트</month>
+							<month type="7" draft="contributed">매가비트</month>
+							<month type="8" draft="contributed">미야지야</month>
+							<month type="9" draft="contributed">겐보트</month>
+							<month type="10" draft="contributed">새네</month>
+							<month type="11" draft="contributed">함레</month>
+							<month type="12" draft="contributed">내하세</month>
+							<month type="13" draft="contributed">파구맨</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">매스캐램</month>
+							<month type="2" draft="contributed">테켐트</month>
+							<month type="3" draft="contributed">헤다르</month>
+							<month type="4" draft="contributed">타흐사스</month>
+							<month type="5" draft="contributed">테르</month>
+							<month type="6" draft="contributed">얘카티트</month>
+							<month type="7" draft="contributed">매가비트</month>
+							<month type="8" draft="contributed">미야지야</month>
+							<month type="9" draft="contributed">겐보트</month>
+							<month type="10" draft="contributed">새네</month>
+							<month type="11" draft="contributed">함레</month>
+							<month type="12" draft="contributed">내하세</month>
+							<month type="13" draft="contributed">파구맨</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 			</calendar>
 			<calendar type="generic">
 				<dateFormats>
@@ -1602,6 +1871,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">1월</month>
+							<month type="2">2월</month>
+							<month type="3">3월</month>
+							<month type="4">4월</month>
+							<month type="5">5월</month>
+							<month type="6">6월</month>
+							<month type="7">7월</month>
+							<month type="8">8월</month>
+							<month type="9">9월</month>
+							<month type="10">10월</month>
+							<month type="11">11월</month>
+							<month type="12">12월</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1월</month>
+							<month type="2">2월</month>
+							<month type="3">3월</month>
+							<month type="4">4월</month>
+							<month type="5">5월</month>
+							<month type="6">6월</month>
+							<month type="7">7월</month>
+							<month type="8">8월</month>
+							<month type="9">9월</month>
+							<month type="10">10월</month>
+							<month type="11">11월</month>
+							<month type="12">12월</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">1월</month>
 							<month type="2">2월</month>
@@ -1618,6 +1915,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">1월</month>
+							<month type="2">2월</month>
+							<month type="3">3월</month>
+							<month type="4">4월</month>
+							<month type="5">5월</month>
+							<month type="6">6월</month>
+							<month type="7">7월</month>
+							<month type="8">8월</month>
+							<month type="9">9월</month>
+							<month type="10">10월</month>
+							<month type="11">11월</month>
+							<month type="12">12월</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1월</month>
 							<month type="2">2월</month>
@@ -1707,11 +2018,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">1분기</quarter>
+							<quarter type="2">2분기</quarter>
+							<quarter type="3">3분기</quarter>
+							<quarter type="4">4분기</quarter>
+						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1" draft="contributed">1</quarter>
 							<quarter type="2" draft="contributed">2</quarter>
 							<quarter type="3" draft="contributed">3</quarter>
 							<quarter type="4" draft="contributed">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">제 1/4분기</quarter>
+							<quarter type="2">제 2/4분기</quarter>
+							<quarter type="3">제 3/4분기</quarter>
+							<quarter type="4">제 4/4분기</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1730,7 +2053,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</eraNames>
 					<eraAbbr>
 						<era type="0">기원전</era>
+						<era type="0" alt="variant" draft="contributed">기원전</era>
 						<era type="1">서기</era>
+						<era type="1" alt="variant" draft="contributed">서기</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1751,7 +2076,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>y. M. d.</pattern>
+							<pattern>yy. M. d.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1802,6 +2127,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="d">d일</dateFormatItem>
 						<dateFormatItem id="Ed">d일 (E)</dateFormatItem>
 						<dateFormatItem id="EEEEd">d일 EEEE</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="provisional">(E) a h:mm</dateFormatItem>
+						<dateFormatItem id="EHm" draft="provisional">(E) HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="provisional">(E) a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="EHms" draft="provisional">(E) HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y년</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y년 MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y년 MMM d일</dateFormatItem>
@@ -1837,6 +2166,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yQQQ">y년 QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y년 QQQQ</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone" draft="contributed">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} ~ {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
@@ -1943,6 +2275,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="hebrew">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">디스리월</month>
+							<month type="2" draft="contributed">말케스월</month>
+							<month type="3" draft="contributed">기슬르월</month>
+							<month type="4" draft="contributed">데벳월</month>
+							<month type="5" draft="contributed">스밧월</month>
+							<month type="6" draft="contributed">아달월 1</month>
+							<month type="7" draft="contributed">아달월</month>
+							<month type="7" yeartype="leap" draft="contributed">아달월 2</month>
+							<month type="8" draft="contributed">닛산월</month>
+							<month type="9" draft="contributed">이야르월</month>
+							<month type="10" draft="contributed">시완월</month>
+							<month type="11" draft="contributed">담무르월</month>
+							<month type="12" draft="contributed">압월</month>
+							<month type="13" draft="contributed">엘룰월</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1" draft="contributed">디스리월</month>
+							<month type="2" draft="contributed">말케스월</month>
+							<month type="3" draft="contributed">기슬르월</month>
+							<month type="4" draft="contributed">데벳월</month>
+							<month type="5" draft="contributed">스밧월</month>
+							<month type="6" draft="contributed">아달월 1</month>
+							<month type="7" draft="contributed">아달월</month>
+							<month type="7" yeartype="leap" draft="contributed">아달월 2</month>
+							<month type="8" draft="contributed">닛산월</month>
+							<month type="9" draft="contributed">이야르월</month>
+							<month type="10" draft="contributed">시완월</month>
+							<month type="11" draft="contributed">담무르월</month>
+							<month type="12" draft="contributed">압월</month>
+							<month type="13" draft="contributed">엘룰월</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">디스리월</month>
+							<month type="2" draft="contributed">말케스월</month>
+							<month type="3" draft="contributed">기슬르월</month>
+							<month type="4" draft="contributed">데벳월</month>
+							<month type="5" draft="contributed">스밧월</month>
+							<month type="6" draft="contributed">아달월 1</month>
+							<month type="7" draft="contributed">아달월</month>
+							<month type="7" yeartype="leap" draft="contributed">아달월 2</month>
+							<month type="8" draft="contributed">닛산월</month>
+							<month type="9" draft="contributed">이야르월</month>
+							<month type="10" draft="contributed">시완월</month>
+							<month type="11" draft="contributed">담무르월</month>
+							<month type="12" draft="contributed">압월</month>
+							<month type="13" draft="contributed">엘룰월</month>
+						</monthWidth>
+					</monthContext>
+				</months>
 				<eras>
 					<eraAbbr>
 						<era type="0">AM</era>
@@ -2241,6 +2627,41 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="weekday">
 				<displayName>요일</displayName>
 			</field>
+			<field type="sun">
+				<relative type="-1" draft="contributed">지난 일요일</relative>
+				<relative type="0" draft="contributed">이번 일요일</relative>
+				<relative type="1" draft="contributed">다음 일요일</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1" draft="contributed">지난 월요일</relative>
+				<relative type="0" draft="contributed">이번 월요일</relative>
+				<relative type="1" draft="contributed">다음 월요일</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1" draft="contributed">지난 화요일</relative>
+				<relative type="0" draft="contributed">이번 화요일</relative>
+				<relative type="1" draft="contributed">다음 화요일</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1" draft="contributed">지난 수요일</relative>
+				<relative type="0" draft="contributed">이번 수요일</relative>
+				<relative type="1" draft="contributed">다음 수요일</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1" draft="contributed">지난 목요일</relative>
+				<relative type="0" draft="contributed">이번 목요일</relative>
+				<relative type="1" draft="contributed">다음 목요일</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1" draft="contributed">지난 금요일</relative>
+				<relative type="0" draft="contributed">이번 금요일</relative>
+				<relative type="1" draft="contributed">다음 금요일</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1" draft="contributed">지난 토요일</relative>
+				<relative type="0" draft="contributed">이번 토요일</relative>
+				<relative type="1" draft="contributed">다음 토요일</relative>
+			</field>
 			<field type="dayperiod">
 				<displayName>오전/오후</displayName>
 			</field>
@@ -2262,6 +2683,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat draft="contributed">GMT</gmtZeroFormat>
 			<regionFormat>{0} 시간</regionFormat>
+			<regionFormat type="daylight" draft="provisional">{0} 일광 절약 시간</regionFormat>
+			<regionFormat type="standard" draft="contributed">{0} 표준시</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>알 수 없는 장소</exemplarCity>
@@ -2316,6 +2739,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>뒤몽 뒤르빌</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity draft="contributed">맥쿼리</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>맥머도</exemplarCity>
@@ -2446,6 +2872,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/La_Paz">
 				<exemplarCity>라파스</exemplarCity>
 			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity draft="contributed">크라렌디즈크</exemplarCity>
+			</zone>
 			<zone type="America/Eirunepe">
 				<exemplarCity>아이루네페</exemplarCity>
 			</zone>
@@ -2523,6 +2952,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>도슨크릭</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity draft="contributed">크레스톤</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity>옐로나이프</exemplarCity>
@@ -2661,6 +3093,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>프라하</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity draft="contributed">뷔지겐</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>베를린</exemplarCity>
@@ -3028,6 +3463,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Tijuana">
 				<exemplarCity>티후아나</exemplarCity>
 			</zone>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity draft="contributed">산타 이사벨</exemplarCity>
+			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>에르모시요</exemplarCity>
 			</zone>
@@ -3037,11 +3475,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Chihuahua">
 				<exemplarCity>치와와</exemplarCity>
 			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity draft="contributed">바이아 반데라스</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity draft="contributed">오히나가</exemplarCity>
+			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>몬테레이</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>멕시코 시티</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity draft="contributed">마타모로스</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
 				<exemplarCity>메리다</exemplarCity>
@@ -3139,6 +3586,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Gaza">
 				<exemplarCity>가자</exemplarCity>
 			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity draft="contributed">헤브론</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>아조레스</exemplarCity>
 			</zone>
@@ -3187,6 +3637,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>노보시비르스크</exemplarCity>
 			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity draft="contributed">노보쿠즈네츠크</exemplarCity>
+			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>크라스노야르스크</exemplarCity>
 			</zone>
@@ -3199,8 +3652,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Vladivostok">
 				<exemplarCity>블라디보스토크</exemplarCity>
 			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity draft="contributed">한디가</exemplarCity>
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>사할린</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity draft="contributed">우스티네라</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>마가단</exemplarCity>
@@ -3258,6 +3717,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Paramaribo">
 				<exemplarCity>파라마리보</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity draft="contributed">주바</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity>상투메</exemplarCity>
@@ -3361,8 +3823,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Yakutat">
 				<exemplarCity>야쿠타트</exemplarCity>
 			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity draft="contributed">싯카</exemplarCity>
+			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>주노</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity draft="contributed">메틀라카틀라</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>로스앤젤레스</exemplarCity>
@@ -3524,9 +3992,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Almaty">
 				<long>
-					<generic draft="provisional">알마티 표준 시간</generic>
-					<standard draft="provisional">알마티 표준 표준시</standard>
-					<daylight draft="provisional">알마티 일광 절약 시간</daylight>
+					<generic>알마티 표준 시간</generic>
+					<standard>알마티 표준 표준시</standard>
+					<daylight>알마티 서머 타임</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -3573,16 +4041,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Aqtau">
 				<long>
-					<generic draft="provisional">악타우 표준 시간</generic>
-					<standard draft="provisional">악타우 표준 표준시</standard>
-					<daylight draft="provisional">악타우 일광 절약 시간</daylight>
+					<generic>악타우 표준 시간</generic>
+					<standard>악타우 표준 표준시</standard>
+					<daylight>악타우 서머 타임</daylight>
 				</long>
 			</metazone>
 			<metazone type="Aqtobe">
 				<long>
-					<generic draft="provisional">악퇴베 표준 시간</generic>
-					<standard draft="provisional">악퇴베 표준 표준시</standard>
-					<daylight draft="provisional">악퇴베 일광 절약 시간</daylight>
+					<generic>악퇴베 표준 시간</generic>
+					<standard>악퇴베 표준 표준시</standard>
+					<daylight>악퇴베 서머 타임</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -4034,9 +4502,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Macau">
 				<long>
-					<generic draft="provisional">마카오 시간</generic>
-					<standard draft="provisional">마카오 표준 시간</standard>
-					<daylight draft="provisional">마카오 일광 절약 시간</daylight>
+					<generic>마카오 시간</generic>
+					<standard>마카오 표준 시간</standard>
+					<daylight>마카오 서머 타임</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macquarie">
@@ -4231,9 +4699,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Qyzylorda">
 				<long>
-					<generic draft="provisional">키질로르다 시간</generic>
-					<standard draft="provisional">키질로르다 표준 시간</standard>
-					<daylight draft="provisional">키질로르다 일광 절약 시간</daylight>
+					<generic>키질로르다 시간</generic>
+					<standard>키질로르다 표준 시간</standard>
+					<daylight>키질로르다 서머 타임</daylight>
 				</long>
 			</metazone>
 			<metazone type="Reunion">
@@ -4423,6 +4891,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -4435,7 +4904,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0</pattern>
+					<pattern type="1000" count="other">0000</pattern>
 					<pattern type="10000" count="other" draft="contributed">0만</pattern>
 					<pattern type="100000" count="other" draft="contributed">00만</pattern>
 					<pattern type="1000000" count="other" draft="contributed">000만</pattern>
@@ -4451,7 +4920,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0</pattern>
+					<pattern type="1000" count="other">0000</pattern>
 					<pattern type="10000" count="other" draft="contributed">0만</pattern>
 					<pattern type="100000" count="other" draft="contributed">00만</pattern>
 					<pattern type="1000000" count="other" draft="contributed">000만</pattern>
@@ -4483,8 +4952,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>¤#,##0.00</pattern>
-					<pattern alt="accounting">¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern alt="accounting" draft="contributed">¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
@@ -4495,24 +4964,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="AED">
 				<displayName>아랍에미리트 디르함</displayName>
+				<symbol draft="contributed">AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>아프가니 (1927-2002)</displayName>
 			</currency>
 			<currency type="AFN">
 				<displayName>아프가니스탄 아프가니</displayName>
+				<symbol draft="contributed">AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>알바니아 레크</displayName>
+				<symbol draft="contributed">ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>아르메니아 드람</displayName>
+				<symbol draft="contributed">AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>네덜란드령 안틸레스 길더</displayName>
+				<symbol draft="contributed">ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>앙골라 콴자</displayName>
+				<symbol draft="contributed">AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>앙골라 콴자 (1977-1990)</displayName>
@@ -4537,6 +5012,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ARS">
 				<displayName>아르헨티나 페소</displayName>
+				<symbol draft="contributed">ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>호주 실링</displayName>
@@ -4547,27 +5023,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="AWG">
 				<displayName>아루바 플로린</displayName>
+				<symbol draft="contributed">AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>아제르바이젠 마나트(1993-2006)</displayName>
 			</currency>
 			<currency type="AZN">
 				<displayName>아제르바이잔 마나트</displayName>
+				<symbol draft="contributed">AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>보스니아-헤르체고비나 디나르</displayName>
 			</currency>
 			<currency type="BAM">
 				<displayName>보스니아-헤르체고비나 태환 마르크</displayName>
+				<symbol draft="contributed">BAM</symbol>
 			</currency>
 			<currency type="BAN">
 				<displayName draft="contributed">보스니아-헤르체고비나 신디나르 (1994-1997)</displayName>
 			</currency>
 			<currency type="BBD">
 				<displayName>바베이도스 달러</displayName>
+				<symbol draft="contributed">BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>방글라데시 타카</displayName>
+				<symbol draft="contributed">BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>벨기에 프랑 (태환)</displayName>
@@ -4585,25 +5066,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">불가리아 사회주의자 렛</displayName>
 			</currency>
 			<currency type="BGN">
-				<displayName>불가리아 신권 렛</displayName>
+				<displayName>불가리아 레프</displayName>
+				<displayName count="other">불가리아 신권 렛</displayName>
+				<symbol draft="contributed">BGN</symbol>
 			</currency>
 			<currency type="BGO">
 				<displayName draft="contributed">불가리아 렛 (1879-1952)</displayName>
 			</currency>
 			<currency type="BHD">
 				<displayName>바레인 디나르</displayName>
+				<symbol draft="contributed">BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>부룬디 프랑</displayName>
+				<symbol draft="contributed">BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>버뮤다 달러</displayName>
+				<symbol draft="contributed">BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>부루나이 달러</displayName>
+				<symbol draft="contributed">BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>볼리비아노</displayName>
+				<symbol draft="contributed">BOB</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName draft="contributed">볼리비아 볼리비아노 (1863-1963)</displayName>
@@ -4625,6 +5113,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BRL">
 				<displayName>브라질 레알</displayName>
+				<symbol draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>브라질 크루자두 노보</displayName>
@@ -4637,36 +5126,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BSD">
 				<displayName>바하마 달러</displayName>
+				<symbol draft="contributed">BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>부탄 눌투눔</displayName>
+				<displayName count="other">부탄 눌투눔</displayName>
+				<symbol draft="contributed">BTN</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>버마 차트</displayName>
 			</currency>
 			<currency type="BWP">
 				<displayName>보츠와나 폴라</displayName>
+				<symbol draft="contributed">BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>벨라루스 신권 루블 (1994-1999)</displayName>
 			</currency>
 			<currency type="BYR">
 				<displayName>벨라루스 루블</displayName>
+				<symbol draft="contributed">BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>벨리즈 달러</displayName>
+				<symbol draft="contributed">BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>캐나다 달러</displayName>
+				<symbol draft="contributed">CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>콩고 프랑 콩골라스</displayName>
+				<symbol draft="contributed">CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>유로 (WIR)</displayName>
 			</currency>
 			<currency type="CHF">
 				<displayName>스위스 프랑</displayName>
+				<symbol draft="contributed">CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>프랑 (WIR)</displayName>
@@ -4679,18 +5177,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="CLP">
 				<displayName>칠레 페소</displayName>
+				<symbol draft="contributed">CLP</symbol>
 			</currency>
 			<currency type="CNY">
-				<displayName>중국 위안 인민폐</displayName>
+				<displayName>중국 위안화</displayName>
+				<displayName count="other">중국 위안 인민폐</displayName>
+				<symbol draft="contributed">CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>콜롬비아 페소</displayName>
+				<symbol draft="contributed">COP</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName draft="contributed">콜롬비아 실가 단위</displayName>
 			</currency>
 			<currency type="CRC">
 				<displayName>코스타리카 콜론</displayName>
+				<symbol draft="contributed">CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>고 세르비아 디나르</displayName>
@@ -4700,18 +5203,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="CUC">
 				<displayName>쿠바 태환 페소</displayName>
+				<symbol draft="contributed">CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>쿠바 페소</displayName>
+				<symbol draft="contributed">CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>카보베르데 에스쿠도</displayName>
+				<symbol draft="contributed">CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>싸이프러스 파운드</displayName>
 			</currency>
 			<currency type="CZK">
 				<displayName>체코 공화국 코루나</displayName>
+				<symbol draft="contributed">CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>동독 오스트마르크</displayName>
@@ -4721,15 +5228,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="DJF">
 				<displayName>지부티 프랑</displayName>
+				<symbol draft="contributed">DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>덴마크 크로네</displayName>
+				<symbol draft="contributed">DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>도미니카 페소</displayName>
+				<symbol draft="contributed">DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>알제리 디나르</displayName>
+				<symbol draft="contributed">DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>에쿠아도르 수크레</displayName>
@@ -4742,9 +5253,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="EGP">
 				<displayName>이집트 파운드</displayName>
+				<symbol draft="contributed">EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>에리트리아 나크파</displayName>
+				<symbol draft="contributed">ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>스페인 페세타(예금)</displayName>
@@ -4757,45 +5270,56 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ETB">
 				<displayName>이디오피아 비르</displayName>
+				<symbol draft="contributed">ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>유로화</displayName>
+				<symbol draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>핀란드 마르카</displayName>
 			</currency>
 			<currency type="FJD">
 				<displayName>피지 달러</displayName>
+				<symbol draft="contributed">FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>포클랜드제도 파운드</displayName>
+				<symbol draft="contributed">FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>프랑스 프랑</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>영국령 파운드 스털링</displayName>
+				<symbol draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>그루지야 지폐 라리트</displayName>
 			</currency>
 			<currency type="GEL">
-				<displayName>그루지야 라리</displayName>
+				<displayName>조지아 라리</displayName>
+				<displayName count="other">조지아 라리</displayName>
+				<symbol draft="contributed">GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>가나 시디 (1979-2007)</displayName>
 			</currency>
 			<currency type="GHS">
 				<displayName>가나 시디</displayName>
+				<symbol draft="contributed">GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>지브롤터 파운드</displayName>
+				<symbol draft="contributed">GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>감비아 달라시</displayName>
+				<symbol draft="contributed">GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>기니 프랑</displayName>
+				<symbol draft="contributed">GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>기니 시리</displayName>
@@ -4808,6 +5332,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="GTQ">
 				<displayName>과테말라 케트살</displayName>
+				<symbol draft="contributed">GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>포르투갈령 기니 에스쿠도</displayName>
@@ -4817,27 +5342,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="GYD">
 				<displayName>가이아나 달러</displayName>
+				<symbol draft="contributed">GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>홍콩 달러</displayName>
+				<symbol draft="contributed">HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>온두라스 렘피라</displayName>
+				<symbol draft="contributed">HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>크로아티아 디나르</displayName>
 			</currency>
 			<currency type="HRK">
 				<displayName>크로아티아 쿠나</displayName>
+				<symbol draft="contributed">HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>하이티 구르드</displayName>
+				<symbol draft="contributed">HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>헝가리 포린트</displayName>
+				<symbol draft="contributed">HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>인도네시아 루피아</displayName>
+				<symbol draft="contributed">IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>아일랜드 파운드</displayName>
@@ -4847,78 +5379,100 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ILS">
 				<displayName>이스라엘 신권 세켈</displayName>
+				<symbol draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>인도 루피</displayName>
+				<symbol draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>이라크 디나르</displayName>
+				<symbol draft="contributed">IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>이란 리얄</displayName>
+				<symbol draft="contributed">IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>아이슬란드 크로나</displayName>
+				<symbol draft="contributed">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>이탈리아 리라</displayName>
 			</currency>
 			<currency type="JMD">
 				<displayName>자메이카 달러</displayName>
+				<symbol draft="contributed">JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>요르단 디나르</displayName>
+				<symbol draft="contributed">JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>일본 엔화</displayName>
+				<symbol draft="contributed">JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>케냐 실링</displayName>
+				<symbol draft="contributed">KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>키르기스스탄 솜</displayName>
+				<symbol draft="contributed">KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>캄보디아 리얄</displayName>
+				<symbol draft="contributed">KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>코모르 프랑</displayName>
+				<symbol draft="contributed">KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>조선 민주주의 인민 공화국 원</displayName>
+				<symbol draft="contributed">KPW</symbol>
 			</currency>
 			<currency type="KRH">
 				<displayName draft="contributed">대한민국 환 (1953-1962)</displayName>
 			</currency>
 			<currency type="KRW">
 				<displayName>대한민국 원</displayName>
+				<symbol draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>쿠웨이트 디나르</displayName>
+				<symbol draft="contributed">KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>케이맨 제도 달러</displayName>
+				<symbol draft="contributed">KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>카자흐스탄 텐게</displayName>
+				<symbol draft="contributed">KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>라오스 키프</displayName>
+				<symbol draft="contributed">LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>레바논 파운드</displayName>
+				<symbol draft="contributed">LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>스리랑카 루피</displayName>
+				<symbol draft="contributed">LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>라이베리아 달러</displayName>
+				<symbol draft="contributed">LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>레소토 로티</displayName>
 			</currency>
 			<currency type="LTL">
 				<displayName>리투아니아 리타</displayName>
+				<symbol draft="contributed">LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>룩셈부르크 타로나</displayName>
@@ -4934,15 +5488,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="LVL">
 				<displayName>라트비아 라트</displayName>
+				<symbol draft="contributed">LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>라트비아 루블</displayName>
 			</currency>
 			<currency type="LYD">
 				<displayName>리비아 디나르</displayName>
+				<symbol draft="contributed">LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>모로코 디렘</displayName>
+				<symbol draft="contributed">MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>모로코 프랑</displayName>
@@ -4955,30 +5512,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MDL">
 				<displayName>몰도바 레이</displayName>
+				<symbol draft="contributed">MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>마다가스카르 아리아리</displayName>
+				<symbol draft="contributed">MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>마다가스카르 프랑</displayName>
 			</currency>
 			<currency type="MKD">
 				<displayName>마케도니아 디나르</displayName>
+				<symbol draft="contributed">MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>말리 프랑</displayName>
 			</currency>
 			<currency type="MMK">
 				<displayName>미얀마 키얏</displayName>
+				<symbol draft="contributed">MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>몽골 투그릭</displayName>
+				<symbol draft="contributed">MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>마카오 파타카</displayName>
+				<symbol draft="contributed">MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>모리타니 우기야</displayName>
+				<symbol draft="contributed">MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>몰타 리라</displayName>
@@ -4988,15 +5552,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MUR">
 				<displayName>모리셔스 루피</displayName>
+				<symbol draft="contributed">MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>몰디브 제도 루피아</displayName>
+				<symbol draft="contributed">MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>말라위 콰쳐</displayName>
+				<symbol draft="contributed">MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>멕시코 페소</displayName>
+				<symbol draft="contributed">MX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>멕시코 실버 페소 (1861-1992)</displayName>
@@ -5006,6 +5574,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MYR">
 				<displayName>말레이시아 링깃</displayName>
+				<symbol draft="contributed">MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>모잠비크 에스쿠도</displayName>
@@ -5015,57 +5584,71 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MZN">
 				<displayName>모잠비크 메티칼</displayName>
+				<symbol draft="contributed">MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>나미비아 달러</displayName>
+				<symbol draft="contributed">NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>니제르 나이라</displayName>
+				<symbol draft="contributed">NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>니카라과 코르도바</displayName>
 			</currency>
 			<currency type="NIO">
 				<displayName>니카라과 코르도바 오로</displayName>
+				<symbol draft="contributed">NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>네델란드 길더</displayName>
 			</currency>
 			<currency type="NOK">
 				<displayName>노르웨이 크로네</displayName>
+				<symbol draft="contributed">NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>네팔 루피</displayName>
+				<symbol draft="contributed">NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>뉴질랜드 달러</displayName>
+				<symbol draft="contributed">NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>오만 리얄</displayName>
+				<symbol draft="contributed">OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>파나마 발보아</displayName>
+				<symbol draft="contributed">PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>페루 인티</displayName>
 			</currency>
 			<currency type="PEN">
-				<displayName>페루 솔 누에보</displayName>
+				<displayName>페루 누에보 솔</displayName>
+				<symbol draft="contributed">PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>페루 솔</displayName>
 			</currency>
 			<currency type="PGK">
 				<displayName>파푸아뉴기니 키나</displayName>
+				<symbol draft="contributed">PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>필리핀 페소</displayName>
+				<symbol draft="contributed">PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>파키스탄 루피</displayName>
+				<symbol draft="contributed">PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>폴란드 즐로티</displayName>
+				<symbol draft="contributed">PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>폴란드 즐로티 (1950-1995)</displayName>
@@ -5075,9 +5658,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="PYG">
 				<displayName>파라과이 과라니</displayName>
+				<symbol draft="contributed">PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>카타르 리얄</displayName>
+				<symbol draft="contributed">QAR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>로디지아 달러</displayName>
@@ -5087,45 +5672,57 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="RON">
 				<displayName>루마니아 레우</displayName>
+				<symbol draft="contributed">RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>세르비아 디나르</displayName>
+				<symbol draft="contributed">RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>러시아 루블</displayName>
+				<symbol draft="contributed">RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>러시아 루블 (1991-1998)</displayName>
 			</currency>
 			<currency type="RWF">
 				<displayName>르완다 프랑</displayName>
+				<symbol draft="contributed">RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>사우디아라비아 리얄</displayName>
+				<symbol draft="contributed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>솔로몬 제도 달러</displayName>
+				<symbol draft="contributed">SBD</symbol>
 			</currency>
 			<currency type="SCR">
-				<displayName>세이쉴 루피</displayName>
+				<displayName>세이셸 루피</displayName>
+				<displayName count="other">세이셸 루피</displayName>
+				<symbol draft="contributed">SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>수단 디나르</displayName>
 			</currency>
 			<currency type="SDG">
 				<displayName>수단 파운드</displayName>
+				<symbol draft="contributed">SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>고 수단 파운드</displayName>
 			</currency>
 			<currency type="SEK">
 				<displayName>스웨덴 크로나</displayName>
+				<symbol draft="contributed">SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>싱가폴 달러</displayName>
+				<symbol draft="contributed">SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>세인트헬레나 파운드</displayName>
+				<symbol draft="contributed">SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>슬로베니아 톨라르</displayName>
@@ -5135,21 +5732,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="SLL">
 				<displayName>시에라리온 리온</displayName>
+				<symbol draft="contributed">SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>소말리아 실링</displayName>
+				<symbol draft="contributed">SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>수리남 달러</displayName>
+				<symbol draft="contributed">SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>수리남 길더</displayName>
 			</currency>
 			<currency type="SSP">
 				<displayName>남수단 파운드</displayName>
+				<symbol draft="contributed">SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>상투메 프린시페 도브라</displayName>
+				<symbol draft="contributed">STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>소련 루블</displayName>
@@ -5159,30 +5761,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="SYP">
 				<displayName>시리아 파운드</displayName>
+				<symbol draft="contributed">SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>스와질란드 릴랑게니</displayName>
+				<symbol draft="contributed">SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>태국 바트</displayName>
+				<symbol draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>타지키스탄 루블</displayName>
 			</currency>
 			<currency type="TJS">
 				<displayName>타지키스탄 소모니</displayName>
+				<symbol draft="contributed">TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>투르크메니스탄 마나트 (1993-2009)</displayName>
 			</currency>
 			<currency type="TMT">
 				<displayName>투르크메니스탄 마나트</displayName>
+				<symbol draft="contributed">TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>튀니지 디나르</displayName>
+				<symbol draft="contributed">TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>통가 파앙가</displayName>
+				<symbol draft="contributed">TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>티모르 에스쿠도</displayName>
@@ -5192,18 +5801,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="TRY">
 				<displayName>신 터키 리라</displayName>
+				<displayName count="other">신 터키 리라</displayName>
+				<symbol draft="contributed">TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>트리니다드 토바고 달러</displayName>
+				<symbol draft="contributed">TTD</symbol>
 			</currency>
 			<currency type="TWD">
-				<displayName>대만 신권 달러</displayName>
+				<displayName>신 타이완 달러</displayName>
+				<displayName count="other">신 타이완 달러</displayName>
+				<symbol draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>탄자니아 실링</displayName>
+				<symbol draft="contributed">TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>우크라이나 그리브나</displayName>
+				<symbol draft="contributed">UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>우크라이나 카보바네츠</displayName>
@@ -5213,9 +5829,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="UGX">
 				<displayName>우간다 실링</displayName>
+				<symbol draft="contributed">UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>미국 달러</displayName>
+				<symbol draft="contributed">US$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>미국 달러(다음날)</displayName>
@@ -5231,30 +5849,38 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="UYU">
 				<displayName>우루과이 페소 우루과요</displayName>
+				<symbol draft="contributed">UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>우즈베키스탄 숨</displayName>
+				<symbol draft="contributed">UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>베네주엘라 볼리바르 (1871-2008)</displayName>
 			</currency>
 			<currency type="VEF">
 				<displayName>베네주엘라 볼리바르</displayName>
+				<symbol draft="contributed">VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>베트남 동</displayName>
+				<symbol draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VNN">
 				<displayName draft="contributed">베트남 동 (1978-1985)</displayName>
 			</currency>
 			<currency type="VUV">
 				<displayName>바누아투 바투</displayName>
+				<symbol draft="contributed">VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>서 사모아 탈라</displayName>
+				<symbol draft="contributed">WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA 프랑 BEAC</displayName>
+				<displayName count="other">CFA 프랑 BEAC</displayName>
+				<symbol draft="contributed">FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>은화</displayName>
@@ -5276,6 +5902,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XCD">
 				<displayName>동카리브 달러</displayName>
+				<symbol draft="contributed">EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>특별인출권</displayName>
@@ -5291,12 +5918,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA 프랑 BCEAO</displayName>
+				<displayName count="other">CFA 프랑 BCEAO</displayName>
+				<symbol draft="contributed">CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>팔라듐</displayName>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP 프랑</displayName>
+				<displayName count="other">CFP 프랑</displayName>
+				<symbol draft="contributed">CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>백금</displayName>
@@ -5308,13 +5939,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>테스트 통화 코드</displayName>
 			</currency>
 			<currency type="XXX">
-				<displayName>알수없거나 유효하지않은 통화단위</displayName>
+				<displayName>알 수 없는 통화단위</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>예멘 디나르</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>예멘 리알</displayName>
+				<symbol draft="contributed">YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>유고슬라비아 동전 디나르</displayName>
@@ -5330,12 +5962,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ZAR">
 				<displayName>남아프리카 랜드</displayName>
+				<symbol draft="contributed">ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>쟘비아 콰쳐 (1968-2012)</displayName>
 			</currency>
 			<currency type="ZMW">
-				<displayName>쟘비아 콰쳐</displayName>
+				<displayName>잠비아 콰쳐</displayName>
+				<symbol draft="contributed">ZMW</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>자이르 신권 자이르</displayName>
@@ -5353,62 +5987,102 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="contributed">짐바브웨 달러 (2008)</displayName>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast" draft="contributed">{0}+</pattern>
+			<pattern type="range" draft="contributed">{0}-{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern draft="contributed">{1}당 {0}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other" draft="provisional">{0} 중력가속도</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other" draft="contributed">{0}도</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0}에이커</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0}헥타르</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0}제곱피트</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0}제곱킬로미터</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other">{0}제곱미터</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0}제곱마일</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<unitPattern count="other">{0}일</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}일</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="other">{0}일 후</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}일 후</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
-				<unitPattern count="other">{0}일 전</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}일 전</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="other">{0}시간</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}시간</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
-				<unitPattern count="other">{0}시간 후</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}시간 후</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
-				<unitPattern count="other">{0}시간 전</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}시간 전</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other" draft="provisional">{0} 밀리초</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="other">{0}분</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
-				<unitPattern count="other">{0}분 후</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}분 후</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
-				<unitPattern count="other">{0}분 전</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}분 전</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="other">{0}개월</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}개월</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
-				<unitPattern count="other">{0}개월 후</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}개월 후</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
-				<unitPattern count="other">{0}개월 전</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}개월 전</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="other">{0}초</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
-				<unitPattern count="other">{0}초 후</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}초 후</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
-				<unitPattern count="other">{0}초 전</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}초 전</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="other">{0}주</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}주</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
-				<unitPattern count="other">{0}주 후</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}주 후</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
-				<unitPattern count="other">{0}주 전</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}주 전</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0}년</unitPattern>
@@ -5419,28 +6093,468 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-year-past">
 				<unitPattern count="other">{0}년 전</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other">{0}센티미터</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other" draft="contributed">{0}피트</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other" draft="contributed">{0}인치</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other">{0}킬로미터</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0}광년</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other" draft="contributed">{0}미터</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other" draft="contributed">{0}마일</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other">{0}밀리미터</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other">{0}피코미터</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other" draft="contributed">{0}야드</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other" draft="contributed">{0}그램</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other">{0}킬로그램</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other" draft="contributed">{0}온스</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other" draft="contributed">{0}파운드</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other" draft="contributed">{0}마력</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other">{0}킬로와트</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other" draft="contributed">{0}와트</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0}헥토파스칼</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0}수은주인치</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0}밀리바</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other" draft="contributed">시속 {0}킬로미터</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other" draft="contributed">초속 {0}미터</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other" draft="contributed">시속 {0}마일</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other" draft="contributed">섭씨 {0}도</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other" draft="contributed">화씨 {0}도</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0}세제곱킬로미터</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other">{0}세제곱마일</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other" draft="contributed">{0}리터</unitPattern>
+			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other" draft="provisional">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other" draft="contributed">{0}도</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other" draft="contributed">{0}ac</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other" draft="contributed">{0}ha</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other" draft="contributed">{0}ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other" draft="contributed">{0}m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other" draft="contributed">{0}mi²</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<unitPattern count="other">{0}일</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}일</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other" draft="contributed">{0}일 후</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other" draft="contributed">{0}일 전</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="other">{0}시간</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}시간</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other" draft="contributed">{0}시간 후</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other" draft="contributed">{0}시간 전</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0}ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="other">{0}분</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other" draft="contributed">{0}분 후</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other" draft="contributed">{0}분 전</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="other">{0}개월</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}개월</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other" draft="contributed">{0}개월 후</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other" draft="contributed">{0}개월 전</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="other">{0}초</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other" draft="contributed">{0}초 후</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other" draft="contributed">{0}초 전</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="other">{0}주</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}주</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other" draft="contributed">{0}주 후</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other" draft="contributed">{0}주 전</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0}년</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other" draft="contributed">{0}년 후</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other" draft="contributed">{0}년 전</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other" draft="contributed">{0}ft</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other" draft="contributed">{0}in</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other" draft="contributed">{0}km</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0}ly</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other" draft="contributed">{0}m</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other" draft="contributed">{0}mil</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other" draft="contributed">{0}mm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other" draft="contributed">{0}pm</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other" draft="contributed">{0}yd</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other" draft="contributed">{0}g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other" draft="contributed">{0}kg</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other" draft="contributed">{0}oz</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other" draft="contributed">{0}lb</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other" draft="contributed">{0}HP</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other" draft="contributed">{0}kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other" draft="contributed">{0}W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other" draft="contributed">{0}hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other" draft="contributed">{0}inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other" draft="contributed">{0}mb</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other" draft="contributed">시속 {0}km</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other" draft="contributed">초속 {0}m</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other" draft="contributed">시속 {0}mi</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other" draft="contributed">{0}km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other" draft="contributed">{0}mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other" draft="contributed">{0}L</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern draft="contributed">h:mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern draft="contributed">h:mm:ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern draft="contributed">m:ss</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other" draft="provisional">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other" draft="contributed">{0}ac</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other" draft="contributed">{0}ha</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other" draft="contributed">{0}ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other" draft="contributed">{0}m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other" draft="contributed">{0}mi²</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="other" draft="contributed">{0}일</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other" draft="contributed">{0}일 후</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other" draft="contributed">{0}일 전</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other" draft="contributed">{0}시간</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other" draft="contributed">{0}시간 후</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other" draft="contributed">{0}시간 전</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0}ms</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other" draft="contributed">{0}분 후</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other" draft="contributed">{0}분 전</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other" draft="contributed">{0}개월</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other" draft="contributed">{0}개월 후</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other" draft="contributed">{0}개월 전</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other" draft="contributed">{0}초 후</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other" draft="contributed">{0}초 전</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other" draft="contributed">{0}주</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other" draft="contributed">{0}주 후</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other" draft="contributed">{0}주 전</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other" draft="contributed">{0}년</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other" draft="contributed">{0}년 후</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other" draft="contributed">{0}년 전</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other" draft="contributed">{0}km</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other" draft="contributed">{0}ly</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other" draft="contributed">{0}m</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other" draft="contributed">{0}mi</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other" draft="contributed">{0}mm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other" draft="contributed">{0}pm</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other" draft="contributed">{0}yd</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other" draft="contributed">{0}g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other" draft="contributed">{0}kg</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other" draft="contributed">{0}oz</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other" draft="contributed">{0}lb</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other" draft="contributed">{0}HP</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other" draft="contributed">{0}kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other" draft="contributed">{0}W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other" draft="contributed">{0}hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other" draft="contributed">{0}&quot;Hg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other" draft="contributed">{0}mb</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other" draft="contributed">{0}km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other" draft="contributed">{0}m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other" draft="contributed">{0}mph</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other" draft="contributed">{0}km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other" draft="contributed">{0}mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other" draft="contributed">{0}ℓ</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
@@ -5451,6 +6565,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="end">{0} 및 {1}</listPatternPart>
 			<listPatternPart type="2">{0} 및 {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="duration">
+			<listPatternPart type="start" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration-short">
+			<listPatternPart type="start" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} {1}</listPatternPart>
+		</listPattern>
 	</listPatterns>
 	<posix>
 		<messages>
@@ -5459,4 +6585,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

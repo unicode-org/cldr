@@ -12,9 +12,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern>{0}({1})</localePattern>
-			<localeSeparator>{0}，{1}</localeSeparator>
-			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>{0}、{1}</localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">アファル語</language>
@@ -40,6 +40,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="anp">アンギカ語</language>
 			<language type="apa">アパッチ語族</language>
 			<language type="ar">アラビア語</language>
+			<language type="ar_001" draft="contributed">アラビア語 (世界)</language>
 			<language type="arc">アラム語</language>
 			<language type="arn">アラウカン語</language>
 			<language type="arp">アラパホー語</language>
@@ -114,7 +115,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="chp">チペワイアン語</language>
 			<language type="chr">チェロキー語</language>
 			<language type="chy">シャイアン語</language>
-			<language type="ckb" draft="provisional">クルド語[ソラニー]</language>
+			<language type="ckb" draft="contributed">クルド語[ソラニー]</language>
 			<language type="cmc">チャム語族</language>
 			<language type="co">コルシカ語</language>
 			<language type="cop">コプト語</language>
@@ -149,7 +150,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="dua">ドゥアラ語</language>
 			<language type="dum">中世オランダ語</language>
 			<language type="dv">ディベヒ語</language>
-			<language type="dyo" draft="provisional">ジョラ＝フォニィ語</language>
+			<language type="dyo" draft="contributed">ジョラ＝フォニィ語</language>
 			<language type="dyu">ジュラ語</language>
 			<language type="dz">ゾンカ語</language>
 			<language type="dzg">ダザガ語</language>
@@ -165,11 +166,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_CA">カナダ英語</language>
 			<language type="en_GB">イギリス英語</language>
 			<language type="en_US">アメリカ英語</language>
+			<language type="en_US" alt="short" draft="contributed">en_US</language>
 			<language type="enm">中世英語</language>
 			<language type="eo">エスペラント語</language>
 			<language type="es">スペイン語</language>
 			<language type="es_419">スペイン語[ラテンアメリカ]</language>
 			<language type="es_ES">スペイン語[イベリア半島]</language>
+			<language type="es_MX">スペイン語[メキシコ]</language>
 			<language type="et">エストニア語</language>
 			<language type="eu">バスク語</language>
 			<language type="ewo">エウォンド語</language>
@@ -546,7 +549,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="twq">タサワク語</language>
 			<language type="ty">タヒチ語</language>
 			<language type="tyv">トゥヴァ語</language>
-			<language type="tzm" draft="provisional">中央アトラス・タマジクト語</language>
+			<language type="tzm" draft="contributed">中央アトラス・タマジクト語</language>
 			<language type="udm">ウドムルト語</language>
 			<language type="ug">ウイグル語</language>
 			<language type="ug" alt="variant" draft="contributed">ウイグル</language>
@@ -585,6 +588,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="zap">サポテカ語</language>
 			<language type="zbl">ブリスシンボル</language>
 			<language type="zen">ゼナガ語</language>
+			<language type="zgh">タマージク語[モロッコ公用語]</language>
 			<language type="zh">中国語</language>
 			<language type="zh_Hans">簡体中国語</language>
 			<language type="zh_Hant">繁体中国語</language>
@@ -624,7 +628,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Cyrs">古代教会スラブ語キリル文字</script>
 			<script type="Deva">デーバナーガリー文字</script>
 			<script type="Dsrt">デセレット文字</script>
-			<script type="Dupl" draft="provisional">デュプロワエ式速記</script>
+			<script type="Dupl" draft="contributed">デュプロワエ式速記</script>
 			<script type="Egyd">エジプト民衆文字</script>
 			<script type="Egyh">エジプト神官文字</script>
 			<script type="Egyp">エジプト聖刻文字</script>
@@ -646,7 +650,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hant" alt="stand-alone">漢字[繁体字]</script>
 			<script type="Hebr">ヘブライ文字</script>
 			<script type="Hira">ひらがな</script>
-			<script type="Hluw" draft="provisional">アナトリア象形文字</script>
+			<script type="Hluw" draft="contributed">アナトリア象形文字</script>
 			<script type="Hmng">パハウ・フモン文字</script>
 			<script type="Hrkt">仮名</script>
 			<script type="Hung">古代ハンガリー文字</script>
@@ -875,6 +879,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FR">フランス</territory>
 			<territory type="GA">ガボン</territory>
 			<territory type="GB">イギリス</territory>
+			<territory type="GB" alt="short" draft="contributed">英国</territory>
 			<territory type="GD">グレナダ</territory>
 			<territory type="GE">グルジア</territory>
 			<territory type="GF">仏領ギアナ</territory>
@@ -1051,7 +1056,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="VU">バヌアツ</territory>
 			<territory type="WF">ウォリス・フツナ</territory>
 			<territory type="WS">サモア</territory>
-			<territory type="XK">コソボ</territory>
+			<territory type="XK" draft="contributed">コソボ</territory>
 			<territory type="YE">イエメン</territory>
 			<territory type="YT">マヨット島</territory>
 			<territory type="ZA">南アフリカ</territory>
@@ -1061,48 +1066,63 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</territories>
 		<variants>
 			<variant type="1901">ドイツ語旧正書法</variant>
-			<variant type="1994" draft="provisional">標準レージア方言正書法</variant>
+			<variant type="1994" draft="contributed">標準レージア方言正書法</variant>
 			<variant type="1996">ドイツ語正書法[1996]</variant>
 			<variant type="1606NICT">後期中世フランス語[〜1606]</variant>
 			<variant type="1694ACAD">初期現代フランス語</variant>
-			<variant type="1959ACAD" draft="provisional">標準ベラルーシ語 (1959)</variant>
+			<variant type="1959ACAD" draft="contributed">標準ベラルーシ語 (1959)</variant>
 			<variant type="ALALC97" draft="contributed">ALA-LCラテン文字化[1997]</variant>
 			<variant type="ALUKU" draft="contributed">アロコ方言</variant>
 			<variant type="AREVELA">東アルメニア文語</variant>
 			<variant type="AREVMDA">西アルメニア文語</variant>
-			<variant type="BAKU1926" draft="provisional">統一トルコラテン文字</variant>
+			<variant type="BAKU1926" draft="contributed">統一トルコラテン文字</variant>
 			<variant type="BAUDDHA" draft="contributed">バウッダ</variant>
 			<variant type="BISCAYAN" draft="contributed">ビスカヤ語</variant>
-			<variant type="BISKE" draft="provisional">サン・ジョルジョ/ビーラ方言</variant>
+			<variant type="BISKE" draft="contributed">サン・ジョルジョ/ビーラ方言</variant>
+			<variant type="BOHORIC" draft="contributed">ボホリッツ・アルファベット</variant>
 			<variant type="BOONT">ブーントリング</variant>
+			<variant type="DAJNKO" draft="contributed">ダインチッツァ</variant>
+			<variant type="EMODENG" draft="contributed">初期近代英語</variant>
 			<variant type="FONIPA">国際音声記号</variant>
 			<variant type="FONUPA">ウラル音声記号</variant>
 			<variant type="FONXSAMP" draft="contributed">フォンクサンプ</variant>
 			<variant type="HEPBURN" draft="contributed">ヘボン式ローマ字</variant>
 			<variant type="HOGNORSK" draft="contributed">ヘグノシュク</variant>
 			<variant type="ITIHASA" draft="contributed">イティハーサ</variant>
+			<variant type="JAUER" draft="contributed">ヤウエル</variant>
 			<variant type="JYUTPING" draft="contributed">略称粤拼</variant>
-			<variant type="KKCOR" draft="provisional">共通コーンウォール語正書法</variant>
+			<variant type="KKCOR" draft="contributed">共通コーンウォール語正書法</variant>
+			<variant type="KSCOR" draft="contributed">標準コーンウォール語正書法</variant>
 			<variant type="LAUKIKA" draft="contributed">ラウキカ</variant>
-			<variant type="LIPAW" draft="provisional">レージア方言 リポヴァツ方言</variant>
+			<variant type="LIPAW" draft="contributed">レージア方言 リポヴァツ方言</variant>
+			<variant type="LUNA1918" draft="contributed">LUNA1918</variant>
+			<variant type="METELKO" draft="contributed">メテルチッツァ</variant>
 			<variant type="MONOTON">モノトニック</variant>
 			<variant type="NDYUKA" draft="contributed">ンジュカ方言</variant>
 			<variant type="NEDIS">ナティゾーネ方言</variant>
-			<variant type="NJIVA" draft="provisional">ニヴァ方言</variant>
-			<variant type="OSOJS" draft="provisional">オゼアッコ/オソヤネ方言</variant>
+			<variant type="NJIVA" draft="contributed">ニヴァ方言</variant>
+			<variant type="NULIK" draft="contributed">現代ヴォラピュク語</variant>
+			<variant type="OSOJS" draft="contributed">オゼアッコ/オソヤネ方言</variant>
 			<variant type="PAMAKA" draft="contributed">パマカ方言</variant>
+			<variant type="PETR1708" draft="contributed">PETR1708</variant>
 			<variant type="PINYIN">ピン音[ローマ字表記法]</variant>
 			<variant type="POLYTON">ポリトニック</variant>
 			<variant type="POSIX">コンピュータ</variant>
+			<variant type="PUTER" draft="contributed">プーター</variant>
 			<variant type="REVISED">改訂版</variant>
+			<variant type="RIGIK" draft="contributed">古典ヴォラピュク語</variant>
 			<variant type="ROZAJ">レシア方言</variant>
+			<variant type="RUMGR" draft="contributed">RUMGR</variant>
 			<variant type="SAAHO">サホ語</variant>
 			<variant type="SCOTLAND" draft="contributed">スコットランド標準英語</variant>
 			<variant type="SCOUSE">リバプール方言</variant>
-			<variant type="SOLBA" draft="provisional">ストルヴィッツァ/ソルビツァ方言</variant>
-			<variant type="TARASK" draft="provisional">タラシケヴィツァ正書法</variant>
-			<variant type="UCCOR" draft="provisional">統一コーンウォール語正書法</variant>
-			<variant type="UCRCOR" draft="provisional">改訂統一コーンウォール語正書法</variant>
+			<variant type="SOLBA" draft="contributed">ストルヴィッツァ/ソルビツァ方言</variant>
+			<variant type="SURMIRAN" draft="contributed">スルミラン</variant>
+			<variant type="SURSILV" draft="contributed">スルシルヴァン</variant>
+			<variant type="SUTSILV" draft="contributed">ストシルヴァン</variant>
+			<variant type="TARASK" draft="contributed">タラシケヴィツァ正書法</variant>
+			<variant type="UCCOR" draft="contributed">統一コーンウォール語正書法</variant>
+			<variant type="UCRCOR" draft="contributed">改訂統一コーンウォール語正書法</variant>
 			<variant type="ULSTER" draft="contributed">アルスター</variant>
 			<variant type="VAIDIKA" draft="contributed">ヴァイディカ</variant>
 			<variant type="VALENCIA">バレンシア方言</variant>
@@ -1135,10 +1155,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="bali" key="numbers">バリ数字</type>
 			<type type="beng" key="numbers">ベンガル数字</type>
 			<type type="big5han" key="collation">繁体字中国語順[Big5]</type>
+			<type type="brah" key="numbers" draft="contributed">ブラーフミー数字</type>
 			<type type="buddhist" key="calendar">タイ仏教暦</type>
+			<type type="cakm" key="numbers" draft="contributed">チャクマ数字</type>
 			<type type="cham" key="numbers">チャム数字</type>
 			<type type="chinese" key="calendar">中国暦</type>
 			<type type="coptic" key="calendar">コプト暦</type>
+			<type type="dangi" key="calendar" draft="contributed">ダンギ暦</type>
 			<type type="deva" key="numbers">デーヴァナーガリー数字</type>
 			<type type="dictionary" key="collation">辞書順</type>
 			<type type="ducet" key="collation">ユニコード照合順</type>
@@ -1165,6 +1188,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="indian" key="calendar">インド国定暦</type>
 			<type type="islamic" key="calendar">イスラム暦</type>
 			<type type="islamic-civil" key="calendar">太陽イスラム暦</type>
+			<type type="islamic-rgsa" key="calendar" draft="contributed">イスラム暦[サウジアラビア、月観測]</type>
+			<type type="islamic-tbla" key="calendar" draft="contributed">イスラム暦[天文紀元]</type>
+			<type type="islamic-umalqura" key="calendar" draft="contributed">イスラム暦[ウンム・アルクラー]</type>
+			<type type="iso8601" key="calendar" draft="contributed">ISO-8601</type>
 			<type type="japanese" key="calendar">和暦</type>
 			<type type="java" key="numbers">ジャワ数字</type>
 			<type type="jpan" key="numbers">漢数字</type>
@@ -1195,10 +1222,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="non-ignorable" key="colAlternate" draft="contributed">記号で並べ替え</type>
 			<type type="olck" key="numbers">オルチキ数字</type>
 			<type type="orya" key="numbers">オリヤー数字</type>
+			<type type="osma" key="numbers" draft="contributed">オスマニア数字</type>
 			<type type="persian" key="calendar">ペルシア暦</type>
 			<type type="phonebook" key="collation">電話帳順</type>
 			<type type="phonetic" key="collation" draft="contributed">音声順による並べ替え</type>
-			<type type="pinyin" key="collation">ピンイン順</type>
+			<type type="pinyin" key="collation">ピンイン</type>
 			<type type="primary" key="colStrength" draft="contributed">基本文字のみで並べ替え</type>
 			<type type="quaternary" key="colStrength" draft="contributed">アクセント/大文字小文字/全角半角/仮名で並べ替え</type>
 			<type type="reformed" key="collation">リフォーム</type>
@@ -1210,8 +1238,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="searchjl" key="collation">ハングル語頭子音による並べ替え</type>
 			<type type="secondary" key="colStrength" draft="contributed">アクセントで並べ替え</type>
 			<type type="shifted" key="colAlternate" draft="contributed">記号を無視して並べ替え</type>
+			<type type="shrd" key="numbers" draft="contributed">シャーラダー数字</type>
+			<type type="sora" key="numbers" draft="contributed">ソラ・ソンペン数字</type>
+			<type type="standard" key="collation">標準ソート順序</type>
 			<type type="stroke" key="collation">画数順</type>
 			<type type="sund" key="numbers">スンダ数字</type>
+			<type type="takr" key="numbers" draft="contributed">タークリー数字</type>
 			<type type="talu" key="numbers">新タイ・ルー数字</type>
 			<type type="taml" key="numbers">タミール数字</type>
 			<type type="tamldec" key="numbers">タミル数字</type>
@@ -1229,6 +1261,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="yes" key="colHiraganaQuaternary" draft="contributed">仮名を区別して並べ替え</type>
 			<type type="yes" key="colNormalization" draft="contributed">Unicode 正規化で並べ替え</type>
 			<type type="yes" key="colNumeric" draft="contributed">数値を数値として並べ替え</type>
+			<type type="zhuyin" key="collation" draft="contributed">注音順</type>
 		</types>
 		<transformNames>
 			<transformName type="BGN" draft="contributed">BGN</transformName>
@@ -1261,6 +1294,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
 		<ellipsis type="initial" draft="contributed">…{0}</ellipsis>
 		<ellipsis type="medial" draft="contributed">{0}…{1}</ellipsis>
+		<ellipsis type="word-final">{0} …</ellipsis>
+		<ellipsis type="word-initial">… {0}</ellipsis>
+		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
@@ -1345,6 +1381,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<calendar type="chinese">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">正</month>
 							<month type="2">二</month>
@@ -1375,6 +1425,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">正</month>
 							<month type="2">二</month>
@@ -1388,6 +1452,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="10">十</month>
 							<month type="11">十一</month>
 							<month type="12">十二</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1769,6 +1847,224 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 				</months>
 			</calendar>
+			<calendar type="dangi">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">正</month>
+							<month type="2">二</month>
+							<month type="3">三</month>
+							<month type="4">四</month>
+							<month type="5">五</month>
+							<month type="6">六</month>
+							<month type="7">七</month>
+							<month type="8">八</month>
+							<month type="9">九</month>
+							<month type="10">十</month>
+							<month type="11">十一</month>
+							<month type="12">十二</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">正</month>
+							<month type="2">二</month>
+							<month type="3">三</month>
+							<month type="4">四</month>
+							<month type="5">五</month>
+							<month type="6">六</month>
+							<month type="7">七</month>
+							<month type="8">八</month>
+							<month type="9">九</month>
+							<month type="10">十</month>
+							<month type="11">十一</month>
+							<month type="12">十二</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<cyclicNameSets>
+					<cyclicNameSet type="dayParts">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">子</cyclicName>
+								<cyclicName type="2">丑</cyclicName>
+								<cyclicName type="3">寅</cyclicName>
+								<cyclicName type="4">卯</cyclicName>
+								<cyclicName type="5">辰</cyclicName>
+								<cyclicName type="6">巳</cyclicName>
+								<cyclicName type="7">午</cyclicName>
+								<cyclicName type="8">未</cyclicName>
+								<cyclicName type="9">申</cyclicName>
+								<cyclicName type="10">酉</cyclicName>
+								<cyclicName type="11">戌</cyclicName>
+								<cyclicName type="12">亥</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="years">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">甲子</cyclicName>
+								<cyclicName type="2">乙丑</cyclicName>
+								<cyclicName type="3">丙寅</cyclicName>
+								<cyclicName type="4">丁卯</cyclicName>
+								<cyclicName type="5">戊辰</cyclicName>
+								<cyclicName type="6">己巳</cyclicName>
+								<cyclicName type="7">庚午</cyclicName>
+								<cyclicName type="8">辛未</cyclicName>
+								<cyclicName type="9">壬申</cyclicName>
+								<cyclicName type="10">癸酉</cyclicName>
+								<cyclicName type="11">甲戌</cyclicName>
+								<cyclicName type="12">乙亥</cyclicName>
+								<cyclicName type="13">丙子</cyclicName>
+								<cyclicName type="14">丁丑</cyclicName>
+								<cyclicName type="15">戊寅</cyclicName>
+								<cyclicName type="16">己卯</cyclicName>
+								<cyclicName type="17">庚辰</cyclicName>
+								<cyclicName type="18">辛巳</cyclicName>
+								<cyclicName type="19">壬午</cyclicName>
+								<cyclicName type="20">癸未</cyclicName>
+								<cyclicName type="21">甲申</cyclicName>
+								<cyclicName type="22">乙酉</cyclicName>
+								<cyclicName type="23">丙戌</cyclicName>
+								<cyclicName type="24">丁亥</cyclicName>
+								<cyclicName type="25">戊子</cyclicName>
+								<cyclicName type="26">己丑</cyclicName>
+								<cyclicName type="27">庚寅</cyclicName>
+								<cyclicName type="28">辛卯</cyclicName>
+								<cyclicName type="29">壬辰</cyclicName>
+								<cyclicName type="30">癸巳</cyclicName>
+								<cyclicName type="31">甲午</cyclicName>
+								<cyclicName type="32">乙未</cyclicName>
+								<cyclicName type="33">丙申</cyclicName>
+								<cyclicName type="34">丁酉</cyclicName>
+								<cyclicName type="35">戊戌</cyclicName>
+								<cyclicName type="36">己亥</cyclicName>
+								<cyclicName type="37">庚子</cyclicName>
+								<cyclicName type="38">辛丑</cyclicName>
+								<cyclicName type="39">壬寅</cyclicName>
+								<cyclicName type="40">癸卯</cyclicName>
+								<cyclicName type="41">甲辰</cyclicName>
+								<cyclicName type="42">乙巳</cyclicName>
+								<cyclicName type="43">丙午</cyclicName>
+								<cyclicName type="44">丁未</cyclicName>
+								<cyclicName type="45">戊申</cyclicName>
+								<cyclicName type="46">己酉</cyclicName>
+								<cyclicName type="47">庚戌</cyclicName>
+								<cyclicName type="48">辛亥</cyclicName>
+								<cyclicName type="49">壬子</cyclicName>
+								<cyclicName type="50">癸丑</cyclicName>
+								<cyclicName type="51">甲寅</cyclicName>
+								<cyclicName type="52">乙卯</cyclicName>
+								<cyclicName type="53">丙辰</cyclicName>
+								<cyclicName type="54">丁巳</cyclicName>
+								<cyclicName type="55">戊午</cyclicName>
+								<cyclicName type="56">己未</cyclicName>
+								<cyclicName type="57">庚申</cyclicName>
+								<cyclicName type="58">辛酉</cyclicName>
+								<cyclicName type="59">壬戌</cyclicName>
+								<cyclicName type="60">癸亥</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="zodiacs">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">鼠</cyclicName>
+								<cyclicName type="2">牛</cyclicName>
+								<cyclicName type="3">虎</cyclicName>
+								<cyclicName type="4">兎</cyclicName>
+								<cyclicName type="5">竜</cyclicName>
+								<cyclicName type="6">蛇</cyclicName>
+								<cyclicName type="7">馬</cyclicName>
+								<cyclicName type="8">羊</cyclicName>
+								<cyclicName type="9">猿</cyclicName>
+								<cyclicName type="10">鶏</cyclicName>
+								<cyclicName type="11">犬</cyclicName>
+								<cyclicName type="12">猪</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>U年MMMd日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>U年MMMd日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>U年MMMd日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>U-M-d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
 			<calendar type="ethiopic">
 				<months>
 					<monthContext type="format">
@@ -1945,8 +2241,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">Gy年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEEEEd">Gy年M月d日EEEE</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">Gy年QQQ</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">Gy/QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">GyQQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}～{1}</intervalFormatFallback>
@@ -2051,6 +2347,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">1月</month>
+							<month type="2">2月</month>
+							<month type="3">3月</month>
+							<month type="4">4月</month>
+							<month type="5">5月</month>
+							<month type="6">6月</month>
+							<month type="7">7月</month>
+							<month type="8">8月</month>
+							<month type="9">9月</month>
+							<month type="10">10月</month>
+							<month type="11">11月</month>
+							<month type="12">12月</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">1月</month>
 							<month type="2">2月</month>
@@ -2067,6 +2391,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">1月</month>
+							<month type="2">2月</month>
+							<month type="3">3月</month>
+							<month type="4">4月</month>
+							<month type="5">5月</month>
+							<month type="6">6月</month>
+							<month type="7">7月</month>
+							<month type="8">8月</month>
+							<month type="9">9月</month>
+							<month type="10">10月</month>
+							<month type="11">11月</month>
+							<month type="12">12月</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">1</month>
 							<month type="2">2</month>
@@ -2081,11 +2419,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">11</month>
 							<month type="12">12</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">1月</month>
+							<month type="2">2月</month>
+							<month type="3">3月</month>
+							<month type="4">4月</month>
+							<month type="5">5月</month>
+							<month type="6">6月</month>
+							<month type="7">7月</month>
+							<month type="8">8月</month>
+							<month type="9">9月</month>
+							<month type="10">10月</month>
+							<month type="11">11月</month>
+							<month type="12">12月</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
+							<day type="sun">日</day>
+							<day type="mon">月</day>
+							<day type="tue">火</day>
+							<day type="wed">水</day>
+							<day type="thu">木</day>
+							<day type="fri">金</day>
+							<day type="sat">土</day>
+						</dayWidth>
+						<dayWidth type="narrow">
 							<day type="sun">日</day>
 							<day type="mon">月</day>
 							<day type="tue">火</day>
@@ -2114,6 +2475,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">日</day>
+							<day type="mon">月</day>
+							<day type="tue">火</day>
+							<day type="wed">水</day>
+							<day type="thu">木</day>
+							<day type="fri">金</day>
+							<day type="sat">土</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">日</day>
 							<day type="mon">月</day>
@@ -2132,15 +2502,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri">金</day>
 							<day type="sat">土</day>
 						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">日曜日</day>
+							<day type="mon">月曜日</day>
+							<day type="tue">火曜日</day>
+							<day type="wed">水曜日</day>
+							<day type="thu">木曜日</day>
+							<day type="fri">金曜日</day>
+							<day type="sat">土曜日</day>
+						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">1Q</quarter>
-							<quarter type="2">2Q</quarter>
-							<quarter type="3">3Q</quarter>
-							<quarter type="4">4Q</quarter>
+							<quarter type="1">Q1</quarter>
+							<quarter type="2">Q2</quarter>
+							<quarter type="3">Q3</quarter>
+							<quarter type="4">Q4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
@@ -2168,10 +2547,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="3">3</quarter>
 							<quarter type="4">4</quarter>
 						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">第1四半期</quarter>
+							<quarter type="2">第2四半期</quarter>
+							<quarter type="3">第3四半期</quarter>
+							<quarter type="4">第4四半期</quarter>
+						</quarterWidth>
 					</quarterContext>
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">午前</dayPeriod>
+							<dayPeriod type="noon">正午</dayPeriod>
+							<dayPeriod type="pm">午後</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">午前</dayPeriod>
 							<dayPeriod type="noon">正午</dayPeriod>
@@ -2182,15 +2572,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<eras>
 					<eraNames>
 						<era type="0">紀元前</era>
+						<era type="0" alt="variant" draft="contributed">西暦紀元前</era>
 						<era type="1">西暦</era>
+						<era type="1" alt="variant" draft="contributed">西暦</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">紀元前</era>
+						<era type="0" alt="variant">西暦紀元前</era>
 						<era type="1">西暦</era>
+						<era type="1" alt="variant">西暦</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">BC</era>
+						<era type="0" alt="variant" draft="contributed">BCE</era>
 						<era type="1">AD</era>
+						<era type="1" alt="variant" draft="contributed">CE</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -2262,6 +2658,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日(E)</dateFormatItem>
 						<dateFormatItem id="EEEEd">d日EEEE</dateFormatItem>
+						<dateFormatItem id="Ehm">a K 時 mm 分 (E)</dateFormatItem>
+						<dateFormatItem id="EHm">HH 時 mm 分 (E)</dateFormatItem>
+						<dateFormatItem id="Ehms">a K 時 mm 分 ss 秒 (E)</dateFormatItem>
+						<dateFormatItem id="EHms">HH 時 mm 分 ss 秒 (E)</dateFormatItem>
 						<dateFormatItem id="Gy">Gy年</dateFormatItem>
 						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
 						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
@@ -2292,9 +2692,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日(E)</dateFormatItem>
 						<dateFormatItem id="yMMMEEEEd">y年M月d日EEEE</dateFormatItem>
-						<dateFormatItem id="yQQQ">y年QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">y年QQQQ</dateFormatItem>
+						<dateFormatItem id="yQQQ">y/QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">yQQQQ</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone" draft="contributed">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0}～{1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
@@ -2503,6 +2906,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="0" draft="contributed">AM</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>Gy年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>Gy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>Gy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -2697,6 +3122,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="0" draft="contributed">AH</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>Gy年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>Gy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>Gy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
+						<dateFormatItem id="MMM">M月</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="y">Gy年</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
@@ -3171,10 +3630,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="229" draft="contributed">文久</era>
 						<era type="230" draft="contributed">元治</era>
 						<era type="231" draft="contributed">慶応</era>
-						<era type="232" draft="contributed">明</era>
-						<era type="233" draft="contributed">大</era>
-						<era type="234" draft="contributed">昭</era>
-						<era type="235" draft="contributed">平</era>
+						<era type="232">M</era>
+						<era type="233">T</era>
+						<era type="234">S</era>
+						<era type="235">H</era>
 					</eraNarrow>
 				</eras>
 				<dateFormats>
@@ -3361,6 +3820,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="1">民国</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>Gy年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>Gy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>Gy/MM/dd</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MEd">M/d(E)</dateFormatItem>
+						<dateFormatItem id="MMM">M月</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日(E)</dateFormatItem>
+						<dateFormatItem id="y">Gy年</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>
@@ -3396,6 +3889,41 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="weekday">
 				<displayName>曜日</displayName>
 			</field>
+			<field type="sun">
+				<relative type="-1">先週の日曜日</relative>
+				<relative type="0">今週の日曜日</relative>
+				<relative type="1">来週の日曜日</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1">先週の月曜日</relative>
+				<relative type="0">今週の月曜日</relative>
+				<relative type="1">来週の月曜日</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1">先週の火曜日</relative>
+				<relative type="0">今週の火曜日</relative>
+				<relative type="1">来週の火曜日</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1">先週の水曜日</relative>
+				<relative type="0">今週の水曜日</relative>
+				<relative type="1">来週の水曜日</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1">先週の木曜日</relative>
+				<relative type="0">今週の木曜日</relative>
+				<relative type="1">来週の木曜日</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1">先週の金曜日</relative>
+				<relative type="0">今週の金曜日</relative>
+				<relative type="1">来週の金曜日</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1">先週の土曜日</relative>
+				<relative type="0">今週の土曜日</relative>
+				<relative type="1">来週の土曜日</relative>
+			</field>
 			<field type="dayperiod">
 				<displayName>午前/午後</displayName>
 			</field>
@@ -3417,6 +3945,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}時間</regionFormat>
+			<regionFormat type="daylight">{0}夏時間</regionFormat>
+			<regionFormat type="standard">{0}標準時</regionFormat>
 			<fallbackFormat>{1}（{0}）</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>地域不明</exemplarCity>
@@ -3471,6 +4001,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>デュモン・デュルビル基地</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity>マッコリー</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>マクマード基地</exemplarCity>
@@ -3601,6 +4134,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/La_Paz">
 				<exemplarCity>ラパス</exemplarCity>
 			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity draft="contributed">クラレンダイク</exemplarCity>
+			</zone>
 			<zone type="America/Eirunepe">
 				<exemplarCity>エイルネペ</exemplarCity>
 			</zone>
@@ -3678,6 +4214,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>ドーソンクリーク</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity draft="contributed">クレストン</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity>イエローナイフ</exemplarCity>
@@ -3816,6 +4355,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>プラハ</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity draft="contributed">ビュージンゲン</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>ベルリン</exemplarCity>
@@ -4183,6 +4725,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Tijuana">
 				<exemplarCity>ティフアナ</exemplarCity>
 			</zone>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity draft="contributed">サンタイサベル</exemplarCity>
+			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>エルモシヨ</exemplarCity>
 			</zone>
@@ -4192,11 +4737,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Chihuahua">
 				<exemplarCity>チワワ</exemplarCity>
 			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity draft="contributed">バイアバンデラ</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity draft="contributed">オヒナガ</exemplarCity>
+			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>モンテレイ</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>メキシコシティー</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity draft="contributed">マタモロス</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
 				<exemplarCity>メリダ</exemplarCity>
@@ -4294,6 +4848,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Gaza">
 				<exemplarCity>ガザ</exemplarCity>
 			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity draft="contributed">ヘブロン</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>アゾレス</exemplarCity>
 			</zone>
@@ -4342,6 +4899,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>ノヴォシビルスク</exemplarCity>
 			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity draft="contributed">ノヴォクズネツク</exemplarCity>
+			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>クラスノヤルスク</exemplarCity>
 			</zone>
@@ -4354,8 +4914,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Vladivostok">
 				<exemplarCity>ウラジオストク</exemplarCity>
 			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity draft="contributed">ハンドゥイガ</exemplarCity>
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>サハリン</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity draft="contributed">ウスチネラ</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>マガダン</exemplarCity>
@@ -4413,6 +4979,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Paramaribo">
 				<exemplarCity>パラマリボ</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity draft="contributed">ジュバ</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity>サントメ</exemplarCity>
@@ -4516,8 +5085,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Yakutat">
 				<exemplarCity>ヤクタット</exemplarCity>
 			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity draft="contributed">シトカ</exemplarCity>
+			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>ジュノー</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity draft="contributed">メトラカトラ</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>ロサンゼルス</exemplarCity>
@@ -4855,7 +5430,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Casey">
 				<long>
-					<standard draft="provisional">ケイシー基地時間</standard>
+					<standard draft="contributed">ケイシー基地時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Chamorro">
@@ -5449,7 +6024,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Suriname">
 				<long>
-					<standard>スリナム時間</standard>
+					<standard draft="contributed">スリナム時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Syowa">
@@ -5589,6 +6164,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -5650,6 +6226,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>¤#,##0.00</pattern>
+					<pattern alt="accounting" draft="contributed">¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
@@ -5657,899 +6234,1882 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<currencies>
 			<currency type="ADP">
 				<displayName>アンドラ ペセタ</displayName>
+				<displayName count="other">アンドラ ペセタ</displayName>
+				<symbol draft="contributed">ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>アラブ首長国連邦ディルハム</displayName>
+				<displayName count="other">アラブ首長国連邦ディルハム</displayName>
+				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>アフガニスタン アフガニー (1927-2002)</displayName>
+				<displayName count="other">アフガニスタン アフガニー (1927-2002)</displayName>
+				<symbol draft="contributed">AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>アフガニー</displayName>
+				<displayName count="other">アフガニー</displayName>
+				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>アルバニア レク</displayName>
+				<displayName count="other">アルバニア レク</displayName>
+				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>アルメニア ドラム</displayName>
+				<displayName count="other">アルメニア ドラム</displayName>
+				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>オランダ領アンティル ギルダー</displayName>
+				<displayName count="other">オランダ領アンティル ギルダー</displayName>
+				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>クワンザ</displayName>
+				<displayName count="other">クワンザ</displayName>
+				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>アンゴラ クワンザ (1977-1991)</displayName>
+				<displayName count="other">アンゴラ クワンザ (1977-1991)</displayName>
+				<symbol draft="contributed">AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>アンゴラ 新クワンザ (1990-2000)</displayName>
+				<displayName count="other">アンゴラ 新クワンザ (1990-2000)</displayName>
+				<symbol draft="contributed">AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>アンゴラ 旧クワンザ (1995-1999)</displayName>
+				<displayName count="other">アンゴラ 旧クワンザ (1995-1999)</displayName>
+				<symbol draft="contributed">AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>アルゼンチン アゥストラール</displayName>
+				<displayName count="other">アルゼンチン アゥストラール</displayName>
+				<symbol draft="contributed">ARA</symbol>
 			</currency>
 			<currency type="ARL">
 				<displayName draft="contributed">アルゼンチン・ペソ・レイ（1970-1983）</displayName>
+				<displayName count="other" draft="contributed">アルゼンチン・ペソ・レイ（1970-1983）</displayName>
+				<symbol draft="contributed">ARL</symbol>
 			</currency>
 			<currency type="ARM">
 				<displayName draft="contributed">アルゼンチン・ペソ（1881-1970）</displayName>
+				<displayName count="other" draft="contributed">アルゼンチン・ペソ（1881-1970）</displayName>
+				<symbol draft="contributed">ARM</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>アルゼンチン ペソ (1983-1985)</displayName>
+				<displayName count="other">アルゼンチン ペソ (1983-1985)</displayName>
+				<symbol draft="contributed">ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>アルゼンチン ペソ</displayName>
+				<displayName count="other">アルゼンチン ペソ</displayName>
+				<symbol>ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>オーストリア シリング</displayName>
+				<displayName count="other">オーストリア シリング</displayName>
+				<symbol draft="contributed">ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>オーストラリア ドル</displayName>
+				<displayName count="other">オーストラリア ドル</displayName>
 				<symbol draft="contributed">AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>アルバ ギルダー</displayName>
+				<displayName count="other">アルバ ギルダー</displayName>
+				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>アゼルバイジャン マナト (1993-2006)</displayName>
+				<displayName count="other">アゼルバイジャン マナト (1993-2006)</displayName>
+				<symbol draft="contributed">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>アゼルバイジャン マナト</displayName>
+				<displayName count="other">アゼルバイジャン マナト</displayName>
+				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>ボスニア・ヘルツェゴビナ ディナール (1992-1994)</displayName>
+				<displayName count="other">ボスニア・ヘルツェゴビナ ディナール (1992-1994)</displayName>
+				<symbol draft="contributed">BAD</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>ボスニア マルク (BAM)</displayName>
+				<displayName count="other">ボスニア マルク (BAM)</displayName>
+				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BAN">
 				<displayName draft="contributed">ボスニア・ヘルツェゴビナ 新ディナール（1994-1997）</displayName>
+				<displayName count="other" draft="contributed">ボスニア・ヘルツェゴビナ 新ディナール（1994-1997）</displayName>
+				<symbol draft="contributed">BAN</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>バルバドス ドル</displayName>
+				<displayName count="other">バルバドス ドル</displayName>
+				<symbol>BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>バングラデシュ タカ</displayName>
+				<displayName count="other">バングラデシュ タカ</displayName>
+				<symbol>BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>ベルギー フラン (BEC)</displayName>
+				<displayName count="other">ベルギー フラン (BEC)</displayName>
+				<symbol draft="contributed">BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>ベルギー フラン</displayName>
+				<displayName count="other">ベルギー フラン</displayName>
+				<symbol draft="contributed">BEF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>ベルギー フラン (BEL)</displayName>
+				<displayName count="other">ベルギー フラン (BEL)</displayName>
+				<symbol draft="contributed">BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>ブルガリア レフ</displayName>
+				<displayName count="other">ブルガリア レフ</displayName>
+				<symbol draft="contributed">BGL</symbol>
 			</currency>
 			<currency type="BGM">
 				<displayName draft="contributed">ブルガリア社会主義 レフ</displayName>
+				<displayName count="other" draft="contributed">ブルガリア社会主義 レフ</displayName>
+				<symbol draft="contributed">BGM</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>ブルガリア 新レフ</displayName>
+				<displayName count="other">ブルガリア 新レフ</displayName>
+				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BGO">
 				<displayName draft="contributed">ブルガリア レフ（1879-1952）</displayName>
+				<displayName count="other" draft="contributed">ブルガリア レフ（1879-1952）</displayName>
+				<symbol draft="contributed">BGO</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>バーレーン ディナール</displayName>
+				<displayName count="other">バーレーン ディナール</displayName>
+				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>ブルンジ フラン</displayName>
+				<displayName count="other">ブルンジ フラン</displayName>
+				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>バミューダ ドル</displayName>
+				<displayName count="other">バミューダ ドル</displayName>
+				<symbol>BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>ブルネイ ドル</displayName>
+				<displayName count="other">ブルネイ ドル</displayName>
+				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>ボリビア ボリビアーノ</displayName>
+				<displayName count="other">ボリビア ボリビアーノ</displayName>
+				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName>ボリビア ボリビアーノ (1863-1963)</displayName>
+				<displayName count="other">ボリビア ボリビアーノ (1863-1963)</displayName>
+				<symbol draft="contributed">BOL</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>ボリビア ペソ</displayName>
+				<displayName count="other">ボリビア ペソ</displayName>
+				<symbol draft="contributed">BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>ボリビア (Mvdol)</displayName>
+				<displayName count="other">ボリビア (Mvdol)</displayName>
+				<symbol draft="contributed">BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>ブラジル 新クルゼイロ (1967-1986)</displayName>
+				<displayName count="other">ブラジル 新クルゼイロ (1967-1986)</displayName>
+				<symbol draft="contributed">BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>ブラジル クルザード (1986-1989)</displayName>
+				<displayName count="other">ブラジル クルザード (1986-1989)</displayName>
+				<symbol draft="contributed">BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>ブラジル クルゼイロ (1990-1993)</displayName>
+				<displayName count="other">ブラジル クルゼイロ (1990-1993)</displayName>
+				<symbol draft="contributed">BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>ブラジル レアル</displayName>
+				<displayName count="other">ブラジル レアル</displayName>
 				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>ブラジル 新クルザード (1989-1990)</displayName>
+				<displayName count="other">ブラジル 新クルザード (1989-1990)</displayName>
+				<symbol draft="contributed">BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>ブラジル クルゼイロ (1993-1994)</displayName>
+				<displayName count="other">ブラジル クルゼイロ (1993-1994)</displayName>
+				<symbol draft="contributed">BRR</symbol>
 			</currency>
 			<currency type="BRZ">
 				<displayName draft="contributed">ブラジル クルゼイロ（1942-1967）</displayName>
+				<displayName count="other" draft="contributed">ブラジル クルゼイロ（1942-1967）</displayName>
+				<symbol draft="contributed">BRZ</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>バハマ ドル</displayName>
+				<displayName count="other">バハマ ドル</displayName>
+				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>ブータン ニュルタム</displayName>
+				<displayName count="other">ブータン ニュルタム</displayName>
+				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>ビルマ チャット</displayName>
+				<displayName count="other">ビルマ チャット</displayName>
+				<symbol draft="contributed">BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>ボツワナ プラ</displayName>
+				<displayName count="other">ボツワナ プラ</displayName>
+				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>ベラルーシ 新ルーブル (1994-1999)</displayName>
+				<displayName count="other">ベラルーシ 新ルーブル (1994-1999)</displayName>
+				<symbol draft="contributed">BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>ベラルーシ ルーブル</displayName>
+				<displayName count="other">ベラルーシ ルーブル</displayName>
+				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>ベリーズ ドル</displayName>
+				<displayName count="other">ベリーズ ドル</displayName>
+				<symbol>BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>カナダ ドル</displayName>
+				<displayName count="other">カナダ ドル</displayName>
 				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>コンゴ フラン</displayName>
+				<displayName count="other">コンゴ フラン</displayName>
+				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>ユーロ (WIR)</displayName>
+				<displayName count="other">ユーロ (WIR)</displayName>
+				<symbol draft="contributed">CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>スイス フラン</displayName>
+				<displayName count="other">スイス フラン</displayName>
+				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>フラン (WIR)</displayName>
+				<displayName count="other">フラン (WIR)</displayName>
+				<symbol draft="contributed">CHW</symbol>
 			</currency>
 			<currency type="CLE">
 				<displayName draft="contributed">チリ エスクード</displayName>
+				<displayName count="other" draft="contributed">チリ エスクード</displayName>
+				<symbol draft="contributed">CLE</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>チリ ウニダ・デ・フォメント (UF)</displayName>
+				<displayName count="other">チリ ウニダ・デ・フォメント (UF)</displayName>
+				<symbol draft="contributed">CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>チリ ペソ</displayName>
+				<displayName count="other">チリ ペソ</displayName>
+				<symbol>CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>中国人民元</displayName>
+				<displayName count="other">中国人民元</displayName>
 				<symbol>元</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>コロンビア ペソ</displayName>
+				<displayName count="other">コロンビア ペソ</displayName>
+				<symbol>COP</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>コロンビア レアル （UVR)</displayName>
+				<displayName count="other">コロンビア レアル （UVR)</displayName>
+				<symbol draft="contributed">COU</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>コスタリカ コロン</displayName>
+				<displayName count="other">コスタリカ コロン</displayName>
+				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>セルビア ディナール (2002-2006)</displayName>
+				<displayName count="other">セルビア ディナール (2002-2006)</displayName>
+				<symbol draft="contributed">CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>チェコスロバキア コルナ</displayName>
+				<displayName count="other">チェコスロバキア コルナ</displayName>
+				<symbol draft="contributed">CSK</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>キューバ 兌換ペソ</displayName>
+				<displayName count="other">キューバ 兌換ペソ</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>キューバ ペソ</displayName>
+				<displayName count="other">キューバ ペソ</displayName>
+				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>カーボベルデ エスクード</displayName>
+				<displayName count="other">カーボベルデ エスクード</displayName>
+				<symbol draft="contributed">CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>キプロス ポンド</displayName>
+				<displayName count="other">キプロス ポンド</displayName>
+				<symbol draft="contributed">CYP</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>チェコ コルナ</displayName>
+				<displayName count="other">チェコ コルナ</displayName>
+				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>東ドイツ マルク</displayName>
+				<displayName count="other">東ドイツ マルク</displayName>
+				<symbol draft="contributed">DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>ドイツ マルク</displayName>
+				<displayName count="other">ドイツ マルク</displayName>
+				<symbol draft="contributed">DEM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>ジブチ フラン</displayName>
+				<displayName count="other">ジブチ フラン</displayName>
+				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>デンマーク クローネ</displayName>
+				<displayName count="other">デンマーク クローネ</displayName>
+				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>ドミニカ ペソ</displayName>
+				<displayName count="other">ドミニカ ペソ</displayName>
+				<symbol>DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>アルジェリア ディナール</displayName>
+				<displayName count="other">アルジェリア ディナール</displayName>
+				<symbol>DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>エクアドル スクレ</displayName>
+				<displayName count="other">エクアドル スクレ</displayName>
+				<symbol draft="contributed">ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>エクアドル (UVC)</displayName>
+				<displayName count="other">エクアドル (UVC)</displayName>
+				<symbol draft="contributed">ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>エストニア クルーン</displayName>
+				<displayName count="other">エストニア クルーン</displayName>
+				<symbol draft="contributed">EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>エジプト ポンド</displayName>
+				<displayName count="other">エジプト ポンド</displayName>
+				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>エリトリア ナクファ</displayName>
+				<displayName count="other">エリトリア ナクファ</displayName>
+				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
-				<displayName>スペインペセタ</displayName>
+				<displayName>スペインペセタ（勘定A）</displayName>
+				<displayName count="other">スペインペセタ（勘定A）</displayName>
+				<symbol draft="contributed">ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName>スペイン 兌換ペセタ</displayName>
+				<displayName count="other">スペイン 兌換ペセタ</displayName>
+				<symbol draft="contributed">ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>スペイン ペセタ</displayName>
+				<displayName count="other">スペイン ペセタ</displayName>
+				<symbol draft="contributed">ESP</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>エチオピア ブル</displayName>
+				<displayName count="other">エチオピア ブル</displayName>
+				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>ユーロ</displayName>
+				<displayName count="other">ユーロ</displayName>
 				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>フィンランド マルカ</displayName>
+				<displayName count="other">フィンランド マルカ</displayName>
+				<symbol draft="contributed">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>フィジー諸島 ドル</displayName>
+				<displayName count="other">フィジー諸島 ドル</displayName>
+				<symbol>FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>フォークランド（マルビナス）諸島 ポンド</displayName>
+				<displayName count="other">フォークランド（マルビナス）諸島 ポンド</displayName>
+				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>フランス フラン</displayName>
+				<displayName count="other">フランス フラン</displayName>
+				<symbol draft="contributed">FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>英国ポンド</displayName>
+				<displayName count="other">英国ポンド</displayName>
 				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>グルジア クーポン ラリ</displayName>
+				<displayName count="other">グルジア クーポン ラリ</displayName>
+				<symbol draft="contributed">GEK</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>グルジア ラリ</displayName>
+				<displayName count="other">グルジア ラリ</displayName>
+				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>ガーナ セディ (1979-2007)</displayName>
+				<displayName count="other">ガーナ セディ (1979-2007)</displayName>
+				<symbol draft="contributed">GHC</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>ガーナ セディ</displayName>
+				<displayName count="other">ガーナ セディ</displayName>
+				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>ジブラルタル ポンド</displayName>
+				<displayName count="other">ジブラルタル ポンド</displayName>
+				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>ガンビア ダラシ</displayName>
+				<displayName count="other">ガンビア ダラシ</displayName>
+				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>ギニア フラン</displayName>
+				<displayName count="other">ギニア フラン</displayName>
+				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>ギニア シリー</displayName>
+				<displayName count="other">ギニア シリー</displayName>
+				<symbol draft="contributed">GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>赤道ギニア エクウェレ</displayName>
+				<displayName count="other">赤道ギニア エクウェレ</displayName>
+				<symbol draft="contributed">GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>ギリシャ ドラクマ</displayName>
+				<displayName count="other">ギリシャ ドラクマ</displayName>
+				<symbol draft="contributed">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>グアテマラ ケツァル</displayName>
+				<displayName count="other">グアテマラ ケツァル</displayName>
+				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>ポルトガル領ギニア エスクード</displayName>
+				<displayName count="other">ポルトガル領ギニア エスクード</displayName>
+				<symbol draft="contributed">GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>ギニアビサウ ペソ</displayName>
+				<displayName count="other">ギニアビサウ ペソ</displayName>
+				<symbol draft="contributed">GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>ガイアナ ドル</displayName>
+				<displayName count="other">ガイアナ ドル</displayName>
+				<symbol>GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>香港ドル</displayName>
+				<displayName count="other">香港ドル</displayName>
 				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>ホンジュラス レンピラ</displayName>
+				<displayName count="other">ホンジュラス レンピラ</displayName>
+				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>クロアチア ディナール</displayName>
+				<displayName count="other">クロアチア ディナール</displayName>
+				<symbol draft="contributed">HRD</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>クロアチア クーナ</displayName>
+				<displayName count="other">クロアチア クーナ</displayName>
+				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>ハイチ グールド</displayName>
+				<displayName count="other">ハイチ グールド</displayName>
+				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>ハンガリー フォリント</displayName>
+				<displayName count="other">ハンガリー フォリント</displayName>
+				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>インドネシア ルピア</displayName>
+				<displayName count="other">インドネシア ルピア</displayName>
+				<symbol>IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>アイリッシュ ポンド</displayName>
+				<displayName count="other">アイリッシュ ポンド</displayName>
+				<symbol draft="contributed">IEP</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>イスラエル ポンド</displayName>
+				<displayName count="other">イスラエル ポンド</displayName>
+				<symbol draft="contributed">ILP</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>イスラエル新シェケル</displayName>
+				<displayName count="other">イスラエル新シェケル</displayName>
 				<symbol>₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>インド ルピー</displayName>
+				<displayName count="other">インド ルピー</displayName>
 				<symbol>₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>イラク ディナール</displayName>
+				<displayName count="other">イラク ディナール</displayName>
+				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>イラン リアル</displayName>
+				<displayName count="other">イラン リアル</displayName>
+				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>アイスランド クローナ</displayName>
+				<displayName count="other">アイスランド クローナ</displayName>
+				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>イタリア リラ</displayName>
+				<displayName count="other">イタリア リラ</displayName>
+				<symbol draft="contributed">ITL</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>ジャマイカ ドル</displayName>
+				<displayName count="other">ジャマイカ ドル</displayName>
+				<symbol>JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>ヨルダン ディナール</displayName>
+				<displayName count="other">ヨルダン ディナール</displayName>
+				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>日本円</displayName>
+				<displayName count="other">円</displayName>
 				<symbol>￥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>ケニア シリング</displayName>
+				<displayName count="other">ケニア シリング</displayName>
+				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>キルギスタン ソム</displayName>
+				<displayName count="other">キルギスタン ソム</displayName>
+				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>カンボジア リエル</displayName>
+				<displayName count="other">カンボジア リエル</displayName>
+				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>コモロ フラン</displayName>
+				<displayName count="other">コモロ フラン</displayName>
+				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>北朝鮮 ウォン</displayName>
+				<displayName count="other">北朝鮮 ウォン</displayName>
+				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRH">
 				<displayName draft="contributed">韓国 ファン（1953-1962）</displayName>
+				<displayName count="other" draft="contributed">韓国 ファン（1953-1962）</displayName>
+				<symbol draft="contributed">KRH</symbol>
 			</currency>
 			<currency type="KRO">
 				<displayName draft="contributed">韓国 ウォン（1945-1953）</displayName>
+				<displayName count="other" draft="contributed">韓国 ウォン（1945-1953）</displayName>
+				<symbol draft="contributed">KRO</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>韓国 ウォン</displayName>
+				<displayName count="other">韓国 ウォン</displayName>
 				<symbol>￦</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>クウェート ディナール</displayName>
+				<displayName count="other">クウェート ディナール</displayName>
+				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>ケイマン諸島 ドル</displayName>
+				<displayName count="other">ケイマン諸島 ドル</displayName>
+				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>カザフスタン テンゲ</displayName>
+				<displayName count="other">カザフスタン テンゲ</displayName>
+				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>ラオス キープ</displayName>
+				<displayName count="other">ラオス キープ</displayName>
+				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>レバノン ポンド</displayName>
+				<displayName count="other">レバノン ポンド</displayName>
+				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>スリランカ ルピー</displayName>
+				<displayName count="other">スリランカ ルピー</displayName>
+				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>リベリア ドル</displayName>
+				<displayName count="other">リベリア ドル</displayName>
+				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>レソト ロティ</displayName>
+				<displayName count="other">レソト ロティ</displayName>
+				<symbol draft="contributed">LSL</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>リトアニア リタス</displayName>
+				<displayName count="other">リトアニア リタス</displayName>
+				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>リトアニア タロナ</displayName>
+				<displayName count="other">リトアニア タロナ</displayName>
+				<symbol draft="contributed">LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName>ルクセンブルク 兌換フラン</displayName>
+				<displayName count="other">ルクセンブルク 兌換フラン</displayName>
+				<symbol draft="contributed">LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>ルクセンブルグ フラン</displayName>
+				<displayName count="other">ルクセンブルグ フラン</displayName>
+				<symbol draft="contributed">LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName>ルクセンブルク 金融フラン</displayName>
+				<displayName count="other">ルクセンブルク 金融フラン</displayName>
+				<symbol draft="contributed">LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>ラトビア ラッツ</displayName>
+				<displayName count="other">ラトビア ラッツ</displayName>
+				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>ラトビア ルーブル</displayName>
+				<displayName count="other">ラトビア ルーブル</displayName>
+				<symbol draft="contributed">LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>リビア ディナール</displayName>
+				<displayName count="other">リビア ディナール</displayName>
+				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>モロッコ ディルハム</displayName>
+				<displayName count="other">モロッコ ディルハム</displayName>
+				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>モロッコ フラン</displayName>
+				<displayName count="other">モロッコ フラン</displayName>
+				<symbol draft="contributed">MAF</symbol>
 			</currency>
 			<currency type="MCF">
 				<displayName draft="contributed">モネガスク フラン</displayName>
+				<displayName count="other" draft="contributed">モネガスク フラン</displayName>
+				<symbol draft="contributed">MCF</symbol>
 			</currency>
 			<currency type="MDC">
 				<displayName draft="contributed">モルドバ クーポン</displayName>
+				<displayName count="other" draft="contributed">モルドバ クーポン</displayName>
+				<symbol draft="contributed">MDC</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>モルドバ レイ</displayName>
+				<displayName count="other">モルドバ レイ</displayName>
+				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>マダガスカル アリアリ</displayName>
+				<displayName count="other">マダガスカル アリアリ</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>マラガシ フラン</displayName>
+				<displayName count="other">マラガシ フラン</displayName>
+				<symbol draft="contributed">MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>マケドニア デナル</displayName>
+				<displayName count="other">マケドニア デナル</displayName>
+				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MKN">
 				<displayName draft="contributed">マケドニア ディナール（1992-1993）</displayName>
+				<displayName count="other" draft="contributed">マケドニア ディナール（1992-1993）</displayName>
+				<symbol draft="contributed">MKN</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>マリ フラン</displayName>
+				<displayName count="other">マリ フラン</displayName>
+				<symbol draft="contributed">MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>ミャンマー チャット</displayName>
+				<displayName count="other">ミャンマー チャット</displayName>
+				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>モンゴル トグログ</displayName>
+				<displayName count="other">モンゴル トグログ</displayName>
+				<symbol>MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>マカオ パタカ</displayName>
+				<displayName count="other">マカオ パタカ</displayName>
+				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>モーリタニア ウギア</displayName>
+				<displayName count="other">モーリタニア ウギア</displayName>
+				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>マルタ リラ</displayName>
+				<displayName count="other">マルタ リラ</displayName>
+				<symbol draft="contributed">MTL</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>マルタ ポンド</displayName>
+				<displayName count="other">マルタ ポンド</displayName>
+				<symbol draft="contributed">MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>モーリシャス ルピー</displayName>
+				<displayName count="other">モーリシャス ルピー</displayName>
+				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>モルディブ諸島 ルフィア</displayName>
+				<displayName count="other">モルディブ諸島 ルフィア</displayName>
+				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>マラウィ クワチャ</displayName>
+				<displayName count="other">マラウィ クワチャ</displayName>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>メキシコ ペソ</displayName>
+				<displayName count="other">メキシコ ペソ</displayName>
 				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>メキシコ ペソ (1861-1992)</displayName>
+				<displayName count="other">メキシコ ペソ (1861-1992)</displayName>
+				<symbol draft="contributed">MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName>メキシコ (UDI)</displayName>
+				<displayName count="other">メキシコ (UDI)</displayName>
+				<symbol draft="contributed">MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>マレーシア リンギット</displayName>
+				<displayName count="other">マレーシア リンギット</displayName>
+				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>モザンピーク エスクード</displayName>
+				<displayName count="other">モザンピーク エスクード</displayName>
+				<symbol draft="contributed">MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>モザンビーク メティカル (1980-2006)</displayName>
+				<displayName count="other">モザンビーク メティカル (1980-2006)</displayName>
+				<symbol draft="contributed">MZM</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>モザンビーク メティカル</displayName>
+				<displayName count="other">モザンビーク メティカル</displayName>
+				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>ナミビア ドル</displayName>
+				<displayName count="other">ナミビア ドル</displayName>
+				<symbol>NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>ナイジェリア ナイラ</displayName>
+				<displayName count="other">ナイジェリア ナイラ</displayName>
+				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>ニカラグア コルドバ (1988-1991)</displayName>
+				<displayName count="other">ニカラグア コルドバ (1988-1991)</displayName>
+				<symbol draft="contributed">NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>ニカラグア コルドバ オロ</displayName>
+				<displayName count="other">ニカラグア コルドバ オロ</displayName>
+				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>オランダ ギルダー</displayName>
+				<displayName count="other">オランダ ギルダー</displayName>
+				<symbol draft="contributed">NLG</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>ノルウェー クローネ</displayName>
+				<displayName count="other">ノルウェー クローネ</displayName>
+				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>ネパール ルピー</displayName>
+				<displayName count="other">ネパール ルピー</displayName>
+				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>ニュージーランド ドル</displayName>
+				<displayName count="other">ニュージーランド ドル</displayName>
 				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>オマーン リアル</displayName>
+				<displayName count="other">オマーン リアル</displayName>
+				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>パナマ バルボア</displayName>
+				<displayName count="other">パナマ バルボア</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>ペルー インティ</displayName>
+				<displayName count="other">ペルー インティ</displayName>
+				<symbol draft="contributed">PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>ペルー 新ソル</displayName>
+				<displayName count="other">ペルー 新ソル</displayName>
+				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>ペルー ソル (1863-1965)</displayName>
+				<displayName count="other">ペルー ソル (1863-1965)</displayName>
+				<symbol draft="contributed">PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>パプアニューギニア キナ</displayName>
+				<displayName count="other">パプアニューギニア キナ</displayName>
+				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>フィリピン ペソ</displayName>
+				<displayName count="other">フィリピン ペソ</displayName>
+				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>パキスタン ルピー</displayName>
+				<displayName count="other">パキスタン ルピー</displayName>
+				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>ポーランド ズウォティ</displayName>
+				<displayName count="other">ポーランド ズウォティ</displayName>
+				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>ポーランド ズウォティ (1950-1995)</displayName>
+				<displayName count="other">ポーランド ズウォティ (1950-1995)</displayName>
+				<symbol draft="contributed">PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>ポルトガル エスクード</displayName>
+				<displayName count="other">ポルトガル エスクード</displayName>
+				<symbol draft="contributed">PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>パラグアイ グアラニ</displayName>
+				<displayName count="other">パラグアイ グアラニ</displayName>
+				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>カタール リアル</displayName>
+				<displayName count="other">カタール リアル</displayName>
+				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>ローデシア ドル</displayName>
+				<displayName count="other">ローデシア ドル</displayName>
+				<symbol draft="contributed">RHD</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>ルーマニア レイ (1952-2006)</displayName>
+				<displayName count="other">ルーマニア レイ (1952-2006)</displayName>
+				<symbol draft="contributed">ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>ルーマニア レイ</displayName>
+				<displayName count="other">ルーマニア レイ</displayName>
+				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>ディナール (セルビア)</displayName>
+				<displayName count="other">ディナール (セルビア)</displayName>
+				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>ロシア ルーブル</displayName>
+				<displayName count="other">ロシア ルーブル</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>ロシア ルーブル (1991-1998)</displayName>
+				<displayName count="other">ロシア ルーブル (1991-1998)</displayName>
+				<symbol draft="contributed">RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>ルワンダ フラン</displayName>
+				<displayName count="other">ルワンダ フラン</displayName>
+				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>サウジ リヤル</displayName>
+				<displayName count="other">サウジ リヤル</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>ソロモン諸島 ドル</displayName>
+				<displayName count="other">ソロモン諸島 ドル</displayName>
+				<symbol>SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>セーシェル ルピー</displayName>
+				<displayName count="other">セーシェル ルピー</displayName>
+				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>スーダン ディナール (1992-2007)</displayName>
+				<displayName count="other">スーダン ディナール (1992-2007)</displayName>
+				<symbol draft="contributed">SDD</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>スーダン ポンド</displayName>
+				<displayName count="other">スーダン ポンド</displayName>
+				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>スーダン ポンド (1957-1998)</displayName>
+				<displayName count="other">スーダン ポンド (1957-1998)</displayName>
+				<symbol draft="contributed">SDP</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>スウェーデン クローナ</displayName>
+				<displayName count="other">スウェーデン クローナ</displayName>
+				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>シンガポール ドル</displayName>
+				<displayName count="other">シンガポール ドル</displayName>
+				<symbol>SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>セントヘレナ島 ポンド</displayName>
+				<displayName count="other">セントヘレナ島 ポンド</displayName>
+				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>スロベニア トラール</displayName>
+				<displayName count="other">スロベニア トラール</displayName>
+				<symbol draft="contributed">SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>スロバキア コルナ</displayName>
+				<displayName count="other">スロバキア コルナ</displayName>
+				<symbol draft="contributed">SKK</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>シエラレオネ レオン</displayName>
+				<displayName count="other">シエラレオネ レオン</displayName>
+				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>ソマリア シリング</displayName>
+				<displayName count="other">ソマリア シリング</displayName>
+				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>スリナム ドル</displayName>
+				<displayName count="other">スリナム ドル</displayName>
+				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>スリナム ギルダー</displayName>
+				<displayName count="other">スリナム ギルダー</displayName>
+				<symbol draft="contributed">SRG</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>南スーダン・ポンド</displayName>
+				<displayName count="other">南スーダン・ポンド</displayName>
+				<symbol>SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>サントメ・プリンシペ ドブラ</displayName>
+				<displayName count="other">サントメ・プリンシペ ドブラ</displayName>
+				<symbol>STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>ソ連 ルーブル</displayName>
+				<displayName count="other">ソ連 ルーブル</displayName>
+				<symbol draft="contributed">SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>エルサルバドル コロン</displayName>
+				<displayName count="other">エルサルバドル コロン</displayName>
+				<symbol draft="contributed">SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>シリア ポンド</displayName>
+				<displayName count="other">シリア ポンド</displayName>
+				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>スワジランド リランゲニ</displayName>
+				<displayName count="other">スワジランド リランゲニ</displayName>
+				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>タイ バーツ</displayName>
+				<displayName count="other">タイ バーツ</displayName>
 				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>タジキスタン ルーブル</displayName>
+				<displayName count="other">タジキスタン ルーブル</displayName>
+				<symbol draft="contributed">TJR</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>タジキスタン ソモニ</displayName>
+				<displayName count="other">タジキスタン ソモニ</displayName>
+				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>トルクメニスタン マナト (1993-2009)</displayName>
+				<displayName count="other">トルクメニスタン マナト (1993-2009)</displayName>
+				<symbol draft="contributed">TMM</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName>トルクメニスタン マナト</displayName>
+				<displayName count="other">トルクメニスタン マナト</displayName>
+				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>チュニジア ディナール</displayName>
+				<displayName count="other">チュニジア ディナール</displayName>
+				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>トンガ パ・アンガ</displayName>
+				<displayName count="other">トンガ パ・アンガ</displayName>
+				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>ティモール エスクード</displayName>
+				<displayName count="other">ティモール エスクード</displayName>
+				<symbol draft="contributed">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>トルコ リラ (1922-2005)</displayName>
+				<displayName count="other">トルコ リラ (1922-2005)</displayName>
+				<symbol draft="contributed">TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>新トルコリラ</displayName>
+				<displayName count="other">新トルコリラ</displayName>
+				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>トリニダードトバゴ ドル</displayName>
+				<displayName count="other">トリニダードトバゴ ドル</displayName>
+				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>新台湾ドル</displayName>
+				<displayName count="other">新台湾ドル</displayName>
 				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>タンザニア シリング</displayName>
+				<displayName count="other">タンザニア シリング</displayName>
+				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>ウクライナ グリブナ</displayName>
+				<displayName count="other">ウクライナ グリブナ</displayName>
+				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>ウクライナ カルボバネツ</displayName>
+				<displayName count="other">ウクライナ カルボバネツ</displayName>
+				<symbol draft="contributed">UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>ウガンダ シリング (1966-1987)</displayName>
+				<displayName count="other">ウガンダ シリング (1966-1987)</displayName>
+				<symbol draft="contributed">UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>ウガンダ シリング</displayName>
+				<displayName count="other">ウガンダ シリング</displayName>
+				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>米ドル</displayName>
+				<displayName count="other">米ドル</displayName>
 				<symbol>$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>米ドル (翌日)</displayName>
+				<displayName count="other">米ドル (翌日)</displayName>
+				<symbol draft="contributed">USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>米ドル (当日)</displayName>
+				<displayName count="other">米ドル (当日)</displayName>
+				<symbol draft="contributed">USS</symbol>
 			</currency>
 			<currency type="UYI">
 				<displayName draft="contributed">ウルグアイ ペソエン</displayName>
+				<displayName count="other" draft="contributed">ウルグアイ ペソエン</displayName>
+				<symbol draft="contributed">UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>ウルグアイ ペソ (1975-1993)</displayName>
+				<displayName count="other">ウルグアイ ペソ (1975-1993)</displayName>
+				<symbol draft="contributed">UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>ウルグアイ ペソ</displayName>
+				<displayName count="other">ウルグアイ ペソ</displayName>
+				<symbol>UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>ウズベキスタン スム</displayName>
+				<displayName count="other">ウズベキスタン スム</displayName>
+				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>ベネズエラ ボリバル (1871-2008)</displayName>
+				<displayName count="other">ベネズエラ ボリバル (1871-2008)</displayName>
+				<symbol draft="contributed">VEB</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>ベネズエラ ボリバル</displayName>
+				<displayName count="other">ベネズエラ ボリバル</displayName>
+				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>ベトナム ドン</displayName>
+				<displayName count="other">ベトナム ドン</displayName>
 				<symbol>₫</symbol>
 			</currency>
 			<currency type="VNN">
 				<displayName draft="contributed">ベトナム ドン（1978-1985）</displayName>
+				<displayName count="other" draft="contributed">ベトナム ドン（1978-1985）</displayName>
+				<symbol draft="contributed">VNN</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>バヌアツ バツ</displayName>
+				<displayName count="other">バヌアツ バツ</displayName>
+				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>サモア タラ</displayName>
+				<displayName count="other">サモア タラ</displayName>
+				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA フラン（BEAC）</displayName>
+				<displayName count="other">CFA フラン（BEAC）</displayName>
 				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>銀</displayName>
+				<displayName count="other">銀</displayName>
+				<symbol draft="contributed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>金</displayName>
+				<displayName count="other">金</displayName>
+				<symbol draft="contributed">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>ヨーロッパ混合単位 (EURCO)</displayName>
+				<displayName count="other">ヨーロッパ混合単位 (EURCO)</displayName>
+				<symbol draft="contributed">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>ヨーロッパ通貨単位 (EMU-6)</displayName>
+				<displayName count="other">ヨーロッパ通貨単位 (EMU-6)</displayName>
+				<symbol draft="contributed">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>ヨーロッパ勘定単位 (EUA-9)</displayName>
+				<displayName count="other">ヨーロッパ勘定単位 (EUA-9)</displayName>
+				<symbol draft="contributed">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>ヨーロッパ勘定単位 (EUA-17)</displayName>
+				<displayName count="other">ヨーロッパ勘定単位 (EUA-17)</displayName>
+				<symbol draft="contributed">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>東カリブ ドル</displayName>
+				<displayName count="other">東カリブ ドル</displayName>
 				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>特別引き出し権</displayName>
+				<displayName count="other">特別引き出し権</displayName>
+				<symbol draft="contributed">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>ヨーロッパ通貨単位</displayName>
+				<displayName count="other">ヨーロッパ通貨単位</displayName>
+				<symbol draft="contributed">XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>フランス金フラン</displayName>
+				<displayName count="other">フランス金フラン</displayName>
+				<symbol draft="contributed">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>フランス フラン (UIC)</displayName>
+				<displayName count="other">フランス フラン (UIC)</displayName>
+				<symbol draft="contributed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA フラン（BCEAO）</displayName>
+				<displayName count="other">CFA フラン（BCEAO）</displayName>
 				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>パラジウム</displayName>
+				<displayName count="other">パラジウム</displayName>
+				<symbol draft="contributed">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP フラン</displayName>
+				<displayName count="other">CFP フラン</displayName>
 				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>プラチナ</displayName>
+				<displayName count="other">プラチナ</displayName>
+				<symbol draft="contributed">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET基金</displayName>
+				<displayName count="other">RINET基金</displayName>
+				<symbol draft="contributed">XRE</symbol>
+			</currency>
+			<currency type="XSU">
+				<displayName draft="contributed">スクレ</displayName>
+				<displayName count="other" draft="contributed">スクレ</displayName>
 			</currency>
 			<currency type="XTS">
 				<displayName>テスト用通貨コード</displayName>
+				<displayName count="other">テスト用通貨コード</displayName>
+				<symbol draft="contributed">XTS</symbol>
+			</currency>
+			<currency type="XUA">
+				<displayName draft="contributed">UA (アフリカ開発銀行)</displayName>
+				<displayName count="other" draft="contributed">UA (アフリカ開発銀行)</displayName>
 			</currency>
 			<currency type="XXX">
 				<displayName>不明または無効な通貨</displayName>
+				<displayName count="other">不明または無効な通貨</displayName>
+				<symbol draft="contributed">XXX</symbol>
 			</currency>
 			<currency type="YDD">
 				<displayName>イエメン ディナール</displayName>
+				<displayName count="other">イエメン ディナール</displayName>
+				<symbol draft="contributed">YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>イエメン リアル</displayName>
+				<displayName count="other">イエメン リアル</displayName>
+				<symbol>YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>ユーゴスラビア ハード・ディナール (1966-1990)</displayName>
+				<displayName count="other">ユーゴスラビア ハード・ディナール (1966-1990)</displayName>
+				<symbol draft="contributed">YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>ユーゴスラビア ノビ・ディナール (1994-2002)</displayName>
+				<displayName count="other">ユーゴスラビア ノビ・ディナール (1994-2002)</displayName>
+				<symbol draft="contributed">YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>ユーゴスラビア 兌換ディナール (1990-1992)</displayName>
+				<displayName count="other">ユーゴスラビア 兌換ディナール (1990-1992)</displayName>
+				<symbol draft="contributed">YUN</symbol>
 			</currency>
 			<currency type="YUR">
 				<displayName draft="contributed">ユーゴスラビア 改革ディナール（1992-1993）</displayName>
+				<displayName count="other" draft="contributed">ユーゴスラビア 改革ディナール（1992-1993）</displayName>
+				<symbol draft="contributed">YUR</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>南アフリカ ランド (ZAL)</displayName>
+				<displayName count="other">南アフリカ ランド (ZAL)</displayName>
+				<symbol draft="contributed">ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>南アフリカ ランド</displayName>
+				<displayName count="other">南アフリカ ランド</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>ザンビア クワチャ (1968-2012)</displayName>
+				<displayName count="other">ザンビア クワチャ (1968-2012)</displayName>
+				<symbol draft="contributed">ZMK</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName>ザンビア クワチャ</displayName>
+				<displayName count="other">ザンビア クワチャ</displayName>
+				<symbol>ZMW</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>ザイール 新ザイール (1993-1998)</displayName>
+				<displayName count="other">ザイール 新ザイール (1993-1998)</displayName>
+				<symbol draft="contributed">ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>ザイール ザイール (1971-1993)</displayName>
+				<displayName count="other">ザイール ザイール (1971-1993)</displayName>
+				<symbol draft="contributed">ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>ジンバブエ ドル (1980-2008)</displayName>
+				<displayName count="other">ジンバブエ ドル (1980-2008)</displayName>
+				<symbol draft="contributed">ZWD</symbol>
 			</currency>
 			<currency type="ZWL">
 				<displayName>ジンバブエ ドル (2009)</displayName>
+				<displayName count="other">ジンバブエ ドル (2009)</displayName>
+				<symbol draft="contributed">ZWL</symbol>
 			</currency>
 			<currency type="ZWR">
 				<displayName>シンバブエ ドル（2008）</displayName>
+				<displayName count="other">シンバブエ ドル（2008）</displayName>
+				<symbol draft="contributed">ZWR</symbol>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast">{0} 以上</pattern>
+			<pattern type="range">{0}～{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other">{0} G フォース</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0} 度</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other">{0} 分</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other">{0} 秒</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0} エーカー</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0} ヘクタール</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0} 平方フィート</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0} 平方キロメートル</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other">{0} 平方メートル</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0} 平方マイル</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="other">{0} 日</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other">{0} 日後</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other">{0} 日前</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0} 時間</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other">{0} 時間後</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other">{0} 時間前</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0} ミリ秒</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0} 分</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other">{0} 分後</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other">{0} 分前</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} か月</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other">{0} か月後</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other">{0} か月前</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0} 秒</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other">{0} 秒後</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other">{0} 秒前</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} 週間</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other" draft="contributed">{0} 週間後</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other">{0} 週間前</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0} 年</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other">{0} 年後</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other">{0} 年前</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other">{0} センチメートル</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other">{0} フィート</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other">{0} インチ</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other">{0} キロメートル</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0} 光年</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other">{0} メートル</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other">{0} マイル</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other">{0} ミリメートル</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other">{0} ピコメートル</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other">{0} ヤード</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other">{0} グラム</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other">{0} キログラム</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0} オンス</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0} ポンド</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0} 馬力</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other">{0} キロワット</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other">{0} ワット</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0} ヘクトパスカル</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0} 水銀柱インチ</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0} ミリバール</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other">時速 {0} キロ</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other">秒速 {0} メートル</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other">時速 {0} マイル</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other">摂氏 {0} 度</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other">華氏 {0} 度</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0} 立方キロメートル</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other">{0} 立法マイル</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other">{0} リットル</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0} 度</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other">{0} 分</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other">{0} 秒</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0} エーカー</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0} ヘクタール</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0} 平方フィート</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other">{0} m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0} 平方マイル</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="other">{0} 日</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other">{0} 日後</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other">{0} 日前</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0} 時間</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other">{0} 時間後</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other">{0} 時間前</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0} ms</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0} 分</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other">{0} 分後</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other">{0} 分前</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} か月</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other">{0} か月後</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other">{0} か月前</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0} 秒</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other">{0} 秒後</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other">{0} 秒前</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} 週間</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other">{0} 週間後</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other">{0} 週間前</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0} 年</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other">{0} 年後</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other">{0} 年前</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other">{0} cm</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other">{0} フィート</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other">{0} インチ</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other">{0} km</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0} 光年</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other">{0} マイル</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other">{0} mm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other">{0} pm</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other">{0} ヤード</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other">{0} kg</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0} オンス</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0} ポンド</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0} 馬力</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other">{0} kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0} mb</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other">{0} km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other">{0} m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other">{0} mi/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other">{0} l</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern>h:mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern>m:ss</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other">{0}g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0}ac</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0}ha</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0}ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0}km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other">{0}m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0}mi²</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="other">{0}日</unitPattern>
 			</unit>
@@ -6567,6 +8127,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-hour-past">
 				<unitPattern count="other">{0}時間前</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0}ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="other">{0}分</unitPattern>
@@ -6596,13 +8159,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}秒前</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="other">{0}週</unitPattern>
+				<unitPattern count="other">{0}週間</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
-				<unitPattern count="other">{0} 週間後</unitPattern>
+				<unitPattern count="other">{0}週間後</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
-				<unitPattern count="other">{0}週前</unitPattern>
+				<unitPattern count="other">{0}週間前</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0}年</unitPattern>
@@ -6613,28 +8176,89 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-year-past">
 				<unitPattern count="other">{0}年前</unitPattern>
 			</unit>
-		</unitLength>
-		<unitLength type="short">
-			<unit type="duration-day">
-				<unitPattern count="other">{0}日</unitPattern>
+			<unit type="length-centimeter">
+				<unitPattern count="other">{0}cm</unitPattern>
 			</unit>
-			<unit type="duration-hour">
-				<unitPattern count="other">{0}時間</unitPattern>
+			<unit type="length-foot">
+				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
-			<unit type="duration-minute">
-				<unitPattern count="other">{0}分</unitPattern>
+			<unit type="length-inch">
+				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
-			<unit type="duration-month">
-				<unitPattern count="other">{0}か月</unitPattern>
+			<unit type="length-kilometer">
+				<unitPattern count="other">{0}km</unitPattern>
 			</unit>
-			<unit type="duration-second">
-				<unitPattern count="other">{0}秒</unitPattern>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0}光年</unitPattern>
 			</unit>
-			<unit type="duration-week">
-				<unitPattern count="other">{0}週</unitPattern>
+			<unit type="length-meter">
+				<unitPattern count="other">{0}m</unitPattern>
 			</unit>
-			<unit type="duration-year">
-				<unitPattern count="other">{0}年</unitPattern>
+			<unit type="length-mile">
+				<unitPattern count="other">{0}マイル</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other">{0}mm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other">{0}pm</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other">{0}ヤード</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other">{0}g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other">{0}kg</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0}oz</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0}lb</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0}hp</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other">{0}kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other">{0}W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0}hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0}&quot; Hg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0}mb</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other">{0}km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other">{0}m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other">{0}mi/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0}km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other">{0}mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other">{0}l</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
@@ -6645,6 +8269,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="end" draft="contributed">{0}、{1}</listPatternPart>
 			<listPatternPart type="2" draft="contributed">{0}、{1}</listPatternPart>
 		</listPattern>
+		<listPattern type="duration">
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration-short">
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
+		</listPattern>
 	</listPatterns>
 	<posix>
 		<messages>
@@ -6653,4 +8289,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

@@ -14,6 +14,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>{0}, {1}</localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">અફાર</language>
@@ -26,6 +27,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="af">આફ્રિકન્સ</language>
 			<language type="afa">અફ્રો-એશિયાટીક ભાષાઓ</language>
 			<language type="afh">અફ્રિહિલી</language>
+			<language type="agq" draft="unconfirmed">agq</language>
 			<language type="ain">એનૂ</language>
 			<language type="ak">અકાન</language>
 			<language type="akk">અક્કાદીયાન</language>
@@ -38,6 +40,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="anp">અંગીકા</language>
 			<language type="apa">અપાચે ભાષા</language>
 			<language type="ar">અરબી</language>
+			<language type="ar_001">મોડર્ન સ્ટાન્ડર્ડ અરબી</language>
 			<language type="arc">અર્માઇક</language>
 			<language type="arn">એરોકૈનિયન</language>
 			<language type="arp">અરાપાહો</language>
@@ -59,6 +62,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ban">બાલિનીસ</language>
 			<language type="bas">બસા</language>
 			<language type="bat">બાલ્ટિક ભાષા</language>
+			<language type="bax" draft="unconfirmed">બામન</language>
 			<language type="be">બેલારુશિયન</language>
 			<language type="bej">બેજા</language>
 			<language type="bem">બેમ્બા</language>
@@ -73,9 +77,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bm">બામ્બારા</language>
 			<language type="bn">બંગાળી</language>
 			<language type="bnt">બન્ટુ</language>
-			<language type="bo">તિબેટી</language>
+			<language type="bo">તિબેટીયન</language>
 			<language type="br">બ્રેટોન</language>
 			<language type="bra">બ્રજ</language>
+			<language type="brx" draft="unconfirmed">બોડો</language>
 			<language type="bs">બોસ્નિયન</language>
 			<language type="btk">બતાક</language>
 			<language type="bua">બુરિયાત</language>
@@ -145,12 +150,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU">ઓસ્ટ્રેલિયન અંગ્રેજી</language>
 			<language type="en_CA">કેનેડિયન અંગ્રેજી</language>
 			<language type="en_GB">બ્રિટિશ અંગ્રેજી</language>
-			<language type="en_US">યુ એસ અંગ્રેજી</language>
+			<language type="en_GB" alt="short">યુ.કે. અંગ્રેજી</language>
+			<language type="en_US">અમેરિકન અંગ્રેજી</language>
+			<language type="en_US" alt="short">યુ. એસ. અંગ્રેજી</language>
 			<language type="enm">મિડિલ અંગ્રેજી</language>
 			<language type="eo">એસ્પેરાન્ટો</language>
 			<language type="es">સ્પેનિશ</language>
 			<language type="es_419">લેટિન અમેરિકન સ્પેનિશ</language>
 			<language type="es_ES">યુરોપિયન સ્પેનિશ</language>
+			<language type="es_MX">મેક્સિકન સ્પેનિશ</language>
 			<language type="et">એસ્ટોનિયન</language>
 			<language type="eu">બાસ્ક</language>
 			<language type="ewo">ઇવોન્ડો</language>
@@ -271,7 +279,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="kut">કુતેનાઇ</language>
 			<language type="kv">કોમી</language>
 			<language type="kw">કોર્નિશ</language>
-			<language type="ky">કિરગીઝ</language>
+			<language type="ky">કિર્ગીઝ</language>
 			<language type="la">લેટિન</language>
 			<language type="lad">લાદીનો</language>
 			<language type="lah">લાહન્ડા</language>
@@ -393,7 +401,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="raj">રાજસ્થાની</language>
 			<language type="rap">રાપાનુઇ</language>
 			<language type="rar">રારોટોંગન</language>
-			<language type="rm">રહેટો રોમાન્સ</language>
+			<language type="rm">રોમાન્સ</language>
 			<language type="rn">રૂન્દી</language>
 			<language type="ro">રોમાનિયન</language>
 			<language type="roa">રોમાંસ ભાષા</language>
@@ -489,8 +497,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ty">તાહિતિયન</language>
 			<language type="tyv">ટુવીનિયન</language>
 			<language type="udm">ઉદમુર્ત</language>
-			<language type="ug">ઇગુર</language>
-			<language type="ug" alt="variant">વિઘર</language>
+			<language type="ug">ઉઇગુર</language>
+			<language type="ug" alt="variant">ઉઇગુર</language>
 			<language type="uga">યુગેરિટિક</language>
 			<language type="uk">યુક્રેનિયન</language>
 			<language type="umb">ઉમ્બુન્ડૂ</language>
@@ -521,9 +529,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="zap">ઝેપોટેક</language>
 			<language type="zbl">બ્લિસિમ્બોલ્સ</language>
 			<language type="zen">ઝેનાગા</language>
+			<language type="zgh">પ્રમાણભૂત મોરોક્કન ટમાઝિટ</language>
 			<language type="zh">ચાઇનીઝ</language>
-			<language type="zh_Hans">સરળીકૃત ચિની</language>
-			<language type="zh_Hant">પારંપરિક ચિની</language>
+			<language type="zh_Hans">સરળીકૃત ચાઇનીઝ</language>
+			<language type="zh_Hant">પારંપરિક ચાઇનીઝ</language>
 			<language type="znd">ઝન્ડે</language>
 			<language type="zu">ઝુલુ</language>
 			<language type="zun">ઝૂની</language>
@@ -694,7 +703,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="151">પૂર્વી યૂરોપ</territory>
 			<territory type="154">ઉતરીય યૂરોપ</territory>
 			<territory type="155">પશ્ચિમ યૂરોપ</territory>
-			<territory type="419">લેટિન અમેરિકા અને કેરીબિયન</territory>
+			<territory type="419">લેટિન અમેરિકા</territory>
 			<territory type="AC">એસેન્શન આઇલેન્ડ</territory>
 			<territory type="AD">ઍંડોરા</territory>
 			<territory type="AE">યુનાઇટેડ અરબ એમિરેટ્સ</territory>
@@ -782,6 +791,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FR">ફ્રાંસ</territory>
 			<territory type="GA">ગેબન</territory>
 			<territory type="GB">યુનાઇટેડ કિંગડમ</territory>
+			<territory type="GB" alt="short">યુ.કે.</territory>
 			<territory type="GD">ગ્રેનેડા</territory>
 			<territory type="GE">જ્યોર્જીયા</territory>
 			<territory type="GF">ફ્રેંચ ગયાના</territory>
@@ -851,7 +861,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MG">મેડાગાસ્કર</territory>
 			<territory type="MH">માર્શલ આઇલેન્ડ્સ</territory>
 			<territory type="MK">મેસેડોનિયા</territory>
-			<territory type="MK" alt="variant">મેસેડોનિયા [ફાયરોમ]</territory>
+			<territory type="MK" alt="variant">મેસેડોનિયા [FYROM]</territory>
 			<territory type="ML">માલી</territory>
 			<territory type="MM">મ્યાંમાર</territory>
 			<territory type="MN">મંગોલિયા</territory>
@@ -944,8 +954,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TZ">તાંઝાનિયા</territory>
 			<territory type="UA">યૂક્રેન</territory>
 			<territory type="UG">યુગાંડા</territory>
-			<territory type="UM">સંયુક્ત રાજ્ય માઇનર આઉટલાઇંગ આયલેન્ડ</territory>
+			<territory type="UM">સંયુક્ત રાજ્ય આઉટલાઇંગ આયલેન્ડ્સ</territory>
 			<territory type="US">સંયુકત રાજ્ય/ અમેરિકા</territory>
+			<territory type="US" alt="short">યુ.એસ.</territory>
 			<territory type="UY">ઉરુગ્વે</territory>
 			<territory type="UZ">ઉઝ્બેકિસ્તાન</territory>
 			<territory type="VA">વેટિકન</territory>
@@ -963,14 +974,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="ZA">દક્ષિણ આફ્રિકા</territory>
 			<territory type="ZM">ઝામ્બિયા</territory>
 			<territory type="ZW">ઝિમ્બાબ્વે</territory>
-			<territory type="ZZ">અજ્ઞાત અથવા અમાન્ય પ્રદેશ</territory>
+			<territory type="ZZ">અજ્ઞાત પ્રદેશ</territory>
 		</territories>
 		<variants>
 			<variant type="PINYIN">પિનયિન રોમનાઇઝેશન</variant>
 			<variant type="WADEGILE">વેડ-ગિલ્સ રોમનાઇઝેશન</variant>
 		</variants>
 		<keys>
-			<key type="calendar" draft="contributed">કેલેન્ડર</key>
+			<key type="calendar">કેલેન્ડર</key>
 			<key type="colAlternate">પ્રતીકોની સૉર્ટિંગને અવગણો</key>
 			<key type="colBackwards">વિપરીત એક્સેંટ સૉર્ટિંગ</key>
 			<key type="colCaseFirst">અપરકેસ/લોઅરકેસ ક્રમાંકન</key>
@@ -980,7 +991,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="colNormalization">સામાન્ય સૉર્ટિંગ</key>
 			<key type="colNumeric">આંકડાકીય સૉર્ટિંગ</key>
 			<key type="colStrength">સૉર્ટિંગ શક્તિ</key>
-			<key type="currency" draft="contributed">ચલણ</key>
+			<key type="currency">ચલણ</key>
 			<key type="numbers">આંકડાઓ</key>
 			<key type="timezone">સમય ઝોન</key>
 			<key type="va">લોકેલ વેરિએન્ટ</key>
@@ -989,9 +1000,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</keys>
 		<types>
 			<type type="arab" key="numbers">અરેબિક-ભારતીય અંકો</type>
-			<type type="arabext" key="numbers">વિસ્તૃત અરેબિક-ઇન્ડિક અંક</type>
+			<type type="arabext" key="numbers">વિસ્તૃત અરેબિક-ઇન્ડિક અંકો</type>
 			<type type="armn" key="numbers">અર્મેનિયન સંખ્યાઓ</type>
-			<type type="armnlow" key="numbers">અર્મેનિયન નાના અક્ષરની સંખ્યા</type>
+			<type type="armnlow" key="numbers">અર્મેનિયન નાના અક્ષરની સંખ્યાઓ</type>
 			<type type="beng" key="numbers">બંગાળી અંકો</type>
 			<type type="big5han" key="collation">પરંપરાગત ચાઇનિઝ સોર્ટ ક્રમબદ્ધ</type>
 			<type type="buddhist" key="calendar">બુદ્ધિસ્ટ કેલેન્ડર</type>
@@ -1009,14 +1020,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="geor" key="numbers">જ્યોર્જિઅન સંખ્યાઓ</type>
 			<type type="gregorian" key="calendar">ગ્રેગોરિયન કેલેન્ડર</type>
 			<type type="grek" key="numbers">ગ્રિક સંખ્યાઓ</type>
-			<type type="greklow" key="numbers">ગ્રિક નાના અક્ષરની સંખ્યા</type>
+			<type type="greklow" key="numbers">ગ્રિક નાના અક્ષરની સંખ્યાઓ</type>
 			<type type="gujr" key="numbers">ગુજરાતી અંકો</type>
 			<type type="guru" key="numbers">ગુરમુખી અંકો</type>
 			<type type="hanidec" key="numbers">ચાઇનીઝ દશાંશ સંખ્યા</type>
-			<type type="hans" key="numbers">સરળિકૃત ચાઇનીઝ સંખ્યાઓ</type>
-			<type type="hansfin" key="numbers">સરળિકૃત ચાઇનીઝ નાણાકિય સંખ્યાઓ</type>
-			<type type="hant" key="numbers">પરંપરાગત ચાઇનિઝ સંખ્યાઓ</type>
-			<type type="hantfin" key="numbers">પરંપરાગત ચાઇનિઝ નાણાંકીય સંખ્યાઓ</type>
+			<type type="hans" key="numbers">સરળીકૃત ચાઇનીઝ સંખ્યાઓ</type>
+			<type type="hansfin" key="numbers">સરળીકૃત ચાઇનીઝ નાણાકિય સંખ્યાઓ</type>
+			<type type="hant" key="numbers">પરંપરાગત ચાઇનીઝ સંખ્યાઓ</type>
+			<type type="hantfin" key="numbers">પરંપરાગત ચાઇનીઝ નાણાંકીય સંખ્યાઓ</type>
 			<type type="hebr" key="numbers">હિબ્રુ સંખ્યાઓ</type>
 			<type type="hebrew" key="calendar">હિબ્રુ કેલેન્ડર</type>
 			<type type="identical" key="colStrength">બધા સૉર્ટ કરો</type>
@@ -1024,8 +1035,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="islamic" key="calendar">ઇસ્લામિક કેલેન્ડર</type>
 			<type type="islamic-civil" key="calendar">ઇસ્લામિક-નાગરિક કેલેન્ડર</type>
 			<type type="japanese" key="calendar">જાપાનિઝ કેલેન્ડર</type>
-			<type type="jpan" key="numbers">જાપાનિઝ સંખ્યાઓ</type>
-			<type type="jpanfin" key="numbers">જાપાનિઝ નાણાકિય સંખ્યાઓ</type>
+			<type type="jpan" key="numbers">જાપાનીઝ સંખ્યાઓ</type>
+			<type type="jpanfin" key="numbers">જાપાનીઝ નાણાકિય સંખ્યાઓ</type>
 			<type type="khmr" key="numbers">ખેમેર અંકો</type>
 			<type type="knda" key="numbers">કન્નડા અંકો</type>
 			<type type="laoo" key="numbers">લાઓ અંકો</type>
@@ -1033,7 +1044,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="lower" key="colCaseFirst">પ્રથમ લોઅરકેસ સૉર્ટ કરો</type>
 			<type type="mlym" key="numbers">મલયાલમ અંકો</type>
 			<type type="mong" key="numbers">મોંગોલિયન અંકો</type>
-			<type type="mymr" key="numbers">મયાન્માર અંકો</type>
+			<type type="mymr" key="numbers">મ્યાન્માર અંકો</type>
 			<type type="native" key="numbers">મૂળ અંકો</type>
 			<type type="no" key="colBackwards">ઉચ્ચારોને સામાન્ય રીતે સૉર્ટ કરો</type>
 			<type type="no" key="colCaseFirst">સામાન્ય કેસના ક્રમમાં સૉર્ટ કરો</type>
@@ -1057,11 +1068,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="searchjl" key="collation">હંગુલ પ્રારંભિક વ્યંજન દ્વારા શોધો</type>
 			<type type="secondary" key="colStrength">ઉચ્ચારો સૉર્ટ કરો</type>
 			<type type="shifted" key="colAlternate">પ્રતીકોને અવગણીને સૉર્ટ કરો</type>
+			<type type="standard" key="collation">માનક સૉર્ટ ક્રમ</type>
 			<type type="stroke" key="collation">સ્ટ્રોક અનુક્મ</type>
 			<type type="taml" key="numbers">તમિલ સંખ્યાઓ</type>
-			<type type="telu" key="numbers">તેલુગુ અંક</type>
+			<type type="tamldec" key="numbers">તમિલ અંકો</type>
+			<type type="telu" key="numbers">તેલુગુ અંકો</type>
 			<type type="tertiary" key="colStrength">ઉચ્ચારો/કેસ/પહોળાઈ સૉર્ટ કરો</type>
-			<type type="thai" key="numbers">થાઇ અંક</type>
+			<type type="thai" key="numbers">થાઇ અંકો</type>
 			<type type="tibt" key="numbers">તિબેટિયન અંકો</type>
 			<type type="traditional" key="collation">પરંપરાગત અનુક્મ</type>
 			<type type="traditional" key="numbers">પરંપરાગત અંકો</type>
@@ -1091,6 +1104,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<measurementSystemName type="UK">યુકે</measurementSystemName>
 			<measurementSystemName type="US">અમેરિકા</measurementSystemName>
 		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">{0}</codePattern>
+			<codePattern type="script">{0}</codePattern>
+			<codePattern type="territory">{0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[\u0ABC ૐ \u0A82 \u0A81 ઃ અ આ ઇ ઈ ઉ ઊ ઋ ૠ ઍ એ ઐ ઑ ઓ ઔ ક ખ ગ ઘ ઙ ચ છ જ ઝ ઞ ટ ઠ ડ ઢ ણ ત થ દ ધ ન પ ફ બ ભ મ ય ર લ વ શ ષ સ હ ળ ઽ ા િ ી \u0AC1 \u0AC2 \u0AC3 \u0AC4 \u0AC5 \u0AC7 \u0AC8 ૉ ો ૌ \u0ACD]</exemplarCharacters>
@@ -1100,6 +1118,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">… {0}</ellipsis>
 		<ellipsis type="medial">{0} … {1}</ellipsis>
+		<ellipsis type="word-final">{0} …</ellipsis>
+		<ellipsis type="word-initial">… {0}</ellipsis>
+		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
@@ -1114,22 +1135,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d MMMM, y G</pattern>
+							<pattern>EEEE, d MMMM, G y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM, y G</pattern>
+							<pattern>d MMMM, G y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>d MMM, y G</pattern>
+							<pattern>d MMM, G y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>d-MM-y GGGGG</pattern>
+							<pattern>d-MM- GGGGG y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1157,10 +1178,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d, MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM G y</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d, MMM G y</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d MMM, G y</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
@@ -1176,18 +1197,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="MMMMd">d MMMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yyyy">y G</dateFormatItem>
-						<dateFormatItem id="yyyyM">M/y G</dateFormatItem>
-						<dateFormatItem id="yyyyMd">d/M/y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">E, M/d/y G</dateFormatItem>
+						<dateFormatItem id="y">G y</dateFormatItem>
+						<dateFormatItem id="yyyy">G y</dateFormatItem>
+						<dateFormatItem id="yyyyM">M/G y</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d/M/G y</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, d/M/G y</dateFormatItem>
 						<dateFormatItem id="yyyyMM">MM-y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d, MMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E, MMM d, y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMMM">MMMM y G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM G y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM, G y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d MMM, G y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMM">MMMM G y</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ G y</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ G y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -1230,8 +1251,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">M–M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">d/M-d/M</greatestDifference>
-							<greatestDifference id="M">d/M-d/M</greatestDifference>
+							<greatestDifference id="d">d/M – d/M</greatestDifference>
+							<greatestDifference id="M">d/M – d/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
 							<greatestDifference id="d">E, d/M-E, d/M</greatestDifference>
@@ -1241,47 +1262,47 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">MMM–MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">MMM d–d</greatestDifference>
-							<greatestDifference id="M">d MMM- d MMM</greatestDifference>
+							<greatestDifference id="d">d–d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E, d MMM-E, d MMM</greatestDifference>
-							<greatestDifference id="M">E, d MMM-E, d MMM</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">y–y G</greatestDifference>
+							<greatestDifference id="y">G y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">M/y – M/y G</greatestDifference>
-							<greatestDifference id="y">M/y – M/y G</greatestDifference>
+							<greatestDifference id="M">M/y – M/y</greatestDifference>
+							<greatestDifference id="y">M/y – M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">d/M/y-d/M/y G</greatestDifference>
-							<greatestDifference id="M">d/M/y-d/M/y G</greatestDifference>
-							<greatestDifference id="y">d/M/y-d/M/y G</greatestDifference>
+							<greatestDifference id="d">d/M/y-d/M/y</greatestDifference>
+							<greatestDifference id="M">d/M/y-d/M/y</greatestDifference>
+							<greatestDifference id="y">d/M/y-d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E,d/M/y- E,d/M/y G</greatestDifference>
-							<greatestDifference id="M">E,d/M/y- E,d/M/y G</greatestDifference>
-							<greatestDifference id="y">E,d/M/y-E,d/M/y G</greatestDifference>
+							<greatestDifference id="d">E,d/M/y- E,d/M/y</greatestDifference>
+							<greatestDifference id="M">E,d/M/y- E,d/M/y</greatestDifference>
+							<greatestDifference id="y">E,d/M/y-E,d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM–MMM y G</greatestDifference>
-							<greatestDifference id="y">MMM y – MMM y G</greatestDifference>
+							<greatestDifference id="M">MMM–MMM y</greatestDifference>
+							<greatestDifference id="y">MMM y – MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d-d MMM,y G</greatestDifference>
-							<greatestDifference id="M">d MMM-d MMM y G</greatestDifference>
-							<greatestDifference id="y">d MMM,y-d MMM,y G</greatestDifference>
+							<greatestDifference id="d">d-d MMM,y</greatestDifference>
+							<greatestDifference id="M">d MMM-d MMM y</greatestDifference>
+							<greatestDifference id="y">d MMM,y-d MMM,y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d MMM-E, d MMM y G</greatestDifference>
-							<greatestDifference id="M">E,d MMM-E,d MMM y G</greatestDifference>
-							<greatestDifference id="y">E, d MMM y-E, d MMM y G</greatestDifference>
+							<greatestDifference id="d">E, d MMM-E, d MMM G y</greatestDifference>
+							<greatestDifference id="M">E,d MMM-E,d MMM G y</greatestDifference>
+							<greatestDifference id="y">E, d MMM y-E, d MMM G y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MMMM–MMMM y G</greatestDifference>
-							<greatestDifference id="y">MMMM y – MMMM y G</greatestDifference>
+							<greatestDifference id="M">MMMM–MMMM G y</greatestDifference>
+							<greatestDifference id="y">MMMM y – MMMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1371,7 +1392,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="7">જુલાઈ</month>
 							<month type="8">ઑગસ્ટ</month>
 							<month type="9">સપ્ટેમ્બર</month>
-							<month type="10">ઑક્ટ્બર</month>
+							<month type="10">ઑક્ટોબર</month>
 							<month type="11">નવેમ્બર</month>
 							<month type="12">ડિસેમ્બર</month>
 						</monthWidth>
@@ -1470,10 +1491,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">પહેલો હંત</quarter>
-							<quarter type="2">બીજો હંત</quarter>
-							<quarter type="3">ત્રીજો હંત</quarter>
-							<quarter type="4">ચોથો હંત</quarter>
+							<quarter type="1">પહેલો ત્રિમાસ</quarter>
+							<quarter type="2">બીજો ત્રિમાસ</quarter>
+							<quarter type="3">ત્રીજો ત્રિમાસ</quarter>
+							<quarter type="4">ચોથો ત્રિમાસ</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
@@ -1490,10 +1511,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">પહેલો હંત</quarter>
-							<quarter type="2">બીજો હંત</quarter>
-							<quarter type="3">ત્રીજો હંત</quarter>
-							<quarter type="4">ચોથો હંત</quarter>
+							<quarter type="1">પહેલો ત્રિમાસ</quarter>
+							<quarter type="2">બીજો ત્રિમાસ</quarter>
+							<quarter type="3">ત્રીજો ત્રિમાસ</quarter>
+							<quarter type="4">ચોથો ત્રિમાસ</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1515,8 +1536,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="1">ઇસવીસન</era>
 					</eraNames>
 					<eraAbbr>
-						<era type="0">ઈલુના જન્મ પહેસાં</era>
+						<era type="0">ઈસુના જન્મ પહેલા</era>
+						<era type="0" alt="variant">સામાન્ય યુગ પહેલા</era>
 						<era type="1">ઇસવીસન</era>
+						<era type="1" alt="variant">સામાન્ય યુગ</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">ઇ સ પુ</era>
@@ -1591,15 +1614,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d, MMM y G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="Ehm">h:mm a E</dateFormatItem>
+						<dateFormatItem id="EHm">HH:mm E</dateFormatItem>
+						<dateFormatItem id="Ehms">h:mm:ss a E</dateFormatItem>
+						<dateFormatItem id="EHms">HH:mm:ss E</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM, G y</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM, G y</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d MMM, G y</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
-						<dateFormatItem id="hm">hh:mm a</dateFormatItem>
+						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
-						<dateFormatItem id="hms">hh:mm:ss a</dateFormatItem>
+						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">d/M</dateFormatItem>
@@ -1613,15 +1640,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
-						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
+						<dateFormatItem id="yMEd">E, d/M/y</dateFormatItem>
 						<dateFormatItem id="yMM">MM-y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMd">d, MMM y</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM, y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E, d MMM, y</dateFormatItem>
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
-						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
+						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
@@ -1663,23 +1693,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">M–M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">d/M-d/M</greatestDifference>
-							<greatestDifference id="M">d/M-d/M</greatestDifference>
+							<greatestDifference id="d">d/M – d/M</greatestDifference>
+							<greatestDifference id="M">d/M – d/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">E, d/M-E, d/M</greatestDifference>
-							<greatestDifference id="M">E,d/M-E,d/M</greatestDifference>
+							<greatestDifference id="d">E, d/M – E, d/M</greatestDifference>
+							<greatestDifference id="M">E,d/M – E,d/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">MMM–MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">MMM d–d</greatestDifference>
-							<greatestDifference id="M">d MMM- d MMM</greatestDifference>
+							<greatestDifference id="d">d–d MMM</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E, d MMM-E, d MMM</greatestDifference>
-							<greatestDifference id="M">E, d MMM-E, d MMM</greatestDifference>
+							<greatestDifference id="d">E, d MMM – E, d MMM</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y–y</greatestDifference>
@@ -1689,31 +1719,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">M/y – M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">d/M/y-d/M/y</greatestDifference>
-							<greatestDifference id="M">d/M/y-d/M/y</greatestDifference>
-							<greatestDifference id="y">d/M/y-d/M/y</greatestDifference>
+							<greatestDifference id="d">d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="M">d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="y">d/M/y – d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E,d/M/y- E,d/M/y</greatestDifference>
-							<greatestDifference id="M">E,d/M/y- E,d/M/y</greatestDifference>
-							<greatestDifference id="y">E,d/M/y-E,d/M/y</greatestDifference>
+							<greatestDifference id="d">E, d/M/y – E, d/M/y</greatestDifference>
+							<greatestDifference id="M">E, d/M/y – E, d/M/y</greatestDifference>
+							<greatestDifference id="y">E, d/M/y – E, d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">MMM–MMM y</greatestDifference>
 							<greatestDifference id="y">MMM y – MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d-d MMM,y</greatestDifference>
-							<greatestDifference id="M">d MMM-d MMM y</greatestDifference>
-							<greatestDifference id="y">d MMM,y-d MMM,y</greatestDifference>
+							<greatestDifference id="d">d–d MMM, y</greatestDifference>
+							<greatestDifference id="M">d MMM – d MMM, y</greatestDifference>
+							<greatestDifference id="y">d MMM, y – d MMM, y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d MMM-E, d MMM y</greatestDifference>
-							<greatestDifference id="M">E,d MMM-E,d MMM y</greatestDifference>
-							<greatestDifference id="y">E, d MMM y-E, d MMM y</greatestDifference>
+							<greatestDifference id="d">E, d MMM – E, d MMM, y</greatestDifference>
+							<greatestDifference id="M">E, d MMM – E, d MMM, y</greatestDifference>
+							<greatestDifference id="y">E, d MMM, y – E, d MMM, y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">MMMM–MMMM y</greatestDifference>
+							<greatestDifference id="M">MMMM – MMMM y</greatestDifference>
 							<greatestDifference id="y">MMMM y – MMMM y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
@@ -1726,32 +1756,67 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year">
 				<displayName>વર્ષ</displayName>
-				<relative type="-1">પાછલું વર્ષ</relative>
-				<relative type="0">આ વર્ષ</relative>
-				<relative type="1">આગલું વર્ષ</relative>
+				<relative type="-1">ગયા વર્ષે</relative>
+				<relative type="0">આ વર્ષે</relative>
+				<relative type="1">આવતા વર્ષે</relative>
 			</field>
 			<field type="month">
 				<displayName>મહિનો</displayName>
-				<relative type="-1">છેલ્લો મહિનો</relative>
+				<relative type="-1">ગયા મહિને</relative>
 				<relative type="0">આ મહિને</relative>
-				<relative type="1">આગલો મહીનો</relative>
+				<relative type="1">આવતા મહિને</relative>
 			</field>
 			<field type="week">
-				<displayName>અહવાડિયું</displayName>
-				<relative type="-1">છેલ્લું અઠવાડિયું</relative>
+				<displayName>અઠવાડિયું</displayName>
+				<relative type="-1">ગયા અઠવાડિયે</relative>
 				<relative type="0">આ અઠવાડિયે</relative>
-				<relative type="1">આગલા અઠવાડિયે</relative>
+				<relative type="1">આવતા અઠવાડિયે</relative>
 			</field>
 			<field type="day">
 				<displayName>દિવસ</displayName>
-				<relative type="-2">ગઈકાસ પહેસાંનો દિવસ</relative>
-				<relative type="-1">ગઈકાલ</relative>
-				<relative type="0">આજ</relative>
-				<relative type="1">આવતીકાલ</relative>
-				<relative type="2">પરમ દિવસ</relative>
+				<relative type="-2">ગયા પરમદિવસે</relative>
+				<relative type="-1">ગઈકાલે</relative>
+				<relative type="0">આજે</relative>
+				<relative type="1">આવતીકાલે</relative>
+				<relative type="2">પરમદિવસે</relative>
 			</field>
 			<field type="weekday">
 				<displayName>અઠવાડિયાનો દિવસ</displayName>
+			</field>
+			<field type="sun">
+				<relative type="-1">ગયા રવિવારે</relative>
+				<relative type="0">આ રવિવારે</relative>
+				<relative type="1">આવતા રવિવારે</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1">ગયા સોમવારે</relative>
+				<relative type="0">આ સોમવારે</relative>
+				<relative type="1">આવતા સોમવારે</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1">ગયા મંગળવારે</relative>
+				<relative type="0">આ મંગળવારે</relative>
+				<relative type="1">આવતા મંગળવારે</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1">ગયા બુધવારે</relative>
+				<relative type="0">આ બુધવારે</relative>
+				<relative type="1">આવતા બુધવારે</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1">ગયા ગુરુવારે</relative>
+				<relative type="0">આ ગુરુવારે</relative>
+				<relative type="1">આવતા ગુરુવારે</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1">ગયા શુક્રવારે</relative>
+				<relative type="0">આ શુક્રવારે</relative>
+				<relative type="1">આવતા શુક્રવારે</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1">ગયા શનિવારે</relative>
+				<relative type="0">આ શનિવારે</relative>
+				<relative type="1">આવતા શનિવારે</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName>AM/PM</displayName>
@@ -1763,10 +1828,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>મિનિટ</displayName>
 			</field>
 			<field type="second">
-				<displayName>ક્ષણ</displayName>
+				<displayName>સેકન્ડ</displayName>
 			</field>
 			<field type="zone">
-				<displayName>વિસ્તાર</displayName>
+				<displayName>સમય ઝોન</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -1774,6 +1839,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0} સમય</regionFormat>
+			<regionFormat type="daylight">{0} (+1)</regionFormat>
+			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>અજ્ઞાત શહેર</exemplarCity>
@@ -1828,6 +1895,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>દુમોન્ત દી'ઉર્વિલ</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity>મેક્વેરી</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>મૅકમર્ડો</exemplarCity>
@@ -1958,6 +2028,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/La_Paz">
 				<exemplarCity>લા પેઝ</exemplarCity>
 			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity>ક્રાલેન્ડિક</exemplarCity>
+			</zone>
 			<zone type="America/Eirunepe">
 				<exemplarCity>ઇરુનેપ</exemplarCity>
 			</zone>
@@ -2035,6 +2108,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>ડૌસન ક્રિક</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity>ક્રેસ્ટન</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity>યેલોનાઇફ</exemplarCity>
@@ -2174,6 +2250,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Prague">
 				<exemplarCity>પ્રાગ</exemplarCity>
 			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity>બિઝેન્ગન</exemplarCity>
+			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>બર્લિન</exemplarCity>
 			</zone>
@@ -2250,6 +2329,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>લિબ્રેવિલે</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
+				<long>
+					<daylight>બ્રિટિશ ગ્રીષ્મ સમય</daylight>
+				</long>
 				<exemplarCity>લંડન</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
@@ -2274,7 +2356,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>થુલે</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
-				<exemplarCity>ગોડ્થાબ</exemplarCity>
+				<exemplarCity>નૂક</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
 				<exemplarCity>સ્કોર્સબાયસન્દ</exemplarCity>
@@ -2340,6 +2422,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>જયાપુરા</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
+				<long>
+					<daylight>આઇરિશ ગ્રીષ્મ સમય</daylight>
+				</long>
 				<exemplarCity>ડબલિન</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
@@ -2534,6 +2619,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Tijuana">
 				<exemplarCity>તિજુઆના</exemplarCity>
 			</zone>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>સાંતા ઇસાબેલ</exemplarCity>
+			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>એરમોસિયો</exemplarCity>
 			</zone>
@@ -2543,11 +2631,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Chihuahua">
 				<exemplarCity>ચિહુઆહુઆ</exemplarCity>
 			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity>બહિયા બાંદ્રાસ</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity>ઓજિનાગા</exemplarCity>
+			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>મોન્તોરે</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>મેક્સિકો સિટી</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity>માતામોરોસ</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
 				<exemplarCity>મેરિદા</exemplarCity>
@@ -2645,6 +2742,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Gaza">
 				<exemplarCity>ગાઝા</exemplarCity>
 			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity>હેબ્રોન</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>એઝોરેઝ</exemplarCity>
 			</zone>
@@ -2693,6 +2793,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>નોવોસીર્બિર્સ્ક</exemplarCity>
 			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity>નોવોકુઝ્નેત્સ્ક</exemplarCity>
+			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>ક્રિસ્નોયાર્સ્ક</exemplarCity>
 			</zone>
@@ -2705,8 +2808,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Vladivostok">
 				<exemplarCity>વ્લેડિવોસ્ટોક</exemplarCity>
 			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity>ખંડિગા</exemplarCity>
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>સખાલિન</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity>ઉસ્ત-નેરા</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>મેગાડન</exemplarCity>
@@ -2764,6 +2873,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Paramaribo">
 				<exemplarCity>પેરામેરિબો</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity>જુબા</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity>સાઓ ટૉમ</exemplarCity>
@@ -2867,8 +2979,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Yakutat">
 				<exemplarCity>યકુતત</exemplarCity>
 			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity>સિટ્કા</exemplarCity>
+			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>જુનો</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity>મેટ્લાકાટ્લા</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>લોસ એંજેલેસ</exemplarCity>
@@ -3044,30 +3162,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="America_Central">
 				<long>
-					<generic>મધ્ય સમય</generic>
-					<standard>મધ્ય પ્રમાણભૂત સમય</standard>
-					<daylight>મધ્ય દિવસ સમય</daylight>
+					<generic>ઉત્તર અમેરિકન મધ્ય સમય</generic>
+					<standard>ઉત્તર અમેરિકન મધ્ય પ્રમાણભૂત સમય</standard>
+					<daylight>ઉત્તર અમેરિકન મધ્ય દિવસ સમય</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
-					<generic>પૂર્વી સમય</generic>
-					<standard>પૂર્વી પ્રમાણભૂત સમય</standard>
-					<daylight>પૂર્વી દિવસ સમય</daylight>
+					<generic>ઉત્તર અમેરિકન પૂર્વી સમય</generic>
+					<standard>ઉત્તર અમેરિકન પૂર્વી પ્રમાણભૂત સમય</standard>
+					<daylight>ઉત્તર અમેરિકન પૂર્વી દિવસ સમય</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
-					<generic>માઉન્ટન સમય</generic>
-					<standard>માઉન્ટન પ્રમાણભૂત સમય</standard>
-					<daylight>માઉન્ટન દિવસ સમય</daylight>
+					<generic>ઉત્તર અમેરિકન માઉન્ટન સમય</generic>
+					<standard>ઉત્તર અમેરિકન માઉન્ટન પ્રમાણભૂત સમય</standard>
+					<daylight>ઉત્તર અમેરિકન માઉન્ટન દિવસ સમય</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
-					<generic>પેસિફિક સમય</generic>
-					<standard>પેસિફિક પ્રમાણભૂત સમય</standard>
-					<daylight>પેસિફિક દિવસ સમય</daylight>
+					<generic>ઉત્તર અમેરિકન પેસિફિક સમય</generic>
+					<standard>ઉત્તર અમેરિકન પેસિફિક પ્રમાણભૂત સમય</standard>
+					<daylight>ઉત્તર અમેરિકન પેસિફિક દિવસ સમય</daylight>
 				</long>
 			</metazone>
 			<metazone type="Anadyr">
@@ -3233,8 +3351,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Choibalsan">
 				<long>
 					<generic>ચોઇબાલ્સન સમય</generic>
-					<standard>ચોઇબાલ્સાન માનક સમય</standard>
-					<daylight>ચોઇબાલ્સેન ગ્રીષ્મ સમય</daylight>
+					<standard>ચોઇબાલ્સન માનક સમય</standard>
+					<daylight>ચોઇબાલ્સન ગ્રીષ્મ સમય</daylight>
 				</long>
 			</metazone>
 			<metazone type="Christmas">
@@ -3931,6 +4049,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -3938,7 +4057,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#,##0.###</pattern>
+					<pattern>#,##,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
@@ -3947,54 +4066,54 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern type="1000" count="other">0 હજાર</pattern>
 					<pattern type="10000" count="one">00 હજાર</pattern>
 					<pattern type="10000" count="other">00 હજાર</pattern>
-					<pattern type="100000" count="one">000 હજાર</pattern>
-					<pattern type="100000" count="other">000 હજાર</pattern>
-					<pattern type="1000000" count="one">0 મિલિયન</pattern>
-					<pattern type="1000000" count="other">0 મિલિયન</pattern>
-					<pattern type="10000000" count="one">00 મિલિયન</pattern>
-					<pattern type="10000000" count="other">00 મિલિયન</pattern>
-					<pattern type="100000000" count="one">000 મિલિયન</pattern>
-					<pattern type="100000000" count="other">000 મિલિયન</pattern>
-					<pattern type="1000000000" count="one">0 બિલિયન</pattern>
-					<pattern type="1000000000" count="other">0 બિલિયન</pattern>
-					<pattern type="10000000000" count="one">00 બિલિયન</pattern>
-					<pattern type="10000000000" count="other">00 બિલિયન</pattern>
-					<pattern type="100000000000" count="one">000 બિલિયન</pattern>
-					<pattern type="100000000000" count="other">000 બિલિયન</pattern>
-					<pattern type="1000000000000" count="one">0 ટ્રિલિયન</pattern>
-					<pattern type="1000000000000" count="other">0 ટ્રિલિયન</pattern>
-					<pattern type="10000000000000" count="one">00 ટ્રિલિયન</pattern>
-					<pattern type="10000000000000" count="other">00 ટ્રિલિયન</pattern>
-					<pattern type="100000000000000" count="one">000 ટ્રિલિયન</pattern>
-					<pattern type="100000000000000" count="other">000 ટ્રિલિયન</pattern>
+					<pattern type="100000" count="one">0 લાખ</pattern>
+					<pattern type="100000" count="other">0 લાખ</pattern>
+					<pattern type="1000000" count="one">00 લાખ</pattern>
+					<pattern type="1000000" count="other">00 લાખ</pattern>
+					<pattern type="10000000" count="one">0 કરોડ</pattern>
+					<pattern type="10000000" count="other">0 કરોડ</pattern>
+					<pattern type="100000000" count="one">00 કરોડ</pattern>
+					<pattern type="100000000" count="other">00 કરોડ</pattern>
+					<pattern type="1000000000" count="one">0 અબજ</pattern>
+					<pattern type="1000000000" count="other">0 અબજ</pattern>
+					<pattern type="10000000000" count="one">00 અબજ</pattern>
+					<pattern type="10000000000" count="other">00 અબજ</pattern>
+					<pattern type="100000000000" count="one">0 નિખર્વ</pattern>
+					<pattern type="100000000000" count="other">0 નિખર્વ</pattern>
+					<pattern type="1000000000000" count="one">0 મહાપદ્મ</pattern>
+					<pattern type="1000000000000" count="other">0 મહાપદ્મ</pattern>
+					<pattern type="10000000000000" count="one">0 શંકુ</pattern>
+					<pattern type="10000000000000" count="other">0 શંકુ</pattern>
+					<pattern type="100000000000000" count="one">0 જલધિ</pattern>
+					<pattern type="100000000000000" count="other">0 જલધિ</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one" draft="contributed">0K</pattern>
-					<pattern type="1000" count="other" draft="contributed">0K</pattern>
-					<pattern type="10000" count="one" draft="contributed">00K</pattern>
-					<pattern type="10000" count="other" draft="contributed">00K</pattern>
-					<pattern type="100000" count="one" draft="contributed">000K</pattern>
-					<pattern type="100000" count="other" draft="contributed">000K</pattern>
-					<pattern type="1000000" count="one" draft="contributed">0M</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0M</pattern>
-					<pattern type="10000000" count="one" draft="contributed">00M</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
-					<pattern type="100000000" count="one" draft="contributed">000M</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
-					<pattern type="1000000000" count="one" draft="contributed">0B</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0B</pattern>
-					<pattern type="10000000000" count="one" draft="contributed">00B</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00B</pattern>
-					<pattern type="100000000000" count="one" draft="contributed">000B</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000B</pattern>
-					<pattern type="1000000000000" count="one" draft="contributed">0T</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0T</pattern>
-					<pattern type="10000000000000" count="one" draft="contributed">00T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00T</pattern>
-					<pattern type="100000000000000" count="one" draft="contributed">000T</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+					<pattern type="1000" count="one">0 હજાર</pattern>
+					<pattern type="1000" count="other">0 હજાર</pattern>
+					<pattern type="10000" count="one">00 હજાર</pattern>
+					<pattern type="10000" count="other">00 હજાર</pattern>
+					<pattern type="100000" count="one">0 લાખ</pattern>
+					<pattern type="100000" count="other">0 લાખ</pattern>
+					<pattern type="1000000" count="one">00 લાખ</pattern>
+					<pattern type="1000000" count="other">00 લાખ</pattern>
+					<pattern type="10000000" count="one">0 કરોડ</pattern>
+					<pattern type="10000000" count="other">0 કરોડ</pattern>
+					<pattern type="100000000" count="one">00 કરોડ</pattern>
+					<pattern type="100000000" count="other">00 કરોડ</pattern>
+					<pattern type="1000000000" count="one">0 અબજ</pattern>
+					<pattern type="1000000000" count="other">0 અબજ</pattern>
+					<pattern type="10000000000" count="one">00 અબજ</pattern>
+					<pattern type="10000000000" count="other">00 અબજ</pattern>
+					<pattern type="100000000000" count="one">0 નિખર્વ</pattern>
+					<pattern type="100000000000" count="other">0 નિખર્વ</pattern>
+					<pattern type="1000000000000" count="one">0 મહાપદ્મ</pattern>
+					<pattern type="1000000000000" count="other">0 મહાપદ્મ</pattern>
+					<pattern type="10000000000000" count="one">0 શંકુ</pattern>
+					<pattern type="10000000000000" count="other">0 શંકુ</pattern>
+					<pattern type="100000000000000" count="one">0 જલધિ</pattern>
+					<pattern type="100000000000000" count="other">0 જલધિ</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -4008,15 +4127,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0%</pattern>
+					<pattern>#,##,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
-					<pattern>¤#,##0.00</pattern>
-					<pattern alt="accounting">¤#,##0.00;(¤#,##0.00)</pattern>
+					<pattern>¤#,##,##0.00</pattern>
+					<pattern alt="accounting">¤#,##,##0.00;(¤#,##,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
@@ -4024,486 +4143,1000 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
-				<displayName>યુનાઇટેડ અરબ એમિરેટ્સ</displayName>
+				<displayName>યુનાઈટેડ આરબ અમિરાત દિરહામ</displayName>
+				<displayName count="one">યુનાઈટેડ આરબ અમિરાત દિરહામ</displayName>
+				<displayName count="other">યુનાઈટેડ આરબ અમિરાત દિરહામ</displayName>
+				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>અફ્ગાન અફ્ગાની</displayName>
+				<displayName count="one">અફ્ગાન અફ્ગાની</displayName>
+				<displayName count="other">અફ્ગાન અફ્ગાની</displayName>
+				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>અલ્બેનિયન લેક</displayName>
+				<displayName count="one">અલ્બેનિયન લેક</displayName>
+				<displayName count="other">અલ્બેનિયન લેક</displayName>
+				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>અર્મેનિયન ડ્રેમ</displayName>
+				<displayName count="one">અર્મેનિયન ડ્રેમ</displayName>
+				<displayName count="other">અર્મેનિયન ડ્રેમ</displayName>
+				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>નેધરલેંડ એંટિલિન ગિલ્ડર</displayName>
+				<displayName count="one">નેધરલેંડ એંટિલિન ગિલ્ડર</displayName>
+				<displayName count="other">નેધરલેંડ એંટિલિન ગિલ્ડર</displayName>
+				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>અંગોલિયન ક્વાન્ઝા</displayName>
+				<displayName count="one">અંગોલિયન ક્વાન્ઝા</displayName>
+				<displayName count="other">અંગોલિયન ક્વાન્ઝા</displayName>
+				<symbol>AOA</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>અર્જેન્ટીના પેસો</displayName>
+				<displayName count="one">અર્જેન્ટીના પેસો</displayName>
+				<displayName count="other">અર્જેન્ટીના પેસો</displayName>
+				<symbol>ARS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>ઑસ્ટ્રેલિયન ડૉલર</displayName>
+				<displayName count="one">ઑસ્ટ્રેલિયન ડૉલર</displayName>
+				<displayName count="other">ઑસ્ટ્રેલિયન ડૉલર</displayName>
+				<symbol>A$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>અરુબન ફ્લોરિન</displayName>
+				<displayName count="one">અરુબન ફ્લોરિન</displayName>
+				<displayName count="other">અરુબન ફ્લોરિન</displayName>
+				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>અઝરબૈજાની મનાત</displayName>
+				<displayName count="one">અઝરબૈજાની મનાત</displayName>
+				<displayName count="other">અઝરબૈજાની મનાત</displayName>
+				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>બોસ્નિયા અને હર્ઝેગોવિના રૂપાંતર યોગ્ય માર્ક</displayName>
+				<displayName count="one">બોસ્નિયા અને હર્ઝેગોવિના રૂપાંતર યોગ્ય માર્ક</displayName>
+				<displayName count="other">બોસ્નિયા અને હર્ઝેગોવિના રૂપાંતર યોગ્ય માર્ક</displayName>
+				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>બાર્બાડિયન ડોલર</displayName>
+				<displayName count="one">બાર્બાડિયન ડોલર</displayName>
+				<displayName count="other">બાર્બાડિયન ડોલર</displayName>
+				<symbol>BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>બાંગલાદેશી ટાકા</displayName>
+				<displayName count="one">બાંગલાદેશી ટાકા</displayName>
+				<displayName count="other">બાંગલાદેશી ટાકા</displayName>
+				<symbol>BDT</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>બલ્ગેરીયન લેવ</displayName>
+				<displayName count="one">બલ્ગેરીયન લેવ</displayName>
+				<displayName count="other">બલ્ગેરીયન લેવ</displayName>
+				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>બેહરિની દિનાર</displayName>
+				<displayName count="one">બેહરિની દિનાર</displayName>
+				<displayName count="other">બેહરિની દિનાર</displayName>
+				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>બુરુન્ડિયન ફ્રેંક</displayName>
+				<displayName count="one">બુરુન્ડિયન ફ્રેંક</displayName>
+				<displayName count="other">બુરુન્ડિયન ફ્રેંક</displayName>
+				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>બર્મુડન ડોલર</displayName>
+				<displayName count="one">બર્મુડન ડોલર</displayName>
+				<displayName count="other">બર્મુડન ડોલર</displayName>
+				<symbol>BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>બ્રુનેઇ ડોલર</displayName>
+				<displayName count="one">બ્રુનેઇ ડોલર</displayName>
+				<displayName count="other">બ્રુનેઇ ડોલર</displayName>
+				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>બોલિવિયન બોલિવિયાનો</displayName>
+				<displayName count="one">બોલિવિયન બોલિવિયાનો</displayName>
+				<displayName count="other">બોલિવિયન બોલિવિયાનો</displayName>
+				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>બ્રાઝિલીયન રિઆલ</displayName>
+				<displayName count="one">બ્રાઝિલીયન રિઆલ</displayName>
+				<displayName count="other">બ્રાઝિલીયન રિઆલ</displayName>
+				<symbol>R$</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>બહામિયન ડોલર</displayName>
+				<displayName count="one">બહામિયન ડોલર</displayName>
+				<displayName count="other">બહામિયન ડોલર</displayName>
+				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>ભુતાનિઝ એંગુલ્ત્રમ</displayName>
+				<displayName count="one">ભુતાનિઝ એંગુલ્ત્રમ</displayName>
+				<displayName count="other">ભુતાનિઝ એંગુલ્ત્રમ</displayName>
+				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>બોત્સવાનન પુલા</displayName>
+				<displayName count="one">બોત્સવાનન પુલા</displayName>
+				<displayName count="other">બોત્સવાનન પુલા</displayName>
+				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>બેલારુશિયન રબલ</displayName>
+				<displayName count="one">બેલારુશિયન રબલ</displayName>
+				<displayName count="other">બેલારુશિયન રબલ</displayName>
+				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>બેલિઝ ડોલર</displayName>
+				<displayName count="one">બેલિઝ ડોલર</displayName>
+				<displayName count="other">બેલિઝ ડોલર</displayName>
+				<symbol>BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>કેનેડિયન ડૉલર</displayName>
+				<displayName count="one">કેનેડિયન ડૉલર</displayName>
+				<displayName count="other">કેનેડિયન ડૉલર</displayName>
+				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>કોંગોલિઝ ફ્રેંક</displayName>
+				<displayName count="one">કોંગોલિઝ ફ્રેંક</displayName>
+				<displayName count="other">કોંગોલિઝ ફ્રેંક</displayName>
+				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>સ્વિસ ફ્રેંક</displayName>
+				<displayName count="one">સ્વિસ ફ્રેંક</displayName>
+				<displayName count="other">સ્વિસ ફ્રેંક</displayName>
+				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>ચિલિઅન પેસો</displayName>
+				<displayName count="one">ચિલિઅન પેસો</displayName>
+				<displayName count="other">ચિલિઅન પેસો</displayName>
+				<symbol>CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>ચાઇનિઝ યુઆન</displayName>
+				<displayName count="one">ચાઇનિઝ યુઆન</displayName>
+				<displayName count="other">ચાઇનિઝ યુઆન</displayName>
+				<symbol>CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>કોલમ્બિયન પેસો</displayName>
+				<displayName count="one">કોલમ્બિયન પેસો</displayName>
+				<displayName count="other">કોલમ્બિયન પેસો</displayName>
+				<symbol>COP</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>કોસ્ટા રિકન કોલોન</displayName>
+				<displayName count="one">કોસ્ટા રિકન કોલોન</displayName>
+				<displayName count="other">કોસ્ટા રિકન કોલોન</displayName>
+				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>ક્યુબન રૂપાંતર યોગ્ય પેસો</displayName>
+				<displayName count="one">ક્યુબન રૂપાંતર યોગ્ય પેસો</displayName>
+				<displayName count="other">ક્યુબન રૂપાંતર યોગ્ય પેસો</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>ક્યુબન પેસો</displayName>
+				<displayName count="one">ક્યુબન પેસો</displayName>
+				<displayName count="other">ક્યુબન પેસો</displayName>
+				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>કેપ વર્દિયન એસ્કુડો</displayName>
+				<displayName count="one">કેપ વર્દિયન એસ્કુડો</displayName>
+				<displayName count="other">કેપ વર્દિયન એસ્કુડો</displayName>
+				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>ચેક રીપબ્લિક કોરુના</displayName>
+				<displayName count="one">ચેક રીપબ્લિક કોરુના</displayName>
+				<displayName count="other">ચેક રીપબ્લિક કોરુના</displayName>
+				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>જિબુટિયન ફ્રેંક</displayName>
+				<displayName count="one">જિબુટિયન ફ્રેંક</displayName>
+				<displayName count="other">જિબુટિયન ફ્રેંક</displayName>
+				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>ડેનિશ ક્રોન</displayName>
+				<displayName count="one">ડેનિશ ક્રોન</displayName>
+				<displayName count="other">ડેનિશ ક્રોન</displayName>
+				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>ડોમિનિકન પેસો</displayName>
+				<displayName count="one">ડોમિનિકન પેસો</displayName>
+				<displayName count="other">ડોમિનિકન પેસો</displayName>
+				<symbol>DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>અલ્જિરિયન દિનાર</displayName>
+				<displayName count="one">અલ્જિરિયન દિનાર</displayName>
+				<displayName count="other">અલ્જિરિયન દિનાર</displayName>
+				<symbol>DZD</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>ઇજિપ્તિયન પાઉન્ડ</displayName>
+				<displayName count="one">ઇજિપ્તિયન પાઉન્ડ</displayName>
+				<displayName count="other">ઇજિપ્તિયન પાઉન્ડ</displayName>
+				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>એરિટ્રેયન નક્ફા</displayName>
+				<displayName count="one">એરિટ્રેયન નક્ફા</displayName>
+				<displayName count="other">એરિટ્રેયન નક્ફા</displayName>
+				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ETB">
-				<displayName>એથિયોપિયન બિર</displayName>
+				<displayName>ઇથિયોપીયન બિર</displayName>
+				<displayName count="one">ઇથિયોપીયન બિર</displayName>
+				<displayName count="other">ઇથિયોપીયન બિર</displayName>
+				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>યુરો</displayName>
+				<displayName count="one">યુરો</displayName>
+				<displayName count="other">યુરો</displayName>
+				<symbol>€</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>ફિજિઅન ડોલર</displayName>
+				<displayName count="one">ફિજિઅન ડોલર</displayName>
+				<displayName count="other">ફિજિઅન ડોલર</displayName>
+				<symbol>FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>ફૉકલેન્ડ આઇલેંડ્સ પાઉન્ડ</displayName>
+				<displayName count="one">ફૉકલેન્ડ આઇલેંડ્સ પાઉન્ડ</displayName>
+				<displayName count="other">ફૉકલેન્ડ આઇલેંડ્સ પાઉન્ડ</displayName>
+				<symbol>FKP</symbol>
 			</currency>
 			<currency type="GBP">
-				<displayName>બ્રિટિશ પાઉન્ડ સ્ટરલિંગ</displayName>
+				<displayName>બ્રિટિશ પાઉન્ડ સ્ટર્લિંગ</displayName>
+				<displayName count="one">બ્રિટિશ પાઉન્ડ સ્ટર્લિંગ</displayName>
+				<displayName count="other">બ્રિટિશ પાઉન્ડ સ્ટર્લિંગ</displayName>
+				<symbol>£</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>જ્યોર્જિઅન લારી</displayName>
+				<displayName count="one">જ્યોર્જિઅન લારી</displayName>
+				<displayName count="other">જ્યોર્જિઅન લારી</displayName>
+				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>ઘાનાઇયન સેડી</displayName>
+				<displayName count="one">ઘાનાઇયન સેડી</displayName>
+				<displayName count="other">ઘાનાઇયન સેડી</displayName>
+				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>જીબ્રાલ્ટર પાઉન્ડ</displayName>
+				<displayName count="one">જીબ્રાલ્ટર પાઉન્ડ</displayName>
+				<displayName count="other">જીબ્રાલ્ટર પાઉન્ડ</displayName>
+				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>ગેમ્બિયન દલાસી</displayName>
+				<displayName count="one">ગેમ્બિયન દલાસી</displayName>
+				<displayName count="other">ગેમ્બિયન દલાસી</displayName>
+				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>ગિનીયન ફ્રેંક</displayName>
+				<displayName count="one">ગિનીયન ફ્રેંક</displayName>
+				<displayName count="other">ગિનીયન ફ્રેંક</displayName>
+				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GTQ">
-				<displayName>ગ્વાટેમાલા કુઇટ્સલ</displayName>
+				<displayName>ગ્વાટેમાલા કુઇટ્ઝલ</displayName>
+				<displayName count="one">ગ્વાટેમાલા કુઇટ્ઝલ</displayName>
+				<displayName count="other">ગ્વાટેમાલા કુઇટ્ઝલ</displayName>
+				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>ગયાનિઝ ડોલર</displayName>
+				<displayName count="one">ગયાનિઝ ડોલર</displayName>
+				<displayName count="other">ગયાનિઝ ડોલર</displayName>
+				<symbol>GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>હોંગ કોંગ ડૉલર</displayName>
+				<displayName count="one">હોંગ કોંગ ડૉલર</displayName>
+				<displayName count="other">હોંગ કોંગ ડૉલર</displayName>
+				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>હોન્ડ્યુરન લેમ્પિરા</displayName>
+				<displayName count="one">હોન્ડ્યુરન લેમ્પિરા</displayName>
+				<displayName count="other">હોન્ડ્યુરન લેમ્પિરા</displayName>
+				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>ક્રોએશિયન ક્યુના</displayName>
+				<displayName count="one">ક્રોએશિયન ક્યુના</displayName>
+				<displayName count="other">ક્રોએશિયન ક્યુના</displayName>
+				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>હાઇટિઇન ગોર્ડ</displayName>
+				<displayName count="one">હાઇટિઇન ગોર્ડ</displayName>
+				<displayName count="other">હાઇટિઇન ગોર્ડ</displayName>
+				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>હંગેરીયન ફોરિન્ત</displayName>
+				<displayName count="one">હંગેરીયન ફોરિન્ત</displayName>
+				<displayName count="other">હંગેરીયન ફોરિન્ત</displayName>
+				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
-				<displayName>ઇન્ડોનેશિય રૂપીયા</displayName>
+				<displayName>ઇન્ડોનેશિયન રૂપિયા</displayName>
+				<displayName count="one">ઇન્ડોનેશિયન રૂપિયા</displayName>
+				<displayName count="other">ઇન્ડોનેશિયન રૂપિયા</displayName>
+				<symbol>IDR</symbol>
 			</currency>
 			<currency type="ILS">
-				<displayName>ઇઝરેઇલ ન્યુ શેકેલ</displayName>
+				<displayName>ઇઝરાયેલી ન્યુ શેકલ</displayName>
+				<displayName count="one">ઇઝરાયેલી ન્યુ શેકલ</displayName>
+				<displayName count="other">ઇઝરાયેલી ન્યુ શેકલ</displayName>
+				<symbol>₪</symbol>
 			</currency>
 			<currency type="INR">
-				<displayName>ભારતીય રૂપીયા</displayName>
+				<displayName>ભારતીય રૂપિયા</displayName>
+				<displayName count="one">ભારતીય રૂપિયા</displayName>
+				<displayName count="other">ભારતીય રૂપિયા</displayName>
+				<symbol>₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>ઇરાકી દિનાર</displayName>
+				<displayName count="one">ઇરાકી દિનાર</displayName>
+				<displayName count="other">ઇરાકી દિનાર</displayName>
+				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>ઇરાનિયન રિયાલ</displayName>
+				<displayName count="one">ઇરાનિયન રિયાલ</displayName>
+				<displayName count="other">ઇરાનિયન રિયાલ</displayName>
+				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>આઇસ્લેંડિક ક્રોના</displayName>
 			</currency>
 			<currency type="JMD">
 				<displayName>જમૈકિયન ડોલર</displayName>
+				<displayName count="one">જમૈકિયન ડોલર</displayName>
+				<displayName count="other">જમૈકિયન ડોલર</displayName>
+				<symbol>JMD</symbol>
 			</currency>
 			<currency type="JOD">
-				<displayName>જોરડનનું દિનાર</displayName>
+				<displayName>જોર્ડનિયન દિનાર</displayName>
+				<displayName count="one">જોર્ડનિયન દિનાર</displayName>
+				<displayName count="other">જોર્ડનિયન દિનાર</displayName>
+				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>જાપાનીઝ યેન</displayName>
+				<displayName count="one">જાપાનીઝ યેન</displayName>
+				<displayName count="other">જાપાનીઝ યેન</displayName>
+				<symbol>JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>કેન્યેન શિલિંગ</displayName>
+				<displayName count="one">કેન્યેન શિલિંગ</displayName>
+				<displayName count="other">કેન્યેન શિલિંગ</displayName>
+				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>કિર્ગિસ્તાની સોમ</displayName>
+				<displayName count="one">કિર્ગિસ્તાની સોમ</displayName>
+				<displayName count="other">કિર્ગિસ્તાની સોમ</displayName>
+				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>કેમ્બોડિયન રીઅલ</displayName>
+				<displayName count="one">કેમ્બોડિયન રીઅલ</displayName>
+				<displayName count="other">કેમ્બોડિયન રીઅલ</displayName>
+				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>કોમોરિઅન ફ્રેંક</displayName>
+				<displayName count="one">કોમોરિઅન ફ્રેંક</displayName>
+				<displayName count="other">કોમોરિઅન ફ્રેંક</displayName>
+				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>ઉત્તર કોરિયન વન</displayName>
+				<displayName count="one">ઉત્તર કોરિયન વન</displayName>
+				<displayName count="other">ઉત્તર કોરિયન વન</displayName>
+				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>દક્ષિણ કોરિયન વન</displayName>
+				<displayName count="one">દક્ષિણ કોરિયન વન</displayName>
+				<displayName count="other">દક્ષિણ કોરિયન વન</displayName>
+				<symbol>₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>કુવૈતી દીનાર</displayName>
+				<displayName count="one">કુવૈતી દીનાર</displayName>
+				<displayName count="other">કુવૈતી દીનાર</displayName>
+				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>કેયમેન આઇલેંડ્સ ડોલર</displayName>
+				<displayName count="one">કેયમેન આઇલેંડ્સ ડોલર</displayName>
+				<displayName count="other">કેયમેન આઇલેંડ્સ ડોલર</displayName>
+				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>કઝાકિસ્તાની ટેંગ</displayName>
+				<displayName count="one">કઝાકિસ્તાની ટેંગ</displayName>
+				<displayName count="other">કઝાકિસ્તાની ટેંગ</displayName>
+				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>લાઓશિયન કિપ</displayName>
+				<displayName count="one">લાઓશિયન કિપ</displayName>
+				<displayName count="other">લાઓશિયન કિપ</displayName>
+				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>લેબેનિઝ પાઉન્ડ</displayName>
+				<displayName count="one">લેબેનિઝ પાઉન્ડ</displayName>
+				<displayName count="other">લેબેનિઝ પાઉન્ડ</displayName>
+				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>શ્રી લંકન રૂપી</displayName>
+				<displayName count="one">શ્રી લંકન રૂપી</displayName>
+				<displayName count="other">શ્રી લંકન રૂપી</displayName>
+				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>લિબેરિયન ડોલર</displayName>
+				<displayName count="one">લિબેરિયન ડોલર</displayName>
+				<displayName count="other">લિબેરિયન ડોલર</displayName>
+				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>લેસોથો લોતી</displayName>
 			</currency>
 			<currency type="LTL">
 				<displayName>લિથુએનિયન લિતાસ</displayName>
+				<displayName count="one">લિથુએનિયન લિતાસ</displayName>
+				<displayName count="other">લિથુએનિયન લિતાસ</displayName>
+				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>લાતવિયન લેત્સ</displayName>
+				<displayName count="one">લાતવિયન લેત્સ</displayName>
+				<displayName count="other">લાતવિયન લેત્સ</displayName>
+				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>લિબ્યન દિનાર</displayName>
+				<displayName count="one">લિબ્યન દિનાર</displayName>
+				<displayName count="other">લિબ્યન દિનાર</displayName>
+				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
-				<displayName>મોરોકન દિરામ</displayName>
+				<displayName>મોરોક્કન દિરામ</displayName>
+				<displayName count="one">મોરોક્કનદિરામ</displayName>
+				<displayName count="other">મોરોક્કનદિરામ</displayName>
+				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>મોલડોવેન લિયુ</displayName>
+				<displayName count="one">મોલડોવેન લિયુ</displayName>
+				<displayName count="other">મોલડોવેન લિયુ</displayName>
+				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>માલાગેસી અરીઆરી</displayName>
+				<displayName count="one">માલાગેસી અરીઆરી</displayName>
+				<displayName count="other">માલાગેસી અરીઆરી</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>મેસેડોનિયન દિનાર</displayName>
+				<displayName count="one">મેસેડોનિયન દિનાર</displayName>
+				<displayName count="other">મેસેડોનિયન દિનાર</displayName>
+				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>મયાન્મા ક્યાત</displayName>
+				<displayName count="one">મયાન્મા ક્યાત</displayName>
+				<displayName count="other">મયાન્મા ક્યાત</displayName>
+				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>મોંગોલિયન ટગરિક</displayName>
+				<displayName count="one">મોંગોલિયન ટગરિક</displayName>
+				<displayName count="other">મોંગોલિયન ટગરિક</displayName>
+				<symbol>MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>માકાનિઝ પતાકા</displayName>
+				<displayName count="one">માકાનિઝ પતાકા</displayName>
+				<displayName count="other">માકાનિઝ પતાકા</displayName>
+				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>મોરીશેનિયન ઓગુયા</displayName>
+				<displayName count="one">મોરીશેનિયન ઓગુયા</displayName>
+				<displayName count="other">મોરીશેનિયન ઓગુયા</displayName>
+				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MUR">
-				<displayName>મૌરીશીઅન રૂપી</displayName>
+				<displayName>મોરેશીઅન રૂપી</displayName>
+				<displayName count="one">મોરેશીઅન રૂપી</displayName>
+				<displayName count="other">મોરેશીઅન રૂપી</displayName>
+				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>માલ્દિવિયન રુફિયા</displayName>
+				<displayName count="one">માલ્દિવિયન રુફિયા</displayName>
+				<displayName count="other">માલ્દિવિયન રુફિયા</displayName>
+				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>માલાવિયન ક્વાચા</displayName>
+				<displayName count="one">માલાવિયન ક્વાચા</displayName>
+				<displayName count="other">માલાવિયન ક્વાચા</displayName>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>મેક્સિકન પેસો</displayName>
+				<displayName count="one">મેક્સિકન પેસો</displayName>
+				<displayName count="other">મેક્સિકન પેસો</displayName>
+				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>મલેશિયન રિંગ્ગેટ</displayName>
+				<displayName count="one">મલેશિયન રિંગ્ગેટ</displayName>
+				<displayName count="other">મલેશિયન રિંગ્ગેટ</displayName>
+				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>મોઝામ્બિકન મેટિકલ</displayName>
+				<displayName count="one">મોઝામ્બિકન મેટિકલ</displayName>
+				<displayName count="other">મોઝામ્બિકન મેટિકલ</displayName>
+				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
-				<displayName>નામિબિયા ડોલર</displayName>
+				<displayName>નામિબિયન ડોલર</displayName>
+				<displayName count="one">નામિબિયન ડોલર</displayName>
+				<displayName count="other">નામિબિયન ડોલર</displayName>
+				<symbol>NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>નાઇજીરિયન નૈરા</displayName>
+				<displayName count="one">નાઇજીરિયન નૈરા</displayName>
+				<displayName count="other">નાઇજીરિયન નૈરા</displayName>
+				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>નિકારાગુઅન કોર્ડોબા</displayName>
+				<displayName count="one">નિકારાગુઅન કોર્ડોબા</displayName>
+				<displayName count="other">નિકારાગુઅન કોર્ડોબા</displayName>
+				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>નૉર્વેજિયન ક્રોન</displayName>
+				<displayName count="one">નૉર્વેજિયન ક્રોન</displayName>
+				<displayName count="other">નૉર્વેજિયન ક્રોન</displayName>
+				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>નેપાલિઝ રૂપી</displayName>
+				<displayName count="one">નેપાલિઝ રૂપી</displayName>
+				<displayName count="other">નેપાલિઝ રૂપી</displayName>
+				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>ન્યૂઝિલેંડ ડૉલર</displayName>
+				<displayName count="one">ન્યૂઝિલેંડ ડૉલર</displayName>
+				<displayName count="other">ન્યૂઝિલેંડ ડૉલર</displayName>
+				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>ઓમાની રિયાલ</displayName>
+				<displayName count="one">ઓમાની રિયાલ</displayName>
+				<displayName count="other">ઓમાની રિયાલ</displayName>
+				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>પનામેનિયન બાલ્બોઆ</displayName>
+				<displayName count="one">પનામેનિયન બાલ્બોઆ</displayName>
+				<displayName count="other">પનામેનિયન બાલ્બોઆ</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>પેરુવિયન ન્યુવો સોલ</displayName>
+				<displayName count="one">પેરુવિયન ન્યુવો સોલ</displayName>
+				<displayName count="other">પેરુવિયન ન્યુવો સોલ</displayName>
+				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>પાપુઆ ન્યૂ ગિનીયન કિના</displayName>
+				<displayName count="one">પાપુઆ ન્યૂ ગિનીયન કિના</displayName>
+				<displayName count="other">પાપુઆ ન્યૂ ગિનીયન કિના</displayName>
+				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>ફિલીપાઇન પેસો</displayName>
+				<displayName count="one">ફિલીપાઇન પેસો</displayName>
+				<displayName count="other">ફિલીપાઇન પેસો</displayName>
+				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>પાકિસ્તાની રૂપી</displayName>
+				<displayName count="one">પાકિસ્તાની રૂપી</displayName>
+				<displayName count="other">પાકિસ્તાની રૂપી</displayName>
+				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>પોલિસ ઝ્લોટી</displayName>
+				<displayName count="one">પોલિસ ઝ્લોટી</displayName>
+				<displayName count="other">પોલિસ ઝ્લોટી</displayName>
+				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>પરાગ્વેયન ગૌરાની</displayName>
+				<displayName count="one">પરાગ્વેયન ગૌરાની</displayName>
+				<displayName count="other">પરાગ્વેયન ગૌરાની</displayName>
+				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>કતારી રિયાલ</displayName>
+				<displayName count="one">કતારી રિયાલ</displayName>
+				<displayName count="other">કતારી રિયાલ</displayName>
+				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>રોમાનિયન લેઉ</displayName>
+				<displayName count="one">રોમાનિયન લેઉ</displayName>
+				<displayName count="other">રોમાનિયન લેઉ</displayName>
+				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>સર્બિયન દિનાર</displayName>
+				<displayName count="one">સર્બિયન દિનાર</displayName>
+				<displayName count="other">સર્બિયન દિનાર</displayName>
+				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>રશિયન રબલ</displayName>
+				<displayName count="one">રશિયન રબલ</displayName>
+				<displayName count="other">રશિયન રબલ</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RWF">
-				<displayName>રવાંડા ફ્રેંક</displayName>
+				<displayName>રવાંડન ફ્રેંક</displayName>
+				<displayName count="one">રવાંડન ફ્રેંક</displayName>
+				<displayName count="other">રવાંડન ફ્રેંક</displayName>
+				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>સાઉદી રિયાલ</displayName>
+				<displayName count="one">સાઉદી રિયાલ</displayName>
+				<displayName count="other">સાઉદી રિયાલ</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>સોલોમન આઇલેંડ્સ ડોલર</displayName>
+				<displayName count="one">સોલોમન આઇલેંડ્સ ડોલર</displayName>
+				<displayName count="other">સોલોમન આઇલેંડ્સ ડોલર</displayName>
+				<symbol>SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>સેશેલોઈ રૂપી</displayName>
+				<displayName count="one">સેશેલોઈ રૂપી</displayName>
+				<displayName count="other">સેશેલોઈ રૂપી</displayName>
+				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>સુદાનિઝ પાઉન્ડ</displayName>
+				<displayName count="one">સુદાનિઝ પાઉન્ડ</displayName>
+				<displayName count="other">સુદાનિઝ પાઉન્ડ</displayName>
+				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>સ્વીડિશ ક્રોના</displayName>
+				<displayName count="one">સ્વીડિશ ક્રોના</displayName>
+				<displayName count="other">સ્વીડિશ ક્રોના</displayName>
+				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>સિંગાપુર ડૉલર</displayName>
+				<displayName count="one">સિંગાપુર ડૉલર</displayName>
+				<displayName count="other">સિંગાપુર ડૉલર</displayName>
+				<symbol>SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>સેંટ હેલેના પાઉન્ડ</displayName>
+				<displayName count="one">સેંટ હેલેના પાઉન્ડ</displayName>
+				<displayName count="other">સેંટ હેલેના પાઉન્ડ</displayName>
+				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>સિએરા લિઓનિઅન લિઓન</displayName>
+				<displayName count="one">સિએરા લિઓનિઅન લિઓન</displayName>
+				<displayName count="other">સિએરા લિઓનિઅન લિઓન</displayName>
+				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>સોમાલી શિલિંગ</displayName>
+				<displayName count="one">સોમાલી શિલિંગ</displayName>
+				<displayName count="other">સોમાલી શિલિંગ</displayName>
+				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>સૂરીનામિઝ ડોલર</displayName>
+				<displayName count="one">સૂરીનામિઝ ડોલર</displayName>
+				<displayName count="other">સૂરીનામિઝ ડોલર</displayName>
+				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>દક્ષિણ સુદાનિઝ પાઉન્ડ</displayName>
+				<displayName count="one">દક્ષિણ સુદાનિઝ પાઉન્ડ</displayName>
+				<displayName count="other">દક્ષિણ સુદાનિઝ પાઉન્ડ</displayName>
+				<symbol>SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>સાઓ ટૉમ એન્ડ પ્રિંસાઇપ ડોબ્રા</displayName>
+				<displayName count="one">સાઓ ટૉમ એન્ડ પ્રિંસાઇપ ડોબ્રા</displayName>
+				<displayName count="other">સાઓ ટૉમ એન્ડ પ્રિંસાઇપ ડોબ્રા</displayName>
+				<symbol>STD</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>સાઇરિયન પાઉન્ડ</displayName>
+				<displayName count="one">સાઇરિયન પાઉન્ડ</displayName>
+				<displayName count="other">સાઇરિયન પાઉન્ડ</displayName>
+				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>સ્વાઝી લિલાન્ગેની</displayName>
+				<displayName count="one">સ્વાઝી લિલાન્ગેની</displayName>
+				<displayName count="other">સ્વાઝી લિલાન્ગેની</displayName>
+				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>થાઇ બાહ્ત</displayName>
+				<displayName count="one">થાઇ બાહ્ત</displayName>
+				<displayName count="other">થાઇ બાહ્ત</displayName>
+				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJS">
-				<displayName>તાજિકિસ્તાન સોમોની</displayName>
+				<displayName>તાજિકિસ્તાની સોમોની</displayName>
+				<displayName count="one">તાજિકિસ્તાની સોમોની</displayName>
+				<displayName count="other">તાજિકિસ્તાની સોમોની</displayName>
+				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMT">
-				<displayName>તુર્કમેનિસ્તાન મનત</displayName>
+				<displayName>તુર્કમેનિસ્તાની મનત</displayName>
+				<displayName count="one">તુર્કમેનિસ્તાની મનત</displayName>
+				<displayName count="other">તુર્કમેનિસ્તાની મનત</displayName>
+				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
-				<displayName>ટ્યુનિશિયા દિનાર</displayName>
+				<displayName>ટ્યુનિશિયન દિનાર</displayName>
+				<displayName count="one">ટ્યુનિશિયન દિનાર</displayName>
+				<displayName count="other">ટ્યુનિશિયન દિનાર</displayName>
+				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>ટોંગન પ'અંગા</displayName>
+				<displayName count="one">ટોંગન પ'અંગા</displayName>
+				<displayName count="other">ટોંગન પ'અંગા</displayName>
+				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>તુર્કિશ લિરા</displayName>
+				<displayName count="one">તુર્કિશ લિરા</displayName>
+				<displayName count="other">તુર્કિશ લિરા</displayName>
+				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
-				<displayName>ત્રિનિદાદ અને ટોબેગો</displayName>
+				<displayName>ત્રિનિદાદ અને ટોબેગો ડોલર</displayName>
+				<displayName count="one">ત્રિનિદાદ અને ટોબેગો ડોલર</displayName>
+				<displayName count="other">ત્રિનિદાદ અને ટોબેગો ડોલર</displayName>
+				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>ન્યુ તાઇવાન ડૉલર</displayName>
+				<displayName count="one">ન્યુ તાઇવાન ડૉલર</displayName>
+				<displayName count="other">ન્યુ તાઇવાન ડૉલર</displayName>
+				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
-				<displayName>તાન્ઝાનિયા શિલિંગ</displayName>
+				<displayName>તાન્ઝાનિયન શિલિંગ</displayName>
+				<displayName count="one">તાન્ઝાનિયન શિલિંગ</displayName>
+				<displayName count="other">તાન્ઝાનિયન શિલિંગ</displayName>
+				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>યુક્રેનિયન હ્રિવિનિયા</displayName>
+				<displayName count="one">યુક્રેનિયન હ્રિવિનિયા</displayName>
+				<displayName count="other">યુક્રેનિયન હ્રિવિનિયા</displayName>
+				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>યુગાંડન શિલિંગ</displayName>
+				<displayName count="one">યુગાંડન શિલિંગ</displayName>
+				<displayName count="other">યુગાંડન શિલિંગ</displayName>
+				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
-				<displayName>યિએસ ડોલર</displayName>
+				<displayName>યુઍસ ડોલર</displayName>
+				<displayName count="one">યુઍસ ડોલર</displayName>
+				<displayName count="other">યુઍસ ડોલર</displayName>
+				<symbol>US$</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>ઉરુગ્વેયન પેસો</displayName>
+				<displayName count="one">ઉરુગ્વેયન પેસો</displayName>
+				<displayName count="other">ઉરુગ્વેયન પેસો</displayName>
+				<symbol>UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>ઉઝ્બેકિસ્તાન સોમ</displayName>
+				<displayName count="one">ઉઝ્બેકિસ્તાન સોમ</displayName>
+				<displayName count="other">ઉઝ્બેકિસ્તાન સોમ</displayName>
+				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>વેનેઝ્વીલિયન બોલિવર</displayName>
+				<displayName count="one">વેનેઝ્વીલિયન બોલિવર</displayName>
+				<displayName count="other">વેનેઝ્વીલિયન બોલિવર</displayName>
+				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>વિયેતનામીસ ડોંગ</displayName>
+				<displayName count="one">વિયેતનામીસ ડોંગ</displayName>
+				<displayName count="other">વિયેતનામીસ ડોંગ</displayName>
+				<symbol>₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>વનૌતુ વાતુ</displayName>
+				<displayName count="one">વનૌતુ વાતુ</displayName>
+				<displayName count="other">વનૌતુ વાતુ</displayName>
+				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>સમોઅન તાલા</displayName>
+				<displayName count="one">સમોઅન તાલા</displayName>
+				<displayName count="other">સમોઅન તાલા</displayName>
+				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA ફ્રેંક BEAC</displayName>
+				<displayName count="one">CFA ફ્રેંક BEAC</displayName>
+				<displayName count="other">CFA ફ્રેંક BEAC</displayName>
+				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>ઇસ્ટ કેરિબિયન ડોલર</displayName>
+				<displayName count="one">ઇસ્ટ કેરિબિયન ડોલર</displayName>
+				<displayName count="other">ઇસ્ટ કેરિબિયન ડોલર</displayName>
+				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA ફ્રેંક BCEAO</displayName>
+				<displayName count="one">CFA ફ્રેંક BCEAO</displayName>
+				<displayName count="other">CFA ફ્રેંક BCEAO</displayName>
+				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>CFP ફ્રેંક</displayName>
+				<displayName count="one">CFP ફ્રેંક</displayName>
+				<displayName count="other">CFP ફ્રેંક</displayName>
+				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>અજ્ઞાત ચલણ</displayName>
+				<displayName count="one">અજ્ઞાત ચલણ</displayName>
+				<displayName count="other">અજ્ઞાત ચલણ</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>યેમેની રિઆલ</displayName>
+				<displayName count="one">યેમેની રિઆલ</displayName>
+				<displayName count="other">યેમેની રિઆલ</displayName>
+				<symbol>YER</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>દક્ષિણ આફ્રિકી રેંડ</displayName>
+				<displayName count="one">દક્ષિણ આફ્રિકી રેંડ</displayName>
+				<displayName count="other">દક્ષિણ આફ્રિકી રેંડ</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>ઝામ્બિયન ક્વાચા (1968-2012)</displayName>
 			</currency>
 			<currency type="ZMW">
 				<displayName>ઝામ્બિયન ક્વાચા</displayName>
+				<displayName count="one">ઝામ્બિયન ક્વાચા</displayName>
+				<displayName count="other">ઝામ્બિયન ક્વાચા</displayName>
+				<symbol>ZMW</symbol>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="range">{0}-{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} g-બળ</unitPattern>
+				<unitPattern count="other">{0} g-બળ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} અંશ</unitPattern>
+				<unitPattern count="other">{0} અંશ</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0} માઇન્યૂટ</unitPattern>
+				<unitPattern count="other">{0} માઇન્યૂટ</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0} સેકન્ડ</unitPattern>
+				<unitPattern count="other">{0} સેકન્ડ</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} એકર</unitPattern>
+				<unitPattern count="other">{0} એકર</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one">{0} હેક્ટર</unitPattern>
+				<unitPattern count="other">{0} હેક્ટર</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ચોરસ ફૂટ</unitPattern>
+				<unitPattern count="other">{0} ચોરસ ફૂટ</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} ચોરસ કિલોમીટર</unitPattern>
+				<unitPattern count="other">{0} ચોરસ કિલોમીટર</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one">{0} ચોરસ મીટર</unitPattern>
+				<unitPattern count="other">{0} ચોરસ મીટર</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one">{0} ચોરસ માઇલ</unitPattern>
+				<unitPattern count="other">{0} ચોરસ માઇલ</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one">{0} દિવસ</unitPattern>
 				<unitPattern count="other">{0} દિવસ</unitPattern>
@@ -4528,6 +5161,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} કલાક પહેલા</unitPattern>
 				<unitPattern count="other">{0} કલાક પહેલા</unitPattern>
 			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} મિલિસેકન્ડ</unitPattern>
+				<unitPattern count="other">{0} મિલિસેકન્ડ્સ</unitPattern>
+			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one">{0} મિનિટ</unitPattern>
 				<unitPattern count="other">{0} મિનિટ</unitPattern>
@@ -4542,7 +5179,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} મહિનો</unitPattern>
-				<unitPattern count="other">{0} મહિનો</unitPattern>
+				<unitPattern count="other">{0} મહિના</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
 				<unitPattern count="one">{0} મહિનામાં</unitPattern>
@@ -4588,35 +5225,616 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} વર્ષ પહેલા</unitPattern>
 				<unitPattern count="other">{0} વર્ષ પહેલા</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} સેન્ટિમીટર</unitPattern>
+				<unitPattern count="other">{0} સેન્ટિમીટર</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} ફૂટ</unitPattern>
+				<unitPattern count="other">{0} ફિટ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} ઇંચ</unitPattern>
+				<unitPattern count="other">{0} ઇંચ</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} કિલોમીટર</unitPattern>
+				<unitPattern count="other">{0} કિલોમીટર</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} પ્રકાશ વર્ષ</unitPattern>
+				<unitPattern count="other">{0} પ્રકાશ વર્ષ</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} મીટર</unitPattern>
+				<unitPattern count="other">{0} મીટર</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} માઇલ</unitPattern>
+				<unitPattern count="other">{0} માઇલ</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} મિલિમીટર</unitPattern>
+				<unitPattern count="other">{0} મિલિમીટર</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one">{0} પિસૉમિટર</unitPattern>
+				<unitPattern count="other">{0} પિસૉમિટર</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one">{0} વાર</unitPattern>
+				<unitPattern count="other">{0} વાર</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} ગ્રામ</unitPattern>
+				<unitPattern count="other">{0} ગ્રામ</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} કિલોગ્રામ</unitPattern>
+				<unitPattern count="other">{0} કિલોગ્રામ</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} ઔંશ</unitPattern>
+				<unitPattern count="other">{0} ઔંશ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one">{0} પાઉન્ડ</unitPattern>
+				<unitPattern count="other">{0} પાઉન્ડ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} હોર્સપાવર</unitPattern>
+				<unitPattern count="other">{0} હોર્સપાવર</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} કિલોવૉટ</unitPattern>
+				<unitPattern count="other">{0} કિલોવૉટ</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one">{0} વૉટ</unitPattern>
+				<unitPattern count="other">{0} વૉટ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} હેક્ટૉપાસ્કલ</unitPattern>
+				<unitPattern count="other">{0} હેક્ટૉપાસ્કલ</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} પારાના ઇંચ</unitPattern>
+				<unitPattern count="other">{0} પારાના ઇંચ</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} મિલીબાર</unitPattern>
+				<unitPattern count="other">{0} મિલીબાર</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} કિલોમીટર પ્રતિ કલાક</unitPattern>
+				<unitPattern count="other">{0} કિલોમીટર પ્રતિ કલાક</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} મીટર પ્રતિ સેકન્ડ</unitPattern>
+				<unitPattern count="other">{0} મીટર પ્રતિ સેકન્ડ</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} માઇલ પ્રતિ કલાક</unitPattern>
+				<unitPattern count="other">{0} માઇલ પ્રતિ કલાક</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0} ડિગ્રી સેલ્સિયસ</unitPattern>
+				<unitPattern count="other">{0} ડિગ્રી સેલ્સિયસ</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0} ડિગ્રી ફેરનહીટ</unitPattern>
+				<unitPattern count="other">{0} ડિગ્રી ફેરનહીટ</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} ઘન કિલોમીટર</unitPattern>
+				<unitPattern count="other">{0} ઘન કિલોમીટર</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} ઘન માઇલ</unitPattern>
+				<unitPattern count="other">{0} ઘન માઇલ</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} લિટર</unitPattern>
+				<unitPattern count="other">{0} લિટર</unitPattern>
+			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} અંશ</unitPattern>
+				<unitPattern count="other">{0} અંશ</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0} માઇન્યૂટ</unitPattern>
+				<unitPattern count="other">{0} માઇન્યૂટ</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0} સેકન્ડ</unitPattern>
+				<unitPattern count="other">{0} સેકન્ડ</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} એકર</unitPattern>
+				<unitPattern count="other">{0} એકર</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one">{0} હેક્ટર</unitPattern>
+				<unitPattern count="other">{0} હેક્ટર</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ચોરસ ફૂટ</unitPattern>
+				<unitPattern count="other">{0} ચોરસ ફૂટ</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} km²</unitPattern>
+				<unitPattern count="other">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one">{0} ચોરસ મીટર</unitPattern>
+				<unitPattern count="other">{0} ચોરસ મીટર</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one">{0} ચોરસ માઇલ</unitPattern>
+				<unitPattern count="other">{0} ચોરસ માઇલ</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one">{0} દિવસ</unitPattern>
 				<unitPattern count="other">{0} દિવસ</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} દિવસમાં</unitPattern>
+				<unitPattern count="other">{0} દિવસમાં</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} દિવસ પહેલા</unitPattern>
+				<unitPattern count="other">{0} દિવસ પહેલા</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} કલાક</unitPattern>
 				<unitPattern count="other">{0} કલાક</unitPattern>
 			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">{0} કલાકમાં</unitPattern>
+				<unitPattern count="other">{0} કલાકમાં</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} કલાકમાં</unitPattern>
+				<unitPattern count="other">{0} કલાકમાં</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} મિસે</unitPattern>
+				<unitPattern count="other">{0} મિસે</unitPattern>
+			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one">{0} મિનિટ</unitPattern>
 				<unitPattern count="other">{0} મિનિટ</unitPattern>
 			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">{0} મિનિટમાં</unitPattern>
+				<unitPattern count="other">{0} મિનિટમાં</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} મિનિટ પહેલા</unitPattern>
+				<unitPattern count="other">{0} મિનિટ પહેલા</unitPattern>
+			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} મહિનો</unitPattern>
-				<unitPattern count="other">{0} મહિનો</unitPattern>
+				<unitPattern count="other">{0} મહિના</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">{0} મહિનામાં</unitPattern>
+				<unitPattern count="other">{0} મહિનામાં</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0}મહિના પહેલા</unitPattern>
+				<unitPattern count="other">{0}મહિના પહેલા</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} સેકંડ</unitPattern>
 				<unitPattern count="other">{0} સેકંડ</unitPattern>
 			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">{0} સેકંડમાં</unitPattern>
+				<unitPattern count="other">{0} સેકંડમાં</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} સેકંડ પહેલા</unitPattern>
+				<unitPattern count="other">{0} સેકંડ પહેલા</unitPattern>
+			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} અઠ.</unitPattern>
 				<unitPattern count="other">{0} અઠ.</unitPattern>
 			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">{0} અઠવાડિયામાં</unitPattern>
+				<unitPattern count="other">{0} અઠવાડિયામાં</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} અઠવાડિયા પહેલા</unitPattern>
+				<unitPattern count="other">{0} અઠવાડિયા પહેલા</unitPattern>
+			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} વર્ષ</unitPattern>
 				<unitPattern count="other">{0} વર્ષ</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">{0} વર્ષમાં</unitPattern>
+				<unitPattern count="other">{0} વર્ષમાં</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} વર્ષ પહેલા</unitPattern>
+				<unitPattern count="other">{0} વર્ષ પહેલા</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} સેમી</unitPattern>
+				<unitPattern count="other">{0} સેમી</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} ફૂટ</unitPattern>
+				<unitPattern count="other">{0} ફૂટ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} ઇંચ</unitPattern>
+				<unitPattern count="other">{0} ઇંચ</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} કિમી</unitPattern>
+				<unitPattern count="other">{0} કિમી</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} પ્રકાશ વર્ષ</unitPattern>
+				<unitPattern count="other">{0} પ્રકાશ વર્ષ</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} મી</unitPattern>
+				<unitPattern count="other">{0} મી</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} માઇલ</unitPattern>
+				<unitPattern count="other">{0} માઇલ</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} મિમી</unitPattern>
+				<unitPattern count="other">{0} મિમી</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one">{0} પિસૉમિટર</unitPattern>
+				<unitPattern count="other">{0} પિસૉમિટર</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one">{0} વાર</unitPattern>
+				<unitPattern count="other">{0} વાર</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} ગ્રા</unitPattern>
+				<unitPattern count="other">{0} ગ્રા</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} કિગ્રા</unitPattern>
+				<unitPattern count="other">{0} કિગ્રા</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} ઔંશ</unitPattern>
+				<unitPattern count="other">{0} ઔંશ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one">{0} પાઉન્ડ</unitPattern>
+				<unitPattern count="other">{0} પાઉન્ડ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} હોર્સપાવર</unitPattern>
+				<unitPattern count="other">{0} હોર્સપાવર</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} કિલોવૉટ</unitPattern>
+				<unitPattern count="other">{0} કિલોવૉટ</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one">{0} વૉટ</unitPattern>
+				<unitPattern count="other">{0} વૉટ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} inHg</unitPattern>
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} મિલીબાર</unitPattern>
+				<unitPattern count="other">{0} મિલીબાર</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} કિમી/કલાક</unitPattern>
+				<unitPattern count="other">{0} કિમી/કલાક</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} મીટર/સેકન્ડ</unitPattern>
+				<unitPattern count="other">{0} મીટર/સેકન્ડ</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} માઇલ/કલાક</unitPattern>
+				<unitPattern count="other">{0} માઇલ/કલાક</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0}°F</unitPattern>
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} km³</unitPattern>
+				<unitPattern count="other">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} ઘન માઇલ</unitPattern>
+				<unitPattern count="other">{0} ઘન માઇલ</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} લિ</unitPattern>
+				<unitPattern count="other">{0} લિ</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern>h:mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern>m:ss</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one">{0} ha</unitPattern>
+				<unitPattern count="other">{0} ha</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ft²</unitPattern>
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} km²</unitPattern>
+				<unitPattern count="other">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one">{0} m²</unitPattern>
+				<unitPattern count="other">{0} m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one">{0} mi²</unitPattern>
+				<unitPattern count="other">{0} mi²</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="one">{0} દિવસ</unitPattern>
+				<unitPattern count="other">{0} દિવસ</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} દિવસમાં</unitPattern>
+				<unitPattern count="other">{0} દિવસમાં</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} દિવસ પહેલા</unitPattern>
+				<unitPattern count="other">{0} દિવસ પહેલા</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} કલાક</unitPattern>
+				<unitPattern count="other">{0} કલાક</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">{0} કલાકમાં</unitPattern>
+				<unitPattern count="other">{0} કલાકમાં</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} કલાકમાં</unitPattern>
+				<unitPattern count="other">{0} કલાકમાં</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} મિસે</unitPattern>
+				<unitPattern count="other">{0} મિસે</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} મિનિટ</unitPattern>
+				<unitPattern count="other">{0} મિનિટ</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">{0} મિનિટમાં</unitPattern>
+				<unitPattern count="other">{0} મિનિટમાં</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} મિનિટ પહેલા</unitPattern>
+				<unitPattern count="other">{0} મિનિટ પહેલા</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} મહિનો</unitPattern>
+				<unitPattern count="other">{0} મહિનો</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">{0} મહિનામાં</unitPattern>
+				<unitPattern count="other">{0} મહિનામાં</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} મહિના પહેલા</unitPattern>
+				<unitPattern count="other">{0} મહિના પહેલા</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} સેકંડ</unitPattern>
+				<unitPattern count="other">{0} સેકંડ</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">{0} સેકંડમાં</unitPattern>
+				<unitPattern count="other">{0} સેકંડમાં</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} સેકંડ પહેલા</unitPattern>
+				<unitPattern count="other">{0} સેકંડ પહેલા</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} અઠ.</unitPattern>
+				<unitPattern count="other">{0} અઠ.</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">{0} અઠવાડિયામાં</unitPattern>
+				<unitPattern count="other">{0} અઠવાડિયામાં</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} અઠવાડિયા પહેલા</unitPattern>
+				<unitPattern count="other">{0} અઠવાડિયા પહેલા</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} વર્ષ</unitPattern>
+				<unitPattern count="other">{0} વર્ષ</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">{0} વર્ષમાં</unitPattern>
+				<unitPattern count="other">{0} વર્ષમાં</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} વર્ષ પહેલા</unitPattern>
+				<unitPattern count="other">{0} વર્ષ પહેલા</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} સેમી</unitPattern>
+				<unitPattern count="other">{0} સેમી</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} '</unitPattern>
+				<unitPattern count="other">{0} '</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} &quot;</unitPattern>
+				<unitPattern count="other">{0} &quot;</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} કિમી</unitPattern>
+				<unitPattern count="other">{0} કિમી</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0}પ્રકાશવર્ષ</unitPattern>
+				<unitPattern count="other">{0}પ્રકાશવર્ષ</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} મી</unitPattern>
+				<unitPattern count="other">{0} મી</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} માઇલ</unitPattern>
+				<unitPattern count="other">{0} માઇલ</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} મિમી</unitPattern>
+				<unitPattern count="other">{0} મિમી</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one">{0}પિસૉ.મી</unitPattern>
+				<unitPattern count="other">{0}પિસૉ.મી</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one">{0} વાર</unitPattern>
+				<unitPattern count="other">{0} વાર</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} ગ્રા</unitPattern>
+				<unitPattern count="other">{0} ગ્રા</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} કિગ્રા</unitPattern>
+				<unitPattern count="other">{0} કિગ્રા</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} ઔંશ</unitPattern>
+				<unitPattern count="other">{0} ઔંશ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one">{0} પાઉન્ડ</unitPattern>
+				<unitPattern count="other">{0} પાઉન્ડ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} hp</unitPattern>
+				<unitPattern count="other">{0} hp</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} kW</unitPattern>
+				<unitPattern count="other">{0} kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one">{0} W</unitPattern>
+				<unitPattern count="other">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} inHg</unitPattern>
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">{0}મિલીબાર</unitPattern>
+				<unitPattern count="other">{0}મિલીબાર</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} km/h</unitPattern>
+				<unitPattern count="other">{0} km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} m/s</unitPattern>
+				<unitPattern count="other">{0} m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} mi/h</unitPattern>
+				<unitPattern count="other">{0} mi/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0}°F</unitPattern>
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} km³</unitPattern>
+				<unitPattern count="other">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} mi³</unitPattern>
+				<unitPattern count="other">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} l</unitPattern>
+				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
@@ -4627,12 +5845,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="end">{0} અને {1}</listPatternPart>
 			<listPatternPart type="2">{0} અને {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="duration">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} અને {1}</listPatternPart>
+			<listPatternPart type="2">{0} અને {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration-short">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
 	</listPatterns>
 	<posix>
 		<messages>
 			<yesstr>હા</yesstr>
-			<nostr>ના</nostr>
+			<nostr>નહીં</nostr>
 		</messages>
 	</posix>
 </ldml>
-

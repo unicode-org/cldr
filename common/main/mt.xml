@@ -11,6 +11,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="mt"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localeSeparator draft="unconfirmed">{0}, {1}</localeSeparator>
+		</localeDisplayPattern>
 		<languages>
 			<language type="aa">Afar</language>
 			<language type="ab">Abkażjan</language>
@@ -33,6 +36,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="anp">Angika</language>
 			<language type="apa">Lingwi Apaċi</language>
 			<language type="ar">Għarbi</language>
+			<language type="ar_001">Għarbi Standard Modern</language>
 			<language type="arc">Aramajk</language>
 			<language type="arn">Arawkanjan</language>
 			<language type="arp">Arapaħo</language>
@@ -267,7 +271,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="lun">Lunda</language>
 			<language type="luo">Luwa</language>
 			<language type="lus">Luxaj</language>
-			<language type="lv">Latvjan (Lettix)</language>
+			<language type="lv">Latvjan</language>
 			<language type="mad">Maduriż</language>
 			<language type="mag">Magaħi</language>
 			<language type="mai">Majtili</language>
@@ -440,7 +444,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="tli">Tlingit</language>
 			<language type="tmh">Tamaxek</language>
 			<language type="tn">Zwana</language>
-			<language type="to">Tongan (Gżejjer ta’ Tonga)</language>
+			<language type="to">Tongan</language>
 			<language type="tog">Tonga (Njasa)</language>
 			<language type="tpi">Tok Pisin</language>
 			<language type="tr">Tork</language>
@@ -495,13 +499,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Brai" draft="unconfirmed">Braille</script>
 			<script type="Cyrl" draft="unconfirmed">Ċirilliku</script>
 			<script type="Grek">Grieg</script>
-			<script type="Hans">Ħan Sempliċi</script>
-			<script type="Hant">Ħan Tradizzjonali</script>
+			<script type="Hans">Sempliċi</script>
+			<script type="Hans" alt="stand-alone">Ħan Sempliċi</script>
+			<script type="Hant">Tradizzjonali</script>
+			<script type="Hant" alt="stand-alone">Ħan Tradizzjonali</script>
 			<script type="Latn">Latin</script>
 			<script type="Xpeo">Persjan Antik</script>
 			<script type="Zxxx">Mhux Miktub</script>
 			<script type="Zyyy">Komuni</script>
-			<script type="Zzzz">Skritt Mhux Magħruf jew Mhux Validu</script>
+			<script type="Zzzz">Skritt Mhux Magħruf</script>
 		</scripts>
 		<territories>
 			<territory type="001">Dinja</territory>
@@ -626,7 +632,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="GU">Gwam</territory>
 			<territory type="GW">Ginea-Bissaw</territory>
 			<territory type="GY">Gujana</territory>
-			<territory type="HK">Ħong Kong S.A.R., Ċina</territory>
+			<territory type="HK">Ħong Kong S.A.R. Ċina</territory>
 			<territory type="HK" alt="short" draft="unconfirmed">Ħong Kong</territory>
 			<territory type="HM">Heard Island and McDonald Islands</territory>
 			<territory type="HN">Ħonduras</territory>
@@ -713,7 +719,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="PM">Saint Pierre and Miquelon</territory>
 			<territory type="PN">Pitcairn</territory>
 			<territory type="PR">Puerto Rico</territory>
-			<territory type="PS">Palestinian Territory</territory>
+			<territory type="PS">Territorju Palestinjan</territory>
 			<territory type="PT">Portugall</territory>
 			<territory type="PW">Palau</territory>
 			<territory type="PY">Paragwaj</territory>
@@ -772,12 +778,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="VU">Vanwatu</territory>
 			<territory type="WF">Wallis and Futuna</territory>
 			<territory type="WS">Samoa</territory>
+			<territory type="XK" draft="unconfirmed">Kosovo</territory>
 			<territory type="YE">Jemen</territory>
 			<territory type="YT">Majotte</territory>
 			<territory type="ZA">Afrika t’Isfel</territory>
 			<territory type="ZM">Żambja</territory>
 			<territory type="ZW">Żimbabwe</territory>
-			<territory type="ZZ">Reġjun Mhux Magħruf jew Mhux Validu</territory>
+			<territory type="ZZ">Reġjun Mhux Magħruf</territory>
 		</territories>
 		<variants>
 			<variant type="REVISED">Ortografija Irriveda</variant>
@@ -786,11 +793,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="calendar">Kalendarju</key>
 			<key type="collation">Kollazjoni</key>
 			<key type="currency">Munita</key>
+			<key type="numbers" draft="unconfirmed">Numri</key>
 		</keys>
 		<types>
 			<type type="big5han" key="collation">Ordni Ċiniż Tradizzjonali (Big5)</type>
 			<type type="buddhist" key="calendar">Kalendarju Buddist</type>
 			<type type="chinese" key="calendar">Kalendarju Ċiniż</type>
+			<type type="dictionary" key="collation" draft="unconfirmed">Ordni tad-Dizzjunarju</type>
 			<type type="gb2312han" key="collation">Ordni Ċiniż Sempliċi (GB2312)</type>
 			<type type="gregorian" key="calendar">Kalendarju Gregorjan</type>
 			<type type="hebrew" key="calendar">Kalendarju Ebrajk</type>
@@ -805,8 +814,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metriku</measurementSystemName>
-			<measurementSystemName type="UK" draft="unconfirmed">UK</measurementSystemName>
-			<measurementSystemName type="US" draft="unconfirmed">US</measurementSystemName>
+			<measurementSystemName type="UK">UK</measurementSystemName>
+			<measurementSystemName type="US">US</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">Lingwa: {0}</codePattern>
@@ -992,6 +1001,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">N</month>
 							<month type="12">D</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">Jannar</month>
+							<month type="2">Frar</month>
+							<month type="3">Marzu</month>
+							<month type="4">April</month>
+							<month type="5">Mejju</month>
+							<month type="6">Ġunju</month>
+							<month type="7">Lulju</month>
+							<month type="8">Awwissu</month>
+							<month type="9">Settembru</month>
+							<month type="10">Ottubru</month>
+							<month type="11">Novembru</month>
+							<month type="12">Diċembru</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -1004,6 +1027,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="thu">Ħam</day>
 							<day type="fri">Ġim</day>
 							<day type="sat">Sib</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">Ħ</day>
+							<day type="mon">T</day>
+							<day type="tue">T</day>
+							<day type="wed">E</day>
+							<day type="thu">Ħ</day>
+							<day type="fri">Ġ</day>
+							<day type="sat">S</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">Il-Ħadd</day>
@@ -1036,16 +1068,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="4">K4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="unconfirmed">1</quarter>
-							<quarter type="2" draft="unconfirmed">2</quarter>
-							<quarter type="3" draft="unconfirmed">3</quarter>
-							<quarter type="4" draft="unconfirmed">4</quarter>
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">K1</quarter>
 							<quarter type="2">K2</quarter>
 							<quarter type="3">K3</quarter>
 							<quarter type="4">K4</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">K1</quarter>
+							<quarter type="2">K2</quarter>
+							<quarter type="3">K3</quarter>
+							<quarter type="4">K4</quarter>
+						</quarterWidth>
+						<quarterWidth type="narrow">
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">1el kwart</quarter>
+							<quarter type="2">2ni kwart</quarter>
+							<quarter type="3">3et kwart</quarter>
+							<quarter type="4">4ba' kwart</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1064,7 +1116,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</eraNames>
 					<eraAbbr>
 						<era type="0">QK</era>
+						<era type="0" alt="variant">QEK</era>
 						<era type="1">WK</era>
+						<era type="1" alt="variant">EK</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1212,24 +1266,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year">
 				<displayName>Sena</displayName>
-				<relative type="-1" draft="unconfirmed">Sena l-oħra</relative>
+				<relative type="-1">Is-sena li għaddiet</relative>
 				<relative type="0" draft="unconfirmed">Din is-sena</relative>
-				<relative type="1" draft="unconfirmed">Sena li ġej</relative>
+				<relative type="1">Is-sena d-dieħla</relative>
 			</field>
 			<field type="month">
 				<displayName>Xahar</displayName>
+				<relative type="-1">Ix-xahar li għadda</relative>
+				<relative type="0">Dan ix-xahar</relative>
+				<relative type="1">Ix-xahar id-dieħel</relative>
 			</field>
 			<field type="week">
 				<displayName>Ġimgħa</displayName>
+				<relative type="-1">Il-ġimgħa li għaddiet</relative>
+				<relative type="0">Din il-ġimgħa</relative>
+				<relative type="1">Il-ġimgħa d-dieħla</relative>
 			</field>
 			<field type="day">
 				<displayName>Jum</displayName>
-				<relative type="-1">Lbieraħ</relative>
+				<relative type="-1">Ilbieraħ</relative>
 				<relative type="0">Illum</relative>
 				<relative type="1">Għada</relative>
 			</field>
 			<field type="weekday">
 				<displayName>Jum tal-Ġimgħa</displayName>
+			</field>
+			<field type="sun">
+				<relative type="-1">Il-Ħadd li għadda</relative>
+				<relative type="0">Dan il-Ħadd</relative>
+				<relative type="1">Il-Ħadd li ġej</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1">It-Tnejn li għadda</relative>
+				<relative type="1">It-Tnejn li ġej</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName draft="unconfirmed">QN/WN</displayName>
@@ -1252,7 +1321,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<regionFormat>Ħin ta’ {0}</regionFormat>
 			<zone type="Etc/Unknown">
-				<exemplarCity>Mhux Magħruf</exemplarCity>
+				<exemplarCity>Belt Mhux Magħruf</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<exemplarCity>Londra</exemplarCity>
@@ -1263,7 +1332,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Europe_Central">
 				<long>
 					<generic>Ħin Ċentrali Ewropew</generic>
-					<standard>Ħin Ċentrali Ewropew istandard</standard>
+					<standard>Ħin Ċentrali Ewropew Standard</standard>
 					<daylight>Ħin Ċentrali Ewropew tas-Sajf</daylight>
 				</long>
 				<short>
@@ -1294,7 +1363,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Lira Maltija</displayName>
 			</currency>
 			<currency type="XXX">
-				<displayName>Munita Mhux Magħruf jew Mhux Validu</displayName>
+				<displayName>Munita Mhux Magħrufa jew Mhux Valida</displayName>
 				<displayName count="one">Munita Mhux Magħruf jew Mhux Validu</displayName>
 				<displayName count="few">Munita Mhux Magħruf jew Mhux Validu</displayName>
 				<displayName count="many">Munita Mhux Magħruf jew Mhux Validu</displayName>
@@ -1327,4 +1396,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

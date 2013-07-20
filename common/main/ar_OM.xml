@@ -11,5 +11,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="ar"/>
 		<territory type="OM"/>
 	</identity>
+	<numbers>
+		<symbols numberSystem="arab">
+			<decimal>٫</decimal>
+			<group>٬</group>
+			<percentSign>٪</percentSign>
+			<plusSign>+</plusSign>
+			<perMille>؉</perMille>
+		</symbols>
+		<symbols numberSystem="latn">
+			<decimal>.</decimal>
+			<group>,</group>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<perMille>‰</perMille>
+		</symbols>
+	</numbers>
 </ldml>
-

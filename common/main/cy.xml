@@ -37,6 +37,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ang">Hen Saesneg</language>
 			<language type="apa" draft="unconfirmed">iaith Athabascaidd Deheuol</language>
 			<language type="ar">Arabeg</language>
+			<language type="ar_001">Arabeg Modern Safonol</language>
 			<language type="arc">Aramaeg</language>
 			<language type="arn" draft="unconfirmed">Arawcaneg</language>
 			<language type="art">Iaith Artiffisial</language>
@@ -116,12 +117,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU">Saesneg Awstralia</language>
 			<language type="en_CA">Saesneg Canada</language>
 			<language type="en_GB">Saesneg Prydain</language>
+			<language type="en_GB" alt="short">Saesneg (DU)</language>
 			<language type="en_US">Saesneg UDA</language>
+			<language type="en_US" alt="short" draft="unconfirmed">Saesneg (UDA)</language>
 			<language type="enm">Saesneg Canol</language>
 			<language type="eo">Esperanto</language>
 			<language type="es">Sbaeneg</language>
 			<language type="es_419">Sbaeneg America Ladin</language>
 			<language type="es_ES">Sbaeneg Ewrop</language>
+			<language type="es_MX">Sbaeneg Mecsico</language>
 			<language type="et">Estoneg</language>
 			<language type="eu">Basgeg</language>
 			<language type="ewo" draft="unconfirmed">Ewondo</language>
@@ -132,7 +136,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="fil">Ffilipineg</language>
 			<language type="fiu">Iaith Ffinno-Wgrig</language>
 			<language type="fj">Ffijïeg</language>
-			<language type="fo">Ffaroeg</language>
+			<language type="fo">Ffaröeg</language>
 			<language type="fr">Ffrangeg</language>
 			<language type="fr_CA">Ffrangeg Canada</language>
 			<language type="fr_CH">Ffrangeg y Swistir</language>
@@ -148,7 +152,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="gd">Gaeleg yr Alban</language>
 			<language type="gem">Iaith Germanaidd</language>
 			<language type="gil" draft="unconfirmed">Gilberteg</language>
-			<language type="gl">Galiseg</language>
+			<language type="gl">Galisieg</language>
 			<language type="gn">Guaraní</language>
 			<language type="got">Gotheg</language>
 			<language type="grc">Hen Roeg</language>
@@ -200,8 +204,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ki" draft="unconfirmed">Cicwyeg</language>
 			<language type="kk">Casacheg</language>
 			<language type="km">Chmereg</language>
-			<language type="kn">Canareg</language>
-			<language type="ko">Corëeg</language>
+			<language type="kn">Kannada</language>
+			<language type="ko">Coreeg</language>
 			<language type="kok" draft="unconfirmed">Concani</language>
 			<language type="kr" draft="unconfirmed">Canwri</language>
 			<language type="krl" draft="unconfirmed">Careleg</language>
@@ -273,7 +277,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="nd" draft="unconfirmed">Ndebele Gogleddol</language>
 			<language type="nds" draft="unconfirmed">Isel Almaeneg</language>
 			<language type="ne">Nepaleg</language>
-			<language type="new" draft="unconfirmed">Newari</language>
+			<language type="new" draft="unconfirmed">Newaeg</language>
 			<language type="nl">Iseldireg</language>
 			<language type="nl_BE">Fflemeg</language>
 			<language type="nn">Norwyeg Nynorsk</language>
@@ -303,6 +307,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="peo">Hen Bersieg</language>
 			<language type="phi" draft="unconfirmed">iaith y Philipinau</language>
 			<language type="phn" draft="unconfirmed">Phoeniceg</language>
+			<language type="pi" draft="unconfirmed">Pali</language>
 			<language type="pl">Pwyleg</language>
 			<language type="pra" draft="unconfirmed">iaith Pracritaidd</language>
 			<language type="pro">Hen Brofensaleg</language>
@@ -379,7 +384,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="te">Telugu</language>
 			<language type="tg">Tajiceg</language>
 			<language type="th">Thai</language>
-			<language type="ti">Tigriniaeg</language>
+			<language type="ti">Tigrinya</language>
 			<language type="tk">Twrcmeneg</language>
 			<language type="tl" draft="unconfirmed">Tagalog*</language>
 			<language type="tlh" draft="contributed">Klingon</language>
@@ -417,6 +422,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="yue">Cantoneeg</language>
 			<language type="zap" draft="unconfirmed">Zapoteceg</language>
 			<language type="zbl" draft="unconfirmed">Blisssymbols</language>
+			<language type="zgh">Tamazight Safonol Moroco</language>
 			<language type="zh">Tsieineeg</language>
 			<language type="zh_Hans">Tsieineeg Symledig</language>
 			<language type="zh_Hant">Tsieineeg Traddodiadol</language>
@@ -432,21 +438,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Bopo">Bopomofo</script>
 			<script type="Brai">Braille</script>
 			<script type="Cyrl">Cyrilig</script>
-			<script type="Deva">Defanagari</script>
+			<script type="Deva">Devanāgarī</script>
 			<script type="Ethi">Ethiopig</script>
 			<script type="Geor">Georgaidd</script>
 			<script type="Grek">Groegaidd</script>
-			<script type="Gujr">Gwjarataidd</script>
+			<script type="Gujr">Gujarataidd</script>
 			<script type="Guru">Gwrmwci</script>
-			<script type="Hang">Hangwl</script>
+			<script type="Hang">Hangul</script>
 			<script type="Hani">Han</script>
-			<script type="Hans">Han symledig</script>
-			<script type="Hant">Han traddodiadol</script>
-			<script type="Hebr">Hebrëig</script>
+			<script type="Hans">Symledig</script>
+			<script type="Hans" alt="stand-alone">Han symledig</script>
+			<script type="Hant">Traddodiadol</script>
+			<script type="Hant" alt="stand-alone">Han traddodiadol</script>
+			<script type="Hebr">Hebreig</script>
 			<script type="Hira">Hiragana</script>
 			<script type="Jpan">Japaneaidd</script>
 			<script type="Kana">Catacana</script>
-			<script type="Khmr">Cmeraidd</script>
+			<script type="Khmr">Chmeraidd</script>
 			<script type="Knda">Canaraidd</script>
 			<script type="Kore">Coreaidd</script>
 			<script type="Laoo">Laoaidd</script>
@@ -458,17 +466,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Orya">Orïaidd</script>
 			<script type="Sinh">Sinhanaidd</script>
 			<script type="Taml">Tamilaidd</script>
-			<script type="Telu">Telwgw</script>
+			<script type="Telu">Telugu</script>
 			<script type="Thaa">Thaa</script>
 			<script type="Thai">Thai</script>
 			<script type="Tibt">Tibetaidd</script>
 			<script type="Zsym">Symbolau</script>
 			<script type="Zxxx">Anysgrifenedig</script>
 			<script type="Zyyy">Cyffredin</script>
-			<script type="Zzzz">Ysgriflythyren anhysbys</script>
+			<script type="Zzzz">Sgript anhysbys</script>
 		</scripts>
 		<territories>
-			<territory type="001">y Byd</territory>
+			<territory type="001">Y Byd</territory>
 			<territory type="002">Affrica</territory>
 			<territory type="003">Gogledd America</territory>
 			<territory type="005">De America</territory>
@@ -479,9 +487,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="015">Gogledd Affrica</territory>
 			<territory type="017">Canol Affrica</territory>
 			<territory type="018">Deheudir Affrica</territory>
-			<territory type="019">yr Amerig</territory>
+			<territory type="019">Yr Amerig</territory>
 			<territory type="021">America i'r Gogledd o Mecsico</territory>
-			<territory type="029">y Caribî</territory>
+			<territory type="029">Y Caribî</territory>
 			<territory type="030">Dwyrain Asia</territory>
 			<territory type="034">De Asia</territory>
 			<territory type="035">De-Ddwyrain Asia</territory>
@@ -500,16 +508,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="419">America Ladin</territory>
 			<territory type="AC">Ynys Ascension</territory>
 			<territory type="AD">Andorra</territory>
-			<territory type="AE">Yr Emiraethau Arabaidd Unedig</territory>
+			<territory type="AE">Emiradau Arabaidd Unedig</territory>
 			<territory type="AF">Afghanistan</territory>
 			<territory type="AG">Antigua a Barbuda</territory>
 			<territory type="AI">Anguilla</territory>
 			<territory type="AL">Albania</territory>
 			<territory type="AM">Armenia</territory>
-			<territory type="AN" draft="unconfirmed">Ynysoedd Caribî yr Iseldiroedd</territory>
+			<territory type="AN">Ynysoedd Caribî yr Iseldiroedd</territory>
 			<territory type="AO">Angola</territory>
-			<territory type="AQ">Yr Antarctig</territory>
-			<territory type="AR">yr Ariannin</territory>
+			<territory type="AQ">Antarctica</territory>
+			<territory type="AR">Yr Ariannin</territory>
 			<territory type="AS">Samoa America</territory>
 			<territory type="AT">Awstria</territory>
 			<territory type="AU">Awstralia</territory>
@@ -529,9 +537,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunei</territory>
 			<territory type="BO">Bolifia</territory>
-			<territory type="BQ">Iseldiroedd y Caribî</territory>
+			<territory type="BQ">Antilles yr Iseldiroedd</territory>
 			<territory type="BR">Brasil</territory>
-			<territory type="BS">y Bahamas</territory>
+			<territory type="BS">Y Bahamas</territory>
 			<territory type="BT">Bhutan</territory>
 			<territory type="BV">Ynys Bouvet</territory>
 			<territory type="BW">Botswana</territory>
@@ -539,17 +547,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BZ">Belize</territory>
 			<territory type="CA">Canada</territory>
 			<territory type="CC">Ynysoedd Cocos [Keeling]</territory>
-			<territory type="CD">y Congo - Kinshasa</territory>
-			<territory type="CD" alt="variant">y Congo [Gweriniaeth Ddemocrataidd]</territory>
+			<territory type="CD">Y Congo - Kinshasa</territory>
+			<territory type="CD" alt="variant">y Congo [G.Dd.C.]</territory>
 			<territory type="CF">Gweriniaeth Canolbarth Affrica</territory>
-			<territory type="CG">y Congo - Brazzaville</territory>
-			<territory type="CG" alt="variant">y Congo [Gweriniaeth]</territory>
-			<territory type="CH">y Swistir</territory>
+			<territory type="CG">Y Congo - Brazzaville</territory>
+			<territory type="CG" alt="variant">Y Congo [Gweriniaeth]</territory>
+			<territory type="CH">Y Swistir</territory>
 			<territory type="CI">Côte d’Ivoire</territory>
 			<territory type="CI" alt="variant">Côte d’Ivoire</territory>
 			<territory type="CK">Ynysoedd Cook</territory>
 			<territory type="CL">Chile</territory>
-			<territory type="CM">y Camerŵn</territory>
+			<territory type="CM">Camerŵn</territory>
 			<territory type="CN">Tsieina</territory>
 			<territory type="CO">Colombia</territory>
 			<territory type="CP">Ynys Clipperton</territory>
@@ -560,7 +568,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CX">Ynys y Nadolig</territory>
 			<territory type="CY">Cyprus</territory>
 			<territory type="CZ">Gweriniaeth Tsiec</territory>
-			<territory type="DE">yr Almaen</territory>
+			<territory type="DE">Yr Almaen</territory>
 			<territory type="DG">Diego Garcia</territory>
 			<territory type="DJ">Djibouti</territory>
 			<territory type="DK">Denmarc</territory>
@@ -570,28 +578,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="EA">Ceuta a Melilla</territory>
 			<territory type="EC">Ecuador</territory>
 			<territory type="EE">Estonia</territory>
-			<territory type="EG">yr Aifft</territory>
-			<territory type="EH">Gorllewin y Sahara</territory>
+			<territory type="EG">Yr Aifft</territory>
+			<territory type="EH">Gorllewin Sahara</territory>
 			<territory type="ER">Eritrea</territory>
 			<territory type="ES">Sbaen</territory>
 			<territory type="ET">Ethiopia</territory>
-			<territory type="EU">yr Undeb Ewropeaidd</territory>
-			<territory type="FI">y Ffindir</territory>
-			<territory type="FJ">Ffiji</territory>
+			<territory type="EU">Yr Undeb Ewropeaidd</territory>
+			<territory type="FI">Y Ffindir</territory>
+			<territory type="FJ">Fiji</territory>
 			<territory type="FK">Ynysoedd y Falkland/Malvinas</territory>
 			<territory type="FK" alt="variant">Ynysoedd y Falkland [Ynysoedd y Malfinas]</territory>
 			<territory type="FM">Micronesia</territory>
 			<territory type="FO">Føroyar</territory>
 			<territory type="FR">Ffrainc</territory>
 			<territory type="GA">Gabon</territory>
-			<territory type="GB">y Deyrnas Unedig</territory>
+			<territory type="GB">Y Deyrnas Unedig</territory>
+			<territory type="GB" alt="short">DU</territory>
 			<territory type="GD">Grenada</territory>
 			<territory type="GE">Georgia</territory>
 			<territory type="GF">Guyane Ffrengig</territory>
-			<territory type="GG">Guernsey</territory>
+			<territory type="GG">Ynys y Garn</territory>
 			<territory type="GH">Ghana</territory>
 			<territory type="GI">Gibraltar</territory>
-			<territory type="GL">yr Ynys Las</territory>
+			<territory type="GL">Yr Ynys Las</territory>
 			<territory type="GM">Gambia</territory>
 			<territory type="GN">Guinée</territory>
 			<territory type="GP">Guadeloupe</territory>
@@ -609,7 +618,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="HR">Croatia</territory>
 			<territory type="HT">Haiti</territory>
 			<territory type="HU">Hwngari</territory>
-			<territory type="IC">yr Ynysoedd Dedwydd</territory>
+			<territory type="IC">Yr Ynysoedd Dedwydd</territory>
 			<territory type="ID">Indonesia</territory>
 			<territory type="IE">Iwerddon</territory>
 			<territory type="IL">Israel</territory>
@@ -619,10 +628,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="IQ">Irac</territory>
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Gwlad yr Iâ</territory>
-			<territory type="IT">yr Eidal</territory>
+			<territory type="IT">Yr Eidal</territory>
 			<territory type="JE">Jersey</territory>
 			<territory type="JM">Jamaica</territory>
-			<territory type="JO">Gwlad yr Iorddonen</territory>
+			<territory type="JO">Gwlad Iorddonen</territory>
 			<territory type="JP">Japan</territory>
 			<territory type="KE">Kenya</territory>
 			<territory type="KG">Kyrgyzstan</territory>
@@ -630,8 +639,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="KI">Kiribati</territory>
 			<territory type="KM">Comoros</territory>
 			<territory type="KN">Saint Kitts a Nevis</territory>
-			<territory type="KP">Gogledd Corea</territory>
-			<territory type="KR">De Corea</territory>
+			<territory type="KP">Gogledd Korea</territory>
+			<territory type="KR">De Korea</territory>
 			<territory type="KW">Kuwait</territory>
 			<territory type="KY">Ynysoedd Cayman</territory>
 			<territory type="KZ">Kazakstan</territory>
@@ -642,10 +651,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="LK">Sri Lanka</territory>
 			<territory type="LR">Liberia</territory>
 			<territory type="LS">Lesotho</territory>
-			<territory type="LT">Lithwania</territory>
+			<territory type="LT">Lithuania</territory>
 			<territory type="LU">Lwcsembwrg</territory>
 			<territory type="LV">Latfia</territory>
-			<territory type="LY">Libia</territory>
+			<territory type="LY">Libya</territory>
 			<territory type="MA">Moroco</territory>
 			<territory type="MC">Monaco</territory>
 			<territory type="MD">Moldofa</territory>
@@ -666,7 +675,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MS">Montserrat</territory>
 			<territory type="MT">Malta</territory>
 			<territory type="MU">Mauritius</territory>
-			<territory type="MV">y Maldives</territory>
+			<territory type="MV">Y Maldives</territory>
 			<territory type="MW">Malawi</territory>
 			<territory type="MX">Mecsico</territory>
 			<territory type="MY">Malaysia</territory>
@@ -676,8 +685,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="NE">Niger</territory>
 			<territory type="NF">Ynys Norfolk</territory>
 			<territory type="NG">Nigeria</territory>
-			<territory type="NI">Nicaragwa</territory>
-			<territory type="NL">yr Iseldiroedd</territory>
+			<territory type="NI">Nicaragua</territory>
+			<territory type="NL">Yr Iseldiroedd</territory>
 			<territory type="NO">Norwy</territory>
 			<territory type="NP">Nepal</territory>
 			<territory type="NR">Nauru</territory>
@@ -687,9 +696,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="PA">Panama</territory>
 			<territory type="PE">Periw</territory>
 			<territory type="PF">Polynesia Ffrengig</territory>
-			<territory type="PG">Papua Gini Newydd</territory>
+			<territory type="PG">Papua Guinea Newydd</territory>
 			<territory type="PH">Pilipinas</territory>
-			<territory type="PK">Pacistan</territory>
+			<territory type="PK">Pakistan</territory>
 			<territory type="PL">Gwlad Pwyl</territory>
 			<territory type="PM">Saint-Pierre-et-Miquelon</territory>
 			<territory type="PN">Ynysoedd Pitcairn</territory>
@@ -709,7 +718,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SA">Saudi Arabia</territory>
 			<territory type="SB">Ynysoedd Solomon</territory>
 			<territory type="SC">Seychelles</territory>
-			<territory type="SD">y Swdan</territory>
+			<territory type="SD">Swdan</territory>
 			<territory type="SE">Sweden</territory>
 			<territory type="SG">Singapore</territory>
 			<territory type="SH">Saint Helena</territory>
@@ -720,13 +729,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SM">San Marino</territory>
 			<territory type="SN">Sénégal</territory>
 			<territory type="SO">Somalia</territory>
-			<territory type="SR">Surinam</territory>
-			<territory type="SS">De Sudan</territory>
+			<territory type="SR">Suriname</territory>
+			<territory type="SS">De Swdan</territory>
 			<territory type="ST">São Tomé a Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
 			<territory type="SX">Sint Maarten</territory>
 			<territory type="SY">Syria</territory>
-			<territory type="SZ">Swaziland</territory>
+			<territory type="SZ">Gwlad Swazi</territory>
 			<territory type="TA">Tristan da Cunha</territory>
 			<territory type="TC">Ynysoedd Turks a Caicos</territory>
 			<territory type="TD">Tchad</territory>
@@ -742,16 +751,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TO">Tonga</territory>
 			<territory type="TR">Twrci</territory>
 			<territory type="TT">Trinidad a Tobago</territory>
-			<territory type="TV">Twfalw</territory>
+			<territory type="TV">Tuvalu</territory>
 			<territory type="TW">Taiwan</territory>
-			<territory type="TZ">Tanzanïa</territory>
+			<territory type="TZ">Tanzania</territory>
 			<territory type="UA">Wcráin</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">Ynysoedd Pellennig UDA</territory>
-			<territory type="US">yr Unol Daleithiau</territory>
+			<territory type="US">Yr Unol Daleithiau</territory>
+			<territory type="US" alt="short">UDA</territory>
 			<territory type="UY">Uruguay</territory>
 			<territory type="UZ">Uzbekistan</territory>
-			<territory type="VA">y Fatican</territory>
+			<territory type="VA">Y Fatican</territory>
 			<territory type="VC">Saint Vincent a’r Grenadines</territory>
 			<territory type="VE">Venezuela</territory>
 			<territory type="VG">Ynysoedd Gwyryf Prydain</territory>
@@ -780,50 +790,63 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="armn" key="numbers">Rhifolion Armenaidd</type>
 			<type type="armnlow" key="numbers">Rhifolion Armenaidd mewn Llythrennau Bychain</type>
 			<type type="beng" key="numbers">Digidau Bengalaidd</type>
-			<type type="buddhist" key="calendar" draft="unconfirmed">calendr y Bwdiaid</type>
-			<type type="chinese" key="calendar" draft="unconfirmed">calendr Tseina</type>
-			<type type="coptic" key="calendar" draft="unconfirmed">calendr y Coptiaid</type>
-			<type type="deva" key="numbers">Digidau Defangarig</type>
+			<type type="big5han" key="collation" draft="unconfirmed">Trefn Traddodiadol Tsieina - Big5</type>
+			<type type="buddhist" key="calendar" draft="unconfirmed">Calendr y Bwdiaid</type>
+			<type type="chinese" key="calendar" draft="unconfirmed">Calendr Tseina</type>
+			<type type="coptic" key="calendar" draft="unconfirmed">Calendr y Coptiaid</type>
+			<type type="dangi" key="calendar" draft="unconfirmed">Calendr Dangi</type>
+			<type type="deva" key="numbers">Digidau Devanāgarīg</type>
 			<type type="dictionary" key="collation" draft="unconfirmed">Trefn Geiriadur</type>
 			<type type="ducet" key="collation">Trefn Rhagosodedig Unicode</type>
+			<type type="eor" key="collation" draft="unconfirmed">Rheolau trefnu Ewropeaidd</type>
 			<type type="ethi" key="numbers">Rhifolion Ethiopig</type>
-			<type type="ethiopic" key="calendar" draft="unconfirmed">calendr Ethiopia</type>
-			<type type="ethiopic-amete-alem" key="calendar" draft="unconfirmed">calendr Amete Alem Ethiopia</type>
+			<type type="ethiopic" key="calendar" draft="unconfirmed">Calendr Ethiopia</type>
+			<type type="ethiopic-amete-alem" key="calendar" draft="unconfirmed">Calendr Amete Alem Ethiopia</type>
 			<type type="fullwide" key="numbers">Digidau Lled Llawn</type>
+			<type type="gb2312han" key="collation" draft="unconfirmed">Trefn Symledig Tsieina - GB2312</type>
 			<type type="geor" key="numbers">Rhifolion Georgaidd</type>
 			<type type="gregorian" key="calendar">Calendr Gregori</type>
 			<type type="grek" key="numbers">Rhifolion Groegaidd</type>
 			<type type="greklow" key="numbers">Rhifolion Groegaidd mewn Llythrennau Bychain</type>
 			<type type="gujr" key="numbers">Digidau Gujarataidd</type>
-			<type type="guru" key="numbers">Digidau guru</type>
-			<type type="hanidec" key="numbers">Rhifolion Degol Tsieinëaidd</type>
-			<type type="hans" key="numbers">Rhifolion Tsieinëaidd a symleiddwyd</type>
-			<type type="hansfin" key="numbers">Rhifolion Ariannol Tsieinëaidd a symleiddwyd</type>
-			<type type="hant" key="numbers">Rhifolion Tsieinëaidd Traddodiadol</type>
-			<type type="hantfin" key="numbers">Rhifolion Ariannol Tsieinëaidd Traddodiadol</type>
-			<type type="hebr" key="numbers">Rhifolion Hebrëig</type>
-			<type type="hebrew" key="calendar" draft="unconfirmed">calendr yr Hebraed</type>
-			<type type="islamic" key="calendar" draft="unconfirmed">calendr Islam</type>
-			<type type="japanese" key="calendar" draft="unconfirmed">calendr Japan</type>
+			<type type="guru" key="numbers">Digidau Gwrmwcaidd</type>
+			<type type="hanidec" key="numbers">Rhifolion Degol Tsieineaidd</type>
+			<type type="hans" key="numbers">Rhifolion Tsieineaidd Symledig</type>
+			<type type="hansfin" key="numbers">Rhifolion Ariannol Tsieineaidd Symledig</type>
+			<type type="hant" key="numbers">Rhifolion Tsieineaidd Traddodiadol</type>
+			<type type="hantfin" key="numbers">Rhifolion Ariannol Tsieineaidd Traddodiadol</type>
+			<type type="hebr" key="numbers">Rhifolion Hebreig</type>
+			<type type="hebrew" key="calendar" draft="unconfirmed">Calendr yr Hebraed</type>
+			<type type="indian" key="calendar" draft="unconfirmed">Calendr Cenedlaethol India</type>
+			<type type="islamic" key="calendar" draft="unconfirmed">Calendr Islam</type>
+			<type type="islamic-umalqura" key="calendar" draft="unconfirmed">Calendr Islam [Umm al-Qura]</type>
+			<type type="iso8601" key="calendar" draft="unconfirmed">Calendr ISO-8601</type>
+			<type type="japanese" key="calendar" draft="unconfirmed">Calendr Japan</type>
 			<type type="jpan" key="numbers">Rhifolion Japaneaidd</type>
 			<type type="jpanfin" key="numbers">Rhifolion Ariannol Japaneaidd</type>
 			<type type="khmr" key="numbers">Digidau Chmeraidd</type>
 			<type type="knda" key="numbers">Digidau Canaraidd</type>
-			<type type="laoo" key="numbers">Digidau Laosaidd</type>
+			<type type="laoo" key="numbers">Digidau Laoaidd</type>
 			<type type="latn" key="numbers">Digidau Gorllewinol</type>
 			<type type="mlym" key="numbers">Digidau Malayalamaidd</type>
+			<type type="mong" key="numbers" draft="unconfirmed">Digidau Mongolia</type>
 			<type type="mymr" key="numbers">Digidau Myanmar</type>
 			<type type="orya" key="numbers">Digidau Orïaidd</type>
-			<type type="persian" key="calendar" draft="unconfirmed">calendr Persia</type>
+			<type type="persian" key="calendar" draft="unconfirmed">Calendr Persia</type>
 			<type type="phonebook" key="collation" draft="unconfirmed">Trefn Llyfr Ffôn</type>
+			<type type="pinyin" key="collation" draft="unconfirmed">Trefn Pinyin</type>
+			<type type="reformed" key="collation" draft="unconfirmed">Trefn Diwygiedig</type>
 			<type type="roman" key="numbers">Rhifolion Rhufeinig</type>
 			<type type="romanlow" key="numbers">Rhifolion Rhufeinig mewn Llythrennau Bychain</type>
 			<type type="search" key="collation">Chwilio at Ddibenion Cyffredinol</type>
+			<type type="standard" key="collation">Trefn Safonol</type>
 			<type type="taml" key="numbers">Rhifolion Tamilaidd Traddodiadol</type>
 			<type type="tamldec" key="numbers">Digidau Tamilaidd</type>
 			<type type="telu" key="numbers">Digidau Telugu</type>
 			<type type="thai" key="numbers">Digidau Thai</type>
 			<type type="tibt" key="numbers">Digidau Tibetaidd</type>
+			<type type="traditional" key="collation" draft="unconfirmed">Trefn Traddodiadol</type>
+			<type type="zhuyin" key="collation" draft="unconfirmed">Trefn Zhuyin</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrig</measurementSystemName>
@@ -844,13 +867,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
+		<ellipsis type="word-final" draft="unconfirmed">{0} …</ellipsis>
+		<ellipsis type="word-initial" draft="unconfirmed">… {0}</ellipsis>
+		<ellipsis type="word-medial" draft="unconfirmed">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
-		<quotationStart>“</quotationStart>
-		<quotationEnd>”</quotationEnd>
-		<alternateQuotationStart>‘</alternateQuotationStart>
-		<alternateQuotationEnd>’</alternateQuotationEnd>
+		<quotationStart>‘</quotationStart>
+		<quotationEnd>’</quotationEnd>
+		<alternateQuotationStart>“</alternateQuotationStart>
+		<alternateQuotationEnd>”</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -899,8 +925,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d" draft="unconfirmed">d</dateFormatItem>
-						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="Ed">E, d</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
@@ -918,7 +944,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yyyy">y G</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMd">d/M/y G</dateFormatItem>
@@ -1000,32 +1026,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">y-y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">M/y – M/y G</greatestDifference>
-							<greatestDifference id="y">M/y – M/y G</greatestDifference>
+							<greatestDifference id="M">M/y – M/y GGGGG</greatestDifference>
+							<greatestDifference id="y">M/y – M/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">d/M/y - d/M/y G</greatestDifference>
-							<greatestDifference id="M">d/M/y - d/M/y G</greatestDifference>
-							<greatestDifference id="y">d/M/y - d/M/y G</greatestDifference>
+							<greatestDifference id="d">d/M/y - d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="M">d/M/y - d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="y">d/M/y - d/M/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, d/M/y - E, d/M/y G</greatestDifference>
-							<greatestDifference id="M">E, d/M/y - E, d/M/y G</greatestDifference>
-							<greatestDifference id="y">E, d/M/y - E, d/M/y G</greatestDifference>
+							<greatestDifference id="d">E, d/M/y - E, d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="M">E, d/M/y - E, d/M/y GGGGG</greatestDifference>
+							<greatestDifference id="y">E, d/M/y - E, d/M/y GGGGG</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM - MMM, y G</greatestDifference>
+							<greatestDifference id="M">MMM - MMM y G</greatestDifference>
 							<greatestDifference id="y">MMM y - MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d-d MMM, y G</greatestDifference>
-							<greatestDifference id="M">d MMM - d MMM, y G</greatestDifference>
-							<greatestDifference id="y">d MMM, y - d MMM, y G</greatestDifference>
+							<greatestDifference id="d">d-d MMM y G</greatestDifference>
+							<greatestDifference id="M">d MMM - d MMM y G</greatestDifference>
+							<greatestDifference id="y">d MMM y - d MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d MMM - E, d MMM, y G</greatestDifference>
-							<greatestDifference id="M">E, d MMM - E, d MMM, y G</greatestDifference>
-							<greatestDifference id="y">E, d MMM, y - E, d MMM, y G</greatestDifference>
+							<greatestDifference id="d">E, d MMM - E, d MMM y G</greatestDifference>
+							<greatestDifference id="M">E, d MMM - E, d MMM y G</greatestDifference>
+							<greatestDifference id="y">E, d MMM, y - E, d MMM y G</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">MMMM–MMMM y G</greatestDifference>
@@ -1265,7 +1291,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</eraNames>
 					<eraAbbr>
 						<era type="0">CC</era>
+						<era type="0" alt="variant">CC</era>
 						<era type="1">OC</era>
+						<era type="1" alt="variant">OC</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">C</era>
@@ -1319,12 +1347,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>{1} 'am' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern>{1} {0}</pattern>
+							<pattern>{1} 'am' {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1338,15 +1366,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<availableFormats>
-						<dateFormatItem id="d" draft="unconfirmed">d</dateFormatItem>
-						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="Ehm">E, h.mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E, h.mm.ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMEd">E, d MMM y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
-						<dateFormatItem id="hm">h:mm a</dateFormatItem>
+						<dateFormatItem id="hm">h.mm a</dateFormatItem>
 						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
@@ -1364,10 +1396,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
-						<dateFormatItem id="yQ" draft="unconfirmed">Q y</dateFormatItem>
+						<dateFormatItem id="yQ">Q y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
@@ -1378,26 +1413,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="h">h–h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
-							<greatestDifference id="a" draft="unconfirmed">HH–HH</greatestDifference>
+							<greatestDifference id="a">HH–HH</greatestDifference>
 							<greatestDifference id="H">HH–HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
-							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-							<greatestDifference id="h">h:mm–h:mm a</greatestDifference>
-							<greatestDifference id="m">h:mm–h:mm a</greatestDifference>
+							<greatestDifference id="a">h.mm a – h.mm a</greatestDifference>
+							<greatestDifference id="h">h.mm–h.mm a</greatestDifference>
+							<greatestDifference id="m">h.mm–h.mm a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
-							<greatestDifference id="a" draft="unconfirmed">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="a">HH:mm–HH:mm</greatestDifference>
 							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
 							<greatestDifference id="m">HH:mm–HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="a">h.mm a – h.mm a v</greatestDifference>
+							<greatestDifference id="h">h.mm–h.mm a v</greatestDifference>
+							<greatestDifference id="m">h.mm–h.mm a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="a" draft="unconfirmed">HH:mm–HH:mm v</greatestDifference>
+							<greatestDifference id="a">HH:mm–HH:mm v</greatestDifference>
 							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
 							<greatestDifference id="m">HH:mm–HH:mm v</greatestDifference>
 						</intervalFormatItem>
@@ -1406,7 +1441,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="h">h–h a v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="a" draft="unconfirmed">HH–HH v</greatestDifference>
+							<greatestDifference id="a">HH–HH v</greatestDifference>
 							<greatestDifference id="H">HH–HH v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
@@ -1452,18 +1487,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">E, d/M/y - E, d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM - MMM, y</greatestDifference>
+							<greatestDifference id="M">MMM - MMM y</greatestDifference>
 							<greatestDifference id="y">MMM y - MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">d-d MMM, y</greatestDifference>
-							<greatestDifference id="M">d MMM - d MMM, y</greatestDifference>
-							<greatestDifference id="y">d MMM, y - d MMM, y</greatestDifference>
+							<greatestDifference id="d">d-d MMM y</greatestDifference>
+							<greatestDifference id="M">d MMM - d MMM y</greatestDifference>
+							<greatestDifference id="y">d MMM, y - d MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d MMM - E, d MMM, y</greatestDifference>
-							<greatestDifference id="M">E, d MMM - E, d MMM, y</greatestDifference>
-							<greatestDifference id="y">E, d MMM, y - E, d MMM, y</greatestDifference>
+							<greatestDifference id="d">E, d MMM - E, d MMM y</greatestDifference>
+							<greatestDifference id="M">E, d MMM - E, d MMM y</greatestDifference>
+							<greatestDifference id="y">E, d MMM, y - E, d MMM y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
 							<greatestDifference id="M">MMMM–MMMM y</greatestDifference>
@@ -1479,23 +1514,67 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year">
 				<displayName>Blwyddyn</displayName>
+				<relative type="-1">llynedd</relative>
+				<relative type="0">eleni</relative>
+				<relative type="1">blwyddyn nesaf</relative>
 			</field>
 			<field type="month">
 				<displayName>Mis</displayName>
+				<relative type="-1">mis diwethaf</relative>
+				<relative type="0">y mis hwn</relative>
+				<relative type="1">mis nesaf</relative>
 			</field>
 			<field type="week">
 				<displayName>Wythnos</displayName>
+				<relative type="-1">wythnos ddiwethaf</relative>
+				<relative type="0">yr wythnos hon</relative>
+				<relative type="1">wythnos nesaf</relative>
 			</field>
 			<field type="day">
 				<displayName>Dydd</displayName>
-				<relative type="-2">Echdoe</relative>
-				<relative type="-1">Ddoe</relative>
-				<relative type="0">Heddiw</relative>
-				<relative type="1">Yfory</relative>
-				<relative type="2" draft="provisional">Drennydd</relative>
+				<relative type="-2">echdoe</relative>
+				<relative type="-1">ddoe</relative>
+				<relative type="0">heddiw</relative>
+				<relative type="1">yfory</relative>
+				<relative type="2">drennydd</relative>
 			</field>
 			<field type="weekday">
 				<displayName>Dydd o'r Wythnos</displayName>
+			</field>
+			<field type="sun">
+				<relative type="-1">dydd Sul diwethaf</relative>
+				<relative type="0">dydd Sul yma</relative>
+				<relative type="1">dydd Sul nesaf</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1">dydd Llun diwethaf</relative>
+				<relative type="0">dydd Llun yma</relative>
+				<relative type="1">dydd Llun nesaf</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1">dydd Mawrth diwethaf</relative>
+				<relative type="0">dydd Mawrth yma</relative>
+				<relative type="1">dydd Mawrth nesaf</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1">dydd Mercher diwethaf</relative>
+				<relative type="0">dydd Mercher yma</relative>
+				<relative type="1">dydd Mercher nesaf</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1">dydd Iau diwethaf</relative>
+				<relative type="0">dydd Iau yma</relative>
+				<relative type="1">dydd Iau nesaf</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1">dydd Gwener diwethaf</relative>
+				<relative type="0">dydd Gwener yma</relative>
+				<relative type="1">dydd Gwener nesaf</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1">dydd Sadwrn diwethaf</relative>
+				<relative type="0">dydd Sadwrn yma</relative>
+				<relative type="1">dydd Sadwrn nesaf</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName>AM/PM</displayName>
@@ -1510,7 +1589,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Eiliad</displayName>
 			</field>
 			<field type="zone">
-				<displayName draft="contributed">Cylchfa</displayName>
+				<displayName>Cylchfa Amser</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -1518,42 +1597,401 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>Amser {0}</regionFormat>
+			<regionFormat type="daylight">Amser Haf {0}</regionFormat>
+			<regionFormat type="standard">Amser Safonol {0}</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Dinas Anhysbys</exemplarCity>
 			</zone>
+			<zone type="Europe/Andorra">
+				<exemplarCity>Andorra</exemplarCity>
+			</zone>
+			<zone type="Asia/Dubai">
+				<exemplarCity>Dubai</exemplarCity>
+			</zone>
+			<zone type="Asia/Kabul">
+				<exemplarCity>Kabul</exemplarCity>
+			</zone>
+			<zone type="America/Antigua">
+				<exemplarCity>Antigua</exemplarCity>
+			</zone>
+			<zone type="America/Anguilla">
+				<exemplarCity>Anguilla</exemplarCity>
+			</zone>
 			<zone type="Europe/Tirane">
-				<exemplarCity>Tirana</exemplarCity>
+				<exemplarCity>Tiranë</exemplarCity>
+			</zone>
+			<zone type="Asia/Yerevan">
+				<exemplarCity>Yerevan</exemplarCity>
+			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity>Luanda</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Rothera">
+				<exemplarCity>Rothera</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Palmer">
+				<exemplarCity>Palmer</exemplarCity>
 			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Pegwn y De</exemplarCity>
 			</zone>
+			<zone type="Antarctica/Syowa">
+				<exemplarCity>Syowa</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Mawson">
+				<exemplarCity>Mawson</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Davis">
+				<exemplarCity>Davis</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Vostok">
+				<exemplarCity>Vostok</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Casey">
+				<exemplarCity>Casey</exemplarCity>
+			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>Dumont d’Urville</exemplarCity>
 			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity>Macquarie</exemplarCity>
+			</zone>
+			<zone type="Antarctica/McMurdo">
+				<exemplarCity>McMurdo</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Rio_Gallegos">
+				<exemplarCity>Rio Gallegos</exemplarCity>
+			</zone>
+			<zone type="America/Mendoza">
+				<exemplarCity>Mendoza</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Juan">
+				<exemplarCity>San Juan</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Ushuaia">
+				<exemplarCity>Ushuaia</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/La_Rioja">
+				<exemplarCity>La Rioja</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/San_Luis">
+				<exemplarCity>San Luis</exemplarCity>
+			</zone>
+			<zone type="America/Catamarca">
+				<exemplarCity>Catamarca</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity>Salta</exemplarCity>
+			</zone>
+			<zone type="America/Jujuy">
+				<exemplarCity>Jujuy</exemplarCity>
+			</zone>
+			<zone type="America/Argentina/Tucuman">
+				<exemplarCity>Tucumán</exemplarCity>
+			</zone>
+			<zone type="America/Cordoba">
+				<exemplarCity>Córdoba</exemplarCity>
+			</zone>
+			<zone type="America/Buenos_Aires">
+				<exemplarCity>Buenos Aires</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pago_Pago">
+				<exemplarCity>Pago Pago</exemplarCity>
+			</zone>
 			<zone type="Europe/Vienna">
-				<exemplarCity>Fienna</exemplarCity>
+				<exemplarCity>Wien</exemplarCity>
+			</zone>
+			<zone type="Australia/Perth">
+				<exemplarCity>Perth</exemplarCity>
+			</zone>
+			<zone type="Australia/Eucla">
+				<exemplarCity>Eucla</exemplarCity>
+			</zone>
+			<zone type="Australia/Darwin">
+				<exemplarCity>Darwin</exemplarCity>
+			</zone>
+			<zone type="Australia/Adelaide">
+				<exemplarCity>Adelaide</exemplarCity>
+			</zone>
+			<zone type="Australia/Broken_Hill">
+				<exemplarCity>Broken Hill</exemplarCity>
+			</zone>
+			<zone type="Australia/Currie">
+				<exemplarCity>Currie</exemplarCity>
+			</zone>
+			<zone type="Australia/Melbourne">
+				<exemplarCity>Melbourne</exemplarCity>
+			</zone>
+			<zone type="Australia/Hobart">
+				<exemplarCity>Hobart</exemplarCity>
+			</zone>
+			<zone type="Australia/Lindeman">
+				<exemplarCity>Lindeman</exemplarCity>
+			</zone>
+			<zone type="Australia/Sydney">
+				<exemplarCity>Sydney</exemplarCity>
+			</zone>
+			<zone type="Australia/Brisbane">
+				<exemplarCity>Brisbane</exemplarCity>
+			</zone>
+			<zone type="Australia/Lord_Howe">
+				<exemplarCity>Lord Howe</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity>Aruba</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity>Mariehamn</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity>Baku</exemplarCity>
+			</zone>
+			<zone type="Europe/Sarajevo">
+				<exemplarCity>Sarajevo</exemplarCity>
+			</zone>
+			<zone type="America/Barbados">
+				<exemplarCity>Barbados</exemplarCity>
+			</zone>
+			<zone type="Asia/Dhaka">
+				<exemplarCity>Dacca</exemplarCity>
 			</zone>
 			<zone type="Europe/Brussels">
 				<exemplarCity>Brwsel</exemplarCity>
 			</zone>
+			<zone type="Africa/Ouagadougou">
+				<exemplarCity>Ouagadougou</exemplarCity>
+			</zone>
+			<zone type="Europe/Sofia">
+				<exemplarCity>Sofiya</exemplarCity>
+			</zone>
+			<zone type="Asia/Bahrain">
+				<exemplarCity>Bahrain</exemplarCity>
+			</zone>
+			<zone type="Africa/Bujumbura">
+				<exemplarCity>Bujumbura</exemplarCity>
+			</zone>
+			<zone type="Africa/Porto-Novo">
+				<exemplarCity>Porto-Novo</exemplarCity>
+			</zone>
 			<zone type="America/St_Barthelemy">
-				<exemplarCity>St. Barthelemy</exemplarCity>
+				<exemplarCity>St. Barthélemy</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity>Bermuda</exemplarCity>
+			</zone>
+			<zone type="Asia/Brunei">
+				<exemplarCity>Brunei</exemplarCity>
+			</zone>
+			<zone type="America/La_Paz">
+				<exemplarCity>La Paz</exemplarCity>
+			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity>Kralendijk</exemplarCity>
+			</zone>
+			<zone type="America/Eirunepe">
+				<exemplarCity>Eirunepé</exemplarCity>
+			</zone>
+			<zone type="America/Rio_Branco">
+				<exemplarCity>Rio Branco</exemplarCity>
+			</zone>
+			<zone type="America/Porto_Velho">
+				<exemplarCity>Porto Velho</exemplarCity>
+			</zone>
+			<zone type="America/Boa_Vista">
+				<exemplarCity>Boa Vista</exemplarCity>
+			</zone>
+			<zone type="America/Manaus">
+				<exemplarCity>Manaus</exemplarCity>
+			</zone>
+			<zone type="America/Cuiaba">
+				<exemplarCity>Cuiabá</exemplarCity>
+			</zone>
+			<zone type="America/Santarem">
+				<exemplarCity>Santarém</exemplarCity>
+			</zone>
+			<zone type="America/Campo_Grande">
+				<exemplarCity>Campo Grande</exemplarCity>
+			</zone>
+			<zone type="America/Belem">
+				<exemplarCity>Belém</exemplarCity>
+			</zone>
+			<zone type="America/Araguaina">
+				<exemplarCity>Araguaina</exemplarCity>
+			</zone>
+			<zone type="America/Sao_Paulo">
+				<exemplarCity>São Paulo</exemplarCity>
+			</zone>
+			<zone type="America/Bahia">
+				<exemplarCity>Bahia</exemplarCity>
+			</zone>
+			<zone type="America/Fortaleza">
+				<exemplarCity>Fortaleza</exemplarCity>
+			</zone>
+			<zone type="America/Maceio">
+				<exemplarCity>Maceió</exemplarCity>
+			</zone>
+			<zone type="America/Recife">
+				<exemplarCity>Recife</exemplarCity>
+			</zone>
+			<zone type="America/Noronha">
+				<exemplarCity>Noronha</exemplarCity>
+			</zone>
+			<zone type="America/Nassau">
+				<exemplarCity>Nassau</exemplarCity>
+			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity>Thimbu</exemplarCity>
+			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity>Gaborone</exemplarCity>
+			</zone>
+			<zone type="Europe/Minsk">
+				<exemplarCity>Minsk</exemplarCity>
+			</zone>
+			<zone type="America/Belize">
+				<exemplarCity>Belize</exemplarCity>
+			</zone>
+			<zone type="America/Dawson">
+				<exemplarCity>Dawson</exemplarCity>
+			</zone>
+			<zone type="America/Whitehorse">
+				<exemplarCity>Whitehorse</exemplarCity>
+			</zone>
+			<zone type="America/Inuvik">
+				<exemplarCity>Inuvik</exemplarCity>
+			</zone>
+			<zone type="America/Vancouver">
+				<exemplarCity>Vancouver</exemplarCity>
+			</zone>
+			<zone type="America/Dawson_Creek">
+				<exemplarCity>Dawson Creek</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity>Creston</exemplarCity>
+			</zone>
+			<zone type="America/Yellowknife">
+				<exemplarCity>Yellowknife</exemplarCity>
+			</zone>
+			<zone type="America/Edmonton">
+				<exemplarCity>Edmonton</exemplarCity>
+			</zone>
+			<zone type="America/Swift_Current">
+				<exemplarCity>Swift Current</exemplarCity>
+			</zone>
+			<zone type="America/Cambridge_Bay">
+				<exemplarCity>Cambridge Bay</exemplarCity>
+			</zone>
+			<zone type="America/Regina">
+				<exemplarCity>Regina</exemplarCity>
+			</zone>
+			<zone type="America/Winnipeg">
+				<exemplarCity>Winnipeg</exemplarCity>
+			</zone>
+			<zone type="America/Resolute">
+				<exemplarCity>Resolute</exemplarCity>
+			</zone>
+			<zone type="America/Rainy_River">
+				<exemplarCity>Rainy River</exemplarCity>
+			</zone>
+			<zone type="America/Rankin_Inlet">
+				<exemplarCity>Rankin Inlet</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
 				<exemplarCity>Atikokan</exemplarCity>
 			</zone>
+			<zone type="America/Thunder_Bay">
+				<exemplarCity>Thunder Bay</exemplarCity>
+			</zone>
+			<zone type="America/Nipigon">
+				<exemplarCity>Nipigon</exemplarCity>
+			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity>Toronto</exemplarCity>
+			</zone>
+			<zone type="America/Montreal">
+				<exemplarCity>Montréal</exemplarCity>
+			</zone>
+			<zone type="America/Iqaluit">
+				<exemplarCity>Iqaluit</exemplarCity>
+			</zone>
+			<zone type="America/Pangnirtung">
+				<exemplarCity>Pangnirtung</exemplarCity>
+			</zone>
+			<zone type="America/Moncton">
+				<exemplarCity>Moncton</exemplarCity>
+			</zone>
+			<zone type="America/Halifax">
+				<exemplarCity>Halifax</exemplarCity>
+			</zone>
+			<zone type="America/Goose_Bay">
+				<exemplarCity>Goose Bay</exemplarCity>
+			</zone>
+			<zone type="America/Glace_Bay">
+				<exemplarCity>Glace Bay</exemplarCity>
+			</zone>
+			<zone type="America/Blanc-Sablon">
+				<exemplarCity>Blanc-Sablon</exemplarCity>
+			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>St. John’s</exemplarCity>
+			</zone>
+			<zone type="Indian/Cocos">
+				<exemplarCity>Cocos</exemplarCity>
+			</zone>
+			<zone type="Africa/Kinshasa">
+				<exemplarCity>Kinshasa</exemplarCity>
+			</zone>
+			<zone type="Africa/Lubumbashi">
+				<exemplarCity>Lubumbashi</exemplarCity>
+			</zone>
+			<zone type="Africa/Bangui">
+				<exemplarCity>Bangui</exemplarCity>
+			</zone>
+			<zone type="Africa/Brazzaville">
+				<exemplarCity>Brazzaville</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity>Zürich</exemplarCity>
 			</zone>
+			<zone type="Africa/Abidjan">
+				<exemplarCity>Abidjan</exemplarCity>
+			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity>Rarotonga</exemplarCity>
+			</zone>
+			<zone type="Pacific/Easter">
+				<exemplarCity>Ynys y Pasg</exemplarCity>
+			</zone>
+			<zone type="America/Santiago">
+				<exemplarCity>Santiago</exemplarCity>
+			</zone>
+			<zone type="Africa/Douala">
+				<exemplarCity>Douala</exemplarCity>
+			</zone>
+			<zone type="Asia/Kashgar">
+				<exemplarCity>Kashgar</exemplarCity>
+			</zone>
 			<zone type="Asia/Urumqi">
 				<exemplarCity>Ürümqi</exemplarCity>
 			</zone>
+			<zone type="Asia/Chongqing">
+				<exemplarCity>Chongqing</exemplarCity>
+			</zone>
+			<zone type="Asia/Shanghai">
+				<exemplarCity>Shanghai</exemplarCity>
+			</zone>
+			<zone type="Asia/Harbin">
+				<exemplarCity>Harbin</exemplarCity>
+			</zone>
+			<zone type="America/Bogota">
+				<exemplarCity>Bogotá</exemplarCity>
+			</zone>
+			<zone type="America/Costa_Rica">
+				<exemplarCity>Costa Rica</exemplarCity>
+			</zone>
 			<zone type="America/Havana">
-				<exemplarCity>Habana</exemplarCity>
+				<exemplarCity>La Habana</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity>Cabo Verde</exemplarCity>
@@ -1564,11 +2002,71 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Indian/Christmas">
 				<exemplarCity>Ynys y Nadolig</exemplarCity>
 			</zone>
+			<zone type="Asia/Nicosia">
+				<exemplarCity>Nicosia</exemplarCity>
+			</zone>
 			<zone type="Europe/Prague">
-				<exemplarCity>Prag</exemplarCity>
+				<exemplarCity>Praha</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity>Büsingen</exemplarCity>
+			</zone>
+			<zone type="Europe/Berlin">
+				<exemplarCity>Berlin</exemplarCity>
+			</zone>
+			<zone type="Africa/Djibouti">
+				<exemplarCity>Djibouti</exemplarCity>
+			</zone>
+			<zone type="Europe/Copenhagen">
+				<exemplarCity>København</exemplarCity>
+			</zone>
+			<zone type="America/Dominica">
+				<exemplarCity>Dominica</exemplarCity>
+			</zone>
+			<zone type="America/Santo_Domingo">
+				<exemplarCity>Santo Domingo</exemplarCity>
+			</zone>
+			<zone type="Africa/Algiers">
+				<exemplarCity>Alger</exemplarCity>
+			</zone>
+			<zone type="Pacific/Galapagos">
+				<exemplarCity>Galapagos</exemplarCity>
+			</zone>
+			<zone type="America/Guayaquil">
+				<exemplarCity>Guayaquil</exemplarCity>
+			</zone>
+			<zone type="Europe/Tallinn">
+				<exemplarCity>Tallinn</exemplarCity>
+			</zone>
+			<zone type="Africa/Cairo">
+				<exemplarCity>Cairo</exemplarCity>
+			</zone>
+			<zone type="Africa/El_Aaiun">
+				<exemplarCity>El Aaiún</exemplarCity>
 			</zone>
 			<zone type="Africa/Asmera">
-				<exemplarCity>Asmara</exemplarCity>
+				<exemplarCity>Asmera</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Canary">
+				<exemplarCity>yr Ynysoedd Dedwydd</exemplarCity>
+			</zone>
+			<zone type="Africa/Ceuta">
+				<exemplarCity>Ceuta</exemplarCity>
+			</zone>
+			<zone type="Europe/Madrid">
+				<exemplarCity>Madrid</exemplarCity>
+			</zone>
+			<zone type="Africa/Addis_Ababa">
+				<exemplarCity>Addis Ababa</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity>Helsinki</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fiji">
+				<exemplarCity>Fiji</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Stanley">
+				<exemplarCity>Stanley</exemplarCity>
 			</zone>
 			<zone type="Pacific/Truk">
 				<exemplarCity>Chuuk</exemplarCity>
@@ -1576,8 +2074,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Pacific/Ponape">
 				<exemplarCity>Pohnpei</exemplarCity>
 			</zone>
+			<zone type="Pacific/Kosrae">
+				<exemplarCity>Kosrae</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Føroyar</exemplarCity>
+			</zone>
+			<zone type="Europe/Paris">
+				<exemplarCity>Paris</exemplarCity>
+			</zone>
+			<zone type="Africa/Libreville">
+				<exemplarCity>Libreville</exemplarCity>
 			</zone>
 			<zone type="Europe/London">
 				<long>
@@ -1585,17 +2092,92 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</long>
 				<exemplarCity>Llundain</exemplarCity>
 			</zone>
+			<zone type="America/Grenada">
+				<exemplarCity>Grenada</exemplarCity>
+			</zone>
+			<zone type="Asia/Tbilisi">
+				<exemplarCity>Tiflis</exemplarCity>
+			</zone>
+			<zone type="America/Cayenne">
+				<exemplarCity>Cayenne</exemplarCity>
+			</zone>
+			<zone type="Europe/Guernsey">
+				<exemplarCity>Ynys y Garn</exemplarCity>
+			</zone>
+			<zone type="Africa/Accra">
+				<exemplarCity>Accra</exemplarCity>
+			</zone>
+			<zone type="Europe/Gibraltar">
+				<exemplarCity>Gibraltar</exemplarCity>
+			</zone>
+			<zone type="America/Thule">
+				<exemplarCity>Thule</exemplarCity>
+			</zone>
 			<zone type="America/Godthab">
-				<exemplarCity>Godthab</exemplarCity>
+				<exemplarCity>Nuuk</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity>Scoresbysund</exemplarCity>
+				<exemplarCity>Ittoqqortoormiit</exemplarCity>
+			</zone>
+			<zone type="America/Danmarkshavn">
+				<exemplarCity>Danmarkshavn</exemplarCity>
+			</zone>
+			<zone type="Africa/Banjul">
+				<exemplarCity>Banjul</exemplarCity>
+			</zone>
+			<zone type="Africa/Conakry">
+				<exemplarCity>Conakry</exemplarCity>
+			</zone>
+			<zone type="America/Guadeloupe">
+				<exemplarCity>Guadeloupe</exemplarCity>
+			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity>Malabo</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Athen</exemplarCity>
 			</zone>
 			<zone type="Atlantic/South_Georgia">
 				<exemplarCity>De Georgia</exemplarCity>
+			</zone>
+			<zone type="America/Guatemala">
+				<exemplarCity>Guatemala</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guam">
+				<exemplarCity>Guam</exemplarCity>
+			</zone>
+			<zone type="Africa/Bissau">
+				<exemplarCity>Bissau</exemplarCity>
+			</zone>
+			<zone type="America/Guyana">
+				<exemplarCity>Guyana</exemplarCity>
+			</zone>
+			<zone type="Asia/Hong_Kong">
+				<exemplarCity>Hong Kong</exemplarCity>
+			</zone>
+			<zone type="America/Tegucigalpa">
+				<exemplarCity>Tegucigalpa</exemplarCity>
+			</zone>
+			<zone type="Europe/Zagreb">
+				<exemplarCity>Zagreb</exemplarCity>
+			</zone>
+			<zone type="America/Port-au-Prince">
+				<exemplarCity>Port-au-Prince</exemplarCity>
+			</zone>
+			<zone type="Europe/Budapest">
+				<exemplarCity>Budapest</exemplarCity>
+			</zone>
+			<zone type="Asia/Jakarta">
+				<exemplarCity>Jakarta</exemplarCity>
+			</zone>
+			<zone type="Asia/Pontianak">
+				<exemplarCity>Pontianak</exemplarCity>
+			</zone>
+			<zone type="Asia/Makassar">
+				<exemplarCity>Makassar</exemplarCity>
+			</zone>
+			<zone type="Asia/Jayapura">
+				<exemplarCity>Jayapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
 				<long>
@@ -1604,13 +2186,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Dulyn</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
-				<exemplarCity>Jeriwsalem</exemplarCity>
+				<exemplarCity>Jerwsalem</exemplarCity>
 			</zone>
 			<zone type="Europe/Isle_of_Man">
 				<exemplarCity>Ynys Manaw</exemplarCity>
 			</zone>
 			<zone type="Asia/Calcutta">
-				<exemplarCity>Kolkata</exemplarCity>
+				<exemplarCity>Calcutta</exemplarCity>
+			</zone>
+			<zone type="Indian/Chagos">
+				<exemplarCity>Chagos</exemplarCity>
+			</zone>
+			<zone type="Asia/Baghdad">
+				<exemplarCity>Baghdad</exemplarCity>
+			</zone>
+			<zone type="Asia/Tehran">
+				<exemplarCity>Tehran</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Reykjavik">
 				<exemplarCity>Reykjavík</exemplarCity>
@@ -1618,44 +2209,320 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Rome">
 				<exemplarCity>Rhufain</exemplarCity>
 			</zone>
+			<zone type="Europe/Jersey">
+				<exemplarCity>Jersey</exemplarCity>
+			</zone>
+			<zone type="America/Jamaica">
+				<exemplarCity>Jamaica</exemplarCity>
+			</zone>
+			<zone type="Asia/Amman">
+				<exemplarCity>Amman</exemplarCity>
+			</zone>
+			<zone type="Asia/Tokyo">
+				<exemplarCity>Tōkyō</exemplarCity>
+			</zone>
+			<zone type="Africa/Nairobi">
+				<exemplarCity>Nairobi</exemplarCity>
+			</zone>
+			<zone type="Asia/Bishkek">
+				<exemplarCity>Bishkek</exemplarCity>
+			</zone>
+			<zone type="Asia/Phnom_Penh">
+				<exemplarCity>Phnom Penh</exemplarCity>
+			</zone>
+			<zone type="Pacific/Enderbury">
+				<exemplarCity>Enderbury</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kiritimati">
+				<exemplarCity>Kiritimati</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tarawa">
+				<exemplarCity>Tarawa</exemplarCity>
+			</zone>
+			<zone type="Indian/Comoro">
+				<exemplarCity>Comoro</exemplarCity>
+			</zone>
 			<zone type="America/St_Kitts">
 				<exemplarCity>Saint Kitts</exemplarCity>
 			</zone>
 			<zone type="Asia/Pyongyang">
 				<exemplarCity>P'yŏngyang</exemplarCity>
 			</zone>
+			<zone type="Asia/Seoul">
+				<exemplarCity>Sǒul</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuwait">
+				<exemplarCity>Kuwait</exemplarCity>
+			</zone>
+			<zone type="America/Cayman">
+				<exemplarCity>Cayman</exemplarCity>
+			</zone>
 			<zone type="Asia/Aqtau">
 				<exemplarCity>Aktau</exemplarCity>
+			</zone>
+			<zone type="Asia/Oral">
+				<exemplarCity>Oral</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
 				<exemplarCity>Aqtöbe</exemplarCity>
 			</zone>
+			<zone type="Asia/Qyzylorda">
+				<exemplarCity>Qyzylorda</exemplarCity>
+			</zone>
+			<zone type="Asia/Almaty">
+				<exemplarCity>Almaty</exemplarCity>
+			</zone>
+			<zone type="Asia/Vientiane">
+				<exemplarCity>Vientiane</exemplarCity>
+			</zone>
+			<zone type="Asia/Beirut">
+				<exemplarCity>Beirut</exemplarCity>
+			</zone>
 			<zone type="America/St_Lucia">
 				<exemplarCity>Saint Lucia</exemplarCity>
 			</zone>
+			<zone type="Europe/Vaduz">
+				<exemplarCity>Vaduz</exemplarCity>
+			</zone>
+			<zone type="Asia/Colombo">
+				<exemplarCity>Colombo</exemplarCity>
+			</zone>
+			<zone type="Africa/Monrovia">
+				<exemplarCity>Monrovia</exemplarCity>
+			</zone>
+			<zone type="Africa/Maseru">
+				<exemplarCity>Maseru</exemplarCity>
+			</zone>
+			<zone type="Europe/Vilnius">
+				<exemplarCity>Vilnius</exemplarCity>
+			</zone>
 			<zone type="Europe/Luxembourg">
-				<exemplarCity>Lwcsembwrg</exemplarCity>
+				<exemplarCity>Luxembourg</exemplarCity>
+			</zone>
+			<zone type="Europe/Riga">
+				<exemplarCity>Riga</exemplarCity>
+			</zone>
+			<zone type="Africa/Tripoli">
+				<exemplarCity>Tripoli</exemplarCity>
+			</zone>
+			<zone type="Africa/Casablanca">
+				<exemplarCity>Casablanca</exemplarCity>
+			</zone>
+			<zone type="Europe/Monaco">
+				<exemplarCity>Monaco</exemplarCity>
 			</zone>
 			<zone type="Europe/Chisinau">
 				<exemplarCity>Chişinău</exemplarCity>
+			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity>Podgorica</exemplarCity>
+			</zone>
+			<zone type="America/Marigot">
+				<exemplarCity>Marigot</exemplarCity>
+			</zone>
+			<zone type="Indian/Antananarivo">
+				<exemplarCity>Antananarivo</exemplarCity>
+			</zone>
+			<zone type="Pacific/Kwajalein">
+				<exemplarCity>Kwajalein</exemplarCity>
+			</zone>
+			<zone type="Pacific/Majuro">
+				<exemplarCity>Majuro</exemplarCity>
+			</zone>
+			<zone type="Europe/Skopje">
+				<exemplarCity>Skopje</exemplarCity>
+			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity>Bamako</exemplarCity>
 			</zone>
 			<zone type="Asia/Rangoon">
 				<exemplarCity>Yangon</exemplarCity>
 			</zone>
 			<zone type="Asia/Hovd">
-				<exemplarCity>Khovd</exemplarCity>
+				<exemplarCity>Hovd</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulan Bator</exemplarCity>
 			</zone>
+			<zone type="Asia/Choibalsan">
+				<exemplarCity>Choybalsan</exemplarCity>
+			</zone>
+			<zone type="Asia/Macau">
+				<exemplarCity>Macau</exemplarCity>
+			</zone>
+			<zone type="Pacific/Saipan">
+				<exemplarCity>Saipan</exemplarCity>
+			</zone>
+			<zone type="America/Martinique">
+				<exemplarCity>Martinique</exemplarCity>
+			</zone>
+			<zone type="Africa/Nouakchott">
+				<exemplarCity>Nouakchott</exemplarCity>
+			</zone>
+			<zone type="America/Montserrat">
+				<exemplarCity>Montserrat</exemplarCity>
+			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity>Malta</exemplarCity>
+			</zone>
+			<zone type="Indian/Mauritius">
+				<exemplarCity>Mauritius</exemplarCity>
+			</zone>
+			<zone type="Indian/Maldives">
+				<exemplarCity>Maldives</exemplarCity>
+			</zone>
+			<zone type="Africa/Blantyre">
+				<exemplarCity>Blantyre</exemplarCity>
+			</zone>
+			<zone type="America/Tijuana">
+				<exemplarCity>Tijuana</exemplarCity>
+			</zone>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>Santa Isabel</exemplarCity>
+			</zone>
+			<zone type="America/Hermosillo">
+				<exemplarCity>Hermosillo</exemplarCity>
+			</zone>
+			<zone type="America/Mazatlan">
+				<exemplarCity>Mazatlán</exemplarCity>
+			</zone>
+			<zone type="America/Chihuahua">
+				<exemplarCity>Chihuahua</exemplarCity>
+			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity>Bae Banderas</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity>Ojinaga</exemplarCity>
+			</zone>
+			<zone type="America/Monterrey">
+				<exemplarCity>Monterrey</exemplarCity>
+			</zone>
 			<zone type="America/Mexico_City">
-				<exemplarCity>Dinas Mecsico</exemplarCity>
+				<exemplarCity>Dinas México</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity>Matamoros</exemplarCity>
+			</zone>
+			<zone type="America/Merida">
+				<exemplarCity>Merida</exemplarCity>
+			</zone>
+			<zone type="America/Cancun">
+				<exemplarCity>Cancún</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuala_Lumpur">
+				<exemplarCity>Kuala Lumpur</exemplarCity>
+			</zone>
+			<zone type="Asia/Kuching">
+				<exemplarCity>Kuching</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity>Maputo</exemplarCity>
+			</zone>
+			<zone type="Africa/Windhoek">
+				<exemplarCity>Windhoek</exemplarCity>
 			</zone>
 			<zone type="Pacific/Noumea">
 				<exemplarCity>Nouméa</exemplarCity>
 			</zone>
+			<zone type="Africa/Niamey">
+				<exemplarCity>Niamey</exemplarCity>
+			</zone>
+			<zone type="Pacific/Norfolk">
+				<exemplarCity>Norfolk</exemplarCity>
+			</zone>
+			<zone type="Africa/Lagos">
+				<exemplarCity>Lagos</exemplarCity>
+			</zone>
+			<zone type="America/Managua">
+				<exemplarCity>Managua</exemplarCity>
+			</zone>
+			<zone type="Europe/Amsterdam">
+				<exemplarCity>Amsterdam</exemplarCity>
+			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity>Oslo</exemplarCity>
+			</zone>
 			<zone type="Asia/Katmandu">
 				<exemplarCity>Kathmandu</exemplarCity>
+			</zone>
+			<zone type="Pacific/Nauru">
+				<exemplarCity>Nauru</exemplarCity>
+			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity>Niue</exemplarCity>
+			</zone>
+			<zone type="Pacific/Chatham">
+				<exemplarCity>Chatham</exemplarCity>
+			</zone>
+			<zone type="Pacific/Auckland">
+				<exemplarCity>Auckland</exemplarCity>
+			</zone>
+			<zone type="Asia/Muscat">
+				<exemplarCity>Muscat</exemplarCity>
+			</zone>
+			<zone type="America/Panama">
+				<exemplarCity>Panamá</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity>Lima</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tahiti">
+				<exemplarCity>Tahiti</exemplarCity>
+			</zone>
+			<zone type="Pacific/Marquesas">
+				<exemplarCity>Marquises</exemplarCity>
+			</zone>
+			<zone type="Pacific/Gambier">
+				<exemplarCity>Gambier</exemplarCity>
+			</zone>
+			<zone type="Pacific/Port_Moresby">
+				<exemplarCity>Port Moresby</exemplarCity>
+			</zone>
+			<zone type="Asia/Manila">
+				<exemplarCity>Manila</exemplarCity>
+			</zone>
+			<zone type="Asia/Karachi">
+				<exemplarCity>Karachi</exemplarCity>
+			</zone>
+			<zone type="Europe/Warsaw">
+				<exemplarCity>Warszawa</exemplarCity>
+			</zone>
+			<zone type="America/Miquelon">
+				<exemplarCity>Miquelon</exemplarCity>
+			</zone>
+			<zone type="Pacific/Pitcairn">
+				<exemplarCity>Pitcairn</exemplarCity>
+			</zone>
+			<zone type="America/Puerto_Rico">
+				<exemplarCity>Puerto Rico</exemplarCity>
+			</zone>
+			<zone type="Asia/Gaza">
+				<exemplarCity>Gasa</exemplarCity>
+			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity>Hebron</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Azores">
+				<exemplarCity>Azores</exemplarCity>
+			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity>Madeira</exemplarCity>
+			</zone>
+			<zone type="Europe/Lisbon">
+				<exemplarCity>Lisboa</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity>Palau</exemplarCity>
+			</zone>
+			<zone type="America/Asuncion">
+				<exemplarCity>Asunción</exemplarCity>
+			</zone>
+			<zone type="Asia/Qatar">
+				<exemplarCity>Qatar</exemplarCity>
+			</zone>
+			<zone type="Indian/Reunion">
+				<exemplarCity>Réunion</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Bucureşti</exemplarCity>
@@ -1663,32 +2530,236 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Belgrade">
 				<exemplarCity>Beograd</exemplarCity>
 			</zone>
+			<zone type="Europe/Kaliningrad">
+				<exemplarCity>Kaliningrad</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
-				<exemplarCity>Moscfa</exemplarCity>
+				<exemplarCity>Moskva</exemplarCity>
+			</zone>
+			<zone type="Europe/Volgograd">
+				<exemplarCity>Volgograd</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity>Samara</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
-				<exemplarCity>Ekaterinburg</exemplarCity>
+				<exemplarCity>Yekaterinburg</exemplarCity>
+			</zone>
+			<zone type="Asia/Omsk">
+				<exemplarCity>Omsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Novosibirsk">
+				<exemplarCity>Novosibirsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity>Novokuznetsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Krasnoyarsk">
+				<exemplarCity>Krasnoyarsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Irkutsk">
+				<exemplarCity>Irkutsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Yakutsk">
+				<exemplarCity>Yakutsk</exemplarCity>
+			</zone>
+			<zone type="Asia/Vladivostok">
+				<exemplarCity>Vladivostok</exemplarCity>
+			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity>Khandyga</exemplarCity>
 			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Sachalin</exemplarCity>
 			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity>Ust-Nera</exemplarCity>
+			</zone>
+			<zone type="Asia/Magadan">
+				<exemplarCity>Magadan</exemplarCity>
+			</zone>
+			<zone type="Asia/Kamchatka">
+				<exemplarCity>Kamchatka</exemplarCity>
+			</zone>
+			<zone type="Asia/Anadyr">
+				<exemplarCity>Anadyr</exemplarCity>
+			</zone>
+			<zone type="Africa/Kigali">
+				<exemplarCity>Kigali</exemplarCity>
+			</zone>
+			<zone type="Asia/Riyadh">
+				<exemplarCity>Riyadh</exemplarCity>
+			</zone>
+			<zone type="Pacific/Guadalcanal">
+				<exemplarCity>Guadalcanal</exemplarCity>
+			</zone>
 			<zone type="Indian/Mahe">
 				<exemplarCity>Mahé</exemplarCity>
+			</zone>
+			<zone type="Africa/Khartoum">
+				<exemplarCity>Khartoum</exemplarCity>
+			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity>Stockholm</exemplarCity>
+			</zone>
+			<zone type="Asia/Singapore">
+				<exemplarCity>Singapore</exemplarCity>
 			</zone>
 			<zone type="Atlantic/St_Helena">
 				<exemplarCity>Saint Helena</exemplarCity>
 			</zone>
+			<zone type="Europe/Ljubljana">
+				<exemplarCity>Ljubljana</exemplarCity>
+			</zone>
+			<zone type="Arctic/Longyearbyen">
+				<exemplarCity>Longyearbyen</exemplarCity>
+			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity>Bratislava</exemplarCity>
+			</zone>
+			<zone type="Africa/Freetown">
+				<exemplarCity>Freetown</exemplarCity>
+			</zone>
+			<zone type="Europe/San_Marino">
+				<exemplarCity>San Marino</exemplarCity>
+			</zone>
+			<zone type="Africa/Dakar">
+				<exemplarCity>Dakar</exemplarCity>
+			</zone>
+			<zone type="Africa/Mogadishu">
+				<exemplarCity>Mogadishu</exemplarCity>
+			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity>Paramaribo</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity>Juba</exemplarCity>
+			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity>São Tomé</exemplarCity>
 			</zone>
+			<zone type="America/El_Salvador">
+				<exemplarCity>El Salvador</exemplarCity>
+			</zone>
 			<zone type="America/Lower_Princes">
-				<exemplarCity>Lower Prince's Quarter</exemplarCity>
+				<exemplarCity>Lower Prince's Quarter/Beneden Prinsen Kwartier</exemplarCity>
+			</zone>
+			<zone type="Asia/Damascus">
+				<exemplarCity>Damascus</exemplarCity>
+			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity>Mbabane</exemplarCity>
+			</zone>
+			<zone type="America/Grand_Turk">
+				<exemplarCity>Grand Turk</exemplarCity>
 			</zone>
 			<zone type="Africa/Ndjamena">
 				<exemplarCity>N'Djamena</exemplarCity>
 			</zone>
+			<zone type="Indian/Kerguelen">
+				<exemplarCity>Kerguélen</exemplarCity>
+			</zone>
+			<zone type="Africa/Lome">
+				<exemplarCity>Lomé</exemplarCity>
+			</zone>
+			<zone type="Asia/Bangkok">
+				<exemplarCity>Bangkok</exemplarCity>
+			</zone>
+			<zone type="Asia/Dushanbe">
+				<exemplarCity>Dushanbe</exemplarCity>
+			</zone>
+			<zone type="Pacific/Fakaofo">
+				<exemplarCity>Fakaofo</exemplarCity>
+			</zone>
+			<zone type="Asia/Dili">
+				<exemplarCity>Dili</exemplarCity>
+			</zone>
+			<zone type="Asia/Ashgabat">
+				<exemplarCity>Ashkabad</exemplarCity>
+			</zone>
+			<zone type="Africa/Tunis">
+				<exemplarCity>Tunis</exemplarCity>
+			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity>Tongatapu</exemplarCity>
+			</zone>
+			<zone type="Europe/Istanbul">
+				<exemplarCity>Istanbul</exemplarCity>
+			</zone>
+			<zone type="America/Port_of_Spain">
+				<exemplarCity>Port of Spain</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity>Funafuti</exemplarCity>
+			</zone>
+			<zone type="Asia/Taipei">
+				<exemplarCity>Taibei</exemplarCity>
+			</zone>
+			<zone type="Africa/Dar_es_Salaam">
+				<exemplarCity>Dar es Salaam</exemplarCity>
+			</zone>
 			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Uzhhorod</exemplarCity>
+				<exemplarCity>Uzhgorod</exemplarCity>
+			</zone>
+			<zone type="Europe/Kiev">
+				<exemplarCity>Kiev</exemplarCity>
+			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Simferopol</exemplarCity>
+			</zone>
+			<zone type="Europe/Zaporozhye">
+				<exemplarCity>Zaporizhzhya</exemplarCity>
+			</zone>
+			<zone type="Africa/Kampala">
+				<exemplarCity>Kampala</exemplarCity>
+			</zone>
+			<zone type="Pacific/Midway">
+				<exemplarCity>Midway</exemplarCity>
+			</zone>
+			<zone type="Pacific/Johnston">
+				<exemplarCity>Johnston</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wake">
+				<exemplarCity>Wake</exemplarCity>
+			</zone>
+			<zone type="America/Adak">
+				<exemplarCity>Adak</exemplarCity>
+			</zone>
+			<zone type="America/Nome">
+				<exemplarCity>Nome</exemplarCity>
+			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
+			<zone type="America/Anchorage">
+				<exemplarCity>Anchorage</exemplarCity>
+			</zone>
+			<zone type="America/Yakutat">
+				<exemplarCity>Yakutat</exemplarCity>
+			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity>Sitka</exemplarCity>
+			</zone>
+			<zone type="America/Juneau">
+				<exemplarCity>Juneau</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity>Metlakatla</exemplarCity>
+			</zone>
+			<zone type="America/Los_Angeles">
+				<exemplarCity>Los Angeles</exemplarCity>
+			</zone>
+			<zone type="America/Boise">
+				<exemplarCity>Boise</exemplarCity>
+			</zone>
+			<zone type="America/Phoenix">
+				<exemplarCity>Phoenix</exemplarCity>
+			</zone>
+			<zone type="America/Shiprock">
+				<exemplarCity>Shiprock/Naatʼáanii Nééz</exemplarCity>
+			</zone>
+			<zone type="America/Denver">
+				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah, Gogledd Dakota</exemplarCity>
@@ -1698,6 +2769,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>Center, Gogledd Dakota</exemplarCity>
+			</zone>
+			<zone type="America/Chicago">
+				<exemplarCity>Chicago</exemplarCity>
+			</zone>
+			<zone type="America/Menominee">
+				<exemplarCity>Menominee</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vincennes">
 				<exemplarCity>Vincennes, Indiana</exemplarCity>
@@ -1717,17 +2794,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Indiana/Marengo">
 				<exemplarCity>Marengo, Indiana</exemplarCity>
 			</zone>
+			<zone type="America/Indianapolis">
+				<exemplarCity>Indianapolis</exemplarCity>
+			</zone>
+			<zone type="America/Louisville">
+				<exemplarCity>Louisville</exemplarCity>
+			</zone>
 			<zone type="America/Indiana/Vevay">
 				<exemplarCity>Vevay, Indiana</exemplarCity>
 			</zone>
 			<zone type="America/Kentucky/Monticello">
 				<exemplarCity>Monticello, Kentucky</exemplarCity>
 			</zone>
+			<zone type="America/Detroit">
+				<exemplarCity>Detroit</exemplarCity>
+			</zone>
 			<zone type="America/New_York">
 				<exemplarCity>Efrog Newydd</exemplarCity>
 			</zone>
+			<zone type="America/Montevideo">
+				<exemplarCity>Montevideo</exemplarCity>
+			</zone>
 			<zone type="Asia/Samarkand">
 				<exemplarCity>Samarcand</exemplarCity>
+			</zone>
+			<zone type="Asia/Tashkent">
+				<exemplarCity>Tashkent</exemplarCity>
 			</zone>
 			<zone type="Europe/Vatican">
 				<exemplarCity>y Fatican</exemplarCity>
@@ -1735,11 +2827,41 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/St_Vincent">
 				<exemplarCity>Saint Vincent</exemplarCity>
 			</zone>
+			<zone type="America/Caracas">
+				<exemplarCity>Caracas</exemplarCity>
+			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity>Tortola</exemplarCity>
+			</zone>
 			<zone type="America/St_Thomas">
 				<exemplarCity>Saint Thomas</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
-				<exemplarCity>Dinas Ho Chi Minh</exemplarCity>
+				<exemplarCity>Dinas Hô Chi Minh</exemplarCity>
+			</zone>
+			<zone type="Pacific/Efate">
+				<exemplarCity>Éfaté</exemplarCity>
+			</zone>
+			<zone type="Pacific/Wallis">
+				<exemplarCity>Wallis</exemplarCity>
+			</zone>
+			<zone type="Pacific/Apia">
+				<exemplarCity>Apia</exemplarCity>
+			</zone>
+			<zone type="Asia/Aden">
+				<exemplarCity>Aden</exemplarCity>
+			</zone>
+			<zone type="Indian/Mayotte">
+				<exemplarCity>Mayotte</exemplarCity>
+			</zone>
+			<zone type="Africa/Johannesburg">
+				<exemplarCity>Johannesburg</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity>Lusaka</exemplarCity>
+			</zone>
+			<zone type="Africa/Harare">
+				<exemplarCity>Harare</exemplarCity>
 			</zone>
 			<metazone type="Afghanistan">
 				<long>
@@ -1777,9 +2899,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic>Amser Amazon</generic>
-					<standard>Amser Safonol Amazon</standard>
-					<daylight>Amser Haf Amazon</daylight>
+					<generic>Amser Amazonas</generic>
+					<standard>Amser Safonol Amazonas</standard>
+					<daylight>Amser Haf Amazonas</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -1820,15 +2942,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Argentina">
 				<long>
 					<generic>Amser yr Ariannin</generic>
-					<standard>Amser Safonol yr Ariannin</standard>
-					<daylight>Amser Haf yr Ariannin</daylight>
+					<standard>Amser Safonol Ariannin</standard>
+					<daylight>Amser Haf Ariannin</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
-					<generic>Amser Gorllewin yr Ariannin</generic>
-					<standard>Amser Safonol Gorllewin yr Ariannin</standard>
-					<daylight>Amser Haf Gorllewin yr Ariannin</daylight>
+					<generic>Amser Gorllewin Ariannin</generic>
+					<standard>Amser Safonol Gorllewin Ariannin</standard>
+					<daylight>Amser Haf Gorllewin Ariannin</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
@@ -1901,7 +3023,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Bolivia">
 				<long>
-					<standard>Amser Bolifia</standard>
+					<standard>Amser Bolivia</standard>
 				</long>
 			</metazone>
 			<metazone type="Brasilia">
@@ -1958,7 +3080,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Christmas">
 				<long>
-					<standard>Amser Ynys y Nadolig</standard>
+					<standard>Amser Ynys Christmas</standard>
 				</long>
 			</metazone>
 			<metazone type="Cocos">
@@ -2044,9 +3166,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Fiji">
 				<long>
-					<generic>Amser Ffiji</generic>
-					<standard>Amser Safonol Ffiji</standard>
-					<daylight>Amser Haf Ffiji</daylight>
+					<generic>Amser Fiji</generic>
+					<standard>Amser Safonol Fiji</standard>
+					<daylight>Amser Haf Fiji</daylight>
 				</long>
 			</metazone>
 			<metazone type="French_Guiana">
@@ -2083,7 +3205,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="GMT">
 				<long>
-					<standard>Greenwich Mean Time</standard>
+					<standard>Amser Safonol Greenwich</standard>
 				</long>
 			</metazone>
 			<metazone type="Greenland_Eastern">
@@ -2201,9 +3323,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Korea">
 				<long>
-					<generic>Amser Corea</generic>
+					<generic>Amser Korea</generic>
 					<standard>Amser Safonol Corea</standard>
-					<daylight>Amser Haf Corea</daylight>
+					<daylight>Amser Haf Korea</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kosrae">
@@ -2259,7 +3381,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Marquesas">
 				<long>
-					<standard>Amser Marquesas</standard>
+					<standard>Amser Marquises</standard>
 				</long>
 			</metazone>
 			<metazone type="Marshall_Islands">
@@ -2288,9 +3410,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Moscow">
 				<long>
-					<generic>Amser Moscfa</generic>
-					<standard>Amser Safonol Moscfa</standard>
-					<daylight>Amser Haf Moscfa</daylight>
+					<generic>Amser Moskfa</generic>
+					<standard>Amser Safonol Moskfa</standard>
+					<daylight>Amser Haf Moskfa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Myanmar">
@@ -2363,8 +3485,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Pakistan">
 				<long>
 					<generic>Amser Pacistan</generic>
-					<standard>Amser Safonol Pacistan</standard>
-					<daylight>Amser Haf Pacistan</daylight>
+					<standard>Amser Safonol Pakistan</standard>
+					<daylight>Amser Haf Pakistan</daylight>
 				</long>
 			</metazone>
 			<metazone type="Palau">
@@ -2476,9 +3598,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Taipei">
 				<long>
-					<generic>Amser Taipei</generic>
-					<standard>Amser Safonol Taipei</standard>
-					<daylight>Amser Haf Taipei</daylight>
+					<generic>Amser Taibei</generic>
+					<standard>Amser Safonol Taibei</standard>
+					<daylight>Amser Haf Taibei</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tajikistan">
@@ -2512,7 +3634,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Tuvalu">
 				<long>
-					<standard>Amser Twfalw</standard>
+					<standard>Amser Tuvalu</standard>
 				</long>
 			</metazone>
 			<metazone type="Uruguay">
@@ -2579,9 +3701,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Yekaterinburg">
 				<long>
-					<generic>Amser Ekaterinburg</generic>
-					<standard>Amser Safonol Ekaterinburg</standard>
-					<daylight>Amser Haf Ekaterinburg</daylight>
+					<generic>Amser Yekaterinburg</generic>
+					<standard>Amser Safonol Yekaterinburg</standard>
+					<daylight>Amser Haf Yekaterinburg</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -2595,6 +3717,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent>x</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -2776,6 +3899,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>¤#,##0.00</pattern>
+					<pattern alt="accounting" draft="unconfirmed">¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="zero">{0} {1}</unitPattern>
@@ -2939,6 +4063,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Doler Bermuda</displayName>
 				<displayName count="many">Doler Bermuda</displayName>
 				<displayName count="other">Doler Bermuda</displayName>
+				<symbol>BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Doler Brunei</displayName>
@@ -2966,6 +4091,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Real Brasil</displayName>
 				<displayName count="many">Real Brasil</displayName>
 				<displayName count="other">Real Brasil</displayName>
+				<symbol>R$</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Doler y Bahamas</displayName>
@@ -3011,6 +4137,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Doler Belize</displayName>
 				<displayName count="many">Doler Belize</displayName>
 				<displayName count="other">Doler Belize</displayName>
+				<symbol draft="unconfirmed">BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Doler Canada</displayName>
@@ -3039,6 +4166,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Ffranc y Swistir</displayName>
 				<displayName count="many">Ffranc y Swistir</displayName>
 				<displayName count="other">Ffranc y Swistir</displayName>
+				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Peso Chile</displayName>
@@ -3052,10 +4180,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="CNY">
 				<displayName>Yuan Tsieina</displayName>
 				<displayName count="zero">Yuan Tsieina</displayName>
-				<displayName count="one">Yuan Tsieina</displayName>
-				<displayName count="two">Yuan Tsieina</displayName>
-				<displayName count="few">Yuan Tsieina</displayName>
-				<displayName count="many">Yuan Tsieina</displayName>
+				<displayName count="one">Yuan China</displayName>
+				<displayName count="two">Yuan China</displayName>
+				<displayName count="few">Yuan China</displayName>
+				<displayName count="many">Yuan China</displayName>
 				<displayName count="other">Yuan Tsieina</displayName>
 				<symbol>CN¥</symbol>
 			</currency>
@@ -3076,6 +4204,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Colón Costa Rica</displayName>
 				<displayName count="many">Colón Costa Rica</displayName>
 				<displayName count="other">Colón Costa Rica</displayName>
+				<symbol draft="unconfirmed">CRC</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>Peso Trosadwy Cuba</displayName>
@@ -3267,6 +4396,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Quetzal Guatemala</displayName>
 				<displayName count="many">Quetzal Guatemala</displayName>
 				<displayName count="other">Quetzal Guatemala</displayName>
+				<symbol draft="unconfirmed">GTQ</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Doler Guyana</displayName>
@@ -3331,6 +4461,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Rupiah Indonesia</displayName>
 				<displayName count="many">Rupiah Indonesia</displayName>
 				<displayName count="other">Rupiah Indonesia</displayName>
+				<symbol>IDR</symbol>
+			</currency>
+			<currency type="IEP">
+				<displayName draft="unconfirmed">Punt Iwerddon</displayName>
+				<displayName count="zero" draft="unconfirmed">Punt Iwerddon</displayName>
+				<displayName count="one" draft="unconfirmed">Punt Iwerddon</displayName>
+				<displayName count="two" draft="unconfirmed">Punt Iwerddon</displayName>
+				<displayName count="few" draft="unconfirmed">Punt Iwerddon</displayName>
+				<displayName count="many" draft="unconfirmed">Punt Iwerddon</displayName>
+				<displayName count="other" draft="unconfirmed">Punt Iwerddon</displayName>
 			</currency>
 			<currency type="ILS">
 				<displayName>Shegel Newydd Israel</displayName>
@@ -3453,13 +4593,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Won Gogledd Corea</displayName>
 			</currency>
 			<currency type="KRW">
-				<displayName>Won De Corea</displayName>
-				<displayName count="zero">Won De Corea</displayName>
-				<displayName count="one">Won De Corea</displayName>
-				<displayName count="two">Won De Corea</displayName>
-				<displayName count="few">Won De Corea</displayName>
-				<displayName count="many">Won De Corea</displayName>
-				<displayName count="other">Won De Corea</displayName>
+				<displayName>Won De Korea</displayName>
+				<displayName count="zero">Won De Korea</displayName>
+				<displayName count="one">Won De Korea</displayName>
+				<displayName count="two">Won De Korea</displayName>
+				<displayName count="few">Won De Korea</displayName>
+				<displayName count="many">Won De Korea</displayName>
+				<displayName count="other">Won De Korea</displayName>
 				<symbol>₩</symbol>
 			</currency>
 			<currency type="KWD">
@@ -3652,13 +4792,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Kwacha Malawi</displayName>
 			</currency>
 			<currency type="MXN">
-				<displayName>Peso Mecsico</displayName>
-				<displayName count="zero">Peso Mecsico</displayName>
-				<displayName count="one">Peso Mecsico</displayName>
-				<displayName count="two">Peso Mecsico</displayName>
-				<displayName count="few">Peso Mecsico</displayName>
-				<displayName count="many">Peso Mecsico</displayName>
-				<displayName count="other">Peso Mecsico</displayName>
+				<displayName>Peso México</displayName>
+				<displayName count="zero">Peso México</displayName>
+				<displayName count="one">Peso México</displayName>
+				<displayName count="two">Peso México</displayName>
+				<displayName count="few">Peso México</displayName>
+				<displayName count="many">Peso México</displayName>
+				<displayName count="other">Peso México</displayName>
 				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MYR">
@@ -3796,6 +4936,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Zloty Gwlad Pwyl</displayName>
 				<displayName count="many">Zloty Gwlad Pwyl</displayName>
 				<displayName count="other">Zloty Gwlad Pwyl</displayName>
+				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Guarani Paraguay</displayName>
@@ -3841,6 +4982,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Rwbl Rwsia</displayName>
 				<displayName count="many">Rwbl Rwsia</displayName>
 				<displayName count="other">Rwbl Rwsia</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Ffranc Rwanda</displayName>
@@ -3859,6 +5001,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Riyal Saudi Arabia</displayName>
 				<displayName count="many">Riyal Saudi Arabia</displayName>
 				<displayName count="other">Riyal Saudi Arabia</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Doler Ynysoedd Solomon</displayName>
@@ -3895,6 +5038,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Krona Sweden</displayName>
 				<displayName count="many">Krona Sweden</displayName>
 				<displayName count="other">Krona Sweden</displayName>
+				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Doler Singapore</displayName>
@@ -3985,6 +5129,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Baht Gwlad Thai</displayName>
 				<displayName count="many">Baht Gwlad Thai</displayName>
 				<displayName count="other">Baht Gwlad Thai</displayName>
+				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Somoni Tajikistan</displayName>
@@ -4030,6 +5175,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Lira Twrci</displayName>
 				<displayName count="many">Lira Twrci</displayName>
 				<displayName count="other">Lira Twrci</displayName>
+				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Doler Trinidad a Tobago</displayName>
@@ -4208,6 +5354,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="few">Rand De Affrica</displayName>
 				<displayName count="many">Rand De Affrica</displayName>
 				<displayName count="other">Rand De Affrica</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Kwacha Zambia (1968-2012)</displayName>
@@ -4228,9 +5375,96 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Kwacha Zambia</displayName>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="range">{0}-{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="zero" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero">{0} gradd</unitPattern>
+				<unitPattern count="one">{0} radd</unitPattern>
+				<unitPattern count="two">{0} radd</unitPattern>
+				<unitPattern count="few">{0} gradd</unitPattern>
+				<unitPattern count="many">{0} gradd</unitPattern>
+				<unitPattern count="other">{0} gradd</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="zero">{0} munud</unitPattern>
+				<unitPattern count="one">{0} munud</unitPattern>
+				<unitPattern count="two">{0} funud</unitPattern>
+				<unitPattern count="few">{0} munud</unitPattern>
+				<unitPattern count="many">{0} munud</unitPattern>
+				<unitPattern count="other">{0} munud</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="zero">{0} eiliad</unitPattern>
+				<unitPattern count="one">{0} eiliad</unitPattern>
+				<unitPattern count="two">{0} eiliad</unitPattern>
+				<unitPattern count="few">{0} eiliad</unitPattern>
+				<unitPattern count="many">{0} eiliad</unitPattern>
+				<unitPattern count="other">{0} eiliad</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="zero">{0} erw</unitPattern>
+				<unitPattern count="one">{0} erw</unitPattern>
+				<unitPattern count="two">{0} erw</unitPattern>
+				<unitPattern count="few">{0} erw</unitPattern>
+				<unitPattern count="many">{0} erw</unitPattern>
+				<unitPattern count="other">{0} erw</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="zero">{0} hectar</unitPattern>
+				<unitPattern count="one">{0} hectar</unitPattern>
+				<unitPattern count="two">{0} hectar</unitPattern>
+				<unitPattern count="few">{0} hectar</unitPattern>
+				<unitPattern count="many">{0} hectar</unitPattern>
+				<unitPattern count="other">{0} hectar</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="zero">{0} troedfedd sgwâr</unitPattern>
+				<unitPattern count="one">{0} droedfedd sgwâr</unitPattern>
+				<unitPattern count="two">{0} droedfedd sgwâr</unitPattern>
+				<unitPattern count="few">{0} troedfedd sgwâr</unitPattern>
+				<unitPattern count="many">{0} throedfedd sgwâr</unitPattern>
+				<unitPattern count="other">{0}troedfedd sgwâr</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="zero">{0} cilometr sgwâr</unitPattern>
+				<unitPattern count="one">{0} cilometr sgwâr</unitPattern>
+				<unitPattern count="two">{0} gilometr sgwâr</unitPattern>
+				<unitPattern count="few">{0} chilometr sgwâr</unitPattern>
+				<unitPattern count="many">{0} chilometr sgwâr</unitPattern>
+				<unitPattern count="other">{0} cilometr sgwâr</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="zero">{0} metr sgwâr</unitPattern>
+				<unitPattern count="one">{0} metr sgwâr</unitPattern>
+				<unitPattern count="two">{0} fetr sgwâr</unitPattern>
+				<unitPattern count="few">{0} metr sgwâr</unitPattern>
+				<unitPattern count="many">{0} metr sgwâr</unitPattern>
+				<unitPattern count="other">{0} metr sgwâr</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="zero">{0} milltir sgwâr</unitPattern>
+				<unitPattern count="one">filltir sgwâr</unitPattern>
+				<unitPattern count="two">{0} filltir sgwâr</unitPattern>
+				<unitPattern count="few">{0} milltir sgwâr</unitPattern>
+				<unitPattern count="many">{0} milltir sgwâr</unitPattern>
+				<unitPattern count="other">{0} milltir sgwâr</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="zero">{0} diwrnod</unitPattern>
 				<unitPattern count="one">{0} diwrnod</unitPattern>
@@ -4241,9 +5475,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-day-future">
 				<unitPattern count="zero">Ymhen {0} diwrnod</unitPattern>
-				<unitPattern count="one">Ymhen {0} diwrnod</unitPattern>
-				<unitPattern count="two">Ymhen {0} ddiwrnod</unitPattern>
-				<unitPattern count="few">Ymhen {0} diwrnod</unitPattern>
+				<unitPattern count="one">Ymhen diwrnod</unitPattern>
+				<unitPattern count="two">Ymhen deuddydd</unitPattern>
+				<unitPattern count="few">Ymhen tridiau</unitPattern>
 				<unitPattern count="many">Ymhen {0} diwrnod</unitPattern>
 				<unitPattern count="other">Ymhen {0} diwrnod</unitPattern>
 			</unit>
@@ -4273,11 +5507,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-hour-past">
 				<unitPattern count="zero">{0} awr yn ôl</unitPattern>
-				<unitPattern count="one">{0} awr yn ôl</unitPattern>
+				<unitPattern count="one">awr yn ôl</unitPattern>
 				<unitPattern count="two">{0} awr yn ôl</unitPattern>
 				<unitPattern count="few">{0} awr yn ôl</unitPattern>
 				<unitPattern count="many">{0} awr yn ôl</unitPattern>
 				<unitPattern count="other">{0} awr yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="zero">{0} milieiliad</unitPattern>
+				<unitPattern count="one">{0} milieiliad</unitPattern>
+				<unitPattern count="two">{0} filieiliad</unitPattern>
+				<unitPattern count="few">{0} milieiliad</unitPattern>
+				<unitPattern count="many">{0} milieiliad</unitPattern>
+				<unitPattern count="other">{0} milieiliad</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="zero">{0} munud</unitPattern>
@@ -4289,7 +5531,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-minute-future">
 				<unitPattern count="zero">Ymhen {0} munud</unitPattern>
-				<unitPattern count="one">Ymhen {0} munud</unitPattern>
+				<unitPattern count="one">Ymhen munud</unitPattern>
 				<unitPattern count="two">Ymhen {0} funud</unitPattern>
 				<unitPattern count="few">Ymhen {0} munud</unitPattern>
 				<unitPattern count="many">Ymhen {0} munud</unitPattern>
@@ -4313,8 +5555,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-month-future">
 				<unitPattern count="zero">Ymhen {0} mis</unitPattern>
-				<unitPattern count="one">Ymhen {0} mis</unitPattern>
-				<unitPattern count="two">Ymhen {0} fis</unitPattern>
+				<unitPattern count="one">Ymhen mis</unitPattern>
+				<unitPattern count="two">Ymhen deufis</unitPattern>
 				<unitPattern count="few">Ymhen {0} mis</unitPattern>
 				<unitPattern count="many">Ymhen {0} mis</unitPattern>
 				<unitPattern count="other">Ymhen {0} mis</unitPattern>
@@ -4337,7 +5579,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-second-future">
 				<unitPattern count="zero">Ymhen {0} eiliad</unitPattern>
-				<unitPattern count="one">Ymhen {0} eiliad</unitPattern>
+				<unitPattern count="one">Ymhen eiliad</unitPattern>
 				<unitPattern count="two">Ymhen {0} eiliad</unitPattern>
 				<unitPattern count="few">Ymhen {0} eiliad</unitPattern>
 				<unitPattern count="many">Ymhen {0} eiliad</unitPattern>
@@ -4345,11 +5587,496 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-second-past">
 				<unitPattern count="zero">{0} eiliad yn ôl</unitPattern>
-				<unitPattern count="one">{0} eiliad yn ôl</unitPattern>
+				<unitPattern count="one">eiliad yn ôl</unitPattern>
 				<unitPattern count="two">{0} eiliad yn ôl</unitPattern>
 				<unitPattern count="few">{0} eiliad yn ôl</unitPattern>
 				<unitPattern count="many">{0} eiliad yn ôl</unitPattern>
 				<unitPattern count="other">{0} eiliad yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="zero">{0} wythnos</unitPattern>
+				<unitPattern count="one">{0} wythnos</unitPattern>
+				<unitPattern count="two">{0} wythnos</unitPattern>
+				<unitPattern count="few">{0} wythnos</unitPattern>
+				<unitPattern count="many">{0} wythnos</unitPattern>
+				<unitPattern count="other">{0} wythnos</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="zero">Ymhen {0} wythnos</unitPattern>
+				<unitPattern count="one">Ymhen wythnos</unitPattern>
+				<unitPattern count="two">Ymhen pythefnos</unitPattern>
+				<unitPattern count="few">Ymhen {0} wythnos</unitPattern>
+				<unitPattern count="many">Ymhen {0} wythnos</unitPattern>
+				<unitPattern count="other">Ymhen {0} wythnos</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="zero">{0} wythnos yn ôl</unitPattern>
+				<unitPattern count="one">{0} wythnos yn ôl</unitPattern>
+				<unitPattern count="two">{0} wythnos yn ôl</unitPattern>
+				<unitPattern count="few">{0} wythnos yn ôl</unitPattern>
+				<unitPattern count="many">{0} wythnos yn ôl</unitPattern>
+				<unitPattern count="other">{0} wythnos yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="zero">{0} mlynedd</unitPattern>
+				<unitPattern count="one">{0} flwyddyn</unitPattern>
+				<unitPattern count="two">{0} flynedd</unitPattern>
+				<unitPattern count="few">{0} blynedd</unitPattern>
+				<unitPattern count="many">{0} blynedd</unitPattern>
+				<unitPattern count="other">{0} mlynedd</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="zero">Ymhen {0} mlynedd</unitPattern>
+				<unitPattern count="one">Ymhen blwyddyn</unitPattern>
+				<unitPattern count="two">Ymhen {0} flynedd</unitPattern>
+				<unitPattern count="few">Ymhen {0} blynedd</unitPattern>
+				<unitPattern count="many">Ymhen {0} blynedd</unitPattern>
+				<unitPattern count="other">Ymhen {0} mlynedd</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="zero">{0} o flynyddoedd yn ôl</unitPattern>
+				<unitPattern count="one">blwyddyn yn ôl</unitPattern>
+				<unitPattern count="two">{0} flynedd yn ôl</unitPattern>
+				<unitPattern count="few">{0} blynedd yn ôl</unitPattern>
+				<unitPattern count="many">{0} blynedd yn ôl</unitPattern>
+				<unitPattern count="other">{0} o flynyddoedd yn ôl</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="zero">{0} centimetr</unitPattern>
+				<unitPattern count="one">{0} centimetr</unitPattern>
+				<unitPattern count="two">{0} gentimetr</unitPattern>
+				<unitPattern count="few">{0} chentimetr</unitPattern>
+				<unitPattern count="many">{0} chentimetr</unitPattern>
+				<unitPattern count="other">{0} centimetr</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="zero">{0} troedfedd</unitPattern>
+				<unitPattern count="one">{0} droedfedd</unitPattern>
+				<unitPattern count="two">{0} droedfedd</unitPattern>
+				<unitPattern count="few">{0} troedfedd</unitPattern>
+				<unitPattern count="many">{0} throedfedd</unitPattern>
+				<unitPattern count="other">{0} troedfedd</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="zero">{0} modfedd</unitPattern>
+				<unitPattern count="one">{0} fodfedd</unitPattern>
+				<unitPattern count="two">{0} fodfedd</unitPattern>
+				<unitPattern count="few">{0} modfedd</unitPattern>
+				<unitPattern count="many">{0} modfedd</unitPattern>
+				<unitPattern count="other">{0} modfedd</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="zero">{0} cilometr</unitPattern>
+				<unitPattern count="one">{0} cilometr</unitPattern>
+				<unitPattern count="two">{0} gilometr</unitPattern>
+				<unitPattern count="few">{0} chilometr</unitPattern>
+				<unitPattern count="many">{0} chilometr</unitPattern>
+				<unitPattern count="other">{0} cilometr</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="zero">{0} blwyddyn golau</unitPattern>
+				<unitPattern count="one">{0} flwyddyn golau</unitPattern>
+				<unitPattern count="two">{0} flwyddyn golau</unitPattern>
+				<unitPattern count="few">{0} blwyddyn golau</unitPattern>
+				<unitPattern count="many">{0} blwyddyn golau</unitPattern>
+				<unitPattern count="other">{0} blwyddyn golau</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="zero">{0} metr</unitPattern>
+				<unitPattern count="one">{0} metr</unitPattern>
+				<unitPattern count="two">{0} fetr</unitPattern>
+				<unitPattern count="few">{0} metr</unitPattern>
+				<unitPattern count="many">{0} metr</unitPattern>
+				<unitPattern count="other">{0} metr</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="zero">{0} milltir</unitPattern>
+				<unitPattern count="one">{0} filltir</unitPattern>
+				<unitPattern count="two">{0} filltir</unitPattern>
+				<unitPattern count="few">{0} milltir</unitPattern>
+				<unitPattern count="many">{0} milltir</unitPattern>
+				<unitPattern count="other">{0} milltir</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="zero">{0} milimetr</unitPattern>
+				<unitPattern count="one">{0} milimetr</unitPattern>
+				<unitPattern count="two">{0} filimetr</unitPattern>
+				<unitPattern count="few">{0} milimetr</unitPattern>
+				<unitPattern count="many">{0} milimetr</unitPattern>
+				<unitPattern count="other">{0} milimetr</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="zero">{0} picometr</unitPattern>
+				<unitPattern count="one">{0} picometr</unitPattern>
+				<unitPattern count="two">{0} bicometr</unitPattern>
+				<unitPattern count="few">{0} phicometr</unitPattern>
+				<unitPattern count="many">{0} phicometr</unitPattern>
+				<unitPattern count="other">{0} picometr</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="zero">{0} llath</unitPattern>
+				<unitPattern count="one">{0} llath</unitPattern>
+				<unitPattern count="two">{0} lath</unitPattern>
+				<unitPattern count="few">{0} llath</unitPattern>
+				<unitPattern count="many">{0} llath</unitPattern>
+				<unitPattern count="other">{0} llath</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="zero">{0} gram</unitPattern>
+				<unitPattern count="one">{0} gram</unitPattern>
+				<unitPattern count="two">{0} gram</unitPattern>
+				<unitPattern count="few">{0} gram</unitPattern>
+				<unitPattern count="many">{0} gram</unitPattern>
+				<unitPattern count="other">{0} gram</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="zero">{0} cilogram</unitPattern>
+				<unitPattern count="one">{0} cilogram</unitPattern>
+				<unitPattern count="two">{0} gilogram</unitPattern>
+				<unitPattern count="few">{0} chilogram</unitPattern>
+				<unitPattern count="many">{0} chilogram</unitPattern>
+				<unitPattern count="other">{0} cilogram</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="zero">{0} owns</unitPattern>
+				<unitPattern count="one">{0} owns</unitPattern>
+				<unitPattern count="two">{0} owns</unitPattern>
+				<unitPattern count="few">{0} owns</unitPattern>
+				<unitPattern count="many">{0} owns</unitPattern>
+				<unitPattern count="other">{0} owns</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="zero">{0} pwys</unitPattern>
+				<unitPattern count="one">{0} pwys</unitPattern>
+				<unitPattern count="two">{0} bwys</unitPattern>
+				<unitPattern count="few">{0} phwys</unitPattern>
+				<unitPattern count="many">{0} phwys</unitPattern>
+				<unitPattern count="other">{0} pwys</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="zero">{0} marchnerth</unitPattern>
+				<unitPattern count="one">{0} marchnerth</unitPattern>
+				<unitPattern count="two">{0} farchnerth</unitPattern>
+				<unitPattern count="few">{0} marchnerth</unitPattern>
+				<unitPattern count="many">{0} marchnerth</unitPattern>
+				<unitPattern count="other">{0} marchnerth</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="zero">{0} cilowat</unitPattern>
+				<unitPattern count="one">{0} cilowat</unitPattern>
+				<unitPattern count="two">{0} gilowat</unitPattern>
+				<unitPattern count="few">{0} chilowat</unitPattern>
+				<unitPattern count="many">{0} chilowat</unitPattern>
+				<unitPattern count="other">{0} cilowat</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="zero">{0} wat</unitPattern>
+				<unitPattern count="one">{0} wat</unitPattern>
+				<unitPattern count="two">{0} wat</unitPattern>
+				<unitPattern count="few">{0} wat</unitPattern>
+				<unitPattern count="many">{0} wat</unitPattern>
+				<unitPattern count="other">{0} wat</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="zero">{0} hectopascal</unitPattern>
+				<unitPattern count="one">{0} hectopascal</unitPattern>
+				<unitPattern count="two">{0} hectopascal</unitPattern>
+				<unitPattern count="few">{0} hectopascal</unitPattern>
+				<unitPattern count="many">{0} hectopascal</unitPattern>
+				<unitPattern count="other">{0} hectopascal</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="zero" draft="unconfirmed">{0} modfedd o fercwri</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} fodfedd o fercwri</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} fodfedd o fercwri</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0} modfedd o fercwri</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} modfedd o fercwri</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} modfedd o fercwri</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="zero">{0} milibar</unitPattern>
+				<unitPattern count="one">{0} milibar</unitPattern>
+				<unitPattern count="two">{0} filibar</unitPattern>
+				<unitPattern count="few">{0} milibar</unitPattern>
+				<unitPattern count="many">{0} milibar</unitPattern>
+				<unitPattern count="other">{0} milibar</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="zero">{0} cilometr yr awr</unitPattern>
+				<unitPattern count="one">{0} cilometr yr awr</unitPattern>
+				<unitPattern count="two">{0} gilometr yr awr</unitPattern>
+				<unitPattern count="few">{0} chilometr yr awr</unitPattern>
+				<unitPattern count="many">{0} chilometr yr awr</unitPattern>
+				<unitPattern count="other">{0} cilometr yr awr</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="zero">{0} metr yr eiliad</unitPattern>
+				<unitPattern count="one">{0} metr yr eiliad</unitPattern>
+				<unitPattern count="two">{0} fetr yr eiliad</unitPattern>
+				<unitPattern count="few">{0} metr yr eiliad</unitPattern>
+				<unitPattern count="many">{0} metr yr eiliad</unitPattern>
+				<unitPattern count="other">{0} metr yr eiliad</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="zero">{0} milltir yr awr</unitPattern>
+				<unitPattern count="one">{0} filltir yr awr</unitPattern>
+				<unitPattern count="two">{0} filltir yr awr</unitPattern>
+				<unitPattern count="few">{0} milltir yr awr</unitPattern>
+				<unitPattern count="many">{0} milltir yr awr</unitPattern>
+				<unitPattern count="other">{0} milltir yr awr</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="zero">{0} gradd Celsius</unitPattern>
+				<unitPattern count="one">{0} radd Celsius</unitPattern>
+				<unitPattern count="two">{0} radd Celsius</unitPattern>
+				<unitPattern count="few">{0} gradd Celsius</unitPattern>
+				<unitPattern count="many">{0} gradd Celsius</unitPattern>
+				<unitPattern count="other">{0} gradd Celsius</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="zero">{0} gradd Fahrenheit</unitPattern>
+				<unitPattern count="one">{0} radd Fahrenheit</unitPattern>
+				<unitPattern count="two">{0} radd Fahrenheit</unitPattern>
+				<unitPattern count="few">{0} gradd Fahrenheit</unitPattern>
+				<unitPattern count="many">{0} gradd Fahrenheit</unitPattern>
+				<unitPattern count="other">{0} gradd Fahrenheit</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="zero">{0} cilometr ciwbig</unitPattern>
+				<unitPattern count="one">{0} cilometr ciwbig</unitPattern>
+				<unitPattern count="two">{0} gilometr ciwbig</unitPattern>
+				<unitPattern count="few">{0} chilometr ciwbig</unitPattern>
+				<unitPattern count="many">{0} chilometr ciwbig</unitPattern>
+				<unitPattern count="other">{0} cilometr ciwbig</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="zero">{0} milltir giwbig</unitPattern>
+				<unitPattern count="one">{0} filltir giwbig</unitPattern>
+				<unitPattern count="two">{0} filltir giwbig</unitPattern>
+				<unitPattern count="few">{0} milltir giwbig</unitPattern>
+				<unitPattern count="many">{0} milltir giwbig</unitPattern>
+				<unitPattern count="other">{0} milltir giwbig</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="zero">{0} litr</unitPattern>
+				<unitPattern count="one">{0} litr</unitPattern>
+				<unitPattern count="two">{0} litr</unitPattern>
+				<unitPattern count="few">{0} litr</unitPattern>
+				<unitPattern count="many">{0} litr</unitPattern>
+				<unitPattern count="other">{0} litr</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="zero" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero">{0}°</unitPattern>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="two">{0}°</unitPattern>
+				<unitPattern count="few">{0}°</unitPattern>
+				<unitPattern count="many">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="zero">{0}′</unitPattern>
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="two">{0}′</unitPattern>
+				<unitPattern count="few">{0}′</unitPattern>
+				<unitPattern count="many">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="zero">{0}″</unitPattern>
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="two">{0}″</unitPattern>
+				<unitPattern count="few">{0}″</unitPattern>
+				<unitPattern count="many">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="zero">{0} erw</unitPattern>
+				<unitPattern count="one">{0} erw</unitPattern>
+				<unitPattern count="two">{0} erw</unitPattern>
+				<unitPattern count="few">{0} erw</unitPattern>
+				<unitPattern count="many">{0} erw</unitPattern>
+				<unitPattern count="other">{0} erw</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="zero">{0} ha</unitPattern>
+				<unitPattern count="one">{0} ha</unitPattern>
+				<unitPattern count="two">{0} ha</unitPattern>
+				<unitPattern count="few">{0} ha</unitPattern>
+				<unitPattern count="many">{0} ha</unitPattern>
+				<unitPattern count="other">{0} ha</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="zero" draft="unconfirmed">{0} ft²</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} ft²</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} ft²</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0} ft²</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} ft²</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="zero">{0} km²</unitPattern>
+				<unitPattern count="one">{0} km²</unitPattern>
+				<unitPattern count="two">{0} km²</unitPattern>
+				<unitPattern count="few">{0} km²</unitPattern>
+				<unitPattern count="many">{0} km²</unitPattern>
+				<unitPattern count="other">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="zero">{0} m²</unitPattern>
+				<unitPattern count="one">{0} m²</unitPattern>
+				<unitPattern count="two">{0} m²</unitPattern>
+				<unitPattern count="few">{0} m²</unitPattern>
+				<unitPattern count="many">{0} m²</unitPattern>
+				<unitPattern count="other">{0} m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="zero">{0} mi²</unitPattern>
+				<unitPattern count="one">{0} mi²</unitPattern>
+				<unitPattern count="two">{0} mi²</unitPattern>
+				<unitPattern count="few">{0} mi²</unitPattern>
+				<unitPattern count="many">{0} mi²</unitPattern>
+				<unitPattern count="other">{0} mi²</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="zero">{0} diwrnod</unitPattern>
+				<unitPattern count="one">{0} diwrnod</unitPattern>
+				<unitPattern count="two">{0} ddiwrnod</unitPattern>
+				<unitPattern count="few">{0} diwrnod</unitPattern>
+				<unitPattern count="many">{0} diwrnod</unitPattern>
+				<unitPattern count="other">{0} diwrnod</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="zero">Ymhen {0} diwrnod</unitPattern>
+				<unitPattern count="one">Ymhen diwrnod</unitPattern>
+				<unitPattern count="two">Ymhen deuddydd</unitPattern>
+				<unitPattern count="few">Ymhen tridiau</unitPattern>
+				<unitPattern count="many">Ymhen {0} diwrnod</unitPattern>
+				<unitPattern count="other">Ymhen {0} diwrnod</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="zero">{0} diwrnod yn ôl</unitPattern>
+				<unitPattern count="one">{0} diwrnod yn ôl</unitPattern>
+				<unitPattern count="two">{0} ddiwrnod yn ôl</unitPattern>
+				<unitPattern count="few">tridiau'n ôl</unitPattern>
+				<unitPattern count="many">{0} diwrnod yn ôl</unitPattern>
+				<unitPattern count="other">{0} diwrnod yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="zero">{0} awr</unitPattern>
+				<unitPattern count="one">{0} awr</unitPattern>
+				<unitPattern count="two">{0} awr</unitPattern>
+				<unitPattern count="few">{0} awr</unitPattern>
+				<unitPattern count="many">{0} awr</unitPattern>
+				<unitPattern count="other">{0} awr</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="zero">Ymhen {0} awr</unitPattern>
+				<unitPattern count="one">Ymhen awr</unitPattern>
+				<unitPattern count="two">Ymhen {0} awr</unitPattern>
+				<unitPattern count="few">Ymhen {0} awr</unitPattern>
+				<unitPattern count="many">Ymhen {0} awr</unitPattern>
+				<unitPattern count="other">Ymhen {0} awr</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="zero">{0} awr yn ôl</unitPattern>
+				<unitPattern count="one">awr yn ôl</unitPattern>
+				<unitPattern count="two">{0} awr yn ôl</unitPattern>
+				<unitPattern count="few">{0} awr yn ôl</unitPattern>
+				<unitPattern count="many">{0} awr yn ôl</unitPattern>
+				<unitPattern count="other">{0} awr yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="zero">{0} ms</unitPattern>
+				<unitPattern count="one">{0} ms</unitPattern>
+				<unitPattern count="two">{0} ms</unitPattern>
+				<unitPattern count="few">{0} ms</unitPattern>
+				<unitPattern count="many">{0} ms</unitPattern>
+				<unitPattern count="other">{0} ms</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="zero">{0} mun</unitPattern>
+				<unitPattern count="one">{0} mun</unitPattern>
+				<unitPattern count="two">{0} mun</unitPattern>
+				<unitPattern count="few">{0} mun</unitPattern>
+				<unitPattern count="many">{0} mun</unitPattern>
+				<unitPattern count="other">{0} mun</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="zero">Ymhen 0 mun</unitPattern>
+				<unitPattern count="one">Ymhen {0} mun</unitPattern>
+				<unitPattern count="two">Ymhen {0} mun</unitPattern>
+				<unitPattern count="few">Ymhen {0} mun</unitPattern>
+				<unitPattern count="many">Ymhen {0} mun</unitPattern>
+				<unitPattern count="other">Ymhen {0} mun</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="zero">{0} mun yn ôl</unitPattern>
+				<unitPattern count="one">{0} mun yn ôl</unitPattern>
+				<unitPattern count="two">{0} mun yn ôl</unitPattern>
+				<unitPattern count="few">{0} mun yn ôl</unitPattern>
+				<unitPattern count="many">{0} mun yn ôl</unitPattern>
+				<unitPattern count="other">{0} mun yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="zero">{0} mis</unitPattern>
+				<unitPattern count="one">{0} mis</unitPattern>
+				<unitPattern count="two">{0} fis</unitPattern>
+				<unitPattern count="few">{0} mis</unitPattern>
+				<unitPattern count="many">{0} mis</unitPattern>
+				<unitPattern count="other">{0} mis</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="zero">Ymhen {0} mis</unitPattern>
+				<unitPattern count="one">Ymhen mis</unitPattern>
+				<unitPattern count="two">Ymhen deufis</unitPattern>
+				<unitPattern count="few">Ymhen {0} mis</unitPattern>
+				<unitPattern count="many">Ymhen {0} mis</unitPattern>
+				<unitPattern count="other">Ymhen {0} mis</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="zero">{0} mis yn ôl</unitPattern>
+				<unitPattern count="one">{0} mis yn ôl</unitPattern>
+				<unitPattern count="two">{0} fis yn ôl</unitPattern>
+				<unitPattern count="few">{0} mis yn ôl</unitPattern>
+				<unitPattern count="many">{0} mis yn ôl</unitPattern>
+				<unitPattern count="other">{0} mis yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="zero">{0} eil</unitPattern>
+				<unitPattern count="one">{0} eil</unitPattern>
+				<unitPattern count="two">{0} eil</unitPattern>
+				<unitPattern count="few">{0} eil</unitPattern>
+				<unitPattern count="many">{0} eil</unitPattern>
+				<unitPattern count="other">{0} eil</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="zero">Ymhen {0} eil</unitPattern>
+				<unitPattern count="one">Ymhen {0} eil</unitPattern>
+				<unitPattern count="two">Ymhen {0} eil</unitPattern>
+				<unitPattern count="few">Ymhen {0} eil</unitPattern>
+				<unitPattern count="many">Ymhen {0} eil</unitPattern>
+				<unitPattern count="other">Ymhen {0} eil</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="zero">{0} yn ôl</unitPattern>
+				<unitPattern count="one">{0} eil yn ôl</unitPattern>
+				<unitPattern count="two">{0} eil yn ôl</unitPattern>
+				<unitPattern count="few">{0} eil yn ôl</unitPattern>
+				<unitPattern count="many">{0} eil yn ôl</unitPattern>
+				<unitPattern count="other">{0} eil yn ôl</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="zero">{0} wythnos</unitPattern>
@@ -4367,47 +6094,363 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">Ymhen {0} wythnos</unitPattern>
 				<unitPattern count="other">Ymhen {0} wythnos</unitPattern>
 			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="zero">{0} wythnos yn ôl</unitPattern>
-				<unitPattern count="one">{0} wythnos yn ôl</unitPattern>
-				<unitPattern count="two">{0} wythnos yn ôl</unitPattern>
-				<unitPattern count="few">{0} wythnos yn ôl</unitPattern>
-				<unitPattern count="many">{0} wythnos yn ôl</unitPattern>
-				<unitPattern count="other">{0} wythnos yn ôl</unitPattern>
-			</unit>
 			<unit type="duration-year">
-				<unitPattern count="zero">{0} blwyddyn</unitPattern>
-				<unitPattern count="one">{0} blwyddyn</unitPattern>
-				<unitPattern count="two">{0} flynedd</unitPattern>
-				<unitPattern count="few">{0} blynedd</unitPattern>
-				<unitPattern count="many">{0} blynedd</unitPattern>
-				<unitPattern count="other">{0} o flynyddoedd</unitPattern>
+				<unitPattern count="zero">{0} bl</unitPattern>
+				<unitPattern count="one">{0} bl</unitPattern>
+				<unitPattern count="two">{0} bl</unitPattern>
+				<unitPattern count="few">{0} bl</unitPattern>
+				<unitPattern count="many">{0} bl</unitPattern>
+				<unitPattern count="other">{0} bl</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
-				<unitPattern count="zero">Ymhen {0} o flynyddoedd</unitPattern>
-				<unitPattern count="one">Ymhen {0} blwyddyn</unitPattern>
-				<unitPattern count="two">Ymhen {0} flynedd</unitPattern>
-				<unitPattern count="few">Ymhen {0} blynedd</unitPattern>
-				<unitPattern count="many">Ymhen {0} blynedd</unitPattern>
-				<unitPattern count="other">Ymhen {0} o flynyddoedd</unitPattern>
+				<unitPattern count="zero">Ymhen {0} bl</unitPattern>
+				<unitPattern count="one">Ymhen {0} bl</unitPattern>
+				<unitPattern count="two">Ymhen {0} bl</unitPattern>
+				<unitPattern count="few">Ymhen {0} bl</unitPattern>
+				<unitPattern count="many">Ymhen {0} bl</unitPattern>
+				<unitPattern count="other">Ymhen {0} bl</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
-				<unitPattern count="zero">{0} o flynyddoedd yn ôl</unitPattern>
-				<unitPattern count="one">{0} flwyddyn yn ôl</unitPattern>
-				<unitPattern count="two">{0} flynedd yn ôl</unitPattern>
-				<unitPattern count="few">{0} blynedd yn ôl</unitPattern>
-				<unitPattern count="many">{0} blynedd yn ôl</unitPattern>
-				<unitPattern count="other">{0} o flynyddoedd yn ôl</unitPattern>
+				<unitPattern count="zero">{0} bl yn ôl</unitPattern>
+				<unitPattern count="one">{0} bl yn ôl</unitPattern>
+				<unitPattern count="two">{0} bl yn ôl</unitPattern>
+				<unitPattern count="few">{0} bl yn ôl</unitPattern>
+				<unitPattern count="many">{0} bl yn ôl</unitPattern>
+				<unitPattern count="other">{0} bl yn ôl</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="zero">{0} cm</unitPattern>
+				<unitPattern count="one">{0} cm</unitPattern>
+				<unitPattern count="two">{0} cm</unitPattern>
+				<unitPattern count="few">{0} cm</unitPattern>
+				<unitPattern count="many">{0} cm</unitPattern>
+				<unitPattern count="other">{0} cm</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="zero" draft="unconfirmed">{0}'</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}'</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}'</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}'</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}'</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}'</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="zero" draft="unconfirmed">{0}''</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}''</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}''</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}''</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}''</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}''</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="zero">{0} km</unitPattern>
+				<unitPattern count="one">{0} km</unitPattern>
+				<unitPattern count="two">{0} km</unitPattern>
+				<unitPattern count="few">{0} km</unitPattern>
+				<unitPattern count="many">{0} km</unitPattern>
+				<unitPattern count="other">{0} km</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="zero" draft="unconfirmed">{0} ly</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} ly</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} ly</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0} ly</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} ly</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ly</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="zero">{0} m</unitPattern>
+				<unitPattern count="one">{0} m</unitPattern>
+				<unitPattern count="two">{0} m</unitPattern>
+				<unitPattern count="few">{0} m</unitPattern>
+				<unitPattern count="many">{0} m</unitPattern>
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="zero" draft="unconfirmed">{0} milltir</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} filltir</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} milltir</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0} milltir</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} milltir</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} milltir</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="zero">{0} mm</unitPattern>
+				<unitPattern count="one">{0} mm</unitPattern>
+				<unitPattern count="two">{0} mm</unitPattern>
+				<unitPattern count="few">{0} mm</unitPattern>
+				<unitPattern count="many">{0} mm</unitPattern>
+				<unitPattern count="other">{0} mm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="zero">{0} pm</unitPattern>
+				<unitPattern count="one">{0} pm</unitPattern>
+				<unitPattern count="two">{0} pm</unitPattern>
+				<unitPattern count="few">{0} pm</unitPattern>
+				<unitPattern count="many">{0} pm</unitPattern>
+				<unitPattern count="other">{0} pm</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="zero">{0} g</unitPattern>
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="two">{0} g</unitPattern>
+				<unitPattern count="few">{0} g</unitPattern>
+				<unitPattern count="many">{0} g</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="zero">{0} kg</unitPattern>
+				<unitPattern count="one">{0} kg</unitPattern>
+				<unitPattern count="two">{0} kg</unitPattern>
+				<unitPattern count="few">{0} kg</unitPattern>
+				<unitPattern count="many">{0} kg</unitPattern>
+				<unitPattern count="other">{0} kg</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="zero" draft="unconfirmed">{0} owns</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} owns</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} owns</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0} owns</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} owns</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} owns</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="zero" draft="unconfirmed">{0} pwys</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} pwys</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} bwys</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0} phwys</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} phwys</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} pwys</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="zero" draft="unconfirmed">{0} hp</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} hp</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} hp</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0} hp</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} hp</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} hp</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="zero">{0} kW</unitPattern>
+				<unitPattern count="one">{0} kW</unitPattern>
+				<unitPattern count="two">{0} kW</unitPattern>
+				<unitPattern count="few">{0} kW</unitPattern>
+				<unitPattern count="many">{0} kW</unitPattern>
+				<unitPattern count="other">{0} kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="zero">{0} W</unitPattern>
+				<unitPattern count="one">{0} W</unitPattern>
+				<unitPattern count="two">{0} W</unitPattern>
+				<unitPattern count="few">{0} W</unitPattern>
+				<unitPattern count="many">{0} W</unitPattern>
+				<unitPattern count="other">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="zero">{0} hPa</unitPattern>
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="two">{0} hPa</unitPattern>
+				<unitPattern count="few">{0} hPa</unitPattern>
+				<unitPattern count="many">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="zero" draft="unconfirmed">{0} &quot; Hg</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0} &quot; Hg</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0} &quot; Hg</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0} &quot; Hg</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0} &quot; Hg</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} &quot; Hg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="zero">{0} mbar</unitPattern>
+				<unitPattern count="one">{0} mbar</unitPattern>
+				<unitPattern count="two">{0} mbar</unitPattern>
+				<unitPattern count="few">{0} mbar</unitPattern>
+				<unitPattern count="many">{0} mbar</unitPattern>
+				<unitPattern count="other">{0} mbar</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="zero">{0} km/h</unitPattern>
+				<unitPattern count="one">{0} km/h</unitPattern>
+				<unitPattern count="two">{0} km/h</unitPattern>
+				<unitPattern count="few">{0} km/h</unitPattern>
+				<unitPattern count="many">{0} km/h</unitPattern>
+				<unitPattern count="other">{0} km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="zero">{0} m/s</unitPattern>
+				<unitPattern count="one">{0} m/s</unitPattern>
+				<unitPattern count="two">{0} m/s</unitPattern>
+				<unitPattern count="few">{0} m/s</unitPattern>
+				<unitPattern count="many">{0} m/s</unitPattern>
+				<unitPattern count="other">{0} m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="zero">{0} m.y.a.</unitPattern>
+				<unitPattern count="one">{0} m.y.a.</unitPattern>
+				<unitPattern count="two">{0} m.y.a.</unitPattern>
+				<unitPattern count="few">{0} m.y.a.</unitPattern>
+				<unitPattern count="many">{0} m.y.a.</unitPattern>
+				<unitPattern count="other">{0} m.y.a.</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="zero">{0}°C</unitPattern>
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="two">{0}°C</unitPattern>
+				<unitPattern count="few">{0}°C</unitPattern>
+				<unitPattern count="many">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="zero">{0}°F</unitPattern>
+				<unitPattern count="one">{0}°F</unitPattern>
+				<unitPattern count="two">{0}°F</unitPattern>
+				<unitPattern count="few">{0}°F</unitPattern>
+				<unitPattern count="many">{0}°F</unitPattern>
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="zero">{0} km³</unitPattern>
+				<unitPattern count="one">{0} km³</unitPattern>
+				<unitPattern count="two">{0} km³</unitPattern>
+				<unitPattern count="few">{0} km³</unitPattern>
+				<unitPattern count="many">{0} km³</unitPattern>
+				<unitPattern count="other">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="zero">{0} mi³</unitPattern>
+				<unitPattern count="one">{0} mi³</unitPattern>
+				<unitPattern count="two">{0} mi³</unitPattern>
+				<unitPattern count="few">{0} mi³</unitPattern>
+				<unitPattern count="many">{0} mi³</unitPattern>
+				<unitPattern count="other">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="zero">{0} l</unitPattern>
+				<unitPattern count="one">{0} l</unitPattern>
+				<unitPattern count="two">{0} l</unitPattern>
+				<unitPattern count="few">{0} l</unitPattern>
+				<unitPattern count="many">{0} l</unitPattern>
+				<unitPattern count="other">{0} l</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern>h.mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern>h.mm.ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern>m.ss</durationUnitPattern>
+			</durationUnit>
 		</unitLength>
-		<unitLength type="short">
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="zero" draft="unconfirmed">{0}g</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}g</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}g</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}g</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}g</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero">{0}°</unitPattern>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="two">{0}°</unitPattern>
+				<unitPattern count="few">{0}°</unitPattern>
+				<unitPattern count="many">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="zero">{0}′</unitPattern>
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="two">{0}′</unitPattern>
+				<unitPattern count="few">{0}′</unitPattern>
+				<unitPattern count="many">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="zero">{0}″</unitPattern>
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="two">{0}″</unitPattern>
+				<unitPattern count="few">{0}″</unitPattern>
+				<unitPattern count="many">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="zero">{0}erw</unitPattern>
+				<unitPattern count="one">{0}erw</unitPattern>
+				<unitPattern count="two">{0}erw</unitPattern>
+				<unitPattern count="few">{0}erw</unitPattern>
+				<unitPattern count="many">{0}erw</unitPattern>
+				<unitPattern count="other">{0}erw</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="zero">{0}ha</unitPattern>
+				<unitPattern count="one">{0}ha</unitPattern>
+				<unitPattern count="two">{0}ha</unitPattern>
+				<unitPattern count="few">{0}ha</unitPattern>
+				<unitPattern count="many">{0}ha</unitPattern>
+				<unitPattern count="other">{0}ha</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="zero" draft="unconfirmed">{0}ft²</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}ft²</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}ft²</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}ft²</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}ft²</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="zero">{0}km²</unitPattern>
+				<unitPattern count="one">{0}km²</unitPattern>
+				<unitPattern count="two">{0}km²</unitPattern>
+				<unitPattern count="few">{0}km²</unitPattern>
+				<unitPattern count="many">{0}km²</unitPattern>
+				<unitPattern count="other">{0}km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="zero">{0}m²</unitPattern>
+				<unitPattern count="one">{0}m²</unitPattern>
+				<unitPattern count="two">{0}m²</unitPattern>
+				<unitPattern count="few">{0}m²</unitPattern>
+				<unitPattern count="many">{0}m²</unitPattern>
+				<unitPattern count="other">{0}m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="zero">{0}mi²</unitPattern>
+				<unitPattern count="one">{0}mi²</unitPattern>
+				<unitPattern count="two">{0}mi²</unitPattern>
+				<unitPattern count="few">{0}mi²</unitPattern>
+				<unitPattern count="many">{0}mi²</unitPattern>
+				<unitPattern count="other">{0}mi²</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<unitPattern count="zero">{0} diwrnod</unitPattern>
-				<unitPattern count="one">{0} diwrnod</unitPattern>
-				<unitPattern count="two">{0} ddiwrnod</unitPattern>
-				<unitPattern count="few">{0} diwrnod</unitPattern>
-				<unitPattern count="many">{0} diwrnod</unitPattern>
-				<unitPattern count="other">{0} diwrnod</unitPattern>
+				<unitPattern count="zero">{0}d</unitPattern>
+				<unitPattern count="one">{0}d</unitPattern>
+				<unitPattern count="two">{0}d</unitPattern>
+				<unitPattern count="few">{0}d</unitPattern>
+				<unitPattern count="many">{0}d</unitPattern>
+				<unitPattern count="other">{0}d</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="zero">Ymhen {0} diwrnod</unitPattern>
+				<unitPattern count="one">Ymhen diwrnod</unitPattern>
+				<unitPattern count="two">Ymhen deuddydd</unitPattern>
+				<unitPattern count="few">Ymhen tridiau</unitPattern>
+				<unitPattern count="many">Ymhen {0} diwrnod</unitPattern>
+				<unitPattern count="other">Ymhen {0} diwrnod</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="zero">{0} diwrnod yn ôl</unitPattern>
+				<unitPattern count="one">{0} diwrnod yn ôl</unitPattern>
+				<unitPattern count="two">{0} ddiwrnod yn ôl</unitPattern>
+				<unitPattern count="few">tridiau'n ôl</unitPattern>
+				<unitPattern count="many">{0} diwrnod yn ôl</unitPattern>
+				<unitPattern count="other">{0} diwrnod yn ôl</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="zero">{0} awr</unitPattern>
@@ -4417,6 +6460,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} awr</unitPattern>
 				<unitPattern count="other">{0} awr</unitPattern>
 			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="zero">Ymhen {0} awr</unitPattern>
+				<unitPattern count="one">Ymhen awr</unitPattern>
+				<unitPattern count="two">Ymhen {0} awr</unitPattern>
+				<unitPattern count="few">Ymhen {0} awr</unitPattern>
+				<unitPattern count="many">Ymhen {0} awr</unitPattern>
+				<unitPattern count="other">Ymhen {0} awr</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="zero">{0} awr yn ôl</unitPattern>
+				<unitPattern count="one">awr yn ôl</unitPattern>
+				<unitPattern count="two">{0} awr yn ôl</unitPattern>
+				<unitPattern count="few">{0} awr yn ôl</unitPattern>
+				<unitPattern count="many">{0} awr yn ôl</unitPattern>
+				<unitPattern count="other">{0} awr yn ôl</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="zero">{0}ms</unitPattern>
+				<unitPattern count="one">{0}ms</unitPattern>
+				<unitPattern count="two">{0}ms</unitPattern>
+				<unitPattern count="few">{0}ms</unitPattern>
+				<unitPattern count="many">{0}ms</unitPattern>
+				<unitPattern count="other">{0}ms</unitPattern>
+			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="zero">{0} mun</unitPattern>
 				<unitPattern count="one">{0} mun</unitPattern>
@@ -4425,13 +6492,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} mun</unitPattern>
 				<unitPattern count="other">{0} mun</unitPattern>
 			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="zero">Ymhen {0} mun</unitPattern>
+				<unitPattern count="one">Ymhen {0} mun</unitPattern>
+				<unitPattern count="two">Ymhen {0} mun</unitPattern>
+				<unitPattern count="few">Ymhen {0} mun</unitPattern>
+				<unitPattern count="many">Ymhen {0} mun</unitPattern>
+				<unitPattern count="other">Ymhen {0} mun</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="zero">{0} mun yn ôl</unitPattern>
+				<unitPattern count="one">{0} mun yn ôl</unitPattern>
+				<unitPattern count="two">{0} mun yn ôl</unitPattern>
+				<unitPattern count="few">{0} mun yn ôl</unitPattern>
+				<unitPattern count="many">{0} mun yn ôl</unitPattern>
+				<unitPattern count="other">{0} mun yn ôl</unitPattern>
+			</unit>
 			<unit type="duration-month">
-				<unitPattern count="zero">{0} mis</unitPattern>
-				<unitPattern count="one">{0} mis</unitPattern>
-				<unitPattern count="two">{0} fis</unitPattern>
-				<unitPattern count="few">{0} mis</unitPattern>
-				<unitPattern count="many">{0} mis</unitPattern>
-				<unitPattern count="other">{0} mis</unitPattern>
+				<unitPattern count="zero">{0}m</unitPattern>
+				<unitPattern count="one">{0}m</unitPattern>
+				<unitPattern count="two">{0}m</unitPattern>
+				<unitPattern count="few">{0}m</unitPattern>
+				<unitPattern count="many">{0}m</unitPattern>
+				<unitPattern count="other">{0}m</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="zero">Ymhen {0} mis</unitPattern>
+				<unitPattern count="one">Ymhen mis</unitPattern>
+				<unitPattern count="two">Ymhen deufis</unitPattern>
+				<unitPattern count="few">Ymhen {0} mis</unitPattern>
+				<unitPattern count="many">Ymhen {0} mis</unitPattern>
+				<unitPattern count="other">Ymhen {0} mis</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="zero">{0} mis yn ôl</unitPattern>
+				<unitPattern count="one">-{0} m</unitPattern>
+				<unitPattern count="two">{0} fis yn ôl</unitPattern>
+				<unitPattern count="few">{0} mis yn ôl</unitPattern>
+				<unitPattern count="many">{0} mis yn ôl</unitPattern>
+				<unitPattern count="other">{0} mis yn ôl</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="zero">{0} eil</unitPattern>
@@ -4441,21 +6540,285 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many">{0} eil</unitPattern>
 				<unitPattern count="other">{0} eil</unitPattern>
 			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="zero">Ymhen {0} eil</unitPattern>
+				<unitPattern count="one">Ymhen {0} eil</unitPattern>
+				<unitPattern count="two">Ymhen {0} eil</unitPattern>
+				<unitPattern count="few">Ymhen {0} eil</unitPattern>
+				<unitPattern count="many">Ymhen {0} eil</unitPattern>
+				<unitPattern count="other">Ymhen {0} eil</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="zero">{0} eil yn ôl</unitPattern>
+				<unitPattern count="one">{0} eil yn ôl</unitPattern>
+				<unitPattern count="two">{0} eil yn ôl</unitPattern>
+				<unitPattern count="few">{0} eil yn ôl</unitPattern>
+				<unitPattern count="many">{0} eil yn ôl</unitPattern>
+				<unitPattern count="other">{0} eil yn ôl</unitPattern>
+			</unit>
 			<unit type="duration-week">
-				<unitPattern count="zero">{0} wythnos</unitPattern>
-				<unitPattern count="one">{0} wythnos</unitPattern>
-				<unitPattern count="two">{0} wythnos</unitPattern>
-				<unitPattern count="few">{0} wythnos</unitPattern>
-				<unitPattern count="many">{0} wythnos</unitPattern>
-				<unitPattern count="other">{0} wythnos</unitPattern>
+				<unitPattern count="zero">{0}w</unitPattern>
+				<unitPattern count="one">{0}w</unitPattern>
+				<unitPattern count="two">{0}w</unitPattern>
+				<unitPattern count="few">{0}w</unitPattern>
+				<unitPattern count="many">{0}w</unitPattern>
+				<unitPattern count="other">{0}w</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="zero">Ymhen {0}w</unitPattern>
+				<unitPattern count="one">Ymhen {0}w</unitPattern>
+				<unitPattern count="two">Ymhen {0}w</unitPattern>
+				<unitPattern count="few">Ymhen {0}w</unitPattern>
+				<unitPattern count="many">Ymhen {0}w</unitPattern>
+				<unitPattern count="other">Ymhen {0}w</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<unitPattern count="zero">{0} bl</unitPattern>
-				<unitPattern count="one">{0} bl</unitPattern>
-				<unitPattern count="two">{0} bl</unitPattern>
-				<unitPattern count="few">{0} bl</unitPattern>
-				<unitPattern count="many">{0} bl</unitPattern>
-				<unitPattern count="other">{0} bl</unitPattern>
+				<unitPattern count="zero">{0}bl</unitPattern>
+				<unitPattern count="one">{0}bl</unitPattern>
+				<unitPattern count="two">{0}bl</unitPattern>
+				<unitPattern count="few">{0}bl</unitPattern>
+				<unitPattern count="many">{0}bl</unitPattern>
+				<unitPattern count="other">{0}bl</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="zero">Ymhen {0} bl</unitPattern>
+				<unitPattern count="one">Ymhen {0} bl</unitPattern>
+				<unitPattern count="two">Ymhen {0} bl</unitPattern>
+				<unitPattern count="few">Ymhen {0} bl</unitPattern>
+				<unitPattern count="many">Ymhen {0} bl</unitPattern>
+				<unitPattern count="other">Ymhen {0} bl</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="zero">{0} bl yn ôl</unitPattern>
+				<unitPattern count="one">{0} bl yn ôl</unitPattern>
+				<unitPattern count="two">{0} bl yn ôl</unitPattern>
+				<unitPattern count="few">{0} bl yn ôl</unitPattern>
+				<unitPattern count="many">{0} bl yn ôl</unitPattern>
+				<unitPattern count="other">{0} bl yn ôl</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="zero">{0}cm</unitPattern>
+				<unitPattern count="one">{0}cm</unitPattern>
+				<unitPattern count="two">{0}cm</unitPattern>
+				<unitPattern count="few">{0}cm</unitPattern>
+				<unitPattern count="many">{0}cm</unitPattern>
+				<unitPattern count="other">{0}cm</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="zero" draft="unconfirmed">{0}'</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}'</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}'</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}'</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}'</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}'</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="zero" draft="unconfirmed">{0}''</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}''</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}''</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}''</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}''</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}''</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="zero">{0}km</unitPattern>
+				<unitPattern count="one">{0}km</unitPattern>
+				<unitPattern count="two">{0}km</unitPattern>
+				<unitPattern count="few">{0}km</unitPattern>
+				<unitPattern count="many">{0}km</unitPattern>
+				<unitPattern count="other">{0}km</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="zero" draft="unconfirmed">{0}ly</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}ly</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}ly</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}ly</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}ly</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}ly</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="zero">{0}m</unitPattern>
+				<unitPattern count="one">{0}m</unitPattern>
+				<unitPattern count="two">{0}m</unitPattern>
+				<unitPattern count="few">{0}m</unitPattern>
+				<unitPattern count="many">{0}m</unitPattern>
+				<unitPattern count="other">{0}m</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="zero" draft="unconfirmed">{0}mi</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}mi</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}mi</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}mi</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}mi</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}mi</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="zero">{0}mm</unitPattern>
+				<unitPattern count="one">{0}mm</unitPattern>
+				<unitPattern count="two">{0}mm</unitPattern>
+				<unitPattern count="few">{0}mm</unitPattern>
+				<unitPattern count="many">{0}mm</unitPattern>
+				<unitPattern count="other">{0}mm</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="zero">{0}pm</unitPattern>
+				<unitPattern count="one">{0}pm</unitPattern>
+				<unitPattern count="two">{0}pm</unitPattern>
+				<unitPattern count="few">{0}pm</unitPattern>
+				<unitPattern count="many">{0}pm</unitPattern>
+				<unitPattern count="other">{0}pm</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="zero" draft="unconfirmed">{0}yd</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}yd</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}yd</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}yd</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}yd</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}yd</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="zero">{0}g</unitPattern>
+				<unitPattern count="one">{0}g</unitPattern>
+				<unitPattern count="two">{0}g</unitPattern>
+				<unitPattern count="few">{0}g</unitPattern>
+				<unitPattern count="many">{0}g</unitPattern>
+				<unitPattern count="other">{0}g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="zero">{0}kg</unitPattern>
+				<unitPattern count="one">{0}kg</unitPattern>
+				<unitPattern count="two">{0}kg</unitPattern>
+				<unitPattern count="few">{0}kg</unitPattern>
+				<unitPattern count="many">{0}kg</unitPattern>
+				<unitPattern count="other">{0}kg</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="zero" draft="unconfirmed">{0}oz</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}oz</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}oz</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}oz</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}oz</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}oz</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="zero" draft="unconfirmed">{0}lb</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}lb</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}lb</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}lb</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}lb</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}lb</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="zero" draft="unconfirmed">{0}hp</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}hp</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}hp</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}hp</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}hp</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}hp</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="zero">{0} kW</unitPattern>
+				<unitPattern count="one">{0}kW</unitPattern>
+				<unitPattern count="two">{0}kW</unitPattern>
+				<unitPattern count="few">{0}kW</unitPattern>
+				<unitPattern count="many">{0}kW</unitPattern>
+				<unitPattern count="other">{0}kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="zero">{0}W</unitPattern>
+				<unitPattern count="one">{0}W</unitPattern>
+				<unitPattern count="two">{0}W</unitPattern>
+				<unitPattern count="few">{0}W</unitPattern>
+				<unitPattern count="many">{0}W</unitPattern>
+				<unitPattern count="other">{0}W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="zero">{0}hPa</unitPattern>
+				<unitPattern count="one">{0}hPa</unitPattern>
+				<unitPattern count="two">{0}hPa</unitPattern>
+				<unitPattern count="few">{0}hPa</unitPattern>
+				<unitPattern count="many">{0}hPa</unitPattern>
+				<unitPattern count="other">{0}hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="zero" draft="unconfirmed">{0}&quot; Hg</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}&quot; Hg</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}&quot; Hg</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}&quot; Hg</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}&quot; Hg</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}&quot; Hg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="zero">{0}mb</unitPattern>
+				<unitPattern count="one">{0}mb</unitPattern>
+				<unitPattern count="two">{0}mb</unitPattern>
+				<unitPattern count="few">{0}mb</unitPattern>
+				<unitPattern count="many">{0}mb</unitPattern>
+				<unitPattern count="other">{0}mb</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="zero">{0}km/h</unitPattern>
+				<unitPattern count="one">{0}km/h</unitPattern>
+				<unitPattern count="two">{0}km/h</unitPattern>
+				<unitPattern count="few">{0}km/h</unitPattern>
+				<unitPattern count="many">{0}km/h</unitPattern>
+				<unitPattern count="other">{0}km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="zero">{0}m/s</unitPattern>
+				<unitPattern count="one">{0}m/s</unitPattern>
+				<unitPattern count="two">{0}m/s</unitPattern>
+				<unitPattern count="few">{0}m/s</unitPattern>
+				<unitPattern count="many">{0}m/s</unitPattern>
+				<unitPattern count="other">{0}m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="zero" draft="unconfirmed">{0}m.y.a.</unitPattern>
+				<unitPattern count="one" draft="unconfirmed">{0}m.y.a.</unitPattern>
+				<unitPattern count="two" draft="unconfirmed">{0}m.y.a.</unitPattern>
+				<unitPattern count="few" draft="unconfirmed">{0}m.y.a.</unitPattern>
+				<unitPattern count="many" draft="unconfirmed">{0}m.y.a.</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}m.y.a.</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="zero">{0}°C</unitPattern>
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="two">{0}°C</unitPattern>
+				<unitPattern count="few">{0}°C</unitPattern>
+				<unitPattern count="many">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="zero">{0}°F</unitPattern>
+				<unitPattern count="one">{0}°F</unitPattern>
+				<unitPattern count="two">{0}°F</unitPattern>
+				<unitPattern count="few">{0}°F</unitPattern>
+				<unitPattern count="many">{0}°F</unitPattern>
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="zero">{0}km³</unitPattern>
+				<unitPattern count="one">{0}km³</unitPattern>
+				<unitPattern count="two">{0}km³</unitPattern>
+				<unitPattern count="few">{0}km³</unitPattern>
+				<unitPattern count="many">{0}km³</unitPattern>
+				<unitPattern count="other">{0}km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="zero">{0} mi³</unitPattern>
+				<unitPattern count="one">{0} mi³</unitPattern>
+				<unitPattern count="two">{0} mi³</unitPattern>
+				<unitPattern count="few">{0} mi³</unitPattern>
+				<unitPattern count="many">{0} mi³</unitPattern>
+				<unitPattern count="other">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="zero">{0}l</unitPattern>
+				<unitPattern count="one">{0}l</unitPattern>
+				<unitPattern count="two">{0}l</unitPattern>
+				<unitPattern count="few">{0}l</unitPattern>
+				<unitPattern count="many">{0}l</unitPattern>
+				<unitPattern count="other">{0}l</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
@@ -4463,8 +6826,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<listPattern>
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} a {1}</listPatternPart>
-			<listPatternPart type="2">{0} a {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration">
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0} a {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0} a {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration-short">
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0} a {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>
@@ -4474,4 +6849,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

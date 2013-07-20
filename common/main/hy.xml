@@ -21,6 +21,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="af">աֆրիկաանս</language>
 			<language type="am">ամհարերեն</language>
 			<language type="ar">արաբերեն</language>
+			<language type="ar_001">ժամանակակից ստանդարտ արաբերեն</language>
 			<language type="as">ասամերեն</language>
 			<language type="az">ադրբեջաներեն</language>
 			<language type="be">բելառուսերեն</language>
@@ -42,11 +43,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU">ավստրալական անգլերեն</language>
 			<language type="en_CA">կանադական անգլերեն</language>
 			<language type="en_GB">բրիտանական անգլերեն</language>
+			<language type="en_GB" alt="short">անգլերեն (ՄԹ)</language>
 			<language type="en_US">ամերիկյան անգլերեն</language>
+			<language type="en_US" alt="short">անգլերեն (ԱՄՆ)</language>
 			<language type="eo">էսպերանտո</language>
 			<language type="es">իսպաներեն</language>
 			<language type="es_419">լատինաամերիկյան իսպաներեն</language>
 			<language type="es_ES">եվրոպական իսպաներեն</language>
+			<language type="es_MX">մեքսիկական իսպաներեն</language>
 			<language type="et">էստոներեն</language>
 			<language type="eu">բասկերեն</language>
 			<language type="fa">պարսկերեն</language>
@@ -155,6 +159,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="xh">քսոզա</language>
 			<language type="yi" draft="unconfirmed">Իդիշ</language>
 			<language type="yo">յորուբա</language>
+			<language type="zgh">ստանդարտ մարոկական թամազիղտ</language>
 			<language type="zh">չինարեն</language>
 			<language type="zh_Hans">պարզեցված չինարեն</language>
 			<language type="zh_Hant">ավանդական չինարեն</language>
@@ -177,7 +182,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Hang">հանգուլ</script>
 			<script type="Hani">չինական</script>
 			<script type="Hans">պարզեցված չինական</script>
+			<script type="Hans" alt="stand-alone">պարզեցված չինական</script>
 			<script type="Hant">ավանդական չինական</script>
+			<script type="Hant" alt="stand-alone">ավանդական չինական</script>
 			<script type="Hebr">եբրայական</script>
 			<script type="Hira">հիրագանա</script>
 			<script type="Jpan">ճապոնական</script>
@@ -279,7 +286,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CG">Կոնգո - Բրազավիլ</territory>
 			<territory type="CG" alt="variant">Կոնգո [Կոնգոյի Հանրապետություն]</territory>
 			<territory type="CH">Շվեյցարիա</territory>
-			<territory type="CI">Կոտ դ'Իվուար</territory>
+			<territory type="CI">Փղոսկրի Ափ</territory>
 			<territory type="CI" alt="variant">Փղոսկրի Ափ</territory>
 			<territory type="CK">Կուկի կղզիներ</territory>
 			<territory type="CL">Չիլի</territory>
@@ -319,6 +326,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FR">Ֆրանսիա</territory>
 			<territory type="GA">Գաբոն</territory>
 			<territory type="GB">Միացյալ Թագավորություն</territory>
+			<territory type="GB" alt="short">Միացյալ Թագավորություն</territory>
 			<territory type="GD">Գրենադա</territory>
 			<territory type="GE">Վրաստան</territory>
 			<territory type="GF">Ֆրանսիական Գվիանա</territory>
@@ -392,7 +400,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="ML">Մալի</territory>
 			<territory type="MM">Մյանմա [Բիրմա]</territory>
 			<territory type="MN">Մոնղոլիա</territory>
-			<territory type="MO">Մակաոյի ՀՎՇ</territory>
+			<territory type="MO">Չինաստանի Մակաո ՀՎՇ</territory>
 			<territory type="MO" alt="short">Մակաո</territory>
 			<territory type="MP">Հյուսիսային Մարիանյան կղզիներ</territory>
 			<territory type="MQ">Մարտինիկա</territory>
@@ -483,6 +491,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="UG">Ուգանդա</territory>
 			<territory type="UM">Արտաքին կղզիներ [ԱՄՆ]</territory>
 			<territory type="US">Ամերիկայի Միացյալ Նահանգներ</territory>
+			<territory type="US" alt="short">ԱՄՆ</territory>
 			<territory type="UY">Ուրուգվայ</territory>
 			<territory type="UZ">Ուզբեկստան</territory>
 			<territory type="VA">Վատիկան քաղաք-պետություն</territory>
@@ -542,6 +551,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="roman" key="numbers">հռոմեական թվեր</type>
 			<type type="romanlow" key="numbers">հռոմեական թվեր [փոքրատառ]</type>
 			<type type="search" key="collation">Ընդհանուր որոնում</type>
+			<type type="standard" key="collation">Տեսակավորման ստանդարտ կարգ</type>
 			<type type="taml" key="numbers">թամիլական ավանդական թվեր</type>
 			<type type="tamldec" key="numbers">թամիլական թվեր</type>
 			<type type="telu" key="numbers">թելուգու թվեր</type>
@@ -567,6 +577,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
+		<ellipsis type="word-final">{0} …</ellipsis>
+		<ellipsis type="word-initial">… {0}</ellipsis>
+		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
@@ -624,10 +637,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d, ccc</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">G y թ. LLL</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM, y թ. G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">d MMM, y թ. G, E</dateFormatItem>
+						<dateFormatItem id="Gy">G yթ.</dateFormatItem>
+						<dateFormatItem id="GyMMM">G yթ. LLL</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G yթ. MMM d</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">G yթ. MMM d, E</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -641,13 +654,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">d MMM, E</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">y G</dateFormatItem>
-						<dateFormatItem id="yyyy">y G</dateFormatItem>
-						<dateFormatItem id="yyyyM">MM.y G</dateFormatItem>
-						<dateFormatItem id="yyyyMd">dd.MM.y G</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">d.MM.y թ. G, E</dateFormatItem>
+						<dateFormatItem id="y">y, G</dateFormatItem>
+						<dateFormatItem id="yyyy">y, G</dateFormatItem>
+						<dateFormatItem id="yyyyM">G yթ. MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">d.M.yթ., G</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">d.MM.y թ., G, E</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">G y թ. LLL</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d MMM, y թ. G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM, y թ., G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">d MMM, y թ. G, E</dateFormatItem>
 						<dateFormatItem id="yyyyQQQ">G y թ, QQQ</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">G y թ, QQQQ</dateFormatItem>
@@ -761,10 +774,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="6">հնս</month>
 							<month type="7">հլս</month>
 							<month type="8">օգս</month>
-							<month type="9">սեպ</month>
-							<month type="10">հոկ</month>
-							<month type="11">նոյ</month>
-							<month type="12">դեկ</month>
+							<month type="9">սպտ</month>
+							<month type="10">հկտ</month>
+							<month type="11">նյմ</month>
+							<month type="12">դկտ</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">Հ</month>
@@ -796,6 +809,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">հնվ</month>
+							<month type="2">փտվ</month>
+							<month type="3">մրտ</month>
+							<month type="4">ապր</month>
+							<month type="5">մյս</month>
+							<month type="6">հնս</month>
+							<month type="7">հլս</month>
+							<month type="8">օգս</month>
+							<month type="9">սպտ</month>
+							<month type="10">հկտ</month>
+							<month type="11">նյմ</month>
+							<month type="12">դկտ</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">Հ</month>
 							<month type="2">Փ</month>
@@ -810,6 +837,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">Ն</month>
 							<month type="12">Դ</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">հունվար</month>
+							<month type="2">փետրվար</month>
+							<month type="3">մարտ</month>
+							<month type="4">ապրիլ</month>
+							<month type="5">մայիս</month>
+							<month type="6">հունիս</month>
+							<month type="7">հուլիս</month>
+							<month type="8">օգոստոս</month>
+							<month type="9">սեպտեմբեր</month>
+							<month type="10">հոկտեմբեր</month>
+							<month type="11">նոյեմբեր</month>
+							<month type="12">դեկտեմբեր</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -818,10 +859,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="sun">կիր</day>
 							<day type="mon">երկ</day>
 							<day type="tue">երք</day>
-							<day type="wed">չոր</day>
+							<day type="wed">չրք</day>
 							<day type="thu">հնգ</day>
 							<day type="fri">ուր</day>
-							<day type="sat">շաբ</day>
+							<day type="sat">շբթ</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Կ</day>
@@ -836,10 +877,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="sun">կիր</day>
 							<day type="mon">երկ</day>
 							<day type="tue">երք</day>
-							<day type="wed">չոր</day>
+							<day type="wed">չրք</day>
 							<day type="thu">հնգ</day>
 							<day type="fri">ուր</day>
-							<day type="sat">շաբ</day>
+							<day type="sat">շբթ</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">կիրակի</day>
@@ -852,6 +893,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">կիր</day>
+							<day type="mon">երկ</day>
+							<day type="tue">երք</day>
+							<day type="wed">չրք</day>
+							<day type="thu">հնգ</day>
+							<day type="fri">ուր</day>
+							<day type="sat">շբթ</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Կ</day>
 							<day type="mon">Ե</day>
@@ -860,6 +910,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="thu">Հ</day>
 							<day type="fri">Ու</day>
 							<day type="sat">Շ</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">կր</day>
+							<day type="mon">եկ</day>
+							<day type="tue">եք</day>
+							<day type="wed">չր</day>
+							<day type="thu">հգ</day>
+							<day type="fri">ուր</day>
+							<day type="sat">շբ</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">կիրակի</day>
+							<day type="mon">երկուշաբթի</day>
+							<day type="tue">երեքշաբթի</day>
+							<day type="wed">չորեքշաբթի</day>
+							<day type="thu">հինգշաբթի</day>
+							<day type="fri">ուրբաթ</day>
+							<day type="sat">շաբաթ</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -916,18 +984,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<eras>
 					<eraAbbr>
 						<era type="0">մ.թ.ա.</era>
+						<era type="0" alt="variant">մ.թ.ա.</era>
 						<era type="1">մ.թ.</era>
+						<era type="1" alt="variant">մ.թ.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>d MMMM, y թ., EEEE</pattern>
+							<pattern>yթ. MMMM d, EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>dd MMMM, y թ.</pattern>
+							<pattern>dd MMMM, yթ.</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -987,10 +1057,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d, ccc</dateFormatItem>
-						<dateFormatItem id="Gy">y G</dateFormatItem>
-						<dateFormatItem id="GyMMM">G y թ. LLL</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM, y թ. G</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">d MMM, y թ. G, E</dateFormatItem>
+						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E, h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E, HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Gy">G yթ.</dateFormatItem>
+						<dateFormatItem id="GyMMM">G yթ. LLL</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM, yթ.,</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">G yթ. MMM d, E</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1007,10 +1081,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">MM.y</dateFormatItem>
 						<dateFormatItem id="yMd">dd.MM.y</dateFormatItem>
-						<dateFormatItem id="yMEd">d.MM.y թ., E</dateFormatItem>
-						<dateFormatItem id="yMMM">y թ. LLL</dateFormatItem>
-						<dateFormatItem id="yMMMd">d MMM, y թ.</dateFormatItem>
-						<dateFormatItem id="yMMMEd">d MMM, y թ., E</dateFormatItem>
+						<dateFormatItem id="yMEd">d.MM.yթ., E</dateFormatItem>
+						<dateFormatItem id="yMMM">yթ. LLL</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM, yթ.</dateFormatItem>
+						<dateFormatItem id="yMMMEd">yթ. MMM d, E</dateFormatItem>
 						<dateFormatItem id="yQQQ">y թ, QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y թ, QQQQ</dateFormatItem>
 					</availableFormats>
@@ -1018,7 +1092,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<appendItem request="Timezone">{0}, {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
-						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
+						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
 							<greatestDifference id="d">d-d</greatestDifference>
 						</intervalFormatItem>
@@ -1039,20 +1113,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="m">H:mm-H:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="h">h:mm-h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm-h:mm a v</greatestDifference>
+							<greatestDifference id="a">h:mm a – h:mm a, v</greatestDifference>
+							<greatestDifference id="h">h:mm-h:mm a, v</greatestDifference>
+							<greatestDifference id="m">h:mm-h:mm a, v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
-							<greatestDifference id="H">H:mm-H:mm v</greatestDifference>
-							<greatestDifference id="m">H:mm-H:mm v</greatestDifference>
+							<greatestDifference id="H">H:mm-H:mm, v</greatestDifference>
+							<greatestDifference id="m">H:mm-H:mm, v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a">h a – h a v</greatestDifference>
-							<greatestDifference id="h">h-h a v</greatestDifference>
+							<greatestDifference id="a">h a – h a, v</greatestDifference>
+							<greatestDifference id="h">h-h a, v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
-							<greatestDifference id="H">H-H v</greatestDifference>
+							<greatestDifference id="H">H-H, v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
 							<greatestDifference id="M">M-M</greatestDifference>
@@ -1094,22 +1168,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">ccc, dd.MM.y - ccc, dd.MM.y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">MMM-MMM y թ.</greatestDifference>
-							<greatestDifference id="y">MMM y - MMM y թ.</greatestDifference>
+							<greatestDifference id="M">MMM-MMM yթ.</greatestDifference>
+							<greatestDifference id="y">MMM y - MMM yթ.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">dd-dd MMM, y թ.</greatestDifference>
-							<greatestDifference id="M">dd MMM - dd MMM, y թ.</greatestDifference>
-							<greatestDifference id="y">dd MMM, y - dd MMM, y թ.</greatestDifference>
+							<greatestDifference id="d">dd-dd MMM, yթ.</greatestDifference>
+							<greatestDifference id="M">dd MMM - dd MMM, yթ.</greatestDifference>
+							<greatestDifference id="y">dd MMM, y - dd MMM, yթ.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, d MMM - E, d MMM, y թ.</greatestDifference>
-							<greatestDifference id="M">E, d MMM - E, d MMM, y թ.</greatestDifference>
-							<greatestDifference id="y">E, d MMM, y - E, d MMM, y թ.</greatestDifference>
+							<greatestDifference id="d">E, d MMM - E, d MMM, yթ.</greatestDifference>
+							<greatestDifference id="M">E, d MMM - E, d MMM, yթ.</greatestDifference>
+							<greatestDifference id="y">E, d MMM, y - E, d MMM, yթ.</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">y թ. MMM – MMM</greatestDifference>
-							<greatestDifference id="y">MMM y - MMM y թ</greatestDifference>
+							<greatestDifference id="M">yթ. MMM – MMM</greatestDifference>
+							<greatestDifference id="y">MMM y - MMM yթ.</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1121,23 +1195,67 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year">
 				<displayName>Տարի</displayName>
+				<relative type="-1">անցյալ տարի</relative>
+				<relative type="0">այս տարի</relative>
+				<relative type="1">հաջորդ տարի</relative>
 			</field>
 			<field type="month">
 				<displayName>Ամիս</displayName>
+				<relative type="-1">անցյալ ամիս</relative>
+				<relative type="0">այս ամիս</relative>
+				<relative type="1">հաջորդ ամիս</relative>
 			</field>
 			<field type="week">
 				<displayName>Շաբաթ</displayName>
+				<relative type="-1">անցյալ շաբաթ</relative>
+				<relative type="0">այս շաբաթ</relative>
+				<relative type="1">հաջորդ շաբաթ</relative>
 			</field>
 			<field type="day">
 				<displayName>Օր</displayName>
-				<relative type="-2">Երեկ չէ առաջի օրը</relative>
-				<relative type="-1">Երեկ</relative>
-				<relative type="0">Այսօր</relative>
-				<relative type="1">Վաղը</relative>
-				<relative type="2">Վաղը չէ մյուս օրը</relative>
+				<relative type="-2">երեկ չէ առաջի օրը</relative>
+				<relative type="-1">երեկ</relative>
+				<relative type="0">այսօր</relative>
+				<relative type="1">վաղը</relative>
+				<relative type="2">վաղը չէ մյուս օրը</relative>
 			</field>
 			<field type="weekday">
 				<displayName>Շաբաթվա օր</displayName>
+			</field>
+			<field type="sun">
+				<relative type="-1">անցյալ կիրակի</relative>
+				<relative type="0">այս կիրակի</relative>
+				<relative type="1">հաջորդ կիրակի</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1">անցյալ երկուշաբթի</relative>
+				<relative type="0">այս երկուշաբթի</relative>
+				<relative type="1">հաջորդ երկուշաբթի</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1">անցյալ երեքշաբթի</relative>
+				<relative type="0">այս երեքշաբթի</relative>
+				<relative type="1">հաջորդ երեքշաբթի</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1">անցյալ չորեքշաբթի</relative>
+				<relative type="0">այս չորեքշաբթի</relative>
+				<relative type="1">հաջորդ չորեքշաբթի</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1">անցյալ հինգշաբթի</relative>
+				<relative type="0">այս հինգշաբթի</relative>
+				<relative type="1">հաջորդ հինգշաբթի</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1">անցյալ ուրբաթ</relative>
+				<relative type="0">այս ուրբաթ</relative>
+				<relative type="1">հաջորդ ուրբաթ</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1">անցյալ շաբաթ</relative>
+				<relative type="0">այս շաբաթ</relative>
+				<relative type="1">հաջորդ շաբաթ</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName>ԿԱ/ԿՀ</displayName>
@@ -1160,6 +1278,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>Ժամանակ՝ {0}</regionFormat>
+			<regionFormat type="daylight">{0}, ամառային ժամանակ</regionFormat>
+			<regionFormat type="standard">{0}, ստանդարտ ժամանակ</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Անհայտ քաղաք</exemplarCity>
@@ -1569,6 +1689,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Prague">
 				<exemplarCity>Պրահա</exemplarCity>
 			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity>Բյուզինգեն</exemplarCity>
+			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>Բեռլին</exemplarCity>
 			</zone>
@@ -1630,7 +1753,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Չուուկ</exemplarCity>
 			</zone>
 			<zone type="Pacific/Ponape">
-				<exemplarCity>Պոնապե կղզի</exemplarCity>
+				<exemplarCity>Պոնպեի</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kosrae">
 				<exemplarCity>Կոսրաե</exemplarCity>
@@ -1672,7 +1795,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Տուլե</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
-				<exemplarCity>Գոդթաբ</exemplarCity>
+				<exemplarCity>Նուուկ</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
 				<exemplarCity>Սկորսբիսուն</exemplarCity>
@@ -2124,8 +2247,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Vladivostok">
 				<exemplarCity>Վլադիվոստոկ</exemplarCity>
 			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity>Խանդիգա</exemplarCity>
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Սախալին</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity>Ուստ-Ներա</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>Մագադան</exemplarCity>
@@ -2445,8 +2574,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Alaska">
 				<long>
 					<generic>Ալյասկայի ժամանակ</generic>
-					<standard>Ալյասկա, ստանդարտ ժամանակ</standard>
-					<daylight>Ալյասկա, ամառային ժամանակ</daylight>
+					<standard>Ալյասկայի ստանդարտ ժամանակ</standard>
+					<daylight>Ալյասկայի ամառային ժամանակ</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -2752,7 +2881,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Gilbert_Islands">
 				<long>
-					<standard>Ջլիբերթի կղզիների ժամանակ</standard>
+					<standard>Ջիլբերթի կղզիների ժամանակ</standard>
 				</long>
 			</metazone>
 			<metazone type="GMT">
@@ -3086,7 +3215,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Pitcairn">
 				<long>
-					<standard>Պիտկերնի ժամանակ</standard>
+					<standard>Պիտկեռնի ժամանակ</standard>
 				</long>
 			</metazone>
 			<metazone type="Ponape">
@@ -3136,6 +3265,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="South_Georgia">
 				<long>
 					<standard>Հարավային Ջորջիայի ժամանակ</standard>
+				</long>
+			</metazone>
+			<metazone type="Suriname">
+				<long>
+					<standard>Սուրինամի ժամանակ</standard>
 				</long>
 			</metazone>
 			<metazone type="Syowa">
@@ -3274,6 +3408,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -3300,10 +3435,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern type="100000000" count="other">000 միլիոն</pattern>
 					<pattern type="1000000000" count="one">0 միլիարդ</pattern>
 					<pattern type="1000000000" count="other">0 միլիարդ</pattern>
-					<pattern type="10000000000" count="one">00 բիլիոն</pattern>
-					<pattern type="10000000000" count="other">00 բիլիոն</pattern>
-					<pattern type="100000000000" count="one">000 բիլիոն</pattern>
-					<pattern type="100000000000" count="other">000 բիլիոն</pattern>
+					<pattern type="10000000000" count="one">00 միլիարդ</pattern>
+					<pattern type="10000000000" count="other">00 միլիարդ</pattern>
+					<pattern type="100000000000" count="one">000 միլիարդ</pattern>
+					<pattern type="100000000000" count="other">000 միլիարդ</pattern>
 					<pattern type="1000000000000" count="one">0 տրիլիոն</pattern>
 					<pattern type="1000000000000" count="other">0 տրիլիոն</pattern>
 					<pattern type="10000000000000" count="one">00 տրիլիոն</pattern>
@@ -3314,30 +3449,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="one">0K</pattern>
-					<pattern type="1000" count="other">0K</pattern>
-					<pattern type="10000" count="one">00K</pattern>
-					<pattern type="10000" count="other">00K</pattern>
-					<pattern type="100000" count="one">000K</pattern>
-					<pattern type="100000" count="other">000K</pattern>
-					<pattern type="1000000" count="one">0M</pattern>
-					<pattern type="1000000" count="other">0M</pattern>
-					<pattern type="10000000" count="one">00M</pattern>
-					<pattern type="10000000" count="other">00M</pattern>
-					<pattern type="100000000" count="one">000M</pattern>
-					<pattern type="100000000" count="other">000M</pattern>
-					<pattern type="1000000000" count="one">0G</pattern>
-					<pattern type="1000000000" count="other">0G</pattern>
-					<pattern type="10000000000" count="one">00G</pattern>
-					<pattern type="10000000000" count="other">00G</pattern>
-					<pattern type="100000000000" count="one">000G</pattern>
-					<pattern type="100000000000" count="other">000G</pattern>
-					<pattern type="1000000000000" count="one">0T</pattern>
-					<pattern type="1000000000000" count="other">0T</pattern>
-					<pattern type="10000000000000" count="one">00T</pattern>
-					<pattern type="10000000000000" count="other">00T</pattern>
-					<pattern type="100000000000000" count="one">000T</pattern>
-					<pattern type="100000000000000" count="other">000T</pattern>
+					<pattern type="1000" count="one">0 հզր</pattern>
+					<pattern type="1000" count="other">0 հզր</pattern>
+					<pattern type="10000" count="one">00 հզր</pattern>
+					<pattern type="10000" count="other">00 հզր</pattern>
+					<pattern type="100000" count="one">000 հզր</pattern>
+					<pattern type="100000" count="other">000 հզր</pattern>
+					<pattern type="1000000" count="one">0 մլն</pattern>
+					<pattern type="1000000" count="other">0 մլն</pattern>
+					<pattern type="10000000" count="one">00 մլն</pattern>
+					<pattern type="10000000" count="other">00 մլն</pattern>
+					<pattern type="100000000" count="one">000 մլն</pattern>
+					<pattern type="100000000" count="other">000 մլն</pattern>
+					<pattern type="1000000000" count="one">0 մլրդ</pattern>
+					<pattern type="1000000000" count="other">0 մլրդ</pattern>
+					<pattern type="10000000000" count="one">00 մլրդ</pattern>
+					<pattern type="10000000000" count="other">00 մլրդ</pattern>
+					<pattern type="100000000000" count="one">000 մլրդ</pattern>
+					<pattern type="100000000000" count="other">000 մլրդ</pattern>
+					<pattern type="1000000000000" count="one">0 տրլն</pattern>
+					<pattern type="1000000000000" count="other">0 տրլն</pattern>
+					<pattern type="10000000000000" count="one">00 տրլն</pattern>
+					<pattern type="10000000000000" count="other">00 տրլն</pattern>
+					<pattern type="100000000000000" count="one">000 տրլն</pattern>
+					<pattern type="100000000000000" count="other">000 տրլն</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -3359,6 +3494,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>#0.00 ¤</pattern>
+					<pattern alt="accounting">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
@@ -3369,16 +3505,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Արաբական Միացյալ Էմիրությունների դիրհամ</displayName>
 				<displayName count="one">Արաբական Միացյալ Էմիրությունների դիրհամ</displayName>
 				<displayName count="other">Արաբական Միացյալ Էմիրությունների դիրհամ</displayName>
+				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Աֆղանական աֆղանի</displayName>
 				<displayName count="one">Աֆղանական աֆղանի</displayName>
 				<displayName count="other">Աֆղանական աֆղանի</displayName>
+				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Ալբանական լեկ</displayName>
 				<displayName count="one">Ալբանական լեկ</displayName>
 				<displayName count="other">Ալբանական լեկ</displayName>
+				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Հայկական դրամ</displayName>
@@ -3391,16 +3530,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Նիդերլանդական Անտիլների գուլդեն</displayName>
 				<displayName count="one">Նիդերլանդական Անտիլների գուլդեն</displayName>
 				<displayName count="other">Նիդերլանդական Անտիլների գուլդեն</displayName>
+				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Անգոլական կվանզա</displayName>
 				<displayName count="one">Անգոլական կվանզա</displayName>
 				<displayName count="other">Անգոլական կվանզա</displayName>
+				<symbol>AOA</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Արգենտինական պեսո</displayName>
 				<displayName count="one">Արգենտինական պեսո</displayName>
 				<displayName count="other">Արգենտինական պեսո</displayName>
+				<symbol>ARS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>Ավստրալական դոլար</displayName>
@@ -3412,56 +3554,67 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Արուբական ֆլորին</displayName>
 				<displayName count="one">Արուբական ֆլորին</displayName>
 				<displayName count="other">Արուբական ֆլորին</displayName>
+				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>Ադրբեջանական մանաթ</displayName>
 				<displayName count="one">Ադրբեջանական մանաթ</displayName>
 				<displayName count="other">Ադրբեջանական մանաթ</displayName>
+				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Բոսնիա և Հերցեգովինայի փոխարկելի մարկա</displayName>
 				<displayName count="one">Բոսնիա և Հերցեգովինայի փոխարկելի մարկա</displayName>
 				<displayName count="other">Բոսնիա և Հերցեգովինայի փոխարկելի մարկա</displayName>
+				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Բարբադոսյան դոլար</displayName>
 				<displayName count="one">Բարբադոսյան դոլար</displayName>
 				<displayName count="other">Բարբադոսյան դոլար</displayName>
+				<symbol>BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Բանգլադեշի տակա</displayName>
 				<displayName count="one">Բանգլադեշի տակա</displayName>
 				<displayName count="other">Բանգլադեշի տակա</displayName>
+				<symbol>BDT</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>Բուլղարական լև</displayName>
 				<displayName count="one">Բուլղարական լև</displayName>
 				<displayName count="other">Բուլղարական լև</displayName>
+				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Բահրեյնական դինար</displayName>
 				<displayName count="one">Բահրեյնական դինար</displayName>
 				<displayName count="other">Բահրեյնական դինար</displayName>
+				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Բուրունդիի ֆրանկ</displayName>
 				<displayName count="one">Բուրունդիի ֆրանկ</displayName>
 				<displayName count="other">Բուրունդիի ֆրանկ</displayName>
+				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Բերմուդյան դոլար</displayName>
 				<displayName count="one">Բերմուդյան դոլար</displayName>
 				<displayName count="other">Բերմուդյան դոլար</displayName>
+				<symbol>BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Բրունեյական դոլար</displayName>
 				<displayName count="one">Բրունեյական դոլար</displayName>
 				<displayName count="other">Բրունեյական դոլար</displayName>
+				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Բոլիվիական բոլիվիանո</displayName>
 				<displayName count="one">Բոլիվիական բոլիվիանո</displayName>
 				<displayName count="other">Բոլիվիական բոլիվիանո</displayName>
+				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Բրազիլական ռեալ</displayName>
@@ -3473,26 +3626,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Բահամական դոլար</displayName>
 				<displayName count="one">Բահամական դոլար</displayName>
 				<displayName count="other">Բահամական դոլար</displayName>
+				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Բութանական նգուլտրում</displayName>
 				<displayName count="one">Բութանական նգուլտրում</displayName>
 				<displayName count="other">Բութանական նգուլտրում</displayName>
+				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Բոթսվանական պուլա</displayName>
 				<displayName count="one">Բոթսվանական պուլա</displayName>
 				<displayName count="other">Բոթսվանական պուլա</displayName>
+				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Բելառուսական ռուբլի</displayName>
 				<displayName count="one">Բելառուսական ռուբլի</displayName>
 				<displayName count="other">Բելառուսական ռուբլի</displayName>
+				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Բելիզի դոլար</displayName>
 				<displayName count="one">Բելիզի դոլար</displayName>
 				<displayName count="other">Բելիզի դոլար</displayName>
+				<symbol>BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Կանադական դոլար</displayName>
@@ -3504,16 +3662,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Կոնգոյի ֆրանկ</displayName>
 				<displayName count="one">Կոնգոյի ֆրանկ</displayName>
 				<displayName count="other">Կոնգոյի ֆրանկ</displayName>
+				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Շվեյցարական ֆրանկ</displayName>
 				<displayName count="one">Շվեյցարական ֆրանկ</displayName>
 				<displayName count="other">Շվեյցարական ֆրանկ</displayName>
+				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Չիլիական պեսո</displayName>
 				<displayName count="one">Չիլիական պեսո</displayName>
 				<displayName count="other">Չիլիական պեսո</displayName>
+				<symbol>CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Չինական յուան</displayName>
@@ -3525,66 +3686,79 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Կոլումբիական պեսո</displayName>
 				<displayName count="one">Կոլումբիական պեսո</displayName>
 				<displayName count="other">Կոլումբիական պեսո</displayName>
+				<symbol>COP</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>Կոստա Ռիկայի կոլոն</displayName>
 				<displayName count="one">Կոստա Ռիկայի կոլոն</displayName>
 				<displayName count="other">Կոստա Ռիկայի կոլոն</displayName>
+				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>Կուբական փոխարկելի պեսո</displayName>
 				<displayName count="one">Կուբական փոխարկելի պեսո</displayName>
 				<displayName count="other">Կուբական փոխարկելի պեսո</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Կուբական պեսո</displayName>
 				<displayName count="one">Կուբական պեսո</displayName>
 				<displayName count="other">Կուբական պեսո</displayName>
+				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Կաբո Վերդեի էսկուդո</displayName>
 				<displayName count="one">Կաբո Վերդեի էսկուդո</displayName>
 				<displayName count="other">Կաբո Վերդեի էսկուդո</displayName>
+				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Չեխական կրոնա</displayName>
 				<displayName count="one">Չեխական կրոնա</displayName>
 				<displayName count="other">Չեխական կրոնա</displayName>
+				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>Ջիբութիի ֆրանկ</displayName>
 				<displayName count="one">Ջիբութիի ֆրանկ</displayName>
 				<displayName count="other">Ջիբութիի ֆրանկ</displayName>
+				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Դանիական կրոնա</displayName>
 				<displayName count="one">Դանիական կրոնա</displayName>
 				<displayName count="other">Դանիական կրոնա</displayName>
+				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Դոմինիկական պեսո</displayName>
 				<displayName count="one">Դոմինիկական պեսո</displayName>
 				<displayName count="other">Դոմինիկական պեսո</displayName>
+				<symbol>DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Ալժիրական դինար</displayName>
 				<displayName count="one">Ալժիրական դինար</displayName>
 				<displayName count="other">Ալժիրական դինար</displayName>
+				<symbol>DZD</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Եգիպտական ֆունտ</displayName>
 				<displayName count="one">Եգիպտական ֆունտ</displayName>
 				<displayName count="other">Եգիպտական ֆունտ</displayName>
+				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Էրիթրեական նակֆա</displayName>
 				<displayName count="one">Էրիթրեական նակֆա</displayName>
 				<displayName count="other">Էրիթրեական նակֆա</displayName>
+				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Եթովպական բիր</displayName>
 				<displayName count="one">Եթովպական բիր</displayName>
 				<displayName count="other">Եթովպական բիր</displayName>
+				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Եվրո</displayName>
@@ -3596,11 +3770,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Ֆիջիական դոլար</displayName>
 				<displayName count="one">Ֆիջիական դոլար</displayName>
 				<displayName count="other">Ֆիջիական դոլար</displayName>
+				<symbol>FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Ֆոլկլենդյան կղզիներ ֆունտ</displayName>
 				<displayName count="one">Ֆոլկլենդյան կղզիներ ֆունտ</displayName>
 				<displayName count="other">Ֆոլկլենդյան կղզիներ ֆունտ</displayName>
+				<symbol>FKP</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Բրիտանական ֆունտ ստեռլինգ</displayName>
@@ -3612,36 +3788,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Վրացական լարի</displayName>
 				<displayName count="one">Վրացական լարի</displayName>
 				<displayName count="other">Վրացական լարի</displayName>
+				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>Գանական սեդի</displayName>
 				<displayName count="one">Գանական սեդի</displayName>
 				<displayName count="other">Գանական սեդի</displayName>
+				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Ջիբրալթարի ֆունտ</displayName>
 				<displayName count="one">Ջիբրալթարի ֆունտ</displayName>
 				<displayName count="other">Ջիբրալթարի ֆունտ</displayName>
+				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Գամբիական դալասի</displayName>
 				<displayName count="one">Գամբիական դալասի</displayName>
 				<displayName count="other">Գամբիական դալասի</displayName>
+				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Գվինեական ֆրանկ</displayName>
 				<displayName count="one">Գվինեական ֆրանկ</displayName>
 				<displayName count="other">Գվինեական ֆրանկ</displayName>
+				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Գվատեմալական կետսալ</displayName>
 				<displayName count="one">Գվատեմալական կետսալ</displayName>
 				<displayName count="other">Գվատեմալական կետսալ</displayName>
+				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Գայանական դոլար</displayName>
 				<displayName count="one">Գայանական դոլար</displayName>
 				<displayName count="other">Գայանական դոլար</displayName>
+				<symbol>GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Հոնկոնգի դոլար</displayName>
@@ -3653,26 +3836,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Հոնդուրասական լեմպրիա</displayName>
 				<displayName count="one">Հոնդուրասական լեմպրիա</displayName>
 				<displayName count="other">Հոնդուրասական լեմպրիա</displayName>
+				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Խորվաթական կունա</displayName>
 				<displayName count="one">Խորվաթական կունա</displayName>
 				<displayName count="other">Խորվաթական կունա</displayName>
+				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Հաիթյան գուրդ</displayName>
 				<displayName count="one">Հաիթյան գուրդ</displayName>
 				<displayName count="other">Հաիթյան գուրդ</displayName>
+				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Հունգարական ֆորինտ</displayName>
 				<displayName count="one">Հունգարական ֆորինտ</displayName>
 				<displayName count="other">Հունգարական ֆորինտ</displayName>
+				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Ինդոնեզական ռուփի</displayName>
 				<displayName count="one">Ինդոնեզական ռուփի</displayName>
 				<displayName count="other">Ինդոնեզական ռուփի</displayName>
+				<symbol>IDR</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Իսրայելի նոր շեկել</displayName>
@@ -3690,26 +3878,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Իրաքյան դինար</displayName>
 				<displayName count="one">Իրաքյան դինար</displayName>
 				<displayName count="other">Իրաքյան դինար</displayName>
+				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Իրանական ռիալ</displayName>
 				<displayName count="one">Իրանական ռիալ</displayName>
 				<displayName count="other">Իրանական ռիալ</displayName>
+				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>Իսլանդական կրոնա</displayName>
 				<displayName count="one">Իսլանդական կրոնա</displayName>
 				<displayName count="other">Իսլանդական կրոնա</displayName>
+				<symbol>ISK</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>Ջամայկական դոլար</displayName>
 				<displayName count="one">Ջամայկական դոլար</displayName>
 				<displayName count="other">Ջամայկական դոլար</displayName>
+				<symbol>JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Հորդանանական դինար</displayName>
 				<displayName count="one">Հորդանանական դինար</displayName>
 				<displayName count="other">Հորդանանական դինար</displayName>
+				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Ճապոնական իեն</displayName>
@@ -3721,26 +3914,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Քենիական շիլինգ</displayName>
 				<displayName count="one">Քենիական շիլինգ</displayName>
 				<displayName count="other">Քենիական շիլինգ</displayName>
+				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>Ղրղզական սոմ</displayName>
 				<displayName count="one">Ղրղզական սոմ</displayName>
 				<displayName count="other">Ղրղզական սոմ</displayName>
+				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Կամբոջական ռիել</displayName>
 				<displayName count="one">Կամբոջական ռիել</displayName>
 				<displayName count="other">Կամբոջական ռիել</displayName>
+				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Կոմորյան կղզիների ֆրանկ</displayName>
 				<displayName count="one">Կոմորյան կղզիների ֆրանկ</displayName>
 				<displayName count="other">Կոմորյան կղզիների ֆրանկ</displayName>
+				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>ԿԺԴՀ-ի վոնա</displayName>
 				<displayName count="one">ԿԺԴՀ-ի վոնա</displayName>
 				<displayName count="other">ԿԺԴՀ-ի վոնա</displayName>
+				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Հարավկորեական վոնա</displayName>
@@ -3752,106 +3950,127 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Քուվեյթական դինար</displayName>
 				<displayName count="one">Քուվեյթական դինար</displayName>
 				<displayName count="other">Քուվեյթական դինար</displayName>
+				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Կայմանյան կղզիների դոլար</displayName>
 				<displayName count="one">Կայմանյան կղզիների դոլար</displayName>
 				<displayName count="other">Կայմանյան կղզիների դոլար</displayName>
+				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Ղազախական տենգե</displayName>
 				<displayName count="one">Ղազախական տենգե</displayName>
 				<displayName count="other">Ղազախական տենգե</displayName>
+				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Լաոսական կիպ</displayName>
 				<displayName count="one">Լաոսական կիպ</displayName>
 				<displayName count="other">Լաոսական կիպ</displayName>
+				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Լիբանանական ֆունտ</displayName>
 				<displayName count="one">Լիբանանական ֆունտ</displayName>
 				<displayName count="other">Լիբանանական ֆունտ</displayName>
+				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Լանկիական ռուփի</displayName>
 				<displayName count="one">Լանկիական ռուփի</displayName>
 				<displayName count="other">Լանկիական ռուփի</displayName>
+				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Լիբերիական դոլար</displayName>
 				<displayName count="one">Լիբերիական դոլար</displayName>
 				<displayName count="other">Լիբերիական դոլար</displayName>
+				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Լիտվական լիտ</displayName>
 				<displayName count="one">Լիտվական լիտ</displayName>
 				<displayName count="other">Լիտվական լիտ</displayName>
+				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>Լատվիական լատ</displayName>
 				<displayName count="one">Լատվիական լատ</displayName>
 				<displayName count="other">Լատվիական լատ</displayName>
+				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Լիբիական դինար</displayName>
 				<displayName count="one">Լիբիական դինար</displayName>
 				<displayName count="other">Լիբիական դինար</displayName>
+				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Մարոկական դիրհամ</displayName>
 				<displayName count="one">Մարոկական դիրհամ</displayName>
 				<displayName count="other">Մարոկական դիրհամ</displayName>
+				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Մոլդովական լեյ</displayName>
 				<displayName count="one">Մոլդովական լեյ</displayName>
 				<displayName count="other">Մոլդովական լեյ</displayName>
+				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Մադագասկարի արիարի</displayName>
 				<displayName count="one">Մադագասկարի արիարի</displayName>
 				<displayName count="other">Մադագասկարի արիարի</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Մակեդոնական դենար</displayName>
 				<displayName count="one">Մակեդոնական դենար</displayName>
 				<displayName count="other">Մակեդոնական դենար</displayName>
+				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>Մյանմական կյատ</displayName>
 				<displayName count="one">Մյանմական կյատ</displayName>
 				<displayName count="other">Մյանմական կյատ</displayName>
+				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Մոնղոլական տուգրիկ</displayName>
 				<displayName count="one">Մոնղոլական տուգրիկ</displayName>
 				<displayName count="other">Մոնղոլական տուգրիկ</displayName>
+				<symbol>MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Մակաոյի պատակա</displayName>
 				<displayName count="one">Մակաոյի պատակա</displayName>
 				<displayName count="other">Մակաոյի պատակա</displayName>
+				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Մավրիտանական ուգիյա</displayName>
 				<displayName count="one">Մավրիտանական ուգիյա</displayName>
 				<displayName count="other">Մավրիտանական ուգիյա</displayName>
+				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Մավրիկական ռուփի</displayName>
 				<displayName count="one">Մավրիկական ռուփի</displayName>
 				<displayName count="other">Մավրիկական ռուփի</displayName>
+				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Մալդիվյան ռուֆիա</displayName>
 				<displayName count="one">Մալդիվյան ռուֆիա</displayName>
 				<displayName count="other">Մալդիվյան ռուֆիա</displayName>
+				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Մալավիական կվաչա</displayName>
 				<displayName count="one">Մալավիական կվաչա</displayName>
 				<displayName count="other">Մալավիական կվաչա</displayName>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Մեքսիկական պեսո</displayName>
@@ -3863,36 +4082,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Մալայզիական ռինգիտ</displayName>
 				<displayName count="one">Մալայզիական ռինգիտ</displayName>
 				<displayName count="other">Մալայզիական ռինգիտ</displayName>
+				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Մոզամբիկյան մետիկալ</displayName>
 				<displayName count="one">Մոզամբիկյան մետիկալ</displayName>
 				<displayName count="other">Մոզամբիկյան մետիկալ</displayName>
+				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Նամիբիական դոլար</displayName>
 				<displayName count="one">Նամիբիական դոլար</displayName>
 				<displayName count="other">Նամիբիական դոլար</displayName>
+				<symbol>NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Նիգերիական նայրա</displayName>
 				<displayName count="one">Նիգերիական նայրա</displayName>
 				<displayName count="other">Նիգերիական նայրա</displayName>
+				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Նիկարագուական կորդոբա</displayName>
 				<displayName count="one">Նիկարագուական կորդոբա</displayName>
 				<displayName count="other">Նիկարագուական կորդոբա</displayName>
+				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Նորվեգական կրոնա</displayName>
 				<displayName count="one">Նորվեգական կրոնա</displayName>
 				<displayName count="other">Նորվեգական կրոնա</displayName>
+				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Նեպալական ռուփի</displayName>
 				<displayName count="one">Նեպալական ռուփի</displayName>
 				<displayName count="other">Նեպալական ռուփի</displayName>
+				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Նորզելանդական դոլար</displayName>
@@ -3904,136 +4130,163 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Օմանական ռիալ</displayName>
 				<displayName count="one">Օմանական ռիալ</displayName>
 				<displayName count="other">Օմանական ռիալ</displayName>
+				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Պանամական բալբոա</displayName>
 				<displayName count="one">Պանամական բալբոա</displayName>
 				<displayName count="other">Պանամական բալբոա</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Պերուի նոր սոլ</displayName>
 				<displayName count="one">Պերուի նոր սոլ</displayName>
 				<displayName count="other">Պերուի նոր սոլ</displayName>
+				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Պապուա-Նոր Գվինեայի կինա</displayName>
 				<displayName count="one">Պապուա-Նոր Գվինեայի կինա</displayName>
 				<displayName count="other">Պապուա-Նոր Գվինեայի կինա</displayName>
+				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Ֆիլիպինական պեսո</displayName>
 				<displayName count="one">Ֆիլիպինական պեսո</displayName>
 				<displayName count="other">Ֆիլիպինական պեսո</displayName>
+				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Պակիստանական ռուփի</displayName>
 				<displayName count="one">Պակիստանական ռուփի</displayName>
 				<displayName count="other">Պակիստանական ռուփի</displayName>
+				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Լեհական զլոտի</displayName>
 				<displayName count="one">Լեհական զլոտի</displayName>
 				<displayName count="other">Լեհական զլոտի</displayName>
+				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Պարագվայական գուարանի</displayName>
 				<displayName count="one">Պարագվայական գուարանի</displayName>
 				<displayName count="other">Պարագվայական գուարանի</displayName>
+				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Քաթարական ռիալ</displayName>
 				<displayName count="one">Քաթարական ռիալ</displayName>
 				<displayName count="other">Քաթարական ռիալ</displayName>
+				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>Ռումինական լեյ</displayName>
 				<displayName count="one">Ռումինական լեյ</displayName>
 				<displayName count="other">Ռումինական լեյ</displayName>
+				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Սերբական դինար</displayName>
 				<displayName count="one">Սերբական դինար</displayName>
 				<displayName count="other">Սերբական դինար</displayName>
+				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Ռուսական ռուբլի</displayName>
 				<displayName count="one">Ռուսական ռուբլի</displayName>
 				<displayName count="other">Ռուսական ռուբլի</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Ռուանդական ֆրանկ</displayName>
 				<displayName count="one">Ռուանդական ֆրանկ</displayName>
 				<displayName count="other">Ռուանդական ֆրանկ</displayName>
+				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Սաուդյան Արաբիայի ռիալ</displayName>
 				<displayName count="one">Սաուդյան Արաբիայի ռիալ</displayName>
 				<displayName count="other">Սաուդյան Արաբիայի ռիալ</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Սողոմոնյան կղզիների դոլար</displayName>
 				<displayName count="one">Սողոմոնյան կղզիների դոլար</displayName>
 				<displayName count="other">Սողոմոնյան կղզիների դոլար</displayName>
+				<symbol>SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Սեյշելյան կղզիների ռուփի</displayName>
 				<displayName count="one">Սեյշելյան կղզիների ռուփի</displayName>
 				<displayName count="other">Սեյշելյան կղզիների ռուփի</displayName>
+				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Սուդանական ֆունտ</displayName>
 				<displayName count="one">Սուդանական ֆունտ</displayName>
 				<displayName count="other">Սուդանական ֆունտ</displayName>
+				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Շվեդական կրոնա</displayName>
 				<displayName count="one">Շվեդական կրոնա</displayName>
 				<displayName count="other">Շվեդական կրոնա</displayName>
+				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Սինգապուրյան դոլար</displayName>
 				<displayName count="one">Սինգապուրյան դոլար</displayName>
 				<displayName count="other">Սինգապուրյան դոլար</displayName>
+				<symbol>SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Սուրբ Հեղինեի կղզու ֆունտ</displayName>
 				<displayName count="one">Սուրբ Հեղինեի կղզու ֆունտ</displayName>
 				<displayName count="other">Սուրբ Հեղինեի կղզու ֆունտ</displayName>
+				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Սիերա-Լեոնեի լեոնե</displayName>
 				<displayName count="one">Սիերա-Լեոնեի լեոնե</displayName>
 				<displayName count="other">Սիերա-Լեոնեի լեոնե</displayName>
+				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Սոմալիական շիլինգ</displayName>
 				<displayName count="one">Սոմալիական շիլինգ</displayName>
 				<displayName count="other">Սոմալիական շիլինգ</displayName>
+				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Սուրինամական դոլար</displayName>
 				<displayName count="one">Սուրինամական դոլար</displayName>
 				<displayName count="other">Սուրինամական դոլար</displayName>
+				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>Հարավսուդանական ֆունտ</displayName>
 				<displayName count="one">Հարավսուդանական ֆունտ</displayName>
 				<displayName count="other">Հարավսուդանական ֆունտ</displayName>
+				<symbol>SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Սան Տոմե և Պրինսիպիի դոբրա</displayName>
 				<displayName count="one">Սան Տոմե և Պրինսիպիի դոբրա</displayName>
 				<displayName count="other">Սան Տոմե և Պրինսիպիի դոբրա</displayName>
+				<symbol>STD</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Սիրիական ֆունտ</displayName>
 				<displayName count="one">Սիրիական ֆունտ</displayName>
 				<displayName count="other">Սիրիական ֆունտ</displayName>
+				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Սվազիլենդական լիլանգենի</displayName>
 				<displayName count="one">Սվազիլենդական լիլանգենի</displayName>
 				<displayName count="other">Սվազիլենդական լիլանգենի</displayName>
+				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Թաիլանդական բատ</displayName>
@@ -4045,31 +4298,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Տաջիկական սոմոնի</displayName>
 				<displayName count="one">Տաջիկական սոմոնի</displayName>
 				<displayName count="other">Տաջիկական սոմոնի</displayName>
+				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName>Թուրքմենական մանաթ</displayName>
 				<displayName count="one">Թուրքմենական մանաթ</displayName>
 				<displayName count="other">Թուրքմենական մանաթ</displayName>
+				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Թունիսական դինար</displayName>
 				<displayName count="one">Թունիսական դինար</displayName>
 				<displayName count="other">Թունիսական դինար</displayName>
+				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Տոնգայի պաանգա</displayName>
 				<displayName count="one">Տոնգայի պաանգա</displayName>
 				<displayName count="other">Տոնգայի պաանգա</displayName>
+				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>Թուրքական լիրա</displayName>
 				<displayName count="one">Թուրքական լիրա</displayName>
 				<displayName count="other">Թուրքական լիրա</displayName>
+				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Տրինիդադ և Տոբագոյի դոլար</displayName>
 				<displayName count="one">Տրինիդադ և Տոբագոյի դոլար</displayName>
 				<displayName count="other">Տրինիդադ և Տոբագոյի դոլար</displayName>
+				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Թայվանական նոր դոլար</displayName>
@@ -4081,16 +4340,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Տանզանիական շիլինգ</displayName>
 				<displayName count="one">Տանզանիական շիլինգ</displayName>
 				<displayName count="other">Տանզանիական շիլինգ</displayName>
+				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Ուկրաինական գրիվնա</displayName>
 				<displayName count="one">Ուկրաինական գրիվնա</displayName>
 				<displayName count="other">Ուկրաինական գրիվնա</displayName>
+				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Ուգանդական շիլինգ</displayName>
 				<displayName count="one">Ուգանդական շիլինգ</displayName>
 				<displayName count="other">Ուգանդական շիլինգ</displayName>
+				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>ԱՄՆ դոլար</displayName>
@@ -4102,16 +4364,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Ուրուգվայական պեսո</displayName>
 				<displayName count="one">Ուրուգվայական պեսո</displayName>
 				<displayName count="other">Ուրուգվայական պեսո</displayName>
+				<symbol>UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Ուզբեկական սում</displayName>
 				<displayName count="one">Ուզբեկական սում</displayName>
 				<displayName count="other">Ուզբեկական սում</displayName>
+				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>Վենեսուելական բոլիվար</displayName>
 				<displayName count="one">Վենեսուելական բոլիվար</displayName>
 				<displayName count="other">Վենեսուելական բոլիվար</displayName>
+				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Վիետնամական դոնգ</displayName>
@@ -4123,11 +4388,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Վանուատուի վատու</displayName>
 				<displayName count="one">Վանուատուի վատու</displayName>
 				<displayName count="other">Վանուատուի վատու</displayName>
+				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Սամոական տալա</displayName>
 				<displayName count="one">Սամոական տալա</displayName>
 				<displayName count="other">Սամոական տալա</displayName>
+				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Աֆրիկական ֆինանսական համայնքի ֆրանկ BEAC</displayName>
@@ -4162,26 +4429,77 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Եմենական ռիալ</displayName>
 				<displayName count="one">Եմենական ռիալ</displayName>
 				<displayName count="other">Եմենական ռիալ</displayName>
+				<symbol>YER</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Հարավաֆրիկական ռենդ</displayName>
 				<displayName count="one">Հարավաֆրիկական ռենդ</displayName>
 				<displayName count="other">Հարավաֆրիկական ռենդ</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Զամբիական կվաչա (1968-2012)</displayName>
 				<displayName count="one">Զամբիական կվաչա (1968-2012)</displayName>
 				<displayName count="other">Զամբիական կվաչա (1968-2012)</displayName>
+				<symbol>ZMK</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName>Զամբիական կվաչա</displayName>
 				<displayName count="one">Զամբիական կվաչա</displayName>
 				<displayName count="other">Զամբիական կվաչա</displayName>
+				<symbol>ZMW</symbol>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="range">{0}-{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} ձգողության ուժի արագացում</unitPattern>
+				<unitPattern count="other">{0} ձգողության ուժի արագացում</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} աստիճան</unitPattern>
+				<unitPattern count="other">{0} աստիճան</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0} րոպե</unitPattern>
+				<unitPattern count="other">{0} րոպե</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0} վայրկյան</unitPattern>
+				<unitPattern count="other">{0} վայրկյան</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ակր</unitPattern>
+				<unitPattern count="other">{0} ակր</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one">{0} հեկտար</unitPattern>
+				<unitPattern count="other">{0} հեկտար</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} քառակուսի ֆուտ</unitPattern>
+				<unitPattern count="other">{0} քառակուսի ֆուտ</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} քառակուսի կիլոմետր</unitPattern>
+				<unitPattern count="other">{0} քառակուսի կիլոմետր</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one">{0} քառակուսի մետր</unitPattern>
+				<unitPattern count="other">{0} քառակուսի մետր</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one">{0} քառակուսի մղոն</unitPattern>
+				<unitPattern count="other">{0} քառակուսի մղոն</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one">{0} օր</unitPattern>
 				<unitPattern count="other">{0} օր</unitPattern>
@@ -4205,6 +4523,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-hour-past">
 				<unitPattern count="one">{0} ժամ առաջ</unitPattern>
 				<unitPattern count="other">{0} ժամ առաջ</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} միլիվայրկյան</unitPattern>
+				<unitPattern count="other">{0} միլիվայրկյան</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one">{0} րոպե</unitPattern>
@@ -4266,40 +4588,633 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} տարի առաջ</unitPattern>
 				<unitPattern count="other">{0} տարի առաջ</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} սանտիմետր</unitPattern>
+				<unitPattern count="other">{0} սանտիմետր</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} ֆուտ</unitPattern>
+				<unitPattern count="other">{0} ֆուտ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} դյույմ</unitPattern>
+				<unitPattern count="other">{0} դյույմ</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} կիլոմետր</unitPattern>
+				<unitPattern count="other">{0} կիլոմետր</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} լուսային տարի</unitPattern>
+				<unitPattern count="other">{0} լուսային տարի</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} մետր</unitPattern>
+				<unitPattern count="other">{0} մետր</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} մղոն</unitPattern>
+				<unitPattern count="other">{0} մղոն</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} միլիմետր</unitPattern>
+				<unitPattern count="other">{0} միլիմետր</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one">{0} պիկոմետր</unitPattern>
+				<unitPattern count="other">{0} պիկոմետր</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one">{0} յարդ</unitPattern>
+				<unitPattern count="other">{0} յարդ</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} գրամ</unitPattern>
+				<unitPattern count="other">{0} գրամ</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} կիլոգրամ</unitPattern>
+				<unitPattern count="other">{0} կիլոգրամ</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} ունցիա</unitPattern>
+				<unitPattern count="other">{0} ունցիա</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one">{0} ֆունտ</unitPattern>
+				<unitPattern count="other">{0} ֆունտ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} ձիաուժ</unitPattern>
+				<unitPattern count="other">{0} ձիաուժ</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} կիլովատ</unitPattern>
+				<unitPattern count="other">{0} կիլովատ</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one">{0} վատ</unitPattern>
+				<unitPattern count="other">{0} վատ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} հեկտապասկալ</unitPattern>
+				<unitPattern count="other">{0} հեկտապասկալ</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} դյույմ սնդիկի սյուն</unitPattern>
+				<unitPattern count="other">{0} դյույմ սնդիկի սյուն</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} միլիբար</unitPattern>
+				<unitPattern count="other">{0} միլիբար</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} կիլոմետր / ժամ</unitPattern>
+				<unitPattern count="other">{0} կիլոմետր / ժամ</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} մետր / վայրկյան</unitPattern>
+				<unitPattern count="other">{0} մետր / վայրկյան</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} մղոն / ժամ</unitPattern>
+				<unitPattern count="other">{0} մղոն / ժամ</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0} աստիճան ըստ Ցելսիուսի</unitPattern>
+				<unitPattern count="other">{0} աստիճան ըստ Ցելսիուսի</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0} աստիճան ըստ Ֆարենհայթի</unitPattern>
+				<unitPattern count="other">{0} աստիճան ըստ Ֆարենհայթի</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} խորանարդ կիլոմետր</unitPattern>
+				<unitPattern count="other">{0} խորանարդ կիլոմետր</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} խորանարդ մղոն</unitPattern>
+				<unitPattern count="other">{0} խորանարդ մղոն</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} լիտր</unitPattern>
+				<unitPattern count="other">{0} լիտր</unitPattern>
+			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} աստճ.</unitPattern>
+				<unitPattern count="other">{0} աստճ.</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0} րոպ</unitPattern>
+				<unitPattern count="other">{0} րոպ</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0} վրկ</unitPattern>
+				<unitPattern count="other">{0} վրկ</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ակր</unitPattern>
+				<unitPattern count="other">{0} ակր</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one">{0} հա</unitPattern>
+				<unitPattern count="other">{0} հա</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} քռ. ֆտ.</unitPattern>
+				<unitPattern count="other">{0} քռ. ֆտ.</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} կմ²</unitPattern>
+				<unitPattern count="other">{0} կմ²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one">{0} մ²</unitPattern>
+				<unitPattern count="other">{0} մ²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one">{0} քռ. մղ.</unitPattern>
+				<unitPattern count="other">{0} քռ. մղ.</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one">{0} օր</unitPattern>
 				<unitPattern count="other">{0} օր</unitPattern>
 			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} օր անց</unitPattern>
+				<unitPattern count="other">{0} օր անց</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} օր առաջ</unitPattern>
+				<unitPattern count="other">{0} օր առաջ</unitPattern>
+			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} ժ.</unitPattern>
-				<unitPattern count="other">{0} ժամ</unitPattern>
+				<unitPattern count="other">{0} ժ.</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">{0} ժ. անց</unitPattern>
+				<unitPattern count="other">{0} ժ. անց</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} ժ. առաջ</unitPattern>
+				<unitPattern count="other">{0} ժ. առաջ</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} մվ</unitPattern>
+				<unitPattern count="other">{0}մվ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one">{0} ր.</unitPattern>
-				<unitPattern count="other">{0} ր.</unitPattern>
+				<unitPattern count="one">{0} րպ.</unitPattern>
+				<unitPattern count="other">{0} րպ.</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">{0} րպ. անց</unitPattern>
+				<unitPattern count="other">{0} րպ. անց</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} րպ. առաջ</unitPattern>
+				<unitPattern count="other">{0} րպ. առաջ</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ամս</unitPattern>
 				<unitPattern count="other">{0} ամս</unitPattern>
 			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">{0} ամս անց</unitPattern>
+				<unitPattern count="other">{0} ամս անց</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} ամս առաջ</unitPattern>
+				<unitPattern count="other">{0} ամս առաջ</unitPattern>
+			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} վրկ</unitPattern>
 				<unitPattern count="other">{0} վրկ</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">{0} վրկ անց</unitPattern>
+				<unitPattern count="other">{0} վրկ անց</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} վրկ առաջ</unitPattern>
+				<unitPattern count="other">{0} վրկ առաջ</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} շբթ.</unitPattern>
 				<unitPattern count="other">{0} շբթ.</unitPattern>
 			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">{0} շբթ. անց</unitPattern>
+				<unitPattern count="other">{0} շբթ. անց</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} շբթ. առաջ</unitPattern>
+				<unitPattern count="other">{0} շբթ. առաջ</unitPattern>
+			</unit>
 			<unit type="duration-year">
-				<unitPattern count="one">{0} տ.</unitPattern>
-				<unitPattern count="other">{0} տ.</unitPattern>
+				<unitPattern count="one">{0} տր.</unitPattern>
+				<unitPattern count="other">{0} տր.</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">{0} տր. անց</unitPattern>
+				<unitPattern count="other">{0} տր. անց</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} տր. առաջ</unitPattern>
+				<unitPattern count="other">{0} տր. առաջ</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} սմ</unitPattern>
+				<unitPattern count="other">{0} սմ</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} ֆտ.</unitPattern>
+				<unitPattern count="other">{0} ֆտ.</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} դմ.</unitPattern>
+				<unitPattern count="other">{0} դմ.</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} կմ</unitPattern>
+				<unitPattern count="other">{0} կմ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} լ. տ.</unitPattern>
+				<unitPattern count="other">{0} լ. տ.</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} մ</unitPattern>
+				<unitPattern count="other">{0} մ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} մղ</unitPattern>
+				<unitPattern count="other">{0} մղ</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} մմ</unitPattern>
+				<unitPattern count="other">{0} մմ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one">{0} պմ</unitPattern>
+				<unitPattern count="other">{0} պմ</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one">{0} յդ.</unitPattern>
+				<unitPattern count="other">{0} յդ.</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} գր</unitPattern>
+				<unitPattern count="other">{0} գր</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} կգ</unitPattern>
+				<unitPattern count="other">{0} կգ</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} ունց</unitPattern>
+				<unitPattern count="other">{0} ունց</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one">{0} ֆն.</unitPattern>
+				<unitPattern count="other">{0} ֆն.</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} ձ/ու</unitPattern>
+				<unitPattern count="other">{0} ձ/ու</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} կՎ</unitPattern>
+				<unitPattern count="other">{0} կՎ</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one">{0} Վ</unitPattern>
+				<unitPattern count="other">{0} Վ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} հՊա</unitPattern>
+				<unitPattern count="other">{0} հՊա</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} դյույմ ս. ս.</unitPattern>
+				<unitPattern count="other">{0} դյույմ ս. ս.</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} մբ</unitPattern>
+				<unitPattern count="other">{0} մբ</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} կմ/ժ</unitPattern>
+				<unitPattern count="other">{0} կմ/ժ</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} մ/վ</unitPattern>
+				<unitPattern count="other">{0} մ/վ</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} մղ/ժ</unitPattern>
+				<unitPattern count="other">{0} մղ/ժ</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0}°F</unitPattern>
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} կմ³</unitPattern>
+				<unitPattern count="other">{0} կմ³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} մղ³</unitPattern>
+				<unitPattern count="other">{0} մղ³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} լ.</unitPattern>
+				<unitPattern count="other">{0} լ.</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern>ժ:րր</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern>ժ:րր:վվ</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern>ր:վվ</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0}g</unitPattern>
+				<unitPattern count="other">{0}g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0}ակր</unitPattern>
+				<unitPattern count="other">{0}ակր</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one">{0}հա</unitPattern>
+				<unitPattern count="other">{0}հա</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0}ֆտ²</unitPattern>
+				<unitPattern count="other">{0}ֆտ²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} կմ²</unitPattern>
+				<unitPattern count="other">{0} կմ²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one">{0} մ²</unitPattern>
+				<unitPattern count="other">{0} մ²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one">{0}մղ²</unitPattern>
+				<unitPattern count="other">{0}մղ²</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="one">{0}օ.</unitPattern>
+				<unitPattern count="other">{0}օ.</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">{0} օր անց</unitPattern>
+				<unitPattern count="other">{0} օր անց</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">{0} օր առաջ</unitPattern>
+				<unitPattern count="other">{0} օր առաջ</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ժ.</unitPattern>
+				<unitPattern count="other">{0} ժ.</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">{0} ժ. անց</unitPattern>
+				<unitPattern count="other">{0} ժ. անց</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">{0} ժ. առաջ</unitPattern>
+				<unitPattern count="other">{0} ժ. առաջ</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0}մվ</unitPattern>
+				<unitPattern count="other">{0}մվ</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} ր.</unitPattern>
+				<unitPattern count="other">{0} ր.</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">{0} րպ. անց</unitPattern>
+				<unitPattern count="other">{0} րպ. անց</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">{0} րպ. առաջ</unitPattern>
+				<unitPattern count="other">{0} րպ. առաջ</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} ա.</unitPattern>
+				<unitPattern count="other">{0} ա.</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">{0} ամս անց</unitPattern>
+				<unitPattern count="other">{0} ամս անց</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">{0} ամս առաջ</unitPattern>
+				<unitPattern count="other">{0} ամս առաջ</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} վ.</unitPattern>
+				<unitPattern count="other">{0} վ.</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">{0} վրկ անց</unitPattern>
+				<unitPattern count="other">{0} վրկ անց</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">{0} վրկ առաջ</unitPattern>
+				<unitPattern count="other">{0} վրկ առաջ</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} շ.</unitPattern>
+				<unitPattern count="other">{0} շ.</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">{0} շբթ. անց</unitPattern>
+				<unitPattern count="other">{0} շբթ. անց</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">{0} շբթ. առաջ</unitPattern>
+				<unitPattern count="other">{0} շբթ. առաջ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0}տ.</unitPattern>
+				<unitPattern count="other">{0}տ.</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">{0} տր. անց</unitPattern>
+				<unitPattern count="other">{0} տր. անց</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">{0} տր. առաջ</unitPattern>
+				<unitPattern count="other">{0} տր. առաջ</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} սմ</unitPattern>
+				<unitPattern count="other">{0} սմ</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} կմ</unitPattern>
+				<unitPattern count="other">{0} կմ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} լ. տ.</unitPattern>
+				<unitPattern count="other">{0} լ. տ.</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} մ</unitPattern>
+				<unitPattern count="other">{0} մ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} մղ</unitPattern>
+				<unitPattern count="other">{0} մղ</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} մմ</unitPattern>
+				<unitPattern count="other">{0} մմ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one">{0} պմ</unitPattern>
+				<unitPattern count="other">{0} պմ</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one">{0} յդ.</unitPattern>
+				<unitPattern count="other">{0} յդ.</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} գր</unitPattern>
+				<unitPattern count="other">{0} գր</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} կգ</unitPattern>
+				<unitPattern count="other">{0} կգ</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} ունց</unitPattern>
+				<unitPattern count="other">{0} ունց</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one">{0}#</unitPattern>
+				<unitPattern count="other">{0}#</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0}ձ/ու</unitPattern>
+				<unitPattern count="other">{0}ձ/ու</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one">{0}կՎ</unitPattern>
+				<unitPattern count="other">{0}կՎ</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one">{0}Վ</unitPattern>
+				<unitPattern count="other">{0}Վ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} հՊա</unitPattern>
+				<unitPattern count="other">{0} հՊա</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0}&quot; ս. ս.</unitPattern>
+				<unitPattern count="other">{0}&quot; ս. ս</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} մբ</unitPattern>
+				<unitPattern count="other">{0} մբ</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0}կմ/ժ</unitPattern>
+				<unitPattern count="other">{0}կմ/ժ</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0}մ/վ</unitPattern>
+				<unitPattern count="other">{0}մ/վ</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0}մղ/ժ</unitPattern>
+				<unitPattern count="other">{0}մղ/ժ</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0}°F</unitPattern>
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0}կմ³</unitPattern>
+				<unitPattern count="other">{0}կմ³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0}մղ³</unitPattern>
+				<unitPattern count="other">{0}մղ³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0}լ.</unitPattern>
+				<unitPattern count="other">{0}լ.</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} և {1}</listPatternPart>
+			<listPatternPart type="2">{0} և {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} և {1}</listPatternPart>
+			<listPatternPart type="2">{0} և {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0} և {1}</listPatternPart>
@@ -4313,4 +5228,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

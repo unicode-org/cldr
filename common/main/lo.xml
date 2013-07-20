@@ -11,15 +11,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="lo"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern>{0} ({1})</localePattern>
+			<localeSeparator>{0}, {1}</localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
 		<languages>
 			<language type="aa">ອະຟາ</language>
-			<language type="ab">ແອບຄາເຊຍ</language>
+			<language type="ab">ແອບຄາຊຽນ</language>
 			<language type="ace">ແອັກຊີເນັສ</language>
 			<language type="ach">ອາໂຄລີ</language>
 			<language type="ada">ອາແດງມີ</language>
 			<language type="ady">ເອດີຮິ</language>
 			<language type="ae">ອາເວັສແຕນ</language>
-			<language type="af">ອາຟຣິກາອານ</language>
+			<language type="af">ອາຟຣິການ</language>
 			<language type="afa">ພາສາ ແອໂຟຣ-ເອເຊຍຕິກ</language>
 			<language type="afh">ແອຟີຮີລີ</language>
 			<language type="agq">ອາເຮັມ</language>
@@ -29,18 +34,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ale">ອາເລີດ</language>
 			<language type="alg">ພາສາອໍກອນຄຽນ</language>
 			<language type="alt">ອານໄຕໃຕ້</language>
-			<language type="am">ອຳຫາຣິກ</language>
+			<language type="am">ອຳຮາຣິກ</language>
 			<language type="an">ອາຣາໂກເນັດ</language>
 			<language type="ang">ອັງກິດໂບຮານ</language>
 			<language type="anp">ແອນຈີກາ</language>
 			<language type="apa">ພາສາອາປາເຊ</language>
-			<language type="ar" draft="provisional">ອາຣັບ</language>
+			<language type="ar">ອາຣັບ</language>
+			<language type="ar_001">ອາຣາບິກມາດຕະຖານສະໄໝໃໝ່</language>
 			<language type="arc">ອາລາມິກ</language>
 			<language type="arn">ອາຣົວຄານຽນ</language>
 			<language type="arp">ອາຣາປາໂຮ</language>
 			<language type="art">ພາສາປະດິດ</language>
 			<language type="arw">ອາຣາແວກ</language>
-			<language type="as">ອັສສຳ</language>
+			<language type="as">ອັສຊຳມີສ</language>
 			<language type="asa">ອາຊູ</language>
 			<language type="ast">ອັສຕູຮຽນ</language>
 			<language type="ath">ພາສາອາທາພະສະຖານ</language>
@@ -58,13 +64,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bat">ພາສາບໍຕິກ</language>
 			<language type="bax">ບາມຸນ</language>
 			<language type="bbj">ໂຄມາລາ</language>
-			<language type="be">ເບລາລຸດຊີ</language>
+			<language type="be">ເບລາຣັສຊຽນ</language>
 			<language type="bej">ບີເຈ</language>
 			<language type="bem">ເບັມບາ</language>
 			<language type="ber">ເບີເບີ</language>
 			<language type="bez">ບີນາ</language>
 			<language type="bfd">ບາຟັດ</language>
-			<language type="bg">ບຸນກາຣີ</language>
+			<language type="bg">ບັງກາຣຽນ</language>
 			<language type="bh">ບິຫາລິ</language>
 			<language type="bho">ໂບພູຣິ</language>
 			<language type="bi">ບິສລະມາ</language>
@@ -73,13 +79,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bkm">ກົມ</language>
 			<language type="bla">ຊິກຊິກາ</language>
 			<language type="bm">ບາມບາຣາ</language>
-			<language type="bn">ເບັງການ</language>
+			<language type="bn">ເບັງກາລີ</language>
 			<language type="bnt">ບັນຕູ</language>
-			<language type="bo">ທິເບດ</language>
+			<language type="bo">ທິເບທັນ</language>
 			<language type="br">ເບຣຕັນ</language>
 			<language type="bra">ບຣາ</language>
 			<language type="brx">ໂບດູ</language>
-			<language type="bs">ບຣອດນ້ຽນ</language>
+			<language type="bs">ບອສນຽນ</language>
 			<language type="bss">ອາຄຸດ</language>
 			<language type="btk">ບາຕັກ</language>
 			<language type="bua">ບູຣຽດ</language>
@@ -87,7 +93,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bum">ບູລູ</language>
 			<language type="byn">ບລິນ</language>
 			<language type="byv">ເມດູມບາ</language>
-			<language type="ca">ແຄັດຕາລານ</language>
+			<language type="ca">ຄາຕາລານ</language>
 			<language type="cad">ແຄດໂດ</language>
 			<language type="cai">ພາສາອາເມລິກັນອິນເດຍກາງ</language>
 			<language type="car">ຄາຣິບ</language>
@@ -118,20 +124,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="cr">ຄີ</language>
 			<language type="crh">ຄຣີເມນເຕີຄິຊ</language>
 			<language type="crp">ຄີໂອຫຼືພິດຈິນ</language>
-			<language type="cs" draft="provisional">ເຊັກ</language>
+			<language type="cs">ເຊກ</language>
 			<language type="csb">ກາຊູບຽນ</language>
 			<language type="cu">ໂບດສລາວິກ</language>
 			<language type="cus">ພາສາຄູຊີຕິກ</language>
 			<language type="cv">ຊູວາຊ</language>
-			<language type="cy">ເວຣວ</language>
-			<language type="da">ດານຣິດ</language>
+			<language type="cy">ເວວ</language>
+			<language type="da">ແດນິຊ</language>
 			<language type="dak">ດາໂກຕາ</language>
 			<language type="dar">ດາກວາ</language>
 			<language type="dav">ໄຕຕາ</language>
 			<language type="day">ດາຍັກ</language>
-			<language type="de">ເຍຍລະມັນ</language>
-			<language type="de_AT">ອາດຕຽນ ເຈີແມນ</language>
-			<language type="de_CH">ສະວິດ ຮາຍ ເຈີແມນ</language>
+			<language type="de">ເຢຍລະມັນ</language>
+			<language type="de_AT">ອອສຕຣຽນ ເຈີແມນ</language>
+			<language type="de_CH">ສະວິສ ໄຮ ເຈີແມນ</language>
 			<language type="del">ເດລາວາ</language>
 			<language type="den">ຊີເລັບ</language>
 			<language type="dgr">ໂດກຣິບ</language>
@@ -152,40 +158,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="efi">ອີຟິກ</language>
 			<language type="egy">ອີຢິບບູຮານ</language>
 			<language type="eka">ອີກາຈັກ</language>
-			<language type="el">ກເຣັກ</language>
+			<language type="el">ກຣີກ</language>
 			<language type="elx">ອີລາໄມ</language>
 			<language type="en">ອັງກິດ</language>
-			<language type="en_AU">ອັອດເຕຣເລຍ ອັງກິດ</language>
-			<language type="en_CA">ການາດຽນ ອັງກິດ</language>
-			<language type="en_GB">ໄບທິດ ອັງກິດ</language>
-			<language type="en_US">ຢູ່ເອັດ ອັງກິດ</language>
+			<language type="en_AU">ອັງກິດ (ອອສເຕຣລຽນ)</language>
+			<language type="en_CA">ອັງກິດ (ເຄເນດຽນ)</language>
+			<language type="en_GB">ອັງກິດ (ບຣິທິຊ)</language>
+			<language type="en_GB" alt="short">ອັງກິດ (ສະຫະລາດຊະອານາຈັກ)</language>
+			<language type="en_US">ອັງກິດ (ອາເມລິກັນ)</language>
+			<language type="en_US" alt="short">ອັງກິດ (ສະຫະລັດອາເມລິກາ)</language>
 			<language type="enm">ອັງກິດກາງ</language>
-			<language type="eo">ແອັດເປີລານໂຕ້</language>
-			<language type="es" draft="provisional">ແອສປາໂຍນ</language>
-			<language type="es_419">ເລຕິນ ອາເມີລິແຄນ ສະເປນຣິດ</language>
-			<language type="es_ES">ເອີຣົບປ້ຽນ ສະເປນຣິດ</language>
-			<language type="et">ເອສໂຕນີ</language>
-			<language type="eu">ບັສເກີ</language>
+			<language type="eo">ເອສເປີຣັນໂຕ</language>
+			<language type="es">ສະແປນນິຊ</language>
+			<language type="es_419">ລາຕິນ ອາເມຣິກັນ ສະແປນນິຊ</language>
+			<language type="es_ES">ຢູໂຣປຽນ ສະແປນນິຊ</language>
+			<language type="es_MX">ເມັກຊິກັນ ສະແປນນິຊ</language>
+			<language type="et">ເອສໂຕນຽນ</language>
+			<language type="eu">ບັສກີ</language>
 			<language type="ewo">ອີວອນດູ</language>
-			<language type="fa">ເປີເຊຍ</language>
+			<language type="fa">ເປີຊຽນ</language>
 			<language type="fan">ແຟງ</language>
 			<language type="fat">ແຟນຕີ</language>
 			<language type="ff">ຟູລາ</language>
-			<language type="fi">ຟາຍນຣິດ</language>
+			<language type="fi">ຟິນນິຊ</language>
 			<language type="fil">ຟີລິປີໂນ</language>
 			<language type="fiu">ພາສາຟິນໂນ-ອູຣຽນ</language>
-			<language type="fj">ຟິຈິ</language>
-			<language type="fo">ຟາໂຣ</language>
+			<language type="fj">ຟິຈຽນ</language>
+			<language type="fo">ຟາໂຣສ</language>
 			<language type="fon">ຟອນ</language>
 			<language type="fr">ຝຣັ່ງ</language>
-			<language type="fr_CA">ການາດ້ຽນ ເຟຣນ</language>
-			<language type="fr_CH">ສະວິສ ເຟຣນ</language>
+			<language type="fr_CA">ເຄເນດຽນ ຝຣັ່ງ</language>
+			<language type="fr_CH">ສະວິສ ຝຣັ່ງ</language>
 			<language type="frm">ຟຮັ່ງເສດກາງ</language>
 			<language type="fro">ຟຮັ່ງເສດໂບຮານ</language>
 			<language type="frr">ຟຣີຊຽນເໜືອ</language>
 			<language type="frs">ຟຣີຊຽນຕາເວັນອອກ</language>
 			<language type="fur">ຟຣີລຽນ</language>
-			<language type="fy">ເວດເທິນ ຟຣີຊຽນ</language>
+			<language type="fy">ເວສເທີນ ຟຣິຊຽນ</language>
 			<language type="ga">ໄອຣິສ</language>
 			<language type="gaa">ກາ</language>
 			<language type="gay">ກາໂຢ</language>
@@ -194,7 +203,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="gem">ພາສາເຈີມານິກ</language>
 			<language type="gez">ກີ</language>
 			<language type="gil">ກິນເບີເທັດ</language>
-			<language type="gl">ກາລິດ</language>
+			<language type="gl">ກາລິຊຽນ</language>
 			<language type="gmh">ເຢຍລະມັນສູງກາງ</language>
 			<language type="gn">ກົວຣານີ</language>
 			<language type="goh">ເຢຍລະມັນສູງໂບຮານ</language>
@@ -203,34 +212,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="got">ກອດຮິກ</language>
 			<language type="grb">ກຣີໂບ</language>
 			<language type="grc">ແອນຊຽນກຣີກ</language>
-			<language type="gsw">ສະວິສເຢຍລະມັນ</language>
-			<language type="gu">ກູຊາຣາຕີ</language>
+			<language type="gsw">ສະວິສ ເຈີແມນ</language>
+			<language type="gu">ກູຈາຣາຕິ</language>
 			<language type="guz">ກູຊິ</language>
 			<language type="gv">ແມນ</language>
 			<language type="gwi">ວິດອິນ</language>
-			<language type="ha">ຮູຊາ</language>
+			<language type="ha">ຮໍຊາ</language>
 			<language type="hai">ໄຮດາ</language>
 			<language type="haw">ຮາໄວອຽນ</language>
-			<language type="he">ເຫບຣິວ</language>
-			<language type="hi">ຮິນດູ</language>
+			<language type="he">ຮີບຣິວ</language>
+			<language type="hi">ຮິນດິ</language>
 			<language type="hil">ຮິຣິໄກນອນ</language>
 			<language type="him">ຫິມາຈັດສ</language>
 			<language type="hit">ຮິດໄຕ</language>
 			<language type="hmn">ມອງ</language>
 			<language type="ho">ຮິຣິໂມຕູ</language>
-			<language type="hr">ຄອດຕຽນ</language>
+			<language type="hr">ໂຄຣຕຽນ</language>
 			<language type="hsb">ຊຸບເປີຊໍບຽນ</language>
 			<language type="ht">ໄຮຕຽນ</language>
-			<language type="hu">ຮັງກາລຽນ</language>
+			<language type="hu">ຮັງກາຣຽນ</language>
 			<language type="hup">ຮູປາ</language>
-			<language type="hy">ອາກເມນີ</language>
+			<language type="hy">ອາເມນຽນ</language>
 			<language type="hz">ເຮິຮິໂຣ</language>
 			<language type="ia">ອິນເຕີລິງລົວ</language>
 			<language type="iba">ໄອບານ</language>
 			<language type="ibb">ໄອໄບໄບໂອ</language>
-			<language type="id">ອິນດອນຊຽນ</language>
+			<language type="id">ອິນໂດເນຊຽນ</language>
 			<language type="ie">ອິນເຕີລິງກຣີ</language>
-			<language type="ig">ໄອຈີໂບ</language>
+			<language type="ig">ອິກໂບ</language>
 			<language type="ii">ເຊສວຍຢີ</language>
 			<language type="ijo">ອີໂຈ</language>
 			<language type="ik">ອິນນູປຽກ</language>
@@ -241,16 +250,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="io">ອີໂດ</language>
 			<language type="ira">ພາສາອີ່ຣານ</language>
 			<language type="iro">ພາສາອີໂລກົວ</language>
-			<language type="is">ອິສລັງ</language>
-			<language type="it">ອີຕາລີ</language>
+			<language type="is">ໄອສແລນດິກ</language>
+			<language type="it">ອິຕາລຽນ</language>
 			<language type="iu">ອິນນຸກຕິຕັດ</language>
-			<language type="ja">ເຈແປນນຣິດ</language>
+			<language type="ja">ຍີ່ປຸ່ນ</language>
 			<language type="jbo">ໂລບບັນ</language>
 			<language type="jmc">ມາແຊມ</language>
 			<language type="jpr">ຈູແດວ-ເພີຊຽນ</language>
 			<language type="jrb">ຈູແດວ-ອາລາບິກ</language>
-			<language type="jv">ຈາວາເນດ</language>
-			<language type="ka">ຊອກຊີ</language>
+			<language type="jv">ຈາແວນີສ</language>
+			<language type="ka">ຈໍຈຽນ</language>
 			<language type="kaa">ກາຣາ-ການປາກ</language>
 			<language type="kab">ກາໄບຣ</language>
 			<language type="kac">ກາຊິນ</language>
@@ -275,10 +284,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="kkj">ຄາໂກ</language>
 			<language type="kl">ກຣີນແລນລິດ</language>
 			<language type="kln">ຄາເລັນຈິນ</language>
-			<language type="km">ເຄເຫັດເມີ</language>
+			<language type="km">ຂະເໝນ</language>
 			<language type="kmb">ຄິມບັນດູ</language>
-			<language type="kn">ກັນນາດ້າ</language>
-			<language type="ko">ໂກລຽນ</language>
+			<language type="kn">ຄັນນາດາ</language>
+			<language type="ko">ເກົາຫລີ</language>
 			<language type="kok">ກອນການີ</language>
 			<language type="kos">ຄູສໄລ</language>
 			<language type="kpe">ກາແປຣ</language>
@@ -287,7 +296,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="krl">ກາເຣລຽນ</language>
 			<language type="kro">ຄູ</language>
 			<language type="kru">ກູຣູກ</language>
-			<language type="ks">ຄັດຊະມີລີ</language>
+			<language type="ks">ຄັດຊະມີຣີ</language>
 			<language type="ksb">ຊຳບາລ້າ</language>
 			<language type="ksf">ບາເຝຍ</language>
 			<language type="ksh">ໂຄລອກນຽນ</language>
@@ -296,13 +305,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="kut">ຄູເທໄນ</language>
 			<language type="kv">ໂຄມິ</language>
 			<language type="kw">ຄໍນິຊ</language>
-			<language type="ky">ເກຍກິສ</language>
+			<language type="ky">ເກຍກີສ</language>
 			<language type="la">ລາຕິນ</language>
 			<language type="lad">ລາດີໂນ</language>
 			<language type="lag">ແລນກິ</language>
 			<language type="lah">ລານດາ</language>
 			<language type="lam">ແລມບາ</language>
-			<language type="lb">ລັກເຊມເບີກ</language>
+			<language type="lb">ລັກເຊມບວກກິຊ</language>
 			<language type="lez">ລີຊຽນ</language>
 			<language type="lg">ແກນດາ</language>
 			<language type="li">ລິມເບີກີຊ</language>
@@ -318,7 +327,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="luo">ລົວ</language>
 			<language type="lus">ລູໄຊ</language>
 			<language type="luy">ລູໄຍ</language>
-			<language type="lv">ເລດວຽນ</language>
+			<language type="lv">ລັດວຽນ</language>
 			<language type="mad">ມາດູລາ</language>
 			<language type="maf">ມາຟາ</language>
 			<language type="mag">ມາກາຮິ</language>
@@ -333,17 +342,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="men">ເມນເດ</language>
 			<language type="mer">ເມລູ</language>
 			<language type="mfe">ມໍລິສເຍນ</language>
-			<language type="mg">ມາລາກາຊີ</language>
+			<language type="mg">ມາລາກາສຊີ</language>
 			<language type="mga">ໄອລິດກາງ</language>
 			<language type="mgh">ມາຄູວາ-ມີດໂຕ</language>
 			<language type="mh">ມາຊານເລັດ</language>
-			<language type="mi">ມາໂອລິ</language>
+			<language type="mi">ມາວຣິ</language>
 			<language type="mic">ມິກແມກ</language>
 			<language type="min">ທີແນງກາບູ</language>
 			<language type="mis">ພາສາອື່ນໆ</language>
-			<language type="mk">ມາເຊໂດນີ</language>
+			<language type="mk">ແມັກເຊໂດນຽນ</language>
 			<language type="mkh">ພາສາມອນ-ຂະເມນ</language>
-			<language type="ml">ມາລາຢາລຳ</language>
+			<language type="ml">ມາເລອາລຳ</language>
 			<language type="mn">ມ່ອງໂກເລ້ຍ</language>
 			<language type="mnc">ແມນຈູ</language>
 			<language type="mni">ມານີພູຣິ</language>
@@ -351,16 +360,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="mo">ໂມດາເວຍ</language>
 			<language type="moh">ໂມຫາ</language>
 			<language type="mos">ມອສຊີ</language>
-			<language type="mr">ມາຣາທີ</language>
-			<language type="ms">ເມລາຍ</language>
-			<language type="mt">ມໍເຣດ</language>
+			<language type="mr">ມາຣາທິ</language>
+			<language type="ms">ມາເລ</language>
+			<language type="mt">ມອລທີສ</language>
 			<language type="mua">ມັນດັງ</language>
 			<language type="mul">ຫລາຍພາສາ</language>
 			<language type="mun">ພາສາມັນດາ</language>
 			<language type="mus">ຄຣິກ</language>
 			<language type="mwl">ມີລັນດາ</language>
 			<language type="mwr">ມາວາຣິ</language>
-			<language type="my">ມຽນມ່າ</language>
+			<language type="my">ມຽນມາ</language>
 			<language type="mye">ມໍຢິນ</language>
 			<language type="myn">ພາສາມາແຢນ</language>
 			<language type="myv">ເອີຍາ</language>
@@ -369,19 +378,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="nai">ພາສາອິນເດຍອາເມລິກາເໜືອ</language>
 			<language type="nap">ນາໂປລີ</language>
 			<language type="naq">ນາມາ</language>
-			<language type="nb">ນໍເວກຈຽນ ບອກມໍ</language>
+			<language type="nb">ນໍເວຈຽນ ບັອກມອລ</language>
 			<language type="nd">ເອັນເດເບເລເໜືອ</language>
 			<language type="nds">ເຢຍລະມັນຕ່ຳ ແຊກຊອນຕໍ່ຳ</language>
-			<language type="ne">ເນປານ</language>
+			<language type="ne">ເນປາລີ</language>
 			<language type="new">ນີວາຣິ</language>
 			<language type="ng">ເອັນດອງກາ</language>
 			<language type="nia">ນີ່ອັດ</language>
 			<language type="nic">ພາສາໄນເຈີ-ໂກໂດເຟນຽມ</language>
 			<language type="niu">ນີ່ອູ</language>
-			<language type="nl">ດັດຣ</language>
-			<language type="nl_BE">ຟຣີມິດ</language>
+			<language type="nl">ດັຊ</language>
+			<language type="nl_BE">ຟລີມິຊ</language>
 			<language type="nmg">ກວາຊີໂອ</language>
-			<language type="nn">ນໍເວກຈຽນ ນີນອດ</language>
+			<language type="nn">ນໍເວຈຽນ ນີນອກ</language>
 			<language type="nnh">ຈີ່ມບູນ</language>
 			<language type="no">ນໍເວຍ</language>
 			<language type="nog">ນໍໄກ</language>
@@ -401,12 +410,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="oc">ອັອກຊີຕານ</language>
 			<language type="oj">ໂອຈິບວາ</language>
 			<language type="om">ໂອໂລໂມ</language>
-			<language type="or">ໂອຣີຢາ</language>
+			<language type="or">ໂອຣິຢາ</language>
 			<language type="os">ອອດເຊຕິກ</language>
 			<language type="osa">ໂອແຊກ</language>
 			<language type="ota">ຕູກີອອດໂຕມັນ</language>
 			<language type="oto">ພາສາໂອໂຕມີ</language>
-			<language type="pa">ປັນຈາບ</language>
+			<language type="pa">ປັນຈາບີ</language>
 			<language type="paa">ພາສາປາປົວ</language>
 			<language type="pag">ປານກາຊີມານ</language>
 			<language type="pal">ພາລາວີ</language>
@@ -417,26 +426,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="phi">ພາສາຟີລາປິນ</language>
 			<language type="phn">ຟີນີເຊຍ</language>
 			<language type="pi">ປາລີ</language>
-			<language type="pl">ໂປໂລຍ</language>
+			<language type="pl">ໂປລິຊ</language>
 			<language type="pon">ພອນເພ</language>
 			<language type="pra">ພາສາປຣາກຣິດ</language>
 			<language type="pro">ໂປວອງຊານໂບຮານ</language>
 			<language type="ps">ປາສໂຕ</language>
-			<language type="pt">ປອກຕຸຍການ</language>
-			<language type="pt_BR">ບຣາຊີລຽນ ພໍຕູເກຣດ</language>
-			<language type="pt_PT">ເອີຣົບປຽນ ປໍຕູເກຣດ</language>
-			<language type="qu">ຄິວຊົວ</language>
+			<language type="pt">ປໍຕູກີສ</language>
+			<language type="pt_BR">ບຣາຊິລຽນ ປໍຕູກີສ</language>
+			<language type="pt_PT">ຢູໂຣປຽນ ປໍຕູກີສ</language>
+			<language type="qu">ຄີຊົວ</language>
 			<language type="raj">ຣາຈັສທານິ</language>
 			<language type="rap">ຣາປານຸຍ</language>
 			<language type="rar">ຣາໂຣທອນການ</language>
 			<language type="rm">ໂຣແມນ</language>
 			<language type="rn">ບຸລຸນດີ</language>
-			<language type="ro">ໂຣມານີ</language>
+			<language type="ro">ໂຣແມນຽນ</language>
 			<language type="roa">ພາສາໂລມານ</language>
 			<language type="rof">ຣົມໂບ</language>
 			<language type="rom">ໂຣເມນີ</language>
 			<language type="root">ລູດ</language>
-			<language type="ru">ລັດເຊຍ</language>
+			<language type="ru">ຣັດຊຽນ</language>
 			<language type="rup">ອາໂຣມານຽນ</language>
 			<language type="rw">ຄິນຢາວານດາ</language>
 			<language type="rwk">ອາຣວາ</language>
@@ -468,12 +477,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="shi">ທາເຊວຫິດ</language>
 			<language type="shn">ໄທໃຫ່ຍ</language>
 			<language type="shu">ອາລັບ-ຊາດ</language>
-			<language type="si">ສິງຫານ</language>
+			<language type="si">ສິນຫາລາ</language>
 			<language type="sid">ຊິດາໂມ</language>
 			<language type="sio">ພາສາຊີອວນ</language>
 			<language type="sit">ພາສາຊີໂນ-ທິເບດ</language>
-			<language type="sk">ສະໂລວັກກີ</language>
-			<language type="sl">ສະໂລວານີ</language>
+			<language type="sk">ສະໂລແວັກ</language>
+			<language type="sl">ສະໂລເວນຽນ</language>
 			<language type="sla">ພາສາສະລາວິກ</language>
 			<language type="sm">ຊາມົວ</language>
 			<language type="sma">ຊາມິໃຕ້</language>
@@ -487,50 +496,50 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="sog">ຊອກດິນ</language>
 			<language type="son">ຊອງໄຮ</language>
 			<language type="sq">ອານບານຽນ</language>
-			<language type="sr">ແຊກບີ</language>
+			<language type="sr">ເຊີບຽນ</language>
 			<language type="srn">ສຣານນານຕອນໂກ</language>
 			<language type="srr">ເຊເລີ</language>
 			<language type="ss">ຊຣາຕິ</language>
 			<language type="ssa">ພາສານີໂລ-ຊາຮາລັນ</language>
 			<language type="ssy">ຊາໂຮ</language>
 			<language type="st">ໂຊໂທໃຕ້</language>
-			<language type="su">ຊັນດານ</language>
+			<language type="su">ຊຸນແດນນີສ</language>
 			<language type="suk">ຊູຄູມ້າ</language>
 			<language type="sus">ຊູຊູ</language>
 			<language type="sux">ຊູເມີເລຍ</language>
-			<language type="sv">ສະເວດດຣິດ</language>
-			<language type="sw">ຊວາຮີລີ</language>
+			<language type="sv">ສະວີດິຊ</language>
+			<language type="sw">ຊວາຮີລິ</language>
 			<language type="swb">ໂຄໂນຣຽນ</language>
 			<language type="swc">ຊາວາຮີລີ-ຄອງໂກ</language>
 			<language type="syc">ຊີເລຍແບບດັ້ງເດີມ</language>
 			<language type="syr">ຊີເລຍ</language>
-			<language type="ta">ທະມິນ</language>
+			<language type="ta">ທາມິວ</language>
 			<language type="tai">ພາສາໄທ</language>
 			<language type="te">ເຕລູກູ</language>
 			<language type="tem">ທີມເນ</language>
 			<language type="teo">ເຕໂຊ</language>
 			<language type="ter">ເຕເລໂນ</language>
 			<language type="tet">ເຕຕູມ</language>
-			<language type="tg">ທາຈິດ</language>
+			<language type="tg">ທາຈິກ</language>
 			<language type="th">ໄທ</language>
-			<language type="ti">ຕີກຣິນຢາ</language>
+			<language type="ti">ຕິກຣິນຢາ</language>
 			<language type="tig">ໄທກຣີ</language>
 			<language type="tiv">ຕີວ</language>
-			<language type="tk">ຕວຽກເມນ</language>
+			<language type="tk">ເທີກເມັນ</language>
 			<language type="tkl">ໂຕເກເລົາ</language>
 			<language type="tl">ຕາກາລອກ</language>
 			<language type="tlh">ຄຣິງກອນ</language>
 			<language type="tli">ທລີງກິດ</language>
 			<language type="tmh">ທາມາກເຊກ</language>
 			<language type="tn">ເຕສະວານາ</language>
-			<language type="to">ທອງກ້າ</language>
+			<language type="to">ທອງກັນ</language>
 			<language type="tog">ນາຍອາຊາຕອງກາ</language>
 			<language type="tpi">ທອກພີຊິນ</language>
-			<language type="tr">ຕວກກີ</language>
+			<language type="tr">ເທີຄິຊ</language>
 			<language type="trv">ຕາໂລໂກ</language>
 			<language type="ts">ເຕຊອງກາ</language>
 			<language type="tsi">ຊີມຊີແອນ</language>
-			<language type="tt">ຕາດ</language>
+			<language type="tt">ທາທາ</language>
 			<language type="tum">ຕຳບູກາ</language>
 			<language type="tup">ພາສາຕູປິດ</language>
 			<language type="tut">ພາສາອານຕາອີກ</language>
@@ -543,11 +552,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="udm">ອຸດມັດ</language>
 			<language type="ug">ອຸຍເຄີ</language>
 			<language type="uga">ຢູກາລິກ</language>
-			<language type="uk">ອູແກຣນ</language>
+			<language type="uk">ຢູເຄຣນຽນ</language>
 			<language type="umb">ອຳບັນດູ</language>
 			<language type="und">ບໍ່ສາມາດລະບຸພາສາ</language>
 			<language type="ur">ອູຣະດູ</language>
-			<language type="uz">ອຸດຊະເບັກກິດສະຖານ</language>
+			<language type="uz">ອຸສເບກ</language>
 			<language type="vai">ໄວ</language>
 			<language type="ve">ເວນດາ</language>
 			<language type="vi">ຫວຽດນາມ</language>
@@ -561,25 +570,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="war">ວາເລ</language>
 			<language type="was">ວາໂຊ</language>
 			<language type="wen">ພາສາຊໍບຽນ</language>
-			<language type="wo">ວູບ</language>
+			<language type="wo">ວໍລອບ</language>
 			<language type="xal">ການມິກ</language>
-			<language type="xh">ໂຊຊາ</language>
+			<language type="xh">ໂຮຊາ</language>
 			<language type="xog">ໂຊກາ</language>
 			<language type="yao">ເຢົ້າ</language>
 			<language type="yap">ຢັບ</language>
 			<language type="yav">ແຍງເບນ</language>
 			<language type="ybb">ແຢມບາ</language>
 			<language type="yi">ຢິວ</language>
-			<language type="yo">ໂຢລູບາ</language>
+			<language type="yo">ໂຢຣູບາ</language>
 			<language type="ypk">ພາສາຢູປິດ</language>
 			<language type="yue">ກວາງຕຸ້ງ</language>
 			<language type="za">ຊວາງ</language>
 			<language type="zap">ຊາໂປແຕບ</language>
 			<language type="zbl">ສັນຍາລັກບລີຊິມ</language>
 			<language type="zen">ເຊນາກາ</language>
+			<language type="zgh">ໂມຣັອກແຄນ ທາມາຊີກ ມາດຕະຖານ</language>
 			<language type="zh">ຈີນ</language>
-			<language type="zh_Hans">ຊິມຟີຟຣາຍ ຊາຍຣນິດ</language>
-			<language type="zh_Hant">ເທດິດເຊິນນໍ ຊາຍນຣິດ</language>
+			<language type="zh_Hans">ຈີນແບບຮຽບງ່າຍ</language>
+			<language type="zh_Hant">ຈີນແບບດັ້ງເດີມ</language>
 			<language type="znd">ແຊນເດ</language>
 			<language type="zu">ຊູລູ</language>
 			<language type="zun">ຊູນີ</language>
@@ -588,19 +598,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</languages>
 		<scripts>
 			<script type="Afak">ອັບຟາກາ</script>
-			<script type="Arab">ອາຣັບ</script>
+			<script type="Arab">ອາຣາບິກ</script>
 			<script type="Armi">ອິມພີຮຽນ ອາເມອິກ</script>
-			<script type="Armn">ອາເມີນ່ຽນ</script>
+			<script type="Armn">ອາເມນຽນ</script>
 			<script type="Avst">ອະເວສຕະ</script>
 			<script type="Bali">ບາລີ</script>
 			<script type="Bamu">ບາມູມ</script>
 			<script type="Bass">ບັດຊາ</script>
 			<script type="Batk">ບາຕັກ</script>
-			<script type="Beng">ເບັງກາລີ</script>
+			<script type="Beng">ເບັງກາລິ</script>
 			<script type="Blis">ບລິກຊິມໂບລສ</script>
-			<script type="Bopo">ໂບໂປໂມໂຟ</script>
+			<script type="Bopo">ຈູ້ອິນ</script>
 			<script type="Brah">ພຮາຫມີ</script>
-			<script type="Brai">ບຣິວລີ</script>
+			<script type="Brai">ເບຣວ</script>
 			<script type="Bugi">ບູກິສ</script>
 			<script type="Buhd">ບູຮິດ</script>
 			<script type="Cakm">ຊາກມາ</script>
@@ -611,9 +621,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Cirt">ເຊີຮ</script>
 			<script type="Copt">ຄອບຕິກ</script>
 			<script type="Cprt">ໄຊເປຍ</script>
-			<script type="Cyrl" draft="provisional">ຊີຣິວລິກ</script>
+			<script type="Cyrl">ຊີຣິວລິກ</script>
 			<script type="Cyrs">ເຊຮັດສລາ ໂວນິກຊີຮິກລິກໂບຮານ</script>
-			<script type="Deva">ດີວານາກາຮີ</script>
+			<script type="Deva">ດີວານາກາຣີ</script>
 			<script type="Dsrt">ເດເຊເຮ</script>
 			<script type="Dupl">ຊົວເລດັບໂລຍັນ</script>
 			<script type="Egyd">ດີໂມຕິກອີຍິບ</script>
@@ -621,20 +631,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Egyp">ເຮຍໂຮກລິຟອີຍິບ</script>
 			<script type="Ethi">ອີທິໂອປິກ</script>
 			<script type="Geok">ຄອດຊູຮີຈໍເຈຍ</script>
-			<script type="Geor">ຈໍເຈຍ</script>
+			<script type="Geor">ຈໍຈຽນ</script>
 			<script type="Glag">ກລາໂກລິຕິກ</script>
 			<script type="Goth">ໂກຮິກ</script>
 			<script type="Gran">ເຄນທາ</script>
-			<script type="Grek">ເກຣັກ</script>
-			<script type="Gujr">ຈູຈາລາຕິ</script>
-			<script type="Guru">ເຈິຣມູຄິ</script>
-			<script type="Hang">ຮັນກຣູ</script>
-			<script type="Hani">ແຮນ</script>
+			<script type="Grek">ກຣີກ</script>
+			<script type="Gujr">ຈູຈາຣາທີ</script>
+			<script type="Guru">ກົວມູຄີ</script>
+			<script type="Hang">ຮັນກູນ</script>
+			<script type="Hani">ຮານ</script>
 			<script type="Hano">ຮານູໂນໂອ</script>
-			<script type="Hans">ຊິມປີຟາຍ</script>
-			<script type="Hant">ທາດິດເຊິນນໍ</script>
-			<script type="Hebr">ຮີເບວ</script>
-			<script type="Hira">ຮາຍຮາການາ</script>
+			<script type="Hans">ແບບຮຽບງ່າຍ</script>
+			<script type="Hans" alt="stand-alone">ຈີນ (ແບບງ່າຍ)</script>
+			<script type="Hant">ແບບດັ້ງເດີມ</script>
+			<script type="Hant" alt="stand-alone">ຈີນ (ດັ້ງເດີມ)</script>
+			<script type="Hebr">ຮີບຣິວ</script>
+			<script type="Hira">ຮິຣາການາ</script>
 			<script type="Hluw">ອັກລຮະອານາໂຕເລຍ</script>
 			<script type="Hmng">ປາເຮາເມັງ</script>
 			<script type="Hrkt">ຄະຕະກະນະຫຮືຮີຮະງະນະ</script>
@@ -645,11 +657,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Jpan">ຍີ່ປຸ່ນ</script>
 			<script type="Jurc">ຈູຮເຊັນ</script>
 			<script type="Kali">ຄຍາ</script>
-			<script type="Kana">ການາການາ</script>
+			<script type="Kana">ຄາຕະການາ</script>
 			<script type="Khar">ຂໍໂຮກສີ</script>
-			<script type="Khmr" draft="provisional">ກຳປູເຈຍ</script>
+			<script type="Khmr">ຂະແມ</script>
 			<script type="Khoj">ຄໍຈຄີ</script>
-			<script type="Knda">ແຄນນາດາ</script>
+			<script type="Knda">ແຄນາດາ</script>
 			<script type="Kore">ເກົາຫຼີ</script>
 			<script type="Kpel">ເປລເລ</script>
 			<script type="Kthi">ກາຍຕິ</script>
@@ -657,7 +669,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Laoo">ລາວ</script>
 			<script type="Latf">ລາຕິນ-ຟຮັ່ງເຕຣ</script>
 			<script type="Latg">ລາຕິນ-ແກລິກ</script>
-			<script type="Latn" draft="provisional">ຕາຕີນ</script>
+			<script type="Latn">ລາຕິນ</script>
 			<script type="Lepc">ເລຊາ</script>
 			<script type="Limb">ລິມບູ</script>
 			<script type="Lina">ລີເນຍ</script>
@@ -672,12 +684,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Mend">ເມນເດ</script>
 			<script type="Merc">ເຄເລີຊີເມໂຮອິຕິກ</script>
 			<script type="Mero">ເມໂຮຕິກ</script>
-			<script type="Mlym">ມາລາຢາລາມ</script>
+			<script type="Mlym">ມາເລອາລຳ</script>
 			<script type="Mong">ມົງໂກລຽນ</script>
 			<script type="Moon">ມູນ</script>
 			<script type="Mroo">ເມໂຮ</script>
 			<script type="Mtei">ເມເທມາເຍກ</script>
-			<script type="Mymr" draft="provisional">ມີຢານມາ</script>
+			<script type="Mymr">ມຽນມາ</script>
 			<script type="Narb">ອາຮະເບຍເໜືອໂບຮານ</script>
 			<script type="Nbat">ນາບາທາທຽນ</script>
 			<script type="Nkgb">ກີບາ-ນາຊີ</script>
@@ -686,7 +698,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Ogam">ອອກຄອນ</script>
 			<script type="Olck">ໂອຊິກິ</script>
 			<script type="Orkh">ອອກສມັນຍາ</script>
-			<script type="Orya">ໂອລິຍາ</script>
+			<script type="Orya">ໂອຣິຢາ</script>
 			<script type="Palm">ພາລໄມຮິນ</script>
 			<script type="Perm">ເພີມີໂບຮານ</script>
 			<script type="Phag">ຟາກສ-ປາ</script>
@@ -719,16 +731,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Takr">ທາຄຮີ</script>
 			<script type="Tale">ໄທເລ</script>
 			<script type="Talu">ໄທລື້ໃໝ່</script>
-			<script type="Taml">ທາມມິວ</script>
+			<script type="Taml">ທາມິວ</script>
 			<script type="Tang">ຕັນກັນ</script>
 			<script type="Tavt">ໄທຫວຽດ</script>
-			<script type="Telu" draft="provisional">ເທລັງກູ</script>
+			<script type="Telu">ເຕລູກູ</script>
 			<script type="Teng">ເທງກວາຮ</script>
 			<script type="Tfng">ທີຟີນາກ</script>
 			<script type="Tglg">ຕາກາລອກ</script>
 			<script type="Thaa">ທານາ</script>
 			<script type="Thai">ໄທ</script>
-			<script type="Tibt" draft="provisional">ທິບຕັນ</script>
+			<script type="Tibt">ທິເບທັນ</script>
 			<script type="Tirh">ເທຮຸທາ</script>
 			<script type="Ugar">ຍູກາຮິດ</script>
 			<script type="Vaii">ໄວ</script>
@@ -740,303 +752,305 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Yiii">ຍີ</script>
 			<script type="Zinh">ອິນເຮຮິດ</script>
 			<script type="Zmth">ເຄື່ອງໝາຍທາງຄະນິດສາດ</script>
-			<script type="Zsym" draft="provisional">ຊິມໂບລ໌</script>
-			<script type="Zxxx" draft="provisional">ບໍ່ມີພາສາຂຽນ</script>
+			<script type="Zsym">ສັນຍາລັກ</script>
+			<script type="Zxxx">ບໍ່ມີພາສາຂຽນ</script>
 			<script type="Zyyy">ສາມັນ</script>
-			<script type="Zzzz" draft="provisional">ອັນໂນ ສະຄິບ</script>
+			<script type="Zzzz">ການຂຽນທີ່ບໍ່ຮູ້ຈັກ</script>
 		</scripts>
 		<territories>
 			<territory type="001">ໂລກ</territory>
-			<territory type="002" draft="provisional">ແອບຟຮິກາ</territory>
+			<territory type="002">ອາຟຣິກາ</territory>
 			<territory type="003">ອາເມລິກາເໜືອ</territory>
 			<territory type="005">ອາເມລິກາໃຕ້</territory>
-			<territory type="009">ໂອເຊຍເນຍ</territory>
-			<territory type="011">ແອບຟຣິກາຕາເວັນຕົກ</territory>
+			<territory type="009">ໂອຊີເນຍ</territory>
+			<territory type="011">ອາຟຣິກາຕາເວັນຕົກ</territory>
 			<territory type="013">ອາເມລິກາກາງ</territory>
-			<territory type="014">ແອບຟຣິກາຕາເວັນອອກ</territory>
-			<territory type="015">ແອບຟຣິກາເຫນືອ</territory>
-			<territory type="017">ແອບຟຮິກາກາງ</territory>
-			<territory type="018">ແອບຟຣິກາໃຕ້</territory>
+			<territory type="014">ອາຟຣິກາຕາເວັນອອກ</territory>
+			<territory type="015">ອາຟຣິກາເໜືອ</territory>
+			<territory type="017">ອາຟຣິກາກາງ</territory>
+			<territory type="018">ອາຟຣິກາໃຕ້</territory>
 			<territory type="019">ອາເມຣິກາ</territory>
 			<territory type="021">ອາເມລິກາເໜືອສຸດ</territory>
 			<territory type="029">ຄາຣິບບຽນ</territory>
-			<territory type="030" draft="provisional">ອາຊີຕາເວັນອອກ</territory>
-			<territory type="034">ອາຊີໃຕ້</territory>
-			<territory type="035">ອາຊີຕາເວັນອອກສຽງໃຕ້</territory>
-			<territory type="039">ເອີຣົບໃຕ້</territory>
-			<territory type="053" draft="provisional">ອອດສະເຕລາເຊຍ</territory>
-			<territory type="054">ມາລານີເຊຍ</territory>
-			<territory type="057">ເຂດໄມໂຄນີເຊຍ</territory>
-			<territory type="061">ໂປໂລນີເຊຍ</territory>
-			<territory type="142">ອາຊີ</territory>
-			<territory type="143" draft="provisional">ເຊັນເທີນເອເຊຍ</territory>
-			<territory type="145" draft="provisional">ວອດເທີມເອເຊຍ</territory>
-			<territory type="150">ເອີຣົບ</territory>
-			<territory type="151">ເອີຣົບຕາເວັນອອກ</territory>
-			<territory type="154">ເອີຣົບເຫນືອ</territory>
-			<territory type="155">ເອີຣົບຕາເວັນຕົກ</territory>
+			<territory type="030">ເອເຊຍຕາເວັນອອກ</territory>
+			<territory type="034">ເອເຊຍໃຕ້</territory>
+			<territory type="035">ເອເຊຍຕາເວັນອອກສ່ຽງໃຕ້</territory>
+			<territory type="039">ຢູໂຣບໃຕ້</territory>
+			<territory type="053">ອອສເຕຣເລເຊຍ</territory>
+			<territory type="054">ເມລານີເຊຍ</territory>
+			<territory type="057">ເຂດໄມໂຄຣເນຊຽນ</territory>
+			<territory type="061">ໂພລີນີເຊຍ</territory>
+			<territory type="142">ເອເຊຍ</territory>
+			<territory type="143">ເອເຊຍກາງ</territory>
+			<territory type="145">ເອເຊຍຕາເວັນຕົກ</territory>
+			<territory type="150">ຢູໂຣບ</territory>
+			<territory type="151">ຢູໂຣບຕາເວັນອອກ</territory>
+			<territory type="154">ຢູໂຣບເໜືອ</territory>
+			<territory type="155">ຢູໂຣບຕາເວັນຕົກ</territory>
 			<territory type="419">ອາເມລິກາ ລາຕິນ</territory>
-			<territory type="AC">ເກາະສະຫວັນ</territory>
-			<territory type="AD">ອັນດໍລາ</territory>
-			<territory type="AE">ສະຫະລັດອາຫລັບເອມິເລດ</territory>
-			<territory type="AF">ອັບການິສະຖານ</territory>
-			<territory type="AG">ແອນຕີກາວ ແລະ ບາບູດາ</territory>
-			<territory type="AI">ແອນກິລາ</territory>
-			<territory type="AL">ແອລເບເນຍ</territory>
-			<territory type="AM">ອາມິເນຍ</territory>
+			<territory type="AC">ເກາະອາເຊນຊັນ</territory>
+			<territory type="AD">ອັນດໍຣາ</territory>
+			<territory type="AE">ສະຫະລັດອາຫຣັບເອມິເຣດ</territory>
+			<territory type="AF">ອາຟການິສຖານ</territory>
+			<territory type="AG">ອາທິກົວ ບາບູດາ</territory>
+			<territory type="AI">ແອນກຸຍລາ</territory>
+			<territory type="AL">ແອວເບເນຍ</territory>
+			<territory type="AM">ອາມີເນຍ</territory>
 			<territory type="AN" draft="unconfirmed">ເນເທີແລນແອນເທິນ</territory>
 			<territory type="AO">ອັນໂກລາ</territory>
-			<territory type="AQ">ແອນຕາກຕິກາ</territory>
-			<territory type="AR">ອາເຈນຕິນາ່</territory>
-			<territory type="AS">ອາເມລິກາຊາມົວ</territory>
-			<territory type="AT">ອົອດສະເຕຼຍ</territory>
-			<territory type="AU">ອອດສະເຕເລຍ</territory>
-			<territory type="AW">ອໍລູບາ</territory>
+			<territory type="AQ">ແອນຕາດຕິກາ</territory>
+			<territory type="AR">ອາເຈນທິນາ</territory>
+			<territory type="AS">ອາເມຣິກາ ຊາມົວ</territory>
+			<territory type="AT">ອອສເທຣຍ</territory>
+			<territory type="AU">ອອສເຕຣເລຍ</territory>
+			<territory type="AW">ອໍຣູບາ</territory>
 			<territory type="AX">ຫມູ່ເກາະໂອລັນ</territory>
-			<territory type="AZ">ອາເຊີໄບຈັນ</territory>
-			<territory type="BA">ບັອດສເນຍ ແລະ ເຮີດໂກວິເນຍ</territory>
-			<territory type="BB">ບຣາບາດັອດ</territory>
+			<territory type="AZ">ອາເຊີໄບຈານ</territory>
+			<territory type="BA">ບອດສະເນຍ ແລະ ແຮສໂກວີນາ</territory>
+			<territory type="BB">ບາບາໂດສ</territory>
 			<territory type="BD">ບັງກະລາເທດ</territory>
 			<territory type="BE">ເບວຢຽມ</territory>
-			<territory type="BF">ເບີກິນາຟາໂຊ</territory>
-			<territory type="BG">ບັງກາເລຍ</territory>
-			<territory type="BH">ບາເລນ</territory>
-			<territory type="BI">ບູລັນດີ</territory>
+			<territory type="BF">ເບີກິນາ ຟາໂຊ</territory>
+			<territory type="BG">ບັງກາເຣຍ</territory>
+			<territory type="BH">ບາເຣນ</territory>
+			<territory type="BI">ບູຣຸນດິ</territory>
 			<territory type="BJ">ເບນິນ</territory>
-			<territory type="BL">ຊິນ ບາເທລີມີ</territory>
-			<territory type="BM">ເບີມູດາ</territory>
-			<territory type="BN">ບູຮໄນ</territory>
+			<territory type="BL">ເຊນ ບາເທເລມີ</territory>
+			<territory type="BM">ເບີມິວດາ</territory>
+			<territory type="BN">ບຣູໄນ</territory>
 			<territory type="BO">ໂບລິເວຍ</territory>
-			<territory type="BQ">ຄາລິບບີນ ເນັດເທີແລນ</territory>
-			<territory type="BR">ບຼາຊິວ</territory>
-			<territory type="BS">ບາຮາມມາສ</territory>
-			<territory type="BT">ບູຕານ</territory>
+			<territory type="BQ">ຄາຣິບບຽນ ເນເທີແລນ</territory>
+			<territory type="BR">ບຣາຊິວ</territory>
+			<territory type="BS">ບາຮາມາສ</territory>
+			<territory type="BT">ພູຖານ</territory>
 			<territory type="BV">ເກາະບູເວດ</territory>
 			<territory type="BW">ບອດສະວານາ</territory>
-			<territory type="BY">ເບນລາຮັສ</territory>
-			<territory type="BZ">ເບຊີວ</territory>
-			<territory type="CA">ແຄນນາດາ</territory>
+			<territory type="BY">ເບວບາຣຸສ</territory>
+			<territory type="BZ">ເບລີຊ</territory>
+			<territory type="CA">ແຄນາດາ</territory>
 			<territory type="CC">ຫມູ່ເກາະໂກໂກສ</territory>
-			<territory type="CD">ກອງໂກ-ກິນຊາຊ່າ</territory>
-			<territory type="CD" alt="variant">ກອງໂກ[ສາທາລະນະລັດປະຊາທິປະໄຕ]</territory>
-			<territory type="CF">ສາທາລະນະລັດອັບຟຼິກກາກາງ</territory>
-			<territory type="CG">ຄອງໂກ-ບຣາຊາວິລ</territory>
-			<territory type="CG" alt="variant">ຄອງໂກ</territory>
+			<territory type="CD">ຄອງໂກ - ຄິນຊາຊາ</territory>
+			<territory type="CD" alt="variant">ຄອງໂກ [ສາທາລະນະລັດປະຊາທິປະໄຕ]</territory>
+			<territory type="CF">ສາທາລະນະລັດອາຟຣິກາກາງ</territory>
+			<territory type="CG">ຄອງໂກ - ບຣາຊາວິວ</territory>
+			<territory type="CG" alt="variant">ສາທາລະນະລັດຄອງໂກ</territory>
 			<territory type="CH">ສະວິດເຊີແລນ</territory>
-			<territory type="CI">ຝັ່ງທະເລໄອວໍລິ</territory>
-			<territory type="CI" alt="variant">ຝັ່ງທະເລໄອວໍລິ</territory>
-			<territory type="CK">ຫມູ່ເກາະຄຸກ</territory>
-			<territory type="CL">ຊິສິ</territory>
-			<territory type="CM">ຄາເມລູມ</territory>
-			<territory type="CN">ສປ ຈີນ</territory>
-			<territory type="CO">ໂຄລຳເບຍ</territory>
+			<territory type="CI">ໂຄຕີ ວົວ</territory>
+			<territory type="CI" alt="variant">ໄອໂວຣີ ໂຄທ</territory>
+			<territory type="CK">ຫມູ່ເກາະຄູກ</territory>
+			<territory type="CL">ຊິລີ</territory>
+			<territory type="CM">ຄາເມຣູນ</territory>
+			<territory type="CN">ຈີນ</territory>
+			<territory type="CO">ໂຄລົມເບຍ</territory>
 			<territory type="CP">ເກາະຄລິບເປີຕັນ</territory>
-			<territory type="CR">ຄອດຕາລີກ້າ</territory>
+			<territory type="CR">ໂຄສຕາ ຣິກາ</territory>
 			<territory type="CU">ຄິວບາ</territory>
-			<territory type="CV">ເຄບວອດ</territory>
-			<territory type="CW" draft="provisional">ເຄີເລັກຄາວ</territory>
+			<territory type="CV">ເຄບ ເວີດ</territory>
+			<territory type="CW">ຄູຣາຊາວ</territory>
 			<territory type="CX">ເກາະຄຣິສມາດ</territory>
-			<territory type="CY">ໄຊປັຼດ</territory>
-			<territory type="CZ">ສາທາລະນະລັດເຊັກ</territory>
+			<territory type="CY">ໄຊປຣັສ</territory>
+			<territory type="CZ">ສາທາລະນະລັດເຊກ</territory>
 			<territory type="DE">ເຢຍລະມັນ</territory>
-			<territory type="DG">ດິເອໂກກາເຊຍ</territory>
-			<territory type="DJ">ຈິ</territory>
+			<territory type="DG">ດິເອໂກ ກາເຊຍ</territory>
+			<territory type="DJ">ຈິບູຕິ</territory>
 			<territory type="DK">ເດນມາກ</territory>
 			<territory type="DM">ໂດມີນິຄາ</territory>
 			<territory type="DO">ສາທາລະນະລັດ ໂດມິນິກັນ</territory>
-			<territory type="DZ">ແອລຈິເລຍ</territory>
-			<territory type="EA">ຊີໂອຕາແລະເມລິລລາ</territory>
-			<territory type="EC">ເອກວາດໍ</territory>
+			<territory type="DZ">ອັລຈິເຣຍ</territory>
+			<territory type="EA">ເຊວຕາ ແລະເມລິນລາ</territory>
+			<territory type="EC">ເອກກວາດໍ</territory>
 			<territory type="EE">ເອສໂຕເນຍ</territory>
 			<territory type="EG">ອີຢິບ</territory>
-			<territory type="EH">ຊາຮາລາຕະເວັນຕົກ</territory>
+			<territory type="EH">ຊາຮາຣາຕາເວັນຕົກ</territory>
 			<territory type="ER">ເອຣິເທຣຍ</territory>
 			<territory type="ES">ສະເປນ</territory>
-			<territory type="ET">ເອທີໂອເປຍ</territory>
-			<territory type="EU">ສະຫະພາບເອີຣົບ</territory>
+			<territory type="ET">ອີທິໂອເປຍ</territory>
+			<territory type="EU">ສະຫະພາບຢູໂຣບ</territory>
 			<territory type="FI">ຟິນແລນ</territory>
 			<territory type="FJ">ຟິຈິ</territory>
 			<territory type="FK">ຫມູ່ເກາະຟອກແລນ</territory>
-			<territory type="FK" alt="variant">ຫມູ່ເກາະຟອກແລນ(ອິສລາສ ມາວິລນາສ)</territory>
-			<territory type="FM">ໄມໂຄນິເຊຍ</territory>
+			<territory type="FK" alt="variant">ໝູ່ເກາະຟອກແລນ [ອິສລາສ ມາວິນນາສ]</territory>
+			<territory type="FM">ໄມໂຄຣນີເຊຍ</territory>
 			<territory type="FO">ຫມູ່ເກາະແຟໂຣ</territory>
 			<territory type="FR">ຝຣັ່ງ</territory>
-			<territory type="GA">ກາບ້ອນ</territory>
-			<territory type="GB">ສະຫະລາດຊະອານາຈັກ</territory>
-			<territory type="GD">ແກຣນນາດາ</territory>
+			<territory type="GA">ກາບອນ</territory>
+			<territory type="GB">ສະຫະລາດຊະອະນາຈັກ</territory>
+			<territory type="GB" alt="short">ສະຫະລາດຊະອະນາຈັກຯ</territory>
+			<territory type="GD">ເກຣເນດາ</territory>
 			<territory type="GE">ຈໍເຈຍ</territory>
-			<territory type="GF">ເຟັນສກິວນາ</territory>
-			<territory type="GG">ເກຣີນຊີ</territory>
+			<territory type="GF">ເຟຣນຊ ກຸຍອານາ</territory>
+			<territory type="GG">ເກີນຊີ</territory>
 			<territory type="GH">ການ່າ</territory>
-			<territory type="GI">ກີບຣາລຕາ</territory>
+			<territory type="GI">ຈິບບຣອນທາ</territory>
 			<territory type="GL">ກຣີນແລນ</territory>
 			<territory type="GM">ສາທາລະນະລັດແກມເບຍ</territory>
-			<territory type="GN">ກິວນີ</territory>
-			<territory type="GP">ກວດເດລູບ</territory>
-			<territory type="GQ">ອີຄົວໂທເລຍກີເນຍ</territory>
-			<territory type="GR">ກິຼກ</territory>
+			<territory type="GN">ກິນີ</territory>
+			<territory type="GP">ກົວດາລູບ</territory>
+			<territory type="GQ">ອີຄົວໂຕຣຽວ ກີນີ</territory>
+			<territory type="GR">ກຣີຊ</territory>
 			<territory type="GS">ເກາະຈອດເຈຍໃຕ້ແລະຫມູ່ເກາະແຊນວິດຕອນໃຕ້</territory>
-			<territory type="GT">ກົວເທມມາລາ</territory>
+			<territory type="GT">ກົວເທມາລາ</territory>
 			<territory type="GU">ກວມ</territory>
-			<territory type="GW">ກິວນີ-ບິສໂຊ</territory>
-			<territory type="GY">ກູຢານາ</territory>
-			<territory type="HK">ຮົງກົງ</territory>
+			<territory type="GW">ກິນີ-ບິສໂຊ</territory>
+			<territory type="GY">ກາຍຢານາ</territory>
+			<territory type="HK">ຮົງກົງ ເຂດປົກຄອງພິເສດ ຈີນ</territory>
 			<territory type="HK" alt="short">ຮົງກົງ</territory>
 			<territory type="HM">ເກາະເຮີດແລະຫມູ່ເກາະແມັກໂດນອລ</territory>
 			<territory type="HN">ຮອນດູຣັສ</territory>
 			<territory type="HR">ໂຄເອເຊຍ</territory>
-			<territory type="HT">ໄຮຕິ</territory>
+			<territory type="HT">ເຮທີ</territory>
 			<territory type="HU">ຮັງກາຣີ</territory>
-			<territory type="IC">ຫມູ່ເກາະຄານາລີ</territory>
+			<territory type="IC">ໝູ່ເກາະຄານາຣີ</territory>
 			<territory type="ID">ອິນໂດເນເຊຍ</territory>
 			<territory type="IE">ໄອແລນ</territory>
-			<territory type="IL">ອິສລະເອວ</territory>
-			<territory type="IM">ອີສເຊີລ ອອຟ ແມນ</territory>
+			<territory type="IL">ອິສຣາເອວ</territory>
+			<territory type="IM">ເອວ ອອບ ແມນ</territory>
 			<territory type="IN">ອິນເດຍ</territory>
-			<territory type="IO">ບຣິດທິສອິນດ່ຽນໂອຊ່ຽນເທີຣິທໍຣີ</territory>
-			<territory type="IQ">ອີລັກ</territory>
-			<territory type="IR">ອີລ່ານ</territory>
+			<territory type="IO">ເຂດແດນບຣິທິສອິນດຽນໂອຊຽນ</territory>
+			<territory type="IQ">ອີຣັກ</territory>
+			<territory type="IR">ອີຣ່ານ</territory>
 			<territory type="IS">ໄອສແລນ</territory>
 			<territory type="IT">ອິຕາລີ</territory>
 			<territory type="JE">ເຈີຊີ</territory>
-			<territory type="JM" draft="provisional">ຈາໄມກາ</territory>
+			<territory type="JM">ຈາໄມຄາ</territory>
 			<territory type="JO">ຈໍແດນ</territory>
 			<territory type="JP">ຍີ່ປຸ່ນ</territory>
-			<territory type="KE">ເຄັນຢ້າ</territory>
-			<territory type="KG">ຄີກິດສະຖານ</territory>
-			<territory type="KH">ຣາຊອານາຈັກ ກຳປູເຈຍ</territory>
-			<territory type="KI">ຄິລິບາຕິ</territory>
-			<territory type="KM">ໂຄໂມລອດ</territory>
-			<territory type="KN">ເຊຣນ ຄິດ ແລະ ເນວິດ</territory>
+			<territory type="KE">ເຄນຢາ</territory>
+			<territory type="KG">ຄີກິສຖານ</territory>
+			<territory type="KH">ກຳປູເຈຍ</territory>
+			<territory type="KI">ຄຣິບາຕິ</territory>
+			<territory type="KM">ໂຄໂມໂຣສ</territory>
+			<territory type="KN">ເຊນ ຄິດ ແລະ ເນວິສ</territory>
 			<territory type="KP">ເກົາຫລີເໜືອ</territory>
 			<territory type="KR">ເກົາຫລີໃຕ້</territory>
 			<territory type="KW">ຄູເວດ</territory>
-			<territory type="KY">ຄາຍແມນ ອິດແລນ</territory>
-			<territory type="KZ">ຄາຊັດສະຖານ</territory>
-			<territory type="LA">ສ.ປ.ປ ລາວ</territory>
+			<territory type="KY">ເຄແມນ ໄອສແລນ</territory>
+			<territory type="KZ">ຄາຊັກສະຖານ</territory>
+			<territory type="LA">ລາວ</territory>
 			<territory type="LB">ເລບານອນ</territory>
-			<territory type="LC">ເຊັ້ນ ລັກເຊຍ</territory>
-			<territory type="LI">ໄລເທນສະໄຕ</territory>
+			<territory type="LC">ເຊນ ລູເຊຍ</territory>
+			<territory type="LI">ລິດເທນສະຕາຍ</territory>
 			<territory type="LK">ສີລັງກາ</territory>
-			<territory type="LR">ລິເບີເລຍ</territory>
+			<territory type="LR">ລິເບີເຣຍ</territory>
 			<territory type="LS">ເລໂຊໂທ</territory>
-			<territory type="LT">ລິເທີເນຍ</territory>
+			<territory type="LT">ລິທົວເນຍ</territory>
 			<territory type="LU">ລຸກແຊມເບີກ</territory>
-			<territory type="LV">ລຼາດເວຍ</territory>
+			<territory type="LV">ລັດເວຍ</territory>
 			<territory type="LY">ລິເບຍ</territory>
-			<territory type="MA">ໂມລັອກໂຄ</territory>
-			<territory type="MC">ໂມນາໂກ</territory>
+			<territory type="MA">ໂມຣັອກໂຄ</territory>
+			<territory type="MC">ໂມນາໂຄ</territory>
 			<territory type="MD">ໂມນໂດວາ</territory>
 			<territory type="ME">ມອນເຕເນໂກຣ</territory>
-			<territory type="MF">ເຊັ້ນ ມາຕິນ</territory>
-			<territory type="MG">ມາດາກາດກ້າ</territory>
-			<territory type="MH">ຫມູ່ເກາະມາແຊລ໌</territory>
-			<territory type="MK">ແມຊິໂຄເນຍ</territory>
-			<territory type="MK" alt="variant">ມາຊີໂດເນຍ</territory>
+			<territory type="MF">ເຊນ ມາທິນ</territory>
+			<territory type="MG">ມາດາກາສກາ</territory>
+			<territory type="MH">ຫມູ່ເກາະມາແຊວ</territory>
+			<territory type="MK">ແມຊິໂດເນຍ</territory>
+			<territory type="MK" alt="variant">ແມຊິໂດເນຍ [FYROM]</territory>
 			<territory type="ML">ມາລິ</territory>
-			<territory type="MM">ສະຫະພາບມຽນມາ</territory>
-			<territory type="MN">ມົງໂກນ</territory>
-			<territory type="MO">ມາເກົ້າ ເຂດປົກຄອງພິເສດປະເທດຈີນ</territory>
-			<territory type="MO" alt="short" draft="provisional">ມາເກົາ</territory>
-			<territory type="MP">ຫມູ່ເກາະມາແຊລ໌ຕອນເຫນືອ</territory>
-			<territory type="MQ" draft="provisional">ມາຕິນິກ</territory>
-			<territory type="MR">ມໍລິກທາເນຍ</territory>
-			<territory type="MS" draft="provisional">ມອນເຊີລາດ</territory>
-			<territory type="MT">ມັນຕາ</territory>
-			<territory type="MU">ມົວລີຕຽດ</territory>
+			<territory type="MM">ມຽນມາ pເບີມາ]</territory>
+			<territory type="MN">ມອງໂກເລຍ</territory>
+			<territory type="MO">ມາເກົ້າ ເຂດປົກຄອງພິເສດ ຈີນ</territory>
+			<territory type="MO" alt="short">ມາເກົ້າ</territory>
+			<territory type="MP">ຫມູ່ເກາະມາແຊວຕອນເຫນືອ</territory>
+			<territory type="MQ">ມາຕິນີກ</territory>
+			<territory type="MR">ມົວຣິເທເນຍ</territory>
+			<territory type="MS">ມອນເຊີຣາດ</territory>
+			<territory type="MT">ມອນທາ</territory>
+			<territory type="MU">ມົວຣິຊຽສ</territory>
 			<territory type="MV">ມັນດິຟ</territory>
 			<territory type="MW">ມາລາວີ</territory>
 			<territory type="MX">ເມັກຊິໂກ</territory>
 			<territory type="MY">ມາເລເຊຍ</territory>
 			<territory type="MZ">ໂມແຊມບິກ</territory>
 			<territory type="NA">ນາມີເບຍ</territory>
-			<territory type="NC">ນິວຄາລິໂດເນຍ</territory>
-			<territory type="NE">ໄນເຈີ</territory>
+			<territory type="NC">ນິວ ຄາເລໂດເນຍ</territory>
+			<territory type="NE">ນິເຈີ</territory>
 			<territory type="NF">ເກາະນໍໂຟກ</territory>
-			<territory type="NG">ໄນຈີເລຍ</territory>
-			<territory type="NI">ນິກຄາລາກົວ</territory>
+			<territory type="NG">ໄນຈີເຣຍ</territory>
+			<territory type="NI">ນິກຄາຣາກົວ</territory>
 			<territory type="NL">ເນເທີແລນ</territory>
-			<territory type="NO" draft="provisional">ນໍເວ</territory>
+			<territory type="NO">ນໍເວ</territory>
 			<territory type="NP">ເນປານ</territory>
 			<territory type="NR">ນາອູຣູ</territory>
 			<territory type="NU">ນີອູເອ</territory>
 			<territory type="NZ">ນິວຊີແລນ</territory>
 			<territory type="OM">ໂອມານ</territory>
 			<territory type="PA">ພານາມາ</territory>
-			<territory type="PE">ເປລູ</territory>
-			<territory type="PF">ເຟັນຣໂພລິນີເຊຍ</territory>
+			<territory type="PE">ເພີຣູ</territory>
+			<territory type="PF">ເຟຣນຊ ໂພລີເນເຂຍ</territory>
 			<territory type="PG">ປາປົວນິວກີນີ</territory>
-			<territory type="PH">ຟິລິປິນ</territory>
+			<territory type="PH">ຟິລິບປິນ</territory>
 			<territory type="PK">ປາກິສຖານ</territory>
 			<territory type="PL">ໂປແລນ</territory>
-			<territory type="PM">ເຊັ້ນ ປີແອ ແລະ ມິເກວລອນ</territory>
-			<territory type="PN">ຫມູ່ເກາະພິດແຄຣ໌ນ</territory>
-			<territory type="PR">ເປີໂຕລິໂກ</territory>
-			<territory type="PS">ປາເລດຕີນຽມເຕີລິດໂຕເລຍ</territory>
-			<territory type="PS" alt="short">ປາເລັສຕິນ</territory>
-			<territory type="PT">ໂປຕຸກກັນ</territory>
+			<territory type="PM">ເຊນ ປີແອ ມິເກວລອນ</territory>
+			<territory type="PN">ໝູ່ເກາະພິດແຄນ</territory>
+			<territory type="PR">ເພືອໂຕ ຣິໂກ</territory>
+			<territory type="PS">ດິນແດນ ປາເລສຕິນຽນ</territory>
+			<territory type="PS" alt="short">ປາເລສຕິນ</territory>
+			<territory type="PT">ພອລທູໂກ</territory>
 			<territory type="PW">ປາເລົາ</territory>
-			<territory type="PY">ປາລາກວຍ</territory>
+			<territory type="PY">ພາຣາກວຍ</territory>
 			<territory type="QA">ກາຕາ</territory>
-			<territory type="QO">ເຂດຫ່າງໄກໂອເຊຍເນຍ</territory>
+			<territory type="QO">ເຂດຫ່າງໄກໂອຊີເນຍ</territory>
 			<territory type="RE">ເຣອູນິຍົງ</territory>
-			<territory type="RO">ລູເມເນຍ</territory>
+			<territory type="RO">ໂຣແມເນຍ</territory>
 			<territory type="RS">ເຊີເບຍ</territory>
-			<territory type="RU">ລັດເຊຍ</territory>
-			<territory type="RW">ອາວັນດາ</territory>
-			<territory type="SA">ຊາອຸດິອາລະເບຍ</territory>
+			<territory type="RU">ຣັດເຊຍ</territory>
+			<territory type="RW">ວັນດາ</territory>
+			<territory type="SA">ຊາອຸດິ ອາຣາເບຍ</territory>
 			<territory type="SB">ຫມູ່ເກາະໂຊໂລມອນ</territory>
-			<territory type="SC">ເຊເຊວແລດ</territory>
+			<territory type="SC">ເຊເຊວເລສ</territory>
 			<territory type="SD">ຊູດານ</territory>
-			<territory type="SE">ສະວິເດັນ</territory>
+			<territory type="SE">ສະວີເດັນ</territory>
 			<territory type="SG">ສິງກະໂປ</territory>
-			<territory type="SH">ເຊັ້ນເຮເລນາ</territory>
+			<territory type="SH">ເຊນ ເຮເລນາ</territory>
 			<territory type="SI">ສະໂລເວເນຍ</territory>
-			<territory type="SJ">ສະວາບາດແລະຍານເມເຢນ</territory>
+			<territory type="SJ">ສະວາບາ ແລະ ແຢນ ມາເຢນ</territory>
 			<territory type="SK">ສະໂລວາເກຍ</territory>
-			<territory type="SL">ເຊຍລາລິອອນ</territory>
-			<territory type="SM">ຊານມາລີໂນ</territory>
-			<territory type="SN">ເຊເນກອລ</territory>
+			<territory type="SL">ເຊຍຣາ ລີໂອນ</territory>
+			<territory type="SM">ແຊນ ມາຣິໂນ</territory>
+			<territory type="SN">ເຊນີໂກລ</territory>
 			<territory type="SO">ໂຊມາເລຍ</territory>
-			<territory type="SR">ຊູລິນາມິ</territory>
+			<territory type="SR">ຊູຣິນາມ</territory>
 			<territory type="SS">ຊູດານໃຕ້</territory>
-			<territory type="ST">ເຊົາຕູເມແລະພຣິນຊິປີ</territory>
-			<territory type="SV">ອີແອວ ຊໍວາດໍ</territory>
-			<territory type="SX">ເຊັ້ນ ມາເຕັນ</territory>
-			<territory type="SY">ຊິເລຍ</territory>
+			<territory type="ST">ເຊົາທູເມ ແລະ ພຣິນຊິບ</territory>
+			<territory type="SV">ເອວ ຊໍວາດໍ</territory>
+			<territory type="SX">ຊິນ ມາທິນ</territory>
+			<territory type="SY">ຊີເຣຍ</territory>
 			<territory type="SZ">ສະວາຊິແລນ</territory>
 			<territory type="TA">ທຣິສຕັນ ດາ ກັນຮາ</territory>
-			<territory type="TC">ເຈີ ແລະ ຄາຍຄອດ ອິດແລນ</territory>
-			<territory type="TD">ຊາດ</territory>
-			<territory type="TF">ອານາເຂດທາງໃຕ້ຂອງຝລັ່ງເສດ</territory>
+			<territory type="TC">ໝູ່ເກາະ ເທີກ ແລະ ໄຄໂຄສ</territory>
+			<territory type="TD">ແຊດ</territory>
+			<territory type="TF">ອານາເຂດທາງໃຕ້ຂອງຝຣັ່ງ</territory>
 			<territory type="TG">ໂຕໂກ</territory>
-			<territory type="TH">ຣາຊອານາຈັກໄທ</territory>
-			<territory type="TJ">ທາຈິກິສະຖານ</territory>
+			<territory type="TH">ໄທ</territory>
+			<territory type="TJ">ທາຈິກິສຖານ</territory>
 			<territory type="TK">ໂຕເກເລົາ</territory>
-			<territory type="TL">ຕິມໍຕາເວັນອອກ</territory>
-			<territory type="TL" alt="variant">ຕີມໍ ຕາເວັນອອກ</territory>
-			<territory type="TM">ເຕຣີກເມນິສະຖານ</territory>
+			<territory type="TL">ທິມໍ-ເລສເຕ</territory>
+			<territory type="TL" alt="variant">ທິມໍ ຕາເວັນອອກ</territory>
+			<territory type="TM">ເທີກເມນິສຖານ</territory>
 			<territory type="TN">ຕູນິເຊຍ</territory>
-			<territory type="TO">ຕອງກາ</territory>
-			<territory type="TR">ຕຸນກີ</territory>
-			<territory type="TT">ທາຍນິດາດ ແລະ ໂທບາໂກ້</territory>
+			<territory type="TO">ທອງກາ</territory>
+			<territory type="TR">ເທີຄີ</territory>
+			<territory type="TT">ທຣິນິແດດ ແລະ ໂທແບໂກ</territory>
 			<territory type="TV">ຕູວາລູ</territory>
 			<territory type="TW">ໄຕ້ຫວັນ</territory>
 			<territory type="TZ">ທານຊາເນຍ</territory>
-			<territory type="UA">ຢູເຄຼນ</territory>
+			<territory type="UA">ຢູເຄຣນ</territory>
 			<territory type="UG">ອູການດາ</territory>
 			<territory type="UM">ຫມູ່ເກາະຮອບນອກຂອງສະຫະລັດ</territory>
 			<territory type="US">ສະຫະລັດ</territory>
-			<territory type="UY">ອຸລຸກວຍ</territory>
-			<territory type="UZ">ອຸດເບກິສະຖານ</territory>
-			<territory type="VA">ວາຕີແຄນ</territory>
-			<territory type="VC">ເຊັ້ນ ວິນເຊັນ ແລະ ເຈັນເນດີເນດ</territory>
+			<territory type="US" alt="short">ສະຫະລັດຯ</territory>
+			<territory type="UY">ອູຣຸກວຍ</territory>
+			<territory type="UZ">ອຸສເບກິສຖານ</territory>
+			<territory type="VA">ນະຄອນ ວາຕິກັນ</territory>
+			<territory type="VC">ເຊນ ວິນເຊນ ແລະ ເດິ ເກຣເນດິນ</territory>
 			<territory type="VE">ເວເນຊູເອລາ</territory>
-			<territory type="VG">ບຣິທິດເວີຈິນໄອແລນ</territory>
-			<territory type="VI">ຢູເອສເວີຈິນໄອແລນ</territory>
-			<territory type="VN">ສສ ຫວຽດນາມ</territory>
+			<territory type="VG">ໝູ່ເກາະ ບຣິທິຊ ເວີຈິນ</territory>
+			<territory type="VI">ໝູ່ເກາະ ຢູເອສ ເວີຈິນ</territory>
+			<territory type="VN">ຫວຽດນາມ</territory>
 			<territory type="VU">ວານົວຕູ</territory>
-			<territory type="WF">ວາລິສແລະຟຸຕູນາ</territory>
+			<territory type="WF">ວາລິສ ແລະ ຟຸຕູນາ</territory>
 			<territory type="WS">ຊາມົວ</territory>
 			<territory type="XK">ໂຄໂຊໂວ</territory>
 			<territory type="YE">ເຢເມນ</territory>
@@ -1106,17 +1120,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</variants>
 		<keys>
 			<key type="calendar">ປະຕິທິນ</key>
-			<key type="collation">ລຽງຕາມລຳດັບ</key>
+			<key type="collation">ຮຽງລຳດັບ</key>
 			<key type="currency">ເງິນຕາ</key>
-			<key type="numbers" draft="provisional">ຕົວເລກ</key>
+			<key type="numbers">ຕົວເລກ</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">ຕົວເລກອາລາບິກ-ອິນດິກ</type>
-			<type type="arabext" key="numbers">ຕົວເລກອາລາບິກ-ອິນດິກຕົວເຕັມ</type>
+			<type type="arab" key="numbers">ຕົວເລກອາຣາບິກ-ອິນດິກ</type>
+			<type type="arabext" key="numbers">ຕົວເລກອາຣາບິກ-ອິນດິກຕົວເຕັມ</type>
 			<type type="armn" key="numbers">ຕົວເລກອາເມນຽນ</type>
-			<type type="armnlow" key="numbers">ຕົວເລກອາເມນຽນຕົວພີມນ້ອຍ</type>
+			<type type="armnlow" key="numbers">ຕົວເລກອາເມນຽນຕົວພິມນ້ອຍ</type>
 			<type type="bali" key="numbers">ຕົວເລກບາລີ</type>
-			<type type="beng" key="numbers">ຕົວເລກບັງກາລີ</type>
+			<type type="beng" key="numbers">ຕົວເລກເບັງກາລີ</type>
 			<type type="big5han" key="collation">ລຽງຕາມອັກສອນຈີນດັ້ງເດີມ</type>
 			<type type="buddhist" key="calendar">ປະຕິທິນພຸດ</type>
 			<type type="cham" key="numbers">ຕົວເລກຊຣາມ</type>
@@ -1124,24 +1138,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="coptic" key="calendar">ປະຕິທິນຄັອບຕິກ</type>
 			<type type="deva" key="numbers">ຕົວເລກເດວັນເນກາ</type>
 			<type type="dictionary" key="collation">ລຽງຕາມພົດຈະນານຸກົມ</type>
-			<type type="ducet" key="collation">ລຽງຕາມລໍາດັບຕາມຢູນີໂຄດ</type>
-			<type type="ethi" key="numbers">ຕົວເລກເອທີໂອປິກ</type>
+			<type type="ducet" key="collation">ຮຽງຕາມລຳດັບຢູນິໂຄດເລີ່ມຕົ້ນ</type>
+			<type type="ethi" key="numbers">ຕົວເລກເອທິໂອປິກ</type>
 			<type type="ethiopic" key="calendar">ປະຕິທິນເອທິໂອເປຍ</type>
 			<type type="ethiopic-amete-alem" key="calendar">ປະຕິທິນປີໂອເອທິໂອເປຍ</type>
 			<type type="fullwide" key="numbers">ຕົວເລກຄວາມກວ້າງເຕັມ</type>
 			<type type="gb2312han" key="collation">ລຽງຕາມອັກສອນຈີນປະຍຸກ</type>
-			<type type="geor" key="numbers">ຕົວເລກຈໍເຈຍ</type>
-			<type type="gregorian" key="calendar">ປະຕິທິນຄິດສັກກະລາດ</type>
-			<type type="grek" key="numbers" draft="provisional">ຕົວເລກເກຼັກ</type>
-			<type type="greklow" key="numbers">ຕົວເລກກີດຕົວພີມນ້ອຍ</type>
+			<type type="geor" key="numbers">ຕົວເລກຈໍຈຽນ</type>
+			<type type="gregorian" key="calendar">ປະຕິທິນເກຣໂກຣຽນ</type>
+			<type type="grek" key="numbers">ຕົວເລກກຣີກ</type>
+			<type type="greklow" key="numbers">ຕົວເລກກຣີກຕົວພິມນ້ອຍ</type>
 			<type type="gujr" key="numbers">ຕົວເລກກຸຈາລາຕິ</type>
-			<type type="guru" key="numbers">ຕົວເລກເຄີມີກີ</type>
+			<type type="guru" key="numbers">ຕົວເລກກົວມູຄິ</type>
 			<type type="hanidec" key="numbers">ຕົວເລກທົດສະນິນົມຈີນ</type>
-			<type type="hans" key="numbers">ຕົວເລກຈີນຕົວຫຍໍ້</type>
-			<type type="hansfin" key="numbers">ຕົວເລກທາງການເງິນແບບຕົວຫຍໍ້ຂອງຈີນ</type>
-			<type type="hant" key="numbers">ຕົວເລກຈີນຕົວເຕັມ</type>
-			<type type="hantfin" key="numbers">ຕົວເລກທາງການເງິນແບບຕົວເຕັມຂອງຈີນ</type>
-			<type type="hebr" key="numbers">ຕົວເລກຮີເບວ</type>
+			<type type="hans" key="numbers">ຕົວເລກຈີນແບບຮຽບງ່າຍ</type>
+			<type type="hansfin" key="numbers">ຕົວເລກທາງການເງິນແບບຮຽບງ່າຍຂອງຈີນ</type>
+			<type type="hant" key="numbers">ຕົວເລກຈີນແບບດັ້ງເດີມ</type>
+			<type type="hantfin" key="numbers">ຕົວເລກທາງການເງິນແບບດັ້ງເດີມຂອງຈີນ</type>
+			<type type="hebr" key="numbers">ຕົວເລກຮິບຣິວ</type>
 			<type type="hebrew" key="calendar">ປະຕິທິນຮິບບິວ</type>
 			<type type="indian" key="calendar">ປະຕິທິນແຫ່ງຊາດອິນເດຍ</type>
 			<type type="islamic" key="calendar">ປະຕິທິນອິສະລາມ</type>
@@ -1159,29 +1173,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="latn" key="numbers">ຕົວເລກຕາເວັນຕົກ</type>
 			<type type="lepc" key="numbers">ຕົວເລກເລຊາ</type>
 			<type type="limb" key="numbers">ຕົວເລກລິມບູ</type>
-			<type type="mlym" key="numbers">ຕົວເລກມາລາຢາລຳ</type>
+			<type type="mlym" key="numbers">ຕົວເລກມາເລອາລຳ</type>
 			<type type="mong" key="numbers">ຕົວເລກມ່ອງໂກເລຍ</type>
 			<type type="mtei" key="numbers">ຕົວເລກເມໄຕມາເຢກ</type>
-			<type type="mymr" key="numbers">ຕົວເລກພະມ້າ</type>
+			<type type="mymr" key="numbers">ຕົວເລກມຽນມາ</type>
 			<type type="mymrshan" key="numbers">ຕົວເລກຊານພະມ້າ</type>
 			<type type="nkoo" key="numbers">ຕົວເລກເອັນໂກ້</type>
 			<type type="olck" key="numbers">ຕົວເລກໂອລຈິກິ</type>
-			<type type="orya" key="numbers">ຕົວເລກໂອລີຢາ</type>
+			<type type="orya" key="numbers">ຕົວເລກໂອຣິຢາ</type>
 			<type type="persian" key="calendar">ປະຕິທິນເປີຊຽນ</type>
 			<type type="phonebook" key="collation">ລຽງຕາມສະໝຸດໂທລະສັບ</type>
 			<type type="pinyin" key="collation">ລຽງຕາມການອອກສຽງພາສາຈີນ</type>
 			<type type="reformed" key="collation">ລຽງຕາມລຳດັບສຸດທ້າຍ</type>
 			<type type="roc" key="calendar">ປະຕິທິນໄຕ້ຫວັນ</type>
-			<type type="roman" key="numbers">ຕົວເລກໂລມັນ</type>
-			<type type="romanlow" key="numbers">ຕົວເລກໂລມັນຕົວພີມນ້ອຍ</type>
+			<type type="roman" key="numbers">ຕົວເລກໂຣມັນ</type>
+			<type type="romanlow" key="numbers">ຕົວເລກໂຣມັນຕົວພິມນ້ອຍ</type>
 			<type type="saur" key="numbers">ຕົວເລກເສົາລັດທາ</type>
-			<type type="search" key="collation" draft="provisional">ການຄົ້ນຫາທົ່ວໄປ</type>
+			<type type="search" key="collation">ການຊອກຫາທົ່ວໄປ</type>
 			<type type="searchjl" key="collation">ຄົ້ນຫາຕາມພະຍັນຊະນະຂຶ້ນຕົ້ນທີ່ເປັນຮັງກີຣ</type>
+			<type type="standard" key="collation">ຮຽງຕາມມາດຕະຖານ</type>
 			<type type="stroke" key="collation">ລຽງຕາມການລາກເສັ້ນ</type>
 			<type type="sund" key="numbers">ຕົວເລກຊຸນດາ</type>
 			<type type="talu" key="numbers">ຕົວເລກໄຕລື້ໃໝ່</type>
-			<type type="taml" key="numbers">ຕົວເລກທາມີວແບບດັ່ງເດີມ</type>
-			<type type="tamldec" key="numbers">ຕົວເລກທາມີວ</type>
+			<type type="taml" key="numbers">ຕົວເລກທາມິວແບບດັ້ງເດີມ</type>
+			<type type="tamldec" key="numbers">ຕົວເລກທາມິວ</type>
 			<type type="telu" key="numbers">ຕົວເລກເຕລູກູ</type>
 			<type type="thai" key="numbers">ຕົວເລກໄທ</type>
 			<type type="tibt" key="numbers">ຕົວເລກທິເບດ</type>
@@ -1190,9 +1205,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="vaii" key="numbers">ຕົວເລກໃນລະບົບໄວ</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="metric">ເມຕິກ</measurementSystemName>
-			<measurementSystemName type="UK" draft="provisional">ຢູເຄ</measurementSystemName>
-			<measurementSystemName type="US" draft="provisional">ຢູສ</measurementSystemName>
+			<measurementSystemName type="metric">ເມທຣິກ</measurementSystemName>
+			<measurementSystemName type="UK">ອັງກິດ</measurementSystemName>
+			<measurementSystemName type="US">ອາເມລິກາ</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language">{0}</codePattern>
@@ -1207,6 +1222,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
+		<ellipsis type="word-final">{0} …</ellipsis>
+		<ellipsis type="word-initial">… {0}</ellipsis>
+		<ellipsis type="word-medial">{0} … {1}</ellipsis>
 		<moreInformation>ຂໍ້ມູນເພີ່ມເຕີມ</moreInformation>
 	</characters>
 	<delimiters>
@@ -1706,11 +1724,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
-						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
-						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, G y MMM d</dateFormatItem>
+						<dateFormatItem id="GyMMM">G MMM y</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G d MMM y</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">G E, d MMM y</dateFormatItem>
 						<dateFormatItem id="h">h ໂມງa</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1718,21 +1736,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">M-d</dateFormatItem>
-						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
-						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">G y</dateFormatItem>
 						<dateFormatItem id="yyyy">G y</dateFormatItem>
-						<dateFormatItem id="yyyyM">G y-M</dateFormatItem>
-						<dateFormatItem id="yyyyMd">G y-M-d</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">E, G y-M-d</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">G y MMM</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">G y MMM d</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E, G y MMM d</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyM">G M/y</dateFormatItem>
+						<dateFormatItem id="yyyyMd">G d/M/y</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, G d/M/y</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G MMM y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">G d MMM y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, G d MMM y</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">G QQQ y</dateFormatItem>
 						<dateFormatItem id="yyyyQQQQ">G y QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
@@ -1882,7 +1900,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<monthWidth type="abbreviated">
 							<month type="1">ມ.ກ.</month>
 							<month type="2">ກ.ພ.</month>
-							<month type="3">ມີ.ນ.</month>
+							<month type="3">ມ.ນ.</month>
 							<month type="4">ມ.ສ.</month>
 							<month type="5">ພ.ພ.</month>
 							<month type="6">ມິ.ຖ.</month>
@@ -1926,13 +1944,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">ອາ.</day>
-							<day type="mon">ຈ.</day>
-							<day type="tue">ອ.</day>
-							<day type="wed">ພ.</day>
-							<day type="thu">ພຫ.</day>
-							<day type="fri">ສກ.</day>
-							<day type="sat">ສ.</day>
+							<day type="sun">ວັນອາທິດ</day>
+							<day type="mon">ວັນຈັນ</day>
+							<day type="tue">ວັນອັງຄານ</day>
+							<day type="wed">ວັນພຸດ</day>
+							<day type="thu">ວັນພະຫັດ</day>
+							<day type="fri">ວັນສຸກ</day>
+							<day type="sat">ວັນເສົາ</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">1</day>
@@ -1944,13 +1962,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="sat">7</day>
 						</dayWidth>
 						<dayWidth type="short">
-							<day type="sun">ອທ.</day>
-							<day type="mon">ຈ.</day>
-							<day type="tue">ອ.</day>
-							<day type="wed">ພ.</day>
-							<day type="thu">ພຫ.</day>
-							<day type="fri">ສກ.</day>
-							<day type="sat">ສ.</day>
+							<day type="sun">ວັນອາທິດ</day>
+							<day type="mon">ວັນຈັນ</day>
+							<day type="tue">ວັນອັງຄານ</day>
+							<day type="wed">ວັນພຸດ</day>
+							<day type="thu">ວັນພະຫັດ</day>
+							<day type="fri">ວັນສຸກ</day>
+							<day type="sat">ວັນເສົາ</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">ວັນອາທິດ</day>
@@ -1964,13 +1982,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dayContext>
 					<dayContext type="stand-alone">
 						<dayWidth type="abbreviated">
-							<day type="sun">ທ.</day>
-							<day type="mon">ຈ.</day>
-							<day type="tue">ອ.</day>
-							<day type="wed">ພ.</day>
-							<day type="thu">ພຫ.</day>
-							<day type="fri">ສກ.</day>
-							<day type="sat">ສ.</day>
+							<day type="sun">ວັນອາທິດ</day>
+							<day type="mon">ວັນຈັນ</day>
+							<day type="tue">ວັນອັງຄານ</day>
+							<day type="wed">ວັນພຸດ</day>
+							<day type="thu">ວັນພະຫັດ</day>
+							<day type="fri">ວັນສຸກ</day>
+							<day type="sat">ວັນເສົາ</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">ທ</day>
@@ -1987,7 +2005,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="tue">ຄ</day>
 							<day type="wed">ພ</day>
 							<day type="thu">ພຫ</day>
-							<day type="fri">ສ</day>
+							<day type="fri">ວັນສຸກ</day>
 							<day type="sat">ເສົາ</day>
 						</dayWidth>
 						<dayWidth type="wide">
@@ -2004,10 +2022,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">ຄິວ1</quarter>
-							<quarter type="2">ຄີວ2</quarter>
-							<quarter type="3">ຄີວ3</quarter>
-							<quarter type="4">ຄິວ4</quarter>
+							<quarter type="1">ຕມ1</quarter>
+							<quarter type="2">ຕມ2</quarter>
+							<quarter type="3">ຕມ3</quarter>
+							<quarter type="4">ຕມ4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
@@ -2016,18 +2034,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">ໄຕມາດ1</quarter>
-							<quarter type="2">ໄຕມາດ2</quarter>
-							<quarter type="3">ໄຕມາດ3</quarter>
-							<quarter type="4">ໄຕມາດ4</quarter>
+							<quarter type="1">ໄຕຣມາດ 1</quarter>
+							<quarter type="2">ໄຕຣມາດ 2</quarter>
+							<quarter type="3">ໄຕຣມາດ 3</quarter>
+							<quarter type="4">ໄຕຣມາດ 4</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">Q1</quarter>
-							<quarter type="2">Q2</quarter>
-							<quarter type="3">Q3</quarter>
-							<quarter type="4">Q4</quarter>
+							<quarter type="1">ຕ1</quarter>
+							<quarter type="2">ຕ2</quarter>
+							<quarter type="3">ຕ3</quarter>
+							<quarter type="4">ຕ4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
@@ -2036,10 +2054,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">ໄຕມາດ1</quarter>
-							<quarter type="2">ໄຕມາດ2</quarter>
-							<quarter type="3">ໄຕມາດ3</quarter>
-							<quarter type="4">ໄຕມາດ4</quarter>
+							<quarter type="1">ໄຕຣມາດ 1</quarter>
+							<quarter type="2">ໄຕຣມາດ 2</quarter>
+							<quarter type="3">ໄຕຣມາດ 3</quarter>
+							<quarter type="4">ໄຕຣມາດ 4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -2053,14 +2071,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dayPeriods>
 				<eras>
 					<eraAbbr>
-						<era type="0" draft="provisional">ບີຊີ</era>
+						<era type="0">ກ່ອນ ຄ.ສ.</era>
+						<era type="0" alt="variant">ກ່ອນ ຄ.ສ.</era>
 						<era type="1">ຄ.ສ.</era>
+						<era type="1" alt="variant">ຄ.ສ.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEEທີ d MMMM G y</pattern>
+							<pattern>EEEE ທີ d MMMM G y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -2124,11 +2144,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
-						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Ed">E, d</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y</dateFormatItem>
-						<dateFormatItem id="GyMMM">G y MMM</dateFormatItem>
-						<dateFormatItem id="GyMMMd">G y MMM d</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, G y MMM d</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM, G y</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMMM, G y</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E d MMMM, G y</dateFormatItem>
 						<dateFormatItem id="h">h ໂມງa</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -2136,22 +2160,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
-						<dateFormatItem id="Md">M-d</dateFormatItem>
-						<dateFormatItem id="MEd">E, M-d</dateFormatItem>
+						<dateFormatItem id="Md">d/M</dateFormatItem>
+						<dateFormatItem id="MEd">E, d/M</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
-						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
-						<dateFormatItem id="MMMEd">E MMM d</dateFormatItem>
+						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
+						<dateFormatItem id="MMMEd">E d MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">y-M</dateFormatItem>
-						<dateFormatItem id="yMd">y-M-d</dateFormatItem>
-						<dateFormatItem id="yMEd">E, y-M-d</dateFormatItem>
-						<dateFormatItem id="yMMM">y MMM</dateFormatItem>
-						<dateFormatItem id="yMMMd">y MMM d</dateFormatItem>
-						<dateFormatItem id="yMMMEd">E, y MMM d</dateFormatItem>
-						<dateFormatItem id="yQQQ">y QQQ</dateFormatItem>
-						<dateFormatItem id="yQQQQ">y QQQQ</dateFormatItem>
+						<dateFormatItem id="yM">M/y</dateFormatItem>
+						<dateFormatItem id="yMd">d/M/y</dateFormatItem>
+						<dateFormatItem id="yMEd">E, d/M/y</dateFormatItem>
+						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+						<dateFormatItem id="yMMMEd">E, d MMM y</dateFormatItem>
+						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
@@ -2193,58 +2220,58 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">M–M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
-							<greatestDifference id="d">MM-dd – dd</greatestDifference>
-							<greatestDifference id="M">MM-dd – MM-dd</greatestDifference>
+							<greatestDifference id="d">dd/MM – dd/MM</greatestDifference>
+							<greatestDifference id="M">dd/MM – dd/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">E, MM-dd – E, MM-dd</greatestDifference>
-							<greatestDifference id="M">E, MM-dd – E, MM-dd</greatestDifference>
+							<greatestDifference id="d">E, dd/MM – E, dd/MM</greatestDifference>
+							<greatestDifference id="M">E, dd/MM – E, dd/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">LLL–LLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d">MM-d – d</greatestDifference>
-							<greatestDifference id="M">MM-d – MM-d</greatestDifference>
+							<greatestDifference id="d">d/MM – d/MM</greatestDifference>
+							<greatestDifference id="M">d/MM – d/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">E, MM-d – E, MM-d</greatestDifference>
-							<greatestDifference id="M">E, MM-d – E, MM-d</greatestDifference>
+							<greatestDifference id="d">E, d/MM – E, d/MM</greatestDifference>
+							<greatestDifference id="M">E, d/MM – E, d/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">y-MM – MM</greatestDifference>
-							<greatestDifference id="y">y-MM – y-MM</greatestDifference>
+							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
+							<greatestDifference id="y">y/MM – y/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">y-MM-dd – dd</greatestDifference>
-							<greatestDifference id="M">y-MM-dd – MM-dd</greatestDifference>
-							<greatestDifference id="y">y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="d">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="M">dd/MM/y – dd/MM/y</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, y-MM-dd – E, y-MM-dd</greatestDifference>
-							<greatestDifference id="M">E, y-MM-dd – E, y-MM-dd</greatestDifference>
-							<greatestDifference id="y">E, y-MM-dd – E, y-MM-dd</greatestDifference>
+							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">y-MM – MM</greatestDifference>
-							<greatestDifference id="y">y-MM – y-MM</greatestDifference>
+							<greatestDifference id="M">MM/y – MM/y</greatestDifference>
+							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">y-MM-d – d</greatestDifference>
-							<greatestDifference id="M">y-MM-dd – MM-d</greatestDifference>
-							<greatestDifference id="y">y-MM-dd – y-MM-dd</greatestDifference>
+							<greatestDifference id="d">d/MM/y – d/MM/y</greatestDifference>
+							<greatestDifference id="M">d/MM/y – d/MM</greatestDifference>
+							<greatestDifference id="y">dd/MM/y – dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E, y-MM-dd – E, y-MM-dd</greatestDifference>
-							<greatestDifference id="M">E, y-MM-dd – E, y-MM-dd</greatestDifference>
-							<greatestDifference id="y">E, y-MM-dd – E, y-MM-dd</greatestDifference>
+							<greatestDifference id="d">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="M">E, dd/MM/y – E, dd/MM/y</greatestDifference>
+							<greatestDifference id="y">E, dd/MM/y – E, dd/MM/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">y-MM – MM</greatestDifference>
-							<greatestDifference id="y">y-MM – y-MM</greatestDifference>
+							<greatestDifference id="M">MM/y – MM</greatestDifference>
+							<greatestDifference id="y">MM/y – MM/y</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -2920,17 +2947,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year">
 				<displayName>ປີ</displayName>
+				<relative type="-1">ປີກາຍ</relative>
+				<relative type="0">ປີນີ້</relative>
+				<relative type="1">ປີໜ້າ</relative>
 			</field>
 			<field type="month">
 				<displayName>ເດືອນ</displayName>
+				<relative type="-1">ເດືອນແລ້ວ</relative>
+				<relative type="0">ເດືອນນີ້</relative>
+				<relative type="1">ເດືອນໜ້າ</relative>
 			</field>
 			<field type="week">
 				<displayName>ອາທິດ</displayName>
+				<relative type="-1">ອາທິດແລ້ວ</relative>
+				<relative type="0">ອາທິດນີ້</relative>
+				<relative type="1">ອາທິດໜ້າ</relative>
 			</field>
 			<field type="day">
 				<displayName>ມື້</displayName>
 				<relative type="-2">ມື້ກ່ອນ</relative>
-				<relative type="-1">ວານນີ້</relative>
+				<relative type="-1">ມື້ວານ</relative>
 				<relative type="0">ມື້ນີ້</relative>
 				<relative type="1">ມື້ອື່ນ</relative>
 				<relative type="2">ມື້ຮື</relative>
@@ -2938,8 +2974,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="weekday">
 				<displayName>ມື້ຂອງອາທິດ</displayName>
 			</field>
+			<field type="sun">
+				<relative type="-1">ວັນເສົາແລ້ວ</relative>
+				<relative type="0">ວັນເສົານີ້</relative>
+				<relative type="1">ວັນເສົາໜ້າ</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1">ວັນຈັນແລ້ວ</relative>
+				<relative type="0">ວັນຈັນນີ້</relative>
+				<relative type="1">ວັນຈັນໜ້າ</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1">ວັນອັງຄານແລ້ວ</relative>
+				<relative type="0">ວັນອັງຄານນີ້</relative>
+				<relative type="1">ວັນອັງຄານໜ້າ</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1">ວັນພຸດແລ້ວ</relative>
+				<relative type="0">ວັນພຸດນີ້</relative>
+				<relative type="1">ວັນພຸດໜ້າ</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1">ວັນພະຫັດແລ້ວ</relative>
+				<relative type="0">ວັນພະຫັດນີ້</relative>
+				<relative type="1">ວັນພະຫັດໜ້າ</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1">ວັນສຸກແລ້ວ</relative>
+				<relative type="0">ວັນສຸກນີ້</relative>
+				<relative type="1">ວັນສຸກໜ້າ</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1">ວັນເສົາແລ້ວ</relative>
+				<relative type="0">ວັນເສົານີ້</relative>
+				<relative type="1">ວັນເສົາໜ້າ</relative>
+			</field>
 			<field type="dayperiod">
-				<displayName>ເຊົ້າ/ແລງ</displayName>
+				<displayName>ກ່ອນທ່ຽງ/ຫຼັງທ່ຽງ</displayName>
 			</field>
 			<field type="hour">
 				<displayName>ຊົ່ວໂມງ</displayName>
@@ -2951,7 +3022,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ວິນາທີ</displayName>
 			</field>
 			<field type="zone">
-				<displayName>ເວລາຕາມເຂດ</displayName>
+				<displayName>ເຂດເວລາ</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -2959,6 +3030,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>ເວລາ {0}</regionFormat>
+			<regionFormat type="daylight">{0} (+1)</regionFormat>
+			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>ບໍ່ຮູ້ຈັກ</exemplarCity>
@@ -3013,6 +3086,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>ດູມອນດີຍູວີວສ໌</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity>ແມັກຄົວຣີ</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>ແມັກມົວໂດ</exemplarCity>
@@ -3143,6 +3219,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/La_Paz">
 				<exemplarCity>ລາປາສ</exemplarCity>
 			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity>ຄຣາເລນດິກ</exemplarCity>
+			</zone>
 			<zone type="America/Eirunepe">
 				<exemplarCity>ເອລູເນປີ</exemplarCity>
 			</zone>
@@ -3220,6 +3299,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>ດໍສັນ ຄຣີກ</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity>ເຄຣສຕັນ</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity>ເຢນໂລໄນ</exemplarCity>
@@ -3358,6 +3440,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>ປາກີ</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity>ບັດຊິນເກນ</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>ເບີລີນ</exemplarCity>
@@ -3725,6 +3810,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Tijuana">
 				<exemplarCity>ທີຈົວນາ</exemplarCity>
 			</zone>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>ຊານຕາ ອິດຊາເບວ</exemplarCity>
+			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>ຮີໂມຊິນໂລ</exemplarCity>
 			</zone>
@@ -3734,11 +3822,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Chihuahua">
 				<exemplarCity>ຊີຫົວຫົວ</exemplarCity>
 			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity>ບາເຮຍ ແບນເດີຣາສ</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity>ໂອຈິນາກາ</exemplarCity>
+			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>ມອນເຕີເຣຍ</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>ແມັກຊິໂກ ຊີຕີ</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity>ມາຕາໂມຣອສ</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
 				<exemplarCity>ມີຣິດາ</exemplarCity>
@@ -3836,6 +3933,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Gaza">
 				<exemplarCity>ກາຊາ</exemplarCity>
 			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity>ເຮບຣອນ</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>ອາຊໍເຣດ</exemplarCity>
 			</zone>
@@ -3884,6 +3984,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>ໂນໂວຊີບີລາດສ</exemplarCity>
 			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity>ໂນໂວຄຸສເນັດ</exemplarCity>
+			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>ຄາດສນໍຢາດສ</exemplarCity>
 			</zone>
@@ -3896,8 +3999,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Vladivostok">
 				<exemplarCity>ວາດີໂວຕອກ</exemplarCity>
 			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity>ແຄນດີກາ</exemplarCity>
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>ຊາຄາລິນ</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity>ອຸສ ເນຣາ</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>ມາກາແດນ</exemplarCity>
@@ -3955,6 +4064,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Paramaribo">
 				<exemplarCity>ປາລາມາລີໂບ</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity>ຈູບາ</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity>ຊາວໂຕເມ</exemplarCity>
@@ -4058,8 +4170,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Yakutat">
 				<exemplarCity>ຢາຄູຕັດ</exemplarCity>
 			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity>ຊິດກາ</exemplarCity>
+			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>ຈູໂນ</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity>ເມັດລາກັດລາ</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>ລອສແອນເຈີລິດ</exemplarCity>
@@ -5103,9 +5221,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
-			<nan>NaN</nan>
+			<nan>ບໍ່ແມ່ນໂຕເລກ</nan>
 		</symbols>
 		<decimalFormats numberSystem="laoo">
 			<decimalFormatLength type="long">
@@ -5149,34 +5268,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="other">0ພັນ</pattern>
-					<pattern type="10000" count="other">00ພັນ</pattern>
-					<pattern type="100000" count="other">000ພັນ</pattern>
-					<pattern type="1000000" count="other">0ລ້ານ</pattern>
-					<pattern type="10000000" count="other">00ລ້ານ</pattern>
-					<pattern type="100000000" count="other">000ລ້ານ</pattern>
-					<pattern type="1000000000" count="other">0ພັນລ້ານ</pattern>
-					<pattern type="10000000000" count="other">00ພັນລ້ານ</pattern>
-					<pattern type="100000000000" count="other">000ພັນລ້ານ</pattern>
-					<pattern type="1000000000000" count="other">0ລ້ານລ້ານ</pattern>
-					<pattern type="10000000000000" count="other">00ລ້ານລ້ານ</pattern>
-					<pattern type="100000000000000" count="other">000ລ້ານລ້ານ</pattern>
+					<pattern type="1000" count="other">0 ພັນ</pattern>
+					<pattern type="10000" count="other">00 ພັນ</pattern>
+					<pattern type="100000" count="other">0 ແສນ</pattern>
+					<pattern type="1000000" count="other">0 ລ້ານ</pattern>
+					<pattern type="10000000" count="other">00 ລ້ານ</pattern>
+					<pattern type="100000000" count="other">000 ລ້ານ</pattern>
+					<pattern type="1000000000" count="other">0 ຕື້</pattern>
+					<pattern type="10000000000" count="other">00 ຕື້</pattern>
+					<pattern type="100000000000" count="other">000 ຕື້</pattern>
+					<pattern type="1000000000000" count="other">0 ລ້ານລ້ານ</pattern>
+					<pattern type="10000000000000" count="other">00 ລ້ານລ້ານ</pattern>
+					<pattern type="100000000000000" count="other">000 ລ້ານລ້ານ</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other">0ກີບ</pattern>
-					<pattern type="10000" count="other">00ກີບ</pattern>
-					<pattern type="100000" count="other">000ກີບ</pattern>
-					<pattern type="1000000" count="other">0ລ້ານ</pattern>
-					<pattern type="10000000" count="other">00ລ້ານ</pattern>
-					<pattern type="100000000" count="other">000ລ້ານ</pattern>
-					<pattern type="1000000000" count="other">0ພັນລ້ານ</pattern>
-					<pattern type="10000000000" count="other">00ພັນລ້ານ</pattern>
-					<pattern type="100000000000" count="other">000ພັນລ້ານ</pattern>
-					<pattern type="1000000000000" count="other">0ລ້ານລ້ານ</pattern>
-					<pattern type="10000000000000" count="other">00ລ້ານລ້ານ</pattern>
-					<pattern type="100000000000000" count="other">000ລ້ານລ້ານ</pattern>
+					<pattern type="1000" count="other">0 ພັນ</pattern>
+					<pattern type="10000" count="other">00 ພັນ</pattern>
+					<pattern type="100000" count="other">000 ກີບ</pattern>
+					<pattern type="1000000" count="other">0 ລ້ານ</pattern>
+					<pattern type="10000000" count="other">00 ລ້ານ</pattern>
+					<pattern type="100000000" count="other">000 ລ້ານ</pattern>
+					<pattern type="1000000000" count="other">0 ຕື້</pattern>
+					<pattern type="10000000000" count="other">00 ຕື້</pattern>
+					<pattern type="100000000000" count="other">000 ຕື້</pattern>
+					<pattern type="1000000000000" count="other">0 ລ້ານລ້ານ</pattern>
+					<pattern type="10000000000000" count="other">00 ລ້ານລ້ານ</pattern>
+					<pattern type="100000000000000" count="other">000 ລ້ານລ້ານ</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -5198,6 +5317,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>¤#,##0.00;¤-#,##0.00</pattern>
+					<pattern alt="accounting">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
@@ -5208,24 +5328,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="AED">
 				<displayName>ດີແຮມ ສະຫະລັດອາຣັບ ເອມີເຣດ</displayName>
+				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>ອັບການິ ອັບການິສະຖານ (1927-2002)</displayName>
 			</currency>
 			<currency type="AFN">
 				<displayName>ອັບການິ ອັບກັນນິສະຖານ</displayName>
+				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>ແລັກ ອານບາເນຍ</displayName>
+				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>ດຣມອາເມເນຍ</displayName>
+				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>ຫຼຽນເງິນ ເນເທີແລນ</displayName>
+				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>ກວານຊາ ແອງໂກລາ</displayName>
+				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>ກວານຊາ ແອງໂກລາ (1977-1991)</displayName>
@@ -5250,36 +5376,46 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ARS">
 				<displayName>ເປໂຊ ອາເຈນຕີນາ</displayName>
+				<symbol>ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>ຊິລລິງ ອົດສະຕາລີ</displayName>
 			</currency>
 			<currency type="AUD">
 				<displayName>ໂດລາ ອອດສະເຕເລຍ</displayName>
+				<symbol>A$</symbol>
 			</currency>
 			<currency type="AWG">
-				<displayName>ຟໍໂລລິນ ອາຣູບາ</displayName>
+				<displayName>ອະຣູແບນ ຟລໍຣິນ</displayName>
+				<displayName count="other">ຟລໍຣິນ</displayName>
+				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>ມານັດ ອາແຊກບາຍຊານ (1993-2006)</displayName>
 			</currency>
 			<currency type="AZN">
 				<displayName>ມານັດ ອາຊັກບາຍຊານ</displayName>
+				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>ດີນາ ບອສເນຍ ເຮີເຊໂບວາເນຍ (1992-1994)</displayName>
 			</currency>
 			<currency type="BAM">
 				<displayName>ມາກບອສເນຍ ເຮເຊໂກເວນາ</displayName>
+				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BAN">
 				<displayName>ດີນາໃໝ່ ບອສເນຍ ເຮີເຊໂບວີນາ(1994-1997)</displayName>
 			</currency>
 			<currency type="BBD">
-				<displayName>ດອນລາ ບາເບດຽນ</displayName>
+				<displayName>ໂດລ່າ ບາບາດຽນ</displayName>
+				<displayName count="other">ດອນລາ ບາເບດຽນ</displayName>
+				<symbol>BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>ຕາກາ ບັງກາເດດ</displayName>
+				<displayName count="other">BDT</displayName>
+				<symbol>BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>ຟຣັງ ບູນກາລີ (ປ່ຽນແປງໄດ້)</displayName>
@@ -5298,24 +5434,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BGN">
 				<displayName>ເລບ ບັງແກເຣຍ</displayName>
+				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BGO">
 				<displayName>ເລບ ບູນກາລີ (1879-1952)</displayName>
 			</currency>
 			<currency type="BHD">
 				<displayName>ດີນາ ບາເຣນ</displayName>
+				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>ຟຣັງ ບຸຣັນດີ</displayName>
+				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
-				<displayName draft="provisional">ດອນລາ ເບີມູແດນ</displayName>
+				<displayName>ໂດລ່າເບີມູແດນ</displayName>
+				<displayName count="other">ໂດລ່າເບີມູແດນ</displayName>
+				<symbol>BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>ໂດລາ ບຣູໄນ</displayName>
+				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>ໂບລິເວຍໂນ ໂລລິເວຍ</displayName>
+				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName>ໂລລິເວຍໂນ ໂລລິເວຍ (1863-1963)</displayName>
@@ -5337,6 +5480,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BRL">
 				<displayName>ຣຽນ ບຣາຊິນ</displayName>
+				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>ກຣູຊາໂດ ບາຊິວ ໃໝ່ (1989-1990)</displayName>
@@ -5348,38 +5492,48 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ກຣູເຊໂຣ ບາຊິວ (1942-1967)</displayName>
 			</currency>
 			<currency type="BSD">
-				<displayName>ດອນລາ ບາຮາມາສ</displayName>
+				<displayName>ໂດລ່າ ບາຮາມຽນ</displayName>
+				<displayName count="other">ໂດລ່າ ບາຮາມຽນ</displayName>
+				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>ອັງກູຕຣາມ ບູຖານ</displayName>
+				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>ຈາດ ພະມ້າ</displayName>
 			</currency>
 			<currency type="BWP">
 				<displayName>ປູລາ ບອສວານາ</displayName>
+				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>ຣູໂບ ເບຣາຣຸສ ໃໝ່(1994-1999)</displayName>
 			</currency>
 			<currency type="BYR">
 				<displayName>ຣູໂບ ເບຣາຣູສ</displayName>
+				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
-				<displayName>ເບຊິວ ໂດລາ</displayName>
+				<displayName>ໂດລ່າ ເບວລິຊ</displayName>
+				<displayName count="other">ໂດລ່າ ເບວລິຊ</displayName>
+				<symbol>BZD</symbol>
 			</currency>
 			<currency type="CAD">
-				<displayName>ໂດລາ ການາດາ</displayName>
-				<symbol draft="provisional">CA$</symbol>
+				<displayName>ໂດລ່າຄານາດາ</displayName>
+				<displayName count="other">ໂດລ່າຄານາດາ</displayName>
+				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>ຟຣັງ ຄອງໂກ</displayName>
+				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>ເອີໂຣ WIR</displayName>
 			</currency>
 			<currency type="CHF">
 				<displayName>ຟຣັງ ສະວິດເຊີແລນ</displayName>
+				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>ຟຣັງ WIR</displayName>
@@ -5392,18 +5546,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="CLP">
 				<displayName>ເປໂຊ ຊິລີ</displayName>
+				<symbol>CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>ຢວນ ຈີນ</displayName>
+				<symbol>CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>ເປໂຊໂຄລຳເບຍ</displayName>
+				<symbol>COP</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>ຫົວໜ່ວຍຄ່າຈິງ ໂຄລັມເບຍ</displayName>
 			</currency>
 			<currency type="CRC">
-				<displayName draft="provisional">ໂຄລອນ ໂຄສຕາລີກາ</displayName>
+				<displayName>ໂຄສຕາ ຣິກັນ ໂຄລອນ</displayName>
+				<displayName count="other">ໂຄລອນ</displayName>
+				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>ດີນາ ເຊີເບຍ (2002-2006)</displayName>
@@ -5412,19 +5571,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ຮາດໂກຣູນາ ເຊັກໂກສະໂລວັກ</displayName>
 			</currency>
 			<currency type="CUC">
-				<displayName>ຄິວບາເປໂຊທີ່ແລກປ່ຽນໄດ້</displayName>
+				<displayName>ຄິວແບນ ຄອນເວີດຕິໂບ ເປໂຊ</displayName>
+				<displayName count="other">ຄິວແບນ ຄອນເວີດຕິໂບ ເປໂຊ</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
-				<displayName>ຄິວບາເປໂຊ</displayName>
+				<displayName>ຄິວແບນ ເປໂຊ</displayName>
+				<displayName count="other">ຄິວແບນ ເປໂຊ</displayName>
+				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>ເອສກູໂດ ເຄບເວີດ</displayName>
+				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>ປອນ ໄຊປຣັດ</displayName>
 			</currency>
 			<currency type="CZK">
 				<displayName>ໂຄຣູນາ ສາທາລະນະລັດເຊັກ</displayName>
+				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>ມາກ ເຢຍລະມັນ ຕາເວັນອອກ</displayName>
@@ -5434,15 +5599,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="DJF">
 				<displayName>ຟຣັງ ຈິບູຕິ</displayName>
+				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>ໂຄຣນ ເດັນມາກ</displayName>
+				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>ເປໂຊໂດມິນິການ</displayName>
+				<symbol>DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>ດີນາ ອາຍຈີເຣຍ</displayName>
+				<symbol>DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>ຊູເກ ເອກາວາດໍ</displayName>
@@ -5455,9 +5624,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="EGP">
 				<displayName>ປອນ ອີຢິບ</displayName>
+				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>ແນກຟຣາ ອີຣິເທຣຍ</displayName>
+				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>ເປເຊຕາສະເປັນ (ບັນຊີ)</displayName>
@@ -5470,45 +5641,55 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ETB">
 				<displayName>ເບີ ເອທີໂອເປຍ</displayName>
+				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>ເອີໂຣ</displayName>
+				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>ມາກກາ ຟິນແລນ</displayName>
 			</currency>
 			<currency type="FJD">
 				<displayName>ໂດລາ ຟິຈິ</displayName>
+				<symbol>FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>ປອນ ໝູ່ເກາະ ຟໍແລນ</displayName>
+				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>ຟຣັງ ຝຣັ່ງ</displayName>
 			</currency>
 			<currency type="GBP">
 				<displayName>ປອນສະເຕີຣິງ (ອັງກິດ)</displayName>
+				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName>ກູປອນ ລາຣິທ ຈໍເຈຍ</displayName>
 			</currency>
 			<currency type="GEL">
 				<displayName>ລາຣິ ຈໍເຈຍ</displayName>
+				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>ເຊດີ ການາ (1979-2007)</displayName>
 			</currency>
 			<currency type="GHS">
 				<displayName>ເຊດີການາ</displayName>
+				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>ປອນ ຍິບຣາຕາ</displayName>
+				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>ດາລາຊິ ແກມເບຍ</displayName>
+				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>ຟຣັງ ກິນີ</displayName>
+				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>ໄຊລິ ກີນີ</displayName>
@@ -5520,7 +5701,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ດາກຊະມາ ເກຣັກ</displayName>
 			</currency>
 			<currency type="GTQ">
-				<displayName>ກົວຊໍ ກົວເຕມາລາ</displayName>
+				<displayName>ກົວເຕມາລານ ເຄັດຊອນ</displayName>
+				<displayName count="other">ເຄັດຊອນ</displayName>
+				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>ເອສກູໂດ ກີນີໂປຕູເກດ</displayName>
@@ -5530,27 +5713,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="GYD">
 				<displayName>ດອນລາ ກາຍອານາ</displayName>
+				<symbol>GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>ດອນລາ ຮົງກົງ</displayName>
+				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
-				<displayName>ແລມປີລາ ຮອນດູຣານ</displayName>
+				<displayName>ຮອນດູແຣນ ເລມພິຣາ</displayName>
+				<displayName count="other">ເລມພິຣາ</displayName>
+				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>ດີນາ ໂຄຣເອເຊຍ</displayName>
 			</currency>
 			<currency type="HRK">
 				<displayName>ຄູນາ ໂກຣເອເຊຍ</displayName>
+				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>ກູດເຮຕິ</displayName>
+				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>ຟໍຣິນ ຮົງກາຣີ</displayName>
+				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>ຣູປີ ອິນໂດເນເຊຍ</displayName>
+				<symbol>IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>ປອນ ໄອຣິຊ</displayName>
@@ -5560,45 +5751,58 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ILS">
 				<displayName>ນິວເຊເກນ ອີສະລາແອນ</displayName>
+				<symbol>₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>ຣູປີ ອິນເດຍ</displayName>
+				<symbol>₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>ດີນາ ອີຣັກ</displayName>
+				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>ຣີວ ອີຣ່ານ</displayName>
+				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>ໂຄຣນາ ໄອສແລນ</displayName>
+				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>ລິຣາ ອີຕາລີ</displayName>
 			</currency>
 			<currency type="JMD">
 				<displayName>ດອນລາ ຈາເມກາ</displayName>
+				<symbol>JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>ດີນາ ຈໍແດນ</displayName>
+				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>ເຢນ ຍີ່ປຸ່ນ</displayName>
+				<symbol>JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>ຊິລລິງ ເຄນຢາ</displayName>
+				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>ໂຊມ ຄຣີກິສະຖານ</displayName>
+				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>ຫຼຽນກຳປູເຈ້ຍ</displayName>
+				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>ຟຣັງ ໂກໂມໂຣສ</displayName>
+				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>ວອນ ເກົາຫຼີເໜືອ</displayName>
+				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRH">
 				<displayName>ຮາວານ ເກົາຫຼີເນື້</displayName>
@@ -5608,34 +5812,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="KRW">
 				<displayName>ວອນ ເກົາຫຼີໃຕ້</displayName>
+				<symbol>₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>ດີນາ ຄູເວດ</displayName>
+				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>ດອນລາໝູ່ເກາະເກແມນ</displayName>
+				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>ເຕັງເຈ ກາຊັກສະຖານ</displayName>
+				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>ກີບ ລາວ</displayName>
-				<symbol>₭</symbol>
+				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>ປອນ ເລບານອນ</displayName>
+				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>ຣູປີ ສີຣັງກາ</displayName>
+				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>ດອນລາ ໄລບິເລຍ</displayName>
+				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>ໂລຕິ ເລໂຊໂຕ</displayName>
 			</currency>
 			<currency type="LTL">
 				<displayName>ລິຕັສ ລິທົວເນຍ</displayName>
+				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>ທາໂລນັສ ລິທົວເນຍ</displayName>
@@ -5651,15 +5863,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="LVL">
 				<displayName>ລັສ ລັດເວຍ</displayName>
+				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>ຣູໂບ ລາວຽນ</displayName>
 			</currency>
 			<currency type="LYD">
 				<displayName>ດີນາ ລິເບຍ</displayName>
+				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>ດີຮາມ ໂມລອກໂກ</displayName>
+				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>ຟຣັງ ໂມຣອກໂກ</displayName>
@@ -5672,15 +5887,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MDL">
 				<displayName>ເລອູ ມອງໂດວາ</displayName>
+				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>ອາເຣຍຣີ ມາດາກາສກາ</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>ຟຣັງ ມາດາກັດສະກາ</displayName>
 			</currency>
 			<currency type="MKD">
 				<displayName>ເດນາ ມາຊິໂດເນຍ</displayName>
+				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MKN">
 				<displayName>ດີນາ ມາຊີໂດເນຍ (1992-1993)</displayName>
@@ -5690,15 +5908,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MMK">
 				<displayName>ຈາດ ມ່ຽນມາ</displayName>
+				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>ຕຸກຣີ ມົງໂກເລຍ</displayName>
+				<symbol>MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>ປາຕາກາ ມາເກົາ</displayName>
 			</currency>
 			<currency type="MRO">
 				<displayName>ອໍກິວຢາ ມໍຣິເຕເນຍ</displayName>
+				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>ລິຣາ ມອນຕາ</displayName>
@@ -5708,15 +5929,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MUR">
 				<displayName>ຣູປີ ມໍຣີເຊຍ</displayName>
+				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>ຣູຟີຢາ ມາດີເວຍ</displayName>
+				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>ຄວາຊາມາລາວີ</displayName>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
-				<displayName>ເມັກຊີເກນ ປີໂຊ</displayName>
+				<displayName>ເມັກຊິກັນ ເປໂຊ</displayName>
+				<displayName count="other">ເປໂຊ</displayName>
+				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>ຫົວໜ່ວຍເງິນ ເປໂຊ ແມັກຊິໂກ(1861-1992)</displayName>
@@ -5726,6 +5952,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MYR">
 				<displayName>ຣິງກິດ ມາເລເຂຍ</displayName>
+				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>ເອສກູໂດ ໂມຊຳບິກ</displayName>
@@ -5735,57 +5962,73 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MZN">
 				<displayName>ເມຕິຄໍ ໂມຊັມບິກ</displayName>
+				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>ດອນລາ ນາມິເບຍ</displayName>
+				<symbol>NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>ໄນຣາ ໄນຈີເຣຍ</displayName>
+				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>ຄໍໂດບາ ນິກາຣາກົວ (1988-1991)</displayName>
 			</currency>
 			<currency type="NIO">
-				<displayName>ໂຄໂດບາ ນິກາຣາກົວ</displayName>
+				<displayName>ນິກາຣາກວນ ໂຄໂດບາ</displayName>
+				<displayName count="other">ໂຄໂດບາ</displayName>
+				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>ກິລເດີ ເນເທີແລນ</displayName>
 			</currency>
 			<currency type="NOK">
 				<displayName>ໂຄຣນ ນອກເວ</displayName>
+				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>ຣູປີ ເນປານ</displayName>
+				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>ໂດລາ ນີວຊີແລນ</displayName>
+				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>ຣຽວ ໂອມານ</displayName>
+				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
-				<displayName>ບາລບົວ ປານາມາ</displayName>
+				<displayName>ພານາມານຽນ ບອນບົວ</displayName>
+				<displayName count="other">ບອນບົວ</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>ອິນຕິ ເປຣູ</displayName>
 			</currency>
 			<currency type="PEN">
 				<displayName>ນູໂວຊໍ ເປຣູ</displayName>
+				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>ໂຊນ ເປຣູ (1863-1965)</displayName>
 			</currency>
 			<currency type="PGK">
 				<displayName>ກີນາ ປາປົວນີວກຸນນີນ</displayName>
+				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>ເປໂຊ ຟີລິປິນ</displayName>
+				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>ຣູປີ ປາກີສະຖານ</displayName>
+				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>ຊລໍຕີ ໂປແລນ</displayName>
+				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>ຊະລອສຕີ ໂປແລນ (1950-1995)</displayName>
@@ -5795,9 +6038,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="PYG">
 				<displayName>ກວາຣານີ ປາຣາກວາຍ</displayName>
+				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>ຣຽວ ກາຕາ</displayName>
+				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>ດອນລາ ໂຣດີເຊຍ</displayName>
@@ -5807,45 +6052,56 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="RON">
 				<displayName>ເລອູ ໂຣມາເນຍ</displayName>
+				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>ດີນາ ເຊີເບຍ</displayName>
+				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>ຣູໂລ ຣັດເຊຍ</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>ຣູໂບ ຣັດເຊຍ (1991-1998)</displayName>
 			</currency>
 			<currency type="RWF">
 				<displayName>ຟຣັງ ວັນດາ</displayName>
+				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>ຣີຢອນ ຊາອຸດິດອາຣາບີ</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>ໂດລາ ໝູ່ເກາະໂຊໂລມອນ</displayName>
+				<symbol>SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>ຣູປີ ເຊເຊລ</displayName>
+				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>ດີນາ ຊູດານເກົ່າ</displayName>
 			</currency>
 			<currency type="SDG">
 				<displayName>ປອນ ຊູດານ</displayName>
+				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>ປອນ ຊູດານເກົ່າ</displayName>
 			</currency>
 			<currency type="SEK">
 				<displayName>ໂຄຣນາ ສະວີເດັນ</displayName>
+				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>ໂດລາ ສິງກະໂປ</displayName>
+				<symbol>SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>ປອນ ເຊັນເຮເຣນາ</displayName>
+				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>ໂຕລາ ສະໂລວິເນຍ</displayName>
@@ -5855,21 +6111,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="SLL">
 				<displayName>ເລໂອນ ຊີລາເລໂອນ</displayName>
+				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>ຊິລລິງ ໂຊມາເລຍ</displayName>
+				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>ດອນລາ ຊູຣິນາເມ</displayName>
+				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>ກິລເດີ ຊູຣິນາເມ</displayName>
 			</currency>
 			<currency type="SSP">
 				<displayName>ປອນ ຊູດານໃຕ້</displayName>
+				<symbol>SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>ໂດບຣາ ຊາວຕົວເມ ແລະ ປຣິນຊິບປີ</displayName>
+				<symbol>STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>ຣູໂບ ໂຊວຽດ</displayName>
@@ -5879,30 +6140,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="SYP">
 				<displayName>ປອນ ຊິເຣຍ</displayName>
+				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>ລິລັນກິນີ ສະວາຊິແລນ</displayName>
+				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>ບາດ ໄທ</displayName>
+				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>ຣູໂບ ຕັຈີກິສຖານ</displayName>
 			</currency>
 			<currency type="TJS">
 				<displayName>ໂຊໂມນີ ທາຈິກິສຖານ</displayName>
+				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>ມານັດ ຕວກເມນິສຖານ (1966-1987)</displayName>
 			</currency>
 			<currency type="TMT">
 				<displayName>ເມນັດ ຕວກເມນິດສະຖານ</displayName>
+				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>ດີນາ ຕູນີເຊຍ</displayName>
+				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>ປາອັງກາ ຕອງກາ</displayName>
+				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>ເອສກູໂດ ຕີມໍ</displayName>
@@ -5912,18 +6180,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="TRY">
 				<displayName>ລິຣາ ເທີກີ</displayName>
+				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>ດອນລາທຣິນິແດດ ແລະ ໂທເບໂກ</displayName>
+				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>ໂດລາ ໄຕຫວັນ</displayName>
+				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>ຊິລລິງ ຕາຊາເນຍ</displayName>
+				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>ຮາຣິບເນຍ ຢູເຄຣນ</displayName>
+				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>ຄາໂບວາເນດ ອູແກຣນ</displayName>
@@ -5933,9 +6206,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="UGX">
 				<displayName>ຊິລລິງ ອູການດາ</displayName>
+				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
-				<displayName>ໂດລາ ອາເມຣິກາ</displayName>
+				<displayName>ໂດລ່າ ສະຫະລັດຯ</displayName>
+				<displayName count="other">ໂດລ່າ ສະຫະລັດຯ</displayName>
 				<symbol>US$</symbol>
 			</currency>
 			<currency type="USN">
@@ -5952,30 +6227,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="UYU">
 				<displayName>ເປໂຊ ອູຣູກວາຍ</displayName>
+				<symbol>UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>ໂຊມ ອຸສເບກິສຖາານ</displayName>
+				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>ໂບລີວາ ເວເນຊູເອລາ (1871-2008)</displayName>
 			</currency>
 			<currency type="VEF">
 				<displayName>ໂບລິວາ ເວເນຊູເອລາ</displayName>
+				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>ດົງ ຫວຽດນາມ</displayName>
+				<symbol>₫</symbol>
 			</currency>
 			<currency type="VNN">
 				<displayName>ດົງ ຫວຽດນາມ (1978-1985)</displayName>
 			</currency>
 			<currency type="VUV">
 				<displayName>ວາຕູ ວານົວຕູ</displayName>
+				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>ຕາລາ ຊາມົວ</displayName>
+				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>ຟຣັງ ເຊຟານ ທະນາຄານລັດອາຟຣິກາກາງ</displayName>
+				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName>ເງິນ</displayName>
@@ -5997,6 +6279,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XCD">
 				<displayName>ດອນລາຄາຣີບຽນຕາເວັນອອກ</displayName>
+				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>ສິດທິຖອນເງິນພິເສດ</displayName>
@@ -6012,12 +6295,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XOF">
 				<displayName>ຟັງເຊຟານ ອາຟຣິກາຕາເວັນຕົກ</displayName>
+				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName>ແພເລດຽມ</displayName>
 			</currency>
 			<currency type="XPF">
 				<displayName>ຊີເອັບພີ ຝຣັ່ງ</displayName>
+				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName>ແພລັດຕິນຳ</displayName>
@@ -6029,13 +6314,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ລະຫັດທົດສອບສະກຸນເງິນ</displayName>
 			</currency>
 			<currency type="XXX">
-				<displayName>ບໍ່ມີຫົວໜ່ວຍສະກຸນເງິນ</displayName>
+				<displayName>ສະກຸນເງິນທີ່ບໍ່ຮູ້ຈັກ</displayName>
+				<displayName count="other">ສະກຸນເງິນທີ່ບໍ່ຮູ້ຈັກ</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>ດີນາ ເຢເມນ</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>ຣຽວ ເຢເມນ</displayName>
+				<symbol>YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>ຮາດດີນາ ຢູໂກສະລາວີ</displayName>
@@ -6054,12 +6341,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ZAR">
 				<displayName>ແຣນ ອາຟຣິກາໃຕ້</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>ຄວາຊາ ຊັມເບຍ (1968-2012)</displayName>
 			</currency>
 			<currency type="ZMW">
 				<displayName>ຄວາຊາ ຊັມເບຍ</displayName>
+				<symbol>ZMW</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>ແຊ ຄອງໂກໃໝ່</displayName>
@@ -6077,26 +6366,66 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ດອນລາ ຊິມບັບເວ (2008)</displayName>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="range">{0}–{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0} ຕໍ່ {1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other">{0} ແຮງຈີ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0} ອົງສາ</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other">{0} ນາທີ</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other">{0} ວິນາທີ</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0} ເອເຄີ</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0} ເຮັກຕາ</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0} ກິໂລຕາແມັດ</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other">{0} ຕາແມັດ</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0} ຕາໄມ</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="other">{0} ມື້</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="other">+{0} ມື້</unitPattern>
+				<unitPattern count="other">ໃນອີກ {0} ມື້</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
-				<unitPattern count="other">-{0} ມື້</unitPattern>
+				<unitPattern count="other">{0} ມື້ກ່ອນ</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} ຊົ່ວໂມງ</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
-				<unitPattern count="other">+{0} ໃນອີກ 0 ຊົ່ວໂມງ</unitPattern>
+				<unitPattern count="other">ໃນອີກ {0} ຊົ່ວໂມງ</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
-				<unitPattern count="other">-{0} ຊົ່ວໂມງ</unitPattern>
+				<unitPattern count="other">{0} ຊົ່ວໂມງ</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0} ມິນລີວິນາທີ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} ນາທີ</unitPattern>
@@ -6105,51 +6434,524 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ໃນອີກ 0 ນາທີ</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
-				<unitPattern count="other">-{0} ນາທີທີ່ຜ່ານມາ</unitPattern>
+				<unitPattern count="other">{0} ນາທີກ່ອນ</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0} ເດືອນ</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
-				<unitPattern count="other">+{0} ໃນອີກ 0 ເດືອນ</unitPattern>
+				<unitPattern count="other">ໃນອີກ {0} ເດືອນ</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
-				<unitPattern count="other">-{0} 0ເດືອນທີ່ຜ່ານມາ</unitPattern>
+				<unitPattern count="other">{0} ເດືອນກ່ອນ</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} ວິນາທີ</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
-				<unitPattern count="other">+{0} ໃນອີກ0ວິນາທີ</unitPattern>
+				<unitPattern count="other">ໃນອີກ {0} ວິນາທີ</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
-				<unitPattern count="other">-{0} 0ວິນາທີທີ່ຜ່ານມາ</unitPattern>
+				<unitPattern count="other">{0} ວິນາທີກ່ອນ</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} ອາທິດ</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
-				<unitPattern count="other">+{0} ໃນອີກ0ອາທິດ</unitPattern>
+				<unitPattern count="other">ໃນອີກ {0} ອາທິດ</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
-				<unitPattern count="other">-{0} ອາທິດທີ່ຜ່ານມາ</unitPattern>
+				<unitPattern count="other">{0} ອາທິດກ່ອນ</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0} ປີ</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
-				<unitPattern count="other">+{0} ໃນອີກ0ປີ</unitPattern>
+				<unitPattern count="other">ໃນອີກ {0} ປີ</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
-				<unitPattern count="other">-{0} ປີທີ່ແລ້ວ</unitPattern>
+				<unitPattern count="other">{0} ປີກ່ອນ</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other">{0} ຊັງຕີແມັດ</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other">{0} ຟຸດ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other">{0} ນິ້ວ</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other">{0} ກິໂລແມັດ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0} ປີແສງ</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other">{0} ແມັດ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other">{0} ໄມ</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other">{0} ມິນລິແມັດ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other">{0} ປິໂກແມັດ</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other">{0} ຫລາ</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other">{0} ກຣາມ</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other">{0} ກິໂລກຣາມ</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0} ອອນ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0} ປອນ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0} ແຮງມ້າ</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other">{0} ກິໂລວັດ</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other">{0} ວັດ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0} ມິນລິບາ</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other">{0} ກິໂລແມັດຕໍ່ຊົ່ວໂມງ</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other">{0} ແມັດຕໍ່ນາທີ</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other">{0} ໄມຕໍ່ຊົ່ວໂມງ</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other">{0} ອົງສາເຊວຊຽສ</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other">{0} ອົງສາຟາເຣນຮາຍ</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0} ກິໂລແມັດກ້ອນ</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other">{0} ໄມກ້ອນ</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other">{0} ລິດ</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other">{0} g force</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0} ອົງສາ</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other">{0} ນທ.</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other">{0} ວິ.</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0} ເອເຄີ</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0} ຮຕ.</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other">{0} m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0} mi²</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="other">{0} ມື້</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other">ໃນອີກ {0} ມື້</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other">{0} ມື້ກ່ອນ</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0} ຊມ.</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other">ໃນອີກ {0} ຊມ.</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other">{0} ຊມ.</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0} ມລ ວິນາທີ</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0} ນທ.</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other">ໃນອີກ {0} ນທ.</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other">{0} ນທ. ກ່ອນ</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} ດ.</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other">ໃນອີກ {0} ດ.</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other">{0} ດ. ກ່ອນ</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0} ວິ.</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other">ໃນອີກ {0} ວິ</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other">{0} ວິ. ກ່ອນ</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} ອທ.</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other">ໃນອີກ {0} ອທ.</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other">{0} ອທ. ກ່ອນ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0} ປີ</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other">ໃນອີກ {0} ປີ</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other">{0} ປີກ່ອນ</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other">{0} ຊມ</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other">{0} ຟ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other">{0} ນິ</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other">{0} ກມ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0} ປສ</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other">{0} ມ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other">{0} ໄມ</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other">{0} ມິນ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other">{0} ປກມ</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other">{0} ຫລາ</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other">{0} ກຼ</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other">{0} ກິໂລ</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0} ອ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0} ປ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0} hp</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other">{0} ກລ. ວັດ</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0} ມິນ. ບາ</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other">{0} ກມ/ຊມ</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other">{0} ມ/ນທ</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other">{0} ໄມ/ຊມ</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other">{0} ອົງສາ ຊີ.</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other">{0} ອົງສາ ຟ.</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other">{0} ລິດ</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern>h:mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern>m:ss</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0} ຮຕ</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0} ft²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other">{0} m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0} mi²</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="other">{0} ມື້</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other">ໃນອີກ {0} ມື້</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other">{0} ມື້ກ່ອນ</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0} ຊມ</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other">ໃນອີກ {0} ຊມ</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other">{0} ຊມ</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0} ມລ. ວິ.</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0} ນທ</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other">ໃນອີກ {0} ນທ</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other">{0} ນທ ກ່ອນ</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} ດ</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other">ໃນອີກ {0} ດ</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other">{0} ດ ກ່ອນ</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0} ວິ</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other">ໃນອີກ {0} ວິ</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other">{0} ວິ. ກ່ອນ</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} ອທ</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other">ໃນອີກ {0} ອທ</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other">{0} ອທ ກ່ອນ</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0} ປ</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other">ໃນອີກ {0} ປ</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other">{0} ປີກ່ອນ</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other">{0} ຊມ</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other">{0} ຟ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other">{0} ນ</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other">{0} ກມ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0} ປສ</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other">{0} ມ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other">{0} ໄມ</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other">{0} ມິນ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other">{0} ປກມ</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other">{0} ຫລາ</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other">{0} ກຼ</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other">{0} ກລ</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0} ອ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0} ປ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0} hp</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other">{0} kW</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other">{0} W</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0} ມິນ. ບາ</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other">{0} km/h</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other">{0} m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other">{0} mi/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other">{0} ອົງສາ ຊີ.</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other">{0} ອົງສາ ຟ.</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other">{0} ລ</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0} ແລະ {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
 	<posix>
 		<messages>
-			<yesstr>ມີ</yesstr>
-			<nostr>ບໍ່ມີ</nostr>
+			<yesstr>ແມ່ນ</yesstr>
+			<nostr>ບໍ່ແມ່ນ</nostr>
 		</messages>
 	</posix>
 </ldml>
-

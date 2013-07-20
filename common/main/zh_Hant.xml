@@ -14,8 +14,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0}（{1}）</localePattern>
-			<localeSeparator draft="contributed">{0}，{1}</localeSeparator>
-			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
+			<localeSeparator>{0}，{1}</localeSeparator>
+			<localeKeyTypePattern>{0}：{1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa">阿法文</language>
@@ -41,6 +41,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="anp">昂加文</language>
 			<language type="apa">阿帕切諸語言</language>
 			<language type="ar">阿拉伯文</language>
+			<language type="ar_001">現代標準阿拉伯文</language>
 			<language type="arc">阿拉米文</language>
 			<language type="arn">阿勞坎文</language>
 			<language type="arp">阿拉帕霍文</language>
@@ -55,7 +56,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="awa">阿瓦文</language>
 			<language type="ay">艾馬拉文</language>
 			<language type="az">亞塞拜然文</language>
-			<language type="az" alt="short" draft="contributed">亞塞拜然文</language>
+			<language type="az" alt="short">亞塞拜然文</language>
 			<language type="ba">巴什客爾文</language>
 			<language type="bad">班達文</language>
 			<language type="bai">巴米累克諸語言</language>
@@ -152,7 +153,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="dv">迪維西文</language>
 			<language type="dyo" draft="contributed">朱拉文</language>
 			<language type="dyu">迪尤拉文</language>
-			<language type="dz">不丹文</language>
+			<language type="dz">宗卡文</language>
 			<language type="dzg" draft="contributed">達薩文</language>
 			<language type="ebu" draft="contributed">恩布文</language>
 			<language type="ee">埃維文</language>
@@ -165,12 +166,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU" draft="provisional">英文 (澳洲)</language>
 			<language type="en_CA" draft="provisional">英文 (加拿大)</language>
 			<language type="en_GB" draft="provisional">英文 (英國)</language>
+			<language type="en_GB" alt="short" draft="provisional">英文 (英國)</language>
 			<language type="en_US" draft="provisional">英文 (美國)</language>
+			<language type="en_US" alt="short" draft="provisional">英文 (美國)</language>
 			<language type="enm">中古英文</language>
-			<language type="eo">世界語</language>
+			<language type="eo">世界文</language>
 			<language type="es">西班牙文</language>
 			<language type="es_419" draft="provisional">西班牙文 (拉丁美洲)</language>
 			<language type="es_ES" draft="provisional">西班牙文 (歐洲)</language>
+			<language type="es_MX" draft="provisional">西班牙文 (墨西哥)</language>
 			<language type="et">愛沙尼亞文</language>
 			<language type="eu">巴斯克文</language>
 			<language type="ewo">依汪都文</language>
@@ -185,7 +189,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="fo">法羅文</language>
 			<language type="fon">豐文</language>
 			<language type="fr">法文</language>
-			<language type="fr_CA" draft="provisional">法文 (加拿大)</language>
+			<language type="fr_CA" draft="provisional">法文（加拿大）</language>
 			<language type="fr_CH" draft="provisional">法文 (瑞士)</language>
 			<language type="frm">中古法文</language>
 			<language type="fro">古法文</language>
@@ -197,7 +201,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="gaa">加族文</language>
 			<language type="gay">加約文</language>
 			<language type="gba">葛巴亞文</language>
-			<language type="gd">蘇格蘭 - 蓋爾文</language>
+			<language type="gd">蘇格蘭蓋爾文</language>
 			<language type="gem" draft="contributed">日耳曼諸語言</language>
 			<language type="gez">吉茲文</language>
 			<language type="gil">吉爾伯特群島文</language>
@@ -211,7 +215,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="grb">格列博文</language>
 			<language type="grc">古希臘文</language>
 			<language type="gsw">德文（瑞士）</language>
-			<language type="gu">吉亞拉塔文</language>
+			<language type="gu">古吉拉特文</language>
 			<language type="guz" draft="contributed">古西文</language>
 			<language type="gv">曼島文</language>
 			<language type="gwi">圭契文</language>
@@ -245,7 +249,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="inc">印度諸語言</language>
 			<language type="ine">印歐諸語言</language>
 			<language type="inh">印古什文</language>
-			<language type="io">伊朗文</language>
+			<language type="io">伊多文</language>
 			<language type="ira">伊朗諸語言</language>
 			<language type="iro">易洛魁文</language>
 			<language type="is">冰島文</language>
@@ -294,7 +298,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="krl">卡累利阿文</language>
 			<language type="kro">克魯文</language>
 			<language type="kru">庫魯科文</language>
-			<language type="ks">克什米爾文</language>
+			<language type="ks">喀什米爾文</language>
 			<language type="ksb" draft="contributed">尚巴拉文</language>
 			<language type="ksf" draft="contributed">巴菲亞文</language>
 			<language type="ksh" draft="contributed">科隆文</language>
@@ -314,7 +318,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="lg">干達文</language>
 			<language type="li">林堡文</language>
 			<language type="ln">林加拉文</language>
-			<language type="lo">寮國文</language>
+			<language type="lo">寮文</language>
 			<language type="lol">芒戈文</language>
 			<language type="loz">洛齊文</language>
 			<language type="lt">立陶宛文</language>
@@ -339,7 +343,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="mdr">曼達文</language>
 			<language type="men">門德文</language>
 			<language type="mer" draft="contributed">梅魯文</language>
-			<language type="mfe" draft="provisional">克里奧文（模里西斯）</language>
+			<language type="mfe" draft="contributed">克里奧文（模里西斯）</language>
 			<language type="mg">馬爾加什文</language>
 			<language type="mga" draft="contributed">中古愛爾蘭文</language>
 			<language type="mgh" draft="contributed">馬夸文</language>
@@ -376,7 +380,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="nai">北美印第安諸語言</language>
 			<language type="nap">拿波里文</language>
 			<language type="naq" draft="contributed">納馬文</language>
-			<language type="nb">挪威波克默爾文</language>
+			<language type="nb">巴克摩挪威文</language>
 			<language type="nd">北地畢列文</language>
 			<language type="nds" draft="contributed">低地德文</language>
 			<language type="ne">尼泊爾文</language>
@@ -386,9 +390,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="nic">尼日爾科爾多凡諸語言</language>
 			<language type="niu">紐埃文</language>
 			<language type="nl">荷蘭文</language>
-			<language type="nl_BE" draft="contributed">法蘭德斯文</language>
+			<language type="nl_BE">佛蘭芒文</language>
 			<language type="nmg" draft="contributed">夸西奧文</language>
-			<language type="nn">新挪威文</language>
+			<language type="nn">耐諾斯克挪威文</language>
 			<language type="nnh" draft="contributed">恩甘澎文</language>
 			<language type="no">挪威文</language>
 			<language type="nog">諾蓋文</language>
@@ -398,7 +402,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="nso">北索托文</language>
 			<language type="nub">努比亞諸語言</language>
 			<language type="nus" draft="contributed">努埃爾文</language>
-			<language type="nv">納瓦約文</language>
+			<language type="nv">納瓦霍文</language>
 			<language type="nwc">古尼瓦爾文</language>
 			<language type="ny">尼揚賈文</language>
 			<language type="nym">尼揚韋齊文</language>
@@ -408,7 +412,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="oc">奧克西坦文</language>
 			<language type="oj">奧杰布瓦文</language>
 			<language type="om">奧羅莫文</language>
-			<language type="or">歐里亞文</language>
+			<language type="or">歐利亞文</language>
 			<language type="os">奧塞提文</language>
 			<language type="osa">歐塞奇文</language>
 			<language type="ota">鄂圖曼土耳其文</language>
@@ -429,15 +433,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="pra">普拉克里特諸語言</language>
 			<language type="pro" draft="contributed">古普羅旺斯文</language>
 			<language type="ps">普什圖文</language>
-			<language type="ps" alt="variant" draft="contributed">普什圖語</language>
+			<language type="ps" alt="variant">普什圖文</language>
 			<language type="pt">葡萄牙文</language>
-			<language type="pt_BR" draft="provisional">葡萄牙文 (巴西)</language>
+			<language type="pt_BR">葡萄牙文（巴西）</language>
 			<language type="pt_PT" draft="provisional">葡萄牙文 (歐洲)</language>
-			<language type="qu">蓋丘亞文</language>
+			<language type="qu">蓋楚瓦文</language>
 			<language type="raj">拉賈斯坦諸文</language>
 			<language type="rap">復活島文</language>
 			<language type="rar">拉羅通加文</language>
-			<language type="rm">里托羅曼斯文</language>
+			<language type="rm">羅曼斯文</language>
 			<language type="rn" draft="contributed">隆迪文</language>
 			<language type="ro">羅馬尼亞文</language>
 			<language type="roa">羅曼諸語言</language>
@@ -502,7 +506,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ssa">尼羅撒哈拉諸語言</language>
 			<language type="ssy" draft="contributed">薩霍文</language>
 			<language type="st">塞索托文</language>
-			<language type="su">巽他語</language>
+			<language type="su">巽他文</language>
 			<language type="suk">蘇庫馬文</language>
 			<language type="sus">蘇蘇文</language>
 			<language type="sux">蘇美文</language>
@@ -554,10 +558,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="uga">烏加列文</language>
 			<language type="uk">烏克蘭文</language>
 			<language type="umb">姆本杜文</language>
-			<language type="und">不確定語言</language>
-			<language type="ur">烏爾都文</language>
+			<language type="und">未知語言</language>
+			<language type="ur">烏都文</language>
 			<language type="uz">烏茲別克文</language>
-			<language type="vai">瓦伊文</language>
+			<language type="vai">越南文（Vai）</language>
 			<language type="ve">溫達文</language>
 			<language type="vi">越南文</language>
 			<language type="vo">沃拉普克文</language>
@@ -570,7 +574,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="war">瓦瑞文</language>
 			<language type="was">瓦紹文</language>
 			<language type="wen">索布諸語言</language>
-			<language type="wo">沃爾夫文</language>
+			<language type="wo">沃洛夫文</language>
 			<language type="xal">卡爾梅克文</language>
 			<language type="xh">科薩文</language>
 			<language type="xog" draft="contributed">索加文</language>
@@ -586,6 +590,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="zap">薩波特克文</language>
 			<language type="zbl">布列斯符號</language>
 			<language type="zen">澤納加文</language>
+			<language type="zgh">標準摩洛哥塔馬塞特文</language>
 			<language type="zh">中文</language>
 			<language type="zh_Hans">簡體中文</language>
 			<language type="zh_Hant">繁體中文</language>
@@ -598,7 +603,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<scripts>
 			<script type="Afak" draft="contributed">阿法卡文字</script>
 			<script type="Arab">阿拉伯文</script>
-			<script type="Arab" alt="variant" draft="contributed">波斯阿拉伯文字</script>
+			<script type="Arab" alt="variant">波斯阿拉伯文字</script>
 			<script type="Armi">皇室亞美尼亞文</script>
 			<script type="Armn">亞美尼亞文</script>
 			<script type="Avst" draft="contributed">阿維斯陀文</script>
@@ -610,7 +615,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Blis">布列斯文</script>
 			<script type="Bopo">注音符號</script>
 			<script type="Brah">婆羅米文</script>
-			<script type="Brai">盲人用點字法</script>
+			<script type="Brai">盲人用點字</script>
 			<script type="Bugi">布吉斯文</script>
 			<script type="Buhd">布希德文</script>
 			<script type="Cakm">查克馬文</script>
@@ -629,7 +634,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Egyd">古埃及世俗體</script>
 			<script type="Egyh">古埃及僧侶體</script>
 			<script type="Egyp">古埃及象形文字</script>
-			<script type="Ethi">衣索匹亞文</script>
+			<script type="Ethi">衣索比亞文</script>
 			<script type="Geok">格魯吉亞語系（阿索他路里和努斯克胡里文）</script>
 			<script type="Geor">喬治亞文</script>
 			<script type="Glag">格拉哥里文</script>
@@ -637,14 +642,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Gran" draft="contributed">格蘭他文字</script>
 			<script type="Grek">希臘文</script>
 			<script type="Gujr">古吉拉特文</script>
-			<script type="Guru">古爾穆奇文</script>
-			<script type="Hang">諺文</script>
+			<script type="Guru">古魯穆奇文</script>
+			<script type="Hang">韓文字</script>
 			<script type="Hani">漢語</script>
 			<script type="Hano">哈努諾文</script>
-			<script type="Hans">簡體中文</script>
-			<script type="Hans" alt="stand-alone" draft="contributed">簡體中文</script>
-			<script type="Hant">繁體中文</script>
-			<script type="Hant" alt="stand-alone" draft="contributed">繁體中文</script>
+			<script type="Hans">簡體字</script>
+			<script type="Hans" alt="stand-alone">簡體中文</script>
+			<script type="Hant">繁體字</script>
+			<script type="Hant" alt="stand-alone">繁體中文</script>
 			<script type="Hebr">希伯來文</script>
 			<script type="Hira">平假名</script>
 			<script type="Hluw" draft="contributed">安那托利亞象形文字</script>
@@ -735,7 +740,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Taml">坦米爾文</script>
 			<script type="Tang" draft="contributed">西夏文</script>
 			<script type="Tavt" draft="contributed">傣擔文</script>
-			<script type="Telu">泰魯古文</script>
+			<script type="Telu">泰盧古文</script>
 			<script type="Teng">談格瓦文</script>
 			<script type="Tfng">提非納文</script>
 			<script type="Tglg">塔加拉文</script>
@@ -753,10 +758,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<script type="Yiii">彞文</script>
 			<script type="Zinh" draft="contributed">繼承文字（Unicode）</script>
 			<script type="Zmth" draft="contributed">數學符號</script>
-			<script type="Zsym" draft="contributed">符號</script>
-			<script type="Zxxx" draft="contributed">非書寫語言</script>
+			<script type="Zsym">符號</script>
+			<script type="Zxxx">非書寫語言</script>
 			<script type="Zyyy">一般文字</script>
-			<script type="Zzzz" draft="contributed">未知文字</script>
+			<script type="Zzzz">未知文字</script>
 		</scripts>
 		<territories>
 			<territory type="001">世界</territory>
@@ -805,13 +810,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="AT">奧地利</territory>
 			<territory type="AU">澳洲</territory>
 			<territory type="AW">阿路巴</territory>
-			<territory type="AX">亞蘭群島</territory>
+			<territory type="AX">奧蘭群島</territory>
 			<territory type="AZ">亞塞拜然</territory>
 			<territory type="BA">波士尼亞與赫塞格維納</territory>
 			<territory type="BB">巴貝多</territory>
 			<territory type="BD">孟加拉</territory>
 			<territory type="BE">比利時</territory>
-			<territory type="BF">布基納法索</territory>
+			<territory type="BF">布吉納法索</territory>
 			<territory type="BG">保加利亞</territory>
 			<territory type="BH">巴林</territory>
 			<territory type="BI">蒲隆地</territory>
@@ -825,7 +830,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BS">巴哈馬</territory>
 			<territory type="BT">不丹</territory>
 			<territory type="BV">布威島</territory>
-			<territory type="BW">博茨瓦納</territory>
+			<territory type="BW">波札那</territory>
 			<territory type="BY">白俄羅斯</territory>
 			<territory type="BZ">貝里斯</territory>
 			<territory type="CA">加拿大</territory>
@@ -855,7 +860,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="DG">迪亞哥加西亞島</territory>
 			<territory type="DJ">吉布地</territory>
 			<territory type="DK">丹麥</territory>
-			<territory type="DM">多明尼加</territory>
+			<territory type="DM">多米尼克</territory>
 			<territory type="DO">多明尼加共和國</territory>
 			<territory type="DZ">阿爾及利亞</territory>
 			<territory type="EA">休達與梅利利亞</territory>
@@ -876,7 +881,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FR">法國</territory>
 			<territory type="GA">加彭</territory>
 			<territory type="GB">英國</territory>
-			<territory type="GD">格瑞納達</territory>
+			<territory type="GB" alt="short" draft="contributed">英國</territory>
+			<territory type="GD">格瑞那達</territory>
 			<territory type="GE">喬治亞共和國</territory>
 			<territory type="GF">法屬圭亞那</territory>
 			<territory type="GG">根西島</territory>
@@ -885,7 +891,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="GL">格陵蘭</territory>
 			<territory type="GM">甘比亞</territory>
 			<territory type="GN">幾內亞</territory>
-			<territory type="GP">哥德普洛</territory>
+			<territory type="GP">瓜地洛普</territory>
 			<territory type="GQ">赤道幾內亞</territory>
 			<territory type="GR">希臘</territory>
 			<territory type="GS">南喬治亞與南三明治群島</territory>
@@ -897,7 +903,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="HK" alt="short">香港</territory>
 			<territory type="HM">赫德與麥克當諾群島</territory>
 			<territory type="HN">宏都拉斯</territory>
-			<territory type="HR">克羅地亞</territory>
+			<territory type="HR">克羅埃西亞</territory>
 			<territory type="HT">海地</territory>
 			<territory type="HU">匈牙利</territory>
 			<territory type="IC">加那利群島</territory>
@@ -918,7 +924,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="KE">肯亞</territory>
 			<territory type="KG">吉爾吉斯</territory>
 			<territory type="KH">柬埔寨</territory>
-			<territory type="KI">基里巴斯</territory>
+			<territory type="KI">吉里巴斯</territory>
 			<territory type="KM">科摩羅群島</territory>
 			<territory type="KN">聖克里斯多福及尼維斯</territory>
 			<territory type="KP">北韓</territory>
@@ -941,7 +947,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MC">摩納哥</territory>
 			<territory type="MD">摩爾多瓦</territory>
 			<territory type="ME">蒙特內哥羅</territory>
-			<territory type="MF">聖馬丁</territory>
+			<territory type="MF">法屬聖馬丁</territory>
 			<territory type="MG">馬達加斯加</territory>
 			<territory type="MH">馬紹爾群島</territory>
 			<territory type="MK">馬其頓</territory>
@@ -954,11 +960,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MP">北馬里亞納群島</territory>
 			<territory type="MQ">馬丁尼克島</territory>
 			<territory type="MR">茅利塔尼亞</territory>
-			<territory type="MS">蒙特色拉特島</territory>
+			<territory type="MS">蒙塞拉特島</territory>
 			<territory type="MT">馬爾他</territory>
 			<territory type="MU">模里西斯</territory>
 			<territory type="MV">馬爾地夫</territory>
-			<territory type="MW">馬拉維</territory>
+			<territory type="MW">馬拉威</territory>
 			<territory type="MX">墨西哥</territory>
 			<territory type="MY">馬來西亞</territory>
 			<territory type="MZ">莫三比克</territory>
@@ -983,9 +989,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="PK">巴基斯坦</territory>
 			<territory type="PL">波蘭</territory>
 			<territory type="PM">聖皮埃爾和密克隆群島</territory>
-			<territory type="PN">皮特康</territory>
+			<territory type="PN">皮特肯群島</territory>
 			<territory type="PR">波多黎各</territory>
-			<territory type="PS">巴勒斯坦</territory>
+			<territory type="PS">巴勒斯坦自治區</territory>
 			<territory type="PS" alt="short">巴勒斯坦</territory>
 			<territory type="PT">葡萄牙</territory>
 			<territory type="PW">帛琉</territory>
@@ -996,7 +1002,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="RO">羅馬尼亞</territory>
 			<territory type="RS">塞爾維亞</territory>
 			<territory type="RU">俄羅斯</territory>
-			<territory type="RW">盧旺達</territory>
+			<territory type="RW">盧安達</territory>
 			<territory type="SA">沙烏地阿拉伯</territory>
 			<territory type="SB">索羅門群島</territory>
 			<territory type="SC">塞席爾</territory>
@@ -1007,7 +1013,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SI">斯洛維尼亞</territory>
 			<territory type="SJ">冷岸及央麥恩群島</territory>
 			<territory type="SK">斯洛伐克</territory>
-			<territory type="SL">塞拉利昂</territory>
+			<territory type="SL">獅子山</territory>
 			<territory type="SM">聖馬利諾</territory>
 			<territory type="SN">塞內加爾</territory>
 			<territory type="SO">索馬利亞</territory>
@@ -1015,7 +1021,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SS">南蘇丹</territory>
 			<territory type="ST">聖多美及普林西比</territory>
 			<territory type="SV">薩爾瓦多</territory>
-			<territory type="SX" draft="provisional">聖馬爾丁</territory>
+			<territory type="SX">荷屬聖馬丁</territory>
 			<territory type="SY">敘利亞</territory>
 			<territory type="SZ">史瓦濟蘭</territory>
 			<territory type="TA">特里斯坦達庫尼亞群島</territory>
@@ -1038,8 +1044,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TZ">坦尚尼亞</territory>
 			<territory type="UA">烏克蘭</territory>
 			<territory type="UG">烏干達</territory>
-			<territory type="UM">美屬邊疆群島</territory>
+			<territory type="UM">美國本土外小島嶼</territory>
 			<territory type="US">美國</territory>
+			<territory type="US" alt="short" draft="contributed">美國</territory>
 			<territory type="UY">烏拉圭</territory>
 			<territory type="UZ">烏茲別克</territory>
 			<territory type="VA">梵蒂岡</territory>
@@ -1049,15 +1056,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="VI">美屬維京群島</territory>
 			<territory type="VN">越南</territory>
 			<territory type="VU">萬那杜</territory>
-			<territory type="WF">瓦利斯和福杜納群島</territory>
+			<territory type="WF">瓦利斯和富圖納群島</territory>
 			<territory type="WS">薩摩亞群島</territory>
-			<territory type="XK">科索夫</territory>
-			<territory type="YE">也門</territory>
+			<territory type="XK">科索沃</territory>
+			<territory type="YE">葉門</territory>
 			<territory type="YT">馬約特</territory>
 			<territory type="ZA">南非</territory>
 			<territory type="ZM">尚比亞</territory>
-			<territory type="ZW">津巴布韋</territory>
-			<territory type="ZZ">未確定的區域</territory>
+			<territory type="ZW">辛巴威</territory>
+			<territory type="ZZ">未知區域</territory>
 		</territories>
 		<variants>
 			<variant type="1901">傳統德語拼字學</variant>
@@ -1075,6 +1082,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<variant type="BISCAYAN" draft="contributed">比斯開方言</variant>
 			<variant type="BISKE" draft="contributed">聖喬治/比拉方言</variant>
 			<variant type="BOONT" draft="contributed">布恩特林方言</variant>
+			<variant type="EMODENG" draft="contributed">早期現代英語</variant>
 			<variant type="FONIPA">IPA 拼音</variant>
 			<variant type="FONUPA">UPA 拼音</variant>
 			<variant type="FONXSAMP" draft="contributed">X-SAMPA 音標</variant>
@@ -1142,13 +1150,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="armnlow" key="numbers">小寫亞美尼亞數字</type>
 			<type type="bali" key="numbers" draft="contributed">峇里文數字</type>
 			<type type="beng" key="numbers">孟加拉數字</type>
-			<type type="big5han" key="collation">繁體中文排序 - Big5</type>
+			<type type="big5han" key="collation">繁體中文排序 (Big5)</type>
+			<type type="brah" key="numbers" draft="contributed">婆羅米數字</type>
 			<type type="buddhist" key="calendar">佛教曆法</type>
+			<type type="cakm" key="numbers" draft="contributed">查克馬數字</type>
 			<type type="cham" key="numbers" draft="contributed">占文數字</type>
 			<type type="chinese" key="calendar">農曆</type>
 			<type type="coptic" key="calendar">科普特曆</type>
 			<type type="dangi" key="calendar">檀紀曆</type>
-			<type type="deva" key="numbers">天城文數字</type>
+			<type type="deva" key="numbers">梵文數字</type>
 			<type type="dictionary" key="collation">字典排序</type>
 			<type type="ducet" key="collation">預設 Unicode 排序</type>
 			<type type="ethi" key="numbers">衣索比亞數字</type>
@@ -1156,7 +1166,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="ethiopic-amete-alem" key="calendar">衣索比亞曆 (Amete Alem)</type>
 			<type type="finance" key="numbers" draft="contributed">金融數字</type>
 			<type type="fullwide" key="numbers">全形數字</type>
-			<type type="gb2312han" key="collation">簡體中文排序 - GB2312</type>
+			<type type="gb2312han" key="collation">簡體中文排序 (GB2312)</type>
 			<type type="geor" key="numbers">喬治亞數字</type>
 			<type type="gregorian" key="calendar">公曆</type>
 			<type type="grek" key="numbers">希臘數字</type>
@@ -1174,6 +1184,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="indian" key="calendar">印度國家曆法</type>
 			<type type="islamic" key="calendar">伊斯蘭曆法</type>
 			<type type="islamic-civil" key="calendar">伊斯蘭城市曆法</type>
+			<type type="islamic-rgsa" key="calendar" draft="contributed">伊斯蘭新月曆</type>
+			<type type="islamic-tbla" key="calendar" draft="contributed">伊斯蘭天文曆</type>
+			<type type="islamic-umalqura" key="calendar" draft="contributed">烏姆庫拉曆</type>
+			<type type="iso8601" key="calendar" draft="contributed">國際標準 ISO 8601</type>
 			<type type="japanese" key="calendar">日本曆法</type>
 			<type type="java" key="numbers" draft="contributed">爪哇文數字</type>
 			<type type="jpan" key="numbers">小寫日文數字</type>
@@ -1204,9 +1218,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="non-ignorable" key="colAlternate" draft="contributed">排序符號</type>
 			<type type="olck" key="numbers" draft="contributed">桑塔利文數字</type>
 			<type type="orya" key="numbers">歐利亞數字</type>
+			<type type="osma" key="numbers" draft="contributed">奧斯曼亞數字</type>
 			<type type="persian" key="calendar">波斯曆</type>
 			<type type="phonebook" key="collation">電話簿排序</type>
-			<type type="phonetic" key="collation" draft="contributed">發音排序</type>
+			<type type="phonetic" key="collation" draft="contributed">注音排序順序</type>
 			<type type="pinyin" key="collation">拼音排序</type>
 			<type type="primary" key="colStrength" draft="contributed">僅排序基礎字母</type>
 			<type type="quaternary" key="colStrength" draft="contributed">排序重音/大小寫/全半形/假名</type>
@@ -1216,15 +1231,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="romanlow" key="numbers">小寫羅馬數字</type>
 			<type type="saur" key="numbers" draft="contributed">索拉什特拉文數字</type>
 			<type type="search" key="collation">一般用途搜尋</type>
-			<type type="searchjl" key="collation" draft="provisional">依韓國聲母搜尋</type>
+			<type type="searchjl" key="collation" draft="contributed">韓文子音排序</type>
 			<type type="secondary" key="colStrength" draft="contributed">排序重音</type>
 			<type type="shifted" key="colAlternate" draft="contributed">略過符號排序</type>
+			<type type="shrd" key="numbers" draft="contributed">夏拉達數字</type>
+			<type type="sora" key="numbers" draft="contributed">索朗桑朋數字</type>
 			<type type="standard" key="collation">標準排序</type>
 			<type type="stroke" key="collation">筆畫排序</type>
 			<type type="sund" key="numbers" draft="contributed">桑桑</type>
+			<type type="takr" key="numbers" draft="contributed">塔卡里數字</type>
 			<type type="talu" key="numbers" draft="contributed">新傣仂文數字</type>
 			<type type="taml" key="numbers">坦米爾數字</type>
-			<type type="tamldec" key="numbers" draft="contributed">坦米爾數字</type>
+			<type type="tamldec" key="numbers">坦米爾數字</type>
 			<type type="telu" key="numbers">泰盧固數字</type>
 			<type type="tertiary" key="colStrength" draft="contributed">排序重音/大小寫/全半形</type>
 			<type type="thai" key="numbers">泰文數字</type>
@@ -1233,7 +1251,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="traditional" key="numbers" draft="contributed">傳統數字</type>
 			<type type="unihan" key="collation">部首筆畫排序</type>
 			<type type="upper" key="colCaseFirst" draft="contributed">優先排序大寫</type>
-			<type type="vaii" key="numbers" draft="provisional">瓦伊文數字</type>
+			<type type="vaii" key="numbers" draft="contributed">瓦伊文數字</type>
 			<type type="yes" key="colBackwards" draft="contributed">依反向重音排序</type>
 			<type type="yes" key="colCaseLevel" draft="contributed">依大小寫排序</type>
 			<type type="yes" key="colHiraganaQuaternary" draft="contributed">分別排序假名</type>
@@ -1249,7 +1267,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<transformName type="x-Accents" draft="contributed">變音符號</transformName>
 			<transformName type="x-Fullwidth" draft="contributed">全形</transformName>
 			<transformName type="x-Halfwidth" draft="contributed">半形</transformName>
-			<transformName type="x-Jamo" draft="contributed">諺文字母</transformName>
+			<transformName type="x-Jamo">韓文字母</transformName>
 			<transformName type="x-Pinyin" draft="contributed">拼音</transformName>
 			<transformName type="x-Publishing" draft="contributed">出版</transformName>
 		</transformNames>
@@ -1269,10 +1287,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<exemplarCharacters type="auxiliary">[伏 侶 兌 兹 别 勳 卑 占 叶 堤 墎 奥 孜 峇 巽 彝 楔 渾 燦 狄 琳 瑚 甫 礁 芒 苗 茨 蚩 蜀 隴]</exemplarCharacters>
 		<exemplarCharacters type="index">[一 丁 丈 不 且 丞 並 串 乘 乾 亂 亭 傀 僎 僵 儐 償 儳 儷 儻 叢 嚴 囌 囑 廳]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[‾ ﹉-﹌ _ ＿ ﹍-﹏ ︳ ︴ \- － ﹣ ‐ – ︲ — ﹘ ︱ , ， ﹐ 、 ﹑ ; ； ﹔ \: ： ﹕ ! ！ ﹗ ? ？ ﹖ . ． ﹒ ‥ ︰ … 。 · ＇ ‘ ’ &quot; ＂ “ ” 〝 〞 ( （ ﹙ ︵ ) ） ﹚ ︶ \[ ［ \] ］ \{ ｛ ﹛ ︷ \} ｝ ﹜ ︸ 〈 ︿ 〉 ﹀ 《 ︽ 》 ︾ 「 ﹁ 」 ﹂ 『 ﹃ 』 ﹄ 【 ︻ 】 ︼ 〔 ﹝ ︹ 〕 ﹞ ︺ § @ ＠ ﹫ * ＊ ﹡ / ／ \\ ＼ ﹨ \&amp; ＆ ﹠ # ＃ ﹟ % ％ ﹪ ‰ † ‡ ‧ ′ ″ ‵ 〃 ※]</exemplarCharacters>
-		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
-		<ellipsis type="initial" draft="contributed">…{0}</ellipsis>
-		<ellipsis type="medial" draft="provisional">{0}……{1}</ellipsis>
-		<moreInformation draft="contributed">？</moreInformation>
+		<ellipsis type="final">{0}…</ellipsis>
+		<ellipsis type="initial">…{0}</ellipsis>
+		<ellipsis type="medial">{0}…{1}</ellipsis>
+		<ellipsis type="word-final">{0} …</ellipsis>
+		<ellipsis type="word-initial">… {0}</ellipsis>
+		<ellipsis type="word-medial">{0} … {1}</ellipsis>
+		<moreInformation>？</moreInformation>
 	</characters>
 	<delimiters>
 		<quotationStart>「</quotationStart>
@@ -1288,10 +1309,86 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="0" draft="contributed">佛曆</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>Gy年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="Ed">d日（E）</dateFormatItem>
+						<dateFormatItem id="Gy">Gy年</dateFormatItem>
+						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
+						<dateFormatItem id="y">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">Gy/M/d（E）</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">Gy年QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="chinese">
 				<months>
 					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">正</month>
+							<month type="2">二</month>
+							<month type="3">三</month>
+							<month type="4">四</month>
+							<month type="5">五</month>
+							<month type="6">六</month>
+							<month type="7">七</month>
+							<month type="8">八</month>
+							<month type="9">九</month>
+							<month type="10">十</month>
+							<month type="11">十一</month>
+							<month type="12">十二</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">正月</month>
 							<month type="2">二月</month>
@@ -1308,6 +1405,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">正</month>
 							<month type="2">二</month>
@@ -1321,6 +1432,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="10">十</month>
 							<month type="11">十一</month>
 							<month type="12">十二</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1683,6 +1808,224 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 				</months>
 			</calendar>
+			<calendar type="dangi">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="abbreviated">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">正</month>
+							<month type="2">二</month>
+							<month type="3">三</month>
+							<month type="4">四</month>
+							<month type="5">五</month>
+							<month type="6">六</month>
+							<month type="7">七</month>
+							<month type="8">八</month>
+							<month type="9">九</month>
+							<month type="10">十</month>
+							<month type="11">十一</month>
+							<month type="12">十二</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+					</monthContext>
+					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">正</month>
+							<month type="2">二</month>
+							<month type="3">三</month>
+							<month type="4">四</month>
+							<month type="5">五</month>
+							<month type="6">六</month>
+							<month type="7">七</month>
+							<month type="8">八</month>
+							<month type="9">九</month>
+							<month type="10">十</month>
+							<month type="11">十一</month>
+							<month type="12">十二</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">正月</month>
+							<month type="2">二月</month>
+							<month type="3">三月</month>
+							<month type="4">四月</month>
+							<month type="5">五月</month>
+							<month type="6">六月</month>
+							<month type="7">七月</month>
+							<month type="8">八月</month>
+							<month type="9">九月</month>
+							<month type="10">十月</month>
+							<month type="11">十一月</month>
+							<month type="12">十二月</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<cyclicNameSets>
+					<cyclicNameSet type="dayParts">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">子</cyclicName>
+								<cyclicName type="2">丑</cyclicName>
+								<cyclicName type="3">寅</cyclicName>
+								<cyclicName type="4">卯</cyclicName>
+								<cyclicName type="5">辰</cyclicName>
+								<cyclicName type="6">巳</cyclicName>
+								<cyclicName type="7">午</cyclicName>
+								<cyclicName type="8">未</cyclicName>
+								<cyclicName type="9">申</cyclicName>
+								<cyclicName type="10">酉</cyclicName>
+								<cyclicName type="11">戌</cyclicName>
+								<cyclicName type="12">亥</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="years">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">甲子</cyclicName>
+								<cyclicName type="2">乙丑</cyclicName>
+								<cyclicName type="3">丙寅</cyclicName>
+								<cyclicName type="4">丁卯</cyclicName>
+								<cyclicName type="5">戊辰</cyclicName>
+								<cyclicName type="6">己巳</cyclicName>
+								<cyclicName type="7">庚午</cyclicName>
+								<cyclicName type="8">辛未</cyclicName>
+								<cyclicName type="9">壬申</cyclicName>
+								<cyclicName type="10">癸酉</cyclicName>
+								<cyclicName type="11">甲戌</cyclicName>
+								<cyclicName type="12">乙亥</cyclicName>
+								<cyclicName type="13">丙子</cyclicName>
+								<cyclicName type="14">丁丑</cyclicName>
+								<cyclicName type="15">戊寅</cyclicName>
+								<cyclicName type="16">己卯</cyclicName>
+								<cyclicName type="17">庚辰</cyclicName>
+								<cyclicName type="18">辛巳</cyclicName>
+								<cyclicName type="19">壬午</cyclicName>
+								<cyclicName type="20">癸未</cyclicName>
+								<cyclicName type="21">甲申</cyclicName>
+								<cyclicName type="22">乙酉</cyclicName>
+								<cyclicName type="23">丙戌</cyclicName>
+								<cyclicName type="24">丁亥</cyclicName>
+								<cyclicName type="25">戊子</cyclicName>
+								<cyclicName type="26">己丑</cyclicName>
+								<cyclicName type="27">庚寅</cyclicName>
+								<cyclicName type="28">辛卯</cyclicName>
+								<cyclicName type="29">壬辰</cyclicName>
+								<cyclicName type="30">癸巳</cyclicName>
+								<cyclicName type="31">甲午</cyclicName>
+								<cyclicName type="32">乙未</cyclicName>
+								<cyclicName type="33">丙申</cyclicName>
+								<cyclicName type="34">丁酉</cyclicName>
+								<cyclicName type="35">戊戌</cyclicName>
+								<cyclicName type="36">己亥</cyclicName>
+								<cyclicName type="37">庚子</cyclicName>
+								<cyclicName type="38">辛丑</cyclicName>
+								<cyclicName type="39">壬寅</cyclicName>
+								<cyclicName type="40">癸卯</cyclicName>
+								<cyclicName type="41">甲辰</cyclicName>
+								<cyclicName type="42">乙巳</cyclicName>
+								<cyclicName type="43">丙午</cyclicName>
+								<cyclicName type="44">丁未</cyclicName>
+								<cyclicName type="45">戊申</cyclicName>
+								<cyclicName type="46">己酉</cyclicName>
+								<cyclicName type="47">庚戌</cyclicName>
+								<cyclicName type="48">辛亥</cyclicName>
+								<cyclicName type="49">壬子</cyclicName>
+								<cyclicName type="50">癸丑</cyclicName>
+								<cyclicName type="51">甲寅</cyclicName>
+								<cyclicName type="52">乙卯</cyclicName>
+								<cyclicName type="53">丙辰</cyclicName>
+								<cyclicName type="54">丁巳</cyclicName>
+								<cyclicName type="55">戊午</cyclicName>
+								<cyclicName type="56">己未</cyclicName>
+								<cyclicName type="57">庚申</cyclicName>
+								<cyclicName type="58">辛酉</cyclicName>
+								<cyclicName type="59">壬戌</cyclicName>
+								<cyclicName type="60">癸亥</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+					<cyclicNameSet type="zodiacs">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">鼠</cyclicName>
+								<cyclicName type="2">牛</cyclicName>
+								<cyclicName type="3">虎</cyclicName>
+								<cyclicName type="4">兔</cyclicName>
+								<cyclicName type="5">龍</cyclicName>
+								<cyclicName type="6">蛇</cyclicName>
+								<cyclicName type="7">馬</cyclicName>
+								<cyclicName type="8">羊</cyclicName>
+								<cyclicName type="9">猴</cyclicName>
+								<cyclicName type="10">雞</cyclicName>
+								<cyclicName type="11">狗</cyclicName>
+								<cyclicName type="12">豬</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
+				</cyclicNameSets>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>U年MMMd日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>U年MMMd日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>U年MMMd日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>U/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
 			<calendar type="ethiopic">
 				<months>
 					<monthContext type="format">
@@ -1785,22 +2128,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>Gy年M月d日EEEE</pattern>
+							<pattern>G y 年 M 月 d 日 EEEE</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>Gy年M月d日</pattern>
+							<pattern>G y年M月d日</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>Gy/M/d</pattern>
+							<pattern>G y/M/d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern>Gy/M/d</pattern>
+							<pattern>G y/M/d</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -1812,7 +2155,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -1828,10 +2171,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日（E）</dateFormatItem>
-						<dateFormatItem id="Gy">Gy年</dateFormatItem>
+						<dateFormatItem id="Gy">G y 年</dateFormatItem>
 						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y 年 M 月 d 日</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">G y 年 M 月 d 日 E</dateFormatItem>
 						<dateFormatItem id="h">ah時</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
 						<dateFormatItem id="hm">ah:mm</dateFormatItem>
@@ -1840,21 +2183,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
+						<dateFormatItem id="MEd">M/d (E)</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
-						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
+						<dateFormatItem id="MMMEd">M 月 d 日E</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">Gy年</dateFormatItem>
-						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
-						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
-						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">Gy/M/d（E）</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">Gy年QQQ</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
+						<dateFormatItem id="y">G y 年</dateFormatItem>
+						<dateFormatItem id="yyyy">G y 年</dateFormatItem>
+						<dateFormatItem id="yyyyM">G y/M</dateFormatItem>
+						<dateFormatItem id="yyyyMd">G y/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">G y/M/d (E)</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G y 年 M 月</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">G y 年 M 月 d 日</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">G y 年 M 月 d 日E</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">G y 年 QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">G y 年 QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0}至{1}</intervalFormatFallback>
@@ -1901,8 +2244,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">M/d至M/d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d">M/dE至M/dE</greatestDifference>
-							<greatestDifference id="M">M/dE至M/dE</greatestDifference>
+							<greatestDifference id="d">M/d E至 M/d E</greatestDifference>
+							<greatestDifference id="M">M/d E至 M/d E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">LLL至LLL</greatestDifference>
@@ -1912,46 +2255,46 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">M月d日至M月d日</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
-							<greatestDifference id="d">M月d日E至d日E</greatestDifference>
-							<greatestDifference id="M">M月d日E至M月d日E</greatestDifference>
+							<greatestDifference id="d">M 月 d 日E至 d 日E</greatestDifference>
+							<greatestDifference id="M">M 月 d 日E至 M 月 d 日E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
 							<greatestDifference id="M">LLLL至LLLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y">Gy至y</greatestDifference>
+							<greatestDifference id="y">G y 至 y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">Gy/M至y/M</greatestDifference>
-							<greatestDifference id="y">Gy/M至y/M</greatestDifference>
+							<greatestDifference id="M">G y/M 至 y/M</greatestDifference>
+							<greatestDifference id="y">G y/M 至 y/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">Gy/M/d至y/M/d</greatestDifference>
-							<greatestDifference id="M">Gy/M/d至y/M/d</greatestDifference>
-							<greatestDifference id="y">Gy/M/d至y/M/d</greatestDifference>
+							<greatestDifference id="d">G y/M/d 至 y/M/d</greatestDifference>
+							<greatestDifference id="M">G y/M/d 至 y/M/d</greatestDifference>
+							<greatestDifference id="y">G y/M/d 至 y/M/d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">Gy/M/dE至y/M/dE</greatestDifference>
-							<greatestDifference id="M">Gy/M/dE至y/M/dE</greatestDifference>
-							<greatestDifference id="y">Gy/M/dE至y/M/dE</greatestDifference>
+							<greatestDifference id="d">G y/M/d E至 y/M/d E</greatestDifference>
+							<greatestDifference id="M">G y/M/d E至 y/M/d E</greatestDifference>
+							<greatestDifference id="y">G y/M/d E至 y/M/d E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
-							<greatestDifference id="M">Gy年M月至M月</greatestDifference>
-							<greatestDifference id="y">Gy年M月至y年M月</greatestDifference>
+							<greatestDifference id="M">G y 年 M 月至 M 月</greatestDifference>
+							<greatestDifference id="y">G y年M月至y年M月</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMd">
-							<greatestDifference id="d">Gy年M月d日至d日</greatestDifference>
-							<greatestDifference id="M">Gy年M月d日至M月d日</greatestDifference>
-							<greatestDifference id="y">Gy年M月d日至y年M月d日</greatestDifference>
+							<greatestDifference id="d">G y 年 M 月 d 日至 d 日</greatestDifference>
+							<greatestDifference id="M">G y 年 M 月 d 日至 M 月 d 日</greatestDifference>
+							<greatestDifference id="y">G y 年 M 月 d 日至 y 年 M 月 d 日</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">Gy年M月d日E至d日E</greatestDifference>
-							<greatestDifference id="M">Gy年M月d日E至M月d日E</greatestDifference>
-							<greatestDifference id="y">Gy年M月d日E至y年M月d日E</greatestDifference>
+							<greatestDifference id="d">G y 年 M 月 d 日E 至 d 日E</greatestDifference>
+							<greatestDifference id="M">G y 年 M 月 d 日E至 M 月 d 日E</greatestDifference>
+							<greatestDifference id="y">G y 年 M 月 d 日E至 y 年 M 月 d 日E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMM">
-							<greatestDifference id="M">Gy年M月至M月</greatestDifference>
-							<greatestDifference id="y">Gy年M月至y年M月</greatestDifference>
+							<greatestDifference id="M">G y 年 M 月至 M 月</greatestDifference>
+							<greatestDifference id="y">G y 年 M 月至 y 年 M 月</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
@@ -1972,6 +2315,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="10">10月</month>
 							<month type="11">11月</month>
 							<month type="12">12月</month>
+						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">1</month>
+							<month type="2">2</month>
+							<month type="3">3</month>
+							<month type="4">4</month>
+							<month type="5">5</month>
+							<month type="6">6</month>
+							<month type="7">7</month>
+							<month type="8">8</month>
+							<month type="9">9</month>
+							<month type="10">10</month>
+							<month type="11">11</month>
+							<month type="12">12</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">1月</month>
@@ -2017,6 +2374,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">11</month>
 							<month type="12">12</month>
 						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">1月</month>
+							<month type="2">2月</month>
+							<month type="3">3月</month>
+							<month type="4">4月</month>
+							<month type="5">5月</month>
+							<month type="6">6月</month>
+							<month type="7">7月</month>
+							<month type="8">8月</month>
+							<month type="9">9月</month>
+							<month type="10">10月</month>
+							<month type="11">11月</month>
+							<month type="12">12月</month>
+						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
@@ -2029,6 +2400,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="thu">週四</day>
 							<day type="fri">週五</day>
 							<day type="sat">週六</day>
+						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">日</day>
+							<day type="mon">一</day>
+							<day type="tue">二</day>
+							<day type="wed">三</day>
+							<day type="thu">四</day>
+							<day type="fri">五</day>
+							<day type="sat">六</day>
 						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">日</day>
@@ -2050,6 +2430,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">週日</day>
+							<day type="mon">週一</day>
+							<day type="tue">週二</day>
+							<day type="wed">週三</day>
+							<day type="thu">週四</day>
+							<day type="fri">週五</day>
+							<day type="sat">週六</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">日</day>
 							<day type="mon">一</day>
@@ -2068,6 +2457,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri">五</day>
 							<day type="sat">六</day>
 						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">星期日</day>
+							<day type="mon">星期一</day>
+							<day type="tue">星期二</day>
+							<day type="wed">星期三</day>
+							<day type="thu">星期四</day>
+							<day type="fri">星期五</day>
+							<day type="sat">星期六</day>
+						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
@@ -2079,10 +2477,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="4">4季</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
-							<quarter type="1" draft="contributed">1</quarter>
-							<quarter type="2" draft="contributed">2</quarter>
-							<quarter type="3" draft="contributed">3</quarter>
-							<quarter type="4" draft="contributed">4</quarter>
+							<quarter type="1">1</quarter>
+							<quarter type="2">2</quarter>
+							<quarter type="3">3</quarter>
+							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
 							<quarter type="1">第1季</quarter>
@@ -2092,11 +2490,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
+						<quarterWidth type="abbreviated">
+							<quarter type="1">1季</quarter>
+							<quarter type="2">2季</quarter>
+							<quarter type="3">3季</quarter>
+							<quarter type="4">4季</quarter>
+						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
 							<quarter type="2">2</quarter>
 							<quarter type="3">3</quarter>
 							<quarter type="4">4</quarter>
+						</quarterWidth>
+						<quarterWidth type="wide">
+							<quarter type="1">第1季</quarter>
+							<quarter type="2">第2季</quarter>
+							<quarter type="3">第3季</quarter>
+							<quarter type="4">第4季</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -2127,10 +2537,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
+					<eraNames>
+						<era type="0">西元前</era>
+						<era type="0" alt="variant" draft="contributed">公元前</era>
+						<era type="1">西元</era>
+						<era type="1" alt="variant" draft="contributed">公元</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">西元前</era>
+						<era type="0" alt="variant">公元前</era>
 						<era type="1">西元</era>
+						<era type="1" alt="variant">公元</era>
 					</eraAbbr>
+					<eraNarrow>
+						<era type="0">西元前</era>
+						<era type="0" alt="variant" draft="contributed">公元前</era>
+						<era type="1">西元</era>
+						<era type="1" alt="variant" draft="contributed">公元</era>
+					</eraNarrow>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -2184,7 +2608,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="long">
 						<dateTimeFormat>
-							<pattern>{1}{0}</pattern>
+							<pattern>{1} {0}</pattern>
 						</dateTimeFormat>
 					</dateTimeFormatLength>
 					<dateTimeFormatLength type="medium">
@@ -2200,16 +2624,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d日</dateFormatItem>
 						<dateFormatItem id="Ed">d日（E）</dateFormatItem>
-						<dateFormatItem id="Gy">Gy年</dateFormatItem>
-						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
-						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="provisional">E a h:mm</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="provisional">E a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Gy">G y 年</dateFormatItem>
+						<dateFormatItem id="GyMMM">G y 年 M 月</dateFormatItem>
+						<dateFormatItem id="GyMMMd">G y 年 M 月 d 日</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">G y 年 M 月 d 日E</dateFormatItem>
 						<dateFormatItem id="h">ah時</dateFormatItem>
 						<dateFormatItem id="H">H時</dateFormatItem>
 						<dateFormatItem id="hm">ah:mm</dateFormatItem>
-						<dateFormatItem id="Hm">H:mm</dateFormatItem>
+						<dateFormatItem id="Hm">HH:mm</dateFormatItem>
 						<dateFormatItem id="hms">ah:mm:ss</dateFormatItem>
-						<dateFormatItem id="Hms">H:mm:ss</dateFormatItem>
+						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">M月</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
 						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
@@ -2223,14 +2651,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yM">y/M</dateFormatItem>
 						<dateFormatItem id="yMd">y/M/d</dateFormatItem>
 						<dateFormatItem id="yMEd">y/M/d（E）</dateFormatItem>
-						<dateFormatItem id="yMM" draft="contributed">y-MM</dateFormatItem>
+						<dateFormatItem id="yMM">y-MM</dateFormatItem>
 						<dateFormatItem id="yMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yMMMd">y年M月d日</dateFormatItem>
 						<dateFormatItem id="yMMMEd">y年M月d日E</dateFormatItem>
-						<dateFormatItem id="yMMMM" draft="contributed">y年M月</dateFormatItem>
+						<dateFormatItem id="yMMMM">y年M月</dateFormatItem>
 						<dateFormatItem id="yQQQ">y年QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y年QQQQ</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone" draft="contributed">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0}至{1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
@@ -2250,20 +2681,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
 							<greatestDifference id="H">HH:mm–HH:mm</greatestDifference>
-							<greatestDifference id="m" draft="provisional">HH:mm–HH:mm</greatestDifference>
+							<greatestDifference id="m">HH:mm至HH:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
-							<greatestDifference id="a" draft="contributed">ah:mm至ah:mm [v]</greatestDifference>
-							<greatestDifference id="h" draft="contributed">ah:mm至h:mm [v]</greatestDifference>
-							<greatestDifference id="m" draft="contributed">ah:mm至h:mm [v]</greatestDifference>
+							<greatestDifference id="a">a h:mm 至a h:mm [v]</greatestDifference>
+							<greatestDifference id="h">a h:mm 至 h:mm [v]</greatestDifference>
+							<greatestDifference id="m">a h:mm 至 h:mm [v]</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
 							<greatestDifference id="H">HH:mm–HH:mm [v]</greatestDifference>
 							<greatestDifference id="m">HH:mm–HH:mm [v]</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
-							<greatestDifference id="a" draft="contributed">ah時至ah時 [v]</greatestDifference>
-							<greatestDifference id="h" draft="contributed">ah時至h時 [v]</greatestDifference>
+							<greatestDifference id="a">a h 時至a h 時 [v]</greatestDifference>
+							<greatestDifference id="h">a h 時至 h 時 [v]</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="H">HH–HH [v]</greatestDifference>
@@ -2291,7 +2722,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M">M月d日E至M月d日E</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMM">
-							<greatestDifference id="M">LLLL至LLLL</greatestDifference>
+							<greatestDifference id="M">LLLL至 LLLL</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
 							<greatestDifference id="y">y至y</greatestDifference>
@@ -2350,6 +2781,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12" draft="contributed">埃波月</month>
 							<month type="13" draft="contributed">以祿月</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">提斯利月</month>
 							<month type="2" draft="contributed">瑪西班月</month>
@@ -2384,6 +2830,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12" draft="contributed">埃波月</month>
 							<month type="13" draft="contributed">以祿月</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1" draft="contributed">1</month>
+							<month type="2" draft="contributed">2</month>
+							<month type="3" draft="contributed">3</month>
+							<month type="4" draft="contributed">4</month>
+							<month type="5" draft="contributed">5</month>
+							<month type="6" draft="contributed">6</month>
+							<month type="7" draft="contributed">7</month>
+							<month type="8" draft="contributed">8</month>
+							<month type="9" draft="contributed">9</month>
+							<month type="10" draft="contributed">10</month>
+							<month type="11" draft="contributed">11</month>
+							<month type="12" draft="contributed">12</month>
+							<month type="13" draft="contributed">13</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="contributed">提斯利月</month>
 							<month type="2" draft="contributed">瑪西班月</month>
@@ -2407,6 +2868,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="0" draft="contributed">創世紀元</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>Gy年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 			</calendar>
 			<calendar type="indian">
 				<months>
@@ -2601,6 +3084,54 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="0" draft="contributed">伊斯蘭曆</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>Gy年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="Ed">d日（E）</dateFormatItem>
+						<dateFormatItem id="Gy">Gy年</dateFormatItem>
+						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
+						<dateFormatItem id="y">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">Gy/M/d（E）</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">Gy年QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 			<calendar type="japanese">
 				<eras>
@@ -2844,6 +3375,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="235">平成</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>Gy年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
 				<dateTimeFormats>
 					<dateTimeFormatLength type="full">
 						<dateTimeFormat>
@@ -3003,6 +3556,54 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<era type="1">民國</era>
 					</eraAbbr>
 				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern>Gy年M月d日EEEE</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern>Gy年M月d日</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern>Gy/M/d</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="d">d日</dateFormatItem>
+						<dateFormatItem id="Ed">d日（E）</dateFormatItem>
+						<dateFormatItem id="Gy">Gy年</dateFormatItem>
+						<dateFormatItem id="GyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="GyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="M">M月</dateFormatItem>
+						<dateFormatItem id="Md">M/d</dateFormatItem>
+						<dateFormatItem id="MEd">M/d（E）</dateFormatItem>
+						<dateFormatItem id="MMM">LLL</dateFormatItem>
+						<dateFormatItem id="MMMd">M月d日</dateFormatItem>
+						<dateFormatItem id="MMMEd">M月d日E</dateFormatItem>
+						<dateFormatItem id="y">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyy">Gy年</dateFormatItem>
+						<dateFormatItem id="yyyyM">Gy/M</dateFormatItem>
+						<dateFormatItem id="yyyyMd">Gy/M/d</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">Gy/M/d（E）</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">Gy年M月</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">Gy年M月d日</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">Gy年M月d日E</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">Gy年QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">Gy年QQQQ</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>
@@ -3038,6 +3639,41 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="weekday">
 				<displayName>週天</displayName>
 			</field>
+			<field type="sun">
+				<relative type="-1">上週日</relative>
+				<relative type="0">本週日</relative>
+				<relative type="1">下週日</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1">上週一</relative>
+				<relative type="0">本週一</relative>
+				<relative type="1">下週一</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1">上週二</relative>
+				<relative type="0">本週二</relative>
+				<relative type="1">下週二</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1">上週三</relative>
+				<relative type="0">本週三</relative>
+				<relative type="1">下週三</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1">上週四</relative>
+				<relative type="0">本週四</relative>
+				<relative type="1">下週四</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1">上週五</relative>
+				<relative type="0">本週五</relative>
+				<relative type="1">下週五</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1">上週六</relative>
+				<relative type="0">本週六</relative>
+				<relative type="1">下週六</relative>
+			</field>
 			<field type="dayperiod">
 				<displayName>上午/下午</displayName>
 			</field>
@@ -3051,7 +3687,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>秒</displayName>
 			</field>
 			<field type="zone">
-				<displayName draft="contributed">時區</displayName>
+				<displayName>時區</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -3059,21 +3695,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0}時間</regionFormat>
+			<regionFormat type="daylight">{0} (+1)</regionFormat>
+			<regionFormat type="standard">{0} (+0)</regionFormat>
 			<fallbackFormat>{1}（{0}）</fallbackFormat>
 			<zone type="Etc/Unknown">
-				<exemplarCity>未知地區</exemplarCity>
+				<exemplarCity>未知城市</exemplarCity>
 			</zone>
 			<zone type="Europe/Andorra">
 				<exemplarCity>安道爾</exemplarCity>
 			</zone>
 			<zone type="Asia/Dubai">
-				<exemplarCity>迪拜</exemplarCity>
+				<exemplarCity>杜拜</exemplarCity>
 			</zone>
 			<zone type="Asia/Kabul">
 				<exemplarCity>喀布爾</exemplarCity>
 			</zone>
 			<zone type="America/Antigua">
-				<exemplarCity>安地卡及巴布達</exemplarCity>
+				<exemplarCity>安地卡</exemplarCity>
 			</zone>
 			<zone type="America/Anguilla">
 				<exemplarCity>安吉拉</exemplarCity>
@@ -3114,11 +3752,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>杜蒙杜爾維爾</exemplarCity>
 			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity>麥覺理</exemplarCity>
+			</zone>
 			<zone type="Antarctica/McMurdo">
-				<exemplarCity>麥克馬多</exemplarCity>
+				<exemplarCity>麥克默多</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Rio_Gallegos">
-				<exemplarCity>加拉哥斯</exemplarCity>
+				<exemplarCity>里奧加耶戈斯</exemplarCity>
 			</zone>
 			<zone type="America/Mendoza">
 				<exemplarCity>門多薩</exemplarCity>
@@ -3142,7 +3783,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>薩爾塔</exemplarCity>
 			</zone>
 			<zone type="America/Jujuy">
-				<exemplarCity>胡韋</exemplarCity>
+				<exemplarCity>胡胡伊</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
 				<exemplarCity>吐庫曼</exemplarCity>
@@ -3172,7 +3813,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>阿得雷德</exemplarCity>
 			</zone>
 			<zone type="Australia/Broken_Hill">
-				<exemplarCity>斷丘市</exemplarCity>
+				<exemplarCity>布羅肯希爾</exemplarCity>
 			</zone>
 			<zone type="Australia/Currie">
 				<exemplarCity>克黎</exemplarCity>
@@ -3193,7 +3834,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>布利斯班</exemplarCity>
 			</zone>
 			<zone type="Australia/Lord_Howe">
-				<exemplarCity>羅豪島</exemplarCity>
+				<exemplarCity>豪勳爵島</exemplarCity>
 			</zone>
 			<zone type="America/Aruba">
 				<exemplarCity>阿魯巴</exemplarCity>
@@ -3214,7 +3855,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>達卡</exemplarCity>
 			</zone>
 			<zone type="Europe/Brussels">
-				<exemplarCity draft="contributed">布魯塞爾</exemplarCity>
+				<exemplarCity>布魯塞爾</exemplarCity>
 			</zone>
 			<zone type="Africa/Ouagadougou">
 				<exemplarCity>瓦加杜古</exemplarCity>
@@ -3226,7 +3867,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>巴林</exemplarCity>
 			</zone>
 			<zone type="Africa/Bujumbura">
-				<exemplarCity>布瓊布拉</exemplarCity>
+				<exemplarCity>布松布拉</exemplarCity>
 			</zone>
 			<zone type="Africa/Porto-Novo">
 				<exemplarCity>波多諾佛</exemplarCity>
@@ -3243,11 +3884,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/La_Paz">
 				<exemplarCity>拉巴斯</exemplarCity>
 			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity>克拉倫代克</exemplarCity>
+			</zone>
 			<zone type="America/Eirunepe">
 				<exemplarCity>艾魯內佩</exemplarCity>
 			</zone>
 			<zone type="America/Rio_Branco">
-				<exemplarCity>布蘭科</exemplarCity>
+				<exemplarCity>里約布蘭</exemplarCity>
 			</zone>
 			<zone type="America/Porto_Velho">
 				<exemplarCity>維留港</exemplarCity>
@@ -3321,20 +3965,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>道生灣</exemplarCity>
 			</zone>
+			<zone type="America/Creston">
+				<exemplarCity>克雷斯頓</exemplarCity>
+			</zone>
 			<zone type="America/Yellowknife">
-				<exemplarCity>耐羅耐佛</exemplarCity>
+				<exemplarCity>耶洛奈夫</exemplarCity>
 			</zone>
 			<zone type="America/Edmonton">
 				<exemplarCity>艾德蒙吞</exemplarCity>
 			</zone>
 			<zone type="America/Swift_Current">
-				<exemplarCity>瑞夫卡倫特</exemplarCity>
+				<exemplarCity>斯威夫特卡倫特</exemplarCity>
 			</zone>
 			<zone type="America/Cambridge_Bay">
 				<exemplarCity>劍橋灣</exemplarCity>
 			</zone>
 			<zone type="America/Regina">
-				<exemplarCity>利宅那</exemplarCity>
+				<exemplarCity>里賈納</exemplarCity>
 			</zone>
 			<zone type="America/Winnipeg">
 				<exemplarCity>溫尼伯</exemplarCity>
@@ -3394,22 +4041,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>金夏沙</exemplarCity>
 			</zone>
 			<zone type="Africa/Lubumbashi">
-				<exemplarCity>蘆佈巴西</exemplarCity>
+				<exemplarCity>盧本巴希</exemplarCity>
 			</zone>
 			<zone type="Africa/Bangui">
 				<exemplarCity>班吉</exemplarCity>
 			</zone>
 			<zone type="Africa/Brazzaville">
-				<exemplarCity>布拉</exemplarCity>
+				<exemplarCity>布拉柴維爾</exemplarCity>
 			</zone>
 			<zone type="Europe/Zurich">
 				<exemplarCity>蘇黎世</exemplarCity>
 			</zone>
 			<zone type="Africa/Abidjan">
-				<exemplarCity>阿必尚</exemplarCity>
+				<exemplarCity>阿比讓</exemplarCity>
 			</zone>
 			<zone type="Pacific/Rarotonga">
-				<exemplarCity>拉羅東加島</exemplarCity>
+				<exemplarCity>拉羅湯加</exemplarCity>
 			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>復活島</exemplarCity>
@@ -3458,6 +4105,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>布拉格</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity>布辛根</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>柏林</exemplarCity>
@@ -3517,13 +4167,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>史坦利</exemplarCity>
 			</zone>
 			<zone type="Pacific/Truk">
-				<exemplarCity>土魯克群島</exemplarCity>
+				<exemplarCity>楚克</exemplarCity>
 			</zone>
 			<zone type="Pacific/Ponape">
 				<exemplarCity>波納佩</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kosrae">
-				<exemplarCity>科斯里</exemplarCity>
+				<exemplarCity>科斯瑞</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>法羅群島</exemplarCity>
@@ -3536,7 +4186,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/London">
 				<long>
-					<daylight draft="contributed">英國夏令時間</daylight>
+					<daylight>英國夏令時間</daylight>
 				</long>
 				<exemplarCity>倫敦</exemplarCity>
 			</zone>
@@ -3547,7 +4197,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>第比利斯</exemplarCity>
 			</zone>
 			<zone type="America/Cayenne">
-				<exemplarCity>法屬蓋亞那</exemplarCity>
+				<exemplarCity>開雲</exemplarCity>
 			</zone>
 			<zone type="Europe/Guernsey">
 				<exemplarCity>根息島</exemplarCity>
@@ -3562,10 +4212,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>杜里</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
-				<exemplarCity>高特哈市</exemplarCity>
+				<exemplarCity>努克</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity>斯可比海峽</exemplarCity>
+				<exemplarCity>伊托科爾托米特</exemplarCity>
 			</zone>
 			<zone type="America/Danmarkshavn">
 				<exemplarCity>丹馬沙文</exemplarCity>
@@ -3586,7 +4236,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>雅典</exemplarCity>
 			</zone>
 			<zone type="Atlantic/South_Georgia">
-				<exemplarCity>南喬治亞與南三明治島</exemplarCity>
+				<exemplarCity>南喬治亞</exemplarCity>
 			</zone>
 			<zone type="America/Guatemala">
 				<exemplarCity>瓜地馬拉</exemplarCity>
@@ -3604,10 +4254,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>中華人民共和國香港特別行政區</exemplarCity>
 			</zone>
 			<zone type="America/Tegucigalpa">
-				<exemplarCity>德古西加巴</exemplarCity>
+				<exemplarCity>德古斯加巴</exemplarCity>
 			</zone>
 			<zone type="Europe/Zagreb">
-				<exemplarCity>克羅埃西亞</exemplarCity>
+				<exemplarCity>札格雷布</exemplarCity>
 			</zone>
 			<zone type="America/Port-au-Prince">
 				<exemplarCity>太子港</exemplarCity>
@@ -3629,7 +4279,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Dublin">
 				<long>
-					<daylight draft="contributed">愛爾蘭夏令時間</daylight>
+					<daylight>愛爾蘭夏令時間</daylight>
 				</long>
 				<exemplarCity>都柏林</exemplarCity>
 			</zone>
@@ -3643,7 +4293,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>加爾各答</exemplarCity>
 			</zone>
 			<zone type="Indian/Chagos">
-				<exemplarCity>英屬印度洋領地</exemplarCity>
+				<exemplarCity>查戈斯</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity>巴格達</exemplarCity>
@@ -3652,10 +4302,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>德黑蘭</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Reykjavik">
-				<exemplarCity>雷克雅未克</exemplarCity>
+				<exemplarCity>雷克雅維克</exemplarCity>
 			</zone>
 			<zone type="Europe/Rome">
-				<exemplarCity draft="contributed">羅馬</exemplarCity>
+				<exemplarCity>羅馬</exemplarCity>
 			</zone>
 			<zone type="Europe/Jersey">
 				<exemplarCity>澤西島</exemplarCity>
@@ -3670,7 +4320,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>東京</exemplarCity>
 			</zone>
 			<zone type="Africa/Nairobi">
-				<exemplarCity draft="contributed">奈洛比</exemplarCity>
+				<exemplarCity>奈洛比</exemplarCity>
 			</zone>
 			<zone type="Asia/Bishkek">
 				<exemplarCity>比什凱克</exemplarCity>
@@ -3688,10 +4338,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>塔拉瓦</exemplarCity>
 			</zone>
 			<zone type="Indian/Comoro">
-				<exemplarCity draft="contributed">科摩羅群島</exemplarCity>
+				<exemplarCity>科摩羅群島</exemplarCity>
 			</zone>
 			<zone type="America/St_Kitts">
-				<exemplarCity>聖啟斯與尼維斯</exemplarCity>
+				<exemplarCity>聖基茨</exemplarCity>
 			</zone>
 			<zone type="Asia/Pyongyang">
 				<exemplarCity>平壤</exemplarCity>
@@ -3703,19 +4353,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>科威特</exemplarCity>
 			</zone>
 			<zone type="America/Cayman">
-				<exemplarCity draft="contributed">開曼群島</exemplarCity>
+				<exemplarCity>開曼群島</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtau">
-				<exemplarCity>艾克陶</exemplarCity>
+				<exemplarCity>阿克套</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
-				<exemplarCity>奧拉爾</exemplarCity>
+				<exemplarCity>烏拉爾</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
-				<exemplarCity>阿克糾賓</exemplarCity>
+				<exemplarCity>阿克托比</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
-				<exemplarCity>奎茲羅答</exemplarCity>
+				<exemplarCity>克孜勒奧爾達</exemplarCity>
 			</zone>
 			<zone type="Asia/Almaty">
 				<exemplarCity>阿拉木圖</exemplarCity>
@@ -3730,13 +4380,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>聖露西亞</exemplarCity>
 			</zone>
 			<zone type="Europe/Vaduz">
-				<exemplarCity>瓦杜茲</exemplarCity>
+				<exemplarCity>瓦都茲</exemplarCity>
 			</zone>
 			<zone type="Asia/Colombo">
-				<exemplarCity draft="contributed">可倫坡</exemplarCity>
+				<exemplarCity>可倫坡</exemplarCity>
 			</zone>
 			<zone type="Africa/Monrovia">
-				<exemplarCity draft="contributed">蒙羅維亞</exemplarCity>
+				<exemplarCity>蒙羅維亞</exemplarCity>
 			</zone>
 			<zone type="Africa/Maseru">
 				<exemplarCity>馬賽魯</exemplarCity>
@@ -3793,7 +4443,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>烏蘭巴托</exemplarCity>
 			</zone>
 			<zone type="Asia/Choibalsan">
-				<exemplarCity>卓巴爾塞</exemplarCity>
+				<exemplarCity>喬巴山</exemplarCity>
 			</zone>
 			<zone type="Asia/Macau">
 				<exemplarCity>中華人民共和國澳門特別行政區</exemplarCity>
@@ -3825,8 +4475,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Tijuana">
 				<exemplarCity>提華納</exemplarCity>
 			</zone>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>聖伊薩貝爾</exemplarCity>
+			</zone>
 			<zone type="America/Hermosillo">
-				<exemplarCity>厄莫休</exemplarCity>
+				<exemplarCity>埃莫西約</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
 				<exemplarCity>馬薩特蘭</exemplarCity>
@@ -3834,14 +4487,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Chihuahua">
 				<exemplarCity>奇華華</exemplarCity>
 			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity>巴伊亞班德拉斯</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity>奧希納加</exemplarCity>
+			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>蒙特瑞</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>墨西哥市</exemplarCity>
 			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity>馬塔莫羅斯</exemplarCity>
+			</zone>
 			<zone type="America/Merida">
-				<exemplarCity>美里達</exemplarCity>
+				<exemplarCity>梅里達</exemplarCity>
 			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>康庫</exemplarCity>
@@ -3853,22 +4515,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>古晉</exemplarCity>
 			</zone>
 			<zone type="Africa/Maputo">
-				<exemplarCity>馬布多</exemplarCity>
+				<exemplarCity>馬普托</exemplarCity>
 			</zone>
 			<zone type="Africa/Windhoek">
-				<exemplarCity draft="contributed">溫荷克</exemplarCity>
+				<exemplarCity>溫得和克</exemplarCity>
 			</zone>
 			<zone type="Pacific/Noumea">
-				<exemplarCity>努美阿</exemplarCity>
+				<exemplarCity>諾美亞</exemplarCity>
 			</zone>
 			<zone type="Africa/Niamey">
-				<exemplarCity>尼阿美</exemplarCity>
+				<exemplarCity>尼亞美</exemplarCity>
 			</zone>
 			<zone type="Pacific/Norfolk">
-				<exemplarCity>諾福克群島</exemplarCity>
+				<exemplarCity>諾福克</exemplarCity>
 			</zone>
 			<zone type="Africa/Lagos">
-				<exemplarCity>拉各斯</exemplarCity>
+				<exemplarCity>拉哥斯</exemplarCity>
 			</zone>
 			<zone type="America/Managua">
 				<exemplarCity>馬那瓜</exemplarCity>
@@ -3910,7 +4572,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>馬可薩斯島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Gambier">
-				<exemplarCity>岡必爾群島</exemplarCity>
+				<exemplarCity>甘比爾群島</exemplarCity>
 			</zone>
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity>莫士比港</exemplarCity>
@@ -3925,7 +4587,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>華沙</exemplarCity>
 			</zone>
 			<zone type="America/Miquelon">
-				<exemplarCity>聖皮里及米圭隆</exemplarCity>
+				<exemplarCity>密啟崙</exemplarCity>
 			</zone>
 			<zone type="Pacific/Pitcairn">
 				<exemplarCity>匹特開恩群島</exemplarCity>
@@ -3934,7 +4596,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>波多黎各</exemplarCity>
 			</zone>
 			<zone type="Asia/Gaza">
-				<exemplarCity>加沙</exemplarCity>
+				<exemplarCity>加薩</exemplarCity>
+			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity>赫布隆</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>亞速爾群島</exemplarCity>
@@ -3984,6 +4649,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>新西伯利亞</exemplarCity>
 			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity>新庫茲涅茨克</exemplarCity>
+			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>克拉斯諾雅斯克</exemplarCity>
 			</zone>
@@ -3996,23 +4664,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Vladivostok">
 				<exemplarCity>海參崴</exemplarCity>
 			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity>堪地加</exemplarCity>
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>庫頁島</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity>烏斯內拉</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>馬加丹</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
-				<exemplarCity>堪查加</exemplarCity>
+				<exemplarCity>堪察加</exemplarCity>
 			</zone>
 			<zone type="Asia/Anadyr">
-				<exemplarCity>阿那底河</exemplarCity>
+				<exemplarCity>阿那底</exemplarCity>
 			</zone>
 			<zone type="Africa/Kigali">
 				<exemplarCity>基加利</exemplarCity>
 			</zone>
 			<zone type="Asia/Riyadh">
-				<exemplarCity>利雅得</exemplarCity>
+				<exemplarCity>利雅德</exemplarCity>
 			</zone>
 			<zone type="Pacific/Guadalcanal">
 				<exemplarCity>瓜達康納爾島</exemplarCity>
@@ -4024,7 +4698,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>喀土穆</exemplarCity>
 			</zone>
 			<zone type="Europe/Stockholm">
-				<exemplarCity draft="contributed">斯德哥爾摩</exemplarCity>
+				<exemplarCity>斯德哥爾摩</exemplarCity>
 			</zone>
 			<zone type="Asia/Singapore">
 				<exemplarCity>新加坡</exemplarCity>
@@ -4051,13 +4725,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>達喀爾</exemplarCity>
 			</zone>
 			<zone type="Africa/Mogadishu">
-				<exemplarCity>摩加迪沙</exemplarCity>
+				<exemplarCity>摩加迪休</exemplarCity>
 			</zone>
 			<zone type="America/Paramaribo">
-				<exemplarCity draft="contributed">巴拉馬利波</exemplarCity>
+				<exemplarCity>巴拉馬利波</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity>朱巴</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
-				<exemplarCity>聖多美普林西比</exemplarCity>
+				<exemplarCity>聖多美</exemplarCity>
 			</zone>
 			<zone type="America/El_Salvador">
 				<exemplarCity>薩爾瓦多</exemplarCity>
@@ -4072,16 +4749,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>墨巴本</exemplarCity>
 			</zone>
 			<zone type="America/Grand_Turk">
-				<exemplarCity>土克斯和開卡斯群島</exemplarCity>
+				<exemplarCity>大特克島</exemplarCity>
 			</zone>
 			<zone type="Africa/Ndjamena">
-				<exemplarCity draft="contributed">恩將納</exemplarCity>
+				<exemplarCity>恩賈梅納</exemplarCity>
 			</zone>
 			<zone type="Indian/Kerguelen">
 				<exemplarCity>凱爾蓋朗島</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
-				<exemplarCity>多哥</exemplarCity>
+				<exemplarCity>洛美</exemplarCity>
 			</zone>
 			<zone type="Asia/Bangkok">
 				<exemplarCity>曼谷</exemplarCity>
@@ -4096,7 +4773,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>帝力</exemplarCity>
 			</zone>
 			<zone type="Asia/Ashgabat">
-				<exemplarCity>阿什哈巴德</exemplarCity>
+				<exemplarCity>阿什哈巴特</exemplarCity>
 			</zone>
 			<zone type="Africa/Tunis">
 				<exemplarCity>突尼斯</exemplarCity>
@@ -4105,10 +4782,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>東加塔布島</exemplarCity>
 			</zone>
 			<zone type="Europe/Istanbul">
-				<exemplarCity draft="contributed">伊斯坦堡</exemplarCity>
+				<exemplarCity>伊斯坦堡</exemplarCity>
 			</zone>
 			<zone type="America/Port_of_Spain">
-				<exemplarCity>千里達</exemplarCity>
+				<exemplarCity>西班牙港</exemplarCity>
 			</zone>
 			<zone type="Pacific/Funafuti">
 				<exemplarCity>富那富提</exemplarCity>
@@ -4153,19 +4830,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>檀香山</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
-				<exemplarCity>安克里治</exemplarCity>
+				<exemplarCity>安克拉治</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
 				<exemplarCity>雅庫塔</exemplarCity>
 			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity>錫特卡</exemplarCity>
+			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>朱諾</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity>梅特拉卡特拉</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>洛杉磯</exemplarCity>
 			</zone>
 			<zone type="America/Boise">
-				<exemplarCity>波伊斯</exemplarCity>
+				<exemplarCity>波夕</exemplarCity>
 			</zone>
 			<zone type="America/Phoenix">
 				<exemplarCity>鳳凰城</exemplarCity>
@@ -4180,7 +4863,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>北達科他州布由拉</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity>紐沙倫，北達科他州</exemplarCity>
+				<exemplarCity>北達科他州紐沙倫</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
 				<exemplarCity>申特城</exemplarCity>
@@ -4190,25 +4873,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>芝加哥</exemplarCity>
 			</zone>
 			<zone type="America/Menominee">
-				<exemplarCity>美諾米克</exemplarCity>
+				<exemplarCity>美諾米尼</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vincennes">
-				<exemplarCity>溫森斯</exemplarCity>
+				<exemplarCity>印第安那州溫森斯</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Petersburg">
 				<exemplarCity>彼得堡，印第安那州</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Tell_City">
-				<exemplarCity>泰爾城</exemplarCity>
+				<exemplarCity>印第安那州泰爾城</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Knox">
-				<exemplarCity>諾克斯</exemplarCity>
+				<exemplarCity>印第安那州諾克斯</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Winamac">
 				<exemplarCity>威納麥克，印第安那州</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Marengo">
-				<exemplarCity>馬倫哥</exemplarCity>
+				<exemplarCity>印第安那州馬倫哥</exemplarCity>
 			</zone>
 			<zone type="America/Indianapolis">
 				<exemplarCity>印第安那波里斯</exemplarCity>
@@ -4217,10 +4900,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>路易斯維爾</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vevay">
-				<exemplarCity>維威</exemplarCity>
+				<exemplarCity>印第安那州維威</exemplarCity>
 			</zone>
 			<zone type="America/Kentucky/Monticello">
-				<exemplarCity>蒙提瑟洛</exemplarCity>
+				<exemplarCity>肯塔基州蒙地卻羅</exemplarCity>
 			</zone>
 			<zone type="America/Detroit">
 				<exemplarCity>底特律</exemplarCity>
@@ -4241,10 +4924,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>梵蒂岡</exemplarCity>
 			</zone>
 			<zone type="America/St_Vincent">
-				<exemplarCity draft="contributed">聖文森</exemplarCity>
+				<exemplarCity>聖文森</exemplarCity>
 			</zone>
 			<zone type="America/Caracas">
-				<exemplarCity>加拉加斯</exemplarCity>
+				<exemplarCity>卡拉卡斯</exemplarCity>
 			</zone>
 			<zone type="America/Tortola">
 				<exemplarCity>托爾托拉</exemplarCity>
@@ -4259,10 +4942,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>埃法特</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wallis">
-				<exemplarCity>瓦利斯與富圖納群島</exemplarCity>
+				<exemplarCity>瓦利斯</exemplarCity>
 			</zone>
 			<zone type="Pacific/Apia">
-				<exemplarCity>亞庇</exemplarCity>
+				<exemplarCity>阿皮亞</exemplarCity>
 			</zone>
 			<zone type="Asia/Aden">
 				<exemplarCity>亞丁</exemplarCity>
@@ -4353,7 +5036,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>山區時間</generic>
 					<standard>山區標準時間</standard>
-					<daylight>山區日光節約時間</daylight>
+					<daylight>山區夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
@@ -4879,7 +5562,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Mawson">
 				<long>
-					<standard>墨生時間</standard>
+					<standard>莫森時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
@@ -4944,9 +5627,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Noronha">
 				<long>
-					<generic>費南多諾羅尼亞島時間</generic>
-					<standard>費南多諾羅尼亞島標準時間</standard>
-					<daylight>諾倫哈夏令時間</daylight>
+					<generic>費爾南多 - 迪諾羅尼亞時間</generic>
+					<standard>費爾南多 - 迪諾羅尼亞標準時間</standard>
+					<daylight>費爾南多 - 迪諾羅尼亞夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="North_Mariana">
@@ -5061,9 +5744,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Samoa">
 				<long>
-					<generic draft="contributed">薩摩亞時間</generic>
-					<standard draft="contributed">薩摩亞標準時間</standard>
-					<daylight draft="contributed">薩摩亞夏令時間</daylight>
+					<generic>薩摩亞時間</generic>
+					<standard>薩摩亞標準時間</standard>
+					<daylight>薩摩亞夏令時間</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">
@@ -5093,7 +5776,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Syowa">
 				<long>
-					<standard>昭和站時間</standard>
+					<standard>昭和基地時間</standard>
 				</long>
 			</metazone>
 			<metazone type="Tahiti">
@@ -5199,7 +5882,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Yakutsk">
 				<long>
-					<generic>雅庫茨克時間</generic>
+					<generic>雅庫次克時間</generic>
 					<standard>雅庫次克標準時間</standard>
 					<daylight>雅庫次克夏令時間</daylight>
 				</long>
@@ -5208,7 +5891,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>葉卡捷琳堡時間</generic>
 					<standard>葉卡捷琳堡標準時間</standard>
-					<daylight>凱薩琳堡夏令時間</daylight>
+					<daylight>葉卡捷琳堡夏令時間</daylight>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -5228,9 +5911,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
-			<nan draft="contributed">非數值</nan>
+			<nan>非數值</nan>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -5240,34 +5924,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0</pattern>
-					<pattern type="10000" count="other" draft="contributed">0萬</pattern>
-					<pattern type="100000" count="other" draft="contributed">00萬</pattern>
-					<pattern type="1000000" count="other" draft="contributed">000萬</pattern>
-					<pattern type="10000000" count="other" draft="contributed">0000萬</pattern>
-					<pattern type="100000000" count="other" draft="contributed">0億</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">00億</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">000億</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">0000億</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0兆</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00兆</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000兆</pattern>
+					<pattern type="1000" count="other">0 千</pattern>
+					<pattern type="10000" count="other">0萬</pattern>
+					<pattern type="100000" count="other">00萬</pattern>
+					<pattern type="1000000" count="other">000萬</pattern>
+					<pattern type="10000000" count="other">0000萬</pattern>
+					<pattern type="100000000" count="other">0億</pattern>
+					<pattern type="1000000000" count="other">00億</pattern>
+					<pattern type="10000000000" count="other">000億</pattern>
+					<pattern type="100000000000" count="other">0000億</pattern>
+					<pattern type="1000000000000" count="other">0兆</pattern>
+					<pattern type="10000000000000" count="other">00兆</pattern>
+					<pattern type="100000000000000" count="other">000兆</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
-					<pattern type="1000" count="other" draft="contributed">0K</pattern>
-					<pattern type="10000" count="other" draft="contributed">00K</pattern>
-					<pattern type="100000" count="other" draft="contributed">000K</pattern>
-					<pattern type="1000000" count="other" draft="contributed">0M</pattern>
-					<pattern type="10000000" count="other" draft="contributed">00M</pattern>
-					<pattern type="100000000" count="other" draft="contributed">000M</pattern>
-					<pattern type="1000000000" count="other" draft="contributed">0G</pattern>
-					<pattern type="10000000000" count="other" draft="contributed">00G</pattern>
-					<pattern type="100000000000" count="other" draft="contributed">000G</pattern>
-					<pattern type="1000000000000" count="other" draft="contributed">0T</pattern>
-					<pattern type="10000000000000" count="other" draft="contributed">00兆</pattern>
-					<pattern type="100000000000000" count="other" draft="contributed">000T</pattern>
+					<pattern type="1000" count="other">0K</pattern>
+					<pattern type="10000" count="other">00K</pattern>
+					<pattern type="100000" count="other">000K</pattern>
+					<pattern type="1000000" count="other">0M</pattern>
+					<pattern type="10000000" count="other">00M</pattern>
+					<pattern type="100000000" count="other">000M</pattern>
+					<pattern type="1000000000" count="other">0B</pattern>
+					<pattern type="10000000000" count="other">00B</pattern>
+					<pattern type="100000000000" count="other">000B</pattern>
+					<pattern type="1000000000000" count="other">0T</pattern>
+					<pattern type="10000000000000" count="other">00T</pattern>
+					<pattern type="100000000000000" count="other">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -5289,6 +5973,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currencyFormatLength>
 				<currencyFormat>
 					<pattern>¤#,##0.00</pattern>
+					<pattern alt="accounting" draft="contributed">¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="other">{0} {1}</unitPattern>
@@ -5296,901 +5981,1490 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<currencies>
 			<currency type="ADP">
 				<displayName>安道爾陪士特</displayName>
+				<displayName count="other">安道爾陪士特</displayName>
+				<symbol draft="contributed">ADP</symbol>
 			</currency>
 			<currency type="AED">
 				<displayName>阿拉伯聯合大公國迪爾汗</displayName>
+				<displayName count="other">阿拉伯聯合大公國迪爾汗</displayName>
+				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>阿富汗尼 (1927-2002)</displayName>
+				<symbol draft="contributed">AFA</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>阿富汗尼</displayName>
+				<displayName count="other">阿富汗尼</displayName>
+				<symbol>AFN</symbol>
+			</currency>
+			<currency type="ALK">
+				<displayName draft="contributed">阿爾巴尼亞列克 (1946-1965)</displayName>
+				<displayName count="other" draft="contributed">阿爾巴尼亞列克 (1946-1965)</displayName>
+				<symbol draft="contributed">ALK</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>阿爾巴尼亞列克</displayName>
+				<displayName count="other">阿爾巴尼亞列克</displayName>
+				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>亞美尼亞德拉姆</displayName>
+				<displayName count="other">亞美尼亞德拉姆</displayName>
+				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
-				<displayName draft="contributed">荷屬安地列斯盾</displayName>
+				<displayName>荷屬安地列斯盾</displayName>
+				<displayName count="other" draft="contributed">荷屬安地列斯盾</displayName>
+				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>安哥拉寬扎</displayName>
+				<displayName count="other">安哥拉寬扎</displayName>
+				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>安哥拉寬扎 (1977-1990)</displayName>
+				<displayName count="other">安哥拉寬扎 (1977-1990)</displayName>
+				<symbol draft="contributed">AOK</symbol>
 			</currency>
 			<currency type="AON">
 				<displayName>安哥拉新寬扎 (1990-2000)</displayName>
+				<displayName count="other">安哥拉新寬扎 (1990-2000)</displayName>
+				<symbol draft="contributed">AON</symbol>
 			</currency>
 			<currency type="AOR">
 				<displayName>安哥拉新調寬扎 (1995-1999)</displayName>
+				<displayName count="other">安哥拉新調寬扎 (1995-1999)</displayName>
+				<symbol draft="contributed">AOR</symbol>
 			</currency>
 			<currency type="ARA">
 				<displayName>阿根廷奧斯特納爾</displayName>
+				<symbol draft="contributed">ARA</symbol>
 			</currency>
 			<currency type="ARL">
 				<displayName draft="contributed">阿根廷披索（1970-1983）</displayName>
+				<displayName count="other" draft="contributed">阿根廷披索（1970-1983）</displayName>
+				<symbol draft="contributed">ARL</symbol>
 			</currency>
 			<currency type="ARM">
 				<displayName draft="contributed">阿根廷披索（1881-1970）</displayName>
+				<displayName count="other" draft="contributed">阿根廷披索（1881-1970）</displayName>
+				<symbol draft="contributed">ARM</symbol>
 			</currency>
 			<currency type="ARP">
 				<displayName>阿根廷披索 (1983-1985)</displayName>
+				<displayName count="other">阿根廷披索 (1983-1985)</displayName>
+				<symbol draft="contributed">ARP</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>阿根廷披索</displayName>
+				<displayName count="other">阿根廷披索</displayName>
+				<symbol>ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>奧地利先令</displayName>
+				<displayName count="other">奧地利先令</displayName>
+				<symbol draft="contributed">ATS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>澳幣</displayName>
-				<symbol draft="contributed">AU$</symbol>
+				<displayName count="other">澳幣</displayName>
+				<symbol>AU$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>阿魯巴盾</displayName>
+				<displayName count="other">阿魯巴盾</displayName>
+				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>亞塞拜然馬納特 (1993-2006)</displayName>
+				<displayName count="other">亞塞拜然馬納特 (1993-2006)</displayName>
+				<symbol draft="contributed">AZM</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>亞塞拜然馬納特</displayName>
+				<displayName count="other">亞塞拜然馬納特</displayName>
+				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName>波士尼亞-黑塞哥維那第納爾</displayName>
+				<displayName count="other">波士尼亞-黑塞哥維那第納爾</displayName>
+				<symbol draft="contributed">BAD</symbol>
 			</currency>
 			<currency type="BAM">
-				<displayName>波士尼亞-黑塞哥維那可轉換馬克</displayName>
+				<displayName>波士尼亞赫塞哥維納可轉換馬克</displayName>
+				<displayName count="other">波士尼亞-黑塞哥維那可轉換馬克</displayName>
+				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BAN">
 				<displayName draft="contributed">波士尼亞-黑塞哥維那新第納爾</displayName>
+				<displayName count="other" draft="contributed">波士尼亞-黑塞哥維那新第納爾</displayName>
+				<symbol draft="contributed">BAN</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>巴貝多元</displayName>
+				<displayName count="other">巴貝多元</displayName>
+				<symbol>BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>孟加拉塔卡</displayName>
+				<displayName count="other">孟加拉塔卡</displayName>
+				<symbol>BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>比利時法郎（可轉換）</displayName>
+				<displayName count="other">比利時法郎（可轉換）</displayName>
+				<symbol draft="contributed">BEC</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>比利時法郎</displayName>
+				<displayName count="other">比利時法郎</displayName>
+				<symbol draft="contributed">BEF</symbol>
 			</currency>
 			<currency type="BEL">
 				<displayName>比利時法郎（金融）</displayName>
+				<displayName count="other">比利時法郎（金融）</displayName>
+				<symbol draft="contributed">BEL</symbol>
 			</currency>
 			<currency type="BGL">
 				<displayName>保加利亞硬列弗</displayName>
+				<displayName count="other">保加利亞硬列弗</displayName>
+				<symbol draft="contributed">BGL</symbol>
 			</currency>
 			<currency type="BGM">
 				<displayName draft="contributed">保加利亞社會黨列弗</displayName>
+				<displayName count="other" draft="contributed">保加利亞社會黨列弗</displayName>
+				<symbol draft="contributed">BGM</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>保加利亞新列弗</displayName>
+				<displayName count="other">保加利亞新列弗</displayName>
+				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BGO">
 				<displayName draft="contributed">保加利亞列弗（1879-1952）</displayName>
+				<displayName count="other" draft="contributed">保加利亞列弗（1879-1952）</displayName>
+				<symbol draft="contributed">BGO</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>巴林第納爾</displayName>
+				<displayName count="other">巴林第納爾</displayName>
+				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>蒲隆地法郎</displayName>
+				<displayName count="other">蒲隆地法郎</displayName>
+				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>百慕達幣</displayName>
+				<displayName count="other">百慕達幣</displayName>
+				<symbol>BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>汶萊元</displayName>
+				<displayName count="other">汶萊元</displayName>
+				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>玻利維亞貨幣單位</displayName>
+				<displayName count="other">玻利維亞貨幣單位</displayName>
+				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BOL">
 				<displayName draft="contributed">玻利維亞玻利維亞諾（1863-1963）</displayName>
+				<displayName count="other" draft="contributed">玻利維亞玻利維亞諾（1863-1963）</displayName>
+				<symbol draft="contributed">BOL</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>玻利維亞披索</displayName>
+				<displayName count="other">玻利維亞披索</displayName>
+				<symbol draft="contributed">BOP</symbol>
 			</currency>
 			<currency type="BOV">
 				<displayName>玻利維亞幕多</displayName>
+				<displayName count="other">玻利維亞幕多</displayName>
+				<symbol draft="contributed">BOV</symbol>
 			</currency>
 			<currency type="BRB">
 				<displayName>巴西克魯薩多農瓦 (1967-1986)</displayName>
+				<displayName count="other">巴西克魯薩多農瓦 (1967-1986)</displayName>
+				<symbol draft="contributed">BRB</symbol>
 			</currency>
 			<currency type="BRC">
 				<displayName>巴西克魯賽羅 (1986-1989)</displayName>
+				<displayName count="other">巴西克魯賽羅 (1986-1989)</displayName>
+				<symbol draft="contributed">BRC</symbol>
 			</currency>
 			<currency type="BRE">
 				<displayName>巴西克魯賽羅 (1990-1993)</displayName>
+				<displayName count="other">巴西克魯賽羅 (1990-1993)</displayName>
+				<symbol draft="contributed">BRE</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>巴西里拉</displayName>
-				<symbol draft="contributed">R$</symbol>
+				<displayName count="other">巴西里拉</displayName>
+				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName>巴西克如爾達農瓦</displayName>
+				<displayName count="other">巴西克如爾達農瓦</displayName>
+				<symbol draft="contributed">BRN</symbol>
 			</currency>
 			<currency type="BRR">
 				<displayName>巴西克魯賽羅</displayName>
+				<displayName count="other">巴西克魯賽羅</displayName>
+				<symbol draft="contributed">BRR</symbol>
 			</currency>
 			<currency type="BRZ">
 				<displayName draft="contributed">巴西克魯賽羅（1942 -1967）</displayName>
+				<displayName count="other" draft="contributed">巴西克魯賽羅（1942 -1967）</displayName>
+				<symbol draft="contributed">BRZ</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>巴哈馬元</displayName>
+				<displayName count="other">巴哈馬元</displayName>
+				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName draft="contributed">不丹那特倫</displayName>
+				<displayName count="other" draft="contributed">不丹那特倫</displayName>
+				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>緬甸基雅特</displayName>
+				<symbol draft="contributed">BUK</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>波札那普拉</displayName>
+				<displayName count="other">波札那普拉</displayName>
+				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>白俄羅斯新盧布 (1994-1999)</displayName>
+				<displayName count="other">白俄羅斯新盧布 (1994-1999)</displayName>
+				<symbol draft="contributed">BYB</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>白俄羅斯盧布</displayName>
+				<displayName count="other">白俄羅斯盧布</displayName>
+				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>貝里斯元</displayName>
+				<displayName count="other">貝里斯元</displayName>
+				<symbol>BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>加幣</displayName>
-				<symbol draft="contributed">CA$</symbol>
+				<displayName count="other">加幣</displayName>
+				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>剛果法郎</displayName>
+				<displayName count="other">剛果法郎</displayName>
+				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName draft="contributed">歐元 (WIR)</displayName>
+				<displayName count="other" draft="contributed">歐元 (WIR)</displayName>
+				<symbol draft="contributed">CHE</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>瑞士法郎</displayName>
+				<displayName count="other">瑞士法郎</displayName>
+				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName draft="contributed">法郎 (WIR)</displayName>
+				<displayName count="other" draft="contributed">法郎 (WIR)</displayName>
+				<symbol draft="contributed">CHW</symbol>
 			</currency>
 			<currency type="CLE">
 				<displayName draft="contributed">智利埃斯庫多</displayName>
+				<displayName count="other" draft="contributed">智利埃斯庫多</displayName>
+				<symbol draft="contributed">CLE</symbol>
 			</currency>
 			<currency type="CLF">
 				<displayName>卡林油達佛曼跎</displayName>
+				<displayName count="other">卡林油達佛曼跎</displayName>
+				<symbol draft="contributed">CLF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>智利披索</displayName>
+				<displayName count="other">智利披索</displayName>
+				<symbol>CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>人民幣</displayName>
-				<symbol>￥</symbol>
+				<displayName count="other">人民幣</displayName>
+				<symbol>CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>哥倫比亞披索</displayName>
+				<displayName count="other">哥倫比亞披索</displayName>
+				<symbol>COP</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName draft="contributed">哥倫比亞幣（COU）</displayName>
+				<displayName count="other" draft="contributed">哥倫比亞幣（COU）</displayName>
+				<symbol draft="contributed">COU</symbol>
 			</currency>
 			<currency type="CRC">
-				<displayName>哥斯大黎加科郎</displayName>
+				<displayName>哥斯大黎加科朗</displayName>
+				<displayName count="other">哥斯大黎加科郎</displayName>
+				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName draft="contributed">舊塞爾維亞第納爾</displayName>
+				<displayName count="other" draft="contributed">舊塞爾維亞第納爾</displayName>
+				<symbol draft="contributed">CSD</symbol>
 			</currency>
 			<currency type="CSK">
 				<displayName>捷克斯洛伐克硬克朗</displayName>
+				<displayName count="other">捷克斯洛伐克硬克朗</displayName>
+				<symbol draft="contributed">CSK</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>古巴可轉換披索</displayName>
+				<displayName count="other">古巴可轉換披索</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>古巴披索</displayName>
+				<displayName count="other">古巴披索</displayName>
+				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>維德角埃斯庫多</displayName>
+				<displayName count="other">維德角埃斯庫多</displayName>
+				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>賽普勒斯鎊</displayName>
+				<displayName count="other">賽普勒斯鎊</displayName>
+				<symbol draft="contributed">CYP</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>捷克克朗</displayName>
+				<displayName count="other">捷克克朗</displayName>
+				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName draft="contributed">東德奧斯特馬克</displayName>
+				<displayName count="other" draft="contributed">東德奧斯特馬克</displayName>
+				<symbol draft="contributed">DDM</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>德國馬克</displayName>
+				<displayName count="other">德國馬克</displayName>
+				<symbol draft="contributed">DEM</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>吉布地法郎</displayName>
+				<displayName count="other">吉布地法郎</displayName>
+				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
-				<displayName>丹麥克羅納</displayName>
+				<displayName>丹麥克朗</displayName>
+				<displayName count="other">丹麥克羅納</displayName>
+				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>多明尼加披索</displayName>
+				<displayName count="other">多明尼加披索</displayName>
+				<symbol>DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>阿爾及利亞第納爾</displayName>
+				<displayName count="other">阿爾及利亞第納爾</displayName>
+				<symbol>DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>厄瓜多蘇克雷</displayName>
+				<displayName count="other">厄瓜多蘇克雷</displayName>
+				<symbol draft="contributed">ECS</symbol>
 			</currency>
 			<currency type="ECV">
 				<displayName>厄瓜多爾由里達瓦康斯坦 (UVC)</displayName>
+				<displayName count="other">厄瓜多爾由里達瓦康斯坦 (UVC)</displayName>
+				<symbol draft="contributed">ECV</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>愛沙尼亞克朗</displayName>
+				<displayName count="other">愛沙尼亞克朗</displayName>
+				<symbol draft="contributed">EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>埃及鎊</displayName>
+				<displayName count="other">埃及鎊</displayName>
+				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>厄立特里亞納克法</displayName>
+				<displayName count="other">厄立特里亞納克法</displayName>
+				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName draft="contributed">西班牙比塞塔（會計單位）</displayName>
+				<displayName count="other" draft="contributed">西班牙比塞塔（會計單位）</displayName>
+				<symbol draft="contributed">ESA</symbol>
 			</currency>
 			<currency type="ESB">
 				<displayName draft="contributed">西班牙比塞塔（可轉換會計單位）</displayName>
+				<displayName count="other" draft="contributed">西班牙比塞塔（可轉換會計單位）</displayName>
+				<symbol draft="contributed">ESB</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>西班牙陪士特</displayName>
+				<displayName count="other">西班牙陪士特</displayName>
+				<symbol draft="contributed">ESP</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>衣索比亞比爾</displayName>
+				<displayName count="other">衣索比亞比爾</displayName>
+				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>歐元</displayName>
-				<symbol draft="contributed">€</symbol>
+				<displayName count="other">歐元</displayName>
+				<symbol>€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>芬蘭馬克</displayName>
+				<displayName count="other">芬蘭馬克</displayName>
+				<symbol draft="contributed">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>斐濟元</displayName>
+				<displayName count="other">斐濟元</displayName>
+				<symbol>FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>福克蘭群島鎊</displayName>
+				<displayName count="other">福克蘭群島鎊</displayName>
+				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>法國法郎</displayName>
+				<displayName count="other">法國法郎</displayName>
+				<symbol draft="contributed">FRF</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>英鎊</displayName>
-				<symbol draft="contributed">£</symbol>
+				<displayName count="other">英鎊</displayName>
+				<symbol>£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName draft="contributed">喬治亞庫旁拉里</displayName>
+				<displayName count="other" draft="contributed">喬治亞庫旁拉里</displayName>
+				<symbol draft="contributed">GEK</symbol>
 			</currency>
 			<currency type="GEL">
-				<displayName>喬治拉里</displayName>
+				<displayName>喬治亞拉里</displayName>
+				<displayName count="other">喬治拉里</displayName>
+				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>迦納仙蔕 (1979-2007)</displayName>
+				<displayName count="other">迦納仙蔕 (1979-2007)</displayName>
+				<symbol draft="contributed">GHC</symbol>
 			</currency>
 			<currency type="GHS">
-				<displayName>迦納仙蔕</displayName>
+				<displayName>迦納塞地</displayName>
+				<displayName count="other">迦納仙蔕</displayName>
+				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>直布羅陀鎊</displayName>
+				<displayName count="other">直布羅陀鎊</displayName>
+				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>甘比亞達拉西</displayName>
+				<displayName count="other">甘比亞達拉西</displayName>
+				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>幾內亞法郎</displayName>
+				<displayName count="other">幾內亞法郎</displayName>
+				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>幾內亞西里</displayName>
+				<displayName count="other">幾內亞西里</displayName>
+				<symbol draft="contributed">GNS</symbol>
 			</currency>
 			<currency type="GQE">
 				<displayName>赤道幾內亞埃奎勒</displayName>
+				<displayName count="other">赤道幾內亞埃奎勒</displayName>
+				<symbol draft="contributed">GQE</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>希臘德拉克馬</displayName>
+				<displayName count="other">希臘德拉克馬</displayName>
+				<symbol draft="contributed">GRD</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>瓜地馬拉格查爾</displayName>
+				<displayName count="other">瓜地馬拉格查爾</displayName>
+				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>葡屬幾內亞埃斯庫多</displayName>
+				<displayName count="other">葡屬幾內亞埃斯庫多</displayName>
+				<symbol draft="contributed">GWE</symbol>
 			</currency>
 			<currency type="GWP">
 				<displayName>幾內亞比索披索</displayName>
+				<displayName count="other">幾內亞比索披索</displayName>
+				<symbol draft="contributed">GWP</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>圭亞那元</displayName>
+				<displayName count="other">圭亞那元</displayName>
+				<symbol>GYD</symbol>
 			</currency>
 			<currency type="HKD">
-				<displayName draft="contributed">港幣</displayName>
-				<symbol draft="contributed">HK$</symbol>
+				<displayName>港幣</displayName>
+				<displayName count="other" draft="contributed">港幣</displayName>
+				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>洪都拉斯倫皮拉</displayName>
+				<displayName count="other">洪都拉斯倫皮拉</displayName>
+				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>克羅地亞第納爾</displayName>
+				<displayName count="other">克羅地亞第納爾</displayName>
+				<symbol draft="contributed">HRD</symbol>
 			</currency>
 			<currency type="HRK">
-				<displayName>克羅地亞庫納</displayName>
+				<displayName>克羅埃西亞庫納</displayName>
+				<displayName count="other">克羅地亞庫納</displayName>
+				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>海地古德</displayName>
+				<displayName count="other">海地古德</displayName>
+				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>匈牙利福林</displayName>
+				<displayName count="other">匈牙利福林</displayName>
+				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>印尼盾</displayName>
+				<displayName count="other">印尼盾</displayName>
+				<symbol>IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>愛爾蘭鎊</displayName>
+				<displayName count="other">愛爾蘭鎊</displayName>
+				<symbol draft="contributed">IEP</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName>以色列鎊</displayName>
+				<displayName count="other">以色列鎊</displayName>
+				<symbol draft="contributed">ILP</symbol>
+			</currency>
+			<currency type="ILR">
+				<displayName draft="contributed">以色列謝克爾 (1980-1985)</displayName>
+				<displayName count="other" draft="contributed">以色列謝克爾 (1980-1985)</displayName>
+				<symbol draft="contributed">ILR</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>以色列新謝克爾</displayName>
-				<symbol draft="contributed">₪</symbol>
+				<displayName count="other">以色列新謝克爾</displayName>
+				<symbol>₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>印度盧比</displayName>
-				<symbol draft="contributed">₹</symbol>
+				<displayName count="other">印度盧比</displayName>
+				<symbol>₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>伊拉克第納爾</displayName>
+				<displayName count="other">伊拉克第納爾</displayName>
+				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>伊朗里亞爾</displayName>
+				<displayName count="other">伊朗里亞爾</displayName>
+				<symbol>IRR</symbol>
+			</currency>
+			<currency type="ISJ">
+				<displayName draft="contributed">冰島克朗 (1918-1981)</displayName>
+				<displayName count="other" draft="contributed">冰島克朗 (1918-1981)</displayName>
 			</currency>
 			<currency type="ISK">
 				<displayName>冰島克朗</displayName>
+				<displayName count="other">冰島克朗</displayName>
+				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>義大利里拉</displayName>
+				<displayName count="other">義大利里拉</displayName>
+				<symbol draft="contributed">ITL</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>牙買加元</displayName>
+				<displayName count="other">牙買加元</displayName>
+				<symbol>JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>約旦第納爾</displayName>
+				<displayName count="other">約旦第納爾</displayName>
+				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>日圓</displayName>
-				<symbol draft="contributed">¥</symbol>
+				<displayName count="other">日圓</displayName>
+				<symbol>¥</symbol>
 			</currency>
 			<currency type="KES">
-				<displayName>肯尼亞先令</displayName>
+				<displayName>肯亞先令</displayName>
+				<displayName count="other">肯尼亞先令</displayName>
+				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
-				<displayName>吉爾吉斯索馬</displayName>
+				<displayName>吉爾吉斯索姆</displayName>
+				<displayName count="other">吉爾吉斯索馬</displayName>
+				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>柬埔寨瑞爾</displayName>
+				<displayName count="other">柬埔寨瑞爾</displayName>
+				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>科摩羅法郎</displayName>
+				<displayName count="other">科摩羅法郎</displayName>
+				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
-				<displayName>北韓圜</displayName>
+				<displayName>北韓圓</displayName>
+				<displayName count="other">北韓圓</displayName>
+				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRH">
 				<displayName draft="contributed">南韓圜</displayName>
+				<symbol draft="contributed">KRH</symbol>
 			</currency>
 			<currency type="KRO">
 				<displayName draft="contributed">南韓圓</displayName>
+				<symbol draft="contributed">KRO</symbol>
 			</currency>
 			<currency type="KRW">
-				<displayName>韓圜</displayName>
+				<displayName>韓圓</displayName>
+				<displayName count="other">韓圓</displayName>
 				<symbol>￦</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>科威特第納爾</displayName>
+				<displayName count="other">科威特第納爾</displayName>
+				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
-				<displayName>開曼群島美元</displayName>
+				<displayName>開曼群島元</displayName>
+				<displayName count="other">開曼群島美元</displayName>
+				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>卡扎克斯坦坦吉</displayName>
+				<displayName count="other">卡扎克斯坦坦吉</displayName>
+				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
-				<displayName draft="contributed">寮國基普</displayName>
+				<displayName>寮國基普</displayName>
+				<displayName count="other" draft="contributed">寮國基普</displayName>
+				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>黎巴嫩鎊</displayName>
+				<displayName count="other">黎巴嫩鎊</displayName>
+				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
-				<displayName>斯里蘭卡盧布</displayName>
+				<displayName>斯里蘭卡盧比</displayName>
+				<displayName count="other">斯里蘭卡盧布</displayName>
+				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>賴比瑞亞元</displayName>
+				<displayName count="other">賴比瑞亞元</displayName>
+				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>賴索托羅蒂</displayName>
+				<displayName count="other">賴索托羅蒂</displayName>
+				<symbol draft="contributed">LSL</symbol>
 			</currency>
 			<currency type="LTL">
-				<displayName>立陶宛里塔</displayName>
+				<displayName>立陶宛立特</displayName>
+				<displayName count="other">立陶宛里塔</displayName>
+				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>立陶宛特羅</displayName>
+				<displayName count="other">立陶宛特羅</displayName>
+				<symbol draft="contributed">LTT</symbol>
 			</currency>
 			<currency type="LUC">
 				<displayName draft="contributed">盧森堡可兌換法郎</displayName>
+				<displayName count="other" draft="contributed">盧森堡可兌換法郎</displayName>
+				<symbol draft="contributed">LUC</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>盧森堡法郎</displayName>
+				<displayName count="other">盧森堡法郎</displayName>
+				<symbol draft="contributed">LUF</symbol>
 			</currency>
 			<currency type="LUL">
 				<displayName draft="contributed">盧森堡金融法郎</displayName>
+				<displayName count="other" draft="contributed">盧森堡金融法郎</displayName>
+				<symbol draft="contributed">LUL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>拉脫維亞拉特銀幣</displayName>
+				<displayName count="other">拉脫維亞拉特銀幣</displayName>
+				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>拉脫維亞盧布</displayName>
+				<displayName count="other">拉脫維亞盧布</displayName>
+				<symbol draft="contributed">LVR</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>利比亞第納爾</displayName>
+				<displayName count="other">利比亞第納爾</displayName>
+				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>摩洛哥迪拉姆</displayName>
+				<displayName count="other">摩洛哥迪拉姆</displayName>
+				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>摩洛哥法郎</displayName>
+				<displayName count="other">摩洛哥法郎</displayName>
+				<symbol draft="contributed">MAF</symbol>
 			</currency>
 			<currency type="MCF">
 				<displayName draft="contributed">摩納哥法郎</displayName>
+				<displayName count="other" draft="contributed">摩納哥法郎</displayName>
+				<symbol draft="contributed">MCF</symbol>
 			</currency>
 			<currency type="MDC">
 				<displayName draft="contributed">摩爾多瓦券</displayName>
+				<displayName count="other" draft="contributed">摩爾多瓦券</displayName>
+				<symbol draft="contributed">MDC</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>摩杜雲列伊</displayName>
+				<displayName count="other">摩杜雲列伊</displayName>
+				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>馬達加斯加艾瑞爾</displayName>
+				<displayName count="other">馬達加斯加艾瑞爾</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>馬達加斯加法郎</displayName>
+				<displayName count="other">馬達加斯加法郎</displayName>
+				<symbol draft="contributed">MGF</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>馬其頓第納爾</displayName>
+				<displayName count="other">馬其頓第納爾</displayName>
+				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MKN">
 				<displayName draft="contributed">馬其頓第納爾（1992-1993）</displayName>
+				<displayName count="other" draft="contributed">馬其頓第納爾（1992-1993）</displayName>
+				<symbol draft="contributed">MKN</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>馬里法郎</displayName>
+				<displayName count="other">馬里法郎</displayName>
+				<symbol draft="contributed">MLF</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>緬甸元</displayName>
+				<displayName count="other">緬甸元</displayName>
+				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>蒙古圖格里克</displayName>
+				<displayName count="other">蒙古圖格里克</displayName>
+				<symbol>MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>澳門元</displayName>
+				<displayName count="other">澳門元</displayName>
+				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>茅利塔尼亞烏吉亞</displayName>
+				<displayName count="other">茅利塔尼亞烏吉亞</displayName>
+				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>馬爾他里拉</displayName>
+				<displayName count="other">馬爾他里拉</displayName>
+				<symbol draft="contributed">MTL</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>馬爾他鎊</displayName>
+				<displayName count="other">馬爾他鎊</displayName>
+				<symbol draft="contributed">MTP</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>模里西斯盧布</displayName>
+				<displayName count="other">模里西斯盧布</displayName>
+				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
-				<displayName>馬爾地夫海島盧非亞</displayName>
+				<displayName>馬爾地夫盧非亞</displayName>
+				<displayName count="other">馬爾地夫海島盧非亞</displayName>
+				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>馬拉維克瓦查</displayName>
+				<displayName count="other">馬拉維克瓦查</displayName>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>墨西哥披索</displayName>
-				<symbol draft="contributed">MX$</symbol>
+				<displayName count="other">墨西哥披索</displayName>
+				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName>墨西哥銀披索 (1861-1992)</displayName>
+				<displayName count="other">墨西哥銀披索 (1861-1992)</displayName>
+				<symbol draft="contributed">MXP</symbol>
 			</currency>
 			<currency type="MXV">
 				<displayName draft="contributed">墨西哥轉換單位 (UDI)</displayName>
+				<displayName count="other" draft="contributed">墨西哥轉換單位 (UDI)</displayName>
+				<symbol draft="contributed">MXV</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>馬來西亞令吉</displayName>
+				<displayName count="other">馬來西亞令吉</displayName>
+				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>莫三比克埃斯庫多</displayName>
+				<displayName count="other">莫三比克埃斯庫多</displayName>
+				<symbol draft="contributed">MZE</symbol>
 			</currency>
 			<currency type="MZM">
 				<displayName>莫三比克梅蒂卡爾</displayName>
+				<displayName count="other">莫三比克梅蒂卡爾</displayName>
+				<symbol draft="contributed">MZM</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>莫三比克美提卡</displayName>
+				<displayName count="other">莫三比克美提卡</displayName>
+				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>納米比亞元</displayName>
+				<displayName count="other">納米比亞元</displayName>
+				<symbol>NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>奈及利亞奈拉</displayName>
+				<displayName count="other">奈及利亞奈拉</displayName>
+				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>尼加拉瓜科多巴</displayName>
+				<displayName count="other">尼加拉瓜科多巴</displayName>
+				<symbol draft="contributed">NIC</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>尼加拉瓜金科多巴</displayName>
+				<displayName count="other">尼加拉瓜金科多巴</displayName>
+				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>荷蘭盾</displayName>
+				<displayName count="other">荷蘭盾</displayName>
+				<symbol draft="contributed">NLG</symbol>
 			</currency>
 			<currency type="NOK">
-				<displayName>挪威克羅納</displayName>
+				<displayName>挪威克朗</displayName>
+				<displayName count="other">挪威克羅納</displayName>
+				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
-				<displayName>尼泊爾盧布</displayName>
+				<displayName>尼泊爾盧比</displayName>
+				<displayName count="other">尼泊爾盧布</displayName>
+				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>紐西蘭幣</displayName>
-				<symbol draft="contributed">NZ$</symbol>
+				<displayName count="other">紐西蘭幣</displayName>
+				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>阿曼里奧</displayName>
+				<displayName count="other">阿曼里奧</displayName>
+				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>巴拿馬巴波亞</displayName>
+				<displayName count="other">巴拿馬巴波亞</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>祕魯因蒂</displayName>
+				<displayName count="other">祕魯因蒂</displayName>
+				<symbol draft="contributed">PEI</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>秘魯新太陽幣</displayName>
+				<displayName count="other">秘魯新太陽幣</displayName>
+				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>秘魯太陽幣</displayName>
+				<displayName count="other">秘魯太陽幣</displayName>
+				<symbol draft="contributed">PES</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>巴布亞紐幾內亞基那</displayName>
+				<displayName count="other">巴布亞紐幾內亞基那</displayName>
+				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>菲律賓披索</displayName>
+				<displayName count="other">菲律賓披索</displayName>
+				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>巴基斯坦盧布</displayName>
+				<displayName count="other">巴基斯坦盧布</displayName>
+				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>波蘭茲羅提</displayName>
+				<displayName count="other">波蘭茲羅提</displayName>
+				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>波蘭茲羅提 (1950-1995)</displayName>
+				<displayName count="other">波蘭茲羅提 (1950-1995)</displayName>
+				<symbol draft="contributed">PLZ</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>葡萄牙埃斯庫多</displayName>
+				<displayName count="other">葡萄牙埃斯庫多</displayName>
+				<symbol draft="contributed">PTE</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>巴拉圭瓜拉尼</displayName>
+				<displayName count="other">巴拉圭瓜拉尼</displayName>
+				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>卡達爾里亞爾</displayName>
+				<displayName count="other">卡達爾里亞爾</displayName>
+				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName draft="contributed">羅德西亞元</displayName>
+				<displayName count="other" draft="contributed">羅德西亞元</displayName>
+				<symbol draft="contributed">RHD</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName draft="contributed">舊羅馬尼亞列伊</displayName>
+				<displayName count="other" draft="contributed">舊羅馬尼亞列伊</displayName>
+				<symbol draft="contributed">ROL</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>羅馬尼亞列伊</displayName>
+				<displayName count="other">羅馬尼亞列伊</displayName>
+				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>塞爾維亞戴納</displayName>
+				<displayName count="other">塞爾維亞戴納</displayName>
+				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>俄羅斯盧布</displayName>
+				<displayName count="other">俄羅斯盧布</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>俄羅斯盧布 (1991-1998)</displayName>
+				<displayName count="other">俄羅斯盧布 (1991-1998)</displayName>
+				<symbol draft="contributed">RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>盧安達法郎</displayName>
+				<displayName count="other">盧安達法郎</displayName>
+				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>沙烏地里雅</displayName>
+				<displayName count="other">沙烏地里雅</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>索羅門群島元</displayName>
+				<displayName count="other">索羅門群島元</displayName>
+				<symbol>SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>塞席爾盧比</displayName>
+				<displayName count="other">塞席爾盧比</displayName>
+				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName>蘇丹第納爾</displayName>
+				<displayName count="other">蘇丹第納爾</displayName>
+				<symbol draft="contributed">SDD</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>蘇丹鎊</displayName>
+				<displayName count="other">蘇丹鎊</displayName>
+				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName>舊蘇丹鎊</displayName>
+				<displayName count="other">舊蘇丹鎊</displayName>
+				<symbol draft="contributed">SDP</symbol>
 			</currency>
 			<currency type="SEK">
-				<displayName>瑞典克羅納</displayName>
+				<displayName>瑞典克朗</displayName>
+				<displayName count="other">瑞典克羅納</displayName>
+				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>新加坡幣</displayName>
+				<displayName count="other">新加坡幣</displayName>
+				<symbol>SGD</symbol>
 			</currency>
 			<currency type="SHP">
-				<displayName draft="contributed">聖赫勒拿鎊</displayName>
+				<displayName>聖赫勒拿鎊</displayName>
+				<displayName count="other" draft="contributed">聖赫勒拿鎊</displayName>
+				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>斯洛維尼亞托勒</displayName>
+				<displayName count="other">斯洛維尼亞托勒</displayName>
+				<symbol draft="contributed">SIT</symbol>
 			</currency>
 			<currency type="SKK">
 				<displayName>斯洛伐克克朗</displayName>
+				<displayName count="other">斯洛伐克克朗</displayName>
+				<symbol draft="contributed">SKK</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>獅子山利昂</displayName>
+				<displayName count="other">獅子山利昂</displayName>
+				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>索馬利亞先令</displayName>
+				<displayName count="other">索馬利亞先令</displayName>
+				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
-				<displayName draft="contributed">蘇利南元</displayName>
+				<displayName>蘇利南元</displayName>
+				<displayName count="other" draft="contributed">蘇利南元</displayName>
+				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>蘇利南基爾</displayName>
+				<displayName count="other">蘇利南基爾</displayName>
+				<symbol draft="contributed">SRG</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>南蘇丹鎊</displayName>
+				<displayName count="other">南蘇丹鎊</displayName>
+				<symbol>SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>聖多美島和普林西比島多布拉</displayName>
+				<displayName count="other">聖多美島和普林西比島多布拉</displayName>
+				<symbol>STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>蘇聯盧布</displayName>
+				<displayName count="other">蘇聯盧布</displayName>
+				<symbol draft="contributed">SUR</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName draft="contributed">薩爾瓦多科郎</displayName>
+				<displayName count="other" draft="contributed">薩爾瓦多科郎</displayName>
+				<symbol draft="contributed">SVC</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>敘利亞鎊</displayName>
+				<displayName count="other">敘利亞鎊</displayName>
+				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
-				<displayName draft="contributed">史瓦濟蘭里朗吉尼</displayName>
+				<displayName>史瓦濟蘭里朗吉尼</displayName>
+				<displayName count="other" draft="contributed">史瓦濟蘭里朗吉尼</displayName>
+				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>泰銖</displayName>
-				<symbol draft="contributed">฿</symbol>
+				<displayName count="other">泰銖</displayName>
+				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName>塔吉克盧布</displayName>
+				<displayName count="other">塔吉克盧布</displayName>
+				<symbol>TJR</symbol>
 			</currency>
 			<currency type="TJS">
-				<displayName draft="contributed">塔吉克索莫尼</displayName>
+				<displayName>塔吉克索莫尼</displayName>
+				<displayName count="other">塔吉克索莫尼</displayName>
+				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
-				<displayName>土庫曼馬納特</displayName>
+				<displayName>土庫曼馬納特 (1993-2009)</displayName>
+				<displayName count="other">土庫曼馬納特 (1993-2009)</displayName>
+				<symbol>TMM</symbol>
 			</currency>
 			<currency type="TMT">
-				<displayName>土庫曼新馬納特</displayName>
+				<displayName>土庫曼馬納特</displayName>
+				<displayName count="other">土庫曼新馬納特</displayName>
+				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>突尼西亞第納爾</displayName>
+				<displayName count="other">突尼西亞第納爾</displayName>
+				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>東加潘加</displayName>
+				<displayName count="other">東加潘加</displayName>
+				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName draft="contributed">帝汶埃斯庫多</displayName>
+				<symbol draft="contributed">TPE</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName>土耳其里拉</displayName>
+				<displayName count="other">土耳其里拉</displayName>
+				<symbol draft="contributed">TRL</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>新土耳其里拉</displayName>
+				<displayName count="other">新土耳其里拉</displayName>
+				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
-				<displayName draft="contributed">千里達及托巴哥元</displayName>
+				<displayName>千里達及托巴哥元</displayName>
+				<displayName count="other" draft="contributed">千里達及托巴哥元</displayName>
+				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>新臺幣</displayName>
-				<symbol draft="contributed">NT$</symbol>
+				<displayName count="other">新臺幣</displayName>
+				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
-				<displayName draft="contributed">坦尚尼亞先令</displayName>
+				<displayName>坦尚尼亞先令</displayName>
+				<displayName count="other" draft="contributed">坦尚尼亞先令</displayName>
+				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
-				<displayName>烏克蘭格里夫那</displayName>
+				<displayName>烏克蘭格里夫納</displayName>
+				<displayName count="other">烏克蘭格里夫那</displayName>
+				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName draft="contributed">烏克蘭卡本瓦那茲</displayName>
+				<displayName count="other" draft="contributed">烏克蘭卡本瓦那茲</displayName>
+				<symbol draft="contributed">UAK</symbol>
 			</currency>
 			<currency type="UGS">
 				<displayName>烏干達先令 (1966-1987)</displayName>
+				<displayName count="other">烏干達先令 (1966-1987)</displayName>
+				<symbol draft="contributed">UGS</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>烏干達先令</displayName>
+				<displayName count="other">烏干達先令</displayName>
+				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
-				<displayName draft="contributed">美金</displayName>
-				<symbol draft="contributed">$</symbol>
+				<displayName>美元</displayName>
+				<displayName count="other">美元</displayName>
+				<symbol>$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName>美元（次日）</displayName>
+				<displayName count="other">美元（次日）</displayName>
+				<symbol draft="contributed">USN</symbol>
 			</currency>
 			<currency type="USS">
 				<displayName>美元（當日）</displayName>
+				<displayName count="other">美元（當日）</displayName>
+				<symbol draft="contributed">USS</symbol>
 			</currency>
 			<currency type="UYI">
 				<displayName draft="contributed">烏拉圭披索（指數單位）</displayName>
+				<displayName count="other" draft="contributed">烏拉圭披索（指數單位）</displayName>
+				<symbol draft="contributed">UYI</symbol>
 			</currency>
 			<currency type="UYP">
 				<displayName>烏拉圭披索 (1975-1993)</displayName>
+				<displayName count="other">烏拉圭披索 (1975-1993)</displayName>
+				<symbol draft="contributed">UYP</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>烏拉圭披索</displayName>
+				<displayName count="other">烏拉圭披索</displayName>
+				<symbol>UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>烏茲別克索姆</displayName>
+				<displayName count="other">烏茲別克索姆</displayName>
+				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>委內瑞拉玻利瓦 (1871-2008)</displayName>
+				<displayName count="other">委內瑞拉玻利瓦 (1871-2008)</displayName>
+				<symbol draft="contributed">VEB</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>委內瑞拉玻利瓦</displayName>
+				<displayName count="other">委內瑞拉玻利瓦</displayName>
+				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>越南盾</displayName>
-				<symbol draft="contributed">₫</symbol>
+				<displayName count="other">越南盾</displayName>
+				<symbol>₫</symbol>
 			</currency>
 			<currency type="VNN">
 				<displayName draft="contributed">越南盾（1978-1985）</displayName>
+				<symbol draft="contributed">VNN</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>萬那杜萬杜</displayName>
+				<displayName count="other">萬那杜萬杜</displayName>
+				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>西薩摩亞塔拉</displayName>
+				<displayName count="other">西薩摩亞塔拉</displayName>
+				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>法郎 (CFA-BEAC)</displayName>
-				<symbol draft="contributed">FCFA</symbol>
+				<displayName count="other">法郎 (CFA-BEAC)</displayName>
+				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XAG">
 				<displayName draft="contributed">白銀</displayName>
+				<symbol draft="contributed">XAG</symbol>
 			</currency>
 			<currency type="XAU">
 				<displayName>黃金</displayName>
+				<symbol draft="contributed">XAU</symbol>
 			</currency>
 			<currency type="XBA">
 				<displayName>歐洲綜合單位</displayName>
+				<symbol draft="contributed">XBA</symbol>
 			</currency>
 			<currency type="XBB">
 				<displayName>歐洲貨幣單位 (XBB)</displayName>
+				<symbol draft="contributed">XBB</symbol>
 			</currency>
 			<currency type="XBC">
 				<displayName>歐洲會計單位 (XBC)</displayName>
+				<symbol draft="contributed">XBC</symbol>
 			</currency>
 			<currency type="XBD">
 				<displayName>歐洲會計單位 (XBD)</displayName>
+				<symbol draft="contributed">XBD</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>格瑞那達元</displayName>
-				<symbol draft="contributed">EC$</symbol>
+				<displayName count="other">格瑞那達元</displayName>
+				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName>特殊提款權</displayName>
+				<symbol draft="contributed">XDR</symbol>
 			</currency>
 			<currency type="XEU">
 				<displayName>歐洲貨幣單位 (XEU)</displayName>
+				<displayName count="other">歐洲貨幣單位 (XEU)</displayName>
+				<symbol draft="contributed">XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName>法國金法郎</displayName>
+				<symbol draft="contributed">XFO</symbol>
 			</currency>
 			<currency type="XFU">
 				<displayName>法國法郎 (UIC)</displayName>
+				<symbol draft="contributed">XFU</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>法郎 (CFA-BCEAO)</displayName>
-				<symbol draft="contributed">CFA</symbol>
+				<displayName count="other">法郎 (CFA-BCEAO)</displayName>
+				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="contributed">帕拉狄昂</displayName>
+				<symbol draft="contributed">XPD</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>法郎 (CFP)</displayName>
-				<symbol draft="contributed">CFPF</symbol>
+				<displayName count="other">法郎 (CFP)</displayName>
+				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XPT">
 				<displayName draft="contributed">白金</displayName>
+				<symbol draft="contributed">XPT</symbol>
 			</currency>
 			<currency type="XRE">
 				<displayName>RINET 基金</displayName>
+				<symbol draft="contributed">XRE</symbol>
 			</currency>
 			<currency type="XTS">
 				<displayName draft="contributed">測試用貨幣代碼</displayName>
+				<symbol draft="contributed">XTS</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>未知貨幣</displayName>
+				<displayName count="other">未知貨幣</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName>葉門第納爾</displayName>
+				<displayName count="other">葉門第納爾</displayName>
+				<symbol draft="contributed">YDD</symbol>
 			</currency>
 			<currency type="YER">
 				<displayName>葉門里雅</displayName>
+				<displayName count="other">葉門里雅</displayName>
+				<symbol>YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>南斯拉夫第納爾硬幣</displayName>
+				<displayName count="other">南斯拉夫第納爾硬幣</displayName>
+				<symbol draft="contributed">YUD</symbol>
 			</currency>
 			<currency type="YUM">
 				<displayName>南斯拉夫挪威亞第納爾</displayName>
+				<displayName count="other">南斯拉夫挪威亞第納爾</displayName>
+				<symbol draft="contributed">YUM</symbol>
 			</currency>
 			<currency type="YUN">
 				<displayName>南斯拉夫 可轉換第納爾</displayName>
+				<displayName count="other">南斯拉夫 可轉換第納爾</displayName>
+				<symbol draft="contributed">YUN</symbol>
 			</currency>
 			<currency type="YUR">
 				<displayName draft="contributed">南斯拉夫改革第納爾（1992-1993）</displayName>
+				<displayName count="other" draft="contributed">南斯拉夫改革第納爾（1992-1993）</displayName>
+				<symbol draft="contributed">YUR</symbol>
 			</currency>
 			<currency type="ZAL">
 				<displayName>南非蘭特（金融）</displayName>
+				<displayName count="other">南非蘭特（金融）</displayName>
+				<symbol draft="contributed">ZAL</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>南非蘭特</displayName>
+				<displayName count="other">南非蘭特</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>尚比亞克瓦查 (1968-2012)</displayName>
+				<displayName count="other">尚比亞克瓦查 (1968-2012)</displayName>
+				<symbol draft="contributed">ZMK</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName>尚比亞克瓦查</displayName>
+				<displayName count="other">尚比亞克瓦查</displayName>
+				<symbol draft="contributed">ZMW</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>薩伊新扎伊爾</displayName>
+				<displayName count="other">薩伊新扎伊爾</displayName>
+				<symbol draft="contributed">ZRN</symbol>
 			</currency>
 			<currency type="ZRZ">
 				<displayName>薩伊扎伊爾</displayName>
+				<displayName count="other">薩伊扎伊爾</displayName>
+				<symbol draft="contributed">ZRZ</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>辛巴威元</displayName>
+				<displayName count="other">辛巴威元</displayName>
+				<symbol draft="contributed">ZWD</symbol>
 			</currency>
 			<currency type="ZWL">
 				<displayName>辛巴威元 (2009)</displayName>
+				<displayName count="other">辛巴威元 (2009)</displayName>
+				<symbol draft="contributed">ZWL</symbol>
 			</currency>
 			<currency type="ZWR">
 				<displayName draft="contributed">辛巴威元（2008）</displayName>
+				<displayName count="other" draft="contributed">辛巴威元（2008）</displayName>
+				<symbol draft="contributed">ZWR</symbol>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="range">{0}-{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0} 度</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other">{0} 分鐘</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other">{0} 秒</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0} 英畝</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0} 公頃</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0} 平方英尺</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0} 平方公里</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other">{0} 平方公尺</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0} 平方英里</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<unitPattern count="other">{0}日</unitPattern>
+				<unitPattern count="other">{0} 天</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
 				<unitPattern count="other">{0} 天後</unitPattern>
@@ -6199,7 +7473,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} 天前</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="other">{0}小時</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} 小時</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
 				<unitPattern count="other">{0} 小時後</unitPattern>
@@ -6207,8 +7481,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-hour-past">
 				<unitPattern count="other">{0} 小時前</unitPattern>
 			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0} 毫秒</unitPattern>
+			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="other">{0}分</unitPattern>
+				<unitPattern count="other">{0} 分鐘</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
 				<unitPattern count="other">{0} 分鐘後</unitPattern>
@@ -6217,7 +7494,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} 分鐘前</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="other">{0}月</unitPattern>
+				<unitPattern count="other">{0} 個月</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
 				<unitPattern count="other">{0} 個月後</unitPattern>
@@ -6226,7 +7503,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} 個月前</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="other">{0}秒</unitPattern>
+				<unitPattern count="other">{0} 秒</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
 				<unitPattern count="other">{0} 秒後</unitPattern>
@@ -6235,7 +7512,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} 秒前</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="other">{0}週</unitPattern>
+				<unitPattern count="other">{0} 週</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
 				<unitPattern count="other">{0} 週後</unitPattern>
@@ -6244,7 +7521,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} 週前</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<unitPattern count="other">{0}年</unitPattern>
+				<unitPattern count="other">{0} 年</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
 				<unitPattern count="other">{0} 年後</unitPattern>
@@ -6252,37 +7529,489 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-year-past">
 				<unitPattern count="other">{0} 年前</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other">{0} 公分</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other">{0} 呎</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other">{0} 吋</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other">{0} 公里</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0} 光年</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other">{0} 公尺</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other">{0} 英里</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other">{0} 公釐</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other">{0} 皮米</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other">{0} 碼</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other">{0} 克</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other">{0} 公斤</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0} 盎司</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0} 磅</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0} 匹</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other">{0} 千瓦</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other">{0} 瓦特</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0} 百帕</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0} 英吋水銀柱</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0} 毫巴</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other">{0} 公里/小時</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other">{0} 公尺/秒</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other">{0} 英里/小時</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0} 立方公里</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other">{0} 立方英里</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other">{0} 公升</unitPattern>
+			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0} 度</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other">{0} 分鐘</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other">{0} 秒</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0} 英畝</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0} 公頃</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0} 平方英尺</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other">{0} 平方公里</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other">{0} 平方公尺</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0} 平方英里</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<unitPattern count="other">{0}日</unitPattern>
+				<unitPattern count="other">{0} 天</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other">{0} 天後</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other">{0} 天前</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="other">{0}小時</unitPattern>
+				<unitPattern count="other">{0} 小時</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other">{0} 小時後</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other">{0} 小時前</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0} 毫秒</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="other">{0}分</unitPattern>
+				<unitPattern count="other">{0} 分鐘</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other">{0} 分鐘後</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other">{0} 分鐘前</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="other">{0}月</unitPattern>
+				<unitPattern count="other">{0} 個月</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other">{0} 個月後</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other">{0} 個月前</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="other">{0}秒</unitPattern>
+				<unitPattern count="other">{0} 秒</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other">{0} 秒後</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other">{0} 秒前</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="other">{0}週</unitPattern>
+				<unitPattern count="other">{0} 週</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other">{0} 週後</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other">{0} 週前</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<unitPattern count="other">{0}年</unitPattern>
+				<unitPattern count="other">{0} 年</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other">{0} 年後</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other">{0} 年前</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other">{0} 公分</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other">{0} 呎</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other">{0} 吋</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other">{0} 公里</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0} 光年</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other">{0} 公尺</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other">{0} 英里</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other">{0} 公釐</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other">{0} 皮米</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other">{0} 碼</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other">{0} 克</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other">{0} 公斤</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0} 盎司</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0} 磅</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0} 匹</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other">{0} 千瓦</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other">{0} 瓦特</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0} 百帕</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other">{0} 英吋水銀柱</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0} 毫巴</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other">{0} 公里/小時</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other">{0} 公尺 / 秒</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other">{0} 英里/小時</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0} 立方公里</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other">{0} 立方英里</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other">{0} 升</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern>h:mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern>m:ss</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="other">{0}g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0} 度</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="other">{0} 分鐘</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="other">{0} 秒</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="other">{0} 英畝</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="other">{0} 公頃</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="other">{0} 平方英尺</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="other" draft="provisional">{0} km²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="other" draft="provisional">{0} m²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="other">{0} 平方英里</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="other">{0} 天</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="other">{0} 天後</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="other">{0} 天前</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="other">{0} 小時</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="other">{0} 小時後</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="other">{0} 小時前</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="other">{0} 毫秒</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="other">{0} 分鐘</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="other">{0} 分鐘後</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="other">{0} 分鐘前</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="other">{0} 個月</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="other">{0} 個月後</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="other">{0} 個月前</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="other">{0} 秒</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="other">{0} 秒後</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="other">{0} 秒前</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="other">{0} 週</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="other">{0} 週後</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="other">{0} 週前</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="other">{0} 年</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="other">{0} 年後</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="other">{0} 年前</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="other">{0} 公分</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="other">{0} 呎</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="other">{0} 吋</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="other">{0} 公里</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="other">{0} 光年</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="other">{0} 公尺</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="other">{0} 英里</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="other">{0} 公釐</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="other">{0} 皮米</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="other">{0} 碼</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="other">{0} 克</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="other">{0} 公斤</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="other">{0} 盎司</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="other">{0} 磅</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="other">{0} 匹</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="other">{0} 千瓦</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="other">{0} 瓦特</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="other">{0} 百帕</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="other" draft="provisional">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="other">{0} 毫巴</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="other">{0} 公里/小時</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="other" draft="provisional">{0} m/s</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="other">{0} 英里/小時</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="other">{0}°F</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="other">{0} km³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="other">{0} 立方英里</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="other">{0} 升</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="start" draft="contributed">{0}、{1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0}、{1}</listPatternPart>
-			<listPatternPart type="end" draft="contributed">{0}和{1}</listPatternPart>
-			<listPatternPart type="2" draft="contributed">{0}和{1}</listPatternPart>
+			<listPatternPart type="start">{0}、{1}</listPatternPart>
+			<listPatternPart type="middle">{0}、{1}</listPatternPart>
+			<listPatternPart type="end">{0}和{1}</listPatternPart>
+			<listPatternPart type="2">{0}和{1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration">
+			<listPatternPart type="start">{0}{1}</listPatternPart>
+			<listPatternPart type="middle">{0}{1}</listPatternPart>
+			<listPatternPart type="end">{0}{1}</listPatternPart>
+			<listPatternPart type="2">{0}{1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration-short">
+			<listPatternPart type="start">{0}{1}</listPatternPart>
+			<listPatternPart type="middle">{0}{1}</listPatternPart>
+			<listPatternPart type="end">{0}{1}</listPatternPart>
+			<listPatternPart type="2">{0}{1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>
@@ -6292,4 +8021,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

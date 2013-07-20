@@ -5485,6 +5485,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">ƒe {0}</unitPattern>
 			</unit>
 		</unitLength>
+		<unitLength type="narrow">
+			<unit type="duration-hour">
+				<unitPattern count="one">g {0}</unitPattern>
+				<unitPattern count="other">g {0}</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">a {0}</unitPattern>
+				<unitPattern count="other">a {0}</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">s {0}</unitPattern>
+				<unitPattern count="other">s {0}</unitPattern>
+			</unit>
+		</unitLength>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -5501,4 +5515,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

@@ -24,6 +24,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ak">አካንኛ</language>
 			<language type="am">አማርኛ</language>
 			<language type="ar">ዐርቢኛ</language>
+			<language type="ar_001">ዘመናዊ መደበኛ አረብኛ</language>
 			<language type="as">አሳሜዛዊ</language>
 			<language type="ay">አያማርኛ</language>
 			<language type="az">አዘርባጃንኛ</language>
@@ -58,11 +59,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU">የአውስትራሊያ እንግሊዝኛ</language>
 			<language type="en_CA">የካናዳ እንግሊዝኛ</language>
 			<language type="en_GB">የብሪቲሽ እንግሊዝኛ</language>
-			<language type="en_US">የዩ ኤስ እንግሊዝኛ</language>
+			<language type="en_GB" alt="short">የዩናይትድ ኪንግደም እንግሊዝኛ</language>
+			<language type="en_US">የአሜሪካ እንግሊዝኛ</language>
+			<language type="en_US" alt="short">የዩ ኤስ እንግሊዝኛ</language>
 			<language type="eo">ኤስፐራንቶ</language>
 			<language type="es">ስፓኒሽ</language>
 			<language type="es_419">የላቲን አሜሪካ ስፓኒሽ</language>
 			<language type="es_ES">የአውሮፓ እስፓንኛ</language>
+			<language type="es_MX">es_MX</language>
 			<language type="et">ኢስቶኒያንኛ</language>
 			<language type="eu">ባስክኛ</language>
 			<language type="fa">ፐርሺያኛ</language>
@@ -210,6 +214,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="yi">ይዲሽኛ</language>
 			<language type="yo">ዮሩባዊኛ</language>
 			<language type="za">ዡዋንግኛ</language>
+			<language type="zgh">zgh</language>
 			<language type="zh">ቻይንኛ</language>
 			<language type="zh_Hans">ቀለል ያለ ቻይንኛ</language>
 			<language type="zh_Hant">ባህላዊ ቻይንኛ</language>
@@ -357,11 +362,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BZ">ቤሊዘ</territory>
 			<territory type="CA">ካናዳ</territory>
 			<territory type="CC">ኮኮስ[ኬሊንግ] ደሴቶች</territory>
-			<territory type="CD">ኮንጎ</territory>
-			<territory type="CD" alt="variant">ኮንጎ (የዲሞክራቲክ ሪፐብሊክ ኮንጎ)</territory>
+			<territory type="CD">ኮንጎ-ኪንሻሳ</territory>
+			<territory type="CD" alt="variant">ኮንጎ [የዲሞክራቲክ ሪፐብሊክ ኮንጎ]</territory>
 			<territory type="CF">የመካከለኛው አፍሪካ ሪፐብሊክ</territory>
 			<territory type="CG">ኮንጎ ብራዛቪል</territory>
-			<territory type="CG" alt="variant">ኮንጎ (ሪፐብሊክ)</territory>
+			<territory type="CG" alt="variant">ኮንጎ [ሪፐብሊክ]</territory>
 			<territory type="CH">ስዊዘርላንድ</territory>
 			<territory type="CI">ኮት ዲቯር</territory>
 			<territory type="CI" alt="variant">አይቮሪኮስት</territory>
@@ -403,6 +408,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FR">ፈረንሳይ</territory>
 			<territory type="GA">ጋቦን</territory>
 			<territory type="GB">እንግሊዝ</territory>
+			<territory type="GB" alt="short">ዩናይትድ ኪንግደም</territory>
 			<territory type="GD">ግሬናዳ</territory>
 			<territory type="GE">ጆርጂያ</territory>
 			<territory type="GF">የፈረንሳይ ጉዊአና</territory>
@@ -472,11 +478,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MG">ማዳጋስካር</territory>
 			<territory type="MH">ማርሻል አይላንድ</territory>
 			<territory type="MK">ማከዶኒያ</territory>
-			<territory type="MK" alt="variant">ማሴዶንያ[FYROM]</territory>
+			<territory type="MK" alt="variant">መቄዶንያ [የቀድሞ የዩጎስላቭ መቄዶንያ ሪፐብሊክ]</territory>
 			<territory type="ML">ማሊ</territory>
 			<territory type="MM">ማይናማር[በርማ]</territory>
 			<territory type="MN">ሞንጎሊያ</territory>
-			<territory type="MO">ማካኡSAR ቻይና</territory>
+			<territory type="MO">ማካኡ ልዩ የአስተዳደር ክልል ቻይና</territory>
 			<territory type="MO" alt="short">ማካኡ</territory>
 			<territory type="MP">የሰሜናዊ ማሪያና ደሴቶች</territory>
 			<territory type="MQ">ማርቲኒክ</territory>
@@ -567,6 +573,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="UG">ዩጋንዳ</territory>
 			<territory type="UM">የዩ ኤስ ጠረፍ ላይ ያሉ ደሴቶች</territory>
 			<territory type="US">ዩናይትድ ስቴትስ</territory>
+			<territory type="US" alt="short">US</territory>
 			<territory type="UY">ኡራጓይ</territory>
 			<territory type="UZ">ዩዝበኪስታን</territory>
 			<territory type="VA">ቫቲካን ከተማ</territory>
@@ -850,7 +857,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d MMMM y G</pattern>
+							<pattern>EEEE፣ d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
@@ -893,6 +900,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM፣ y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">MMM d፣ y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E MMM d፣ y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -901,7 +912,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="Hms">HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="M">L</dateFormatItem>
 						<dateFormatItem id="Md">M/d</dateFormatItem>
-						<dateFormatItem id="MEd">E, M/d</dateFormatItem>
+						<dateFormatItem id="MEd">E፣ M/d</dateFormatItem>
 						<dateFormatItem id="MMM">LLL</dateFormatItem>
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
@@ -918,6 +929,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yMMMM">MMMM y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yyyy">G y</dateFormatItem>
+						<dateFormatItem id="yyyyM">GGGGG y-MM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">GGGGG y-MM-dd</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">GGGGG y-MM-dd, E</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">G y MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">G y MMM d</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">G y MMM d, E</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">G y QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">G y QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -1242,7 +1262,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ዓ/ዓ</era>
+						<era type="0" alt="variant">ዓ/ዓ</era>
 						<era type="1">ዓ/ም</era>
+						<era type="1" alt="variant">ዓ/ም</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1313,6 +1335,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">MMM d፣ y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E፣ MMM d፣ y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1339,6 +1369,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
+					<appendItems>
+						<appendItem request="Timezone">{0} {1}</appendItem>
+					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
 						<intervalFormatItem id="d">
@@ -1490,6 +1523,41 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="weekday">
 				<displayName>አዘቦት</displayName>
 			</field>
+			<field type="sun">
+				<relative type="-1">ያለፈው እሑድ</relative>
+				<relative type="0">የአሁኑ እሑድ</relative>
+				<relative type="1">የሚቀጥለው እሑድ</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1">ያለፈው ሰኞ</relative>
+				<relative type="0">የአሁኑ ሰኞ</relative>
+				<relative type="1">የሚቀጥለው ሰኞ</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1">ያለፈው ማክሰኞ</relative>
+				<relative type="0">የአሁኑ ማክሰኞ</relative>
+				<relative type="1">የሚቀጥለው ማክሰኞ</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1">ያለፈው እሮብ</relative>
+				<relative type="0">የአሁኑ እሮብ</relative>
+				<relative type="1">የሚቀጥለው እሮብ</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1">ያለፈው ሐመስ</relative>
+				<relative type="0">የአሁኑ ሐሙስ</relative>
+				<relative type="1">የሚቀጥለው ሐሙስ</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1">ያለፈው አርብ</relative>
+				<relative type="0">የአሁኑ አርብ</relative>
+				<relative type="1">የሚቀጥለው አርብ</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1">የባለፈው ቅዳሜ</relative>
+				<relative type="0">የአሁኑ ቅዳሜ</relative>
+				<relative type="1">የሚቀጥለው ቅዳሜ</relative>
+			</field>
 			<field type="dayperiod">
 				<displayName>ጥዋት/ከሰዓት</displayName>
 			</field>
@@ -1511,6 +1579,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>ጂ ኤም ቲ{0}</gmtFormat>
 			<gmtZeroFormat>ጂ ኤም ቲ</gmtZeroFormat>
 			<regionFormat>{0} ጊዜ</regionFormat>
+			<regionFormat type="daylight">{0} የቀን ብርሃን ሰዓት</regionFormat>
+			<regionFormat type="standard">{0} መደበኛ ሰዓት</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>ያልታወቀ ከተማ</exemplarCity>
@@ -1565,6 +1635,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>ደሞንት ዲኡርቪል</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity>ማከሪ</exemplarCity>
 			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>ማክመርዶ</exemplarCity>
@@ -1695,6 +1768,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/La_Paz">
 				<exemplarCity>ላ ፓዝ</exemplarCity>
 			</zone>
+			<zone type="America/Kralendijk">
+				<exemplarCity>ክራለንዲይክ</exemplarCity>
+			</zone>
 			<zone type="America/Eirunepe">
 				<exemplarCity>ኢሩኔፕ</exemplarCity>
 			</zone>
@@ -1741,7 +1817,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>ፓሲፍ</exemplarCity>
 			</zone>
 			<zone type="America/Noronha">
-				<exemplarCity>ሎሮንሃ</exemplarCity>
+				<exemplarCity>ኖሮኛ</exemplarCity>
 			</zone>
 			<zone type="America/Nassau">
 				<exemplarCity>ናሳው</exemplarCity>
@@ -1772,6 +1848,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Dawson_Creek">
 				<exemplarCity>ዳውሰን ክሬክ</exemplarCity>
+			</zone>
+			<zone type="America/Creston">
+				<exemplarCity>ክረስተን</exemplarCity>
 			</zone>
 			<zone type="America/Yellowknife">
 				<exemplarCity>የሎውናይፍ</exemplarCity>
@@ -1910,6 +1989,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>ፕራግ</exemplarCity>
+			</zone>
+			<zone type="Europe/Busingen">
+				<exemplarCity>ቡሲንገን</exemplarCity>
 			</zone>
 			<zone type="Europe/Berlin">
 				<exemplarCity>በርሊን</exemplarCity>
@@ -2271,6 +2353,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Tijuana">
 				<exemplarCity>ቲጁአና</exemplarCity>
 			</zone>
+			<zone type="America/Santa_Isabel">
+				<exemplarCity>ሳንታ ኢዛቤል</exemplarCity>
+			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>ኸርሞዚሎ</exemplarCity>
 			</zone>
@@ -2280,11 +2365,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Chihuahua">
 				<exemplarCity>ቺሁዋውአ</exemplarCity>
 			</zone>
+			<zone type="America/Bahia_Banderas">
+				<exemplarCity>ባሂያ ባንደራስ</exemplarCity>
+			</zone>
+			<zone type="America/Ojinaga">
+				<exemplarCity>ኦዪናጋ</exemplarCity>
+			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>ሞንተርሬይ</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>ሜክሲኮ ከተማ</exemplarCity>
+			</zone>
+			<zone type="America/Matamoros">
+				<exemplarCity>ማታሞሮስ</exemplarCity>
 			</zone>
 			<zone type="America/Merida">
 				<exemplarCity>ሜሪዳ</exemplarCity>
@@ -2382,6 +2476,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Gaza">
 				<exemplarCity>ጋዛ</exemplarCity>
 			</zone>
+			<zone type="Asia/Hebron">
+				<exemplarCity>ኬብሮን</exemplarCity>
+			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>አዞረስ</exemplarCity>
 			</zone>
@@ -2430,6 +2527,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Novosibirsk">
 				<exemplarCity>ኖቮሲቢሪስክ</exemplarCity>
 			</zone>
+			<zone type="Asia/Novokuznetsk">
+				<exemplarCity>ኖቮኩትዝኔክ</exemplarCity>
+			</zone>
 			<zone type="Asia/Krasnoyarsk">
 				<exemplarCity>ክራስኖያርስክ</exemplarCity>
 			</zone>
@@ -2442,8 +2542,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Vladivostok">
 				<exemplarCity>ቭላዲቮስቶክ</exemplarCity>
 			</zone>
+			<zone type="Asia/Khandyga">
+				<exemplarCity>ካንዲጋ</exemplarCity>
+			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>ሳክሃሊን</exemplarCity>
+			</zone>
+			<zone type="Asia/Ust-Nera">
+				<exemplarCity>ኡስት-ኔራ</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>ማጋዳን</exemplarCity>
@@ -2501,6 +2607,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Paramaribo">
 				<exemplarCity>ፓራማሪቦ</exemplarCity>
+			</zone>
+			<zone type="Africa/Juba">
+				<exemplarCity>ጁባ</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity>ሳኦ ቶሜ</exemplarCity>
@@ -2604,8 +2713,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Yakutat">
 				<exemplarCity>ያኩታት</exemplarCity>
 			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity>ሲትካ</exemplarCity>
+			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>ጁኒዩ</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity>መትላካትላ</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>ሎስ አንጀለስ</exemplarCity>
@@ -3609,6 +3724,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
@@ -4517,79 +4633,130 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>የዚምቧቡዌ ዶላር</displayName>
 			</currency>
 		</currencies>
+		<miscPatterns numberSystem="latn">
+			<pattern type="atLeast">{0}+</pattern>
+			<pattern type="range">{0}–{1}</pattern>
+		</miscPatterns>
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0} በ{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} ጂ-ኃይል</unitPattern>
+				<unitPattern count="other">{0} ጂ-ኃይል</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°ዲግሪ</unitPattern>
+				<unitPattern count="other">{0}°ዲግሪ</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0} ደቂቃ</unitPattern>
+				<unitPattern count="other">{0} ደቂቃ</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0} ሰከንድ</unitPattern>
+				<unitPattern count="other">{0} ሰከንድ</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ኤክር</unitPattern>
+				<unitPattern count="other">{0} ኤክር</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one">{0} ሄክታር</unitPattern>
+				<unitPattern count="other">{0} ሄክታር</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ካሬ ጫማ</unitPattern>
+				<unitPattern count="other">{0} ካሬ ጫማ</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} ካሬ ኪሎሜትር</unitPattern>
+				<unitPattern count="other">{0} ካሬ ኪሎሜትር</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one">{0} ካሬ ሜትር</unitPattern>
+				<unitPattern count="other">{0} ካሬ ሜትር</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one">{0} ካሬ ማይል</unitPattern>
+				<unitPattern count="other">{0} ካሬ ማይል</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one">{0} ቀናት</unitPattern>
 				<unitPattern count="other">{0} ቀናት</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="one">በ {0} ቀናት ውስጥ</unitPattern>
-				<unitPattern count="other">በ {0} ቀናት ውስጥ</unitPattern>
+				<unitPattern count="one">በ{0} ቀን ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ቀናት ውስጥ</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
-				<unitPattern count="one">ከ{0} ቀናት በፊት</unitPattern>
+				<unitPattern count="one">ከ{0} ቀን በፊት</unitPattern>
 				<unitPattern count="other">ከ{0} ቀናት በፊት</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="one">{0} ሰዓቶች</unitPattern>
+				<unitPattern count="one">{0} ሰዓት</unitPattern>
 				<unitPattern count="other">{0} ሰዓቶች</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
-				<unitPattern count="one">በ{0} ሰዓቶች ውስጥ</unitPattern>
+				<unitPattern count="one">በ{0} ሰዓት ውስጥ</unitPattern>
 				<unitPattern count="other">በ{0} ሰዓቶች ውስጥ</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
 				<unitPattern count="one">ከ{0} ሰዓት በፊት</unitPattern>
-				<unitPattern count="other">ከ{0} ሰዓት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ሰዓቶች በፊት</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} ሚሊሰከንድ</unitPattern>
+				<unitPattern count="other">{0} ሚሊሰከንድ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one">{0} ደቂቃዎች</unitPattern>
+				<unitPattern count="one">{0} ደቂቃ</unitPattern>
 				<unitPattern count="other">{0} ደቂቃዎች</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
-				<unitPattern count="one">በ{0} ደቂቃዎች ውስጥ</unitPattern>
+				<unitPattern count="one">በ{0} ደቂቃ ውስጥ</unitPattern>
 				<unitPattern count="other">በ{0} ደቂቃዎች ውስጥ</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
-				<unitPattern count="one">ከ{0} ደቂቃዎች በፊት</unitPattern>
+				<unitPattern count="one">ከ{0} ደቂቃ በፊት</unitPattern>
 				<unitPattern count="other">ከ{0} ደቂቃዎች በፊት</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="one">{0} ወራት</unitPattern>
+				<unitPattern count="one">{0} ወር</unitPattern>
 				<unitPattern count="other">{0} ወራት</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
-				<unitPattern count="one">በ{0} ወራት ውስጥ</unitPattern>
+				<unitPattern count="one">በ{0} ወር ውስጥ</unitPattern>
 				<unitPattern count="other">በ{0} ወራት ውስጥ</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
-				<unitPattern count="one">ከ{0} ወራት በፊት</unitPattern>
+				<unitPattern count="one">ከ{0} ወር በፊት</unitPattern>
 				<unitPattern count="other">ከ{0} ወራት በፊት</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="one">{0} ሰከንዶች</unitPattern>
+				<unitPattern count="one">{0} ሰከንድ</unitPattern>
 				<unitPattern count="other">{0} ሰከንዶች</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
-				<unitPattern count="one">በ{0} ሰከንዶች ውስጥ</unitPattern>
+				<unitPattern count="one">በ{0} ሰከንድ ውስጥ</unitPattern>
 				<unitPattern count="other">በ{0} ሰከንዶች ውስጥ</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
-				<unitPattern count="one">ከ{0} ሰከንዶች በፊት</unitPattern>
+				<unitPattern count="one">ከ{0} ሰከንድ በፊት</unitPattern>
 				<unitPattern count="other">ከ{0} ሰከንዶች በፊት</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="one">{0} ሳምንታት</unitPattern>
+				<unitPattern count="one">{0} ሳምንት</unitPattern>
 				<unitPattern count="other">{0} ሳምንታት</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
 				<unitPattern count="one">በ{0} ሳምንት ውስጥ</unitPattern>
-				<unitPattern count="other">በ{0} ሳምንት ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ሳምንታት ውስጥ</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
-				<unitPattern count="one">ከ{0} ሳምንታት በፊት</unitPattern>
+				<unitPattern count="one">ከ{0} ሳምንት በፊት</unitPattern>
 				<unitPattern count="other">ከ{0} ሳምንታት በፊት</unitPattern>
 			</unit>
 			<unit type="duration-year">
@@ -4601,38 +4768,619 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">በ{0} ዓመታት ውስጥ</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
-				<unitPattern count="one">ከ{0} ዓመታት በፊት</unitPattern>
+				<unitPattern count="one">ከ{0} ዓመት በፊት</unitPattern>
 				<unitPattern count="other">ከ{0} ዓመታት በፊት</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} ሴንቲሜትር</unitPattern>
+				<unitPattern count="other">{0} ሴንቲሜትር</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} ጫማ</unitPattern>
+				<unitPattern count="other">{0} ጫማ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} ኢንች</unitPattern>
+				<unitPattern count="other">{0} ኢንች</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} ኪሎሜትር</unitPattern>
+				<unitPattern count="other">{0} ኪሎሜትር</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} የብርሃን ዓመት</unitPattern>
+				<unitPattern count="other">{0} የብርሃን ዓመት</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} ሜትር</unitPattern>
+				<unitPattern count="other">{0} ሜትር</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} ማይል</unitPattern>
+				<unitPattern count="other">{0} ማይል</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} ሚሊሜትር</unitPattern>
+				<unitPattern count="other">{0} ሚሊሜትር</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one">{0} ፒኮሜትር</unitPattern>
+				<unitPattern count="other">{0} ፒኮሜትር</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one">{0} ያርድ</unitPattern>
+				<unitPattern count="other">{0} ያርድ</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} ግራም</unitPattern>
+				<unitPattern count="other">{0} ግራም</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} ኪሎግራም</unitPattern>
+				<unitPattern count="other">{0} ኪሎግራም</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} አውንስ</unitPattern>
+				<unitPattern count="other">{0} አውንስ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one">{0} ፓውንድ</unitPattern>
+				<unitPattern count="other">{0} ፓውንድ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} የፈረስ ኃይል</unitPattern>
+				<unitPattern count="other">{0} የፈረስ ኃይል</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} ኪሎዋት</unitPattern>
+				<unitPattern count="other">{0} ኪሎዋት</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one">{0} ዋት</unitPattern>
+				<unitPattern count="other">{0} ዋት</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} ሄክቶፓስካል</unitPattern>
+				<unitPattern count="other">{0} ሄክቶፓስካል</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} ኢንች ሜርኩሪ</unitPattern>
+				<unitPattern count="other">{0} ኢንች ሜርኩሪ</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} ሚሊባር</unitPattern>
+				<unitPattern count="other">{0} ሚሊባር</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} ኪሎሜትር በሰዓት</unitPattern>
+				<unitPattern count="other">{0} ኪሎሜትር በሰዓት</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} ሜትር በሰከንድ</unitPattern>
+				<unitPattern count="other">{0} ሜትር በሰከንድ</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} ማይል በሰዓት</unitPattern>
+				<unitPattern count="other">{0} ማይል በሰዓት</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0} ዲግሪ ሴልሺየስ</unitPattern>
+				<unitPattern count="other">{0} ዲግሪ ሴልሺየስ</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0}°ዲግሪ ፋራንሃይት</unitPattern>
+				<unitPattern count="other">{0}°ዲግሪ ፋራንሃይት</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} ኩቢክ ኪሎሜትር</unitPattern>
+				<unitPattern count="other">{0} ኩቢክ ኪሎሜትር</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} ኩቢክ ማይል³</unitPattern>
+				<unitPattern count="other">{0} ኩቢክ ማይል³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} ሊትር</unitPattern>
+				<unitPattern count="other">{0} ሊትር</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} ጂ</unitPattern>
+				<unitPattern count="other">{0} ጂ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°ዲግሪ</unitPattern>
+				<unitPattern count="other">{0}°ዲግሪ</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0} ደቂቃ</unitPattern>
+				<unitPattern count="other">{0} ደቂቃ</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0} ሰከንድ</unitPattern>
+				<unitPattern count="other">{0} ሰከንድ</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ኤክር</unitPattern>
+				<unitPattern count="other">{0} ኤክር</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one">{0} ሄክታር</unitPattern>
+				<unitPattern count="other">{0} ሄክታር</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ካሬ ጫማ</unitPattern>
+				<unitPattern count="other">{0} ካሬ ጫማ</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} ኪሜ²</unitPattern>
+				<unitPattern count="other">{0} ኪሜ²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one">{0} ሜ²</unitPattern>
+				<unitPattern count="other">{0} ሜ²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one">{0} ካሬ ማይል</unitPattern>
+				<unitPattern count="other">{0} ካሬ ማይል</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one">{0} ቀናት</unitPattern>
 				<unitPattern count="other">{0} ቀናት</unitPattern>
 			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">በ{0} ቀን ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ቀናት ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">ከ{0} ቀን በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ቀናት በፊት</unitPattern>
+			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="one">{0} ሰዓት</unitPattern>
-				<unitPattern count="other">{0} ሰዓቶች</unitPattern>
+				<unitPattern count="one">{0} ሰዓ</unitPattern>
+				<unitPattern count="other">{0} ሰዓ</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">+{0} ሰዓ</unitPattern>
+				<unitPattern count="other">+{0} ሰዓ</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">ከ{0} ሰዓት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ሰዓቶች በፊት</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} ሚሴ</unitPattern>
+				<unitPattern count="other">{0} ሚሴ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one">{0} ደቂቃዎች</unitPattern>
-				<unitPattern count="other">{0} ደቂቃዎች</unitPattern>
+				<unitPattern count="one">{0} ደቂ</unitPattern>
+				<unitPattern count="other">{0} ደቂቃ</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">በ{0} ደቂቃ ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ደቂቃዎች ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">ከ{0} ደቂቃ በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ደቂቃዎች በፊት</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ወራት</unitPattern>
 				<unitPattern count="other">{0} ወራት</unitPattern>
 			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">በ{0} ወር ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ወራት ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">ከ{0} ወር በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ወራት በፊት</unitPattern>
+			</unit>
 			<unit type="duration-second">
-				<unitPattern count="one">{0} ሰከንዶች</unitPattern>
-				<unitPattern count="other">{0} ሰከንዶች</unitPattern>
+				<unitPattern count="one">{0} ሰከ</unitPattern>
+				<unitPattern count="other">{0} ሰከ</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">በ{0} ሰከንድ ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ሰከንዶች ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">ከ{0} ሰከንድ በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ሰከንዶች በፊት</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="one">{0} ሳምንቶች</unitPattern>
-				<unitPattern count="other">{0} ሳምንቶች</unitPattern>
+				<unitPattern count="one">{0} ሳምንት</unitPattern>
+				<unitPattern count="other">{0} ሳምንታት</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">በ{0} ሳምንት ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ሳምንታት ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">ከ{0} ሳምንት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ሳምንታት በፊት</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<unitPattern count="one">{0} ዓመታት</unitPattern>
+				<unitPattern count="one">{0} ዓመት</unitPattern>
 				<unitPattern count="other">{0} ዓመታት</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">+{0} ዓመት</unitPattern>
+				<unitPattern count="other">+{0} ዓመታት</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">ከ{0} ዓመት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ዓመታት በፊት</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} ሴሜ</unitPattern>
+				<unitPattern count="other">{0} ሴሜ</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} ጫማ</unitPattern>
+				<unitPattern count="other">{0} ጫማ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} ኢንች</unitPattern>
+				<unitPattern count="other">{0} ኢንች</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} ኪሜ</unitPattern>
+				<unitPattern count="other">{0} ኪሜ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} ly</unitPattern>
+				<unitPattern count="other">{0} ly</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} ሜ</unitPattern>
+				<unitPattern count="other">{0} ሜ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} ማይል</unitPattern>
+				<unitPattern count="other">{0} ማይል</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} ሚሜ</unitPattern>
+				<unitPattern count="other">{0} ሚሜ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one">{0} ፒሜ</unitPattern>
+				<unitPattern count="other">{0} ፒሜ</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one">{0} ያርድ</unitPattern>
+				<unitPattern count="other">{0} ያርድ</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} ግ</unitPattern>
+				<unitPattern count="other">{0} ግ</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} ኪግ</unitPattern>
+				<unitPattern count="other">{0} ኪግ</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} አውንስ</unitPattern>
+				<unitPattern count="other">{0} አውንስ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one">{0} ፓውንድ</unitPattern>
+				<unitPattern count="other">{0} ፓውንድ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} የፈረስ ኃይል</unitPattern>
+				<unitPattern count="other">{0} የፈረስ ኃይል</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} ኪዋ</unitPattern>
+				<unitPattern count="other">{0} ኪዋ</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one">{0} ዋ</unitPattern>
+				<unitPattern count="other">{0} ዋ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} ሄክቶፓስካል</unitPattern>
+				<unitPattern count="other">{0} ሄክቶፓስካል</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} ኢንች ሜርኩሪ</unitPattern>
+				<unitPattern count="other">{0} ኢንች ሜርኩሪ</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} ሚባ</unitPattern>
+				<unitPattern count="other">{0} ሚባ</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} ኪሜ/ሰ</unitPattern>
+				<unitPattern count="other">{0} ኪሜ/ሰ</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} ሜ/ሴ</unitPattern>
+				<unitPattern count="other">{0} ሜ/ሴ</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} ማይል/ሰ</unitPattern>
+				<unitPattern count="other">{0} ማይል/ሰ</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°ሴ</unitPattern>
+				<unitPattern count="other">{0}°ሴ</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0}°ፋ</unitPattern>
+				<unitPattern count="other">{0}°ፋ</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} ኪሜ³</unitPattern>
+				<unitPattern count="other">{0} ኪሜ³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} ማይል³</unitPattern>
+				<unitPattern count="other">{0} ማይል³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} ሊ</unitPattern>
+				<unitPattern count="other">{0} ሊ</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern>h:mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern>m:ss</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} ጂ</unitPattern>
+				<unitPattern count="other">{0} ጂ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0} ኤክር</unitPattern>
+				<unitPattern count="other">{0} ኤክር</unitPattern>
+			</unit>
+			<unit type="area-hectare">
+				<unitPattern count="one">{0} ሄክታር</unitPattern>
+				<unitPattern count="other">{0} ሄክታር</unitPattern>
+			</unit>
+			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ጫማ²</unitPattern>
+				<unitPattern count="other">{0} ጫማ²</unitPattern>
+			</unit>
+			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} ኪሜ²</unitPattern>
+				<unitPattern count="other">{0} ኪሜ²</unitPattern>
+			</unit>
+			<unit type="area-square-meter">
+				<unitPattern count="one">{0} ሜ²</unitPattern>
+				<unitPattern count="other">{0} ሜ²</unitPattern>
+			</unit>
+			<unit type="area-square-mile">
+				<unitPattern count="one">{0} ማይል²</unitPattern>
+				<unitPattern count="other">{0} ማይል²</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="one">{0} ቀ</unitPattern>
+				<unitPattern count="other">{0} ቀ</unitPattern>
+			</unit>
+			<unit type="duration-day-future">
+				<unitPattern count="one">በ{0} ቀናት ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ቀናት ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-day-past">
+				<unitPattern count="one">ከ{0} ቀናት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ቀናት በፊት</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} ሰ</unitPattern>
+				<unitPattern count="other">{0} ሰ</unitPattern>
+			</unit>
+			<unit type="duration-hour-future">
+				<unitPattern count="one">+{0} ሰ</unitPattern>
+				<unitPattern count="other">+{0} ሰ</unitPattern>
+			</unit>
+			<unit type="duration-hour-past">
+				<unitPattern count="one">ከ{0} ሰዓቶች በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ሰዓቶች በፊት</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} ሚሴ</unitPattern>
+				<unitPattern count="other">{0} ሚሴ</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} ደ</unitPattern>
+				<unitPattern count="other">{0} ደ</unitPattern>
+			</unit>
+			<unit type="duration-minute-future">
+				<unitPattern count="one">በ{0} ደቂቃዎች ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ደቂቃዎች ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-minute-past">
+				<unitPattern count="one">ከ{0} ደቂቃዎች በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ደቂቃዎች በፊት</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} ወር</unitPattern>
+				<unitPattern count="other">{0} ወር</unitPattern>
+			</unit>
+			<unit type="duration-month-future">
+				<unitPattern count="one">በ{0} ወራት ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ወራት ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-month-past">
+				<unitPattern count="one">ከ{0} ወራት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ወራት በፊት</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} ሴ</unitPattern>
+				<unitPattern count="other">{0} ሴ</unitPattern>
+			</unit>
+			<unit type="duration-second-future">
+				<unitPattern count="one">በ{0} ሰከንዶች ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ሰከንዶች ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-second-past">
+				<unitPattern count="one">ከ{0} ሰከንዶች በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ሰከንዶች በፊት</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} ሳምንት</unitPattern>
+				<unitPattern count="other">{0} ሳምንት</unitPattern>
+			</unit>
+			<unit type="duration-week-future">
+				<unitPattern count="one">በ{0} ሳምንታት ውስጥ</unitPattern>
+				<unitPattern count="other">በ{0} ሳምንታት ውስጥ</unitPattern>
+			</unit>
+			<unit type="duration-week-past">
+				<unitPattern count="one">ከ{0} ሳምንታት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ሳምንታት በፊት</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} ዓመት</unitPattern>
+				<unitPattern count="other">{0} y</unitPattern>
+			</unit>
+			<unit type="duration-year-future">
+				<unitPattern count="one">+{0} ዓመታት</unitPattern>
+				<unitPattern count="other">+{0} ዓመታት</unitPattern>
+			</unit>
+			<unit type="duration-year-past">
+				<unitPattern count="one">ከ{0} ዓመታት በፊት</unitPattern>
+				<unitPattern count="other">ከ{0} ዓመታት በፊት</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} ሴሜ</unitPattern>
+				<unitPattern count="other">{0} ሴሜ</unitPattern>
+			</unit>
+			<unit type="length-foot">
+				<unitPattern count="one">{0} ጫማ</unitPattern>
+				<unitPattern count="other">{0} ጫማ</unitPattern>
+			</unit>
+			<unit type="length-inch">
+				<unitPattern count="one">{0} ኢንች</unitPattern>
+				<unitPattern count="other">{0} ኢንች</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} ኪሜ</unitPattern>
+				<unitPattern count="other">{0} ኪሜ</unitPattern>
+			</unit>
+			<unit type="length-light-year">
+				<unitPattern count="one">{0} ly</unitPattern>
+				<unitPattern count="other">{0} ly</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} ሜ</unitPattern>
+				<unitPattern count="other">{0} ሜ</unitPattern>
+			</unit>
+			<unit type="length-mile">
+				<unitPattern count="one">{0} ማይል</unitPattern>
+				<unitPattern count="other">{0} ማይል</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} ሚሜ</unitPattern>
+				<unitPattern count="other">{0} ሚሜ</unitPattern>
+			</unit>
+			<unit type="length-picometer">
+				<unitPattern count="one">{0} ፒሜ</unitPattern>
+				<unitPattern count="other">{0} ፒሜ</unitPattern>
+			</unit>
+			<unit type="length-yard">
+				<unitPattern count="one">{0} ያርድ</unitPattern>
+				<unitPattern count="other">{0} ያርድ</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} ግ</unitPattern>
+				<unitPattern count="other">{0} ግ</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} ኪግ</unitPattern>
+				<unitPattern count="other">{0} ኪግ</unitPattern>
+			</unit>
+			<unit type="mass-ounce">
+				<unitPattern count="one">{0} አውንስ</unitPattern>
+				<unitPattern count="other">{0} አውንስ</unitPattern>
+			</unit>
+			<unit type="mass-pound">
+				<unitPattern count="one">{0} ፓውንድ</unitPattern>
+				<unitPattern count="other">{0} ፓውንድ</unitPattern>
+			</unit>
+			<unit type="power-horsepower">
+				<unitPattern count="one">{0} የፈረስ ኃይል</unitPattern>
+				<unitPattern count="other">{0} የፈረስ ኃይል</unitPattern>
+			</unit>
+			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} ኪዋ</unitPattern>
+				<unitPattern count="other">{0} ኪዋ</unitPattern>
+			</unit>
+			<unit type="power-watt">
+				<unitPattern count="one">{0} ዋ</unitPattern>
+				<unitPattern count="other">{0} ዋ</unitPattern>
+			</unit>
+			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
+				<unitPattern count="other">{0} hPa</unitPattern>
+			</unit>
+			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} inHg</unitPattern>
+				<unitPattern count="other">{0} inHg</unitPattern>
+			</unit>
+			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} ሚባ</unitPattern>
+				<unitPattern count="other">{0} ሚባ</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} ኪሜ/ሰ</unitPattern>
+				<unitPattern count="other">{0} ኪሜ/ሰ</unitPattern>
+			</unit>
+			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} ሜ/ሴ</unitPattern>
+				<unitPattern count="other">{0} ሜ/ሴ</unitPattern>
+			</unit>
+			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} ማይል/ሰ</unitPattern>
+				<unitPattern count="other">{0} ማይል/ሰ</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°ሴ</unitPattern>
+				<unitPattern count="other">{0}°ሴ</unitPattern>
+			</unit>
+			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0}°ፋ</unitPattern>
+				<unitPattern count="other">{0}°ፋ</unitPattern>
+			</unit>
+			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} ኪሜ³</unitPattern>
+				<unitPattern count="other">{0} ኪሜ³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} ማይል³</unitPattern>
+				<unitPattern count="other">{0} ማይል³</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} ሊ</unitPattern>
+				<unitPattern count="other">{0} ሊ</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
@@ -4651,4 +5399,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

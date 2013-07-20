@@ -14,14 +14,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
 			<localeSeparator>{0}, {1}</localeSeparator>
+			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
 			<language type="ab">isi-Abkhazian</language>
 			<language type="ach">Isi-Acoli</language>
-			<language type="af">isiBhunu</language>
+			<language type="af">isi-Afrikaans</language>
 			<language type="ak">I-Akan</language>
 			<language type="am">isi-Amharic</language>
-			<language type="ar">isi-Alabhu</language>
+			<language type="ar">isi-Arabic</language>
 			<language type="as">isi-Assamese</language>
 			<language type="ay">isi-Aymara</language>
 			<language type="az">isi-Azerbaijani</language>
@@ -41,7 +42,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="cs">isi-Czech</language>
 			<language type="cy">isi-Welsh</language>
 			<language type="da">isi-Danish</language>
-			<language type="de">isiJalimani</language>
+			<language type="de">isi-German</language>
 			<language type="de_AT">isi-Austrian German</language>
 			<language type="de_CH">isi-Swiss High German</language>
 			<language type="dv">isi-Divehi</language>
@@ -55,9 +56,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_GB">i-British English</language>
 			<language type="en_US">i-U.S. English</language>
 			<language type="eo">isi-Esperanto</language>
-			<language type="es">isiSpeyini</language>
+			<language type="es">isi-Spanish</language>
 			<language type="es_419">isi-Latin American Spanish</language>
 			<language type="es_ES">Isipenishi saseYurophu</language>
+			<language type="es_MX">isi-Mexican Spanish</language>
 			<language type="et">isi-Estonia</language>
 			<language type="eu">isi-Basque</language>
 			<language type="fa">isi-Persian</language>
@@ -79,7 +81,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ha">isi-Hausa</language>
 			<language type="haw">isi-Hawaiian</language>
 			<language type="he">isi-Hebrew</language>
-			<language type="hi">isiHindi</language>
+			<language type="hi">isi-Hindi</language>
 			<language type="hr">isi-Croatian</language>
 			<language type="ht">isi-Haitian</language>
 			<language type="hu">isi-Hungarian</language>
@@ -247,33 +249,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<territories>
 			<territory type="001">Umhlaba</territory>
 			<territory type="002">i-Africa</territory>
-			<territory type="003">e-North America</territory>
+			<territory type="003">i-North America</territory>
 			<territory type="005">i-South America</territory>
 			<territory type="009">i-Oceania</territory>
-			<territory type="011">e-Western Africa</territory>
+			<territory type="011">i-Western Africa</territory>
 			<territory type="013">i-Central America</territory>
-			<territory type="014">e-Eastern Africa</territory>
-			<territory type="015">e-Northern Africa</territory>
-			<territory type="017">e-Middle Africa</territory>
-			<territory type="018">e-Southern Africa</territory>
+			<territory type="014">i-Eastern Africa</territory>
+			<territory type="015">i-Northern Africa</territory>
+			<territory type="017">i-Middle Africa</territory>
+			<territory type="018">i-Southern Africa</territory>
 			<territory type="019">Americas</territory>
-			<territory type="021">e-Northern America</territory>
+			<territory type="021">i-Northern America</territory>
 			<territory type="029">i-Caribbean</territory>
-			<territory type="030">e-Eastern Asia</territory>
-			<territory type="034">e-Southern Asia</territory>
-			<territory type="035">e-South-Eastern Asia</territory>
-			<territory type="039">e-Southern Europe</territory>
-			<territory type="053">I-Australasia</territory>
+			<territory type="030">i-Eastern Asia</territory>
+			<territory type="034">i-Southern Asia</territory>
+			<territory type="035">i-South-Eastern Asia</territory>
+			<territory type="039">i-Southern Europe</territory>
+			<territory type="053">i-Australasia</territory>
 			<territory type="054">i-Melanesia</territory>
-			<territory type="057">e-Micronesian Region</territory>
+			<territory type="057">i-Micronesian Region</territory>
 			<territory type="061">i-Polynesia</territory>
 			<territory type="142">i-Asia</territory>
 			<territory type="143">i-Central Asia</territory>
-			<territory type="145">e-Western Asia</territory>
+			<territory type="145">i-Western Asia</territory>
 			<territory type="150">i-Europe</territory>
-			<territory type="151">e-Eastern Europe</territory>
-			<territory type="154">e-Northern Europe</territory>
-			<territory type="155">e-Western Europe</territory>
+			<territory type="151">i-Eastern Europe</territory>
+			<territory type="154">i-Northern Europe</territory>
+			<territory type="155">i-Western Europe</territory>
 			<territory type="419">i-Latin America</territory>
 			<territory type="AC">i-Ascension Island</territory>
 			<territory type="AD">i-Andorra</territory>
@@ -306,7 +308,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BM">i-Bermuda</territory>
 			<territory type="BN">i-Brunei</territory>
 			<territory type="BO">i-Bolivia</territory>
-			<territory type="BQ">I-Caribbean Netherlands</territory>
+			<territory type="BQ">i-Caribbean Netherlands</territory>
 			<territory type="BR">i-Brazil</territory>
 			<territory type="BS">i-Bahamas</territory>
 			<territory type="BT">i-Bhutan</territory>
@@ -316,11 +318,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BZ">i-Belize</territory>
 			<territory type="CA">i-Canada</territory>
 			<territory type="CC">i-Cocos (Keeling) Islands</territory>
-			<territory type="CD">e-Congo - Kinshasa</territory>
-			<territory type="CD" alt="variant">e-Congo [DRC]</territory>
+			<territory type="CD">i-Congo - Kinshasa</territory>
+			<territory type="CD" alt="variant">i-Congo [DRC]</territory>
 			<territory type="CF">i-Central African Republic</territory>
-			<territory type="CG">e-Congo - Brazzaville</territory>
-			<territory type="CG" alt="variant">e-Congo [Republic]</territory>
+			<territory type="CG">i-Congo - Brazzaville</territory>
+			<territory type="CG" alt="variant">i-Congo [Republic]</territory>
 			<territory type="CH">i-Switzerland</territory>
 			<territory type="CI">i-Côte d’Ivoire</territory>
 			<territory type="CI" alt="variant">i-Ivory Coast</territory>
@@ -333,12 +335,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CR">i-Costa Rica</territory>
 			<territory type="CU">i-Cuba</territory>
 			<territory type="CV">i-Cape Verde</territory>
-			<territory type="CW">I-Curaçao</territory>
+			<territory type="CW">i-Curaçao</territory>
 			<territory type="CX">i-Christmas Island</territory>
 			<territory type="CY">i-Cyprus</territory>
 			<territory type="CZ">i-Czech Republic</territory>
 			<territory type="DE">i-Germany</territory>
-			<territory type="DG">e-Diego Garcia</territory>
+			<territory type="DG">i-Diego Garcia</territory>
 			<territory type="DJ">i-Djibouti</territory>
 			<territory type="DK">i-Denmark</territory>
 			<territory type="DM">i-Dominica</territory>
@@ -356,7 +358,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FI">i-Finland</territory>
 			<territory type="FJ">i-Fiji</territory>
 			<territory type="FK">i-Falkland Islands</territory>
-			<territory type="FK" alt="variant">i-Falkland Islands (i-Islas Malvinas]</territory>
+			<territory type="FK" alt="variant">i-Falkland Islands [Islas Malvinas]</territory>
 			<territory type="FM">i-Micronesia</territory>
 			<territory type="FO">i-Faroe Islands</territory>
 			<territory type="FR">i-France</territory>
@@ -365,7 +367,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="GD">i-Grenada</territory>
 			<territory type="GE">i-Georgia</territory>
 			<territory type="GF">isi-French Guiana</territory>
-			<territory type="GG">I-Guernsey</territory>
+			<territory type="GG">i-Guernsey</territory>
 			<territory type="GH">i-Ghana</territory>
 			<territory type="GI">i-Gibraltar</territory>
 			<territory type="GL">i-Greenland</territory>
@@ -379,7 +381,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="GU">i-Guam</territory>
 			<territory type="GW">i-Guinea-Bissau</territory>
 			<territory type="GY">i-Guyana</territory>
-			<territory type="HK">e-Hong Kong SAR China</territory>
+			<territory type="HK">i-Hong Kong SAR China</territory>
 			<territory type="HK" alt="short">i-Hong Kong</territory>
 			<territory type="HM">i-Heard Island ne-McDonald Islands</territory>
 			<territory type="HN">i-Honduras</territory>
@@ -397,7 +399,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="IR">i-Iran</territory>
 			<territory type="IS">i-Iceland</territory>
 			<territory type="IT">i-Italy</territory>
-			<territory type="JE">isi-Jersey</territory>
+			<territory type="JE">i-Jersey</territory>
 			<territory type="JM">i-Jamaica</territory>
 			<territory type="JO">i-Jordan</territory>
 			<territory type="JP">i-Japan</territory>
@@ -430,10 +432,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MF">i-Saint Martin</territory>
 			<territory type="MG">i-Madagascar</territory>
 			<territory type="MH">i-Marshall Islands</territory>
-			<territory type="MK">I-Macedonia</territory>
-			<territory type="MK" alt="variant">isi-Macedonia [FYROM]</territory>
+			<territory type="MK">i-Macedonia</territory>
+			<territory type="MK" alt="variant">i-Macedonia [FYROM]</territory>
 			<territory type="ML">i-Mali</territory>
-			<territory type="MM">e-Myanmar [Burma]</territory>
+			<territory type="MM">i-Myanmar [Burma]</territory>
 			<territory type="MN">i-Mongolia</territory>
 			<territory type="MO">i-Macau SAR China</territory>
 			<territory type="MO" alt="short">i-Macau</territory>
@@ -472,7 +474,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="PN">i-Pitcairn Islands</territory>
 			<territory type="PR">i-Puerto Rico</territory>
 			<territory type="PS">i-Palestinian Territories</territory>
-			<territory type="PS" alt="short">iPhalestina</territory>
+			<territory type="PS" alt="short">i-Phalestine</territory>
 			<territory type="PT">i-Portugal</territory>
 			<territory type="PW">i-Palau</territory>
 			<territory type="PY">i-Paraguay</territory>
@@ -491,14 +493,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SG">i-Singapore</territory>
 			<territory type="SH">i-Saint Helena</territory>
 			<territory type="SI">i-Slovenia</territory>
-			<territory type="SJ">I-Svalbard ne-Jan Mayen</territory>
+			<territory type="SJ">i-Svalbard ne-Jan Mayen</territory>
 			<territory type="SK">i-Slovakia</territory>
 			<territory type="SL">i-Sierra Leone</territory>
 			<territory type="SM">i-San Marino</territory>
 			<territory type="SN">i-Senegal</territory>
 			<territory type="SO">i-Somalia</territory>
 			<territory type="SR">i-Suriname</territory>
-			<territory type="SS">Iningizimu Sudan</territory>
+			<territory type="SS">iNingizimu Sudan</territory>
 			<territory type="ST">i-São Tomé kanye ne-Príncipe</territory>
 			<territory type="SV">i-El Salvador</territory>
 			<territory type="SX">I-Sint Maarten</territory>
@@ -507,7 +509,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TA">i-Tristan da Cunha</territory>
 			<territory type="TC">i-Turks and Caicos Islands</territory>
 			<territory type="TD">i-Chad</territory>
-			<territory type="TF">e-French Southern Territories</territory>
+			<territory type="TF">i-French Southern Territories</territory>
 			<territory type="TG">i-Togo</territory>
 			<territory type="TH">i-Thailand</territory>
 			<territory type="TJ">i-Tajikistan</territory>
@@ -524,7 +526,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TZ">i-Tanzania</territory>
 			<territory type="UA">i-Ukraine</territory>
 			<territory type="UG">i-Uganda</territory>
-			<territory type="UM">e-U.S. Minor Outlying Islands</territory>
+			<territory type="UM">i-U.S. Minor Outlying Islands</territory>
 			<territory type="US">i-United States</territory>
 			<territory type="UY">i-Uruguay</territory>
 			<territory type="UZ">i-Uzbekistan</territory>
@@ -537,13 +539,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="VU">i-Vanuatu</territory>
 			<territory type="WF">i-Wallis ne-Futuna</territory>
 			<territory type="WS">i-Samoa</territory>
-			<territory type="XK">I-Kosovo</territory>
+			<territory type="XK">i-Kosovo</territory>
 			<territory type="YE">i-Yemen</territory>
 			<territory type="YT">i-Mayotte</territory>
-			<territory type="ZA">iNingizimu Afrika</territory>
+			<territory type="ZA">i-South Africa</territory>
 			<territory type="ZM">i-Zambia</territory>
 			<territory type="ZW">i-Zimbabwe</territory>
-			<territory type="ZZ">Isifunda esingaziwa</territory>
+			<territory type="ZZ">iSifunda esingaziwa</territory>
 		</territories>
 		<keys>
 			<key type="calendar">Ikhalenda</key>
@@ -633,6 +635,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="searchjl" key="collation">Sesha nge-Hangul Ongwaqa Basekuqaleni</type>
 			<type type="secondary" key="colStrength">Hlela Ukuphimisela</type>
 			<type type="shifted" key="colAlternate">Hlela Ukuziba Izimpawu</type>
+			<type type="standard" key="collation">I-oda yokuhlunga ejwayelekile</type>
 			<type type="stroke" key="collation">Ukuhlunga kwe-Stroke</type>
 			<type type="taml" key="numbers">i-Tamil Numerals</type>
 			<type type="telu" key="numbers">i-Telegu Digits</type>
@@ -667,6 +670,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<measurementSystemName type="UK">i-UK</measurementSystemName>
 			<measurementSystemName type="US">i-US</measurementSystemName>
 		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language">{0}</codePattern>
+			<codePattern type="script">{0}</codePattern>
+			<codePattern type="territory">{0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a b {bh} c {ch} d {dl} {dy} e f g {gc} {gq} {gx} h {hh} {hl} i j k {kh} {kl} {kp} l m n {nc} {ngc} {ngq} {ngx} {nhl} {nk} {nkc} {nkq} {nkx} {nq} {ntsh} {nx} {ny} o p {ph} q {qh} r {rh} s {sh} t {th} {tl} {ts} {tsh} u v w x {xh} y z]</exemplarCharacters>
@@ -732,6 +740,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -745,8 +757,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">Y</dateFormatItem>
-						<dateFormatItem id="yM">M/y</dateFormatItem>
+						<dateFormatItem id="y">y G</dateFormatItem>
+						<dateFormatItem id="yM">yM</dateFormatItem>
 						<dateFormatItem id="yMd">M/d/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
 						<dateFormatItem id="yMMM">MMM y</dateFormatItem>
@@ -754,6 +766,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yMMMEd">E, MMM d, y</dateFormatItem>
 						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
+						<dateFormatItem id="yyyy">y G</dateFormatItem>
+						<dateFormatItem id="yyyyM">M/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMd">M/d/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">E, M/d/y GGGGG</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, MMM d, y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ y G</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ y G</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -869,6 +890,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">Nov</month>
 							<month type="12">Dis</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">J</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">J</month>
+							<month type="7">J</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Januwari</month>
 							<month type="2">Februwari</month>
@@ -885,6 +920,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">Jan</month>
+							<month type="2">Feb</month>
+							<month type="3">Mas</month>
+							<month type="4">Apr</month>
+							<month type="5">Mey</month>
+							<month type="6">Jun</month>
+							<month type="7">Jul</month>
+							<month type="8">Aga</month>
+							<month type="9">Sep</month>
+							<month type="10">Okt</month>
+							<month type="11">Nov</month>
+							<month type="12">Dis</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">J</month>
 							<month type="2">F</month>
@@ -926,6 +975,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri">Hla</day>
 							<day type="sat">Mgq</day>
 						</dayWidth>
+						<dayWidth type="narrow">
+							<day type="sun">S</day>
+							<day type="mon">M</day>
+							<day type="tue">T</day>
+							<day type="wed">T</day>
+							<day type="thu">S</day>
+							<day type="fri">H</day>
+							<day type="sat">M</day>
+						</dayWidth>
 						<dayWidth type="short">
 							<day type="sun">Isonto</day>
 							<day type="mon">Umsombuluko</day>
@@ -940,12 +998,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="mon">Msombuluko</day>
 							<day type="tue">Lwesibili</day>
 							<day type="wed">Lwesithathu</day>
-							<day type="thu">uLwesine</day>
+							<day type="thu">Lwesine</day>
 							<day type="fri">Lwesihlanu</day>
 							<day type="sat">Mgqibelo</day>
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">Son</day>
+							<day type="mon">Mso</day>
+							<day type="tue">Bil</day>
+							<day type="wed">Tha</day>
+							<day type="thu">Sin</day>
+							<day type="fri">Hla</day>
+							<day type="sat">Mgq</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">S</day>
 							<day type="mon">M</day>
@@ -964,6 +1031,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri">Ulwesihlanu</day>
 							<day type="sat">Umgqibelo</day>
 						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Sonto</day>
+							<day type="mon">Msombuluko</day>
+							<day type="tue">Lwesibili</day>
+							<day type="wed">Lwesithathu</day>
+							<day type="thu">Lwesine</day>
+							<day type="fri">Lwesihlanu</day>
+							<day type="sat">Mgqibelo</day>
+						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
@@ -981,10 +1057,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">ikota yoku-1</quarter>
-							<quarter type="2">ikota yesi-2</quarter>
-							<quarter type="3">ikota yesi-3</quarter>
-							<quarter type="4">ikota yesi-4</quarter>
+							<quarter type="1">ikota engu-1</quarter>
+							<quarter type="2">ikota engu-2</quarter>
+							<quarter type="3">ikota engu-3</quarter>
+							<quarter type="4">ikota engu-4</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
@@ -1001,10 +1077,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">ikota yoku-1</quarter>
-							<quarter type="2">ikota yesi-2</quarter>
-							<quarter type="3">ikota yesi-3</quarter>
-							<quarter type="4">ikota yesi-4</quarter>
+							<quarter type="1">ikota engu-1</quarter>
+							<quarter type="2">ikota engu-2</quarter>
+							<quarter type="3">ikota engu-3</quarter>
+							<quarter type="4">ikota engu-4</quarter>
 						</quarterWidth>
 					</quarterContext>
 				</quarters>
@@ -1027,7 +1103,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<eras>
 					<eraAbbr>
 						<era type="0">BC</era>
+						<era type="0" alt="variant">BCE</era>
 						<era type="1">AD</era>
+						<era type="1" alt="variant">CE</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1098,6 +1176,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
+						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms">E HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Gy">y G</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
+						<dateFormatItem id="GyMMMd">MMM d, y G</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, MMM d, y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">HH</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
@@ -1111,7 +1197,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">MMM d</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, MMM d</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">Y</dateFormatItem>
+						<dateFormatItem id="y">y</dateFormatItem>
 						<dateFormatItem id="yM">M/y</dateFormatItem>
 						<dateFormatItem id="yMd">M/d/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E, M/d/y</dateFormatItem>
@@ -1225,32 +1311,67 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year">
 				<displayName>Unyaka</displayName>
-				<relative type="-1">Onyakeni odlule</relative>
-				<relative type="0">Kulo nyaka</relative>
-				<relative type="1">Unyaka ozayo</relative>
+				<relative type="-1">onyakeni odlule</relative>
+				<relative type="0">kulo nyaka</relative>
+				<relative type="1">unyaka ozayo</relative>
 			</field>
 			<field type="month">
 				<displayName>Inyanga</displayName>
-				<relative type="-1">Inyanga edlule</relative>
-				<relative type="0">Le nyanga</relative>
-				<relative type="1">Inyanga ezayo</relative>
+				<relative type="-1">inyanga edlule</relative>
+				<relative type="0">le nyanga</relative>
+				<relative type="1">inyanga ezayo</relative>
 			</field>
 			<field type="week">
 				<displayName>Iviki</displayName>
-				<relative type="-1">Iviki eledlule</relative>
-				<relative type="0">Leli viki</relative>
-				<relative type="1">Iviki elizayo</relative>
+				<relative type="-1">iviki eledlule</relative>
+				<relative type="0">leli viki</relative>
+				<relative type="1">iviki elizayo</relative>
 			</field>
 			<field type="day">
 				<displayName>Usuku</displayName>
 				<relative type="-2">Usuku olwandulela olwayizolo</relative>
-				<relative type="-1">Izolo</relative>
-				<relative type="0">Namhlanje</relative>
-				<relative type="1">Kusasa</relative>
+				<relative type="-1">izolo</relative>
+				<relative type="0">namhlanje</relative>
+				<relative type="1">kusasa</relative>
 				<relative type="2">Usuku olulandela olakusasa</relative>
 			</field>
 			<field type="weekday">
 				<displayName>Usuku evikini</displayName>
+			</field>
+			<field type="sun">
+				<relative type="-1">iSonto eledlule</relative>
+				<relative type="0">leli Sonto</relative>
+				<relative type="1">iSonto elizayo</relative>
+			</field>
+			<field type="mon">
+				<relative type="-1">ngoMsombuluko odlule</relative>
+				<relative type="0">kulo Msombuluko</relative>
+				<relative type="1">uMsombuluko olandelayo</relative>
+			</field>
+			<field type="tue">
+				<relative type="-1">uLwesibili odlule</relative>
+				<relative type="0">kulo Lwesibili</relative>
+				<relative type="1">uLwesibili olandelayo</relative>
+			</field>
+			<field type="wed">
+				<relative type="-1">uLwesithathu odlule</relative>
+				<relative type="0">lo Lwesithathu</relative>
+				<relative type="1">lo Lwesithathu</relative>
+			</field>
+			<field type="thu">
+				<relative type="-1">uLwesine odlule</relative>
+				<relative type="0">lo Lwesine</relative>
+				<relative type="1">uLwesine olandelayo</relative>
+			</field>
+			<field type="fri">
+				<relative type="-1">uLwesihlanu odlule</relative>
+				<relative type="0">lo Lwesihlanu</relative>
+				<relative type="1">uLwesihlanu olandelayo</relative>
+			</field>
+			<field type="sat">
+				<relative type="-1">uMgqibelo odlule</relative>
+				<relative type="0">lo Mgqibelo</relative>
+				<relative type="1">Next Saturday</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName>AM/PM</displayName>
@@ -1272,7 +1393,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
-			<regionFormat>Isiskhathi sase-{0}</regionFormat>
+			<regionFormat>Isikhathi sase-{0}</regionFormat>
+			<regionFormat type="daylight">{0} Isikhathi sasemini</regionFormat>
+			<regionFormat type="standard">{0} Isikhathi esijwayelekile</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="America/St_Barthelemy">
 				<exemplarCity>I-Saint Barthélemy</exemplarCity>
@@ -1381,15 +1504,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Argentina">
 				<long>
 					<generic>esase-Argentina Time</generic>
-					<standard>Isikhathi Esimisiwe sase-Argentina</standard>
+					<standard>Isikhathi esimisiwe sase-Argentina</standard>
 					<daylight>esase-Argentina Summer Time</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina_Western">
 				<long>
 					<generic>Isikhathi saseNyakatho ne-Argentina</generic>
-					<standard>Isikhathi Esimisiwe sase-Ntshonalanga ne-Argentina</standard>
-					<daylight>Isikhathi Sasehlobo sase-Ntshonalanga ne-Argentina</daylight>
+					<standard>Isikhathi esimisiwe sase-Ntshonalanga ne-Argentina</standard>
+					<daylight>Isikhathi sasehlobo sase-Ntshonalanga ne-Argentina</daylight>
 				</long>
 			</metazone>
 			<metazone type="Armenia">
@@ -1468,7 +1591,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Brasilia">
 				<long>
 					<generic>esase-Brasilia Time</generic>
-					<standard>Isikhathi Esimisiwe sase-Brasilia</standard>
+					<standard>Isikhathi esimisiwe sase-Brasilia</standard>
 					<daylight>esase-Brasilia Summer Time</daylight>
 				</long>
 			</metazone>
@@ -1910,7 +2033,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Noronha">
 				<long>
 					<generic>Isikhathi sase-Fernando de Noronha</generic>
-					<standard>Isikhathi Esimisiwe sase-Fernando de Noronha</standard>
+					<standard>Isikhathi esimisiwe sase-Fernando de Noronha</standard>
 					<daylight>esase-Fernando de Noronha Summer Time</daylight>
 				</long>
 			</metazone>
@@ -2175,6 +2298,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>I-NaN</nan>
@@ -2730,7 +2854,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>i-CFP Franc</displayName>
 			</currency>
 			<currency type="XXX">
-				<displayName>Ikharensi engaziwa</displayName>
+				<displayName>Imali engaziwa</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>i-Yemeni Rial</displayName>
@@ -2749,6 +2873,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</numbers>
 	<units>
 		<unitLength type="long">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0} nge-{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} g-force</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one">usuku olungu-{0}</unitPattern>
 				<unitPattern count="other">{0} izinsuku</unitPattern>
@@ -2772,6 +2915,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-hour-past">
 				<unitPattern count="one">ehoreni eligu-{0} eledluli</unitPattern>
 				<unitPattern count="other">emahoreni angu-{0} edlule</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} ms</unitPattern>
+				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one">iminithi elingu-{0}</unitPattern>
@@ -2822,8 +2969,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">amaviki angu-{0} adlule</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<unitPattern count="one">unyaka ongu-{0}</unitPattern>
-				<unitPattern count="other">{0} iminyaka</unitPattern>
+				<unitPattern count="one">{0} y</unitPattern>
+				<unitPattern count="other">{0} y</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
 				<unitPattern count="one">Onyakeni ongu-{0}</unitPattern>
@@ -2833,35 +2980,228 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">enyakeni ongu-{0} owedlule</unitPattern>
 				<unitPattern count="other">iminyaka engu-{0} eyedlule</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} cm</unitPattern>
+				<unitPattern count="other">{0} cm</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} km</unitPattern>
+				<unitPattern count="other">{0} km</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} m</unitPattern>
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} mm</unitPattern>
+				<unitPattern count="other">{0} mm</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} kg</unitPattern>
+				<unitPattern count="other">{0} kg</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} km/h</unitPattern>
+				<unitPattern count="other">{0} km/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} l</unitPattern>
+				<unitPattern count="other">{0} l</unitPattern>
+			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<unitPattern count="one">usuku olungu-{0}</unitPattern>
+				<unitPattern count="one">{0} usuku</unitPattern>
 				<unitPattern count="other">{0} izinsuku</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="one">ihora elingu-{0}</unitPattern>
+				<unitPattern count="one">{0} hora</unitPattern>
 				<unitPattern count="other">{0} amahora</unitPattern>
 			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} ms</unitPattern>
+				<unitPattern count="other">{0} ms</unitPattern>
+			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one">iminithi elingu-{0}</unitPattern>
+				<unitPattern count="one">{0} iminithi</unitPattern>
 				<unitPattern count="other">{0} amaminithi</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<unitPattern count="one">inyanga engu-{0}</unitPattern>
+				<unitPattern count="one">{0} nyanga</unitPattern>
 				<unitPattern count="other">{0} izinyanga</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="one">isekhondi elingu-{0}</unitPattern>
-				<unitPattern count="other">{0} amasekhondi</unitPattern>
+				<unitPattern count="one">{0} sekhondi</unitPattern>
+				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="one">iviki elingu-{0}</unitPattern>
+				<unitPattern count="one">{0} viki</unitPattern>
 				<unitPattern count="other">{0} amaviki</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<unitPattern count="one">unyaka ongu-{0}</unitPattern>
-				<unitPattern count="other">{0} iminyaka</unitPattern>
+				<unitPattern count="one">{0} y</unitPattern>
+				<unitPattern count="other">{0} yrs</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} cm</unitPattern>
+				<unitPattern count="other">{0} cm</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} km</unitPattern>
+				<unitPattern count="other">{0} km</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} m</unitPattern>
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} mm</unitPattern>
+				<unitPattern count="other">{0} mm</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} kg</unitPattern>
+				<unitPattern count="other">{0} kg</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} km/h</unitPattern>
+				<unitPattern count="other">{0} km/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} l</unitPattern>
+				<unitPattern count="other">{0} l</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern>h:mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern>h:mm:ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern>m:ss</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<compoundUnit type="per">
+				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
+			</compoundUnit>
+			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
+			</unit>
+			<unit type="angle-minute">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="angle-second">
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="duration-day">
+				<unitPattern count="one">{0}</unitPattern>
+				<unitPattern count="other">{0} suku</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<unitPattern count="one">{0} hora</unitPattern>
+				<unitPattern count="other">{0} hora</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} ms</unitPattern>
+				<unitPattern count="other">{0} ms</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<unitPattern count="one">{0} min</unitPattern>
+				<unitPattern count="other">{0} min</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<unitPattern count="one">{0} m</unitPattern>
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<unitPattern count="one">{0} s</unitPattern>
+				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="one">{0} w</unitPattern>
+				<unitPattern count="other">{0} w</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<unitPattern count="one">{0} y</unitPattern>
+				<unitPattern count="other">{0} y</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<unitPattern count="one">{0} cm</unitPattern>
+				<unitPattern count="other">{0} cm</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<unitPattern count="one">{0} km</unitPattern>
+				<unitPattern count="other">{0} km</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<unitPattern count="one">{0} m</unitPattern>
+				<unitPattern count="other">{0} m</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="one">{0} mm</unitPattern>
+				<unitPattern count="other">{0} mm</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<unitPattern count="one">{0} g</unitPattern>
+				<unitPattern count="other">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} kg</unitPattern>
+				<unitPattern count="other">{0} kg</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} km/h</unitPattern>
+				<unitPattern count="other">{0} km/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one">{0} l</unitPattern>
+				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
@@ -2880,4 +3220,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

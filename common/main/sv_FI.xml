@@ -12,44 +12,750 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<territory type="FI"/>
 	</identity>
 	<localeDisplayNames>
+		<localeDisplayPattern>
+			<localePattern draft="contributed">{0} ({1})</localePattern>
+			<localeSeparator draft="contributed">{0}, {1}</localeSeparator>
+			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
+		</localeDisplayPattern>
+		<languages>
+			<language type="ab" draft="contributed">abchaziska</language>
+			<language type="af" draft="contributed">afrikaans</language>
+			<language type="am" draft="contributed">amhariska</language>
+			<language type="ar" draft="contributed">arabiska</language>
+			<language type="as" draft="contributed">assamesiska</language>
+			<language type="az" draft="contributed">azerbajdzjanska</language>
+			<language type="az" alt="short" draft="contributed">azerbajdzjanska</language>
+			<language type="be" draft="contributed">vitryska</language>
+			<language type="bg" draft="contributed">bulgariska</language>
+			<language type="bn" draft="contributed">bengali</language>
+			<language type="bo" draft="contributed">tibetanska</language>
+			<language type="bs" draft="contributed">bosniska</language>
+			<language type="ca" draft="contributed">katalanska</language>
+			<language type="chm" draft="contributed">mari</language>
+			<language type="cs" draft="contributed">tjeckiska</language>
+			<language type="cy" draft="contributed">walesiska</language>
+			<language type="da" draft="contributed">danska</language>
+			<language type="de" draft="contributed">tyska</language>
+			<language type="de_AT" draft="contributed">österrikisk tyska</language>
+			<language type="de_CH">schweizisk högtyska</language>
+			<language type="el" draft="contributed">grekiska</language>
+			<language type="en" draft="contributed">engelska</language>
+			<language type="en_AU" draft="contributed">australisk engelska</language>
+			<language type="en_CA" draft="contributed">kanadensisk engelska</language>
+			<language type="en_GB" draft="contributed">brittisk engelska</language>
+			<language type="en_US" draft="contributed">amerikansk engelska</language>
+			<language type="eo" draft="contributed">esperanto</language>
+			<language type="es" draft="contributed">spanska</language>
+			<language type="et" draft="contributed">estniska</language>
+			<language type="eu" draft="contributed">baskiska</language>
+			<language type="fa" draft="contributed">persiska</language>
+			<language type="fi" draft="contributed">finska</language>
+			<language type="fil">filippinska</language>
+			<language type="fj" draft="contributed">fiji</language>
+			<language type="fo" draft="contributed">färöiska</language>
+			<language type="fr" draft="contributed">franska</language>
+			<language type="fy" draft="contributed">västfrisiska</language>
+			<language type="ga" draft="contributed">iriska</language>
+			<language type="gl" draft="contributed">galiciska</language>
+			<language type="gn" draft="contributed">guaraní</language>
+			<language type="gsw" draft="contributed">schweizertyska</language>
+			<language type="gu" draft="contributed">gujarati</language>
+			<language type="ha" draft="contributed">hausa</language>
+			<language type="haw" draft="contributed">hawaiiska</language>
+			<language type="he" draft="contributed">hebreiska</language>
+			<language type="hi" draft="contributed">hindi</language>
+			<language type="hr" draft="contributed">kroatiska</language>
+			<language type="ht" draft="contributed">haitiska</language>
+			<language type="hu" draft="contributed">ungerska</language>
+			<language type="hy" draft="contributed">armeniska</language>
+			<language type="id" draft="contributed">indonesiska</language>
+			<language type="ig" draft="contributed">igbo</language>
+			<language type="is" draft="contributed">isländska</language>
+			<language type="it" draft="contributed">italienska</language>
+			<language type="ja" draft="contributed">japanska</language>
+			<language type="jv" draft="contributed">javanesiska</language>
+			<language type="ka" draft="contributed">georgiska</language>
+			<language type="kk" draft="contributed">kazakiska</language>
+			<language type="km" draft="contributed">khmer</language>
+			<language type="kn" draft="contributed">kannada</language>
+			<language type="ko" draft="contributed">koreanska</language>
+			<language type="ks" draft="contributed">kashmiri</language>
+			<language type="ku" draft="contributed">kurdiska</language>
+			<language type="ky" draft="contributed">kirgiziska</language>
+			<language type="la" draft="contributed">latin</language>
+			<language type="lb" draft="contributed">luxemburgiska</language>
+			<language type="lo" draft="contributed">lao</language>
+			<language type="lt" draft="contributed">litauiska</language>
+			<language type="lv" draft="contributed">lettiska</language>
+			<language type="mg" draft="contributed">malagassiska</language>
+			<language type="mi" draft="contributed">maori</language>
+			<language type="mk" draft="contributed">makedonska</language>
+			<language type="ml" draft="contributed">malayalam</language>
+			<language type="mr" draft="contributed">marathi</language>
+			<language type="ms" draft="contributed">malajiska</language>
+			<language type="mt" draft="contributed">maltesiska</language>
+			<language type="my" draft="contributed">burmesiska</language>
+			<language type="nb" draft="contributed">bokmål</language>
+			<language type="ne" draft="contributed">nepalesiska</language>
+			<language type="nl" draft="contributed">nederländska</language>
+			<language type="nl_BE" draft="contributed">flamländska</language>
+			<language type="nn" draft="contributed">nynorska</language>
+			<language type="or" draft="contributed">oriya</language>
+			<language type="pa" draft="contributed">panjabi</language>
+			<language type="pl" draft="contributed">polska</language>
+			<language type="ps" draft="contributed">pashto</language>
+			<language type="pt" draft="contributed">portugisiska</language>
+			<language type="pt_PT" draft="contributed">europeisk portugisiska</language>
+			<language type="qu" draft="contributed">quechua</language>
+			<language type="rm" draft="contributed">rätoromanska</language>
+			<language type="ro" draft="contributed">rumänska</language>
+			<language type="ru" draft="contributed">ryska</language>
+			<language type="sa" draft="contributed">sanskrit</language>
+			<language type="sd" draft="contributed">sindhi</language>
+			<language type="si" draft="contributed">singalesiska</language>
+			<language type="sk" draft="contributed">slovakiska</language>
+			<language type="sl" draft="contributed">slovenska</language>
+			<language type="so" draft="contributed">somaliska</language>
+			<language type="sq" draft="contributed">albanska</language>
+			<language type="sr" draft="contributed">serbiska</language>
+			<language type="su" draft="contributed">sundanesiska</language>
+			<language type="sv" draft="contributed">svenska</language>
+			<language type="sw" draft="contributed">swahili</language>
+			<language type="ta" draft="contributed">tamil</language>
+			<language type="te" draft="contributed">telugu</language>
+			<language type="tg" draft="contributed">tadzjikiska</language>
+			<language type="th" draft="contributed">thai</language>
+			<language type="ti" draft="contributed">tigrinska</language>
+			<language type="tk" draft="contributed">turkmeniska</language>
+			<language type="to" draft="contributed">tonganska</language>
+			<language type="tr" draft="contributed">turkiska</language>
+			<language type="tt" draft="contributed">tatariska</language>
+			<language type="ug" draft="contributed">uiguriska</language>
+			<language type="ug" alt="variant" draft="contributed">uiguriska</language>
+			<language type="uk" draft="contributed">ukrainska</language>
+			<language type="und" draft="contributed">okänt språk</language>
+			<language type="ur" draft="contributed">urdu</language>
+			<language type="uz" draft="contributed">uzbekiska</language>
+			<language type="vi" draft="contributed">vietnamesiska</language>
+			<language type="wo" draft="contributed">wolof</language>
+			<language type="xh" draft="contributed">xhosa</language>
+			<language type="yo" draft="contributed">yoruba</language>
+			<language type="zh" draft="contributed">kinesiska</language>
+			<language type="zu" draft="contributed">zulu</language>
+			<language type="zxx" draft="contributed">inget språkligt innehåll</language>
+		</languages>
 		<scripts>
+			<script type="Arab" draft="contributed">arabiska</script>
+			<script type="Arab" alt="variant" draft="contributed">persisk-arabiska</script>
+			<script type="Cyrl" draft="contributed">kyrilliska</script>
+			<script type="Hans" draft="contributed">förenklade</script>
+			<script type="Hans" alt="stand-alone" draft="contributed">förenklade han-tecken</script>
+			<script type="Hant" draft="contributed">traditionella</script>
+			<script type="Hant" alt="stand-alone" draft="contributed">traditionella han-tecken</script>
+			<script type="Hrkt" draft="contributed">kana</script>
+			<script type="Jpan" draft="contributed">japanska</script>
+			<script type="Kore" draft="contributed">koreanska</script>
+			<script type="Latn" draft="contributed">latinska</script>
 			<script type="Mero" draft="contributed">meroitiska</script>
+			<script type="Zsym" draft="contributed">symboler</script>
+			<script type="Zxxx" draft="contributed">oskrivet språk</script>
+			<script type="Zzzz" draft="contributed">okänt skriftsystem</script>
 		</scripts>
 		<territories>
+			<territory type="001" draft="contributed">världen</territory>
+			<territory type="002" draft="contributed">Afrika</territory>
+			<territory type="003" draft="contributed">Nordamerika</territory>
+			<territory type="005" draft="contributed">Sydamerika</territory>
+			<territory type="009" draft="contributed">Oceanien</territory>
+			<territory type="011" draft="contributed">Västafrika</territory>
+			<territory type="013" draft="contributed">Centralamerika</territory>
+			<territory type="014" draft="contributed">Östafrika</territory>
+			<territory type="015" draft="contributed">Nordafrika</territory>
+			<territory type="017" draft="contributed">Centralafrika</territory>
+			<territory type="018" draft="contributed">södra Afrika</territory>
+			<territory type="019" draft="contributed">Nord- och Sydamerika</territory>
+			<territory type="021" draft="contributed">norra Amerika</territory>
+			<territory type="029" draft="contributed">Karibien</territory>
+			<territory type="030" draft="contributed">Östasien</territory>
+			<territory type="034" draft="contributed">Sydasien</territory>
+			<territory type="035" draft="contributed">Sydöstasien</territory>
+			<territory type="039" draft="contributed">Sydeuropa</territory>
+			<territory type="053" draft="contributed">Australasien</territory>
+			<territory type="142" draft="contributed">Asien</territory>
+			<territory type="143" draft="contributed">Centralasien</territory>
+			<territory type="145" draft="contributed">Västasien</territory>
+			<territory type="150" draft="contributed">Europa</territory>
+			<territory type="151" draft="contributed">Östeuropa</territory>
+			<territory type="154" draft="contributed">Nordeuropa</territory>
+			<territory type="155" draft="contributed">Västeuropa</territory>
+			<territory type="419" draft="contributed">Latinamerika</territory>
+			<territory type="AC" draft="contributed">Ascension</territory>
+			<territory type="AD" draft="contributed">Andorra</territory>
+			<territory type="AE" draft="contributed">Förenade Arabemiraten</territory>
+			<territory type="AF" draft="contributed">Afghanistan</territory>
+			<territory type="AG" draft="contributed">Antigua och Barbuda</territory>
+			<territory type="AI" draft="contributed">Anguilla</territory>
+			<territory type="AL" draft="contributed">Albanien</territory>
+			<territory type="AM" draft="contributed">Armenien</territory>
+			<territory type="AO" draft="contributed">Angola</territory>
+			<territory type="AQ" draft="contributed">Antarktis</territory>
+			<territory type="AR" draft="contributed">Argentina</territory>
+			<territory type="AS" draft="contributed">Amerikanska Samoa</territory>
+			<territory type="AT" draft="contributed">Österrike</territory>
+			<territory type="AU" draft="contributed">Australien</territory>
+			<territory type="AW" draft="contributed">Aruba</territory>
+			<territory type="AX" draft="contributed">Åland</territory>
+			<territory type="AZ" draft="contributed">Azerbajdzjan</territory>
+			<territory type="BA" draft="contributed">Bosnien och Hercegovina</territory>
+			<territory type="BB" draft="contributed">Barbados</territory>
+			<territory type="BD" draft="contributed">Bangladesh</territory>
+			<territory type="BE" draft="contributed">Belgien</territory>
+			<territory type="BF" draft="contributed">Burkina Faso</territory>
+			<territory type="BG" draft="contributed">Bulgarien</territory>
+			<territory type="BH" draft="contributed">Bahrain</territory>
+			<territory type="BI" draft="contributed">Burundi</territory>
+			<territory type="BJ" draft="contributed">Benin</territory>
+			<territory type="BL" draft="contributed">Saint-Barthélemy</territory>
+			<territory type="BM" draft="contributed">Bermuda</territory>
+			<territory type="BN" draft="contributed">Brunei</territory>
+			<territory type="BO" draft="contributed">Bolivia</territory>
 			<territory type="BQ" draft="contributed">Bonaire, S:t Eustatius och Saba</territory>
+			<territory type="BR" draft="contributed">Brasilien</territory>
+			<territory type="BS" draft="contributed">Bahamas</territory>
+			<territory type="BT" draft="contributed">Bhutan</territory>
+			<territory type="BV" draft="contributed">Bouvetön</territory>
+			<territory type="BW" draft="contributed">Botswana</territory>
+			<territory type="BY" draft="contributed">Vitryssland</territory>
+			<territory type="BZ" draft="contributed">Belize</territory>
+			<territory type="CA" draft="contributed">Kanada</territory>
+			<territory type="CC" draft="contributed">Kokosöarna</territory>
+			<territory type="CD" draft="contributed">Demokratiska republiken Kongo</territory>
+			<territory type="CD" alt="variant" draft="contributed">Demokratiska republiken Kongo</territory>
+			<territory type="CF" draft="contributed">Centralafrikanska republiken</territory>
+			<territory type="CG" draft="contributed">Kongo</territory>
+			<territory type="CG" alt="variant" draft="contributed">Kongo</territory>
+			<territory type="CH" draft="contributed">Schweiz</territory>
+			<territory type="CI" draft="contributed">Elfenbenskusten</territory>
+			<territory type="CI" alt="variant" draft="contributed">Elfenbenskusten</territory>
+			<territory type="CK" draft="contributed">Cooköarna</territory>
+			<territory type="CL" draft="contributed">Chile</territory>
+			<territory type="CM" draft="contributed">Kamerun</territory>
+			<territory type="CN" draft="contributed">Kina</territory>
+			<territory type="CO" draft="contributed">Colombia</territory>
+			<territory type="CP" draft="contributed">Clippertonön</territory>
+			<territory type="CR" draft="contributed">Costa Rica</territory>
+			<territory type="CU" draft="contributed">Kuba</territory>
+			<territory type="CV" draft="contributed">Kap Verde</territory>
+			<territory type="CW" draft="contributed">Curaçao</territory>
+			<territory type="CX" draft="contributed">Julön</territory>
+			<territory type="CY" draft="contributed">Cypern</territory>
+			<territory type="CZ" draft="contributed">Tjeckien</territory>
+			<territory type="DG" draft="contributed">Diego Garcia</territory>
+			<territory type="DJ" draft="contributed">Djibouti</territory>
+			<territory type="DK" draft="contributed">Danmark</territory>
+			<territory type="DM" draft="contributed">Dominica</territory>
+			<territory type="DO" draft="contributed">Dominikanska republiken</territory>
+			<territory type="DZ" draft="contributed">Algeriet</territory>
+			<territory type="EA" draft="contributed">Ceuta och Melilla</territory>
+			<territory type="EC" draft="contributed">Ecuador</territory>
+			<territory type="EE" draft="contributed">Estland</territory>
+			<territory type="EG" draft="contributed">Egypten</territory>
+			<territory type="EH" draft="contributed">Västsahara</territory>
+			<territory type="ER" draft="contributed">Eritrea</territory>
+			<territory type="ES" draft="contributed">Spanien</territory>
+			<territory type="ET" draft="contributed">Etiopien</territory>
+			<territory type="EU" draft="contributed">Europeiska unionen</territory>
+			<territory type="FI" draft="contributed">Finland</territory>
+			<territory type="FJ" draft="contributed">Fiji</territory>
+			<territory type="FK" draft="contributed">Falklandsöarna</territory>
+			<territory type="FK" alt="variant" draft="contributed">Falklandsöarna</territory>
+			<territory type="FM" draft="contributed">Mikronesien</territory>
+			<territory type="FO" draft="contributed">Färöarna</territory>
+			<territory type="GA" draft="contributed">Gabon</territory>
+			<territory type="GB" draft="contributed">Förenade kungariket</territory>
+			<territory type="GD" draft="contributed">Grenada</territory>
+			<territory type="GE" draft="contributed">Georgien</territory>
+			<territory type="GF" draft="contributed">Franska Guyana</territory>
+			<territory type="GG" draft="contributed">Guernsey</territory>
+			<territory type="GH" draft="contributed">Ghana</territory>
+			<territory type="GI" draft="contributed">Gibraltar</territory>
+			<territory type="GL" draft="contributed">Grönland</territory>
+			<territory type="GM" draft="contributed">Gambia</territory>
+			<territory type="GN" draft="contributed">Guinea</territory>
+			<territory type="GP" draft="contributed">Guadeloupe</territory>
+			<territory type="GQ" draft="contributed">Ekvatorialguinea</territory>
+			<territory type="GR" draft="contributed">Grekland</territory>
+			<territory type="GS" draft="contributed">Sydgeorgien och Sydsandwichöarna</territory>
+			<territory type="GT" draft="contributed">Guatemala</territory>
+			<territory type="GU" draft="contributed">Guam</territory>
+			<territory type="GW" draft="contributed">Guinea-Bissau</territory>
+			<territory type="GY" draft="contributed">Guyana</territory>
+			<territory type="HK" alt="short" draft="contributed">Hongkong</territory>
+			<territory type="HM" draft="contributed">Heardön och McDonaldöarna</territory>
+			<territory type="HN" draft="contributed">Honduras</territory>
+			<territory type="HR" draft="contributed">Kroatien</territory>
+			<territory type="HT" draft="contributed">Haiti</territory>
+			<territory type="HU" draft="contributed">Ungern</territory>
+			<territory type="IC" draft="contributed">Kanarieöarna</territory>
+			<territory type="ID" draft="contributed">Indonesien</territory>
+			<territory type="IE" draft="contributed">Irland</territory>
+			<territory type="IL" draft="contributed">Israel</territory>
+			<territory type="IM" draft="contributed">Isle of Man</territory>
+			<territory type="IN" draft="contributed">Indien</territory>
+			<territory type="IQ" draft="contributed">Irak</territory>
+			<territory type="IR" draft="contributed">Iran</territory>
+			<territory type="IS" draft="contributed">Island</territory>
+			<territory type="IT" draft="contributed">Italien</territory>
+			<territory type="JE" draft="contributed">Jersey</territory>
+			<territory type="JM" draft="contributed">Jamaica</territory>
+			<territory type="JO" draft="contributed">Jordanien</territory>
+			<territory type="JP" draft="contributed">Japan</territory>
+			<territory type="KE" draft="contributed">Kenya</territory>
+			<territory type="KG" draft="contributed">Kirgizistan</territory>
+			<territory type="KH" draft="contributed">Kambodja</territory>
+			<territory type="KI" draft="contributed">Kiribati</territory>
+			<territory type="KM" draft="contributed">Komorerna</territory>
+			<territory type="KN" draft="contributed">Saint Kitts och Nevis</territory>
+			<territory type="KP" draft="contributed">Nordkorea</territory>
+			<territory type="KR" draft="contributed">Sydkorea</territory>
+			<territory type="KW" draft="contributed">Kuwait</territory>
+			<territory type="KY" draft="contributed">Caymanöarna</territory>
+			<territory type="KZ" draft="contributed">Kazakstan</territory>
+			<territory type="LA" draft="contributed">Laos</territory>
+			<territory type="LB" draft="contributed">Libanon</territory>
+			<territory type="LC" draft="contributed">Saint Lucia</territory>
+			<territory type="LK" draft="contributed">Sri Lanka</territory>
+			<territory type="LR" draft="contributed">Liberia</territory>
+			<territory type="LS" draft="contributed">Lesotho</territory>
+			<territory type="LT" draft="contributed">Litauen</territory>
+			<territory type="LU" draft="contributed">Luxemburg</territory>
+			<territory type="LV" draft="contributed">Lettland</territory>
+			<territory type="LY" draft="contributed">Libyen</territory>
+			<territory type="MA" draft="contributed">Marocko</territory>
+			<territory type="MC" draft="contributed">Monaco</territory>
+			<territory type="MD" draft="contributed">Moldavien</territory>
+			<territory type="ME" draft="contributed">Montenegro</territory>
 			<territory type="MF" draft="contributed">S:t Martin (franska delen)</territory>
+			<territory type="MG" draft="contributed">Madagaskar</territory>
+			<territory type="MH" draft="contributed">Marshallöarna</territory>
+			<territory type="MK" draft="contributed">Makedonien</territory>
+			<territory type="MK" alt="variant" draft="contributed">Makedonien</territory>
+			<territory type="ML" draft="contributed">Mali</territory>
+			<territory type="MM" draft="contributed">Burma</territory>
+			<territory type="MN" draft="contributed">Mongoliet</territory>
+			<territory type="MO" alt="short" draft="contributed">Macao</territory>
+			<territory type="MP" draft="contributed">Nordmarianerna</territory>
+			<territory type="MQ" draft="contributed">Martinique</territory>
+			<territory type="MR" draft="contributed">Mauretanien</territory>
+			<territory type="MS" draft="contributed">Montserrat</territory>
+			<territory type="MT" draft="contributed">Malta</territory>
+			<territory type="MU" draft="contributed">Mauritius</territory>
+			<territory type="MV" draft="contributed">Maldiverna</territory>
+			<territory type="MW" draft="contributed">Malawi</territory>
+			<territory type="MX" draft="contributed">Mexiko</territory>
+			<territory type="MY" draft="contributed">Malaysia</territory>
+			<territory type="MZ" draft="contributed">Moçambique</territory>
+			<territory type="NA" draft="contributed">Namibia</territory>
+			<territory type="NC" draft="contributed">Nya Kaledonien</territory>
+			<territory type="NE" draft="contributed">Niger</territory>
+			<territory type="NF" draft="contributed">Norfolkön</territory>
+			<territory type="NG" draft="contributed">Nigeria</territory>
+			<territory type="NI" draft="contributed">Nicaragua</territory>
+			<territory type="NL" draft="contributed">Nederländerna</territory>
+			<territory type="NO" draft="contributed">Norge</territory>
+			<territory type="NP" draft="contributed">Nepal</territory>
+			<territory type="NR" draft="contributed">Nauru</territory>
+			<territory type="NU" draft="contributed">Niue</territory>
+			<territory type="NZ" draft="contributed">Nya Zeeland</territory>
+			<territory type="OM" draft="contributed">Oman</territory>
+			<territory type="PA" draft="contributed">Panama</territory>
+			<territory type="PE" draft="contributed">Peru</territory>
+			<territory type="PG" draft="contributed">Papua Nya Guinea</territory>
+			<territory type="PH" draft="contributed">Filippinerna</territory>
+			<territory type="PK" draft="contributed">Pakistan</territory>
+			<territory type="PL" draft="contributed">Polen</territory>
+			<territory type="PM" draft="contributed">Saint Pierre och Miquelon</territory>
+			<territory type="PN" draft="contributed">Pitcairn</territory>
+			<territory type="PR" draft="contributed">Puerto Rico</territory>
+			<territory type="PS" draft="contributed">Palestinska området</territory>
+			<territory type="PS" alt="short" draft="contributed">Palestina</territory>
+			<territory type="PT" draft="contributed">Portugal</territory>
+			<territory type="PW" draft="contributed">Palau</territory>
+			<territory type="PY" draft="contributed">Paraguay</territory>
+			<territory type="QA" draft="contributed">Qatar</territory>
+			<territory type="RE" draft="contributed">Réunion</territory>
+			<territory type="RO" draft="contributed">Rumänien</territory>
+			<territory type="RS" draft="contributed">Serbien</territory>
+			<territory type="RU" draft="contributed">Ryssland</territory>
+			<territory type="RW" draft="contributed">Rwanda</territory>
+			<territory type="SA" draft="contributed">Saudiarabien</territory>
+			<territory type="SB" draft="contributed">Salomonöarna</territory>
+			<territory type="SC" draft="contributed">Seychellerna</territory>
 			<territory type="SD" draft="contributed">Nordsudan</territory>
+			<territory type="SE" draft="contributed">Sverige</territory>
+			<territory type="SG" draft="contributed">Singapore</territory>
+			<territory type="SH" draft="contributed">Saint Helena</territory>
+			<territory type="SI" draft="contributed">Slovenien</territory>
+			<territory type="SJ" draft="contributed">Svalbard och Jan Mayen</territory>
+			<territory type="SK" draft="contributed">Slovakien</territory>
+			<territory type="SL" draft="contributed">Sierra Leone</territory>
+			<territory type="SM" draft="contributed">San Marino</territory>
+			<territory type="SN" draft="contributed">Senegal</territory>
+			<territory type="SO" draft="contributed">Somalia</territory>
+			<territory type="SR" draft="contributed">Surinam</territory>
+			<territory type="SS" draft="contributed">Sydsudan</territory>
+			<territory type="ST" draft="contributed">São Tomé och Príncipe</territory>
+			<territory type="SV" draft="contributed">El Salvador</territory>
+			<territory type="SX" draft="contributed">Sint Martin</territory>
+			<territory type="SY" draft="contributed">Syrien</territory>
+			<territory type="SZ" draft="contributed">Swaziland</territory>
+			<territory type="TA" draft="contributed">Tristan da Cunha</territory>
+			<territory type="TC" draft="contributed">Turks- och Caicosöarna</territory>
+			<territory type="TD" draft="contributed">Tchad</territory>
+			<territory type="TG" draft="contributed">Togo</territory>
+			<territory type="TH" draft="contributed">Thailand</territory>
+			<territory type="TJ" draft="contributed">Tadzjikistan</territory>
+			<territory type="TK" draft="contributed">Tokelauöarna</territory>
+			<territory type="TL" draft="contributed">Östtimor</territory>
+			<territory type="TL" alt="variant" draft="contributed">Östtimor</territory>
+			<territory type="TM" draft="contributed">Turkmenistan</territory>
+			<territory type="TN" draft="contributed">Tunisien</territory>
+			<territory type="TO" draft="contributed">Tonga</territory>
+			<territory type="TR" draft="contributed">Turkiet</territory>
+			<territory type="TT" draft="contributed">Trinidad och Tobago</territory>
+			<territory type="TV" draft="contributed">Tuvalu</territory>
+			<territory type="TW" draft="contributed">Taiwan</territory>
+			<territory type="TZ" draft="contributed">Tanzania</territory>
+			<territory type="UA" draft="contributed">Ukraina</territory>
+			<territory type="UG" draft="contributed">Uganda</territory>
+			<territory type="US" draft="contributed">Förenta staterna</territory>
+			<territory type="UY" draft="contributed">Uruguay</territory>
+			<territory type="UZ" draft="contributed">Uzbekistan</territory>
+			<territory type="VA" draft="contributed">Vatikanen</territory>
+			<territory type="VC" draft="contributed">Saint Vincent och Grenadinerna</territory>
+			<territory type="VE" draft="contributed">Venezuela</territory>
+			<territory type="VG" draft="contributed">Brittiska Jungfruöarna</territory>
+			<territory type="VI" draft="contributed">Amerikanska Jungfruöarna</territory>
+			<territory type="VN" draft="contributed">Vietnam</territory>
+			<territory type="VU" draft="contributed">Vanuatu</territory>
+			<territory type="WF" draft="contributed">Wallis- och Futuna</territory>
+			<territory type="WS" draft="contributed">Samoa</territory>
+			<territory type="XK" draft="contributed">Kosovo</territory>
+			<territory type="YE" draft="contributed">Jemen</territory>
+			<territory type="YT" draft="contributed">Mayotte</territory>
+			<territory type="ZA" draft="contributed">Sydafrika</territory>
+			<territory type="ZM" draft="contributed">Zambia</territory>
+			<territory type="ZW" draft="contributed">Zimbabwe</territory>
+			<territory type="ZZ" draft="contributed">okänd region</territory>
 		</territories>
 		<variants>
 			<variant type="1996">1996 års stavning</variant>
 		</variants>
+		<keys>
+			<key type="calendar" draft="contributed">kalender</key>
+			<key type="numbers" draft="contributed">siffror</key>
+			<key type="timezone" draft="contributed">tidszon</key>
+		</keys>
 		<types>
+			<type type="arab" key="numbers" draft="contributed">indo-arabiska siffror</type>
 			<type type="big5han" key="collation" draft="unconfirmed">kinesiska i big5-sorteringsordning</type>
+			<type type="buddhist" key="calendar" draft="contributed">buddhistisk kalender</type>
+			<type type="chinese" key="calendar" draft="contributed">kinesisk kalender</type>
 			<type type="gb2312han" key="collation" draft="unconfirmed">kinesiska i gb2312-sorteringsordning</type>
+			<type type="gregorian" key="calendar" draft="contributed">gregoriansk kalender</type>
+			<type type="latn" key="numbers" draft="contributed">västerländska siffror</type>
 			<type type="pinyin" key="collation" draft="unconfirmed">kinesiska i pinyin-sorteringsordning</type>
 			<type type="stroke" key="collation" draft="unconfirmed">kinesiska i strecksorteringsordning</type>
 			<type type="traditional" key="collation" draft="unconfirmed">traditionell sorteringsordning</type>
 		</types>
+		<measurementSystemNames>
+			<measurementSystemName type="metric" draft="contributed">SI-enheter</measurementSystemName>
+			<measurementSystemName type="UK" draft="contributed">engelska enheter (UK)</measurementSystemName>
+			<measurementSystemName type="US" draft="contributed">engelska enheter (USA)</measurementSystemName>
+		</measurementSystemNames>
+		<codePatterns>
+			<codePattern type="language" draft="contributed">språk: {0}</codePattern>
+			<codePattern type="script" draft="contributed">skrift: {0}</codePattern>
+			<codePattern type="territory" draft="contributed">region: {0}</codePattern>
+		</codePatterns>
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters draft="unconfirmed">[a à b c d e é f g h i j k l m n o p q r s t u v x y z å ä ö]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[ã ç ë í ñ ó š ÿ ü ž]</exemplarCharacters>
+		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
+		<ellipsis type="initial" draft="contributed">…{0}</ellipsis>
+		<ellipsis type="medial" draft="contributed">{0}…{1}</ellipsis>
+		<ellipsis type="word-final" draft="contributed">{0} …</ellipsis>
+		<ellipsis type="word-initial" draft="contributed">… {0}</ellipsis>
+		<ellipsis type="word-medial" draft="contributed">{0} … {1}</ellipsis>
+		<moreInformation draft="contributed">?</moreInformation>
 	</characters>
+	<delimiters>
+		<quotationStart draft="contributed">”</quotationStart>
+		<quotationEnd draft="contributed">”</quotationEnd>
+		<alternateQuotationStart draft="contributed">’</alternateQuotationStart>
+		<alternateQuotationEnd draft="contributed">’</alternateQuotationEnd>
+	</delimiters>
 	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<months>
+					<monthContext type="format">
+						<monthWidth type="wide">
+							<month type="1" draft="contributed">januari</month>
+							<month type="2" draft="contributed">februari</month>
+							<month type="3" draft="contributed">mars</month>
+							<month type="4" draft="contributed">april</month>
+							<month type="5" draft="contributed">maj</month>
+							<month type="6" draft="contributed">juni</month>
+							<month type="7" draft="contributed">juli</month>
+							<month type="8" draft="contributed">augusti</month>
+							<month type="9" draft="contributed">september</month>
+							<month type="10" draft="contributed">oktober</month>
+							<month type="11" draft="contributed">november</month>
+							<month type="12" draft="contributed">december</month>
+						</monthWidth>
+					</monthContext>
+				</months>
+				<days>
+					<dayContext type="format">
+						<dayWidth type="abbreviated">
+							<day type="sun">sön</day>
+							<day type="mon">mån</day>
+							<day type="tue">tis</day>
+							<day type="wed">ons</day>
+							<day type="thu">tors</day>
+							<day type="fri">fre</day>
+							<day type="sat">lör</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun" draft="contributed">söndag</day>
+							<day type="mon" draft="contributed">måndag</day>
+							<day type="tue" draft="contributed">tisdag</day>
+							<day type="wed" draft="contributed">onsdag</day>
+							<day type="thu" draft="contributed">torsdag</day>
+							<day type="fri" draft="contributed">fredag</day>
+							<day type="sat" draft="contributed">lördag</day>
+						</dayWidth>
+					</dayContext>
+				</days>
+				<quarters>
+					<quarterContext type="format">
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">1</quarter>
+							<quarter type="2" draft="contributed">2</quarter>
+							<quarter type="3" draft="contributed">3</quarter>
+							<quarter type="4" draft="contributed">4</quarter>
+						</quarterWidth>
+					</quarterContext>
+					<quarterContext type="stand-alone">
+						<quarterWidth type="narrow">
+							<quarter type="1" draft="contributed">1</quarter>
+							<quarter type="2" draft="contributed">2</quarter>
+							<quarter type="3" draft="contributed">3</quarter>
+							<quarter type="4" draft="contributed">4</quarter>
+						</quarterWidth>
+					</quarterContext>
+				</quarters>
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="am" draft="contributed">fm</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">em</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0" draft="contributed">före Kristus</era>
+						<era type="0" alt="variant" draft="contributed">före vår tideräkning</era>
+						<era type="1" draft="contributed">efter Kristus</era>
+						<era type="1" alt="variant" draft="contributed">vår tideräkning</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" draft="contributed">f.Kr.</era>
+						<era type="1" draft="contributed">e.Kr.</era>
+					</eraAbbr>
+					<eraNarrow>
+						<era type="0" draft="contributed">f.Kr.</era>
+						<era type="1" draft="contributed">e.Kr.</era>
+					</eraNarrow>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="full">
+						<dateFormat>
+							<pattern draft="contributed">EEEE'en' 'den' d:'e' MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="long">
+						<dateFormat>
+							<pattern draft="contributed">d MMMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="contributed">d MMM y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+					<dateFormatLength type="short">
+						<dateFormat>
+							<pattern draft="contributed">dd-MM-y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+		</calendars>
 		<fields>
+			<field type="era">
+				<displayName draft="contributed">era</displayName>
+			</field>
+			<field type="year">
+				<displayName draft="contributed">år</displayName>
+				<relative type="-1" draft="contributed">i fjol</relative>
+				<relative type="0" draft="contributed">i år</relative>
+				<relative type="1" draft="contributed">nästa år</relative>
+			</field>
+			<field type="month">
+				<displayName draft="contributed">månad</displayName>
+				<relative type="-1" draft="contributed">förra månaden</relative>
+				<relative type="0" draft="contributed">denna månad</relative>
+				<relative type="1" draft="contributed">nästa månad</relative>
+			</field>
+			<field type="week">
+				<displayName draft="contributed">vecka</displayName>
+				<relative type="-1" draft="contributed">förra veckan</relative>
+				<relative type="0" draft="contributed">denna vecka</relative>
+				<relative type="1" draft="contributed">nästa vecka</relative>
+			</field>
+			<field type="day">
+				<displayName draft="contributed">dag</displayName>
+				<relative type="-1" draft="contributed">i går</relative>
+				<relative type="0" draft="contributed">i dag</relative>
+				<relative type="1" draft="contributed">i morgon</relative>
+			</field>
+			<field type="weekday">
+				<displayName draft="contributed">veckodag</displayName>
+			</field>
 			<field type="dayperiod">
 				<displayName>dagsperiod</displayName>
 			</field>
+			<field type="hour">
+				<displayName draft="contributed">timme</displayName>
+			</field>
+			<field type="minute">
+				<displayName draft="contributed">minut</displayName>
+			</field>
+			<field type="second">
+				<displayName draft="contributed">sekund</displayName>
+			</field>
+			<field type="zone">
+				<displayName draft="contributed">tidszon</displayName>
+			</field>
 		</fields>
 		<timeZoneNames>
-			<hourFormat draft="unconfirmed">+HH:mm;−HH:mm</hourFormat>
+			<hourFormat draft="contributed">+H:mm;−H:mm</hourFormat>
+			<regionFormat draft="contributed">tidszon: {0}</regionFormat>
+			<regionFormat type="daylight" draft="contributed">{0} (sommartid)</regionFormat>
+			<regionFormat type="standard" draft="contributed">{0} (normaltid)</regionFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="contributed">(okänd tidszon)</exemplarCity>
+			</zone>
+			<zone type="Europe/Mariehamn">
+				<exemplarCity draft="contributed">Mariehamn</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity draft="contributed">Helsingfors</exemplarCity>
 			</zone>
 			<zone type="America/Tegucigalpa">
 				<exemplarCity draft="contributed">Tegucigalpa</exemplarCity>
 			</zone>
+			<zone type="Europe/Stockholm">
+				<exemplarCity draft="contributed">Stockholm</exemplarCity>
+			</zone>
 		</timeZoneNames>
 	</dates>
+	<numbers>
+		<symbols numberSystem="latn">
+			<decimal draft="contributed">,</decimal>
+			<group draft="contributed"> </group>
+			<percentSign draft="contributed">%</percentSign>
+			<plusSign draft="contributed">+</plusSign>
+			<minusSign draft="contributed">−</minusSign>
+		</symbols>
+	</numbers>
+	<units>
+		<unitLength type="long">
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one" draft="contributed">{0} kilometer per timme</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kilometer per timme</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one" draft="contributed">{0} grader Celsius</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} grader Celsius</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one" draft="contributed">{0} liter</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} liter</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one" draft="contributed">{0} °C</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} °C</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
+			</unit>
+			<durationUnit type="hm">
+				<durationUnitPattern draft="contributed">h:mm</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="hms">
+				<durationUnitPattern draft="contributed">h:mm:ss</durationUnitPattern>
+			</durationUnit>
+			<durationUnit type="ms">
+				<durationUnitPattern draft="contributed">m:ss</durationUnitPattern>
+			</durationUnit>
+		</unitLength>
+		<unitLength type="narrow">
+			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one" draft="contributed">{0} km/h</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} km/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
+		</unitLength>
+	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} och {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} och {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} och {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} och {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="duration-short">
+			<listPatternPart type="start" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="contributed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} och {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} och {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
+	<posix>
+		<messages>
+			<yesstr draft="contributed">ja:j</yesstr>
+			<nostr draft="contributed">nej:n</nostr>
+		</messages>
+	</posix>
 </ldml>
-

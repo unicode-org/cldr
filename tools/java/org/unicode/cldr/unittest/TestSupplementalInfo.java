@@ -117,9 +117,9 @@ public class TestSupplementalInfo extends TestFmwk {
                 {"ro", "other", "00,000,0000"}, // 
                 {"cs", "few", "0"}, // j in 2..4
                 {"sk", "few", "0"}, // j in 2..4
-                {"da", "one", "0,00,000,0000"}, // j is 1 or f is 1
+                {"da", "one", "0"}, // j is 1 or t is not 0 and n within 0..2
                 {"is", "one", "0,00,000,0000"}, // j is 1 or f is 1
-                {"sv", "one", "0,00,000,0000"}, // j is 1 or f is 1
+                {"sv", "one", "0"}, // j is 1
                 {"he", "two", "0"}, // j is 2
                 {"ru", "one", "0,00,000,0000"}, // j mod 10 is 1 and j mod 100 is not 11
                 {"uk", "one", "0,00,000,0000"}, // j mod 10 is 1 and j mod 100 is not 11
@@ -143,6 +143,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 {"ksh", "zero", "0"},   // n is 0
                 {"lag", "zero", "0"},   // n is 0
                 {"pt", "one", "0,00,000,0000"}, // n is 1 or f is 1
+                {"pt_PT", "one", "0,00,000,0000"},  // n is 1 or t is 1
                 {"ar", "two", "0"}, // n is 2
                 {"cy", "two", "0"}, // n is 2
                 {"ga", "two", "0"}, // n is 2
@@ -222,8 +223,11 @@ public class TestSupplementalInfo extends TestFmwk {
                 }
             }
         }
-        for (Entry<String, String> entry : ruleToExceptions.entrySet()) {
-            System.out.println(entry.getValue() + "\t// " + entry.getKey());
+        if (ruleToExceptions.isEmpty()) {
+            System.out.println("To fix the above, review the following, then replace in TestDigitPluralCompleteness");
+            for (Entry<String, String> entry : ruleToExceptions.entrySet()) {
+                System.out.println(entry.getValue() + "\t// " + entry.getKey());
+            }
         }
     }
 

@@ -89,9 +89,9 @@ public class TestCLDRUtils extends TestFmwk {
         
         checkNames(french, "en_US_POSIX", 
                 "anglais américain (informatique)", 
-                "en_US (informatique)",
+                "anglais [É.-U.] (informatique)",
                 "anglais (États-Unis, informatique)", 
-                "anglais (É-U, informatique)");
+                "anglais (É.-U., informatique)");
     }
 
     /**

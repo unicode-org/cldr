@@ -250,8 +250,8 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestMiscPatterns() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
-        checkValue("At least", "〖⩾❬99❭〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"atLeast\"]");
-        checkValue("Range", "〖❬99❭–❬144❭〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"range\"]");
+        checkValue("At least", "〖❬99❭+〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"atLeast\"]");
+        checkValue("Range", "〖❬99❭-❬144❭〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"range\"]");
         //        String actual = exampleGenerator.getExampleHtml(
         //                "//ldml/numbers/miscPatterns[@type=\"arab\"]/pattern[@type=\"atLeast\"]",
         //                "at least {0}", Zoomed.IN);
@@ -260,7 +260,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestPluralSamples() {
         ExampleGenerator exampleGenerator = getExampleGenerator("sv");
-        String path = "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-centimeter\"]/unitPattern[@count=\"one\"]";
+        String path = "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-centimeter\"]/unitPattern[@count=\"one\"]";
         checkValue("Number should be one", "〖❬1❭ cm〗", exampleGenerator, path);
     }
 
@@ -335,7 +335,7 @@ public class TestExampleGenerator extends TestFmwk {
                     "〖❬1,23❭ ❬dollari statunitensi❭〗〖❬1,23❭ ❬euro❭〗〖❬0,00❭ ❬dollari statunitensi❭〗〖❬0,00❭ ❬euro❭〗"
                 },
                 { "//ldml/numbers/currencies/currency[@type=\"BMD\"]/symbol",
-                    "〖BMD❬ 123.456,79❭〗"
+                    "〖❬123.456,79 ❭BMD〗"
                 },
         };
 
@@ -444,7 +444,7 @@ public class TestExampleGenerator extends TestFmwk {
     }
 
     public void TestCompactPlurals() {
-        checkCompactExampleFor("cs", Count.many, "〖❬1,1❭ milionů〗");
+        checkCompactExampleFor("cs", Count.many, "〖❬1,1❭ milionu〗");
         checkCompactExampleFor("pl", Count.other, "〖❬1,1❭ miliona〗");
     }
 

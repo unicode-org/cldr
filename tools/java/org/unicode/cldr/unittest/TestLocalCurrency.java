@@ -26,8 +26,7 @@ public class TestLocalCurrency extends TestFmwk {
 
     private int maxLocalizedSymbols(String region) {
         final List<String> regionsWithTwoCurrencySymbols = Arrays.asList("AZ", "BA", "CN", "DZ", "ET", "LK", "KM",
-            "MA",
-            "MR", "MK", "PK", "RS", "SY", "TN", "UZ");
+            "MA", "MR", "MK", "PK", "RS", "SD", "SY", "TN", "UZ");
         if (regionsWithTwoCurrencySymbols.contains(region)) {
             return 2;
         }

@@ -143,8 +143,8 @@ public class TestLocale extends TestFmwk {
         assertEquals("Locale name", "Chinese (Arabic, United States)", testInfo.getEnglish().getName("zh-Arab-US"));
         CLDRFile japanese = testInfo.getCldrFactory().make("ja", true);
         assertEquals("Locale name", "中国語", japanese.getName("zh"));
-        assertEquals("Locale name", "中国語(アメリカ合衆国)", japanese.getName("zh-US"));
-        assertEquals("Locale name", "中国語(アラビア文字\uFF0Cアメリカ合衆国)", japanese.getName("zh-Arab-US"));
+        assertEquals("Locale name", "中国語 (アメリカ合衆国)", japanese.getName("zh-US"));
+        assertEquals("Locale name", "中国語 (アラビア文字\u3001アメリカ合衆国)", japanese.getName("zh-Arab-US"));
     }
 
     public void TestExtendedLanguage() {

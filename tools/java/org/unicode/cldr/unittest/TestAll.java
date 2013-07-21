@@ -32,7 +32,6 @@ public class TestAll extends TestGroup {
                         "org.unicode.cldr.unittest.TestLruMap",
                         "org.unicode.cldr.unittest.TestSupplementalInfo",
                         "org.unicode.cldr.unittest.TestPaths",
-                        "org.unicode.cldr.unittest.TestPathsModule",
                         "org.unicode.cldr.unittest.TestPathHeader",
                         "org.unicode.cldr.unittest.TestExternalCodeAPIs",
                         "org.unicode.cldr.unittest.TestMetadata",

@@ -223,7 +223,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 }
             }
         }
-        if (ruleToExceptions.isEmpty()) {
+        if (!ruleToExceptions.isEmpty()) {
             System.out.println("To fix the above, review the following, then replace in TestDigitPluralCompleteness");
             for (Entry<String, String> entry : ruleToExceptions.entrySet()) {
                 System.out.println(entry.getValue() + "\t// " + entry.getKey());

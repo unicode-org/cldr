@@ -9,6 +9,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     <version number="$Revision$"/>
     <generation date="$Date$"/>
     <plurals>
+        <!-- For a canonicalized list, use WritePluralRules -->
         <!-- if locale is known to have no plurals, there are no rules -->
         <pluralRules locales="ar">
             <pluralRule count="zero">n is 0</pluralRule>
@@ -18,9 +19,9 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="many">n mod 100 in 11..99</pluralRule>
         </pluralRules>
         <pluralRules locales="he">
-            <pluralRule count="one">j is 1</pluralRule>
-            <pluralRule count="two">j is 2</pluralRule>
-            <pluralRule count="many">j not in 0..10 and j mod 10 is 0</pluralRule>
+            <pluralRule count="one">v=0 and i is 1</pluralRule>
+            <pluralRule count="two">v=0 and i is 2</pluralRule>
+            <pluralRule count="many">v=0 and i not in 0..10 and i mod 10 is 0</pluralRule>
         </pluralRules>
         <pluralRules locales="af asa ast az bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw ha haw hu jgo jmc ka kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn nah nb nd ne nn nnh no nr ny nyn om or os pap ps rm rof rwk saq seh sn so sq ss ssy st syr ta te teo tig tk tn tr ts ve vo vun wae xh xog">
             <pluralRule count="one">n is 1</pluralRule>
@@ -46,7 +47,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="many">n in 7..10</pluralRule>
         </pluralRules>
         <pluralRules locales="mo ro">
-            <pluralRule count="one">j is 1</pluralRule>
+            <pluralRule count="one">v=0 and i is 1</pluralRule>
             <pluralRule count="few">v is not 0 or n is 0 or n is not 1 and n mod 100 in 1..19</pluralRule>
         </pluralRules>
         <pluralRules locales="lt">
@@ -60,19 +61,19 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="many">n mod 10 is 0 or n mod 10 in 5..9 or n mod 100 in 11..14</pluralRule>
         </pluralRules>
         <pluralRules locales="cs sk">
-            <pluralRule count="one">j is 1</pluralRule>
-            <pluralRule count="few">j in 2..4</pluralRule>
+            <pluralRule count="one">v=0 and i is 1</pluralRule>
+            <pluralRule count="few">v=0 and i in 2..4</pluralRule>
             <pluralRule count="many">v is not 0</pluralRule>
         </pluralRules>
         <pluralRules locales="pl">
-            <pluralRule count="one">j is 1</pluralRule>
-            <pluralRule count="few">j mod 10 in 2..4 and j mod 100 not in 12..14</pluralRule>
-            <pluralRule count="many">j is not 1 and j mod 10 in 0..1 or j mod 10 in 5..9 or j mod 100 in 12..14</pluralRule>
+            <pluralRule count="one">v=0 and i is 1</pluralRule>
+            <pluralRule count="few">v=0 and i mod 10 in 2..4 and i mod 100 not in 12..14</pluralRule>
+            <pluralRule count="many">v=0 and i is not 1 and i mod 10 in 0..1 or v=0 and i mod 10 in 5..9 or v=0 and i mod 100 in 12..14</pluralRule>
         </pluralRules>
         <pluralRules locales="sl">
-            <pluralRule count="one">j mod 100 is 1</pluralRule>
-            <pluralRule count="two">j mod 100 is 2</pluralRule>
-            <pluralRule count="few">j mod 100 in 3..4 or v is not 0</pluralRule>
+            <pluralRule count="one">v=0 and i mod 100 is 1</pluralRule>
+            <pluralRule count="two">v=0 and i mod 100 is 2</pluralRule>
+            <pluralRule count="few">v=0 and i mod 100 in 3..4 or v is not 0</pluralRule>
         </pluralRules>
         <pluralRules locales="mt">
             <pluralRule count="one">n is 1</pluralRule>
@@ -80,7 +81,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="many">n mod 100 in 11..19</pluralRule>
         </pluralRules>
         <pluralRules locales="mk">
-            <pluralRule count="one">j mod 10 is 1 or f mod 10 is 1</pluralRule>
+            <pluralRule count="one">v=0 and i mod 10 is 1 or f mod 10 is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="cy">
             <pluralRule count="zero">n is 0</pluralRule>
@@ -120,25 +121,19 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="two">n in 2,12</pluralRule>
             <pluralRule count="few">n in 3..10,13..19</pluralRule>
         </pluralRules>
-        <pluralRules locales="bm bo dz id ig ii ja jv kde kea km ko lkt lo ms my sah ses sg th to vi wo yo zh nqo jbo">
+        <pluralRules locales="bm bo dz id ig ii ja jbo jv kde kea km ko lkt lo ms my nqo sah ses sg th to vi wo yo zh">
         </pluralRules>
         <pluralRules locales="fil tl">
-            <pluralRule count="one">j in 0..1</pluralRule>
+            <pluralRule count="one">v=0 and i in 0..1</pluralRule>
         </pluralRules>
-        <pluralRules locales="ca de en et fi gl it nl sw ur yi">
-            <pluralRule count="one">j is 1</pluralRule>
-        </pluralRules>
-        <pluralRules locales="sv">
-            <pluralRule count="one">j is 1</pluralRule>
-        </pluralRules>
-        <pluralRules locales="da">
-            <pluralRule count="one">j is 1 or t is not 0 and n within 0..2</pluralRule>
-        </pluralRules>
-        <pluralRules locales="is">
-            <pluralRule count="one">t is 0 and i mod 10 is 1 and i mod 100 is not 11 or t is not 0</pluralRule>
+        <pluralRules locales="ca de en et fi gl it nl sv sw ur yi">
+            <pluralRule count="one">v=0 and i is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="pt">
-            <pluralRule count="one">j is 1 or f is 1</pluralRule>
+            <pluralRule count="one">v=0 and i is 1 or f is 1</pluralRule>
+        </pluralRules>
+        <pluralRules locales="da">
+            <pluralRule count="one">v=0 and i is 1 or t is not 0 and n within 0..2</pluralRule>
         </pluralRules>
         <pluralRules locales="pt_PT">
             <pluralRule count="one">n is 1 or t is 1</pluralRule>
@@ -146,18 +141,21 @@ For terms of use, see http://www.unicode.org/copyright.html
         <pluralRules locales="am bn fa gu hi kn mr zu">
             <pluralRule count="one">n within 0..1</pluralRule>
         </pluralRules>
+        <pluralRules locales="is">
+            <pluralRule count="one">t is 0 and i mod 10 is 1 and i mod 100 is not 11 or t is not 0</pluralRule>
+        </pluralRules>
         <pluralRules locales="bs hr sh sr">
-            <pluralRule count="one">j mod 10 is 1 and j mod 100 is not 11 or f mod 10 is 1 and f mod 100 is not 11</pluralRule>
-            <pluralRule count="few">j mod 10 in 2..4 and j mod 100 not in 12..14 or f mod 10 in 2..4 and f mod 100 not in 12..14</pluralRule>
+            <pluralRule count="one">v=0 and i mod 10 is 1 and i mod 100 is not 11 or f mod 10 is 1 and f mod 100 is not 11</pluralRule>
+            <pluralRule count="few">v=0 and i mod 10 in 2..4 and i mod 100 not in 12..14 or f mod 10 in 2..4 and f mod 100 not in 12..14</pluralRule>
         </pluralRules>
         <pluralRules locales="ru">
-            <pluralRule count="one">j mod 10 is 1 and j mod 100 is not 11</pluralRule>
-            <pluralRule count="many">j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14</pluralRule>
+            <pluralRule count="one">v=0 and i mod 10 is 1 and i mod 100 is not 11</pluralRule>
+            <pluralRule count="many">v=0 and i mod 10 is 0 or v=0 and i mod 10 in 5..9 or v=0 and i mod 100 in 11..14</pluralRule>
         </pluralRules>
         <pluralRules locales="uk">
-            <pluralRule count="one">j mod 10 is 1 and j mod 100 is not 11</pluralRule>
-            <pluralRule count="few">j mod 10 in 2..4 and j mod 100 not in 12..14</pluralRule>
-            <pluralRule count="many">j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14</pluralRule>
+            <pluralRule count="one">v=0 and i mod 10 is 1 and i mod 100 is not 11</pluralRule>
+            <pluralRule count="few">v=0 and i mod 10 in 2..4 and i mod 100 not in 12..14</pluralRule>
+            <pluralRule count="many">v=0 and i mod 10 is 0 or v=0 and i mod 10 in 5..9 or v=0 and i mod 100 in 11..14</pluralRule>
         </pluralRules>
     </plurals>
 </supplementalData>

@@ -4,17 +4,65 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.util.Locale;
+import java.util.Set;
+import java.util.TreeSet;
 
+import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRTransforms;
+import org.unicode.cldr.util.Factory;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.text.Transliterator;
 
 public class TestTransforms extends TestFmwk {
+    TestInfo testInfo = TestInfo.getInstance();
 
     public static void main(String[] args) throws Exception {
         new TestTransforms().run(args);
+    }
+
+    public void TestUzbek() {
+        register();
+        Transliterator cyrillicToLatin = Transliterator.getInstance("uz_Cyrl-uz_Latn");
+        Transliterator latinToCyrillic = cyrillicToLatin.getInverse();
+        //        for (Transliterator t2 : t.getElements()) {
+        //            System.out.println(t2.getSourceSet().toPattern(false) + " => " + t2.getTargetSet().toPattern(false));
+        //        }
+        String cyrillic =  "аА бБ вВ гГ ғҒ дД еЕ ЕЕ ёЁ ЁЁ жЖ зЗ иИ йЙ кК қҚ лЛ мМ нН оО пП рР сС тТ уУ ўЎ фФ хХ ҳҲ цЦ ЦЦ чЧ ЧЧ шШ ШШ бъ Ъ эЭ юЮ ЮЮ яЯ ЯЯ";
+        String latin =     "aA bB vV gG gʻGʻ dD yeYE YEYE yëYË YËYË jJ zZ iI ĭĬ kK qQ lL mM nN oO pP rR sS tT uU ŭŬ fF xX hH tsTS TSTS chCH CHCH shSH SHSH bʼ ʼ eE yuYU YUYU yaYA YAYA";
+        assertEquals("Uzbek to Latin", latin, cyrillicToLatin.transform(cyrillic));
+        assertEquals("Uzbek to Cyrillic", cyrillic, latinToCyrillic.transform(latin));
+
+        if (isVerbose()) {
+            // Now check for correspondences
+            Factory factory = testInfo.getCldrFactory();
+            CLDRFile uzLatn = factory.make("uz_Latn", false);
+            CLDRFile uzCyrl = factory.make("uz", false);
+            
+            Set<String> latinFromCyrillicSucceeds = new TreeSet<String>();
+            Set<String> latinFromCyrillicFails = new TreeSet<String>();
+            for (String path : uzCyrl){
+                String latnValue = uzLatn.getStringValue(path);
+                if (latnValue == null) {
+                    continue;
+                }
+                String cyrlValue = uzCyrl.getStringValue(path);
+                if (cyrlValue == null) {
+                    continue;
+                }
+                String latnFromCyrl = cyrillicToLatin.transform(latnValue);
+                if (latnValue.equals(latnFromCyrl)) {
+                    latinFromCyrillicSucceeds.add(latnValue + "\t←\t" + cyrlValue);
+                } else {
+                    latinFromCyrillicFails.add(latnValue + "\t≠\t" + latnFromCyrl + "\t←\t" + cyrlValue);
+                }
+            }
+            logln("Success! " + latinFromCyrillicSucceeds.size() + "\n" + CollectionUtilities.join(latinFromCyrillicSucceeds, "\n"));
+            logln("\nFAILS!" + latinFromCyrillicFails.size() + "\n" + CollectionUtilities.join(latinFromCyrillicFails, "\n"));
+        }
     }
 
     public void TestBackslashHalfwidth() throws Exception {
@@ -58,12 +106,12 @@ public class TestTransforms extends TestFmwk {
         System.out.println("hi");
 
         String[][] tests = {
-            { "transliterator=", "Katakana-Latin" },
-            { "\u30CF \u30CF\uFF70 \u30CF\uFF9E \u30CF\uFF9F", "ha hā ba pa" },
-            { "transliterator=", "Hangul-Latin" },
-            { "roundtrip=", "true" },
-            { "갗", "gach" },
-            { "느", "neu" },
+                { "transliterator=", "Katakana-Latin" },
+                { "\u30CF \u30CF\uFF70 \u30CF\uFF9E \u30CF\uFF9F", "ha hā ba pa" },
+                { "transliterator=", "Hangul-Latin" },
+                { "roundtrip=", "true" },
+                { "갗", "gach" },
+                { "느", "neu" },
         };
 
         Transliterator transform = null;
@@ -156,11 +204,11 @@ public class TestTransforms extends TestFmwk {
 
         String lituanianSource = "I Ï J J̈ Į Į̈ Ì Í Ĩ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ XI XÏ XJ XJ̈ XĮ XĮ̈";
         Transliterator ltTitle = checkString("lt-Title",
-            "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lituanianSource);
+                "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lituanianSource);
         Transliterator ltLower = checkString("lt-Lower",
-            "i i̇̈ j j̇̈ į į̇̈ i̇̀ i̇́ i̇̃ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ xi xi̇̈ xj xj̇̈ xį xį̇̈", lituanianSource);
+                "i i̇̈ j j̇̈ į į̇̈ i̇̀ i̇́ i̇̃ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ xi xi̇̈ xj xj̇̈ xį xį̇̈", lituanianSource);
         Transliterator ltUpper = checkString("lt-Upper", "I Ï J J̈ Į Į̈ Ì Í Ĩ XÏ XJ̈ XĮ̈ XÌ XÍ XĨ XI XÏ XJ XJ̈ XĮ XĮ̈",
-            lituanianSource);
+                lituanianSource);
 
     }
 

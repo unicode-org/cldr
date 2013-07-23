@@ -73,8 +73,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.6"
-            target="1.6"
+            source="1.7"
+            target="1.7"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
     </target>
@@ -84,8 +84,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.6"
-            target="1.6"
+            source="1.7"
+            target="1.7"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
         <!-- copy data files into classes.. -->
@@ -101,8 +101,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.6"
-            target="1.6"
+            source="1.7"
+            target="1.7"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
         <!-- copy data files into classes.. -->
@@ -118,8 +118,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.5"
-            target="1.5"
+            source="1.7"
+            target="1.7"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
     </target>
@@ -129,8 +129,8 @@
 	            srcdir="${src.dir}"
 	            destdir="${build.dir}"
                 classpathref="project.class.path"
-	            source="1.6"
-                    target="1.6"
+	            source="1.7"
+                target="1.7"
 	            debug="on" deprecation="off"
 	            encoding="UTF-8"/>
         <!-- copy data files into classes.. -->
@@ -146,8 +146,8 @@
 	            srcdir="${src.dir}"
 	            destdir="${build.dir}"
                 classpathref="project.class.path"
-	            source="1.6"
-                    target="1.6"
+	            source="1.7"
+                target="1.7"
 	            debug="on" deprecation="off"
 	            encoding="UTF-8"/>
         <!-- copy data files into classes.. -->
@@ -163,8 +163,8 @@
             srcdir="${src.dir}"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.6"
-            target="1.6"
+            source="1.7"
+            target="1.7"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
         <!-- copy data files into classes.. -->
@@ -210,10 +210,10 @@
             encoding="utf-8"
             docencoding="utf-8"
             additionalparam="${doc.params}"
-            link="http://java.sun.com/j2se/1.5/docs/api"
+            link="http://docs.oracle.com/javase/7/docs/api"
             bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
-            source="1.6"
-            target="1.6"/>
+            source="1.7"
+            target="1.7"/>
     </target>
                <!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation and others.&lt;/font>" -->
 

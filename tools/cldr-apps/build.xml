@@ -185,9 +185,9 @@
             encoding="utf-8"
             docencoding="utf-8"
             additionalparam="${doc.params}"
-            link="http://java.sun.com/j2se/1.5/docs/api"
+            link="http://docs.oracle.com/javase/7/docs/api"
             bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
-            source="1.6" />
+            source="1.7" />
     </target>
                <!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation and others.&lt;/font>" -->
 
@@ -208,8 +208,8 @@
         	includes="org/unicode/cldr/util/*.java,org/unicode/cldr/web/*.java,org/json/*.java"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.6"
-            target="1.6"
+            source="1.7"
+            target="1.7"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
     </target>
@@ -280,8 +280,8 @@
         	includes="org/unicode/cldr/unittest/web/*.java"
             destdir="${build.dir}"
             classpathref="project.class.path"
-            source="1.6"
-            target="1.6"
+            source="1.7"
+            target="1.7"
             debug="on" deprecation="off"
             encoding="UTF-8"/>
         <mkdir dir="${build.dir}/org/unicode/cldr/unittest/web/data"/>

@@ -1306,11 +1306,10 @@ public class ExampleGenerator {
                         localeKeyTypePattern, localePattern, localeSeparator));
             }
             result = formatExampleList(examples);
-        } else if (!parts.contains("types")) {
+        } else if (parts.contains("languages") || parts.contains("scripts") || parts.contains("territories")) {
             //ldml/localeDisplayNames/languages/language[@type="ar"]
             //ldml/localeDisplayNames/scripts/script[@type="Arab"]
             //ldml/localeDisplayNames/territories/territory[@type="CA"]
-            //ldml/localeDisplayNames/types/type[@type="arabext"][@key="numbers"]
             String type = parts.getAttributeValue(-1, "type");
             if (type.contains("_")) {
                 if (value != null && !value.equals(type)) {

@@ -1,8 +1,7 @@
 package org.unicode.cldr.icu;
 
 import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collection;
 
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.xml.sax.Attributes;
@@ -10,7 +9,7 @@ import org.xml.sax.SAXException;
 
 import com.ibm.icu.impl.Utility;
 
-public class RbnfMapper {
+public class RbnfMapper extends Mapper {
     private File sourceDir;
     private File specialsDir;
     private SupplementalDataInfo sdi;
@@ -23,7 +22,8 @@ public class RbnfMapper {
     /**
      * @return CLDR data converted to an ICU-friendly format
      */
-    public IcuData fillFromCldr(String locale) {
+    @Override
+    public IcuData[] fillFromCldr(String locale) {
         IcuData icuData = new IcuData("common/rbnf/" + locale + ".xml", locale, true);
         RbnfHandler handler = new RbnfHandler(icuData);
         // Parse the specials first.
@@ -43,7 +43,7 @@ public class RbnfMapper {
         if (parent != null) { // Empty except for version
             icuData.add("/%%Parent", parent);
         }
-        return icuData;
+        return new IcuData[] { icuData };
     }
 
     /**
@@ -112,5 +112,19 @@ public class RbnfMapper {
         public void characters(char[] ch, int start, int length) throws SAXException {
             currentText.append(ch, start, length);
         }
+    }
+
+    @Override
+    public Collection<String> getAvailable() {
+        return MapperUtils.getNames(sourceDir);
+    }
+
+    @Override
+    public Makefile generateMakefile(Collection<String> aliases) {
+        Makefile makefile = new Makefile("RBNF");
+        makefile.addSyntheticAlias(aliases);
+        makefile.addAliasSource();
+        makefile.addSource(sources);
+        return makefile;
     }
 }

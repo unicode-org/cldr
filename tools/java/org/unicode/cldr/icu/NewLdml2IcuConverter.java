@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -42,6 +42,8 @@ import org.unicode.cldr.util.SupplementalDataInfo;
  * @author jchye
  */
 public class NewLdml2IcuConverter extends CLDRConverterTool {
+    private static final String ALIAS_PATH = "/\"%%ALIAS\"";
+
     static final boolean DEBUG = true;
 
     static final Pattern SEMI = Pattern.compile("\\s*+;\\s*+");
@@ -78,9 +80,10 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             "Write locale data to one file instead of splitting into separate directories. For debugging")
         .add("type", 't', "\\w+", null, "The type of file to be generated")
         .add("xpath", 'x', ".*", null, "An optional xpath to debug the regexes with")
-        .add("cldrVersion", 'c', ".*", null, "The version of the CLDR data (DEPRECATED).")
         .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
-        .add("organization", 'o', ".*", null, "The organization to filter the data for");
+        .add("organization", 'o', ".*", null, "The organization to filter the data for")
+        .add("makefile", 'g', ".*", null, "If set, generates makefiles and alias files for the specified type. " +
+                "The value to set should be the name of the makefile.");
 
     private static final String LOCALES_DIR = "locales";
 
@@ -90,10 +93,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
     private String sourceDir;
     private String destinationDir;
     private IcuDataSplitter splitter;
-    // Either localeArg or locales will be non-null, but not both.
-    // Used to convert files in main and collation.
-    private String localeArg;
-    private Set<String> locales;
+    private Filter filter;
 
     /**
      * Maps ICU paths to the directories they should end up in.
@@ -184,19 +184,39 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         }
 
         // Get list of locales if defined.
-        if (getLocalesMap() != null && getLocalesMap().size() > 0) {
-            locales = new HashSet<String>();
-            for (String filename : getLocalesMap().keySet()) {
+        Set<String> includedLocales = getIncludedLocales();
+        if (includedLocales != null && includedLocales.size() > 0) {
+            final Set<String> locales = new HashSet<String>();
+            for (String locale : includedLocales) {
                 // Remove ".xml" from the end.
-                locales.add(filename.substring(0, filename.length() - 4));
+                locales.add(locale);
             }
-        }
-
-        if (extraArgs.size() > 0) {
-            localeArg = extraArgs.iterator().next();
+            filter = new Filter() {
+                @Override
+                public boolean includes(String value) {
+                    return locales.contains(value);
+                }
+            };
+        } else if (extraArgs.size() > 0) {
+            final String regex = extraArgs.iterator().next();
+            filter = new Filter() {
+                @Override
+                public boolean includes(String value) {
+                    return value.matches(regex);
+                }
+            };
+        } else if (type == Type.locales || type == Type.collation) {
+            throw new IllegalArgumentException(
+                    "Missing locale list. Please provide a list of locales or a regex.");
+        } else {
+            filter = new Filter() {
+                @Override
+                public boolean includes(String value) { return true; }
+            };
         }
 
         // Process files.
+        Mapper mapper = null;
         switch (type) {
         case locales:
             // Generate locale data.
@@ -208,51 +228,35 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
                 throw new IllegalArgumentException("Supplemental directory must be specified.");
             }
 
-            // LocalesMap passed in from ant
-            String[] localeList;
-            Factory factory = null;
-            if (locales != null) {
-                factory = Factory.make(sourceDir, ".*", DraftStatus.contributed);
-                localeList = new String[locales.size()];
-                locales.toArray(localeList);
-                Arrays.sort(localeList);
-            } else if (localeArg != null) {
-                factory = Factory.make(sourceDir, localeArg, DraftStatus.contributed);
-                localeList = new String[factory.getAvailable().size()];
-                factory.getAvailable().toArray(localeList);
-            } else {
-                throw new IllegalArgumentException("No files specified!");
-            }
-
+            Factory factory = Factory.make(sourceDir, ".*", DraftStatus.contributed);
             String organization = options.get("organization").getValue();
-            LocaleMapper mapper = new LocaleMapper(factory, specialFactory,
+            LocaleMapper localeMapper = new LocaleMapper(factory, specialFactory,
                 supplementalDataInfo, options.get("filter").doesOccur(), organization);
-            mapper.setDebugXPath(debugXPath);
-            processLocales(mapper, localeList);
+            localeMapper.setDebugXPath(debugXPath);
+            mapper = localeMapper;
             break;
         case keyTypeData:
             processBcp47Data();
             break;
         case brkitr:
-            BreakIteratorMapper brkMapper = new BreakIteratorMapper(specialFactory);
-            for (String locale : specialFactory.getAvailable()) {
-                IcuData data = brkMapper.fillFromCldr(locale);
-                writeIcuData(data, destinationDir);
-            }
+            mapper = new BreakIteratorMapper(specialFactory);
             break;
         case collation:
-            CollationMapper colMapper = new CollationMapper(sourceDir, specialFactory);
-            processCollation(colMapper);
+            mapper = new CollationMapper(sourceDir, specialFactory);
             break;
         case rbnf:
-            RbnfMapper rbnfMapper = new RbnfMapper(new File(sourceDir), specialsDir);
-            for (String locale : getFilteredLocales()) {
-                IcuData data = rbnfMapper.fillFromCldr(locale);
-                writeIcuData(data, destinationDir);
-            }
+            mapper = new RbnfMapper(new File(sourceDir), specialsDir);
             break;
         default: // supplemental data
             processSupplemental(type, debugXPath);
+        }
+
+        if (mapper != null) {
+            convert(mapper);
+            option = options.get("makefile");
+            if (option.doesOccur()) {
+                generateMakefile(mapper, option.getValue());
+            }
         }
     }
 
@@ -312,86 +316,148 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         }
     }
 
-    private void processLocales(LocaleMapper mapper, String[] locales) {
-        for (String locale : locales) {
+    /**
+     * Converts CLDR XML files using the specified mapper.
+     */
+    private void convert(Mapper mapper) {
+        IcuData icuData;
+        Iterator<IcuData> iterator = mapper.iterator(filter);
+        while (iterator.hasNext()) {
             long time = System.currentTimeMillis();
-            IcuData icuData = mapper.fillFromCLDR(locale);
+            icuData = iterator.next();
             writeIcuData(icuData, destinationDir);
-            System.out.println("Converted " + locale + ".xml in " +
-                (System.currentTimeMillis() - time) + "ms");
+            System.out.println("Converted " + icuData.getName() + ".xml in " +
+                    (System.currentTimeMillis() - time) + "ms");
         }
     }
 
-    private void processCollation(CollationMapper mapper) {
-        List<String> locales = getFilteredLocales();
-        for (String locale : locales) {
-            if (!localeMatches(locale)) continue;
-            System.out.println("Converting " + locale + "...");
-            List<IcuData> subLocales = new ArrayList<IcuData>();
-            IcuData icuData = mapper.fillFromCldr(locale, subLocales);
-            writeIcuData(icuData, destinationDir);
-            for (IcuData data : subLocales) {
-              // Sub locales that don't match the filter may be in the list
-              // even if their parent matches.
-              if (!localeMatches(data.getName())) continue;
-              writeIcuData(data, destinationDir);
+    /**
+     * Generates makefiles for files generated from the specified mapper.
+     * @param mapper
+     * @param makefileName
+     */
+    private void generateMakefile(Mapper mapper, String makefileName) {
+        // Generate aliases and makefiles for main directory.
+        Set<String> aliases = writeSyntheticFiles(mapper.getGenerated(), destinationDir);
+        Makefile makefile = mapper.generateMakefile(aliases);
+        writeMakefile(makefile, destinationDir, makefileName);
+        if (splitter == null) return;
+
+        // Generate aliases and locales for remaining directories if a splitter was used.
+        for (String dir : splitter.getTargetDirs()) {
+            File outputDir = new File(destinationDir, "../" + dir);
+            aliases = writeSyntheticFiles(splitter.getDirSources(dir), outputDir.getAbsolutePath());
+            makefile = splitter.generateMakefile(aliases, outputDir.getName());
+            writeMakefile(makefile, outputDir.getAbsolutePath(), makefileName);
+        }
+    }
+
+    /**
+     * Creates all synthetic files needed by the makefile in the specified output directory.
+     * @param sources the set of source files that have already been generated
+     * @param outputDir
+     * @return
+     */
+    private Set<String> writeSyntheticFiles(Set<String> sources, String outputDir) {
+        Set<String> targets = new HashSet<String>();
+        if (aliasDeprecates != null) {
+            if (aliasDeprecates.emptyLocaleList != null) {
+                for (String locale : aliasDeprecates.emptyLocaleList) {
+                    IcuData icuData = createEmptyFile(locale);
+                    System.out.println("Empty locale created: " + locale);
+                    targets.add(locale);
+                    writeIcuData(icuData, outputDir);
+                }
+            }
+            if (aliasDeprecates.aliasList != null) {
+                for (Alias alias : aliasDeprecates.aliasList) {
+                    try {
+                        writeAlias(alias, outputDir, sources, targets);
+                    } catch (IOException e) {
+                        System.err.println("Error writing alias " + alias.from + "-" + alias.to);
+                        System.exit(-1);
+                    }
+                }
             }
         }
+        return targets;
     }
 
-    private boolean localeMatches(String locale) {
-        if (locales != null) {  // if running from ICU build
-            return locales.contains(locale);
-        } else if (localeArg != null) {  // if running converter directly
-            return locale.matches(localeArg);
-        } else {
-            throw new IllegalArgumentException(
-                    "Missing locale list. Please provide a list of locales or a regex.");
+    /**
+     * Writes a makefile to the specified directory and filename.
+     */
+    private void writeMakefile(Makefile makefile, String outputDir, String makefileName) {
+        try {
+            makefile.print(outputDir, makefileName);
+        } catch (IOException e) {
+            System.err.println("Error while writing makefile for " + outputDir);
         }
     }
 
     /**
-     * Returns the list of locale files in the source directory that match the
-     * set of locales required for conversion.
+     * Creates an empty IcuData object to act as a placeholder for the specified alias target locale.
      */
-    public List<String> getFilteredLocales() {
-        List<String> locales = new ArrayList<String>();
-        for (String filename : new File(sourceDir).list()) {
-            if (!filename.endsWith(".xml")) continue;
-            String locale = filename.substring(0, filename.length() - 4);
-            if (!localeMatches(locale)) continue;
-            locales.add(locale);
-        }
-        return locales;
+    public IcuData createEmptyFile(String locale) {
+        IcuData icuData = new IcuData("icu-locale-deprecates.xml & build.xml", locale, true);
+        icuData.setFileComment("generated alias target");
+        icuData.add("/___", "");
+        return icuData;
     }
 
     /**
-     * TODO: call this method when we switch over to writing aliased files from
-     * the LDML2ICUConverter. aliasList = aliasDeprecates.aliasList.
-     * 
-     * @param mapper
-     * @param aliasList
-     */
-    // private void writeAliasedFiles(LocaleMapper mapper, List<Alias> aliasList) {
-    // for (Alias alias : aliasList) {
-    // IcuData icuData = mapper.fillFromCldr(alias);
-    // if (icuData != null) {
-    // writeIcuData(icuData, destinationDir);
-    // }
-    // }
-    // }
-
-    /**
-     * In this prototype, just convert one file.
-     * 
-     * @param args
+     * Creates any synthetic files required for the specified alias.
+     * @param alias
+     * @param outputDir
+     * @param sources the set of sources in the output directory
+     * @param aliasTargets the alias targets already created in the output directory
      * @throws IOException
      */
+    private void writeAlias(Alias alias, String outputDir,
+        Set<String> sources, Set<String> aliasTargets) throws IOException {
+        String from = alias.from;
+        String to = alias.to;
+        // Add synthetic destination file for alias if necessary.
+        if (!sources.contains(to) && !aliasTargets.contains(to)) {
+            System.out.println(to + " not found, creating empty file in " + outputDir);
+            IcuTextWriter.writeToFile(createEmptyFile(alias.to), outputDir);
+            aliasTargets.add(to);
+        }
+
+        if (from == null || to == null) {
+            throw new IllegalArgumentException("Malformed alias - no 'from' or 'to': from=\"" +
+                from + "\" to=\"" + to + "\"");
+        }
+
+        if (sources.contains(from)) {
+            throw new IllegalArgumentException(
+                    "Can't be both a synthetic alias locale and a real xml file - "
+                    + "consider using <aliasLocale locale=\"" + from + "\"/> instead. ");
+        }
+
+        String rbPath = alias.rbPath;
+        String value = alias.value;
+        if ((rbPath == null) != (value == null)) {
+            throw new IllegalArgumentException("Incomplete alias specification for " +
+                    from + "-"  + to + ": both rbPath (" + 
+                    rbPath + ") and value (" + value + ") must be specified");
+        }
+
+        IcuData icuData = new IcuData("icu-locale-deprecates.xml & build.xml", from, true);
+        System.out.println("aliased " + from + " to " + to);
+        if (rbPath == null) {
+            icuData.add(ALIAS_PATH, to);
+        } else {
+            icuData.add(rbPath, value);
+        }
+
+        IcuTextWriter.writeToFile(icuData, outputDir);
+        aliasTargets.add(alias.from);
+    }
+
     public static void main(String[] args) throws IOException {
         long totalTime = System.currentTimeMillis();
         NewLdml2IcuConverter converter = new NewLdml2IcuConverter();
         converter.processArgs(args);
         System.out.println("Total time taken: " + (System.currentTimeMillis() - totalTime) + "ms");
     }
-
 }

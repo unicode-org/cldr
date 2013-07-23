@@ -420,7 +420,7 @@ public class SurveyAjax extends HttpServlet {
                                     if (val != null) {
                                         if (DEBUG)
                                             System.err.println("val WAS " + escapeString(val));
-                                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale);
+                                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale,false);
                                         val = daip.processInput(xp, val, exceptionList);
                                         if (DEBUG)
                                             System.err.println("val IS " + escapeString(val));

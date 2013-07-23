@@ -483,7 +483,7 @@ public class CLDRBuild extends Task {
             if (aliasList == null) {
                 aliasList = new ArrayList<CLDRConverterTool.Alias>();
             }
-            aliasList.add(new CLDRConverterTool.Alias(alias.from, alias.to, alias.xpath));
+            aliasList.add(new CLDRConverterTool.Alias(alias.from, alias.to, alias.xpath, alias.rbPath, alias.value));
         }
 
         public void addConfiguredEmptyLocale(EmptyLocale alias) {
@@ -504,7 +504,10 @@ public class CLDRBuild extends Task {
     public static class Alias extends Task {
         String from;
         String to;
+        // TODO(jchye): remove xpath field after old converter is deleted.
         String xpath;
+        String rbPath;
+        String value;
 
         public void setFrom(String from) {
             this.from = from;
@@ -516,6 +519,14 @@ public class CLDRBuild extends Task {
 
         public void setXpath(String xpath) {
             this.xpath = xpath;
+        }
+        
+        public void setRbPath(String rbPath) {
+            this.rbPath = rbPath;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
         }
     }
 

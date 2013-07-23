@@ -728,7 +728,7 @@ GMail, etc.) or Eric (Saugus.net, ShellTown, etc.)
 				<xsl:with-param name="node" select="."/>
 			</xsl:call-template>
 		</xsl:variable>
-		<xsl:apply-templates select="&SupportedElements;">
+		<xsl:apply-templates select="svg:a|svg:circle|svg:ellipse|svg:g|svg:image|svg:line|svg:path|svg:polygon|svg:polyline|svg:rect|svg:text|svg:textPath|svg:use">
 			<xsl:with-param name="groupAttrs" select="$newGroupAttrs"/>
 		</xsl:apply-templates>
 	</xsl:template>
@@ -786,7 +786,7 @@ GMail, etc.) or Eric (Saugus.net, ShellTown, etc.)
 				<xsl:with-param name="node" select="."/>
 			</xsl:call-template>
 		</xsl:variable>
-		<xsl:apply-templates select="&SupportedElements;">
+		<xsl:apply-templates select="svg:a|svg:circle|svg:ellipse|svg:g|svg:image|svg:line|svg:path|svg:polygon|svg:polyline|svg:rect|svg:text|svg:textPath|svg:use">
 			<xsl:with-param name="groupAttrs" select="$newGroupAttrs"/>
 		</xsl:apply-templates>
 		<xsl:text>]</xsl:text>
@@ -1079,7 +1079,7 @@ GMail, etc.) or Eric (Saugus.net, ShellTown, etc.)
 	
 	<xsl:template match="/svg:svg">
 		<xsl:text>[</xsl:text>
-		<xsl:apply-templates select="&SupportedElements;"/>
+		<xsl:apply-templates select="svg:a|svg:circle|svg:ellipse|svg:g|svg:image|svg:line|svg:path|svg:polygon|svg:polyline|svg:rect|svg:text|svg:textPath|svg:use"/>
 		<xsl:text>]</xsl:text>
 	</xsl:template>
 </xsl:stylesheet>

@@ -1299,14 +1299,14 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT collations (alias | (default*, defaultCollation*, collation*, special*)) >
+<!ELEMENT collations (alias | (defaultCollation?, default*, collation*, special*)) >
 <!ATTLIST collations version NMTOKEN #IMPLIED >
 <!ATTLIST collations draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST collations validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT defaultCollation ( #PCDATA ) >
 
-<!ELEMENT collation (alias | (base?, import*, settings?, suppress_contractions?, optimize?, (cr* | rules?), special*)) >
+<!ELEMENT collation (alias | (import*, settings?, suppress_contractions?, optimize?, (cr* | rules?), special*)) >
 <!ATTLIST collation type NMTOKEN "standard" >
 <!ATTLIST collation draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST collation standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -1315,7 +1315,7 @@ $Date$
 <!ATTLIST collation validSubLocales CDATA #IMPLIED >
 <!ATTLIST collation visibility ( internal | external ) "external" > 
 
-<!ELEMENT base (alias|special) >
+<!-- ELEMENT base (alias|special) - collations/collation/base removed, see CLDR ticket #6332 -->
 
 <!ELEMENT import EMPTY >
 <!ATTLIST import source CDATA #REQUIRED >
@@ -1428,7 +1428,7 @@ $Date$
 <!ATTLIST segmentations validSubLocales CDATA #IMPLIED >
 <!ATTLIST segmentations references CDATA #IMPLIED >
 
-<!ELEMENT segmentation ( alias | (variables?, segmentRules?) | special*) >
+<!ELEMENT segmentation ( alias | (variables?, segmentRules?, exceptions?) | special*) >
 <!ATTLIST segmentation type NMTOKEN #REQUIRED >
 <!ATTLIST segmentation draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 <!ATTLIST segmentation alt NMTOKENS #IMPLIED >
@@ -1450,6 +1450,11 @@ $Date$
 <!ATTLIST rule draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED ><!-- true and false are deprecated. -->
 <!ATTLIST rule alt NMTOKENS #IMPLIED >
 <!ATTLIST rule references CDATA #IMPLIED >
+
+<!ELEMENT exceptions ( exception* ) >
+
+<!ELEMENT exception ( #PCDATA ) >
+<!ATTLIST exception draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 
 <!ELEMENT rbnf ( alias | rulesetGrouping*) >
 

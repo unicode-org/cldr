@@ -172,7 +172,7 @@
 		</thead>
 
 <%
-	DisplayAndInputProcessor processor = new DisplayAndInputProcessor(loc);
+	DisplayAndInputProcessor processor = new DisplayAndInputProcessor(loc,false);
 	STFactory stf = CookieSession.sm.getSTFactory();
     BallotBox<UserRegistry.User> ballotBox = stf.ballotBoxForLocale(loc);
     SupplementalDataInfo sdi = cs.sm.getSupplementalDataInfo();

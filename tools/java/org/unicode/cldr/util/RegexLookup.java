@@ -60,7 +60,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
                 // We don't know what causes this error (cldrbug 5051) so
                 // make the exception message more detailed.
                 throw new IllegalArgumentException("Matching error caused by pattern: ["
-                    + matcher.toString() + "] on text: [" + item + "]", e);
+                        + matcher.toString() + "] on text: [" + item + "]", e);
             }
         }
 
@@ -108,8 +108,8 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
         public RegexFinder transform(String source) {
             final String newSource = source.replace("[@", "\\[@");
             return new RegexFinder(newSource.startsWith("//")
-                ? "^" + newSource
-                : newSource);
+                    ? "^" + newSource
+                            : newSource);
         }
     };
 
@@ -154,22 +154,24 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
      * @return
      */
     public T get(String source, Object context, Output<String[]> arguments,
-        Output<Finder> matcherFound, List<String> failures) {
+            Output<Finder> matcherFound, List<String> failures) {
         for (R2<Finder, T> entry : entries.values()) {
             Finder matcher = entry.get0();
-            if (matcher.find(source, context)) {
-                if (arguments != null) {
-                    arguments.value = matcher.getInfo();
+            synchronized (matcher) {
+                if (matcher.find(source, context)) {
+                    if (arguments != null) {
+                        arguments.value = matcher.getInfo();
+                    }
+                    if (matcherFound != null) {
+                        matcherFound.value = matcher;
+                    }
+                    return entry.get1();
+                } else if (failures != null) {
+                    int failPoint = matcher.getFailPoint(source);
+                    String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t"
+                            + matcher.toString();
+                    failures.add(show);
                 }
-                if (matcherFound != null) {
-                    matcherFound.value = matcher;
-                }
-                return entry.get1();
-            } else if (failures != null) {
-                int failPoint = matcher.getFailPoint(source);
-                String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t"
-                    + matcher.toString();
-                failures.add(show);
             }
         }
         // not really necessary, but makes debugging easier.
@@ -203,7 +205,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
             } else if (failures != null) {
                 int failPoint = matcher.getFailPoint(source);
                 String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t"
-                    + matcher.toString();
+                        + matcher.toString();
                 failures.add(show);
             }
         }
@@ -240,9 +242,9 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
      *            Used to merge values with the same key.
      */
     public static <T, U> RegexLookup<T> of(Transform<String, Finder> patternTransform,
-        Transform<String, T> valueTransform, Merger<T> valueMerger) {
+            Transform<String, T> valueTransform, Merger<T> valueMerger) {
         return new RegexLookup<T>().setPatternTransform(patternTransform).setValueTransform(valueTransform)
-            .setValueMerger(valueMerger);
+                .setValueMerger(valueMerger);
     }
 
     public static <T> RegexLookup<T> of(Transform<String, T> valueTransform) {
@@ -348,7 +350,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
             valueMerger.merge(target, old.get1());
         } else {
             throw new IllegalArgumentException("Duplicate matcher without Merger defined " + pattern + "; old: " + old
-                + "; new: " + target);
+                    + "; new: " + target);
         }
         return this;
     }
@@ -373,7 +375,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
                 result.append(arguments[arg]);
             } catch (Exception e) {
                 throw new IllegalArgumentException("Replacing $" + arg + " in <" + lookup
-                    + ">, but too few arguments supplied.");
+                        + ">, but too few arguments supplied.");
             }
             last = pos + 2;
         }

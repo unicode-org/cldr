@@ -147,6 +147,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <li>7 <a href="#POSIX_Elements">POSIX Elements</a></li>
     <li>8 <a href="#Reference_Elements">Reference Element</a></li>
     <li>9 <a href="#Segmentations">Segmentations</a></li>
+      <ul class="toc">
+	<li>9.1 <a href="#Segmentation_Inheritance">Segmentation Inheritance</a></li>
+	<li>9.2 <a href="#Segmentation_Exceptions">Segmentation Exceptions</a></li>
+      </ul>
     <li>10 <a href="#Transforms">Transforms</a>
       <ul class="toc">
         <li>10.1 <a href="#Transform_Rules">Transform Rules</a></li>
@@ -885,6 +889,33 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
   <p><code>&lt;rule id="3"/&gt;</code><font color="#0000FF"><code> // deletes rule 3</code></font></p>
 
+
+<h3>9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation Exceptions</a></h3>
+
+<p><b>Note:</b> As of CLDR 24, the <code>&lt;exceptions&gt;</code> data is to be considered a technology preview.
+Data currently in CLDR was extracted from the Unicode Localization Interoperability project, or ULI. See 
+<a href="http://uli.unicode.org">http://uli.unicode.org</a> for more information on the ULI project.</p>
+
+<p>The segmentation <b>exceptions</b> list provides a set of cases which, though otherwise identified as a segment by rules, 
+  should be skipped during segmentation.</p>
+
+<p> For example, in the English phrase "Mr. Smith", there would normally be a Sentence Break between "Mr" and "Smith". However, typically, "Mr." is just an abbreviation for "Mister", and not the end of a sentence.</p>
+
+<p>Each exception has a separate <code>&lt;exception&gt;</code> element, whose contents are the exceptional break to be skipped.
+</p>
+
+<p>Example:</p>
+
+<pre>
+    &lt;segmentation type="SentenceBreak"&gt;
+      &lt;exceptions&gt;
+        &lt;exception draft="provisional"&gt;Maj.&lt;/exception&gt;
+        &lt;exception draft="provisional"&gt;Mr.&lt;/exception&gt;
+        &lt;exception draft="provisional"&gt;Lt.Cdr.&lt;/exception&gt;
+	. . .
+      &lt;/exceptions&gt;
+    &lt;/segmentation&gt;
+</pre>
 
 <h2>10 <a name="Transforms" href="#Transforms">Transforms</a></h2>
   

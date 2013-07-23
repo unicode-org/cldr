@@ -1,6 +1,7 @@
 package org.unicode.cldr.icu;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -10,10 +11,10 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.ant.CLDRConverterTool.Alias;
 import org.unicode.cldr.icu.RegexManager.CldrArray;
 import org.unicode.cldr.icu.RegexManager.PathValueInfo;
 import org.unicode.cldr.icu.RegexManager.RegexResult;
+import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.tool.FilterFactory;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -31,9 +32,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
  * 
  * @author jchye
  */
-public class LocaleMapper {
-    public static final String ALIAS_PATH = "/\"%%ALIAS\"";
-
+public class LocaleMapper extends Mapper {
     /**
      * Map for converting enums to their integer values.
      */
@@ -165,6 +164,7 @@ public class LocaleMapper {
     /**
      * @return the set of locales available for processing by this mapper
      */
+    @Override
     public Set<String> getAvailable() {
         return unresolvedFactory.getAvailable();
     }
@@ -197,7 +197,8 @@ public class LocaleMapper {
      * @param locale
      * @return the filled IcuData object
      */
-    public IcuData fillFromCLDR(String locale) {
+    @Override
+    public IcuData[] fillFromCldr(String locale) {
         Set<String> deprecatedTerritories = getDeprecatedTerritories();
         CLDRFile resolvedCldr = resolvedFactory.make(locale, true);
         RegexLookup<RegexResult> pathConverter = manager.getPathConverter(resolvedCldr);
@@ -263,7 +264,7 @@ public class LocaleMapper {
                 String mediumFormatPath = basePath
                     + "/dateTimeFormatLength[@type=\"medium\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
                 valueList.add(basePath,
-                    RegexManager.getStringValue(resolvedCldr, mediumFormatPath),
+                    getStringValue(resolvedCldr, mediumFormatPath),
                     null);
             }
         }
@@ -283,48 +284,7 @@ public class LocaleMapper {
 
         // More hacks
         hackAddExtras(resolvedCldr, locale, icuData);
-        return icuData;
-    }
-
-    /**
-     * Creates an IcuData object for an aliased locale.
-     * NOTE: this method is not currently used because the -w parameter in
-     * LDML2ICUConverter already writes aliases. When we get around to deprecating
-     * the LDML2ICUConverter, use this to write aliases instead..
-     */
-    public IcuData fillFromCldr(Alias alias) {
-        // TODO: is this method actually needed?
-        String from = alias.from;
-        String to = alias.to;
-        String xpath = alias.xpath;
-        if (!getAvailable().contains(to)) {
-            System.err.println(to + " doesn't exist, skipping alias " + from);
-            return null;
-        }
-
-        if (from == null || to == null) {
-            System.err.println("Malformed alias - no 'from' or 'to': from=\"" +
-                from + "\" to=\"" + to + "\"");
-            return null;
-        }
-
-        if (to.indexOf('@') != -1 && xpath == null) {
-            System.err.println("Malformed alias - '@' but no xpath: from=\"" +
-                from + "\" to=\"" + to + "\"");
-            return null;
-        }
-
-        IcuData icuData = new IcuData("icu-locale-deprecates.xml & build.xml", from, true);
-        System.out.println("aliased " + from + " to " + to);
-        RegexLookup<RegexResult> pathConverter = manager.getPathConverter();
-        if (xpath == null) {
-            Map<String, CldrArray> pathValueMap = new HashMap<String, CldrArray>();
-            addMatchesForPath(xpath, null, null, pathConverter, pathValueMap);
-            fillIcuData(pathValueMap, comparator, icuData);
-        } else {
-            icuData.add("/\"%%ALIAS\"", to.substring(0, to.indexOf('@')));
-        }
-        return icuData;
+        return new IcuData[]{ icuData };
     }
 
     private void fillIcuData(Map<String, CldrArray> pathValueMap,
@@ -385,16 +345,32 @@ public class LocaleMapper {
             cldrFile, xpath, matcher);
         if (regexResult == null) return;
         String[] arguments = matcher.value.getInfo();
+        String cldrValue = getStringValue(cldrFile, xpath);
         for (PathValueInfo info : regexResult) {
             String rbPath = info.processRbPath(arguments);
             // Don't add additional paths at this stage.
             if (validRbPaths != null && !validRbPaths.contains(rbPath)) continue;
             CldrArray valueList = RegexManager.getCldrArray(rbPath, pathValueMap);
-            List<String> values = info.processValues(arguments, cldrFile, xpath);
+            List<String> values = info.processValues(arguments, cldrValue);
             String baseXPath = info.processXPath(arguments, xpath);
             String groupKey = info.processGroupKey(arguments);
             valueList.put(baseXPath, values, groupKey);
         }
+    }
+
+    /**
+     * @param cldrFile
+     * @param xpath
+     * @return the value of the specified xpath (fallback or otherwise)
+     */
+    private String getStringValue(CLDRFile cldrFile, String xpath) {
+        String value = cldrFile.getStringValue(xpath);
+        // HACK: DAIP doesn't currently make spaces in currency formats non-breaking.
+        // Remove this when fixed.
+        if (NumericType.getNumericType(xpath) == NumericType.CURRENCY) {
+            value = value.replace(' ', '\u00A0');
+        }
+        return value;
     }
 
     /**
@@ -533,5 +509,14 @@ public class LocaleMapper {
      */
     boolean isDebugXPath(String xpath) {
         return debugXPath == null ? false : xpath.startsWith(debugXPath);
+    }
+
+    @Override
+    public Makefile generateMakefile(Collection<String> aliases) {
+        Makefile makefile = new Makefile("GENRB");
+        makefile.addSyntheticAlias(aliases);
+        makefile.addAliasSource();
+        makefile.addSource(sources);
+        return makefile;
     }
 }

@@ -41,26 +41,26 @@ public class DisplayAndInputProcessor {
     public static final boolean DEBUG_DAIP = CldrUtility.getProperty("DEBUG_DAIP", false);
 
     public static final UnicodeSet RTL = new UnicodeSet("[[:Bidi_Class=Arabic_Letter:][:Bidi_Class=Right_To_Left:]]")
-        .freeze();
+    .freeze();
 
     public static final UnicodeSet TO_QUOTE = (UnicodeSet) new UnicodeSet(
-        "[[:Cn:]" +
-            "[:Default_Ignorable_Code_Point:]" +
-            "[:patternwhitespace:]" +
-            "[:Me:][:Mn:]]" // add non-spacing marks
-    ).freeze();
+            "[[:Cn:]" +
+                    "[:Default_Ignorable_Code_Point:]" +
+                    "[:patternwhitespace:]" +
+                    "[:Me:][:Mn:]]" // add non-spacing marks
+            ).freeze();
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
-        .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
+            .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
     private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?<![0#'])\\.(?![0#'])");
     private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = Pattern.compile("\\s+"); // string of whitespace not
-                                                                                            // including NBSP, i.e. [
-                                                                                            // \t\n\r]+
+    // including NBSP, i.e. [
+    // \t\n\r]+
     private static final Pattern WHITESPACE_AND_NBSP_TO_NORMALIZE = Pattern.compile("[\\s\\u00A0]+"); // string of
-                                                                                                      // whitespace
-                                                                                                      // including NBSP,
-                                                                                                      // i.e. [
-                                                                                                      // \u00A0\t\n\r]+
+    // whitespace
+    // including NBSP,
+    // i.e. [
+    // \u00A0\t\n\r]+
     private static final UnicodeSet UNICODE_WHITESPACE = new UnicodeSet("[:whitespace:]").freeze();
 
     private static final CLDRLocale MALAYALAM = CLDRLocale.getInstance("ml");
@@ -85,7 +85,7 @@ public class DisplayAndInputProcessor {
 
     private Collator spaceCol;
 
-    private PrettyPrinter pp;
+    private PrettyPrinter pp = null;
 
     final private CLDRLocale locale;
     private boolean isPosix;
@@ -95,32 +95,46 @@ public class DisplayAndInputProcessor {
      * 
      * @param cldrFileToCheck
      */
+    public DisplayAndInputProcessor(CLDRFile cldrFileToCheck, boolean needsCollator) {
+        init(this.locale = CLDRLocale.getInstance(cldrFileToCheck.getLocaleID()),needsCollator);
+    }
+
     public DisplayAndInputProcessor(CLDRFile cldrFileToCheck) {
-        init(this.locale = CLDRLocale.getInstance(cldrFileToCheck.getLocaleID()));
+        init(this.locale = CLDRLocale.getInstance(cldrFileToCheck.getLocaleID()),true);
     }
 
-    void init(CLDRLocale locale) {
+    void init(CLDRLocale locale, boolean needsCollator) {
         isPosix = locale.toString().indexOf("POSIX") >= 0;
-        col = Collator.getInstance(locale.toULocale());
-        spaceCol = Collator.getInstance(locale.toULocale());
-        if ( spaceCol instanceof RuleBasedCollator ) {
-            ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
+        if (needsCollator) {
+            col = Collator.getInstance(locale.toULocale());
+            spaceCol = Collator.getInstance(locale.toULocale());
+            if (spaceCol instanceof RuleBasedCollator) {
+                ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
+            }
+            pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
+                    .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
+                    .setCompressRanges(true)
+                    .setToQuote(new UnicodeSet(TO_QUOTE))
+                    .setOrdering(col)
+                    .setSpaceComparator(spaceCol);
         }
-        pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
-            .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
-            .setCompressRanges(true)
-            .setToQuote(new UnicodeSet(TO_QUOTE))
-            .setOrdering(col)
-            .setSpaceComparator(spaceCol);
     }
 
+    /**
+     * Constructor, taking locale.
+     * 
+     * @param locale
+     */
+    public DisplayAndInputProcessor(ULocale locale, boolean needsCollator) {
+        init(this.locale = CLDRLocale.getInstance(locale), needsCollator);
+    }
     /**
      * Constructor, taking locale.
      * 
      * @param locale
      */
     public DisplayAndInputProcessor(ULocale locale) {
-        init(this.locale = CLDRLocale.getInstance(locale));
+        init(this.locale = CLDRLocale.getInstance(locale), true);
     }
 
     /**
@@ -128,8 +142,16 @@ public class DisplayAndInputProcessor {
      * 
      * @param locale
      */
+    public DisplayAndInputProcessor(CLDRLocale locale, boolean needsCollator) {
+        init(this.locale = locale, needsCollator);
+    }
+    /**
+     * Constructor, taking locale.
+     * 
+     * @param locale
+     */
     public DisplayAndInputProcessor(CLDRLocale locale) {
-        init(this.locale = locale);
+        init(this.locale = locale, true);
     }
 
     /**
@@ -238,7 +260,7 @@ public class DisplayAndInputProcessor {
                     value = value.replaceAll(" ", "\u00A0");
                 } else {
                     value = value.replaceAll("([%\u00A4]) ", "$1\u00A0")
-                        .replaceAll(" ([%\u00A4])", "\u00A0$1");
+                            .replaceAll(" ([%\u00A4])", "\u00A0$1");
                     value = replace(NON_DECIMAL_PERIOD, value, "'.'");
                     if (numericType == NumericType.DECIMAL_ABBREVIATED) {
                         value = value.replaceAll("0\\.0+", "0");
@@ -246,6 +268,17 @@ public class DisplayAndInputProcessor {
                 }
                 value = getCanonicalPattern(value, numericType, isPosix);
             }
+
+            // fix [,]
+            if (path.startsWith("//ldml/localeDisplayNames/languages/language")
+                    || path.startsWith("//ldml/localeDisplayNames/scripts/script")
+                    || path.startsWith("//ldml/localeDisplayNames/territories/territory")
+                    || path.startsWith("//ldml/localeDisplayNames/variants/variant")
+                    || path.startsWith("//ldml/localeDisplayNames/keys/key")
+                    || path.startsWith("//ldml/localeDisplayNames/types/type")) {
+                value = value.replace('[','(').replace(']', ')').replace('［', '（').replace('］', '）');
+            }
+
 
             // check specific cases
             if (path.contains("/exemplarCharacters")) {
@@ -299,25 +332,25 @@ public class DisplayAndInputProcessor {
         // turn all whitespace sequences (including tab and newline, and NBSP for certain paths)
         // into a single space or a single NBSP depending on path.
         if ((path.contains("/dateFormatLength") && path.contains("/pattern")) ||
-            path.contains("/availableFormats/dateFormatItem") ||
-            (path.startsWith("//ldml/dates/timeZoneNames/metazone") && path.contains("/long")) ||
-            path.startsWith("//ldml/dates/timeZoneNames/regionFormat") ||
-            path.startsWith("//ldml/localeDisplayNames/codePatterns/codePattern") ||
-            path.startsWith("//ldml/localeDisplayNames/languages/language") ||
-            path.startsWith("//ldml/localeDisplayNames/territories/territory") ||
-            path.startsWith("//ldml/localeDisplayNames/types/type") ||
-            (path.startsWith("//ldml/numbers/currencies/currency") && path.contains("/displayName")) ||
-            (path.contains("/decimalFormatLength[@type=\"long\"]") && path.contains("/pattern")) ||
-            path.startsWith("//ldml/posix/messages") ||
-            (path.startsWith("//ldml/units/uni") && path.contains("/unitPattern "))) {
+                path.contains("/availableFormats/dateFormatItem") ||
+                (path.startsWith("//ldml/dates/timeZoneNames/metazone") && path.contains("/long")) ||
+                path.startsWith("//ldml/dates/timeZoneNames/regionFormat") ||
+                path.startsWith("//ldml/localeDisplayNames/codePatterns/codePattern") ||
+                path.startsWith("//ldml/localeDisplayNames/languages/language") ||
+                path.startsWith("//ldml/localeDisplayNames/territories/territory") ||
+                path.startsWith("//ldml/localeDisplayNames/types/type") ||
+                (path.startsWith("//ldml/numbers/currencies/currency") && path.contains("/displayName")) ||
+                (path.contains("/decimalFormatLength[@type=\"long\"]") && path.contains("/pattern")) ||
+                path.startsWith("//ldml/posix/messages") ||
+                (path.startsWith("//ldml/units/uni") && path.contains("/unitPattern "))) {
             value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
         } else if ((path.contains("/currencies/currency") && (path.contains("/group") || path.contains("/pattern")))
-            ||
-            (path.contains("/currencyFormatLength") && path.contains("/pattern")) ||
-            (path.contains("/currencySpacing") && path.contains("/insertBetween")) ||
-            (path.contains("/decimalFormatLength") && path.contains("/pattern")) || // i.e. the non-long ones
-            (path.contains("/percentFormatLength") && path.contains("/pattern")) ||
-            (path.startsWith("//ldml/numbers/symbols") && (path.contains("/group") || path.contains("/nan")))) {
+                ||
+                (path.contains("/currencyFormatLength") && path.contains("/pattern")) ||
+                (path.contains("/currencySpacing") && path.contains("/insertBetween")) ||
+                (path.contains("/decimalFormatLength") && path.contains("/pattern")) || // i.e. the non-long ones
+                (path.contains("/percentFormatLength") && path.contains("/pattern")) ||
+                (path.startsWith("//ldml/numbers/symbols") && (path.contains("/group") || path.contains("/nan")))) {
             value = WHITESPACE_AND_NBSP_TO_NORMALIZE.matcher(value).replaceAll("\u00A0"); // replace with NBSP
         } else {
             // in this case don't normalize away NBSP
@@ -381,10 +414,10 @@ public class DisplayAndInputProcessor {
     }
 
     private static Pattern UNNORMALIZED_MALAYALAM = Pattern.compile(
-        "(\u0D23|\u0D28|\u0D30|\u0D32|\u0D33|\u0D15)\u0D4D\u200D");
+            "(\u0D23|\u0D28|\u0D30|\u0D32|\u0D33|\u0D15)\u0D4D\u200D");
 
     private static Map<Character, Character> NORMALIZING_MAP =
-        Builder.with(new HashMap<Character, Character>())
+            Builder.with(new HashMap<Character, Character>())
             .put('\u0D23', '\u0D7A').put('\u0D28', '\u0D7B')
             .put('\u0D30', '\u0D7C').put('\u0D32', '\u0D7D')
             .put('\u0D33', '\u0D7E').put('\u0D15', '\u0D7F').get();
@@ -415,7 +448,7 @@ public class DisplayAndInputProcessor {
     }
 
     static final Transform<String,String> fixArabicPresentation = Transliterator.getInstance(
-        "[[:block=Arabic_Presentation_Forms_A:][:block=Arabic_Presentation_Forms_B:]] nfkc");
+            "[[:block=Arabic_Presentation_Forms_A:][:block=Arabic_Presentation_Forms_B:]] nfkc");
 
     /**
      * Normalizes the Arabic presentation forms characters in the specified input.
@@ -436,7 +469,10 @@ public class DisplayAndInputProcessor {
     static Pattern NEEDS_QUOTE2 = Pattern.compile("([^\\\\])([\\-\\{\\[\\&])(\\s)"); // ([^\\])([\\-\\{\\[])(\\s)
 
     public static String getCleanedUnicodeSet(UnicodeSet exemplar, PrettyPrinter prettyPrinter,
-        ExemplarType exemplarType) {
+            ExemplarType exemplarType) {
+        if (prettyPrinter == null) {
+            return exemplar.toString();
+        }
         String value;
         prettyPrinter.setCompressRanges(exemplar.size() > 100);
         value = exemplar.toPattern(false);
@@ -473,9 +509,9 @@ public class DisplayAndInputProcessor {
         } else if (!value.equals(fixedExemplar)) { // put in this condition just for debugging
             if (DEBUG_DAIP) {
                 System.out.println(TestMetadata.showDifference(
-                    With.codePoints(value),
-                    With.codePoints(fixedExemplar),
-                    "\n"));
+                        With.codePoints(value),
+                        With.codePoints(fixedExemplar),
+                        "\n"));
             }
             value = fixedExemplar;
         }
@@ -518,7 +554,7 @@ public class DisplayAndInputProcessor {
         NOT_NUMERIC;
 
         private static final Pattern NUMBER_PATH = Pattern
-            .compile("//ldml/numbers/((currency|decimal|percent|scientific)Formats|currencies/currency).*");
+                .compile("//ldml/numbers/((currency|decimal|percent|scientific)Formats|currencies/currency).*");
         private int[] digitCount;
         private int[] posixDigitCount;
 

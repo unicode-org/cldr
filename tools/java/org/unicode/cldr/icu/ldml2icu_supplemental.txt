@@ -68,6 +68,11 @@
      ; /timeData/$3/allowed ; values=$1
      ; /timeData/$3/preferred ; values=$2
 
+//supplementalData/measurementData/measurementSystem[@type="metric"][@territories="(%W)"] ; /measurementData/$1/MeasurementSystem:int ; values=0
+//supplementalData/measurementData/measurementSystem[@type="US"][@territories="(%W)"] ; /measurementData/$1/MeasurementSystem:int ; values=1
+//supplementalData/measurementData/paperSize[@type="A4"][@territories="(%W)"] ; /measurementData/$1/PaperSize:intvector ; values=297 210
+//supplementalData/measurementData/paperSize[@type="US-Letter"][@territories="(%W)"] ; /measurementData/$1/PaperSize:intvector ; values=279 216
+
 //supplementalData/territoryInfo/territory[@type="(%W)"][@gdp="(%N)"][@literacyPercent="(%N)"][@population="(%N)"]
 # GDP, literacy fraction, population
     ; /territoryInfo/$1/territoryF:intvector ; values=&exp($2) &exp($3,-2) &exp($4) ; base_xpath=//supplementalData/territoryInfo/territory[@type="$1"]

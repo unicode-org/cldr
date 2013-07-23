@@ -810,7 +810,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 if (lastValue == null || lastValue.compareTo(end) > 0) {
                     currencyLastValid.put(currency, end);
                 }
-                if (end.compareTo(NOW) >= 0) { // Non-tender is OK...
+                if (start.compareTo(NOW) < 0 && end.compareTo(NOW) >= 0) { // Non-tender is OK...
                     modernCurrencyCodes.put(currency, new Pair<String, CurrencyDateInfo>(territory, dateInfo));
                     territoriesWithoutModernCurrencies.remove(territory);
                 } else {

@@ -33,10 +33,6 @@
      ; /CurrencyMap/$1/<FIFO>/from:intvector ; values=&date($2, from)
      ; /CurrencyMap/$1/<FIFO>/to:intvector ; values=&date($3, to)
      ; /CurrencyMap/$1/<FIFO>/tender ; values=false
-//supplementalData/currencyData/region[@iso3166="(%W)"]/currency[@to="(%W)"][@iso4217="(%W)"][@tender="false"]
-     ; /CurrencyMap/$1/<FIFO>/id ; values=$3
-     ; /CurrencyMap/$1/<FIFO>/to:intvector ; values=&date($2, to)
-     ; /CurrencyMap/$1/<FIFO>/tender ; values=false
 //supplementalData/currencyData/fractions/info[@iso4217="(%W)"][@digits="(%N)"][@rounding="(%N)"] ; /CurrencyMeta/$1:intvector ; values=$2 $3
 
 //supplementalData/calendarPreferenceData/calendarPreference[@territories="(%A)"][@ordering="(%A)"] ; /calendarPreferenceData/$1    ; values=$2
@@ -59,10 +55,10 @@
      ; /territoryContainment/$1 ; values=$2
      ; /territoryContainment/grouping ; values=$1
 
-//supplementalData/weekData/firstDay[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 ; fallback=/weekData/001:intvector[0]
-//supplementalData/weekData/minDays[@count="(%N)"][@territories="(%W)"] ; /weekData/$2:intvector    ; values=$1 ; fallback=/weekData/001:intvector[1]
-//supplementalData/weekData/weekendStart[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 0 ; fallback=/weekData/001:intvector[2] /weekData/001:intvector[3]
-//supplementalData/weekData/weekendEnd[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 86400000 ; fallback=/weekData/001:intvector[4] /weekData/001:intvector[5]
+//supplementalData/weekData/minDays[@count="(%N)"][@territories="(%W)"] ; /weekData/$2:intvector    ; values=$1 ; fallback=1
+//supplementalData/weekData/firstDay[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 ; fallback=2
+//supplementalData/weekData/weekendStart[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 0 ; fallback=7 0
+//supplementalData/weekData/weekendEnd[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 86400000 ; fallback=1 86400000
 
 //supplementalData/timeData/hours[@allowed="(%W)"][@preferred="(%W)"][@regions="(%W)"]
      ; /timeData/$3/allowed ; values=$1
@@ -102,7 +98,7 @@
      ; /telephoneCodeData/$1/<x$2>/alt ; values=$3
 
 # languageInfo.xml
-//supplementalData/languageMatching/languageMatches[@type="(%A)"]/languageMatch[@desired="(%A)"](?:[@oneway="true"])?[@percent="(%N)"][@supported="(%A)"] ; /languageMatching/$1/<$2$4> ; values=$2 $4 $3
+//supplementalData/languageMatching/languageMatches[@type="(%A)"]/languageMatch[@_q="%N"][@desired="(%A)"](?:[@oneway="true"])?[@percent="(%N)"][@supported="(%A)"] ; /languageMatching/$1/<$2$4> ; values=$2 $4 $3
 
 # likelySubtags.xml
 //supplementalData/likelySubtags/likelySubtag[@from="(%A)"][@to="(%A)"] ; /$1 ; values=$2
@@ -110,7 +106,7 @@
 # supplementalMetadata.xml
 //supplementalData/metadata/alias/(language|script|territory|variant)Alias[@type="(%A)"][@replacement="(%A)"][@reason="%A"] ; /$1Alias/$2 ; values="$3"
 # Specify the value explicitly so that the LDMLConverter will split it.
-//supplementalData/metadata/validity/variable[@type="choice"][@id="\$territory"] ; /regionCodes ; values={value}
+//supplementalData/metadata/validity/variable[@_q="%N"][@type="choice"][@id="\$territory"] ; /regionCodes ; values={value}
 
 # metaZones.xml - metaZones.txt
 //supplementalData/metaZones/mapTimezones[@type="metazones"][@typeVersion="%A"]/mapZone[@type="(%A)"][@other="(%W)"][@territory="(%W)"] ; /mapTimezones/$2/$3 ; values=$1

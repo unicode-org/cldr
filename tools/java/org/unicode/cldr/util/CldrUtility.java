@@ -154,7 +154,6 @@ public class CldrUtility {
     // external data
     public static final String EXTERNAL_DIRECTORY = getPath(CldrUtility.getProperty("UCD_DIR", BASE_DIRECTORY) + "/../");
     public static final String ARCHIVE_DIRECTORY = getPath(CldrUtility.getProperty("ARCHIVE", BASE_DIRECTORY));
-    public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-23.0/";
     public static final String UCD_DIRECTORY = getPath(EXTERNAL_DIRECTORY, "data/UCD/6.2.0-Update");
     public static final String GEN_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
         getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
@@ -272,10 +271,8 @@ public class CldrUtility {
         private String[] CVS_TAGS = { "Revision", "Date" };
 
         private String stripTags(String line) {
-            // $
-            // Revision: 8994 $
-            // $
-            // Date: 2013-07-03 21:31:17 +0200 (Wed, 03 Jul 2013) $
+            // $Revision$
+            // $Date$
             int pos = line.indexOf('$');
             if (pos < 0) return line;
             pos++;
@@ -1345,12 +1342,5 @@ public class CldrUtility {
             result.add(Enum.valueOf(classValue,s));
         }
         return result;
-    }
-    
-    public static <K,V,M extends Map<K,V>> M putNew(M map, K key, V value) {
-        if (!map.containsKey(key)) {
-            map.put(key, value);
-        }
-        return map;
     }
 }

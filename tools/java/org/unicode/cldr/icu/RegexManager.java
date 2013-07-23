@@ -16,6 +16,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRFile;
 import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
@@ -148,14 +149,15 @@ class RegexManager {
             return processString(groupKey, arguments);
         }
 
-        public List<String> processValues(String[] arguments, String cldrValue) {
+        public List<String> processValues(String[] arguments, CLDRFile cldrFile,
+            String xpath) {
             if (valueArg == null) {
                 List<String> values = new ArrayList<String>();
-                values.add(cldrValue);
+                values.add(getStringValue(cldrFile, xpath));
                 return values;
             }
             // Split single args using spaces.
-            String processedValue = processValue(valueArg, cldrValue, arguments);
+            String processedValue = processValue(valueArg, xpath, cldrFile, arguments);
             return splitValues(processedValue);
         }
 
@@ -201,7 +203,7 @@ class RegexManager {
             return args;
         }
 
-        private String processValue(String value, String cldrValue, String[] arguments) {
+        private String processValue(String value, String xpath, CLDRFile cldrFile, String[] arguments) {
             value = processString(value, arguments);
             Matcher matcher = FUNCTION_PATTERN.matcher(value);
             if (matcher.find()) {
@@ -220,7 +222,7 @@ class RegexManager {
                 value = buffer.toString();
             }
             if (value.contains("{value}")) {
-                value = value.replace("{value}", cldrValue);
+                value = value.replace("{value}", getStringValue(cldrFile, xpath));
             }
             return value;
         }
@@ -412,6 +414,21 @@ class RegexManager {
             if (haltPos[i] < furthestPos) continue;
             System.out.println(results.get(i));
         }
+    }
+
+    /**
+     * @param cldrFile
+     * @param xpath
+     * @return the value of the specified xpath (fallback or otherwise)
+     */
+    static String getStringValue(CLDRFile cldrFile, String xpath) {
+        String value = cldrFile.getStringValue(xpath);
+        // HACK: DAIP doesn't currently make spaces in currency formats non-breaking.
+        // Remove this when fixed.
+        if (NumericType.getNumericType(xpath) == NumericType.CURRENCY) {
+            value = value.replace(' ', '\u00A0');
+        }
+        return value;
     }
 
     RegexLookup<FallbackInfo> fallbackConverter;

@@ -1,40 +1,10 @@
-# Variables
-%A=[^"]++
+//ldml/(identity|posix/messages)|/(default|alias|commonlyUsed) ; skip
+//ldml/localeDisplayNames/(languages|scripts|territories)/.*[@alt="variant"\] ; skip
+//ldml/localeDisplayNames/territories/territory.*[@alt="short"\] ; skip
+//supplementalData/references/reference ; skip
+//supplementalData/gender/personList[@type="([^"]*)"] ; value ; $1
 
-//(ldml|supplementalData)/(generation|version).* ; ignore
-.*/alias[@source="locale"][@path="%A"] ; ignore
-//ldml/(identity|posix/messages)|/(default|alias|commonlyUsed) ; ignore
 
-.*[@alt="variant"\]$ ; unused
-//ldml/localeDisplayNames/territories/territory.*[@alt="short"\] ; unused
-//ldml/localeDisplayNames/transformNames.* ; unused
-//ldml/localeDisplayNames/types/type[@type="%A"][@key="col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|Normalization|Numeric|Strength)"] ; unused
-
-//ldml/characters/ellipsis.* ; unused
-//ldml/characters/moreInformation ; unused
-
-//ldml/dates/calendars/calendar[@type="%A"]/.*[@alt="variant"] ; unused
-//ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="(?![ap]m)%A"] ; unused
-//ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="%A"] ; unused
-//ldml/dates/timeZoneNames/regionFormat.++ ; unused
-
-//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="narrow"] ; unused
-//ldml/numbers/currencyFormats[@numberSystem="%A"]/currencyFormatLength/currencyFormat[@type="standard"]/pattern[@type="standard"][@alt="accounting"] ; unused
-
-//supplementalData/calendarData/calendar[@type="(%A)"]$ ; unused
-//supplementalData/codeMappings/territoryCodes[@type="%A"]$ ; unused
-//supplementalData/codeMappings/territoryCodes[@type="%A"][@alpha3="%A"] ; unused
-//supplementalData/currencyData/fractions/info[@iso4217="%A"][@digits="%A"][@rounding="%A"][@cashRounding="%A"] ; unused
-//supplementalData/measurementData/.* ; unused
-//supplementalData/parentLocales/.* ; unused
-//supplementalData/references/reference ; unused
-//supplementalData/territoryContainment/group[@type="%A"][@contains="%A"][@status="%A"] ; unused
-
-//supplementalData/metadata/(attributeOrder|elementOrder|serialElements|suppress|deprecated|distinguishing|blocking|unusedDefaultLocale|defaultContent|skipDefaultLocale).* ; unused
-//supplementalData/metadata/validity/attributeValues.* ; unused
-//supplementalData/metadata/validity/variable.*[@id="(?!\$territory)%A"] ; unused
-
-# unused now, but should be implemented later
-//ldml/units/unitLength[@type="%A"]/compoundUnit[@type="%A"]/compoundUnitPattern ; unused
-//ldml/units/unitLength[@type="narrow"]/unit[@type="%A"]/unitPattern[@count="%A"] ; unused
+# SKIP for now, until we can canonicalize better
+//ldml/characters/exemplarCharacters ; warning
 

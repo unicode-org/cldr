@@ -72,15 +72,11 @@ public abstract class CLDRConverterTool {
         public final String from;
         public final String to;
         public final String xpath;
-        public final String rbPath;
-        public final String value;
 
-        public Alias(String from, String to, String xpath, String rbPath, String value) {
+        public Alias(String from, String to, String xpath) {
             this.from = from;
             this.to = to;
             this.xpath = xpath;
-            this.rbPath = rbPath;
-            this.value = value;
         }
     }
 

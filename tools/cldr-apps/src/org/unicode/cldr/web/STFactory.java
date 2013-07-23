@@ -587,8 +587,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             
         }
         
-        private static final boolean ERRORS_ALLOWED_IN_VETTING = true;
-        
         /**
          * Create or update a VoteResolver for this item
          * 
@@ -610,7 +608,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 r.clear(); // reuse
             }
 
-            final ValueChecker vc = ERRORS_ALLOWED_IN_VETTING ? null : new ValueChecker(path);
+            ValueChecker vc = new ValueChecker(path);
 
             // Set established locale
             r.setEstablishedFromLocale(locale);
@@ -623,7 +621,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // set prior release (if present)
             final String lastValue = anOldFile.getStringValue(path);
             final Status lastStatus = getStatus(anOldFile, path, lastValue);
-            if(ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(lastValue)) {
+            if(vc.canUseValue(lastValue)) {
                 r.setLastRelease(lastValue, lastValue == null ? Status.missing : lastStatus); /* add the last release value */
             } else {
                 r.setLastRelease(null, Status.missing); /* missing last release value  due to error. */
@@ -632,7 +630,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // set current Trunk value (if present)
             final String currentValue = diskData.getValueAtDPath(path);
             final Status currentStatus = getStatus(diskFile, path, currentValue);
-            if (ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(currentValue)) {
+            if (vc.canUseValue(currentValue)) {
                 r.setTrunk(currentValue, currentStatus);
                 r.add(currentValue);
             }
@@ -642,7 +640,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 for (Map.Entry<User, String> e : userToVoteMap.entrySet()) {
                     String v = e.getValue();
 
-                    if(ERRORS_ALLOWED_IN_VETTING || vc.canUseValue(v)) {
+                    if(vc.canUseValue(v)) {
                         r.add(v, // user's vote
                                 e.getKey().id); // user's id
                     }
@@ -1498,28 +1496,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         return sm.getDiskFactory().make(locale.getBaseName(), true);
     }
 
-    /**
-     * Return all xpaths for this locale. uses CLDRFile iterator, etc
-     * @param locale
-     * @return
-     */
     public Set<String> getPathsForFile(CLDRLocale locale) {
         return get(locale).getPathsForFile();
-    }
-    /**
-     * Get paths for file matching a prefix. Does not cache.
-     * @param locale
-     * @param xpathPrefix
-     * @return
-     */
-    public Set<String> getPathsForFile(CLDRLocale locale, String xpathPrefix) {
-        Set<String> ret = new HashSet<String>();
-        for(String s : getPathsForFile(locale)) {
-            if(s.startsWith(xpathPrefix)) {
-                ret.add(s);
-            }
-        }
-        return ret;
     }
 
     /**
@@ -1755,4 +1733,5 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * For tests.
      */
     static private Map<String, String> basicOptions = Collections.unmodifiableMap(SurveyMain.basicOptionsMap());
+
 }

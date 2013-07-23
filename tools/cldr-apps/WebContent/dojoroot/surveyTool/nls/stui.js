@@ -288,7 +288,7 @@ define({
 		err_what_status: "get the latest status from the server",
 		err_what_unknown: "process your request",
 		err_what_oldvotes: "fetch or import your old votes",
-		E_UNKNOWN: "An error occured while trying to '${what}', and the error code is '${code}'.\n (Sorry, the developers ought to write a more helpful error message here.)",
+		E_UNKNOWN: "An error occured while trying to '${what}', and the error code is '${code}'.\n (That means I can't tell you any more at this point, sorry.)",
 		E_BAD_SECTION: "An error occured while trying to ${what}, the server could not find what was requested. \nPerhaps the URL is incorrect?",
 		E_BAD_LOCALE: "While trying to ${what}, the server told us that the locale, '${surveyCurrentLocale}',\n does not exist. It is either mistyped or has not been added to the SurveyTool.",
 		E_NOT_STARTED: "While trying to ${what}, the server told us that it's not quite ready yet. Please wait a bit, and try reloading this page.",

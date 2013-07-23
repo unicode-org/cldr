@@ -37,7 +37,6 @@ import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 
 public class VerifyZones {
-    private static final boolean DEBUG = false;
 
     final static Options myOptions = new Options();
 
@@ -167,7 +166,7 @@ public class VerifyZones {
         //System.out.println("Non-canonical zones:\t" + noncanonical.size() + "\t" + noncanonical);
 
         Set<String> metazones = sdi.getAllMetazones();
-        if (DEBUG && !metazones.equals(metazoneToRegionToZone.keySet())) {
+        if (!metazones.equals(metazoneToRegionToZone.keySet())) {
             System.out.println("Mismatch between metazones");
             showVennSets(metazones, metazoneToRegionToZone.keySet());
         }
@@ -212,10 +211,10 @@ public class VerifyZones {
         //            //            rows.add(row);
         //            addRow("None", zone, 1);
         //        }
-        if (DEBUG) System.out.println("\nSorted");
+        System.out.println("\nSorted");
         for (MetazoneRow row : rows) {
             if (row.getMetazone().equals("Europe_Central")) {
-                if (DEBUG) System.out.println(row);
+                System.out.println(row);
             }
         }
     }
@@ -237,7 +236,7 @@ public class VerifyZones {
         MetazoneRow row = new MetazoneRow(order, offsetOrder, container, 
                 orderInMetazone, metaZone, tz_string);
         if (metaZone.equals("Europe_Central")) {
-            if (DEBUG) System.out.println(row);
+            System.out.println(row);
         }
         rows.add(row);
     }

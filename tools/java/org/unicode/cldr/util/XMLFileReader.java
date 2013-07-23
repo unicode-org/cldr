@@ -376,6 +376,22 @@ public class XMLFileReader {
         }
     }
 
+    public static Relation<String, String> loadPathValues(String filename, Relation<String, String> data) {
+        return loadPathValues(filename, data, true);
+    }
+
+
+    public static Relation<String, String> loadPathValues(String filename, Relation<String, String> data, boolean validating) {
+        try {
+            new XMLFileReader()
+                .setHandler(new PathValueHandler(data))
+                .read(filename, -1, validating);
+            return data;
+        } catch (Exception e) {
+            throw new IllegalArgumentException(filename, e);
+        }
+    }
+    
     public static List<Pair<String, String>> loadPathValues(String filename, List<Pair<String, String>> data, boolean validating) {
         try {
             new XMLFileReader()
@@ -387,6 +403,21 @@ public class XMLFileReader {
         }
     }
 
+
+    static final class PathValueHandler extends SimpleHandler {
+        Relation<String, String> data = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
+
+        public PathValueHandler(Relation<String, String> data) {
+            super();
+            this.data = data;
+        }
+
+        @Override
+        public void handlePathValue(String path, String value) {
+            data.put(path, value);
+        }
+    }
+    
     static final class PathValueListHandler extends SimpleHandler {
         List<Pair<String, String>> data = new ArrayList();
 

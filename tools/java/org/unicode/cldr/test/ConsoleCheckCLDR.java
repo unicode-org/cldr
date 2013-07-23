@@ -593,7 +593,7 @@ public class ConsoleCheckCLDR {
                                     UnicodeSet set = new UnicodeSet(parameters[0].toString());
                                     if (status.getMessage().contains("currency")) {
                                         missingCurrencyExemplars.addAll(set);
-                                    } else {
+                                    } else if (status.getSubtype() != Subtype.discouragedCharactersInTranslation) {
                                         missingExemplars.addAll(set);
                                     }
                                 } catch (RuntimeException e) {

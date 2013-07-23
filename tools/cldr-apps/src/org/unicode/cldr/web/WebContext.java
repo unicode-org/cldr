@@ -1011,7 +1011,7 @@ public class WebContext implements Cloneable, Appendable {
         }
         locale = l;
         // localeString = locale.getBaseName();
-        processor = new DisplayAndInputProcessor(l,false);
+        processor = new DisplayAndInputProcessor(l);
         Vector<CLDRLocale> localesVector = new Vector<CLDRLocale>();
         for (CLDRLocale parents : locale.getParentIterator()) {
             localesVector.add(parents);

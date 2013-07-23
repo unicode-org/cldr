@@ -114,8 +114,8 @@ public class GenerateCldrCollationTests {
         CollationMapper mapper = new CollationMapper(sourceDir, null);
         StringBuilder stringBuilder = new StringBuilder();
         TreeMap<String, RuleBasedCollator> types_rules = new TreeMap<String, RuleBasedCollator>();
-        IcuData[] dataList = mapper.fillFromCldr(locale);
-        IcuData icuData = dataList[0];
+        List<IcuData> validSubLocales = new ArrayList<IcuData>();
+        IcuData icuData = mapper.fillFromCldr(locale, validSubLocales);
         for (String rbPath : icuData.keySet()) {
             if (!rbPath.endsWith("/Sequence")) continue;
             // remove the \ u's, because they blow up
@@ -137,12 +137,12 @@ public class GenerateCldrCollationTests {
                 types_rules.put(name, fixed);
             }
             locale_types_rules.put(locale, types_rules);
-        }
-        // now get the valid sublocales
-        for(int i = 1; i < dataList.length ; i++) {
-            IcuData subLocale = dataList[i];
-            Log.logln("Valid Sub Locale: " + subLocale.getName());
-            validLocales.add(subLocale.getName());
+            
+            // now get the valid sublocales
+            for(IcuData subLocale : validSubLocales) {
+                Log.logln("Valid Sub Locale: " + subLocale.getName());
+                validLocales.add(subLocale.getName());
+            }
         }
     }
 

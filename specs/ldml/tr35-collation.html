@@ -54,7 +54,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">07-04</span></td>
+			<td>2013-<span class="changed">06-20</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -590,8 +590,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         For a detailed comparison see the <i><a href="http://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings">CLDR 23 version of this document</a></i>.</p>
         <p class="reviewnote">Please ignore minor style and wording issues for now.
         This chapter has other, more significant problems and needs to be mostly rewritten, scheduled for CLDR 24.</p>
-	<p class="dtd">&lt;!ELEMENT collations (alias | (<span class="changed">defaultCollation?,</span> default*, collation*, special*)) &gt;</p>
-	<p class="reviewnote">Should we remove deprecated elements from such DTD snippets, like the "default" element here, to avoid confusing readers?</p>
+	<p class="dtd">&lt;!ELEMENT collations (alias | (default*, collation*, special*)) &gt;</p>
 	<p>This element of the LDML format
 	contains one or more <span class="element">collation</span> elements, distinguished by type.
 	Each <span class="element">collation</span> contains
@@ -609,16 +608,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
   Both have the same functionality.
   The LDML files use the XML format, but the basic format is simpler to read, and will often be used in examples.
   Implementations of LDML, such as [<a href="tr35.html#ICUCollation">ICUCollation</a>], may choose to use the basic collation syntax as their native syntax.</p>
-
-  <p class="changed">Each locale may have multiple sort orders.
-  The <span class="element">defaultCollation</span> element defines the default tailoring for a locale and its sublocales.
-  For example:</p>
-  <ul class="changed">
-    <li>root.xml: <code>&lt;defaultCollation&gt;standard&lt;/defaultCollation&gt;</code></li>
-    <li>zh.xml: <code>&lt;defaultCollation&gt;pinyin&lt;/defaultCollation&gt;</code></li>
-    <li>zh_Hant.xml: <code>&lt;defaultCollation&gt;stroke&lt;/defaultCollation&gt;</code></li>
-  </ul>
-
   <p class="note"><b>Note:</b></p>
 	<ul>
 	  <li class="note">There is an on-line demonstration of collation at [<a href="tr35.html#LocaleExplorer">LocaleExplorer</a>] <span class="removed">that uses the basic syntax</span>.
@@ -640,7 +629,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	</blockquote>
 
 	<h3><a name="Collation_Element" href="#Collation_Element">3.2 Collation Element</a></h3>
-	<p class="dtd">&lt;!ELEMENT collation (alias | (<span class="removed">base?,</span> <span class="changed">import*,</span> settings?, suppress_contractions?, optimize?, <span class="changed">(cr* | rules?)</span>, special*)) &gt;</p>
+	<p class="dtd">&lt;!ELEMENT collation (alias | (base?, <span class="changed">import*,</span> settings?, suppress_contractions?, optimize?, <span class="changed">(cr* | rules?)</span>, special*)) &gt;</p>
 	<p>The tailoring syntax is designed to be independent of the actual weights used in any particular UCA table. That way the same rules can 
   be applied to UCA versions over time, even if the underlying weights change.
   The following illustrates the overall structure of a <span class="element">collation</span> <span class="removed">with the XML syntax</span>:</p>
@@ -652,7 +641,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 &lt;/collation&gt;</pre>
 	<p class="removed">The basic syntax corresponding to this would be:</p>
 	<p class="removed">[caseLevel on]<br>     &amp; c &lt; k</p>
-<p class="removed">The optional base element <code>&lt;base&gt;<span style="color: blue">...</span>&lt;/base&gt;</code>, contains an alias element that points to another data source that 
+<p>The optional base element <code>&lt;base&gt;<span style="color: blue">...</span>&lt;/base&gt;</code>, contains an alias element that points to another data source that 
 	defines a <i>base </i>collation. If present, it indicates that the settings and rules in the collation are modifications applied on <i>top of the</i> respective 
 	elements in the base collation. That is, any successive settings, where present, override what is in the base as described in <a href="#Setting_Options">Setting 
 	Options</a>. Any successive rules are concatenated to the end of the rules in the base. The results of multiple rules applying to the same characters is covered 

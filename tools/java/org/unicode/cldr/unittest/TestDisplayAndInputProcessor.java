@@ -129,10 +129,6 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
                 // TODO: handle exception
             }
         }
-        String value2 = value.replace('[','(').replace(']', ')').replace('［', '（').replace('］', '）'); 
-        if (value2.equals(input)) {
-            return null;
-        }
         return "?";
     }
 }

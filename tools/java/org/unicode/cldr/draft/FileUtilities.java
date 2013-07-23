@@ -266,7 +266,7 @@ public final class FileUtilities {
     }
 
     public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName) {
-        copyFile(class1, sourceFile, targetDirectory, newName, null);
+        copyFile(class1, sourceFile, targetDirectory, sourceFile, null);
     }
     
     public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName, String[] replacementList) {

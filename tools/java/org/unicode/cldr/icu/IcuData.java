@@ -3,7 +3,6 @@ package org.unicode.cldr.icu;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -12,7 +11,7 @@ import java.util.Set;
 /**
  * Wrapper class for converted ICU data which RB paths to values.
  */
-public class IcuData implements Iterable<String> {
+public class IcuData {
     private boolean hasFallback;
     private String sourceFile;
     private String name;
@@ -168,11 +167,6 @@ public class IcuData implements Iterable<String> {
      */
     public Set<String> keySet() {
         return rbPathToValues.keySet();
-    }
-
-    @Override
-    public Iterator<String> iterator() {
-        return rbPathToValues.keySet().iterator();
     }
 
     public int size() {

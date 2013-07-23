@@ -364,6 +364,22 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
                     Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
             }
+            UnicodeSet disallowedInExemplars = path.contains("_") ? DISALLOWED_IN_scriptRegionExemplarsWithParens
+                : DISALLOWED_IN_scriptRegionExemplars;
+            if (disallowedInExemplars.containsSome(value)) {
+                disallowed = new UnicodeSet().addAll(value).retainAll(disallowedInExemplars);
+                addMissingMessage(disallowed, CheckStatus.warningType, Subtype.discouragedCharactersInTranslation,
+                    Subtype.discouragedCharactersInTranslation, "should not be used in this context", result);
+                //
+                // String fixedMissing = prettyPrint
+                // .setToQuote(null)
+                // .setQuoter(null).format(missing);
+                // result.add(new
+                // CheckStatus().setCause(this).setMainType(CheckStatus.warningType).setSubtype(Subtype.discouragedCharactersInTranslation)
+                // .setMessage("The characters \u200E{1}\u200E are discouraged in display names. Please avoid these characters.",
+                // new Object[]{null,fixedMissing}));
+                // // note: we are using {1} so that we don't include these in the console summary of bad characters.
+            }
             if (path.contains("/codePatterns")) {
                 disallowed = new UnicodeSet().addAll(value).retainAll(NUMBERS);
                 if (!disallowed.isEmpty()) {

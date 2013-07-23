@@ -962,10 +962,7 @@ public class SupplementalDataInfo {
                     }
                 }
                 String name = file.toString();
-                String shortName = file.getName();
-                if (!shortName.endsWith(".xml") || // skip non-XML
-                    shortName.startsWith("#") || // skip other junk files
-                    shortName.startsWith(".")) continue; // skip dot files (backups, etc)
+                if (!name.endsWith(".xml")) continue;
                 xfr.read(name, -1, true);
                 myHandler.cleanup();
             }

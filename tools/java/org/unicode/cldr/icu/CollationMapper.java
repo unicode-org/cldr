@@ -2,12 +2,9 @@ package org.unicode.cldr.icu;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,12 +21,10 @@ import com.ibm.icu.text.MessageFormat;
  * Converts CLDR collation files to the ICU format.
  * @author jchye
  */
-public class CollationMapper extends Mapper {
+public class CollationMapper {
     private static Pattern SPECIALS_PATH = Pattern.compile("//ldml/special/icu:([\\w_]++)\\[@icu:([\\w_]++)=\"([^\"]++)\"]");
     private String sourceDir;
     private Factory specialFactory;
-    private Set<String> validSubLocales = new HashSet<String>();
-
     // Some settings have to be converted to numbers.
     private Map<String, String> settingsMap = Builder.with(new HashMap<String, String>())
             .put("primary", "1")
@@ -52,38 +47,34 @@ public class CollationMapper extends Mapper {
     /**
      * @return CLDR data converted to an ICU-friendly format
      */
-    @Override
-    public IcuData[] fillFromCldr(String locale) {
+    public IcuData fillFromCldr(String locale, List<IcuData> subLocaleList) {
         List<IcuData> dataList = new ArrayList<IcuData>();
-        IcuData mainLocale = new IcuData("common/collation/" + locale + ".xml", locale, true);
-        CollationHandler handler = new CollationHandler(mainLocale);
+        IcuData icuData = new IcuData("common/collation/" + locale + ".xml", locale, true);
+        CollationHandler handler = new CollationHandler(icuData);
         File file = new File(sourceDir, locale + ".xml");
         MapperUtils.parseFile(file, handler);
-        dataList.add(mainLocale);
-
-        String[] subLocales = handler.getSubLocales();
-        if (subLocales != null) {
-            for (String subLocale : subLocales) {
-                dataList.add(fillSubLocale(locale, subLocale));
-                validSubLocales.add(subLocale);
-            }
-        }
-
         if (hasSpecialFile(locale)) {
             CLDRFile specialFile = specialFactory.make(locale, false);
-            mainLocale.setFileComment("ICU <specials> source: <path>/xml/collation/" + locale + ".xml");
+            icuData.setFileComment("ICU <specials> source: <path>/xml/collation/" + locale + ".xml");
             for (String path : specialFile) {
                 String fullPath = specialFile.getFullXPath(path);
                 Matcher matcher = SPECIALS_PATH.matcher(fullPath);
                 if (matcher.matches()) {
-                    mainLocale.add(
+                    icuData.add(
                             MessageFormat.format("/{0}:process({1})", matcher.group(1), matcher.group(2)),
                             matcher.group(3));
                 }
             }
         }
 
-        return MapperUtils.toArray(dataList);
+        if (subLocaleList != null) {
+            String[] subLocales = handler.getSubLocales();
+            // TODO(jchye): Enable this when NewLdml2IcuConverter handles the colfiles build target.
+            //for (String subLocale : subLocales) {
+            //    //subLocaleList.add(fillSubLocale(locale, subLocale));
+            //}
+        }
+        return icuData;
     }
 
     /**
@@ -93,7 +84,7 @@ public class CollationMapper extends Mapper {
      * @return
      */
     private IcuData fillSubLocale(String locale, String subLocale) {
-        IcuData icuData = new IcuData("icu-config.xml & build.xml", subLocale, true);
+        IcuData icuData = new IcuData("common/collation/" + subLocale + ".xml", subLocale, true);
         icuData.setFileComment("validSubLocale of \"" + locale + "\"");
         icuData.add("/___", "");
         return icuData;
@@ -131,18 +122,16 @@ public class CollationMapper extends Mapper {
                 isShort = attr.getValue("alt") != null;
                 properties.clear();
                 rules.clear();
-            } else if (qName.equals("collations")) {
-                String validSubLocales = attr.getValue("validSubLocales");
-                if (validSubLocales != null) {
-                    subLocales = validSubLocales.split("\\s++");
-                }
             } else if (qName.equals("version")) {
                 icuData.add("/Version", MapperUtils.formatVersion(attr.getValue("number")));
             }
             if (collationType == null) return;
 
             // Collation-specific elements.
-            if (qName.equals("settings")) {
+            if (qName.equals("collations")) {
+                String validSubLocales = attr.getValue("validSubLocales");
+                subLocales = validSubLocales == null ? new String[0] : validSubLocales.split("\\s++");
+            } else if (qName.equals("settings")) {
                 for (int i = 0 ; i < attr.getLength(); i++) {
                     String name = attr.getLocalName(i);
                     String value = attr.getValue(i);
@@ -166,7 +155,7 @@ public class CollationMapper extends Mapper {
         @Override
         public void endElement(String uri, String localName, String qName) throws SAXException {
             // collationType will only be null if the draft status is insufficient.
-            if (qName.equals("defaultCollation")) {
+            if (qName.equals("defaultCollation")) { // TODO: deprecate default element
                 icuData.add("/collations/default", currentText.toString());
             } else if (collationType == null) {
                 currentText.setLength(0);
@@ -223,33 +212,5 @@ public class CollationMapper extends Mapper {
         public String[] getSubLocales() {
             return subLocales;
         }
-    }
-
-    @Override
-    public Collection<String> getAvailable() {
-        return MapperUtils.getNames(sourceDir);
-    }
-
-    @Override
-    public Makefile generateMakefile(Collection<String> aliases) {
-        Makefile makefile = new Makefile("COLLATION");
-        makefile.addSyntheticAlias(aliases);
-        makefile.addAliasSource();
-        // Split sources into locales and sublocales.
-        List<String> subLocales = new ArrayList<String>();
-        List<String> locales = new ArrayList<String>();
-        locales.add("$(COLLATION_EMPTY_SOURCE)");
-        for (String source : sources) {
-            if (validSubLocales.contains(source)) {
-                subLocales.add(source);
-            } else {
-                locales.add(source);
-            }
-        }
-        makefile.addEntry("COLLATION_EMPTY_SOURCE",
-                "Empty locales, used for validSubLocale fallback.",
-                subLocales);
-        makefile.addSource(locales);
-        return makefile;
     }
 }

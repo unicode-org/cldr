@@ -1,10 +1,7 @@
 package org.unicode.cldr.icu;
 
 import java.io.File;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -18,7 +15,6 @@ public class IcuDataSplitter {
 
     private final List<SplitInfo> splitInfos;
     private final Map<String, File> targetDirs;
-    private final Map<String, Set<String>> splitSources = new HashMap<String, Set<String>>();
 
     /**
      * Splits the
@@ -93,7 +89,7 @@ public class IcuDataSplitter {
             List<String[]> values = entry.getValue();
             boolean wasSplit = false;
             // Paths that should be copied to all directories.
-            if (rbPath.equals(VERSION_PATH)) {
+            if (rbPath.equals(LocaleMapper.ALIAS_PATH) || rbPath.equals(VERSION_PATH)) {
                 for (String dir : dirs) {
                     splitData.get(dir).addAll(rbPath, values);
                 }
@@ -134,42 +130,9 @@ public class IcuDataSplitter {
                 int underscorePos = locale.indexOf('_');
                 if (underscorePos > -1 && locale.length() - underscorePos - 1 != 4) {
                     iterator.remove();
-                    continue;
                 }
             }
-            add(splitSources, entry.getKey(), data.getName());
         }
         return splitData;
-    }
-
-    /**
-     * Adds a value to the list with the specified key.
-     */
-    private static void add(Map<String, Set<String>> map, String key, String value) {
-        Set<String> set = map.get(key);
-        if (set == null) {
-            map.put(key, set = new HashSet<String>());
-        }
-        set.add(value);
-    }
-
-    /**
-     * Returns the set of directories that the splitter splits data into (excluding the main directory).
-     */
-    public Set<String> getTargetDirs() {
-        return targetDirs.keySet();
-    }
-
-    public Set<String> getDirSources(String dir) {
-        return Collections.unmodifiableSet(splitSources.get(dir));
-    }
-
-    public Makefile generateMakefile(Collection<String> aliases, String dir) {
-        String prefix = dir.toUpperCase();
-        Makefile makefile = new Makefile(prefix);
-        makefile.addSyntheticAlias(aliases);
-        makefile.addAliasSource();
-        makefile.addSource(splitSources.get(dir));
-        return makefile;
     }
 }

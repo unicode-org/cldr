@@ -6858,14 +6858,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} قوة تسارع</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} قوة تسارع</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="zero" draft="contributed">{0} من الدرجات</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} درجة</unitPattern>
-				<unitPattern count="two" draft="contributed">درجتان ({0})</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} درجات</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} درجة</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} من الدرجات</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="zero" draft="contributed">{0} من الدقائق</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} دقيقة</unitPattern>
@@ -6881,6 +6873,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} ثوانٍ</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ثانية</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} من الثواني</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero" draft="contributed">{0} من الدرجات</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} درجة</unitPattern>
+				<unitPattern count="two" draft="contributed">درجتان ({0})</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} درجات</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} درجة</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} من الدرجات</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="zero" draft="contributed">{0} من الفدادين</unitPattern>
@@ -7343,14 +7343,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} قوة تسارع</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} قوة تسارع</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="zero" draft="contributed">{0} من الدرجات</unitPattern>
-				<unitPattern count="one" draft="contributed">{0} درجة</unitPattern>
-				<unitPattern count="two" draft="contributed">درجتان ({0})</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} درجات</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} درجة</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} من الدرجات</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="zero" draft="contributed">{0} من الدقائق</unitPattern>
 				<unitPattern count="one" draft="contributed">{0} دقيقة</unitPattern>
@@ -7366,6 +7358,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} ثوانٍ</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ثانية</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} من الثواني</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero" draft="contributed">{0} من الدرجات</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} درجة</unitPattern>
+				<unitPattern count="two" draft="contributed">درجتان ({0})</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} درجات</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} درجة</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} من الدرجات</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="zero" draft="contributed">{0} من الفدادين</unitPattern>
@@ -7815,15 +7815,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} لترًا</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} من اللترات</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern draft="contributed">h:mm</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern draft="contributed">h:mm:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern draft="contributed">m:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -7836,14 +7827,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} قوة تسارع</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} قوة تسارع</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} قوة تسارع</unitPattern>
-			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="zero">{0} درجة</unitPattern>
-				<unitPattern count="one">{0} درجة</unitPattern>
-				<unitPattern count="two">درجتان ({0})</unitPattern>
-				<unitPattern count="few">{0} درجات</unitPattern>
-				<unitPattern count="many">{0} درجة</unitPattern>
-				<unitPattern count="other">{0} درجة</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="zero">{0}′</unitPattern>
@@ -7860,6 +7843,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0}″</unitPattern>
 				<unitPattern count="many">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero">{0} درجة</unitPattern>
+				<unitPattern count="one">{0} درجة</unitPattern>
+				<unitPattern count="two">درجتان ({0})</unitPattern>
+				<unitPattern count="few">{0} درجات</unitPattern>
+				<unitPattern count="many">{0} درجة</unitPattern>
+				<unitPattern count="other">{0} درجة</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="zero" draft="contributed">{0} من الفدادين</unitPattern>
@@ -8254,6 +8245,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ل</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -8270,3 +8270,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

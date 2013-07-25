@@ -4052,14 +4052,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="acceleration-g-force">
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other">අංශක {0}</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other">තත්පර {0}</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">අංශක {0}</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="other">අක්කර {0}</unitPattern>
@@ -4237,14 +4237,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="acceleration-g-force">
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other">අංශක {0}</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other">තත් {0}</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">අංශක {0}</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="other">අක්කර {0}</unitPattern>
@@ -4414,15 +4414,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-liter">
 				<unitPattern count="other">ලී {0}</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>පැය:මිනිත්තු</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>පැය:මිනිත්තු:තත්පර</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>මිනිත්තු:තත්පර</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -4431,14 +4422,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="acceleration-g-force">
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other">තත් {0}</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="other">අක්කර {0}</unitPattern>
@@ -4609,6 +4600,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>පැය:මිනිත්තු</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>පැය:මිනිත්තු:තත්පර</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>මිනිත්තු:තත්පර</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -4628,3 +4628,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

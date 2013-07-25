@@ -5823,10 +5823,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} unidad de fuerza gravitacional</unitPattern>
 				<unitPattern count="other">{0} unidades de fuerza gravitacional</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} grado</unitPattern>
-				<unitPattern count="other">{0} grados</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} minuto</unitPattern>
 				<unitPattern count="other">{0} minutos</unitPattern>
@@ -5834,6 +5830,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} segundo</unitPattern>
 				<unitPattern count="other">{0} segundos</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} grado</unitPattern>
+				<unitPattern count="other">{0} grados</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} acre</unitPattern>
@@ -6068,10 +6068,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="provisional">{0} fg</unitPattern>
 				<unitPattern count="other" draft="provisional">{0} fg</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
@@ -6079,6 +6075,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ac</unitPattern>
@@ -6304,15 +6304,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>h:mm</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>h:mm:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>m:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -6322,10 +6313,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="provisional">{0} fg</unitPattern>
 				<unitPattern count="other" draft="provisional">{0} fg</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}'</unitPattern>
 				<unitPattern count="other">{0}'</unitPattern>
@@ -6333,6 +6320,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}&quot;</unitPattern>
 				<unitPattern count="other">{0}&quot;</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ac</unitPattern>
@@ -6559,6 +6550,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -6587,3 +6587,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

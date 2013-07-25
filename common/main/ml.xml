@@ -5722,10 +5722,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ജി-ഫോഴ്‌സ്</unitPattern>
 				<unitPattern count="other">{0} ജി-ഫോഴ്‌സ്</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} ഡിഗ്രി</unitPattern>
-				<unitPattern count="other">{0} ഡിഗ്രി</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} മിനിറ്റ്</unitPattern>
 				<unitPattern count="other">{0} മിനിറ്റ്</unitPattern>
@@ -5733,6 +5729,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} സെക്കന്റ്</unitPattern>
 				<unitPattern count="other">{0} സെക്കന്റ്</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} ഡിഗ്രി</unitPattern>
+				<unitPattern count="other">{0} ഡിഗ്രി</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ഏക്കർ</unitPattern>
@@ -5967,10 +5967,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ജി</unitPattern>
 				<unitPattern count="other">{0} ജി</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} ഡിഗ്രി</unitPattern>
-				<unitPattern count="other">{0} ഡിഗ്രി</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} മി</unitPattern>
 				<unitPattern count="other">{0} മി</unitPattern>
@@ -5978,6 +5974,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} സെ</unitPattern>
 				<unitPattern count="other">{0} സെ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} ഡിഗ്രി</unitPattern>
+				<unitPattern count="other">{0} ഡിഗ്രി</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ഏക്ക</unitPattern>
@@ -6199,15 +6199,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ലിറ്റ.</unitPattern>
 				<unitPattern count="other">{0} ലിറ്റ.</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>മ:മി</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>മ:മി:സെ</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>മി:സെ</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -6217,10 +6208,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ജി</unitPattern>
 				<unitPattern count="other">{0} ജി</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -6228,6 +6215,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ഏ</unitPattern>
@@ -6446,6 +6437,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ലി</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>മ:മി</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>മ:മി:സെ</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>മി:സെ</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -6474,3 +6474,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

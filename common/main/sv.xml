@@ -6654,10 +6654,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} gång Jordens gravitation</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} gånger Jordens gravitation</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} grad</unitPattern>
-				<unitPattern count="other">{0} grader</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">{0} bågminut</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} bågminuter</unitPattern>
@@ -6665,6 +6661,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one" draft="contributed">{0} bågsekund</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} bågsekunder</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} grad</unitPattern>
+				<unitPattern count="other">{0} grader</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one" draft="contributed">{0} amerikanskt tunnland</unitPattern>
@@ -6899,10 +6899,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
@@ -6910,6 +6906,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ac</unitPattern>
@@ -7135,15 +7135,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>h:mm</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>h:mm:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>m:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -7153,10 +7144,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0}G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}G</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
@@ -7164,6 +7151,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ac</unitPattern>
@@ -7390,6 +7381,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0}L</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -7424,3 +7424,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

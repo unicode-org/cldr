@@ -5252,10 +5252,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} þyngdarafl jarðar</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} þyngdarafl jarðar</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="unconfirmed">{0} gráða</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0} gráður</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="unconfirmed">{0} bogamínúta</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} bogamínútur</unitPattern>
@@ -5263,6 +5259,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one" draft="unconfirmed">{0} bogasekúnda</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} bogasekúndur</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="unconfirmed">{0} gráða</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} gráður</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one" draft="unconfirmed">{0} bandarísku ekari</unitPattern>
@@ -5497,10 +5497,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} G</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} G</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="unconfirmed">{0}′</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}′</unitPattern>
@@ -5508,6 +5504,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one" draft="unconfirmed">{0}″</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ek.</unitPattern>
@@ -5733,15 +5733,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0} l</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0} l</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>HH:mm</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>HH:mm:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>m:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -5751,10 +5742,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="unconfirmed">{0}G</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}G</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
-				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="unconfirmed">{0}′</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}′</unitPattern>
@@ -5762,6 +5749,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one" draft="unconfirmed">{0}″</unitPattern>
 				<unitPattern count="other" draft="unconfirmed">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="unconfirmed">{0}°</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ek.</unitPattern>
@@ -5988,6 +5979,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="unconfirmed">{0}L</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>HH:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>HH:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -6022,3 +6022,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

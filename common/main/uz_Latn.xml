@@ -1142,15 +1142,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-liter">
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>s:dd</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>s:dd:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>d:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<unit type="duration-day">
@@ -1202,6 +1193,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>s:dd</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>s:dd:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>d:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -1218,3 +1218,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

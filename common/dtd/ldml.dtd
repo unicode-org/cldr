@@ -1225,13 +1225,13 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT units (alias | (unit*, unitLength*, special*)) >
+<!ELEMENT units (alias | (unit*, unitLength*, durationUnit*, special*)) >
 <!ATTLIST units draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST units references CDATA #IMPLIED >
 <!ATTLIST units alt NMTOKENS #IMPLIED >
 <!ATTLIST units validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT unitLength (alias | (compoundUnit*, unit*, durationUnit*, special*)) >
+<!ELEMENT unitLength (alias | (compoundUnit*, unit*, special*)) >
 <!ATTLIST unitLength type ( long | short | narrow ) #REQUIRED >
 <!ATTLIST unitLength draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST unitLength references CDATA #IMPLIED >

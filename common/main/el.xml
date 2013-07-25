@@ -5831,10 +5831,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} μοίρα</unitPattern>
-				<unitPattern count="other">{0} μοίρες</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} λεπτό</unitPattern>
 				<unitPattern count="other">{0} λεπτά</unitPattern>
@@ -5842,6 +5838,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} δευτερόλεπτο</unitPattern>
 				<unitPattern count="other">{0} δευτερόλεπτα</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} μοίρα</unitPattern>
+				<unitPattern count="other">{0} μοίρες</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ακρ</unitPattern>
@@ -6076,10 +6076,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} λεπ.</unitPattern>
 				<unitPattern count="other">{0} λεπ.</unitPattern>
@@ -6087,6 +6083,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} δευτ.</unitPattern>
 				<unitPattern count="other">{0} δευτ.</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ac</unitPattern>
@@ -6312,15 +6312,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} λίτ.</unitPattern>
 				<unitPattern count="other">{0} λίτ.</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>ω:λλ</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>ω:λλ:δδ</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>λ:δδ</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -6330,10 +6321,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -6341,6 +6328,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ac</unitPattern>
@@ -6567,6 +6558,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>ω:λλ</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>ω:λλ:δδ</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>λ:δδ</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -6601,3 +6601,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

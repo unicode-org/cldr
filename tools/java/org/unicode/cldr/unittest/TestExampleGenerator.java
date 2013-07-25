@@ -104,7 +104,7 @@ public class TestExampleGenerator extends TestFmwk {
             "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/generic",
             "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/standard",
             "//ldml/dates/timeZoneNames/metazone[@type=\"([^\"]*+)\"]/long/daylight",
-            "//ldml/units/unitLength[@type=\"([^\"]*+)\"]/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern",
+            "//ldml/units/durationUnit[@type=\"([^\"]*+)\"]/durationUnitPattern",
 
             "*"
             ));
@@ -160,7 +160,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestUnits() {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
-        checkValue("Duration hm", "〖5:37〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/durationUnit[@type=\"hm\"]/durationUnitPattern");
+        checkValue("Duration hm", "〖5:37〗", exampleGenerator, "//ldml/units/durationUnit[@type=\"hm\"]/durationUnitPattern");
         checkValue("Length m", "〖❬1❭ meter〗", exampleGenerator, "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"]");
         checkValue("Length m", "〖❬0.5❭ meters〗", exampleGenerator, "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
         checkValue("Length m", "〖❬0.5❭ m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");

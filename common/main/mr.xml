@@ -5139,10 +5139,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} जी-फोर्स</unitPattern>
 				<unitPattern count="other">{0} जी-फोर्स</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} अंश</unitPattern>
-				<unitPattern count="other">{0} अंश</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} मिनिट</unitPattern>
 				<unitPattern count="other">{0} मिनिटे</unitPattern>
@@ -5150,6 +5146,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} सेकंद</unitPattern>
 				<unitPattern count="other">{0} सेकंद</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} अंश</unitPattern>
+				<unitPattern count="other">{0} अंश</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} एकर</unitPattern>
@@ -5384,10 +5384,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} जी</unitPattern>
 				<unitPattern count="other">{0} जी</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} अंश</unitPattern>
-				<unitPattern count="other">{0} अंश</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} मिनि</unitPattern>
 				<unitPattern count="other">{0} मिनि</unitPattern>
@@ -5395,6 +5391,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} सेक</unitPattern>
 				<unitPattern count="other">{0} सेक</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} अंश</unitPattern>
+				<unitPattern count="other">{0} अंश</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} एकर</unitPattern>
@@ -5620,15 +5620,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ली</unitPattern>
 				<unitPattern count="other">{0} ली</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>ता:मि</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>ता:मि:से</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>मि:से</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -5638,10 +5629,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}जी</unitPattern>
 				<unitPattern count="other">{0}जी</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}'</unitPattern>
@@ -5649,6 +5636,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}&quot;</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0}एकर</unitPattern>
@@ -5875,6 +5866,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}ली</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>ता:मि</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>ता:मि:से</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>मि:से</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -5903,3 +5903,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

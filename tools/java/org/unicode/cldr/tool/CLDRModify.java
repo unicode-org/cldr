@@ -1081,26 +1081,13 @@ public class CLDRModify {
             }
         });
 
-        /*
-         * <unit type="day">
-         * <unitPattern count="one">{0} {1}</unitPattern>
-         * <unitName>день</unitName>
-         * <unitName count="few">дні</unitName>
-         * <unitName count="many">днів</unitName>
-         * <unitName count="one">день</unitName>
-         * <unitName count="other">дня</unitName>
-         * <unitName count="other" alt="proposed-x1001" draft="unconfirmed">днів</unitName>
-         * </unit>
-         */
-
-        // comment this away, since it is very special purpose.
-        fixList.add('u', "fix unit patterns", new CLDRFilter() {
+        fixList.add('u', "fix duration unit patterns", new CLDRFilter() {
 
             public void handlePath(String xpath) {
                 if (!xpath.contains("/units")) {
                     return;
                 }
-                if (!xpath.contains("/unitPattern")) {
+                if (!xpath.contains("/durationUnitPattern")) {
                     return;
                 }
 
@@ -1110,14 +1097,10 @@ public class CLDRModify {
                 parts.set(fullXPath);
 
 
-                String unittype = parts.findAttributeValue("unit","type");
-                String count = parts.findAttributeValue("unitPattern","count");
-                boolean hasAltShort = parts.containsAttributeValue("alt", "short");
+                String unittype = parts.findAttributeValue("durationUnit","type");
                 
-                String newFullXpath = "//ldml/units/unitLength[@type=\"" +
-                ( hasAltShort ? "short" : "long" ) + "\"]/unit[@type=\"duration-" + unittype + "\"]" +
-                "/unitPattern[@count=\"" + count + "\"]";
-                replace(fullXPath, newFullXpath, value, "converting to new unit structure");
+                String newFullXpath = "//ldml/units/durationUnit[@type=\"" + unittype + "\"]/durationUnitPattern";
+                replace(fullXPath, newFullXpath, value, "converting to new duration unit structure");
             }
         });
 

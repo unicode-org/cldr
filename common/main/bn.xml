@@ -5510,10 +5510,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} জি-বল</unitPattern>
 				<unitPattern count="other">{0} জি-বল</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}ডিগ্রী</unitPattern>
-				<unitPattern count="other">{0}ডিগ্রী</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}মিনিট</unitPattern>
 				<unitPattern count="other">{0}মিনিট</unitPattern>
@@ -5521,6 +5517,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}সেকেন্ড</unitPattern>
 				<unitPattern count="other">{0}সেকেন্ড</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}ডিগ্রী</unitPattern>
+				<unitPattern count="other">{0}ডিগ্রী</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} একর</unitPattern>
@@ -5755,10 +5755,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} জি-বল</unitPattern>
 				<unitPattern count="other">{0} জি-বল</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}ডিগ্রী</unitPattern>
-				<unitPattern count="other">{0}ডিগ্রী</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}মিনিট</unitPattern>
 				<unitPattern count="other">{0}মিনিট</unitPattern>
@@ -5766,6 +5762,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}সেকেন্ড</unitPattern>
 				<unitPattern count="other">{0}সেকেন্ড</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}ডিগ্রী</unitPattern>
+				<unitPattern count="other">{0}ডিগ্রী</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} একর</unitPattern>
@@ -5991,15 +5991,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} লিটার</unitPattern>
 				<unitPattern count="other">{0} লিটার</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>ঘ:মিমি</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>ঘ:মিমি:সেসে</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>মি:সেসে</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -6009,10 +6000,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} জি-বল</unitPattern>
 				<unitPattern count="other">{0} জি-বল</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}ডিগ্রী</unitPattern>
-				<unitPattern count="other">{0}ডিগ্রী</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}মিনিট</unitPattern>
 				<unitPattern count="other">{0}মিনিট</unitPattern>
@@ -6020,6 +6007,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}সেকেন্ড</unitPattern>
 				<unitPattern count="other">{0}সেকেন্ড</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}ডিগ্রী</unitPattern>
+				<unitPattern count="other">{0}ডিগ্রী</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} একর</unitPattern>
@@ -6246,6 +6237,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} লিটার</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>ঘ:মিমি</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>ঘ:মিমি:সেসে</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>মি:সেসে</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -6274,3 +6274,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

@@ -4362,10 +4362,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} гравитациялық күш</unitPattern>
 				<unitPattern count="other">{0} гравитациялық күш</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}градус</unitPattern>
-				<unitPattern count="other">{0}градус</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}минут</unitPattern>
 				<unitPattern count="other">{0}минут</unitPattern>
@@ -4373,6 +4369,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}секунд</unitPattern>
 				<unitPattern count="other">{0}секунд</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}градус</unitPattern>
+				<unitPattern count="other">{0}градус</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} акр</unitPattern>
@@ -4607,10 +4607,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} грав. күш</unitPattern>
 				<unitPattern count="other">{0} грав. күш</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}градус</unitPattern>
-				<unitPattern count="other">{0}градус</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}мин</unitPattern>
 				<unitPattern count="other">{0}мин</unitPattern>
@@ -4618,6 +4614,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}сек</unitPattern>
 				<unitPattern count="other">{0}сек</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}градус</unitPattern>
+				<unitPattern count="other">{0}градус</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} акр</unitPattern>
@@ -4843,15 +4843,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} л</unitPattern>
 				<unitPattern count="other">{0} л</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>с:мм</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>с:мм:сс</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>м:сс</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -4861,10 +4852,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} г</unitPattern>
 				<unitPattern count="other">{0} г</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -4872,6 +4859,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} акр</unitPattern>
@@ -5098,6 +5089,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} л</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>с:мм</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>с:мм:сс</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>м:сс</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -5126,3 +5126,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

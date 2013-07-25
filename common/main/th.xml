@@ -7270,14 +7270,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="acceleration-g-force">
 				<unitPattern count="other">{0} แรง G</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other">{0} องศา</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other">{0} นาที</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other">{0} วินาที</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0} องศา</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="other">{0} เอเคอร์</unitPattern>
@@ -7455,14 +7455,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="acceleration-g-force">
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other">{0} นาที</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other">{0} วิ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="other">{0} เอเคอร์</unitPattern>
@@ -7632,15 +7632,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-liter">
 				<unitPattern count="other">{0} ลิตร</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>H:mm</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>H:mm:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>m:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -7649,14 +7640,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="acceleration-g-force">
 				<unitPattern count="other">{0}G</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other">{0}นาที</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other">{0}วิ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="other">{0}เอเคอร์</unitPattern>
@@ -7827,6 +7818,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}ลิตร</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>H:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>H:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -7861,3 +7861,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

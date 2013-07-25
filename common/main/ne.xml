@@ -4539,10 +4539,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} गुरूत्वाकर्षण शक्ति</unitPattern>
 				<unitPattern count="other">{0} गुरूत्वाकर्षण शक्ति</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} डिग्री</unitPattern>
-				<unitPattern count="other">{0} डिग्री</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} मिनेट</unitPattern>
 				<unitPattern count="other">{0} मिनेट</unitPattern>
@@ -4550,6 +4546,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} सेकेण्ड</unitPattern>
 				<unitPattern count="other">{0} सेकेण्ड</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} डिग्री</unitPattern>
+				<unitPattern count="other">{0} डिग्री</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} एकर</unitPattern>
@@ -4784,10 +4784,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} गुरूत्वाकर्षण शक्त</unitPattern>
 				<unitPattern count="other">{0} गुरूत्वाकर्षण शक्ति</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} मिनेट</unitPattern>
 				<unitPattern count="other">{0} मिनेट</unitPattern>
@@ -4795,6 +4791,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} सेकेण्ड</unitPattern>
 				<unitPattern count="other">{0} सेकेण्ड</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} एकर</unitPattern>
@@ -5020,15 +5020,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} लि.</unitPattern>
 				<unitPattern count="other">{0} लि.</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>h:mm</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>h:mm:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>m:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -5038,10 +5029,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -5049,6 +5036,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} एकर</unitPattern>
@@ -5275,6 +5266,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} लि.</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -5309,3 +5309,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

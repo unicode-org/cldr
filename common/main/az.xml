@@ -5411,10 +5411,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} g qüvvəsi</unitPattern>
 				<unitPattern count="other">{0} g qüvvəsi</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}dərəcə</unitPattern>
-				<unitPattern count="other">{0}dərəcə</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}dəqiqə</unitPattern>
 				<unitPattern count="other">{0}dəqiqə</unitPattern>
@@ -5422,6 +5418,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}saniyə</unitPattern>
 				<unitPattern count="other">{0}saniyə</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}dərəcə</unitPattern>
+				<unitPattern count="other">{0}dərəcə</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} akr</unitPattern>
@@ -5656,10 +5656,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}dər</unitPattern>
-				<unitPattern count="other">{0}dər</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}dəq</unitPattern>
 				<unitPattern count="other">{0}dəq</unitPattern>
@@ -5667,6 +5663,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}san</unitPattern>
 				<unitPattern count="other">{0}san</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}dər</unitPattern>
+				<unitPattern count="other">{0}dər</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ak</unitPattern>
@@ -5892,15 +5892,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>s:dd</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>s:dd:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>d:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -5910,10 +5901,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -5921,6 +5908,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ak</unitPattern>
@@ -6147,6 +6138,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>s:dd</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>s:dd:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>d:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -6175,3 +6175,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

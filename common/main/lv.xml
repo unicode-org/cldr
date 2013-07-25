@@ -5487,11 +5487,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">Brīvās krišanas paātrinājums: {0}</unitPattern>
 				<unitPattern count="other">Brīvās krišanas paātrinājums: {0}</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="zero">{0} grādi</unitPattern>
-				<unitPattern count="one">{0} grāds</unitPattern>
-				<unitPattern count="other">{0} grādi</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="zero">{0} minūtes</unitPattern>
 				<unitPattern count="one">{0} minūte</unitPattern>
@@ -5501,6 +5496,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero">{0} sekundes</unitPattern>
 				<unitPattern count="one">{0} sekunde</unitPattern>
 				<unitPattern count="other">{0} sekundes</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero">{0} grādi</unitPattern>
+				<unitPattern count="one">{0} grāds</unitPattern>
+				<unitPattern count="other">{0} grādi</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="zero">{0} akri</unitPattern>
@@ -5792,11 +5792,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="zero">{0}°</unitPattern>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="zero">{0} min</unitPattern>
 				<unitPattern count="one">{0} min</unitPattern>
@@ -5806,6 +5801,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero">{0} s</unitPattern>
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero">{0}°</unitPattern>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="zero">{0} ac</unitPattern>
@@ -6087,15 +6087,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>h:mm</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>h:mm:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>m:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -6106,11 +6097,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}g</unitPattern>
 				<unitPattern count="other">{0}g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="zero">{0}°</unitPattern>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="zero">{0}′</unitPattern>
 				<unitPattern count="one">{0}′</unitPattern>
@@ -6120,6 +6106,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="zero">{0}″</unitPattern>
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="zero">{0}°</unitPattern>
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="zero">{0}ac</unitPattern>
@@ -6402,6 +6393,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}l</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -6436,3 +6436,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

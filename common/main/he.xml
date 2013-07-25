@@ -5388,12 +5388,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} כוח ג'י</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} כוח ג'י</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">מעלה {0}</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} מעלות</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} מעלות</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} מעלות</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} דקות</unitPattern>
@@ -5405,6 +5399,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} שניות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שניות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שניות</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">מעלה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מעלות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מעלות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מעלות</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one" draft="contributed">אקר {0}</unitPattern>
@@ -5753,12 +5753,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} g</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">מעלה {0}</unitPattern>
-				<unitPattern count="two" draft="contributed">{0} מעלות</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} מעלות</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} מעלות</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} דקות</unitPattern>
@@ -5770,6 +5764,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} שניות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שניות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שניות</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">מעלה {0}</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} מעלות</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} מעלות</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} מעלות</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one" draft="contributed">אקר {0}</unitPattern>
@@ -6107,15 +6107,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} ל'</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ל'</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern draft="contributed">h:mm</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern draft="contributed">h:mm:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern draft="contributed">m:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -6126,12 +6117,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} g</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} g</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
-			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
@@ -6144,6 +6129,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="two" draft="contributed">{0} שנ'</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שנ'</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שנ'</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="two" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one" draft="contributed">אקר {0}</unitPattern>
@@ -6482,6 +6473,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0} ל'</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -6498,3 +6498,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

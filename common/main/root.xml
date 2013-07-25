@@ -2518,10 +2518,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<symbols numberSystem="bali">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
-		<symbols numberSystem="brah">
+		<symbols numberSystem="beng">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
-		<symbols numberSystem="beng">
+		<symbols numberSystem="brah">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
 		<symbols numberSystem="cakm">
@@ -2607,10 +2607,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
 		<symbols numberSystem="orya">
-		<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
 		<symbols numberSystem="osma">
-		<alias source="locale" path="../symbols[@numberSystem='latn']"/>
+			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
 		</symbols>
 		<symbols numberSystem="saur">
 			<alias source="locale" path="../symbols[@numberSystem='latn']"/>
@@ -3544,14 +3544,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="acceleration-g-force">
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="other">{0} ac</unitPattern>
@@ -3721,19 +3721,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-liter">
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>h:mm</durationUnitPattern> <!-- 33:59 -->
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>h:mm:ss</durationUnitPattern> <!-- 33:04:59 -->
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>m:ss</durationUnitPattern> <!-- 33:59 -->
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<alias source="locale" path="../unitLength[@type='short']"/>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern> <!-- 33:59 -->
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern> <!-- 33:04:59 -->
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern> <!-- 33:59 -->
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -3745,11 +3745,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<listPattern type="duration">
 			<alias source="locale" path="../listPattern[@type='duration-short']"/>
 		</listPattern>
-		<listPattern type="duration-short">
-			<alias source="locale" path="../listPattern"/>
-		</listPattern>
 		<listPattern type="duration-narrow">
 			<alias source="locale" path="../listPattern[@type='duration-short']"/>
+		</listPattern>
+		<listPattern type="duration-short">
+			<alias source="locale" path="../listPattern"/>
 		</listPattern>
 	</listPatterns>
 	<posix>

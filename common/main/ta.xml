@@ -4899,10 +4899,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ஜி-ஃபோர்ஸ்</unitPattern>
 				<unitPattern count="other">{0} ஜி-ஃபோர்ஸ்</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}டிகிரி</unitPattern>
-				<unitPattern count="other">{0}டிகிரி</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}நிமிடம்</unitPattern>
 				<unitPattern count="other">{0}நிமிடங்கள்</unitPattern>
@@ -4910,6 +4906,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}விநாடி</unitPattern>
 				<unitPattern count="other">{0}விநாடிகள்</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}டிகிரி</unitPattern>
+				<unitPattern count="other">{0}டிகிரி</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ஏக்கர்</unitPattern>
@@ -5144,10 +5144,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ஜி.ஃபோ.</unitPattern>
 				<unitPattern count="other">{0} ஜி.ஃபோ.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}நிமி.</unitPattern>
 				<unitPattern count="other">{0}நிமி.</unitPattern>
@@ -5155,6 +5151,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}வி.</unitPattern>
 				<unitPattern count="other">{0}வி.</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ஏக்.</unitPattern>
@@ -5380,15 +5380,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} லி.</unitPattern>
 				<unitPattern count="other">{0} லி.</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>ம.நே:நிமி</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>மநே:நிமி:வி</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>மநே:வி</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -5398,10 +5389,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ஜி.ஃபோ.</unitPattern>
 				<unitPattern count="other">{0} ஜி.ஃபோ.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}நிமி.</unitPattern>
 				<unitPattern count="other">{0}நிமி.</unitPattern>
@@ -5409,6 +5396,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}வி.</unitPattern>
 				<unitPattern count="other">{0}வி.</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ஏக்.</unitPattern>
@@ -5635,6 +5626,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} லி.</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>ம.நே:நிமி</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>மநே:நிமி:வி</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>மநே:வி</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -5651,3 +5651,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

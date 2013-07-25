@@ -5167,10 +5167,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} గు-శక్తి</unitPattern>
 				<unitPattern count="other">{0} గు-శక్తి</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} డిగ్రీ</unitPattern>
-				<unitPattern count="other">{0} డిగ్రీలు</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} నిమిషం</unitPattern>
 				<unitPattern count="other">{0} నిమిషాలు</unitPattern>
@@ -5178,6 +5174,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} సెకను</unitPattern>
 				<unitPattern count="other">{0} సెకన్లు</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} డిగ్రీ</unitPattern>
+				<unitPattern count="other">{0} డిగ్రీలు</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ఎకరం</unitPattern>
@@ -5412,10 +5412,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} గు</unitPattern>
 				<unitPattern count="other">{0} గు</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} డి.</unitPattern>
-				<unitPattern count="other">{0} డి.</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} నిమి.</unitPattern>
 				<unitPattern count="other">{0} నిమి.</unitPattern>
@@ -5423,6 +5419,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} సెక.</unitPattern>
 				<unitPattern count="other">{0} సెక.</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} డి.</unitPattern>
+				<unitPattern count="other">{0} డి.</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ఎక.</unitPattern>
@@ -5648,15 +5648,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} లీ.</unitPattern>
 				<unitPattern count="other">{0} లీ.</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>గం:నిని</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>గం:నిని:సెసె</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>ని:సెసె</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -5666,10 +5657,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} గు</unitPattern>
 				<unitPattern count="other">{0} గు</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -5677,6 +5664,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ఎక.</unitPattern>
@@ -5903,6 +5894,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} లీ.</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>గం:నిని</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>గం:నిని:సెసె</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>ని:సెసె</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -5919,3 +5919,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

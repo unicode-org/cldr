@@ -5515,10 +5515,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one" draft="contributed">{0} गु–बल</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} गु–बल</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0} अंश</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} अंश</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">{0} मिनट</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} मिनट</unitPattern>
@@ -5526,6 +5522,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one" draft="contributed">{0}सेकंड</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}सेकंड</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0} अंश</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} अंश</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one" draft="contributed">{0} एकड़</unitPattern>
@@ -5760,10 +5760,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} गु.</unitPattern>
 				<unitPattern count="other">{0} गु.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} अंश</unitPattern>
-				<unitPattern count="other">{0} अंश</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} मि</unitPattern>
 				<unitPattern count="other">{0} मि</unitPattern>
@@ -5771,6 +5767,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} से.</unitPattern>
 				<unitPattern count="other">{0} से.</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} अंश</unitPattern>
+				<unitPattern count="other">{0} अंश</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} एकड़</unitPattern>
@@ -5996,15 +5996,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ली.</unitPattern>
 				<unitPattern count="other">{0} ली.</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern draft="contributed">h:mm</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern draft="contributed">h:mm:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern draft="contributed">m:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -6014,10 +6005,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}गु.</unitPattern>
 				<unitPattern count="other">{0}गु.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -6025,6 +6012,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0}एकड़</unitPattern>
@@ -6251,6 +6242,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}ली.</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -6279,3 +6279,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

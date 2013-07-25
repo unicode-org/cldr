@@ -6542,12 +6542,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} сил тяжіння</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} сили тяжіння</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0} градус</unitPattern>
-				<unitPattern count="few" draft="contributed">{0} градуси</unitPattern>
-				<unitPattern count="many" draft="contributed">{0} градусів</unitPattern>
-				<unitPattern count="other" draft="contributed">{0} градуса</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">{0} мінута</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мінути</unitPattern>
@@ -6559,6 +6553,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} секунди</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} секунд</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} секунди</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0} градус</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} градуси</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} градусів</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} градуса</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one" draft="contributed">{0} акр</unitPattern>
@@ -6907,12 +6907,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} g</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">{0} мін.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мін.</unitPattern>
@@ -6924,6 +6918,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} сек.</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} сек.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} сек.</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one" draft="contributed">{0} акр</unitPattern>
@@ -7261,15 +7261,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="many" draft="contributed">{0} л</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} л</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern draft="contributed">h:mm</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern draft="contributed">h:mm:ss</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern draft="contributed">m:ss</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -7280,12 +7271,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} g</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} g</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
-			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
-				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
@@ -7298,6 +7283,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one" draft="contributed">{0} акр</unitPattern>
@@ -7636,6 +7627,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0} л</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -7664,3 +7664,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

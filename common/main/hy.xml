@@ -4464,10 +4464,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ձգողության ուժի արագացում</unitPattern>
 				<unitPattern count="other">{0} ձգողության ուժի արագացում</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} աստիճան</unitPattern>
-				<unitPattern count="other">{0} աստիճան</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} րոպե</unitPattern>
 				<unitPattern count="other">{0} րոպե</unitPattern>
@@ -4475,6 +4471,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} վայրկյան</unitPattern>
 				<unitPattern count="other">{0} վայրկյան</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} աստիճան</unitPattern>
+				<unitPattern count="other">{0} աստիճան</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ակր</unitPattern>
@@ -4709,10 +4709,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} աստճ.</unitPattern>
-				<unitPattern count="other">{0} աստճ.</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} րոպ</unitPattern>
 				<unitPattern count="other">{0} րոպ</unitPattern>
@@ -4720,6 +4716,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} վրկ</unitPattern>
 				<unitPattern count="other">{0} վրկ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} աստճ.</unitPattern>
+				<unitPattern count="other">{0} աստճ.</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ակր</unitPattern>
@@ -4945,15 +4945,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} լ.</unitPattern>
 				<unitPattern count="other">{0} լ.</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>ժ:րր</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>ժ:րր:վվ</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>ր:վվ</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -4963,10 +4954,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}g</unitPattern>
 				<unitPattern count="other">{0}g</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
@@ -4974,6 +4961,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0}ակր</unitPattern>
@@ -5200,6 +5191,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}լ.</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>ժ:րր</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>ժ:րր:վվ</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>ր:վվ</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -5228,3 +5228,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

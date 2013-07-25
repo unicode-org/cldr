@@ -4797,10 +4797,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಜಿ-ಫೋರ್ಸ್</unitPattern>
 				<unitPattern count="other">{0} ಜಿ-ಫೋರ್ಸ್</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}ಡಿಗ್ರಿ</unitPattern>
-				<unitPattern count="other">{0}ಡಿಗ್ರಿಗಳು</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}ನಿಮಿಷ</unitPattern>
 				<unitPattern count="other">{0}ನಿಮಿಷಗಳು</unitPattern>
@@ -4808,6 +4804,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} ಸೆಕೆಂಡ್</unitPattern>
 				<unitPattern count="other">{0} ಸೆಕೆಂಡುಗಳು</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}ಡಿಗ್ರಿ</unitPattern>
+				<unitPattern count="other">{0}ಡಿಗ್ರಿಗಳು</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ಎಕರೆ</unitPattern>
@@ -5042,10 +5042,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಜಿ-ಫೋ.</unitPattern>
 				<unitPattern count="other">{0} ಜಿ-ಫೋ.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0} ಡಿ.</unitPattern>
-				<unitPattern count="other">{0} ಡಿ.</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} ನಿ.</unitPattern>
 				<unitPattern count="other">{0} ನಿ.</unitPattern>
@@ -5053,6 +5049,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0} ಸೆಕೆಂ</unitPattern>
 				<unitPattern count="other">{0} ಸೆಕೆಂ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0} ಡಿ.</unitPattern>
+				<unitPattern count="other">{0} ಡಿ.</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ಎಕ.</unitPattern>
@@ -5278,15 +5278,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ಲೀ</unitPattern>
 				<unitPattern count="other">{0} ಲೀ</unitPattern>
 			</unit>
-			<durationUnit type="hm">
-				<durationUnitPattern>ಗಂ:ನಿನಿ</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="hms">
-				<durationUnitPattern>ಗಂ:ನಿನಿ:ಸೆಸೆ</durationUnitPattern>
-			</durationUnit>
-			<durationUnit type="ms">
-				<durationUnitPattern>ನಿ:ಸೆಸೆ</durationUnitPattern>
-			</durationUnit>
 		</unitLength>
 		<unitLength type="narrow">
 			<compoundUnit type="per">
@@ -5296,10 +5287,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}ಜಿ-ಫೋ.</unitPattern>
 				<unitPattern count="other">{0}ಜಿ-ಫೋ.</unitPattern>
 			</unit>
-			<unit type="angle-degree">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}ನಿ.</unitPattern>
 				<unitPattern count="other">{0}ನಿ.</unitPattern>
@@ -5307,6 +5294,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="angle-arc-second">
 				<unitPattern count="one">{0}ಸೆಕೆಂ</unitPattern>
 				<unitPattern count="other">{0}ಸೆಕೆಂ</unitPattern>
+			</unit>
+			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
+				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
 				<unitPattern count="one">{0} ಎಕ.</unitPattern>
@@ -5509,6 +5500,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}ಲೀ</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>ಗಂ:ನಿನಿ</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>ಗಂ:ನಿನಿ:ಸೆಸೆ</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>ನಿ:ಸೆಸೆ</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -5525,3 +5525,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

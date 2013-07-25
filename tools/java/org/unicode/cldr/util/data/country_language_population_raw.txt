@@ -71,7 +71,7 @@ Belize	BZ	"301,270"	77%	"2,444,000,000"		Spanish	es	28%
 Benin	BJ	"8,532,547"	35%	"12,100,000,000"		Fon	fon	25%			
 Benin	BJ	"8,532,547"	35%	"12,100,000,000"	official	French	fr	35%			
 Benin	BJ	"8,532,547"	35%	"12,100,000,000"		Yoruba	yo	6.70%			
-Bermuda	BM	"66,536"	98%	"4,500,000,000"	de_facto_official	English	en	92%			
+Bermuda	BM	"66,536"	98%	"4,500,000,000"	official	English	en	92%			
 Bhutan	BT	"682,321"	47%	"3,359,000,000"	official	Dzongkha	dz	47%			
 Bhutan	BT	"682,321"	47%	"3,359,000,000"		Lepcha	lep	3.90%			
 Bhutan	BT	"682,321"	47%	"3,359,000,000"		Nepali	ne	17%			
@@ -100,7 +100,7 @@ Brazil	BR	"196,342,592"	89%	"1,836,000,000,000"		Korean	ko	"40,600"
 Brazil	BR	"196,342,592"	89%	"1,836,000,000,000"	official	Portuguese	pt	91%	89%		
 Brazil	BR	"196,342,592"	89%	"1,836,000,000,000"		Xavánte	xav	"10,000"			
 British Indian Ocean Territory	IO	3500	0%	0	official	English	en	100%	100%	https://www.cia.gov/cia/publications/factbook/geos/io.html No indigenous inhabitants. http://en.wikipedia.org/wiki/British_Indian_Ocean_Territory	
-British Virgin Islands	VG	"24,041"	98%	"853,400,000"	de_facto_official	English	en	98%			
+British Virgin Islands	VG	"24,041"	98%	"853,400,000"	official	English	en	98%			
 Brunei	BN	"381,371"	93%	"19,640,000,000"		Chinese (Traditional Han)	zh_Hant	11%			
 Brunei	BN	"381,371"	93%	"19,640,000,000"		English	en	"8,000"			
 Brunei	BN	"381,371"	93%	"19,640,000,000"	official	Malay	ms_Arab	5%		"http://en.wikipedia.org/wiki/Languages_of_Brunei Modern use of Arabic (Jawi) seems to be minimal, but is co-official with ms_Latn; set to 5% for now."	
@@ -164,7 +164,7 @@ Canada	CA	"33,212,696"	99%	"1,266,000,000,000"		Yiddish	yi	"15,000"		http://en.w
 Canary Islands	IC	"2,098,593"	98%	"71,360,000,000"	official	Spanish	es	98%		http://en.wikipedia.org/wiki/Canary_islands	http://en.wikipedia.org/wiki/Cape_Verdean_Creole
 Cape Verde	CV	"426,998"	77%	"1,603,000,000"		Cape Verdean Creole	kea	92%		"http://www.ethnologue.com/show_country.asp?name=CV Official language, 37-77% literacy"	http://en.wikipedia.org/wiki/Cape_Verdean_Creole
 Cape Verde	CV	"426,998"	77%	"1,603,000,000"	official	Portuguese	pt	76.00%			
-Cayman Islands	KY	"47,862"	98%	"1,939,000,000"	de_facto_official	English	en	98%			
+Cayman Islands	KY	"47,862"	98%	"1,939,000,000"	official	English	en	98%			
 Central African Republic	CF	"4,444,330"	49%	"3,099,000,000"	official	French	fr	49.00%			
 Central African Republic	CF	"4,444,330"	49%	"3,099,000,000"		Lingala	ln	"10,700"			
 Central African Republic	CF	"4,444,330"	49%	"3,099,000,000"	official	Sango	sg	49%		http://www.ethnologue.com/show_language.asp?code=sag Ethnologue: 350k in CAF + 1.6 million 2nd lang speakers	
@@ -224,7 +224,7 @@ Czech Republic	CZ	"10,220,911"	99%	"248,900,000,000"	official	Czech	cs	98%
 Czech Republic	CZ	"10,220,911"	99%	"248,900,000,000"		German	de	"50,100"			
 Czech Republic	CZ	"10,220,911"	99%	"248,900,000,000"		Polish	pl	"50,100"			
 Denmark	DK	"5,484,723"	99%	"203,700,000,000"	official	Danish	da	93%			
-Denmark	DK	"5,484,723"	99%	"203,700,000,000"		German	de	"23,400"			
+Denmark	DK	"5,484,723"	99%	"203,700,000,000"	official_regional	German	de	"23,400"		"protected minority, southern Jutland"	
 Denmark	DK	"5,484,723"	99%	"203,700,000,000"	official_regional	Kalaallisut	kl	"7,000"			
 Diego Garcia	DG	500	98%	"18,250,000"	de_facto_official	English	en	99%		http://en.wikipedia.org/wiki/Diego_Garcia	
 Djibouti	DJ	"506,221"	68%	"1,738,000,000"		Afar	aa	42%			
@@ -246,8 +246,9 @@ Equatorial Guinea	GQ	"616,459"	87%	"15,540,000,000"	official	French	fr	8.80%		ht
 Equatorial Guinea	GQ	"616,459"	87%	"15,540,000,000"		Seki	syi	"13,400"			
 Equatorial Guinea	GQ	"616,459"	87%	"15,540,000,000"	official	Spanish	es	87%		"http://en.wikipedia.org/wiki/Equatorial_guinea#Official_languages The great majority of Equatorial Guineans speak Spanish, especially those living in the capital, Malabo. Spanish has been an official language since 1844."	
 Eritrea	ER	"5,502,026"	59%	"3,619,000,000"		Afar	aa	3.60%			
-Eritrea	ER	"5,502,026"	59%	"3,619,000,000"	de_facto_official	Arabic	ar	4.90%	5%	"http://www.ethnologue.com/show_country.asp?name=ER Official language, used in some schools."	
+Eritrea	ER	"5,502,026"	59%	"3,619,000,000"	official	Arabic	ar	4.90%	5%	"http://www.ethnologue.com/show_country.asp?name=ER Official language, used in some schools."	
 Eritrea	ER	"5,502,026"	59%	"3,619,000,000"		Blin	byn	"70,000"		http://en.wikipedia.org/wiki/Blin_language	
+Eritrea	ER	"5,502,026"	59%	"3,619,000,000"	official	English	en	59%		etimate only based on literacy; no population data currently available	
 Eritrea	ER	"5,502,026"	59%	"3,619,000,000"		Saho	ssy	3.60%		http://en.wikipedia.org/wiki/Saho_language	
 Eritrea	ER	"5,502,026"	59%	"3,619,000,000"		Tigre	tig	18%			
 Eritrea	ER	"5,502,026"	59%	"3,619,000,000"	de_facto_official	Tigrinya	ti	60%		http://en.wikipedia.org/wiki/Eritrea#Languages Tigrinya ethnic pop is about 60%	
@@ -261,7 +262,7 @@ Ethiopia	ET	"82,544,840"	43%	"62,190,000,000"		Sidamo	sid	3.50%
 Ethiopia	ET	"82,544,840"	43%	"62,190,000,000"		Somali	so	6.00%			
 Ethiopia	ET	"82,544,840"	43%	"62,190,000,000"		Tigrinya	ti	6.00%			
 Ethiopia	ET	"82,544,840"	43%	"62,190,000,000"		Walamo	wal	"1,450,000"			
-Falkland Islands	FK	"3,140"	99%	"75,000,000"	de_facto_official	English	en	99%			
+Falkland Islands	FK	"3,140"	99%	"75,000,000"	official	English	en	99%			
 Faroe Islands	FO	"48,668"	99%	"1,000,000,000"	official	Faroese	fo	95%			
 Fiji	FJ	"931,741"	94%	"5,079,000,000"	official	English	en	94%			
 Fiji	FJ	"931,741"	94%	"5,079,000,000"	official	Fijian	fj	39%			
@@ -339,7 +340,7 @@ Guadeloupe	GP	"452,776"	90%	"3,513,000,000"	official	French	fr	90%		http://www.e
 Guam	GU	"175,877"	99%	"2,500,000,000"	official	Chamorro	ch	22%			
 Guam	GU	"175,877"	99%	"2,500,000,000"	de_facto_official	English	en	38%			
 Guatemala	GT	"13,002,206"	69%	"62,530,000,000"	official	Spanish	es	93%		http://en.wikipedia.org/wiki/Guatemala#Language https://www.cia.gov/cia/publications/factbook/geos/gt.html Spanish official	
-Guernsey	GG	"65,726"	100%	"2,742,000,000"	de_facto_official	English	en	100%			
+Guernsey	GG	"65,726"	100%	"2,742,000,000"	official	English	en	100%			
 Guinea	GN	"9,806,509"	29%	"10,690,000,000"	official	French	fr	29%		No figures found for use of French. Used literacy 29.5% times population to get the writing pop; French is the only official language.	
 Guinea	GN	"9,806,509"	29%	"10,690,000,000"		Fulah	ff	"2,550,000"			
 Guinea	GN	"9,806,509"	29%	"10,690,000,000"		Kpelle	kpe	3.80%			
@@ -382,6 +383,7 @@ India	IN	"1,147,995,904"	61%	"2,989,000,000,000"		Divehi	dv	"4,500"
 India	IN	"1,147,995,904"	61%	"2,989,000,000,000"		Dogri	doi	"2,240,000"			
 India	IN	"1,147,995,904"	61%	"2,989,000,000,000"		Dzongkha	dz	"3,000"			
 India	IN	"1,147,995,904"	61%	"2,989,000,000,000"	official	English	en	11%		http://www.ciil.org/Main/Announcement/MBE_Programme/paper/paper2.htm http://www.censusindia.net/cendat/datatable26.html	
+India	IN	"1,147,995,904"	61%	"2,989,000,000,000"	official_regional	French	fr	1%		"French regionally official in Puducherry/Pondicherry, no pop data currently available"	
 India	IN	"1,147,995,904"	61%	"2,989,000,000,000"		Garhwali	gbm	"3,100,000"			
 India	IN	"1,147,995,904"	61%	"2,989,000,000,000"		Garo	grt	"611,000"			
 India	IN	"1,147,995,904"	61%	"2,989,000,000,000"		Gondi	gon_Telu	"2,800,000"			
@@ -489,7 +491,7 @@ Iraq	IQ	"28,221,180"	74%	"102,300,000,000"		Persian	fa	"246,000"
 Iraq	IQ	"28,221,180"	74%	"102,300,000,000"		Syriac	syr	"140,000"		"http://www.ethnologue.com/show_language.asp?code=cld (""syr"" is a macrolang containing ""cld"" and ""aii"")"	
 Ireland	IE	"4,156,119"	99%	"186,200,000,000"	official	English	en	94%		http://ec.europa.eu/public_opinion/archives/ebs/ebs_243_en.pdf	
 Ireland	IE	"4,156,119"	99%	"186,200,000,000"	official	Irish	ga	11%		http://www.cso.ie/census/documents/Final%20Principal%20Demographic%20Results%202006.pdf	See also http://www.taoiseach.gov.ie/index.asp?locID=199&docID=3104 
-Isle of Man	IM	"76,220"	99%	"2,719,000,000"	de_facto_official	English	en	100%			
+Isle of Man	IM	"76,220"	99%	"2,719,000,000"	official	English	en	100%			
 Isle of Man	IM	"76,220"	99%	"2,719,000,000"	official	Manx	gv	"1,690"			
 Israel	IL	"7,112,359"	97%	"185,900,000,000"		Amharic	am	"41,900"			
 Israel	IL	"7,112,359"	97%	"185,900,000,000"	official	Arabic	ar	20%			
@@ -505,14 +507,14 @@ Israel	IL	"7,112,359"	97%	"185,900,000,000"		Yiddish	yi	"215,000"
 Italy	IT	"58,145,320"	98%	"1,786,000,000,000"		Catalan	ca	"20,200"			
 Italy	IT	"58,145,320"	98%	"1,786,000,000,000"		Croatian	hr	"3,500"			
 Italy	IT	"58,145,320"	98%	"1,786,000,000,000"		English	en	24%			
-Italy	IT	"58,145,320"	98%	"1,786,000,000,000"		French	fr	"101,000"			
+Italy	IT	"58,145,320"	98%	"1,786,000,000,000"	official_regional	French	fr	"101,000"		Aosta Valley	
 Italy	IT	"58,145,320"	98%	"1,786,000,000,000"		Friulian	fur	"802,000"	5%	5% mainly spoken; 5% writing pop estimated in absence of other data; most speakers also speak Italian	
-Italy	IT	"58,145,320"	98%	"1,786,000,000,000"		German	de	"227,000"			
+Italy	IT	"58,145,320"	98%	"1,786,000,000,000"	recognized	German	de	"227,000"		co-official in South Tyrol	
 Italy	IT	"58,145,320"	98%	"1,786,000,000,000"		Greek	el	"20,200"			
 Italy	IT	"58,145,320"	98%	"1,786,000,000,000"	official	Italian	it	95%			
 Italy	IT	"58,145,320"	98%	"1,786,000,000,000"		Neapolitan	nap	12%	5%	5% writing pop estimated in absence of other data; literacy rate reported at 12%	
 Italy	IT	"58,145,320"	98%	"1,786,000,000,000"		Sicilian	scn	8.40%	5%	5% writing pop estimated in absence of other data; literacy rate reported at ~8%	
-Italy	IT	"58,145,320"	98%	"1,786,000,000,000"		Slovenian	sl	"101,000"			
+Italy	IT	"58,145,320"	98%	"1,786,000,000,000"	recognized	Slovenian	sl	"101,000"		in Trieste and  Gorizia	
 Ivory Coast	CI	"20,179,602"	49%	"32,180,000,000"		Baoulé	bci	"2,130,000"	10%		
 Ivory Coast	CI	"20,179,602"	49%	"32,180,000,000"		Begbere-Ejar	bqv	"35,000"	10%		
 Ivory Coast	CI	"20,179,602"	49%	"32,180,000,000"		Cebaara Senoufo	sef	"862,000"	5%		
@@ -523,7 +525,7 @@ Jamaica	JM	"2,804,332"	88%	"20,670,000,000"	official	English	en	98%
 Japan	JP	"127,288,416"	99%	"4,290,000,000,000"		Central Okinawan	ryu	"979,000"	5%	5% writing pop estimated in absence of other data; Japanese is lingua franca here	
 Japan	JP	"127,288,416"	99%	"4,290,000,000,000"	official	Japanese	ja	95%			
 Japan	JP	"127,288,416"	99%	"4,290,000,000,000"		Korean	ko	"666,000"			
-Jersey	JE	"91,533"	99%	"5,100,000,000"	de_facto_official	English	en	95%			
+Jersey	JE	"91,533"	99%	"5,100,000,000"	official	English	en	95%			
 Jordan	JO	"6,198,677"	90%	"27,990,000,000"	official	Arabic	ar	100%		"http://memory.loc.gov/cgi-bin/query/r?frd/cstdy:@field(DOCID+jo0039) says: All Jordanians, regardless of ethnicity or religion, speak Arabic, the official language of Jordan"	
 Kazakhstan	KZ	"15,340,533"	100%	"167,600,000,000"		German	de	6.40%			
 Kazakhstan	KZ	"15,340,533"	100%	"167,600,000,000"	official	Kazakh (Cyrillic)	kk_Cyrl	64%		https://www.cia.gov/cia/publications/factbook/geos/kz.html CIA Factbook entry on Kazakhstan	
@@ -666,7 +668,7 @@ Mongolia	MN	"2,996,081"	98%	"8,420,000,000"		Russian	ru	"4,000"
 Mongolia	MN	"2,996,081"	98%	"8,420,000,000"		Uighur	ug_Cyrl	"1,000"			
 Montenegro	ME	"678,177"	96%	"5,918,000,000"		Albanian	sq	7.90%			
 Montenegro	ME	"678,177"	96%	"5,918,000,000"	official	Serbian (Latin)	sr_Latn	100%			
-Montserrat	MS	"5,079"	97%	"29,000,000"	de_facto_official	English	en	100%			
+Montserrat	MS	"5,079"	97%	"29,000,000"	official	English	en	100%			
 Morocco	MA	"34,343,220"	52%	"125,300,000,000"	official	Arabic	ar	62%			
 Morocco	MA	"34,343,220"	52%	"125,300,000,000"	official	Central Atlas Tamazight	tzm_Latn	9.80%			
 Morocco	MA	"34,343,220"	52%	"125,300,000,000"	de_facto_official	French	fr	20%		"http://www.ethnologue.com/show_country.asp?name=MA Ethnologue says 80k users of French. No other figures found yet, but this seems too low."	"http://en.wikipedia.org/wiki/Morocco Most of the 100,000 foreign residents are French or Spanish; French, which remains Morocco's unofficial second language, is taught universally and still serves as Morocco's primary language of commerce and economics"
@@ -829,10 +831,11 @@ Philippines	PH	"96,061,680"	93%	"299,600,000,000"		Spanish	es	31%
 Philippines	PH	"96,061,680"	93%	"299,600,000,000"		Tagbanwa	tbw	"10,000"	36%	http://www.ethnologue.com/show_language.asp?code=tbw	
 Philippines	PH	"96,061,680"	93%	"299,600,000,000"	official_regional	Tausug	tsg	"1,040,000"			
 Philippines	PH	"96,061,680"	93%	"299,600,000,000"	official_regional	Waray	war	"2,820,000"			
-Pitcairn	PN	48	0%	0	de_facto_official	English	en	46			
+Pitcairn	PN	48	0%	0	official	English	en	46			
 Poland	PL	"38,500,696"	100%	"620,900,000,000"		Belarusian	be	"222,000"			
-Poland	PL	"38,500,696"	100%	"620,900,000,000"		German	de	"504,000"			
+Poland	PL	"38,500,696"	100%	"620,900,000,000"	official_regional	German	de	"504,000"		in part of Opole Voivodeship	
 Poland	PL	"38,500,696"	100%	"620,900,000,000"	official_regional	Kashubian	csb	"50,000"		"http://ec.europa.eu/education/languages/archive/languages/langmin/euromosaic/pol3_en.html - regional lang community status, taught in some schools"	
+Poland	PL	"38,500,696"	100%	"620,900,000,000"	official_regional	Lithuanian	lt	"8,000"		"http://en.wikipedia.org/wiki/Lithuanian_minority_in_Poland , Podlaskie Voivodeship "	
 Poland	PL	"38,500,696"	100%	"620,900,000,000"	official	Polish	pl	96%			
 Poland	PL	"38,500,696"	100%	"620,900,000,000"		Ukrainian	uk	"151,000"			
 Portugal	PT	"10,676,910"	93%	"230,500,000,000"		Galician	gl	"15,400"			
@@ -855,6 +858,7 @@ Romania	RO	"22,246,862"	97%	"245,500,000,000"		Serbian (Latin)	sr_Latn	"27,400"
 Romania	RO	"22,246,862"	97%	"245,500,000,000"		Turkish	tr	"29,200"			
 Russia	RU	"140,702,096"	99%	"2,088,000,000,000"	official_regional	Adyghe	ady	"123,000"			
 Russia	RU	"140,702,096"	99%	"2,088,000,000,000"	official_regional	Avaric	av	"547,000"			
+Russia	RU	"140,702,096"	99%	"2,088,000,000,000"	official_regional	Azerbaijani (Cyrillic)	az_Cyrl	"130,000"		"http://en.wikipedia.org/wiki/Azerbaijanis_in_Russia regional in Dagestan, population estimate"	
 Russia	RU	"140,702,096"	99%	"2,088,000,000,000"	official_regional	Bashkir	ba	"1,770,000"			
 Russia	RU	"140,702,096"	99%	"2,088,000,000,000"		Buriat	bua	"313,000"			
 Russia	RU	"140,702,096"	99%	"2,088,000,000,000"	official_regional	Chechen	ce	"929,000"			
@@ -887,7 +891,7 @@ Rwanda	RW	"10,186,063"	70%	"8,440,000,000"	official	English	en	300		"https://www
 Rwanda	RW	"10,186,063"	70%	"8,440,000,000"	official	French	fr	"2,300"			
 Rwanda	RW	"10,186,063"	70%	"8,440,000,000"	official	Kinyarwanda	rw	77%			
 Saint Barthélemy	BL	"7,492"	99%	"255,000,000"	official	French	fr	"6,850"			
-Saint Helena	SH	"7,601"	97%	"18,000,000"	de_facto_official	English	en	"5,400"			
+Saint Helena	SH	"7,601"	97%	"18,000,000"	official	English	en	"5,400"			
 Saint Kitts and Nevis	KN	"39,817"	98%	"721,000,000"	official	English	en	98.00%			
 Saint Lucia	LC	"159,585"	90%	"1,794,000,000"	official	English	en	90%			
 Saint Martin	MF	"29,376"	99%	"449,000,000"	official	French	fr	100%			
@@ -905,7 +909,7 @@ Senegal	SN	"12,853,259"	39%	"20,600,000,000"		Fulah	ff	"2,740,000"			https://www
 Senegal	SN	"12,853,259"	39%	"20,600,000,000"		Serer	srr	11%		"http://en.wikipedia.org/wiki/Senegal 50k Europeans, mostly French. The figure for writing population is derived from literacy * population, and may be too high."	https://www.cia.gov/cia/publications/factbook/geos/sg.html French official but I don't have any data yet.
 Senegal	SN	"12,853,259"	39%	"20,600,000,000"	official	Wolof	wo_Latn	34%			
 Serbia	RS	"12,285,754"	96%	"81,280,000,000"		Albanian	sq	19%			
-Serbia	RS	"12,285,754"	96%	"81,280,000,000"		Croatian	hr	"114,000"		official in Vojvodina only	
+Serbia	RS	"12,285,754"	96%	"81,280,000,000"	official_regional	Croatian	hr	"114,000"		official in Vojvodina only	
 Serbia	RS	"12,285,754"	96%	"81,280,000,000"	official_regional	Hungarian	hu	4.80%		official in Vojvodina only	
 Serbia	RS	"12,285,754"	96%	"81,280,000,000"	official_regional	Romanian	ro	"261,000"		official in Vojvodina only	
 Serbia	RS	"12,285,754"	96%	"81,280,000,000"	official	Serbian (Cyrillic)	sr_Cyrl	99%			
@@ -1066,7 +1070,7 @@ Turkmenistan	TM	"5,179,571"	99%	"26,730,000,000"		Kurdish	ku_Latn	"21,000"
 Turkmenistan	TM	"5,179,571"	99%	"26,730,000,000"		Russian	ru	12%			
 Turkmenistan	TM	"5,179,571"	99%	"26,730,000,000"	official	Turkmen	tk_Latn	70%			
 Turkmenistan	TM	"5,179,571"	99%	"26,730,000,000"		Uzbek (Latin)	uz_Latn	9%			
-Turks and Caicos Islands	TC	"22,352"	98%	"216,000,000"	de_facto_official	English	en	98%			
+Turks and Caicos Islands	TC	"22,352"	98%	"216,000,000"	official	English	en	98%			
 Tuvalu	TV	"12,177"	95%	"14,940,000"	official	English	en	"1,070"		"http://en.wikipedia.org/wiki/Tuvalu The Tuvaluan language is spoken by virtually everyone, while Gilbertese is spoken by some people on Nui. English is also an official language, but is not spoken in daily use. Writing pop set to 10% of Tuvalu."	"English is an official language in Tuvalau, but no count yet."
 Tuvalu	TV	"12,177"	95%	"14,940,000"	official	Tuvalu	tvl	92%			
 U.S. Virgin Islands	VI	"109,840"	90%	"1,577,000,000"	de_facto_official	English	en	75%			
@@ -1101,7 +1105,7 @@ United Arab Emirates	AE	"4,621,399"	78%	"167,300,000,000"		Persian	fa	"86,300"
 United Kingdom	GB	"60,943,912"	99%	"2,137,000,000,000"		Bengali	bn	"410,000"			
 United Kingdom	GB	"60,943,912"	99%	"2,137,000,000,000"		Chinese (Traditional Han)	zh_Hant	"330,000"			
 United Kingdom	GB	"60,943,912"	99%	"2,137,000,000,000"		Cornish	kw	"2,000"		http://en.wikipedia.org/wiki/Cornish_language The 2008 estimate is ~2000 speakers due to revival efforts	
-United Kingdom	GB	"60,943,912"	99%	"2,137,000,000,000"	de_facto_official	English	en	99%			
+United Kingdom	GB	"60,943,912"	99%	"2,137,000,000,000"	official	English	en	99%			
 United Kingdom	GB	"60,943,912"	99%	"2,137,000,000,000"		French	fr	"14,400"			
 United Kingdom	GB	"60,943,912"	99%	"2,137,000,000,000"		Greek	el	"205,000"			
 United Kingdom	GB	"60,943,912"	99%	"2,137,000,000,000"	official_regional	Irish	ga	"16,000"		"As with IE, we have to adjust the figures for real usage  "	

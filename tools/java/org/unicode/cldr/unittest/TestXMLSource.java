@@ -2,9 +2,12 @@ package org.unicode.cldr.unittest;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts.Comments;
@@ -106,5 +109,19 @@ public class TestXMLSource extends TestFmwk {
         assertTrue("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"] not found",
             result.contains("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]"));
         result.clear();
+    }
+    
+    public void TestA() {
+        TestInfo testInfo = TestInfo.getInstance();
+        CLDRFile file = testInfo.getEnglish();
+        Set<String> result = new LinkedHashSet();
+        file.getPathsWithValue("ms", "", null, result);
+        for (String path : result) {
+            String value = file.getStringValue(path);
+            if (!value.contains("ms")) {
+                errln("bad paths:\t" + value + "\t" + path);   
+            }
+        }
+        
     }
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -71,6 +72,9 @@ public class GenerateCoverageLevels {
     }
 
     public static void main(String[] args) throws IOException {
+        if (true) {
+            throw new IllegalArgumentException("See ShowLocaleCoverage (TODO: merge these).");
+        }
         PrintWriter out = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "fullpaths.txt");
         showEnglish(out);
         out.close();
@@ -327,26 +331,52 @@ public class GenerateCoverageLevels {
         System.out.println("printing data");
         String summaryLineHeader = "Code\tName\tWeighted Missing:\tFound:\tScore:";
         summary.println(summaryLineHeader);
+        LanguageTagParser languageTagParser = new LanguageTagParser();
 
+        StringBuilder header = new StringBuilder();
+        EnumSet<Level> skipLevels = EnumSet.of(Level.CORE, Level.POSIX, Level.COMPREHENSIVE, Level.OPTIONAL);
         for (String locale : mapLevelData.keySet()) {
             LevelData levelData = mapLevelData.get(locale);
+            String max = LikelySubtags.maximize(locale, supplementalData.getLikelySubtags());
+            String lang = languageTagParser.set(max).getLanguage();
+            String script = languageTagParser.set(max).getScript();
 
             Counter<Level> missing = levelData.missing;
             Counter<Level> found = levelData.found;
             Relation<Level, R2<String, String>> samples = levelData.samples;
-            StringBuilder countLine = new StringBuilder(locale + "\t" + english.getName(locale));
+            StringBuilder countLine = new StringBuilder(
+                    script
+                    + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
+                    + "\t" + lang 
+                    + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, lang)
+                    );
+            if (header != null) {
+                header.append("Code\tScript\tCode\tLocale");
+            }
             // Now print the information
             samples2.println();
             samples2.println(locale + "\t" + english.getName(locale));
             double weightedFound = 0;
             double weightedMissing = 0;
+            long missingCountTotal = 0;
+            long foundCountTotal = 0;
+            
             for (Level level : Level.values()) {
                 if (level == Level.UNDETERMINED) {
                     continue;
                 }
                 long missingCount = missing.get(level);
+                missingCountTotal += missingCount;
                 long foundCount = found.get(level);
-                countLine.append('\t').append(missingCount).append('\t').append(foundCount);
+                foundCountTotal += foundCount;
+                weightedFound += foundCount * level.getValue();
+                weightedMissing += missingCount * level.getValue();
+                
+                countLine.append('\t').append(missingCountTotal).append('\t').append(foundCountTotal);
+                if (header != null) {
+                    header.append("\t" + level + "-Missing\tFound");
+                }
+
                 samples2.println(level + "\tMissing:\t" + integer.format(missingCount) + "\tFound:\t"
                     + integer.format(foundCount)
                     + "\tScore:\t" + percent.format(foundCount / (double) (foundCount + missingCount))
@@ -360,8 +390,6 @@ public class GenerateCoverageLevels {
                         samples2.println("\t...");
                     }
                 }
-                weightedFound += foundCount * level.getValue();
-                weightedMissing += missingCount * level.getValue();
             }
             int base = Level.POSIX.getValue();
             double foundCount = weightedFound / base;
@@ -373,6 +401,10 @@ public class GenerateCoverageLevels {
                 + percent.format(foundCount / (double) (foundCount + missingCount));
             samples2.println(summaryLine);
             summary.println(locale + "\t" + english.getName(locale) + "\t" + summaryLine2);
+            if (header != null) {
+                counts.println(header);
+                header = null;
+            }
             counts.println(countLine);
         }
     }

@@ -4829,12 +4829,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} g-force</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<unitPattern count="one">{0} minute</unitPattern>
-				<unitPattern count="other">{0} minutes</unitPattern>
+				<unitPattern count="one">{0} arcminute</unitPattern>
+				<unitPattern count="other">{0} arcminutes</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<unitPattern count="one">{0} second</unitPattern>
-				<unitPattern count="other">{0} seconds</unitPattern>
+				<unitPattern count="one">{0} arcsecond</unitPattern>
+				<unitPattern count="other">{0} arcseconds</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<unitPattern count="one">{0} degree</unitPattern>
@@ -5070,16 +5070,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<unitPattern count="one">{0} g</unitPattern>
-				<unitPattern count="other">{0} g</unitPattern>
+				<unitPattern count="one">{0} G</unitPattern>
+				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
-				<unitPattern count="one">{0} min</unitPattern>
-				<unitPattern count="other">{0} min</unitPattern>
+				<unitPattern count="one">{0} arcmin</unitPattern>
+				<unitPattern count="other">{0} arcmin</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<unitPattern count="one">{0} sec</unitPattern>
-				<unitPattern count="other">{0} secs</unitPattern>
+				<unitPattern count="one">{0} arcsec</unitPattern>
+				<unitPattern count="other">{0} arcsecs</unitPattern>
 			</unit>
 			<unit type="angle-degree">
 				<unitPattern count="one">{0} deg</unitPattern>
@@ -5312,8 +5312,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 		<unitLength type="narrow">
 			<unit type="acceleration-g-force">
-				<unitPattern count="one">{0}g</unitPattern>
-				<unitPattern count="other">{0}g</unitPattern>
+				<unitPattern count="one">{0}G</unitPattern>
+				<unitPattern count="other">{0}Gs</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>

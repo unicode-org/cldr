@@ -1711,10 +1711,13 @@ public class VettingViewer<T> {
      * @param unconfirmedCounter output counter of the number of paths with values, but neither contributed nor approved status
      * @param missingCounter output counter of the number of paths without values
      * @param missingPaths output if not null, the specific paths that are missing.
+     * @param unconfirmedPaths TODO
      */
     public static void getStatus(CLDRFile file, PathHeader.Factory pathHeaderFactory, 
             Counter<Level> foundCounter, Counter<Level> unconfirmedCounter,
-            Counter<Level> missingCounter, Relation<MissingStatus, String> missingPaths) {
+            Counter<Level> missingCounter, 
+            Relation<MissingStatus, String> missingPaths, 
+            Set<String> unconfirmedPaths) {
 
         if (!file.isResolved()) {
             throw new IllegalArgumentException("File must be resolved, no minimal draft status");
@@ -1752,6 +1755,9 @@ public class VettingViewer<T> {
                 if (fullPath.contains("unconfirmed")
                         || fullPath.contains("provisional")) {
                     unconfirmedCounter.add(level, 1);
+                    if (unconfirmedPaths != null && level.compareTo(Level.MODERN) <= 0) {
+                        unconfirmedPaths.add(path);
+                    }
                 } else {
                     foundCounter.add(level, 1);
                 }

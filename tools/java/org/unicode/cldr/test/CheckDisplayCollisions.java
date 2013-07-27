@@ -16,9 +16,12 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+
+import com.ibm.icu.text.Normalizer2;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
@@ -38,7 +41,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         CURRENCY("//ldml/numbers/currencies/currency", 4),
         ZONE("//ldml/dates/timeZoneNames/zone", 5),
         METAZONE("//ldml/dates/timeZoneNames/metazone", 6),
-        DECIMAL_FORMAT("//ldml/numbers/decimalFormats", 7);
+        DECIMAL_FORMAT("//ldml/numbers/decimalFormats", 7),
+        UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", 8),
+        UNITS("//ldml/units/unitLength", 9)
+        ;
 
         private String basePrefix;
 
@@ -71,7 +77,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     static final boolean SKIP_TYPE_CHECK = true;
 
-    private final Matcher exclusions = Pattern.compile("\\[@alt=\"narrow\"]").matcher(""); // no matches
+    private final Matcher exclusions = Pattern.compile("=\"narrow\"]").matcher(""); // no matches
     private final Matcher typePattern = Pattern.compile("\\[@type=\"([^\"]*+)\"]").matcher("");
     private final Matcher attributesToIgnore = Pattern.compile("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
     private final Matcher compactNumberAttributesToIgnore = Pattern.compile("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
@@ -96,10 +102,10 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         if (exclusions.reset(path).find()) {
             return this;
         }
-        
+
         // find my type; bail if I don't have one.
         Type myType = Type.getType(path);
-        if (myType == null) {
+        if (myType == null || myType == Type.UNITS_IGNORE) {
             return this;
         }
         String myPrefix = myType.getPrefix();
@@ -123,16 +129,19 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                     "/pattern\\[@type=(?!\"" + type + "\")\"\\d+\"].*").matcher(path);
             currentAttributesToIgnore = compactNumberAttributesToIgnore;
             message = "Can't have same number pattern as {0}";
-            paths = getPathsWithExactValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore);
+            paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.exact);
+        } else if (myType == Type.UNITS){
+            paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.unit);
         } else {
-            paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore);
+            paths = getPathsWithValue(getResolvedCldrFileToCheck(), path, value, myType, myPrefix, matcher, currentAttributesToIgnore, Equivalence.normal);
         }
+
         // Group exemplar cities and territories together for display collisions.
         if (myType == Type.TERRITORY || myType == Type.ZONE) {
             Type otherType = myType == Type.TERRITORY ? Type.ZONE : Type.TERRITORY;
             Set<String> duplicatePaths = getPathsWithValue(
                     getResolvedCldrFileToCheck(), path, value, otherType,
-                    otherType.getPrefix(), null, currentAttributesToIgnore);
+                    otherType.getPrefix(), null, currentAttributesToIgnore, Equivalence.normal);
             String exceptionRegion = getRegionException(getRegion(myType, path));
             if (exceptionRegion != null) {
                 for (String duplicatePath : duplicatePaths) {
@@ -161,6 +170,26 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 }
             }
         }
+
+        // Collisions between different lengths and counts of the same unit are allowed
+        // Collisions between 'narrow' forms are allowed (the current is filtered by UNITS_IGNORE)
+        //ldml/units/unitLength[@type="narrow"]/unit[@type="duration-day-future"]/unitPattern[@count="one"]
+        if (myType == Type.UNITS) {
+            XPathParts parts = new XPathParts().set(path);
+            String myUnit = parts.getAttributeValue(3, "type");
+            boolean isDuration = myUnit.startsWith("duration");
+            Iterator<String> iterator = paths.iterator();
+            while (iterator.hasNext()) {
+                parts.set(iterator.next());
+                String unit = parts.getAttributeValue(3, "type");
+                // we also break the units into two groups: durations and others.
+                if (myUnit.equals(unit) 
+                        || unit != null && isDuration != unit.startsWith("duration")) {
+                    iterator.remove();
+                }
+            }
+        }
+
 
         // removeMatches(myType);
         // check again on size
@@ -259,12 +288,27 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         return this;
     }
 
+    enum Equivalence {normal, exact, unit}
+
     private Set<String> getPathsWithValue(CLDRFile file, String path,
             String value, Type myType,
-            String myPrefix, Matcher matcher, Matcher currentAttributesToIgnore) {
-        
+            String myPrefix, Matcher matcher, 
+            Matcher currentAttributesToIgnore,
+            Equivalence equivalence
+            ) {
+
         Set<String> retrievedPaths = new HashSet<String>();
         file.getPathsWithValue(value, myPrefix, matcher, retrievedPaths);
+
+        String normValue = null;
+        if (equivalence == Equivalence.unit) {
+            normValue = SimpleXMLSource.normalizeCaseSensitive(value);
+//            System.out.println("DEBUG:\t" + "units");
+//            for (String s : retrievedPaths) {
+//                System.out.println("DEBUG:\t" + file.getStringValue(s) + "\t" + s);
+//            }
+        }
+
         // Do first cleanup
         // remove paths with "alt/count"; they can be duplicates
         Set<String> paths = new HashSet<String>();
@@ -280,6 +324,17 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (myType == Type.CURRENCY && isCodeFallback(path)) {
                 continue;
             }
+            if (equivalence == Equivalence.exact) {
+                String otherValue = file.getWinningValue(pathName);
+                if (!otherValue.equals(value)) {
+                    continue;
+                }
+            } else if (equivalence == Equivalence.unit) {
+                String otherValue = SimpleXMLSource.normalizeCaseSensitive(file.getWinningValue(pathName));
+                if (!otherValue.equals(normValue)) {
+                    continue;
+                }
+            }
             // clean up the pat
             String newPath = currentAttributesToIgnore.reset(pathName).replaceAll("");
             paths.add(newPath);
@@ -288,20 +343,6 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         paths.remove(cleanPath);
         return paths;
     }
-
-    private Set<String> getPathsWithExactValue(CLDRFile file, String path,
-            String value, Type myType,
-            String myPrefix, Matcher matcher, Matcher currentAttributesToIgnore) {
-            Set<String> result = new TreeSet<String>();
-            Set<String> paths = getPathsWithValue(file, path, value, myType, myPrefix, matcher, currentAttributesToIgnore);
-            // Since getPathsWithValue might return some paths that aren't an exact match, we remove those here.
-            for (String pathName : paths) {
-               if (file.getWinningValue(pathName) == value) {
-                   result.add(pathName);
-               }
-            }
-            return result;
-        }
 
     private boolean isCodeFallback(String dpath) {
         String locale = getResolvedCldrFileToCheck().getSourceLocaleID(dpath, null);
@@ -349,7 +390,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             if (!xpath.endsWith("/exemplarCity")) continue;
             String value = english.getStringValue(xpath);
             Set<String> duplicates = getPathsWithValue(english, xpath, value,
-                    Type.TERRITORY, Type.TERRITORY.getPrefix(), null, attributesToIgnore);
+                    Type.TERRITORY, Type.TERRITORY.getPrefix(), null, attributesToIgnore, Equivalence.normal);
             if (duplicates.size() > 0) {
                 // Assume only 1 duplicate.
                 String duplicatePath = duplicates.iterator().next();

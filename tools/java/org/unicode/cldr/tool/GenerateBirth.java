@@ -34,7 +34,7 @@ import com.ibm.icu.lang.CharSequences;
 public class GenerateBirth {
     private static boolean DEBUG = false;
 
-    enum Versions {
+    public enum Versions {
         trunk, v23_0, v22_0, v21_0, v2_0_1, v1_9_1, v1_8_1, v1_7_2, v1_6_1, v1_5_1, v1_4_1, v1_3_0, v1_2_0, v1_1_1;
         public String toString() {
             return this == Versions.trunk ? name() : name().substring(1).replace('_', '.');

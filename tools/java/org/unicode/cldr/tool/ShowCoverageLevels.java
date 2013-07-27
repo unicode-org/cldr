@@ -15,6 +15,11 @@ public class ShowCoverageLevels {
     private static int count = 0;
 
     public static void main(String[] args) {
+        if (true) {
+            ShowLocaleCoverage foo;
+            throw new IllegalArgumentException("See ShowLocaleCoverage (TODO: merge these).");
+        }
+
 
         double startTime = System.currentTimeMillis();
         Relation<Level, String> values = new Relation(new EnumMap<Level, String>(Level.class), TreeSet.class);

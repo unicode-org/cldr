@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.XPathParts.Comments;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
@@ -1444,9 +1445,18 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 oldAliases = newAliases;
                 aliases.addAll(newAliases);
             } while (newAliases.size() > 0);
+            
+            // get the aliases, but only the ones that have values that match
+            String norm = null;
             for (String alias : aliases) {
                 if (alias.startsWith(pathPrefix)) {
-                    filteredPaths.add(alias);
+                    if (norm == null) {
+                        norm = SimpleXMLSource.normalize(valueToMatch);
+                    }
+                    String value = getValueAtDPath(alias);
+                    if (SimpleXMLSource.normalize(value).equals(norm)) {
+                        filteredPaths.add(alias);
+                    }
                 }
             }
 

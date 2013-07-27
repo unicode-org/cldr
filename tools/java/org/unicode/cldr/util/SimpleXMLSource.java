@@ -1,11 +1,13 @@
 package org.unicode.cldr.util;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.XPathParts.Comments;
 
@@ -107,22 +109,21 @@ public class SimpleXMLSource extends XMLSource {
         synchronized (VALUE_TO_PATH_MUTEX) {
             if (VALUE_TO_PATH != null) {
                 if (oldValue != null) {
-                    VALUE_TO_PATH.remove(oldValue, distinguishingXPath);
+                    VALUE_TO_PATH.remove(normalize(oldValue), distinguishingXPath);
                 }
                 if (newValue != null) {
-                    VALUE_TO_PATH.put(newValue, distinguishingXPath);
+                    VALUE_TO_PATH.put(normalize(newValue), distinguishingXPath);
                 }
             }
         }
     }
 
-    
     @Override
     public void getPathsWithValue(String valueToMatch, String pathPrefix, Set<String> result) {
         // build a Relation mapping value to paths, if needed
         synchronized (VALUE_TO_PATH_MUTEX) {
             if (VALUE_TO_PATH == null) {
-                VALUE_TO_PATH = new Relation(new ConcurrentHashMap(), HashSet.class);
+                VALUE_TO_PATH = new Relation(new HashMap(), HashSet.class);
                 for (Iterator<String> it = iterator(); it.hasNext();) {
                     String path = it.next();
                     String value = normalize(getValueAtDPath(path));
@@ -138,7 +139,7 @@ public class SimpleXMLSource extends XMLSource {
                 return;
             }
             for (String path : paths) {
-                if (path.contains(pathPrefix)) {
+                if (path.startsWith(pathPrefix)) {
                     // if (altPath.originalPath.startsWith(altPrefix.originalPath)) {
                     result.add(path);
                 }
@@ -147,14 +148,25 @@ public class SimpleXMLSource extends XMLSource {
     }
 
     static final Normalizer2 NFKCCF = Normalizer2.getNFKCCasefoldInstance();
-    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:]]").freeze();
+    static final Normalizer2 NFKC = Normalizer2.getNFKCInstance();
+    
+    // The following includes letters, marks, numbers, currencies, and *selected* symbols/punctuation
+    static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:]/+\\-°′″]").freeze();
 
-    private String normalize(String valueToMatch) {
+    public static String normalize(String valueToMatch) {
         return replace(NON_ALPHANUM, NFKCCF.normalize(valueToMatch), "");
     }
+    
+    public static String normalizeCaseSensitive(String valueToMatch) {
+        return replace(NON_ALPHANUM, NFKC.normalize(valueToMatch), "");
+    }
 
-    public String replace(UnicodeSet unicodeSet, String valueToMatch, String substitute) {
+    public static String replace(UnicodeSet unicodeSet, String valueToMatch, String substitute) {
         StringBuilder b = null; // delay creating until needed
+        // handle patterns
+        if (valueToMatch.contains("{")) {
+            valueToMatch = PLACEHOLDER.matcher(valueToMatch).replaceAll("").trim();
+        }
         for (int i = 0; i < valueToMatch.length(); ++i) {
             int cp = valueToMatch.codePointAt(i);
             if (unicodeSet.contains(cp)) {
@@ -177,6 +189,8 @@ public class SimpleXMLSource extends XMLSource {
         }
         return valueToMatch;
     }
+    
+    static final Pattern PLACEHOLDER = Pattern.compile("\\{\\d\\}");
 
     public void setDtdVersionInfo(VersionInfo dtdVersionInfo) {
         this.dtdVersionInfo = dtdVersionInfo;

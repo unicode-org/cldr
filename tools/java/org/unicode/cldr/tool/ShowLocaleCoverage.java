@@ -1,5 +1,7 @@
 package org.unicode.cldr.tool;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.Map;
@@ -10,6 +12,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
+import org.unicode.cldr.test.CheckConsistentCasing.Category;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
@@ -20,10 +23,12 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.Transform;
 
@@ -32,6 +37,7 @@ public class ShowLocaleCoverage {
     // added info using pattern in VettingViewer.
 
     final static Options myOptions = new Options();
+    private static final String OUT_DIRECTORY = CldrUtility.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
 
     private static final String TEST_PATH = "//ldml/dates/calendars/calendar[@type=\"chinese\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
 
@@ -59,7 +65,16 @@ public class ShowLocaleCoverage {
             Level.COMPREHENSIVE
             );
 
-    public static void main(String[] args) {
+    static RegexLookup<Boolean> SKIP_PATHS = new RegexLookup<Boolean>()
+            .add("\\[@alt=\"accounting\"]", true)
+            .add("\\[@alt=\"variant\"]", true)
+            .add("^//ldml/localeDisplayNames/territories/territory.*@alt=\"short", true)
+            .add("^//ldml/localeDisplayNames/languages/language.*_", true)
+            .add("^//ldml/numbers/currencies/currency.*/symbol", true)
+            .add("^//ldml/characters/exemplarCharacters", true)
+            ;
+    
+    public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.filter, args, true);
         Matcher matcher = Pattern.compile(MyOptions.filter.option.getValue()).matcher("");
         DraftStatus minimumDraftStatus = DraftStatus.forString(MyOptions.draftStatus.option.getValue());
@@ -71,11 +86,13 @@ public class ShowLocaleCoverage {
         }
 
         Relation<MissingStatus, String> missingPaths = Relation.of(new EnumMap<MissingStatus, Set<String>>(
-                MissingStatus.class), TreeSet.class);
+                MissingStatus.class), TreeSet.class, CLDRFile.ldmlComparator);
+        Set<String> unconfirmed = new TreeSet(CLDRFile.ldmlComparator);
 
         LanguageTagParser ltp = new LanguageTagParser();
         Map<String, String> likely = testInfo.getSupplementalDataInfo().getLikelySubtags();
         Set<String> defaultContents = testInfo.getSupplementalDataInfo().getDefaultContentLocales();
+        CLDRFile english = testInfo.getEnglish();
 
         // Map<String,Counter<Level>> counts = new HashMap();
         System.out.print("Script\tEnglish\tNative\tCode\tCode*");
@@ -88,6 +105,7 @@ public class ShowLocaleCoverage {
         System.out.println();
         Factory pathHeaderFactory = PathHeader.getFactory(testInfo.getCldrFactory().make("en", true));
 
+        PrintWriter out = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "simpleCoverage.tsv");
 
         Counter<Level> foundCounter = new Counter<Level>();
         Counter<Level> unconfirmedCounter = new Counter<Level>();
@@ -123,20 +141,26 @@ public class ShowLocaleCoverage {
                     }
                 }
             }
+            missingPaths.clear();
+            unconfirmed.clear();
 
             final CLDRFile file = testInfo.getCldrFactory().make(locale, true, minimumDraftStatus);
 
-            VettingViewer.getStatus(file, PathHeader.getFactory(ShowLocaleCoverage.testInfo.getEnglish()), foundCounter, unconfirmedCounter, missingCounter, capture ? missingPaths : null);
+            VettingViewer.getStatus(file, PathHeader.getFactory(ShowLocaleCoverage.testInfo.getEnglish()), 
+                    foundCounter, unconfirmedCounter, missingCounter, 
+                    missingPaths, unconfirmed);
 
-            System.out.print(
-                    script
+            String header = script
                     + "\t" + testInfo.getEnglish().getName(language)
                     + "\t" + file.getName(language)
                     + "\t" + language
-                    + "\t" + locale);
+                    + "\t" + locale;
+            System.out.print(header);
+
             int sumFound = 0;
             int sumMissing = 0;
             int sumUnconfirmed = 0;
+            double modernCoverage = 0.0d;
             for (Level level : Level.values()) {
                 sumFound += foundCounter.get(level);
                 sumUnconfirmed += unconfirmedCounter.get(level);
@@ -148,22 +172,54 @@ public class ShowLocaleCoverage {
                 }
 
                 System.out.print("\t" + sumFound + "\t" + sumUnconfirmed + "\t" + sumMissing);
+                if (level == Level.MODERN) {
+                    modernCoverage = (sumFound + sumUnconfirmed)/(double)(sumFound + sumUnconfirmed + sumMissing);
+                }
             }
+
+            if (modernCoverage >= 0.99d) {
+                for (String path : unconfirmed) {
+                     PathHeader ph = pathHeaderFactory.fromPath(path);
+                    String line = header + "\t" + english.getStringValue(path) 
+                            + "\t" + "UNCONFIRMED" + "\t" + file.getStringValue(path) 
+                            + "\t" + ph + "\t" + path;
+                    if (SKIP_PATHS.get(path) != null) {
+                        //System.out.println("\nSKIP: " + line);
+                    } else {
+                        out.println(line);
+                    }
+                }
+                for (Entry<MissingStatus, String> entry : missingPaths.entrySet()) {
+                    String path = entry.getValue();
+                    PathHeader ph = pathHeaderFactory.fromPath(path);
+                    String line = header + "\t" + english.getStringValue(path)
+                            + "\t" + entry.getKey() + "\t???" 
+                            + "\t" + ph + "\t" + path;
+                    if (SKIP_PATHS.get(path) != null) {
+                        //System.out.println("\nSKIP: " + line);
+                    } else {
+                        out.println(line);
+                    }
+                }
+                out.flush();
+            }
+
             System.out.println();
             localeCount++;
         }
+        out.close();
 
         long end = System.currentTimeMillis();
         System.out.println((end - start) + " millis = " 
                 + ((end - start)/localeCount) + " millis/locale");
 
-        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance("en");
-
-        for (Entry<MissingStatus, Set<String>> entity : missingPaths.keyValuesSet()) {
-            for (PathHeader s : CldrUtility.transform(entity.getValue(), pathHeaderFactory, new TreeSet<PathHeader>())) {
-                System.out.println(entity.getKey() + "\t" + coverageLevel2.getLevel(s.getOriginalPath()) + "\t" + s
-                        + "\t\t" + s.getOriginalPath());
-            }
-        }
+        //        CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance("en");
+        //
+        //        for (Entry<MissingStatus, Set<String>> entity : missingPaths.keyValuesSet()) {
+        //            for (PathHeader s : CldrUtility.transform(entity.getValue(), pathHeaderFactory, new TreeSet<PathHeader>())) {
+        //                System.out.println(entity.getKey() + "\t" + coverageLevel2.getLevel(s.getOriginalPath()) + "\t" + s
+        //                        + "\t\t" + s.getOriginalPath());
+        //            }
+        //        }
     }
 }

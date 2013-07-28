@@ -702,7 +702,8 @@ public class ConsoleCheckCLDR {
         }
         long errorCount = totalCount.getCount(ErrorType.error) + fatalErrors.size();
         if (errorCount != 0) {
-            System.exit((int) errorCount); // cast is safe; we'll never have that many errors
+//            System.exit((int) errorCount); // cast is safe; we'll never have that many errors
+            System.exit(-1);
         }
     }
 

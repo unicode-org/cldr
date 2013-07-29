@@ -67,6 +67,7 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale ROMANIAN = CLDRLocale.getInstance("ro");
     private static final CLDRLocale CATALAN = CLDRLocale.getInstance("ca");
     private static final CLDRLocale NGOMBA = CLDRLocale.getInstance("jgo");
+    private static final CLDRLocale HEBREW = CLDRLocale.getInstance("he");
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
@@ -79,6 +80,9 @@ public class DisplayAndInputProcessor {
 
     private static final char[][] NGOMBA_CONVERSIONS = {
         {'\u0251', '\u0061'}, {'\u0261', '\u0067'}}; //  ɑ -> a , ɡ -> g , See ticket #5691
+
+    private static final char[][] HEBREW_CONVERSIONS = {
+        { '\'', '\u05F3'}, {'"', '\u05F4'}}; //  ' -> geresh  " -> gershayim
 
 
     private Collator col;
@@ -228,6 +232,8 @@ public class DisplayAndInputProcessor {
                 value = standardizeCatalan(value);
             } else if (locale.childOf(NGOMBA) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
                 value = standardizeNgomba(value);
+            } else if (locale.childOf(HEBREW) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+                value = standardizeHebrew(value);
             }
 
 
@@ -376,6 +382,19 @@ public class DisplayAndInputProcessor {
         StringBuilder builder = new StringBuilder();
         for (char c : value.toCharArray()) {
             for (char[] pair: NGOMBA_CONVERSIONS) {
+                if (c == pair[0]) {
+                    c = pair[1];
+                    break;
+                }
+            }
+            builder.append(c);
+        }
+        return builder.toString();
+    }
+    private String standardizeHebrew(String value) {
+        StringBuilder builder = new StringBuilder();
+        for (char c : value.toCharArray()) {
+            for (char[] pair: HEBREW_CONVERSIONS) {
                 if (c == pair[0]) {
                     c = pair[1];
                     break;

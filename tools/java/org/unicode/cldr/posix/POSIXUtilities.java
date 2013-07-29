@@ -10,13 +10,10 @@ package org.unicode.cldr.posix;
 
 import java.text.StringCharacterIterator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UTF16;

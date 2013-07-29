@@ -13,13 +13,10 @@ import java.io.PrintWriter;
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.SortedBag;
 import com.ibm.icu.impl.Utility;
@@ -44,7 +41,6 @@ public class POSIX_LCCollate {
         String codeset, POSIXVariant variant) throws Exception
     {
         String rules = "";
-        String settings = "";
         String collationType = "standard";
         boolean UsingDefaultCollateSet = false;
 

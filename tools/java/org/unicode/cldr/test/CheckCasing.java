@@ -68,6 +68,9 @@ public class CheckCasing extends CheckCLDR {
         case titlecase_firstword:
             newValue = TitleCaseFirst(uLocale, value);
             break;
+        default:
+            break;
+        
         }
         if (!newValue.equals(value)) {
             // the following is how you signal an error or warning (or add a demo....)
@@ -88,7 +91,7 @@ public class CheckCasing extends CheckCLDR {
             return value;
         }
         breaker.setText(value);
-        int first = breaker.first();
+        breaker.first();
         int endOfFirstWord = breaker.next();
         return UCharacter.toTitleCase(uLocale, value.substring(0, endOfFirstWord), breaker)
             + value.substring(endOfFirstWord);

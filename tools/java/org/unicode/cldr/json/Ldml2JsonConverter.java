@@ -27,7 +27,6 @@ import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
-import com.ibm.icu.util.ULocale;
 
 /**
  * Utility methods to extract data from CLDR repository and export it in JSON

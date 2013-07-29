@@ -123,12 +123,7 @@ public class CheckCoverage extends FactoryCheckCLDR {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         if (localeID.equals("root")) return this;
 
-        // Set to minimal if not in data submission
-        if (false && Phase.FINAL_TESTING == getPhase()) {
-            requiredLevel = Level.POSIX;
-        } else {
-            requiredLevel = CoverageLevel2.getRequiredLevel(localeID, options);
-        }
+        requiredLevel = CoverageLevel2.getRequiredLevel(localeID, options);
         if (DEBUG) {
             System.out.println("requiredLevel: " + requiredLevel);
         }

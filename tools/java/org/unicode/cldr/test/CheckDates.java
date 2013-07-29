@@ -19,8 +19,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.Phase;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
@@ -173,8 +171,8 @@ public class CheckDates extends FactoryCheckCLDR {
         requiredLevel = CoverageLevel2.getRequiredLevel(localeID, options);
 
         // load gregorian appendItems
-        for (Iterator it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]"); it.hasNext();) {
-            String path = (String) it.next();
+        for (Iterator<String> it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]"); it.hasNext();) {
+            String path = it.next();
             String value = resolved.getWinningValue(path);
             String fullPath = resolved.getFullXPath(path);
             try {
@@ -245,7 +243,7 @@ public class CheckDates extends FactoryCheckCLDR {
      */
     BreakIterator bi;
     FlexibleDateFromCLDR flexInfo;
-    Collection redundants = new HashSet();
+    Collection<String> redundants = new HashSet<String>();
     Status status = new Status();
     PathStarrer pathStarrer = new PathStarrer();
     PathHeader.Factory pathHeaderFactory;
@@ -262,7 +260,7 @@ public class CheckDates extends FactoryCheckCLDR {
             return this;
         }
 
-        final String sourceLocaleID = getCldrFileToCheck().getSourceLocaleID(path, status);
+        getCldrFileToCheck().getSourceLocaleID(path, status);
 
         if (!path.equals(status.pathWhereFound)) {
             return this;
@@ -567,7 +565,7 @@ public class CheckDates extends FactoryCheckCLDR {
 
     static final Pattern HACK_CONFLICTING = Pattern.compile("Conflicting fields:\\s+M+,\\s+l");
 
-    public CheckCLDR handleGetExamples(String path, String fullPath, String value, Map options, List result) {
+    public CheckCLDR handleGetExamples(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
         if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
         try {
             if (path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0
@@ -592,11 +590,6 @@ public class CheckDates extends FactoryCheckCLDR {
     static long date2010 = new Date(110, 0, 1, 0, 0, 0).getTime();
     static long date4004BC = new Date(-4004 - 1900, 9, 23, 2, 0, 0).getTime();
     static Random random = new Random(0);
-
-    static private String getRandomDate(long startDate, long endDate) {
-        double guess = startDate + random.nextDouble() * (endDate - startDate);
-        return neutralFormat.format(new Date((long) guess));
-    }
 
     private void checkPattern(DateTimePatternType dateTypePatternType, String path, String fullPath, String value, List<CheckStatus> result) throws ParseException {
         String skeleton = dateTimePatternGenerator.getSkeletonAllowingDuplicates(value);
@@ -740,28 +733,17 @@ public class CheckDates extends FactoryCheckCLDR {
                         new Object[] { dateTimeMessage[style], skeletonPosition, dateTimePatterns[style].pattern() }));
             }
         }
-        // TODO fix this up.
-        // if (path.indexOf("/timeFormat") >= 0 && y.toPattern().indexOf("v") < 0) {
-        // CheckStatus item = new CheckStatus().setType(CheckCLDR.finalErrorType)
-        // .setMessage("Need full zone (v) in full format", new Object[]{});
-        // result.add(item);
-        // }
 
         if (value.contains("G") && calendar.equals("gregorian")) {
             GyState actual = GyState.forPattern(value);
             GyState expected = getExpectedGy(getCldrFileToCheck().getLocaleID());
-            if (true) {
-                if (actual != expected) {
-                    result.add(new CheckStatus()
-                    .setCause(this)
-                    .setMainType(CheckStatus.warningType)
-                    .setSubtype(Subtype.unexpectedOrderOfEraYear)
-                    .setMessage("Unexpected order of era/year. Expected {0}, but got {1} in 〈{2}〉 for {3}/{4}", 
-                            expected, actual, value, calendar, id));
-                }
-            } else {
-                System.out.println("\t" + getCldrFileToCheck().getLocaleID() + "\t" + actual
-                        + "\t" + value + "\t" + calendar + "\t" + id);
+            if (actual != expected) {
+                result.add(new CheckStatus()
+                        .setCause(this)
+                        .setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.unexpectedOrderOfEraYear)
+                        .setMessage("Unexpected order of era/year. Expected {0}, but got {1} in 〈{2}〉 for {3}/{4}",
+                                expected, actual, value, calendar, id));
             }
         }
     }
@@ -878,7 +860,7 @@ value(full time) = value(medium time+zzzz)
             return false;
         }
 
-        List<Object> items1 = new ArrayList(formatParser.set(value1).getItems()); // clone
+        List<Object> items1 = new ArrayList<Object>(formatParser.set(value1).getItems()); // clone
         List<Object> items2 = formatParser.set(value2).getItems();
         if (items1.size() != items2.size()) {
             return false;
@@ -976,9 +958,7 @@ value(full time) = value(medium time+zzzz)
         return result.toString();
     }
 
-    private ParsePosition parsePosition = new ParsePosition(0);
-
-    private void checkPattern2(String path, String fullPath, String value, List result) throws ParseException {
+    private void checkPattern2(String path, String fullPath, String value, List<CheckStatus> result) throws ParseException {
         pathParts.set(path);
         String calendar = pathParts.findAttributeValue("calendar", "type");
         SimpleDateFormat x = icuServiceBuilder.getDateFormat(calendar, value);
@@ -1067,12 +1047,11 @@ value(full time) = value(medium time+zzzz)
             return this;
         }
 
-        protected void getArguments(Map inout) {
+        protected void getArguments(Map<String, String> inout) {
             currentPattern = currentInput = currentFormatted = currentReparsed = "?";
-            boolean result = false;
             Date d;
             try {
-                currentPattern = (String) inout.get("pattern");
+                currentPattern = inout.get("pattern");
                 if (currentPattern != null)
                     df.applyPattern(currentPattern);
                 else

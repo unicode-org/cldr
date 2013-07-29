@@ -21,8 +21,6 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.text.Normalizer2;
-
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
     // TODO probably need to fix this to be more accurate over time

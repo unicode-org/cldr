@@ -8,7 +8,6 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
@@ -49,7 +48,6 @@ public class CompareIcuOutput {
     private static boolean shouldSort = false;
 
     public static void main(String[] args) throws IOException {
-        Iterator<String> extraArgs = options.parse(args, true).iterator();
         String dir1 = args[0];
         String dir2 = args[1];
         String regex = args[2];

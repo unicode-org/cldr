@@ -1910,10 +1910,7 @@ public class CLDRModify {
             }
         });
 
-        fixList
-        .add(
-                'k',
-                "fix according to -k config file. Details on http://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config",
+        fixList.add('k', "fix according to -k config file. Details on http://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config",
                 new CLDRFilter() {
                     private Map<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>> locale2keyValues;
                     private LinkedHashSet<Map<ConfigKeys, ConfigMatch>> keyValues = new LinkedHashSet<Map<ConfigKeys, ConfigMatch>>();
@@ -1981,18 +1978,21 @@ public class CLDRModify {
                             switch (action.action) {
                             case add:
                                 if (pathMatch != null || valueMatch != null || newPath == null || newValue == null) {
-                                    throw new IllegalArgumentException("Bad arguments: " + entry);
+                                    throw new IllegalArgumentException(
+                                            "Bad arguments, must have " +
+                                            "path==null, value=null, new_path!=null, new_value!=null: "
+                                                    + entry);
                                 }
                                 replace(newPath.exactMatch, newPath.exactMatch, newValue.exactMatch, "config");
                                 break;
                             case delete:
                                 if (newPath != null || newValue != null) {
-                                    throw new IllegalArgumentException("Bad arguments: " + entry);
+                                    throw new IllegalArgumentException("Bad arguments, must have " +
+                                    		"newPath=null, newValue=null"
+                                            + entry);
                                 }
                                 break;
                             default: // fall through
-                            }
-                            if (action.action == ConfigAction.add) {
                             }
                             break;
                         }

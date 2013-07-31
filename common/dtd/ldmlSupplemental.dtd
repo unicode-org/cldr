@@ -32,6 +32,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST info iso4217 NMTOKEN #REQUIRED >
 <!ATTLIST info digits NMTOKEN #IMPLIED >
 <!ATTLIST info rounding NMTOKEN #IMPLIED >
+<!ATTLIST info cashDigits NMTOKEN #IMPLIED >
 <!ATTLIST info cashRounding NMTOKEN #IMPLIED >
 <!ATTLIST info draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST info references CDATA #IMPLIED >

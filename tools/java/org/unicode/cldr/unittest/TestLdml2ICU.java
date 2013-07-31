@@ -186,11 +186,11 @@ public class TestLdml2ICU extends TestFmwk {
             if (exclusionType == null) {
                 errln(errorMessage);
             } else if (exclusionType == ExclusionType.WARNING) {
-                warnln(errorMessage);
+                logln(errorMessage);
             }
         } else if (exclusionType == ExclusionType.UNCONVERTED) {
             exclusions.get(xpath);
-            warnln("CLDR xpath <" + xpath + "> is in the exclusions list but was matched.");
+            logln("CLDR xpath <" + xpath + "> is in the exclusions list but was matched.");
         }
     }
 

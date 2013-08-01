@@ -163,7 +163,7 @@ public class SearchCLDR {
                 String fullPath = file.getFullXPath(path);
                 String value = file.getStringValue(path);
 
-                if (pathMatcher != null && pathExclude == pathMatcher.reset(path).find()) {
+                if (pathMatcher != null && pathExclude == pathMatcher.reset(fullPath).find()) {
                     continue;
                 }
 

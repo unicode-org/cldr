@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
@@ -15,12 +16,14 @@ import org.unicode.cldr.util.Factory;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Transliterator;
+import com.ibm.icu.text.UnicodeSet;
 
-public class TestTransforms extends TestFmwk {
+public class TestTransforms extends TestFmwkPlus {
     TestInfo testInfo = TestInfo.getInstance();
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         new TestTransforms().run(args);
     }
 
@@ -31,17 +34,54 @@ public class TestTransforms extends TestFmwk {
         //        for (Transliterator t2 : t.getElements()) {
         //            System.out.println(t2.getSourceSet().toPattern(false) + " => " + t2.getTargetSet().toPattern(false));
         //        }
-        String cyrillic =  "аА бБ вВ гГ ғҒ дД еЕ ЕЕ ёЁ ЁЁ жЖ зЗ иИ йЙ кК қҚ лЛ мМ нН оО пП рР сС тТ уУ ўЎ фФ хХ ҳҲ цЦ ЦЦ чЧ ЧЧ шШ ШШ бъ Ъ эЭ юЮ ЮЮ яЯ ЯЯ";
-        String latin =     "aA bB vV gG gʻGʻ dD yeYE YEYE yëYË YËYË jJ zZ iI ĭĬ kK qQ lL mM nN oO pP rR sS tT uU ŭŬ fF xX hH tsTS TSTS chCH CHCH shSH SHSH bʼ ʼ eE yuYU YUYU yaYA YAYA";
-        assertEquals("Uzbek to Latin", latin, cyrillicToLatin.transform(cyrillic));
-        assertEquals("Uzbek to Cyrillic", cyrillic, latinToCyrillic.transform(latin));
+        String cyrillic =  "аА бБ вВ гГ ғҒ   дД ЕеЕ    ЁёЁ    жЖ зЗ иИ йЙ кК қҚ лЛ мМ нН оО пП рР сС тТ уУ ўЎ   фФ хХ ҳҲ ЦцЦ    ЧчЧ    ШшШ    бъ Ъ эЭ ЮюЮ    ЯяЯ";
+        String latin =     "aA bB vV gG gʻGʻ dD YeyeYE YoyoYO jJ zZ iI yY kK qQ lL mM nN oO pP rR sS tT uU oʻOʻ fF xX hH TstsTS ChchCH ShshSH bʼ ʼ eE YuyuYU YayaYA";
+        UnicodeSet vowelsAndSigns =  new UnicodeSet("[аА еЕёЁ иИ оО уУўЎ эЭ юЮ яЯ ьЬ ъЪ]").freeze();
+        UnicodeSet consonants =  new UnicodeSet().addAll(cyrillic).removeAll(vowelsAndSigns).remove(" ").freeze();
+
+//        UnicodeSet englishVowels = new UnicodeSet();
+//        for (String s : vowelsAndSigns) {
+//            String result = cyrillicToLatin.transform(s);
+//            if (!result.isEmpty()) {
+//                englishVowels.add(result);
+//            }
+//        }
+//        System.out.println(englishVowels.toPattern(false));
+
+        String[] cyrillicSplit = cyrillic.split("\\s+");
+        String[] latinSplit = latin.split("\\s+");
+        for (int i = 0; i < cyrillicSplit.length; ++i) {
+            assertTransformsTo("Uzbek to Latin", latinSplit[i], cyrillicToLatin, cyrillicSplit[i]);
+            assertTransformsTo("Uzbek to Cyrillic", cyrillicSplit[i], latinToCyrillic, latinSplit[i]);
+        }
+
+        // # е → 'ye' at the beginning of a syllable, after a vowel, ъ or ь, otherwise 'e'
+
+        assertEquals("Uzbek to Latin", "Belgiya", cyrillicToLatin.transform("Бельгия"));  
+        UnicodeSet lower = new UnicodeSet("[:lowercase:]");
+        for (String e : new UnicodeSet("[еЕ]")) {
+            String ysuffix = lower.containsAll(e) ? "ye" : "YE";
+            String suffix = lower.containsAll(e) ? "e" : "E";
+            for (String s : vowelsAndSigns) {
+                String expected = getPrefix(cyrillicToLatin, s, ysuffix);
+                assertTransformsTo("Uzbek to Latin ye", expected, cyrillicToLatin, s + e);  
+            }
+            for (String s : consonants) {
+                String expected = getPrefix(cyrillicToLatin, s, suffix);
+                assertTransformsTo("Uzbek to Latin e", expected, cyrillicToLatin, s + e);  
+            }
+            for (String s : Arrays.asList(" ", "")) { // start of string, non-letter
+                String expected = getPrefix(cyrillicToLatin, s, ysuffix);
+                assertTransformsTo("Uzbek to Latin ye", expected, cyrillicToLatin, s + e);  
+            }
+        }
 
         if (isVerbose()) {
             // Now check for correspondences
             Factory factory = testInfo.getCldrFactory();
             CLDRFile uzLatn = factory.make("uz_Latn", false);
             CLDRFile uzCyrl = factory.make("uz", false);
-            
+
             Set<String> latinFromCyrillicSucceeds = new TreeSet<String>();
             Set<String> latinFromCyrillicFails = new TreeSet<String>();
             for (String path : uzCyrl){
@@ -63,6 +103,15 @@ public class TestTransforms extends TestFmwk {
             logln("Success! " + latinFromCyrillicSucceeds.size() + "\n" + CollectionUtilities.join(latinFromCyrillicSucceeds, "\n"));
             logln("\nFAILS!" + latinFromCyrillicFails.size() + "\n" + CollectionUtilities.join(latinFromCyrillicFails, "\n"));
         }
+    }
+
+    private String getPrefix(Transliterator cyrillicToLatin, String prefixSource, String suffix) {
+        String result = cyrillicToLatin.transform(prefixSource);
+        if (!result.isEmpty() && UCharacter.getType(suffix.codePointAt(0)) != UCharacter.UPPERCASE_LETTER
+                && UCharacter.getType(result.codePointAt(0)) == UCharacter.UPPERCASE_LETTER) {
+            result = UCharacter.toTitleCase(result, null);
+        }
+        return result + suffix;
     }
 
     public void TestBackslashHalfwidth() throws Exception {

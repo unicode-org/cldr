@@ -10,9 +10,12 @@
 		<transform source="uz_Cyrl" target="uz_Latn" direction="both">
 			<comment># Rules are predicated on running NFD first, and NFC afterwards</comment>
 			<tRule>:: NFD (NFC) ;</tRule>
-			<tRule>$lower = [[:sc=Latn:][:sc=Cyrl:] &amp; [:Ll:]] ;</tRule>
-			<tRule>ў ↔ oʻ ;</tRule>
-			<tRule>Ў ↔ Oʻ ;</tRule>
+			<tRule>$letters = [[:sc=Latn:][:sc=Cyrl:] &amp; [:L:]] ;</tRule>	
+			<tRule>$latinVowel = [AEIOUaeiouĬĭʼËë{oʻ}{Oʻ}] ;</tRule>
+			<tRule>$lower = [$letters &amp; [:Ll:]] ;</tRule>
+			
+			<tRule>у \u0306 ↔ oʻ ;</tRule>
+			<tRule>У \u0306 ↔ Oʻ ;</tRule>
 			<tRule>ғ ↔ gʻ ;</tRule>
 			<tRule>Ғ ↔ Gʻ ;</tRule>
 			<comment># For many cases, use a following character to determine the difference between XY and Xy</comment>
@@ -28,13 +31,32 @@
 			<tRule>ъ ↔ { ʼ } $lower ;</tRule>
 			<tRule>ъ ← $lower { ʼ } ;</tRule>
 			<tRule>Ъ ↔ ʼ ;</tRule>
-			<comment># 'ye' at the beginning of a syllable, after a vowel, ъ or ь, otherwise 'e'</comment>
-			<tRule>е ↔ ye ;</tRule>
-			<tRule>{ Е } $lower ↔ Ye ;</tRule>
-			<tRule>Е ↔ YE ;</tRule>
-			<tRule>ё ↔ yo ;</tRule>
-			<tRule>{ Ё } $lower ↔ Yo ;</tRule>
-			<tRule>Ё ↔ YO ;</tRule>
+			
+			<tRule>е\u0308 ↔ yo ;</tRule>
+			<tRule>Е\u0308 } $lower ↔ Yo ;</tRule>
+			<tRule>Е\u0308 ↔ YO ;</tRule>	
+			
+			<comment># е → 'ye' at the beginning of a syllable, after a vowel, ъ or ь, otherwise 'e'</comment>
+			<tRule>[:^L:] { е ↔ ye ;</tRule>
+			<tRule>[:^L:] { Е } $lower ↔ Ye ;</tRule>
+			<tRule>[:^L:] {Е ↔ YE ;</tRule>
+
+			<tRule>$latinVowel { е → ye ;</tRule>
+			<tRule>$latinVowel { Е } $lower → Ye ;</tRule>
+			<tRule>$latinVowel { Е → YE ;</tRule>
+
+			<comment># handle these specially, since ьЬ otherwise disappear.</comment>
+			<tRule>ье → ye ;</tRule>
+			<tRule>{ ьЕ } $lower → Ye ;</tRule>
+			<tRule>ьЕ → YE ;</tRule>
+			
+			<tRule>Ье → ye ;</tRule>
+			<tRule>{ ЬЕ } $lower → Ye ;</tRule>
+			<tRule>ЬЕ → YE ;</tRule>
+	
+			<tRule>е → e ;</tRule>
+			<tRule>Е → E ;</tRule>	
+
 			<tRule>ю ↔ yu ;</tRule>
 			<tRule>{ Ю } $lower ↔ Yu ;</tRule>
 			<tRule>Ю ↔ YU ;</tRule>
@@ -58,6 +80,8 @@
 			<tRule>Г ↔ G ;</tRule>
 			<tRule>ҳ ↔ h ;</tRule>
 			<tRule>Ҳ ↔ H ;</tRule>
+			<tRule>и\u0306 ↔ y ;</tRule>
+			<tRule>И\u0306 ↔ Y ;</tRule>
 			<tRule>и ↔ i ;</tRule>
 			<tRule>И ↔ I ;</tRule>
 			<tRule>ж ↔ j ;</tRule>
@@ -88,10 +112,10 @@
 			<tRule>В ↔ V ;</tRule>
 			<tRule>х ↔ x ;</tRule>
 			<tRule>Х ↔ X ;</tRule>
-			<tRule>й ↔ y ;</tRule>
-			<tRule>Й ↔ Y ;</tRule>
 			<tRule>з ↔ z ;</tRule>
 			<tRule>З ↔ Z ;</tRule>
+			<tRule>ь → ;</tRule>
+			<tRule>Ь → ;</tRule>
 			<tRule>::NFC (NFD) ;</tRule>
 		</transform>
 	</transforms>

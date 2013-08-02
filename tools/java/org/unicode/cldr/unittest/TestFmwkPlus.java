@@ -3,8 +3,12 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.unicode.cldr.util.CldrUtility;
+
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.text.Transform;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 
 
@@ -36,6 +40,29 @@ public class TestFmwkPlus extends TestFmwk {
             logln(showArgs("OK ", message, actual, arg0, relation, args));
         }
         return test;
+    }
+
+    public <E, S, T extends Transform<S,E>> boolean assertTransformsTo(String message, E expected, T transform, S source) {
+        E actual = transform.transform(source);
+        boolean test = CldrUtility.equals(expected, actual);
+        if (!test) {
+            errln(showArgs("", message, expected, actual, transform, source) + 
+                    "; expected " + "‹" + expected + "›");
+        } else if (isVerbose()) {
+            logln(showArgs("OK ", message, expected, actual, transform, source));
+        }
+        return test;
+    }
+    
+    private <E, S, T extends Transform<S,E>> String showArgs(String prefix, String message, E expected, E actual, T transform, S source) {
+        String simpleName = transform instanceof Transliterator 
+                ? ((Transliterator)transform).getID()
+                : transform.getClass().getSimpleName();
+        return prefix
+                + sourceLocation() + " " 
+                + (message == null ? "" : message + " : ") 
+                + "got ‹" + actual + "› from " 
+                + simpleName + "(‹" + source + "›)";
     }
 
     private <T, V, R extends TestRelation<T, V>> String showArgs(String prefix, String message, boolean expected, T arg0, R relation, V... args) {
@@ -224,7 +251,7 @@ public class TestFmwkPlus extends TestFmwk {
         // Walk up the stack to the first call site outside this file
         StackTraceElement[] st = new Throwable().getStackTrace();
         for (int i = 0; i < st.length; ++i) {
-            if (!"TestFmwk.java".equals(st[i].getFileName())) {
+            if (!"TestFmwkPlus.java".equals(st[i].getFileName())) {
                 return "File "   + st[i].getFileName() + ", Line " + st[i].getLineNumber();
             }
         }

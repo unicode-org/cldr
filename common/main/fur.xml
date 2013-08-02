@@ -1238,6 +1238,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard>Ore standard de Europe centrâl</standard>
 					<daylight>Ore estive de Europe centrâl</daylight>
 				</long>
+				<short>
+					<generic>CET</generic>
+					<standard>CET</standard>
+					<daylight>CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
@@ -1245,6 +1250,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard>Ore standard de Europe orientâl</standard>
 					<daylight>Ore estive de Europe orientâl</daylight>
 				</long>
+				<short>
+					<generic>EET</generic>
+					<standard>EET</standard>
+					<daylight>EEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
@@ -1252,6 +1262,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard>Ore standard de Europe ocidentâl</standard>
 					<daylight>Ore estive de Europe ocidentâl</daylight>
 				</long>
+				<short>
+					<generic>WET</generic>
+					<standard>WET</standard>
+					<daylight>WEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<short>
+					<standard draft="unconfirmed">GMT</standard>
+				</short>
 			</metazone>
 			<metazone type="Moscow">
 				<long>

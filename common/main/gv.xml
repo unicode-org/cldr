@@ -164,6 +164,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</timeFormats>
 			</calendar>
 		</calendars>
+		<timeZoneNames>
+			<metazone type="Europe_Central">
+				<short>
+					<generic draft="unconfirmed">CET</generic>
+					<standard draft="unconfirmed">CET</standard>
+					<daylight draft="unconfirmed">CEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Eastern">
+				<short>
+					<generic draft="unconfirmed">EET</generic>
+					<standard draft="unconfirmed">EET</standard>
+					<daylight draft="unconfirmed">EEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="Europe_Western">
+				<short>
+					<generic draft="unconfirmed">WET</generic>
+					<standard draft="unconfirmed">WET</standard>
+					<daylight draft="unconfirmed">WEST</daylight>
+				</short>
+			</metazone>
+			<metazone type="GMT">
+				<short>
+					<standard draft="unconfirmed">GMT</standard>
+				</short>
+			</metazone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
 		<currencyFormats numberSystem="latn">

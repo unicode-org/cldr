@@ -628,12 +628,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>ᎢᎢᎢ</gmtZeroFormat>
+			<zone type="Pacific/Honolulu">
+				<short>
+					<generic>HST</generic>
+					<standard>HST</standard>
+					<daylight>HDT</daylight>
+				</short>
+			</zone>
+			<metazone type="Alaska">
+				<short>
+					<generic>AKT</generic>
+					<standard>AKST</standard>
+					<daylight>AKDT</daylight>
+				</short>
+			</metazone>
 			<metazone type="America_Central">
 				<long>
 					<generic>ᎠᏰᎵ ᎢᏳᏩᎪᏗ</generic>
 					<standard>ᎠᏰᎵ ᏰᎵᏊ ᏗᏙᎳᎩ ᎢᏳᏩᎪᏗ</standard>
 					<daylight>ᎠᏰᎵ ᎢᎦ ᎢᏳᏩᎪᏗ</daylight>
 				</long>
+				<short>
+					<generic>CT</generic>
+					<standard>CST</standard>
+					<daylight>CDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
@@ -641,6 +660,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard>ᎧᎸᎬᎢᏗᏢ ᏰᎵᏊ ᏗᏙᎳᎩ ᎢᏳᏩᎪᏗ</standard>
 					<daylight>ᎧᎸᎬᎢᏗᏢ ᎢᎦ ᎢᏳᏩᎪᏗ</daylight>
 				</long>
+				<short>
+					<generic>ET</generic>
+					<standard>EST</standard>
+					<daylight>EDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
@@ -648,6 +672,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard>ᎣᏓᎸ ᏰᎵᏊ ᏗᏙᎳᎩ ᎢᏳᏩᎪᏗ</standard>
 					<daylight>ᎣᏓᎸ ᎢᎦ ᎢᏳᏩᎪᏗ</daylight>
 				</long>
+				<short>
+					<generic>MT</generic>
+					<standard>MST</standard>
+					<daylight>MDT</daylight>
+				</short>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
@@ -655,11 +684,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard>ᏭᏕᎵᎬ ᏰᎵᏊ ᏗᏙᎳᎩ ᎢᏳᏩᎪᏗ</standard>
 					<daylight>ᏭᏕᎵᎬ ᎢᎦ ᎢᏳᏩᎪᏗ</daylight>
 				</long>
+				<short>
+					<generic>PT</generic>
+					<standard>PST</standard>
+					<daylight>PDT</daylight>
+				</short>
+			</metazone>
+			<metazone type="Atlantic">
+				<short>
+					<generic>AT</generic>
+					<standard>AST</standard>
+					<daylight>ADT</daylight>
+				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard>ᎢᏤ ᎢᏳᏍᏗ ᎢᏳᏩᎪᏗ</standard>
 				</long>
+			</metazone>
+			<metazone type="Hawaii_Aleutian">
+				<short>
+					<generic>HAT</generic>
+					<standard>HAST</standard>
+					<daylight>HADT</daylight>
+				</short>
 			</metazone>
 		</timeZoneNames>
 	</dates>

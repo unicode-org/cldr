@@ -23,7 +23,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="two">v=0 and i is 2</pluralRule>
             <pluralRule count="many">v=0 and i not in 0..10 and i mod 10 is 0</pluralRule>
         </pluralRules>
-        <pluralRules locales="af asa ast az bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw ha haw hu jgo jmc ka kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn nah nb nd ne nn nnh no nr ny nyn om or os pap ps rm rof rwk saq seh sn so sq ss ssy st syr ta te teo tig tk tn tr ts ve vo vun wae xh xog">
+        <pluralRules locales="af asa ast az bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw ha haw hu jgo jmc ka kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn nah nb nd ne nn nnh no nr ny nyn om or os pap ps rm rof rwk saq seh sn so sq ss ssy st syr ta te teo tig tk tn tr ts uz ve vo vun wae xh xog">
             <pluralRule count="one">n is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="ak bh guw ln mg nso pa ti wa">
@@ -143,6 +143,9 @@ For terms of use, see http://www.unicode.org/copyright.html
         </pluralRules>
         <pluralRules locales="is">
             <pluralRule count="one">t is 0 and i mod 10 is 1 and i mod 100 is not 11 or t is not 0</pluralRule>
+        </pluralRules>
+        <pluralRules locales="si">
+            <pluralRule count="one">n in 0,1 or i is 0 and f is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="bs hr sh sr">
             <pluralRule count="one">v=0 and i mod 10 is 1 and i mod 100 is not 11 or f mod 10 is 1 and f mod 100 is not 11</pluralRule>

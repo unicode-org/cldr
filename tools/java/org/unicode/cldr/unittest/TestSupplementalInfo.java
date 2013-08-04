@@ -23,6 +23,8 @@ import java.util.regex.Pattern;
 import javax.print.attribute.standard.MediaSize.Engineering;
 
 import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.tool.PluralRulesFactory;
+import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -59,8 +61,10 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UScript;
+import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 public class TestSupplementalInfo extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();
@@ -1009,4 +1013,57 @@ public class TestSupplementalInfo extends TestFmwk {
 
         }
     }
+
+    public void TestPluralCompleteness() {
+        Set<String> cardinalLocales = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.cardinal)); 
+        Set<String> ordinalLocales  = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.ordinal)); 
+        Map<ULocale, PluralRulesFactory.SamplePatterns> sampleCardinals = PluralRulesFactory.getLocaleToSamplePatterns();
+        Set<ULocale> sampleCardinalLocales  = new TreeSet(sampleCardinals.keySet()); 
+        Map<ULocale, PluralRules> overrideCardinals = PluralRulesFactory.getPluralOverrides();
+        Set<ULocale> overrideCardinalLocales  = new TreeSet(overrideCardinals.keySet()); 
+
+        Set<String> testLocales = STANDARD_CODES.getLocaleCoverageLocales("google");
+        Set<String> allLocales = testInfo.getCldrFactory().getAvailable();
+        LanguageTagParser ltp = new LanguageTagParser();
+        for (boolean test : Arrays.asList(true, false)) {
+            for (String locale : allLocales) {
+                // the only known case where plural rules depend on region or script is pt_PT
+                if (locale.equals("root")) {
+                    continue;
+                }
+                ltp.set(locale);
+                if (!ltp.getRegion().isEmpty() || !ltp.getScript().isEmpty()) {
+                    continue;
+                }
+                if (test != testLocales.contains(locale)) {
+                    continue;
+                }
+                ULocale ulocale = new ULocale(locale);
+                PluralRules overrideRules = overrideCardinals.get(ulocale);
+                PluralRules cardinalRules = SUPPLEMENTAL.getPlurals(locale).getPluralRules();
+                boolean hasSamples = sampleCardinalLocales.contains(ulocale);
+                boolean hasCardinalRules = cardinalLocales.contains(locale);
+                boolean hasOrdinals = ordinalLocales.contains(locale);
+                if (test) {
+                    if (!hasSamples || !hasCardinalRules ) {
+                        errln("Plurals for " + locale + ", Missing samples or cardinal rules");
+                    }
+                    if (!hasOrdinals) {
+                        warnln("Plurals for " + locale + ", Missing ordinal rules");
+                    }
+                }
+                logln(test 
+                        + "\t" + locale
+                        + "\t" + (hasCardinalRules ? "card" : "NO-card")
+                        + "\t" + (hasOrdinals ? "ord" : "NO-ord")
+                        + "\t" + (hasSamples ? "samp" : "NO-samp")
+                        + (!overrideCardinalLocales.contains(ulocale) ? "" 
+                                : overrideRules.equals(cardinalRules) ? "" 
+                                        : "\t" + cardinalRules + "\t" + overrideRules)
+                        );
+
+            }
+        }
+    }
+
 }

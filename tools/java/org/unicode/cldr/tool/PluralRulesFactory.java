@@ -93,7 +93,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         }
     };
 
-    static class SamplePatterns {
+    public static class SamplePatterns {
         final Map<String,String> keywordToPattern = new TreeMap(PluralRules.KEYWORD_COMPARATOR);
         final Map<String,String> keywordToErrors = new HashMap();
         public void put(ULocale locale, String keyword, String sample) {
@@ -163,6 +163,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
             if (samplePatterns == null) {
                 temp.put(locale, samplePatterns = new SamplePatterns());
             }
+            //System.out.println("*Adding sample:\t" + locale + "\t" + keyword + "\t" + sample);
             samplePatterns.put(locale, keyword, sample);
         }
         for (String[] pair : overrides) {
@@ -484,8 +485,8 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         {"hy", "one: n within 0..2 and n is not 2"},
         //                    {"hr", "one: j mod 10 is 1 and j mod 100 is not 11;  few: j mod 10 in 2..4 and j mod 100 not in 12..14;  many: j mod 10 is 0 or j mod 10 in 5..9 or j mod 100 in 11..14"},
         {"lv", "zero: n mod 10 is 0" +
-                " or n mod 10 in 11..19" +
-                " or v is 2 and f mod 10 in 11..19;" +
+                " or n mod 100 in 11..19" +
+                " or v is 2 and f mod 100 in 11..19;" +
                 "one: n mod 10 is 1 and n mod 100 is not 11" +
                 " or v is 2 and f mod 10 is 1 and f mod 100 is not 11" +
         " or v is not 2 and f mod 10 is 1"},

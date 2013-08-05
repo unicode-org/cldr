@@ -1267,27 +1267,21 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('t', "Fix incomplete logical groups in currencies (Welsh)", new CLDRFilter() {
-            private Matcher matcher;
-
-            public void handleStart() {
-                matcher = Pattern.compile(
-                        "//ldml/numbers/currencies/currency\\[@type=\"[A-Z]{3}\"\\]/displayName\\[@count=\"other\"\\]")
-                        .matcher("");
-            }
+        fixList.add('t', "Fix missing count values groups", new CLDRFilter() {
 
             public void handlePath(String xpath) {
-
-                if (!matcher.reset(xpath).matches()) {
+                if (xpath.indexOf("@count=\"other\"") < 0) {
                     return;
                 }
 
                 String value = cldrFileToFilter.getStringValue(xpath);
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-                String[] missingCounts = { "zero", "two", "few", "many" };
+                String[] missingCounts = { "one" };
                 for (String count : missingCounts) {
                     String newFullXPath = fullXPath.replace("other", count);
-                    cldrFileToFilter.add(newFullXPath, value);
+                    if (cldrFileToFilter.getWinningValue(newFullXPath) == null) {
+                        add(newFullXPath, value, "Adding missing plural form");
+                    }
                 }
 
             }

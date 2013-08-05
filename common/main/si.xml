@@ -3411,33 +3411,57 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
+					<pattern type="1000" count="one">0K</pattern>
 					<pattern type="1000" count="other">0K</pattern>
+					<pattern type="10000" count="one">00K</pattern>
 					<pattern type="10000" count="other">00K</pattern>
+					<pattern type="100000" count="one">000K</pattern>
 					<pattern type="100000" count="other">000K</pattern>
+					<pattern type="1000000" count="one">මිලියන 0</pattern>
 					<pattern type="1000000" count="other">මිලියන 0</pattern>
+					<pattern type="10000000" count="one">මිලියන 00</pattern>
 					<pattern type="10000000" count="other">මිලියන 00</pattern>
+					<pattern type="100000000" count="one">මිලියන 000</pattern>
 					<pattern type="100000000" count="other">මිලියන 000</pattern>
+					<pattern type="1000000000" count="one">බිලියන 0</pattern>
 					<pattern type="1000000000" count="other">බිලියන 0</pattern>
+					<pattern type="10000000000" count="one">බිලියන 00</pattern>
 					<pattern type="10000000000" count="other">බිලියන 00</pattern>
+					<pattern type="100000000000" count="one">බිලියන 000</pattern>
 					<pattern type="100000000000" count="other">බිලියන 000</pattern>
+					<pattern type="1000000000000" count="one">ට්‍රිලියන 0</pattern>
 					<pattern type="1000000000000" count="other">ට්‍රිලියන 0</pattern>
+					<pattern type="10000000000000" count="one">ට්‍රිලියන 00</pattern>
 					<pattern type="10000000000000" count="other">ට්‍රිලියන 00</pattern>
+					<pattern type="100000000000000" count="one">ට්‍රිලියන 000</pattern>
 					<pattern type="100000000000000" count="other">ට්‍රිලියන 000</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
+					<pattern type="1000" count="one">0K</pattern>
 					<pattern type="1000" count="other">0K</pattern>
+					<pattern type="10000" count="one">00K</pattern>
 					<pattern type="10000" count="other">00K</pattern>
+					<pattern type="100000" count="one">000K</pattern>
 					<pattern type="100000" count="other">000K</pattern>
+					<pattern type="1000000" count="one">මි0</pattern>
 					<pattern type="1000000" count="other">මි0</pattern>
+					<pattern type="10000000" count="one">මි00</pattern>
 					<pattern type="10000000" count="other">මි00</pattern>
+					<pattern type="100000000" count="one">මි000</pattern>
 					<pattern type="100000000" count="other">මි000</pattern>
+					<pattern type="1000000000" count="one">බි0</pattern>
 					<pattern type="1000000000" count="other">බි0</pattern>
+					<pattern type="10000000000" count="one">බි00</pattern>
 					<pattern type="10000000000" count="other">බි00</pattern>
+					<pattern type="100000000000" count="one">බි000</pattern>
 					<pattern type="100000000000" count="other">බි000</pattern>
+					<pattern type="1000000000000" count="one">ට්‍රි0</pattern>
 					<pattern type="1000000000000" count="other">ට්‍රි0</pattern>
+					<pattern type="10000000000000" count="one">ට්‍රි00</pattern>
 					<pattern type="10000000000000" count="other">ට්‍රි00</pattern>
+					<pattern type="100000000000000" count="one">ට්‍රි000</pattern>
 					<pattern type="100000000000000" count="other">ට්‍රි000</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
@@ -3463,6 +3487,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern alt="accounting">¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="one">{1}{0}</unitPattern>
 			<unitPattern count="other">{1}{0}</unitPattern>
 		</currencyFormats>
 		<currencies>
@@ -3480,6 +3505,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ANG">
 				<displayName>නෙදර්ලන්ත ඇන්ටිලියන් ගිල්ඩර්</displayName>
+				<displayName count="one">නෙදර්ලන්ත ඇන්ටිලියන් ගිල්ඩර්</displayName>
 				<displayName count="other">නෙදර්ලන්ත ඇන්ටිලියන් ගිල්ඩර්</displayName>
 			</currency>
 			<currency type="AOA">
@@ -3487,6 +3513,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ARS">
 				<displayName>ආර්ජන්ටිනා පෙසෝ</displayName>
+				<displayName count="one">ආර්ජන්ටිනා පෙසෝ</displayName>
 				<displayName count="other">ආර්ජන්ටිනා පෙසෝ</displayName>
 			</currency>
 			<currency type="AUD">
@@ -3494,6 +3521,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="AWG">
 				<displayName>අරූබානු ෆ්ලෝරින්</displayName>
+				<displayName count="one">අරූබානු ෆ්ලෝරින්</displayName>
 				<displayName count="other">අරූබානු ෆ්ලෝරින්</displayName>
 			</currency>
 			<currency type="AZN">
@@ -3504,6 +3532,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BBD">
 				<displayName>බාබේඩියානු ඩොලර්</displayName>
+				<displayName count="one">බාබේඩියානු ඩොලර්</displayName>
 				<displayName count="other">බාබේඩියානු ඩොලර්</displayName>
 			</currency>
 			<currency type="BDT">
@@ -3520,6 +3549,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BMD">
 				<displayName>බර්මියුඩානු ඩොලර්</displayName>
+				<displayName count="one">බර්මියුඩානු ඩොලර්</displayName>
 				<displayName count="other">බර්මියුඩානු ඩොලර්</displayName>
 			</currency>
 			<currency type="BND">
@@ -3527,6 +3557,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BOB">
 				<displayName>බොලිවියානු බොලිවියානෝ</displayName>
+				<displayName count="one">බොලිවියානු බොලිවියානෝ</displayName>
 				<displayName count="other">බොලිවියානු බොලිවියානෝ</displayName>
 			</currency>
 			<currency type="BRL">
@@ -3534,6 +3565,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BSD">
 				<displayName>බහමානු ඩොලර්</displayName>
+				<displayName count="one">බහමානු ඩොලර්</displayName>
 				<displayName count="other">බහමානු ඩොලර්</displayName>
 			</currency>
 			<currency type="BTN">
@@ -3547,10 +3579,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="BZD">
 				<displayName>බෙලීස් ඩොලර්</displayName>
+				<displayName count="one">බෙලිස් ඩොලර්</displayName>
 				<displayName count="other">බෙලිස් ඩොලර්</displayName>
 			</currency>
 			<currency type="CAD">
 				<displayName>කැනේඩියානු ඩොලර්</displayName>
+				<displayName count="one">කැනේඩියානු ඩොලර්</displayName>
 				<displayName count="other">කැනේඩියානු ඩොලර්</displayName>
 			</currency>
 			<currency type="CDF">
@@ -3570,18 +3604,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="CRC">
 				<displayName>කොස්ට රිකා කොලෝන්</displayName>
+				<displayName count="one">කොස්ට රිකා කොලෝන්</displayName>
 				<displayName count="other">කොස්ට රිකා කොලෝන්</displayName>
 			</currency>
 			<currency type="CUC">
 				<displayName>මාරුකළ හැකි කියුබානු පැසෝ</displayName>
+				<displayName count="one">මාරුකළ හැකි කියුබානු පැසෝ</displayName>
 				<displayName count="other">මාරුකළ හැකි කියුබානු පැසෝ</displayName>
 			</currency>
 			<currency type="CUP">
 				<displayName>කියුබානු පැසෝ</displayName>
+				<displayName count="one">කියුබානු පැසෝ</displayName>
 				<displayName count="other">කියුබානු පැසෝ</displayName>
 			</currency>
 			<currency type="CVE">
 				<displayName>කේප් වර්ඩ් එස්කියුඩෝ</displayName>
+				<displayName count="one">කේප් වර්ඩ් එස්කියුඩෝ</displayName>
 				<displayName count="other">කේප් වර්ඩ් එස්කියුඩෝ</displayName>
 			</currency>
 			<currency type="CZK">
@@ -3595,6 +3633,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="DOP">
 				<displayName>ඩොමිනිකානු පෙසෝ</displayName>
+				<displayName count="one">ඩොමිනිකානු පෙසෝ</displayName>
 				<displayName count="other">ඩොමිනිකානු පෙසෝ</displayName>
 			</currency>
 			<currency type="DZD">
@@ -3608,6 +3647,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ETB">
 				<displayName>ඉතියෝපියානු බීර්</displayName>
+				<displayName count="one">ඉතියෝපියානු බීර්</displayName>
 				<displayName count="other">ඉතියෝපියානු බීර්</displayName>
 			</currency>
 			<currency type="EUR">
@@ -3627,6 +3667,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="GHS">
 				<displayName>ඝානා සෙඩි</displayName>
+				<displayName count="one">ඝානා සෙඩි</displayName>
 				<displayName count="other">ඝානා සෙඩි</displayName>
 			</currency>
 			<currency type="GIP">
@@ -3637,10 +3678,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="GNF">
 				<displayName>ගිනියානු ෆ්රෑන්ක්</displayName>
+				<displayName count="one">ගිනියානු ෆ්‍රෑන්ක්</displayName>
 				<displayName count="other">ගිනියානු ෆ්‍රෑන්ක්</displayName>
 			</currency>
 			<currency type="GTQ">
 				<displayName>ගෝතමාලානු ක්වෙට්සල්</displayName>
+				<displayName count="one">ගෝතමාලානු ක්වෙට්සල්</displayName>
 				<displayName count="other">ගෝතමාලානු ක්වෙට්සල්</displayName>
 			</currency>
 			<currency type="GYD">
@@ -3651,6 +3694,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="HNL">
 				<displayName>හොන්ඩුරානු ලෙම්පිරා</displayName>
+				<displayName count="one">හොන්ඩුරානු ලෙම්පිරා</displayName>
 				<displayName count="other">හොන්ඩුරානු ලෙම්පිරා</displayName>
 			</currency>
 			<currency type="HRK">
@@ -3658,6 +3702,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="HTG">
 				<displayName>හයිටි ගෝර්ඩ්</displayName>
+				<displayName count="one">හයිටි ගෝර්ඩ්</displayName>
 				<displayName count="other">හයිටි ගෝර්ඩ්</displayName>
 			</currency>
 			<currency type="HUF">
@@ -3683,6 +3728,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="JMD">
 				<displayName>ජැමෙයිකානු ඩොලර්</displayName>
+				<displayName count="one">ජැමෙයිකානු ඩොලර්</displayName>
 				<displayName count="other">ජැමෙයිකානු ඩොලර්</displayName>
 			</currency>
 			<currency type="JOD">
@@ -3702,6 +3748,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="KMF">
 				<displayName>කොමොරියානු ෆ්‍රෑන්ක්</displayName>
+				<displayName count="one">කොමොරියානු ෆ්‍රෑන්ක්</displayName>
 				<displayName count="other">කොමොරියානු ෆ්‍රෑන්ක්</displayName>
 			</currency>
 			<currency type="KPW">
@@ -3715,6 +3762,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="KYD">
 				<displayName>කේමන් දූපත් ඩොලර්</displayName>
+				<displayName count="one">කේමන් දූපත් ඩොලර්</displayName>
 				<displayName count="other">කේමන් දූපත් ඩොලර්</displayName>
 			</currency>
 			<currency type="KZT">
@@ -3744,6 +3792,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MAD">
 				<displayName>මොරොක්කෝ ඩිර්හැම්</displayName>
+				<displayName count="one">මොරොක්කෝ ඩිර්හැම්</displayName>
 				<displayName count="other">මොරොක්කෝ ඩිර්හැම්</displayName>
 			</currency>
 			<currency type="MDL">
@@ -3766,6 +3815,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MRO">
 				<displayName>මුරුසි ඔයිගුයියා</displayName>
+				<displayName count="one">මුරුසි ඔයිගුයියා</displayName>
 				<displayName count="other">මුරුසි ඔයිගුයියා</displayName>
 			</currency>
 			<currency type="MUR">
@@ -3779,6 +3829,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MXN">
 				<displayName>මෙක්සිකානු ඩොලර්</displayName>
+				<displayName count="one">මෙක්සිකානු ඩොලර්</displayName>
 				<displayName count="other">මෙක්සිකානු ඩොලර්</displayName>
 			</currency>
 			<currency type="MYR">
@@ -3795,6 +3846,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="NIO">
 				<displayName>නිකරගුවානු කොඩෝබා</displayName>
+				<displayName count="one">නිකරගුවානු කොඩෝබා</displayName>
 				<displayName count="other">නිකරගුවානු කොඩෝබා</displayName>
 			</currency>
 			<currency type="NOK">
@@ -3811,6 +3863,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="PAB">
 				<displayName>පැනමා බැල්බෝ</displayName>
+				<displayName count="one">පැනමා බැල්බෝ</displayName>
 				<displayName count="other">පැනමා බැල්බෝ</displayName>
 			</currency>
 			<currency type="PEN">
@@ -3830,6 +3883,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="PYG">
 				<displayName>පැරගුවේ ගුවරානි</displayName>
+				<displayName count="one">පැරගුවේ ගුවරානි</displayName>
 				<displayName count="other">පැරගුවේ ගුවරානි</displayName>
 			</currency>
 			<currency type="QAR">
@@ -3870,6 +3924,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="SLL">
 				<displayName>සියරා ලියොන් ලියොන්</displayName>
+				<displayName count="one">සියරා ලියොන් ලියොන්</displayName>
 				<displayName count="other">සියරා ලියොන් ලියොන්</displayName>
 			</currency>
 			<currency type="SOS">
@@ -3877,6 +3932,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="SRD">
 				<displayName>සුරිනාම් ඩොලර්</displayName>
+				<displayName count="one">සුරිනාම් ඩොලර්</displayName>
 				<displayName count="other">සුරිනාම් ඩොලර්</displayName>
 			</currency>
 			<currency type="SSP">
@@ -3884,6 +3940,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="STD">
 				<displayName>සාඕ තෝම් සහ ප්‍රින්සිප් දොබ්‍රා</displayName>
+				<displayName count="one">සාඕ තෝම් සහ ප්‍රින්සිප් දොබ්‍රා</displayName>
 				<displayName count="other">සාඕ තෝම් සහ ප්‍රින්සිප් දොබ්‍රා</displayName>
 			</currency>
 			<currency type="SYP">
@@ -3912,6 +3969,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="TTD">
 				<displayName>ට්‍රිනිඩෑඩ් සහ ටොබෑගෝ ඩොලර්</displayName>
+				<displayName count="one">ට්‍රිනිඩෑඩ් සහ ටොබෑගෝ ඩොලර්</displayName>
 				<displayName count="other">ට්‍රිනිඩෑඩ් සහ ටොබෑගෝ ඩොලර්</displayName>
 			</currency>
 			<currency type="TWD">
@@ -3928,6 +3986,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="USD">
 				<displayName>ඇමරිකානු ඩොලර්</displayName>
+				<displayName count="one">ඇමරිකානු ඩොලර්</displayName>
 				<displayName count="other">ඇමරිකානු ඩොලර්</displayName>
 			</currency>
 			<currency type="UYU">
@@ -3950,14 +4009,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA ෆ්රෑන්ක් BEAC</displayName>
+				<displayName count="one">CFA ෆ්රෑන්ක් BEAC</displayName>
 				<displayName count="other">CFA ෆ්රෑන්ක් BEAC</displayName>
 			</currency>
 			<currency type="XCD">
 				<displayName>නැගෙනහිර කැරිබියානු ඩොලර්</displayName>
+				<displayName count="one">නැගෙනහිර කැරිබියානු ඩොලර්</displayName>
 				<displayName count="other">නැගෙනහිර කැරිබියානු ඩොලර්</displayName>
 			</currency>
 			<currency type="XOF">
 				<displayName>CFA ෆ්රෑන්ක් BCEAO</displayName>
+				<displayName count="one">CFA ෆ්රෑන්ක් BCEAO</displayName>
 				<displayName count="other">CFA ෆ්රෑන්ක් BCEAO</displayName>
 			</currency>
 			<currency type="XPF">
@@ -3990,183 +4052,243 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{1} ට {0} බැගින්</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<unitPattern count="one">තත්පර {0}</unitPattern>
 				<unitPattern count="other">තත්පර {0}</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<unitPattern count="one">අංශක {0}</unitPattern>
 				<unitPattern count="other">අංශක {0}</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<unitPattern count="one">අක්කර {0}</unitPattern>
 				<unitPattern count="other">අක්කර {0}</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<unitPattern count="one">හෙක්ටයාර් {0}</unitPattern>
 				<unitPattern count="other">හෙක්ටයාර් {0}</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<unitPattern count="one">වර්ග අඩි {0}</unitPattern>
 				<unitPattern count="other">වර්ග අඩි {0}</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<unitPattern count="one">වර්ග කිලෝමීටර් {0}</unitPattern>
 				<unitPattern count="other">වර්ග කිලෝමීටර් {0}</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<unitPattern count="one">වර්ග මීටර් {0}</unitPattern>
 				<unitPattern count="other">වර්ග මීටර් {0}</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<unitPattern count="one">වර්ග සැතපුම් {0}</unitPattern>
 				<unitPattern count="other">වර්ග සැතපුම් {0}</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<unitPattern count="one">දින {0}</unitPattern>
 				<unitPattern count="other">දින {0}</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
+				<unitPattern count="one">දින {0}න්</unitPattern>
 				<unitPattern count="other">දින {0}න්</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
+				<unitPattern count="one">දින {0} ට පෙර</unitPattern>
 				<unitPattern count="other">දින {0} ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<unitPattern count="one">පැය {0}</unitPattern>
 				<unitPattern count="other">පැය {0}</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
+				<unitPattern count="one">පැය {0} කින්</unitPattern>
 				<unitPattern count="other">පැය {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
+				<unitPattern count="one">පැය {0}ට පෙර</unitPattern>
 				<unitPattern count="other">පැය {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<unitPattern count="one">මිලිතත්පර {0}</unitPattern>
 				<unitPattern count="other">මිලිතත්පර {0}</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
+				<unitPattern count="one">මිනිත්තු {0} කින්</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
+				<unitPattern count="one">මිනිත්තු {0}ට පෙර</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<unitPattern count="one">මාස {0}</unitPattern>
 				<unitPattern count="other">මාස {0}</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
+				<unitPattern count="one">මාස {0}කින්</unitPattern>
 				<unitPattern count="other">මාස {0}කින්</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
+				<unitPattern count="one">මාස {0}කට පෙර</unitPattern>
 				<unitPattern count="other">මාස {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<unitPattern count="one">තත්පර {0}</unitPattern>
 				<unitPattern count="other">තත්පර {0}</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
+				<unitPattern count="one">තත්පර {0} කින්</unitPattern>
 				<unitPattern count="other">තත්පර {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
+				<unitPattern count="one">තත්පර {0}කට පෙර</unitPattern>
 				<unitPattern count="other">තත්පර {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<unitPattern count="one">සති {0}</unitPattern>
 				<unitPattern count="other">සති {0}</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
+				<unitPattern count="one">සති {0} කින්</unitPattern>
 				<unitPattern count="other">සති {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
+				<unitPattern count="one">සති {0}කට පෙර</unitPattern>
 				<unitPattern count="other">සති {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<unitPattern count="one">වසර {0}</unitPattern>
 				<unitPattern count="other">වසර {0}</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
+				<unitPattern count="one">වසර {0} කින්</unitPattern>
 				<unitPattern count="other">වසර {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
+				<unitPattern count="one">වසර {0}ට පෙර</unitPattern>
 				<unitPattern count="other">වසර {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<unitPattern count="one">සෙන්ටිමීටර් {0}</unitPattern>
 				<unitPattern count="other">සෙන්ටිමීටර් {0}</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<unitPattern count="one">අඩි {0}</unitPattern>
 				<unitPattern count="other">අඩි {0}</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<unitPattern count="one">අඟල් {0}</unitPattern>
 				<unitPattern count="other">අඟල් {0}</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<unitPattern count="one">කිලෝමීටර් {0}</unitPattern>
 				<unitPattern count="other">කිලෝමීටර් {0}</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<unitPattern count="one">ආලෝක වර්ෂ {0}</unitPattern>
 				<unitPattern count="other">ආලෝක වර්ෂ {0}</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<unitPattern count="one">මීටර් {0}</unitPattern>
 				<unitPattern count="other">මීටර් {0}</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<unitPattern count="one">සැතපුම් {0}</unitPattern>
 				<unitPattern count="other">සැතපුම් {0}</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<unitPattern count="one">මිලිමීටර් {0}</unitPattern>
 				<unitPattern count="other">මිලිමීටර් {0}</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<unitPattern count="one">පිකොමිටර් {0}</unitPattern>
 				<unitPattern count="other">පිකොමිටර් {0}</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<unitPattern count="one">යාර {0}</unitPattern>
 				<unitPattern count="other">යාර {0}</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<unitPattern count="one">ග්‍රෑම් {0}</unitPattern>
 				<unitPattern count="other">ග්‍රෑම් {0}</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<unitPattern count="one">කි.ග්‍රෑ. {0}</unitPattern>
 				<unitPattern count="other">කි.ග්‍රෑ. {0}</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<unitPattern count="one">අවුන්ස {0}</unitPattern>
 				<unitPattern count="other">අවුන්ස {0}</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<unitPattern count="one">රාත්තල් {0}</unitPattern>
 				<unitPattern count="other">රාත්තල් {0}</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<unitPattern count="one">අශ්වබල {0}</unitPattern>
 				<unitPattern count="other">අශ්වබල {0}</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<unitPattern count="one">කිලෝ වොට් {0}</unitPattern>
 				<unitPattern count="other">කිලෝ වොට් {0}</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<unitPattern count="one">වොට් {0}</unitPattern>
 				<unitPattern count="other">වොට් {0}</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<unitPattern count="one">හෙක්ටොපැස්කල් {0}</unitPattern>
 				<unitPattern count="other">හෙක්ටොපැස්කල් {0}</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<unitPattern count="one">රසදිය අඟල් {0}</unitPattern>
 				<unitPattern count="other">රසදිය අඟල් {0}</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<unitPattern count="one">මිලිබාර් {0}</unitPattern>
 				<unitPattern count="other">මිලිබාර් {0}</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">පැයට කිලෝමීටර් {0}</unitPattern>
 				<unitPattern count="other">පැයට කිලෝමීටර් {0}</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<unitPattern count="one">තත්පරයට මීටර් {0}</unitPattern>
 				<unitPattern count="other">තත්පරයට මීටර් {0}</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">පැයට සැතපුම් {0}</unitPattern>
 				<unitPattern count="other">පැයට සැතපුම් {0}</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<unitPattern count="one">සෙල්සියස් අංශක {0}</unitPattern>
 				<unitPattern count="other">සෙල්සියස් අංශක {0}</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">ෆැරන්හයිට් අංශක {0}</unitPattern>
 				<unitPattern count="other">ෆැරන්හයිට් අංශක {0}</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">ඝන කිලෝමීටර් {0}</unitPattern>
 				<unitPattern count="other">ඝන කිලෝමීටර් {0}</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<unitPattern count="one">ඝන සැතපුම් {0}</unitPattern>
 				<unitPattern count="other">ඝන සැතපුම් {0}</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<unitPattern count="one">ලීටර් {0}</unitPattern>
 				<unitPattern count="other">ලීටර් {0}</unitPattern>
 			</unit>
 		</unitLength>
@@ -4175,183 +4297,243 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<unitPattern count="one">තත් {0}</unitPattern>
 				<unitPattern count="other">තත් {0}</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<unitPattern count="one">අංශක {0}</unitPattern>
 				<unitPattern count="other">අංශක {0}</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<unitPattern count="one">අක්කර {0}</unitPattern>
 				<unitPattern count="other">අක්කර {0}</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<unitPattern count="one">හෙක් {0}</unitPattern>
 				<unitPattern count="other">හෙක් {0}</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<unitPattern count="one">ව.කී {0}</unitPattern>
 				<unitPattern count="other">ව.කී {0}</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<unitPattern count="one">ව.මී {0}</unitPattern>
 				<unitPattern count="other">ව.මී {0}</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<unitPattern count="one">ව.සැ {0}</unitPattern>
 				<unitPattern count="other">ව.සැ {0}</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<unitPattern count="one">දින {0}</unitPattern>
 				<unitPattern count="other">දින {0}</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
+				<unitPattern count="one">දින {0}න්</unitPattern>
 				<unitPattern count="other">දින {0}න්</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
+				<unitPattern count="one">දින {0} ට පෙර</unitPattern>
 				<unitPattern count="other">දින {0} ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<unitPattern count="one">පැය {0}</unitPattern>
 				<unitPattern count="other">පැය {0}</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
+				<unitPattern count="one">පැය {0} කින්</unitPattern>
 				<unitPattern count="other">පැය {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
+				<unitPattern count="one">පැය {0}ට පෙර</unitPattern>
 				<unitPattern count="other">පැය {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<unitPattern count="one">මි.ත {0}</unitPattern>
 				<unitPattern count="other">මි.ත {0}</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
+				<unitPattern count="one">මිනිත්තු {0} කින්</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
+				<unitPattern count="one">මිනිත්තු {0}ට පෙර</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<unitPattern count="one">මාස {0}</unitPattern>
 				<unitPattern count="other">මාස {0}</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
+				<unitPattern count="one">මාස {0} කින්</unitPattern>
 				<unitPattern count="other">මාස {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
+				<unitPattern count="one">මාස {0}කට පෙර</unitPattern>
 				<unitPattern count="other">මාස {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<unitPattern count="one">තත්පර {0}</unitPattern>
 				<unitPattern count="other">තත්පර {0}</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
+				<unitPattern count="one">තත්පර {0} කින්</unitPattern>
 				<unitPattern count="other">තත්පර {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
+				<unitPattern count="one">තත්පර {0}කට පෙර</unitPattern>
 				<unitPattern count="other">තත්පර {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<unitPattern count="one">සති {0}</unitPattern>
 				<unitPattern count="other">සති {0}</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
+				<unitPattern count="one">සති {0} කින්</unitPattern>
 				<unitPattern count="other">සති {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
+				<unitPattern count="one">සති {0}කට පෙර</unitPattern>
 				<unitPattern count="other">සති {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<unitPattern count="one">වසර {0}</unitPattern>
 				<unitPattern count="other">වසර {0}</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
+				<unitPattern count="one">වසර {0} කින්</unitPattern>
 				<unitPattern count="other">වසර {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
+				<unitPattern count="one">වසර {0}ට පෙර</unitPattern>
 				<unitPattern count="other">වසර {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<unitPattern count="one">සෙ.මී {0}</unitPattern>
 				<unitPattern count="other">සෙ.මී {0}</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<unitPattern count="one">අඩි {0}</unitPattern>
 				<unitPattern count="other">අඩි {0}</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<unitPattern count="one">අඟල් {0}</unitPattern>
 				<unitPattern count="other">අඟල් {0}</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<unitPattern count="one">කි.මී {0}</unitPattern>
 				<unitPattern count="other">කි.මී {0}</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<unitPattern count="one">ආ.ව {0}</unitPattern>
 				<unitPattern count="other">ආ.ව {0}</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<unitPattern count="one">මී {0}</unitPattern>
 				<unitPattern count="other">මී {0}</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<unitPattern count="one">සැත {0}</unitPattern>
 				<unitPattern count="other">සැත {0}</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<unitPattern count="one">මිමී {0}</unitPattern>
 				<unitPattern count="other">මිමී {0}</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<unitPattern count="one">පිමී {0}</unitPattern>
 				<unitPattern count="other">පිමී {0}</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<unitPattern count="one">යාර {0}</unitPattern>
 				<unitPattern count="other">යාර {0}</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<unitPattern count="one">ග්‍රෑ. {0}</unitPattern>
 				<unitPattern count="other">ග්‍රෑ. {0}</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<unitPattern count="one">කි.ග්‍රෑ. {0}</unitPattern>
 				<unitPattern count="other">කි.ග්‍රෑ. {0}</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<unitPattern count="one">අවුන්ස {0}</unitPattern>
 				<unitPattern count="other">අවුන්ස {0}</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<unitPattern count="one">රා. {0}</unitPattern>
 				<unitPattern count="other">රා. {0}</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<unitPattern count="one">අශ්ව බල {0}</unitPattern>
 				<unitPattern count="other">අශ්ව බල {0}</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<unitPattern count="one">කි.වො {0}</unitPattern>
 				<unitPattern count="other">කි.වො {0}</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<unitPattern count="one">වොට් {0}</unitPattern>
 				<unitPattern count="other">වොට් {0}</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<unitPattern count="one">හෙ.පැ {0}</unitPattern>
 				<unitPattern count="other">හෙ.පැ {0}</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<unitPattern count="one">රසදිය අඟල් {0}</unitPattern>
 				<unitPattern count="other">රසදිය අඟල් {0}</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<unitPattern count="one">මි.බාර් {0}</unitPattern>
 				<unitPattern count="other">මි.බාර් {0}</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">කිමී/පැ {0}</unitPattern>
 				<unitPattern count="other">කිමී/පැ {0}</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<unitPattern count="one">මී/තත් {0}</unitPattern>
 				<unitPattern count="other">මී/තත් {0}</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">පැ/සැ {0}</unitPattern>
 				<unitPattern count="other">පැ/සැ {0}</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<unitPattern count="one">සෙල්. {0}°</unitPattern>
 				<unitPattern count="other">සෙල්. {0}°</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">ෆැර. {0}°</unitPattern>
 				<unitPattern count="other">ෆැර. {0}°</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<unitPattern count="one">ලී {0}</unitPattern>
 				<unitPattern count="other">ලී {0}</unitPattern>
 			</unit>
 		</unitLength>
@@ -4360,183 +4542,243 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<unitPattern count="one">තත් {0}</unitPattern>
 				<unitPattern count="other">තත් {0}</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<unitPattern count="one">අක්කර {0}</unitPattern>
 				<unitPattern count="other">අක්කර {0}</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<unitPattern count="one">දින {0}</unitPattern>
 				<unitPattern count="other">දින {0}</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
+				<unitPattern count="one">දින {0}න්</unitPattern>
 				<unitPattern count="other">දින {0}න්</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
+				<unitPattern count="one">දින {0} ට පෙර</unitPattern>
 				<unitPattern count="other">දින {0} ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<unitPattern count="one">පැය {0}</unitPattern>
 				<unitPattern count="other">පැය {0}</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
+				<unitPattern count="one">පැය {0} කින්</unitPattern>
 				<unitPattern count="other">පැය {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
+				<unitPattern count="one">පැය {0}ට පෙර</unitPattern>
 				<unitPattern count="other">පැය {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<unitPattern count="one">මි.ත {0}</unitPattern>
 				<unitPattern count="other">මි.ත {0}</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
+				<unitPattern count="one">මිනිත්තු {0} කින්</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
+				<unitPattern count="one">මිනිත්තු {0}ට පෙර</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<unitPattern count="one">මාස {0}</unitPattern>
 				<unitPattern count="other">මාස {0}</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
+				<unitPattern count="one">මාස {0} කින්</unitPattern>
 				<unitPattern count="other">මාස {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
+				<unitPattern count="one">මාස {0}කට පෙර</unitPattern>
 				<unitPattern count="other">මාස {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<unitPattern count="one">තත්පර {0}</unitPattern>
 				<unitPattern count="other">තත්පර {0}</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
+				<unitPattern count="one">තත්පර {0} කින්</unitPattern>
 				<unitPattern count="other">තත්පර {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
+				<unitPattern count="one">තත්පර {0}කට පෙර</unitPattern>
 				<unitPattern count="other">තත්පර {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<unitPattern count="one">සති {0}</unitPattern>
 				<unitPattern count="other">සති {0}</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
+				<unitPattern count="one">සති {0} කින්</unitPattern>
 				<unitPattern count="other">සති {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
+				<unitPattern count="one">සති {0}කට පෙර</unitPattern>
 				<unitPattern count="other">සති {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<unitPattern count="one">වසර {0}</unitPattern>
 				<unitPattern count="other">වසර {0}</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
+				<unitPattern count="one">වසර {0} කින්</unitPattern>
 				<unitPattern count="other">වසර {0} කින්</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
+				<unitPattern count="one">වසර {0}ට පෙර</unitPattern>
 				<unitPattern count="other">වසර {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<unitPattern count="one">සෙ.මී {0}</unitPattern>
 				<unitPattern count="other">සෙ.මී {0}</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<unitPattern count="one">{0}'</unitPattern>
 				<unitPattern count="other">{0}'</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<unitPattern count="one">{0}''</unitPattern>
 				<unitPattern count="other">{0}''</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<unitPattern count="one">කි.මී {0}</unitPattern>
 				<unitPattern count="other">කි.මී {0}</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<unitPattern count="one">ආ.ව {0}</unitPattern>
 				<unitPattern count="other">ආ.ව {0}</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<unitPattern count="one">මී {0}</unitPattern>
 				<unitPattern count="other">මී {0}</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<unitPattern count="one">සැත {0}</unitPattern>
 				<unitPattern count="other">සැත {0}</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<unitPattern count="one">මිමී {0}</unitPattern>
 				<unitPattern count="other">මිමී {0}</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<unitPattern count="one">පිමී {0}</unitPattern>
 				<unitPattern count="other">පිමී {0}</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<unitPattern count="one">යාර {0}</unitPattern>
 				<unitPattern count="other">යාර {0}</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<unitPattern count="one">ග්‍රෑ. {0}</unitPattern>
 				<unitPattern count="other">ග්‍රෑ. {0}</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<unitPattern count="one">කි.ග්‍රෑ. {0}</unitPattern>
 				<unitPattern count="other">කි.ග්‍රෑ. {0}</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<unitPattern count="one">අවුන්ස {0}</unitPattern>
 				<unitPattern count="other">අවුන්ස {0}</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<unitPattern count="one">රා. {0}</unitPattern>
 				<unitPattern count="other">රා. {0}</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<unitPattern count="one">රසදිය {0}&quot;</unitPattern>
 				<unitPattern count="other">රසදිය {0}&quot;</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<unitPattern count="one">මි.බා. {0}</unitPattern>
 				<unitPattern count="other">මි.බා. {0}</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">කිමී/පැ {0}</unitPattern>
 				<unitPattern count="other">කිමී/පැ {0}</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<unitPattern count="one">මී/තත් {0}</unitPattern>
 				<unitPattern count="other">මී/තත් {0}</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">පැ/සැ {0}</unitPattern>
 				<unitPattern count="other">පැ/සැ {0}</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<unitPattern count="one">සෙල්. {0}°</unitPattern>
 				<unitPattern count="other">සෙල්. {0}°</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">ෆැර. {0}°</unitPattern>
 				<unitPattern count="other">ෆැර. {0}°</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>

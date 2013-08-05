@@ -3399,33 +3399,57 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
 				<decimalFormat>
+					<pattern type="1000" count="one">0 минг</pattern>
 					<pattern type="1000" count="other">0 минг</pattern>
+					<pattern type="10000" count="one">00 минг</pattern>
 					<pattern type="10000" count="other">00 минг</pattern>
+					<pattern type="100000" count="one">000 минг</pattern>
 					<pattern type="100000" count="other">000 минг</pattern>
+					<pattern type="1000000" count="one">0 миллион</pattern>
 					<pattern type="1000000" count="other">0 миллион</pattern>
+					<pattern type="10000000" count="one">00 миллион</pattern>
 					<pattern type="10000000" count="other">00 миллион</pattern>
+					<pattern type="100000000" count="one">000 миллион</pattern>
 					<pattern type="100000000" count="other">000 миллион</pattern>
+					<pattern type="1000000000" count="one">0 миллиард</pattern>
 					<pattern type="1000000000" count="other">0 миллиард</pattern>
+					<pattern type="10000000000" count="one">00 миллиард</pattern>
 					<pattern type="10000000000" count="other">00 миллиард</pattern>
+					<pattern type="100000000000" count="one">000 миллиард</pattern>
 					<pattern type="100000000000" count="other">000 миллиард</pattern>
+					<pattern type="1000000000000" count="one">0 трилион</pattern>
 					<pattern type="1000000000000" count="other">0 трилион</pattern>
+					<pattern type="10000000000000" count="one">00 трилион</pattern>
 					<pattern type="10000000000000" count="other">00 трилион</pattern>
+					<pattern type="100000000000000" count="one">000 трилион</pattern>
 					<pattern type="100000000000000" count="other">000 трилион</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
+					<pattern type="1000" count="one">0минг</pattern>
 					<pattern type="1000" count="other">0минг</pattern>
+					<pattern type="10000" count="one">00минг</pattern>
 					<pattern type="10000" count="other">00минг</pattern>
+					<pattern type="100000" count="one">000минг</pattern>
 					<pattern type="100000" count="other">000минг</pattern>
+					<pattern type="1000000" count="one">0млн</pattern>
 					<pattern type="1000000" count="other">0млн</pattern>
+					<pattern type="10000000" count="one">00млн</pattern>
 					<pattern type="10000000" count="other">00млн</pattern>
+					<pattern type="100000000" count="one">000млн</pattern>
 					<pattern type="100000000" count="other">000млн</pattern>
+					<pattern type="1000000000" count="one">0млрд</pattern>
 					<pattern type="1000000000" count="other">0млрд</pattern>
+					<pattern type="10000000000" count="one">00млрд</pattern>
 					<pattern type="10000000000" count="other">00млрд</pattern>
+					<pattern type="100000000000" count="one">000млрд</pattern>
 					<pattern type="100000000000" count="other">000млрд</pattern>
+					<pattern type="1000000000000" count="one">0трлн</pattern>
 					<pattern type="1000000000000" count="other">0трлн</pattern>
+					<pattern type="10000000000000" count="one">00трлн</pattern>
 					<pattern type="10000000000000" count="other">00трлн</pattern>
+					<pattern type="100000000000000" count="one">000трлн</pattern>
 					<pattern type="100000000000000" count="other">000трлн</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
@@ -3472,789 +3496,947 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern alt="accounting">¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
+			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
 		</currencyFormats>
 		<currencies>
 			<currency type="AED">
 				<displayName>AED</displayName>
+				<displayName count="one">AED</displayName>
 				<displayName count="other">AED</displayName>
 				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>AFN</displayName>
+				<displayName count="one">AFN</displayName>
 				<displayName count="other">AFN</displayName>
 				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>ALL</displayName>
+				<displayName count="one">ALL</displayName>
 				<displayName count="other">ALL</displayName>
 				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>AMD</displayName>
+				<displayName count="one">AMD</displayName>
 				<displayName count="other">AMD</displayName>
 				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Голланд Антил гульдени</displayName>
+				<displayName count="one">Голланд Антил гульдени</displayName>
 				<displayName count="other">Голланд Антил гульдени</displayName>
 				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>AOA</displayName>
+				<displayName count="one">AOA</displayName>
 				<displayName count="other">AOA</displayName>
 				<symbol>AOA</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Аргентина песоси</displayName>
+				<displayName count="one">Аргентина песоси</displayName>
 				<displayName count="other">Аргентина песоси</displayName>
 				<symbol>ARS</symbol>
 			</currency>
 			<currency type="AUD">
 				<displayName>AUD</displayName>
+				<displayName count="one">AUD</displayName>
 				<displayName count="other">AUD</displayName>
 				<symbol>A$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Аруба флорини</displayName>
+				<displayName count="one">Аруба флорини</displayName>
 				<displayName count="other">Аруба флорини</displayName>
 				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZN">
 				<displayName>AZN</displayName>
+				<displayName count="one">AZN</displayName>
 				<displayName count="other">AZN</displayName>
 				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>BAM</displayName>
+				<displayName count="one">BAM</displayName>
 				<displayName count="other">BAM</displayName>
 				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Барбадос доллари</displayName>
+				<displayName count="one">Барбадос доллари</displayName>
 				<displayName count="other">Барбадос доллари</displayName>
 				<symbol>BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>BDT</displayName>
+				<displayName count="one">BDT</displayName>
 				<displayName count="other">BDT</displayName>
 				<symbol>BDT</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>BGN</displayName>
+				<displayName count="one">BGN</displayName>
 				<displayName count="other">BGN</displayName>
 				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>BHD</displayName>
+				<displayName count="one">BHD</displayName>
 				<displayName count="other">BHD</displayName>
 				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>BIF</displayName>
+				<displayName count="one">BIF</displayName>
 				<displayName count="other">BIF</displayName>
 				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Бермуда доллари</displayName>
+				<displayName count="one">Бермуда доллари</displayName>
 				<displayName count="other">Бермуда доллари</displayName>
 				<symbol>BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>BND</displayName>
+				<displayName count="one">BND</displayName>
 				<displayName count="other">BND</displayName>
 				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Боливия болвиани</displayName>
+				<displayName count="one">Боливия болвиани</displayName>
 				<displayName count="other">Боливия болвиани</displayName>
 				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Бразил реали</displayName>
+				<displayName count="one">Бразил реали</displayName>
 				<displayName count="other">Бразил реали</displayName>
 				<symbol>R$</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Багама доллари</displayName>
+				<displayName count="one">Багама доллари</displayName>
 				<displayName count="other">Багама доллари</displayName>
 				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>BTN</displayName>
+				<displayName count="one">BTN</displayName>
 				<displayName count="other">BTN</displayName>
 				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>BWP</displayName>
+				<displayName count="one">BWP</displayName>
 				<displayName count="other">BWP</displayName>
 				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>BYR</displayName>
+				<displayName count="one">BYR</displayName>
 				<displayName count="other">BYR</displayName>
 				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Белиз доллари</displayName>
+				<displayName count="one">Белиз доллари</displayName>
 				<displayName count="other">Белиз доллари</displayName>
 				<symbol>BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Канада доллари</displayName>
+				<displayName count="one">Канада доллари</displayName>
 				<displayName count="other">Канада доллари</displayName>
 				<symbol>CA$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>CDF</displayName>
+				<displayName count="one">CDF</displayName>
 				<displayName count="other">CDF</displayName>
 				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>CHF</displayName>
+				<displayName count="one">CHF</displayName>
 				<displayName count="other">CHF</displayName>
 				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Чили песоси</displayName>
+				<displayName count="one">Чили песоси</displayName>
 				<displayName count="other">Чили песоси</displayName>
 				<symbol>CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Хитой юани</displayName>
+				<displayName count="one">Хитой юани</displayName>
 				<displayName count="other">Хитой юани</displayName>
 				<symbol>CN¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Колумбия песоси</displayName>
+				<displayName count="one">Колумбия песоси</displayName>
 				<displayName count="other">Колумбия песоси</displayName>
 				<symbol>COP</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>Коста-Рика колони</displayName>
+				<displayName count="one">Коста-Рика колони</displayName>
 				<displayName count="other">Коста-Рика колони</displayName>
 				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>Куба Айирбошлаш песоси</displayName>
+				<displayName count="one">Куба айирбошлаш песоси</displayName>
 				<displayName count="other">Куба айирбошлаш песоси</displayName>
 				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Куба песоси</displayName>
+				<displayName count="one">Куба песоси</displayName>
 				<displayName count="other">Куба песоси</displayName>
 				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>CVE</displayName>
+				<displayName count="one">CVE</displayName>
 				<displayName count="other">CVE</displayName>
 				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>CZK</displayName>
+				<displayName count="one">CZK</displayName>
 				<displayName count="other">CZK</displayName>
 				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DJF">
 				<displayName>DJF</displayName>
+				<displayName count="one">DJF</displayName>
 				<displayName count="other">DJF</displayName>
 				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>DKK</displayName>
+				<displayName count="one">DKK</displayName>
 				<displayName count="other">DKK</displayName>
 				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Доминикан песоси</displayName>
+				<displayName count="one">Доминикан песоси</displayName>
 				<displayName count="other">Доминикан песоси</displayName>
 				<symbol>DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Жазоир динори</displayName>
+				<displayName count="one">Жазоир динори</displayName>
 				<displayName count="other">Жазоир динори</displayName>
 				<symbol>DZD</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Миср фунти</displayName>
+				<displayName count="one">Миср фунти</displayName>
 				<displayName count="other">Миср фунти</displayName>
 				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>ERN</displayName>
+				<displayName count="one">ERN</displayName>
 				<displayName count="other">ERN</displayName>
 				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>ETB</displayName>
+				<displayName count="one">ETB</displayName>
 				<displayName count="other">ETB</displayName>
 				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Евро</displayName>
+				<displayName count="one">Евро</displayName>
 				<displayName count="other">Евро</displayName>
 				<symbol>€</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName>FJD</displayName>
+				<displayName count="one">FJD</displayName>
 				<displayName count="other">FJD</displayName>
 				<symbol>FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Фолькленд ороли фунти</displayName>
+				<displayName count="one">Фолькленд ороли фунти</displayName>
 				<displayName count="other">Фолькленд ороли фунти</displayName>
 				<symbol>FKP</symbol>
 			</currency>
 			<currency type="GBP">
 				<displayName>Инглиз фунт стерлинги</displayName>
+				<displayName count="one">Инглиз фунт стерлинги</displayName>
 				<displayName count="other">Инглиз фунт стерлинги</displayName>
 				<symbol>£</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>GEL</displayName>
+				<displayName count="one">GEL</displayName>
 				<displayName count="other">GEL</displayName>
 				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>GHS</displayName>
+				<displayName count="one">GHS</displayName>
 				<displayName count="other">GHS</displayName>
 				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>GIP</displayName>
+				<displayName count="one">GIP</displayName>
 				<displayName count="other">GIP</displayName>
 				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>GMD</displayName>
+				<displayName count="one">GMD</displayName>
 				<displayName count="other">GMD</displayName>
 				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>GNF</displayName>
+				<displayName count="one">GNF</displayName>
 				<displayName count="other">GNF</displayName>
 				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Гватемала кветзали</displayName>
+				<displayName count="one">Гватемала кветзали</displayName>
 				<displayName count="other">Гватемала кветзали</displayName>
 				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Гаяна доллари</displayName>
+				<displayName count="one">Гаяна доллари</displayName>
 				<displayName count="other">Гаяна доллари</displayName>
 				<symbol>GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>HKD</displayName>
+				<displayName count="one">HKD</displayName>
 				<displayName count="other">HKD</displayName>
 				<symbol>HK$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Гондурас лемпираси</displayName>
+				<displayName count="one">Гондурас лемпираси</displayName>
 				<displayName count="other">Гондурас лемпираси</displayName>
 				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>HRK</displayName>
+				<displayName count="one">HRK</displayName>
 				<displayName count="other">HRK</displayName>
 				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Гаити гурдаси</displayName>
+				<displayName count="one">Гаити гурдаси</displayName>
 				<displayName count="other">Гаити гурдаси</displayName>
 				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>HUF</displayName>
+				<displayName count="one">HUF</displayName>
 				<displayName count="other">HUF</displayName>
 				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>IDR</displayName>
+				<displayName count="one">IDR</displayName>
 				<displayName count="other">IDR</displayName>
 				<symbol>IDR</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>ILS</displayName>
+				<displayName count="one">ILS</displayName>
 				<displayName count="other">ILS</displayName>
 				<symbol>₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Ҳинд рупияси</displayName>
+				<displayName count="one">INR</displayName>
 				<displayName count="other">INR</displayName>
 				<symbol>₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>IQD</displayName>
+				<displayName count="one">IQD</displayName>
 				<displayName count="other">IQD</displayName>
 				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>IRR</displayName>
+				<displayName count="one">IRR</displayName>
 				<displayName count="other">IRR</displayName>
 				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>ISK</displayName>
+				<displayName count="one">ISK</displayName>
 				<displayName count="other">ISK</displayName>
 				<symbol>ISK</symbol>
 			</currency>
 			<currency type="JMD">
 				<displayName>Ямайка доллари</displayName>
+				<displayName count="one">Ямайка доллари</displayName>
 				<displayName count="other">Ямайка доллари</displayName>
 				<symbol>JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>JOD</displayName>
+				<displayName count="one">JOD</displayName>
 				<displayName count="other">JOD</displayName>
 				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Япон йенаси</displayName>
+				<displayName count="one">Япон йенаси</displayName>
 				<displayName count="other">Япон йенаси</displayName>
 				<symbol>JP¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>KES</displayName>
+				<displayName count="one">KES</displayName>
 				<displayName count="other">KES</displayName>
 				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>KGS</displayName>
+				<displayName count="one">KGS</displayName>
 				<displayName count="other">KGS</displayName>
 				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>KHR</displayName>
+				<displayName count="one">KHR</displayName>
 				<displayName count="other">KHR</displayName>
 				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>KMF</displayName>
+				<displayName count="one">KMF</displayName>
 				<displayName count="other">KMF</displayName>
 				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>KPW</displayName>
+				<displayName count="one">KPW</displayName>
 				<displayName count="other">KPW</displayName>
 				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>KRW</displayName>
+				<displayName count="one">KRW</displayName>
 				<displayName count="other">KRW</displayName>
 				<symbol>₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>KWD</displayName>
+				<displayName count="one">KWD</displayName>
 				<displayName count="other">KWD</displayName>
 				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Кайман ороли Доллари</displayName>
+				<displayName count="one">Кайман ороли доллари</displayName>
 				<displayName count="other">Кайман ороли доллари</displayName>
 				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>KZT</displayName>
+				<displayName count="one">KZT</displayName>
 				<displayName count="other">KZT</displayName>
 				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>LAK</displayName>
+				<displayName count="one">LAK</displayName>
 				<displayName count="other">LAK</displayName>
 				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>LBP</displayName>
+				<displayName count="one">LBP</displayName>
 				<displayName count="other">LBP</displayName>
 				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>LKR</displayName>
+				<displayName count="one">LKR</displayName>
 				<displayName count="other">LKR</displayName>
 				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>LRD</displayName>
+				<displayName count="one">LRD</displayName>
 				<displayName count="other">LRD</displayName>
 				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>LTL</displayName>
+				<displayName count="one">LTL</displayName>
 				<displayName count="other">LTL</displayName>
 				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LVL">
 				<displayName>LVL</displayName>
+				<displayName count="one">LVL</displayName>
 				<displayName count="other">LVL</displayName>
 				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LYD">
 				<displayName>Ливия динори</displayName>
+				<displayName count="one">Ливия динори</displayName>
 				<displayName count="other">Ливия динори</displayName>
 				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Марокаш дирҳами</displayName>
+				<displayName count="one">Марокаш дирҳами</displayName>
 				<displayName count="other">Марокаш дирҳами</displayName>
 				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>MDL</displayName>
+				<displayName count="one">MDL</displayName>
 				<displayName count="other">MDL</displayName>
 				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>MGA</displayName>
+				<displayName count="one">MGA</displayName>
 				<displayName count="other">MGA</displayName>
 				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>MKD</displayName>
+				<displayName count="one">MKD</displayName>
 				<displayName count="other">MKD</displayName>
 				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MMK">
 				<displayName>MMK</displayName>
+				<displayName count="one">MMK</displayName>
 				<displayName count="other">MMK</displayName>
 				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>MNT</displayName>
+				<displayName count="one">MNT</displayName>
 				<displayName count="other">MNT</displayName>
 				<symbol>MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>MOP</displayName>
+				<displayName count="one">MOP</displayName>
 				<displayName count="other">MOP</displayName>
 				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>MRO</displayName>
+				<displayName count="one">MRO</displayName>
 				<displayName count="other">MRO</displayName>
 				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>MUR</displayName>
+				<displayName count="one">MUR</displayName>
 				<displayName count="other">MUR</displayName>
 				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>MVR</displayName>
+				<displayName count="one">MVR</displayName>
 				<displayName count="other">MVR</displayName>
 				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>MWK</displayName>
+				<displayName count="one">MWK</displayName>
 				<displayName count="other">MWK</displayName>
 				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Мексика песоси</displayName>
+				<displayName count="one">Мексика песоси</displayName>
 				<displayName count="other">Мексика песоси</displayName>
 				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>MYR</displayName>
+				<displayName count="one">MYR</displayName>
 				<displayName count="other">MYR</displayName>
 				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>MZN</displayName>
+				<displayName count="one">MZN</displayName>
 				<displayName count="other">MZN</displayName>
 				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>NAD</displayName>
+				<displayName count="one">NAD</displayName>
 				<displayName count="other">NAD</displayName>
 				<symbol>NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>NGN</displayName>
+				<displayName count="one">NGN</displayName>
 				<displayName count="other">NGN</displayName>
 				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Никарагуа кордобаси</displayName>
+				<displayName count="one">Никарагуа кордобаси</displayName>
 				<displayName count="other">Никарагуа кордобаси</displayName>
 				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>NOK</displayName>
+				<displayName count="one">NOK</displayName>
 				<displayName count="other">NOK</displayName>
 				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>NPR</displayName>
+				<displayName count="one">NPR</displayName>
 				<displayName count="other">NPR</displayName>
 				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>NZD</displayName>
+				<displayName count="one">NZD</displayName>
 				<displayName count="other">NZD</displayName>
 				<symbol>NZ$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>OMR</displayName>
+				<displayName count="one">OMR</displayName>
 				<displayName count="other">OMR</displayName>
 				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Панама бальбоаси</displayName>
+				<displayName count="one">Панама бальбоаси</displayName>
 				<displayName count="other">Панама бальбоаси</displayName>
 				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Перу нуево сол</displayName>
+				<displayName count="one">Перу нуево сол</displayName>
 				<displayName count="other">Перу нуево сол</displayName>
 				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>PGK</displayName>
+				<displayName count="one">PGK</displayName>
 				<displayName count="other">PGK</displayName>
 				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>PHP</displayName>
+				<displayName count="one">PHP</displayName>
 				<displayName count="other">PHP</displayName>
 				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>PKR</displayName>
+				<displayName count="one">PKR</displayName>
 				<displayName count="other">PKR</displayName>
 				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>PLN</displayName>
+				<displayName count="one">PLN</displayName>
 				<displayName count="other">PLN</displayName>
 				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PYG">
 				<displayName>Парагвай гуарани</displayName>
+				<displayName count="one">Парагвай гуарани</displayName>
 				<displayName count="other">Парагвай гуарани</displayName>
 				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>QAR</displayName>
+				<displayName count="one">QAR</displayName>
 				<displayName count="other">QAR</displayName>
 				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>RON</displayName>
+				<displayName count="one">RON</displayName>
 				<displayName count="other">RON</displayName>
 				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>RSD</displayName>
+				<displayName count="one">RSD</displayName>
 				<displayName count="other">RSD</displayName>
 				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Рус рубли</displayName>
+				<displayName count="one">Рус рубли</displayName>
 				<displayName count="other">Рус рубли</displayName>
 				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>RWF</displayName>
+				<displayName count="one">RWF</displayName>
 				<displayName count="other">RWF</displayName>
 				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>SAR</displayName>
+				<displayName count="one">SAR</displayName>
 				<displayName count="other">SAR</displayName>
 				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>SBD</displayName>
+				<displayName count="one">SBD</displayName>
 				<displayName count="other">SBD</displayName>
 				<symbol>SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>SCR</displayName>
+				<displayName count="one">SCR</displayName>
 				<displayName count="other">SCR</displayName>
 				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>SDG</displayName>
+				<displayName count="one">SDG</displayName>
 				<displayName count="other">SDG</displayName>
 				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>SEK</displayName>
+				<displayName count="one">SEK</displayName>
 				<displayName count="other">SEK</displayName>
 				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>SGD</displayName>
+				<displayName count="one">SGD</displayName>
 				<displayName count="other">SGD</displayName>
 				<symbol>SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>SHP</displayName>
+				<displayName count="one">SHP</displayName>
 				<displayName count="other">SHP</displayName>
 				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>SLL</displayName>
+				<displayName count="one">SLL</displayName>
 				<displayName count="other">SLL</displayName>
 				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>SOS</displayName>
+				<displayName count="one">SOS</displayName>
 				<displayName count="other">SOS</displayName>
 				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Суринам доллари</displayName>
+				<displayName count="one">Суринам доллари</displayName>
 				<displayName count="other">Суринам доллари</displayName>
 				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>SSP</displayName>
+				<displayName count="one">SSP</displayName>
 				<displayName count="other">SSP</displayName>
 				<symbol>SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>STD</displayName>
+				<displayName count="one">STD</displayName>
 				<displayName count="other">STD</displayName>
 				<symbol>STD</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>SYP</displayName>
+				<displayName count="one">SYP</displayName>
 				<displayName count="other">SYP</displayName>
 				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>SZL</displayName>
+				<displayName count="one">SZL</displayName>
 				<displayName count="other">SZL</displayName>
 				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>THB</displayName>
+				<displayName count="one">THB</displayName>
 				<displayName count="other">THB</displayName>
 				<symbol>฿</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>TJS</displayName>
+				<displayName count="one">TJS</displayName>
 				<displayName count="other">TJS</displayName>
 				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName>TMT</displayName>
+				<displayName count="one">TMT</displayName>
 				<displayName count="other">TMT</displayName>
 				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>TND</displayName>
+				<displayName count="one">TND</displayName>
 				<displayName count="other">TND</displayName>
 				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>TOP</displayName>
+				<displayName count="one">TOP</displayName>
 				<displayName count="other">TOP</displayName>
 				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>TRY</displayName>
+				<displayName count="one">TRY</displayName>
 				<displayName count="other">TRY</displayName>
 				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Тринидад ва Тобаго доллари</displayName>
+				<displayName count="one">Тринидад ва Тобаго доллари</displayName>
 				<displayName count="other">Тринидад ва Тобаго доллари</displayName>
 				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>TWD</displayName>
+				<displayName count="one">TWD</displayName>
 				<displayName count="other">TWD</displayName>
 				<symbol>NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>TZS</displayName>
+				<displayName count="one">TZS</displayName>
 				<displayName count="other">TZS</displayName>
 				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>UAH</displayName>
+				<displayName count="one">UAH</displayName>
 				<displayName count="other">UAH</displayName>
 				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>UGX</displayName>
+				<displayName count="one">UGX</displayName>
 				<displayName count="other">UGX</displayName>
 				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>АҚШ доллари</displayName>
+				<displayName count="one">АҚШ доллари</displayName>
 				<displayName count="other">АҚШ доллари</displayName>
 				<symbol>US$</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Уругвай песоси</displayName>
+				<displayName count="one">Уругвай песоси</displayName>
 				<displayName count="other">Уругвай песоси</displayName>
 				<symbol>UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Ўзбекистон сўм</displayName>
+				<displayName count="one">Ўзбекистон сўм</displayName>
 				<displayName count="other">Ўзбекистон сўм</displayName>
 				<symbol>сўм</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>Венесуэла боливари</displayName>
+				<displayName count="one">Венесуэла боливари</displayName>
 				<displayName count="other">Венесуэла боливари</displayName>
 				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>VND</displayName>
+				<displayName count="one">VND</displayName>
 				<displayName count="other">VND</displayName>
 				<symbol>₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>VUV</displayName>
+				<displayName count="one">VUV</displayName>
 				<displayName count="other">VUV</displayName>
 				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>WST</displayName>
+				<displayName count="one">WST</displayName>
 				<displayName count="other">WST</displayName>
 				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>XAF</displayName>
+				<displayName count="one">XAF</displayName>
 				<displayName count="other">XAF</displayName>
 				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Шарқий Кариб доллари</displayName>
+				<displayName count="one">Шарқ Кариб доллари</displayName>
 				<displayName count="other">Шарқ Кариб доллари</displayName>
 				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>XOF</displayName>
+				<displayName count="one">XOF</displayName>
 				<displayName count="other">XOF</displayName>
 				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>XPF</displayName>
+				<displayName count="one">XPF</displayName>
 				<displayName count="other">XPF</displayName>
 				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>XXX</displayName>
+				<displayName count="one">XXX</displayName>
 				<displayName count="other">XXX</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>YER</displayName>
+				<displayName count="one">YER</displayName>
 				<displayName count="other">YER</displayName>
 				<symbol>YER</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>ZAR</displayName>
+				<displayName count="one">ZAR</displayName>
 				<displayName count="other">ZAR</displayName>
 			</currency>
 			<currency type="ZMW">
 				<displayName>ZMW</displayName>
+				<displayName count="one">ZMW</displayName>
 				<displayName count="other">ZMW</displayName>
 				<symbol>ZMW</symbol>
 			</currency>
@@ -4270,183 +4452,243 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<unitPattern count="one">{0} ac</unitPattern>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<unitPattern count="one">{0} кун</unitPattern>
 				<unitPattern count="other">{0} кун</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
+				<unitPattern count="one">+{0} кундан сўнг</unitPattern>
 				<unitPattern count="other">+{0} кундан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
+				<unitPattern count="one">-{0} кун олдин</unitPattern>
 				<unitPattern count="other">-{0} кун олдин</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<unitPattern count="one">{0} соат</unitPattern>
 				<unitPattern count="other">{0} соат</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
+				<unitPattern count="one">+{0} соатдан сўнг</unitPattern>
 				<unitPattern count="other">+{0} соатдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
+				<unitPattern count="one">-{0} соат олдин</unitPattern>
 				<unitPattern count="other">-{0} соат олдин</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} миллисония</unitPattern>
 				<unitPattern count="other">{0} миллисония</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<unitPattern count="one">{0} дақиқа</unitPattern>
 				<unitPattern count="other">{0} дақиқа</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
+				<unitPattern count="one">+{0} дақиқадан сўнг</unitPattern>
 				<unitPattern count="other">+{0} дақиқадан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
+				<unitPattern count="one">-{0} дақиқа олдин</unitPattern>
 				<unitPattern count="other">-{0} дақиқа олдин</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<unitPattern count="one">{0} ой</unitPattern>
 				<unitPattern count="other">{0} ой</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
+				<unitPattern count="one">+{0} ойдан сўнг</unitPattern>
 				<unitPattern count="other">+{0} ойдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
+				<unitPattern count="one">-{0} ой аввал</unitPattern>
 				<unitPattern count="other">-{0} ой аввал</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<unitPattern count="one">{0} сония</unitPattern>
 				<unitPattern count="other">{0} сония</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
+				<unitPattern count="one">+{0} сониядан сўнг</unitPattern>
 				<unitPattern count="other">+{0} сониядан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
+				<unitPattern count="one">-{0} сония олдин</unitPattern>
 				<unitPattern count="other">-{0} сония олдин</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<unitPattern count="one">{0} ҳафта</unitPattern>
 				<unitPattern count="other">{0} ҳафта</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
+				<unitPattern count="one">+{0} ҳафтадан сўнг</unitPattern>
 				<unitPattern count="other">+{0} ҳафтадан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
+				<unitPattern count="one">-{0} ҳафта олдин</unitPattern>
 				<unitPattern count="other">-{0} ҳафта олдин</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<unitPattern count="one">{0} йил</unitPattern>
 				<unitPattern count="other">{0} йил</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
+				<unitPattern count="one">+{0} йилдан сўнг</unitPattern>
 				<unitPattern count="other">+{0} йилдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
+				<unitPattern count="one">-{0} йил аввал</unitPattern>
 				<unitPattern count="other">-{0} йил аввал</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<unitPattern count="one">{0} см</unitPattern>
 				<unitPattern count="other">{0} см</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<unitPattern count="one">{0} фут</unitPattern>
 				<unitPattern count="other">{0} фут</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<unitPattern count="one">{0} дюйм</unitPattern>
 				<unitPattern count="other">{0} дюйм</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<unitPattern count="one">{0} км</unitPattern>
 				<unitPattern count="other">{0} км</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<unitPattern count="one">{0} ё.й.</unitPattern>
 				<unitPattern count="other">{0} ё.й.</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<unitPattern count="one">{0} м</unitPattern>
 				<unitPattern count="other">{0} м</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<unitPattern count="one">{0} миля</unitPattern>
 				<unitPattern count="other">{0} миля</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<unitPattern count="one">{0} мм</unitPattern>
 				<unitPattern count="other">{0} мм</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<unitPattern count="one">{0} пм</unitPattern>
 				<unitPattern count="other">{0} пм</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<unitPattern count="one">{0} ярд</unitPattern>
 				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<unitPattern count="one">{0} г</unitPattern>
 				<unitPattern count="other">{0} г</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} кг</unitPattern>
 				<unitPattern count="other">{0} кг</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<unitPattern count="one">{0} унция</unitPattern>
 				<unitPattern count="other">{0} унция</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<unitPattern count="one">{0} фунт</unitPattern>
 				<unitPattern count="other">{0} фунт</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} km/h</unitPattern>
 				<unitPattern count="other">{0} km/h</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} m/s</unitPattern>
 				<unitPattern count="other">{0} m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} mi/h</unitPattern>
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>
@@ -4455,183 +4697,243 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<unitPattern count="one">{0} ac</unitPattern>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<unitPattern count="one">{0} кун</unitPattern>
 				<unitPattern count="other">{0} кун</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
+				<unitPattern count="one">+{0} кундан сўнг</unitPattern>
 				<unitPattern count="other">+{0} кундан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
+				<unitPattern count="one">-{0} кун олдин</unitPattern>
 				<unitPattern count="other">-{0} кун олдин</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<unitPattern count="one">{0} соат</unitPattern>
 				<unitPattern count="other">{0} соат</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
+				<unitPattern count="one">+{0} соатдан сўнг</unitPattern>
 				<unitPattern count="other">+{0} соатдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
+				<unitPattern count="one">-{0} соат олдин</unitPattern>
 				<unitPattern count="other">-{0} соат олдин</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} мс</unitPattern>
 				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<unitPattern count="one">{0} дақ</unitPattern>
 				<unitPattern count="other">{0} дақ</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
+				<unitPattern count="one">+{0} дақ сўнг</unitPattern>
 				<unitPattern count="other">+{0} дақ сўнг</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
+				<unitPattern count="one">-{0} дақ олдин</unitPattern>
 				<unitPattern count="other">-{0} дақ олдин</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<unitPattern count="one">{0} ой</unitPattern>
 				<unitPattern count="other">{0} ой</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
+				<unitPattern count="one">+{0} ойдан сўнг</unitPattern>
 				<unitPattern count="other">+{0} ойдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
+				<unitPattern count="one">-{0} ой аввал</unitPattern>
 				<unitPattern count="other">-{0} ой аввал</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<unitPattern count="one">{0} сония</unitPattern>
 				<unitPattern count="other">{0} сония</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
+				<unitPattern count="one">+{0} сон сўнг</unitPattern>
 				<unitPattern count="other">+{0} сон сўнг</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
+				<unitPattern count="one">-{0} сон олдин</unitPattern>
 				<unitPattern count="other">-{0} сон олдин</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<unitPattern count="one">{0} ҳафт</unitPattern>
 				<unitPattern count="other">{0} ҳафт</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
+				<unitPattern count="one">+{0} ҳафт сўнг</unitPattern>
 				<unitPattern count="other">+{0} ҳафт сўнг</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
+				<unitPattern count="one">-{0} ҳафт олдин</unitPattern>
 				<unitPattern count="other">-{0} ҳафт олдин</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<unitPattern count="one">{0} й</unitPattern>
 				<unitPattern count="other">{0} й</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
+				<unitPattern count="one">+{0} й сўнг</unitPattern>
 				<unitPattern count="other">+{0} й сўнг</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
+				<unitPattern count="one">-{0} й аввал</unitPattern>
 				<unitPattern count="other">-{0} й аввал</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<unitPattern count="one">{0} см</unitPattern>
 				<unitPattern count="other">{0} см</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<unitPattern count="one">{0} фут</unitPattern>
 				<unitPattern count="other">{0} фут</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<unitPattern count="one">{0} дюйм</unitPattern>
 				<unitPattern count="other">{0} дюйм</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<unitPattern count="one">{0} км</unitPattern>
 				<unitPattern count="other">{0} км</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<unitPattern count="one">{0} ё.й.</unitPattern>
 				<unitPattern count="other">{0} ё.й.</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<unitPattern count="one">{0} м</unitPattern>
 				<unitPattern count="other">{0} м</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<unitPattern count="one">{0} миля</unitPattern>
 				<unitPattern count="other">{0} миля</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<unitPattern count="one">{0} мм</unitPattern>
 				<unitPattern count="other">{0} мм</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<unitPattern count="one">{0} пм</unitPattern>
 				<unitPattern count="other">{0} пм</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<unitPattern count="one">{0} ярд</unitPattern>
 				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<unitPattern count="one">{0} г</unitPattern>
 				<unitPattern count="other">{0} г</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} кг</unitPattern>
 				<unitPattern count="other">{0} кг</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<unitPattern count="one">{0} унция</unitPattern>
 				<unitPattern count="other">{0} унция</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<unitPattern count="one">{0} фунт</unitPattern>
 				<unitPattern count="other">{0} фунт</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} km/h</unitPattern>
 				<unitPattern count="other">{0} km/h</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} m/s</unitPattern>
 				<unitPattern count="other">{0} m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} mi/h</unitPattern>
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>
@@ -4640,183 +4942,243 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<unitPattern count="one">{0} ac</unitPattern>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<unitPattern count="one">{0} к</unitPattern>
 				<unitPattern count="other">{0} к</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
+				<unitPattern count="one">+{0} кундан сўнг</unitPattern>
 				<unitPattern count="other">+{0} кундан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
+				<unitPattern count="one">-{0} кун олдин</unitPattern>
 				<unitPattern count="other">-{0} кун олдин</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<unitPattern count="one">{0} с</unitPattern>
 				<unitPattern count="other">{0} с</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
+				<unitPattern count="one">+{0} соатдан сўнг</unitPattern>
 				<unitPattern count="other">+{0} соатдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
+				<unitPattern count="one">-{0} соатд олдин</unitPattern>
 				<unitPattern count="other">-{0} соатд олдин</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<unitPattern count="one">{0} мс</unitPattern>
 				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<unitPattern count="one">{0} дақ</unitPattern>
 				<unitPattern count="other">{0} дақ</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
+				<unitPattern count="one">+{0} дақ сўнг</unitPattern>
 				<unitPattern count="other">+{0} дақ сўнг</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
+				<unitPattern count="one">-{0} дақ олдин</unitPattern>
 				<unitPattern count="other">-{0} дақ олдин</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<unitPattern count="one">{0} ой</unitPattern>
 				<unitPattern count="other">{0} ой</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
+				<unitPattern count="one">+{0} ойдан сўнг</unitPattern>
 				<unitPattern count="other">+{0} ойдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
+				<unitPattern count="one">-{0} ой аввал</unitPattern>
 				<unitPattern count="other">-{0} ой аввал</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<unitPattern count="one">{0} сон</unitPattern>
 				<unitPattern count="other">{0} сон</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
+				<unitPattern count="one">+{0} сон сўнг</unitPattern>
 				<unitPattern count="other">+{0} сон сўнг</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
+				<unitPattern count="one">-{0} сон олдин</unitPattern>
 				<unitPattern count="other">-{0} сон олдин</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<unitPattern count="one">{0} ҳафт</unitPattern>
 				<unitPattern count="other">{0} ҳафт</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
+				<unitPattern count="one">+{0} ҳафт сўнг</unitPattern>
 				<unitPattern count="other">+{0} ҳафт сўнг</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
+				<unitPattern count="one">-{0} ҳафт олдин</unitPattern>
 				<unitPattern count="other">-{0} ҳафт олдин</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<unitPattern count="one">{0} й</unitPattern>
 				<unitPattern count="other">{0} й</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
+				<unitPattern count="one">+{0} й сўнг</unitPattern>
 				<unitPattern count="other">+{0} й сўнг</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
+				<unitPattern count="one">-{0} й аввал</unitPattern>
 				<unitPattern count="other">-{0} й аввал</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<unitPattern count="one">{0} см</unitPattern>
 				<unitPattern count="other">{0} см</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<unitPattern count="one">{0} фут</unitPattern>
 				<unitPattern count="other">{0} фут</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<unitPattern count="one">{0} дюйм</unitPattern>
 				<unitPattern count="other">{0} дюйм</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<unitPattern count="one">{0} км</unitPattern>
 				<unitPattern count="other">{0} км</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<unitPattern count="one">{0} ё.й.</unitPattern>
 				<unitPattern count="other">{0} ё.й.</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<unitPattern count="one">{0} м</unitPattern>
 				<unitPattern count="other">{0} м</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<unitPattern count="one">{0} миля</unitPattern>
 				<unitPattern count="other">{0} миля</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<unitPattern count="one">{0} мм</unitPattern>
 				<unitPattern count="other">{0} мм</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<unitPattern count="one">{0} пм</unitPattern>
 				<unitPattern count="other">{0} пм</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<unitPattern count="one">{0} ярд</unitPattern>
 				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<unitPattern count="one">{0} г</unitPattern>
 				<unitPattern count="other">{0} г</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<unitPattern count="one">{0} кг</unitPattern>
 				<unitPattern count="other">{0} кг</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<unitPattern count="one">{0} унция</unitPattern>
 				<unitPattern count="other">{0} унция</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<unitPattern count="one">{0} фунт</unitPattern>
 				<unitPattern count="other">{0} фунт</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<unitPattern count="one">{0} km/h</unitPattern>
 				<unitPattern count="other">{0} km/h</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<unitPattern count="one">{0} m/s</unitPattern>
 				<unitPattern count="other">{0} m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<unitPattern count="one">{0} mi/h</unitPattern>
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>

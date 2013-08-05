@@ -804,7 +804,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 final Date start = dateInfo.getStart();
                 final Date end = dateInfo.getEnd();
                 if (dateInfo.getErrors().length() != 0) {
-                    warnln("parsing " + territory + "\t" + dateInfo.toString() + "\t" + dateInfo.getErrors());
+                    logln("parsing " + territory + "\t" + dateInfo.toString() + "\t" + dateInfo.getErrors());
                 }
                 Date firstValue = currencyFirstValid.get(currency);
                 if (firstValue == null || firstValue.compareTo(start) < 0) {
@@ -1049,7 +1049,7 @@ public class TestSupplementalInfo extends TestFmwk {
                         errln("Plurals for " + locale + ", Missing samples or cardinal rules");
                     }
                     if (!hasOrdinals) {
-                        warnln("Plurals for " + locale + ", Missing ordinal rules");
+                        logln("Plurals for " + locale + ", Missing ordinal rules");
                     }
                 }
                 logln(test 

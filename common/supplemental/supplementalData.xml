@@ -4088,17 +4088,17 @@ XXX Code for transations where no currency is involved
           <!-- The first workday of the week (after the weekend) is distinct, and can be determined as the day after the weekendEnd day.  -->
           <firstDay day="mon"  territories="001 AD AI AL AM AN AT AX AZ BA BE BG BM BN CH CL CM CR CY CZ DE DK EC EE ES FI FJ FO FR GB GE GF GP GR HR HU IS IT KG KZ LB LI LK LT LU LV MC MD ME MK MN MQ MY NL NO PL PT RE RO RS RU SE SI SK SM TJ TM TR UA UY UZ VA VN XK" />
           <firstDay day="fri"  territories="BD MV" />
-          <firstDay day="sat"  territories="AE AF BH DJ DZ EG IQ IR JO KW LY MA OM QA SA SD SY YE" />
-          <firstDay day="sun"  territories="AG AR AS AU BR BS BT BW BY BZ CA CN CO DM DO ET GT GU HK HN ID IE IL IN JM JP KE KH KR LA MH MM MO MT MX MZ NI NP NZ PA PE PH PK PR PY SG SV TH TN TT TW UM US VE VI WS ZA ZW" />
+          <firstDay day="sat"  territories="AE AF BH DJ DZ EG IQ IR JO KW LY MA OM QA SD SY YE" />
+          <firstDay day="sun"  territories="AG AR AS AU BR BS BT BW BY BZ CA CN CO DM DO ET GT GU HK HN ID IE IL IN JM JP KE KH KR LA MH MM MO MT MX MZ NI NP NZ PA PE PH PK PR PY SA SG SV TH TN TT TW UM US VE VI WS ZA ZW" />
           <firstDay day="sun"  territories="GB" alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
         
-          <weekendStart day="thu"  territories="AF DZ IR OM SA YE"/>
-          <weekendStart day="fri"  territories="AE BH EG IL IQ JO KW LY MA QA SD SY TN"/>
+          <weekendStart day="thu"  territories="AF DZ IR OM YE"/>
+          <weekendStart day="fri"  territories="AE BH EG IL IQ JO KW LY MA QA SA SD SY TN"/>
           <weekendStart day="sat"  territories="001"/>
           <weekendStart day="sun"  territories="IN"/>
         
-          <weekendEnd day="fri"  territories="AF DZ IR OM SA YE"/>
-          <weekendEnd day="sat"  territories="AE BH EG IL IQ JO KW LY MA QA SD SY TN"/>
+          <weekendEnd day="fri"  territories="AF DZ IR OM YE"/>
+          <weekendEnd day="sat"  territories="AE BH EG IL IQ JO KW LY MA QA SA SD SY TN"/>
           <weekendEnd day="sun"  territories="001"/>
     </weekData>
 

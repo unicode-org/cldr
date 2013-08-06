@@ -12,21 +12,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<script type="Hant"/>
 		<territory type="MO"/>
 	</identity>
-	<localeDisplayNames>
-		<territories>
-			<territory type="SL" draft="contributed">塞拉利昂</territory>
-		</territories>
-	</localeDisplayNames>
 	<dates>
 		<calendars>
-			<calendar type="buddhist">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">M-d（E）</dateFormatItem>
-					</availableFormats>
-				</dateTimeFormats>
-			</calendar>
 			<calendar type="generic">
 				<dateFormats>
 					<dateFormatLength type="full">
@@ -51,16 +38,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">M-d (E)</dateFormatItem>
@@ -139,34 +116,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="full">
-						<timeFormat>
-							<pattern draft="contributed">ah:mm:ss [zzzz]</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern draft="contributed">ah:mm:ss [z]</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>ahh:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
-					<dateTimeFormatLength type="full">
-						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
-					<dateTimeFormatLength type="long">
-						<dateTimeFormat>
-							<pattern draft="contributed">{1} {0}</pattern>
-						</dateTimeFormat>
-					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="Md" draft="contributed">M-d</dateFormatItem>
 						<dateFormatItem id="MEd" draft="contributed">E, M-d</dateFormatItem>
@@ -221,14 +171,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y" draft="unconfirmed">y年MM月d日E至y年MM月d日E</greatestDifference>
 						</intervalFormatItem>
 					</intervalFormats>
-				</dateTimeFormats>
-			</calendar>
-			<calendar type="roc">
-				<dateTimeFormats>
-					<availableFormats>
-						<dateFormatItem id="Md" draft="contributed">d-M</dateFormatItem>
-						<dateFormatItem id="MEd" draft="contributed">d-M（E）</dateFormatItem>
-					</availableFormats>
 				</dateTimeFormats>
 			</calendar>
 		</calendars>

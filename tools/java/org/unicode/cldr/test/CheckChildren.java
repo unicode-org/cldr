@@ -73,6 +73,10 @@ public class CheckChildren extends FactoryCheckCLDR {
         List<CLDRFile> iChildren = new ArrayList<CLDRFile>();
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         CLDRLocale myLocale = CLDRLocale.getInstance(cldrFileToCheck.getLocaleID());
+        if (myLocale.getCountry() != null && myLocale.getCountry().length() == 2) {
+            immediateChildren = null;
+            return this; // We don't care if a country locale's children override, since the country locale needs to stand on its own.
+        }
         Set<CLDRLocale> subLocales = getFactory().subLocalesOf(myLocale);
         if (subLocales == null) return this;
         for (CLDRLocale locale : subLocales) {

@@ -421,7 +421,7 @@ $Date$
 <!ATTLIST calendars draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendars validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras*, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))> <!-- fields is deprecated here -->
+<!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*, dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))> <!-- fields is deprecated here -->
 <!ATTLIST calendar type NMTOKEN #REQUIRED >
 <!ATTLIST calendar draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendar standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->

@@ -285,6 +285,10 @@ public class DisplayAndInputProcessor {
                 value = value.replace('[','(').replace(']', ')').replace('［', '（').replace('］', '）');
             }
 
+            // Normalize two single quotes for the inches symbol.
+            if (path.contains("/units")) {
+                value = value.replace("''", "″");
+            }
 
             // check specific cases
             if (path.contains("/exemplarCharacters")) {

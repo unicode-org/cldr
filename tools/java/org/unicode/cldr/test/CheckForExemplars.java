@@ -73,8 +73,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         "timeFormatLength"
     };
 
-    static final UnicodeSet START_PAREN = new UnicodeSet("[(\\[（［]").freeze();
-    static final UnicodeSet END_PAREN = new UnicodeSet("[)\\]］）]").freeze();
+    static final UnicodeSet START_PAREN = new UnicodeSet("[[:Ps:]]").freeze();
+    static final UnicodeSet END_PAREN = new UnicodeSet("[[:Pe:]]").freeze();
     static final UnicodeSet ALL_CURRENCY_SYMBOLS = new UnicodeSet("[[:Sc:]]").freeze();
     static final UnicodeSet NUMBERS = new UnicodeSet("[[:N:]]").freeze();
     static final UnicodeSet DISALLOWED_HOUR_FORMAT = new UnicodeSet("[[:letter:]]").remove('H').remove('m').freeze();
@@ -83,6 +83,10 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     private UnicodeSet exemplarsPlusAscii;
     private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplars = new UnicodeSet("[()（）;,；，]").freeze();
     private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplarsWithParens = new UnicodeSet("[;,；，]").freeze();
+
+    // Hack until cldrbug 6566 is fixed. TODO
+    private static final Pattern IGNORE_PLACEHOLDER_PARENTHESES = Pattern.compile("\\p{Ps}#\\p{Pe}");
+
     // private UnicodeSet currencySymbolExemplars;
     private boolean skip;
     private Collator col;
@@ -372,6 +376,16 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                         Subtype.patternCannotContainDigits,
                         "cannot occur in locale fields", result);
                 }
+            }
+        } if (path.contains("/units")) {
+            String noValidParentheses = IGNORE_PLACEHOLDER_PARENTHESES.matcher(value).replaceAll("");
+            disallowed = new UnicodeSet().addAll(START_PAREN).addAll(END_PAREN)
+                    .retainAll(noValidParentheses);
+            if (!disallowed.isEmpty()) {
+                addMissingMessage(disallowed, CheckStatus.errorType,
+                        Subtype.parenthesesNotAllowed,
+                        Subtype.parenthesesNotAllowed,
+                        "cannot occur in units", result);
             }
         } else if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
             addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,

@@ -79,6 +79,13 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         assertEquals("Breaking space not replaced", "¤ #,##0.00", value); // non-breaking space
     }
 
+    public void TestQuoteNormalization() {
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish());
+        String xpath = "//ldml/units/unitLength[@type=\"narrow\"]/unitPattern[@count=\"one\"]";
+        String value = daip.processInput(xpath, "{0}''", null); // breaking space
+        assertEquals("Quotes not normalized", "{0}″", value); // non-breaking space
+    }
+
     private void showCldrFile(final CLDRFile cldrFile) {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFile);
         Exception[] internalException = new Exception[1];

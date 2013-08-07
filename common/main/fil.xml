@@ -3575,29 +3575,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<decimalFormatLength type="long">
 				<decimalFormat>
 					<pattern type="1000" count="one">0 libo</pattern>
-					<pattern type="1000" count="other">0 (na) libo</pattern>
+					<pattern type="1000" count="other">0 libo</pattern>
 					<pattern type="10000" count="one">00 libo</pattern>
-					<pattern type="10000" count="other">00 (na) libo</pattern>
+					<pattern type="10000" count="other">00 libo</pattern>
 					<pattern type="100000" count="one">000 libo</pattern>
-					<pattern type="100000" count="other">000 (na) libo</pattern>
+					<pattern type="100000" count="other">000 libo</pattern>
 					<pattern type="1000000" count="one">0 milyon</pattern>
-					<pattern type="1000000" count="other">0 (na) milyon</pattern>
+					<pattern type="1000000" count="other">0 milyon</pattern>
 					<pattern type="10000000" count="one">00 milyon</pattern>
-					<pattern type="10000000" count="other">00 (na) milyon</pattern>
+					<pattern type="10000000" count="other">00 milyon</pattern>
 					<pattern type="100000000" count="one">000 milyon</pattern>
-					<pattern type="100000000" count="other">000 (na) milyon</pattern>
+					<pattern type="100000000" count="other">000 milyon</pattern>
 					<pattern type="1000000000" count="one">0 bilyon</pattern>
-					<pattern type="1000000000" count="other">0 (na) bilyon</pattern>
+					<pattern type="1000000000" count="other">0 bilyon</pattern>
 					<pattern type="10000000000" count="one">00 bilyon</pattern>
-					<pattern type="10000000000" count="other">00 (na) bilyon</pattern>
+					<pattern type="10000000000" count="other">00 bilyon</pattern>
 					<pattern type="100000000000" count="one">000 bilyon</pattern>
-					<pattern type="100000000000" count="other">000 (na) bilyon</pattern>
+					<pattern type="100000000000" count="other">000 bilyon</pattern>
 					<pattern type="1000000000000" count="one">0 trilyon</pattern>
-					<pattern type="1000000000000" count="other">0 (na) trilyon</pattern>
+					<pattern type="1000000000000" count="other">0 trilyon</pattern>
 					<pattern type="10000000000000" count="one">00 trilyon</pattern>
-					<pattern type="10000000000000" count="other">00 (na) trilyon</pattern>
+					<pattern type="10000000000000" count="other">00 trilyon</pattern>
 					<pattern type="100000000000000" count="one">000 trilyon</pattern>
-					<pattern type="100000000000000" count="other">000 (na) trilyon</pattern>
+					<pattern type="100000000000000" count="other">000 trilyon</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
@@ -4652,7 +4652,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one">{0} ektarya</unitPattern>
-				<unitPattern count="other">{0} (na) ektarya</unitPattern>
+				<unitPattern count="other">{0} ektarya</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
 				<unitPattern count="one">{0} square foot</unitPattern>
@@ -4660,11 +4660,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="area-square-kilometer">
 				<unitPattern count="one">{0} square kilometer</unitPattern>
-				<unitPattern count="other">{0} (na) square kilometer</unitPattern>
+				<unitPattern count="other">{0} square kilometer</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
 				<unitPattern count="one">{0} square meter</unitPattern>
-				<unitPattern count="other">{0} (na) square meter</unitPattern>
+				<unitPattern count="other">{0} square meter</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
 				<unitPattern count="one">{0} square mile</unitPattern>
@@ -4672,147 +4672,147 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one">{0} araw</unitPattern>
-				<unitPattern count="other">{0} (na) araw</unitPattern>
+				<unitPattern count="other">{0} araw</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
 				<unitPattern count="one">Sa loob ng {0} araw</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} (na) araw</unitPattern>
+				<unitPattern count="other">Sa loob ng {0} araw</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
 				<unitPattern count="one">{0} araw ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} (na) araw ang nakalipas</unitPattern>
+				<unitPattern count="other">{0} araw ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} oras</unitPattern>
-				<unitPattern count="other">{0} (na) oras</unitPattern>
+				<unitPattern count="other">{0} oras</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
 				<unitPattern count="one">Sa loob ng {0} oras</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} (na) oras</unitPattern>
+				<unitPattern count="other">Sa loob ng {0} oras</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
 				<unitPattern count="one">{0} oras ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} (na) oras ang nakalipas</unitPattern>
+				<unitPattern count="other">{0} oras ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} millisecond</unitPattern>
-				<unitPattern count="other">{0} (na) millisecond</unitPattern>
+				<unitPattern count="other">{0} millisecond</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one">{0} minuto</unitPattern>
-				<unitPattern count="other">{0} (na) minuto</unitPattern>
+				<unitPattern count="other">{0} minuto</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
 				<unitPattern count="one">Sa loob ng {0} minuto</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} (na) minuto</unitPattern>
+				<unitPattern count="other">Sa loob ng {0} minuto</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
 				<unitPattern count="one">{0} minuto ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} (na) minuto ang nakalipas</unitPattern>
+				<unitPattern count="other">{0} minuto ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} buwan</unitPattern>
-				<unitPattern count="other">{0} (na) buwan</unitPattern>
+				<unitPattern count="other">{0} buwan</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
 				<unitPattern count="one">Sa loob ng {0} buwan</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} (na) buwan</unitPattern>
+				<unitPattern count="other">Sa loob ng {0} buwan</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
 				<unitPattern count="one">{0} buwan ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} (na) buwan ang nakalipas</unitPattern>
+				<unitPattern count="other">{0} buwan ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} segundo</unitPattern>
-				<unitPattern count="other">{0} (na) segundo</unitPattern>
+				<unitPattern count="other">{0} segundo</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
 				<unitPattern count="one">Sa loob ng {0} segundo</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} (na) segundo</unitPattern>
+				<unitPattern count="other">Sa loob ng {0} segundo</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
 				<unitPattern count="one">{0} segundo ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} (na) segundo ang nakalipas</unitPattern>
+				<unitPattern count="other">{0} segundo ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} linggo</unitPattern>
-				<unitPattern count="other">{0} (na) linggo</unitPattern>
+				<unitPattern count="other">{0} linggo</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
 				<unitPattern count="one">Sa loob ng {0} linggo</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} (na) linggo</unitPattern>
+				<unitPattern count="other">Sa loob ng {0} linggo</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
 				<unitPattern count="one">{0} na linggo ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} (na) linggo ang nakalipas</unitPattern>
+				<unitPattern count="other">{0} linggo ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} taon</unitPattern>
-				<unitPattern count="other">{0} (na) taon</unitPattern>
+				<unitPattern count="other">{0} taon</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
 				<unitPattern count="one">Sa loob ng {0} taon</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} (na) taon</unitPattern>
+				<unitPattern count="other">Sa loob ng {0} taon</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
 				<unitPattern count="one">{0} taon ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} (na) taon ang nakalipas</unitPattern>
+				<unitPattern count="other">{0} taon ang nakalipas</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} sentimetro</unitPattern>
-				<unitPattern count="other">{0} (na) sentimetro</unitPattern>
+				<unitPattern count="other">{0} sentimetro</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<unitPattern count="one">{0} talampakan</unitPattern>
-				<unitPattern count="other">{0} (na) talampakan</unitPattern>
+				<unitPattern count="other">{0} talampakan</unitPattern>
 			</unit>
 			<unit type="length-inch">
 				<unitPattern count="one">{0} pulgada</unitPattern>
-				<unitPattern count="other">{0} (na) pulgada</unitPattern>
+				<unitPattern count="other">{0} pulgada</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<unitPattern count="one">{0} kilometro</unitPattern>
-				<unitPattern count="other">{0} (na) kilometro</unitPattern>
+				<unitPattern count="other">{0} kilometro</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<unitPattern count="one">{0} light year</unitPattern>
-				<unitPattern count="other">{0} (na) light year</unitPattern>
+				<unitPattern count="other">{0} light year</unitPattern>
 			</unit>
 			<unit type="length-meter">
 				<unitPattern count="one">{0} metro</unitPattern>
-				<unitPattern count="other">{0} (na) metro</unitPattern>
+				<unitPattern count="other">{0} metro</unitPattern>
 			</unit>
 			<unit type="length-mile">
 				<unitPattern count="one">{0} milya</unitPattern>
-				<unitPattern count="other">{0} (na) milya</unitPattern>
+				<unitPattern count="other">{0} milya</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<unitPattern count="one">{0} milimetro</unitPattern>
-				<unitPattern count="other">{0} (na) milimetro</unitPattern>
+				<unitPattern count="other">{0} milimetro</unitPattern>
 			</unit>
 			<unit type="length-picometer">
 				<unitPattern count="one">{0} picometer</unitPattern>
-				<unitPattern count="other">{0} (na) picometer</unitPattern>
+				<unitPattern count="other">{0} picometer</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0} yarda</unitPattern>
-				<unitPattern count="other">{0} (na) yarda</unitPattern>
+				<unitPattern count="other">{0} yarda</unitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<unitPattern count="one">{0} gramo</unitPattern>
-				<unitPattern count="other">{0} (na) gramo</unitPattern>
+				<unitPattern count="other">{0} gramo</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
 				<unitPattern count="one">{0} kilo</unitPattern>
-				<unitPattern count="other">{0} (na) kilo</unitPattern>
+				<unitPattern count="other">{0} kilo</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<unitPattern count="one">{0} ounce</unitPattern>
-				<unitPattern count="other">{0} (na) ounce</unitPattern>
+				<unitPattern count="other">{0} ounce</unitPattern>
 			</unit>
 			<unit type="mass-pound">
 				<unitPattern count="one">{0} pound</unitPattern>
-				<unitPattern count="other">{0} (na) pound</unitPattern>
+				<unitPattern count="other">{0} pound</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<unitPattern count="one">{0} horsepower</unitPattern>
@@ -4828,15 +4828,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="pressure-hectopascal">
 				<unitPattern count="one">{0} hectopascal</unitPattern>
-				<unitPattern count="other">{0} (na) hectopascal</unitPattern>
+				<unitPattern count="other">{0} hectopascal</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="one">{0} inch of mercury</unitPattern>
-				<unitPattern count="other">{0} (na) inch of mercury</unitPattern>
+				<unitPattern count="other">{0} inch of mercury</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<unitPattern count="one">{0} millibar</unitPattern>
-				<unitPattern count="other">{0} (na) millibar</unitPattern>
+				<unitPattern count="other">{0} millibar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<unitPattern count="one">{0} kilometer per hour</unitPattern>
@@ -4868,7 +4868,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="volume-liter">
 				<unitPattern count="one">{0} litro</unitPattern>
-				<unitPattern count="other">{0} (na) litro</unitPattern>
+				<unitPattern count="other">{0} litro</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
@@ -4917,11 +4917,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-day">
 				<unitPattern count="one">{0} araw</unitPattern>
-				<unitPattern count="other">{0} (na) araw</unitPattern>
+				<unitPattern count="other">{0} araw</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
 				<unitPattern count="one">Sa loob ng {0} araw</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} (na) araw</unitPattern>
+				<unitPattern count="other">Sa loob ng {0} araw</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
 				<unitPattern count="one">{0} araw ang nakalipas</unitPattern>
@@ -5165,12 +5165,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}d</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="one">Sa loob ng {0} (na) araw</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} (na) araw</unitPattern>
+				<unitPattern count="one">Sa loob ng {0} araw</unitPattern>
+				<unitPattern count="other">Sa loob ng {0} araw</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
-				<unitPattern count="one">{0} (na) araw ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} (na) araw ang nakalipas</unitPattern>
+				<unitPattern count="one">{0} araw ang nakalipas</unitPattern>
+				<unitPattern count="other">{0} araw ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0}h</unitPattern>

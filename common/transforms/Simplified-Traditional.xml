@@ -1774,6 +1774,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<tRule>㑩↔儸;</tRule>
 			<tRule>傩↔儺;</tRule>
 			<tRule>俨↔儼;</tRule>
+			<comment># Preserve 丰 for traditional in some cases</comment>
+			<tRule>丰标不凡→丰標不凡;</tRule>
+			<tRule>丰}[度情茸姿神采]→丰;</tRule>
+			<tRule>丰仪→丰儀;</tRule>
+			<tRule>丰韵→丰韻;</tRule>
+			<tRule>张三丰→張三丰;</tRule>
 			<tRule>丰↔豐;</tRule>
 			<tRule>兑↔兌;</tRule>
 			<tRule>儿↔兒;</tRule>

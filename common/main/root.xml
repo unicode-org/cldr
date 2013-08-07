@@ -3745,10 +3745,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<alias source="locale" path="../listPattern[@type='duration-short']"/>
+			<alias source="locale" path="../listPattern[@type='unit-short']"/>
 		</listPattern>
 		<listPattern type="unit-narrow">
-			<alias source="locale" path="../listPattern[@type='duration-short']"/>
+			<alias source="locale" path="../listPattern[@type='unit-short']"/>
 		</listPattern>
 		<listPattern type="unit-short">
 			<alias source="locale" path="../listPattern"/>

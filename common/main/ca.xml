@@ -1278,8 +1278,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
 		<ellipsis type="word-final">{0}…</ellipsis>
-		<ellipsis type="word-initial" draft="provisional">… {0}</ellipsis>
-		<ellipsis type="word-medial" draft="provisional">{0}… {1}</ellipsis>
+		<ellipsis type="word-initial" draft="contributed">… {0}</ellipsis>
+		<ellipsis type="word-medial" draft="contributed">{0}… {1}</ellipsis>
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
@@ -2035,9 +2035,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm" draft="provisional">E H:mm</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E H:mm</dateFormatItem>
 						<dateFormatItem id="Ehms">E h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms" draft="provisional">E H:mm:ss</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E H:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">LLL y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">d MMM y G</dateFormatItem>
@@ -2801,7 +2801,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Thule</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
-				<exemplarCity draft="provisional">Godthab</exemplarCity>
+				<exemplarCity draft="contributed">Nuuk</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
 				<exemplarCity>Scoresbysund</exemplarCity>
@@ -3077,7 +3077,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Chihuahua</exemplarCity>
 			</zone>
 			<zone type="America/Bahia_Banderas">
-				<exemplarCity draft="provisional">Bahia Banderas</exemplarCity>
+				<exemplarCity draft="contributed">bahía de Banderas</exemplarCity>
 			</zone>
 			<zone type="America/Ojinaga">
 				<exemplarCity>Ojinaga</exemplarCity>
@@ -3867,7 +3867,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="French_Guiana">
 				<long>
-					<standard draft="provisional">Hora d'estiu de la Guaiana Francesa</standard>
+					<standard draft="contributed">Hora d'estiu de la Guaiana Francesa</standard>
 				</long>
 			</metazone>
 			<metazone type="French_Southern">
@@ -6674,8 +6674,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<unitPattern count="one" draft="provisional">{0} ft</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} ft</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ft</unitPattern>
 			</unit>
 			<unit type="length-inch">
 				<unitPattern count="one">{0} polz.</unitPattern>
@@ -6694,8 +6694,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<unitPattern count="one" draft="provisional">{0} mi</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} mi</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<unitPattern count="one">{0} mm</unitPattern>
@@ -6706,8 +6706,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<unitPattern count="one" draft="provisional">{0} iar.</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} iar.</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} yd</unitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<unitPattern count="one">{0} g</unitPattern>
@@ -6742,8 +6742,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<unitPattern count="one" draft="provisional">{0} inHg</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} inHg</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
 				<unitPattern count="one" draft="contributed">{0} mb</unitPattern>
@@ -6827,12 +6827,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<unitPattern count="one" draft="provisional">{0} dies</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} dies</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} dies</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} dies</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="one" draft="provisional">D'aquí a {0} dies</unitPattern>
-				<unitPattern count="other" draft="provisional">D'aquí a {0} dies</unitPattern>
+				<unitPattern count="one" draft="contributed">D'aquí a {0} dies</unitPattern>
+				<unitPattern count="other" draft="contributed">D'aquí a {0} dies</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
 				<unitPattern count="one">Fa {0}d</unitPattern>
@@ -6855,8 +6855,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one" draft="provisional">{0} min</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} min</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} min</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} min</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
 				<unitPattern count="one">D'aquí a {0}min</unitPattern>
@@ -6919,28 +6919,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}cm</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<unitPattern count="one" draft="provisional">{0}ft</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}ft</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ft</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ft</unitPattern>
 			</unit>
 			<unit type="length-inch">
-				<unitPattern count="one" draft="provisional">{0}″</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}″</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} in</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} in</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
 				<unitPattern count="one">{0}km</unitPattern>
 				<unitPattern count="other">{0}km</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<unitPattern count="one" draft="provisional">{0}al</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}al</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} l. y.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} l. y.</unitPattern>
 			</unit>
 			<unit type="length-meter">
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<unitPattern count="one" draft="provisional">{0}mi</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}mi</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} mi</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<unitPattern count="one">{0}mm</unitPattern>
@@ -6951,8 +6951,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<unitPattern count="one" draft="provisional">{0}iar.</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}iar.</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} yd</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} yd</unitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<unitPattern count="one">{0}g</unitPattern>
@@ -6963,12 +6963,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}kg</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
-				<unitPattern count="one" draft="provisional">{0}oz</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}oz</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} oz</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} oz</unitPattern>
 			</unit>
 			<unit type="mass-pound">
-				<unitPattern count="one" draft="provisional">{0}lb</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}lb</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} lb</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} lb</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
 				<unitPattern count="one">{0}CV</unitPattern>
@@ -6987,12 +6987,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<unitPattern count="one" draft="provisional">{0}″Hg</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} ″Hg</unitPattern>
+				<unitPattern count="one" draft="contributed">{{0} inHg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<unitPattern count="one" draft="provisional">{0}mb</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}mb</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} mb</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} mb</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<unitPattern count="one">{0}km/h</unitPattern>

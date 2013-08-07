@@ -895,7 +895,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<quarterWidth type="wide">
 							<quarter type="1">1-чорак</quarter>
 							<quarter type="2">2-чорак</quarter>
-							<quarter type="3">3</quarter>
+							<quarter type="3">3-чорак</quarter>
 							<quarter type="4">4-чорак</quarter>
 						</quarterWidth>
 					</quarterContext>
@@ -1243,9 +1243,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
-			<regionFormat>{0}</regionFormat>
-			<regionFormat type="daylight">{0} (+1)</regionFormat>
-			<regionFormat type="standard">{0} (+0)</regionFormat>
+			<regionFormat>{0} вақти</regionFormat>
+			<regionFormat type="daylight">{0} кундузги вақти</regionFormat>
+			<regionFormat type="standard">{0} стандарт вақти</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Номаълум</exemplarCity>
@@ -4497,24 +4497,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} кун</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="one">+{0} кундан сўнг</unitPattern>
-				<unitPattern count="other">+{0} кундан сўнг</unitPattern>
+				<unitPattern count="one">{0} кундан сўнг</unitPattern>
+				<unitPattern count="other">{0} кундан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
-				<unitPattern count="one">-{0} кун олдин</unitPattern>
-				<unitPattern count="other">-{0} кун олдин</unitPattern>
+				<unitPattern count="one">{0} кун олдин</unitPattern>
+				<unitPattern count="other">{0} кун олдин</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} соат</unitPattern>
 				<unitPattern count="other">{0} соат</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
-				<unitPattern count="one">+{0} соатдан сўнг</unitPattern>
-				<unitPattern count="other">+{0} соатдан сўнг</unitPattern>
+				<unitPattern count="one">{0} соатдан сўнг</unitPattern>
+				<unitPattern count="other">{0} соатдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
-				<unitPattern count="one">-{0} соат олдин</unitPattern>
-				<unitPattern count="other">-{0} соат олдин</unitPattern>
+				<unitPattern count="one">{0} соат олдин</unitPattern>
+				<unitPattern count="other">{0} соат олдин</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} миллисония</unitPattern>
@@ -4525,60 +4525,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} дақиқа</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
-				<unitPattern count="one">+{0} дақиқадан сўнг</unitPattern>
-				<unitPattern count="other">+{0} дақиқадан сўнг</unitPattern>
+				<unitPattern count="one">{0} дақиқадан сўнг</unitPattern>
+				<unitPattern count="other">{0} дақиқадан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
-				<unitPattern count="one">-{0} дақиқа олдин</unitPattern>
-				<unitPattern count="other">-{0} дақиқа олдин</unitPattern>
+				<unitPattern count="one">{0} дақиқа олдин</unitPattern>
+				<unitPattern count="other">{0} дақиқа олдин</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ой</unitPattern>
 				<unitPattern count="other">{0} ой</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
-				<unitPattern count="one">+{0} ойдан сўнг</unitPattern>
-				<unitPattern count="other">+{0} ойдан сўнг</unitPattern>
+				<unitPattern count="one">{0} ойдан сўнг</unitPattern>
+				<unitPattern count="other">{0} ойдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
-				<unitPattern count="one">-{0} ой аввал</unitPattern>
-				<unitPattern count="other">-{0} ой аввал</unitPattern>
+				<unitPattern count="one">{0} ой аввал</unitPattern>
+				<unitPattern count="other">{0} ой аввал</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} сония</unitPattern>
 				<unitPattern count="other">{0} сония</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
-				<unitPattern count="one">+{0} сониядан сўнг</unitPattern>
-				<unitPattern count="other">+{0} сониядан сўнг</unitPattern>
+				<unitPattern count="one">{0} сониядан сўнг</unitPattern>
+				<unitPattern count="other">{0} сониядан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
-				<unitPattern count="one">-{0} сония олдин</unitPattern>
-				<unitPattern count="other">-{0} сония олдин</unitPattern>
+				<unitPattern count="one">{0} сония олдин</unitPattern>
+				<unitPattern count="other">{0} сония олдин</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} ҳафта</unitPattern>
 				<unitPattern count="other">{0} ҳафта</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
-				<unitPattern count="one">+{0} ҳафтадан сўнг</unitPattern>
-				<unitPattern count="other">+{0} ҳафтадан сўнг</unitPattern>
+				<unitPattern count="one">{0} ҳафтадан сўнг</unitPattern>
+				<unitPattern count="other">{0} ҳафтадан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
-				<unitPattern count="one">-{0} ҳафта олдин</unitPattern>
-				<unitPattern count="other">-{0} ҳафта олдин</unitPattern>
+				<unitPattern count="one">{0} ҳафта олдин</unitPattern>
+				<unitPattern count="other">{0} ҳафта олдин</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} йил</unitPattern>
 				<unitPattern count="other">{0} йил</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
-				<unitPattern count="one">+{0} йилдан сўнг</unitPattern>
-				<unitPattern count="other">+{0} йилдан сўнг</unitPattern>
+				<unitPattern count="one">{0} йилдан сўнг</unitPattern>
+				<unitPattern count="other">{0} йилдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
-				<unitPattern count="one">-{0} йил аввал</unitPattern>
-				<unitPattern count="other">-{0} йил аввал</unitPattern>
+				<unitPattern count="one">{0} йил аввал</unitPattern>
+				<unitPattern count="other">{0} йил аввал</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} см</unitPattern>
@@ -4742,24 +4742,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} кун</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="one">+{0} кундан сўнг</unitPattern>
-				<unitPattern count="other">+{0} кундан сўнг</unitPattern>
+				<unitPattern count="one">{0} кундан сўнг</unitPattern>
+				<unitPattern count="other">{0} кундан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
-				<unitPattern count="one">-{0} кун олдин</unitPattern>
-				<unitPattern count="other">-{0} кун олдин</unitPattern>
+				<unitPattern count="one">{0} кун олдин</unitPattern>
+				<unitPattern count="other">{0} кун олдин</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} соат</unitPattern>
 				<unitPattern count="other">{0} соат</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
-				<unitPattern count="one">+{0} соатдан сўнг</unitPattern>
-				<unitPattern count="other">+{0} соатдан сўнг</unitPattern>
+				<unitPattern count="one">{0} соатдан сўнг</unitPattern>
+				<unitPattern count="other">{0} соатдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
-				<unitPattern count="one">-{0} соат олдин</unitPattern>
-				<unitPattern count="other">-{0} соат олдин</unitPattern>
+				<unitPattern count="one">{0} соат олдин</unitPattern>
+				<unitPattern count="other">{0} соат олдин</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} мс</unitPattern>
@@ -4770,60 +4770,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} дақ</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
-				<unitPattern count="one">+{0} дақ сўнг</unitPattern>
-				<unitPattern count="other">+{0} дақ сўнг</unitPattern>
+				<unitPattern count="one">{0} дақ сўнг</unitPattern>
+				<unitPattern count="other">{0} дақ сўнг</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
-				<unitPattern count="one">-{0} дақ олдин</unitPattern>
-				<unitPattern count="other">-{0} дақ олдин</unitPattern>
+				<unitPattern count="one">{0} дақ олдин</unitPattern>
+				<unitPattern count="other">{0} дақ олдин</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ой</unitPattern>
 				<unitPattern count="other">{0} ой</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
-				<unitPattern count="one">+{0} ойдан сўнг</unitPattern>
-				<unitPattern count="other">+{0} ойдан сўнг</unitPattern>
+				<unitPattern count="one">{0} ойдан сўнг</unitPattern>
+				<unitPattern count="other">{0} ойдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
-				<unitPattern count="one">-{0} ой аввал</unitPattern>
-				<unitPattern count="other">-{0} ой аввал</unitPattern>
+				<unitPattern count="one">{0} ой аввал</unitPattern>
+				<unitPattern count="other">{0} ой аввал</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} сония</unitPattern>
 				<unitPattern count="other">{0} сония</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
-				<unitPattern count="one">+{0} сон сўнг</unitPattern>
-				<unitPattern count="other">+{0} сон сўнг</unitPattern>
+				<unitPattern count="one">{0} сон сўнг</unitPattern>
+				<unitPattern count="other">{0} сон сўнг</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
-				<unitPattern count="one">-{0} сон олдин</unitPattern>
-				<unitPattern count="other">-{0} сон олдин</unitPattern>
+				<unitPattern count="one">{0} сон олдин</unitPattern>
+				<unitPattern count="other">{0} сон олдин</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} ҳафт</unitPattern>
 				<unitPattern count="other">{0} ҳафт</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
-				<unitPattern count="one">+{0} ҳафт сўнг</unitPattern>
-				<unitPattern count="other">+{0} ҳафт сўнг</unitPattern>
+				<unitPattern count="one">{0} ҳафт сўнг</unitPattern>
+				<unitPattern count="other">{0} ҳафт сўнг</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
-				<unitPattern count="one">-{0} ҳафт олдин</unitPattern>
-				<unitPattern count="other">-{0} ҳафт олдин</unitPattern>
+				<unitPattern count="one">{0} ҳафт олдин</unitPattern>
+				<unitPattern count="other">{0} ҳафт олдин</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} й</unitPattern>
 				<unitPattern count="other">{0} й</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
-				<unitPattern count="one">+{0} й сўнг</unitPattern>
-				<unitPattern count="other">+{0} й сўнг</unitPattern>
+				<unitPattern count="one">{0} й сўнг</unitPattern>
+				<unitPattern count="other">{0} й сўнг</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
-				<unitPattern count="one">-{0} й аввал</unitPattern>
-				<unitPattern count="other">-{0} й аввал</unitPattern>
+				<unitPattern count="one">{0} й аввал</unitPattern>
+				<unitPattern count="other">{0} й аввал</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} см</unitPattern>
@@ -4987,24 +4987,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} к</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="one">+{0} кундан сўнг</unitPattern>
-				<unitPattern count="other">+{0} кундан сўнг</unitPattern>
+				<unitPattern count="one">{0} кундан сўнг</unitPattern>
+				<unitPattern count="other">{0} кундан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
-				<unitPattern count="one">-{0} кун олдин</unitPattern>
-				<unitPattern count="other">-{0} кун олдин</unitPattern>
+				<unitPattern count="one">{0} кун олдин</unitPattern>
+				<unitPattern count="other">{0} кун олдин</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} с</unitPattern>
 				<unitPattern count="other">{0} с</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
-				<unitPattern count="one">+{0} соатдан сўнг</unitPattern>
-				<unitPattern count="other">+{0} соатдан сўнг</unitPattern>
+				<unitPattern count="one">{0} соатдан сўнг</unitPattern>
+				<unitPattern count="other">{0} соатдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-hour-past">
-				<unitPattern count="one">-{0} соатд олдин</unitPattern>
-				<unitPattern count="other">-{0} соатд олдин</unitPattern>
+				<unitPattern count="one">{0} соатд олдин</unitPattern>
+				<unitPattern count="other">{0} соатд олдин</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} мс</unitPattern>
@@ -5015,60 +5015,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} дақ</unitPattern>
 			</unit>
 			<unit type="duration-minute-future">
-				<unitPattern count="one">+{0} дақ сўнг</unitPattern>
-				<unitPattern count="other">+{0} дақ сўнг</unitPattern>
+				<unitPattern count="one">{0} дақ сўнг</unitPattern>
+				<unitPattern count="other">{0} дақ сўнг</unitPattern>
 			</unit>
 			<unit type="duration-minute-past">
-				<unitPattern count="one">-{0} дақ олдин</unitPattern>
-				<unitPattern count="other">-{0} дақ олдин</unitPattern>
+				<unitPattern count="one">{0} дақ олдин</unitPattern>
+				<unitPattern count="other">{0} дақ олдин</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ой</unitPattern>
 				<unitPattern count="other">{0} ой</unitPattern>
 			</unit>
 			<unit type="duration-month-future">
-				<unitPattern count="one">+{0} ойдан сўнг</unitPattern>
-				<unitPattern count="other">+{0} ойдан сўнг</unitPattern>
+				<unitPattern count="one">{0} ойдан сўнг</unitPattern>
+				<unitPattern count="other">{0} ойдан сўнг</unitPattern>
 			</unit>
 			<unit type="duration-month-past">
-				<unitPattern count="one">-{0} ой аввал</unitPattern>
-				<unitPattern count="other">-{0} ой аввал</unitPattern>
+				<unitPattern count="one">{0} ой аввал</unitPattern>
+				<unitPattern count="other">{0} ой аввал</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} сон</unitPattern>
 				<unitPattern count="other">{0} сон</unitPattern>
 			</unit>
 			<unit type="duration-second-future">
-				<unitPattern count="one">+{0} сон сўнг</unitPattern>
-				<unitPattern count="other">+{0} сон сўнг</unitPattern>
+				<unitPattern count="one">{0} сон сўнг</unitPattern>
+				<unitPattern count="other">{0} сон сўнг</unitPattern>
 			</unit>
 			<unit type="duration-second-past">
-				<unitPattern count="one">-{0} сон олдин</unitPattern>
-				<unitPattern count="other">-{0} сон олдин</unitPattern>
+				<unitPattern count="one">{0} сон олдин</unitPattern>
+				<unitPattern count="other">{0} сон олдин</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} ҳафт</unitPattern>
 				<unitPattern count="other">{0} ҳафт</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
-				<unitPattern count="one">+{0} ҳафт сўнг</unitPattern>
-				<unitPattern count="other">+{0} ҳафт сўнг</unitPattern>
+				<unitPattern count="one">{0} ҳафт сўнг</unitPattern>
+				<unitPattern count="other">{0} ҳафт сўнг</unitPattern>
 			</unit>
 			<unit type="duration-week-past">
-				<unitPattern count="one">-{0} ҳафт олдин</unitPattern>
-				<unitPattern count="other">-{0} ҳафт олдин</unitPattern>
+				<unitPattern count="one">{0} ҳафт олдин</unitPattern>
+				<unitPattern count="other">{0} ҳафт олдин</unitPattern>
 			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} й</unitPattern>
 				<unitPattern count="other">{0} й</unitPattern>
 			</unit>
 			<unit type="duration-year-future">
-				<unitPattern count="one">+{0} й сўнг</unitPattern>
-				<unitPattern count="other">+{0} й сўнг</unitPattern>
+				<unitPattern count="one">{0} й сўнг</unitPattern>
+				<unitPattern count="other">{0} й сўнг</unitPattern>
 			</unit>
 			<unit type="duration-year-past">
-				<unitPattern count="one">-{0} й аввал</unitPattern>
-				<unitPattern count="other">-{0} й аввал</unitPattern>
+				<unitPattern count="one">{0} й аввал</unitPattern>
+				<unitPattern count="other">{0} й аввал</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} см</unitPattern>

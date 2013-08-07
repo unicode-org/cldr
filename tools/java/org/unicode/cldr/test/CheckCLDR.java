@@ -549,7 +549,7 @@ abstract public class CheckCLDR {
             valueTooWide,
             valueTooNarrow,
             nameContainsYear,
-            patternCannotContainDigits, patternContainsInvalidCharacters,
+            patternCannotContainDigits, patternContainsInvalidCharacters, parenthesesNotAllowed,
             illegalNumberingSystem,
             unexpectedOrderOfEraYear;
             

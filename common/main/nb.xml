@@ -1288,6 +1288,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<codePattern type="territory">Område: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
+	<contextTransforms>
+		<contextTransformUsage type="tense">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+	</contextTransforms>
 	<characters>
 		<exemplarCharacters>[a à b c d e é f g h i j k l m n o ó ò ô p q r s t u v w x y z æ ø å]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á ǎ ã č ç đ è ê í ń ñ ŋ š ŧ ü ž ä ö]</exemplarCharacters>

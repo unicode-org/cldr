@@ -20,6 +20,7 @@ public class ScriptMetadata {
     private static final String DATA_FILE = "/org/unicode/cldr/util/data/Script_Metadata.csv";
 
     // To get the data, go do the Script MetaData spreadsheet, and Download As Comma Separated Items into DATA_FILE
+    // Then you'll run GenerateScriptMetadata
     public enum Column {
         // must match the spreadshee header (caseless compare) or have the alternate header as an argument.
         // doesn't have to be in order
@@ -118,7 +119,7 @@ public class ScriptMetadata {
         map.put(newTerm.toUpperCase(Locale.ENGLISH), code);
     }
 
-    public static class Info {
+    public static class Info implements Comparable<Info> {
         public final int rank;
         public final String sampleChar;
         public final IdUsage idUsage;
@@ -160,6 +161,20 @@ public class ScriptMetadata {
             likelyLanguage = language == null ? "und" : language;
         }
 
+        public Info(Info other, String string) {
+            rank = other.rank;
+            sampleChar = other.sampleChar;
+            idUsage = other.idUsage;
+            rtl = other.rtl;
+            lbLetters = other.lbLetters;
+            hasCase = other.hasCase;
+            shapingReq = other.shapingReq;
+            ime = string.equals("IME:YES") ? Trinary.YES : other.ime;
+            density = other.density;
+            originCountry = other.originCountry;
+            likelyLanguage = other.likelyLanguage;
+        }
+
         // public Trinary parseTrinary(Column title, String[] items) {
         // return Trinary.valueOf(fix(title.getItem(items)).toUpperCase(Locale.ENGLISH));
         // }
@@ -188,6 +203,12 @@ public class ScriptMetadata {
                 return "unavailable";
             }
             return fullData.get(0);
+        }
+
+        @Override
+        public int compareTo(Info o) {
+            // we don't actually care what the comparison value is, as long as it is transitive and consistent with equals.
+            return toString().compareTo(o.toString());
         }
     }
 
@@ -229,7 +250,12 @@ public class ScriptMetadata {
             Set<String> extras = EXTRAS.get(script);
             if (extras != null) {
                 for (String script2 : extras) {
-                    data.put(script2, info);
+                    Info info2 = info;
+                    if (script2.equals("Jpan")) {
+                        // HACK
+                        info2 = new Info(info, "IME:YES");
+                    }
+                    data.put(script2, info2);
                 }
             }
             return true;

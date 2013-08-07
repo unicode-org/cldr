@@ -71,13 +71,19 @@ public class TestInheritance extends TestFmwk {
         }
 
         LanguageTagParser ltp = new LanguageTagParser();
-        
+
         Relation<String,String> languageLocalesSeen = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
 
-        
+
         Set<String> testOrg = testInfo.getStandardCodes().getLocaleCoverageLocales("google");
         ChainedMap.M4<String,OfficialStatus,String,Boolean> languageToOfficialChildren 
-        = ChainedMap.of(new TreeMap<String,Object>(), new TreeMap<OfficialStatus, Object>(), new TreeMap<String, Object>(), Boolean.class);
+        = ChainedMap.of(new TreeMap<String,Object>(), 
+                new TreeMap<OfficialStatus, Object>(), 
+                new TreeMap<String, Object>(), 
+                Boolean.class);
+
+        // gather the data
+
         for (String language : dataInfo.getLanguagesForTerritoriesPopulationData()) {
             for (String territory : dataInfo.getTerritoriesForPopulationData(language)) {
                 if (SKIP_TERRITORIES.contains(territory)) {
@@ -86,23 +92,28 @@ public class TestInheritance extends TestFmwk {
                 PopulationData data = dataInfo.getLanguageAndTerritoryPopulationData(language, territory);
                 OfficialStatus status = data.getOfficialStatus();
                 if (data.getOfficialStatus() != OfficialStatus.unknown) {
-                    String locale = clean(language + "_" + territory);
-                    String lang = clean(ltp.set(locale).getLanguage());
+                    String locale = removeScript(language + "_" + territory);
+                    String lang = removeScript(ltp.set(locale).getLanguage());
                     languageToOfficialChildren.put(lang, status, locale, Boolean.TRUE);
                     languageLocalesSeen.put(lang,locale);
                 }
             }
         }
-        
+
+        // flesh it out by adding 'clean' codes.
+        // also get the child locales in cldr.
+
         Relation<String,String> languageToChildren = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
             String lang = ltp.set(locale).getLanguage();
             if (SKIP_TERRITORIES.contains(ltp.getRegion())) {
                 continue;
             }
-            lang = clean(lang);
-            locale = clean(locale);
+            lang = removeScript(lang);
+            locale = removeScript(locale);
+
             if (!lang.equals(locale)) {
+                languageToChildren.put(lang, locale);
                 Set<String> localesSeen = languageLocalesSeen.get(lang);
                 if (localesSeen == null || !localesSeen.contains(locale)) {
                     languageToOfficialChildren.put(lang, OfficialStatus.unknown, locale, Boolean.TRUE);
@@ -110,9 +121,33 @@ public class TestInheritance extends TestFmwk {
             }
         }
 
-        Set<String> languages = new TreeSet(languageToChildren.keySet());
-        languages.addAll(languageToOfficialChildren.keySet());
+        for (Entry<String, Set<String>> languageAndChildren : languageToChildren.keyValuesSet()) {
+            String language = languageAndChildren.getKey();
+            Set<String> children = languageAndChildren.getValue();
+            M3<OfficialStatus, String, Boolean> officalStatusToChildren = languageToOfficialChildren.get(language);
+            for (Entry<OfficialStatus, Map<String, Boolean>> entry : officalStatusToChildren){
+                OfficialStatus status = entry.getKey();
+                if (status != OfficialStatus.official && status != OfficialStatus.de_facto_official) {
+                    continue;
+                }
+                Set<String> officalChildren = entry.getValue().keySet();
+                if (!children.containsAll(officalChildren)) {
+                    Set<String> missing = new TreeSet(officalChildren);
+                    missing.removeAll(children);
+                    String message = "Missing CLDR locales for " + status + " languages: " + missing;
+                    if (!logKnownIssue("6469", message)) {
+                        errln(message);
+                    }
+                } else {
+                    logln("CLDR locales " + children + " cover " + status + " locales " + officalChildren);
+                }
+
+            }
+        }
+
         if (DEBUG) {
+            Set<String> languages = new TreeSet(languageToChildren.keySet());
+            languages.addAll(languageToOfficialChildren.keySet());
             System.out.print("\ncode\tlanguage");
             for (OfficialStatus status : OfficialStatus.values()) {
                 System.out.print("\tNo\t" + status);
@@ -172,7 +207,7 @@ public class TestInheritance extends TestFmwk {
         return b.toString();
     }
 
-    private String clean(String lang) {
+    private String removeScript(String lang) {
         if (!lang.contains("_")) {
             return lang;
         }

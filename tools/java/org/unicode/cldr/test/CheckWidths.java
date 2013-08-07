@@ -42,8 +42,10 @@ public class CheckWidths extends CheckCLDR {
         final Special special;
         final String message;
         final Subtype subtype;
+        final boolean debug;
 
-        public Limit(double warningReference, double errorReference, Measure measure, LimitType limit, Special special) {
+        public Limit(double warningReference, double errorReference, Measure measure, LimitType limit, Special special, boolean debug) {
+            this.debug = debug;
             this.warningReference = warningReference;
             this.errorReference = errorReference;
             this.limit = limit;
@@ -65,6 +67,10 @@ public class CheckWidths extends CheckCLDR {
             default:
                 throw new IllegalArgumentException();
             }
+        }
+
+        public Limit(double d, double e, Measure displayWidth, LimitType maximum, Special placeholders) {
+            this(d,e,displayWidth,maximum,placeholders,false);
         }
 
         boolean hasProblem(String value, List<CheckStatus> result, CheckCLDR cause) {
@@ -198,6 +204,11 @@ public class CheckWidths extends CheckCLDR {
             // Short units
             .add("//ldml/units/unitLength[@type=\"short\"]/unit[@type=%A]/unitPattern", new Limit[] {
                     new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+            })
+            
+           // Currency Symbols
+            .add("//ldml/numbers/currencies/currency[@type=%A]/symbol", new Limit[] {
+                    new Limit(3 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
             })
             ;
 

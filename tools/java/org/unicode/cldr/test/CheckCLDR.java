@@ -945,7 +945,7 @@ abstract public class CheckCLDR {
                 filteredCheckList.add(item);
             } else {
                 final String className = item.getClass().getName();
-                if (filter.reset(className).matches()) {
+                if (filter.reset(className).find()) {
                     filteredCheckList.add(item);
                 }
             }

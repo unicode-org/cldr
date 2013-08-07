@@ -24,20 +24,20 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <languageMatch desired="sh" supported="sr" percent="96"/>
                 <languageMatch desired="ms" supported="id" percent="90"/>
 			    <languageMatch desired="ssy" supported="aa" percent="96"/>  <!-- Saho is closely related to Afar -->
-			    <languageMatch desired="sr-Latn" supported="sr-Cyrl" percent="90"/> <!-- Most serbs can read either script. -->
-			    <languageMatch desired="*-Hans" supported="*-Hant" percent="85" oneway="true"/> <!-- Readers of simplified can read traditional much better than reverse. -->
-			    <languageMatch desired="*-Hant" supported="*-Hans" percent="75" oneway="true"/>
-				<languageMatch desired="gsw" supported="de-CH" percent="85" oneway="true"/> <!-- Most Swiss Germans can speak Swiss Standard German. -->
+			    <languageMatch desired="sr_Latn" supported="sr_Cyrl" percent="90"/> <!-- Most serbs can read either script. -->
+			    <languageMatch desired="*_Hans" supported="*_Hant" percent="85" oneway="true"/> <!-- Readers of simplified can read traditional much better than reverse. -->
+			    <languageMatch desired="*_Hant" supported="*_Hans" percent="75" oneway="true"/>
+				<languageMatch desired="gsw" supported="de_CH" percent="85" oneway="true"/> <!-- Most Swiss Germans can speak Swiss Standard German. -->
 				<languageMatch desired="gsw" supported="de" percent="80" oneway="true"/>
-			    <languageMatch desired="en-*-US" supported="en-*-CA" percent="98"/> <!-- US is different than others, and Canadian is in between. -->
-			    <languageMatch desired="en-*-US" supported="en-*-*" percent="97"/>
-			    <languageMatch desired="en-*-CA" supported="en-*-*" percent="98"/>
-			    <languageMatch desired="en-*-*" supported="en-*-*" percent="99"/>
-			    <languageMatch desired="es-*-ES" supported="es-*-ES" percent="100"/>    <!-- Latin American Spanishes are closer to each other. Approximate by having es-ES be further from everything else.-->
-			    <languageMatch desired="es-*-ES" supported="es-*-*" percent="93"/>
+			    <languageMatch desired="en_*_US" supported="en_*_CA" percent="98"/> <!-- US is different than others, and Canadian is in between. -->
+			    <languageMatch desired="en_*_US" supported="en_*_*" percent="97"/>
+			    <languageMatch desired="en_*_CA" supported="en_*_*" percent="98"/>
+			    <languageMatch desired="en_*_*" supported="en_*_*" percent="99"/>
+			    <languageMatch desired="es_*_ES" supported="es_*_ES" percent="100"/>    <!-- Latin American Spanishes are closer to each other. Approximate by having es-ES be further from everything else.-->
+			    <languageMatch desired="es_*_ES" supported="es_*_*" percent="93"/>
 			    <languageMatch desired="*" supported="*" percent="1"/>  <!-- [Default value - must be at end!] Normally there is no comprehension of different languages.-->
-			    <languageMatch desired="*-*" supported="*-*" percent="20"/> <!-- [Default value - must be at end!] Normally there is little comprehension of different scripts.-->
-			    <languageMatch desired="*-*-*" supported="*-*-*" percent="96"/> <!-- [Default value - must be at end!] Normally there are small differences across regions.-->
+			    <languageMatch desired="*_*" supported="*_*" percent="20"/> <!-- [Default value - must be at end!] Normally there is little comprehension of different scripts.-->
+			    <languageMatch desired="*_*_*" supported="*_*_*" percent="96"/> <!-- [Default value - must be at end!] Normally there are small differences across regions.-->
 	    </languageMatches>
     </languageMatching>
  </supplementalData>

@@ -109,9 +109,9 @@
 
 ### Miscellaneous
 //ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Regular Lists ; &listOrder($1)
-//ldml/listPatterns/listPattern[@type="duration"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Duration Lists ; &listOrder($1)
-//ldml/listPatterns/listPattern[@type="duration-short"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Short Duration Lists ; &listOrder($1)
-//ldml/listPatterns/listPattern[@type="duration-narrow"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Narrow Duration Lists ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="unit"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Duration Lists ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="unit-short"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Short Duration Lists ; &listOrder($1)
+//ldml/listPatterns/listPattern[@type="unit-narrow"]/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Narrow Duration Lists ; &listOrder($1)
 
 //ldml/characters/ellipsis[@type="%A"]                      ; Misc ; Linguistic Elements ; Ellipsis ; $1
 //ldml/delimiters/quotation%E                               ; Misc ; Linguistic Elements ; Quotation Marks ; $1

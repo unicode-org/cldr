@@ -511,40 +511,43 @@ public class ExampleGenerator {
         String duration3 = getFormattedUnit("duration-minute", unitWidth, 37);
         String duration4 = getFormattedUnit("duration-second", unitWidth, 23);
         String listPathFormat = "//ldml/listPatterns/listPattern" 
-                + unitWidth.durationType.typeString
+                + unitWidth.listTypeLength.typeString
                 + "/listPatternPart[@type=\"{0}\"]";
         return longListPatternExample(
                 listPathFormat, patternType, value, duration1, duration2, duration3, duration4);
     }
 
-    public enum DurationType {
+    public enum ListTypeLength {
         NORMAL(""), 
-        DURATION("[@type=\"duration\"]"), 
-        DURATION_SHORT("[@type=\"duration-short\"]"),
-        DURATION_NARROW("[@type=\"duration-narrow\"]");
+        UNIT_WIDE("[@type=\"unit\"]"), 
+        UNIT_SHORT("[@type=\"unit-short\"]"),
+        UNIT_NARROW("[@type=\"unit-narrow\"]");
         final String typeString;
-        DurationType(String typeString) {
+        ListTypeLength(String typeString) {
             this.typeString = typeString;
         }
     }
 
     public enum UnitLength {
-        LONG(DurationType.DURATION), 
-        SHORT(DurationType.DURATION_SHORT),
-        NARROW(DurationType.DURATION_NARROW);
+        LONG(ListTypeLength.UNIT_WIDE), 
+        SHORT(ListTypeLength.UNIT_SHORT),
+        NARROW(ListTypeLength.UNIT_NARROW);
         final String typeString;
-        final DurationType durationType;
-        UnitLength(DurationType duration) {
+        final ListTypeLength listTypeLength;
+        
+        UnitLength(ListTypeLength listTypeLength) {
             typeString = "[@type=\"" + name().toLowerCase(Locale.ENGLISH)+ "\"]";
-            durationType = duration;
+            this.listTypeLength = listTypeLength;
         }
         public static UnitLength from(String listPatternType) {
-            if ( listPatternType.equals("duration") ) {
+            if ( listPatternType.equals("unit") ) {
                 return UnitLength.LONG;
-            } else if ( listPatternType.equals("duration-narrow")) {
+            } else if ( listPatternType.equals("unit-narrow")) {
                 return UnitLength.NARROW;
-            } else {
+            } else if ( listPatternType.equals("unit-short")) {
                 return UnitLength.SHORT;
+            } else {
+                throw new IllegalArgumentException();
             }
         }
     }

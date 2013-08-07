@@ -3744,13 +3744,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
-		<listPattern type="duration">
+		<listPattern type="unit">
 			<alias source="locale" path="../listPattern[@type='duration-short']"/>
 		</listPattern>
-		<listPattern type="duration-narrow">
+		<listPattern type="unit-narrow">
 			<alias source="locale" path="../listPattern[@type='duration-short']"/>
 		</listPattern>
-		<listPattern type="duration-short">
+		<listPattern type="unit-short">
 			<alias source="locale" path="../listPattern"/>
 		</listPattern>
 	</listPatterns>

@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7dd0000" typeVersion="2013a">
+		<mapTimezones otherVersion="7dd0003" typeVersion="2013d">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -96,7 +96,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="SA Pacific Standard Time" territory="CA" type="America/Coral_Harbour"/>
 			<mapZone other="SA Pacific Standard Time" territory="CO" type="America/Bogota"/>
 			<mapZone other="SA Pacific Standard Time" territory="EC" type="America/Guayaquil"/>
-			<mapZone other="SA Pacific Standard Time" territory="HT" type="America/Port-au-Prince"/>
 			<mapZone other="SA Pacific Standard Time" territory="JM" type="America/Jamaica"/>
 			<mapZone other="SA Pacific Standard Time" territory="KY" type="America/Cayman"/>
 			<mapZone other="SA Pacific Standard Time" territory="PA" type="America/Panama"/>
@@ -107,6 +106,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Eastern Standard Time" territory="001" type="America/New_York"/>
 			<mapZone other="Eastern Standard Time" territory="BS" type="America/Nassau"/>
 			<mapZone other="Eastern Standard Time" territory="CA" type="America/Toronto America/Iqaluit America/Montreal America/Nipigon America/Pangnirtung America/Thunder_Bay"/>
+			<mapZone other="Eastern Standard Time" territory="CU" type="America/Havana"/>
+			<mapZone other="Eastern Standard Time" territory="HT" type="America/Port-au-Prince"/>
 			<mapZone other="Eastern Standard Time" territory="TC" type="America/Grand_Turk"/>
 			<mapZone other="Eastern Standard Time" territory="US" type="America/New_York America/Detroit America/Indiana/Petersburg America/Indiana/Vincennes America/Indiana/Winamac America/Kentucky/Monticello America/Louisville"/>
 			<mapZone other="Eastern Standard Time" territory="ZZ" type="EST5EDT"/>
@@ -269,7 +270,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="W. Europe Standard Time" territory="IT" type="Europe/Rome"/>
 			<mapZone other="W. Europe Standard Time" territory="LI" type="Europe/Vaduz"/>
 			<mapZone other="W. Europe Standard Time" territory="LU" type="Europe/Luxembourg"/>
-			<mapZone other="W. Europe Standard Time" territory="LY" type="Africa/Tripoli"/>
 			<mapZone other="W. Europe Standard Time" territory="MC" type="Europe/Monaco"/>
 			<mapZone other="W. Europe Standard Time" territory="MT" type="Europe/Malta"/>
 			<mapZone other="W. Europe Standard Time" territory="NL" type="Europe/Amsterdam"/>
@@ -302,6 +302,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Central European Standard Time" territory="HR" type="Europe/Zagreb"/>
 			<mapZone other="Central European Standard Time" territory="MK" type="Europe/Skopje"/>
 			<mapZone other="Central European Standard Time" territory="PL" type="Europe/Warsaw"/>
+
+			<!-- (UTC+01:00) Tripoli -->
+			<mapZone other="Libya Standard Time" territory="001" type="Africa/Tripoli"/>
+			<mapZone other="Libya Standard Time" territory="LY" type="Africa/Tripoli"/>
 
 			<!-- (UTC+01:00) West Central Africa -->
 			<mapZone other="W. Central Africa Standard Time" territory="001" type="Africa/Lagos"/>
@@ -337,7 +341,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+02:00) Cairo -->
 			<mapZone other="Egypt Standard Time" territory="001" type="Africa/Cairo"/>
 			<mapZone other="Egypt Standard Time" territory="EG" type="Africa/Cairo"/>
-			<mapZone other="Egypt Standard Time" territory="PS" type="Asia/Gaza Asia/Hebron"/>
 
 			<!-- (UTC+02:00) Damascus -->
 			<mapZone other="Syria Standard Time" territory="001" type="Asia/Damascus"/>
@@ -603,7 +606,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+11:00) Solomon Is., New Caledonia -->
 			<mapZone other="Central Pacific Standard Time" territory="001" type="Pacific/Guadalcanal"/>
-			<mapZone other="Central Pacific Standard Time" territory="AQ" type="Antarctica/Macquarie"/>
+			<mapZone other="Central Pacific Standard Time" territory="AU" type="Antarctica/Macquarie"/>
 			<mapZone other="Central Pacific Standard Time" territory="FM" type="Pacific/Ponape Pacific/Kosrae"/>
 			<mapZone other="Central Pacific Standard Time" territory="NC" type="Pacific/Noumea"/>
 			<mapZone other="Central Pacific Standard Time" territory="SB" type="Pacific/Guadalcanal"/>

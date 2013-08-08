@@ -788,9 +788,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
-		<ellipsis type="word-final" draft="unconfirmed">{0} …</ellipsis>
-		<ellipsis type="word-initial" draft="unconfirmed">… {0}</ellipsis>
-		<ellipsis type="word-medial" draft="unconfirmed">{0} … {1}</ellipsis>
+		<ellipsis type="word-final" draft="contributed">{0} …</ellipsis>
+		<ellipsis type="word-initial" draft="contributed">… {0}</ellipsis>
+		<ellipsis type="word-medial" draft="contributed">{0} … {1}</ellipsis>
 		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
@@ -1233,7 +1233,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yQQQQ">QQQQ y</dateFormatItem>
 					</availableFormats>
 					<appendItems>
-						<appendItem request="Timezone" draft="unconfirmed">{0} {1}</appendItem>
+						<appendItem request="Timezone" draft="contributed">{0} {1}</appendItem>
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>
@@ -5073,7 +5073,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="2">{0} na {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<listPatternPart type="2" draft="unconfirmed">{0} na {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} na {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

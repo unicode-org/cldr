@@ -2994,7 +2994,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Tahiti</exemplarCity>
 			</zone>
 			<zone type="Pacific/Marquesas">
-				<exemplarCity draft="provisional">Marchesi</exemplarCity>
+				<exemplarCity draft="contributed">Marchesi</exemplarCity>
 			</zone>
 			<zone type="Pacific/Gambier">
 				<exemplarCity>Gambier</exemplarCity>
@@ -3183,7 +3183,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Kerguelen</exemplarCity>
 			</zone>
 			<zone type="Africa/Lome">
-				<exemplarCity draft="provisional">Lome</exemplarCity>
+				<exemplarCity draft="contributed">Lome</exemplarCity>
 			</zone>
 			<zone type="Asia/Bangkok">
 				<exemplarCity>Bangkok</exemplarCity>
@@ -5659,8 +5659,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="atLeast" draft="provisional">{0}+</pattern>
-			<pattern type="range" draft="provisional">{0}-{1}</pattern>
+			<pattern type="atLeast" draft="contributed">{0}+</pattern>
+			<pattern type="range" draft="contributed">{0}-{1}</pattern>
 		</miscPatterns>
 	</numbers>
 	<units>
@@ -6263,8 +6263,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0} s fa</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<unitPattern count="one" draft="provisional">{0} sett.</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} sett.</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} sett.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} sett.</unitPattern>
 			</unit>
 			<unit type="duration-week-future">
 				<unitPattern count="one" draft="contributed">tra {0} settimane</unitPattern>

@@ -2127,10 +2127,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="d">d일</dateFormatItem>
 						<dateFormatItem id="Ed">d일 (E)</dateFormatItem>
 						<dateFormatItem id="EEEEd">d일 EEEE</dateFormatItem>
-						<dateFormatItem id="Ehm" draft="provisional">(E) a h:mm</dateFormatItem>
-						<dateFormatItem id="EHm" draft="provisional">(E) HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms" draft="provisional">(E) a h:mm:ss</dateFormatItem>
-						<dateFormatItem id="EHms" draft="provisional">(E) HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Ehm">(E) a h:mm</dateFormatItem>
+						<dateFormatItem id="EHm">(E) HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms">(E) a h:mm:ss</dateFormatItem>
+						<dateFormatItem id="EHms">(E) HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">G y년</dateFormatItem>
 						<dateFormatItem id="GyMMM">G y년 MMM</dateFormatItem>
 						<dateFormatItem id="GyMMMd">G y년 MMM d일</dateFormatItem>
@@ -2684,7 +2684,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat draft="contributed">GMT</gmtZeroFormat>
 			<regionFormat>{0} 시간</regionFormat>
-			<regionFormat type="daylight" draft="provisional">{0} 일광 절약 시간</regionFormat>
+			<regionFormat type="daylight" draft="contributed">{0} 일광 절약 시간</regionFormat>
 			<regionFormat type="standard" draft="contributed">{0} 표준시</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -4797,7 +4797,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Truk">
 				<long>
-					<standard draft="provisional">추크 시간</standard>
+					<standard>추크 시간</standard>
 				</long>
 			</metazone>
 			<metazone type="Turkmenistan">
@@ -5999,7 +5999,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{1}당 {0}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<unitPattern count="other" draft="provisional">{0} 중력가속도</unitPattern>
+				<unitPattern count="other">{0}중력가속도</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
@@ -6047,7 +6047,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0}시간 전</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<unitPattern count="other" draft="provisional">{0} 밀리초</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}밀리초</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
@@ -6184,7 +6184,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<unitPattern count="other" draft="provisional">{0} G</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
@@ -6369,7 +6369,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<unitPattern count="other" draft="provisional">{0} G</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="other" draft="contributed">{0}′</unitPattern>

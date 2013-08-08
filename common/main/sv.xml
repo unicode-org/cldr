@@ -1022,7 +1022,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SS">Sydsudan</territory>
 			<territory type="ST">São Tomé och Príncipe</territory>
 			<territory type="SV">El Salvador</territory>
-			<territory type="SX" draft="provisional">nederländska S:t Martin</territory>
+			<territory type="SX">Sint Maarten</territory>
 			<territory type="SY">Syrien</territory>
 			<territory type="SZ">Swaziland</territory>
 			<territory type="TA">Tristan da Cunha</territory>
@@ -5024,7 +5024,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>−</minusSign>
 			<exponential>×10^</exponential>
-			<superscriptingExponent draft="provisional">·</superscriptingExponent>
+			<superscriptingExponent>·</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>¤¤¤</nan>
@@ -6694,12 +6694,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} dygn</unitPattern>
 			</unit>
 			<unit type="duration-day-future">
-				<unitPattern count="one" draft="provisional">om {0} dag</unitPattern>
-				<unitPattern count="other" draft="provisional">om {0} dagar</unitPattern>
+				<unitPattern count="one">om {0} dag</unitPattern>
+				<unitPattern count="other">om {0} dagar</unitPattern>
 			</unit>
 			<unit type="duration-day-past">
-				<unitPattern count="one" draft="provisional">för {0} dag sedan</unitPattern>
-				<unitPattern count="other" draft="provisional">för {0} dagar sedan</unitPattern>
+				<unitPattern count="one">för {0} dag sedan</unitPattern>
+				<unitPattern count="other">för {0} dagar sedan</unitPattern>
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} timme</unitPattern>
@@ -6947,8 +6947,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">−{0} d</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="one" draft="provisional">{0} h</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} h</unitPattern>
+				<unitPattern count="one">{0} tim</unitPattern>
+				<unitPattern count="other">{0} tim</unitPattern>
 			</unit>
 			<unit type="duration-hour-future">
 				<unitPattern count="one" draft="contributed">+{0} h</unitPattern>
@@ -7119,8 +7119,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} °C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<unitPattern count="one" draft="provisional">{0} °F</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} °F</unitPattern>
+				<unitPattern count="one">{0} °F</unitPattern>
+				<unitPattern count="other">{0} °F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one" draft="contributed">{0} km³</unitPattern>
@@ -7292,8 +7292,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}m</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<unitPattern count="one" draft="provisional">{0} eng. mil</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} eng. mil</unitPattern>
+				<unitPattern count="one">{0}mi</unitPattern>
+				<unitPattern count="other">{0}mi</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
 				<unitPattern count="one">{0}mm</unitPattern>
@@ -7304,8 +7304,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<unitPattern count="one" draft="provisional">{0} eng. yard</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} eng. yard</unitPattern>
+				<unitPattern count="one">{0}yd</unitPattern>
+				<unitPattern count="other">{0}yd</unitPattern>
 			</unit>
 			<unit type="mass-gram">
 				<unitPattern count="one">{0}g</unitPattern>
@@ -7364,8 +7364,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<unitPattern count="one" draft="provisional">{0}°</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}°</unitPattern>
+				<unitPattern count="one">{0}°F</unitPattern>
+				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one" draft="contributed">{0}km³</unitPattern>

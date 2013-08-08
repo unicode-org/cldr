@@ -260,6 +260,9 @@ public class DisplayAndInputProcessor {
                 value = dtc.getCanonicalDatePattern(path, value, datetimePatternType);
             }
 
+            if (path.startsWith("//ldml/numbers/currencies/currency") && path.contains("displayName")) {
+                value = normalizeCurrencyDisplayName(value);
+            }
             NumericType numericType = NumericType.getNumericType(path);
             if (numericType != NumericType.NOT_NUMERIC) {
                 if (numericType == NumericType.CURRENCY) {
@@ -367,6 +370,23 @@ public class DisplayAndInputProcessor {
             value = WHITESPACE_NO_NBSP_TO_NORMALIZE.matcher(value).replaceAll(" "); // replace with regular space
         }
         return value;
+    }
+    private String normalizeCurrencyDisplayName(String value) {
+        StringBuilder result = new StringBuilder();
+        boolean inParentheses = false;
+        for ( int i = 0 ; i < value.length(); i++ ) {
+            char c = value.charAt(i);
+            if ( c == '(' ) {
+                inParentheses = true;
+            } else if ( c == ')') {
+                inParentheses = false;
+            }
+            if ( inParentheses && c == '-') {
+                c = 0x2013; /* Replace hyphen-minus with dash for date ranges */
+            }
+            result.append(c);
+        }
+        return result.toString();
     }
 
     private String standardizeRomanian(String value) {

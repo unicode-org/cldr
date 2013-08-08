@@ -206,7 +206,8 @@ public class SupplementalMapper {
             CldrArray values = pathValueMap.get(rbPath);
             icuData.addAll(rbPath, values.sortValues(supplementalComparator));
         }
-        // Final pass through IcuData object to clean up fallback values.
+        // Final pass through IcuData object to clean up any fallback rbpaths
+        // in the values.
         // Assume one value per fallback path.
         for (String rbPath : icuData) {
             List<String[]> values = icuData.get(rbPath);
@@ -215,7 +216,7 @@ public class SupplementalMapper {
                 if (valueArray.length != 1) continue;
                 String value = valueArray[0];
                 Matcher matcher = ARRAY_INDEX.matcher(value);
-                if (!matcher.find()) continue;
+                if (!matcher.matches()) continue;
                 String replacePath = matcher.group(1);
                 List<String[]> replaceValues = icuData.get(replacePath);
                 if (replaceValues == null) {

@@ -1114,6 +1114,23 @@ public class CLDRModify {
             }
         });
 
+        fixList.add('m', "remove multiple alt-variants", new CLDRFilter() {
+
+            public void handleStart() {
+            }
+
+            public void handlePath(String xpath) {
+                parts.set(xpath);
+                if (!parts.containsAttributeValue("alt", "variant")) return;
+                String variantValue = cldrFileToFilter.getStringValue(xpath);
+                String nonVariantXpath = xpath.replaceAll("\\[\\@alt=\"variant\"\\]", "");
+                String nonVariantValue = cldrFileToFilter.getStringValue(nonVariantXpath);
+                if ( variantValue.equals(nonVariantValue) ) {
+                    remove(xpath, "removing superfluous alt-variant value");
+                }
+            }
+        });
+
         fixList.add('u', "fix duration unit patterns", new CLDRFilter() {
 
             public void handlePath(String xpath) {

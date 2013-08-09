@@ -17,6 +17,7 @@ import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -28,7 +29,9 @@ import com.ibm.icu.util.ULocale;
 public class ICUServiceBuilder {
     public static Currency NO_CURRENCY = Currency.getInstance("XXX");
     private CLDRFile cldrFile;
-
+    private CLDRFile collationFile;
+    private static Map<CLDRLocale, ICUServiceBuilder> ISBMap = new HashMap<CLDRLocale, ICUServiceBuilder>();
+    
     private static TimeZone utc = TimeZone.getTimeZone("GMT");
     private static DateFormat iso = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", ULocale.ENGLISH);
     static {
@@ -81,6 +84,10 @@ public class ICUServiceBuilder {
         return cldrFile;
     }
 
+    public CLDRFile getCollationFile() {
+        return collationFile;
+    }
+
     public ICUServiceBuilder setCldrFile(CLDRFile cldrFile) {
         if (!cldrFile.isResolved()) throw new IllegalArgumentException("CLDRFile must be resolved");
         this.cldrFile = cldrFile;
@@ -92,6 +99,54 @@ public class ICUServiceBuilder {
         return this;
     }
 
+    public static ICUServiceBuilder forLocale(CLDRLocale locale) {
+
+        ICUServiceBuilder result = ISBMap.get(locale);
+
+        if (result == null) {
+            result = new ICUServiceBuilder();
+
+            if (locale != null) {
+                result.cldrFile = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*").make(locale.getBaseName(), true);
+                result.collationFile = Factory.make(CldrUtility.COLLATION_DIRECTORY, ".*").makeWithFallback(locale.getBaseName());
+            }
+            result.supplementalData = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+            result.cacheDateFormats.clear();
+            result.cacheNumberFormats.clear();
+            result.cacheDateFormatSymbols.clear();
+            result.cacheDecimalFormatSymbols.clear();
+
+            ISBMap.put(locale, result);
+        }
+        return result;
+    }
+
+    public RuleBasedCollator getRuleBasedCollator(String type) throws Exception {
+        String rules = "";
+        String collationType;
+        if ("default".equals(type)) {
+            String path = "//ldml/collations/defaultCollation";
+            collationType = collationFile.getWinningValue(path);
+        } else {
+            collationType = type;
+        }
+
+        String path = "//ldml/collations/collation[@type=\"" + collationType + "\"]/cr";
+        rules = collationFile.getStringValue(path);
+
+        RuleBasedCollator col;
+        if (rules.length() > 0)
+            col = new RuleBasedCollator(rules);
+        else
+            col = (RuleBasedCollator) RuleBasedCollator.getInstance();
+
+        return col;
+    }
+
+    public RuleBasedCollator getRuleBasedCollator() throws Exception {
+        return getRuleBasedCollator("default");
+    }
+           
     public SimpleDateFormat getDateFormat(String calendar, int dateIndex, int timeIndex) {
         return getDateFormat(calendar, dateIndex, timeIndex, null);
     }

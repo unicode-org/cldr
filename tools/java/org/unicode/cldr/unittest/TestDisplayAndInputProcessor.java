@@ -22,7 +22,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
     }
 
     public void TestTasawaq() {
-        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCldrFactory().make("twq", false));
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getCldrFactory().make("twq", true));
         // time for data driven test
         final String input = "[Z \u017E ]";
         final String expect = "[z \u017E]"; // lower case
@@ -55,7 +55,7 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
     }
 
     public void TestCompactNumberFormats() {
-        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish());
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(),false);
         String xpath = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"long\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000\"] ";
         String value = daip.processInput(xpath, "0.00K.", null);
         assertEquals("Period not correctly quoted", "0K'.'", value);
@@ -66,28 +66,28 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
     }
 
     public void TestPatternCanonicalization() {
-        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish());
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(),false);
         String xpath = "//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength/decimalFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
         String value = daip.processInput(xpath, "#,###,##0.###", null);
         assertEquals("Format not correctly canonicalized", "#,##0.###", value);
     }
 
     public void TestCurrencyFormatSpaces() {
-        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish());
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(),false);
         String xpath = "//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
         String value = daip.processInput(xpath, "¤ #,##0.00", null); // breaking space
         assertEquals("Breaking space not replaced", "¤ #,##0.00", value); // non-breaking space
     }
 
     public void TestQuoteNormalization() {
-        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish());
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(),false);
         String xpath = "//ldml/units/unitLength[@type=\"narrow\"]/unitPattern[@count=\"one\"]";
         String value = daip.processInput(xpath, "{0}''", null); // breaking space
         assertEquals("Quotes not normalized", "{0}″", value); // non-breaking space
     }
 
     private void showCldrFile(final CLDRFile cldrFile) {
-        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFile);
+        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(cldrFile,true);
         Exception[] internalException = new Exception[1];
         for (String path : cldrFile) {
             String value = cldrFile.getStringValue(path);

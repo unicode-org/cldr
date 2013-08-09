@@ -319,7 +319,7 @@ public class TestBasic extends TestFmwk {
             CLDRFile file = cldrFactory.make(locale, resolved);
             if (file.isNonInheriting())
                 continue;
-            DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(file);
+            DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(file,false);
 
             logln(locale + "\t-\t" + english.getName(locale));
 

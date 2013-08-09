@@ -1281,7 +1281,7 @@ public class CLDRModify {
             private DisplayAndInputProcessor inputProcessor;
 
             public void handleStart() {
-                inputProcessor = new DisplayAndInputProcessor(cldrFileToFilter);
+                inputProcessor = new DisplayAndInputProcessor(cldrFileToFilter,true);
             }
 
             public void handleEnd() {

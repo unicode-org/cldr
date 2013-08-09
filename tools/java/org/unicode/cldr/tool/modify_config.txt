@@ -1,5 +1,5 @@
 #http://cldr.unicode.org/development/cldr-big-red-switch/cldrmodify-passes/cldrmodify-config
 #Best is to use SearchXML with -p and -v set first, to check out what would be changed
 
-locale=.; action=delete; path=/^//ldml/units/unitLength[@type="(short|narrow)"]/unit[@type="duration-(.*)-(future|past)"]/unitPattern[@count="(.*)"]/
-locale=.; action=replace; path=/^//ldml/units/unitLength[@type="long"]/unit[@type="duration-(.*)-(future|past)"]/unitPattern[@count="(.*)"]/; new_path=//ldml/dates/fields/field[@type="$1"]/relativeTime[@type="$2"]/relativeTimePattern[@count="$3"]
+locale=/./; action=delete; path=/^//ldml/units/unitLength[@type="(short|narrow)"]/unit[@type="duration-(.*)-(future|past)"]/unitPattern[@count="(.*)"]/
+locale=/./; action=replace; path=/^//ldml/units/unitLength[@type="long"]/unit[@type="duration-(.*)-(future|past)"]/unitPattern[@count="(.*)"]/; new_path=//ldml/dates/fields/field[@type="$1"]/relativeTime[@type="$2"]/relativeTimePattern[@count="$3"]

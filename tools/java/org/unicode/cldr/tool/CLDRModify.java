@@ -115,7 +115,7 @@ public class CLDRModify {
                 action = ConfigAction.valueOf(match);
                 hexPath = false;
             } else if (match.startsWith("/") && match.endsWith("/")) {
-                if (key != ConfigKeys.path && key != ConfigKeys.value) {
+                if (key != ConfigKeys.locale && key != ConfigKeys.path && key != ConfigKeys.value) {
                     throw new IllegalArgumentException("Regex only allowed for old path/value.");
                 }
                 exactMatch = null;

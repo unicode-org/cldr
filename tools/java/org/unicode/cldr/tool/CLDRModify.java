@@ -92,14 +92,14 @@ public class CLDRModify {
          * Add a path/value
          */
         add,
-//        /**
-//         * Replace a path/value. Equals 'add' but tests that path did exist
-//         */
-//        replace,
-//        /**
-//         * Add a a path/value. Equals 'add' but tests that path did NOT exist
-//         */
-//        add_new
+        /**
+         * Replace a path/value. Equals 'add' but tests selected paths
+         */
+        replace,
+        //        /**
+        //         * Add a a path/value. Equals 'add' but tests that path did NOT exist
+        //         */
+        //        add_new
     }
 
     static final class ConfigMatch {
@@ -115,8 +115,13 @@ public class CLDRModify {
                 action = ConfigAction.valueOf(match);
                 hexPath = false;
             } else if (match.startsWith("/") && match.endsWith("/")) {
+                if (key != ConfigKeys.path && key != ConfigKeys.value) {
+                    throw new IllegalArgumentException("Regex only allowed for old path/value.");
+                }
                 exactMatch = null;
-                regexMatch = Pattern.compile(match.substring(1, match.length() - 1)).matcher("");
+                regexMatch = Pattern.compile(match.substring(1, match.length() - 1)
+                        .replace("[@", "\\[@")
+                        ).matcher("");
                 action = null;
                 hexPath = false;
             } else {
@@ -163,6 +168,24 @@ public class CLDRModify {
                 }
             }
             return path;
+        }
+
+        public static String getModified(ConfigMatch valueMatch, String value, ConfigMatch newValue) {
+            if (valueMatch == null) {
+                if (value == null) {
+                    throw new IllegalArgumentException("Can't have both old and new be null.");
+                }
+                return value;
+            } else if (valueMatch.exactMatch == null) {
+                if (newValue == null) {
+                    throw new IllegalArgumentException("Can't have both regex without replacement.");
+                }
+                StringBuffer buffer = new StringBuffer();
+                valueMatch.regexMatch.appendReplacement(buffer, newValue.exactMatch);
+                return buffer.toString();
+            } else {
+                return value;
+            }
         }
     }
 
@@ -2011,13 +2034,22 @@ public class CLDRModify {
                         if (pathMatch != null || valueMatch != null || newPath == null || newValue == null) {
                             throw new IllegalArgumentException(
                                     "Bad arguments, must have " +
-                                            "path==null, value=null, new_path!=null, new_value!=null: "
+                                            "path==null, value=null, new_path!=null, new_value!=null:\n\t"
                                             + entry);
                         }
                         String newPathString = newPath.getPath(cldrFileToFilter);
                         replace(newPathString, newPathString, newValue.exactMatch, "config");
                         break;
-                    // For delete, we just check; we'll remove later
+                        // we just check
+                    case replace:
+                        if ((pathMatch == null && valueMatch==null) || (newPath == null && newValue == null)) {
+                            throw new IllegalArgumentException(
+                                    "Bad arguments, must have " +
+                                            "(path!=null OR value=null) AND (new_path!=null OR new_value!=null):\n\t"
+                                            + entry);
+                        }
+                        break;
+                        // For delete, we just check; we'll remove later
                     case delete:
                         if (newPath != null || newValue != null) {
                             throw new IllegalArgumentException("Bad arguments, must have " +
@@ -2084,10 +2116,18 @@ public class CLDRModify {
                         continue;
                     }
                     ConfigMatch action = entry.get(ConfigKeys.action);
-                    if (action.action == ConfigAction.delete) {
+                    switch (action.action) {
+                    case delete:
                         remove(xpath, "config");
-                    } // for now, the only action
-                    break;
+                        break;
+                    case replace:
+                        ConfigMatch newPath = entry.get(ConfigKeys.new_path);
+                        ConfigMatch newValue = entry.get(ConfigKeys.new_value);
+
+                        String modPath = ConfigMatch.getModified(pathMatch, xpath, newPath);
+                        String modValue = ConfigMatch.getModified(valueMatch, value, newValue);
+                        replace(xpath, modPath, modValue, "config");
+                    }
                 }
             }
         });

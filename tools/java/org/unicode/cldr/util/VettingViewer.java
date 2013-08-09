@@ -1718,6 +1718,24 @@ public class VettingViewer<T> {
             Counter<Level> missingCounter, 
             Relation<MissingStatus, String> missingPaths, 
             Set<String> unconfirmedPaths) {
+        getStatus(file.fullIterable(), file, pathHeaderFactory, foundCounter, unconfirmedCounter, missingCounter, missingPaths, unconfirmedPaths);
+    }
+    /**
+     * Find the status of the items in the file.
+     * @param allPaths manual list of paths
+     * @param file the source. Must be a resolved file, made with minimalDraftStatus = unconfirmed
+     * @param pathHeaderFactory PathHeaderFactory.
+     * @param foundCounter output counter of the number of paths with values having contributed or approved status
+     * @param unconfirmedCounter output counter of the number of paths with values, but neither contributed nor approved status
+     * @param missingCounter output counter of the number of paths without values
+     * @param missingPaths output if not null, the specific paths that are missing.
+     * @param unconfirmedPaths TODO
+     */
+    public static void getStatus(Iterable<String> allPaths, CLDRFile file, 
+            PathHeader.Factory pathHeaderFactory, Counter<Level> foundCounter,
+            Counter<Level> unconfirmedCounter, 
+            Counter<Level> missingCounter, 
+            Relation<MissingStatus, String> missingPaths, Set<String> unconfirmedPaths) {
 
         if (!file.isResolved()) {
             throw new IllegalArgumentException("File must be resolved, no minimal draft status");
@@ -1730,7 +1748,7 @@ public class VettingViewer<T> {
         boolean latin = VettingViewer.isLatinScriptLocale(file);
         CoverageLevel2 coverageLevel2 = CoverageLevel2.getInstance(file.getLocaleID());
 
-        for (String path : file.fullIterable()) {
+        for (String path : allPaths) {
 
             PathHeader ph = pathHeaderFactory.fromPath(path);
             if (ph.getSectionId() == SectionId.Special) {

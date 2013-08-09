@@ -37,6 +37,7 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transform;
 
 public class GenerateCoverageLevels {
+    // see ShowLocaleCoverage.java
     private static boolean SKIP_UNCONFIRMED = true;
     private static int SHOW_EXAMPLES = 5;
     private static final String FILES = ".*";

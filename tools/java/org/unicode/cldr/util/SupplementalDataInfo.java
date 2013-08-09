@@ -2773,7 +2773,8 @@ public class SupplementalDataInfo {
         }
 
         public SampleList get(Count c, int digit) {
-            return countToDigitToIntegerSamples9999.get(c)[digit];
+            SampleList[] sampleLists = countToDigitToIntegerSamples9999.get(c);
+            return sampleLists == null ? null : sampleLists[digit];
         }
     }
 
@@ -3022,7 +3023,7 @@ public class SupplementalDataInfo {
 
         public boolean hasSamples(Count c, int digits) {
             SampleList samples = countSampleList.get(c, digits);
-            return samples.fractionSize() > 0 || samples.intSize() > 0;
+            return samples  != null && (samples.fractionSize() > 0 || samples.intSize() > 0);
         }
     }
 

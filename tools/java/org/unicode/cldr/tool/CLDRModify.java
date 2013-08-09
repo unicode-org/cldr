@@ -84,7 +84,22 @@ public class CLDRModify {
     }
 
     enum ConfigAction {
-        delete, add
+        /**
+         * Remove a path
+         */
+        delete, 
+        /**
+         * Add a path/value
+         */
+        add,
+//        /**
+//         * Replace a path/value. Equals 'add' but tests that path did exist
+//         */
+//        replace,
+//        /**
+//         * Add a a path/value. Equals 'add' but tests that path did NOT exist
+//         */
+//        add_new
     }
 
     static final class ConfigMatch {
@@ -726,8 +741,11 @@ public class CLDRModify {
          * @param reason
          */
         public void replace(String oldFullPath, String newFullPath, String newValue, String reason) {
-
             String oldValueOldPath = cldrFileToFilter.getStringValue(oldFullPath);
+            String temp = cldrFileToFilter.getFullXPath(oldFullPath);
+            if (temp != null) {
+                oldFullPath = temp;
+            }
             boolean pathSame = oldFullPath.equals(newFullPath);
 
             if (pathSame) {
@@ -1979,6 +1997,7 @@ public class CLDRModify {
                         keyValues.addAll(localeMatcher.getValue());
                     }
                 }
+                System.out.println("# Checking entries & adding:\t" + keyValues.size());
                 for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
                     ConfigMatch action = entry.get(ConfigKeys.action);
                     ConfigMatch locale = entry.get(ConfigKeys.locale);
@@ -1987,6 +2006,7 @@ public class CLDRModify {
                     ConfigMatch newPath = entry.get(ConfigKeys.new_path);
                     ConfigMatch newValue = entry.get(ConfigKeys.new_value);
                     switch (action.action) {
+                    // we add all the values up front
                     case add:
                         if (pathMatch != null || valueMatch != null || newPath == null || newValue == null) {
                             throw new IllegalArgumentException(
@@ -1997,6 +2017,7 @@ public class CLDRModify {
                         String newPathString = newPath.getPath(cldrFileToFilter);
                         replace(newPathString, newPathString, newValue.exactMatch, "config");
                         break;
+                    // For delete, we just check; we'll remove later
                     case delete:
                         if (newPath != null || newValue != null) {
                             throw new IllegalArgumentException("Bad arguments, must have " +
@@ -2005,8 +2026,8 @@ public class CLDRModify {
                         }
                         break;
                     default: // fall through
+                        throw new IllegalArgumentException("Internal Error");
                     }
-                    break;
                 }
             }
 

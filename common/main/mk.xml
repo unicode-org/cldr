@@ -1117,8 +1117,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yyyyMMMd">dd MMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">E, dd MMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="yyyyMMMM">MMMM y 'г'. G</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ" draft="provisional">G y QQQ</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ" draft="provisional">G y QQQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ" draft="contributed">G y QQQ</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ" draft="contributed">G y QQQQ</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} - {1}</intervalFormatFallback>
@@ -1515,10 +1515,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E, d</dateFormatItem>
-						<dateFormatItem id="Ehm" draft="provisional">E h:mm a</dateFormatItem>
-						<dateFormatItem id="EHm" draft="provisional">E HH:mm</dateFormatItem>
-						<dateFormatItem id="Ehms" draft="provisional">E h:mm:ss a</dateFormatItem>
-						<dateFormatItem id="EHms" draft="provisional">E HH:mm:ss</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="contributed">E h:mm a</dateFormatItem>
+						<dateFormatItem id="EHm" draft="contributed">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="contributed">E h:mm:ss a</dateFormatItem>
+						<dateFormatItem id="EHms" draft="contributed">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y 'г'. G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">dd MMM y 'г'. G</dateFormatItem>
@@ -1745,8 +1745,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>Време во {0}</regionFormat>
-			<regionFormat type="daylight" draft="provisional">{0} (+1)</regionFormat>
-			<regionFormat type="standard" draft="provisional">{0} (+0)</regionFormat>
+			<regionFormat type="daylight" draft="contributed">{0} (+1)</regionFormat>
+			<regionFormat type="standard" draft="contributed">{0} (+0)</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Непознато</exemplarCity>
@@ -2760,7 +2760,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Љубљана</exemplarCity>
 			</zone>
 			<zone type="Arctic/Longyearbyen">
-				<exemplarCity draft="provisional">Лонгјиербјен</exemplarCity>
+				<exemplarCity draft="contributed">Лонгјиербјен</exemplarCity>
 			</zone>
 			<zone type="Europe/Bratislava">
 				<exemplarCity>Братислава</exemplarCity>
@@ -2790,7 +2790,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Ел Салвадор</exemplarCity>
 			</zone>
 			<zone type="America/Lower_Princes">
-				<exemplarCity draft="provisional">Долен Принс квортр</exemplarCity>
+				<exemplarCity draft="contributed">Долен Принс квортр</exemplarCity>
 			</zone>
 			<zone type="Asia/Damascus">
 				<exemplarCity>Дамаск</exemplarCity>
@@ -4134,9 +4134,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
-				<displayName draft="provisional">BOB</displayName>
-				<displayName count="one" draft="provisional">BOB</displayName>
-				<displayName count="other" draft="provisional">BOB</displayName>
+				<displayName draft="contributed">BOB</displayName>
+				<displayName count="one" draft="contributed">BOB</displayName>
+				<displayName count="other" draft="contributed">BOB</displayName>
 				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BRL">
@@ -4950,7 +4950,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Туркменистански манат</displayName>
 			</currency>
 			<currency type="TMT">
-				<displayName draft="provisional">TMT</displayName>
+				<displayName draft="contributed">TMT</displayName>
 				<displayName count="one">Туркменистански манати</displayName>
 				<displayName count="other">Туркменистански манати</displayName>
 				<symbol>TMT</symbol>
@@ -4982,9 +4982,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
-				<displayName draft="provisional">TTD</displayName>
-				<displayName count="one" draft="provisional">TTD</displayName>
-				<displayName count="other" draft="provisional">TTD</displayName>
+				<displayName draft="contributed">TTD</displayName>
+				<displayName count="one" draft="contributed">TTD</displayName>
+				<displayName count="other" draft="contributed">TTD</displayName>
 				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
@@ -5071,7 +5071,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
-				<displayName draft="provisional">XAF</displayName>
+				<displayName draft="contributed">XAF</displayName>
 				<displayName count="one">XAF</displayName>
 				<displayName count="other">XAF</displayName>
 				<symbol>FCFA</symbol>
@@ -5083,7 +5083,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XOF">
-				<displayName draft="provisional">XOF</displayName>
+				<displayName draft="contributed">XOF</displayName>
 				<displayName count="one">XOF</displayName>
 				<displayName count="other">XOF</displayName>
 				<symbol>CFA</symbol>
@@ -5143,7 +5143,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="atLeast" draft="provisional">{0}+</pattern>
+			<pattern type="atLeast" draft="contributed">{0}+</pattern>
 			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 	</numbers>
@@ -5398,8 +5398,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<unitPattern count="one" draft="provisional">{0} G</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} G</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0} мин.</unitPattern>
@@ -5418,12 +5418,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} акри</unitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<unitPattern count="one" draft="provisional">{0} ха</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} ха</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ха</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ха</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<unitPattern count="one" draft="provisional">{0} кв. стапка</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} кв. стапки</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} кв. стапка</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} кв. стапки</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<unitPattern count="one">{0} км²</unitPattern>
@@ -5462,8 +5462,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">Пред {0} часа</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<unitPattern count="one" draft="provisional">{0} мс</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} мс</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} мс</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} мс</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one">{0} мин.</unitPattern>
@@ -5526,52 +5526,52 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">Пред {0} год.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<unitPattern count="one" draft="provisional">{0} см</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} см</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} см</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} см</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<unitPattern count="one" draft="provisional">{0} ст</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} ст</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ст</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ст</unitPattern>
 			</unit>
 			<unit type="length-inch">
 				<unitPattern count="one">{0} инч</unitPattern>
 				<unitPattern count="other">{0} инчи</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<unitPattern count="one" draft="provisional">{0} км</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} км</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} км</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} км</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<unitPattern count="one">{0} сг</unitPattern>
 				<unitPattern count="other">{0} сг</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<unitPattern count="one" draft="provisional">{0} м</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} м</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} м</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} м</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<unitPattern count="one" draft="provisional">{0} ми</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} ми</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ми</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ми</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<unitPattern count="one" draft="provisional">{0} мм</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} мм</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} мм</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} мм</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<unitPattern count="one" draft="provisional">{0} пм</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} пм</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} пм</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} пм</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0} јард</unitPattern>
 				<unitPattern count="other">{0} јарди</unitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<unitPattern count="one" draft="provisional">{0} г</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} г</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} г</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} г</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<unitPattern count="one" draft="provisional">{0} кг</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} кг</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} кг</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} кг</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<unitPattern count="one">{0} унца</unitPattern>
@@ -5586,28 +5586,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} кс</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<unitPattern count="one" draft="provisional">{0} kW</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} kW</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<unitPattern count="one">{0} ват</unitPattern>
 				<unitPattern count="other">{0} вати</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<unitPattern count="one" draft="provisional">{0} hPa</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} hPa</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<unitPattern count="one" draft="provisional">{0} inHg</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} inHg</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<unitPattern count="one" draft="provisional">{0} мб</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} мб</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} мб</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} мб</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<unitPattern count="one" draft="provisional">{0} к/ч</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} к/ч</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} к/ч</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} к/ч</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<unitPattern count="one">{0} м/с</unitPattern>
@@ -5618,12 +5618,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ми/ч</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<unitPattern count="one" draft="provisional">{0}°C</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}°C</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}°C</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<unitPattern count="one" draft="provisional">{0}°F</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}°F</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one">{0} км³</unitPattern>
@@ -5634,8 +5634,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ми³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<unitPattern count="one" draft="provisional">{0} л</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} л</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} л</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} л</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -5643,8 +5643,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<unitPattern count="one" draft="provisional">{0} G</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} G</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
 				<unitPattern count="one">{0}′</unitPattern>
@@ -5663,12 +5663,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} акри</unitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<unitPattern count="one" draft="provisional">{0} ха</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} ха</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ха</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ха</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
-				<unitPattern count="one" draft="provisional">{0} ст²</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} ст²</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ст²</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ст²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
 				<unitPattern count="one">{0} км²</unitPattern>
@@ -5707,8 +5707,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">Пред {0} часа</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<unitPattern count="one" draft="provisional">{0} мс</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} мс</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} мс</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} мс</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one">{0} мин.</unitPattern>
@@ -5771,52 +5771,52 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">Пред {0} год.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
-				<unitPattern count="one" draft="provisional">{0} см</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} см</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} см</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} см</unitPattern>
 			</unit>
 			<unit type="length-foot">
-				<unitPattern count="one" draft="provisional">{0} ст</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} ст</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ст</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ст</unitPattern>
 			</unit>
 			<unit type="length-inch">
 				<unitPattern count="one">{0} инч</unitPattern>
 				<unitPattern count="other">{0} инчи</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<unitPattern count="one" draft="provisional">{0} км</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} км</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} км</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} км</unitPattern>
 			</unit>
 			<unit type="length-light-year">
 				<unitPattern count="one">{0} сг</unitPattern>
 				<unitPattern count="other">{0} сг</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<unitPattern count="one" draft="provisional">{0} м</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} м</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} м</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} м</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<unitPattern count="one" draft="provisional">{0} ми</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} ми</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ми</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ми</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<unitPattern count="one" draft="provisional">{0} мм</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} мм</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} мм</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} мм</unitPattern>
 			</unit>
 			<unit type="length-picometer">
-				<unitPattern count="one" draft="provisional">{0} пм</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} пм</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} пм</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} пм</unitPattern>
 			</unit>
 			<unit type="length-yard">
 				<unitPattern count="one">{0} јард</unitPattern>
 				<unitPattern count="other">{0} јарди</unitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<unitPattern count="one" draft="provisional">{0} г</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} г</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} г</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} г</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<unitPattern count="one" draft="provisional">{0} кг</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} кг</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} кг</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} кг</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<unitPattern count="one">{0} унца</unitPattern>
@@ -5831,28 +5831,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} кс</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<unitPattern count="one" draft="provisional">{0} kW</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} kW</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
 				<unitPattern count="one">{0} ват</unitPattern>
 				<unitPattern count="other">{0} вати</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<unitPattern count="one" draft="provisional">{0} hPa</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} hPa</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<unitPattern count="one" draft="provisional">{0} inHg</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} inHg</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<unitPattern count="one" draft="provisional">{0} мб</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} мб</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} мб</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} мб</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<unitPattern count="one" draft="provisional">{0} к/ч</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} к/ч</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} к/ч</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} к/ч</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
 				<unitPattern count="one">{0} м/с</unitPattern>
@@ -5863,12 +5863,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ми/ч</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<unitPattern count="one" draft="provisional">{0}°C</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}°C</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}°C</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<unitPattern count="one" draft="provisional">{0}°F</unitPattern>
-				<unitPattern count="other" draft="provisional">{0}°F</unitPattern>
+				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
+				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<unitPattern count="one">{0} км³</unitPattern>
@@ -5879,8 +5879,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ми³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<unitPattern count="one" draft="provisional">{0} л</unitPattern>
-				<unitPattern count="other" draft="provisional">{0} л</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} л</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} л</unitPattern>
 			</unit>
 		</unitLength>
 		<durationUnit type="hm">
@@ -5901,16 +5901,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end" draft="provisional">{0} и {1}</listPatternPart>
-			<listPatternPart type="2">{0} и {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} и {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="end" draft="contributed">{0} и {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} и {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
-			<listPatternPart type="start">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
-			<listPatternPart type="end" draft="provisional">{0} и {1}</listPatternPart>
-			<listPatternPart type="2" draft="provisional">{0} и {1}</listPatternPart>
+			<listPatternPart type="end" draft="contributed">{0} и {1}</listPatternPart>
+			<listPatternPart type="2" draft="contributed">{0} и {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>

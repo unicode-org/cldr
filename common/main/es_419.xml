@@ -121,16 +121,52 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1" draft="contributed">Año pasado</relative>
 				<relative type="0" draft="contributed">Este año</relative>
 				<relative type="1" draft="contributed">Año próximo</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">En {0} año</relativeTimePattern>
+					<relativeTimePattern count="other">En {0} años</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<relative type="-1" draft="contributed">El mes pasado</relative>
 				<relative type="0" draft="contributed">Este mes</relative>
 				<relative type="1" draft="contributed">Mes próximo</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">En {0} mes</relativeTimePattern>
+					<relativeTimePattern count="other">En {0} meses</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<relative type="-1" draft="contributed">Semana pasada</relative>
 				<relative type="0" draft="contributed">Esta semana</relative>
 				<relative type="1" draft="contributed">Próxima semana</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">En {0} semana</relativeTimePattern>
+					<relativeTimePattern count="other">En {0} semanas</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day">
+				<relativeTime type="future">
+					<relativeTimePattern count="one">En {0} día</relativeTimePattern>
+					<relativeTimePattern count="other">En {0} días</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour">
+				<relativeTime type="future">
+					<relativeTimePattern count="one">En {0} hora</relativeTimePattern>
+					<relativeTimePattern count="other">En {0} horas</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute">
+				<relativeTime type="future">
+					<relativeTimePattern count="one">En {0} minuto</relativeTimePattern>
+					<relativeTimePattern count="other">En {0} minutos</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second">
+				<relativeTime type="future">
+					<relativeTimePattern count="one">En {0} segundo</relativeTimePattern>
+					<relativeTimePattern count="other">En {0} segundos</relativeTimePattern>
+				</relativeTime>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -188,36 +224,5 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currencyFormatLength>
 		</currencyFormats>
 	</numbers>
-	<units>
-		<unitLength type="long">
-			<unit type="duration-day-future">
-				<unitPattern count="one">En {0} día</unitPattern>
-				<unitPattern count="other">En {0} días</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">En {0} hora</unitPattern>
-				<unitPattern count="other">En {0} horas</unitPattern>
-			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">En {0} minuto</unitPattern>
-				<unitPattern count="other">En {0} minutos</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">En {0} mes</unitPattern>
-				<unitPattern count="other">En {0} meses</unitPattern>
-			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">En {0} segundo</unitPattern>
-				<unitPattern count="other">En {0} segundos</unitPattern>
-			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">En {0} semana</unitPattern>
-				<unitPattern count="other">En {0} semanas</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">En {0} año</unitPattern>
-				<unitPattern count="other">En {0} años</unitPattern>
-			</unit>
-		</unitLength>
-	</units>
 </ldml>
+

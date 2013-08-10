@@ -1314,18 +1314,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">onyakeni odlule</relative>
 				<relative type="0">kulo nyaka</relative>
 				<relative type="1">unyaka ozayo</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Onyakeni ongu-{0}</relativeTimePattern>
+					<relativeTimePattern count="other">Eminyakeni engu-{0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">enyakeni ongu-{0} owedlule</relativeTimePattern>
+					<relativeTimePattern count="other">iminyaka engu-{0} eyedlule</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Inyanga</displayName>
 				<relative type="-1">inyanga edlule</relative>
 				<relative type="0">le nyanga</relative>
 				<relative type="1">inyanga ezayo</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Enyangeni engu-{0}</relativeTimePattern>
+					<relativeTimePattern count="other">Ezinyangeni ezingu-{0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">enyangeni engu-{0} eyedlule</relativeTimePattern>
+					<relativeTimePattern count="other">ezinyangeni ezingu-{0} ezedlule</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>Iviki</displayName>
 				<relative type="-1">iviki eledlule</relative>
 				<relative type="0">leli viki</relative>
 				<relative type="1">iviki elizayo</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Evikini elingu-{0}</relativeTimePattern>
+					<relativeTimePattern count="other">Emavikini angu-{0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">evikini elingu-{0} eledlule</relativeTimePattern>
+					<relativeTimePattern count="other">amaviki angu-{0} adlule</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>Usuku</displayName>
@@ -1334,6 +1358,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">namhlanje</relative>
 				<relative type="1">kusasa</relative>
 				<relative type="2">Usuku olulandela olakusasa</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Osukwini olungu-{0}</relativeTimePattern>
+					<relativeTimePattern count="other">Ezinsukwini ezingu-{0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">osukwini olungu-{0} olwedlule</relativeTimePattern>
+					<relativeTimePattern count="other">ezinsukwini ezingu-{0} ezedlule.</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>Usuku evikini</displayName>
@@ -1378,13 +1410,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>Ihora</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Ehoreni elingu-{0}</relativeTimePattern>
+					<relativeTimePattern count="other">Emahoreni angu-{0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">ehoreni eligu-{0} eledluli</relativeTimePattern>
+					<relativeTimePattern count="other">emahoreni angu-{0} edlule</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Iminithi</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Kumunithi engu-{0}</relativeTimePattern>
+					<relativeTimePattern count="other">Emaminithini angu-{0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">eminithini elingu-{0} eledlule</relativeTimePattern>
+					<relativeTimePattern count="other">amaminithi angu-{0} adlule</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Isekhondi</displayName>
 				<relative type="0">manje</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Kusekhondi elingu-{0}</relativeTimePattern>
+					<relativeTimePattern count="other">Kumasekhondi angu-{0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">isekhondi elingu-{0} eledlule</relativeTimePattern>
+					<relativeTimePattern count="other">amasekhondi angu-{0} adlule</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>Isikhathi sendawo</displayName>
@@ -2897,25 +2953,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">usuku olungu-{0}</unitPattern>
 				<unitPattern count="other">{0} izinsuku</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Osukwini olungu-{0}</unitPattern>
-				<unitPattern count="other">Ezinsukwini ezingu-{0}</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">osukwini olungu-{0} olwedlule</unitPattern>
-				<unitPattern count="other">ezinsukwini ezingu-{0} ezedlule.</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">ihora elingu-{0}</unitPattern>
 				<unitPattern count="other">{0} amahora</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Ehoreni elingu-{0}</unitPattern>
-				<unitPattern count="other">Emahoreni angu-{0}</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">ehoreni eligu-{0} eledluli</unitPattern>
-				<unitPattern count="other">emahoreni angu-{0} edlule</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -2925,61 +2965,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">iminithi elingu-{0}</unitPattern>
 				<unitPattern count="other">{0} amaminithi</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Kumunithi engu-{0}</unitPattern>
-				<unitPattern count="other">Emaminithini angu-{0}</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">eminithini elingu-{0} eledlule</unitPattern>
-				<unitPattern count="other">amaminithi angu-{0} adlule</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">inyana engu-{0}</unitPattern>
 				<unitPattern count="other">{0} izinyanga</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Enyangeni engu-{0}</unitPattern>
-				<unitPattern count="other">Ezinyangeni ezingu-{0}</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">enyangeni engu-{0} eyedlule</unitPattern>
-				<unitPattern count="other">ezinyangeni ezingu-{0} ezedlule</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">isekhondi elingu-{0}</unitPattern>
 				<unitPattern count="other">{0} amasekhondi</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Kusekhondi elingu-{0}</unitPattern>
-				<unitPattern count="other">Kumasekhondi angu-{0}</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">isekhondi elingu-{0} eledlule</unitPattern>
-				<unitPattern count="other">amasekhondi angu-{0} adlule</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">iviki elingu-{0}</unitPattern>
 				<unitPattern count="other">{0} amaviki</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Evikini elingu-{0}</unitPattern>
-				<unitPattern count="other">Emavikini angu-{0}</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">evikini elingu-{0} eledlule</unitPattern>
-				<unitPattern count="other">amaviki angu-{0} adlule</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} y</unitPattern>
 				<unitPattern count="other">{0} y</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Onyakeni ongu-{0}</unitPattern>
-				<unitPattern count="other">Eminyakeni engu-{0}</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">enyakeni ongu-{0} owedlule</unitPattern>
-				<unitPattern count="other">iminyaka engu-{0} eyedlule</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>

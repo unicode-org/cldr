@@ -2009,18 +2009,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">sidste år</relative>
 				<relative type="0">i år</relative>
 				<relative type="1">næste år</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">om {0} år</relativeTimePattern>
+					<relativeTimePattern count="other">om {0} år</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">for {0} år siden</relativeTimePattern>
+					<relativeTimePattern count="other">for {0} år siden</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Måned</displayName>
 				<relative type="-1">sidste måned</relative>
 				<relative type="0">denne måned</relative>
 				<relative type="1">næste måned</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">om {0} måned</relativeTimePattern>
+					<relativeTimePattern count="other">om {0} måneder</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">for {0} måned siden</relativeTimePattern>
+					<relativeTimePattern count="other">for {0} måneder siden</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>Uge</displayName>
 				<relative type="-1">sidste uge</relative>
 				<relative type="0">denne uge</relative>
 				<relative type="1">næste uge</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">om {0} uge</relativeTimePattern>
+					<relativeTimePattern count="other">om {0} uger</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">for {0} uge siden</relativeTimePattern>
+					<relativeTimePattern count="other">for {0} uger siden</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>Dag</displayName>
@@ -2029,6 +2053,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">i dag</relative>
 				<relative type="1">i morgen</relative>
 				<relative type="2">i overmorgen</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">om {0} døgn</relativeTimePattern>
+					<relativeTimePattern count="other">om {0} døgn</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">for {0} døgn siden</relativeTimePattern>
+					<relativeTimePattern count="other">for {0} døgn siden</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>Ugedag</displayName>
@@ -2073,13 +2105,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>Time</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">om {0} time</relativeTimePattern>
+					<relativeTimePattern count="other">om {0} timer</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">for {0} time siden</relativeTimePattern>
+					<relativeTimePattern count="other">for {0} timer siden</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Minut</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">om {0} minut</relativeTimePattern>
+					<relativeTimePattern count="other">om {0} minutter</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">for {0} minut siden</relativeTimePattern>
+					<relativeTimePattern count="other">for {0} minutter siden</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Sekund</displayName>
 				<relative type="0">nu</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">om {0} sekund</relativeTimePattern>
+					<relativeTimePattern count="other">om {0} sekunder</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">for {0} sekund siden</relativeTimePattern>
+					<relativeTimePattern count="other">for {0} sekunder siden</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>Tidszone</displayName>
@@ -5929,25 +5985,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} døgn</unitPattern>
 				<unitPattern count="other">{0} døgn</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">om {0} døgn</unitPattern>
-				<unitPattern count="other">om {0} døgn</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">for {0} døgn siden</unitPattern>
-				<unitPattern count="other">for {0} døgn siden</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} time</unitPattern>
 				<unitPattern count="other">{0} timer</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">om {0} time</unitPattern>
-				<unitPattern count="other">om {0} timer</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">for {0} time siden</unitPattern>
-				<unitPattern count="other">for {0} timer siden</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} millisekund</unitPattern>
@@ -5957,61 +5997,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minut</unitPattern>
 				<unitPattern count="other">{0} minutter</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">om {0} minut</unitPattern>
-				<unitPattern count="other">om {0} minutter</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">for {0} minut siden</unitPattern>
-				<unitPattern count="other">for {0} minutter siden</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} måned</unitPattern>
 				<unitPattern count="other">{0} måneder</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">om {0} måned</unitPattern>
-				<unitPattern count="other">om {0} måneder</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">for {0} måned siden</unitPattern>
-				<unitPattern count="other">for {0} måneder siden</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} sekund</unitPattern>
 				<unitPattern count="other">{0} sekunder</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">om {0} sekund</unitPattern>
-				<unitPattern count="other">om {0} sekunder</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">for {0} sekund siden</unitPattern>
-				<unitPattern count="other">for {0} sekunder siden</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} uge</unitPattern>
 				<unitPattern count="other">{0} uger</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">om {0} uge</unitPattern>
-				<unitPattern count="other">om {0} uger</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">for {0} uge siden</unitPattern>
-				<unitPattern count="other">for {0} uger siden</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} år</unitPattern>
 				<unitPattern count="other">{0} år</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">om {0} år</unitPattern>
-				<unitPattern count="other">om {0} år</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">for {0} år siden</unitPattern>
-				<unitPattern count="other">for {0} år siden</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} centimeter</unitPattern>
@@ -6174,25 +6174,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} d</unitPattern>
 				<unitPattern count="other">{0} d</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">om {0} døgn</unitPattern>
-				<unitPattern count="other">om {0} døgn</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} døgn siden</unitPattern>
-				<unitPattern count="other">{0} døgn siden</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} t</unitPattern>
 				<unitPattern count="other">{0} t</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">om {0} t</unitPattern>
-				<unitPattern count="other">om {0} t</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">for {0} t siden</unitPattern>
-				<unitPattern count="other">for {0} t siden</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -6202,61 +6186,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">om {0} min</unitPattern>
-				<unitPattern count="other">om {0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} min siden</unitPattern>
-				<unitPattern count="other">{0} min siden</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} mån</unitPattern>
 				<unitPattern count="other">{0} mån</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">om {0} mån</unitPattern>
-				<unitPattern count="other">om {0} mån</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} m siden</unitPattern>
-				<unitPattern count="other">{0} m siden</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} sek</unitPattern>
 				<unitPattern count="other">{0} sek</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">om {0} sek</unitPattern>
-				<unitPattern count="other">om {0} sek</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} sek siden</unitPattern>
-				<unitPattern count="other">{0} sek siden</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} uge</unitPattern>
 				<unitPattern count="other">{0} uger</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">om {0} uge</unitPattern>
-				<unitPattern count="other">om {0} uger</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} u siden</unitPattern>
-				<unitPattern count="other">{0} u siden</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} år</unitPattern>
 				<unitPattern count="other">{0} år</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">om {0} år</unitPattern>
-				<unitPattern count="other">om {0} år</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} år siden</unitPattern>
-				<unitPattern count="other">{0} år siden</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>
@@ -6419,25 +6363,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}d</unitPattern>
 				<unitPattern count="other">{0}d</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">om {0} døgn</unitPattern>
-				<unitPattern count="other">om {0} døgn</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">for {0} døgn siden</unitPattern>
-				<unitPattern count="other">for {0} døgn siden</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} t</unitPattern>
 				<unitPattern count="other">{0}t</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">om {0} t</unitPattern>
-				<unitPattern count="other">om {0} t</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">for {0} t siden</unitPattern>
-				<unitPattern count="other">for {0} t siden</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0}ms</unitPattern>
@@ -6447,61 +6375,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">om {0} min</unitPattern>
-				<unitPattern count="other">om {0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">for {0} min siden</unitPattern>
-				<unitPattern count="other">for {0} min siden</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">om {0} mån</unitPattern>
-				<unitPattern count="other">om {0}mån</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">for {0} mån siden</unitPattern>
-				<unitPattern count="other">for {0} mån siden</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0}s</unitPattern>
 				<unitPattern count="other">{0}s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">om {0} s</unitPattern>
-				<unitPattern count="other">om {0} s</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">for {0} s siden</unitPattern>
-				<unitPattern count="other">for {0} s siden</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0}u</unitPattern>
 				<unitPattern count="other">{0}u</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">om {0} uger</unitPattern>
-				<unitPattern count="other">om {0} uger</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">for {0} u siden</unitPattern>
-				<unitPattern count="other">for {0} u siden</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0}å</unitPattern>
 				<unitPattern count="other">{0}å</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">om {0} år</unitPattern>
-				<unitPattern count="other">om {0} år</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">for {0} år siden</unitPattern>
-				<unitPattern count="other">for {0} år siden</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0}cm</unitPattern>

@@ -2603,18 +2603,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1" draft="contributed">지난해</relative>
 				<relative type="0" draft="contributed">올해</relative>
 				<relative type="1" draft="contributed">내년</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}년 후</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}년 전</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>월</displayName>
 				<relative type="-1" draft="contributed">지난달</relative>
 				<relative type="0" draft="contributed">이번 달</relative>
 				<relative type="1" draft="contributed">다음 달</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}개월 후</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}개월 전</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>주</displayName>
 				<relative type="-1" draft="contributed">지난주</relative>
 				<relative type="0" draft="contributed">이번 주</relative>
 				<relative type="1" draft="contributed">다음 주</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}주 후</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}주 전</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>일</displayName>
@@ -2623,6 +2641,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">오늘</relative>
 				<relative type="1">내일</relative>
 				<relative type="2">모레</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}일 후</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}일 전</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>요일</displayName>
@@ -2667,13 +2691,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>시</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}시간 후</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}시간 전</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>분</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}분 후</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}분 전</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>초</displayName>
 				<relative type="0">지금</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}초 후</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}초 전</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>시간대</displayName>
@@ -6031,20 +6073,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other" draft="contributed">{0}일</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other" draft="contributed">{0}일 후</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other" draft="contributed">{0}일 전</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other" draft="contributed">{0}시간</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other" draft="contributed">{0}시간 후</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other" draft="contributed">{0}시간 전</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other" draft="contributed">{0}밀리초</unitPattern>
@@ -6052,47 +6082,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other" draft="contributed">{0}분 후</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other" draft="contributed">{0}분 전</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other" draft="contributed">{0}개월</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other" draft="contributed">{0}개월 후</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other" draft="contributed">{0}개월 전</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other" draft="contributed">{0}초 후</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other" draft="contributed">{0}초 전</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other" draft="contributed">{0}주</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other" draft="contributed">{0}주 후</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other" draft="contributed">{0}주 전</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0}년</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">{0}년 후</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0}년 전</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0}센티미터</unitPattern>
@@ -6216,20 +6216,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other" draft="contributed">{0}일</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other" draft="contributed">{0}일 후</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other" draft="contributed">{0}일 전</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other" draft="contributed">{0}시간</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other" draft="contributed">{0}시간 후</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other" draft="contributed">{0}시간 전</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0}ms</unitPattern>
@@ -6237,47 +6225,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other" draft="contributed">{0}분 후</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other" draft="contributed">{0}분 전</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other" draft="contributed">{0}개월</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other" draft="contributed">{0}개월 후</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other" draft="contributed">{0}개월 전</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other" draft="contributed">{0}초 후</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other" draft="contributed">{0}초 전</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other" draft="contributed">{0}주</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other" draft="contributed">{0}주 후</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other" draft="contributed">{0}주 전</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0}년</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other" draft="contributed">{0}년 후</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other" draft="contributed">{0}년 전</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
@@ -6401,20 +6359,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other" draft="contributed">{0}일</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other" draft="contributed">{0}일 후</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other" draft="contributed">{0}일 전</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other" draft="contributed">{0}시간</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other" draft="contributed">{0}시간 후</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other" draft="contributed">{0}시간 전</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0}ms</unitPattern>
@@ -6422,47 +6368,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other" draft="contributed">{0}분 후</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other" draft="contributed">{0}분 전</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other" draft="contributed">{0}개월</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other" draft="contributed">{0}개월 후</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other" draft="contributed">{0}개월 전</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other" draft="contributed">{0}초 후</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other" draft="contributed">{0}초 전</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other" draft="contributed">{0}주</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other" draft="contributed">{0}주 후</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other" draft="contributed">{0}주 전</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other" draft="contributed">{0}년</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other" draft="contributed">{0}년 후</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other" draft="contributed">{0}년 전</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>

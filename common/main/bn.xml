@@ -1832,18 +1832,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">গত বছর</relative>
 				<relative type="0">এই বছর</relative>
 				<relative type="1">পরের বছর</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} বছরে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} বছরে</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} বছর পূর্বে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} বছর পূর্বে</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>মাস</displayName>
 				<relative type="-1">গত মাস</relative>
 				<relative type="0">এই মাস</relative>
 				<relative type="1">পরের মাস</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} মাসে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} মাসে</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} মাস পূর্বে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} মাস পূর্বে</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>সপ্তাহ</displayName>
 				<relative type="-1">গত সপ্তাহ</relative>
 				<relative type="0">এই সপ্তাহ</relative>
 				<relative type="1">পরের সপ্তাহ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} সপ্তাহে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} সপ্তাহে</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} সপ্তাহ পূর্বে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} সপ্তাহ পূর্বে</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>দিন</displayName>
@@ -1852,6 +1876,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">আজ</relative>
 				<relative type="1">আগামীকাল</relative>
 				<relative type="2">আগামী পরশু</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} দিনের মধ্যে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} দিনের মধ্যে</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} দিন পূর্বে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} দিন পূর্বে</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>সপ্তাহের দিন</displayName>
@@ -1896,13 +1928,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>ঘন্টা</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ঘন্টায়</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ঘন্টায়</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ঘন্টা আগে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ঘন্টা আগে</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>মিনিট</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} মিনিটে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} মিনিটে</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} মিনিট পূর্বে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} মিনিট পূর্বে</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>সেকেন্ড</displayName>
 				<relative type="0">এখন</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} সেকেন্ডে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} সেকেন্ডে</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} সেকেন্ড পূর্বে</relativeTimePattern>
+					<relativeTimePattern count="other">{0} সেকেন্ড পূর্বে</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>এলাকা</displayName>
@@ -5550,25 +5606,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} দিন</unitPattern>
 				<unitPattern count="other">{0} দিন</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} দিনের মধ্যে</unitPattern>
-				<unitPattern count="other">{0} দিনের মধ্যে</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} দিন পূর্বে</unitPattern>
-				<unitPattern count="other">{0} দিন পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} ঘন্টা</unitPattern>
 				<unitPattern count="other">{0} ঘন্টা</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} ঘন্টায়</unitPattern>
-				<unitPattern count="other">{0} ঘন্টায়</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} ঘন্টা আগে</unitPattern>
-				<unitPattern count="other">{0} ঘন্টা আগে</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -5578,61 +5618,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} মিনিট</unitPattern>
 				<unitPattern count="other">{0} মিনিট</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} মিনিটে</unitPattern>
-				<unitPattern count="other">{0} মিনিটে</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} মিনিট পূর্বে</unitPattern>
-				<unitPattern count="other">{0} মিনিট পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} মাস</unitPattern>
 				<unitPattern count="other">{0} মাস</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} মাসে</unitPattern>
-				<unitPattern count="other">{0} মাসে</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} মাস পূর্বে</unitPattern>
-				<unitPattern count="other">{0} মাস পূর্বে</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} সেকেন্ড</unitPattern>
 				<unitPattern count="other">{0} সেকেন্ড</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} সেকেন্ডে</unitPattern>
-				<unitPattern count="other">{0} সেকেন্ডে</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} সেকেন্ড পূর্বে</unitPattern>
-				<unitPattern count="other">{0} সেকেন্ড পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} সপ্তাহ</unitPattern>
 				<unitPattern count="other">{0} সপ্তাহ</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} সপ্তাহে</unitPattern>
-				<unitPattern count="other">{0} সপ্তাহে</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} সপ্তাহ পূর্বে</unitPattern>
-				<unitPattern count="other">{0} সপ্তাহ পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} বছর</unitPattern>
 				<unitPattern count="other">{0} বছর</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} বছরে</unitPattern>
-				<unitPattern count="other">{0} বছরে</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} বছর পূর্বে</unitPattern>
-				<unitPattern count="other">{0} বছর পূর্বে</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} সেন্টিমিটার</unitPattern>
@@ -5795,25 +5795,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} দিন</unitPattern>
 				<unitPattern count="other">{0} দিন</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} দিনের মধ্যে</unitPattern>
-				<unitPattern count="other">{0} দিনের মধ্যে</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} দিন পূর্বে</unitPattern>
-				<unitPattern count="other">{0} দিন পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} ঘন্টা</unitPattern>
 				<unitPattern count="other">{0} ঘন্টা</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} ঘন্টায়</unitPattern>
-				<unitPattern count="other">{0} ঘন্টায়</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} ঘন্টা আগে</unitPattern>
-				<unitPattern count="other">{0} ঘন্টা আগে</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -5823,61 +5807,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} মিনিট</unitPattern>
 				<unitPattern count="other">{0} মিনিট</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} মিনিটে</unitPattern>
-				<unitPattern count="other">{0} মিনিটে</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0}মিনিট পূর্বে</unitPattern>
-				<unitPattern count="other">{0} মিনিট পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} মাস</unitPattern>
 				<unitPattern count="other">{0} মাস</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} মাসে</unitPattern>
-				<unitPattern count="other">{0} মাসে</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} মাস পূর্বে</unitPattern>
-				<unitPattern count="other">{0} মাস পূর্বে</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} সেকেন্ড</unitPattern>
 				<unitPattern count="other">{0} সেকেন্ড</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} সেকেন্ডে</unitPattern>
-				<unitPattern count="other">{0} সেকেন্ডে</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} সেকেন্ড পূর্বে</unitPattern>
-				<unitPattern count="other">{0} সেকেন্ড পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} সপ্তাহ</unitPattern>
 				<unitPattern count="other">{0} সপ্তাহ</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} সপ্তাহে</unitPattern>
-				<unitPattern count="other">{0} সপ্তাহে</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} সপ্তাহ পূর্বে</unitPattern>
-				<unitPattern count="other">{0} সপ্তাহ পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} বছর</unitPattern>
 				<unitPattern count="other">{0} বছর</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">+{0} বছরে</unitPattern>
-				<unitPattern count="other">+{0} বছরে</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">-{0} বছর পূর্বে</unitPattern>
-				<unitPattern count="other">-{0} বছর পূর্বে</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} সেমি</unitPattern>
@@ -6040,25 +5984,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} দিন</unitPattern>
 				<unitPattern count="other">{0} দিন</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} দিনের মধ্যে</unitPattern>
-				<unitPattern count="other">{0} দিনের মধ্যে</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} দিন পূর্বে</unitPattern>
-				<unitPattern count="other">{0} দিন পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} ঘন্টা</unitPattern>
 				<unitPattern count="other">{0} ঘন্টা</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} ঘন্টায়</unitPattern>
-				<unitPattern count="other">{0} ঘন্টায়</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} ঘন্টা আগে</unitPattern>
-				<unitPattern count="other">{0} ঘন্টা আগে</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -6068,61 +5996,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} মিনিট</unitPattern>
 				<unitPattern count="other">{0} মিনিট</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} মিনিটে</unitPattern>
-				<unitPattern count="other">{0} মিনিটে</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} মিনিট পূর্বে</unitPattern>
-				<unitPattern count="other">{0} মিনিট পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} মাস</unitPattern>
 				<unitPattern count="other">{0} মাস</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} মাসে</unitPattern>
-				<unitPattern count="other">{0}মাসে</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} মাস পূর্বে</unitPattern>
-				<unitPattern count="other">{0}মাস পূর্বে</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} সেকেন্ড</unitPattern>
 				<unitPattern count="other">{0} সেকেন্ড</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} সেকেন্ডে</unitPattern>
-				<unitPattern count="other">{0} সেকেন্ডে</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} সেকেন্ড পূর্বে</unitPattern>
-				<unitPattern count="other">{0} সেকেন্ড পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} সপ্তাহ</unitPattern>
 				<unitPattern count="other">{0} সপ্তাহ</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} সপ্তাহে</unitPattern>
-				<unitPattern count="other">{0} সপ্তাহে</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} সপ্তাহ পূর্বে</unitPattern>
-				<unitPattern count="other">{0} সপ্তাহ পূর্বে</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} বছর</unitPattern>
 				<unitPattern count="other">{0} বছর</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">+{0} বছরে</unitPattern>
-				<unitPattern count="other">+{0} বছরে</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">-{0} বছর পূর্বে</unitPattern>
-				<unitPattern count="other">-{0} বছর পূর্বে</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} সেমি</unitPattern>

@@ -1227,24 +1227,56 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">vitin e kaluar</relative>
 				<relative type="0">këtë vit</relative>
 				<relative type="1">vitin e ardhshëm</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pas {0} viti</relativeTimePattern>
+					<relativeTimePattern count="other">pas {0} vjetësh</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">para {0} viti</relativeTimePattern>
+					<relativeTimePattern count="other">para {0} vjetësh</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>muaj</displayName>
 				<relative type="-1">muajin e kaluar</relative>
 				<relative type="0">këtë muaj</relative>
 				<relative type="1">muajin e ardhshëm</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pas {0} muaji</relativeTimePattern>
+					<relativeTimePattern count="other">pas {0} muajsh</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">para {0} muaji</relativeTimePattern>
+					<relativeTimePattern count="other">para {0} muajsh</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>javë</displayName>
 				<relative type="-1">javën e kaluar</relative>
 				<relative type="0">këtë javë</relative>
 				<relative type="1">javën e ardhshme</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pas {0} jave</relativeTimePattern>
+					<relativeTimePattern count="other">pas {0} javësh</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">para {0} jave</relativeTimePattern>
+					<relativeTimePattern count="other">para {0} javësh</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>ditë</displayName>
 				<relative type="-1">dje</relative>
 				<relative type="0">sot</relative>
 				<relative type="1">nesër</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pas {0} dite</relativeTimePattern>
+					<relativeTimePattern count="other">pas {0} ditësh</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">para {0} dite</relativeTimePattern>
+					<relativeTimePattern count="other">para {0} ditësh</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>ditë e javës</displayName>
@@ -1289,13 +1321,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>orë</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pas {0} ore</relativeTimePattern>
+					<relativeTimePattern count="other">pas {0} orësh</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">para {0} ore</relativeTimePattern>
+					<relativeTimePattern count="other">para {0} orësh</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>minutë</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pas {0} minute</relativeTimePattern>
+					<relativeTimePattern count="other">pas {0} minutash</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">para {0} minute</relativeTimePattern>
+					<relativeTimePattern count="other">para {0} minutash</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>sekondë</displayName>
 				<relative type="0">tani</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">pas {0} sekonde</relativeTimePattern>
+					<relativeTimePattern count="other">pas {0} sekondash</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">para {0} sekonde</relativeTimePattern>
+					<relativeTimePattern count="other">para {0} sekondash</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>zonë</displayName>
@@ -4602,25 +4658,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ditë</unitPattern>
 				<unitPattern count="other">{0} ditë</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">pas {0} dite</unitPattern>
-				<unitPattern count="other">pas {0} ditësh</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">para {0} dite</unitPattern>
-				<unitPattern count="other">para {0} ditësh</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} orë</unitPattern>
 				<unitPattern count="other">{0} orë</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">pas {0} ore</unitPattern>
-				<unitPattern count="other">pas {0} orësh</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">para {0} ore</unitPattern>
-				<unitPattern count="other">para {0} orësh</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} milisekondë</unitPattern>
@@ -4630,61 +4670,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minutë</unitPattern>
 				<unitPattern count="other">{0} minuta</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">pas {0} minute</unitPattern>
-				<unitPattern count="other">pas {0} minutash</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">para {0} minute</unitPattern>
-				<unitPattern count="other">para {0} minutash</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} muaj</unitPattern>
 				<unitPattern count="other">{0} muaj</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">pas {0} muaji</unitPattern>
-				<unitPattern count="other">pas {0} muajsh</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">para {0} muaji</unitPattern>
-				<unitPattern count="other">para {0} muajsh</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} sekondë</unitPattern>
 				<unitPattern count="other">{0} sekonda</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">pas {0} sekonde</unitPattern>
-				<unitPattern count="other">pas {0} sekondash</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">para {0} sekonde</unitPattern>
-				<unitPattern count="other">para {0} sekondash</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} javë</unitPattern>
 				<unitPattern count="other">{0} javë</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">pas {0} jave</unitPattern>
-				<unitPattern count="other">pas {0} javësh</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">para {0} jave</unitPattern>
-				<unitPattern count="other">para {0} javësh</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} vit</unitPattern>
 				<unitPattern count="other">{0} vjet</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">pas {0} viti</unitPattern>
-				<unitPattern count="other">pas {0} vjetësh</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">para {0} viti</unitPattern>
-				<unitPattern count="other">para {0} vjetësh</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} centimetër</unitPattern>
@@ -4847,25 +4847,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ditë</unitPattern>
 				<unitPattern count="other">{0} ditë</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">pas {0} dite</unitPattern>
-				<unitPattern count="other">pas {0} ditësh</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">para {0} dite</unitPattern>
-				<unitPattern count="other">para {0} ditësh</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} orë</unitPattern>
 				<unitPattern count="other">{0} orë</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">pas {0} ore</unitPattern>
-				<unitPattern count="other">pas {0} orësh</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">para {0} ore</unitPattern>
-				<unitPattern count="other">para {0} orësh</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -4875,61 +4859,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min.</unitPattern>
 				<unitPattern count="other">{0} min.</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">pas {0} min.</unitPattern>
-				<unitPattern count="other">pas {0} min.</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">para {0} min.</unitPattern>
-				<unitPattern count="other">para {0} min.</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} muaj</unitPattern>
 				<unitPattern count="other">{0} muaj</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">pas {0} muaji</unitPattern>
-				<unitPattern count="other">pas {0} muajsh</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">para {0} muaji</unitPattern>
-				<unitPattern count="other">para {0} muajsh</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} sek.</unitPattern>
 				<unitPattern count="other">{0} sek.</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">pas {0} sek.</unitPattern>
-				<unitPattern count="other">pas {0} sek.</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">para {0} sek.</unitPattern>
-				<unitPattern count="other">para {0} sek.</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} javë</unitPattern>
 				<unitPattern count="other">{0} javë</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">pas {0} jave</unitPattern>
-				<unitPattern count="other">pas {0} javësh</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">para {0} jave</unitPattern>
-				<unitPattern count="other">para {0} javësh</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} vit</unitPattern>
 				<unitPattern count="other">{0} vjet</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">pas {0} viti</unitPattern>
-				<unitPattern count="other">pas {0} vjetësh</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">para {0} viti</unitPattern>
-				<unitPattern count="other">para {0} vjetësh</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>
@@ -5092,25 +5036,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ditë</unitPattern>
 				<unitPattern count="other">{0} ditë</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">pas {0} dite</unitPattern>
-				<unitPattern count="other">pas {0} ditësh</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">para {0} dite</unitPattern>
-				<unitPattern count="other">para {0} ditësh</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} orë</unitPattern>
 				<unitPattern count="other">{0} orë</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">pas {0} ore</unitPattern>
-				<unitPattern count="other">pas {0} orësh</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">para {0} ore</unitPattern>
-				<unitPattern count="other">para {0} orësh</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -5120,61 +5048,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min.</unitPattern>
 				<unitPattern count="other">{0} min.</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">pas {0} min.</unitPattern>
-				<unitPattern count="other">pas {0} min.</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">para {0} min.</unitPattern>
-				<unitPattern count="other">para {0} min.</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} muaj</unitPattern>
 				<unitPattern count="other">{0} muaj</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">pas {0} muaji</unitPattern>
-				<unitPattern count="other">pas {0} muajsh</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">para {0} muaji</unitPattern>
-				<unitPattern count="other">para {0} muajsh</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} sek.</unitPattern>
 				<unitPattern count="other">{0} sek.</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">pas {0} sek.</unitPattern>
-				<unitPattern count="other">pas {0} sek.</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">para {0} sek.</unitPattern>
-				<unitPattern count="other">para {0} sek.</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} javë</unitPattern>
 				<unitPattern count="other">{0} javë</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">pas {0} jave</unitPattern>
-				<unitPattern count="other">pas {0} javësh</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">para {0} jave</unitPattern>
-				<unitPattern count="other">para {0} javësh</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} vit</unitPattern>
 				<unitPattern count="other">{0} vjet</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">pas {0} viti</unitPattern>
-				<unitPattern count="other">pas {0} vjetësh</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">para {0} viti</unitPattern>
-				<unitPattern count="other">para {0} vjetësh</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>

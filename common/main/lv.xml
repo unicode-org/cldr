@@ -1827,18 +1827,48 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">pagājušajā gadā</relative>
 				<relative type="0">šogad</relative>
 				<relative type="1">nākamgad</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">Pēc {0} gadiem</relativeTimePattern>
+					<relativeTimePattern count="one">Pēc {0} gada</relativeTimePattern>
+					<relativeTimePattern count="other">Pēc {0} gadiem</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">Pirms {0} gadiem</relativeTimePattern>
+					<relativeTimePattern count="one">Pirms {0} gada</relativeTimePattern>
+					<relativeTimePattern count="other">Pirms {0} gadiem</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Mēnesis</displayName>
 				<relative type="-1">pagājušajā mēnesī</relative>
 				<relative type="0">šomēnes</relative>
 				<relative type="1">nākammēnes</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">Pēc {0} mēnešiem</relativeTimePattern>
+					<relativeTimePattern count="one">Pēc {0} mēneša</relativeTimePattern>
+					<relativeTimePattern count="other">Pēc {0} mēnešiem</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">Pirms {0} mēnešiem</relativeTimePattern>
+					<relativeTimePattern count="one">Pirms {0} mēneša</relativeTimePattern>
+					<relativeTimePattern count="other">Pirms {0} mēnešiem</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>Nedēļa</displayName>
 				<relative type="-1">pagājušajā nedēļā</relative>
 				<relative type="0">šonedēļ</relative>
 				<relative type="1">nākamnedēļ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">Pēc {0} nedēļām</relativeTimePattern>
+					<relativeTimePattern count="one">Pēc {0} nedēļas</relativeTimePattern>
+					<relativeTimePattern count="other">Pēc {0} nedēļām</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">Pirms {0} nedēļām</relativeTimePattern>
+					<relativeTimePattern count="one">Pirms {0} nedēļas</relativeTimePattern>
+					<relativeTimePattern count="other">Pirms {0} nedēļām</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>Diena</displayName>
@@ -1847,6 +1877,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">šodien</relative>
 				<relative type="1">rīt</relative>
 				<relative type="2">parīt</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">Pēc {0} dienām</relativeTimePattern>
+					<relativeTimePattern count="one">Pēc {0} dienas</relativeTimePattern>
+					<relativeTimePattern count="other">Pēc {0} dienām</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">Pirms {0} dienām</relativeTimePattern>
+					<relativeTimePattern count="one">Pirms {0} dienas</relativeTimePattern>
+					<relativeTimePattern count="other">Pirms {0} dienām</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>Nedēļas diena</displayName>
@@ -1891,13 +1931,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>Stundas</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">Pēc {0} stundām</relativeTimePattern>
+					<relativeTimePattern count="one">Pēc {0} stundas</relativeTimePattern>
+					<relativeTimePattern count="other">Pēc {0} stundām</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">Pirms {0} stundām</relativeTimePattern>
+					<relativeTimePattern count="one">Pirms {0} stundas</relativeTimePattern>
+					<relativeTimePattern count="other">Pirms {0} stundām</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Minūtes</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">Pēc {0} minūtēm</relativeTimePattern>
+					<relativeTimePattern count="one">Pēc {0} minūtes</relativeTimePattern>
+					<relativeTimePattern count="other">Pēc {0} minūtēm</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">Pirms {0} minūtēm</relativeTimePattern>
+					<relativeTimePattern count="one">Pirms {0} minūtes</relativeTimePattern>
+					<relativeTimePattern count="other">Pirms {0} minūtēm</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Sekundes</displayName>
 				<relative type="0">tagad</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">Pēc {0} sekundēm</relativeTimePattern>
+					<relativeTimePattern count="one">Pēc {0} sekundes</relativeTimePattern>
+					<relativeTimePattern count="other">Pēc {0} sekundēm</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">Pirms {0} sekundēm</relativeTimePattern>
+					<relativeTimePattern count="one">Pirms {0} sekundes</relativeTimePattern>
+					<relativeTimePattern count="other">Pirms {0} sekundēm</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>Laika josla</displayName>
@@ -5538,30 +5608,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} diena</unitPattern>
 				<unitPattern count="other">{0} dienas</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="zero">Pēc {0} dienām</unitPattern>
-				<unitPattern count="one">Pēc {0} dienas</unitPattern>
-				<unitPattern count="other">Pēc {0} dienām</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="zero">Pirms {0} dienām</unitPattern>
-				<unitPattern count="one">Pirms {0} dienas</unitPattern>
-				<unitPattern count="other">Pirms {0} dienām</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="zero">{0} stundas</unitPattern>
 				<unitPattern count="one">{0} stunda</unitPattern>
 				<unitPattern count="other">{0} stundas</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="zero">Pēc {0} stundām</unitPattern>
-				<unitPattern count="one">Pēc {0} stundas</unitPattern>
-				<unitPattern count="other">Pēc {0} stundām</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="zero">Pirms {0} stundām</unitPattern>
-				<unitPattern count="one">Pirms {0} stundas</unitPattern>
-				<unitPattern count="other">Pirms {0} stundām</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="zero">{0} milisekundes</unitPattern>
@@ -5573,75 +5623,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minūte</unitPattern>
 				<unitPattern count="other">{0} minūtes</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="zero">Pēc {0} minūtēm</unitPattern>
-				<unitPattern count="one">Pēc {0} minūtes</unitPattern>
-				<unitPattern count="other">Pēc {0} minūtēm</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="zero">Pirms {0} minūtēm</unitPattern>
-				<unitPattern count="one">Pirms {0} minūtes</unitPattern>
-				<unitPattern count="other">Pirms {0} minūtēm</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="zero">{0} mēneši</unitPattern>
 				<unitPattern count="one">{0} mēnesis</unitPattern>
 				<unitPattern count="other">{0} mēneši</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="zero">Pēc {0} mēnešiem</unitPattern>
-				<unitPattern count="one">Pēc {0} mēneša</unitPattern>
-				<unitPattern count="other">Pēc {0} mēnešiem</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="zero">Pirms {0} mēnešiem</unitPattern>
-				<unitPattern count="one">Pirms {0} mēneša</unitPattern>
-				<unitPattern count="other">Pirms {0} mēnešiem</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="zero">{0} sekundes</unitPattern>
 				<unitPattern count="one">{0} sekunde</unitPattern>
 				<unitPattern count="other">{0} sekundes</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="zero">Pēc {0} sekundēm</unitPattern>
-				<unitPattern count="one">Pēc {0} sekundes</unitPattern>
-				<unitPattern count="other">Pēc {0} sekundēm</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="zero">Pirms {0} sekundēm</unitPattern>
-				<unitPattern count="one">Pirms {0} sekundes</unitPattern>
-				<unitPattern count="other">Pirms {0} sekundēm</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="zero">{0} nedēļas</unitPattern>
 				<unitPattern count="one">{0} nedēļa</unitPattern>
 				<unitPattern count="other">{0} nedēļas</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="zero">Pēc {0} nedēļām</unitPattern>
-				<unitPattern count="one">Pēc {0} nedēļas</unitPattern>
-				<unitPattern count="other">Pēc {0} nedēļām</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="zero">Pirms {0} nedēļām</unitPattern>
-				<unitPattern count="one">Pirms {0} nedēļas</unitPattern>
-				<unitPattern count="other">Pirms {0} nedēļām</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="zero">{0} gadi</unitPattern>
 				<unitPattern count="one">{0} gads</unitPattern>
 				<unitPattern count="other">{0} gadi</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="zero">Pēc {0} gadiem</unitPattern>
-				<unitPattern count="one">Pēc {0} gada</unitPattern>
-				<unitPattern count="other">Pēc {0} gadiem</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="zero">Pirms {0} gadiem</unitPattern>
-				<unitPattern count="one">Pirms {0} gada</unitPattern>
-				<unitPattern count="other">Pirms {0} gadiem</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="zero">{0} centimetri</unitPattern>
@@ -5843,30 +5843,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} d</unitPattern>
 				<unitPattern count="other">{0} d</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="zero">Pēc {0} d</unitPattern>
-				<unitPattern count="one">Pēc {0} d</unitPattern>
-				<unitPattern count="other">Pēc {0} d</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="zero">Pirms {0} d</unitPattern>
-				<unitPattern count="one">Pirms {0} d</unitPattern>
-				<unitPattern count="other">Pirms {0} d</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="zero">{0} h</unitPattern>
 				<unitPattern count="one">{0} h</unitPattern>
 				<unitPattern count="other">{0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="zero">Pēc {0} h</unitPattern>
-				<unitPattern count="one">Pēc {0} h</unitPattern>
-				<unitPattern count="other">Pēc {0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="zero">Pirms {0} h</unitPattern>
-				<unitPattern count="one">Pirms {0} h</unitPattern>
-				<unitPattern count="other">Pirms {0} h</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="zero">{0} ms</unitPattern>
@@ -5878,75 +5858,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="zero">Pēc {0} min</unitPattern>
-				<unitPattern count="one">Pēc {0} min</unitPattern>
-				<unitPattern count="other">Pēc {0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="zero">Pirms {0} min</unitPattern>
-				<unitPattern count="one">Pirms {0} min</unitPattern>
-				<unitPattern count="other">Pirms {0} min</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="zero">{0} mēn.</unitPattern>
 				<unitPattern count="one">{0} mēn.</unitPattern>
 				<unitPattern count="other">{0} mēn.</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="zero">Pēc {0} mēn.</unitPattern>
-				<unitPattern count="one">Pēc {0} mēn.</unitPattern>
-				<unitPattern count="other">Pēc {0} mēn.</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="zero">Pirms {0} mēn.</unitPattern>
-				<unitPattern count="one">Pirms {0} mēn.</unitPattern>
-				<unitPattern count="other">Pirms {0} mēn.</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="zero">{0} s</unitPattern>
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="zero">Pēc {0} s</unitPattern>
-				<unitPattern count="one">Pēc {0} s</unitPattern>
-				<unitPattern count="other">Pēc {0} s</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="zero">Pirms {0} s</unitPattern>
-				<unitPattern count="one">Pirms {0} s</unitPattern>
-				<unitPattern count="other">Pirms {0} s</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="zero">{0} ned.</unitPattern>
 				<unitPattern count="one">{0} ned.</unitPattern>
 				<unitPattern count="other">{0} ned.</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="zero">Pēc {0} ned.</unitPattern>
-				<unitPattern count="one">Pēc {0} ned.</unitPattern>
-				<unitPattern count="other">Pēc {0} ned.</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="zero">Pirms {0} ned.</unitPattern>
-				<unitPattern count="one">Pirms {0} ned.</unitPattern>
-				<unitPattern count="other">Pirms {0} ned.</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="zero">{0} g.</unitPattern>
 				<unitPattern count="one">{0} g.</unitPattern>
 				<unitPattern count="other">{0} g.</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="zero">Pēc {0} g.</unitPattern>
-				<unitPattern count="one">Pēc {0} g.</unitPattern>
-				<unitPattern count="other">Pēc {0} g.</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="zero">Pirms {0} g.</unitPattern>
-				<unitPattern count="one">Pirms {0} g.</unitPattern>
-				<unitPattern count="other">Pirms {0} g.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="zero">{0} cm</unitPattern>
@@ -6148,30 +6078,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}d</unitPattern>
 				<unitPattern count="other">{0}d</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="zero">Pēc {0}d</unitPattern>
-				<unitPattern count="one">Pēc {0}d</unitPattern>
-				<unitPattern count="other">Pēc {0}d</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="zero">Pirms {0}d</unitPattern>
-				<unitPattern count="one">Pirms {0}d</unitPattern>
-				<unitPattern count="other">Pirms {0}d</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="zero">{0}h</unitPattern>
 				<unitPattern count="one">{0}h</unitPattern>
 				<unitPattern count="other">{0}h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="zero">Pēc {0}h</unitPattern>
-				<unitPattern count="one">Pēc {0}h</unitPattern>
-				<unitPattern count="other">Pēc {0}h</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="zero">Pirms {0}h</unitPattern>
-				<unitPattern count="one">Pirms {0}h</unitPattern>
-				<unitPattern count="other">Pirms {0}h</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="zero">{0}ms</unitPattern>
@@ -6183,75 +6093,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="zero">Pēc {0} min</unitPattern>
-				<unitPattern count="one">Pēc {0} min</unitPattern>
-				<unitPattern count="other">Pēc {0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="zero">Pirms {0} min</unitPattern>
-				<unitPattern count="one">Pirms {0} min</unitPattern>
-				<unitPattern count="other">Pirms {0} min</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="zero">{0} mēn.</unitPattern>
 				<unitPattern count="one">{0} mēn.</unitPattern>
 				<unitPattern count="other">{0} mēn.</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="zero">Pēc {0} mēn.</unitPattern>
-				<unitPattern count="one">Pēc {0} mēn.</unitPattern>
-				<unitPattern count="other">Pēc {0} mēn.</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="zero">Pirms {0} mēn.</unitPattern>
-				<unitPattern count="one">Pirms {0} mēn.</unitPattern>
-				<unitPattern count="other">Pirms {0} mēn.</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="zero">{0}s</unitPattern>
 				<unitPattern count="one">{0}s</unitPattern>
 				<unitPattern count="other">{0}s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="zero">Pēc {0}s</unitPattern>
-				<unitPattern count="one">Pēc {0}s</unitPattern>
-				<unitPattern count="other">Pēc {0}s</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="zero">Pirms {0}s</unitPattern>
-				<unitPattern count="one">Pirms {0}s</unitPattern>
-				<unitPattern count="other">Pirms {0}s</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="zero">{0} ned.</unitPattern>
 				<unitPattern count="one">{0} ned.</unitPattern>
 				<unitPattern count="other">{0} ned.</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="zero">Pēc {0} ned.</unitPattern>
-				<unitPattern count="one">Pēc {0} ned.</unitPattern>
-				<unitPattern count="other">Pēc {0} ned.</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="zero">Pirms {0} ned.</unitPattern>
-				<unitPattern count="one">Pirms {0} ned.</unitPattern>
-				<unitPattern count="other">Pirms {0} ned.</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="zero">{0}g.</unitPattern>
 				<unitPattern count="one">{0}g.</unitPattern>
 				<unitPattern count="other">{0}g.</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="zero">Pēc {0}g.</unitPattern>
-				<unitPattern count="one">Pēc {0}g.</unitPattern>
-				<unitPattern count="other">Pēc {0}g.</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="zero">Pirms {0}g.</unitPattern>
-				<unitPattern count="one">Pirms {0}g.</unitPattern>
-				<unitPattern count="other">Pirms {0}g.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="zero">{0}cm</unitPattern>

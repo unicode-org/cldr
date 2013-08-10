@@ -1871,18 +1871,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">கடந்த ஆண்டு</relative>
 				<relative type="0">இந்த ஆண்டு</relative>
 				<relative type="1">அடுத்த ஆண்டு</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ஆண்டில்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ஆண்டுகளில்</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ஆண்டிற்கு முன்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ஆண்டுகளுக்கு முன்</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>மாதம்</displayName>
 				<relative type="-1">கடந்த மாதம்</relative>
 				<relative type="0">இந்த மாதம்</relative>
 				<relative type="1">அடுத்த மாதம்</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} மாதத்தில்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} மாதங்களில்</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} மாதத்துக்கு முன்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} மாதங்களுக்கு முன்</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>வாரம்</displayName>
 				<relative type="-1">கடந்த வாரம்</relative>
 				<relative type="0">இந்த வாரம்</relative>
 				<relative type="1">அடுத்த வாரம்</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} வாரத்தில்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} வாரங்களில்</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} வாரத்திற்கு முன்பு</relativeTimePattern>
+					<relativeTimePattern count="other">{0} வாரத்திற்கு முன்</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>நாள்</displayName>
@@ -1891,6 +1915,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">இன்று</relative>
 				<relative type="1">நாளை</relative>
 				<relative type="2">நாளை மறுநாள்</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} நாளில்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} நாட்களில்</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} நாளுக்கு முன்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} நாட்களுக்கு முன்</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>வார நாள்</displayName>
@@ -1935,13 +1967,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>மணி</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} மணிநேரத்தில்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} மணிநேரத்தில்</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} மணிநேரம் முன்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} மணிநேரம் முன்</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>நிமிடம்</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} நிமிடத்தில்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} நிமிடங்களில்</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} நிமிடத்திற்கு முன்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} நிமிடங்களுக்கு முன்</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>வினாடி</displayName>
 				<relative type="0">இப்போது</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} வினாடியில்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} விநாடிகளில்</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} வினாடிக்கு முன்</relativeTimePattern>
+					<relativeTimePattern count="other">{0} வினாடிக்கு முன்</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>மண்டலம்</displayName>
@@ -4941,25 +4997,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} நாள்</unitPattern>
 				<unitPattern count="other">{0} நாட்கள்</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} நாளில்</unitPattern>
-				<unitPattern count="other">{0} நாட்களில்</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} நாளுக்கு முன்</unitPattern>
-				<unitPattern count="other">{0} நாட்களுக்கு முன்</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} மணிநேரம்</unitPattern>
 				<unitPattern count="other">{0} மணிநேரம்</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} மணிநேரத்தில்</unitPattern>
-				<unitPattern count="other">{0} மணிநேரத்தில்</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} மணிநேரம் முன்</unitPattern>
-				<unitPattern count="other">{0} மணிநேரம் முன்</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} மில்லிவிநாடி</unitPattern>
@@ -4969,61 +5009,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} நிமிடம்</unitPattern>
 				<unitPattern count="other">{0} நிமிடங்கள்</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} நிமிடத்தில்</unitPattern>
-				<unitPattern count="other">{0} நிமிடங்களில்</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} நிமிடத்திற்கு முன்</unitPattern>
-				<unitPattern count="other">{0} நிமிடங்களுக்கு முன்</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} மாதம்</unitPattern>
 				<unitPattern count="other">{0} மாதங்கள்</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} மாதத்தில்</unitPattern>
-				<unitPattern count="other">{0} மாதங்களில்</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} மாதத்துக்கு முன்</unitPattern>
-				<unitPattern count="other">{0} மாதங்களுக்கு முன்</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} வினாடி</unitPattern>
 				<unitPattern count="other">{0} விநாடிகள்</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} வினாடியில்</unitPattern>
-				<unitPattern count="other">{0} விநாடிகளில்</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} வினாடிக்கு முன்</unitPattern>
-				<unitPattern count="other">{0} வினாடிக்கு முன்</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} வாரம்</unitPattern>
 				<unitPattern count="other">{0} வாரங்கள்</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} வாரத்தில்</unitPattern>
-				<unitPattern count="other">{0} வாரங்களில்</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} வாரத்திற்கு முன்பு</unitPattern>
-				<unitPattern count="other">{0} வாரத்திற்கு முன்</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} ஆண்டு</unitPattern>
 				<unitPattern count="other">{0} ஆண்டுகள்</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} ஆண்டில்</unitPattern>
-				<unitPattern count="other">{0} ஆண்டுகளில்</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} ஆண்டிற்கு முன்</unitPattern>
-				<unitPattern count="other">{0} ஆண்டுகளுக்கு முன்</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} சென்டிமீட்டர்</unitPattern>
@@ -5186,25 +5186,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} நாள்</unitPattern>
 				<unitPattern count="other">{0} நாட்கள்</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} நா</unitPattern>
-				<unitPattern count="other">{0} நா</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} நாள் முன்பு</unitPattern>
-				<unitPattern count="other">{0} நாட்கள் முன்பு</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} மணிநேரம்</unitPattern>
 				<unitPattern count="other">{0} மணிநேரம்</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} ம.நே.</unitPattern>
-				<unitPattern count="other">{0} ம.நே.</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} ம.நே. முன்பு</unitPattern>
-				<unitPattern count="other">{0} ம.நே. முன்பு</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} மி.வி.</unitPattern>
@@ -5214,61 +5198,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} நிமிடம்</unitPattern>
 				<unitPattern count="other">{0} நிமிடங்கள்</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} நிமி.</unitPattern>
-				<unitPattern count="other">{0} நிமி.</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} நிமி. முன்பு</unitPattern>
-				<unitPattern count="other">{0} நிமி. முன்பு</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} மாதம்</unitPattern>
 				<unitPattern count="other">{0} மாதங்கள்</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} மாதத்தில்</unitPattern>
-				<unitPattern count="other">{0} மாதங்களில்</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} மாதம் முன்பு</unitPattern>
-				<unitPattern count="other">{0} மாதம் முன்பு</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} வினாடி</unitPattern>
 				<unitPattern count="other">{0} விநாடிகள்</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">+{0} வி.</unitPattern>
-				<unitPattern count="other">+{0} வி.</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} வி. முன்</unitPattern>
-				<unitPattern count="other">{0} வி. முன்</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} வாரம்</unitPattern>
 				<unitPattern count="other">{0} வாரங்கள்</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} வாரத்தில்</unitPattern>
-				<unitPattern count="other">{0} வாரங்களில்</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} வாரம் முன்பு</unitPattern>
-				<unitPattern count="other">{0} வாரம் முன்பு</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} ஆண்டு</unitPattern>
 				<unitPattern count="other">{0} ஆண்டுகள்</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} ஆண்டில்</unitPattern>
-				<unitPattern count="other">{0} ஆண்டுகளில்</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} ஆண்டு முன்பு</unitPattern>
-				<unitPattern count="other">{0} ஆண்டு முன்பு</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} செ.மீ.</unitPattern>
@@ -5431,25 +5375,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} நா</unitPattern>
 				<unitPattern count="other">{0} நா</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} நா</unitPattern>
-				<unitPattern count="other">{0} நா</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} நாட்கள் முன்பு</unitPattern>
-				<unitPattern count="other">{0} நாட்கள் முன்பு</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} ம.நே.</unitPattern>
 				<unitPattern count="other">{0} ம.நே.</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} ம.நே.</unitPattern>
-				<unitPattern count="other">{0} ம.நே.</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} ம.நே. முன்பு</unitPattern>
-				<unitPattern count="other">{0} ம.நே. முன்பு</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} மி.வி.</unitPattern>
@@ -5459,61 +5387,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} நிமி.</unitPattern>
 				<unitPattern count="other">{0} நிமி.</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} நிமி.</unitPattern>
-				<unitPattern count="other">{0} நிமி.</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} நிமி. முன்பு</unitPattern>
-				<unitPattern count="other">{0} நிமி. முன்பு</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} மா</unitPattern>
 				<unitPattern count="other">{0} மா</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} மாதம்</unitPattern>
-				<unitPattern count="other">{0} மாதம்</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} மாதம் முன்பு</unitPattern>
-				<unitPattern count="other">{0} மாதம் முன்பு</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} வி.</unitPattern>
 				<unitPattern count="other">{0} வி.</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} வி.</unitPattern>
-				<unitPattern count="other">+{0} வி.</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} வி. முன்</unitPattern>
-				<unitPattern count="other">{0} வி. முன்</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} வா</unitPattern>
 				<unitPattern count="other">{0} வா</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} வாரம்</unitPattern>
-				<unitPattern count="other">{0} வாரம்</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} வாரம் முன்பு</unitPattern>
-				<unitPattern count="other">{0} வாரம் முன்பு</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} ஆ</unitPattern>
 				<unitPattern count="other">{0} ஆ</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} ஆண்டு</unitPattern>
-				<unitPattern count="other">{0} ஆண்டு</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} ஆண்டு முன்பு</unitPattern>
-				<unitPattern count="other">{0} ஆண்டு முன்பு</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} செ.மீ.</unitPattern>

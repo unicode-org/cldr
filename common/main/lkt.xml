@@ -307,24 +307,48 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">Ómakȟa kʼuŋ héhaŋ</relative>
 				<relative type="0">Lé ómakȟa kiŋ</relative>
 				<relative type="1">Tȟokáta ómakȟa kiŋháŋ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Letáŋhaŋ ómakȟa {0} kiŋháŋ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">Hékta ómakȟa {0} kʼuŋ héhaŋ</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Wí</displayName>
 				<relative type="-1">Wí kʼuŋ héhaŋ</relative>
 				<relative type="0">Lé wí kiŋ</relative>
 				<relative type="1">Wí kiŋháŋ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Letáŋhaŋ wíyawapi {0} kiŋháŋ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">Hékta wíyawapi {0} kʼuŋ héhaŋ</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>Okó</displayName>
 				<relative type="-1">Okó kʼuŋ héhaŋ</relative>
 				<relative type="0">Lé okó kiŋ</relative>
 				<relative type="1">Tȟokáta okó kiŋháŋ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Letáŋhaŋ okó {0} kiŋháŋ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">Hékta okó {0} kʼuŋ héhaŋ</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>Aŋpétu</displayName>
 				<relative type="-1">Lé aŋpétu kiŋ</relative>
 				<relative type="0">Lé aŋpétu kiŋ</relative>
 				<relative type="1">Híŋhaŋni kiŋháŋ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Letáŋhaŋ {0}-čháŋ kiŋháŋ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">Hékta {0}-čháŋ k’uŋ héhaŋ</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>Okó-aŋpétu</displayName>
@@ -366,12 +390,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>Owápȟe</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Letáŋhaŋ owápȟe {0} kiŋháŋ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">Hékta owápȟe {0} kʼuŋ héhaŋ</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Owápȟe oȟʼáŋkȟo</displayName>
 			</field>
 			<field type="second">
 				<displayName>Okpí</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Letáŋhaŋ okpí {0} kiŋháŋ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">Hékta okpí {0} k’uŋ héhaŋ</relativeTimePattern>
+				</relativeTime>
 			</field>
 		</fields>
 	</dates>
@@ -406,56 +442,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0}-čháŋ</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">Letáŋhaŋ {0}-čháŋ kiŋháŋ</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">Hékta {0}-čháŋ k’uŋ héhaŋ</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">Owápȟe {0}</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">Letáŋhaŋ owápȟe {0} kiŋháŋ</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">Hékta owápȟe {0} kʼuŋ héhaŋ</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">Wíyawapi {0}</unitPattern>
 			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">Letáŋhaŋ wíyawapi {0} kiŋháŋ</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">Hékta wíyawapi {0} kʼuŋ héhaŋ</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">Okpí {0}</unitPattern>
-			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">Letáŋhaŋ okpí {0} kiŋháŋ</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">Hékta okpí {0} k’uŋ héhaŋ</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">okó {0}</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">Letáŋhaŋ okó {0} kiŋháŋ</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">Hékta okó {0} kʼuŋ héhaŋ</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">ómakȟa {0}</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">Letáŋhaŋ ómakȟa {0} kiŋháŋ</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">Hékta ómakȟa {0} kʼuŋ héhaŋ</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<unitPattern count="other">siíyutȟapi {0}</unitPattern>
@@ -477,56 +477,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0}-čháŋ</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">Čháŋ +{0}</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">Čháŋ -{0}</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">Owápȟe {0}</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">Owápȟe +{0}</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">Owápȟe -{0}</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">Wíyawapi {0}</unitPattern>
 			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">Wí +{0}</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">Wí -{0}</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">Okpí {0}</unitPattern>
-			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">Okpí +{0}</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">Okpí -{0}</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">okó {0}</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">Okó +{0}</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">Okó -{0}</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">ómakȟa {0}</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">Ómakȟa +{0}</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">Ómakȟa -{0}</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<unitPattern count="other">siíyutȟapi {0}</unitPattern>
@@ -548,56 +512,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0}-čháŋ</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">Čháŋ +{0}</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">Čháŋ -{0}</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">Owápȟe {0}</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">Owápȟe +{0}</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">Owápȟe -{0}</unitPattern>
 			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">Wí {0}</unitPattern>
 			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">Wí +{0}</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">Wí -{0}</unitPattern>
-			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">Okpí {0}</unitPattern>
-			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">Okpí +{0}</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">Okpí -{0}</unitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">okó {0}</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">Okó +{0}</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">Okó -{0}</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">ómakȟa {0}</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">Ómakȟa +{0}</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">Ómakȟa -{0}</unitPattern>
 			</unit>
 			<unit type="length-foot">
 				<unitPattern count="other">siíyutȟapi {0}</unitPattern>
@@ -617,3 +545,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 	</units>
 </ldml>
+

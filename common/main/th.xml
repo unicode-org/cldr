@@ -3551,18 +3551,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">ปีที่แล้ว</relative>
 				<relative type="0">ปีนี้</relative>
 				<relative type="1">ปีหน้า</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ในอีก {0} ปี</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ปีที่แล้ว</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>เดือน</displayName>
 				<relative type="-1">เดือนที่แล้ว</relative>
 				<relative type="0">เดือนนี้</relative>
 				<relative type="1">เดือนหน้า</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ในอีก {0} เดือน</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} เดือนที่ผ่านมา</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>สัปดาห์</displayName>
 				<relative type="-1">สัปดาห์ที่แล้ว</relative>
 				<relative type="0">สัปดาห์นี้</relative>
 				<relative type="1">สัปดาห์หน้า</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ในอีก {0} สัปดาห์</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} สัปดาห์ที่ผ่านมา</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>วัน</displayName>
@@ -3571,6 +3589,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">วันนี้</relative>
 				<relative type="1">พรุ่งนี้</relative>
 				<relative type="2">มะรืนนี้</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ในอีก {0} วัน</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} วันที่ผ่านมา</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>วันในสัปดาห์</displayName>
@@ -3615,13 +3639,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>ชั่วโมง</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ในอีก {0} ชั่วโมง</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ชั่วโมงที่ผ่านมา</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>นาที</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ในอีก {0} นาที</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} นาทีที่ผ่านมา</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>วินาที</displayName>
 				<relative type="0">ขณะนี้</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ในอีก {0} วินาที</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} วินาทีที่ผ่านมา</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>เขตเวลา</displayName>
@@ -7283,20 +7325,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0} วัน</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">ในอีก {0} วัน</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">{0} วันที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} ชั่วโมง</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">ในอีก {0} ชั่วโมง</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">{0} ชั่วโมงที่ผ่านมา</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0} มิลลิวินาที</unitPattern>
@@ -7304,47 +7334,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} นาที</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">ในอีก {0} นาที</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">{0} นาทีที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0} เดือน</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">ในอีก {0} เดือน</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">{0} เดือนที่ผ่านมา</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} วินาที</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">ในอีก {0} วินาที</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">{0} วินาทีที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} สัปดาห์</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">ในอีก {0} สัปดาห์</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">{0} สัปดาห์ที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0} ปี</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">ในอีก {0} ปี</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0} ปีที่แล้ว</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0} เซนติเมตร</unitPattern>
@@ -7468,20 +7468,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0} วัน</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">ในอีก {0} วัน</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">{0} วันที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} ชม.</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">ในอีก {0} ชม.</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">{0} ชม.ที่ผ่านมา</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0} มิลลิวินาที</unitPattern>
@@ -7489,47 +7477,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} นาที</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">ในอีก {0} นาที</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">{0} นาทีที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0} เดือน</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">ในอีก {0} เดือน</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">{0} เดือนที่ผ่านมา</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} วิ</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">ในอีก {0} วิ</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">{0} วิที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} สัปดาห์</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">ในอีก {0} สัปดาห์</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">{0} สัปดาห์ที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0} ปี</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">ในอีก {0} ปี</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0} ปีที่แล้ว</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0} ซม.</unitPattern>
@@ -7653,20 +7611,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0}วัน</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">ในอีก {0} วัน</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">{0} วันที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0}ชม.</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">ในอีก {0} ชม.</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">{0} ชม.ที่ผ่านมา</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0} มิลลิวิ</unitPattern>
@@ -7674,47 +7620,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0}นาที</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">ในอีก {0} นาที</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">{0} นาทีที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0}เดือน</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">ในอีก {0} เดือน</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">{0} เดือนที่ผ่านมา</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0}วิ</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">ในอีก {0} วิ</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">{0} วิที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0}สัปดาห์</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">ในอีก {0} สัปดาห์</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">{0} สัปดาห์ที่ผ่านมา</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0}ปี</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">ในอีก {0} ปี</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0} ปีที่แล้ว</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0}ซม.</unitPattern>

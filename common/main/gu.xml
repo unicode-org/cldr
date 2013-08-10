@@ -1759,18 +1759,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">ગયા વર્ષે</relative>
 				<relative type="0">આ વર્ષે</relative>
 				<relative type="1">આવતા વર્ષે</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} વર્ષમાં</relativeTimePattern>
+					<relativeTimePattern count="other">{0} વર્ષમાં</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} વર્ષ પહેલા</relativeTimePattern>
+					<relativeTimePattern count="other">{0} વર્ષ પહેલા</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>મહિનો</displayName>
 				<relative type="-1">ગયા મહિને</relative>
 				<relative type="0">આ મહિને</relative>
 				<relative type="1">આવતા મહિને</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} મહિનામાં</relativeTimePattern>
+					<relativeTimePattern count="other">{0} મહિનામાં</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} મહિના પહેલા</relativeTimePattern>
+					<relativeTimePattern count="other">{0} મહિના પહેલા</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>અઠવાડિયું</displayName>
 				<relative type="-1">ગયા અઠવાડિયે</relative>
 				<relative type="0">આ અઠવાડિયે</relative>
 				<relative type="1">આવતા અઠવાડિયે</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} અઠવાડિયામાં</relativeTimePattern>
+					<relativeTimePattern count="other">{0} અઠવાડિયામાં</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} અઠવાડિયા પહેલા</relativeTimePattern>
+					<relativeTimePattern count="other">{0} અઠવાડિયા પહેલા</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>દિવસ</displayName>
@@ -1779,6 +1803,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">આજે</relative>
 				<relative type="1">આવતીકાલે</relative>
 				<relative type="2">પરમદિવસે</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} દિવસમાં</relativeTimePattern>
+					<relativeTimePattern count="other">{0} દિવસમાં</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} દિવસ પહેલા</relativeTimePattern>
+					<relativeTimePattern count="other">{0} દિવસ પહેલા</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>અઠવાડિયાનો દિવસ</displayName>
@@ -1823,13 +1855,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>કલાક</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} કલાકમાં</relativeTimePattern>
+					<relativeTimePattern count="other">{0} કલાકમાં</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} કલાક પહેલા</relativeTimePattern>
+					<relativeTimePattern count="other">{0} કલાક પહેલા</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>મિનિટ</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} મિનિટમાં</relativeTimePattern>
+					<relativeTimePattern count="other">{0} મિનિટમાં</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} મિનિટ પહેલા</relativeTimePattern>
+					<relativeTimePattern count="other">{0} મિનિટ પહેલા</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>સેકન્ડ</displayName>
 				<relative type="0">હમણાં</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} સેકંડમાં</relativeTimePattern>
+					<relativeTimePattern count="other">{0} સેકંડમાં</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} સેકંડ પહેલા</relativeTimePattern>
+					<relativeTimePattern count="other">{0} સેકંડ પહેલા</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>સમય ઝોન</displayName>
@@ -5142,25 +5198,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} દિવસ</unitPattern>
 				<unitPattern count="other">{0} દિવસ</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} દિવસમાં</unitPattern>
-				<unitPattern count="other">{0} દિવસમાં</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} દિવસ પહેલા</unitPattern>
-				<unitPattern count="other">{0} દિવસ પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} કલાક</unitPattern>
 				<unitPattern count="other">{0} કલાક</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} કલાકમાં</unitPattern>
-				<unitPattern count="other">{0} કલાકમાં</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} કલાક પહેલા</unitPattern>
-				<unitPattern count="other">{0} કલાક પહેલા</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} મિલિસેકન્ડ</unitPattern>
@@ -5170,61 +5210,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} મિનિટ</unitPattern>
 				<unitPattern count="other">{0} મિનિટ</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} મિનિટમાં</unitPattern>
-				<unitPattern count="other">{0} મિનિટમાં</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} મિનિટ પહેલા</unitPattern>
-				<unitPattern count="other">{0} મિનિટ પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} મહિનો</unitPattern>
 				<unitPattern count="other">{0} મહિના</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} મહિનામાં</unitPattern>
-				<unitPattern count="other">{0} મહિનામાં</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} મહિના પહેલા</unitPattern>
-				<unitPattern count="other">{0} મહિના પહેલા</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} સેકંડ</unitPattern>
 				<unitPattern count="other">{0} સેકંડ</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} સેકંડમાં</unitPattern>
-				<unitPattern count="other">{0} સેકંડમાં</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} સેકંડ પહેલા</unitPattern>
-				<unitPattern count="other">{0} સેકંડ પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} અઠવાડિયું</unitPattern>
 				<unitPattern count="other">{0} અઠવાડિયા</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} અઠવાડિયામાં</unitPattern>
-				<unitPattern count="other">{0} અઠવાડિયામાં</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} અઠવાડિયા પહેલા</unitPattern>
-				<unitPattern count="other">{0} અઠવાડિયા પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} વર્ષ</unitPattern>
 				<unitPattern count="other">{0} વર્ષ</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} વર્ષમાં</unitPattern>
-				<unitPattern count="other">{0} વર્ષમાં</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} વર્ષ પહેલા</unitPattern>
-				<unitPattern count="other">{0} વર્ષ પહેલા</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} સેન્ટિમીટર</unitPattern>
@@ -5387,25 +5387,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} દિવસ</unitPattern>
 				<unitPattern count="other">{0} દિવસ</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} દિવસમાં</unitPattern>
-				<unitPattern count="other">{0} દિવસમાં</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} દિવસ પહેલા</unitPattern>
-				<unitPattern count="other">{0} દિવસ પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} કલાક</unitPattern>
 				<unitPattern count="other">{0} કલાક</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} કલાકમાં</unitPattern>
-				<unitPattern count="other">{0} કલાકમાં</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} કલાક પહેલા</unitPattern>
-				<unitPattern count="other">{0} કલાક પહેલા</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} મિસે</unitPattern>
@@ -5415,61 +5399,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} મિનિટ</unitPattern>
 				<unitPattern count="other">{0} મિનિટ</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} મિનિટમાં</unitPattern>
-				<unitPattern count="other">{0} મિનિટમાં</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} મિનિટ પહેલા</unitPattern>
-				<unitPattern count="other">{0} મિનિટ પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} મહિનો</unitPattern>
 				<unitPattern count="other">{0} મહિના</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} મહિનામાં</unitPattern>
-				<unitPattern count="other">{0} મહિનામાં</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0}મહિના પહેલા</unitPattern>
-				<unitPattern count="other">{0}મહિના પહેલા</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} સેકંડ</unitPattern>
 				<unitPattern count="other">{0} સેકંડ</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} સેકંડમાં</unitPattern>
-				<unitPattern count="other">{0} સેકંડમાં</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} સેકંડ પહેલા</unitPattern>
-				<unitPattern count="other">{0} સેકંડ પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} અઠ.</unitPattern>
 				<unitPattern count="other">{0} અઠ.</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} અઠવાડિયામાં</unitPattern>
-				<unitPattern count="other">{0} અઠવાડિયામાં</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} અઠવાડિયા પહેલા</unitPattern>
-				<unitPattern count="other">{0} અઠવાડિયા પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} વર્ષ</unitPattern>
 				<unitPattern count="other">{0} વર્ષ</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} વર્ષમાં</unitPattern>
-				<unitPattern count="other">{0} વર્ષમાં</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} વર્ષ પહેલા</unitPattern>
-				<unitPattern count="other">{0} વર્ષ પહેલા</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} સેમી</unitPattern>
@@ -5632,25 +5576,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} દિવસ</unitPattern>
 				<unitPattern count="other">{0} દિવસ</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} દિવસમાં</unitPattern>
-				<unitPattern count="other">{0} દિવસમાં</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} દિવસ પહેલા</unitPattern>
-				<unitPattern count="other">{0} દિવસ પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} કલાક</unitPattern>
 				<unitPattern count="other">{0} કલાક</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} કલાકમાં</unitPattern>
-				<unitPattern count="other">{0} કલાકમાં</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} કલાકમાં</unitPattern>
-				<unitPattern count="other">{0} કલાકમાં</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} મિસે</unitPattern>
@@ -5660,61 +5588,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} મિનિટ</unitPattern>
 				<unitPattern count="other">{0} મિનિટ</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} મિનિટમાં</unitPattern>
-				<unitPattern count="other">{0} મિનિટમાં</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} મિનિટ પહેલા</unitPattern>
-				<unitPattern count="other">{0} મિનિટ પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} મહિનો</unitPattern>
 				<unitPattern count="other">{0} મહિનો</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} મહિનામાં</unitPattern>
-				<unitPattern count="other">{0} મહિનામાં</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} મહિના પહેલા</unitPattern>
-				<unitPattern count="other">{0} મહિના પહેલા</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} સેકંડ</unitPattern>
 				<unitPattern count="other">{0} સેકંડ</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} સેકંડમાં</unitPattern>
-				<unitPattern count="other">{0} સેકંડમાં</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} સેકંડ પહેલા</unitPattern>
-				<unitPattern count="other">{0} સેકંડ પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} અઠ.</unitPattern>
 				<unitPattern count="other">{0} અઠ.</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} અઠવાડિયામાં</unitPattern>
-				<unitPattern count="other">{0} અઠવાડિયામાં</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} અઠવાડિયા પહેલા</unitPattern>
-				<unitPattern count="other">{0} અઠવાડિયા પહેલા</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} વર્ષ</unitPattern>
 				<unitPattern count="other">{0} વર્ષ</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} વર્ષમાં</unitPattern>
-				<unitPattern count="other">{0} વર્ષમાં</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} વર્ષ પહેલા</unitPattern>
-				<unitPattern count="other">{0} વર્ષ પહેલા</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} સેમી</unitPattern>

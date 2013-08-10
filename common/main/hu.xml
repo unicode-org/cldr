@@ -2387,18 +2387,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">előző év</relative>
 				<relative type="0">ez az év</relative>
 				<relative type="1">következő év</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} év múlva</relativeTimePattern>
+					<relativeTimePattern count="other">{0} év múlva</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} évvel ezelőtt</relativeTimePattern>
+					<relativeTimePattern count="other">{0} évvel ezelőtt</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>hónap</displayName>
 				<relative type="-1">előző hónap</relative>
 				<relative type="0">ez a hónap</relative>
 				<relative type="1">következő hónap</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} hónap múlva</relativeTimePattern>
+					<relativeTimePattern count="other">{0} hónap múlva</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} hónappal ezelőtt</relativeTimePattern>
+					<relativeTimePattern count="other">{0} hónappal ezelőtt</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>hét</displayName>
 				<relative type="-1">előző hét</relative>
 				<relative type="0">ez a hét</relative>
 				<relative type="1">következő hét</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} hét múlva</relativeTimePattern>
+					<relativeTimePattern count="other">{0} hét múlva</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} héttel ezelőtt</relativeTimePattern>
+					<relativeTimePattern count="other">{0} héttel ezelőtt</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>nap</displayName>
@@ -2407,6 +2431,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">ma</relative>
 				<relative type="1">holnap</relative>
 				<relative type="2">holnapután</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} nap múlva</relativeTimePattern>
+					<relativeTimePattern count="other">{0} nap múlva</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} nappal ezelőtt</relativeTimePattern>
+					<relativeTimePattern count="other">{0} nappal ezelőtt</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>hét napja</displayName>
@@ -2451,13 +2483,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>óra</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} óra múlva</relativeTimePattern>
+					<relativeTimePattern count="other">{0} óra múlva</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} órával ezelőtt</relativeTimePattern>
+					<relativeTimePattern count="other">{0} órával ezelőtt</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>perc</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} perc múlva</relativeTimePattern>
+					<relativeTimePattern count="other">{0} perc múlva</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} perccel ezelőtt</relativeTimePattern>
+					<relativeTimePattern count="other">{0} perccel ezelőtt</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>másodperc</displayName>
 				<relative type="0">most</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} másodperc múlva</relativeTimePattern>
+					<relativeTimePattern count="other">{0} másodperc múlva</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} másodperccel ezelőtt</relativeTimePattern>
+					<relativeTimePattern count="other">{0} másodperccel ezelőtt</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>időzóna</displayName>
@@ -6217,25 +6273,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} nap</unitPattern>
 				<unitPattern count="other">{0} nap</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} nap múlva</unitPattern>
-				<unitPattern count="other">{0} nap múlva</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} nappal ezelőtt</unitPattern>
-				<unitPattern count="other">{0} nappal ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} óra</unitPattern>
 				<unitPattern count="other">{0} óra</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} óra múlva</unitPattern>
-				<unitPattern count="other">{0} óra múlva</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} órával ezelőtt</unitPattern>
-				<unitPattern count="other">{0} órával ezelőtt</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ezredmásodperc</unitPattern>
@@ -6245,61 +6285,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} perc</unitPattern>
 				<unitPattern count="other">{0} perc</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} perc múlva</unitPattern>
-				<unitPattern count="other">{0} perc múlva</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} perccel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} perccel ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} hónap</unitPattern>
 				<unitPattern count="other">{0} hónap</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} hónap múlva</unitPattern>
-				<unitPattern count="other">{0} hónap múlva</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} hónappal ezelőtt</unitPattern>
-				<unitPattern count="other">{0} hónappal ezelőtt</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} másodperc</unitPattern>
 				<unitPattern count="other">{0} másodperc</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} másodperc múlva</unitPattern>
-				<unitPattern count="other">{0} másodperc múlva</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} másodperccel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} másodperccel ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} hét</unitPattern>
 				<unitPattern count="other">{0} hét</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} hét múlva</unitPattern>
-				<unitPattern count="other">{0} hét múlva</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} héttel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} héttel ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} év</unitPattern>
 				<unitPattern count="other">{0} év</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} év múlva</unitPattern>
-				<unitPattern count="other">{0} év múlva</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} évvel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} évvel ezelőtt</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} centiméter</unitPattern>
@@ -6462,25 +6462,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} nap</unitPattern>
 				<unitPattern count="other">{0} nap</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} nap múlva</unitPattern>
-				<unitPattern count="other">{0} nap múlva</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} nappal ezelőtt</unitPattern>
-				<unitPattern count="other">{0} nappal ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} h</unitPattern>
 				<unitPattern count="other">{0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} óra múlva</unitPattern>
-				<unitPattern count="other">{0} óra múlva</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} órával ezelőtt</unitPattern>
-				<unitPattern count="other">{0} órával ezelőtt</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -6490,61 +6474,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} perc múlva</unitPattern>
-				<unitPattern count="other">{0} perc múlva</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} perccel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} perccel ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} hónap</unitPattern>
 				<unitPattern count="other">{0} hónap</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} hónap múlva</unitPattern>
-				<unitPattern count="other">{0} hónap múlva</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} hónappal ezelőtt</unitPattern>
-				<unitPattern count="other">{0} hónappal ezelőtt</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} s múlva</unitPattern>
-				<unitPattern count="other">{0} s múlva</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} mp-cel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} mp-cel ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} hét</unitPattern>
 				<unitPattern count="other">{0} hét</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} hét múlva</unitPattern>
-				<unitPattern count="other">{0} hét múlva</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} héttel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} héttel ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} év</unitPattern>
 				<unitPattern count="other">{0} év</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} év múlva</unitPattern>
-				<unitPattern count="other">{0} év múlva</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} évvel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} évvel ezelőtt</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>
@@ -6707,25 +6651,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} nap</unitPattern>
 				<unitPattern count="other">{0} nap</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} nap múlva</unitPattern>
-				<unitPattern count="other">{0} nap múlva</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} nappal ezelőtt</unitPattern>
-				<unitPattern count="other">{0} nappal ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} h</unitPattern>
 				<unitPattern count="other">{0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} óra múlva</unitPattern>
-				<unitPattern count="other">{0} óra múlva</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} órával ezelőtt</unitPattern>
-				<unitPattern count="other">{0} órával ezelőtt</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -6735,61 +6663,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} perc múlva</unitPattern>
-				<unitPattern count="other">{0} perc múlva</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} perccel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} perccel ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} h.</unitPattern>
 				<unitPattern count="other">{0} h.</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} hónap múlva</unitPattern>
-				<unitPattern count="other">{0} hónap múlva</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} hónappal ezelőtt</unitPattern>
-				<unitPattern count="other">{0} hónappal ezelőtt</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} s múlva</unitPattern>
-				<unitPattern count="other">{0} s múlva</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} mp-cel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} mp-cel ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} hét</unitPattern>
 				<unitPattern count="other">{0} hét</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} hét múlva</unitPattern>
-				<unitPattern count="other">{0} hét múlva</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} héttel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} héttel ezelőtt</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} év</unitPattern>
 				<unitPattern count="other">{0} év</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} év múlva</unitPattern>
-				<unitPattern count="other">{0} év múlva</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} évvel ezelőtt</unitPattern>
-				<unitPattern count="other">{0} évvel ezelőtt</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>

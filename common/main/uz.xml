@@ -1164,24 +1164,56 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">oʻtgan yil</relative>
 				<relative type="0">bu yil</relative>
 				<relative type="1">keyingi yil</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} yildan soʻng</relativeTimePattern>
+					<relativeTimePattern count="other">{0} yildan soʻng</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} yil avval</relativeTimePattern>
+					<relativeTimePattern count="other">{0} yil avval</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Oy</displayName>
 				<relative type="-1">oʻtgan oy</relative>
 				<relative type="0">bu oy</relative>
 				<relative type="1">keyingi oy</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} oydan soʻng</relativeTimePattern>
+					<relativeTimePattern count="other">{0} oydan soʻng</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} oy avval</relativeTimePattern>
+					<relativeTimePattern count="other">{0} oy avval</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>Hafta</displayName>
 				<relative type="-1">oʻtgan hafta</relative>
 				<relative type="0">bu hafta</relative>
 				<relative type="1">keyingi hafta</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} haftadan soʻng</relativeTimePattern>
+					<relativeTimePattern count="other">{0} haftadan soʻng</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} hafta oldin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} hafta oldin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>Kun</displayName>
 				<relative type="-1">kecha</relative>
 				<relative type="0">bugun</relative>
 				<relative type="1">ertaga</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} kundan soʻng</relativeTimePattern>
+					<relativeTimePattern count="other">{0} kundan soʻng</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} kun oldin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} kun oldin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>Hafta kuni</displayName>
@@ -1226,13 +1258,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>Soat</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} soatdan soʻng</relativeTimePattern>
+					<relativeTimePattern count="other">{0} soatdan soʻng</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} soat oldin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} soat oldin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Daqiqa</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} daqiqadan soʻng</relativeTimePattern>
+					<relativeTimePattern count="other">{0} daqiqadan soʻng</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} daqiqa oldin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} daqiqa oldin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Soniya</displayName>
 				<relative type="0">hozir</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} soniyadan soʻng</relativeTimePattern>
+					<relativeTimePattern count="other">{0} soniyadan soʻng</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} soniya oldin</relativeTimePattern>
+					<relativeTimePattern count="other">{0} soniya oldin</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>Mintaqa</displayName>
@@ -4495,25 +4551,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kun</unitPattern>
 				<unitPattern count="other">{0} kun</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} kundan soʻng</unitPattern>
-				<unitPattern count="other">{0} kundan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} kun oldin</unitPattern>
-				<unitPattern count="other">{0} kun oldin</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} soat</unitPattern>
 				<unitPattern count="other">{0} soat</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} soatdan soʻng</unitPattern>
-				<unitPattern count="other">{0} soatdan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} soat oldin</unitPattern>
-				<unitPattern count="other">{0} soat oldin</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} millisoniya</unitPattern>
@@ -4523,61 +4563,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} daqiqa</unitPattern>
 				<unitPattern count="other">{0} daqiqa</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} daqiqadan soʻng</unitPattern>
-				<unitPattern count="other">{0} daqiqadan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} daqiqa oldin</unitPattern>
-				<unitPattern count="other">{0} daqiqa oldin</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} oy</unitPattern>
 				<unitPattern count="other">{0} oy</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} oydan soʻng</unitPattern>
-				<unitPattern count="other">{0} oydan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} oy avval</unitPattern>
-				<unitPattern count="other">{0} oy avval</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} soniya</unitPattern>
 				<unitPattern count="other">{0} soniya</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} soniyadan soʻng</unitPattern>
-				<unitPattern count="other">{0} soniyadan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} soniya oldin</unitPattern>
-				<unitPattern count="other">{0} soniya oldin</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} hafta</unitPattern>
 				<unitPattern count="other">{0} hafta</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} haftadan soʻng</unitPattern>
-				<unitPattern count="other">{0} haftadan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} hafta oldin</unitPattern>
-				<unitPattern count="other">{0} hafta oldin</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} yil</unitPattern>
 				<unitPattern count="other">{0} yil</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} yildan soʻng</unitPattern>
-				<unitPattern count="other">{0} yildan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} yil avval</unitPattern>
-				<unitPattern count="other">{0} yil avval</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} sm</unitPattern>
@@ -4740,25 +4740,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} kun</unitPattern>
 				<unitPattern count="other">{0} kun</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} kundan soʻng</unitPattern>
-				<unitPattern count="other">{0} kundan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} kun oldin</unitPattern>
-				<unitPattern count="other">{0} kun oldin</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} soat</unitPattern>
 				<unitPattern count="other">{0} soat</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} soatdan soʻng</unitPattern>
-				<unitPattern count="other">{0} soatdan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} soat oldin</unitPattern>
-				<unitPattern count="other">{0} soat oldin</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -4768,61 +4752,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} daq</unitPattern>
 				<unitPattern count="other">{0} daq</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} daq soʻng</unitPattern>
-				<unitPattern count="other">{0} daq soʻng</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} daq oldin</unitPattern>
-				<unitPattern count="other">{0} daq oldin</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} oy</unitPattern>
 				<unitPattern count="other">{0} oy</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} oydan soʻng</unitPattern>
-				<unitPattern count="other">{0} oydan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} oy avval</unitPattern>
-				<unitPattern count="other">{0} oy avval</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} soniya</unitPattern>
 				<unitPattern count="other">{0} soniya</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} son soʻng</unitPattern>
-				<unitPattern count="other">{0} son soʻng</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} son oldin</unitPattern>
-				<unitPattern count="other">{0} son oldin</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} haft</unitPattern>
 				<unitPattern count="other">{0} haft</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} haft soʻng</unitPattern>
-				<unitPattern count="other">{0} haft soʻng</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} haft oldin</unitPattern>
-				<unitPattern count="other">{0} haft oldin</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} yil</unitPattern>
 				<unitPattern count="other">{0} yil</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} y soʻng</unitPattern>
-				<unitPattern count="other">{0} y soʻng</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} y avval</unitPattern>
-				<unitPattern count="other">{0} y avval</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>
@@ -4985,25 +4929,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} k</unitPattern>
 				<unitPattern count="other">{0} k</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} kundan soʻng</unitPattern>
-				<unitPattern count="other">{0} kundan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} kun oldin</unitPattern>
-				<unitPattern count="other">{0} kun oldin</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} soatdan soʻng</unitPattern>
-				<unitPattern count="other">{0} soatdan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} soatd oldin</unitPattern>
-				<unitPattern count="other">{0} soatd oldin</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -5013,61 +4941,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} daq</unitPattern>
 				<unitPattern count="other">{0} daq</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} daq soʻng</unitPattern>
-				<unitPattern count="other">{0} daq soʻng</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} daq oldin</unitPattern>
-				<unitPattern count="other">{0} daq oldin</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} oy</unitPattern>
 				<unitPattern count="other">{0} oy</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} oydan soʻng</unitPattern>
-				<unitPattern count="other">{0} oydan soʻng</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} oy avval</unitPattern>
-				<unitPattern count="other">{0} oy avval</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} son</unitPattern>
 				<unitPattern count="other">{0} son</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} son soʻng</unitPattern>
-				<unitPattern count="other">{0} son soʻng</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} son oldin</unitPattern>
-				<unitPattern count="other">{0} son oldin</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} haft</unitPattern>
 				<unitPattern count="other">{0} haft</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} haft soʻng</unitPattern>
-				<unitPattern count="other">{0} haft soʻng</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} haft oldin</unitPattern>
-				<unitPattern count="other">{0} haft oldin</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} y</unitPattern>
 				<unitPattern count="other">{0} y</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} y soʻng</unitPattern>
-				<unitPattern count="other">{0} y soʻng</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} y avval</unitPattern>
-				<unitPattern count="other">{0} y avval</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>

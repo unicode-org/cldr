@@ -1269,6 +1269,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">Is-sena li għaddiet</relative>
 				<relative type="0" draft="unconfirmed">Din is-sena</relative>
 				<relative type="1">Is-sena d-dieħla</relative>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} sena ilu</relativeTimePattern>
+					<relativeTimePattern count="few">{0} snin ilu</relativeTimePattern>
+					<relativeTimePattern count="many">{0} snin ilu</relativeTimePattern>
+					<relativeTimePattern count="other">{0} snin ilu</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Xahar</displayName>
@@ -1390,16 +1396,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 	</numbers>
-	<units>
-		<unitLength type="long">
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} sena ilu</unitPattern>
-				<unitPattern count="few">{0} snin ilu</unitPattern>
-				<unitPattern count="many">{0} snin ilu</unitPattern>
-				<unitPattern count="other">{0} snin ilu</unitPattern>
-			</unit>
-		</unitLength>
-	</units>
 	<listPatterns>
 		<listPattern>
 			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
@@ -1415,3 +1411,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

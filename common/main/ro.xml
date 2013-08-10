@@ -1980,18 +1980,48 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">anul trecut</relative>
 				<relative type="0">anul acesta</relative>
 				<relative type="1">anul viitor</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Peste {0} an</relativeTimePattern>
+					<relativeTimePattern count="few">Peste {0} ani</relativeTimePattern>
+					<relativeTimePattern count="other">Peste {0} de ani</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Acum {0} an</relativeTimePattern>
+					<relativeTimePattern count="few">Acum {0} ani</relativeTimePattern>
+					<relativeTimePattern count="other">Acum {0} de ani</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>lună</displayName>
 				<relative type="-1">luna trecută</relative>
 				<relative type="0">luna aceasta</relative>
 				<relative type="1">luna viitoare</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Peste {0} lună</relativeTimePattern>
+					<relativeTimePattern count="few">Peste {0} luni</relativeTimePattern>
+					<relativeTimePattern count="other">Peste {0} de luni</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Acum {0} lună</relativeTimePattern>
+					<relativeTimePattern count="few">Acum {0} luni</relativeTimePattern>
+					<relativeTimePattern count="other">Acum {0} de luni</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>săptămână</displayName>
 				<relative type="-1">săptămâna trecută</relative>
 				<relative type="0">săptămâna aceasta</relative>
 				<relative type="1">săptămâna viitoare</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Peste {0} săptămână</relativeTimePattern>
+					<relativeTimePattern count="few">Peste {0} săptămâni</relativeTimePattern>
+					<relativeTimePattern count="other">Peste {0} de săptămâni</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Acum {0} săptămână</relativeTimePattern>
+					<relativeTimePattern count="few">Acum {0} săptămâni</relativeTimePattern>
+					<relativeTimePattern count="other">Acum {0} de săptămâni</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>zi</displayName>
@@ -2000,6 +2030,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">azi</relative>
 				<relative type="1">mâine</relative>
 				<relative type="2">poimâine</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Peste {0} zi</relativeTimePattern>
+					<relativeTimePattern count="few">Peste {0} zile</relativeTimePattern>
+					<relativeTimePattern count="other">Peste {0} de zile</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Acum {0} zi</relativeTimePattern>
+					<relativeTimePattern count="few">Acum {0} zile</relativeTimePattern>
+					<relativeTimePattern count="other">Acum {0} de zile</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>zi a săptămânii</displayName>
@@ -2044,13 +2084,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>oră</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Peste {0} oră</relativeTimePattern>
+					<relativeTimePattern count="few">Peste {0} ore</relativeTimePattern>
+					<relativeTimePattern count="other">Peste {0} de ore</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Acum {0} oră</relativeTimePattern>
+					<relativeTimePattern count="few">Acum {0} ore</relativeTimePattern>
+					<relativeTimePattern count="other">Acum {0} de ore</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>minut</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Peste {0} minut</relativeTimePattern>
+					<relativeTimePattern count="few">Peste {0} minute</relativeTimePattern>
+					<relativeTimePattern count="other">Peste {0} de minute</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Acum {0} minut</relativeTimePattern>
+					<relativeTimePattern count="few">Acum {0} minute</relativeTimePattern>
+					<relativeTimePattern count="other">Acum {0} de minute</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>secundă</displayName>
 				<relative type="0">acum</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Peste {0} secundă</relativeTimePattern>
+					<relativeTimePattern count="few">Peste {0} secunde</relativeTimePattern>
+					<relativeTimePattern count="other">Peste {0} de secunde</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Acum {0} secundă</relativeTimePattern>
+					<relativeTimePattern count="few">Acum {0} secunde</relativeTimePattern>
+					<relativeTimePattern count="other">Acum {0} de secunde</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>fus orar</displayName>
@@ -5961,30 +6031,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} zile</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} de zile</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Peste {0} zi</unitPattern>
-				<unitPattern count="few">Peste {0} zile</unitPattern>
-				<unitPattern count="other">Peste {0} de zile</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">Acum {0} zi</unitPattern>
-				<unitPattern count="few">Acum {0} zile</unitPattern>
-				<unitPattern count="other">Acum {0} de zile</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one" draft="contributed">{0} oră</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ore</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} de ore</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Peste {0} oră</unitPattern>
-				<unitPattern count="few">Peste {0} ore</unitPattern>
-				<unitPattern count="other">Peste {0} de ore</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">Acum {0} oră</unitPattern>
-				<unitPattern count="few">Acum {0} ore</unitPattern>
-				<unitPattern count="other">Acum {0} de ore</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} milisecundă</unitPattern>
@@ -5996,75 +6046,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} minute</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} de minute</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Peste {0} minut</unitPattern>
-				<unitPattern count="few">Peste {0} minute</unitPattern>
-				<unitPattern count="other">Peste {0} de minute</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">Acum {0} minut</unitPattern>
-				<unitPattern count="few">Acum {0} minute</unitPattern>
-				<unitPattern count="other">Acum {0} de minute</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one" draft="contributed">{0} lună</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} luni</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} de luni</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Peste {0} lună</unitPattern>
-				<unitPattern count="few">Peste {0} luni</unitPattern>
-				<unitPattern count="other">Peste {0} de luni</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">Acum {0} lună</unitPattern>
-				<unitPattern count="few">Acum {0} luni</unitPattern>
-				<unitPattern count="other">Acum {0} de luni</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one" draft="contributed">{0} secundă</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} secunde</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} de secunde</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Peste {0} secundă</unitPattern>
-				<unitPattern count="few">Peste {0} secunde</unitPattern>
-				<unitPattern count="other">Peste {0} de secunde</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">Acum {0} secundă</unitPattern>
-				<unitPattern count="few">Acum {0} secunde</unitPattern>
-				<unitPattern count="other">Acum {0} de secunde</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one" draft="contributed">{0} săptămână</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} săptămâni</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} de săptămâni</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Peste {0} săptămână</unitPattern>
-				<unitPattern count="few">Peste {0} săptămâni</unitPattern>
-				<unitPattern count="other">Peste {0} de săptămâni</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">Acum {0} săptămână</unitPattern>
-				<unitPattern count="few">Acum {0} săptămâni</unitPattern>
-				<unitPattern count="other">Acum {0} de săptămâni</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one" draft="contributed">{0} an</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ani</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} de ani</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Peste {0} an</unitPattern>
-				<unitPattern count="few">Peste {0} ani</unitPattern>
-				<unitPattern count="other">Peste {0} de ani</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">Acum {0} an</unitPattern>
-				<unitPattern count="few">Acum {0} ani</unitPattern>
-				<unitPattern count="other">Acum {0} de ani</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="contributed">{0} centimetru</unitPattern>
@@ -6266,30 +6266,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} zile</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} zile</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Peste {0} zi</unitPattern>
-				<unitPattern count="few">Peste {0} zile</unitPattern>
-				<unitPattern count="other">Peste {0} zile</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">Acum {0} zi</unitPattern>
-				<unitPattern count="few">Acum {0} zile</unitPattern>
-				<unitPattern count="other">Acum {0} zile</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one" draft="contributed">{0} oră</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ore</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ore</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Peste {0} oră</unitPattern>
-				<unitPattern count="few">Peste {0} ore</unitPattern>
-				<unitPattern count="other">Peste {0} ore</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">Acum {0} oră</unitPattern>
-				<unitPattern count="few">Acum {0} ore</unitPattern>
-				<unitPattern count="other">Acum {0} ore</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -6301,75 +6281,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} min.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} min.</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Peste {0} min.</unitPattern>
-				<unitPattern count="few">Peste {0} min.</unitPattern>
-				<unitPattern count="other">Peste {0} min.</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">Acum {0} min.</unitPattern>
-				<unitPattern count="few">Acum {0} min.</unitPattern>
-				<unitPattern count="other">Acum {0} min.</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} lună</unitPattern>
 				<unitPattern count="few">{0} luni</unitPattern>
 				<unitPattern count="other">{0} luni</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Peste {0} lună</unitPattern>
-				<unitPattern count="few">Peste {0} luni</unitPattern>
-				<unitPattern count="other">Peste {0} luni</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">Acum {0} lună</unitPattern>
-				<unitPattern count="few">Acum {0} luni</unitPattern>
-				<unitPattern count="other">Acum {0} luni</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one" draft="contributed">{0} sec.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} sec.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} sec.</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Peste {0} sec.</unitPattern>
-				<unitPattern count="few">Peste {0} sec.</unitPattern>
-				<unitPattern count="other">Peste {0} sec.</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">Acum {0} sec.</unitPattern>
-				<unitPattern count="few">Acum {0} sec.</unitPattern>
-				<unitPattern count="other">Acum {0} sec.</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one" draft="contributed">{0} săpt.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} săpt.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} săpt.</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Peste {0} săpt.</unitPattern>
-				<unitPattern count="few">Peste {0} săpt.</unitPattern>
-				<unitPattern count="other">Peste {0} săpt.</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">Acum {0} săpt.</unitPattern>
-				<unitPattern count="few">Acum {0} săpt.</unitPattern>
-				<unitPattern count="other">Acum {0} săpt.</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} an</unitPattern>
 				<unitPattern count="few">{0} ani</unitPattern>
 				<unitPattern count="other">{0} ani</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Peste {0} an</unitPattern>
-				<unitPattern count="few">Peste {0} ani</unitPattern>
-				<unitPattern count="other">Peste {0} ani</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">Acum {0} an</unitPattern>
-				<unitPattern count="few">Acum {0} ani</unitPattern>
-				<unitPattern count="other">Acum {0} ani</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
@@ -6571,30 +6501,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} z</unitPattern>
 				<unitPattern count="other">{0} z</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Peste {0} z</unitPattern>
-				<unitPattern count="few">Peste {0} z</unitPattern>
-				<unitPattern count="other">Peste {0} z</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">Acum {0} zi</unitPattern>
-				<unitPattern count="few">Acum {0} zile</unitPattern>
-				<unitPattern count="other">Acum {0} zile</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} h</unitPattern>
 				<unitPattern count="few">{0} h</unitPattern>
 				<unitPattern count="other">{0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Peste {0} h</unitPattern>
-				<unitPattern count="few">Peste {0} h</unitPattern>
-				<unitPattern count="other">Peste {0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">Acum {0} h</unitPattern>
-				<unitPattern count="few">Acum {0} h</unitPattern>
-				<unitPattern count="other">Acum {0} h</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -6606,75 +6516,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Peste {0} m</unitPattern>
-				<unitPattern count="few">Peste {0} m</unitPattern>
-				<unitPattern count="other">Peste {0} m</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">Acum {0} m</unitPattern>
-				<unitPattern count="few">Acum {0} m</unitPattern>
-				<unitPattern count="other">Acum {0} m</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="few">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Peste {0} l</unitPattern>
-				<unitPattern count="few">Peste {0} l</unitPattern>
-				<unitPattern count="other">Peste {0} l</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">Acum {0} l</unitPattern>
-				<unitPattern count="few">Acum {0} l</unitPattern>
-				<unitPattern count="other">Acum {0} l</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="few">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Peste {0} s</unitPattern>
-				<unitPattern count="few">Peste {0} s</unitPattern>
-				<unitPattern count="other">Peste {0} s</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">Acum {0} s</unitPattern>
-				<unitPattern count="few">Acum {0} s</unitPattern>
-				<unitPattern count="other">Acum {0} s</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} săpt.</unitPattern>
 				<unitPattern count="few">{0} săpt.</unitPattern>
 				<unitPattern count="other">{0} săpt.</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Peste {0} săpt.</unitPattern>
-				<unitPattern count="few">Peste {0} săpt.</unitPattern>
-				<unitPattern count="other">Peste {0} săpt.</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">Acum {0} săpt.</unitPattern>
-				<unitPattern count="few">Acum {0} săpt.</unitPattern>
-				<unitPattern count="other">Acum {0} săpt.</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} a</unitPattern>
 				<unitPattern count="few">{0} a</unitPattern>
 				<unitPattern count="other">{0} a</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Peste {0} a</unitPattern>
-				<unitPattern count="few">Peste {0} a</unitPattern>
-				<unitPattern count="other">Peste {0} a</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">Acum {0} a</unitPattern>
-				<unitPattern count="few">Acum {0} a</unitPattern>
-				<unitPattern count="other">Acum {0} a</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>

@@ -1334,18 +1334,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">nakaraang taon</relative>
 				<relative type="0">ngayong taon</relative>
 				<relative type="1">susunod na taon</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Sa loob ng {0} taon</relativeTimePattern>
+					<relativeTimePattern count="other">Sa loob ng {0} taon</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} taon ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="other">{0} taon ang nakalipas</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Buwan</displayName>
 				<relative type="-1">nakaraang buwan</relative>
 				<relative type="0">ngayong buwan</relative>
 				<relative type="1">susunod na buwan</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Sa loob ng {0} buwan</relativeTimePattern>
+					<relativeTimePattern count="other">Sa loob ng {0} buwan</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} buwan ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="other">{0} buwan ang nakalipas</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>Linggo</displayName>
 				<relative type="-1">nakaraang linggo</relative>
 				<relative type="0">ngayong linggo</relative>
 				<relative type="1">susunod na linggo</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Sa loob ng {0} linggo</relativeTimePattern>
+					<relativeTimePattern count="other">Sa loob ng {0} linggo</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} na linggo ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="other">{0} linggo ang nakalipas</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>Araw</displayName>
@@ -1354,6 +1378,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">Ngayon</relative>
 				<relative type="1">Bukas</relative>
 				<relative type="2">Samakalawa</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Sa loob ng {0} araw</relativeTimePattern>
+					<relativeTimePattern count="other">Sa loob ng {0} araw</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} araw ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="other">{0} araw ang nakalipas</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>Araw ng Linggo</displayName>
@@ -1398,13 +1430,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>Oras</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Sa loob ng {0} oras</relativeTimePattern>
+					<relativeTimePattern count="other">Sa loob ng {0} oras</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} oras ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="other">{0} oras ang nakalipas</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Minuto</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Sa loob ng {0} minuto</relativeTimePattern>
+					<relativeTimePattern count="other">Sa loob ng {0} minuto</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} minuto ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="other">{0} minuto ang nakalipas</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Segundo</displayName>
 				<relative type="0">ngayon</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Sa loob ng {0} segundo</relativeTimePattern>
+					<relativeTimePattern count="other">Sa loob ng {0} segundo</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} segundo ang nakalipas</relativeTimePattern>
+					<relativeTimePattern count="other">{0} segundo ang nakalipas</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>Time Zone</displayName>
@@ -4674,25 +4730,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} araw</unitPattern>
 				<unitPattern count="other">{0} araw</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Sa loob ng {0} araw</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} araw</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} araw ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} araw ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} oras</unitPattern>
 				<unitPattern count="other">{0} oras</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Sa loob ng {0} oras</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} oras</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} oras ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} oras ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} millisecond</unitPattern>
@@ -4702,61 +4742,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minuto</unitPattern>
 				<unitPattern count="other">{0} minuto</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Sa loob ng {0} minuto</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} minuto</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} minuto ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} minuto ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} buwan</unitPattern>
 				<unitPattern count="other">{0} buwan</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Sa loob ng {0} buwan</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} buwan</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} buwan ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} buwan ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} segundo</unitPattern>
 				<unitPattern count="other">{0} segundo</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Sa loob ng {0} segundo</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} segundo</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} segundo ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} segundo ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} linggo</unitPattern>
 				<unitPattern count="other">{0} linggo</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Sa loob ng {0} linggo</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} linggo</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} na linggo ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} linggo ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} taon</unitPattern>
 				<unitPattern count="other">{0} taon</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Sa loob ng {0} taon</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} taon</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} taon ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} taon ang nakalipas</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} sentimetro</unitPattern>
@@ -4919,25 +4919,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} araw</unitPattern>
 				<unitPattern count="other">{0} araw</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Sa loob ng {0} araw</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} araw</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} araw ang nakalipas</unitPattern>
-				<unitPattern count="other">-{0} d</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} hr</unitPattern>
 				<unitPattern count="other">{0} hrs</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Sa loob ng {0} hr</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} hrs</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} hr ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} hrs ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -4947,61 +4931,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} mins</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Sa loob ng {0} min</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} mins</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} min ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} mins ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} mth</unitPattern>
 				<unitPattern count="other">{0} mths</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Sa loob ng {0} mth</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} mths</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} mth ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} mths ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} sec</unitPattern>
 				<unitPattern count="other">{0} secs</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Sa loob ng {0} sec</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} secs</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} sec ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} secs ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} wk</unitPattern>
 				<unitPattern count="other">{0} wks</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Sa loob ng {0} wk</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} wks</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} wk ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} wks ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} yr</unitPattern>
 				<unitPattern count="other">{0} yrs</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Sa loob ng {0} yr</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} yrs</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} yr ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} yrs ang nakalipas</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>
@@ -5164,25 +5108,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}d</unitPattern>
 				<unitPattern count="other">{0}d</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Sa loob ng {0} araw</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} araw</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} araw ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} araw ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0}h</unitPattern>
 				<unitPattern count="other">{0}h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Sa loob ng {0} hrs</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} hrs</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} hrs ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} hrs ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0}ms</unitPattern>
@@ -5192,61 +5120,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Sa loob ng {0} mins</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} mins</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} mins ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} mins ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Sa loob ng {0} mths</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} mths</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} mths ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} mths ang nakalipas</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0}s</unitPattern>
 				<unitPattern count="other">{0}s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Sa loob ng {0} secs</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} secs</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} secs ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} secs ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0}w</unitPattern>
 				<unitPattern count="other">{0}w</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Sa loob ng {0} wks</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} wks</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} wks ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} wks ang nakalipas</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0}y</unitPattern>
 				<unitPattern count="other">{0}y</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Sa loob ng {0} yrs</unitPattern>
-				<unitPattern count="other">Sa loob ng {0} yrs</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} yrs ang nakalipas</unitPattern>
-				<unitPattern count="other">{0} yrs ang nakalipas</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0}cm</unitPattern>

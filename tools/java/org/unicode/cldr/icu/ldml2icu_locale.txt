@@ -102,6 +102,7 @@
 
 //ldml/dates/fields/field[@type="(%A)"]/displayName ; /fields/$1/dn
 //ldml/dates/fields/field[@type="(%A)"]/relative[@type="(%A)"] ; /fields/$1/relative/"$2"
+//ldml/dates/fields/field[@type="(%A)"]/relativeTime[@type="(%A)"]/relativeTimePattern[@count="(%A)"] ; /fields/$1/relativeTime/$2/$3
 
 //ldml/dates/timeZoneNames/(%GFormat)   ; /zoneStrings/$1
 

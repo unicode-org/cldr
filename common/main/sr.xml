@@ -2238,18 +2238,48 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1" draft="contributed">Прошле године</relative>
 				<relative type="0" draft="contributed">Ове године</relative>
 				<relative type="1" draft="contributed">Следеће године</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">за {0} годину</relativeTimePattern>
+					<relativeTimePattern count="few">за {0} године</relativeTimePattern>
+					<relativeTimePattern count="other">за {0} година</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">пре {0} године</relativeTimePattern>
+					<relativeTimePattern count="few">пре {0} године</relativeTimePattern>
+					<relativeTimePattern count="other">пре {0} година</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>месец</displayName>
 				<relative type="-1" draft="contributed">Прошлог месеца</relative>
 				<relative type="0" draft="contributed">Овог месеца</relative>
 				<relative type="1" draft="contributed">Следећег месеца</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">за {0} месец</relativeTimePattern>
+					<relativeTimePattern count="few">за {0} месеца</relativeTimePattern>
+					<relativeTimePattern count="other">за {0} месеци</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">пре {0} месеца</relativeTimePattern>
+					<relativeTimePattern count="few">пре {0} месеца</relativeTimePattern>
+					<relativeTimePattern count="other">пре {0} месеци</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>недеља</displayName>
 				<relative type="-1" draft="contributed">Прошле недеље</relative>
 				<relative type="0" draft="contributed">Ове недеље</relative>
 				<relative type="1" draft="contributed">Следеће недеље</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">за {0} недељу</relativeTimePattern>
+					<relativeTimePattern count="few">за {0} недеље</relativeTimePattern>
+					<relativeTimePattern count="other">за {0} недеља</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">пре {0} недеље</relativeTimePattern>
+					<relativeTimePattern count="few">пре {0} недеље</relativeTimePattern>
+					<relativeTimePattern count="other">пре {0} недеља</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>дан</displayName>
@@ -2258,6 +2288,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">данас</relative>
 				<relative type="1">сутра</relative>
 				<relative type="2">прекосутра</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">за {0} дан</relativeTimePattern>
+					<relativeTimePattern count="few">за {0} дана</relativeTimePattern>
+					<relativeTimePattern count="other">за {0} дана</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">пре {0} дана</relativeTimePattern>
+					<relativeTimePattern count="few">пре {0} дана</relativeTimePattern>
+					<relativeTimePattern count="other">пре {0} дана</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>дан у недељи</displayName>
@@ -2302,13 +2342,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>час</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">за {0} сат</relativeTimePattern>
+					<relativeTimePattern count="few">за {0} сата</relativeTimePattern>
+					<relativeTimePattern count="other">за {0} сати</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">пре {0} сата</relativeTimePattern>
+					<relativeTimePattern count="few">пре {0} сата</relativeTimePattern>
+					<relativeTimePattern count="other">пре {0} сати</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>минут</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">за {0} минут</relativeTimePattern>
+					<relativeTimePattern count="few">за {0} минута</relativeTimePattern>
+					<relativeTimePattern count="other">за {0} минута</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">пре {0} минута</relativeTimePattern>
+					<relativeTimePattern count="few">пре {0} минута</relativeTimePattern>
+					<relativeTimePattern count="other">пре {0} минута</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>секунд</displayName>
 				<relative type="0">сада</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">за {0} секунду</relativeTimePattern>
+					<relativeTimePattern count="few">за {0} секунде</relativeTimePattern>
+					<relativeTimePattern count="other">за {0} секунди</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">пре {0} секунде</relativeTimePattern>
+					<relativeTimePattern count="few">пре {0} секунде</relativeTimePattern>
+					<relativeTimePattern count="other">пре {0} секунди</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>зона</displayName>
@@ -6605,30 +6675,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} дана</unitPattern>
 				<unitPattern count="other">{0} дана</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">за {0} дан</unitPattern>
-				<unitPattern count="few">за {0} дана</unitPattern>
-				<unitPattern count="other">за {0} дана</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">пре {0} дана</unitPattern>
-				<unitPattern count="few">пре {0} дана</unitPattern>
-				<unitPattern count="other">пре {0} дана</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} сат</unitPattern>
 				<unitPattern count="few">{0} сата</unitPattern>
 				<unitPattern count="other">{0} сати</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">за {0} сат</unitPattern>
-				<unitPattern count="few">за {0} сата</unitPattern>
-				<unitPattern count="other">за {0} сати</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">пре {0} сата</unitPattern>
-				<unitPattern count="few">пре {0} сата</unitPattern>
-				<unitPattern count="other">пре {0} сати</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="contributed">{0} милисекунда</unitPattern>
@@ -6640,75 +6690,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} минута</unitPattern>
 				<unitPattern count="other">{0} минута</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">за {0} минут</unitPattern>
-				<unitPattern count="few">за {0} минута</unitPattern>
-				<unitPattern count="other">за {0} минута</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">пре {0} минута</unitPattern>
-				<unitPattern count="few">пре {0} минута</unitPattern>
-				<unitPattern count="other">пре {0} минута</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} месец</unitPattern>
 				<unitPattern count="few">{0} месеца</unitPattern>
 				<unitPattern count="other">{0} месеци</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">за {0} месец</unitPattern>
-				<unitPattern count="few">за {0} месеца</unitPattern>
-				<unitPattern count="other">за {0} месеци</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">пре {0} месеца</unitPattern>
-				<unitPattern count="few">пре {0} месеца</unitPattern>
-				<unitPattern count="other">пре {0} месеци</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} секунда</unitPattern>
 				<unitPattern count="few">{0} секунде</unitPattern>
 				<unitPattern count="other">{0} секунди</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">за {0} секунду</unitPattern>
-				<unitPattern count="few">за {0} секунде</unitPattern>
-				<unitPattern count="other">за {0} секунди</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">пре {0} секунде</unitPattern>
-				<unitPattern count="few">пре {0} секунде</unitPattern>
-				<unitPattern count="other">пре {0} секунди</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} недеља</unitPattern>
 				<unitPattern count="few">{0} недеље</unitPattern>
 				<unitPattern count="other">{0} недеља</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">за {0} недељу</unitPattern>
-				<unitPattern count="few">за {0} недеље</unitPattern>
-				<unitPattern count="other">за {0} недеља</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">пре {0} недеље</unitPattern>
-				<unitPattern count="few">пре {0} недеље</unitPattern>
-				<unitPattern count="other">пре {0} недеља</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} година</unitPattern>
 				<unitPattern count="few">{0} године</unitPattern>
 				<unitPattern count="other">{0} година</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">за {0} годину</unitPattern>
-				<unitPattern count="few">за {0} године</unitPattern>
-				<unitPattern count="other">за {0} година</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">пре {0} године</unitPattern>
-				<unitPattern count="few">пре {0} године</unitPattern>
-				<unitPattern count="other">пре {0} година</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="contributed">{0} центиметар</unitPattern>
@@ -6910,30 +6910,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} дана</unitPattern>
 				<unitPattern count="other">{0} дана</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one" draft="contributed">за {0} дан</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} дана</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} дана</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one" draft="contributed">пре {0} дана</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} дана</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} дана</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} сат</unitPattern>
 				<unitPattern count="few">{0} сата</unitPattern>
 				<unitPattern count="other">{0} сати</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one" draft="contributed">за {0} сат</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} сата</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} сати</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one" draft="contributed">пре {0} сата</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} сата</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} сати</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
@@ -6945,75 +6925,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few">{0} мин</unitPattern>
 				<unitPattern count="other">{0} мин</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one" draft="contributed">за {0} мин</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} мин</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} мин</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one" draft="contributed">пре {0} мин</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} мин</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} мин</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} мес</unitPattern>
 				<unitPattern count="few">{0} мес</unitPattern>
 				<unitPattern count="other">{0} мес</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one" draft="contributed">за {0} мес</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} мес</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} мес</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one" draft="contributed">пре {0} мес</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} мес</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} мес</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} сек</unitPattern>
 				<unitPattern count="few">{0} сек</unitPattern>
 				<unitPattern count="other">{0} сек</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one" draft="contributed">за {0} сек</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} сек</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} сек</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one" draft="contributed">пре {0} сек</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} сек</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} сек</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} нед</unitPattern>
 				<unitPattern count="few">{0} нед</unitPattern>
 				<unitPattern count="other">{0} нед</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one" draft="contributed">за {0} нед</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} нед</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} нед</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one" draft="contributed">пре {0} нед</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} нед</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} нед</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} год</unitPattern>
 				<unitPattern count="few">{0} год</unitPattern>
 				<unitPattern count="other">{0} год</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one" draft="contributed">за {0} год</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} год</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} год</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one" draft="contributed">пре {0} год</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} год</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} год</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
@@ -7215,30 +7145,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} д</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} д</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one" draft="contributed">за {0} дан</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} дана</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} дана</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one" draft="contributed">пре {0} дана</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} дана</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} дана</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one" draft="contributed">{0} сат</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} сата</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} сати</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one" draft="contributed">за {0} сат</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} сата</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} сати</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one" draft="contributed">пре {0} сата</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} сата</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} сати</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
@@ -7250,75 +7160,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} м</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} м</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one" draft="contributed">за {0} мин</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} мин</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} мин</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one" draft="contributed">пре {0} мин</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} мин</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} мин</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one" draft="contributed">{0} м</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} м</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} м</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one" draft="contributed">за {0} мес</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} мес</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} мес</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one" draft="contributed">пре {0} мес</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} мес</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} мес</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one" draft="contributed">{0} сек</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} сек</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} сек</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one" draft="contributed">за {0} сек</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} сек</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} сек</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one" draft="contributed">пре {0} сек</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} сек</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} сек</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one" draft="contributed">{0} н</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} н</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} н</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one" draft="contributed">за {0} нед</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} нед</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} нед</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one" draft="contributed">пре {0} нед</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} нед</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} нед</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one" draft="contributed">{0} г</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} г</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} г</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one" draft="contributed">за {0} год</unitPattern>
-				<unitPattern count="few" draft="contributed">за {0} год</unitPattern>
-				<unitPattern count="other" draft="contributed">за {0} год</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one" draft="contributed">пре {0} год</unitPattern>
-				<unitPattern count="few" draft="contributed">пре {0} год</unitPattern>
-				<unitPattern count="other" draft="contributed">пре {0} год</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>

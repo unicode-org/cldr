@@ -2756,8 +2756,38 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="era">
 				<displayName draft="contributed">纪元</displayName>
 			</field>
+			<field type="year">
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}年后</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}年前</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month">
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}个月后</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}个月前</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week">
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}周后</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}周前</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="day">
 				<displayName draft="contributed">天</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}天后</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}天前</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="sun">
 				<relative type="-1" draft="contributed">上周日</relative>
@@ -2793,6 +2823,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1" draft="contributed">上周六</relative>
 				<relative type="0" draft="contributed">本周六</relative>
 				<relative type="1" draft="contributed">下周六</relative>
+			</field>
+			<field type="hour">
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}小时后</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}小时前</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute">
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}分钟后</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}分钟前</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second">
+				<relativeTime type="future">
+					<relativeTimePattern count="other">{0}秒后</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0}秒前</relativeTimePattern>
+				</relativeTime>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -6406,20 +6460,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other" draft="contributed">{0}天</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other" draft="contributed">{0}天后</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other" draft="contributed">{0}天前</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other" draft="contributed">{0}小时</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other" draft="contributed">{0}小时后</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other" draft="contributed">{0}小时前</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other" draft="contributed">{0}毫秒</unitPattern>
@@ -6427,47 +6469,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other" draft="contributed">{0}分钟</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other" draft="contributed">{0}分钟后</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other" draft="contributed">{0}分钟前</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other" draft="contributed">{0}个月</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other" draft="contributed">{0}个月后</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other" draft="contributed">{0}个月前</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other" draft="contributed">{0}秒</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other" draft="contributed">{0}秒后</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other" draft="contributed">{0}秒前</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other" draft="contributed">{0}周</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other" draft="contributed">{0}周后</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other" draft="contributed">{0}周前</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other" draft="contributed">{0}年</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other" draft="contributed">{0}年后</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other" draft="contributed">{0}年前</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other" draft="contributed">{0}厘米</unitPattern>
@@ -6591,20 +6603,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other" draft="contributed">{0}天</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other" draft="contributed">{0}天后</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other" draft="contributed">{0}天前</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other" draft="contributed">{0}小时</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other" draft="contributed">{0}小时后</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other" draft="contributed">{0}小时前</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other" draft="contributed">{0}毫秒</unitPattern>
@@ -6612,47 +6612,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other" draft="contributed">{0}分钟</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other" draft="contributed">{0}分钟后</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other" draft="contributed">{0}分钟前</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other" draft="contributed">{0}个月</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other" draft="contributed">{0}个月后</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other" draft="contributed">{0}个月前</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other" draft="contributed">{0}秒</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other" draft="contributed">{0}秒后</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other" draft="contributed">{0}秒前</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other" draft="contributed">{0}周</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other" draft="contributed">{0}周后</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other" draft="contributed">{0}周前</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other" draft="contributed">{0}年</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other" draft="contributed">{0}年后</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other" draft="contributed">{0}年前</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other" draft="contributed">{0}厘米</unitPattern>
@@ -6776,20 +6746,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other" draft="contributed">{0}天</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other" draft="contributed">{0}天后</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other" draft="contributed">{0}天前</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other" draft="contributed">{0}小时</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other" draft="contributed">{0}小时后</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other" draft="contributed">{0}小时前</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other" draft="contributed">{0}毫秒</unitPattern>
@@ -6797,47 +6755,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other" draft="contributed">{0}分钟</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other" draft="contributed">{0}分钟后</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other" draft="contributed">{0}分钟前</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other" draft="contributed">{0}个月</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other" draft="contributed">{0}个月后</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other" draft="contributed">{0}个月前</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other" draft="contributed">{0}秒</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other" draft="contributed">{0}秒后</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other" draft="contributed">{0}秒前</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other" draft="contributed">{0}周</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other" draft="contributed">{0}周后</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other" draft="contributed">{0}周前</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other" draft="contributed">{0}年</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other" draft="contributed">{0}年后</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other" draft="contributed">{0}年前</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other" draft="contributed">{0}厘米</unitPattern>

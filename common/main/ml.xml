@@ -1892,18 +1892,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">കഴിഞ്ഞ വർഷം</relative>
 				<relative type="0">ഈ വർ‌ഷം</relative>
 				<relative type="1">അടുത്തവർഷം</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} വർഷത്തിൽ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} വർഷത്തിൽ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} വർഷം മുമ്പ്</relativeTimePattern>
+					<relativeTimePattern count="other">{0} വർഷം മുമ്പ്</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>മാസം</displayName>
 				<relative type="-1">കഴിഞ്ഞ മാസം</relative>
 				<relative type="0">ഈ മാസം</relative>
 				<relative type="1">അടുത്ത മാസം</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} മാസത്തിൽ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} മാസത്തിൽ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} മാസം മുമ്പ്</relativeTimePattern>
+					<relativeTimePattern count="other">{0} മാസം മുമ്പ്</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>ആഴ്ച</displayName>
 				<relative type="-1">കഴിഞ്ഞ ആഴ്‌ച</relative>
 				<relative type="0">ഈ ആഴ്ച</relative>
 				<relative type="1">അടുത്ത ആഴ്ച</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ആഴ്ചയിൽ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ആഴ്ചയിൽ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ആഴ്ച മുമ്പ്</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ആഴ്ച മുമ്പ്</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>ദിവസം</displayName>
@@ -1912,6 +1936,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">ഇന്ന്</relative>
 				<relative type="1">നാളെ</relative>
 				<relative type="2">മറ്റന്നാൾ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ദിവസത്തിൽ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ദിവസത്തിൽ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ദിവസം മുമ്പ്</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ദിവസം മുമ്പ്</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>ആഴ്ചയിലെ ദിവസം</displayName>
@@ -1956,13 +1988,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>മണിക്കൂർ</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} മണിക്കൂറിൽ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} മണിക്കൂറിൽ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} മണിക്കൂർ മുമ്പ്</relativeTimePattern>
+					<relativeTimePattern count="other">{0} മണിക്കൂർ മുമ്പ്</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>മിനിട്ട്</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} മിനിറ്റിൽ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} മിനിറ്റിനുള്ളിൽ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} മിനിറ്റ് മുമ്പ്</relativeTimePattern>
+					<relativeTimePattern count="other">{0} മിനിറ്റ് മുമ്പ്</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>സെക്കൻറ്</displayName>
 				<relative type="0">ഇപ്പോള്‍</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} സെക്കൻഡിൽ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} സെക്കൻഡിൽ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} സെക്കൻറ് മുമ്പ്</relativeTimePattern>
+					<relativeTimePattern count="other">{0} സെക്കൻറ് മുമ്പ്</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>മേഖല</displayName>
@@ -5740,25 +5796,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ദിവസം</unitPattern>
 				<unitPattern count="other">{0} ദിവസം</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} ദിവസത്തിൽ</unitPattern>
-				<unitPattern count="other">{0} ദിവസത്തിൽ</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} ദിവസം മുമ്പ്</unitPattern>
-				<unitPattern count="other">{0} ദിവസം മുമ്പ്</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} മണിക്കൂർ</unitPattern>
 				<unitPattern count="other">{0} മണിക്കൂർ</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} മണിക്കൂറിൽ</unitPattern>
-				<unitPattern count="other">{0} മണിക്കൂറിൽ</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} മണിക്കൂർ മുമ്പ്</unitPattern>
-				<unitPattern count="other">{0} മണിക്കൂർ മുമ്പ്</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} മില്ലിസെക്കന്റ്</unitPattern>
@@ -5768,61 +5808,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} മിനിട്ട്</unitPattern>
 				<unitPattern count="other">{0} മിനിട്ട്</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} മിനിറ്റിൽ</unitPattern>
-				<unitPattern count="other">{0} മിനിറ്റിനുള്ളിൽ</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} മിനിറ്റ് മുമ്പ്</unitPattern>
-				<unitPattern count="other">{0} മിനിറ്റ് മുമ്പ്</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} മാസം</unitPattern>
 				<unitPattern count="other">{0} മാസം</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} മാസത്തിൽ</unitPattern>
-				<unitPattern count="other">{0} മാസത്തിൽ</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} മാസം മുമ്പ്</unitPattern>
-				<unitPattern count="other">{0} മാസം മുമ്പ്</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} സെക്കന്റ്</unitPattern>
 				<unitPattern count="other">{0} സെക്കന്റ്</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} സെക്കൻഡിൽ</unitPattern>
-				<unitPattern count="other">{0} സെക്കൻഡിൽ</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} സെക്കൻറ് മുമ്പ്</unitPattern>
-				<unitPattern count="other">{0} സെക്കൻറ് മുമ്പ്</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} ആഴ്ച</unitPattern>
 				<unitPattern count="other">{0} ആഴ്ച</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} ആഴ്ചയിൽ</unitPattern>
-				<unitPattern count="other">{0} ആഴ്ചയിൽ</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} ആഴ്ച മുമ്പ്</unitPattern>
-				<unitPattern count="other">{0} ആഴ്ച മുമ്പ്</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} വർഷം</unitPattern>
 				<unitPattern count="other">{0} വർഷം</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} വർഷത്തിൽ</unitPattern>
-				<unitPattern count="other">{0} വർഷത്തിൽ</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} വർഷം മുമ്പ്</unitPattern>
-				<unitPattern count="other">{0} വർഷം മുമ്പ്</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} സെന്റീമീറ്റർ</unitPattern>
@@ -5985,25 +5985,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ദിവസം‌</unitPattern>
 				<unitPattern count="other">{0} ദിവസം‌</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">+{0} ദി</unitPattern>
-				<unitPattern count="other">+{0} ദി</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">-{0} ദി</unitPattern>
-				<unitPattern count="other">-{0} ദി</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} മണിക്കൂർ‌</unitPattern>
 				<unitPattern count="other">{0} മണിക്കൂർ</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">+{0} മ</unitPattern>
-				<unitPattern count="other">+{0} മ</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">-{0} മ</unitPattern>
-				<unitPattern count="other">-{0} മ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} മി.സെ</unitPattern>
@@ -6013,61 +5997,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} മിനിറ്റ്</unitPattern>
 				<unitPattern count="other">{0} മിനിറ്റ്</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">+{0} മി</unitPattern>
-				<unitPattern count="other">+{0} മി</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">-{0} മി</unitPattern>
-				<unitPattern count="other">-{0} മി</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} മാസം</unitPattern>
 				<unitPattern count="other">{0} മാസം</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">+{0} മാ</unitPattern>
-				<unitPattern count="other">+{0} മാ</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">-{0} മാ</unitPattern>
-				<unitPattern count="other">-{0} മാ</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} സെക്കൻറ്</unitPattern>
 				<unitPattern count="other">{0} സെക്കൻറ്</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">+{0} സെ</unitPattern>
-				<unitPattern count="other">+{0} സെ</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">-{0} സെ</unitPattern>
-				<unitPattern count="other">-{0} സെ</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} ആഴ്‌ച</unitPattern>
 				<unitPattern count="other">{0} ആഴ്‌ച</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">+{0} ആ</unitPattern>
-				<unitPattern count="other">+{0} ആ</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">-{0} ആ</unitPattern>
-				<unitPattern count="other">-{0} ആ</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} വർ‌ഷം</unitPattern>
 				<unitPattern count="other">{0} വർ‌ഷം</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">+{0} വ</unitPattern>
-				<unitPattern count="other">+{0} വ</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">-{0} വ</unitPattern>
-				<unitPattern count="other">-{0} വ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} സെമി</unitPattern>
@@ -6230,25 +6174,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} ദി</unitPattern>
 				<unitPattern count="other">{0} ദി</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">+{0} ദി</unitPattern>
-				<unitPattern count="other">+{0} ദി</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">-{0} ദി</unitPattern>
-				<unitPattern count="other">-{0} ദി</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} മ</unitPattern>
 				<unitPattern count="other">{0} മ</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">+{0} മ</unitPattern>
-				<unitPattern count="other">+{0} മ</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">-{0} മ</unitPattern>
-				<unitPattern count="other">-{0} മ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} മിസെ</unitPattern>
@@ -6258,61 +6186,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} മി</unitPattern>
 				<unitPattern count="other">{0} മി</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">+{0} മി</unitPattern>
-				<unitPattern count="other">+{0} മി</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">-{0} മി</unitPattern>
-				<unitPattern count="other">-{0} മി</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} മാ</unitPattern>
 				<unitPattern count="other">{0} മാ</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">+{0} മാ</unitPattern>
-				<unitPattern count="other">+{0} മാ</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">-{0} മാ</unitPattern>
-				<unitPattern count="other">-{0} മാ</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} സെ</unitPattern>
 				<unitPattern count="other">{0} സെ</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">+{0} സെ</unitPattern>
-				<unitPattern count="other">+{0} സെ</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">-{0} സെ</unitPattern>
-				<unitPattern count="other">-{0} സെ</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} ആ</unitPattern>
 				<unitPattern count="other">{0} ആ</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">+{0} ആ</unitPattern>
-				<unitPattern count="other">+{0} ആ</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">-{0} ആ</unitPattern>
-				<unitPattern count="other">-{0} ആ</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} വ</unitPattern>
 				<unitPattern count="other">{0} വ</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">+{0} വ</unitPattern>
-				<unitPattern count="other">+{0} വ</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">-{0} വ</unitPattern>
-				<unitPattern count="other">-{0} വ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} സെമി</unitPattern>

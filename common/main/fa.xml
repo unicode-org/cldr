@@ -2140,18 +2140,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">سال گذشته</relative>
 				<relative type="0">امسال</relative>
 				<relative type="1">سال آینده</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} سال بعد</relativeTimePattern>
+					<relativeTimePattern count="other">{0} سال بعد</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} سال پیش</relativeTimePattern>
+					<relativeTimePattern count="other">{0} سال پیش</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>ماه</displayName>
 				<relative type="-1">ماه گذشته</relative>
 				<relative type="0">این ماه</relative>
 				<relative type="1">ماه آینده</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ماه بعد</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ماه بعد</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ماه پیش</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ماه پیش</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>هفته</displayName>
 				<relative type="-1">هفتهٔ گذشته</relative>
 				<relative type="0">این هفته</relative>
 				<relative type="1">هفتهٔ آینده</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} هفته بعد</relativeTimePattern>
+					<relativeTimePattern count="other">{0} هفته بعد</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} هفته پیش</relativeTimePattern>
+					<relativeTimePattern count="other">{0} هفته پیش</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>روز</displayName>
@@ -2160,6 +2184,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">امروز</relative>
 				<relative type="1">فردا</relative>
 				<relative type="2">پس‌فردا</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} روز بعد</relativeTimePattern>
+					<relativeTimePattern count="other">{0} روز بعد</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} روز پیش</relativeTimePattern>
+					<relativeTimePattern count="other">{0} روز پیش</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>روز هفته</displayName>
@@ -2204,13 +2236,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>ساعت</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ساعت بعد</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ساعت بعد</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ساعت پیش</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ساعت پیش</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>دقیقه</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} دقیقه بعد</relativeTimePattern>
+					<relativeTimePattern count="other">{0} دقیقه بعد</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} دقیقه پیش</relativeTimePattern>
+					<relativeTimePattern count="other">{0} دقیقه پیش</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>ثانیه</displayName>
 				<relative type="0">اکنون</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ثانیه بعد</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ثانیه بعد</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ثانیه پیش</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ثانیه پیش</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>منطقهٔ زمانی</displayName>
@@ -5396,25 +5452,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} روز</unitPattern>
 				<unitPattern count="other">{0} روز</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} روز بعد</unitPattern>
-				<unitPattern count="other">{0} روز بعد</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} روز پیش</unitPattern>
-				<unitPattern count="other">{0} روز پیش</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} ساعت</unitPattern>
 				<unitPattern count="other">{0} ساعت</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} ساعت بعد</unitPattern>
-				<unitPattern count="other">{0} ساعت بعد</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} ساعت پیش</unitPattern>
-				<unitPattern count="other">{0} ساعت پیش</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} میلی‌ثانیه</unitPattern>
@@ -5424,61 +5464,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} دقیقه</unitPattern>
 				<unitPattern count="other">{0} دقیقه</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} دقیقه بعد</unitPattern>
-				<unitPattern count="other">{0} دقیقه بعد</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} دقیقه پیش</unitPattern>
-				<unitPattern count="other">{0} دقیقه پیش</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ماه</unitPattern>
 				<unitPattern count="other">{0} ماه</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} ماه بعد</unitPattern>
-				<unitPattern count="other">{0} ماه بعد</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} ماه پیش</unitPattern>
-				<unitPattern count="other">{0} ماه پیش</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} ثانیه</unitPattern>
 				<unitPattern count="other">{0} ثانیه</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} ثانیه بعد</unitPattern>
-				<unitPattern count="other">{0} ثانیه بعد</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} ثانیه پیش</unitPattern>
-				<unitPattern count="other">{0} ثانیه پیش</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} هفته</unitPattern>
 				<unitPattern count="other">{0} هفته</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} هفته بعد</unitPattern>
-				<unitPattern count="other">{0} هفته بعد</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} هفته پیش</unitPattern>
-				<unitPattern count="other">{0} هفته پیش</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} سال</unitPattern>
 				<unitPattern count="other">{0} سال</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} سال بعد</unitPattern>
-				<unitPattern count="other">{0} سال بعد</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} سال پیش</unitPattern>
-				<unitPattern count="other">{0} سال پیش</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} سانتی‌متر</unitPattern>
@@ -5641,25 +5641,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} روز</unitPattern>
 				<unitPattern count="other">{0} روز</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} روز بعد</unitPattern>
-				<unitPattern count="other">{0} روز بعد</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} روز پیش</unitPattern>
-				<unitPattern count="other">{0} روز پیش</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} ساعت</unitPattern>
 				<unitPattern count="other">{0} ساعت</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} ساعت بعد</unitPattern>
-				<unitPattern count="other">{0} ساعت بعد</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} ساعت پیش</unitPattern>
-				<unitPattern count="other">{0} ساعت پیش</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} میلی‌ثانیه</unitPattern>
@@ -5669,61 +5653,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} دقیقه</unitPattern>
 				<unitPattern count="other">{0} دقیقه</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} دقیقه بعد</unitPattern>
-				<unitPattern count="other">{0} دقیقه بعد</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} دقیقه پیش</unitPattern>
-				<unitPattern count="other">{0} دقیقه پیش</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ماه</unitPattern>
 				<unitPattern count="other">{0} ماه</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} ماه بعد</unitPattern>
-				<unitPattern count="other">{0} ماه بعد</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} ماه پیش</unitPattern>
-				<unitPattern count="other">{0} ماه پیش</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} ثانیه</unitPattern>
 				<unitPattern count="other">{0} ثانیه</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} ثانیه بعد</unitPattern>
-				<unitPattern count="other">{0} ثانیه بعد</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} ثانیه پیش</unitPattern>
-				<unitPattern count="other">{0} ثانیه پیش</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} هفته</unitPattern>
 				<unitPattern count="other">{0} هفته</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} هفته بعد</unitPattern>
-				<unitPattern count="other">{0} هفته بعد</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} هفته پیش</unitPattern>
-				<unitPattern count="other">{0} هفته پیش</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} سال</unitPattern>
 				<unitPattern count="other">{0} سال</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} سال بعد</unitPattern>
-				<unitPattern count="other">{0} سال بعد</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} سال پیش</unitPattern>
-				<unitPattern count="other">{0} سال پیش</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} سانت</unitPattern>
@@ -5886,25 +5830,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} روز</unitPattern>
 				<unitPattern count="other">{0} روز</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} روز بعد</unitPattern>
-				<unitPattern count="other">{0} روز بعد</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} روز پیش</unitPattern>
-				<unitPattern count="other">{0} روز پیش</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} ساعت</unitPattern>
 				<unitPattern count="other">{0} ساعت</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} ساعت بعد</unitPattern>
-				<unitPattern count="other">{0} ساعت بعد</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} ساعت پیش</unitPattern>
-				<unitPattern count="other">{0} ساعت پیش</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0}ms</unitPattern>
@@ -5914,61 +5842,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} دقیقه</unitPattern>
 				<unitPattern count="other">{0} دقیقه</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} دقیقه بعد</unitPattern>
-				<unitPattern count="other">{0} دقیقه بعد</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} دقیقه پیش</unitPattern>
-				<unitPattern count="other">{0} دقیقه پیش</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ماه</unitPattern>
 				<unitPattern count="other">{0} ماه</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} ماه بعد</unitPattern>
-				<unitPattern count="other">{0} ماه بعد</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} ماه پیش</unitPattern>
-				<unitPattern count="other">{0} ماه پیش</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0}s</unitPattern>
 				<unitPattern count="other">{0}s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} ثانیه بعد</unitPattern>
-				<unitPattern count="other">{0} ثانیه بعد</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} ثانیه پیش</unitPattern>
-				<unitPattern count="other">{0} ثانیه پیش</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} هفته</unitPattern>
 				<unitPattern count="other">{0} هفته</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} هفته بعد</unitPattern>
-				<unitPattern count="other">{0} هفته بعد</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} هفته پیش</unitPattern>
-				<unitPattern count="other">{0} هفته پیش</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} سال</unitPattern>
 				<unitPattern count="other">{0} سال</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} سال بعد</unitPattern>
-				<unitPattern count="other">{0} سال بعد</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} سال پیش</unitPattern>
-				<unitPattern count="other">{0} سال پیش</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>

@@ -1374,18 +1374,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">verlede jaar</relative>
 				<relative type="0">hierdie jaar</relative>
 				<relative type="1">volgende jaar</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Oor {0} jaar</relativeTimePattern>
+					<relativeTimePattern count="other">Oor {0} jaar</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} jaar gelede</relativeTimePattern>
+					<relativeTimePattern count="other">{0} jaar gelede</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Maand</displayName>
 				<relative type="-1">verlede maand</relative>
 				<relative type="0">vandeesmaand</relative>
 				<relative type="1">volgende maand</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Oor {0} maand</relativeTimePattern>
+					<relativeTimePattern count="other">Oor {0} maande</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} maand gelede</relativeTimePattern>
+					<relativeTimePattern count="other">{0} maande gelede</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>Week</displayName>
 				<relative type="-1">verlede week</relative>
 				<relative type="0">vandeesweek</relative>
 				<relative type="1">volgende week</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Oor {0} week</relativeTimePattern>
+					<relativeTimePattern count="other">Oor {0} weke</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} week gelede</relativeTimePattern>
+					<relativeTimePattern count="other">{0} weke gelede</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>Dag</displayName>
@@ -1394,6 +1418,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">vandag</relative>
 				<relative type="1">môre</relative>
 				<relative type="2">Die dag na môre</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Oor {0} dag</relativeTimePattern>
+					<relativeTimePattern count="other">Oor {0} dae</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} dag gelede</relativeTimePattern>
+					<relativeTimePattern count="other">{0} dae gelede</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>Dag van die Week</displayName>
@@ -1438,13 +1470,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>Uur</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Oor {0} uur</relativeTimePattern>
+					<relativeTimePattern count="other">Oor {0} uur</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} uur gelede</relativeTimePattern>
+					<relativeTimePattern count="other">{0} uur gelede</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Minuut</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Oor {0} minuut</relativeTimePattern>
+					<relativeTimePattern count="other">Oor {0} minute</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} minuut gelede</relativeTimePattern>
+					<relativeTimePattern count="other">{0} minute gelede</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Sekonde</displayName>
 				<relative type="0">nou</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Oor {0} sekonde</relativeTimePattern>
+					<relativeTimePattern count="other">Oor {0} sekondes</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} sekonde gelede</relativeTimePattern>
+					<relativeTimePattern count="other">{0} sekondes gelede</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>Tydsone</displayName>
@@ -4428,25 +4484,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} dag</unitPattern>
 				<unitPattern count="other">{0} dae</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Oor {0} dag</unitPattern>
-				<unitPattern count="other">Oor {0} dae</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} dag gelede</unitPattern>
-				<unitPattern count="other">{0} dae gelede</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} uur</unitPattern>
 				<unitPattern count="other">{0} uur</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Oor {0} uur</unitPattern>
-				<unitPattern count="other">Oor {0} uur</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} uur gelede</unitPattern>
-				<unitPattern count="other">{0} uur gelede</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} millisekonde</unitPattern>
@@ -4456,61 +4496,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minuut</unitPattern>
 				<unitPattern count="other">{0} minute</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Oor {0} minuut</unitPattern>
-				<unitPattern count="other">Oor {0} minute</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} minuut gelede</unitPattern>
-				<unitPattern count="other">{0} minute gelede</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} maand</unitPattern>
 				<unitPattern count="other">{0} maande</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Oor {0} maand</unitPattern>
-				<unitPattern count="other">Oor {0} maande</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} maand gelede</unitPattern>
-				<unitPattern count="other">{0} maande gelede</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} sekonde</unitPattern>
 				<unitPattern count="other">{0} sekondes</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Oor {0} sekonde</unitPattern>
-				<unitPattern count="other">Oor {0} sekondes</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} sekonde gelede</unitPattern>
-				<unitPattern count="other">{0} sekondes gelede</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} week</unitPattern>
 				<unitPattern count="other">{0} weke</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Oor {0} week</unitPattern>
-				<unitPattern count="other">Oor {0} weke</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} week gelede</unitPattern>
-				<unitPattern count="other">{0} weke gelede</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} jaar</unitPattern>
 				<unitPattern count="other">{0} jaar</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Oor {0} jaar</unitPattern>
-				<unitPattern count="other">Oor {0} jaar</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} jaar gelede</unitPattern>
-				<unitPattern count="other">{0} jaar gelede</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} sentimeter</unitPattern>
@@ -4673,25 +4673,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} dag</unitPattern>
 				<unitPattern count="other">{0} dae</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Oor {0} dag</unitPattern>
-				<unitPattern count="other">Oor {0} dae</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} dag gelede</unitPattern>
-				<unitPattern count="other">{0} dae gelede</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} u.</unitPattern>
 				<unitPattern count="other">{0} u.</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Oor {0} u.</unitPattern>
-				<unitPattern count="other">Oor {0} u.</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} u. gelede</unitPattern>
-				<unitPattern count="other">{0} u. gelede</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -4701,61 +4685,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min.</unitPattern>
 				<unitPattern count="other">{0} min.</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Oor {0} min.</unitPattern>
-				<unitPattern count="other">Oor {0} min.</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} min. gelede</unitPattern>
-				<unitPattern count="other">{0} min. gelede</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} md.</unitPattern>
 				<unitPattern count="other">{0} md.</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Oor {0} md.</unitPattern>
-				<unitPattern count="other">Oor {0} md.</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} md. gelede</unitPattern>
-				<unitPattern count="other">{0} md. gelede</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} sek.</unitPattern>
 				<unitPattern count="other">{0} sek.</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Oor {0} sek.</unitPattern>
-				<unitPattern count="other">Oor {0} sek.</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} sek. gelede</unitPattern>
-				<unitPattern count="other">{0} sek. gelede</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} w.</unitPattern>
 				<unitPattern count="other">{0} w.</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Oor {0} w.</unitPattern>
-				<unitPattern count="other">Oor {0} w.</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} w. gelede</unitPattern>
-				<unitPattern count="other">{0} w. gelede</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} j.</unitPattern>
 				<unitPattern count="other">{0} j.</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Oor {0} j.</unitPattern>
-				<unitPattern count="other">Oor {0} j.</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} j. gelede</unitPattern>
-				<unitPattern count="other">{0} j. gelede</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>
@@ -4918,25 +4862,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}d.</unitPattern>
 				<unitPattern count="other">{0}d.</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Oor {0}dae</unitPattern>
-				<unitPattern count="other">Oor {0}dae</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} dae gelede</unitPattern>
-				<unitPattern count="other">{0} dae gelede</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0}u.</unitPattern>
 				<unitPattern count="other">{0}u.</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Oor {0} u.</unitPattern>
-				<unitPattern count="other">Oor {0} u.</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} u. gelede</unitPattern>
-				<unitPattern count="other">{0} u. gelede</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -4946,57 +4874,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}min.</unitPattern>
 				<unitPattern count="other">{0}min.</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Oor {0} min.</unitPattern>
-				<unitPattern count="other">Oor {0} min.</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} min. gelede</unitPattern>
-				<unitPattern count="other">{0} min. gelede</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0}md.</unitPattern>
 				<unitPattern count="other">{0}md.</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Oor {0} md.</unitPattern>
-				<unitPattern count="other">Oor {0} md.</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} md. gelede</unitPattern>
-				<unitPattern count="other">{0} md. gelede</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0}sek.</unitPattern>
 				<unitPattern count="other">{0}sek.</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Oor {0}sek.</unitPattern>
-				<unitPattern count="other">Oor {0} sek.</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} sek. gelede</unitPattern>
-				<unitPattern count="other">{0} sek. gelede</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0}w.</unitPattern>
 				<unitPattern count="other">{0}w.</unitPattern>
-			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Oor {0} w.</unitPattern>
-				<unitPattern count="other">Oor {0} w.</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} w. gelede</unitPattern>
-				<unitPattern count="other">{0} w. gelede</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Oor {0} j.</unitPattern>
-				<unitPattern count="other">Oor {0} j.</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} j. gelede</unitPattern>
-				<unitPattern count="other">{0} j. gelede</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0}cm</unitPattern>

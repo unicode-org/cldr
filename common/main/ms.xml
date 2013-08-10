@@ -1482,18 +1482,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">tahun lepas</relative>
 				<relative type="0">tahun ini</relative>
 				<relative type="1">tahun depan</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Dalam {0} tahun</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} tahun lalu</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Bulan</displayName>
 				<relative type="-1">bulan lalu</relative>
 				<relative type="0">bulan ini</relative>
 				<relative type="1">bulan depan</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Dalam {0} bulan</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} bulan lalu</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>Minggu</displayName>
 				<relative type="-1">minggu lepas</relative>
 				<relative type="0">minggu ini</relative>
 				<relative type="1">minggu depan</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Dalam {0} minggu</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} minggu lalu</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>Hari</displayName>
@@ -1502,6 +1520,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">Hari ini</relative>
 				<relative type="1">Esok</relative>
 				<relative type="2">Hari selepas esok</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Dalam {0} hari</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} hari lalu</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>Hari dalam Minggu</displayName>
@@ -1546,13 +1570,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>Jam</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Dalam {0} jam</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} jam lalu</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Minit</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Dalam {0} minit</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} minit lalu</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Kedua</displayName>
 				<relative type="0">sekarang</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">Dalam {0} saat</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} saat lalu</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>Zon Waktu</displayName>
@@ -4571,20 +4613,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0} hari</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">Dalam {0} hari</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">{0} hari lalu</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} jam</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">Dalam {0} jam</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">{0} jam lalu</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0} milisaat</unitPattern>
@@ -4592,47 +4622,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} minit</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">Dalam {0} minit</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">{0} minit lalu</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0} bulan</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">Dalam {0} bulan</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">{0} bulan lalu</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} saat</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">Dalam {0} saat</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">{0} saat lalu</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} minggu</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">Dalam {0} minggu</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">{0} minggu lalu</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0} tahun</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">Dalam {0} tahun</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0} tahun lalu</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0} sentimeter</unitPattern>
@@ -4756,20 +4756,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0} hari</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">Dalam {0} hari</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">{0} hari lalu</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} j</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">Dalam {0} j</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">{0} j lalu</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0} ms</unitPattern>
@@ -4777,47 +4765,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">Dalam {0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">{0} min lalu</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0} bln</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">Dalam {0} bln</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">{0} bln lalu</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} saat</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">Dalam {0} saat</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">{0} saat lalu</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} mgu</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">Dalam {0} mgu</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">{0} mgu lalu</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0} thn</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">Dalam {0} thn</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0} thn lalu</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0} sm</unitPattern>
@@ -4941,20 +4899,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0} h</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">Dalam {0} hari</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">{0} hari lalu</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} j</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">Dalam {0} j</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">{0} j lalu</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0} ms</unitPattern>
@@ -4962,47 +4908,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">Dalam {0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">{0} min lalu</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0} bln</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">Dalam {0} bln</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">{0} bln lalu</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">Dalam {0} saat</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">{0} saat lalu</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} mgu</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">Dalam {0} mgu</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">{0} mgu lalu</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0} thn</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">Dalam {0} thn</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0} thn lalu</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0} sm</unitPattern>

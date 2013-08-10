@@ -1198,18 +1198,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">былтыр</relative>
 				<relative type="0">быйыл</relative>
 				<relative type="1">эмдиги жылы</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} жылдан кийин</relativeTimePattern>
+					<relativeTimePattern count="other">{0} жылдан кийин</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} жыл мурун</relativeTimePattern>
+					<relativeTimePattern count="other">{0} жыл мурун</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>ай</displayName>
 				<relative type="-1">өткөн айда</relative>
 				<relative type="0">бул айда</relative>
 				<relative type="1">эмдиги айда</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} айдан кийин</relativeTimePattern>
+					<relativeTimePattern count="other">{0} айдан кийин</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ай мурун</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ай мурун</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>апта</displayName>
 				<relative type="-1">өткөн аптада</relative>
 				<relative type="0">ушул аптада</relative>
 				<relative type="1">келерки аптада</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} аптадан кийин</relativeTimePattern>
+					<relativeTimePattern count="other">{0} аптадан кийин</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} апта мурун</relativeTimePattern>
+					<relativeTimePattern count="other">{0} апта мурун</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>күн</displayName>
@@ -1218,6 +1242,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">бүгүн</relative>
 				<relative type="1">эртеӊ</relative>
 				<relative type="2">бүрсүгүнү</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} күндөн кийин</relativeTimePattern>
+					<relativeTimePattern count="other">{0} күндөн кийин</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} күн мурун</relativeTimePattern>
+					<relativeTimePattern count="other">{0} күн мурун</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>апта күнү</displayName>
@@ -1262,13 +1294,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>саат</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} сааттан кийин</relativeTimePattern>
+					<relativeTimePattern count="other">{0} сааттан кийин</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} саат мурун</relativeTimePattern>
+					<relativeTimePattern count="other">{0} саат мурун</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>мүнөт</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} мүнөттөн кийин</relativeTimePattern>
+					<relativeTimePattern count="other">{0} мүнөттөн кийин</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} мүнөт мурун</relativeTimePattern>
+					<relativeTimePattern count="other">{0} мүнөт мурун</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>секунд</displayName>
 				<relative type="0">азыр</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} секунддан кийин</relativeTimePattern>
+					<relativeTimePattern count="other">{0} секунддан кийин</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} секунд мурун</relativeTimePattern>
+					<relativeTimePattern count="other">{0} секунд мурун</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>саат алкагы</displayName>
@@ -4491,25 +4547,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} күн</unitPattern>
 				<unitPattern count="other">{0} күн</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} күндөн кийин</unitPattern>
-				<unitPattern count="other">{0} күндөн кийин</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} күн мурун</unitPattern>
-				<unitPattern count="other">{0} күн мурун</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} саат</unitPattern>
 				<unitPattern count="other">{0} саат</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} сааттан кийин</unitPattern>
-				<unitPattern count="other">{0} сааттан кийин</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} саат мурун</unitPattern>
-				<unitPattern count="other">{0} саат мурун</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} миллисекунд</unitPattern>
@@ -4519,61 +4559,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} мүнөт</unitPattern>
 				<unitPattern count="other">{0} мүнөт</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} мүнөттөн кийин</unitPattern>
-				<unitPattern count="other">{0} мүнөттөн кийин</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} мүнөт мурун</unitPattern>
-				<unitPattern count="other">{0} мүнөт мурун</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ай</unitPattern>
 				<unitPattern count="other">{0} ай</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} айдан кийин</unitPattern>
-				<unitPattern count="other">{0} айдан кийин</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} ай мурун</unitPattern>
-				<unitPattern count="other">{0} ай мурун</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунд</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} секунддан кийин</unitPattern>
-				<unitPattern count="other">{0} секунддан кийин</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} секунд мурун</unitPattern>
-				<unitPattern count="other">{0} секунд мурун</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} апта</unitPattern>
 				<unitPattern count="other">{0} апта</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} аптадан кийин</unitPattern>
-				<unitPattern count="other">{0} аптадан кийин</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} апта мурун</unitPattern>
-				<unitPattern count="other">{0} апта мурун</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} жыл</unitPattern>
 				<unitPattern count="other">{0} жыл</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} жылдан кийин</unitPattern>
-				<unitPattern count="other">{0} жылдан кийин</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} жыл мурун</unitPattern>
-				<unitPattern count="other">{0} жыл мурун</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} см</unitPattern>
@@ -4736,25 +4736,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} күн</unitPattern>
 				<unitPattern count="other">{0} күн</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} күндө</unitPattern>
-				<unitPattern count="other">{0} күндө</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} күн мурун</unitPattern>
-				<unitPattern count="other">{0} күн мурун</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} с</unitPattern>
 				<unitPattern count="other">{0} с</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} с. кийин</unitPattern>
-				<unitPattern count="other">{0} с. кийин</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} с. мурун</unitPattern>
-				<unitPattern count="other">{0} с. мурун</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} мс</unitPattern>
@@ -4764,61 +4748,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} мүн</unitPattern>
 				<unitPattern count="other">{0} мүн</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} мүн. кийин</unitPattern>
-				<unitPattern count="other">{0} мүн. кийин</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} мүн. мурун</unitPattern>
-				<unitPattern count="other">{0} мүн. мурун</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ай</unitPattern>
 				<unitPattern count="other">{0} ай</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} айда</unitPattern>
-				<unitPattern count="other">{0} айда</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} ай му</unitPattern>
-				<unitPattern count="other">{0} ай му</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} сек</unitPattern>
 				<unitPattern count="other">{0} сек</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} сек. кийин</unitPattern>
-				<unitPattern count="other">{0} сек. кийин</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} сек. мурун</unitPattern>
-				<unitPattern count="other">{0} сек. мурун</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} ап</unitPattern>
 				<unitPattern count="other">{0} ап</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} аптада</unitPattern>
-				<unitPattern count="other">{0} аптада</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} апта му</unitPattern>
-				<unitPattern count="other">{0} апта му</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} ж.</unitPattern>
 				<unitPattern count="other">{0} ж.</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} жылда</unitPattern>
-				<unitPattern count="other">{0} жылда</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} ж. му</unitPattern>
-				<unitPattern count="other">{0} ж. му</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} см</unitPattern>
@@ -4981,25 +4925,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} к</unitPattern>
 				<unitPattern count="other">{0} к</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">{0} күндө</unitPattern>
-				<unitPattern count="other">{0} күндө</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} күн му</unitPattern>
-				<unitPattern count="other">{0} күн му</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} с</unitPattern>
 				<unitPattern count="other">{0} с</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">{0} с. кийин</unitPattern>
-				<unitPattern count="other">{0} с. кийин</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} с. мурун</unitPattern>
-				<unitPattern count="other">{0} с. мурун</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} мс</unitPattern>
@@ -5009,61 +4937,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} мүн</unitPattern>
 				<unitPattern count="other">{0} мүн</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">{0} мүн. кийин</unitPattern>
-				<unitPattern count="other">{0} мүн. кийин</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} мүн. мурун</unitPattern>
-				<unitPattern count="other">{0} мүн. мурун</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} ай</unitPattern>
 				<unitPattern count="other">{0} ай</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">{0} айда</unitPattern>
-				<unitPattern count="other">{0} айда</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">-{0} ай</unitPattern>
-				<unitPattern count="other">-{0} ай</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} сек</unitPattern>
 				<unitPattern count="other">{0} сек</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">{0} сек. кийин</unitPattern>
-				<unitPattern count="other">{0} сек. кийин</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} сек. мурун</unitPattern>
-				<unitPattern count="other">{0} сек. мурун</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} ап</unitPattern>
 				<unitPattern count="other">{0} ап</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">{0} аптада</unitPattern>
-				<unitPattern count="other">{0} аптада</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} апта му</unitPattern>
-				<unitPattern count="other">{0} апта му</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} ж.</unitPattern>
 				<unitPattern count="other">{0} ж.</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">{0} жылда</unitPattern>
-				<unitPattern count="other">{0} жылда</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">-{0} ж.</unitPattern>
-				<unitPattern count="other">-{0} ж.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} см</unitPattern>

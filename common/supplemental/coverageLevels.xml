@@ -64,6 +64,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%otherNumberingSystemTypes" value="(native|traditional|finance)"/>
 		<coverageVariable key="%persianCalendarTerritories" value="(AF|IR)"/>
 		<coverageVariable key="%phonebookCollationLanguages" value="(de|fi)"/>
+		<coverageVariable key="%relativeTimeTypes" value="(year|month|week|day|hour|minute|second)"/>
 		<coverageVariable key="%script30" value="(Zxxx|Zzzz)"/>
 		<coverageVariable key="%script40" value="(Latn|Hans|Hant|Cyrl|Arab)"/>
 		<coverageVariable key="%script60" value="(Jpan|Kore)"/>
@@ -81,7 +82,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%territory100" value="AN"/>
 		<coverageVariable key="%traditionalCollationLanguages" value="(bn|es|kn|sa)"/>
 		<coverageVariable key="%unitDurationTypes" value="duration-(year|month|week|day|hour|minute|second|millisecond)"/>
-		<coverageVariable key="%unitDurationTypesFutureOrPast" value="duration-(year|month|week|day|hour|minute|second)(-(future|past))"/>
 		<coverageVariable key="%unitLengths" value="(long|short|narrow)"/>
 		<coverageVariable key="%unitsCommonMetric" value="(length-(centi|milli|kilo)?meter|mass-(kilo)?gram|temperature-celsius|speed-kilometer-per-hour|volume-liter)"/>
 		<coverageVariable key="%unitsCommonUS" value="(length-(inch|foot|yard|mile)|mass-(ounce|pound)|temperature-fahrenheit|speed-mile-per-hour)"/>
@@ -286,6 +286,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='[^']++']"/>
 		<coverageLevel value="80" match="dates/fields/field[@type='day']/relative[@type='(-3|-2|2|3)']"/>
 		<coverageLevel value="80" match="dates/fields/field[@type='%dayTypes']/relative[@type='(-1|0|1)']"/>
+		<coverageLevel value="80" match="dates/fields/field[@type='%relativeTimeTypes']/relativeTime[@type='(future|past)']/relativeTimePattern[@count='${Target-Plurals}']"/>		
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/%metazoneTypes"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80_stdonly']/long/standard"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/zone[@type='(Africa|America|Antarctica|Arctic|Asia|Australia|Atlantic|Europe|Indian|Pacific)/[^']++']/exemplarCity"/>
@@ -303,7 +304,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="characters/ellipsis[@type='[^']++']"/>
 		<coverageLevel value="80" match="characters/moreInformation"/>
 		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='(short|long)']/decimalFormat[@type='standard']/pattern[@type='[^']++'][@count='${Target-Plurals}']"/>
-		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitDurationTypesFutureOrPast']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsOther']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='per']/compoundUnitPattern"/>

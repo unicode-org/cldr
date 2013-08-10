@@ -942,7 +942,7 @@ $Date$
 <!ATTLIST fields alt NMTOKENS #IMPLIED >
 <!ATTLIST fields validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT field ( alias | (displayName*, relative*, special*)) >
+<!ELEMENT field ( alias | (displayName*, relative*, relativeTime*, special*)) >
 <!ATTLIST field type ( era | year | month | week | day | weekday | sun | mon | tue | wed | thu | fri | sat | dayperiod | hour | minute | second | zone ) #IMPLIED >
 <!ATTLIST field draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST field standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -958,6 +958,19 @@ $Date$
 <!ATTLIST relative alt NMTOKENS #IMPLIED >
 <!ATTLIST relative validSubLocales CDATA #IMPLIED >
 
+<!ELEMENT relativeTime ( alias | (relativeTimePattern*, special*)) >
+<!ATTLIST relativeTime type NMTOKEN #REQUIRED >
+<!ATTLIST relativeTime draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+<!ATTLIST relativeTime references CDATA #IMPLIED >
+<!ATTLIST relativeTime alt NMTOKENS #IMPLIED >
+<!ATTLIST relativeTime validSubLocales CDATA #IMPLIED >
+
+<!ELEMENT relativeTimePattern ( #PCDATA ) >
+<!ATTLIST relativeTimePattern count ( zero | one | two | few | many | other ) #REQUIRED >
+<!ATTLIST relativeTimePattern draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST relativeTimePattern references CDATA #IMPLIED >
+<!ATTLIST relativeTimePattern alt NMTOKENS #IMPLIED >
+<!ATTLIST relativeTimePattern validSubLocales CDATA #IMPLIED >
 
 <!-- ######################################################### -->
 

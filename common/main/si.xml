@@ -1193,18 +1193,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">පසුගිය වසර</relative>
 				<relative type="0">මෙම වසර</relative>
 				<relative type="1">ඊළඟ වසර</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">වසර {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="other">වසර {0} කින්</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">වසර {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">වසර {0}ට පෙර</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>මාසය</displayName>
 				<relative type="-1">පසුගිය මාසය</relative>
 				<relative type="0">මෙම මාසය</relative>
 				<relative type="1">ඊළඟ මාසය</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">මාස {0}කින්</relativeTimePattern>
+					<relativeTimePattern count="other">මාස {0}කින්</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">මාස {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">මාස {0}කට පෙර</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>සතිය</displayName>
 				<relative type="-1">පසුගිය සතිය</relative>
 				<relative type="0">මෙම සතිය</relative>
 				<relative type="1">ඊළඟ සතිය</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">සති {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="other">සති {0} කින්</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">සති {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">සති {0}කට පෙර</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>දිනය</displayName>
@@ -1213,6 +1237,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">අද</relative>
 				<relative type="1">හෙට</relative>
 				<relative type="2">අනිද්දා</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">දින {0}න්</relativeTimePattern>
+					<relativeTimePattern count="other">දින {0}න්</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">දින {0} ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">දින {0} ට පෙර</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>සතියේ දිනය</displayName>
@@ -1257,13 +1289,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>පැය</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">පැය {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="other">පැය {0} කින්</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">පැය {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">පැය {0}ට පෙර</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>මිනිත්තුව</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">මිනිත්තු {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="other">මිනිත්තු {0} කින්</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">මිනිත්තු {0}ට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">මිනිත්තු {0}ට පෙර</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>තත්පරය</displayName>
 				<relative type="0">දැන්</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">තත්පර {0} කින්</relativeTimePattern>
+					<relativeTimePattern count="other">තත්පර {0} කින්</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">තත්පර {0}කට පෙර</relativeTimePattern>
+					<relativeTimePattern count="other">තත්පර {0}කට පෙර</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>කාල කලාපය</displayName>
@@ -4100,25 +4156,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">දින {0}</unitPattern>
 				<unitPattern count="other">දින {0}</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">දින {0}න්</unitPattern>
-				<unitPattern count="other">දින {0}න්</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">දින {0} ට පෙර</unitPattern>
-				<unitPattern count="other">දින {0} ට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">පැය {0}</unitPattern>
 				<unitPattern count="other">පැය {0}</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">පැය {0} කින්</unitPattern>
-				<unitPattern count="other">පැය {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">පැය {0}ට පෙර</unitPattern>
-				<unitPattern count="other">පැය {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">මිලිතත්පර {0}</unitPattern>
@@ -4128,61 +4168,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">මිනිත්තු {0} කින්</unitPattern>
-				<unitPattern count="other">මිනිත්තු {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">මිනිත්තු {0}ට පෙර</unitPattern>
-				<unitPattern count="other">මිනිත්තු {0}ට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">මාස {0}</unitPattern>
 				<unitPattern count="other">මාස {0}</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">මාස {0}කින්</unitPattern>
-				<unitPattern count="other">මාස {0}කින්</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">මාස {0}කට පෙර</unitPattern>
-				<unitPattern count="other">මාස {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">තත්පර {0}</unitPattern>
 				<unitPattern count="other">තත්පර {0}</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">තත්පර {0} කින්</unitPattern>
-				<unitPattern count="other">තත්පර {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">තත්පර {0}කට පෙර</unitPattern>
-				<unitPattern count="other">තත්පර {0}කට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">සති {0}</unitPattern>
 				<unitPattern count="other">සති {0}</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">සති {0} කින්</unitPattern>
-				<unitPattern count="other">සති {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">සති {0}කට පෙර</unitPattern>
-				<unitPattern count="other">සති {0}කට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">වසර {0}</unitPattern>
 				<unitPattern count="other">වසර {0}</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">වසර {0} කින්</unitPattern>
-				<unitPattern count="other">වසර {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">වසර {0}ට පෙර</unitPattern>
-				<unitPattern count="other">වසර {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">සෙන්ටිමීටර් {0}</unitPattern>
@@ -4345,25 +4345,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">දින {0}</unitPattern>
 				<unitPattern count="other">දින {0}</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">දින {0}න්</unitPattern>
-				<unitPattern count="other">දින {0}න්</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">දින {0} ට පෙර</unitPattern>
-				<unitPattern count="other">දින {0} ට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">පැය {0}</unitPattern>
 				<unitPattern count="other">පැය {0}</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">පැය {0} කින්</unitPattern>
-				<unitPattern count="other">පැය {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">පැය {0}ට පෙර</unitPattern>
-				<unitPattern count="other">පැය {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">මි.ත {0}</unitPattern>
@@ -4373,61 +4357,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">මිනිත්තු {0} කින්</unitPattern>
-				<unitPattern count="other">මිනිත්තු {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">මිනිත්තු {0}ට පෙර</unitPattern>
-				<unitPattern count="other">මිනිත්තු {0}ට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">මාස {0}</unitPattern>
 				<unitPattern count="other">මාස {0}</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">මාස {0} කින්</unitPattern>
-				<unitPattern count="other">මාස {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">මාස {0}කට පෙර</unitPattern>
-				<unitPattern count="other">මාස {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">තත්පර {0}</unitPattern>
 				<unitPattern count="other">තත්පර {0}</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">තත්පර {0} කින්</unitPattern>
-				<unitPattern count="other">තත්පර {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">තත්පර {0}කට පෙර</unitPattern>
-				<unitPattern count="other">තත්පර {0}කට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">සති {0}</unitPattern>
 				<unitPattern count="other">සති {0}</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">සති {0} කින්</unitPattern>
-				<unitPattern count="other">සති {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">සති {0}කට පෙර</unitPattern>
-				<unitPattern count="other">සති {0}කට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">වසර {0}</unitPattern>
 				<unitPattern count="other">වසර {0}</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">වසර {0} කින්</unitPattern>
-				<unitPattern count="other">වසර {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">වසර {0}ට පෙර</unitPattern>
-				<unitPattern count="other">වසර {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">සෙ.මී {0}</unitPattern>
@@ -4590,25 +4534,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">දින {0}</unitPattern>
 				<unitPattern count="other">දින {0}</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">දින {0}න්</unitPattern>
-				<unitPattern count="other">දින {0}න්</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">දින {0} ට පෙර</unitPattern>
-				<unitPattern count="other">දින {0} ට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">පැය {0}</unitPattern>
 				<unitPattern count="other">පැය {0}</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">පැය {0} කින්</unitPattern>
-				<unitPattern count="other">පැය {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">පැය {0}ට පෙර</unitPattern>
-				<unitPattern count="other">පැය {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">මි.ත {0}</unitPattern>
@@ -4618,61 +4546,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">මිනිත්තු {0}</unitPattern>
 				<unitPattern count="other">මිනිත්තු {0}</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">මිනිත්තු {0} කින්</unitPattern>
-				<unitPattern count="other">මිනිත්තු {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">මිනිත්තු {0}ට පෙර</unitPattern>
-				<unitPattern count="other">මිනිත්තු {0}ට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">මාස {0}</unitPattern>
 				<unitPattern count="other">මාස {0}</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">මාස {0} කින්</unitPattern>
-				<unitPattern count="other">මාස {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">මාස {0}කට පෙර</unitPattern>
-				<unitPattern count="other">මාස {0}කට පෙර</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">තත්පර {0}</unitPattern>
 				<unitPattern count="other">තත්පර {0}</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">තත්පර {0} කින්</unitPattern>
-				<unitPattern count="other">තත්පර {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">තත්පර {0}කට පෙර</unitPattern>
-				<unitPattern count="other">තත්පර {0}කට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">සති {0}</unitPattern>
 				<unitPattern count="other">සති {0}</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">සති {0} කින්</unitPattern>
-				<unitPattern count="other">සති {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">සති {0}කට පෙර</unitPattern>
-				<unitPattern count="other">සති {0}කට පෙර</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">වසර {0}</unitPattern>
 				<unitPattern count="other">වසර {0}</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">වසර {0} කින්</unitPattern>
-				<unitPattern count="other">වසර {0} කින්</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">වසර {0}ට පෙර</unitPattern>
-				<unitPattern count="other">වසර {0}ට පෙර</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">සෙ.මී {0}</unitPattern>

@@ -1618,24 +1618,56 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">Last year</relative>
 				<relative type="0">This year</relative>
 				<relative type="1">Next year</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">In {0} year</relativeTimePattern>
+					<relativeTimePattern count="other">In {0} years</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} year ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} years ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Month</displayName>
 				<relative type="-1">Last month</relative>
 				<relative type="0">This month</relative>
 				<relative type="1">Next month</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">In {0} month</relativeTimePattern>
+					<relativeTimePattern count="other">In {0} months</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} month ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} months ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>Week</displayName>
 				<relative type="-1">Last week</relative>
 				<relative type="0">This week</relative>
 				<relative type="1">Next week</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">In {0} week</relativeTimePattern>
+					<relativeTimePattern count="other">In {0} weeks</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} week ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} weeks ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>Day</displayName>
 				<relative type="-1">Yesterday</relative>
 				<relative type="0">Today</relative>
 				<relative type="1">Tomorrow</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">In {0} day</relativeTimePattern>
+					<relativeTimePattern count="other">In {0} days</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} day ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>Day of the Week</displayName>
@@ -1680,12 +1712,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>Hour</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">In {0} hour</relativeTimePattern>
+					<relativeTimePattern count="other">In {0} hours</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} hour ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} hours ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Minute</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">In {0} minute</relativeTimePattern>
+					<relativeTimePattern count="other">In {0} minutes</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} minute ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} minutes ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Second</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">In {0} second</relativeTimePattern>
+					<relativeTimePattern count="other">In {0} seconds</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} second ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} seconds ago</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>Time Zone</displayName>
@@ -4963,25 +5019,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} day</unitPattern>
 				<unitPattern count="other">{0} days</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">In {0} day</unitPattern>
-				<unitPattern count="other">In {0} days</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} day ago</unitPattern>
-				<unitPattern count="other">{0} days ago</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} hour</unitPattern>
 				<unitPattern count="other">{0} hours</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">In {0} hour</unitPattern>
-				<unitPattern count="other">In {0} hours</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} hour ago</unitPattern>
-				<unitPattern count="other">{0} hours ago</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} millisecond</unitPattern>
@@ -4991,61 +5031,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minute</unitPattern>
 				<unitPattern count="other">{0} minutes</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">In {0} minute</unitPattern>
-				<unitPattern count="other">In {0} minutes</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} minute ago</unitPattern>
-				<unitPattern count="other">{0} minutes ago</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} month</unitPattern>
 				<unitPattern count="other">{0} months</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">In {0} month</unitPattern>
-				<unitPattern count="other">In {0} months</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} month ago</unitPattern>
-				<unitPattern count="other">{0} months ago</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} second</unitPattern>
 				<unitPattern count="other">{0} seconds</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">In {0} second</unitPattern>
-				<unitPattern count="other">In {0} seconds</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} second ago</unitPattern>
-				<unitPattern count="other">{0} seconds ago</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} week</unitPattern>
 				<unitPattern count="other">{0} weeks</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">In {0} week</unitPattern>
-				<unitPattern count="other">In {0} weeks</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} week ago</unitPattern>
-				<unitPattern count="other">{0} weeks ago</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} year</unitPattern>
 				<unitPattern count="other">{0} years</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">In {0} year</unitPattern>
-				<unitPattern count="other">In {0} years</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} year ago</unitPattern>
-				<unitPattern count="other">{0} years ago</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} centimetre</unitPattern>
@@ -5208,25 +5208,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} day</unitPattern>
 				<unitPattern count="other">{0} days</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">In {0} day</unitPattern>
-				<unitPattern count="other">In {0} days</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} day ago</unitPattern>
-				<unitPattern count="other">{0} days ago</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} hr</unitPattern>
 				<unitPattern count="other">{0} hrs</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">In {0} hr</unitPattern>
-				<unitPattern count="other">In {0} hrs</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} hr ago</unitPattern>
-				<unitPattern count="other">{0} hrs ago</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -5236,61 +5220,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} mins</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">In {0} min</unitPattern>
-				<unitPattern count="other">In {0} mins</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} min ago</unitPattern>
-				<unitPattern count="other">{0} mins ago</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} mth</unitPattern>
 				<unitPattern count="other">{0} mths</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">In {0} mth</unitPattern>
-				<unitPattern count="other">In {0} mths</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} mth ago</unitPattern>
-				<unitPattern count="other">{0} mths ago</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} sec</unitPattern>
 				<unitPattern count="other">{0} secs</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">In {0} sec</unitPattern>
-				<unitPattern count="other">In {0} secs</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} sec ago</unitPattern>
-				<unitPattern count="other">{0} secs ago</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} wk</unitPattern>
 				<unitPattern count="other">{0} wks</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">In {0} wk</unitPattern>
-				<unitPattern count="other">In {0} wks</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} wk ago</unitPattern>
-				<unitPattern count="other">{0} wks ago</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} yr</unitPattern>
 				<unitPattern count="other">{0} yrs</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">In {0} yr</unitPattern>
-				<unitPattern count="other">In {0} yrs</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} yr ago</unitPattern>
-				<unitPattern count="other">{0} yrs ago</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>
@@ -5453,25 +5397,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}d</unitPattern>
 				<unitPattern count="other">{0}d</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">In {0} days</unitPattern>
-				<unitPattern count="other">In {0} days</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">{0} days ago</unitPattern>
-				<unitPattern count="other">{0} days ago</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0}h</unitPattern>
 				<unitPattern count="other">{0}h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">In {0} hrs</unitPattern>
-				<unitPattern count="other">In {0} hrs</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">{0} hrs ago</unitPattern>
-				<unitPattern count="other">{0} hrs ago</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one">{0} ms</unitPattern>
@@ -5481,61 +5409,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">In {0} mins</unitPattern>
-				<unitPattern count="other">In {0} mins</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">{0} mins ago</unitPattern>
-				<unitPattern count="other">{0} mins ago</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">In {0} mths</unitPattern>
-				<unitPattern count="other">In {0} mths</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">{0} mths ago</unitPattern>
-				<unitPattern count="other">{0} mths ago</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0}s</unitPattern>
 				<unitPattern count="other">{0}s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">In {0} secs</unitPattern>
-				<unitPattern count="other">In {0} secs</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">{0} secs ago</unitPattern>
-				<unitPattern count="other">{0} secs ago</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0}w</unitPattern>
 				<unitPattern count="other">{0}w</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">In {0} wks</unitPattern>
-				<unitPattern count="other">In {0} wks</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">{0} wks ago</unitPattern>
-				<unitPattern count="other">{0} wks ago</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0}y</unitPattern>
 				<unitPattern count="other">{0}y</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">In {0} yrs</unitPattern>
-				<unitPattern count="other">In {0} yrs</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">{0} yrs ago</unitPattern>
-				<unitPattern count="other">{0} yrs ago</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0}cm</unitPattern>

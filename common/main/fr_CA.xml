@@ -1048,18 +1048,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1" draft="contributed">L'année dernière</relative>
 				<relative type="0" draft="contributed">Cette année</relative>
 				<relative type="1" draft="contributed">L'année prochaine</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Dans {0} an</relativeTimePattern>
+					<relativeTimePattern count="other">Dans {0} ans</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Il y a {0} an</relativeTimePattern>
+					<relativeTimePattern count="other">Il y a {0} ans</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName draft="contributed">mois</displayName>
 				<relative type="-1" draft="contributed">Le mois dernier</relative>
 				<relative type="0" draft="contributed">Ce mois-ci</relative>
 				<relative type="1" draft="contributed">Le mois prochain</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Dans {0} mois</relativeTimePattern>
+					<relativeTimePattern count="other">Dans {0} mois</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Il y a {0} mois</relativeTimePattern>
+					<relativeTimePattern count="other">Il y a {0} mois</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName draft="contributed">semaine</displayName>
 				<relative type="-1" draft="contributed">La semaine dernière</relative>
 				<relative type="0" draft="contributed">Cette semaine</relative>
 				<relative type="1" draft="contributed">La semaine prochaine</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Dans {0} semaine</relativeTimePattern>
+					<relativeTimePattern count="other">Dans {0} semaines</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Il y a {0} semaine</relativeTimePattern>
+					<relativeTimePattern count="other">Il y a {0} semaines</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName draft="contributed">jour</displayName>
@@ -1068,6 +1092,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0" draft="contributed">aujourd’hui</relative>
 				<relative type="1" draft="contributed">demain</relative>
 				<relative type="2" draft="contributed">après-demain</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Dans {0} jour</relativeTimePattern>
+					<relativeTimePattern count="other">Dans {0} jours</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Il y a {0} jour</relativeTimePattern>
+					<relativeTimePattern count="other">Il y a {0} jours</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName draft="contributed">jour de la semaine</displayName>
@@ -1112,12 +1144,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName draft="contributed">heure</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Dans {0} heure</relativeTimePattern>
+					<relativeTimePattern count="other">Dans {0} heures</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Il y a {0} heure</relativeTimePattern>
+					<relativeTimePattern count="other">Il y a {0} heures</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName draft="contributed">minute</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Dans {0} minute</relativeTimePattern>
+					<relativeTimePattern count="other">Dans {0} minutes</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Il y a {0} minute</relativeTimePattern>
+					<relativeTimePattern count="other">Il y a {0} minutes</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName draft="contributed">seconde</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Dans {0} seconde</relativeTimePattern>
+					<relativeTimePattern count="other">Dans {0} secondes</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Il y a {0} seconde</relativeTimePattern>
+					<relativeTimePattern count="other">Il y a {0} secondes</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName draft="contributed">fuseau horaire</displayName>
@@ -1482,64 +1538,5 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 	</numbers>
-	<units>
-		<unitLength type="long">
-			<unit type="duration-day-future">
-				<unitPattern count="one">Dans {0} jour</unitPattern>
-				<unitPattern count="other">Dans {0} jours</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">Il y a {0} jour</unitPattern>
-				<unitPattern count="other">Il y a {0} jours</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">Dans {0} heure</unitPattern>
-				<unitPattern count="other">Dans {0} heures</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">Il y a {0} heure</unitPattern>
-				<unitPattern count="other">Il y a {0} heures</unitPattern>
-			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">Dans {0} minute</unitPattern>
-				<unitPattern count="other">Dans {0} minutes</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">Il y a {0} minute</unitPattern>
-				<unitPattern count="other">Il y a {0} minutes</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Dans {0} mois</unitPattern>
-				<unitPattern count="other">Dans {0} mois</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">Il y a {0} mois</unitPattern>
-				<unitPattern count="other">Il y a {0} mois</unitPattern>
-			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">Dans {0} seconde</unitPattern>
-				<unitPattern count="other">Dans {0} secondes</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">Il y a {0} seconde</unitPattern>
-				<unitPattern count="other">Il y a {0} secondes</unitPattern>
-			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Dans {0} semaine</unitPattern>
-				<unitPattern count="other">Dans {0} semaines</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">Il y a {0} semaine</unitPattern>
-				<unitPattern count="other">Il y a {0} semaines</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Dans {0} an</unitPattern>
-				<unitPattern count="other">Dans {0} ans</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">Il y a {0} an</unitPattern>
-				<unitPattern count="other">Il y a {0} ans</unitPattern>
-			</unit>
-		</unitLength>
-	</units>
 </ldml>
+

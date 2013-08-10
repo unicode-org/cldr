@@ -1250,12 +1250,12 @@ public class PathHeader implements Comparable<PathHeader> {
             // //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]
             functionMap.put("relativeDate", new Transform<String, String>() {
                 private final String[] relativeDateField = {
-                        "year", "month", "week", "day", "sun", "mon",
-                        "tue", "wed", "thu", "fri", "sat", "second"
+                        "year", "month", "week", "day", "hour", "minute", "second", 
+                        "sun", "mon", "tue", "wed", "thu", "fri", "sat"
                 };
                 private final String[] longNames = {
-                        "Year", "Month", "Week", "Day", "Sunday", "Monday",
-                        "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Second"
+                        "Year", "Month", "Week", "Day", "Hour", "Minute", "Second", 
+                        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
                 };
 
                 public String transform(String source) {

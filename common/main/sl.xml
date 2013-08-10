@@ -1742,18 +1742,54 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1" draft="contributed">Lani</relative>
 				<relative type="0" draft="contributed">Letos</relative>
 				<relative type="1" draft="contributed">Naslednje leto</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Čez {0} leto</relativeTimePattern>
+					<relativeTimePattern count="two">Čez {0} leti</relativeTimePattern>
+					<relativeTimePattern count="few">Čez {0} leta</relativeTimePattern>
+					<relativeTimePattern count="other">Čez {0} let</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Pred {0} letom</relativeTimePattern>
+					<relativeTimePattern count="two">Pred {0} leti</relativeTimePattern>
+					<relativeTimePattern count="few">Pred {0} leti</relativeTimePattern>
+					<relativeTimePattern count="other">Pred {0} leti</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Mesec</displayName>
 				<relative type="-1" draft="contributed">Prejšnji mesec</relative>
 				<relative type="0" draft="contributed">Ta mesec</relative>
 				<relative type="1" draft="contributed">Naslednji mesec</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Čez {0} mesec</relativeTimePattern>
+					<relativeTimePattern count="two">Čez {0} meseca</relativeTimePattern>
+					<relativeTimePattern count="few">Čez {0} mesece</relativeTimePattern>
+					<relativeTimePattern count="other">Čez {0} mesecev</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Pred {0} mesecem</relativeTimePattern>
+					<relativeTimePattern count="two">Pred {0} meseci</relativeTimePattern>
+					<relativeTimePattern count="few">Pred {0} meseci</relativeTimePattern>
+					<relativeTimePattern count="other">Pred {0} meseci</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>Teden</displayName>
 				<relative type="-1" draft="contributed">Prejšnji teden</relative>
 				<relative type="0" draft="contributed">Ta teden</relative>
 				<relative type="1" draft="contributed">Naslednji teden</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Čez {0} teden</relativeTimePattern>
+					<relativeTimePattern count="two">Čez {0} tedna</relativeTimePattern>
+					<relativeTimePattern count="few">Čez {0} tedne</relativeTimePattern>
+					<relativeTimePattern count="other">Čez {0} tednov</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Pred {0} tednom</relativeTimePattern>
+					<relativeTimePattern count="two">Pred {0} tednoma</relativeTimePattern>
+					<relativeTimePattern count="few">Pred {0} tedni</relativeTimePattern>
+					<relativeTimePattern count="other">Pred {0} tedni</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>Dan</displayName>
@@ -1762,6 +1798,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">Danes</relative>
 				<relative type="1">Jutri</relative>
 				<relative type="2">Pojutrišnjem</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Čez {0} dan</relativeTimePattern>
+					<relativeTimePattern count="two">Čez {0} dni</relativeTimePattern>
+					<relativeTimePattern count="few">Čez {0} dni</relativeTimePattern>
+					<relativeTimePattern count="other">Čez {0} dni</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Pred {0} dnevom</relativeTimePattern>
+					<relativeTimePattern count="two">Pred {0} dnevoma</relativeTimePattern>
+					<relativeTimePattern count="few">Pred {0} dnevi</relativeTimePattern>
+					<relativeTimePattern count="other">Pred {0} dnevi</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>Dan v tednu</displayName>
@@ -1806,13 +1854,49 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>Ura</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Čez {0} h</relativeTimePattern>
+					<relativeTimePattern count="two">Čez {0} h</relativeTimePattern>
+					<relativeTimePattern count="few">Čez {0} h</relativeTimePattern>
+					<relativeTimePattern count="other">Čez {0} h</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Pred {0} h</relativeTimePattern>
+					<relativeTimePattern count="two">Pred {0} h</relativeTimePattern>
+					<relativeTimePattern count="few">Pred {0} h</relativeTimePattern>
+					<relativeTimePattern count="other">Pred {0} h</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Minuta</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Čez {0} min.</relativeTimePattern>
+					<relativeTimePattern count="two">Čez {0} min.</relativeTimePattern>
+					<relativeTimePattern count="few">Čez {0} min.</relativeTimePattern>
+					<relativeTimePattern count="other">Čez {0} min.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Pred {0} min.</relativeTimePattern>
+					<relativeTimePattern count="two">Pred {0} min.</relativeTimePattern>
+					<relativeTimePattern count="few">Pred {0} min.</relativeTimePattern>
+					<relativeTimePattern count="other">Pred {0} min.</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Sekunda</displayName>
 				<relative type="0">zdaj</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Čez {0} sekundo</relativeTimePattern>
+					<relativeTimePattern count="two">Čez {0} sekundi</relativeTimePattern>
+					<relativeTimePattern count="few">Čez {0} sekunde</relativeTimePattern>
+					<relativeTimePattern count="other">Čez {0} sekundi</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Pred {0} sekundo</relativeTimePattern>
+					<relativeTimePattern count="two">Pred {0} sekundama</relativeTimePattern>
+					<relativeTimePattern count="few">Pred {0} sekundami</relativeTimePattern>
+					<relativeTimePattern count="other">Pred {0} sekundami</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>Območje</displayName>
@@ -5074,35 +5158,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} dnevi</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} dni</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one" draft="contributed">Čez {0} dan</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} dni</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} dni</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} dni</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one" draft="contributed">Pred {0} dnevom</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} dnevoma</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} dnevi</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} dnevi</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one" draft="contributed">{0} ura</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} uri</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ure</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ur</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one" draft="contributed">Čez {0} h</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} h</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} h</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one" draft="contributed">Pred {0} h</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} h</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} h</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} h</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
@@ -5116,35 +5176,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} minute</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} minut</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one" draft="contributed">Čez {0} min.</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} min.</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} min.</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} min.</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one" draft="contributed">Pred {0} min.</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} min.</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} min.</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} min.</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one" draft="contributed">{0} mesec</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} meseca</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} meseci</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mesecev</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one" draft="contributed">Čez {0} mesec</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} meseca</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} mesece</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} mesecev</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one" draft="contributed">Pred {0} mesecem</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} meseci</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} meseci</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} meseci</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one" draft="contributed">{0} sekunda</unitPattern>
@@ -5152,53 +5188,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} sekunde</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} sekund</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one" draft="contributed">Čez {0} sekundo</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} sekundi</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} sekunde</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} sekundi</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one" draft="contributed">Pred {0} sekundo</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} sekundama</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} sekundami</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} sekundami</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one" draft="contributed">{0} teden</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} tedna</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} tedni</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} tednov</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Čez {0} teden</unitPattern>
-				<unitPattern count="two">Čez {0} tedna</unitPattern>
-				<unitPattern count="few">Čez {0} tedne</unitPattern>
-				<unitPattern count="other">Čez {0} tednov</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one" draft="contributed">Pred {0} tednom</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} tednoma</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} tedni</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} tedni</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one" draft="contributed">{0} leto</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} leti</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} leta</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} let</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one" draft="contributed">Čez {0} leto</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} leti</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} leta</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} let</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one" draft="contributed">Pred {0} letom</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} leti</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} leti</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} leti</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
@@ -5439,35 +5439,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} d</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} d</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one" draft="contributed">Čez {0} d</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} d</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} d</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} d</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one" draft="contributed">Pred {0} d</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} d</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} d</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} d</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one" draft="contributed">{0} h</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} h</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one" draft="contributed">Čez {0} h</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} h</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} h</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one" draft="contributed">Pred {0} h</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} h</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} h</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} h</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
@@ -5481,35 +5457,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} min</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one" draft="contributed">Čez {0} min</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} min</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} min</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one" draft="contributed">Pred {0} min</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} min</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} min</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} min</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one" draft="contributed">Čez {0} m</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} m</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} m</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} m</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one" draft="contributed">Pred {0} m</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} m</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} m</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} m</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one" draft="contributed">{0} s</unitPattern>
@@ -5517,53 +5469,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one" draft="contributed">Čez {0} s</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} s</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} s</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} s</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one" draft="contributed">Pred {0} s</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} s</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} s</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} s</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one" draft="contributed">{0} t</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} t</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} t</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} t</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one" draft="contributed">Čez {0} t</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} t</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} t</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} t</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one" draft="contributed">Pred {0} t</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} t</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} t</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} t</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one" draft="contributed">Čez {0} l</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} l</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} l</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} l</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one" draft="contributed">Pred {0} l</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} l</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} l</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} l</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
@@ -5804,35 +5720,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} d</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} d</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one" draft="contributed">Čez {0} d</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} d</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} d</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} d</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one" draft="contributed">Pred {0} d</unitPattern>
-				<unitPattern count="two" draft="contributed">-{0} d</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} d</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} d</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one" draft="contributed">{0} h</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} h</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one" draft="contributed">Čez {0} h</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} h</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} h</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one" draft="contributed">Pred {0} h</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} h</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} h</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} h</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
@@ -5846,35 +5738,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} min</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one" draft="contributed">Čez {0} min</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} min</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} min</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one" draft="contributed">Pred {0} min</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} min</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} min</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} min</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one" draft="contributed">Čez {0} m</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} m</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} m</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} m</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one" draft="contributed">Pred {0} m</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} m</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} m</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} m</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one" draft="contributed">{0} s</unitPattern>
@@ -5882,53 +5750,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="few" draft="contributed">{0} s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one" draft="contributed">Čez {0} s</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} s</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} s</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} s</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one" draft="contributed">Pred {0} s</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} s</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} s</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} s</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one" draft="contributed">{0} t</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} t</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} t</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} t</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one" draft="contributed">Čez {0} t</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} t</unitPattern>
-				<unitPattern count="few" draft="contributed">+{0} w</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} t</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one" draft="contributed">Pred {0} t</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} t</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} t</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} t</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one" draft="contributed">Čez {0} l</unitPattern>
-				<unitPattern count="two" draft="contributed">Čez {0} l</unitPattern>
-				<unitPattern count="few" draft="contributed">Čez {0} l</unitPattern>
-				<unitPattern count="other" draft="contributed">Čez {0} l</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one" draft="contributed">Pred {0} l</unitPattern>
-				<unitPattern count="two" draft="contributed">Pred {0} l</unitPattern>
-				<unitPattern count="few" draft="contributed">Pred {0} l</unitPattern>
-				<unitPattern count="other" draft="contributed">Pred {0} l</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>

@@ -432,8 +432,66 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</calendar>
 		</calendars>
 		<fields>
+			<field type="year">
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Nǔu ŋguꞋ {0}</relativeTimePattern>
+					<relativeTimePattern count="other">Nǔu ŋguꞋ {0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Ɛ́gɛ́ mɔ́ ŋguꞋ {0}</relativeTimePattern>
+					<relativeTimePattern count="other">Ɛ́gɛ́ mɔ́ ŋguꞋ {0}</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month">
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Nǔu {0} saŋ</relativeTimePattern>
+					<relativeTimePattern count="other">Nǔu {0} saŋ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">ɛ́ gɛ́ mɔ́ pɛsaŋ {0}</relativeTimePattern>
+					<relativeTimePattern count="other">ɛ́ gɛ́ mɔ́ pɛsaŋ {0}</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week">
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Nǔu ŋgap-mbi {0}</relativeTimePattern>
+					<relativeTimePattern count="other">Nǔu ŋgap-mbi {0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Ɛ́ gɛ́ mɔ {0} ŋgap-mbi</relativeTimePattern>
+					<relativeTimePattern count="other">Ɛ́ gɛ́ mɔ {0} ŋgap-mbi</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="day">
 				<relative type="0">lɔꞋɔ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">Nǔu lɛ́Ꞌ {0}</relativeTimePattern>
+					<relativeTimePattern count="other">Nǔu lɛ́Ꞌ {0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">Ɛ́ gɛ́ mɔ́ lɛ́Ꞌ {0}</relativeTimePattern>
+					<relativeTimePattern count="other">Ɛ́ gɛ́ mɔ́ lɛ́Ꞌ {0}</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour">
+				<relativeTime type="future">
+					<relativeTimePattern count="one">nǔu háwa {0}</relativeTimePattern>
+					<relativeTimePattern count="other">nǔu háwa {0}</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">ɛ́ gɛ mɔ́ {0} háwa</relativeTimePattern>
+					<relativeTimePattern count="other">ɛ́ gɛ mɔ́ {0} háwa</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute">
+				<relativeTime type="future">
+					<relativeTimePattern count="one">nǔu {0} minút</relativeTimePattern>
+					<relativeTimePattern count="other">nǔu {0} minút</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">ɛ́ gɛ́ mɔ́ minút {0}</relativeTimePattern>
+					<relativeTimePattern count="other">ɛ́ gɛ́ mɔ́ minút {0}</relativeTimePattern>
+				</relativeTime>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -514,69 +572,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} lɛ́Ꞌ</unitPattern>
 				<unitPattern count="other">{0} lɛ́Ꞌ</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">Nǔu lɛ́Ꞌ {0}</unitPattern>
-				<unitPattern count="other">Nǔu lɛ́Ꞌ {0}</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">Ɛ́ gɛ́ mɔ́ lɛ́Ꞌ {0}</unitPattern>
-				<unitPattern count="other">Ɛ́ gɛ́ mɔ́ lɛ́Ꞌ {0}</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} háwa</unitPattern>
 				<unitPattern count="other">{0} háwa</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">nǔu háwa {0}</unitPattern>
-				<unitPattern count="other">nǔu háwa {0}</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">ɛ́ gɛ mɔ́ {0} háwa</unitPattern>
-				<unitPattern count="other">ɛ́ gɛ mɔ́ {0} háwa</unitPattern>
 			</unit>
 			<unit type="duration-minute">
 				<unitPattern count="one">{0} minút</unitPattern>
 				<unitPattern count="other">{0} minút</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">nǔu {0} minút</unitPattern>
-				<unitPattern count="other">nǔu {0} minút</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">ɛ́ gɛ́ mɔ́ minút {0}</unitPattern>
-				<unitPattern count="other">ɛ́ gɛ́ mɔ́ minút {0}</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">pɛsaŋ {0}</unitPattern>
 				<unitPattern count="other">pɛsaŋ {0}</unitPattern>
 			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">Nǔu {0} saŋ</unitPattern>
-				<unitPattern count="other">Nǔu {0} saŋ</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">ɛ́ gɛ́ mɔ́ pɛsaŋ {0}</unitPattern>
-				<unitPattern count="other">ɛ́ gɛ́ mɔ́ pɛsaŋ {0}</unitPattern>
-			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">Nǔu ŋgap-mbi {0}</unitPattern>
-				<unitPattern count="other">Nǔu ŋgap-mbi {0}</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">Ɛ́ gɛ́ mɔ {0} ŋgap-mbi</unitPattern>
-				<unitPattern count="other">Ɛ́ gɛ́ mɔ {0} ŋgap-mbi</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">ŋguꞋ {0}</unitPattern>
 				<unitPattern count="other">ŋguꞋ {0}</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">Nǔu ŋguꞋ {0}</unitPattern>
-				<unitPattern count="other">Nǔu ŋguꞋ {0}</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">Ɛ́gɛ́ mɔ́ ŋguꞋ {0}</unitPattern>
-				<unitPattern count="other">Ɛ́gɛ́ mɔ́ ŋguꞋ {0}</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
@@ -595,3 +605,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
+

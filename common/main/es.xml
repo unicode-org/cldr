@@ -1974,18 +1974,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">el año pasado</relative>
 				<relative type="0">este año</relative>
 				<relative type="1">el próximo año</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">dentro de {0} año</relativeTimePattern>
+					<relativeTimePattern count="other">dentro de {0} años</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">hace {0} año</relativeTimePattern>
+					<relativeTimePattern count="other">hace {0} años</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>mes</displayName>
 				<relative type="-1">el mes pasado</relative>
 				<relative type="0">este mes</relative>
 				<relative type="1">el próximo mes</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">dentro de {0} mes</relativeTimePattern>
+					<relativeTimePattern count="other">dentro de {0} meses</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">hace {0} mes</relativeTimePattern>
+					<relativeTimePattern count="other">hace {0} meses</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>semana</displayName>
 				<relative type="-1">la semana pasada</relative>
 				<relative type="0">esta semana</relative>
 				<relative type="1">la próxima semana</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">dentro de {0} semana</relativeTimePattern>
+					<relativeTimePattern count="other">dentro de {0} semanas</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">hace {0} semana</relativeTimePattern>
+					<relativeTimePattern count="other">hace {0} semanas</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>día</displayName>
@@ -1994,6 +2018,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">hoy</relative>
 				<relative type="1">mañana</relative>
 				<relative type="2">pasado mañana</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">dentro de {0} día</relativeTimePattern>
+					<relativeTimePattern count="other">dentro de {0} días</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">hace {0} día</relativeTimePattern>
+					<relativeTimePattern count="other">hace {0} días</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>día de la semana</displayName>
@@ -2038,13 +2070,37 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>hora</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">dentro de {0} hora</relativeTimePattern>
+					<relativeTimePattern count="other">dentro de {0} horas</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">hace {0} hora</relativeTimePattern>
+					<relativeTimePattern count="other">hace {0} horas</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>minuto</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">dentro de {0} minuto</relativeTimePattern>
+					<relativeTimePattern count="other">dentro de {0} minutos</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">hace {0} minuto</relativeTimePattern>
+					<relativeTimePattern count="other">hace {0} minutos</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>segundo</displayName>
 				<relative type="0">ahora</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">dentro de {0} segundo</relativeTimePattern>
+					<relativeTimePattern count="other">dentro de {0} segundos</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">hace {0} segundo</relativeTimePattern>
+					<relativeTimePattern count="other">hace {0} segundos</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>zona horaria</displayName>
@@ -5854,25 +5910,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} día</unitPattern>
 				<unitPattern count="other">{0} días</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">dentro de {0} día</unitPattern>
-				<unitPattern count="other">dentro de {0} días</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">hace {0} día</unitPattern>
-				<unitPattern count="other">hace {0} días</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} hora</unitPattern>
 				<unitPattern count="other">{0} horas</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">dentro de {0} hora</unitPattern>
-				<unitPattern count="other">dentro de {0} horas</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">hace {0} hora</unitPattern>
-				<unitPattern count="other">hace {0} horas</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="contributed">{0} milisegundo</unitPattern>
@@ -5882,61 +5922,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} minuto</unitPattern>
 				<unitPattern count="other">{0} minutos</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">dentro de {0} minuto</unitPattern>
-				<unitPattern count="other">dentro de {0} minutos</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">hace {0} minuto</unitPattern>
-				<unitPattern count="other">hace {0} minutos</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} mes</unitPattern>
 				<unitPattern count="other">{0} meses</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">dentro de {0} mes</unitPattern>
-				<unitPattern count="other">dentro de {0} meses</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">hace {0} mes</unitPattern>
-				<unitPattern count="other">hace {0} meses</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} segundo</unitPattern>
 				<unitPattern count="other">{0} segundos</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">dentro de {0} segundo</unitPattern>
-				<unitPattern count="other">dentro de {0} segundos</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">hace {0} segundo</unitPattern>
-				<unitPattern count="other">hace {0} segundos</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} semana</unitPattern>
 				<unitPattern count="other">{0} semanas</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">dentro de {0} semana</unitPattern>
-				<unitPattern count="other">dentro de {0} semanas</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">hace {0} semana</unitPattern>
-				<unitPattern count="other">hace {0} semanas</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one" draft="contributed">{0} año</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} años</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">dentro de {0} año</unitPattern>
-				<unitPattern count="other">dentro de {0} años</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">hace {0} año</unitPattern>
-				<unitPattern count="other">hace {0} años</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} centímetro</unitPattern>
@@ -6099,25 +6099,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} día</unitPattern>
 				<unitPattern count="other">{0} días</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">dentro de {0} día</unitPattern>
-				<unitPattern count="other">dentro de {0} días</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">hace {0} día</unitPattern>
-				<unitPattern count="other">hace {0} días</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} h</unitPattern>
 				<unitPattern count="other">{0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">dentro de {0} h</unitPattern>
-				<unitPattern count="other">dentro de {0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">hace {0} h</unitPattern>
-				<unitPattern count="other">hace {0} h</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
@@ -6127,61 +6111,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">dentro de {0} min</unitPattern>
-				<unitPattern count="other">dentro de {0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">hace {0} min</unitPattern>
-				<unitPattern count="other">hace {0} min</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">dentro de {0} m</unitPattern>
-				<unitPattern count="other">dentro de {0} m</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">hace {0} m</unitPattern>
-				<unitPattern count="other">hace {0} m</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">dentro de {0} s</unitPattern>
-				<unitPattern count="other">dentro de {0} s</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">hace {0} s</unitPattern>
-				<unitPattern count="other">hace {0} s</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} sem</unitPattern>
 				<unitPattern count="other">{0} sem</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">dentro de {0} sem</unitPattern>
-				<unitPattern count="other">dentro de {0} sem</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">hace {0} sem</unitPattern>
-				<unitPattern count="other">hace {0} sem</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0} a</unitPattern>
 				<unitPattern count="other">{0} a</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">dentro de {0} a</unitPattern>
-				<unitPattern count="other">dentro de {0} a</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">hace {0} a</unitPattern>
-				<unitPattern count="other">hace {0} a</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>
@@ -6344,25 +6288,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} d</unitPattern>
 				<unitPattern count="other">{0} d</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="one">dentro de {0} día</unitPattern>
-				<unitPattern count="other">dentro de {0} días</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="one">hace {0} día</unitPattern>
-				<unitPattern count="other">hace {0} días</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="one">{0} h</unitPattern>
 				<unitPattern count="other">{0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="one">dentro de {0} h</unitPattern>
-				<unitPattern count="other">dentro de {0} h</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="one">hace {0} h</unitPattern>
-				<unitPattern count="other">hace {0} h</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
@@ -6372,61 +6300,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="one">dentro de {0} min</unitPattern>
-				<unitPattern count="other">dentro de {0} min</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="one">hace {0} min</unitPattern>
-				<unitPattern count="other">hace {0} min</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="one">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="one">dentro de {0} m</unitPattern>
-				<unitPattern count="other">dentro de {0} m</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="one">hace {0} m</unitPattern>
-				<unitPattern count="other">hace {0} m</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="one">dentro de {0} s</unitPattern>
-				<unitPattern count="other">dentro de {0} s</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="one">hace {0} s</unitPattern>
-				<unitPattern count="other">hace {0} s</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="one">{0} semana</unitPattern>
 				<unitPattern count="other">{0} sem</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="one">dentro de {0} sem</unitPattern>
-				<unitPattern count="other">dentro de {0} sem</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="one">hace {0} sem</unitPattern>
-				<unitPattern count="other">hace {0} sem</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="one">{0}a</unitPattern>
 				<unitPattern count="other">{0} a</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="one">dentro de {0} a</unitPattern>
-				<unitPattern count="other">dentro de {0} a</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="one">hace {0} a</unitPattern>
-				<unitPattern count="other">hace {0} a</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="one">{0} cm</unitPattern>

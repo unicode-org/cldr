@@ -1218,18 +1218,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="-1">ឆ្នាំ​មុន</relative>
 				<relative type="0">ឆ្នាំ​នេះ</relative>
 				<relative type="1">ឆ្នាំ​ក្រោយ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ក្នុង​រយៈ​ពេល {0} ឆ្នាំ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ឆ្នាំ​មុន</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>ខែ</displayName>
 				<relative type="-1">ខែ​មុន</relative>
 				<relative type="0">ខែ​នេះ</relative>
 				<relative type="1">ខែ​ក្រោយ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ក្នុង​រយៈ​ពេល {0} ខែ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ខែមុន</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="week">
 				<displayName>សប្ដាហ៍</displayName>
 				<relative type="-1">សប្ដាហ៍​មុន</relative>
 				<relative type="0">សប្ដាហ៍​នេះ</relative>
 				<relative type="1">សប្ដាហ៍​ក្រោយ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ក្នុង​រយៈ​ពេល {0} សប្ដាហ៍</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} សប្ដាហ៍​មុន</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="day">
 				<displayName>ថ្ងៃ</displayName>
@@ -1238,6 +1256,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">ថ្ងៃ​នេះ</relative>
 				<relative type="1">ថ្ងៃ​ស្អែក</relative>
 				<relative type="2">​ខាន​ស្អែក</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ក្នុង​រយៈ​ពេល {0} ថ្ងៃ</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ថ្ងៃ​មុន</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="weekday">
 				<displayName>ថ្ងៃ​នៃ​សប្ដាហ៍</displayName>
@@ -1282,13 +1306,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="hour">
 				<displayName>ម៉ោង</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ក្នុង​រយៈ​ពេល {0} ម៉ោង</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} ម៉ោង​មុន</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>នាទី</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ក្នុង​រយៈពេល {0} នាទី</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} នាទី​មុន</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>វិនាទី</displayName>
 				<relative type="0">ឥឡូវ</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="other">ក្នុង​រយៈពេល {0} វិនាទី</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="other">{0} វិនាទី​មុន</relativeTimePattern>
+				</relativeTime>
 			</field>
 			<field type="zone">
 				<displayName>តំបន់​ពេល​វេលា</displayName>
@@ -4170,20 +4212,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0} ថ្ងៃ</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ថ្ងៃ</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">{0} ថ្ងៃ​មុន</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} ម៉ោង</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ម៉ោង</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">{0} ម៉ោង​មុន</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0} មិល្លី​វិនាទី</unitPattern>
@@ -4191,47 +4221,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} នាទី</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">ក្នុង​រយៈពេល {0} នាទី</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">{0} នាទី​មុន</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0} ខែ</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ខែ</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">{0} ខែមុន</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} វិនាទី</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">ក្នុង​រយៈពេល {0} វិនាទី</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">{0} វិនាទី​មុន</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} សប្ដាហ៍</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} សប្ដាហ៍</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">{0} សប្ដាហ៍​មុន</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0} ឆ្នាំ</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ឆ្នាំ</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0} ឆ្នាំ​មុន</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0} សង់ទីម៉ែត្រ</unitPattern>
@@ -4355,20 +4355,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0} ថ្ងៃ</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ថ្ងៃ</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">{0} ថ្ងៃ​មុន</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} ម៉.</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ម៉.</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">{0} ម៉ោង​មុន</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0} មិ.វិ.</unitPattern>
@@ -4376,47 +4364,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} ន.</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">ក្នុង​រយៈពេល {0} ន.</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">{0} នាទី​មុន</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0} ខែ</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ខែ</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">{0} ខែមុន</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} វិ.</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">ក្នុង​រយៈពេល {0} វិ.</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">{0} វិនាទី​មុន</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} សប្ដាហ៍</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} សប្ដាហ៍</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">{0} សប្ដាហ៍​មុន</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0} ឆ្នាំ</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ឆ្នាំ</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0} ឆ្នាំ​មុន</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0} ស.ម.</unitPattern>
@@ -4540,20 +4498,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-day">
 				<unitPattern count="other">{0} ថ្ងៃ</unitPattern>
 			</unit>
-			<unit type="duration-day-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ថ្ងៃ</unitPattern>
-			</unit>
-			<unit type="duration-day-past">
-				<unitPattern count="other">{0} ថ្ងៃ​មុន</unitPattern>
-			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} ម៉.</unitPattern>
-			</unit>
-			<unit type="duration-hour-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ម៉.</unitPattern>
-			</unit>
-			<unit type="duration-hour-past">
-				<unitPattern count="other">{0} ម៉ោង​មុន</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0} មិ.វិ.</unitPattern>
@@ -4561,47 +4507,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="duration-minute">
 				<unitPattern count="other">{0} ន.</unitPattern>
 			</unit>
-			<unit type="duration-minute-future">
-				<unitPattern count="other">ក្នុង​រយៈពេល {0} ន.</unitPattern>
-			</unit>
-			<unit type="duration-minute-past">
-				<unitPattern count="other">{0} នាទី​មុន</unitPattern>
-			</unit>
 			<unit type="duration-month">
 				<unitPattern count="other">{0} ខែ</unitPattern>
-			</unit>
-			<unit type="duration-month-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ខែ</unitPattern>
-			</unit>
-			<unit type="duration-month-past">
-				<unitPattern count="other">{0} ខែមុន</unitPattern>
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} វិ.</unitPattern>
 			</unit>
-			<unit type="duration-second-future">
-				<unitPattern count="other">ក្នុង​រយៈពេល {0} វិ.</unitPattern>
-			</unit>
-			<unit type="duration-second-past">
-				<unitPattern count="other">{0} វិនាទី​មុន</unitPattern>
-			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} សប្ដាហ៍</unitPattern>
 			</unit>
-			<unit type="duration-week-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} សប្ដាហ៍</unitPattern>
-			</unit>
-			<unit type="duration-week-past">
-				<unitPattern count="other">{0} សប្ដាហ៍​មុន</unitPattern>
-			</unit>
 			<unit type="duration-year">
 				<unitPattern count="other">{0} ឆ្នាំ</unitPattern>
-			</unit>
-			<unit type="duration-year-future">
-				<unitPattern count="other">ក្នុង​រយៈ​ពេល {0} ឆ្នាំ</unitPattern>
-			</unit>
-			<unit type="duration-year-past">
-				<unitPattern count="other">{0} ឆ្នាំ​មុន</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other">{0} ស.ម.</unitPattern>

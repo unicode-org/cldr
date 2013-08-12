@@ -26,23 +26,23 @@ $Date$
 <!ELEMENT key ( type* )>
 <!ATTLIST key extension NMTOKEN #IMPLIED>
 <!ATTLIST key name NMTOKEN #REQUIRED>
-<!ATTLIST key alias NMTOKEN #IMPLIED>
 <!ATTLIST key description CDATA #IMPLIED>
-<!ATTLIST key since CDATA #IMPLIED>
 <!ATTLIST key deprecated ( true | false ) "false">
 <!ATTLIST key preferred NMTOKEN #IMPLIED>
+<!ATTLIST key alias NMTOKEN #IMPLIED>
+<!ATTLIST key since CDATA #IMPLIED>
 
 <!ELEMENT type EMPTY>
 <!ATTLIST type name NMTOKEN #REQUIRED>
-<!ATTLIST type alias CDATA #IMPLIED>
 <!ATTLIST type description CDATA #IMPLIED>
-<!ATTLIST type since CDATA #IMPLIED>
 <!ATTLIST type deprecated ( true | false ) "false">
 <!ATTLIST type preferred NMTOKEN #IMPLIED>
+<!ATTLIST type alias CDATA #IMPLIED>
+<!ATTLIST type since CDATA #IMPLIED>
 
 <!ELEMENT attribute EMPTY>
 <!ATTLIST attribute name NMTOKEN #REQUIRED>
 <!ATTLIST attribute description CDATA #IMPLIED>
-<!ATTLIST attribute since CDATA #IMPLIED>
 <!ATTLIST attribute deprecated ( true | false ) "false">
 <!ATTLIST attribute preferred NMTOKEN #IMPLIED>
+<!ATTLIST attribute since CDATA #IMPLIED>

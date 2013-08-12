@@ -10,7 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     <version number="$Revision$"/>
     <generation date="$Date$"/>
     <keyword>
-        <key name="nu" alias="numbers" description="Numbering system type key">
+        <key name="nu" description="Numbering system type key" alias="numbers">
             <type name="arab" description="Arabic-Indic digits"/>
             <type name="arabext" description="Extended Arabic-Indic digits"/>
             <type name="armn" description="Armenian upper case numerals — non-decimal"/>
@@ -70,7 +70,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="telu" description="Telugu digits"/>
             <type name="thai" description="Thai digits"/>
             <type name="tibt" description="Tibetan digits"/>
-            <type name="traditio" alias="traditional" description="Traditional numerals — may be non-decimal" since="21"/>
+            <type name="traditio" description="Traditional numerals — may be non-decimal" alias="traditional" since="21"/>
             <type name="vaii" description="Vai digits" since="21"/>
         </key>
     </keyword>

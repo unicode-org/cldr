@@ -10,14 +10,14 @@ For terms of use, see http://www.unicode.org/copyright.html
     <version number="$Revision$"/>
     <generation date="$Date$"/>
     <keyword>
-        <key name="ca" alias="calendar" description="Calendar algorithm key">
+        <key name="ca" description="Calendar algorithm key" alias="calendar">
             <type name="buddhist" description="Thai Buddhist calendar"/>
             <type name="chinese" description="Traditional Chinese calendar"/>
             <type name="coptic" description="Coptic calendar"/>
             <type name="dangi" description="Traditional Korean calendar" since="22.1"/>
-            <type name="ethioaa" alias="ethiopic-amete-alem" description="Ethiopic calendar, Amete Alem (epoch approx. 5493 B.C.E)"/>
+            <type name="ethioaa" description="Ethiopic calendar, Amete Alem (epoch approx. 5493 B.C.E)" alias="ethiopic-amete-alem"/>
             <type name="ethiopic" description="Ethiopic calendar, Amete Mihret (epoch approx, 8 C.E.)"/>
-            <type name="gregory" alias="gregorian" description="Gregorian calendar"/>
+            <type name="gregory" description="Gregorian calendar" alias="gregorian"/>
             <type name="hebrew" description="Traditional Hebrew calendar"/>
             <type name="indian" description="Indian calendar"/>
             <type name="islamic" description="Islamic calendar"/>
@@ -30,7 +30,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="persian" description="Persian calendar"/>
             <type name="roc" description="Republic of China calendar"/>
 
-            <type name="islamicc" alias="islamic-civil" description="Civil (algorithmic) Arabic calendar" deprecated="true" preferred="islamic-civil"/>
+            <type name="islamicc" description="Civil (algorithmic) Arabic calendar" deprecated="true" preferred="islamic-civil"  alias="islamic-civil"/>
         </key>
     </keyword>
 </ldmlBCP47>

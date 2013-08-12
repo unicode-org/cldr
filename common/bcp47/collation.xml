@@ -10,14 +10,14 @@ For terms of use, see http://www.unicode.org/copyright.html
     <version number="$Revision$"/>
     <generation date="$Date$"/>
     <keyword>
-        <key name="co" alias="collation" description="Collation type key">
+        <key name="co" description="Collation type key" alias="collation">
             <type name="big5han" description="Pinyin ordering for Latin, big5 charset ordering for CJK characters (used in Chinese)"/>
-            <type name="dict" alias="dictionary" description="Dictionary style ordering (such as in Sinhala)"/>
+            <type name="dict" description="Dictionary style ordering (such as in Sinhala)" alias="dictionary"/>
             <type name="direct" description="Binary code point order (used in Hindi)" deprecated="true"/>
             <type name="ducet" description="The default Unicode collation element table order" since="2.0.1"/>
             <type name="eor" description="European ordering rules" since="24"/>
-            <type name="gb2312" alias="gb2312han" description="Pinyin ordering for Latin, gb2312han charset ordering for CJK characters (used in Chinese)"/>
-            <type name="phonebk" alias="phonebook" description="Phonebook style ordering (such as in German)"/>
+            <type name="gb2312" description="Pinyin ordering for Latin, gb2312han charset ordering for CJK characters (used in Chinese)" alias="gb2312han"/>
+            <type name="phonebk" description="Phonebook style ordering (such as in German)" alias="phonebook"/>
             <type name="phonetic" description="Phonetic ordering (sorting based on pronunciation)"/>
             <type name="pinyin" description="Pinyin ordering for Latin and for CJK characters (used in Chinese)"/>
             <type name="reformed" description="Reformed ordering (such as in Swedish)"/>
@@ -25,60 +25,60 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="searchjl" description="Special collation type for Korean initial consonant search" since="2.0.1"/>
             <type name="standard" description="Default ordering for each language"/>
             <type name="stroke" description="Pinyin ordering for Latin, stroke order for CJK characters (used in Chinese)"/>
-            <type name="trad" alias="traditional" description="Traditional style ordering (such as in Spanish)"/>
+            <type name="trad" description="Traditional style ordering (such as in Spanish)" alias="traditional"/>
             <type name="unihan" description="Pinyin ordering for Latin, Unihan radical-stroke ordering for CJK characters (used in Chinese)"/>
             <type name="zhuyin" description="Pinyin ordering for Latin, zhuyin order for Bopomofo and CJK characters (used in Chinese)" since="22"/>
         </key>
 
-        <key name="ka" alias="colAlternate" description="Collation parameter key for alternate handling">
-            <type name="noignore" alias="non-ignorable" description="Variable collation elements are not reset to ignorable"/>
+        <key name="ka" description="Collation parameter key for alternate handling" alias="colAlternate">
+            <type name="noignore" description="Variable collation elements are not reset to ignorable" alias="non-ignorable"/>
             <type name="shifted" description="Variable collation elements are reset to zero at levels one through three"/>
         </key>
 
-        <key name="kb" alias="colBackwards" description="Collation parameter key for backward collation weight">
-            <type name="true" alias="yes" description="The second level to be backwards"/>
-            <type name="false" alias="no" description="No backwards (the second level to be forwards)"/>
+        <key name="kb" description="Collation parameter key for backward collation weight" alias="colBackwards">
+            <type name="true" description="The second level to be backwards" alias="yes"/>
+            <type name="false" description="No backwards (the second level to be forwards)" alias="no"/>
         </key>
 
-        <key name="kc" alias="colCaseLevel" description="Collation parameter key for case level">
-            <type name="true" alias="yes" description="The case level is inserted in front of tertiary"/>
-            <type name="false" alias="no" description="No special case level handling"/>
+        <key name="kc" description="Collation parameter key for case level" alias="colCaseLevel">
+            <type name="true" description="The case level is inserted in front of tertiary" alias="yes"/>
+            <type name="false" description="No special case level handling" alias="no"/>
         </key>
 
-        <key name="kf" alias="colCaseFirst" description="Collation parameter key for ordering by case">
+        <key name="kf" description="Collation parameter key for ordering by case" alias="colCaseFirst">
             <type name="upper" description="Upper case to be sorted before lower case"/>
             <type name="lower" description="Lower case to be sorted before upper case"/>
-            <type name="false" alias="no" description="No special case ordering"/>
+            <type name="false" description="No special case ordering" alias="no"/>
         </key>
 
-        <key name="kh" alias="colHiraganaQuaternary" description="Collation parameter key for special Hiragana handling">
-            <type name="true" alias="yes" description="Hiragana to be sorted before all non-variable on quaternary level"/>
-            <type name="false" alias="no" description="No special handling for Hiragana"/>
+        <key name="kh" description="Collation parameter key for special Hiragana handling" alias="colHiraganaQuaternary">
+            <type name="true" description="Hiragana to be sorted before all non-variable on quaternary level" alias="yes"/>
+            <type name="false" description="No special handling for Hiragana" alias="no"/>
         </key>
 
-        <key name="kk" alias="colNormalization" description="Collation parameter key for normalization">
-            <type name="true" alias="yes" description="Convert text into Normalization Form D before calculating collation weights"/>
-            <type name="false" alias="no" description="Skip normalization"/>
+        <key name="kk" description="Collation parameter key for normalization" alias="colNormalization">
+            <type name="true" description="Convert text into Normalization Form D before calculating collation weights" alias="yes"/>
+            <type name="false" description="Skip normalization" alias="no"/>
         </key>
 
-        <key name="kn" alias="colNumeric" description="Collation parameter key for numeric handling">
-            <type name="true" alias="yes" description="A sequence of decimal digits is sorted at primary level with its numeric value"/>
-            <type name="false" alias="no" description="No special handling for numeric ordering"/>
+        <key name="kn" description="Collation parameter key for numeric handling" alias="colNumeric">
+            <type name="true" description="A sequence of decimal digits is sorted at primary level with its numeric value" alias="yes"/>
+            <type name="false" description="No special handling for numeric ordering" alias="no"/>
         </key>
         
-        <key name="kr" alias="colReorder" description="Collation reorder codes" since="21">
+        <key name="kr" description="Collation reorder codes" alias="colReorder" since="21">
             <type name="REORDER_CODE" description="One or more collation reorder codes: LDML 5.14.12)" since="21"/>
         </key>
 
-        <key name="ks" alias="colStrength" description="Collation parameter key for collation strength">
-            <type name="level1" alias="primary" description="The primary level"/>
-            <type name="level2" alias="secondary" description="The secondary level"/>
-            <type name="level3" alias="tertiary" description="The tertiary level"/>
-            <type name="level4" alias="quaternary quarternary" description="The quaternary level"/>
-            <type name="identic" alias="identical" description="The identical level"/>
+        <key name="ks" description="Collation parameter key for collation strength" alias="colStrength">
+            <type name="level1" description="The primary level" alias="primary"/>
+            <type name="level2" description="The secondary level" alias="secondary"/>
+            <type name="level3" description="The tertiary level" alias="tertiary"/>
+            <type name="level4" description="The quaternary level" alias="quaternary quarternary"/>
+            <type name="identic" description="The identical level" alias="identical"/>
         </key>
 
-        <key name="vt" alias="variableTop" description="Collation parameter key for variable top">
+        <key name="vt" description="Collation parameter key for variable top" alias="variableTop">
             <type name="CODEPOINTS" description="The variable top (one or more Unicode code points: LDML Appendix Q)"/>
         </key>
     </keyword>

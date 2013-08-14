@@ -498,7 +498,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<collation type="search" >
 			<settings normalization="on"/>
 			<!-- root search, suppress contractions for Thai, Lao -->
-			<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
+			<suppress_contractions>[เ-ไ ເ-ໄ ꪵ ꪶ ꪹ ꪻ ꪼ]</suppress_contractions>
 			<cr><![CDATA[
 				# root search rules for Symbols
 				&'='<'≠'
@@ -903,7 +903,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<collation type="searchjl" >
 			<settings normalization="on"/>
 			<!-- root search, suppress contractions for Thai, Lao -->
-			<suppress_contractions>[เ-ไ ເ-ໄ]</suppress_contractions>
+			<suppress_contractions>[เ-ไ ເ-ໄ ꪵ ꪶ ꪹ ꪻ ꪼ]</suppress_contractions>
 			<cr><![CDATA[
 				# root search rules for Arabic, Hebrew
 				&ا	# 0627 ARABIC LETTER ALEF

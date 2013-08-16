@@ -2482,7 +2482,7 @@ public class SupplementalDataInfo {
     private Map<String, Level> coverageCache = new ConcurrentHashMap<String, Level>();
     private transient String lastPluralLocales = "root";
     private transient boolean lastPluralWasOrdinal = false;
-    private transient Map<Count, String> lastPluralMap = new LinkedHashMap<Count, String>();
+    private transient Map<Count, String> lastPluralMap = new EnumMap<Count, String>(Count.class);
     private transient String lastDayPeriodLocales = null;
     private transient DayPeriodInfo.Builder dayPeriodBuilder = new DayPeriodInfo.Builder();
 
@@ -2783,7 +2783,7 @@ public class SupplementalDataInfo {
      * 
      * @author markdavis
      */
-    public static class PluralInfo {
+    public static class PluralInfo implements Comparable<PluralInfo> {
         static final Set<Double> explicits = new HashSet<Double>();
         static {
             explicits.add(0.0d);
@@ -2806,8 +2806,13 @@ public class SupplementalDataInfo {
         private final Set<String> canonicalKeywords;
         private final Set<Count> keywords;
         private final CountSampleList countSampleList;
+        private final Map<Count, String> countToRule;
 
         private PluralInfo(Map<Count, String> countToRule) {
+            EnumMap<Count, String> tempCountToRule = new EnumMap<Count,String>(Count.class);
+            tempCountToRule.putAll(countToRule);
+            this.countToRule = Collections.unmodifiableMap(tempCountToRule);
+            
             // now build rules
             NumberFormat nf = NumberFormat.getNumberInstance(ULocale.ENGLISH);
             nf.setMaximumFractionDigits(2);
@@ -2848,61 +2853,6 @@ public class SupplementalDataInfo {
                 StringBuilder b = new StringBuilder();
                 final ArrayList<Double> arrayList = new ArrayList<Double>();
                 SampleList uset = countSampleList.get(type);
-                //                boolean addCurrentFractionalExample = false;
-                //                Double fraction = null;
-                //
-                //                if (uset == null) {
-                //                    Collection<NumberInfo> samples = pluralRules.getFractionSamples(type.name());
-                //                    for (NumberInfo n : samples) {
-                //                        arrayList.add(n.source);
-                //                        if (b.length() != 0) {
-                //                            b.append(", ");
-                //                        }
-                //                        b.append(n.source);
-                //                    }
-                //                } else {
-                //                    int sample = uset.getRangeStart(0);
-                //                    if (sample == 0 && uset.size() > 1) { // pick non-zero if possible
-                //                        SampleList temp = new SampleList();
-                //                        temp.remove(0);
-                //                        sample = temp.getRangeStart(0);
-                //                    }
-                //                    Integer sampleInteger = sample;
-                //                    exampleToCountRaw.put(sampleInteger, type);
-                //
-                //                    arrayList.add((double) sample);
-                //                    // add fractional examples
-                //                    fractionValue -= fractDecrement;
-                //                    if (fractionValue < 0) {
-                //                        fractionValue += 100;
-                //                    }
-                //                    fraction = (sample + (fractionValue / 100.0d));
-                //                    Count fracType = Count.valueOf(pluralRules.select(fraction));
-                //
-                //                    if (fracType == Count.other) {
-                //                        otherFractions.add(fraction);
-                //                        if (otherFractionalExamples.length() != 0) {
-                //                            otherFractionalExamples += ", ";
-                //                        }
-                //                        otherFractionalExamples += nf.format(fraction);
-                //                    } else if (fracType == type) {
-                //                        arrayList.add(fraction);
-                //                        addCurrentFractionalExample = true;
-                //                    } // else we ignore it
-                //
-                //                    countToExampleListRaw.put(type, arrayList);
-                //
-                //                    // create string form
-                //                    boolean addEllipsis = uset.toString(5, 2);
-                //                    if (addCurrentFractionalExample) {
-                //                        if (b.length() != 0) {
-                //                            b.append(", ");
-                //                        }
-                //                        b.append(nf.format(fraction)).append("...");
-                //                    } else if (addEllipsis) {
-                //                        b.append("...");
-                //                    }
-                //                }
                 countToStringExampleRaw.put(type, uset.toString(5,5));
             }
             final String baseOtherExamples = countToStringExampleRaw.get(Count.other);
@@ -3024,6 +2974,32 @@ public class SupplementalDataInfo {
         public boolean hasSamples(Count c, int digits) {
             SampleList samples = countSampleList.get(c, digits);
             return samples  != null && (samples.fractionSize() > 0 || samples.intSize() > 0);
+        }
+
+        public String getRule(Count keyword) {
+            return countToRule.get(keyword);
+        }
+
+
+        @Override
+        public int compareTo(PluralInfo other) {
+            int size1 = this.countToRule.size();
+            int size2 = other.countToRule.size();
+            int diff = size1 - size2;
+            if (diff != 0) {
+                return diff;
+            }
+            Iterator<Count> it1 = countToRule.keySet().iterator();
+            Iterator<Count> it2 = other.countToRule.keySet().iterator();
+            while (it1.hasNext()) {
+                Count a1 = it1.next();
+                Count a2 = it2.next();
+                diff = a1.ordinal() - a2.ordinal();
+                if (diff != 0) {
+                    return diff;
+                }
+            }
+            return pluralRules.compareTo(other.pluralRules);
         }
     }
 

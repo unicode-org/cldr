@@ -77,6 +77,38 @@ public class TestSupplementalInfo extends TestFmwk {
         new TestSupplementalInfo().run(args);
     }
 
+    public void TestPluralLocales() {
+        // get the unique rules
+        for (PluralType type : PluralType.values()) {
+            Relation<PluralInfo, String> pluralsToLocale = new Relation(new HashMap(), TreeSet.class);
+            for (String locale : new TreeSet<String>(SUPPLEMENTAL.getPluralLocales(type))) {
+                PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(type, locale);
+                pluralsToLocale.put(pluralInfo, locale);
+            }
+
+            String[][] equivalents = {
+                    {"mo", "ro"},
+                    {"tl", "fil"},
+                    {"he", "iw"},
+                    {"in", "id"},
+                    {"jw", "jv"},
+                    {"ji", "yi"},
+                    {"sh", "sr"},
+            };
+            for (Entry<PluralInfo, Set<String>> pluralInfoEntry : pluralsToLocale.keyValuesSet()) {
+                PluralInfo pluralInfo2 = pluralInfoEntry.getKey();
+                Set<String> locales = pluralInfoEntry.getValue();
+                // check that equivalent locales are either both in or both out
+                for (String[] row : equivalents) {
+                    assertEquals(type + " must be equivalent: " + Arrays.asList(row),
+                            locales.contains(row[0]),
+                            locales.contains(row[1])
+                            );
+                }
+            } 
+        }
+    }
+
     public void TestDigitPluralCases() {
         String[][] tests = {
                 {"en", "one", "1", "1"},

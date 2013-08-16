@@ -18,7 +18,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="few">n mod 100 in 3..10</pluralRule>
             <pluralRule count="many">n mod 100 in 11..99</pluralRule>
         </pluralRules>
-        <pluralRules locales="he">
+        <pluralRules locales="he iw">
             <pluralRule count="one">v=0 and i is 1</pluralRule>
             <pluralRule count="two">v=0 and i is 2</pluralRule>
             <pluralRule count="many">v=0 and i not in 0..10 and i mod 10 is 0</pluralRule>
@@ -121,12 +121,12 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="two">n in 2,12</pluralRule>
             <pluralRule count="few">n in 3..10,13..19</pluralRule>
         </pluralRules>
-        <pluralRules locales="bm bo dz id ig ii ja jbo jv kde kea km ko lkt lo ms my nqo sah ses sg th to vi wo yo zh">
+        <pluralRules locales="bm bo dz id in ig ii ja jbo jv jw kde kea km ko lkt lo ms my nqo sah ses sg th to vi wo yo zh">
         </pluralRules>
         <pluralRules locales="fil tl">
             <pluralRule count="one">v=0 and i in 0..1</pluralRule>
         </pluralRules>
-        <pluralRules locales="ca de en et fi gl it nl sv sw ur yi">
+        <pluralRules locales="ca de en et fi gl it nl sv sw ur yi ji">
             <pluralRule count="one">v=0 and i is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="pt">

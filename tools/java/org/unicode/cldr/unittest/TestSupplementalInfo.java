@@ -105,6 +105,15 @@ public class TestSupplementalInfo extends TestFmwk {
                             locales.contains(row[1])
                             );
                 }
+                // check that no rules contain 'within'
+                for (Count count : pluralInfo2.getCounts()) {
+                    String rule = pluralInfo2.getRule(count);
+                    if (rule == null) {
+                        continue;
+                    }
+                    assertFalse("Rule '" + rule + "' for " + Arrays.asList(locales) +
+                    		" doesn't contain 'within'", rule.contains("within"));
+                }
             } 
         }
     }

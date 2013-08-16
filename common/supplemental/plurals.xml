@@ -30,7 +30,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="one">n in 0..1</pluralRule>
         </pluralRules>
         <pluralRules locales="ff fr hy kab">
-            <pluralRule count="one">n within 0..2 and n is not 2</pluralRule>
+            <pluralRule count="one">i is 0,1</pluralRule>
         </pluralRules>
         <pluralRules locales="lv">
             <pluralRule count="zero">n mod 10 is 0 or n mod 100 in 11..19 or v is 2 and f mod 100 in 11..19</pluralRule>
@@ -92,10 +92,10 @@ For terms of use, see http://www.unicode.org/copyright.html
         </pluralRules>
         <pluralRules locales="lag">
             <pluralRule count="zero">n is 0</pluralRule>
-            <pluralRule count="one">n within 0..2 and n is not 0 and n is not 2</pluralRule>
+            <pluralRule count="one">i is 0,1 and n is not 0</pluralRule>
         </pluralRules>
         <pluralRules locales="shi">
-            <pluralRule count="one">n within 0..1</pluralRule>
+            <pluralRule count="one">i is 0 or n is 1</pluralRule>
             <pluralRule count="few">n in 2..10</pluralRule>
         </pluralRules>
         <pluralRules locales="br">
@@ -133,13 +133,13 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="one">v=0 and i is 1 or f is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="da">
-            <pluralRule count="one">v=0 and i is 1 or t is not 0 and n within 0..2</pluralRule>
+            <pluralRule count="one">n is 1 or t is not 0 and i is 0,1</pluralRule>
         </pluralRules>
         <pluralRules locales="pt_PT">
             <pluralRule count="one">n is 1 or t is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="am bn fa gu hi kn mr zu">
-            <pluralRule count="one">n within 0..1</pluralRule>
+            <pluralRule count="one">i is 0 or n is 1</pluralRule>
         </pluralRules>
         <pluralRules locales="is">
             <pluralRule count="one">t is 0 and i mod 10 is 1 and i mod 100 is not 11 or t is not 0</pluralRule>

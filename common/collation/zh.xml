@@ -6035,12 +6035,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<settings reorder="Hani Bopo"/>
             <cr><![CDATA[
                 # ZHUYIN TONES (SPACING)
-                &[last primary ignorable]<<ˉ # zhuyin first tone, equivalent to unmarked
-
-                <ˊ<ˇ<ˋ<˙ # zhuyin fifth tone, neutral (unmarked in pinyin)
-
-                <˪ # zhuyin tone special for non-mandarin
-                <˫ # zhuyin tone special for non-mandarin
+                &[last primary ignorable]
+                <<ˉ # zhuyin first tone, normally unmarked in zhuyin
+                <<ˊ
+                <<ˇ # zhuyin third tone
+                <<ˋ
+                <<˙ # zhuyin fifth tone, neutral (unmarked in pinyin)
+                <<˪ # zhuyin tone special for non-mandarin e.g. Taiwanese Hokkien
+                <<˫ # zhuyin tone special for non-mandarin e.g. Taiwanese Hokkien
                 # PINYIN
                 &[before 2]a<<ā<<<Ā<<á<<<Á<<ǎ<<<Ǎ<<à<<<À
                 &[before 2]e<<ē<<<Ē<<é<<<É<<ě<<<Ě<<è<<<È
@@ -8151,12 +8153,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<settings reorder="Hani Bopo"/>
             <cr><![CDATA[
                 # ZHUYIN TONES (SPACING)
-                &[last primary ignorable]<<ˉ # zhuyin first tone, equivalent to unmarked
-
-                <ˊ<ˇ<ˋ<˙ # zhuyin fifth tone, neutral (unmarked in pinyin)
-
-                <˪ # zhuyin tone special for non-mandarin
-                <˫ # zhuyin tone special for non-mandarin
+                &[last primary ignorable]
+                <<ˉ # zhuyin first tone, normally unmarked in zhuyin
+                <<ˊ
+                <<ˇ # zhuyin third tone
+                <<ˋ
+                <<˙ # zhuyin fifth tone, neutral (unmarked in pinyin)
+                <<˪ # zhuyin tone special for non-mandarin e.g. Taiwanese Hokkien
+                <<˫ # zhuyin tone special for non-mandarin e.g. Taiwanese Hokkien
                 # PINYIN
                 &[before 2]a<<ā<<<Ā<<á<<<Á<<ǎ<<<Ǎ<<à<<<À
                 &[before 2]e<<ē<<<Ē<<é<<<É<<ě<<<Ě<<è<<<È

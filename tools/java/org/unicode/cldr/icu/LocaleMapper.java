@@ -390,34 +390,11 @@ public class LocaleMapper extends Mapper {
         String version = cldrResolved.getFullXPath("//ldml/identity/version");
         icuData.add("/Version", MapperUtils.formatVersion(version));
 
-        // PaperSize:intvector{ 279, 216, }
-        String localeID = cldrResolved.getLocaleID();
-        String path = "/PaperSize:intvector";
-        String paperType = getMeasurementToDisplay(localeID, MeasurementType.paperSize);
-        if (paperType == null) {
-            // do nothing
-        } else if (paperType.equals("A4")) {
-            icuData.add(path, new String[] { "297", "210" });
-        } else if (paperType.equals("US-Letter")) {
-            icuData.add(path, new String[] { "279", "216" });
-        } else {
-            throw new IllegalArgumentException("Unknown paper type");
-        }
-
-        // MeasurementSystem:int{1}
-        path = "/MeasurementSystem:int";
-        String measurementSystem = getMeasurementToDisplay(localeID, MeasurementType.measurementSystem);
-        if (measurementSystem == null) {
-            // do nothing
-        } else if (measurementSystem.equals("metric")) {
-            icuData.add(path, "0");
-        } else if (measurementSystem.equals("US")) {
-            icuData.add(path, "1");
-        } else {
-            throw new IllegalArgumentException("Unknown measurement system");
-        }
+        // PaperSize:intvector{ 279, 216, } - now in supplemental
+        // MeasurementSystem:int{1} - now in supplemental
 
         // Default calendar.
+        String localeID = cldrResolved.getLocaleID();
         String calendar = getCalendarIfDifferent(localeID);
         if (calendar != null) {
             icuData.add("/calendar/default", calendar);
@@ -459,27 +436,7 @@ public class LocaleMapper extends Mapper {
         return calendars == null ? null : calendars.get(0);
     }
 
-    /**
-     * Returns the measurement to be displayed for the specified locale and
-     * measurement type. Measurements should not be displayed if the immediate
-     * parent of the locale has the same measurement as the locale.
-     * 
-     * @param localeID
-     * @param measurementType
-     * @return the measurement to be displayed, or null if it should not be displayed
-     */
-    private String getMeasurementToDisplay(String localeID, MeasurementType measurementType) {
-        String type = getMeasurement(localeID, measurementType);
-        if (type == null) return null;
-        // Don't add type if a parent has the same value for that type.
-        String parent = LocaleIDParser.getParent(localeID);
-        String parentType = null;
-        while (parentType == null && parent != null) {
-            parentType = getMeasurement(parent, measurementType);
-            parent = LocaleIDParser.getParent(parent);
-        }
-        return type.equals(parentType) ? null : type;
-    }
+    //private String getMeasurementToDisplay(String localeID, MeasurementType measurementType) {...} // deleted
 
     /**
      * @param localeID

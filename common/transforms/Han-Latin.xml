@@ -13,8 +13,11 @@ For terms of use, see http://www.unicode.org/copyright.html
           <comment># Warning: does not do round-trip mapping!!</comment>
           <comment># Convert CJK characters</comment>
           <tRule>::Han-Spacedhan();</tRule>
-          <comment># Convert compounds; these are added individually, not derived from Unihan kMandarin</comment>
-           <tRule>藏文→zàngwén;</tRule>
+          <comment># Convert compounds; these are added individually, not derived from Unihan kMandarin.</comment>
+          <comment># Note that Han-Spacedhan() has already been applied, so there should be spaces between Han characters.</comment>
+           <tRule>藏 } \u0020? 文 →zàng;</tRule><comment># 藏 is zàng (not cáng) if followed by 文 wén: 藏文 language Zàngwén = Tibetan</comment>
+           <tRule>重 } \u0020? 庆 →chóng;</tRule><comment># 重 is chóng (not zhòng) if followed by 庆 qìng: 重庆 city Chóngqìng</comment>
+           <tRule>沈 } \u0020? 阳 →shěn;</tRule><comment># 沈 is shěn (not chén) if followed by 阳 yáng: 沈阳 city Shěnyáng</comment>
           <comment># Start RAW data for converting single CJK characters, derived from Unihan kMandarin</comment>
            <tRule>[呵锕阿𠼞𥥩𨉚]→ā;</tRule>
            <tRule>[嗄]→á;</tRule>

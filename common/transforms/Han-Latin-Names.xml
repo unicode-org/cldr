@@ -10,6 +10,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 	<transforms>
 		<transform source="Han" target="Latin" direction="forward" variant="Names">
+			<comment># This transform is primarily intended to produce readings for Chinese surnames, or for full</comment>
+			<comment># Chinese personal names - surname first - that occur at the beginning of a contiguous Han substring</comment>
+			<comment># (i.e. at the beginning of text, or immediately preceded by space or other non-Han characters).</comment>
+			<comment># Several Han characters have different readings in surnames, than the readings found in Han-Latin.</comment>
+			<comment># ----</comment>
 			<comment># Insert marker at start of each Han sequence (including Han after space).</comment>
 			<comment># Do this before ::Han-Spacedhan() to catch Han after space in original text,</comment>
 			<comment># and to apply before all other rules.</comment>

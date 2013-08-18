@@ -63,6 +63,7 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.StringTransform;
+import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -1103,6 +1104,32 @@ public class TestSupplementalInfo extends TestFmwk {
                                         : "\t" + cardinalRules + "\t" + overrideRules)
                         );
 
+            }
+        }
+    }
+
+    public void TestNumberingSystemDigits() {
+
+        // Don't worry about digits from supplemental planes yet ( ICU can't handle them anyways )
+        // hanidec is the only known non codepoint order numbering system
+        String [] knownExceptions = {"brah", "cakm", "hanidec", "osma", "shrd", "sora", "takr"};
+        List<String> knownExceptionList = Arrays.asList(knownExceptions);
+        for (String ns : SUPPLEMENTAL.getNumericNumberingSystems()) {
+            if (knownExceptionList.contains(ns)) {
+                continue;
+            }
+            String digits = SUPPLEMENTAL.getDigits(ns);
+            int previousChar = 0;
+            int ch;
+
+            for (int i = 0; i < digits.length(); ++i) {
+                ch = UTF16.charAt(digits, i);
+                if (i > 0 && ch != previousChar + 1) {
+                    errln("Digits for numbering system " + ns + " are not in code point order. Previous char = " + previousChar + " Current char = "
+                            + ch);
+                    break;
+                }
+                previousChar = ch;
             }
         }
     }

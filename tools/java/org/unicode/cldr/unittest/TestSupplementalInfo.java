@@ -1112,6 +1112,7 @@ public class TestSupplementalInfo extends TestFmwk {
 
         // Don't worry about digits from supplemental planes yet ( ICU can't handle them anyways )
         // hanidec is the only known non codepoint order numbering system
+        // TODO: Fix so that it works properly on non-BMP digit strings.
         String [] knownExceptions = {"brah", "cakm", "hanidec", "osma", "shrd", "sora", "takr"};
         List<String> knownExceptionList = Arrays.asList(knownExceptions);
         for (String ns : SUPPLEMENTAL.getNumericNumberingSystems()) {
@@ -1122,7 +1123,7 @@ public class TestSupplementalInfo extends TestFmwk {
             int previousChar = 0;
             int ch;
 
-            for (int i = 0; i < digits.length(); ++i) {
+            for (int i = 0; i < digits.length(); i += UTF16.getCharCount(ch)) {
                 ch = UTF16.charAt(digits, i);
                 if (i > 0 && ch != previousChar + 1) {
                     errln("Digits for numbering system " + ns + " are not in code point order. Previous char = " + previousChar + " Current char = "

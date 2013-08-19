@@ -47,7 +47,7 @@ import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.NumberInfo;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
@@ -2586,7 +2586,7 @@ public class SupplementalDataInfo {
         public static final SampleList EMPTY = new SampleList().freeze();
 
         private UnicodeSet uset = new UnicodeSet();
-        private List<NumberInfo> fractions = new ArrayList<NumberInfo>(0);
+        private List<FixedDecimal> fractions = new ArrayList<FixedDecimal>(0);
 
         public String toString() {
             return toString(6,3);
@@ -2644,7 +2644,7 @@ public class SupplementalDataInfo {
             return uset.getRangeEnd(index);
         }
 
-        public List<NumberInfo> getFractions() {
+        public List<FixedDecimal> getFractions() {
             return fractions;
         }
 
@@ -2670,7 +2670,7 @@ public class SupplementalDataInfo {
             return this;
         }
 
-        public void add(NumberInfo i) {
+        public void add(FixedDecimal i) {
             fractions.add(i);
         }
         public int fractionSize() {
@@ -2712,7 +2712,7 @@ public class SupplementalDataInfo {
                     continue;
                 }
                 for (int f = 0; f < 30; ++f) {
-                    NumberInfo ni = new NumberInfo(i + f/10.0d, f < 10 ? 1 : 2, f);
+                    FixedDecimal ni = new FixedDecimal(i + f/10.0d, f < 10 ? 1 : 2, f);
                     count = Count.valueOf(pluralRules.select(ni));
                     addSimple(countToIntegerSamples9999, ni, count);
                     addDigit(countToDigitToIntegerSamples9999, ni, count, digit);
@@ -2743,11 +2743,11 @@ public class SupplementalDataInfo {
 
         static final int MAX_COLLECTED_FRACTION = 5;
         
-        private boolean addDigit(Map<Count, SampleList[]> countToDigitToIntegerSamples9999, NumberInfo i, Count count, int digit) {
+        private boolean addDigit(Map<Count, SampleList[]> countToDigitToIntegerSamples9999, FixedDecimal i, Count count, int digit) {
             return addFraction(i, countToDigitToIntegerSamples9999.get(count)[digit]);
         }
 
-        private boolean addFraction(NumberInfo i, SampleList sampleList) {
+        private boolean addFraction(FixedDecimal i, SampleList sampleList) {
             if (sampleList.fractionSize() < MAX_COLLECTED_FRACTION) {
                 sampleList.add(i);
                 return true;
@@ -2756,7 +2756,7 @@ public class SupplementalDataInfo {
             }
         }
 
-        private boolean addSimple(Map<Count, SampleList> countToIntegerSamples9999, NumberInfo i, Count count) {
+        private boolean addSimple(Map<Count, SampleList> countToIntegerSamples9999, FixedDecimal i, Count count) {
             return addFraction(i, countToIntegerSamples9999.get(count));
         }
 
@@ -2928,7 +2928,7 @@ public class SupplementalDataInfo {
             return Count.valueOf(pluralRules.select(exampleCount));
         }
 
-        public Count getCount(PluralRules.NumberInfo exampleCount) {
+        public Count getCount(PluralRules.FixedDecimal exampleCount) {
             return Count.valueOf(pluralRules.select(exampleCount));
         }
 

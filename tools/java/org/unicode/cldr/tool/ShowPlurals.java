@@ -21,7 +21,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.NumberInfo;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.util.ULocale;
 
 public class ShowPlurals {
@@ -92,7 +92,7 @@ public class ShowPlurals {
                 String examples = exampleList.toString();
                 //                    StringBuilder examples = new StringBuilder();
                 //                    int itemCount = 0;
-                //                    for (NumberInfo example : exampleList) {
+                //                    for (FixedDecimal example : exampleList) {
                 //                        ++itemCount;
                 //                        if (examples.length() != 0) {
                 //                            examples.append("; ");
@@ -108,17 +108,17 @@ public class ShowPlurals {
                         String sample = counts.size() == 1 ? "<i>no plural differences</i>" 
                                 : "<i>Not available.<br>Please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to supply.</i>";
                         if (samplePatterns != null) {
-                            String samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, keyword);
+                            String samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));
                             if (samplePattern != null) {
                                 if (exampleList.getRangeCount() > 0) {
                                     int intSample = exampleList.getRangeStart(0);
-                                    sample = getSample(new NumberInfo(intSample), samplePattern, nf);
+                                    sample = getSample(new FixedDecimal(intSample), samplePattern, nf);
                                 } else {
                                     sample = "";
                                 }
-                                List<NumberInfo> fractions = exampleList.getFractions();
+                                List<FixedDecimal> fractions = exampleList.getFractions();
                                 if (fractions.size() != 0) {
-                                    NumberInfo numb = fractions.iterator().next();
+                                    FixedDecimal numb = fractions.iterator().next();
                                     if (sample.length() != 0) {
                                         sample += "<br>";
                                     }
@@ -139,10 +139,10 @@ public class ShowPlurals {
         appendable.append(tablePrinter.toTable()).append('\n');
     }
 
-    private static String getSample(NumberInfo numb, String samplePattern, NumberFormat nf) {
+    private static String getSample(FixedDecimal numb, String samplePattern, NumberFormat nf) {
         String sample;
-        nf.setMaximumFractionDigits(numb.visibleFractionDigitCount);
-        nf.setMinimumFractionDigits(numb.visibleFractionDigitCount);
+        nf.setMaximumFractionDigits(numb.getVisibleDecimalDigitCount());
+        nf.setMinimumFractionDigits(numb.getVisibleDecimalDigitCount());
         sample = samplePattern
                 .replace('\u00A0', '\u0020')
                 .replace("{0}", nf.format(numb.source))

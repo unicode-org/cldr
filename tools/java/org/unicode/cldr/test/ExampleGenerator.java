@@ -12,6 +12,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -46,7 +47,10 @@ import com.ibm.icu.text.DecimalFormatSymbols;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.NumberInfo;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.FixedDecimalRange;
+import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
@@ -221,13 +225,13 @@ public class ExampleGenerator {
     };
 
     public static class ExampleContext {
-        private Collection<NumberInfo> exampleCount;
+        private Collection<FixedDecimal> exampleCount;
 
-        public void setExampleCount(Collection<NumberInfo> exampleCount2) {
+        public void setExampleCount(Collection<FixedDecimal> exampleCount2) {
             this.exampleCount = exampleCount2;
         }
 
-        public Collection<NumberInfo> getExampleCount() {
+        public Collection<FixedDecimal> getExampleCount() {
             return exampleCount;
         }
     }
@@ -534,7 +538,7 @@ public class ExampleGenerator {
         NARROW(ListTypeLength.UNIT_NARROW);
         final String typeString;
         final ListTypeLength listTypeLength;
-        
+
         UnitLength(ListTypeLength listTypeLength) {
             typeString = "[@type=\"" + name().toLowerCase(Locale.ENGLISH)+ "\"]";
             this.listTypeLength = listTypeLength;
@@ -720,13 +724,13 @@ public class ExampleGenerator {
         return df.format(new Date(time));
     }
 
-    static final List<NumberInfo> CURRENCY_SAMPLES = Arrays.asList(
-            new NumberInfo(1.23), 
-            new NumberInfo(0), 
-            new NumberInfo(2.34),
-            new NumberInfo(3.45),
-            new NumberInfo(5.67),
-            new NumberInfo(1)
+    static final List<FixedDecimal> CURRENCY_SAMPLES = Arrays.asList(
+            new FixedDecimal(1.23), 
+            new FixedDecimal(0), 
+            new FixedDecimal(2.34),
+            new FixedDecimal(3.45),
+            new FixedDecimal(5.67),
+            new FixedDecimal(1)
             );
 
     private String formatCountValue(String xpath, XPathParts parts, String value, ExampleContext context,
@@ -745,7 +749,7 @@ public class ExampleGenerator {
         final boolean isCurrency = !parts.contains("units");
 
         Count count = null;
-        final List<NumberInfo> exampleCount = new ArrayList();
+        final LinkedHashSet<FixedDecimal> exampleCount = new LinkedHashSet();
         exampleCount.addAll(CURRENCY_SAMPLES);
         String countString = parts.getAttributeValue(-1, "count");
         if (countString == null) {
@@ -760,7 +764,9 @@ public class ExampleGenerator {
         }
 
         // we used to just get the samples for the given keyword, but that doesn't work well any more.
-        exampleCount.addAll(pluralRules.getFractionSamples());
+        getStartEndSamples(pluralRules.getDecimalSamples(countString, SampleType.INTEGER), exampleCount);
+        getStartEndSamples(pluralRules.getDecimalSamples(countString, SampleType.DECIMAL), exampleCount);
+
         if (context != null) {
             context.setExampleCount(exampleCount);
         }
@@ -769,18 +775,18 @@ public class ExampleGenerator {
         int decimalCount = currencyFormat.getMinimumFractionDigits();
 
         // we will cycle until we have (at most) two examples.
-        Set<NumberInfo> examplesSeen = new HashSet();
+        Set<FixedDecimal> examplesSeen = new HashSet();
         int maxCount = 2;
         main:
             // If we are a currency, we will try to see if we can set the decimals to match.
             // but if nothing works, we will just use a plain sample.
             for (int phase = 0; phase < 2; ++phase) {
                 int check = 0;
-                for (NumberInfo example : exampleCount) {
+                for (FixedDecimal example : exampleCount) {
                     // we have to first see whether we have a currency. If so, we have to see if the count works.
 
                     if (isCurrency && phase == 0) {
-                        example = new NumberInfo(example.source, decimalCount);
+                        example = new FixedDecimal(example.source, decimalCount);
                     }
                     // skip if we've done before (can happen because of the currency reset)
                     if (examplesSeen.contains(example)) {
@@ -823,8 +829,17 @@ public class ExampleGenerator {
         return result.isEmpty() ? null : result;
     }
 
+    static public void getStartEndSamples(PluralRules.FixedDecimalSamples samples, Set<FixedDecimal> target) {
+        if (samples != null) {
+            for (FixedDecimalRange item : samples.getSamples()) {
+                target.add(item.start);
+                target.add(item.end);
+            }
+        }
+    }
+
     private String formatCurrency(String value, ExampleType type, String unitType, final boolean isPattern, final boolean isCurrency, Count count,
-            NumberInfo example) {
+            FixedDecimal example) {
         String resultItem;
         {
             // If we have a pattern, get the unit from the count
@@ -855,8 +870,8 @@ public class ExampleGenerator {
             // TODO fix this for special currency overrides
 
             DecimalFormat unitDecimalFormat = icuServiceBuilder.getNumberFormat(1); // decimal
-            unitDecimalFormat.setMaximumFractionDigits(example.visibleFractionDigitCount);
-            unitDecimalFormat.setMinimumFractionDigits(example.visibleFractionDigitCount);
+            unitDecimalFormat.setMaximumFractionDigits(example.getVisibleDecimalDigitCount());
+            unitDecimalFormat.setMinimumFractionDigits(example.getVisibleDecimalDigitCount());
 
             String formattedNumber = unitDecimalFormat.format(example.source);
             unitPatternFormat.setFormatByArgumentIndex(0, unitDecimalFormat);

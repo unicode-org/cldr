@@ -19,7 +19,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.NumberInfo;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.util.ULocale;
 
 public class WritePluralRules {
@@ -38,6 +38,57 @@ public class WritePluralRules {
 //            }
             rulesToLocales.put(rules, locale);
         }
+        writePluralHeader(PluralType.cardinal);
+        TreeSet<Entry<PluralRules, Set<String>>> sorted = new TreeSet<Entry<PluralRules, Set<String>>>(new HackComparator());
+        sorted.addAll(rulesToLocales.keyValuesSet());
+        for (Entry<PluralRules, Set<String>> entry : sorted) {
+            PluralRules rules = entry.getKey();
+            Set<String> values = entry.getValue();
+            //String comment = hackComments.get(locales);
+            writePluralRuleHeader(values);
+            for (String keyword : rules.getKeywords()) {
+                String rule = rules.getRules(keyword);
+                if (rule == null) {
+                    continue;
+                }
+                writePluralRule(keyword, rule);
+            }
+            writePluralRuleFooter();
+            /*
+        <pluralRules locales="ar">
+            <pluralRule count="zero">n is 0</pluralRule>
+            <pluralRule count="one">n is 1</pluralRule>
+            <pluralRule count="two">n is 2</pluralRule>
+            <pluralRule count="few">n mod 100 in 3..10</pluralRule>
+            <pluralRule count="many">n mod 100 in 11..99</pluralRule>
+        </pluralRules>
+
+             */
+        }
+        writePluralFooter();
+    }
+
+    public static void writePluralRuleFooter() {
+        System.out.println("        </pluralRules>");
+    }
+
+    public static void writePluralRule(String keyword, String rule) {
+        System.out.println("            <pluralRule count=\"" + keyword + "\">" + rule + "</pluralRule>");
+    }
+
+    public static void writePluralRuleHeader(Set<String> values) {
+        String locales = CollectionUtilities.join(values, " ");
+        System.out.println("        <pluralRules locales=\"" + locales + "\">"
+                //+ (comment != null ? comment : "")
+                );
+    }
+
+    public static void writePluralFooter() {
+        System.out.println("    </plurals>\n" +
+        		"</supplementalData>");
+    }
+
+    public static void writePluralHeader(PluralType type) {
         System.out.println(
                 "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
                         +"<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">\n"
@@ -51,41 +102,10 @@ public class WritePluralRules {
                         "$\"/>\n"
                         +"    <generation date=\"$Date" +
                         "$\"/>\n"
-                        +"    <plurals>\n"
+                        +"    <plurals type=\"" + type + "\">\n"
                         +"        <!-- For a canonicalized list, use WritePluralRules -->\n"
                         +"        <!-- if locale is known to have no plurals, there are no rules -->"
                 );
-        TreeSet<Entry<PluralRules, Set<String>>> sorted = new TreeSet<Entry<PluralRules, Set<String>>>(new HackComparator());
-        sorted.addAll(rulesToLocales.keyValuesSet());
-        for (Entry<PluralRules, Set<String>> entry : sorted) {
-            PluralRules rules = entry.getKey();
-            Set<String> values = entry.getValue();
-            String locales = CollectionUtilities.join(values, " ");
-            //String comment = hackComments.get(locales);
-            System.out.println("        <pluralRules locales=\"" + locales + "\">"
-                    //+ (comment != null ? comment : "")
-                    );
-            for (String keyword : rules.getKeywords()) {
-                String rule = rules.getRules(keyword);
-                if (rule == null) {
-                    continue;
-                }
-                System.out.println("            <pluralRule count=\"" + keyword + "\">" + rule + "</pluralRule>");
-            }
-            System.out.println("        </pluralRules>");
-            /*
-        <pluralRules locales="ar">
-            <pluralRule count="zero">n is 0</pluralRule>
-            <pluralRule count="one">n is 1</pluralRule>
-            <pluralRule count="two">n is 2</pluralRule>
-            <pluralRule count="few">n mod 100 in 3..10</pluralRule>
-            <pluralRule count="many">n mod 100 in 11..99</pluralRule>
-        </pluralRules>
-
-             */
-        }
-        System.out.println("    </plurals>\n" +
-        		"</supplementalData>");
     }
     
 //    static Map<String,String> hackComments = new HashMap<String,String>();

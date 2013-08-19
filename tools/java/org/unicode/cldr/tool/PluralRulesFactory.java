@@ -7,6 +7,7 @@
 package org.unicode.cldr.tool;
 
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -14,9 +15,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.NumberInfo;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.PluralType;
 import com.ibm.icu.util.ULocale;
 
@@ -94,34 +99,36 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
     };
 
     public static class SamplePatterns {
-        final Map<String,String> keywordToPattern = new TreeMap(PluralRules.KEYWORD_COMPARATOR);
-        final Map<String,String> keywordToErrors = new HashMap();
-        public void put(ULocale locale, String keyword, String sample) {
-            if (keywordToPattern.containsKey(keyword)) {
-                throw new IllegalArgumentException("Duplicate keyword <" + keyword + "> for " + locale);
+        final Map<PluralInfo.Count, String> keywordToPattern = new EnumMap(PluralInfo.Count.class);
+        final Map<PluralInfo.Count, String> keywordToErrors = new EnumMap(PluralInfo.Count.class);
+        public void put(ULocale locale, String keyword1, String sample) {
+            Count count = Count.valueOf(keyword1);
+            if (keywordToPattern.containsKey(count)) {
+                throw new IllegalArgumentException("Duplicate keyword <" + count + "> for " + locale);
             } else {
-                keywordToPattern.put(keyword, sample.replace(" ", "\u00A0"));
+                keywordToPattern.put(count, sample.replace(" ", "\u00A0"));
             }
         }
         public void checkErrors(Set<String> set) {
-            final Map<String,String> skeletonToKeyword = new HashMap();
-            for (String keyword : set) {
+            final Map<String,PluralInfo.Count> skeletonToKeyword = new HashMap();
+            for (String keyword1 : set) {
+                Count count = Count.valueOf(keyword1);
                 String error = "";
-                String sample = keywordToPattern.get(keyword);
+                String sample = keywordToPattern.get(count);
                 String skeleton = sample.replace(" ", "").replaceAll("\\s*\\{0\\}\\s*", "");
-                String oldSkeletonKeyword = skeletonToKeyword.get(skeleton);
+                Count oldSkeletonKeyword = skeletonToKeyword.get(skeleton);
                 if (oldSkeletonKeyword != null) {
                     if (error.length() != 0) {
                         error += ", ";
                     }
-                    error += "Duplicate keyword skeleton <" + keyword + ", " + skeleton + ">, same as for: <" + oldSkeletonKeyword + ">";
+                    error += "Duplicate keyword skeleton <" + count + ", " + skeleton + ">, same as for: <" + oldSkeletonKeyword + ">";
                 } else {
-                    skeletonToKeyword.put(skeleton, keyword);
+                    skeletonToKeyword.put(skeleton, count);
                 }
                 if (error.length() == 0) {
-                    keywordToErrors.put(keyword, "");
+                    keywordToErrors.put(count, "");
                 } else {
-                    keywordToErrors.put(keyword, "\tERROR: " + error);
+                    keywordToErrors.put(count, "\tERROR: " + error);
                 }
             }
         }
@@ -140,7 +147,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         }
         return OVERRIDES;
     }
-    public static Relation<ULocale, NumberInfo> getExtraSamples() {
+    public static Relation<ULocale, FixedDecimal> getExtraSamples() {
         if (EXTRA_SAMPLES == null) {
             loadData();
         }
@@ -149,12 +156,12 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
 
     private static Map<ULocale, SamplePatterns> LOCALE_TO_SAMPLE_PATTERNS = null;    
     private static Map<ULocale,PluralRules> OVERRIDES = null; 
-    private static Relation<ULocale,NumberInfo> EXTRA_SAMPLES = null; 
+    private static Relation<ULocale,FixedDecimal> EXTRA_SAMPLES = null; 
 
     private static void loadData() {
         LinkedHashMap<ULocale, SamplePatterns> temp = new LinkedHashMap<ULocale, SamplePatterns>();
         HashMap<ULocale, PluralRules> tempOverrides = new HashMap<ULocale,PluralRules>();
-        Relation<ULocale, NumberInfo> tempSamples = Relation.of(new HashMap<ULocale,Set<NumberInfo>>(), HashSet.class);
+        Relation<ULocale, FixedDecimal> tempSamples = Relation.of(new HashMap<ULocale,Set<FixedDecimal>>(), HashSet.class);
         for (String[] row : SAMPLE_PATTERNS) {
             ULocale locale = new ULocale(row[0]);
             String keyword = row[1];
@@ -187,13 +194,13 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
                     throw new IllegalArgumentException("Duplicate locale: " + uLocale);
                 }
                 for (String item : pair[1].split("\\s*,\\s*")) {
-                    tempSamples.put(uLocale, new PluralRules.NumberInfo(item));
+                    tempSamples.put(uLocale, new PluralRules.FixedDecimal(item));
                 }
             }
         }
         LOCALE_TO_SAMPLE_PATTERNS = Collections.unmodifiableMap(temp);
         OVERRIDES = Collections.unmodifiableMap(tempOverrides);
-        EXTRA_SAMPLES = (Relation<ULocale, NumberInfo>) tempSamples.freeze();
+        EXTRA_SAMPLES = (Relation<ULocale, FixedDecimal>) tempSamples.freeze();
     }
 
 

@@ -162,9 +162,9 @@ public class TestExampleGenerator extends TestFmwk {
         ExampleGenerator exampleGenerator = getExampleGenerator("en");
         checkValue("Duration hm", "〖5:37〗", exampleGenerator, "//ldml/units/durationUnit[@type=\"hm\"]/durationUnitPattern");
         checkValue("Length m", "〖❬1❭ meter〗", exampleGenerator, "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"one\"]");
-        checkValue("Length m", "〖❬0.5❭ meters〗", exampleGenerator, "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
-        checkValue("Length m", "〖❬0.5❭ m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
-        checkValue("Length m", "〖❬0.5❭m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
+        checkValue("Length m", "〖❬0.1❭ meters〗", exampleGenerator, "//ldml/units/unitLength[@type=\"long\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
+        checkValue("Length m", "〖❬0.1❭ m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"short\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
+        checkValue("Length m", "〖❬0.1❭m〗", exampleGenerator, "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"length-meter\"]/unitPattern[@count=\"other\"]");
     }
 
     private void checkValue(String message, String expected, ExampleGenerator exampleGenerator, String path) {
@@ -178,9 +178,9 @@ public class TestExampleGenerator extends TestFmwk {
                 {"LONG", "one", "〖❬1 meter❭ per ❬second❭〗"},
                 {"SHORT", "one", "〖❬1 m❭/❬sec❭〗"},
                 {"NARROW", "one", "〖❬1m❭/❬s❭〗"},
-                {"LONG", "other", "〖❬0.5 meters❭ per ❬second❭〗"},
-                {"SHORT", "other", "〖❬0.5 m❭/❬sec❭〗"},
-                {"NARROW", "other", "〖❬0.5m❭/❬s❭〗"},
+                {"LONG", "other", "〖❬0.1 meters❭ per ❬second❭〗"},
+                {"SHORT", "other", "〖❬0.1 m❭/❬sec❭〗"},
+                {"NARROW", "other", "〖❬0.1m❭/❬s❭〗"},
         };
         checkCompoundUnits("en", tests);
         // reenable these after Arabic has meter translated

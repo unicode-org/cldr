@@ -4396,8 +4396,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<group>,</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
+			<plusSign>‎+</plusSign><!-- includes LRM before sign -->
+			<minusSign>‎-</minusSign><!-- includes LRM before sign (002D) -->
 			<exponential>E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille>‰</perMille>

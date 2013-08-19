@@ -29,7 +29,7 @@ public class CheckWidths extends CheckCLDR {
     }
 
     private enum Special {
-        NONE, QUOTES, PLACEHOLDERS
+        NONE, QUOTES, PLACEHOLDERS, NUMBERSYMBOLS
     }
 
     private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("\\{\\d\\}");
@@ -80,6 +80,9 @@ public class CheckWidths extends CheckCLDR {
                 break;
             case PLACEHOLDERS:
                 value = PLACEHOLDER_PATTERN.matcher(value).replaceAll("");
+                break;
+            case NUMBERSYMBOLS:
+                value = value.replaceAll("[\u200E\u200F]", ""); // don't include LRM/RLM when checking length of number symbols
                 break;
             }
             double valueMeasure = measure == Measure.CODE_POINTS ? value.codePointCount(0, value.length()) : ApproximateWidth.getWidth(value);
@@ -145,7 +148,7 @@ public class CheckWidths extends CheckCLDR {
             // Numeric items should be no more than a single character
 
             .add("//ldml/numbers/symbols[@numberSystem=%A]/(decimal|group|minus|percent|perMille|plus)", new Limit[] {
-                    new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NONE)
+                    new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NUMBERSYMBOLS)
             })
 
             // Now widths

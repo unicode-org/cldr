@@ -2537,8 +2537,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<group>٬</group>
 			<list>؛</list>
 			<percentSign>٪</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
+			<plusSign>‏+</plusSign><!-- includes RLM before sign -->
+			<minusSign>‏-</minusSign><!-- includes RLM before sign (002D) -->
 			<exponential>اس</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>؉</perMille>
@@ -2550,8 +2550,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<group>٬</group>
 			<list>؛</list>
 			<percentSign>٪</percentSign>
-			<plusSign>+</plusSign>
-			<minusSign>-</minusSign>
+			<plusSign>‎+‎</plusSign><!-- includes LRM before and after sign -->
+			<minusSign>‎-‎</minusSign><!-- includes LRM before and after sign (002D) -->
 			<exponential>×۱۰^</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>؉</perMille>

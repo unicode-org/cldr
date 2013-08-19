@@ -30,7 +30,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</layout>
 	<characters>
 		<exemplarCharacters>[\u064F ء آ ؤ ئ ا ب پ ت ث ٹ ج چ ح خ د ذ ڈ ر ز ڑ ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن ں ه ھ ہ و ی ے]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[أ ٻ ة ٺ ټ ٽ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200E \u200F أ ٻ ة ٺ ټ ٽ]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="unconfirmed">[ء آ ؤ ئ ا ب پ ت ث ٹ ج چ ح خ د ذ ڈ ر ز ڑ ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن ں ه ھ ہ و ی ے]</exemplarCharacters>
 	</characters>
 	<dates>
@@ -203,6 +203,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<otherNumberingSystems>
 			<native>arabext</native>
 		</otherNumberingSystems>
+		<symbols numberSystem="latn">
+			<plusSign>‎+</plusSign><!-- includes LRM before sign -->
+			<minusSign>‎-</minusSign><!-- includes LRM before sign (002D) -->
+		</symbols>
 		<currencies>
 			<currency type="EUR">
 				<displayName>يورو</displayName>

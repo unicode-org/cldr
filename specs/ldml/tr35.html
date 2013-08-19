@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">06-09</span></td>
+			<td>2013-<span class="changed">08-19</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -266,6 +266,8 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
      <li>8.3 <a href="#Choice_Patterns">Choice Patterns</a></li>
      <li>8.4 <a href="#Element_default">Element default</a></li>
      <li>8.5 <a href="#Attribute_standard">Attribute standard</a></li>
+     <li class="changed">8.6 <a href="#Element_base">Element base</a></li>
+     <li class="changed">8.7 <a href="#Element_rules">Element rules</a></li>
     </ul>
    </li>
    <li>9 <a href="#Links_to_Other_Parts">Links to Other Parts</a></li>
@@ -3197,7 +3199,8 @@ decimal?, group?, special*)) &gt;</pre>
 	</table>
 	<p>Quoting is done using &#39; characters, as in date or number formats.</p>
 	<h3><a name="Element_default" href="#Element_default">8.4 Element default</a></h3>
-	<p><b>Note:</b> <i>This structure is deprecated except when used for &lt;collation&gt;.</i></p>
+	<p><b>Note:</b> <i>This structure is deprecated <span class="removed">except when used for &lt;collation&gt;</span>.</i>
+	<span class="changed">Use replacement structure instead, such as the &lt;defaultCollation&gt; element.</p>
     <p>In some cases, a number of elements are present. The default element can be used to indicate which of them is the default, in the absence of other information. 
       The value of the choice attribute is to match the value of the type attribute for the selected item.</p>
     <pre>&lt;timeFormats&gt;
@@ -3240,6 +3243,23 @@ decimal?, group?, special*)) &gt;</pre>
       ...<br>
   &lt;dateFormatStyle standard=”http://www.iso.ch/iso/en/CatalogueDetailPage.CatalogueDetail?CSNUMBER=26780&amp;amp;ICS1=1&amp;amp;ICS2=140&amp;amp;ICS3=30”&gt;</code></p>
     <p>&nbsp;</p>
+
+  <h3 class="changed"><a name="Element_base" href="#Element_base">8.6 Element base</a></h3>
+  <p class="changed"><b>Note:</b> <i>This element is deprecated.</i> Use the collation &lt;import&gt; element instead.</p>
+  <p class="changed">The optional base element <code>&lt;base&gt;<span style="color: blue">...</span>&lt;/base&gt;</code>,
+  contains an alias element that points to another data source that defines a <i>base </i>collation.
+  If present, it indicates that the settings and rules in the collation are modifications applied
+  on <i>top of the</i> respective elements in the base collation.
+  That is, any successive settings, where present, override what is in the base as described in
+  <a href="tr35-collation.html#Setting_Options">Setting Options</a>.
+  Any successive rules are concatenated to the end of the rules in the base.
+  The results of multiple rules applying to the same characters is covered in <a href="tr35-collation.html#Orderings">Orderings</a>.</p>
+
+  <h3 class="changed"><a name="Element_rules" href="#Element_rules">8.7 Element rules</a></h3>
+  <p class="changed"><b>Note:</b> <i>The XML collation syntax is deprecated.</i>
+  Use the basic collation syntax with the <a href="tr35-collation.html#Rules">&lt;cr&gt; element</a> instead.</p>
+  <p class="dtd">&lt;!ELEMENT rules (alias | ( reset, ( reset | p | pc | s | sc | t | tc | i | ic | x)* )) &gt;</p>
+
 <hr>
 <h2><a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">9 Links to Other Parts</a></h2>
   <p>The LDML specification is split into several <a href="#Parts">parts</a> by topic,

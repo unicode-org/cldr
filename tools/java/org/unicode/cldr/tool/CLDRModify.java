@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004, International Business Machines Corporation and        *
+ * Copyright (C) 2004-2013, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -1831,47 +1831,10 @@ public class CLDRModify {
                 String oldValue = cldrFileToFilter.getStringValue(xpath);
                 String value = dtc.getCanonicalDatePattern(xpath, oldValue, datetimePatternType);
 
-                // now for cases with IDs, check to see whether we need to change the id.
-                // interval formats are already ok, so just look at available formats.
-                String oldFullPath = cldrFileToFilter.getFullXPath(xpath);
-                String fullPath = oldFullPath;
-                if (xpath.contains("@id")) {
-                    fullparts.set(oldFullPath);
+                String fullPath = cldrFileToFilter.getFullXPath(xpath);
+                // Deleted code to canonicalize id for availableFormats items (cldrbug 5760)
 
-                    Map<String, String> attributes = fullparts.findAttributes("dateFormatItem");
-                    if (attributes != null) {
-                        String oldID = (String) attributes.get("id");
-                        String id = dtc.getCanonicalDatePattern(xpath, oldID, datetimePatternType);
-                        if (!id.equals(oldID)) {
-                            attributes.put("id", id);
-                            fullPath = fullparts.toString();
-                            String oldValueNewPath = cldrFileToFilter.getStringValue(fullPath);
-                            if (oldValueNewPath == null) {
-                                // continue on to change path/valud
-                            } else if (oldValueNewPath.equals(value)) {
-                                remove(oldFullPath,
-                                        "**Just removing\t«" + oldValue + "»"
-                                                + "\t(at id:\t" + oldID + ")"
-                                                + "\tbecause\t«" + value + "»"
-                                                + "\tis already at new id:\t" + id
-                                                + " — ");
-                                return;
-                            } else {
-                                remove(oldFullPath,
-                                        "**Rejecting change from\t«" + oldValue + "»"
-                                                + "\t(at id:\t" + oldID + ")"
-                                                + "\t=>\t«" + value + "»"
-                                                + "\tbecause\t«" + oldValueNewPath + "»"
-                                                + "\tis already at new id:\t" + id
-                                                + " — ");
-                                return;
-                            }
-                            totalSkeletons.add(id);
-                        }
-                    }
-                }
-
-                if (value.equals(oldValue) && fullPath.equals(oldFullPath)) {
+                if (value.equals(oldValue)) {
                     return;
                 }
 

@@ -768,7 +768,6 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         </region>
         <region iso3166="MV">
             <currency iso4217="MVR" from="1981-07-01"/>
-            <currency iso4217="MVP" from="1947-01-01" to="1981-07-01"/>
         </region>
         <region iso3166="MW">
             <currency iso4217="MWK" from="1971-02-15"/>
@@ -4116,6 +4115,7 @@ XXX Code for transations where no currency is involved
           <paperSize type="US-Letter"  territories="BZ CA CL CO CR GT MX NI PA PH PR SV US VE"/>
     </measurementData>
 
+    <!-- start of data generated with CountItems tool per http://sites.google.com/site/cldr/development/updating-codes/update-languagescriptregion-subtags -->
     <codeMappings>
         <territoryCodes type="AA" numeric="958" alpha3="AAA"/>
         <territoryCodes type="AC" alpha3="ASC"/>
@@ -4172,7 +4172,7 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="CO" numeric="170" alpha3="COL"/>
         <territoryCodes type="CP" alpha3="CPT"/>
         <territoryCodes type="CR" numeric="188" alpha3="CRI" fips10="CS"/>
-        <territoryCodes type="CS" numeric="891" alpha3="SCG" fips10="YI" internet="CS YU"/>
+        <territoryCodes type="CS" numeric="891" alpha3="SCG" fips10="YI"/>
         <territoryCodes type="CU" numeric="192" alpha3="CUB"/>
         <territoryCodes type="CV" numeric="132" alpha3="CPV"/>
         <territoryCodes type="CW" numeric="531" alpha3="CUW"/>
@@ -4325,6 +4325,7 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="QR" numeric="964" alpha3="QRR"/>
         <territoryCodes type="QS" numeric="965" alpha3="QSS"/>
         <territoryCodes type="QT" numeric="966" alpha3="QTT"/>
+        <territoryCodes type="QU" numeric="967" alpha3="QUU"/>
         <territoryCodes type="QV" numeric="968" alpha3="QVV"/>
         <territoryCodes type="QW" numeric="969" alpha3="QWW"/>
         <territoryCodes type="QX" numeric="970" alpha3="QXX"/>
@@ -4424,8 +4425,9 @@ XXX Code for transations where no currency is involved
         <territoryCodes type="ZM" numeric="894" alpha3="ZMB" fips10="ZA"/>
         <territoryCodes type="ZR" numeric="180" alpha3="ZAR"/>
         <territoryCodes type="ZW" numeric="716" alpha3="ZWE" fips10="ZI"/>
-        <territoryCodes type="ZZ" numeric="999" alpha3="ZZZ" internet="AERO ARPA ASIA BIZ CAT COM COOP EDU GOV INFO INT JOBS MIL MOBI MUSEUM NAME NET ORG PRO TEL TRAVEL XN--0ZWM56D XN--11B5BS3A9AJ6G XN--3E0B707E XN--45BRJ9C XN--80AKHBYKNJ4F XN--90A3AC XN--9T4B11YI5A XN--CLCHC0EA0B2G2A9GCD XN--DEBA0AD XN--FIQS8S XN--FIQZ9S XN--FPCRJ9C3D XN--FZC2C9E2C XN--G6W251D XN--GECRJ9C XN--H2BRJ9C XN--HGBK6AJ7F53BBA XN--HLCJ6AYA9ESC7A XN--J6W193G XN--JXALPDLP XN--KGBECHTV XN--KPRW13D XN--KPRY57D XN--LGBBAT1AD8J XN--MGBAAM7A8H XN--MGBAYH7GPA XN--MGBBH1A71E XN--MGBC0A9AZCG XN--MGBERP4A5D4AR XN--O3CW4H XN--OGBPF8FL XN--P1AI XN--PGBS0DH XN--S9BRJ9C XN--WGBH1C XN--WGBL6A XN--XKC2AL3HYE2A XN--XKC2DL3A5EE0H XN--YFRO4I67O XN--YGBI2AMMX XN--ZCKZAH XXX"/>
+        <territoryCodes type="ZZ" numeric="999" alpha3="ZZZ" internet="AERO ARPA ASIA BIZ CAT COM COOP EDU GOV INFO INT JOBS MIL MOBI MUSEUM NAME NET ORG POST PRO TEL TRAVEL XN--0ZWM56D XN--11B5BS3A9AJ6G XN--3E0B707E XN--45BRJ9C XN--80AKHBYKNJ4F XN--80AO21A XN--90A3AC XN--9T4B11YI5A XN--CLCHC0EA0B2G2A9GCD XN--DEBA0AD XN--FIQS8S XN--FIQZ9S XN--FPCRJ9C3D XN--FZC2C9E2C XN--G6W251D XN--GECRJ9C XN--H2BRJ9C XN--HGBK6AJ7F53BBA XN--HLCJ6AYA9ESC7A XN--J1AMH XN--J6W193G XN--JXALPDLP XN--KGBECHTV XN--KPRW13D XN--KPRY57D XN--L1ACC XN--LGBBAT1AD8J XN--MGB9AWBF XN--MGBAAM7A8H XN--MGBAYH7GPA XN--MGBBH1A71E XN--MGBC0A9AZCG XN--MGBERP4A5D4AR XN--MGBX4CD0AB XN--O3CW4H XN--OGBPF8FL XN--P1AI XN--PGBS0DH XN--S9BRJ9C XN--WGBH1C XN--WGBL6A XN--XKC2AL3HYE2A XN--XKC2DL3A5EE0H XN--YFRO4I67O XN--YGBI2AMMX XN--ZCKZAH XXX"/>
     </codeMappings>
+    <!-- end of data generated with CountItems tool per http://sites.google.com/site/cldr/development/updating-codes/update-languagescriptregion-subtags -->
 
 	<parentLocales>
 		<parentLocale parent="root" locales="az_Cyrl bs_Cyrl en_Dsrt ha_Arab mn_Mong ms_Arab pa_Arab shi_Latn sr_Latn uz_Arab uz_Cyrl vai_Latn zh_Hant"/>

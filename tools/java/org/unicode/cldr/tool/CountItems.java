@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004, International Business Machines Corporation and        *
+ * Copyright (C) 2004-2013, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -550,15 +550,23 @@ public class CountItems {
     static final StandardCodes sc = StandardCodes.make();
 
     public static void getSubtagVariables() {
-        System.out.println("</supplementalData>");
-        System.out.println();
-        Map<String, String> variableSubstitutions = getVariables(VariableType.full);
+        System.out.println("Validity variables");
+        System.out.println("Cut/paste into supplementalMetadata.xml under the line");
+        System.out.println("<!-- start of data generated with CountItems tool ...");
+        Map<String, String> variableSubstitutions = getVariables(VariableType.partial);
 
         for (Entry<String, String> type : variableSubstitutions.entrySet()) {
             System.out.println(type.getValue());
         }
+        System.out.println("<!-- end of Validity variables generated with CountItems tool ...");
+        System.out.println();
+        System.out.println("Language aliases");
+        System.out.println("Cut/paste into supplementalMetadata.xml under the line");
+        System.out.println("<!-- start of data generated with CountItems tool ...");
 
         Map<String, Map<String, String>> languageReplacement = sc.getLStreg().get("language");
+        Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo = supplementalData.getLocaleAliasInfo();
+        Map<String, R2<List<String>, String>> languageAliasInfo = localeAliasInfo.get("language");
 
         Set<String> available = Iso639Data.getAvailable();
         // <languageAlias type="aju" replacement="jrb"/> <!-- Moroccan Judeo-Arabic ⇒ Judeo-Arabic -->
@@ -577,12 +585,18 @@ public class CountItems {
             }
             String alpha3 = Iso639Data.toAlpha3(lang);
             bad3letter.add(alpha3);
-            System.out.println("\t\t\t<languageAlias type=\"" + alpha3 + "\" replacement=\"" + target
+            String targetAliased;
+            if (languageAliasInfo.containsKey(target)) {
+                targetAliased = CollectionUtilities.join(languageAliasInfo.get(target).get0()," ");
+            } else {
+                targetAliased = target;
+            }
+            System.out.println("\t\t\t<languageAlias type=\"" + alpha3 + "\" replacement=\"" + targetAliased
                 + "\" reason=\"overlong\"/> <!-- " +
                 Iso639Data.getNames(target) + " -->");
         }
-        Map<String, Map<String, R2<List<String>, String>>> localeAliasInfo = supplementalData.getLocaleAliasInfo();
-        Map<String, R2<List<String>, String>> languageAliasInfo = localeAliasInfo.get("language");
+        System.out.println("<!-- end of Language alises generated with CountItems tool ...");
+
         Set<String> encompassed = Iso639Data.getEncompassed();
         Set<String> macros = Iso639Data.getMacros();
         Map<String, String> encompassed_macro = new HashMap();
@@ -606,7 +620,7 @@ public class CountItems {
         missing.removeAll(encompassed_macro.values());
         if (missing.size() != 0) {
             for (String missingMacro : missing) {
-                System.out.println("ERROR Missing <languageAlias type=\"" + "???" + "\" replacement=\"" + missingMacro
+                System.err.println("ERROR: Missing <languageAlias type=\"" + "???" + "\" replacement=\"" + missingMacro
                     + "\"/> <!-- ??? => " +
                     Iso639Data.getNames(missingMacro) + " -->");
                 System.out.println("\tOptions for ???:");
@@ -626,7 +640,7 @@ public class CountItems {
             if (replacements == null) continue;
             for (String replacement : replacements) {
                 if (bad3letter.contains(replacement)) {
-                    System.out.println("ERROR: Replacement(s) for type=\"" + type +
+                    System.err.println("ERROR: Replacement(s) for type=\"" + type +
                         "\" contains " + replacement + ", which should be: " + Iso639Data.fromAlpha3(replacement));
                 }
             }
@@ -643,27 +657,40 @@ public class CountItems {
             if (containers.containsKey(region)) continue;
             territories.add(region);
         }
-        addRegions(english, territories, "EA,EU,IC".split(","), new Transform<String, String>() {
+        System.out.println();
+        System.out.println("Territory aliases");
+        System.out.println("Cut/paste into supplementalMetadata.xml under the line");
+        System.out.println("<!-- start of data generated with CountItems tool ...");
+        final Map<String, R2<List<String>, String>> territoryAliasInfo = localeAliasInfo.get("territory");
+        
+        addRegions(english, territories, "alpha3", "EA,EU,IC".split(","), new Transform<String, String>() {
             public String transform(String region) {
                 return IsoRegionData.get_alpha3(region);
             }
         });
-        addRegions(english, territories, "AC,CP,DG,EA,EU,IC,TA".split(","), new Transform<String, String>() {
+        addRegions(english, territories, "numeric", "AC,CP,DG,EA,EU,IC,TA".split(","), new Transform<String, String>() {
             public String transform(String region) {
                 return IsoRegionData.getNumeric(region);
             }
         });
-
+        System.out.println("<!-- end of Territory alises generated with CountItems tool ...");
+        System.out.println();
+        System.out.println("Deprecated codes check (informational)");
         // check that all deprecated codes are in fact deprecated
         Map<String, Map<String, Map<String, String>>> fullData = sc.getLStreg();
 
         checkCodes("language", sc, localeAliasInfo, fullData);
         checkCodes("script", sc, localeAliasInfo, fullData);
         checkCodes("territory", sc, localeAliasInfo, fullData);
+        System.out.println("End of Deprecated codes check...");
 
         // generate mapping equivalences
         // { "aar", "aar", "aa" }, // Afar
         // b, t, bcp47
+        System.out.println();
+        System.out.println("Mapping equivalences - (Informational only...)");
+        System.out.println("{ bib , tech , bcp47 }");
+        
         Set<R3<String, String, String>> rows = new TreeSet();
         for (String lang : Iso639Data.getAvailable()) {
             String bib = Iso639Data.toBiblio3(lang);
@@ -680,13 +707,17 @@ public class CountItems {
                 System.out.println("  { \"" + bib + "\", \"" + tech + "\", \"" + lang + "\" },  // " + name);
             }
         }
+        System.out.println("End of Mapping equivalences...");
 
         // generate the codeMappings
         // <codeMappings>
         // <territoryCodes type="CS" numeric="891" alpha3="SCG" fips10="YI" internet="CS YU"/>
 
-        System.out.println("    <codeMappings>");
-        List<String> errors = new ArrayList<String>();
+        System.out.println();
+        System.out.println("Code Mappings");
+        System.out.println("Cut/paste into supplementaData.xml under the line");
+        System.out.println("<!-- start of data generated with CountItems tool ...");
+        List<String> warnings = new ArrayList<String>();
         territories.add("QO");
         territories.add("EU");
         // territories.add("MF");
@@ -699,15 +730,12 @@ public class CountItems {
             numeric2region.put(numeric, region);
             alpha32region.put(alpha3, region);
         }
+
+        System.out.println("    <codeMappings>");
+
         for (String region : territories) {
             String numeric = IsoRegionData.getNumeric(region);
             String alpha3 = IsoRegionData.get_alpha3(region);
-            if (territoryAliases.containsKey(region)) {
-                if (numeric2region.getAll(numeric).size() > 1 || alpha32region.getAll(alpha3).size() > 1) {
-                    errors.add("Skipping aliased region " + region);
-                    continue;
-                }
-            }
             String fips10 = IsoRegionData.get_fips10(region);
             String internet = IsoRegionData.get_internet(region);
             System.out.println("        <territoryCodes"
@@ -719,11 +747,9 @@ public class CountItems {
                 + "/>"
                 );
         }
-        // System.out.println("        <territoryCodes type=\"ZZ\" numeric=\"999\" alpha3=\"ZZZ\" internet=\"" +
-        // "AERO ARPA BIZ CAT COM COOP EDU GOV INFO INT JOBS MIL MOBI MUSEUM NAME NET ORG PRO TRAVEL" +
-        // "\"/>");
         System.out.println("    </codeMappings>");
-        System.out.println(CollectionUtilities.join(errors, "\n"));
+        System.out.println("<!-- end of Code Mappings generated with CountItems tool ...");
+        System.out.println(CollectionUtilities.join(warnings, CldrUtility.LINE_SEPARATOR));
     }
 
     enum VariableType {
@@ -733,14 +759,9 @@ public class CountItems {
     public static Map<String, String> getVariables(VariableType variableType) {
         String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t\t";
         Map<String, String> variableSubstitutions = new LinkedHashMap<String, String>();
-        for (String type : new String[] { "grandfathered", "language", "territory",
-            "script", "variant", "currency", "currency2" }) {
+        for (String type : new String[] { "grandfathered", "territory", "script", "variant" }) {
             Set<String> i;
-            if (type.equals("currency2")) {
-                i = getSupplementalCurrency();
-            } else {
-                i = variableType == VariableType.full ? sc.getAvailableCodes(type) : sc.getGoodAvailableCodes(type);
-            }
+            i = (variableType == VariableType.full || type.equals("grandfathered")) ? sc.getAvailableCodes(type) : sc.getGoodAvailableCodes(type);
             addVariable(variableSubstitutions, type, i, sep);
         }
 
@@ -801,63 +822,32 @@ public class CountItems {
         }
     }
 
-    private static void addRegions(CLDRFile english, Set<String> availableCodes, String[] exceptions,
+    private static void addRegions(CLDRFile english, Set<String> availableCodes, String codeType, String[] exceptions,
         Transform<String, String> trans) {
         Set<String> missingRegions = new TreeSet<String>();
-        Set<String> exceptionSet = new HashSet(Arrays.asList(exceptions));
+        Set<String> exceptionSet = new HashSet<String>(Arrays.asList(exceptions));
         for (String region : availableCodes) {
             if (exceptionSet.contains(region)) continue;
             String alpha3 = trans.transform(region);
-            String name = english.getName(CLDRFile.TERRITORY_NAME, region);
             if (alpha3 == null) {
                 missingRegions.add(region);
                 continue;
             }
-            System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + region
+            Map<String, R2<List<String>, String>> territoryAliasInfo = supplementalData.getLocaleAliasInfo().get("territory");
+            String result;
+            if ( territoryAliasInfo.containsKey(region)) {
+                result = CollectionUtilities.join(territoryAliasInfo.get(region).get0(), " ");
+            } else {
+                result = region;
+            }
+            String name = english.getName(CLDRFile.TERRITORY_NAME, result);            
+            System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + result
                 + "\" reason=\"overlong\"/> <!-- " + name + " -->");
         }
         for (String region : missingRegions) {
             String name = english.getName(CLDRFile.TERRITORY_NAME, region);
-            System.out.println("ERROR: Missing code for " + region + "\t" + name);
+            System.err.println("ERROR: Missing " + codeType + " code for " + region + "\t" + name);
         }
-    }
-
-    private static Set getSupplementalCurrency() {
-        Factory cldrFactory = Factory.make(CldrUtility.SUPPLEMENTAL_DIRECTORY,
-            ".*");
-        CLDRFile supp = cldrFactory.make("supplementalData", false);
-        XPathParts p = new XPathParts();
-        Set currencies = new TreeSet();
-        Set decimals = new TreeSet();
-        for (Iterator it = supp.iterator(); it.hasNext();) {
-            String path = (String) it.next();
-            String currency = p.set(path).findAttributeValue("currency", "iso4217");
-            if (currency != null) {
-                currencies.add(currency);
-            }
-            currency = p.set(path).findAttributeValue("info", "iso4217");
-            if (currency != null) {
-                decimals.add(currency);
-            }
-        }
-        decimals.remove("DEFAULT");
-        if (!currencies.containsAll(decimals)) {
-            decimals.removeAll(currencies);
-            System.out.println("Value with decimal but no country: " + decimals);
-        }
-        Set std = StandardCodes.make().getAvailableCodes("currency");
-        TreeSet stdMinusCountry = new TreeSet(std);
-        stdMinusCountry.removeAll(currencies);
-        if (std.size() != 0) {
-            System.out.println("In standard, but no country:" + stdMinusCountry);
-        }
-        TreeSet countriesMinusStd = new TreeSet(currencies);
-        countriesMinusStd.removeAll(std);
-        if (countriesMinusStd.size() != 0) {
-            System.out.println("Have country, but not in std:" + countriesMinusStd);
-        }
-
-        return currencies;
     }
 
     /**

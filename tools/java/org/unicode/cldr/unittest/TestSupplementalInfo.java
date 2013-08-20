@@ -547,6 +547,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 List<String> fixedList = new ArrayList<String>(fixedReplacements);
                 if (!replacements.equals(fixedList)) {
                     R3<String, List<String>, List<String>> row = Row.of(code, replacements, fixedList);
+                    System.out.println(row.toString());
                     failures.add(row);
                 }
             }

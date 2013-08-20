@@ -35,9 +35,11 @@ BG	100	BGR	bg	BU
 BH	048	BHR	bh	BA
 BI	108	BDI	bi	BY
 BJ	204	BEN	bj	BN
+BL	652	BLM	-	TB
 BM	060	BMU	bm	BD
 BN	096	BRN	bn	BX
 BO	068	BOL	bo	BL
+BQ	535 BES	-	-
 BR	076	BRA	br	BR
 BS	044	BHS	bs	BF
 BT	064	BTN	bt	BT
@@ -47,6 +49,7 @@ BY	112	BLR	by	BO
 BZ	084	BLZ	bz	BH
 CA	124	CAN	ca	CA
 CC	166	CCK	cc	CK
+CD 	180	COD	cd	CG
 CF	140	CAF	cf	CT
 CG	178	COG	cg	CF
 CH	756	CHE	ch	SZ
@@ -59,6 +62,7 @@ CO	170	COL	co	CO
 CR	188	CRI	cr	CS
 CU	192	CUB	cu	CU
 CV	132	CPV	cv	CV
+CW	531	CUW cw	-
 CX	162	CXR	cx	KT
 CY	196	CYP	cy	CY
 CZ	203	CZE	cz	EZ
@@ -146,6 +150,7 @@ LY	434	LBY	ly	LY
 MA	504	MAR	ma	MO
 MC	492	MCO	mc	MN
 MD	498	MDA	md	MD
+MF  663 MAF -	RN
 MG	450	MDG	mg	MA
 MH	584	MHL	mh	RM
 MK	807	MKD	mk	MK
@@ -211,8 +216,10 @@ SM	674	SMR	sm	SM
 SN	686	SEN	sn	SG
 SO	706	SOM	so	SO
 SR	740	SUR	sr	NS
+SS	728	SSD	-	-
 ST	678	STP	st	TP
 SV	222	SLV	sv	ES
+SX	534 SXM	sx	-
 SY	760	SYR	sy	SY
 SZ	748	SWZ	sz	WZ
 TC	796	TCA	tc	TK
@@ -263,6 +270,7 @@ QQ	963	QQQ
 QR	964	QRR
 QS	965	QSS
 QT	966	QTT
+QU	967	QUU
 QV	968	QVV
 QW	969	QWW
 QX	970	QXX
@@ -295,21 +303,18 @@ XX	996	XXX
 XY	997	XYY
 XZ	998	XZZ
 ZZ	999	ZZZ
-BU	-	BUR
-CD  -   COD cd  CG
-CS  - SCG -   YI
+# Deprecated codes
+BU	104	BUR
+CS  891 SCG -   YI
 DD	278	DDR
 NT	536	NTZ
 SU	810	SUN
-TP	-	TMP
+TP	626	TMP
 YD	720 YMD
 YU	891	YUG
 ZR	180	ZAR
 
-# RFC3066; UN Numeric; ISO3166 Alpha-3, internet, FIPS-10
-
-BL  652 BLM - TB    # Saint Barthélemy
-MF  663 MAF - RN    # Saint Martin
+# Codes in the LST but not in UN Numeric
 
 AC  -   ASC AC -    # Ascension Island
 CP  -   CPT - -    # Clipperton Island
@@ -320,9 +325,5 @@ EA  -   -  - - # Ceuta and Melilla
 EU  967   QUU  EU - # European Union
 IC  -   -  - - # Canary Islands
 
-SX 534 SXM  - -  # Sint Maarten
-BQ 535 BES  - -  # Bonaire, Saint Eustatius, and Saba
-CW 531 CUW  - -  # Curaçao
-SS 728 SSD  - -  # South Sudan
 #end
 

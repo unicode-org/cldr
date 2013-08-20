@@ -142,12 +142,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				&L<ŀ=l·<<<Ŀ=L·
 			]]></cr>
 		</collation>
-		<collation type="standard"
-			references="Enciclopèdia Catalana: Diccionari de la llengua catalana ISBN 84-85194-46-2">
-			<cr><![CDATA[
-				&L<<ŀ=l·<<<Ŀ=L·
-			]]></cr>
-		</collation>
+		<!-- standard collation &L<<ŀ=l·<<<Ŀ=L· is equivalent to root collation order
+			(except root uses prefix rules for the middle dot, rather than contractions)
+			references="Enciclopèdia Catalana: Diccionari de la llengua catalana ISBN 84-85194-46-2" -->
 		<collation draft="unconfirmed" alt="proposed" type="standard">
 			<cr><![CDATA[
 				&C<ch<<<cH<<<Ch<<<CH

@@ -2825,7 +2825,9 @@ public class SupplementalDataInfo {
             }
             pluralRulesString = pluralRuleBuilder.toString();
             pluralRules = PluralRules.createRules(pluralRulesString);
-
+            if (pluralRules == null) {
+                throw new IllegalArgumentException("Can't create plurals from <" + pluralRulesString + ">");
+            }
             EnumSet<Count> _keywords = EnumSet.noneOf(Count.class);
             for (String s : pluralRules.getKeywords()) {
                 _keywords.add(Count.valueOf(s));

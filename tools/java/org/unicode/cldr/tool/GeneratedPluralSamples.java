@@ -1,6 +1,9 @@
 package org.unicode.cldr.tool;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -14,8 +17,11 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.GeneratedPluralSamples.Range.Status;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.tool.WritePluralRules.PluralRulesComparator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
@@ -23,14 +29,17 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Row;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 
 public class GeneratedPluralSamples {
     static TestInfo testInfo = TestInfo.getInstance();
     static Info INFO = new Info();
+    private static final boolean THROW = true;
 
     private static final int SAMPLE_LIMIT = 8;
     private static final int UNBOUNDED_LIMIT = 20;
@@ -200,11 +209,15 @@ public class GeneratedPluralSamples {
     }
 
     static class Info {
+        enum Type {Warning, Error}
         Set<String> bounds = new TreeSet();
 
-        public void add(String string) {
+        public void add(Type type, String string) {
             if (string != null && !string.isEmpty()) {
-                bounds.add(string);
+                if (THROW && type == Type.Error) {
+                    throw new IllegalArgumentException(string);
+                }
+                bounds.add(type + ": " + string);
             }
         }
 
@@ -226,7 +239,7 @@ public class GeneratedPluralSamples {
         public DataSample(boolean isInteger) {
             this.isInteger = isInteger;
         }
-        public String toString(boolean isKnownBounded, String keyword, String rule) {
+        public String toString(boolean isKnownBounded, String keyword, PluralRules rule) {
             boolean first = false;
             if (countNoTrailing < 0) {
                 countNoTrailing = noTrailing.size();
@@ -249,12 +262,19 @@ public class GeneratedPluralSamples {
             return samples2 + (isBounded ? "" : ", …");
         }
 
-        public boolean computeBoundedWithSize(boolean isKnownBounded, String keyword, String rule, boolean first) {
+        public boolean computeBoundedWithSize(boolean isKnownBounded, String keyword, PluralRules rule, boolean first) {
             boolean isBounded = isKnownBounded || countNoTrailing < UNBOUNDED_LIMIT;
             if (isBounded != isKnownBounded && first) {
-                INFO.add((isInteger ? "integer" : "decimal") 
-                        + " computation from rule ≠ from items, rule: " + keyword + ": " + rule 
-                        + "; count: " + noTrailing);
+                Type infoType = noTrailing.size() == 0 && keyword.equals("other") || 
+                        noTrailing.size() == 1 && keyword.equals("many") && noTrailing.iterator().next() == 1000000.0d // Welsh
+                        ? Info.Type.Warning 
+                                : Info.Type.Error;
+                INFO.add(infoType, (isInteger ? "integer" : "decimal") 
+                        + " computation from rule ≠ from items"
+                        + "; keyword: " + keyword 
+                        + "; count: " + noTrailing 
+                        + "; rule: " + rule 
+                        );
             }
             return isBounded;
         }
@@ -288,18 +308,18 @@ public class GeneratedPluralSamples {
 
     class DataSamples {
         private final String keyword; // for debugging
-        private final String rule;
+        private final PluralRules rules; // for debugging
         private final DataSample integers = new DataSample(true);
         private final DataSample decimals = new DataSample(false);
         private final boolean isKnownIntegerBounded;
         private final boolean isKnownDecimalBounded;
         private boolean boundsComputed;
 
-        DataSamples(String keyword, String rule) {
+        DataSamples(String keyword, PluralRules rules) {
             this.keyword = keyword;
-            this.rule = rule;
-            isKnownIntegerBounded = computeBounded(rule, true);
-            isKnownDecimalBounded = computeBounded(rule, false);
+            this.rules = rules;
+            isKnownIntegerBounded = computeBounded(rules.getRules(keyword), true);
+            isKnownDecimalBounded = computeBounded(rules.getRules(keyword), false);
         }
 
         private void add(FixedDecimal ni) {
@@ -314,11 +334,11 @@ public class GeneratedPluralSamples {
         }
         public String toString() {
             boundsComputed = true;
-            String integersString = integers.toString(isKnownIntegerBounded, keyword, rule);
+            String integersString = integers.toString(isKnownIntegerBounded, keyword, rules);
             String decimalsString = type == PluralType.ordinal ? "" 
-                    : decimals.toString(isKnownDecimalBounded, keyword, rule);
-            return (integersString.isEmpty() ? "\t\t" : "\t@integers\t" + integersString)
-                    + (decimalsString.isEmpty() ? "" : "\t@decimals\t" + decimalsString);
+                    : decimals.toString(isKnownDecimalBounded, keyword, rules);
+            return (integersString.isEmpty() ? "\t\t" : "\t@integer\t" + integersString)
+                    + (decimalsString.isEmpty() ? "" : "\t@decimal\t" + decimalsString);
         }
         @Override
         public boolean equals(Object obj) {
@@ -328,7 +348,7 @@ public class GeneratedPluralSamples {
     }
 
     static boolean computeBounded(String orRule, boolean integer) {
-        if (orRule == null) {
+        if (orRule == null || orRule.isEmpty()) {
             return false;
         }
         // every 'or' rule must be bounded for the whole thing to be
@@ -342,14 +362,14 @@ public class GeneratedPluralSamples {
                 String remainder = atomicRule.substring(1).trim();
                 // check to see that the integer values are bounded and that the decimal values are
                 // once this happens, then the 'and' rule is bounded.
-                
+
                 // if the fractional parts must be zero, then this rule is empty for decimals (and thus bounded)
                 decBounded |= (operand == 'v' || operand == 'w' || operand == 'f' || operand == 't')
                         && remainder.equals("is 0");
                 // if f and t cannot be zero, then this rule is empty for integers (and thus bounded)
                 intBounded |= (operand == 'f' || operand == 't') 
                         && (remainder.equals("is 1") || remainder.equals("is not 0")); // should flesh out with parser
-                
+
                 if(!atomicRule.contains("mod") && !atomicRule.contains("not")&& !atomicRule.contains("!")) {
                     intBounded |= operand == 'i' || operand == 'n';
                     decBounded |= operand == 'n' && !atomicRule.contains("within");
@@ -425,10 +445,10 @@ public class GeneratedPluralSamples {
         PluralRules pluralRules = pluralInfo.getPluralRules();
         String keyword = pluralRules.select(ni);
 
-        INFO.add(checkForDuplicates(pluralRules, ni));
+        INFO.add(Info.Type.Warning, checkForDuplicates(pluralRules, ni));
         DataSamples data = keywordToData.get(keyword);
         if (data == null) {
-            keywordToData.put(keyword, data = new DataSamples(keyword, pluralInfo.getRule(Count.valueOf(keyword))));
+            keywordToData.put(keyword, data = new DataSamples(keyword, pluralRules));
         }
         data.add(ni);
     }
@@ -441,7 +461,7 @@ public class GeneratedPluralSamples {
                 keywords.add(keywordCheck);
             }
         }
-        if (keywords.size() != 1) {
+        if (!keywords.contains("other") || keywords.size() > 2) { // should be either {other, x} or {other}
             String message = "";
             for (String keywordCheck : keywords) {
                 message += keywordCheck + ": " + pluralRules.getRules(keywordCheck) + "; ";
@@ -470,7 +490,9 @@ public class GeneratedPluralSamples {
     enum MyOptions {
         output(".*", CldrUtility.GEN_DIRECTORY + "picker/", "output data directory"),
         filter(".*", null, "filter locales"),
-        xml(null, null, "xml file format");
+        xml(null, null, "xml file format"),
+        multiline(null, null, "multiple lines in file"),
+        sortNew(null, null, "sort without backwards compatible hack");
         // boilerplate
         final Option option;
 
@@ -482,26 +504,34 @@ public class GeneratedPluralSamples {
     public static void main(String[] args) throws Exception {
         myOptions.parse(MyOptions.filter, args, true);
 
-
         Matcher localeMatcher = !MyOptions.filter.option.doesOccur() ? null : Pattern.compile(MyOptions.filter.option.getValue()).matcher("");
         boolean fileFormat = MyOptions.xml.option.doesOccur();
-        
-        
+        final boolean multiline = MyOptions.multiline.option.doesOccur();
+        final boolean sortNew = MyOptions.sortNew.option.doesOccur();
+
+
         computeBounded("n is not 0 and n mod 1000000 is 0", false);
         int failureCount = 0;
 
         PluralRules pluralRules2 = PluralRules.createRules("one: n is 3..9; two: n is 7..12");
-        checkForDuplicates(pluralRules2 , new FixedDecimal(8));
+        System.out.println("Checking " + checkForDuplicates(pluralRules2 , new FixedDecimal(8)));
+        PrintWriter out = null;
 
         for (PluralType type : PluralType.values()) {
             if (fileFormat) {
-                WritePluralRules.writePluralHeader(type);
+                out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/plurals/", 
+                        (type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml"));
+                out.println(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
             }
+            System.out.println("\n");
             Set<String> locales = testInfo.getSupplementalDataInfo().getPluralLocales(type);
             Relation<PluralInfo, String> seenAlready = Relation.of(new TreeMap(), TreeSet.class);
 
             //System.out.println(type + ": " + locales);
             for (String locale : locales) {
+                if (locale.equals("root")) {
+                    continue;
+                }
                 if (localeMatcher != null && !localeMatcher.reset(locale).find()) {
                     continue;
                 }
@@ -509,13 +539,22 @@ public class GeneratedPluralSamples {
                 seenAlready.put(pluralInfo, locale);
             }
 
-            Relation<GeneratedPluralSamples, PluralInfo> samplesToPlurals = Relation.of(new LinkedHashMap(), LinkedHashSet.class);
+            // sort if necessary
+            Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet() 
+            : new TreeSet(new HackComparator(type == PluralType.cardinal 
+            ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
             for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
+                sorted.add(entry);
+            }
+
+            Relation<GeneratedPluralSamples, PluralInfo> samplesToPlurals = Relation.of(new LinkedHashMap(), LinkedHashSet.class);
+            for (Entry<PluralInfo, Set<String>> entry : sorted) {
                 PluralInfo pluralInfo = entry.getKey();
                 Set<String> equivalentLocales = entry.getValue();
 
                 if (fileFormat) {
-                    WritePluralRules.writePluralRuleHeader(equivalentLocales);
+                    out.println(WritePluralRules.formatPluralRuleHeader(equivalentLocales));
+                    System.out.println(type + "\t" + equivalentLocales);
                 }
                 PluralRules pluralRules = pluralInfo.getPluralRules();
                 GeneratedPluralSamples samples = new GeneratedPluralSamples(pluralInfo, type);
@@ -523,6 +562,13 @@ public class GeneratedPluralSamples {
                 for (String keyword : pluralRules.getKeywords()) {
                     Count count = Count.valueOf(keyword);
                     String rule = pluralInfo.getRule(count);
+                    if (rule != null) {
+                        // strip original @...
+                        int atPos = rule.indexOf('@');
+                        if (atPos >= 0) {
+                            rule = rule.substring(0,atPos).trim();
+                        }
+                    }
                     if (rule == null && count != Count.other) {
                         pluralInfo.getRule(count);
                         throw new IllegalArgumentException("No rule for " + count);
@@ -538,21 +584,19 @@ public class GeneratedPluralSamples {
                         continue;
                     }
                     if (fileFormat) {
-                        String fileRule = ((rule == null ? "" : rule) + data.toString())
-                                .replace("\t@", "\n                          @").replace('\t', ' ');
-                        WritePluralRules.writePluralRule(keyword, fileRule);
+                        out.println(WritePluralRules.formatPluralRule(keyword, rule, data.toString(), multiline));
                     } else {
                         System.out.println(data.toString());
                     }
                 }
                 if (fileFormat) {
-                    WritePluralRules.writePluralRuleFooter();
+                    out.println(WritePluralRules.formatPluralRuleFooter());
                 } else {
                     System.out.println();
                 }
             }
             if (fileFormat) {
-                WritePluralRules.writePluralFooter();
+                out.println(WritePluralRules.formatPluralFooter());
             } else {
                 for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
                     if (entry.getValue().size() == 1) {
@@ -572,10 +616,38 @@ public class GeneratedPluralSamples {
                     failureCount++;
                 }
             }
+            System.out.println("\n");
+            if (fileFormat) {
+                out.close();
+            }
         }
         if (failureCount > 0) {
             System.err.println("***Failures: " + failureCount);
         }
         INFO.print();
     }
+
+    static class HackComparator implements Comparator<Entry<PluralInfo, Set<String>>> {
+        final Map<String, Integer> order;
+        HackComparator(Map<String, Integer> order) {
+            this.order = order;
+        }
+        // we get the order of the first items in each of the old rules, and use that order where we can.
+        @Override
+        public int compare(Entry<PluralInfo, Set<String>> o1, Entry<PluralInfo, Set<String>> o2) {
+            Integer firstLocale1 = order.get(o1.getValue().iterator().next());
+            Integer firstLocale2 = order.get(o2.getValue().iterator().next());
+            if (firstLocale1 != null) {
+                if (firstLocale2 != null) {
+                    return firstLocale1 - firstLocale2;
+                }
+                return -1;
+            } else if (firstLocale2 != null) {
+                return 1;
+            } else { // only if BOTH are null, use better comparison
+                return o1.getKey().compareTo(o2.getKey());
+            }
+        }
+    }
+
 }

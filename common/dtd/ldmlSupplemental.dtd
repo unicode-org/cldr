@@ -364,7 +364,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST pluralRules references CDATA #IMPLIED >
 
 <!ELEMENT pluralRule ( #PCDATA ) >
-<!ATTLIST pluralRule count (zero | one | two | few | many) #REQUIRED > <!-- 'other' is implicitly everything else -->
+<!ATTLIST pluralRule count (zero | one | two | few | many | other) #REQUIRED > <!-- 'other' is implicitly everything else -->
 <!ATTLIST pluralRule draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST pluralRule references CDATA #IMPLIED >
 

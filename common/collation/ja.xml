@@ -398,7 +398,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				&Y=Ｙ
 				&Z=Ｚ
 				&'['=［
-				&''=＼
+				&'\\'=＼  # \\ unescapes to \ which is not special between 'apostrophes'
 				&']'=］
 				&'^'=＾
 				&'_'=＿
@@ -891,7 +891,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				&Y=Ｙ
 				&Z=Ｚ
 				&'['=［
-				&''=＼
+				&'\\'=＼  # \\ unescapes to \ which is not special between 'apostrophes'
 				&']'=］
 				&'^'=＾
 				&'_'=＿

@@ -45,26 +45,9 @@ public class TestMetadata extends TestFmwk {
             cldrFileSerialElements);
 
         // Then Attributes
-        List<String> rawDtdAttributeOrder = order.getAttributeOrder();
         List<String> metadataAttributeOrder = testInfo.getSupplementalDataInfo().getAttributeOrder();
         List<String> cldrFileAttributeOrder = CLDRFile.getAttributeOrder();
-
-        LinkedHashSet<String> modifiedDtdOrder = new LinkedHashSet<String>(cldrFileAttributeOrder);
-        // add items, keeping the ordering stable
-        modifiedDtdOrder.addAll(metadataAttributeOrder);
-        modifiedDtdOrder.retainAll(rawDtdAttributeOrder); // remove any superfluous stuff
-        modifiedDtdOrder.addAll(rawDtdAttributeOrder);
-
-        // certain stuff always goes at the end
-        modifiedDtdOrder.removeAll(order.getCommonAttributes());
-        modifiedDtdOrder.addAll(order.getCommonAttributes());
-
-        // now make a list for comparison
-        List<String> dtdAttributeOrder = new ArrayList<String>(modifiedDtdOrder);
-
-        // fix to and from
-        dtdAttributeOrder.remove("from");
-        dtdAttributeOrder.add(dtdAttributeOrder.indexOf("to"), "from");
+        List<String> dtdAttributeOrder = order.getAttributeOrder();
 
         checkEquals("Attribute orderings", "CLDRFile.attributeOrdering", cldrFileAttributeOrder, "DTD",
             dtdAttributeOrder);

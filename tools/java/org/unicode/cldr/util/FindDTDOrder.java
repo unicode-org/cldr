@@ -101,7 +101,29 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
                     is.setSystemId(file.getCanonicalPath() + "/../");
                     xmlReader.parse(is);
                     fis.close();
-                    me.attributeList = Collections.unmodifiableList(new ArrayList<String>(me.attributeSet));
+                    // Then Attributes
+                    List<String> rawDtdAttributeOrder = Collections.unmodifiableList(new ArrayList<String>(me.attributeSet));
+                    List<String> metadataAttributeOrder = SupplementalDataInfo.getInstance().getAttributeOrder();
+                    List<String> cldrFileAttributeOrder = CLDRFile.getAttributeOrder();
+
+                    LinkedHashSet<String> modifiedDtdOrder = new LinkedHashSet<String>(cldrFileAttributeOrder);
+                    // add items, keeping the ordering stable
+                    modifiedDtdOrder.addAll(metadataAttributeOrder);
+                    modifiedDtdOrder.retainAll(rawDtdAttributeOrder); // remove any superfluous stuff
+                    modifiedDtdOrder.addAll(rawDtdAttributeOrder);
+
+                    // certain stuff always goes at the end
+                    modifiedDtdOrder.removeAll(me.getCommonAttributes());
+                    modifiedDtdOrder.addAll(me.getCommonAttributes());
+
+                    // now make a list for comparison
+                    List<String> dtdAttributeOrder = new ArrayList<String>(modifiedDtdOrder);
+
+                    // fix to and from
+                    dtdAttributeOrder.remove("from");
+                    dtdAttributeOrder.add(dtdAttributeOrder.indexOf("to"), "from");
+
+                    me.attributeList = Collections.unmodifiableList(dtdAttributeOrder);
                     me.checkData();
                     me.orderingList = Collections.unmodifiableList(me.orderingList);
 
@@ -295,14 +317,24 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     String sep = CldrUtility.LINE_SEPARATOR + "\t\t\t";
 
     private void showData() throws IOException {
-        // finish up
-        log.println("Successful Ordering");
-        log.println("Old Attributes: ");
-        log.println(CLDRFile.getAttributeOrder());
 
-        log.println("*** New Attributes: ");
-        log.println(breakLines(attributeSet));
-        log.println("*** Replace in CLDRFile attributeOrdering & supplementalMetadata***");
+        // finish up
+        String oldAttributeOrder = breakLines(CLDRFile.getAttributeOrder());
+        log.println("Successful Ordering...");
+        log.println();
+        log.println("Old Attribute Ordering: ");
+        log.println(oldAttributeOrder);
+
+        String newAttributeOrder = breakLines(attributeList);
+
+        if (newAttributeOrder.equals(oldAttributeOrder)) {
+            log.println("*** New Attribute Ordering: <same>");
+            log.println("*** No changes required...");
+        } else {
+            log.println("*** New Attribute Ordering: ");
+            log.println(newAttributeOrder);
+            log.println("*** Replace in CLDRFile elementOrdering  & supplementalMetadata ***");
+        }
 
         log.println("Attribute Eq: ");
         for (Iterator it = attributeEquivalents.getSamples().iterator(); it.hasNext();) {
@@ -329,11 +361,12 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
         String newOrder = '"' + breakLines(orderingList) + '"';
         if (newOrder.equals(oldOrder)) {
-            log.println(" *** New Element Ordering: <same>");
+            log.println("*** New Element Ordering: <same>");
+            log.println("*** No changes required...");
         } else {
-            log.println("*** New Element Ordering:\n" + newOrder);// getJavaList(orderingList));
+            log.println("*** New Element Ordering:\n" + newOrder);
+            log.println("*** Replace in CLDRFile elementOrdering  & supplementalMetadata ***");
         }
-        log.println("*** Replace in CLDRFile elementOrdering  & supplementalMetadata ***");
 
         if (SHOW_ALL) {
             log.println("Old Size: " + CLDRFile.getElementOrder().size());
@@ -582,6 +615,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     Set<String> attributeSet = new TreeSet<String>();
     {
         attributeSet.add("_q");
+        attributeSet.addAll(skipCommon);
     }
     List<String> attributeList;
 

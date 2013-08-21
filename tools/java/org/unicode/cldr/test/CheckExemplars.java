@@ -192,6 +192,23 @@ public class CheckExemplars extends FactoryCheckCLDR {
                             characters);
                     result.add(message);
                 }
+            } else if (type == ExemplarType.index) {
+                // Check that the index exemplar characters are in case-completed union of main and auxiliary exemplars
+                UnicodeSet auxiliarySet = getResolvedCldrFileToCheck().getExemplarSet("auxiliary", CLDRFile.WinningChoice.WINNING);
+                if (auxiliarySet == null) {
+                    auxiliarySet = new UnicodeSet();
+                }
+                UnicodeSet mainAndAuxAllCase = new UnicodeSet(mainSet).addAll(auxiliarySet).closeOver(UnicodeSet.ADD_CASE_MAPPINGS);
+                UnicodeSet indexBadChars = new UnicodeSet(value).removeAll(mainAndAuxAllCase);
+                
+                if (!indexBadChars.isEmpty()) {
+                    CheckStatus message = new CheckStatus().setCause(this)
+                        .setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.charactersNotInMainOrAuxiliaryExemplars)
+                        .setMessage("Index exemplars include characters not in main or auxiliary exemplars: {0}",
+                            indexBadChars.toPattern(false));
+                    result.add(message);
+                }
             }
 
             // check for consistency with RTL

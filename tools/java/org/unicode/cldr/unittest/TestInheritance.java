@@ -135,9 +135,7 @@ public class TestInheritance extends TestFmwk {
                     Set<String> missing = new TreeSet(officalChildren);
                     missing.removeAll(children);
                     String message = "Missing CLDR locales for " + status + " languages: " + missing;
-                    if (!logKnownIssue("6469", message)) {
-                        errln(message);
-                    }
+                    errln(message);
                 } else {
                     logln("CLDR locales " + children + " cover " + status + " locales " + officalChildren);
                 }

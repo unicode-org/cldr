@@ -207,22 +207,6 @@ public class ConvertLanguageData {
             Log.close();
             oldFile.close();
 
-            // Log.setLogNoBOM(Utility.GEN_DIRECTORY + "/supplemental/supplementalMetadata.xml");
-            // oldFile = BagFormatter.openUTF8Reader(Utility.SUPPLEMENTAL_DIRECTORY, "supplementalMetadata.xml");
-            // copyUpTo(oldFile, Pattern.compile("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
-            //
-            // // Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
-            // //
-            // Log.println("<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/data/dtd/ldmlSupplemental.dtd\">");
-            // // Log.println("<supplementalData version=\"1.5\">");
-            // printDefaultContent(defaultLocaleContent);
-            // // Log.println("</supplementalData>");
-            // copyUpTo(oldFile, Pattern.compile("\\s*/>\\s*"), null, false);
-            // copyUpTo(oldFile, null, Log.getLog(), false);
-            //
-            // Log.close();
-            // oldFile.close();
-
             Log.setLog(CldrUtility.GEN_DIRECTORY + "/supplemental", "language_script_raw.txt");
             getLanguageScriptSpreadsheet(Log.getLog());
             Log.close();

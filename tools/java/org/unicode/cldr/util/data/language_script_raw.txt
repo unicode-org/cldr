@@ -368,7 +368,6 @@ mn	Mongolian	secondary	Phag	Phags-pa
 mnc	Manchu	secondary	Mong	Mongolian	
 mni	Manipuri	primary	Beng	Bengali	
 mni	Manipuri	secondary	Mtei	Meitei Mayek	
-mnk	Mandinka	primary	Latn	Latin	
 mns	Mansi	primary	Cyrl	Cyrillic	
 mnw	Mon	primary	Mymr	Myanmar	
 #mo	Moldavian	primary	Latn	Latin	
@@ -400,7 +399,7 @@ nmg	Kwasio	primary	Latn	Latin
 nn	Norwegian Nynorsk	primary	Latn	Latin	
 nod	Northern Thai	primary	Lana	Lanna	
 nog	Nogai	primary	Cyrl	Cyrillic	
-non	Old Norse	primary	Runr	Runic	
+non	Old Norse	secondary	Runr	Runic	
 nqo	N'Ko	primary	Nkoo	N'Ko	
 nr	South Ndebele	primary	Latn	Latin	
 nso	Northern Sotho	primary	Latn	Latin	
@@ -507,7 +506,7 @@ sma	Southern Sami	primary	Latn	Latin
 smi	Sami languages (Other)	secondary	Latn	Latin	
 smj	Lule Sami	primary	Latn	Latin	
 smn	Inari Sami	primary	Latn	Latin	
-smp	Samaritan	primary	Samr	Samaritan	
+smp	Samaritan	secondary	Samr	Samaritan	
 sms	Skolt Sami	primary	Latn	Latin	
 sn	Shona	primary	Latn	Latin	
 snk	Soninke	primary	Latn	Latin	
@@ -518,7 +517,8 @@ son	Songhai	secondary	Latn	Latin
 sq	Albanian	primary	Latn	Latin	
 sr	Serbian	primary	Cyrl	Cyrillic	
 sr	Serbian	primary	Latn	Latin	
-srb	Sora	primary	Sora	Sora Sompeng	
+srb	Sora	primary	Latn	Latin	
+srb	Sora	secondary	Sora	Sora Sompeng	
 srn	Sranan	primary	Latn	Latin	
 srr	Serer-Sine	primary	Latn	Latin	
 ss	Swati	primary	Latn	Latin	
@@ -622,10 +622,10 @@ wo	Wolof	primary	Arab	Arabic
 xal	Kalmyk	primary	Cyrl	Cyrillic	
 xcr	Carian (Ancient)	secondary	Cari	Carian	
 xh	Xhosa	primary	Latn	Latin	
-xlc	Lycian (Ancient)	primary	Lyci	Lycian	
-xld	Lydian (Ancient)	primary	Lydi	Lydian	
-xmr	Meroitic	primary	Merc	Meroitic Cursive	
-xmr	Meroitic	primary	Merc	Meroitic Hieroglyphs	
+xlc	Lycian (Ancient)	secondary	Lyci	Lycian	
+xld	Lydian (Ancient)	secondary	Lydi	Lydian	
+xmr	Meroitic	secondary	Merc	Meroitic Cursive	
+xmr	Meroitic	secondary	Merc	Meroitic Hieroglyphs	
 xog	Soga	primary	Latn	Latin	
 xpr	Inscriptional Parthian	secondary	Prti	Inscriptional Parthian	
 xsa	Sabaean	secondary	Sarb	Old S. Arabian	
@@ -642,6 +642,7 @@ za	Zhuang	primary	Latn	Latin
 za	Zhuang	secondary	Hans	Han	
 zap	Zapotec	primary	Latn	Latin	
 zen	Zenaga	secondary	Tfng	Tifinagh (Berber)	"Berbers, likely Tifinagh if anything"
+zgh	Standard Moroccan Tamazight	primary	Tfng	Tifinagh	
 zh	Chinese	primary	Hans	Simplified Han	
 zh	Chinese	primary	Hant	Traditional Han	
 zh	Chinese	secondary	Bopo	Bopomofo	

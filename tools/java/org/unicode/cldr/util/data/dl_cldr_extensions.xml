@@ -1,91 +1,95 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<!--  This data file represents stuff that isn't officially in the ISO standard, -->
-<!--  but that we believe would be if 1-1 correspondence between the codes used -->
-<!--  in ISO4217 and those used in CLDR.  If any of these ever show up in the -->
-<!--  real ISO4217 tables (dl_iso_table_a1.xml), then they should be deleted here. -->
-<ISO_CCY_CODES>
-    <ISO_CURRENCY>
-        <ENTITY>ANTARCTICA</ENTITY>
-        <CURRENCY>The codes assigned for transactions where no currency is involved</CURRENCY>
-        <ALPHABETIC_CODE>XXX</ALPHABETIC_CODE>
-        <NUMERIC_CODE>999</NUMERIC_CODE>
-        <MINOR_UNIT>N.A.</MINOR_UNIT>
-    </ISO_CURRENCY>
-    <ISO_CURRENCY>
-        <ENTITY>ASCENSION ISLAND</ENTITY>
-        <CURRENCY>Saint Helena Pound</CURRENCY>
-        <ALPHABETIC_CODE>SHP</ALPHABETIC_CODE>
-        <NUMERIC_CODE>654</NUMERIC_CODE>
-        <MINOR_UNIT>2</MINOR_UNIT>
-    </ISO_CURRENCY>
-    <ISO_CURRENCY>
-        <ENTITY>CANARY ISLANDS</ENTITY>
-        <CURRENCY>Euro</CURRENCY>
-        <ALPHABETIC_CODE>EUR</ALPHABETIC_CODE>
-        <NUMERIC_CODE>978</NUMERIC_CODE>
-        <MINOR_UNIT>2</MINOR_UNIT>
-    </ISO_CURRENCY>
-    <ISO_CURRENCY>
-        <ENTITY>CEUTA, MELILLA</ENTITY>
-        <CURRENCY>Euro</CURRENCY>
-        <ALPHABETIC_CODE>EUR</ALPHABETIC_CODE>
-        <NUMERIC_CODE>978</NUMERIC_CODE>
-        <MINOR_UNIT>2</MINOR_UNIT>
-    </ISO_CURRENCY>
-    <ISO_CURRENCY>
-        <ENTITY>CLIPPERTON ISLAND</ENTITY>
-        <CURRENCY>The codes assigned for transactions where no currency is involved</CURRENCY>
-        <ALPHABETIC_CODE>XXX</ALPHABETIC_CODE>
-        <NUMERIC_CODE>999</NUMERIC_CODE>
-        <MINOR_UNIT>N.A.</MINOR_UNIT>
-    </ISO_CURRENCY>
-    <ISO_CURRENCY>
-        <ENTITY>KOSOVO</ENTITY>
-        <CURRENCY>Euro</CURRENCY>
-        <ALPHABETIC_CODE>EUR</ALPHABETIC_CODE>
-        <NUMERIC_CODE>978</NUMERIC_CODE>
-        <MINOR_UNIT>2</MINOR_UNIT>
-    </ISO_CURRENCY>
-    <ISO_CURRENCY>
-        <ENTITY>DIEGO GARCIA</ENTITY>
-        <CURRENCY>US Dollar</CURRENCY>
-        <ALPHABETIC_CODE>USD</ALPHABETIC_CODE>
-        <NUMERIC_CODE>840</NUMERIC_CODE>
-        <MINOR_UNIT>2</MINOR_UNIT>
-    </ISO_CURRENCY>
-    <ISO_CURRENCY>
-        <ENTITY>PALESTINE, STATE OF</ENTITY>
-        <CURRENCY>New Israeli Sheqel</CURRENCY>
-        <ALPHABETIC_CODE>ILS</ALPHABETIC_CODE>>
-        <NUMERIC_CODE>376</NUMERIC_CODE>
-        <MINOR_UNIT>2</MINOR_UNIT>
-    </ISO_CURRENCY> 
-    <ISO_CURRENCY>
-        <ENTITY>PALESTINE, STATE OF</ENTITY>
-        <CURRENCY>Jordanian Dinar</CURRENCY>
-        <ALPHABETIC_CODE>JOD</ALPHABETIC_CODE>>
-        <NUMERIC_CODE>400</NUMERIC_CODE>
-        <MINOR_UNIT>2</MINOR_UNIT>
-    </ISO_CURRENCY> 
-    <ISO_CURRENCY>
-        <ENTITY>SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</ENTITY>
-        <CURRENCY>Pound Sterling</CURRENCY>
-        <ALPHABETIC_CODE>GBP</ALPHABETIC_CODE>
-        <NUMERIC_CODE>826</NUMERIC_CODE>
-        <MINOR_UNIT>2</MINOR_UNIT>
-    </ISO_CURRENCY>
-    <ISO_CURRENCY>
-        <ENTITY>TRISTAN DA CUNHA</ENTITY>
-        <CURRENCY>Pound Sterling</CURRENCY>
-        <ALPHABETIC_CODE>GBP</ALPHABETIC_CODE>
-        <NUMERIC_CODE>826</NUMERIC_CODE>
-        <MINOR_UNIT>2</MINOR_UNIT>
-    </ISO_CURRENCY>
-	<ISO_CURRENCY>
-		<ENTITY>ZIMBABWE</ENTITY>
-		<CURRENCY>US Dollar</CURRENCY>
-		<ALPHABETIC_CODE>USD</ALPHABETIC_CODE>
-		<NUMERIC_CODE>840</NUMERIC_CODE>
-		<MINOR_UNIT>2</MINOR_UNIT>
-	</ISO_CURRENCY>
-</ISO_CCY_CODES>
+<!-- This data file represents stuff that isn't officially in the ISO standard, -->
+<!-- but that we believe would be if 1-1 correspondence between the codes 
+	used -->
+<!-- in ISO4217 and those used in CLDR. If any of these ever show up in the -->
+<!-- real ISO4217 tables (dl_iso_table_a1.xml), then they should be deleted 
+	here. -->
+<ISO_4217>
+	<CcyTbl>
+		<CcyNtry>
+			<CtryNm>ANTARCTICA</CtryNm>
+			<CcyNm>The codes assigned for transactions where no currency is involved</CcyNm>
+			<Ccy>XXX</Ccy>
+			<CcyNbr>999</CcyNbr>
+			<CcyMnrUnts>N.A.</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>ASCENSION ISLAND</CtryNm>
+			<CcyNm>Saint Helena Pound</CcyNm>
+			<Ccy>SHP</Ccy>
+			<CcyNbr>654</CcyNbr>
+			<CcyMnrUnts>2</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>CANARY ISLANDS</CtryNm>
+			<CcyNm>Euro</CcyNm>
+			<Ccy>EUR</Ccy>
+			<CcyNbr>978</CcyNbr>
+			<CcyMnrUnts>2</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>CEUTA, MELILLA</CtryNm>
+			<CcyNm>Euro</CcyNm>
+			<Ccy>EUR</Ccy>
+			<CcyNbr>978</CcyNbr>
+			<CcyMnrUnts>2</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>CLIPPERTON ISLAND</CtryNm>
+			<CcyNm>The codes assigned for transactions where no currency is involved</CcyNm>
+			<Ccy>XXX</Ccy>
+			<CcyNbr>999</CcyNbr>
+			<CcyMnrUnts>N.A.</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>KOSOVO</CtryNm>
+			<CcyNm>Euro</CcyNm>
+			<Ccy>EUR</Ccy>
+			<CcyNbr>978</CcyNbr>
+			<CcyMnrUnts>2</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>DIEGO GARCIA</CtryNm>
+			<CcyNm>US Dollar</CcyNm>
+			<Ccy>USD</Ccy>
+			<CcyNbr>840</CcyNbr>
+			<CcyMnrUnts>2</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>PALESTINE, STATE OF</CtryNm>
+			<CcyNm>New Israeli Sheqel</CcyNm>
+			<Ccy>ILS</Ccy>
+			<CcyNbr>376</CcyNbr>
+			<CcyMnrUnts>2</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>PALESTINE, STATE OF</CtryNm>
+			<CcyNm>Jordanian Dinar</CcyNm>
+			<Ccy>JOD</Ccy>
+			<CcyNbr>400</CcyNbr>
+			<CcyMnrUnts>2</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS</CtryNm>
+			<CcyNm>Pound Sterling</CcyNm>
+			<Ccy>GBP</Ccy>
+			<CcyNbr>826</CcyNbr>
+			<CcyMnrUnts>2</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>TRISTAN DA CUNHA</CtryNm>
+			<CcyNm>Pound Sterling</CcyNm>
+			<Ccy>GBP</Ccy>
+			<CcyNbr>826</CcyNbr>
+			<CcyMnrUnts>2</CcyMnrUnts>
+		</CcyNtry>
+		<CcyNtry>
+			<CtryNm>ZIMBABWE</CtryNm>
+			<CcyNm>US Dollar</CcyNm>
+			<Ccy>USD</Ccy>
+			<CcyNbr>840</CcyNbr>
+			<CcyMnrUnts>2</CcyMnrUnts>
+		</CcyNtry>
+	</CcyTbl>
+</ISO_4217>

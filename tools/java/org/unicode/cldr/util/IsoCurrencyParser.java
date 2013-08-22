@@ -198,7 +198,7 @@ public class IsoCurrencyParser {
             try {
                 parts.set(path);
                 String type = parts.getElement(-1);
-                if (type.equals("ENTITY")) {
+                if (type.equals("CtryNm")) {
                     country_code = getCountryCode(value);
                     if (country_code == null) {
                         country_code = "ZZ";
@@ -206,17 +206,17 @@ public class IsoCurrencyParser {
                     alphabetic_code = "XXX";
                     numeric_code = -1;
                     minor_unit = 0;
-                } else if (type.equals("CURRENCY")) {
+                } else if (type.equals("CcyNm")) {
                     currency_name = value;
-                } else if (type.equals("ALPHABETIC_CODE")) {
+                } else if (type.equals("Ccy")) {
                     alphabetic_code = value;
-                } else if (type.equals("NUMERIC_CODE")) {
+                } else if (type.equals("CcyNbr")) {
                     try {
                         numeric_code = Integer.valueOf(value);
                     } catch (NumberFormatException ex) {
                         numeric_code = -1;
                     }
-                } else if (type.equals("MINOR_UNIT")) {
+                } else if (type.equals("CcyMnrUnts")) {
                     try {
                         minor_unit = Integer.valueOf(value);
                     } catch (NumberFormatException ex) {
@@ -224,7 +224,7 @@ public class IsoCurrencyParser {
                     }
                 }
 
-                if (type.equals("MINOR_UNIT") && alphabetic_code.length() > 0
+                if (type.equals("CcyMnrUnts") && alphabetic_code.length() > 0
                     && !KNOWN_BAD_ISO_DATA_CODES.contains(alphabetic_code)) {
                     Data data = new Data(country_code, currency_name, numeric_code, minor_unit);
                     codeList.put(alphabetic_code, data);

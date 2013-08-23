@@ -344,7 +344,7 @@ public class ExampleGenerator {
     }
 
     private String handleFormatUnit(UnitLength unitLength, Count count, String value) {
-        Double amount = getBest(count);
+        FixedDecimal amount = getBest(count);
         if (amount == null) {
             return "n/a";
         }
@@ -375,12 +375,12 @@ public class ExampleGenerator {
          */
 
         // we want to get a number that works for the count passed in.
-        Double amount = getBest(count);
+        FixedDecimal amount = getBest(count);
         if (amount == null) {
             return "n/a";
         }
         String unit1 = backgroundStartSymbol + getFormattedUnit("length-meter", unitLength, amount) + backgroundEndSymbol;
-        String unit2 = backgroundStartSymbol + getFormattedUnit("duration-second", unitLength, 1.0, "").trim() + backgroundEndSymbol;
+        String unit2 = backgroundStartSymbol + getFormattedUnit("duration-second", unitLength, new FixedDecimal(1d, 0), "").trim() + backgroundEndSymbol;
         // TODO fix hack
         String form = this.pluralInfo.getPluralRules().select(amount);
         String perPath = "//ldml/units/unitLength" + unitLength.typeString
@@ -390,18 +390,17 @@ public class ExampleGenerator {
         return format(getValueFromFormat(perPath, form), unit1, unit2);
     }
 
-    private Double getBest(Count count) {
-        Collection<Double> samples = pluralInfo.getPluralRules().getSamples(count.name());
-        Double best = null;
-        for (Double x : samples) {
-            if (best == null) {
-                best = x;
-            } else if (Math.round(x) != x) {
-                // Use fractions if possible.
-                return x;
-            }
+    private FixedDecimal getBest(Count count) {
+        FixedDecimalSamples samples = pluralInfo.getPluralRules().getDecimalSamples(count.name(), SampleType.DECIMAL);
+        if (samples == null) {
+            samples = pluralInfo.getPluralRules().getDecimalSamples(count.name(), SampleType.INTEGER);
         }
-        return best;
+        if (samples == null) {
+            return null;
+        }
+        Set<FixedDecimalRange> samples2 = samples.getSamples();
+        FixedDecimalRange range = samples2.iterator().next();
+        return range.end;
     }
 
     private String handleMiscPatterns(XPathParts parts2, String value) {
@@ -556,12 +555,16 @@ public class ExampleGenerator {
         }
     }
 
-    private String getFormattedUnit(String unitType, UnitLength unitWidth, double unitAmount) {
+    private String getFormattedUnit(String unitType, UnitLength unitWidth, FixedDecimal unitAmount) {
         DecimalFormat numberFormat = icuServiceBuilder.getNumberFormat(1);
         return getFormattedUnit(unitType, unitWidth, unitAmount, numberFormat.format(unitAmount));
     }
 
-    private String getFormattedUnit(String unitType, UnitLength unitWidth, double unitAmount, String formattedUnitAmount) {
+    private String getFormattedUnit(String unitType, UnitLength unitWidth, double unitAmount) {
+        return getFormattedUnit(unitType, unitWidth, new FixedDecimal(unitAmount));
+    }
+
+    private String getFormattedUnit(String unitType, UnitLength unitWidth, FixedDecimal unitAmount, String formattedUnitAmount) {
         String form = this.pluralInfo.getPluralRules().select(unitAmount);
         String pathFormat = "//ldml/units/unitLength" + unitWidth.typeString 
                 + "/unit[@type=\"{0}\"]/unitPattern[@count=\"{1}\"]";

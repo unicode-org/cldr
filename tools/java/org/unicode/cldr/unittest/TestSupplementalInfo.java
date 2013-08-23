@@ -22,6 +22,7 @@ import java.util.regex.Pattern;
 
 import javax.print.attribute.standard.MediaSize.Engineering;
 
+import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.tool.PluralRulesFactory;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
@@ -310,6 +311,27 @@ public class TestSupplementalInfo extends TestFmwk {
         }
 
     }
+
+    public void TestLikelySubtagCompleteness() {
+        Map<String, String> likely = SUPPLEMENTAL.getLikelySubtags();
+
+        for (String language : SUPPLEMENTAL.getCLDRLanguageCodes()) {
+            if (!likely.containsKey(language)) {
+                logln("WARNING: No likely subtag for CLDR language code (" + language + ")");
+            }
+        }
+        for (String script : SUPPLEMENTAL.getCLDRScriptCodes()) {
+            if (!likely.containsKey("und_" + script) &&
+                    !script.equals("Latn") &&
+                    ScriptMetadata.getInfo(script) != null &&
+                    ScriptMetadata.getInfo(script).idUsage != ScriptMetadata.IdUsage.EXCLUSION &&
+                    ScriptMetadata.getInfo(script).idUsage != ScriptMetadata.IdUsage.UNKNOWN) {
+                errln("No likely subtag for CLDR script code (und_" + script + ")");
+            }
+        }
+
+    }
+
     public void TestEquivalentLocales() {
         Set<Set<String>> seen = new HashSet();
         Set<String> toTest = new TreeSet(testInfo.getCldrFactory().getAvailable());

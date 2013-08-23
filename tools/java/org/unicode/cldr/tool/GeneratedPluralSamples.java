@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -228,31 +229,21 @@ public class GeneratedPluralSamples {
         }
     }
 
+    static final Double CELTIC_SPECIAL = new Double(1000000.0d);
+
     static class DataSample {
         int count;
         int countNoTrailing = -1;
-        final Set<Double> noTrailing = new HashSet();
+        final Set<Double> noTrailing = new TreeSet<Double>();
         final Ranges samples = new Ranges();
         final FixedDecimal[] digitToSample = new FixedDecimal[10];
-        final boolean isInteger;
+        final PluralRules.SampleType sampleType;
+        private boolean isBounded;
 
-        public DataSample(boolean isInteger) {
-            this.isInteger = isInteger;
+        public DataSample(PluralRules.SampleType sampleType) {
+            this.sampleType = sampleType;
         }
-        public String toString(boolean isKnownBounded, String keyword, PluralRules rule) {
-            boolean first = false;
-            if (countNoTrailing < 0) {
-                countNoTrailing = noTrailing.size();
-                first = true;
-            }
-            boolean isBounded = computeBoundedWithSize(isKnownBounded, keyword, rule, first);
-            if (countNoTrailing >= 0) {
-                noTrailing.clear(); // to avoid running out of memory.
-            }
-
-            if (!isBounded) {
-                samples.trim(SAMPLE_LIMIT);  // to avoid running out of memory.
-            }
+        public String toString() {
             Ranges samples2 = new Ranges(samples);
             for (FixedDecimal ni : digitToSample) {
                 if (ni != null) {
@@ -262,29 +253,12 @@ public class GeneratedPluralSamples {
             return samples2 + (isBounded ? "" : ", …");
         }
 
-        public boolean computeBoundedWithSize(boolean isKnownBounded, String keyword, PluralRules rule, boolean first) {
-            boolean isBounded = isKnownBounded || countNoTrailing < UNBOUNDED_LIMIT;
-            if (isBounded != isKnownBounded && first) {
-                Type infoType = noTrailing.size() == 0 && keyword.equals("other") || 
-                        noTrailing.size() == 1 && keyword.equals("many") && noTrailing.iterator().next() == 1000000.0d // Welsh
-                        ? Info.Type.Warning 
-                                : Info.Type.Error;
-                INFO.add(infoType, (isInteger ? "integer" : "decimal") 
-                        + " computation from rule ≠ from items"
-                        + "; keyword: " + keyword 
-                        + "; count: " + noTrailing 
-                        + "; rule: " + rule 
-                        );
-            }
-            return isBounded;
-        }
-
         private void add(FixedDecimal ni) {
             ++count;
-            if (samples.size() < SAMPLE_LIMIT) {
+            if (samples.size() < SAMPLE_LIMIT*2) {
                 samples.add(ni);
             }
-            if (noTrailing.size() <= UNBOUNDED_LIMIT) {
+            if (noTrailing.size() <= UNBOUNDED_LIMIT*2) {
                 noTrailing.add(ni.source);
             }
             int digit = getDigit(ni);
@@ -304,22 +278,63 @@ public class GeneratedPluralSamples {
             // TODO Auto-generated method stub
             return count ^ samples.hashCode() ^ Arrays.asList(digitToSample).hashCode();
         }
+
+        public void freeze(String keyword, PluralRules rule) {
+            countNoTrailing = noTrailing.size();
+            //System.out.println(sampleType + ", " + keyword + ", " + countNoTrailing + ", " + rule);
+            isBounded = computeBoundedWithSize(keyword, rule);
+            if (countNoTrailing > 0) {
+                noTrailing.clear(); // to avoid running out of memory.
+            }
+
+            if (!isBounded) {
+                samples.trim(SAMPLE_LIMIT);  // to avoid running out of memory.
+            }
+        }
+
+        public boolean computeBoundedWithSize(String keyword, PluralRules rule) {
+            boolean bounded;
+            if (keyword.equals("other")) {
+                bounded = noTrailing.size() == 0;
+            } else {
+                boolean isKnownBounded = rule.computeLimited(keyword, sampleType);
+                bounded = isKnownBounded;
+                if (countNoTrailing < UNBOUNDED_LIMIT) {
+                    bounded = true;
+                    if (keyword.equals("many")) {
+                        if (countNoTrailing == 1 && noTrailing.contains(CELTIC_SPECIAL)) {
+                            bounded = false;
+                        }
+                    }
+                }
+                if (bounded != isKnownBounded) {
+                    Type infoType = Info.Type.Error;
+                    //                        noTrailing.size() == 0 && keyword.equals("other") || 
+                    //                        keyword.equals("many") && noTrailing.contains(CELTIC_SPECIAL)
+                    //                        ? Info.Type.Warning 
+                    //                                : Info.Type.Error;
+                    INFO.add(infoType, sampleType.toString().toLowerCase(Locale.ENGLISH)
+                            + " computation from rule ≠ from items"
+                            + "; keyword: " + keyword 
+                            + "; count: " + noTrailing 
+                            + "; rule:\n\t" + rule.toString().replace(";", ";\n\t") 
+                            );
+                }
+            }
+            return bounded;
+        }
     }
 
     class DataSamples {
         private final String keyword; // for debugging
         private final PluralRules rules; // for debugging
-        private final DataSample integers = new DataSample(true);
-        private final DataSample decimals = new DataSample(false);
-        private final boolean isKnownIntegerBounded;
-        private final boolean isKnownDecimalBounded;
+        private final DataSample integers = new DataSample(PluralRules.SampleType.INTEGER);
+        private final DataSample decimals = new DataSample(PluralRules.SampleType.DECIMAL);
         private boolean boundsComputed;
 
         DataSamples(String keyword, PluralRules rules) {
             this.keyword = keyword;
             this.rules = rules;
-            isKnownIntegerBounded = computeBounded(rules.getRules(keyword), true);
-            isKnownDecimalBounded = computeBounded(rules.getRules(keyword), false);
         }
 
         private void add(FixedDecimal ni) {
@@ -333,10 +348,8 @@ public class GeneratedPluralSamples {
             }
         }
         public String toString() {
-            boundsComputed = true;
-            String integersString = integers.toString(isKnownIntegerBounded, keyword, rules);
-            String decimalsString = type == PluralType.ordinal ? "" 
-                    : decimals.toString(isKnownDecimalBounded, keyword, rules);
+            String integersString = integers.toString();
+            String decimalsString = type == PluralType.ordinal ? "" : decimals.toString();
             return (integersString.isEmpty() ? "\t\t" : "\t@integer\t" + integersString)
                     + (decimalsString.isEmpty() ? "" : "\t@decimal\t" + decimalsString);
         }
@@ -345,45 +358,53 @@ public class GeneratedPluralSamples {
             DataSamples other = (DataSamples)obj;
             return integers.equals(other.integers) && decimals.equals(other.decimals);
         }
+
+        public void freeze() {
+            integers.freeze(keyword, rules);
+            if (type != PluralType.ordinal) {
+                decimals.freeze(keyword, rules);
+            }
+            boundsComputed = true;
+        }
     }
 
-    static boolean computeBounded(String orRule, boolean integer) {
-        if (orRule == null || orRule.isEmpty()) {
-            return false;
-        }
-        // every 'or' rule must be bounded for the whole thing to be
-        for (String andRule : orRule.split("\\s*or\\s*")) {
-            boolean intBounded = false;
-            boolean decBounded = integer; // when gathering for integers, dec is bounded.
-            // if any 'and' rule is bounded, then the 'or' rule is
-            boolean specificInteger;
-            for (String atomicRule : andRule.split("\\s*and\\s*")) {
-                char operand = atomicRule.charAt(0);
-                String remainder = atomicRule.substring(1).trim();
-                // check to see that the integer values are bounded and that the decimal values are
-                // once this happens, then the 'and' rule is bounded.
-
-                // if the fractional parts must be zero, then this rule is empty for decimals (and thus bounded)
-                decBounded |= (operand == 'v' || operand == 'w' || operand == 'f' || operand == 't')
-                        && remainder.equals("is 0");
-                // if f and t cannot be zero, then this rule is empty for integers (and thus bounded)
-                intBounded |= (operand == 'f' || operand == 't') 
-                        && (remainder.equals("is 1") || remainder.equals("is not 0")); // should flesh out with parser
-
-                if(!atomicRule.contains("mod") && !atomicRule.contains("not")&& !atomicRule.contains("!")) {
-                    intBounded |= operand == 'i' || operand == 'n';
-                    decBounded |= operand == 'n' && !atomicRule.contains("within");
-                }
-                if (intBounded && decBounded) {
-                    break;
-                }
-            }
-            if (!intBounded && !decBounded) {
-                return false;
-            }
-        }
-        return true;
-    }
+    //    static boolean computeBounded(String orRule, boolean integer) {
+    //        if (orRule == null || orRule.isEmpty()) {
+    //            return false;
+    //        }
+    //        // every 'or' rule must be bounded for the whole thing to be
+    //        for (String andRule : orRule.split("\\s*or\\s*")) {
+    //            boolean intBounded = false;
+    //            boolean decBounded = integer; // when gathering for integers, dec is bounded.
+    //            // if any 'and' rule is bounded, then the 'or' rule is
+    //            boolean specificInteger;
+    //            for (String atomicRule : andRule.split("\\s*and\\s*")) {
+    //                char operand = atomicRule.charAt(0);
+    //                String remainder = atomicRule.substring(1).trim();
+    //                // check to see that the integer values are bounded and that the decimal values are
+    //                // once this happens, then the 'and' rule is bounded.
+    //
+    //                // if the fractional parts must be zero, then this rule is empty for decimals (and thus bounded)
+    //                decBounded |= (operand == 'v' || operand == 'w' || operand == 'f' || operand == 't')
+    //                        && remainder.equals("is 0");
+    //                // if f and t cannot be zero, then this rule is empty for integers (and thus bounded)
+    //                intBounded |= (operand == 'f' || operand == 't') 
+    //                        && (remainder.equals("is 1") || remainder.equals("is not 0")); // should flesh out with parser
+    //
+    //                if(!atomicRule.contains("mod") && !atomicRule.contains("not")&& !atomicRule.contains("!")) {
+    //                    intBounded |= operand == 'i' || operand == 'n';
+    //                    decBounded |= operand == 'n' && !atomicRule.contains("within");
+    //                }
+    //                if (intBounded && decBounded) {
+    //                    break;
+    //                }
+    //            }
+    //            if (!intBounded && !decBounded) {
+    //                return false;
+    //            }
+    //        }
+    //        return true;
+    //    }
 
     static private int getDigit(FixedDecimal ni) {
         int result = 0;
@@ -403,32 +424,35 @@ public class GeneratedPluralSamples {
         PluralInfo pluralRule = pluralInfo;
         // 9999, powers; no decimals
         collect(pluralRule, 10000, 0);
-        collect10s(pluralRule, 100000, 0);
+        collect10s(pluralRule, 10000, 1000000, 0);
 
-        if (type != PluralType.cardinal) {
-            return;
+        if (type == PluralType.cardinal) {
+
+            // 9999.9, powers .0
+            collect(pluralRule, 10000, 1);
+            collect10s(pluralRule, 10000, 1000000, 1);
+
+            // 999.99, powers .00
+            collect(pluralRule, 1000, 2);
+            collect10s(pluralRule, 1000, 1000000, 2);
+
+            // 99.999, powers .000
+            collect(pluralRule, 100, 3);
+            collect10s(pluralRule, 100, 1000000, 3);
+
+            // 9.9999, powers .0000
+            collect(pluralRule, 10, 4);
+            collect10s(pluralRule, 10, 1000000, 4);
         }
 
-        // 9999.9, powers .0
-        collect(pluralRule, 10000, 1);
-        collect10s(pluralRule, 1000000, 1);
-
-        // 999.99, powers .00
-        collect(pluralRule, 1000, 2);
-        collect10s(pluralRule, 1000000, 2);
-
-        // 99.999, powers .000
-        collect(pluralRule, 100, 3);
-        collect10s(pluralRule, 1000000, 3);
-
-        // 9.9999, powers .0000
-        collect(pluralRule, 10, 4);
-        collect10s(pluralRule, 1000000, 4);
+        for (Entry<String, DataSamples> entry : keywordToData.entrySet()) {
+            entry.getValue().freeze();
+        }
     }
 
-    private void collect10s(PluralInfo pluralInfo, int limit, int decimals) {
+    private void collect10s(PluralInfo pluralInfo, int start, int end, int decimals) {
         double power = Math.pow(10, decimals);
-        for (long i = 1; i <= limit*(int)power; i *= 10) {
+        for (long i = start*(int)power; i <= end*(int)power; i *= 10) {
             add(pluralInfo, i/power, decimals);
         }
     }
@@ -503,14 +527,16 @@ public class GeneratedPluralSamples {
 
     public static void main(String[] args) throws Exception {
         myOptions.parse(MyOptions.filter, args, true);
-
+        PluralRules test = PluralRules.parseDescription("one: n in 3,4 or f mod 5 in 3..4;");
+        System.out.println(test);
+        
         Matcher localeMatcher = !MyOptions.filter.option.doesOccur() ? null : Pattern.compile(MyOptions.filter.option.getValue()).matcher("");
         boolean fileFormat = MyOptions.xml.option.doesOccur();
         final boolean multiline = MyOptions.multiline.option.doesOccur();
         final boolean sortNew = MyOptions.sortNew.option.doesOccur();
 
 
-        computeBounded("n is not 0 and n mod 1000000 is 0", false);
+        //        computeBounded("n is not 0 and n mod 1000000 is 0", false);
         int failureCount = 0;
 
         PluralRules pluralRules2 = PluralRules.createRules("one: n is 3..9; two: n is 7..12");
@@ -551,6 +577,7 @@ public class GeneratedPluralSamples {
             for (Entry<PluralInfo, Set<String>> entry : sorted) {
                 PluralInfo pluralInfo = entry.getKey();
                 Set<String> equivalentLocales = entry.getValue();
+                String representative = equivalentLocales.iterator().next();
 
                 if (fileFormat) {
                     out.println(WritePluralRules.formatPluralRuleHeader(equivalentLocales));
@@ -573,7 +600,6 @@ public class GeneratedPluralSamples {
                         pluralInfo.getRule(count);
                         throw new IllegalArgumentException("No rule for " + count);
                     }
-                    String representative = equivalentLocales.iterator().next();
                     if (!fileFormat) {
                         System.out.print(type + "\t" + representative + "\t" + keyword + "\t" + (rule == null ? "" : rule));
                     }

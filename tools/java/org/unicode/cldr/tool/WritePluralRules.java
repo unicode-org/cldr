@@ -77,6 +77,9 @@ public class WritePluralRules {
     public static String formatPluralRule(String keyword, String rule, String samples, boolean newLine) {
         if (rule == null) {
             rule = "";
+        } else {
+            PluralRules rules = PluralRules.createRules(keyword + ":" + rule);
+            rule = rules.getRules(keyword);
         }
         if (newLine) {
             rule = "\n                " + rule;

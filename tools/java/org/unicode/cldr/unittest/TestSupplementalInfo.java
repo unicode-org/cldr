@@ -62,6 +62,7 @@ import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
@@ -76,6 +77,25 @@ public class TestSupplementalInfo extends TestFmwk {
 
     public static void main(String[] args) {
         new TestSupplementalInfo().run(args);
+    }
+    
+    public void TestPluralSamples() {
+        String[][] test = {
+                {"en", "ordinal", "1", "one"},   
+                {"en", "ordinal", "2", "two"},   
+                {"en", "ordinal", "3", "few"},   
+                {"en", "ordinal", "4", "other"},   
+                {"sl", "cardinal", "2", "two"},   
+        };
+        for (String[] row : test) {
+            checkPluralSamples(row);
+        }
+    }
+
+    public void checkPluralSamples(String... row) {
+        PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(PluralType.valueOf(row[1]), row[0]);
+        Count count = pluralInfo.getCount(new FixedDecimal(row[2]));
+        assertEquals(CollectionUtilities.join(row, ", "), Count.valueOf(row[3]), count);
     }
 
     public void TestPluralLocales() {

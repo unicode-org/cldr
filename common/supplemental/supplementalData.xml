@@ -1355,6 +1355,7 @@ XXX Code for transations where no currency is involved
 		<language type="brx" scripts="Deva"/>
 		<language type="brx" territories="IN" alt="secondary"/>
 		<language type="bs" scripts="Cyrl Latn" territories="BA"/>
+		<language type="bss" scripts="Latn"/>
 		<language type="btv" scripts="Deva"/>
 		<language type="bua" scripts="Cyrl"/>
 		<language type="buc" scripts="Latn"/>
@@ -1470,7 +1471,7 @@ XXX Code for transations where no currency is involved
 		<language type="fon" scripts="Latn"/>
 		<language type="fon" territories="BJ" alt="secondary"/>
 		<language type="fr" scripts="Latn" territories="BE BF BI BJ BL CA CD CF CG CH CI CM DJ DZ FR GA GF GN GP GQ HT KM LU MA MC MF MG ML MQ MU NC NE PF PM RE RW SC SN SY TD TG TN VU WF YT"/>
-		<language type="fr" territories="IN IT TF US" alt="secondary"/>
+		<language type="fr" territories="IT TF US" alt="secondary"/>
 		<language type="frr" scripts="Latn"/>
 		<language type="frs" scripts="Latn"/>
 		<language type="fud" territories="WF" alt="secondary"/>
@@ -1819,8 +1820,7 @@ XXX Code for transations where no currency is involved
 		<language type="pal" scripts="Phli" alt="secondary"/>
 		<language type="pam" scripts="Latn"/>
 		<language type="pam" territories="PH" alt="secondary"/>
-		<language type="pap" scripts="Latn" territories="BQ CW"/>
-		<language type="pap" territories="AW" alt="secondary"/>
+		<language type="pap" scripts="Latn" territories="AW BQ CW"/>
 		<language type="pau" scripts="Latn" territories="PW"/>
 		<language type="peo" scripts="Xpeo" alt="secondary"/>
 		<language type="phn" scripts="Phnx" alt="secondary"/>
@@ -2041,7 +2041,8 @@ XXX Code for transations where no currency is involved
 		<language type="wbq" territories="IN" alt="secondary"/>
 		<language type="wbr" territories="IN" alt="secondary"/>
 		<language type="wls" territories="WF" alt="secondary"/>
-		<language type="wo" scripts="Arab Latn" territories="SN"/>
+		<language type="wo" scripts="Latn" territories="SN"/>
+		<language type="wo" scripts="Arab" alt="secondary"/>
 		<language type="wtm" territories="IN" alt="secondary"/>
 		<language type="xal" scripts="Cyrl"/>
 		<language type="xcr" scripts="Cari" alt="secondary"/>
@@ -2153,7 +2154,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="AW" gdp="2516000000" literacyPercent="96.8" population="109153">	<!--Aruba-->
 			<languagePopulation type="nl" populationPercent="97" officialStatus="official" references="R1000"/>	<!--Dutch-->
-			<languagePopulation type="pap" populationPercent="61"/>	<!--Papiamento-->
+			<languagePopulation type="pap" populationPercent="61" officialStatus="official"/>	<!--Papiamento-->
 			<languagePopulation type="en" populationPercent="2.7"/>	<!--English-->
 		</territory>
 		<territory type="AX" gdp="929800000" literacyPercent="100" population="26200">	<!--Åland Islands-->
@@ -2756,7 +2757,6 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="mwr" populationPercent="1.2" references="R1126"/>	<!--Marwari-->
 			<languagePopulation type="mai" populationPercent="1.2" officialStatus="official_regional" references="R1195"/>	<!--Maithili-->
 			<languagePopulation type="hne" populationPercent="1.1"/>	<!--Chhattisgarhi-->
-			<languagePopulation type="fr" populationPercent="1" officialStatus="official_regional" references="R1250"/>	<!--French-->
 			<languagePopulation type="dcc" populationPercent="0.99"/>	<!--Deccan-->
 			<languagePopulation type="bjj" populationPercent="0.56"/>	<!--Kanauji-->
 			<languagePopulation type="ne" populationPercent="0.56" officialStatus="official_regional"/>	<!--Nepali-->
@@ -2992,8 +2992,8 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="zgh" populationPercent="22" references="R1254"/>	<!--Standard Moroccan Tamazight-->
 			<languagePopulation type="fr" populationPercent="20" officialStatus="de_facto_official" references="R1050"/>	<!--French-->
 			<languagePopulation type="tzm_Latn" populationPercent="9.8" officialStatus="official"/>	<!--Central Atlas Tamazight (Latin)-->
-			<languagePopulation type="shi_Tfng" populationPercent="8.7"/>	<!--Tachelhit (Tifinagh)-->
 			<languagePopulation type="shi_Latn" populationPercent="8.7" references="R1181"/>	<!--Tachelhit (Latin)-->
+			<languagePopulation type="shi_Tfng" populationPercent="8.7"/>	<!--Tachelhit (Tifinagh)-->
 			<languagePopulation type="rif" populationPercent="4.9"/>	<!--Tarifit-->
 			<languagePopulation type="es" populationPercent="0.065"/>	<!--Spanish-->
 		</territory>
@@ -3074,7 +3074,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ar" populationPercent="85" officialStatus="official"/>	<!--Arabic-->
 			<languagePopulation type="fr" populationPercent="17" references="R1135"/>	<!--French-->
 			<languagePopulation type="ff" populationPercent="5.7"/>	<!--Fulah-->
-			<languagePopulation type="wo_Latn" populationPercent="0.29"/>	<!--Wolof (Latin)-->
+			<languagePopulation type="wo" populationPercent="0.29"/>	<!--Wolof -->
 		</territory>
 		<territory type="MS" gdp="43780000" literacyPercent="97" population="5189">	<!--Montserrat-->
 			<languagePopulation type="en" populationPercent="98" officialStatus="official"/>	<!--English-->
@@ -3428,7 +3428,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="fit" populationPercent="0.55"/>	<!--Tornedalen Finnish-->
 			<languagePopulation type="se" populationPercent="0.33"/>	<!--Northern Sami-->
 			<languagePopulation type="rmu" populationPercent="0.1"/>	<!--Tavringer Romani-->
-			<languagePopulation type="yih" populationPercent="0.033"/>	<!--Western Yiddish-->
+			<languagePopulation type="yi" populationPercent="0.033"/>	<!--Yiddish-->
 			<languagePopulation type="smj" populationPercent="0.016"/>	<!--Lule Sami-->
 			<languagePopulation type="sma" writingPercent="75" populationPercent="0.0033"/>	<!--Southern Sami-->
 			<languagePopulation type="ia" populationPercent="0.0011" references="R1215"/>	<!--Interlingua-->
@@ -3472,7 +3472,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="SN" gdp="27010000000" literacyPercent="49.7" population="13300400">	<!--Senegal-->
 			<languagePopulation type="fr" populationPercent="39" officialStatus="official" references="R1069"/>	<!--French-->
-			<languagePopulation type="wo_Latn" populationPercent="34" officialStatus="official"/>	<!--Wolof (Latin)-->
+			<languagePopulation type="wo" populationPercent="34" officialStatus="official"/>	<!--Wolof-->
 			<languagePopulation type="ff" populationPercent="21"/>	<!--Fulah-->
 			<languagePopulation type="srr" populationPercent="11" references="R1069"/>	<!--Serer-->
 		</territory>
@@ -4716,7 +4716,6 @@ XXX Code for transations where no currency is involved
 		<reference type="R1247">protected minority, southern Jutland</reference>
 		<reference type="R1248">etimate only based on literacy; no population data currently available</reference>
 		<reference type="R1249" uri="http://en.wikipedia.org/wiki/Yiddish_language#Numbers_of_speakers">[missing]</reference>
-		<reference type="R1250">French regionally official in Puducherry/Pondicherry, no pop data currently available</reference>
 		<reference type="R1251">co-official in South Tyrol</reference>
 		<reference type="R1252">Aosta Valley</reference>
 		<reference type="R1253">in Trieste and  Gorizia</reference>

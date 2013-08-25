@@ -489,6 +489,8 @@ public class GenerateMaximalLocales {
                 + "\tin\t" + debugStuff);
         }
 
+        defaultLocaleContent.remove("und_ZZ"); // und_ZZ isn't ever a real locale.
+        
         showDefaultContentDifferencesAndFix(defaultLocaleContent);
 
         Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
@@ -1745,7 +1747,7 @@ public class GenerateMaximalLocales {
             errors.clear();
         }
         Set<String> changes = compareMapsAndFixNew("*WARNING* Default Content: ", oldDefaultContent, newDefaultContent,
-            "ms_Arab", "ms_Arab_ID");
+            "ar", "ar_001");
         System.out.println(CollectionUtilities.join(changes, "\n"));
         defaultLocaleContent.clear();
         defaultLocaleContent.addAll(newDefaultContent.values());

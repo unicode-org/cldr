@@ -65,7 +65,6 @@ import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.StringTransform;
-import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
@@ -1166,11 +1165,12 @@ public class TestSupplementalInfo extends TestFmwk {
             int previousChar = 0;
             int ch;
 
-            for (int i = 0; i < digits.length(); i += UTF16.getCharCount(ch)) {
-                ch = UTF16.charAt(digits, i);
+            for (int i = 0; i < digits.length(); i += Character.charCount(ch)) {
+                ch = digits.codePointAt(i);
                 if (i > 0 && ch != previousChar + 1) {
-                    errln("Digits for numbering system " + ns + " are not in code point order. Previous char = " + previousChar + " Current char = "
-                            + ch);
+                    errln("Digits for numbering system " + ns + " are not in code point order. Previous char = U+" + 
+                    (previousChar < 0x10000 ? Utility.hex(previousChar,4) : Utility.hex(previousChar,8)) + " Current char = U+" +
+                    (ch < 0x10000 ? Utility.hex(ch,4) : Utility.hex(ch,8)));
                     break;
                 }
                 previousChar = ch;

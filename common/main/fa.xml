@@ -714,12 +714,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BY">بلاروس</territory>
 			<territory type="BZ">بلیز</territory>
 			<territory type="CA">کانادا</territory>
-			<territory type="CC">جزایر کوکوس [کیلینگ]</territory>
+			<territory type="CC">جزایر کوکوس (کیلینگ)</territory>
 			<territory type="CD">کنگو - کینشاسا</territory>
-			<territory type="CD" alt="variant">کنگو [جمهوری دموکراتیک]</territory>
+			<territory type="CD" alt="variant">کنگو (جمهوری دموکراتیک)</territory>
 			<territory type="CF">جمهوری افریقای مرکزی</territory>
 			<territory type="CG">کنگو - برازویل</territory>
-			<territory type="CG" alt="variant">کنگو [جمهوری]</territory>
+			<territory type="CG" alt="variant">کنگو (جمهوری)</territory>
 			<territory type="CH">سوئیس</territory>
 			<territory type="CI">ساحل عاج</territory>
 			<territory type="CI" alt="variant">ساحل عاج</territory>
@@ -755,7 +755,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FI">فنلاند</territory>
 			<territory type="FJ">فیجی</territory>
 			<territory type="FK">جزایر فالکلند</territory>
-			<territory type="FK" alt="variant">جزایر فالکلند [ایسلاس مالویناس]</territory>
+			<territory type="FK" alt="variant">جزایر فالکلند (ایسلاس مالویناس)</territory>
 			<territory type="FM">میکرونزی</territory>
 			<territory type="FO">جزایر فارو</territory>
 			<territory type="FR">فرانسه</territory>
@@ -830,9 +830,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MG">ماداگاسکار</territory>
 			<territory type="MH">جزایر مارشال</territory>
 			<territory type="MK">مقدونیه</territory>
-			<territory type="MK" alt="variant">مقدونیه [جمهوری سابقاً یوگسلاو]</territory>
+			<territory type="MK" alt="variant">مقدونیه (جمهوری سابقاً یوگسلاو)</territory>
 			<territory type="ML">مالی</territory>
-			<territory type="MM">میانمار [برمه]</territory>
+			<territory type="MM">میانمار (برمه)</territory>
 			<territory type="MN">مغولستان</territory>
 			<territory type="MO">ماکائو، ناحیهٔ ویژهٔ حکومتی چین</territory>
 			<territory type="MO" alt="short">ماکائو</territory>
@@ -1042,7 +1042,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="primary" key="colStrength">مرتب‌سازی فقط حروف پایه</type>
 			<type type="quaternary" key="colStrength">مرتب‌سازی بر اساس آکسان/اندازه حروف/عرض/کانا</type>
 			<type type="reformed" key="collation">ترتیب اصلاح‌شده</type>
-			<type type="roc" key="calendar">تقویم جمهوری چین [تایوان]</type>
+			<type type="roc" key="calendar">تقویم جمهوری چین (تایوان)</type>
 			<type type="roman" key="numbers">اعداد رومی</type>
 			<type type="romanlow" key="numbers">اعداد رومی با حروف کوچک</type>
 			<type type="search" key="collation">جستجوی عمومی</type>
@@ -1097,9 +1097,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters>[\u064B \u064D \u064C \u0651 \u0654 آ ا ء أ ؤ ئ ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ة ی]</exemplarCharacters>
+		<exemplarCharacters>[\u064B \u064D \u064C \u0651 أ ؤ آ ء ا و ئ ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن ه ة \u0654 ی]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C\u200D\u200E\u200F \u064E \u0650 \u064F \u0652 \u0656 \u0670 إ ك ى ي]</exemplarCharacters>
-		<exemplarCharacters type="index">[آ ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن و ه ی]</exemplarCharacters>
+		<exemplarCharacters type="index">[آ ا و ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن ه ی]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ ، ٫ ٬ ؛ \: ! ؟ . … ‹ › « » ( ) \[ \] * / \\]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
@@ -4911,7 +4911,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ریال ایران</displayName>
 				<displayName count="one">ریال ایران</displayName>
 				<displayName count="other">ریال ایران</displayName>
-				<symbol>﷼</symbol>
+				<symbol>ریال</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>کرونای ایسلند</displayName>

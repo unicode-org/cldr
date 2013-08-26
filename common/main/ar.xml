@@ -863,7 +863,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="ML">مالي</territory>
 			<territory type="MM">ميانمار -بورما</territory>
 			<territory type="MN">منغوليا</territory>
-			<territory type="MO">مكاو الصينية [منطقة إدارية خاصة]</territory>
+			<territory type="MO">مكاو الصينية (منطقة إدارية خاصة)</territory>
 			<territory type="MO" alt="short">مكاو</territory>
 			<territory type="MP">جزر ماريانا الشمالية</territory>
 			<territory type="MQ">مارتينيك</territory>
@@ -1018,7 +1018,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="armn" key="numbers">الأرقام الأرمينية</type>
 			<type type="armnlow" key="numbers">الأرقام الأرمينية الصغيرة</type>
 			<type type="beng" key="numbers">الأرقام البنغالية</type>
-			<type type="big5han" key="collation">ترتيب فرز الصينية التقليدية [Big5]</type>
+			<type type="big5han" key="collation">ترتيب فرز الصينية التقليدية (Big5)</type>
 			<type type="buddhist" key="calendar">التقويم البوذي</type>
 			<type type="chinese" key="calendar">التقويم الصيني</type>
 			<type type="coptic" key="calendar">التقويم القبطي</type>
@@ -1030,7 +1030,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="ethiopic-amete-alem" key="calendar">تقويم أميتي أليم الإثيوبي</type>
 			<type type="finance" key="numbers" draft="contributed">الأرقام المالية</type>
 			<type type="fullwide" key="numbers">أرقام كاملة العرض</type>
-			<type type="gb2312han" key="collation">ترتيب فرز الصينية المبسطة [GB2312]</type>
+			<type type="gb2312han" key="collation">ترتيب فرز الصينية المبسطة (GB2312)</type>
 			<type type="geor" key="numbers">الأرقام الجورجية</type>
 			<type type="gregorian" key="calendar">التقويم الميلادي</type>
 			<type type="grek" key="numbers">الأرقام اليونانية</type>
@@ -1048,9 +1048,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="indian" key="calendar">التقويم القومي الهندي</type>
 			<type type="islamic" key="calendar">التقويم الهجري</type>
 			<type type="islamic-civil" key="calendar">التقويم الإسلامي المدني</type>
-			<type type="islamic-rgsa" key="calendar" draft="contributed">التقويم الإسلامي [مستخدم بالسعودية]</type>
-			<type type="islamic-tbla" key="calendar">التقويم الإسلامي [مجدول، العصر الفلكي]</type>
-			<type type="islamic-umalqura" key="calendar">التقويم الإسلامي [أم القرى]</type>
+			<type type="islamic-rgsa" key="calendar" draft="contributed">التقويم الإسلامي (مستخدم بالسعودية)</type>
+			<type type="islamic-tbla" key="calendar">التقويم الإسلامي (مجدول، العصر الفلكي)</type>
+			<type type="islamic-umalqura" key="calendar">التقويم الإسلامي (أم القرى)</type>
 			<type type="japanese" key="calendar">التقويم الياباني</type>
 			<type type="jpan" key="numbers">الأرقام اليابانية</type>
 			<type type="jpanfin" key="numbers">الأرقام المالية اليابانية</type>
@@ -1731,7 +1731,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMMEd">E، d MMMM</dateFormatItem>
 						<dateFormatItem id="ms" draft="contributed">mm:ss</dateFormatItem>
 						<dateFormatItem id="y">y</dateFormatItem>
-						<dateFormatItem id="yM">M‏/yyyy</dateFormatItem>
+						<dateFormatItem id="yM">M‏/y</dateFormatItem>
 						<dateFormatItem id="yMd">d‏/M‏/y</dateFormatItem>
 						<dateFormatItem id="yMEd">E، d/‏M/‏y</dateFormatItem>
 						<dateFormatItem id="yMM">MM‏/y</dateFormatItem>
@@ -1834,7 +1834,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">d MMM، y – d MMM، y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
-							<greatestDifference id="d">E، d – E، d MMM، yyyy</greatestDifference>
+							<greatestDifference id="d">E، d – E، d MMM، y</greatestDifference>
 							<greatestDifference id="M">E، d MMM – E، d MMM، y</greatestDifference>
 							<greatestDifference id="y">E، d MMM، y – E، d MMM، y</greatestDifference>
 						</intervalFormatItem>
@@ -4447,9 +4447,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Pierre_Miquelon">
 				<long>
-					<generic>توقيت ﺱﺎﻨﺗ ﺐﻴﻳﺭ ﻮﻤﻴﻛﻮﻟﻮﻧ</generic>
-					<standard>توقيت ﺱﺎﻨﺗ ﺐﻴﻳﺭ ﻮﻤﻴﻛﻮﻟﻮﻧ الرسمي</standard>
-					<daylight>ﺕﻮﻘﻴﺗ ﺱﺎﻨﺗ ﺐﻴﻳﺭ ﻮﻤﻴﻛﻮﻟﻮﻧ ﻞﺼﻴﻔﻳ</daylight>
+					<generic>توقيت سانت بيير وميكولون</generic>
+					<standard>توقيت سانت بيير وميكولون الرسمي</standard>
+					<daylight>توقيت سانت بيير وميكولون لصيفي</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pitcairn">

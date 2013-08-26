@@ -534,7 +534,7 @@ public class DisplayAndInputProcessor {
             return exemplar.toString();
         }
         String value;
-        prettyPrinter.setCompressRanges(exemplar.size() > 100);
+        prettyPrinter.setCompressRanges(exemplar.size() > 300);
         value = exemplar.toPattern(false);
         UnicodeSet toAdd = new UnicodeSet();
 

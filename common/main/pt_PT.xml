@@ -565,7 +565,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MK">Macedónia</territory>
 			<territory type="MK" alt="variant">Antiga República Jugoslava da Macedónia</territory>
 			<territory type="ML">Mali</territory>
-			<territory type="MM">Mianmar [Birmânia]</territory>
+			<territory type="MM">Mianmar (Birmânia)</territory>
 			<territory type="MN">Mongólia</territory>
 			<territory type="MO">Macau, RAE da China</territory>
 			<territory type="MO" alt="short">Macau</territory>
@@ -829,7 +829,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' &quot; « » “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' &quot; “ ” « » ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">…{0}</ellipsis>
 		<ellipsis type="medial">{0}…{1}</ellipsis>
@@ -1373,7 +1373,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd/MM/yyyy</pattern>
+							<pattern>dd/MM/y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -4088,7 +4088,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
-				<displayName>Afeghani (1927-2002)</displayName>
+				<displayName>Afeghani (1927–2002)</displayName>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afegani do Afeganistão</displayName>
@@ -4229,7 +4229,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
-				<displayName draft="contributed">Rublo novo bielorusso (1994-1999)</displayName>
+				<displayName draft="contributed">Rublo novo bielorusso (1994–1999)</displayName>
 			</currency>
 			<currency type="BYR">
 				<displayName>Rublo bielorusso</displayName>
@@ -4682,7 +4682,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MXP">
-				<displayName>Peso Plata mexicano (1861-1992)</displayName>
+				<displayName>Peso Plata mexicano (1861–1992)</displayName>
 			</currency>
 			<currency type="MXV">
 				<displayName>Unidad de Inversion (UDI) mexicana</displayName>
@@ -4781,7 +4781,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PLZ">
-				<displayName draft="unconfirmed">Zloti polaco (1950-1995)</displayName>
+				<displayName draft="unconfirmed">Zloti polaco (1950–1995)</displayName>
 			</currency>
 			<currency type="PTE">
 				<pattern>#,##0.00 ¤</pattern>
@@ -5074,9 +5074,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
-				<displayName>Kwacha zambiano (1968-2012)</displayName>
-				<displayName count="one">Kwacha zambiano (1968-2012)</displayName>
-				<displayName count="other">Kwachas zambianos (1968-2012)</displayName>
+				<displayName>Kwacha zambiano (1968–2012)</displayName>
+				<displayName count="one">Kwacha zambiano (1968–2012)</displayName>
+				<displayName count="other">Kwachas zambianos (1968–2012)</displayName>
 				<symbol draft="contributed">ZMK</symbol>
 			</currency>
 			<currency type="ZMW">

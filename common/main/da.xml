@@ -876,7 +876,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FI">Finland</territory>
 			<territory type="FJ">Fiji</territory>
 			<territory type="FK">Falklandsøerne</territory>
-			<territory type="FK" alt="variant">Falklandsøerne [Islas Malvinas]</territory>
+			<territory type="FK" alt="variant">Falklandsøerne (Islas Malvinas)</territory>
 			<territory type="FM">Mikronesiens Forenede Stater</territory>
 			<territory type="FO">Færøerne</territory>
 			<territory type="FR">Frankrig</territory>
@@ -952,9 +952,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MG">Madagaskar</territory>
 			<territory type="MH">Marshalløerne</territory>
 			<territory type="MK">Makedonien</territory>
-			<territory type="MK" alt="variant">Makedonien [Den Tidligere Jugoslaviske Republik Makedonien]</territory>
+			<territory type="MK" alt="variant">Makedonien (Den Tidligere Jugoslaviske Republik Makedonien)</territory>
 			<territory type="ML">Mali</territory>
-			<territory type="MM">Myanmar [Burma]</territory>
+			<territory type="MM">Myanmar (Burma)</territory>
 			<territory type="MN">Mongoliet</territory>
 			<territory type="MO">Macao SAR</territory>
 			<territory type="MO" alt="short">Macao</territory>
@@ -1192,9 +1192,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="indian" key="calendar">indisk nationalkalender</type>
 			<type type="islamic" key="calendar">islamisk kalender</type>
 			<type type="islamic-civil" key="calendar">verdslig islamisk kalender</type>
-			<type type="islamic-rgsa" key="calendar" draft="contributed">islamisk kalender [Saudi-Arabien, observation]</type>
-			<type type="islamic-tbla" key="calendar" draft="contributed">islamisk kalender [tabellarisk, astronomisk epoke]</type>
-			<type type="islamic-umalqura" key="calendar" draft="contributed">islamisk kalender [Umm al-Qura]</type>
+			<type type="islamic-rgsa" key="calendar" draft="contributed">islamisk kalender (Saudi-Arabien, observation)</type>
+			<type type="islamic-tbla" key="calendar" draft="contributed">islamisk kalender (tabellarisk, astronomisk epoke)</type>
+			<type type="islamic-umalqura" key="calendar" draft="contributed">islamisk kalender (Umm al-Qura)</type>
 			<type type="iso8601" key="calendar" draft="contributed">ISO-8601-kalender</type>
 			<type type="japanese" key="calendar">japansk kalender</type>
 			<type type="java" key="numbers" draft="contributed">Javanesiske tal</type>
@@ -1761,7 +1761,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd/MM/yyyy</pattern>
+							<pattern>dd/MM/y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -4407,10 +4407,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<decimalFormat>
 					<pattern type="1000" count="one">0 td</pattern>
 					<pattern type="1000" count="other">0 td</pattern>
-					<pattern type="10000" count="one">00 td</pattern>
-					<pattern type="10000" count="other">00 td</pattern>
-					<pattern type="100000" count="one">000 td</pattern>
-					<pattern type="100000" count="other">000 td</pattern>
+					<pattern type="10000" count="one">00 td</pattern>
+					<pattern type="10000" count="other">00 td</pattern>
+					<pattern type="100000" count="one">000 td</pattern>
+					<pattern type="100000" count="other">000 td</pattern>
 					<pattern type="1000000" count="one">0 mio</pattern>
 					<pattern type="1000000" count="other">0 mio</pattern>
 					<pattern type="10000000" count="one">00 mio</pattern>
@@ -4469,9 +4469,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
-				<displayName>Afghansk afghani (1927-2002)</displayName>
-				<displayName count="one">Afghansk afghani (1927-2002)</displayName>
-				<displayName count="other">Afghanske afghani (1927-2002)</displayName>
+				<displayName>Afghansk afghani (1927–2002)</displayName>
+				<displayName count="one">Afghansk afghani (1927–2002)</displayName>
+				<displayName count="other">Afghanske afghani (1927–2002)</displayName>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afghansk afghani</displayName>
@@ -4504,19 +4504,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
-				<displayName>Angolansk kwanza (1977-1990)</displayName>
-				<displayName count="one">Angolansk kwanza (1977-1990)</displayName>
-				<displayName count="other">Angolanske kwanza (1977-1990)</displayName>
+				<displayName>Angolansk kwanza (1977–1990)</displayName>
+				<displayName count="one">Angolansk kwanza (1977–1990)</displayName>
+				<displayName count="other">Angolanske kwanza (1977–1990)</displayName>
 			</currency>
 			<currency type="AON">
-				<displayName>Angolansk nye kwanza (1990-2000)</displayName>
-				<displayName count="one">Angolansk nye kwanza (1990-2000)</displayName>
-				<displayName count="other">Angolanske nye kwanza (1990-2000)</displayName>
+				<displayName>Angolansk nye kwanza (1990–2000)</displayName>
+				<displayName count="one">Angolansk nye kwanza (1990–2000)</displayName>
+				<displayName count="other">Angolanske nye kwanza (1990–2000)</displayName>
 			</currency>
 			<currency type="AOR">
-				<displayName>Angolansk kwanza (1995-1999)</displayName>
-				<displayName count="one">Angolansk kwanza (1995-1999)</displayName>
-				<displayName count="other">Angolanske kwanza (1995-1999)</displayName>
+				<displayName>Angolansk kwanza (1995–1999)</displayName>
+				<displayName count="one">Angolansk kwanza (1995–1999)</displayName>
+				<displayName count="other">Angolanske kwanza (1995–1999)</displayName>
 			</currency>
 			<currency type="ARA">
 				<displayName>Argentinsk austral</displayName>
@@ -4524,9 +4524,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Argentinske austral</displayName>
 			</currency>
 			<currency type="ARP">
-				<displayName>Argentinsk peso (1983-1985)</displayName>
-				<displayName count="one">Argentinsk pesos (1983-1985)</displayName>
-				<displayName count="other">Argentinske pesos (1983-1985)</displayName>
+				<displayName>Argentinsk peso (1983–1985)</displayName>
+				<displayName count="one">Argentinsk pesos (1983–1985)</displayName>
+				<displayName count="other">Argentinske pesos (1983–1985)</displayName>
 			</currency>
 			<currency type="ARS">
 				<displayName>Argentinsk peso</displayName>
@@ -4552,9 +4552,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
-				<displayName>Aserbajdsjansk manat (1993-2006)</displayName>
-				<displayName count="one">Aserbajdsjansk manat (1993-2006)</displayName>
-				<displayName count="other">Aserbajdsjanske manat (1993-2006)</displayName>
+				<displayName>Aserbajdsjansk manat (1993–2006)</displayName>
+				<displayName count="one">Aserbajdsjansk manat (1993–2006)</displayName>
+				<displayName count="other">Aserbajdsjanske manat (1993–2006)</displayName>
 			</currency>
 			<currency type="AZN">
 				<displayName>Aserbajdsjansk manat</displayName>
@@ -4652,19 +4652,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Bolivianske mvdol</displayName>
 			</currency>
 			<currency type="BRB">
-				<displayName>Brasiliansk cruzeiro novo (1967-1986)</displayName>
-				<displayName count="one">Brasiliansk cruzeiro novo (1967-1986)</displayName>
-				<displayName count="other">Brasilianske cruzeiro novo (1967-1986)</displayName>
+				<displayName>Brasiliansk cruzeiro novo (1967–1986)</displayName>
+				<displayName count="one">Brasiliansk cruzeiro novo (1967–1986)</displayName>
+				<displayName count="other">Brasilianske cruzeiro novo (1967–1986)</displayName>
 			</currency>
 			<currency type="BRC">
-				<displayName>Brasiliansk cruzado (1986-1989)</displayName>
-				<displayName count="one">Brasiliansk cruzado (1986-1989)</displayName>
-				<displayName count="other">Brasilianske cruzado (1986-1989)</displayName>
+				<displayName>Brasiliansk cruzado (1986–1989)</displayName>
+				<displayName count="one">Brasiliansk cruzado (1986–1989)</displayName>
+				<displayName count="other">Brasilianske cruzado (1986–1989)</displayName>
 			</currency>
 			<currency type="BRE">
-				<displayName>Brasiliansk cruzeiro (1990-1993)</displayName>
-				<displayName count="one">Brasiliansk cruzeiro (1990-1993)</displayName>
-				<displayName count="other">Brasilianske cruzeiro (1990-1993)</displayName>
+				<displayName>Brasiliansk cruzeiro (1990–1993)</displayName>
+				<displayName count="one">Brasiliansk cruzeiro (1990–1993)</displayName>
+				<displayName count="other">Brasilianske cruzeiro (1990–1993)</displayName>
 			</currency>
 			<currency type="BRL">
 				<displayName>Brasiliansk real</displayName>
@@ -4673,14 +4673,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>R$</symbol>
 			</currency>
 			<currency type="BRN">
-				<displayName>Brasiliansk cruzado novo (1989-1990)</displayName>
-				<displayName count="one">Brasiliansk cruzado novo (1989-1990)</displayName>
-				<displayName count="other">Brasilianske cruzado novo (1989-1990)</displayName>
+				<displayName>Brasiliansk cruzado novo (1989–1990)</displayName>
+				<displayName count="one">Brasiliansk cruzado novo (1989–1990)</displayName>
+				<displayName count="other">Brasilianske cruzado novo (1989–1990)</displayName>
 			</currency>
 			<currency type="BRR">
-				<displayName>Brasiliansk cruzeiro (1993-1994)</displayName>
-				<displayName count="one">Brasiliansk cruzeiro (1993-1994)</displayName>
-				<displayName count="other">Brasilianske cruzeiro (1993-1994)</displayName>
+				<displayName>Brasiliansk cruzeiro (1993–1994)</displayName>
+				<displayName count="one">Brasiliansk cruzeiro (1993–1994)</displayName>
+				<displayName count="other">Brasilianske cruzeiro (1993–1994)</displayName>
 			</currency>
 			<currency type="BSD">
 				<displayName>Bahamansk dollar</displayName>
@@ -4706,9 +4706,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
-				<displayName>Hviderussisk rubel (1994-1999)</displayName>
-				<displayName count="one">Hviderussisk rubel (1994-1999)</displayName>
-				<displayName count="other">Hviderussiske rubler (1994-1999)</displayName>
+				<displayName>Hviderussisk rubel (1994–1999)</displayName>
+				<displayName count="one">Hviderussisk rubel (1994–1999)</displayName>
+				<displayName count="other">Hviderussiske rubler (1994–1999)</displayName>
 			</currency>
 			<currency type="BYR">
 				<displayName>Hviderussisk rubel</displayName>
@@ -4775,9 +4775,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CSD">
-				<displayName>Serbisk dinar (2002-2006)</displayName>
-				<displayName count="one">Serbisk dinar (2002-2006)</displayName>
-				<displayName count="other">Serbiske dinar (2002-2006)</displayName>
+				<displayName>Serbisk dinar (2002–2006)</displayName>
+				<displayName count="one">Serbisk dinar (2002–2006)</displayName>
+				<displayName count="other">Serbiske dinar (2002–2006)</displayName>
 			</currency>
 			<currency type="CSK">
 				<displayName>Tjekkoslovakisk hard koruna</displayName>
@@ -4870,9 +4870,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
-				<displayName>Spansk peseta (A-konto)</displayName>
-				<displayName count="one">Spansk peseta (A-konto)</displayName>
-				<displayName count="other">Spanske peseta (A-konto)</displayName>
+				<displayName>Spansk peseta (A–konto)</displayName>
+				<displayName count="one">Spansk peseta (A–konto)</displayName>
+				<displayName count="other">Spanske peseta (A–konto)</displayName>
 			</currency>
 			<currency type="ESB">
 				<displayName>Spansk peseta (konvertibel konto)</displayName>
@@ -4936,9 +4936,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
-				<displayName>Ghanesisk cedi (1979-2007)</displayName>
-				<displayName count="one">Ghanesisk cedi (1979-2007)</displayName>
-				<displayName count="other">Ghanesiske cedi (1979-2007)</displayName>
+				<displayName>Ghanesisk cedi (1979–2007)</displayName>
+				<displayName count="one">Ghanesisk cedi (1979–2007)</displayName>
+				<displayName count="other">Ghanesiske cedi (1979–2007)</displayName>
 			</currency>
 			<currency type="GHS">
 				<displayName>Ghanesisk cedi</displayName>
@@ -5329,9 +5329,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>MX$</symbol>
 			</currency>
 			<currency type="MXP">
-				<displayName>Mexicansk silver peso (1861-1992)</displayName>
-				<displayName count="one">Mexicansk silver peso (1861-1992)</displayName>
-				<displayName count="other">Mexicanske silver peso (1861-1992)</displayName>
+				<displayName>Mexicansk silver peso (1861–1992)</displayName>
+				<displayName count="one">Mexicansk silver peso (1861–1992)</displayName>
+				<displayName count="other">Mexicanske silver peso (1861–1992)</displayName>
 			</currency>
 			<currency type="MYR">
 				<displayName>Malaysisk ringgit</displayName>
@@ -5345,9 +5345,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Mozambiquiske escudo</displayName>
 			</currency>
 			<currency type="MZM">
-				<displayName>Mozambiquisk metical (1980-2006)</displayName>
-				<displayName count="one">Mozambiquisk metical (1980-2006)</displayName>
-				<displayName count="other">Mozambiquiske metical (1980-2006)</displayName>
+				<displayName>Mozambiquisk metical (1980–2006)</displayName>
+				<displayName count="one">Mozambiquisk metical (1980–2006)</displayName>
+				<displayName count="other">Mozambiquiske metical (1980–2006)</displayName>
 			</currency>
 			<currency type="MZN">
 				<displayName>Mozambiquisk metical</displayName>
@@ -5368,9 +5368,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIC">
-				<displayName>Nicaraguansk cordoba (1988-1991)</displayName>
-				<displayName count="one">Nicaraguansk cordoba (1988-1991)</displayName>
-				<displayName count="other">Nicaraguanske cordoba (1988-1991)</displayName>
+				<displayName>Nicaraguansk cordoba (1988–1991)</displayName>
+				<displayName count="one">Nicaraguansk cordoba (1988–1991)</displayName>
+				<displayName count="other">Nicaraguanske cordoba (1988–1991)</displayName>
 			</currency>
 			<currency type="NIO">
 				<displayName>Nicaraguansk cordoba</displayName>
@@ -5425,9 +5425,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
-				<displayName>Peruviansk sol (1863-1965)</displayName>
-				<displayName count="one">Peruviansk sol (1863-1965)</displayName>
-				<displayName count="other">Peruvianske sol (1863-1965)</displayName>
+				<displayName>Peruviansk sol (1863–1965)</displayName>
+				<displayName count="one">Peruviansk sol (1863–1965)</displayName>
+				<displayName count="other">Peruvianske sol (1863–1965)</displayName>
 			</currency>
 			<currency type="PGK">
 				<displayName>Papuansk kina</displayName>
@@ -5454,9 +5454,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PLZ">
-				<displayName>Polsk zloty (1950-1995)</displayName>
-				<displayName count="one">Polsk zloty (1950-1995)</displayName>
-				<displayName count="other">Polske zloty (1950-1995)</displayName>
+				<displayName>Polsk zloty (1950–1995)</displayName>
+				<displayName count="one">Polsk zloty (1950–1995)</displayName>
+				<displayName count="other">Polske zloty (1950–1995)</displayName>
 			</currency>
 			<currency type="PTE">
 				<displayName>Portugisisk escudo</displayName>
@@ -5476,9 +5476,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>QAR</symbol>
 			</currency>
 			<currency type="ROL">
-				<displayName>Rumænsk leu (1952-2006)</displayName>
-				<displayName count="one">Rumænsk leu (1952-2006)</displayName>
-				<displayName count="other">Rumænske leu (1952-2006)</displayName>
+				<displayName>Rumænsk leu (1952–2006)</displayName>
+				<displayName count="one">Rumænsk leu (1952–2006)</displayName>
+				<displayName count="other">Rumænske leu (1952–2006)</displayName>
 			</currency>
 			<currency type="RON">
 				<displayName>Rumænsk leu</displayName>
@@ -5499,9 +5499,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
-				<displayName>Russisk rubel (1991-1998)</displayName>
-				<displayName count="one">Russisk rubel (1991-1998)</displayName>
-				<displayName count="other">Russiske rubler (1991-1998)</displayName>
+				<displayName>Russisk rubel (1991–1998)</displayName>
+				<displayName count="one">Russisk rubel (1991–1998)</displayName>
+				<displayName count="other">Russiske rubler (1991–1998)</displayName>
 			</currency>
 			<currency type="RWF">
 				<displayName>Rwandisk franc</displayName>
@@ -5528,9 +5528,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDD">
-				<displayName>Sudansk dinar (1992-2007)</displayName>
-				<displayName count="one">Sudansk dinar (1992-2007)</displayName>
-				<displayName count="other">Sudanske dinar (1992-2007)</displayName>
+				<displayName>Sudansk dinar (1992–2007)</displayName>
+				<displayName count="one">Sudansk dinar (1992–2007)</displayName>
+				<displayName count="other">Sudanske dinar (1992–2007)</displayName>
 			</currency>
 			<currency type="SDG">
 				<displayName>Sudansk pund</displayName>
@@ -5539,9 +5539,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
-				<displayName>Sudansk pund (1957-1998)</displayName>
-				<displayName count="one">Sudanske pund (1957-1998)</displayName>
-				<displayName count="other">Sudanske pund (1957-1998)</displayName>
+				<displayName>Sudansk pund (1957–1998)</displayName>
+				<displayName count="one">Sudanske pund (1957–1998)</displayName>
+				<displayName count="other">Sudanske pund (1957–1998)</displayName>
 			</currency>
 			<currency type="SEK">
 				<displayName>Svensk krone</displayName>
@@ -5646,9 +5646,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
-				<displayName>Turkmensk manat (1993-2009)</displayName>
-				<displayName count="one">Turkmensk manat (1993-2009)</displayName>
-				<displayName count="other">Turkmenske manat (1993-2009)</displayName>
+				<displayName>Turkmensk manat (1993–2009)</displayName>
+				<displayName count="one">Turkmensk manat (1993–2009)</displayName>
+				<displayName count="other">Turkmenske manat (1993–2009)</displayName>
 			</currency>
 			<currency type="TMT">
 				<displayName>Turkmensk manat</displayName>
@@ -5674,9 +5674,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Escudo fra Timor</displayName>
 			</currency>
 			<currency type="TRL">
-				<displayName>Tyrkisk lire (1922-2005)</displayName>
-				<displayName count="one">Tyrkisk lire (1922-2005)</displayName>
-				<displayName count="other">Tyrkiske lire (1922-2005)</displayName>
+				<displayName>Tyrkisk lire (1922–2005)</displayName>
+				<displayName count="one">Tyrkisk lire (1922–2005)</displayName>
+				<displayName count="other">Tyrkiske lire (1922–2005)</displayName>
 			</currency>
 			<currency type="TRY">
 				<displayName>Tyrkisk lira</displayName>
@@ -5714,9 +5714,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Ukrainske karbovanetz</displayName>
 			</currency>
 			<currency type="UGS">
-				<displayName>Ugandisk shilling (1966-1987)</displayName>
-				<displayName count="one">Ugandisk shilling (1966-1987)</displayName>
-				<displayName count="other">Ugandiske shilling (1966-1987)</displayName>
+				<displayName>Ugandisk shilling (1966–1987)</displayName>
+				<displayName count="one">Ugandisk shilling (1966–1987)</displayName>
+				<displayName count="other">Ugandiske shilling (1966–1987)</displayName>
 			</currency>
 			<currency type="UGX">
 				<displayName>Ugandisk shilling</displayName>
@@ -5741,9 +5741,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">Amerikanske dollar (samme dag)</displayName>
 			</currency>
 			<currency type="UYP">
-				<displayName>Uruguayansk peso (1975-1993)</displayName>
-				<displayName count="one">Uruguayansk peso (1975-1993)</displayName>
-				<displayName count="other">Uruguayanske peso (1975-1993)</displayName>
+				<displayName>Uruguayansk peso (1975–1993)</displayName>
+				<displayName count="one">Uruguayansk peso (1975–1993)</displayName>
+				<displayName count="other">Uruguayanske peso (1975–1993)</displayName>
 			</currency>
 			<currency type="UYU">
 				<displayName>Uruguayansk peso</displayName>
@@ -5758,9 +5758,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
-				<displayName>Venezuelansk bolivar (1871-2008)</displayName>
-				<displayName count="one">Venezuelansk bolivar (1871-2008)</displayName>
-				<displayName count="other">Venezuelanske bolivar (1871-2008)</displayName>
+				<displayName>Venezuelansk bolivar (1871–2008)</displayName>
+				<displayName count="one">Venezuelansk bolivar (1871–2008)</displayName>
+				<displayName count="other">Venezuelanske bolivar (1871–2008)</displayName>
 			</currency>
 			<currency type="VEF">
 				<displayName>Venezuelansk bolivar</displayName>
@@ -5869,19 +5869,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>YER</symbol>
 			</currency>
 			<currency type="YUD">
-				<displayName>Jugoslavisk hard dinar (1966-1990)</displayName>
-				<displayName count="one">Jugoslavisk hard dinar (1966-1990)</displayName>
-				<displayName count="other">Jugoslaviske hard dinar (1966-1990)</displayName>
+				<displayName>Jugoslavisk hard dinar (1966–1990)</displayName>
+				<displayName count="one">Jugoslavisk hard dinar (1966–1990)</displayName>
+				<displayName count="other">Jugoslaviske hard dinar (1966–1990)</displayName>
 			</currency>
 			<currency type="YUM">
-				<displayName>Jugoslavisk noviy dinar (1994-2002)</displayName>
-				<displayName count="one">Jugoslavisk noviy dinar (1994-2002)</displayName>
-				<displayName count="other">Jugoslaviske noviy dinar (1994-2002)</displayName>
+				<displayName>Jugoslavisk noviy dinar (1994–2002)</displayName>
+				<displayName count="one">Jugoslavisk noviy dinar (1994–2002)</displayName>
+				<displayName count="other">Jugoslaviske noviy dinar (1994–2002)</displayName>
 			</currency>
 			<currency type="YUN">
-				<displayName>Jugoslavisk konvertibel dinar (1990-1992)</displayName>
-				<displayName count="one">Jugoslavisk konvertibel dinar (1990-1992)</displayName>
-				<displayName count="other">Jugoslaviske konvertibel dinar (1990-1992)</displayName>
+				<displayName>Jugoslavisk konvertibel dinar (1990–1992)</displayName>
+				<displayName count="one">Jugoslavisk konvertibel dinar (1990–1992)</displayName>
+				<displayName count="other">Jugoslaviske konvertibel dinar (1990–1992)</displayName>
 			</currency>
 			<currency type="ZAL">
 				<displayName>Sydafrikansk rand (financial)</displayName>
@@ -5895,9 +5895,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
-				<displayName>Zambisk kwacha (1968-2012)</displayName>
-				<displayName count="one">Zambisk kwacha (1968-2012)</displayName>
-				<displayName count="other">Zambiske kwacha (1968-2012)</displayName>
+				<displayName>Zambisk kwacha (1968–2012)</displayName>
+				<displayName count="one">Zambisk kwacha (1968–2012)</displayName>
+				<displayName count="other">Zambiske kwacha (1968–2012)</displayName>
 			</currency>
 			<currency type="ZMW">
 				<displayName>Zambisk kwacha</displayName>
@@ -5906,19 +5906,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>ZMW</symbol>
 			</currency>
 			<currency type="ZRN">
-				<displayName>Ny zairisk zaire (1993-1998)</displayName>
-				<displayName count="one">Ny zairisk zaire (1993-1998)</displayName>
-				<displayName count="other">Ny zairiske zaire (1993-1998)</displayName>
+				<displayName>Ny zairisk zaire (1993–1998)</displayName>
+				<displayName count="one">Ny zairisk zaire (1993–1998)</displayName>
+				<displayName count="other">Ny zairiske zaire (1993–1998)</displayName>
 			</currency>
 			<currency type="ZRZ">
-				<displayName>Zairisk zaire (1971-1993)</displayName>
-				<displayName count="one">Zairisk zaire (1971-1993)</displayName>
-				<displayName count="other">Zairiske zaire (1971-1993)</displayName>
+				<displayName>Zairisk zaire (1971–1993)</displayName>
+				<displayName count="one">Zairisk zaire (1971–1993)</displayName>
+				<displayName count="other">Zairiske zaire (1971–1993)</displayName>
 			</currency>
 			<currency type="ZWD">
-				<displayName>Zimbabwisk dollar (1980-2008)</displayName>
-				<displayName count="one">Zimbabwisk dollar (1980-2008)</displayName>
-				<displayName count="other">Zimbabwiske dollar (1980-2008)</displayName>
+				<displayName>Zimbabwisk dollar (1980–2008)</displayName>
+				<displayName count="one">Zimbabwisk dollar (1980–2008)</displayName>
+				<displayName count="other">Zimbabwiske dollar (1980–2008)</displayName>
 			</currency>
 			<currency type="ZWL">
 				<displayName>Zimbabwisk dollar (2009)</displayName>

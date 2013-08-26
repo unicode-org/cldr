@@ -1633,7 +1633,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd.MM.yyyy</pattern>
+							<pattern>dd.MM.y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1790,17 +1790,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">MM.y–MM.y</greatestDifference>
-							<greatestDifference id="y">MM.yy–MM.yy</greatestDifference>
+							<greatestDifference id="y">MM.y–MM.y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">dd.MM.yy–dd.MM.yy</greatestDifference>
-							<greatestDifference id="M">dd.MM.yy–dd.MM.yy</greatestDifference>
+							<greatestDifference id="d">dd.MM.y–dd.MM.y</greatestDifference>
+							<greatestDifference id="M">dd.MM.y–dd.MM.y</greatestDifference>
 							<greatestDifference id="y">dd.MM.y–dd.MM.y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E, dd.MM.yy–E, dd.MM.yy</greatestDifference>
-							<greatestDifference id="M">E, dd.MM.yy–E, dd.MM.yy</greatestDifference>
-							<greatestDifference id="y">E, dd.MM.yy–E, dd.MM.yy</greatestDifference>
+							<greatestDifference id="d">E, dd.MM.y–E, dd.MM.y</greatestDifference>
+							<greatestDifference id="M">E, dd.MM.y–E, dd.MM.y</greatestDifference>
+							<greatestDifference id="y">E, dd.MM.y–E, dd.MM.y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">MMM–MMM y</greatestDifference>
@@ -5270,9 +5270,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
-				<displayName>Venezuela bolívar (1871-2008)</displayName>
-				<displayName count="one">Venezuela bolívar (1871-2008)</displayName>
-				<displayName count="other">Venezuela boliivarit (1871-2008)</displayName>
+				<displayName>Venezuela bolívar (1871–2008)</displayName>
+				<displayName count="one">Venezuela bolívar (1871–2008)</displayName>
+				<displayName count="other">Venezuela boliivarit (1871–2008)</displayName>
 			</currency>
 			<currency type="VEF">
 				<displayName>Venezuela bolívar</displayName>
@@ -5396,9 +5396,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
-				<displayName>Sambia kvatša (1968-2012)</displayName>
-				<displayName count="one">Sambia kvatša (1968-2012)</displayName>
-				<displayName count="other">Sambia kvatšat (1968-2012)</displayName>
+				<displayName>Sambia kvatša (1968–2012)</displayName>
+				<displayName count="one">Sambia kvatša (1968–2012)</displayName>
+				<displayName count="other">Sambia kvatšat (1968–2012)</displayName>
 				<symbol>ZMK</symbol>
 			</currency>
 			<currency type="ZMW">

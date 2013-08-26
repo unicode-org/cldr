@@ -835,9 +835,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BY">Biélorussie</territory>
 			<territory type="BZ">Belize</territory>
 			<territory type="CA">Canada</territory>
-			<territory type="CC">Îles Cocos [Keeling]</territory>
+			<territory type="CC">Îles Cocos (Keeling)</territory>
 			<territory type="CD">Congo-Kinshasa</territory>
-			<territory type="CD" alt="variant">Congo [RDC]</territory>
+			<territory type="CD" alt="variant">Congo (RDC)</territory>
 			<territory type="CF">République centrafricaine</territory>
 			<territory type="CG">Congo-Brazzaville</territory>
 			<territory type="CG" alt="variant">République du Congo</territory>
@@ -948,11 +948,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MC">Monaco</territory>
 			<territory type="MD">Moldavie</territory>
 			<territory type="ME">Monténégro</territory>
-			<territory type="MF">Saint-Martin [partie française]</territory>
+			<territory type="MF">Saint-Martin (partie française)</territory>
 			<territory type="MG">Madagascar</territory>
 			<territory type="MH">Îles Marshall</territory>
 			<territory type="MK">Macédoine</territory>
-			<territory type="MK" alt="variant">Macédoine [ARYM]</territory>
+			<territory type="MK" alt="variant">Macédoine (ARYM)</territory>
 			<territory type="ML">Mali</territory>
 			<territory type="MM">Myanmar</territory>
 			<territory type="MN">Mongolie</territory>
@@ -1022,7 +1022,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="SS">Soudan du Sud</territory>
 			<territory type="ST">Sao Tomé-et-Principe</territory>
 			<territory type="SV">El Salvador</territory>
-			<territory type="SX">Saint-Martin [partie néerlandaise]</territory>
+			<territory type="SX">Saint-Martin (partie néerlandaise)</territory>
 			<territory type="SY">Syrie</territory>
 			<territory type="SZ">Swaziland</territory>
 			<territory type="TA">Tristan da Cunha</territory>
@@ -1191,10 +1191,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="identical" key="colStrength" draft="contributed">Tout trier</type>
 			<type type="indian" key="calendar">Calendrier indien</type>
 			<type type="islamic" key="calendar">calendrier musulman</type>
-			<type type="islamic-civil" key="calendar">calendrier musulman [tabulaire, époque civile]</type>
-			<type type="islamic-rgsa" key="calendar" draft="unconfirmed">calendrier musulman [observé, Arabie Saoudite]</type>
-			<type type="islamic-tbla" key="calendar">calendrier musulman [tabulaire, époque astronomique]</type>
-			<type type="islamic-umalqura" key="calendar" draft="unconfirmed">calendrier musulman [calculé, Umm al-Qura]</type>
+			<type type="islamic-civil" key="calendar">calendrier musulman (tabulaire, époque civile)</type>
+			<type type="islamic-rgsa" key="calendar" draft="unconfirmed">calendrier musulman (observé, Arabie Saoudite)</type>
+			<type type="islamic-tbla" key="calendar">calendrier musulman (tabulaire, époque astronomique)</type>
+			<type type="islamic-umalqura" key="calendar" draft="unconfirmed">calendrier musulman (calculé, Umm al-Qura)</type>
 			<type type="iso8601" key="calendar" draft="unconfirmed">calendrier ISO 8601</type>
 			<type type="japanese" key="calendar">Calendrier japonais</type>
 			<type type="java" key="numbers" draft="unconfirmed">chiffres javanais</type>
@@ -5497,10 +5497,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<decimalFormat>
 					<pattern type="1000" count="one">0 k</pattern>
 					<pattern type="1000" count="other">0 k</pattern>
-					<pattern type="10000" count="one">00 k</pattern>
-					<pattern type="10000" count="other">00 k</pattern>
-					<pattern type="100000" count="one">000 k</pattern>
-					<pattern type="100000" count="other">000 k</pattern>
+					<pattern type="10000" count="one">00 k</pattern>
+					<pattern type="10000" count="other">00 k</pattern>
+					<pattern type="100000" count="one">000 k</pattern>
+					<pattern type="100000" count="other">000 k</pattern>
 					<pattern type="1000000" count="one">0 M</pattern>
 					<pattern type="1000000" count="other">0 M</pattern>
 					<pattern type="10000000" count="one">00 M</pattern>
@@ -5593,17 +5593,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">kwanzas angolais</displayName>
 			</currency>
 			<currency type="AOK">
-				<displayName>kwanza angolais (1977-1990)</displayName>
+				<displayName>kwanza angolais (1977–1990)</displayName>
 				<displayName count="one">kwanza angolais (1977–1990)</displayName>
 				<displayName count="other">kwanzas angolais (1977–1990)</displayName>
 			</currency>
 			<currency type="AON">
-				<displayName>nouveau kwanza angolais (1990-2000)</displayName>
+				<displayName>nouveau kwanza angolais (1990–2000)</displayName>
 				<displayName count="one">nouveau kwanza angolais (1990–2000)</displayName>
 				<displayName count="other">nouveaux kwanzas angolais (1990–2000)</displayName>
 			</currency>
 			<currency type="AOR">
-				<displayName>kwanza angolais réajusté (1995-1999)</displayName>
+				<displayName>kwanza angolais réajusté (1995–1999)</displayName>
 				<displayName count="one">kwanza angolais réajusté (1995–1999)</displayName>
 				<displayName count="other">kwanzas angolais réajustés (1995–1999)</displayName>
 			</currency>
@@ -5623,7 +5623,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other" draft="unconfirmed">pesos argentins (1881–1970)</displayName>
 			</currency>
 			<currency type="ARP">
-				<displayName>peso argentin (1983-1985)</displayName>
+				<displayName>peso argentin (1983–1985)</displayName>
 				<displayName count="one">peso argentin (1983–1985)</displayName>
 				<displayName count="other">pesos argentins (1983–1985)</displayName>
 			</currency>
@@ -5650,7 +5650,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">florins arubais</displayName>
 			</currency>
 			<currency type="AZM">
-				<displayName>manat azéri (1993-2006)</displayName>
+				<displayName>manat azéri (1993–2006)</displayName>
 				<displayName count="one">manat azéri (1993–2006)</displayName>
 				<displayName count="other">manats azéris (1993–2006)</displayName>
 			</currency>
@@ -5803,7 +5803,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">pulas botswanais</displayName>
 			</currency>
 			<currency type="BYB">
-				<displayName>nouveau rouble biélorusse (1994-1999)</displayName>
+				<displayName>nouveau rouble biélorusse (1994–1999)</displayName>
 				<displayName count="one">nouveau rouble biélorusse (1994–1999)</displayName>
 				<displayName count="other">nouveaux roubles biélorusses (1994–1999)</displayName>
 			</currency>
@@ -6515,7 +6515,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">zlotys polonais</displayName>
 			</currency>
 			<currency type="PLZ">
-				<displayName>zloty (1950-1995)</displayName>
+				<displayName>zloty (1950–1995)</displayName>
 				<displayName count="one">zloty polonais (1950–1995)</displayName>
 				<displayName count="other">zlotys polonais (1950–1995)</displayName>
 			</currency>
@@ -6723,9 +6723,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">escudos timorais</displayName>
 			</currency>
 			<currency type="TRL">
-				<displayName>livre turque (1844-2005)</displayName>
+				<displayName>livre turque (1844–2005)</displayName>
 				<displayName count="one">livre turque (1844–2005)</displayName>
-				<displayName count="other">livres turques (1844-2005)</displayName>
+				<displayName count="other">livres turques (1844–2005)</displayName>
 			</currency>
 			<currency type="TRY">
 				<displayName>livre turque</displayName>
@@ -6760,7 +6760,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">karbovanets ukrainiens (1992–1996)</displayName>
 			</currency>
 			<currency type="UGS">
-				<displayName>shilling ougandais (1966-1987)</displayName>
+				<displayName>shilling ougandais (1966–1987)</displayName>
 				<displayName count="one">shilling ougandais (1966–1987)</displayName>
 				<displayName count="other">shillings ougandais (1966–1987)</displayName>
 			</currency>
@@ -6807,9 +6807,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">sums ouzbeks</displayName>
 			</currency>
 			<currency type="VEB">
-				<displayName>bolivar vénézuélien (1871-2008)</displayName>
-				<displayName count="one">bolivar vénézuélien (1871-2008)</displayName>
-				<displayName count="other">bolivar vénézuélien (1871-2008)</displayName>
+				<displayName>bolivar vénézuélien (1871–2008)</displayName>
+				<displayName count="one">bolivar vénézuélien (1871–2008)</displayName>
+				<displayName count="other">bolivar vénézuélien (1871–2008)</displayName>
 			</currency>
 			<currency type="VEF">
 				<displayName>bolivar vénézuélien</displayName>
@@ -6856,18 +6856,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XBB">
 				<displayName>unité monétaire européenne</displayName>
-				<displayName count="one" draft="contributed">unité monétaire européenne (UME-6)</displayName>
-				<displayName count="other" draft="contributed">unités monétaires européennes (UME-6)</displayName>
+				<displayName count="one" draft="contributed">unité monétaire européenne (UME–6)</displayName>
+				<displayName count="other" draft="contributed">unités monétaires européennes (UME–6)</displayName>
 			</currency>
 			<currency type="XBC">
 				<displayName>unité de compte européenne (XBC)</displayName>
-				<displayName count="one" draft="contributed">unité de compte 9 européenne (UEC-9)</displayName>
-				<displayName count="other" draft="contributed">unités de compte 9 européennes (UEC-9)</displayName>
+				<displayName count="one" draft="contributed">unité de compte 9 européenne (UEC–9)</displayName>
+				<displayName count="other" draft="contributed">unités de compte 9 européennes (UEC–9)</displayName>
 			</currency>
 			<currency type="XBD">
 				<displayName>unité de compte européenne (XBD)</displayName>
-				<displayName count="one" draft="contributed">unité de compte 17 européenne (UEC-17)</displayName>
-				<displayName count="other" draft="contributed">unités de compte 17 européennes (UEC-17)</displayName>
+				<displayName count="one" draft="contributed">unité de compte 17 européenne (UEC–17)</displayName>
+				<displayName count="other" draft="contributed">unités de compte 17 européennes (UEC–17)</displayName>
 			</currency>
 			<currency type="XCD">
 				<displayName>dollar des Caraïbes orientales</displayName>
@@ -6967,9 +6967,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="other">rands sud-africains</displayName>
 			</currency>
 			<currency type="ZMK">
-				<displayName>kwacha zambien (1968-2012)</displayName>
-				<displayName count="one">kwacha zambien (1968-2012)</displayName>
-				<displayName count="other">kwachas zambiens (1968-2012)</displayName>
+				<displayName>kwacha zambien (1968–2012)</displayName>
+				<displayName count="one">kwacha zambien (1968–2012)</displayName>
+				<displayName count="other">kwachas zambiens (1968–2012)</displayName>
 			</currency>
 			<currency type="ZMW">
 				<displayName>kwacha zambien</displayName>

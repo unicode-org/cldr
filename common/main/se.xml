@@ -476,8 +476,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</localeDisplayNames>
 	<characters>
 		<exemplarCharacters>[a á b c č d đ e f g h i j k l m n ŋ o p r s š t ŧ u v z ž]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[à å ä ã æ ç é è í ń ñ ó ò ö ø q ú ü w x y]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[A Á Å Ä Æ B C Č D Đ E É F G H I J K L M N Ŋ O Ö Ø P Q R S Š T Ŧ U V W X Y Z Ž]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[à ç é è í ń ñ ó ò q ú w x y ü ø æ å ä ã ö]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[A Á B C Č D Đ E É F G H I J K L M N Ŋ O P Q R S Š T Ŧ U V W X Y Z Ž Ø Æ Å Ä Ö]</exemplarCharacters>
 	</characters>
 	<delimiters>
 		<quotationStart draft="unconfirmed">”</quotationStart>
@@ -886,19 +886,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern type="1000" count="other" draft="unconfirmed">0 dt</pattern>
 					<pattern type="10000" count="one" draft="unconfirmed">00 dt</pattern>
 					<pattern type="10000" count="two" draft="unconfirmed">00 dt</pattern>
-					<pattern type="10000" count="other" draft="unconfirmed">00 dt</pattern>
+					<pattern type="10000" count="other" draft="unconfirmed">00 dt</pattern>
 					<pattern type="100000" count="one" draft="unconfirmed">000 dt</pattern>
 					<pattern type="100000" count="two" draft="unconfirmed">000 dt</pattern>
-					<pattern type="100000" count="other" draft="unconfirmed">000 dt</pattern>
+					<pattern type="100000" count="other" draft="unconfirmed">000 dt</pattern>
 					<pattern type="1000000" count="one" draft="unconfirmed">0 mn</pattern>
 					<pattern type="1000000" count="two" draft="unconfirmed">0 mn</pattern>
 					<pattern type="1000000" count="other" draft="unconfirmed">0 mn</pattern>
 					<pattern type="10000000" count="one" draft="unconfirmed">00 mn</pattern>
 					<pattern type="10000000" count="two" draft="unconfirmed">00 mn</pattern>
-					<pattern type="10000000" count="other" draft="unconfirmed">00 mn</pattern>
+					<pattern type="10000000" count="other" draft="unconfirmed">00 mn</pattern>
 					<pattern type="100000000" count="one" draft="unconfirmed">000 mn</pattern>
 					<pattern type="100000000" count="two" draft="unconfirmed">000 mn</pattern>
-					<pattern type="100000000" count="other" draft="unconfirmed">000 mn</pattern>
+					<pattern type="100000000" count="other" draft="unconfirmed">000 mn</pattern>
 					<pattern type="1000000000" count="one" draft="unconfirmed">0 md</pattern>
 					<pattern type="1000000000" count="two" draft="unconfirmed">0 md</pattern>
 					<pattern type="1000000000" count="other" draft="unconfirmed">0 md</pattern>
@@ -907,16 +907,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern type="10000000000" count="other" draft="unconfirmed">00 md</pattern>
 					<pattern type="100000000000" count="one" draft="unconfirmed">000 md</pattern>
 					<pattern type="100000000000" count="two" draft="unconfirmed">000 md</pattern>
-					<pattern type="100000000000" count="other" draft="unconfirmed">000 md</pattern>
+					<pattern type="100000000000" count="other" draft="unconfirmed">000 md</pattern>
 					<pattern type="1000000000000" count="one" draft="unconfirmed">0 bn</pattern>
 					<pattern type="1000000000000" count="two" draft="unconfirmed">0 bn</pattern>
 					<pattern type="1000000000000" count="other" draft="unconfirmed">0 bn</pattern>
 					<pattern type="10000000000000" count="one" draft="unconfirmed">00 bn</pattern>
 					<pattern type="10000000000000" count="two" draft="unconfirmed">00 bn</pattern>
-					<pattern type="10000000000000" count="other" draft="unconfirmed">00 bn</pattern>
+					<pattern type="10000000000000" count="other" draft="unconfirmed">00 bn</pattern>
 					<pattern type="100000000000000" count="one" draft="unconfirmed">000 bn</pattern>
 					<pattern type="100000000000000" count="two" draft="unconfirmed">000 bn</pattern>
-					<pattern type="100000000000000" count="other" draft="unconfirmed">000 bn</pattern>
+					<pattern type="100000000000000" count="other" draft="unconfirmed">000 bn</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>

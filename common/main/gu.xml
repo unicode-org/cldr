@@ -746,10 +746,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CA">કેનેડા</territory>
 			<territory type="CC">કોકોઝ આઇલેન્ડ</territory>
 			<territory type="CD">કોંગો - કિંશાસા</territory>
-			<territory type="CD" alt="variant">કોંગો [ડીઆરસી]</territory>
+			<territory type="CD" alt="variant">કોંગો (ડીઆરસી)</territory>
 			<territory type="CF">સેંટ્રલ આફ્રિકન રીપબ્લિક</territory>
 			<territory type="CG">કોંગો - બ્રાઝાવિલે</territory>
-			<territory type="CG" alt="variant">કોંગો [પ્રજાસત્તાક]</territory>
+			<territory type="CG" alt="variant">કોંગો (પ્રજાસત્તાક)</territory>
 			<territory type="CH">સ્વિટ્ઝર્લૅન્ડ</territory>
 			<territory type="CI">આઇવરી કોસ્ટ</territory>
 			<territory type="CI" alt="variant">આઇવરી કોસ્ટ</territory>
@@ -861,7 +861,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="MG">મેડાગાસ્કર</territory>
 			<territory type="MH">માર્શલ આઇલેન્ડ્સ</territory>
 			<territory type="MK">મેસેડોનિયા</territory>
-			<territory type="MK" alt="variant">મેસેડોનિયા [FYROM]</territory>
+			<territory type="MK" alt="variant">મેસેડોનિયા (FYROM)</territory>
 			<territory type="ML">માલી</territory>
 			<territory type="MM">મ્યાંમાર</territory>
 			<territory type="MN">મંગોલિયા</territory>
@@ -1113,7 +1113,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<characters>
 		<exemplarCharacters>[\u0ABC ૐ \u0A82 \u0A81 ઃ અ આ ઇ ઈ ઉ ઊ ઋ ૠ ઍ એ ઐ ઑ ઓ ઔ ક ખ ગ ઘ ઙ ચ છ જ ઝ ઞ ટ ઠ ડ ઢ ણ ત થ દ ધ ન પ ફ બ ભ મ ય ર લ વ શ ષ સ હ ળ ઽ ા િ ી \u0AC1 \u0AC2 \u0AC3 \u0AC4 \u0AC5 \u0AC7 \u0AC8 ૉ ો ૌ \u0ACD]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[\u200C\u200D ૰]</exemplarCharacters>
-		<exemplarCharacters type="index">[અ આ ઇ ઈ ઉ ઊ ઋ એ ઍ ઐ ઓ ઑ ઔ {અં} {અઃ} ક ખ ગ ઘ ઙ ચ છ જ ઝ ઞ ટ ઠ ડ ઢ ણ ત થ દ ધ ન પ ફ બ ભ મ ય ર લ વ શ ષ સ હ ળ {ક્ષ} {ત્ર} {જ્ઞ}]</exemplarCharacters>
+		<exemplarCharacters type="index">[અ {અ\u0A82} {અઃ} આ ઇ ઈ ઉ ઊ ઋ ઍ એ ઐ ઑ ઓ ઔ ક {ક\u0ACDષ} ખ ગ ઘ ઙ ચ છ જ {જ\u0ACDઞ} ઝ ઞ ટ ઠ ડ ઢ ણ ત {ત\u0ACDર} થ દ ધ ન પ ફ બ ભ મ ય ર લ વ શ ષ સ હ ળ]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ &quot; “ ” ( ) \[ \] § @ * / \&amp; # † ‡ ′ ″]</exemplarCharacters>
 		<ellipsis type="final">{0}…</ellipsis>
 		<ellipsis type="initial">… {0}</ellipsis>
@@ -5135,7 +5135,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
-				<displayName>ઝામ્બિયન ક્વાચા (1968-2012)</displayName>
+				<displayName>ઝામ્બિયન ક્વાચા (1968–2012)</displayName>
 			</currency>
 			<currency type="ZMW">
 				<displayName>ઝામ્બિયન ક્વાચા</displayName>

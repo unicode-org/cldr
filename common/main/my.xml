@@ -336,10 +336,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CA">ကနေဒါ</territory>
 			<territory type="CC">ကိုကိုး ကျွန်းစု</territory>
 			<territory type="CD">ကွန်ဂို-ကင်ရှာစ</territory>
-			<territory type="CD" alt="variant">ကွန်ဂို [DRC]</territory>
+			<territory type="CD" alt="variant">ကွန်ဂို (DRC)</territory>
 			<territory type="CF">အလယ်ပိုင်း အာဖရိက ပြည်ထောင်စု</territory>
 			<territory type="CG">ကွန်ဂို-ဘရာဇာဗီလ်</territory>
-			<territory type="CG" alt="variant">ကွန်ဂို [Republic]</territory>
+			<territory type="CG" alt="variant">ကွန်ဂို (Republic)</territory>
 			<territory type="CH">ဆွစ်ဇလန်</territory>
 			<territory type="CI">အိုင်ဗရီကိုစ့်</territory>
 			<territory type="CI" alt="variant">အိုင်ဗရီကိုစ့်</territory>
@@ -375,7 +375,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FI">ဖင်လန်</territory>
 			<territory type="FJ">ဖီဂျီ</territory>
 			<territory type="FK">ဖောက်ကလန် ကျွန်းစု</territory>
-			<territory type="FK" alt="variant">ဖော့ခ်လန်ကျွန်းစု[အီလားစ် မောလ်ဗီနာစ်]</territory>
+			<territory type="FK" alt="variant">ဖော့ခ်လန်ကျွန်းစု(အီလားစ် မောလ်ဗီနာစ်)</territory>
 			<territory type="FM">မိုင်ခရိုနီရှား</territory>
 			<territory type="FO">ဖာရိုး ကျွန်းစုများ</territory>
 			<territory type="FR">ပြင်သစ်</territory>
@@ -646,8 +646,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</codePatterns>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[က ခ ဂ ဃ င စ ဆ ဇ ဈ ဉ ည ဋ ဌ ဍ ဎ ဏ တ ထ ဒ ဓ န ပ ဖ ဗ ဘ မ ယ ရ လ ဝ သ ဟ ဠ အ ဣ ဤ ဥ ဦ ဧ ဩ ဪ ာ ါ \u102D \u102E \u102F \u1030 ေ \u1032 \u1036 ဿ ျ ြ \u103D \u103E \u1039 \u103A \u1037 း]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[ၐ ၑ ဨ ဢ ၒ ၓ ၔ ၕ ၖ ၗ \u1058 \u1059]</exemplarCharacters>
+		<exemplarCharacters>[\u1036 း \u1037 က ခ ဂ ဃ င စ ဆ ဇ ဈ ဉ ည ဋ ဌ ဍ ဎ ဏ တ ထ ဒ ဓ န ပ ဖ ဗ ဘ မ ယ ျ ရ ြ လ ဝ \u103D သ ဿ ဟ \u103E ဠ အ ဣ ဤ ဥ ဦ ဧ ဩ ဪ ာ ါ \u102D \u102E \u102F \u1030 ေ \u1032 \u1039 \u103A]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[ၐ ၑ ဢ ၒ ၓ ၔ ၕ ဨ ၖ ၗ \u1058 \u1059]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[က ခ ဂ ဃ င စ ဆ ဇ ဈ ဉ ည ဋ ဌ ဍ ဎ ဏ တ ထ ဒ ဓ န ပ ဖ ဗ ဘ မ ယ ရ လ ဝ သ ဟ ဠ အ]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[၊ ။ ‘ ’ “ ”]</exemplarCharacters>
 	</characters>
@@ -3608,7 +3608,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>AOA</symbol>
 			</currency>
 			<currency type="ARP">
-				<displayName>အာဂျင်တီးနား ပီဆို (၁၉၈၃-၁၉၈၅)</displayName>
+				<displayName>အာဂျင်တီးနား ပီဆို (၁၉၈၃–၁၉၈၅)</displayName>
 			</currency>
 			<currency type="ARS">
 				<displayName>အာဂျင်တီးနား ပီဆို</displayName>
@@ -3702,7 +3702,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
-				<displayName>ဘီလာရုစ် ရူဘယ်အသစ် (၁၉၉၄-၁၉၉၉)</displayName>
+				<displayName>ဘီလာရုစ် ရူဘယ်အသစ် (၁၉၉၄–၁၉၉၉)</displayName>
 			</currency>
 			<currency type="BYR">
 				<displayName>ဘီလာရုစ် ရူဘယ်</displayName>
@@ -4177,7 +4177,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
-				<displayName>ရုရှ ရူဘယ် (၁၉၉၁-၁၉၉၈)</displayName>
+				<displayName>ရုရှ ရူဘယ် (၁၉၉၁–၁၉၉၈)</displayName>
 			</currency>
 			<currency type="RWF">
 				<displayName>ရဝန်ဒါ ဖရန့်</displayName>

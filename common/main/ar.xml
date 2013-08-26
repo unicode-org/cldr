@@ -2550,9 +2550,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>دي مونت دو روفيل</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Macquarie">
-				<exemplarCity draft="contributed">ماكواري</exemplarCity>
-			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>ماك موردو</exemplarCity>
 			</zone>
@@ -2630,6 +2627,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Australia/Brisbane">
 				<exemplarCity>برسيبان</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity draft="contributed">ماكواري</exemplarCity>
 			</zone>
 			<zone type="Australia/Lord_Howe">
 				<exemplarCity>لورد هاو</exemplarCity>
@@ -4650,8 +4650,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<group>٬</group>
 			<list>؛</list>
 			<percentSign>٪</percentSign>
-			<plusSign>‏+</plusSign><!-- includes RLM before sign -->
-			<minusSign>‏-</minusSign><!-- includes RLM before sign (002D) -->
+			<plusSign>‏+</plusSign> <!-- includes RLM before sign -->
+			<minusSign>‏-</minusSign> <!-- includes RLM before sign (002D) -->
 			<exponential>اس</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille>؉</perMille>
@@ -4663,8 +4663,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<group>,</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
-			<plusSign>‎+</plusSign><!-- includes LRM before sign -->
-			<minusSign>‎-</minusSign><!-- includes LRM before sign (002D) -->
+			<plusSign>‎+</plusSign> <!-- includes LRM before sign -->
+			<minusSign>‎-</minusSign> <!-- includes LRM before sign (002D) -->
 			<exponential>E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille>‰</perMille>

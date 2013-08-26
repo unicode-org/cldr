@@ -2298,9 +2298,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity draft="contributed">דומון ד׳אורווי</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Macquarie">
-				<exemplarCity draft="contributed">מקרי</exemplarCity>
-			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity draft="contributed">מקמרדו</exemplarCity>
 			</zone>
@@ -2378,6 +2375,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Australia/Brisbane">
 				<exemplarCity>אוסטרליה/בריסבן</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity draft="contributed">מקרי</exemplarCity>
 			</zone>
 			<zone type="Australia/Lord_Howe">
 				<exemplarCity draft="contributed">לורד האו</exemplarCity>
@@ -4396,8 +4396,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<group>,</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
-			<plusSign>‎+</plusSign><!-- includes LRM before sign -->
-			<minusSign>‎-</minusSign><!-- includes LRM before sign (002D) -->
+			<plusSign>‎+</plusSign> <!-- includes LRM before sign -->
+			<minusSign>‎-</minusSign> <!-- includes LRM before sign (002D) -->
 			<exponential>E</exponential>
 			<superscriptingExponent draft="contributed">×</superscriptingExponent>
 			<perMille>‰</perMille>

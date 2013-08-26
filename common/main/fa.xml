@@ -2334,9 +2334,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>دومون دورویل</exemplarCity>
 			</zone>
-			<zone type="Antarctica/Macquarie">
-				<exemplarCity>مکواری</exemplarCity>
-			</zone>
 			<zone type="Antarctica/McMurdo">
 				<exemplarCity>مک‌موردو</exemplarCity>
 			</zone>
@@ -2414,6 +2411,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Australia/Brisbane">
 				<exemplarCity>بریسبین</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Macquarie">
+				<exemplarCity>مکواری</exemplarCity>
 			</zone>
 			<zone type="Australia/Lord_Howe">
 				<exemplarCity>لردهاو</exemplarCity>
@@ -4460,8 +4460,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<group>٬</group>
 			<list>؛</list>
 			<percentSign>٪</percentSign>
-			<plusSign>‎+‎</plusSign><!-- includes LRM before and after sign -->
-			<minusSign>‎−</minusSign><!-- includes LRM before sign (2212) -->
+			<plusSign>‎+‎</plusSign> <!-- includes LRM before and after sign -->
+			<minusSign>‎−</minusSign> <!-- includes LRM before sign (2212) -->
 			<exponential>×۱۰^</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>؉</perMille>
@@ -4473,8 +4473,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<group>,</group>
 			<list>;</list>
 			<percentSign>%</percentSign>
-			<plusSign>‎+</plusSign><!-- includes LRM before sign -->
-			<minusSign>‎−</minusSign><!-- includes LRM before sign (2212) -->
+			<plusSign>‎+</plusSign> <!-- includes LRM before sign -->
+			<minusSign>‎−</minusSign> <!-- includes LRM before sign (2212) -->
 			<exponential>E</exponential>
 			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>

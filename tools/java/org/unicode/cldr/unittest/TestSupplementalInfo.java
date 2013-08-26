@@ -1168,9 +1168,8 @@ public class TestSupplementalInfo extends TestFmwk {
             for (int i = 0; i < digits.length(); i += Character.charCount(ch)) {
                 ch = digits.codePointAt(i);
                 if (i > 0 && ch != previousChar + 1) {
-                    errln("Digits for numbering system " + ns + " are not in code point order. Previous char = U+" + 
-                    (previousChar < 0x10000 ? Utility.hex(previousChar,4) : Utility.hex(previousChar,8)) + " Current char = U+" +
-                    (ch < 0x10000 ? Utility.hex(ch,4) : Utility.hex(ch,8)));
+                    errln("Digits for numbering system " + ns + " are not in code point order. Previous char = U+" + Utility.hex(previousChar, 4)
+                            + " Current char = U+" + Utility.hex(ch, 4));
                     break;
                 }
                 previousChar = ch;

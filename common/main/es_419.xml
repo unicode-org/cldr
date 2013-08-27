@@ -86,19 +86,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</dateTimeFormats>
 			</calendar>
 			<calendar type="gregorian">
-				<days>
-					<dayContext type="stand-alone">
-						<dayWidth type="narrow">
-							<day type="sun">D</day>
-							<day type="mon">L</day>
-							<day type="tue">M</day>
-							<day type="wed">M</day>
-							<day type="thu">J</day>
-							<day type="fri">V</day>
-							<day type="sat">S</day>
-						</dayWidth>
-					</dayContext>
-				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="narrow">
@@ -169,17 +156,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</relativeTime>
 			</field>
 		</fields>
-		<timeZoneNames>
-			<zone type="America/Coral_Harbour">
-				<exemplarCity draft="contributed">Atikokan</exemplarCity>
-			</zone>
-			<zone type="America/Indiana/Winamac">
-				<exemplarCity draft="contributed">Winamac, Indiana</exemplarCity>
-			</zone>
-			<zone type="America/Kentucky/Monticello">
-				<exemplarCity draft="contributed">Monticello, Kentucky</exemplarCity>
-			</zone>
-		</timeZoneNames>
 	</dates>
 	<numbers>
 		<symbols numberSystem="latn">

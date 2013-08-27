@@ -50,33 +50,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayWidth>
 					</dayContext>
 				</days>
-				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">पहिलो सत्र</quarter>
-							<quarter type="2">दोस्रो सत्र</quarter>
-							<quarter type="3">तेस्रो सत्र</quarter>
-							<quarter type="4">चौथो सत्र</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">पहिलो सत्र</quarter>
-							<quarter type="2">दोस्रो सत्र</quarter>
-							<quarter type="3">तेस्रो सत्र</quarter>
-							<quarter type="4">चौथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-					<quarterContext type="stand-alone">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">पहिलो सत्र</quarter>
-							<quarter type="2">दोस्रो सत्र</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="2">दोस्रो सत्र</quarter>
-							<quarter type="3">तेस्रो सत्र</quarter>
-							<quarter type="4">चौथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
-				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
@@ -155,11 +128,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<unitLength type="long">
 			<unit type="duration-week">
 				<unitPattern count="one">{0} साता</unitPattern>
-			</unit>
-			<unit type="duration-year">
-				<unitPattern count="one">{0} वर्ष</unitPattern>
-				<unitPattern count="other">{0} वर्ष</unitPattern>
+				<unitPattern count="other">{0} सप्ताह</unitPattern>
 			</unit>
 		</unitLength>
 	</units>
 </ldml>
+

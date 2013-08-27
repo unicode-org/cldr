@@ -19,14 +19,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<territories>
 			<territory type="005">Sudamérica</territory>
 			<territory type="AN" draft="unconfirmed">Antillas Holandesas</territory>
-			<territory type="AQ" draft="unconfirmed">Antártida</territory>
 			<territory type="AZ" draft="unconfirmed">Azerbayán</territory>
 			<territory type="BD" draft="unconfirmed">Bangladesh</territory>
 			<territory type="EH">Sahara Occidental</territory>
 			<territory type="PS" draft="unconfirmed">Territorio Palestino</territory>
 			<territory type="RO" draft="unconfirmed">Rumania</territory>
 			<territory type="SA" draft="unconfirmed">Arabia Saudita</territory>
-			<territory type="TZ" draft="unconfirmed">Tanzania</territory>
 		</territories>
 		<keys>
 			<key type="currency" draft="unconfirmed">divisa</key>
@@ -160,23 +158,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
-				<timeFormats>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>H:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>H:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>H:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
-				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
 						<dateFormatItem id="Md">dd-MM</dateFormatItem>
@@ -298,3 +279,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencies>
 	</numbers>
 </ldml>
+

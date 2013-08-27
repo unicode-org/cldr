@@ -964,54 +964,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="numbers">rəqəmlər</key>
 		</keys>
 		<types>
-			<type type="arab" key="numbers">arab</type>
-			<type type="arabext" key="numbers">arabext</type>
-			<type type="armn" key="numbers">armn</type>
-			<type type="armnlow" key="numbers">armnlow</type>
-			<type type="beng" key="numbers">beng</type>
 			<type type="buddhist" key="calendar" draft="contributed">Budist təqvimi</type>
 			<type type="chinese" key="calendar" draft="contributed">Çin təqvimi</type>
-			<type type="deva" key="numbers">deva</type>
-			<type type="ducet" key="collation">ducet</type>
-			<type type="ethi" key="numbers">ethi</type>
-			<type type="fullwide" key="numbers">fullwide</type>
-			<type type="geor" key="numbers">geor</type>
 			<type type="gregorian" key="calendar">Qreqorian Təqvimi</type>
-			<type type="grek" key="numbers">grek</type>
-			<type type="greklow" key="numbers">greklow</type>
-			<type type="gujr" key="numbers">gujr</type>
-			<type type="guru" key="numbers">guru</type>
-			<type type="hanidec" key="numbers">hanidec</type>
-			<type type="hans" key="numbers">hans</type>
-			<type type="hansfin" key="numbers">hansfin</type>
-			<type type="hant" key="numbers">hant</type>
-			<type type="hantfin" key="numbers">hantfin</type>
-			<type type="hebr" key="numbers">hebr</type>
 			<type type="hebrew" key="calendar" draft="contributed">Yahudi təqvimi</type>
 			<type type="indian" key="calendar" draft="contributed">Hindi təqvimi</type>
 			<type type="islamic" key="calendar" draft="contributed">Müsəlman təqvimi</type>
 			<type type="islamic-civil" key="calendar" draft="contributed">Ivrit təqvimi</type>
 			<type type="japanese" key="calendar" draft="contributed">Yapon təqvimi</type>
-			<type type="jpan" key="numbers">jpan</type>
-			<type type="jpanfin" key="numbers">jpanfin</type>
-			<type type="khmr" key="numbers">khmr</type>
-			<type type="knda" key="numbers">knda</type>
-			<type type="laoo" key="numbers">laoo</type>
-			<type type="latn" key="numbers">latn</type>
-			<type type="mlym" key="numbers">mlym</type>
-			<type type="mymr" key="numbers">mymr</type>
-			<type type="orya" key="numbers">orya</type>
 			<type type="pinyin" key="collation" draft="contributed">Pinyin təqvimi</type>
 			<type type="roc" key="calendar" draft="contributed">Çin respublikası təqvimi</type>
-			<type type="roman" key="numbers">roman</type>
-			<type type="romanlow" key="numbers">romanlow</type>
 			<type type="search" key="collation">axtarış</type>
 			<type type="standard" key="collation">standart</type>
-			<type type="taml" key="numbers">taml</type>
-			<type type="tamldec" key="numbers">tamldec</type>
-			<type type="telu" key="numbers">telu</type>
-			<type type="thai" key="numbers">thai</type>
-			<type type="tibt" key="numbers">tibt</type>
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metrik</measurementSystemName>
@@ -1757,9 +1721,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Etc/Unknown">
 				<exemplarCity>Naməlum Şəhər</exemplarCity>
 			</zone>
-			<zone type="Europe/Andorra">
-				<exemplarCity>Andorra</exemplarCity>
-			</zone>
 			<zone type="Asia/Dubai">
 				<exemplarCity>Dubay</exemplarCity>
 			</zone>
@@ -1775,18 +1736,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Tirane">
 				<exemplarCity>Tirana</exemplarCity>
 			</zone>
-			<zone type="Asia/Yerevan">
-				<exemplarCity>Yerevan</exemplarCity>
-			</zone>
-			<zone type="Africa/Luanda">
-				<exemplarCity>Luanda</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Rothera">
-				<exemplarCity>Rothera</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Palmer">
-				<exemplarCity>Palmer</exemplarCity>
-			</zone>
 			<zone type="Antarctica/South_Pole">
 				<exemplarCity>Cənub Qütbü</exemplarCity>
 			</zone>
@@ -1798,9 +1747,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Antarctica/Davis">
 				<exemplarCity>Deyvis</exemplarCity>
-			</zone>
-			<zone type="Antarctica/Vostok">
-				<exemplarCity>Vostok</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Casey">
 				<exemplarCity>Keysi</exemplarCity>
@@ -1814,9 +1760,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Argentina/Rio_Gallegos">
 				<exemplarCity>Rio Qalyeqos</exemplarCity>
 			</zone>
-			<zone type="America/Mendoza">
-				<exemplarCity>Mendoza</exemplarCity>
-			</zone>
 			<zone type="America/Argentina/San_Juan">
 				<exemplarCity>San Xuan</exemplarCity>
 			</zone>
@@ -1826,17 +1769,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Argentina/La_Rioja">
 				<exemplarCity>Rioxa</exemplarCity>
 			</zone>
-			<zone type="America/Argentina/San_Luis">
-				<exemplarCity>San Luis</exemplarCity>
-			</zone>
 			<zone type="America/Catamarca">
 				<exemplarCity>Katamarka</exemplarCity>
-			</zone>
-			<zone type="America/Argentina/Salta">
-				<exemplarCity>Salta</exemplarCity>
-			</zone>
-			<zone type="America/Jujuy">
-				<exemplarCity>Jujuy</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
 				<exemplarCity>Tukuman</exemplarCity>
@@ -1853,9 +1787,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Vienna">
 				<exemplarCity>Vyana</exemplarCity>
 			</zone>
-			<zone type="Australia/Perth">
-				<exemplarCity>Perth</exemplarCity>
-			</zone>
 			<zone type="Australia/Eucla">
 				<exemplarCity>Yukla</exemplarCity>
 			</zone>
@@ -1865,20 +1796,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Australia/Adelaide">
 				<exemplarCity>Adelaida</exemplarCity>
 			</zone>
-			<zone type="Australia/Broken_Hill">
-				<exemplarCity>Broken Hill</exemplarCity>
-			</zone>
 			<zone type="Australia/Currie">
 				<exemplarCity>Kuriye</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>Melburn</exemplarCity>
-			</zone>
-			<zone type="Australia/Hobart">
-				<exemplarCity>Hobart</exemplarCity>
-			</zone>
-			<zone type="Australia/Lindeman">
-				<exemplarCity>Lindeman</exemplarCity>
 			</zone>
 			<zone type="Australia/Sydney">
 				<exemplarCity>Sidney</exemplarCity>
@@ -1892,9 +1814,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Australia/Lord_Howe">
 				<exemplarCity>Lord Hau</exemplarCity>
 			</zone>
-			<zone type="America/Aruba">
-				<exemplarCity>Aruba</exemplarCity>
-			</zone>
 			<zone type="Europe/Mariehamn">
 				<exemplarCity>Mariham</exemplarCity>
 			</zone>
@@ -1903,9 +1822,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Sarajevo">
 				<exemplarCity>Sarayevo</exemplarCity>
-			</zone>
-			<zone type="America/Barbados">
-				<exemplarCity>Barbados</exemplarCity>
 			</zone>
 			<zone type="Asia/Dhaka">
 				<exemplarCity>Dəkkə</exemplarCity>
@@ -1916,26 +1832,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Africa/Ouagadougou">
 				<exemplarCity>Uqaduqu</exemplarCity>
 			</zone>
-			<zone type="Europe/Sofia">
-				<exemplarCity>Sofia</exemplarCity>
-			</zone>
 			<zone type="Asia/Bahrain">
 				<exemplarCity>Bəhreyn</exemplarCity>
 			</zone>
-			<zone type="Africa/Bujumbura">
-				<exemplarCity>Bujumbura</exemplarCity>
-			</zone>
-			<zone type="Africa/Porto-Novo">
-				<exemplarCity>Porto-Novo</exemplarCity>
-			</zone>
 			<zone type="America/St_Barthelemy">
 				<exemplarCity>San Bartolomey</exemplarCity>
-			</zone>
-			<zone type="Atlantic/Bermuda">
-				<exemplarCity>Bermuda</exemplarCity>
-			</zone>
-			<zone type="Asia/Brunei">
-				<exemplarCity>Brunei</exemplarCity>
 			</zone>
 			<zone type="America/La_Paz">
 				<exemplarCity>La Pas</exemplarCity>
@@ -1952,23 +1853,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Porto_Velho">
 				<exemplarCity>Porto Velyo</exemplarCity>
 			</zone>
-			<zone type="America/Boa_Vista">
-				<exemplarCity>Boa Vista</exemplarCity>
-			</zone>
-			<zone type="America/Manaus">
-				<exemplarCity>Manaus</exemplarCity>
-			</zone>
 			<zone type="America/Cuiaba">
 				<exemplarCity>Kuyaba</exemplarCity>
 			</zone>
-			<zone type="America/Santarem">
-				<exemplarCity>Santarem</exemplarCity>
-			</zone>
 			<zone type="America/Campo_Grande">
 				<exemplarCity>Kampo Qrande</exemplarCity>
-			</zone>
-			<zone type="America/Belem">
-				<exemplarCity>Belem</exemplarCity>
 			</zone>
 			<zone type="America/Araguaina">
 				<exemplarCity>Araguayna</exemplarCity>
@@ -1979,29 +1868,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Bahia">
 				<exemplarCity>Bahiya</exemplarCity>
 			</zone>
-			<zone type="America/Fortaleza">
-				<exemplarCity>Fortaleza</exemplarCity>
-			</zone>
 			<zone type="America/Maceio">
 				<exemplarCity>Maseyo</exemplarCity>
 			</zone>
 			<zone type="America/Recife">
 				<exemplarCity>Resif</exemplarCity>
 			</zone>
-			<zone type="America/Noronha">
-				<exemplarCity>Noronha</exemplarCity>
-			</zone>
-			<zone type="America/Nassau">
-				<exemplarCity>Nassau</exemplarCity>
-			</zone>
-			<zone type="Asia/Thimphu">
-				<exemplarCity>Thimphu</exemplarCity>
-			</zone>
 			<zone type="Africa/Gaborone">
 				<exemplarCity>Qaboron</exemplarCity>
-			</zone>
-			<zone type="Europe/Minsk">
-				<exemplarCity>Minsk</exemplarCity>
 			</zone>
 			<zone type="America/Belize">
 				<exemplarCity>Beliz</exemplarCity>
@@ -2059,9 +1933,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Nipigon">
 				<exemplarCity>Nipiqon</exemplarCity>
-			</zone>
-			<zone type="America/Toronto">
-				<exemplarCity>Toronto</exemplarCity>
 			</zone>
 			<zone type="America/Montreal">
 				<exemplarCity>Monreal</exemplarCity>
@@ -2135,17 +2006,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Şanxay</exemplarCity>
 			</zone>
-			<zone type="Asia/Harbin">
-				<exemplarCity>Harbin</exemplarCity>
-			</zone>
 			<zone type="America/Bogota">
 				<exemplarCity>Boqota</exemplarCity>
 			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity>Kosta Rika</exemplarCity>
-			</zone>
-			<zone type="America/Havana">
-				<exemplarCity>Havana</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity>Kape Verde</exemplarCity>
@@ -2161,12 +2026,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Praqa</exemplarCity>
-			</zone>
-			<zone type="Europe/Busingen">
-				<exemplarCity>Busingen</exemplarCity>
-			</zone>
-			<zone type="Europe/Berlin">
-				<exemplarCity>Berlin</exemplarCity>
 			</zone>
 			<zone type="Africa/Djibouti">
 				<exemplarCity>Cibouti</exemplarCity>
@@ -2207,14 +2066,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Africa/Ceuta">
 				<exemplarCity>Seuta</exemplarCity>
 			</zone>
-			<zone type="Europe/Madrid">
-				<exemplarCity>Madrid</exemplarCity>
-			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity>Əddis Əbəbə</exemplarCity>
-			</zone>
-			<zone type="Europe/Helsinki">
-				<exemplarCity>Helsinki</exemplarCity>
 			</zone>
 			<zone type="Pacific/Fiji">
 				<exemplarCity>Fici</exemplarCity>
@@ -2234,9 +2087,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Atlantic/Faeroe">
 				<exemplarCity>Farer</exemplarCity>
 			</zone>
-			<zone type="Europe/Paris">
-				<exemplarCity>Paris</exemplarCity>
-			</zone>
 			<zone type="Africa/Libreville">
 				<exemplarCity>Librevil</exemplarCity>
 			</zone>
@@ -2244,13 +2094,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<daylight>Britaniya Yay Vaxtı</daylight>
 				</long>
-				<exemplarCity>London</exemplarCity>
 			</zone>
 			<zone type="America/Grenada">
 				<exemplarCity>Qrenada</exemplarCity>
-			</zone>
-			<zone type="Asia/Tbilisi">
-				<exemplarCity>Tbilisi</exemplarCity>
 			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity>Kayen</exemplarCity>
@@ -2260,9 +2106,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Africa/Accra">
 				<exemplarCity>Akkra</exemplarCity>
-			</zone>
-			<zone type="Europe/Gibraltar">
-				<exemplarCity>Gibraltar</exemplarCity>
 			</zone>
 			<zone type="America/Thule">
 				<exemplarCity>Tul</exemplarCity>
@@ -2285,9 +2128,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Guadeloupe">
 				<exemplarCity>Qvadelupa</exemplarCity>
 			</zone>
-			<zone type="Africa/Malabo">
-				<exemplarCity>Malabo</exemplarCity>
-			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Afina</exemplarCity>
 			</zone>
@@ -2299,9 +2139,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Pacific/Guam">
 				<exemplarCity>Quam</exemplarCity>
-			</zone>
-			<zone type="Africa/Bissau">
-				<exemplarCity>Bissau</exemplarCity>
 			</zone>
 			<zone type="America/Guyana">
 				<exemplarCity>Qayana</exemplarCity>
@@ -2324,9 +2161,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Jakarta">
 				<exemplarCity>Cakarta</exemplarCity>
 			</zone>
-			<zone type="Asia/Pontianak">
-				<exemplarCity>Pontianak</exemplarCity>
-			</zone>
 			<zone type="Asia/Makassar">
 				<exemplarCity>Makasar</exemplarCity>
 			</zone>
@@ -2337,7 +2171,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<daylight>İrlandiya Yay Vaxtı</daylight>
 				</long>
-				<exemplarCity>Dublin</exemplarCity>
 			</zone>
 			<zone type="Asia/Jerusalem">
 				<exemplarCity>Yerusəlim</exemplarCity>
@@ -2354,9 +2187,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Baghdad">
 				<exemplarCity>Bağdad</exemplarCity>
 			</zone>
-			<zone type="Asia/Tehran">
-				<exemplarCity>Tehran</exemplarCity>
-			</zone>
 			<zone type="Atlantic/Reykjavik">
 				<exemplarCity>Reykyavik</exemplarCity>
 			</zone>
@@ -2368,15 +2198,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Jamaica">
 				<exemplarCity>Yamayka</exemplarCity>
-			</zone>
-			<zone type="Asia/Amman">
-				<exemplarCity>Amman</exemplarCity>
-			</zone>
-			<zone type="Asia/Tokyo">
-				<exemplarCity>Tokyo</exemplarCity>
-			</zone>
-			<zone type="Africa/Nairobi">
-				<exemplarCity>Nairobi</exemplarCity>
 			</zone>
 			<zone type="Asia/Bishkek">
 				<exemplarCity>Bişkek</exemplarCity>
@@ -2414,12 +2235,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Aqtau">
 				<exemplarCity>Aktau</exemplarCity>
 			</zone>
-			<zone type="Asia/Oral">
-				<exemplarCity>Oral</exemplarCity>
-			</zone>
-			<zone type="Asia/Aqtobe">
-				<exemplarCity>Aqtobe</exemplarCity>
-			</zone>
 			<zone type="Asia/Qyzylorda">
 				<exemplarCity>Qızılorda</exemplarCity>
 			</zone>
@@ -2441,12 +2256,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Colombo">
 				<exemplarCity>Kolombo</exemplarCity>
 			</zone>
-			<zone type="Africa/Monrovia">
-				<exemplarCity>Monrovia</exemplarCity>
-			</zone>
-			<zone type="Africa/Maseru">
-				<exemplarCity>Maseru</exemplarCity>
-			</zone>
 			<zone type="Europe/Vilnius">
 				<exemplarCity>Vilnyus</exemplarCity>
 			</zone>
@@ -2455,9 +2264,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Riga">
 				<exemplarCity>Riqa</exemplarCity>
-			</zone>
-			<zone type="Africa/Tripoli">
-				<exemplarCity>Tripoli</exemplarCity>
 			</zone>
 			<zone type="Africa/Casablanca">
 				<exemplarCity>Kasablanka</exemplarCity>
@@ -2474,9 +2280,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Marigot">
 				<exemplarCity>Mariqot</exemplarCity>
 			</zone>
-			<zone type="Indian/Antananarivo">
-				<exemplarCity>Antananarivo</exemplarCity>
-			</zone>
 			<zone type="Pacific/Kwajalein">
 				<exemplarCity>Kvajaleyn</exemplarCity>
 			</zone>
@@ -2486,14 +2289,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Skopje">
 				<exemplarCity>Skopye</exemplarCity>
 			</zone>
-			<zone type="Africa/Bamako">
-				<exemplarCity>Bamako</exemplarCity>
-			</zone>
 			<zone type="Asia/Rangoon">
 				<exemplarCity>Ranqun</exemplarCity>
-			</zone>
-			<zone type="Asia/Hovd">
-				<exemplarCity>Hovd</exemplarCity>
 			</zone>
 			<zone type="Asia/Ulaanbaatar">
 				<exemplarCity>Ulanbator</exemplarCity>
@@ -2504,9 +2301,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Macau">
 				<exemplarCity>Makao</exemplarCity>
 			</zone>
-			<zone type="Pacific/Saipan">
-				<exemplarCity>Saipan</exemplarCity>
-			</zone>
 			<zone type="America/Martinique">
 				<exemplarCity>Martinik</exemplarCity>
 			</zone>
@@ -2515,9 +2309,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Montserrat">
 				<exemplarCity>Monserat</exemplarCity>
-			</zone>
-			<zone type="Europe/Malta">
-				<exemplarCity>Malta</exemplarCity>
 			</zone>
 			<zone type="Indian/Mauritius">
 				<exemplarCity>Mavriki</exemplarCity>
@@ -2531,9 +2322,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Tijuana">
 				<exemplarCity>Tixuana</exemplarCity>
 			</zone>
-			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santa Isabel</exemplarCity>
-			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Hermosilo</exemplarCity>
 			</zone>
@@ -2543,47 +2331,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Chihuahua">
 				<exemplarCity>Çihuahua</exemplarCity>
 			</zone>
-			<zone type="America/Bahia_Banderas">
-				<exemplarCity>Bahia Banderas</exemplarCity>
-			</zone>
-			<zone type="America/Ojinaga">
-				<exemplarCity>Ojinaga</exemplarCity>
-			</zone>
 			<zone type="America/Monterrey">
 				<exemplarCity>Monterey</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Mexiko</exemplarCity>
 			</zone>
-			<zone type="America/Matamoros">
-				<exemplarCity>Matamoros</exemplarCity>
-			</zone>
-			<zone type="America/Merida">
-				<exemplarCity>Merida</exemplarCity>
-			</zone>
 			<zone type="America/Cancun">
 				<exemplarCity>Kankun</exemplarCity>
-			</zone>
-			<zone type="Asia/Kuala_Lumpur">
-				<exemplarCity>Kuala Lumpur</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuching">
 				<exemplarCity>Kuçinq</exemplarCity>
 			</zone>
-			<zone type="Africa/Maputo">
-				<exemplarCity>Maputo</exemplarCity>
-			</zone>
 			<zone type="Africa/Windhoek">
 				<exemplarCity>Vindhuk</exemplarCity>
-			</zone>
-			<zone type="Pacific/Noumea">
-				<exemplarCity>Noumea</exemplarCity>
-			</zone>
-			<zone type="Africa/Niamey">
-				<exemplarCity>Niamey</exemplarCity>
-			</zone>
-			<zone type="Pacific/Norfolk">
-				<exemplarCity>Norfolk</exemplarCity>
 			</zone>
 			<zone type="Africa/Lagos">
 				<exemplarCity>Laqos</exemplarCity>
@@ -2591,20 +2352,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Managua">
 				<exemplarCity>Manaqua</exemplarCity>
 			</zone>
-			<zone type="Europe/Amsterdam">
-				<exemplarCity>Amsterdam</exemplarCity>
-			</zone>
-			<zone type="Europe/Oslo">
-				<exemplarCity>Oslo</exemplarCity>
-			</zone>
 			<zone type="Asia/Katmandu">
 				<exemplarCity>Katmandu</exemplarCity>
-			</zone>
-			<zone type="Pacific/Nauru">
-				<exemplarCity>Nauru</exemplarCity>
-			</zone>
-			<zone type="Pacific/Niue">
-				<exemplarCity>Niue</exemplarCity>
 			</zone>
 			<zone type="Pacific/Chatham">
 				<exemplarCity>Çatam</exemplarCity>
@@ -2615,15 +2364,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Muscat">
 				<exemplarCity>Muskat</exemplarCity>
 			</zone>
-			<zone type="America/Panama">
-				<exemplarCity>Panama</exemplarCity>
-			</zone>
-			<zone type="America/Lima">
-				<exemplarCity>Lima</exemplarCity>
-			</zone>
-			<zone type="Pacific/Tahiti">
-				<exemplarCity>Tahiti</exemplarCity>
-			</zone>
 			<zone type="Pacific/Marquesas">
 				<exemplarCity>Markesas</exemplarCity>
 			</zone>
@@ -2632,9 +2372,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity>Port Moresbi</exemplarCity>
-			</zone>
-			<zone type="Asia/Manila">
-				<exemplarCity>Manila</exemplarCity>
 			</zone>
 			<zone type="Asia/Karachi">
 				<exemplarCity>Karaçi</exemplarCity>
@@ -2654,9 +2391,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Gaza">
 				<exemplarCity>Qəza</exemplarCity>
 			</zone>
-			<zone type="Asia/Hebron">
-				<exemplarCity>Hebron</exemplarCity>
-			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azor</exemplarCity>
 			</zone>
@@ -2666,17 +2400,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lissabon</exemplarCity>
 			</zone>
-			<zone type="Pacific/Palau">
-				<exemplarCity>Palau</exemplarCity>
-			</zone>
 			<zone type="America/Asuncion">
 				<exemplarCity>Asunsion</exemplarCity>
-			</zone>
-			<zone type="Asia/Qatar">
-				<exemplarCity>Qatar</exemplarCity>
-			</zone>
-			<zone type="Indian/Reunion">
-				<exemplarCity>Reunion</exemplarCity>
 			</zone>
 			<zone type="Europe/Bucharest">
 				<exemplarCity>Buxarest</exemplarCity>
@@ -2693,41 +2418,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volqoqrad</exemplarCity>
 			</zone>
-			<zone type="Europe/Samara">
-				<exemplarCity>Samara</exemplarCity>
-			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Yekaterinburq</exemplarCity>
 			</zone>
-			<zone type="Asia/Omsk">
-				<exemplarCity>Omsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novosibirsk">
-				<exemplarCity>Novosibirsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Novokuznetsk">
-				<exemplarCity>Novokuznetsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Krasnoyarsk">
-				<exemplarCity>Krasnoyarsk</exemplarCity>
-			</zone>
 			<zone type="Asia/Irkutsk">
 				<exemplarCity>İrkutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Yakutsk">
-				<exemplarCity>Yakutsk</exemplarCity>
-			</zone>
-			<zone type="Asia/Vladivostok">
-				<exemplarCity>Vladivostok</exemplarCity>
 			</zone>
 			<zone type="Asia/Khandyga">
 				<exemplarCity>Xandıqa</exemplarCity>
 			</zone>
 			<zone type="Asia/Sakhalin">
 				<exemplarCity>Saxalin</exemplarCity>
-			</zone>
-			<zone type="Asia/Ust-Nera">
-				<exemplarCity>Ust-Nera</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
 				<exemplarCity>Maqadan</exemplarCity>
@@ -2747,9 +2448,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Pacific/Guadalcanal">
 				<exemplarCity>Quadalkanal</exemplarCity>
 			</zone>
-			<zone type="Indian/Mahe">
-				<exemplarCity>Mahe</exemplarCity>
-			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity>Xartum</exemplarCity>
 			</zone>
@@ -2768,26 +2466,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Arctic/Longyearbyen">
 				<exemplarCity>Lonqyir</exemplarCity>
 			</zone>
-			<zone type="Europe/Bratislava">
-				<exemplarCity>Bratislava</exemplarCity>
-			</zone>
 			<zone type="Africa/Freetown">
 				<exemplarCity>Fritaun</exemplarCity>
 			</zone>
-			<zone type="Europe/San_Marino">
-				<exemplarCity>San Marino</exemplarCity>
-			</zone>
-			<zone type="Africa/Dakar">
-				<exemplarCity>Dakar</exemplarCity>
-			</zone>
 			<zone type="Africa/Mogadishu">
 				<exemplarCity>Moqadişu</exemplarCity>
-			</zone>
-			<zone type="America/Paramaribo">
-				<exemplarCity>Paramaribo</exemplarCity>
-			</zone>
-			<zone type="Africa/Juba">
-				<exemplarCity>Juba</exemplarCity>
 			</zone>
 			<zone type="Africa/Sao_Tome">
 				<exemplarCity>San Tom</exemplarCity>
@@ -2801,9 +2484,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Damascus">
 				<exemplarCity>Dəməşq</exemplarCity>
 			</zone>
-			<zone type="Africa/Mbabane">
-				<exemplarCity>Mbabane</exemplarCity>
-			</zone>
 			<zone type="America/Grand_Turk">
 				<exemplarCity>Qrand Turk</exemplarCity>
 			</zone>
@@ -2813,41 +2493,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Indian/Kerguelen">
 				<exemplarCity>Kergelen</exemplarCity>
 			</zone>
-			<zone type="Africa/Lome">
-				<exemplarCity>Lome</exemplarCity>
-			</zone>
 			<zone type="Asia/Bangkok">
 				<exemplarCity>Banqkok</exemplarCity>
 			</zone>
 			<zone type="Asia/Dushanbe">
 				<exemplarCity>Düşənbə</exemplarCity>
 			</zone>
-			<zone type="Pacific/Fakaofo">
-				<exemplarCity>Fakaofo</exemplarCity>
-			</zone>
-			<zone type="Asia/Dili">
-				<exemplarCity>Dili</exemplarCity>
-			</zone>
 			<zone type="Asia/Ashgabat">
 				<exemplarCity>Aşqabat</exemplarCity>
-			</zone>
-			<zone type="Africa/Tunis">
-				<exemplarCity>Tunis</exemplarCity>
 			</zone>
 			<zone type="Pacific/Tongatapu">
 				<exemplarCity>Tonqapatu</exemplarCity>
 			</zone>
-			<zone type="Europe/Istanbul">
-				<exemplarCity>Istanbul</exemplarCity>
-			</zone>
 			<zone type="America/Port_of_Spain">
 				<exemplarCity>İspan Limanı</exemplarCity>
-			</zone>
-			<zone type="Pacific/Funafuti">
-				<exemplarCity>Funafuti</exemplarCity>
-			</zone>
-			<zone type="Asia/Taipei">
-				<exemplarCity>Taipei</exemplarCity>
 			</zone>
 			<zone type="Africa/Dar_es_Salaam">
 				<exemplarCity>Dar es Salam</exemplarCity>
@@ -2858,14 +2517,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kiyev</exemplarCity>
 			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopol</exemplarCity>
-			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporojye</exemplarCity>
-			</zone>
-			<zone type="Africa/Kampala">
-				<exemplarCity>Kampala</exemplarCity>
 			</zone>
 			<zone type="Pacific/Midway">
 				<exemplarCity>Midvey</exemplarCity>
@@ -2876,29 +2529,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Pacific/Wake">
 				<exemplarCity>Veyk</exemplarCity>
 			</zone>
-			<zone type="America/Adak">
-				<exemplarCity>Adak</exemplarCity>
-			</zone>
 			<zone type="America/Nome">
 				<exemplarCity>Nom</exemplarCity>
-			</zone>
-			<zone type="Pacific/Honolulu">
-				<exemplarCity>Honolulu</exemplarCity>
 			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Ankorac</exemplarCity>
 			</zone>
-			<zone type="America/Yakutat">
-				<exemplarCity>Yakutat</exemplarCity>
-			</zone>
-			<zone type="America/Sitka">
-				<exemplarCity>Sitka</exemplarCity>
-			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>Cuno</exemplarCity>
-			</zone>
-			<zone type="America/Metlakatla">
-				<exemplarCity>Metlakatla</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>Los Anceles</exemplarCity>
@@ -2911,9 +2549,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Shiprock">
 				<exemplarCity>Şiprok</exemplarCity>
-			</zone>
-			<zone type="America/Denver">
-				<exemplarCity>Denver</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah, Şimali Dakota</exemplarCity>
@@ -2966,9 +2601,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/New_York">
 				<exemplarCity>Nyu York</exemplarCity>
 			</zone>
-			<zone type="America/Montevideo">
-				<exemplarCity>Montevideo</exemplarCity>
-			</zone>
 			<zone type="Asia/Samarkand">
 				<exemplarCity>Səmərqənd</exemplarCity>
 			</zone>
@@ -2984,38 +2616,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Caracas">
 				<exemplarCity>Karakas</exemplarCity>
 			</zone>
-			<zone type="America/Tortola">
-				<exemplarCity>Tortola</exemplarCity>
-			</zone>
 			<zone type="America/St_Thomas">
 				<exemplarCity>San Tomas</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity>Ho Şi Min</exemplarCity>
 			</zone>
-			<zone type="Pacific/Efate">
-				<exemplarCity>Efate</exemplarCity>
-			</zone>
 			<zone type="Pacific/Wallis">
 				<exemplarCity>Uollis</exemplarCity>
-			</zone>
-			<zone type="Pacific/Apia">
-				<exemplarCity>Apia</exemplarCity>
-			</zone>
-			<zone type="Asia/Aden">
-				<exemplarCity>Aden</exemplarCity>
 			</zone>
 			<zone type="Indian/Mayotte">
 				<exemplarCity>Mayot</exemplarCity>
 			</zone>
 			<zone type="Africa/Johannesburg">
 				<exemplarCity>Yohanesburq</exemplarCity>
-			</zone>
-			<zone type="Africa/Lusaka">
-				<exemplarCity>Lusaka</exemplarCity>
-			</zone>
-			<zone type="Africa/Harare">
-				<exemplarCity>Harare</exemplarCity>
 			</zone>
 			<metazone type="Afghanistan">
 				<long>
@@ -3984,7 +3598,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Birləşmiş Ərəb Əmirlikləri Dirhəmi</displayName>
 				<displayName count="one">BƏƏ dirhəmi</displayName>
 				<displayName count="other">BƏƏ dirhəmi</displayName>
-				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName>Əfqanıstan Əfqanisi (1927–2002)</displayName>
@@ -3995,7 +3608,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Əfqanıstan Əfqanisi</displayName>
 				<displayName count="one">Əfqanıstan əfqanisi</displayName>
 				<displayName count="other">Əfqanıstan əfqanisi</displayName>
-				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALK">
 				<displayName>Albaniya Leki (1946–1965)</displayName>
@@ -4006,25 +3618,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Albaniya Leki</displayName>
 				<displayName count="one">Albaniya leki</displayName>
 				<displayName count="other">Albaniya leki</displayName>
-				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Ermənistan Dramı</displayName>
 				<displayName count="one">Ermənistan dramı</displayName>
 				<displayName count="other">Ermənistan dramı</displayName>
-				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Niderland Antilyası Gilderi</displayName>
 				<displayName count="one">Niderland Antilyası gilderi</displayName>
 				<displayName count="other">Niderland Antilya gilderi</displayName>
-				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Anqola Kvanzası</displayName>
 				<displayName count="one">Anqola kvanzasi</displayName>
 				<displayName count="other">Anqola kvanzasi</displayName>
-				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName>Anqola Kvanzasi (1977–1990)</displayName>
@@ -4055,7 +3663,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Argentina Pesosu</displayName>
 				<displayName count="one">Argentina pesosu</displayName>
 				<displayName count="other">Argentina pesosu</displayName>
-				<symbol>ARS</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>Avstriya Şillinqi</displayName>
@@ -4072,7 +3679,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Aruba Florini</displayName>
 				<displayName count="one">Aruba florini</displayName>
 				<displayName count="other">Aruba florini</displayName>
-				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Azərbaycan Manatı (1993–2006)</displayName>
@@ -4094,19 +3700,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Bosniya-Herseqovina Markası</displayName>
 				<displayName count="one">Bosniya-Herseqovina markası</displayName>
 				<displayName count="other">Bosniya-Herseqovina markası</displayName>
-				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbados Dolları</displayName>
 				<displayName count="one">Barbados dolları</displayName>
 				<displayName count="other">Barbados dolları</displayName>
-				<symbol>BBD</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Banqladeş Takası</displayName>
 				<displayName count="one">Banqladeş takası</displayName>
 				<displayName count="other">Banqladeş takası</displayName>
-				<symbol>BDT</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName>Belçika Frankı (deyşirik)</displayName>
@@ -4132,37 +3735,31 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Bolqarıstan Levi</displayName>
 				<displayName count="one">Bolqarıstan levi</displayName>
 				<displayName count="other">Bolqarıstan levi</displayName>
-				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Bəhreyn Dinarı</displayName>
 				<displayName count="one">Bəhreyn dinarı</displayName>
 				<displayName count="other">Bəhreyn dinarı</displayName>
-				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Burundi Frankı</displayName>
 				<displayName count="one">Burundi frankı</displayName>
 				<displayName count="other">Burundi frankı</displayName>
-				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Bermuda Dolları</displayName>
 				<displayName count="one">Bermuda dolları</displayName>
 				<displayName count="other">Bermuda dolları</displayName>
-				<symbol>BMD</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Bruney Dolları</displayName>
 				<displayName count="one">Bruney dolları</displayName>
 				<displayName count="other">Bruney dolları</displayName>
-				<symbol>BND</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Boliviya Bolivianosu</displayName>
 				<displayName count="one">Boliviya bolivianosu</displayName>
 				<displayName count="other">Boliviya bolivianosu</displayName>
-				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName>Boliviya pesosu</displayName>
@@ -4209,13 +3806,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Bahama Dolları</displayName>
 				<displayName count="one">Bahama dolları</displayName>
 				<displayName count="other">Bahama dolları</displayName>
-				<symbol>BSD</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Butan Nqultrumu</displayName>
 				<displayName count="one">Butan nqultrumu</displayName>
 				<displayName count="other">Butan nqultrumu</displayName>
-				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BUK">
 				<displayName>Burmis Kyatı</displayName>
@@ -4226,7 +3821,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Botsvana Pulası</displayName>
 				<displayName count="one">Botsvana pulası</displayName>
 				<displayName count="other">Botsvana pulası</displayName>
-				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName>Belarus Yeni Rublu (1994–1999)</displayName>
@@ -4237,13 +3831,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Belarus Rublu</displayName>
 				<displayName count="one">Belarus rublu</displayName>
 				<displayName count="other">Belarus rublu</displayName>
-				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Beliz Dolları</displayName>
 				<displayName count="one">Beliz dolları</displayName>
 				<displayName count="other">Beliz dolları</displayName>
-				<symbol>BZD</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanada Dolları</displayName>
@@ -4255,7 +3847,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Konqo Frankı</displayName>
 				<displayName count="one">Konqo frankı</displayName>
 				<displayName count="other">Konqo frankı</displayName>
-				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHE">
 				<displayName>WIR Avro</displayName>
@@ -4266,7 +3857,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>İsveçrə Frankı</displayName>
 				<displayName count="one">İsveçrə frankı</displayName>
 				<displayName count="other">İsveçrə frankı</displayName>
-				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CHW">
 				<displayName>WIR Frankası</displayName>
@@ -4277,7 +3867,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Çili Pesosu</displayName>
 				<displayName count="one">Çili pesosu</displayName>
 				<displayName count="other">Çili pesosu</displayName>
-				<symbol>CLP</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Çin Yuanı</displayName>
@@ -4289,13 +3878,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Kolumbiya Pesosu</displayName>
 				<displayName count="one">Kolombiya pesosu</displayName>
 				<displayName count="other">Kolombiya pesosu</displayName>
-				<symbol>COP</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>Kosta Rika Kolonu</displayName>
 				<displayName count="one">Kosta Rika kolonu</displayName>
 				<displayName count="other">Kosta Rika kolonu</displayName>
-				<symbol>CRC</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName>Serbiya Dinarı (2002–2006)</displayName>
@@ -4311,19 +3898,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Kuba Çevrilən Pesosu</displayName>
 				<displayName count="one">Kuba çevrilən pesosu</displayName>
 				<displayName count="other">Kuba çevrilən pesosu</displayName>
-				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Kuba Pesosu</displayName>
 				<displayName count="one">Kuba pesosu</displayName>
 				<displayName count="other">Kuba pesosu</displayName>
-				<symbol>CUP</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Kape Verde Eskudosu</displayName>
 				<displayName count="one">Kape Verde eskudosu</displayName>
 				<displayName count="other">Kape Verde eskudosu</displayName>
-				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Kipr Paundu</displayName>
@@ -4334,7 +3918,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Çexiya Korunası</displayName>
 				<displayName count="one">Çexiya korunası</displayName>
 				<displayName count="other">Çexiya korunası</displayName>
-				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName>Şərq Almaniya Ostmarkı</displayName>
@@ -4350,25 +3933,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Cibuti Frankı</displayName>
 				<displayName count="one">Cibuti frankı</displayName>
 				<displayName count="other">Cibuti frankı</displayName>
-				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Danimarka Kronu</displayName>
 				<displayName count="one">Danimarka kronu</displayName>
 				<displayName count="other">Danimarka kronu</displayName>
-				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominika Pesosu</displayName>
 				<displayName count="one">Dominika pesosu</displayName>
 				<displayName count="other">Dominika pesosu</displayName>
-				<symbol>DOP</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Əlcəzair Dinarı</displayName>
 				<displayName count="one">Əlcəzair dinarı</displayName>
 				<displayName count="other">Əlcəzair dinarı</displayName>
-				<symbol>DZD</symbol>
 			</currency>
 			<currency type="ECS">
 				<displayName>Ekvador Sukresi</displayName>
@@ -4384,13 +3963,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Misir Funtu</displayName>
 				<displayName count="one">Misir funtu</displayName>
 				<displayName count="other">Misir funtu</displayName>
-				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritreya Nakfası</displayName>
 				<displayName count="one">Eritreya nakfası</displayName>
 				<displayName count="other">Eritreya nakfası</displayName>
-				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESA">
 				<displayName>İspan Pesetası (A account)</displayName>
@@ -4411,7 +3988,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Efiopiya Bırrı</displayName>
 				<displayName count="one">Efiopiya bırrı</displayName>
 				<displayName count="other">Efiopiya bırrı</displayName>
-				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Avro</displayName>
@@ -4428,13 +4004,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Fici Dolları</displayName>
 				<displayName count="one">Fici dolları</displayName>
 				<displayName count="other">Fici dolları</displayName>
-				<symbol>FJD</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Folklend Adaları Funtu</displayName>
 				<displayName count="one">Folklend Adaları funtu</displayName>
 				<displayName count="other">Folklend Adaları funtu</displayName>
-				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Fransız Markası</displayName>
@@ -4456,7 +4030,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Gürcüstan Larisi</displayName>
 				<displayName count="one">Gürcüstan larisi</displayName>
 				<displayName count="other">Gürcüstan larisi</displayName>
-				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHC">
 				<displayName>Qana Sedisi (1979–2007)</displayName>
@@ -4467,25 +4040,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Qana Sedisi</displayName>
 				<displayName count="one">Qana sedisi</displayName>
 				<displayName count="other">Qana sedisi</displayName>
-				<symbol>GHS</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltar Funtu</displayName>
 				<displayName count="one">Gibraltar funtu</displayName>
 				<displayName count="other">Gibraltar funtu</displayName>
-				<symbol>GIP</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Qambiya Dalasisi</displayName>
 				<displayName count="one">Qambiya dalasisi</displayName>
 				<displayName count="other">Qambiya dalasisi</displayName>
-				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Qvineya Frankı</displayName>
 				<displayName count="one">Qvineya frankı</displayName>
 				<displayName count="other">Qvineya frankı</displayName>
-				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GNS">
 				<displayName>Qvineya Sulisi</displayName>
@@ -4506,7 +4075,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Qvatemala Küetzalı</displayName>
 				<displayName count="one">Qvatemala küetzalı</displayName>
 				<displayName count="other">Qvatemala küetzalı</displayName>
-				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName>Portugal Qvineya Eskudosu</displayName>
@@ -4522,7 +4090,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Qayana Dolları</displayName>
 				<displayName count="one">Qayana dolları</displayName>
 				<displayName count="other">Qayana dolları</displayName>
-				<symbol>GYD</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Honq Konq Dolları</displayName>
@@ -4534,7 +4101,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Honduras Lempirası</displayName>
 				<displayName count="one">Honduras lempirası</displayName>
 				<displayName count="other">Honduras lempirası</displayName>
-				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName>Xorvatiya Dinarı</displayName>
@@ -4545,25 +4111,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Xorvatiya Kunası</displayName>
 				<displayName count="one">Xorvatiya kunası</displayName>
 				<displayName count="other">Xorvatiya kunası</displayName>
-				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Haiti Qourdu</displayName>
 				<displayName count="one">Haiti qourdu</displayName>
 				<displayName count="other">Haiti qourdu</displayName>
-				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Macarıstan Forinti</displayName>
 				<displayName count="one">Macarıstan forinti</displayName>
 				<displayName count="other">Macarıstan forinti</displayName>
-				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>İndoneziya Rupisi</displayName>
 				<displayName count="one">İndoneziya rupisi</displayName>
 				<displayName count="other">İndoneziya rupisi</displayName>
-				<symbol>IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>İrlandiya Paundu</displayName>
@@ -4596,13 +4158,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>İraq Dinarı</displayName>
 				<displayName count="one">İraq dinarı</displayName>
 				<displayName count="other">İraq dinarı</displayName>
-				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>İran Rialı</displayName>
 				<displayName count="one">İran rialı</displayName>
 				<displayName count="other">İran rialı</displayName>
-				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISJ">
 				<displayName>İslandiya Kronu (1918–1981)</displayName>
@@ -4613,7 +4173,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>İslandiya Kronu</displayName>
 				<displayName count="one">İslandiya kronu</displayName>
 				<displayName count="other">İslandiya kronu</displayName>
-				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>İtaliya Lirası</displayName>
@@ -4624,13 +4183,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Yamayka Dolları</displayName>
 				<displayName count="one">Yamayka dolları</displayName>
 				<displayName count="other">Yamayka dolları</displayName>
-				<symbol>JMD</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>İordaniya Dinarı</displayName>
 				<displayName count="one">İordaniya dinarı</displayName>
 				<displayName count="other">İordaniya dinarı</displayName>
-				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Yaponiya Yeni</displayName>
@@ -4642,31 +4199,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Keniya Şillinqi</displayName>
 				<displayName count="one">Keniya şillinqi</displayName>
 				<displayName count="other">Keniya şillinqi</displayName>
-				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>Kırğızıstan Somu</displayName>
 				<displayName count="one">Kırğızıstan somu</displayName>
 				<displayName count="other">Kırğızıstan somu</displayName>
-				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Kamboca Rieli</displayName>
 				<displayName count="one">Kamboca rieli</displayName>
 				<displayName count="other">Kamboca rieli</displayName>
-				<symbol>KHR</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Komor Frankı</displayName>
 				<displayName count="one">Komor frankı</displayName>
 				<displayName count="other">Komor frankı</displayName>
-				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Şimali Koreya Vonu</displayName>
 				<displayName count="one">Şimali Koreya vonu</displayName>
 				<displayName count="other">Şimali Koreya vonu</displayName>
-				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Cənubi Koreya Vonu</displayName>
@@ -4678,43 +4230,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Küveyt Dinarı</displayName>
 				<displayName count="one">Küveyt dinarı</displayName>
 				<displayName count="other">Küveyt dinarı</displayName>
-				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Kayman Adaları Dolları</displayName>
 				<displayName count="one">Kayman Adaları dolları</displayName>
 				<displayName count="other">Kayman Adaları dolları</displayName>
-				<symbol>KYD</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Qazaxıstan Tengesi</displayName>
 				<displayName count="one">Qazaxıstan tengesi</displayName>
 				<displayName count="other">Qazaxıstan tengesi</displayName>
-				<symbol>KZT</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Laos Kipi</displayName>
 				<displayName count="one">Laos kipi</displayName>
 				<displayName count="other">Laos kipi</displayName>
-				<symbol>LAK</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Livan Funtu</displayName>
 				<displayName count="one">Livan funtu</displayName>
 				<displayName count="other">Livan funtu</displayName>
-				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Şri Lanka Rupisi</displayName>
 				<displayName count="one">Şri Lanka rupisi</displayName>
 				<displayName count="other">Şri Lanka rupisi</displayName>
-				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Liberiya Dolları</displayName>
 				<displayName count="one">Liberiya dolları</displayName>
 				<displayName count="other">Liberiya dolları</displayName>
-				<symbol>LRD</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesoto Lotisi</displayName>
@@ -4725,7 +4270,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Litva Liti</displayName>
 				<displayName count="one">Litva liti</displayName>
 				<displayName count="other">Litva liti</displayName>
-				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName>Litva Talonası</displayName>
@@ -4751,7 +4295,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Latviya Latı</displayName>
 				<displayName count="one">Latviya latı</displayName>
 				<displayName count="other">Latviya latı</displayName>
-				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName>Latviya Rublu</displayName>
@@ -4762,13 +4305,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Liviya Dinarı</displayName>
 				<displayName count="one">Liviya dinarı</displayName>
 				<displayName count="other">Liviya dinarı</displayName>
-				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Mərakeş Dirhəmi</displayName>
 				<displayName count="one">Mərakeş dirhəmi</displayName>
 				<displayName count="other">Mərakeş dirhəmi</displayName>
-				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName>Mərakeş Frankası</displayName>
@@ -4779,13 +4320,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Moldova Leyi</displayName>
 				<displayName count="one">Moldova leyi</displayName>
 				<displayName count="other">Moldova leyi</displayName>
-				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Madaqaskar Ariarisi</displayName>
 				<displayName count="one">Madaqaskar ariarisi</displayName>
 				<displayName count="other">Madaqaskar ariarisi</displayName>
-				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName>Madaqaskar Frankası</displayName>
@@ -4796,7 +4335,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Makedoniya Dinarı</displayName>
 				<displayName count="one">Makedoniya dinarı</displayName>
 				<displayName count="other">Makedoniya dinarı</displayName>
-				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MKN">
 				<displayName>Makedoniya Dinarı (1992–1993)</displayName>
@@ -4812,25 +4350,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Myanma Kiyatı</displayName>
 				<displayName count="one">Myanmar kiyatı</displayName>
 				<displayName count="other">Myanmar kiyatı</displayName>
-				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Monqoliya Tuqriki</displayName>
 				<displayName count="one">Monqoliya tuqriki</displayName>
 				<displayName count="other">Monqoliya tuqriki</displayName>
-				<symbol>MNT</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Makao Patakası</displayName>
 				<displayName count="one">Makao patakası</displayName>
 				<displayName count="other">Makao patakası</displayName>
-				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Mavritaniya Ugiyası</displayName>
 				<displayName count="one">Mavritaniya ugiyası</displayName>
 				<displayName count="other">Mavritaniya ugiyası</displayName>
-				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MTP">
 				<displayName>Maltiz Paundu</displayName>
@@ -4841,19 +4375,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Mavriki Rupisi</displayName>
 				<displayName count="one">Mavriki rupisi</displayName>
 				<displayName count="other">Mavriki rupisi</displayName>
-				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Maldiv Rufiyası</displayName>
 				<displayName count="one">Maldiv rufiyası</displayName>
 				<displayName count="other">Maldiv rufiyası</displayName>
-				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Malavi Kvaçası</displayName>
 				<displayName count="one">Malavi kvaçası</displayName>
 				<displayName count="other">Malavi kvaçası</displayName>
-				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Meksika Pesosu</displayName>
@@ -4870,7 +4401,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Malayziya Ringiti</displayName>
 				<displayName count="one">Malayziya ringiti</displayName>
 				<displayName count="other">Malayziya ringiti</displayName>
-				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mozambik Eskudosu</displayName>
@@ -4886,19 +4416,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Mozambik Metikalı</displayName>
 				<displayName count="one">Mozambik metikalı</displayName>
 				<displayName count="other">Mozambik metikalı</displayName>
-				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namibiya Dolları</displayName>
 				<displayName count="one">Namibiya dolları</displayName>
 				<displayName count="other">Namibiya dolları</displayName>
-				<symbol>NAD</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigeriya Nairası</displayName>
 				<displayName count="one">Nigeriya nairası</displayName>
 				<displayName count="other">Nigeriya nairası</displayName>
-				<symbol>NGN</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName>Nikaraqua kordobu</displayName>
@@ -4909,7 +4436,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Nikaraqua Kordobası</displayName>
 				<displayName count="one">Nikaraqua kordobası</displayName>
 				<displayName count="other">Nikaraqua kordobası</displayName>
-				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Hollandiya Gilderi</displayName>
@@ -4920,13 +4446,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Norveç Kronu</displayName>
 				<displayName count="one">Norveç kronu</displayName>
 				<displayName count="other">Norveç kronu</displayName>
-				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Nepal Rupisi</displayName>
 				<displayName count="one">Nepal rupisi</displayName>
 				<displayName count="other">Nepal rupisi</displayName>
-				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Yeni Zelandiya Dolları</displayName>
@@ -4938,13 +4462,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Oman Rialı</displayName>
 				<displayName count="one">Oman rialı</displayName>
 				<displayName count="other">Oman rialı</displayName>
-				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Panama Balboası</displayName>
 				<displayName count="one">Panama balboası</displayName>
 				<displayName count="other">Panama balboası</displayName>
-				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName>Peru Inti</displayName>
@@ -4955,7 +4477,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Peru Nuevo Solu</displayName>
 				<displayName count="one">Peru Nuevo solu</displayName>
 				<displayName count="other">Peru Nuevo solu</displayName>
-				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName>Peru Solu</displayName>
@@ -4966,25 +4487,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Papua Yeni Qvineya Kinası</displayName>
 				<displayName count="one">Papua Yeni Qvineya kinası</displayName>
 				<displayName count="other">Papua Yeni Qvineya kinası</displayName>
-				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Filippin Pesosu</displayName>
 				<displayName count="one">Filippin pesosu</displayName>
 				<displayName count="other">Filippin pesosu</displayName>
-				<symbol>PHP</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakistan Rupisi</displayName>
 				<displayName count="one">Pakistan rupisi</displayName>
 				<displayName count="other">Pakistan rupisi</displayName>
-				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Polşa Zlotısı</displayName>
 				<displayName count="one">Polşa zlotısı</displayName>
 				<displayName count="other">Polşa zlotısı</displayName>
-				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName>Polşa Zlotısı (1950–1995)</displayName>
@@ -5000,13 +4517,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Paraqvay Quaranisi</displayName>
 				<displayName count="one">Paraqvay quaranisi</displayName>
 				<displayName count="other">Paraqvay quaranisi</displayName>
-				<symbol>PYG</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Qatar Rialı</displayName>
 				<displayName count="one">Qatar rialı</displayName>
 				<displayName count="other">Qatar rialı</displayName>
-				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName>Rodezian Dolları</displayName>
@@ -5022,19 +4537,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Rumıniya Leyi</displayName>
 				<displayName count="one">Rumıniya leyi</displayName>
 				<displayName count="other">Rumıniya leyi</displayName>
-				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Serbiya Dinarı</displayName>
 				<displayName count="one">Serbiya dinarı</displayName>
 				<displayName count="other">Serbiya dinarı</displayName>
-				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Rusiya Rublu</displayName>
 				<displayName count="one">Rusiya rublu</displayName>
 				<displayName count="other">Rusiya rublu</displayName>
-				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName>Rusiya Rublu (1991–1998)</displayName>
@@ -5045,49 +4557,41 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Ruanda Frankı</displayName>
 				<displayName count="one">Ruanda frankı</displayName>
 				<displayName count="other">Ruanda frankı</displayName>
-				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Səudiyyə Riyalı</displayName>
 				<displayName count="one">Səudiyyə riyalı</displayName>
 				<displayName count="other">Səudiyyə riyalı</displayName>
-				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Solomon Adaları Dolları</displayName>
 				<displayName count="one">Solomon Adaları dolları</displayName>
 				<displayName count="other">Solomon Adaları dolları</displayName>
-				<symbol>SBD</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Seyşel Rupisi</displayName>
 				<displayName count="one">Seyşel rupisi</displayName>
 				<displayName count="other">Seyşel rupisi</displayName>
-				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Sudan Funtu</displayName>
 				<displayName count="one">Sudan funtu</displayName>
 				<displayName count="other">Sudan funtu</displayName>
-				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>İsveç Kronu</displayName>
 				<displayName count="one">İsveç kronu</displayName>
 				<displayName count="other">İsveç kronu</displayName>
-				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Sinqapur Dolları</displayName>
 				<displayName count="one">Sinqapur dolları</displayName>
 				<displayName count="other">Sinqapur dolları</displayName>
-				<symbol>SGD</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Müqəddəs Yelena Funtu</displayName>
 				<displayName count="one">Müqəddəs Yelena funtu</displayName>
 				<displayName count="other">Müqəddəs Yelena funtu</displayName>
-				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Sloveniya Toları</displayName>
@@ -5103,31 +4607,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Sierra Leon Leonu</displayName>
 				<displayName count="one">Sierra Leon leonu</displayName>
 				<displayName count="other">Sierra Leon leonu</displayName>
-				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Somali Şillinqi</displayName>
 				<displayName count="one">Somali şillinqi</displayName>
 				<displayName count="other">Somali şillinqi</displayName>
-				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Surinam Dolları</displayName>
 				<displayName count="one">Surinam dolları</displayName>
 				<displayName count="other">Surinam dolları</displayName>
-				<symbol>SRD</symbol>
 			</currency>
 			<currency type="SSP">
 				<displayName>Cənubi Sudan Funtu</displayName>
 				<displayName count="one">Cənubi Sudan funtu</displayName>
 				<displayName count="other">Cənubi Sudan funtu</displayName>
-				<symbol>SSP</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>San Tom və Prinsip Dobrası</displayName>
 				<displayName count="one">San Tom və Prinsip dobrası</displayName>
 				<displayName count="other">San Tom və Prinsip dobrası</displayName>
-				<symbol>STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName>Sovet Rublu</displayName>
@@ -5143,13 +4642,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Suriya Funtu</displayName>
 				<displayName count="one">Suriya funtu</displayName>
 				<displayName count="other">Suriya funtu</displayName>
-				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Svazilend Lilangenini</displayName>
 				<displayName count="one">Svazilend lilangenini</displayName>
 				<displayName count="other">Svazilend emalangenini</displayName>
-				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Tayland Batı</displayName>
@@ -5166,7 +4663,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Tacikistan Somonisi</displayName>
 				<displayName count="one">Tacikistan somonisi</displayName>
 				<displayName count="other">Tacikistan somonisi</displayName>
-				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName>Türkmənistan Manatı (1993–2009)</displayName>
@@ -5177,19 +4673,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Türkmənistan Manatı</displayName>
 				<displayName count="one">Türkmənistan manatı</displayName>
 				<displayName count="other">Türkmənistan manatı</displayName>
-				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Tunis Dinarı</displayName>
 				<displayName count="one">Tunis dinarı</displayName>
 				<displayName count="other">Tunis dinarı</displayName>
-				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Tonqa Panqası</displayName>
 				<displayName count="one">Tonqa panqası</displayName>
 				<displayName count="other">Tonqa panqası</displayName>
-				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TPE">
 				<displayName>Timor Eskudu</displayName>
@@ -5205,13 +4698,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Türkiyə Lirəsi</displayName>
 				<displayName count="one">Türkiyə lirəsi</displayName>
 				<displayName count="other">Türkiyə lirəsi</displayName>
-				<symbol>TRY</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidad və Tobaqo Dolları</displayName>
 				<displayName count="one">Trinidad və Tobaqo dolları</displayName>
 				<displayName count="other">Trinidad və Tobaqo dolları</displayName>
-				<symbol>TTD</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Tayvan Yeni Dolları</displayName>
@@ -5223,13 +4714,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Tanzaniya Şillinqi</displayName>
 				<displayName count="one">Tanzaniya şillinqi</displayName>
 				<displayName count="other">Tanzaniya şillinqi</displayName>
-				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Ukrayna Qrivnası</displayName>
 				<displayName count="one">Ukrayna qrivnası</displayName>
 				<displayName count="other">Ukrayna qrivnası</displayName>
-				<symbol>UAH</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName>Ukrayna Karbovenesası</displayName>
@@ -5245,7 +4734,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Uqanda Şillinqi</displayName>
 				<displayName count="one">Uqanda şillinqi</displayName>
 				<displayName count="other">Uqanda şillinqi</displayName>
-				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>ABŞ Dolları</displayName>
@@ -5277,13 +4765,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Uruqvay Pesosu</displayName>
 				<displayName count="one">Uruqvay pesosu</displayName>
 				<displayName count="other">Uruqvay pesosu</displayName>
-				<symbol>UYU</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Özbəkistan Somu</displayName>
 				<displayName count="one">Özbəkistan somu</displayName>
 				<displayName count="other">Özbəkistan somu</displayName>
-				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Venesuela Bolivarı (1871–2008)</displayName>
@@ -5294,7 +4780,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Venesuela Bolivarı</displayName>
 				<displayName count="one">Venesuela bolivarı</displayName>
 				<displayName count="other">Venesuela bolivarı</displayName>
-				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vyetnam Donqu</displayName>
@@ -5311,13 +4796,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Vanuatu Vatusu</displayName>
 				<displayName count="one">Vanuatu vatusu</displayName>
 				<displayName count="other">Vanuatu vatusu</displayName>
-				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Samoa Talası</displayName>
 				<displayName count="one">Samoa talası</displayName>
 				<displayName count="other">Samoa talası</displayName>
-				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Kamerun Frankı</displayName>
@@ -5387,7 +4870,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Yəmən Rialı</displayName>
 				<displayName count="one">Yəmən rialı</displayName>
 				<displayName count="other">Yəmən rialı</displayName>
-				<symbol>YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName>Yuqoslaviya Dinarı (1966–1990)</displayName>
@@ -5413,7 +4895,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Cənubi Afrika Randı</displayName>
 				<displayName count="one">Cənubi Afrika randı</displayName>
 				<displayName count="other">Cənubi Afrika randı</displayName>
-				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambiya Kvaçası (1968–2012)</displayName>
@@ -5424,7 +4905,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Zambiya Kvaçası</displayName>
 				<displayName count="one">Zambiya kvaçası</displayName>
 				<displayName count="other">Zambiya kvaçası</displayName>
-				<symbol>ZMW</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName>Zair Yeni Zairi (1993–1998)</displayName>

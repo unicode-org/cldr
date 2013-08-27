@@ -13,21 +13,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="contributed">{0} ({1})</localePattern>
 			<localeSeparator draft="contributed">{0}, {1}</localeSeparator>
-			<localeKeyTypePattern draft="contributed">{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
-		<languages>
-			<language type="ar" draft="contributed">العربية</language>
-			<language type="pa" draft="contributed">البنجابية</language>
-		</languages>
 		<types>
 			<type type="ducet" key="collation" draft="contributed">ترتيب تصنيف الشفرة الافتراضية</type>
 		</types>
-		<codePatterns>
-			<codePattern type="language" draft="contributed">اللغة: {0}</codePattern>
-			<codePattern type="script" draft="contributed">نظام الكتابة: {0}</codePattern>
-		</codePatterns>
 	</localeDisplayNames>
 	<dates>
 		<calendars>
@@ -123,11 +113,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</monthContext>
 				</months>
 				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern draft="contributed">EEEE، d MMMM، y</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern draft="contributed">MMM d, y</pattern>

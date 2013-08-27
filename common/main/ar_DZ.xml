@@ -11,11 +11,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="ar"/>
 		<territory type="DZ"/>
 	</identity>
-	<localeDisplayNames>
-		<localeDisplayPattern>
-			<localePattern draft="contributed">{0} ({1})</localePattern>
-		</localeDisplayPattern>
-	</localeDisplayNames>
 	<dates>
 		<calendars>
 			<calendar type="generic">
@@ -187,16 +182,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<symbols numberSystem="arab">
 			<decimal>٫</decimal>
 			<group>٬</group>
-			<percentSign>٪</percentSign>
-			<plusSign>+</plusSign>
-			<perMille>؉</perMille>
 		</symbols>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group>.</group>
-			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<perMille>‰</perMille>
 		</symbols>
 	</numbers>
 </ldml>

@@ -108,24 +108,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</calendars>
 	</dates>
 	<numbers>
-		<symbols numberSystem="arab">
-			<decimal>٫</decimal>
-			<group>٬</group>
-		</symbols>
-		<symbols numberSystem="latn">
-			<decimal>.</decimal>
-			<group>,</group>
-			<percentSign>%</percentSign>
-			<plusSign>+</plusSign>
-			<perMille>‰</perMille>
-		</symbols>
-		<decimalFormats numberSystem="latn">
-			<decimalFormatLength>
-				<decimalFormat>
-					<pattern>#,##0.###</pattern>
-				</decimalFormat>
-			</decimalFormatLength>
-		</decimalFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat>
@@ -135,3 +117,4 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencyFormats>
 	</numbers>
 </ldml>
+

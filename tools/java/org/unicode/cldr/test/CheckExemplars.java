@@ -149,7 +149,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 UnicodeSet combined = new UnicodeSet(mainSet).addAll(auxiliarySet);
                 checkMixedScripts("main+auxiliary", combined, result);
 
-                if (false && auxiliarySet.containsSome(mainSet)) {
+                if (auxiliarySet.containsSome(mainSet)) {
                     UnicodeSet overlap = new UnicodeSet(mainSet).retainAll(auxiliarySet).removeAll(HangulSyllables);
                     if (overlap.size() != 0) {
                         String fixedExemplar1 = new PrettyPrinter()
@@ -163,7 +163,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                                 .setCause(this)
                                 .setMainType(CheckStatus.warningType)
                                 .setSubtype(Subtype.auxiliaryExemplarsOverlap)
-                                .setMessage("Auxiliary overlaps with main \u200E{0}\u200E",
+                                .setMessage("Auxiliary characters also exist in main: \u200E{0}\u200E",
                                     new Object[] { fixedExemplar1 }));
                     }
                 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc. -->
-<!-- CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) -->
-<!-- For terms of use, see http://www.unicode.org/copyright.html -->
+<!-- Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -18,7 +19,9 @@
 		</territories>
 	</localeDisplayNames>
 	<layout>
-		<orientation characters="right-to-left"/>
+		<orientation>
+			<characterOrder>right-to-left</characterOrder>
+		</orientation>
 	</layout>
 	<characters>
 		<exemplarCharacters>[ހ ށ ނ ރ ބ ޅ ކ އ ވ މ ފ ދ ތ ލ ގ ޏ ސ ޑ ޒ ޓ ޔ ޕ ޖ ޗ \u07A6 \u07A7 \u07A8 \u07A9 \u07AA \u07AB \u07AC \u07AD \u07AE \u07AF \u07B0]</exemplarCharacters>
@@ -87,7 +90,7 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd-MM-yyyy</pattern>
+							<pattern draft="unconfirmed">dd-MM-y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -147,7 +150,7 @@
 		</percentFormats>
 		<currencyFormats>
 			<currencyFormatLength>
-				<currencyFormat>
+				<currencyFormat type="standard">
 					<pattern draft="unconfirmed">¤ #,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -159,3 +162,4 @@
 		</currencies>
 	</numbers>
 </ldml>
+

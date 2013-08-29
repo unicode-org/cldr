@@ -12,7 +12,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localeSeparator draft="unconfirmed">، </localeSeparator>
+			<localeSeparator draft="unconfirmed">،</localeSeparator>
 		</localeDisplayPattern>
 		<languages>
 			<language type="af" draft="unconfirmed">ئه‌فریكای</language>
@@ -426,9 +426,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters>[ئ ا ب پ ت ج چ ح خ د ر ز ڕ ژ س ش ع غ ف ڤ ق ک گ ل ڵ م ن ە ھ و ۆ ی ێ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[\u200E \u200F \u064B \u064C \u064D \u064E \u064F \u0650 \u0651 \u0652 ء آ أ ؤ إ ئ ا ب ة ث ذ ص ض ط ظ ك ه ى ي]</exemplarCharacters>
-		<exemplarCharacters type="index" draft="unconfirmed">[ئ ا ب پ ت ج چ ح خ د ر ز ڕ ژ س ش ع غ ف ڤ ق ک گ ل ڵ م ن ە ھ و ۆ ی ێ]</exemplarCharacters>
+		<exemplarCharacters>[ئ ا ب پ ت ج چ ح خ د ر ز ڕ ژ س ش ع غ ف ڤ ق ک گ ل ڵ م ن ھ ە و ۆ ی ێ]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[\u200E\u200F \u064B \u064C \u064D \u064E \u064F \u0650 \u0651 \u0652 ء آ أ ؤ إ ئ ا ب ة ث ذ ص ض ط ظ ك ه ى ي]</exemplarCharacters>
+		<exemplarCharacters type="index" draft="unconfirmed">[ئ ا ب پ ت ج چ ح خ د ر ز ڕ ژ س ش ع غ ف ڤ ق ک گ ل ڵ م ن ھ ە و ۆ ی ێ]</exemplarCharacters>
 	</characters>
 	<dates>
 		<calendars>
@@ -555,12 +555,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d" draft="unconfirmed">E، dی MMM – E، dی MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="y" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">d/M/y – d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="unconfirmed">E، d/M/yy – E، d/M/yy</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">E، d/M/yy – E، d/M/yy</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">E، d/M/yy – E، d/M/yy</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">E، d/M/y – E، d/M/y</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E، d/M/y – E، d/M/y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E، d/M/y – E، d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M" draft="unconfirmed">MMM–MMMی y</greatestDifference>
@@ -779,12 +779,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d" draft="unconfirmed">E، dی MMM – E، dی MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="y" draft="unconfirmed">d/M/yy – d/M/yy</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">d/M/y – d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="unconfirmed">E، d/M/yy – E، d/M/yy</greatestDifference>
-							<greatestDifference id="M" draft="unconfirmed">E، d/M/yy – E، d/M/yy</greatestDifference>
-							<greatestDifference id="y" draft="unconfirmed">E، d/M/yy – E، d/M/yy</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">E، d/M/y – E، d/M/y</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">E، d/M/y – E، d/M/y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">E، d/M/y – E، d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M" draft="unconfirmed">MMM–MMMی y</greatestDifference>
@@ -899,8 +899,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</otherNumberingSystems>
 		<symbols numberSystem="latn">
 			<percentSign draft="unconfirmed">٪</percentSign>
-			<plusSign>‎+</plusSign><!-- includes LRM before sign -->
-			<minusSign>‎-</minusSign><!-- includes LRM before sign (002D) -->
+			<plusSign>‎+</plusSign> <!-- includes LRM before sign -->
+			<minusSign>‎-</minusSign> <!-- includes LRM before sign (002D) -->
 		</symbols>
 		<currencyFormats>
 			<unitPattern count="one" draft="unconfirmed">{0} {1}</unitPattern>

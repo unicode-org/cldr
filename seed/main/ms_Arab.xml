@@ -14,7 +14,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>، </localeSeparator>
+			<localeSeparator>،</localeSeparator>
 			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
@@ -129,8 +129,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters draft="contributed">[ ء آ أ ؤ إ ئ ا ب ة ت ث ج چ ح خ د ذ ر ز س ش ص ض ط ظ ع غ ڠ ف ڤ ق ك ݢ ل م ن ڽ ه و ۏ ى ي ]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary" draft="contributed">[ ڬ ۑ ]</exemplarCharacters>
+		<exemplarCharacters draft="contributed">[ء آ أ ؤ إ ئ ا ب ة ت ث ج چ ح خ د ذ ر ز س ش ص ض ط ظ ع غ ڠ ف ڤ ق ك ݢ ل م ن ڽ ه و ۏ ى ي]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="contributed">[ڬ ۑ]</exemplarCharacters>
 		<ellipsis type="final" draft="contributed">{0}…</ellipsis>
 		<ellipsis type="initial" draft="contributed">…{0}</ellipsis>
 		<ellipsis type="medial" draft="contributed">{0}…{1}</ellipsis>
@@ -408,18 +408,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">M/yy – M/yy</greatestDifference>
-							<greatestDifference id="y">M/yy – M/yy</greatestDifference>
+							<greatestDifference id="M">M/y – M/y</greatestDifference>
+							<greatestDifference id="y">M/y – M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">d/M/yy – d/M/yy</greatestDifference>
-							<greatestDifference id="M">d/M/yy – d/M/yy</greatestDifference>
-							<greatestDifference id="y">d/M/yy – d/M/yy</greatestDifference>
+							<greatestDifference id="d">d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="M">d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="y">d/M/y – d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E، d/M/yy – E، d/M/yy</greatestDifference>
-							<greatestDifference id="M">E، d/M/yy – E، d/M/yy</greatestDifference>
-							<greatestDifference id="y">E، d/M/yy – E، d/M/yy</greatestDifference>
+							<greatestDifference id="d">E، d/M/y – E، d/M/y</greatestDifference>
+							<greatestDifference id="M">E، d/M/y – E، d/M/y</greatestDifference>
+							<greatestDifference id="y">E، d/M/y – E، d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">MMM–MMM y</greatestDifference>
@@ -517,7 +517,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd/MM/yyyy</pattern>
+							<pattern>dd/MM/y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -661,18 +661,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
-							<greatestDifference id="M">M/yy – M/yy</greatestDifference>
-							<greatestDifference id="y">M/yy – M/yy</greatestDifference>
+							<greatestDifference id="M">M/y – M/y</greatestDifference>
+							<greatestDifference id="y">M/y – M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMd">
-							<greatestDifference id="d">d/M/yy – d/M/yy</greatestDifference>
-							<greatestDifference id="M">d/M/yy – d/M/yy</greatestDifference>
-							<greatestDifference id="y">d/M/yy – d/M/yy</greatestDifference>
+							<greatestDifference id="d">d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="M">d/M/y – d/M/y</greatestDifference>
+							<greatestDifference id="y">d/M/y – d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d">E، d/M/yy – E، d/M/yy</greatestDifference>
-							<greatestDifference id="M">E، d/M/yy – E، d/M/yy</greatestDifference>
-							<greatestDifference id="y">E، d/M/yy – E، d/M/yy</greatestDifference>
+							<greatestDifference id="d">E، d/M/y – E، d/M/y</greatestDifference>
+							<greatestDifference id="M">E، d/M/y – E، d/M/y</greatestDifference>
+							<greatestDifference id="y">E، d/M/y – E، d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">MMM–MMM y</greatestDifference>
@@ -919,7 +919,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
-				<currencyFormat>
+				<currencyFormat type="standard">
 					<pattern>¤#,##0.00;(¤#,##0.00)</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

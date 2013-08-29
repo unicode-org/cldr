@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc. -->
-<!-- CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) -->
-<!-- For terms of use, see http://www.unicode.org/copyright.html -->
+<!-- Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -83,12 +84,12 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd.MM.yyyy</pattern>
+							<pattern draft="unconfirmed">dd.MM.y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd.MM.yyyy</pattern>
+							<pattern draft="unconfirmed">dd.MM.y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -124,7 +125,7 @@
 		</symbols>
 		<currencyFormats>
 			<currencyFormatLength>
-				<currencyFormat>
+				<currencyFormat type="standard">
 					<pattern draft="unconfirmed">#,##0.00¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -136,3 +137,4 @@
 		</currencies>
 	</numbers>
 </ldml>
+

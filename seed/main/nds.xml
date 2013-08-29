@@ -13,7 +13,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<localeDisplayNames>
 		<localeDisplayPattern>
 			<localePattern draft="unconfirmed">{0} ({1})</localePattern>
-			<localeSeparator draft="unconfirmed">, </localeSeparator>
+			<localeSeparator draft="unconfirmed">,</localeSeparator>
 		</localeDisplayPattern>
 		<languages>
 			<language type="aa" draft="unconfirmed">Afar</language>
@@ -1111,7 +1111,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
-				<currencyFormat>
+				<currencyFormat type="standard">
 					<pattern draft="unconfirmed">#,##0.00 ¤</pattern>
 				</currencyFormat>
 			</currencyFormatLength>

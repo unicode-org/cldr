@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc. -->
-<!-- CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) -->
-<!-- For terms of use, see http://www.unicode.org/copyright.html -->
+<!-- Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -13,26 +14,26 @@
 		<languages>
 			<language type="bss">Akoose</language>
 			<language type="en">Akáálé</language>
-			<language type="fr">Frɛnsé</language>
+			<language type="fr">Frɛnsé</language>
 		</languages>
 		<scripts>
 			<script type="Latn">Akoose</script>
 		</scripts>
 		<territories>
-			<territory type="CM">Kamerûn</territory>
+			<territory type="CM">Kamerûn</territory>
 		</territories>
 		<keys>
-			<key type="currency">mɔné</key>
+			<key type="currency">mɔné</key>
 		</keys>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">Metric</measurementSystemName>
 		</measurementSystemNames>
 	</localeDisplayNames>
 	<characters>
-		<exemplarCharacters>[a á ā â ǎ b c d e é ē ê ě ɛ {ɛ́} {ɛ̄} {ɛ̂} {ɛ̌} ə {ə́} {ə̄} {ə̂} {ə̌} g h i í ī î ǐ j k ʼ l m ḿ n ń ŋ o ó ō ô ǒ ɔ {ɔ́} {ɔ̄} {ɔ̂} {ɔ̌} p s t u ú ū û ǔ w y z ']</exemplarCharacters>
+		<exemplarCharacters>[a á â ǎ ā b c d e é ê ě ē ə {ə\u0301} {ə\u0302} {ə\u030C} {ə\u0304} ɛ {ɛ\u0301} {ɛ\u0302} {ɛ\u030C} {ɛ\u0304} g h i í î ǐ ī j k l m ḿ n ń ŋ o ó ô ǒ ō ɔ {ɔ\u0301} {ɔ\u0302} {ɔ\u030C} {ɔ\u0304} p s t u ú û ǔ ū w y z ʼ]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[f q r v x]</exemplarCharacters>
-		<exemplarCharacters type="index">[A B C D E Ɛ Ə G H I J K ̍ L M N Ŋ O Ɔ  P S T U W Y Z]</exemplarCharacters>
-		<exemplarCharacters type="punctuation">[, . ; : ' &quot; ? !]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B C D E Ə Ɛ G H I J K L M N Ŋ O Ɔ P S T U W Y Z]</exemplarCharacters>
+		<exemplarCharacters type="punctuation">[, ; \: ! ? . ' &quot;]</exemplarCharacters>
 		<!-- <plurals>
 			 <pluralRule count="one">n is 1</pluralRule>
 			 </plurals>
@@ -118,20 +119,20 @@
 				<displayName>ngɔn</displayName>
 			</field>
 			<field type="week">
-				<displayName>sɔ̂ndé</displayName>
+				<displayName>sɔ̂ndé</displayName>
 			</field>
 			<field type="day">
 				<displayName>mbwɛ</displayName>
-				<relative type="-2">súúbɛ</relative>
-				<relative type="-1">chǎn ábe éʼtómé</relative>
+				<relative type="-2">súúbɛ</relative>
+				<relative type="-1">chǎn ábe éʼtómé</relative>
 				<relative type="0">chii</relative>
-				<relative type="1">chǎn ábe éʼhúɛʼ</relative>
+				<relative type="1">chǎn ábe éʼhúɛʼ</relative>
 			</field>
 			<field type="hour">
-				<displayName>háwa</displayName>
+				<displayName>háwa</displayName>
 			</field>
 			<field type="minute">
-				<displayName>menúte</displayName>
+				<displayName>menúte</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
@@ -166,24 +167,25 @@
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
-				<currencyFormat>
+				<currencyFormat type="standard">
 					<pattern>¤ #,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
 		<currencies>
 			<currency type="XAF">
-				<displayName>Frânke CFA</displayName>
+				<displayName>Frânke CFA</displayName>
 				<symbol>FCFA</symbol>
 			</currency>
 		</currencies>
 	</numbers>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="2">{0}, {1}</listPatternPart>
-			<listPatternPart type="end">{0} {1}</listPatternPart>
-			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 </ldml>
+

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc. -->
-<!-- CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) -->
-<!-- For terms of use, see http://www.unicode.org/copyright.html -->
+<!-- Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
 <ldml>
 	<identity>
 		<version number="$Revision$"/>
@@ -18,7 +19,9 @@
 		</territories>
 	</localeDisplayNames>
 	<layout>
-		<orientation characters="right-to-left"/>
+		<orientation>
+			<characterOrder>right-to-left</characterOrder>
+		</orientation>
 	</layout>
 	<characters>
 		<exemplarCharacters>[\u0740\u0743\u0744\u0747\u0748\u0749\u074A \u0741\u0745 \u0742\u0746 \u0711 \u0730 \u0731 \u0732 \u0733 \u0734 \u0735 \u0736 \u0737 \u0738 \u0739 \u073A \u073B \u073C \u073D \u073E \u073F ܃ ܄ ܅ ܆ ܇ ܈ ܉ ܁ ܂ ܀ ܊ ܋ ܌ ܍ ܐ ܒ ܓ ܔ ܖ ܕ ܗ ܘ ܙ ܚ ܛ ܜ ܝ ܞ ܟ ܠ ܡ ܢ ܣ ܤ ܥ ܦ ܧ ܨ ܩ ܪ ܫ ܬ]</exemplarCharacters>
@@ -105,12 +108,12 @@
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd/MM/yyyy</pattern>
+							<pattern draft="unconfirmed">dd/MM/y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
 						<dateFormat>
-							<pattern draft="unconfirmed">dd/MM/yyyy</pattern>
+							<pattern draft="unconfirmed">dd/MM/y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -149,7 +152,7 @@
 		</decimalFormats>
 		<currencyFormats>
 			<currencyFormatLength>
-				<currencyFormat>
+				<currencyFormat type="standard">
 					<pattern draft="unconfirmed">¤ #,##0.00;¤ #,##0.00-</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
@@ -161,3 +164,4 @@
 		</currencies>
 	</numbers>
 </ldml>
+

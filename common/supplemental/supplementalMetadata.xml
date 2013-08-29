@@ -24,7 +24,6 @@ ldml alternate attributeOrder attributes blockingItems calendarPreference calend
             <attributes attribute="_q"/>
             <attributes element="collation" attribute="type" attributeValue="standard"/>
             <attributes element="currency" attribute="type" attributeValue="standard"/>
-            <attributes element="currencyFormat" attribute="type" attributeValue="standard"/>
             <attributes element="dateFormat" attribute="type" attributeValue="standard"/>
             <attributes element="dateTimeFormat" attribute="type" attributeValue="standard"/>
             <attributes element="decimalFormat" attribute="type" attributeValue="standard"/>
@@ -741,11 +740,12 @@ ldml alternate attributeOrder attributes blockingItems calendarPreference calend
             <attributeValues elements="currency" attributes="before from to">$date</attributeValues>
             <attributeValues elements="currency" attributes="iso4217" type="bcp47">cu</attributeValues>
             <attributeValues elements="currency" attributes="type" type="bcp47">cu</attributeValues>
-            <attributeValues elements="currencyFormat dateFormat dateTimeFormat decimalFormat percentFormat scientificFormat timeFormat" attributes="type">$format</attributeValues>
+            <attributeValues elements="currencyFormat" attributes="type" type="choice">standard accounting</attributeValues>
             <attributeValues elements="currencyFormats decimalFormats percentFormats scientificFormats" attributes="numberSystem" type="bcp47">nu</attributeValues>
             <attributeValues elements="cyclicName" attributes="type" type="regex">[0-9]+</attributeValues>
             <attributeValues elements="cyclicNameContext" attributes="type" order="given">format stand-alone</attributeValues>
             <attributeValues elements="cyclicNameSet" attributes="type" type="choice">years months days dayParts zodiacs</attributeValues>
+            <attributeValues elements="dateFormat dateTimeFormat decimalFormat percentFormat scientificFormat timeFormat" attributes="type">$format</attributeValues>
             <attributeValues elements="dateFormatLength timeFormatLength dateTimeFormatLength decimalFormatLength scientificFormatLength percentFormatLength currencyFormatLength" attributes="type" order="given">full long medium short</attributeValues>
             <attributeValues elements="day" attributes="type" order="given">sun mon tue wed thu fri sat</attributeValues>
             <attributeValues elements="dayWidth" attributes="type" order="given">abbreviated narrow short wide</attributeValues>

@@ -10,6 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<generation date="$Date$"/>
 	<coverageLevels>
+		<coverageVariable key="%acctPattern" value="[@type='accounting']/pattern[@type='standard']"/>
 		<coverageVariable key="%allWidths" value="(wide|abbreviated|narrow)"/>
 		<coverageVariable key="%arabextLanguages" value="(fa|pa|ps|uz)"/>
 		<coverageVariable key="%CJK_Languages" value="(ja|ko|zh)"/>
@@ -296,7 +297,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%arabextLanguages" value="80" match="numbers/symbols[@numberSystem='arabext']/%numberSymbols80"/>
 		<coverageLevel inLanguage="%devaLanguages" value="80" match="numbers/symbols[@numberSystem='deva']/%numberSymbols80"/>
 		<coverageLevel inLanguage="dz" value="80" match="numbers/symbols[@numberSystem='tibt']/%numberSymbols80"/>
-		<coverageLevel value="80" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%stdPattern([@alt='accounting'])"/>
+		<coverageLevel value="80" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%acctPattern"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='%currency80']/(symbol|displayName([@count='${Target-Plurals}'])?)"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='%currency80']/symbol[@alt='narrow']"/>
 		<coverageLevel value="80" match="numbers/miscPatterns[@numberSystem='latn']/pattern[@type='[^']++']"/>

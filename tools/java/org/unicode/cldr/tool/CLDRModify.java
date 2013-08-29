@@ -1073,19 +1073,18 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('s', "create alt accounting", new CLDRFilter() {
+        fixList.add('s', "fix alt accounting", new CLDRFilter() {
             @Override
             public void handlePath(String xpath) {
-                if (!xpath.contains("/currencyFormatLength/")) return;
+                parts.set(xpath);
+                if (!parts.containsAttributeValue("alt", "accounting")) return;
+                String oldFullXPath = cldrFileToFilter.getFullXPath(xpath);
                 String value = cldrFileToFilter.getStringValue(xpath);
-                if (!value.contains("(")) return;
-                String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-                fullparts.set(fullXPath);
-                fullparts.addAttribute("alt", "accounting");
-                add(fullparts.toString(), value, "Move old currency format to accounting");
-
-                String newValue = value.split(";")[0];
-                replace(fullXPath, fullXPath, newValue, "Remove negative accounting format");
+                fullparts.set(oldFullXPath);
+                fullparts.removeAttribute("pattern", "alt");
+                fullparts.setAttribute("currencyFormat","type","accounting");
+                String newFullXPath = fullparts.toString();
+                replace(oldFullXPath, newFullXPath, value, "Move alt=accounting value to new path");
             }
         });
 

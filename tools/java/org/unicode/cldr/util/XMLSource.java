@@ -1343,8 +1343,6 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             addFallbackCode("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraNarrow/era[@type=\"1\"]", "CE", "variant");
 
             String defaultCurrPattern = "¤ #,##0.00"; // use root value; can't get the locale's currency pattern in this static context; "" and "∅∅∅" cause errors.
-            addFallbackCode("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]/currencyFormatLength/currencyFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", defaultCurrPattern, "accounting");
-
             for (int i = 0; i < keyDisplayNames.length; ++i) {
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/keys/key" +

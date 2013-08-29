@@ -2444,6 +2444,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
     static MapComparator<String> unitLengthOrder = new MapComparator<String>().add(
             "long", "short", "narrow").freeze();
+    static MapComparator<String> currencyFormatOrder = new MapComparator<String>().add(
+            "standard", "accounting").freeze();
     static Comparator<String> zoneOrder = StandardCodes.make().getTZIDComparator();
 
     static Set<String> orderedElements = Collections.unmodifiableSet(new HashSet<String>(Arrays
@@ -2540,6 +2542,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 comp = zoneOrder;
             } else if (element.equals("listPatternPart")) {
                 comp = listPatternOrder;
+            } else if (element.equals("currencyFormat")) {
+                comp = currencyFormatOrder;
             } else if (element.equals("unitLength")) {
                 comp = unitLengthOrder;
             }
@@ -2639,7 +2643,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 { "decimalFormat", "type", "standard" },
                 { "scientificFormat", "type", "standard" },
                 { "percentFormat", "type", "standard" },
-                { "currencyFormat", "type", "standard" },
+                // { "currencyFormat", "type", "standard" },
                 { "pattern", "type", "standard" },
                 { "currency", "type", "standard" },
                 // {"collation", "type", "standard"},

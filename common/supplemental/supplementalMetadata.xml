@@ -1829,7 +1829,7 @@ ldml alternate attributeOrder attributes blockingItems calendarPreference calend
             <deprecatedItems elements="unit" attributes="type" values="day hour minute month second week year day-future day-past hour-future hour-past minute-future minute-past month-future month-past second-future second-past week-future week-past year-future year-past"/>
         </deprecated>
         <distinguishing>
-             <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem"/>
+             <distinguishingItems attributes="key request id _q registry alt iso4217 iso3166 mzone from to type numberSystem count"/>
              <distinguishingItems exclude="true" elements="default measurementSystem mapping abbreviationFallback preferenceOrdering" attributes="type"/>
          </distinguishing>
         <blocking>

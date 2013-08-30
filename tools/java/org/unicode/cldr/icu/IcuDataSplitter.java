@@ -15,6 +15,7 @@ import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
 
 public class IcuDataSplitter {
     private static final String VERSION_PATH = "/Version";
+    private static final String PARENT_PATH = "/%%Parent";
 
     private final List<SplitInfo> splitInfos;
     private final Map<String, File> targetDirs;
@@ -93,7 +94,7 @@ public class IcuDataSplitter {
             List<String[]> values = entry.getValue();
             boolean wasSplit = false;
             // Paths that should be copied to all directories.
-            if (rbPath.equals(VERSION_PATH)) {
+            if (rbPath.equals(VERSION_PATH)||rbPath.equals(PARENT_PATH)) {
                 for (String dir : dirs) {
                     splitData.get(dir).addAll(rbPath, values);
                 }

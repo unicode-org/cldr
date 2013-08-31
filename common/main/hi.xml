@@ -4458,7 +4458,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
 				<decimalFormat>
-					<pattern>#,##0.###</pattern>
+					<pattern>#,##,##0.###</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 			<decimalFormatLength type="long">
@@ -4528,14 +4528,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<percentFormats numberSystem="latn">
 			<percentFormatLength>
 				<percentFormat>
-					<pattern>#,##0%</pattern>
+					<pattern>#,##,##0%</pattern>
 				</percentFormat>
 			</percentFormatLength>
 		</percentFormats>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>¤#,##0.00</pattern>
+					<pattern>¤#,##,##0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>

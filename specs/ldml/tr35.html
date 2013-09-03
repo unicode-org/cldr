@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">08-19</span></td>
+			<td>2013-<span class="changed">09-03</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -1164,11 +1164,13 @@ a single alphanumeric character subtag assigned by IANA.  </p>
           There is no formal limit in the number of characters, although practically anything above 1 will be rare,
           and anything longer than 4 might be useless.  Repetition is allowed, for example, 0061-0061 ("aa") is a Valid
           type value for "vt", since the sequence may be a collating element. Order is vital: 0061-0062 ("ab") is
-          different than 0062-0061 ("ba").</p>
+          different than 0062-0061 ("ba").
+          <span class="changed">Note that for variableTop any character sequence must be
+          a contraction which yields exactly one primary weight.</span></p>
         <p>For example,</p>
         <blockquote>
-          <p><strong>en-u-vt-0061</strong> : this indicates English, with any characters sorting at or below &quot;a&quot;  (at a primary level) considered Variable.</p>
-          <p><strong>en-u-vt-0061-0065</strong> : this indicates English, with any characters sorting at or below the sequence &quot;ae&quot;    (at a primary level) considered Variable. </p>
+          <p><strong>en-u-vt-<span class="changed">00A4</span></strong> : this indicates English, with any characters sorting at or below &quot;<span class="changed">¤</span>&quot;  (at a primary level) considered Variable.</p>
+          <p class="removed"><strong>en-u-vt-0061-0065</strong> : this indicates English, with any characters sorting at or below the sequence &quot;ae&quot;    (at a primary level) considered Variable. </p>
         </blockquote>
         <p>By default in UCA, variable characters are ignored in sorting at a primary, secondary, and tertiary level. But in CLDR, they are not ignorable by default.
           For more information, see <a href="tr35-collation.html#Setting_Options">Collation: Section 3.3 <em>Setting Options</em></a>.</p>

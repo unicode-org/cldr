@@ -3199,8 +3199,8 @@ decimal?, group?, special*)) &gt;</pre>
 	</table>
 	<p>Quoting is done using &#39; characters, as in date or number formats.</p>
 	<h3><a name="Element_default" href="#Element_default">8.4 Element default</a></h3>
-	<p><b>Note:</b> <i>This structure is deprecated <span class="removed">except when used for &lt;collation&gt;</span>.</i>
-	<span class="changed">Use replacement structure instead, such as the &lt;defaultCollation&gt; element.</p>
+	<p><b>Note:</b> <i>This structure is deprecated<span class="removed"> except when used for &lt;collation&gt;</span>.</i>
+	<span class="changed">Use replacement structure instead, such as the &lt;defaultCollation&gt; element.</span></p>
     <p>In some cases, a number of elements are present. The default element can be used to indicate which of them is the default, in the absence of other information. 
       The value of the choice attribute is to match the value of the type attribute for the selected item.</p>
     <pre>&lt;timeFormats&gt;
@@ -4087,6 +4087,10 @@ decimal?, group?, special*)) &gt;</pre>
     <li>Added alt=&quot;variant&quot; for &lt;era&gt;. [ticket <a href="http://unicode.org/cldr/trac/ticket/649">#649</a>]</li>
     <li>Specified that the index exemplar set may only include characters whose lowercase versions are in the main or auxiliary
     exemplar sets. [ticket <a href="http://unicode.org/cldr/trac/ticket/6202">#6202</a>]</li>
+    <li>Deprecated XML syntax for collation tailorings. [ticket <a href="http://unicode.org/cldr/trac/ticket/5551">#5551</a>]</li>
+    <li>Deprecated default element for collation too (previously deprecated for other usages); replaced by defaultCollation
+    element. [ticket <a href="http://unicode.org/cldr/trac/ticket/5679">#5679</a>]</li>
+    <li>Deprecated base element for collation. [ticket <a href="http://unicode.org/cldr/trac/ticket/6332">#6332</a>]</li>
   </ul>
 
   <h3>Revision 31</h3>

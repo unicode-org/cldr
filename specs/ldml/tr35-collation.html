@@ -126,10 +126,11 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
 <h2><a name="Contents" href="#Contents">Contents of Part 5, Collation</a></h2>
 	<ul class="toc">
-		<li>1 <a href="#CLDR_Collation">CLDR Collation</a></li>
+		<li>1 <a href="#CLDR_Collation">CLDR Collation</a>
                   <ul class="toc">
                     <li class="changed">1.1 <a href="#CLDR_Collation_Algorithm">CLDR Collation Algorithm</a></li>
                   </ul>
+        </li>
 		<li>2 <a href="#Root_Collation">Root Collation</a>
                   <ul class="toc">
                     <li>2.1 <a href="#Root_Data_Files">Root Collation Data Files</a></li>
@@ -590,7 +591,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         For a detailed comparison see the <i><a href="http://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings">CLDR 23 version of this document</a></i>.</p>
         <p class="reviewnote">Please ignore minor style and wording issues for now.
         This chapter has other, more significant problems and needs to be mostly rewritten, scheduled for CLDR 24.</p>
-	<p class="dtd">&lt;!ELEMENT collations (alias | (<span class="changed">defaultCollation?,</span> default*, collation*, special*)) &gt;</p>
+	<p class="dtd">&lt;!ELEMENT collations (alias | (<span class="changed">defaultCollation?</span><span class="removed">default*</span>, collation*, special*)) &gt;</p>
 	<p>This element of the LDML format
 	contains one or more <span class="element">collation</span> elements, distinguished by type.
 	Each <span class="element">collation</span> contains

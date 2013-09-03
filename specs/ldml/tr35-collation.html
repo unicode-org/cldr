@@ -342,7 +342,7 @@ then the p|c mapping should "win" over any contractions that start with c but do
   <p>Ten contractions are added for Tibetan:
   Two to fulfill <a href="http://www.unicode.org/reports/tr10/#WF5">well-formedness condition 5</a>,
   and eight more to preserve the default order for Tibetan.
-  For details see <i>UTS #10, Section 3.6.4,
+  For details see <i>UTS #10, Section 3.8.2,
   <a href="http://www.unicode.org/reports/tr10/#Well_Formed_DUCET">Well-Formedness of the DUCET</a></i>.</p>
 
   <h3><a name="tailored_noncharacter_weights" href="#tailored_noncharacter_weights">Tailored noncharacter weights</a></h3>
@@ -676,11 +676,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	or</span> rules that specify a certain sort order, as a tailoring of the root order,
 	<span class="changed">or both</span>.</p>
 
-    <p>To allow implementations in reduced memory environments to use CJK sorting,
-    there are also short forms of each of these collation sequences.
-    These provide for the most common characters in common use,
-    and are marked with <span class="attribute">alt</span>=&quot;<span class="attributeValue">short</span>&quot;.</p>
-
   <p class="removed">There are two syntaxes for specifying collation rules:
   the <em>basic collation syntax</em> and the <em>XML collation syntax</em>.
   Both have the same functionality.
@@ -695,6 +690,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
     <li>zh.xml: <code>&lt;defaultCollation&gt;pinyin&lt;/defaultCollation&gt;</code></li>
     <li>zh_Hant.xml: <code>&lt;defaultCollation&gt;stroke&lt;/defaultCollation&gt;</code></li>
   </ul>
+
+    <p>To allow implementations in reduced memory environments to use CJK sorting,
+    there are also short forms of each of these collation sequences.
+    These provide for the most common characters in common use,
+    and are marked with <span class="attribute">alt</span>=&quot;<span class="attributeValue">short</span>&quot;.</p>
 
   <p class="note"><b>Note:</b></p>
 	<ul>
@@ -738,7 +738,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 <h3><a name="Setting_Options" href="#Setting_Options">3.3 Setting Options</a></h3>
 	<p><span class="removed">In XML syntax, these</span>
 	<span class="changed">The following parametric settings</span> are attributes of &lt;settings&gt;.
-	For example, &lt;setting strength=&quot;secondary&quot;&gt; will only compare strings based on their primary and secondary weights.
+	For example, &lt;settings strength=&quot;secondary&quot;&gt; will only compare strings based on their primary and secondary weights.
 	In <span class="changed">rule</span> syntax, these are of the form [<em>keyword</em> <em>value</em>].</p>
 	<p>If the attribute is not present, the CLDR default (or the default for the locale, if there is one) is used.
 	That  default is listed in bold italics.
@@ -857,7 +857,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			  [caseLevel on]<br>
             </code></td>
 			<td rowspan="2">If set to <strong>on</strong><i>,</i> a level consisting only of case characteristics will be inserted in front of tertiary level, as a &quot;Level 2.5&quot;. To ignore accents but take case 
-			into account, set strength to <strong>primary</strong> and case level to <strong>on</strong>. For details, see <em>Section 3.13, <a href="#Case_Parameters">Case Parameters</a></em>.</td>
+			into account, set strength to <strong>primary</strong> and case level to <strong>on</strong>.
+			For details, see <em>Section 3.13, <a href="#Case_Parameters">Case Parameters</a></em>.</td>
 		</tr>
 		<tr>
 		  <td>false</td>
@@ -872,7 +873,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			  <br>
 		    [caseFirst off]</code></td>
 			<td rowspan="3">If set to <strong>upper</strong>, causes upper case to sort before lower case. If set to <strong>lower</strong>, causes lower case to sort before upper case. Useful for 
-			locales that have already supported ordering but require different order of cases. Affects case and tertiary levels. For details, see <em>Section 3.13, <a href="#Case_Parameters">Case Parameters</a></em>.</td>
+			locales that have already supported ordering but require different order of cases. Affects case and tertiary levels.
+			For details, see <em>Section 3.13, <a href="#Case_Parameters">Case Parameters</a></em>.</td>
 		</tr>
 		<tr>
 		  <td>lower</td>
@@ -890,8 +892,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<td rowspan="2"><code>		    hiragana­Quaternary = &quot;<span style="color: blue">on</span>&quot;			<br>
 			  <br>
 		    [hiraganaQ on]			</code></td>
-			<td rowspan="2">Controls special treatment of Hiragana code points on quaternary level. If turned <strong>on</strong>, Hiragana codepoints will get lower values than all 
-			the other non-variable code points in <strong>shifted</strong>. That is, the normal Level 4 value for a regular collation element is FFFF, as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section 3.6.2, Variable Weighting</em>. This is changed to FFFE for [:script=Hiragana:] characters. The strength must be greater or equal than quaternary if this attribute is to have any effect.</td>
+			<td rowspan="2">Controls special treatment of Hiragana code points on quaternary level.
+			If turned <strong>on</strong>, Hiragana codepoints will get lower values than all 
+			the other non-variable code points in <strong>shifted</strong>.
+			That is, the normal Level 4 value for a regular collation element is FFFF,
+			as described in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
+			<em>Section 3.6, Variable Weighting</em>.
+			This is changed to FFFE for [:script=Hiragana:] characters.
+			The strength must be greater or equal than quaternary if this attribute is to have any effect.</td>
 		</tr>
 		<tr>
 		  <td>false</td>
@@ -1671,7 +1679,8 @@ This is used to modify the collation element.</p>
 
 
 
-<p>Note the special case weights when s = 0. They ensure the construction of well-formed case and tertiay weights. For details, see <em>Section 3.7, Well-Formed Collation Element Tables</em> in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</p>
+<p>Note the special case weights when s = 0. They ensure the construction of well-formed case and tertiay weights.
+For details, see <em>Section 3.7, Well-Formed Collation Element Tables</em> in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</p>
 <h5>Tailored Strings</h5>
 <p>Characters and strings that are tailored <span class="removed">(e.g., via LDML/XML collation syntax or basic collation syntax)</span>
 have case values computed from their UCD properties.

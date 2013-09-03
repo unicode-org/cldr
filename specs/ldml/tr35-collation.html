@@ -385,6 +385,9 @@ then the p|c mapping should "win" over any contractions that start with c but do
   <p>The CLDR root collation data files are in the CLDR repository and release,
   under the path <a href="http://unicode.org/repos/cldr/trunk/common/uca/">common/uca/</a>.</p>
 
+  <p class="changed">For most data files there are <strong>_SHORT</strong> versions available.
+  They contain the same data but only minimal comments, to reduce the file sizes.</p>
+
   <p>Comments with DUCET-style weights in files other than allkeys_CLDR.txt <span class="changed">and allkeys_DUCET.txt</span>
   use the weights defined in allkeys_CLDR.txt.</p>
   <ul>
@@ -455,6 +458,14 @@ then the p|c mapping should "win" over any contractions that start with c but do
   <blockquote>
     <p>Provides the version number of the UCA table.</p>
   </blockquote>
+
+  <pre class="changed">[Unified_Ideograph 4E00..9FCC FA0E..FA0F FA11 FA13..FA14 FA1F FA21 FA23..FA24 FA27..FA29 3400..4DB5 20000..2A6D6 2A700..2B734 2B740..2B81D]</pre>
+  <blockquote>
+    <p class="changed">Lists the ranges of Unified_Ideograph characters in collation order.
+    They map to collation elements with
+    <a href="http://www.unicode.org/reports/tr10/#Implicit_Weights">implicit (constructed) primary weights</a>.</p>
+  </blockquote>
+
   <pre>0000; [,,]     # Zyyy Cc       [0000.0000.0000]        * &lt;NULL&gt;</pre>
   <blockquote>
     <p>Provides a weight line. The first element (before the &quot;;&quot;) is a hex codepoint sequence. 
@@ -501,28 +512,81 @@ FFFF; [EF FE, 05, 05]  # Special HIGHEST primary, for ranges</pre>
   <blockquote>
     <p>The two tailored noncharacters have their own weights.</p>
   </blockquote>
-  <pre># SPECIAL FINAL VALUES for Script Reordering
+
+  <pre class="changed">
+F967; [U+4E0D]  # Hani Lo       [FB40.0020.0002][CE0D.0000.0000]        * CJK COMPATIBILITY IDEOGRAPH-F967
+2F02; [U+4E36, 10]      # Hani So       [FB40.0020.0004][CE36.0000.0000]        * KANGXI RADICAL DOT
+2E80; [U+4E36, 70, 20]  # Hani So       [FB40.0020.0004][CE36.0000.0000][0000.00FC.0004]        * CJK RADICAL REPEAT</pre>
+  <blockquote>
+    <p class="changed">Some collation elements are specified by reference to other mappings.
+    This is particularly useful for Han characters which are given implicit/constructed primary weights;
+    the reference to a Unified_Ideograph makes these mappings independent of implementation details.
+    This technique may also be used in other mappings
+    to show the relationship of character variants.</p>
+    <p class="changed">The referenced character must have a mapping listed earlier in the file,
+    or the mapping must have been defined via the [Unified_Ideograph] data line.
+    The referenced character must map to exactly one collation element.</p>
+    <p class="changed"><code>[U+4E0D]</code> copies U+4E0D’s entire collation element.
+    <code>[U+4E36, 10]</code> copies U+4E36’s primary and secondary weights
+    and specifies a different tertiary weight.
+    <code>[U+4E36, 70, 20]</code> only copies U+4E36’s primary weight
+    and specifies other secondary and tertiary weights.</p>
+  </blockquote>
+
+  <pre class="removed"># SPECIAL FINAL VALUES for Script Reordering
 FDD0 0042; [05 FE, 05, 05]     # Special final value for reordering token
 FDD0 0043; [0C FE, 05, 05]     # Special final value for reordering token</pre>
   <blockquote>
-    <p>There are special values assigned to code point sequences FDD0+X.
+    <p class="removed">There are special values assigned to code point sequences FDD0+X.
     These sequences are simply used to communicate special values, and can be eliminated.
     For the reordering values, the purpose is to make sure that there is
     a &quot;high&quot; weight at the end of each reordering group.</p>
   </blockquote>
-  <pre>...
+
+  <pre class="changed">
+FDD1 00A0;      [03 02 02, 05, 05]      # SPACE first primary starts reordering group
+FDD1 03A9;      [5D 04 02, 05, 05]      # GREEK first primary starts reordering group (compressible)
+FDD1 03E2;      [5D 64 02, 05, 05]      # COPTIC first primary</pre>
+  <blockquote>
+    <p class="changed">These are special mappings with primaries at
+    the boundaries of scripts and reordering groups.
+    They serve as tailoring boundaries, so that tailoring near the first or last character
+    of a script or group places the tailored item into the same group.
+    Beginning with CLDR 24, each of these is a contraction of U+FDD1 with the script sample character,
+    mapping to the first possible primary weight per script or group.
+    They can be enumerated for implementations of <a href="#Collation_Indexes">Collation Indexes</a>.
+    (Earlier versions mapped contractions with U+FDD0 to
+    the last primary weights of each group but not each script.)</p>
+  </blockquote>
+
+  <pre class="changed">
+FDD0 0034;      [11, 05, 05]    # lead byte for numeric sorting</pre>
+  <blockquote>
+    <p class="changed">This mapping specifies the lead byte for numeric sorting.
+    It must be different from the lead byte of any other primary weight,
+    otherwise numeric sorting would generate ill-formed collation elements.
+    Therefore, this mapping itself must be excluded from the set of regular mappings.
+    This value can be ignored by implementations that do not support numeric sorting.
+    (Other contractions with U+FDD0 can normally be ignored altogether.)</p>
+  </blockquote>
+
+  <pre>
 # HOMELESS COLLATION ELEMENTS
 FDD0 0063; [, 97, 3D]       # [15E4.0020.0004] [1844.0020.0004] [0000.0041.001F]    * U+01C6 LATIN SMALL LETTER DZ WITH CARON
 FDD0 0064; [, A7, 09]       # [15D1.0020.0004] [0000.0056.0004]     * U+1DD7 COMBINING LATIN SMALL LETTER C CEDILLA
 FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LATIN SMALL LETTER G WITH OBLIQUE STROKE</pre>
   <blockquote>
     <p>The DUCET has some weights that don't correspond directly to a character.
-    To allow for implementations to have a character associated with each weight
+    To allow for implementations to have a <span class="removed">character associated with each weight</span>
+    <span class="changed">mapping for each collation element</span>
     (necessary for certain implementations of tailoring),
-    this requires the construction of special sequences for those weights.</p>
-    <p>Next, a number of tables are defined.
-    The function of each of the tables is summarized afterwards.</p>
+    this requires the construction of special sequences for those weights.
+    <span class="changed">These collation elements can normally be ignored.</span></p>
   </blockquote>
+
+  <p>Next, a number of tables are defined.
+  The function of each of the tables is summarized afterwards.</p>
+
   <pre># VALUES BASED ON UCA
 ...
 [first regular [0D 0A, 05, 05]] # U+0060 GRAVE ACCENT
@@ -542,13 +606,16 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 [top_byte     03      SPACE ] #       [9]     SPACE=1 Cc=6 Zl=1 Zp=1 Zs=1
 ...</pre>
   <blockquote>
-    <p>This table maps from the first bytes of the fractional weights to a reordering token.
-    The format is &quot;[top_byte        &quot; byte-value reordering-token &quot;COMPRESS&quot;? &quot;]&quot;.
+    <p><span class="changed">This table defines the reordering groups, for script reordering.</span>
+    The table maps from the first bytes of the fractional weights to a reordering token.
+    The format is &quot;[top_byte &quot; byte-value reordering-token &quot;COMPRESS&quot;? &quot;]&quot;.
     The &quot;COMPRESS&quot; value is present when
     there is only one byte in the reordering token,
     and primary-weight compression can be applied.
     Most reordering tokens are script values;
-    others are special-purpose values, such as PUNCTUATION.</p>
+    others are special-purpose values, such as PUNCTUATION.
+    <span class="changed">Beginning with CLDR 24, this table precedes the regular mappings,
+    so that parsers can use this information while processing and optimizing mappings.</span></p>
   </blockquote>
   <pre># Reordering Tokens =&gt; Top Bytes
 [reorderingTokens     Arab    61=910 62=910 ]
@@ -576,7 +643,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 [fixed first trail byte E5]
 [fixed last trail byte EF]
 [fixed first special byte F0]
-[fixed last special byte FF]</pre>
+[fixed last special byte FF]
+
+<span class="changed">[fixed secondary common byte 05]
+[fixed last secondary common byte 45]
+[fixed first ignorable secondary byte 80]
+
+[fixed tertiary common byte 05]
+[fixed first ignorable tertiary byte 3C]</span></pre>
   <blockquote>
     <p>The final table gives certain hard-coded byte values.
     The &quot;trail&quot; area is provided for implementation of the &quot;trailing weights&quot;

@@ -54,7 +54,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">08-19</span></td>
+			<td>2013-<span class="changed">09-03</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -385,11 +385,14 @@ then the p|c mapping should "win" over any contractions that start with c but do
   <p>The CLDR root collation data files are in the CLDR repository and release,
   under the path <a href="http://unicode.org/repos/cldr/trunk/common/uca/">common/uca/</a>.</p>
 
-  <p>Comments with DUCET-style weights in files other than allkeys_CLDR.txt
+  <p>Comments with DUCET-style weights in files other than allkeys_CLDR.txt <span class="changed">and allkeys_DUCET.txt</span>
   use the weights defined in allkeys_CLDR.txt.</p>
   <ul>
     <li><strong>allkeys_CLDR</strong> -
     A file that provides a remapping of UCA DUCET weights for use with CLDR.</li>
+    <li class="changed"><strong>allkeys_DUCET</strong> -
+    The same as DUCET allkeys.txt, but in alternate=non-ignorable sort order,
+    for easier comparison with allkeys_CLDR.txt.</li>
     <li><strong>FractionalUCA</strong> -
       A file that provides a remapping of UCA DUCET weights for use with CLDR.
       The weight values are <span class="removed">also modified to provide variable-width weights for compression.</span>

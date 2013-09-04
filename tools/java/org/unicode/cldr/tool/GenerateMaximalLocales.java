@@ -642,15 +642,19 @@ public class GenerateMaximalLocales {
         { "ti_Ethi", "ti_Ethi_ET" },
         { "und", "en_Latn_US" },
         { "und_Arab", "ar_Arab_EG" },
+        { "und_Arab_PK", "ur_Arab_PK" },
         { "und_Bopo", "zh_Bopo_TW" },
         { "und_Hani", "zh_Hani_CN" },
         { "und_Hani_CN", "zh_Hani_CN" },
         { "und_Latn", "en_Latn_US" },
+        { "und_Latn_NE", "ha_Latn_NE" },
         { "und_Latn_PH", "fil_Latn_PH" },
         { "und_ML", "bm_Latn_ML" },
         { "und_Latn_ML", "bm_Latn_ML" },
         { "und_MU", "mfe_Latn_MU" },
+        { "und_NE", "ha_Latn_NE" },
         { "und_PH", "fil_Latn_PH" },
+        { "und_PK", "ur_Arab_PK" },
         { "und_SO", "so_Latn_SO" },
         { "und_SS", "en_Latn_SS" },
         { "und_TK", "tkl_Latn_TK" },
@@ -730,6 +734,7 @@ public class GenerateMaximalLocales {
             { "gez", "Ethi", "ET" },
             { "ken", "Latn", "CM" },
             { "syr", "Syrc", "SY" },
+            { "und", "Arab", "PK" },
             { "wa", "Latn", "BE" }
         }) {
             maxData.add(additions[0], additions[1], additions[2], 1.0);

@@ -35,6 +35,7 @@ public class TestAll extends TestGroup {
                         "org.unicode.cldr.unittest.TestPathHeader",
                         "org.unicode.cldr.unittest.TestExternalCodeAPIs",
                         "org.unicode.cldr.unittest.TestMetadata",
+                        "org.unicode.cldr.unittest.TestScriptMetadata",
                         "org.unicode.cldr.unittest.TestComparisonBuilder",
                         "org.unicode.cldr.unittest.TestUtilities",
                         "org.unicode.cldr.unittest.NumberingSystemsTest",

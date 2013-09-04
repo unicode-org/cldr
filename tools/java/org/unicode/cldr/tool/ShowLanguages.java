@@ -95,11 +95,12 @@ public class ShowLanguages {
     static CLDRFile english = cldrFactory.make("en", true);
 
     public static void main(String[] args) throws IOException {
+        System.out.println("Writing into " + CHART_TARGET_DIR);
         org.unicode.cldr.draft.FileUtilities.copyFile(ShowLanguages.class, "index.css", CHART_TARGET_DIR);
         printLanguageData(cldrFactory, "index.html");
         // cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
         // printLanguageData(cldrFactory, "language_info2.txt");
-        System.out.println("Done");
+        System.out.println("Done - wrote into " + CHART_TARGET_DIR);
     }
 
     /**

@@ -1278,7 +1278,12 @@ public class StandardCodes {
     }
 
     public static boolean isScriptModern(String script) {
-        IdUsage idUsage = ScriptMetadata.getInfo(script).idUsage;
+        ScriptMetadata.Info info = ScriptMetadata.getInfo(script);
+        if(info == null) {
+            if(false) throw new IllegalArgumentException("No script metadata for: " + script);
+            return false;
+        }
+        IdUsage idUsage = info.idUsage;
         return idUsage != IdUsage.EXCLUSION && idUsage != idUsage.UNKNOWN;
     }
 

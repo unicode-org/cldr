@@ -54,7 +54,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-03</span></td>
+			<td>2013-<span class="changed">09-04</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -1527,6 +1527,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	one can make it be immediately after (at a secondary level) a specific character (like a combining diaeresis),
 	or one can make it be immediately after the last secondary ignorable.</p>
 
+	<p class="changed">Each special reset position adjusts to the effects of preceding rules,
+	just like normal reset position strings.
+	For example, if a tailoring rule creates a new collation element after <code>&amp;[last variable]</code>
+	(via explicit tailoring after that, or via tailoring after the relevant character),
+	then this new CE becomes the new <i>last variable</i> CE,
+	and is used in following resets to <code>[last variable]</code>.</p>
+
 	<p>The <code class="changed">[last variable]</code> indicates the &quot;highest&quot; character
 	that is treated as punctuation with alternate handling.
 	Unlike the other logical positions, it can be reset as well as referenced.
@@ -1586,7 +1593,7 @@ text data in the rule. For example, the following are all disallowed:</p>
         <th class="changed">Sub-Element of <span class="element">collation</span> (preferred)</th>
       </tr>
       <tr>
-        <td>[suppress contractions [Љ-ґ]]</td>
+        <td>[suppressContractions [Љ-ґ]]</td>
         <td><code>&lt;suppress_contractions&gt;</code><span style="color: blue">[Љ-ґ]</span><code>&lt;/suppress_contractions&gt;</code></td>
       </tr>
       <tr>
@@ -1594,12 +1601,20 @@ text data in the rule. For example, the following are all disallowed:</p>
         <td><code>&lt;optimize&gt;</code><span style="color: blue">[Ά-ώ]</span><code>&lt;/optimize&gt;</code></td>
       </tr>
     </table>
-<p>The <i>suppress contractions</i> tailoring command turns off any existing contractions that begin with those characters. It is typically used to turn off 
-	the Cyrillic contractions in the UCA, since they are not used in many languages and have a considerable performance penalty. The argument is a
-<a href="tr35.html#Unicode_Sets">Unicode Set</a>.</p>
+<p>The <i>suppress contractions</i> tailoring command turns off any existing contractions that begin with those characters,
+        <span class="changed">as well as any prefixes for those characters</span>. It is typically used to turn off 
+	the Cyrillic contractions in the UCA, since they are not used in many languages and have a considerable performance penalty.
+	The argument is a <a href="tr35.html#Unicode_Sets">Unicode Set</a>.</p>
+
+	<p class="changed">The <i>suppress contractions</i> command has immediate effect on the current set of mappings,
+	including mappings added by preceding rules.
+	Following rules are processed after removing any context-sensitive mappings
+	originating from any of the characters in the set.</p>
+
 	<p>The <i>optimize</i> tailoring command is purely for performance. It indicates that those characters are sufficiently common in the target language for the 
   tailoring that their performance should be enhanced.</p>
-	<p>	  The reason that these are not settings is so that their contents can be arbitrary characters. </p>
+	<p>The reason that these are not settings is so that their contents can be arbitrary characters.</p>
+
 	<hr width="50%">
   <p><i>Example:</i></p>
 	<p>The following is a simple example that combines portions of different tailorings for illustration. For more 
@@ -1702,28 +1717,45 @@ and by hyphens in locale identifiers.</p>
 </ul>
 <p>The default reordering groups follow the allkeys_CLDR.txt ordering; they also may be tailored by implementations to different values. For more information on FractionalUCA.txt and allkeys_CLDR.txt, see <a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation Auxiliary</a>.</p>
 <p> The DUCET ordering is slightly different from the allkeys_CLDR ordering. The reordering groups for the DUCET are not specified here. However, most reordering groups would start with the same characters as in FractionalUCA.txt.</p>
+
 <h3><a name="Case_Parameters" href="#Case_Parameters">3.13 Case Parameters</a></h3>
-<p>The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;) between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings). The case level is used to support two parametric features: ignoring non-case variants (Level 3 differences) except for case, and giving case differences a higher-level priority than other tertiary differences.  Distinctions between small and large Kana characters are also included as case differences, to support Japanese collation.</p>
-<p>The <strong>case first</strong> parameter controls whether to swap the order of upper and lowercase. It can be used with or without the case level. </p>
-<p>Importantly, the case parameters  have no effect in many instances. For example, they have no effect on the comparison of two non-ignorable characters with different primary weights, or with different secondary weights if the strength = <strong>secondary (or higher).</strong></p>
-<p>When either the <strong>case level</strong> or <strong>case first</strong> parameters are set, the following describes the derivation of the modified collation elements. It assumes the original levels for the code point are [p.s.t] (primary, secondary, tertiary). This derivation may change in future versions of LDML, to track the case characteristics  more closely.</p>
-<h5><strong>Untailored Characters</strong></h5>
+<p>The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;)
+between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings).
+The case level is used to support two parametric features:
+ignoring non-case variants (Level 3 differences) except for case,
+and giving case differences a higher-level priority than other tertiary differences.
+Distinctions between small and large Kana characters are also included as case differences, to support Japanese collation.</p>
+<p>The <strong>case first</strong> parameter controls whether to swap the order of upper and lowercase. It can be used with or without the case level.</p>
+<p>Importantly, the case parameters have no effect in many instances.
+For example, they have no effect on the comparison of two non-ignorable characters with different primary weights,
+or with different secondary weights if the strength = <strong>secondary (or higher).</strong></p>
+<p>When either the <strong>case level</strong> or <strong>case first</strong> parameters are set,
+the following describes the derivation of the modified collation elements.
+It assumes the original levels for the code point are [p.s.t] (primary, secondary, tertiary).
+This derivation may change in future versions of LDML, to track the case characteristics more closely.</p>
+
+<h4>Untailored Characters</h4>
 <p>For untailored characters and strings, that is, for mappings in the root collation,
 the case value for each collation element is computed from the tertiary weight listed in allkeys_CLDR.txt.
 This is used to modify the collation element.</p>
 <ol>
-  <li>If the character is U+FFFE (lowest-weight), set case value = LOWEST. </li>
+  <li>If the character is U+FFFE (lowest-weight), set case value = LOWEST.</li>
   <li>Otherwise, look up a  case value for the tertiary weight x of each collation element:
     <ol>
       <li>UPPER if x ∈  {08-0C, 0E, 11, 12, 1D}</li>
       <li>UNCASED otherwise</li>
-      </ol>
+      <li class="changed">FractionalUCA.txt encodes the case information in
+        bits 6 and 7 of the first byte in each tertiary weight.
+        The case bits are set to 00 for UNCASED, LOWEST and LOWERCASE, and 10 for UPPER.
+        There is no MIXED case value (01) in the root collation.</li>
+    </ol>
   </li>
 </ol>
-<h5><strong>Compute Modified Collation Elements</strong></h5>
+
+<h4>Compute Modified Collation Elements</h4>
 <p>From a computed case value, set a weight <strong>c</strong> according to the following.</p>
 <ol>
-  <li>If the value is LOWEST, set <strong>c</strong> = 1</li>
+  <li>If the value is LOWEST (<span class="changed">U+FEFF</span>), set <strong>c</strong> = 1</li>
   <li>Otherwise if <strong>CaseFirst=UpperFirst</strong>, set <strong>c</strong> = UPPER ? <strong>2</strong> : MIXED ? 3 : <strong>4</strong></li>
   <li>Otherwise set <strong>c</strong> = UPPER ? <strong>4</strong> : MIXED ? 3 : <strong>2</strong></li>
 </ol>
@@ -1788,18 +1820,44 @@ This is used to modify the collation element.</p>
     </table>
   </div>
 
-
-
-
-
-
 <p>Note the special case weights when s = 0. They ensure the construction of well-formed case and tertiay weights.
 For details, see <em>Section 3.7, Well-Formed Collation Element Tables</em> in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].</p>
-<h5>Tailored Strings</h5>
+
+<h4>Tailored Strings</h4>
 <p>Characters and strings that are tailored <span class="removed">(e.g., via LDML/XML collation syntax or basic collation syntax)</span>
-have case values computed from their UCD properties.
-A known limitation of the tailoring is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;.</p>
-<ol>
+have case values computed from their <span class="removed">UCD properties</span> <span class="changed">root collation case bits</span>.
+<span class="removed">A known limitation of the tailoring is that where the source string is a contraction of cased characters, the case level does not reflect the difference in mixed cases, such as between &quot;dZ&quot; and Dz&quot;.</span></p>
+
+<ol class="changed">
+  <li>Look up the tailored string’s root CEs. (Ignore any prefix or extension strings.)
+    N=number of primary root CEs.</li>
+  <li>Determine the number and type (primary vs. weaker) of CEs a tailored string maps to.
+    M=number of primary tailored CEs.</li>
+  <li>If N&lt;=M (no more root than tailoring primary CEs):
+    Copy the root case bits for primary CEs 0..N-1.
+    <ul>
+      <li>If N&lt;M (fewer root primary CEs): Clear the case bits of the remaining tailored primary CEs.
+        (uncased/lowercase/small Kana)</li>
+    </ul>
+  </li>
+  <li>If N&gt;M (more root primary CEs):
+    Copy the root case bits for primary CEs 0..M-2.
+    Set the case bits for tailored primary CE M-1 according to the remaining root primary CEs M-1..N-1:
+    <ul>
+      <li>Set to uncased/lower if all remaining root primary CEs have uncased/lower.</li>
+      <li>Set to uppercase if all remaining root primary CEs have uppercase.</li>
+      <li>Otherwise, set to mixed.</li>
+    </ul>
+  </li>
+  <li>Clear the case bits for secondary CEs 0.s.t.</li>
+  <li>Tertiary CEs 0.0.t must get uppercase bits.</li>
+  <li>Tertiary-ignorable CEs 0.0.0 must get ignorable-case=lowercase bits.</li>
+</ol>
+<p>Note: Almost all Cased characters have primary (non-ignorable) root collation CEs,
+except for U+0345 Combining Ypogegrammeni which is Lowercase.
+All Uppercase characters have primary root collation CEs.</p>
+
+<ol class="removed">
   <li>Form a set of case values by looking  up a case value for each character x in the NFKD mapping of the source string, based on UCD properties:
 <ol>
   <li>UNCASED if x ∈ <a href="#UncasedExceptions">UncasedExceptions</a></li>
@@ -1818,20 +1876,21 @@ A known limitation of the tailoring is that where the source string is a contrac
   </li>
   <li>Apply that case-value to the first collation element in the tailoring, according to &quot;<strong>Compute Modified Collation Elements</strong>&quot;. The case values and weights in an expansion are unaffected.</li>
 </ol>
-<p><strong><a name="UncasedExceptions" href="#UncasedExceptions">UncasedExceptions</a>:</strong> is  the set of letter modifiers</p>
-<ul>
+<p class="removed"><strong><a name="UncasedExceptions" href="#UncasedExceptions">UncasedExceptions</a>:</strong> is  the set of letter modifiers</p>
+<ul class="removed">
   <li>[:General_Category=Lm:]</li>
 </ul>
-<p><strong><a name="LowerExceptions" href="#LowerExceptions">LowerExceptions</a>:</strong> is  the set of small letters where script=Hiragana or Katakana, plus other characters lowercase in form. In Unicode 6.2, these are:</p>
-<ul>
+<p class="removed"><strong><a name="LowerExceptions" href="#LowerExceptions">LowerExceptions</a>:</strong> is  the set of small letters where script=Hiragana or Katakana, plus other characters lowercase in form. In Unicode 6.2, these are:</p>
+<ul class="removed">
   <li>[ぁァ ぃィ ぅゥ ぇェ ぉォ ゕヵ ㇰ ゖヶ ㇱ ㇲ っッ ㇳ-ㇺ ゃャ ゅュ ょョ ㇻ-ㇿ ゎヮ]</li>
   <li>[℩]</li>
 </ul>
-<p><strong><a name="UpperExceptions" href="#UpperExceptions">UpperExceptions</a>:</strong> is  the set of non-small letters where script=Hiragana or Katakana, minus the iteration mark, plus other characters uppercase in form. In Unicode 6.2, these are:</p>
-<ul>
+<p class="removed"><strong><a name="UpperExceptions" href="#UpperExceptions">UpperExceptions</a>:</strong> is  the set of non-small letters where script=Hiragana or Katakana, minus the iteration mark, plus other characters uppercase in form. In Unicode 6.2, these are:</p>
+<ul class="removed">
   <li>[あいうえお-ぢつ-もやゆよ-ろわ-ゔアイウエオ-ヂツ-モヤユヨ-ロワ-ヴヷ-ヺ 𛀀𛀁]</li>
   <li>[℘℺⅁-⅄🅐-🅩🅰-🆊]</li>
 </ul>
+
 <h3><a name="Visibility" href="#Visibility">3.14 Visibility</a></h3>
 <p class="dtd">&lt;!ATTLIST collation visibility ( internal | external ) &quot;external&quot; &gt;</p>
 <p>Collators have external visibility by default, meaning that they can be displayed in a list of collation

@@ -666,8 +666,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
         <p class="reviewnote">This draft removes the XML collation syntax, often without leaving "removed" markers.
         New or modified text is highlighted.
         For a detailed comparison see the <i><a href="http://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings">CLDR 23 version of this document</a></i>.</p>
-        <p class="reviewnote">Please ignore minor style and wording issues for now.
-        This chapter has other, more significant problems and needs to be mostly rewritten, scheduled for CLDR 24.</p>
 	<p class="dtd">&lt;!ELEMENT collations (alias | (<span class="changed">defaultCollation?</span><span class="removed">default*</span>, collation*, special*)) &gt;</p>
 	<p>This element of the LDML format
 	contains one or more <span class="element">collation</span> elements, distinguished by type.
@@ -998,7 +996,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	Other elements and attributes do not occur as frequently, and have longer names</span>.
 	<span class="changed">The CLDR rule syntax is a subset of the [<a href="tr35.html#ICUCollation">ICUCollation</a>] syntax.</span></p>
 	<blockquote>
-		<p><b>Note: </b>The rules are stated in terms of actions that cause characters to change their ordering relative to other characters.
+		<p class="removed"><b>Note: </b>The rules are stated in terms of actions that cause characters to change their ordering relative to other characters.
 		This is for stability; assigning characters specific weights would not work,
 		since the exact weight assignment <span class="removed">in UCA (or ISO 14651)</span> is not required for conformance 
 		— only the relative ordering of the weights.
@@ -1006,8 +1004,19 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		in the <span class="changed">root order</span>.</p>
 	</blockquote>
 
+  <p class="changed">For the CLDR root collation, the FractionalUCA.txt file defines all mappings for all of Unicode directly,
+  and it also provides information about script boundaries, reordering groups,
+  and other details. For tailorings, this is neither necessary nor practical.
+  In particular, while the root collation sort order rarely changes for existing characters,
+  their numeric collation weights change with every version.
+  If tailorings also specified numeric weights directly,
+  then they would have to change with every version, parallel with the root collation.
+  Instead, for tailorings, mappings are added and modified relative to the root collation.
+  (There is no syntax to <i>remove</i> mappings,
+  except via <a href="#Special_Purpose_Commands">special &lt;suppress_contractions&gt;</a>.)</p>
+
 	<h3><a name="Orderings" href="#Orderings">3.5 Orderings</a></h3>
-	<p>The following are the normal ordering actions used for the bulk of characters.
+	<p class="removed">The following are the normal ordering actions used for the bulk of characters.
 	Each rule contains a string of ordered characters that starts with an anchor point or a reset value.
 	The reset value is an absolute point in the <span class="changed">root order</span> that determines the order of other characters.
 	For example, the rule &amp; a &lt; g, places 
@@ -1016,34 +1025,93 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	strength) of the characters in the <span class="changed">root order</span>.
 	For example, the <span class="changed">root order</span> has the following sequence (abbreviated for illustration):</p>
 	<blockquote>
-		<p>... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub> Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> á &lt;<sub>3</sub> Á &lt;<sub>1</sub> æ &lt;<sub>3</sub> 
+		<p class="removed">... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub> Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> á &lt;<sub>3</sub> Á &lt;<sub>1</sub> æ &lt;<sub>3</sub> 
 	Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> ｂ &lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...</p>
 	</blockquote>
-	<p>Whenever a character is inserted into the <span class="changed">root</span> sequence,
+	<p class="removed">Whenever a character is inserted into the <span class="changed">root</span> sequence,
 	it is inserted at the first point where the strength difference will not disturb the other characters 
 	in the <span class="changed">root order</span>.
 	For example, &amp; a &lt; g puts <i>g</i> in the above sequence with a strength of L1.
 	Thus the <i>g</i> must go in after any lower strengths,&nbsp; as follows:</p>
-	<blockquote>
+	<blockquote class="removed">
 		<p>... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub> Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> á &lt;<sub>3</sub> Á 
 		<b><font color="red">&lt;<sub>1</sub> g </font></b>&lt;<sub>1</sub> æ &lt;<sub>3</sub> Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> ｂ 
 	&lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...</p>
 	</blockquote>
-	<p>The rule &amp; a &lt;&lt; g, which uses a level-2 strength, would produce the following sequence:</p>
-	<blockquote>
+	<p class="removed">The rule &amp; a &lt;&lt; g, which uses a level-2 strength, would produce the following sequence:</p>
+	<blockquote class="removed">
 		<p>... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub> Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª 
 		<b><font color="red">&lt;<sub>2</sub> g</font></b> &lt;<sub>2</sub> 
 	á &lt;<sub>3</sub> Á<b><font color="red"> </font></b>&lt;<sub>1</sub> æ &lt;<sub>3</sub> Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> 
 	ｂ &lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...</p>
 	</blockquote>
-	<p>And the rule &amp; a &lt;&lt;&lt; g, which uses a level-3 strength, would produce the following sequence:</p>
-	<blockquote>
+	<p class="removed">And the rule &amp; a &lt;&lt;&lt; g, which uses a level-3 strength, would produce the following sequence:</p>
+	<blockquote class="removed">
 		<p>... a <b><font color="red">&lt;<sub>3</sub> g</font></b> &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub> Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> 
 	á &lt;<sub>3</sub> Á<b><font color="red"> </font></b>&lt;<sub>1</sub> æ &lt;<sub>3</sub> Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> 
 	ｂ &lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...</p>
 	</blockquote>
-	<p>Since resets always work on the existing state, the rule entries must be in the proper order. A character or sequence may occur multiple times; each subsequent 
-	occurrence causes a different change. The following shows the result of serially applying three rules.</p>
+
+  <p class="changed">The root collation mappings form the initial state.
+  Mappings are added and removed via a sequence of rule chains.
+  Each tailoring rule builds on the current state after all of the preceding rules
+  (and is not affected by any following rules).</p>
+
+  <p class="changed">A rule chain consists of a reset followed by one or more relations.
+  The reset position is a string which maps to one or more collation elements according to the current state.
+  A relation consists of an operator and a string;
+  it maps the string to the current collation elements, modified according to the operator.</p>
+
+        <table>
+                <caption>Specifying Collation Ordering</caption>
+                <tr>
+                        <th><span class="changed">Relation Operator</span></th>
+                        <th><span class="removed">Basic</span> Example</th>
+                        <th>Description</th>
+                </tr>
+                <tr>
+                        <td><code>&amp;</code></td>
+                        <td><code>&amp; Z</code></td>
+                        <td><span class="removed">Do not change the ordering of Z, but place subsequent characters relative to it.</span><br>
+                        <span class="changed">Map Z to collation elements according to the current state.
+                        These will be modified according to the following relation operators and then
+                        assigned to the corresponding relation strings.</span></td>
+                </tr>
+                <tr>
+                        <td><code>&lt;</code></td>
+                        <td><code>&amp; a<br>
+                        &lt; b</code></td>
+                        <td>Make &#39;b&#39; sort after &#39;a&#39;, as a <i>primary</i> (base-character) difference</td>
+                </tr>
+                <tr>
+                        <td><code>&lt;&lt;</code></td>
+                        <td><code>&amp; a<br>
+                        &lt;&lt; ä</code></td>
+                        <td>Make &#39;ä&#39; sort after &#39;a&#39; as a <i>secondary</i> (accent) difference</td>
+                </tr>
+                <tr>
+                        <td><code>&lt;&lt;&lt;</code></td>
+                        <td><code>&amp; a<br>
+                        &lt;&lt;&lt; A</code></td>
+                        <td>Make &#39;A&#39; sort after &#39;a&#39; as a <i>tertiary</i> (case/variant) difference</td>
+                </tr>
+                <tr class="changed">
+                        <td><code>&lt;&lt;&lt;&lt;</code></td>
+                        <td><code>&amp; か<br>
+                        &lt;&lt;&lt;&lt; カ</code></td>
+                        <td>Make &#39;カ&#39; (Katakana Ka) sort after &#39;か&#39; (Hiragana Ka) as a <i>quaternary</i> difference</td>
+                </tr>
+                <tr>
+                        <td><code>=&nbsp; </code></td>
+                        <td><code>&amp; v<br>
+                        = w&nbsp; </code></td>
+                        <td>Make &#39;w&#39; sort <i>identically</i> to &#39;v&#39;</td>
+                </tr>
+        </table>
+	<p><span class="removed">Since resets always work on the existing state, the rule entries must be in the proper order.
+	A character or sequence may occur multiple times; each subsequent 
+	occurrence causes a different change.</span><br>
+	The following shows the result of serially applying three rules.</p>
 	<table>
 		<tr>
 			<th>&nbsp;</th>
@@ -1070,9 +1138,18 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<td>Now put g after h (inserting before k).</td>
 		</tr>
 	</table>
-	<p>Notice that characters can occur multiple times, and thus override previous rules.</p>
-	<p>Except for the case of expansion sequence syntax, every sequence after a reset is equivalent in action to breaking up the sequence into an <i>atomic</i> 
-	rule: a reset + relation pair. The tailoring is then equivalent to applying each of the atomic rules to the UCA in order, according to the above description.</p>
+	<p>Notice that <span class="removed">characters</span> <span class="changed">relation strings</span> can occur multiple times,
+	and thus override previous rules.</p>
+
+	<p class="removed">Except for the case of expansion sequence syntax,
+	every sequence after a reset is equivalent in action to breaking up the sequence into an <i>atomic</i> 
+	rule: a reset + relation pair.
+	The tailoring is then equivalent to applying each of the atomic rules to the UCA in order, according to the above description.</p>
+  <p class="changed">Each relation uses and modifies the collation elements of the immediately preceding
+  reset position or relation.
+  A rule chain with two or more relations is equivalent to a sequence of “atomic rules”
+  where each rule chain has exactly one relation, and each relation is followed by a reset to this same relation string.</p>
+
 	<p><i>Example:</i></p>
 	<table>
 		<tr>
@@ -1091,51 +1168,45 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			&amp; Q &lt; z</td>
 		</tr>
 	</table>
-	<p>In the case of expansion sequence syntax, the equivalent atomic sequence can be derived by first transforming the expansion sequence syntax into normal expansion 
+  <p class="changed">This is not always possible because
+  prefix and extension strings can occur in a relation but not in a reset (see below).</p>
+
+	<p class="removed">In the case of expansion sequence syntax, the equivalent atomic sequence can be derived by first transforming the expansion sequence syntax into normal expansion 
 	syntax. (See <a href="#Expansions">Expansions</a>.)</p>
 	<p class="removed"><span class="dtd">&lt;!ELEMENT reset ( #PCDATA | cp | ... )* &gt;<br>
 	&lt;!ELEMENT p ( #PCDATA | cp | last_variable )* &gt;<br>
 	</span>(Elements pc, s, sc, t, tc, i, and ic have the same structure as p.)</p>
-	<span class="changed">A reset is followed by one or more relations.</span>
-	<table>
-		<caption>Specifying Collation Ordering</caption>
-		<tr>
-			<th><span class="changed">Relation Operator</span></th>
-			<th><span class="removed">Basic</span> Example</th>
-			<th>Description</th>
-		</tr>
-		<tr>
-			<td><code>&amp;&nbsp; </code></td>
-			<td><code>&amp; Z&nbsp; </code></td>
-			<td>Do not change the ordering of Z, but place subsequent characters relative to it.</td>
-		</tr>
-		<tr>
-			<td><code>&lt;&nbsp; </code></td>
-			<td><code>&amp; a<br>
-			&lt; b&nbsp; </code></td>
-			<td>Make &#39;b&#39; sort after &#39;a&#39;, as a <i>primary</i> (base-character) difference</td>
-		</tr>
-		<tr>
-			<td><code>&lt;&lt;&nbsp; </code></td>
-			<td><code>&amp; a<br>
-			&lt;&lt; ä&nbsp; </code></td>
-			<td>Make &#39;ä&#39; sort after &#39;a&#39; as a <i>secondary</i> (accent) difference</td>
-		</tr>
-		<tr>
-			<td><code>&lt;&lt;&lt;&nbsp; </code></td>
-			<td><code>&amp; a<br>
-			&lt;&lt;&lt; A&nbsp; </code></td>
-			<td>Make &#39;A&#39; sort after &#39;a&#39; as a <i>tertiary</i> (case/variant) difference</td>
-		</tr>
-		<tr>
-			<td><code>=&nbsp; </code></td>
-			<td><code>&amp; v<br>
-			= w&nbsp; </code></td>
-			<td>Make &#39;w&#39; sort <i>identically</i> to &#39;v&#39;</td>
-		</tr>
-	</table>
+	<span class="removed">A reset is followed by one or more relations.</span>
 	<p class="removed">Resets only need to be at the start of a sequence, to position the characters relative a character that is in the UCA (or has already occurred in the tailoring). 
 	For example: &lt;reset&gt;z&lt;/reset&gt;&lt;p&gt;a&lt;/p&gt;&lt;p&gt;b&lt;/p&gt;&lt;p&gt;c&lt;/p&gt;&lt;p&gt;d&lt;/p&gt;.</p>
+
+  <p class="changed">The relation operator <code>=</code> maps its relation string to the current collation elements.
+  Any other relation operator modifies the current collation elements as follows.</p>
+  <ul class="changed">
+    <li>Find the <i>last</i> collation element whose strength is at least as great as the strength of the operator.
+      For example, for <code>&lt;&lt;</code> find the last primary or secondary CE.
+      This CE will be modified; all following CEs should be removed.
+      If there is no such CE, then reset the collation elements to a single completely-ignorable CE.</li>
+    <li>Increment the collation element weight corresponding to the strength of the operator.
+      For example, for <code>&lt;&lt;</code> increment the secondary weight.</li>
+    <li>The new weight must be less than the next weight for the same combination of higher-level weights
+      of any collation element according to the current state.</li>
+    <li>Weights must be allocated in accordance with the
+      <a href="http://www.unicode.org/reports/tr10/#Well-Formed">UCA well-formedness conditions</a>.</li>
+    <li>When incrementing any weight, lower-level weights should be reset to the “common” values,
+      to help with sort key compression.</li>
+  </ul>
+
+  <p class="changed">In all cases, even for <code>=</code>,
+  the case bits are recomputed according to <i>Section 3.13, <a href="#Case_Parameters">Case Parameters</a></i>.
+  (This can be skipped if an implementation does not support the caseLevel or caseFirst settings.)</p>
+
+  <p class="changed">For example, <code>&amp;ae&lt;x</code> maps ‘x’ to two collation elements.
+  The first one is the same as for ‘a’, and the second one has a primary weight between those for ‘e’ and ‘f’.
+  As a result, ‘x’ sorts between “ae” and “af”.
+  (If the primary of the first collation element was incremented instead, then ‘x’ would sort after “az”.
+  While also sorting primary-after “ae” this would be surprising and sub-optimal.)</p>
+
 	<p>Some additional <span class="changed">operators</span> are provided to save space with large tailorings.
 	The addition of a <span class="changed">*</span> to the <span class="changed">relation operator</span>
 	indicates that each of the <span class="changed">following single</span> characters
@@ -1169,6 +1240,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		  <td><code>&amp;<span style="color: blue"> p</span><br>
   &lt;&lt;&lt; <span style="color: blue">P</span> &lt;&lt;&lt; <span style="color: blue">ｐ</span> &lt;&lt;&lt; <span style="color: blue">Ｐ</span></code></td>
 		</tr>
+                <tr class="changed">
+                  <td><code>&lt;&lt;&lt;&lt;</code><code>*</code></td>
+                  <td><code>&amp;<span style="color: blue"> k</span><br>
+  &lt;&lt;&lt;&lt;* <span style="color: blue">qQ</span></code></td>
+                  <td><code>&amp;<span style="color: blue"> k</span><br>
+  &lt;&lt;&lt;&lt; <span style="color: blue">q</span> &lt;&lt;&lt;&lt; <span style="color: blue">Q</span></code></td>
+                </tr>
 		<tr>
 		  <td><code>=*</code></td>
 		  <td><code>&amp;<span style="color: blue"> v</span><br>
@@ -1178,8 +1256,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</tr>
 	</table>
 <h3><a name="Contractions" href="#Contractions">3.6 Contractions</a></h3>
-	<p>To sort a sequence as a single item (contraction), just use the sequence, 
+	<p class="removed">To sort a sequence as a single item (contraction), just use the sequence, 
 	for example,</p>
+  <p class="changed">A multi-character relation string defines a contraction.</p>
+
 	<table>
 		<caption>Specifying Contractions</caption>
 		<tr>
@@ -1195,12 +1275,43 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 	<h3><a name="Expansions" href="#Expansions">3.7 Expansions</a></h3>
 	<p class="dtd removed">&lt;!ELEMENT x (context?, ( p | pc | s | sc | t | tc | i | ic )*, extend? ) &gt;</p>
-	<p>There are two ways to handle expansions (where a character sorts as a sequence) <span class="removed">with both the basic syntax and the XML syntax</span>.
+  <p class="changed">A mapping to multiple collation elements defines an expansion.
+  This is normally the result of a reset position (and/or preceding relation)
+  that yields multiple collation elements,
+  for example <code>&amp;ae&lt;x</code> or <code>&amp;æ&lt;y</code>.</p>
+
+  <p class="changed">A relation string can also be followed by <code>/</code> and an <i>extension string</i>.
+  The extension string is mapped to collation elements according to the current state,
+  and the relation string is mapped to the concatenation of the regular CEs and the extension CEs.
+  The extension CEs are not modified, not even their case bits.
+  The extension CEs are <i>not</i> retained for following relations.</p>
+
+  <p class="changed">For example, <code>&amp;a&lt;z/e</code> maps ‘z’ to an expansion similar to <code>&amp;ae&lt;x</code>.
+  However, the first CE of ‘z’ is primary-after that of ‘a’, and the second CE is exactly that of ‘e’,
+  which yields the order ae &lt; x &lt; af &lt; ag &lt; ... &lt; az &lt; z &lt; b.</p>
+
+  <p class="changed">The choice of reset-to-expansion vs. use of an extension string
+  can be exploited to affect contextual mappings.
+  For example, <code>&amp;L·=x</code> yields a second CE for ‘x’ equal to
+  the context-sensitive middle-dot-after-L (which is a secondary CE in the root collation).
+  On the other hand, <code>&amp;L=x/·</code> yields a second CE of the middle dot by itself (which is a primary CE).</p>
+
+  <p class="changed">The two ways of specifying expansions also differ in how case bits are computed.
+  When some of the CEs are copied verbatim from an extension string,
+  then the relation string’s case bits are distributed over a smaller number of normal CEs.
+  For example, <code>&amp;aE=Ch</code> yields an uppercase CE and a lowercase CE,
+  but <code>&amp;a=Ch/E</code> yields a mixed-case CE (for ‘C’ and ‘h’ together)
+  followed by an uppercase CE (copied from ‘E’).</p>
+
+  <p class="changed">In summary, there are two ways of specifying expansions which produce subtly different mappings.
+  The use of extension strings is unusual but sometimes necessary.</p>
+
+	<p class="removed">There are two ways to handle expansions (where a character sorts as a sequence) <span class="removed">with both the basic syntax and the XML syntax</span>.
 	The first method is to reset to the sequence of characters.
 	This is called <i>sequence expansion syntax.</i>
 	The second is to use the extension sequence. This is called <i>normal expansion syntax</i>.
 	Both are equivalent in practice (unless the reset sequence happens to be a contraction).</p>
-	<table>
+	<table class="removed">
 		<caption>Specifying Expansions</caption>
 		<tr>
 			<th><span class="changed">Rules</span></th>
@@ -1222,8 +1333,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</tr>
 	</table>
 	<p class="removed">If an <code>&lt;extend&gt;</code> element is necessary, it requires the rule to be embedded in an &lt;x&gt; element.</p>
-	<p>The sequence expansion syntax can be quite tricky, so it should be avoided where possible. In particular:</p>
-	<ul>
+	<p class="removed">The sequence expansion syntax can be quite tricky, so it should be avoided where possible. In particular:</p>
+	<ul class="removed">
 		<li>The expansion is <i>only</i> in effect up to — but not including — the first primary rule. Thus
 		<pre class="changed">&amp;ch &lt;&lt; x &lt;&lt;&lt; y &lt; z</pre>
 		is the same as
@@ -1234,16 +1345,16 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<i>unless</i> the <b>ä</b> has previously been used as a contraction. Thus the <b>¨</b> 
 		will be used as an <span class="changed">extension</span> for following characters (up to the next primary).</li>
 	</ul>
-	<p>Each extension replaces the one before it; it does not append to it. So </p>
+	<p class="removed">Each extension replaces the one before it; it does not append to it. So </p>
 	<blockquote>
-		<p>&amp; ab &lt;&lt; c<br>&amp; cd &lt;&lt; e</p>
+		<p class="removed">&amp; ab &lt;&lt; c<br>&amp; cd &lt;&lt; e</p>
 	</blockquote>
-	<p>is equivalent to:</p>
+	<p class="removed">is equivalent to:</p>
 	<blockquote>
-		<p>&amp; a &lt;&lt; c / b &lt;&lt; e / d</p>
+		<p class="removed">&amp; a &lt;&lt; c / b &lt;&lt; e / d</p>
 	</blockquote>
-	<p>and produces the following weights (where <i>p(x)</i> is the primary weight and <i>s(a)</i> is the secondary weight):</p>
-	<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+	<p class="removed">and produces the following weights (where <i>p(x)</i> is the primary weight and <i>s(a)</i> is the secondary weight):</p>
+	<table class="removed" border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
 		<tr>
 			<td>Character</td>
 			<td>Weights</td>
@@ -1257,8 +1368,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<td>p(a), p(d); s(a)+2, s(d); ...</td>
 		</tr>
 	</table>
-	<p>When expressing rules as atomic rules, the sequences must first be transformed into normal expansion syntax:</p>
-	<table>
+	<p class="removed">When expressing rules as atomic rules, the sequences must first be transformed into normal expansion syntax:</p>
+	<table class="removed">
 		<tr>
 			<th>Expansion Sequence</th>
 			<th>Normal Expansion</th>
@@ -1302,7 +1413,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			...</code></td>
 		</tr>
 	</table>
-	<p>Both the context and extend elements can occur in <span class="changed">a relation</span>.
+	<p>Both the <span class="removed">context and extend elements</span> <span class="changed">prefix and extension strings</span> can occur in <span class="changed">a relation</span>.
 	For example, the following are allowed:</p>
 	<ul class="changed">
 		<li><code>&lt; abc | def / ghi</code></li>
@@ -1407,6 +1518,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		added; or it could be that you just want Y to come after a given logical position, 
 		for example, after the last primary ignorable.</p>
 	</blockquote>
+
+	<p class="changed">Each of these special reset positions always maps to a single collation element.</p>
+
 	<p>Here is an example of the syntax:</p>
 	<pre>&amp; [first tertiary ignorable] &lt;&lt; à </pre>
 	<p>For example, to make a character be a secondary ignorable,

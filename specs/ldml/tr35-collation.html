@@ -1015,6 +1015,37 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
   (There is no syntax to <i>remove</i> mappings,
   except via <a href="#Special_Purpose_Commands">special &lt;suppress_contractions&gt;</a>.)</p>
 
+  <p class="changed">The ASCII [:P:] and [:S:] characters are reserved for collation syntax:
+  <code>[\u0021-\u002F \u003A-\u0040 \u005B-\u0060 \u007B-\u007E]</code></p>
+
+  <p class="changed">Unicode Pattern_White_Space characters between tokens are ignored.
+  Unquoted white space terminates reset and relation strings.</p>
+
+  <p class="changed">A pair of ASCII apostrophes encloses quoted literal text.
+  They are normally used to enclose a syntax character or white space,
+  or a whole reset/relation string containing one or more such characters,
+  so that those are parsed as part of the reset/relation strings rather than treated as syntax.
+  A pair of immediately adjacent apostrophes is used to encode one apostrophe.</p>
+
+  <p class="changed">Code points can be escaped with <code>\uhhhh</code> and <code>\U00hhhhhh</code> escapes,
+  as well as common escapes like <code>\t</code> and <code>\n</code>.
+  (For details see the documentation of ICU UnicodeString::unescape().)
+  This is particularly useful for default-ignorable code points, combining marks,
+  visually indistinct variants, hard-to-type characters, etc.
+  These sequences are unescaped before the rules are parsed;
+  this means that even escaped syntax and white space characters need to be enclosed in apostrophes.
+  For example: <code>&amp;'\u0020'='\u3000'</code></p>
+
+  <p class="changed">The ASCII double quote must be both escaped
+  (so that the collation syntax can be enclosed in pairs of double quotes in programming environments)
+  and quoted. For example: <code>&amp;'\u0022'&lt;&lt;&lt;x</code></p>
+
+  <p class="changed">Comments are allowed at the beginning, and after any complete reset, relation, setting, or command.
+  A comment begins with a <code>#</code> and extends to the end of the line
+  (according to the Unicode Newline Guidelines).</p>
+
+  <p class="changed">The collation syntax is case-sensitive.</p>
+
 	<h3><a name="Orderings" href="#Orderings">3.5 Orderings</a></h3>
 	<p class="removed">The following are the normal ordering actions used for the bulk of characters.
 	Each rule contains a string of ordered characters that starts with an anchor point or a reset value.
@@ -1055,7 +1086,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
   <p class="changed">The root collation mappings form the initial state.
   Mappings are added and removed via a sequence of rule chains.
   Each tailoring rule builds on the current state after all of the preceding rules
-  (and is not affected by any following rules).</p>
+  (and is not affected by any following rules).
+  Rule chains may alternate with comments, settings, and special commands.</p>
 
   <p class="changed">A rule chain consists of a reset followed by one or more relations.
   The reset position is a string which maps to one or more collation elements according to the current state.

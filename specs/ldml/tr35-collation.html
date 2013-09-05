@@ -1514,9 +1514,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			Punctuation</td>
 		</tr>
 		<tr>
-			<td>first non-ignorable<br>
+			<td>first <span class="removed">non-ignorable</span> <span class="changed">regular</span><br>
 			...<br>
-			last non-ignorable</td>
+			last <span class="removed">non-ignorable</span> <span class="changed">regular</span></td>
 			<td>p != ignore</td>
 			<td>General Symbols<br>
 		    Currency Symbols<br>
@@ -1565,6 +1565,15 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	(via explicit tailoring after that, or via tailoring after the relevant character),
 	then this new CE becomes the new <i>last variable</i> CE,
 	and is used in following resets to <code>[last variable]</code>.</p>
+
+	<p class="changed"><code>[last regular]</code> is not actually the
+	last normal CE with a primary weight before implicit primaries.
+	It is used to tailor large numbers of characters, usually CJK,
+	into the script=Hani range between the last regular script
+	and the first implicit CE. (The first group of implicit CEs is for Han characters.)
+	Therefore, <code>[last regular]</code> is set to the first Hani CE,
+	the artificial script boundary CE at the beginning of this range.
+	For example: <code>&amp;[last regular]&lt;*亜唖娃阿...</code></p>
 
 	<p>The <code class="changed">[last variable]</code> indicates the &quot;highest&quot; character
 	that is treated as punctuation with alternate handling.

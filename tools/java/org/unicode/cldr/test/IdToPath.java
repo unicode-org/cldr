@@ -163,33 +163,33 @@ public class IdToPath {
           {"3697195808036687054","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"stand-alone\"]/dayWidth[@type=\"wide\"]/day[@type=\"wed\"]","Wednesday"},
           {"3624517886639893827","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"0\"]","BC"},
           {"9013899870063280835","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/eras/eraAbbr/era[@type=\"1\"]","AD"},
-          {"6105184699793018548","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/displayName","Day"},
-          {"281699475613551595","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"-1\"]","Yesterday"},
-          {"6497989772653343181","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"-2\"]","The day before yesterday"},
-          {"5083564301484595797","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"-3\"]","Three days ago"},
-          {"7043820496077370920","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"0\"]","Today"},
-          {"9014609006182294791","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"1\"]","Tomorrow"},
-          {"4572969931384447940","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"2\"]","The day after tomorrow"},
-          {"6385226000108656568","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"3\"]","Three days from now"},
-          {"1616984765031838237","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"dayperiod\"]/displayName","AM/PM"},
-          {"4321409725787378906","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"era\"]/displayName","Era"},
-          {"2824397015524798401","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"hour\"]/displayName","Hour"},
-          {"1366075036155815029","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"minute\"]/displayName","Minute"},
-          {"8627431361652749296","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"month\"]/displayName","Month"},
-          {"7117146338906640416","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"month\"]/relative[@type=\"-1\"]","Last month"},
-          {"93040935061466383","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"month\"]/relative[@type=\"0\"]","This month"},
-          {"9042684128583622916","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"month\"]/relative[@type=\"1\"]","Next month"},
-          {"5383712803562839728","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"second\"]/displayName","Second"},
-          {"3195312434768437225","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"week\"]/displayName","Week"},
-          {"8393435327712015837","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"week\"]/relative[@type=\"-1\"]","Last week"},
-          {"8256140283257048700","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"week\"]/relative[@type=\"0\"]","This week"},
-          {"5800606054358097340","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"week\"]/relative[@type=\"1\"]","Next week"},
-          {"5931041078458795550","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"weekday\"]/displayName","Day of the Week"},
-          {"8330767888134153512","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"year\"]/displayName","Year"},
-          {"411025716658666369","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"year\"]/relative[@type=\"-1\"]","Last year"},
-          {"900180337721962601","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"year\"]/relative[@type=\"0\"]","This year"},
-          {"4953517870491048392","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"year\"]/relative[@type=\"1\"]","Next year"},
-          {"24361030062317825","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"zone\"]/displayName","Time Zone"},
+          {"6105184699793018548","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/displayName","Day"}, // deprecated, see //ldml/dates/fields
+          {"281699475613551595","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"-1\"]","Yesterday"}, // deprecated, see //ldml/dates/fields
+          {"6497989772653343181","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"-2\"]","The day before yesterday"}, // deprecated, see //ldml/dates/fields
+          {"5083564301484595797","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"-3\"]","Three days ago"}, // deprecated, see //ldml/dates/fields
+          {"7043820496077370920","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"0\"]","Today"}, // deprecated, see //ldml/dates/fields
+          {"9014609006182294791","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"1\"]","Tomorrow"}, // deprecated, see //ldml/dates/fields
+          {"4572969931384447940","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"2\"]","The day after tomorrow"}, // deprecated, see //ldml/dates/fields
+          {"6385226000108656568","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\"3\"]","Three days from now"}, // deprecated, see //ldml/dates/fields
+          {"1616984765031838237","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"dayperiod\"]/displayName","AM/PM"}, // deprecated, see //ldml/dates/fields
+          {"4321409725787378906","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"era\"]/displayName","Era"}, // deprecated, see //ldml/dates/fields
+          {"2824397015524798401","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"hour\"]/displayName","Hour"}, // deprecated, see //ldml/dates/fields
+          {"1366075036155815029","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"minute\"]/displayName","Minute"}, // deprecated, see //ldml/dates/fields
+          {"8627431361652749296","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"month\"]/displayName","Month"}, // deprecated, see //ldml/dates/fields
+          {"7117146338906640416","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"month\"]/relative[@type=\"-1\"]","Last month"}, // deprecated, see //ldml/dates/fields
+          {"93040935061466383","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"month\"]/relative[@type=\"0\"]","This month"}, // deprecated, see //ldml/dates/fields
+          {"9042684128583622916","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"month\"]/relative[@type=\"1\"]","Next month"}, // deprecated, see //ldml/dates/fields
+          {"5383712803562839728","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"second\"]/displayName","Second"}, // deprecated, see //ldml/dates/fields
+          {"3195312434768437225","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"week\"]/displayName","Week"}, // deprecated, see //ldml/dates/fields
+          {"8393435327712015837","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"week\"]/relative[@type=\"-1\"]","Last week"}, // deprecated, see //ldml/dates/fields
+          {"8256140283257048700","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"week\"]/relative[@type=\"0\"]","This week"}, // deprecated, see //ldml/dates/fields
+          {"5800606054358097340","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"week\"]/relative[@type=\"1\"]","Next week"}, // deprecated, see //ldml/dates/fields
+          {"5931041078458795550","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"weekday\"]/displayName","Day of the Week"}, // deprecated, see //ldml/dates/fields
+          {"8330767888134153512","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"year\"]/displayName","Year"}, // deprecated, see //ldml/dates/fields
+          {"411025716658666369","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"year\"]/relative[@type=\"-1\"]","Last year"}, // deprecated, see //ldml/dates/fields
+          {"900180337721962601","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"year\"]/relative[@type=\"0\"]","This year"}, // deprecated, see //ldml/dates/fields
+          {"4953517870491048392","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"year\"]/relative[@type=\"1\"]","Next year"}, // deprecated, see //ldml/dates/fields
+          {"24361030062317825","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"zone\"]/displayName","Time Zone"}, // deprecated, see //ldml/dates/fields
           {"3894524108174667909","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]","Jan"},
           {"413954884757337879","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"10\"]","Oct"},
           {"3129220561028262701","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"11\"]","Nov"},
@@ -290,6 +290,50 @@ public class IdToPath {
           {"658881580176139998","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"long\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]","h:mm:ss a z"},
           {"2115059814682151130","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"medium\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]","h:mm:ss a"},
           {"2547615504367885280","//ldml/dates/calendars/calendar[@type=\"gregorian\"]/timeFormats/timeFormatLength[@type=\"short\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]","h:mm a"},
+          {"4628537402888819570","//ldml/dates/fields/field[@type=\"day\"]/displayName","Day"},
+          {"6473950366269310126","//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"-1\"]","yesterday"},
+          {"9069830641106126988","//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"0\"]","today"},
+          {"575345086090258766","//ldml/dates/fields/field[@type=\"day\"]/relative[@type=\"1\"]","tomorrow"},
+          {"7723571986580779944","//ldml/dates/fields/field[@type=\"dayperiod\"]/displayName","AM/PM"},
+          {"6126371036425425704","//ldml/dates/fields/field[@type=\"era\"]/displayName","Era"},
+          {"4080579393516094194","//ldml/dates/fields/field[@type=\"fri\"]/relative[@type=\"-1\"]","last Friday"},
+          {"6712554171875679676","//ldml/dates/fields/field[@type=\"fri\"]/relative[@type=\"0\"]","this Friday"},
+          {"1180482094860851749","//ldml/dates/fields/field[@type=\"fri\"]/relative[@type=\"1\"]","next Friday"},
+          {"2314561543588042256","//ldml/dates/fields/field[@type=\"hour\"]/displayName","Hour"},
+          {"1803170618262742133","//ldml/dates/fields/field[@type=\"minute\"]/displayName","Minute"},
+          {"6241305528081455643","//ldml/dates/fields/field[@type=\"mon\"]/relative[@type=\"-1\"]","last Monday"},
+          {"449827361127579738","//ldml/dates/fields/field[@type=\"mon\"]/relative[@type=\"0\"]","this Monday"},
+          {"8552820656793225426","//ldml/dates/fields/field[@type=\"mon\"]/relative[@type=\"1\"]","next Monday"},
+          {"2713376419448799341","//ldml/dates/fields/field[@type=\"month\"]/displayName","Month"},
+          {"6992036171566290715","//ldml/dates/fields/field[@type=\"month\"]/relative[@type=\"-1\"]","last month"},
+          {"2255591396386115586","//ldml/dates/fields/field[@type=\"month\"]/relative[@type=\"0\"]","this month"},
+          {"3520996422206474894","//ldml/dates/fields/field[@type=\"month\"]/relative[@type=\"1\"]","next month"},
+          {"1025142018048587270","//ldml/dates/fields/field[@type=\"sat\"]/relative[@type=\"-1\"]","last Saturday"},
+          {"3872736291665737063","//ldml/dates/fields/field[@type=\"sat\"]/relative[@type=\"0\"]","this Saturday"},
+          {"1926107366339956318","//ldml/dates/fields/field[@type=\"sat\"]/relative[@type=\"1\"]","next Saturday"},
+          {"3656074245996838704","//ldml/dates/fields/field[@type=\"second\"]/displayName","Second"},
+          {"8467107917683468953","//ldml/dates/fields/field[@type=\"sun\"]/relative[@type=\"-1\"]","last Sunday"},
+          {"3808375557103948751","//ldml/dates/fields/field[@type=\"sun\"]/relative[@type=\"0\"]","this Sunday"},
+          {"9074967422093827562","//ldml/dates/fields/field[@type=\"sun\"]/relative[@type=\"1\"]","next Sunday"},
+          {"3244404287416100580","//ldml/dates/fields/field[@type=\"thu\"]/relative[@type=\"-1\"]","last Thursday"},
+          {"7450433835219406661","//ldml/dates/fields/field[@type=\"thu\"]/relative[@type=\"0\"]","this Thursday"},
+          {"8869364589940951720","//ldml/dates/fields/field[@type=\"thu\"]/relative[@type=\"1\"]","next Thursday"},
+          {"6966767705374526591","//ldml/dates/fields/field[@type=\"tue\"]/relative[@type=\"-1\"]","last Tuesday"},
+          {"5636647835859220143","//ldml/dates/fields/field[@type=\"tue\"]/relative[@type=\"0\"]","this Tuesday"},
+          {"1285111684428275421","//ldml/dates/fields/field[@type=\"tue\"]/relative[@type=\"1\"]","next Tuesday"},
+          {"1010766311277533100","//ldml/dates/fields/field[@type=\"wed\"]/relative[@type=\"-1\"]","last Wednesday"},
+          {"6115983000780005851","//ldml/dates/fields/field[@type=\"wed\"]/relative[@type=\"0\"]","this Wednesday"},
+          {"8519320203561412913","//ldml/dates/fields/field[@type=\"wed\"]/relative[@type=\"1\"]","next Wednesday"},
+          {"6377233461749820655","//ldml/dates/fields/field[@type=\"week\"]/displayName","Week"},
+          {"4205613537609212087","//ldml/dates/fields/field[@type=\"week\"]/relative[@type=\"-1\"]","last week"},
+          {"2085470013372103609","//ldml/dates/fields/field[@type=\"week\"]/relative[@type=\"0\"]","this week"},
+          {"7211462045123431247","//ldml/dates/fields/field[@type=\"week\"]/relative[@type=\"1\"]","next week"},
+          {"5084042039168215242","//ldml/dates/fields/field[@type=\"weekday\"]/displayName","Day of the Week"},
+          {"1094738968484311026","//ldml/dates/fields/field[@type=\"year\"]/displayName","Year"},
+          {"3098224026124598775","//ldml/dates/fields/field[@type=\"year\"]/relative[@type=\"-1\"]","last year"},
+          {"6672241540598600977","//ldml/dates/fields/field[@type=\"year\"]/relative[@type=\"0\"]","this year"},
+          {"1290179867626936193","//ldml/dates/fields/field[@type=\"year\"]/relative[@type=\"1\"]","next year"},
+          {"7772063621377405772","//ldml/dates/fields/field[@type=\"zone\"]/displayName","Time Zone"},
           {"9168419341649544228","//ldml/dates/timeZoneNames/fallbackFormat","{1} ({0})"},
           {"880820743874293293","//ldml/dates/timeZoneNames/gmtFormat","GMT{0}"},
           {"5296122377365647058","//ldml/dates/timeZoneNames/gmtZeroFormat","GMT"},

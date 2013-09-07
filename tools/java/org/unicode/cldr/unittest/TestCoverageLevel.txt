@@ -30,7 +30,6 @@
 ^//ldml/dates/calendars/calendar\[@type=".*"]/dateTimeFormats/intervalFormats/intervalFormatItem\[@id=".*"]/greatestDifference\[@id=".*"] ; 40
 ^//ldml/dates/calendars/calendar\[@type=".*"]/dayPeriods/dayPeriodContext\[@type=".*"]/dayPeriodWidth\[@type=".*"]/dayPeriod\[@type=".*"] ; 101
 ^//ldml/dates/calendars/calendar\[@type=".*"]/eras/eraAbbr/era\[@type=".*"] ; 30
-^//ldml/dates/calendars/calendar\[@type=".*"]/fields/field\[@type=".*"]/relative\[@type="([-]?[23])"] ; 80
 
 ^//ldml/dates/calendars/calendar\[@type=".*"]/days/dayContext\[@type="format"]/dayWidth\[@type="narrow"]/day\[@type=".*"] ; 30
 ^//ldml/dates/calendars/calendar\[@type=".*"]/days/dayContext\[@type="format"]/dayWidth\[@type="wide"]/day\[@type=".*"] ; 100
@@ -41,3 +40,6 @@
 ^//ldml/dates/calendars/calendar\[@type=".*"]/months/monthContext\[@type="format"]/monthWidth\[@type="narrow"]/month\[@type=".*"]  ; 30
 
 ^//ldml/dates/calendars/calendar\[@type=".*"]/timeFormats/timeFormatLength\[@type="(long|medium)"]/timeFormat\[@type=".*"]/pattern\[@type=".*"] ; 20
+
+^//ldml/dates/fields/field\[@type=".*"]/displayName ; 40
+^//ldml/dates/fields/field\[@type="day"]/relative\[@type="([-]?[01])"] ; 40

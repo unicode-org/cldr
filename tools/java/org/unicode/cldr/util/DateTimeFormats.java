@@ -151,8 +151,8 @@ public class DateTimeFormats {
         }
 
         // field names result.setAppendItemName(i, value);
-        // ldml/dates/calendars/calendar[@type="gregorian"]/fields/field[@type="day"]/displayName
-        for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field"))) {
+        // ldml/dates/fields/field[@type="day"]/displayName
+        for (String path : With.in(file.iterator("//ldml/dates/fields/field"))) {
             if (!path.contains("displayName")) {
                 continue;
             }

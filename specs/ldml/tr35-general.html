@@ -146,11 +146,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <li>6 <a href="#Unit_Elements">Unit Elements</a></li>
     <li>7 <a href="#POSIX_Elements">POSIX Elements</a></li>
     <li>8 <a href="#Reference_Elements">Reference Element</a></li>
-    <li>9 <a href="#Segmentations">Segmentations</a></li>
+    <li>9 <a href="#Segmentations">Segmentations</a>
       <ul class="toc">
-	<li>9.1 <a href="#Segmentation_Inheritance">Segmentation Inheritance</a></li>
-	<li>9.2 <a href="#Segmentation_Exceptions">Segmentation Exceptions</a></li>
+	    <li>9.1 <a href="#Segmentation_Inheritance">Segmentation Inheritance</a></li>
+	    <li>9.2 <a href="#Segmentation_Exceptions">Segmentation Exceptions</a></li>
       </ul>
+    </li>
     <li>10 <a href="#Transforms">Transforms</a>
       <ul class="toc">
         <li>10.1 <a href="#Transform_Rules">Transform Rules</a></li>
@@ -1812,7 +1813,7 @@ Data currently in CLDR was extracted from the Unicode Localization Interoperabil
     <tr><td>quarter-standalone-wide</td><td>dates/calendars/calendar[type=*]/quarters stand-alone wide quarter names</td></tr>
     <tr><td>quarter-abbreviated</td><td>dates/calendars/calendar[type=*]/quarters format and stand-alone abbreviated quarter names</td></tr>
     <tr><td>quarter-narrow</td><td>dates/calendars/calendar[type=*]/quarters format and stand-alone narrow quarter names</td></tr>
-    <tr><td>calendar-field</td><td>dates/calendars/calendar[type=*]/fields/field[type=*]/displayName field names<br>(for relative forms see type "tense" below)</td></tr>
+    <tr><td>calendar-field</td><td>dates/<span class="removed">calendars/calendar[type=*]/</span>fields/field[type=*]/displayName field names<br>(for relative forms see type "tense" below)</td></tr>
     <tr><td>zone-exemplarCity</td><td>dates/timeZoneNames/zone[type=*]/exemplarCity city names</td></tr>
     <tr><td>zone-long</td><td>dates/timeZoneNames/zone[type=*]/long zone names</td></tr>
     <tr><td>zone-short</td><td>dates/timeZoneNames/zone[type=*]/short zone names</td></tr>
@@ -1821,8 +1822,9 @@ Data currently in CLDR was extracted from the Unicode Localization Interoperabil
     <tr><td>symbol</td><td>numbers/currencies/currency[type=*]/symbol symbol names</td></tr>
     <tr><td>displayName-count</td><td>numbers/currencies/currency[type=*]/displayName[count=*] currency names for use with count</td></tr>
     <tr><td>displayName</td><td>numbers/currencies/currency[type=*]/displayName currency names</td></tr>
-    <tr><td>tense</td><td>units/unit[type=*-(past|future)]/unitPattern[count=*] relative unit names; dates/calendars/calendar[type=*]/fields/field[type=*]/relative relative field names</td></tr>
-    <tr><td>unit-pattern</td><td>units/unit[type=*]/unitPattern[count=*] unit names</td></tr>
+    <tr><td>tense</td><td><span class="removed">units/unit[type=*-(past|future)]/unitPattern[count=*] relative unit names;
+        </span>dates/<span class="removed">calendars/calendar[type=*]/</span>fields/field[type=*]/relative <span class="changed">and dates/fields/field[type=*]/relativeTime </span>relative field names</td></tr>
+    <tr><td>unit-pattern</td><td>units/<span class="changed">unitLength[type=*]/</span>unit[type=*]/unitPattern[count=*] unit names</td></tr>
   </table>
 
 <h2>13 <a name="Choice_Patterns" href="#Choice_Patterns">Choice Patterns</a></h2>

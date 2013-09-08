@@ -2153,7 +2153,8 @@ root</pre>
 </blockquote>
 <p>So looking up &quot;zh_TW&quot; returns &quot;zh_Hant_TW&quot;, while looking up &quot;zh&quot; 
   returns &quot;zh_Hans_CN&quot;. In the following text, the components of such a result will be 
-  be designated with language², region², and script².</p>
+  be designated with language<span class="changed"><sup>2</sup></span>, region<span class="changed"><sup>2</sup></span>,
+  and script<span class="changed"><sup>2</sup></span>.</p>
 <p>The data is designed to be used in the following operations. It can 
   also be used with language tags using [<a href="#BCP47">BCP47</a>] syntax, with a few changes.</p>
 <p>&nbsp;</p>
@@ -2172,31 +2173,32 @@ root</pre>
         type=&quot;choice&quot;&gt; in the supplemental data), then return it.</li>
       <li>Remove the script code &#39;Zzzz&#39; and the region code &#39;ZZ&#39; if they occur; change an empty language subtag to 
         &#39;und&#39;.</li>
-      <li>Get the components of the cleaned-up tag (language¹, 
-        script¹, and region¹), plus any variants 
+      <li>Get the components of the cleaned-up tag (language<span class="changed"><sup>1</sup></span>, 
+        script<span class="changed"><sup>1</sup></span>, and region<span class="changed"><sup>1</sup></span>), plus any variants 
         if they exist 
         (including keywords).</li>
     </ol>
   </li>
   <li style="margin-top: 0.5em; margin-bottom: 0.5em">Try each of 
-    the following in order (where the fields exist). The notation field³ 
-    means field¹ if it exists, otherwise field².
+    the following in order (where the fields exist). The notation field<span class="changed"><sup>3</sup></span> 
+    means field<span class="changed"><sup>1</sup></span> if it exists, otherwise field<span class="changed"><sup>2</sup></span>.
     <ol>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em">Lookup 
-        language¹ _ script¹
-        _ region¹. If in the table, return the language²
-        _ script² _ region²
+        language<span class="changed"><sup>1</sup></span> _ script<span class="changed"><sup>1</sup></span>
+        _ region<span class="changed"><sup>1</sup></span>. If in the table, return the language<span class="changed"><sup>2</sup></span>
+        _ script<span class="changed"><sup>2</sup></span> _ region<span class="changed"><sup>2</sup></span>
         + variants.</li>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em">Lookup 
-        language¹ _ script¹. 
-        If in the table, return language² _ script²
-        _ region³ + variants.</li>
+        language<span class="changed"><sup>1</sup></span> _ script<span class="changed"><sup>1</sup></span>. 
+        If in the table, return language<span class="changed"><sup>2</sup></span> _ script<span class="changed"><sup>2</sup></span>
+        _ region<span class="changed"><sup>3</sup></span> + variants.</li>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em">Lookup 
-        language¹ _ region¹. If in the table, return language²
-        _ script³ _ region² + variants.</li>
+        language<span class="changed"><sup>1</sup></span> _ region<span class="changed"><sup>1</sup></span>.
+        If in the table, return language<span class="changed"><sup>2</sup></span>
+        _ script<span class="changed"><sup>3</sup></span> _ region<span class="changed"><sup>2</sup></span> + variants.</li>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em">Lookup 
-        language¹. If in the table, return language²
-        _ script³ _ region³ + variants.</li>
+        language<span class="changed"><sup>1</sup></span>. If in the table, return language<span class="changed"><sup>2</sup></span>
+        _ script<span class="changed"><sup>3</sup></span> _ region<span class="changed"><sup>3</sup></span> + variants.</li>
     </ol>
   </li>
   <li>If none of these succeed, signal an error.</li>

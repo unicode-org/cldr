@@ -19,7 +19,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.test.IdToPath;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;

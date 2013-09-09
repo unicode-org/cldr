@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">06-09</span></td>
+			<td>2013-<span class="changed">09-08</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -609,6 +609,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
 <h3>3.4 <a name="Ellipsis" href="#Ellipsis">Ellipsis</a></h3>
   
+  <p class="dtd">
+    &lt;!ELEMENT ellipsis ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST ellipsis type ( initial | medial | final <span class="changed">| word-initial | word-medial | word-final </span>) #IMPLIED &gt;
+  </p>
 
   <p>The ellipsis element provides patterns for use when truncating strings. There are three versions: initial for removing an initial part of the string
   (leaving final characters); medial for removing from the center of the string (leaving initial and final characters), and final for removing a final part of
@@ -629,7 +633,9 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 <h2>4 <a name="Delimiter_Elements" href="#Delimiter_Elements">Delimiter Elements</a></h2>
   
 
-  <p class="dtd">&lt;!ELEMENT delimiters (alias | (quotationStart*, quotationEnd*, alternateQuotationStart*, alternateQuotationEnd*, special*)) &gt;</p>
+  <p class="dtd">
+    &lt;!ELEMENT delimiters (alias | (quotationStart*, quotationEnd*, alternateQuotationStart*, alternateQuotationEnd*, special*)) &gt;
+  </p>
 
   <p>The delimiters supply common delimiters for bracketing quotations. The quotation marks are used with simple quoted text, such as:</p>
 
@@ -697,11 +703,35 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 <h2>6 <a name="Unit_Elements" href="#Unit_Elements">Unit Elements</a></h2>
   
 
-  <p class="dtd">&lt;!ELEMENT units (alias | (unit*, special*)) &gt;<br>
-  &lt;!ELEMENT unit (alias | (unitPattern*, special*)) &gt;<br>
-  &lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;<br>
-  &lt;!ELEMENT unitPattern ( #PCDATA ) &gt;<br>
-  &lt;!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many | other) #REQUIRED &gt;<br></p>
+  <p class="dtd">
+    &lt;!ELEMENT units (alias | (unit*, <span class="changed">unitLength*, durationUnit*, </span>special*)) &gt;
+  </p>
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT unitLength (alias | (compoundUnit*, unit*, special*)) &gt;<br>
+    &lt;!ATTLIST unitLength type ( long | short | narrow ) #REQUIRED &gt;
+  </span></p>
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT compoundUnit (alias | (compoundUnitPattern*, special*)) &gt;<br>
+    &lt;!ATTLIST compoundUnit type NMTOKEN #REQUIRED &gt;
+  </span></p>
+  <p class="dtd">
+    &lt;!ELEMENT unit (alias | (unitPattern*, special*)) &gt;<br>
+    &lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;
+  </p>
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT durationUnit (alias | (durationUnitPattern*, special*)) &gt;<br>
+    &lt;!ATTLIST durationUnit type NMTOKEN #REQUIRED &gt;
+  </span></p>
+  <p class="dtd">
+    &lt;!ELEMENT unitPattern ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST unitPattern count (0 | 1 | zero | one | two | few | many | other) #REQUIRED &gt;
+  </p>
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT compoundUnitPattern ( #PCDATA ) &gt;<br>
+  </span></p>
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT durationUnitPattern ( #PCDATA ) &gt;<br>
+  </span></p>
 
   <p>These elements specify the localized way of formatting quantities of units such as years, months, days, hours, minutes and seconds—
   for example, in English, "1 day" or "3 days". The English rules that produce this example are as follows ({0} indicates the position
@@ -800,7 +830,34 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
 
 <h2>9 <a name="Segmentations" href="#Segmentations">Segmentations</a></h2>
-  
+
+  <p class="dtd">
+    &lt;!ELEMENT segmentations ( alias | segmentation*) &gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT segmentation ( alias | (variables?, segmentRules?<span class="changed">, exceptions?</span>) | special*) &gt;<br>
+    &lt;!ATTLIST segmentation type NMTOKEN #REQUIRED &gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT variables ( alias | variable*) &gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT variable ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST variable id CDATA #REQUIRED &gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT segmentRules ( alias | rule*) &gt;
+  </p>
+  <p class="dtd">
+    &lt;!ELEMENT rule ( #PCDATA ) &gt;<br>
+    &lt;!ATTLIST rule id NMTOKEN #REQUIRED &gt;
+  </p>
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT exceptions ( exception* ) &gt;
+  </span></p>
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT exception ( #PCDATA ) &gt;
+  </span></p>
 
   <p>The segmentations element provides for segmentation of text into words, lines, or other segments. The structure is based on
   [<a href="http://www.unicode.org/reports/tr41/#UAX29">UAX29</a>] notation, but adapted to be machine-readable. It uses a list of variables (representing
@@ -891,23 +948,24 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <p><code>&lt;rule id="3"/&gt;</code><font color="#0000FF"><code> // deletes rule 3</code></font></p>
 
 
-<h3>9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation Exceptions</a></h3>
+<h3 class="changed">9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation Exceptions</a></h3>
 
-<p><b>Note:</b> As of CLDR 24, the <code>&lt;exceptions&gt;</code> data is to be considered a technology preview.
+<p class="changed"><b>Note:</b> As of CLDR 24, the <code>&lt;exceptions&gt;</code> data is to be considered a technology preview.
 Data currently in CLDR was extracted from the Unicode Localization Interoperability project, or ULI. See 
 <a href="http://uli.unicode.org">http://uli.unicode.org</a> for more information on the ULI project.</p>
 
-<p>The segmentation <b>exceptions</b> list provides a set of cases which, though otherwise identified as a segment by rules, 
+<p class="changed">The segmentation <b>exceptions</b> list provides a set of cases which, though otherwise identified as a segment by rules, 
   should be skipped during segmentation.</p>
 
-<p> For example, in the English phrase "Mr. Smith", there would normally be a Sentence Break between "Mr" and "Smith". However, typically, "Mr." is just an abbreviation for "Mister", and not the end of a sentence.</p>
+<p class="changed"> For example, in the English phrase "Mr. Smith", CLDR segmentation rules would normally find a Sentence Break
+between "Mr" and "Smith". However, typically, "Mr." is just an abbreviation for "Mister", and not actually the end of a sentence.</p>
 
-<p>Each exception has a separate <code>&lt;exception&gt;</code> element, whose contents are the exceptional break to be skipped.
+<p class="changed">Each exception has a separate <code>&lt;exception&gt;</code> element, whose contents are the exceptional break to be skipped.
 </p>
 
-<p>Example:</p>
+<p class="changed">Example:</p>
 
-<pre>
+<pre class="changed">
     &lt;segmentation type="SentenceBreak"&gt;
       &lt;exceptions&gt;
         &lt;exception draft="provisional"&gt;Maj.&lt;/exception&gt;

@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">04-08</span></td>
+			<td>2013-<span class="changed">09-08</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -199,7 +199,7 @@ follows:</p>
 ) &gt;<br>
 <h2>2 <a name="Number_Elements" href="#Number_Elements">Section 2: Number Elements</a></h2>
 	<p class="dtd">&lt;!ELEMENT numbers (alias | (defaultNumberingSystem*, otherNumberingSystems*, symbols*, decimalFormats*,
-	scientificFormats*, percentFormats*, currencyFormats*, currencies?, special*)) &gt;</p>
+	scientificFormats*, percentFormats*, currencyFormats*, currencies?, <span class="changed">miscPatterns*, </span>special*)) &gt;</p>
 	<p>The numbers element supplies information for formatting and parsing numbers and currencies. It has the following sub-elements: 
 	&lt;defaultNumberingSystem&gt;, &lt;otherNumberingSystems&gt;, &lt;symbols&gt;, &lt;decimalFormats&gt;, 
 	&lt;scientificFormats&gt;, &lt;percentFormats&gt;, &lt;currencyFormats&gt;, and &lt;currencies&gt;. The currency IDs are from [<a href="tr35.html#ISO4217">ISO4217</a>] (plus some additional 
@@ -238,10 +238,11 @@ follows:</p>
 	For more information on numbering systems and their definitions, see <i><a href="#Numbering_Systems">Section 1: Numbering Systems</a></i>. </p>
 
 <h3>2.3 <a name="Number_Symbols" href="#Number_Symbols">Number Symbols</a></h3>
-	<p class="dtd">&lt;!ELEMENT symbols (alias | (decimal*, group*, list*,
-	percentSign*, nativeZeroDigit*, patternDigit*,
-	plusSign*, minusSign*, exponential*, 
-	perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, special*)) &gt;</p>
+	<p class="dtd">
+	  &lt;!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*,
+	  plusSign*, minusSign*, exponential*, <span class="changed">superscriptingExponent*, </span>perMille*,
+	  infinity*, nan*, currencyDecimal*, currencyGroup*, special*)) &gt;
+	</p>
 	<p>Number symbols define the localized symbols that are commonly used when formatting numbers in a given locale.  These symbols
            can be referenced using a number formatting pattern as defined in <i><a href="#Number_Format_Patterns">Section 3: Number Format Patterns</a></i>.</p>
 <p>The available number symbols are as follows:</p>
@@ -898,6 +899,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	&lt;!ATTLIST info iso4217 NMTOKEN #REQUIRED &gt;<br>
 	&lt;!ATTLIST info digits NMTOKEN #IMPLIED &gt;<br>
 	&lt;!ATTLIST info rounding NMTOKEN #IMPLIED &gt;<br>
+	<span class="changed">&lt;!ATTLIST info cashRounding NMTOKEN #IMPLIED &gt;</span><br>
 	<br>
 	&lt;!ELEMENT region ( currency* ) &gt;<br>
 	&lt;!ATTLIST region iso3166 NMTOKEN #REQUIRED &gt;<br>
@@ -1011,7 +1013,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	&lt;!ATTLIST pluralRules locales NMTOKENS #REQUIRED &gt;<br>
 	<br>
 	&lt;!ELEMENT pluralRule ( #PCDATA ) &gt;<br>
-	&lt;!ATTLIST pluralRule count (zero | one | two | few | many) #REQUIRED &gt;</p>
+	&lt;!ATTLIST pluralRule count (zero | one | two | few | many<span class="changed"> | other</span>) #REQUIRED &gt;</p>
 	<p>This section defines certain types of plural forms that exist in a language—namely, the cardinal and ordinal plural forms for nouns. 
 	Cardinal plural forms express units such
 	as time, currency or distance, used in conjunction with a number expressed in decimal digits (i.e. &quot;2&quot;, not &quot;two&quot;, and not an indefinite number

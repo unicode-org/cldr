@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">04-30</span></td>
+			<td>2013-<span class="changed">09-08</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -166,14 +166,14 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 Dates Element, Supplemental Date and Calendar Information</a></h2>
 
   <p class="dtd">
-    &lt;!ELEMENT dates (alias | (localizedPatternChars*, dateRangePattern*, calendars?, fields?, timeZoneNames?, special*)) &gt;
+    &lt;!ELEMENT dates (alias | (<span class="removed">localizedPatternChars*, dateRangePattern*, </span>calendars?, fields?, timeZoneNames?, special*)) &gt;
   </p>
 
   <p>The LDML top-level &lt;dates&gt; element contains information regarding the
   format and parsing of dates and times, the formatting of date/time intervals, and the
   the naming of various calendar elements.</p>
   <ul>
-  	<li>The &lt;localizedPatternChars&gt; and &lt;dateRangePattern&gt; elements are deprecated and no longer used;
+  	<li class="removed">The &lt;localizedPatternChars&gt; and &lt;dateRangePattern&gt; elements are deprecated and no longer used;
   	  &lt;dateRangePattern&gt; is replaced by &lt;intervalFormats&gt;.</li>
   	<li>The &lt;calendars&gt; element is described in section 2 <a href="#Calendar_Elements">Calendar Elements</a>.</li>
   	<li>The &lt;fields&gt; element is described in section 3 <a href="#Calendar_Fields">Calendar Fields</a>.</li>
@@ -200,8 +200,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 
   <p class="dtd">
     &lt;!ELEMENT calendars (alias | (default*, calendar*, special*)) &gt;<br>
-    &lt;!ELEMENT calendar (alias | (months?, monthNames?, monthAbbr?, monthPatterns?, days?, dayNames?, dayAbbr?, quarters?, week?, am*, pm*,
-    dayPeriods?, eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, fields*, special*))&gt;<br>
+    &lt;!ELEMENT calendar (alias | (months?, <span class="removed">monthNames?, monthAbbr?, </span>monthPatterns?,
+    days?, <span class="removed">dayNames?, dayAbbr?, </span>quarters?, <span class="removed">week?, am*, pm*, </span>dayPeriods?,
+    eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, <span class="removed">fields*, </span>special*))&gt;<br>
     &lt;!ATTLIST calendar type NMTOKEN #REQUIRED &gt;
   </p>
 
@@ -232,10 +233,10 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   formats, and typically inherit these items (along with month names) from their parent locales, instead of
   inheriting them from Gregorian or generic data in the same locale.</p>
   
-  <p><b>Deprecated items: </b>For &lt;calendars&gt;, the &lt;default&gt; element is deprecated;
+  <p class="removed"><b>Deprecated items: </b>For &lt;calendars&gt;, the &lt;default&gt; element is deprecated;
   the default calendar type for a locale is specified by <i><a href="#Calendar_Preference_Data">Calendar Preference Data</a></i>.
   For the &lt;calendar&gt; element, the following are deprecated:</p>
-  <ul>
+  <ul class="removed">
     <li>&lt;monthNames&gt; and &lt;monthAbbr&gt;; month name forms are specified in the &lt;months&gt; element</li>
     <li>&lt;dayNames&gt; and &lt;dayAbbr&gt;; weekday name forms are specified in the &lt;days&gt; element</li>
     <li><a name="week" href="#week">&lt;week&gt;</a> is deprecated in the main LDML files, because the data is more
@@ -349,7 +350,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	&lt;/monthWidth&gt;
 &lt;/monthContext&gt;</pre>
 
-  <p>The older monthNames, dayNames, and monthAbbr, dayAbbr are maintained for backwards compatibility. They are equivalent to: using the months element with 
+  <p class="removed">The older monthNames, dayNames, and monthAbbr, dayAbbr are maintained for backwards compatibility. They are equivalent to: using the months element with 
 	the context type=&quot;<span style="color: blue">format</span>&quot; and the width type=&quot;<span style="color: blue">wide</span>&quot; (for ...Names) and type=&quot;<span style="color: blue">narrow</span>&quot; 
 	(for ...Abbr), respectively. The minDays, firstDay, weekendStart, and weekendEnd elements are also deprecated; there are new elements in supplemental data for 
 	this data.</p>
@@ -880,38 +881,106 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 
   <p class="dtd">
     &lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
-	&lt;!ELEMENT field ( alias | (displayName?, relative*, special*)) &gt;
+	&lt;!ELEMENT field ( alias | (displayName*, relative*, <span class="changed">relativeTime*, </span>special*)) &gt;
+	&lt;!ATTLIST field type ( era | year | month | week | day | weekday | <span class="changed">sun | mon | tue | wed | thu | fri | sat | </span>dayperiod | hour | minute | second | zone ) #IMPLIED &gt;
   </p>
+  <p class="dtd">
+    &lt;!ELEMENT relative (#PCDATA) &gt;<br>
+	&lt;!ATTLIST relative type NMTOKEN #IMPLIED &gt;
+  </p>
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT relativeTime ( alias | (relativeTimePattern*, special*)) &gt;<br>
+	&lt;!ATTLIST relativeTime type NMTOKEN #REQUIRED &gt;
+  </span></p>
+  <p class="dtd"><span class="changed">
+    &lt;!ELEMENT relativeTimePattern ( #PCDATA ) &gt;<br>
+	&lt;!ATTLIST relativeTimePattern count ( zero | one | two | few | many | other ) #REQUIRED &gt;
+  </span></p>
 
  <p>Translations may be supplied for names of calendar fields (elements of a calendar, such as Day, Month,
 	Year, Hour, and so on), and for relative values for those fields (for example, the day with
-	relative value -1 is &quot;Yesterday&quot;). Where there is not a convenient, customary word or phrase
-	in a particular language for a relative value, it should be omitted.</p>
+	relative value -1 is &quot;Yesterday&quot;). <span class="changed">There are three types of translations;
+	some are only relevant or useful for certain types of fields:</span></p>
+	<ul class="changed">
+	<li>&lt;displayName&gt; General display name for the field type. This should be relevant for all elements,
+	including those like era and zone that might not have useful forms for the other name types.</li>
+	<li>&lt;relative&gt; Display names for the current instance of the field, and one or two past and future instances.
+	In English, this is only used for year, month, week, day, and specific days of the week (sun, mon, tue, …).</li>
+	<li>&lt;relativeTime&gt; Display names for an instance of the field that is a counted number of units in the past
+	or the future relative to the current instance; this needs plural forms. In English, this is only used for year,
+	month, week, day, hour, minute, and second.</li>
+	</ul>
+ <p>Where there is not a convenient, customary word or phrase
+	in a particular language for a <span class="changed">particular type of </span>relative value, it should be omitted.</p>
 
-  <p>Here are examples for English and German. Notice that the German has more fields than the English does.</p>
-  <pre>  &lt;fields&gt;
-   ...
-   &lt;field type=&#39;day&#39;&gt;
-    &lt;displayName&gt;Day&lt;/displayName&gt;
-    &lt;relative type=&#39;-1&#39;&gt;Yesterday&lt;/relative&gt;
-    &lt;relative type=&#39;0&#39;&gt;Today&lt;/relative&gt;
-    &lt;relative type=&#39;1&#39;&gt;Tomorrow&lt;/relative&gt;
-   &lt;/field&gt;
-   ...
+  <p class="changed">Examples, first for English:</p>
+<pre>  &lt;fields&gt;
+    …
+    &lt;field type="day"&gt;
+      &lt;displayName&gt;Day&lt;/displayName&gt;
+      &lt;relative type="-1"&gt;<span class="changed">y</span>esterday&lt;/relative&gt;
+      &lt;relative type="0"&gt;<span class="changed">t</span>oday&lt;/relative&gt;
+      &lt;relative type="1"&gt;<span class="changed">t</span>omorrow&lt;/relative&gt;
+<span class="changed">      &lt;relativeTime type="future"&gt;
+        &lt;relativeTimePattern count="one"&gt;in {0} day&lt;/relativeTimePattern&gt;
+        &lt;relativeTimePattern count="other"&gt;in {0} days&lt;/relativeTimePattern&gt;
+      &lt;/relativeTime&gt;
+      &lt;relativeTime type="past"&gt;
+        &lt;relativeTimePattern count="one"&gt;{0} day ago&lt;/relativeTimePattern&gt;
+        &lt;relativeTimePattern count="other"&gt;{0} days ago&lt;/relativeTimePattern&gt;
+      &lt;/relativeTime&gt;
+</span>    &lt;/field&gt;
+    &lt;field type="weekday"&gt;
+      &lt;displayName&gt;Day of the Week&lt;/displayName&gt;
+    &lt;/field&gt;
+<span class="changed">    &lt;field type="sun"&gt;
+      &lt;relative type="-1"&gt;last Sunday&lt;/relative&gt;
+      &lt;relative type="0"&gt;this Sunday&lt;/relative&gt;
+      &lt;relative type="1"&gt;next Sunday&lt;/relative&gt;
+</span>    &lt;/field&gt;
+    …
+    &lt;field type="hour"&gt;
+      &lt;displayName&gt;Hour&lt;/displayName&gt;
+<span class="changed">      &lt;relativeTime type="future"&gt;
+        &lt;relativeTimePattern count="one"&gt;in {0} hour&lt;/relativeTimePattern&gt;
+        &lt;relativeTimePattern count="other"&gt;in {0} hours&lt;/relativeTimePattern&gt;
+      &lt;/relativeTime&gt;
+      &lt;relativeTime type="past"&gt;
+        &lt;relativeTimePattern count="one"&gt;{0} hour ago&lt;/relativeTimePattern&gt;
+        &lt;relativeTimePattern count="other"&gt;{0} hours ago&lt;/relativeTimePattern&gt;
+      &lt;/relativeTime&gt;
+</span>    &lt;/field&gt;
+    …
   &lt;/fields&gt;
 </pre>
-	<pre>  &lt;fields&gt;
-   ...
-   &lt;field type=&#39;day&#39;&gt;
-    &lt;displayName&gt;Tag&lt;/displayName&gt;
-    &lt;relative type=&#39;-2&#39;&gt;Vorgestern&lt;/relative&gt;
-    &lt;relative type=&#39;-1&#39;&gt;Gestern&lt;/relative&gt;
-    &lt;relative type=&#39;0&#39;&gt;Heute&lt;/relative&gt;
-    &lt;relative type=&#39;1&#39;&gt;Morgen&lt;/relative&gt;
-    &lt;relative type=&#39;2&#39;&gt;Übermorgen&lt;/relative&gt;
-   &lt;/field&gt;
-   ...
+  <p class="changed">Second, for German; includes relative type="-2"/"2", present in the English example:</p>
+<pre>  &lt;fields&gt;
+    …
+    &lt;field type="day"&gt;
+      &lt;displayName&gt;Tag&lt;/displayName&gt;
+      &lt;relative type="-2"&gt;Vorgestern&lt;/relative&gt;
+      &lt;relative type="-1"&gt;Gestern&lt;/relative&gt;
+      &lt;relative type="0"&gt;Heute&lt;/relative&gt;
+      &lt;relative type="1"&gt;Morgen&lt;/relative&gt;
+      &lt;relative type="2"&gt;Übermorgen&lt;/relative&gt;
+<span class="changed">      &lt;relativeTime type="future"&gt;
+        &lt;relativeTimePattern count="one"&gt;In {0} Tag&lt;/relativeTimePattern&gt;
+        &lt;relativeTimePattern count="other"&gt;In {0} Tagen&lt;/relativeTimePattern&gt;
+      &lt;/relativeTime&gt;
+      &lt;relativeTime type="past"&gt;
+        &lt;relativeTimePattern count="one"&gt;Vor {0} Tag&lt;/relativeTimePattern&gt;
+        &lt;relativeTimePattern count="other"&gt;Vor {0} Tagen&lt;/relativeTimePattern&gt;
+      &lt;/relativeTime&gt;
+</span>    &lt;/field&gt;
+    …
   &lt;/fields&gt;
+</pre>
+  <p class="changed">A special name for “now” is indicated using &lt;relative type="0"&gt; for the "second" field. For example, in English:</p>
+<pre>    &lt;field type="second"&gt;
+      &lt;displayName&gt;Second&lt;/displayName&gt;
+<span class="changed">      &lt;relative type="0"&gt;now&lt;/relative&gt;</span>
+      …
+    &lt;/field&gt;
 </pre>
 
 <h2>4 <a name="Supplemental_Calendar_Data" href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a></h2>
@@ -1136,22 +1205,27 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 <h2>5 <a name="Time_Zone_Names" href="#Time_Zone_Names">Time Zone Names</a></h2>
 
   <p class="dtd">
-    &lt;!ELEMENT timeZoneNames (alias | (hourFormat*, hoursFormat*, gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*,
-    fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, zone*, metazone*, special*)) &gt;
+    &lt;!ELEMENT timeZoneNames (alias | (hourFormat*, <span class="removed">hoursFormat*, </span>gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*,
+    <span class="removed">fallbackRegionFormat*, abbreviationFallback*, preferenceOrdering*, singleCountries*, default*, </span>zone*, metazone*, special*)) &gt;
   </p>
   <p class="dtd">
     &lt;!ELEMENT hourFormat ( #PCDATA ) &gt;<br>
     &lt;!ELEMENT gmtFormat ( #PCDATA ) &gt;<br>
-    &lt;!ELEMENT gmtZeroFormat ( #PCDATA ) &gt;<br>
+    &lt;!ELEMENT gmtZeroFormat ( #PCDATA ) &gt;
+  </p>
+  <p class="dtd">
     &lt;!ELEMENT regionFormat ( #PCDATA ) &gt;<br>
+    <span class="changed">&lt;!ATTLIST regionFormat type ( standard | daylight ) #IMPLIED &gt;</span>
+  </p>
+  <p class="dtd">
     &lt;!ELEMENT fallbackFormat ( #PCDATA ) &gt;
   </p>
   <p class="dtd">
-    &lt;!ELEMENT zone (alias | ( long*, short*, commonlyUsed*, exemplarCity*, special*)) &gt;<br>
+    &lt;!ELEMENT zone (alias | ( long*, short*, <span class="removed">commonlyUsed*, </span>exemplarCity*, special*)) &gt;<br>
     &lt;!ATTLIST zone type CDATA #REQUIRED &gt;
   </p>
   <p class="dtd">
-    &lt;!ELEMENT metazone (alias | ( long*, short*, commonlyUsed*, special*)) &gt;<br>
+    &lt;!ELEMENT metazone (alias | ( long*, short*, <span class="removed">commonlyUsed*, </span>special*)) &gt;<br>
     &lt;!ATTLIST metazone type CDATA #REQUIRED &gt;
   </p>
   <p class="dtd">
@@ -1190,8 +1264,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   <p>This element was deprecated after the introduction of bcp47/timezone.xml, because the information became redundant
   (or was contained in the <i>TZ time zone database</i>).</p>
 
-  <p><b>Deprecated &lt;timeZoneNames&gt; subelements:</b></p>
-  <ul>
+  <p class="removed"><b>Deprecated &lt;timeZoneNames&gt; subelements:</b></p>
+  <ul class="removed">
     <li>&lt;hoursFormat&gt; e.g. &quot;{0}/{1}&quot; for &quot;-0800/-0700&quot;</li>
     <li><a name="fallbackRegionFormat" href="#fallbackRegionFormat">&lt;fallbackRegionFormat&gt;</a> (deprecated),
       e.g. &quot;{0} Time ({1})&quot; for &quot;United States Time (New York)&quot;</li>
@@ -1199,8 +1273,8 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
     <li>&lt;preferenceOrdering&gt;, a preference ordering among modern zones; use metazones instead.</li>
     <li>&lt;singleCountries&gt;, use <a href="#Primary_Zones">Primary Zones</a></li>
   </ul>
-  <p><b>Deprecated subelements of &lt;zone&gt; and &lt;metazone&gt;:</b></p>
-  <ul>
+  <p class="removed"><b>Deprecated subelements of &lt;zone&gt; and &lt;metazone&gt;:</b></p>
+  <ul class="removed">
     <li>&lt;commonlyUsed&gt;, formerly used to indicate whether a zone was commonly used it the locale.</li>
   </ul>
 
@@ -1326,8 +1400,17 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 			<td>&quot;Japan Time&quot;</td>
 		</tr>
 		<tr>
-			<td>&quot;Tiempo de {0}&quot;</td>
-			<td>&quot;Tiempo de Japón&quot;</td>
+			<td>&quot;Hora de {0}&quot;</td>
+			<td>&quot;Hora de Japón&quot;</td>
+		</tr>
+		<tr class="changed">
+			<td rowspan="2">regionFormat type="daylight"<br>(or "standard")</td>
+			<td>&quot;{0} Daylight Time&quot;</td>
+			<td>&quot;France Daylight Time&quot;</td>
+		</tr>
+		<tr class="changed">
+			<td>&quot;horario de verano de {0}&quot;</td>
+			<td>&quot;horario de verano de Francia&quot;</td>
 		</tr>
 		<tr>
 			<td>fallbackFormat</td>

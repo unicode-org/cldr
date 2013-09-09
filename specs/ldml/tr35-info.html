@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">04-08</span></td>
+			<td>2013-<span class="changed">09-08</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -689,6 +689,7 @@ However, these principles are continually being refined by the CLDR technical co
 	&lt;!ELEMENT casingData (casingItem*) &gt;<br>
 	&lt;!ELEMENT casingItem ( #PCDATA ) &gt;<br>
 	&lt;!ATTLIST casingItem type CDATA #REQUIRED &gt;<br>
+	<span class="changed">&lt;!ATTLIST casingItem override (true | false) #IMPLIED &gt;</span><br>
 	</p>
 	<p>The &lt;metadata&gt; element contains metadata about the locale for use by the Survey Tool or other tools in
 	checking locale data; this data is not intended for export as part of the locale itself.</p>

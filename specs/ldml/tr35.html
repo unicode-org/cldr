@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-03</span></td>
+			<td>2013-<span class="changed">09-08</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -268,6 +268,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
      <li>8.5 <a href="#Attribute_standard">Attribute standard</a></li>
      <li class="changed">8.6 <a href="#Element_base">Element base</a></li>
      <li class="changed">8.7 <a href="#Element_rules">Element rules</a></li>
+     <li class="changed">8.8 <a href="#Deprecated_subelements_of_dates">Deprecated subelements of &lt;dates&gt;</a></li>
+     <li class="changed">8.9 <a href="#Deprecated_subelements_of_calendars">Deprecated subelements of &lt;calendars&gt;</a></li>
+     <li class="changed">8.10 <a href="#Deprecated_subelements_of_timeZoneNames">Deprecated subelements of &lt;timeZoneNames&gt;</a></li>
+     <li class="changed">8.11 <a href="#Deprecated_subelements_of_zone_metazone">Deprecated subelements of &lt;zone&gt; and &lt;metazone&gt;</a></li>
     </ul>
    </li>
    <li>9 <a href="#Links_to_Other_Parts">Links to Other Parts</a></li>
@@ -1103,29 +1107,37 @@ a single alphanumeric character subtag assigned by IANA.  </p>
       and their backward compatibility mappings appropriate for a particular domain.
       For example, <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/collation.xml">common/bcp47/collation.xml</a> contains key/type values for collation, including optional collation parameters and valid type values for each key.</p>
     <p>The 't' extension data is stored in <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/transform.xml">common/bcp47/transform.xml</a>.</p>
-    <pre class="dtd">&lt;!ELEMENT keyword ( key* )&gt;
-
-&lt;!ELEMENT key ( type* ) &gt;
-&lt;!ATTLIST key extension NMTOKEN #IMPLIED&gt;
-&lt;!ATTLIST key name NMTOKEN #REQUIRED&gt;
-&lt;!ATTLIST key alias NMTOKEN #IMPLIED&gt;
-&lt;!ATTLIST key description CDATA #IMPLIED&gt;
-&lt;!ATTLIST key since CDATA #IMPLIED&gt;
-&lt;!ATTLIST key deprecated ( true | false ) "false"&gt;
-
-&lt;!ELEMENT type EMPTY&gt;
-&lt;!ATTLIST type name NMTOKEN #REQUIRED&gt;
-&lt;!ATTLIST type alias CDATA #IMPLIED&gt;
-&lt;!ATTLIST type description CDATA #IMPLIED&gt;
-&lt;!ATTLIST type since CDATA #IMPLIED&gt;
-&lt;!ATTLIST type deprecated ( true | false ) "false"&gt;
-
-&lt;!ELEMENT attribute EMPTY&gt;
-&lt;!ATTLIST attribute name NMTOKEN #REQUIRED&gt;
-&lt;!ATTLIST attribute description CDATA #IMPLIED&gt;
-&lt;!ATTLIST attribute since CDATA #IMPLIED&gt;
-&lt;!ATTLIST attribute deprecated ( true | false ) "false"&gt;</pre>
-  <p>The extension attribute in &lt;key&gt; element specifies the BCP 47 language tag extension type. The default value of
+    <p class="dtd">
+      &lt;!ELEMENT keyword ( key* )&gt;
+    </p>
+    <p class="dtd">
+      &lt;!ELEMENT key ( type* )&gt;<br>
+      &lt;!ATTLIST key extension NMTOKEN #IMPLIED&gt;<br>
+      &lt;!ATTLIST key name NMTOKEN #REQUIRED&gt;<br>
+      &lt;!ATTLIST key description CDATA #IMPLIED&gt;<br>
+      &lt;!ATTLIST key deprecated ( true | false ) "false"&gt;<br>
+      <span class="changed">&lt;!ATTLIST key preferred NMTOKEN #IMPLIED&gt;</span><br>
+      &lt;!ATTLIST key alias NMTOKEN #IMPLIED&gt;<br>
+      &lt;!ATTLIST key since CDATA #IMPLIED&gt;
+    </p>
+    <p class="dtd">
+      &lt;!ELEMENT type EMPTY&gt;<br>
+      &lt;!ATTLIST type name NMTOKEN #REQUIRED&gt;<br>
+      &lt;!ATTLIST type description CDATA #IMPLIED&gt;<br>
+      &lt;!ATTLIST type deprecated ( true | false ) "false"&gt;<br>
+      <span class="changed">&lt;!ATTLIST type preferred NMTOKEN #IMPLIED&gt;</span><br>
+      &lt;!ATTLIST type alias CDATA #IMPLIED&gt;<br>
+      &lt;!ATTLIST type since CDATA #IMPLIED&gt;
+    </p>
+    <p class="dtd">
+      &lt;!ELEMENT attribute EMPTY&gt;<br>
+      &lt;!ATTLIST attribute name NMTOKEN #REQUIRED&gt;<br>
+      &lt;!ATTLIST attribute description CDATA #IMPLIED&gt;<br>
+      &lt;!ATTLIST attribute deprecated ( true | false ) "false"&gt;<br>
+      <span class="changed">&lt;!ATTLIST attribute preferred NMTOKEN #IMPLIED&gt;</span><br>
+      &lt;!ATTLIST attribute since CDATA #IMPLIED&gt;
+    </p>
+    <p>The extension attribute in &lt;key&gt; element specifies the BCP 47 language tag extension type. The default value of
       the extension attribute is "u" (Unicode locale extension). The &lt;type&gt; element is only applicable to the enclosing &lt;key&gt;.</p>
     <h4><a name="Unicode_Locale_Extension_Data_Files" href="#Unicode_Locale_Extension_Data_Files">3.7.1 Unicode Locale Extension Data Files</a></h4>
     <p>In the Unicode locale extension 'u' data files, the common attributes
@@ -1183,6 +1195,20 @@ a single alphanumeric character subtag assigned by IANA.  </p>
           For example, "gregory" and "japanese" are valid type names for key "ca" (calendar). Both "u-ca-gregory" and "u-ca-japanese" are
           valid representations of Unicode locale extension, but "u-ca-gregory-japanese" is not.</p>
       </dd>
+      <dt><b>description</b></dt>
+      <dd>
+        <p>The description of the key, type or attribute element.</p>
+      </dd>
+      <dt><b>deprecated</b></dt>
+      <dd>
+        <p>The deprecation status of the key, type or attribute element. The value
+          "true" indicates the element is deprecated and no longer used in the version of CLDR. The
+          default value is "false".</p>
+      </dd>
+      <dt class="changed"><b>preferred</b></dt>
+      <dd class="changed">
+       <p>(to be supplied)</p>
+      </dd>
       <dt><b>alias</b> (Not applicable to &lt;attribute&gt;)</dt>
       <dd>
         <p>The BCP47 form is the canonical form, and recommended. Other aliases are included only for  backwards compatibility.</p>
@@ -1200,18 +1226,10 @@ a single alphanumeric character subtag assigned by IANA.  </p>
           ASCII space characters. Of those aliases, the first name is the preferred
           value.</p>
       </dd>
-      <dt><b>description</b></dt>
-      <dd> The description of the key, type or attribute element. </dd>
       <dt><b>since</b></dt>
       <dd> The version of CLDR in which this key or type was introduced.
         Absence of this attribute value implies the key or type was available
         in CLDR 1.7.2. </dd>
-      <dt><b>deprecated</b></dt>
-      <dd>
-        <p>The deprecation status of the key, type or attribute element. The value
-          "true" indicates the element is deprecated and no longer used in the version of CLDR. The
-          default value is "false".</p>
-      </dd>
     </dl>
     <p>For example,
     <pre>
@@ -3204,7 +3222,11 @@ decimal?, group?, special*)) &gt;</pre>
 	<p>Quoting is done using &#39; characters, as in date or number formats.</p>
 	<h3><a name="Element_default" href="#Element_default">8.4 Element default</a></h3>
 	<p><b>Note:</b> <i>This structure is deprecated<span class="removed"> except when used for &lt;collation&gt;</span>.</i>
-	<span class="changed">Use replacement structure instead, such as the &lt;defaultCollation&gt; element.</span></p>
+	<span class="changed">Use replacement structure instead, for example:</span></p>
+	<ul class="changed">
+	  <li>For &lt;collations&gt;, now use the &lt;defaultCollation&gt; element.</li>
+	  <li>For &lt;calendars&gt;, the default calendar type for a locale is now specified by <i><a href="tr35-dates.html#Calendar_Preference_Data">Calendar Preference Data</a></i>.</li>
+	</ul>
     <p>In some cases, a number of elements are present. The default element can be used to indicate which of them is the default, in the absence of other information. 
       The value of the choice attribute is to match the value of the type attribute for the selected item.</p>
     <pre>&lt;timeFormats&gt;
@@ -3260,9 +3282,49 @@ decimal?, group?, special*)) &gt;</pre>
   The results of multiple rules applying to the same characters is covered in <a href="tr35-collation.html#Orderings">Orderings</a>.</p>
 
   <h3 class="changed"><a name="Element_rules" href="#Element_rules">8.7 Element rules</a></h3>
-  <p class="changed"><b>Note:</b> <i>The XML collation syntax is deprecated.</i>
+  <p class="changed"><b>Note:</b> <i>The XML collation syntax is deprecated; this includes the &lt;rules&gt; element and its subelements,
+  except that the &lt;import&gt; element has been moved up to be a subelement of &lt;collation&gt;.</i>
   Use the basic collation syntax with the <a href="tr35-collation.html#Rules">&lt;cr&gt; element</a> instead.</p>
-  <p class="dtd">&lt;!ELEMENT rules (alias | ( reset, ( reset | p | pc | s | sc | t | tc | i | ic | x)* )) &gt;</p>
+  <p class="dtd">&lt;!ELEMENT rules (alias | ( ( reset | import ), ( reset | import | p | pc | s | sc | t | tc | i | ic | x)* )) &gt;</p>
+
+  <h3 class="changed"><a name="Deprecated_subelements_of_dates" href="#Deprecated_subelements_of_dates">8.8 Deprecated subelements of &lt;dates&gt;</a></h3>
+  <ul class="changed">
+ 	<li>&lt;localizedPatternChars&gt;</li>
+ 	<li>&lt;dateRangePattern&gt;, replaced by &lt;intervalFormats&gt;.</li>
+  </ul>
+
+  <h3 class="changed"><a name="Deprecated_subelements_of_calendars" href="#Deprecated_subelements_of_calendars">8.9 Deprecated subelements of &lt;calendars&gt;</a></h3>
+  <ul class="changed">
+    <li>&lt;monthNames&gt; and &lt;monthAbbr&gt;; month name forms are specified in the &lt;months&gt; element.
+    The older monthNames, monthAbbr are equivalent to: using the months element with the context type=&quot;<span style="color: blue">format</span>&quot;
+    and the width type=&quot;<span style="color: blue">wide</span>&quot; (for ...Names) and type=&quot;<span style="color: blue">narrow</span>&quot; 
+	(for ...Abbr), respectively.</li>
+    <li>&lt;dayNames&gt; and &lt;dayAbbr&gt;; weekday name forms are specified in the &lt;days&gt; element.
+    The older dayNames, dayAbbr are equivalent to: using the days element with the context type=&quot;<span style="color: blue">format</span>&quot;
+    and the width type=&quot;<span style="color: blue">wide</span>&quot; (for ...Names) and type=&quot;<span style="color: blue">narrow</span>&quot; 
+	(for ...Abbr), respectively.</li>
+    <li><a name="week_deprecated" href="#week_deprecated">&lt;week&gt;</a> is deprecated in the main LDML files, because the data is more
+      appropriately organized as connected to territories, not to linguistic data. Use the supplemental
+      &lt;weekData&gt; element instead.
+    <li>&lt;am&gt; and &lt;pm&gt;; these are now included as part of the &lt;dayPeriods&gt; element</li>
+    <li>&lt;fields&gt; is deprecated as a subelement of &lt;calendars&gt; instead, a &lt;fields&gt; element should be located
+    just under a &lt;dates&gt; element. See <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a>.</li>
+  </ul>
+
+  <h3 class="changed"><a name="Deprecated_subelements_of_timeZoneNames" href="#Deprecated_subelements_of_timeZoneNames">8.10 Deprecated subelements of &lt;timeZoneNames&gt;</a></h3>
+  <ul class="changed">
+    <li>&lt;hoursFormat&gt; e.g. &quot;{0}/{1}&quot; for &quot;-0800/-0700&quot;</li>
+    <li><a name="fallbackRegionFormat_deprecated" href="#fallbackRegionFormat_deprecated">&lt;fallbackRegionFormat&gt;</a> (deprecated),
+      e.g. &quot;{0} Time ({1})&quot; for &quot;United States Time (New York)&quot;</li>
+    <li>&lt;abbreviationFallback&gt;</li>
+    <li>&lt;preferenceOrdering&gt;, a preference ordering among modern zones; use metazones instead.</li>
+    <li>&lt;singleCountries&gt;, use <a href="tr35-dates.html#Primary_Zones">Primary Zones</a></li>
+  </ul>
+
+  <h3 class="changed"><a name="Deprecated_subelements_of_zone_metazone" href="#Deprecated_subelements_of_zone_metazone">8.11 Deprecated subelements of &lt;zone&gt; and &lt;metazone&gt;</a></h3>
+  <ul class="changed">
+    <li>&lt;commonlyUsed&gt;, formerly used to indicate whether a zone was commonly used in the locale.</li>
+  </ul>
 
 <hr>
 <h2><a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">9 Links to Other Parts</a></h2>
@@ -3455,7 +3517,7 @@ decimal?, group?, special*)) &gt;</pre>
     </tr>
     <tr>
       <td><a name="week" href="#week">&lt;week&gt;</a></td>
-      <td><a href="tr35-dates.html#week">&lt;week&gt;</a></td>
+      <td><a href="#week_deprecated">&lt;week<span class="changed"> (deprecated)</span>&gt;</a></td>
     </tr>
     <tr>
       <td><a name="Calendar_Fields" href="#Calendar_Fields">5.9.2 Calendar Fields</a></td>
@@ -3499,7 +3561,7 @@ decimal?, group?, special*)) &gt;</pre>
     </tr>
     <tr>
       <td><a name="fallbackRegionFormat" href="#fallbackRegionFormat"><strong>fallbackRegionFormat:</strong></a></td>
-      <td><a href="tr35-dates.html#fallbackRegionFormat">&lt;fallbackRegionFormat&gt;</a></td>
+      <td><a href="#fallbackRegionFormat_deprecated">&lt;fallbackRegionFormat<span class="changed"> (deprecated)</span>&gt;</a></td>
     </tr>
     <tr>
       <td><a name="fallbackFormat" href="#fallbackFormat"><b>fallbackFormat</b>:</a></td>
@@ -4098,6 +4160,11 @@ decimal?, group?, special*)) &gt;</pre>
     <li>Updated the paths in the &lt;contextTransformUsage&gt; type attribute values table in
     <a href="tr35-general.html#Context_Transform_Elements">ContextTransform Elements</a>.
     [ticket <a href="http://unicode.org/cldr/trac/ticket/6563">#6563</a>]</li>
+    <li>Updated to reflect new structure in <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a>, plus the
+    standard/daylight types for &lt;regionFormat&gt;.
+    Moved deprecated items from Part 4: Dates to shared <a href="#Deprecated_Structure">Deprecated Structure</a> section.
+    Added DTD updates for other changes in parts 1, 2, 3, 6.
+    [ticket <a href="http://unicode.org/cldr/trac/ticket/6617">#6617</a>]</li>
   </ul>
 
   <h3>Revision 31</h3>

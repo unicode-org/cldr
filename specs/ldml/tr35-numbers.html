@@ -133,6 +133,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
       <li>2.2 <a href="#otherNumberingSystems">Other Numbering Systems</a></li>
       <li>2.3 <a href="#Number_Symbols">Number Symbols</a></li>
       <li>2.4 <a href="#Number_Formats">Number Formats</a></li>
+      <li class="changed">2.5 <a href="#Miscellaneous_Patterns">Miscellaneous Patterns</a></li>
     </ul></li>
     <li>3 <a href="#Number_Format_Patterns">Number Format Patterns</a>
     <ul class="toc">
@@ -271,6 +272,8 @@ follows:</p>
 		<dd>- Symbol used to denote positive value. </dd>
 		<dt><b>exponential</b> </dt>
 		<dd>- Symbol separating the mantissa and exponent values. </dd>
+		<dt class="changed"><b>superscriptingExponent</b> </dt>
+		<dd class="changed">- (to be supplied). </dd>
 		<dt><b>perMille</b> </dt>
 		<dd>- symbol used to indicate a per-mille (1/1000th) amount. (If present, the value is also multiplied by 1000 before formatting. That way 1.23 → 1230 [1/000])
 		</dd>
@@ -310,11 +313,11 @@ follows:</p>
 	For more information on numbering systems and their definitions, see <i><a href="#Numbering_Systems">Section 1: Numbering Systems</a></i>.</p>
 
 <h3>2.4 <a name="Number_Formats" href="#Number_Formats">Number Formats</a></h3>
-	<p><span class="dtd">&lt;!ELEMENT decimalFormats (alias | (default*, decimalFormatLength*, special*))&gt;<br>
+	<p class="dtd">&lt;!ELEMENT decimalFormats (alias | (default*, decimalFormatLength*, special*))&gt;<br>
 	&lt;!ELEMENT decimalFormatLength (alias | (default*, decimalFormat*, special*))&gt;<br>
 	&lt;!ATTLIST decimalFormatLength type ( full | long | medium | short ) #IMPLIED &gt;<br>
 	&lt;!ELEMENT decimalFormat (alias | (pattern*, special*)) &gt;<br>
-	</span></p>
+	</p>
         <p>(scientificFormats, percentFormats have the same structure)</p>
         <p>Number formats are used to define the rules for formatting numeric quantities using the pattern syntax described in 
         <i><a href="#Number_Format_Patterns">Section 3: Number Format Patterns</a></i>.</p>
@@ -393,7 +396,14 @@ follows:</p>
   &lt;/currencyFormatLength&gt;
 &lt;/currencyFormats&gt;</pre>
 
-	<h2><a name="Number_Format_Patterns" href="#Number_Format_Patterns">Section 3: Number Format Patterns</a></h2>
+<h3 class="changed">2.5 <a name="Miscellaneous_Patterns" href="#Miscellaneous_Patterns">Miscellaneous Patterns</a></h3>
+	<p class="dtd"><span class="changed">
+	  &lt;!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) &gt;<br>
+	  &lt;!ATTLIST miscPatterns numberSystem CDATA #IMPLIED &gt;
+	</span></p>
+    <p class="changed">(to be supplied)</p>
+
+<h2><a name="Number_Format_Patterns" href="#Number_Format_Patterns">Section 3: Number Format Patterns</a></h2>
 	<h3><a name="Number_Patterns" href="#Number_Patterns">3.1 Number Patterns</a></h3>
 	<p>Number patterns affect how numbers are interpreted in a localized context. Here are some examples, based 
 	on the French locale. The &quot;.&quot; shows where the decimal point should go. The &quot;,&quot; shows where the thousands separator should go. A &quot;0&quot; indicates zero-padding: 

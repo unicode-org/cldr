@@ -71,7 +71,7 @@ public class POSIX_LCCollate {
         // System.out.println("Setting string is :"+settings);
         // System.out.println("Rules   string is :"+rules);
 
-        if (rules.length() > 0)
+        if (rules != null && rules.length() > 0)
             col = new RuleBasedCollator(rules);
         else
             col = (RuleBasedCollator) RuleBasedCollator.getInstance();

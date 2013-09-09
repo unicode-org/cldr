@@ -682,8 +682,8 @@ public class Ldml2JsonConverter {
         out.add(indent(level) + "\"" + objName + "\": {");
         for (String key : attrAsValueMap.keySet()) {
             String value = escapeValue(attrAsValueMap.get(key));
-            // attribute is prefixed with "@" when being used as key.
-            out.add(indent(level + 1) + "\"@" + key + "\": \"" + value + "\"");
+            // attribute is prefixed with "_" when being used as key.
+            out.add(indent(level + 1) + "\"_" + key + "\": \"" + value + "\"");
         }
     }
 
@@ -779,8 +779,8 @@ public class Ldml2JsonConverter {
             Map<String, String> attrAsValueMap = node.getAttrAsValueMap();
             out.add(indent(arrayLevel + 1) + "\"" + objName + "\": {");
             for (String key : attrAsValueMap.keySet()) {
-                // attribute is prefixed with "@" when being used as key.
-                out.add(indent(arrayLevel + 2) + "\"@" + key + "\": \"" +
+                // attribute is prefixed with "_" when being used as key.
+                out.add(indent(arrayLevel + 2) + "\"_" + key + "\": \"" +
                     escapeValue(attrAsValueMap.get(key)) + "\"");
             }
 
@@ -959,16 +959,16 @@ public class Ldml2JsonConverter {
 
         for (String key : attrAsValueMap.keySet()) {
             String attrValue = escapeValue(attrAsValueMap.get(key));
-            // attribute is prefixed with "@" when being used as key.
+            // attribute is prefixed with "_" when being used as key.
             if ( LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
                 String [] strings = attrValue.trim().split("\\s+");
-                out.add(indent(level + 1) + "\"@" + key + "\": [");
+                out.add(indent(level + 1) + "\"_" + key + "\": [");
                 for ( String s : strings ) {
                     out.add(indent(level + 2)+"\"" + s + "\"");
                 }
                 out.add(indent(level + 1) + "]");
             } else {
-                out.add(indent(level + 1) + "\"@" + key + "\": \"" + attrValue + "\"");
+                out.add(indent(level + 1) + "\"_" + key + "\": \"" + attrValue + "\"");
             }
         }
         out.add(indent(level) + "}");

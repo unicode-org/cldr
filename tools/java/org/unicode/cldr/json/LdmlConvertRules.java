@@ -56,7 +56,7 @@ class LdmlConvertRules {
      * should be really converted as,
      * "arab": {
      * "_value": "Arabic-Indic Digits",
-     * "@key": "numbers"
+     * "_key": "numbers"
      * }
      */
     private static final String[] ATTR_AS_VALUE_LIST = {

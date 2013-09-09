@@ -63,7 +63,7 @@ public class ShowData {
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.SOURCEDIR().setDefault(CldrUtility.TMP2_DIRECTORY + "vxml/common/main/"), // C:\cvsdata/unicode\cldr\diff\summary
+        UOption.SOURCEDIR().setDefault(CldrUtility.MAIN_DIRECTORY),
         UOption.DESTDIR().setDefault(CldrUtility.CHART_DIRECTORY + "summary/"),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("getscript", 'g', UOption.NO_ARG), 

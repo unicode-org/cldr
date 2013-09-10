@@ -64,6 +64,8 @@
 //ldml/characters/exemplarCharacters[@type="punctuation"] ; /ExemplarCharactersPunctuation
 //ldml/characters/exemplarCharacters ; /ExemplarCharacters
 
+//ldml/characters/ellipsis[@type="(%A)"] ; /Ellipsis/$1
+//ldml/characters/moreInformation      ;   /MoreInformation
 //ldml/characters/special/icu:scripts/icu:script[@type="%N"]      ;   /LocaleScript
 
 # Defaults
@@ -92,6 +94,7 @@
 //ldml/dates/calendars/calendar[@type="(%A)"]/dateTimeFormats/intervalFormats/intervalFormatFallback ; /calendar/$1/intervalFormats/fallback
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="(am|pm)"] ; /calendar/$1/AmPmMarkers
+//ldml/dates/calendars/calendar[@type="(%A)"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="narrow"]/dayPeriod[@type="(am|pm)"] ; /calendar/$1/AmPmMarkersNarrow
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNarrow/era[@type="(%A)"] ; /calendar/$1/eras/narrow
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraAbbr/era[@type="(%A)"] ; /calendar/$1/eras/abbreviated
@@ -105,6 +108,8 @@
 //ldml/dates/fields/field[@type="(%A)"]/relativeTime[@type="(%A)"]/relativeTimePattern[@count="(%A)"] ; /fields/$1/relativeTime/$2/$3
 
 //ldml/dates/timeZoneNames/(%GFormat)   ; /zoneStrings/$1
+//ldml/dates/timeZoneNames/regionFormat[@type="daylight"]   ; /zoneStrings/regionFormatDaylight
+//ldml/dates/timeZoneNames/regionFormat[@type="standard"]   ; /zoneStrings/regionFormatStandard
 
 //ldml/dates/timeZoneNames/metazone[@type="(%A)"]/(\w)%W/(\w)%W ; /zoneStrings/"meta:$1"/$2$3
 
@@ -133,8 +138,11 @@
 //ldml/localeDisplayNames/scripts/script[@type="(%A)"][@alt="stand-alone"] ; /Scripts%stand-alone/$1
 
 //ldml/localeDisplayNames/territories/territory[@type="(%A)"] ; /Countries/$1
+//ldml/localeDisplayNames/territories/territory[@type="(%A)"][@alt="short"] ; /CountriesShort/$1
 
-//ldml/localeDisplayNames/types/type[@type="(%A)"][@key="((?!col(Alternate|Backwards|CaseFirst|CaseLevel|HiraganaQuaternary|Normalization|Numeric|Strength))%A)"] ; /Types/$2/$1
+//ldml/localeDisplayNames/transformNames/transformName[@type="(%W)"] ; /transformNames/$1
+
+//ldml/localeDisplayNames/types/type[@type="(%A)"][@key="(%A)"] ; /Types/$2/$1
 
 //ldml/localeDisplayNames/variants/variant[@type="(%A)"] ; /Variants/$1
 
@@ -143,6 +151,7 @@
 //ldml/numbers/currencies/currency[@type="(%A)"]/displayName[@count="(%A)"] ; /CurrencyPlurals/$1/$2
 
 //ldml/numbers/currencies/currency[@type="(%W)"]/symbol ; /Currencies/$1 ; fallback=$1
+//ldml/numbers/currencies/currency[@type="(%W)"]/symbol[@alt="narrow"] ; /CurrenciesNarrow/$1
 //ldml/numbers/currencies/currency[@type="(%W)"]/displayName ; /Currencies/$1 ; fallback=$1
 //ldml/numbers/currencies/currency[@type="(%W)"]/pattern[@type="standard"]; /Currencies/$1/ ; fallback=//ldml/numbers/currencyFormats[@numberSystem="%D"]/currencyFormatLength/currencyFormat[@type="standard"]/pattern[@type="standard"]
 //ldml/numbers/currencies/currency[@type="(%W)"]/decimal ; /Currencies/$1/ ; fallback=//ldml/numbers/symbols[@numberSystem="%D"]/decimal
@@ -157,6 +166,7 @@
 
 //ldml/numbers/symbols[@numberSystem="(%A)"]/(%W) ; /NumberElements/$1/symbols/$2
 //ldml/numbers/(%GFormat)s[@numberSystem="(%W)"]/\1Length/\1[@type="standard"]/pattern[@type="standard"] ; /NumberElements/$2/patterns/$1
+//ldml/numbers/currencyFormats[@numberSystem="(%W)"]/currencyFormatLength/currencyFormat[@type="accounting"]/pattern[@type="standard"] ; /NumberElements/$1/patterns/accountingFormat
 //ldml/numbers/decimalFormats[@numberSystem="(%W)"]/decimalFormatLength[@type="short"]/decimalFormat[@type="standard"]/pattern[@type="(%N)"][@count="(%W)"] ; /NumberElements/$1/patternsShort/decimalFormat/$2/$3
 //ldml/numbers/decimalFormats[@numberSystem="(%W)"]/decimalFormatLength[@type="long"]/decimalFormat[@type="standard"]/pattern[@type="(%N)"][@count="(%W)"] ; /NumberElements/$1/patternsLong/decimalFormat/$2/$3
 
@@ -174,6 +184,11 @@
 //ldml/listPatterns/listPattern/listPatternPart[@type="(%A)"] ; /listPattern/standard/$1
 //ldml/listPatterns/listPattern[@type="(%A)"]/listPatternPart[@type="(%A)"] ; /listPattern/$1/$2
 
+//ldml/units/unitLength[@type="narrow"]/unit[@type="(\w++)-(%A)"]/unitPattern[@count="(%A)"] ; /unitsNarrow/$1/$2/$3
 //ldml/units/unitLength[@type="short"]/unit[@type="(\w++)-(%A)"]/unitPattern[@count="(%A)"] ; /unitsShort/$1/$2/$3
 //ldml/units/unitLength[@type="long"]/unit[@type="(\w++)-(%A)"]/unitPattern[@count="(%A)"] ; /units/$1/$2/$3
+//ldml/units/unitLength[@type="narrow"]/compoundUnit[@type="(%A)"]/compoundUnitPattern ; /unitsNarrow/compound/$1
+//ldml/units/unitLength[@type="short"]/compoundUnit[@type="(%A)"]/compoundUnitPattern ; /unitsShort/compound/$1
+//ldml/units/unitLength[@type="long"]/compoundUnit[@type="(%A)"]/compoundUnitPattern ; /units/compound/$1
+
 //ldml/units/durationUnit[@type="(%A)"]/durationUnitPattern ; /durationUnits/$1

@@ -1,7 +1,9 @@
 package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.unicode.cldr.icu.NewLdml2IcuConverter;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
@@ -171,6 +173,7 @@ public class TestLdml2ICU extends TestFmwk {
         }
     }
 
+    Set<String> unconverted = new HashSet<String>();
     /**
      * Checks if an xpath was matched by a RegexLookup.
      */
@@ -187,10 +190,15 @@ public class TestLdml2ICU extends TestFmwk {
                 errln(errorMessage);
             } else if (exclusionType == ExclusionType.WARNING) {
                 logln(errorMessage);
+            } else if (exclusionType == ExclusionType.UNCONVERTED) {
+                String template = xpath.replaceAll("\"[^\"]++\"", "*");
+                if (!unconverted.add(template)) {
+                    logln("Not converted: " + xpath);
+                }
             }
         } else if (exclusionType == ExclusionType.UNCONVERTED) {
-            exclusions.get(xpath);
-            logln("CLDR xpath <" + xpath + "> is in the exclusions list but was matched.");
+            errln("CLDR xpath <" + xpath + "> is in the exclusions list but was matched. " +
+                  "To make the test pass, remove the relevant regex from org/unicode/cldr/util/data/testLdml2Icu.txt");
         }
     }
 

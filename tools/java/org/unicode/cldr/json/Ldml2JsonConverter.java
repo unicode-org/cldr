@@ -829,7 +829,7 @@ public class Ldml2JsonConverter {
      */
     public void processDirectory(String dirName, DraftStatus minimalDraftStatus)
         throws IOException, ParseException {
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(cldrCommonDir+"supplemental");
         Factory cldrFactory = Factory.make(
             cldrCommonDir + dirName + "/", ".*");
         Set<String> files = cldrFactory.getAvailable();

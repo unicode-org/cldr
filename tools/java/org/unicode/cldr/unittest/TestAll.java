@@ -46,6 +46,7 @@ public class TestAll extends TestGroup {
                         "org.unicode.cldr.unittest.TestCoverageLevel",
                         "org.unicode.cldr.unittest.TestExampleGenerator",
                         "org.unicode.cldr.unittest.TestLdml2ICU",
+                        "org.unicode.cldr.unittest.LikelySubtagsTest",
                 },
                 "All tests in CLDR");
     }

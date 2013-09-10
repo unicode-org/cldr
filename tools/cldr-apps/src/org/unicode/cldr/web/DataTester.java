@@ -1,13 +1,5 @@
 package org.unicode.cldr.web;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.XMLSource;
 
 public class DataTester /* extends Registerable */{
     //

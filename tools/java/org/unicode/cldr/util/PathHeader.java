@@ -20,7 +20,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
-import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.With.SimpleIterator;
 
@@ -32,6 +31,7 @@ import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 /**

@@ -2,12 +2,8 @@ package org.unicode.cldr.unittest.web;
 
 import java.sql.SQLException;
 
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.UserSettings;
 import org.unicode.cldr.web.UserSettingsData;
-import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.ElapsedTimer;

@@ -17,14 +17,12 @@ import java.sql.Connection;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
 import javax.xml.bind.DatatypeConverter;
-
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Level;

@@ -20,7 +20,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.FileUtilities;
 import com.ibm.icu.dev.util.Relation;
 
 /**

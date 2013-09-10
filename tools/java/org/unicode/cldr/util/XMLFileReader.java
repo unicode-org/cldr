@@ -15,10 +15,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.Stack;
 
 import org.xml.sax.Attributes;
@@ -32,8 +29,6 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.ext.DeclHandler;
 import org.xml.sax.ext.LexicalHandler;
 import org.xml.sax.helpers.XMLReaderFactory;
-
-import com.ibm.icu.dev.util.Relation;
 
 /**
  * Convenience class to make reading XML data files easier. The main method is read();

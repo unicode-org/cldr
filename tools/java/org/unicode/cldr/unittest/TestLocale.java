@@ -1,9 +1,7 @@
 package org.unicode.cldr.unittest;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.TreeSet;
 
 import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.ExampleGenerator;
@@ -14,10 +12,8 @@ import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource;
 
 import com.ibm.icu.dev.test.TestFmwk;
-import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.ULocale;
 

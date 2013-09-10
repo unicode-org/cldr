@@ -1,7 +1,6 @@
 package org.unicode.cldr.test;
 
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;

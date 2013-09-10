@@ -12,10 +12,10 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.PatternPlaceholders.PlaceholderInfo;
 
 import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.util.Output;
 
 public class PathDescription {
 

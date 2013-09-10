@@ -2,9 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.util.CLDRFile;

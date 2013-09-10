@@ -20,16 +20,11 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.TablePrinter;
-import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.SupplementalDataInfo.DateRange;
 import org.unicode.cldr.util.SupplementalDataInfo.MetaZoneRange;
 import org.unicode.cldr.util.TimezoneFormatter.Format;
-import org.unicode.cldr.util.VerifyZones.ZoneFormats.Length;
-import org.unicode.cldr.util.VerifyZones.ZoneFormats.Type;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R4;
 import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.SimpleDateFormat;

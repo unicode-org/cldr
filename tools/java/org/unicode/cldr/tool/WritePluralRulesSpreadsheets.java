@@ -6,45 +6,6 @@
  */
 package org.unicode.cldr.tool;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.Map.Entry;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.SupplementalDataInfo;
-
-import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.util.ULocale;
 
 /**
  * @author markdavis

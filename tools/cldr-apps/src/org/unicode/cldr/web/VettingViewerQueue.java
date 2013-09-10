@@ -4,9 +4,14 @@
 package org.unicode.cldr.web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.CLDRFile;
@@ -14,6 +19,9 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LruMap;
+import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.Predicate;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.LocalesWithExplicitLevel;
 import org.unicode.cldr.util.VettingViewer.UsersChoice;
@@ -24,10 +32,7 @@ import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.DurationFormat;
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
-import java.util.*;
-import org.unicode.cldr.util.*;
 
 /**
  * @author srl

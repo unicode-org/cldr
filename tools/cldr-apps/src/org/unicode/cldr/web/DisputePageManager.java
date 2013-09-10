@@ -1,29 +1,6 @@
 package org.unicode.cldr.web;
 
-import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
-
-import org.unicode.cldr.test.CoverageLevel2;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.PathUtilities;
-import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.XMLSource;
-import org.unicode.cldr.web.UserRegistry.User;
-
-import com.ibm.icu.util.ULocale;
 
 /**
  * TODO: this object exists just to capture the following code from the

@@ -2,8 +2,8 @@
 
 package org.unicode.cldr.tool.resolver;
 
-import java.util.List;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 /**

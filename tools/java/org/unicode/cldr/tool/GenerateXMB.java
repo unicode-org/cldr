@@ -35,7 +35,6 @@ import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
-import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -79,6 +78,7 @@ import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
 

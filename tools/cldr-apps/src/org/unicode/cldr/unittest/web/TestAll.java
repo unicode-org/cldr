@@ -7,6 +7,8 @@ package org.unicode.cldr.unittest.web;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.sql.SQLException;
+import java.util.Properties;
 
 import javax.sql.DataSource;
 
@@ -22,24 +24,19 @@ import org.apache.tomcat.dbcp.pool.impl.GenericObjectPool;
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.web.CLDRProgressIndicator;
 import org.unicode.cldr.web.DBUtils;
-import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyLog;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.Properties;
-
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
-import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.dev.test.TestLog;
+import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.RuleBasedCollator;
 

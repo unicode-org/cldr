@@ -35,8 +35,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
 
-import org.unicode.cldr.test.CheckCLDR;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.web.SurveyLog;
 
 /**

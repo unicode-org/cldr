@@ -8,15 +8,6 @@
 
 package org.unicode.cldr.unittest.web;
 
-import java.util.regex.Pattern;
-
-import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.web.CookieSession;
-import org.unicode.cldr.web.DataSection;
-import org.unicode.cldr.web.SortMode;
-import org.unicode.cldr.web.SurveyMain;
-import org.unicode.cldr.web.URLWebContext;
-import org.unicode.cldr.web.WebContext;
 
 public class OldTestMain {
 

@@ -16,8 +16,8 @@ import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
-import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.SurveyMain.Phase;
+import org.unicode.cldr.web.UserRegistry;
 
 public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 

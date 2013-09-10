@@ -9,14 +9,14 @@ import org.unicode.cldr.icu.NewLdml2IcuConverter;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.RegexFileParser;
 import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.RegexFileParser.VariableProcessor;
-import org.unicode.cldr.util.RegexLookup.RegexFinder;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.RegexLookup.RegexFinder;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 

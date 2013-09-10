@@ -9,12 +9,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
-
-import java.util.Map;
 
 /**
  * @author srl

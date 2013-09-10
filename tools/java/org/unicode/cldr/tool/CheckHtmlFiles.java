@@ -8,11 +8,9 @@ import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -28,8 +26,6 @@ import org.unicode.cldr.util.SimpleHtmlParser.Type;
 
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.text.BreakIterator;
-import com.ibm.icu.text.Transliterator;
-import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 

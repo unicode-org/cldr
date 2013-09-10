@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.unicode.cldr.unittest.TestPaths;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.web.IntHash;
 
 import com.ibm.icu.dev.test.TestFmwk;

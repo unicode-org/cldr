@@ -1,14 +1,11 @@
 package org.unicode.cldr.util;
 
-import java.util.Collections;
 import java.util.EnumSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.text.UnicodeSet.ComparisonStyle;
 
 public final class PreferredAndAllowedHour implements Comparable<PreferredAndAllowedHour> {
 

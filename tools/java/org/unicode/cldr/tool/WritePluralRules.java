@@ -1,17 +1,13 @@
 package org.unicode.cldr.tool;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -19,8 +15,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.util.ULocale;
 
 public class WritePluralRules {
     static SupplementalDataInfo sInfo = CLDRConfig.getInstance().getSupplementalDataInfo();

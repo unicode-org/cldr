@@ -18,7 +18,6 @@ import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.tool.FilterFactory;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
-import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -26,6 +25,8 @@ import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
+
+import com.ibm.icu.util.Output;
 
 /**
  * A mapper that converts locale data from CLDR to the ICU data structure.

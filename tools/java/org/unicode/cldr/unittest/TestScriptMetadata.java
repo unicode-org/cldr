@@ -2,12 +2,12 @@ package org.unicode.cldr.unittest;
 
 import java.util.BitSet;
 import java.util.EnumMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map.Entry;
-import java.util.HashSet;
-import java.util.TreeSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.unicode.cldr.draft.EnumLookup;
 import org.unicode.cldr.draft.ScriptMetadata;
@@ -15,8 +15,8 @@ import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.draft.ScriptMetadata.Shaping;
 import org.unicode.cldr.draft.ScriptMetadata.Trinary;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;

@@ -12,8 +12,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.test.CoverageLevel2;
-import org.unicode.cldr.test.CheckConsistentCasing.Category;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
@@ -24,14 +22,13 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.PathHeader.Factory;
+import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.text.Transform;
 
 public class ShowLocaleCoverage {
     public static TestInfo testInfo = TestInfo.getInstance();

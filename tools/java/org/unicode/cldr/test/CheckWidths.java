@@ -10,8 +10,6 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.ApproximateWidth;
 import org.unicode.cldr.util.RegexLookup;
 
-import com.ibm.icu.util.Output;
-
 public class CheckWidths extends CheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*CheckWidths.*

@@ -29,14 +29,13 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
-import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.ExtractCollationRules;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PrettyPath;
+import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.tool.UOption;

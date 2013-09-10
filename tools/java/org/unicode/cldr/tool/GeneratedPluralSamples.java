@@ -1,11 +1,8 @@
 package org.unicode.cldr.tool;
 
-import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -18,14 +15,10 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
-import org.unicode.cldr.tool.GeneratedPluralSamples.Range.Status;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.tool.WritePluralRules.PluralRulesComparator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -33,7 +26,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.impl.Row;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 

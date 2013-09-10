@@ -6,11 +6,12 @@ package org.unicode.cldr.web;
 
 import java.util.Comparator;
 
+import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.Partition.Membership;
-import org.unicode.cldr.util.VoteResolver.Status;
-import org.unicode.cldr.util.CLDRLocale;
+
 import com.ibm.icu.text.Collator;
 
 /**

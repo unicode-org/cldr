@@ -4,10 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
-import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,18 +14,17 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CldrUtility;
-import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.BaseUrl;
 import org.unicode.cldr.util.PathStarrer;
-import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XMLFileReader;
 
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.UnicodeRegex;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 public class SearchXml {

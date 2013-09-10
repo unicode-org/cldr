@@ -12,7 +12,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CLDRFile;

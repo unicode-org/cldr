@@ -11,7 +11,6 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
-import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.RegexLookup;
@@ -24,6 +23,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.CoverageVariableInfo;
 import org.unicode.cldr.util.Timer;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 public class CoverageLevel2 {

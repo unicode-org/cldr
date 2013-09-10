@@ -4,9 +4,6 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
-import java.util.Vector;
 
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.web.DataSection.DataRow;

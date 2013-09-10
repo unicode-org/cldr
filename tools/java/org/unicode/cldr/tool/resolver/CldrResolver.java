@@ -4,17 +4,6 @@
  */
 package org.unicode.cldr.tool.resolver;
 
-import org.unicode.cldr.tool.FilterFactory;
-import org.unicode.cldr.tool.Option;
-import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LocaleIDParser;
-import org.unicode.cldr.util.LruMap;
-import org.unicode.cldr.util.SimpleXMLSource;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -24,6 +13,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+
+import org.unicode.cldr.tool.FilterFactory;
+import org.unicode.cldr.tool.Option;
+import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LocaleIDParser;
+import org.unicode.cldr.util.LruMap;
+import org.unicode.cldr.util.SimpleXMLSource;
 
 /**
  * Class designed for the resolution of CLDR XML Files (e.g., removing aliases

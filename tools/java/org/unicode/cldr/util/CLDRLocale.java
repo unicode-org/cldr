@@ -7,8 +7,6 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
-
 import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;

@@ -13,8 +13,8 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.Factory;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 

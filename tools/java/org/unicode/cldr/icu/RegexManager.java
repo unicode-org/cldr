@@ -17,7 +17,6 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
-import com.ibm.icu.util.Output;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
@@ -28,6 +27,7 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 
 /**
  * A class for loading and managing the xpath converters used to map CLDR data

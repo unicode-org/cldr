@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.util.Hashtable;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;

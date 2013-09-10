@@ -1,21 +1,16 @@
 package org.unicode.cldr.web;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.regex.Matcher;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONString;
-import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Level;
@@ -24,7 +19,6 @@ import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
-import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.SurveyMenus.Section.Page;
 

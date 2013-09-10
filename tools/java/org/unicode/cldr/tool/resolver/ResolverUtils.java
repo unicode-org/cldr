@@ -6,12 +6,9 @@
 package org.unicode.cldr.tool.resolver;
 
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.XPathParts;
 
 /**
  * Utility methods for the CLDR Resolver tool

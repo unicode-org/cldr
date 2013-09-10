@@ -21,8 +21,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.Properties;
 import java.util.Set;
-import java.util.concurrent.BlockingDeque;
-import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 

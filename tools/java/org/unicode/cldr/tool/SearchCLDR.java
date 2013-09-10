@@ -11,16 +11,15 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CldrUtility;
-import com.ibm.icu.util.Output;
-import org.unicode.cldr.util.PathHeader.BaseUrl;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.BaseUrl;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.util.Output;
 
 public class SearchCLDR {
     // private static final int

@@ -1102,10 +1102,12 @@ a single alphanumeric character subtag assigned by IANA.  </p>
 	<p><strong>The -t- Extension.</strong> The syntax of 't' extension subtags is defined by the rule <code>unicode_locale_extensions</code> in <a href="#Unicode_locale_identifier">Section 3.7 Unicode locale identifier</a>, except the separator of
 	  subtags <code>sep</code> must be always hyphen '-' when the extension is used as a part of
   BCP 47 language tag. For information about the registration process, meaning, and usage of the 't' extension, see  [<a href="#RFC6497">RFC6497</a>].  </p>
+	<p class="changed"><em>See also <a href="http://cldr.unicode.org/index/bcp47-extension"> Unicode Extensions for BCP 47</a> on the CLDR site.</em></p>
+  <h4><a name="Unicode_Locale_Extension_Data_Files" href="#Unicode_Locale_Extension_Data_Files">3.7.1 Unicode Locale Extension Data Files</a></h4>
 	<p>The 'u' extension data is stored in multiple XML files located under
       common/bcp47 directory in CLDR.  Each file contains the locale extension key/type values
       and their backward compatibility mappings appropriate for a particular domain.
-      For example, <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/collation.xml">common/bcp47/collation.xml</a> contains key/type values for collation, including optional collation parameters and valid type values for each key.</p>
+<a href="http://unicode.org/repos/cldr/trunk/common/bcp47/collation.xml">common/bcp47/collation.xml</a>contains key/type values for collation, including optional collation parameters and valid type values for each key.</p>
     <p>The 't' extension data is stored in <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/transform.xml">common/bcp47/transform.xml</a>.</p>
     <p class="dtd">
       &lt;!ELEMENT keyword ( key* )&gt;
@@ -1139,12 +1141,10 @@ a single alphanumeric character subtag assigned by IANA.  </p>
     </p>
     <p>The extension attribute in &lt;key&gt; element specifies the BCP 47 language tag extension type. The default value of
       the extension attribute is "u" (Unicode locale extension). The &lt;type&gt; element is only applicable to the enclosing &lt;key&gt;.</p>
-    <h4><a name="Unicode_Locale_Extension_Data_Files" href="#Unicode_Locale_Extension_Data_Files">3.7.1 Unicode Locale Extension Data Files</a></h4>
-    <p>In the Unicode locale extension 'u' data files, the common attributes
+    
+  <p>In the Unicode locale extension 'u' data files, the common attributes
       for the &lt;key&gt;, &lt;type&gt; and &lt;attribute&gt; elements are as follows:
-      
-<blockquote>Note: There are no values defined for the locale extension attribute in the current CLDR release.</blockquote>
-    <dl>
+<dl>
       <dt><b>name</b></dt>
       <dd>
         <p>The key or type name used by Unicode locale extension with <a href="#Unicode_locale_identifier">'u' extension syntax</a>.
@@ -1197,7 +1197,7 @@ a single alphanumeric character subtag assigned by IANA.  </p>
       </dd>
       <dt><b>description</b></dt>
       <dd>
-        <p>The description of the key, type or attribute element.</p>
+        <p>The description of the key, type or attribute element. There is also some informative text about certain keys and types in the Section 3.5 <a href="#Key_And_Type_Definitions_">Key And Type Definitions</a>. </p>
       </dd>
       <dt><b>deprecated</b></dt>
       <dd>
@@ -1231,6 +1231,7 @@ a single alphanumeric character subtag assigned by IANA.  </p>
         Absence of this attribute value implies the key or type was available
         in CLDR 1.7.2. </dd>
     </dl>
+    <p><em>Note: There are no values defined for the locale extension attribute in the current CLDR release.    </em>    
     <p>For example,
     <pre>
 &lt;key name="co" alias="collation" description="Collation type key"&gt;
@@ -1332,7 +1333,7 @@ The data above indicates:
   <dt><b>alias</b></dt>
   <dd>Alternative name, not limited in number of characters.         Aliases are intended for       compatibility, not  to provide all possible       alternate names or            designations. <em>(Optional)</em></dd>
 </dl>
-<p class="changed">It is strongly recommended that  all API methods accept all possible aliases for keywords and types. For example,             &quot;ar-u-ca-islamicc&quot; would be equivalent to &quot;ar-u-ca-islamic-civil&quot;. The one exception is where an alias would only be well-formed with the old syntax, such as &quot;gregorian&quot; (for &quot;gregory&quot;).</p>
+<p class="changed">It is strongly recommended that  all API methods accept all possible aliases for keywords and types, but generate the canonical form. For example,             &quot;ar-u-ca-islamicc&quot; would be equivalent to &quot;ar-u-ca-islamic-civil&quot; on input, but the latter should be output. The one exception is where an alias would only be well-formed with the old syntax, such as &quot;gregorian&quot; (for &quot;gregory&quot;).</p>
 <p>For information about the registration process, meaning, and usage of the 't' extension, see  [<a href="#RFC6497">RFC6497</a>].</p>
 <h3><a name="Compatibility_with_Older_Identifiers" href="#Compatibility_with_Older_Identifiers">3.8 Compatibility with Older Identifiers</a></h3>
 	<p>LDML version before 1.7.2 used slightly different syntax for variant subtags and locale
@@ -4093,7 +4094,7 @@ decimal?, group?, special*)) &gt;</pre>
 		  <td class="noborder" width="148">[<a name="LOCODE" href="#LOCODE">LOCODE</a>]</td>
 		  <td class="noborder" width="730">
 	        United Nations Code for Trade and Transport Locations, commonly known as "UN/LOCODE"<br>
-		    <a href="http://www.unece.org/cefact/locode/">http://www.unece.org/cefact/locode/</a><br>
+	        <a href="http://www.unece.org/cefact/locode/welcome.html">​<span class="changed">http://www.unece.org/cefact/locode/welcome.html</span></a><br>
 	      Download at: <a href="http://www.unece.org/cefact/codesfortrade/codes_index.htm"> http://www.unece.org/cefact/codesfortrade/codes_index.htm</a></td>
 	  </tr>
 		<tr>
@@ -4279,6 +4280,8 @@ decimal?, group?, special*)) &gt;</pre>
     <li>Added recommendations for handling old and new syntax (and aliases) to <em>Section 3.8 <a href="#Compatibility_with_Older_Identifiers">Compatibility with Older Identifiers</a></em>. [ticket <a href="http://unicode.org/cldr/trac/ticket/5746">#5746</a>]</li>
     <li>Added Parts section (with double-links) to each Part. [<a href="http://unicode.org/cldr/trac/ticket/5804">#5804</a>]</li>
     <li>Documented the special inheritance for &quot;count&quot; attributes in <em>Section 4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5836">#5836</a>]</li>
+    <li>Fixed broken link for [LOCODE] (unstable page on UN site). [<a href="http://unicode.org/cldr/trac/ticket/6163" title="View ticket">#6163</a>]</li>
+    <li>Small fixes to <em>Section 3.7 <a href="http://www.unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></em> to improve referencing. [<a href="http://unicode.org/cldr/trac/ticket/5089" title="View ticket">#5089</a>]</li>
   </ul>
 
   <h3>Revision 31</h3>

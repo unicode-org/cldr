@@ -120,13 +120,13 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 <h2><a name="Parts" href="#Parts">Parts</a></h2>
   <p>The LDML specification is divided into the following parts:</p>
   <ul class="toc">
-    <li>Part 1: Core specification (languages, locales, basic structure)</li>
-    <li>Part 2: <a href="tr35-general.html">General</a> (display names &amp; transforms, etc.)</li>
-    <li>Part 3: <a href="tr35-numbers.html">Numbers</a> (number &amp; currency formatting)</li>
-    <li>Part 4: <a href="tr35-dates.html">Dates</a> (date, time, time zone formatting)</li>
-    <li>Part 5: <a href="tr35-collation.html">Collation</a> (sorting, searching, grouping)</li>
-    <li>Part 6: <a href="tr35-info.html">Related Information</a> (supplemental data)</li>
-    <li>Part 7: <a href="tr35-keyboards.html">Keyboards</a> (keyboard mappings)</li>
+    <li>Part 1: <a href="tr35.html#Contents">Core specification</a> (languages, locales, basic structure)</li>
+    <li>Part 2: <a href="tr35-general.html#Contents">General</a> (display names &amp; transforms, etc.)</li>
+    <li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a> (number &amp; currency formatting)</li>
+    <li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date, time, time zone formatting)</li>
+    <li>Part 5: <a href="tr35-collation.html#Contents">Collation</a> (sorting, searching, grouping)</li>
+    <li>Part 6: <a href="tr35-info.html#Contents">Related Information</a> (supplemental data)</li>
+    <li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard mappings)</li>
   </ul>
 
   <h2><a name="Contents" href="#Contents">Contents of Part 1, Core</a></h2>
@@ -1721,8 +1721,101 @@ root</pre>
 	<p>For example, for the locale &quot;en_US&quot; the month data in &lt;calendar class=&quot;<span style="color: blue">buddhist</span>&quot;&gt; inherits first from &lt;calendar class=&quot;<span style="color: blue">buddhist</span>&quot;&gt; 
 	in &quot;en&quot;, then in &quot;root&quot;. If not found there, then it inherits from &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt; in &quot;en_US&quot;, then &quot;en&quot;, then 
 	in &quot;root&quot;.</p>
-  <p class="example"></p>
-    <h4><a name="Parent_Locales" href="#Parent_Locales">4.1.1 Parent Locales</a></h4>
+	<p class="changed">There is one special case, for items with a &quot;count&quot; parameter (used to select a plural form). In that case, the inheritance works as follows:</p>
+    <p class="changed">If there is no value for a path, and that path has a [@count=&quot;x&quot;] attribute and value, then: </p>
+    <ol>
+      <li class="changed">If &quot;x&quot; is anything but &quot;other&quot;, it falls back to [@count=&quot;other&quot;], within that the same locale.</li>
+      <li class="changed">In the special case of currencies, if the [@count=&quot;other&quot;] value is missing, it falls back to the path that is completely missing the count item.</li>
+      <li class="changed">If there is no value within the same locale, the same process is used in the parent locale, and so on.</li>
+    </ol>
+	<p class="changed"><em>Examples:</em></p>
+    <table border="1" cellpadding="3" cellspacing="0" id="a1bn3" style="font-size: 1em; line-height: inherit; border-collapse: collapse">
+      <caption>
+      <span class="changed">        Count Fallback: normal
+      </span>
+      </caption>
+      <tbody>
+        <tr>
+          <th nowrap class="changed" style="vertical-align: top; ">Locale</th>
+          <th nowrap class="changed" style="vertical-align: top; ">Path</th>
+        </tr>
+        <tr>
+          <td nowrap class="changed" style="vertical-align: top; ">fr-CA</td>
+          <td nowrap class="changed" id="iqaw" style="vertical-align: top; "><code>//ldml/units/unitLength[@type="<strong>narrow</strong>"]/unit[@type="mass-gram"]/unitPattern<strong>[@count="x"]</strong></code></td>
+        </tr>
+        <tr>
+          <td nowrap class="changed" style="vertical-align: top; ">fr-CA</td>
+          <td nowrap class="changed" id="iqaw16" style="vertical-align: top; "><code>//ldml/units/unitLength[@type="<strong>narrow</strong>"]/unit[@type="mass-gram"]/unitPattern<strong>[@count="other"]</strong></code></td>
+        </tr>
+        <tr>
+          <td nowrap class="changed" style="vertical-align: top; ">fr</td>
+          <td nowrap class="changed" id="iqaw19" style="vertical-align: top; "><code>//ldml/units/unitLength[@type="<strong>narrow</strong>"]/unit[@type="mass-gram"]/unitPattern<strong>[@count="x"]</strong></code></td>
+        </tr>
+        <tr>
+          <td nowrap class="changed" style="vertical-align: top; ">fr</td>
+          <td nowrap class="changed" id="iqaw18" style="vertical-align: top; "><code>//ldml/units/unitLength[@type="<strong>narrow</strong>"]/unit[@type="mass-gram"]/unitPattern<strong>[@count="other"]</strong></code></td>
+        </tr>
+        <tr>
+          <td nowrap class="changed" style="vertical-align: top; ">root</td>
+          <td nowrap class="changed" id="iqaw21" style="vertical-align: top; "><code>//ldml/units/unitLength[@type="<strong>narrow</strong>"]/unit[@type="mass-gram"]/unitPattern<strong>[@count="x"]</strong></code></td>
+        </tr>
+        <tr>
+          <td nowrap class="changed" style="vertical-align: top; ">root</td>
+          <td nowrap class="changed" id="iqaw20" style="vertical-align: top; "><code>//ldml/units/unitLength[@type="<strong>narrow</strong>"]/unit[@type="mass-gram"]/unitPattern<strong>[@count="other"]</strong></code></td>
+        </tr>
+  </table>
+    <p class="changed">Note that there may be an alias in root that changes the path and starts again from the requested locale, such as:</p>
+    <p> <span class="changed"><code>&lt;unitLength type=&quot;<strong>narrow</strong>&quot;&gt;<br>
+         &lt;alias source=&quot;locale&quot; path=&quot;../unitLength[@type='<strong>short</strong>']&quot;/&gt;<br>
+  &lt;/unitLength&gt;</code></span></p>
+	<table border="1" cellpadding="3" cellspacing="0" id="a1bn2" style="font-size: 1em; line-height: inherit; border-collapse: collapse">
+	  <caption>
+	  <span class="changed">	    Count Fallback: currency
+      </span>
+	  </caption>
+	  <tbody>
+	    <tr>
+	      <th nowrap class="changed" style="vertical-align: top; ">Locale</th>
+	      <th nowrap class="changed" style="vertical-align: top; ">Path</th>
+        </tr>
+	    <tr>
+	      <td nowrap class="changed" style="vertical-align: top; ">fr-CA</td>
+	      <td nowrap class="changed" id="iqaw11" style="vertical-align: top; "><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName<strong>[@count="x"]</strong></code></td>
+        </tr>
+	    <tr>
+	      <td nowrap class="changed" style="vertical-align: top; ">fr-CA</td>
+	      <td nowrap class="changed" id="iqaw6" style="vertical-align: top; "><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName<strong>[@count="other"]</strong></code></td>
+        </tr>
+	    <tr>
+	      <td nowrap class="changed" style="vertical-align: top; ">fr-CA</td>
+	      <td nowrap class="changed" id="iqaw8" style="vertical-align: top; "><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName</code></td>
+        </tr>
+	    <tr>
+	      <td nowrap class="changed" style="vertical-align: top; ">fr</td>
+	      <td nowrap class="changed" id="iqaw15" style="vertical-align: top; "><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName<strong>[@count="x"]</strong></code></td>
+        </tr>
+	    <tr>
+	      <td nowrap class="changed" style="vertical-align: top; ">fr</td>
+	      <td nowrap class="changed" id="iqaw14" style="vertical-align: top; "><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName<strong>[@count="other"]</strong></code></td>
+        </tr>
+	    <tr>
+	      <td nowrap class="changed" style="vertical-align: top; ">fr</td>
+	      <td nowrap class="changed" id="iqaw13" style="vertical-align: top; "><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName</code></td>
+        </tr>
+	    <tr>
+	      <td nowrap class="changed" style="vertical-align: top; ">root</td>
+	      <td nowrap class="changed" id="iqaw25" style="vertical-align: top; "><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName<strong>[@count="x"]</strong></code></td>
+        </tr>
+	    <tr>
+	      <td nowrap class="changed" style="vertical-align: top; ">root</td>
+	      <td nowrap class="changed" id="iqaw24" style="vertical-align: top; "><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName<strong>[@count="other"]</strong></code></td>
+        </tr>
+	    <tr>
+	      <td nowrap class="changed" style="vertical-align: top; ">root</td>
+	      <td nowrap class="changed" id="iqaw23" style="vertical-align: top; "><code>//ldml/numbers/currencies/currency[@type="CAD"]/displayName</code></td>
+        </tr>
+  </table><br>
+<h4><a name="Parent_Locales" href="#Parent_Locales">4.1.1 Parent Locales</a></h4>
     <p class="dtd">&lt;!ELEMENT parentLocales ( parentLocale* ) &gt;<br>
   &lt;!ELEMENT parentLocale EMPTY &gt;<br>
   &lt;!ATTLIST parentLocale parent CDATA #REQUIRED &gt;<br>
@@ -1741,7 +1834,7 @@ root</pre>
       data from the parent, the parentLocale element is not necessary and not used for collation.
       Thus, for a locale like zh_Hant in the example above, the parentLocale element would dictate the parent as &quot;root&quot;
       when referring to main locale data, but for collation data, the parent locale would still be &quot;zh&quot;, 
-      even though the parentLocale element is present for that locale.</p>
+      even though the parentLocale element is present for that locale.  </p>
   <h3><a name="Inheritance_and_Validity" href="#Inheritance_and_Validity">4.2 Inheritance and Validity</a></h3>
 <p>The following describes in more detail how to determine the exact inheritance of elements, and the validity of a given element in LDML.</p>
 <h4><a name="Definitions" href="#Definitions">4.2.1 Definitions</a></h4>
@@ -4183,7 +4276,9 @@ decimal?, group?, special*)) &gt;</pre>
     Moved deprecated items from Part 4: Dates to shared <a href="#Deprecated_Structure">Deprecated Structure</a> section.
     Added DTD updates for other changes in parts 1, 2, 3, 6.
     [ticket <a href="http://unicode.org/cldr/trac/ticket/6617">#6617</a>]</li>
-    <li>Added recommendations for handling old and new syntax, and aliases. [ticket <a href="http://unicode.org/cldr/trac/ticket/5746">#5746</a>]</li>
+    <li>Added recommendations for handling old and new syntax (and aliases) to <em>Section 3.8 <a href="#Compatibility_with_Older_Identifiers">Compatibility with Older Identifiers</a></em>. [ticket <a href="http://unicode.org/cldr/trac/ticket/5746">#5746</a>]</li>
+    <li>Added Parts section (with double-links) to each Part. [<a href="http://unicode.org/cldr/trac/ticket/5804">#5804</a>]</li>
+    <li>Documented the special inheritance for &quot;count&quot; attributes in <em>Section 4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5836">#5836</a>]</li>
   </ul>
 
   <h3>Revision 31</h3>

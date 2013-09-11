@@ -630,9 +630,11 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   the string (leaving initial characters). For example, the following uses the ellipsis character in all three cases (although some languages may have
   different characters for different positions).</p>
 
-  <p>&lt;ellipsis type="initial"&gt;…{0}&lt;/ellipsis&gt;<br>
+  <p><code>&lt;ellipsis type="initial"&gt;…{0}&lt;/ellipsis&gt;<br>
   &lt;ellipsis type="medial"&gt;{0}…{1}&lt;/ellipsis&gt;<br>
-  &lt;ellipsis type="final"&gt;{0}…&lt;/ellipsis&gt;</p>
+  &lt;ellipsis type="final"&gt;{0}…&lt;/ellipsis&gt;</code></p>
+  <p class="changed">There are alternatives for  cases where the breaks are on a word boundary, where some languages include a space. For example, such as case would be:</p>
+  <p class="changed"><code>&lt;ellipsis type="word-initial"&gt;… {0}&lt;/ellipsis&gt;</code></p>
 
 <h3>3.5 <a name="Character_More_Info" href="#Character_More_Info">More Information</a></h3>
   

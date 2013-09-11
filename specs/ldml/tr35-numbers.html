@@ -920,6 +920,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	&lt;!ATTLIST info iso4217 NMTOKEN #REQUIRED &gt;<br>
 	&lt;!ATTLIST info digits NMTOKEN #IMPLIED &gt;<br>
 	&lt;!ATTLIST info rounding NMTOKEN #IMPLIED &gt;<br>
+	<span class="changed">&lt;!ATTLIST info cashDigits NMTOKEN #IMPLIED &gt;</span><br>
 	<span class="changed">&lt;!ATTLIST info cashRounding NMTOKEN #IMPLIED &gt;</span><br>
 	<br>
 	&lt;!ELEMENT region ( currency* ) &gt;<br>
@@ -965,6 +966,10 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		<li><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>. The default is 1. Thus with fraction digits of 2 and rounding increment of 
 		5, numeric values are rounded to the nearest 0.05 units in formatting. With fraction digits of 0 and rounding increment of 50, numeric values are rounded 
 		to the nearest 50.</li>
+		<li><span class="changed"><b>cashDigits: </b>the number of decimal digits to be used when formatting quantities used in cash transactions (as opposed to a quantity that would appear in a more formal setting, such as on a bank statement).  If absent, the value of "digits" should
+		be used as a default.</span></li>
+		<li><span class="changed"><b>cashRounding: </b>the rounding increment to be used when formatting quantities used in cash transactions (as opposed to a quantity that would appear in a more formal setting, such as on a bank statement).  If absent, the value of "rounding" should
+		be used as a default.</span></li>
 	</ul>
 	<p>Each region element contains one attribute:</p>
 	<ul>

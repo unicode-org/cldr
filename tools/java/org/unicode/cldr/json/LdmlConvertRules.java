@@ -34,11 +34,17 @@ class LdmlConvertRules {
         "territoryContainment:group:status",
         "decimalFormat:pattern:count",
         "unit:unitPattern:count",
+        "field:relative:type",
+        "field:relativeTime:type",
+        "relativeTime:relativeTimePattern:count",
+        "listPatterns:listPattern:type",
+        "timeZoneNames:regionFormat:type",
+        "units:durationUnit:type",
         "weekData:minDays:territories",
         "weekData:firstDay:territories",
         "weekData:weekendStart:territories",
         "weekData:weekendEnd:territories",
-        "supplementalData:plurals:type",
+        "supplemental:plurals:type",
         "pluralRules:pluralRule:count"
     };
 
@@ -204,7 +210,6 @@ class LdmlConvertRules {
         "dateFormat", "standard", "type",
         "dateTimeFormat", "standard", "type",
         "timeFormat", "standard", "type",
-        "currencyFormat", "standard", "type",
         "decimalFormat", "standard", "type",
         "percentFormat", "standard", "type",
         "scientificFormat", "standard", "type",
@@ -356,7 +361,7 @@ class LdmlConvertRules {
             + CLDRFile.GEN_VERSION + "\"\\]"),
 
         // Transform underscore to hyphen-minus in language keys
-        new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\])", "$1-$2"),
+        new PathTransformSpec("(.*/language\\[@type=\"[a-z]{2,3})_([^\"]*\"\\](\\[@alt=\"short\"])?)", "$1-$2"),
 
         // Separate "ellipsis" from its type as another layer.
         new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
@@ -378,11 +383,19 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*)/types/type\\[@type=\"([^\"]*)\"\\]\\[@key=\"([^\"]*)\"\\](.*)$",
             "$1/types/$3/$2$4"),
 
+
+        new PathTransformSpec("(.*/numbers/(decimal|scientific|percent|currency)Formats\\[@numberSystem=\"([^\"]*)\"\\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\\[@type=\"standard\"]/pattern.*$",
+                    "$1/standard"),
+
+        new PathTransformSpec("(.*/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"\\])/currencyFormatLength/currencyFormat\\[@type=\"accounting\"]/pattern.*$",
+                            "$1/accounting"),
         // Add "type" attribute with value "standard" if there is no "type" in
         // "decimalFormatLength".
+        new PathTransformSpec( "(.*/numbers/(decimal|scientific|percent)Formats\\[@numberSystem=\"([^\"]*)\"\\]/(decimal|scientific|percent)FormatLength)/(.*)$",
+                                "$1[@type=\"standard\"]/$5"),
+
         new PathTransformSpec(
-            "(.*/numbers/(decimal|currency|scientific|percent)Formats\\[@numberSystem=\"([^\"]*)\"\\]/(decimal|currency|scientific|percent)FormatLength)/(.*)$",
-            "$1[@type=\"standard\"]/$5"),
+                    "(.*/listPattern)/(.*)$", "$1[@type=\"standard\"]/$2"),
 
         new PathTransformSpec("(.*/languagePopulation)\\[@type=\"([^\"]*)\"\\](.*)",
             "$1/$2$3"),

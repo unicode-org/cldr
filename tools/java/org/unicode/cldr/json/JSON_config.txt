@@ -21,6 +21,9 @@ section=ca-hebrew ; path=//cldr/main/[^/]++/dates/calendars/hebrew/.*
 section=ca-indian ; path=//cldr/main/[^/]++/dates/calendars/indian/.*
 section=ca-islamic ; path=//cldr/main/[^/]++/dates/calendars/islamic/.*
 section=ca-islamic-civil ; path=//cldr/main/[^/]++/dates/calendars/islamic-civil/.*
+section=ca-islamic-rgsa ; path=//cldr/main/[^/]++/dates/calendars/islamic-rgsa/.*
+section=ca-islamic-tbla ; path=//cldr/main/[^/]++/dates/calendars/islamic-tbla/.*
+section=ca-islamic-umalqura ; path=//cldr/main/[^/]++/dates/calendars/islamic-umalqura/.*
 section=ca-japanese ; path=//cldr/main/[^/]++/dates/calendars/japanese/.*
 section=ca-persian ; path=//cldr/main/[^/]++/dates/calendars/persian/.*
 section=ca-roc ; path=//cldr/main/[^/]++/dates/calendars/roc/.*
@@ -40,7 +43,7 @@ section=metaZones ; path=//cldr/supplemental/metaZones/.*
 section=primaryZones ; path=//cldr/supplemental/primaryZones/.*
 section=numberingSystems ; path=//cldr/supplemental/numberingSystems/.*
 section=ordinals ; path=//cldr/supplemental/plurals\[@type="ordinal"\]/.*
-section=plurals ; path=//cldr/supplemental/plurals/.*
+section=plurals ; path=//cldr/supplemental/plurals\[@type="cardinal"\]/.*
 section=postalCodeData ; path=//cldr/supplemental/postalCodeData/.*
 section=currencyData ; path=//cldr/supplemental/currencyData/.*
 section=territoryContainment ; path=//cldr/supplemental/territoryContainment/.*

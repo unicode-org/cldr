@@ -426,7 +426,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <p class="dtd">&lt;!ELEMENT characters (alias | (exemplarCharacters*, ellipsis*, moreInformation*, stopwords*, indexLabels*, mapping*, special*)) &gt;</p>
   <p>The &lt;characters&gt; element provides optional information about characters that are in common use in the locale, and information that can be helpful
   in picking resources or data appropriate for the locale, such as when choosing among character encodings that are typically used to transmit data in the
-  language of the locale. It typically only occurs in a language locale, not in a language/territory locale. The stopwords are an experimental feature, and
+  language of the locale. <span class="changed">It may also be used to help reduce  confusability issues: see [<a href="http://www.unicode.org/reports/tr41/#UTR36">UTR39</a>].</span> It typically only occurs in a language locale, not in a language/territory locale. The stopwords are an experimental feature, and
   should not be used.</p>
 
   <p class="element2">&lt;exemplarCharacters&gt;<span style="color: blue">[a-zåæø]</span>&lt;/exemplarCharacters&gt;</p>

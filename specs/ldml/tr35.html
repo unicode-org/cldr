@@ -1332,6 +1332,7 @@ The data above indicates:
   <dt><b>alias</b></dt>
   <dd>Alternative name, not limited in number of characters.         Aliases are intended for       compatibility, not  to provide all possible       alternate names or            designations. <em>(Optional)</em></dd>
 </dl>
+<p class="changed">It is strongly recommended that  all API methods accept all possible aliases for keywords and types. For example,             &quot;ar-u-ca-islamicc&quot; would be equivalent to &quot;ar-u-ca-islamic-civil&quot;. The one exception is where an alias would only be well-formed with the old syntax, such as &quot;gregorian&quot; (for &quot;gregory&quot;).</p>
 <p>For information about the registration process, meaning, and usage of the 't' extension, see  [<a href="#RFC6497">RFC6497</a>].</p>
 <h3><a name="Compatibility_with_Older_Identifiers" href="#Compatibility_with_Older_Identifiers">3.8 Compatibility with Older Identifiers</a></h3>
 	<p>LDML version before 1.7.2 used slightly different syntax for variant subtags and locale
@@ -1418,7 +1419,7 @@ The data above indicates:
 	  <li class="changed">Have all methods that take the old syntax also take the new syntax, interpreted correctly. For example, &quot;zh-TW-u-co-pinyin&quot; and &quot;zh_TW@collation=pinyin&quot; would both be interpreted as meaning the same.</li>
 	  <li class="changed">Have all methods (both for old and new syntax) accept all possible aliases for keywords and types. For example,             &quot;ar-u-ca-islamicc&quot; would be equivalent to &quot;ar-u-ca-islamic-civil&quot;.	  </li>
 	  <ul>
-	    <li class="changed">The reason for saying &quot;all possible&quot; is that APIs that only take well-formed bcp47 tags would not accept the alias &quot;gregorian&quot; for &quot;gregory&quot;, because &quot;gregorian&quot;is too long to be syntactically valid.</li>
+	    <li class="changed">The one exception is where an alias would only be well-formed with the old syntax, such as &quot;gregorian&quot; (for &quot;gregory&quot;).</li>
       </ul>
 	  <li class="changed"> Where an API cannot successfully accept the alternate syntax, throw an exception (or otherwise indicate an error) so that people can detect that they are using the wrong method (or wrong input).</li>
 	  <li><span class="changed">Provide a method that tests a purported locale ID string to determine its status: 
@@ -4182,6 +4183,7 @@ decimal?, group?, special*)) &gt;</pre>
     Moved deprecated items from Part 4: Dates to shared <a href="#Deprecated_Structure">Deprecated Structure</a> section.
     Added DTD updates for other changes in parts 1, 2, 3, 6.
     [ticket <a href="http://unicode.org/cldr/trac/ticket/6617">#6617</a>]</li>
+    <li>Added recommendations for handling old and new syntax, and aliases.</li>
   </ul>
 
   <h3>Revision 31</h3>

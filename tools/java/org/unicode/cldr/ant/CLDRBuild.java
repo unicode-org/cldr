@@ -520,7 +520,7 @@ public class CLDRBuild extends Task {
         public void setXpath(String xpath) {
             this.xpath = xpath;
         }
-        
+
         public void setRbPath(String rbPath) {
             this.rbPath = rbPath;
         }

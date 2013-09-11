@@ -96,7 +96,7 @@ public class SummarizingSubmissionResultHandler implements DataSubmissionResultH
         private void assertStatus(ItemStatus expectedStatus) {
             if (status != expectedStatus) {
                 throw new InternalError(this.toString() + ": Expected status " + expectedStatus.name() + " but was "
-                        + status.name());
+                    + status.name());
             }
         }
 

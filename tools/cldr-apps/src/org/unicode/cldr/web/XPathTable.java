@@ -114,7 +114,7 @@ public class XPathTable {
         try {
             conn = DBUtils.getInstance().getDBConnection();
             SurveyLog.debug("XPathTable DB: initializing... conn: " + conn + ", db:" + CLDR_XPATHS + ", id:"
-                    + DBUtils.DB_SQL_IDENTITY);
+                + DBUtils.DB_SQL_IDENTITY);
             Statement s = conn.createStatement();
             if (s == null) {
                 throw new InternalError("S is null");
@@ -126,7 +126,7 @@ public class XPathTable {
                 xpathindex = "xpath(755)";
             }
             sql = ("create table " + CLDR_XPATHS + "(id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " + "xpath "
-                    + DBUtils.DB_SQL_VARCHARXPATH + " not null" + uniqueness + ")");
+                + DBUtils.DB_SQL_VARCHARXPATH + " not null" + uniqueness + ")");
             s.execute(sql);
             sql = ("CREATE UNIQUE INDEX unique_xpath on " + CLDR_XPATHS + " (" + xpathindex + ")");
             s.execute(sql);
@@ -146,13 +146,13 @@ public class XPathTable {
     }
 
     SurveyMain sm = null;
-//    public Hashtable<String, String> xstringHash = new Hashtable<String, String>(4096); // public for statistics only
+    //    public Hashtable<String, String> xstringHash = new Hashtable<String, String>(4096); // public for statistics only
     public Hashtable<String, Integer> stringToId = new Hashtable<String, Integer>(4096); // public for statistics only
     public Hashtable<Long, String> sidToString = new Hashtable<Long, String>(4096); // public for statistics only
-    
+
     public String statistics() {
-        return /*"xstringHash has " + xstringHash.size() + " items.  "+*/ "DB: " + stat_dbAdd + "add/" + stat_dbFetch + "fetch/"
-                + (stat_dbAdd + stat_dbFetch) + "total." + "-" + idStats();
+        return /*"xstringHash has " + xstringHash.size() + " items.  "+*/"DB: " + stat_dbAdd + "add/" + stat_dbFetch + "fetch/"
+            + (stat_dbAdd + stat_dbFetch) + "total." + "-" + idStats();
     }
 
     private static int stat_dbAdd = 0;
@@ -221,7 +221,7 @@ public class XPathTable {
         PreparedStatement insertStmt = null;
         // Insert new xpaths.
         insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath) " + " values (" + DBUtils.DB_SQL_BINTRODUCER
-                + " ?)");
+            + " ?)");
         for (String xpath : xpaths) {
             insertStmt.setString(1, xpath);
             insertStmt.addBatch();
@@ -265,7 +265,7 @@ public class XPathTable {
                 conn = DBUtils.getInstance().getDBConnection();
             }
             queryStmt = conn.prepareStatement("SELECT id FROM " + CLDR_XPATHS + "   " + " where XPATH="
-                    + DBUtils.DB_SQL_BINTRODUCER + " ? " + DBUtils.DB_SQL_BINCOLLATE);
+                + DBUtils.DB_SQL_BINTRODUCER + " ? " + DBUtils.DB_SQL_BINCOLLATE);
             queryStmt.setString(1, xpath);
             // First, try to query it back from the DB.
             ResultSet rs = queryStmt.executeQuery();
@@ -275,7 +275,7 @@ public class XPathTable {
                 } else {
                     // add it
                     insertStmt = conn.prepareStatement("INSERT INTO " + CLDR_XPATHS + " (xpath ) " + " values ("
-                            + DBUtils.DB_SQL_BINTRODUCER + " ?)", Statement.RETURN_GENERATED_KEYS);
+                        + DBUtils.DB_SQL_BINTRODUCER + " ?)", Statement.RETURN_GENERATED_KEYS);
 
                     insertStmt.setString(1, xpath);
                     insertStmt.execute();
@@ -310,26 +310,26 @@ public class XPathTable {
         return null; // an exception occured.
     }
 
-//    /**
-//     * needs a new name.. This uses the string pool and also adds it to the
-//     * table
-//     */
-//    final String poolx(String x) {
-//        if (x == null) {
-//            return null;
-//        }
-//
-//        String y = (String) xstringHash.get(x);
-//        if (y == null) {
-//            xstringHash.put(x, x);
-//
-//            // addXpath(x);
-//
-//            return x;
-//        } else {
-//            return y;
-//        }
-//    }
+    //    /**
+    //     * needs a new name.. This uses the string pool and also adds it to the
+    //     * table
+    //     */
+    //    final String poolx(String x) {
+    //        if (x == null) {
+    //            return null;
+    //        }
+    //
+    //        String y = (String) xstringHash.get(x);
+    //        if (y == null) {
+    //            xstringHash.put(x, x);
+    //
+    //            // addXpath(x);
+    //
+    //            return x;
+    //        } else {
+    //            return y;
+    //        }
+    //    }
 
     /**
      * API for get by ID
@@ -655,17 +655,17 @@ public class XPathTable {
         if ((type == null) && (path.indexOf(what) >= 0))
             try {
                 // less common case - type isn't the last
-                for (int n = -2; (type == null) && ((0 - xpp.size()) < n); n--) {
-                    // SurveyLog.logger.warning("Type on n="+n
-                    // +", "+path+" with "+n+" is " + type );
-                    lastAtts = xpp.getAttributes(n);
-                    if (lastAtts != null) {
-                        type = (String) lastAtts.remove(what);
-                    }
+            for (int n = -2; (type == null) && ((0 - xpp.size()) < n); n--) {
+                // SurveyLog.logger.warning("Type on n="+n
+                // +", "+path+" with "+n+" is " + type );
+                lastAtts = xpp.getAttributes(n);
+                if (lastAtts != null) {
+                    type = (String) lastAtts.remove(what);
                 }
-            } catch (ArrayIndexOutOfBoundsException aioobe) {
-                // means we ran out of elements.
             }
+        } catch (ArrayIndexOutOfBoundsException aioobe) {
+            // means we ran out of elements.
+        }
         return type;
     }
 
@@ -765,7 +765,7 @@ public class XPathTable {
     public static final String getStringIDString(String byId) {
         return Long.toHexString(getStringID(byId));
     }
-    
+
     /**
      * Turn a strid into an xpath id
      * @param sid
@@ -774,9 +774,9 @@ public class XPathTable {
     public final int getXpathIdFromStringId(String sid) {
         return getByXpath(getByStringID(sid));
     }
-    
+
     public String getByStringID(String id) {
-        if(id==null) return null;
+        if (id == null) return null;
         Long l = Long.parseLong(id, 16);
         String s = sidToString.get(l);
         if (s != null)
@@ -822,7 +822,7 @@ public class XPathTable {
     /** Old version **/
     public void writeXpaths(PrintWriter out, String ourDate, Set<Integer> xpathSet) {
         out.println("<xpathTable host=\"" + SurveyMain.localhost() + "\" date=\"" + ourDate + "\" type=\"StringID\" count=\""
-                + xpathSet.size() + "\" >");
+            + xpathSet.size() + "\" >");
         writeXpathFragment(out, xpathSet);
         out.println("</xpathTable>");
     }

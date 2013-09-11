@@ -260,7 +260,7 @@ public abstract class SortMode {
         }
         if (SurveyMain.isUnofficial())
             System.err.println("Loaded " + newSet.size() + " from " + matchName + " - base xpath (" + rows.size() + ")  = "
-                    + getName());
+                + getName());
         return newSet.toArray(new DataRow[newSet.size()]);
     }
 }

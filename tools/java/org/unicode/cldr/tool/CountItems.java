@@ -587,7 +587,7 @@ public class CountItems {
             bad3letter.add(alpha3);
             String targetAliased;
             if (languageAliasInfo.containsKey(target)) {
-                targetAliased = CollectionUtilities.join(languageAliasInfo.get(target).get0()," ");
+                targetAliased = CollectionUtilities.join(languageAliasInfo.get(target).get0(), " ");
             } else {
                 targetAliased = target;
             }
@@ -662,7 +662,7 @@ public class CountItems {
         System.out.println("Cut/paste into supplementalMetadata.xml under the line");
         System.out.println("<!-- start of data generated with CountItems tool ...");
         final Map<String, R2<List<String>, String>> territoryAliasInfo = localeAliasInfo.get("territory");
-        
+
         addRegions(english, territories, "alpha3", "EA,EU,IC".split(","), new Transform<String, String>() {
             public String transform(String region) {
                 return IsoRegionData.get_alpha3(region);
@@ -690,7 +690,7 @@ public class CountItems {
         System.out.println();
         System.out.println("Mapping equivalences - (Informational only...)");
         System.out.println("{ bib , tech , bcp47 }");
-        
+
         Set<R3<String, String, String>> rows = new TreeSet();
         for (String lang : Iso639Data.getAvailable()) {
             String bib = Iso639Data.toBiblio3(lang);
@@ -835,12 +835,12 @@ public class CountItems {
             }
             Map<String, R2<List<String>, String>> territoryAliasInfo = supplementalData.getLocaleAliasInfo().get("territory");
             String result;
-            if ( territoryAliasInfo.containsKey(region)) {
+            if (territoryAliasInfo.containsKey(region)) {
                 result = CollectionUtilities.join(territoryAliasInfo.get(region).get0(), " ");
             } else {
                 result = region;
             }
-            String name = english.getName(CLDRFile.TERRITORY_NAME, result);            
+            String name = english.getName(CLDRFile.TERRITORY_NAME, result);
             System.out.println("\t\t\t<territoryAlias type=\"" + alpha3 + "\" replacement=\"" + result
                 + "\" reason=\"overlong\"/> <!-- " + name + " -->");
         }

@@ -24,7 +24,6 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
     public final HourStyle preferred;
     public final Set<HourStyle> allowed;
 
-
     public PreferredAndAllowedHour(char preferred, Set<Character> allowed) {
         this(HourStyle.valueOf(String.valueOf(preferred)), mungeSet(allowed));
     }
@@ -45,8 +44,8 @@ public final class PreferredAndAllowedHour implements Comparable<PreferredAndAll
         this.allowed = allowed;
         if (!this.allowed.contains(this.preferred)) {
             throw new IllegalArgumentException("Allowed (" + allowed +
-                    ") must contain preferred(" + preferred +
-                    ")");
+                ") must contain preferred(" + preferred +
+                ")");
         }
     }
 

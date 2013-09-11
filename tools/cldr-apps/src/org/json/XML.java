@@ -50,7 +50,7 @@ public class XML {
     /** The Character '>'. */
     public static final Character GT = new Character('>');
 
-/** The Character '<'. */
+    /** The Character '<'. */
     public static final Character LT = new Character('<');
 
     /** The Character '?'. */
@@ -443,7 +443,7 @@ public class XML {
         } else {
             s = (o == null) ? "null" : escape(o.toString());
             return (tagName == null) ? "\"" + s + "\"" : (s.length() == 0) ? "<" + tagName + "/>" : "<" + tagName + ">" + s
-                    + "</" + tagName + ">";
+                + "</" + tagName + ">";
         }
     }
 }

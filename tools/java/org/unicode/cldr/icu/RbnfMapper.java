@@ -90,7 +90,7 @@ public class RbnfMapper extends Mapper {
                 }
                 value.append(": ");
             } else if (qName.equals("version")) {
-                icuData.replace("/Version", new String[]{MapperUtils.formatVersion(attr.getValue("number"))});
+                icuData.replace("/Version", new String[] { MapperUtils.formatVersion(attr.getValue("number")) });
             }
         }
 
@@ -100,8 +100,8 @@ public class RbnfMapper extends Mapper {
                 // TODO(jchye): Utility.escape unicode-escapes all non-ASCII chars.
                 // Find out what non-ASCII chars really need to be escaped.
                 value.append(Utility.escape(currentText.toString()
-                        .replace('→', '>')
-                        .replace('←', '<')));
+                    .replace('→', '>')
+                    .replace('←', '<')));
                 icuData.add(rbPath, value.toString());
                 currentText.setLength(0);
                 value.setLength(0);

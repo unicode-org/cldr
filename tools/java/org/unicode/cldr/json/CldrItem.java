@@ -249,17 +249,17 @@ public class CldrItem implements Comparable<CldrItem> {
         XPathParts otherxpp = new XPathParts();
         thisxpp.set(path);
         otherxpp.set(otherItem.path);
-        if ( thisxpp.containsElement("zone") && otherxpp.containsElement("zone")) {
+        if (thisxpp.containsElement("zone") && otherxpp.containsElement("zone")) {
             String[] thisZonePieces = thisxpp.findAttributeValue("zone", "type").split("/");
             String[] otherZonePieces = otherxpp.findAttributeValue("zone", "type").split("/");
-            int result = ZoneParser.regionalCompare.compare(thisZonePieces[0],otherZonePieces[0]);
-            if ( result != 0 ) {
+            int result = ZoneParser.regionalCompare.compare(thisZonePieces[0], otherZonePieces[0]);
+            if (result != 0) {
                 return result;
             }
             result = thisZonePieces[1].compareTo(otherZonePieces[1]);
-            if ( result != 0 ) {
+            if (result != 0) {
                 return result;
-            }            
+            }
         }
         return CLDRFile.ldmlComparator.compare(path, otherItem.path);
         //return path.compareTo(otherItem.path);

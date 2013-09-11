@@ -83,7 +83,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         .add("filter", 'f', null, null, "Perform filtering on the locale data to be converted.")
         .add("organization", 'o', ".*", null, "The organization to filter the data for")
         .add("makefile", 'g', ".*", null, "If set, generates makefiles and alias files for the specified type. " +
-                "The value to set should be the name of the makefile.");
+            "The value to set should be the name of the makefile.");
 
     private static final String LOCALES_DIR = "locales";
 
@@ -207,11 +207,13 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             };
         } else if (type == Type.locales || type == Type.collation) {
             throw new IllegalArgumentException(
-                    "Missing locale list. Please provide a list of locales or a regex.");
+                "Missing locale list. Please provide a list of locales or a regex.");
         } else {
             filter = new Filter() {
                 @Override
-                public boolean includes(String value) { return true; }
+                public boolean includes(String value) {
+                    return true;
+                }
             };
         }
 
@@ -327,7 +329,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             icuData = iterator.next();
             writeIcuData(icuData, destinationDir);
             System.out.println("Converted " + icuData.getName() + ".xml in " +
-                    (System.currentTimeMillis() - time) + "ms");
+                (System.currentTimeMillis() - time) + "ms");
         }
     }
 
@@ -430,7 +432,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
         if (sources.contains(from)) {
             throw new IllegalArgumentException(
-                    "Can't be both a synthetic alias locale and a real xml file - "
+                "Can't be both a synthetic alias locale and a real xml file - "
                     + "consider using <aliasLocale locale=\"" + from + "\"/> instead. ");
         }
 
@@ -438,8 +440,8 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
         String value = alias.value;
         if ((rbPath == null) != (value == null)) {
             throw new IllegalArgumentException("Incomplete alias specification for " +
-                    from + "-"  + to + ": both rbPath (" + 
-                    rbPath + ") and value (" + value + ") must be specified");
+                from + "-" + to + ": both rbPath (" +
+                rbPath + ") and value (" + value + ") must be specified");
         }
 
         IcuData icuData = new IcuData("icu-locale-deprecates.xml & build.xml", from, true);

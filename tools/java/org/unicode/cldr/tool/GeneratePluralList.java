@@ -30,30 +30,30 @@ public class GeneratePluralList {
     static final String stock = "km|lo|ne|br|dz|nl|si|en|ar|de|es|fr|it|ja|ko|nl|pl|ru|th|tr|pt|zh|zh_Hant|bg|ca|cs|da|el|fa|fi|fil|hi|hr|hu|id|lt|lv|ro|sk|sl|sr|sv|uk|vi|he|nb|et|ms|am|bn|gu|is|kn|ml|mr|sw|ta|te|ur|eu|gl|af|zu|en_GB|es_419|pt_PT|fr_CA|zh_Hant_HK";
     private static final Map<String, Integer> keywordIndex =
         Builder.with(new HashMap<String, Integer>())
-        .put("zero", 0)
-        .put("one", 1)
-        .put("two", 2)
-        .put("few", 3)
-        .put("many", 4)
-        .put("other", 5)
-        .get();
-    
+            .put("zero", 0)
+            .put("one", 1)
+            .put("two", 2)
+            .put("few", 3)
+            .put("many", 4)
+            .put("other", 5)
+            .get();
+
     private DecimalFormat format = new DecimalFormat();
     private PrintWriter out;
     private PluralRules rules;
- 
+
     private GeneratePluralList(PrintWriter out) {
         if (out == null) {
             out = new PrintWriter(System.out);
         }
         this.out = out;
     }
-    
+
     private Map<String, Map<String, String>> localesToNouns = new HashMap<String, Map<String, String>>();
 
     private void loadNouns() throws IOException {
         BufferedReader reader = FileUtilities.openFile(GeneratePluralList.class, "fractionnum.csv");
-        for (String line = reader.readLine() ; line != null; line = reader.readLine()) {
+        for (String line = reader.readLine(); line != null; line = reader.readLine()) {
             String[] fields = line.split(",");
             String locale = fields[0];
             String count = fields[1];
@@ -73,7 +73,7 @@ public class GeneratePluralList {
         public ExampleManager() {
             list3 = new HashSet<String>();
         }
-        
+
         public void add(String example) {
             list3.add(example);
         }
@@ -203,7 +203,7 @@ public class GeneratePluralList {
             String exampleValue = exampleMap.get(category);
             String overallCategory = rules.select(Double.valueOf(exampleValue));
             String exampleFormat = nouns.get(overallCategory);
-            
+
             out.println(locale + "\t" + exampleValue + "\t" +
                 category.replace("zero", realZeroType).replace('|', '\t'));
         }
@@ -218,7 +218,8 @@ public class GeneratePluralList {
         list.add(value);
     }
 
-    static String[] units = {"second", "minute", "hour", "day", "month", "year"};
+    static String[] units = { "second", "minute", "hour", "day", "month", "year" };
+
     private void getForms(CLDRFile file) {
         rules = PluralRules.forLocale(new ULocale(file.getLocaleID()));
         System.out.println(file.getLocaleID());
@@ -234,7 +235,7 @@ public class GeneratePluralList {
             out.flush();
         }
     }
-    
+
     private void printUnit(CLDRFile file, String unit, String plural) {
         String path = "//ldml/units/unit[@type=\"" + unit + "\"]/unitPattern[@count=\"" + plural + "\"]";
         String value = file.getStringValue(path);
@@ -249,7 +250,7 @@ public class GeneratePluralList {
     /**
      * @param args
      */
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         PrintWriter out = BagFormatter.openUTF8Writer("/Users/jchye/Desktop", "plurals.tsv");
         GeneratePluralList generator = new GeneratePluralList(out);
         generator.loadNouns();

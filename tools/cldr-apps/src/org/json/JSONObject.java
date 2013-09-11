@@ -1536,10 +1536,10 @@ public class JSONObject {
                 return NULL;
             }
             if (object instanceof JSONObject || object instanceof JSONArray || NULL.equals(object)
-                    || object instanceof JSONString || object instanceof Byte || object instanceof Character
-                    || object instanceof Short || object instanceof Integer || object instanceof Long
-                    || object instanceof Boolean || object instanceof Float || object instanceof Double
-                    || object instanceof String) {
+                || object instanceof JSONString || object instanceof Byte || object instanceof Character
+                || object instanceof Short || object instanceof Integer || object instanceof Long
+                || object instanceof Boolean || object instanceof Float || object instanceof Double
+                || object instanceof String) {
                 return object;
             }
 
@@ -1555,7 +1555,7 @@ public class JSONObject {
             Package objectPackage = object.getClass().getPackage();
             String objectPackageName = (objectPackage != null ? objectPackage.getName() : "");
             if (objectPackageName.startsWith("java.") || objectPackageName.startsWith("javax.")
-                    || object.getClass().getClassLoader() == null) {
+                || object.getClass().getClassLoader() == null) {
                 return object.toString();
             }
             return new JSONObject(object);

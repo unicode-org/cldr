@@ -34,7 +34,7 @@ public class TestLdml2ICU extends TestFmwk {
     private static final Transform<String, RegexFinder> XPATH_TRANSFORM = new Transform<String, RegexFinder>() {
         public RegexFinder transform(String source) {
             final String newSource = source.replace("[@", "\\[@");
-            return new RegexFinder( "^" + newSource + "$");
+            return new RegexFinder("^" + newSource + "$");
         }
     };
 
@@ -122,7 +122,7 @@ public class TestLdml2ICU extends TestFmwk {
      */
     private static RegexLookup<Object> loadRegexes(String filename) {
         final RegexLookup<Object> lookup = RegexLookup.of()
-                .setPatternTransform(XPATH_TRANSFORM);
+            .setPatternTransform(XPATH_TRANSFORM);
         RegexFileParser parser = new RegexFileParser();
         parser.setLineParser(new RegexLineParser() {
             int patternNum = 0;
@@ -151,7 +151,7 @@ public class TestLdml2ICU extends TestFmwk {
             public String replace(String str) {
                 return variables.replace(str);
             }
-            
+
         });
         parser.parse(NewLdml2IcuConverter.class, filename);
         return lookup;
@@ -166,7 +166,7 @@ public class TestLdml2ICU extends TestFmwk {
         List<Pair<String, String>> cldrData = new ArrayList<Pair<String, String>>();
         XMLFileReader.loadPathValues(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY + name + ".xml", cldrData, true);
         XPathParts parts = new XPathParts();
-        for (Pair<String, String> pair: cldrData) {
+        for (Pair<String, String> pair : cldrData) {
             String xpath = CLDRFile.getNondraftNonaltXPath(pair.getFirst());
             xpath = parts.set(xpath).toString();
             checkPath(lookup, xpath, pair.getSecond());
@@ -174,6 +174,7 @@ public class TestLdml2ICU extends TestFmwk {
     }
 
     Set<String> unconverted = new HashSet<String>();
+
     /**
      * Checks if an xpath was matched by a RegexLookup.
      */
@@ -198,7 +199,7 @@ public class TestLdml2ICU extends TestFmwk {
             }
         } else if (exclusionType == ExclusionType.UNCONVERTED) {
             errln("CLDR xpath <" + xpath + "> is in the exclusions list but was matched. " +
-                  "To make the test pass, remove the relevant regex from org/unicode/cldr/util/data/testLdml2Icu.txt");
+                "To make the test pass, remove the relevant regex from org/unicode/cldr/util/data/testLdml2Icu.txt");
         }
     }
 

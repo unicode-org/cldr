@@ -38,7 +38,7 @@ public class TestCLDRFile extends TestFmwk {
 
     static TestInfo testInfo = TestInfo.getInstance();
     static SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
-    
+
     public static void main(String[] args) {
         new TestCLDRFile().run(args);
     }
@@ -55,21 +55,21 @@ public class TestCLDRFile extends TestFmwk {
         File dirs[] = { mainDir, seedDir };
         return SimpleFactory.make(dirs, ".*", DraftStatus.approved);
     }
-    
+
     // verify for all paths, if there is a count="other", then there is a count="x", for all x in keywords
     public void testPlurals() {
         for (String locale : new String[] { "fr", "en", "root", "ar", "ja" }) {
             checkPlurals(locale);
-        } 
+        }
     }
-    
+
     static final Pattern COUNT_MATCHER = Pattern.compile("\\[@count=\"([^\"]+)\"]");
 
     private void checkPlurals(String locale) {
         CLDRFile cldrFile = cldrFactory.make(locale, true);
         Matcher m = COUNT_MATCHER.matcher("");
-        Relation<String,String> skeletonToKeywords = Relation.of(new TreeMap<String,Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
-        PluralInfo plurals = sdi.getPlurals(PluralType.cardinal,locale);
+        Relation<String, String> skeletonToKeywords = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
+        PluralInfo plurals = sdi.getPlurals(PluralType.cardinal, locale);
         Set<String> normalKeywords = plurals.getCanonicalKeywords();
         for (String path : cldrFile.fullIterable()) {
             if (!path.contains("@count")) {
@@ -78,7 +78,7 @@ public class TestCLDRFile extends TestFmwk {
             if (!m.reset(path).find()) {
                 throw new IllegalArgumentException();
             }
-            String skeleton = path.substring(0,m.start(1)) + ".*" + path.substring(m.end(1));
+            String skeleton = path.substring(0, m.start(1)) + ".*" + path.substring(m.end(1));
             skeletonToKeywords.put(skeleton, m.group(1));
         }
         for (Entry<String, Set<String>> entry : skeletonToKeywords.keyValuesSet()) {
@@ -97,7 +97,7 @@ public class TestCLDRFile extends TestFmwk {
             this.locale = locale;
             cldrFile = cldrFactory.make(locale, true);
             for (String path : cldrFile.fullIterable()) {
-                Level level = sdi.getCoverageLevel(path,locale);
+                Level level = sdi.getCoverageLevel(path, locale);
                 if (level.compareTo(Level.MODERN) > 0) {
                     continue;
                 }
@@ -110,9 +110,9 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void testExtraPaths() {
-        Map<String,LocaleInfo> localeInfos = new LinkedHashMap<String,LocaleInfo>();
-        Relation<String,String> missingPathsToLocales = Relation.of(new TreeMap<String,Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
-        Relation<String,String> extraPathsToLocales = Relation.of(new TreeMap<String,Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
+        Map<String, LocaleInfo> localeInfos = new LinkedHashMap<String, LocaleInfo>();
+        Relation<String, String> missingPathsToLocales = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
+        Relation<String, String> extraPathsToLocales = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.ldmlComparator), TreeSet.class);
 
         for (String locale : new String[] { "en", "root", "fr", "ar", "ja" }) {
             localeInfos.put(locale, new LocaleInfo(locale));
@@ -120,12 +120,11 @@ public class TestCLDRFile extends TestFmwk {
         LocaleInfo englishInfo = localeInfos.get("en");
         for (String path : englishInfo.paths) {
             if (path.startsWith("//ldml/identity/")
-                    || path.startsWith("//ldml/numbers/currencies/currency[@type=")
-                    //                    || path.startsWith("//ldml/dates/calendars/calendar") && !path.startsWith("//ldml/dates/calendars/calendar[@type=\"gregorian\"]")
-                    //                    || path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=") 
-                    //                    && !path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]")
-                    || path.contains("[@count=") && !path.contains("[@count=\"other\"]")
-                    ) {
+                || path.startsWith("//ldml/numbers/currencies/currency[@type=")
+                //                    || path.startsWith("//ldml/dates/calendars/calendar") && !path.startsWith("//ldml/dates/calendars/calendar[@type=\"gregorian\"]")
+                //                    || path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=") 
+                //                    && !path.startsWith("//ldml/numbers/currencyFormats[@numberSystem=\"latn\"]")
+                || path.contains("[@count=") && !path.contains("[@count=\"other\"]")) {
                 continue;
             }
             for (LocaleInfo localeInfo : localeInfos.values()) {
@@ -134,20 +133,20 @@ public class TestCLDRFile extends TestFmwk {
                 }
                 if (!localeInfo.paths.contains(path)) {
                     if (path.startsWith("//ldml/dates/calendars/calendar") && !(path.contains("[@type=\"generic\"]") || path.contains("[@type=\"gregorian\"]"))
-                            || (path.contains("/eras/") && path.contains("[@alt=\"variant\"]")) // it is OK for just "en" to have /eras/.../era[@type=...][@alt="variant"]
-                            || path.contains("[@type=\"japanese\"]")
-                            || path.contains("[@type=\"coptic\"]")
-                            || path.contains("[@type=\"hebrew\"]")
-                            || path.contains("[@type=\"islamic-rgsa\"]")
-                            || path.contains("[@type=\"islamic-umalqura\"]")
-                            || path.contains("/relative[@type=\"-2\"]")
-                            || path.contains("/relative[@type=\"2\"]")
-                            || path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]") && localeInfo.locale.equals("root")
-                                    // //ldml/characters/exemplarCharacters[@type="index"][root]
-                                    ) {
+                        || (path.contains("/eras/") && path.contains("[@alt=\"variant\"]")) // it is OK for just "en" to have /eras/.../era[@type=...][@alt="variant"]
+                        || path.contains("[@type=\"japanese\"]")
+                        || path.contains("[@type=\"coptic\"]")
+                        || path.contains("[@type=\"hebrew\"]")
+                        || path.contains("[@type=\"islamic-rgsa\"]")
+                        || path.contains("[@type=\"islamic-umalqura\"]")
+                        || path.contains("/relative[@type=\"-2\"]")
+                        || path.contains("/relative[@type=\"2\"]")
+                        || path.startsWith("//ldml/characters/exemplarCharacters[@type=\"index\"]") && localeInfo.locale.equals("root")
+                    // //ldml/characters/exemplarCharacters[@type="index"][root]
+                    ) {
                         continue;
                     }
-                    String localeAndStatus = localeInfo.locale + (englishInfo.cldrFile.isHere(path) ? "" : "*");                    
+                    String localeAndStatus = localeInfo.locale + (englishInfo.cldrFile.isHere(path) ? "" : "*");
                     missingPathsToLocales.put(path, localeAndStatus);
                 }
             }
@@ -159,18 +158,17 @@ public class TestCLDRFile extends TestFmwk {
             }
             for (String path : localeInfo.paths) {
                 if (path.contains("[@numberSystem=\"arab\"]")
-                        || path.contains("[@type=\"japanese\"]")
-                        || path.contains("[@type=\"coptic\"]")
-                        || path.contains("[@type=\"hebrew\"]")
-                        || path.contains("[@type=\"islamic-rgsa\"]")
-                        || path.contains("[@type=\"islamic-umalqura\"]")
-                        || path.contains("/relative[@type=\"-2\"]")
-                        || path.contains("/relative[@type=\"2\"]")
-                        ) {
+                    || path.contains("[@type=\"japanese\"]")
+                    || path.contains("[@type=\"coptic\"]")
+                    || path.contains("[@type=\"hebrew\"]")
+                    || path.contains("[@type=\"islamic-rgsa\"]")
+                    || path.contains("[@type=\"islamic-umalqura\"]")
+                    || path.contains("/relative[@type=\"-2\"]")
+                    || path.contains("/relative[@type=\"2\"]")) {
                     continue;
                 }
                 if (!englishInfo.paths.contains(path)) {
-                    String localeAndStatus = localeInfo.locale + (localeInfo.cldrFile.isHere(path) ? "" : "*");                    
+                    String localeAndStatus = localeInfo.locale + (localeInfo.cldrFile.isHere(path) ? "" : "*");
                     extraPathsToLocales.put(path, localeAndStatus);
                 }
             }
@@ -181,11 +179,11 @@ public class TestCLDRFile extends TestFmwk {
             Set<String> locales = entry.getValue();
             Status status = new Status();
             Object originalLocale = englishInfo.cldrFile.getSourceLocaleID(path, status);
-            String engName = "en" + (englishInfo.cldrFile.isHere(path) ? "" : "*" + originalLocale 
-                    + (path.equals(status.pathWhereFound) ? "" : "," + status)
-                    + ";");
+            String engName = "en" + (englishInfo.cldrFile.isHere(path) ? "" : "*" + originalLocale
+                + (path.equals(status.pathWhereFound) ? "" : "," + status)
+                + ";");
             if (path.startsWith("//ldml/localeDisplayNames/")
-                    || path.contains("[@alt=\"accounting\"]")) {
+                || path.contains("[@alt=\"accounting\"]")) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
             } else {
                 errln("+" + engName + ", -" + locales + "\t" + path);
@@ -195,9 +193,9 @@ public class TestCLDRFile extends TestFmwk {
             String path = entry.getKey();
             Set<String> locales = entry.getValue();
             if (path.startsWith("//ldml/localeDisplayNames/")
-                    || path.startsWith("//ldml/numbers/otherNumberingSystems/")
-                    // || path.contains("[@alt=\"accounting\"]")
-                    ) {
+                || path.startsWith("//ldml/numbers/otherNumberingSystems/")
+            // || path.contains("[@alt=\"accounting\"]")
+            ) {
                 logln("-en, +" + locales + "\t" + path);
             } else {
                 logln("-en, +" + locales + "\t" + path);
@@ -219,11 +217,11 @@ public class TestCLDRFile extends TestFmwk {
         //        }
     }
 
-//    public void testDraftFilter() {
-//        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
-//        checkLocale(cldrFactory.make("root", true));
-//        checkLocale(cldrFactory.make("ee", true));
-//    }
+    //    public void testDraftFilter() {
+    //        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*", DraftStatus.approved);
+    //        checkLocale(cldrFactory.make("root", true));
+    //        checkLocale(cldrFactory.make("ee", true));
+    //    }
 
     public void checkLocale(CLDRFile cldr) {
         Matcher m = Pattern.compile("gregorian.*eras").matcher("");
@@ -231,7 +229,7 @@ public class TestCLDRFile extends TestFmwk {
             String path = it.next();
             if (m.reset(path).find() && !path.contains("alias")) {
                 errln(cldr.getLocaleID() + "\t" + cldr.getStringValue(path) + "\t"
-                        + cldr.getFullXPath(path));
+                    + cldr.getFullXPath(path));
             }
             if (path == null) {
                 errln("Null path");
@@ -243,15 +241,15 @@ public class TestCLDRFile extends TestFmwk {
         }
     }
 
-//    public void testTimeZonePath() {
-//        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
-//        String tz = "Pacific/Midway";
-//        CLDRFile cldrFile = cldrFactory.make("lv", true);
-//        String retVal = cldrFile.getStringValue(
-//                "//ldml/dates/timeZoneNames/zone[@type=\"" + tz + "\"]/exemplarCity"
-//                , true).trim();
-//        errln(retVal);
-//    }
+    //    public void testTimeZonePath() {
+    //        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    //        String tz = "Pacific/Midway";
+    //        CLDRFile cldrFile = cldrFactory.make("lv", true);
+    //        String retVal = cldrFile.getStringValue(
+    //                "//ldml/dates/timeZoneNames/zone[@type=\"" + tz + "\"]/exemplarCity"
+    //                , true).trim();
+    //        errln(retVal);
+    //    }
 
     public void testSimple() {
         double deltaTime = System.currentTimeMillis();
@@ -336,16 +334,19 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     static final NumberFormat percent = NumberFormat.getPercentInstance();
+
     static final class Size {
         int items;
         int chars;
+
         public void add(String topValue) {
             items++;
             chars += topValue.length();
         }
+
         public String over(Size base) {
-            return "items: " + items + "(" + percent.format(items/(0.0+base.items)) + "); " +
-                    "chars: " + chars + "(" + percent.format(chars/(0.0+base.chars)) + ")";
+            return "items: " + items + "(" + percent.format(items / (0.0 + base.items)) + "); " +
+                "chars: " + chars + "(" + percent.format(chars / (0.0 + base.chars)) + ")";
         }
     }
 
@@ -361,14 +362,14 @@ public class TestCLDRFile extends TestFmwk {
             Output<String> localeWhereFound = new Output<String>();
             Output<String> pathWhereFound = new Output<String>();
 
-            Map<String,String> diff = new TreeMap<String,String>(CLDRFile.ldmlComparator);
+            Map<String, String> diff = new TreeMap<String, String>(CLDRFile.ldmlComparator);
 
             Size countSuperfluous = new Size();
             Size countExtraLevel = new Size();
             Size countOrdinary = new Size();
 
             for (String path : cldrFile.fullIterable()) {
-                String baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound );
+                String baileyValue = cldrFile.getBaileyValue(path, pathWhereFound, localeWhereFound);
                 String topValue = cldrFileUnresolved.getStringValue(path);
                 String resolvedValue = cldrFile.getStringValue(path);
 
@@ -388,11 +389,10 @@ public class TestCLDRFile extends TestFmwk {
                 if (topValue != null) {
                     if (CldrUtility.equals(topValue, baileyValue)) {
                         countSuperfluous.add(topValue);
-                    } else if (sdi.getCoverageLevel(path,locale).compareTo(Level.MODERN) > 0) {
+                    } else if (sdi.getCoverageLevel(path, locale).compareTo(Level.MODERN) > 0) {
                         countExtraLevel.add(topValue);
-                    }                        
+                    }
                     countOrdinary.add(topValue);
-
 
                     //                    String parentValue = parentFile.getStringValue(path);
                     //                    if (!CldrUtility.equals(parentValue, baileyValue)) {
@@ -407,20 +407,20 @@ public class TestCLDRFile extends TestFmwk {
             }
         }
     }
-    
+
     public void TestConstructedBailey() {
         CLDRFile eng = TestInfo.getInstance().getEnglish();
 
         String prefix = "//ldml/localeDisplayNames/languages/language[@type=\"";
-        String display = eng.getConstructedBaileyValue(prefix + "zh_Hans" + "\"]", null, null);        
+        String display = eng.getConstructedBaileyValue(prefix + "zh_Hans" + "\"]", null, null);
         assertEquals("contructed bailey", "Chinese (Simplified)", display);
-        display = eng.getConstructedBaileyValue(prefix + "es_US" + "\"]", null, null);        
+        display = eng.getConstructedBaileyValue(prefix + "es_US" + "\"]", null, null);
         assertEquals("contructed bailey", "Spanish (United States)", display);
-        display = eng.getConstructedBaileyValue(prefix + "es_US" + "\"][@alt=\"short\"]", null, null);        
+        display = eng.getConstructedBaileyValue(prefix + "es_US" + "\"][@alt=\"short\"]", null, null);
         assertEquals("contructed bailey", "Spanish (U.S.)", display);
-        display = eng.getConstructedBaileyValue(prefix + "es" + "\"]", null, null);        
+        display = eng.getConstructedBaileyValue(prefix + "es" + "\"]", null, null);
         assertEquals("contructed bailey", "es", display);
-        display = eng.getConstructedBaileyValue(prefix + "missing" + "\"]", null, null);        
+        display = eng.getConstructedBaileyValue(prefix + "missing" + "\"]", null, null);
         assertEquals("contructed bailey", null, display);
     }
 }

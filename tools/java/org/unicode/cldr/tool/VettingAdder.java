@@ -218,8 +218,8 @@ public class VettingAdder {
     }
 
     /**
-	 * 
-	 */
+     * 
+     */
     private int fixItem(PrintWriter out, int haveLanguages, String trimmed, String item, String fix) {
         if (trimmed.startsWith(item)) {
             if (haveLanguages == 0) {
@@ -292,8 +292,8 @@ public class VettingAdder {
     CLDRFile english;
 
     /**
-	 * 
-	 */
+     * 
+     */
     private void showConflicts(Factory cldrFactory) {
 
         Set s = getConflictSet();
@@ -340,8 +340,8 @@ public class VettingAdder {
     }
 
     /**
-	 * 
-	 */
+     * 
+     */
     private void showSet(Set emails) {
         if (emails.size() == 0) return;
         String result = "Emails:\t";
@@ -354,8 +354,8 @@ public class VettingAdder {
     }
 
     /**
-	 * 
-	 */
+     * 
+     */
     private String getValue(Transliterator some, String current) {
         if (current == null) current = "NULL";
         String other = some.transliterate(current);
@@ -365,8 +365,8 @@ public class VettingAdder {
     XPathParts tempParts = new XPathParts(null, null);
 
     /**
-	 * 
-	 */
+     * 
+     */
     private String stripAlt(String path) {
         tempParts.set(path);
         Map x = tempParts.getAttributes(tempParts.size() - 1);

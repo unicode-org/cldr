@@ -82,7 +82,7 @@ public class TestPathHeader extends TestFmwkPlus {
             }
         }
     }
-    
+
     public void Test6170Exception() {
         String p1 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"speed-kilometer-per-hour\"]/unitPattern[@count=\"other\"]";
         String p2 = "//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"area-square-meter\"]/unitPattern[@count=\"other\"]";
@@ -95,7 +95,7 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void TestVariant() {
         PathHeader p1 = pathHeaderFactory
-                .fromPath("//ldml/localeDisplayNames/languages/language[@type=\"ug\"][@alt=\"variant\"]");
+            .fromPath("//ldml/localeDisplayNames/languages/language[@type=\"ug\"][@alt=\"variant\"]");
         PathHeader p2 = pathHeaderFactory.fromPath("//ldml/localeDisplayNames/languages/language[@type=\"ug\"]");
         assertNotEquals("variants", p1, p2);
         assertNotEquals("variants", p1.toString(), p2.toString());
@@ -116,7 +116,7 @@ public class TestPathHeader extends TestFmwkPlus {
         String test = "//ldml/numbers/miscPatterns[@numberSystem=\"arab\"]/pattern[@type=\"atLeast\"]";
         PathHeader ph = pathHeaderFactory.fromPath(test);
         assertNotNull("MiscPatterns path not found", ph);
-        if(false) System.out.println(english.getStringValue(test));
+        if (false) System.out.println(english.getStringValue(test));
     }
 
     public void TestPluralOrder() {
@@ -146,12 +146,12 @@ public class TestPathHeader extends TestFmwkPlus {
     static final String APPEND_TIMEZONE_END = "/dateTimeFormats/appendItems/appendItem[@request=\"Timezone\"]";
     static final String BEFORE_PH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/availableFormats/dateFormatItem[@id=\"ms\"]";
     static final String AFTER_PH = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"d\"]/greatestDifference[@id=\"d\"]";
-    
+
     public void TestAppendTimezone() {
         CLDRFile cldrFile = info.getEnglish();
         CoverageLevel2 coverageLevel = CoverageLevel2.getInstance("en");
         assertEquals("appendItem:Timezone", Level.MODERATE, coverageLevel.getLevel(APPEND_TIMEZONE));
-        
+
         PathHeader ph = pathHeaderFactory.fromPath(APPEND_TIMEZONE);
         assertEquals("appendItem:Timezone pathheader", "Timezone", ph.getCode());
         // check that they are in the right place (they weren't before!)
@@ -161,14 +161,14 @@ public class TestPathHeader extends TestFmwkPlus {
         assertTrue(ph, LEQ, phAfter);
 
         PathDescription pathDescription = new PathDescription(supplemental, english, null, null,
-                PathDescription.ErrorHandling.CONTINUE);
+            PathDescription.ErrorHandling.CONTINUE);
         String description = pathDescription.getDescription(APPEND_TIMEZONE, "tempvalue", null, null);
         assertTrue("appendItem:Timezone pathDescription", description.contains("“Timezone”"));
-        
+
         PatternPlaceholders patternPlaceholders = PatternPlaceholders.getInstance();
         PlaceholderStatus status = patternPlaceholders.getStatus(APPEND_TIMEZONE);
         assertEquals("appendItem:Timezone placeholders", PlaceholderStatus.REQUIRED, status);
-        
+
         Map<String, PlaceholderInfo> placeholderInfo = patternPlaceholders.get(APPEND_TIMEZONE);
         PlaceholderInfo placeholderInfo2 = placeholderInfo.get("{1}");
         if (assertNotNull("appendItem:Timezone placeholders", placeholderInfo2)) {
@@ -219,7 +219,7 @@ public class TestPathHeader extends TestFmwkPlus {
                     line = v;
                     codes.add(p.getCode());
                 } else if (p.getSectionId() == old.getSectionId() && p.getPageId() == old.getPageId()
-                        && p.getHeader().equals(old.getHeader())) {
+                    && p.getHeader().equals(old.getHeader())) {
                     codes.add(p.getCode());
                 } else {
                     logln(line + "\t" + codes.toString());
@@ -239,7 +239,7 @@ public class TestPathHeader extends TestFmwkPlus {
             if (locale.contains("_")) {
                 continue;
             }
-            PluralInfo info = supplemental.getPlurals(PluralType.cardinal,locale);
+            PluralInfo info = supplemental.getPlurals(PluralType.cardinal, locale);
             Set<String> keywords = info.getCanonicalKeywords();
             data.put(keywords.toString(), locale);
         }
@@ -279,13 +279,13 @@ public class TestPathHeader extends TestFmwkPlus {
 
             boolean hideCoverage = level == Level.OPTIONAL;
             boolean hidePathHeader = status == SurveyToolStatus.DEPRECATED || status == SurveyToolStatus.HIDE;
-            if (hidePathHeader  != hideCoverage) {
+            if (hidePathHeader != hideCoverage) {
                 String message = "PathHeader: " + status + ", Coverage: " + level + ": " + path;
                 if (hidePathHeader && !hideCoverage) {
-                        errln(message);
+                    errln(message);
                 } else if (!hidePathHeader && hideCoverage) {
                     logln(message);
-                } 
+                }
             }
             final R2<SectionId, PageId> key = Row.of(p.getSectionId(), p.getPageId());
             Counter<Level> counter = data.get(key);
@@ -320,7 +320,7 @@ public class TestPathHeader extends TestFmwkPlus {
         check(localeId, true, uniqueness, alreadySeen);
         // check paths
         for (Entry<SectionId, Set<PageId>> sectionAndPages : PathHeader.Factory
-                .getSectionIdsToPageIds().keyValuesSet()) {
+            .getSectionIdsToPageIds().keyValuesSet()) {
             final SectionId section = sectionAndPages.getKey();
             logln(section.toString());
             for (PageId page : sectionAndPages.getValue()) {
@@ -334,14 +334,14 @@ public class TestPathHeader extends TestFmwkPlus {
                 } else if (section == SectionId.Timezones && page == PageId.UnknownT) {
                     // skip
                 } else {
-                    
+
                     int count2 = cachedPaths.size();
                     if (count2 == 0) {
                         errln("Missing pages for: " + section + "\t" + page);
                     } else {
                         counter.clear();
                         for (String s : cachedPaths) {
-                            Level coverage = supplemental.getCoverageLevel(s,localeId);
+                            Level coverage = supplemental.getCoverageLevel(s, localeId);
                             counter.add(coverage, 1);
                         }
                         String countString = "";
@@ -454,7 +454,7 @@ public class TestPathHeader extends TestFmwkPlus {
         CLDRFile nativeFile = factory.make("en", true);
         PathStarrer starrer = new PathStarrer();
         EnumMap<SurveyToolStatus, Relation<String, String>> info2 = new EnumMap<SurveyToolStatus, Relation<String, String>>(
-                SurveyToolStatus.class);
+            SurveyToolStatus.class);
         Counter<SurveyToolStatus> counter = new Counter<SurveyToolStatus>();
         Set<String> nuked = new HashSet<String>();
         PrettyPath pp = new PrettyPath();
@@ -467,12 +467,12 @@ public class TestPathHeader extends TestFmwkPlus {
             PathHeader p = pathHeaderFactory.fromPath(path);
             final SurveyToolStatus surveyToolStatus = p.getSurveyToolStatus();
 
-            if(p.getSectionId()==SectionId.Special && surveyToolStatus == SurveyToolStatus.READ_WRITE) {
+            if (p.getSectionId() == SectionId.Special && surveyToolStatus == SurveyToolStatus.READ_WRITE) {
                 errln("SurveyToolStatus should not be " + surveyToolStatus + ": " + p);
             }
 
             final SurveyToolStatus tempSTS = surveyToolStatus == SurveyToolStatus.DEPRECATED ? SurveyToolStatus.HIDE
-                    : surveyToolStatus;
+                : surveyToolStatus;
             String starred = starrer.set(path);
             List<String> attr = starrer.getAttributes();
             if (surveyToolStatus != SurveyToolStatus.READ_WRITE) {
@@ -484,8 +484,8 @@ public class TestPathHeader extends TestFmwkPlus {
             String prettyPath = pp.getPrettyPath(path);
 
             if (prettyPath.contains("numberingSystems") ||
-                    prettyPath.contains("exemplarCharacters") ||
-                    prettyPath.contains("indexCharacters")) {
+                prettyPath.contains("exemplarCharacters") ||
+                prettyPath.contains("indexCharacters")) {
                 oldStatus = SurveyToolStatus.READ_ONLY;
             } else if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
                 oldStatus = SurveyToolStatus.HIDE;
@@ -494,7 +494,7 @@ public class TestPathHeader extends TestFmwkPlus {
             if (tempSTS != oldStatus && oldStatus != SurveyToolStatus.READ_WRITE && !path.endsWith(APPEND_TIMEZONE_END)) {
                 if (!differentStar.contains(starred)) {
                     errln("Different from old:\t" + oldStatus + "\tnew:\t" + surveyToolStatus + "\t"
-                            + path);
+                        + path);
                     differentStar.add(starred);
                 }
             }
@@ -504,7 +504,7 @@ public class TestPathHeader extends TestFmwkPlus {
             if (isDeprecated != (surveyToolStatus == SurveyToolStatus.DEPRECATED)) {
                 if (!deprecatedStar.contains(starred)) {
                     errln("Different from supplementalMetadata deprecated:\t" + isDeprecated + "\t"
-                            + surveyToolStatus + "\t" + path);
+                        + surveyToolStatus + "\t" + path);
                     deprecatedStar.add(starred);
                 }
             }
@@ -512,7 +512,7 @@ public class TestPathHeader extends TestFmwkPlus {
             Relation<String, String> data = info2.get(surveyToolStatus);
             if (data == null) {
                 info2.put(surveyToolStatus,
-                        data = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
+                    data = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
             }
             data.put(starred, CollectionUtilities.join(attr, "|"));
         }
@@ -557,13 +557,13 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void TestPathDescriptionCompleteness() {
         PathDescription pathDescription = new PathDescription(supplemental, english, null, null,
-                PathDescription.ErrorHandling.CONTINUE);
+            PathDescription.ErrorHandling.CONTINUE);
         Matcher normal = Pattern.compile("http://cldr.org/translation/[a-zA-Z0-9]").matcher("");
         Set<String> alreadySeen = new HashSet<String>();
         PathStarrer starrer = new PathStarrer();
 
         checkPathDescriptionCompleteness(pathDescription, normal, "//ldml/numbers/defaultNumberingSystem", alreadySeen,
-                starrer);
+            starrer);
         for (PathHeader pathHeader : getPathHeaders(english)) {
             final SurveyToolStatus surveyToolStatus = pathHeader.getSurveyToolStatus();
             if (surveyToolStatus == SurveyToolStatus.DEPRECATED || surveyToolStatus == SurveyToolStatus.HIDE) {
@@ -575,7 +575,7 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void checkPathDescriptionCompleteness(PathDescription pathDescription, Matcher normal,
-            String path, Set<String> alreadySeen, PathStarrer starrer) {
+        String path, Set<String> alreadySeen, PathStarrer starrer) {
         String value = english.getStringValue(path);
         String description = pathDescription.getDescription(path, value, null, null);
         String starred = starrer.set(path);
@@ -598,15 +598,15 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void TestTerritoryOrder() {
         final Set<String> goodAvailableCodes = TestInfo.getInstance().getStandardCodes()
-                .getGoodAvailableCodes("territory");
+            .getGoodAvailableCodes("territory");
         Set<String> results = showContained("001", 0, new HashSet(goodAvailableCodes));
         results.remove("ZZ");
         for (String territory : results) {
             String sub = Containment.getSubcontinent(territory);
             String cont = Containment.getContinent(territory);
             errln("Missing\t" + getNameAndOrder(territory) + "\t" +
-                    getNameAndOrder(sub) + "\t" +
-                    getNameAndOrder(cont));
+                getNameAndOrder(sub) + "\t" +
+                getNameAndOrder(cont));
         }
     }
 
@@ -630,8 +630,8 @@ public class TestPathHeader extends TestFmwkPlus {
 
     private String getNameAndOrder(String territory) {
         return territory
-                + "\t" + english.getName(CLDRFile.TERRITORY_NAME, territory)
-                + "\t" + Containment.getOrder(territory);
+            + "\t" + english.getName(CLDRFile.TERRITORY_NAME, territory)
+            + "\t" + Containment.getOrder(territory);
     }
 
     public void TestZCompleteness() {
@@ -650,7 +650,7 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void check(String localeID, boolean resolved, Map<String, PathHeader> uniqueness,
-            Set<String> alreadySeen) {
+        Set<String> alreadySeen) {
         CLDRFile nativeFile = factory.make(localeID, resolved);
         int count = 0;
         for (String path : nativeFile) {
@@ -675,7 +675,7 @@ public class TestPathHeader extends TestFmwkPlus {
                     if (pathHeader.getSection().equals("Special")) {
                         if (pathHeader.getSection().equals("Unknown")) {
                             errln("PathHeader has fallback: " + visible + "\t"
-                                    + pathHeader.getOriginalPath());
+                                + pathHeader.getOriginalPath());
                             // } else {
                             // logln("Special:\t" + visible + "\t" +
                             // pathHeader.getOriginalPath());
@@ -685,10 +685,10 @@ public class TestPathHeader extends TestFmwkPlus {
                 } else if (!old.equals(pathHeader)) {
                     if (pathHeader.getSectionId() == SectionId.Special) {
                         logln("Special PathHeader not unique: " + visible + "\t" + pathHeader.getOriginalPath()
-                                + "\t" + old.getOriginalPath());
+                            + "\t" + old.getOriginalPath());
                     } else {
                         errln("PathHeader not unique: " + visible + "\t" + pathHeader.getOriginalPath()
-                                + "\t" + old.getOriginalPath());
+                            + "\t" + old.getOriginalPath());
                     }
                 }
             }
@@ -733,7 +733,7 @@ public class TestPathHeader extends TestFmwkPlus {
                 String name4 = english.getName(CLDRFile.TERRITORY_NAME, revision);
 
                 logln(metazone + "\t" + continent + "\t" + name + "\t" + name2 + "\t" + name3 + "\t" + order + "\t"
-                        + name4);
+                    + name4);
             }
         }
     }
@@ -797,9 +797,9 @@ public class TestPathHeader extends TestFmwkPlus {
                 lastHeader = pathHeader.getHeader();
             }
             logln(pathHeader
-                    + "\t" + coverageLevel2.getLevel(original)
-                    + "\t" + english.getStringValue(pathHeader.getOriginalPath())
-                    + "\t" + pathHeader.getOriginalPath());
+                + "\t" + coverageLevel2.getLevel(original)
+                + "\t" + english.getStringValue(pathHeader.getOriginalPath())
+                + "\t" + pathHeader.getOriginalPath());
         }
         if (collide.size() != 0) {
             errln("\nCollide:\t" + collide.size());
@@ -820,14 +820,14 @@ public class TestPathHeader extends TestFmwkPlus {
             }
         }
         Counter<PathHeader.Factory.CounterData> counterData = pathHeaderFactory
-                .getInternalCounter();
+            .getInternalCounter();
         logln("\nInternal Counter:\t" + counterData.size());
         for (PathHeader.Factory.CounterData item : counterData.keySet()) {
             logln("\t" + counterData.getCount(item)
-                    + "\t" + item.get2() // externals
-                    + "\t" + item.get3()
-                    + "\t" + item.get0() // internals
-                    + "\t" + item.get1());
+                + "\t" + item.get2() // externals
+                + "\t" + item.get3()
+                + "\t" + item.get0() // internals
+                + "\t" + item.get1());
         }
         logln("\nMenus/Headers:\t" + threeLevel.size());
         for (String item : threeLevel) {

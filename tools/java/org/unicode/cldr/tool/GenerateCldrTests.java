@@ -155,8 +155,8 @@ public class GenerateCldrTests {
      */
 
     /**
-   * 
-   */
+    * 
+    */
     /*
      * private static void checkLocaleNames() {Stringe[] locales =
      * String.getAvailableLocales(); for (int i = 0; i < locales.length; ++i) {
@@ -555,8 +555,8 @@ public class GenerateCldrTests {
         }
 
         /**
-     * 
-     */
+        * 
+        */
 
         private void setListOfSettings(Set listOfSettings) {
             this.listOfSettings = listOfSettings;
@@ -811,8 +811,8 @@ public class GenerateCldrTests {
     /*
      * Equator CollationEquator = new Equator() {
      *//**
-     * Must both be ULocales
-     */
+       * Must both be ULocales
+       */
     /*
      * public boolean equals(Object o1, Object o2) { try { ULocale loc1 =
      * (ULocale) o1; ULocale loc2 = (ULocale) o2; if (loc1.equals(loc2)) return

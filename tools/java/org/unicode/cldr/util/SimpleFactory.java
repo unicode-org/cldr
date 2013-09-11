@@ -20,7 +20,7 @@ public class SimpleFactory extends Factory {
      */
     private static final int CACHE_LIMIT = 15;
 
-    private volatile CLDRFile result;  // used in handleMake
+    private volatile CLDRFile result; // used in handleMake
     private File sourceDirectories[];
     private String matchString;
     private Set<String> localeList = new TreeSet<String>();
@@ -119,7 +119,7 @@ public class SimpleFactory extends Factory {
         // Use double-check idiom.
         result = cache.get(localeName);
         if (result != null) return result;
-        synchronized(cache) {
+        synchronized (cache) {
             // Check cache twice to ensure that CLDRFile is only loaded once
             // even with multiple threads.
             result = cache.get(localeName);

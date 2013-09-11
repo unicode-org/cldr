@@ -39,9 +39,9 @@ public class ShowPlurals {
 
         pw.append("<h2>" + CldrUtility.getDoubleLinkedText("comparison", "2. " + section2) + "</h2>\n");
         pw.append("<p style='text-align:left'>The plural forms are abbreviated by first letter, with 'x' for 'other'. "
-                +
-                "If values are made redundant by explicit 0 and 1, they are underlined. " +
-                "The fractional and integral results are separated for clarity.</p>\n");
+            +
+            "If values are made redundant by explicit 0 and 1, they are underlined. " +
+            "The fractional and integral results are separated for clarity.</p>\n");
         PluralSnapshot.writeTables(english, pw);
         appendBlanksForScrolling(pw);
         pw.close();
@@ -58,13 +58,13 @@ public class ShowPlurals {
     public static void printPluralTable(CLDRFile english, String localeFilter, Appendable appendable) throws IOException {
 
         final TablePrinter tablePrinter = new TablePrinter()
-        .addColumn("Name", "class='source'", null, "class='source'", true).setSortPriority(0)
-        .setBreakSpans(true).setRepeatHeader(true)
-        .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
-        .addColumn("Category", "class='target'", null, "class='target'", true).setBreakSpans(true)
-        .addColumn("Examples", "class='target'", null, "class='target'", true)
-        .addColumn("Minimal Pairs", "class='target'", null, "class='target'", true)
-        .addColumn("Rules", "class='target'", null, "class='target' nowrap", true);
+            .addColumn("Name", "class='source'", null, "class='source'", true).setSortPriority(0)
+            .setBreakSpans(true).setRepeatHeader(true)
+            .addColumn("Code", "class='source'", CldrUtility.getDoubleLinkMsg(), "class='source'", true)
+            .addColumn("Category", "class='target'", null, "class='target'", true).setBreakSpans(true)
+            .addColumn("Examples", "class='target'", null, "class='target'", true)
+            .addColumn("Minimal Pairs", "class='target'", null, "class='target'", true)
+            .addColumn("Rules", "class='target'", null, "class='target' nowrap", true);
 
         Map<ULocale, org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
 
@@ -81,7 +81,7 @@ public class ShowPlurals {
             rules += rules.length() == 0 ? "other:<i>everything</i>" : ";other:<i>everything else</i>";
             rules = rules.replace(":", " → ").replace(";", ";<br>");
             final String name = english.getName(locale);
-            PluralRules pluralRules = plurals.getPluralRules();                
+            PluralRules pluralRules = plurals.getPluralRules();
             //final Map<PluralInfo.Count, String> typeToExamples = plurals.getCountToStringExamplesMap();
             //final String examples = typeToExamples.get(type).toString().replace(";", ";<br>");
             Set<Count> counts = plurals.getCounts();
@@ -100,39 +100,39 @@ public class ShowPlurals {
                 //                    }
                 String rule = pluralRules.getRules(keyword);
                 rule = rule != null ? rule.replace(":", " → ")
-                        .replace(" and ", " and<br>&nbsp;&nbsp;")
-                        .replace(" or ", " or<br>")
-                        : counts.size() == 1 ? "<i>everything</i>"
-                                : "<i>everything else</i>";
-                        String sample = counts.size() == 1 ? "<i>no plural differences</i>" 
-                                : "<i>Not available.<br>Please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to supply.</i>";
-                        if (samplePatterns != null) {
-                            String samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));
-                            if (samplePattern != null) {
-                                if (exampleList.getRangeCount() > 0) {
-                                    int intSample = exampleList.getRangeStart(0);
-                                    sample = getSample(new FixedDecimal(intSample), samplePattern, nf);
-                                } else {
-                                    sample = "";
-                                }
-                                List<FixedDecimal> fractions = exampleList.getFractions();
-                                if (fractions.size() != 0) {
-                                    FixedDecimal numb = fractions.iterator().next();
-                                    if (sample.length() != 0) {
-                                        sample += "<br>";
-                                    }
-                                    sample += getSample(numb, samplePattern, nf);
-                                }
-                            }
+                    .replace(" and ", " and<br>&nbsp;&nbsp;")
+                    .replace(" or ", " or<br>")
+                    : counts.size() == 1 ? "<i>everything</i>"
+                        : "<i>everything else</i>";
+                String sample = counts.size() == 1 ? "<i>no plural differences</i>"
+                    : "<i>Not available.<br>Please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to supply.</i>";
+                if (samplePatterns != null) {
+                    String samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));
+                    if (samplePattern != null) {
+                        if (exampleList.getRangeCount() > 0) {
+                            int intSample = exampleList.getRangeStart(0);
+                            sample = getSample(new FixedDecimal(intSample), samplePattern, nf);
+                        } else {
+                            sample = "";
                         }
-                        tablePrinter.addRow()
-                        .addCell(name)
-                        .addCell(locale)
-                        .addCell(count.toString())
-                        .addCell(examples.toString())
-                        .addCell(sample)
-                        .addCell(rule)
-                        .finishRow();
+                        List<FixedDecimal> fractions = exampleList.getFractions();
+                        if (fractions.size() != 0) {
+                            FixedDecimal numb = fractions.iterator().next();
+                            if (sample.length() != 0) {
+                                sample += "<br>";
+                            }
+                            sample += getSample(numb, samplePattern, nf);
+                        }
+                    }
+                }
+                tablePrinter.addRow()
+                    .addCell(name)
+                    .addCell(locale)
+                    .addCell(count.toString())
+                    .addCell(examples.toString())
+                    .addCell(sample)
+                    .addCell(rule)
+                    .finishRow();
             }
         }
         appendable.append(tablePrinter.toTable()).append('\n');
@@ -143,9 +143,9 @@ public class ShowPlurals {
         nf.setMaximumFractionDigits(numb.getVisibleDecimalDigitCount());
         nf.setMinimumFractionDigits(numb.getVisibleDecimalDigitCount());
         sample = samplePattern
-                .replace('\u00A0', '\u0020')
-                .replace("{0}", nf.format(numb.source))
-                .replace(". ", ".<br>");
+            .replace('\u00A0', '\u0020')
+            .replace("{0}", nf.format(numb.source))
+            .replace(". ", ".<br>");
         return sample;
     }
 

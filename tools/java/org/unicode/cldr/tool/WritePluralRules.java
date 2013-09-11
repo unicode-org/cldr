@@ -20,7 +20,7 @@ public class WritePluralRules {
     static SupplementalDataInfo sInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     public static void main(String[] args) {
-        Relation<PluralRules,String> rulesToLocales = Relation.of(new TreeMap<PluralRules,Set<String>>(new PluralRulesComparator()), TreeSet.class);
+        Relation<PluralRules, String> rulesToLocales = Relation.of(new TreeMap<PluralRules, Set<String>>(new PluralRulesComparator()), TreeSet.class);
         for (String locale : sInfo.getPluralLocales(PluralType.cardinal)) {
             if (locale.equals("root")) {
                 continue;
@@ -33,8 +33,8 @@ public class WritePluralRules {
             rulesToLocales.put(rules, locale);
         }
         System.out.println(
-        formatPluralHeader(PluralType.cardinal, "WritePluralRules")
-        );
+            formatPluralHeader(PluralType.cardinal, "WritePluralRules")
+            );
         TreeSet<Entry<PluralRules, Set<String>>> sorted = new TreeSet<Entry<PluralRules, Set<String>>>(new HackComparator());
         sorted.addAll(rulesToLocales.keyValuesSet());
         for (Entry<PluralRules, Set<String>> entry : sorted) {
@@ -51,13 +51,13 @@ public class WritePluralRules {
             }
             System.out.println(formatPluralRuleFooter());
             /*
-        <pluralRules locales="ar">
+            <pluralRules locales="ar">
             <pluralRule count="zero">n is 0</pluralRule>
             <pluralRule count="one">n is 1</pluralRule>
             <pluralRule count="two">n is 2</pluralRule>
             <pluralRule count="few">n mod 100 in 3..10</pluralRule>
             <pluralRule count="many">n mod 100 in 11..99</pluralRule>
-        </pluralRules>
+            </pluralRules>
 
              */
         }
@@ -79,43 +79,43 @@ public class WritePluralRules {
             rule = "\n                " + rule;
             samples = samples.replace("\t@", "\n                @");
         }
-        String result = ("            <pluralRule count=\"" + keyword + "\">" 
-                + rule 
-                + samples.replace('\t', ' ') 
-                + (newLine ? "\n            " : "")
-                + "</pluralRule>");
+        String result = ("            <pluralRule count=\"" + keyword + "\">"
+            + rule
+            + samples.replace('\t', ' ')
+            + (newLine ? "\n            " : "")
+            + "</pluralRule>");
         return result;
     }
 
     public static String formatPluralRuleHeader(Set<String> values) {
         String locales = CollectionUtilities.join(values, " ");
         String result = ("        <pluralRules locales=\"" + locales + "\">"
-                //+ (comment != null ? comment : "")
-                );
+            //+ (comment != null ? comment : "")
+            );
         return result;
     }
 
     public static String formatPluralFooter() {
         return "    </plurals>\n" +
-                "</supplementalData>";
+            "</supplementalData>";
     }
 
     public static String formatPluralHeader(PluralType type, String filename) {
         return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n"
-                +"<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">\n"
-                +"<!--\n"
-                +"Copyright © 1991-2013 Unicode, Inc.\n"
-                +"CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n"
-                +"For terms of use, see http://www.unicode.org/copyright.html\n"
-                +"-->\n"
-                +"<supplementalData>\n"
-                +"    <version number=\"$Revision" +
-                "$\"/>\n"
-                +"    <generation date=\"$Date" +
-                "$\"/>\n"
-                +"    <plurals type=\"" + type + "\">\n"
-                +"        <!-- For a canonicalized list, use " + filename + " -->\n"
-                +"        <!-- if locale is known to have no plurals, there are no rules -->";
+            + "<!DOCTYPE supplementalData SYSTEM \"../../common/dtd/ldmlSupplemental.dtd\">\n"
+            + "<!--\n"
+            + "Copyright © 1991-2013 Unicode, Inc.\n"
+            + "CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)\n"
+            + "For terms of use, see http://www.unicode.org/copyright.html\n"
+            + "-->\n"
+            + "<supplementalData>\n"
+            + "    <version number=\"$Revision" +
+            "$\"/>\n"
+            + "    <generation date=\"$Date" +
+            "$\"/>\n"
+            + "    <plurals type=\"" + type + "\">\n"
+            + "        <!-- For a canonicalized list, use " + filename + " -->\n"
+            + "        <!-- if locale is known to have no plurals, there are no rules -->";
     }
 
     //    static Map<String,String> hackComments = new HashMap<String,String>();
@@ -130,6 +130,7 @@ public class WritePluralRules {
     static class HackComparator implements Comparator<Entry<PluralRules, Set<String>>> {
         // we get the order of the first items in each of the old rules, and use that order where we can.
         PluralRulesComparator prc = new PluralRulesComparator();
+
         @Override
         public int compare(Entry<PluralRules, Set<String>> o1, Entry<PluralRules, Set<String>> o2) {
             Integer firstLocale1 = HACK_ORDER_PLURALS.get(o1.getValue().iterator().next());
@@ -147,11 +148,12 @@ public class WritePluralRules {
         }
     }
 
-    static Map<String,Integer> HACK_ORDER_PLURALS = new HashMap<String,Integer>();
-    static Map<String,Integer> HACK_ORDER_ORDINALS = new HashMap<String,Integer>();
+    static Map<String, Integer> HACK_ORDER_PLURALS = new HashMap<String, Integer>();
+    static Map<String, Integer> HACK_ORDER_ORDINALS = new HashMap<String, Integer>();
     static {
         int i = 0;
-        for (String s : "ar he iw af asa ast az bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw ha haw hu jgo jmc ka kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn nah nb nd ne nn nnh no nr ny nyn om or os pap ps rm rof rwk saq seh sn so sq ss ssy st syr ta te teo tig tk tn tr ts uz ve vo vun wae xh xog ak bh guw ln mg nso pa ti wa ff fr hy kab lv iu kw naq se sma smi smj smn sms ga mo ro lt be cs sk pl sl mt mk cy lag shi br ksh tzm gv gd bm bo dz id in ig ii ja jbo jv jw kde kea km ko lkt lo ms my nqo sah ses sg th to vi wo yo zh fil tl ca de en et fi gl it nl sv sw ur yi ji pt da pt_PT am bn fa gu hi kn mr zu is si bs hr sh sr ru uk".split(" ")) {
+        for (String s : "ar he iw af asa ast az bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw ha haw hu jgo jmc ka kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn nah nb nd ne nn nnh no nr ny nyn om or os pap ps rm rof rwk saq seh sn so sq ss ssy st syr ta te teo tig tk tn tr ts uz ve vo vun wae xh xog ak bh guw ln mg nso pa ti wa ff fr hy kab lv iu kw naq se sma smi smj smn sms ga mo ro lt be cs sk pl sl mt mk cy lag shi br ksh tzm gv gd bm bo dz id in ig ii ja jbo jv jw kde kea km ko lkt lo ms my nqo sah ses sg th to vi wo yo zh fil tl ca de en et fi gl it nl sv sw ur yi ji pt da pt_PT am bn fa gu hi kn mr zu is si bs hr sh sr ru uk"
+            .split(" ")) {
             HACK_ORDER_PLURALS.put(s, i++);
         }
         i = 0;
@@ -177,8 +179,8 @@ public class WritePluralRules {
 
     static PluralRules forLocale(String locale) {
         PluralRules override = null; // PluralRulesFactory.getPluralOverrides().get(new ULocale(locale));
-        return override != null 
-                ? override
-                        : sInfo.getPlurals(locale).getPluralRules();
+        return override != null
+            ? override
+            : sInfo.getPlurals(locale).getPluralRules();
     }
 }

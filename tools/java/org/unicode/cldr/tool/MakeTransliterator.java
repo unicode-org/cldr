@@ -631,7 +631,7 @@ public class MakeTransliterator {
     };
 
     // static String dataDir = "C:\\cvsdata\\unicode\\ucd\\unicodetools\\dictionary\\Data\\";
-    // private static String getCoreTransliterator() throws IOException {
+// private static String getCoreTransliterator() throws IOException {
     //
     // String accentRules = createFromFile(dataDir + "accentRules.txt", null, null);
     //

@@ -85,53 +85,52 @@ public class VoteResolver<T> {
     public enum Organization {
         // Not used (but keep in to avoid breakage): sun
         // Please update Locales.txt for default coverage when adding an organization here.
-        
-        adobe ("Adobe"),
-        afghan_csa("Afghan CSA"), 
-        afghan_mcit("Afghan MCIT"), 
-        afrigen ("Afrigen"),
-        apple ("Apple"),
-        bangor_univ("Bangor Univ."), 
-        bhutan ("Bhutan DDC"),
-        breton ("Office of Breton Lang"),
-        cherokee ("Cherokee Nation"),
-        georgia_isi("Georgia ISI"),  
-        gnome ("Gnome Foundation"),
-        google ("Google"),
-        guest ("Guest (Unicode)"),
-        ibm ("IBM"),
-        india ("India MIT"),
-        iran_hci ("Iran HCI"),
-        kendra ("Kendra (Nepal)"),
-        kotoistus ("Kotoistus (Finnish IT Ctr)"),
-        lakota_lc("Lakota LC"),  
-        lao_dpt ("Lao Posts/Telecom??"),
-        openinstitute ("Open Inst (Cambodia)"),
-        openoffice_org ("Open Office"),
-        oracle ("Oracle"),
-        pakistan ("Pakistan"),
-        sil ("SIL"),
-        srilanka ("Sri Lanka ICTA", "Sri Lanka"),
-        sun ("Sun Micro"),
-        surveytool ("Survey Tool"),
-        utilika ("Utilika Foundation", "Utilika"),
+
+        adobe("Adobe"),
+        afghan_csa("Afghan CSA"),
+        afghan_mcit("Afghan MCIT"),
+        afrigen("Afrigen"),
+        apple("Apple"),
+        bangor_univ("Bangor Univ."),
+        bhutan("Bhutan DDC"),
+        breton("Office of Breton Lang"),
+        cherokee("Cherokee Nation"),
+        georgia_isi("Georgia ISI"),
+        gnome("Gnome Foundation"),
+        google("Google"),
+        guest("Guest (Unicode)"),
+        ibm("IBM"),
+        india("India MIT"),
+        iran_hci("Iran HCI"),
+        kendra("Kendra (Nepal)"),
+        kotoistus("Kotoistus (Finnish IT Ctr)"),
+        lakota_lc("Lakota LC"),
+        lao_dpt("Lao Posts/Telecom??"),
+        openinstitute("Open Inst (Cambodia)"),
+        openoffice_org("Open Office"),
+        oracle("Oracle"),
+        pakistan("Pakistan"),
+        sil("SIL"),
+        srilanka("Sri Lanka ICTA", "Sri Lanka"),
+        sun("Sun Micro"),
+        surveytool("Survey Tool"),
+        utilika("Utilika Foundation", "Utilika"),
         welsh_lc("Welsh LC"),
-        wikimedia ("Wikimedia Foundation"),
-        yahoo ("Yahoo"),
-        ;
+        wikimedia("Wikimedia Foundation"),
+        yahoo("Yahoo"), ;
 
         public final String displayName;
-        
+
         public static Organization fromString(String name) {
             name = name.toLowerCase().replace('-', '_').replace('.', '_');
             Organization org = OrganizationNameMap.get(name);
             return org;
         }
-        
+
         public String getDisplayName() {
             return displayName;
         }
-        
+
         private Organization(String displayName, String... names) {
             OrganizationNameMap.put(displayName.toLowerCase().replace('-', '_').replace('.', '_'), this);
             this.displayName = displayName;
@@ -141,7 +140,8 @@ public class VoteResolver<T> {
             OrganizationNameMap.put(name().toLowerCase().replace('-', '_').replace('.', '_'), this);
         }
     };
-    static final Map<String,Organization> OrganizationNameMap = new HashMap<String,Organization>();
+
+    static final Map<String, Organization> OrganizationNameMap = new HashMap<String, Organization>();
 
     /**
      * This is the level at which a vote counts. Each level also contains the

@@ -8,7 +8,6 @@
 
 package org.unicode.cldr.unittest.web;
 
-
 public class OldTestMain {
 
     // public static void main(String args[]) {

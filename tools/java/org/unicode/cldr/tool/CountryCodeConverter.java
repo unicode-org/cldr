@@ -78,7 +78,7 @@ public class CountryCodeConverter {
         }
         StandardCodes sc = StandardCodes.make();
         Set<String> goodAvailableCodes = sc.getGoodAvailableCodes("territory");
-        
+
         for (String country : goodAvailableCodes) {
             String description = (String) sc.getFullData("territory", country).get(0);
             if (country.equals("057")) continue;
@@ -103,13 +103,13 @@ public class CountryCodeConverter {
             String[] pieces = line.split(";");
             String country = pieces[0].trim();
             if (!goodAvailableCodes.contains(country)) {
-                
+
             }
             addName(pieces[2].trim(), country);
             return true;
         }
     }
-    
+
     static void addName(String key, String code) {
         addName2(key, code);
         String trial = reverseComma(key);
@@ -130,7 +130,7 @@ public class CountryCodeConverter {
         }
         nameToCountryCode.put(key, code);
     }
-    
+
     public static Set<String> getParseErrors() {
         return parseErrors;
     }

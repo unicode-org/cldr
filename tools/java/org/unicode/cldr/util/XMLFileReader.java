@@ -60,7 +60,7 @@ public class XMLFileReader {
 
         public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
         };
-        
+
         public void handleEndDtd() {
         };
     }
@@ -112,7 +112,8 @@ public class XMLFileReader {
             is.setSystemId(systemID);
             try {
                 xmlReader.parse(is);
-            } catch (AbortException e) {} // ok
+            } catch (AbortException e) {
+            } // ok
             reader.close();
             return this;
         } catch (SAXParseException e) {
@@ -300,7 +301,7 @@ public class XMLFileReader {
             throw exception;
         }
     }
-    
+
     static final class AbortException extends RuntimeException {
         private static final long serialVersionUID = 1L;
     }

@@ -153,9 +153,9 @@ public class Ldml2JsonConverter {
         };
 
         if (configFile != null) {
-           myReader.process(configFile);
+            myReader.process(configFile);
         } else {
-           myReader.process(Ldml2JsonConverter.class,"JSON_config.txt");
+            myReader.process(Ldml2JsonConverter.class, "JSON_config.txt");
         }
 
         // Add a section at the end of the list that will match anything not already matched.
@@ -211,7 +211,7 @@ public class Ldml2JsonConverter {
         throws IOException, ParseException {
 
         String locID = file.getLocaleID();
-       
+
         Matcher noNumberingSystemMatcher = LdmlConvertRules.NO_NUMBERING_SYSTEM_PATTERN.matcher("");
         Matcher numberingSystemMatcher = LdmlConvertRules.NUMBERING_SYSTEM_PATTERN.matcher("");
         Set<String> activeNumberingSystems = new TreeSet<String>();
@@ -228,7 +228,7 @@ public class Ldml2JsonConverter {
             String path = it.next();
             String fullPath = file.getFullXPath(path);
             String value = file.getWinningValue(path);
-            
+
             if (fullPath == null) {
                 fullPath = path;
             }
@@ -239,13 +239,13 @@ public class Ldml2JsonConverter {
             if (cv > coverageValue) {
                 continue;
             }
-            
+
             // automatically filter out number symbols and formats without a numbering system
             noNumberingSystemMatcher.reset(fullPath);
             if (noNumberingSystemMatcher.matches()) {
                 continue;
             }
-             
+
             // Filter out non-active numbering systems data unless fullNumbers is specified.
             numberingSystemMatcher.reset(fullPath);
             if (numberingSystemMatcher.matches() && !fullNumbers) {
@@ -258,10 +258,10 @@ public class Ldml2JsonConverter {
             }
 
             // Handle the no inheritance marker.
-            if ( resolve && CldrUtility.NO_INHERITANCE_MARKER.equals(value)) {
+            if (resolve && CldrUtility.NO_INHERITANCE_MARKER.equals(value)) {
                 continue;
             }
-            
+
             String transformedPath = transformPath(path, pathPrefix);
             String transformedFullPath = transformPath(fullPath, pathPrefix);
 
@@ -284,7 +284,7 @@ public class Ldml2JsonConverter {
         // Automatically copy the version info to any sections that had real data in them.
         JSONSection otherSection = sections.get(sections.size() - 1);
         List<CldrItem> others = sectionItems.get(otherSection);
-        if ( others == null ) {
+        if (others == null) {
             return;
         }
         List<CldrItem> otherSectionItems = new ArrayList<CldrItem>(others);
@@ -307,7 +307,7 @@ public class Ldml2JsonConverter {
                 }
                 addedItemCount++;
             }
-        } 
+        }
     }
 
     /**
@@ -324,7 +324,7 @@ public class Ldml2JsonConverter {
         throws IOException, ParseException {
         // zone and timezone items are queued for sorting first before they are
         // processed.
-        
+
         for (JSONSection js : sections) {
             ArrayList<CldrItem> sortingItems = new ArrayList<CldrItem>();
             ArrayList<CldrItem> arrayItems = new ArrayList<CldrItem>();
@@ -340,7 +340,7 @@ public class Ldml2JsonConverter {
                 continue;
             }
             for (CldrItem item : theItems) {
-                
+
                 // items in the identity section of a file should only ever contain the lowest level, even if using
                 // resolving source, so if we have duplicates ( caused by attributes used as a value ) then suppress
                 // them here.
@@ -401,7 +401,7 @@ public class Ldml2JsonConverter {
             String outFilename;
             outFilename = js.section + ".json";
             boolean writeOther = Boolean.parseBoolean(options.get("other").getValue());
-            if (js.section.equals("other") && !writeOther ) {
+            if (js.section.equals("other") && !writeOther) {
                 continue;
             } else {
                 writeToFile(outDirname, outFilename, out);
@@ -674,8 +674,8 @@ public class Ldml2JsonConverter {
 
         // first level needs no key, it is the container.
         if (level == 0) {
-           out.add("{");
-           return;
+            out.add("{");
+            return;
         }
 
         Map<String, String> attrAsValueMap = node.getAttrAsValueMap();
@@ -829,7 +829,7 @@ public class Ldml2JsonConverter {
      */
     public void processDirectory(String dirName, DraftStatus minimalDraftStatus)
         throws IOException, ParseException {
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(cldrCommonDir+"supplemental");
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(cldrCommonDir + "supplemental");
         Factory cldrFactory = Factory.make(
             cldrCommonDir + dirName + "/", ".*");
         Set<String> files = cldrFactory.getAvailable();
@@ -932,7 +932,7 @@ public class Ldml2JsonConverter {
             return;
         }
         value = escapeValue(value);
-        
+
         if (attrAsValueMap.isEmpty()) {
             if (value.isEmpty()) {
                 out.add(indent(level) + "\"" + objName + "\": {}");
@@ -960,11 +960,11 @@ public class Ldml2JsonConverter {
         for (String key : attrAsValueMap.keySet()) {
             String attrValue = escapeValue(attrAsValueMap.get(key));
             // attribute is prefixed with "_" when being used as key.
-            if ( LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
-                String [] strings = attrValue.trim().split("\\s+");
+            if (LdmlConvertRules.ATTRVALUE_AS_ARRAY_SET.contains(key)) {
+                String[] strings = attrValue.trim().split("\\s+");
                 out.add(indent(level + 1) + "\"_" + key + "\": [");
-                for ( String s : strings ) {
-                    out.add(indent(level + 2)+"\"" + s + "\"");
+                for (String s : strings) {
+                    out.add(indent(level + 2) + "\"" + s + "\"");
                 }
                 out.add(indent(level + 1) + "]");
             } else {

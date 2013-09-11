@@ -32,13 +32,13 @@ public class CollationMapper extends Mapper {
 
     // Some settings have to be converted to numbers.
     private Map<String, String> settingsMap = Builder.with(new HashMap<String, String>())
-            .put("primary", "1")
-            .put("secondary", "2")
-            .put("tertiary", "3")
-            .put("quarternary", "4")
-            .put("identical", "5")
-            .put("on", "2")
-            .get();
+        .put("primary", "1")
+        .put("secondary", "2")
+        .put("tertiary", "3")
+        .put("quarternary", "4")
+        .put("identical", "5")
+        .put("on", "2")
+        .get();
 
     /**
      * @param sourceDir the source dir of the collation files
@@ -77,8 +77,8 @@ public class CollationMapper extends Mapper {
                 Matcher matcher = SPECIALS_PATH.matcher(fullPath);
                 if (matcher.matches()) {
                     mainLocale.add(
-                            MessageFormat.format("/{0}:process({1})", matcher.group(1), matcher.group(2)),
-                            matcher.group(3));
+                        MessageFormat.format("/{0}:process({1})", matcher.group(1), matcher.group(2)),
+                        matcher.group(3));
                 }
             }
         }
@@ -127,7 +127,7 @@ public class CollationMapper extends Mapper {
         public void startElement(String uri, String localName, String qName, Attributes attr) throws SAXException {
             if (qName.equals("collation")) {
                 DraftStatus status = DraftStatus.forString(attr.getValue("draft"));
-                collationType = status.compareTo(DraftStatus.contributed) < 0  ? null : attr.getValue("type");
+                collationType = status.compareTo(DraftStatus.contributed) < 0 ? null : attr.getValue("type");
                 isShort = attr.getValue("alt") != null;
                 properties.clear();
                 rules.clear();
@@ -143,7 +143,7 @@ public class CollationMapper extends Mapper {
 
             // Collation-specific elements.
             if (qName.equals("settings")) {
-                for (int i = 0 ; i < attr.getLength(); i++) {
+                for (int i = 0; i < attr.getLength(); i++) {
                     String name = attr.getLocalName(i);
                     String value = attr.getValue(i);
                     if (name.equals("strength") || name.equals("backwards")) {
@@ -157,7 +157,7 @@ public class CollationMapper extends Mapper {
                 String value = attr.getValue("source");
                 String type = attr.getValue("type");
                 if (type != null) {
-                    value +=  "-u-co-" + type;
+                    value += "-u-co-" + type;
                 }
                 properties.add("import " + value);
             }
@@ -199,7 +199,7 @@ public class CollationMapper extends Mapper {
 
                 String[] rulesArray;
                 if (rules.size() == 0) {
-                    rulesArray = new String[]{""};
+                    rulesArray = new String[] { "" };
                 } else {
                     rulesArray = new String[rules.size()];
                     rules.toArray(rulesArray);
@@ -209,7 +209,7 @@ public class CollationMapper extends Mapper {
                 // Always prefer the short version.
                 if (isShort || !icuData.containsKey(rbPath)) {
                     icuData.replace(rbPath, rulesArray);
-                    icuData.replace("/collations/" + collationType + "/Version", new String[]{CLDRFile.GEN_VERSION});
+                    icuData.replace("/collations/" + collationType + "/Version", new String[] { CLDRFile.GEN_VERSION });
                 }
             }
             currentText.setLength(0);
@@ -247,8 +247,8 @@ public class CollationMapper extends Mapper {
             }
         }
         makefile.addEntry("COLLATION_EMPTY_SOURCE",
-                "Empty locales, used for validSubLocale fallback.",
-                subLocales);
+            "Empty locales, used for validSubLocale fallback.",
+            subLocales);
         makefile.addSource(locales);
         return makefile;
     }

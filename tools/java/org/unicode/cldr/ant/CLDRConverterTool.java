@@ -165,7 +165,6 @@ public abstract class CLDRConverterTool {
         return main;
     }
 
-
     /**
      * Computes the convertible xpaths by walking through the xpathList given and applying the rules
      * in children of <path> elements.
@@ -244,7 +243,7 @@ public abstract class CLDRConverterTool {
                     Level cv = Level.get(level.level);
                     // only include the xpaths that have the coverage level at least the coverage
                     // level specified by the locale
-                    if (sdi.getCoverageLevel(xpath,localeName).compareTo(cv) <= 0) {
+                    if (sdi.getCoverageLevel(xpath, localeName).compareTo(cv) <= 0) {
                         String draftVal = attr.get(LDMLConstants.DRAFT);
                         if (level.draft != null) {
                             if (draftVal == null

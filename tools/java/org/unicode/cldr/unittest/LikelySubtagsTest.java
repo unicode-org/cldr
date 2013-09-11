@@ -64,6 +64,7 @@ public class LikelySubtagsTest extends TestFmwk {
         }
 
     }
+
     public void TestForMissingScriptMetadata() {
         TreeSet<String> metadataScripts = new TreeSet<String>(ScriptMetadata.getScripts());
         UnicodeSet current = new UnicodeSet(0, 0x10FFFF);
@@ -125,9 +126,11 @@ public class LikelySubtagsTest extends TestFmwk {
                     }
                 } else { // container
                     if (logKnownIssue("ICU:9447", "Fix after warnings don't cause failure")) {
-                        logln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t" + english.getName("territory", region));
+                        logln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t"
+                            + english.getName("territory", region));
                     } else {
-                        warnln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t" + english.getName("territory", region));
+                        warnln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t"
+                            + english.getName("territory", region));
                     }
                 }
             } else {
@@ -146,7 +149,7 @@ public class LikelySubtagsTest extends TestFmwk {
         Set<String> exceptions2 = new HashSet<String>(Arrays.asList("zh_Hans_CN"));
         for (String script : sorted) {
             if (exceptions.contains(script)
-                    || script.equals("Latn") || script.equals("Dsrt")) {
+                || script.equals("Latn") || script.equals("Dsrt")) {
                 // we minimize away und_X, when the code puts in en...US
                 continue;
             }
@@ -159,10 +162,10 @@ public class LikelySubtagsTest extends TestFmwk {
             String likelyExpansion = likely.get(undScript);
             if (likelyExpansion == null) {
                 errln("Missing likely language for script (und_" + script + ")  should be something like:\t "
-                        + showOverride(script, originCountry, langScript));
+                    + showOverride(script, originCountry, langScript));
             } else if (!exceptions2.contains(likelyExpansion) && !likelyExpansion.startsWith(langScript)) {
                 errln("Wrong likely language for script (und_" + script + "). Should not be " + likelyExpansion
-                        + ", but something like:\t " + showOverride(script, originCountry, langScript));
+                    + ", but something like:\t " + showOverride(script, originCountry, langScript));
             } else {
                 logln("OK: " + undScript + " => " + likelyExpansion);
             }

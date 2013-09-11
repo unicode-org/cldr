@@ -34,6 +34,7 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestCheckCLDR extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();
+
     public static void main(String[] args) {
         new TestCheckCLDR().run(args);
     }
@@ -290,7 +291,7 @@ public class TestCheckCLDR extends TestFmwk {
         c.check(xpath, xpath, "Afghan Afghani (1927-2002)", options, possibleErrors);
         assertEquals("Currencies are allowed to have dates", 0, possibleErrors.size());
     }
-    
+
     public void TestCheckNew() {
         String path = "//ldml/localeDisplayNames/territories/territory[@type=\"AX\"]";
         CheckCLDR c = new CheckNew(testInfo.getCldrFactory());
@@ -303,8 +304,9 @@ public class TestCheckCLDR extends TestFmwk {
             if (status.getSubtype() != Subtype.modifiedEnglishValue) {
                 continue;
             }
-            assertEquals(null, "The English value for this field changed from “Aland Islands” to “Åland Islands’, but the corresponding value for your locale didn't change.",
-                    status.getMessage());
+            assertEquals(null,
+                "The English value for this field changed from “Aland Islands” to “Åland Islands’, but the corresponding value for your locale didn't change.",
+                status.getMessage());
             return;
         }
         errln("No failure message.");

@@ -191,6 +191,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         final private boolean pathsEqual;
         static final Pattern aliasPattern = Pattern
             .compile("(?:\\[@source=\"([^\"]*)\"])?(?:\\[@path=\"([^\"]*)\"])?(?:\\[@draft=\"([^\"]*)\"])?"); // constant,
+
         // so no
         // need to
         // sync
@@ -330,8 +331,8 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
 
         public String toString() {
             return
-                // "oldLocaleID: " + oldLocaleID + ", " +
-                "newLocaleID: " + newLocaleID + ",\t"
+            // "oldLocaleID: " + oldLocaleID + ", " +
+            "newLocaleID: " + newLocaleID + ",\t"
                 +
                 "oldPath: " + oldPath + ",\n\t"
                 +
@@ -903,6 +904,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
         }
 
         static final Pattern COUNT_EQUALS = Pattern.compile("\\[@count=\"[^\"]*\"]");
+
         private AliasLocation getPathLocation(String xpath, boolean skipFirst) {
             for (XMLSource source : sources.values()) {
                 // allow the first source to be skipped, for george bailey value
@@ -1310,7 +1312,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             // }
 
             String[] extraCodes = { "ar_001", "de_AT", "de_CH", "en_AU", "en_CA", "en_GB", "en_US", "es_419", "es_ES", "es_MX",
-                                    "fr_CA", "fr_CH", "nl_BE", "pt_BR", "pt_PT", "zh_Hans", "zh_Hant" };
+                "fr_CA", "fr_CH", "nl_BE", "pt_BR", "pt_PT", "zh_Hans", "zh_Hant" };
             for (String extraCode : extraCodes) {
                 addFallbackCode(CLDRFile.LANGUAGE_NAME, extraCode, extraCode);
             }
@@ -1346,30 +1348,30 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/keys/key" +
                         "[@type=\"" + keyDisplayNames[i] + "\"]",
-                        keyDisplayNames[i]);
+                    keyDisplayNames[i]);
             }
             for (int i = 0; i < typeDisplayNames.length; ++i) {
                 constructedItems.putValueAtPath(
                     "//ldml/localeDisplayNames/types/type"
                         + "[@type=\"" + typeDisplayNames[i][0] + "\"]"
                         + "[@key=\"" + typeDisplayNames[i][1] + "\"]",
-                        typeDisplayNames[i][0]);
+                    typeDisplayNames[i][0]);
             }
-//            String[][] relativeValues = {
-//                // {"Three days ago", "-3"},
-//                { "The day before yesterday", "-2" },
-//                { "Yesterday", "-1" },
-//                { "Today", "0" },
-//                { "Tomorrow", "1" },
-//                { "The day after tomorrow", "2" },
-//                // {"Three days from now", "3"},
-//            };
-//            for (int i = 0; i < relativeValues.length; ++i) {
-//                constructedItems.putValueAtPath(
-//                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\""
-//                        + relativeValues[i][1] + "\"]",
-//                        relativeValues[i][0]);
-//            }
+            //            String[][] relativeValues = {
+            //                // {"Three days ago", "-3"},
+            //                { "The day before yesterday", "-2" },
+            //                { "Yesterday", "-1" },
+            //                { "Today", "0" },
+            //                { "Tomorrow", "1" },
+            //                { "The day after tomorrow", "2" },
+            //                // {"Three days from now", "3"},
+            //            };
+            //            for (int i = 0; i < relativeValues.length; ++i) {
+            //                constructedItems.putValueAtPath(
+            //                    "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/fields/field[@type=\"day\"]/relative[@type=\""
+            //                        + relativeValues[i][1] + "\"]",
+            //                        relativeValues[i][0]);
+            //            }
 
             constructedItems.freeze();
             allowDuplicates = Collections.unmodifiableMap(allowDuplicates);
@@ -1442,7 +1444,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 oldAliases = newAliases;
                 aliases.addAll(newAliases);
             } while (newAliases.size() > 0);
-            
+
             // get the aliases, but only the ones that have values that match
             String norm = null;
             for (String alias : aliases) {

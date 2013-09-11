@@ -9,7 +9,7 @@ public class TestCasingInfo extends TestFmwk {
         new TestCasingInfo().run(args);
     }
 
-    public void TestGetLocaleCasing(){
+    public void TestGetLocaleCasing() {
         CasingInfo casingInfo = new CasingInfo();
         assertNull("Casing info shouldn't exist for imaginary locale",
             casingInfo.getLocaleCasing("xyz"));

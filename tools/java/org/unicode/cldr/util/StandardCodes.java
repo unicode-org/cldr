@@ -72,13 +72,13 @@ public class StandardCodes {
     private static StandardCodes singleton;
 
     private EnumMap<CodeType, Map<String, List<String>>> type_code_data = new EnumMap<CodeType, Map<String, List<String>>>(
-            CodeType.class);
+        CodeType.class);
 
     private EnumMap<CodeType, Map<String, List<String>>> type_name_codes = new EnumMap<CodeType, Map<String, List<String>>>(
-            CodeType.class);
+        CodeType.class);
 
     private EnumMap<CodeType, Map<String, String>> type_code_preferred = new EnumMap<CodeType, Map<String, String>>(
-            CodeType.class);
+        CodeType.class);
 
     private Map<String, Set<String>> country_modernCurrency = new TreeMap<String, Set<String>>();
 
@@ -292,7 +292,7 @@ public class StandardCodes {
                                 System.out.println(code + "\t" + data);
                         }
                         if ("PRIVATE USE".equalsIgnoreCase(data.get(0))
-                                || (!data.get(2).equals("") && !data.get(2).equals("--"))) {
+                            || (!data.get(2).equals("") && !data.get(2).equals("--"))) {
                             // System.out.println("Removing: " + code);
                             it.remove();
                         }
@@ -376,9 +376,11 @@ public class StandardCodes {
     public Level getLocaleCoverageLevel(String organization, String desiredLocale) {
         return getLocaleCoverageLevel(organization, desiredLocale, new Output<LocaleCoverageType>());
     }
-    
-    public enum LocaleCoverageType {explicit, parent, star, undetermined}
-    
+
+    public enum LocaleCoverageType {
+        explicit, parent, star, undetermined
+    }
+
     /**
      * Returns coverage level of locale according to organization. Returns Level.UNDETERMINED if information is missing.
      * A locale of "*" in the data means "everything else".
@@ -402,7 +404,7 @@ public class StandardCodes {
         while (desiredLocale != null) {
             Level status = locale_status.get(desiredLocale);
             if (status != null && status != Level.UNDETERMINED) {
-                coverageType.value = originalLocale == desiredLocale ? LocaleCoverageType.explicit : LocaleCoverageType.parent; 
+                coverageType.value = originalLocale == desiredLocale ? LocaleCoverageType.explicit : LocaleCoverageType.parent;
                 return status;
             }
             desiredLocale = LocaleIDParser.getParent(desiredLocale);
@@ -620,7 +622,7 @@ public class StandardCodes {
                     if (line.length() == 0)
                         continue;
                     List<String> pieces = CldrUtility.splitList(line, '|', true,
-                            new ArrayList<String>());
+                        new ArrayList<String>());
                     CodeType type = CodeType.from(pieces.get(0));
                     pieces.remove(0);
 
@@ -692,10 +694,10 @@ public class StandardCodes {
                 lstreg.close();
             } catch (Exception e) {
                 System.err.println("WARNING: " + files[fileIndex]
-                        + " may be a corrupted UTF-8 file. Please check.");
+                    + " may be a corrupted UTF-8 file. Please check.");
                 throw (IllegalArgumentException) new IllegalArgumentException(
-                        "Can't read " + files[fileIndex] + "\t" + originalLine)
-                .initCause(e);
+                    "Can't read " + files[fileIndex] + "\t" + originalLine)
+                    .initCause(e);
             }
             country_modernCurrency = CldrUtility.protectCollection(country_modernCurrency);
         }
@@ -824,9 +826,9 @@ public class StandardCodes {
     }
 
     private List DELETED3166 = Collections.unmodifiableList(Arrays
-            .asList(new String[] { "BQ", "BU", "CT", "DD", "DY", "FQ", "FX", "HV",
-                    "JT", "MI", "NH", "NQ", "NT", "PC", "PU", "PZ", "RH", "SU", "TP",
-                    "VD", "WK", "YD", "YU", "ZR" }));
+        .asList(new String[] { "BQ", "BU", "CT", "DD", "DY", "FQ", "FX", "HV",
+            "JT", "MI", "NH", "NQ", "NT", "PC", "PU", "PZ", "RH", "SU", "TP",
+            "VD", "WK", "YD", "YU", "ZR" }));
 
     public List getOld3166() {
         return DELETED3166;
@@ -885,7 +887,7 @@ public class StandardCodes {
             return result;
         } catch (Exception e) {
             throw (RuntimeException) new IllegalArgumentException(
-                    "Can't process file: data/" + filename).initCause(e);
+                "Can't process file: data/" + filename).initCause(e);
         }
     }
 
@@ -901,7 +903,7 @@ public class StandardCodes {
         // { "region", "172", "Description", "Commonwealth of Independent States", "CLDR", "True" },
         // { "region", "062", "Description", "South-Central Asia", "CLDR", "True" },
         // { "region", "003", "Description", "North America", "CLDR", "True" },
-//        { "variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True", "Preferred-Value", "POLYTON" },
+        //        { "variant", "POLYTONI", "Description", "Polytonic Greek", "CLDR", "True", "Preferred-Value", "POLYTON" },
         { "variant", "REVISED", "Description", "Revised Orthography", "CLDR", "True" },
         { "variant", "SAAHO", "Description", "Dialect", "CLDR", "True" },
         { "variant", "POSIX", "Description", "Computer-Style", "CLDR", "True" },
@@ -949,11 +951,12 @@ public class StandardCodes {
 
     static final String registryName = CldrUtility.getProperty("registry", "language-subtag-registry");
 
-
     public enum LstrType {
-        language, script, region, extlang, variant, grandfathered, redundant}
+        language, script, region, extlang, variant, grandfathered, redundant
+    }
+
     public enum LstrField {
-        Type, Subtag, Description, Added, Scope, Tag, Suppress_Script, 
+        Type, Subtag, Description, Added, Scope, Tag, Suppress_Script,
         Macrolanguage, Deprecated, Preferred_Value, Comments, Prefix, CLDR;
         public static LstrField from(String s) {
             return LstrField.valueOf(s.trim().replace("-", "_"));
@@ -1056,7 +1059,7 @@ public class StandardCodes {
                         result2.put(LstrType.valueOf(rest), subtagData = new TreeMap<String, Map<LstrField, String>>());
                     }
                 } else if (label == LstrField.Subtag
-                        || label == LstrField.Tag) {
+                    || label == LstrField.Tag) {
                     lastTag = rest;
                     String endTag = null;
                     // Subtag: qaa..qtz
@@ -1095,8 +1098,8 @@ public class StandardCodes {
             }
         } catch (Exception e) {
             throw (RuntimeException) new IllegalArgumentException(
-                    "Can't process file: data/"
-                            + registryName + ";\t at line " + lineNumber).initCause(e);
+                "Can't process file: data/"
+                    + registryName + ";\t at line " + lineNumber).initCause(e);
         } finally {
             if (!funnyTags.isEmpty()) {
                 if (DEBUG)
@@ -1117,12 +1120,12 @@ public class StandardCodes {
             if (old != null) {
                 if (!"Private use".equals(CldrUtility.get(old, LstrField.Description))) {
                     throw new IllegalArgumentException("REPLACING data for " + extras[i][1] + "\t" + old + "\twith"
-                            + labelData);
+                        + labelData);
                 }
             }
             if (false) {
                 System.out.println((old != null ? "REPLACING" + "\t" + old : "ADDING") +
-                        " data for " + extras[i][1] + "\twith" + labelData);
+                    " data for " + extras[i][1] + "\twith" + labelData);
             }
             subtagData.put(extras[i][1], labelData);
         }
@@ -1143,7 +1146,7 @@ public class StandardCodes {
         LSTREG_ENUM = CldrUtility.protectCollection(result2);
     }
 
-    private static <K,K2,V> Map<K2,V> putSubtagData(K lastTag, Map<K,Map<K2,V>> subtagData, Map<K2,V> currentData) {
+    private static <K, K2, V> Map<K2, V> putSubtagData(K lastTag, Map<K, Map<K2, V>> subtagData, Map<K2, V> currentData) {
         Map<K2, V> oldData = subtagData.get(lastTag);
         if (oldData != null) {
             if (oldData.get("CLDR") != null) {
@@ -1279,8 +1282,8 @@ public class StandardCodes {
 
     public static boolean isScriptModern(String script) {
         ScriptMetadata.Info info = ScriptMetadata.getInfo(script);
-        if(info == null) {
-            if(false) throw new IllegalArgumentException("No script metadata for: " + script);
+        if (info == null) {
+            if (false) throw new IllegalArgumentException("No script metadata for: " + script);
             return false;
         }
         IdUsage idUsage = info.idUsage;

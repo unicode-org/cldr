@@ -320,7 +320,7 @@ class LdmlConvertRules {
         "//ldml/numbers/otherNumberingSystems/traditional",
         "//ldml/numbers/otherNumberingSystems/finance"
     };
-    
+
     /**
      * A simple class to hold the specification of a path transformation.
      */
@@ -362,22 +362,21 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*/ellipsis)\\[@type=\"([^\"]*)\"\\](.*)$",
             "$1/$2$3"),
 
-
         // Remove unnecessary dateFormat/pattern
         new PathTransformSpec(
-            "(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)Length\\[@type=\"([^\"]*)\"\\]/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)", 
+            "(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)Length\\[@type=\"([^\"]*)\"\\]/(date|time|dateTime)Format\\[@type=\"([^\"]*)\"\\]/pattern\\[@type=\"([^\"]*)\"\\](.*)",
             "$1/$2/$5Formats/$4$8"),
 
         // Separate calendar type
-            new PathTransformSpec("(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)$",
-                    "$1/$2$3"),
+        new PathTransformSpec("(.*/calendars)/calendar\\[@type=\"([^\"]*)\"\\](.*)$",
+            "$1/$2$3"),
 
         // Separate "metazone" from its type as another layer.
         new PathTransformSpec("(.*/metazone)\\[@type=\"([^\"]*)\"\\]/(.*)$", "$1/$2/$3"),
 
         // Split out types into its various fields
         new PathTransformSpec("(.*)/types/type\\[@type=\"([^\"]*)\"\\]\\[@key=\"([^\"]*)\"\\](.*)$",
-                    "$1/types/$3/$2$4"),
+            "$1/types/$3/$2$4"),
 
         // Add "type" attribute with value "standard" if there is no "type" in
         // "decimalFormatLength".
@@ -389,7 +388,6 @@ class LdmlConvertRules {
             "$1/$2$3"),
 
         new PathTransformSpec("(.*/alias)(.*)", "$1/alias$2"),
-
 
         new PathTransformSpec("(.*currencyData/region)(.*)", "$1/region$2"),
 

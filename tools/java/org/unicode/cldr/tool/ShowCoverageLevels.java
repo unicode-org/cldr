@@ -20,7 +20,6 @@ public class ShowCoverageLevels {
             throw new IllegalArgumentException("See ShowLocaleCoverage (TODO: merge these).");
         }
 
-
         double startTime = System.currentTimeMillis();
         Relation<Level, String> values = new Relation(new EnumMap<Level, String>(Level.class), TreeSet.class);
         int oldSize = 0;
@@ -33,7 +32,7 @@ public class ShowCoverageLevels {
                     continue;
                 }
                 try {
-                    Level level = testInfo.getSupplementalDataInfo().getCoverageLevel(fullPath,locale);
+                    Level level = testInfo.getSupplementalDataInfo().getCoverageLevel(fullPath, locale);
                     values.put(level, path);
                 } catch (Exception e) {
                     String value = cldrFileToCheck.getStringValue(path);

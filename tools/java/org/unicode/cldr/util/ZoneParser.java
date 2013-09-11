@@ -63,8 +63,8 @@ public class ZoneParser {
     }
 
     /**
-   * 
-   */
+    * 
+    */
     private void make_zone_to_country() {
         zone_to_country = new TreeMap<String, String>(TZIDComparator);
         country_to_zoneSet = new TreeMap<String, Set<String>>();
@@ -663,8 +663,8 @@ public class ZoneParser {
     }
 
     /**
-   * 
-   */
+    * 
+    */
     private void makeZoneData() {
         try {
             // get version

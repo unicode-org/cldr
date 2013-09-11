@@ -26,9 +26,9 @@ public interface BallotBox<T> {
          */
         private static final long serialVersionUID = 1310604068301637651L;
         public String xpath;
-        
+
         public InvalidXPathException(String xpath) {
-            super("Invalid XPath: " + xpath );
+            super("Invalid XPath: " + xpath);
             this.xpath = xpath;
         }
     }

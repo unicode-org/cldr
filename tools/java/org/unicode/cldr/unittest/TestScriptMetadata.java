@@ -94,7 +94,7 @@ public class TestScriptMetadata extends TestFmwk {
         for (Entry<IdUsage, String> entry : map.keyValueSet()) {
             logln(entry.getValue());
         }
-        if(!missingScripts.isEmpty() && !logKnownIssue("6647", "missing script metadata")) {
+        if (!missingScripts.isEmpty() && !logKnownIssue("6647", "missing script metadata")) {
             errln("Also missing: " + missingScripts.toString());
         }
     }
@@ -125,12 +125,12 @@ public class TestScriptMetadata extends TestFmwk {
         CLDRFile english = cldrFactory.make("en", true);
         Set<String> bads = new TreeSet<String>();
 
-        for(String s : getScriptsToShow(sc, english)) {
-            if(ScriptMetadata.getInfo(s) == null) {
+        for (String s : getScriptsToShow(sc, english)) {
+            if (ScriptMetadata.getInfo(s) == null) {
                 bads.add(s);
             }
         }
-        if(!bads.isEmpty() && !logKnownIssue("6647", "missing script metadata")) {
+        if (!bads.isEmpty() && !logKnownIssue("6647", "missing script metadata")) {
             errln("No metadata for scripts: " + bads.toString());
         }
     }

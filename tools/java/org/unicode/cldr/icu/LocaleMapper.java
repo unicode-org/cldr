@@ -285,7 +285,7 @@ public class LocaleMapper extends Mapper {
 
         // More hacks
         hackAddExtras(resolvedCldr, locale, icuData);
-        return new IcuData[]{ icuData };
+        return new IcuData[] { icuData };
     }
 
     private void fillIcuData(Map<String, CldrArray> pathValueMap,

@@ -357,7 +357,6 @@ public class POSIXUtilities {
         return ((a < b && b < c) || (c < b && b < a));
     }
 
-
     public static String POSIXYesNoExpr(String s)
     {
         StringBuffer result = new StringBuffer();

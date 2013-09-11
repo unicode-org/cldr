@@ -60,8 +60,8 @@ public class TestCLDRTests extends TestFmwk {
     }
 
     /**
-	 * 
-	 */
+     * 
+     */
     private void closeLog() {
         log.close();
     }

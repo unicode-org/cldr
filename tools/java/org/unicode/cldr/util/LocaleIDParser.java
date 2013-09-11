@@ -172,7 +172,7 @@ public class LocaleIDParser {
             // if the final item is a script, and it is not the default content, then go directly to root
             int pos2 = getScriptPosition(localeName);
             if (pos2 > 0) {
-                String script = localeName.substring(pos+1);
+                String script = localeName.substring(pos + 1);
                 String defaultScript = sdi.getDefaultScript(truncated);
                 if (!script.equals(defaultScript)) {
                     return "root";
@@ -183,7 +183,7 @@ public class LocaleIDParser {
         if (localeName.equals("root") || localeName.equals(CLDRFile.SUPPLEMENTAL_NAME)) return null;
         return "root";
     }
-    
+
     /**
      * If the locale consists of baseLanguage+script, return the position of the separator, otherwise -1.
      * @param s
@@ -191,7 +191,7 @@ public class LocaleIDParser {
     public static int getScriptPosition(String locale) {
         int pos = locale.indexOf('_');
         if (pos >= 0 && pos + 5 == locale.length()) {
-            int pos2 = locale.indexOf('_', pos+1);
+            int pos2 = locale.indexOf('_', pos + 1);
             if (pos2 < 0) {
                 return pos;
             }

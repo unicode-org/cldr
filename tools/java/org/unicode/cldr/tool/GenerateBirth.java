@@ -70,10 +70,10 @@ public class GenerateBirth {
         for (Versions version : VERSIONS) {
             // /Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive
             Factory aFactory = Factory.make(
-                (version == Versions.trunk 
-                ? CldrUtility.BASE_DIRECTORY  
-                        : CldrUtility.ARCHIVE_DIRECTORY + "cldr-" + version + "/") + "common/main/", 
-                        filePattern
+                (version == Versions.trunk
+                    ? CldrUtility.BASE_DIRECTORY
+                    : CldrUtility.ARCHIVE_DIRECTORY + "cldr-" + version + "/") + "common/main/",
+                filePattern
                 );
             list.add(aFactory);
         }

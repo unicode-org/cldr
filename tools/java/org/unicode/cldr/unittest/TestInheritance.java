@@ -71,15 +71,13 @@ public class TestInheritance extends TestFmwk {
 
         LanguageTagParser ltp = new LanguageTagParser();
 
-        Relation<String,String> languageLocalesSeen = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
-
+        Relation<String, String> languageLocalesSeen = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
         Set<String> testOrg = testInfo.getStandardCodes().getLocaleCoverageLocales("google");
-        ChainedMap.M4<String,OfficialStatus,String,Boolean> languageToOfficialChildren 
-        = ChainedMap.of(new TreeMap<String,Object>(), 
-                new TreeMap<OfficialStatus, Object>(), 
-                new TreeMap<String, Object>(), 
-                Boolean.class);
+        ChainedMap.M4<String, OfficialStatus, String, Boolean> languageToOfficialChildren = ChainedMap.of(new TreeMap<String, Object>(),
+            new TreeMap<OfficialStatus, Object>(),
+            new TreeMap<String, Object>(),
+            Boolean.class);
 
         // gather the data
 
@@ -94,7 +92,7 @@ public class TestInheritance extends TestFmwk {
                     String locale = removeScript(language + "_" + territory);
                     String lang = removeScript(ltp.set(locale).getLanguage());
                     languageToOfficialChildren.put(lang, status, locale, Boolean.TRUE);
-                    languageLocalesSeen.put(lang,locale);
+                    languageLocalesSeen.put(lang, locale);
                 }
             }
         }
@@ -102,7 +100,7 @@ public class TestInheritance extends TestFmwk {
         // flesh it out by adding 'clean' codes.
         // also get the child locales in cldr.
 
-        Relation<String,String> languageToChildren = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+        Relation<String, String> languageToChildren = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
             String lang = ltp.set(locale).getLanguage();
             if (SKIP_TERRITORIES.contains(ltp.getRegion())) {
@@ -124,7 +122,7 @@ public class TestInheritance extends TestFmwk {
             String language = languageAndChildren.getKey();
             Set<String> children = languageAndChildren.getValue();
             M3<OfficialStatus, String, Boolean> officalStatusToChildren = languageToOfficialChildren.get(language);
-            for (Entry<OfficialStatus, Map<String, Boolean>> entry : officalStatusToChildren){
+            for (Entry<OfficialStatus, Map<String, Boolean>> entry : officalStatusToChildren) {
                 OfficialStatus status = entry.getKey();
                 if (status != OfficialStatus.official && status != OfficialStatus.de_facto_official) {
                     continue;
@@ -189,7 +187,7 @@ public class TestInheritance extends TestFmwk {
                 b.append(testInfo.getEnglish().getName(CLDRFile.TERRITORY_NAME, region));
             }
             b.append(" [")
-            .append(s);
+                .append(s);
             if (showStatus) {
                 PopulationData data = dataInfo.getLanguageAndTerritoryPopulationData(ltp.getLanguage(), region);
                 if (data == null) {
@@ -221,7 +219,7 @@ public class TestInheritance extends TestFmwk {
         Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         Factory factory2 = Factory.make(CldrUtility.BASE_DIRECTORY + "seed/", ".*");
         Set<String> available = Builder.with(new TreeSet<String>()).addAll(factory.getAvailable())
-                .addAll(factory2.getAvailable()).freeze();
+            .addAll(factory2.getAvailable()).freeze();
         LanguageTagParser ltp = new LanguageTagParser();
         // find multiscript locales
         Relation<String, String> base2scripts = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
@@ -264,7 +262,7 @@ public class TestInheritance extends TestFmwk {
         Map<String, String> exceptionDcLikely = new HashMap<String, String>();
         Map<String, String> exceptionLikelyDc = new HashMap<String, String>();
         for (String[] s : new String[][] {
-                { "ar_001", "ar_Arab_EG" },
+            { "ar_001", "ar_Arab_EG" },
         }) {
             exceptionDcLikely.put(s[0], s[1]);
             exceptionLikelyDc.put(s[1], s[0]);
@@ -273,15 +271,15 @@ public class TestInheritance extends TestFmwk {
         verifyDefaultContentsImplicationsForLikelySubtags(ltp, parent2default, likely2Maximized, exceptionDcLikely);
 
         verifyLikelySubtagsImplicationsForDefaultContents(ltp, base2scripts, parent2default, likely2Maximized,
-                exceptionLikelyDc);
+            exceptionLikelyDc);
 
         verifyScriptsWithDefaultContents(ltp, base2scripts, parent2default, base2locales);
     }
 
     private void verifyScriptsWithDefaultContents(LanguageTagParser ltp, Relation<String, String> base2scripts,
-            Map<String, String> parent2default, Relation<String, String> base2locales) {
+        Map<String, String> parent2default, Relation<String, String> base2locales) {
         Set<String> skip = Builder.with(new HashSet<String>()).addAll("in", "iw", "mo", "no", "root", "sh", "tl")
-                .freeze();
+            .freeze();
 
         // for each base we have to have,
         // if multiscript, we have default contents for base+script, base+script+region;
@@ -332,8 +330,8 @@ public class TestInheritance extends TestFmwk {
     }
 
     private void verifyLikelySubtagsImplicationsForDefaultContents(LanguageTagParser ltp,
-            Relation<String, String> base2scripts, Map<String, String> parent2default,
-            Map<String, String> likely2Maximized, Map<String, String> exceptionLikelyDc) {
+        Relation<String, String> base2scripts, Map<String, String> parent2default,
+        Map<String, String> likely2Maximized, Map<String, String> exceptionLikelyDc) {
         // Now check invariants for all LikelySubtags implications for Default Contents
         // a) suppose likely max for la_Scrp => la_Scrp_RG
         // Then default contents la_Scrp => la_Scrp_RG
@@ -389,8 +387,8 @@ public class TestInheritance extends TestFmwk {
                     if (dc == null) {
                         if (EXPECT_EQUALITY) {
                             String expected = base2scripts.get(source) == null
-                                    ? likelyMaxLang + "_" + likelyMaxRegion
-                                            : likelyMaxLang + "_" + likelyMaxScript;
+                                ? likelyMaxLang + "_" + likelyMaxRegion
+                                : likelyMaxLang + "_" + likelyMaxScript;
                             errln("Default contents null for " + source + ", expected:\t" + expected);
                             additionalDefaultContents.add(expected);
                         }
@@ -400,25 +398,25 @@ public class TestInheritance extends TestFmwk {
                     String dcScript = ltp.getScript();
                     String dcRegion = ltp.getRegion();
                     consistent = likelyLangScript.equals(dc) && likelyMax.equals(dcFromLangScript)
-                            || dcScript.isEmpty() && !likelyMax.equals(dcFromLangScript);
+                        || dcScript.isEmpty() && !likelyMax.equals(dcFromLangScript);
                     // || dcScript.isEmpty() && dcRegion.equals(likelyMaxRegion) && dcFromLangScript == null;
                 }
             }
             if (!consistent) {
                 errln("default contents inconsistent with likely subtag: (" + caseNumber + ")"
-                        + "\n\t" + source + " => (ls) " + likelyMax
-                        + "\n\t" + source + " => (dc) " + dc
-                        + "\n\t" + likelyLangScript + " => (dc) " + dcFromLangScript);
+                    + "\n\t" + source + " => (ls) " + likelyMax
+                    + "\n\t" + source + " => (dc) " + dc
+                    + "\n\t" + likelyLangScript + " => (dc) " + dcFromLangScript);
             }
         }
         if (additionalDefaultContents.size() != 0) {
             errln("Suggested additions to supplementalMetadata/../defaultContent:\n" +
-                    CollectionUtilities.join(additionalDefaultContents, " "));
+                CollectionUtilities.join(additionalDefaultContents, " "));
         }
     }
 
     private void verifyDefaultContentsImplicationsForLikelySubtags(LanguageTagParser ltp,
-            Map<String, String> parent2default, Map<String, String> likely2Maximized, Map<String, String> exceptionDcLikely) {
+        Map<String, String> parent2default, Map<String, String> likely2Maximized, Map<String, String> exceptionDcLikely) {
         // Now check invariants for all Default Contents implications for LikelySubtags
         // a) suppose default contents la => la_Scrp.
         // Then the likely contents for la => la_Scrp_*
@@ -466,9 +464,9 @@ public class TestInheritance extends TestFmwk {
             }
             if (!consistent) {
                 errln("likely subtag inconsistent with default contents: "
-                        + "\n\t" + source + " =>( dc) " + dc
-                        + "\n\t" + source + " => (ls) " + likelyMax
-                        + (source.equals(sourceLang) ? "" : "\n\t" + sourceLang + " => (ls) " + likelyMax2));
+                    + "\n\t" + source + " =>( dc) " + dc
+                    + "\n\t" + source + " => (ls) " + likelyMax
+                    + (source.equals(sourceLang) ? "" : "\n\t" + sourceLang + " => (ls) " + likelyMax2));
             }
         }
     }
@@ -497,9 +495,9 @@ public class TestInheritance extends TestFmwk {
                 if (scripts.size() == 1) {
                     if (territories.size() == 1) {
                         return createSuggestion(
-                                loc,
-                                CLDRLocale.getInstance(base + "_" + scripts.iterator().next() + "_"
-                                        + territories.iterator().next()));
+                            loc,
+                            CLDRLocale.getInstance(base + "_" + scripts.iterator().next() + "_"
+                                + territories.iterator().next()));
                     }
                 }
                 return "(no suggestion - multiple scripts or territories)";
@@ -513,18 +511,18 @@ public class TestInheritance extends TestFmwk {
      */
     private static String createSuggestion(CLDRLocale loc, CLDRLocale toLoc) {
         return " Suggest this to likelySubtags.xml:        <likelySubtag from=\"" + loc + "\" to=\"" + toLoc + "\"/>\n"
-                +
-                "        <!--{ " + loc.getDisplayName() + "; ?; ? } => { " + loc.getDisplayName() + "; "
-                + toLoc.toULocale().getDisplayScript() + "; " + toLoc.toULocale().getDisplayCountry() + " }-->";
+            +
+            "        <!--{ " + loc.getDisplayName() + "; ?; ? } => { " + loc.getDisplayName() + "; "
+            + toLoc.toULocale().getDisplayScript() + "; " + toLoc.toULocale().getDisplayCountry() + " }-->";
 
     }
 
     public void TestLanguageTagCanonicalizer() {
         String[][] tests = {
-                { "eng-840", "en_US" },
-                { "sh_ba", "sr_Latn_BA" },
-                { "iw-arab-010", "he_Arab_AQ" },
-                { "en-POLYTONI-WHATEVER-ANYTHING-AALAND", "en_AX_ANYTHING_POLYTON_WHATEVER" },
+            { "eng-840", "en_US" },
+            { "sh_ba", "sr_Latn_BA" },
+            { "iw-arab-010", "he_Arab_AQ" },
+            { "en-POLYTONI-WHATEVER-ANYTHING-AALAND", "en_AX_ANYTHING_POLYTON_WHATEVER" },
         };
         LanguageTagCanonicalizer canon = new LanguageTagCanonicalizer();
         for (String[] inputExpected : tests) {
@@ -573,7 +571,7 @@ public class TestInheritance extends TestFmwk {
             Map<Type, BasicLanguageData> data = dataInfo.getBasicLanguageDataMap(language);
             if (data == null) {
                 logln("Warning: ScriptMetadata has " + language + " for " + script + "," +
-                        " but " + language + " is missing in language_script.txt");
+                    " but " + language + " is missing in language_script.txt");
                 continue;
             }
             for (BasicLanguageData entry : data.values()) {
@@ -583,7 +581,7 @@ public class TestInheritance extends TestFmwk {
                 continue;
             }
             logln("Warning: ScriptMetadata has " + language + " for " + script + "," +
-                    " but " + language + " doesn't have " + script + " in language_script.txt");
+                " but " + language + " doesn't have " + script + " in language_script.txt");
         }
     }
 
@@ -882,7 +880,7 @@ public class TestInheritance extends TestFmwk {
 
     private static final StandardCodes STANDARD_CODES = StandardCodes.make();
     private static final Map<String, Map<String, R2<List<String>, String>>> DEPRECATED_INFO = dataInfo
-            .getLocaleAliasInfo();
+        .getLocaleAliasInfo();
 
     private void checkLocale(String localeID, boolean allowDeprecated) {
         // verify that the localeID is valid
@@ -913,8 +911,8 @@ public class TestInheritance extends TestFmwk {
             R2<List<String>, String> deprecatedInfo = DEPRECATED_INFO.get(subtagType).get(subtag);
             if (deprecatedInfo != null) {
                 errln("Locale " + localeID + " contains deprecated " + showCode(subtagType, subtag) + " "
-                        + deprecatedInfo.get1()
-                        + "; suggest " + showName(deprecatedInfo.get0(), subtagType));
+                    + deprecatedInfo.get1()
+                    + "; suggest " + showName(deprecatedInfo.get0(), subtagType));
             }
         }
     }
@@ -951,8 +949,8 @@ public class TestInheritance extends TestFmwk {
     // TODO move this into central utilities
     public static boolean equals(Object a, Object b) {
         return a == b ? true
-                : a == null || b == null ? false
-                        : a.equals(b);
+            : a == null || b == null ? false
+                : a.equals(b);
     }
 
     // TODO move this into central utilities

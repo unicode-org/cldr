@@ -177,7 +177,7 @@ public class HTTP {
         while (keys.hasNext()) {
             s = keys.next().toString();
             if (!s.equals("HTTP-Version") && !s.equals("Status-Code") && !s.equals("Reason-Phrase") && !s.equals("Method")
-                    && !s.equals("Request-URI") && !o.isNull(s)) {
+                && !s.equals("Request-URI") && !o.isNull(s)) {
                 sb.append(s);
                 sb.append(": ");
                 sb.append(o.getString(s));

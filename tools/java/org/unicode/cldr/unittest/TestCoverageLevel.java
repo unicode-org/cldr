@@ -83,7 +83,7 @@ public class TestCoverageLevel extends TestFmwk {
                 // if (path.contains("ethiopic")) {
                 // System.out.println("?");
                 // }
-                Level level = sdi.getCoverageLevel(path,locale);
+                Level level = sdi.getCoverageLevel(path, locale);
 
                 // R2<Level, Level> key = Row.of(level, newLevel);
                 String starredPath = pathStarrer.set(path);
@@ -95,10 +95,10 @@ public class TestCoverageLevel extends TestFmwk {
             }
         }
         RegexLookup<Transform<String, String>> longTransLookup = new RegexLookup<Transform<String, String>>()
-                .add("^//ldml/localeDisplayNames/languages/language", new TypeName(CLDRFile.LANGUAGE_NAME))
-                .add("^//ldml/localeDisplayNames/scripts/script", new TypeName(CLDRFile.SCRIPT_NAME))
-                .add("^//ldml/localeDisplayNames/territories/territory", new TypeName(CLDRFile.TERRITORY_NAME))
-                .add("^//ldml/numbers/currencies/currency", new TypeName(CLDRFile.CURRENCY_NAME));
+            .add("^//ldml/localeDisplayNames/languages/language", new TypeName(CLDRFile.LANGUAGE_NAME))
+            .add("^//ldml/localeDisplayNames/scripts/script", new TypeName(CLDRFile.SCRIPT_NAME))
+            .add("^//ldml/localeDisplayNames/territories/territory", new TypeName(CLDRFile.TERRITORY_NAME))
+            .add("^//ldml/numbers/currencies/currency", new TypeName(CLDRFile.CURRENCY_NAME));
 
         for (Entry<Level, Relation<String, String>> entry : data.entrySet()) {
             final Level level = entry.getKey();
@@ -114,7 +114,7 @@ public class TestCoverageLevel extends TestFmwk {
                         int barPos = s.indexOf('|');
                         String codePart = barPos < 0 ? s : s.substring(0, barPos);
                         System.out.println(level.getLevel() + "\t" + level + "\t" + key + "\t" + s + "\t"
-                                + longTrans.transform(codePart));
+                            + longTrans.transform(codePart));
                     }
                 } else {
                     System.out.println(level.getLevel() + "\t" + level + "\t" + key + "\t" + value);
@@ -133,7 +133,7 @@ public class TestCoverageLevel extends TestFmwk {
     }
 
     static Relation<String, LanguageStatus> languageStatus = Relation.of(new HashMap<String, Set<LanguageStatus>>(),
-            TreeSet.class);
+        TreeSet.class);
     static Counter2<String> languageLiteratePopulation = new Counter2<String>();
     static Map<String, Date> currencyToLast = new HashMap<String, Date>();
     static Set<String> officialSomewhere = new HashSet<String>();
@@ -148,7 +148,7 @@ public class TestCoverageLevel extends TestFmwk {
             double languageLiterate = 0;
             for (String territory : testInfo.getSupplementalDataInfo().getTerritoriesForPopulationData(language)) {
                 PopulationData pop = testInfo.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(language,
-                        territory);
+                    territory);
                 OfficialStatus officialStatus = pop.getOfficialStatus();
                 if (officialStatus.compareTo(OfficialStatus.de_facto_official) >= 0) {
                     isOfficial = true;
@@ -175,7 +175,7 @@ public class TestCoverageLevel extends TestFmwk {
             String base = parser.set(language).getLanguage();
             for (String territory : testInfo.getSupplementalDataInfo().getTerritoriesForPopulationData(language)) {
                 PopulationData pop = testInfo.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(language,
-                        territory);
+                    territory);
                 double litPop = pop.getLiteratePopulation();
                 double total = territoryLiteratePopulation.getCount(territory);
                 if (litPop > total / 3) {
@@ -261,7 +261,7 @@ public class TestCoverageLevel extends TestFmwk {
         }
     }, null).loadFromFile(TestCoverageLevel.class, "TestCoverageLevel.txt");
 
-    public void TestExceptions(){
+    public void TestExceptions() {
         for (R2<Finder, Level> x : exceptions) {
             logln(x.get0().toString() + " => " + x.get1());
         }
@@ -272,31 +272,31 @@ public class TestCoverageLevel extends TestFmwk {
         String value = testInfo.getEnglish().getStringValue(path);
         assertEquals("Narrow $", "$", value);
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-        Level level = sdi.getCoverageLevel(path,"en");
+        Level level = sdi.getCoverageLevel(path, "en");
         assertEquals("Narrow $", Level.BASIC, level);
     }
 
     static final EnumSet<PageId> SKIP_PAGE_OK = EnumSet.of(
-            PageId.Dangi, 
-            PageId.Islamic,
-            PageId.Islamic_Civil,
-            PageId.Islamic_Rgsa,
-            PageId.Islamic_Tbla,
-            PageId.Islamic_Umalqura,
-            PageId.Buddhist,
-            PageId.Chinese,
-            PageId.Coptic,
-            PageId.Ethiopic,
-            PageId.Ethiopic_Amete_Alem,
-            PageId.Hebrew,
-            PageId.Indian,
-            PageId.Japanese,
-            PageId.Persian,
-            PageId.ROC,
-            PageId.Transforms,
-            PageId.Identity,
-            PageId.Version
-            );
+        PageId.Dangi,
+        PageId.Islamic,
+        PageId.Islamic_Civil,
+        PageId.Islamic_Rgsa,
+        PageId.Islamic_Tbla,
+        PageId.Islamic_Umalqura,
+        PageId.Buddhist,
+        PageId.Chinese,
+        PageId.Coptic,
+        PageId.Ethiopic,
+        PageId.Ethiopic_Amete_Alem,
+        PageId.Hebrew,
+        PageId.Indian,
+        PageId.Japanese,
+        PageId.Persian,
+        PageId.ROC,
+        PageId.Transforms,
+        PageId.Identity,
+        PageId.Version
+        );
 
     public void TestEnglishModern() {
         if (logKnownIssue("5712", "Finish enabling more comprehensive tests")) {
@@ -304,69 +304,68 @@ public class TestCoverageLevel extends TestFmwk {
         }
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
         Factory phf = PathHeader.getFactory(testInfo.getEnglish());
-        Relation<Row.R3,String>bad = Relation.of(new TreeMap<Row.R3,Set<String>>(), TreeSet.class);
-        Relation<Row.R3,String>all = Relation.of(new TreeMap<Row.R3,Set<String>>(), TreeSet.class);
+        Relation<Row.R3, String> bad = Relation.of(new TreeMap<Row.R3, Set<String>>(), TreeSet.class);
+        Relation<Row.R3, String> all = Relation.of(new TreeMap<Row.R3, Set<String>>(), TreeSet.class);
         XPathParts parts = new XPathParts();
 
-        main:
-            for (String path : testInfo.getEnglish().fullIterable()) {
-                PathHeader ph = phf.fromPath(path);
-                SectionId section = ph.getSectionId();
-                PageId page = ph.getPageId();
-                String header = ph.getHeader();
-                String code = ph.getCode();
-                R3<SectionId, PageId, String> row = Row.of(section, page, header);
-                all.put(row, code);
-                Level coverageLevel = sdi.getCoverageLevel(path,"en");
+        main: for (String path : testInfo.getEnglish().fullIterable()) {
+            PathHeader ph = phf.fromPath(path);
+            SectionId section = ph.getSectionId();
+            PageId page = ph.getPageId();
+            String header = ph.getHeader();
+            String code = ph.getCode();
+            R3<SectionId, PageId, String> row = Row.of(section, page, header);
+            all.put(row, code);
+            Level coverageLevel = sdi.getCoverageLevel(path, "en");
 
-                if (coverageLevel.compareTo(Level.MODERN) <= 0) {
-                    continue;
-                }
-
-                if (SKIP_PAGE_OK.contains(page)) {
-                    continue;
-                }
-                if (header.equals("Alias")) {
-                    continue;
-                }
-                switch(page) {
-                case Numbering_Systems: 
-                    if (header.startsWith("Standard Patterns when") 
-                            && !header.contains("Latin")) {
-                        continue main;
-                    }
-                    break;
-                case Compact_Decimal_Formatting: 
-                    if ((header.startsWith("Short Formats when") || header.startsWith("Long Formats when")) 
-                            && !header.contains("Latin")) {
-                        continue main;
-                    }
-                    break;
-                case Number_Formatting_Patterns:
-                    if ((header.startsWith("Currency Spacing when") 
-                            || header.startsWith("Standard Patterns when using")
-                            || header.startsWith("Miscellaneous Patterns when")
-                            || header.startsWith("Currency Unit Patterns when")
-                            )
-                            && !header.contains("Latin")) {
-                        continue main;
-                    }
-                    break;
-                case Symbols:
-                    if ((header.startsWith("Symbols when using") 
-                            )
-                            && !header.contains("Latin")) {
-                        continue main;
-                    }
-                    break;
-                }
-
-                if (testInfo.getSupplementalDataInfo().hasDeprecatedItem("ldml", parts.set(path))) {
-                    continue;
-                }
-
-                bad.put(row, code);
+            if (coverageLevel.compareTo(Level.MODERN) <= 0) {
+                continue;
             }
+
+            if (SKIP_PAGE_OK.contains(page)) {
+                continue;
+            }
+            if (header.equals("Alias")) {
+                continue;
+            }
+            switch (page) {
+            case Numbering_Systems:
+                if (header.startsWith("Standard Patterns when")
+                    && !header.contains("Latin")) {
+                    continue main;
+                }
+                break;
+            case Compact_Decimal_Formatting:
+                if ((header.startsWith("Short Formats when") || header.startsWith("Long Formats when"))
+                    && !header.contains("Latin")) {
+                    continue main;
+                }
+                break;
+            case Number_Formatting_Patterns:
+                if ((header.startsWith("Currency Spacing when")
+                    || header.startsWith("Standard Patterns when using")
+                    || header.startsWith("Miscellaneous Patterns when")
+                    || header.startsWith("Currency Unit Patterns when")
+                    )
+                    && !header.contains("Latin")) {
+                    continue main;
+                }
+                break;
+            case Symbols:
+                if ((header.startsWith("Symbols when using")
+                    )
+                    && !header.contains("Latin")) {
+                    continue main;
+                }
+                break;
+            }
+
+            if (testInfo.getSupplementalDataInfo().hasDeprecatedItem("ldml", parts.set(path))) {
+                continue;
+            }
+
+            bad.put(row, code);
+        }
         all.removeAll(bad);
         for (Entry<R3, Set<String>> item : bad.keyValuesSet()) {
             errln(item.getKey() + "\t" + item.getValue());

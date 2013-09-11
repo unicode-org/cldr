@@ -36,7 +36,7 @@ public class AttributeChoice {
     public static final String INLIST = "//ldml/layout/inList.*";
 
     public static String[] setup = { COMMONLY_USED, "true", COMMONLY_USED, "false", INLIST, "mixed", INLIST,
-            "titlecase-firstword", INLIST, "titlecase-words", };
+        "titlecase-firstword", INLIST, "titlecase-words", };
 
     static {
         allAttributes.put(COMMONLY_USED, "used");

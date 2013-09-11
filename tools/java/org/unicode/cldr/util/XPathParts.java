@@ -453,7 +453,7 @@ public class XPathParts {
         e.putAttribute(attribute, value);
         return this;
     }
-    
+
     public XPathParts removeAttribute(String elementName, String attributeName) {
         Map<String, String> m = findAttributes(elementName);
         m.remove(attributeName);
@@ -843,7 +843,7 @@ public class XPathParts {
     }
 
     /**
-   */
+    */
     public XPathParts trimLast() {
         elements.remove(elements.size() - 1);
         return this;

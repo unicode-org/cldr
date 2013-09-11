@@ -114,7 +114,7 @@ public class CLDRConfig extends Properties {
         }
         return cldrFactory;
     }
- 
+
     public Factory getSupplementalFactory() {
         synchronized (this) {
             if (supplementalFactory == null) {
@@ -153,8 +153,8 @@ public class CLDRConfig extends Properties {
     }
 
     public synchronized Phase getPhase() {
-        if(phase == null) {
-            if(getEnvironment() == Environment.UNITTEST) {
+        if (phase == null) {
+            if (getEnvironment() == Environment.UNITTEST) {
                 phase = Phase.BUILD;
             } else {
                 phase = Phase.SUBMISSION;
@@ -171,18 +171,18 @@ public class CLDRConfig extends Properties {
     }
 
     private Set<String> shown = new HashSet<String>();
-    
-    private Map<String, String> localSet = null; 
+
+    private Map<String, String> localSet = null;
 
     @Override
     public String get(Object key) {
         return getProperty(key.toString());
     }
-    
+
     @Override
     public String getProperty(String key) {
         String result = null;
-        if(localSet!=null) {
+        if (localSet != null) {
             result = localSet.get(key);
         }
         if (result == null) {
@@ -230,17 +230,17 @@ public class CLDRConfig extends Properties {
      * @return 
      */
     @Override
-    public  Object setProperty(String k, String v) {
-        if(getEnvironment()!=Environment.UNITTEST) {
+    public Object setProperty(String k, String v) {
+        if (getEnvironment() != Environment.UNITTEST) {
             throw new InternalError("setProperty() only valid in UNITTEST Environment.");
         }
-        if(localSet==null) {
+        if (localSet == null) {
             localSet = new ConcurrentHashMap<String, String>();
         }
         shown.remove(k); // show it again with -D
         return localSet.put(k, v);
     }
-    
+
     @Override
     public Object put(Object k, Object v) {
         return setProperty(k.toString(), v.toString());
@@ -253,12 +253,12 @@ public class CLDRConfig extends Properties {
      * @return
      */
     public boolean getProperty(String k, boolean defVal) {
-        String val = getProperty(k, defVal?"true":null);
-        if(val==null) { 
+        String val = getProperty(k, defVal ? "true" : null);
+        if (val == null) {
             return false;
         } else {
             val = val.trim().toLowerCase();
-            return(val.equals("true")|| val.equals("t") || val.equals("yes") || val.equals("y"));
+            return (val.equals("true") || val.equals("t") || val.equals("yes") || val.equals("y"));
         }
     }
 
@@ -270,12 +270,12 @@ public class CLDRConfig extends Properties {
      */
     public int getProperty(String k, int defVal) {
         String val = getProperty(k, Integer.toString(defVal));
-        if(val==null) { 
+        if (val == null) {
             return defVal;
         } else {
             try {
-                return Integer.parseInt(val); 
-            } catch(NumberFormatException nfe) {
+                return Integer.parseInt(val);
+            } catch (NumberFormatException nfe) {
                 return defVal;
             }
         }

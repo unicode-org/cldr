@@ -40,41 +40,43 @@ import org.unicode.cldr.util.CLDRLocale;
  */
 public class MailSender implements Runnable {
     private static final String CLDR_MAIL = "cldr_mail";
-    
+
     private static final String COUNTLEFTSQL = "select count(*) from " + CLDR_MAIL + " where sent_date is NULL and try_count < 3";
-    
+
     private final boolean DEBUG = CLDRConfig.getInstance().getProperty("CLDR_DEBUG_MAIL", false) || (SurveyMain.isUnofficial() && SurveyLog.isDebug());
 
     private UserRegistry.User getUser(int user) {
-        if(user<1) user=1;
+        if (user < 1) user = 1;
         UserRegistry.User u = CookieSession.sm.reg.getInfo(user);
-        if(u==null || UserRegistry.userIsLocked(u)) {
+        if (u == null || UserRegistry.userIsLocked(u)) {
             return null;
         }
         return u;
     }
-    
+
     private String getEmailForUser(int user) {
         UserRegistry.User u = CookieSession.sm.reg.getInfo(user);
-        if(u==null || UserRegistry.userIsLocked(u)) {
+        if (u == null || UserRegistry.userIsLocked(u)) {
             return null;
         }
-        
-        if(u.email.equals("admin@")) {
+
+        if (u.email.equals("admin@")) {
             return null; // no mail to admin
         }
-        
+
         return u.email;
     }
-    
+
     public JSONObject getMailFor(int user) throws SQLException, IOException, JSONException {
-        if(user==1) { // for admin only
-            return DBUtils.queryToJSON("select "+USER+", id,subject,text,queue_date,read_date, post, locale, xpath, try_count, sent_date from " + CLDR_MAIL + " ORDER BY queue_date DESC");
+        if (user == 1) { // for admin only
+            return DBUtils.queryToJSON("select " + USER + ", id,subject,text,queue_date,read_date, post, locale, xpath, try_count, sent_date from " + CLDR_MAIL
+                + " ORDER BY queue_date DESC");
         } else {
-            return DBUtils.queryToJSON("select id,subject,text,queue_date,read_date, post, locale, xpath, try_count, sent_date from " + CLDR_MAIL + " where "+USER+"=? ORDER BY queue_date DESC", user);
+            return DBUtils.queryToJSON("select id,subject,text,queue_date,read_date, post, locale, xpath, try_count, sent_date from " + CLDR_MAIL + " where "
+                + USER + "=? ORDER BY queue_date DESC", user);
         }
     }
-    
+
     /**
      * mark an item as read
      * @param user
@@ -82,7 +84,7 @@ public class MailSender implements Runnable {
      * @return true if OK, false if err
      */
     public boolean setRead(int user, int id) {
-        if(user==1) {
+        if (user == 1) {
             return true; // no effect on admin
         }
         Connection conn = null;
@@ -90,94 +92,94 @@ public class MailSender implements Runnable {
         try {
             DBUtils db = DBUtils.getInstance();
             conn = db.getDBConnection();
-            ps = DBUtils.prepareStatementWithArgs(conn, "update " + CLDR_MAIL + " set read_date=? where id=? and "+USER+"=?",  DBUtils.sqlNow(), id, user);
-            if(ps.executeUpdate()==1) {
+            ps = DBUtils.prepareStatementWithArgs(conn, "update " + CLDR_MAIL + " set read_date=? where id=? and " + USER + "=?", DBUtils.sqlNow(), id, user);
+            if (ps.executeUpdate() == 1) {
                 conn.commit();
                 return true;
             } else {
                 return false;
             }
         } catch (SQLException se) {
-            SurveyLog.logException(se, "mark ing as read id#"+id+" user="+user);
+            SurveyLog.logException(se, "mark ing as read id#" + id + " user=" + user);
             return false;
         } finally {
-            DBUtils.close(ps,conn);
+            DBUtils.close(ps, conn);
         }
     }
-    
+
     final String USER;
-    
+
     private MailSender() {
         DBUtils db = DBUtils.getInstance();
-        USER=db.db_Mysql?"user":"to_user";
+        USER = db.db_Mysql ? "user" : "to_user";
         Connection conn = null;
-        PreparedStatement s = null, s2=null;
+        PreparedStatement s = null, s2 = null;
         try {
             conn = db.getDBConnection();
             conn.setAutoCommit(false);
-            if(!DBUtils.getInstance().hasTable(conn, CLDR_MAIL)) {
-                    System.out.println("Creating " + CLDR_MAIL);
-                    s  = db.prepareStatementWithArgs(conn, "CREATE TABLE "+CLDR_MAIL+" (id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", "   // PK:  id
-                            + USER+" int not null, " // userid TO
-                            + "sender int not null DEFAULT -1 , " // userid TO
-                            + "subject " + DBUtils.DB_SQL_MIDTEXT + " not null, " // mail subj
-                            + "cc varchar(8000) DEFAULT NULL," 
-                            + "text " + DBUtils.DB_SQL_UNICODE + " not null, " // email body
-                            +  "queue_date "+DBUtils.DB_SQL_TIMESTAMP0+" not null , "  // when queued?
-                            +  "try_date "+DBUtils.DB_SQL_TIMESTAMP0+" DEFAULT NULL , "  // when tried to send?
-                            + "try_count INT DEFAULT 0, " // count tried
-                            + "read_date "+DBUtils.DB_SQL_TIMESTAMP0+" DEFAULT NULL, "  // when read by user in-app?
-                            + "sent_date "+DBUtils.DB_SQL_TIMESTAMP0+" DEFAULT NULL, "  // when successfully sent?
-                            + "audit " + DBUtils.DB_SQL_MIDTEXT +" DEFAULT NULL , " // history
-                            + "post INT default NULL," // forum item
-                            + "locale varchar(127) DEFAULT NULL," // optional locale id
-                            + "xpath INT DEFAULT NULL "
-                            +   (!DBUtils.db_Mysql ? ",primary key(id)" : "") + ")");
-                            s.execute();
-                       s2 = db.prepareStatementWithArgs(conn, "INSERT INTO " + CLDR_MAIL + "("+USER+",subject,text,queue_date) VALUES(?,?,?,?)", 
-                                   1, "Hello", "Hello from the SurveyTool!", DBUtils.sqlNow());
-                       s2.execute();
-                       conn.commit();
-                       System.out.println("Setup " + CLDR_MAIL);
+            if (!DBUtils.getInstance().hasTable(conn, CLDR_MAIL)) {
+                System.out.println("Creating " + CLDR_MAIL);
+                s = db.prepareStatementWithArgs(conn, "CREATE TABLE " + CLDR_MAIL + " (id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " // PK:  id
+                    + USER + " int not null, " // userid TO
+                    + "sender int not null DEFAULT -1 , " // userid TO
+                    + "subject " + DBUtils.DB_SQL_MIDTEXT + " not null, " // mail subj
+                    + "cc varchar(8000) DEFAULT NULL,"
+                    + "text " + DBUtils.DB_SQL_UNICODE + " not null, " // email body
+                    + "queue_date " + DBUtils.DB_SQL_TIMESTAMP0 + " not null , " // when queued?
+                    + "try_date " + DBUtils.DB_SQL_TIMESTAMP0 + " DEFAULT NULL , " // when tried to send?
+                    + "try_count INT DEFAULT 0, " // count tried
+                    + "read_date " + DBUtils.DB_SQL_TIMESTAMP0 + " DEFAULT NULL, " // when read by user in-app?
+                    + "sent_date " + DBUtils.DB_SQL_TIMESTAMP0 + " DEFAULT NULL, " // when successfully sent?
+                    + "audit " + DBUtils.DB_SQL_MIDTEXT + " DEFAULT NULL , " // history
+                    + "post INT default NULL," // forum item
+                    + "locale varchar(127) DEFAULT NULL," // optional locale id
+                    + "xpath INT DEFAULT NULL "
+                    + (!DBUtils.db_Mysql ? ",primary key(id)" : "") + ")");
+                s.execute();
+                s2 = db.prepareStatementWithArgs(conn, "INSERT INTO " + CLDR_MAIL + "(" + USER + ",subject,text,queue_date) VALUES(?,?,?,?)",
+                    1, "Hello", "Hello from the SurveyTool!", DBUtils.sqlNow());
+                s2.execute();
+                conn.commit();
+                System.out.println("Setup " + CLDR_MAIL);
             }
             // set some defaults
             Properties env = getProperties();
-            env.getProperty("mail.host", env.getProperty("CLDR_SMTP",null));
+            env.getProperty("mail.host", env.getProperty("CLDR_SMTP", null));
             //  env.getProperty("mail.smtp.port", env.getProperty("CLDR_SMTP_PORT", "25"));
             env.getProperty("mail.smtp.connectiontimeout", "25");
             env.getProperty("mail.smtp.timeout", "25");
-            
+
             // reap old items
-            java.sql.Timestamp aWeekAgo = new java.sql.Timestamp(System.currentTimeMillis() -  (1000 * 60 * 60 * 24 * 7 * 3 )); // reap mail after about 3 weeks
-            s2 = db.prepareStatementWithArgs(conn, "delete from " + CLDR_MAIL +" where queue_date < ? ", aWeekAgo);
-            
+            java.sql.Timestamp aWeekAgo = new java.sql.Timestamp(System.currentTimeMillis() - (1000 * 60 * 60 * 24 * 7 * 3)); // reap mail after about 3 weeks
+            s2 = db.prepareStatementWithArgs(conn, "delete from " + CLDR_MAIL + " where queue_date < ? ", aWeekAgo);
+
             int countDeleted = s2.executeUpdate();
             conn.commit();
-            
-            if(countDeleted > 0) {
+
+            if (countDeleted > 0) {
                 System.out.println("MailSender:  reaped " + countDeleted + " expired messages");
             }
 
-            if(DBUtils.db_Derby) {
+            if (DBUtils.db_Derby) {
                 SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
             } else {
-                int firstTime = SurveyMain.isUnofficial()?5:60;  // for official use, give some time for ST to settle before starting on mail s ending.
-                int eachTime = 6; /* Check for outbound mail every 6 seconds */  // SurveyMain.isUnofficial()?6:45; // 63;
+                int firstTime = SurveyMain.isUnofficial() ? 5 : 60; // for official use, give some time for ST to settle before starting on mail s ending.
+                int eachTime = 6; /* Check for outbound mail every 6 seconds */// SurveyMain.isUnofficial()?6:45; // 63;
                 periodicThis = SurveyMain.getTimer().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
                 System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = " + db.sqlCount(COUNTLEFTSQL));
             }
-        } catch(SQLException se) {
+        } catch (SQLException se) {
             SurveyMain.busted("Cant set up " + CLDR_MAIL, se);
         } finally {
             DBUtils.close(s, s2, conn);
         }
     }
-    
+
     ScheduledFuture<?> periodicThis = null;
 
     static void shutdown() {
         try {
-            if (fInstance != null && fInstance.periodicThis!=null && !fInstance.periodicThis.isCancelled()) {
+            if (fInstance != null && fInstance.periodicThis != null && !fInstance.periodicThis.isCancelled()) {
                 System.out.println("Interrupting running mail thread");
                 fInstance.periodicThis.cancel(true);
             } else {
@@ -199,16 +201,17 @@ public class MailSender implements Runnable {
         }
         return fInstance;
     }
-    
+
     public void queue(Integer fromUser, int toUser, String subject, String body) {
-        queue(fromUser, toUser,subject,body,null,null,null,null);
+        queue(fromUser, toUser, subject, body, null, null, null, null);
     }
+
     public void queue(Integer fromUser, int toUser, String subject, String body, CLDRLocale locale, Integer xpath, Integer post, Set<Integer> cc) {
         String ccstr = null;
-        if(cc != null && !cc.isEmpty()) {
+        if (cc != null && !cc.isEmpty()) {
             StringBuilder sb = null;
-            for(int u : cc) {
-                if(sb == null) {
+            for (int u : cc) {
+                if (sb == null) {
                     sb = new StringBuilder();
                 } else {
                     sb.append(", ");
@@ -219,42 +222,42 @@ public class MailSender implements Runnable {
             }
             ccstr = sb.toString();
         }
-        if(fromUser == null || fromUser == UserRegistry.NO_USER) { 
+        if (fromUser == null || fromUser == UserRegistry.NO_USER) {
             fromUser = -1;
         }
-        if(xpath!=null && xpath == -1) {
+        if (xpath != null && xpath == -1) {
             xpath = null;
         }
         Connection conn = null;
-        PreparedStatement s = null, s2=null;
+        PreparedStatement s = null, s2 = null;
         try {
             DBUtils db = DBUtils.getInstance();
             conn = db.getDBConnection();
-            final String sql = "INSERT INTO " + CLDR_MAIL + "(sender, "+USER+",subject,text,queue_date,cc,locale,xpath,post) VALUES(?,?,?,?,?,?,?,?,?)";
-            if(!DBUtils.db_Derby) { // hack around derby
-                s2 = db.prepareStatementWithArgs(conn, sql, 
-                        fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow(), 
-                        ccstr, locale, xpath, post);
-                
+            final String sql = "INSERT INTO " + CLDR_MAIL + "(sender, " + USER + ",subject,text,queue_date,cc,locale,xpath,post) VALUES(?,?,?,?,?,?,?,?,?)";
+            if (!DBUtils.db_Derby) { // hack around derby
+                s2 = db.prepareStatementWithArgs(conn, sql,
+                    fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow(),
+                    ccstr, locale, xpath, post);
+
             } else {
-                s2 = db.prepareStatementWithArgs(conn, sql, 
-                        fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow()); // just the ones that can't be null
-                if(ccstr == null) {
+                s2 = db.prepareStatementWithArgs(conn, sql,
+                    fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow()); // just the ones that can't be null
+                if (ccstr == null) {
                     s2.setNull(6, java.sql.Types.VARCHAR);
                 } else {
                     s2.setString(6, ccstr);
                 }
-                if(locale==null) {
+                if (locale == null) {
                     s2.setNull(7, java.sql.Types.VARCHAR);
                 } else {
                     s2.setString(7, locale.getBaseName());
                 }
-                if(xpath==null) {
+                if (xpath == null) {
                     s2.setNull(8, java.sql.Types.INTEGER);
                 } else {
-                    s2.setInt(8,  xpath);
+                    s2.setInt(8, xpath);
                 }
-                if(post==null) {
+                if (post == null) {
                     s2.setNull(9, java.sql.Types.INTEGER);
                 } else {
                     s2.setInt(9, xpath);
@@ -262,9 +265,9 @@ public class MailSender implements Runnable {
             }
             s2.execute();
             conn.commit();
-            log("user#"+toUser,"Enqueued mail:"+subject,null);
-        } catch(SQLException se) {
-            SurveyLog.logException(se,"Enqueuing mail to #"+toUser+":"+subject);
+            log("user#" + toUser, "Enqueued mail:" + subject, null);
+        } catch (SQLException se) {
+            SurveyLog.logException(se, "Enqueuing mail to #" + toUser + ":" + subject);
             throw new InternalError("Failed to enqueue mail to " + toUser + " - " + se.getMessage());
         } finally {
             DBUtils.close(s, s2, conn);
@@ -272,14 +275,14 @@ public class MailSender implements Runnable {
     }
 
     public void queue(int fromUser, Set<Integer> cc_emails, Set<Integer> bcc_emails, String subject, String body,
-            CLDRLocale locale, int xpath, Integer post) {
-        if(cc_emails != null) {
-            for(int tocc: cc_emails ) {
+        CLDRLocale locale, int xpath, Integer post) {
+        if (cc_emails != null) {
+            for (int tocc : cc_emails) {
                 queue(fromUser, tocc, subject, body, locale, xpath, post, cc_emails);
             }
         }
-        if(bcc_emails != null) {
-            for(int tobcc: bcc_emails ) {
+        if (bcc_emails != null) {
+            for (int tobcc : bcc_emails) {
                 queue(fromUser, tobcc, subject, body, locale, xpath, post, cc_emails);
             }
         }
@@ -310,39 +313,39 @@ public class MailSender implements Runnable {
      * Footer to be placed at the bottom of emails
      */
     public static final String footer = "\n----------\n"
-            + "This email was generated automatically as part of the CLDR survey process\n"
-            + "http://www.unicode.org/cldr\n"
-            + "If you have any questions about it,\nplease contact your organization's CLDR Technical Committee member,\nor: surveytool at unicode.org\n"
-            + "TO UNSUBSCRIBE: You must permanently disable your account to stop receiving these emails. See: <http://st.unicode.org/cldr-apps/lock.jsp>";
+        + "This email was generated automatically as part of the CLDR survey process\n"
+        + "http://www.unicode.org/cldr\n"
+        + "If you have any questions about it,\nplease contact your organization's CLDR Technical Committee member,\nor: surveytool at unicode.org\n"
+        + "TO UNSUBSCRIBE: You must permanently disable your account to stop receiving these emails. See: <http://st.unicode.org/cldr-apps/lock.jsp>";
 
-      private Properties getProperties() {
-          CLDRConfig env = CLDRConfig.getInstance();
+    private Properties getProperties() {
+        CLDRConfig env = CLDRConfig.getInstance();
 
-          // set up some presets
+        // set up some presets
         return env;
     }
-    
-    private int lastIdProcessed=-1; // spinner 
+
+    private int lastIdProcessed = -1; // spinner 
 
     public void run() {
-        if(DBUtils.db_Derby) {
+        if (DBUtils.db_Derby) {
             SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
             return;
         }
-        
+
         SurveyLog.warnOnce("MailSender: processing mail queue");
         String oldName = Thread.currentThread().getName();
         try {
-            int countLeft = DBUtils.sqlCount(COUNTLEFTSQL); 
-            Thread.currentThread().setName("SurveyTool MailSender: waiting count="+countLeft);
-            if(SurveyMain.isUnofficial()) {
-                if(countLeft > 0) {
-                    if(DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
+            int countLeft = DBUtils.sqlCount(COUNTLEFTSQL);
+            Thread.currentThread().setName("SurveyTool MailSender: waiting count=" + countLeft);
+            if (SurveyMain.isUnofficial()) {
+                if (countLeft > 0) {
+                    if (DEBUG) System.err.println("MailSender: waiting mails: " + countLeft);
                 }
             }
-            
+
             Connection conn = null;
-            PreparedStatement s = null, s2=null;
+            PreparedStatement s = null, s2 = null;
             ResultSet rs = null;
             Throwable badException = null;
             try {
@@ -350,107 +353,109 @@ public class MailSender implements Runnable {
                 conn = db.getDBConnection();
                 conn.setAutoCommit(false);
                 java.sql.Timestamp sqlnow = db.sqlNow();
-                s = db.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ?  and try_count < 3 order by id " + (DBUtils.db_Mysql?"limit 1":""));
+                s = db.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ?  and try_count < 3 order by id "
+                    + (DBUtils.db_Mysql ? "limit 1" : ""));
                 s.setInt(1, lastIdProcessed);
                 rs = s.executeQuery();
-                
-                if(rs.first()==false) {
-                    if(lastIdProcessed > 0) {
-                        if(DEBUG) {
+
+                if (rs.first() == false) {
+                    if (lastIdProcessed > 0) {
+                        if (DEBUG) {
                             System.out.println("reset lastidprocessed to -1");
                         }
                         lastIdProcessed = -1;
                     }
                     return; // nothing to do
                 }
-                
+
                 Properties env = getProperties();
-                
+
                 Session ourSession = Session.getInstance(env, null);
-                if(DEBUG) {
+                if (DEBUG) {
                     ourSession.setDebug(true);
                 }
-                
+
                 try {
-                    
-                    
+
                     lastIdProcessed = rs.getInt("id"); // update ID
-                    if(DEBUG) System.out.println("Processing id " + lastIdProcessed);
+                    if (DEBUG) System.out.println("Processing id " + lastIdProcessed);
                     MimeMessage ourMessage = new MimeMessage(ourSession);
-                    
+
                     // from - sending user or surveytool
                     Integer from = rs.getInt("sender");
                     UserRegistry.User fromUser = getUser(from);
-                    
+
                     String all_from = env.getProperty("CLDR_FROM", "set_CLDR_FROM_in_cldr.properties@example.com");
-                    
-                    if(false && from>1) { // ticket:6334 - don't use individualized From: messages
-                        ourMessage.setFrom(new InternetAddress(fromUser.email,fromUser.name + " (SurveyTool)"));
+
+                    if (false && from > 1) { // ticket:6334 - don't use individualized From: messages
+                        ourMessage.setFrom(new InternetAddress(fromUser.email, fromUser.name + " (SurveyTool)"));
                     } else {
                         ourMessage.setFrom(new InternetAddress(all_from, "CLDR SurveyTool"));
                     }
-                    
+
                     // to
                     Integer to = rs.getInt("user");
                     UserRegistry.User toUser = getUser(to);
-                    if(to>1) {
+                    if (to > 1) {
                         ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(toUser.email, toUser.name));
                     } else {
                         ourMessage.addRecipient(MimeMessage.RecipientType.TO, new InternetAddress(all_from, "CLDR SurveyTool"));
                     }
 
                     String theFrom = "";
-                    if(from>=1) {
+                    if (from >= 1) {
                         ourMessage.addHeader("X-SurveyTool-From-User-Id", Integer.toString(from));
-                        theFrom = "This message is being sent to you on behalf of " + fromUser.name + "\" <"+fromUser.email+"> (" + fromUser.getOrganization().getDisplayName() + ") - user #"+from + " \n"; 
+                        theFrom = "This message is being sent to you on behalf of " + fromUser.name + "\" <" + fromUser.email + "> ("
+                            + fromUser.getOrganization().getDisplayName() + ") - user #" + from + " \n";
                     }
-                    ourMessage.addHeader("X-SurveyTool-To-User-Id", Integer.toString(to));                    
+                    ourMessage.addHeader("X-SurveyTool-To-User-Id", Integer.toString(to));
                     ourMessage.addHeader("X-SurveyTool-Queue-Id", Integer.toString(lastIdProcessed));
 
-        //            if (mailFromAddress != null) {
-        //                Address replyTo[] = { new InternetAddress(mailFromAddress, mailFromName + " (CLDR)") };
-        //                ourMessage.setReplyTo(replyTo);
-        //            }
-                    final String header = SurveyMain.isUnofficial()?" == UNOFFICIAL SURVEYTOOL  - This message was sent from a TEST machine== \n":"";
+                    //            if (mailFromAddress != null) {
+                    //                Address replyTo[] = { new InternetAddress(mailFromAddress, mailFromName + " (CLDR)") };
+                    //                ourMessage.setReplyTo(replyTo);
+                    //            }
+                    final String header = SurveyMain.isUnofficial() ? " == UNOFFICIAL SURVEYTOOL  - This message was sent from a TEST machine== \n" : "";
                     ourMessage.setSubject(DBUtils.getStringUTF8(rs, "subject"));
-                    ourMessage.setText(header+theFrom+DBUtils.getStringUTF8(rs, "text") + footer);
-                    
-                    if(env.getProperty("CLDR_SMTP", null) != null) {
+                    ourMessage.setText(header + theFrom + DBUtils.getStringUTF8(rs, "text") + footer);
+
+                    if (env.getProperty("CLDR_SMTP", null) != null) {
                         Transport.send(ourMessage);
                     } else {
-                        SurveyLog.warnOnce("Pretending to send mail - CLDR_SMTP is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
+                        SurveyLog
+                            .warnOnce("Pretending to send mail - CLDR_SMTP is not set. Browse to    http://st.unicode.org/cldr-apps/v#mail (or equivalent) to read the messages.");
                     }
-                    
-                    if(DEBUG) System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);
-                    
+
+                    if (DEBUG) System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);
+
                     rs.updateTimestamp("sent_date", sqlnow);
-                    if(DEBUG) System.out.println("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
+                    if (DEBUG) System.out.println("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
                     rs.updateRow();
-                    if(DEBUG) System.out.println("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
+                    if (DEBUG) System.out.println("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
                     conn.commit();
-                    if(DEBUG) System.out.println("Mail: comitted: #id " + lastIdProcessed + " to " + toUser);
+                    if (DEBUG) System.out.println("Mail: comitted: #id " + lastIdProcessed + " to " + toUser);
                 } catch (MessagingException mx) {
-                    if(SurveyMain.isUnofficial()) {
-                        SurveyLog.logException(mx, "Trying to process mail id#"+lastIdProcessed);
+                    if (SurveyMain.isUnofficial()) {
+                        SurveyLog.logException(mx, "Trying to process mail id#" + lastIdProcessed);
                     }
                     badException = mx;
                 } catch (UnsupportedEncodingException e) {
-                    if(SurveyMain.isUnofficial()) {
-                        SurveyLog.logException(e, "Trying to process mail id#"+lastIdProcessed);
+                    if (SurveyMain.isUnofficial()) {
+                        SurveyLog.logException(e, "Trying to process mail id#" + lastIdProcessed);
                     }
                     badException = e;
                 }
-                
-                if(badException != null) {
+
+                if (badException != null) {
                     int badCount = 0;
-                    rs.updateInt("try_count",(badCount = ( rs.getInt("try_count")+1)));
+                    rs.updateInt("try_count", (badCount = (rs.getInt("try_count") + 1)));
                     rs.updateString("audit", badException.getMessage() + badException.getCause());
                     rs.updateTimestamp("try_date", sqlnow);
                     rs.updateRow();
                     conn.commit();
-                    if(DEBUG) System.out.println("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed  + "  - " + badException.getCause());
+                    if (DEBUG) System.out.println("Mail retry count of " + badCount + " updated: #id " + lastIdProcessed + "  - " + badException.getCause());
                 }
-            } catch(SQLException se) {
+            } catch (SQLException se) {
                 SurveyLog.logException(se, "processing mail");
             } finally {
                 DBUtils.close(rs, s, s2, conn);

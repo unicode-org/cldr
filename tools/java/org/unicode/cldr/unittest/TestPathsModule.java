@@ -252,7 +252,7 @@ public class TestPathsModule extends TestFmwk {
                 List<String> samples = new ArrayList<String>(nonFinalNonDistingishing.getAll(item));
                 if (samples.size() > 5) samples = samples.subList(0, 4);
                 errln(item.get0() + ": Attribute <" + item.get2() + "> in element <" + item.get1() +
-                        "> is not on leaf element and not distinguishing:\t" + samples);
+                    "> is not on leaf element and not distinguishing:\t" + samples);
             }
             for (R2<DtdType, String> item : illFormedOrder.keySet()) {
                 List<String> samples = new ArrayList<String>(illFormedOrder.getAll(item));

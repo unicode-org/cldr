@@ -34,50 +34,50 @@ public class FindPreferredHours {
     private static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
     private static final Set<Character> ONLY24 = Collections.unmodifiableSet(new LinkedHashSet<Character>(Arrays
-            .asList('H')));
+        .asList('H')));
 
     private final static Map<String, Set<Character>> OVERRIDE_ALLOWED = Builder
-            .with(new HashMap<String, Set<Character>>())
-            .put("RU", ONLY24)
-            .put("IL", ONLY24)
-            .freeze();
+        .with(new HashMap<String, Set<Character>>())
+        .put("RU", ONLY24)
+        .put("IL", ONLY24)
+        .freeze();
 
     private final static Map<String, Character> CONFLICT_RESOLUTION = Builder.with(new HashMap<String, Character>())
-            .put("DJ", 'h')
-            .put("KM", 'H')
-            .put("MG", 'H')
-            .put("MU", 'H')
-            .put("MZ", 'H')
-            .put("SC", 'H')
-            .put("CM", 'H')
-            .put("TD", 'h')
-            .put("DZ", 'h')
-            .put("MA", 'h')
-            .put("TN", 'h')
-            .put("BW", 'h')
-            .put("LS", 'h')
-            .put("NA", 'h')
-            .put("SZ", 'h')
-            .put("ZA", 'h')
-            .put("GH", 'h')
-            .put("MR", 'h')
-            .put("NG", 'h')
-            .put("TG", 'H')
-            .put("CA", 'h')
-            .put("US", 'h')
-            .put("CN", 'h')
-            .put("MO", 'h')
-            .put("PH", 'H')
-            .put("IN", 'h')
-            .put("LK", 'H')
-            .put("CY", 'h')
-            .put("IL", 'H')
-            .put("SY", 'h')
-            .put("MK", 'H')
-            .put("VU", 'h')
-            .put("TO", 'H')
-            .put("001", 'H')
-            .freeze();
+        .put("DJ", 'h')
+        .put("KM", 'H')
+        .put("MG", 'H')
+        .put("MU", 'H')
+        .put("MZ", 'H')
+        .put("SC", 'H')
+        .put("CM", 'H')
+        .put("TD", 'h')
+        .put("DZ", 'h')
+        .put("MA", 'h')
+        .put("TN", 'h')
+        .put("BW", 'h')
+        .put("LS", 'h')
+        .put("NA", 'h')
+        .put("SZ", 'h')
+        .put("ZA", 'h')
+        .put("GH", 'h')
+        .put("MR", 'h')
+        .put("NG", 'h')
+        .put("TG", 'H')
+        .put("CA", 'h')
+        .put("US", 'h')
+        .put("CN", 'h')
+        .put("MO", 'h')
+        .put("PH", 'H')
+        .put("IN", 'h')
+        .put("LK", 'H')
+        .put("CY", 'h')
+        .put("IL", 'H')
+        .put("SY", 'h')
+        .put("MK", 'H')
+        .put("VU", 'h')
+        .put("TO", 'H')
+        .put("001", 'H')
+        .freeze();
 
     static final class Hours implements Comparable<Hours> {
         final DateTimePatternType type;
@@ -177,7 +177,7 @@ public class FindPreferredHours {
                     Relation<Character, String> items = region2Preferred2locales.get(region);
                     if (items == null) {
                         region2Preferred2locales.put(region,
-                                items = Relation.of(new TreeMap<Character, Set<String>>(), TreeSet.class));
+                            items = Relation.of(new TreeMap<Character, Set<String>>(), TreeSet.class));
                     }
                     items.put(hours.variable, locale);
                 }
@@ -186,7 +186,7 @@ public class FindPreferredHours {
 
         // now invert
         Relation<PreferredAndAllowedHour, String> preferred2Region = Relation.of(
-                new TreeMap<PreferredAndAllowedHour, Set<String>>(), TreeSet.class);
+            new TreeMap<PreferredAndAllowedHour, Set<String>>(), TreeSet.class);
         StringBuilder overrides = new StringBuilder("\n");
 
         for (Entry<String, Relation<Character, String>> e : region2Preferred2locales.entrySet()) {
@@ -210,7 +210,7 @@ public class FindPreferredHours {
                         preferredSet.remove(x.getKey(), x.getValue());
                     }
                     overrides.append(region + " has multiple values. Overriding with CONFLICT_RESOLUTION to "
-                            + resolvedValue + " and discarded values " + oldValuesString + "\n");
+                        + resolvedValue + " and discarded values " + oldValuesString + "\n");
                 }
             }
 
@@ -252,13 +252,13 @@ public class FindPreferredHours {
             }
 
             System.out.println(tag
-                    + "\t" + region
-                    + "\t" + ENGLISH.getName("territory", region)
-                    + "\t" + subcontinent
-                    + "\t" + ENGLISH.getName("territory", subcontinent)
-                    + "\t" + continent
-                    + "\t" + ENGLISH.getName("territory", continent)
-                    + "\t" + showInfo(preferredSet));
+                + "\t" + region
+                + "\t" + ENGLISH.getName("territory", region)
+                + "\t" + subcontinent
+                + "\t" + ENGLISH.getName("territory", subcontinent)
+                + "\t" + continent
+                + "\t" + ENGLISH.getName("territory", continent)
+                + "\t" + showInfo(preferredSet));
         }
 
         // now present
@@ -268,14 +268,14 @@ public class FindPreferredHours {
             PreferredAndAllowedHour preferredAndAllowedHour = e.getKey();
             Set<String> regions = e.getValue();
             System.out.println("        <hours "
-                    + "preferred=\""
-                    + preferredAndAllowedHour.preferred
-                    + "\""
-                    + " allowed=\""
-                    + CollectionUtilities.join(preferredAndAllowedHour.allowed, " ") 
-                    + "\""
-                    + " regions=\"" + CollectionUtilities.join(regions, " ") + "\""
-                    + "/>");
+                + "preferred=\""
+                + preferredAndAllowedHour.preferred
+                + "\""
+                + " allowed=\""
+                + CollectionUtilities.join(preferredAndAllowedHour.allowed, " ")
+                + "\""
+                + " regions=\"" + CollectionUtilities.join(regions, " ") + "\""
+                + "/>");
         }
         System.out.println("    </timeData>");
         System.out.println(overrides);
@@ -312,10 +312,10 @@ public class FindPreferredHours {
     private static boolean isOfficial(String locale, boolean isOfficial) {
         LanguageTagParser ltp = new LanguageTagParser().set(locale);
         PopulationData data = INFO.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(
-                ltp.getLanguageScript(), ltp.getRegion());
+            ltp.getLanguageScript(), ltp.getRegion());
         if (data == null) {
             data = INFO.getSupplementalDataInfo().getLanguageAndTerritoryPopulationData(
-                    ltp.getLanguage(), ltp.getRegion());
+                ltp.getLanguage(), ltp.getRegion());
         }
         if (data != null) {
             OfficialStatus status = data.getOfficialStatus();

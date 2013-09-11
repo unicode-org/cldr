@@ -105,7 +105,8 @@ public class TestAll extends TestGroup {
         // TODO remove this after some time- just warn people about the old message
         final String cwt = System.getProperty("CLDR_WEB_TESTS");
         if (cwt != null && cwt.equals("true")) {
-            throw new InternalError("Error: CLDR_WEB_TESTS is obsolete - please set the CLDR_ENVIRONMENT to UNITTEST or LOCAL (or don't set it) -  ( -DCLDR_ENVIRONMENT=UNITTEST");
+            throw new InternalError(
+                "Error: CLDR_WEB_TESTS is obsolete - please set the CLDR_ENVIRONMENT to UNITTEST or LOCAL (or don't set it) -  ( -DCLDR_ENVIRONMENT=UNITTEST");
         }
 
         if (CldrUtility.getProperty(CLDR_TEST_KEEP_DB, false)) {
@@ -114,7 +115,7 @@ public class TestAll extends TestGroup {
         } else {
             if (DEBUG)
                 SurveyLog.logger.warning("Removing old test database..  set -D" + CLDR_TEST_KEEP_DB
-                        + "=true if you want to keep it..");
+                    + "=true if you want to keep it..");
             File f = getEmptyDir(DB_SUBDIR);
             f.delete();
             if (DEBUG)
@@ -125,11 +126,11 @@ public class TestAll extends TestGroup {
 
     public TestAll() {
         super(new String[] {
-                // use class.getName so we are in sync with name changes and
-                // removals (if not additions)
-                TestIntHash.class.getName(), TestXPathTable.class.getName(),
-                // TestCacheAndDataSource.class.getName()
-                TestSTFactory.class.getName(), TestUserSettingsData.class.getName() }, "All tests in CLDR Web");
+            // use class.getName so we are in sync with name changes and
+            // removals (if not additions)
+            TestIntHash.class.getName(), TestXPathTable.class.getName(),
+            // TestCacheAndDataSource.class.getName()
+            TestSTFactory.class.getName(), TestUserSettingsData.class.getName() }, "All tests in CLDR Web");
     }
 
     public static final String CLASS_TARGET_NAME = "CLDR.Web";
@@ -238,7 +239,7 @@ public class TestAll extends TestGroup {
     public static final String CORE_TEST_PATH = "cldr_db_test";
     public static final String CLDR_WEBTEST_DIR = TestAll.class.getPackage().getName() + ".dir";
     public static final String CLDR_WEBTEST_DIR_STRING = CldrUtility.getProperty(CLDR_WEBTEST_DIR,
-            System.getProperty("user.home") + File.separator + CORE_TEST_PATH);
+        System.getProperty("user.home") + File.separator + CORE_TEST_PATH);
     public static final File CLDR_WEBTEST_FILE = new File(CLDR_WEBTEST_DIR_STRING);
     static File baseDir = null;
 
@@ -336,7 +337,7 @@ public class TestAll extends TestGroup {
             if (theDir != null) {
                 if (DEBUG)
                     SurveyLog.logger.warning("Using new: " + theDir.getAbsolutePath() + " baseDir = "
-                            + getBaseDir().getAbsolutePath());
+                        + getBaseDir().getAbsolutePath());
             }
 
             String createURI = connectURI + ";create=true";
@@ -351,7 +352,7 @@ public class TestAll extends TestGroup {
             if (theDir != null) {
                 if (DEBUG)
                     SurveyLog.logger.warning("Using existing: " + theDir.getAbsolutePath() + " baseDir = "
-                            + getBaseDir().getAbsolutePath());
+                        + getBaseDir().getAbsolutePath());
             } else {
                 if (DEBUG)
                     SurveyLog.logger.warning("Using " + connectURI);
@@ -380,7 +381,7 @@ public class TestAll extends TestGroup {
         PoolingDataSource dataSource = new PoolingDataSource(connectionPool);
         if (DEBUG)
             SurveyLog.logger.warning("New datasource off and running: " + connectURI + " setupDerbyDataSource took "
-                    + ElapsedTimer.elapsedTime(start));
+                + ElapsedTimer.elapsedTime(start));
         return dataSource;
     }
 

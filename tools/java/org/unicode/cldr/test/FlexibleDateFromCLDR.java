@@ -41,39 +41,39 @@ class FlexibleDateFromCLDR {
 
     static List<String> tests = Arrays.asList(new String[] {
 
-            "HHmmssSSSvvvv", // 'complete' time
-            "HHmm",
-            "HHmmvvvv",
-            "HHmmss",
-            "HHmmssSSSSS",
-            "HHmmssvvvv",
+        "HHmmssSSSvvvv", // 'complete' time
+        "HHmm",
+        "HHmmvvvv",
+        "HHmmss",
+        "HHmmssSSSSS",
+        "HHmmssvvvv",
 
-            "MMMd",
-            "Md",
+        "MMMd",
+        "Md",
 
-            "YYYYD", // (maybe?)
+        "YYYYD", // (maybe?)
 
-            "yyyyww",
-            "yyyywwEEE",
+        "yyyyww",
+        "yyyywwEEE",
 
-            "yyyyQQQQ",
-            "yyyyMM",
+        "yyyyQQQQ",
+        "yyyyMM",
 
-            "yyyyMd",
-            "yyyyMMMd",
-            "yyyyMMMEEEd",
+        "yyyyMd",
+        "yyyyMMMd",
+        "yyyyMMMEEEd",
 
-            "GyyyyMMMd",
-            "GyyyyMMMEEEd", // 'complete' date
+        "GyyyyMMMd",
+        "GyyyyMMMEEEd", // 'complete' date
 
-            "YYYYwEEE", // year, week of year, weekday
-            "yyyyDD", // year, day of year
-            "yyyyMMFE", // year, month, nth day of week in month
-            // misc
-            "eG", "dMMy", "GHHmm", "yyyyHHmm", "Kmm", "kmm",
-            "MMdd", "ddHH", "yyyyMMMd", "yyyyMMddHHmmss",
-            "GEEEEyyyyMMddHHmmss",
-            "GuuuuQMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
+        "YYYYwEEE", // year, week of year, weekday
+        "yyyyDD", // year, day of year
+        "yyyyMMFE", // year, month, nth day of week in month
+        // misc
+        "eG", "dMMy", "GHHmm", "yyyyHHmm", "Kmm", "kmm",
+        "MMdd", "ddHH", "yyyyMMMd", "yyyyMMddHHmmss",
+        "GEEEEyyyyMMddHHmmss",
+        "GuuuuQMMMMwwWddDDDFEEEEaHHmmssSSSvvvv", // bizarre case just for testing
     });
 
     public void set(CLDRFile cldrFile) {
@@ -183,7 +183,7 @@ class FlexibleDateFromCLDR {
             switch (patternInfo.status) {
             case PatternInfo.CONFLICT:
                 failureMap.put(path, "Conflicting Patterns: \"" + value + "\"\t&\t\"" + patternInfo.conflictingPattern
-                        + "\"");
+                    + "\"");
                 break;
             }
         } catch (RuntimeException e) {

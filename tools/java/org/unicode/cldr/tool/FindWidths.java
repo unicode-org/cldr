@@ -20,7 +20,7 @@ public class FindWidths {
     private static final TestInfo testInfo = TestInfo.getInstance();
     private static final org.unicode.cldr.util.Factory CLDR_FACTORY = testInfo.getCldrFactory();
     private static final double MIN_TEST_INCREASE = 1.5;
-    private static final int MIN_TEST_WIDTH = 2*ApproximateWidth.getWidth("え");
+    private static final int MIN_TEST_WIDTH = 2 * ApproximateWidth.getWidth("え");
 
     static final class Data {
         String locale;
@@ -28,6 +28,7 @@ public class FindWidths {
         int width = Integer.MIN_VALUE;
         int count = 0;
         int englishWidth;
+
         public void add(String locale2, String value2, int width2, int englishWidth) {
             if (width2 > width) {
                 width = width2;
@@ -38,21 +39,22 @@ public class FindWidths {
             ++count;
         }
     }
+
     public static void main(String[] args) {
         NumberFormat nf = NumberFormat.getPercentInstance();
         nf.setMaximumFractionDigits(0);
         CLDRFile english = testInfo.getEnglish();
         Factory phf = PathHeader.getFactory(english);
-        Map<PathHeader,Integer> englishWidths = new HashMap();
-        Map<PathHeader,Data> maxWidths = new TreeMap();
+        Map<PathHeader, Integer> englishWidths = new HashMap();
+        Map<PathHeader, Data> maxWidths = new TreeMap();
         Set<String> sampleLocales = testInfo.getStandardCodes().getLocaleCoverageLocales("google");
 
         for (String path : english) {
             PathHeader ph = phf.fromPath(path);
             PageId pageId = ph.getPageId();
             SectionId sectionId = ph.getSectionId();
-            if (pageId == PageId.Alphabetic_Information 
-                    || sectionId == SectionId.Special) {
+            if (pageId == PageId.Alphabetic_Information
+                || sectionId == SectionId.Special) {
                 continue;
             }
             String value = english.getStringValue(path);
@@ -74,8 +76,8 @@ public class FindWidths {
                 }
                 PageId pageId = ph.getPageId();
                 SectionId sectionId = ph.getSectionId();
-                if (pageId == PageId.Alphabetic_Information 
-                        || sectionId == SectionId.Special) {
+                if (pageId == PageId.Alphabetic_Information
+                    || sectionId == SectionId.Special) {
                     continue;
                 }
 
@@ -100,15 +102,15 @@ public class FindWidths {
             PathHeader path = entry.getKey();
             Data data = entry.getValue();
             double sizeIncrease = data.width / (double) data.englishWidth - 1;
-            System.out.println(++count 
-                    + "\t" + path 
-                    + "\t" + data.locale
-                    + "\t«" + english.getStringValue(path.getOriginalPath()) + "»"
-                    + "\t«" + data.value + "»"
-                    + "\t+" + nf.format(sizeIncrease)
-                    + "\t" + data.width
-                    + "\t" + data.count
-                    );
+            System.out.println(++count
+                + "\t" + path
+                + "\t" + data.locale
+                + "\t«" + english.getStringValue(path.getOriginalPath()) + "»"
+                + "\t«" + data.value + "»"
+                + "\t+" + nf.format(sizeIncrease)
+                + "\t" + data.width
+                + "\t" + data.count
+                );
         }
     }
 }

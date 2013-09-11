@@ -181,7 +181,7 @@ public class WebContext implements Cloneable, Appendable {
                                                                 // req/resp of
                                                                 // the current
                                                                 // situation
-                (HttpServletResponse) response);
+            (HttpServletResponse) response);
         subCtx.setStream(out);
         return subCtx;
     }
@@ -573,13 +573,13 @@ public class WebContext implements Cloneable, Appendable {
             outQuery = outQuery + "&amp;" + k + "=" + v;
         }
     }
-    
+
     /**
      * Copy from request queries to output query
      */
     public void addAllParametersAsQuery() {
-        for(Entry<String, String[]> e : request.getParameterMap().entrySet()) {
-            addQuery(e.getKey(),e.getValue()[0]);
+        for (Entry<String, String[]> e : request.getParameterMap().entrySet()) {
+            addQuery(e.getKey(), e.getValue()[0]);
         }
     }
 
@@ -662,7 +662,7 @@ public class WebContext implements Cloneable, Appendable {
             return base() + "?" + outQuery;
         }
     }
-    
+
     /**
      * Return the raw query string, or null
      * @return
@@ -693,12 +693,11 @@ public class WebContext implements Cloneable, Appendable {
             return context() + theServletPath;
         }
     }
-    
+
     public String vurl(CLDRLocale loc) {
-        return vurl(loc,null,null,null);
+        return vurl(loc, null, null, null);
     }
 
-    
     /**
      * Get the new '/v' viewing URL. Note that this will include a fragment, do NOT append to the result (pass in something in queryAppend)
      * @param loc locale to view.
@@ -711,35 +710,35 @@ public class WebContext implements Cloneable, Appendable {
         StringBuilder sb = new StringBuilder(request.getContextPath());
         return WebContext.appendContextVurl(sb, loc, page, strid, queryAppend).toString();
     }
-    
+
     public static StringBuilder appendContextVurl(StringBuilder sb, CLDRLocale loc, PageId page, String strid, String queryAppend) {
-        
+
         sb.append("/v");
-        if(queryAppend!=null && !queryAppend.isEmpty()) {
+        if (queryAppend != null && !queryAppend.isEmpty()) {
             sb.append(queryAppend);
         }
         sb.append('#'); // hash
- 
+
         // locale
         sb.append('/');
         sb.append(loc.getBaseName());
-        
+
         // page
         sb.append('/');
-        if(page!=null) {
+        if (page != null) {
             sb.append(page.name());
         }
-        if(strid!=null && !strid.isEmpty()) {
+        if (strid != null && !strid.isEmpty()) {
             sb.append('/');
             sb.append(strid);
         }
-        
+
         return sb;
     }
 
     public void redirectToVurl(String vurl) {
-        println("<a class='vredirect' href='"+vurl+"'>Redirecting to " +vurl+"</a>");
-        println("<script type='text/javascript'>window.location=' " +vurl + "/'+window.location.hash.substring(1);</script>");
+        println("<a class='vredirect' href='" + vurl + "'>Redirecting to " + vurl + "</a>");
+        println("<script type='text/javascript'>window.location=' " + vurl + "/'+window.location.hash.substring(1);</script>");
     }
 
     public void setServletPath(String path) {
@@ -802,7 +801,7 @@ public class WebContext implements Cloneable, Appendable {
      */
     public String jspLink(String s) {
         return context(s) + "?a=" + base()
-                + ((outQuery != null) ? ("&amp;" + outQuery) : ((session != null) ? ("&amp;s=" + session.id) : ""));
+            + ((outQuery != null) ? ("&amp;" + outQuery) : ((session != null) ? ("&amp;s=" + session.id) : ""));
     }
 
     /**
@@ -814,7 +813,7 @@ public class WebContext implements Cloneable, Appendable {
      */
     public String jspUrl(String s) {
         return context(s) + "?a=" + base()
-                + ((outQuery != null) ? ("&" + outQuery) : ((session != null) ? ("&s=" + session.id) : ""));
+            + ((outQuery != null) ? ("&" + outQuery) : ((session != null) ? ("&s=" + session.id) : ""));
     }
 
     /**
@@ -1011,7 +1010,7 @@ public class WebContext implements Cloneable, Appendable {
         }
         locale = l;
         // localeString = locale.getBaseName();
-        processor = new DisplayAndInputProcessor(l,false);
+        processor = new DisplayAndInputProcessor(l, false);
         Vector<CLDRLocale> localesVector = new Vector<CLDRLocale>();
         for (CLDRLocale parents : locale.getParentIterator()) {
             localesVector.add(parents);
@@ -1304,9 +1303,9 @@ public class WebContext implements Cloneable, Appendable {
         println("</li></ul>");
         if (false && SurveyMain.isUnofficial()) {
             println("<smaller><i> // User Org:" + session.getUserOrg() + "isCoverageOrg:"
-                    + isCoverageOrganization(session.getUserOrg()) + " // Effective: "
-                    + getEffectiveCoverageLevel(getLocale().toString()) + " // Recommended: " + getRecommendedCoverageLevel()
-                    + "</i></smaller>");
+                + isCoverageOrganization(session.getUserOrg()) + " // Effective: "
+                + getEffectiveCoverageLevel(getLocale().toString()) + " // Recommended: " + getRecommendedCoverageLevel()
+                + "</i></smaller>");
         }
     }
 
@@ -1348,7 +1347,7 @@ public class WebContext implements Cloneable, Appendable {
 
     public String showCoverageSettingForLocale() {
         String rv = sm.showListSetting(this, SurveyMain.PREF_COVLEV, "Coverage", WebContext.PREF_COVLEV_LIST,
-                getRecommendedCoverageLevel());
+            getRecommendedCoverageLevel());
         return rv;
     }
 
@@ -1358,8 +1357,8 @@ public class WebContext implements Cloneable, Appendable {
 
     public static final String COVLEV_RECOMMENDED = "default";
     public static final String PREF_COVLEV_LIST[] = { COVLEV_RECOMMENDED, Level.OPTIONAL.toString(),
-            Level.COMPREHENSIVE.toString(), Level.MODERN.toString(), Level.MODERATE.toString(), Level.BASIC.toString(),
-            Level.MINIMAL.toString() };
+        Level.COMPREHENSIVE.toString(), Level.MODERN.toString(), Level.MODERATE.toString(), Level.BASIC.toString(),
+        Level.MINIMAL.toString() };
 
     /**
      * The default level, if no organization is available.
@@ -1558,12 +1557,12 @@ public class WebContext implements Cloneable, Appendable {
                 println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Checking cache';</script>");
                 flush();
             }
-            if(false) {
-                 section = getExistingSection(prefix, ptype);
-                 if((section != null)/* && (!section.isValid())*/) {
-                 section = null;
-                 loadString = "data was re-loaded due to a new user submission.";
-                 }
+            if (false) {
+                section = getExistingSection(prefix, ptype);
+                if ((section != null)/* && (!section.isValid())*/) {
+                    section = null;
+                    loadString = "data was re-loaded due to a new user submission.";
+                }
             }
             if (section == null) {
                 CLDRProgressTask progress = null;
@@ -1587,7 +1586,7 @@ public class WebContext implements Cloneable, Appendable {
                             flush();
                         }
                         section = DataSection.make(pageId, this, this.session, locale, prefix, matcher,
-                                options == LoadingShow.showLoading, ptype);
+                            options == LoadingShow.showLoading, ptype);
                         if (options == LoadingShow.showLoading) {
                             println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Cleaning up...';</script>");
                             flush();
@@ -1685,7 +1684,7 @@ public class WebContext implements Cloneable, Appendable {
         String helpHtml = sm.getBaselineExample().getHelpHtml(xpath, "", true);
         if (helpHtml != null) {
             println("<br/> <div class='helpHtml'><br/><h3 style='display: none;' class='theHelp'>Help with "
-                    + sm.xpt.getPrettyPath(xpath) + "</h3><!-- " + xpath + " -->\n" + helpHtml + "</div>");
+                + sm.xpt.getPrettyPath(xpath) + "</h3><!-- " + xpath + " -->\n" + helpHtml + "</div>");
         }
     }
 
@@ -1770,7 +1769,7 @@ public class WebContext implements Cloneable, Appendable {
             message = "[" + icon + "]";
         }
         return "<img border='0' alt='[" + icon + "]' style='width: 16px; height: 16px;' src='" + context(request, icon + ".png")
-                + "' title='" + message + "' />";
+            + "' title='" + message + "' />";
     }
 
     /**
@@ -1825,7 +1824,7 @@ public class WebContext implements Cloneable, Appendable {
         } catch (Throwable t) {
             SurveyLog.logException(t, "Including template " + filename);
             this.println("<div class='ferrorbox'><B>Error</b> while including template <tt class='code'>" + filename
-                    + "</tt>:<br>");
+                + "</tt>:<br>");
             this.print(t);
             this.println("</div>");
             System.err.println("While expanding " + TMPL_PATH + filename + ": " + t.toString());
@@ -1844,7 +1843,7 @@ public class WebContext implements Cloneable, Appendable {
      *             , NullPointerException
      */
     public static void includeFragment(HttpServletRequest request, HttpServletResponse response, String filename)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         RequestDispatcher dp = request.getRequestDispatcher(TMPL_PATH + filename);
         dp.include(request, response);
     }
@@ -1986,7 +1985,7 @@ public class WebContext implements Cloneable, Appendable {
             SurveyAjax.includeAjaxScript(request, response, type);
         } catch (Throwable t) {
             this.println("<div class='ferrorbox'><B>Error</b> while expanding ajax template ajax_" + type.name().toLowerCase()
-                    + ".jsp:<br>");
+                + ".jsp:<br>");
             this.print(t);
             this.println("</div>");
             System.err.println("While expanding ajax: " + t.toString());
@@ -2070,7 +2069,7 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     public static Cookie getCookie(HttpServletRequest request, String id) {
-        if(request==null) return null;
+        if (request == null) return null;
         Cookie cooks[] = request.getCookies();
         if (cooks == null)
             return null;
@@ -2157,9 +2156,9 @@ public class WebContext implements Cloneable, Appendable {
      * @return
      */
     String urlForLocale(CLDRLocale locale) {
-        return vurl(locale,null,null,null);
-//        String localeUrl = url() + urlConnector() + SurveyMain.QUERY_LOCALE + "=" + locale.getBaseName();
-//        return localeUrl;
+        return vurl(locale, null, null, null);
+        //        String localeUrl = url() + urlConnector() + SurveyMain.QUERY_LOCALE + "=" + locale.getBaseName();
+        //        return localeUrl;
     }
 
     public String getLocaleDisplayName(String loc) {
@@ -2214,12 +2213,12 @@ public class WebContext implements Cloneable, Appendable {
             return "using canned session"; // already set - for testing
         }
 
-        if(this.session!=null) return "Internal error - session already set.";
-  
+        if (this.session != null) return "Internal error - session already set.";
+
         CookieSession.checkForExpiredSessions(); // If a session has expired, remove it
-        
+
         String message = null; // return message, explaining what happened with the session.
-        
+
         String myNum = field(SurveyMain.QUERY_SESSION); // s
         String password = field(SurveyMain.QUERY_PASSWORD);
         if (password.isEmpty()) {
@@ -2242,7 +2241,7 @@ public class WebContext implements Cloneable, Appendable {
                 }
             }
         }
-        
+
         User user = null;
         // if an email/password given, try to fetch a user
         try {
@@ -2255,56 +2254,56 @@ public class WebContext implements Cloneable, Appendable {
         }
 
         HttpSession httpSession = request.getSession(true); // create httpsession
-    
+
         boolean idFromSession = false; // did the id come from the httpsession? (and why do we care?)
-        
+
         if (myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) { // "0"- for testing
-            httpSession.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION); 
+            httpSession.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
         }
-        
+
         // we just logged in- see if there's already a user session for this user..
         if (user != null) {
             session = CookieSession.retrieveUser(user.email); // is this user already logged in?
             if (session != null) {
                 if (null == CookieSession.retrieve(session.id)) { // double check- is the session still valid?
                     session = null; // don't allow dead sessions to show up
-                                      // via the user list.
+                                    // via the user list.
                 }
             }
         }
-    
+
         // Retreive a number from the httpSession if present
         if ((httpSession != null) && (session == null)) {
             String aNum = (String) httpSession.getAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
-            if(aNum != null) {
+            if (aNum != null) {
                 session = CookieSession.retrieve(aNum);
-                if(CookieSession.DEBUG_INOUT) {
+                if (CookieSession.DEBUG_INOUT) {
                     System.err.println("From httpsession " + httpSession.getId() + " = ST session " + aNum + " = " + session);
                 }
-                if(session == null) {
+                if (session == null) {
                     // user was logged out.
                     // message = "You were disconnected.."; // doesn't add value, don't bother returning this.
                 }
             }
         }
-    
-        if(session!=null && session.user!=null && user!=null && user.id != session.user.id) {
+
+        if (session != null && session.user != null && user != null && user.id != session.user.id) {
             session = null; // user was already logged in as 'session.user', replacing this with 'user'
         }
-        
-        if ((user==null)  && 
-              (  hasField(SurveyMain.QUERY_PASSWORD) || hasField(SurveyMain.QUERY_EMAIL))) {
-            if(CookieSession.DEBUG_INOUT) {
-                System.out.println("Logging out - mySession="+session+",user="+user+", and had em/pw");
+
+        if ((user == null) &&
+            (hasField(SurveyMain.QUERY_PASSWORD) || hasField(SurveyMain.QUERY_EMAIL))) {
+            if (CookieSession.DEBUG_INOUT) {
+                System.out.println("Logging out - mySession=" + session + ",user=" + user + ", and had em/pw");
             }
-           logout(); // zap cookies if some id/pw failed to work
+            logout(); // zap cookies if some id/pw failed to work
         }
-    
+
         if (session == null && user == null) {
             session = CookieSession.checkForAbuseFrom(userIP(), SurveyMain.BAD_IPS, request.getHeader("User-Agent"));
             if (session != null) {
                 println("<h1>Note: Your IP, " + userIP() + " has been throttled for making " + SurveyMain.BAD_IPS.get(userIP())
-                        + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag.</h1>");
+                    + " connections. Try turning on cookies, or obeying the 'META ROBOTS' tag.</h1>");
                 flush();
                 // try {
                 // Thread.sleep(15000);
@@ -2315,23 +2314,24 @@ public class WebContext implements Cloneable, Appendable {
                 return "Bad IP.";
             }
         }
-        
-        if(CookieSession.DEBUG_INOUT) System.out.println("Session Now="+session + ", user="+user);
+
+        if (CookieSession.DEBUG_INOUT) System.out.println("Session Now=" + session + ", user=" + user);
 
         // guest?
-        if(letmein || (user!=null && UserRegistry.userIsTC(user))) {
+        if (letmein || (user != null && UserRegistry.userIsTC(user))) {
             // allow in administrator or TC.
-        } else if ((user!=null) && (session == null)) { // user trying to log in- 
-            if (CookieSession.tooManyUsers()){
-                System.err.println("Refused login for " + email+ " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
-                return "We are swamped with about " + CookieSession.getUserCount() + " people using the SurveyTool right now! Please try back in a little while.";
+        } else if ((user != null) && (session == null)) { // user trying to log in- 
+            if (CookieSession.tooManyUsers()) {
+                System.err.println("Refused login for " + email + " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
+                return "We are swamped with about " + CookieSession.getUserCount()
+                    + " people using the SurveyTool right now! Please try back in a little while.";
             }
-        } else if (session==null || (session.user==null)) { // guest user
-            if(CookieSession.tooManyGuests()) {
-                if(session!=null) {
+        } else if (session == null || (session.user == null)) { // guest user
+            if (CookieSession.tooManyGuests()) {
+                if (session != null) {
                     System.err.println("Logged-out guest  " + session.id + " from " + userIP() + " - too many users ( " + CookieSession.getUserCount() + ")");
                     session.remove(); // remove guests at this point
-                    session  = null;
+                    session = null;
                 }
                 logout(); // clear session cookie
                 return "We have too many people browsing the CLDR Data on the Survey Tool. Please try again later when the load has gone down.";
@@ -2339,7 +2339,7 @@ public class WebContext implements Cloneable, Appendable {
         }
 
         // New up a session, if we don't already have one.
-        if(session==null) {
+        if (session == null) {
             session = CookieSession.newSession(user == null, userIP(), httpSession.getId());
             if (!myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) {
                 // ctx.println("New session: " + mySession.id + "<br>");
@@ -2348,11 +2348,11 @@ public class WebContext implements Cloneable, Appendable {
 
         // should we add "&s=.#####" to the URL?
         if (httpSession.isNew()) { // If it's a new session..
-            addQuery(SurveyMain.QUERY_SESSION+"__", session.id);
+            addQuery(SurveyMain.QUERY_SESSION + "__", session.id);
         } else {
             // ctx.println("['s' suppressed]");
         }
-    
+
         // store the session id in the HttpSession
         httpSession.setAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION, session.id);
         //httpSession.setMaxInactiveInterval(CookieSession.Params.CLDR_USER_TIMEOUT.value() / 1000);
@@ -2363,21 +2363,21 @@ public class WebContext implements Cloneable, Appendable {
             session.user.ip = userIP();
         } else {
             if ((email != null) && (email.length() > 0) && (session.user == null)) {
-                message = "<strong id='sessionMessage'>"+ iconHtml("stop", "failed login") + "login failed.</strong> <a href='" 
-                        + request.getContextPath() + "/reset.jsp?email=" + email +
-                        "&s="+ session.id + 
-                        "' id='notselected'>Forgot&nbsp;Password?</a><br>";
+                message = "<strong id='sessionMessage'>" + iconHtml("stop", "failed login") + "login failed.</strong> <a href='"
+                    + request.getContextPath() + "/reset.jsp?email=" + email +
+                    "&s=" + session.id +
+                    "' id='notselected'>Forgot&nbsp;Password?</a><br>";
             }
         }
         // processs the 'remember me'
         if (session != null && session.user != null) {
-            if(hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
-                if(SurveyMain.isUnofficial()) {
+            if (hasField(SurveyMain.QUERY_SAVE_COOKIE)) {
+                if (SurveyMain.isUnofficial()) {
                     System.out.println("Remembering user: " + session.user);
                 }
                 loginRemember(session.user);
             }
-         }   
+        }
         return message;
     }
 
@@ -2385,9 +2385,9 @@ public class WebContext implements Cloneable, Appendable {
      * Logout this ctx
      */
     public void logout() {
-        logout(request,response);
+        logout(request, response);
     }
-    
+
     /**
      * Logout this req/response (zap cookie)
      * Zaps http session
@@ -2396,33 +2396,33 @@ public class WebContext implements Cloneable, Appendable {
      */
     public static void logout(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(false); // dont create
-        if(session!=null) {
-            String sessionId = (String)session.getAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
-            if(CookieSession.DEBUG_INOUT) {
+        if (session != null) {
+            String sessionId = (String) session.getAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
+            if (CookieSession.DEBUG_INOUT) {
                 System.err.println("logout() of session " + session.getId() + " and cookieSession " + sessionId);
             }
-            if(sessionId!=null) {
+            if (sessionId != null) {
                 CookieSession sess = CookieSession.retrieveWithoutTouch(sessionId);
-                if(sess != null) {
+                if (sess != null) {
                     sess.remove(); // forcibly remove session
                 }
             }
             session.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
         }
-        Cookie c0 = WebContext.getCookie(request,SurveyMain.QUERY_EMAIL);
-        if(c0!=null) { // only zap extant cookies
+        Cookie c0 = WebContext.getCookie(request, SurveyMain.QUERY_EMAIL);
+        if (c0 != null) { // only zap extant cookies
             c0.setValue("");
             c0.setMaxAge(0);
             response.addCookie(c0);
         }
-        Cookie c1 = WebContext.getCookie(request,SurveyMain.QUERY_PASSWORD);
-        if(c1!=null) { 
+        Cookie c1 = WebContext.getCookie(request, SurveyMain.QUERY_PASSWORD);
+        if (c1 != null) {
             c1.setValue("");
             c1.setMaxAge(0);
             response.addCookie(c1);
         }
-   }
-    
+    }
+
     public static PageId getPageId(String pageField) {
         if (pageField != null && !pageField.isEmpty()) {
             try {

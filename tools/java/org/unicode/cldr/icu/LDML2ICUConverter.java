@@ -5127,26 +5127,26 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         return ret;
     }
 
-/**
-     * Expand rules to include compact collation syntax to produce an equivalent
-     * but possibly more compact rule string.
-     *
-     * This function is called when one of the <pc></pc>, <sc></sc>, <tc></tc>,
-     * <qc></qc>, <ic></ic> rules are evaluated.  These rules contain a list of
-     * characters to which the given strength operator need to be applied
-     * consecutively. Rather than applying a series of consecutive operators
-     * (For example '<' for <pc></pc>), this function introduces two new syntax
-     * characters:
-     *
-     *  <li> A '*' after an operator signifies a list: For example, "&a<*hrbk"
-     *  means "&a<h<r<b<k".
-     *
-     *  <li> A '-' indicates a range of consecutive (codepointwise) characters.
-     *  For example, "&a<*dh-ls" means "&a<*dhijkls" or "&a<d<h<i<j<k<l<s".
-     *
-     * This is done in such a way that the resulting string is not longer than
-     * the original string.
-     */
+    /**
+         * Expand rules to include compact collation syntax to produce an equivalent
+         * but possibly more compact rule string.
+         *
+         * This function is called when one of the <pc></pc>, <sc></sc>, <tc></tc>,
+         * <qc></qc>, <ic></ic> rules are evaluated.  These rules contain a list of
+         * characters to which the given strength operator need to be applied
+         * consecutively. Rather than applying a series of consecutive operators
+         * (For example '<' for <pc></pc>), this function introduces two new syntax
+         * characters:
+         *
+         *  <li> A '*' after an operator signifies a list: For example, "&a<*hrbk"
+         *  means "&a<h<r<b<k".
+         *
+         *  <li> A '-' indicates a range of consecutive (codepointwise) characters.
+         *  For example, "&a<*dh-ls" means "&a<*dhijkls" or "&a<d<h<i<j<k<l<s".
+         *
+         * This is done in such a way that the resulting string is not longer than
+         * the original string.
+         */
     private StringBuilder getExpandedRules(String data, String name) {
         UCharacterIterator iter = UCharacterIterator.getInstance(data);
         StringBuilder ret = new StringBuilder();

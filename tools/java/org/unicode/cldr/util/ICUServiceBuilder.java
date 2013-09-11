@@ -31,7 +31,7 @@ public class ICUServiceBuilder {
     private CLDRFile cldrFile;
     private CLDRFile collationFile;
     private static Map<CLDRLocale, ICUServiceBuilder> ISBMap = new HashMap<CLDRLocale, ICUServiceBuilder>();
-    
+
     private static TimeZone utc = TimeZone.getTimeZone("GMT");
     private static DateFormat iso = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", ULocale.ENGLISH);
     static {
@@ -146,7 +146,7 @@ public class ICUServiceBuilder {
     public RuleBasedCollator getRuleBasedCollator() throws Exception {
         return getRuleBasedCollator("default");
     }
-           
+
     public SimpleDateFormat getDateFormat(String calendar, int dateIndex, int timeIndex) {
         return getDateFormat(calendar, dateIndex, timeIndex, null);
     }
@@ -515,6 +515,7 @@ public class ICUServiceBuilder {
         // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(currency, CURRENCY, currencySymbol, null);
     }
+
     public DecimalFormat getCurrencyFormat(String currency, String currencySymbol, String numberSystem) {
         // CLDRFile cldrFile = cldrFactory.make(localeID, true);
         return _getNumberFormat(currency, CURRENCY, currencySymbol, numberSystem);

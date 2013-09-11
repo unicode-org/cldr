@@ -94,7 +94,7 @@ public class IcuDataSplitter {
             List<String[]> values = entry.getValue();
             boolean wasSplit = false;
             // Paths that should be copied to all directories.
-            if (rbPath.equals(VERSION_PATH)||rbPath.equals(PARENT_PATH)) {
+            if (rbPath.equals(VERSION_PATH) || rbPath.equals(PARENT_PATH)) {
                 for (String dir : dirs) {
                     splitData.get(dir).addAll(rbPath, values);
                 }

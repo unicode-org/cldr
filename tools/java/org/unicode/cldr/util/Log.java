@@ -53,7 +53,7 @@ public class Log {
     }
 
     /**
-	 */
+     */
     public static void close() {
         if (log != null) log.close();
     }

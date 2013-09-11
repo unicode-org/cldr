@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public final class StringId {
     private static final Map<String, Long> STRING_TO_ID = new ConcurrentHashMap<String, Long>();
-    private static final Map<Long, String> ID_TO_STRING = new ConcurrentHashMap<Long,String>();
+    private static final Map<Long, String> ID_TO_STRING = new ConcurrentHashMap<Long, String>();
     private static final MessageDigest digest;
     private static final Charset UTF_8 = Charset.forName("UTF-8");
     private static final int RETRY_LIMIT = 9;
@@ -54,7 +54,7 @@ public final class StringId {
                     result &= 0x7FFFFFFFFFFFFFFFL;
                     STRING_TO_ID.put(string, result);
                     ID_TO_STRING.put(result, string);
-                    return result;  
+                    return result;
                 }
             } catch (RuntimeException e) {
                 if (--retryCount < 0) {
@@ -63,6 +63,7 @@ public final class StringId {
             }
         }
     }
+
     /**
      * Get the hex ID for a string.
      * 
@@ -73,7 +74,7 @@ public final class StringId {
     public static String getHexId(CharSequence string) {
         return Long.toHexString(getId(string));
     }
-    
+
     /**
      * Get the hex ID for a string.
      * 
@@ -84,7 +85,6 @@ public final class StringId {
     public static String getStringFromHexId(String string) {
         return getStringFromId(Long.parseLong(string, 16));
     }
-    
 
     /**
      * Returns string previously used to generate the longValue with getId.

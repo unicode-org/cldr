@@ -147,14 +147,14 @@ public class SimpleXMLSource extends XMLSource {
 
     static final Normalizer2 NFKCCF = Normalizer2.getNFKCCasefoldInstance();
     static final Normalizer2 NFKC = Normalizer2.getNFKCInstance();
-    
+
     // The following includes letters, marks, numbers, currencies, and *selected* symbols/punctuation
     static final UnicodeSet NON_ALPHANUM = new UnicodeSet("[^[:L:][:M:][:N:][:Sc:]/+\\-°′″−]").freeze();
 
     public static String normalize(String valueToMatch) {
         return replace(NON_ALPHANUM, NFKCCF.normalize(valueToMatch), "");
     }
-    
+
     public static String normalizeCaseSensitive(String valueToMatch) {
         return replace(NON_ALPHANUM, NFKC.normalize(valueToMatch), "");
     }
@@ -187,7 +187,7 @@ public class SimpleXMLSource extends XMLSource {
         }
         return valueToMatch;
     }
-    
+
     static final Pattern PLACEHOLDER = Pattern.compile("\\{\\d\\}");
 
     public void setDtdVersionInfo(VersionInfo dtdVersionInfo) {

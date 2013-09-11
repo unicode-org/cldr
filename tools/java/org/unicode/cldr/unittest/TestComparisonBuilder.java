@@ -67,7 +67,7 @@ public class TestComparisonBuilder extends TestFmwk {
             errln(e.getMessage() + ",\t" + builder.getCycle());
             throw e;
         }
-        
+
         logln("Attribute Ordering:\t" + comp.getOrdering().toString());
         for (DtdType dtd : DtdType.values()) {
             // check that the ordering is right

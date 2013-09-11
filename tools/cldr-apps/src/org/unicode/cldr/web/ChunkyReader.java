@@ -252,7 +252,7 @@ public class ChunkyReader implements Runnable {
                         lastField = splits[0];
                     } else {
                         throw new IllegalArgumentException("Can't read " + fileName.getAbsolutePath() + ":" + lineno
-                                + " - bad field string " + line);
+                            + " - bad field string " + line);
                     }
                     line = line.substring(lastField.length());
                     if (line.startsWith(" ")) {
@@ -296,8 +296,8 @@ public class ChunkyReader implements Runnable {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         } finally {
-            if(br!=null) br.close();
-            if(file!=null) file.close();
+            if (br != null) br.close();
+            if (file != null) file.close();
         }
         for (Entry e : cache.values()) {
             if (e.getTime() < value) {

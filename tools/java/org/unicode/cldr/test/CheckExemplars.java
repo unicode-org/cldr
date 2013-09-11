@@ -200,7 +200,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
                 }
                 UnicodeSet mainAndAuxAllCase = new UnicodeSet(mainSet).addAll(auxiliarySet).closeOver(UnicodeSet.ADD_CASE_MAPPINGS);
                 UnicodeSet indexBadChars = new UnicodeSet(value).removeAll(mainAndAuxAllCase);
-                
+
                 if (!indexBadChars.isEmpty()) {
                     CheckStatus message = new CheckStatus().setCause(this)
                         .setMainType(CheckStatus.warningType)

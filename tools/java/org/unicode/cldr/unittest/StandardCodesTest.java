@@ -24,7 +24,7 @@ public class StandardCodesTest extends TestFmwk {
     public void TestCoverage() {
         EnumSet<Organization> missing = EnumSet.noneOf(Organization.class);
         Set<String> extraOrgs = new TreeSet<String>();
-        for (String org : sc.getLocaleCoverageOrganizations()  ){
+        for (String org : sc.getLocaleCoverageOrganizations()) {
             extraOrgs.add(org.toLowerCase());
         }
         for (Organization org : Organization.values()) {
@@ -68,11 +68,11 @@ public class StandardCodesTest extends TestFmwk {
             // logln(org + " : " + locs.toString());
         }
     }
-    
+
     public void TestAllEnums() {
-        for(String type : sc.getAvailableTypes()) {
-            for(String code : sc.getAvailableCodes(type)) {
-                sc.getFullData(type,code);
+        for (String type : sc.getAvailableTypes()) {
+            for (String code : sc.getAvailableCodes(type)) {
+                sc.getFullData(type, code);
             }
         }
     }

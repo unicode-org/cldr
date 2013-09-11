@@ -168,35 +168,35 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
 
     public JSONObject toJSON(CLDRLocale forLoc) throws JSONException {
         JSONArray sectionsJ = new JSONArray();
-        
-        for(Section s : sections) {
-            JSONObject sectionJ  = new JSONObject()
+
+        for (Section s : sections) {
+            JSONObject sectionJ = new JSONObject()
                 .put("id", s.getSection().name())
                 .put("name", s.getSection().toString())
                 .put("status", s.getStatus());
-            
+
             JSONArray pagesJ = new JSONArray();
-            
-            for(Page p : s) {
+
+            for (Page p : s) {
                 JSONObject pageJ = new JSONObject()
                     .put("id", p.getKey().name())
                     .put("name", p.getKey().toString());
-                if(forLoc!=null) {
+                if (forLoc != null) {
                     pageJ.put("levs", new JSONObject().put(forLoc.getBaseName(),
-                            Integer.toString(p.getCoverageLevel(forLoc))));
+                        Integer.toString(p.getCoverageLevel(forLoc))));
                 }
                 pagesJ.put(pageJ);
             }
-            
+
             sectionJ.put("pages", pagesJ);
-            
+
             sectionsJ.put(sectionJ);
         }
-        
+
         JSONObject ret = new JSONObject()
             .put("sections", sectionsJ)
             .put("levels", levelsJSON());
-        if(forLoc!=null) {
+        if (forLoc != null) {
             ret.put("loc", forLoc.getBaseName());
         }
         return ret;
@@ -214,6 +214,5 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
         }
         return levels;
     }
-    
-    
+
 }

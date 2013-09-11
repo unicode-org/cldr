@@ -96,7 +96,7 @@ public class IcuData implements Iterable<String> {
     public String getFileComment() {
         return comment;
     }
-    
+
     /**
      * The RB path,value pair actually has an array as the value. So when we
      * add to it, add to a list.

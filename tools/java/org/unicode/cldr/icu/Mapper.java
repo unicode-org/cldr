@@ -33,7 +33,7 @@ public abstract class Mapper {
         private Iterator<String> localeIterator = getAvailable().iterator();
         private IcuData[] curArray;
         private int curIndex = -1;
-        
+
         private IcuDataIterator(Filter filter) {
             this.filter = filter;
         }
@@ -74,7 +74,7 @@ public abstract class Mapper {
                             return;
                         }
                         locale = localeIterator.next();
-                    } while(!filter.includes(locale));
+                    } while (!filter.includes(locale));
                     curArray = fillFromCldr(locale);
                     curIndex = 0;
                 }

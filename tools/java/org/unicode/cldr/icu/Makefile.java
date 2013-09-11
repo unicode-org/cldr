@@ -60,16 +60,16 @@ class Makefile {
         Collections.sort(entry.values, valueComparator);
         return entry;
     }
-    
+
     public void addSyntheticAlias(Collection<String> aliases) {
         addEntry(prefix + "_SYNTHETIC_ALIAS",
-                "Aliases without a corresponding xx.xml file (see icu-config.xml & build.xml)",
-                aliases);
+            "Aliases without a corresponding xx.xml file (see icu-config.xml & build.xml)",
+            aliases);
     }
 
     public void addAliasSource() {
         MakefileEntry entry = addEntry(prefix + "_ALIAS_SOURCE",
-                "All aliases (to not be included under 'installed'), but not including root.");
+            "All aliases (to not be included under 'installed'), but not including root.");
         entry.values.add("$(" + prefix + "_SYNTHETIC_ALIAS)");
     }
 
@@ -80,13 +80,13 @@ class Makefile {
     public void print(String outputDir, String filename) throws IOException {
         PrintWriter out = BagFormatter.openUTF8Writer(outputDir, filename);
         String[] params = {
-                "%year%", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)),
-                "%prefix%", prefix,
-                "%local%", filename.replace("files.mk", "local.mk"),
-                "%version%", CLDRFile.GEN_VERSION
-                };
+            "%year%", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)),
+            "%prefix%", prefix,
+            "%local%", filename.replace("files.mk", "local.mk"),
+            "%version%", CLDRFile.GEN_VERSION
+        };
         FileUtilities.appendFile(NewLdml2IcuConverter.class, "makefile_header.txt",
-                Charset.forName("UTF-8"), params, out);
+            Charset.forName("UTF-8"), params, out);
 
         for (MakefileEntry entry : entries) {
             out.println();

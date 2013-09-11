@@ -65,20 +65,20 @@ public class SearchXml {
     private static PathHeader.Factory PATH_HEADER_FACTORY = null;
 
     final static Options myOptions = new Options()
-    .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
-    .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
-    .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
-    .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
-    .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
-    .add("count", null, null, "only count items")
-    .add("kount", null, null, "count regex group matches in pattern")
-    .add("other", ".+", null, "compare against other directory")
-    .add("unique", null, null, "only unique lines")
-    .add("groups", null, null, "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
-    .add("Verbose", null, null, "verbose output")
-    .add("recursive", null, null, "recurse directories")
-    .add("Star", null, null, "get statistics on starred paths")
-    .add("PathHeader", null, null, "show path header and string ID");
+        .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
+        .add("file", ".*", null, "regex to filter files. ! in front selects items that don't match.")
+        .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
+        .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")
+        .add("level", ".*", null, "regex to filter levels. ! in front selects items that don't match")
+        .add("count", null, null, "only count items")
+        .add("kount", null, null, "count regex group matches in pattern")
+        .add("other", ".+", null, "compare against other directory")
+        .add("unique", null, null, "only unique lines")
+        .add("groups", null, null, "only retain capturing groups in path/value, eg in -p @modifiers=\\\"([^\\\"]*+)\\\", output the part in (...)")
+        .add("Verbose", null, null, "verbose output")
+        .add("recursive", null, null, "recurse directories")
+        .add("Star", null, null, "get statistics on starred paths")
+        .add("PathHeader", null, null, "show path header and string ID");
 
     public static void main(String[] args) throws IOException {
         double startTime = System.currentTimeMillis();
@@ -192,11 +192,11 @@ public class SearchXml {
     private static void processDirectory(File src) throws IOException {
         if (comparisonDirectory != null) {
             System.out.println("Locale" +
-                    "\tFile" +
-                    "\tBase" +
-                    DiffInfo.DiffInfoHeader +
-                    "\n#\tValue\tOtherValue\tPath"
-                    );
+                "\tFile" +
+                "\tBase" +
+                DiffInfo.DiffInfoHeader +
+                "\n#\tValue\tOtherValue\tPath"
+                );
         }
         for (File file : src.listFiles()) {
             if (recursive && file.isDirectory()) {
@@ -253,7 +253,7 @@ public class SearchXml {
         try {
             String fileName2 = directory.getCanonicalPath() + "/" + fileName;
             xfr.read(fileName2, XMLFileReader.CONTENT_HANDLER
-                    | XMLFileReader.ERROR_HANDLER, false);
+                | XMLFileReader.ERROR_HANDLER, false);
         } catch (Exception e) {
             StringWriter stringWriter = new StringWriter();
             PrintWriter arg0 = new PrintWriter(stringWriter);
@@ -266,7 +266,7 @@ public class SearchXml {
 
     static class ListHandler extends XMLFileReader.SimpleHandler {
         public Relation<String, String> data = Relation.of(new LinkedHashMap<String, Set<String>>(),
-                LinkedHashSet.class);
+            LinkedHashSet.class);
 
         public void handlePathValue(String path, String value) {
             data.put(path, value);
@@ -279,10 +279,10 @@ public class SearchXml {
 
     static class DiffInfo {
         static final String DiffInfoHeader =
-                "\tSame" +
-                        "\tDeletions" +
-                        "\tAdditions" +
-                        "\tChanges";
+            "\tSame" +
+                "\tDeletions" +
+                "\tAdditions" +
+                "\tChanges";
 
         int additionCount = 0;
         int deletionCount = 0;
@@ -291,18 +291,17 @@ public class SearchXml {
 
         public void showValues(String title) {
             System.out.println(title +
-                    "\t" + sameCount +
-                    "\t" + deletionCount +
-                    "\t" + additionCount +
-                    "\t" + (changed2Values / 2)
-                    );
+                "\t" + sameCount +
+                "\t" + deletionCount +
+                "\t" + additionCount +
+                "\t" + (changed2Values / 2)
+                );
             DIFF_INFO.additionCount += additionCount;
             DIFF_INFO.deletionCount += deletionCount;
             DIFF_INFO.changed2Values += changed2Values;
             DIFF_INFO.sameCount += sameCount;
         }
     }
-
 
     /**
      * @author markdavis
@@ -311,11 +310,11 @@ public class SearchXml {
      * 
      */
     private static void checkFiles(
-            String filePath, 
-            String fileName, 
-            String coreName, 
-            Relation<String, String> source,
-            Relation<String, String> other) {
+        String filePath,
+        String fileName,
+        String coreName,
+        Relation<String, String> source,
+        Relation<String, String> other) {
         CoverageLevel2 level = null;
         String firstMessage;
         String file;
@@ -415,25 +414,25 @@ public class SearchXml {
                     }
                     if (!countOnly) {
                         String data = groups
-                                ? group(value, valueMatcher) + "\t" + group(path, pathMatcher)
-                                        : value + "\t" + path;
-                                if (!unique) {
-                                    String pathHeaderInfo = "";
-                                    if (PATH_HEADER_FACTORY != null) { 
-                                        PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
-                                        if (pathHeader != null) {
-                                            pathHeaderInfo = "\n\t" + pathHeader 
-                                                    + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, coreName);
-                                        }
-                                    }
-                   // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
-                                    System.out.println(
-                                            (recursive ? filePath + "\t" : "")
-                                            + file + "\t" + data
-                                            + pathHeaderInfo);
-                                } else {
-                                    uniqueData.add(data, 1);
+                            ? group(value, valueMatcher) + "\t" + group(path, pathMatcher)
+                            : value + "\t" + path;
+                        if (!unique) {
+                            String pathHeaderInfo = "";
+                            if (PATH_HEADER_FACTORY != null) {
+                                PathHeader pathHeader = PATH_HEADER_FACTORY.fromPath(path);
+                                if (pathHeader != null) {
+                                    pathHeaderInfo = "\n\t" + pathHeader
+                                        + "\n\t" + pathHeader.getUrl(BaseUrl.PRODUCTION, coreName);
                                 }
+                            }
+                            // http://st.unicode.org/cldr-apps/v#/en/Fields/59d8178ec2fe04ae
+                            System.out.println(
+                                (recursive ? filePath + "\t" : "")
+                                    + file + "\t" + data
+                                    + pathHeaderInfo);
+                        } else {
+                            uniqueData.add(data, 1);
+                        }
                     }
                 }
             }
@@ -442,8 +441,8 @@ public class SearchXml {
             ULocale locale = new ULocale(fileName.substring(0, fileName.length() - 4));
             String localeName = locale.getDisplayName(ULocale.ENGLISH);
             String title = localeName +
-                    "\t" + fileName +
-                    "\t" + getType(locale);
+                "\t" + fileName +
+                "\t" + getType(locale);
             diffInfo.showValues(title);
         }
     }

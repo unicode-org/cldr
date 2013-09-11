@@ -475,8 +475,8 @@ public class TestCldr extends TestFmwk {
             }
 
             /**
-       * 
-       */
+            * 
+            */
             private SimpleDateFormat getDateFormat(ULocale locale, int dateFormat,
                 int timeFormat) {
                 if (DEBUG)

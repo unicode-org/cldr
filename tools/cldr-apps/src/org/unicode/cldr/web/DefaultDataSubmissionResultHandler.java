@@ -27,13 +27,13 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
     @Override
     public void handleResultCount(int j) {
         ctx.println("<br> You submitted data or vote changes, and " + j
-                + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
+            + " results were updated. As a result, your items may show up under the 'priority' or 'proposed' categories.<br>");
     }
 
     @Override
     public void handleRemoveItem(DataRow p, CandidateItem item, boolean removingVote) {
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>:  Removing alternate \"" + item.value + "\" ("
-                + item.altProposed + ")<br>");
+            + item.altProposed + ")<br>");
         if (removingVote) {
             ctx.println(" <i>Also, removing your vote for it</i><br>");
         }
@@ -43,14 +43,14 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
     public void handleNoPermission(DataRow p, CandidateItem item, String what) {
         handleHadError(p);
         ctx.println(" <p class='ferrbox'>Warning: You don't have permission to " + what + " this item: " + "<tt class='codebox'>"
-                + p.getDisplayName() + "</tt>" + ".</p>");
+            + p.getDisplayName() + "</tt>" + ".</p>");
     }
 
     @Override
     public void handleRemoveVote(DataRow p, UserRegistry.User voter, CandidateItem item) {
         ctx.print("<tt title='#" + p.getXpathId() + "' class='codebox'>" + p.getDisplayName()
-                + "</tt>:  Removing vote for <span title='#" + p.getXpathId() + "'>" + "\"" + item.value + "\" ("
-                + item.altProposed + ")</span> by " + voter.toHtml(ctx.session.user) + "<br>");
+            + "</tt>:  Removing vote for <span title='#" + p.getXpathId() + "'>" + "\"" + item.value + "\" ("
+            + item.altProposed + ")</span> by " + voter.toHtml(ctx.session.user) + "<br>");
     }
 
     @Override
@@ -63,16 +63,16 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
     public void warnAcceptedAsVoteFor(DataRow p, CandidateItem item) {
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
         ctx.println(ctx.iconHtml("warn", "duplicate")
-                + " This value was already entered, accepting your vote for "
-                + ((item.altProposed == null) ? " the current item. <br>"
-                        : (" the proposal <tt>" + item.altProposed + "</tt>.<br>")));
+            + " This value was already entered, accepting your vote for "
+            + ((item.altProposed == null) ? " the current item. <br>"
+                : (" the proposal <tt>" + item.altProposed + "</tt>.<br>")));
     }
 
     public void warnAlreadyVotingFor(DataRow p, CandidateItem item) {
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
         ctx.println(ctx.iconHtml("warn", "duplicate") + " Your current vote is already for "
-                + ((item.altProposed == null) ? " the current item " : (" the proposal <tt>" + item.altProposed + "</tt> "))
-                + " which has the same value.<br>");
+            + ((item.altProposed == null) ? " the current item " : (" the proposal <tt>" + item.altProposed + "</tt> "))
+            + " which has the same value.<br>");
     }
 
     @Override
@@ -112,11 +112,11 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
         if (newVote == null) {
             ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
             ctx.println("<!-- Registering vote for " + p.getXpath() + " - " + p.getLocale() + ":-1 replacing " + oldVote + " -->"
-                    + ctx.iconHtml("okay", "voted") + " Removing vote. <br>");
+                + ctx.iconHtml("okay", "voted") + " Removing vote. <br>");
         } else {
             ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
             ctx.println("<!-- Registering vote for " + p.getXpath() + " - " + p.getLocale() + ":" + newVote + " replacing "
-                    + oldVote + " --> " + ctx.iconHtml("okay", "voted") + " Vote accepted. <br>");
+                + oldVote + " --> " + ctx.iconHtml("okay", "voted") + " Vote accepted. <br>");
         }
     }
 
@@ -125,7 +125,7 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
         handleHadError(p);
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
         ctx.println(ctx.iconHtml("stop", "unknown") + "<tt title='" + p.getLocale() + ":" + p.getXpath() + "' class='codebox'>"
-                + p.getDisplayName() + "</tt> Note: <i>" + choice + "</i> not supported yet or item not found. <br>");
+            + p.getDisplayName() + "</tt> Note: <i>" + choice + "</i> not supported yet or item not found. <br>");
     }
 
     @Override

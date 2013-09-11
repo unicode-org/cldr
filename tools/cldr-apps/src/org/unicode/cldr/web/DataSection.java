@@ -214,9 +214,9 @@ public class DataSection implements JSONString {
              *            TODO
              */
             void printCell(WebContext ctx, String ourVote, boolean canModify, String ourAlign, UserLocaleStuff uf,
-                    boolean zoomedIn, List<CandidateItem> numberedItemsList, ExampleContext exampleContext) {
+                boolean zoomedIn, List<CandidateItem> numberedItemsList, ExampleContext exampleContext) {
                 printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext,
-                        EnumSet.allOf(EPrintCellSet.class));
+                    EnumSet.allOf(EPrintCellSet.class));
             }
 
             /**
@@ -245,8 +245,8 @@ public class DataSection implements JSONString {
              *            TODO
              */
             void printCell(WebContext ctx, String ourVote, boolean canModify, String ourAlign, UserLocaleStuff uf,
-                    boolean zoomedIn, List<CandidateItem> numberedItemsList, ExampleContext exampleContext,
-                    EnumSet<EPrintCellSet> options) {
+                boolean zoomedIn, List<CandidateItem> numberedItemsList, ExampleContext exampleContext,
+                EnumSet<EPrintCellSet> options) {
                 String fieldHash = fieldHash();
                 // ##6.1 proposed - print the TOP item
                 int colspan = 1;
@@ -254,7 +254,7 @@ public class DataSection implements JSONString {
 
                 if (options.contains(EPrintCellSet.doShowValue)) {
                     ctx.print("<td  colspan='" + colspan + "' class='propcolumn' align='" + ourAlign + "' dir='"
-                            + ctx.getDirectionForLocale() + "' valign='top'>");
+                        + ctx.getDirectionForLocale() + "' valign='top'>");
                     if (value != null) {
                         String pClass = getPClass(ctx);
 
@@ -262,10 +262,10 @@ public class DataSection implements JSONString {
                             // voting due to errors?
                             if (ctx.getCanModify()) {
                                 ctx.print("<button class='ichoice' title='#" + "x" + "' name='" + fieldHash + "'  value='"
-                                        + getValueHash() + "' " + " onclick=\"do_change('" + fullFieldHash() + "','','"
-                                        + getValueHash() + "'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
-                                        + "')\"" + "  type='button'>"
-                                        + ctx.iconHtml(checkThis(ourVote) ? "radx" : "rado", "Vote") + "</button>");
+                                    + getValueHash() + "' " + " onclick=\"do_change('" + fullFieldHash() + "','','"
+                                    + getValueHash() + "'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
+                                    + "')\"" + "  type='button'>"
+                                    + ctx.iconHtml(checkThis(ourVote) ? "radx" : "rado", "Vote") + "</button>");
                             } // else, can't vote- no radio buttons.
                         }
 
@@ -335,17 +335,17 @@ public class DataSection implements JSONString {
                             // }
                         }
                         if (UserRegistry.userIsTC(ctx.session.user) && ctx.prefBool(SurveyMain.PREF_SHOWUNVOTE)
-                                && votesByMyOrg(ctx.session.user)) {
+                            && votesByMyOrg(ctx.session.user)) {
                             ctx.println(" <label nowrap class='unvotebox' style='padding: 4px;'>"
-                                    + "<input type='checkbox' title='#" + xpathId + "' value='" + altProposed + "' name='"
-                                    + fieldHash + SurveyMain.ACTION_UNVOTE + "'>" + "Unvote&nbsp;item</label>");
+                                + "<input type='checkbox' title='#" + xpathId + "' value='" + altProposed + "' name='"
+                                + fieldHash + SurveyMain.ACTION_UNVOTE + "'>" + "Unvote&nbsp;item</label>");
                         }
                         if (zoomedIn) {
                             if (processed != null && /*
                                                       * direction.equals("rtl")&&
                                                       */SurveyMain.CallOut.containsSome(processed)) {
                                 String altProcessed = processed.replaceAll("\u200F", "\u200F<b dir=rtl>RLM</b>\u200F")
-                                        .replaceAll("\u200E", "\u200E<b>LRM</b>\u200E");
+                                    .replaceAll("\u200E", "\u200E<b>LRM</b>\u200E");
                                 ctx.print("<br><span class=marks>" + altProcessed + "</span>");
                             }
                         }
@@ -373,10 +373,10 @@ public class DataSection implements JSONString {
                 // ##6.2 example column. always present
                 if (options.contains(EPrintCellSet.doShowExample) && hasExamples) {
                     itemExample = uf.getExampleGenerator().getExampleHtml(xpath, value,
-                            exampleContext, ExampleType.NATIVE);
+                        exampleContext, ExampleType.NATIVE);
                     if (itemExample != null) {
                         ctx.print("<td class='generatedexample' valign='top' align='" + ourAlign + "' dir='"
-                                + ctx.getDirectionForLocale() + "' >");
+                            + ctx.getDirectionForLocale() + "' >");
                         ctx.print(itemExample.replaceAll("\\\\", "\u200b\\\\")); // \u200bu
                         ctx.println("</td>");
                     } else {
@@ -419,8 +419,8 @@ public class DataSection implements JSONString {
                         pClass = "class='fallback_root' title='Fallback from Root'";
                     } else {
                         pClass = "class='fallback' title='Translated in "
-                                + ((inheritFrom == null) ? "(unknown)" : CLDRLocale.getDefaultFormatter().getDisplayName(
-                                        inheritFrom)) + " and inherited here.'";
+                            + ((inheritFrom == null) ? "(unknown)" : CLDRLocale.getDefaultFormatter().getDisplayName(
+                                inheritFrom)) + " and inherited here.'";
                     }
                 } else if (altProposed != null) {
                     pClass = "class='loser' title='proposed, losing item'";
@@ -502,7 +502,7 @@ public class DataSection implements JSONString {
                         // isn't in exemplars).. they'll show up in missing
                         if (DEBUG)
                             System.err.println("err: " + status.getMessage() + ", test: " + status.getClass() + ", cause: "
-                                    + status.getCause() + " on " + xpath);
+                                + status.getCause() + " on " + xpath);
                         weHaveTests = true;
                         if (status.getType().equals(CheckStatus.errorType)) {
                             errorCount++;
@@ -542,8 +542,8 @@ public class DataSection implements JSONString {
             @Override
             public String toString() {
                 return "{Item v='" + value + "', altProposed='" + altProposed + "', inheritFrom='" + inheritFrom + "'"
-                        + (isWinner() ? ",winner" : "") + (isFallback ? ",isFallback" : "")
-                        + (isParentFallback ? ",isParentFallback" : "") + "}";
+                    + (isWinner() ? ",winner" : "") + (isFallback ? ",isFallback" : "")
+                    + (isParentFallback ? ",isParentFallback" : "") + "}";
             }
 
             /**
@@ -568,17 +568,17 @@ public class DataSection implements JSONString {
                 // we may wish to use them in the future.  We don't pass them along in order to save resources.
                 // JCE: 2013-05-29
                 JSONObject j = new JSONObject()
-                        .put("valueHash", getValueHash())
-                        .put("rawValue", value)
-                        .put("value", getProcessedValue())
-                        .put("example", getExample())
-                        .put("isOldValue", isOldValue)
-                        .put("isBailey", isBailey)
-//                        .put("inheritFrom", inheritFrom)
-//                        .put("inheritFromDisplay", ((inheritFrom != null) ? inheritFrom.getDisplayName() : null))
-//                        .put("isFallback", isFallback)
-                        .put("pClass", getPClass())
-                        .put("tests", SurveyAjax.JSONWriter.wrap(this.tests));
+                    .put("valueHash", getValueHash())
+                    .put("rawValue", value)
+                    .put("value", getProcessedValue())
+                    .put("example", getExample())
+                    .put("isOldValue", isOldValue)
+                    .put("isBailey", isBailey)
+                    //                        .put("inheritFrom", inheritFrom)
+                    //                        .put("inheritFromDisplay", ((inheritFrom != null) ? inheritFrom.getDisplayName() : null))
+                    //                        .put("isFallback", isFallback)
+                    .put("pClass", getPClass())
+                    .put("tests", SurveyAjax.JSONWriter.wrap(this.tests));
                 Set<User> theVotes = getVotes();
                 if (theVotes != null && !theVotes.isEmpty()) {
                     JSONObject voteList = new JSONObject();
@@ -729,8 +729,8 @@ public class DataSection implements JSONString {
         public CandidateItem addItem(String value) {
             final String kValue = (value == null) ? "" : value;
             CandidateItem pi = items.get(kValue);
-//            if (DEBUG)
-//                System.err.println("Adding VItem value=" + kValue + " ret=" + pi + ", of " + items.size());
+            //            if (DEBUG)
+            //                System.err.println("Adding VItem value=" + kValue + " ret=" + pi + ", of " + items.size());
             if (pi != null)
                 return pi;
             pi = new CandidateItem(value);
@@ -1020,8 +1020,8 @@ public class DataSection implements JSONString {
             if (winningValue == null)
                 return null;
             CandidateItem ci = items.get(winningValue);
-//            if (DEBUG)
-//                System.err.println("WV = '" + winningValue + "' and return is " + ci);
+            //            if (DEBUG)
+            //                System.err.println("WV = '" + winningValue + "' and return is " + ci);
             return ci;
         }
 
@@ -1055,7 +1055,7 @@ public class DataSection implements JSONString {
         void printEmptyCells(WebContext ctx, String ourAlign, boolean zoomedIn) {
             int colspan = zoomedIn ? 1 : 1;
             ctx.print("<td  colspan='" + colspan + "' class='propcolumn' align='" + ourAlign + "' dir='"
-                    + ctx.getDirectionForLocale() + "' valign='top'>");
+                + ctx.getDirectionForLocale() + "' valign='top'>");
             ctx.println("</td>");
             if (zoomedIn) {
                 ctx.println("<td></td>"); // no tests, no references
@@ -1079,7 +1079,7 @@ public class DataSection implements JSONString {
             if (!zoomedIn) {
                 if (specialUrl != null) {
                     sb.append("<a class='notselected' " + ctx.atarget() + " href='" + specialUrl + "'>" + typeShown + disputeIcon
-                            + "</a>");
+                        + "</a>");
                 } else {
                     sb.append(sm.fora.getForumLink(ctx, this, parentRow.getXpathId(), typeShown + disputeIcon));
                 }
@@ -1152,7 +1152,7 @@ public class DataSection implements JSONString {
          *      BallotBox, DataSubmissionResultHandler)
          */
         public void showDataRow(WebContext ctx, UserLocaleStuff uf, boolean canModify, CheckCLDR checkCldr, boolean zoomedIn,
-                EnumSet<EShowDataRowSet> options) {
+            EnumSet<EShowDataRowSet> options) {
             String ourAlign = ctx.getAlign();
             boolean canSubmit = UserRegistry.userCanSubmitAnyLocale(ctx.session.user) || (canModify);
             boolean isAlias = (xpath.indexOf("/alias") != -1);
@@ -1192,7 +1192,7 @@ public class DataSection implements JSONString {
             if (topCurrent != null) {
                 ctx.print("<!-- topCurrent = " + topCurrent + " -->");
                 topCurrent.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext,
-                        EnumSet.allOf(EPrintCellSet.class));
+                    EnumSet.allOf(EPrintCellSet.class));
             } else {
                 ctx.print("<!-- topCurrent==null -->");
                 printEmptyCells(ctx, ourAlign, zoomedIn);
@@ -1210,7 +1210,7 @@ public class DataSection implements JSONString {
                     }
                     ctx.print("<tr>");
                     item.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext,
-                            kValueCells);
+                        kValueCells);
                     ctx.print("</tr>");
                 }
                 ctx.print("</table></td>");
@@ -1222,7 +1222,7 @@ public class DataSection implements JSONString {
                         }
                         ctx.print("<tr>");
                         item.printCell(ctx, ourVote, canModify, ourAlign, uf, zoomedIn, numberedItemsList, exampleContext,
-                                kExampleCells);
+                            kExampleCells);
                         ctx.print("</tr>");
                     }
                     ctx.print("</table></td>");
@@ -1233,21 +1233,21 @@ public class DataSection implements JSONString {
 
             boolean areShowingInputBox = (canSubmit && !isAlias && canModify && !confirmOnly && (zoomedIn || !zoomOnly));
             boolean areShowingInputColumn = canModify
-                    && (SurveyMain.isPhaseSubmit() == true)
-                    || UserRegistry.userIsTC(ctx.session.user)
-                    || (UserRegistry.userIsVetter(ctx.session.user) && ctx.session.user.userIsSpecialForCLDR15(locale))
-                    || ((SurveyMain.isPhaseVetting() || SurveyMain.isPhaseVettingClosed()) && (hasErrors || hasProps
-                            || hasWarnings || (false)));
+                && (SurveyMain.isPhaseSubmit() == true)
+                || UserRegistry.userIsTC(ctx.session.user)
+                || (UserRegistry.userIsVetter(ctx.session.user) && ctx.session.user.userIsSpecialForCLDR15(locale))
+                || ((SurveyMain.isPhaseVetting() || SurveyMain.isPhaseVettingClosed()) && (hasErrors || hasProps
+                    || hasWarnings || (false)));
 
             // submit box
             if (areShowingInputColumn) {
                 String changetoBox = "<td id='i_" + fullFieldHash() + "' width='1%' class='noborder' rowspan='" + rowSpan
-                        + "' valign='top'>";
+                    + "' valign='top'>";
                 // ##7 Change
                 if (canModify && canSubmit && (zoomedIn || !zoomOnly)) {
                     changetoBox = changetoBox + "<button id='submit_" + fullFieldHash() + "' class='isubmit' onclick=\"isubmit('"
-                            + fullFieldHash() + "'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
-                            + "')\" type='button'   >" + ctx.iconHtml("rado", "submit this value") + "</button>";
+                        + fullFieldHash() + "'," + getXpathId() + ",'" + getLocale() + "', '" + ctx.session
+                        + "')\" type='button'   >" + ctx.iconHtml("rado", "submit this value") + "</button>";
                 }
 
                 changetoBox = changetoBox + ("</td>");
@@ -1283,13 +1283,13 @@ public class DataSection implements JSONString {
                     } else {
                         // regular change box (text)
                         ctx.print("<input  id='ch_" + fullFieldHash() + "' dir='" + ctx.getDirectionForLocale()
-                                + "' onfocus=\"icancel('" + fullFieldHash() + "')\" name='" + fieldHash + "_v' "
-                                + " onblur=\"do_change('" + fullFieldHash() + "',this.value,''," + getXpathId() + ",'"
-                                + getLocale() + "', '" + ctx.session + "','verify')\"" + " value='" + oldValue + "' class='"
-                                + fClass + "'>");
+                            + "' onfocus=\"icancel('" + fullFieldHash() + "')\" name='" + fieldHash + "_v' "
+                            + " onblur=\"do_change('" + fullFieldHash() + "',this.value,''," + getXpathId() + ",'"
+                            + getLocale() + "', '" + ctx.session + "','verify')\"" + " value='" + oldValue + "' class='"
+                            + fClass + "'>");
                         ctx.print("<button onclick=\"icancel('" + fullFieldHash() + "'," + getXpathId() + ",'" + getLocale()
-                                + "', '" + ctx.session + "')\" type='button' class='icancel'  id='cancel_" + fullFieldHash()
-                                + "' >Cancel</button> ");
+                            + "', '" + ctx.session + "')\" type='button' class='icancel'  id='cancel_" + fullFieldHash()
+                            + "' >Cancel</button> ");
                     }
                     // references
                     if (badInputBox) {
@@ -1350,9 +1350,9 @@ public class DataSection implements JSONString {
             if (canModify) {
                 ctx.print("<td width='20' rowspan='" + rowSpan + "'>");
                 ctx.print("<button class='ichoice' name='" + fieldHash + "' value='" + SurveyMain.DONTCARE + "' type='button' "
-                        + " onclick=\"do_change('" + fullFieldHash() + "','','null'," + getXpathId() + ",'" + getLocale()
-                        + "', '" + ctx.session + "')\"" + ">" + ctx.iconHtml((ourVote == null) ? "radx" : "rado", "No Opinion")
-                        + "</button>");
+                    + " onclick=\"do_change('" + fullFieldHash() + "','','null'," + getXpathId() + ",'" + getLocale()
+                    + "', '" + ctx.session + "')\"" + ">" + ctx.iconHtml((ourVote == null) ? "radx" : "rado", "No Opinion")
+                    + "</button>");
                 ctx.print("</td>");
             }
 
@@ -1370,7 +1370,7 @@ public class DataSection implements JSONString {
                 // REFERENCE row
                 if (areShowingInputBox) {
                     ctx.print("<tr id='r2_" + fullFieldHash() + "'><td class='botgray' colspan=" + SurveyMain.PODTABLE_WIDTH + 2
-                            + ">");
+                        + ">");
                     ctx.print("<div class='itemerrs' id=\"e_" + fullFieldHash() + "\" ><!--  errs for this item --></div>");
                     ctx.println("</td></tr>");
                 }
@@ -1385,7 +1385,7 @@ public class DataSection implements JSONString {
                         if (item.tests == null && item.examples == null)
                             continue; /* skip rows w/o anything */
                         ctx.println("<tr class='warningRow'><td class='botgray'><span class='warningTarget'>#"
-                                + mySuperscriptNumber + "</span></td>");
+                            + mySuperscriptNumber + "</span></td>");
                         if (item.tests != null) {
                             ctx.println("<td colspan='" + (SurveyMain.PODTABLE_WIDTH - 1) + "' class='warncell'>");
                             for (Iterator<CheckStatus> it3 = item.tests.iterator(); it3.hasNext();) {
@@ -1402,7 +1402,7 @@ public class DataSection implements JSONString {
                                     ctx.println("</span>");
 
                                     ctx.println(" For help, see <a " + ctx.atarget(WebContext.TARGET_DOCS)
-                                            + " href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>");
+                                        + " href='http://cldr.org/translation/fixing-errors'>Fixing Errors and Warnings</a>");
                                     ctx.print("<br>");
                                 }
                             }
@@ -1428,8 +1428,8 @@ public class DataSection implements JSONString {
                                         theMenu = "raw";
                                     }
                                     ctx.print("<a " + ctx.atarget(WebContext.TARGET_EXAMPLE) + " href='" + ctx.url()
-                                            + ctx.urlConnector() + "_=" + ctx.getLocale() + "&amp;x=" + theMenu + "&amp;"
-                                            + SurveyMain.QUERY_EXAMPLE + "=" + e.hash + "'>");
+                                        + ctx.urlConnector() + "_=" + ctx.getLocale() + "&amp;x=" + theMenu + "&amp;"
+                                        + SurveyMain.QUERY_EXAMPLE + "=" + e.hash + "'>");
                                     ctx.print(ctx.iconHtml("zoom", "Zoom into " + cls) + cls);
                                     ctx.print("</a>");
                                 }
@@ -1490,15 +1490,15 @@ public class DataSection implements JSONString {
             // Prime the Pump - Native must be called first.
             if (topCurrent != null) {
                 /* ignored */uf.getExampleGenerator().getExampleHtml(getXpath(), topCurrent.value,
-                        exampleContext, ExampleType.NATIVE);
+                    exampleContext, ExampleType.NATIVE);
             } else {
                 // no top item, so use NULL
                 /* ignored */uf.getExampleGenerator().getExampleHtml(getXpath(), null,
-                        exampleContext, ExampleType.NATIVE);
+                    exampleContext, ExampleType.NATIVE);
             }
 
             baseExample = sm.getBaselineExample().getExampleHtml(xpath, getDisplayName(),
-                    exampleContext, ExampleType.ENGLISH);
+                exampleContext, ExampleType.ENGLISH);
             return baseExample;
         }
 
@@ -1657,8 +1657,8 @@ public class DataSection implements JSONString {
 
                     inheritedValue.inheritFrom = CLDRLocale.getInstance(sourceLocale);
 
-                    if (/*sourceLocaleStatus != null && sourceLocaleStatus. */ pathWhereFound.value != null
-                            && !/*sourceLocaleStatus.*/pathWhereFound.value.equals(xpath)) {
+                    if (/*sourceLocaleStatus != null && sourceLocaleStatus. */pathWhereFound.value != null
+                        && !/*sourceLocaleStatus.*/pathWhereFound.value.equals(xpath)) {
                         inheritedValue.pathWhereFound = pathWhereFound.value;
                         if (TRACE_TIME)
                             System.err.println("@@5:" + (System.currentTimeMillis() - lastTime));
@@ -1670,7 +1670,7 @@ public class DataSection implements JSONString {
                             System.err.println("@@6:" + (System.currentTimeMillis() - lastTime));
                     }
 
-                    inheritedValue.isBailey  = true;
+                    inheritedValue.isBailey = true;
                     inheritedValue.isFallback = true;
                 } else { // item already contained
                     CandidateItem otherItem = items.get(value);
@@ -1744,7 +1744,7 @@ public class DataSection implements JSONString {
                 ExampleBuilder b = getExampleBuilder();
                 if (b != null) {
                     displayExample = b.getExampleHtml(xpath, displayName, ExampleType.ENGLISH);
-                   // displayHelp = b.getHelpHtml(xpath, displayName);
+                    // displayHelp = b.getHelpHtml(xpath, displayName);
                 }
                 String pathCode = "?";
                 PathHeader ph = getPathHeader();
@@ -1753,23 +1753,23 @@ public class DataSection implements JSONString {
                 }
 
                 return new JSONObject()
-                        .put("xpath", xpath)
-                        .put("xpid", xpathId)
-                        .put("xpstrid", sm.xpt.getStringIDString(xpath))
-                        .put("winningValue", winningValue)
-                        .put("displayName", displayName)
-                        .put("displayExample", displayExample)
-                        // .put("showstatus",
-                        // (ph!=null)?ph.getSurveyToolStatus():null)
-                        .put("statusAction", getStatusAction())
-                        //.put("prettyPath", getPrettyPath())
-                        .put("code", pathCode)
-                        .put("extraAttributes", getNonDistinguishingAttributes()).put("coverageValue", coverageValue)
-                        .put("hasErrors", hasErrors).put("hasWarnings", hasWarnings).put("confirmStatus", confirmStatus)
-                        .put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false)
-                        .put("winningVhash", winningVhash).put("ourVote", ourVote).put("voteVhash", voteVhash)
-                        .put("voteResolver", SurveyAjax.JSONWriter.wrap(ballotBox.getResolver(xpath))).put("items", itemsJson)
-                        .toString();
+                    .put("xpath", xpath)
+                    .put("xpid", xpathId)
+                    .put("xpstrid", sm.xpt.getStringIDString(xpath))
+                    .put("winningValue", winningValue)
+                    .put("displayName", displayName)
+                    .put("displayExample", displayExample)
+                    // .put("showstatus",
+                    // (ph!=null)?ph.getSurveyToolStatus():null)
+                    .put("statusAction", getStatusAction())
+                    //.put("prettyPath", getPrettyPath())
+                    .put("code", pathCode)
+                    .put("extraAttributes", getNonDistinguishingAttributes()).put("coverageValue", coverageValue)
+                    .put("hasErrors", hasErrors).put("hasWarnings", hasWarnings).put("confirmStatus", confirmStatus)
+                    .put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false)
+                    .put("winningVhash", winningVhash).put("ourVote", ourVote).put("voteVhash", voteVhash)
+                    .put("voteResolver", SurveyAjax.JSONWriter.wrap(ballotBox.getResolver(xpath))).put("items", itemsJson)
+                    .toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in toJSONString of " + this);
                 throw new JSONException(t);
@@ -1791,7 +1791,7 @@ public class DataSection implements JSONString {
         public StatusAction getStatusAction() {
             // null because this is for display.
             return sm.phase().getCPhase()
-                    .getShowRowAction(this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
+                .getShowRowAction(this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
         }
 
         @Override
@@ -1801,7 +1801,7 @@ public class DataSection implements JSONString {
 
         @Override
         public Level getCoverageLevel() {
-            return sm.getSupplementalDataInfo().getCoverageLevel(getXpath(),locale.getBaseName());
+            return sm.getSupplementalDataInfo().getCoverageLevel(getXpath(), locale.getBaseName());
         }
 
         /**
@@ -1875,7 +1875,7 @@ public class DataSection implements JSONString {
                 // street
                 // level
                 if ((ctx.field(SurveyMain.QUERY_SECTION).length() > 0)
-                        && !ctx.field(SurveyMain.QUERY_SECTION).equals(SurveyMain.xMAIN)) {
+                    && !ctx.field(SurveyMain.QUERY_SECTION).equals(SurveyMain.xMAIN)) {
                     // ctx.println("<input  type='submit' value='" +
                     // SurveyMain.getSaveButtonText() + "'>"); //
                     // style='float:left'
@@ -1895,8 +1895,8 @@ public class DataSection implements JSONString {
             if (true) { // showsearchmode
                 ctx.println("<div style='float: right;'>Items " + from + " to " + to + " of " + total + "</div>");
                 ctx.println("<p class='hang' > " + // float: right;
-                        // tyle='margin-left: 3em;'
-                        "<b>Sorted:</b>  ");
+                    // tyle='margin-left: 3em;'
+                    "<b>Sorted:</b>  ");
                 {
                     // boolean sortAlpha =
                     // (sortMode.equals(PREF_SORTMODE_ALPHA));
@@ -1944,18 +1944,18 @@ public class DataSection implements JSONString {
                                                                                    * (
                                                                                    * )
                                                                                    */
-                                + "" + "</span>&nbsp;");
+                            + "" + "</span>&nbsp;");
                     } else {
                         ctx.print("<a class='pagerl_active' href=\"" + ctx.url() + ctx.urlConnector() + "skip="
-                                + new Integer(prevSkip) + "\">" + "\u2190&nbsp;prev"/*
-                                                                                     * +
-                                                                                     * ctx
-                                                                                     * .
-                                                                                     * prefCodesPerPage
-                                                                                     * (
-                                                                                     * )
-                                                                                     */
-                                + "");
+                            + new Integer(prevSkip) + "\">" + "\u2190&nbsp;prev"/*
+                                                                                 * +
+                                                                                 * ctx
+                                                                                 * .
+                                                                                 * prefCodesPerPage
+                                                                                 * (
+                                                                                 * )
+                                                                                 */
+                            + "");
                         ctx.print("</a>&nbsp;");
                     }
                     int nextSkip = skip + ctx.prefCodesPerPage();
@@ -1970,19 +1970,19 @@ public class DataSection implements JSONString {
                                                                                           * (
                                                                                           * )
                                                                                           */
-                                    + "\u2192" + "</span>");
+                                + "\u2192" + "</span>");
                         }
                     } else {
                         ctx.println(" <a class='pagerl_active' href=\"" + ctx.url() + ctx.urlConnector() + "skip="
-                                + new Integer(nextSkip) + "\">" + "next&nbsp;"/*
-                                                                               * +
-                                                                               * ctx
-                                                                               * .
-                                                                               * prefCodesPerPage
-                                                                               * (
-                                                                               * )
-                                                                               */
-                                + "\u2192" + "</a>");
+                            + new Integer(nextSkip) + "\">" + "next&nbsp;"/*
+                                                                           * +
+                                                                           * ctx
+                                                                           * .
+                                                                           * prefCodesPerPage
+                                                                           * (
+                                                                           * )
+                                                                           */
+                            + "\u2192" + "</a>");
                     }
                     ctx.print("</p>");
                 }
@@ -2007,8 +2007,8 @@ public class DataSection implements JSONString {
                     }
                     if (partitions[j].name != null) {
                         ctx.print("<td  class='pagerln' align='left'><p style='margin-top: 2px; margin-bottom: 2px;' class='hang'><b>"
-                                + partitions[j].name + ":</b>"
-                        /* + "</td><td class='pagerln'>" */);
+                            + partitions[j].name + ":</b>"
+                            /* + "</td><td class='pagerln'>" */);
                     }
                     int ourStart = partitions[j].start;
                     int ourLimit = partitions[j].limit;
@@ -2027,7 +2027,7 @@ public class DataSection implements JSONString {
                         if (isus) {
                             if (((i != pageStart) || (i == 0)) && (partitions[j].name != null)) {
                                 ctx.print(" <b><a class='selected' style='text-decoration:none' href='#" + partitions[j].name
-                                        + "'>");
+                                    + "'>");
                             } else {
                                 ctx.println(" <b class='selected'>");
                             }
@@ -2118,11 +2118,11 @@ public class DataSection implements JSONString {
             JSONArray p = new JSONArray();
             for (Partition partition : partitions) {
                 p.put(new JSONObject().put("name", partition.name).put("start", partition.start).put("limit", partition.limit)
-                        .put("helptext", partition.helptext));
+                    .put("helptext", partition.helptext));
             }
             return new JSONObject().put("canName", canName).put("displayName", sortMode.getDisplayName())
-                    .put("isCalendar", isCalendar).put("isMetazones", isMetazones).put("sortMode", sortMode.getName())
-                    .put("rows", r).put("partitions", p).toString();
+                .put("isCalendar", isCalendar).put("isMetazones", isMetazones).put("sortMode", sortMode.getName())
+                .put("rows", r).put("partitions", p).toString();
         }
 
     }
@@ -2147,14 +2147,14 @@ public class DataSection implements JSONString {
             this.status = status;
 
             hash = CookieSession.cheapEncode(DataSection.getN()) + // unique
-                    // serial #-
-                    // covers
-                    // item,
-                    // status..
-                    p.fullFieldHash(); /*
-                                        * fieldHash ensures that we don't get
-                                        * the wrong field..
-                                        */
+                // serial #-
+                // covers
+                // item,
+                // status..
+                p.fullFieldHash(); /*
+                                    * fieldHash ensures that we don't get
+                                    * the wrong field..
+                                    */
         }
     }
 
@@ -2176,18 +2176,18 @@ public class DataSection implements JSONString {
 
     public static final String EXEMPLAR_PARENT = "//ldml/dates/timeZoneNames/zone";
     private static final String fromto[] = { "^days/(.*)/(sun)$", "days/1-$2/$1", "^days/(.*)/(mon)$", "days/2-$2/$1",
-            "^days/(.*)/(tue)$", "days/3-$2/$1", "^days/(.*)/(wed)$", "days/4-$2/$1", "^days/(.*)/(thu)$", "days/5-$2/$1",
-            "^days/(.*)/(fri)$", "days/6-$2/$1", "^days/(.*)/(sat)$", "days/7-$2/$1", "^months/(.*)/month/([0-9]*)$",
-            "months/$2/$1", "^([^/]*)/months/(.*)/month/([0-9]*)$", "$1/months/$3/$2", "^eras/(.*)/era/([0-9]*)$", "eras/$2/$1",
-            "^([^/]*)/eras/(.*)/era/([0-9]*)$", "$1/eras/$3/$2", "^([ap]m)$", "ampm/$1", "^quarter/(.*)/quarter/([0-9]*)$",
-            "quarter/$2/$1", "^([^/]*)/([^/]*)/time$", "$1/time/$2", "^([^/]*)/([^/]*)/date", "$1/date/$2", "/alias$", "",
-            "/displayName\\[@count=\"([^\"]*)\"\\]$", "/count=$1", "\\[@count=\"([^\"]*)\"\\]$", "/count=$1",
-            "^unit/([^/]*)/unit([^/]*)/", "$1/$2/", "dateTimes/date/availablesItem", "available date formats:",
-    /*
-     * "/date/availablesItem.*@_q=\"[0-9]*\"\\]\\[@id=\"([0-9]*)\"\\]",
-     * "/availableDateFormats/$1"
-     */
-    // "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
+        "^days/(.*)/(tue)$", "days/3-$2/$1", "^days/(.*)/(wed)$", "days/4-$2/$1", "^days/(.*)/(thu)$", "days/5-$2/$1",
+        "^days/(.*)/(fri)$", "days/6-$2/$1", "^days/(.*)/(sat)$", "days/7-$2/$1", "^months/(.*)/month/([0-9]*)$",
+        "months/$2/$1", "^([^/]*)/months/(.*)/month/([0-9]*)$", "$1/months/$3/$2", "^eras/(.*)/era/([0-9]*)$", "eras/$2/$1",
+        "^([^/]*)/eras/(.*)/era/([0-9]*)$", "$1/eras/$3/$2", "^([ap]m)$", "ampm/$1", "^quarter/(.*)/quarter/([0-9]*)$",
+        "quarter/$2/$1", "^([^/]*)/([^/]*)/time$", "$1/time/$2", "^([^/]*)/([^/]*)/date", "$1/date/$2", "/alias$", "",
+        "/displayName\\[@count=\"([^\"]*)\"\\]$", "/count=$1", "\\[@count=\"([^\"]*)\"\\]$", "/count=$1",
+        "^unit/([^/]*)/unit([^/]*)/", "$1/$2/", "dateTimes/date/availablesItem", "available date formats:",
+        /*
+         * "/date/availablesItem.*@_q=\"[0-9]*\"\\]\\[@id=\"([0-9]*)\"\\]",
+         * "/availableDateFormats/$1"
+         */
+        // "/date/availablesItem.*@_q=\"[0-9]*\"\\]","/availableDateFormats"
     };
     private static Pattern fromto_p[] = new Pattern[fromto.length / 2];
     private static boolean isInitted = false;
@@ -2199,7 +2199,7 @@ public class DataSection implements JSONString {
     private static int n = 0;
     static final Pattern NAME_TYPE_PATTERN = Pattern.compile("[a-zA-Z0-9]+|.*exemplarCity.*");
 
-//    private static final boolean NOINHERIT = true;
+    //    private static final boolean NOINHERIT = true;
 
     // private static Pattern noisePattern;
 
@@ -2247,17 +2247,17 @@ public class DataSection implements JSONString {
 
             /* This one is only used with non-pageID use. */
             mostPattern = Pattern.compile("^//ldml/localeDisplayNames.*|"
-                    + // these are excluded when 'misc' is chosen.
-                    "^//ldml/characters/exemplarCharacters.*|" + "^//ldml/numbers.*|" + "^//ldml/units.*|"
-                    + "^//ldml/references.*|" + "^//ldml/dates/timeZoneNames/zone.*|" + "^//ldml/dates/timeZoneNames/metazone.*|"
-                    + "^//ldml/dates/calendar.*|" + "^//ldml/identity.*");
+                + // these are excluded when 'misc' is chosen.
+                "^//ldml/characters/exemplarCharacters.*|" + "^//ldml/numbers.*|" + "^//ldml/units.*|"
+                + "^//ldml/references.*|" + "^//ldml/dates/timeZoneNames/zone.*|" + "^//ldml/dates/timeZoneNames/metazone.*|"
+                + "^//ldml/dates/calendar.*|" + "^//ldml/identity.*");
 
             /* Always excluded. Compare with PathHeader/Coverage. */
             excludeAlways = Pattern.compile("^//ldml/segmentations.*|" + "^//ldml/measurement.*|" + ".*week/minDays.*|"
-                    + ".*week/firstDay.*|" + ".*/usesMetazone.*|" + ".*week/weekendEnd.*|" + ".*week/weekendStart.*|" +
-                    // "^//ldml/dates/.*localizedPatternChars.*|" +
-                    "^//ldml/posix/messages/.*expr$|" + "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|" // //ldml/dates/timeZoneNames/zone[@type="Etc/GMT+11"]/exemplarCity
-                    + "^//ldml/dates/.*default");// no defaults
+                + ".*week/firstDay.*|" + ".*/usesMetazone.*|" + ".*week/weekendEnd.*|" + ".*week/weekendStart.*|" +
+                // "^//ldml/dates/.*localizedPatternChars.*|" +
+                "^//ldml/posix/messages/.*expr$|" + "^//ldml/dates/timeZoneNames/.*/GMT.*exemplarCity$|" // //ldml/dates/timeZoneNames/zone[@type="Etc/GMT+11"]/exemplarCity
+                + "^//ldml/dates/.*default");// no defaults
 
             int pn;
             for (pn = 0; pn < fromto.length / 2; pn++) {
@@ -2305,7 +2305,7 @@ public class DataSection implements JSONString {
      *            xpaths under prefix.
      */
     public static DataSection make(PageId pageId, WebContext ctx, CookieSession session, CLDRLocale locale, String prefix,
-            XPathMatcher matcher, boolean showLoading, String ptype) {
+        XPathMatcher matcher, boolean showLoading, String ptype) {
         DataSection section = new DataSection(pageId, session.sm, locale, prefix, matcher, ptype);
 
         section.hasExamples = true;
@@ -2341,7 +2341,7 @@ public class DataSection implements JSONString {
             if (showLoading && SHOW_TIME) {
                 cet = new com.ibm.icu.dev.util.ElapsedTimer();
                 System.err.println("Begin populate of " + locale + " // " + prefix + ":" + workingCoverageLevel + " - is:"
-                        + ourSrc.getClass().getName());
+                    + ourSrc.getClass().getName());
             }
             if (ourSrc.getSupplementalDirectory() == null) {
                 throw new InternalError("?!! ourSrc hsa no supplemental dir!");
@@ -2379,7 +2379,7 @@ public class DataSection implements JSONString {
              */
             if (showLoading && ctx != null) {
                 ctx.println("<script type=\"text/javascript\">document.getElementById('loadSection').innerHTML='Completing..."
-                        + popCount + " items';</script>");
+                    + popCount + " items';</script>");
                 ctx.flush();
             }
             if (pageId == null) {
@@ -2395,7 +2395,7 @@ public class DataSection implements JSONString {
             if (showLoading && ctx != null && SHOW_TIME) {
                 int allCount = section.getAll().size();
                 System.err.println("Populate+complete " + locale + " // " + prefix + ":" + section.getPtype() + " = " + cet
-                        + " - Count: " + popCount + "+" + (allCount - popCount) + "=" + allCount);
+                    + " - Count: " + popCount + "+" + (allCount - popCount) + "=" + allCount);
             }
         }
         return section;
@@ -2415,7 +2415,7 @@ public class DataSection implements JSONString {
             // ugly
             options = session.sm.basicOptionsMap();
             String def = session.sm
-                    .getListSetting(session.settings(), SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
+                .getListSetting(session.settings(), SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
             options.put("CheckCoverage.requiredLevel", def);
 
             String org = session.getEffectiveCoverageLevel(locale.toString());
@@ -2437,12 +2437,12 @@ public class DataSection implements JSONString {
 
         // is it one of the prefixes we can check statically?
         String staticBases[] = {
-                // LOCALEDISPLAYNAMES
-                "//ldml/" + PathUtilities.NUMBERSCURRENCIES, "//ldml/" + "dates/timeZoneNames/zone",
-                "//ldml/" + "dates/timeZoneNames/metazone",
-                // OTHERROOTS
-                SurveyMain.GREGO_XPATH, PathUtilities.LOCALEDISPLAYPATTERN_XPATH, PathUtilities.OTHER_CALENDARS_XPATH,
-                "//ldml/units" };
+            // LOCALEDISPLAYNAMES
+            "//ldml/" + PathUtilities.NUMBERSCURRENCIES, "//ldml/" + "dates/timeZoneNames/zone",
+            "//ldml/" + "dates/timeZoneNames/metazone",
+            // OTHERROOTS
+            SurveyMain.GREGO_XPATH, PathUtilities.LOCALEDISPLAYPATTERN_XPATH, PathUtilities.OTHER_CALENDARS_XPATH,
+            "//ldml/units" };
 
         // is it one of the static bases?
         for (n = 0; n < staticBases.length; n++) {
@@ -2459,7 +2459,7 @@ public class DataSection implements JSONString {
             // code
             // list?
             base = PathUtilities.LOCALEDISPLAYNAMES + PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n] + '/'
-                    + SurveyMain.typeToSubtype(PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n]); // see:
+                + SurveyMain.typeToSubtype(PathUtilities.LOCALEDISPLAYNAMES_ITEMS[n]); // see:
             // SurveyMain.showLocaleCodeList()
             if (xpath.startsWith(base)) {
                 return base;
@@ -2525,7 +2525,6 @@ public class DataSection implements JSONString {
     private XPathMatcher matcher;
     private PageId pageId;
     private CLDRFile diskFile;
-    
 
     DataSection(PageId pageId, SurveyMain sm, CLDRLocale loc, String prefix, XPathMatcher matcher, String ptype) {
         this.locale = loc;
@@ -2577,7 +2576,7 @@ public class DataSection implements JSONString {
      * @obsolete not called anymore
      */
     private void ensureComplete(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
-            String workingCoverageLevel) {
+        String workingCoverageLevel) {
         // if (!ourSrc.isResolving()) throw new
         // IllegalArgumentException("CLDRFile must be resolved");
         // if(xpathPrefix.contains("@type")) {
@@ -2594,10 +2593,10 @@ public class DataSection implements JSONString {
         SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
         int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
         if (sectionId == SectionId.Timezones || pageId == PageId.Timezone_Cities || pageId == PageId.Timezone_Display_Patterns
-                || (pageId == null && xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames"))) {
+            || (pageId == null && xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames"))) {
             // work on zones
             boolean isMetazones = (sectionId == SectionId.Timezones)
-                    || (pageId == null && xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames/metazone"));
+                || (pageId == null && xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames/metazone"));
             boolean isSingleXPath = false;
             // Make sure the pod contains the rows we'd like to see.
             // regular zone
@@ -2636,12 +2635,12 @@ public class DataSection implements JSONString {
             }
 
             final String tzsuffs[] = {
-            // "/long/generic", "/long/daylight", "/long/standard",
-            // "/short/generic", "/short/daylight",
-            // "/short/standard",
-            "/exemplarCity" };
+                // "/long/generic", "/long/daylight", "/long/standard",
+                // "/short/generic", "/short/daylight",
+                // "/short/standard",
+                "/exemplarCity" };
             final String mzsuffs[] = { "/long/generic", "/long/daylight", "/long/standard", "/short/generic", "/short/daylight",
-                    "/short/standard" };
+                "/short/standard" };
 
             String suffs[];
             if (isMetazones) {
@@ -2658,7 +2657,7 @@ public class DataSection implements JSONString {
             for (String zone : zoneIterator) {
                 if (zone == null) {
                     throw new NullPointerException("zoneIterator.next() returned null! zoneIterator.size: " + zoneIterator.size()
-                            + ", isEmpty: " + zoneIterator.isEmpty());
+                        + ", isEmpty: " + zoneIterator.isEmpty());
                 }
                 // System.err.println(">> " + zone);
                 /** some compatibility **/
@@ -2729,7 +2728,7 @@ public class DataSection implements JSONString {
                     }
                     // Filter out data that is higher than the desired coverage
                     // level
-                    int coverageValue = sm.getSupplementalDataInfo().getCoverageValue(base_xpath_string,locale.getBaseName());
+                    int coverageValue = sm.getSupplementalDataInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
                     if (coverageValue > workingCoverageValue) {
                         if (coverageValue <= 100) {
                             // KEEP COUNT OF FILTERED ITEMS
@@ -2826,7 +2825,7 @@ public class DataSection implements JSONString {
     }
 
     private void populateFrom(CLDRFile ourSrc, TestResultBundle checkCldr, Map<String, String> options,
-            String workingCoverageLevel) {
+        String workingCoverageLevel) {
         XPathParts xpp = new XPathParts(null, null);
         CLDRFile aFile = ourSrc;
         STFactory stf = sm.getSTFactory();
@@ -2844,12 +2843,12 @@ public class DataSection implements JSONString {
 
         int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
 
-//        CLDRFile vettedParent = null;
-//        CLDRLocale parentLoc = locale.getParent();
-//        if (parentLoc != null) {
-//            XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /* finalData */, true);
-//            vettedParent = new CLDRFile(vettedParentSource).setSupplementalDirectory(SurveyMain.supplementalDataDir);
-//        }
+        //        CLDRFile vettedParent = null;
+        //        CLDRLocale parentLoc = locale.getParent();
+        //        if (parentLoc != null) {
+        //            XMLSource vettedParentSource = sm.makeDBSource(parentLoc, true /* finalData */, true);
+        //            vettedParent = new CLDRFile(vettedParentSource).setSupplementalDirectory(SurveyMain.supplementalDataDir);
+        //        }
         Set<String> allXpaths;
 
         String continent = null;
@@ -2867,7 +2866,7 @@ public class DataSection implements JSONString {
             /* ** Determine which xpaths to show */
             /* if (pageId != null) {
                 // use pageid, ignore the rest
-            } else */ if (xpathPrefix.startsWith("//ldml/units")) {
+            } else */if (xpathPrefix.startsWith("//ldml/units")) {
                 canName = false;
             } else if (xpathPrefix.startsWith("//ldml/numbers")) {
                 if (-1 == xpathPrefix.indexOf("currencies")) {
@@ -2954,7 +2953,7 @@ public class DataSection implements JSONString {
                 if ((nextTime - lastTime) > 10000) {
                     lastTime = nextTime;
                     System.err.println("[] " + locale + ":" + xpathPrefix + " #" + count + ", or "
-                            + (((double) (System.currentTimeMillis() - countStart)) / count) + "ms per.");
+                        + (((double) (System.currentTimeMillis() - countStart)) / count) + "ms per.");
                 }
             }
 
@@ -3010,7 +3009,7 @@ public class DataSection implements JSONString {
                 // */
                 if (DEBUG) {
                     System.err.println("warning: populatefrom " + this + ": " + locale + ":" + xpath + " = NULL! wasExtraPath="
-                            + isExtraPath);
+                        + isExtraPath);
                 }
                 isExtraPath = true;
             }
@@ -3156,11 +3155,11 @@ public class DataSection implements JSONString {
             if (isInherited && !isExtraPath) {
                 if (TRACE_TIME)
                     System.err.println("n06da  [src:" + sourceLocale + " vs " + locale + ", sttus:" + sourceLocaleStatus + "] "
-                            + (System.currentTimeMillis() - nextTime));
+                        + (System.currentTimeMillis() - nextTime));
                 //if (!NOINHERIT)
                 //    p.updateInheritedValue(vettedParent, checkCldr, options); // update
-                                                                              // the
-                                                                              // tests
+                // the
+                // tests
                 if (TRACE_TIME)
                     System.err.println("n06dc  " + (System.currentTimeMillis() - nextTime));
                 continue;
@@ -3240,7 +3239,7 @@ public class DataSection implements JSONString {
             }
 
             if (sourceLocaleStatus != null && sourceLocaleStatus.pathWhereFound != null
-                    && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
+                && !sourceLocaleStatus.pathWhereFound.equals(xpath)) {
                 // System.err.println("PWF diff: " + xpath + " vs " +
                 // sourceLocaleStatus.pathWhereFound);
                 myItem.pathWhereFound = sourceLocaleStatus.pathWhereFound;
@@ -3322,8 +3321,8 @@ public class DataSection implements JSONString {
         } else {
             // if(this.isUnofficial) {
             ctx.println("<tr><td colspan='2'>" + ctx.iconHtml("stop", "internal error")
-                    + "<i>internal error: nothing to show for xpath " + item_xpath + "," + " " + sm.xpt.getById(item_xpath)
-                    + "</i></td></tr>");
+                + "<i>internal error: nothing to show for xpath " + item_xpath + "," + " " + sm.xpt.getById(item_xpath)
+                + "</i></td></tr>");
             // }
         }
     }
@@ -3340,7 +3339,7 @@ public class DataSection implements JSONString {
             uf = ctx.getUserFile();
 
             CheckCLDR checkCldr = uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()),
-                    ctx.getOptionsMap(SurveyMain.basicOptionsMap()));
+                ctx.getOptionsMap(SurveyMain.basicOptionsMap()));
 
             boolean disputedOnly = ctx.field("only").equals("disputed");
 
@@ -3350,7 +3349,7 @@ public class DataSection implements JSONString {
                 ctx.println("<h3>There are no items to display on this page ");
                 if (getSkippedDueToCoverage() > 0) {
                     ctx.println("due to the selected coverage level. To see " + getSkippedDueToCoverage() + " skipped items, "
-                            + "click on ");
+                        + "click on ");
 
                     WebContext subCtx2 = new WebContext(ctx);
                     subCtx2.removeQuery(SurveyMain.QUERY_LOCALE);
@@ -3441,7 +3440,7 @@ public class DataSection implements JSONString {
                 if ((!partialPeas) && checkPartitions) {
                     for (int j = 0; j < dSet.partitions.length; j++) {
                         if ((dSet.partitions[j].name != null)
-                                && ((i == dSet.partitions[j].start) || ((i == rowStart) && (i >= dSet.partitions[j].start) && (i < dSet.partitions[j].limit)))) { // ensure
+                            && ((i == dSet.partitions[j].start) || ((i == rowStart) && (i >= dSet.partitions[j].start) && (i < dSet.partitions[j].limit)))) { // ensure
                             // the
                             // first
                             // item
@@ -3449,7 +3448,7 @@ public class DataSection implements JSONString {
                             // a
                             // header.
                             ctx.print("<tr class='heading'><th class='partsection' align='left' colspan='"
-                                    + SurveyMain.PODTABLE_WIDTH + "'>" + "<a name='" + dSet.partitions[j].name + "'");
+                                + SurveyMain.PODTABLE_WIDTH + "'>" + "<a name='" + dSet.partitions[j].name + "'");
                             if (!dSet.partitions[j].helptext.isEmpty()) {
                                 ctx.print("title='" + dSet.partitions[j].helptext + "'");
                             }
@@ -3539,7 +3538,7 @@ public class DataSection implements JSONString {
     @Override
     public String toString() {
         return "{" + getClass().getSimpleName() + " " + locale + ":" + xpathPrefix + " #" + super.toString() + ", "
-                + getAll().size() + " items, pageid " + this.pageId + " } ";
+            + getAll().size() + " items, pageid " + this.pageId + " } ";
     }
 
     public void touch() {
@@ -3570,7 +3569,7 @@ public class DataSection implements JSONString {
     static void printSectionTableOpen(WebContext ctx, DataSection section, boolean zoomedIn, boolean canModify) {
         ctx.println("<a name='st_data'></a>");
         ctx.println("<table summary='Data Items for " + ctx.getLocale().toString() + " " + section.xpathPrefix
-                + "' class='data' border='0'>");
+            + "' class='data' border='0'>");
 
         int table_width = section.hasExamples ? 13 : 10;
         int itemColSpan;
@@ -3594,15 +3593,15 @@ public class DataSection implements JSONString {
             ctx.println("</td></tr>");
         }
         ctx.println("<tr class='headingb'>\n" + " <th width='30'>St.</th>\n" + // 1
-                " <th width='30'>Draft</th>\n"); // 1
+            " <th width='30'>Draft</th>\n"); // 1
         if (canModify) {
             ctx.print(" <th width='30'>Voted</th>\n"); // 1
         }
         ctx.print(" <th>Code</th>\n" + // 2
-                " <th title='[" + SurveyMain.BASELINE_LOCALE + "]'>" + SurveyMain.BASELINE_LANGUAGE_NAME + "</th>\n");
+            " <th title='[" + SurveyMain.BASELINE_LOCALE + "]'>" + SurveyMain.BASELINE_LANGUAGE_NAME + "</th>\n");
         if (section.hasExamples) {
             ctx.print(" <th title='" + SurveyMain.BASELINE_LANGUAGE_NAME + " [" + SurveyMain.BASELINE_LOCALE
-                    + "] Example'><i>Ex</i></th>\n");
+                + "] Example'><i>Ex</i></th>\n");
         }
 
         ctx.print(" <th colspan=" + itemColSpan + ">" + SurveyMain.getProposedName() + "</th>\n");
@@ -3661,7 +3660,7 @@ public class DataSection implements JSONString {
             SurveyLog.logException(t, "Trying to load rows for " + this.toString());
         }
         return new JSONObject().put("rows", itemList).put("hasExamples", hasExamples).put("xpathPrefix", xpathPrefix)
-                .put("skippedDueToCoverage", getSkippedDueToCoverage()).put("coverage", getPtype()).toString();
+            .put("skippedDueToCoverage", getSkippedDueToCoverage()).put("coverage", getPtype()).toString();
     }
 
     /**
@@ -3669,7 +3668,7 @@ public class DataSection implements JSONString {
      */
     private DisplayAndInputProcessor getProcessor() {
         if (processor == null) {
-            processor = new DisplayAndInputProcessor(SurveyMain.BASELINE_LOCALE,false);
+            processor = new DisplayAndInputProcessor(SurveyMain.BASELINE_LOCALE, false);
         }
         return processor;
     }

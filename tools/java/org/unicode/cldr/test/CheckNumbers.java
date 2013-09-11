@@ -247,7 +247,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
             // Any unquoted non-special chars are allowed in front of or behind the numerical
             // symbols, but not in between, e.g. " 0000" is okay but "0 000" is not.
             int firstIdx = -1;
-            for (int i = 0, len = subPattern.length() ; i < len ; i++) {
+            for (int i = 0, len = subPattern.length(); i < len; i++) {
                 char c = subPattern.charAt(i);
                 if (c == '0' || c == '#') {
                     firstIdx = i;
@@ -284,7 +284,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
     }
 
     private void checkDecimalFormatConsistency(XPathParts parts, String path, String value,
-            List<CheckStatus> result, NumericType type) {
+        List<CheckStatus> result, NumericType type) {
         // Look for duplicates of decimal formats with the same number
         // system and type.
         // Decimal formats of the same type should have the same number

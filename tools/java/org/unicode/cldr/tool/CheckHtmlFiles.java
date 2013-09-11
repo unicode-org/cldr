@@ -35,17 +35,17 @@ public class CheckHtmlFiles {
     static Pattern WELLFORMED_HEADER = Pattern.compile("\\s*(\\d+(\\.\\d+)*\\s*).*");
     static Pattern SUPPRESS_SECTION_NUMBER = Pattern.compile("Migration|References|Acknowledgments|Modifications|Revision \\d+");
     static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+");
-    
+
     enum MyOptions {
         old(
             ".*",
             "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive/cldr-22.1/specs/ldml/tr35\\.html",
             "source data (regex)"),
-            target(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex)"),
-            verbose(null, null, "verbose debugging messages"),
-            contents(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
-            // /cldr-archive
-            ;
+        target(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex)"),
+        verbose(null, null, "verbose debugging messages"),
+        contents(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
+        // /cldr-archive
+        ;
 
         // boilerplate
         final Option option;
@@ -97,7 +97,7 @@ public class CheckHtmlFiles {
     static Pattern WHITESPACE = Pattern.compile("[\\s]+");
     static final Set<String> FORCEBREAK = new HashSet<String>();
     static {
-        FORCEBREAK.addAll(Arrays.asList("table", "div", "blockquote", 
+        FORCEBREAK.addAll(Arrays.asList("table", "div", "blockquote",
             "p", "br", "td", "th", "h1", "h2", "h3", "h4", "h5", "li"));
     }
     static final Set<String> DO_CONTENTS = new HashSet<String>();
@@ -122,17 +122,17 @@ public class CheckHtmlFiles {
                 }
             }
             levels[level]++;
-            for (int i = level+1; i < levels.length; ++i) {
+            for (int i = level + 1; i < levels.length; ++i) {
                 levels[i] = 0;
             }
             return this;
         }
 
         public int getDepth() {
-            for (int i = 0; ; ++i) {
+            for (int i = 0;; ++i) {
                 int level = levels[i];
                 if (level == 0) {
-                    return i-1;
+                    return i - 1;
                 }
             }
         }
@@ -140,7 +140,7 @@ public class CheckHtmlFiles {
         @Override
         public String toString() {
             StringBuilder b = new StringBuilder();
-            for (int i = 0; ; ++i) {
+            for (int i = 0;; ++i) {
                 int level = levels[i];
                 if (level == 0) {
                     return b.toString();
@@ -187,7 +187,6 @@ public class CheckHtmlFiles {
         }
     }
 
-
     static class HeadingInfo {
         private Levels levels = new Levels();
         private String text = "";
@@ -200,19 +199,20 @@ public class CheckHtmlFiles {
         public void setLevel(String headingLabel) {
             level = headingLabel.charAt(1) - '0';
         }
+
         @Override
         public String toString() {
             //   <h3><a name="Identity_Elements" href="#Identity_Elements">5.3 Identity Elements</a></h3>
             String id = ids.iterator().next();
-            String result = "<h" + level + ">" 
-            + "<a name=\"" + id + "\" href=\"#" + id + "\">"
-            + (suppressSection ? "" : levels + " ") 
-            + TransliteratorUtilities.toHTML.transform(text)
-            + "</a>";
+            String result = "<h" + level + ">"
+                + "<a name=\"" + id + "\" href=\"#" + id + "\">"
+                + (suppressSection ? "" : levels + " ")
+                + TransliteratorUtilities.toHTML.transform(text)
+                + "</a>";
             if (ids.size() > 1) {
                 boolean first = true;
                 for (String id2 : ids) {
-                    if (first){
+                    if (first) {
                         first = false;
                     } else {
                         result += "<a name=\"" + id2 + "\"></a>";
@@ -221,11 +221,12 @@ public class CheckHtmlFiles {
             }
             return result + "</h" + level + ">";
         }
+
         public String toHeader() {
             String id = ids.iterator().next();
-            return ("<li>"  
-                + (suppressSection ? "" : levels + " ") 
-                + "<a href=\"#" + id + "\">" 
+            return ("<li>"
+                + (suppressSection ? "" : levels + " ")
+                + "<a href=\"#" + id + "\">"
                 + TransliteratorUtilities.toHTML.transform(text)
                 + "</a>");
         }
@@ -233,9 +234,11 @@ public class CheckHtmlFiles {
         public boolean isContents() {
             return text.toString().endsWith("Contents");
         }
+
         void addId(String id) {
             this.ids.add(id);
         }
+
         public void setLevels(Levels levels, Set<String> errors) {
             this.levels.set(levels);
             String error = "";
@@ -259,6 +262,7 @@ public class CheckHtmlFiles {
             }
             suppressSection = SUPPRESS_SECTION_NUMBER.matcher(text).matches();
         }
+
         public void addIds(Counter<String> idCounter) {
             for (String id : ids) {
                 idCounter.add(id, 1);
@@ -286,9 +290,9 @@ public class CheckHtmlFiles {
         }
 
         static final String PAD = "\t";
-        
+
         public void listContents() {
-            
+
             System.out.println("*REVISED TOC*");
             Counter<String> idCounter = new Counter<String>();
 
@@ -298,7 +302,7 @@ public class CheckHtmlFiles {
             int liCount = 0;
             for (HeadingInfo h : this) {
                 h.addIds(idCounter);
-                
+
                 int levelDiff = h.levels.getDepth() - lastLevel.getDepth();
                 lastLevel = h.levels;
                 if (levelDiff > 0) {
@@ -329,7 +333,6 @@ public class CheckHtmlFiles {
                 ++liCount;
 
                 //              <li>1.1 <a href="#Conformance">Conformance</a></li>
-
 
                 //                <ul class="toc">
                 //                <li>1 <a href="#Introduction">Introduction</a>
@@ -367,7 +370,7 @@ public class CheckHtmlFiles {
                 }
             }
         }
-        
+
         public void showErrors() {
             if (!errors.isEmpty()) {
                 System.out.println("\n*ERRORS*\n");
@@ -401,9 +404,9 @@ public class CheckHtmlFiles {
                     continue;
                 }
                 ++count;
-                
+
                 System.out.println("\nProcessing:\t" + fileString + "\n");
-                
+
                 Reader in = new FileReader(new File(sourceDirectory, fileString));
                 SimpleHtmlParser parser = new SimpleHtmlParser().setReader(in);
                 StringBuilder buffer = new StringBuilder();
@@ -469,7 +472,7 @@ public class CheckHtmlFiles {
                         contentString = wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
                         buffer.append(contentString.indexOf('&') >= 0
                             ? TransliteratorUtilities.fromHTML.transform(contentString)
-                                : contentString);
+                            : contentString);
                         if (inHeading) {
                             heading.text += contentString;
                         }

@@ -121,7 +121,7 @@ public class DBUtils {
 
     public Appendable stats(Appendable output) throws IOException {
         return output.append("DBUtils: currently open: " + db_number_open).append(", max open: " + db_max_open)
-                .append(", total used: " + db_number_used);
+            .append(", total used: " + db_number_used);
     }
 
     public Appendable statsShort(Appendable output) throws IOException {
@@ -205,8 +205,8 @@ public class DBUtils {
 
     public static final boolean escapeIsBasic(char c) {
         return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0' && c <= '9') || (c == ' ' || c == '.' || c == '/'
-                || c == '[' || c == ']' || c == '=' || c == '@' || c == '_' || c == ',' || c == '&' || c == '-' || c == '('
-                || c == ')' || c == '#' || c == '$' || c == '!'));
+            || c == '[' || c == ']' || c == '=' || c == '@' || c == '_' || c == ',' || c == '&' || c == '-' || c == '('
+            || c == ')' || c == '#' || c == '$' || c == '!'));
     }
 
     public static final boolean escapeIsEscapeable(char c) {
@@ -272,7 +272,6 @@ public class DBUtils {
             throw new IllegalArgumentException("Already initted.");
         }
     }
-
 
     public static String getStringUTF8(ResultSet rs, String which) throws SQLException {
         if (db_Derby) { // unicode
@@ -349,8 +348,8 @@ public class DBUtils {
             return false; // NOTREACHED
         }
     }
-    
-    private static final byte [] encode_u8(String what ) {
+
+    private static final byte[] encode_u8(String what) {
         byte u8[];
         if (what == null) {
             u8 = null;
@@ -375,13 +374,13 @@ public class DBUtils {
             s.setBytes(which, encode_u8(what));
         }
     }
-    
+
     public static final Object prepareUTF8(String what) {
-        if(what==null) return null;
-        if(db_Derby) { 
+        if (what == null) return null;
+        if (db_Derby) {
             return what; // sanity
         } else {
-            return  encode_u8(what);
+            return encode_u8(what);
         }
     }
 
@@ -403,11 +402,10 @@ public class DBUtils {
             SurveyLog.logException(sqe, "running sqlcount " + sql);
             return -1;
         } finally {
-            DBUtils.close(ps,conn);
+            DBUtils.close(ps, conn);
         }
     }
-    
-    
+
     static int sqlCount(Connection conn, PreparedStatement ps) throws SQLException {
         int rv = -1;
         ResultSet rs = ps.executeQuery();
@@ -417,7 +415,7 @@ public class DBUtils {
         rs.close();
         return rv;
     }
-    
+
     static int sqlCount(WebContext ctx, Connection conn, PreparedStatement ps) {
         try {
             return sqlCount(conn, ps);
@@ -552,7 +550,7 @@ public class DBUtils {
             } catch (SQLException t) {
                 datasource = null;
                 throw new IllegalArgumentException(getClass().getName() + ": WARNING: we require a JNDI datasource.  " + "'"
-                        + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t.toString() + "\n" + unchainSqlException(t));
+                    + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t.toString() + "\n" + unchainSqlException(t));
             } finally {
                 if (c != null)
                     try {
@@ -591,7 +589,7 @@ public class DBUtils {
         } catch (SQLException t) {
             datasource = null;
             throw new IllegalArgumentException(getClass().getName() + ": WARNING: we require a JNDI datasource.  " + "'"
-                    + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t.toString() + "\n" + unchainSqlException(t));
+                + JDBC_SURVEYTOOL + "'" + ".getConnection() returns : " + t.toString() + "\n" + unchainSqlException(t));
         } finally {
             if (c != null)
                 try {
@@ -686,7 +684,7 @@ public class DBUtils {
                                                                       */) {
                     lastMsg = now;
                     System.err.println("DBUtils: " + db_number_open + " open, " + db_max_open + " max,  " + db_number_used
-                            + " used. " + StackTracker.currentStack());
+                        + " used. " + StackTracker.currentStack());
                 }
             }
 
@@ -759,7 +757,7 @@ public class DBUtils {
      * @throws SQLException
      **/
     public static final PreparedStatement prepareStatementForwardReadOnly(Connection conn, String name, String sql)
-            throws SQLException {
+        throws SQLException {
         PreparedStatement ps = null;
         try {
             ps = prepareForwardReadOnly(conn, sql);
@@ -830,7 +828,7 @@ public class DBUtils {
                     ((DBCloseable) o).close();
                 } else {
                     throw new IllegalArgumentException("Don't know how to close " + an(o.getClass().getSimpleName()) + " "
-                            + o.getClass().getName());
+                        + o.getClass().getName());
                 }
             } catch (SQLException e) {
                 System.err.println(unchainSqlException(e));
@@ -897,18 +895,18 @@ public class DBUtils {
         if (args != null) {
             for (int i = 0; i < args.length; i++) {
                 Object o = args[i];
-                if(o == null) {
-                    ps.setNull(i+1, java.sql.Types.NULL);   
+                if (o == null) {
+                    ps.setNull(i + 1, java.sql.Types.NULL);
                 } else if (o instanceof String) {
                     ps.setString(i + 1, (String) o);
                 } else if (o instanceof byte[]) {
-                    ps.setBytes(i+1, (byte[])o);
+                    ps.setBytes(i + 1, (byte[]) o);
                 } else if (o instanceof Integer) {
                     ps.setInt(i + 1, (Integer) o);
-                } else if(o instanceof java.sql.Date) {
-                    ps.setDate(i+1, (java.sql.Date)o);
-                } else if(o instanceof java.sql.Timestamp) {
-                    ps.setTimestamp(i+1, (java.sql.Timestamp)o);
+                } else if (o instanceof java.sql.Date) {
+                    ps.setDate(i + 1, (java.sql.Date) o);
+                } else if (o instanceof java.sql.Timestamp) {
+                    ps.setTimestamp(i + 1, (java.sql.Timestamp) o);
                 } else if (o instanceof CLDRLocale) { /*
                                                        * toString compatible
                                                        * things
@@ -950,10 +948,10 @@ public class DBUtils {
         return al.toArray(new Map[al.size()]);
     }
 
-    public static Map<String,Object> assocOfResult(ResultSet rs) throws SQLException {
-        return assocOfResult(rs,rs.getMetaData());
+    public static Map<String, Object> assocOfResult(ResultSet rs) throws SQLException {
+        return assocOfResult(rs, rs.getMetaData());
     }
-    
+
     private static Map<String, Object> assocOfResult(ResultSet rs, ResultSetMetaData rsm) throws SQLException {
         Map<String, Object> m = new HashMap<String, Object>(rsm.getColumnCount());
 
@@ -1152,7 +1150,7 @@ public class DBUtils {
             if (colname.equals("LOCALE"))
                 haslocale = i;
             header.put(colname, i - 1);
-           // rsm2.put(i-1, rsm.getColumnType(i));
+            // rsm2.put(i-1, rsm.getColumnType(i));
         }
         int cn = cc;
         if (hasxpath >= 0) {
@@ -1178,7 +1176,7 @@ public class DBUtils {
                         xpath = v;
                     }
                     if (i == haslocale && v != null) {
-                        locale_name = CLDRLocale.getInstance(v).getDisplayName();   
+                        locale_name = CLDRLocale.getInstance(v).getDisplayName();
                     }
                 } catch (SQLException se) {
                     if (se.getSQLState().equals("S1009")) {
@@ -1189,7 +1187,7 @@ public class DBUtils {
                 }
                 if (v != null) {
                     int type = rsm.getColumnType(i);
-                    switch(type) {
+                    switch (type) {
                     case java.sql.Types.LONGVARBINARY:
                         String uni = DBUtils.getStringUTF8(rs, i);
                         item.put(uni);
@@ -1211,7 +1209,7 @@ public class DBUtils {
                                                                // XPATH_STRHASH
                                                                // column
                 PathHeader ph = CookieSession.sm.getSTFactory().getPathHeader(xpath);
-                if(ph!=null) {
+                if (ph != null) {
                     item.put(ph.toString()); // add XPATH_CODE
                 } else {
                     item.put("");
@@ -1240,9 +1238,9 @@ public class DBUtils {
             close(rs, s, conn);
         }
     }
-    
-    private Map<String,Reference<JSONObject>> cachedJsonQuery = new ConcurrentHashMap<String,Reference<JSONObject>>();
-    
+
+    private Map<String, Reference<JSONObject>> cachedJsonQuery = new ConcurrentHashMap<String, Reference<JSONObject>>();
+
     /**
      * Run a query, caching the JSON response
      * TODO: cache exceptions..
@@ -1256,45 +1254,45 @@ public class DBUtils {
      * @throws JSONException
      */
     public static JSONObject queryToCachedJSON(String id, long cacheAge, String query, Object... args) throws SQLException, IOException, JSONException {
-        if(SurveyMain.isSetup==false ||  SurveyMain.isBusted()) {
+        if (SurveyMain.isSetup == false || SurveyMain.isBusted()) {
             return null;
         }
-        
+
         final boolean CDEBUG = false && SurveyMain.isUnofficial();
         DBUtils instance = getInstance(); // don't want the cache to be static
         Reference<JSONObject> ref = instance.cachedJsonQuery.get(id);
         JSONObject result = null;
-        if(ref!=null) result = ref.get();
+        if (ref != null) result = ref.get();
         long now = System.currentTimeMillis();
-        if(CDEBUG) {
-            System.out.println("cachedjson: id "  + id + " ref=" + ref + "res?" + (result!=null));
+        if (CDEBUG) {
+            System.out.println("cachedjson: id " + id + " ref=" + ref + "res?" + (result != null));
         }
-        if(result != null) {
-            long age = now - (Long)result.get("birth");
-            if(age  > cacheAge) {
-                if(CDEBUG) {
-                    System.out.println("cachedjson: id " + id + " expiring because age " + age +" > " + cacheAge);
+        if (result != null) {
+            long age = now - (Long) result.get("birth");
+            if (age > cacheAge) {
+                if (CDEBUG) {
+                    System.out.println("cachedjson: id " + id + " expiring because age " + age + " > " + cacheAge);
                 }
                 result = null;
             }
         }
-        
-        if(result == null) { // have to fetch it
+
+        if (result == null) { // have to fetch it
             result = queryToJSON(query, args);
-            long queryms = System.currentTimeMillis()-now;
-            result.put("birth", (Long)now);
-            if(CDEBUG) {
+            long queryms = System.currentTimeMillis() - now;
+            result.put("birth", (Long) now);
+            if (CDEBUG) {
                 System.out.println("cachedjson: id " + id + " fetched in " + queryms);
             }
-            result.put("queryms", (Long)(queryms));
-            result.put("id",id);
+            result.put("queryms", (Long) (queryms));
+            result.put("id", id);
             ref = new WeakReference<JSONObject>(result);
             instance.cachedJsonQuery.put(id, ref);
         }
-        
+
         return result;
     }
-    
+
     /**
      * Get the first row of the first column.  Useful when the query is very simple, such as a count.
      * @param obj
@@ -1303,7 +1301,8 @@ public class DBUtils {
      */
     public static final int getFirstInt(JSONObject json) throws JSONException {
         return json.getJSONArray("data").getJSONArray(0).getInt(0);
-     }
+    }
+
     /**
      * query to an array associative maps
      * @param string
@@ -1350,11 +1349,10 @@ public class DBUtils {
         }
     }
 
-
     public static String getDbBrokenMessage() {
         final File homeFile = CLDRConfigImpl.homeFile;
         StringBuilder sb = new StringBuilder(
-                "see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>");
+            "see <a href='http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db'> http://cldr.unicode.org/development/running-survey-tool/cldr-properties/db </a>");
 
         if (homeFile == null) {
             sb.insert(0, "(can't find our home directory, either) ");
@@ -1362,7 +1360,7 @@ public class DBUtils {
             final File cldrDb = new File(homeFile, "cldrdb");
             try {
                 String connectURI = "jdbc:derby:"
-                        + (cldrDb.getCanonicalPath().replace(System.getProperty("file.separator").charAt(0), '/'));
+                    + (cldrDb.getCanonicalPath().replace(System.getProperty("file.separator").charAt(0), '/'));
 
                 if (!cldrDb.exists()) {
                     // Easier to create it for them than to explain it.
@@ -1376,15 +1374,15 @@ public class DBUtils {
 
                 // Try to print something helpful
                 sb.insert(
-                        0,
-                        "</pre>Read the rest of this exception - but, you may be able to add the following to your <b>context.xml</b> file:  <br><br><pre class='graybox adminExceptionLogsite'>"
-                                + "&lt;Resource name=\"jdbc/SurveyTool\" type=\"javax.sql.DataSource\" auth=\"Container\" \n"
-                                + "description=\"database for ST\" maxActive=\"100\" maxIdle=\"30\" maxWait=\"10000\" \n"
-                                + " username=\"\" password=\"\" driverClassName=\"org.apache.derby.jdbc.EmbeddedDriver\" \n"
-                                + " url=\"<u>"
-                                + connectURI
-                                + "</u>\" /&gt;\n</pre>\n"
-                                + " <i>Note: if you are on a Windows system, you may have to adjust the path somewhat.</i><br><pre>");
+                    0,
+                    "</pre>Read the rest of this exception - but, you may be able to add the following to your <b>context.xml</b> file:  <br><br><pre class='graybox adminExceptionLogsite'>"
+                        + "&lt;Resource name=\"jdbc/SurveyTool\" type=\"javax.sql.DataSource\" auth=\"Container\" \n"
+                        + "description=\"database for ST\" maxActive=\"100\" maxIdle=\"30\" maxWait=\"10000\" \n"
+                        + " username=\"\" password=\"\" driverClassName=\"org.apache.derby.jdbc.EmbeddedDriver\" \n"
+                        + " url=\"<u>"
+                        + connectURI
+                        + "</u>\" /&gt;\n</pre>\n"
+                        + " <i>Note: if you are on a Windows system, you may have to adjust the path somewhat.</i><br><pre>");
 
             } catch (Throwable e) {
                 SurveyLog.logException(e, "Trying to help the user out with SQL stuff in " + cldrDb.getAbsolutePath());
@@ -1396,13 +1394,13 @@ public class DBUtils {
     }
 
     public static java.sql.Timestamp sqlNow() {
-       return new java.sql.Timestamp(new Date().getTime());
-     }
+        return new java.sql.Timestamp(new Date().getTime());
+    }
 
     public static Integer getLastId(PreparedStatement s) throws SQLException {
-        if(s == null) return null;
+        if (s == null) return null;
         ResultSet rs = s.getGeneratedKeys();
-        if(!rs.next()) return null;
+        if (!rs.next()) return null;
         return rs.getInt(1);
     }
 }

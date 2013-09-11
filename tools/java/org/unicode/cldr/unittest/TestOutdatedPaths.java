@@ -28,12 +28,12 @@ public class TestOutdatedPaths extends TestFmwk {
 
         // If this path is not outdated, find another one
 
-//        assertTrue(
-//                "Test one path known to be outdated. Use TestShow -v to find a path, and verify that it is outdated",
-//                outdatedPaths
-//                .isOutdated(
-//                        "fr",
-//                        "//ldml/dates/fields/field[@type=\"week\"]/relative[@type=\"-1\"]"));
+        //        assertTrue(
+        //                "Test one path known to be outdated. Use TestShow -v to find a path, and verify that it is outdated",
+        //                outdatedPaths
+        //                .isOutdated(
+        //                        "fr",
+        //                        "//ldml/dates/fields/field[@type=\"week\"]/relative[@type=\"-1\"]"));
     }
 
     // use for debugging
@@ -43,21 +43,21 @@ public class TestOutdatedPaths extends TestFmwk {
             String locale = "fr";
             CLDRFile fr = factory.make(locale, false);
             PathHeader.Factory pathHeaders = PathHeader.getFactory(factory.make("en", false));
-            Map<PathHeader,String> sorted = new TreeMap<PathHeader, String>();
+            Map<PathHeader, String> sorted = new TreeMap<PathHeader, String>();
             logln("Count:\t" + outdatedPaths.countOutdated(locale));
             for (String spath : fr) {
                 if (outdatedPaths.isOutdated(locale, spath)) {
-                    sorted.put(pathHeaders.fromPath(spath),"");
+                    sorted.put(pathHeaders.fromPath(spath), "");
                 }
             }
             for (Entry<PathHeader, String> entry : sorted.entrySet()) {
                 PathHeader p = entry.getKey();
                 String originalPath = p.getOriginalPath();
                 logln("Eng: " + outdatedPaths.getPreviousEnglish(originalPath)
-                        + "\t=>\t" + TestAll.TestInfo.getInstance().getEnglish().getStringValue(originalPath)
-                        + "\tNative: " + fr.getStringValue(originalPath) 
-                        + "\tPath: " + p.toString() 
-                        + "\tXML Path: " + originalPath);
+                    + "\t=>\t" + TestAll.TestInfo.getInstance().getEnglish().getStringValue(originalPath)
+                    + "\tNative: " + fr.getStringValue(originalPath)
+                    + "\tPath: " + p.toString()
+                    + "\tXML Path: " + originalPath);
             }
         }
     }

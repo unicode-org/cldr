@@ -137,58 +137,58 @@ public class InterestSort extends SortMode {
             return (p.hasErrors);
         }
     },
-            // new Partition.Membership("Disputed") {
-            // public boolean isMember(DataRow p) {
-            // return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ; // not sure
-            // why "allVoteType" is needed
-            // }
-            // },
-            new Partition.Membership("Warnings") {
-                public boolean isMember(DataRow p) {
-                    return (p.hasWarnings);
-                }
-            },
-            // Later, we might want more groups.
-            // INDETERMINATE (-1),
-            // APPROVED (0),
-            // CONTRIBUTED (1),
-            // PROVISIONAL (2),
-            // UNCONFIRMED (3);
-            new Partition.Membership("Not (minimally) Approved") {
-                public boolean isMember(DataRow p) {
-                    return p.winningXpathId != -1 && p.confirmStatus != Status.approved && p.confirmStatus != Status.contributed;
-                    // || p.winningXpathId == -1 && p.hasMultipleProposals;
-                }
-            }, new Partition.Membership("Approved") {
-                public boolean isMember(DataRow p) {
-                    return p.winningXpathId != -1; // will be APPROVED
-                }
-            }, new Partition.Membership("Missing") {
-                public boolean isMember(DataRow p) {
-                    // return "root".equals(p.aliasFromLocale) ||
-                    // XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
-                    return p.inheritedValue != null && // found inherited item
-                                                       // (extrapaths and some
-                                                       // special paths may not
-                                                       // have an inherited
-                                                       // item)
-                            (CLDRLocale.ROOT == p.inheritedValue.inheritFrom || XMLSource.CODE_FALLBACK_ID
-                                    .equals(p.inheritedValue.inheritFrom.getBaseName()));
-                    /*
-                     * p.winningXpathId==-1 && // no winning item
-                     * p.inheritedValue!=null && // found inherited item
-                     * (extrapaths and some special paths may not have an
-                     * inherited item) (
-                     * "root".equals(p.inheritedValue.inheritFrom)
-                     * ||XMLSource.CODE_FALLBACK_ID
-                     * ,equals(p.inheritedValue.inheritFrom) )
-                     */
-                }
-            }, new Partition.Membership("Inherited") {
-                public boolean isMember(DataRow p) {
-                    return true;
-                }
-            } };
+        // new Partition.Membership("Disputed") {
+        // public boolean isMember(DataRow p) {
+        // return ((p.allVoteType & Vetting.RES_DISPUTED)>0) ; // not sure
+        // why "allVoteType" is needed
+        // }
+        // },
+        new Partition.Membership("Warnings") {
+            public boolean isMember(DataRow p) {
+                return (p.hasWarnings);
+            }
+        },
+        // Later, we might want more groups.
+        // INDETERMINATE (-1),
+        // APPROVED (0),
+        // CONTRIBUTED (1),
+        // PROVISIONAL (2),
+        // UNCONFIRMED (3);
+        new Partition.Membership("Not (minimally) Approved") {
+            public boolean isMember(DataRow p) {
+                return p.winningXpathId != -1 && p.confirmStatus != Status.approved && p.confirmStatus != Status.contributed;
+                // || p.winningXpathId == -1 && p.hasMultipleProposals;
+            }
+        }, new Partition.Membership("Approved") {
+            public boolean isMember(DataRow p) {
+                return p.winningXpathId != -1; // will be APPROVED
+            }
+        }, new Partition.Membership("Missing") {
+            public boolean isMember(DataRow p) {
+                // return "root".equals(p.aliasFromLocale) ||
+                // XMLSource.CODE_FALLBACK_ID.equals(p.aliasFromLocale);
+                return p.inheritedValue != null && // found inherited item
+                                                   // (extrapaths and some
+                                                   // special paths may not
+                                                   // have an inherited
+                                                   // item)
+                    (CLDRLocale.ROOT == p.inheritedValue.inheritFrom || XMLSource.CODE_FALLBACK_ID
+                        .equals(p.inheritedValue.inheritFrom.getBaseName()));
+                /*
+                 * p.winningXpathId==-1 && // no winning item
+                 * p.inheritedValue!=null && // found inherited item
+                 * (extrapaths and some special paths may not have an
+                 * inherited item) (
+                 * "root".equals(p.inheritedValue.inheritFrom)
+                 * ||XMLSource.CODE_FALLBACK_ID
+                 * ,equals(p.inheritedValue.inheritFrom) )
+                 */
+            }
+        }, new Partition.Membership("Inherited") {
+            public boolean isMember(DataRow p) {
+                return true;
+            }
+        } };
 
     @Override
     String getDisplayName() {

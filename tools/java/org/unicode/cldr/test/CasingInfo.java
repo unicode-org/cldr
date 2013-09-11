@@ -188,7 +188,7 @@ public class CasingInfo {
         // Load any existing overrides over casing info.
         CasingHandler handler = loadFromXml(localeID);
         Map<Category, CasingType> overrides = handler == null ?
-                new EnumMap<Category, CasingType>(Category.class) : handler.getOverrides();
+            new EnumMap<Category, CasingType>(Category.class) : handler.getOverrides();
         localeCasing.putAll(overrides);
 
         XMLSource source = new SimpleXMLSource(localeID);

@@ -123,7 +123,7 @@ public class AddPopulationData {
             + "\t" + ULocale.getDisplayCountry("und-" + country, "en")
             + "\t" + number.format(getPopulation(country))
             + "\t" + number.format(getGdp(country))
-            + "\t" + percent.format(getLiteracy(country)/100)
+            + "\t" + percent.format(getLiteracy(country) / 100)
             );
     }
 

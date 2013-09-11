@@ -22,12 +22,12 @@ public class CheckNew extends CheckCLDR {
         if (cldrFileToCheck == null) {
             return this;
         }
-//        if (Phase.VETTING == getPhase()) {
-//            setSkipTest(false); // ok
-//        } else {
-//            setSkipTest(true);
-//            return this;
-//        }
+        //        if (Phase.VETTING == getPhase()) {
+        //            setSkipTest(false); // ok
+        //        } else {
+        //            setSkipTest(true);
+        //            return this;
+        //        }
 
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
@@ -42,14 +42,14 @@ public class CheckNew extends CheckCLDR {
 
         // we skip if certain other errors are present
         if (hasCoverageError(result)) return this;
-        
+
         String englishValue = english.getStringValue(path);
         String oldEnglishValue = outdatedPaths.getPreviousEnglish(path);
 
         result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
             .setSubtype(Subtype.modifiedEnglishValue)
             .setMessage("The English value for this field changed from “{0}” to “{1}’, but the corresponding value for your locale didn't change.",
-                    oldEnglishValue, englishValue));
+                oldEnglishValue, englishValue));
 
         return this;
     }

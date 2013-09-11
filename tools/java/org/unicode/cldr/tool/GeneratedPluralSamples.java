@@ -39,7 +39,7 @@ public class GeneratedPluralSamples {
     private static final String RANGE_SEPARATOR = "~";
     public static final String SEQUENCE_SEPARATOR = ", ";
 
-    static class Range implements Comparable<Range>{
+    static class Range implements Comparable<Range> {
         // invariant: visibleFractionDigitCount are the same
         private final long startValue;
         private long endValue;
@@ -62,12 +62,14 @@ public class GeneratedPluralSamples {
                 throw new IllegalArgumentException("Must not be negative");
             }
         }
+
         public Range(Range other) {
             startValue = other.startValue;
             endValue = other.endValue;
             offset = other.offset;
             visibleFractionDigitCount = other.visibleFractionDigitCount;
         }
+
         @Override
         public int compareTo(Range o) {
             // TODO Auto-generated method stub
@@ -77,7 +79,11 @@ public class GeneratedPluralSamples {
             }
             return endValue == o.endValue ? 0 : endValue < o.endValue ? -1 : 1;
         }
-        enum Status {inside, rightBefore, other}
+
+        enum Status {
+            inside, rightBefore, other
+        }
+
         /**
          * Must only be called if visibleFractionDigitCount are the same.
          */
@@ -87,13 +93,14 @@ public class GeneratedPluralSamples {
                 throw new IllegalArgumentException("Must not be negative");
             }
             Status status = startValue <= newValue && newValue <= endValue ? Status.inside
-                    : endValue + 1 == newValue ? Status.rightBefore 
-                            : Status.other;
+                : endValue + 1 == newValue ? Status.rightBefore
+                    : Status.other;
             if (status == Status.rightBefore) {
                 endValue = newValue; // just extend it
             }
             return status;
         }
+
         public StringBuilder format(StringBuilder b) {
             if (visibleFractionDigitCount == 0) {
                 b.append(startValue);
@@ -109,6 +116,7 @@ public class GeneratedPluralSamples {
             }
             return b;
         }
+
         public String toString() {
             return format(new StringBuilder()).toString();
         }
@@ -117,10 +125,10 @@ public class GeneratedPluralSamples {
     private static void append(StringBuilder b, long startValue2, long visibleFractionDigitCount2) {
         int len = b.length();
         for (int i = 0; i < visibleFractionDigitCount2; ++i) {
-            b.insert(len, startValue2%10);
+            b.insert(len, startValue2 % 10);
             startValue2 /= 10;
         }
-        b.insert(len,'.');
+        b.insert(len, '.');
         b.insert(len, startValue2);
     }
 
@@ -143,6 +151,7 @@ public class GeneratedPluralSamples {
                 data[i] = new TreeSet<Range>();
             }
         }
+
         public Ranges(Ranges other) {
             for (int i = 0; i < data.length; ++i) {
                 for (Range range : other.data[i]) {
@@ -150,26 +159,30 @@ public class GeneratedPluralSamples {
                 }
             }
         }
+
         public Ranges() {
             // TODO Auto-generated constructor stub
         }
+
         void add(FixedDecimal ni) {
             Set<Range> set = data[ni.getVisibleDecimalDigitCount()];
             for (Range item : set) {
                 switch (item.getStatus(ni)) {
-                case inside: 
+                case inside:
                     return;
                 case rightBefore:
                     ++size;
                     return;
                 }
             }
-            set.add(new Range(ni,ni));
+            set.add(new Range(ni, ni));
             ++size;
         }
+
         public int size() {
             return size;
         }
+
         @Override
         public String toString() {
             StringBuilder b = new StringBuilder();
@@ -183,6 +196,7 @@ public class GeneratedPluralSamples {
             }
             return b.toString();
         }
+
         public void trim(int sampleLimit) {
             // limit to a total of sampleLimit ranges, *but* also include have at least one of each fraction length
             for (int i = 0; i < data.length; ++i) {
@@ -202,7 +216,10 @@ public class GeneratedPluralSamples {
     }
 
     static class Info {
-        enum Type {Warning, Error}
+        enum Type {
+            Warning, Error
+        }
+
         Set<String> bounds = new TreeSet();
 
         public void add(Type type, String string) {
@@ -235,6 +252,7 @@ public class GeneratedPluralSamples {
         public DataSample(PluralRules.SampleType sampleType) {
             this.sampleType = sampleType;
         }
+
         public String toString() {
             Ranges samples2 = new Ranges(samples);
             for (FixedDecimal ni : digitToSample) {
@@ -247,10 +265,10 @@ public class GeneratedPluralSamples {
 
         private void add(FixedDecimal ni) {
             ++count;
-            if (samples.size() < SAMPLE_LIMIT*2) {
+            if (samples.size() < SAMPLE_LIMIT * 2) {
                 samples.add(ni);
             }
-            if (noTrailing.size() <= UNBOUNDED_LIMIT*2) {
+            if (noTrailing.size() <= UNBOUNDED_LIMIT * 2) {
                 noTrailing.add(ni.source);
             }
             int digit = getDigit(ni);
@@ -258,13 +276,15 @@ public class GeneratedPluralSamples {
                 digitToSample[digit] = ni;
             }
         }
+
         @Override
         public boolean equals(Object obj) {
-            DataSample other = (DataSample)obj;
+            DataSample other = (DataSample) obj;
             return count == other.count
-                    && samples.equals(other.samples)
-                    && digitToSample.equals(other.digitToSample);
+                && samples.equals(other.samples)
+                && digitToSample.equals(other.digitToSample);
         }
+
         @Override
         public int hashCode() {
             // TODO Auto-generated method stub
@@ -280,7 +300,7 @@ public class GeneratedPluralSamples {
             }
 
             if (!isBounded) {
-                samples.trim(SAMPLE_LIMIT);  // to avoid running out of memory.
+                samples.trim(SAMPLE_LIMIT); // to avoid running out of memory.
             }
         }
 
@@ -306,11 +326,11 @@ public class GeneratedPluralSamples {
                     //                        ? Info.Type.Warning 
                     //                                : Info.Type.Error;
                     INFO.add(infoType, sampleType.toString().toLowerCase(Locale.ENGLISH)
-                            + " computation from rule ≠ from items"
-                            + "; keyword: " + keyword 
-                            + "; count: " + noTrailing 
-                            + "; rule:\n\t" + rule.toString().replace(";", ";\n\t") 
-                            );
+                        + " computation from rule ≠ from items"
+                        + "; keyword: " + keyword
+                        + "; count: " + noTrailing
+                        + "; rule:\n\t" + rule.toString().replace(";", ";\n\t")
+                        );
                 }
             }
             return bounded;
@@ -339,15 +359,17 @@ public class GeneratedPluralSamples {
                 decimals.add(ni);
             }
         }
+
         public String toString() {
             String integersString = integers.toString();
             String decimalsString = type == PluralType.ordinal ? "" : decimals.toString();
             return (integersString.isEmpty() ? "\t\t" : "\t@integer\t" + integersString)
-                    + (decimalsString.isEmpty() ? "" : "\t@decimal\t" + decimalsString);
+                + (decimalsString.isEmpty() ? "" : "\t@decimal\t" + decimalsString);
         }
+
         @Override
         public boolean equals(Object obj) {
-            DataSamples other = (DataSamples)obj;
+            DataSamples other = (DataSamples) obj;
             return integers.equals(other.integers) && decimals.equals(other.decimals);
         }
 
@@ -408,7 +430,7 @@ public class GeneratedPluralSamples {
         return result;
     }
 
-    private final TreeMap<String,DataSamples> keywordToData = new TreeMap();
+    private final TreeMap<String, DataSamples> keywordToData = new TreeMap();
     private final PluralType type;
 
     GeneratedPluralSamples(PluralInfo pluralInfo, PluralType type) {
@@ -444,15 +466,15 @@ public class GeneratedPluralSamples {
 
     private void collect10s(PluralInfo pluralInfo, int start, int end, int decimals) {
         double power = Math.pow(10, decimals);
-        for (long i = start*(int)power; i <= end*(int)power; i *= 10) {
-            add(pluralInfo, i/power, decimals);
+        for (long i = start * (int) power; i <= end * (int) power; i *= 10) {
+            add(pluralInfo, i / power, decimals);
         }
     }
 
     private void collect(PluralInfo pluralInfo, int limit, int decimals) {
         double power = Math.pow(10, decimals);
-        for (int i = 0; i <= limit*(int)power; ++i) {
-            add(pluralInfo, i/power, decimals);
+        for (int i = 0; i <= limit * (int) power; ++i) {
+            add(pluralInfo, i / power, decimals);
         }
     }
 
@@ -493,7 +515,7 @@ public class GeneratedPluralSamples {
 
     @Override
     public boolean equals(Object obj) {
-        return keywordToData.equals(((GeneratedPluralSamples)obj).keywordToData);
+        return keywordToData.equals(((GeneratedPluralSamples) obj).keywordToData);
     }
 
     @Override
@@ -521,24 +543,23 @@ public class GeneratedPluralSamples {
         myOptions.parse(MyOptions.filter, args, true);
         PluralRules test = PluralRules.parseDescription("one: n in 3,4 or f mod 5 in 3..4;");
         System.out.println(test);
-        
+
         Matcher localeMatcher = !MyOptions.filter.option.doesOccur() ? null : Pattern.compile(MyOptions.filter.option.getValue()).matcher("");
         boolean fileFormat = MyOptions.xml.option.doesOccur();
         final boolean multiline = MyOptions.multiline.option.doesOccur();
         final boolean sortNew = MyOptions.sortNew.option.doesOccur();
 
-
         //        computeBounded("n is not 0 and n mod 1000000 is 0", false);
         int failureCount = 0;
 
         PluralRules pluralRules2 = PluralRules.createRules("one: n is 3..9; two: n is 7..12");
-        System.out.println("Checking " + checkForDuplicates(pluralRules2 , new FixedDecimal(8)));
+        System.out.println("Checking " + checkForDuplicates(pluralRules2, new FixedDecimal(8)));
         PrintWriter out = null;
 
         for (PluralType type : PluralType.values()) {
             if (fileFormat) {
-                out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/plurals/", 
-                        (type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml"));
+                out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/plurals/",
+                    (type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml"));
                 out.println(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
             }
             System.out.println("\n");
@@ -558,9 +579,9 @@ public class GeneratedPluralSamples {
             }
 
             // sort if necessary
-            Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet() 
-            : new TreeSet(new HackComparator(type == PluralType.cardinal 
-            ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
+            Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet()
+                : new TreeSet(new HackComparator(type == PluralType.cardinal
+                    ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
             for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
                 sorted.add(entry);
             }
@@ -585,7 +606,7 @@ public class GeneratedPluralSamples {
                         // strip original @...
                         int atPos = rule.indexOf('@');
                         if (atPos >= 0) {
-                            rule = rule.substring(0,atPos).trim();
+                            rule = rule.substring(0, atPos).trim();
                         }
                     }
                     if (rule == null && count != Count.other) {
@@ -647,9 +668,11 @@ public class GeneratedPluralSamples {
 
     static class HackComparator implements Comparator<Entry<PluralInfo, Set<String>>> {
         final Map<String, Integer> order;
+
         HackComparator(Map<String, Integer> order) {
             this.order = order;
         }
+
         // we get the order of the first items in each of the old rules, and use that order where we can.
         @Override
         public int compare(Entry<PluralInfo, Set<String>> o1, Entry<PluralInfo, Set<String>> o2) {

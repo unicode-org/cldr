@@ -346,17 +346,17 @@ public abstract class PerfTest {
 
     UOption[] getOptions() {
         return new UOption[] { UOption.HELP_H(), UOption.HELP_QUESTION_MARK(), UOption.VERBOSE(), UOption.SOURCEDIR(),
-                UOption.ENCODING(), UOption.DEF("uselen", 'u', UOption.NO_ARG),
-                UOption.DEF("filename", 'f', UOption.REQUIRES_ARG), UOption.DEF("passes", 'p', UOption.REQUIRES_ARG),
-                UOption.DEF("iterations", 'i', UOption.REQUIRES_ARG), UOption.DEF("time", 't', UOption.REQUIRES_ARG),
-                UOption.DEF("line-mode", 'l', UOption.NO_ARG), UOption.DEF("bulk-mode", 'b', UOption.NO_ARG),
-                UOption.DEF("locale", 'L', UOption.REQUIRES_ARG), UOption.DEF("testname", 'T', UOption.REQUIRES_ARG),
-                UOption.DEF("threads", 'r', UOption.REQUIRES_ARG),
+            UOption.ENCODING(), UOption.DEF("uselen", 'u', UOption.NO_ARG),
+            UOption.DEF("filename", 'f', UOption.REQUIRES_ARG), UOption.DEF("passes", 'p', UOption.REQUIRES_ARG),
+            UOption.DEF("iterations", 'i', UOption.REQUIRES_ARG), UOption.DEF("time", 't', UOption.REQUIRES_ARG),
+            UOption.DEF("line-mode", 'l', UOption.NO_ARG), UOption.DEF("bulk-mode", 'b', UOption.NO_ARG),
+            UOption.DEF("locale", 'L', UOption.REQUIRES_ARG), UOption.DEF("testname", 'T', UOption.REQUIRES_ARG),
+            UOption.DEF("threads", 'r', UOption.REQUIRES_ARG),
 
-                // Options above here are identical to those in C; keep in sync
-                // Options below here are unique to Java
+            // Options above here are identical to those in C; keep in sync
+            // Options below here are unique to Java
 
-                UOption.DEF("gc", 'g', UOption.NO_ARG), UOption.DEF("list", (char) -1, UOption.NO_ARG), };
+            UOption.DEF("gc", 'g', UOption.NO_ARG), UOption.DEF("list", (char) -1, UOption.NO_ARG), };
     }
 
     /**
@@ -407,18 +407,18 @@ public abstract class PerfTest {
                 if (verbose) {
                     if (events == -1) {
                         System.out.println("= " + meth + " end " + (t / 1000.0) + " loops: " + loops + " operations: "
-                                + testFunction.getOperationsPerIteration());
+                            + testFunction.getOperationsPerIteration());
                     } else {
                         System.out.println("= " + meth + " end " + (t / 1000.0) + " loops: " + loops + " operations: "
-                                + testFunction.getOperationsPerIteration() + " events: " + events);
+                            + testFunction.getOperationsPerIteration() + " events: " + events);
                     }
                 } else {
                     if (events == -1) {
                         System.out.println("= " + meth + " end " + (t / 1000.0) + " " + loops + " "
-                                + testFunction.getOperationsPerIteration());
+                            + testFunction.getOperationsPerIteration());
                     } else {
                         System.out.println("= " + meth + " end " + (t / 1000.0) + " " + loops + " "
-                                + testFunction.getOperationsPerIteration() + " " + events);
+                            + testFunction.getOperationsPerIteration() + " " + events);
                     }
                 }
 
@@ -873,39 +873,39 @@ public abstract class PerfTest {
                     return 2; // "UTF-16LE";
                 }
             } else if ((encoding == null || "UTF-8".equals(encoding)) && start[0] == (byte) 0xEF && start[1] == (byte) 0xBB
-                    && start[2] == (byte) 0xBF) {
+                && start[2] == (byte) 0xBF) {
                 if (encoding == null)
                     this.encoding = "UTF-8";
                 return 3; // "UTF-8";
             } else if ((encoding == null || "UTF-32BE".equals(encoding)) && start[0] == (byte) 0x00 && start[1] == (byte) 0x00
-                    && start[2] == (byte) 0xFE && start[3] == (byte) 0xFF) {
+                && start[2] == (byte) 0xFE && start[3] == (byte) 0xFF) {
                 if (encoding == null)
                     this.encoding = "UTF-32BE";
                 return 4; // "UTF-32BE";
             } else if ((encoding == null || "SCSU".equals(encoding)) && start[0] == (byte) 0x0E && start[1] == (byte) 0xFE
-                    && start[2] == (byte) 0xFF) {
+                && start[2] == (byte) 0xFF) {
                 if (encoding == null)
                     this.encoding = "SCSU";
                 return 3; // "SCSU";
             } else if ((encoding == null || "BOCU-1".equals(encoding)) && start[0] == (byte) 0xFB && start[1] == (byte) 0xEE
-                    && start[2] == (byte) 0x28) {
+                && start[2] == (byte) 0x28) {
                 if (encoding == null)
                     this.encoding = "BOCU-1";
                 return 3; // "BOCU-1";
             } else if ((encoding == null || "UTF-7".equals(encoding)) && start[0] == (byte) 0x2B && start[1] == (byte) 0x2F
-                    && start[2] == (byte) 0x76) {
+                && start[2] == (byte) 0x76) {
                 if (start[3] == (byte) 0x38 && start[4] == (byte) 0x2D) {
                     if (encoding == null)
                         this.encoding = "UTF-7";
                     return 5; // "UTF-7";
                 } else if (start[3] == (byte) 0x38 || start[3] == (byte) 0x39 || start[3] == (byte) 0x2B
-                        || start[3] == (byte) 0x2F) {
+                    || start[3] == (byte) 0x2F) {
                     if (encoding == null)
                         this.encoding = "UTF-7";
                     return 4; // "UTF-7";
                 }
             } else if ((encoding == null || "UTF-EBCDIC".equals(encoding)) && start[0] == (byte) 0xDD && start[2] == (byte) 0x73
-                    && start[2] == (byte) 0x66 && start[3] == (byte) 0x73) {
+                && start[2] == (byte) 0x66 && start[3] == (byte) 0x73) {
                 if (encoding == null)
                     this.encoding = "UTF-EBCDIC";
                 return 4; // "UTF-EBCDIC";

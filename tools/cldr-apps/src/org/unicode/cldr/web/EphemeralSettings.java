@@ -59,7 +59,7 @@ public class EphemeralSettings extends UserSettings {
      */
     @Override
     public void set(String name, String value) {
-        if(value==null) {
+        if (value == null) {
             hash.remove(name);
         } else {
             hash.put(name, value);

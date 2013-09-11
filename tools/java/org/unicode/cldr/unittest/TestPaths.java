@@ -38,7 +38,7 @@ public class TestPaths extends TestFmwkPlus {
         Set<PathHeader> errorPaths = new TreeSet();
         XPathParts parts = new XPathParts();
         Set<String> SKIP_VARIANT = new HashSet(Arrays.asList(
-                "ps-variant", "ug-variant", "ky-variant", "az-short", "Arab-variant", "am-variant", "pm-variant"));
+            "ps-variant", "ug-variant", "ky-variant", "az-short", "Arab-variant", "am-variant", "pm-variant"));
         for (String path : englishPaths) {
             String source = testInfo.getEnglish().getSourceLocaleID(path, status);
             // skip aliases, other counts
@@ -46,13 +46,13 @@ public class TestPaths extends TestFmwkPlus {
                 continue;
             }
             PathHeader ph = phf.fromPath(path);
-            if (ph.getSectionId() == SectionId.Special 
-                    || ph.getCode().endsWith("-name-other")) {
+            if (ph.getSectionId() == SectionId.Special
+                || ph.getCode().endsWith("-name-other")) {
                 continue;
             }
-            if (path.contains("@alt") 
-                    && !SKIP_VARIANT.contains(ph.getCode()) 
-                    && ph.getPageId() != PageId.Alphabetic_Information) {
+            if (path.contains("@alt")
+                && !SKIP_VARIANT.contains(ph.getCode())
+                && ph.getPageId() != PageId.Alphabetic_Information) {
                 errorPaths.add(ph);
             } else {
                 suspiciousPaths.add(ph);
@@ -127,7 +127,7 @@ public class TestPaths extends TestFmwkPlus {
             return;
         }
         pathsSeen.add(path);
-        logln("Testing ==> "+path);
+        logln("Testing ==> " + path);
         String prettied = phf.fromPath(path).toString();
         String unprettied = phf.fromPath(path).getOriginalPath();
         if (!path.equals(unprettied)) {
@@ -139,7 +139,7 @@ public class TestPaths extends TestFmwkPlus {
 
     private Collection<String> getLocalesToTest() {
         return params.inclusion < 5 ? Arrays.asList("root", "en", "ja", "ar")
-                : params.inclusion < 10 ? testInfo.getCldrFactory().getAvailableLanguages()
-                        : testInfo.getCldrFactory().getAvailable();
+            : params.inclusion < 10 ? testInfo.getCldrFactory().getAvailableLanguages()
+                : testInfo.getCldrFactory().getAvailable();
     }
 }

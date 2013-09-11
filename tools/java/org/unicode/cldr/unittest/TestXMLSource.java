@@ -68,7 +68,7 @@ public class TestXMLSource extends TestFmwk {
     public static void main(String[] args) {
         new TestXMLSource().run(args);
     }
-    
+
     public void TestGetPathsWithValue() {
         XMLSource source = new DummyXMLSource();
         source.putValueAtDPath("//ldml/foo", "x");
@@ -110,7 +110,7 @@ public class TestXMLSource extends TestFmwk {
             result.contains("//ldml/foo[@alt=\"short-proposed-x\"][@type=\"wide\"]"));
         result.clear();
     }
-    
+
     public void TestA() {
         TestInfo testInfo = TestInfo.getInstance();
         CLDRFile file = testInfo.getEnglish();
@@ -119,9 +119,9 @@ public class TestXMLSource extends TestFmwk {
         for (String path : result) {
             String value = file.getStringValue(path);
             if (!value.contains("ms")) {
-                errln("bad paths:\t" + value + "\t" + path);   
+                errln("bad paths:\t" + value + "\t" + path);
             }
         }
-        
+
     }
 }

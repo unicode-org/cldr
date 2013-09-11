@@ -57,7 +57,7 @@ public class CldrUtility {
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
     // Constant for "∅∅∅". Indicates that a child locale has no value for a
     // path even though a parent does.
-    public static final String NO_INHERITANCE_MARKER = new String(new char [] {0x2205, 0x2205, 0x2205});
+    public static final String NO_INHERITANCE_MARKER = new String(new char[] { 0x2205, 0x2205, 0x2205 });
 
     /**
      * Very simple class, used to replace variables in a string. For example
@@ -161,14 +161,14 @@ public class CldrUtility {
     public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg
                                                                                                                   // "/Users/markdavis/workspace/icu4c/source/data/";
     public static final String ANALYTICS = "<script type=\"text/javascript\">\n"
-            + "var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"
-            + "document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"
-            + "</script>\n"
-            + "<script type=\"text/javascript\">\n"
-            + "try {\n"
-            + "var pageTracker = _gat._getTracker(\"UA-7672775-1\");\n"
-            + "pageTracker._trackPageview();\n"
-            + "} catch(err) {}</script>";
+        + "var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"
+        + "document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"
+        + "</script>\n"
+        + "<script type=\"text/javascript\">\n"
+        + "try {\n"
+        + "var pageTracker = _gat._getTracker(\"UA-7672775-1\");\n"
+        + "pageTracker._trackPageview();\n"
+        + "} catch(err) {}</script>";
 
     /**
      * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
@@ -570,11 +570,12 @@ public class CldrUtility {
     public static <T> String join(Collection<T> c, String separator) {
         return join(c, separator, null);
     }
+
     public static String join(Object[] c, String separator) {
         return join(c, separator, null);
     }
-    
-    public static <T> String join(Collection<T> c, String separator, Transform<T,String> transform) {
+
+    public static <T> String join(Collection<T> c, String separator, Transform<T, String> transform) {
         StringBuffer output = new StringBuffer();
         boolean isFirst = true;
         for (T item : c) {
@@ -588,7 +589,7 @@ public class CldrUtility {
         return output.toString();
     }
 
-    public static <T> String join(T[] c, String separator, Transform<T,String> transform) {
+    public static <T> String join(T[] c, String separator, Transform<T, String> transform) {
         return join(Arrays.asList(c), separator, transform);
     }
 
@@ -811,7 +812,7 @@ public class CldrUtility {
         base.put(objects[objects.length - 2], objects[objects.length - 1]);
     }
 
-    public static abstract class CollectionTransform<S,T> implements Transform<S,T> {
+    public static abstract class CollectionTransform<S, T> implements Transform<S, T> {
         public abstract T transform(S source);
 
         public Collection<T> transform(Collection<S> input, Collection<T> output) {
@@ -822,8 +823,8 @@ public class CldrUtility {
             return transform(input, new ArrayList<T>());
         }
     }
-    
-    public static <S, T, SC extends Collection<S>, TC extends Collection<T>> TC transform(SC source, Transform<S,T> transform, TC target) {
+
+    public static <S, T, SC extends Collection<S>, TC extends Collection<T>> TC transform(SC source, Transform<S, T> transform, TC target) {
         for (S sourceItem : source) {
             T targetItem = transform.transform(sourceItem);
             if (targetItem != null) {
@@ -832,9 +833,9 @@ public class CldrUtility {
         }
         return target;
     }
-    
-    public static <SK, SV, TK, TV, SM extends Map<SK,SV>, TM extends Map<TK,TV>> TM transform(
-            SM source, Transform<SK,TK> transformKey, Transform<SV,TV> transformValue, TM target) {
+
+    public static <SK, SV, TK, TV, SM extends Map<SK, SV>, TM extends Map<TK, TV>> TM transform(
+        SM source, Transform<SK, TK> transformKey, Transform<SV, TV> transformValue, TM target) {
         for (Entry<SK, SV> sourceEntry : source.entrySet()) {
             TK targetKey = transformKey.transform(sourceEntry.getKey());
             TV targetValue = transformValue.transform(sourceEntry.getValue());
@@ -919,7 +920,6 @@ public class CldrUtility {
             return matcher.reset(o.toString()).matches();
         }
     }
-
 
     // static final class HandlingTransform implements Transform<String, Handling> {
     // @Override
@@ -1303,7 +1303,7 @@ public class CldrUtility {
     public static String getDoubleLinkMsg() {
         return "<a name=''{0}'' href=''#{0}''>{0}</a>";
     }
-    
+
     public static String getCopyrightString() {
         // now do the rest
         return "Copyright \u00A9 1991-"
@@ -1321,7 +1321,7 @@ public class CldrUtility {
      * @param key
      * @return value
      */
-    public static <K,V,M extends Map<K,V>> V get(M map, K key) {
+    public static <K, V, M extends Map<K, V>> V get(M map, K key) {
         return map.get(key);
     }
 
@@ -1331,19 +1331,19 @@ public class CldrUtility {
      * @param key
      * @return value
      */
-    public static <K,C extends Collection<K>> boolean contains(C collection, K key) {
+    public static <K, C extends Collection<K>> boolean contains(C collection, K key) {
         return collection.contains(key);
     }
 
     public static <E extends Enum<E>> EnumSet<E> toEnumSet(Class classValue, Collection<String> stringValues) {
         EnumSet result = EnumSet.noneOf(classValue);
         for (String s : stringValues) {
-            result.add(Enum.valueOf(classValue,s));
+            result.add(Enum.valueOf(classValue, s));
         }
         return result;
     }
-    
-    public static <K,V,M extends Map<K,V>> M putNew(M map, K key, V value) {
+
+    public static <K, V, M extends Map<K, V>> M putNew(M map, K key, V value) {
         if (!map.containsKey(key)) {
             map.put(key, value);
         }

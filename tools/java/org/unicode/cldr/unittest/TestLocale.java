@@ -49,14 +49,14 @@ public class TestLocale extends TestFmwk {
                 boolean parentIsRoot = "root".equals(supplementalDataInfo.getExplicitParentLocale(locale));
                 if (parentIsRoot == isDefaultContent) {
                     errln("Inconsistency between parentLocales and defaultContents: " + locale
-                            + (parentIsRoot ? " +" : " -") + "parentIsRoot"
-                            + (isDefaultContent ? " +" : " -") + "isDefaultContent");
+                        + (parentIsRoot ? " +" : " -") + "parentIsRoot"
+                        + (isDefaultContent ? " +" : " -") + "isDefaultContent");
                 }
 
                 // we'd better have a separate likelySubtag
                 if (parentIsRoot && !hasLikelySubtag) {
                     errln("Missing likely subtags for: " + locale + " "
-                            + TestInheritance.suggestLikelySubtagFor(locale));
+                        + TestInheritance.suggestLikelySubtagFor(locale));
                 }
             }
 
@@ -65,7 +65,7 @@ public class TestLocale extends TestFmwk {
             if (!hasScript && !hasRegion) {
                 if (!hasLikelySubtag) {
                     errln("Missing likely subtags for: " + locale + " "
-                            + TestInheritance.suggestLikelySubtagFor(locale));
+                        + TestInheritance.suggestLikelySubtagFor(locale));
                 }
             }
         }
@@ -74,10 +74,10 @@ public class TestLocale extends TestFmwk {
     public void TestCanonicalizer() {
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
         String[][] tests = {
-                { "iw", "he" },
-                { "no-YU", "nb_RS" },
-                { "no", "nb" },
-                { "eng-833", "en_IM" },
+            { "iw", "he" },
+            { "no-YU", "nb_RS" },
+            { "no", "nb" },
+            { "eng-833", "en_IM" },
         };
         for (String[] pair : tests) {
             String actual = canonicalizer.transform(pair[0]);
@@ -87,16 +87,16 @@ public class TestLocale extends TestFmwk {
 
     public void TestBrackets() {
         String[][] tests = {
-                {"language", "en", "Anglish (abc)", "en", "Anglish [abc]", 
-                "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗"},
-                {"script", "Latn", "Latine (def)", "en_Latn", "Anglish [abc] (Latine [def])", 
-                "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗"},
-                {"territory", "US", "U.S. (ghi)", "en_Latn_US", "Anglish [abc] (Latine [def], U.S. [ghi])", 
-                "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗"},
-                {null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null},
-                {"variant", "foobar", "foo (jkl)", "en_foobar", "Anglish [abc] (foo [jkl])", null},
-                {"key", "co", "sort (mno)", "en_foobar@co=FOO", "Anglish [abc] (foo [jkl], sort [mno]=FOO)", null},
-                {"type|key", "FII|co", "sortfii (mno)", "en_foobar@co=FII", "Anglish [abc] (foo [jkl], sortfii [mno])", null},
+            { "language", "en", "Anglish (abc)", "en", "Anglish [abc]",
+                "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
+            { "script", "Latn", "Latine (def)", "en_Latn", "Anglish [abc] (Latine [def])",
+                "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
+            { "territory", "US", "U.S. (ghi)", "en_Latn_US", "Anglish [abc] (Latine [def], U.S. [ghi])",
+                "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
+            { null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null },
+            { "variant", "foobar", "foo (jkl)", "en_foobar", "Anglish [abc] (foo [jkl])", null },
+            { "key", "co", "sort (mno)", "en_foobar@co=FOO", "Anglish [abc] (foo [jkl], sort [mno]=FOO)", null },
+            { "type|key", "FII|co", "sortfii (mno)", "en_foobar@co=FII", "Anglish [abc] (foo [jkl], sortfii [mno])", null },
         };
         // load up a dummy source
         SimpleXMLSource dxs = new SimpleXMLSource("xx");
@@ -146,10 +146,10 @@ public class TestLocale extends TestFmwk {
     public void TestExtendedLanguage() {
         assertEquals("Extended language translation", "Simplified Chinese", testInfo.getEnglish().getName("zh_Hans"));
         assertEquals("Extended language translation", "Simplified Chinese (Singapore)",
-                testInfo.getEnglish().getName("zh_Hans_SG"));
+            testInfo.getEnglish().getName("zh_Hans_SG"));
         assertEquals("Extended language translation", "American English", testInfo.getEnglish().getName("en-US"));
         assertEquals("Extended language translation", "American English (Arabic)",
-                testInfo.getEnglish().getName("en-Arab-US"));
+            testInfo.getEnglish().getName("en-Arab-US"));
     }
 
     public void TestNarrowEnough() {

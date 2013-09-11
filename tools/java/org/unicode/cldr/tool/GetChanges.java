@@ -19,21 +19,24 @@ public class GetChanges {
         final String valueLastRelease;
         final String valueSnapshot;
         final String valueTrunk;
+
         public Data(String valueLastRelease, String valueSnapshot, String valueTrunk) {
             super();
             this.valueLastRelease = valueLastRelease;
             this.valueSnapshot = valueSnapshot;
             this.valueTrunk = valueTrunk;
         }
+
         @Override
         public String toString() {
             return "«" + valueLastRelease + "»"
-                    + (!CldrUtility.equals(valueTrunk, valueLastRelease) ? "‡" : "") 
-                    + "\t" 
-                    + "«" + valueSnapshot + "»"
-                    + (CldrUtility.equals(valueTrunk, valueSnapshot) ? "†" : "");
+                + (!CldrUtility.equals(valueTrunk, valueLastRelease) ? "‡" : "")
+                + "\t"
+                + "«" + valueSnapshot + "»"
+                + (CldrUtility.equals(valueTrunk, valueSnapshot) ? "†" : "");
         }
     }
+
     public static void main(String[] args) {
         TestInfo testInfo = TestInfo.getInstance();
         CLDRFile english = testInfo.getEnglish();
@@ -50,7 +53,7 @@ public class GetChanges {
         Output<String> pathWhereFound = new Output<String>();
 
         for (String locale : lastReleaseFactory.getAvailable()) {
-            Map<PathHeader,Data> results = new TreeMap<PathHeader,Data>();
+            Map<PathHeader, Data> results = new TreeMap<PathHeader, Data>();
             CLDRFile lastRelease = lastReleaseFactory.make(locale, false);
             CLDRFile trunk = trunkFactory.make(locale, false);
             CLDRFile snapshot = snapshotFactory.make(locale, true);
@@ -70,9 +73,9 @@ public class GetChanges {
                 }
                 // skip inherited
                 String baileyValue = snapshot.getConstructedBaileyValue(xpath, pathWhereFound, localeWhereFound);
-                if (!localeWhereFound.value.equals("root") 
-                        && !localeWhereFound.value.equals("code-fallback")
-                        && CldrUtility.equals(valueSnapshot, baileyValue)) {
+                if (!localeWhereFound.value.equals("root")
+                    && !localeWhereFound.value.equals("code-fallback")
+                    && CldrUtility.equals(valueSnapshot, baileyValue)) {
                     continue;
                 }
                 PathHeader ph = phf.fromPath(newPath);
@@ -84,7 +87,8 @@ public class GetChanges {
             int itemCount = 0;
             localeCount++;
             for (Entry<PathHeader, Data> entry : results.entrySet()) {
-                System.out.println(localeCount + "\t" + ++itemCount + "\t" + locale + "\t" + english.getName(locale) + "\t«" + entry.getKey() + "\t" + entry.getValue());
+                System.out.println(localeCount + "\t" + ++itemCount + "\t" + locale + "\t" + english.getName(locale) + "\t«" + entry.getKey() + "\t"
+                    + entry.getValue());
             }
             totalCount += itemCount;
         }
@@ -102,9 +106,9 @@ public class GetChanges {
         if (OLD_PATH_MATCHER.reset(xpath).matches()) {
             String type = OLD_PATH_MATCHER.group(4);
             return "//ldml/units/unitLength[@type=\"" + (type == null ? "long" : type)
-                    + "\"]/unit[@type=\"duration-" + OLD_PATH_MATCHER.group(1)
-                    + "\"]/unitPattern[@count=\"" + OLD_PATH_MATCHER.group(2)
-                    + "\"]";
+                + "\"]/unit[@type=\"duration-" + OLD_PATH_MATCHER.group(1)
+                + "\"]/unitPattern[@count=\"" + OLD_PATH_MATCHER.group(2)
+                + "\"]";
         }
         return xpath;
     }

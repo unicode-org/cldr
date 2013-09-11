@@ -93,9 +93,9 @@ abstract public class CheckCLDR {
         FORBID_ERRORS(true),
         FORBID_READONLY(true),
         FORBID_UNLESS_DATA_SUBMISSION(true),
-        FORBID_COVERAGE(true), 
+        FORBID_COVERAGE(true),
         FORBID_NEEDS_TICKET(true);
-        
+
         private final boolean isForbidden;
 
         private StatusAction() {
@@ -216,11 +216,11 @@ abstract public class CheckCLDR {
             if (status == SurveyToolStatus.DEPRECATED) {
                 return StatusAction.FORBID_READONLY;
             }
-            
-            if(status == SurveyToolStatus.READ_ONLY) {
+
+            if (status == SurveyToolStatus.READ_ONLY) {
                 return StatusAction.ALLOW_TICKET_ONLY;
             }
-            
+
             // always forbid bulk import except in data submission.
             if (inputMethod == InputMethod.BULK && this != Phase.SUBMISSION) {
                 return StatusAction.FORBID_UNLESS_DATA_SUBMISSION;
@@ -282,7 +282,7 @@ abstract public class CheckCLDR {
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
         ) {
-            if(status != SurveyToolStatus.READ_WRITE) {
+            if (status != SurveyToolStatus.READ_WRITE) {
                 return StatusAction.FORBID_READONLY; // not writable.
             }
 
@@ -396,7 +396,7 @@ abstract public class CheckCLDR {
             .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
             .add(new CheckWidths())
             .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
-                                 // not add a message if there are any.
+        // not add a message if there are any.
         ;
     }
 
@@ -540,7 +540,7 @@ abstract public class CheckCLDR {
 
             narrowDateFieldTooWide, illegalCharactersInExemplars, orientationDisagreesWithExemplars,
             inconsistentDatePattern, missingDatePattern,
-            illegalDatePattern, missingMainExemplars, 
+            illegalDatePattern, missingMainExemplars,
             mustNotStartOrEndWithSpace,
             illegalCharactersInNumberPattern, numberPatternNotCanonical, currencyPatternMissingCurrencySymbol, badNumericType,
             percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit,
@@ -552,7 +552,7 @@ abstract public class CheckCLDR {
             patternCannotContainDigits, patternContainsInvalidCharacters, parenthesesNotAllowed,
             illegalNumberingSystem,
             unexpectedOrderOfEraYear;
-            
+
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();
             }
@@ -878,7 +878,7 @@ abstract public class CheckCLDR {
         CheckCLDR instance = handleCheck(path, fullPath, value, options, result);
         Iterator<CheckStatus> iterator = result.iterator();
         // Filter out any errors/warnings that match the filter list in CheckCLDR-exceptions.txt.
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             CheckStatus status = iterator.next();
             if (shouldExcludeStatus(fullPath, status)) {
                 iterator.remove();
@@ -1084,7 +1084,6 @@ abstract public class CheckCLDR {
     public void setPhase(Phase phase) {
         this.phase = phase;
     }
-
 
     /**
      * A map of error/warning types to their filters.

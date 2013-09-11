@@ -9,8 +9,8 @@ package org.unicode.cldr.web;
  */
 public class BallotBoxVoteNotAcceptedException extends Exception {
     /**
-	 * 
-	 */
+     * 
+     */
     private static final long serialVersionUID = 1462132656348262950L;
 
     enum Reason {

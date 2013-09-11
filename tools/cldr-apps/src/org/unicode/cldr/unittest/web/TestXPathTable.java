@@ -69,38 +69,38 @@ public class TestXPathTable extends TestFmwk {
     public void TestRemoveDraftAltProposed() {
         String inout[] = {
 
-                "//ldml/foo/bar[@draft=\"true\"]",
-                "//ldml/foo/bar",
+            "//ldml/foo/bar[@draft=\"true\"]",
+            "//ldml/foo/bar",
 
-                "//ldml/foo/bar[@alt=\"variant\"]",
-                "//ldml/foo/bar[@alt=\"variant\"]",
+            "//ldml/foo/bar[@alt=\"variant\"]",
+            "//ldml/foo/bar[@alt=\"variant\"]",
 
-                "//ldml/foo/bar[@alt=\"variant\"][@draft=\"true\"]",
-                "//ldml/foo/bar[@alt=\"variant\"]",
+            "//ldml/foo/bar[@alt=\"variant\"][@draft=\"true\"]",
+            "//ldml/foo/bar[@alt=\"variant\"]",
 
-                "//ldml/foo/bar[@alt=\"proposed-x222\"]",
-                "//ldml/foo/bar",
+            "//ldml/foo/bar[@alt=\"proposed-x222\"]",
+            "//ldml/foo/bar",
 
-                "//ldml/foo/bar[@alt=\"proposed-x222\"][@draft=\"true\"]",
-                "//ldml/foo/bar",
+            "//ldml/foo/bar[@alt=\"proposed-x222\"][@draft=\"true\"]",
+            "//ldml/foo/bar",
 
-                "//ldml/foo/bar[@alt=\"variant-proposed-x333\"]",
-                "//ldml/foo/bar[@alt=\"variant\"]",
+            "//ldml/foo/bar[@alt=\"variant-proposed-x333\"]",
+            "//ldml/foo/bar[@alt=\"variant\"]",
 
-                "//ldml/foo/bar[@draft=\"true\"][@alt=\"variant-proposed-x333\"]",
-                "//ldml/foo/bar[@alt=\"variant\"]",
+            "//ldml/foo/bar[@draft=\"true\"][@alt=\"variant-proposed-x333\"]",
+            "//ldml/foo/bar[@alt=\"variant\"]",
 
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
 
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@draft=\"true\"]",
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@draft=\"true\"]",
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
 
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
 
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"variant-proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@alt=\"variant\"]", };
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"variant-proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@alt=\"variant\"]", };
 
         for (int i = 0; i < inout.length; i += 2) {
             final String in = inout[i + 0];
@@ -123,18 +123,18 @@ public class TestXPathTable extends TestFmwk {
         DBUtils.closeDBConnection(conn);
 
         String xpaths[] = {
-                "//ldml/foo/bar[@draft=\"true\"]",
-                "",
-                "//ldml/foo/bar[@alt=\"variant\"]",
-                "",
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
-                "numbers=hanidec",
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@draft=\"true\"]",
-                "numbers=hanidec",
-                "//ldml/dates/calendars/calendar[@type=\"hebrew\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"proposedx333\"][@numbers=\"hebrew\"][@draft=\"true\"]",
-                "numbers=hebrew",
-                "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"variant-proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
-                "numbers=hanidec",
+            "//ldml/foo/bar[@draft=\"true\"]",
+            "",
+            "//ldml/foo/bar[@alt=\"variant\"]",
+            "",
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"]",
+            "numbers=hanidec",
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@numbers=\"hanidec\"][@draft=\"true\"]",
+            "numbers=hanidec",
+            "//ldml/dates/calendars/calendar[@type=\"hebrew\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"proposedx333\"][@numbers=\"hebrew\"][@draft=\"true\"]",
+            "numbers=hebrew",
+            "//ldml/dates/calendars/calendar[@type=\"chinese\"]/dateFormats/dateFormatLength[@type=\"medium\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"][@alt=\"variant-proposedx333\"][@numbers=\"hanidec\"][@draft=\"true\"]",
+            "numbers=hanidec",
 
         };
 

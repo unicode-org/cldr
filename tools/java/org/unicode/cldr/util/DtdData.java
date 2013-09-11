@@ -22,14 +22,14 @@ import com.ibm.icu.dev.util.Relation;
  * An immutable object that contains the structure of a DTD.
  * @author markdavis
  */
-public class DtdData extends XMLFileReader.SimpleHandler  {
+public class DtdData extends XMLFileReader.SimpleHandler {
     static final boolean SHOW_PROGRESS = CldrUtility.getProperty("verbose", false);
     static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
     static final boolean DEBUG = true;
     static final Pattern FILLER = Pattern.compile("[^-a-zA-Z0-9#]");
 
     final Map<String, Element> nameToElement = new HashMap<String, Element>();
-    final Relation<String,Attribute> nameToAttributes = Relation.of(new TreeMap<String,Set<Attribute>>(), LinkedHashSet.class);
+    final Relation<String, Attribute> nameToAttributes = Relation.of(new TreeMap<String, Set<Attribute>>(), LinkedHashSet.class);
     final Set<Element> elements = new HashSet<Element>();
     final Set<Attribute> attributes = new HashSet<Attribute>();
 
@@ -39,15 +39,16 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
     public final DtdType dtdType;
 
     enum Mode {
-        REQUIRED("#REQUIRED"), 
+        REQUIRED("#REQUIRED"),
         OPTIONAL("#IMPLIED"),
         FIXED("#FIXED"),
-        NULL("null")
-        ;
+        NULL("null");
         final String source;
+
         Mode(String s) {
             source = s;
         }
+
         public static Mode forString(String mode) {
             for (Mode value : Mode.values()) {
                 if (value.source.equals(mode)) {
@@ -71,7 +72,7 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
         public final Mode mode;
         public final String value;
         public final AttributeType type;
-        public final Map<String,Integer> values;
+        public final Map<String, Integer> values;
 
         private Attribute(Element element2, String aName, Mode mode2, String[] split, String value2) {
             element = element2;
@@ -83,13 +84,14 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
             if (split.length == 1) {
                 try {
                     _type = AttributeType.valueOf(split[0]);
-                } catch (Exception e) {}
+                } catch (Exception e) {
+                }
             }
             if (_type == AttributeType.ENUMERATED_TYPE) {
-                LinkedHashMap<String,Integer> temp = new LinkedHashMap<String,Integer>();
+                LinkedHashMap<String, Integer> temp = new LinkedHashMap<String, Integer>();
                 for (String part : split) {
                     if (part.length() != 0) {
-                        temp.put(part,temp.size());
+                        temp.put(part, temp.size());
                     }
                 }
                 _values = Collections.unmodifiableMap(temp);
@@ -97,14 +99,16 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
             type = _type;
             values = _values;
         }
+
         @Override
         public String toString() {
             return element.name + ":" + name;
         }
+
         public String features() {
             return (type == AttributeType.ENUMERATED_TYPE ? values.keySet().toString() : type.toString())
-                    + (mode == Mode.NULL ? "" : ", mode=" + mode) 
-                    + (value == null ? "" : ", default=" + value);
+                + (mode == Mode.NULL ? "" : ", mode=" + mode)
+                + (value == null ? "" : ", default=" + value);
         }
     }
 
@@ -126,12 +130,13 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
     public static class Element {
         public final String name;
         private ElementType type;
-        private final Map<Element,Integer> children = new LinkedHashMap<Element,Integer>();
-        private final Map<Attribute,Integer> attributes = new LinkedHashMap<Attribute, Integer>();
+        private final Map<Element, Integer> children = new LinkedHashMap<Element, Integer>();
+        private final Map<Attribute, Integer> attributes = new LinkedHashMap<Attribute, Integer>();
 
         private Element(String name2) {
             name = name2;
         }
+
         private void setChildren(DtdData dtdData, String model) {
             if (model.equals("EMPTY")) {
                 type = ElementType.EMPTY;
@@ -144,7 +149,7 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
                         type = ElementType.PCDATA;
                     } else if (part.equals("ANY")) {
                         type = ElementType.ANY;
-                    } else{
+                    } else {
                         CldrUtility.putNew(children, dtdData.elementFrom(part), children.size());
                     }
                 }
@@ -153,6 +158,7 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
                 throw new IllegalArgumentException("CLDR does not permit Mixed content. " + name + ":" + model);
             }
         }
+
         public boolean containsAttribute(String string) {
             for (Attribute a : attributes.keySet()) {
                 if (a.name.equals(string)) {
@@ -161,16 +167,20 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
             }
             return false;
         }
+
         @Override
         public String toString() {
             return name;
         }
+
         public ElementType getType() {
             return type;
         }
+
         public Map<Element, Integer> getChildren() {
             return Collections.unmodifiableMap(children);
         }
+
         public Map<Attribute, Integer> getAttributes() {
             return Collections.unmodifiableMap(attributes);
         }
@@ -207,7 +217,8 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
      * @deprecated
      */
     public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
-        if (SHOW_ALL) {System.out.println("eName: " + eName
+        if (SHOW_ALL) {
+            System.out.println("eName: " + eName
                 + ", attribute: " + aName
                 + ", type: " + type
                 + ", mode: " + mode
@@ -245,7 +256,7 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
             simpleHandler = new DtdData(type);
             XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
             StringReader s = new StringReader("<?xml version='1.0' encoding='UTF-8' ?>"
-                    + "<!DOCTYPE ldml SYSTEM '" + DTD_TYPE_TO_FILE.get(type) + "'>");
+                + "<!DOCTYPE ldml SYSTEM '" + DTD_TYPE_TO_FILE.get(type) + "'>");
             xfr.read(type.toString(), s, -1, true); //  DTD_TYPE_TO_FILE.get(type)
             if (simpleHandler.ROOT.children.size() == 0) {
                 throw new IllegalArgumentException(); // should never happen
@@ -255,7 +266,9 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
         return simpleHandler;
     }
 
-    public enum DtdItem {ELEMENT, ATTRIBUTE, ATTRIBUTE_VALUE}
+    public enum DtdItem {
+        ELEMENT, ATTRIBUTE, ATTRIBUTE_VALUE
+    }
 
     public interface AttributeValueComparatorFactory {
         public Comparator<String> getAttributeValueComparator(String element, String attribute);
@@ -302,35 +315,34 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
                 // we have two ways to compare the attributes. One based on the dtd,
                 // and one based on explicit comparators
 
-                attributes:
-                    for (Entry<Attribute, Integer> attr : elementA.attributes.entrySet()) {
-                        Attribute main = attr.getKey();
-                        String valueA = a.getAttributeValue(i, main.name);
-                        String valueB = b.getAttributeValue(i, main.name);
-                        if (valueA == null) {
-                            if (valueB != null) {
-                                return -1;
-                            }
-                        } else if (valueB == null) {
-                            return 1;
-                        } else if (valueA.equals(valueB)) {
-                            --countA;
-                            --countB;
-                            if (countA == 0 && countB == 0) {
-                                break attributes;
-                            }
-                            continue; // TODO
-                        } else if (avcf != null) {
-                            Comparator<String> comp = avcf.getAttributeValueComparator(elementA.name, main.name);
-                            return comp.compare(valueA, valueB);
-                        } else if (main.values.size() != 0) {
-                            int aa = main.values.get(valueA);
-                            int bb = main.values.get(valueB);
-                            return aa - bb;
-                        } else {
-                            return valueA.compareTo(valueB);
+                attributes: for (Entry<Attribute, Integer> attr : elementA.attributes.entrySet()) {
+                    Attribute main = attr.getKey();
+                    String valueA = a.getAttributeValue(i, main.name);
+                    String valueB = b.getAttributeValue(i, main.name);
+                    if (valueA == null) {
+                        if (valueB != null) {
+                            return -1;
                         }
+                    } else if (valueB == null) {
+                        return 1;
+                    } else if (valueA.equals(valueB)) {
+                        --countA;
+                        --countB;
+                        if (countA == 0 && countB == 0) {
+                            break attributes;
+                        }
+                        continue; // TODO
+                    } else if (avcf != null) {
+                        Comparator<String> comp = avcf.getAttributeValueComparator(elementA.name, main.name);
+                        return comp.compare(valueA, valueB);
+                    } else if (main.values.size() != 0) {
+                        int aa = main.values.get(valueA);
+                        int bb = main.values.get(valueB);
+                        return aa - bb;
+                    } else {
+                        return valueA.compareTo(valueB);
                     }
+                }
                 if (countA != 0 || countB != 0) {
                     throw new IllegalArgumentException();
                 }
@@ -338,7 +350,6 @@ public class DtdData extends XMLFileReader.SimpleHandler  {
             return a.size() - b.size();
         }
     }
-
 
     //    private static class XPathIterator implements SimpleIterator<Node> {
     //        private String path;

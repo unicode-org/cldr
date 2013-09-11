@@ -355,7 +355,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 disallowed.removeAll(ALL_CURRENCY_SYMBOLS);
                 String currency = new XPathParts().set(path).getAttributeValue(-2, "type");
                 if (disallowed.size() > 0 &&
-                       asciiNotAllowed(getCldrFileToCheck().getLocaleID(), currency)) {
+                    asciiNotAllowed(getCldrFileToCheck().getLocaleID(), currency)) {
                     addMissingMessage(disallowed, CheckStatus.warningType,
                         Subtype.charactersNotInMainOrAuxiliaryExemplars,
                         Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
@@ -377,15 +377,16 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                         "cannot occur in locale fields", result);
                 }
             }
-        } if (path.contains("/units")) {
+        }
+        if (path.contains("/units")) {
             String noValidParentheses = IGNORE_PLACEHOLDER_PARENTHESES.matcher(value).replaceAll("");
             disallowed = new UnicodeSet().addAll(START_PAREN).addAll(END_PAREN)
-                    .retainAll(noValidParentheses);
+                .retainAll(noValidParentheses);
             if (!disallowed.isEmpty()) {
                 addMissingMessage(disallowed, CheckStatus.errorType,
-                        Subtype.parenthesesNotAllowed,
-                        Subtype.parenthesesNotAllowed,
-                        "cannot occur in units", result);
+                    Subtype.parenthesesNotAllowed,
+                    Subtype.parenthesesNotAllowed,
+                    "cannot occur in units", result);
             }
         } else if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
             addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
@@ -418,7 +419,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     private boolean asciiNotAllowed(String localeID, String currency) {
         // Don't allow ascii at all for bidi scripts.
         String charOrientation = getResolvedCldrFileToCheck().getStringValue(
-                "//ldml/layout/orientation/characterOrder");
+            "//ldml/layout/orientation/characterOrder");
         if (charOrientation.equals("right-to-left")) {
             return true;
         }
@@ -432,7 +433,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 localeID = sdi.getLikelySubtags().get(parser.getLanguage());
                 if (localeID == null) {
                     throw new IllegalArgumentException(
-                            "A likely subtag for " + parser.getLanguage() +
+                        "A likely subtag for " + parser.getLanguage() +
                             " is required to get its script.");
                 }
             }
@@ -456,7 +457,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         // Get mapping of scripts to the territories that use that script in
         // any of their primary languages.
         Relation scriptToTerritories = new Relation(new HashMap<String, Set<String>>(), HashSet.class);
-        for (String lang: sdi.getBasicLanguageDataLanguages()) {
+        for (String lang : sdi.getBasicLanguageDataLanguages()) {
             BasicLanguageData langData = sdi.getBasicLanguageDataMap(lang).get(Type.primary);
             if (langData == null) {
                 continue;

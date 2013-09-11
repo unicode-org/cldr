@@ -226,7 +226,7 @@ public class IcuTextWriter {
     }
 
     private static PrintWriter appendArray(String padding, String[] valueArray,
-            boolean quote, boolean isSequence, PrintWriter out) {
+        boolean quote, boolean isSequence, PrintWriter out) {
         for (String value : valueArray) {
             out.append(padding);
             appendValue(quoteInside(value), quote, out);
@@ -325,4 +325,3 @@ public class IcuTextWriter {
         return i - 1;
     }
 }
- 

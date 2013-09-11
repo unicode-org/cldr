@@ -119,7 +119,7 @@ public class TimezoneFormatter extends UFormat {
 
     private transient SimpleDateFormat hourFormatPlus = new SimpleDateFormat();
     private transient SimpleDateFormat hourFormatMinus = new SimpleDateFormat();
-    private transient MessageFormat hoursFormat, gmtFormat, regionFormat, 
+    private transient MessageFormat hoursFormat, gmtFormat, regionFormat,
         regionFormatStandard, regionFormatDaylight, fallbackFormat;
     private transient String abbreviationFallback, preferenceOrdering;
     private transient Set singleCountriesSet;
@@ -393,11 +393,11 @@ public class TimezoneFormatter extends UFormat {
             // {1} will be the metazone
             // {0} will be a qualifier (city or country)
             // Example: Pacific Time (Phoenix)
-            
+
             if (length == Length.LONG) {
-                return getRegionFallback(zoneid, 
-                        type == Type.GENERIC || noTimezoneChangeWithin184Days ? regionFormat 
-                                : daylight ? regionFormatDaylight : regionFormatStandard);
+                return getRegionFallback(zoneid,
+                    type == Type.GENERIC || noTimezoneChangeWithin184Days ? regionFormat
+                        : daylight ? regionFormatDaylight : regionFormatStandard);
             }
             return null;
 
@@ -450,13 +450,13 @@ public class TimezoneFormatter extends UFormat {
         // so the exemplar city might be composed by the last field of the raw TZID as described above)
         // with the regionFormat (for example, "{0} Time"), and return it.
         // ***FIX by changing to: if the country can't be resolved, or the zonesInRegion are not unique
-        
+
         String zoneIdsCountry = TimeZone.getRegion(zoneid);
         if (zoneIdsCountry != null) {
             String[] zonesInRegion = TimeZone.getAvailableIDs(zoneIdsCountry);
             if (zonesInRegion != null && zonesInRegion.length == 1 || singleCountriesSet.contains(zoneid)) {
                 String countryName = getLocalizedCountryName(zoneIdsCountry);
-                return  regionFallbackFormat.format(new Object[] { countryName });
+                return regionFallbackFormat.format(new Object[] { countryName });
             }
         }
         String cityName = getLocalizedExemplarCity(zoneid);

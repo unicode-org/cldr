@@ -268,7 +268,7 @@ public final class FileUtilities {
     public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName) {
         copyFile(class1, sourceFile, targetDirectory, newName, null);
     }
-    
+
     public static void copyFile(Class<?> class1, String sourceFile, String targetDirectory, String newName, String[] replacementList) {
         try {
             PrintWriter out = BagFormatter.openUTF8Writer(targetDirectory, newName);

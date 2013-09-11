@@ -17,9 +17,9 @@ import com.ibm.icu.text.MessageFormat;
  */
 class BreakIteratorMapper extends Mapper {
     private static Pattern BOUNDARY_PATH = Pattern.compile(
-            "//ldml/special/icu:breakIteratorData/icu:([\\w_]++)/icu:([\\w_]++)\\[@icu:([\\w_]++)=\"([^\"]++)\"]");
+        "//ldml/special/icu:breakIteratorData/icu:([\\w_]++)/icu:([\\w_]++)\\[@icu:([\\w_]++)=\"([^\"]++)\"]");
     private static Pattern DICTIONARY_PATH = Pattern.compile(
-            "//ldml/special/icu:breakIteratorData/icu:([\\w_]++)/icu:[\\w_]++\\[@type=\"([\\w_]++)\"]\\[@icu:([\\w_]++)=\"([^\"]++)\"]");
+        "//ldml/special/icu:breakIteratorData/icu:([\\w_]++)/icu:[\\w_]++\\[@type=\"([\\w_]++)\"]\\[@icu:([\\w_]++)=\"([^\"]++)\"]");
 
     private Factory specialFactory;
     private Set<String> brkSource = new HashSet<String>();
@@ -56,8 +56,8 @@ class BreakIteratorMapper extends Mapper {
                 String filename = matcher.group(4);
                 source.add(filename.substring(0, filename.lastIndexOf('.')));
                 icuData.add(
-                        MessageFormat.format("/{0}/{1}:process({2})",  matcher.group(1), matcher.group(2), matcher.group(3)),
-                        filename);
+                    MessageFormat.format("/{0}/{1}:process({2})", matcher.group(1), matcher.group(2), matcher.group(3)),
+                    filename);
             }
         }
         icuData.add("/Version", MapperUtils.formatVersion(file.getFullXPath("//ldml/identity/version")));

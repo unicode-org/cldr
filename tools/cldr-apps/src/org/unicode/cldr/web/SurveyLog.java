@@ -86,9 +86,10 @@ public class SurveyLog {
         long nextTimePost = System.currentTimeMillis();
         StringBuilder sb = new StringBuilder();
         sb.append(RECORD_SEP).append(LogField.SURVEY_EXCEPTION).append(' ').append(what).append('\n').append(FIELD_SEP)
-                .append(LogField.DATE).append(' ').append(nextTimePost).append(' ').append(new Date()).append('\n')
-                .append(FIELD_SEP) .append(LogField.REVISION).append(' ').append(SurveyMain.getCurrevStr()).append(' ').append(SurveyMain.getNewVersion()).append(' ').append(CLDRConfig.getInstance().getPhase()).append(' ').append(CLDRConfig.getInstance().getEnvironment()).append('\n')
-                .append(FIELD_SEP).append(LogField.UPTIME).append(' ').append(SurveyMain.uptime).append('\n');
+            .append(LogField.DATE).append(' ').append(nextTimePost).append(' ').append(new Date()).append('\n')
+            .append(FIELD_SEP).append(LogField.REVISION).append(' ').append(SurveyMain.getCurrevStr()).append(' ').append(SurveyMain.getNewVersion())
+            .append(' ').append(CLDRConfig.getInstance().getPhase()).append(' ').append(CLDRConfig.getInstance().getEnvironment()).append('\n')
+            .append(FIELD_SEP).append(LogField.UPTIME).append(' ').append(SurveyMain.uptime).append('\n');
         if (ctx != null) {
             sb.append(FIELD_SEP).append(LogField.CTX).append(' ').append(ctx).append('\n');
         }
@@ -96,13 +97,13 @@ public class SurveyLog {
         Throwable t = exception;
         while (t != null) {
             sb.append(FIELD_SEP).append(LogField.MESSAGE).append(' ').append(t.toString()).append(' ').append(t.getMessage())
-                    .append('\n');
+                .append('\n');
             sb.append(FIELD_SEP).append(LogField.STACK).append(' ').append(StackTracker.stackToString(t.getStackTrace(), 0))
-                    .append('\n');
+                .append('\n');
             if (t instanceof SQLException) {
                 SQLException se = ((SQLException) t);
                 sb.append(FIELD_SEP).append(LogField.SQL).append(' ').append('#').append(se.getErrorCode()).append(' ')
-                        .append(se.getSQLState()).append('\n');
+                    .append(se.getSQLState()).append('\n');
                 t = se.getNextException();
             } else {
                 t = t.getCause();
@@ -115,7 +116,7 @@ public class SurveyLog {
         if (baseDir == null || !baseDir.isDirectory()) {
             setDir(new File("."));
             System.err.println(SurveyLog.class.getName() + " Warning: Storing exception.log in " + gBaseDir.getAbsolutePath()
-                    + "/exception.log");
+                + "/exception.log");
         }
         try {
             File logFile = new File(baseDir, "exception.log");
@@ -133,8 +134,8 @@ public class SurveyLog {
 
         // then, to screen
         logger.severe(sb.toString());
-        
-        if(exception instanceof OutOfMemoryError) {
+
+        if (exception instanceof OutOfMemoryError) {
             SurveyMain.markBusted(exception); // would cause infinite recursion if busted() was called
         }
     }
@@ -144,7 +145,7 @@ public class SurveyLog {
     public static synchronized ChunkyReader getChunkyReader() {
         if (cr == null) {
             cr = new ChunkyReader(new File(CLDRConfig.getInstance().getProperty("CLDRHOME"), "exception.log"), RECORD_SEP
-                    + LogField.SURVEY_EXCEPTION.name(), FIELD_SEP, LogField.DATE.name());
+                + LogField.SURVEY_EXCEPTION.name(), FIELD_SEP, LogField.DATE.name());
         }
         return cr;
     }
@@ -208,15 +209,15 @@ public class SurveyLog {
         }
         return DEBUG;
     }
-    
+
     static Set<String> alreadyWarned = new HashSet<String>();
-    
+
     /**
      * Warn one time, ignore after that
      * @param string
      */
     public static synchronized void warnOnce(String string) {
-        if(!alreadyWarned.contains(string)) {
+        if (!alreadyWarned.contains(string)) {
             logger.log(Level.WARNING, string);
             alreadyWarned.add(string);
         }

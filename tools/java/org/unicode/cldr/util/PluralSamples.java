@@ -11,17 +11,18 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 public class PluralSamples {
     private static final Map<String, PluralSamples> cache = new ConcurrentHashMap<String, PluralSamples>();
     private final Map<Count, Double>[] samples = new Map[4]; // we do 1, 2, 3, and 4 decimals
-    
+
     public PluralSamples(String locale) {
         SupplementalDataInfo info = SupplementalDataInfo.getInstance();
         PluralInfo pluralInfo = info.getPlurals(locale);
         int total = pluralInfo.getCounts().size();
-        
+
         samples[0] = Collections.unmodifiableMap(getValuesForDigits(pluralInfo, total, 0, 9));
         samples[1] = Collections.unmodifiableMap(getValuesForDigits(pluralInfo, total, 10, 99));
         samples[2] = Collections.unmodifiableMap(getValuesForDigits(pluralInfo, total, 100, 999));
         samples[3] = Collections.unmodifiableMap(getValuesForDigits(pluralInfo, total, 1000, 9999));
     }
+
     private Map<Count, Double> getValuesForDigits(PluralInfo pluralInfo, int total, int start, int end) {
         Map<Count, Double> set = new EnumMap<Count, Double>(Count.class);
         // Cycle through digits
@@ -30,7 +31,7 @@ public class PluralSamples {
             ++start;
         }
         for (int item = start; item < end; ++item) {
-            double dItem = (double)item;
+            double dItem = (double) item;
             Count count = pluralInfo.getCount(dItem);
             Double old = set.get(count);
             if (old == null) {
@@ -55,7 +56,7 @@ public class PluralSamples {
         start *= 10;
         end *= 10;
         for (int item = start; item < end; ++item) {
-            double dItem = item/10d;
+            double dItem = item / 10d;
             Count count = pluralInfo.getCount(dItem);
             Double old = set.get(count);
             if (old == null) {
@@ -67,6 +68,7 @@ public class PluralSamples {
         }
         return set;
     }
+
     /**
      * Get a set of samples for the locale.
      * @param locale
@@ -87,6 +89,6 @@ public class PluralSamples {
      * @return
      */
     public Map<PluralInfo.Count, Double> getSamples(int digits) {
-        return samples[digits-1];
+        return samples[digits - 1];
     }
 }

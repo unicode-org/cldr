@@ -114,8 +114,8 @@ class GenerateStatistics {
     }
 
     /**
-	 * 
-	 */
+     * 
+     */
     private static Set removeSingleLanguagesWhereWeHaveScripts(Set contents) {
         StandardCodes sc = StandardCodes.make();
         contents = new TreeSet(contents); // make writable
@@ -372,8 +372,8 @@ class GenerateStatistics {
      */
 
     /**
-	 * 
-	 */
+     * 
+     */
     private static String getFixedLanguageName(String localeID, String lang) {
         if (HACK) {
             if (localeID.equals("bs") || localeID.startsWith("bs_")) {

@@ -99,7 +99,7 @@ public class UserSettingsData {
             String ivalue = values.get(name);
             if (value == null && ivalue == null) {
                 return; // both null - OK.
-            } else if (value!=null && value.equals(ivalue)) { // allow set of null
+            } else if (value != null && value.equals(ivalue)) { // allow set of null
                 return; // already set.
             }
 
@@ -110,12 +110,12 @@ public class UserSettingsData {
                     internalSet(id, name, value, conn);
                 } finally {
                     DBUtils.closeDBConnection(conn);
-                    if(value==null) {
+                    if (value == null) {
                         values.remove(name);
                     } else {
                         values.put(name, value); // store for next time.
                     }
-                    if(debug) {
+                    if (debug) {
                         System.out.println("DB Settings: Set value " + name + " = " + value + " for user " + id);
                     }
                 }
@@ -141,7 +141,7 @@ public class UserSettingsData {
         String sql = null;
         Connection conn = DBUtils.getInstance().getDBConnection();
         CLDRProgressTask progress = (sm != null) ? sm.openProgress("Setup " + UserSettingsData.class.getName() + " database")
-                : null;
+            : null;
         try {
 
             if (!DBUtils.hasTable(conn, SET_KINDS)) {
@@ -149,7 +149,7 @@ public class UserSettingsData {
                 if (progress != null)
                     progress.update("Creating table " + SET_KINDS);
                 sql = ("create table " + SET_KINDS + "(set_id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", "
-                        + "set_name varchar(128) not null UNIQUE " + (!DBUtils.db_Mysql ? ",primary key(set_id)" : "") + ")");
+                    + "set_name varchar(128) not null UNIQUE " + (!DBUtils.db_Mysql ? ",primary key(set_id)" : "") + ")");
                 s.execute(sql);
                 if (DBUtils.hasTable(conn, SET_VALUES)) {
                     if (progress != null)
@@ -166,7 +166,7 @@ public class UserSettingsData {
                 if (progress != null)
                     progress.update("Creating table " + SET_VALUES);
                 sql = ("create table " + SET_VALUES + "(usr_id INT NOT NULL, " + "set_id INT NOT NULL, " + "set_value "
-                        + DBUtils.DB_SQL_UNICODE + " not null " + ",primary key(usr_id,set_id))");
+                    + DBUtils.DB_SQL_UNICODE + " not null " + ",primary key(usr_id,set_id))");
                 s.execute(sql);
                 s.close();
                 conn.commit();
@@ -189,7 +189,7 @@ public class UserSettingsData {
         Connection conn = DBUtils.getInstance().getDBConnection();
 
         String sql = "select " + SET_VALUES + ".set_value from " + SET_VALUES + "," + SET_KINDS + " where " + SET_VALUES
-                + ".usr_id=? AND " + SET_KINDS + ".set_id=" + SET_VALUES + ".set_id AND " + SET_KINDS + ".set_name=?";
+            + ".usr_id=? AND " + SET_KINDS + ".set_id=" + SET_VALUES + ".set_id AND " + SET_KINDS + ".set_name=?";
         PreparedStatement ps = conn.prepareStatement(sql);
         try {
             ps.setInt(1, id);
@@ -197,7 +197,7 @@ public class UserSettingsData {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 String value = DBUtils.getStringUTF8(rs, 1);
-                if(debug) {
+                if (debug) {
                     System.out.println("DB Settings: GET  value " + name + " = " + value + " for user " + id);
                 }
                 return value;
@@ -206,7 +206,7 @@ public class UserSettingsData {
             ps.close();
             DBUtils.closeDBConnection(conn);
         }
-        if(debug) {
+        if (debug) {
             System.out.println("DB Settings: Get missing  value " + name + " = " + "NULL" + " for user " + id);
         }
         return null;
@@ -217,24 +217,24 @@ public class UserSettingsData {
         int set_id = getSetId(name, conn);
 
         if (DBUtils.db_Mysql) { /* use 'on duplicate key' syntax */
-            if(value==null) {
+            if (value == null) {
                 sql = "DELETE FROM " + SET_VALUES + " WHERE usr_id=? AND set_id=?";
                 PreparedStatement d0 = conn.prepareStatement(sql);
-    
+
                 d0.setInt(1, id);
                 d0.setInt(2, set_id);
-    
+
                 d0.executeUpdate();
             } else {
                 sql = "INSERT INTO " + SET_VALUES + " (usr_id,set_id,set_value) values (?,?,?) "
-                        + "ON DUPLICATE KEY UPDATE set_value=?";
+                    + "ON DUPLICATE KEY UPDATE set_value=?";
                 PreparedStatement d0 = conn.prepareStatement(sql);
-    
+
                 d0.setInt(1, id);
                 d0.setInt(2, set_id);
                 DBUtils.setStringUTF8(d0, 3, value);
                 DBUtils.setStringUTF8(d0, 4, value);
-    
+
                 d0.executeUpdate();
             }
         } else {
@@ -249,7 +249,7 @@ public class UserSettingsData {
             i1.setInt(2, set_id);
             DBUtils.setStringUTF8(i1, 3, value);
             d0.executeUpdate();
-            if(value!=null) {
+            if (value != null) {
                 i1.executeUpdate();
             }
         }

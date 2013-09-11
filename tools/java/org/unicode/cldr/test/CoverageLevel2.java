@@ -82,11 +82,11 @@ public class CoverageLevel2 {
                 && CollectionUtilities.containsSome(ci.inTerritorySet, localeSpecificInfo.cvi.targetTerritories)) {
                 lstOK = true;
             }
-            
+
             if (!lstOK) {
                 return false;
             }
-            
+
             boolean result = super.find(item, context); // also sets matcher in RegexFinder
             if (!result) {
                 return false;

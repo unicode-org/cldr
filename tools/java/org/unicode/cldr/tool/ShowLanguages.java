@@ -2194,7 +2194,6 @@ public class ShowLanguages {
             currentRow.remove(len);
         }
 
-
         public void printCharacters(PrintWriter index) throws IOException {
             String title = "Character Fallback Substitutions";
 

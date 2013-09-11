@@ -96,7 +96,7 @@ public class Race {
 
     public String resolverToString() {
         return resolver.toString() + "\n" + "WinningXpath: " + resolver.getWinningValue() + "#" + resolver.getWinningValue()
-                + " " + resolver.getWinningStatus() + "\n";
+            + " " + resolver.getWinningStatus() + "\n";
     }
 
     public String getOrgVote(String organization) {

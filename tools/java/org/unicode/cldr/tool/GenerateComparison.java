@@ -473,7 +473,7 @@ public class GenerateComparison {
     // "([^!(-*,-\\:A-Z_a-z~]) > &hex($1) ;" +
     // ":: null;" +
     // "'\\u00' > '%' ;"
-    // , Transliterator.FORWARD);
+// , Transliterator.FORWARD);
 
     private static NumberFormat format;
 

@@ -27,9 +27,9 @@ public class DtdDataCheck {
         Set<Element> elementsMissingAlias = new LinkedHashSet<Element>();
         Set<Element> elementsMissingSpecial = new LinkedHashSet<Element>();
         static final Set<String> SKIP_ATTRIBUTES = new HashSet<String>(Arrays.asList(
-                "draft", "alt", "standard", "references"));
+            "draft", "alt", "standard", "references"));
         static final Set<String> SKIP_ELEMENTS = new HashSet<String>(Arrays.asList(
-                "alias", "special"));
+            "alias", "special"));
         Set<Attribute> attributesWithValues = new LinkedHashSet<Attribute>();
 
         private DtdData dtdData;
@@ -37,6 +37,7 @@ public class DtdDataCheck {
         public Walker(DtdData dtdData) {
             this.dtdData = dtdData;
         }
+
         private void show(Element element) {
             show(element, "");
             System.out.println();
@@ -57,7 +58,7 @@ public class DtdDataCheck {
             }
             StringBuilder diff = new StringBuilder();
             for (Entry<String, Set<Attribute>> entry : dtdData.nameToAttributes.keyValuesSet()) {
-                Relation<String,String> featuresToElements = Relation.of(new TreeMap<String,Set<String>>(), LinkedHashSet.class);
+                Relation<String, String> featuresToElements = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
                 for (Attribute a : entry.getValue()) {
                     featuresToElements.put(a.features(), a.element.name);
                 }
@@ -75,7 +76,7 @@ public class DtdDataCheck {
                 System.out.println();
             }
         }
-        
+
         private void show(Element element, String indent) {
             if (seen.contains(element)) {
                 System.out.println(indent + element.name + "*");
@@ -183,7 +184,7 @@ public class DtdDataCheck {
             }
         }
         long end = System.currentTimeMillis();
-        System.out.println(title + "\tmillis:\t" + (end - start)/(double)LOOP);
+        System.out.println(title + "\tmillis:\t" + (end - start) / (double) LOOP);
     }
 
     private static void checkCost(String title, String[] sortedArray) {
@@ -195,7 +196,7 @@ public class DtdDataCheck {
             }
         }
         long end = System.currentTimeMillis();
-        System.out.println(title + "\tmillis:\t" + (end - start)/(double)LOOP);
+        System.out.println(title + "\tmillis:\t" + (end - start) / (double) LOOP);
     }
 
     //    private static void checkOrder(Element element, Set<String> errors) {

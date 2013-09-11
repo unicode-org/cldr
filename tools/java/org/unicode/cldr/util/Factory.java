@@ -96,7 +96,7 @@ public abstract class Factory implements SublocaleProvider {
 
     public CLDRFile make(String localeID, boolean resolved, DraftStatus madeWithMinimalDraftStatus) {
         return handleMake(localeID, resolved, madeWithMinimalDraftStatus)
-                .setSupplementalDirectory(getSupplementalDirectory());
+            .setSupplementalDirectory(getSupplementalDirectory());
     }
 
     public CLDRFile make(String localeID, boolean resolved, boolean includeDraft) {

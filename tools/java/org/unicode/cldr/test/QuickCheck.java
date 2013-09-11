@@ -177,7 +177,7 @@ public class QuickCheck {
             }
             if (file.isNonInheriting())
                 continue;
-            DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(file,false);
+            DisplayAndInputProcessor displayAndInputProcessor = new DisplayAndInputProcessor(file, false);
 
             System.out.println(locale + "\t-\t" + english.getName(locale));
             DtdType dtdType = null;

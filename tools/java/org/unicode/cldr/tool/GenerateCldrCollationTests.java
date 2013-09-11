@@ -137,7 +137,7 @@ public class GenerateCldrCollationTests {
             locale_types_rules.put(locale, types_rules);
         }
         // now get the valid sublocales
-        for(int i = 1; i < dataList.length ; i++) {
+        for (int i = 1; i < dataList.length; i++) {
             IcuData subLocale = dataList[i];
             Log.logln("Valid Sub Locale: " + subLocale.getName());
             validLocales.add(subLocale.getName());

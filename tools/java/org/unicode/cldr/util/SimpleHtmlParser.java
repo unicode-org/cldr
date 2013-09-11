@@ -36,35 +36,35 @@ import java.io.Reader;
  */
 public class SimpleHtmlParser {
     public enum Type {
-        DONE, 
+        DONE,
         /**
          * No contents, set when we hit <
          */
-        ELEMENT_START, 
+        ELEMENT_START,
         /**
          * '&lt;' contents/b
          */
-        ELEMENT, 
+        ELEMENT,
         /**
          * '&lt;element/bcontents(=...)
          */
-        ATTRIBUTE, 
+        ATTRIBUTE,
         /**
          * attribute=['"]contents['"]
          */
-        ATTRIBUTE_CONTENT, 
+        ATTRIBUTE_CONTENT,
         /**
          * No contents, set when we hit '&gt'
          */
-        ELEMENT_END, 
+        ELEMENT_END,
         /**
          * No contents, set when we hit '/' after '&lt;'
          */
-        ELEMENT_POP, 
+        ELEMENT_POP,
         /**
          * '&lt;!--' contents '--&gt;'
          */
-        QUOTE, 
+        QUOTE,
         /**
          * '&lt;element&gt;' contents '&lt;/element&gt;'
          */

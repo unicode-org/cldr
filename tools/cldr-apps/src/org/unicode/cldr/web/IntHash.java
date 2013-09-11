@@ -29,7 +29,7 @@ public class IntHash<T> {
             }
         }
         return "IntHash<" + "T" + "> Max:" + MAX_SIZE + ", HASH:" + HASH_SIZE + ", NRBUCKETS:" + filled + "/" + BUCKET_COUNT
-                + " : last bucket=" + lastbuck + ", greatest max=" + ((lastbuck+1) * HASH_SIZE);
+            + " : last bucket=" + lastbuck + ", greatest max=" + ((lastbuck + 1) * HASH_SIZE);
     }
 
     @SuppressWarnings("unchecked")

@@ -70,7 +70,7 @@ public class CheckCasing extends CheckCLDR {
             break;
         default:
             break;
-        
+
         }
         if (!newValue.equals(value)) {
             // the following is how you signal an error or warning (or add a demo....)

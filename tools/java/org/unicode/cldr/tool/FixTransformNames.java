@@ -27,13 +27,15 @@ import com.ibm.icu.text.Transliterator;
 
 public class FixTransformNames {
     TestInfo testInfo = TestInfo.getInstance();
+
     public static void main(String[] args) {
         new FixTransformNames().run(args);
     }
-    Map<String,String> fieldToCode = new HashMap();
-    Map<String,String> oldToNewVariant = new HashMap();
-    Map<String,String> fieldToVariant = new HashMap();
-    Map<String,String> targetToCode = new HashMap();
+
+    Map<String, String> fieldToCode = new HashMap();
+    Map<String, String> oldToNewVariant = new HashMap();
+    Map<String, String> fieldToVariant = new HashMap();
+    Map<String, String> targetToCode = new HashMap();
 
     Set<String> languageCodes = new HashSet<String>();
 
@@ -77,43 +79,43 @@ public class FixTransformNames {
             <transformName type="x-Pinyin">Pinyin</transformName>
             <transformName type="x-Publishing">Publishing</transformName>
 
-??Accents   [Any-Accents]
-??ConjoiningJamo    [Latin-ConjoiningJamo]
-??Fullwidth [Fullwidth-Halfwidth]
-??Halfwidth [Fullwidth-Halfwidth]
-??InterIndic    [Bengali-InterIndic, Devanagari-InterIndic, Gujarati-InterIndic, Gurmukhi-InterIndic, InterIndic-Bengali, InterIndic-Devanagari, InterIndic-Gujarati, InterIndic-Gurmukhi, InterIndic-Kannada, InterIndic-Latin, InterIndic-Malayalam, InterIndic-Oriya, InterIndic-Tamil, InterIndic-Telugu, Kannada-InterIndic, Latin-InterIndic, Malayalam-InterIndic, Oriya-InterIndic, Tamil-InterIndic, Telugu-InterIndic]
-??Jamo  [Jamo-Latin, Latin-Jamo]
-??Latin-Names   [Han-Latin-Names]
-??Lower [az-Lower, el-Lower, lt-Lower, tr-Lower]
-??NumericPinyin [Latin-NumericPinyin, Pinyin-NumericPinyin]
-??Publishing    [Any-Publishing]
-??Simplified    [Simplified-Traditional]
-??Spacedhan [Han-Spacedhan]
-??ThaiLogical   [Thai-ThaiLogical, ThaiLogical-Latin]
-??ThaiSemi  [Thai-ThaiSemi]
-??Title [az-Title, el-Title, lt-Title, nl-Title, tr-Title]
-??Traditional   [Simplified-Traditional]
-??Upper [az-Upper, el-Upper, lt-Upper, tr-Upper]
+        ??Accents   [Any-Accents]
+        ??ConjoiningJamo    [Latin-ConjoiningJamo]
+        ??Fullwidth [Fullwidth-Halfwidth]
+        ??Halfwidth [Fullwidth-Halfwidth]
+        ??InterIndic    [Bengali-InterIndic, Devanagari-InterIndic, Gujarati-InterIndic, Gurmukhi-InterIndic, InterIndic-Bengali, InterIndic-Devanagari, InterIndic-Gujarati, InterIndic-Gurmukhi, InterIndic-Kannada, InterIndic-Latin, InterIndic-Malayalam, InterIndic-Oriya, InterIndic-Tamil, InterIndic-Telugu, Kannada-InterIndic, Latin-InterIndic, Malayalam-InterIndic, Oriya-InterIndic, Tamil-InterIndic, Telugu-InterIndic]
+        ??Jamo  [Jamo-Latin, Latin-Jamo]
+        ??Latin-Names   [Han-Latin-Names]
+        ??Lower [az-Lower, el-Lower, lt-Lower, tr-Lower]
+        ??NumericPinyin [Latin-NumericPinyin, Pinyin-NumericPinyin]
+        ??Publishing    [Any-Publishing]
+        ??Simplified    [Simplified-Traditional]
+        ??Spacedhan [Han-Spacedhan]
+        ??ThaiLogical   [Thai-ThaiLogical, ThaiLogical-Latin]
+        ??ThaiSemi  [Thai-ThaiSemi]
+        ??Title [az-Title, el-Title, lt-Title, nl-Title, tr-Title]
+        ??Traditional   [Simplified-Traditional]
+        ??Upper [az-Upper, el-Upper, lt-Upper, tr-Upper]
 
          */
 
         CLDRTransforms transforms = CLDRTransforms.getInstance();
-        Relation<String,String> missing = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+        Relation<String, String> missing = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Set<String> found = new TreeSet<String>();
-        Map<String,String> allFields = new TreeMap<String,String>();
-        Map<String,String> specialFields = new TreeMap<String,String>();
-        Map<String,String> allVariants = new TreeMap<String,String>();
+        Map<String, String> allFields = new TreeMap<String, String>();
+        Map<String, String> specialFields = new TreeMap<String, String>();
+        Map<String, String> allVariants = new TreeMap<String, String>();
 
         Set<String> internal = new TreeSet<String>();
         Set<String> cldrIds = getCldrIds(internal);
 
         for (String id : CLDRTransforms.getAvailableIds()) {
             if (id.endsWith(".xml")) {
-                id = id.substring(0, id.length()-4);
+                id = id.substring(0, id.length() - 4);
             }
             int first = id.indexOf('-');
-            int second = id.indexOf('-',first+1);
-            String id2 = second < 0 ? id : id.substring(0, second) + "/" + id.substring(second+1);
+            int second = id.indexOf('-', first + 1);
+            String id2 = second < 0 ? id : id.substring(0, second) + "/" + id.substring(second + 1);
             if (internal.contains(id2)) {
                 System.out.println("*Internal:\t" + id);
             } else if (!cldrIds.contains(id2)) {
@@ -173,7 +175,7 @@ public class FixTransformNames {
                         variant = temp;
                         specialFields.put(target + "/" + variant, ptd.target);
                     } else {
-                        missing.put(ptd.target, id); 
+                        missing.put(ptd.target, id);
                     }
                 } else {
                     missing.put(ptd.target, id);
@@ -217,9 +219,10 @@ public class FixTransformNames {
             if (target.length() > 8) {
                 target = target.substring(0, 8);
             }
-            oldToNewVariant2.put(part, type+target);
+            oldToNewVariant2.put(part, type + target);
         }
     }
+
     LanguageTagParser ltp = new LanguageTagParser();
     CLDRFile english = testInfo.getEnglish();
 
@@ -292,9 +295,9 @@ public class FixTransformNames {
             variant = "-fonipa";
         }
         if (field.equals("es_419")
-                || field.equals("ja_Latn")
-                || field.equals("zh_Latn")
-                || field.equals("und-Latn")) {
+            || field.equals("ja_Latn")
+            || field.equals("zh_Latn")
+            || field.equals("und-Latn")) {
             return field.replace("_", "-");
         }
         int source = UScript.getCodeFromName(field);
@@ -313,6 +316,5 @@ public class FixTransformNames {
         }
         return "??" + field;
     }
-
 
 }

@@ -489,7 +489,7 @@ public class GenerateMaximalLocales {
         }
 
         defaultLocaleContent.remove("und_ZZ"); // und_ZZ isn't ever a real locale.
-        
+
         showDefaultContentDifferencesAndFix(defaultLocaleContent);
 
         Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
@@ -661,7 +661,6 @@ public class GenerateMaximalLocales {
         { "vo_Latn", "vo_Latn_001" },
         { "zh_Hani", "zh_Hani_CN" },
     });
-
 
     private static NumberFormat percent = NumberFormat.getPercentInstance();
     private static NumberFormat number = NumberFormat.getIntegerInstance();
@@ -1262,7 +1261,7 @@ public class GenerateMaximalLocales {
             if (OUTPUT_STYLE == OutputStyle.XML) {
                 out.println("\t\t<likelySubtag from=\"" + printingLocale +
                     "\" to=\"" + printingTarget + "\"" +
-                    "/>" + CldrUtility.LINE_SEPARATOR +"\t\t" + "<!--" + comment + "-->");
+                    "/>" + CldrUtility.LINE_SEPARATOR + "\t\t" + "<!--" + comment + "-->");
             } else {
                 if (first) {
                     first = false;
@@ -1763,15 +1762,15 @@ public class GenerateMaximalLocales {
     }
 
     private static Set<String> compareMapsAndFixNew(String title,
-            Map<String, String> oldContent,
-            Map<String, String> newContent, String... allowedOverrideValues) {
+        Map<String, String> oldContent,
+        Map<String, String> newContent, String... allowedOverrideValues) {
         Map<String, String> allowedOverrideValuesTest = new HashMap<String, String>();
         for (int i = 0; i < allowedOverrideValues.length; i += 2) {
             allowedOverrideValuesTest.put(allowedOverrideValues[i], allowedOverrideValues[i + 1]);
         }
         Set<String> changes = new TreeSet<String>();
         for (String parent : Builder.with(new TreeSet<String>()).addAll(newContent.keySet())
-                .addAll(oldContent.keySet()).get()) {
+            .addAll(oldContent.keySet()).get()) {
             String oldValue = oldContent.get(parent);
             String newValue = newContent.get(parent);
             String overrideValue = allowedOverrideValuesTest.get(parent);
@@ -1784,33 +1783,33 @@ public class GenerateMaximalLocales {
             String message;
             if (oldValue == null) {
                 message = "Adding " + ConvertLanguageData.getLanguageCodeAndName(parent) + " => "
-                        + ConvertLanguageData.getLanguageCodeAndName(newValue);
+                    + ConvertLanguageData.getLanguageCodeAndName(newValue);
                 newContent.put(parent, newValue);
             } else if (newValue == null) {
                 if (SUPPRESS_CHANGES) {
                     message = "Suppressing removal of "
-                            + ConvertLanguageData.getLanguageCodeAndName(parent) + " => "
-                            + ConvertLanguageData.getLanguageCodeAndName(oldValue);
+                        + ConvertLanguageData.getLanguageCodeAndName(parent) + " => "
+                        + ConvertLanguageData.getLanguageCodeAndName(oldValue);
                     newContent.put(parent, oldValue);
                 } else {
                     message = "Removing "
-                            + ConvertLanguageData.getLanguageCodeAndName(parent) + " => "
-                            + ConvertLanguageData.getLanguageCodeAndName(oldValue);
+                        + ConvertLanguageData.getLanguageCodeAndName(parent) + " => "
+                        + ConvertLanguageData.getLanguageCodeAndName(oldValue);
                     newContent.remove(oldValue);
                 }
             } else {
                 if (SUPPRESS_CHANGES) {
                     message = "Suppressing change of "
-                            + ConvertLanguageData.getLanguageCodeAndName(parent) + " => "
-                            + ConvertLanguageData.getLanguageCodeAndName(oldValue) + " to "
-                            + ConvertLanguageData.getLanguageCodeAndName(newValue);
+                        + ConvertLanguageData.getLanguageCodeAndName(parent) + " => "
+                        + ConvertLanguageData.getLanguageCodeAndName(oldValue) + " to "
+                        + ConvertLanguageData.getLanguageCodeAndName(newValue);
                     newContent.remove(newValue);
                     newContent.put(parent, oldValue);
                 } else {
                     message = "Changing "
-                            + ConvertLanguageData.getLanguageCodeAndName(parent) + " => "
-                            + ConvertLanguageData.getLanguageCodeAndName(oldValue) + " to "
-                            + ConvertLanguageData.getLanguageCodeAndName(newValue);
+                        + ConvertLanguageData.getLanguageCodeAndName(parent) + " => "
+                        + ConvertLanguageData.getLanguageCodeAndName(oldValue) + " to "
+                        + ConvertLanguageData.getLanguageCodeAndName(newValue);
                     newContent.remove(oldValue);
                     newContent.put(parent, newValue);
                 }

@@ -186,7 +186,7 @@ public class SurveyThread extends Thread {
      */
     public String toString() {
         return "{ST Threads: Tasks waiting:" + tasksRemaining() + ", Current:" + current + ", Running:" + surveyThreadIsRunning
-                + "}";
+            + "}";
     }
 
     /**
@@ -243,7 +243,7 @@ public class SurveyThread extends Thread {
                 } catch (Throwable t) {
                     if (DEBUG)
                         System.err.println("SurveyThread(count:" + tasksRemaining() + "): Got exception on: " + current + " - "
-                                + t.toString());
+                            + t.toString());
                     t.printStackTrace();
                     SurveyMain.busted("While working on task " + current + " - " + t.toString(), t);
                 }

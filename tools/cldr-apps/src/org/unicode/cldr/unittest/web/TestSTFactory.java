@@ -87,10 +87,10 @@ public class TestSTFactory extends TestFmwk {
 
         if (expectString != ANY && !expectString.equals(currentWinner)) {
             errln("ERR:" + where + "Expected '" + expectString + "': " + locale + ":" + path + " ='" + currentWinner + "', "
-                    + votedToString(didVote) + box.getResolver(path));
+                + votedToString(didVote) + box.getResolver(path));
         } else if (expectVoted != didVote) {
             errln("ERR:" + where + "Expected VOTING=" + votedToString(expectVoted) + ":  " + locale + ":" + path + " ='"
-                    + currentWinner + "', " + votedToString(didVote) + box.getResolver(path));
+                + currentWinner + "', " + votedToString(didVote) + box.getResolver(path));
         } else {
             logln(where + locale + ":" + path + " ='" + currentWinner + "', " + votedToString(didVote) + box.getResolver(path));
         }
@@ -187,7 +187,7 @@ public class TestSTFactory extends TestFmwk {
             logln("reread:  " + outFile.getAbsolutePath() + " value " + somePath + " = " + reRead);
             if (!changedTo.equals(reRead)) {
                 logln("reread:  " + outFile.getAbsolutePath() + " value " + somePath + " = " + reRead + ", should be "
-                        + changedTo);
+                    + changedTo);
             }
         }
     }
@@ -226,7 +226,7 @@ public class TestSTFactory extends TestFmwk {
             CLDRLocale locale2 = CLDRLocale.getInstance("nb");
             CLDRFile nb = fac.make(locale2, false);
             BallotBox<User> box = fac.ballotBoxForLocale(locale2);
-            final String bad_xpath =  "//ldml/units/unitLength[@type=\"format\"]/unit[@type=\"murray\"]/unitPattern[@count=\"many\"]";
+            final String bad_xpath = "//ldml/units/unitLength[@type=\"format\"]/unit[@type=\"murray\"]/unitPattern[@count=\"many\"]";
 
             try {
                 box.voteForValue(getMyUser(), bad_xpath, "{0} Murrays"); // bogus
@@ -305,7 +305,7 @@ public class TestSTFactory extends TestFmwk {
             logln("reread:  " + outFile.getAbsolutePath() + " value " + somePath2 + " = " + reRead);
             if (!changedTo2.equals(reRead)) {
                 logln("reread:  " + outFile.getAbsolutePath() + " value " + somePath2 + " = " + reRead + ", should be "
-                        + changedTo2);
+                    + changedTo2);
             }
         }
     }
@@ -319,16 +319,16 @@ public class TestSTFactory extends TestFmwk {
         final XPathParts xpp2 = new XPathParts(null, null);
         final Map<String, String> attrs = new TreeMap<String, String>();
         final Map<String, UserRegistry.User> users = new TreeMap<String, UserRegistry.User>();
-        final Map<String,String> vars = new TreeMap<String,String>();
+        final Map<String, String> vars = new TreeMap<String, String>();
         myReader.setHandler(new XMLFileReader.SimpleHandler() {
             public void handlePathValue(String path, String value) {
-                
-                if(value!=null && value.startsWith("$")) {
+
+                if (value != null && value.startsWith("$")) {
                     String varName = value.substring(1);
                     value = vars.get(varName);
-                    logln(" $"+varName+" == '"+value+"'");
+                    logln(" $" + varName + " == '" + value + "'");
                 }
-                
+
                 xpp.clear();
                 xpp.initialize(path);
                 attrs.clear();
@@ -371,7 +371,7 @@ public class TestSTFactory extends TestFmwk {
                     final CLDRLocale locale = CLDRLocale.getInstance(attrs.get("locale"));
                     final String xvalue = fac.make(locale, true).getStringValue(xpath);
                     vars.put(id, xvalue);
-                    logln("$"+id+" = '"+xvalue+"' from " + locale+":"+xpath);
+                    logln("$" + id + " = '" + xvalue + "' from " + locale + ":" + xpath);
                 } else if (elem.equals("vote") || elem.equals("unvote")) {
                     UserRegistry.User u = users.get(attrs.get("name"));
                     if (u == null) {
@@ -382,7 +382,7 @@ public class TestSTFactory extends TestFmwk {
                     BallotBox<User> box = fac.ballotBoxForLocale(locale);
                     value = value.trim();
                     boolean needException = false;
-                    if(attrs.containsKey("exception") && attrs.get("exception").equals("true")) {
+                    if (attrs.containsKey("exception") && attrs.get("exception").equals("true")) {
                         needException = true;
                     }
                     if (elem.equals("unvote")) {
@@ -390,14 +390,14 @@ public class TestSTFactory extends TestFmwk {
                     }
                     try {
                         box.voteForValue(u, xpath, value);
-                        if(needException) {
+                        if (needException) {
                             errln("Expected exceptoin, didn't get one");
                         }
                     } catch (InvalidXPathException e) {
                         // TODO Auto-generated catch block
-                        errln("Error: invalid xpath exception " + xpath  + " : " + e);
+                        errln("Error: invalid xpath exception " + xpath + " : " + e);
                     } catch (IllegalArgumentException iae) {
-                        if(needException == true) {
+                        if (needException == true) {
                             logln("Caught expected: " + iae);
                         } else {
                             iae.printStackTrace();
@@ -432,7 +432,7 @@ public class TestSTFactory extends TestFmwk {
                         logln("OK: Status=" + winStatus + " " + locale + ":" + xpath + " Resolver=" + box.getResolver(xpath));
                     } else {
                         errln("Expected: Status=" + expStatus + " got " + winStatus + " " + locale + ":" + xpath + " Resolver="
-                                + box.getResolver(xpath));
+                            + box.getResolver(xpath));
                     }
 
                     xpp2.clear();
@@ -450,10 +450,10 @@ public class TestSTFactory extends TestFmwk {
                     }
                     if (xpathStatus == expStatus) {
                         logln("OK from fullxpath: Status=" + xpathStatus + " " + locale + ":" + fullXpath + " Resolver="
-                                + box.getResolver(xpath));
+                            + box.getResolver(xpath));
                     } else {
                         errln("Expected from fullxpath: Status=" + expStatus + " got " + xpathStatus + " " + locale + ":"
-                                + fullXpath + " Resolver=" + box.getResolver(xpath));
+                            + fullXpath + " Resolver=" + box.getResolver(xpath));
                     }
 
                     // Verify from XML
@@ -508,10 +508,10 @@ public class TestSTFactory extends TestFmwk {
 
                     if (xpathStatusBack == expStatus) {
                         logln("OK from XML: Status=" + xpathStatusBack + " " + locale + ":" + fullXpathBack + " Resolver="
-                                + box.getResolver(xpath));
+                            + box.getResolver(xpath));
                     } else {
                         errln("Expected from XML: Status=" + expStatus + " got " + xpathStatusBack + " " + locale + ":"
-                                + fullXpathBack + " Resolver=" + box.getResolver(xpath));
+                            + fullXpathBack + " Resolver=" + box.getResolver(xpath));
                     }
 
                 } else if (elem.equals("echo")) {
@@ -549,7 +549,7 @@ public class TestSTFactory extends TestFmwk {
             logln("locale " + locale2 + " path " + somePath2 + " full = " + fullPath);
             if (!fullPath.contains("numbers=")) {
                 logln("Warning: " + locale2 + ":" + somePath2 + " fullpath doesn't contain numbers= - test skipped, got path "
-                        + fullPath);
+                    + fullPath);
                 return;
             }
 
@@ -617,7 +617,7 @@ public class TestSTFactory extends TestFmwk {
             logln("reread:  " + outFile.getAbsolutePath() + " value " + somePath2 + " = " + reRead);
             if (!changedTo2.equals(reRead)) {
                 logln("reread:  " + outFile.getAbsolutePath() + " value " + somePath2 + " = " + reRead + ", should be "
-                        + changedTo2);
+                    + changedTo2);
             }
             String fullPath2 = readBack.getFullXPath(somePath2);
             if (!fullPath2.contains("numbers=")) {
@@ -625,7 +625,7 @@ public class TestSTFactory extends TestFmwk {
             }
         }
     }
-        
+
     public void TestVotingAge() throws SQLException, IOException, InterruptedException, JSONException, InvalidXPathException {
         CLDRConfig config = CLDRConfig.getInstance();
         config.setProperty(SurveyMain.CLDR_NEWVERSION_AFTER, SurveyMain.NEWVERSION_EPOCH);
@@ -637,21 +637,21 @@ public class TestSTFactory extends TestFmwk {
         final String aValueOld = "oldValue";
         final String aValueNew = "newValue";
         String origBase = ANY;
-        
+
         {
             CLDRFile file = fac.make(loc, false);
             BallotBox<User> box = fac.ballotBoxForLocale(loc);
             box.voteForValue(getMyUser(), somePath, null); // unvote
             origBase = expect(somePath, ANY, false, file, box);
             logln(loc + ":" + somePath + " = " + origBase);
-            
+
             box.voteForValue(getMyUser(), somePath, aValueOld); // unvote
             expect(somePath, aValueOld, true, file, box);
 
         }
-        
+
         logln("Sleeping at .." + new Date());
-        Thread.sleep(2000);  // so that the 'old' vote is prior to the cut
+        Thread.sleep(2000); // so that the 'old' vote is prior to the cut
         Date cutTime = new Date();
         String cutEpoch = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss'.00000'").format(cutTime);
         config.setProperty(SurveyMain.CLDR_NEWVERSION_AFTER, cutEpoch);
@@ -660,7 +660,7 @@ public class TestSTFactory extends TestFmwk {
         Thread.sleep(2000); // so that the 'new' vote is after the cut
         logln("Retesting at " + new Date());
         fac = resetFactory();
-        
+
         {
             CLDRFile file = fac.make(loc, false);
             BallotBox<User> box = fac.ballotBoxForLocale(loc);
@@ -669,23 +669,22 @@ public class TestSTFactory extends TestFmwk {
             logln("votesAfter = " + votesAfter);
             {
                 JSONObject query = DBUtils
-                        .queryToJSON("select xpath,value,last_mod from " + STFactory.CLDR_VBV + " where locale=?", loc);
+                    .queryToJSON("select xpath,value,last_mod from " + STFactory.CLDR_VBV + " where locale=?", loc);
                 logln("*: " + query.toString());
             }
-            
+
             logln("Expect to find the old value gone (too old)");
             expect(somePath, origBase, false, file, box);
             logln("Expect to find the new value  in the new path OK gone (new)");
             expect(somePath2, aValueNew, true, file, box);
-            
+
             logln("Expect to find the new value after revoting");
             box.voteForValue(getMyUser(), somePath, aValueNew);
             expect(somePath, aValueNew, true, file, box);
         }
 
-        
     }
-    
+
     private void verifyReadOnly(CLDRFile f) {
         String loc = f.getLocaleID();
         try {

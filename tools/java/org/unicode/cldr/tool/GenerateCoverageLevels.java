@@ -102,7 +102,7 @@ public class GenerateCoverageLevels {
             String source = cldrFile.getSourceLocaleID(path, null);
             Inheritance inherited = !source.equals(locale) ? Inheritance.inherited : Inheritance.actual;
 
-            Level level = supplementalData.getCoverageLevel(path,locale);
+            Level level = supplementalData.getCoverageLevel(path, locale);
 
             items.add(Row.of(level, path, inherited));
         }
@@ -345,11 +345,11 @@ public class GenerateCoverageLevels {
             Counter<Level> found = levelData.found;
             Relation<Level, R2<String, String>> samples = levelData.samples;
             StringBuilder countLine = new StringBuilder(
-                    script
+                script
                     + "\t" + english.getName(CLDRFile.SCRIPT_NAME, script)
-                    + "\t" + lang 
+                    + "\t" + lang
                     + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, lang)
-                    );
+                );
             if (header != null) {
                 header.append("Code\tScript\tCode\tLocale");
             }
@@ -360,7 +360,7 @@ public class GenerateCoverageLevels {
             double weightedMissing = 0;
             long missingCountTotal = 0;
             long foundCountTotal = 0;
-            
+
             for (Level level : Level.values()) {
                 if (level == Level.UNDETERMINED) {
                     continue;
@@ -371,7 +371,7 @@ public class GenerateCoverageLevels {
                 foundCountTotal += foundCount;
                 weightedFound += foundCount * level.getValue();
                 weightedMissing += missingCount * level.getValue();
-                
+
                 countLine.append('\t').append(missingCountTotal).append('\t').append(foundCountTotal);
                 if (header != null) {
                     header.append("\t" + level + "-Missing\tFound");
@@ -536,7 +536,7 @@ public class GenerateCoverageLevels {
                 ? Inheritance.inherited
                 : Inheritance.actual;
 
-            Level level = sdi.getCoverageLevel(fullPath,locale);
+            Level level = sdi.getCoverageLevel(fullPath, locale);
             if (inherited == Inheritance.actual) {
                 levelData.found.add(level, 1);
             } else {

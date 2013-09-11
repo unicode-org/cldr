@@ -2608,7 +2608,7 @@ U+2205 ).</p>
 			<td>AM or PM</td>
 		</tr>
 		<tr>
-			<th rowspan="5">hour</th>
+			<th rowspan="6">hour</th>
 			<td style="text-align: center">h</td>
 			<td style="text-align: center">1..2</td>
 			<td>11</td>
@@ -2637,16 +2637,24 @@ U+2205 ).</p>
 			<td>Hour [1-24]. When used in a skeleton, only matches k or H, see above. Use kk for zero padding.</td>
 		</tr>
 		<tr>
-			<td style="text-align: center">j</td>
-			<td style="text-align: center">1..2</td>
+		  <td style="text-align: center">j</td>
+		  <td style="text-align: center">1..2</td>
+		  <td>n/a</td>
+		  <td><em><strong>This is a special-purpose symbol.</strong></em> It must not occur in pattern or skeleton data. Instead, it
+		    is reserved for use in skeletons passed to APIs doing flexible date pattern generation. In such a
+		    context, it requests the preferred hour format for the locale (h, H, K, or k), as determined by
+		    whether h, H, K, or k is used in the standard short time format for the locale. In the implementation
+		    of such an API, 'j' must be replaced by h, H, K, or k before beginning a match against
+		    availableFormats data. Note that use of 'j' in a skeleton passed to an API is the only way to have a
+		    skeleton request a locale's preferred time cycle type (12-hour or 24-hour).</td>
+	  </tr>
+		<tr class="changed">
+			<td style="text-align: center">J</td>
+			<td style="text-align: center">1</td>
 			<td>n/a</td>
-			<td>This is a special-purpose symbol. It must not occur in pattern or skeleton data. Instead, it
+			<td><strong><em>This is a special-purpose symbol.</em></strong> It must not occur in pattern or skeleton data. Instead, it
 			  is reserved for use in skeletons passed to APIs doing flexible date pattern generation. In such a
-			  context, it requests the preferred hour format for the locale (h, H, K, or k), as determined by
-			  whether h, H, K, or k is used in the standard short time format for the locale. In the implementation
-			  of such an API, 'j' must be replaced by h, H, K, or k before beginning a match against
-			  availableFormats data. Note that use of 'j' in a skeleton passed to an API is the only way to have a
-			  skeleton request a locale's preferred time cycle type (12-hour or 24-hour).</td>
+			  context, like 'j', it requests the preferred hour format for the locale (h, H, K, or k). However, unlike 'j', it requests  no &quot;am/pm&quot; marker. (It is typically used where there is enough context that that is not necessary.) For example,  in English with 'Jmm', 13:00 would appear as &quot;1:00&quot;, while with 'jmm', it would appear as&quot;1:00 AM&quot;.</td>
 		</tr>
 		<tr>
 			<th>minute</th>

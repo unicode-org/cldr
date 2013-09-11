@@ -1138,8 +1138,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   </p>
 
   <p>This element is for data that indicates, for various regions, the preferred time cycle in the region,
-  as well as all time cycles that are considered acceptable in the region. The defaults are those specified for region 001.
-  For example:</p>
+  as well as all time cycles that are considered acceptable in the region. The defaults are those specified for region 001.</p>
+  <p>There is a single preferred value, and multiple possible values.<span class="changed"> The meanings of the values H, h, K, k are defined in <a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.  </span></p>
+  <p class="changed">For example, in the following, RU (Russia) is marked as using only 24 hour time, and in particular the 24 hour time that goes from 0..23 (H), rather than from 1..24 (k).</p>
 
 <pre>&lt;timeData&gt;
     &lt;hours preferred="H" allowed="H h" regions="001 …"/&gt;

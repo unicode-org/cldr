@@ -1413,8 +1413,25 @@ The data above indicates:
 	the existing collation type "big5han" already satisfied the new requirement, so no new type code
 	was assigned to the type.  The chart below shows some example mappings between the
 	new syntax and the old syntax.	</p>
+	<p class="changed">Where the old API is supplied the bcp47 language code, or vice versa, the recommendation is to:</p>
+	<ol>
+	  <li class="changed">Have all methods that take the old syntax also take the new syntax, interpreted correctly. For example, &quot;zh-TW-u-co-pinyin&quot; and &quot;zh_TW@collation=pinyin&quot; would both be interpreted as meaning the same.</li>
+	  <li class="changed">Have all methods (both for old and new syntax) accept all possible aliases for keywords and types. For example,             &quot;ar-u-ca-islamicc&quot; would be equivalent to &quot;ar-u-ca-islamic-civil&quot;.	  </li>
+	  <ul>
+	    <li class="changed">The reason for saying &quot;all possible&quot; is that APIs that only take well-formed bcp47 tags would not accept the alias &quot;gregorian&quot; for &quot;gregory&quot;, because &quot;gregorian&quot;is too long to be syntactically valid.</li>
+      </ul>
+	  <li class="changed"> Where an API cannot successfully accept the alternate syntax, throw an exception (or otherwise indicate an error) so that people can detect that they are using the wrong method (or wrong input).</li>
+	  <li><span class="changed">Provide a method that tests a purported locale ID string to determine its status: 
+	    </span>
+      </li>
+	  <ol>
+        <li class="changed"><strong>well-formed</strong> - syntactically correct</li>
+        <li class="changed"><strong>valid</strong> - well-formed and only uses registered language subtags, extensions, keywords, types... </li>
+        <li class="changed"><strong>canonical</strong> - valid and no deprecated codes or structure.</li>
+      </ol>
+  </ol>
 	<table>
-    <caption>Locale Extension Mappings</caption>
+<caption>Locale Extension Mappings</caption>
 		<tr>
 			<th>Old (LDML 1.7 or older)</th>
 			<th>New</th>

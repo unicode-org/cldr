@@ -963,7 +963,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 		<li><b>iso4217: </b>the ISO 4217 code for the currency in question. If a particular currency does not occur in the fractions list, then it is given the 
 		defaults listed for the next two attributes.</li>
 		<li><b>digits: </b>the number of decimal digits normally formatted. The default is 2.</li>
-		<li><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>. The default is 1. Thus with fraction digits of 2 and rounding increment of 
+		<li><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>. The default is <span class="removed">1</span><span class="changed">0, which means no rounding is to be done.  Therefore, rounding=0 and rounding=1 have identical behavior. </span>Thus with fraction digits of 2 and rounding increment of 
 		5, numeric values are rounded to the nearest 0.05 units in formatting. With fraction digits of 0 and rounding increment of 50, numeric values are rounded 
 		to the nearest 50.</li>
 		<li><span class="changed"><b>cashDigits: </b>the number of decimal digits to be used when formatting quantities used in cash transactions (as opposed to a quantity that would appear in a more formal setting, such as on a bank statement).  If absent, the value of "digits" should

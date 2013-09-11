@@ -129,7 +129,7 @@ public class LikelySubtagsTest extends TestFmwk {
                         logln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t"
                             + english.getName("territory", region));
                     } else {
-                        warnln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t"
+                        errln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t"
                             + english.getName("territory", region));
                     }
                 }

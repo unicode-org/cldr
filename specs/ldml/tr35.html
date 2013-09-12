@@ -4262,25 +4262,28 @@ decimal?, group?, special*)) &gt;</pre>
   <h3><span class="changed">Revision 32</span></h3>
   <ul class="changed">
     <li>Updated for Version 24.</li>
-    <li>Added alt=&quot;variant&quot; for &lt;era&gt;. [ticket <a href="http://unicode.org/cldr/trac/ticket/649">#649</a>]</li>
+    <li>Added alt=&quot;variant&quot; for &lt;era&gt; in <strong>Part 4: Dates,</strong> <em>Section 2.1 <a href="http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-dates.html#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/649">#649</a>]</li>
     <li>Specified that the index exemplar set may only include characters whose lowercase versions are in the main or auxiliary
-    exemplar sets. [ticket <a href="http://unicode.org/cldr/trac/ticket/6202">#6202</a>]</li>
-    <li>Deprecated XML syntax for collation tailorings. [ticket <a href="http://unicode.org/cldr/trac/ticket/5551">#5551</a>]</li>
-    <li>Deprecated default element for collation too (previously deprecated for other usages); replaced by defaultCollation
-    element. [ticket <a href="http://unicode.org/cldr/trac/ticket/5679">#5679</a>]</li>
-    <li>Deprecated base element for collation. [ticket <a href="http://unicode.org/cldr/trac/ticket/6332">#6332</a>]</li>
-    <li>Updated the paths in the &lt;contextTransformUsage&gt; type attribute values table in
-    <a href="tr35-general.html#Context_Transform_Elements">ContextTransform Elements</a>.
-    [ticket <a href="http://unicode.org/cldr/trac/ticket/6563">#6563</a>]</li>
-    <li>Updated to reflect new structure in <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a>, plus the
-    standard/daylight types for &lt;regionFormat&gt;.
-    Moved deprecated items from Part 4: Dates to shared <a href="#Deprecated_Structure">Deprecated Structure</a> section.
-    Added DTD updates for other changes in parts 1, 2, 3, 6.
-    [ticket <a href="http://unicode.org/cldr/trac/ticket/6617">#6617</a>]</li>
-    <li>Added recommendations for handling old and new syntax (and aliases) to <em>Section 3.8 <a href="#Compatibility_with_Older_Identifiers">Compatibility with Older Identifiers</a></em>. [ticket <a href="http://unicode.org/cldr/trac/ticket/5746">#5746</a>]</li>
+    exemplar sets in <strong>Part 2: General,</strong> <em>Section 3 <a href="tr35-general.html#Character_Elements">Character Elements</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6202">#6202</a>]</li>
+    <li>Major changes in <strong>Part 5: <a href="http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-collation.html#Contents">Collation</a></strong>, including:
+      <ul>
+        <li>Deprecated XML syntax for collation tailorings. [<a href="http://unicode.org/cldr/trac/ticket/5551">#5551</a>]</li>
+        <li>Deprecated default element for collation too (previously deprecated for other usages); replaced by defaultCollation
+          element. [<a href="http://unicode.org/cldr/trac/ticket/5679">#5679</a>]</li>
+        <li>Deprecated base element for collation. [<a href="http://unicode.org/cldr/trac/ticket/6332">#6332</a>]</li>
+      </ul>
+    </li>
+    <li>Updated the paths in the &lt;contextTransformUsage&gt; type attribute values table in <strong>Part 2: General</strong>, <em>Section 12 <a href="tr35-general.html#Context_Transform_Elements">ContextTransform Elements</a></em>.
+    [<a href="http://unicode.org/cldr/trac/ticket/6563">#6563</a>]</li>
+    <li>Updated to reflect new structure in<strong> Part 4: Dates,</strong> <em>Section 3 <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>, plus the
+    standard/daylight types for &lt;regionFormat&gt; in <strong>Part 4: Dates,</strong> <em>Section </em>5 <a href="tr35-dates.html#Time_Zone_Names">Time Zone Names</a>.
+      Moved deprecated items from <strong>Part 4: Dates</strong> to shared <em>Section 8 <a href="#Deprecated_Structure">Deprecated Structure</a></em>.
+      Added DTD updates for other changes in <strong>Parts 1, 2, 3, 6</strong>.
+    [<a href="http://unicode.org/cldr/trac/ticket/6617">#6617</a>]</li>
+    <li>Added recommendations for handling old and new syntax (and aliases) to <em>Section 3.8 <a href="#Compatibility_with_Older_Identifiers">Compatibility with Older Identifiers</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5746">#5746</a>]</li>
     <li>Added Parts section (with double-links) to each Part. [<a href="http://unicode.org/cldr/trac/ticket/5804">#5804</a>]</li>
     <li>Documented the special inheritance for &quot;count&quot; attributes in <em>Section 4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5836">#5836</a>]</li>
-    <li>Fixed broken link for [LOCODE] (unstable page on UN site). [<a href="http://unicode.org/cldr/trac/ticket/6163" title="View ticket">#6163</a>]</li>
+    <li>Fixed broken link for [LOCODE] (unstable page on UN site) in <a href="#References"><em>References</em></a>. [<a href="http://unicode.org/cldr/trac/ticket/6163" title="View ticket">#6163</a>]</li>
     <li>Small fixes to <em>Section 3.7 <a href="http://www.unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></em> to improve referencing. [<a href="http://unicode.org/cldr/trac/ticket/5089" title="View ticket">#5089</a>]</li>
     <li>Added clarifications to <strong>Part 4: Dates,</strong> <em>Section 4.4 <a href="tr35-dates.html#Time_Data">Time Data</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5799" title="View ticket">#5799</a>]</li>
     <li>Added 'J' symbol to<strong> Part 4: Dates, </strong> <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</li>
@@ -4305,7 +4308,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li>The und-u-co-ducet tailoring has been removed.</li>
     <li>Index exemplar characters with multiple primary weights are now supported.</li>
     <li>The &lt;fields&gt; element has been moved from just under the &lt;calendar&gt; element to just under
-      the &lt;dates&gt; element. [ticket <a href="http://unicode.org/cldr/trac/ticket/5512">#5512</a>]</li>
+    the &lt;dates&gt; element. [<a href="http://unicode.org/cldr/trac/ticket/5512">#5512</a>]</li>
     <li>Updated time zone format patterns and description in
       <a href="tr35-dates.html#Date_Format_Patterns">Date Format Patterns</a> and
       <a href="tr35-dates.html#Using_Time_Zone_Names">Using Time Zone Names</a> to incorporate some new time
@@ -4320,18 +4323,18 @@ decimal?, group?, special*)) &gt;</pre>
       <a href="http://unicode.org/cldr/trac/ticket/5788">#5788</a>]</li>
     <li>Updated <a href="tr35-dates.html#Parsing_Dates_Times">Parsing Dates and Times</a> to suggest that
       matching of abbreviated symbols should be tolerant of the presence or absence of an abbreviation marker
-      such as period. [ticket <a href="http://unicode.org/cldr/trac/ticket/5631">#5631</a>]</li>
+    such as period. [<a href="http://unicode.org/cldr/trac/ticket/5631">#5631</a>]</li>
     <li>Updated <a href="#Locale_Inheritance">Locale Inheritance</a> to explain that certain data items are
       derived directly from the region specified in a locale id (or the likely region if none specified),
       using data in supplemental, instead of via inheritance through the locale bundle. 
-      [ticket <a href="http://unicode.org/cldr/trac/ticket/5606">#5606</a>]</li>
+    [<a href="http://unicode.org/cldr/trac/ticket/5606">#5606</a>]</li>
     <li>Added new section Appendix <a href="#Time_Zone_Identifiers">Q.1.2 Time Zone Identifiers</a> to explain
       the short time zone IDs and canonical long time zone IDs. Also updated <a href="#Key_Type_Definitions">Key/Type Definitions</a>
       table and <a href="tr35-dates.html#Using_Time_Zone_Names">Using Time Zone Names</a> to refer to the
       new section.
-      [ticket <a href="http://unicode.org/cldr/trac/ticket/5793">#5793</a>]</li>
+    [<a href="http://unicode.org/cldr/trac/ticket/5793">#5793</a>]</li>
     <li>Improved the description of collation type "search".
-      [ticket <a href="http://unicode.org/cldr/trac/ticket/5331">#5331</a>]</li>
+    [<a href="http://unicode.org/cldr/trac/ticket/5331">#5331</a>]</li>
   </ul>
 
 	<p>Revision 30 being a proposed update, only changes between revisions 29 and 31 are summarized here.</p>
@@ -4343,9 +4346,9 @@ decimal?, group?, special*)) &gt;</pre>
     <li>Clarified the use and meaning of the index characters.</li>
     <li>Revised the table for collation keyword lookup in Section I.5 Keyword and Default Resolution</li>
     <li>In <em>Section 5.14, <a href="#Collation_Elements">Collation Elements</a>,</em> added information on
-    zhuyin collation index markers. [ticket <a href="http://unicode.org/cldr/trac/ticket/5320">#5320</a>]</li>
+    zhuyin collation index markers. [<a href="http://unicode.org/cldr/trac/ticket/5320">#5320</a>]</li>
     <li>Clarify that text in a dateTimePattern other than {0}{1} is treated as part of a date pattern.
-    [ticket <a href="http://unicode.org/cldr/trac/ticket/5398">#5398</a>]</li>
+    [<a href="http://unicode.org/cldr/trac/ticket/5398">#5398</a>]</li>
 	</ul>
 	<p>Revision 28 being a proposed update, only changes between revisions 27 and 29 are summarized here.</p>
 
@@ -4356,15 +4359,15 @@ decimal?, group?, special*)) &gt;</pre>
 	<li>Added new section <em>Section 5.14.13, <a href="#Case_Parameters">Case Parameters</a></em>.</li>
     <li>Modified the table in <em>Section 5.14.3, <a href="#Setting_Options">Setting Options</a></em> to include information from UCA, and to add clarifications.</li>
     <li>Added 6-letter patterns for short weekday names to the <em><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></em>.
-    [ticket <a href="http://unicode.org/cldr/trac/ticket/4571">#4571</a>]</li>
-    <li>Updated deprecated status. [ticket <a href="http://unicode.org/cldr/trac/ticket/5229">#5229</a>]</li>
+    [<a href="http://unicode.org/cldr/trac/ticket/4571">#4571</a>]</li>
+    <li>Updated deprecated status. [<a href="http://unicode.org/cldr/trac/ticket/5229">#5229</a>]</li>
     <li>In <em>Section 5.9.1, <a href="#Calendar_Elements">Calendar Elements</a>,</em> under
     <b><a href="#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></b>,
     mentioned the new day width <i>short</i> and the new &lt;monthPattern&gt; context <i>numeric</i> and width <i>all.</i>
-    [ticket <a href="http://unicode.org/cldr/trac/ticket/5268">#5268</a>]</li>
-    <li>Fixed last example in table <b>Specifying Collation Ordering</b>. [ticket <a href="http://unicode.org/cldr/trac/ticket/3108">#3108</a>]</li>
-    <li>Added descriptions of coverageVariable in Appendix M. [ticket <a href="http://unicode.org/cldr/trac/ticket/5269">#5269</a>]</li>
-    <li>Documented the attribute value status=&quot;grouping&quot; in Appendix C.2. [ticket <a href="http://unicode.org/cldr/trac/ticket/5270">#5270</a>]</li>
+    [<a href="http://unicode.org/cldr/trac/ticket/5268">#5268</a>]</li>
+    <li>Fixed last example in table <b>Specifying Collation Ordering</b>. [<a href="http://unicode.org/cldr/trac/ticket/3108">#3108</a>]</li>
+    <li>Added descriptions of coverageVariable in Appendix M. [<a href="http://unicode.org/cldr/trac/ticket/5269">#5269</a>]</li>
+    <li>Documented the attribute value status=&quot;grouping&quot; in Appendix C.2. [<a href="http://unicode.org/cldr/trac/ticket/5270">#5270</a>]</li>
     <li>Added Appendix R, for property data.</li>
     <li>Added Appendix S, for Keyboards.</li>
     <li>Updated reference to [Olson]</li>
@@ -4392,7 +4395,7 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Updated for CLDR Version 21.</li>
 		<li>Note the change in version numbering scheme beginning with this release.</li>
 		<li>Added information on distinctness requirements for names of eras and dayPeriods.
-		[ticket <a href="http://unicode.org/cldr/trac/ticket/3831">#3831</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/3831">#3831</a>]</li>
 		<li>Added descriptions of new &lt;monthPatterns&gt; and &lt;cyclicNameSets&gt; calendar elements and of new 'U' date pattern
 		character for cyclic year names. Deprecated the 'l' (SMALL LETTER L) pattern character for leap month marker.
 		[tickets <a href="http://unicode.org/cldr/trac/ticket/4230">#4230</a>, <a href="http://unicode.org/cldr/trac/ticket/4231">#4231</a>,
@@ -4400,44 +4403,44 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Added documentation regarding the deprecation of the commonlyUsed element in formatting short time
 		zone names. [tickets <a href="http://unicode.org/cldr/trac/ticket/4052">#4052</a>, 
 		<a href="http://unicode.org/cldr/trac/ticket/4130">#4130</a>]</li>
-		<li>Added documentation for ordinal plural forms. [ticket <a href="http://unicode.org/cldr/trac/ticket/4323">#4323</a>]</li>
-    	<li>Added documentation for territoryContainment status=&quot;deprecated&quot;. [ticket <a href="http://unicode.org/cldr/trac/ticket/4326">#4326</a>]</li>
+		<li>Added documentation for ordinal plural forms. [<a href="http://unicode.org/cldr/trac/ticket/4323">#4323</a>]</li>
+    	<li>Added documentation for territoryContainment status=&quot;deprecated&quot;. [<a href="http://unicode.org/cldr/trac/ticket/4326">#4326</a>]</li>
    		<li>Added documentation for gender of lists. [tickets <a href="http://unicode.org/cldr/trac/ticket/4125">#4125</a>, <a href="http://unicode.org/cldr/trac/ticket/4357">#4357</a>]</li>
         <li>Clarified use of hour pattern characters (h, H, K, k) in skeletons and associated patterns, in both
         <i>Section 5.9.1 <a href="#Calendar_Elements">Calendar Elements</a></i> and in the <i><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></i>.
-        [ticket <a href="http://unicode.org/cldr/trac/ticket/4061">#4061</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/4061">#4061</a>]</li>
         <li>Added <i>Section 5.19 <a href="#Context_Transform_Elements">ContextTransform Elements</a></i> and
         <i>Section 5.20 <a href="#Metadata_Elements">Metadata Elements</a></i>.
         Deprecated the &lt;inList&gt; and &lt;inText&gt; elements.
         Added guidance for capitalization of display names, and for consideration of grammar vs. capitalization in format vs. stand-alone calendar names.
-        [ticket <a href="http://unicode.org/cldr/trac/ticket/4317">#4317</a>]</li>
-		<li>Added clarification of YY as fixed width week of year. [ticket <a href="http://unicode.org/cldr/trac/ticket/3862">#3862</a>]</li>
-		<li>Clarified that the parentLocale element does not apply to collation. [ticket <a href="http://unicode.org/cldr/trac/ticket/3897">#3897</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/4317">#4317</a>]</li>
+		<li>Added clarification of YY as fixed width week of year. [<a href="http://unicode.org/cldr/trac/ticket/3862">#3862</a>]</li>
+		<li>Clarified that the parentLocale element does not apply to collation. [<a href="http://unicode.org/cldr/trac/ticket/3897">#3897</a>]</li>
 		<li>Moved the information about the alias element into <em>Section 5.21 <a href="#Alias_Elements">Alias Elements</a></em> and removed comments about whole-locale aliasing.</li>
 		<li>Updated <i>Section C.7 <a href="#Supplemental_Timezone_Data">Supplemental Time Zone Data</a></i> to specify the details of the
 		Windows TZID mapping data extended by ticket <a href="http://unicode.org/cldr/trac/ticket/4067">#4067</a> in this release.
-		[ticket <a href="http://unicode.org/cldr/trac/ticket/4296">#4296</a>]
+		[<a href="http://unicode.org/cldr/trac/ticket/4296">#4296</a>]
 		<li>Added documentation for the new date format pattern "ZZZZZ" (ISO 8601 time zone format) in <i>Appendix F: <a href="#Date_Format_Patterns">
 		Date Format Patterns</a></i> and <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>.
-		[ticket <a href="http://unicode.org/cldr/trac/ticket/3995">#3995</a>]</li>
-		<li>Added an explanation of the use of the code 'UK', and pointers to the aliases for normalizing codes. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4250">4250</a>]</li>
-		<li>Clarified the use of &lt;variable&gt; elements in checking attribute values. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4013">4013</a>]</li>
-		<li>Updated info on deprecated items. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4360">4360</a>]</li>
-		<li>Clarified the status of non-decimal numbering systems. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4177">4177</a>]</li>
-		<li>Described collation reordering. [ticket #<a href="http://unicode.org/cldr/trac/ticket/4194">4194</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/3995">#3995</a>]</li>
+		<li>Added an explanation of the use of the code 'UK', and pointers to the aliases for normalizing codes. [#<a href="http://unicode.org/cldr/trac/ticket/4250">4250</a>]</li>
+		<li>Clarified the use of &lt;variable&gt; elements in checking attribute values. [#<a href="http://unicode.org/cldr/trac/ticket/4013">4013</a>]</li>
+		<li>Updated info on deprecated items. [#<a href="http://unicode.org/cldr/trac/ticket/4360">4360</a>]</li>
+		<li>Clarified the status of non-decimal numbering systems. [#<a href="http://unicode.org/cldr/trac/ticket/4177">4177</a>]</li>
+		<li>Described collation reordering. [#<a href="http://unicode.org/cldr/trac/ticket/4194">4194</a>]</li>
 		<li>Changed the section title of <i><a href="#Locale_Extension_Key_and_Type_Data">Appendix Q</a></i> from "Locale Extension Key and Type Data" to "BCP 47 Extension Data" and updated the description.
-		[ticket #<a href="http://unicode.org/cldr/trac/ticket/4361">4361</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/4361">4361</a>]</li>
 		<li>In <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>, fold description of Localized GMT-zero format into that of
-		Localized GMT format. [ticket #<a href="http://unicode.org/cldr/trac/ticket/3695">3695</a>]</li>
-		<li>Describe the 't' extension [ticket #<a href="http://unicode.org/cldr/trac/ticket/3976">3976</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/3695">3695</a>]</li>
+		<li>Describe the 't' extension [#<a href="http://unicode.org/cldr/trac/ticket/3976">3976</a>]</li>
 		<li>In <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>, fold description of Localized GMT-zero format into that of
-		Localized GMT format. [ticket #<a href="http://unicode.org/cldr/trac/ticket/3695">3695</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/3695">3695</a>]</li>
         <li>In <i>Section 5.10.2 <a href="#Currencies">Currencies</a></i>, deprecated the "choice" attribute for currency symbols.
-        [ticket <a href="http://unicode.org/cldr/trac/ticket/3934">#3934</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/3934">#3934</a>]</li>
 		<li>In <i>Appendix Q: <a href="#Locale_Extension_Key_and_Type_Data">BCP 47 Extension Data</a></i>, clarified valid/invalid use case of
-		type value with multiple subtags. [ticket <a href="http://unicode.org/cldr/trac/ticket/4212">#4212</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/4212">#4212</a>]</li>
 		<li>Misc editorial fixes (spelling etc.).
-		[ticket <a href="http://unicode.org/cldr/trac/ticket/4378">#4378</a>]</li>
+	  [<a href="http://unicode.org/cldr/trac/ticket/4378">#4378</a>]</li>
 	</ul>
 		<p>Revision 22 being a proposed update, only changes between revisions 21 and 23 are summarized here.</p>
 
@@ -4446,19 +4449,19 @@ decimal?, group?, special*)) &gt;</pre>
 	<ul>
 		<li>Updated for CLDR 2.0.1.</li>
 		<li>In the Collation section of the <a href="#Key_Type_Definitions">Key/Type Definitions</a> table,
-		added an entry for "searchjl". [ticket <a href="http://unicode.org/cldr/trac/ticket/3560">#3560</a>]</li>
+"searchjl". [<a href="http://unicode.org/cldr/trac/ticket/3560">#3560</a>]</li>
 		<li>In the Collation parameters section of the <a href="#Key_Type_Definitions">Key/Type Definitions</a> table,
-		corrected misspelled "quarternary" to "quaternary". [ticket <a href="http://unicode.org/cldr/trac/ticket/4031">#4031</a>]</li>
+"quarternary" to "quaternary". [<a href="http://unicode.org/cldr/trac/ticket/4031">#4031</a>]</li>
 		<li>In <i>Section 5.6 <a href="#Character_Elements">Character Elements</a>,</i>
 		corrected the statements about when punctuation and symbols cannot be included in exemplar sets, and added a note
 		about use of exemplar sets and number systems to determine character repertoire requirements to support a language.
-		[ticket <a href="http://unicode.org/cldr/trac/ticket/3498">#3498</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/3498">#3498</a>]</li>
 		<li>In <i>Section 5.9.3 <a href="#Timezone_Names">Time Zone Names</a>,</i>
 		added a note recommending use of generic location format in user interfaces for timezone selection,
 		and referring to the Date Field Symbol Table table and Appendix G (where this is also discussed).
-		[ticket <a href="http://unicode.org/cldr/trac/ticket/914">#914</a>]</li>
-		<li>Added documentation for territoryContainment grouping=&quot;true&quot;, for addition deprecatedItems, for coverageLevels, and for parentLocales. [ticket <a href="http://unicode.org/cldr/trac/ticket/3938">#3938</a>]  </li>
-		<li>Added clarifications of count=0/1 [ticket <a href="http://unicode.org/cldr/trac/ticket/3988">#3988</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/914">#914</a>]</li>
+		<li>Added documentation for territoryContainment grouping=&quot;true&quot;, for addition deprecatedItems, for coverageLevels, and for parentLocales. [<a href="http://unicode.org/cldr/trac/ticket/3938">#3938</a>]  </li>
+		<li>Added clarifications of count=0/1 [<a href="http://unicode.org/cldr/trac/ticket/3988">#3988</a>]</li>
 		<li>Added descriptions of special index markers added to CJK collations for stroke, pinyin, and unihan, and the alternate alt=&quot;short&quot; forms.</li>
 	</ul>
 	<p>Revision 20 being a proposed update, only changes between revisions 19 and 21 are summarized here.</p>
@@ -4468,14 +4471,14 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Updated for CLDR 2.0.</li>
 		<li>In the Collation section of the <a href="#Key_Type_Definitions">Key/Type Definitions</a> table,
 		added an entry for "ducet" and corrected the information about which types are available in all locales.
-		[ticket <a href="http://unicode.org/cldr/trac/ticket/3399">#3399</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/3399">#3399</a>]</li>
 		<li>Added fallbackRegionFormat, localeKeyTypePattern, stopwords, count=0/1.</li>
 		<li>Enhanced plural rules to allow for explicit lists: <strong>n in 1,3,5..14</strong>.</li>
 		<li>Clarified normalization of LDML files.</li>
 		<li>Changed the description of coverage levels; it is now data-based.</li>
 		<li>Clarified the use of commonlyUsed flag for pattern "v" in the
 		<a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.
-		[ticket <a href="http://unicode.org/cldr/trac/ticket/2700">#2700</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/2700">#2700</a>]</li>
 		<li>Added calendar type "iso8601" and number type "tamldec" in the
 		<a href="#Key_Type_Definitions">Key/Type Definitions</a> table.</li>
 		<li>Restricted the use of the &lt;alias&gt; element to only two circumstances: in root, and as whole-locale aliases.</li>
@@ -4487,33 +4490,33 @@ decimal?, group?, special*)) &gt;</pre>
 	<ul>
 		<li>Updated for CLDR 1.9.</li>
 		<li>In the <a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>, changed the description of
-		pattern character 'S' to indicate that the corresponding field truncates, rather than rounds. [ticket <a href="http://unicode.org/cldr/trac/ticket/2845">#2845</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/2845">#2845</a>]</li>
 		<li>In the description of <a href="#dateFormats">dateFormats</a>, noted that they are intended
-		primarily for use by themselves in user interface elements. [ticket <a href="http://unicode.org/cldr/trac/ticket/3048">#3048</a>]</li>
-		<li>Added (short) descriptions of transformNames, ellipsis, moreInformation, punctuation exemplars. [ticket #3360]</li>
-		<li>Updated the discussion of canonical TZ IDs [ticket #2899]</li>
-		<li>Described the use of numberSystem with symbols, decimalFormats, etc. [ticket #3361]</li>
-		<li>Documented the recommended fallback for transforms [ticket #2240]</li>
-		<li>Clarified some issues with plural rules [ticket #3061]</li>
-		<li>Documented the changes for UCA 6.0, and clarified some examples and the use of &quot;basic syntax&quot; [ticket #3060]</li>
-		<li>Highlighted where CLDR and LDML have different defaults than UCA/DUCET [ticket #2904]</li>
-		<li>Described the default subtype 'true' for keywords [ticket <a href="http://unicode.org/cldr/trac/ticket/2958">#2958</a>] Clarified that the defaults are different from the attribute defaults for collation.</li>
-		<li>Deprecated &lt;fallback&gt; and moved relevant text into C.18 <a href="#LanguageMatching">Language Matching</a> [ticket #1988]</li>
-		<li>Clarified that alt values are not limited to the list in the text. Also added &quot;short&quot;.  [ticket #1910]</li>
-        <li >Updated coverage levels [ticket #2591]</li>
+<a href="http://unicode.org/cldr/trac/ticket/3048">#3048</a>]</li>
+		<li>Added (short) descriptions of transformNames, ellipsis, moreInformation, punctuation exemplars. [#3360]</li>
+		<li>Updated the discussion of canonical TZ IDs [#2899]</li>
+		<li>Described the use of numberSystem with symbols, decimalFormats, etc. [#3361]</li>
+		<li>Documented the recommended fallback for transforms [#2240]</li>
+		<li>Clarified some issues with plural rules [#3061]</li>
+		<li>Documented the changes for UCA 6.0, and clarified some examples and the use of &quot;basic syntax&quot; [#3060]</li>
+		<li>Highlighted where CLDR and LDML have different defaults than UCA/DUCET [#2904]</li>
+		<li>Described the default subtype 'true' for keywords [<a href="http://unicode.org/cldr/trac/ticket/2958">#2958</a>] Clarified that the defaults are different from the attribute defaults for collation.</li>
+		<li>Deprecated &lt;fallback&gt; and moved relevant text into C.18 <a href="#LanguageMatching">Language Matching</a> [#1988]</li>
+		<li>Clarified that alt values are not limited to the list in the text. Also added &quot;short&quot;.  [#1910]</li>
+        <li >Updated coverage levels [#2591]</li>
         <li>Updated the specification to match DTD in various places: <i>Section 5 <a href="#XML_Format">XML Format</a></i> header;
         <i>Section 5.1 <a href="#Common_Elements">Common Elements</a>,</i> for default element use choice instead of deprecated type;
         <i>Section 5.4 <a href="#Display_Name_Elements">Display Name Elements</a></i> header;
         <i>Section 5.6 <a href="#Character_Elements">Character Elements</a></i> header;
         <i>Section 5.9 <a href="#Date_Elements">Date Elements</a></i> header;
         <i>Section 5.10 <a href="#Number_Elements">Number Elements</a></i> header.
-        [ticket <a href="http://unicode.org/cldr/trac/ticket/1925">#1925</a>]</li>
+<a href="http://unicode.org/cldr/trac/ticket/1925">#1925</a>]</li>
         <li>Added a collation type 'search' in the Key/Type Definitions table. Also moved 'standard' at the beginning to match the description. [ticket#3375]</li>
    	</ul>
 
 <h3>Revision 16</h3>
 	<ul>
-		<li>Updated for CLDR 1.8.1. Fix TOC links to sections C.17, C.18. [ticket #2722]</li>
+		<li>Updated for CLDR 1.8.1. Fix TOC links to sections C.17, C.18. [#2722]</li>
 		<li>Updated <i>Appendix Q <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension
 		Key and Type Data</a></i> to provide more information about valid "vt" (variableTop) value and versioning.
 		[tickets #2740, #2741]</li>
@@ -4523,9 +4526,9 @@ decimal?, group?, special*)) &gt;</pre>
 <h3>Revision 15</h3>
 	<ul>
 		<li>In <i>Section C.5 <a href="#Supplemental_Calendar_Data">Supplemental Calendar Data</a>,</i> explained the different interpretations of
-		“first day of the week” and their relationship to CLDR data. [ticket #2663]</li>
-		<li>Updated <i>Appendix K <a href="#Valid_Attribute_Values">Valid Attribute Values</a>.</i> [ticket #1504]</li>
-		<li>Added descriptions of yeartype and numberingSystem attributes [ticket #2712]</li>
+</li>
+		<li>Updated <i>Appendix K <a href="#Valid_Attribute_Values">Valid Attribute Values</a>.</i> [#1504]</li>
+		<li>Added descriptions of yeartype and numberingSystem attributes [#2712]</li>
 		<li>Explained syntax and meaning of vt and variableTop. </li>
 		<li>Added index exemplar sets and index label elements</li>
 		<li>Added dayPeriod and dayPeriod Rules</li>
@@ -4533,46 +4536,46 @@ decimal?, group?, special*)) &gt;</pre>
 		<li>Added language matching</li>
 		<li>Updated descriptions of currency and timezone codes in the Key/Type table.</li>
 		<li>Revised the description in <i>Section C.7 <a href="#Supplemental_Timezone_Data">Supplemental Time Zone Data</a></i>
-		to support the new time zone data organization. [ticket #2715]</li>
-		<li>Updated references to UAX/UTS/UTR documents and to The Unicode Standard. [ticket #2530]</li>
-		<li>Noted (in Calendar Elements and Lenient Parsing sections) that narrow month and day values need not be distinct. [ticket #1955]</li>
-		<li>In <i>Appendix O <a href="#Lenient_Parsing">Lenient Parsing</a>,</i> expanded the discussion of equivalences among apostrophe-like characters. [ticket #2629]</li>
+</li>
+		<li>Updated references to UAX/UTS/UTR documents and to The Unicode Standard. [#2530]</li>
+		<li>Noted (in Calendar Elements and Lenient Parsing sections) that narrow month and day values need not be distinct. [#1955]</li>
+		<li>In <i>Appendix O <a href="#Lenient_Parsing">Lenient Parsing</a>,</i> expanded the discussion of equivalences among apostrophe-like characters. [#2629]</li>
 	</ul>
 	<p>Revision 14 being a proposed update, only changes between revisions 13 and 15 are summarized here.</p>
 
 <h3>Revision 13</h3>
 	<ul>
 		<li>Updated 3. <a href="#Unicode_Language_and_Locale_Identifiers">Unicode Language and Locale Identifiers</a>
-		to make the primary locale identifier syntax more BCP47 compatible. [ticket #2457]</li>
+</li>
 		<li>Added Appendix Q. <a href="#Locale_Extension_Key_and_Type_Data">Locale Extension Key and Type Data</a>.
-		[ticket #2457]</li>
+</li>
 		<li>Note that the dateRangePattern element is deprecated, replaced by intervalFormats. Note that the replacement
 		for the deprecated measurement element is measurementData in supplemental. Be more clear that the hoursFormat, abbreviationFallback,
-		and preferenceOrdering elements are deprecated. [ticket #2369]</li>
+</li>
 		<li>In <i>Appendix G.8 <a href="#NumberElements">Number Elements</a>,</i> updated the description
-		of grouping separators to match Appendix G.2. [ticket #2317]</li>
-		<li>Fixed some typos. [ticket #2216]</li>
+</li>
+		<li>Fixed some typos. [#2216]</li>
 	</ul>
 	<h3>Revision 12</h3>
 	<ul>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 1
-		<a href="#Introduction">Introduction</a>,</i> clarified that LDML is an interchange format, not a runtime format. [ticket #1971]</li>
+		<a href="#Introduction">Introduction</a>,</i> clarified that LDML is an interchange format, not a runtime format. [#1971]</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 3 
         <a href="#Unicode_Language_and_Locale_Identifiers">Unicode Language and Locale Identifiers</a>:</i>
         <ul>
-        	<li>Clarified some entries in the Variant Definitions section. [ticket #1878]</li>
-			<li>Added calendar types ethiopic-amete-alem, indian, roc. [ticket #1960]</li>
+        	<li>Clarified some entries in the Variant Definitions section. [#1878]</li>
+			<li>Added calendar types ethiopic-amete-alem, indian, roc. [#1960]</li>
         </ul></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.6 
         <a href="#Character_Elements">Character Elements</a>:</i>
         <ul>
-        	<li>Noted that LRM and RLM can be included in auxiliary or currency exemplars. [ticket #2049]</li>
-        	<li>Clarified ordering of encodings in the mapping element for email usage. [ticket #2153]</li>
+        	<li>Noted that LRM and RLM can be included in auxiliary or currency exemplars. [#2049]</li>
+        	<li>Clarified ordering of encodings in the mapping element for email usage. [#2153]</li>
         </ul></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.9.3 
         <a href="#Timezone_Names">Time Zone Names</a>:</i>
         <ul>
-        	<li>Note that "GMT", "UT", "UTC" are not allowed as translations of non-GMT timezones. [ticket #1949]</li>
+        	<li>Note that "GMT", "UT", "UTC" are not allowed as translations of non-GMT timezones. [#1949]</li>
         	<li>Describe new &lt;gmtZeroFormat&gt; element. [tickets #1949, #1950]</li>
         </ul></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">
@@ -4594,14 +4597,14 @@ decimal?, group?, special*)) &gt;</pre>
 	</ul></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Appendix F
 		<a href="#Date_Format_Patterns">Date Format Patterns</a>,</i> clarified the usage of the 'j'
-		format character. [ticket #2098]</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Appendix J
 		<a href="#Time_Zone_Fallback">Time Zone Display Names</a>:</i>
 		<ul>
 			<li>Added the fallback format used for generic location when &lt;timezoneData&gt;
-			does not have country data for a zone. [ticket #1962]</li>
+</li>
 			<li>In the Parsing section, clarified parsing of GMT/UT/UT and localized GMT formats with/without numeric
-			offset, and inability to parse all RFC 788 date/time formats. [ticket #1949]</li>
+		  offset, and inability to parse all RFC 788 date/time formats. [#1949]</li>
 		</ul></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">
 		Added
@@ -4637,68 +4640,68 @@ decimal?, group?, special*)) &gt;</pre>
 	<ul>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 1.1 
         <a href="#Conformance">Conformance</a>,</i> added UAX35-C2 and information on referencing particular components of Unicode locale or language
-        identifiers. [ticket #1801]</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 3 
         <a href="#Unicode_Language_and_Locale_Identifiers">Unicode Language and Locale Identifiers</a>:</i>
         <ul>
-        	<li>Clarified the syntax and usage of the language and locale identifiers. [ticket #1801]</li>
+        	<li>Clarified the syntax and usage of the language and locale identifiers. [#1801]</li>
          	<li>Replaced the use of the comma (U+0020 SPACE), as an options separator, with the semicolon (U+003B SEMICOLON).
-         	This change was also reflected in the examples given. [ticket #1717]</li>
+</li>
         	<li>Re-emphasized that key and type values are limited to ASCII lettters and digits,
-        	and that they have to be unique within the first 8 letters and digits. [ticket #1772]</li>
+       	  and that they have to be unique within the first 8 letters and digits. [#1772]</li>
         </ul></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 4 <a href="#Locale_Inheritance">Locale Inheritance</a>,</i> 
-		explained the different fallback processes for resource bundle lookup and resource item lookup. [ticket #1763]</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5 <a href="#XML_Format">XML Format</a>,</i> 
-		clarified that no element value can start with a combining slash U+0338 (not a combining backslash). [ticket #1223]</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.2 <a href="#Common_Attributes">Common Attributes</a>,</i> 
 		updated the draft attribute value descriptions; added &quot;contributed&quot;.</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.3.1 <a href="#Fallback_Elements">Fallback Elements</a>,</i> 
-		clarified examples, and explained <em>how</em> implementations can provide a mechanism for overriding the fallbacks. [ticket #1763]</li>
+		clarified examples, and explained <em>how</em> implementations can provide a mechanism for overriding the fallbacks. [#1763]</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.4 <a href="#Display_Name_Elements">Display Name Elements</a>,</i> 
-		re-emphasized the potential uses of these elements [ticket #1665], and added new localeDisplayPattern element [ticket #1448].</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.9.1 <a href="#Calendar_Elements">Calendar Elements</a>:</i>
 		<ul>
-			<li>Clarified handling of availableFormat patterns for calendars that require an era field if a year field is present [ticket #1346].</li>
-			<li>Described the format of a date-time format skeleton used with the availableFormats element [ticket #1611].</li>
-			<li>Added descriptions of intervalFormats [ticket #1813].</li>
+			<li>Clarified handling of availableFormat patterns for calendars that require an era field if a year field is present [#1346].</li>
+			<li>Described the format of a date-time format skeleton used with the availableFormats element [#1611].</li>
+			<li>Added descriptions of intervalFormats [#1813].</li>
 		</ul></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.9.3 <a href="#Timezone_Names">
 		Time Zone Names</a>,</i> 
-		indicated that timezone IDs are not limited to city names, and corrected/augmented the fallbackFormat examples. [ticket #1604]</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Section 5.10.1 <a href="#Number_Symbols">Number Symbols</a>,</i> 
 		updated to match current DTD.</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>5.10.2 <a href="#Currencies">Currencies</a>,</i> 
-		updated to match current DTD. Added section explaining use of &quot;count&quot; to format currency values for particular numeric values. [ticket #1550]</li>
+&quot;count&quot; to format currency values for particular numeric values. [#1550]</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Added new <i>Section 5.11 <a href="#Unit_Elements">Unit Elements</a></i>
 		(renumbered the 5.x sections after it) describing &lt;units&gt; element: Support for unit forms used (for example) in formatting durations [tickets #900, #973, #1009,
 		#1807, #1821]</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Appendix C.6 <a href="#Measurement_System_Data">Measurement System Data</a>,</i> 
-		clarified the meaning of &quot;metric&quot; and its relation to ISO 1000 [ticket #481], and corrected the values for paperSize [ticket #1712].</li>
+&quot;metric&quot; and its relation to ISO 1000 [#481], and corrected the values for paperSize [#1712].</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Added <i>Appendix C.11 <a href="#Language_Plural_Rules">Language Plural Rules</a>.</i>
 		[tickets #1550, #1703]</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Added <i>Appendix C.12 <a href="#Telephone_Code_Data">Telephone Code Data</a>.</i>
-		[ticket #1542]</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Appendix F: <a href="#Date_Format_Patterns">Date Format Patterns</a>,</i>
-		clarified the usage of the YYYY for week of year calendars. [ticket #1605]</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In Section G.8 of <i>Appendix G: <a href="#Number_Format_Patterns">Number Format Patterns</a>,</i>
-		changed currencySeparator, which is not a valid field, to currencyDecimal. [ticket #997]</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>, 
-		amended the fallback example and corrected a typo; corrected root fallbackFormat and all discussions and examples that ensue from that change. [ticket #1604]</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">In the Parsing section of <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>, 
-		updated step 3 to allow UTC and UT as synonyms for GMT. [ticket #1582]</li>
+</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Fixed validation errors and broken links [tickets #1606, #1619].
-		Added contributors [ticket #1835]. In this Modifications section, added bug ticket information [ticket #1630].</li>
+	  Added contributors [#1835]. In this Modifications section, added bug ticket information [#1630].</li>
 	</ul>
 	<h3>Revision 9</h3>
 	<ul>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Extensive rewrite of <i>Appendix J: <a href="#Time_Zone_Fallback">Time Zone Display Names</a></i>, 
-		primarily due to refinements to the metazone process. This also caused some changes in Appendix F: <a href="#Date_Format_Patterns">Date Format Patterns</a>. [ticket #1508]</li>
+		primarily due to refinements to the metazone process. This also caused some changes in Appendix F: <a href="#Date_Format_Patterns">Date Format Patterns</a>. [#1508]</li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Made the date 
 		range handling uniform, with new <i>Section 5.2.1 <a href="#Date_Ranges">Dates and Date Ranges</a>,</i> 
 		and related changes particularly to C.1 and C.5 in Appendix C: <a href="#Supplemental_Data">Supplemental Data</a>.</li>
 		<li>Added <i>Appendix C10. <a href="#Likely_Subtags">Likely Subtags</a></i></li>
-		<li>Added missing date pattern symbol &quot;l&quot; for Chinese calendar. [ticket #1557]</li>
+		<li>Added missing date pattern symbol &quot;l&quot; for Chinese calendar. [#1557]</li>
 	</ul>
 	<h3>Revision 8</h3>
 	<ul>

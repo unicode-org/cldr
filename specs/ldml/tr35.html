@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-08</span></td>
+			<td>2013-<span class="changed">09-12</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -4262,15 +4262,33 @@ decimal?, group?, special*)) &gt;</pre>
   <h3><span class="changed">Revision 32</span></h3>
   <ul class="changed">
     <li>Updated for Version 24.</li>
-    <li>Added alt=&quot;variant&quot; for &lt;era&gt; in <strong>Part 4: Dates,</strong> <em>Section 2.1 <a href="http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-dates.html#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/649">#649</a>]</li>
+    <li>Added alt=&quot;variant&quot; for &lt;era&gt; in <strong>Part 4: Dates,</strong> <em>Section 2.1 <a href="tr35-dates.html#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/649">#649</a>]</li>
     <li>Specified that the index exemplar set may only include characters whose lowercase versions are in the main or auxiliary
     exemplar sets in <strong>Part 2: General,</strong> <em>Section 3 <a href="tr35-general.html#Character_Elements">Character Elements</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6202">#6202</a>]</li>
-    <li>Major changes in <strong>Part 5: <a href="http://unicode.org/repos/cldr/trunk/specs/ldml/tr35-collation.html#Contents">Collation</a></strong>, including:
+    <li>Major changes in <strong>Part 5: <a href="tr35-collation.html#Contents">Collation</a></strong>, including:
       <ul>
-        <li>Deprecated XML syntax for collation tailorings. [<a href="http://unicode.org/cldr/trac/ticket/5551">#5551</a>]</li>
-        <li>Deprecated default element for collation too (previously deprecated for other usages); replaced by defaultCollation
-          element. [<a href="http://unicode.org/cldr/trac/ticket/5679">#5679</a>]</li>
+        <li>Documented the <a href="tr35-collation.html#CLDR_Collation_Algorithm">CLDR Collation Algorithm</a>
+          which extends the Unicode Collation Algorithm.
+          [<a href="http://unicode.org/cldr/trac/ticket/5962">#5962</a>],
+          [<a href="http://unicode.org/cldr/trac/ticket/5850">#5850</a>]</li>
+        <li>Root collation data files for UCA 6.3;
+          added syntax and data to <a href="tr35-collation.html#Root_Data_File_Formats">FractionalUCA.txt</a>
+          for Han characters, script boundaries, numeric sorting, and "fixed values" for tailoring ignorables.
+          [<a href="http://unicode.org/cldr/trac/ticket/5568">#5568</a>],
+          [<a href="http://unicode.org/cldr/trac/ticket/4882">#4882</a>],
+          [<a href="http://unicode.org/cldr/trac/ticket/5081">#5081</a>]
+          [<a href="http://unicode.org/cldr/trac/ticket/5192">#5192</a>]</li>
+        <li>Deprecated default element for collation too (previously deprecated for other usages);
+          replaced by defaultCollation element. [<a href="http://unicode.org/cldr/trac/ticket/5679">#5679</a>]</li>
         <li>Deprecated base element for collation. [<a href="http://unicode.org/cldr/trac/ticket/6332">#6332</a>]</li>
+        <li>Deprecated XML syntax for collation tailorings,
+          and improved documentation of the "basic" syntax.
+          [<a href="http://unicode.org/cldr/trac/ticket/5551">#5551</a>],
+          [<a href="http://unicode.org/cldr/trac/ticket/5707">#5707</a>]</li>
+        <li>Improved <a href="tr35-collation.html#Collation_Tailorings">tailoring semantics</a>,
+          especially for expansions/extensions, and case weights.
+          [<a href="http://unicode.org/cldr/trac/ticket/5909">#5909</a>],
+          [<a href="http://unicode.org/cldr/trac/ticket/5915">#5915</a>]</li>
       </ul>
     </li>
     <li>Updated the paths in the &lt;contextTransformUsage&gt; type attribute values table in <strong>Part 2: General</strong>, <em>Section 12 <a href="tr35-general.html#Context_Transform_Elements">ContextTransform Elements</a></em>.
@@ -4284,7 +4302,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li>Added Parts section (with double-links) to each Part. [<a href="http://unicode.org/cldr/trac/ticket/5804">#5804</a>]</li>
     <li>Documented the special inheritance for &quot;count&quot; attributes in <em>Section 4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5836">#5836</a>]</li>
     <li>Fixed broken link for [LOCODE] (unstable page on UN site) in <a href="#References"><em>References</em></a>. [<a href="http://unicode.org/cldr/trac/ticket/6163" title="View ticket">#6163</a>]</li>
-    <li>Small fixes to <em>Section 3.7 <a href="http://www.unicode.org/reports/tr35/#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></em> to improve referencing. [<a href="http://unicode.org/cldr/trac/ticket/5089" title="View ticket">#5089</a>]</li>
+    <li>Small fixes to <em>Section 3.7 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></em> to improve referencing. [<a href="http://unicode.org/cldr/trac/ticket/5089" title="View ticket">#5089</a>]</li>
     <li>Added clarifications to <strong>Part 4: Dates,</strong> <em>Section 4.4 <a href="tr35-dates.html#Time_Data">Time Data</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5799" title="View ticket">#5799</a>]</li>
     <li>Added 'J' symbol to<strong> Part 4: Dates, </strong> <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</li>
     <li>Added some clarifications to<em> Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a>.</em> [<a href="http://unicode.org/cldr/trac/ticket/6275" title="View ticket">#6275</a>]</li>
@@ -4373,7 +4391,7 @@ decimal?, group?, special*)) &gt;</pre>
     <li>Updated reference to [Olson]</li>
     <li>Added clarification for removal of deprecated codes to Appendix P: <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>.</li>
     <li>Disallowed isolated &quot;n&quot; in plural rules in C.11 <a href="#Language_Plural_Rules">Language Plural Rules</a>. Reworded some of the syntax notes for clarity.</li>
-    <li>Moved collation Key/Type information to <em>Section 5.14.3 <a href="http://unicode.org/reports/tr35/#Setting_Options">Setting Options</a></em>.</li>
+    <li>Moved collation Key/Type information to <em>Section 5.14.3 <a href="#Setting_Options">Setting Options</a></em>.</li>
     <li>Clarified that the BCP47 key/value identifiers are the canonical (and preferred) identifiers.</li>
     <li>Added <em>Section Q.1.1 <a href="#Numbering%20System%20Data">Numbering System Data</a></em>.</li>
     <li>Added description of deprecated="true" in Appendix Q.</li>

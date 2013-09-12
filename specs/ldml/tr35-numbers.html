@@ -412,8 +412,16 @@ follows:</p>
 	  &lt;!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) &gt;<br>
 	  &lt;!ATTLIST miscPatterns numberSystem CDATA #IMPLIED &gt;
 	</span></p>
-    <p class="changed">(to be supplied)</p>
-
+    <p class="changed">The miscPatterns supply additional patterns for special purposes. The currently defined values are:    </p>
+    <dt class="changed"><strong>atLeast</strong></dt>
+    <dd class="changed">indicates a  number or higher, such as: “99+” to indicate that there are 99 items or more.</dd>
+  <dt class="changed"><strong>range</strong></dt>
+      <dd class="changed">indicates a  range of numbers, such as: “99-103” to indicate that there are from 99 to 103 items.</dd>
+      <p class="changed"><em>For example: </em></p>
+      <p><span class="changed"> <code>&lt;miscPatterns numberSystem=&quot;…&quot;&gt;<br>
+  &lt;pattern type=&quot;atLeast&quot;&gt;⩾{0}&lt;/pattern&gt;<br>
+  &lt;pattern type=&quot;range&quot;&gt;{0}–{1}&lt;/pattern&gt;<br>
+&lt;/miscPatterns&gt;</code></span></p>
 <h2><a name="Number_Format_Patterns" href="#Number_Format_Patterns">Section 3: Number Format Patterns</a></h2>
 	<h3><a name="Number_Patterns" href="#Number_Patterns">3.1 Number Patterns</a></h3>
 	<p>Number patterns affect how numbers are interpreted in a localized context. Here are some examples, based 

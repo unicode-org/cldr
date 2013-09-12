@@ -755,34 +755,236 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 &nbsp;&nbsp;&lt;unitPattern count="other"&gt;<span style="color: blue">{0} days</span>&lt;/unitName&gt;
 &lt;/unit&gt;</pre>
 
-  <p>To format a particular unit type such as "day" for a particular numeric value <em>n</em>:</p>
-    <ol>
-      <li>First see if there is a count with an explicit number (0 or 1). If so, use that string.</li>
-
-      <li>Otherwise, determine the count value that corresponds to <em>n</em> using the rules in
-      <i><a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a></i></li>
-
-      <li>Next, for unit type="day", look for a unitPattern element that matches the count value, starting in the current locale and then following the locale
-      fallback chain up to, but not including root.</li>
-
-      <li>If no matching unitPattern element was found in the previous step, then look for a unitPattern element that matches count="other" (still for unit
-      type="day"), starting in the current locale and then following the locale fallback chain up to root (which has a unitPattern element with count="other"
-      for every unit type).</li>
-
-      <li>The resulting unitPattern element indicates the appropriate form of the unit name and its position with respect to the numeric value.</li>
-  </ol>
-
-  <p>While for English this may seem overly complex, for some other languages different plural forms are used for different unit types; the plural forms for
+<p class="changed">Units, like other values with a <strong>count</strong> attribute, use a special inheritance. See <strong>Part 1: Core:</strong> <em>Section 4.1 <a href="http://unicode.org/repos/cldr/trunk/specs/ldml/tr35.html#Multiple_Inheritance">Multiple Inheritance</a></em>.</p>
+<p class="removed">To format a particular unit type such as "day" for a particular numeric value <em>n</em>:</p>
+<ol>
+  <li class="removed">First see if there is a count with an explicit number (0 or 1). If so, use that string.</li>
+  <li class="removed">Otherwise, dDetermine the count value that corresponds to <em>n</em> using the rules in <i><a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a></i></li>
+  <li class="removed">Next, for unit type="day", look for a unitPattern element that matches the count value, starting in the current locale and then following the locale
+    fallback chain up to, but not including root.</li>
+  <li class="removed">If no matching unitPattern element was found in the previous step, then look for a unitPattern element that matches count="other" (still for unit
+    type="day"), starting in the current locale and then following the locale fallback chain up to root (which has a unitPattern element with count="other"
+    for every unit type).</li>
+  <li class="removed">The resulting unitPattern element indicates the appropriate form of the unit name and its position with respect to the numeric value.</li>
+</ol>
+<p class="removed">While for English this may seem overly complex, for some other languages different plural forms are used for different unit types; the plural forms for
   certain unit types may not use all of the plural-form tags defined for the language.</p>
-
-  <p>The explicit values 0 and 1 are added because even in languages without separate plural categories in
-  <i><a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a></i>, there are often special forms used with 0 and 1, such as "no books" or
+<p class="removed">The explicit values 0 and 1 are added because even in languages without separate plural categories in <i><a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a></i>, there are often special forms used with 0 and 1, such as "no books" or
   "a book" (vs 0 books and 1 book). In some languages, there is less need for these forms with units, even where they are used with other constructions.
   In those cases, the 0/1 forms can be omitted. Alternatively, where the category forms (such as zero or one) are completely covered by 0/1 (as in Arabic),
   those category forms may be omitted.</p>
-
-
-<h2>7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a></h2>
+<p class="changed">The units in CLDR are not comprehensive; it is anticipated that  more will be added over time. They currently include the following:</p>
+<table>
+<tr>
+  <td class="changed"><strong>Type</strong></td>
+  <td class="changed"><strong>Unit</strong></td>
+  <td class="changed"><strong>Sample Format</strong></td>
+</tr>
+<tr><td class="changed"><em>acceleration</em></td>
+  <td class="changed">g-force</td>
+  <td class="changed">{0} G</td>
+</tr>
+<tr><td class="changed"><em>angle</em></td>
+  <td class="changed">arc-minute</td>
+  <td class="changed">{0}′</td>
+</tr>
+<tr><td class="changed"><em>angle</em></td>
+  <td class="changed">arc-second</td>
+  <td class="changed">{0}″</td>
+</tr>
+<tr><td class="changed"><em>angle</em></td>
+  <td class="changed">degree</td>
+  <td class="changed">{0}°</td>
+</tr>
+<tr><td class="changed"><em>area</em></td>
+  <td class="changed">acre</td>
+  <td class="changed">{0} ac</td>
+</tr>
+<tr><td class="changed"><em>area</em></td>
+  <td class="changed">hectare</td>
+  <td class="changed">{0} ha</td>
+</tr>
+<tr><td class="changed"><em>area</em></td>
+  <td class="changed">square-foot</td>
+  <td class="changed">{0} ft²</td>
+</tr>
+<tr><td class="changed"><em>area</em></td>
+  <td class="changed">square-kilometer</td>
+  <td class="changed">{0} km²</td>
+</tr>
+<tr><td class="changed"><em>area</em></td>
+  <td class="changed">square-meter</td>
+  <td class="changed">{0} m²</td>
+</tr>
+<tr><td class="changed"><em>area</em></td>
+  <td class="changed">square-mile</td>
+  <td class="changed">{0} mi²</td>
+</tr>
+<tr><td class="changed"><em>duration</em></td>
+  <td class="changed">day</td>
+  <td class="changed">{0} d</td>
+</tr>
+<tr><td class="changed"><em>duration</em></td>
+  <td class="changed">hour</td>
+  <td class="changed">{0} h</td>
+</tr>
+<tr><td class="changed"><em>duration</em></td>
+  <td class="changed">millisecond</td>
+  <td class="changed">{0} ms</td>
+</tr>
+<tr><td class="changed"><em>duration</em></td>
+  <td class="changed">minute</td>
+  <td class="changed">{0} min</td>
+</tr>
+<tr><td class="changed"><em>duration</em></td>
+  <td class="changed">month</td>
+  <td class="changed">{0} m</td>
+</tr>
+<tr><td class="changed"><em>duration</em></td>
+  <td class="changed">second</td>
+  <td class="changed">{0} s</td>
+</tr>
+<tr><td class="changed"><em>duration</em></td>
+  <td class="changed">week</td>
+  <td class="changed">{0} w</td>
+</tr>
+<tr><td class="changed"><em>duration</em></td>
+  <td class="changed">year</td>
+  <td class="changed">{0} y</td>
+</tr>
+<tr><td class="changed"><em>length</em></td>
+  <td class="changed">centimeter</td>
+  <td class="changed">{0} cm</td>
+</tr>
+<tr><td class="changed"><em>length</em></td>
+  <td class="changed">foot</td>
+  <td class="changed">{0} ft</td>
+</tr>
+<tr><td class="changed"><em>length</em></td>
+  <td class="changed">inch</td>
+  <td class="changed">{0} in</td>
+</tr>
+<tr><td class="changed"><em>length</em></td>
+  <td class="changed">kilometer</td>
+  <td class="changed">{0} km</td>
+</tr>
+<tr><td class="changed"><em>length</em></td>
+  <td class="changed">light-year</td>
+  <td class="changed">{0} ly</td>
+</tr>
+<tr><td class="changed"><em>length</em></td>
+  <td class="changed">meter</td>
+  <td class="changed">{0} m</td>
+</tr>
+<tr><td class="changed"><em>length</em></td>
+  <td class="changed">mile</td>
+  <td class="changed">{0} mi</td>
+</tr>
+<tr><td class="changed"><em>length</em></td>
+  <td class="changed">millimeter</td>
+  <td class="changed">{0} mm</td>
+</tr>
+<tr><td class="changed"><em>length</em></td>
+  <td class="changed">picometer</td>
+  <td class="changed">{0} pm</td>
+</tr>
+<tr><td class="changed"><em>length</em></td>
+  <td class="changed">yard</td>
+  <td class="changed">{0} yd</td>
+</tr>
+<tr><td class="changed"><em>mass</em></td>
+  <td class="changed">gram</td>
+  <td class="changed">{0} g</td>
+</tr>
+<tr><td class="changed"><em>mass</em></td>
+  <td class="changed">kilogram</td>
+  <td class="changed">{0} kg</td>
+</tr>
+<tr><td class="changed"><em>mass</em></td>
+  <td class="changed">ounce</td>
+  <td class="changed">{0} oz</td>
+</tr>
+<tr><td class="changed"><em>mass</em></td>
+  <td class="changed">pound</td>
+  <td class="changed">{0} lb</td>
+</tr>
+<tr><td class="changed"><em>power</em></td>
+  <td class="changed">horsepower</td>
+  <td class="changed">{0} hp</td>
+</tr>
+<tr><td class="changed"><em>power</em></td>
+  <td class="changed">kilowatt</td>
+  <td class="changed">{0} kW</td>
+</tr>
+<tr><td class="changed"><em>power</em></td>
+  <td class="changed">watt</td>
+  <td class="changed">{0} W</td>
+</tr>
+<tr><td class="changed"><em>pressure</em></td>
+  <td class="changed">hectopascal</td>
+  <td class="changed">{0} hPa</td>
+</tr>
+<tr><td class="changed"><em>pressure</em></td>
+  <td class="changed">inch-hg</td>
+  <td class="changed">{0} inHg</td>
+</tr>
+<tr><td class="changed"><em>pressure</em></td>
+  <td class="changed">millibar</td>
+  <td class="changed">{0} mbar</td>
+</tr>
+<tr><td class="changed"><em>speed</em></td>
+  <td class="changed">kilometer-per-hour</td>
+  <td class="changed">{0} km/h</td>
+</tr>
+<tr><td class="changed"><em>speed</em></td>
+  <td class="changed">meter-per-second</td>
+  <td class="changed">{0} m/s</td>
+</tr>
+<tr><td class="changed"><em>speed</em></td>
+  <td class="changed">mile-per-hour</td>
+  <td class="changed">{0} mi/h</td>
+</tr>
+<tr><td class="changed"><em>temperature</em></td>
+  <td class="changed">celsius</td>
+  <td class="changed">{0}°C</td>
+</tr>
+<tr><td class="changed"><em>temperature</em></td>
+  <td class="changed">fahrenheit</td>
+  <td class="changed">{0}°F</td>
+</tr>
+<tr><td class="changed"><em>volume</em></td>
+  <td class="changed">cubic-kilometer</td>
+  <td class="changed">{0} km³</td>
+</tr>
+<tr><td class="changed"><em>volume</em></td>
+  <td class="changed">cubic-mile</td>
+  <td class="changed">{0} mi³</td>
+</tr>
+<tr><td class="changed"><em>volume</em></td>
+  <td class="changed">liter</td>
+  <td class="changed">{0} l</td>
+</tr>
+</table>
+<p class="changed">There are three widths: <strong>long</strong>, <strong>short</strong>, and <strong>narrow</strong>. As usual, the narrow forms may not be unique: in English, 1′ could mean 1 minute of arc, or 1 foot. Thus narrow forms should only be used where the context makes the meaning clear.</p>
+<p class="changed">Where the unit of measurement is one of the <a href="http://physics.nist.gov/cuu/Units/units.html">International System of Units (SI)</a>, the short and narrow forms will typically use the international symbols, such as “mm” for millimeter. They may, however, be different if that is customary for the language or locale. For example, in Russian it may be more typical to see the Cyrillic characters “мм”.</p>
+<p class="changed">Units are included for translation even where they are not typically used in a particular locale, such as kilometers in the US, or inches in Germany. This is to account for use by travelers and specialized domains, such as the German “̌Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
+<h3><span class="changed">compoundUnitPattern</span></h3>
+  <p class="changed">The compoundUnitPattern for &quot;per&quot; is used to construct a pattern such as &quot;feet per second&quot; or &quot;ft/s&quot;. Some units already have 'precomputed' forms, such as <strong>kilometer-per-hour</strong>; where such units exist, they should be used in preference to composing with compoundUnitPattern.</p>
+  <p class="changed">For the divisor, the &quot;one&quot; plural category should be used, while for the dividend the appropriate plural form according the placeholder number should be used.</p>
+  <p class="changed">[There is a known problem with some languages in the long form in that the divisor should be inflected. This will probably require the future addition of a special 'divisor' form of units commonly used in the divisor.]</p>
+  <h3 class="changed">Unit Sequences</h3>
+  <p class="changed">Units may be used in composed sequences, such as <strong>5° 30′</strong> for 5 degrees 30 minutes, or <strong>3 ft 2 in.</strong>For that purpose, the appropriate width of the unit listPattern can be used to compose the units in a sequence.</p>
+  <pre class="changed">&lt;listPattern type=&quot;unit&quot;&gt; (for the long form)
+&lt;listPattern type=&quot;unit-narrow&quot;&gt;
+&lt;listPattern type=&quot;unit-short&quot;&gt;
+</pre>
+  <h3 class="changed">durationUnit</h3>
+  <p class="changed">The durationUnit is a special type of unit used for composed time unit durations.</p>
+  <pre class="changed">&lt;durationUnit type=&quot;hms&quot;&gt;
+  &lt;durationUnitPattern&gt;h:mm:ss&lt;/durationUnitPattern&gt; &lt;!-- 33:04:59 --&gt;
+&lt;/durationUnit&gt;   </pre>
+  <p class="changed">The type contains a skeleton, where 'h' stands for hours, 'm' for minutes, and 's' for sections. These are the same symbols used in availableFormats, except that there is no need to distinguish different forms of the hour.</p>
+  <h2>7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a></h2>
   
 
   <p class="dtd">&lt;!ELEMENT posix (alias | (messages*, special*)) &gt;<br>

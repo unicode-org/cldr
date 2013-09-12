@@ -1105,45 +1105,44 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	many, so these are not defined.</p>
 	<p class="changed">Plural categories may also differ according to the decimals. For example, here are some of the behaviors exhibited by different languages:</p>
     <div dir="ltr">
-      <table>
-        <colgroup>
-          <col width="66">
-          <col width="192">
-          <col width="192">
-          <col width="*">
-        </colgroup>
-        <tr>
-          <td><p class="changed" dir="ltr"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Behavior</strong></p></td>
-          <td><p class="changed" dir="ltr"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Description</strong></p></td>
-          <td><p class="changed" dir="ltr"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Example</strong></p></td>
-          <td><p class="changed" dir="ltr"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Sample Rules…</strong></p></td>
-        </tr>
-        <tr>
-          <td><p class="changed" dir="ltr">Base</p></td>
-          <td><p class="changed" dir="ltr">The fractions are ignored; the category is the same as the category of the integer.</p></td>
-          <td><p class="changed" dir="ltr">1.13 has the same plural category as 1.</p></td>
-          <td><p class="changed" dir="ltr">i = 1</p></td>
-        </tr>
-        <tr>
-          <td><p class="changed" dir="ltr">Separate</p></td>
-          <td><p class="changed" dir="ltr">All fractions by value are in one category (typically &lsquo;other&rsquo; = &lsquo;plural&rsquo;).</p></td>
-          <td><p class="changed" dir="ltr">1.01 get the same class as 9</p>
-            <p class="changed" dir="ltr">1.00 gets the same category as 1.</p></td>
-          <td><p class="changed" dir="ltr">n = 1,9</p></td>
-        </tr>
-        <tr>
-          <td><p class="changed" dir="ltr">Visible</p></td>
-          <td><p class="changed" dir="ltr">All visible fractions are in one category (typically &lsquo;other&rsquo; = &lsquo;plural).</p></td>
-          <td><p class="changed" dir="ltr">1.00 and 1.01 get the same category as 9.</p></td>
-          <td><p class="changed" dir="ltr">j = 1,9</p></td>
-        </tr>
-        <tr>
-          <td><p class="changed" dir="ltr">Digits</p></td>
-          <td><p class="changed" dir="ltr">The visible fraction determines the category.</p></td>
-          <td><p class="changed" dir="ltr">1.13 gets the same class as 13.</p></td>
-          <td><p class="changed" dir="ltr">f % 100 = 13</p></td>
-        </tr>
-      </table>
+<table>
+  <colgroup>
+    <col width="66">
+    <col width="192">
+    <col width="192">
+    <col width="*">
+  </colgroup>
+  <tr>
+    <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Behavior</strong></td>
+    <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Description</strong></td>
+    <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Example</strong></td>
+    <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Sample Rules…</strong></td>
+  </tr>
+  <tr>
+    <td class="changed">Base</td>
+    <td class="changed">The fractions are ignored; the category is the same as the category of the integer.</td>
+    <td class="changed">1.13 has the same plural category as 1.</td>
+    <td class="changed">i = 1</td>
+  </tr>
+  <tr>
+    <td class="changed">Separate</td>
+    <td class="changed">All fractions by value are in one category (typically &lsquo;other&rsquo; = &lsquo;plural&rsquo;).</td>
+    <td class="changed">1.01 get the same class as 9<br>1.00 gets the same category as 1.</td>
+    <td class="changed">n = 1,9</td>
+  </tr>
+  <tr>
+    <td class="changed">Visible</td>
+    <td class="changed">All visible fractions are in one category (typically &lsquo;other&rsquo; = &lsquo;plural).</td>
+    <td class="changed">1.00 and 1.01 get the same category as 9.</td>
+    <td class="changed">j = 1,9</td>
+  </tr>
+  <tr>
+    <td class="changed">Digits</td>
+    <td class="changed">The visible fraction determines the category.</td>
+    <td class="changed">1.13 gets the same class as 13.</td>
+    <td class="changed">f % 100 = 13</td>
+  </tr>
+</table>
     </div>
     <br><p class="changed">There are also variants of the above: for example, short fractions may have the Digits behavior, but longer fractions may just look at the final digit of the fraction.</p>
 	<h3>Plural rules syntax</h3>

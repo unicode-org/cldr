@@ -30,6 +30,7 @@ import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 
 public class GeneratedPluralSamples {
+    private static final double VALUE_TO_CHECK = 7.1;
     static TestInfo testInfo = TestInfo.getInstance();
     static Info INFO = new Info();
     private static final boolean THROW = true;
@@ -481,6 +482,9 @@ public class GeneratedPluralSamples {
     private void add(PluralInfo pluralInfo, double d, int visibleDecimals) {
         FixedDecimal ni = new FixedDecimal(d, visibleDecimals);
         PluralRules pluralRules = pluralInfo.getPluralRules();
+        if (CHECK_VALUE && d == VALUE_TO_CHECK) {
+            int debug = 0; // debugging
+        }
         String keyword = pluralRules.select(ni);
 
         INFO.add(Info.Type.Warning, checkForDuplicates(pluralRules, ni));
@@ -524,6 +528,7 @@ public class GeneratedPluralSamples {
     }
 
     final static Options myOptions = new Options();
+    private static boolean CHECK_VALUE = false;
 
     enum MyOptions {
         output(".*", CldrUtility.GEN_DIRECTORY + "picker/", "output data directory"),
@@ -590,6 +595,9 @@ public class GeneratedPluralSamples {
             for (Entry<PluralInfo, Set<String>> entry : sorted) {
                 PluralInfo pluralInfo = entry.getKey();
                 Set<String> equivalentLocales = entry.getValue();
+                
+                CHECK_VALUE = equivalentLocales.contains("pt"); // for debugging
+                
                 String representative = equivalentLocales.iterator().next();
 
                 if (fileFormat) {

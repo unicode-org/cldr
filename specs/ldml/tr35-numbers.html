@@ -284,7 +284,7 @@ follows:</p>
 		<dt><b>exponential</b> </dt>
 		<dd>- Symbol separating the mantissa and exponent values. </dd>
 		<dt class="changed"><b>superscriptingExponent</b> </dt>
-		<dd class="changed">- (Programmers are used to the fallback exponent style “1.23E4”, but that should not be shown to end-users. Instead, the exponential notation superscriptingExponent should be used to show a format like “1.23 × 10<sup>4</sup>”. ) The superscripting can use markup, such as &lt;sup&gt;4&lt;/sub&gt; in HTML, or for the special case of Latin digits, use the superscript characters: U+207B ( ⁻ ), U+2070 ( ⁰ ), U+00B9 ( ¹ ), U+00B2 ( ² ), U+00B3 ( ³ ), U+2074 ( ⁴ ) .. U+2079 ( ⁹ )</dd>
+		<dd class="changed">- (Programmers are used to the fallback exponent style “1.23E4”, but that should not be shown to end-users. Instead, the exponential notation superscriptingExponent should be used to show a format like “1.23 × 10<sup>4</sup>”. ) The superscripting can use markup, such as &lt;sup&gt;4&lt;/sup&gt; in HTML, or for the special case of Latin digits, use the superscript characters: U+207B ( ⁻ ), U+2070 ( ⁰ ), U+00B9 ( ¹ ), U+00B2 ( ² ), U+00B3 ( ³ ), U+2074 ( ⁴ ) .. U+2079 ( ⁹ ).</dd>
 		<dt><b>perMille</b> </dt>
 		<dd>- symbol used to indicate a per-mille (1/1000th) amount. (If present, the value is also multiplied by 1000 before formatting. That way 1.23 → 1230 [1/000])
 		</dd>
@@ -1110,34 +1110,29 @@ types; the plural forms for certain unit types may not use all of the plural-for
     <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Behavior</strong></td>
     <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Description</strong></td>
     <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Example</strong></td>
-    <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Sample Rules…</strong></td>
-  </tr>
+    </tr>
   <tr>
     <td class="changed">Base</td>
     <td class="changed">The fractions are ignored; the category is the same as the category of the integer.</td>
     <td class="changed">1.13 has the same plural category as 1.</td>
-    <td class="changed">i = 1</td>
-  </tr>
+    </tr>
   <tr>
     <td class="changed">Separate</td>
     <td class="changed">All fractions by value are in one category (typically &lsquo;other&rsquo; = &lsquo;plural&rsquo;).</td>
-    <td class="changed">1.01 get the same class as 9<br>1.00 gets the same category as 1.</td>
-    <td class="changed">n = 1,9</td>
-  </tr>
+    <td class="changed">1.01 gets the same class as 9;<br>1.00 gets the same category as 1.</td>
+    </tr>
   <tr>
     <td class="changed">Visible</td>
     <td class="changed">All visible fractions are in one category (typically &lsquo;other&rsquo; = &lsquo;plural).</td>
-    <td class="changed">1.00 and 1.01 get the same category as 9.</td>
-    <td class="changed">j = 1,9</td>
-  </tr>
+    <td class="changed">1.00, 1.01, 3.5 all get the same category.</td>
+    </tr>
   <tr>
     <td class="changed">Digits</td>
     <td class="changed">The visible fraction determines the category.</td>
     <td class="changed">1.13 gets the same class as 13.</td>
-    <td class="changed">f % 100 = 13</td>
-  </tr>
+    </tr>
 </table>
-    </div>
+  </div>
     <br><p class="changed">There are also variants of the above: for example, short fractions may have the Digits behavior, but longer fractions may just look at the final digit of the fraction.</p>
 	<h3>Plural rules syntax</h3>
 	<p>The xml value for each pluralRule is a <em>condition</em> with a boolean result that specifies whether that rule
@@ -1148,7 +1143,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 	<pre dir="ltr">condition     = and_condition ('or' and_condition)*
 <span class="changed">                ('@integer' samples)?<br>                ('@decimal' samples)?</span>
 and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation <br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr <span class="changed">(('not')? 'in' | '=' | '!=')</span> range_list<br>within_relation = expr ('not')? 'within' range_list<br>expr          = <span class="changed">operand (('mod' | '%') value)?</span>
-<span class="changed">operand       = 'n' | 'i' | 'f' | 't' | 'v'</span><br>range_list    = (range | value) (',' range_list)*<br>value         = digit+<br>digit         = 0|1|2|3|4|5|6|7|8|9<br>range         = value'..'value
+<span class="changed">operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'</span><br>range_list    = (range | value) (',' range_list)*<br>value         = digit+<br>digit         = 0|1|2|3|4|5|6|7|8|9<br>range         = value'..'value
 <span class="changed">samples       = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
 sampleRange   = decimalValue '~' decimalValue
 decimalValue  = value ('.' value)?</span></pre>
@@ -1158,76 +1153,46 @@ decimalValue  = value ('.' value)?</span></pre>
     <li>Each plural rule must be written to be self-contained, and not depend on the ordering. Thus rules must be mutually exclusive; for a given numeric value, only one rule can apply (i.e., the condition can only be
       true for one of the pluralRule elements. <span class="changed">Each keyword can have at most one condition. The 'other' keyword must have an empty condition: it is only present for samples.</span></li>
 	</ul>
-  <h4 class="changed" dir="ltr">Relations</h4>
-  <p class="changed" dir="ltr">The keywords 'mod', 'in', 'is', and 'within' are present only for backwards compatibility. The preferred form is to use '%' for modulo, and '=' or '!=' for the relations, with the operand 'i' instead of within. The difference between <strong>in</strong> and <strong>within</strong> is that <strong>in</strong> only includes integers in the specified range,
-  while <strong>within </strong>includes all values. </p>
-  <p class="changed" dir="ltr">The <span class="removed"><strong>in</strong> and <strong>within</strong></span>relations can take comma-separated lists, such as: <strong>n in 3,5,7..15</strong>.  </p>
-  <p dir="ltr"><span class="changed">The modulus (% or<strong> mod</strong>)</span> is a remainder operation as defined in Java; for example, where <strong>n</strong> = 4.3 the result of <strong>n mod 3</strong> is 1.3. <span class="removed">To detect an integer in a rule, use <strong>n mod 1 is 0</strong>. Conversely, for a fraction use: <strong>n mod 1 is not 0</strong>.</span></p>
-  <p class="changed" dir="ltr">The values of relations are defined according to the operand as follows. Importantly, the results may depend on the decimals in the source, including trailing zeros.</p>
-  <ol>
-      <li dir="ltr">
-        <p class="changed" dir="ltr">Let BO be the base operand as defined in the table below.</p>
-      </li>
-      <li dir="ltr">
-        <p class="changed" dir="ltr">Let the base value BV be computed from absolute value of the original source number according to the BO.</p>
-      </li>
-      <li dir="ltr">
-        <p class="changed" dir="ltr">Let R be false when the comparison contains &lsquo;not&rsquo;.</p>
-      </li>
-      <li dir="ltr">
-        <p class="changed" dir="ltr">Let R be !R if &nbsp;the comparison contains &lsquo;within&rsquo; and the source number is not an integer. </p>
-      </li>
-      <li dir="ltr">
-        <p class="changed" dir="ltr">If there is a module value MV, let BV be BV - floor(BV/MV).</p>
-      </li>
-      <li dir="ltr">
-        <p class="changed" dir="ltr">Let CR be the list of comparison ranges, normalized that overlapping ranges are merged. Single values in the rule are represented by a range with identical &lt;start,end&gt; values.</p>
-      </li>
-      <li dir="ltr">
-        <p class="changed" dir="ltr">If BO is &lsquo;j&rsquo; and v ≠ 0, then return !R.</p>
-      </li>
-      <li dir="ltr">
-        <p class="changed" dir="ltr">Otherwise iterate through CR: if starti ≤ BV ≤ endi then return R.</p>
-      </li>
-      <li dir="ltr">
-        <p dir="ltr"><span class="changed">Otherwise return !R.
-        </span>        
-      </li>
-  </ol>
+  <h4 class="changed" dir="ltr">Operands</h4>
+  <p class="changed" dir="ltr">The operands have the following meaning:</p>
   <div dir="ltr">
     <table>
       <tr>
-        <td class="changed">BO</td>
-        <td class="changed">BV</td>
+        <td class="changed">Symbol</td>
+        <td class="changed">Value</td>
       </tr>
       <tr>
         <td class="changed">n</td>
-        <td class="changed">absolute value of the source as a double float</td>
+        <td class="changed">absolute value of the source number (integer and decimals).</td>
       </tr>
       <tr>
         <td class="changed">i</td>
-        <td class="changed">integer digits of n (as a long integer)</td>
-      </tr>
-      <tr>
-        <td class="changed">f</td>
-        <td class="changed">visible fractional digits in n (as a long integer).</td>
-      </tr>
-      <tr>
-        <td class="changed">t</td>
-        <td class="changed">f with trailing zeros removed</td>
+        <td class="changed">integer digits of n.</td>
       </tr>
       <tr>
         <td class="changed">v</td>
-        <td class="changed">number of visible fraction digits in n (as an integer).</td>
+        <td class="changed">number of visible fraction digits in n, <em>with</em> trailing zeros.</td>
+      </tr>
+      <tr>
+        <td class="changed">w</td>
+        <td class="changed">number of visible fraction digits in n, <em>without</em> trailing zeros.</td>
+      </tr>
+      <tr>
+        <td class="changed">f</td>
+        <td class="changed">visible fractional digits in n, <em>with</em> trailing zeros.</td>
+      </tr>
+      <tr>
+        <td class="changed">t</td>
+        <td class="changed">visible fractional digits in n, <em>without</em> trailing zeros.</td>
       </tr>
     </table>
-  </div><br>
-  <p class="changed">
-  Example values:
-  </p>
+  </div>
+  <br>
+  <p class="changed"> Example values: </p>
   <div dir="ltr">
     <table>
       <colgroup>
+        <col width="10%">
         <col width="10%">
         <col width="10%">
         <col width="10%">
@@ -1238,13 +1203,23 @@ decimalValue  = value ('.' value)?</span></pre>
         <td class="changed"><strong>n</strong></td>
         <td class="changed"><strong>i</strong></td>
         <td class="changed"><strong>v</strong></td>
+        <td class="changed"><strong>w</strong></td>
         <td class="changed"><strong>f</strong></td>
         <td class="changed"><strong>t</strong></td>
+      </tr>
+      <tr>
+        <td class="changed">1</td>
+        <td class="changed">1</td>
+        <td class="changed">0</td>
+        <td class="changed">0</td>
+        <td class="changed">0</td>
+        <td class="changed">0</td>
       </tr>
       <tr>
         <td class="changed">1.0</td>
         <td class="changed">1</td>
         <td class="changed">1</td>
+        <td class="changed">0</td>
         <td class="changed">0</td>
         <td class="changed">0</td>
       </tr>
@@ -1254,9 +1229,11 @@ decimalValue  = value ('.' value)?</span></pre>
         <td class="changed">2</td>
         <td class="changed">0</td>
         <td class="changed">0</td>
+        <td class="changed">0</td>
       </tr>
       <tr>
         <td class="changed">1.3</td>
+        <td class="changed">1</td>
         <td class="changed">1</td>
         <td class="changed">1</td>
         <td class="changed">3</td>
@@ -1266,12 +1243,14 @@ decimalValue  = value ('.' value)?</span></pre>
         <td class="changed">1.30</td>
         <td class="changed">1</td>
         <td class="changed">2</td>
+        <td class="changed">1</td>
         <td class="changed">30</td>
         <td class="changed">3</td>
       </tr>
       <tr>
         <td class="changed">1.03</td>
         <td class="changed">1</td>
+        <td class="changed">2</td>
         <td class="changed">2</td>
         <td class="changed">3</td>
         <td class="changed">3</td>
@@ -1280,11 +1259,31 @@ decimalValue  = value ('.' value)?</span></pre>
         <td class="changed">1.23</td>
         <td class="changed">1</td>
         <td class="changed">2</td>
+        <td class="changed">2</td>
         <td class="changed">23</td>
         <td class="changed">23</td>
       </tr>
     </table>
-  </div>
+  </div><br>
+  <h4 class="changed" dir="ltr">Relations</h4>
+  <p class="changed" dir="ltr">The keywords 'mod', 'in', 'is', and 'within' are present only for backwards compatibility. The preferred form is to use '%' for modulo, and '=' or '!=' for the relations, with the operand 'i' instead of within. The difference between <strong>in</strong> and <strong>within</strong> is that <strong>in</strong> only includes integers in the specified range,
+  while <strong>within </strong>includes all values. </p>
+  <p class="changed" dir="ltr">The <span class="removed"><strong>in</strong> and <strong>within</strong></span>relations can take comma-separated lists, such as: <strong>n in 3,5,7..15</strong>.  </p>
+  <p dir="ltr"><span class="changed">The modulus (% or<strong> mod</strong>)</span> is a remainder operation as defined in Java; for example, where <strong>n</strong> = 4.3 the result of <strong>n mod 3</strong> is 1.3. <span class="removed">To detect an integer in a rule, use <strong>n mod 1 is 0</strong>. Conversely, for a fraction use: <strong>n mod 1 is not 0</strong>.</span></p>
+  <p class="changed" dir="ltr">The values of relations are defined according to the operand as follows. Importantly, the results may depend on the decimals in the source, including trailing zeros.</p>
+  <ol class="changed" >
+      <li dir="ltr">Let the base value BV be computed from absolute value of the original source number according to the operand.      </li>
+      <li dir="ltr">Let R be false when the comparison contains &lsquo;not&rsquo;.</li>
+      <li dir="ltr">Let R be !R if &nbsp;the comparison contains &lsquo;within&rsquo; and the source number is not an integer.</li>
+      <li dir="ltr">If there is a module value MV, let BV be BV - floor(BV/MV).</li>
+      <li dir="ltr">Let CR be the list of comparison ranges, normalized that overlapping ranges are merged. Single values in the rule are represented by a range with identical &lt;start<sub>i</sub>, end<sub>i</sub>&gt; values.</li>
+      <li dir="ltr">Iterate through CR:      </li>
+      <ul>
+        <li>if start<sub>i</sub> ≤ BV ≤ end<sub>i</sub> then return R.</li>
+      </ul>
+      <li>Otherwise return !R.</li>
+  </ol>
+<div dir="ltr"></div>
 <p dir="ltr">
 </p>
 <p>Example<span class="changed"> Rules</span>:</p>

@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-08</span></td>
+			<td>2013-<span class="changed">09-12</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -210,7 +210,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 <h2>2 <a name="Calendar_Elements" href="#Calendar_Elements">Calendar Elements</a></h2>
 
   <p class="dtd">
-    &lt;!ELEMENT calendars (alias | (default*, calendar*, special*)) &gt;<br>
+    &lt;!ELEMENT calendars (alias | (<span class="removed">default*, </span>calendar*, special*)) &gt;<br>
     &lt;!ELEMENT calendar (alias | (months?, <span class="removed">monthNames?, monthAbbr?, </span>monthPatterns?,
     days?, <span class="removed">dayNames?, dayAbbr?, </span>quarters?, <span class="removed">week?, am*, pm*, </span>dayPeriods?,
     eras?, cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, <span class="removed">fields*, </span>special*))&gt;<br>
@@ -261,7 +261,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 <h3>2.1 <a name="months_days_quarters_eras" href="#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></h3>
 
   <p class="dtd">
-	&lt;!ELEMENT months ( alias | (default*, monthContext*, special*)) &gt;<br>
+	&lt;!ELEMENT months ( alias | (<span class="removed">default*, </span>monthContext*, special*)) &gt;<br>
 	&lt;!ELEMENT monthContext ( alias | (default*, monthWidth*, special*)) &gt;<br>
 	&lt;!ATTLIST monthContext type ( format | stand-alone ) #REQUIRED &gt;<br>
 	&lt;!ELEMENT monthWidth ( alias | (month*, special*)) &gt;<br>
@@ -271,7 +271,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	&lt;!ATTLIST month yeartype ( standard | leap ) #IMPLIED &gt;
   </p>
   <p class="dtd">
-	&lt;!ELEMENT days ( alias | (default*, dayContext*, special*)) &gt;<br>
+	&lt;!ELEMENT days ( alias | (<span class="removed">default*, </span>dayContext*, special*)) &gt;<br>
 	&lt;!ELEMENT dayContext ( alias | (default*, dayWidth*, special*)) &gt;<br>
 	&lt;!ATTLIST dayContext type ( format | stand-alone ) #REQUIRED &gt;<br>
 	&lt;!ELEMENT dayWidth ( alias | (day*, special*)) &gt;<br>
@@ -280,7 +280,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	&lt;!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED &gt;
   </p>
   <p class="dtd">
-	&lt;!ELEMENT quarters ( alias | (default*, quarterContext*, special*)) &gt;<br>
+	&lt;!ELEMENT quarters ( alias | (<span class="removed">default*, </span>quarterContext*, special*)) &gt;<br>
 	&lt;!ELEMENT quarterContext ( alias | (default*, quarterWidth*, special*)) &gt;<br>
 	&lt;!ATTLIST quarterContext type ( format | stand-alone ) #REQUIRED &gt;<br>
 	&lt;!ELEMENT quarterWidth ( alias | (quarter*, special*)) &gt;<br>
@@ -334,7 +334,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
     format data in that same language X.</p>
 
 	<pre id="line369">&lt;monthContext type=&quot;format&quot;&gt;
-	&lt;default choice=&quot;wide&quot;/&gt;
+	<span class="removed">&lt;default choice=&quot;wide&quot;/&gt;</span>
 	&lt;monthWidth type=&quot;abbreviated&quot;&gt;
 		&lt;alias source=&quot;locale&quot; path=&quot;../monthWidth[@type=&#39;wide&#39;]&quot;/&gt;
 	&lt;/monthWidth&gt;
@@ -377,9 +377,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   <p class="example">Example:</p>
 	<pre>  &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt;
     &lt;months&gt;
-      &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
+      <span class="removed">&lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;</span>
       &lt;monthContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
-         &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
+         <span class="removed">&lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;</span>
          &lt;monthWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
             &lt;month type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">January</span>&lt;/month&gt;
             &lt;month type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">February</span>&lt;/month&gt;
@@ -414,9 +414,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
     &lt;/months&gt;
 
     &lt;days&gt;
-      &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
+      <span class="removed">&lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;</span>
       &lt;dayContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
-         &lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;
+         <span class="removed">&lt;default type=&quot;<span style="color: blue">wide</span>&quot;/&gt;</span>
          &lt;dayWidth type=&quot;<span style="color: blue">wide</span>&quot;&gt;
             &lt;day type=&quot;<span style="color: blue">sun</span>&quot;&gt;<span style="color: blue">Sunday</span>&lt;/day&gt;
             &lt;day type=&quot;<span style="color: blue">mon</span>&quot;&gt;<span style="color: blue">Monday</span>&lt;/day&gt;
@@ -451,9 +451,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
     &lt;/days&gt;
 
     &lt;quarters&gt;
-      &lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;
+      <span class="removed">&lt;default type=&quot;<span style="color: blue">format</span>&quot;/&gt;</span>
       &lt;quarterContext type=&quot;<span style="color: blue">format</span>&quot;&gt;
-         &lt;default type=&quot;<span style="color: blue">abbreviated</span>&quot;/&gt;
+         <span class="removed">&lt;default type=&quot;<span style="color: blue">abbreviated</span>&quot;/&gt;</span>
          &lt;quarterWidth type=&quot;<span style="color: blue">abbreviated</span>&quot;&gt;
             &lt;quarter type=&quot;<span style="color: blue">1</span>&quot;&gt;<span style="color: blue">Q1</span>&lt;/quarter&gt;
             &lt;quarter type=&quot;<span style="color: blue">2</span>&quot;&gt;<span style="color: blue">Q2</span>&lt;/quarter&gt;
@@ -633,28 +633,31 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	&lt;!ELEMENT dateFormat (alias | (pattern*, displayName*, special*)) &gt;
   </p>
 
-  <p>Date formats have the following form:</p>
-	<pre>    &lt;dateFormats&gt;
-      &lt;default type=”<span style="color: blue">medium</span>”/&gt;
+  <p>Standard date formats have the following form:</p>
+<pre>    &lt;dateFormats&gt;
+      <span class="removed">&lt;default type=”<span style="color: blue">medium</span>”/&gt;</span>
       &lt;dateFormatLength type=”<span style="color: blue">full</span>”&gt;
         &lt;dateFormat&gt;
-          &lt;pattern&gt;<span style="color: blue">EEEE, MMMM d, yyyy</span>&lt;/pattern&gt;
+          &lt;pattern&gt;<span style="color: blue">EEEE, MMMM d, y</span>&lt;/pattern&gt;
         &lt;/dateFormat&gt;
-       &lt;/dateFormatLength&gt;
-     &lt;dateFormatLength type=&quot;<span style="color: blue">medium</span>&quot;&gt;
-       &lt;default type=&quot;<span style="color: blue">DateFormatsKey2</span>&quot;&gt;
-       &lt;dateFormat type=&quot;<span style="color: blue">DateFormatsKey2</span>&quot;&gt;
-        &lt;pattern&gt;<span style="color: blue">MMM d, yyyy</span>&lt;/pattern&gt;
-       &lt;/dateFormat&gt;
-       &lt;dateFormat type=&quot;<span style="color: blue">DateFormatsKey3</span>&quot;&gt;
-         &lt;pattern&gt;<span style="color: blue">MMM dd, yyyy</span>&lt;/pattern&gt;
+      &lt;/dateFormatLength&gt;
+      &lt;dateFormatLength type=&quot;<span style="color: blue">medium</span>&quot;&gt;
+        <span class="removed">&lt;default type=&quot;<span style="color: blue">DateFormatsKey2</span>&quot;&gt;</span>
+        &lt;dateFormat<span class="removed"> type=&quot;<span style="color: blue">DateFormatsKey2</span>&quot;</span>&gt;
+          &lt;pattern&gt;<span style="color: blue">MMM d, y</span>&lt;/pattern&gt;
         &lt;/dateFormat&gt;
+        <span class="removed">&lt;dateFormat type=&quot;<span style="color: blue">DateFormatsKey3</span>&quot;&gt;
+           &lt;pattern&gt;<span style="color: blue">MMM dd, y</span>&lt;/pattern&gt;
+        &lt;/dateFormat&gt;</span>
       &lt;/dateFormatLength&gt;
     &lt;dateFormats&gt;</pre>
 	<p>The patterns for date formats and time formats are 
 	defined in <i><a href="#Date_Format_Patterns">Date Format Patterns</a>.</i> These patterns are intended primarily for display of isolated date and
     time strings in user-interface elements, rather than for date and time strings in the middle of
     running text, so capitalization and grammatical form should be chosen appropriately.</p>
+    
+    <p class="changed">Standard date and time patterns are each normally provided in four types:
+    full (usually with weekday name), long (with wide month name), medium, and short (usually with numeric month).</p>
 
 <h3>2.5 <a name="timeFormats" href="#timeFormats">&lt;timeFormats&gt;</a></h3>
 
@@ -665,9 +668,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 	&lt;!ELEMENT timeFormat (alias | (pattern*, displayName*, special*)) &gt;
   </p>
 
-  <p>Time formats have the following form:</p>
+  <p>Standard time formats have the following form:</p>
 	<pre>     &lt;timeFormats&gt;
-       &lt;default type=&quot;<span style="color: blue">medium</span>&quot;/&gt;
+       <span class="removed">&lt;default type=&quot;<span style="color: blue">medium</span>&quot;/&gt;</span>
        &lt;timeFormatLength type=”<span style="color: blue">full</span>”&gt;
          &lt;timeFormat&gt;
            &lt;displayName&gt;<span style="color: blue">DIN 5008 (EN 28601)</span>&lt;/displayName&gt;
@@ -694,13 +697,21 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   available time zone formats and their uses.</p>
 
 <h3>2.6 <a name="dateTimeFormats" href="#dateTimeFormats">&lt;dateTimeFormats&gt;</a></h3>
+  <p class="dtd">
+	&lt;!ELEMENT dateTimeFormats (alias | (default*, dateTimeFormatLength*, availableFormats*, appendItems*, intervalFormats*, special*)) &gt;<br>
+  </p>
 
   <p>Date/Time formats have the following form:</p>
 	<pre>     &lt;dateTimeFormats&gt;
-       &lt;default type=&quot;<span style="color: blue">medium</span>&quot;/&gt;
-       &lt;dateTimeFormatLength type=”<span style="color: blue">full</span>”&gt;
+       <span class="removed">&lt;default type=&quot;<span style="color: blue">medium</span>&quot;/&gt;</span>
+       &lt;dateTimeFormatLength type=”<span style="color: blue">long</span>”&gt;
          &lt;dateTimeFormat&gt;
-            &lt;pattern&gt;<span style="color: blue">{0} {1}</span>&lt;/pattern&gt;
+            &lt;pattern&gt;<span style="color: blue">{0} 'at' {1}</span>&lt;/pattern&gt;
+         &lt;/dateTimeFormat&gt;
+       &lt;/dateTimeFormatLength&gt;
+       &lt;dateTimeFormatLength type=”<span style="color: blue">medium</span>”&gt;
+         &lt;dateTimeFormat&gt;
+            &lt;pattern&gt;<span style="color: blue">{0}, {1}</span>&lt;/pattern&gt;
          &lt;/dateTimeFormat&gt;
        &lt;/dateTimeFormatLength&gt;
        &lt;availableFormats&gt;
@@ -745,8 +756,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 
   <p>These formats allow for date and time formats to be composed in various ways.</p>
 
+<h4>&lt;dateTimeFormat&gt;</h4>
+
   <p class="dtd">
-	&lt;!ELEMENT dateTimeFormats (alias | (default*, dateTimeFormatLength*, availableFormats*, appendItems*, intervalFormats*, special*)) &gt;<br>
 	&lt;!ELEMENT dateTimeFormatLength (alias | (default*, dateTimeFormat*, special*))&gt;<br>
 	&lt;!ATTLIST dateTimeFormatLength type ( full | long | medium | short ) #IMPLIED &gt;<br>
 	&lt;!ELEMENT dateTimeFormat (alias | (pattern*, displayName*, special*))&gt;
@@ -758,6 +770,29 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   the dateTimeFormat is interpreted as part of a date/time pattern, and is subject to the same rules described
   in <a href="#Date_Format_Patterns">Date Format Patterns</a>. This includes the need to enclose ASCII letters
   in single quotes if they are intended to represent literal text.</p>
+  
+  <p class="changed">When combining a standard date pattern with a standard time pattern, the type of dateTimeFormat
+  used to combine them is determined by the type of the date pattern. For example:</p>
+
+  <table cellspacing="0" cellpadding="4" border="1">
+		<tr class="changed">
+			<th>Date-Time Combination</th>
+			<th>dateTimeFormat</th>
+			<th>Results</th>
+		</tr>
+		<tr class="changed">
+			<td>full date + short time</td>
+			<td>full, e.g. "{0} 'at' {1}"</td>
+			<td>Wednesday, September 18, 2013 at 4:30 PM</td>
+		</tr>
+		<tr class="changed">
+			<td>medium date + long time</td>
+			<td>medium, e.g. "{0}, {1}"</td>
+			<td>Sep 18, 2013, 4:30:00 PM PDT</td>
+		</tr>
+  </table>
+
+<h4>&lt;availableFormats&gt;, &lt;appendItems&gt;</h4>
 
   <p class="dtd">
 	&lt;!ELEMENT availableFormats (alias | (dateFormatItem*, special*))&gt;<br>
@@ -771,7 +806,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   predefined patterns mentioned above) that can be matched against a requested set of calendar fields and
   field lengths. Software can look through the list and find the pattern that best matches the original request,
   based on the desired calendar fields and lengths. For example, the full month and year may be needed for a
-  calendar application; the request is MMMMyyyy, but the best match may be &quot;yyyy MMMM&quot; or even
+  calendar application; the request is MMMMyyyy, but the best match may be &quot;y MMMM&quot; or even
   &quot;G yy MMMM&quot;, depending on the locale and calendar.</p>
 
   <p>For some calendars, such as Japanese, a displayed year must have an associated era, so for these calendars
@@ -780,22 +815,52 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   a year also contain an era, then include the era as part of the result.</p>
 
   <p>The id attribute is a so-called &quot;skeleton&quot;, containing only field information, and in a canonical
-  order. Examples are &quot;yyyyMMMM&quot; for year + full month, or &quot;MMMd&quot; for abbreviated month + day.
+  order. Examples are &quot;yMMMM&quot; for year + full month, or &quot;MMMd&quot; for abbreviated month + day.
   In particular:</p>
   <ul>
       <li>The fields are from the
       <a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a> in <i>
       <a href="#Date_Format_Patterns">Date Format Patterns</a></i>.</li>
       <li>The canonical order is from top to bottom in that table; that is, &quot;yM&quot; not &quot;My&quot;.</li>
-      <li>Only one field of each type is allowed; that is &quot;Hh&quot; is not valid.</li>
+      <li>Only one field of each type is allowed; that is, &quot;Hh&quot; is not valid.</li>
       <li>The &#39;a&#39; field is not allowed in the skeleton.</li>
   </ul>
+
+  <p class="changed">It is not necessary to supply dateFormatItems with skeletons for every field length; in
+  many cases fields in the skeleton and pattern can be expanded in parallel to handle a request. Consider the
+  following dateFormatItem:</p>
+<pre>    <span class="changed">&lt;dateFormatItem id="yMMMd"&gt;<span style="color: blue">d MMM y</span>&lt;/dateFormatItem&gt;</span>
+</pre>
+  <p class="changed">If the request is for yMMMMd, the above item can be automatically expanded to produce the pattern
+  "d MMMM y" in response to the request. Of course, if the desired behavior is that a request for yMMMMd should produce
+  something <i>other</i> than "d MMMM y", a separate dateFormatItem must be added, for example:</p>
+<pre>    <span class="changed">&lt;dateFormatItem id="yMMMMd"&gt;<span style="color: blue">d 'de' MMMM 'de' y</span>&lt;/dateFormatItem&gt;</span>
+</pre>
+
 
   <p>In order to support user overrides of default locale behavior, data should be supplied for both 12-hour-cycle
   time formats (using h or K) and 24-hour-cycle time formats (using H or k), even if one of those styles is not
   commonly used; the locale's actual preference for 12-hour or 24-hour time cycle is determined from the hour character
   used in the locale's standard short time format. Thus skeletons using h or K should have patterns that only use
   h or K for hours, while skeletons using H or k should have patterns that only use H or k for hours.</p>
+  
+  <p class="changed">If a client-requested set of fields includes both date and time fields, and if the availableFormats
+  data does not include a dateFormatItem whose skeleton matches the same set of fields, then the request should be
+  handled as follows:</p>
+  <ol class="changed">
+    <li>Divide the request into a date fields part and a time fields part</li>
+    <li>For each part, find the matching dateFormatItem</li>
+    <li>Combine the patterns for the two dateFormatItems using the appropriate dateTimeFormat pattern, determined as
+    follows from the requested date fields:
+    <ul>
+      <li>If the requested date fields include wide month (MMMM, LLLL) and weekday name of any length (e.g. E, EEEE, c, cccc),
+      use &lt;dateTimeFormatLength type="full"&gt;</li>
+      <li>Otherwise, if the requested date fields include wide month, use &lt;dateTimeFormatLength type="long"&gt;</li>
+      <li>Otherwise, if the requested date fields include abbreviated month (MMM, LLL), use &lt;dateTimeFormatLength type="medium"&gt;</li>
+      <li>Otherwise use &lt;dateTimeFormatLength type="short"&gt;</li>
+    </ul>
+    </li>
+  </ol>
 
   <p class="dtd">
 	&lt;!ELEMENT appendItems (alias | (appendItem*, special*))&gt;<br>
@@ -808,7 +873,9 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
   In the pattern, {0} represents the format string, {1} the data content of the field, and {2} the display name of
   the field (see <a href="#Calendar_Fields">Calendar Fields</a>).</p>
 
-  <p class="dtd">
+ <h4>&lt;intervalFormats&gt;</h4>
+
+ <p class="dtd">
     &lt;!ELEMENT intervalFormats (alias | (intervalFormatFallback*, intervalFormatItem*, special*)) &gt;
   </p>
   <p class="dtd">

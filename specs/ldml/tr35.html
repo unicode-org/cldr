@@ -4255,41 +4255,63 @@ decimal?, group?, special*)) &gt;</pre>
   <h2><a name="Modifications" href="#Modifications">Modifications</a></h2>
 	<p>The following summarizes modifications from the previous revision of this document. Some of the modification
 	notes have an associated bug ticket number, which may be used to look up additional information about the modification; for further information,
-	see <a href="http://www.unicode.org/cldr/filing_bug_reports.html">http://www.unicode.org/cldr/filing_bug_reports.html</a>.</p>
+	see<span class="changed"> <a href="http://www.unicode.org/cldr/filing_bug_reports.html">Filing Bug Reports</a>.</span></p>
 
   <h3><span class="changed">Revision 32</span></h3>
   <ul class="changed">
     <li>Updated for Version 24.</li>
-    <li>Specified that the index exemplar set may only include characters whose lowercase versions are in the main or auxiliary
+    <li>Added Parts section (with double-links) to each Part. [<a href="http://unicode.org/cldr/trac/ticket/5804">#5804</a>]</li>
+    <li><strong>Part 1: <a href="tr35.html#Contents">Core specification</a></strong>
+      <ul>
+        <li>Added recommendations for handling old and new syntax (and aliases) to <em>Section 3.8 <a href="#Compatibility_with_Older_Identifiers">Compatibility with Older Identifiers</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5746">#5746</a>]</li>
+        <li>Documented the special inheritance for &quot;count&quot; attributes in <em>Section 4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5836">#5836</a>]</li>
+        <li>Fixed broken link for [LOCODE] (unstable page on UN site) in <a href="#References"><em>References</em></a>. [<a href="http://unicode.org/cldr/trac/ticket/6163" title="View ticket">#6163</a>]</li>
+        <li>Small fixes to <em>Section 3.7 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></em> to improve referencing. [<a href="http://unicode.org/cldr/trac/ticket/5089" title="View ticket">#5089</a>]</li>
+        <li>Added some clarifications to<em> Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a>.</em> [<a href="http://unicode.org/cldr/trac/ticket/6275" title="View ticket">#6275</a>]</li>
+      </ul>
+    </li>
+    <li><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong>
+      <ul>
+        <li>Specified that the index exemplar set may only include characters whose lowercase versions are in the main or auxiliary
     exemplar sets in <strong>Part 2: General,</strong> <em>Section 3 <a href="tr35-general.html#Character_Elements">Character Elements</a></em>.
     [<a href="http://unicode.org/cldr/trac/ticket/6202">#6202</a>]</li>
-    <li>Added reference to UTR 39 in <strong>Part 2: General,</strong> <em>Section 3 <a href="tr35-general.html#Character_Elements">Character Elements</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6068" title="View ticket">#6068</a>]</li>
-    <li>Added explanation of types in <strong>Part 2: General,</strong> <em>Section 3.4 <a href="tr35-general.html#Ellipsis">Ellipsis</a></em><a href="tr35-general.html#Ellipsis"></a>. [<a href="http://unicode.org/cldr/trac/ticket/6658" title="View ticket">#6658</a>]</li>
-    <li>Added unit documentation in <strong>Part 2: General, </strong><em>Section 6 <a href="tr35-general.html#Unit_Elements">Unit Elements</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6659" title="View ticket">#6659</a>]</li>
-    <li>Updated the paths in the &lt;contextTransformUsage&gt; type attribute values table in <strong>Part 2: General</strong>,
-    <em>Section 12 <a href="tr35-general.html#Context_Transform_Elements">ContextTransform Elements</a></em>.
-    [<a href="http://unicode.org/cldr/trac/ticket/6563">#6563</a>]</li>
-    <li>Added superscriptingExponent in <strong>Part 3: Numbers, </strong><em>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number Symbols</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5815" title="View ticket">#5815</a>], [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>]</li>
-    <li>Added miscPatterns in <strong>Part 3: Numbers, </strong><em>Section 2.5 <a href="tr35-numbers.html#Miscellaneous_Patterns">Miscellaneous Patterns</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>], [<a href="http://unicode.org/cldr/trac/ticket/5272" title="View ticket">#5272</a>], [<a href="http://unicode.org/cldr/trac/ticket/2452" title="View ticket">#2452</a>]</li>
-    <li>Added clarification for default rounding value to <strong>Part 3: Numbers,</strong> <em>Section 4.1 <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6516" title="View ticket">#6516</a>]</li>
-    <li>Added 'cashDigits' and 'cashRounding' to <strong>Part 3: Numbers,</strong> <em>Section 4.1 <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5826" title="View ticket">#5826</a>]</li>
-    <li>Major enhancements to the syntax of plural rules in  <strong>Part 3: Numbers, </strong><em>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>], [<a href="http://unicode.org/cldr/trac/ticket/3727" title="View ticket">#3727</a>]</li>
-    <li>Added alt=&quot;variant&quot; for &lt;era&gt; in <strong>Part 4: Dates,</strong>
-    <em>Section 2.1 <a href="tr35-dates.html#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></em>.
-    [<a href="http://unicode.org/cldr/trac/ticket/649">#649</a>]</li>
-    <li>Specified how to choose which &lt;dateTimeFormat&gt; to use (especially when combining &lt;dateFormatItem&gt;s) in <strong>Part 4: Dates,</strong>
-    <em>Section 2.6 <a href="tr35-dates.html#dateTimeFormats">&lt;dateTimeFormats&gt;</a></em>.
-    [<a href="http://unicode.org/cldr/trac/ticket/5920">#5920</a>]</li>
-    <li>Added clarifications to <strong>Part 4: Dates,</strong> <em>Section 4.4 <a href="tr35-dates.html#Time_Data">Time Data</a></em>.
-    [<a href="http://unicode.org/cldr/trac/ticket/5799" title="View ticket">#5799</a>]</li>
-    <li>Added 'J' symbol to<strong> Part 4: Dates, </strong> <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>.
-    [<a href="http://unicode.org/cldr/trac/ticket/5413">#5413</a>]</li>
-    <li>Updated to reflect new structure in<strong> Part 4: Dates,</strong> <em>Section 3 <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>, plus the
-    standard/daylight types for &lt;regionFormat&gt; in <strong>Part 4: Dates,</strong> <em>Section </em>5 <a href="tr35-dates.html#Time_Zone_Names">Time Zone Names</a>.
-      Moved deprecated items from <strong>Part 4: Dates</strong> to shared <em>Section 8 <a href="#Deprecated_Structure">Deprecated Structure</a></em>.
-      Added DTD updates for other changes in <strong>Parts 1, 2, 3, 6</strong>.
-    [<a href="http://unicode.org/cldr/trac/ticket/6617">#6617</a>]</li>
-    <li>Major changes in <strong>Part 5: <a href="tr35-collation.html#Contents">Collation</a></strong>, including:
+        <li>Added reference to UTR 39 in <strong>Part 2: General,</strong> <em>Section 3 <a href="tr35-general.html#Character_Elements">Character Elements</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6068" title="View ticket">#6068</a>]</li>
+        <li>Added explanation of types in <strong>Part 2: General,</strong> <em>Section 3.4 <a href="tr35-general.html#Ellipsis">Ellipsis</a></em><a href="tr35-general.html#Ellipsis"></a>. [<a href="http://unicode.org/cldr/trac/ticket/6658" title="View ticket">#6658</a>]</li>
+        <li>Added unit documentation in <strong>Part 2: General, </strong><em>Section 6 <a href="tr35-general.html#Unit_Elements">Unit Elements</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6659" title="View ticket">#6659</a>]</li>
+        <li>Updated the paths in the &lt;contextTransformUsage&gt; type attribute values table in <strong>Part 2: General</strong>,
+          <em>Section 12 <a href="tr35-general.html#Context_Transform_Elements">ContextTransform Elements</a></em>.
+          [<a href="http://unicode.org/cldr/trac/ticket/6563">#6563</a>]</li>
+      </ul>
+    </li>
+    <li><strong>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a></strong>
+      <ul>
+        <li>Added superscriptingExponent in <strong>Part 3: Numbers, </strong><em>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number Symbols</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5815" title="View ticket">#5815</a>], [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>]</li>
+        <li>Added miscPatterns in <strong>Part 3: Numbers, </strong><em>Section 2.5 <a href="tr35-numbers.html#Miscellaneous_Patterns">Miscellaneous Patterns</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>], [<a href="http://unicode.org/cldr/trac/ticket/5272" title="View ticket">#5272</a>], [<a href="http://unicode.org/cldr/trac/ticket/2452" title="View ticket">#2452</a>]</li>
+        <li>Added clarification for default rounding value to <strong>Part 3: Numbers,</strong> <em>Section 4.1 <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6516" title="View ticket">#6516</a>]</li>
+        <li>Added 'cashDigits' and 'cashRounding' to <strong>Part 3: Numbers,</strong> <em>Section 4.1 <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5826" title="View ticket">#5826</a>]</li>
+        <li>Major enhancements to the syntax of plural rules in  <strong>Part 3: Numbers, </strong><em>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>], [<a href="http://unicode.org/cldr/trac/ticket/3727" title="View ticket">#3727</a>]</li>
+      </ul>
+    </li>
+    <li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
+      <ul>
+        <li>Added alt=&quot;variant&quot; for &lt;era&gt; in <strong>Part 4: Dates,</strong>
+          <em>Section 2.1 <a href="tr35-dates.html#months_days_quarters_eras">&lt;months&gt;, &lt;days&gt;, &lt;quarters&gt;, &lt;eras&gt;</a></em>.
+          [<a href="http://unicode.org/cldr/trac/ticket/649">#649</a>]</li>
+        <li>Specified how to choose which &lt;dateTimeFormat&gt; to use (especially when combining &lt;dateFormatItem&gt;s) in <strong>Part 4: Dates,</strong>
+          <em>Section 2.6 <a href="tr35-dates.html#dateTimeFormats">&lt;dateTimeFormats&gt;</a></em>.
+          [<a href="http://unicode.org/cldr/trac/ticket/5920">#5920</a>]</li>
+        <li>Added clarifications to <strong>Part 4: Dates,</strong> <em>Section 4.4 <a href="tr35-dates.html#Time_Data">Time Data</a></em>.
+          [<a href="http://unicode.org/cldr/trac/ticket/5799" title="View ticket">#5799</a>]</li>
+        <li>Added 'J' symbol to<strong> Part 4: Dates, </strong> <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>.
+          [<a href="http://unicode.org/cldr/trac/ticket/5413">#5413</a>]</li>
+        <li>Updated to reflect new structure in<strong> Part 4: Dates,</strong> <em>Section 3 <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>, plus the
+          standard/daylight types for &lt;regionFormat&gt; in <strong>Part 4: Dates,</strong> <em>Section </em>5 <a href="tr35-dates.html#Time_Zone_Names">Time Zone Names</a>.
+          Moved deprecated items from <strong>Part 4: Dates</strong> to shared <em>Section 8 <a href="#Deprecated_Structure">Deprecated Structure</a></em>.
+          Added DTD updates for other changes in <strong>Parts 1, 2, 3, 6</strong>.
+          [<a href="http://unicode.org/cldr/trac/ticket/6617">#6617</a>]</li>
+      </ul>
+    </li>
+    <li><strong>Part 5: <a href="tr35-collation.html#Contents">Collation</a></strong>, major changes including:
       <ul>
         <li>Documented the <a href="tr35-collation.html#CLDR_Collation_Algorithm">CLDR Collation Algorithm</a>
           which extends the Unicode Collation Algorithm.
@@ -4315,12 +4337,16 @@ decimal?, group?, special*)) &gt;</pre>
           [<a href="http://unicode.org/cldr/trac/ticket/5915">#5915</a>]</li>
       </ul>
     </li>
-    <li>Added recommendations for handling old and new syntax (and aliases) to <em>Section 3.8 <a href="#Compatibility_with_Older_Identifiers">Compatibility with Older Identifiers</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5746">#5746</a>]</li>
-    <li>Added Parts section (with double-links) to each Part. [<a href="http://unicode.org/cldr/trac/ticket/5804">#5804</a>]</li>
-    <li>Documented the special inheritance for &quot;count&quot; attributes in <em>Section 4.1 <a href="#Multiple_Inheritance">Multiple Inheritance</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5836">#5836</a>]</li>
-    <li>Fixed broken link for [LOCODE] (unstable page on UN site) in <a href="#References"><em>References</em></a>. [<a href="http://unicode.org/cldr/trac/ticket/6163" title="View ticket">#6163</a>]</li>
-    <li>Small fixes to <em>Section 3.7 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></em> to improve referencing. [<a href="http://unicode.org/cldr/trac/ticket/5089" title="View ticket">#5089</a>]</li>
-    <li>Added some clarifications to<em> Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a>.</em> [<a href="http://unicode.org/cldr/trac/ticket/6275" title="View ticket">#6275</a>]</li>
+    <li><strong>Part 6: <a href="tr35-info.html#Contents">Related Information</a></strong>
+      <ul>
+        <li><em>[TBD Casing override]</em></li>
+      </ul>
+    </li>
+    <li><strong>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a></strong><a href="tr35-keyboards.html#Contents"></a>
+      <ul>
+        <li><em>no changes in this version</em></li>
+      </ul>
+    </li>
   </ul>
 
   <h3>Revision 31</h3>

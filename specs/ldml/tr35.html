@@ -1289,7 +1289,13 @@ The data above indicates:
     in the file <strong>common/bcp47/timezone.xml</strong>.</p>
   <p>The short identifiers use UN/LOCODE [<a href="#LOCODE">LOCODE</a>] (excluding a space character) codes where possible. For example,
     the short identifier for "America/Los_Angeles" is "uslax" (the LOCODE for Los Angeles, US is "US LAX"). Identifiers of length not equal to 5 are
-    used where there is no corresponding LOCODE, such as "usnavajo" for "America/Shiprock", or"utcw01" for "Etc/GMT+1".</p>
+    used where there is no corresponding UN/LOCODE, such as "usnavajo" for "America/Shiprock", or "utcw01" for "Etc/GMT+1", <span class="changed">so
+    that they do not overlap with future UN/LOCODE.</span></p>
+  <p><span class="changed">Although the first two letters of a short identifier may match an ISO 3166 two-letter country code,
+    a user should not assume that the time zone belongs to the country. The first two letters in an identifier of length not equal to 5
+    has no meaning. Also, the identifiers are stabilized, meaning that they will not change no matter what changes
+    happen in the base standard. So if Hawaii leaves the US and joins Canada as a new province, the short time zone identifier "ushnl" would not
+    change in CLDR even if the UN/LOCODE changes to "cahnl" or something else.</span></p>
   <p>There is a special code "unk" for an Unknown or Invalid time zone. This can be expressed in the tz database style ID "Etc/Unknown",
     although it is not defined in the tz database.</p>
   <p><b>Stability of Time Zone Identifiers</b></p>
@@ -4268,6 +4274,7 @@ decimal?, group?, special*)) &gt;</pre>
         <li>Fixed broken link for [LOCODE] (unstable page on UN site) in <a href="#References"><em>References</em></a>. [<a href="http://unicode.org/cldr/trac/ticket/6163" title="View ticket">#6163</a>]</li>
         <li>Small fixes to <em>Section 3.7 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></em> to improve referencing. [<a href="http://unicode.org/cldr/trac/ticket/5089" title="View ticket">#5089</a>]</li>
         <li>Added some clarifications to<em> Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a>.</em> [<a href="http://unicode.org/cldr/trac/ticket/6275" title="View ticket">#6275</a>]</li>
+        <li>Added some clarification about the time zone short identifiers and country codes in <em>Section 3.7.1.2 <a href="#Time_Zone_Identifiers">Time Zone Identifiers</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5918" title="View ticket">#5918</a>]</li>
       </ul>
     </li>
     <li><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong>

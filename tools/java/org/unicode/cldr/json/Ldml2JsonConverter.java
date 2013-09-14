@@ -61,6 +61,8 @@ public class Ldml2JsonConverter {
             "Whether the output JSON should output data for all numbering systems, even those not used in the locale")
         .add("other", 'o', "(true|false)", "false",
             "Whether to write out the 'other' section, which contains any unmatched paths")
+        .add("identity", 'i', "(true|false)", "true",
+            "Whether to copy the identity info into all sections containing data")
         .add("konfig", 'k', ".*", null, "LDML to JSON configuration file");
 
     public static void main(String[] args) throws Exception {
@@ -289,12 +291,14 @@ public class Ldml2JsonConverter {
         }
         List<CldrItem> otherSectionItems = new ArrayList<CldrItem>(others);
         int addedItemCount = 0;
+        boolean copyIdentityInfo = Boolean.parseBoolean(options.get("identity").getValue());
+
         for (CldrItem item : otherSectionItems) {
             String thisPath = item.getPath();
             versionInfoMatcher.reset(thisPath);
             if (versionInfoMatcher.matches()) {
                 for (JSONSection js : sections) {
-                    if (sectionItems.get(js) != null && !js.section.equals("other")) {
+                    if (sectionItems.get(js) != null && !js.section.equals("other") && copyIdentityInfo) {
                         List<CldrItem> hit = sectionItems.get(js);
                         hit.add(addedItemCount, item);
                         sectionItems.put(js, hit);

@@ -203,8 +203,8 @@ public class TestSupplementalInfo extends TestFmwk {
             { "cy", "zero", "0" }, // n is 0
             { "ksh", "zero", "0" }, // n is 0
             { "lag", "zero", "0" }, // n is 0
-            { "pt", "one", "0,00,000,0000" }, // n is 1 or f is 1
-            { "pt_PT", "one", "0,00,000,0000" }, // n is 1 or t is 1
+            { "pt", "one", "0"}, // i = 1 and v = 0 or i = 0 and t = 1
+            { "pt_PT", "one", "0"},  // n = 1 and v = 0 
             { "ar", "two", "0" }, // n is 2
             { "cy", "two", "0" }, // n is 2
             { "ga", "two", "0" }, // n is 2
@@ -1097,9 +1097,9 @@ public class TestSupplementalInfo extends TestFmwk {
         Set<String> cardinalLocales = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.cardinal));
         Set<String> ordinalLocales = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.ordinal));
         Map<ULocale, PluralRulesFactory.SamplePatterns> sampleCardinals = PluralRulesFactory.getLocaleToSamplePatterns();
-        Set<ULocale> sampleCardinalLocales = new TreeSet(sampleCardinals.keySet());
+        Set<ULocale> sampleCardinalLocales = new HashSet(sampleCardinals.keySet());
         Map<ULocale, PluralRules> overrideCardinals = PluralRulesFactory.getPluralOverrides();
-        Set<ULocale> overrideCardinalLocales = new TreeSet(overrideCardinals.keySet());
+        Set<ULocale> overrideCardinalLocales = new HashSet(overrideCardinals.keySet());
 
         Set<String> testLocales = STANDARD_CODES.getLocaleCoverageLocales("google");
         Set<String> allLocales = testInfo.getCldrFactory().getAvailable();

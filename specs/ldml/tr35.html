@@ -796,10 +796,10 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 		</tr>
 
 		<tr>
-			<td rowspan="5"><p>Calendar</p>
+			<td rowspan="10"><p>Calendar</p>
 		    <p><em>bcp47/calendar.xml</em></p></td>
-			<td rowspan="5">"ca"<br>(calendar)</td>
-			<td rowspan="5">Calendar algorithm<br><br>
+			<td rowspan="10">"ca"<br>(calendar)</td>
+			<td rowspan="10">Calendar algorithm<br><br>
 			<i>(For information on the calendar algorithms associated with the data
 			used with these, see [<a href="#Calendars">Calendars</a>].)</i></td>
 			<td>"buddhist"</td>
@@ -810,6 +810,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			<td>"chinese"</td>
 			<td>Traditional Chinese calendar</td>
 		</tr>
+
 
 		<tr>
 			<td colspan="2">…</td>
@@ -822,6 +823,34 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 
 		<tr>
 			<td colspan="2">…</td>
+		</tr>
+
+		<tr class="changed">
+			<td>"islamic"</td>
+			<td>Islamic calendar</td>
+		</tr>
+
+		<tr class="changed">
+			<td>"islamic-civil"</td>
+			<td>Islamic calendar, tabular (intercalary years [2,5,7,10,13,16,18,21,24,26,29] - civil epoch)</td>
+		</tr>
+
+		<tr class="changed">
+			<td>"islamic-umalqura"</td>
+			<td>Islamic calendar, Umm al-Qura</td>
+		</tr>
+
+		<tr class="changed">
+			<td colspan="2">…</td>
+		</tr>
+
+		<tr class="changed">
+			<td colspan="2"><b>Note:</b> <i>Some calendar types are represented by two subtags. In such cases,
+			 the first subtag specifies a generic calendar type and the second subtag specifies a calendar
+			 algorithm variant. The CLDR uses generic calendar types (single subtag types) for tagging data when
+			 calendar algorithm variations within a generic calendar type are irrelevant. For example, type
+			 "islamic" is used for specifying Islamic calendar formatting data for all Islamic calendar types,
+			 including "islamic-civil" and "islamic-umalgura".</i></td>
 		</tr>
 
 		<tr>
@@ -1207,7 +1236,9 @@ a single alphanumeric character subtag assigned by IANA.  </p>
       </dd>
       <dt class="changed"><b>preferred</b></dt>
       <dd class="changed">
-       <p>(to be supplied)</p>
+       <p>The preferred value of the deprecated key, type or attribute element.
+         When a key, type or attribute element is deprecated, this attribute is
+         used for specifying a new canonical form if available.</p>
       </dd>
       <dt><b>alias</b> (Not applicable to &lt;attribute&gt;)</dt>
       <dd>
@@ -4275,6 +4306,8 @@ decimal?, group?, special*)) &gt;</pre>
         <li>Small fixes to <em>Section 3.7 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></em> to improve referencing. [<a href="http://unicode.org/cldr/trac/ticket/5089" title="View ticket">#5089</a>]</li>
         <li>Added some clarifications to<em> Section 4.3 <a href="#Likely_Subtags">Likely Subtags</a>.</em> [<a href="http://unicode.org/cldr/trac/ticket/6275" title="View ticket">#6275</a>]</li>
         <li>Added some clarification about the time zone short identifiers and country codes in <em>Section 3.7.1.2 <a href="#Time_Zone_Identifiers">Time Zone Identifiers</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5918" title="View ticket">#5918</a>]</li>
+        <li>Added explanation of <i>preferred</i> attribute in <em>Section 3.7 <a href="#Locale_Extension_Key_and_Type_Data">Unicode BCP 47 Extension Data</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5942" title="View ticket">#5942</a>]</li>
+        <li>Added multi-subtag Islamic calendar type examples and a note explaining the calendar data inheritance policy in <em>Section 3.5 <a href="#Key_And_Type_Definitions_">Key And Type Definitions</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5942" title="View ticket">#5942</a>]</li>
       </ul>
     </li>
     <li><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong>

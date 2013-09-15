@@ -408,11 +408,16 @@ follows:</p>
 	&lt;!ATTLIST currencyFormatLength type ( full | long | medium | short ) #IMPLIED &gt;<br>
 	&lt;!ELEMENT currencyFormat (alias | (pattern*, special*)) &gt;
 	</p>
+	<p class="changed">In addition to a standard currency format, in which negative currency amounts might typically be displayed as something like “-$3.27”,
+	locales may provide an "accounting" form, in which for "en_US" the same example would appear as “($3.27)”.</p>
 	<pre>&lt;currencyFormats&gt;
-  &lt;currencyFormatLength type=&quot;<span style="color: blue">long</span>&quot;&gt;
-    &lt;currencyFormat&gt;
-      &lt;pattern&gt;<span style="color: blue">¤ #,##0.00;(¤ #,##0.00)</span>&lt;/pattern&gt;
+  &lt;currencyFormatLength<span class="removed"> type=&quot;<span style="color: blue">long</span>&quot;</span>&gt;
+    &lt;currencyFormat<span class="changed"> type="standard"</span>&gt;
+      &lt;pattern&gt;<span style="color: blue">¤#,##0.00</span>&lt;/pattern&gt;
     &lt;/currencyFormat&gt;
+    <span class="changed">&lt;currencyFormat type="accounting"&gt;
+      &lt;pattern&gt;<span style="color: blue">¤#,##0.00;(¤#,##0.00)</span>&lt;/pattern&gt;
+    &lt;/currencyFormat&gt;</span>
   &lt;/currencyFormatLength&gt;
 &lt;/currencyFormats&gt;</pre>
 

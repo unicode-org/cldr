@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-14</span></td>
+			<td>2013-<span class="changed">09-15</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -199,6 +199,8 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
   <p>Any translations should follow customary practice for the locale in question. For more information, see [<a href="tr35.html#DataFormats">Data Formats</a>].</p>
 
+  <p class="element2">&lt;localeDisplayPattern&gt;</p>
+
   <p class="dtd">&lt;!ELEMENT localeDisplayPattern ( alias | (localePattern*, localeSeparator*, localeKeyTypePattern*, special*) ) &gt;</p>
 
   <p>For compound language (locale) IDs such as "pt_BR" which contain additional subtags beyond the initial language code: When the &lt;languages&gt; data does
@@ -209,7 +211,10 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <ul>
       <li>The &lt;localePattern&gt; element specifies a pattern such as "{0} ({1})" in which {0} is replaced by the display name for the primary language subtag
       and {1} is replaced by a list of the display names for the remaining subtags.</li>
-      <li>The &lt;localeSeparator&gt; element specifies the list separator for the display names in {1}.</li>
+      <li>The &lt;localeSeparator&gt; element specifies <span class="changed">a pattern such as "{0}, {1}" used when appending a subtag display name to the
+      list in the &lt;localePattern&gt; subpattern {1} above. If that list includes more than one display name, then &lt;localeSeparator&gt; subpattern {1}
+      represents a new display name to be appended to the current list in {0}. <em>Note: Before CLDR 24, the &lt;localeSeparator&gt; element specified a separator
+      string such as ", ", not a pattern.</em></span></li>
       <li>The &lt;localeKeyTypePattern&gt; element specifies the pattern used to display key-type pairs, such as "{0}: {1}"</li>
     </ul>
 
@@ -225,12 +230,12 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <p>This contains a list of elements that provide the user-translated names for language codes, as described in <i>
   <a href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section 3, Unicode Language and Locale Identifiers</a></i>.</p>
 
-  <blockquote>
-    <pre>&lt;language type="<span style="color: blue">ab</span>"&gt;<span style="color: blue">Abkhazian</span>&lt;/language&gt;
+<blockquote>
+<pre>&lt;language type="<span style="color: blue">ab</span>"&gt;<span style="color: blue">Abkhazian</span>&lt;/language&gt;
 &lt;language type="<span style="color: blue">aa</span>"&gt;<span style="color: blue">Afar</span>&lt;/language&gt;
 &lt;language type="<span style="color: blue">af</span>"&gt;<span style="color: blue">Afrikaans</span>&lt;/language&gt;
-&lt;language type="<span style="color: blue">sq</span>"&gt;<span style="color: blue">Albanian</span>&lt;/language&gt;</pre>
-  </blockquote>
+&lt;language type="<span style="color: blue">sq</span>"&gt;<span style="color: blue">Albanian</span>&lt;/language&gt;
+</pre></blockquote>
 
   <p>The type can actually be any locale ID as specified above. The set of which locale IDs is not fixed, and depends on the locale. For example, in one language 
   one could translate the following locale IDs, and in another, fall back on the normal composition.</p>
@@ -249,7 +254,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <tr>
       <td width="33%">zh_Hans</td>
       <td width="33%">Simplified Chinese</td>
-      <td width="34%">Chinese (Simplified Han)</td>
+      <td width="34%">Chinese (Simplified)</td>
     </tr>
     <tr>
       <td width="33%">en_GB</td>
@@ -258,8 +263,19 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     </tr>
   </table>
 
-  <p class="element2">Thus when a complete locale ID is formed by composition, the longest match in the language type is used, and the remaining fields
+  <p>Thus when a complete locale ID is formed by composition, the longest match in the language type is used, and the remaining fields
   (if any) added using composition.</p>
+
+  <p class="changed">Alternate short forms may be provided for some languages (and for territories and other display names), for example.</p>
+
+<blockquote class="changed">
+<pre>&lt;language type="<span style="color: blue">az</span>"&gt;<span style="color: blue">Azerbaijani</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">az</span>" alt="<span style="color: blue">short</span>"&gt;<span style="color: blue">Azeri</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">en_GB</span>"&gt;<span style="color: blue">British English</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">en_GB</span>" alt="<span style="color: blue">short</span>"&gt;<span style="color: blue">U.K. English</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">en_US</span>"&gt;<span style="color: blue">American English</span>&lt;/language&gt;
+&lt;language type="<span style="color: blue">en_US</span>" alt="<span style="color: blue">short</span>"&gt;<span style="color: blue">U.S. English</span>&lt;/language&gt;
+</pre></blockquote>
 
   <p class="element2">&lt;scripts&gt;</p>
 
@@ -268,42 +284,62 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   [<a href="http://www.unicode.org/reports/tr41/#UAX24">UAX24</a>]). For example, in the language of this locale, the name for the Latin script might be
   "Romana", and for the Cyrillic script is "Kyrillica". That would be expressed with the following.</p>
 
-  <blockquote>
-    &lt;script type="<span style="color: blue">Latn</span>"&gt;<span style="color: blue">Romana</span>&lt;/script&gt;<br>
-    &lt;script type="<span style="color: blue">Cyrl</span>"&gt;<span style="color: blue">Kyrillica</span>&lt;/script&gt;
-  </blockquote>
+<blockquote>
+<pre>&lt;script type="<span style="color: blue">Latn</span>"&gt;<span style="color: blue">Romana</span>&lt;/script&gt;
+&lt;script type="<span style="color: blue">Cyrl</span>"&gt;<span style="color: blue">Kyrillica</span>&lt;/script&gt;
+</pre></blockquote>
+
+  <p class="changed">The script names are most commonly used in conjunction with a language name, using the &lt;localePattern&gt; combining pattern, and
+  the default form of the script name should be suitable for such use. When a script name requires a different form for stand-alone use, this can be
+  specified using the "stand-alone" alternate:</p>
+
+<blockquote class="changed">
+<pre>&lt;script type="<span style="color: blue">Hans</span>"&gt;<span style="color: blue">Simplified</span>&lt;/script&gt;
+&lt;script type="<span style="color: blue">Hans</span>" alt="<span style="color: blue">stand-alone</span>"&gt;<span style="color: blue">Simplified Han</span>&lt;/script&gt;
+&lt;script type="<span style="color: blue">Hant</span>"&gt;<span style="color: blue">Traditional</span>&lt;/script&gt;
+&lt;script type="<span style="color: blue">Hant</span>" alt="<span style="color: blue">stand-alone</span>"&gt;<span style="color: blue">Traditional Han</span>&lt;/script&gt;
+</pre></blockquote>
+
+  <p class="changed">This will produce results such as the following:</p>
+  <ul class="changed">
+    <li>Display name of language + script, using &lt;localePattern&gt;: “Chinese (Simplified)”</li>
+    <li>Display name of script alone, using &lt;localePattern&gt;: “Simplified Han”</li>
+  </ul>
 
   <p class="element2">&lt;territories&gt;</p>
 
   <p>This contains a list of elements that provide the user-translated names for territory codes, as described in <i>
   <a href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section 3, Unicode Language and Locale Identifiers</a></i>.</p>
 
-  <blockquote>
-    &lt;territory type="<span style="color: blue">AF</span>"&gt;<span style="color: blue">Afghanistan</span>&lt;/territory&gt;<br>
-    &lt;territory type="<span style="color: blue">AL</span>"&gt;<span style="color: blue">Albania</span>&lt;/territory&gt;<br>
-    &lt;territory type="<span style="color: blue">DZ</span>"&gt;<span style="color: blue">Algeria</span>&lt;/territory&gt;<br>
-    &lt;territory type="<span style="color: blue">AD</span>"&gt;<span style="color: blue">Andorra</span>&lt;/territory&gt;<br>
-    &lt;territory type="<span style="color: blue">AO</span>"&gt;<span style="color: blue">Angola</span>&lt;/territory&gt;<br>
-    &lt;territory type="<span style="color: blue">US</span>"&gt;<span style="color: blue">United States</span>&lt;/territory&gt;
-  </blockquote>
+<blockquote>
+<pre>&lt;territory type="<span style="color: blue">AD</span>"&gt;<span style="color: blue">Andorra</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">AF</span>"&gt;<span style="color: blue">Afghanistan</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">AL</span>"&gt;<span style="color: blue">Albania</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">AO</span>"&gt;<span style="color: blue">Angola</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">DZ</span>"&gt;<span style="color: blue">Algeria</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">GB</span>"&gt;<span style="color: blue">United Kingdom</span>&lt;/territory&gt;
+<span class="changed">&lt;territory type="<span style="color: blue">GB</span>" alt="<span style="color: blue">short</span>"&gt;<span style="color: blue">U.K.</span>&lt;/territory&gt;</span>
+&lt;territory type="<span style="color: blue">US</span>"&gt;<span style="color: blue">United States</span>&lt;/territory&gt;
+<span class="changed">&lt;territory type="<span style="color: blue">US</span>" alt="<span style="color: blue">short</span>"&gt;<span style="color: blue">U.S.</span>&lt;/territory&gt;</span>
+</pre></blockquote>
 
   <p class="element2">&lt;variants&gt;</p>
 
   <p>This contains a list of elements that provide the user-translated names for the <i>variant_code</i> values described in <i>
   <a href="#Unicode_Language_and_Locale_Identifiers">Section 3, Unicode Language and Locale Identifiers</a></i>.</p>
 
-  <blockquote>
-    &lt;variant type="<span style="color: blue">nynorsk</span>"&gt;<span style="color: blue">Nynorsk</span>&lt;/variant&gt;
-  </blockquote>
+<blockquote>
+<pre>&lt;variant type="<span style="color: blue">nynorsk</span>"&gt;<span style="color: blue">Nynorsk</span>&lt;/variant&gt;
+</pre></blockquote>
 
   <p class="element2">&lt;keys&gt;</p>
 
   <p>This contains a list of elements that provide the user-translated names for the <i>key</i> values described in <i>
   <a href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section 3, Unicode Language and Locale Identifiers</a></i>.</p>
 
-  <blockquote>
-    &lt;key type="<span style="color: blue">collation</span>"&gt;<span style="color: blue">Sortierung</span>&lt;/key&gt;
-  </blockquote>
+<blockquote>
+<pre>&lt;key type="<span style="color: blue">collation</span>"&gt;<span style="color: blue">Sortierung</span>&lt;/key&gt;
+</pre></blockquote>
 
   <p class="element2">&lt;types&gt;</p>
 
@@ -311,18 +347,18 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
   <a href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section 3, Unicode Language and Locale Identifiers</a></i>. Since the translation of an option name may
   depend on the <i>key</i> it is used with, the latter is optionally supplied.</p>
 
-  <blockquote>
-    &lt;type type="<span style="color: blue">phonebook</span>" key="<span style="color: blue">collation</span>"&gt;<span style="color: blue">Telefonbuch</span>&lt;/type&gt;
-  </blockquote>
+<blockquote>
+<pre>&lt;type type="<span style="color: blue">phonebook</span>" key="<span style="color: blue">collation</span>"&gt;<span style="color: blue">Telefonbuch</span>&lt;/type&gt;
+</pre></blockquote>
 
   <p class="element2">&lt;measurementSystemNames&gt;</p>
 
   <p>This contains a list of elements that provide the user-translated names for systems of measurement. The types currently supported are
   "<span style="color: blue">US</span>", "<span style="color: blue">metric</span>", and "<span style="color: blue">UK</span>".</p>
 
-  <blockquote>
-    &lt;measurementSystemName type="<span style="color: blue">US</span>"&gt;<span style="color: blue">U.S.</span>&lt;/type&gt;
-  </blockquote>
+<blockquote>
+<pre>&lt;measurementSystemName type="<span style="color: blue">US</span>"&gt;<span style="color: blue">U.S.</span>&lt;/type&gt;
+</pre></blockquote>
 
   <p class="note"><b>Note:</b> In the future, we may need to add display names for the particular measurement units (millimeter versus millimetre versus
   whatever the Greek, Russian, etc are), and a message format for positioning those with respect to numbers. For example, "{number} {unitName}" in some
@@ -332,15 +368,15 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 
   <p>This contains a list of elements that provide the user-translated names for transforms that are not script or locale-based, such as FULLWIDTH.</p>
 
-  <blockquote>
-    &lt;transformName type="<span style="color: blue">Numeric</span>"&gt;<span style="color: blue">Numeric</span>&lt;/type&gt;
-  </blockquote>
+<blockquote>
+<pre>&lt;transformName type="<span style="color: blue">Numeric</span>"&gt;<span style="color: blue">Numeric</span>&lt;/type&gt;
+</pre></blockquote>
 
   <p class="element2">&lt;codePatterns&gt;</p>
 
-  <blockquote>
-    &lt;codePattern type="<span style="color: blue">language</span>"&gt;<span style="color: blue">Language: {0}</span>&lt;/type&gt;
-  </blockquote>
+<blockquote>
+<pre>&lt;codePattern type="<span style="color: blue">language</span>"&gt;<span style="color: blue">Language: {0}</span>&lt;/type&gt;
+</pre></blockquote>
 
 
 <h2>2 <a name="Layout_Elements" href="#Layout_Elements">Layout Elements</a></h2>

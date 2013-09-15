@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-14</span></td>
+			<td>2013-<span class="changed">09-15</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -4311,9 +4311,15 @@ decimal?, group?, special*)) &gt;</pre>
     </li>
     <li><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong>
       <ul>
+        <li>Specified that the localeSeparator element is now a pattern, not a string, in
+          <strong>Part 2: General,</strong> <em>Section 1 <a href="tr35-general.html#Display_Name_Elements">Display Name Elements</a></em>.
+          [<a href="http://unicode.org/cldr/trac/ticket/4915">#4915</a>]</li>
+        <li>Described use of alt="short" (for languages, territories) and alt="stand-alone" (for scripts), in
+          <strong>Part 2: General,</strong> <em>Section 1 <a href="tr35-general.html#Display_Name_Elements">Display Name Elements</a></em>.
+          [<a href="http://unicode.org/cldr/trac/ticket/6153">#6153</a> and others]</li>
         <li>Specified that the index exemplar set may only include characters whose lowercase versions are in the main or auxiliary
-    exemplar sets in <strong>Part 2: General,</strong> <em>Section 3 <a href="tr35-general.html#Character_Elements">Character Elements</a></em>.
-    [<a href="http://unicode.org/cldr/trac/ticket/6202">#6202</a>]</li>
+          exemplar sets in <strong>Part 2: General,</strong> <em>Section 3 <a href="tr35-general.html#Character_Elements">Character Elements</a></em>.
+          [<a href="http://unicode.org/cldr/trac/ticket/6202">#6202</a>]</li>
         <li>Added reference to UTR 39 in <strong>Part 2: General,</strong> <em>Section 3 <a href="tr35-general.html#Character_Elements">Character Elements</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6068" title="View ticket">#6068</a>]</li>
         <li>Added explanation of types in <strong>Part 2: General,</strong> <em>Section 3.4 <a href="tr35-general.html#Ellipsis">Ellipsis</a></em><a href="tr35-general.html#Ellipsis"></a>. [<a href="http://unicode.org/cldr/trac/ticket/6658" title="View ticket">#6658</a>]</li>
         <li>Added unit documentation in <strong>Part 2: General, </strong><em>Section 6 <a href="tr35-general.html#Unit_Elements">Unit Elements</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6659" title="View ticket">#6659</a>]</li>
@@ -4324,8 +4330,13 @@ decimal?, group?, special*)) &gt;</pre>
     </li>
     <li><strong>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a></strong>
       <ul>
-        <li>Added superscriptingExponent in <strong>Part 3: Numbers, </strong><em>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number Symbols</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5815" title="View ticket">#5815</a>], [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>]</li>
-        <li>Added miscPatterns in <strong>Part 3: Numbers, </strong><em>Section 2.5 <a href="tr35-numbers.html#Miscellaneous_Patterns">Miscellaneous Patterns</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>], [<a href="http://unicode.org/cldr/trac/ticket/5272" title="View ticket">#5272</a>], [<a href="http://unicode.org/cldr/trac/ticket/2452" title="View ticket">#2452</a>]</li>
+        <li>Added superscriptingExponent in <strong>Part 3: Numbers, </strong><em>Section 2.3 <a href="tr35-numbers.html#Number_Symbols">Number Symbols</a></em>.
+        [<a href="http://unicode.org/cldr/trac/ticket/5815" title="View ticket">#5815</a>], [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>]</li>
+        <li>Added &lt;currencyFormat type="accounting"&gt; in <strong>Part 3: Numbers, </strong><em>Section 2.4.2 <a href="tr35-numbers.html#Currency_Formats">Currency Formats</a></em>.
+        [<a href="http://unicode.org/cldr/trac/ticket/5674" title="View ticket">#5674</a>]</li>
+        <li>Added miscPatterns in <strong>Part 3: Numbers, </strong><em>Section 2.5 <a href="tr35-numbers.html#Miscellaneous_Patterns">Miscellaneous Patterns</a></em>.
+        [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>], [<a href="http://unicode.org/cldr/trac/ticket/5272" title="View ticket">#5272</a>],
+        [<a href="http://unicode.org/cldr/trac/ticket/2452" title="View ticket">#2452</a>]</li>
         <li>Added clarification for default rounding value to <strong>Part 3: Numbers,</strong> <em>Section 4.1 <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6516" title="View ticket">#6516</a>]</li>
         <li>Added 'cashDigits' and 'cashRounding' to <strong>Part 3: Numbers,</strong> <em>Section 4.1 <a href="tr35-numbers.html#Supplemental_Currency_Data">Supplemental Currency Data</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/5826" title="View ticket">#5826</a>]</li>
         <li>Major enhancements to the syntax of plural rules in  <strong>Part 3: Numbers, </strong><em>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a></em>. [<a href="http://unicode.org/cldr/trac/ticket/6660" title="View ticket">#6660</a>], [<a href="http://unicode.org/cldr/trac/ticket/3727" title="View ticket">#3727</a>]</li>
@@ -4343,7 +4354,8 @@ decimal?, group?, special*)) &gt;</pre>
           [<a href="http://unicode.org/cldr/trac/ticket/5799" title="View ticket">#5799</a>]</li>
         <li>Added 'J' symbol to<strong> Part 4: Dates, </strong> <a href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol Table</a>.
           [<a href="http://unicode.org/cldr/trac/ticket/5413">#5413</a>]</li>
-        <li>Updated to reflect new structure in<strong> Part 4: Dates,</strong> <em>Section 3 <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>, plus the
+        <li>Updated to reflect new structure (&lt;relativeTime&gt;, and &lt;relative&gt; for sun, mon, …) in
+          <strong>Part 4: Dates,</strong> <em>Section 3 <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>, plus the
           standard/daylight types for &lt;regionFormat&gt; in <strong>Part 4: Dates,</strong> <em>Section </em>5 <a href="tr35-dates.html#Time_Zone_Names">Time Zone Names</a>.
           Moved deprecated items from <strong>Part 4: Dates</strong> to shared <em>Section 8 <a href="#Deprecated_Structure">Deprecated Structure</a></em>.
           Added DTD updates for other changes in <strong>Parts 1, 2, 3, 6</strong>.

@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-12</span></td>
+			<td>2013-<span class="changed">09-14</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -3450,7 +3450,7 @@ decimal?, group?, special*)) &gt;</pre>
     The older dayNames, dayAbbr are equivalent to: using the days element with the context type=&quot;<span style="color: blue">format</span>&quot;
     and the width type=&quot;<span style="color: blue">wide</span>&quot; (for ...Names) and type=&quot;<span style="color: blue">narrow</span>&quot; 
 	(for ...Abbr), respectively.</li>
-    <li><a name="week_deprecated" href="#week_deprecated">&lt;week&gt;</a> is deprecated in the main LDML files, because the data is more
+    <li><a name="week" href="#week">&lt;week&gt;</a> is deprecated in the main LDML files, because the data is more
       appropriately organized as connected to territories, not to linguistic data. Use the supplemental
       &lt;weekData&gt; element instead.
     <li>&lt;am&gt; and &lt;pm&gt;; these are now included as part of the &lt;dayPeriods&gt; element</li>
@@ -3461,7 +3461,7 @@ decimal?, group?, special*)) &gt;</pre>
   <h3 class="changed"><a name="Deprecated_subelements_of_timeZoneNames" href="#Deprecated_subelements_of_timeZoneNames">8.10 Deprecated subelements of &lt;timeZoneNames&gt;</a></h3>
   <ul class="changed">
     <li>&lt;hoursFormat&gt; e.g. &quot;{0}/{1}&quot; for &quot;-0800/-0700&quot;</li>
-    <li><a name="fallbackRegionFormat_deprecated" href="#fallbackRegionFormat_deprecated">&lt;fallbackRegionFormat&gt;</a> (deprecated),
+    <li><a name="fallbackRegionFormat" href="#fallbackRegionFormat">&lt;fallbackRegionFormat&gt;</a> (deprecated),
       e.g. &quot;{0} Time ({1})&quot; for &quot;United States Time (New York)&quot;</li>
     <li>&lt;abbreviationFallback&gt;</li>
     <li>&lt;preferenceOrdering&gt;, a preference ordering among modern zones; use metazones instead.</li>
@@ -3663,10 +3663,6 @@ decimal?, group?, special*)) &gt;</pre>
       <td>2.6 <a href="tr35-dates.html#dateTimeFormats">&lt;dateTimeFormats&gt;</a></td>
     </tr>
     <tr>
-      <td><a name="week" href="#week">&lt;week&gt;</a></td>
-      <td><a href="#week_deprecated">&lt;week<span class="changed"> (deprecated)</span>&gt;</a></td>
-    </tr>
-    <tr>
       <td><a name="Calendar_Fields" href="#Calendar_Fields">5.9.2 Calendar Fields</a></td>
       <td>3 <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></td>
     </tr>
@@ -3705,10 +3701,6 @@ decimal?, group?, special*)) &gt;</pre>
     <tr>
       <td><a name="Time_Zone_Fallback" href="#Time_Zone_Fallback">Appendix J: Time Zone Display Names</a></td>
       <td>7 <a href="tr35-dates.html#Using_Time_Zone_Names">Using Time Zone Names</a></td>
-    </tr>
-    <tr>
-      <td><a name="fallbackRegionFormat" href="#fallbackRegionFormat"><strong>fallbackRegionFormat:</strong></a></td>
-      <td><a href="#fallbackRegionFormat_deprecated">&lt;fallbackRegionFormat<span class="changed"> (deprecated)</span>&gt;</a></td>
     </tr>
     <tr>
       <td><a name="fallbackFormat" href="#fallbackFormat"><b>fallbackFormat</b>:</a></td>

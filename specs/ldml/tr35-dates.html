@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-12</span></td>
+			<td>2013-<span class="changed">09-14</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -156,7 +156,11 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
       <li>4.5 <a href="#Day_Period_Rules">Day Period Rules</a></li>
     </ul>
     </li>
-    <li>5 <a href="#Time_Zone_Names">Time Zone Names</a></li>
+    <li>5 <a href="#Time_Zone_Names">Time Zone Names</a>
+    <ul class="toc">
+      <li class="changed">5.1 <a href="#Metazone_Names">Metazone Names</a></li>
+    </ul>
+    </li>
     <li>6 <a href="#Supplemental_Time_Zone_Data">Supplemental Time Zone Data</a>
     <ul class="toc">
       <li>6.1 <a href="#Metazones">Metazones</a></li>
@@ -164,10 +168,21 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
       <li>6.3 <a href="#Primary_Zones">Primary Zones</a></li>
     </ul>
     </li>
-    <li>7 <a href="#Using_Time_Zone_Names">Using Time Zone Names</a></li>
+    <li>7 <a href="#Using_Time_Zone_Names">Using Time Zone Names</a>
+    <ul class="toc">
+      <li class="changed">7.1 <a href="#Time_Zone_Format_Terminology">Time Zone Format Terminology</a></li>
+      <li class="changed">7.2 <a href="#Time_Zone_Goals">Goals</a></li>
+      <li class="changed">7.3 <a href="#Time_Zone_Parsing">Parsing</a></li>
+    </ul>
+    </li>
     <li>8 <a href="#Date_Format_Patterns">Date Format Patterns</a>
     <ul class="toc">
-      <li><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></li>
+      <li>Table: <a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a></li>
+      <li class="changed">8.1 <a href="#Localized_Pattern_Characters">Localized Pattern Characters (deprecated)</a></li>
+      <li class="changed">8.2 <a href="#Date_Patterns_AM_PM">AM / PM</a></li>
+      <li class="changed">8.3 <a href="#Date_Patterns_Eras">Eras</a></li>
+      <li class="changed">8.4 <a href="#Date_Patterns_Week_Of_Year">Week of Year</a></li>
+      <li class="changed">8.5 <a href="#Date_Patterns_Week_Elements">Week Elements</a></li>
     </ul>
     </li>
     <li>9 <a href="#Parsing_Dates_Times">Parsing Dates and Times</a></li>
@@ -1509,7 +1524,7 @@ Dates Element, Supplemental Date and Calendar Information</a></h2>
 		<i><a href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.</i></p>
   </blockquote>
 
-<h3>Metazones</h3>
+<h3>5.1 <a name="Metazone_Names" href="#Metazone_Names">Metazone Names</a></h3>
 
   <p>A metazone is an grouping of one or more internal TZIDs that share a common display name in current
   customary usage, or that have shared a common display name during some particular time period.
@@ -1723,7 +1738,7 @@ U+2205 ).</p>
   conveying a timezone for specifying a recurring time (such as a meeting in a calendar). For either purpose,
   a GMT offset would lose information.</p>
 
-<h3>Time Zone Format Terminology</h3>
+<h3>7.1 <a name="Time_Zone_Format_Terminology" href="#Time_Zone_Format_Terminology">Time Zone Format Terminology</a></h3>
 
   <p>The following terminology defines more precisely the formats that are used.</p>
 
@@ -1905,7 +1920,7 @@ U+2205 ).</p>
 
   <p><b>regionFormat:</b> a formatting string such as &quot;{0} Time&quot;, where {0} is the country or city.</p>
 
-<h3>Goals</h3>
+<h3>7.2 <a name="Time_Zone_Goals" href="#Time_Zone_Goals">Goals</a></h3>
 
   <p>The timezones are designed so that:</p>
   <blockquote>
@@ -2151,7 +2166,7 @@ U+2205 ).</p>
 
   <p><b>Note: </b>As with the <em>regionFormat</em>, exceptional cases need to be explicitly translated. </p>
 
-<h3>Parsing</h3>
+<h3>7.3 <a name="Time_Zone_Parsing" href="#Time_Zone_Parsing">Parsing</a></h3>
 
   <p>In parsing, an implementation will be able to either determine the zone id, or a simple offset from
   GMT for anything formatting according to the above process.</p>
@@ -2948,7 +2963,7 @@ U+2205 ).</p>
 	no other eras in the Gregorian calendar. Other calendars have a different numbers of eras. Care should be taken
 	when translating the era names for a specific calendar.</p>
 
-<h3>8.4 <a name="Date_Patterns_Week_Of_Year" href="#Date_Patterns_Eras">Week of Year</a></h3>
+<h3>8.4 <a name="Date_Patterns_Week_Of_Year" href="#Date_Patterns_Week_Of_Year">Week of Year</a></h3>
 	<p>Values calculated for the Week of Year field range from 1 to 53 for the Gregorian calendar (they may have
 	different ranges for other calendars). Week 1 for a year is the first week that contains at least the specified
 	minimum number of days from that year. Weeks between week 1 of one year and week 1 of the following year are
@@ -2960,7 +2975,7 @@ U+2205 ).</p>
 
 	<p>Values are similarly calculated for the Week of Month.</p>
 
-<h3>8.5 <a name="Date_Patterns_Week_Elements" href="#Date_Patterns_Eras">Week Elements</a></h3>
+<h3>8.5 <a name="Date_Patterns_Week_Elements" href="#Date_Patterns_Week_Elements">Week Elements</a></h3>
 	<dl>
       <dt><b>firstDay</b></dt>
       <dd>A number indicating which day of the week is considered the &#39;first&#39; day, for calendar purposes.

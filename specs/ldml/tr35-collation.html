@@ -54,7 +54,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-08</span></td>
+			<td>2013-<span class="changed">09-14</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -144,15 +144,23 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
         </li>
 		<li>2 <a href="#Root_Collation">Root Collation</a>
                   <ul class="toc">
-                    <li>2.1 <a href="#Root_Data_Files">Root Collation Data Files</a></li>
-                    <li>2.2 <a href="#Root_Data_File_Formats">Root Collation Data File Formats</a></li>
+                    <li class="changed">2.1 <a href="#grouping_classes_of_characters">Grouping classes of characters</a></li>
+                    <li class="changed">2.2 <a href="#non_variable_symbols">Non-variable symbols</a></li>
+                    <li class="changed">2.3 <a href="#tibetan_contractions">Additional contractions for Tibetan</a></li>
+                    <li class="changed">2.4 <a href="#tailored_noncharacter_weights">Tailored noncharacter weights</a></li>
+                    <li><span class="changed">2.5 </span><a href="#Root_Data_Files">Root Collation Data Files</a></li>
+                    <li><span class="changed">2.6 </span><a href="#Root_Data_File_Formats">Root Collation Data File Formats</a></li>
                   </ul>
 		</li>
 		<li>3 <a href="#Collation_Tailorings">Collation Tailorings</a>
                   <ul class="toc">
                     <li>3.1 <a href="#Collation_Version">Version</a></li>
                     <li>3.2 <a href="#Collation_Element">Collation Element</a></li>
-                    <li>3.3 <a href="#Setting_Options">Setting Options</a></li>
+                    <li>3.3 <a href="#Setting_Options">Setting Options</a>
+                    <ul class="toc">
+                      <li class="changed">Table: <a href="#Collation_Settings">Collation Settings</a></li>
+                    </ul>
+                    </li>
                     <li>3.4 <a href="#Rules">Collation Rule Syntax</a></li>
                     <li>3.5 <a href="#Orderings">Orderings</a></li>
                     <li>3.6 <a href="#Contractions">Contractions</a></li>
@@ -168,7 +176,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
                   </ul>
                 </li>
 	</ul>
-<h2><a name="CLDR_Collation" href="#CLDR_Collation">1 CLDR Collation</a></h2>
+<h2>1 <a name="CLDR_Collation" href="#CLDR_Collation">CLDR Collation</a></h2>
   <p>Collation is the general term for the process and function of
   determining the sorting order of strings of characters,
   for example for lists of strings presented to users,
@@ -287,7 +295,7 @@ then the p|c mapping should "win" over any contractions that start with c but do
 <p>However, if the mapping p|c → CE(u) is missing, then text "pch" maps to CE(p)CE(d).</p>
 
 
-<h2><a name="Root_Collation" href="#Root_Collation">2 Root Collation</a></h2>
+<h2>2 <a name="Root_Collation" href="#Root_Collation">Root Collation</a></h2>
   <p>The CLDR root collation order
   is based on the <span class="removed">UCA default table</span> <span class="changed"><a href="http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">Default Unicode Collation Element Table (DUCET)</a></span> defined in
   <em>UTS #10: Unicode Collation Algorithm</em> [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
@@ -297,7 +305,7 @@ then the p|c mapping should "win" over any contractions that start with c but do
   CLDR uses modified tables for the root collation order.
   The root locale ordering is tailored in the following ways:</p>
 
-  <h3><a name="grouping_classes_of_characters" href="#grouping_classes_of_characters">Grouping classes of characters</a></h3>
+  <h3>2.1 <a name="grouping_classes_of_characters" href="#grouping_classes_of_characters">Grouping classes of characters</a></h3>
   <p>As of Version 6.1.0, the DUCET puts characters into the following ordering:</p>
   <ul>
     <li>First &quot;common characters&quot;: whitespace, punctuation,
@@ -334,7 +342,7 @@ then the p|c mapping should "win" over any contractions that start with c but do
     </li>
   </ol>
 
-  <h3><a name="non_variable_symbols" href="#non_variable_symbols">Non-variable symbols</a></h3>
+  <h3>2.2 <a name="non_variable_symbols" href="#non_variable_symbols">Non-variable symbols</a></h3>
   <p>There are multiple <a href="http://www.unicode.org/reports/tr10/#Variable_Weighting">Variable-Weighting</a> options
   in the UCA for symbols and punctuation, including <em>non-ignorable</em> and <em>shifted</em>. 
   With the <em>shifted</em> option, almost all symbols and punctuation are ignored—except at a fourth level. 
@@ -349,14 +357,14 @@ then the p|c mapping should "win" over any contractions that start with c but do
     <li><a href="http://www.unicode.org/charts/collation/">http://www.unicode.org/charts/collation/</a></li>
   </ul>
 
-  <h3><a name="tibetan_contractions" href="#tibetan_contractions">Additional contractions for Tibetan</a></h3>
+  <h3>2.3 <a name="tibetan_contractions" href="#tibetan_contractions">Additional contractions for Tibetan</a></h3>
   <p>Ten contractions are added for Tibetan:
   Two to fulfill <a href="http://www.unicode.org/reports/tr10/#WF5">well-formedness condition 5</a>,
   and eight more to preserve the default order for Tibetan.
   For details see <i>UTS #10, Section 3.8.2,
   <a href="http://www.unicode.org/reports/tr10/#Well_Formed_DUCET">Well-Formedness of the DUCET</a></i>.</p>
 
-  <h3><a name="tailored_noncharacter_weights" href="#tailored_noncharacter_weights">Tailored noncharacter weights</a></h3>
+  <h3>2.4 <a name="tailored_noncharacter_weights" href="#tailored_noncharacter_weights">Tailored noncharacter weights</a></h3>
   <p>U+FFFE and U+FFFF have special tailorings:</p>
   <blockquote>
     <p><strong>U+FFFF: </strong>This code point is tailored to have a
@@ -392,7 +400,7 @@ then the p|c mapping should "win" over any contractions that start with c but do
     and its default table is not the DUCET <span class="changed">nor the CLDR root collation</span>.</li>
   </ul>
 
-<h3><a name="Root_Data_Files" href="#Root_Data_Files">2.1 Root Collation Data Files</a></h3>
+<h3><span class="changed">2.5 </span><a name="Root_Data_Files" href="#Root_Data_Files">Root Collation Data Files</a></h3>
   <p>The CLDR root collation data files are in the CLDR repository and release,
   under the path <a href="http://unicode.org/repos/cldr/trunk/common/uca/">common/uca/</a>.</p>
 
@@ -451,7 +459,7 @@ then the p|c mapping should "win" over any contractions that start with c but do
     </li>
   </ul>
 
-<h3><a name="Root_Data_File_Formats" href="#Root_Data_File_Formats">2.2 Root Collation Data File Formats</a></h3>
+<h3><span class="changed">2.6 </span><a name="Root_Data_File_Formats" href="#Root_Data_File_Formats">Root Collation Data File Formats</a></h3>
 
   <p>The file formats may change between versions of CLDR.
   The formats for CLDR 23 and beyond are as follows.
@@ -715,7 +723,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	    See the <i><a href="http://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings">CLDR 23 version of this document</a></i>
 	    for details about the XML collation syntax.</li>
   </ul>
-<h3><a name="Collation_Version" href="#Collation_Version">3.1 Version</a></h3>
+<h3>3.1 <a name="Collation_Version" href="#Collation_Version">Version</a></h3>
 	<p>The version attribute is used in case a specific version of the UCA is to be specified. It is optional, and is specified if the results are to be identical 
 	on different systems. If it is not supplied, then the version is assumed to be the same as the Unicode version for the system as a whole. In general, tailorings 
 	should be defined so as to minimize dependence on the underlying UCA version, by explicitly specifying the behavior of all characters used to write the language 
@@ -726,7 +734,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		so that dual versions were no longer necessary. So for UCA 4.0 and beyond, the version just has a single number.</p>
 	</blockquote>
 
-	<h3><a name="Collation_Element" href="#Collation_Element">3.2 Collation Element</a></h3>
+	<h3>3.2 <a name="Collation_Element" href="#Collation_Element">Collation Element</a></h3>
 	<p class="dtd">&lt;!ELEMENT collation (alias | (<span class="removed">base?, </span><span class="changed">import*, </span>settings?,
 	suppress_contractions?, optimize?, <span class="removed">rules?, </span><span class="changed">cr*, </span>special*)) &gt;</p>
 	<p>The tailoring syntax is designed to be independent of the actual weights used in any particular UCA table. That way the same rules can 
@@ -746,7 +754,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 	Options</a>. Any successive rules are concatenated to the end of the rules in the base. The results of multiple rules applying to the same characters is covered 
 	in <a href="#Orderings">Orderings</a>.</p>
 
-<h3><a name="Setting_Options" href="#Setting_Options">3.3 Setting Options</a></h3>
+<h3>3.3 <a name="Setting_Options" href="#Setting_Options">Setting Options</a></h3>
 	<p><span class="removed">In XML syntax, these</span>
 	<span class="changed">The following parametric settings</span> are attributes of &lt;settings&gt;.
 	For example, &lt;settings strength=&quot;secondary&quot;&gt; will only compare strings based on their primary and secondary weights.
@@ -1000,7 +1008,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
   <p>The effect of these settings is to customize to ignore different sets of characters when comparing strings. For example, the locale identifier "de-u-ka-shifted-vt-0024" is requesting  settings appropriate for German, including German sorting conventions, and that '$' and characters sorting below it are ignored in sorting.
   </p>
 
-  <h3><a name="Rules" href="#Rules">3.4 Collation Rule Syntax</a></h3>
+  <h3>3.4 <a name="Rules" href="#Rules">Collation Rule Syntax</a></h3>
   <p class="dtd"><span class="changed">&lt;!ELEMENT cr #PCDATA &gt;</span></p>
 	<p>The goal for the collation rule syntax is to have clearly expressed rules with a concise format<span class="removed">, that parallels the basic syntax as much as possible.
 	The rule syntax uses abbreviated element names for primary (level 1), secondary (level 2), tertiary (level 3), and identical, to be as short as possible.
@@ -1059,7 +1067,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
   <p class="changed">The collation syntax is case-sensitive.</p>
 
-	<h3><a name="Orderings" href="#Orderings">3.5 Orderings</a></h3>
+	<h3>3.5 <a name="Orderings" href="#Orderings">Orderings</a></h3>
 	<p class="removed">The following are the normal ordering actions used for the bulk of characters.
 	Each rule contains a string of ordered characters that starts with an anchor point or a reset value.
 	The reset value is an absolute point in the <span class="changed">root order</span> that determines the order of other characters.
@@ -1300,7 +1308,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		    = <span style="color: blue">V </span>= <span style="color: blue">w </span>= <span style="color: blue">W</span></code></td>
 		</tr>
 	</table>
-<h3><a name="Contractions" href="#Contractions">3.6 Contractions</a></h3>
+<h3>3.6 <a name="Contractions" href="#Contractions">Contractions</a></h3>
 	<p class="removed">To sort a sequence as a single item (contraction), just use the sequence, 
 	for example,</p>
   <p class="changed">A multi-character relation string defines a contraction.</p>
@@ -1318,7 +1326,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</tr>
 	</table>
 
-	<h3><a name="Expansions" href="#Expansions">3.7 Expansions</a></h3>
+	<h3>3.7 <a name="Expansions" href="#Expansions">Expansions</a></h3>
 	<p class="dtd removed">&lt;!ELEMENT x (context?, ( p | pc | s | sc | t | tc | i | ic )*, extend? ) &gt;</p>
   <p class="changed">A mapping to multiple collation elements defines an expansion.
   This is normally the result of a reset position (and/or preceding relation)
@@ -1433,7 +1441,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</tr>
 	</table>
 
-	<h3><a name="Context_Before" href="#Context_Before">3.8 Context Before</a></h3>
+	<h3>3.8 <a name="Context_Before" href="#Context_Before">Context Before</a></h3>
 	<p class="removed">The context before a character can affect how it is ordered, such as in Japanese. This could be expressed with a combination of contractions and expansions, 
 	but is faster using a context. (The actual weights produced are different, but the resulting string comparisons are the same.)
 	If a context element occurs, it must be the first item in the rule, and requires an &lt;x&gt; element.</p>
@@ -1465,7 +1473,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<li><code>&lt; def / ghi</code></li>
 		<li><code>&lt; abc | def</code></li>
 	</ul>
-	<h3><a name="Placing_Characters_Before_Others" href="#Placing_Characters_Before_Others">3.9 Placing Characters Before Others</a></h3>
+	<h3>3.9 <a name="Placing_Characters_Before_Others" href="#Placing_Characters_Before_Others">Placing Characters Before Others</a></h3>
 	<p>There are certain circumstances where characters need to be placed before a given character, rather than after. This is the case with Pinyin, for example, 
 	where certain accented letters are positioned before the base letter. That is accomplished with the following syntax.</p>
 	<pre>&amp;[before 2] a &lt;&lt; à</pre>
@@ -1478,7 +1486,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<li><code>&amp;[before 2] a &lt;&lt;&lt; à # error</code></li>
 	</ul>
 
-	<h3><a name="Logical_Reset_Positions" href="#Logical_Reset_Positions">3.10 Logical Reset Positions</a></h3>
+	<h3>3.10 <a name="Logical_Reset_Positions" href="#Logical_Reset_Positions">Logical Reset Positions</a></h3>
 	<p class="dtd removed">&lt;!ELEMENT reset ( ... | first_variable| last_variable | first_tertiary_ignorable | last_tertiary_ignorable | first_secondary_ignorable 
 	| last_secondary_ignorable | first_primary_ignorable | last_primary_ignorable | first_non_ignorable | last_non_ignorable | first_trailing | last_trailing )* 
 	&gt;</p>
@@ -1631,7 +1639,7 @@ text data in the rule. For example, the following are all disallowed:</p>
 		<li><code>&lt;p&gt;<span style="color: blue">a</span>&lt;last_variable/&gt;&lt;/p&gt;</code>	</li>
 	</ul>
 
-	<h3><a name="Special_Purpose_Commands" href="#Special_Purpose_Commands">3.11 Special-Purpose Commands</a></h3>
+	<h3>3.11 <a name="Special_Purpose_Commands" href="#Special_Purpose_Commands">Special-Purpose Commands</a></h3>
 	<p class="dtd">&lt;!ELEMENT import EMPTY &gt;<br>
     &lt;!ATTLIST import source CDATA #REQUIRED &gt;<br>
     &lt;!ATTLIST import type CDATA #IMPLIED &gt;</p>
@@ -1691,7 +1699,7 @@ text data in the rule. For example, the following are all disallowed:</p>
   ]]&gt;&lt;/cr&gt;
 &lt;/collation&gt;</pre>
 
-	<h3><a name="Script_Reordering" href="#Script_Reordering">3.12 Collation Reordering</a></h3>
+	<h3>3.12 <a name="Script_Reordering" href="#Script_Reordering">Collation Reordering</a></h3>
 <p>Collation reordering allows scripts and certain other defined blocks of characters to be moved relative to each other parametrically, without changing the detailed rules for all the characters involved. This reordering is done on top of any specific ordering rules within the script or block currently in effect. Reordering can specify groups to be placed at the start and/or the end of the collation order. For example, to reorder Greek characters before Latin characters, and digits afterwards (but before other scripts), the following can be used:</p>
 <table >
   <tr>
@@ -1772,7 +1780,7 @@ and by hyphens in locale identifiers.</p>
 <p>The default reordering groups follow the allkeys_CLDR.txt ordering; they also may be tailored by implementations to different values. For more information on FractionalUCA.txt and allkeys_CLDR.txt, see <a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation Auxiliary</a>.</p>
 <p> The DUCET ordering is slightly different from the allkeys_CLDR ordering. The reordering groups for the DUCET are not specified here. However, most reordering groups would start with the same characters as in FractionalUCA.txt.</p>
 
-<h3><a name="Case_Parameters" href="#Case_Parameters">3.13 Case Parameters</a></h3>
+<h3>3.13 <a name="Case_Parameters" href="#Case_Parameters">Case Parameters</a></h3>
 <p>The <strong>case level</strong> is an <em>optional</em> intermediate level (&quot;2.5&quot;)
 between Level 2 and Level 3 (or after Level 1, if there is no Level 2 due to strength settings).
 The case level is used to support two parametric features:
@@ -1945,13 +1953,13 @@ All Uppercase characters have primary root collation CEs.</p>
   <li>[℘℺⅁-⅄🅐-🅩🅰-🆊]</li>
 </ul>
 
-<h3><a name="Visibility" href="#Visibility">3.14 Visibility</a></h3>
+<h3>3.14 <a name="Visibility" href="#Visibility">Visibility</a></h3>
 <p class="dtd">&lt;!ATTLIST collation visibility ( internal | external ) &quot;external&quot; &gt;</p>
 <p>Collators have external visibility by default, meaning that they can be displayed in a list of collation
 options for users to choose from. Collators marked as having internal visibility should not be shown in such a list.
 Collators are typically internal when they are partial sequences included in other collators.</p>
 
-<h3><a name="Collation_Indexes" href="#Collation_Indexes">3.15 Collation Indexes</a></h3>
+<h3>3.15 <a name="Collation_Indexes" href="#Collation_Indexes">Collation Indexes</a></h3>
 <h4>Index Characters</h4>
   <p>The main data includes &lt;exemplarCharacters&gt; for collation indexes.
   See the main document, <i>Section 5.6 <a href="tr35.html#Character_Elements">Character Elements</a></i>,

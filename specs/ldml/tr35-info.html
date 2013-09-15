@@ -52,7 +52,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-08</span></td>
+			<td>2013-<span class="changed">09-14</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -144,19 +144,25 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     </ul>
     </li>
     <li>2 <a href="#Supplemental_Language_Data">Supplemental Language Data</a></li>
-    <li>4 <a href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></li>
-    <li>5 <a href="#Telephone_Code_Data">Telephone Code Data</a></li>
-    <li>6 <a href="#Postal_Code_Validation">Postal Code Validation</a></li>
-    <li>7 <a href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></li>
-    <li>8 <a href="#Coverage_Levels">Coverage Levels</a></li>
-    <li>9 <a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>
+    <li><span class="changed">3 </span><a href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></li>
+    <li><span class="changed">4 </span><a href="#Telephone_Code_Data">Telephone Code Data</a></li>
+    <li><span class="changed">5 </span><a href="#Postal_Code_Validation">Postal Code Validation</a></li>
+    <li><span class="changed">6 </span><a href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></li>
+    <li><span class="changed">7 </span><a href="#Coverage_Levels">Coverage Levels</a>
       <ul class="toc">
-         <li>9.1 <a href="#Supplemental_Alias_Information">Supplemental Alias Information</a></li>
-         <li>9.2 <a href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information</a></li>
-         <li>9.3 <a href="#Default_Content">Default Content</a></li>
+         <li class="changed">7.1 <a href="#Coverage_Level_Definitions">Definitions</a></li>
+         <li class="changed">7.2 <a href="#Coverage_Level_Data_Requirements">Data Requirements</a></li>
+         <li class="changed">7.3 <a href="#Coverage_Level_Default_Values">Default Values</a></li>
       </ul>
     </li>
-    <li>10 <a href="#Metadata_Elements">Locale Metadata Element</a></li>
+    <li><span class="changed">8 </span><a href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>
+      <ul class="toc">
+         <li><span class="changed">8.1 </span><a href="#Supplemental_Alias_Information">Supplemental Alias Information</a></li>
+         <li><span class="changed">8.2 </span><a href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information</a></li>
+         <li><span class="changed">8.3 </span><a href="#Default_Content">Default Content</a></li>
+      </ul>
+    </li>
+    <li><span class="changed">9 </span><a href="#Metadata_Elements">Locale Metadata Element</a></li>
   </ul>
 
 <h2>Introduction <a name="Supplemental_Data" href="#Supplemental_Data">Supplemental Data</a></h2>
@@ -267,7 +273,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	<pre>		&lt;language type=&quot;fr&quot; scripts=&quot;Latn&quot; territories=&quot;IT US&quot; alt=&quot;secondary&quot; /&gt;
                 ...</pre>
 
-    <h2>4 <a name="Supplemental_Code_Mapping" href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></h2>
+    <h2><span class="changed">3 </span><a name="Supplemental_Code_Mapping" href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></h2>
 
 	<p class="dtd">&lt;!ELEMENT languageCodes EMPTY &gt;<br>
 	&lt;!ATTLIST languageCodes type NMTOKEN #REQUIRED&gt;<br>
@@ -295,7 +301,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 ...
 &lt;territoryCodes type=&quot;QU&quot; numeric=&quot;967&quot; alpha3=&quot;QUU&quot; internet=&quot;EU&quot;/&gt;</pre>
 
-    <h2>5 <a name="Telephone_Code_Data" href="#Telephone_Code_Data">Telephone Code Data</a></h2>
+    <h2><span class="changed">4 </span><a name="Telephone_Code_Data" href="#Telephone_Code_Data">Telephone Code Data</a></h2>
 
 	<p class="dtd">&lt;!ELEMENT telephoneCodeData ( codesByTerritory* ) &gt;<br>
 	<br>
@@ -333,7 +339,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	&lt;telephoneCountryCode code=&quot;1&quot;/&gt; &lt;!-- North America Numbering Plan --&gt;
 &lt;/codesByTerritory&gt;</pre>
 
-    <h2>6 <a name="Postal_Code_Validation" href="#Postal_Code_Validation">Postal Code Validation</a></h2>
+    <h2><span class="changed">5 </span><a name="Postal_Code_Validation" href="#Postal_Code_Validation">Postal Code Validation</a></h2>
 
 	<p class="dtd">&lt;!ELEMENT postalCodeData (postCodeRegex*) &gt;<br>
 	&lt;!ELEMENT postCodeRegex (#PCDATA) &gt;<br>
@@ -347,7 +353,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 	<pre>&lt;postCodeRegex territoryId=&quot;US&quot; &gt;\d{5}([ \-]\d{4})?&lt;/postCodeRegex&gt;</pre>
 	<p>The most complicated currently is the UK.</p>
 
-    <h2>7 <a name="Supplemental_Character_Fallback_Data" href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></h2>
+    <h2><span class="changed">6 </span><a name="Supplemental_Character_Fallback_Data" href="#Supplemental_Character_Fallback_Data">Supplemental Character Fallback Data</a></h2>
 	<p class="dtd">&lt;!ELEMENT characters ( character-fallback*) &gt;<br>
 	<br>
 	&lt;!ELEMENT character-fallback ( character* ) &gt;<br>
@@ -388,7 +394,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 
 
-    <h2>8 <a name="Coverage_Levels" href="#Coverage_Levels">Coverage Levels</a></h2>
+    <h2><span class="changed">7 </span><a name="Coverage_Levels" href="#Coverage_Levels">Coverage Levels</a></h2>
     <p>The following describes the coverage levels used for the current version of CLDR. This list will change between releases of CLDR. Each level adds to what is in the lower level.</p>
 	<table border="1" cellpadding="0" cellspacing="1">
 		<tr>
@@ -478,7 +484,7 @@ However, these principles are continually being refined by the CLDR technical co
 	values into the match expression.  This allows us to reuse the same variable for other coverageLevel matches
 	that use the same regular expression fragment.</p>
 	
-	<h3>8.1 Definitions</h3>
+	<h3>7.1 <a name="Coverage_Level_Definitions" href="#Coverage_Level_Definitions">Definitions</a></h3>
 	<ul>
 		<li><i>Target-Language</i> is the language under consideration. </li>
 		<li><i>Target-Territories</i> is the list of territories found by looking up <i>Target-Language</i> in the &lt;languageData&gt; elements in <a href="tr35-info.html#Supplemental_Language_Data">Supplemental Language Data</a>. </li>
@@ -514,7 +520,7 @@ However, these principles are continually being refined by the CLDR technical co
 		<li><i>Calendar-List</i> is the set of calendars in customary use in any of <i>Target-Territories</i>, plus Gregorian. </li>
 		<li><em>Number-System-List</em> is the set of number systems in customary use in the language.</li>
   </ul>
-	<h3>8.2 Data Requirements</h3>
+	<h3>7.2 <a name="Coverage_Level_Data_Requirements" href="#Coverage_Level_Data_Requirements">Data Requirements</a></h3>
   <p>The required data to qualify for the level is then the following.</p>
 	<ol>
 		<li>localeDisplayNames
@@ -553,7 +559,7 @@ However, these principles are continually being refined by the CLDR technical co
 		<li>currencies: displayNames and symbol for all currencies in <i>Currency-List</i>, for all plural forms</li>
 		<li>transforms: (moderate and above) transliteration between Latin and each other script in <i>Target-Scripts.</i></li>
 	</ol>
-	<h3>8.3 Default Values</h3>
+	<h3>7.3 <a name="Coverage_Level_Default_Values" href="#Coverage_Level_Default_Values">Default Values</a></h3>
 	<p>Items should <i>only</i> be included if they are not the same as the default, which is:</p>
 	<ul>
 		<li>what is in root, if there is something defined there. </li>
@@ -579,7 +585,7 @@ However, these principles are continually being refined by the CLDR technical co
 
 
         <!-- begin section 9 supplemental metadata -->
-	<h2><a name="Appendix_Supplemental_Metadata" href="#Appendix_Supplemental_Metadata">9 Supplemental Metadata</a></h2>
+	<h2><span class="changed">8 </span><a name="Appendix_Supplemental_Metadata" href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a></h2>
 
         <p>Note that this section discusses the <code>&lt;metadata&gt;</code> element within the <code>&lt;supplementalData&gt;</code>
           element. For the per-locale metadata used in tests and the Survey Tool, see <a href="#Metadata_Elements">10: Locale Metadata Element</a>.</p>
@@ -594,7 +600,7 @@ However, these principles are continually being refined by the CLDR technical co
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Appendix L: <a href="#Canonical_Form">Canonical Form</a></li>
 		<li style="margin-top: 0.5em; margin-bottom: 0.5em">Appendix M: <a href="#Coverage_Levels">Coverage Levels</a></li>
 	</ul>
-	<h3><a name="Supplemental_Alias_Information" href="#Supplemental_Alias_Information">9.1 Supplemental Alias Information</a></h3>
+	<h3><span class="changed">8.1 </span><a name="Supplemental_Alias_Information" href="#Supplemental_Alias_Information">Supplemental Alias Information</a></h3>
 	<p class="dtd">&lt;!ELEMENT alias ( languageAlias*, scriptAlias*, territoryAlias*, 
 	variantAlias*, zoneAlias* ) &gt;<br>
 	<br>
@@ -630,7 +636,7 @@ However, these principles are continually being refined by the CLDR technical co
   &lt;territoryAlias type=&quot;BU&quot; replacement=&quot;MM&quot;&gt;
 ...
 &lt;/alias&gt;</pre>
-	<h3><a name="Supplemental_Deprecated_Information" href="#Supplemental_Deprecated_Information">9.2 Supplemental Deprecated Information</a></h3>
+	<h3><span class="changed">8.2 </span><a name="Supplemental_Deprecated_Information" href="#Supplemental_Deprecated_Information">Supplemental Deprecated Information</a></h3>
 	<pre class="dtd">&lt;!ELEMENT deprecated ( deprecatedItems* ) &gt;
 &lt;!ATTLIST deprecated draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED &gt; &lt;!-- true and false are deprecated. --&gt;
 
@@ -664,7 +670,7 @@ However, these principles are continually being refined by the CLDR technical co
 	</table>
 	<p>In each case, multiple items are space-delimited.</p>
 	<p>Where particular values are deprecated (such as territory codes like SU for Soviet Union), the names for such codes may be removed from the common/main translated data after some period of time. However, typically supplemental information for deprecated codes is retained, such as containment, likely subtags, older currency codes usage, etc. The English name may also be retained, for debugging purposes.</p>
-        <h3><a name="Default_Content" href="#Default_Content">9.3 Default Content</a></h3>
+        <h3><span class="changed">8.3 </span><a name="Default_Content" href="#Default_Content">Default Content</a></h3>
 	<pre class="dtd">&lt;!ELEMENT defaultContent EMPTY &gt;
           &lt;!ATTLIST defaultContent locales NMTOKENS #IMPLIED &gt;</pre>
 	<p>In CLDR, locales without territory information (or where needed, 
@@ -688,7 +694,7 @@ However, these principles are continually being refined by the CLDR technical co
 
 
         <!-- begin section Info-A the metadata element -->
-        <h2><a name="Metadata_Elements" href="#Metadata_Elements">10 Locale Metadata Element<strike>s</strike></a></h2>
+        <h2><span class="changed">9 </span><a name="Metadata_Elements" href="#Metadata_Elements">Locale Metadata Element<strike>s</strike></a></h2>
 
         <p>Note: This section refers to the per-locale <code>&lt;metadata&gt;</code> element, containing metadata about a particular locale.
           This is in contrast to the <a href="#Appendix_Supplemental_Metadata"><em>Supplemental</em> Metadata</a>, which is in the supplemental tree and is not specific

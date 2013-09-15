@@ -53,7 +53,7 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
 		</tr>
 		<tr>
 			<td>Date</td>
-			<td>2013-<span class="changed">09-08</span></td>
+			<td>2013-<span class="changed">09-14</span></td>
 		</tr>
 		<tr>
 			<td>This Version</td>
@@ -149,12 +149,21 @@ h2, h3, h4, table           { margin-top: 1.5em; margin-bottom: 0.5em; }
     <li>3 <a href="#Number_Format_Patterns">Number Format Patterns</a>
     <ul class="toc">
       <li>3.1 <a href="#Number_Patterns">Number Patterns</a></li>
+      <li class="changed">3.2 <a href="#Special_Pattern_Characters">Special Pattern Characters</a></li>
+      <li class="changed">3.3 <a href="#Formatting">Formatting</a></li>
+      <li class="changed">3.4 <a href="#sci">Scientific Notation</a></li>
+      <li class="changed">3.5 <a href="#sigdig">Significant Digits</a></li>
+      <li class="changed">3.6 <a href="#Padding">Padding</a></li>
+      <li class="changed">3.7 <a href="#Quoting_Rules">Quoting Rules</a></li>
     </ul></li>
     <li>4 <a href="#Currencies">Currencies</a>
     <ul class="toc">
       <li>4.1 <a href="#Supplemental_Currency_Data">Supplemental Currency Data</a></li>
     </ul></li>
-    <li>5 <a href="#Language_Plural_Rules">Language Plural Rules</a></li>
+    <li>5 <a href="#Language_Plural_Rules">Language Plural Rules</a>
+    <ul class="toc">
+      <li class="changed">5.1 <a href="#Plural_rules_syntax">Plural rules syntax</a></li>
+    </ul></li>
     <li>6 <a href="#Rule-Based_Number_Formatting">Rule-Based Number Formatting</a></li>
     <li>7 <a href="#Parsing_Numbers">Parsing Numbers</a></li>
   </ul>
@@ -412,18 +421,21 @@ follows:</p>
 	  &lt;!ELEMENT miscPatterns (alias | (default*, pattern*, special*)) &gt;<br>
 	  &lt;!ATTLIST miscPatterns numberSystem CDATA #IMPLIED &gt;
 	</span></p>
-    <p class="changed">The miscPatterns supply additional patterns for special purposes. The currently defined values are:    </p>
-    <dt class="changed"><strong>atLeast</strong></dt>
-    <dd class="changed">indicates a  number or higher, such as: “99+” to indicate that there are 99 items or more.</dd>
-  <dt class="changed"><strong>range</strong></dt>
+    <p class="changed">The miscPatterns supply additional patterns for special purposes. The currently defined values are:</p>
+    <dl>
+      <dt class="changed"><strong>atLeast</strong></dt>
+      <dd class="changed">indicates a  number or higher, such as: “99+” to indicate that there are 99 items or more.</dd>
+      <dt class="changed"><strong>range</strong></dt>
       <dd class="changed">indicates a  range of numbers, such as: “99-103” to indicate that there are from 99 to 103 items.</dd>
-      <p class="changed"><em>For example: </em></p>
-      <p><span class="changed"> <code>&lt;miscPatterns numberSystem=&quot;…&quot;&gt;<br>
+    </dl>
+    <p class="changed"><em>For example: </em></p>
+    <p><span class="changed">
+<code>&lt;miscPatterns numberSystem=&quot;…&quot;&gt;<br>
   &lt;pattern type=&quot;atLeast&quot;&gt;⩾{0}&lt;/pattern&gt;<br>
   &lt;pattern type=&quot;range&quot;&gt;{0}–{1}&lt;/pattern&gt;<br>
 &lt;/miscPatterns&gt;</code></span></p>
 <h2><a name="Number_Format_Patterns" href="#Number_Format_Patterns">Section 3: Number Format Patterns</a></h2>
-	<h3><a name="Number_Patterns" href="#Number_Patterns">3.1 Number Patterns</a></h3>
+	<h3>3.1 <a name="Number_Patterns" href="#Number_Patterns">Number Patterns</a></h3>
 	<p>Number patterns affect how numbers are interpreted in a localized context. Here are some examples, based 
 	on the French locale. The &quot;.&quot; shows where the decimal point should go. The &quot;,&quot; shows where the thousands separator should go. A &quot;0&quot; indicates zero-padding: 
 	if the number is too short, a zero (in the locale&#39;s numeric set) will go there. A &quot;#&quot; indicates no padding: if the number is too short, nothing goes there. 
@@ -431,7 +443,7 @@ follows:</p>
 	Notice how the pattern characters &#39;,&#39; and &#39;.&#39; are replaced by the characters appropriate for the locale.</p>
 	<blockquote>
 		<table cellspacing="0" cellpadding="4" border="1">
-			<tr>
+			<tr bgcolor="#ccccff">
 				<th width="17%">Pattern</th>
 				<th width="16%">Currency</th>
 				<th width="33%">Text</th>
@@ -478,7 +490,7 @@ follows:</p>
 	— according to the currency that is being formatted. That can be seen in the above chart, with the difference between Yen and Euro formatting.</p>
 	<p><i>When parsing using a pattern, a lenient parse should 
 	be used; see <a href="tr35.html#Lenient_Parsing">Lenient Parsing</a>.</i></p>
-	<h3>3.2 Special Pattern Characters</h3>
+	<h3>3.2 <a name="Special_Pattern_Characters" href="#Special_Pattern_Characters">Special Pattern Characters</a></h3>
 	<p>Many characters in a pattern are taken literally; they are matched during parsing and output unchanged during formatting. Special characters, on the other 
 	hand, stand for other characters, strings, or classes of characters. For example, the &#39;#&#39; character is replaced by a localized digit. Often the replacement 
 	character is the same as the pattern character; in the U.S. locale, the &#39;,&#39; grouping character is replaced by &#39;,&#39;. However, the replacement is still happening, 
@@ -625,7 +637,7 @@ follows:</p>
 		</li>
 		<li>The only time two thousands separators needs to be used is when the number of digits varies, such as for Hindi: #,##,##0.</li>
 	</ul>
-	<h3>3.3 Formatting</h3>
+	<h3>3.3 <a name="Formatting" href="#Formatting">Formatting</a></h3>
 	<p>Formatting is guided by several parameters, all of which can be specified either using a pattern or using the API. The following description applies to formats 
 	that do not use <a href="#sci">scientific notation</a> or <a href="#sigdig">significant digits</a>. </p>
 	<ul>
@@ -646,7 +658,7 @@ follows:</p>
 	is the only value for which the prefixes and suffixes are not used. </p>
 	<p>Infinity is represented as a single character, typically <font size="3">∞ </font><code>(\u221E)</code>, with the positive or negative prefixes and suffixes 
 	applied. The infinity character is determined by the localized number symbols. </p>
-	<h3><a name="sci" href="#sci">3.4 Scientific Notation</a></h3>
+	<h3>3.4 <a name="sci" href="#sci">Scientific Notation</a></h3>
 	<p>Numbers in scientific notation are expressed as the product of a mantissa and a power of ten, for example, 1234 can be expressed as 1.234 x 10<sup>3</sup>. 
 	The mantissa is typically in the half-open interval [1.0, 10.0) or sometimes [0.0, 1.0), but it need not be. In a pattern, the exponent character immediately 
 	followed by one or more digit characters indicates scientific notation. Example: &quot;0.###E0&quot; formats the number 1234 as &quot;1.234E3&quot;. </p>
@@ -665,7 +677,7 @@ follows:</p>
 		is &quot;12.3E3&quot;. See the section on significant digits for more details. </li>
 		<li>Exponential patterns may not contain grouping separators. </li>
 	</ul>
-	<h3><a name="sigdig" href="#sigdig">3.5 Significant Digits</a></h3>
+	<h3>3.5 <a name="sigdig" href="#sigdig">Significant Digits</a></h3>
 	<p>There are two ways of controlling how many digits are shows: (a) significant digits counts, or (b) integer and fraction digit counts. Integer and fraction 
 	digit counts are described above. When a formatter is using significant digits counts, the number of integer and fraction digits is not specified directly, 
 	and the formatter settings for these counts are ignored. Instead, the formatter uses however many integer and fraction digits are required to display the specified 
@@ -728,7 +740,7 @@ follows:</p>
 		integer digit count of one, a minimum fraction digit count of <code>Minimum Significant Digits - 1</code>, and a maximum fraction digit count of <code>Maximum 
 		Significant Digits - 1</code>. For example, the pattern <code>&quot;@@###E0&quot;</code> is equivalent to <code>&quot;0.0###E0&quot;</code>. </li>
 	</ul>
-	<h3>3.6 Padding</h3>
+	<h3>3.6 <a name="Padding" href="#Padding">Padding</a></h3>
 	<p>Patterns support padding the result to a specific width. In a pattern the pad escape character, followed by a single pad character, causes padding to be 
 	parsed and formatted. The pad escape character is &#39;*&#39;. For example, <code>&quot;$*x#,##0.00&quot;</code> formats 123 to <code>&quot;$xx123.00&quot;</code>, and 1234 to <code>&quot;$1,234.00&quot;</code>.
 	</p>
@@ -777,7 +789,7 @@ follows:</p>
 		<li>Some locales use rounding in their currency formats to reflect the smallest currency denomination. </li>
 		<li>In a pattern, digits &#39;1&#39; through &#39;9&#39; specify rounding, but otherwise behave identically to digit &#39;0&#39;. </li>
 	</ul>
-	<h3><a name="Quoting_Rules" href="#Quoting_Rules">3.7 Quoting Rules</a></h3>
+	<h3>3.7 <a name="Quoting_Rules" href="#Quoting_Rules">Quoting Rules</a></h3>
 	<blockquote>
 		<p>Single quotes, (<b>&#39;</b>), enclose bits of the pattern that should be treated literally. Inside a quoted string, two single quotes (&#39;&#39;) are replaced 
 		with a single one (&#39;). For example: <tt><u>&#39;X &#39;</u>#<u>&#39; Q &#39;</u></tt> -&gt; <b>X 1939 Q </b>(Literal strings <u>underlined</u>.)</p>
@@ -1107,9 +1119,9 @@ types; the plural forms for certain unit types may not use all of the plural-for
     <div dir="ltr">
 <table>
   <tr>
-    <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Behavior</strong></td>
-    <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Description</strong></td>
-    <td class="changed"><strong id="docs-internal-guid-0-f23990-1292-3edd-a03c-16957dd89c7b">Example</strong></td>
+    <th class="changed">Behavior</th>
+    <th class="changed">Description</th>
+    <th class="changed">Example</th>
     </tr>
   <tr>
     <td class="changed">Base</td>
@@ -1134,7 +1146,7 @@ types; the plural forms for certain unit types may not use all of the plural-for
 </table>
   </div>
     <br><p class="changed">There are also variants of the above: for example, short fractions may have the Digits behavior, but longer fractions may just look at the final digit of the fraction.</p>
-	<h3>Plural rules syntax</h3>
+	<h3>5.1 <a name="Plural_rules_syntax" href="#Plural_rules_syntax">Plural rules syntax</a></h3>
 	<p>The xml value for each pluralRule is a <em>condition</em> with a boolean result that specifies whether that rule
 	(i.e. that plural form) applies to a given numeric value <em>n</em>, where n can be expressed as a decimal fraction. <span class="changed">Clients of CLDR may express all the rules for a locale using the following syntax:</span></p>
 	<pre class="changed" dir="ltr">rules         = rule (';' rule)*<br>rule          = keyword ':' condition<br>keyword       = [a-z]+</pre>
@@ -1158,8 +1170,8 @@ decimalValue  = value ('.' value)?</span></pre>
   <div dir="ltr">
     <table>
       <tr>
-        <td class="changed">Symbol</td>
-        <td class="changed">Value</td>
+        <th class="changed">Symbol</th>
+        <th class="changed">Value</th>
       </tr>
       <tr>
         <td class="changed">n</td>
@@ -1200,12 +1212,12 @@ decimalValue  = value ('.' value)?</span></pre>
         <col width="10%">
       </colgroup>
       <tr>
-        <td class="changed"><strong>n</strong></td>
-        <td class="changed"><div align="center"><strong>i</strong></div></td>
-        <td class="changed"><div align="center"><strong>v</strong></div></td>
-        <td class="changed"><div align="center"><strong>w</strong></div></td>
-        <td class="changed"><div align="center"><strong>f</strong></div></td>
-        <td class="changed"><div align="center"><strong>t</strong></div></td>
+        <th class="changed"><strong>n</strong></th>
+        <th class="changed"><div align="center">i</div></th>
+        <th class="changed"><div align="center">v</div></th>
+        <th class="changed"><div align="center">w</div></th>
+        <th class="changed"><div align="center">f</div></th>
+        <th class="changed"><div align="center">t</div></th>
       </tr>
       <tr>
         <td class="changed">1</td>
@@ -1266,21 +1278,28 @@ decimalValue  = value ('.' value)?</span></pre>
     </table>
   </div><br>
   <h4 class="changed" dir="ltr">Relations</h4>
-  <p class="changed" dir="ltr">The keywords 'mod', 'in', 'is', and 'within' are present only for backwards compatibility. The preferred form is to use '%' for modulo, and '=' or '!=' for the relations, with the operand 'i' instead of within. The difference between <strong>in</strong> and <strong>within</strong> is that <strong>in</strong> only includes integers in the specified range,
+  <p class="changed" dir="ltr">The keywords 'mod', 'in', 'is', and 'within' are present only for backwards compatibility. The preferred
+  form is to use '%' for modulo, and '=' or '!=' for the relations, with the operand 'i' instead of within. The difference between
+  <strong>in</strong> and <strong>within</strong> is that <strong>in</strong> only includes integers in the specified range,
   while <strong>within </strong>includes all values. </p>
-  <p class="changed" dir="ltr">The <span class="removed"><strong>in</strong> and <strong>within</strong></span>relations can take comma-separated lists, such as: <strong>n in 3,5,7..15</strong>.  </p>
-  <p dir="ltr"><span class="changed">The modulus (% or<strong> mod</strong>)</span> is a remainder operation as defined in Java; for example, where <strong>n</strong> = 4.3 the result of <strong>n mod 3</strong> is 1.3. <span class="removed">To detect an integer in a rule, use <strong>n mod 1 is 0</strong>. Conversely, for a fraction use: <strong>n mod 1 is not 0</strong>.</span></p>
-  <p class="changed" dir="ltr">The values of relations are defined according to the operand as follows. Importantly, the results may depend on the decimals in the source, including trailing zeros.</p>
+  <p class="changed" dir="ltr">The <span class="removed"><strong>in</strong> and <strong>within</strong></span>relations can take
+  comma-separated lists, such as: <strong>n in 3,5,7..15</strong>.  </p>
+  <p dir="ltr"><span class="changed">The modulus (% or<strong> mod</strong>)</span> is a remainder operation as defined in Java; for
+  example, where <strong>n</strong> = 4.3 the result of <strong>n mod 3</strong> is 1.3. <span class="removed">To detect an integer in a
+  rule, use <strong>n mod 1 is 0</strong>. Conversely, for a fraction use: <strong>n mod 1 is not 0</strong>.</span></p>
+  <p class="changed" dir="ltr">The values of relations are defined according to the operand as follows. Importantly, the results may
+  depend on the decimals in the source, including trailing zeros.</p>
   <ol class="changed" >
-      <li dir="ltr">Let the base value BV be computed from absolute value of the original source number according to the operand.      </li>
+      <li dir="ltr">Let the base value BV be computed from absolute value of the original source number according to the operand.</li>
       <li dir="ltr">Let R be false when the comparison contains &lsquo;not&rsquo;.</li>
       <li dir="ltr">Let R be !R if &nbsp;the comparison contains &lsquo;within&rsquo; and the source number is not an integer.</li>
       <li dir="ltr">If there is a module value MV, let BV be BV - floor(BV/MV).</li>
-      <li dir="ltr">Let CR be the list of comparison ranges, normalized that overlapping ranges are merged. Single values in the rule are represented by a range with identical &lt;start<sub>i</sub>, end<sub>i</sub>&gt; values.</li>
-      <li dir="ltr">Iterate through CR:      </li>
+      <li dir="ltr">Let CR be the list of comparison ranges, normalized that overlapping ranges are merged. Single values in the rule
+      are represented by a range with identical &lt;start<sub>i</sub>, end<sub>i</sub>&gt; values.</li>
+      <li dir="ltr">Iterate through CR:
       <ul>
         <li>if start<sub>i</sub> ≤ BV ≤ end<sub>i</sub> then return R.</li>
-      </ul>
+      </ul></li>
       <li>Otherwise return !R.</li>
   </ol>
 <div dir="ltr"></div>
@@ -1289,8 +1308,8 @@ decimalValue  = value ('.' value)?</span></pre>
 <p>Example<span class="changed"> Rules</span>:</p>
 	<table border="1">
 	  <tr>
-	    <td nowrap><strong>Rules</strong></td>
-	    <td><strong>Comments</strong></td>
+	    <th>Rules</th>
+	    <th>Comments</th>
       </tr>
 	  <tr>
 			<td nowrap>
@@ -1327,8 +1346,8 @@ decimalValue  = value ('.' value)?</span></pre>
   <p class="changed">Samples must indicate whether they are infinite or not. The '…' marker must be present if and only infinitely many values (integer or decimal) can satisfy the rule. If a set is not infinite, it must list all the possible values. </p>
 	<table border="1">
 	  <tr>
-	    <td nowrap class="changed"><strong>Rules</strong></td>
-	    <td class="changed"><strong>Comments</strong></td>
+	    <th class="changed">Rules</th>
+	    <th class="changed">Comments</th>
       </tr>
 	  <tr>
 	    <td nowrap class="changed">@integer 1, 3~5</td>

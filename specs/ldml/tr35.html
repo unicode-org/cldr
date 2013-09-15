@@ -2306,30 +2306,29 @@ root</pre>
 <p>The <i>likelySubtag</i> supplemental data provides default information for 
   computing these values. This data is based on the default content data, the population data, and 
   the the suppress-script data in [<a href="#BCP47">BCP47</a>]. It is heuristically derived, and 
-  may change over time. To look up data in the table, see if a locale matches one of the <b>from</b> attribute values. If so, fetch the corresponding <b>to</b> attribute value. For example, the 
+  may change over time.</p>
+<p>To look up data in the table, see if a locale matches one of the <b>from</b> attribute values. If so, fetch the corresponding <b>to</b> attribute value. For example, the 
   Chinese data looks like the following:</p>
 <blockquote>
   <p class="example">&lt;likelySubtag from=&quot;zh&quot; to=&quot;zh_Hans_CN&quot;/&gt;<br>
     &lt;likelySubtag from=&quot;zh_HK&quot; to=&quot;zh_Hant_HK&quot;/&gt;<br>
-    &lt;likelySubtag from=&quot;zh_Hani&quot; to=&quot;zh_Hans_CN&quot;/&gt;<br>
+    &lt;likelySubtag from=&quot;zh_Hani&quot; to=&quot;zh_Han<span class="changed">i</span>_CN&quot;/&gt;<br>
     &lt;likelySubtag from=&quot;zh_Hant&quot; to=&quot;zh_Hant_TW&quot;/&gt;<br>
     &lt;likelySubtag from=&quot;zh_MO&quot; to=&quot;zh_Hant_MO&quot;/&gt;<br>
     &lt;likelySubtag from=&quot;zh_TW&quot; to=&quot;zh_Hant_TW&quot;/&gt;</p>
 </blockquote>
 <p>So looking up &quot;zh_TW&quot; returns &quot;zh_Hant_TW&quot;, while looking up &quot;zh&quot; 
-  returns &quot;zh_Hans_CN&quot;. In the following text, the components of such a result will be 
-  be designated with language<span class="changed"><sup>2</sup></span>, region<span class="changed"><sup>2</sup></span>,
-  and script<span class="changed"><sup>2</sup></span>.</p>
-<p>The data is designed to be used in the following operations. It can 
-  also be used with language tags using [<a href="#BCP47">BCP47</a>] syntax, with a few changes.</p>
+  returns &quot;zh_Hans_CN&quot;. </p>
+<p><span class="changed">In more detail, t</span>he data is designed to be used in the following operations.</p>
+<p><span class="changed">Note that as of CLDR v24, any field present in the 'from' field, is also present in the 'to' field, so an input field will not change in &quot;Add Likely Subtags&quot; operation. The data and operations can also be used with language tags using [<a href="#BCP47">BCP47</a>] syntax, with the appropriate changes. In addition, certain common 'denormalized' language subtags such as 'iw' (for 'he') may occur in both the 'from' and 'to' fields. This allows for implementations that use those denormalized subtags to use the data with only minor changes to the operations.</span></p>
 <p>&nbsp;</p>
 <p><i><b>Add Likely Subtags: </b>Given a locale, to fill in the most 
-  likely other fields.</i></p>
+  likely.</i></p>
 <p>This operation is performed in the following way. </p>
 <ol>
-  <li style="margin-top: 0.5em; margin-bottom: 0.5em">Canonicalize.
-    <ol>
-      <li>Make sure the 
+  <li style="margin-top: 0.5em; margin-bottom: 0.5em"><strong>Canonicalize.</strong>
+<ol>
+  <li>Make sure the 
         input locale is in canonical form: uses the right separator, and has the right casing.</li>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em">Replace any 
         deprecated subtags with their canonical values using the &lt;alias&gt; data in supplemental 
@@ -2337,38 +2336,46 @@ root</pre>
       <li> If the tag is grandfathered (see &lt;variable id=&quot;$grandfathered&quot; 
         type=&quot;choice&quot;&gt; in the supplemental data), then return it.</li>
       <li>Remove the script code &#39;Zzzz&#39; and the region code &#39;ZZ&#39; if they occur; change an empty language subtag to 
-        &#39;und&#39;.</li>
-      <li>Get the components of the cleaned-up tag (language<span class="changed"><sup>1</sup></span>, 
-        script<span class="changed"><sup>1</sup></span>, and region<span class="changed"><sup>1</sup></span>), plus any variants 
-        if they exist 
-        (including keywords).</li>
-    </ol>
+        &#39;und&#39;.
+        <ol>
+          <ol>
+            <ul>
+              <li>A subtag is called <em>empty</em> if it is missing or it is a base language subtag with the value &quot;und&quot;.</li>
+            </ul>
+          </ol>
+        </ol>
+      </li>
+      <li>Get the components of the cleaned-up <span class="changed">source</span> tag <em>(language<span class="changed"><sub>s</sub></span>, 
+        script<span class="changed"><sub>s</sub></span>, </em>and<em> region<span class="changed"><sub>s</sub></span></em>)<span class="changed">, plus any variants and extentions</span>.</li>
+  </ol>
   </li>
-  <li style="margin-top: 0.5em; margin-bottom: 0.5em">Try each of 
-    the following in order (where the fields exist). The notation field<span class="changed"><sup>3</sup></span> 
-    means field<span class="changed"><sup>1</sup></span> if it exists, otherwise field<span class="changed"><sup>2</sup></span>.
+  <li class="changed" style="margin-top: 0.5em; margin-bottom: 0.5em"><strong>Lookup. </strong>Lookup each of 
+    the following in order, and stop on the first match:
     <ol>
-      <li style="margin-top: 0.5em; margin-bottom: 0.5em">Lookup 
-        language<span class="changed"><sup>1</sup></span> _ script<span class="changed"><sup>1</sup></span>
-        _ region<span class="changed"><sup>1</sup></span>. If in the table, return the language<span class="changed"><sup>2</sup></span>
-        _ script<span class="changed"><sup>2</sup></span> _ region<span class="changed"><sup>2</sup></span>
-        + variants.</li>
-      <li style="margin-top: 0.5em; margin-bottom: 0.5em"><span class="changed">If region<sup>1</sup> is not empty, l</span>ookup 
-        language<span class="changed"><sup>1</sup></span> _ script<span class="changed"><sup>1</sup></span>. 
-        If in the table, return language<span class="changed"><sup>2</sup></span> _ script<span class="changed"><sup>2</sup></span>
-        _ region<span class="changed"><sup>3</sup></span> + variants.</li>
-      <li style="margin-top: 0.5em; margin-bottom: 0.5em"><span class="changed">If script<sup>1</sup> is not empty, l</span>ookup 
-        language<span class="changed"><sup>1</sup></span> _ region<span class="changed"><sup>1</sup></span>.
-        If in the table, return language<span class="changed"><sup>2</sup></span>
-        _ script<span class="changed"><sup>3</sup></span> _ region<span class="changed"><sup>2</sup></span> + variants.</li>
-      <li style="margin-top: 0.5em; margin-bottom: 0.5em"><span class="changed">If script<sup>1</sup> and region<sup>1</sup> are not empty, l</span>ookup 
-        language<span class="changed"><sup>1</sup></span>. If in the table, return language<span class="changed"><sup>2</sup></span>
-        _ script<span class="changed"><sup>3</sup></span> _ region<span class="changed"><sup>3</sup></span> + variants.</li>
-    </ol>
-  </li>
-  <li>If none of these succeed, signal an error.</li>
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em"><em>language<sub>s</sub>_script<sub>s</sub>_region<sub>s</sub></em></li>
+      
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em"><em>language<sub>s</sub>_script<sub>s</sub></em></li>
+      
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em"><em>language<sub>s</sub>_region<sub>s</sub></em></li>
+      
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em"><em><em>language<sub>s</sub></em></em></li>
 </ol>
-<p><i>Example:</i></p>
+  </li>
+  <li class="changed">Return
+    <ol>
+      <li>If there is no match <span class="changed" style="margin-top: 0.5em; margin-bottom: 0.5em"> (= <em>language<sub>m</sub>_script<sub>m</sub>_region<sub>m</sub></em>)</span>, either return
+        <ol>
+          <li>an error value, or </li>
+          <li>the match for &quot;und&quot; (in APIs where a valid language tag is  required).</li>
+        </ol>
+      </li>
+      <li>Let x<sub>r</sub> = x<sub>s</sub> if x<sub>s</sub> is not empty, and x<sub>m</sub> otherwise, for  x being each of <em>language, script, </em>and<em> region</em>.</li>
+      <li>R<span style="margin-top: 0.5em; margin-bottom: 0.5em">eturn the language tag composed of <em>language<sub>r</sub> _ script<sub>r</sub> _ region<sub>r</sub></em> + variants + extensions</span>.</li>
+      </ol>
+  </li>
+  </ol>
+<p class="changed">The lookup can be optimized. For example, if any of the tags in 2.1-2.6 are the same as previous ones in that list, they do not need to be tested.</p>
+<p><i>Example1:</i></p>
 <ul>
   <li style="margin-top: 0.5em; margin-bottom: 0.5em">
     <p>Input is ZH-ZZZZ-SG.</p>
@@ -2380,7 +2387,7 @@ root</pre>
     <p>Lookup in table. No match.</p>
   </li>
   <li style="margin-top: 0.5em; margin-bottom: 0.5em">
-    <p>Remove SG, but remember it. Lookup zh, and get 
+    <p>Lookup zh, and get 
       the match (zh_Hans_CN). Substitute SG, and return zh_Hans_SG.</p>
   </li>
 </ul>

@@ -2322,9 +2322,9 @@ root</pre>
 <p><span class="changed">In more detail, t</span>he data is designed to be used in the following operations.</p>
 <p><span class="changed">Note that as of CLDR v24, any field present in the 'from' field, is also present in the 'to' field, so an input field will not change in &quot;Add Likely Subtags&quot; operation. The data and operations can also be used with language tags using [<a href="#BCP47">BCP47</a>] syntax, with the appropriate changes. In addition, certain common 'denormalized' language subtags such as 'iw' (for 'he') may occur in both the 'from' and 'to' fields. This allows for implementations that use those denormalized subtags to use the data with only minor changes to the operations.</span></p>
 <p>&nbsp;</p>
-<p><i><b>Add Likely Subtags: </b>Given a locale, to fill in the most 
-  likely.</i></p>
-<p>This operation is performed in the following way. </p>
+<p><i><b>Add Likely Subtags: </b></i><span class="changed"><em >Given a source locale X, to return a locale Y where   the empty subtags have been filled in by the most likely subtags.</em> This is written as X ⇒ Y (&quot;X maximizes to Y&quot;).</span></p>
+<p><span class="changed">A subtag is called <em>empty</em> if it is a missing script or region subtag, or it is a base language subtag with the value &quot;und&quot;. In the description below, a subscript on a subtag <em>x</em> indicates which tag it is from: <em>x<sub>s</sub></em> is in the source, <em>x<sub>m</sub></em>is in a match, and <em>x<sub>r</sub></em> is in the final result.</span></p>
+<p>This operation is performed in the following way.</p>
 <ol>
   <li style="margin-top: 0.5em; margin-bottom: 0.5em"><strong>Canonicalize.</strong>
 <ol>
@@ -2335,14 +2335,11 @@ root</pre>
         metadata. Use the first value in the replacement list, if it exists. <span class="changed">Language tag replacements may have multiple parts, such as &quot;sh&quot; ➞ &quot;sr_Latn&quot; or mo&quot; ➞ &quot;ro_MD&quot;. In such a case, the original script and/or region are retained if there is one. Thus &quot;sh_Arab_AQ&quot; ➞ &quot;sr_Arab_AQ&quot;, not &quot;sr_Latn_AQ&quot;.</span></li>
       <li> If the tag is grandfathered (see &lt;variable id=&quot;$grandfathered&quot; 
         type=&quot;choice&quot;&gt; in the supplemental data), then return it.</li>
-      <li>Remove the script code &#39;Zzzz&#39; and the region code &#39;ZZ&#39; if they occur; change an empty language subtag to 
-        &#39;und&#39;.
-        <ul>
-          <li>A subtag is called <em>empty</em> if it is missing or it is a base language subtag with the value &quot;und&quot;.</li>
-        </ul>
+      <li>Remove the script code &#39;Zzzz&#39; and the region code &#39;ZZ&#39; if they occur<span class="removed">; change an empty language subtag to 
+        &#39;und&#39;</span>.
       </li>
       <li>Get the components of the cleaned-up <span class="changed">source</span> tag <em>(language<span class="changed"><sub>s</sub></span>, 
-        script<span class="changed"><sub>s</sub></span>, </em>and<em> region<span class="changed"><sub>s</sub></span></em>)<span class="changed">, plus any variants and extentions</span>.</li>
+        script<span class="changed"><sub>s</sub></span>, </em>and<em> region<span class="changed"><sub>s</sub></span></em>)<span class="changed">, plus any variants and extensions</span>.</li>
   </ol>
   </li>
   <li class="changed" style="margin-top: 0.5em; margin-bottom: 0.5em"><strong>Lookup. </strong>Lookup each of 
@@ -2350,27 +2347,28 @@ root</pre>
     <ol>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em"><em>language<sub>s</sub>_script<sub>s</sub>_region<sub>s</sub></em></li>
       
-      <li style="margin-top: 0.5em; margin-bottom: 0.5em"><em>language<sub>s</sub>_script<sub>s</sub></em></li>
-      
       <li style="margin-top: 0.5em; margin-bottom: 0.5em"><em>language<sub>s</sub>_region<sub>s</sub></em></li>
       
+      <li style="margin-top: 0.5em; margin-bottom: 0.5em"><em>language<sub>s</sub>_script<sub>s</sub></em></li>
       <li style="margin-top: 0.5em; margin-bottom: 0.5em"><em><em>language<sub>s</sub></em></em></li>
-</ol>
+      <li>und<em>_script<sub>s</sub></em></li>
+    </ol>
   </li>
-  <li class="changed">Return
-    <ol>
-      <li>If there is no match <span class="changed" style="margin-top: 0.5em; margin-bottom: 0.5em"> (= <em>language<sub>m</sub>_script<sub>m</sub>_region<sub>m</sub></em>)</span>, either return
+  <li class="changed"><strong>Return</strong>
+<ol>
+  <li>If there is no match,either return
         <ol>
           <li>an error value, or </li>
           <li>the match for &quot;und&quot; (in APIs where a valid language tag is  required).</li>
         </ol>
       </li>
-      <li>Let x<sub>r</sub> = x<sub>s</sub> if x<sub>s</sub> is not empty, and x<sub>m</sub> otherwise, for  x being each of <em>language, script, </em>and<em> region</em>.</li>
+      <li>Otherwise there is a match = <span class="changed" style="margin-top: 0.5em; margin-bottom: 0.5em"><em>language<sub>m</sub>_script<sub>m</sub>_region<sub>m</sub></em></span></li>
+      <li>Let x<sub>r</sub> = x<sub>s</sub> if x<sub>s</sub> is not empty, and x<sub>m</sub> otherwise.</li>
       <li>R<span style="margin-top: 0.5em; margin-bottom: 0.5em">eturn the language tag composed of <em>language<sub>r</sub> _ script<sub>r</sub> _ region<sub>r</sub></em> + variants + extensions</span>.</li>
-      </ol>
+    </ol>
   </li>
   </ol>
-<p class="changed">The lookup can be optimized. For example, if any of the tags in 2.1-2.6 are the same as previous ones in that list, they do not need to be tested.</p>
+<p class="changed">The lookup can be optimized. For example, if any of the tags in Step 2 are the same as previous ones in that list, they do not need to be tested.</p>
 <p><i>Example1:</i></p>
 <ul>
   <li style="margin-top: 0.5em; margin-bottom: 0.5em">
@@ -2389,7 +2387,13 @@ root</pre>
 </ul>
 <p>To find the most likely language for a country, or 
   language for a script, use &quot;und&quot; as the language subtag. For example, looking up &quot;und_TW&quot; returns zh_Hant_TW.</p>
-<p>&nbsp;</p>
+<p class="changed">A goal of the algorithm is that if X ⇒ Y, and X' results from replacing an empty subtag in X by the the corresponding subtag in Y, then X' ⇒ Y. For example, if und_AF      ⇒ fa_Arab_AF, then:</p>
+<ul>
+  <li class="changed">fa_Arab_AF  ⇒ fa_Arab_AF</li>
+  <li class="changed">und_Arab_AF ⇒ fa_Arab_AF</li>
+  <li class="changed"> fa_AF       ⇒ fa_Arab_AF</li>
+</ul>
+<p><span class="changed">There are a small number of exceptions to this goal in the current data, where X ∈ {und_Bopo, und_Brai, und_Cakm, und_Limb, und_Shaw}.</span></p>
 <p><b><i>Remove</i></b><i><b> Likely Subtags: </b>Given a locale, 
   remove any fields that Add Likely Subtags would add.</i></p>
 <p>The reverse operation removes fields that would be added by the 

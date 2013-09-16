@@ -239,42 +239,56 @@ h2,h3,h4,table {
 					<li>2.2 <a href="#otherNumberingSystems">Other Numbering
 							Systems</a></li>
 					<li>2.3 <a href="#Number_Symbols">Number Symbols</a></li>
-					<li>2.4 <a href="#Number_Formats">Number Formats</a></li>
-					<li class="changed">2.5 <a href="#Miscellaneous_Patterns">Miscellaneous
+					<li>2.4 <a href="#Number_Formats">Number Formats</a>
+						<ul class="toc">
+							<li>2.4.1 <a href="#Compact_Number_Formats">Compact
+									Number Formats</a></li>
+							<li>2.4.2 <a href="#Currency_Formats">Currency Formats</a></li>
+						</ul>
+					</li>
+					<li>2.5 <a href="#Miscellaneous_Patterns">Miscellaneous
 							Patterns</a></li>
-				</ul></li>
+				</ul>
+			</li>
 			<li>3 <a href="#Number_Format_Patterns">Number Format
 					Patterns</a>
 				<ul class="toc">
 					<li>3.1 <a href="#Number_Patterns">Number Patterns</a></li>
-					<li class="changed">3.2 <a href="#Special_Pattern_Characters">Special
+					<li>3.2 <a href="#Special_Pattern_Characters">Special
 							Pattern Characters</a></li>
-					<li class="changed">3.3 <a href="#Formatting">Formatting</a></li>
-					<li class="changed">3.4 <a href="#sci">Scientific Notation</a></li>
-					<li class="changed">3.5 <a href="#sigdig">Significant
-							Digits</a></li>
-					<li class="changed">3.6 <a href="#Padding">Padding</a></li>
-					<li class="changed">3.7 <a href="#Quoting_Rules">Quoting
-							Rules</a></li>
-				</ul></li>
+					<li>3.3 <a href="#Formatting">Formatting</a></li>
+					<li>3.4 <a href="#sci">Scientific Notation</a></li>
+					<li>3.5 <a href="#sigdig">Significant Digits</a></li>
+					<li>3.6 <a href="#Padding">Padding</a></li>
+					<li>3.7 <a href="#Quoting_Rules">Quoting Rules</a></li>
+				</ul>
+			</li>
 			<li>4 <a href="#Currencies">Currencies</a>
 				<ul class="toc">
 					<li>4.1 <a href="#Supplemental_Currency_Data">Supplemental
 							Currency Data</a></li>
-				</ul></li>
+				</ul>
+			</li>
 			<li>5 <a href="#Language_Plural_Rules">Language Plural Rules</a>
 				<ul class="toc">
-					<li class="changed">5.1 <a href="#Plural_rules_syntax">Plural
-							rules syntax</a></li>
-				</ul></li>
+					<li>5.1 <a href="#Plural_rules_syntax">Plural rules syntax</a>
+						<ul class="toc">
+							<li>5.1.1 <a href="#Operands">Operands</a></li>
+							<li>5.1.2 <a href="#Relations">Relations</a></li>
+							<li>5.1.3 <a href="#Samples">Samples</a></li>
+							<li>5.1.4 <a href="#Using_cardinals">Using Cardinals</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
 			<li>6 <a href="#Rule-Based_Number_Formatting">Rule-Based
 					Number Formatting</a></li>
 			<li>7 <a href="#Parsing_Numbers">Parsing Numbers</a></li>
 		</ul>
 
 		<h2>
-			<a name="Numbering_Systems" href="#Numbering_Systems">Section 1:
-				Numbering Systems</a>
+			<a name="Numbering_Systems" href="#Numbering_Systems">1 Numbering
+				Systems</a>
 		</h2>
 		<p class="dtd">
 			&lt;!ELEMENT numberingSystems ( numberingSystem* ) &gt;<br>
@@ -342,8 +356,8 @@ h2,h3,h4,table {
 			href="tr35.html#Numbering System Data">Numbering System Data</a>.
 		</em> ) &gt;<br>
 		<h2>
-			2 <a name="Number_Elements" href="#Number_Elements">Section 2:
-				Number Elements</a>
+			<a name="Number_Elements" href="#Number_Elements">2 Number
+				Elements</a>
 		</h2>
 		<p class="dtd">
 			&lt;!ELEMENT numbers (alias | (defaultNumberingSystem*,
@@ -763,8 +777,8 @@ h2,h3,h4,table {
 				</code></span>
 		</p>
 		<h2>
-			<a name="Number_Format_Patterns" href="#Number_Format_Patterns">Section
-				3: Number Format Patterns</a>
+			<a name="Number_Format_Patterns" href="#Number_Format_Patterns">3
+				Number Format Patterns</a>
 		</h2>
 		<h3>
 			3.1 <a name="Number_Patterns" href="#Number_Patterns">Number
@@ -1349,7 +1363,7 @@ h2,h3,h4,table {
 			</p>
 		</blockquote>
 		<h2>
-			<a name="Currencies" href="#Currencies">Section 4 - Currencies</a>
+			<a name="Currencies" href="#Currencies">4 Currencies</a>
 		</h2>
 		<p class="dtd">
 			&lt;!ELEMENT currencies (alias | (default?, currency*, special*))
@@ -1725,8 +1739,8 @@ h2,h3,h4,table {
 			</ul>
 		</blockquote>
 		<h2>
-			<a name="Language_Plural_Rules" href="#Language_Plural_Rules">Section
-				5 - Language Plural Rules</a>
+			<a name="Language_Plural_Rules" href="#Language_Plural_Rules">5
+				Language Plural Rules</a>
 		</h2>
 		<p class="dtd">
 			&lt;!ELEMENT plurals (pluralRules*) &gt;<br> &lt;!ATTLIST
@@ -1920,7 +1934,9 @@ decimalValue  = value ('.' value)?</span>
 					present for samples.</span>
 			</li>
 		</ul>
-		<h4 class="changed" dir="ltr">Operands</h4>
+		<h4>
+			<a name="Operands" href="#Operands">5.1.1 Operands</a>
+		</h4>
 		<p class="changed" dir="ltr">The operands have the following
 			meaning:</p>
 		<div dir="ltr">
@@ -2043,7 +2059,9 @@ decimalValue  = value ('.' value)?</span>
 			</table>
 		</div>
 		<br>
-		<h4 class="changed" dir="ltr">Relations</h4>
+		<h4>
+			<a name="Relations" href="#Relations">5.1.2 Relations</a>
+		</h4>
 		<p class="changed" dir="ltr">
 			The keywords 'mod', 'in', 'is', and 'within' are present only for
 			backwards compatibility. The preferred form is to use '%' for modulo,
@@ -2139,7 +2157,9 @@ decimalValue  = value ('.' value)?</span>
 				</td>
 			</tr>
 		</table>
-		<h4 class="changed">Samples</h4>
+		<h4>
+			<a name="Samples" href="#Samples">5.1.3 Samples</a>
+		</h4>
 		<p class="changed">Samples are provided if sample indicator
 			(@integer or @decimal) is present on any rule. (CLDR always provides
 			samples.)</p>
@@ -2183,7 +2203,10 @@ decimalValue  = value ('.' value)?</span>
 			infinite, leading zero integer digits and trailing zero decimals are
 			not significant. Thus &quot;i = 1 and f = 0&quot; is satisfied by 01,
 			1, 1.0, 1.00, 1.000, etc. but is still considered finite.</p>
-		<h4>Using the cardinal plural rules</h4>
+		<h4>
+			<a name="Using_cardinals" href="#Using_cardinals">5.1.4 Using
+				Cardinals</a>
+		</h4>
 		<p>Elements such as &lt;currencyFormats&gt;, &lt;currency&gt; and
 			&lt;unit&gt; provide selection among subelements designating various
 			localized cardinal plural forms by tagging each of the relevant
@@ -2211,8 +2234,8 @@ decimalValue  = value ('.' value)?</span>
 			&quot;zero&quot; and &quot;one&quot;.</p>
 		<h2>
 			<a name="Rule-Based_Number_Formatting"
-				href="#Rule-Based_Number_Formatting">Section 6: Rule-Based
-				Number Formatting</a>
+				href="#Rule-Based_Number_Formatting">6 Rule-Based Number
+				Formatting</a>
 		</h2>
 		<p class="dtd">
 			&lt;!ELEMENT rbnf ( alias | rulesetGrouping*) &gt;<br> <br>
@@ -2261,8 +2284,8 @@ decimalValue  = value ('.' value)?</span>
 			thousand nine hundred seventy-six&quot;.</p>
 
 		<h2>
-			<a name="Parsing_Numbers" href="#Parsing_Numbers">Section 7 -
-				Parsing Numbers</a>
+			<a name="Parsing_Numbers" href="#Parsing_Numbers">7 Parsing
+				Numbers</a>
 		</h2>
 		<p>The following elements are relevant to determining the value of
 			a parsed number:</p>

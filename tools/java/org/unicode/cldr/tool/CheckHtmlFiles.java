@@ -30,17 +30,16 @@ import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 public class CheckHtmlFiles {
+
     final static Options myOptions = new Options();
     final static Writer LOG = new OutputStreamWriter(System.out);
     static Pattern WELLFORMED_HEADER = Pattern.compile("\\s*(\\d+(\\.\\d+)*\\s*).*");
     static Pattern SUPPRESS_SECTION_NUMBER = Pattern.compile("Migration|References|Acknowledgments|Modifications|Revision \\d+");
     static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+");
+    static Pattern SPACES = Pattern.compile("\\s+");
 
     enum MyOptions {
-        old(
-            ".*",
-            "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive/cldr-22.1/specs/ldml/tr35\\.html",
-            "source data (regex)"),
+        old(".*", "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
         target(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex)"),
         verbose(null, null, "verbose debugging messages"),
         contents(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
@@ -62,7 +61,7 @@ public class CheckHtmlFiles {
         myOptions.parse(MyOptions.old, args, true);
         verbose = MyOptions.verbose.option.doesOccur();
 
-        if (MyOptions.contents.option.doesOccur()) {
+        if (!MyOptions.target.option.doesOccur()) { // contents
             Data target = new Data().getSentences(MyOptions.contents.option.getValue());
             return;
         }
@@ -95,6 +94,8 @@ public class CheckHtmlFiles {
     }
 
     static Pattern WHITESPACE = Pattern.compile("[\\s]+");
+    static Pattern BADSECTION = Pattern.compile("^\\s*(\\d+\\s*)?Section\\s*\\d+\\s*[-:]\\s*");
+    
     static final Set<String> FORCEBREAK = new HashSet<String>();
     static {
         FORCEBREAK.addAll(Arrays.asList("table", "div", "blockquote",
@@ -203,7 +204,7 @@ public class CheckHtmlFiles {
         @Override
         public String toString() {
             //   <h3><a name="Identity_Elements" href="#Identity_Elements">5.3 Identity Elements</a></h3>
-            String id = ids.iterator().next();
+            String id = ids.isEmpty() ? "NOID" : ids.iterator().next();
             String result = "<h" + level + ">"
                 + "<a name=\"" + id + "\" href=\"#" + id + "\">"
                 + (suppressSection ? "" : levels + " ")
@@ -231,8 +232,13 @@ public class CheckHtmlFiles {
                 + "</a>");
         }
 
+        public void addText(String toAppend) {
+            text += toAppend;
+            text = SPACES.matcher(text).replaceAll(" ").trim(); // clean up all spaces; make more efficient later
+        }
+        
         public boolean isContents() {
-            return text.toString().endsWith("Contents");
+            return text.toString().startsWith("Contents");
         }
 
         void addId(String id) {
@@ -242,12 +248,20 @@ public class CheckHtmlFiles {
         public void setLevels(Levels levels, Set<String> errors) {
             this.levels.set(levels);
             String error = "";
+            if (badSectionMatcher.reset(text).find()) {
+                text = text.substring(badSectionMatcher.end());
+                error += "Extra 'Section...' at start; ";
+            }
             if (!headerMatcher.reset(text).matches()) {
                 if (!SUPPRESS_SECTION_NUMBER.matcher(text).matches()) {
                     error += "Missing section numbers; ";
                 }
             } else {
                 text = text.substring(headerMatcher.end(1));
+                if (text.startsWith(".")) {
+                    text = text.substring(1).trim();
+                    error += "Extra . at start; ";
+                }
                 Levels parsedLevels = Levels.parse(headerMatcher.group(1));
                 if (levels.compareTo(parsedLevels) != 0) {
                     error += "Section numbers mismatch, was " + parsedLevels + "; ";
@@ -271,6 +285,7 @@ public class CheckHtmlFiles {
     }
 
     static Matcher headerMatcher = WELLFORMED_HEADER.matcher("");
+    static Matcher badSectionMatcher = BADSECTION.matcher("");
 
     static class HeadingInfoList extends ArrayList<HeadingInfo> {
         private static final long serialVersionUID = -6722150173224993960L;
@@ -284,7 +299,7 @@ public class CheckHtmlFiles {
             }
             h.setLevels(lastBuildLevel.next(h.level, missingLevel), errors);
             if (missingLevel.value) {
-                errors.add("Missing Level in: " + h);
+                errors.add("FATAL: Missing Level in: " + h);
             }
             return super.add(h);
         }
@@ -293,7 +308,7 @@ public class CheckHtmlFiles {
 
         public void listContents() {
 
-            System.out.println("*REVISED TOC*");
+            System.out.println("\n*REVISED TOC*");
             Counter<String> idCounter = new Counter<String>();
 
             Levels lastLevel = new Levels();
@@ -361,23 +376,37 @@ public class CheckHtmlFiles {
             System.out.println(pad + "</ul>");
             --ulCount;
             if (liCount != 0 || ulCount != 0) {
-                throw new IllegalArgumentException("Mismatched counts, " + liCount + ", " + ulCount);
+                throw new IllegalArgumentException("Mismatched counts in generated contents, li:" + liCount + ", ul:" + ulCount);
             }
             for (String id : idCounter) {
                 long count = idCounter.get(id);
                 if (count != 1) {
-                    errors.add("Non-Unique ID: " + id);
+                    errors.add("FATAL: Non-Unique ID: " + id);
                 }
             }
         }
 
-        public void showErrors() {
+        public int showErrors() {
+            int fatalCount = 0;
             if (!errors.isEmpty()) {
                 System.out.println("\n*ERRORS*\n");
                 for (String error : errors) {
-                    System.out.println(error);
+                    if (error.startsWith("FATAL:")) {
+                        System.out.println(error);
+                        fatalCount++;
+                    }
+                }
+                if (fatalCount == 0) {
+                    for (String error : errors) {
+                        System.out.println(error);
+                    }
                 }
             }
+            if (this.size() == 0) {
+                System.out.println("No header items (eg <h2>) captured.");
+                fatalCount = 1;
+            }
+            return fatalCount;
         }
     }
 
@@ -405,7 +434,7 @@ public class CheckHtmlFiles {
                 }
                 ++count;
 
-                System.out.println("\nProcessing:\t" + fileString + "\n");
+                System.out.println("\nProcessing:\t" + sourceDirectory + "/" + fileString + "\n");
 
                 Reader in = new FileReader(new File(sourceDirectory, fileString));
                 SimpleHtmlParser parser = new SimpleHtmlParser().setReader(in);
@@ -420,10 +449,12 @@ public class CheckHtmlFiles {
                 boolean haveContents = false;
                 main: while (true) {
                     Type x = parser.next(content);
-                    //                    LOG.write(x + ":\t");
-                    //                    parser.writeResult(x, content, LOG);
-                    //                    LOG.write("\n");
-                    //                    LOG.flush();
+                    if (verbose) {
+                        LOG.write(x + ":\t");
+                        parser.writeResult(x, content, LOG);
+                        LOG.write("\n");
+                        LOG.flush();
+                    }
                     switch (x) {
                     case ATTRIBUTE:
                         contentString = content.toString().toLowerCase(Locale.ENGLISH);
@@ -472,9 +503,9 @@ public class CheckHtmlFiles {
                         contentString = wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
                         buffer.append(contentString.indexOf('&') >= 0
                             ? TransliteratorUtilities.fromHTML.transform(contentString)
-                            : contentString);
+                                : contentString);
                         if (inHeading) {
-                            heading.text += contentString;
+                            heading.addText(contentString);
                         }
                         break;
                     case DONE:
@@ -501,8 +532,12 @@ public class CheckHtmlFiles {
                     hashedSentences.add(sentence, 1);
                     sentences.add(sentence);
                 }
-                headingInfoList.listContents();
-                headingInfoList.showErrors();
+                int fatalCount = headingInfoList.showErrors();
+                if (fatalCount == 0) {
+                    headingInfoList.listContents();
+                } else {
+                    System.out.println("\nFix fatal errors in " + fileString + " before contents can be generated");
+                }
             }
             if (count == 0) {
                 throw new IllegalArgumentException("No files matched with " + m.pattern() + " in " + sourceDirectory);

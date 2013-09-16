@@ -232,56 +232,48 @@ h2,h3,h4,table {
 		<ul class="toc">
 			<li>1 <a href="#Keyboards">Keyboards</a>
 				<ul class="toc">
-					<li class="changed">1.1 <a href="#Goals_and_Nongoals">Goals
-							and Nongoals</a></li>
-					<li class="changed">1.2 <a href="#Definitions">Definitions</a></li>
-					<li class="changed">1.3 <a href="#File_and_Dir_Structure">File
-							and Directory Structure</a></li>
-					<li class="changed">1.4 <a
-						href="#Element_Heirarchy_Layout_File">Element Hierarchy -
-							Layout File</a>
+					<li>1.1 <a href="#Goals_and_Nongoals">Goals and Nongoals</a></li>
+					<li>1.2 <a href="#Definitions">Definitions</a></li>
+					<li>1.3 <a href="#File_and_Dir_Structure">File and
+							Directory Structure</a></li>
+					<li>1.4 <a href="#Element_Heirarchy_Layout_File">Element
+							Hierarchy - Layout File</a>
 						<ul class="toc">
-							<li class="changed"><a href="#Element_Keyboard">Element:
-									keyboard</a></li>
-							<li class="changed"><a href="#Element_version">Element:
-									version</a></li>
-							<li class="changed"><a href="#Element_generation">Element:
+							<li>1.4.1 <a href="#Element_Keyboard">Element: keyboard</a></li>
+							<li>1.4.2 <a href="#Element_version">Element: version</a></li>
+							<li>1.4.3 <a href="#Element_generation">Element:
 									generation</a></li>
-							<li class="changed"><a href="#Element_names">Element:
-									names</a></li>
-							<li class="changed"><a href="#Element_name">Element:
-									name</a></li>
-							<li class="changed"><a href="#Element_settings">Element:
-									settings</a></li>
-							<li class="changed"><a href="#Element_keyMap">Element:
-									keyMap</a></li>
-							<li class="changed"><a href="#Element_map">Element: map</a></li>
-							<li class="changed"><a href="#Element_transforms">Element:
+							<li>1.4.4 <a href="#Element_names">Element: names</a></li>
+							<li>1.4.5 <a href="#Element_name">Element: name</a></li>
+							<li>1.4.6 <a href="#Element_settings">Element: settings</a></li>
+							<li>1.4.7 <a href="#Element_keyMap">Element: keyMap</a></li>
+							<li>1.4.8 <a href="#Element_map">Element: map</a></li>
+							<li>1.4.9 <a href="#Element_transforms">Element:
 									transforms</a></li>
-							<li class="changed"><a href="#Element_transform">Element:
+							<li>1.4.10 <a href="#Element_transform">Element:
 									transform</a></li>
 						</ul>
 					</li>
-					<li class="changed">1.5 <a
-						href="#Element_Heirarchy_Platform_File">Element Hierarchy -
-							Platform File</a>
+					<li>1.5 <a href="#Element_Heirarchy_Platform_File">Element
+							Hierarchy - Platform File</a>
 						<ul class="toc">
-							<li class="changed"><a href="#Element_platform">Element:
-									platform</a></li>
-							<li class="changed"><a href="#Element_hardwareMap">Element:
+							<li>1.5.1 <a href="#Element_platform">Element: platform</a></li>
+							<li>1.5.2 <a href="#Element_hardwareMap">Element:
 									hardwareMap</a></li>
-							<li class="changed"><a href="#Element_hardwareMap_map">Element:
+							<li>1.5.3 <a href="#Element_hardwareMap_map">Element:
 									map</a></li>
 						</ul>
 					</li>
-					<li class="changed">1.6 <a href="#Invariants">Invariants</a></li>
-					<li class="changed">1.7 <a href="#Data_Sources">Data
-							Sources</a></li>
-					<li class="changed">1.8 <a href="#Keyboard_IDs">Keyboard
-							IDs</a></li>
-					<li class="changed">1.9 <a
-						href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in
-							Edge Cases</a></li>
+					<li>1.6 <a href="#Invariants">Invariants</a></li>
+					<li>1.7 <a href="#Data_Sources">Data Sources</a></li>
+					<li>1.8 <a href="#Keyboard_IDs">Keyboard IDs</a>
+						<ul class="toc">
+							<li>1.8.1 <a href="#Principles_for_Keyboard_Ids">Principles
+									for Keyboard Ids</a></li>
+						</ul>
+					</li>
+					<li>1.9 <a href="#Platform_Behaviors_in_Edge_Cases">Platform
+							Behaviors in Edge Cases</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -433,7 +425,7 @@ h2,h3,h4,table {
 				File</a>
 		</h3>
 		<h4>
-			<a name="Element_Keyboard" href="#Element_Keyboard">Element:
+			1.4.1 <a name="Element_Keyboard" href="#Element_Keyboard">Element:
 				keyboard</a>
 		</h4>
 		<p>This is the top level element. All other elements defined below
@@ -463,7 +455,7 @@ h2,h3,h4,table {
 &lt;/keyboard&gt;</pre>
 		<hr>
 		<h4>
-			<a name="Element_version" href="#Element_version">Element:
+			1.4.2 <a name="Element_version" href="#Element_version">Element:
 				version</a>
 		</h4>
 		<p>
@@ -495,7 +487,7 @@ h2,h3,h4,table {
 		<p>&lt;/keyboard&gt;</p>
 		<hr>
 		<h4>
-			<a name="Element_generation" href="#Element_generation">Element:
+			1.4.3 <a name="Element_generation" href="#Element_generation">Element:
 				generation</a>
 		</h4>
 		<p>
@@ -516,7 +508,8 @@ h2,h3,h4,table {
 		<p>&lt;/keyboard&gt;</p>
 		<hr>
 		<h4>
-			<a name="Element_names" href="#Element_names">Element: names</a>
+			1.4.4 <a name="Element_names" href="#Element_names">Element:
+				names</a>
 		</h4>
 		<p>
 			Element used to store any names given to the layout by the platform.<br>
@@ -528,7 +521,7 @@ h2,h3,h4,table {
 			&lt;/names&gt;<br>
 		</p>
 		<h4>
-			<a name="Element_name" href="#Element_name">Element: name</a>
+			1.4.5 <a name="Element_name" href="#Element_name">Element: name</a>
 		</h4>
 		<p>
 			A single name given to the layout by the platform.<br> <br>
@@ -551,7 +544,7 @@ h2,h3,h4,table {
 		<p>&lt;/keyboard&gt;</p>
 		<hr>
 		<h4>
-			<a name="Element_settings" href="#Element_settings">Element:
+			1.4.6 <a name="Element_settings" href="#Element_settings">Element:
 				settings</a>
 		</h4>
 		<p>
@@ -622,7 +615,8 @@ h2,h3,h4,table {
 		</ol>
 		<hr>
 		<h4>
-			<a name="Element_keyMap" href="#Element_keyMap">Element: keyMap</a>
+			1.4.7 <a name="Element_keyMap" href="#Element_keyMap">Element:
+				keyMap</a>
 		</h4>
 		<p>This element defines the group of mappings for all the keys
 			that use the same set of modifier keys. It contains one or more map
@@ -728,7 +722,7 @@ h2,h3,h4,table {
 		<p>If the modifiers attribute is not present on a keyMap then that
 			particular key map is the base map.</p>
 		<h4>
-			<a name="Element_map" href="#Element_map">Element: map</a>
+			1.4.8 <a name="Element_map" href="#Element_map">Element: map</a>
 		</h4>
 		<p>This element defines a mapping between the base character and
 			the output for a particular set of active modifier keys. This element
@@ -790,7 +784,7 @@ h2,h3,h4,table {
 		<pre>&lt;keyboard locale=&quot;fr-BE-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers=&quot;shift&quot;&gt;<br>		&lt;map iso=&quot;D01&quot; to=&quot;A&quot; /&gt; &lt;!-- key=Q --&gt;<br>		&lt;map iso=&quot;D02&quot; to=&quot;Z&quot; /&gt; &lt;!-- key=W --&gt;<br>		&lt;map iso=&quot;D03&quot; to=&quot;E&quot; /&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;R&quot; /&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;T&quot; /&gt;<br>		&lt;map iso=&quot;D06&quot; to=&quot;Y&quot; /&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;ps-t-k0-windows&quot;&gt;<br>	…<br>	&lt;keyMap modifiers='altR+caps? ctrl+alt+caps?'&gt;<br>		&lt;map iso=&quot;D04&quot; to=&quot;\u{200e}&quot; /&gt; &lt;!-- key=R base=ق --&gt;<br>		&lt;map iso=&quot;D05&quot; to=&quot;\u{200f}&quot; /&gt; &lt;!-- key=T base=ف --&gt;<br>		&lt;map iso=&quot;D08&quot; to=&quot;\u{670}&quot; /&gt; &lt;!-- key=I base=ه to= ٰ --&gt;<br>		…<br>	&lt;/keyMap&gt;<br>	…<br>&lt;/keyboard&gt;</pre>
 		<hr>
 		<h4>
-			<a name="Element_transforms" href="#Element_transforms">Element:
+			1.4.9 <a name="Element_transforms" href="#Element_transforms">Element:
 				transforms</a>
 		</h4>
 		<p>This element defines a group of one or more transform elements
@@ -813,7 +807,7 @@ h2,h3,h4,table {
 			requirements, and coding to ensure sure programmatically mapping
 			those mechanisms into the standard is possible, and so on.)</p>
 		<h4>
-			<a name="Element_transform" href="#Element_transform">Element:
+			1.4.10 <a name="Element_transform" href="#Element_transform">Element:
 				transform</a>
 		</h4>
 		<p>This element must have the transforms element as its parent.
@@ -929,7 +923,7 @@ h2,h3,h4,table {
 			between the hardware key codes to the ISO layout positions for that
 			platform.</p>
 		<h4>
-			<a name="Element_platform" href="#Element_platform">Element:
+			1.5.1 <a name="Element_platform" href="#Element_platform">Element:
 				platform</a>
 		</h4>
 		<p>This is the top level element. This element contains a set of
@@ -940,7 +934,7 @@ h2,h3,h4,table {
 		<p>{platform-specific elements}</p>
 		<p>&lt;/platform&gt;</p>
 		<h4>
-			<a name="Element_hardwareMap" href="#Element_hardwareMap">Element:
+			1.5.2 <a name="Element_hardwareMap" href="#Element_hardwareMap">Element:
 				hardwareMap</a>
 		</h4>
 		<p>This element must have a platform element as its parent. This
@@ -953,8 +947,8 @@ h2,h3,h4,table {
     &lt;/hardwareMap&gt;
 &lt;/platform&gt;</pre>
 		<h4>
-			<a name="Element_hardwareMap_map" href="#Element_hardwareMap_map">Element:
-				map</a>
+			1.5.3 <a name="Element_hardwareMap_map"
+				href="#Element_hardwareMap_map">Element: map</a>
 		</h4>
 		<p>This element must have a hardwareMap element as its parent.
 			This element maps between a hardware keycode and the corresponding
@@ -1177,7 +1171,7 @@ h2,h3,h4,table {
 			followed by zero or more tags that help differentiate the keyboard
 			from others with the same locale code.</p>
 		<h4>
-			<a name="Principles_for_Keyboard_Ids"
+			1.8.1 <a name="Principles_for_Keyboard_Ids"
 				href="#Principles_for_Keyboard_Ids">Principles for Keyboard Ids</a>
 		</h4>
 		<p>The following are the design principles for the ids.</p>

@@ -89,7 +89,7 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">24</span></td>
+				<td>24</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -100,18 +100,18 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td>2013-<span class="changed">09-15</span></td>
+				<td>2013-09-16</td>
 			</tr>
 			<tr>
 				<td>This Version</td>
-				<td><a class="changed"
-					href="http://www.unicode.org/reports/tr35/tr35-32/tr35.html">http://www.unicode.org/reports/tr35/tr35-32/tr35.html</a></td>
+				<td>
+				<a href="http://www.unicode.org/reports/tr35/tr35-33/tr35.html">http://www.unicode.org/reports/tr35/tr35-33/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Previous Version</td>
-				<td><a
-					href="http://www.unicode.org/reports/tr35/tr35-31/tr35.html"
-					class="changed">http://www.unicode.org/reports/tr35/tr35-31/tr35.html</a></td>
+				<td>
+				<a
+					href="http://www.unicode.org/reports/tr35/tr35-31/tr35.html">http://www.unicode.org/reports/tr35/tr35-31/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Latest Version</td>
@@ -132,11 +132,11 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>DTDs</td>
-				<td><a class="changed" href="http://unicode.org/cldr/dtd/24/">http://unicode.org/cldr/dtd/24/</a></td>
+				<td><a href="http://unicode.org/cldr/dtd/24/">http://unicode.org/cldr/dtd/24/</a></td>
 			</tr>
 			<tr>
 				<td>Revision</td>
-				<td><a class="changed" href="#Modifications">32</a></td>
+				<td><a href="#Modifications">33</a></td>
 			</tr>
 		</table>
 		<h3>
@@ -160,7 +160,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -170,13 +170,13 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -197,32 +197,32 @@ h2,h3,h4,table {
 			</i>
 		</p>
 
-		<h2 class="changed">
+		<h2>
 			<a name="Parts" href="#Parts">Parts</a>
 		</h2>
-		<p class="changed">The LDML specification is divided into the
+		<p>The LDML specification is divided into the
 			following parts:</p>
 		<ul class="toc">
-			<li class="changed">Part 1: <a href="tr35.html#Contents">Core
+			<li>Part 1: <a href="tr35.html#Contents">Core
 					specification</a> (languages, locales, basic structure)
 			</li>
-			<li class="changed">Part 2: <a href="tr35-general.html#Contents">General</a>
+			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
 				(display names &amp; transforms, etc.)
 			</li>
-			<li class="changed">Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
+			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
 				(number &amp; currency formatting)
 			</li>
-			<li class="changed">Part 4: <a href="tr35-dates.html#Contents">Dates</a>
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a>
 				(date, time, time zone formatting)
 			</li>
-			<li class="changed">Part 5: <a
+			<li>Part 5: <a
 				href="tr35-collation.html#Contents">Collation</a> (sorting,
 				searching, grouping)
 			</li>
-			<li class="changed">Part 6: <a href="tr35-info.html#Contents">Related
+			<li>Part 6: <a href="tr35-info.html#Contents">Related
 					Information</a> (supplemental data)
 			</li>
-			<li class="changed">Part 7: <a
+			<li>Part 7: <a
 				href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard
 				mappings)
 			</li>
@@ -257,7 +257,7 @@ h2,h3,h4,table {
 				<ul class="toc">
 					<li>9.1 <a href="#Segmentation_Inheritance">Segmentation
 							Inheritance</a></li>
-					<li class="changed">9.2 <a href="#Segmentation_Exceptions">Segmentation
+					<li>9.2 <a href="#Segmentation_Exceptions">Segmentation
 							Exceptions</a></li>
 				</ul>
 			</li>
@@ -274,7 +274,7 @@ h2,h3,h4,table {
 			<li>12 <a href="#Context_Transform_Elements">ContextTransform
 					Elements</a>
 				<ul class="toc">
-					<li class="changed">Table: <a
+					<li>Table: <a
 						href="#contextTransformUsage_type_attribute_values">&lt;contextTransformUsage&gt;
 							type attribute values</a></li>
 				</ul>
@@ -340,8 +340,8 @@ h2,h3,h4,table {
 				as "{0} ({1})" in which {0} is replaced by the display name for the
 				primary language subtag and {1} is replaced by a list of the display
 				names for the remaining subtags.</li>
-			<li>The &lt;localeSeparator&gt; element specifies <span
-				class="changed">a pattern such as "{0}, {1}" used when
+			<li>The &lt;localeSeparator&gt; element specifies 
+			a pattern such as "{0}, {1}" used when
 					appending a subtag display name to the list in the
 					&lt;localePattern&gt; subpattern {1} above. If that list includes
 					more than one display name, then &lt;localeSeparator&gt; subpattern
@@ -349,7 +349,7 @@ h2,h3,h4,table {
 					list in {0}. <em>Note: Before CLDR 24, the
 						&lt;localeSeparator&gt; element specified a separator string such
 						as ", ", not a pattern.</em>
-			</span></li>
+			</li>
 			<li>The &lt;localeKeyTypePattern&gt; element specifies the
 				pattern used to display key-type pairs, such as "{0}: {1}"</li>
 		</ul>
@@ -418,10 +418,10 @@ h2,h3,h4,table {
 			longest match in the language type is used, and the remaining fields
 			(if any) added using composition.</p>
 
-		<p class="changed">Alternate short forms may be provided for some
+		<p>Alternate short forms may be provided for some
 			languages (and for territories and other display names), for example.</p>
 
-		<blockquote class="changed">
+		<blockquote>
 			<pre>&lt;language type="<span style="color: blue">az</span>"&gt;<span
 					style="color: blue">Azerbaijani</span>&lt;/language&gt;
 &lt;language type="<span style="color: blue">az</span>" alt="<span
@@ -460,14 +460,14 @@ h2,h3,h4,table {
 </pre>
 		</blockquote>
 
-		<p class="changed">The script names are most commonly used in
+		<p>The script names are most commonly used in
 			conjunction with a language name, using the &lt;localePattern&gt;
 			combining pattern, and the default form of the script name should be
 			suitable for such use. When a script name requires a different form
 			for stand-alone use, this can be specified using the "stand-alone"
 			alternate:</p>
 
-		<blockquote class="changed">
+		<blockquote>
 			<pre>&lt;script type="<span style="color: blue">Hans</span>"&gt;<span
 					style="color: blue">Simplified</span>&lt;/script&gt;
 &lt;script type="<span style="color: blue">Hans</span>" alt="<span
@@ -481,9 +481,9 @@ h2,h3,h4,table {
 </pre>
 		</blockquote>
 
-		<p class="changed">This will produce results such as the
+		<p>This will produce results such as the
 			following:</p>
-		<ul class="changed">
+		<ul>
 			<li>Display name of language + script, using
 				&lt;localePattern&gt;: “Chinese (Simplified)”</li>
 			<li>Display name of script alone, using &lt;localePattern&gt;:
@@ -512,14 +512,14 @@ h2,h3,h4,table {
 					style="color: blue">Algeria</span>&lt;/territory&gt;
 &lt;territory type="<span style="color: blue">GB</span>"&gt;<span
 					style="color: blue">United Kingdom</span>&lt;/territory&gt;
-<span class="changed">&lt;territory type="<span
+&lt;territory type="<span
 					style="color: blue">GB</span>" alt="<span style="color: blue">short</span>"&gt;<span
-					style="color: blue">U.K.</span>&lt;/territory&gt;</span>
+					style="color: blue">U.K.</span>&lt;/territory&gt;
 &lt;territory type="<span style="color: blue">US</span>"&gt;<span
 					style="color: blue">United States</span>&lt;/territory&gt;
-<span class="changed">&lt;territory type="<span
+&lt;territory type="<span
 					style="color: blue">US</span>" alt="<span style="color: blue">short</span>"&gt;<span
-					style="color: blue">U.S.</span>&lt;/territory&gt;</span>
+					style="color: blue">U.S.</span>&lt;/territory&gt;
 </pre>
 		</blockquote>
 
@@ -742,11 +742,11 @@ h2,h3,h4,table {
 			characters that are in common use in the locale, and information that
 			can be helpful in picking resources or data appropriate for the
 			locale, such as when choosing among character encodings that are
-			typically used to transmit data in the language of the locale. <span
-				class="changed">It may also be used to help reduce
+			typically used to transmit data in the language of the locale. 
+			It may also be used to help reduce
 				confusability issues: see [<a
 				href="http://www.unicode.org/reports/tr41/#UTR36">UTR39</a>].
-			</span> It typically only occurs in a language locale, not in a
+			It typically only occurs in a language locale, not in a
 			language/territory locale. The stopwords are an experimental feature,
 			and should not be used.
 		</p>
@@ -840,13 +840,13 @@ h2,h3,h4,table {
 			sequences) that allow the user to see a segment of a larger "target"
 			list. For details see the <a
 				href="tr35-collation.html#Collation_Indexes">Unicode LDML:
-				Collation</a> document.<span class="changed"> The index set may
+				Collation</a> document. The index set may
 				only contain characters whose lowercase versions are in the main and
 				auxiliary exemplar sets, though for cased languages the index
 				exemplars are typically in uppercase. Characters from the auxiliary
 				exemplar set may be necessary in the index set if it needs to
 				properly handle items such as names which may require characters not
-				included in the main exemplar set.</span>
+				included in the main exemplar set.
 		</p>
 
 		<p>Here is a sample of the XML structure:</p>
@@ -908,8 +908,8 @@ h2,h3,h4,table {
 		<p>
 			The ordering of the characters in the set is irrelevant, but for
 			readability in the XML file the characters should be in sorted order
-			according to the locale's conventions. The <span class="changed">main
-				and auxiliary </span>sets should only contain lower case characters (except
+			according to the locale's conventions. The main
+				and auxiliary sets should only contain lower case characters (except
 			for the special case of Turkish and similar languages, where the
 			dotted capital I should be included); the upper case letters are to
 			be mechanically added when the set is used. For more information on
@@ -921,7 +921,7 @@ h2,h3,h4,table {
 
 
 		<ol>
-			<li>The <span class="changed">main, auxiliary and index </span>sets
+			<li>The main, auxiliary and index sets
 				are normally restricted to those letters with a specific <a
 				href="http://unicode.org/Public/UNIDATA/Scripts.txt">Script </a>character
 				property (that is, not the values Common or Inherited) or required <a
@@ -1088,8 +1088,8 @@ h2,h3,h4,table {
 
 		<p class="dtd">
 			&lt;!ELEMENT ellipsis ( #PCDATA ) &gt;<br> &lt;!ATTLIST ellipsis
-			type ( initial | medial | final <span class="changed">|
-				word-initial | word-medial | word-final </span>) #IMPLIED &gt;
+			type ( initial | medial | final |
+				word-initial | word-medial | word-final ) #IMPLIED &gt;
 		</p>
 
 		<p>The ellipsis element provides patterns for use when truncating
@@ -1108,10 +1108,10 @@ h2,h3,h4,table {
 				&lt;ellipsis type="final"&gt;{0}…&lt;/ellipsis&gt;
 			</code>
 		</p>
-		<p class="changed">There are alternatives for cases where the
+		<p>There are alternatives for cases where the
 			breaks are on a word boundary, where some languages include a space.
 			For example, such as case would be:</p>
-		<p class="changed">
+		<p>
 			<code>&lt;ellipsis type="word-initial"&gt;…
 				{0}&lt;/ellipsis&gt;</code>
 		</p>
@@ -1247,30 +1247,27 @@ h2,h3,h4,table {
 
 
 		<p class="dtd">
-			&lt;!ELEMENT units (alias | (unit*, <span class="changed">unitLength*,
-				durationUnit*, </span>special*)) &gt;
+			&lt;!ELEMENT units (alias | (unit*, unitLength*,
+				durationUnit*, special*)) &gt;
 		</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT unitLength (alias |
+			 &lt;!ELEMENT unitLength (alias |
 				(compoundUnit*, unit*, special*)) &gt;<br> &lt;!ATTLIST
 				unitLength type ( long | short | narrow ) #REQUIRED &gt;
-			</span>
 		</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT compoundUnit (alias |
+			&lt;!ELEMENT compoundUnit (alias |
 				(compoundUnitPattern*, special*)) &gt;<br> &lt;!ATTLIST
 				compoundUnit type NMTOKEN #REQUIRED &gt;
-			</span>
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT unit (alias | (unitPattern*, special*)) &gt;<br>
 			&lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT durationUnit (alias |
+			&lt;!ELEMENT durationUnit (alias |
 				(durationUnitPattern*, special*)) &gt;<br> &lt;!ATTLIST
 				durationUnit type NMTOKEN #REQUIRED &gt;
-			</span>
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT unitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
@@ -1278,14 +1275,12 @@ h2,h3,h4,table {
 			#REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT compoundUnitPattern (
+			&lt;!ELEMENT compoundUnitPattern (
 				#PCDATA ) &gt;<br>
-			</span>
 		</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT durationUnitPattern (
+			&lt;!ELEMENT durationUnitPattern (
 				#PCDATA ) &gt;<br>
-			</span>
 		</p>
 
 		<p>These elements specify the localized way of formatting
@@ -1299,7 +1294,7 @@ h2,h3,h4,table {
 &nbsp;&nbsp;&lt;unitPattern count="other"&gt;<span style="color: blue">{0} days</span>&lt;/unitName&gt;
 &lt;/unit&gt;</pre>
 
-		<p class="changed">
+		<p>
 			Units, like other values with a <strong>count</strong> attribute, use
 			a special inheritance. See <strong>Part 1: Core:</strong> <em>Section
 				4.1 <a
@@ -1307,296 +1302,255 @@ h2,h3,h4,table {
 					Inheritance</a>
 			</em>.
 		</p>
-		<p class="removed">
-			To format a particular unit type such as "day" for a particular
-			numeric value <em>n</em>:
-		</p>
-		<ol>
-			<li class="removed">First see if there is a count with an
-				explicit number (0 or 1). If so, use that string.</li>
-			<li class="removed">Otherwise, dDetermine the count value that
-				corresponds to <em>n</em> using the rules in <i><a
-					href="tr35-numbers.html#Language_Plural_Rules">Language Plural
-						Rules</a></i>
-			</li>
-			<li class="removed">Next, for unit type="day", look for a
-				unitPattern element that matches the count value, starting in the
-				current locale and then following the locale fallback chain up to,
-				but not including root.</li>
-			<li class="removed">If no matching unitPattern element was found
-				in the previous step, then look for a unitPattern element that
-				matches count="other" (still for unit type="day"), starting in the
-				current locale and then following the locale fallback chain up to
-				root (which has a unitPattern element with count="other" for every
-				unit type).</li>
-			<li class="removed">The resulting unitPattern element indicates
-				the appropriate form of the unit name and its position with respect
-				to the numeric value.</li>
-		</ol>
-		<p class="removed">While for English this may seem overly complex,
-			for some other languages different plural forms are used for
-			different unit types; the plural forms for certain unit types may not
-			use all of the plural-form tags defined for the language.</p>
-		<p class="removed">
-			The explicit values 0 and 1 are added because even in languages
-			without separate plural categories in <i><a
-				href="tr35-numbers.html#Language_Plural_Rules">Language Plural
-					Rules</a></i>, there are often special forms used with 0 and 1, such as "no
-			books" or "a book" (vs 0 books and 1 book). In some languages, there
-			is less need for these forms with units, even where they are used
-			with other constructions. In those cases, the 0/1 forms can be
-			omitted. Alternatively, where the category forms (such as zero or
-			one) are completely covered by 0/1 (as in Arabic), those category
-			forms may be omitted.
-		</p>
-		<p class="changed">The units in CLDR are not comprehensive; it is
+
+		<p>The units in CLDR are not comprehensive; it is
 			anticipated that more will be added over time. They currently include
 			the following:</p>
 		<table>
 			<tr>
-				<td class="changed"><strong>Type</strong></td>
-				<td class="changed"><strong>Unit</strong></td>
-				<td class="changed"><strong>Sample Format</strong></td>
+				<td><strong>Type</strong></td>
+				<td><strong>Unit</strong></td>
+				<td><strong>Sample Format</strong></td>
 			</tr>
 			<tr>
-				<td class="changed"><em>acceleration</em></td>
-				<td class="changed">g-force</td>
-				<td class="changed">{0} G</td>
+				<td><em>acceleration</em></td>
+				<td>g-force</td>
+				<td>{0} G</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>angle</em></td>
-				<td class="changed">arc-minute</td>
-				<td class="changed">{0}′</td>
+				<td><em>angle</em></td>
+				<td>arc-minute</td>
+				<td>{0}′</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>angle</em></td>
-				<td class="changed">arc-second</td>
-				<td class="changed">{0}″</td>
+				<td><em>angle</em></td>
+				<td>arc-second</td>
+				<td>{0}″</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>angle</em></td>
-				<td class="changed">degree</td>
-				<td class="changed">{0}°</td>
+				<td><em>angle</em></td>
+				<td>degree</td>
+				<td>{0}°</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>area</em></td>
-				<td class="changed">acre</td>
-				<td class="changed">{0} ac</td>
+				<td><em>area</em></td>
+				<td>acre</td>
+				<td>{0} ac</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>area</em></td>
-				<td class="changed">hectare</td>
-				<td class="changed">{0} ha</td>
+				<td><em>area</em></td>
+				<td>hectare</td>
+				<td>{0} ha</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>area</em></td>
-				<td class="changed">square-foot</td>
-				<td class="changed">{0} ft²</td>
+				<td><em>area</em></td>
+				<td>square-foot</td>
+				<td>{0} ft²</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>area</em></td>
-				<td class="changed">square-kilometer</td>
-				<td class="changed">{0} km²</td>
+				<td><em>area</em></td>
+				<td>square-kilometer</td>
+				<td>{0} km²</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>area</em></td>
-				<td class="changed">square-meter</td>
-				<td class="changed">{0} m²</td>
+				<td><em>area</em></td>
+				<td>square-meter</td>
+				<td>{0} m²</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>area</em></td>
-				<td class="changed">square-mile</td>
-				<td class="changed">{0} mi²</td>
+				<td><em>area</em></td>
+				<td>square-mile</td>
+				<td>{0} mi²</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>duration</em></td>
-				<td class="changed">day</td>
-				<td class="changed">{0} d</td>
+				<td><em>duration</em></td>
+				<td>day</td>
+				<td>{0} d</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>duration</em></td>
-				<td class="changed">hour</td>
-				<td class="changed">{0} h</td>
+				<td><em>duration</em></td>
+				<td>hour</td>
+				<td>{0} h</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>duration</em></td>
-				<td class="changed">millisecond</td>
-				<td class="changed">{0} ms</td>
+				<td><em>duration</em></td>
+				<td>millisecond</td>
+				<td>{0} ms</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>duration</em></td>
-				<td class="changed">minute</td>
-				<td class="changed">{0} min</td>
+				<td><em>duration</em></td>
+				<td>minute</td>
+				<td>{0} min</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>duration</em></td>
-				<td class="changed">month</td>
-				<td class="changed">{0} m</td>
+				<td><em>duration</em></td>
+				<td>month</td>
+				<td>{0} m</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>duration</em></td>
-				<td class="changed">second</td>
-				<td class="changed">{0} s</td>
+				<td><em>duration</em></td>
+				<td>second</td>
+				<td>{0} s</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>duration</em></td>
-				<td class="changed">week</td>
-				<td class="changed">{0} w</td>
+				<td><em>duration</em></td>
+				<td>week</td>
+				<td>{0} w</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>duration</em></td>
-				<td class="changed">year</td>
-				<td class="changed">{0} y</td>
+				<td><em>duration</em></td>
+				<td>year</td>
+				<td>{0} y</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>length</em></td>
-				<td class="changed">centimeter</td>
-				<td class="changed">{0} cm</td>
+				<td><em>length</em></td>
+				<td>centimeter</td>
+				<td>{0} cm</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>length</em></td>
-				<td class="changed">foot</td>
-				<td class="changed">{0} ft</td>
+				<td><em>length</em></td>
+				<td>foot</td>
+				<td>{0} ft</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>length</em></td>
-				<td class="changed">inch</td>
-				<td class="changed">{0} in</td>
+				<td><em>length</em></td>
+				<td>inch</td>
+				<td>{0} in</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>length</em></td>
-				<td class="changed">kilometer</td>
-				<td class="changed">{0} km</td>
+				<td><em>length</em></td>
+				<td>kilometer</td>
+				<td>{0} km</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>length</em></td>
-				<td class="changed">light-year</td>
-				<td class="changed">{0} ly</td>
+				<td><em>length</em></td>
+				<td>light-year</td>
+				<td>{0} ly</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>length</em></td>
-				<td class="changed">meter</td>
-				<td class="changed">{0} m</td>
+				<td><em>length</em></td>
+				<td>meter</td>
+				<td>{0} m</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>length</em></td>
-				<td class="changed">mile</td>
-				<td class="changed">{0} mi</td>
+				<td><em>length</em></td>
+				<td>mile</td>
+				<td>{0} mi</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>length</em></td>
-				<td class="changed">millimeter</td>
-				<td class="changed">{0} mm</td>
+				<td><em>length</em></td>
+				<td>millimeter</td>
+				<td>{0} mm</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>length</em></td>
-				<td class="changed">picometer</td>
-				<td class="changed">{0} pm</td>
+				<td><em>length</em></td>
+				<td>picometer</td>
+				<td>{0} pm</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>length</em></td>
-				<td class="changed">yard</td>
-				<td class="changed">{0} yd</td>
+				<td><em>length</em></td>
+				<td>yard</td>
+				<td>{0} yd</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>mass</em></td>
-				<td class="changed">gram</td>
-				<td class="changed">{0} g</td>
+				<td><em>mass</em></td>
+				<td>gram</td>
+				<td>{0} g</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>mass</em></td>
-				<td class="changed">kilogram</td>
-				<td class="changed">{0} kg</td>
+				<td><em>mass</em></td>
+				<td>kilogram</td>
+				<td>{0} kg</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>mass</em></td>
-				<td class="changed">ounce</td>
-				<td class="changed">{0} oz</td>
+				<td><em>mass</em></td>
+				<td>ounce</td>
+				<td>{0} oz</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>mass</em></td>
-				<td class="changed">pound</td>
-				<td class="changed">{0} lb</td>
+				<td><em>mass</em></td>
+				<td>pound</td>
+				<td>{0} lb</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>power</em></td>
-				<td class="changed">horsepower</td>
-				<td class="changed">{0} hp</td>
+				<td><em>power</em></td>
+				<td>horsepower</td>
+				<td>{0} hp</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>power</em></td>
-				<td class="changed">kilowatt</td>
-				<td class="changed">{0} kW</td>
+				<td><em>power</em></td>
+				<td>kilowatt</td>
+				<td>{0} kW</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>power</em></td>
-				<td class="changed">watt</td>
-				<td class="changed">{0} W</td>
+				<td><em>power</em></td>
+				<td>watt</td>
+				<td>{0} W</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>pressure</em></td>
-				<td class="changed">hectopascal</td>
-				<td class="changed">{0} hPa</td>
+				<td><em>pressure</em></td>
+				<td>hectopascal</td>
+				<td>{0} hPa</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>pressure</em></td>
-				<td class="changed">inch-hg</td>
-				<td class="changed">{0} inHg</td>
+				<td><em>pressure</em></td>
+				<td>inch-hg</td>
+				<td>{0} inHg</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>pressure</em></td>
-				<td class="changed">millibar</td>
-				<td class="changed">{0} mbar</td>
+				<td><em>pressure</em></td>
+				<td>millibar</td>
+				<td>{0} mbar</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>speed</em></td>
-				<td class="changed">kilometer-per-hour</td>
-				<td class="changed">{0} km/h</td>
+				<td><em>speed</em></td>
+				<td>kilometer-per-hour</td>
+				<td>{0} km/h</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>speed</em></td>
-				<td class="changed">meter-per-second</td>
-				<td class="changed">{0} m/s</td>
+				<td><em>speed</em></td>
+				<td>meter-per-second</td>
+				<td>{0} m/s</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>speed</em></td>
-				<td class="changed">mile-per-hour</td>
-				<td class="changed">{0} mi/h</td>
+				<td><em>speed</em></td>
+				<td>mile-per-hour</td>
+				<td>{0} mi/h</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>temperature</em></td>
-				<td class="changed">celsius</td>
-				<td class="changed">{0}°C</td>
+				<td><em>temperature</em></td>
+				<td>celsius</td>
+				<td>{0}°C</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>temperature</em></td>
-				<td class="changed">fahrenheit</td>
-				<td class="changed">{0}°F</td>
+				<td><em>temperature</em></td>
+				<td>fahrenheit</td>
+				<td>{0}°F</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>volume</em></td>
-				<td class="changed">cubic-kilometer</td>
-				<td class="changed">{0} km³</td>
+				<td><em>volume</em></td>
+				<td>cubic-kilometer</td>
+				<td>{0} km³</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>volume</em></td>
-				<td class="changed">cubic-mile</td>
-				<td class="changed">{0} mi³</td>
+				<td><em>volume</em></td>
+				<td>cubic-mile</td>
+				<td>{0} mi³</td>
 			</tr>
 			<tr>
-				<td class="changed"><em>volume</em></td>
-				<td class="changed">liter</td>
-				<td class="changed">{0} l</td>
+				<td><em>volume</em></td>
+				<td>liter</td>
+				<td>{0} l</td>
 			</tr>
 		</table>
-		<p class="changed">
+		<p>
 			There are three widths: <strong>long</strong>, <strong>short</strong>,
 			and <strong>narrow</strong>. As usual, the narrow forms may not be
 			unique: in English, 1′ could mean 1 minute of arc, or 1 foot. Thus
 			narrow forms should only be used where the context makes the meaning
 			clear.
 		</p>
-		<p class="changed">
+		<p>
 			Where the unit of measurement is one of the <a
 				href="http://physics.nist.gov/cuu/Units/units.html">International
 				System of Units (SI)</a>, the short and narrow forms will typically use
@@ -1605,47 +1559,47 @@ h2,h3,h4,table {
 			locale. For example, in Russian it may be more typical to see the
 			Cyrillic characters “мм”.
 		</p>
-		<p class="changed">Units are included for translation even where
+		<p>Units are included for translation even where
 			they are not typically used in a particular locale, such as
 			kilometers in the US, or inches in Germany. This is to account for
 			use by travelers and specialized domains, such as the German
 			“̌Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in
 			inches and centimeters.</p>
 		<h3>
-			<span class="changed">compoundUnitPattern</span>
+			compoundUnitPattern
 		</h3>
-		<p class="changed">
+		<p>
 			The compoundUnitPattern for &quot;per&quot; is used to construct a
 			pattern such as &quot;feet per second&quot; or &quot;ft/s&quot;. Some
 			units already have 'precomputed' forms, such as <strong>kilometer-per-hour</strong>;
 			where such units exist, they should be used in preference to
 			composing with compoundUnitPattern.
 		</p>
-		<p class="changed">For the divisor, the &quot;one&quot; plural
+		<p>For the divisor, the &quot;one&quot; plural
 			category should be used, while for the dividend the appropriate
 			plural form according the placeholder number should be used.</p>
-		<p class="changed">[There is a known problem with some languages
+		<p>[There is a known problem with some languages
 			in the long form in that the divisor should be inflected. This will
 			probably require the future addition of a special 'divisor' form of
 			units commonly used in the divisor.]</p>
-		<h3 class="changed">Unit Sequences</h3>
-		<p class="changed">
+		<h3>Unit Sequences</h3>
+		<p>
 			Units may be used in composed sequences, such as <strong>5°
 				30′</strong> for 5 degrees 30 minutes, or <strong>3 ft 2 in.</strong>For that
 			purpose, the appropriate width of the unit listPattern can be used to
 			compose the units in a sequence.
 		</p>
-		<pre class="changed">&lt;listPattern type=&quot;unit&quot;&gt; (for the long form)
+		<pre>&lt;listPattern type=&quot;unit&quot;&gt; (for the long form)
 &lt;listPattern type=&quot;unit-narrow&quot;&gt;
 &lt;listPattern type=&quot;unit-short&quot;&gt;
 </pre>
-		<h3 class="changed">durationUnit</h3>
-		<p class="changed">The durationUnit is a special type of unit used
+		<h3>durationUnit</h3>
+		<p>The durationUnit is a special type of unit used
 			for composed time unit durations.</p>
-		<pre class="changed">&lt;durationUnit type=&quot;hms&quot;&gt;
+		<pre>&lt;durationUnit type=&quot;hms&quot;&gt;
   &lt;durationUnitPattern&gt;h:mm:ss&lt;/durationUnitPattern&gt; &lt;!-- 33:04:59 --&gt;
 &lt;/durationUnit&gt;   </pre>
-		<p class="changed">The type contains a skeleton, where 'h' stands
+		<p>The type contains a skeleton, where 'h' stands
 			for hours, 'm' for minutes, and 's' for sections. These are the same
 			symbols used in availableFormats, except that there is no need to
 			distinguish different forms of the hour.</p>
@@ -1745,8 +1699,8 @@ h2,h3,h4,table {
 		<p class="dtd">&lt;!ELEMENT segmentations ( alias | segmentation*)
 			&gt;</p>
 		<p class="dtd">
-			&lt;!ELEMENT segmentation ( alias | (variables?, segmentRules?<span
-				class="changed">, exceptions?</span>) | special*) &gt;<br>
+			&lt;!ELEMENT segmentation ( alias | (variables?, segmentRules?
+			, exceptions?) | special*) &gt;<br>
 			&lt;!ATTLIST segmentation type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">&lt;!ELEMENT variables ( alias | variable*) &gt;</p>
@@ -1760,12 +1714,11 @@ h2,h3,h4,table {
 			NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT exceptions ( exception* )
-				&gt; </span>
+			&lt;!ELEMENT exceptions ( exception* )
+				&gt; 
 		</p>
 		<p class="dtd">
-			<span class="changed"> &lt;!ELEMENT exception ( #PCDATA ) &gt;
-			</span>
+			&lt;!ELEMENT exception ( #PCDATA ) &gt;
 		</p>
 
 		<p>
@@ -1913,12 +1866,12 @@ h2,h3,h4,table {
 		</p>
 
 
-		<h3 class="changed">
+		<h3>
 			9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation
 				Exceptions</a>
 		</h3>
 
-		<p class="changed">
+		<p>
 			<b>Note:</b> As of CLDR 24, the
 			<code>&lt;exceptions&gt;</code>
 			data is to be considered a technology preview. Data currently in CLDR
@@ -1927,26 +1880,26 @@ h2,h3,h4,table {
 			for more information on the ULI project.
 		</p>
 
-		<p class="changed">
+		<p>
 			The segmentation <b>exceptions</b> list provides a set of cases
 			which, though otherwise identified as a segment by rules, should be
 			skipped during segmentation.
 		</p>
 
-		<p class="changed">For example, in the English phrase "Mr. Smith",
+		<p>For example, in the English phrase "Mr. Smith",
 			CLDR segmentation rules would normally find a Sentence Break between
 			"Mr" and "Smith". However, typically, "Mr." is just an abbreviation
 			for "Mister", and not actually the end of a sentence.</p>
 
-		<p class="changed">
+		<p>
 			Each exception has a separate
 			<code>&lt;exception&gt;</code>
 			element, whose contents are the exceptional break to be skipped.
 		</p>
 
-		<p class="changed">Example:</p>
+		<p>Example:</p>
 
-		<pre class="changed">
+		<pre>
     &lt;segmentation type="SentenceBreak"&gt;
       &lt;exceptions&gt;
         &lt;exception draft="provisional"&gt;Maj.&lt;/exception&gt;
@@ -3141,7 +3094,7 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>calendar-field</td>
-				<td>dates/<span class="removed">calendars/calendar[type=*]/</span>fields/field[type=*]/displayName
+				<td>dates/fields/field[type=*]/displayName
 					field names<br>(for relative forms see type "tense" below)
 				</td>
 			</tr>
@@ -3181,14 +3134,13 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>tense</td>
-				<td><span class="removed">units/unit[type=*-(past|future)]/unitPattern[count=*]
-						relative unit names; </span>dates/<span class="removed">calendars/calendar[type=*]/</span>fields/field[type=*]/relative
-					<span class="changed">and
-						dates/fields/field[type=*]/relativeTime </span>relative field names</td>
+				<td>dates/fields/field[type=*]/relative
+					and
+						dates/fields/field[type=*]/relativeTime relative field names</td>
 			</tr>
 			<tr>
 				<td>unit-pattern</td>
-				<td>units/<span class="changed">unitLength[type=*]/</span>unit[type=*]/unitPattern[count=*]
+				<td>units/unitLength[type=*]/unit[type=*]/unitPattern[count=*]
 					unit names
 				</td>
 			</tr>

@@ -87,10 +87,10 @@ h2,h3,h4,table {
 			Unicode Locale Data Markup Language (LDML)<br>Part 6: Related
 			Information
 		</h1>
-		<table border="1" cellpadding="2" cellspacing="0" class="wide">
+<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">24</span></td>
+				<td>24</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -101,18 +101,18 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td>2013-<span class="changed">09-14</span></td>
+				<td>2013-09-16</td>
 			</tr>
 			<tr>
 				<td>This Version</td>
-				<td><a class="changed"
-					href="http://www.unicode.org/reports/tr35/tr35-32/tr35.html">http://www.unicode.org/reports/tr35/tr35-32/tr35.html</a></td>
+				<td>
+				<a href="http://www.unicode.org/reports/tr35/tr35-33/tr35.html">http://www.unicode.org/reports/tr35/tr35-33/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Previous Version</td>
-				<td><a
-					href="http://www.unicode.org/reports/tr35/tr35-31/tr35.html"
-					class="changed">http://www.unicode.org/reports/tr35/tr35-31/tr35.html</a></td>
+				<td>
+				<a
+					href="http://www.unicode.org/reports/tr35/tr35-31/tr35.html">http://www.unicode.org/reports/tr35/tr35-31/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Latest Version</td>
@@ -133,11 +133,11 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>DTDs</td>
-				<td><a class="changed" href="http://unicode.org/cldr/dtd/24/">http://unicode.org/cldr/dtd/24/</a></td>
+				<td><a href="http://unicode.org/cldr/dtd/24/">http://unicode.org/cldr/dtd/24/</a></td>
 			</tr>
 			<tr>
 				<td>Revision</td>
-				<td><a class="changed" href="#Modifications">32</a></td>
+				<td><a href="#Modifications">33</a></td>
 			</tr>
 		</table>
 		<h3>
@@ -161,7 +161,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -171,13 +171,13 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -197,32 +197,32 @@ h2,h3,h4,table {
 				versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].
 			</i>
 		</p>
-		<h2 class="changed">
+		<h2>
 			<a name="Parts" href="#Parts">Parts</a>
 		</h2>
-		<p class="changed">The LDML specification is divided into the
+		<p>The LDML specification is divided into the
 			following parts:</p>
 		<ul class="toc">
-			<li class="changed">Part 1: <a href="tr35.html#Contents">Core
+			<li>Part 1: <a href="tr35.html#Contents">Core
 					specification</a> (languages, locales, basic structure)
 			</li>
-			<li class="changed">Part 2: <a href="tr35-general.html#Contents">General</a>
+			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
 				(display names &amp; transforms, etc.)
 			</li>
-			<li class="changed">Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
+			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
 				(number &amp; currency formatting)
 			</li>
-			<li class="changed">Part 4: <a href="tr35-dates.html#Contents">Dates</a>
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a>
 				(date, time, time zone formatting)
 			</li>
-			<li class="changed">Part 5: <a
+			<li>Part 5: <a
 				href="tr35-collation.html#Contents">Collation</a> (sorting,
 				searching, grouping)
 			</li>
-			<li class="changed">Part 6: <a href="tr35-info.html#Contents">Related
+			<li>Part 6: <a href="tr35-info.html#Contents">Related
 					Information</a> (supplemental data)
 			</li>
-			<li class="changed">Part 7: <a
+			<li>Part 7: <a
 				href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard
 				mappings)
 			</li>
@@ -245,37 +245,37 @@ h2,h3,h4,table {
 			</li>
 			<li>2 <a href="#Supplemental_Language_Data">Supplemental
 					Language Data</a></li>
-			<li><span class="changed">3 </span><a
+			<li>3 <a
 				href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a></li>
-			<li><span class="changed">4 </span><a
+			<li>4 <a
 				href="#Telephone_Code_Data">Telephone Code Data</a></li>
-			<li><span class="changed">5 </span><a
+			<li>5 <a
 				href="#Postal_Code_Validation">Postal Code Validation</a></li>
-			<li><span class="changed">6 </span><a
+			<li>6 <a
 				href="#Supplemental_Character_Fallback_Data">Supplemental
 					Character Fallback Data</a></li>
-			<li><span class="changed">7 </span><a href="#Coverage_Levels">Coverage
+			<li>7 <a href="#Coverage_Levels">Coverage
 					Levels</a>
 				<ul class="toc">
-					<li class="changed">7.1 <a href="#Coverage_Level_Definitions">Definitions</a></li>
-					<li class="changed">7.2 <a
+					<li>7.1 <a href="#Coverage_Level_Definitions">Definitions</a></li>
+					<li>7.2 <a
 						href="#Coverage_Level_Data_Requirements">Data Requirements</a></li>
-					<li class="changed">7.3 <a
+					<li>7.3 <a
 						href="#Coverage_Level_Default_Values">Default Values</a></li>
 				</ul></li>
-			<li><span class="changed">8 </span><a
+			<li>8 <a
 				href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>
 				<ul class="toc">
-					<li><span class="changed">8.1 </span><a
+					<li>8.1 <a
 						href="#Supplemental_Alias_Information">Supplemental Alias
 							Information</a></li>
-					<li><span class="changed">8.2 </span><a
+					<li>8.2 <a
 						href="#Supplemental_Deprecated_Information">Supplemental
 							Deprecated Information</a></li>
-					<li><span class="changed">8.3 </span><a
+					<li>8.3 <a
 						href="#Default_Content">Default Content</a></li>
 				</ul></li>
-			<li><span class="changed">9 </span><a href="#Metadata_Elements">Locale
+			<li>9 <a href="#Metadata_Elements">Locale
 					Metadata Element</a></li>
 		</ul>
 
@@ -455,7 +455,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
                 ...</pre>
 
 		<h2>
-			<span class="changed">3 </span><a name="Supplemental_Code_Mapping"
+			3 <a name="Supplemental_Code_Mapping"
 				href="#Supplemental_Code_Mapping">Supplemental Code Mapping</a>
 		</h2>
 
@@ -490,7 +490,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 &lt;territoryCodes type=&quot;QU&quot; numeric=&quot;967&quot; alpha3=&quot;QUU&quot; internet=&quot;EU&quot;/&gt;</pre>
 
 		<h2>
-			<span class="changed">4 </span><a name="Telephone_Code_Data"
+			4 <a name="Telephone_Code_Data"
 				href="#Telephone_Code_Data">Telephone Code Data</a>
 		</h2>
 
@@ -544,7 +544,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 &lt;/codesByTerritory&gt;</pre>
 
 		<h2>
-			<span class="changed">5 </span><a name="Postal_Code_Validation"
+			5 <a name="Postal_Code_Validation"
 				href="#Postal_Code_Validation">Postal Code Validation</a>
 		</h2>
 
@@ -563,7 +563,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 		<p>The most complicated currently is the UK.</p>
 
 		<h2>
-			<span class="changed">6 </span><a
+			6 <a
 				name="Supplemental_Character_Fallback_Data"
 				href="#Supplemental_Character_Fallback_Data">Supplemental
 				Character Fallback Data</a>
@@ -618,7 +618,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 
 		<h2>
-			<span class="changed">7 </span><a name="Coverage_Levels"
+			7 <a name="Coverage_Levels"
 				href="#Coverage_Levels">Coverage Levels</a>
 		</h2>
 		<p>The following describes the coverage levels used for the
@@ -918,7 +918,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 		<!-- begin section 9 supplemental metadata -->
 		<h2>
-			<span class="changed">8 </span><a
+			8 <a
 				name="Appendix_Supplemental_Metadata"
 				href="#Appendix_Supplemental_Metadata">Supplemental Metadata</a>
 		</h2>
@@ -952,7 +952,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			</li>
 		</ul>
 		<h3>
-			<span class="changed">8.1 </span><a
+			8.1 <a
 				name="Supplemental_Alias_Information"
 				href="#Supplemental_Alias_Information">Supplemental Alias
 				Information</a>
@@ -990,7 +990,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 ...
 &lt;/alias&gt;</pre>
 		<h3>
-			<span class="changed">8.2 </span><a
+			8.2 <a
 				name="Supplemental_Deprecated_Information"
 				href="#Supplemental_Deprecated_Information">Supplemental
 				Deprecated Information</a>
@@ -1047,7 +1047,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			usage, etc. The English name may also be retained, for debugging
 			purposes.</p>
 		<h3>
-			<span class="changed">8.3 </span><a name="Default_Content"
+			8.3 <a name="Default_Content"
 				href="#Default_Content">Default Content</a>
 		</h3>
 		<pre class="dtd">&lt;!ELEMENT defaultContent EMPTY &gt;
@@ -1084,7 +1084,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 		<!-- begin section Info-A the metadata element -->
 		<h2>
-			<span class="changed">9 </span><a name="Metadata_Elements"
+			9 <a name="Metadata_Elements"
 				href="#Metadata_Elements">Locale Metadata Element<strike>s</strike></a>
 		</h2>
 
@@ -1102,8 +1102,8 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			&lt;!ELEMENT metadata (casingData?) &gt;<br> &lt;!ELEMENT
 			casingData (casingItem*) &gt;<br> &lt;!ELEMENT casingItem (
 			#PCDATA ) &gt;<br> &lt;!ATTLIST casingItem type CDATA #REQUIRED
-			&gt;<br> <span class="changed">&lt;!ATTLIST casingItem
-				override (true | false) #IMPLIED &gt;</span><br>
+			&gt;<br> &lt;!ATTLIST casingItem
+				override (true | false) #IMPLIED &gt;<br>
 		</p>
 		<p>The &lt;metadata&gt; element contains metadata about the locale
 			for use by the Survey Tool or other tools in checking locale data;
@@ -1119,11 +1119,11 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			<li>lowercase</li>
 			<li>titlecase</li>
 		</ul>
-		<p><span class="changed">The &lt;casingItem&gt; data is generated by a tool based on the data
+		<p>The &lt;casingItem&gt; data is generated by a tool based on the data
 			available in CLDR. In cases where the generated casing information
 			is incorrect and needs to be manually edited, the override
 			attribute is set to "true" so that the tool will not override the
-			manual edits.</span></p>
+			manual edits.</p>
 		<!-- end section Info-A metadta element -->
 
 

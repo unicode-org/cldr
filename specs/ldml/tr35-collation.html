@@ -89,31 +89,29 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">24</span></td>
+				<td>24</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
 				<td><a
 					href="https://plus.google.com/114199149796022210033?rel=author">Mark
-						Davis</a> (<a href="mailto:markdavis@google.com">markdavis@google.com</a>),
-					<a href="https://plus.google.com/117587389715494866571?rel=author"
-					class="changed">Markus Scherer</a>, and other CLDR committee
-					members</td>
+						Davis</a> (<a href="mailto:markdavis@google.com">markdavis@google.com</a>)
+					and other CLDR committee members</td>
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td>2013-<span class="changed">09-14</span></td>
+				<td>2013-09-16</td>
 			</tr>
 			<tr>
 				<td>This Version</td>
-				<td><a class="changed"
-					href="http://www.unicode.org/reports/tr35/tr35-32/tr35.html">http://www.unicode.org/reports/tr35/tr35-32/tr35.html</a></td>
+				<td>
+				<a href="http://www.unicode.org/reports/tr35/tr35-33/tr35.html">http://www.unicode.org/reports/tr35/tr35-33/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Previous Version</td>
-				<td><a
-					href="http://www.unicode.org/reports/tr35/tr35-31/tr35.html"
-					class="changed">http://www.unicode.org/reports/tr35/tr35-31/tr35.html</a></td>
+				<td>
+				<a
+					href="http://www.unicode.org/reports/tr35/tr35-31/tr35.html">http://www.unicode.org/reports/tr35/tr35-31/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Latest Version</td>
@@ -134,11 +132,11 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>DTDs</td>
-				<td><a class="changed" href="http://unicode.org/cldr/dtd/24/">http://unicode.org/cldr/dtd/24/</a></td>
+				<td><a href="http://unicode.org/cldr/dtd/24/">http://unicode.org/cldr/dtd/24/</a></td>
 			</tr>
 			<tr>
 				<td>Revision</td>
-				<td><a class="changed" href="#Modifications">32</a></td>
+				<td><a href="#Modifications">33</a></td>
 			</tr>
 		</table>
 		<h3>
@@ -162,7 +160,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -172,13 +170,13 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -198,32 +196,32 @@ h2,h3,h4,table {
 				versions of the Unicode Standard, see [<a href="tr35.html#Versions">Versions</a>].
 			</i>
 		</p>
-		<h2 class="changed">
+		<h2>
 			<a name="Parts" href="#Parts">Parts</a>
 		</h2>
-		<p class="changed">The LDML specification is divided into the
+		<p>The LDML specification is divided into the
 			following parts:</p>
 		<ul class="toc">
-			<li class="changed">Part 1: <a href="tr35.html#Contents">Core
+			<li>Part 1: <a href="tr35.html#Contents">Core
 					specification</a> (languages, locales, basic structure)
 			</li>
-			<li class="changed">Part 2: <a href="tr35-general.html#Contents">General</a>
+			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
 				(display names &amp; transforms, etc.)
 			</li>
-			<li class="changed">Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
+			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
 				(number &amp; currency formatting)
 			</li>
-			<li class="changed">Part 4: <a href="tr35-dates.html#Contents">Dates</a>
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a>
 				(date, time, time zone formatting)
 			</li>
-			<li class="changed">Part 5: <a
+			<li>Part 5: <a
 				href="tr35-collation.html#Contents">Collation</a> (sorting,
 				searching, grouping)
 			</li>
-			<li class="changed">Part 6: <a href="tr35-info.html#Contents">Related
+			<li>Part 6: <a href="tr35-info.html#Contents">Related
 					Information</a> (supplemental data)
 			</li>
-			<li class="changed">Part 7: <a
+			<li>Part 7: <a
 				href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard
 				mappings)
 			</li>
@@ -235,25 +233,25 @@ h2,h3,h4,table {
 		<ul class="toc">
 			<li>1 <a href="#CLDR_Collation">CLDR Collation</a>
 				<ul class="toc">
-					<li class="changed">1.1 <a href="#CLDR_Collation_Algorithm">CLDR
+					<li>1.1 <a href="#CLDR_Collation_Algorithm">CLDR
 							Collation Algorithm</a></li>
 				</ul>
 			</li>
 			<li>2 <a href="#Root_Collation">Root Collation</a>
 				<ul class="toc">
-					<li class="changed">2.1 <a
+					<li>2.1 <a
 						href="#grouping_classes_of_characters">Grouping classes of
 							characters</a></li>
-					<li class="changed">2.2 <a href="#non_variable_symbols">Non-variable
+					<li>2.2 <a href="#non_variable_symbols">Non-variable
 							symbols</a></li>
-					<li class="changed">2.3 <a href="#tibetan_contractions">Additional
+					<li>2.3 <a href="#tibetan_contractions">Additional
 							contractions for Tibetan</a></li>
-					<li class="changed">2.4 <a
+					<li>2.4 <a
 						href="#tailored_noncharacter_weights">Tailored noncharacter
 							weights</a></li>
-					<li><span class="changed">2.5 </span><a
+					<li>2.5 <a
 						href="#Root_Data_Files">Root Collation Data Files</a></li>
-					<li><span class="changed">2.6 </span><a
+					<li>2.6 <a
 						href="#Root_Data_File_Formats">Root Collation Data File
 							Formats</a></li>
 				</ul>
@@ -264,7 +262,7 @@ h2,h3,h4,table {
 					<li>3.2 <a href="#Collation_Element">Collation Element</a></li>
 					<li>3.3 <a href="#Setting_Options">Setting Options</a>
 						<ul class="toc">
-							<li class="changed">Table: <a href="#Collation_Settings">Collation
+							<li>Table: <a href="#Collation_Settings">Collation
 									Settings</a></li>
 						</ul>
 					</li>
@@ -307,11 +305,11 @@ h2,h3,h4,table {
 			and further tailored for language and style as needed.
 		</p>
 
-		<h3 class="changed">
+		<h3>
 			<a name="CLDR_Collation_Algorithm" href="#CLDR_Collation_Algorithm">1.1
 				CLDR Collation Algorithm</a>
 		</h3>
-		<p class="reviewnote">This whole section is new for CLDR 24.</p>
+
 		<p>
 			The CLDR collation algorithm is an extension of the <a
 				href="http://www.unicode.org/reports/tr10/#Main_Algorithm">Unicode
@@ -450,10 +448,9 @@ h2,h3,h4,table {
 			2 <a name="Root_Collation" href="#Root_Collation">Root Collation</a>
 		</h2>
 		<p>
-			The CLDR root collation order is based on the <span class="removed">UCA
-				default table</span> <span class="changed"><a
+			The CLDR root collation order is based on the <a
 				href="http://www.unicode.org/reports/tr10/#Default_Unicode_Collation_Element_Table">Default
-					Unicode Collation Element Table (DUCET)</a></span> defined in <em>UTS
+					Unicode Collation Element Table (DUCET)</a> defined in <em>UTS
 				#10: Unicode Collation Algorithm</em> [<a
 				href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]. It is
 			used by all other locales by default, or as the base for their
@@ -569,20 +566,11 @@ h2,h3,h4,table {
 			</p>
 			<p>
 				<strong>U+FFFE: </strong>This code point produces a CE with special
-				minimal weights on all levels. <span class="removed">regardless
-					of alternate handling. This allows for <a
-					href="http://www.unicode.org/reports/tr10/#Merging_Sort_Keys">Merging
-						Sort Keys</a> within code point space. For example, when sorting names
-					in a database, a sortable string can be formed with <em>last_name</em>
-					+ '\uFFFE' + <em>first_name</em>. These strings would sort
-					properly, without ever comparing the last part of a last name with
-					the first part of another first name.<br>
-				</span> <span class="changed">For details see the <i><a
+				minimal weights on all levels. For details see the <i><a
 						href="#Algorithm_FFFE">CLDR Collation Algorithm</a></i> above.
-				</span>
 			</p>
 		</blockquote>
-		<p class="changed">
+		<p>
 			UCA (beginning with version 6.3) also maps <strong>U+FFFD</strong> to
 			a special collation element with a very high primary weight, so that
 			it is reliably non-<a
@@ -592,8 +580,7 @@ h2,h3,h4,table {
 				code unit sequences</a>.
 		</p>
 		<p>
-			In CLDR, so as to maintain the special collation elements, <strong>U+FFF<span
-				class="changed">D</span>..U+FFFF
+			In CLDR, so as to maintain the special collation elements, <strong>U+FFFD..U+FFFF
 			</strong> are not further tailorable, and nothing can tailor to them. That is,
 			neither can occur in a collation rule. For example, the following
 			rules are illegal:
@@ -610,17 +597,16 @@ h2,h3,h4,table {
 			<b>Note:</b>
 		</p>
 		<ul>
-			<li class="note">Java uses an early version of <span
-				class="removed">the basic</span> <span class="changed">this</span>
+			<li class="note">Java uses an early version of this
 				collation syntax, but has not been updated recently. It does not
-				support any of the <span class="removed">basic</span> syntax marked
-				with [...], and its default table is not the DUCET <span
-				class="changed">nor the CLDR root collation</span>.
+				support any of the syntax marked
+				with [...], and its default table is not the DUCET 
+				nor the CLDR root collation.
 			</li>
 		</ul>
 
 		<h3>
-			<span class="changed">2.5 </span><a name="Root_Data_Files"
+			2.5 <a name="Root_Data_Files"
 				href="#Root_Data_Files">Root Collation Data Files</a>
 		</h3>
 		<p>
@@ -629,7 +615,7 @@ h2,h3,h4,table {
 				href="http://unicode.org/repos/cldr/trunk/common/uca/">common/uca/</a>.
 		</p>
 
-		<p class="changed">
+		<p>
 			For most data files there are <strong>_SHORT</strong> versions
 			available. They contain the same data but only minimal comments, to
 			reduce the file sizes.
@@ -637,20 +623,19 @@ h2,h3,h4,table {
 
 		<p>
 			Comments with DUCET-style weights in files other than
-			allkeys_CLDR.txt <span class="changed">and allkeys_DUCET.txt</span>
+			allkeys_CLDR.txt and allkeys_DUCET.txt
 			use the weights defined in allkeys_CLDR.txt.
 		</p>
 		<ul>
 			<li><strong>allkeys_CLDR</strong> - A file that provides a
 				remapping of UCA DUCET weights for use with CLDR.</li>
-			<li class="changed"><strong>allkeys_DUCET</strong> - The same as
+			<li><strong>allkeys_DUCET</strong> - The same as
 				DUCET allkeys.txt, but in alternate=non-ignorable sort order, for
 				easier comparison with allkeys_CLDR.txt.</li>
 			<li><strong>FractionalUCA</strong> - A file that provides a
 				remapping of UCA DUCET weights for use with CLDR. The weight values
-				are <span class="removed">also modified to provide
-					variable-width weights for compression.</span> <span class="changed">modified:</span>
-				<ul class="changed">
+				are modified:
+				<ul>
 					<li>The weights have variable length, with 1..4 bytes each.</li>
 					<li>There are tailoring gaps between adjacent weights, so that
 						a number of characters can be tailored to sort between any two
@@ -662,20 +647,9 @@ h2,h3,h4,table {
 						with that group or script.</li>
 					<li>Also, there is data that defines the primary weight ranges
 						for parametric group and script reordering.</li>
-				</ul> <span class="changed">An implementation may modify the
-					weights further to fit the needs of its data structures.</span></li>
-			<li><strong>UCA_Rules</strong> - <span class="removed">A
-					file that provides the information in FractionalUCA as a set of
-					comparison rules, for use with CLDR and other environments. These
-					rules provide the relative values for different characters without
-					being tied to particular weights. There may be some minor
-					differences in the resulting ordering compared to the allkeys_CLDR.
-					For example, "&amp;D &lt;&lt;&lt; ǲ / z" will create a sequence of
-					two CEs for ǲ. The tertiary difference (for the syntax
-					&lt;&lt;&lt;) is produced by incrementing the tertiary weight on
-					the first CE. This may not correspond to how tertiary differences
-					are distributed across the two CEs by the DUCET.</span> <br> <span
-				class="changed">A file that specifies the root collation
+				</ul> An implementation may modify the
+					weights further to fit the needs of its data structures.</li>
+			<li><strong>UCA_Rules</strong> - A file that specifies the root collation
 					order in the form of <a href="#Collation_Tailorings">tailoring
 						rules</a>. This is only an approximation of the FractionalUCA data,
 					since the rule syntax cannot express every detail of the collation
@@ -684,7 +658,7 @@ h2,h3,h4,table {
 					all collation elements of an expansion, while a typical from-rules
 					builder will modify the tertiary weight of only one of the
 					collation elements.
-			</span></li>
+			</li>
 			<li><strong>CollationTest_CLDR</strong> - The CLDR versions of
 				the CollationTest files, which use the tailorings for CLDR. For
 				information on the format, see <a
@@ -698,7 +672,7 @@ h2,h3,h4,table {
 		</ul>
 
 		<h3>
-			<span class="changed">2.6 </span><a name="Root_Data_File_Formats"
+			2.6 <a name="Root_Data_File_Formats"
 				href="#Root_Data_File_Formats">Root Collation Data File Formats</a>
 		</h3>
 
@@ -726,9 +700,9 @@ h2,h3,h4,table {
 			<p>Provides the version number of the UCA table.</p>
 		</blockquote>
 
-		<pre class="changed">[Unified_Ideograph 4E00..9FCC FA0E..FA0F FA11 FA13..FA14 FA1F FA21 FA23..FA24 FA27..FA29 3400..4DB5 20000..2A6D6 2A700..2B734 2B740..2B81D]</pre>
+		<pre>[Unified_Ideograph 4E00..9FCC FA0E..FA0F FA11 FA13..FA14 FA1F FA21 FA23..FA24 FA27..FA29 3400..4DB5 20000..2A6D6 2A700..2B734 2B740..2B81D]</pre>
 		<blockquote>
-			<p class="changed">
+			<p>
 				Lists the ranges of Unified_Ideograph characters in collation order.
 				They map to collation elements with <a
 					href="http://www.unicode.org/reports/tr10/#Implicit_Weights">implicit
@@ -760,19 +734,18 @@ h2,h3,h4,table {
 		<blockquote>
 			This example indicates that if U+00B7 appears immediately after
 			U+006C, it is given the corresponding collation element instead. This
-			syntax is <span class="changed">roughly</span> equivalent to the
-			following contraction, but is more efficient. <span class="changed">For
+			syntax is roughly equivalent to the
+			following contraction, but is more efficient. For
 				details see the specification of <i><a
 					href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a></i>
 				above.
-			</span>
 		</blockquote>
 		<pre>006C 00B7; <em>CE(006C)</em> [, DB A9, 05]</pre>
 		<blockquote>
 			<p>
 				Single-byte primary weights are given to particularly frequent
-				characters, such as space, digits, and a-z. <span class="removed">Most</span>
-				<span class="changed">More frequent</span> characters are given
+				characters, such as space, digits, and a-z.
+				More frequent characters are given
 				two-byte weights, while relatively infrequent characters are given
 				three-byte weights. For example:
 			</p>
@@ -794,22 +767,22 @@ FFFF; [EF FE, 05, 05]  # Special HIGHEST primary, for ranges</pre>
 			<p>The two tailored noncharacters have their own weights.</p>
 		</blockquote>
 
-		<pre class="changed">
+		<pre>
 F967; [U+4E0D]  # Hani Lo       [FB40.0020.0002][CE0D.0000.0000]        * CJK COMPATIBILITY IDEOGRAPH-F967
 2F02; [U+4E36, 10]      # Hani So       [FB40.0020.0004][CE36.0000.0000]        * KANGXI RADICAL DOT
 2E80; [U+4E36, 70, 20]  # Hani So       [FB40.0020.0004][CE36.0000.0000][0000.00FC.0004]        * CJK RADICAL REPEAT</pre>
 		<blockquote>
-			<p class="changed">Some collation elements are specified by
+			<p>Some collation elements are specified by
 				reference to other mappings. This is particularly useful for Han
 				characters which are given implicit/constructed primary weights; the
 				reference to a Unified_Ideograph makes these mappings independent of
 				implementation details. This technique may also be used in other
 				mappings to show the relationship of character variants.</p>
-			<p class="changed">The referenced character must have a mapping
+			<p>The referenced character must have a mapping
 				listed earlier in the file, or the mapping must have been defined
 				via the [Unified_Ideograph] data line. The referenced character must
 				map to exactly one collation element.</p>
-			<p class="changed">
+			<p>
 				<code>[U+4E0D]</code>
 				copies U+4E0D’s entire collation element.
 				<code>[U+4E36, 10]</code>
@@ -821,23 +794,12 @@ F967; [U+4E0D]  # Hani Lo       [FB40.0020.0002][CE0D.0000.0000]        * CJK CO
 			</p>
 		</blockquote>
 
-		<pre class="removed"># SPECIAL FINAL VALUES for Script Reordering
-FDD0 0042; [05 FE, 05, 05]     # Special final value for reordering token
-FDD0 0043; [0C FE, 05, 05]     # Special final value for reordering token</pre>
-		<blockquote>
-			<p class="removed">There are special values assigned to code
-				point sequences FDD0+X. These sequences are simply used to
-				communicate special values, and can be eliminated. For the
-				reordering values, the purpose is to make sure that there is a
-				&quot;high&quot; weight at the end of each reordering group.</p>
-		</blockquote>
-
-		<pre class="changed">
+		<pre>
 FDD1 00A0;      [03 02 02, 05, 05]      # SPACE first primary starts reordering group
 FDD1 03A9;      [5D 04 02, 05, 05]      # GREEK first primary starts reordering group (compressible)
 FDD1 03E2;      [5D 64 02, 05, 05]      # COPTIC first primary</pre>
 		<blockquote>
-			<p class="changed">
+			<p>
 				These are special mappings with primaries at the boundaries of
 				scripts and reordering groups. They serve as tailoring boundaries,
 				so that tailoring near the first or last character of a script or
@@ -851,10 +813,10 @@ FDD1 03E2;      [5D 64 02, 05, 05]      # COPTIC first primary</pre>
 			</p>
 		</blockquote>
 
-		<pre class="changed">
+		<pre>
 FDD0 0034;      [11, 05, 05]    # lead byte for numeric sorting</pre>
 		<blockquote>
-			<p class="changed">This mapping specifies the lead byte for
+			<p>This mapping specifies the lead byte for
 				numeric sorting. It must be different from the lead byte of any
 				other primary weight, otherwise numeric sorting would generate
 				ill-formed collation elements. Therefore, this mapping itself must
@@ -871,13 +833,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<blockquote>
 			<p>
 				The DUCET has some weights that don't correspond directly to a
-				character. To allow for implementations to have a <span
-					class="removed">character associated with each weight</span> <span
-					class="changed">mapping for each collation element</span>
+				character. To allow for implementations to have a mapping for each collation element
 				(necessary for certain implementations of tailoring), this requires
-				the construction of special sequences for those weights. <span
-					class="changed">These collation elements can normally be
-					ignored.</span>
+				the construction of special sequences for those weights. 
+				These collation elements can normally be
+					ignored.
 			</p>
 		</blockquote>
 
@@ -905,17 +865,17 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 ...</pre>
 		<blockquote>
 			<p>
-				<span class="changed">This table defines the reordering
-					groups, for script reordering.</span> The table maps from the first bytes
+				This table defines the reordering
+					groups, for script reordering. The table maps from the first bytes
 				of the fractional weights to a reordering token. The format is
 				&quot;[top_byte &quot; byte-value reordering-token
 				&quot;COMPRESS&quot;? &quot;]&quot;. The &quot;COMPRESS&quot; value
 				is present when there is only one byte in the reordering token, and
 				primary-weight compression can be applied. Most reordering tokens
 				are script values; others are special-purpose values, such as
-				PUNCTUATION. <span class="changed">Beginning with CLDR 24,
+				PUNCTUATION. Beginning with CLDR 24,
 					this table precedes the regular mappings, so that parsers can use
-					this information while processing and optimizing mappings.</span>
+					this information while processing and optimizing mappings.
 			</p>
 		</blockquote>
 		<pre># Reordering Tokens =&gt; Top Bytes
@@ -946,12 +906,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 [fixed first special byte F0]
 [fixed last special byte FF]
 
-<span class="changed">[fixed secondary common byte 05]
+[fixed secondary common byte 05]
 [fixed last secondary common byte 45]
 [fixed first ignorable secondary byte 80]
 
 [fixed tertiary common byte 05]
-[fixed first ignorable tertiary byte 3C]</span>
+[fixed first ignorable tertiary byte 3C]
 		</pre>
 		<blockquote>
 			<p>The final table gives certain hard-coded byte values. The
@@ -961,7 +921,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 		<h4>UCA_Rules.txt</h4>
 		<p>
-			The format for this file uses the CLDR <span class="removed">basic</span>
+			The format for this file uses the CLDR
 			collation syntax, see <i>Section 3, <a
 				href="#Collation_Tailorings">Collation Tailorings</a></i>.
 		</p>
@@ -971,45 +931,29 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<a name="Collation_Tailorings" href="#Collation_Tailorings">3
 				Collation Tailorings</a>
 		</h2>
-		<p class="reviewnote">
-			This draft removes the XML collation syntax, often without leaving
-			"removed" markers. New or modified text is highlighted. For a
-			detailed comparison see the <i><a
-				href="http://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings">CLDR
-					23 version of this document</a></i>.
+		<p class="dtd">
+			&lt;!ELEMENT collations (alias | (defaultCollation?,
+			collation*, special*)) &gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT collations (alias | (<span class="changed">defaultCollation?,
-			</span><span class="removed">default*, </span>collation*, special*)) &gt;
-		</p>
-		<p class="dtd">
-			<span class="changed">&lt;!ELEMENT defaultCollation ( #PCDATA
-				) &gt;</span>
+			&lt;!ELEMENT defaultCollation ( #PCDATA
+				) &gt;
 		</p>
 		<p>
 			This element of the LDML format contains one or more <span
 				class="element">collation</span> elements, distinguished by type.
-			Each <span class="element">collation</span> contains <span
-				class="changed">elements with parametric settings, or</span> rules
+			Each <span class="element">collation</span> contains 
+			elements with parametric settings, or rules
 			that specify a certain sort order, as a tailoring of the root order,
-			<span class="changed">or both</span>.
+			or both.
 		</p>
 
-		<p class="removed">
-			There are two syntaxes for specifying collation rules: the <em>basic
-				collation syntax</em> and the <em>XML collation syntax</em>. Both have
-			the same functionality. The LDML files use the XML format, but the
-			basic format is simpler to read, and will often be used in examples.
-			Implementations of LDML, such as [<a href="tr35.html#ICUCollation">ICUCollation</a>],
-			may choose to use the basic collation syntax as their native syntax.
-		</p>
-
-		<p class="changed">
+		<p>
 			Each locale may have multiple sort orders. The <span class="element">defaultCollation</span>
 			element defines the default tailoring for a locale and its
 			sublocales. For example:
 		</p>
-		<ul class="changed">
+		<ul>
 			<li>root.xml: <code>&lt;defaultCollation&gt;standard&lt;/defaultCollation&gt;</code></li>
 			<li>zh.xml: <code>&lt;defaultCollation&gt;pinyin&lt;/defaultCollation&gt;</code></li>
 			<li>zh_Hant.xml: <code>&lt;defaultCollation&gt;stroke&lt;/defaultCollation&gt;</code></li>
@@ -1028,11 +972,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 		<ul>
 			<li class="note">There is an on-line demonstration of collation
-				at [<a href="tr35.html#LocaleExplorer">LocaleExplorer</a>] <span
-				class="removed">that uses the basic syntax</span>. (Pick the locale
+				at [<a href="tr35.html#LocaleExplorer">LocaleExplorer</a>] 
+				that uses the basic syntax. (Pick the locale
 				and scroll to &quot;Collation Rules&quot;, near the end.)
 			</li>
-			<li class="note changed">In CLDR 23 and before, LDML collation
+			<li class="note">In CLDR 23 and before, LDML collation
 				files used an XML format. Starting with CLDR 24, the XML collation
 				syntax is deprecated and no longer used. See the <i><a
 					href="http://www.unicode.org/reports/tr35/tr35-31/tr35-collation.html#Collation_Tailorings">CLDR
@@ -1067,56 +1011,33 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				Element</a>
 		</h3>
 		<p class="dtd">
-			&lt;!ELEMENT collation (alias | (<span class="removed">base?,
-			</span><span class="changed">import*, </span>settings?,
-			suppress_contractions?, optimize?, <span class="removed">rules?,
-			</span><span class="changed">cr*, </span>special*)) &gt;
+			&lt;!ELEMENT collation (alias | (
+			import*, settings?,
+			suppress_contractions?, optimize?, cr*, special*)) &gt;
 		</p>
 		<p>
 			The tailoring syntax is designed to be independent of the actual
 			weights used in any particular UCA table. That way the same rules can
 			be applied to UCA versions over time, even if the underlying weights
 			change. The following illustrates the overall structure of a <span
-				class="element">collation</span> <span class="removed">with
-				the XML syntax</span>:
+				class="element">collation</span>:
 		</p>
-		<pre class="changed">&lt;collation&gt;
+		<pre>&lt;collation&gt;
   &lt;settings caseLevel=&quot;on&quot;/&gt;
   &lt;cr&gt;&lt;![CDATA[
     &amp;c &lt; k
   ]]&gt;&lt;/cr&gt;
 &lt;/collation&gt;</pre>
-		<p class="removed">The basic syntax corresponding to this would
-			be:</p>
-		<p class="removed">
-			[caseLevel on]<br> &amp; c &lt; k
-		</p>
-		<p class="removed">
-			The optional base element
-			<code>
-				&lt;base&gt;<span style="color: blue">...</span>&lt;/base&gt;
-			</code>
-			, contains an alias element that points to another data source that
-			defines a <i>base </i>collation. If present, it indicates that the
-			settings and rules in the collation are modifications applied on <i>top
-				of the</i> respective elements in the base collation. That is, any
-			successive settings, where present, override what is in the base as
-			described in <a href="#Setting_Options">Setting Options</a>. Any
-			successive rules are concatenated to the end of the rules in the
-			base. The results of multiple rules applying to the same characters
-			is covered in <a href="#Orderings">Orderings</a>.
-		</p>
 
 		<h3>
 			3.3 <a name="Setting_Options" href="#Setting_Options">Setting
 				Options</a>
 		</h3>
 		<p>
-			<span class="removed">In XML syntax, these</span> <span
-				class="changed">The following parametric settings</span> are
+			The following parametric settings are
 			attributes of &lt;settings&gt;. For example, &lt;settings
 			strength=&quot;secondary&quot;&gt; will only compare strings based on
-			their primary and secondary weights. In <span class="changed">rule</span>
+			their primary and secondary weights. In rule
 			syntax, these are of the form [<em>keyword</em> <em>value</em>].
 		</p>
 		<p>
@@ -1129,10 +1050,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			corresponding keywords.
 		</p>
 		<p>
-			The Example cells include <span class="removed">an LDML
-				example followed by the same example in basic syntax</span> <span
-				class="changed"><span class="element">settings</span>
-				attributes as well as rule syntax</span>. In LDML files, parametric
+			The Example cells include an LDML
+				example followed by the same example in basic syntax <span class="element">settings</span>
+				attributes as well as rule syntax. In LDML files, parametric
 			settings should be specified via <span class="element">settings</span>
 			attributes, rather than in the rules.
 		</p>
@@ -1471,36 +1391,16 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			3.4 <a name="Rules" href="#Rules">Collation Rule Syntax</a>
 		</h3>
 		<p class="dtd">
-			<span class="changed">&lt;!ELEMENT cr #PCDATA &gt;</span>
+			&lt;!ELEMENT cr #PCDATA &gt;
 		</p>
 		<p>
 			The goal for the collation rule syntax is to have clearly expressed
-			rules with a concise format<span class="removed">, that
-				parallels the basic syntax as much as possible. The rule syntax uses
-				abbreviated element names for primary (level 1), secondary (level
-				2), tertiary (level 3), and identical, to be as short as possible.
-				The reason for this is because the tailorings for CJK characters are
-				quite large (tens of thousands of elements), and the extra overhead
-				would have been considerable. Other elements and attributes do not
-				occur as frequently, and have longer names</span>. <span class="changed">The
+			rules with a concise format. The
 				CLDR rule syntax is a subset of the [<a
 				href="tr35.html#ICUCollation">ICUCollation</a>] syntax.
-			</span>
 		</p>
-		<blockquote>
-			<p class="removed">
-				<b>Note: </b>The rules are stated in terms of actions that cause
-				characters to change their ordering relative to other characters.
-				This is for stability; assigning characters specific weights would
-				not work, since the exact weight assignment <span class="removed">in
-					UCA (or ISO 14651)</span> is not required for conformance — only the
-				relative ordering of the weights. In addition, stating rules in
-				terms of relative order is much less sensitive to changes over time
-				in the <span class="changed">root order</span>.
-			</p>
-		</blockquote>
 
-		<p class="changed">
+		<p>
 			For the CLDR root collation, the FractionalUCA.txt file defines all
 			mappings for all of Unicode directly, and it also provides
 			information about script boundaries, reordering groups, and other
@@ -1515,25 +1415,25 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				&lt;suppress_contractions&gt;</a>.)
 		</p>
 
-		<p class="changed">
+		<p>
 			The ASCII [:P:] and [:S:] characters are reserved for collation
 			syntax:
 			<code>[\u0021-\u002F \u003A-\u0040 \u005B-\u0060
 				\u007B-\u007E]</code>
 		</p>
 
-		<p class="changed">Unicode Pattern_White_Space characters between
+		<p>Unicode Pattern_White_Space characters between
 			tokens are ignored. Unquoted white space terminates reset and
 			relation strings.</p>
 
-		<p class="changed">A pair of ASCII apostrophes encloses quoted
+		<p>A pair of ASCII apostrophes encloses quoted
 			literal text. They are normally used to enclose a syntax character or
 			white space, or a whole reset/relation string containing one or more
 			such characters, so that those are parsed as part of the
 			reset/relation strings rather than treated as syntax. A pair of
 			immediately adjacent apostrophes is used to encode one apostrophe.</p>
 
-		<p class="changed">
+		<p>
 			Code points can be escaped with
 			<code>\uhhhh</code>
 			and
@@ -1552,14 +1452,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<code>&amp;'\u0020'='\u3000'</code>
 		</p>
 
-		<p class="changed">
+		<p>
 			The ASCII double quote must be both escaped (so that the collation
 			syntax can be enclosed in pairs of double quotes in programming
 			environments) and quoted. For example:
 			<code>&amp;'\u0022'&lt;&lt;&lt;x</code>
 		</p>
 
-		<p class="changed">
+		<p>
 			Comments are allowed at the beginning, and after any complete reset,
 			relation, setting, or command. A comment begins with a
 			<code>#</code>
@@ -1567,86 +1467,19 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			Guidelines).
 		</p>
 
-		<p class="changed">The collation syntax is case-sensitive.</p>
+		<p>The collation syntax is case-sensitive.</p>
 
 		<h3>
 			3.5 <a name="Orderings" href="#Orderings">Orderings</a>
 		</h3>
-		<p class="removed">
-			The following are the normal ordering actions used for the bulk of
-			characters. Each rule contains a string of ordered characters that
-			starts with an anchor point or a reset value. The reset value is an
-			absolute point in the <span class="changed">root order</span> that
-			determines the order of other characters. For example, the rule &amp;
-			a &lt; g, places &quot;g&quot; after &quot;a&quot; <span
-				class="removed">in a tailored UCA</span>: the &quot;a&quot; does not
-			change place. Logically, subsequent rule after a reset indicates a
-			change to the ordering (and comparison strength) of the characters in
-			the <span class="changed">root order</span>. For example, the <span
-				class="changed">root order</span> has the following sequence
-			(abbreviated for illustration):
-		</p>
-		<blockquote>
-			<p class="removed">
-				... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub>
-				Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> á &lt;<sub>3</sub>
-				Á &lt;<sub>1</sub> æ &lt;<sub>3</sub> Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub>
-				ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> ｂ &lt;<sub>3</sub>
-				ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...
-			</p>
-		</blockquote>
-		<p class="removed">
-			Whenever a character is inserted into the <span class="changed">root</span>
-			sequence, it is inserted at the first point where the strength
-			difference will not disturb the other characters in the <span
-				class="changed">root order</span>. For example, &amp; a &lt; g puts
-			<i>g</i> in the above sequence with a strength of L1. Thus the <i>g</i>
-			must go in after any lower strengths,&nbsp; as follows:
-		</p>
-		<blockquote class="removed">
-			<p>
-				... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub>
-				Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> á &lt;<sub>3</sub>
-				Á <b><font color="red">&lt;<sub>1</sub> g
-				</font></b>&lt;<sub>1</sub> æ &lt;<sub>3</sub> Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub>
-				ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> ｂ &lt;<sub>3</sub>
-				ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...
-			</p>
-		</blockquote>
-		<p class="removed">The rule &amp; a &lt;&lt; g, which uses a
-			level-2 strength, would produce the following sequence:</p>
-		<blockquote class="removed">
-			<p>
-				... a &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub>
-				Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª <b><font color="red">&lt;<sub>2</sub>
-						g
-				</font></b> &lt;<sub>2</sub> á &lt;<sub>3</sub> Á<b><font color="red">
-				</font></b>&lt;<sub>1</sub> æ &lt;<sub>3</sub> Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub>
-				ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub> b &lt;<sub>3</sub> ｂ &lt;<sub>3</sub>
-				ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub> Ｂ &lt;<sub>3</sub> ℬ ...
-			</p>
-		</blockquote>
-		<p class="removed">And the rule &amp; a &lt;&lt;&lt; g, which uses
-			a level-3 strength, would produce the following sequence:</p>
-		<blockquote class="removed">
-			<p>
-				... a <b><font color="red">&lt;<sub>3</sub> g
-				</font></b> &lt;<sub>3</sub> ａ &lt;<sub>3</sub> ⓐ &lt;<sub>3</sub> A &lt;<sub>3</sub>
-				Ａ &lt;<sub>3</sub> Ⓐ &lt;<sub>3</sub> ª &lt;<sub>2</sub> á &lt;<sub>3</sub>
-				Á<b><font color="red"> </font></b>&lt;<sub>1</sub> æ &lt;<sub>3</sub>
-				Æ &lt;<sub>1</sub> ɐ &lt;<sub>1</sub> ɑ &lt;<sub>1</sub> ɒ &lt;<sub>1</sub>
-				b &lt;<sub>3</sub> ｂ &lt;<sub>3</sub> ⓑ &lt;<sub>3</sub> B &lt;<sub>3</sub>
-				Ｂ &lt;<sub>3</sub> ℬ ...
-			</p>
-		</blockquote>
 
-		<p class="changed">The root collation mappings form the initial
+		<p>The root collation mappings form the initial
 			state. Mappings are added and removed via a sequence of rule chains.
 			Each tailoring rule builds on the current state after all of the
 			preceding rules (and is not affected by any following rules). Rule
 			chains may alternate with comments, settings, and special commands.</p>
 
-		<p class="changed">A rule chain consists of a reset followed by
+		<p>A rule chain consists of a reset followed by
 			one or more relations. The reset position is a string which maps to
 			one or more collation elements according to the current state. A
 			relation consists of an operator and a string; it maps the string to
@@ -1655,19 +1488,17 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<table>
 			<caption>Specifying Collation Ordering</caption>
 			<tr>
-				<th><span class="changed">Relation Operator</span></th>
-				<th><span class="removed">Basic</span> Example</th>
+				<th>Relation Operator</th>
+				<th>Basic Example</th>
 				<th>Description</th>
 			</tr>
 			<tr>
 				<td><code>&amp;</code></td>
 				<td><code>&amp; Z</code></td>
-				<td><span class="removed">Do not change the ordering of
-						Z, but place subsequent characters relative to it.</span><br> <span
-					class="changed">Map Z to collation elements according to the
+				<td>Map Z to collation elements according to the
 						current state. These will be modified according to the following
 						relation operators and then assigned to the corresponding relation
-						strings.</span></td>
+						strings.</td>
 			</tr>
 			<tr>
 				<td><code>&lt;</code></td>
@@ -1696,7 +1527,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					(case/variant) difference
 				</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><code>&lt;&lt;&lt;&lt;</code></td>
 				<td><code>
 						&amp; か<br> &lt;&lt;&lt;&lt; カ
@@ -1715,16 +1546,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</tr>
 		</table>
 		<p>
-			<span class="removed">Since resets always work on the existing
-				state, the rule entries must be in the proper order. A character or
-				sequence may occur multiple times; each subsequent occurrence causes
-				a different change.</span><br> The following shows the result of
+			The following shows the result of
 			serially applying three rules.
 		</p>
 		<table>
 			<tr>
 				<th>&nbsp;</th>
-				<th><span class="changed">Rules</span></th>
+				<th>Rules</th>
 				<th>Result</th>
 				<th>Comment</th>
 			</tr>
@@ -1756,19 +1584,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</tr>
 		</table>
 		<p>
-			Notice that <span class="removed">characters</span> <span
-				class="changed">relation strings</span> can occur multiple times,
-			and thus override previous rules.
-		</p>
+			Notice that relation strings can occur multiple times,
+			and thus override previous rules.</p>
 
-		<p class="removed">
-			Except for the case of expansion sequence syntax, every sequence
-			after a reset is equivalent in action to breaking up the sequence
-			into an <i>atomic</i> rule: a reset + relation pair. The tailoring is
-			then equivalent to applying each of the atomic rules to the UCA in
-			order, according to the above description.
-		</p>
-		<p class="changed">Each relation uses and modifies the collation
+		<p>Each relation uses and modifies the collation
 			elements of the immediately preceding reset position or relation. A
 			rule chain with two or more relations is equivalent to a sequence of
 			“atomic rules” where each rule chain has exactly one relation, and
@@ -1779,7 +1598,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 		<table>
 			<tr>
-				<th><span class="changed">Rules</span></th>
+				<th>Rules</th>
 				<th>Equivalent Atomic Rules</th>
 			</tr>
 			<tr>
@@ -1792,34 +1611,17 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				</td>
 			</tr>
 		</table>
-		<p class="changed">This is not always possible because prefix and
+		<p>This is not always possible because prefix and
 			extension strings can occur in a relation but not in a reset (see
 			below).</p>
 
-		<p class="removed">
-			In the case of expansion sequence syntax, the equivalent atomic
-			sequence can be derived by first transforming the expansion sequence
-			syntax into normal expansion syntax. (See <a href="#Expansions">Expansions</a>.)
-		</p>
-		<p class="removed">
-			<span class="dtd">&lt;!ELEMENT reset ( #PCDATA | cp | ... )*
-				&gt;<br> &lt;!ELEMENT p ( #PCDATA | cp | last_variable )* &gt;<br>
-			</span>(Elements pc, s, sc, t, tc, i, and ic have the same structure as p.)
-		</p>
-		<span class="removed">A reset is followed by one or more
-			relations.</span>
-		<p class="removed">Resets only need to be at the start of a
-			sequence, to position the characters relative a character that is in
-			the UCA (or has already occurred in the tailoring). For example:
-			&lt;reset&gt;z&lt;/reset&gt;&lt;p&gt;a&lt;/p&gt;&lt;p&gt;b&lt;/p&gt;&lt;p&gt;c&lt;/p&gt;&lt;p&gt;d&lt;/p&gt;.</p>
-
-		<p class="changed">
+		<p>
 			The relation operator
 			<code>=</code>
 			maps its relation string to the current collation elements. Any other
 			relation operator modifies the current collation elements as follows.
 		</p>
-		<ul class="changed">
+		<ul>
 			<li>Find the <i>last</i> collation element whose strength is at
 				least as great as the strength of the operator. For example, for <code>&lt;&lt;</code>
 				find the last primary or secondary CE. This CE will be modified; all
@@ -1841,7 +1643,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				reset to the “common” values, to help with sort key compression.</li>
 		</ul>
 
-		<p class="changed">
+		<p>
 			In all cases, even for
 			<code>=</code>
 			, the case bits are recomputed according to <i>Section 3.13, <a
@@ -1850,7 +1652,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			settings.)
 		</p>
 
-		<p class="changed">
+		<p>
 			For example,
 			<code>&amp;ae&lt;x</code>
 			maps ‘x’ to two collation elements. The first one is the same as for
@@ -1862,21 +1664,20 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 
 		<p>
-			Some additional <span class="changed">operators</span> are provided
-			to save space with large tailorings. The addition of a <span
-				class="changed">*</span> to the <span class="changed">relation
-				operator</span> indicates that each of the <span class="changed">following
-				single</span> characters <span class="removed">in the contents of
-				that element</span> are to be handled as if they were separate <span
-				class="changed">relations</span> with the corresponding strength. <span
-				class="removed">In the basic syntax, these are expressed by
-				adding a * to the operation.</span>
+			Some additional operators are provided
+			to save space with large tailorings. The addition of a 
+			* to the relation
+				operator indicates that each of the following
+				single characters are to be handled as if they were separate 
+				relations with the corresponding strength. 
+				In the basic syntax, these are expressed by
+				adding a * to the operation.
 		</p>
 		<table>
 			<caption>Abbreviating Ordering Specifications</caption>
 			<tr>
-				<th><span class="changed">Relation Operator</span></th>
-				<th><span class="removed">Basic</span> Example</th>
+				<th>Relation Operator</th>
+				<th>Example</th>
 				<th>Equivalent</th>
 			</tr>
 			<tr>
@@ -1916,7 +1717,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 							style="color: blue">Ｐ</span>
 					</code></td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td><code>&lt;&lt;&lt;&lt;</code> <code>*</code></td>
 				<td><code>
 						&amp;<span style="color: blue"> k</span><br>
@@ -1944,15 +1745,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<h3>
 			3.6 <a name="Contractions" href="#Contractions">Contractions</a>
 		</h3>
-		<p class="removed">To sort a sequence as a single item
-			(contraction), just use the sequence, for example,</p>
-		<p class="changed">A multi-character relation string defines a
+
+		<p>A multi-character relation string defines a
 			contraction.</p>
 
 		<table>
 			<caption>Specifying Contractions</caption>
 			<tr>
-				<th><span class="removed">Basic</span> Example</th>
+				<th>Example</th>
 				<th>Description</th>
 			</tr>
 			<tr>
@@ -1969,7 +1769,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</h3>
 		<p class="dtd removed">&lt;!ELEMENT x (context?, ( p | pc | s | sc
 			| t | tc | i | ic )*, extend? ) &gt;</p>
-		<p class="changed">
+		<p>
 			A mapping to multiple collation elements defines an expansion. This
 			is normally the result of a reset position (and/or preceding
 			relation) that yields multiple collation elements, for example
@@ -1979,7 +1779,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			.
 		</p>
 
-		<p class="changed">
+		<p>
 			A relation string can also be followed by
 			<code>/</code>
 			and an <i>extension string</i>. The extension string is mapped to
@@ -1990,7 +1790,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			relations.
 		</p>
 
-		<p class="changed">
+		<p>
 			For example,
 			<code>&amp;a&lt;z/e</code>
 			maps ‘z’ to an expansion similar to
@@ -2000,7 +1800,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			&lt; af &lt; ag &lt; ... &lt; az &lt; z &lt; b.
 		</p>
 
-		<p class="changed">
+		<p>
 			The choice of reset-to-expansion vs. use of an extension string can
 			be exploited to affect contextual mappings. For example,
 			<code>&amp;L·=x</code>
@@ -2012,7 +1812,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			CE).
 		</p>
 
-		<p class="changed">
+		<p>
 			The two ways of specifying expansions also differ in how case bits
 			are computed. When some of the CEs are copied verbatim from an
 			extension string, then the relation string’s case bits are
@@ -2024,133 +1824,16 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			uppercase CE (copied from ‘E’).
 		</p>
 
-		<p class="changed">In summary, there are two ways of specifying
+		<p>In summary, there are two ways of specifying
 			expansions which produce subtly different mappings. The use of
 			extension strings is unusual but sometimes necessary.</p>
 
-		<p class="removed">
-			There are two ways to handle expansions (where a character sorts as a
-			sequence) <span class="removed">with both the basic syntax and
-				the XML syntax</span>. The first method is to reset to the sequence of
-			characters. This is called <i>sequence expansion syntax.</i> The
-			second is to use the extension sequence. This is called <i>normal
-				expansion syntax</i>. Both are equivalent in practice (unless the reset
-			sequence happens to be a contraction).
-		</p>
-		<table class="removed">
-			<caption>Specifying Expansions</caption>
-			<tr>
-				<th><span class="changed">Rules</span></th>
-				<th>Description</th>
-			</tr>
-			<tr>
-				<td><code>
-						&amp; c <br> &lt;&lt; k / h
-					</code></td>
-				<td><i>normal expansion syntax:<br>
-				</i>Make &#39;k&#39; sort after the sequence &#39;ch&#39;; thus
-					&#39;k&#39; will behave as if it expands to a character after
-					&#39;c&#39; followed by an &#39;h&#39;.</td>
-			</tr>
-			<tr>
-				<td><code>
-						&amp; ch<br> &lt;&lt; k
-					</code></td>
-				<td><i>sequence expansion syntax:<br>
-				</i>Make &#39;k&#39; sort after the sequence &#39;ch&#39;; thus
-					&#39;k&#39; will behave as if it expands to a character after
-					&#39;c&#39; followed by an &#39;h&#39;.
-					<p>
-						<i>(unless &#39;ch&#39; is defined beforehand as a
-							contraction).</i>
-					</p></td>
-			</tr>
-		</table>
-		<p class="removed">
-			If an
-			<code>&lt;extend&gt;</code>
-			element is necessary, it requires the rule to be embedded in an
-			&lt;x&gt; element.
-		</p>
-		<p class="removed">The sequence expansion syntax can be quite
-			tricky, so it should be avoided where possible. In particular:</p>
-		<ul class="removed">
-			<li>The expansion is <i>only</i> in effect up to — but not
-				including — the first primary rule. Thus <pre class="changed">&amp;ch &lt;&lt; x &lt;&lt;&lt; y &lt; z</pre>
-				is the same as <pre class="changed">&amp;c &lt;&lt; x/h &lt;&lt;&lt; y/h &lt; z</pre></li>
-			<li>In accordance with the UCA, all strings are interpreted as
-				being in NFD form. In other rules, this has no effect, but syntax
-				such as <code class="changed">&amp;</code><b>ä</b>, the <b>ä</b>
-				will be treated as two characters <b>a +&nbsp; ¨</b>, <i>unless</i>
-				the <b>ä</b> has previously been used as a contraction. Thus the <b>¨</b>
-				will be used as an <span class="changed">extension</span> for
-				following characters (up to the next primary).
-			</li>
-		</ul>
-		<p class="removed">Each extension replaces the one before it; it
-			does not append to it. So</p>
-		<blockquote>
-			<p class="removed">
-				&amp; ab &lt;&lt; c<br>&amp; cd &lt;&lt; e
-			</p>
-		</blockquote>
-		<p class="removed">is equivalent to:</p>
-		<blockquote>
-			<p class="removed">&amp; a &lt;&lt; c / b &lt;&lt; e / d</p>
-		</blockquote>
-		<p class="removed">
-			and produces the following weights (where <i>p(x)</i> is the primary
-			weight and <i>s(a)</i> is the secondary weight):
-		</p>
-		<table class="removed" border="1" cellpadding="0" cellspacing="0"
-			style="border-collapse: collapse">
-			<tr>
-				<td>Character</td>
-				<td>Weights</td>
-			</tr>
-			<tr>
-				<td>c</td>
-				<td>p(a), p(b); s(a)+1, s(b); ...</td>
-			</tr>
-			<tr>
-				<td>e</td>
-				<td>p(a), p(d); s(a)+2, s(d); ...</td>
-			</tr>
-		</table>
-		<p class="removed">When expressing rules as atomic rules, the
-			sequences must first be transformed into normal expansion syntax:</p>
-		<table class="removed">
-			<tr>
-				<th>Expansion Sequence</th>
-				<th>Normal Expansion</th>
-				<th>Equivalent Atomic Rules</th>
-			</tr>
-			<tr>
-				<td>&amp; a<u>b</u> &lt;&lt; q &lt;&lt;&lt; Q<br> &amp; a<u>d</u>
-					&lt;&lt;&lt; AD &lt; x &lt;&lt;&lt; X
-				</td>
-				<td>&amp; a &lt;&lt; q <u>/ b</u> &lt;&lt;&lt; Q <u>/ b</u><br>
-					&amp; a &lt;&lt;&lt; AD <u>/ d</u> &lt; x &lt;&lt;&lt; X
-				</td>
-				<td>&amp; a &lt;&lt; q <u>/ b</u><br> &amp; q &lt;&lt;&lt;
-					Q <u>/ b</u><br> &amp; a &lt;&lt;&lt; AD <u>/ d</u><br>
-					&amp; AD &lt; x<br> &amp; x&lt;&lt;&lt; X
-				</td>
-			</tr>
-		</table>
 
 		<h3>
 			3.8 <a name="Context_Before" href="#Context_Before">Context
 				Before</a>
 		</h3>
-		<p class="removed">The context before a character can affect how
-			it is ordered, such as in Japanese. This could be expressed with a
-			combination of contractions and expansions, but is faster using a
-			context. (The actual weights produced are different, but the
-			resulting string comparisons are the same.) If a context element
-			occurs, it must be the first item in the rule, and requires an
-			&lt;x&gt; element.</p>
-		<p class="changed">
+		<p>
 			A relation string can have a prefix (context before) which makes the
 			mapping from the relation string to its tailored position conditional
 			on the string occurring after that prefix. For details see the
@@ -2167,7 +1850,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<table>
 			<caption>Specifying Previous Context</caption>
 			<tr>
-				<th><span class="changed">Rules</span></th>
+				<th>Rules</th>
 			</tr>
 			<tr>
 				<td><code>
@@ -2177,12 +1860,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</tr>
 		</table>
 		<p>
-			Both the <span class="removed">context and extend elements</span> <span
-				class="changed">prefix and extension strings</span> can occur in <span
-				class="changed">a relation</span>. For example, the following are
+			Both the
+			prefix and extension strings can occur in 
+			a relation. For example, the following are
 			allowed:
 		</p>
-		<ul class="changed">
+		<ul>
 			<li><code>&lt; abc | def / ghi</code></li>
 			<li><code>&lt; def / ghi</code></li>
 			<li><code>&lt; abc | def</code></li>
@@ -2198,17 +1881,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			positioned before the base letter. That is accomplished with the
 			following syntax.</p>
 		<pre>&amp;[before 2] a &lt;&lt; à</pre>
-		<p class="changed">The before-strength can be 1 (primary), 2
+		<p>The before-strength can be 1 (primary), 2
 			(secondary), or 3 (tertiary).</p>
 		<p>
-			It is an error if the strength of the <span class="changed">reset-before
-				differs from the strength of the immediately following relation</span>.
-			Thus the following are errors<span class="removed">, since the
-				value of the <i>before</i> attribute does not agree with the
-				relation &lt;s&gt;
-			</span>.
+			It is an error if the strength of the reset-before
+				differs from the strength of the immediately following relation.
+			Thus the following are errors.
 		</p>
-		<ul class="changed">
+		<ul>
 			<li><code>&amp;[before 2] a &lt; à # error</code></li>
 			<li><code>&amp;[before 2] a &lt;&lt;&lt; à # error</code></li>
 		</ul>
@@ -2217,12 +1897,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			3.10 <a name="Logical_Reset_Positions"
 				href="#Logical_Reset_Positions">Logical Reset Positions</a>
 		</h3>
-		<p class="dtd removed">&lt;!ELEMENT reset ( ... | first_variable|
-			last_variable | first_tertiary_ignorable | last_tertiary_ignorable |
-			first_secondary_ignorable | last_secondary_ignorable |
-			first_primary_ignorable | last_primary_ignorable |
-			first_non_ignorable | last_non_ignorable | first_trailing |
-			last_trailing )* &gt;</p>
+
 		<p>The CLDR table (based on UCA) has the following overall
 			structure for weights, going from low to high.</p>
 		<table>
@@ -2265,9 +1940,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				</td>
 			</tr>
 			<tr>
-				<td>first <span class="removed">non-ignorable</span> <span
-					class="changed">regular</span><br> ...<br> last <span
-					class="removed">non-ignorable</span> <span class="changed">regular</span></td>
+				<td>first regular<br> ...<br> last 
+				regular</td>
 				<td>p != ignore</td>
 				<td>General Symbols<br> Currency Symbols<br> Numbers<br>
 					Latin<br> Greek<br> ...
@@ -2307,7 +1981,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</p>
 		</blockquote>
 
-		<p class="changed">Each of these special reset positions always
+		<p>Each of these special reset positions always
 			maps to a single collation element.</p>
 
 		<p>Here is an example of the syntax:</p>
@@ -2317,7 +1991,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			character (like a combining diaeresis), or one can make it be
 			immediately after the last secondary ignorable.</p>
 
-		<p class="changed">
+		<p>
 			Each special reset position adjusts to the effects of preceding
 			rules, just like normal reset position strings. For example, if a
 			tailoring rule creates a new collation element after
@@ -2329,7 +2003,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			.
 		</p>
 
-		<p class="changed">
+		<p>
 			<code>[last regular]</code>
 			is not actually the last normal CE with a primary weight before
 			implicit primaries. It is used to tailor large numbers of characters,
@@ -2344,7 +2018,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 		<p>
 			The
-			<code class="changed">[last variable]</code>
+			<code>[last variable]</code>
 			indicates the &quot;highest&quot; character that is treated as
 			punctuation with alternate handling. Unlike the other logical
 			positions, it can be reset as well as referenced. For example, it can
@@ -2352,7 +2026,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			treated as having distinct primary values.
 		</p>
 		<table>
-			<caption class="changed">
+			<caption>
 				Specifying the Position of
 				<code>[last variable]</code>
 			</caption>
@@ -2365,58 +2039,35 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td rowspan="3">variableTop</td>
 				<td><font color="#000000">at</font></td>
 				<td><code>
-						&amp; x<br> = [<span class="changed">variable top</span>]
+						&amp; x<br> = [variable top]
 					</code></td>
 			</tr>
 			<tr>
 				<td><font color="#000000">after</font></td>
 				<td><code>
-						&amp; x<br> &lt; [<span class="changed">variable top</span>]
+						&amp; x<br> &lt; [variable top]
 					</code></td>
 			</tr>
 			<tr>
 				<td><font color="#000000">before</font></td>
 				<td><code>
-						&amp; [before 1] x<br> &lt; [<span class="changed">variable
-							top</span>]
+						&amp; [before 1] x<br> &lt; [variable
+							top]
 					</code></td>
 			</tr>
 		</table>
 		<p>
 			The default value for
-			<code class="changed">[last variable]</code>
+			<code>[last variable]</code>
 			is the highest punctuation mark, thus below symbols. The value can be
 			further changed by using the variable-top setting. This takes effect,
 			however, after the rules have been built, and does not affect any
 			characters that are reset relative to the
-			<code class="changed">[last variable]</code>
+			<code>[last variable]</code>
 			value when the rules are being built. The variable-top setting might
 			also be changed via a runtime parameter. That also does not effect
 			the rules.
 		</p>
-		<p class="removed">
-			The
-			<code>&lt;last_variable/&gt;</code>
-			cannot occur inside an &lt;x&gt; element, nor can there be any
-			element content. Thus there can be no &lt;context&gt; or
-			&lt;extend&gt; or text data in the rule. For example, the following
-			are all disallowed:
-		</p>
-		<ul class="removed">
-			<li><code>
-					&lt;x&gt;&lt;context&gt;<span style="color: blue">a</span>&lt;/context&gt;&lt;p&gt;&lt;last_variable/&gt;&lt;/p&gt;&lt;/x&gt;
-				</code></li>
-			<li><code>
-					&lt;x&gt;&lt;p&gt;&lt;last_variable/&gt;&lt;/p&gt;&lt;extend&gt;<span
-						style="color: blue">a</span>&lt;/extend&gt;&lt;/x&gt;
-				</code></li>
-			<li><code>
-					&lt;p&gt;&lt;last_variable/&gt;<span style="color: blue">a</span>&lt;/p&gt;
-				</code></li>
-			<li><code>
-					&lt;p&gt;<span style="color: blue">a</span>&lt;last_variable/&gt;&lt;/p&gt;
-				</code></li>
-		</ul>
 
 		<h3>
 			3.11 <a name="Special_Purpose_Commands"
@@ -2439,8 +2090,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<table>
 			<caption>Special-Purpose Commands</caption>
 			<tr>
-				<th class="changed">Rule Syntax</th>
-				<th class="changed">Sub-Element of <span class="element">collation</span>
+				<th>Rule Syntax</th>
+				<th>Sub-Element of <span class="element">collation</span>
 					(preferred)
 				</th>
 			</tr>
@@ -2457,15 +2108,15 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</table>
 		<p>
 			The <i>suppress contractions</i> tailoring command turns off any
-			existing contractions that begin with those characters, <span
-				class="changed">as well as any prefixes for those characters</span>.
+			existing contractions that begin with those characters, 
+			as well as any prefixes for those characters.
 			It is typically used to turn off the Cyrillic contractions in the
 			UCA, since they are not used in many languages and have a
 			considerable performance penalty. The argument is a <a
 				href="tr35.html#Unicode_Sets">Unicode Set</a>.
 		</p>
 
-		<p class="changed">
+		<p>
 			The <i>suppress contractions</i> command has immediate effect on the
 			current set of mappings, including mappings added by preceding rules.
 			Following rules are processed after removing any context-sensitive
@@ -2495,7 +2146,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				href="http://unicode.org/repos/cldr/trunk/common/collation/de.xml">German</a>
 			(type=&quot;phonebook&quot;) are particularly illustrative.
 		</p>
-		<pre class="changed">&lt;collation&gt;
+		<pre>&lt;collation&gt;
   &lt;settings caseLevel=&quot;<span style="color: blue">on</span>&quot;/&gt;
   &lt;cr&gt;&lt;![CDATA[
     &amp;Z
@@ -2528,8 +2179,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			scripts), the following can be used:</p>
 		<table>
 			<tr>
-				<th><span class="changed">Rule</span> Syntax</th>
-				<th class="changed">Sub-Element of <span class="element">collation</span>
+				<th>Rule Syntax</th>
+				<th>Sub-Element of <span class="element">collation</span>
 					(preferred)
 				</th>
 				<th>Locale Identifier</th>
@@ -2542,9 +2193,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</table>
 		<p>
 			In each case, a sequence of <em><strong>reorder_codes</strong></em>
-			is used, separated by spaces <span class="removed">for basic
-				and XML syntax</span> <span class="changed">in the settings
-				attribute and in rule syntax</span>, and by hyphens in locale identifiers.
+			is used, separated by spaces in the settings
+				attribute and in rule syntax, and by hyphens in locale identifiers.
 		</p>
 		<p>
 			A <strong><em>reorder_code</em></strong> is any of the following
@@ -2712,7 +2362,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<ol>
 					<li>UPPER if x ∈ {08-0C, 0E, 11, 12, 1D}</li>
 					<li>UNCASED otherwise</li>
-					<li class="changed">FractionalUCA.txt encodes the case
+					<li>FractionalUCA.txt encodes the case
 						information in bits 6 and 7 of the first byte in each tertiary
 						weight. The case bits are set to 00 for UNCASED, LOWEST and
 						LOWERCASE, and 10 for UPPER. There is no MIXED case value (01) in
@@ -2727,7 +2377,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			to the following.
 		</p>
 		<ol>
-			<li>If the value is LOWEST (<span class="changed">U+FEFF</span>),
+			<li>If the value is LOWEST (U+FEFF),
 				set <strong>c</strong> = 1
 			</li>
 			<li>Otherwise if <strong>CaseFirst=UpperFirst</strong>, set <strong>c</strong>
@@ -2813,17 +2463,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 		<h4>Tailored Strings</h4>
 		<p>
-			Characters and strings that are tailored <span class="removed">(e.g.,
-				via LDML/XML collation syntax or basic collation syntax)</span> have case
-			values computed from their <span class="removed">UCD
-				properties</span> <span class="changed">root collation case bits</span>. <span
-				class="removed">A known limitation of the tailoring is that
-				where the source string is a contraction of cased characters, the
-				case level does not reflect the difference in mixed cases, such as
-				between &quot;dZ&quot; and Dz&quot;.</span>
-		</p>
+			Characters and strings that are tailored have case
+			values computed from their root collation case bits.</p>
 
-		<ol class="changed">
+		<ol>
 			<li>Look up the tailored string’s root CEs. (Ignore any prefix
 				or extension strings.) N=number of primary root CEs.</li>
 			<li>Determine the number and type (primary vs. weaker) of CEs a
@@ -2856,63 +2499,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			is Lowercase. All Uppercase characters have primary root collation
 			CEs.</p>
 
-		<ol class="removed">
-			<li>Form a set of case values by looking up a case value for
-				each character x in the NFKD mapping of the source string, based on
-				UCD properties:
-				<ol>
-					<li>UNCASED if x ∈ <a href="#UncasedExceptions">UncasedExceptions</a></li>
-					<li>LOWER if x ∈ <strong>Lowercase</strong> or x ∈ <strong>Changes_When_Uppercased</strong>
-						or x ∈ <a href="#LowerExceptions">LowerExceptions</a></li>
-					<li>UPPER if x ∈ <strong>Uppercase</strong> or x ∈ <strong>Changes_When_Lowercased</strong>
-						or x ∈ <a href="#UpperExceptions">UpperExceptions</a></li>
-					<li>MIXED if x ∈ <strong>gc=Lt</strong> or both (a) and (b)
-					</li>
-					<li>UNCASED otherwise</li>
-				</ol>
-
-			</li>
-			<li>Compute a single case value from this set, by first removing
-				UNCASED, then setting:
-				<ol>
-					<li>MIXED if not all elements are identical, otherwise</li>
-					<li>UPPER if the set contains UPPER, otherwise</li>
-					<li>LOWER</li>
-				</ol>
-			</li>
-			<li>Apply that case-value to the first collation element in the
-				tailoring, according to &quot;<strong>Compute Modified
-					Collation Elements</strong>&quot;. The case values and weights in an
-				expansion are unaffected.
-			</li>
-		</ol>
-		<p class="removed">
-			<strong><a name="UncasedExceptions"
-				href="#UncasedExceptions">UncasedExceptions</a>:</strong> is the set of
-			letter modifiers
-		</p>
-		<ul class="removed">
-			<li>[:General_Category=Lm:]</li>
-		</ul>
-		<p class="removed">
-			<strong><a name="LowerExceptions" href="#LowerExceptions">LowerExceptions</a>:</strong>
-			is the set of small letters where script=Hiragana or Katakana, plus
-			other characters lowercase in form. In Unicode 6.2, these are:
-		</p>
-		<ul class="removed">
-			<li>[ぁァ ぃィ ぅゥ ぇェ ぉォ ゕヵ ㇰ ゖヶ ㇱ ㇲ っッ ㇳ-ㇺ ゃャ ゅュ ょョ ㇻ-ㇿ ゎヮ]</li>
-			<li>[℩]</li>
-		</ul>
-		<p class="removed">
-			<strong><a name="UpperExceptions" href="#UpperExceptions">UpperExceptions</a>:</strong>
-			is the set of non-small letters where script=Hiragana or Katakana,
-			minus the iteration mark, plus other characters uppercase in form. In
-			Unicode 6.2, these are:
-		</p>
-		<ul class="removed">
-			<li>[あいうえお-ぢつ-もやゆよ-ろわ-ゔアイウエオ-ヂツ-モヤユヨ-ロワ-ヴヷ-ヺ 𛀀𛀁]</li>
-			<li>[℘℺⅁-⅄🅐-🅩🅰-🆊]</li>
-		</ul>
 
 		<h3>
 			3.14 <a name="Visibility" href="#Visibility">Visibility</a>

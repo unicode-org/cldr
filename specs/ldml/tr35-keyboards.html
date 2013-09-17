@@ -89,7 +89,7 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">24</span></td>
+				<td>24</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -100,18 +100,18 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td>2013-<span class="changed">09-14</span></td>
+				<td>2013-09-16</td>
 			</tr>
 			<tr>
 				<td>This Version</td>
-				<td><a class="changed"
-					href="http://www.unicode.org/reports/tr35/tr35-32/tr35.html">http://www.unicode.org/reports/tr35/tr35-32/tr35.html</a></td>
+				<td>
+				<a href="http://www.unicode.org/reports/tr35/tr35-33/tr35.html">http://www.unicode.org/reports/tr35/tr35-33/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Previous Version</td>
-				<td><a
-					href="http://www.unicode.org/reports/tr35/tr35-31/tr35.html"
-					class="changed">http://www.unicode.org/reports/tr35/tr35-31/tr35.html</a></td>
+				<td>
+				<a
+					href="http://www.unicode.org/reports/tr35/tr35-31/tr35.html">http://www.unicode.org/reports/tr35/tr35-31/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Latest Version</td>
@@ -132,13 +132,15 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>DTDs</td>
-				<td><a class="changed" href="http://unicode.org/cldr/dtd/24/">http://unicode.org/cldr/dtd/24/</a></td>
+				<td><a href="http://unicode.org/cldr/dtd/24/">http://unicode.org/cldr/dtd/24/</a></td>
 			</tr>
 			<tr>
 				<td>Revision</td>
-				<td><a class="changed" href="#Modifications">32</a></td>
+				<td><a href="#Modifications">33</a></td>
 			</tr>
 		</table>
+
+
 		<h3>
 			<i>Summary</i>
 		</h3>
@@ -159,7 +161,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -169,13 +171,13 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -196,32 +198,32 @@ h2,h3,h4,table {
 			</i>
 		</p>
 
-		<h2 class="changed">
+		<h2>
 			<a name="Parts" href="#Parts">Parts</a>
 		</h2>
-		<p class="changed">The LDML specification is divided into the
+		<p>The LDML specification is divided into the
 			following parts:</p>
 		<ul class="toc">
-			<li class="changed">Part 1: <a href="tr35.html#Contents">Core
+			<li>Part 1: <a href="tr35.html#Contents">Core
 					specification</a> (languages, locales, basic structure)
 			</li>
-			<li class="changed">Part 2: <a href="tr35-general.html#Contents">General</a>
+			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
 				(display names &amp; transforms, etc.)
 			</li>
-			<li class="changed">Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
+			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
 				(number &amp; currency formatting)
 			</li>
-			<li class="changed">Part 4: <a href="tr35-dates.html#Contents">Dates</a>
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a>
 				(date, time, time zone formatting)
 			</li>
-			<li class="changed">Part 5: <a
+			<li>Part 5: <a
 				href="tr35-collation.html#Contents">Collation</a> (sorting,
 				searching, grouping)
 			</li>
-			<li class="changed">Part 6: <a href="tr35-info.html#Contents">Related
+			<li>Part 6: <a href="tr35-info.html#Contents">Related
 					Information</a> (supplemental data)
 			</li>
-			<li class="changed">Part 7: <a
+			<li>Part 7: <a
 				href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard
 				mappings)
 			</li>
@@ -310,11 +312,11 @@ h2,h3,h4,table {
 			mapping):</p>
 		<pre>&lt;platform id=&quot;osx&quot;&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;0&quot; iso=&quot;C01&quot; /&gt;<br>		&lt;map keycode=&quot;1&quot; iso=&quot;C02&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;B01&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;B02&quot; /&gt;<br>		&lt;map keycode=&quot;12&quot; iso=&quot;D01&quot; /&gt;<br>		&lt;map keycode=&quot;13&quot; iso=&quot;D02&quot; /&gt;<br>		&lt;map keycode=&quot;18&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;50&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
 		<h3>
-			<span class="changed">1.1 </span><a name="Goals_and_Nongoals"
+			1.1 <a name="Goals_and_Nongoals"
 				href="#Goals_and_Nongoals">Goals and Nongoals</a>
 		</h3>
 		<p>Some goals of this format are:</p>
-		<ol class="c6" start="1">
+		<ol>
 			<li>Make the XML as readable as possible.</li>
 			<li>Represent faithfully keyboard data from major platforms: it
 				should be possible to create a functionally-equivalent data file
@@ -323,7 +325,7 @@ h2,h3,h4,table {
 				possible to make comparison easy.</li>
 		</ol>
 		<p>Some non-goals (outside the scope of the format) currently are:</p>
-		<ol class="c6" start="1">
+		<ol>
 			<li>Display names or symbols for keycaps (eg, the German name
 				for "Return"). If that were added to LDML, it would be in a
 				different structure, outside the scope of this section.</li>
@@ -342,7 +344,7 @@ h2,h3,h4,table {
 			the end, they were kept separate, but for comparison across platforms
 			implementers may choose to unify them.</p>
 		<h3>
-			<span class="changed">1.2 </span><a name="Definitions"
+			1.2 <a name="Definitions"
 				href="#Definitions">Definitions</a>
 		</h3>
 		<p>Keyboard: The physical keyboard.</p>
@@ -400,7 +402,7 @@ h2,h3,h4,table {
 			particular locale. Within a keyboard layout, there is a single base
 			map, one or more key maps and one or more transforms.</p>
 		<h3>
-			<span class="changed">1.3 </span><a name="File_and_Dir_Structure"
+			1.3 <a name="File_and_Dir_Structure"
 				href="#File_and_Dir_Structure">File and Directory Structure</a>
 		</h3>
 		<p>Each platform has its own directory, where a "platform" is a
@@ -408,7 +410,7 @@ h2,h3,h4,table {
 			source, such as Windows or Chromeos. This directory name is the
 			platform name (see Table 2 located further in the document). Within
 			this directory there are two types of files:</p>
-		<ol class="c6" start="1">
+		<ol>
 			<li>A single platform file (see XML structure for Platform
 				file), this file includes a mapping of hardware key codes to the ISO
 				layout positions. This file is also open to expansion for any
@@ -419,7 +421,7 @@ h2,h3,h4,table {
 				(eg. lt-t-k0-chromeos.xml or ne-t-k0-windows.xml).</li>
 		</ol>
 		<h3>
-			<span class="changed">1.4 </span><a
+			1.4 <a
 				name="Element_Heirarchy_Layout_File"
 				href="#Element_Heirarchy_Layout_File">Element Hierarchy - Layout
 				File</a>
@@ -844,7 +846,7 @@ h2,h3,h4,table {
 			partial attribute in the transform element.</p>
 		<p>Most transforms in practice have only a couple of characters.
 			But for completeness, the behavior is defined on all strings:</p>
-		<ol class="c6" start="1">
+		<ol>
 			<li>If there could be a longer match if the user were to type
 				additional keys, go into a 'dead' state.</li>
 			<li>If there could not be a longer match, find the longest
@@ -913,7 +915,7 @@ h2,h3,h4,table {
 		<p>Examples</p>
 		<pre>&lt;keyboard locale=&quot;fr-CA-t-k0-CSA-osx&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;´a&quot; to=&quot;á&quot; /&gt;<br>		&lt;transform from=&quot;´A&quot; to=&quot;Á&quot; /&gt;<br>		&lt;transform from=&quot;´e&quot; to=&quot;é&quot; /&gt;<br>		&lt;transform from=&quot;´E&quot; to=&quot;É&quot; /&gt;<br>		&lt;transform from=&quot;´i&quot; to=&quot;í&quot; /&gt;<br>		&lt;transform from=&quot;´I&quot; to=&quot;Í&quot; /&gt;<br>		&lt;transform from=&quot;´o&quot; to=&quot;ó&quot; /&gt;<br>		&lt;transform from=&quot;´O&quot; to=&quot;Ó&quot; /&gt;<br>		&lt;transform from=&quot;´u&quot; to=&quot;ú&quot; /&gt;<br>		&lt;transform from=&quot;´U&quot; to=&quot;Ú&quot; /&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;nl-BE-t-k0-chromeos&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;\u{30c}a&quot; to=&quot;ǎ&quot; /&gt; &lt;!-- ̌a → ǎ --&gt;<br>		&lt;transform from=&quot;\u{30c}A&quot; to=&quot;Ǎ&quot; /&gt; &lt;!-- ̌A → Ǎ --&gt;<br>		&lt;transform from=&quot;\u{30a}a&quot; to=&quot;å&quot; /&gt; &lt;!-- ̊a → å --&gt;<br>		&lt;transform from=&quot;\u{30a}A&quot; to=&quot;Å&quot; /&gt; &lt;!-- ̊A → Å --&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;</pre>
 		<h3>
-			<span class="changed">1.5 </span><a
+			1.5 <a
 				name="Element_Heirarchy_Platform_File"
 				href="#Element_Heirarchy_Platform_File">Element Hierarchy -
 				Platform File</a>
@@ -968,7 +970,7 @@ h2,h3,h4,table {
 		<p>Examples</p>
 		<pre>&lt;platform&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;2&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;3&quot; iso=&quot;E02&quot; /&gt;<br>		&lt;map keycode=&quot;4&quot; iso=&quot;E03&quot; /&gt;<br>		&lt;map keycode=&quot;5&quot; iso=&quot;E04&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;E05&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;E06&quot; /&gt;<br>		&lt;map keycode=&quot;41&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
 		<h3>
-			<span class="changed">1.6 </span><a name="Invariants"
+			1.6 <a name="Invariants"
 				href="#Invariants">Invariants</a>
 		</h3>
 		<p>Beyond what the DTD imposes, certain other restrictions on the
@@ -1109,7 +1111,7 @@ h2,h3,h4,table {
 			</tbody>
 		</table>
 		<h3>
-			<span class="changed">1.7 </span><a name="Data_Sources"
+			1.7 <a name="Data_Sources"
 				href="#Data_Sources">Data Sources</a>
 		</h3>
 		<p>Here is a list of the data sources used to generate the initial
@@ -1162,7 +1164,7 @@ h2,h3,h4,table {
 			</tbody>
 		</table>
 		<h3>
-			<span class="changed">1.8 </span><a name="Keyboard_IDs"
+			1.8 <a name="Keyboard_IDs"
 				href="#Keyboard_IDs">Keyboard IDs</a>
 		</h3>
 		<p>There is a set of subtags that help identify the keyboards.
@@ -1219,7 +1221,7 @@ h2,h3,h4,table {
 			<li>Otherwise, platform names are used as a guide.</li>
 		</ol>
 		<h3>
-			<span class="changed">1.9 </span><a
+			1.9 <a
 				name="Platform_Behaviors_in_Edge_Cases"
 				href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in
 				Edge Cases</a>

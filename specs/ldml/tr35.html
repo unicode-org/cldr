@@ -4985,25 +4985,9 @@ decimal?, group?, special*)) &gt;</pre>
 			<a name="Ordering" href="#Ordering">5.6.2 Ordering</a>
 		</h4>
 		<ol>
-			<li>Element names are ordered by the <a
-				href="http://www.unicode.org/cldr/data/docs/design/ldml_canonical_form.html#Element_Order_Table">Element
-					Order Table</a></li>
-			<li>Attribute names are ordered by the <a
-				href="http://www.unicode.org/cldr/data/docs/design/ldml_canonical_form.html#Attribute_Order_Table">Attribute
-					Order Table</a></li>
-			<li>Attribute value comparison is a bit more complicated, and
-				may depend on the attribute and type. Compare two values by using
-				the following steps:
-				<ol>
-					<li>If two values are in the <a
-						href="http://www.unicode.org/cldr/data/docs/design/ldml_canonical_form.html#Value_Order_Table">Value
-							Order Table</a>, compare according to the order in the table.
-						Otherwise if just one is, it goes first.
-					</li>
-					<li>If two values are numeric [0-9], compare numerically (2
-						&lt; 12). Otherwise if just one is numeric, it goes first.</li>
-					<li>Otherwise values are ordered alphabetically</li>
-				</ol>
+			<li>Element names are ordered by the Element Order Table in //supplementalData/metadata/elementOrder.</a></li>
+			<li>Attribute names are ordered by the Attribute Order Table in //supplementalData/metadata/attributeOrder</a></li>
+			<li>Attribute value comparison is a bit more complicated, and may depend on the attribute and type. This is currently done with specific ordering tables
 			</li>
 			<li>An attribute-value pair is ordered first by attribute name,
 				and then if the attribute names are identical, by the value.</li>

@@ -86,6 +86,8 @@ h2,h3,h4,table {
 		<h1>
 			Unicode Locale Data Markup Language (LDML)<br>Part 7: Keyboards
 		</h1>
+
+		<!-- This header table should be identical across the parts of this UTS. -->
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
@@ -93,15 +95,11 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Editors</td>
-				<td><a
-					href="https://plus.google.com/114199149796022210033?rel=author">Mark
-						Davis</a> (<a href="mailto:markdavis@google.com">markdavis@google.com</a>),
-				<a href="https://plus.google.com/117587389715494866571?rel=author">Markus Scherer</a>
-					and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td>
+				<td><a href="tr35.html#Acknowledgments">CLDR committee members</a></td>
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td>2013-09-16</td>
+				<td>2013-09-18</td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -140,7 +138,6 @@ h2,h3,h4,table {
 				<td><a href="tr35.html#Modifications">33</a></td>
 			</tr>
 		</table>
-
 
 		<h3>
 			<i>Summary</i>
@@ -202,6 +199,8 @@ h2,h3,h4,table {
 		<h2>
 			<a name="Parts" href="#Parts">Parts</a>
 		</h2>
+
+		<!-- This section of Parts should be identical in all of the parts of this UTS. -->
 		<p>The LDML specification is divided into the
 			following parts:</p>
 		<ul class="toc">
@@ -441,12 +440,12 @@ h2,h3,h4,table {
 		<p>Attribute: locale (required)</p>
 		<p>
 			This mandatory attribute represents the locale of the keyboard using
-			Unicode locale identifiers (see <a class="c21"
+			Unicode locale identifiers (see <a
 				href="http://unicode.org/reports/tr35/">LDML</a>) - for example
 			&#39;el&#39; for Greek. Sometimes, the locale may not specify the
 			base language. For example, a Devanagari keyboard for many languages
 			could be specified by BCP-47 code: 'und-Deva'. For details, see <a
-				class="c21" href="#Keyboard_IDs">Keyboard IDs</a> .
+				href="#Keyboard_IDs">Keyboard IDs</a> .
 		</p>
 		<p>Examples (for illustrative purposes only, not indicative of the
 			real data)</p>
@@ -540,7 +539,7 @@ h2,h3,h4,table {
 			locale=&quot;bg-t-k0-windows-phonetic-trad&quot;&gt;</p>
 		<p>…</p>
 		<p>&lt;names&gt;</p>
-		<p class="c1 c15">&lt;name value=&quot;Bulgarian (Phonetic
+		<p>&lt;name value=&quot;Bulgarian (Phonetic
 			Traditional)&quot;/&gt;</p>
 		<p>&lt;/names&gt;</p>
 		<p>…</p>
@@ -608,7 +607,7 @@ h2,h3,h4,table {
 		<p>…</p>
 		<p>&lt;/keyboard&gt;</p>
 		<p>Indicates that:</p>
-		<ol class="c33" start="1">
+		<ol>
 			<li>When a modifier combination goes unmatched, do not output
 				anything when a key is pressed.</li>
 			<li>If a transform is escaped, output the contents of the
@@ -1127,7 +1126,7 @@ h2,h3,h4,table {
 				<tr>
 					<td><p>Android</p></td>
 					<td><p>
-							Android 4.0 - Ice Cream Sandwich<br> (<a class="c21"
+							Android 4.0 - Ice Cream Sandwich<br> (<a
 								href="http://source.android.com/source/downloading.html">http://source.android.com/source/downloading.html</a>)
 						</p></td>
 					<td><p>Parsed layout files located in
@@ -1136,7 +1135,7 @@ h2,h3,h4,table {
 				<tr>
 					<td><p>ChromeOS</p></td>
 					<td><p>
-							XKB (<a class="c21" href="http://www.x.org/wiki/XKB">http://www.x.org/wiki/XKB</a>)
+							XKB (<a href="http://www.x.org/wiki/XKB">http://www.x.org/wiki/XKB</a>)
 						</p></td>
 					<td><p>The ChromeOS represents a very small subset of the
 							keyboards available from XKB.</p></td>
@@ -1144,7 +1143,7 @@ h2,h3,h4,table {
 				<tr>
 					<td><p>Mac OSX</p></td>
 					<td><p>
-							Ukelele bundled System Keyboards (<a class="c21"
+							Ukelele bundled System Keyboards (<a
 								href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=ukelele">http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=ukelele</a>)
 						</p></td>
 					<td><p>These layouts date from Mac OSX 10.4 and are
@@ -1154,11 +1153,10 @@ h2,h3,h4,table {
 					<td><p>Windows</p></td>
 					<td><p>
 							Generated .klc files from the Microsoft Keyboard Layout Creator (<a
-								class="c21"
 								href="http://msdn.microsoft.com/en-us/goglobal/bb964665">http://msdn.microsoft.com/en-us/goglobal/bb964665</a>)
 						</p></td>
 					<td><p>
-							For interactive layouts, see also <a class="c21"
+							For interactive layouts, see also <a
 								href="http://msdn.microsoft.com/en-us/goglobal/bb964651">http://msdn.microsoft.com/en-us/goglobal/bb964651</a>
 						</p></td>
 				</tr>
@@ -1189,7 +1187,7 @@ h2,h3,h4,table {
 					<li>Eg, instead of en-US-t-k0-xxx, use en-t-k0-xxx. Because
 						there is &lt;likelySubtag from=&quot;en&quot;
 						to=&quot;en_Latn_US&quot;/&gt;, en-US → en.</li>
-					<li>The data is in <a class="c21"
+					<li>The data is in <a
 						href="http://unicode.org/repos/cldr/trunk/common/supplemental/likelySubtags.xml">http://unicode.org/repos/cldr/trunk/common/supplemental/likelySubtags.xml</a></li>
 				</ol>
 			</li>
@@ -1203,12 +1201,12 @@ h2,h3,h4,table {
 				common semantics across platforms are used, such as '-extended',
 				-phonetic, -qwerty, -qwertz, -azerty, …</li>
 			<li>In order to get to 8 letters, abbreviations are reused that
-				are already in <a class="c21"
+				are already in <a
 				href="http://unicode.org/repos/cldr/trunk/common/bcp47/">bcp47</a>
-				-u/-t extensions and in <a class="c21"
+				-u/-t extensions and in <a
 				href="http://www.iana.org/assignments/language-subtag-registry">language-subtag-registry</a>
 				variants, eg for Traditional use "-trad" or "-traditio" (both exist
-				in <a class="c21"
+				in <a
 				href="http://unicode.org/repos/cldr/trunk/common/bcp47/">bcp47</a>).
 			</li>
 			<li>Multiple languages cannot be indicated, so the predominant

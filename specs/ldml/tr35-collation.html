@@ -86,6 +86,8 @@ h2,h3,h4,table {
 		<h1>
 			Unicode Locale Data Markup Language (LDML)<br>Part 5: Collation
 		</h1>
+
+		<!-- This header table should be identical across the parts of this UTS. -->
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
@@ -93,15 +95,11 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Editors</td>
-				<td><a
-					href="https://plus.google.com/114199149796022210033?rel=author">Mark
-						Davis</a> (<a href="mailto:markdavis@google.com">markdavis@google.com</a>),
-				<a href="https://plus.google.com/117587389715494866571?rel=author">Markus Scherer</a>
-					and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td>
+				<td><a href="tr35.html#Acknowledgments">CLDR committee members</a></td>
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td>2013-09-16</td>
+				<td>2013-09-18</td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -200,6 +198,8 @@ h2,h3,h4,table {
 		<h2>
 			<a name="Parts" href="#Parts">Parts</a>
 		</h2>
+
+		<!-- This section of Parts should be identical in all of the parts of this UTS. -->
 		<p>The LDML specification is divided into the
 			following parts:</p>
 		<ul class="toc">
@@ -2227,7 +2227,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<h4>Interpretation of a reordering list</h4>
 		<p>The reordering list is interpreted as if it were processed in
 			the following way.</p>
-		<ol class="c18" start="1">
+		<ol>
 			<li>If any core code is not present, then it is inserted at the
 				front of the list in the order given above.</li>
 			<li>If the <strong>others</strong> code is not present, then it
@@ -2255,26 +2255,26 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<table cellpadding="0" cellspacing="0">
 			<tbody>
 				<tr>
-					<th class="c2">Locale Identifier</th>
-					<th class="c2">Effect</th>
+					<th>Locale Identifier</th>
+					<th>Effect</th>
 				</tr>
 				<tr>
-					<td class="c2"><code>en-u-kr-latn-digit</code></td>
-					<td class="c2">Reorder digits after Latin characters (but
+					<td><code>en-u-kr-latn-digit</code></td>
+					<td>Reorder digits after Latin characters (but
 						before other scripts like Cyrillic).</td>
 				</tr>
 				<tr>
-					<td class="c2"><code>en-u-kr-others-digit</code></td>
-					<td class="c2">Reorder digits after all other characters.</td>
+					<td><code>en-u-kr-others-digit</code></td>
+					<td>Reorder digits after all other characters.</td>
 				</tr>
 				<tr>
-					<td class="c2"><code>en-u-kr-arab-cyrl-others-symbol</code></td>
-					<td class="c2">Reorder Arabic characters first, then Cyrillic,
+					<td><code>en-u-kr-arab-cyrl-others-symbol</code></td>
+					<td>Reorder Arabic characters first, then Cyrillic,
 						and put symbols at the end—after all other characters.</td>
 				</tr>
 				<tr>
-					<td class="c2"><code>en-u-kr-others</code></td>
-					<td class="c2">Remove any locale-specific reordering, and use
+					<td><code>en-u-kr-others</code></td>
+					<td>Remove any locale-specific reordering, and use
 						DUCET order for reordering blocks.</td>
 				</tr>
 			</tbody>

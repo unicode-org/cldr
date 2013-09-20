@@ -53,6 +53,10 @@ import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.TimeZone;
 
 public class CldrUtility {
+    
+    public static final boolean BETA = true;
+    public static final String CHART_VERSION = "25";
+    public static final String CHART_DISPLAY_VERSION = CHART_VERSION + (BETA ? "β" : "");
 
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
     // Constant for "∅∅∅". Indicates that a child locale has no value for a
@@ -180,9 +184,8 @@ public class CldrUtility {
      */
     public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY, "supplemental/");
 
-    public static final boolean BETA = false;
-    public static final String CHART_DISPLAY_VERSION = "24";
-    public static final String CHART_DIRECTORY = getPath(AUX_DIRECTORY + "charts/", CHART_DISPLAY_VERSION);
+    
+    public static final String CHART_DIRECTORY = getPath(AUX_DIRECTORY + "charts/", CHART_VERSION);
     public static final String LOG_DIRECTORY = getPath(TMP_DIRECTORY, "logs/");
 
     public static final String TEST_DIR = getPath(CldrUtility.BASE_DIRECTORY, "test/");

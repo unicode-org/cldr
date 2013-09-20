@@ -48,8 +48,8 @@ public class GenerateItemCounts {
     private static String[] DIRECTORIES = {
         // MUST be oldest first!
         // "cldr-archive/cldr-21.0",
-        "cldr-archive/cldr-22.1",
-        "cldr-archive/cldr-23.0",
+        "cldr-23.0",
+        "cldr-24.0",
     };
 
     static boolean doChanges = true;
@@ -293,6 +293,7 @@ public class GenerateItemCounts {
                     long attrCount = Long.parseLong(parts[3]);
                     long attrLen = Long.parseLong(parts[4]);
                     int lastSlash = file.lastIndexOf("/");
+                    String key2 = file;
                     String path = file.substring(0, lastSlash);
                     String key = file.substring(lastSlash + 1);
                     if (countryLocale.reset(key).matches()) {
@@ -309,16 +310,16 @@ public class GenerateItemCounts {
                             }
                         }
                         // System.out.println(key + " => " + newKey);
-                        key = writtenLang + "—" + ULocale.getDisplayName(writtenLang, "en");
+                        //key = writtenLang + "—" + ULocale.getDisplayName(writtenLang, "en");
                     }
                     if (valueCount + attrCount == 0) continue;
-                    release_keys.put(releaseNum, key);
+                    release_keys.put(releaseNum, key2);
                     R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>> release_count = key_release_count
-                        .get(key);
+                        .get(key2);
                     if (release_count == null) {
                         release_count = Row.of(new Counter<String>(), new Counter<String>(), new Counter<String>(),
                             new Counter<String>());
-                        key_release_count.put(key, release_count);
+                        key_release_count.put(key2, release_count);
                     }
                     release_count.get0().add(releaseNum, valueCount);
                     release_count.get1().add(releaseNum, valueLen);

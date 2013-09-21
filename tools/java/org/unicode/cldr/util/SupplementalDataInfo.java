@@ -54,6 +54,7 @@ import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.VersionInfo;
 
 /**
  * Singleton class to provide API access to supplemental data -- in all the supplemental data files.
@@ -237,7 +238,7 @@ public class SupplementalDataInfo {
      * Simple language/script/region information
      */
     public static class BasicLanguageData implements Comparable<BasicLanguageData>,
-        com.ibm.icu.util.Freezable<BasicLanguageData> {
+    com.ibm.icu.util.Freezable<BasicLanguageData> {
         public enum Type {
             primary, secondary
         };
@@ -312,13 +313,13 @@ public class SupplementalDataInfo {
             if (scripts.size() == 0 && territories.size() == 0)
                 return "";
             return "\t\t<language type=\""
-                + languageSubtag
-                + "\""
-                + (scripts.size() == 0 ? "" : " scripts=\""
-                    + CldrUtility.join(scripts, " ") + "\"")
+            + languageSubtag
+            + "\""
+            + (scripts.size() == 0 ? "" : " scripts=\""
+                + CldrUtility.join(scripts, " ") + "\"")
                 + (territories.size() == 0 ? "" : " territories=\""
                     + CldrUtility.join(territories, " ") + "\"")
-                + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
+                    + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
 
         public String toString() {
@@ -774,6 +775,8 @@ public class SupplementalDataInfo {
     public static final String STAR = "*";
     public static final Set<String> STAR_SET = Builder.with(new HashSet<String>()).add("*").freeze();
 
+    private VersionInfo cldrVersion;
+
     private Map<String, PopulationData> territoryToPopulationData = new TreeMap<String, PopulationData>();
 
     private Map<String, Map<String, PopulationData>> territoryToLanguageToPopulationData = new TreeMap<String, Map<String, PopulationData>>();
@@ -889,7 +892,7 @@ public class SupplementalDataInfo {
             return getInstance(supplementalDirectory.getCanonicalPath());
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException()
-                .initCause(e);
+            .initCause(e);
         }
     }
 
@@ -930,7 +933,7 @@ public class SupplementalDataInfo {
                 canonicalpath = new File(supplementalDirectory).getCanonicalPath();
             } catch (IOException e) {
                 throw (IllegalArgumentException) new IllegalArgumentException()
-                    .initCause(e);
+                .initCause(e);
             }
             if (!canonicalpath.equals(supplementalDirectory)) {
                 instance = directory_instance.get(canonicalpath);
@@ -1132,14 +1135,25 @@ public class SupplementalDataInfo {
                 String level2 = parts.size() < 3 ? null : parts.getElement(2);
                 String level3 = parts.size() < 4 ? null : parts.getElement(3);
                 // String level4 = parts.size() < 5 ? null : parts.getElement(4);
-                if (level1.equals("generation") || level1.equals("version")) {
+                if (level1.equals("generation")) {
                     // skip
+                    return;
+                }
+                if (level1.equals("version")) {
+                    if (cldrVersion == null) {
+                        String version = parts.getAttributeValue(1, "cldrVersion");
+                        if (version == null) {
+                            // old format
+                            version = parts.getAttributeValue(0, "version");
+                        }
+                        cldrVersion = VersionInfo.getInstance(version);
+                    }
                     return;
                 }
 
                 // copy the rest from ShowLanguages later
                 if (level0.equals("ldmlBCP47")) {
-                    if (handleBcp47(level2)) {
+                    if (handleBcp47(level1, level2)) {
                         return;
                     }
                 } else if (level1.equals("territoryInfo")) {
@@ -1268,7 +1282,14 @@ public class SupplementalDataInfo {
             return true;
         }
 
-        private boolean handleBcp47(String level2) {
+        private boolean handleBcp47(String level1, String level2) {
+            if (level1.equals("version") || level1.equals("generation") || level1.equals("cldrVersion")) {
+                return true; // skip
+            }
+            if (!level1.equals("keyword")) {
+                throw new IllegalArgumentException("Unexpected level1 element: " + level1);
+            }
+
             String key = parts.getAttributeValue(2, "name");
             String keyAlias = parts.getAttributeValue(2, "alias");
             String keyDescription = parts.getAttributeValue(2, "description");
@@ -1361,6 +1382,9 @@ public class SupplementalDataInfo {
                 String inTerritory = parts.containsAttribute("inTerritory") ? coverageVariables.replace(parts
                     .getAttributeValue(-1, "inTerritory")) : null;
                 Integer value = (valueStr != null) ? Integer.valueOf(valueStr) : Integer.valueOf("101");
+                if (cldrVersion.getMajor() < 2) {
+                    value = 40;
+                }
                 CoverageLevelInfo ci = new CoverageLevelInfo(match, value, inLanguage, inScript, inTerritory);
                 coverageLevels.add(ci);
             } else if (parts.containsElement("coverageVariable")) {
@@ -1592,9 +1616,9 @@ public class SupplementalDataInfo {
             double territoryGdp = parseDouble(territoryAttributes.get("gdp"));
             if (territoryToPopulationData.get(territory) == null) {
                 territoryToPopulationData.put(territory, new PopulationData()
-                    .setPopulation(territoryPopulation)
-                    .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
-                    .setGdp(territoryGdp));
+                .setPopulation(territoryPopulation)
+                .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
+                .setGdp(territoryGdp));
             }
             if (parts.size() > 3) {
 
@@ -1605,10 +1629,10 @@ public class SupplementalDataInfo {
                 if (Double.isNaN(languageLiteracyPercent)) {
                     languageLiteracyPercent = territoryLiteracyPercent;
                 }// else {
-                 // System.out.println("writingPercent\t" + languageLiteracyPercent
-                 // + "\tterritory\t" + territory
-                 // + "\tlanguage\t" + language);
-                 // }
+                // System.out.println("writingPercent\t" + languageLiteracyPercent
+                // + "\tterritory\t" + territory
+                // + "\tlanguage\t" + language);
+                // }
                 double languagePopulationPercent = parseDouble(languageInTerritoryAttributes.get("populationPercent"));
                 double languagePopulation = languagePopulationPercent * territoryPopulation / 100;
                 // double languageGdp = languagePopulationPercent * territoryGdp;
@@ -1625,16 +1649,16 @@ public class SupplementalDataInfo {
                 if (officialStatusString != null) officialStatus = OfficialStatus.valueOf(officialStatusString);
 
                 PopulationData newData = new PopulationData()
-                    .setPopulation(languagePopulation)
-                    .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
-                    .setOfficialStatus(officialStatus)
+                .setPopulation(languagePopulation)
+                .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
+                .setOfficialStatus(officialStatus)
                 // .setGdp(languageGdp)
                 ;
                 newData.freeze();
                 if (territoryLanguageToPopulation.get(language) != null) {
                     System.out
-                        .println("Internal Problem in supplementalData: multiple data items for "
-                            + language + ", " + territory + "\tSkipping " + newData);
+                    .println("Internal Problem in supplementalData: multiple data items for "
+                        + language + ", " + territory + "\tSkipping " + newData);
                     return true;
                 }
 
@@ -1738,10 +1762,10 @@ public class SupplementalDataInfo {
             String language = (String) parts.getAttributeValue(2, "type");
             BasicLanguageData languageData = new BasicLanguageData();
             languageData
-                .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
-                    : BasicLanguageData.Type.secondary);
+            .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
+                : BasicLanguageData.Type.secondary);
             languageData.setScripts(parts.getAttributeValue(2, "scripts"))
-                .setTerritories(parts.getAttributeValue(2, "territories"));
+            .setTerritories(parts.getAttributeValue(2, "territories"));
             Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
             if (map == null) {
                 languageToBasicLanguageData.put(language, map = new EnumMap<Type, BasicLanguageData>(
@@ -1758,8 +1782,8 @@ public class SupplementalDataInfo {
                 return false;
             }
             System.out
-                .println("Internal Problem in supplementalData: range check fails for "
-                    + input + ", min: " + min + ", max:" + max + "\t" + path);
+            .println("Internal Problem in supplementalData: range check fails for "
+                + input + ", min: " + min + ", max:" + max + "\t" + path);
 
             return false;
         }
@@ -2127,8 +2151,8 @@ public class SupplementalDataInfo {
                 String pattern = ci.match.replace('\'', '"')
                     .replace("[@", "\\[@") // make sure that attributes are quoted
                     .replace("(", "(?:") // make sure that there are no capturing groups (beyond what we generate
-                // below).
-                ;
+                    // below).
+                    ;
                 pattern = "^//ldml/" + pattern + "$"; // for now, force a complete match
                 String variableType = null;
                 variable.reset(pattern);
@@ -3552,5 +3576,9 @@ public class SupplementalDataInfo {
         }
 
         return locales;
+    }
+
+    public VersionInfo getCldrVersion() {
+        return cldrVersion;
     }
 }

@@ -23,6 +23,8 @@ import java.util.TreeSet;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
+import org.unicode.cldr.test.TestCLDRTests.Handler;
+import org.unicode.cldr.test.TestCLDRTests.MutableInteger;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.StandardCodes;
@@ -48,7 +50,7 @@ public class TestCLDRTests extends TestFmwk {
     Locale oLocale = Locale.ENGLISH; // TODO Drop once ICU4J has ULocale everywhere
     PrintWriter log;
     SAXParser SAX;
-    TreeMap results = new TreeMap();
+    TreeMap<String, MutableInteger> results = new TreeMap<String, MutableInteger>();
 
     public static void main(String[] args) throws Exception {
         double deltaTime = System.currentTimeMillis();
@@ -114,7 +116,7 @@ public class TestCLDRTests extends TestFmwk {
     // ============ SAX Handler Infrastructure ============
 
     abstract public class Handler {
-        Map settings = new TreeMap();
+        Map<String, String> settings = new TreeMap<String, String>();
         String name;
         String attributes;
 
@@ -138,7 +140,7 @@ public class TestCLDRTests extends TestFmwk {
 
         public void myerrln(String message) {
             String temp = uLocale + "\t" + message + "\t[" + name;
-            for (Iterator it = settings.keySet().iterator(); it.hasNext();) {
+            for (Iterator<String> it = settings.keySet().iterator(); it.hasNext();) {
                 String attributeName = (String) it.next();
                 String attributeValue = (String) settings.get(attributeName);
                 temp += " " + attributeName + "=<" + attributeValue + ">";
@@ -190,7 +192,7 @@ public class TestCLDRTests extends TestFmwk {
         RegisteredHandlers.put(name, handler);
     }
 
-    Map RegisteredHandlers = new HashMap();
+    Map<String, Handler> RegisteredHandlers = new HashMap<String, Handler>();
 
     // ============ Statics for Date/Number Support ============
 
@@ -238,7 +240,7 @@ public class TestCLDRTests extends TestFmwk {
             public void handleResult(String result) {
                 NumberFormat nf = null;
                 double v = Double.NaN;
-                for (Iterator it = settings.keySet().iterator(); it.hasNext();) {
+                for (Iterator<String> it = settings.keySet().iterator(); it.hasNext();) {
                     String attributeName = (String) it.next();
                     String attributeValue = (String) settings
                         .get(attributeName);
@@ -281,7 +283,7 @@ public class TestCLDRTests extends TestFmwk {
                 int dateFormat = DateFormat.DEFAULT;
                 int timeFormat = DateFormat.DEFAULT;
                 Date date = new Date();
-                for (Iterator it = settings.keySet().iterator(); it.hasNext();) {
+                for (Iterator<String> it = settings.keySet().iterator(); it.hasNext();) {
                     String attributeName = (String) it.next();
                     String attributeValue = (String) settings
                         .get(attributeName);

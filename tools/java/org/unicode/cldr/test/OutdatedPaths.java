@@ -63,7 +63,7 @@ public class OutdatedPaths {
     public OutdatedPaths(String directory) {
         try {
             DataInputStream dataIn = openDataInput(directory, OUTDATED_DATA);
-            Map<Long, PathHeader> id2header = new HashMap();
+            Map<Long, PathHeader> id2header = new HashMap<Long, PathHeader>();
             if (DEBUG) {
                 Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
                 id2header = getIdToPath(factory);

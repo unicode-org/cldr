@@ -120,11 +120,11 @@ public class TestMetazones {
         errorLog.println("Testing metazone info in: " + locale);
         // get the resolved version
         file = factory.make(locale, true);
-        Relation<String, DateRangeAndZone> mzoneToData = new Relation(
-            new TreeMap(), TreeSet.class);
+        Relation<String, DateRangeAndZone> mzoneToData = Relation.<String, DateRangeAndZone>of(
+            new TreeMap<String, Set<DateRangeAndZone>>(), TreeSet.class);
 
-        Relation<String, DateRangeAndZone> zoneToDateRanges = new Relation(
-            new TreeMap(), TreeSet.class);
+        Relation<String, DateRangeAndZone> zoneToDateRanges = Relation.<String, DateRangeAndZone>of(
+            new TreeMap<String, Set<DateRangeAndZone>>(), TreeSet.class);
 
         fillMetazoneData(file, mzoneToData, zoneToDateRanges);
 

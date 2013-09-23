@@ -28,7 +28,7 @@ public class TestAll extends TestGroup {
                 "org.unicode.cldr.unittest.TestLocale",
                 "org.unicode.cldr.unittest.TestBasic",
                 "org.unicode.cldr.unittest.TestCasingInfo",
-                "org.unicode.cldr.unittest.TestKeyboardModifier",
+                "org.unicode.cldr.unittest.TestKeyboardModifierSet",
                 "org.unicode.cldr.unittest.TestLruMap",
                 "org.unicode.cldr.unittest.TestSupplementalInfo",
                 "org.unicode.cldr.unittest.TestPaths",
@@ -54,6 +54,7 @@ public class TestAll extends TestGroup {
     public static final String CLASS_TARGET_NAME = "CLDR";
 
     public static class TestInfo extends CLDRConfig {
+        private static final long serialVersionUID = -2383155678635899954L;
         private static TestInfo INSTANCE = null;
 
         public static TestInfo getInstance() {

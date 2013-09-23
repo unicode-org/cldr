@@ -37,9 +37,6 @@ public class LikelySubtagsTest extends TestFmwk {
         // first get all the subtags
         // then test all the combinations
         LanguageTagParser ltp = new LanguageTagParser();
-        Set<String> languages = new HashSet();
-        Set<String> scripts = new HashSet();
-        Set<String> regions = new HashSet();
         for (Entry<String, String> entry : likely.entrySet()) {
             ltp.set(entry.getKey());
             String sourceLanguage = ltp.getLanguage();

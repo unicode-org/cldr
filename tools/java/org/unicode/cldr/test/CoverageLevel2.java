@@ -154,9 +154,9 @@ public class CoverageLevel2 {
         synchronized (lookup) { // synchronize on the class, since the Matchers are changed during the matching process
             Level result;
             if (false) { // for testing
-                Output<String[]> checkItems = new Output();
+                Output<String[]> checkItems = new Output<String[]>();
                 Output<Finder> matcherFound = new Output<Finder>();
-                List<String> failures = new ArrayList();
+                List<String> failures = new ArrayList<String>();
                 result = lookup.get(path, myInfo, checkItems, matcherFound, failures);
                 for (String s : failures) {
                     System.out.println(s);

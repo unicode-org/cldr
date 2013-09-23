@@ -1,7 +1,7 @@
 package org.unicode.cldr.unittest;
 
 import java.util.Arrays;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -136,7 +136,7 @@ public class TestCanonicalIds extends TestFmwk {
         }
     }
 
-    static final long CURRENT_YEAR = new Date().getYear() + 1900;
+    static final long CURRENT_YEAR = Calendar.getInstance().get(Calendar.YEAR);
 
     private boolean isOk(Type type, String value) {
         if (type == Type.territory) {

@@ -72,7 +72,7 @@ public class TestSegments {
 
         if (args.length == 0)
             args = new String[] { "GraphemeClusterBreak", "LineBreak", "SentenceBreak", "WordBreak" };
-        List testChoice = Arrays.asList(args);
+        List<String> testChoice = Arrays.asList(args);
 
         UnicodeProperty.Factory propFactory = ICUPropertyFactory.make();
 
@@ -181,8 +181,6 @@ public class TestSegments {
 
             String test = rsg.next(monkeyStringCount);
             icuBreak.setText(test);
-            int[] icuStatus = new int[20];
-            int[] ruleStatus = new int[20];
             for (int j = 0; j <= test.length(); ++j) {
                 boolean icuBreakResults = icuBreak.isBoundary(j);
                 boolean ruleListResults = rl.breaksAt(test, j);

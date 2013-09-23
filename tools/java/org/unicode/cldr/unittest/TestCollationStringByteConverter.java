@@ -125,14 +125,14 @@ public class TestCollationStringByteConverter {
         System.out.println(ULocale.getDisplayName("en_GB", "en"));
 
         DictionaryBuilder<CharSequence> builder = new StateDictionaryBuilder<CharSequence>();
-        Map map = new TreeMap(Dictionary.CHAR_SEQUENCE_COMPARATOR);
+        Map <CharSequence, CharSequence>map = new TreeMap<CharSequence, CharSequence>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
         map.put("a", "ABC");
         map.put("bc", "B"); // ß
         Dictionary<CharSequence> dict = builder.make(map);
         String[] tests = { "a/bc", "bc", "a", "d", "", "abca" };
         for (String test : tests) {
             System.out.println("TRYING: " + test);
-            DictionaryCharList gcs = new DictionaryCharList(dict, test);
+            DictionaryCharList<CharSequence> gcs = new DictionaryCharList<CharSequence>(dict, test);
             for (int i = 0; gcs.hasCharAt(i); ++i) {
                 char c = gcs.charAt(i);
                 final int sourceOffset = gcs.toSourceOffset(i);
@@ -277,7 +277,7 @@ public class TestCollationStringByteConverter {
 
     private static String showZone(LenientDateParser ldp, TimeZone zone) {
         String id = zone.getID();
-        return ldp.getCountry(id) + ":" + id;
+        return LenientDateParser.getCountry(id) + ":" + id;
     }
 
     private static boolean areEqual(Calendar calendar, Calendar calendar2) {
@@ -296,7 +296,7 @@ public class TestCollationStringByteConverter {
 
     public static void check() throws Exception {
         final RuleBasedCollator col = (RuleBasedCollator) Collator.getInstance(ULocale.ENGLISH);
-        col.setStrength(col.PRIMARY);
+        col.setStrength(Collator.PRIMARY);
         col.setAlternateHandlingShifted(true);
         CollationStringByteConverter converter = new CollationStringByteConverter(col, new Utf8StringByteConverter()); // new
                                                                                                                        // ByteString(true)
@@ -313,8 +313,7 @@ public class TestCollationStringByteConverter {
         String[] tests = { "ab", "abc", "ss", "ß", "Abcde", "Once Upon AB Time", "\u00E0b", "A\u0300b" };
         byte[] output = new byte[1000];
         for (String test : tests) {
-            DictionaryCharList<String> dcl = new DictionaryCharList(converter.getDictionary(), test);
-            String result = matcher.setText(new DictionaryCharList(converter.getDictionary(), test))
+            String result = matcher.setText(new DictionaryCharList<String>(converter.getDictionary(), test))
                 .convert(new StringBuffer()).toString();
             System.out.println(test + "\t=>\t" + result);
             int len = converter.toBytes(test, output, 0);
@@ -324,24 +323,23 @@ public class TestCollationStringByteConverter {
                 System.out.print(Utility.hex(output[i] & 0xFF, 2) + " ");
             }
             System.out.println();
-            RuleBasedCollator c;
         }
 
         DictionaryBuilder<String> builder = new StateDictionaryBuilder<String>(); // .setByteConverter(converter);
-        Map map = new TreeMap(Dictionary.CHAR_SEQUENCE_COMPARATOR);
+        Map<CharSequence, String> map = new TreeMap<CharSequence, String>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
         map.put("ab", "found-ab");
         map.put("abc", "found-ab");
         map.put("ss", "found-ss"); // ß
         Dictionary<String> dict = builder.make(map);
         final String string = "Abcde and ab c Upon aß AB basS Time\u00E0bA\u0300b";
-        DictionaryCharList x = new DictionaryCharList(converter.getDictionary(), string);
+        DictionaryCharList<String> x = new DictionaryCharList<String>(converter.getDictionary(), string);
         x.hasCharAt(Integer.MAX_VALUE); // force growth
         System.out.println("Internal: " + x.sourceSubSequence(0, x.getKnownLength()));
 
-        TestStateDictionaryBuilder.tryFind(string, new DictionaryCharList(converter.getDictionary(), string), dict,
+        TestStateDictionaryBuilder.tryFind(string, new DictionaryCharList<String>(converter.getDictionary(), string), dict,
             Filter.ALL);
 
-        TestStateDictionaryBuilder.tryFind(string, new DictionaryCharList(converter.getDictionary(), string), dict,
+        TestStateDictionaryBuilder.tryFind(string, new DictionaryCharList<String>(converter.getDictionary(), string), dict,
             Filter.LONGEST_MATCH);
 
     }

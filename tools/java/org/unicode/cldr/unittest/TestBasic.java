@@ -458,7 +458,7 @@ public class TestBasic extends TestFmwk {
 
     public void TestDefaultContents() {
         Set<String> defaultContents = testInfo.getSupplementalDataInfo().getDefaultContentLocales();
-        Relation<String, String> parentToChildren = Relation.of(new TreeMap(), TreeSet.class);
+        Relation<String, String> parentToChildren = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
         for (String child : testInfo.getCldrFactory().getAvailable()) {
             if (child.equals("root")) {
                 continue;
@@ -495,7 +495,7 @@ public class TestBasic extends TestFmwk {
             }
             Set<String> children = parentToChildren.get(locale);
             if (children != null) {
-                Set<String> defaultContentChildren = new LinkedHashSet(children);
+                Set<String> defaultContentChildren = new LinkedHashSet<String>(children);
                 defaultContentChildren.retainAll(defaultContents);
                 if (defaultContentChildren.size() != 1) {
                     if (defaultContentChildren.isEmpty()) {

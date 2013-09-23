@@ -41,7 +41,7 @@ public abstract class TestCache implements XMLSource.Listener {
             cc.check(path, file.getFullXPath(path), value, options, result);
         }
 
-        public void getExamples(String path, String value, List result) {
+        public void getExamples(String path, String value, List<CheckStatus> result) {
             cc.getExamples(path, file.getFullXPath(path), value, options, result);
         }
     }

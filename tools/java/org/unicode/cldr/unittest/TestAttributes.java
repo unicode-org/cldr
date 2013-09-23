@@ -48,7 +48,7 @@ public class TestAttributes extends TestFmwk {
     private void checkOrdering(DtdType type) {
         Relation<String, String> toChildren = ElementAttributeInfo.getInstance(type).getElement2Children();
         // Relation<String, String> toParents = ElementAttributeInfo.getElement2Parents(type);
-        Set<String> containsOrdered = new LinkedHashSet();
+        Set<String> containsOrdered = new LinkedHashSet<String>();
         for (String element : toChildren.keySet()) {
             int ordered = 0;
             Set<String> containedElements = toChildren.getAll(element);
@@ -104,9 +104,9 @@ public class TestAttributes extends TestFmwk {
     private void showDistinguishing(DtdType dtdType) {
         Relation<String, String> elementToAttributes = ElementAttributeInfo.getInstance(dtdType)
             .getElement2Attributes();
-        Relation<String, String> distinguishingAttributeToElements = new Relation(new TreeMap(), TreeSet.class);
-        Relation<String, String> nondistinguishingAttributeToElements = new Relation(new TreeMap(), TreeSet.class);
-        Relation<String, String> orderedAttributeToElements = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> distinguishingAttributeToElements = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> nondistinguishingAttributeToElements = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> orderedAttributeToElements = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Map<R2<String, String>, R3<Set<String>, String, String>> attributeData = ElementAttributeInfo.getInstance(
             dtdType).getElementAttribute2Data();
 
@@ -138,15 +138,15 @@ public class TestAttributes extends TestFmwk {
             }
         }
 
-        Set<String> nondistinguishing = new TreeSet(nondistinguishingAttributeToElements.keySet());
+        Set<String> nondistinguishing = new TreeSet<String>(nondistinguishingAttributeToElements.keySet());
         nondistinguishing.removeAll(distinguishingAttributeToElements.keySet());
         System.out.println("// " + dtdType + "\tnondistinguishing: " + nondistinguishing);
 
-        Set<String> distinguishing = new TreeSet(distinguishingAttributeToElements.keySet());
+        Set<String> distinguishing = new TreeSet<String>(distinguishingAttributeToElements.keySet());
         nondistinguishing.removeAll(nondistinguishingAttributeToElements.keySet());
         System.out.println("// " + dtdType + "\tdistinguishing: " + distinguishing);
 
-        Set<String> both = new TreeSet(distinguishingAttributeToElements.keySet());
+        Set<String> both = new TreeSet<String>(distinguishingAttributeToElements.keySet());
         both.retainAll(nondistinguishingAttributeToElements.keySet());
         System.out.println("// " + dtdType + "\tboth: " + both);
 
@@ -161,7 +161,7 @@ public class TestAttributes extends TestFmwk {
         }
     }
 
-    public void TestAttributes() {
+    public TestAttributes() {
         checkAttributes(DtdType.ldml, DtdType.supplementalData);
         checkAttributes(DtdType.ldml, DtdType.ldmlBCP47);
         checkAttributes(DtdType.ldmlBCP47, DtdType.supplementalData);
@@ -321,7 +321,7 @@ public class TestAttributes extends TestFmwk {
         Set<String> possibleElements = dtdElementToAttributes.keySet();
         Set<String> foundElements = elementToAttributes.keySet();
         if (!foundElements.equals(possibleElements)) {
-            Set<String> missing = new TreeSet(possibleElements);
+            Set<String> missing = new TreeSet<String>(possibleElements);
             missing.removeAll(foundElements);
             errln(type + "\t" + "Elements defined but not in data:\t" + missing);
         }
@@ -337,7 +337,7 @@ public class TestAttributes extends TestFmwk {
                     + dtdAttributes + ", " + actualAttributes + ", " + attributesAlwaysFound);
             }
 
-            Set<String> notFound = new TreeSet(dtdAttributes);
+            Set<String> notFound = new TreeSet<String>(dtdAttributes);
             notFound.removeAll(actualAttributes);
             notFound.remove("draft");
             notFound.remove("references");
@@ -404,7 +404,7 @@ public class TestAttributes extends TestFmwk {
 
     private Set<String> remove_q(Set<String> actualAttributes) {
         if (actualAttributes == null) {
-            actualAttributes = Collections.EMPTY_SET;
+            actualAttributes = Collections.emptySet();
         } else if (actualAttributes.contains("_q")) {
             actualAttributes = new LinkedHashSet<String>(actualAttributes);
             actualAttributes.remove("_q");
@@ -418,8 +418,8 @@ public class TestAttributes extends TestFmwk {
             Map<String, R2<String, String>> branchNodes = new TreeMap<String, R2<String, String>>();
             Map<String, R3<String, String, String>> valueNodes = new TreeMap<String, R3<String, String, String>>();
             Map<String, R2<String, String>> valuelessNodes = new TreeMap<String, R2<String, String>>();
-            Relation<String, String> elementToAttributes = new Relation(new TreeMap(), TreeSet.class);
-            Relation<String, String> elementToAttributesAlwaysFound = new Relation(new TreeMap(), TreeSet.class);
+            Relation<String, String> elementToAttributes = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
+            Relation<String, String> elementToAttributesAlwaysFound = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
             NodeData(DtdType type) {
                 myType = type;
@@ -433,7 +433,7 @@ public class TestAttributes extends TestFmwk {
             XPathParts parts = new XPathParts();
             for (String dir : common.list()) {
                 Factory cldrFactory = Factory.make(CldrUtility.COMMON_DIRECTORY + "/" + dir, ".*");
-                Set<String> locales = new TreeSet(cldrFactory.getAvailable());
+                Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
                 for (String locale : locales) {
                     if ((counter++ % 10) == 0) {
                         System.out.println(counter + ") Checking: " + dir + "," + locale);

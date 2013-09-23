@@ -13,6 +13,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
@@ -219,7 +220,8 @@ public class LanguageTest extends TestFmwk {
 
     public String getDescription(String type, String token) {
         try {
-            String name = testInfo.getStandardCodes().getLStreg().get(type).get(token).get("Description");
+            testInfo.getStandardCodes();
+            String name = StandardCodes.getLStreg().get(type).get(token).get("Description");
             int pos = name.indexOf('▪');
             return pos < 0 ? name : name.substring(0, pos);
         } catch (Exception e) {

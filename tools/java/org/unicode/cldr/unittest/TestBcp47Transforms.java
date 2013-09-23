@@ -52,7 +52,7 @@ public class TestBcp47Transforms extends TestFmwk {
                 System.out.println(key + ", " + subtype + ", " + description);
             }
         }
-        Map<String, String> old2newName = new TreeMap();
+        Map<String, String> old2newName = new TreeMap<String, String>();
         for (String file : Arrays.asList(new File(CLDRTransforms.TRANSFORM_DIR).list())) {
             if (!file.endsWith(".xml")) continue;
             ParsedTransformID directionInfo = new ParsedTransformID();
@@ -113,7 +113,7 @@ public class TestBcp47Transforms extends TestFmwk {
     }
 
     static ULocale.Builder ubuilder = new ULocale.Builder();
-    static Relation<String, Row.R2<Type, String>> MISSING = Relation.of(new TreeMap(), TreeSet.class);
+    static Relation<String, Row.R2<Type, String>> MISSING = Relation.<String, Row.R2<Type, String>>of(new TreeMap<String, Set<Row.R2<Type, String>>>(), TreeSet.class);
     static StandardCodes sc = StandardCodes.make();
 
     static Map<String, String> SPECIAL_CASES;

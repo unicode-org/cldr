@@ -34,7 +34,7 @@ import com.ibm.icu.dev.util.Relation;
  * @author markdavis
  */
 public class QuickCheck {
-    private static final Set skipAttributes = new HashSet(Arrays.asList(new String[] {
+    private static final Set<String> skipAttributes = new HashSet<String>(Arrays.asList(new String[] {
         "alt", "draft", "references" }));
 
     private static String localeRegex;
@@ -158,13 +158,13 @@ public class QuickCheck {
     private static boolean pretty;
 
     private static void checkPaths() {
-        Relation<String, String> distinguishing = new Relation(new TreeMap(), TreeSet.class, null);
-        Relation<String, String> nonDistinguishing = new Relation(new TreeMap(), TreeSet.class, null);
+        Relation<String, String> distinguishing = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
+        Relation<String, String> nonDistinguishing = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
         XPathParts parts = new XPathParts();
         Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
         CLDRFile english = cldrFactory.make("en", true);
 
-        Relation<String, String> pathToLocale = new Relation(new TreeMap(CLDRFile.ldmlComparator), TreeSet.class, null);
+        Relation<String, String> pathToLocale = Relation.<String, String>of(new TreeMap<String, Set<String>>(CLDRFile.ldmlComparator), TreeSet.class, null);
         for (String locale : cldrFactory.getAvailable()) {
             // if (locale.equals("root") && !localeRegex.equals("root"))
             // continue;
@@ -217,7 +217,7 @@ public class QuickCheck {
                 if (path.contains("proposed")) {
                     String sourceLocale = file.getSourceLocaleID(path, null);
                     if (locale.equals(sourceLocale)) {
-                        String nonAltPath = file.getNondraftNonaltXPath(path);
+                        String nonAltPath = CLDRFile.getNondraftNonaltXPath(path);
                         if (!path.equals(nonAltPath)) {
                             String nonAltLocale = file.getSourceLocaleID(nonAltPath, null);
                             String nonAltValue = file.getStringValue(nonAltPath);
@@ -275,7 +275,7 @@ public class QuickCheck {
                     + CldrUtility.LINE_SEPARATOR);
             }
             PrettyPath prettyPath = new PrettyPath().setShowErrors(true);
-            Set<String> badPaths = new TreeSet();
+            Set<String> badPaths = new TreeSet<String>();
             for (String path : pathToLocale.keySet()) {
                 String prettied = prettyPath.getPrettyPath(path, false);
                 if (showInfo) System.out.println(prettied + "\t\t" + path);

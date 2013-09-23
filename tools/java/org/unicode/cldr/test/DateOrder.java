@@ -85,7 +85,7 @@ public class DateOrder implements Comparable<DateOrder> {
                     String type = typeMatcher.group(1);
                     Map<DateOrder, Set<String>> pairCount = type2order2set.get(type);
                     if (pairCount == null) {
-                        type2order2set.put(type, pairCount = new HashMap());
+                        type2order2set.put(type, pairCount = new HashMap<DateOrder, Set<String>>());
                     }
                     boolean isInterval = path.contains("intervalFormatItem");
                     lenSoFar = 0;
@@ -202,7 +202,7 @@ public class DateOrder implements Comparable<DateOrder> {
         }
         Map<DateOrder, String> order2path = pathsWithConflictingOrder2sample.get(path);
         if (order2path == null) {
-            pathsWithConflictingOrder2sample.put(path, order2path = new TreeMap());
+            pathsWithConflictingOrder2sample.put(path, order2path = new TreeMap<DateOrder, String>());
         }
         order2path.put(sample, conflictingPath);
     }

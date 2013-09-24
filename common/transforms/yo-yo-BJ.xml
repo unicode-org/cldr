@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="yo" target="yo-BJ" direction="forward" variant="BGN" draft="provisional">
+			<comment>
+			########################################################################
+			#
+			# Latin Characters that must be changed:
+			#
+			#   ẸỌṢ
+			#   ẹọṣ
+			#
+			# Originally prepared by Jonathan Lai ( jali01@ca.ibm.com )
+			########################################################################
+			#
+			# MINIMAL FILTER: yo-yo-BJ
+			#
+			</comment>
+			<tRule>:: [ẸỌṢẹọṣ] ;</tRule>
+			<tRule>:: NFD (NFC) ;</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+
+			<comment>
+			########################################################################
+			#
+			# Start of Alphabetic Transformations
+			#
+			########################################################################
+			#
+			</comment>
+			<tRule>Ẹ → Ɛ ; # CYRILLIC CAPITAL LETTER A</tRule>
+			<tRule>ẹ → ɛ ; # CYRILLIC SMALL LETTER A</tRule>
+			<tRule>Ọ → Ɔ ; # CYRILLIC CAPITAL LETTER BE</tRule>
+			<tRule>ọ → ɔ ; # CYRILLIC SMALL LETTER BE</tRule>
+			<tRule>Ṣ → Sh ; # CYRILLIC CAPITAL LETTER VE</tRule>
+			<tRule>ṣ → sh ; # CYRILLIC SMALL LETTER VE</tRule>
+			<comment>
+			#
+			########################################################################
+			</comment>
+		</transform>
+	</transforms>
+</supplementalData>

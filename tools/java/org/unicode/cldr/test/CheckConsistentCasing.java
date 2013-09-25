@@ -54,8 +54,9 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                 .setSubtype(Subtype.incorrectCasing)
                 .setMessage("Could not load casing info for {0}", locale));
             hasCasingInfo = false;
+        } else {
+            hasCasingInfo = types.size() > 0;
         }
-        hasCasingInfo = types.size() > 0;
         return this;
     }
 

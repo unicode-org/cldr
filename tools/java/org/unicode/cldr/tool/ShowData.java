@@ -54,7 +54,8 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
 public class ShowData {
-    private static final int HELP1 = 0, HELP2 = 1, SOURCEDIR = 2, DESTDIR = 3,
+    private static final int 
+        HELP1 = 0, HELP2 = 1, SOURCEDIR = 2, DESTDIR = 3,
         MATCH = 4, GET_SCRIPTS = 5,
         LAST_DIR = 6,
         COVERAGE = 7;
@@ -270,13 +271,19 @@ public class ShowData {
                         aliasedCount++;
                         continue;
                     }
-                    boolean isInherited = !source.equals(locale);
+                    String value = file.getStringValue(path);
+                    if (value.equals("{0} meter")) {
+                        int debug = 0;
+                    }
+
+                    //String baileyValue = file.getBaileyValue(path, null, null);
+                    boolean isInherited = !source.equals(locale); // !CldrUtility.equals(baileyValue, value); 
                     if (isInherited) {
                         inheritedCount++;
                     }
 
                     StringBuffer tempDraftRef = new StringBuffer();
-                    String value = file.getStringValue(path);
+
                     String lastValue = null;
                     boolean lastNonEmpty = false;
                     boolean lastEquals = false;
@@ -318,7 +325,7 @@ public class ShowData {
                         hideCoverage = true;
                     }
 
-                    boolean hide = isAliased || isInherited || lastEquals || hideCoverage || !lastNonEmpty;
+                    boolean hide = isAliased || isInherited || hideCoverage || !lastNonEmpty;
                     if (!hide) {
                         Relation<String, String> valuesToLocales = pathHeaderToValuesToLocale.get(prettyPath);
                         if (valuesToLocales == null) {
@@ -330,17 +337,17 @@ public class ShowData {
                         (hide ? "<tr class='xx'><td" : "<tr><td")
                             + statusClass
                             + ">"
-                            + (++count)
+                            + CldrUtility.getDoubleLinkedText(String.valueOf(++count))
                             + addPart(oldParts == null ? null : oldParts.getSection(), prettyPath.getSection())
                             + addPart(oldParts == null ? null : oldParts.getPage(), prettyPath.getPage())
                             + addPart(oldParts == null ? null : oldParts.getHeader(), prettyPath.getHeader())
                             + addPart(oldParts == null ? null : oldParts.getCode(), prettyPath.getCode())
                             // + "</td><td>" +
                             // TransliteratorUtilities.toHTML.transliterate(lastElement)
-                            + showValue(showEnglish, englishValue, value)
+                            + showValue(showEnglish, englishValue, value, false)
                             + (value == null ? "</td><td></i>n/a</i>"
                                 : "</td><td class='v'" + DataShower.getBidiStyle(value) + ">" + DataShower.getPrettyValue(value))
-                            + showValue(showLast, lastValue, value)
+                            + showValue(showLast, lastValue, value, lastEquals)
                             + "</td></tr>");
                     oldParts = prettyPath;
                 }
@@ -516,9 +523,9 @@ public class ShowData {
     }
 
     private static String showValue(boolean showEnglish, String comparisonValue,
-        String mainValue) {
+        String mainValue, boolean lastEquals) {
         return !showEnglish ? ""
-            : comparisonValue == null ? "</td><td><i>n/a</i>"
+            : comparisonValue == null ? (lastEquals ? "</td><td>=" : "</td><td><i>n/a</i>")
                 : comparisonValue.length() == 0 ? "</td><td>&nbsp;"
                     : comparisonValue.equals(mainValue) ? "</td><td>="
                         : "</td><td class='e'" + DataShower.getBidiStyle(comparisonValue) + ">" + DataShower.getPrettyValue(comparisonValue);

@@ -423,7 +423,7 @@ public class LanguageTagParser {
         return result;
     }
 
-    public void setLanguage(String language) {
+    public LanguageTagParser setLanguage(String language) {
         if (language.contains("_")) {
             String oldScript = script;
             String oldRegion = region;
@@ -438,10 +438,10 @@ public class LanguageTagParser {
             if (oldVariants.size() != 0) {
                 variants.addAll(oldVariants);
             }
-
         } else {
             this.language = language;
         }
+        return this;
     }
 
     public LanguageTagParser setLocaleExtensions(LinkedHashMap<String, String> localeExtensions) {

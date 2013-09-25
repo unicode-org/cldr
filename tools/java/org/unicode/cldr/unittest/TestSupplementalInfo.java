@@ -42,6 +42,7 @@ import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
+import org.unicode.cldr.util.SupplementalDataInfo.ContainmentStyle;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -606,7 +607,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestTerritoryContainment() {
-        Relation<String, String> map = SUPPLEMENTAL.getTerritoryToContained(false);
+        Relation<String, String> map = SUPPLEMENTAL.getTerritoryToContained(ContainmentStyle.all);
         Relation<String, String> mapCore = SUPPLEMENTAL.getContainmentCore();
         Set<String> mapItems = new LinkedHashSet<String>();
         // get all the items

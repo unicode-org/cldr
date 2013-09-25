@@ -808,7 +808,11 @@ public class SupplementalDataInfo {
         LinkedHashSet.class);
     private Relation<String, String> containmentCore = Relation.of(new LinkedHashMap<String, Set<String>>(),
         LinkedHashSet.class);
-    private Relation<String, String> containmentNonDeprecated = Relation.of(new LinkedHashMap<String, Set<String>>(),
+    //    private Relation<String, String> containmentNonDeprecated = Relation.of(new LinkedHashMap<String, Set<String>>(),
+    //        LinkedHashSet.class);
+    private Relation<String, String> containmentGrouping = Relation.of(new LinkedHashMap<String, Set<String>>(),
+        LinkedHashSet.class);
+    private Relation<String, String> containmentDeprecated = Relation.of(new LinkedHashMap<String, Set<String>>(),
         LinkedHashSet.class);
 
     private Map<String, CurrencyNumberInfo> currencyToCurrencyNumberInfo = new TreeMap<String, CurrencyNumberInfo>();
@@ -1012,7 +1016,9 @@ public class SupplementalDataInfo {
 
         containment.freeze();
         containmentCore.freeze();
-        containmentNonDeprecated.freeze();
+        //        containmentNonDeprecated.freeze();
+        containmentGrouping.freeze();
+        containmentDeprecated.freeze();
 
         CldrUtility.protectCollection(languageToBasicLanguageData);
         for (String language : languageToTerritories2.keySet()) {
@@ -1742,14 +1748,19 @@ public class SupplementalDataInfo {
             final String container = parts.getAttributeValue(-1, "type");
             final List<String> contained = Arrays
                 .asList(parts.getAttributeValue(-1, "contains").split("\\s+"));
+            // everything!
             containment.putAll(container, contained);
-            String deprecatedAttribute = parts.getAttributeValue(-1, "status");
+
+            String status = parts.getAttributeValue(-1, "status");
             String grouping = parts.getAttributeValue(-1, "grouping");
-            if (deprecatedAttribute == null) {
-                containmentNonDeprecated.putAll(container, contained);
-                if (grouping == null) {
-                    containmentCore.putAll(container, contained);
-                }
+            if (status == null && grouping == null) {
+                containmentCore.putAll(container, contained);
+            }
+            if (status != null && status.equals("deprecated")) {
+                containmentDeprecated.putAll(container, contained);
+            }
+            if (grouping != null) {
+                containmentGrouping.putAll(container, contained);
             }
         }
 
@@ -1913,11 +1924,23 @@ public class SupplementalDataInfo {
     }
 
     public Relation<String, String> getTerritoryToContained() {
-        return getTerritoryToContained(true);
+        return getTerritoryToContained(ContainmentStyle.all); // true
     }
 
-    public Relation<String, String> getTerritoryToContained(boolean allowDeprecated) {
-        return allowDeprecated ? containment : containmentNonDeprecated;
+    //    public Relation<String, String> getTerritoryToContained(boolean allowDeprecated) {
+    //        return allowDeprecated ? containment : containmentNonDeprecated;
+    //    }
+    //
+    public enum ContainmentStyle {all, core, grouping, deprecated}
+
+    public Relation<String, String> getTerritoryToContained(ContainmentStyle containmentStyle) {
+        switch(containmentStyle) {
+        case all: return containment;
+        case core: return containmentCore;
+        case grouping: return containmentGrouping;
+        case deprecated: return containmentDeprecated;
+        }
+        throw new IllegalArgumentException("internal error");
     }
 
     public Set<String> getSkippedElements() {

@@ -49,6 +49,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData;
+import org.unicode.cldr.util.SupplementalDataInfo.ContainmentStyle;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CurrencyNumberInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
@@ -114,7 +115,7 @@ public class ShowLanguages {
 
         linfo.showCoverageGoals(pw);
         
-        linfo.showTerritoryInfo();
+//        linfo.showTerritoryInfo();
 
         ShowPlurals.printPlurals(english, null, pw);
 
@@ -671,8 +672,6 @@ public class ShowLanguages {
         }
     }
 
-    public static Map<String, String> territoryAliases = new HashMap();
-
     static class LanguageInfo {
         private static final Map<String, Map<String, String>> localeAliasInfo = new TreeMap();
 
@@ -686,7 +685,7 @@ public class ShowLanguages {
 
         Map script_languages;
 
-        Map group_contains = new TreeMap();
+        //Map group_contains = new TreeMap();
 
         Set aliases = new TreeSet(new ArrayComparator(new Comparator[] { new UTF16.StringComparator(), col }));
 
@@ -725,12 +724,12 @@ public class ShowLanguages {
                     supp.getFullXPath(path);
                 }
                 parts.set(fullPath);
-                if (path.indexOf("/territoryContainment") >= 0) {
-                    Map attributes = parts.findAttributes("group");
-                    String type = (String) attributes.get("type");
-                    addTokens(type, (String) attributes.get("contains"), " ", group_contains);
-                    continue;
-                }
+//                if (path.indexOf("/territoryContainment") >= 0) {
+//                    Map attributes = parts.findAttributes("group");
+//                    String type = (String) attributes.get("type");
+//                    addTokens(type, (String) attributes.get("contains"), " ", group_contains);
+//                    continue;
+//                }
 
                 // <zoneItem type="America/Adak" territory="US" aliases="America/Atka US/Aleutian"/>
                 if (path.indexOf("/zoneItem") >= 0) {
@@ -1775,27 +1774,27 @@ public class ShowLanguages {
         /**
          * 
          */
-        public void showTerritoryInfo() {
-            Map territory_parent = new TreeMap();
-            gather("001", territory_parent);
-            for (Iterator it = territory_parent.keySet().iterator(); it.hasNext();) {
-                String territory = (String) it.next();
-                String parent = (String) territory_parent.get(territory);
-                System.out.println(territory + "\t" + english.getName(english.TERRITORY_NAME, territory) + "\t"
-                    + parent + "\t" + english.getName(english.TERRITORY_NAME, parent));
-            }
-        }
+//        public void showTerritoryInfo() {
+//            Map territory_parent = new TreeMap();
+//            gather("001", territory_parent);
+//            for (Iterator it = territory_parent.keySet().iterator(); it.hasNext();) {
+//                String territory = (String) it.next();
+//                String parent = (String) territory_parent.get(territory);
+//                System.out.println(territory + "\t" + english.getName(english.TERRITORY_NAME, territory) + "\t"
+//                    + parent + "\t" + english.getName(english.TERRITORY_NAME, parent));
+//            }
+//        }
 
-        private void gather(String item, Map territory_parent) {
-            Collection containedByItem = (Collection) group_contains.get(item);
-            if (containedByItem == null)
-                return;
-            for (Iterator it = containedByItem.iterator(); it.hasNext();) {
-                String contained = (String) it.next();
-                territory_parent.put(contained, item);
-                gather(contained, territory_parent);
-            }
-        }
+//        private void gather(String item, Map territory_parent) {
+//            Collection containedByItem = (Collection) group_contains.get(item);
+//            if (containedByItem == null)
+//                return;
+//            for (Iterator it = containedByItem.iterator(); it.hasNext();) {
+//                String contained = (String) it.next();
+//                territory_parent.put(contained, item);
+//                gather(contained, territory_parent);
+//            }
+//        }
 
         private void addTerritoryInfo(String territoriesList, String type, String info) {
             String[] territories = territoriesList.split("\\s+");
@@ -2200,58 +2199,6 @@ public class ShowLanguages {
 
         // <info iso4217="ADP" digits="0" rounding="0"/>
 
-        public void printContains(PrintWriter index) throws IOException {
-            String title = "Territory Containment (UN M.49)";
-
-            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, false));
-            // doTitle(pw, title);
-            List<String[]> rows = new ArrayList<String[]>();
-            printContains3("001", rows, new ArrayList());
-            TablePrinter tablePrinter = new TablePrinter()
-            .addColumn("World", "class='source'", null, "class='z0'", true).setSortPriority(0)
-            .addColumn("Continent", "class='source'", null, "class='z1'", true).setSortPriority(1)
-            .addColumn("Subcontinent", "class='source'", null, "class='z2'", true).setSortPriority(2)
-            .addColumn("Country (Territory)", "class='source'", null, "class='z3'", true).setSortPriority(3)
-            .addColumn("Time Zone", "class='source'", null, "class='z4'", true).setSortPriority(4);
-            String[][] flatData = rows.toArray(string2ArrayPattern);
-            pw.println(tablePrinter.addRows(flatData).toTable());
-            pw.close();
-        }
-
-        static String[] stringArrayPattern = new String[0];
-        static String[][] string2ArrayPattern = new String[0][];
-
-        private void printContains3(String start, List<String[]> rows, ArrayList<String> currentRow) {
-            int len = currentRow.size();
-            if (len > 3) {
-                return; // skip long items
-            }
-            currentRow.add(getName(CLDRFile.TERRITORY_NAME, start, false));
-            Collection<String> contains = (Collection<String>) group_contains.get(start);
-            if (contains == null) {
-                contains = (Collection<String>) sc.getCountryToZoneSet().get(start);
-                currentRow.add("");
-                if (contains == null) {
-                    currentRow.set(len + 1, "???");
-                    rows.add(currentRow.toArray(stringArrayPattern));
-                } else {
-                    for (String item : contains) {
-                        currentRow.set(len + 1, item);
-                        rows.add(currentRow.toArray(stringArrayPattern));
-                    }
-                }
-                currentRow.remove(len + 1);
-            } else {
-                for (String item : contains) {
-                    if (territoryAliases.keySet().contains(item)) {
-                        continue;
-                    }
-                    printContains3(item, rows, currentRow);
-                }
-            }
-            currentRow.remove(len);
-        }
-
         public void printCharacters(PrintWriter index) throws IOException {
             String title = "Character Fallback Substitutions";
 
@@ -2375,9 +2322,9 @@ public class ShowLanguages {
          * 
          */
         private Collection getContainedCollection(String start, int depth) {
-            Collection contains = (Collection) group_contains.get(start);
+            Collection<String> contains = supplementalDataInfo.getContainmentCore().get(start);
             if (contains == null) {
-                contains = (Collection) sc.getCountryToZoneSet().get(start);
+                contains = (Collection<String>) sc.getCountryToZoneSet().get(start);
                 if (contains == null && depth == 3) {
                     contains = new TreeSet();
                     if (start.compareTo("A") >= 0) {
@@ -2402,7 +2349,7 @@ public class ShowLanguages {
                 type = "territory";
                 missingItems.addAll(sc.getAvailableCodes(type));
                 missingItems.removeAll(territory_languages.keySet());
-                missingItems.removeAll(group_contains.keySet());
+                missingItems.removeAll(supplementalDataInfo.getContainmentCore().keySet());
                 missingItems.remove("200"); // czechoslovakia
             } else if (source == CLDRFile.SCRIPT_NAME) {
                 type = "script";
@@ -2511,6 +2458,131 @@ public class ShowLanguages {
                     getName(CLDRFile.TERRITORY_NAME, (String) o2, false));
             }
         };
+        
+        static String[] stringArrayPattern = new String[0];
+        static String[][] string2ArrayPattern = new String[0][];
+
+        public static Map<String, String> territoryAliases = new HashMap();
+
+        public void printContains(PrintWriter index) throws IOException {
+            String title = "Territory Containment (UN M.49)";
+
+            PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, false));
+            // doTitle(pw, title);
+            List<String[]> rows = new ArrayList<String[]>();
+            printContains3("001", rows, new ArrayList());
+            TablePrinter tablePrinter = new TablePrinter()
+            .addColumn("World", "class='source'", null, "class='z0'", true).setSortPriority(0)
+            .addColumn("Continent", "class='source'", null, "class='z1'", true).setSortPriority(1)
+            .addColumn("Subcontinent", "class='source'", null, "class='z2'", true).setSortPriority(2)
+            .addColumn("Country (Territory)", "class='source'", null, "class='z3'", true).setSortPriority(3)
+            .addColumn("Time Zone", "class='source'", null, "class='z4'", true).setSortPriority(4);
+            String[][] flatData = rows.toArray(string2ArrayPattern);
+            pw.println(tablePrinter.addRows(flatData).toTable());
+            
+            showSubtable(pw, ContainmentStyle.grouping, "Groupings", "Grouping", "Contained Regions");
+            showSubtable(pw, ContainmentStyle.deprecated, "Deprecated", "Container", "Deprecated Region");
+
+//            Relation<String, String> deprecated = supplementalDataInfo
+//                .getTerritoryToContained(ContainmentStyle.deprecated);
+//
+//            for (String region : deprecated.keySet()) {
+//                nameToContainers.add(region);
+//            }
+//            pw.println("<h2>Groupings and Deprecated Regions</h2>");
+//            for (String region : nameToContainers) {
+//                String name = getName(CLDRFile.TERRITORY_NAME, region, false);
+//                Set<String> dep = deprecated.get(region);
+//                Set<String> gro = grouping.get(region);
+//                Iterator<String> depIt = (dep == null ? Collections.EMPTY_SET : dep).iterator();
+//                Iterator<String> groIt = (gro == null ? Collections.EMPTY_SET : gro).iterator();
+//                while (depIt.hasNext() || groIt.hasNext()) {
+//                    String dep1 = depIt.hasNext() ? getName(CLDRFile.TERRITORY_NAME, depIt.next(), false) : "";
+//                    String gro1 = groIt.hasNext() ? getName(CLDRFile.TERRITORY_NAME, groIt.next(), false) : "";
+//                    tablePrinter2.addRow()
+//                    .addCell(name)
+//                    .addCell(gro1)
+//                    .addCell(dep1)
+//                    .finishRow();
+//                }
+//            }
+//            pw.println(tablePrinter2.toTable());
+//            pw.println("<h2>Other Groupings</h2>");
+//            for (Entry<String, Set<String>> regionContained : grouping.keyValuesSet()) {
+//                showContainers(pw, regionContained);
+//            }
+//            
+//            pw.println("<h2>Deprecated Codes</h2>");
+//            for (Entry<String, Set<String>> regionContained : deprecated.keyValuesSet()) {
+//                showContainers(pw, regionContained);
+//            }
+            pw.close();
+        }
+
+        public void showSubtable(PrintWriter pw, ContainmentStyle containmentStyle, String title, String containerTitle, String containeeTitle) {
+            pw.println("<h2>" +
+            		title +
+            		"</h2>");
+            TablePrinter tablePrinter2 = new TablePrinter()
+            .addColumn(containerTitle, "class='source'", null, "class='z0'", true).setSortPriority(0)
+            .addColumn(containeeTitle, "class='source'", null, "class='z4'", true).setSortPriority(1);
+                        
+            Relation<String, String> grouping = supplementalDataInfo
+                .getTerritoryToContained(containmentStyle);
+
+            for (Entry<String, String> containerRegion : grouping.keyValueSet()) {
+                String container = getName(CLDRFile.TERRITORY_NAME, containerRegion.getKey(), false);
+                String containee = getName(CLDRFile.TERRITORY_NAME, containerRegion.getValue(), false);
+                tablePrinter2.addRow()
+                .addCell(container)
+                .addCell(containee)
+                .finishRow();
+            }
+            pw.println(tablePrinter2.toTable());
+        }
+
+        public void showContainers(PrintWriter pw, Entry<String, Set<String>> regionContained) {
+            String region = regionContained.getKey();
+            Set<String> contained = regionContained.getValue();
+            pw.println("<ul><li>" + getName(CLDRFile.TERRITORY_NAME, region, false) + "<ul>");
+            for (String sub : contained) {
+                pw.println("<li>" + getName(CLDRFile.TERRITORY_NAME, sub, false) + "</li>");
+            }
+            pw.println("</ul></li></ul>");
+        }
+
+        private void printContains3(String start, List<String[]> rows, ArrayList<String> currentRow) {
+            int len = currentRow.size();
+            if (len > 3) {
+                return; // skip long items
+            }
+            currentRow.add(getName(CLDRFile.TERRITORY_NAME, start, false));
+            //Collection<String> contains = (Collection<String>) group_contains.get(start);
+            Collection<String> contains = supplementalDataInfo.getContainmentCore().get(start);
+            if (contains == null) {
+                contains = (Collection<String>) sc.getCountryToZoneSet().get(start);
+                currentRow.add("");
+                if (contains == null) {
+                    currentRow.set(len + 1, "???");
+                    rows.add(currentRow.toArray(stringArrayPattern));
+                } else {
+                    for (String item : contains) {
+                        currentRow.set(len + 1, item);
+                        rows.add(currentRow.toArray(stringArrayPattern));
+                    }
+                }
+                currentRow.remove(len + 1);
+            } else {
+                for (String item : contains) {
+                    if (territoryAliases.keySet().contains(item)) {
+                        continue;
+                    }
+                    printContains3(item, rows, currentRow);
+                }
+            }
+            currentRow.remove(len);
+        }
+
     }
 
     /**
@@ -2593,4 +2665,6 @@ public class ShowLanguages {
             throw new IllegalArgumentException(e);
         }
     }
+    
+
 }

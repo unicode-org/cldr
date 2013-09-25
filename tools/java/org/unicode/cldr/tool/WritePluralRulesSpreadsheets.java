@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
@@ -39,14 +40,20 @@ import org.unicode.cldr.tool.GenerateBirth.Versions;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.FixedDecimalRange;
+import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.util.ULocale;
 
 /**
@@ -55,6 +62,106 @@ import com.ibm.icu.util.ULocale;
 public class WritePluralRulesSpreadsheets {
     // This is older code that we might rework in the future...
     public static void main(String[] args) {
+        ranges();
+        if (false) diff();
+    }
+
+    private static void ranges() {
+        SupplementalDataInfo supplemental = SupplementalDataInfo.getInstance();
+        Set<String> locales = StandardCodes.make().getLocaleCoverageLocales("Google"); // superset
+        Map<ULocale, PluralRulesFactory.SamplePatterns> sampleMap = PluralRulesFactory.getLocaleToSamplePatterns();
+        Factory factory = TestInfo.getInstance().getCldrFactory();
+
+        for (String locale : locales) {
+            if (locale.equals("*")) {
+                continue;
+            }
+            String rangePattern = factory.make(locale, true).getStringValue("//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"range\"]");
+            PluralRules rules = supplemental.getPlurals(locale).getPluralRules();
+            SamplePatterns samplePatterns = getSamples(sampleMap, locale);
+            Set<String> keywords = rules.getKeywords();
+            Map<String, FixedDecimal> leastMap = new LinkedHashMap();
+            Map<String, FixedDecimal> greatestMap = new LinkedHashMap();
+            for (String start : keywords) {
+                FixedDecimal small = getSample(rules, start, null); // smallest
+                String startPattern = getSamplePattern(samplePatterns, start);
+                for (String end : keywords) {
+                    FixedDecimal large = getSample(rules, end, small); // smallest
+                    if (large == null) {
+                        continue;
+                    }
+                    String endPattern = getSamplePattern(samplePatterns, end);
+                    String range = MessageFormat.format(rangePattern, small.toString(), large.toString());
+                    System.out.println(locale 
+                        + "\t" + start + "—" + end 
+                        + "\t" + (startPattern.contains("{0}") ? startPattern.replace("{0}", range) : "?")
+                        + "\t" + (endPattern.contains("{0}") ? endPattern.replace("{0}", range) : "?")
+                        );
+                }
+            }
+        }
+
+    }
+
+    public static SamplePatterns getSamples(Map<ULocale, PluralRulesFactory.SamplePatterns> sampleMap, String locale) {
+        while (true) {
+            SamplePatterns result = sampleMap.get(new ULocale(locale));
+            if (result != null) {
+                return result;
+            }
+            // just truncate
+            int pos = locale.lastIndexOf('_');
+            if (pos < 0) {
+                return null;
+            }
+            locale = locale.substring(0,pos);
+        }
+    }
+
+    public static String getSamplePattern(SamplePatterns samplePatterns, String start) {
+        if (samplePatterns != null) {
+            Map<Count, String> samples = samplePatterns.keywordToPattern;
+            if (samplePatterns != null) {
+                String result = samples.get(Count.valueOf(start));
+                if (result != null) {
+                    return result;
+                }
+            }
+        }
+        return "{0} {no pattern available}";
+    }
+
+    static FixedDecimal getSample(PluralRules rules, String start, FixedDecimal minimum) {
+        FixedDecimal result = getSample(rules, start, SampleType.INTEGER, minimum);
+        FixedDecimal result2 = getSample(rules, start, SampleType.DECIMAL, minimum);
+        if (result == null) {
+            return result2;
+        }
+        return result;
+    }
+
+    static FixedDecimal getSample(PluralRules rules, String start, SampleType sampleType, FixedDecimal minimum) {
+        FixedDecimalSamples samples = rules.getDecimalSamples(start, sampleType);
+        if (samples == null) {
+            return null;
+        }
+        Set<FixedDecimalRange> samples2 = samples.getSamples();
+        if (samples2 == null) {
+            return null;
+        }
+        for (FixedDecimalRange sample : samples2){
+            if (minimum == null) {
+                return sample.start;
+            } else if (minimum.getSource() < sample.start.getSource()) {
+                return sample.start;
+            } else if (minimum.getSource() < sample.end.getSource()) {
+                return sample.end;
+            }
+        }
+        return null;
+    }
+
+    public static void diff() {
         String[] versions = {
             //"1.4.1", 
             //"1.5.1", 
@@ -66,7 +173,7 @@ public class WritePluralRulesSpreadsheets {
             "21.0", 
             "22.1", 
             "23.1", 
-            "24.0"};
+        "24.0"};
 
         BitSet x = new BitSet();
         x.set(3,6);
@@ -83,13 +190,13 @@ public class WritePluralRulesSpreadsheets {
             String oldVersion = newVersion;
             newVersion = version;
             SupplementalDataInfo supplementalOld = supplementalNew;
-            
+
             if (supplementalNew == null) {
                 supplementalNew = SupplementalDataInfo.getInstance(
                     CldrUtility.ARCHIVE_DIRECTORY + "cldr-" + versions[0] + "/common/supplemental/");
                 continue;
             }
-            
+
             supplementalNew = SupplementalDataInfo.getInstance(
                 CldrUtility.ARCHIVE_DIRECTORY + "cldr-" + newVersion + "/common/supplemental/");
             System.out.println("# " + oldVersion + "➞" + newVersion);

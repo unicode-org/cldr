@@ -25,9 +25,124 @@ public class LikelySubtagsTest extends TestFmwk {
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = TestInfo.getInstance().getSupplementalDataInfo();
     static final Map<String, String> likely = SUPPLEMENTAL_DATA_INFO.getLikelySubtags();
+    static final LikelySubtags LIKELY = new LikelySubtags(SUPPLEMENTAL_DATA_INFO, likely);
 
     public static void main(String[] args) {
         new LikelySubtagsTest().run(args);
+    }
+
+    static class Tags {
+        final Set<String> languages = new TreeSet();
+        final Set<String> scripts = new TreeSet();
+        final Set<String> regions = new TreeSet();
+        final Set<String> scriptRegion = new TreeSet();
+        final Set<String> languageScript = new TreeSet();
+        final Set<String> languageRegion = new TreeSet();
+        final Set<String> all = new TreeSet();
+        public Tags() {
+            final LanguageTagParser ltp = new LanguageTagParser();
+            for (Entry<String, String> entry : likely.entrySet()) {
+                add(ltp.set(entry.getKey()), true);
+                add(ltp.set(entry.getValue()), false);
+            }
+            System.out.println("all: " + all);
+            System.out.println("scriptRegion: " + scriptRegion);
+            System.out.println("languageScript: " + languageScript);
+            System.out.println("languageRegion: " + languageRegion);
+        }
+        void add(LanguageTagParser ltp, boolean source) {
+            String sourceLanguage = ltp.getLanguage();
+            String sourceScript = ltp.getScript();
+            String sourceRegion = ltp.getRegion();
+            // capture all cases of 2 items
+            if (source) {
+                if (!sourceScript.isEmpty() && !sourceRegion.isEmpty()) {
+                    if (!sourceLanguage.equals("und")) {
+                        all.add(ltp.toString());
+                    } else {
+                        scriptRegion.add(ltp.toString());
+                    }
+                } else if (!sourceLanguage.equals("und")) {
+                    if (!sourceScript.isEmpty()) {
+                        languageScript.add(ltp.toString());
+                    } else if (!sourceRegion.isEmpty()) {
+                        languageRegion.add(ltp.toString());
+                    }
+                }
+            }
+            languages.add(sourceLanguage);
+            scripts.add(sourceScript);
+            regions.add(sourceRegion);
+        }
+    }
+    static final Tags TAGS = new Tags();
+
+    final LanguageTagParser maxLtp = new LanguageTagParser();
+    final LanguageTagParser sourceLtp = new LanguageTagParser();
+
+    /**
+     * Return false if we should skip the language
+     * @param source
+     * @return
+     */
+    public boolean checkAdding(String source) {
+        // if X maps to Y, then adding a field from Y to X will still map to Y
+        // Example:
+        // und_AF      => fa_Arab_AF
+        // therefore, the following should also be true:
+        // und_Arab_AF => fa_Arab_AF
+        // fa_AF       => fa_Arab_AF 
+        // fa_Arab_AF  => fa_Arab_AF
+
+        String max = LIKELY.maximize(source);
+        if (!assertNotEquals("Maximize " + source, null, max)) {
+            return source.contains("_");
+        }
+        sourceLtp.set(source);
+        maxLtp.set(max);
+        for (int i = 1; i < 8; ++i) {
+            if ((i & 1) != 0) {
+                if (!sourceLtp.getLanguage().equals("und")) continue;
+                sourceLtp.setLanguage(maxLtp.getLanguage());
+            }
+            if ((i & 2) != 0) {
+                if (!sourceLtp.getScript().isEmpty()) continue;
+                sourceLtp.setScript(maxLtp.getScript());
+            }
+            if ((i & 4) != 0) {
+                if (!sourceLtp.getRegion().isEmpty()) continue;
+                sourceLtp.setRegion(maxLtp.getRegion());
+            }
+            String test = sourceLtp.toString();
+            if (!assertEquals(source + " -> " + max + ", so testing " + test, max, LIKELY.maximize(test))) {
+                LIKELY.maximize(test); // do again for debugging
+            }
+            sourceLtp.set(source); // restore
+        }
+        return true;
+    }
+
+    public void TestCompleteness() {
+        if (logKnownIssue("6671", "problems with likely subtags")) {
+            return;
+        }
+        checkAdding("und_Bopo");
+        checkAdding("und_AF");
+        final LanguageTagParser ltp = new LanguageTagParser();
+        main:
+            for (String language : TAGS.languages) {
+                ltp.setLanguage(language);
+                for (String script : TAGS.scripts) {
+                    ltp.setScript(script);
+                    for (String region : TAGS.regions) {
+                        ltp.setRegion(region);
+                        String testTag = ltp.toString();
+                        if (!checkAdding(testTag)) {
+                            continue main;
+                        }
+                    }
+                }
+            }
     }
 
     static Set<String> exceptions = new HashSet<String>(Arrays.asList("Zyyy", "Zinh", "Zzzz", "Brai"));

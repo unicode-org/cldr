@@ -792,7 +792,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="2005-03-14 18:00" mzone="Kazakhstan_Eastern"/>
 			</timezone>
 			<timezone type="Asia/Amman">
-				<usesMetazone mzone="Europe_Eastern"/>
+				<usesMetazone to="2012-10-25 22:00" mzone="Europe_Eastern"/>
+				<usesMetazone from="2012-10-25 22:00" mzone="Arabian"/>
 			</timezone>
 			<timezone type="Asia/Anadyr">
 				<usesMetazone to="2010-03-27 14:00" mzone="Anadyr"/>
@@ -1681,7 +1682,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Europe_Eastern" territory="EG" type="Africa/Cairo"/>
 			<mapZone other="Europe_Eastern" territory="FI" type="Europe/Helsinki"/>
 			<mapZone other="Europe_Eastern" territory="GR" type="Europe/Athens"/>
-			<mapZone other="Europe_Eastern" territory="JO" type="Asia/Amman"/>
 			<mapZone other="Europe_Eastern" territory="LB" type="Asia/Beirut"/>
 			<mapZone other="Europe_Eastern" territory="SY" type="Asia/Damascus"/>
 			<mapZone other="Europe_Western" territory="001" type="Atlantic/Canary"/>

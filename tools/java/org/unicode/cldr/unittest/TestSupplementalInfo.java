@@ -606,6 +606,8 @@ public class TestSupplementalInfo extends TestFmwk {
         }
     }
 
+    static final List<String> oldRegions = Arrays.asList("NT, YD, QU, SU, DD, FX, ZR, AN, BU, TP, CS, YU".split(", "));
+
     public void TestTerritoryContainment() {
         Relation<String, String> map = SUPPLEMENTAL.getTerritoryToContained(ContainmentStyle.all);
         Relation<String, String> mapCore = SUPPLEMENTAL.getContainmentCore();
@@ -633,6 +635,7 @@ public class TestSupplementalInfo extends TestFmwk {
         }
 
         if (!mapItems.equals(bcp47Regions)) {
+            mapItems.removeAll(oldRegions);
             errlnDiff("containment items not in bcp47 regions: ", mapItems, bcp47Regions);
             errlnDiff("bcp47 regions not in containment items: ", bcp47Regions, mapItems);
         }

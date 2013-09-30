@@ -1443,7 +1443,30 @@ XXX Code for transations where no currency is involved
 		<language type="eka" scripts="Latn"/>
 		<language type="eky" scripts="Kali"/>
 		<language type="el" scripts="Grek" territories="CY GR"/>
-		<language type="en" scripts="Latn" territories="AG AI AS AU BB BM BS BW BZ CA CC CK CM CX DG DM ER FJ FK FM GB GD GG GH GI GM GU GY HK IE IM IN IO JE JM KE KI KN KY LC LR LS MG MH MP MS MT MU MW NA NF NG NR NU NZ PG PH PK PN PR PW RW SB SC SD SG SH SL SS SX SZ TC TK TO TT TV TZ UG UM US VC VG VI VU WS ZA ZM ZW"/>
+		<language type="en" scripts="Latn" territories="
+			AG AI AS AU
+			BB BM BS BW BZ
+			CA CC CK CM CX
+			DG DM
+			ER
+			FJ FK FM
+			GB GD GG GH GI GM GU GY
+			HK
+			IE IM IN IO
+			JE JM
+			KE KI KN KY
+			LC LR LS
+			MG MH MP MS MT MU MW
+			NA NF NG NR NU NZ
+			PG PH PK PN PR PW
+			RW
+			SB SC SD SG SH SL SS SX SZ
+			TC TK TO TT TV TZ
+			UG UM US
+			VC VG VI VU
+			WS
+			ZA ZM ZW"
+		/>
 		<language type="en" scripts="Dsrt Shaw" territories="AC BE DE ES ET FR IT MY NL TA" alt="secondary"/>
 		<language type="eo" scripts="Latn"/>
 		<language type="es" scripts="Latn" territories="AR BO CL CO CR CU DO EA EC ES GQ GT HN IC MX NI PA PE PR PY SV UY VE"/>
@@ -1470,7 +1493,25 @@ XXX Code for transations where no currency is involved
 		<language type="fo" scripts="Latn" territories="FO"/>
 		<language type="fon" scripts="Latn"/>
 		<language type="fon" territories="BJ" alt="secondary"/>
-		<language type="fr" scripts="Latn" territories="BE BF BI BJ BL CA CD CF CG CH CI CM DJ DZ FR GA GF GN GP GQ HT KM LU MA MC MF MG ML MQ MU NC NE PF PM RE RW SC SN SY TD TG TN VU WF YT"/>
+		<language type="fr" scripts="Latn" territories="
+			BE BF BI BJ BL
+			CA CD CF CG CH CI CM
+			DJ DZ
+			FR
+			GA GF GN GP GQ
+			HT
+			KM
+			LU
+			MA MC MF MG ML MQ MU
+			NC NE
+			PF PM
+			RE RW
+			SC SN SY
+			TD TG TN
+			VU
+			WF
+			YT"
+		/>
 		<language type="fr" territories="IT TF US" alt="secondary"/>
 		<language type="frr" scripts="Latn"/>
 		<language type="frs" scripts="Latn"/>
@@ -4109,14 +4150,76 @@ XXX Code for transations where no currency is involved
 
     <weekData>
           <minDays count="1" territories="001 GU UM US VI" />
-          <minDays count="4" territories="AD AN AT AX BE BG CH CZ DE DK EE ES FI FJ FO FR GB GF GG GI GP GR HU IE IM IS IT JE LI LT LU MC MQ NL NO PL PT RE SE SJ SK SM VA" />
+          <minDays count="4" territories="
+			AD AN AT AX
+			BE BG
+			CH CZ
+			DE DK
+			EE ES
+			FI FJ FO FR
+			GB GF GG GI GP GR
+			HU
+			IE IM IS IT
+			JE
+			LI LT LU
+			MC MQ
+			NL NO
+			PL PT
+			RE
+			SE SJ SK SM
+			VA"
+		  />
 
           <!-- Note, this firstDay is for the first day of the week in a calendar page view. -->
           <!-- The first workday of the week (after the weekend) is distinct, and can be determined as the day after the weekendEnd day.  -->
-          <firstDay day="mon"  territories="001 AD AI AL AM AN AT AX AZ BA BE BG BM BN CH CL CM CR CY CZ DE DK EC EE ES FI FJ FO FR GB GE GF GP GR HR HU IS IT KG KZ LB LI LK LT LU LV MC MD ME MK MN MQ MY NL NO PL PT RE RO RS RU SE SI SK SM TJ TM TR UA UY UZ VA VN XK" />
+          <firstDay day="mon"  territories="
+			001
+			AD AI AL AM AN AT AX AZ
+			BA BE BG BM BN
+			CH CL CM CR CY CZ
+			DE DK
+			EC EE ES
+			FI FJ FO FR
+			GB GE GF GP GR
+			HR HU
+			IS IT
+			KG KZ
+			LB LI LK LT LU LV
+			MC MD ME MK MN MQ MY
+			NL NO
+			PL PT
+			RE RO RS RU
+			SE SI SK SM
+			TJ TM TR
+			UA UY UZ
+			VA VN
+			XK"
+		  />
           <firstDay day="fri"  territories="BD MV" />
           <firstDay day="sat"  territories="AE AF BH DJ DZ EG IQ IR JO KW LY MA OM QA SD SY" />
-          <firstDay day="sun"  territories="AG AR AS AU BR BS BT BW BY BZ CA CN CO DM DO ET GT GU HK HN ID IE IL IN JM JP KE KH KR LA MH MM MO MT MX MZ NI NP NZ PA PE PH PK PR PY SA SG SV TH TN TT TW UM US VE VI WS YE ZA ZW" />
+          <firstDay day="sun"  territories="
+			AG AR AS AU
+			BR BS BT BW BY BZ
+			CA CN CO
+			DM DO
+			ET
+			GT GU
+			HK HN
+			ID IE IL IN
+			JM JP
+			KE KH KR
+			LA
+			MH MM MO MT MX MZ
+			NI NP NZ
+			PA PE PH PK PR PY
+			SA SG SV
+			TH TN TT TW
+			UM US
+			VE VI
+			WS
+			YE
+			ZA ZW"
+          />
           <firstDay day="sun"  territories="GB" alt="variant" references="Shorter Oxford Dictionary (5th edition, 2002)"/>
         
           <weekendStart day="thu"  territories="AF DZ IR OM"/>
@@ -4132,8 +4235,50 @@ XXX Code for transations where no currency is involved
     <timeData>
         <hours preferred="H" allowed="H K h" regions="JP"/>
         <hours preferred="H" allowed="H h" regions="001"/>
-        <hours preferred="H" allowed="H" regions="IL RU AD AM AO AT AW AX BE BF BJ BL BR CD CI CP CV CZ DE DK EE FI FR GA GF GN GP GW HR IS IT MC MD MF ML MQ MZ NC NE NL PM PT RE RO SE SI SJ SK SM SR ST TG TR WF YT"/>
-        <hours preferred="h" allowed="H h" regions="AE AG AL AS AU BB BD BH BM BN BS BT BW CA CN CO CY DJ DM DZ EG EH ER ET FJ FM GD GH GL GM GR GU GY HK IN IQ JM JO KH KI KN KP KR KW KY LB LC LR LS LY MA MH MO MP MR MW MY NA NG NZ OM PG PK PR PS PW QA SA SB SD SG SL SO SS SY SZ TC TD TN TT TW UM US VC VG VI VU WS YE ZA ZM ZW"/>
+        <hours preferred="H" allowed="H" regions="
+			AD AM AO AT AW AX
+			BE BF BJ BL BR
+			CD CI CP CV CZ
+			DE DK
+			EE
+			FI FR
+			GA GF GN GP GW
+			HR
+			IL IS IT
+			MC MD MF ML MQ MZ
+			NC NE NL
+			PM PT
+			RE RO RU
+			SE SI SJ SK SM SR ST
+			TG TR
+			WF
+			YT"
+		/>
+        <hours preferred="h" allowed="H h" regions="
+			AE AG AL AS AU
+			BB BD BH BM BN BS BT BW
+			CA CN CO CY
+			DJ DM DZ
+			EG EH ER ET
+			FJ FM
+			GD GH GL GM GR GU GY
+			HK
+			IN IQ
+			JM JO
+			KH KI KN KP KR KW KY
+			LB LC LR LS LY
+			MA MH MO MP MR MW MY
+			NA NG NZ
+			OM
+			PG PK PR PS PW
+			QA
+			SA SB SD SG SL SO SS SY SZ
+			TC TD TN TT TW
+			UM US
+			VC VG VI VU
+			WS
+			YE
+			ZA ZM ZW"/>
     </timeData>
 
     <measurementData>

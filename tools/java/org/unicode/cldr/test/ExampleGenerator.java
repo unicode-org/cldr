@@ -971,6 +971,7 @@ public class ExampleGenerator {
 
     private String handleNumberingSystem(String value) {
         NumberFormat x = icuServiceBuilder.getGenericNumberFormat(value);
+        x.setGroupingUsed(false);
         return x.format(NUMBER_SAMPLE_WHOLE);
     }
 

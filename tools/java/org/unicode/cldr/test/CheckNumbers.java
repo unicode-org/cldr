@@ -222,7 +222,7 @@ public class CheckNumbers extends FactoryCheckCLDR {
         } catch (Exception e) {
             result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.errorType)
                 .setSubtype(Subtype.illegalNumberFormat)
-                .setMessage(e.getMessage()));
+                .setMessage(e.getMessage() == null ? e.toString() : e.getMessage()));
         }
         return this;
     }

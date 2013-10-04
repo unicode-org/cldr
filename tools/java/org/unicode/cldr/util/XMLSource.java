@@ -788,6 +788,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                 XPathParts fullPathWhereFoundParts = new XPathParts().set(fullPathWhereFound);
                 XPathParts pathWhereFoundParts = new XPathParts().set(fullStatus.pathWhereFound);
                 int offset = xpathParts.size() - pathWhereFoundParts.size();
+
                 for (int i = 0; i < pathWhereFoundParts.size(); ++i) {
                     Map<String, String> fullAttributes = fullPathWhereFoundParts.getAttributes(i);
                     Map<String, String> attributes = pathWhereFoundParts.getAttributes(i);
@@ -796,7 +797,7 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
                         for (String key : fullAttributes.keySet()) {
                             if (!attributes.containsKey(key)) {
                                 String value = fullAttributes.get(key);
-                                targetAttributes.put(key, value);
+                                xpathParts.putAttributeValue(i + offset, key, value);
                             }
                         }
                     }

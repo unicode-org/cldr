@@ -39,10 +39,10 @@ public class CheckHtmlFiles {
     static Pattern SPACES = Pattern.compile("\\s+");
 
     enum MyOptions {
-        old(".*", "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
+//        old(".*", "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
         target(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex)"),
         verbose(null, null, "verbose debugging messages"),
-        contents(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
+//        contents(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
         // /cldr-archive
         ;
 
@@ -58,39 +58,41 @@ public class CheckHtmlFiles {
     static boolean doContents;
 
     public static void main(String[] args) throws IOException {
-        myOptions.parse(MyOptions.old, args, true);
+        System.out.println("First do a replace of <a\\s+name=\"([^\"]*)\"\\s*> by <a name=\"$1\" href=\"#$1\">");
+        System.out.println("Then check for all links with no anchors: <a([^>]*)></a>");
+        myOptions.parse(MyOptions.target, args, true);
         verbose = MyOptions.verbose.option.doesOccur();
 
-        if (!MyOptions.target.option.doesOccur()) { // contents
-            Data target = new Data().getSentences(MyOptions.contents.option.getValue());
-            return;
-        }
-        Data source = new Data().getSentences(MyOptions.old.option.getValue());
+//        if (!MyOptions.target.option.doesOccur()) { // contents
+//            Data target = new Data().getSentences(MyOptions.contents.option.getValue());
+//            return;
+//        }
+//        Data source = new Data().getSentences(MyOptions.old.option.getValue());
         Data target = new Data().getSentences(MyOptions.target.option.getValue());
 
-        int missingCount = 0, extraCount = 0;
-        int line = 0;
-        for (String sentence : source) {
-            ++line;
-            long sourceCount = source.getCount(sentence);
-            long targetCount = target.getCount(sentence);
-            if (targetCount == 0) {
-                System.out.println(line + "\tMISSING:\t" + sourceCount + "≠" + targetCount + "\t" + sentence);
-                ++missingCount;
-            }
-        }
-        line = 0;
-        for (String sentence : target) {
-            ++line;
-            long sourceCount = source.getCount(sentence);
-            long targetCount = target.getCount(sentence);
-            if (sourceCount == 0) {
-                System.out.println(line + "\tEXTRA:\t" + targetCount + "≠" + sourceCount + "\t" + sentence);
-                ++extraCount;
-            }
-        }
-        System.out.println("Missing:\t" + missingCount);
-        System.out.println("Extra:\t" + extraCount);
+//        int missingCount = 0, extraCount = 0;
+//        int line = 0;
+//        for (String sentence : source) {
+//            ++line;
+//            long sourceCount = source.getCount(sentence);
+//            long targetCount = target.getCount(sentence);
+//            if (targetCount == 0) {
+//                System.out.println(line + "\tMISSING:\t" + sourceCount + "≠" + targetCount + "\t" + sentence);
+//                ++missingCount;
+//            }
+//        }
+//        line = 0;
+//        for (String sentence : target) {
+//            ++line;
+//            long sourceCount = source.getCount(sentence);
+//            long targetCount = target.getCount(sentence);
+//            if (sourceCount == 0) {
+//                System.out.println(line + "\tEXTRA:\t" + targetCount + "≠" + sourceCount + "\t" + sentence);
+//                ++extraCount;
+//            }
+//        }
+//        System.out.println("Missing:\t" + missingCount);
+//        System.out.println("Extra:\t" + extraCount);
     }
 
     static Pattern WHITESPACE = Pattern.compile("[\\s]+");
@@ -291,6 +293,7 @@ public class CheckHtmlFiles {
         private static final long serialVersionUID = -6722150173224993960L;
         Levels lastBuildLevel = new Levels();
         private Set<String> errors = new LinkedHashSet<String>();
+        private Set<String> warnings = new LinkedHashSet<String>();
         Output<Boolean> missingLevel = new Output<Boolean>(false);
 
         public boolean add(HeadingInfo h) {

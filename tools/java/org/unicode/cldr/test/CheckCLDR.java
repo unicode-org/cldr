@@ -210,7 +210,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-        ) {
+            ) {
 
             // always forbid deprecated items - don't show.
             if (status == SurveyToolStatus.DEPRECATED) {
@@ -243,7 +243,7 @@ abstract public class CheckCLDR {
             if (this == Phase.SUBMISSION) {
                 return status == SurveyToolStatus.READ_WRITE
                     ? StatusAction.ALLOW
-                    : StatusAction.ALLOW_VOTING_AND_TICKET;
+                        : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 
             // We are not in submission.
@@ -254,7 +254,7 @@ abstract public class CheckCLDR {
                 if (valueStatus != ValueStatus.NONE) {
                     return status == SurveyToolStatus.READ_WRITE
                         ? StatusAction.ALLOW
-                        : StatusAction.ALLOW_VOTING_AND_TICKET;
+                            : StatusAction.ALLOW_VOTING_AND_TICKET;
                 }
             }
 
@@ -281,7 +281,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-        ) {
+            ) {
             if (status != SurveyToolStatus.READ_WRITE) {
                 return StatusAction.FORBID_READONLY; // not writable.
             }
@@ -376,26 +376,26 @@ abstract public class CheckCLDR {
      */
     public static CompoundCheckCLDR getCheckAll(Factory factory, String nameMatcher) {
         return new CompoundCheckCLDR()
-            .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
-            .add(new CheckAttributeValues(factory))
-            .add(new CheckChildren(factory))
-            // .add(new CheckCoverage(factory)) // outmoded
-            .add(new CheckDates(factory))
-            .add(new CheckForCopy(factory))
-            .add(new CheckDisplayCollisions(factory))
-            .add(new CheckExemplars(factory))
-            .add(new CheckForExemplars(factory))
-            .add(new CheckNames())
-            .add(new CheckNumbers(factory))
-            // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
-            .add(new CheckMetazones())
-            .add(new CheckLogicalGroupings())
-            .add(new CheckAlt())
-            .add(new CheckCurrencies())
-            .add(new CheckCasing())
-            .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
-            .add(new CheckWidths())
-            .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
+        .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
+        .add(new CheckAttributeValues(factory))
+        .add(new CheckChildren(factory))
+        // .add(new CheckCoverage(factory)) // outmoded
+        .add(new CheckDates(factory))
+        .add(new CheckForCopy(factory))
+        .add(new CheckDisplayCollisions(factory))
+        .add(new CheckExemplars(factory))
+        .add(new CheckForExemplars(factory))
+        .add(new CheckNames())
+        .add(new CheckNumbers(factory))
+        // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
+        .add(new CheckMetazones())
+        .add(new CheckLogicalGroupings())
+        .add(new CheckAlt())
+        .add(new CheckCurrencies())
+        .add(new CheckCasing())
+        .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
+        .add(new CheckWidths())
+        .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
         // not add a message if there are any.
         ;
     }
@@ -633,12 +633,18 @@ abstract public class CheckCLDR {
         }
 
         public CheckStatus setMessage(String message) {
+            if (cause == null) {
+                throw new IllegalArgumentException("Must have cause set.");
+            }
             this.messageFormat = message;
             this.parameters = null;
             return this;
         }
 
         public CheckStatus setMessage(String message, Object... messageArguments) {
+            if (cause == null) {
+                throw new IllegalArgumentException("Must have cause set.");
+            }
             this.messageFormat = message;
             this.parameters = messageArguments;
             return this;
@@ -681,6 +687,9 @@ abstract public class CheckCLDR {
          * Warning: don't change the contents of the parameters after passing in.
          */
         public CheckStatus setParameters(Object[] parameters) {
+            if (cause == null) {
+                throw new IllegalArgumentException("Must have cause set.");
+            }
             this.parameters = parameters;
             return this;
         }
@@ -812,16 +821,16 @@ abstract public class CheckCLDR {
         public static void appendLine(StringBuffer htmlMessage, String pattern, String input, String formatted,
             String reparsed) {
             htmlMessage.append("<tr><td><input type='text' name='pattern' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(pattern))
-                .append("'></td><td><input type='text' name='input' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(input))
-                .append("'></td><td>")
-                .append("<input type='submit' value='Test' name='Test'>")
-                .append("</td><td>" + "<input type='text' name='formatted' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(formatted))
-                .append("'></td><td>" + "<input type='text' name='reparsed' value='")
-                .append(TransliteratorUtilities.toXML.transliterate(reparsed))
-                .append("'></td></tr>");
+            .append(TransliteratorUtilities.toXML.transliterate(pattern))
+            .append("'></td><td><input type='text' name='input' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(input))
+            .append("'></td><td>")
+            .append("<input type='submit' value='Test' name='Test'>")
+            .append("</td><td>" + "<input type='text' name='formatted' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(formatted))
+            .append("'></td><td>" + "<input type='text' name='reparsed' value='")
+            .append(TransliteratorUtilities.toXML.transliterate(reparsed))
+            .append("'></td></tr>");
         }
 
         /**
@@ -991,11 +1000,14 @@ abstract public class CheckCLDR {
         }
 
         private void addError(List<CheckStatus> result, CheckCLDR item, Exception e) {
-            result.add(new CheckStatus().setMainType(CheckStatus.errorType).setSubtype(Subtype.internalError)
-                .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
-                    new Object[] { item.getClass().getName(), e.getClass().getName(), e,
-                        Arrays.asList(e.getStackTrace())
-                    }));
+            result.add(new CheckStatus()
+            .setCause(this)
+            .setMainType(CheckStatus.errorType)
+            .setSubtype(Subtype.internalError)
+            .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
+                new Object[] { item.getClass().getName(), e.getClass().getName(), e,
+                Arrays.asList(e.getStackTrace())
+            }));
         }
 
         public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
@@ -1073,7 +1085,7 @@ abstract public class CheckCLDR {
             return Transliterator.createFromRules(ID, input.toString(), Transliterator.FORWARD);
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't open transliterator file " + file)
-                .initCause(e);
+            .initCause(e);
         }
     }
 

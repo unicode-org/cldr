@@ -44,7 +44,7 @@ public class TestCheckCLDR extends TestFmwk {
             try {
                 throw new IllegalArgumentException("hi");
             } catch (Exception e) {
-                return new CheckStatus().setMainType(CheckStatus.warningType)
+                return new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
                     .setSubtype(Subtype.abbreviatedDateFieldTooWide)
                     .setMessage("An exception {0}, and a number {1}", e, 1.5);
             }

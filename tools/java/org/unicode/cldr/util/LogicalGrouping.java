@@ -140,12 +140,12 @@ public class LogicalGrouping {
 
         PluralRules pluralRules = getPluralInfo(cldrFile).getPluralRules();
         String lastElement = parts.getElement(-1);
-        parts.setAttribute(lastElement, "count", "0");
+        parts.setAttribute(-1, "count", "0");
         Set<Double> explicits = new HashSet<Double>();
         if (cldrFile.isHere(parts.toString())) {
             explicits.add(0.0);
         }
-        parts.setAttribute(lastElement, "count", "1");
+        parts.setAttribute(-1, "count", "1");
         if (cldrFile.isHere(parts.toString())) {
             explicits.add(1.0);
         }

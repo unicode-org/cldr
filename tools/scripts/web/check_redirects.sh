@@ -43,8 +43,8 @@ verify_redirect()
     STATUS=`head -1 "${TMPF}" | cut -d' ' -f2`
     LOCATION=`grep '^Location: ' "${TMPF}" | head -1 | cut -d' ' -f2- | tr -d '\r'`
     echo "#  GOT: ${FROMURL} -> ${LOCATION} [ ${STATUS} ]"
-    
-    if [[ $STATUS -ne ${EXPECTSTATUS} ]];
+
+    if [[ "$STATUS" -ne "${EXPECTSTATUS}" ]];
     then
         echo "${ERR} - expected status ${EXPECTSTATUS} not ${STATUS}"
         FAIL=1
@@ -54,6 +54,36 @@ verify_redirect()
     else
         echo "${ERR}: got: ${LOCATION}"
         echo "# expected: ${TOURL}"
+        FAIL=1
+    fi
+}
+
+verify_content()
+{
+    EXPECTSTATUS="$1"
+    FROMURL="$2"
+    TOTXT="$3"
+    echo "# TEST: ${FROMURL} == ${TOTXT} [ ${EXPECTSTATUS} ]"
+    ${CURL} ${CURL_OPTS} "${FROMURL}"  > ${TMPF} || ( echo "Error fetching ${FROMURL}!" ; FAIL=1 )
+
+    STATUS=`head -1 "${TMPF}" | cut -d' ' -f2`
+    LOCATION=`grep '^Location: ' "${TMPF}" | head -1 | cut -d' ' -f2- | tr -d '\r'`
+    echo "#  GOT: ${FROMURL} -> ${LOCATION} [ ${STATUS} ]"
+
+    if [[ $STATUS -ne ${EXPECTSTATUS} ]];
+    then
+        echo "${ERR} - expected status ${EXPECTSTATUS} not ${STATUS}"
+        FAIL=1
+    elif [[ "${LOCATION}" != "" ]];
+    then
+        echo "${ERR}: got: ${LOCATION}"
+        FAIL=1
+    elif grep -q -- "${TOTXT}" "${TMPF}";
+    then
+        echo "# OK - got ${TOTXT}"
+    else
+        ln "${TMPF}" /tmp/failx
+        echo "Error - did not get ${TOTXT}";
         FAIL=1
     fi
 }
@@ -68,18 +98,22 @@ verify_redirect 302 "${URL}/Public/cldr/latest" "${URL}/Public/cldr/${VLATEST}"
 verify_redirect 302 "${URL}/Public/cldr/latest/${SOMEFILE}" "${URL}/Public/cldr/${VLATEST}/${SOMEFILE}"
 
 # Charts
-verify_redirect 302 "${URL}/cldr/charts/dev" "${URL}/cldr/charts/${VDEV}"
-verify_redirect 302 "${URL}/cldr/charts/${VDEV}" "${URL}/cldr/charts/${VDEV}/index.html"
+verify_redirect 302 "${URL}/cldr/charts/dev" "${URL}/cldr/charts/dev/"
+verify_content  200 "${URL}/cldr/charts/${VDEV}/" "Version ${VDEV}"
 
-verify_redirect 302 "${URL}/cldr/charts/latest" "${URL}/cldr/charts/${VLATEST}"
-verify_redirect 302 "${URL}/cldr/charts/${VLATEST}" "${URL}/cldr/charts/${VLATEST}/index.html"
+verify_redirect 302 "${URL}/cldr/charts/latest" "${URL}/cldr/charts/latest/"
+verify_redirect 302 "${URL}/cldr/charts/${VLATEST}" "${URL}/cldr/charts/${VLATEST}/"
+verify_content  200 "${URL}/cldr/charts/${VLATEST}/" "Version ${VLATEST}"
 
-verify_redirect 302 "${URL}/cldr/charts/latest/summary/bs_Cyrl.html" "${URL}/cldr/charts/${VLATEST}/summary/bs_Cyrl.html"
-verify_redirect 302 "${URL}/cldr/charts/dev/summary/bs_Cyrl.html" "${URL}/cldr/charts/${VDEV}/summary/bs_Cyrl.html"
+verify_content  200 "${URL}/cldr/charts/latest/summary/bs_Cyrl.html" "CLDR Version ${VLATEST}"
+verify_content  200 "${URL}/cldr/charts/dev/summary/bs_Cyrl.html" "CLDR Version ${VDEV}"
+
+# add 'latest' if missing
+verify_redirect 302 "${URL}/cldr/charts/summary/bs_Cyrl.html" "${URL}/cldr/charts/latest/summary/bs_Cyrl.html"
 
 # static check
-verify_redirect 302 "${URL}/cldr/charts/22" "${URL}/cldr/charts/22/index.html"
-verify_redirect 302 "${URL}/cldr/charts/22.1" "${URL}/cldr/charts/22.1/index.html"
+verify_redirect 302 "${URL}/cldr/charts/22" "${URL}/cldr/charts/22/"
+verify_redirect 302 "${URL}/cldr/charts/22.1" "${URL}/cldr/charts/22.1/"
 
 # catch all
 verify_redirect 302 "${URL}/cldr/charts" "http://cldr.unicode.org/index/charts"

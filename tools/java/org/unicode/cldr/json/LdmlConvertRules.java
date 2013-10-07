@@ -12,7 +12,7 @@ class LdmlConvertRules {
 
     /** File set that will not be processed in JSON transformation. */
     public static final Set<String> IGNORE_FILE_SET = Builder.with(new HashSet<String>())
-        .add("supplementalMetadata").add("coverageLevels").freeze();
+        .add("coverageLevels").freeze();
 
     /**
      * The attribute list that should become part of the name in form of
@@ -96,6 +96,12 @@ class LdmlConvertRules {
         "codeMappings:territoryCodes:numeric",
         "codeMappings:territoryCodes:alpha3",
 
+        // common/supplemental/supplementalMetaData.xml
+        "validity:variable:type",
+        "deprecated:deprecatedItems:elements",
+        "deprecated:deprecatedItems:attributes",
+        "deprecated:deprecatedItems:type",        
+        
         // in common/supplemental/telephoneCodeData.xml
         "codesByTerritory:telephoneCountryCode:code",
 
@@ -309,6 +315,9 @@ class LdmlConvertRules {
             "|.*/keyword[^/]*/key[^/]*/" +
             "|.*/telephoneCodeData[^/]*/codesByTerritory[^/]*/" +
             "|.*/metazoneInfo[^/]*/timezone\\[[^\\]]*\\]/" +
+            "|.*/metadata[^/]*/validity[^/]*/" +
+            "|.*/metadata[^/]*/suppress[^/]*/" +
+            "|.*/metadata[^/]*/deprecated[^/]*/" +
             ")(.*)");
 
     /**
@@ -400,6 +409,11 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*/languagePopulation)\\[@type=\"([^\"]*)\"\\](.*)",
             "$1/$2$3"),
 
+        new PathTransformSpec("(.*/languageAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
+        new PathTransformSpec("(.*/scriptAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
+        new PathTransformSpec("(.*/territoryAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
+        new PathTransformSpec("(.*/variantAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
+        new PathTransformSpec("(.*/zoneAlias)\\[@type=\"([^\"]*)\"\\](.*)", "$1/$2$3"),
         new PathTransformSpec("(.*/alias)(.*)", "$1/alias$2"),
 
         new PathTransformSpec("(.*currencyData/region)(.*)", "$1/region$2"),

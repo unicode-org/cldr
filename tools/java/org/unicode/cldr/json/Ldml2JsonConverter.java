@@ -35,7 +35,7 @@ import com.ibm.icu.impl.Utility;
  * @author shanjian / emmons
  */
 public class Ldml2JsonConverter {
-    private static boolean DEBUG = false;
+    private static boolean DEBUG = true;
     private static final String MAIN = "main";
 
     private static final Options options = new Options(
@@ -203,6 +203,9 @@ public class Ldml2JsonConverter {
         result = result.replaceFirst("/ldml/", pathPrefix);
         result = result.replaceFirst("/supplementalData/", pathPrefix);
 
+        if ( result.contains("languages") || result.contains("languageAlias")) {
+            result = result.replaceAll("_", "-");
+        }
         if (DEBUG) {
             System.out.println("OUT pathStr : " + result);
         }

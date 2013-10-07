@@ -1291,8 +1291,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     || elementName.equals("codesByTerritory") && attribute.equals("territory")
                     || elementName.equals("currency") &&
                     (attribute.equals("iso4217") || attribute.equals("tender"))
-                    || elementName.equals("territoryAlias") &&
-                    (attribute.equals("replacement") || attribute.equals("type"))
+                    || elementName.equals("territoryAlias") && attribute.equals("type")
                     || elementName.equals("territoryCodes") &&
                     (attribute.equals("alpha3") || attribute.equals("numeric") || attribute.equals("type"))
                     || elementName.equals("group") && attribute.equals("status")

@@ -44,6 +44,7 @@ import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyAjax.AjaxType;
+import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -1947,7 +1948,7 @@ public class WebContext implements Cloneable, Appendable {
      * @return true if the user can modify this locale
      */
     public Boolean canModify() {
-        if (STFactory.isReadOnlyLocale(locale))
+        if (STFactory.isReadOnlyLocale(locale) || SurveyMain.phase() == Phase.READONLY)
             return (canModify = false);
         if (canModify == null) {
             if (session != null && session.user != null) {

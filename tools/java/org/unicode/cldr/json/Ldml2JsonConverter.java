@@ -35,7 +35,7 @@ import com.ibm.icu.impl.Utility;
  * @author shanjian / emmons
  */
 public class Ldml2JsonConverter {
-    private static boolean DEBUG = true;
+    private static boolean DEBUG = false;
     private static final String MAIN = "main";
 
     private static final Options options = new Options(

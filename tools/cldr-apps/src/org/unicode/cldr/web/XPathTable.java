@@ -645,12 +645,15 @@ public class XPathTable {
     public String whatFromPathToTinyXpath(String path, XPathParts xpp, String what) {
         xpp.clear();
         xpp.initialize(path);
-        Map lastAtts = xpp.getAttributes(-1);
-        String type = (String) lastAtts.remove(what);
-        lastAtts.remove(LDMLConstants.ALT);
-        lastAtts.remove(LDMLConstants.TYPE);
-        lastAtts.remove(LDMLConstants.DRAFT);
-        lastAtts.remove(LDMLConstants.REFERENCES);
+        Map<String,String> lastAtts = xpp.getAttributes(-1);
+        String type = lastAtts.get(what);
+        if (type != null) {
+            xpp.removeAttribute(-1, what);
+        }
+        xpp.removeAttribute(-1, LDMLConstants.ALT);
+        xpp.removeAttribute(-1, LDMLConstants.TYPE);
+        xpp.removeAttribute(-1, LDMLConstants.DRAFT);
+        xpp.removeAttribute(-1, LDMLConstants.REFERENCES);
         // SurveyLog.logger.warning("Type on " + path + " with -1 is " + type );
         if ((type == null) && (path.indexOf(what) >= 0))
             try {
@@ -660,7 +663,10 @@ public class XPathTable {
                 // +", "+path+" with "+n+" is " + type );
                 lastAtts = xpp.getAttributes(n);
                 if (lastAtts != null) {
-                    type = (String) lastAtts.remove(what);
+                    type = lastAtts.get(what);
+                    if (type != null) {
+                        xpp.removeAttribute(n, what);
+                    }
                 }
             }
         } catch (ArrayIndexOutOfBoundsException aioobe) {

@@ -389,13 +389,11 @@ public final class XPathParts implements Freezable<XPathParts> {
      * Get the nth element. Negative values are from end
      */
     public String getElement(int elementIndex) {
-        if (elementIndex < 0) elementIndex += size();
-        return elements.get(elementIndex).getElement();
+        return elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size()).getElement();
     }
 
     public int getAttributeCount(int elementIndex) {
-        if (elementIndex < 0) elementIndex += size();
-        return elements.get(elementIndex).getAttributeCount();
+        return elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size()).getAttributeCount();
     }
 
     /**
@@ -404,10 +402,7 @@ public final class XPathParts implements Freezable<XPathParts> {
      * PROBLEM: exposes internal map
      */
     public Map<String, String> getAttributes(int elementIndex) {
-        if (elementIndex < 0) {
-            elementIndex += size();
-        }
-        return elements.get(elementIndex).getAttributes();
+        return elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size()).getAttributes();
     }
 
     /**
@@ -417,8 +412,7 @@ public final class XPathParts implements Freezable<XPathParts> {
      * @return
      */
     public Collection<String> getAttributeKeys(int elementIndex) {
-        if (elementIndex < 0) elementIndex += size();
-        return elements.get(elementIndex).getAttributes().keySet();
+        return elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size()).getAttributes().keySet();
     }
 
     /**
@@ -431,8 +425,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     public void putAttributeValue(int elementIndex, String attribute, String value) {
-        if (elementIndex < 0) elementIndex += size();
-        elements.get(elementIndex).putAttribute(attribute, value);
+        elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size()).putAttribute(attribute, value);
     }
 
     /**
@@ -476,7 +469,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     public XPathParts removeAttribute(int elementIndex, String attributeName) {
-        elements.get(elementIndex).putAttribute(attributeName, null);
+        elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size()).putAttribute(attributeName, null);
         return this;
     }
 
@@ -485,7 +478,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     public XPathParts removeAttributes(int elementIndex, Collection<String> attributeNames) {
-        elements.get(elementIndex).removeAttributes(attributeNames);
+        elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size()).removeAttributes(attributeNames);
         return this;
     }
 
@@ -1117,8 +1110,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     public XPathParts removeElement(int elementIndex) {
-        if (elementIndex < 0) elementIndex += size();
-        elements.remove(elementIndex);
+        elements.remove(elementIndex >= 0 ? elementIndex : elementIndex + size());
         return this;
     }
 
@@ -1133,10 +1125,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     public void setAttribute(int elementIndex, String attributeName, String attributeValue) {
-        if (elementIndex < 0) {
-            elementIndex += size();
-        }
-        Element element = elements.get(elementIndex);
+        Element element = elements.get(elementIndex >= 0 ? elementIndex : elementIndex + size());
         element.putAttribute(attributeName, attributeValue);
     }
 

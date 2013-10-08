@@ -809,9 +809,9 @@ public final class XPathParts implements Freezable<XPathParts> {
                 Element that = (Element) other;
                 // == check is ok since we intern elements
                 return element == that.element 
-                    && attributes == null ? that.attributes == null
+                    && (attributes == null ? that.attributes == null
                     : that.attributes == null ? attributes == null
-                    : attributes.equals(that.attributes);
+                    : attributes.equals(that.attributes));
             } catch (ClassCastException e) {
                 return false;
             }

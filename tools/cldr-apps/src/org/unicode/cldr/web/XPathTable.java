@@ -458,14 +458,14 @@ public class XPathTable {
         if (oldAlt != null) {
             String newAlt = LDMLUtilities.parseAlt(oldAlt)[0]; // #0 : altType
             if (newAlt == null) {
-                lastAtts.remove(LDMLConstants.ALT); // alt dropped out existence
+                xpp.removeAttribute(-1, LDMLConstants.ALT); // alt dropped out existence
             } else {
-                lastAtts.put(LDMLConstants.ALT, newAlt);
+                xpp.putAttributeValue(-1, LDMLConstants.ALT, newAlt);
             }
         }
 
         // always remove draft
-        lastAtts.remove(LDMLConstants.DRAFT);
+        xpp.removeAttribute(-1, LDMLConstants.DRAFT);
 
         String removed = xpp.toString();
 

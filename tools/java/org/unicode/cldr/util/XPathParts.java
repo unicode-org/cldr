@@ -802,6 +802,9 @@ public final class XPathParts implements Freezable<XPathParts> {
         }
 
         public boolean equals(Object other) {
+            if (other == null) {
+                return false;
+            }
             try {
                 Element that = (Element) other;
                 // == check is ok since we intern elements

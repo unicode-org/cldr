@@ -241,7 +241,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             processBcp47Data();
             break;
         case brkitr:
-            mapper = new BreakIteratorMapper(specialFactory);
+            mapper = new BreakIteratorMapper(sourceDir, specialFactory);
             break;
         case collation:
             mapper = new CollationMapper(sourceDir, specialFactory);

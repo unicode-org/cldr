@@ -394,6 +394,7 @@ public class CLDRModify {
                 long lastTime = System.currentTimeMillis();
                 int spin = 0;
                 System.out.format(locales.size() + " Locales:\t%s\n", locales.toString());
+                int totalRemoved = 0;
                 for (String test : locales) {
                     spin++;
                     if (SHOW_PROCESSING) {
@@ -473,14 +474,16 @@ public class CLDRModify {
                             retainIfTrue.setParentFile(toRemove);
                             List<String> removed = DEBUG ? null : new ArrayList<String>();
                             k.removeDuplicates(toRemove, COMMENT_REMOVALS, retainIfTrue, removed);
-                            if (removed != null) {
+                            if (removed != null && removed.size() != 0) {
+                                totalRemoved += removed.size();
                                 Set<PathHeader> sorted = new TreeSet<PathHeader>();
                                 for (String path : removed) {
                                     sorted.add(pathHeaderFactory.fromPath(path));
                                 }
                                 for (PathHeader pathHeader : sorted) {
-                                    System.out.println(test + "\t" + pathHeader + "\t" + pathHeader.getOriginalPath());
+                                    System.out.println("\t# " + test + "\t" + pathHeader + "\t" + pathHeader.getOriginalPath());
                                 }
+                                System.out.println("\t# " + test + "\t# Removed:\t" + removed.size());
                             }
                         }
                     }
@@ -552,6 +555,9 @@ public class CLDRModify {
                 }
                 if (totalSkeletons.size() != 0) {
                     System.out.println("Total Skeletons" + totalSkeletons);
+                }
+                if (totalRemoved > 0) {
+                    System.out.println("# Removed:\t" + totalRemoved);
                 }
             } finally {
                 fixList.handleCleanup();

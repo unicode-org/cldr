@@ -63,22 +63,23 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public enum AttributeType {
-        CDATA, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN, NMTOKENS, ENUMERATED_TYPE
+        CDATA, ID, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN, NMTOKENS, ENUMERATED_TYPE
     }
 
     public static class Attribute {
         public final String name;
         public final Element element;
         public final Mode mode;
-        public final String value;
+        public final String defaultValue;
         public final AttributeType type;
         public final Map<String, Integer> values;
 
         private Attribute(Element element2, String aName, Mode mode2, String[] split, String value2) {
             element = element2;
-            name = aName;
+            name = aName.intern();
             mode = mode2;
-            value = value2;
+            defaultValue = value2 == null ? null 
+                : value2.intern();
             AttributeType _type = AttributeType.ENUMERATED_TYPE;
             Map _values = Collections.EMPTY_MAP;
             if (split.length == 1) {
@@ -87,16 +88,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 } catch (Exception e) {
                 }
             }
+            type = _type;
+
             if (_type == AttributeType.ENUMERATED_TYPE) {
                 LinkedHashMap<String, Integer> temp = new LinkedHashMap<String, Integer>();
                 for (String part : split) {
                     if (part.length() != 0) {
-                        temp.put(part, temp.size());
+                        temp.put(part.intern(), temp.size());
                     }
                 }
                 _values = Collections.unmodifiableMap(temp);
             }
-            type = _type;
             values = _values;
         }
 
@@ -108,7 +110,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public String features() {
             return (type == AttributeType.ENUMERATED_TYPE ? values.keySet().toString() : type.toString())
                 + (mode == Mode.NULL ? "" : ", mode=" + mode)
-                + (value == null ? "" : ", default=" + value);
+                + (defaultValue == null ? "" : ", default=" + defaultValue);
         }
     }
 
@@ -134,7 +136,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private final Map<Attribute, Integer> attributes = new LinkedHashMap<Attribute, Integer>();
 
         private Element(String name2) {
-            name = name2;
+            name = name2.intern();
         }
 
         private void setChildren(DtdData dtdData, String model) {

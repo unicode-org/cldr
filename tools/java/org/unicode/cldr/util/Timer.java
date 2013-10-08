@@ -5,6 +5,8 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.ULocale;
 
 public final class Timer {
+    private static final double NANOS_PER_SECOND = 1000000000.0d;
+    
     private long startTime;
     private long duration;
     {
@@ -23,12 +25,16 @@ public final class Timer {
         return duration;
     }
 
+    /**
+     * Return nanos
+     * @return
+     */
     public long stop() {
         return getDuration();
     }
 
     public String toString() {
-        return nf.format(getDuration()) + "ns";
+        return nf.format(getDuration() / NANOS_PER_SECOND) + "s";
     }
 
     public String toString(Timer other) {
@@ -36,17 +42,18 @@ public final class Timer {
     }
 
     public String toString(long iterations) {
-        return nf.format(getDuration() / iterations) + "ns";
+        return nf.format(getDuration() / (NANOS_PER_SECOND * iterations)) + "s";
     }
 
     public String toString(long iterations, long other) {
-        return nf.format(getDuration() / iterations) + "ns" + "\t(" + pf.format((double) getDuration() / other - 1D)
+        return toString(iterations) + "\t(" + pf.format((double) getDuration() / other - 1D)
             + ")";
     }
 
     private static DecimalFormat nf = (DecimalFormat) NumberFormat.getNumberInstance(ULocale.ENGLISH);
     private static DecimalFormat pf = (DecimalFormat) NumberFormat.getPercentInstance(ULocale.ENGLISH);
     static {
+        nf.setMaximumSignificantDigits(3);
         pf.setMaximumFractionDigits(1);
         pf.setPositivePrefix("+");
     }

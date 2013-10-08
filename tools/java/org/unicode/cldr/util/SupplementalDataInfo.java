@@ -30,6 +30,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder.CBuilder;
+import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
@@ -3313,6 +3314,31 @@ public class SupplementalDataInfo {
 
     public Map<String, Map<String, Relation<String, String>>> getDeprecationInfo() {
         return deprecated;
+    }
+
+    public boolean isDeprecated(DtdType type, String element, String attribute, String value) {
+        return isDeprecated(deprecated.get(STAR), element, attribute, value) 
+            || isDeprecated(deprecated.get(type.toString()), element, attribute, value);
+    }
+    
+    private boolean isDeprecated(Map<String, Relation<String, String>> map, 
+        String element, String attribute, String value) {
+        return map == null ? false 
+            : isDeprecated(map.get(STAR), attribute, value) 
+            || isDeprecated(map.get(element), attribute, value);
+    }
+
+    private boolean isDeprecated(Relation<String, String> relation, 
+        String attribute, String value) {
+        return relation == null ? false 
+            : isDeprecated(relation.get(STAR), value) 
+            || isDeprecated(relation.get(attribute), value);
+    }
+
+    private boolean isDeprecated(Set<String> set, String value) {
+        return set == null ? false
+            : set.contains(STAR) 
+            || value != null && set.contains(value);
     }
 
     /**

@@ -46,6 +46,7 @@ import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.tool.UOption;
@@ -592,7 +593,7 @@ public class CLDRModify {
             // if (!path.equals(status.pathWhereFound)) { // remove items just there for aliases
             // return Retention.REMOVE;
             // }
-            if ("root".equals(localeId)) {
+            if (XMLSource.ROOT_ID.equals(localeId) || XMLSource.CODE_FALLBACK_ID.equals(localeId)) {
                 return Retention.RETAIN;
             }
             return Retention.RETAIN_IF_DIFFERENT;

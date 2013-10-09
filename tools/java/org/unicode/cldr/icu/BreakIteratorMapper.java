@@ -43,15 +43,15 @@ class BreakIteratorMapper extends Mapper {
      */
     @Override
     public IcuData[] fillFromCldr(String locale) {
-        IcuData icuData = new IcuData("common/segments/" + locale + ".xml", locale, true);
-        CLDRFile file = specialFactory.make(locale, false);
+        IcuData icuData = new IcuData("common/segments/" + locale + ".xml ../../xml/brkitr/" + locale + ".xml", locale, true);
+        CLDRFile specialsFile = specialFactory.make(locale, false);
         BreakIteratorHandler handler = new BreakIteratorHandler(icuData);
-        File file_ = new File(sourceDir, locale + ".xml");
-        MapperUtils.parseFile(file_, handler);
+        File file = new File(sourceDir, locale + ".xml");
+        MapperUtils.parseFile(file, handler);
         
-        for (String path : file) {
+        for (String path : specialsFile) {
             if (!path.startsWith("//ldml/special")) continue;
-            String fullPath = file.getFullXPath(path);
+            String fullPath = specialsFile.getFullXPath(path);
             Matcher matcher = BOUNDARY_PATH.matcher(fullPath);
             boolean matches = matcher.matches();
             Set<String> source = null;
@@ -89,10 +89,8 @@ class BreakIteratorMapper extends Mapper {
 
         @Override
         public void startElement(String uri, String localName, String qName, Attributes attr) throws SAXException {
-            if (qName.equals("segmentations")) {
-                segPath = "/Segmentations";
-            } else if (qName.equals("Segmentation")) {
-                segPath = "/segmentation/" + attr.getValue("type");
+            if (qName.equals("segmentation")) {
+                segPath = "/exceptions/" + attr.getValue("type") + ":array";
             } else if (qName.equals("version")) {
                 icuData.add("/Version", new String[] { MapperUtils.formatVersion(attr.getValue("number")) });
             }

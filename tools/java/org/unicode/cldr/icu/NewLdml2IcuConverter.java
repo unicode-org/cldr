@@ -180,7 +180,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
                 specialFactory = Factory.make(option.getValue(), ".*");
             }
         } else if (type == Type.brkitr) {
-            specialFactory = Factory.make(sourceDir, ".*");
+            specialFactory = Factory.make(options.get("specialsdir").getValue(), ".*");
         }
 
         // Get list of locales if defined.

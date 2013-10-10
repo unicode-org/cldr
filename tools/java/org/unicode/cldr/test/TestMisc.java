@@ -205,7 +205,7 @@ public class TestMisc {
         CLDRFile en = cldrFactory.make("root", true);
         Status status = new Status();
         Matcher m = Pattern.compile("gregorian.*dayPeriods").matcher("");
-        for (Iterator<String> it = en.iterator(null, CLDRFile.ldmlComparator); it.hasNext();) {
+        for (Iterator<String> it = en.iterator(null, CLDRFile.getLdmlComparator()); it.hasNext();) {
             String path = it.next();
             if (!m.reset(path).find()) {
                 continue;
@@ -624,7 +624,7 @@ public class TestMisc {
         CLDRFile temp = SimpleFactory.makeFile("supplemental");
         temp.setNonInheriting(true);
         XPathParts parts = new XPathParts(null, null);
-        for (Iterator<String> it = supp.iterator(null, CLDRFile.ldmlComparator); it.hasNext();) {
+        for (Iterator<String> it = supp.iterator(null, CLDRFile.getLdmlComparator()); it.hasNext();) {
             String path = it.next();
             String value = supp.getStringValue(path);
             String fullPath = supp.getFullXPath(path);

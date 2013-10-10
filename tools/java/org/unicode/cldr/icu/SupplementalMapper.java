@@ -101,7 +101,7 @@ public class SupplementalMapper {
                 }
                 return compareElem;
             }
-            return CLDRFile.ldmlComparator.compare(arg0, arg1);
+            return CLDRFile.getLdmlComparator().compare(arg0, arg1);
         }
     };
 

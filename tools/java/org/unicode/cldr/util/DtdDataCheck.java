@@ -72,7 +72,7 @@ public class DtdDataCheck {
                 System.out.println();
             }
             StringBuilder diff = new StringBuilder();
-            for (Entry<String, Set<Attribute>> entry : dtdData.nameToAttributes.keyValuesSet()) {
+            for (Entry<String, Set<Attribute>> entry : dtdData.getAttributesFromName().keyValuesSet()) {
                 Relation<String, String> featuresToElements = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
                 for (Attribute a : entry.getValue()) {
                     featuresToElements.put(a.features(), a.element.name);
@@ -149,8 +149,8 @@ public class DtdDataCheck {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            Set<DtdType> args2 = DtdData.DTD_TYPE_TO_FILE.keySet();
-            args = new String[args2.size()];
+            DtdType[] args2 = DtdType.values();
+            args = new String[args2.length];
             int i = 0;
             for (DtdType arg : args2) {
                 args[i++] = arg.name();
@@ -181,7 +181,7 @@ public class DtdDataCheck {
                 };
                 Comparator<String> comp = dtdData.getDtdComparator(avc);
                 CLDRFile test = TestInfo.getInstance().getEnglish();
-                Set<String> sorted = new TreeSet(CLDRFile.ldmlComparator);
+                Set<String> sorted = new TreeSet(CLDRFile.getLdmlComparator());
                 CollectionUtilities.addAll(test.iterator(), sorted);
                 String[] sortedArray = sorted.toArray(new String[sorted.size()]);
 
@@ -206,7 +206,7 @@ public class DtdDataCheck {
                 // check cost
                 checkCost("DtdComparator", sortedArray, comp);
                 checkCost("DtdComparator(null)", sortedArray, dtdData.getDtdComparator(null));
-                checkCost("CLDRFile.ldmlComparator", sortedArray, CLDRFile.ldmlComparator);
+                checkCost("CLDRFile.ldmlComparator", sortedArray, CLDRFile.getLdmlComparator());
                 //checkCost("XPathParts", sortedArray);
 
             }

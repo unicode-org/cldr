@@ -109,7 +109,7 @@ public class LocaleMapper extends Mapper {
                 }
             }
 
-            return CLDRFile.ldmlComparator.compare(arg0, arg1);
+            return CLDRFile.getLdmlComparator().compare(arg0, arg1);
         }
     };
 

@@ -28,17 +28,22 @@ public class TestPerf extends TestFmwkPlus {
         new TestPerf().run(args);
     }
 
-    static final int ITERATIONS = 100;
+    static final int ITERATIONS = 20;
     static final Set<String> testPaths;
     static final int elementSize;
     static final Set<String> elements = new HashSet<String>();
     static final Set<String> attributes = new HashSet<String>();
     static final Set<String> attributeValues = new HashSet<String>();
+    static final String[] sortedArray;
 
     static {
         Set<String> testPaths_ = new HashSet();
         CollectionUtilities.addAll(TestInfo.getInstance().getEnglish().iterator(), testPaths_);
         testPaths = Collections.unmodifiableSet(testPaths_);
+        Set<String> sorted = new TreeSet(CLDRFile.getLdmlComparator());
+        sorted.addAll(testPaths);
+        sortedArray = sorted.toArray(new String[sorted.size()]);
+
         // warmup
         int size = 0;
         for (String p : testPaths) {
@@ -50,7 +55,7 @@ public class TestPerf extends TestFmwkPlus {
                     String attribute = attributeAndValue.getKey();
                     String value = attributeAndValue.getValue();
                     if (attributes.add(attribute)) {
-                        System.out.println("Adding " +  attribute + ", " + p);
+                        //System.out.println("Adding " +  attribute + ", " + p);
                     }
                     attributeValues.add(value);
                 }
@@ -131,6 +136,17 @@ public class TestPerf extends TestFmwkPlus {
         assertEquals("", elementSize, size/ITERATIONS);
     }
     
+    public void TestXPathPartsWithComparators() {
+        XPathParts normal = new XPathParts();
+        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+
+        XPathParts newParts = new XPathParts(dtdData.getAttributeComparator(), null);
+        for (String path : sortedArray) {
+            String newPath = newParts.set(path).toString();
+            assertEquals("path", path, newPath);
+        }
+    }
+    
     public void TestPathComparison() {
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
         AttributeValueComparator avc = new AttributeValueComparator() {
@@ -141,18 +157,14 @@ public class TestPerf extends TestFmwkPlus {
             }
         };
         Comparator<String> comp = dtdData.getDtdComparator(avc);
-        CLDRFile test = TestInfo.getInstance().getEnglish();
-        Set<String> sorted = new TreeSet(CLDRFile.ldmlComparator);
-        CollectionUtilities.addAll(test.iterator(), sorted);
-        String[] sortedArray = sorted.toArray(new String[sorted.size()]);
         
         int iterations = 50;
         Output<Integer> failures = new Output<Integer>();
 
         // warmup
-        checkCost(sortedArray, CLDRFile.ldmlComparator, 1, failures);
+        checkCost(sortedArray, CLDRFile.getLdmlComparator(), 1, failures);
         assertRelation("CLDRFile.ldmlComparator-check", true, failures.value, LEQ, 0);
-        double seconds = checkCost(sortedArray, CLDRFile.ldmlComparator, iterations, failures);
+        double seconds = checkCost(sortedArray, CLDRFile.getLdmlComparator(), iterations, failures);
         assertRelation("CLDRFile.ldmlComparator", true, seconds, LEQ, 0.1);
         //logln(title + "\tTime:\t" + timer.toString(iterations));
 

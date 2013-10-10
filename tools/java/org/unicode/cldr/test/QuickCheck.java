@@ -164,7 +164,7 @@ public class QuickCheck {
         Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
         CLDRFile english = cldrFactory.make("en", true);
 
-        Relation<String, String> pathToLocale = Relation.<String, String>of(new TreeMap<String, Set<String>>(CLDRFile.ldmlComparator), TreeSet.class, null);
+        Relation<String, String> pathToLocale = Relation.<String, String>of(new TreeMap<String, Set<String>>(CLDRFile.getLdmlComparator()), TreeSet.class, null);
         for (String locale : cldrFactory.getAvailable()) {
             // if (locale.equals("root") && !localeRegex.equals("root"))
             // continue;

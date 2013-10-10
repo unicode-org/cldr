@@ -23,7 +23,7 @@ public class CharacterFallbacks {
         XPathParts parts = new XPathParts();
 
         for (Iterator<String> it = characterFallbacks.iterator("//supplementalData/characters/",
-            CLDRFile.ldmlComparator); it.hasNext();) {
+            CLDRFile.getLdmlComparator()); it.hasNext();) {
             String path = it.next();
             parts.set(path);
             /*

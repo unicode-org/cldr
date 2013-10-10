@@ -96,7 +96,18 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     static Pattern FIRST_ELEMENT = Pattern.compile("//([^/\\[]*)");
 
     public enum DtdType {
-        ldml, supplementalData, ldmlBCP47, keyboard, platform;
+        ldml("common/dtd/ldml.dtd"), 
+        supplementalData("common/dtd/ldmlSupplemental.dtd"), 
+        ldmlBCP47("common/dtd/ldmlBCP47.dtd"), 
+        keyboard("keyboards/dtd/ldmlKeyboard.dtd"), 
+        platform("keyboards/dtd/ldmlPlatform.dtd");
+        
+        final String dtdPath;
+        
+        private DtdType(String dtdPath) {
+            this.dtdPath = dtdPath;
+        }
+        
         public static DtdType fromPath(String elementOrPath) {
             Matcher m = FIRST_ELEMENT.matcher(elementOrPath);
             m.lookingAt();
@@ -312,7 +323,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      *            map of options for writing
      */
     public CLDRFile write(PrintWriter pw, Map<String, Object> options) {
-        Set<String> orderedSet = new TreeSet<String>(ldmlComparator);
+        Set<String> orderedSet = new TreeSet<String>(getLdmlComparator());
         CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
 
         String firstPath = null;
@@ -347,7 +358,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          * <language type="en"/>
          */
         // if ldml has any attributes, get them.
-        Set<String> identitySet = new TreeSet<String>(ldmlComparator);
+        Set<String> identitySet = new TreeSet<String>(getLdmlComparator());
         if (isNonInheriting()) {
             // identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/version[@number=\"$" +
             // "Revision: $\"]");
@@ -391,14 +402,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         XPathParts.Comments tempComments = (XPathParts.Comments) dataSource.getXpathComments().clone();
         tempComments.fixLineEndings();
 
-        MapComparator<String> modAttComp = attributeOrdering;
-        if (HACK_ORDER) modAttComp = new MapComparator<String>()
-            .add("alt").add("draft").add(modAttComp.getOrder());
+//        MapComparator<String> modAttComp = attributeOrdering;
+//        if (HACK_ORDER) modAttComp = new MapComparator<String>()
+//            .add("alt").add("draft").add(modAttComp.getOrder());
 
-        XPathParts last = new XPathParts(attributeOrdering, defaultSuppressionMap);
-        XPathParts current = new XPathParts(attributeOrdering, defaultSuppressionMap);
-        XPathParts lastFiltered = new XPathParts(attributeOrdering, defaultSuppressionMap);
-        XPathParts currentFiltered = new XPathParts(attributeOrdering, defaultSuppressionMap);
+        XPathParts last = new XPathParts(getAttributeOrdering(), defaultSuppressionMap);
+        XPathParts current = new XPathParts(getAttributeOrdering(), defaultSuppressionMap);
+        XPathParts lastFiltered = new XPathParts(getAttributeOrdering(), defaultSuppressionMap);
+        XPathParts currentFiltered = new XPathParts(getAttributeOrdering(), defaultSuppressionMap);
         boolean isResolved = dataSource.isResolving();
 
         for (Iterator<String> it2 = identitySet.iterator(); it2.hasNext();) {
@@ -651,7 +662,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         XPathParts parts = new XPathParts(null, null);
         if (conflict_resolution == MERGE_KEEP_MINE) {
-            Map temp = isNonInheriting() ? new TreeMap() : new TreeMap(ldmlComparator);
+            Map temp = isNonInheriting() ? new TreeMap() : new TreeMap(getLdmlComparator());
             dataSource.putAll(other.dataSource, MERGE_KEEP_MINE);
         } else if (conflict_resolution == MERGE_REPLACE_MINE) {
             dataSource.putAll(other.dataSource, MERGE_REPLACE_MINE);
@@ -915,7 +926,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     public CLDRFile putRoot(CLDRFile rootFile) {
         Matcher specialPathMatcher = specialsToPushFromRoot.matcher("");
-        XPathParts parts = new XPathParts(attributeOrdering, defaultSuppressionMap);
+        XPathParts parts = new XPathParts(getAttributeOrdering(), defaultSuppressionMap);
         for (Iterator it = rootFile.iterator(); it.hasNext();) {
             String xpath = (String) it.next();
 
@@ -1460,7 +1471,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         // private String currentXPath = "/";
         private String currentFullXPath = "/";
         private String comment = null;
-        private Map attributeOrder = new TreeMap(attributeOrdering);
+        private Map attributeOrder = new TreeMap(getAttributeOrdering());
         private CLDRFile target;
         private String lastActiveLeafNode;
         private String lastLeafNode;
@@ -2352,7 +2363,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return ordered collection with items.
      */
     public static List<String> getAttributeOrder() {
-        return attributeOrdering.getOrder(); // already unmodifiable
+        return getAttributeOrdering().getOrder(); // already unmodifiable
     }
 
     /**
@@ -2361,7 +2372,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      * @return ordered collection with items.
      */
     public static Comparator<String> getAttributeComparator() {
-        return attributeOrdering; // already unmodifiable
+        return getAttributeOrdering(); // already unmodifiable
     }
 
     /**
@@ -2571,12 +2582,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     /**
      * Comparator for attributes in CLDR files
      */
-    public static Comparator<String> ldmlComparator = new LDMLComparator();
+    private static Comparator<String> ldmlComparator = new LDMLComparator();
 
     static class LDMLComparator implements Comparator<String> {
 
-        transient XPathParts a = new XPathParts(attributeOrdering, null);
-        transient XPathParts b = new XPathParts(attributeOrdering, null);
+        transient XPathParts a = new XPathParts(getAttributeOrdering(), null);
+        transient XPathParts b = new XPathParts(getAttributeOrdering(), null);
 
         public void addElement(String a) {
             // elementOrdering.add(a);
@@ -2623,7 +2634,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     for (int j = 0; j < minMapSize; ++j) {
                         String akey = (String) ait.next();
                         String bkey = (String) bit.next();
-                        if (0 != (result = attributeOrdering.compare(akey, bkey))) return result;
+                        if (0 != (result = getAttributeOrdering().compare(akey, bkey))) return result;
                         String avalue = (String) am.get(akey);
                         String bvalue = (String) bm.get(bkey);
                         if (!avalue.equals(bvalue)) {
@@ -2779,7 +2790,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
         private static Map<String, String> distinguishingMap = new HashMap<String, String>();
         private static Map<String, String> normalizedPathMap = new HashMap<String, String>();
-        private static XPathParts distinguishingParts = new XPathParts(attributeOrdering, null);
+        private static XPathParts distinguishingParts = new XPathParts(getAttributeOrdering(), null);
 
         public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
             synchronized (distinguishingMap) {
@@ -3550,5 +3561,13 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     public boolean isAliasedAtTopLevel() {
         return iterator("//ldml/alias").hasNext();
+    }
+
+    public static Comparator<String> getLdmlComparator() {
+        return ldmlComparator;
+    }
+
+    private static MapComparator<String> getAttributeOrdering() {
+        return attributeOrdering;
     }
 }

@@ -978,7 +978,7 @@ public class ShowLanguages {
             Log.setLog(CldrUtility.CHART_DIRECTORY + "supplemental/", "characterLog.txt");
             CLDRFile chars = cldrFactory.make("characters", false);
             int count = 0;
-            for (Iterator it = chars.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
+            for (Iterator it = chars.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();) {
                 String path = (String) it.next();
                 parts.set(chars.getFullXPath(path));
                 if (parts.getElement(1).equals("version"))

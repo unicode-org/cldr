@@ -246,7 +246,7 @@ public class GenerateXMB {
             // System.out.println("Checking " + file);
             CLDRFile submitted = cldrFactory2.make(file, false);
             CLDRFile trunk = cldrFactory1.make(file, true);
-            for (String path : With.in(submitted.iterator(null, CLDRFile.ldmlComparator))) {
+            for (String path : With.in(submitted.iterator(null, CLDRFile.getLdmlComparator()))) {
                 if (pathMatcher != null && !pathMatcher.reset(path).matches()) {
                     continue;
                 }

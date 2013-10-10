@@ -305,7 +305,7 @@ public class TestBasic extends TestFmwk {
         Factory cldrFactory = testInfo.getCldrFactory();
         CLDRFile english = cldrFactory.make("en", true);
 
-        Relation<String, String> pathToLocale = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.ldmlComparator),
+        Relation<String, String> pathToLocale = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.getLdmlComparator()),
             TreeSet.class, null);
 
         for (String locale : cldrFactory.getAvailable()) {
@@ -557,7 +557,7 @@ public class TestBasic extends TestFmwk {
         final String localeParent = LocaleIDParser.getParent(locale);
         CLDRFile parentFile = testInfo.getCldrFactory().make(localeParent, true);
         int funnyCount = 0;
-        for (Iterator<String> it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
+        for (Iterator<String> it = cldrFile.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();) {
             String path = it.next();
             if (path.contains("/identity")) {
                 continue;

@@ -270,7 +270,7 @@ public class ConvertTransforms extends CLDRConverterTool {
 
         boolean first = true;
 
-        for (Iterator<String> it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();)
+        for (Iterator<String> it = cldrFile.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();)
         {
             // TODO make it so this doesn't need to create a new file
             String path = it.next();
@@ -346,7 +346,7 @@ public class ConvertTransforms extends CLDRConverterTool {
         String filename = null;
         CLDRFile cldrFile = cldrFactory.make(id, false);
         boolean first = true;
-        for (Iterator<String> it = cldrFile.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
+        for (Iterator<String> it = cldrFile.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();) {
             String path = it.next();
             if (path.indexOf("/version") >= 0 || path.indexOf("/generation") >= 0) {
                 continue;

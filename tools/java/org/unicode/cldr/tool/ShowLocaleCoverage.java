@@ -101,8 +101,8 @@ public class ShowLocaleCoverage {
         Set<String> extraCheckLocales = new HashSet(); // testInfo.getStandardCodes().getLocaleCoverageLocales("google");
 
         Relation<MissingStatus, String> missingPaths = Relation.of(new EnumMap<MissingStatus, Set<String>>(
-            MissingStatus.class), TreeSet.class, CLDRFile.ldmlComparator);
-        Set<String> unconfirmed = new TreeSet(CLDRFile.ldmlComparator);
+            MissingStatus.class), TreeSet.class, CLDRFile.getLdmlComparator());
+        Set<String> unconfirmed = new TreeSet(CLDRFile.getLdmlComparator());
 
         LanguageTagParser ltp = new LanguageTagParser();
         Map<String, String> likely = testInfo.getSupplementalDataInfo().getLikelySubtags();

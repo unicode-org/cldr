@@ -121,7 +121,7 @@ public class TestExampleGenerator extends TestFmwk {
         PathStarrer ps = new PathStarrer();
         Set<String> seen = new HashSet<String>();
         CLDRFile cldrFile = exampleGenerator.getCldrFile();
-        for (String path : CollectionUtilities.addAll(cldrFile.fullIterable().iterator(), new TreeSet<String>(CLDRFile.ldmlComparator))) {
+        for (String path : CollectionUtilities.addAll(cldrFile.fullIterable().iterator(), new TreeSet<String>(CLDRFile.getLdmlComparator()))) {
             String plainStarred = ps.set(path);
             String value = cldrFile.getStringValue(path);
             if (value == null
@@ -323,7 +323,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void Test4897() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
-        for (String xpath : With.in(exampleGenerator.getCldrFile().iterator("//ldml/dates/timeZoneNames", CLDRFile.ldmlComparator))) {
+        for (String xpath : With.in(exampleGenerator.getCldrFile().iterator("//ldml/dates/timeZoneNames", CLDRFile.getLdmlComparator()))) {
             String value = exampleGenerator.getCldrFile().getStringValue(xpath);
             String actual = exampleGenerator.getExampleHtml(xpath, value, null, ExampleType.NATIVE);
             if (actual == null) {

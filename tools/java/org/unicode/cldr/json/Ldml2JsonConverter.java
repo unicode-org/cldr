@@ -228,7 +228,7 @@ public class Ldml2JsonConverter {
             }
         }
 
-        for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
+        for (Iterator<String> it = file.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();) {
             int cv = Level.UNDETERMINED.getLevel();
             String path = it.next();
             String fullPath = file.getFullXPath(path);

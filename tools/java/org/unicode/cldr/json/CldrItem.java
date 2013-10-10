@@ -261,7 +261,7 @@ public class CldrItem implements Comparable<CldrItem> {
                 return result;
             }
         }
-        return CLDRFile.ldmlComparator.compare(path, otherItem.path);
+        return CLDRFile.getLdmlComparator().compare(path, otherItem.path);
         //return path.compareTo(otherItem.path);
     }
 }

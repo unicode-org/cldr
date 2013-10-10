@@ -62,7 +62,7 @@ public class JsonConverter {
             Relation<String, String> element2Attributes = file.isNonInheriting() ? suppInfo : mainInfo;
             final Item main = new TableItem(null);
             DtdType dtdType = null;
-            for (Iterator<String> it = file.iterator("", CLDRFile.ldmlComparator); it.hasNext();) {
+            for (Iterator<String> it = file.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();) {
                 final String xpath = it.next();
                 final String fullXpath = file.getFullXPath(xpath);
                 String value = file.getStringValue(xpath);

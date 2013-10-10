@@ -119,7 +119,7 @@ public class GenerateCoverageLevels {
         public int compare(R3<Level, String, Inheritance> o1, R3<Level, String, Inheritance> o2) {
             int result = o1.get0().compareTo(o2.get0());
             if (result != 0) return result;
-            result = CLDRFile.ldmlComparator.compare(o1.get1(), o2.get1());
+            result = CLDRFile.getLdmlComparator().compare(o1.get1(), o2.get1());
             if (result != 0) return result;
             result = o1.get2().compareTo(o2.get2());
             return result;

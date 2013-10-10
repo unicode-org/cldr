@@ -25,6 +25,14 @@ public final class Timer {
         return duration;
     }
 
+    public long getNanoseconds() {
+        return getDuration();
+    }
+
+    public double getSeconds() {
+        return getDuration()/NANOS_PER_SECOND;
+    }
+
     /**
      * Return nanos
      * @return

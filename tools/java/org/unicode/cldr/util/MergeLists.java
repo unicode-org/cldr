@@ -58,7 +58,7 @@ public class MergeLists<T> {
         // this is slower, but puts things into as much of the order specified as possible
         // could be optimized further, but we don't care that much
 
-        Set<T> first = new HashSet<T>();
+        Set<T> first = new LinkedHashSet<T>();
         while (orderedWorkingSet.size() != 0) {
             getFirsts(first);
             if (first.size() == 0) {

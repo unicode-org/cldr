@@ -31,7 +31,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
     private Map<K, Integer> ordering = new TreeMap<K, Integer>(); // maps from name to rank
     private List<K> rankToName = new ArrayList<K>();
     private boolean errorOnMissing = true;
-    private boolean locked = false;
+    private volatile boolean locked = false;
 
     /**
      * @return Returns the errorOnMissing.
@@ -92,7 +92,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         return this;
     }
 
-    private static final UnicodeSet numbers = new UnicodeSet("[\\-0-9.]");
+    private static final UnicodeSet numbers = new UnicodeSet("[\\-0-9.]").freeze();
 
     public int compare(K a, K b) {
         if (false && (a.equals("lines") || b.equals("lines"))) {

@@ -2,16 +2,26 @@ package org.unicode.cldr.unittest;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.jar.Attributes;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRFile.DtdType;
+import org.unicode.cldr.util.DtdData.AttributeValueComparator;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 
 public class TestPerf extends TestFmwkPlus {
     public static void main(String[] args) {
@@ -119,5 +129,56 @@ public class TestPerf extends TestFmwkPlus {
         long duration = t.stop();
         assertRelation("", true, duration/ITERATIONS/1000000.0, LEQ, 50.0);
         assertEquals("", elementSize, size/ITERATIONS);
+    }
+    
+    public void TestPathComparison() {
+        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+        AttributeValueComparator avc = new AttributeValueComparator() {
+            @Override
+            public int compare(String element, String attribute, String value1, String value2) {
+                Comparator<String> comp = CLDRFile.getAttributeValueComparator(element, attribute);
+                return comp.compare(value1, value2);
+            }
+        };
+        Comparator<String> comp = dtdData.getDtdComparator(avc);
+        CLDRFile test = TestInfo.getInstance().getEnglish();
+        Set<String> sorted = new TreeSet(CLDRFile.ldmlComparator);
+        CollectionUtilities.addAll(test.iterator(), sorted);
+        String[] sortedArray = sorted.toArray(new String[sorted.size()]);
+        
+        int iterations = 50;
+        Output<Integer> failures = new Output<Integer>();
+
+        // warmup
+        checkCost(sortedArray, CLDRFile.ldmlComparator, 1, failures);
+        assertRelation("CLDRFile.ldmlComparator-check", true, failures.value, LEQ, 0);
+        double seconds = checkCost(sortedArray, CLDRFile.ldmlComparator, iterations, failures);
+        assertRelation("CLDRFile.ldmlComparator", true, seconds, LEQ, 0.1);
+        //logln(title + "\tTime:\t" + timer.toString(iterations));
+
+        // warmup
+        checkCost(sortedArray, comp, 1, failures);
+        assertRelation("DtdComparator-check", true, failures.value, LEQ, 0);
+        double newSeconds = checkCost(sortedArray, comp, iterations, failures);
+        assertRelation("DtdComparator", true, newSeconds, LEQ, seconds*.5); // new code needs to be twice as fast
+    }
+    
+    private double checkCost(String[] sortedArray, Comparator<String> comp, int iterations, Output<Integer> failures2) {
+        Timer timer = new Timer();
+        int failures = 0;
+        for (int i = 0; i < iterations; ++i) {
+            String lastPath = null;
+            for (String currentPath : sortedArray) {
+                if (lastPath != null) {
+                    if (comp.compare(lastPath, currentPath) > 0) {
+                        failures++;
+                    }
+                }
+                lastPath = currentPath;
+            }
+        }
+        timer.stop();
+        failures2.value = failures;
+        return timer.getSeconds()/iterations;
     }
 }

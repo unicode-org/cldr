@@ -14,7 +14,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.AttributeType;
-import org.unicode.cldr.util.DtdData.AttributeValueComparatorFactory;
+import org.unicode.cldr.util.DtdData.AttributeValueComparator;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 
@@ -171,13 +171,15 @@ public class DtdDataCheck {
                 //                    System.out.println("ERROR:\t" + error);
                 //                }
                 //                errors.clear();
-                AttributeValueComparatorFactory avcf = new AttributeValueComparatorFactory() {
+                dtdData = DtdData.getInstance(DtdType.ldml);
+                AttributeValueComparator avc = new AttributeValueComparator() {
                     @Override
-                    public Comparator<String> getAttributeValueComparator(String element, String attribute) {
-                        return CLDRFile.getAttributeValueComparator(element, attribute);
+                    public int compare(String element, String attribute, String value1, String value2) {
+                        Comparator<String> comp = CLDRFile.getAttributeValueComparator(element, attribute);
+                        return comp.compare(value1, value2);
                     }
                 };
-                Comparator<String> comp = dtdData.getDtdComparator(avcf);
+                Comparator<String> comp = dtdData.getDtdComparator(avc);
                 CLDRFile test = TestInfo.getInstance().getEnglish();
                 Set<String> sorted = new TreeSet(CLDRFile.ldmlComparator);
                 CollectionUtilities.addAll(test.iterator(), sorted);

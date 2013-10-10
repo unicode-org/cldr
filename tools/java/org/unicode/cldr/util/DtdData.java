@@ -1,6 +1,9 @@
 package org.unicode.cldr.util;
 
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumMap;
@@ -8,7 +11,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.TreeSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
@@ -17,6 +22,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.text.UTF16;
 
 /**
  * An immutable object that contains the structure of a DTD.
@@ -25,13 +31,15 @@ import com.ibm.icu.dev.util.Relation;
 public class DtdData extends XMLFileReader.SimpleHandler {
     static final boolean SHOW_PROGRESS = CldrUtility.getProperty("verbose", false);
     static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
-    static final boolean DEBUG = true;
-    static final Pattern FILLER = Pattern.compile("[^-a-zA-Z0-9#]");
+    static final boolean DEBUG = false;
+    static final Pattern FILLER = Pattern.compile("[^-a-zA-Z0-9#_]");
 
     final Map<String, Element> nameToElement = new HashMap<String, Element>();
     final Relation<String, Attribute> nameToAttributes = Relation.of(new TreeMap<String, Set<Attribute>>(), LinkedHashSet.class);
     final Set<Element> elements = new HashSet<Element>();
     final Set<Attribute> attributes = new HashSet<Attribute>();
+    MapComparator<String> attributeComparator;
+    MapComparator<String> elementComparator;
 
     public final Element ROOT;
     public final Element PCDATA = elementFrom("PCDATA");
@@ -66,7 +74,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         CDATA, ID, IDREF, IDREFS, ENTITY, ENTITIES, NMTOKEN, NMTOKENS, ENUMERATED_TYPE
     }
 
-    public static class Attribute {
+    public static class Attribute implements Named {
         public final String name;
         public final Element element;
         public final Mode mode;
@@ -112,6 +120,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 + (mode == Mode.NULL ? "" : ", mode=" + mode)
                 + (defaultValue == null ? "" : ", default=" + defaultValue);
         }
+
+        @Override
+        public String getName() {
+            return name;
+        }
     }
 
     private DtdData(DtdType type) {
@@ -129,7 +142,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         EMPTY, ANY, PCDATA, CHILDREN
     }
 
-    public static class Element {
+    interface Named {
+        String getName();
+    }
+
+    public static class Element implements Named {
         public final String name;
         private ElementType type;
         private final Map<Element, Integer> children = new LinkedHashMap<Element, Integer>();
@@ -185,6 +202,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
         public Map<Attribute, Integer> getAttributes() {
             return Collections.unmodifiableMap(attributes);
+        }
+
+        @Override
+        public String getName() {
+            return name;
         }
     }
 
@@ -263,36 +285,82 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             if (simpleHandler.ROOT.children.size() == 0) {
                 throw new IllegalArgumentException(); // should never happen
             }
+            simpleHandler.freeze();
             CACHE.put(type, simpleHandler);
         }
         return simpleHandler;
+    }
+
+    private void freeze() {
+        MergeLists<String> elementMergeList = new MergeLists<String>();
+        elementMergeList.add(dtdType.toString());
+        MergeLists<String> attributeMergeList = new MergeLists<String>();
+        for (Element element : elements) {
+            if (element.children.size() > 0) {
+                Collection<String> names = getNames(element.children.keySet());
+                elementMergeList.add(names);
+                if (DEBUG) {
+                    System.out.println(element.getName() + "\t→\t" + names);
+                }
+            }
+            if (element.attributes.size() > 0) {
+                Collection<String> names = getNames(element.attributes.keySet());
+                attributeMergeList.add(names);
+                if (DEBUG) {
+                    System.out.println(element.getName() + "\t→\t@" + names);
+                }
+            }
+        }
+        List<String> elementList = elementMergeList.merge();
+        List<String> attributeList = attributeMergeList.merge();
+        if (DEBUG) {
+            System.out.println("Element Ordering:\t" + elementList);
+            System.out.println("Attribute Ordering:\t" + attributeList);
+        }
+        // double-check
+        //        for (Element element : elements) {
+        //            if (!MergeLists.hasConsistentOrder(elementList, element.children.keySet())) {
+        //                throw new IllegalArgumentException("Failed to find good element order: " + element.children.keySet());
+        //            }
+        //            if (!MergeLists.hasConsistentOrder(attributeList, element.attributes.keySet())) {
+        //                throw new IllegalArgumentException("Failed to find good attribute order: " + element.attributes.keySet());
+        //            }
+        //        }
+        elementComparator = new MapComparator(elementList).setErrorOnMissing(true).freeze();
+        attributeComparator = new MapComparator(attributeList).setErrorOnMissing(true).freeze();
+    }
+
+    private Collection<String> getNames(Collection<? extends Named> keySet) {
+        List<String> result = new ArrayList();
+        for (Named e : keySet) {
+            result.add(e.getName());
+        }
+        return result;
     }
 
     public enum DtdItem {
         ELEMENT, ATTRIBUTE, ATTRIBUTE_VALUE
     }
 
-    public interface AttributeValueComparatorFactory {
-        public Comparator<String> getAttributeValueComparator(String element, String attribute);
+    public interface AttributeValueComparator {
+        public int compare(String element, String attribute, String value1, String value2);
     }
 
-    public Comparator<String> getDtdComparator(AttributeValueComparatorFactory avcf) {
-        return new DtdComparator(avcf);
+    public Comparator<String> getDtdComparator(AttributeValueComparator avc) {
+        return new DtdComparator(avc);
     }
 
     private class DtdComparator implements Comparator<String> {
-        private final AttributeValueComparatorFactory avcf;
-        private transient XPathParts a = new XPathParts();
-        private transient XPathParts b = new XPathParts();
+        private final AttributeValueComparator avc;
 
-        public DtdComparator(AttributeValueComparatorFactory avcf) {
-            this.avcf = avcf;
+        public DtdComparator(AttributeValueComparator avc) {
+            this.avc = avc;
         }
 
         @Override
-        public synchronized int compare(String arg0, String arg1) {
-            a.set(arg0);
-            b.set(arg1);
+        public int compare(String arg0, String arg1) {
+            XPathParts a = XPathParts.getFrozenInstance(arg0);
+            XPathParts b = XPathParts.getFrozenInstance(arg1);
             int max = Math.max(a.size(), b.size());
             String baseA = a.getElement(0);
             String baseB = b.getElement(0);
@@ -334,9 +402,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                             break attributes;
                         }
                         continue; // TODO
-                    } else if (avcf != null) {
-                        Comparator<String> comp = avcf.getAttributeValueComparator(elementA.name, main.name);
-                        return comp.compare(valueA, valueB);
+                    } else if (avc != null) {
+                        return avc.compare(elementA.name, main.name, valueA, valueB);
                     } else if (main.values.size() != 0) {
                         int aa = main.values.get(valueA);
                         int bb = main.values.get(valueB);

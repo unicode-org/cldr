@@ -37,6 +37,7 @@ import com.ibm.icu.impl.Utility;
 public class Ldml2JsonConverter {
     private static boolean DEBUG = false;
     private static final String MAIN = "main";
+    private static final String SEGMENTS = "segments";
 
     private static final Options options = new Options(
         "Usage: LDML2JsonConverter [OPTIONS] [FILES]\n" +
@@ -49,8 +50,8 @@ public class Ldml2JsonConverter {
             "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
         .add("match", 'm', ".*", ".*",
             "Regular expression to define only specific locales or files to be generated")
-        .add("type", 't', "(main|supplemental)", "main",
-            "Type of CLDR data being generated, main or supplemental.")
+        .add("type", 't', "(main|supplemental|segments)", "main",
+            "Type of CLDR data being generated, main, supplemental, or segments.")
         .add("resolved", 'r', "(true|false)", "false",
             "Whether the output JSON for the main directory should be based on resolved or unresolved data")
         .add("draftstatus", 's', "(approved|contributed|provisional|unconfirmed)", "unconfirmed",
@@ -861,7 +862,7 @@ public class Ldml2JsonConverter {
             mapPathsToSections(file, pathPrefix, sdi);
 
             String outputDirname;
-            if (dirName.equals(MAIN)) {
+            if (dirName.equals(MAIN) || dirName.equals(SEGMENTS)) {
                 outputDirname = outputDir + File.separator + filename.replaceAll("_", "-");
             } else {
                 outputDirname = outputDir + File.separator + dirName;

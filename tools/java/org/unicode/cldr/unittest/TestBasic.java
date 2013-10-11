@@ -47,6 +47,7 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.DecimalFormat;
@@ -88,27 +89,33 @@ public class TestBasic extends TestFmwk {
     private final Exception[] internalException = new Exception[1];
 
     public void TestDtds() throws IOException {
-        checkDtds(commonDirectory + "/collation");
-        checkDtds(commonDirectory + "/main");
-        checkDtds(commonDirectory + "/rbnf");
-        checkDtds(commonDirectory + "/segments");
-        checkDtds(commonDirectory + "/supplemental");
-        checkDtds(commonDirectory + "/transforms");
+        checkDtds(new File(CldrUtility.BASE_DIRECTORY), 0);
     }
 
-    private void checkDtds(String directory) throws IOException {
-        File directoryFile = new File(directory);
+    private void checkDtds(File directoryFile, int level) throws IOException {
         File[] listFiles = directoryFile.listFiles();
         String canonicalPath = directoryFile.getCanonicalPath();
+        String indent = Utility.repeat("\t", level);
         if (listFiles == null) {
-            throw new IllegalArgumentException("Empty directory: " + canonicalPath);
+            throw new IllegalArgumentException(indent + "Empty directory: " + canonicalPath);
         }
-        logln("Checking files for DTD errors in: " + canonicalPath);
+        logln(indent + "Checking files for DTD errors in: " + canonicalPath);
         for (File fileName : listFiles) {
-            if (!fileName.toString().endsWith(".xml") || fileName.getName().startsWith(".")) {
+            String name = fileName.getName();
+            if (name.startsWith(".")) {
                 continue;
+            } else if (fileName.isDirectory()) {
+                if (name.equals("tools") || name.equals("specs")) {
+                    continue;
+                }
+                if (name.equals("exemplars")) {
+                    logKnownIssue("6743", "Bad xml files");
+                    continue;
+                }
+                checkDtds(fileName, level+1);
+            } else if (name.endsWith(".xml")) {
+                check(fileName);
             }
-            check(fileName);
         }
     }
 
@@ -163,10 +170,10 @@ public class TestBasic extends TestFmwk {
                 continue;
 
             final UnicodeSet OK_CURRENCY_FALLBACK = (UnicodeSet) new UnicodeSet("[\\u0000-\\u00FF]")
-                .addAll(safeExemplars(file, ""))
-                .addAll(safeExemplars(file, "auxiliary"))
-                .addAll(safeExemplars(file, "currencySymbol"))
-                .freeze();
+            .addAll(safeExemplars(file, ""))
+            .addAll(safeExemplars(file, "auxiliary"))
+            .addAll(safeExemplars(file, "currencySymbol"))
+            .freeze();
             UnicodeSet badSoFar = new UnicodeSet();
 
             for (Iterator<String> it = file.iterator(); it.hasNext();) {
@@ -243,12 +250,12 @@ public class TestBasic extends TestFmwk {
         CLDRFile english = cldrFactory.make("en", true);
         Map<String, Counter<Level>> abstactPaths = new TreeMap<String, Counter<Level>>();
         RegexTransform abstractPathTransform = new RegexTransform(RegexTransform.Processing.ONE_PASS)
-            .add("//ldml/", "")
-            .add("\\[@alt=\"[^\"]*\"\\]", "")
-            .add("=\"[^\"]*\"", "=\"*\"")
-            .add("([^]])\\[", "$1\t[")
-            .add("([^]])/", "$1\t/")
-            .add("/", "\t");
+        .add("//ldml/", "")
+        .add("\\[@alt=\"[^\"]*\"\\]", "")
+        .add("=\"[^\"]*\"", "=\"*\"")
+        .add("([^]])\\[", "$1\t[")
+        .add("([^]])/", "$1\t/")
+        .add("/", "\t");
 
         for (String locale : cldrFactory.getAvailable()) {
             // if (locale.equals("root") && !localeRegex.equals("root"))
@@ -524,8 +531,8 @@ public class TestBasic extends TestFmwk {
                 "likelyMax(locale=" + locale + ")" +
                     " == " +
                     "likelyMax(defaultContent=" + localeParent + ")",
-                maxLocaleParent,
-                maxLocale);
+                    maxLocaleParent,
+                    maxLocale);
         }
 
     }

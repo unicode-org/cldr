@@ -193,4 +193,8 @@ public class TestPerf extends TestFmwkPlus {
         failures2.value = failures;
         return timer.getSeconds()/iterations;
     }
+    
+    public void TestUnused() {
+        
+    }
 }

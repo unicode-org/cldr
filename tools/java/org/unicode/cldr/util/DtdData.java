@@ -9,6 +9,7 @@ import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -292,6 +293,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         MergeLists<String> elementMergeList = new MergeLists<String>();
         elementMergeList.add(dtdType.toString());
         MergeLists<String> attributeMergeList = new MergeLists<String>();
+        attributeMergeList.add("_q");
+
         for (Element element : nameToElement.values()) {
             if (element.children.size() > 0) {
                 Collection<String> names = getNames(element.children.keySet());
@@ -364,7 +367,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             String baseA = a.getElement(0);
             String baseB = b.getElement(0);
             if (!ROOT.name.equals(baseA) || !ROOT.name.equals(baseB)) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Comparing two different DTDs: " + baseA + ", " + baseB);
             }
             Element parent = ROOT;
             Element elementA;
@@ -384,7 +387,24 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 // we have two ways to compare the attributes. One based on the dtd,
                 // and one based on explicit comparators
 
-                attributes: for (Entry<Attribute, Integer> attr : elementA.attributes.entrySet()) {
+                // at this point the elements are the same and correspond to elementA
+                // in the dtd
+                
+                // Handle the special added elements
+                String aqValue = a.getAttributeValue(i, "_q");
+                if (aqValue != null) {
+                    String bqValue = b.getAttributeValue(i, "_q");
+                    if (!aqValue.equals(bqValue)) {
+                        int aValue = Integer.parseInt(aqValue);
+                        int bValue = Integer.parseInt(bqValue);
+                        return aValue - bValue;
+                    }
+                    --countA;
+                    --countB;
+                }
+
+                attributes: 
+                for (Entry<Attribute, Integer> attr : elementA.attributes.entrySet()) {
                     Attribute main = attr.getKey();
                     String valueA = a.getAttributeValue(i, main.name);
                     String valueB = b.getAttributeValue(i, main.name);

@@ -45,10 +45,10 @@ public class LikelySubtagsTest extends TestFmwk {
                 add(ltp.set(entry.getKey()), true);
                 add(ltp.set(entry.getValue()), false);
             }
-            System.out.println("all: " + all);
-            System.out.println("scriptRegion: " + scriptRegion);
-            System.out.println("languageScript: " + languageScript);
-            System.out.println("languageRegion: " + languageRegion);
+//            System.out.println("all: " + all);
+//            System.out.println("scriptRegion: " + scriptRegion);
+//            System.out.println("languageScript: " + languageScript);
+//            System.out.println("languageRegion: " + languageRegion);
         }
         void add(LanguageTagParser ltp, boolean source) {
             String sourceLanguage = ltp.getLanguage();

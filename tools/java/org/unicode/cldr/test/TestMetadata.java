@@ -27,66 +27,66 @@ public class TestMetadata {
         // System.out.println("Keys: " + allKeys);
         // attribute order
 
-        Set<String> elements = new TreeSet<String>();
-        Set<String> attributes = new TreeSet<String>();
-        Set<LinkedHashSet<String>> elementOrderingLists = new LinkedHashSet<LinkedHashSet<String>>();
-
-        getElementsAndAttributes(CldrUtility.MAIN_DIRECTORY + "root.xml", elements, attributes, elementOrderingLists);
-        Set<String> suppElements = new TreeSet<String>();
-        Set<String> suppAttributes = new TreeSet<String>();
-        Set<LinkedHashSet<String>> suppElementOrderingLists = new LinkedHashSet<LinkedHashSet<String>>();
-        getElementsAndAttributes(CldrUtility.COMMON_DIRECTORY + "supplemental/characters.xml", suppElements,
-            suppAttributes, suppElementOrderingLists);
-
-        Set<String> allElements = new TreeSet<String>();
-        allElements.addAll(elements);
-        allElements.addAll(suppElements);
-        Set<String> allAttributes = new TreeSet<String>();
-        allAttributes.addAll(attributes);
-        allAttributes.addAll(suppAttributes);
-
-        List<String> attributeOrder = Arrays.asList(metadata.getStringValue("//supplementalData/metadata/attributeOrder")
-            .split("\\s+"));
-        List<String> programAttributeOrder = CLDRFile.getAttributeOrder();
-
-        Set<String> allAttributeOrder = new TreeSet<String>();
-        allAttributeOrder.addAll(attributeOrder);
-        allAttributeOrder.addAll(programAttributeOrder);
-        allAttributeOrder.remove("_q");
-        if (showSetDifferences("dtd attributes", allAttributes, "attributeOrder+programAttributeOrder",
-            allAttributeOrder)) {
-            System.out.println("ERROR: differences in sets!");
-        }
-
-        if (!attributeOrder.equals(programAttributeOrder)) {
-            System.out.println("ElementOrderDifference: ");
-            System.out.println(showDifference(programAttributeOrder, attributeOrder, ", "));
-            System.out.println("metadata: " + attributeOrder);
-            System.out.println("program: " + programAttributeOrder);
-            System.out.println("ERROR: differences in sets!");
-        }
-
-        List<String> elementOrder = Arrays.asList(metadata.getStringValue("//supplementalData/metadata/elementOrder").split(
-            "\\s+"));
-        List<String> programElementOrder = (List<String>) CLDRFile.getElementOrder();
-
-        sublistCheck(elementOrderingLists, programElementOrder);
-        sublistCheck(suppElementOrderingLists, programElementOrder);
-
-        Set<String> allElementOrder = new TreeSet<String>();
-        allElementOrder.addAll(elementOrder);
-        allElementOrder.addAll(programElementOrder);
-        if (showSetDifferences("dtd elements", allElements, "elementOrder+programElementOrder", allElementOrder)) {
-            System.out.println("ERROR: differences in sets!");
-        }
-
-        if (!elementOrder.equals(programElementOrder)) {
-            System.out.println("ElementOrderDifference: ");
-            System.out.println(showDifference(programElementOrder, elementOrder, ", "));
-            System.out.println("metadata: " + elementOrder);
-            System.out.println("program: " + programElementOrder);
-            System.out.println("ERROR: differences in sets!");
-        }
+//        Set<String> elements = new TreeSet<String>();
+//        Set<String> attributes = new TreeSet<String>();
+//        Set<LinkedHashSet<String>> elementOrderingLists = new LinkedHashSet<LinkedHashSet<String>>();
+//
+//        getElementsAndAttributes(CldrUtility.MAIN_DIRECTORY + "root.xml", elements, attributes, elementOrderingLists);
+//        Set<String> suppElements = new TreeSet<String>();
+//        Set<String> suppAttributes = new TreeSet<String>();
+//        Set<LinkedHashSet<String>> suppElementOrderingLists = new LinkedHashSet<LinkedHashSet<String>>();
+//        getElementsAndAttributes(CldrUtility.COMMON_DIRECTORY + "supplemental/characters.xml", suppElements,
+//            suppAttributes, suppElementOrderingLists);
+//
+//        Set<String> allElements = new TreeSet<String>();
+//        allElements.addAll(elements);
+//        allElements.addAll(suppElements);
+//        Set<String> allAttributes = new TreeSet<String>();
+//        allAttributes.addAll(attributes);
+//        allAttributes.addAll(suppAttributes);
+//
+//        List<String> attributeOrder = Arrays.asList(metadata.getStringValue("//supplementalData/metadata/attributeOrder")
+//            .split("\\s+"));
+//        List<String> programAttributeOrder = CLDRFile.getAttributeOrder();
+//
+//        Set<String> allAttributeOrder = new TreeSet<String>();
+//        allAttributeOrder.addAll(attributeOrder);
+//        allAttributeOrder.addAll(programAttributeOrder);
+//        allAttributeOrder.remove("_q");
+//        if (showSetDifferences("dtd attributes", allAttributes, "attributeOrder+programAttributeOrder",
+//            allAttributeOrder)) {
+//            System.out.println("ERROR: differences in sets!");
+//        }
+//
+//        if (!attributeOrder.equals(programAttributeOrder)) {
+//            System.out.println("ElementOrderDifference: ");
+//            System.out.println(showDifference(programAttributeOrder, attributeOrder, ", "));
+//            System.out.println("metadata: " + attributeOrder);
+//            System.out.println("program: " + programAttributeOrder);
+//            System.out.println("ERROR: differences in sets!");
+//        }
+//
+//        List<String> elementOrder = Arrays.asList(metadata.getStringValue("//supplementalData/metadata/elementOrder").split(
+//            "\\s+"));
+//        List<String> programElementOrder = (List<String>) CLDRFile.getElementOrder();
+//
+//        sublistCheck(elementOrderingLists, programElementOrder);
+//        sublistCheck(suppElementOrderingLists, programElementOrder);
+//
+//        Set<String> allElementOrder = new TreeSet<String>();
+//        allElementOrder.addAll(elementOrder);
+//        allElementOrder.addAll(programElementOrder);
+//        if (showSetDifferences("dtd elements", allElements, "elementOrder+programElementOrder", allElementOrder)) {
+//            System.out.println("ERROR: differences in sets!");
+//        }
+//
+//        if (!elementOrder.equals(programElementOrder)) {
+//            System.out.println("ElementOrderDifference: ");
+//            System.out.println(showDifference(programElementOrder, elementOrder, ", "));
+//            System.out.println("metadata: " + elementOrder);
+//            System.out.println("program: " + programElementOrder);
+//            System.out.println("ERROR: differences in sets!");
+//        }
 
         testZones(metadata);
         System.out.println("Done");

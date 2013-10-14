@@ -147,7 +147,8 @@ public class TestCLDRUtils extends TestFmwk {
         CLDRLocale.setDefaultFormatter(CLDRLocale.getSimpleFormatterFor(ULocale.getDefault()));
     }
 
-    public void TestCLDRLocaleDataDriven() throws IOException {
+    // Disable this test, because we now require known DtdTypes
+    public void oldTestCLDRLocaleDataDriven() throws IOException {
         XMLFileReader myReader = new XMLFileReader();
         final Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
         final CLDRFile engFile = cldrFactory.make("en", true);

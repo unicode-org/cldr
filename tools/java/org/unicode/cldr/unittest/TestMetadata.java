@@ -21,7 +21,8 @@ public class TestMetadata extends TestFmwk {
         new TestMetadata().run(args);
     }
 
-    public void TestOrdering() {
+    // disable, since we no longer have 3 different sources.
+    public void oldTestOrdering() {
         FindDTDOrder order = FindDTDOrder.getInstance();
 
         logln("Make sure that all and only blocking elements are serialElements.");

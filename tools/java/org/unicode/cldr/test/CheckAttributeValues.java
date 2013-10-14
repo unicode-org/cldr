@@ -2,6 +2,7 @@ package org.unicode.cldr.test;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -210,7 +211,14 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
 
     private void getMetadata(CLDRFile metadata, SupplementalDataInfo sdi) {
         // sorting is expensive, but we need it here.
-        for (Iterator<String> it = metadata.iterator(null, CLDRFile.getLdmlComparator()); it.hasNext();) {
+        
+        Comparator<String> ldmlComparator = CLDRFile.getLdmlComparator();
+        String path2 = metadata.iterator().next();
+        if (!path2.startsWith("//ldml")) {
+            ldmlComparator = null;
+        }
+
+        for (Iterator<String> it = metadata.iterator(null, ldmlComparator); it.hasNext();) {
             String path = it.next();
             String value = metadata.getStringValue(path);
             path = metadata.getFullXPath(path);

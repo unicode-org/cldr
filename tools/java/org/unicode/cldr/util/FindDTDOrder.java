@@ -36,6 +36,9 @@ import com.ibm.icu.dev.util.XEquivalenceClass;
 import com.ibm.icu.impl.Differ;
 import com.ibm.icu.text.UTF16;
 
+/**
+ * @deprecated
+ */
 public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     static final boolean SHOW_PROGRESS = CldrUtility.getProperty("verbose", false);
     static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
@@ -46,6 +49,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
     private boolean recordingAttributeElements;
 
     public static void main(String[] args) throws IOException {
+        System.out.println("Outdated, no longer used");
         FindDTDOrder me = getInstance();
         me.showData();
     }

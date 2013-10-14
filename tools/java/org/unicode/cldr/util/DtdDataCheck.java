@@ -53,6 +53,18 @@ public class DtdDataCheck {
             this.dtdData = dtdData;
         }
 
+        private void showSuppressed() {
+            for (Entry<String, Element> ee : dtdData.getElementFromName().entrySet()) {
+                Element element = ee.getValue();
+                for (Entry<Attribute, Integer> ae : element.getAttributes().entrySet()) {
+                    Attribute a = ae.getKey();
+                    if (a.defaultValue != null) {
+                        System.out.println(dtdData.ROOT + "\t" + element.name + "\t" + a.name + "\t" + a.defaultValue);
+                    }
+                }
+            }
+        }
+
         private void show(Element element) {
             show(element, "");
             System.out.println();
@@ -230,6 +242,12 @@ public class DtdDataCheck {
         i = 0;
         for (R4<DtdType, String, String, String> x : DEPRECATED) {
             System.out.println(++i + "\tDEPRECATED\t" + x);
+        }
+        for (String arg : args) {
+            DtdType type = CLDRFile.DtdType.valueOf(arg);
+            DtdData dtdData = DtdData.getInstance(type);
+            System.out.println("\n" + arg);
+            new Walker(dtdData).showSuppressed();
         }
     }
 

@@ -22,6 +22,8 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.unicode.cldr.util.CLDRFile.DtdType;
+
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.util.Freezable;
@@ -35,7 +37,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     private volatile boolean frozen = false;
     private List<Element> elements = new ArrayList<Element>();
 
-    private final Comparator<String> attributeComparator;
+    private DtdData dtdData;
     private final Map<String, Map<String, String>> suppressionMap;
 
     private static final Map<String, XPathParts> cache = new ConcurrentHashMap<String, XPathParts>();
@@ -58,9 +60,8 @@ public final class XPathParts implements Freezable<XPathParts> {
             }
         }
         if (attributeComparator == null) {
-            attributeComparator = CLDRFile.getAttributeComparator();
+            attributeComparator = CLDRFile.getAttributeOrdering();
         }
-        this.attributeComparator = attributeComparator;
         this.suppressionMap = suppressionMap;
     }
 
@@ -79,6 +80,7 @@ public final class XPathParts implements Freezable<XPathParts> {
      */
     public XPathParts clear() {
         elements.clear();
+        dtdData = null;
         return this;
     }
 
@@ -451,6 +453,13 @@ public final class XPathParts implements Freezable<XPathParts> {
      * Add an element
      */
     public XPathParts addElement(String element) {
+        if (elements.size() == 0) {
+            try {
+                dtdData = DtdData.getInstance(DtdType.valueOf(element));
+            } catch (Exception e) {
+                dtdData = null;
+            }
+        }
         elements.add(new Element(element));
         return this;
     }
@@ -524,7 +533,7 @@ public final class XPathParts implements Freezable<XPathParts> {
         // if (xPath.length() == 0) return this;
         String requiredPrefix = "/";
         if (initial) {
-            elements.clear();
+            clear();
             requiredPrefix = "//";
         }
         if (!xPath.startsWith(requiredPrefix)) return parseError(xPath, 0);
@@ -674,7 +683,7 @@ public final class XPathParts implements Freezable<XPathParts> {
             if (attributes == null) {
                 this.attributes = null;
             } else {
-                this.attributes = new TreeMap<String, String>(attributeComparator);
+                this.attributes = new TreeMap<String, String>(getAttributeComparator(element));
                 this.attributes.putAll(attributes);
             }
         }
@@ -698,7 +707,7 @@ public final class XPathParts implements Freezable<XPathParts> {
                 }
             } else {
                 if (attributes == null) {
-                    attributes = new TreeMap<String, String>(attributeComparator);
+                    attributes = new TreeMap<String, String>(getAttributeComparator(element));
                 }
                 attributes.put(attribute, value);
             }
@@ -906,6 +915,10 @@ public final class XPathParts implements Freezable<XPathParts> {
         return -1;
     }
 
+    public MapComparator<String> getAttributeComparator(String currentElement) {
+        return dtdData == null ? null : dtdData.getAttributeComparator();
+    }
+
     /**
      * Determines if an elementName is contained in the path.
      * 
@@ -954,6 +967,7 @@ public final class XPathParts implements Freezable<XPathParts> {
             throw new UnsupportedOperationException("Can't modify frozen Element");
         }
         try {
+            dtdData = parts.dtdData;
             elements.clear();
             for (Element element : parts.elements) {
                 elements.add((Element) element.clone());
@@ -1153,7 +1167,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     @Override
     public XPathParts cloneAsThawed() {
-        return new XPathParts(elements, attributeComparator, suppressionMap);
+        return new XPathParts(elements, null, suppressionMap);
     }
 
     public static synchronized XPathParts getFrozenInstance(String path) {
@@ -1166,5 +1180,9 @@ public final class XPathParts implements Freezable<XPathParts> {
 
     public static XPathParts getInstance(String path) {
         return getFrozenInstance(path).cloneAsThawed();
+    }
+
+    public DtdData getDtdData() {
+        return dtdData;
     }
 }

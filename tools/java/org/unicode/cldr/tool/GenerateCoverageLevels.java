@@ -48,7 +48,7 @@ public class GenerateCoverageLevels {
                                                                                          // //CldrUtility.MAIN_DIRECTORY;
     private static final String OUT_DIRECTORY = CldrUtility.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
     private static final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
-    private static final Comparator<String> attributeComparator = CLDRFile.getAttributeComparator();
+    private static final Comparator<String> attributeComparator = CLDRFile.getAttributeOrdering();
     private static final CLDRFile english = cldrFactory.make("en", true);
     private static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(english
         .getSupplementalDirectory());

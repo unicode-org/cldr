@@ -162,8 +162,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT timeData ( hours* ) >
 <!ELEMENT hours EMPTY >
-<!ATTLIST hours preferred NMTOKEN #REQUIRED >
 <!ATTLIST hours allowed NMTOKENS #REQUIRED >
+<!ATTLIST hours preferred NMTOKEN #REQUIRED >
 <!ATTLIST hours regions NMTOKENS #REQUIRED >
 <!ATTLIST hours draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST hours references CDATA #IMPLIED >
@@ -243,8 +243,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST validity draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT variable ( #PCDATA ) >
-<!ATTLIST variable id CDATA #IMPLIED >
 <!ATTLIST variable type NMTOKEN #IMPLIED >
+<!ATTLIST variable id CDATA #IMPLIED >
 <!ATTLIST variable draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT attributeValues (  #PCDATA ) >
@@ -392,8 +392,8 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT numberingSystems ( numberingSystem* ) >
 <!ELEMENT numberingSystem EMPTY >
-<!ATTLIST numberingSystem id NMTOKEN #REQUIRED >
 <!ATTLIST numberingSystem type ( numeric | algorithmic ) #REQUIRED >
+<!ATTLIST numberingSystem id NMTOKEN #REQUIRED >
 <!ATTLIST numberingSystem radix NMTOKEN #IMPLIED >
 <!ATTLIST numberingSystem digits CDATA #IMPLIED >
 <!ATTLIST numberingSystem rules CDATA #IMPLIED >
@@ -429,9 +429,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT languageMatch EMPTY >
 <!ATTLIST languageMatch desired CDATA #REQUIRED >
-<!ATTLIST languageMatch supported CDATA #REQUIRED >
-<!ATTLIST languageMatch percent NMTOKEN #REQUIRED >
 <!ATTLIST languageMatch oneway ( true | false ) #IMPLIED >
+<!ATTLIST languageMatch percent NMTOKEN #REQUIRED >
+<!ATTLIST languageMatch supported CDATA #REQUIRED >
 
 <!-- Day Periods -->
 <!ELEMENT dayPeriodRuleSet ( dayPeriodRules* ) >
@@ -464,14 +464,14 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST timezone type CDATA #REQUIRED >
 
 <!ELEMENT usesMetazone EMPTY >
-<!ATTLIST usesMetazone mzone NMTOKEN #REQUIRED >
 <!ATTLIST usesMetazone from CDATA #IMPLIED >
 <!ATTLIST usesMetazone to CDATA #IMPLIED >
+<!ATTLIST usesMetazone mzone NMTOKEN #REQUIRED >
 
 <!ELEMENT mapTimezones ( mapZone* ) >
 <!ATTLIST mapTimezones type NMTOKEN #IMPLIED >
-<!ATTLIST mapTimezones typeVersion CDATA #IMPLIED >
 <!ATTLIST mapTimezones otherVersion CDATA #IMPLIED >
+<!ATTLIST mapTimezones typeVersion CDATA #IMPLIED >
 <!ATTLIST mapTimezones references CDATA #IMPLIED >
 
 <!ELEMENT mapZone EMPTY >

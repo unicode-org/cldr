@@ -1,9 +1,12 @@
 package org.unicode.cldr.util;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+
+import org.unicode.cldr.util.CLDRFile.DtdType;
 
 public class CharacterFallbacks {
     private static CharacterFallbacks SINGLETON = new CharacterFallbacks();
@@ -21,11 +24,12 @@ public class CharacterFallbacks {
         Factory cldrFactory = Factory.make(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
         CLDRFile characterFallbacks = cldrFactory.make("characters", false);
         XPathParts parts = new XPathParts();
+        Comparator<String> comp = DtdData.getInstance(DtdType.supplementalData).getDtdComparator(null);
 
-        for (Iterator<String> it = characterFallbacks.iterator("//supplementalData/characters/",
-            CLDRFile.getLdmlComparator()); it.hasNext();) {
+        for (Iterator<String> it = characterFallbacks.iterator("//supplementalData/characters/", comp); it.hasNext();) {
             String path = it.next();
-            parts.set(path);
+            String fullPath = characterFallbacks.getFullXPath(path);
+            parts.set(fullPath);
             /*
              * <character value = "―">
              * <substitute>—</substitute>
@@ -33,7 +37,7 @@ public class CharacterFallbacks {
              */
             String value = parts.getAttributeValue(-2, "value");
             if (value.codePointCount(0, value.length()) != 1) {
-                throw new IllegalArgumentException("Illegal value in " + path);
+                throw new IllegalArgumentException("Illegal value in " + fullPath);
             }
             int cp = value.codePointAt(0);
             String substitute = characterFallbacks.getStringValue(path);

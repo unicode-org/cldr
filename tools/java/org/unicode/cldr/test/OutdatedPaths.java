@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
@@ -65,7 +66,7 @@ public class OutdatedPaths {
             DataInputStream dataIn = openDataInput(directory, OUTDATED_DATA);
             Map<Long, PathHeader> id2header = new HashMap<Long, PathHeader>();
             if (DEBUG) {
-                Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+                Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
                 id2header = getIdToPath(factory);
             }
             while (true) {

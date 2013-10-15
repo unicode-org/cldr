@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -17,8 +17,8 @@ import com.ibm.icu.text.NumberFormat;
 
 public class GenerateLanguageData {
 
-    SupplementalDataInfo info = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
-    Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    SupplementalDataInfo info = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+    Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
 
     CLDRFile english = cldrFactory.make("en", true);
     CLDRFile root = cldrFactory.make("root", true);

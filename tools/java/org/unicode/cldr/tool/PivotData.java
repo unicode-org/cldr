@@ -12,6 +12,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.Factory;
@@ -54,8 +55,8 @@ public class PivotData {
         }
 
         try {
-            Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
-            PivotData pd = new PivotData(cldrFactory, CldrUtility.MAIN_DIRECTORY, CldrUtility.GEN_DIRECTORY + "pivot/");
+            Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+            PivotData pd = new PivotData(cldrFactory, CLDRPaths.MAIN_DIRECTORY, CLDRPaths.GEN_DIRECTORY + "pivot/");
             pd.pivotGroup(cldrFactory, conditions);
         } finally {
             System.out.println("DONE");
@@ -260,7 +261,7 @@ public class PivotData {
         newFile.write(out);
         out.println();
         out.close();
-        CldrUtility.generateBat(sourceDirectory, id + ".xml", outputDirectory, id + ".xml", lineComparer);
+        ToolUtilities.generateBat(sourceDirectory, id + ".xml", outputDirectory, id + ".xml", lineComparer);
     }
 
 }

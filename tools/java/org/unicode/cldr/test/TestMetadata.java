@@ -10,7 +10,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
@@ -20,7 +20,7 @@ import com.ibm.icu.text.Transform;
 
 public class TestMetadata {
     public static void main(String[] args) {
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile metadata = cldrFactory.make("supplementalMetadata", false);
         // Set allKeys = new TreeSet();
         // CollectionUtilities.addAll(metadata.iterator(), allKeys);

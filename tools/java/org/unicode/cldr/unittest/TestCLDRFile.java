@@ -18,6 +18,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -44,13 +45,13 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public static Factory getAllFactory() {
-        File mainDir = new File(CldrUtility.MAIN_DIRECTORY);
+        File mainDir = new File(CLDRPaths.MAIN_DIRECTORY);
         if (!mainDir.isDirectory()) {
-            throw new IllegalArgumentException("MAIN_DIRECTORY is not a directory: " + CldrUtility.MAIN_DIRECTORY);
+            throw new IllegalArgumentException("MAIN_DIRECTORY is not a directory: " + CLDRPaths.MAIN_DIRECTORY);
         }
-        File seedDir = new File(CldrUtility.SEED_DIRECTORY);
+        File seedDir = new File(CLDRPaths.SEED_DIRECTORY);
         if (!seedDir.isDirectory()) {
-            throw new IllegalArgumentException("SEED_DIRECTORY is not a directory: " + CldrUtility.SEED_DIRECTORY);
+            throw new IllegalArgumentException("SEED_DIRECTORY is not a directory: " + CLDRPaths.SEED_DIRECTORY);
         }
         File dirs[] = { mainDir, seedDir };
         return SimpleFactory.make(dirs, ".*", DraftStatus.approved);
@@ -86,7 +87,7 @@ public class TestCLDRFile extends TestFmwk {
         }
     }
 
-    static Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
 
     static class LocaleInfo {
         final String locale;
@@ -253,7 +254,7 @@ public class TestCLDRFile extends TestFmwk {
 
     public void testSimple() {
         double deltaTime = System.currentTimeMillis();
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
         deltaTime = System.currentTimeMillis() - deltaTime;
         logln("Creation: Elapsed: " + deltaTime / 1000.0 + " seconds");
@@ -309,7 +310,7 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void testResolution() {
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile german = cldrFactory.make("de", true);
         // Test direct lookup.
         String xpath = "//ldml/localeDisplayNames/localeDisplayPattern/localeSeparator";
@@ -351,7 +352,7 @@ public class TestCLDRFile extends TestFmwk {
     }
 
     public void testGeorgeBailey() {
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         PathHeader.Factory phf = PathHeader.getFactory(cldrFactory.make("en", true));
         for (String locale : Arrays.asList("de", "de_AT", "en", "nl")) {
             CLDRFile cldrFile = cldrFactory.make(locale, true);

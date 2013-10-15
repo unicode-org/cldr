@@ -31,6 +31,7 @@ import org.unicode.cldr.test.QuickCheck;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
@@ -213,8 +214,8 @@ public class CLDRModify {
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.SOURCEDIR().setDefault(CldrUtility.MAIN_DIRECTORY),
-        UOption.DESTDIR().setDefault(CldrUtility.GEN_DIRECTORY + "main/"),
+        UOption.SOURCEDIR().setDefault(CLDRPaths.MAIN_DIRECTORY),
+        UOption.DESTDIR().setDefault(CLDRPaths.GEN_DIRECTORY + "main/"),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("join", 'j', UOption.OPTIONAL_ARG),
         UOption.create("minimize", 'r', UOption.NO_ARG),
@@ -238,14 +239,14 @@ public class CLDRModify {
         + "-"
         + options[SOURCEDIR].shortName
         + "\t source directory. Default = -s"
-        + CldrUtility.getCanonicalName(CldrUtility.MAIN_DIRECTORY)
+        + CldrUtility.getCanonicalName(CLDRPaths.MAIN_DIRECTORY)
         + XPathParts.NEWLINE
         + "\tExample:-sC:\\Unicode-CVS2\\cldr\\common\\gen\\source\\"
         + XPathParts.NEWLINE
         + "-"
         + options[DESTDIR].shortName
         + "\t destination directory. Default = -d"
-        + CldrUtility.getCanonicalName(CldrUtility.GEN_DIRECTORY + "main/")
+        + CldrUtility.getCanonicalName(CLDRPaths.GEN_DIRECTORY + "main/")
         + XPathParts.NEWLINE
         + "-m<regex>\t to restrict the locales to what matches <regex>"
         + XPathParts.NEWLINE
@@ -541,7 +542,7 @@ public class CLDRModify {
                         QuickCheck.check(new File(targetDir, test + ".xml"));
                     }
 
-                    CldrUtility.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
+                    ToolUtilities.generateBat(sourceDir, test + ".xml", targetDir, test + ".xml", lineComparer);
 
                     /*
                      * boolean ok = Utility.areFileIdentical(sourceDir + test + ".xml",
@@ -938,7 +939,7 @@ public class CLDRModify {
         fixList.add('z', "remove metaData deprecated", new CLDRFilter() {
 
             Set<String> didRemove = new TreeSet<String>();
-            SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+            SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
             Map<String, Map<String, Relation<String, String>>> deprecationInfo = sdi.getDeprecationInfo();
 
             Map ourTypes[] = null;

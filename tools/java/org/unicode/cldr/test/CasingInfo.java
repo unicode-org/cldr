@@ -16,6 +16,7 @@ import org.unicode.cldr.test.CheckConsistentCasing.Category;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -53,7 +54,7 @@ public class CasingInfo {
      * ONLY usable in command line tests.
      */
     public CasingInfo() {
-        this(CldrUtility.COMMON_DIRECTORY + "/casing");
+        this(CLDRPaths.COMMON_DIRECTORY + "/casing");
     }
 
     /**
@@ -108,7 +109,7 @@ public class CasingInfo {
     private Map<String, Boolean> generateCasingInformation(String localePattern) {
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
         Set<String> defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
-        String sourceDirectory = CldrUtility.checkValidDirectory(CldrUtility.MAIN_DIRECTORY);
+        String sourceDirectory = CldrUtility.checkValidDirectory(CLDRPaths.MAIN_DIRECTORY);
         Factory cldrFactory = Factory.make(sourceDirectory, localePattern);
         Set<String> locales = new LinkedHashSet<String>(cldrFactory.getAvailable());
         locales.removeAll(defaultContentLocales); // Skip all default content locales
@@ -204,7 +205,7 @@ public class CasingInfo {
             }
         }
         CLDRFile cldrFile = new CLDRFile(source);
-        File casingFile = new File(CldrUtility.GEN_DIRECTORY + "/casing", localeID + ".xml");
+        File casingFile = new File(CLDRPaths.GEN_DIRECTORY + "/casing", localeID + ".xml");
 
         try {
             PrintWriter out = new PrintWriter(casingFile);

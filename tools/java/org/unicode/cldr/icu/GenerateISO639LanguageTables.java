@@ -1,13 +1,13 @@
 package org.unicode.cldr.icu;
 
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class GenerateISO639LanguageTables {
 
     private static SupplementalDataInfo sdi = SupplementalDataInfo
-        .getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
     private static void generateLanguageTable(int size) {
         String tag = "LANGUAGES";

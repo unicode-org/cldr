@@ -20,6 +20,7 @@ import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -81,11 +82,11 @@ public class GenerateMaximalLocales {
 
     private static final boolean tryDifferent = true;
 
-    private static final File list[] = { new File(CldrUtility.MAIN_DIRECTORY), new File(CldrUtility.SEED_DIRECTORY) };
+    private static final File list[] = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.SEED_DIRECTORY) };
 
     private static Factory factory = SimpleFactory.make(list, ".*");
     private static SupplementalDataInfo supplementalData = SupplementalDataInfo
-        .getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     private static StandardCodes standardCodes = StandardCodes.make();
     private static CLDRFile english = factory.make("en", false);
 
@@ -492,8 +493,8 @@ public class GenerateMaximalLocales {
 
         showDefaultContentDifferencesAndFix(defaultLocaleContent);
 
-        Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
-        BufferedReader oldFile = BagFormatter.openUTF8Reader(CldrUtility.SUPPLEMENTAL_DIRECTORY,
+        Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
+        BufferedReader oldFile = BagFormatter.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY,
             "supplementalMetadata.xml");
         CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<defaultContent locales=\"\\s*"), Log.getLog(), false);
 
@@ -1227,7 +1228,7 @@ public class GenerateMaximalLocales {
 
     private static void printLikelySubtags(Map<String, String> fluffup) throws IOException {
 
-        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
+        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
             "/supplemental/likelySubtags" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
         String spacing = OUTPUT_STYLE == OutputStyle.PLAINTEXT ? "\t" : " ";
         String header = OUTPUT_STYLE != OutputStyle.XML ? "const MapToMaximalSubtags default_subtags[] = {"

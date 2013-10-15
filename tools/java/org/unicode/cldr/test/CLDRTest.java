@@ -24,6 +24,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -89,7 +90,7 @@ public class CLDRTest extends TestFmwk {
             System.out.println("Resetting MATCH:" + MATCH);
         MAIN_DIR = System.getProperty("XML_MAIN_DIR");
         if (MAIN_DIR == null)
-            MAIN_DIR = CldrUtility.MAIN_DIRECTORY;
+            MAIN_DIR = CLDRPaths.MAIN_DIRECTORY;
         else
             System.out.println("Resetting MAIN_DIR:" + MAIN_DIR);
         SKIP_DRAFT = System.getProperty("XML_SKIP_DRAFT") != null;
@@ -104,7 +105,7 @@ public class CLDRTest extends TestFmwk {
 
     public void TestZZZZHack() throws IOException {
         // hack to get file written at the end of run.
-        PrintWriter surveyFile = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "surveyInfo.txt");
+        PrintWriter surveyFile = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "surveyInfo.txt");
         for (String s : surveyInfo) {
             surveyFile.println(s);
         }
@@ -643,7 +644,7 @@ public class CLDRTest extends TestFmwk {
     void getSupplementalData(Map language_scripts, Map language_territories, Map group_territory,
         Map territory_currencies, Map aliases) {
         boolean SHOW = false;
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
         XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
         for (Iterator it = supp.iterator(); it.hasNext();) {
@@ -796,18 +797,18 @@ public class CLDRTest extends TestFmwk {
 
             String filename = "missing_" + locale + ".xml";
             if (failureCount[0] > 0 || warningCount[0] > 0) {
-                PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "missing/", filename);
+                PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "missing/", filename);
                 missing.write(out);
                 out.close();
                 // String s = getIDAndLocalization(missing);
                 String message = "missing localizations, creating file"
-                    + new File(CldrUtility.GEN_DIRECTORY + "missing/", filename).getCanonicalPath();
+                    + new File(CLDRPaths.GEN_DIRECTORY + "missing/", filename).getCanonicalPath();
                 if (failureCount[0] > 0)
                     warnln(getLocaleAndName(locale) + "\t" + message);
                 else
                     logln(getLocaleAndName(locale) + "\tpossibly " + message);
             } else {
-                new File(CldrUtility.GEN_DIRECTORY + "missing/", filename).delete();
+                new File(CLDRPaths.GEN_DIRECTORY + "missing/", filename).delete();
             }
         }
     }

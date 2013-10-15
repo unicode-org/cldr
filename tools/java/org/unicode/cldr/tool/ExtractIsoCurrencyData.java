@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
@@ -35,7 +36,7 @@ public class ExtractIsoCurrencyData {
             in = BagFormatter.openUTF8Reader("", inputFile);
         }
         // NOTE: UTIL_DATA_DIR is required here because it is used as an output directory.
-        final String outputFile = CldrUtility.getProperty("output", CldrUtility.UTIL_DATA_DIR
+        final String outputFile = CldrUtility.getProperty("output", CLDRPaths.UTIL_DATA_DIR
             + "/currencycodeslist.txt");
         PrintWriter out = BagFormatter.openUTF8Writer(null, outputFile);
         try {

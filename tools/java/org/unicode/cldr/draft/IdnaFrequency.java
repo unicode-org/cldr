@@ -13,6 +13,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 
@@ -66,7 +67,7 @@ public class IdnaFrequency {
 
     static Counter<Integer> getData(boolean writeOut) throws IOException {
         BufferedReader in = BagFormatter.openUTF8Reader("", CldrUtility.getProperty("idnaFrequency"));
-        PrintWriter out = !writeOut ? null : BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "idn41-data.txt");
+        PrintWriter out = !writeOut ? null : BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "idn41-data.txt");
         if (writeOut) {
             out.write((char) 0xFEFF);
         }

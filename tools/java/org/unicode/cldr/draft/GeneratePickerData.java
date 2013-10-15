@@ -32,7 +32,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.GeneratePickerData.CategoryTable.Separation;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -152,8 +152,8 @@ class GeneratePickerData {
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        output(".*", CldrUtility.GEN_DIRECTORY + "picker/", "output data directory"),
-        unicodedata(null, CldrUtility.UCD_DIRECTORY, "Unicode Data directory"),
+        output(".*", CLDRPaths.GEN_DIRECTORY + "picker/", "output data directory"),
+        unicodedata(null, CLDRPaths.UCD_DIRECTORY, "Unicode Data directory"),
         verbose(null, null, "verbose debugging messages"),
         korean(null, null, "generate korean hangul defectives instead"), ;
         // boilerplate

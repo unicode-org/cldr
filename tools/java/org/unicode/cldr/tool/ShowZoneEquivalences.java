@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -80,7 +81,7 @@ public class ShowZoneEquivalences {
         Map zone_countries = sc.getZoneToCounty();
 
         TreeSet country_inflection_names = new TreeSet(ac);
-        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
+        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
             "inflections.txt");
 
         TreeMap<Integer, TreeSet<String>> minOffsetMap = new TreeMap<Integer, TreeSet<String>>();
@@ -109,7 +110,7 @@ public class ShowZoneEquivalences {
         System.out.println("Maximum Offset: " + maxOffsetMap);
         out.close();
 
-        out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
+        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
             "modernTimezoneEquivalents.html");
         out.println("<html>" + "<head>"
             + "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>"
@@ -151,7 +152,7 @@ public class ShowZoneEquivalences {
         String lastCountry = "";
         ZoneInflections lastZip = null;
         ZoneInflections.OutputLong diff = new ZoneInflections.OutputLong(0);
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         TimezoneFormatter tzf = new TimezoneFormatter(cldrFactory, "en", true);
         Map country_zoneSet = sc.getCountryToZoneSet();
         boolean shortList = true;

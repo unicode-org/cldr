@@ -291,12 +291,12 @@ public class VerifyZones {
         Matcher timezoneFilter = timezoneFilterString == null ? null : Pattern.compile(timezoneFilterString)
             .matcher("");
 
-        Factory factory2 = Factory.make(CldrUtility.MAIN_DIRECTORY, filter);
+        Factory factory2 = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
         CLDRFile englishCldrFile = factory2.make("en", true);
 
         for (String localeID : factory2.getAvailableLanguages()) {
             CLDRFile cldrFile = factory2.make(localeID, true);
-            PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.TMP_DIRECTORY + "verify/zones/", localeID +
+            PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.TMP_DIRECTORY + "verify/zones/", localeID +
                 ".html");
             String title = "Verify Time Zones: " + englishCldrFile.getName(localeID);
             out.println("<html><head>\n" +

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.RandomStringGenerator;
@@ -59,7 +60,7 @@ public class TestSegments {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/segments/root.xml");
+        Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/segments/root.xml");
         Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
         Log.println("<!DOCTYPE ldml SYSTEM \"../../common/dtd/ldml.dtd\">");
         Log.println("<ldml>");

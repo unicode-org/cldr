@@ -29,6 +29,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
@@ -184,9 +185,9 @@ public class CountItems {
      * 
      */
     private static void showExemplars() throws IOException {
-        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
+        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
             "fixed_exemplars.txt");
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set locales = cldrFactory.getAvailable();
         for (Iterator it = locales.iterator(); it.hasNext();) {
             System.out.print('.');
@@ -284,7 +285,7 @@ public class CountItems {
         StandardCodes sc = StandardCodes.make();
         Map<String, String> zone_country = sc.getZoneToCounty();
         Map country_zone = sc.getCountryToZoneSet();
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
 
         writeZonePrettyPath(col, zone_country, english);
@@ -466,7 +467,7 @@ public class CountItems {
             }
         }
 
-        Log.setLog(CldrUtility.GEN_DIRECTORY + "/supplemental/prettyPathZone.txt");
+        Log.setLog(CLDRPaths.GEN_DIRECTORY + "/supplemental/prettyPathZone.txt");
         String lastCountry = "";
         for (int i = 0; i < 2; ++i) {
             Set<String> orderedList = zoneNew_Old.keySet();
@@ -519,8 +520,8 @@ public class CountItems {
     }
 
     public static void getSubtagVariables2() throws IOException {
-        Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
-        BufferedReader oldFile = BagFormatter.openUTF8Reader(CldrUtility.SUPPLEMENTAL_DIRECTORY,
+        Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalMetadata.xml");
+        BufferedReader oldFile = BagFormatter.openUTF8Reader(CLDRPaths.SUPPLEMENTAL_DIRECTORY,
             "supplementalMetadata.xml");
         CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<!-- start of data generated with CountItems.*"),
             Log.getLog(), true);
@@ -546,7 +547,7 @@ public class CountItems {
     }
 
     static final SupplementalDataInfo supplementalData = SupplementalDataInfo
-        .getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     static final StandardCodes sc = StandardCodes.make();
 
     public static void getSubtagVariables() {
@@ -648,7 +649,7 @@ public class CountItems {
 
         // get the bad ISO codes
 
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
 
         Set<String> territories = new TreeSet();
@@ -893,7 +894,7 @@ public class CountItems {
         }
         System.out.println("/* Total: " + i + " */");
 
-        Factory mainCldrFactory = Factory.make(CldrUtility.COMMON_DIRECTORY + "main"
+        Factory mainCldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "main"
             + File.separator, ".*");
         CLDRFile desiredLocaleFile = mainCldrFactory.make("root", true);
         String temp = desiredLocaleFile
@@ -923,7 +924,7 @@ public class CountItems {
         if (true)
             return;
 
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Map platform_locale_status = StandardCodes.make().getLocaleTypes();
         Map onlyLocales = (Map) platform_locale_status.get("IBM");
         Set locales = onlyLocales.keySet();
@@ -942,7 +943,7 @@ public class CountItems {
 
     public static void countItems() {
         // CLDRKey.main(new String[]{"-mde.*"});
-        String dir = CldrUtility.getProperty("source", CldrUtility.MAIN_DIRECTORY);
+        String dir = CldrUtility.getProperty("source", CLDRPaths.MAIN_DIRECTORY);
         Factory cldrFactory = Factory.make(dir, ".*");
         countItems(cldrFactory, false);
     }

@@ -27,6 +27,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -81,8 +82,8 @@ public class Misc {
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.SOURCEDIR().setDefault(CldrUtility.COMMON_DIRECTORY),
-        UOption.DESTDIR().setDefault(CldrUtility.GEN_DIRECTORY + "timezones/"),
+        UOption.SOURCEDIR().setDefault(CLDRPaths.COMMON_DIRECTORY),
+        UOption.DESTDIR().setDefault(CLDRPaths.GEN_DIRECTORY + "timezones/"),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("to_localize", 't', UOption.NO_ARG),
         UOption.create("current", 'c', UOption.NO_ARG),
@@ -98,9 +99,9 @@ public class Misc {
     private static final String HELP_TEXT = "Use the following options" + XPathParts.NEWLINE
         + "-h or -?\tfor this message" + XPathParts.NEWLINE
         + "-" + options[SOURCEDIR].shortName + "\tsource directory. Default = "
-        + CldrUtility.getCanonicalName(CldrUtility.MAIN_DIRECTORY) + XPathParts.NEWLINE
+        + CldrUtility.getCanonicalName(CLDRPaths.MAIN_DIRECTORY) + XPathParts.NEWLINE
         + "-" + options[DESTDIR].shortName + "\tdestination directory. Default = "
-        + CldrUtility.getCanonicalName(CldrUtility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
+        + CldrUtility.getCanonicalName(CLDRPaths.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
         + "-m<regex>\tto restrict the locales to what matches <regex>" + XPathParts.NEWLINE
         + "-t\tgenerates files that contain items missing localizations" + XPathParts.NEWLINE
         + "-c\tgenerates missing timezone localizations" + XPathParts.NEWLINE
@@ -168,7 +169,7 @@ public class Misc {
             }
 
             if (options[INFO].doesOccur) {
-                PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.TMP_DIRECTORY + "logs/",
+                PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.TMP_DIRECTORY + "logs/",
                     "attributesAndValues.html");
                 new GenerateAttributeList(cldrFactory).show(pw);
                 pw.close();
@@ -1314,7 +1315,7 @@ public class Misc {
                 count++;
                 outFile.add("//supplementalData/transforms/transform/line[@_q=\"" + count + "\"]", line);
             }
-            PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/translit/", fixedName + ".xml");
+            PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/", fixedName + ".xml");
             outFile.write(pw);
             pw.close();
         }

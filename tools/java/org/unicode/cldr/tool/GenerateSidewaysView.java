@@ -30,6 +30,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.ShowData.DataShower;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -102,8 +103,8 @@ public class GenerateSidewaysView {
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.SOURCEDIR().setDefault(CldrUtility.MAIN_DIRECTORY),
-        UOption.DESTDIR().setDefault(CldrUtility.CHART_DIRECTORY + "by_type/"), // C:/cvsdata/unicode/cldr/diff/by_type/
+        UOption.SOURCEDIR().setDefault(CLDRPaths.MAIN_DIRECTORY),
+        UOption.DESTDIR().setDefault(CLDRPaths.CHART_DIRECTORY + "by_type/"), // C:/cvsdata/unicode/cldr/diff/by_type/
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("skip", 'z', UOption.REQUIRES_ARG).setDefault("zh_(C|S|HK|M).*"),
         UOption.create("tzadir", 't', UOption.REQUIRES_ARG).setDefault(
@@ -153,7 +154,7 @@ public class GenerateSidewaysView {
 
     public static void main(String[] args) throws SAXException, IOException {
         startTime = System.currentTimeMillis();
-        CldrUtility.registerExtraTransliterators();
+        ToolUtilities.registerExtraTransliterators();
         UOption.parseArgs(args, options);
 
         pathMatcher = options[PATH].value == null ? null : Pattern.compile(options[PATH].value).matcher("");
@@ -766,7 +767,7 @@ public class GenerateSidewaysView {
         out = BagFormatter.openUTF8Writer(options[DESTDIR].value, main + ".html");
 
         ShowData.getChartTemplate("By-Type Chart: " + title,
-            CldrUtility.CHART_DISPLAY_VERSION,
+            ToolConstants.CHART_DISPLAY_VERSION,
             "",
             // "<link rel='stylesheet' type='text/css' href='by_type.css'>" +
             // "<style type='text/css'>" + Utility.LINE_SEPARATOR +

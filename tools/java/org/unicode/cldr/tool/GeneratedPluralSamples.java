@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
@@ -531,7 +531,7 @@ public class GeneratedPluralSamples {
     private static boolean CHECK_VALUE = false;
 
     enum MyOptions {
-        output(".*", CldrUtility.GEN_DIRECTORY + "picker/", "output data directory"),
+        output(".*", CLDRPaths.GEN_DIRECTORY + "picker/", "output data directory"),
         filter(".*", null, "filter locales"),
         xml(null, null, "xml file format"),
         multiline(null, null, "multiple lines in file"),
@@ -563,7 +563,7 @@ public class GeneratedPluralSamples {
 
         for (PluralType type : PluralType.values()) {
             if (fileFormat) {
-                out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/plurals/",
+                out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/plurals/",
                     (type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml"));
                 out.println(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
             }

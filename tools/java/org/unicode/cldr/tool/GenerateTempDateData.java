@@ -7,7 +7,7 @@ import java.util.ListResourceBundle;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
 
@@ -23,10 +23,10 @@ public class GenerateTempDateData {
      * <dateFormatItem id="HHmm" draft="provisional">HH:mm</dateFormatItem>
      */
     public static void main(String[] args) throws IOException {
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set x = cldrFactory.getAvailable();
         XPathParts parts = new XPathParts();
-        PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "datedata/", "DateData.java");
+        PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "datedata/", "DateData.java");
         pw.println("package com.ibm.icu.impl.data;");
         pw.println("import java.util.ListResourceBundle;");
         pw.println("class DateData { // extracted from CLDR 1.4");

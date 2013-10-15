@@ -9,7 +9,7 @@ import org.unicode.cldr.icu.NewLdml2IcuConverter;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.RegexFileParser;
@@ -164,7 +164,7 @@ public class TestLdml2ICU extends TestFmwk {
     private void checkSupplementalRegexes(String name) {
         RegexLookup<Object> lookup = loadRegexes("ldml2icu_supplemental.txt");
         List<Pair<String, String>> cldrData = new ArrayList<Pair<String, String>>();
-        XMLFileReader.loadPathValues(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY + name + ".xml", cldrData, true);
+        XMLFileReader.loadPathValues(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY + name + ".xml", cldrData, true);
         XPathParts parts = new XPathParts();
         for (Pair<String, String> pair : cldrData) {
             String xpath = CLDRFile.getNondraftNonaltXPath(pair.getFirst());

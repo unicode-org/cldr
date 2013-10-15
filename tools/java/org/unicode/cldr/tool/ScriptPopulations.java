@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -14,9 +14,9 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 public class ScriptPopulations {
     static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-        .getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     static Map<String, String> likelySubtags = supplementalDataInfo.getLikelySubtags();
-    static Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     static CLDRFile english = cldrFactory.make("en", true);
 
     public static void main(String[] args) {

@@ -278,7 +278,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             simpleHandler = new DtdData(type);
             XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
             StringReader s = new StringReader("<?xml version='1.0' encoding='UTF-8' ?>"
-                + "<!DOCTYPE ldml SYSTEM '" + CldrUtility.BASE_DIRECTORY + type.dtdPath + "'>");
+                + "<!DOCTYPE ldml SYSTEM '" + CLDRPaths.BASE_DIRECTORY + type.dtdPath + "'>");
             xfr.read(type.toString(), s, -1, true); //  DTD_TYPE_TO_FILE.get(type)
             if (simpleHandler.ROOT.children.size() == 0) {
                 throw new IllegalArgumentException(); // should never happen

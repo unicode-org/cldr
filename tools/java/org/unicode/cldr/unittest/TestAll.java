@@ -3,6 +3,7 @@
 package org.unicode.cldr.unittest;
 
 import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
@@ -60,7 +61,7 @@ public class TestAll extends TestGroup {
         public static TestInfo getInstance() {
             synchronized (TestInfo.class) {
                 if (INSTANCE == null) {
-                    CldrUtility.checkValidDirectory(CldrUtility.BASE_DIRECTORY,
+                    CldrUtility.checkValidDirectory(CLDRPaths.BASE_DIRECTORY,
                         "You have to set -Dcheckdata=<validdirectory>");
                     INSTANCE = new TestInfo();
                 }

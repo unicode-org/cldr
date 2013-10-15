@@ -7,6 +7,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.tool.GenerateTransformCharts;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CollationMapMaker;
 import org.unicode.cldr.util.Log;
@@ -26,7 +27,7 @@ public class TestCollationMapMaker {
 
     public static void main(String[] args) throws IOException {
         testTranslit();
-        Log.setLog(CldrUtility.GEN_DIRECTORY + "CollationMapLog.txt");
+        Log.setLog(CLDRPaths.GEN_DIRECTORY + "CollationMapLog.txt");
         CaseIterator caseIterator = new CaseIterator();
         caseIterator.reset("aa");
         while (true) {

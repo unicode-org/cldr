@@ -14,7 +14,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -249,7 +249,7 @@ public class CheckYear {
     public static void main(String[] args) throws IOException {
         CLDRFile englishFile = testInfo.getEnglish();
 
-        Factory factory = Factory.make(CldrUtility.TMP2_DIRECTORY + "vxml/common/main/", LOCALES);
+        Factory factory = Factory.make(CLDRPaths.TMP2_DIRECTORY + "vxml/common/main/", LOCALES);
         String calendarID = "gregorian";
         System.out.println("Total locales: " + factory.getAvailableLanguages().size());
         Map<String, String> sorted = new TreeMap<String, String>();
@@ -320,7 +320,7 @@ public class CheckYear {
     }
 
     public static void writeYearWidths(Map<String, String> sorted, boolean modern, String filename) throws IOException {
-        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "datecheck/", filename);
+        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "datecheck/", filename);
         out.println("Name\tid\t" + CollectionUtilities.join(Category.values(), "\t"));
         for (Entry<String, String> entry : sorted.entrySet()) {
             String localeId = entry.getValue();
@@ -347,7 +347,7 @@ public class CheckYear {
     public static void writeConflictingStockItems(boolean modern, String filename) throws IOException {
         PrintWriter out;
         System.out.println("\nMismatched Stock items\n");
-        out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "datecheck/", filename);
+        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "datecheck/", filename);
         out.println("Stock\tSkeleton\tLocales");
         for (Entry<String, Relation<String, String>> stockAndSkeleton2locales : stock2skeleton2locales.entrySet()) {
             String stock = stockAndSkeleton2locales.getKey();
@@ -379,7 +379,7 @@ public class CheckYear {
     public static void writeConflictingPatterns(Map<String, String> sorted, boolean modern, String filename)
         throws IOException {
         PrintWriter out;
-        out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "datecheck/", filename);
+        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "datecheck/", filename);
         out.println("Language\tId\tMin. Skeleton\tMin Pat1\tskeleton → pattern\tMin Pat2\tskeleton → pattern\tMin Pat3\tskeleton → pattern");
         for (Entry<String, String> entry : sorted.entrySet()) {
             String localeId = entry.getValue();

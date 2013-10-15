@@ -11,7 +11,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -28,7 +28,7 @@ public class GenerateAliases {
 
     static class Builder {
         Map<String, String> aliasMap = new LinkedHashMap<String, String>();
-        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
 
         SupplementalDataInfo dataInfo = SupplementalDataInfo.getInstance();
         Set<String> defaultContents = dataInfo.getDefaultContentLocales();

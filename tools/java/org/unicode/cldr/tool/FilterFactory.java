@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.RegexFileParser;
@@ -446,10 +446,10 @@ public class FilterFactory extends Factory {
      */
     public static void main(String[] args) throws Exception {
         options.parse(args, true);
-        Factory rawFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, options.get("locales").getValue());
+        Factory rawFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, options.get("locales").getValue());
         String org = options.get("org").getValue();
         FilterFactory filterFactory = FilterFactory.load(rawFactory, org, true);
-        String outputDir = CldrUtility.GEN_DIRECTORY + "/filter";
+        String outputDir = CLDRPaths.GEN_DIRECTORY + "/filter";
         for (String locale : rawFactory.getAvailable()) {
             PrintWriter out = BagFormatter.openUTF8Writer(outputDir, locale + ".xml");
             filterFactory.make(locale, false).write(out);

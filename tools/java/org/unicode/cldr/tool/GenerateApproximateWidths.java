@@ -20,7 +20,7 @@ import java.util.TreeSet;
 
 import javax.swing.JApplet;
 
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.UnicodeMap;
@@ -70,7 +70,7 @@ public class GenerateApproximateWidths extends JApplet implements Runnable {
     private void showWidths(Graphics2D g) {
         try {
             PrintWriter out = BagFormatter
-                .openUTF8Writer(CldrUtility.GEN_DIRECTORY + "widths/", "ApproximateWidth.txt");
+                .openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "widths/", "ApproximateWidth.txt");
             // TODO Auto-generated method stub
             UnicodeMap<Integer> map = new UnicodeMap<Integer>();
             Widths widths = new Widths(g, new Font("Serif", 0, 100), new Font("SansSerif", 0, 100));

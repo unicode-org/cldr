@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.unicode.cldr.tool.GenerateMaximalLocales.OutputStyle;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -22,7 +23,7 @@ public class GenerateLikelySubtagTests {
     private static final String VERSION = CLDRFile.GEN_VERSION;
 
     public static void main(String[] args) throws IOException {
-        out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
+        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
             "test/supplemental/likelySubtagTests" + (OUTPUT_STYLE == OutputStyle.XML ? ".xml" : ".txt"));
         if (OUTPUT_STYLE == OutputStyle.C) {
             out.println("// START");
@@ -33,7 +34,7 @@ public class GenerateLikelySubtagTests {
                 "<cldrTest version='" + VERSION + "' base='aa'>" + CldrUtility.LINE_SEPARATOR +
                 "  <likelySubtags>");
         }
-        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
         Map<String, String> likelySubtags = supplementalData.getLikelySubtags();
 
         if (OUTPUT_STYLE == OutputStyle.C) {

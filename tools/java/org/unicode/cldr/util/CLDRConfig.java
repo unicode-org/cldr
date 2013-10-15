@@ -91,7 +91,7 @@ public class CLDRConfig extends Properties {
     public SupplementalDataInfo getSupplementalDataInfo() {
         synchronized (this) {
             if (supplementalDataInfo == null) {
-                supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+                supplementalDataInfo = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
             }
         }
         return supplementalDataInfo;
@@ -109,7 +109,7 @@ public class CLDRConfig extends Properties {
     public Factory getCldrFactory() {
         synchronized (this) {
             if (cldrFactory == null) {
-                cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+                cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             }
         }
         return cldrFactory;
@@ -118,7 +118,7 @@ public class CLDRConfig extends Properties {
     public Factory getSupplementalFactory() {
         synchronized (this) {
             if (supplementalFactory == null) {
-                supplementalFactory = Factory.make(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
+                supplementalFactory = Factory.make(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
             }
         }
         return supplementalFactory;

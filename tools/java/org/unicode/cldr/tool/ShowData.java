@@ -27,6 +27,7 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.ExtractCollationRules;
@@ -63,11 +64,11 @@ public class ShowData {
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.SOURCEDIR().setDefault(CldrUtility.MAIN_DIRECTORY),
-        UOption.DESTDIR().setDefault(CldrUtility.CHART_DIRECTORY + "summary/"),
+        UOption.SOURCEDIR().setDefault(CLDRPaths.MAIN_DIRECTORY),
+        UOption.DESTDIR().setDefault(CLDRPaths.CHART_DIRECTORY + "summary/"),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("getscript", 'g', UOption.NO_ARG),
-        UOption.create("last", 'l', UOption.REQUIRES_ARG).setDefault(CldrUtility.LAST_DIRECTORY + "common/main/"),
+        UOption.create("last", 'l', UOption.REQUIRES_ARG).setDefault(CLDRPaths.LAST_DIRECTORY + "common/main/"),
         UOption.create("coverage", 'c', UOption.REQUIRES_ARG).setDefault(Level.MODERN.toString()),
     };
 
@@ -121,7 +122,7 @@ public class ShowData {
             FileUtilities.copyFile(ShowData.class, "summary-index.css", options[DESTDIR].value, "index.css");
             FileUtilities.copyFile(ShowData.class, "summary-index.html", options[DESTDIR].value, "index.html");
 
-            CldrUtility.registerExtraTransliterators();
+            ToolUtilities.registerExtraTransliterators();
 
             // Factory collationFactory = Factory
             // .make(sourceDir.replace("incoming/vetted/","common/") + "../collation/", ".*");
@@ -228,7 +229,7 @@ public class ShowData {
 
                 getChartTemplate(
                     "Locale Data Summary for " + getName(locale),
-                    CldrUtility.CHART_DISPLAY_VERSION,
+                    ToolConstants.CHART_DISPLAY_VERSION,
                     "<script>" + CldrUtility.LINE_SEPARATOR
                         + "if (location.href.split('?')[1].split(',')[0]=='hide') {" + CldrUtility.LINE_SEPARATOR
                         + "document.write('<style>');" + CldrUtility.LINE_SEPARATOR
@@ -370,7 +371,7 @@ public class ShowData {
 
             getChartTemplate(
                 "Locale Data Summary for ALL-CHANGED",
-                CldrUtility.CHART_DISPLAY_VERSION,
+                ToolConstants.CHART_DISPLAY_VERSION,
                 "",
                 headerAndFooter);
             pw.println(headerAndFooter[0]);
@@ -441,7 +442,7 @@ public class ShowData {
         Set scripts = new TreeSet();
         XPathParts parts = new XPathParts();
         Map script_name_locales = new TreeMap();
-        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
+        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
             "scriptNames.txt");
         for (Iterator it = locales.iterator(); it.hasNext();) {
             String locale = (String) it.next();
@@ -654,7 +655,7 @@ public class ShowData {
     static public void getChartTemplate(String title, String version,
         String header, String[] headerAndFooter) throws IOException {
         if (version == null) {
-            version = CldrUtility.CHART_DISPLAY_VERSION;
+            version = ToolConstants.CHART_DISPLAY_VERSION;
         }
         VariableReplacer langTag = new VariableReplacer()
             .add("%title%", title)

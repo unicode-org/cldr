@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StringId;
@@ -45,9 +45,9 @@ public class GenerateBirth {
     static final Factory[] factories = new Factory[VERSIONS.length];
 
     final static Options myOptions = new Options()
-        .add("target", ".*", CldrUtility.UTIL_DATA_DIR + OutdatedPaths.OUTDATED_DIR,
+        .add("target", ".*", CLDRPaths.UTIL_DATA_DIR + OutdatedPaths.OUTDATED_DIR,
             "The target directory for building the text files that show the results.")
-        .add("log", ".*", CldrUtility.TMP_DIRECTORY + "dropbox/births/",
+        .add("log", ".*", CLDRPaths.TMP_DIRECTORY + "dropbox/births/",
             "The target directory for building the text files that show the results.")
         .add(
             "file",
@@ -71,8 +71,8 @@ public class GenerateBirth {
             // /Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive
             Factory aFactory = Factory.make(
                 (version == Versions.trunk
-                    ? CldrUtility.BASE_DIRECTORY
-                    : CldrUtility.ARCHIVE_DIRECTORY + "cldr-" + version + "/") + "common/main/",
+                    ? CLDRPaths.BASE_DIRECTORY
+                    : CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + version + "/") + "common/main/",
                 filePattern
                 );
             list.add(aFactory);

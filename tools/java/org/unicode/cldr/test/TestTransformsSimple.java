@@ -155,7 +155,7 @@ public class TestTransformsSimple extends TestFmwk {
         Transliterator fromLatin, boolean doLatin, UnicodeSet nativeSpecials, UnicodeSet latinSpecials)
         throws IOException {
         int errorCount = 0;
-        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.GEN_DIRECTORY + "transTest/",
+        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CLDRPaths.GEN_DIRECTORY + "transTest/",
             title + ".html");
         out.println("<html><head>");
         out.println("<meta http-equiv='Content-Type' content='text/html; charset=utf-8'></head><body>");

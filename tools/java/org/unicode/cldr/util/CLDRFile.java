@@ -1394,7 +1394,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      */
     public File getSupplementalDirectory() {
         if (supplementalDirectory == null) {
-            supplementalDirectory = new File(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+            supplementalDirectory = new File(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         }
         return supplementalDirectory;
     }

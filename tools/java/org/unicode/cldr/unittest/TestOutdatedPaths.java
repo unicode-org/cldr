@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 import org.unicode.cldr.test.OutdatedPaths;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
 
@@ -39,7 +39,7 @@ public class TestOutdatedPaths extends TestFmwk {
     // use for debugging
     public void TestShow() {
         if (isVerbose()) {
-            Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+            Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             String locale = "fr";
             CLDRFile fr = factory.make(locale, false);
             PathHeader.Factory pathHeaders = PathHeader.getFactory(factory.make("en", false));

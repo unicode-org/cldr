@@ -13,6 +13,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
@@ -50,7 +51,7 @@ public class TestMetazones {
 
     // WARNING: right now, the only metazone rules are in root, so that's all we're testing.
     // if there were rules in other files, we'd have to check them to, by changing this line.
-    Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, "root");
+    Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, "root");
 
     XPathParts parts = new XPathParts();
 
@@ -78,12 +79,12 @@ public class TestMetazones {
             skipConsistency = CldrUtility.getProperty("skipconsistency", null, "") != null;
 
             String exemplarOutFile = CldrUtility.getProperty("log", null,
-                CldrUtility.GEN_DIRECTORY + "metazoneLog.txt");
+                CLDRPaths.GEN_DIRECTORY + "metazoneLog.txt");
             if (exemplarOutFile != null) {
                 log = BagFormatter.openUTF8Writer("", exemplarOutFile);
             }
             String errorOutFile = CldrUtility.getProperty("errors", null,
-                CldrUtility.GEN_DIRECTORY + "metazoneErrors" +
+                CLDRPaths.GEN_DIRECTORY + "metazoneErrors" +
                     (noDaylight ? "-noDaylight" : "") +
                     (skipPartialDays ? "-skipPartialDays" : "")
                     + ".txt");

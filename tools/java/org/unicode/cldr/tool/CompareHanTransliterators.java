@@ -29,7 +29,7 @@ public class CompareHanTransliterators {
         UnicodeMap<String> old = handler.map;
 
         UnicodeSet merged = new UnicodeSet(trunk.keySet()).addAll(old.keySet());
-        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CldrUtility.GEN_DIRECTORY,
+        PrintWriter out = BagFormatter.openUTF8Writer(org.unicode.cldr.util.CLDRPaths.GEN_DIRECTORY,
             "han-transliterator-diff.txt");
         for (String s : merged) {
             String oldValue = old.get(s);

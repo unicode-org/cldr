@@ -22,7 +22,7 @@ import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathDescription;
 import org.unicode.cldr.util.PatternPlaceholders;
@@ -89,7 +89,7 @@ public class ConvertXTB {
         xtbDir = new File(inputDir, "xtb");
         this.inputDir = new File(inputDir);
         this.outputDir = outputDir;
-        factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         englishFile = factory.make("en", true);
         this.checkCldr = CheckCLDR.getCheckAll(factory, checkFilter);
         CheckCLDR.setDisplayInformation(englishFile);

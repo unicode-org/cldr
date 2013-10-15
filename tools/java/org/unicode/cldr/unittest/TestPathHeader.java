@@ -23,7 +23,7 @@ import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -175,7 +175,7 @@ public class TestPathHeader extends TestFmwkPlus {
             assertEquals("appendItem:Timezone placeholders", "APPEND_FIELD_FORMAT", placeholderInfo2.name);
             assertEquals("appendItem:Timezone placeholders", "Pacific Time", placeholderInfo2.example);
         }
-        ExampleGenerator eg = new ExampleGenerator(cldrFile, cldrFile, CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator eg = new ExampleGenerator(cldrFile, cldrFile, CLDRPaths.SUPPLEMENTAL_DIRECTORY);
         String example = eg.getExampleHtml(APPEND_TIMEZONE, cldrFile.getStringValue(APPEND_TIMEZONE));
         String result = ExampleGenerator.simplify(example, false);
         assertEquals("", "〖❬6:25:59 PM❭ ❬GMT❭〗", result);

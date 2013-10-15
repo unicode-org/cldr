@@ -15,7 +15,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -54,7 +54,7 @@ public class TestCoverageLevel extends TestFmwk {
 
     private static void getStarred(boolean longForm, String... locales) {
         Map<Level, Relation<String, String>> data = new TreeMap<Level, Relation<String, String>>(); // Relation.of(new
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         for (String locale : locales) {
             CLDRFile cldrFileToCheck = testInfo.getCldrFactory().make(locale, true);
 
@@ -271,7 +271,7 @@ public class TestCoverageLevel extends TestFmwk {
         String path = "//ldml/numbers/currencies/currency[@type=\"USD\"]/symbol[@alt=\"narrow\"]";
         String value = testInfo.getEnglish().getStringValue(path);
         assertEquals("Narrow $", "$", value);
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         Level level = sdi.getCoverageLevel(path, "en");
         assertEquals("Narrow $", Level.BASIC, level);
     }

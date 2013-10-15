@@ -18,7 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser;
@@ -40,7 +40,7 @@ public class CheckHtmlFiles {
 
     enum MyOptions {
 //        old(".*", "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
-        target(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex)"),
+        target(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex)"),
         verbose(null, null, "verbose debugging messages"),
 //        contents(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
         // /cldr-archive

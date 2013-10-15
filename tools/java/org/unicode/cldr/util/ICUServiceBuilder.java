@@ -107,10 +107,10 @@ public class ICUServiceBuilder {
             result = new ICUServiceBuilder();
 
             if (locale != null) {
-                result.cldrFile = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*").make(locale.getBaseName(), true);
-                result.collationFile = Factory.make(CldrUtility.COLLATION_DIRECTORY, ".*").makeWithFallback(locale.getBaseName());
+                result.cldrFile = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*").make(locale.getBaseName(), true);
+                result.collationFile = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*").makeWithFallback(locale.getBaseName());
             }
-            result.supplementalData = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+            result.supplementalData = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
             result.cacheDateFormats.clear();
             result.cacheNumberFormats.clear();
             result.cacheDateFormatSymbols.clear();

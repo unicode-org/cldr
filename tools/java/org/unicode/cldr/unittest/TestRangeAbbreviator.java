@@ -3,7 +3,7 @@ package org.unicode.cldr.unittest;
 import java.io.IOException;
 import java.util.Date;
 
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.RangeAbbreviator;
 
@@ -16,7 +16,7 @@ public class TestRangeAbbreviator {
     static final UnicodeSet DIGITS = new UnicodeSet("[:nd:]");
 
     public static void main(String[] args) throws IOException {
-        Log.setLog(CldrUtility.GEN_DIRECTORY + "datePeriodTest.txt");
+        Log.setLog(CLDRPaths.GEN_DIRECTORY + "datePeriodTest.txt");
         ULocale[] locales = ULocale.getAvailableLocales();
         Date[] tests = {
             new Date(107, 9, 15, 13, 45, 45),

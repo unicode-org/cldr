@@ -17,7 +17,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
@@ -723,9 +723,9 @@ public class TestSTFactory extends TestFmwk {
             CookieSession.sm = sm; // hack - of course.
             logln(et0.toString());
 
-            sm.fileBase = CldrUtility.MAIN_DIRECTORY;
-            sm.fileBaseSeed = new File(CldrUtility.BASE_DIRECTORY, "seed/main/").getAbsolutePath();
-            sm.setFileBaseOld(CldrUtility.BASE_DIRECTORY);
+            sm.fileBase = CLDRPaths.MAIN_DIRECTORY;
+            sm.fileBaseSeed = new File(CLDRPaths.BASE_DIRECTORY, "seed/main/").getAbsolutePath();
+            sm.setFileBaseOld(CLDRPaths.BASE_DIRECTORY);
             // sm.twidPut(Vetting.TWID_VET_VERBOSE, true); // set verbose
             // vetting
             SurveyLog.logger = Logger.getAnonymousLogger();
@@ -767,6 +767,6 @@ public class TestSTFactory extends TestFmwk {
 
     static final Map<String, Object> noDtdPlease = new TreeMap<String, Object>();
     static {
-        noDtdPlease.put("DTD_DIR", CldrUtility.COMMON_DIRECTORY + File.separator + "dtd" + File.separator);
+        noDtdPlease.put("DTD_DIR", CLDRPaths.COMMON_DIRECTORY + File.separator + "dtd" + File.separator);
     }
 }

@@ -37,7 +37,7 @@ public class ElementAttributeInfo {
                                                                                                                               // Data>();
 
     public static final ElementAttributeInfo getInstance(DtdType dtdType) {
-        return getInstance(CldrUtility.COMMON_DIRECTORY, dtdType);
+        return getInstance(CLDRPaths.COMMON_DIRECTORY, dtdType);
     }
 
     public static final ElementAttributeInfo getInstance(String commonDirectory, DtdType dtdType) {

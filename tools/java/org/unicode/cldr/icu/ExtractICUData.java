@@ -26,6 +26,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SimpleFactory;
 
@@ -56,7 +57,7 @@ public class ExtractICUData {
     public static void main(String[] args) throws Exception {
         String file = CldrUtility.getProperty("file", null);
         if (file != null) {
-            String targetDirectory = CldrUtility.getProperty("target", CldrUtility.GEN_DIRECTORY + "/translit/gen/");
+            String targetDirectory = CldrUtility.getProperty("target", CLDRPaths.GEN_DIRECTORY + "/translit/gen/");
             convertFile(file, targetDirectory);
         } else {
             generateTransliterators();
@@ -148,12 +149,12 @@ public class ExtractICUData {
             }
 
             PrintWriter pw = BagFormatter
-                .openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
+                .openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
             outFile.write(pw);
             pw.close();
 
         }
-        PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/translit/gen/", "All" + ".xml");
+        PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", "All" + ".xml");
         accumulatedItems.write(pw);
         pw.close();
     }
@@ -302,7 +303,7 @@ public class ExtractICUData {
                         accumulatedItems.add(prefix + (++count) + "\"]", "::" + piece + ";");
                     }
                 }
-                PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/translit/gen/", outName
+                PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName
                     + ".xml");
                 outFile.write(pw);
                 pw.close();

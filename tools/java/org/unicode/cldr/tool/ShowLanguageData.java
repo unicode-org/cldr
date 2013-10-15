@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -13,8 +13,8 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 public class ShowLanguageData {
 
-    static SupplementalDataInfo data = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
-    static CLDRFile english = SimpleFactory.makeFile("en", CldrUtility.MAIN_DIRECTORY, true);
+    static SupplementalDataInfo data = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
+    static CLDRFile english = SimpleFactory.makeFile("en", CLDRPaths.MAIN_DIRECTORY, true);
 
     public static void main(String[] args) {
 

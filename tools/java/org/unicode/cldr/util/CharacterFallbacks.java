@@ -21,7 +21,7 @@ public class CharacterFallbacks {
     }
 
     private CharacterFallbacks() {
-        Factory cldrFactory = Factory.make(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
         CLDRFile characterFallbacks = cldrFactory.make("characters", false);
         XPathParts parts = new XPathParts();
         Comparator<String> comp = DtdData.getInstance(DtdType.supplementalData).getDtdComparator(null);

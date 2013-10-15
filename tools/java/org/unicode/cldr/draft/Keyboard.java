@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LanguageTagParser.Status;
 import org.unicode.cldr.util.XMLFileReader;
@@ -33,7 +33,7 @@ public class Keyboard {
 
     private static final boolean DEBUG = false;
 
-    private static final String BASE = CldrUtility.BASE_DIRECTORY + "keyboards/";
+    private static final String BASE = CLDRPaths.BASE_DIRECTORY + "keyboards/";
 
     public enum IsoRow {
         E, D, C, B, A;

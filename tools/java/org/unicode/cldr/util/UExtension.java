@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 import com.ibm.icu.dev.util.Relation;
 
 public class UExtension {
-    static SupplementalDataInfo data = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+    static SupplementalDataInfo data = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
 
     static Pattern SEP = Pattern.compile("[-_]");
     static Pattern SPACE = Pattern.compile("\\s");

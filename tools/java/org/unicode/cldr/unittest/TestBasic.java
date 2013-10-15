@@ -26,6 +26,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CharacterFallbacks;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
@@ -86,9 +87,9 @@ public class TestBasic extends TestFmwk {
 
     private final String localeRegex = CldrUtility.getProperty("locale", ".*");
 
-    private final String commonDirectory = CldrUtility.COMMON_DIRECTORY;
+    private final String commonDirectory = CLDRPaths.COMMON_DIRECTORY;
 
-    private final String mainDirectory = CldrUtility.MAIN_DIRECTORY;
+    private final String mainDirectory = CLDRPaths.MAIN_DIRECTORY;
 
     // private final boolean showForceZoom = Utility.getProperty("forcezoom", false);
 
@@ -99,7 +100,7 @@ public class TestBasic extends TestFmwk {
     public void TestDtds() throws IOException {
         Relation<Row.R2<DtdType, String>,String> foundAttributes 
         = Relation.of(new TreeMap<Row.R2<DtdType, String>,Set<String>>(), TreeSet.class);
-        checkDtds(new File(CldrUtility.BASE_DIRECTORY), 0, foundAttributes);
+        checkDtds(new File(CLDRPaths.BASE_DIRECTORY), 0, foundAttributes);
         if (foundAttributes.size() > 0) {
             showFoundElements(foundAttributes);
         }
@@ -720,7 +721,7 @@ public class TestBasic extends TestFmwk {
         XPathParts parts = new XPathParts();
 
         // collect collation info
-        Factory collationFactory = Factory.make(CldrUtility.COLLATION_DIRECTORY, ".*", DraftStatus.contributed);
+        Factory collationFactory = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*", DraftStatus.contributed);
         for (String localeID : collationFactory.getAvailable()) {
             if (localeID.equals("root")) {
                 CLDRFile cldrFile = collationFactory.make(localeID, false, DraftStatus.contributed);

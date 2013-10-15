@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CldrUtility;
 
@@ -14,7 +15,7 @@ public class TestTransforms {
 
     public static void main(String[] args) throws IOException {
         // checkRegistry();
-        String source = CldrUtility.getProperty("files", null, CldrUtility.BASE_DIRECTORY
+        String source = CldrUtility.getProperty("files", null, CLDRPaths.BASE_DIRECTORY
             + "dropbox/gen/icu-transforms/");
         boolean verbose = CldrUtility.getProperty("verbose", false);
         PrintWriter out = verbose ? new PrintWriter(System.out, true) : null;

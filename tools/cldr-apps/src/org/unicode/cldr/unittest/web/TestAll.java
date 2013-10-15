@@ -26,6 +26,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
@@ -56,9 +57,9 @@ public class TestAll extends TestGroup {
      */
     public static synchronized final void sanity() {
         if (!sane) {
-            verifyIsDir(CldrUtility.BASE_DIRECTORY, "CLDR_DIR", "=${workspace_loc:common/..}");
-            verifyIsDir(CldrUtility.MAIN_DIRECTORY, "CLDR_MAIN", "=${workspace_loc:common/main}");
-            verifyIsFile(new File(CldrUtility.MAIN_DIRECTORY, "root.xml"));
+            verifyIsDir(CLDRPaths.BASE_DIRECTORY, "CLDR_DIR", "=${workspace_loc:common/..}");
+            verifyIsDir(CLDRPaths.MAIN_DIRECTORY, "CLDR_MAIN", "=${workspace_loc:common/main}");
+            verifyIsFile(new File(CLDRPaths.MAIN_DIRECTORY, "root.xml"));
             sane = true;
         }
     }
@@ -165,7 +166,7 @@ public class TestAll extends TestGroup {
         public SupplementalDataInfo getSupplementalDataInfo() {
             synchronized (this) {
                 if (supplementalDataInfo == null) {
-                    supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+                    supplementalDataInfo = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
                 }
             }
             return supplementalDataInfo;
@@ -183,7 +184,7 @@ public class TestAll extends TestGroup {
         public Factory getCldrFactory() {
             synchronized (this) {
                 if (cldrFactory == null) {
-                    cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+                    cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
                 }
             }
             return cldrFactory;

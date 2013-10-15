@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -32,7 +32,7 @@ public class FilterCharacterFallbacks {
 
         Document fb;
         Node n;
-        fb = LDMLUtilities.parse(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY + File.separator + "characters.xml", true);
+        fb = LDMLUtilities.parse(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY + File.separator + "characters.xml", true);
         if (fb != null) {
             PrintWriter out = BagFormatter.openUTF8Writer(".", "report");
             n = LDMLUtilities.getNode(fb, "//supplementalData/characters/character-fallback");

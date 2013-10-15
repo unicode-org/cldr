@@ -55,16 +55,13 @@ import com.ibm.icu.util.TimeZone;
 public class CldrUtility {
     
     public static final boolean BETA = true;
-    public static final String CHART_VERSION = "25";
-    private static final String LAST_CHART_VERSION = "24.0"; // must have 1 decimal
+    
 
 //    // Old ones for illustration
 //    public static final boolean BETA = false;
 //    public static final String CHART_VERSION = "24";
 //    private static final String LAST_CHART_VERSION = "23.1"; // must have 1 decimal
     
-    public static final String CHART_DISPLAY_VERSION = CHART_VERSION + (BETA ? "β" : "");
-
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
     // Constant for "∅∅∅". Indicates that a child locale has no value for a
     // path even though a parent does.
@@ -132,47 +129,6 @@ public class CldrUtility {
         return getPath(path, null);
     }
 
-    static final boolean DEBUG_SHOW_BAT = false;
-    /** default working directory for Eclipse is . = ${workspace_loc:cldr}, which is <CLDR>/tools/java/ */
-    // set the base directory with -Dcldrdata=<value>
-    // if the main is different, use -Dcldrmain=<value>
-
-    /**
-     * @deprecated Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc).
-     *             If it must be used, add a comment next to the usage to explain why it is needed.
-     */
-    public static final String UTIL_DATA_DIR = FileUtilities.getRelativeFileName(
-        CldrUtility.class, "data/");
-
-    public static final String BASE_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new
-                                                                                                    // File(Utility.getProperty("CLDR_DIR",
-                                                                                                    // null)).getPath();
-                                                                                                    // // get up to
-                                                                                                    // <CLDR>
-    public static final String COMMON_DIRECTORY = getPath(BASE_DIRECTORY, "common/");
-    public static final String COLLATION_DIRECTORY = getPath(COMMON_DIRECTORY, "collation/");
-    public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN",
-        getPath(CldrUtility.COMMON_DIRECTORY, "main"));
-    public static final String SEED_DIRECTORY = CldrUtility.getProperty("CLDR_SEED",
-        getPath(CldrUtility.COMMON_DIRECTORY, "../seed/main"));
-    public static final String TMP_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
-        getPath(BASE_DIRECTORY, "../cldr-tmp/")));
-    public static final String AUX_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
-        getPath(BASE_DIRECTORY, "../cldr-aux/")));
-    public static final String TMP2_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
-        getPath(BASE_DIRECTORY, "../cldr-tmp2/")));
-    // external data
-    public static final String EXTERNAL_DIRECTORY = getPath(CldrUtility.getProperty("UCD_DIR", BASE_DIRECTORY) + "/../");
-    public static final String ARCHIVE_DIRECTORY = getPath(CldrUtility.getProperty("ARCHIVE", BASE_DIRECTORY));
-    public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" +
-    		LAST_CHART_VERSION +
-    		"/";
-    public static final String UCD_DIRECTORY = getPath(EXTERNAL_DIRECTORY, "data/UCD/6.2.0-Update");
-    public static final String GEN_DIRECTORY = getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
-        getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
-
-    public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg
-                                                                                                                  // "/Users/markdavis/workspace/icu4c/source/data/";
     public static final String ANALYTICS = "<script type=\"text/javascript\">\n"
         + "var gaJsHost = ((\"https:\" == document.location.protocol) ? \"https://ssl.\" : \"http://www.\");\n"
         + "document.write(unescape(\"%3Cscript src='\" + gaJsHost + \"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E\"));\n"
@@ -183,25 +139,6 @@ public class CldrUtility {
         + "pageTracker._trackPageview();\n"
         + "} catch(err) {}</script>";
 
-    /**
-     * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()
-     * @see DEFAULT_SUPPLEMENTAL_DIRECTORY
-     */
-    public static final String SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY, "supplemental/");
-    /**
-     * Only the default, if no other directory is specified.
-     */
-    public static final String DEFAULT_SUPPLEMENTAL_DIRECTORY = getPath(COMMON_DIRECTORY, "supplemental/");
-
-    
-    public static final String CHART_DIRECTORY = getPath(AUX_DIRECTORY + "charts/", CHART_VERSION);
-    public static final String LOG_DIRECTORY = getPath(TMP_DIRECTORY, "logs/");
-
-    public static final String TEST_DIR = getPath(CldrUtility.BASE_DIRECTORY, "test/");
-
-    /** If the generated BAT files are to work, this needs to be set right */
-    public static final String COMPARE_PROGRAM = "\"C:\\Program Files (x86)\\Compare It!\\wincmp3.exe\"";
-
     public static final List<String> MINIMUM_LANGUAGES = Arrays.asList(new String[] { "ar", "en", "de", "fr", "hi",
         "it", "es", "pt", "ru", "zh", "ja" }); // plus language itself
     public static final List<String> MINIMUM_TERRITORIES = Arrays.asList(new String[] { "US", "GB", "DE", "FR", "IT",
@@ -209,7 +146,6 @@ public class CldrUtility {
 
     public interface LineComparer {
         static final int LINES_DIFFERENT = -1, LINES_SAME = 0, SKIP_FIRST = 1, SKIP_SECOND = 2;
-
         /**
          * Returns LINES_DIFFERENT, LINES_SAME, or if one of the lines is ignorable, SKIP_FIRST or SKIP_SECOND
          * 
@@ -344,26 +280,7 @@ public class CldrUtility {
         }
     }
 
-    public static void registerExtraTransliterators() {
-        // NOTE: UTIL_DATA_DIR is required here only because TransliteratorUtilities
-        // requires a file path.
-        String tzadir = UTIL_DATA_DIR + File.separatorChar; // work around bad pattern (dir+filename)
-        // HACK around lack of Armenian, Ethiopic
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Armenian");
-        // TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Ethiopic");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Cyrillic-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Arabic-Latin");
-        // needed
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Thaana-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Syriac-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Canadian_Aboriginal-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Georgian-Latin");
-
-        // do nothing, too complicated to do quickly
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Tibetan-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Khmer-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Lao-Latin");
-    }
+    
 
     /*
      * static String getLineWithoutFluff(BufferedReader br1, boolean first, int flags) throws IOException {
@@ -414,51 +331,6 @@ public class CldrUtility {
          */
         public int getPosition() {
             return position;
-        }
-    }
-
-    static public void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile) {
-        generateBat(sourceDir, sourceFile, targetDir, targetFile, new CldrUtility.SimpleLineComparator(0));
-    }
-
-    static public void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile,
-        LineComparer lineComparer) {
-        try {
-            String batDir = targetDir + "diff" + File.separator;
-            String batName = targetFile + ".bat";
-            String[] failureLines = new String[2];
-
-            String fullSource = sourceDir + File.separator + sourceFile;
-            String fullTarget = targetDir + File.separator + targetFile;
-
-            if (!new File(sourceDir, sourceFile).exists()) {
-                File f = new File(batDir, batName);
-                if (f.exists()) {
-                    if (DEBUG_SHOW_BAT) System.out.println("*Deleting old " + f.getCanonicalPath());
-                    f.delete();
-                }
-            } else if (!areFileIdentical(fullSource, fullTarget, failureLines, lineComparer)) {
-                PrintWriter bat = BagFormatter.openUTF8Writer(batDir, batName);
-                try {
-                    bat.println(COMPARE_PROGRAM + " " +
-                        new File(fullSource).getCanonicalPath() + " " +
-                        new File(fullTarget).getCanonicalPath());
-                } finally {
-                    bat.close();
-                }
-            } else {
-                File f = new File(batDir, batName);
-                if (f.exists()) {
-                    if (DEBUG_SHOW_BAT) System.out.println("*Deleting old:\t" + f.getCanonicalPath());
-                    f.delete();
-                }
-                f = new File(fullTarget);
-                if (BagFormatter.SHOW_FILES) System.out.println("*Deleting old:\t" + f.getCanonicalPath());
-                f.delete();
-            }
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
     }
 

@@ -21,6 +21,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -222,7 +223,7 @@ public class FlexibleDateTime {
         Map<String, String> languageAlias = new HashMap<String, String>();
         Map<String, String> territoryAlias = new HashMap<String, String>();
         {
-            Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+            Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
             XPathParts parts = new XPathParts(null, null);
             for (Iterator<String> it = supp.iterator("//supplementalData/metadata/alias/"); it.hasNext();) {

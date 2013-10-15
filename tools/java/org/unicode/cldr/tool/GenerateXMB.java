@@ -34,7 +34,7 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -96,7 +96,7 @@ public class GenerateXMB {
     private static final HashSet<String> REGION_LOCALES = new HashSet<String>(Arrays.asList(stock.split("\\|")));
 
     final static Options myOptions = new Options("In normal usage, you set the -t option for the target.")
-        .add("target", ".*", CldrUtility.TMP_DIRECTORY + "dropbox/xmb/",
+        .add("target", ".*", CLDRPaths.TMP_DIRECTORY + "dropbox/xmb/",
             "The target directory for building. Will generate an English .xmb file, and .wsb files for other languages.")
         .add(
             "file",
@@ -110,7 +110,7 @@ public class GenerateXMB {
         .add("jason", ".*", "Generate JSON versions instead")
         .add("zone", null, "Show metazoneinfo and exit")
         .add("wsb", ".*", "Show metazoneinfo and exit")
-        .add("kompare", ".*", CldrUtility.BASE_DIRECTORY + "../DATA/cldr/common/google-bulk-imports",
+        .add("kompare", ".*", CLDRPaths.BASE_DIRECTORY + "../DATA/cldr/common/google-bulk-imports",
             "Compare data with directory; generate files in -target.")
         .add("project_name", 'n', ".*", "CLDR", "The ID of the project.");
 
@@ -159,7 +159,7 @@ public class GenerateXMB {
         String targetDir = myOptions.get("target").getValue();
         countFile = BagFormatter.openUTF8Writer(targetDir + "/log/", "counts.txt");
 
-        Factory cldrFactory1 = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory1 = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory1.make("en", true);
         CLDRFile englishTop = cldrFactory1.make("en", false);
         DTD_VERSION = englishTop.getDtdVersion();
@@ -198,7 +198,7 @@ public class GenerateXMB {
         // Test each xml file for validity
         // Generate strings that let the user choose the placeholder style hh vs HH,...???
 
-        Factory cldrFactory2 = Factory.make(CldrUtility.MAIN_DIRECTORY, fileMatcherString);
+        Factory cldrFactory2 = Factory.make(CLDRPaths.MAIN_DIRECTORY, fileMatcherString);
         LanguageTagParser ltp = new LanguageTagParser();
 
         for (String file : cldrFactory2.getAvailable()) {
@@ -1011,7 +1011,7 @@ public class GenerateXMB {
 
         EnglishInfo(String targetDir, CLDRFile english, CLDRFile root) throws Exception {
 
-            Map<String, String> oldPathValueMap = ReadXMB.load(CldrUtility.BASE_DIRECTORY +
+            Map<String, String> oldPathValueMap = ReadXMB.load(CLDRPaths.BASE_DIRECTORY +
                 "/cldr-tools/org/unicode/cldr/unittest/data/xmb/",
                 "en.xml");
 

@@ -28,6 +28,7 @@ import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
@@ -91,7 +92,7 @@ public class ConvertLanguageData {
 
     static Map<String, String> defaultContent = new TreeMap<String, String>();
 
-    static Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     static CLDRFile english = cldrFactory.make("en", true);
 
     static Set<String> skipLocales = new HashSet<String>(
@@ -100,18 +101,18 @@ public class ConvertLanguageData {
                 .split("\\s")));
 
     static SupplementalDataInfo supplementalData = SupplementalDataInfo
-        .getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        .getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
 
     public static void main(String[] args) throws IOException, ParseException {
         BufferedReader oldFile = null;
         try {
             // load elements we care about
-            Log.setLogNoBOM(CldrUtility.GEN_DIRECTORY + "/supplemental", "supplementalData.xml");
+            Log.setLogNoBOM(CLDRPaths.GEN_DIRECTORY + "/supplemental", "supplementalData.xml");
             // Log.println("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>");
             // Log.println("<!DOCTYPE supplementalData SYSTEM \"http://www.unicode.org/cldr/data/dtd/ldmlSupplemental.dtd\">");
             // Log.println("<supplementalData version=\"1.5\">");
 
-            oldFile = BagFormatter.openUTF8Reader(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY, "supplementalData.xml");
+            oldFile = BagFormatter.openUTF8Reader(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, "supplementalData.xml");
             CldrUtility.copyUpTo(oldFile, Pattern.compile("\\s*<languageData>\\s*"), Log.getLog(), false);
 
             Set<String> available = cldrFactory.getAvailable();
@@ -207,7 +208,7 @@ public class ConvertLanguageData {
             Log.close();
             oldFile.close();
 
-            Log.setLog(CldrUtility.GEN_DIRECTORY + "/supplemental", "language_script_raw.txt");
+            Log.setLog(CLDRPaths.GEN_DIRECTORY + "/supplemental", "language_script_raw.txt");
             getLanguageScriptSpreadsheet(Log.getLog());
             Log.close();
         } catch (Exception e) {
@@ -503,7 +504,7 @@ public class ConvertLanguageData {
         Map<String, Comments> languageToCommentsAlt = new TreeMap<String, Comments>();
 
         private LanguageInfo() {
-            cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+            cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             Set available = cldrFactory.getAvailable();
             CLDRFile supplemental = cldrFactory.make("supplementalData", true);
             XPathParts parts = new XPathParts();
@@ -1094,7 +1095,7 @@ public class ConvertLanguageData {
 
         LanguageTagParser ltp = new LanguageTagParser();
 
-        String dir = CldrUtility.GEN_DIRECTORY + "supplemental/";
+        String dir = CLDRPaths.GEN_DIRECTORY + "supplemental/";
         final String ricksFile = "country_language_population_raw.txt";
         List<List<String>> input = SpreadSheet.convert(CldrUtility.getUTF8Data(ricksFile));
 
@@ -1404,7 +1405,7 @@ public class ConvertLanguageData {
             System.out.println();
         }
 
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> locales = new TreeSet(cldrFactory.getAvailable());
         LocaleIDParser lidp = new LocaleIDParser();
 

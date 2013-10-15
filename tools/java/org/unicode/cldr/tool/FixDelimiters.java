@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -36,7 +36,7 @@ public class FixDelimiters {
         for (Entry<String, R2<Quotes, Quotes>> entry : Data.locales2delimiters.entrySet()) {
             System.out.println(entry);
         }
-        Factory factory = SimpleFactory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory factory = SimpleFactory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> remainder = new LinkedHashSet(Data.locales2delimiters.keySet());
 
         String[] paths = {
@@ -78,7 +78,7 @@ public class FixDelimiters {
                 String revalue = cldrFile.getStringValue(paths[i]);
                 System.out.println(locale + "\t" + paths[i] + "\t" + oldValue[i] + "\t=>\t" + revalue);
             }
-            PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "temp/", locale + ".xml");
+            PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "temp/", locale + ".xml");
             cldrFile.write(pw);
             pw.close();
         }

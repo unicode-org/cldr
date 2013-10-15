@@ -17,7 +17,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -35,7 +35,7 @@ public class ShowLocaleCoverage {
     // added info using pattern in VettingViewer.
 
     final static Options myOptions = new Options();
-    private static final String OUT_DIRECTORY = CldrUtility.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
+    private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
 
     private static final String TEST_PATH = "//ldml/dates/calendars/calendar[@type=\"chinese\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
 
@@ -91,7 +91,7 @@ public class ShowLocaleCoverage {
                 number += ".0";
             }
             factory = org.unicode.cldr.util.Factory.make(
-                CldrUtility.ARCHIVE_DIRECTORY + "cldr-" + number + "/common/main/", ".*");
+                CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + number + "/common/main/", ".*");
         } else {
             factory = testInfo.getCldrFactory();
         }

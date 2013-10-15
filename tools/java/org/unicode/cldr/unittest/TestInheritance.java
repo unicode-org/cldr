@@ -23,6 +23,7 @@ import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.CldrUtility;
@@ -216,8 +217,8 @@ public class TestInheritance extends TestFmwk {
 
     public void TestLikelyAndDefaultConsistency() {
         LikelySubtags likelySubtags = new LikelySubtags();
-        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
-        Factory factory2 = Factory.make(CldrUtility.BASE_DIRECTORY + "seed/", ".*");
+        Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+        Factory factory2 = Factory.make(CLDRPaths.BASE_DIRECTORY + "seed/", ".*");
         Set<String> available = Builder.with(new TreeSet<String>()).addAll(factory.getAvailable())
             .addAll(factory2.getAvailable()).freeze();
         LanguageTagParser ltp = new LanguageTagParser();

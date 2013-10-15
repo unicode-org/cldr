@@ -4,7 +4,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 
 public class ExtractListInfo {
@@ -16,7 +16,7 @@ public class ExtractListInfo {
     };
 
     public static void main(String[] args) {
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> skipped = new LinkedHashSet();
         for (String locale : cldrFactory.getAvailableLanguages()) {
             CLDRFile file = cldrFactory.make(locale, true);

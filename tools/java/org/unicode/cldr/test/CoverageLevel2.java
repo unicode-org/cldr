@@ -10,7 +10,7 @@ import org.unicode.cldr.unittest.TestAll;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.RegexLookup;
@@ -137,7 +137,7 @@ public class CoverageLevel2 {
      * @return
      * @deprecated Don't use this. call the version which takes a SupplementalDataInfo as an argument.
      * @see #getInstance(SupplementalDataInfo, String)
-     * @see CldrUtility#SUPPLEMENTAL_DIRECTORY
+     * @see CLDRPaths#SUPPLEMENTAL_DIRECTORY
      */
     public static CoverageLevel2 getInstance(String locale) {
         return new CoverageLevel2(SupplementalDataInfo.getInstance(), locale);

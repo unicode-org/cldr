@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
@@ -38,7 +39,7 @@ class ExtractMessages {
 
     public static boolean SKIPEQUALS = true;
     public static boolean SKIPIFCLDR = true;
-    public static String DIR = CldrUtility.GEN_DIRECTORY + "/../additions/";
+    public static String DIR = CLDRPaths.GEN_DIRECTORY + "/../additions/";
 
     public static void main(String[] args) throws IOException {
         double startTime = System.currentTimeMillis();
@@ -160,7 +161,7 @@ class ExtractMessages {
 
     private static Map<String, Pair<String, DataHandler>> numericId_Id = new TreeMap();
     private static Matcher numericIdMatcher = Pattern.compile("\\[@id=\"([^\"]+)\"\\]").matcher("");
-    private static Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    private static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     private static CLDRFile english = cldrFactory.make("en", true);
 
     private static class EnglishHandler extends XMLFileReader.SimpleHandler {

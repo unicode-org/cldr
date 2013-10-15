@@ -20,7 +20,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
 import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XMLFileReader;
@@ -150,7 +150,7 @@ public class TestCLDRUtils extends TestFmwk {
     // Disable this test, because we now require known DtdTypes
     public void oldTestCLDRLocaleDataDriven() throws IOException {
         XMLFileReader myReader = new XMLFileReader();
-        final Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        final Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         final CLDRFile engFile = cldrFactory.make("en", true);
         final CLDRFormatter engFormat = new CLDRFormatter(engFile);
         final XPathParts xpp = new XPathParts(null, null);

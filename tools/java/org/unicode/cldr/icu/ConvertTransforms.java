@@ -14,6 +14,7 @@ import java.util.Set;
 
 import org.unicode.cldr.ant.CLDRConverterTool;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
@@ -50,8 +51,8 @@ public class ConvertTransforms extends CLDRConverterTool {
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.SOURCEDIR().setDefault(CldrUtility.COMMON_DIRECTORY + "transforms/"),
-        UOption.DESTDIR().setDefault(CldrUtility.GEN_DIRECTORY + "icu-transforms/"),
+        UOption.SOURCEDIR().setDefault(CLDRPaths.COMMON_DIRECTORY + "transforms/"),
+        UOption.DESTDIR().setDefault(CLDRPaths.GEN_DIRECTORY + "icu-transforms/"),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("commentSkip", 'c', UOption.NO_ARG),
         UOption.create("writeIndex", 'x', UOption.NO_ARG),
@@ -63,10 +64,10 @@ public class ConvertTransforms extends CLDRConverterTool {
     static final String HELP_TEXT1 = "Use the following options" + XPathParts.NEWLINE
         + "-h or -?\t for this message" + XPathParts.NEWLINE
         + "-" + options[SOURCEDIR].shortName + "\t source directory. Default = -s"
-        + CldrUtility.getCanonicalName(CldrUtility.MAIN_DIRECTORY) + XPathParts.NEWLINE
+        + CldrUtility.getCanonicalName(CLDRPaths.MAIN_DIRECTORY) + XPathParts.NEWLINE
         + "\tExample:-sC:\\Unicode-CVS2\\cldr\\common\\gen\\source\\" + XPathParts.NEWLINE
         + "-" + options[DESTDIR].shortName + "\t destination directory. Default = -d"
-        + CldrUtility.getCanonicalName(CldrUtility.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
+        + CldrUtility.getCanonicalName(CLDRPaths.GEN_DIRECTORY + "main/") + XPathParts.NEWLINE
         + "-m<regex>\t to restrict the files to what matches <regex>" + XPathParts.NEWLINE
     // "--writeIndex / -x   to write the index (trnsfiles.mk)"+ XPathParts.NEWLINE
     ;

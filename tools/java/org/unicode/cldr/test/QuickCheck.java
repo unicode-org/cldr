@@ -14,6 +14,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PrettyPath;
@@ -58,12 +59,12 @@ public class QuickCheck {
 
         showInfo = CldrUtility.getProperty("showinfo", "false", "true").matches("(?i)T|TRUE");
 
-        commonDirectory = CldrUtility.COMMON_DIRECTORY; // Utility.getProperty("common", Utility.COMMON_DIRECTORY);
+        commonDirectory = CLDRPaths.COMMON_DIRECTORY; // Utility.getProperty("common", Utility.COMMON_DIRECTORY);
         // if (commonDirectory == null) commonDirectory = Utility.COMMON_DIRECTORY
         // System.out.println("Main Source Directory: " + commonDirectory +
         // "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
 
-        mainDirectory = CldrUtility.getProperty("main", CldrUtility.COMMON_DIRECTORY + "/main");
+        mainDirectory = CldrUtility.getProperty("main", CLDRPaths.COMMON_DIRECTORY + "/main");
         // System.out.println("Main Source Directory: " + commonDirectory +
         // "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
 

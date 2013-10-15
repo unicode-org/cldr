@@ -61,7 +61,7 @@ public class VerifyCompactNumbers {
         boolean showCurrency = MyOptions.currency.option.doesOccur();
         String currencyCode = MyOptions.currency.option.getValue();
 
-        Factory factory2 = Factory.make(CldrUtility.MAIN_DIRECTORY, filter);
+        Factory factory2 = Factory.make(CLDRPaths.MAIN_DIRECTORY, filter);
         CLDRFile englishCldrFile = factory2.make("en", true);
 
         SupplementalDataInfo sdi = CLDRConfig.getInstance().getSupplementalDataInfo();
@@ -74,7 +74,7 @@ public class VerifyCompactNumbers {
             availableLanguages.add("pt_PT");
         }
 
-        PrintWriter plainText = BagFormatter.openUTF8Writer(CldrUtility.TMP_DIRECTORY + "verify/numbers/",
+        PrintWriter plainText = BagFormatter.openUTF8Writer(CLDRPaths.TMP_DIRECTORY + "verify/numbers/",
             "compactTestFile.txt");
 
         for (String locale : availableLanguages) {
@@ -90,7 +90,7 @@ public class VerifyCompactNumbers {
                 continue;
             }
 
-            PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.TMP_DIRECTORY + "verify/numbers/",
+            PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.TMP_DIRECTORY + "verify/numbers/",
                 locale +
                     ".html");
             String title = "Verify Number Formats: " + englishCldrFile.getName(locale);

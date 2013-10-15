@@ -7,7 +7,7 @@ import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SimpleXMLSource;
@@ -116,7 +116,7 @@ public class TestLocale extends TestFmwk {
         root.putValueAtDPath("//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"script\"]", "Scripte: {0}");
         root.putValueAtDPath("//ldml/localeDisplayNames/codePatterns/codePattern[@type=\"territory\"]", "Territorie: {0}");
         CLDRFile f = new CLDRFile(dxs, root);
-        ExampleGenerator eg = new ExampleGenerator(f, testInfo.getEnglish(), CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        ExampleGenerator eg = new ExampleGenerator(f, testInfo.getEnglish(), CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         for (String[] row : tests) {
             if (row[0] != null) {
                 int typeCode = CLDRFile.typeNameToCode(row[0]);

@@ -31,6 +31,7 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -70,8 +71,8 @@ public class ShowKeyboards {
 
     enum MyOptions {
         idFilter(".+", ".*", "Filter the information based on id, using a regex argument."),
-        sourceDirectory(".+", CldrUtility.BASE_DIRECTORY + "keyboards/", "The source directory. CURRENTLY CAN’T BE CHANGED!!"),
-        targetDirectory(".+", CldrUtility.CHART_DIRECTORY + "keyboards/", "The target directory."),
+        sourceDirectory(".+", CLDRPaths.BASE_DIRECTORY + "keyboards/", "The source directory. CURRENTLY CAN’T BE CHANGED!!"),
+        targetDirectory(".+", CLDRPaths.CHART_DIRECTORY + "keyboards/", "The target directory."),
         layouts(null, null, "Only create html files for keyboard layouts"),
         repertoire(null, null, "Only create html files for repertoire"), ;
         // boilerplate
@@ -97,7 +98,7 @@ public class ShowKeyboards {
 
         Matcher idMatcher = Pattern.compile(idPattern).matcher("");
         try {
-            Log.setLog(CldrUtility.LOG_DIRECTORY + "keyboard-log.txt");
+            Log.setLog(CLDRPaths.LOG_DIRECTORY + "keyboard-log.txt");
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
@@ -165,7 +166,7 @@ public class ShowKeyboards {
 
             ShowData.getChartTemplate(
                 "Characters → Keyboards",
-                CldrUtility.CHART_DISPLAY_VERSION,
+                ToolConstants.CHART_DISPLAY_VERSION,
                 "",
                 headerAndFooter);
             out.println(headerAndFooter[0]
@@ -180,7 +181,7 @@ public class ShowKeyboards {
             out = BagFormatter.openUTF8Writer(keyboardChartDir, "keyboards2chars.html");
             ShowData.getChartTemplate(
                 "Keyboards → Characters",
-                CldrUtility.CHART_DISPLAY_VERSION,
+                ToolConstants.CHART_DISPLAY_VERSION,
                 "",
                 headerAndFooter);
             out.println(headerAndFooter[0]
@@ -232,7 +233,7 @@ public class ShowKeyboards {
         String[] headerAndFooter = new String[2];
         ShowData.getChartTemplate(
             "Keyboard Layout Index",
-            CldrUtility.CHART_DISPLAY_VERSION,
+            ToolConstants.CHART_DISPLAY_VERSION,
             "",
             headerAndFooter);
         index
@@ -260,7 +261,7 @@ public class ShowKeyboards {
             PrintWriter out = BagFormatter.openUTF8Writer(keyboardChartLayoutsDir, locale + ".html");
             ShowData.getChartTemplate(
                 "Layouts: " + localeName + " (" + locale + ")",
-                CldrUtility.CHART_DISPLAY_VERSION,
+                ToolConstants.CHART_DISPLAY_VERSION,
                 "",
                 headerAndFooter);
             out.println(headerAndFooter[0]

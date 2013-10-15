@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
@@ -20,9 +20,9 @@ public class DumpCoverage {
     public static void main(String[] args) throws IOException {
 
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> languages = cldrFactory.getAvailableLanguages();
-        PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "coverageDump.txt");
+        PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "coverageDump.txt");
         for (String lang : languages) {
             CLDRFile cf = cldrFactory.makeWithFallback(lang);
             Set<String> paths = new TreeSet<String>();

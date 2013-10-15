@@ -10,7 +10,7 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -59,7 +59,7 @@ public class SearchCLDR {
     // ;
 
     final static Options myOptions = new Options()
-        .add("source", ".*", CldrUtility.MAIN_DIRECTORY, "source directory")
+        .add("source", ".*", CLDRPaths.MAIN_DIRECTORY, "source directory")
         .add("file", ".*", ".*", "regex to filter files/locales.")
         .add("path", ".*", null, "regex to filter paths. ! in front selects items that don't match. example: -p relative.*@type=\\\"-?3\\\"")
         .add("value", ".*", null, "regex to filter values. ! in front selects items that don't match")

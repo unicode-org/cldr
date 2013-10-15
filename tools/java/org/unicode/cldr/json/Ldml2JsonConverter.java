@@ -19,6 +19,7 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -44,9 +45,9 @@ public class Ldml2JsonConverter {
             "This program converts CLDR data to the JSON format.\n" +
             "Please refer to the following options. \n" +
             "\texample: org.unicode.cldr.json.Ldml2JsonConverter -c xxx -d yyy")
-        .add("commondir", 'c', ".*", CldrUtility.COMMON_DIRECTORY,
+        .add("commondir", 'c', ".*", CLDRPaths.COMMON_DIRECTORY,
             "Common directory for CLDR files, defaults to CldrUtility.COMMON_DIRECTORY")
-        .add("destdir", 'd', ".*", CldrUtility.GEN_DIRECTORY,
+        .add("destdir", 'd', ".*", CLDRPaths.GEN_DIRECTORY,
             "Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY")
         .add("match", 'm', ".*", ".*",
             "Regular expression to define only specific locales or files to be generated")

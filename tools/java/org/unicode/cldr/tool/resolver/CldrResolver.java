@@ -19,6 +19,7 @@ import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -88,7 +89,7 @@ public class CldrResolver {
         if (option.doesOccur()) {
             srcDir = option.getValue();
         } else {
-            srcDir = CldrUtility.MAIN_DIRECTORY;
+            srcDir = CLDRPaths.MAIN_DIRECTORY;
         }
 
         option = options.get("destdir");
@@ -96,7 +97,7 @@ public class CldrResolver {
         if (option.doesOccur()) {
             dest = new File(option.getValue());
         } else {
-            dest = new File(CldrUtility.GEN_DIRECTORY, "resolver");
+            dest = new File(CLDRPaths.GEN_DIRECTORY, "resolver");
         }
         if (!dest.exists()) {
             dest.mkdir();

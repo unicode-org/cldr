@@ -20,7 +20,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ElementAttributeInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
@@ -34,9 +34,9 @@ import com.ibm.icu.impl.Utility;
 public class JsonConverter {
 
     private static final String FILES = "el.*";
-    private static final String MAIN_DIRECTORY = CldrUtility.MAIN_DIRECTORY;// CldrUtility.SUPPLEMENTAL_DIRECTORY;
+    private static final String MAIN_DIRECTORY = CLDRPaths.MAIN_DIRECTORY;// CldrUtility.SUPPLEMENTAL_DIRECTORY;
                                                                             // //CldrUtility.MAIN_DIRECTORY;
-    private static final String OUT_DIRECTORY = CldrUtility.GEN_DIRECTORY + "/jason/"; // CldrUtility.MAIN_DIRECTORY;
+    private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/jason/"; // CldrUtility.MAIN_DIRECTORY;
     private static boolean COMPACT = false;
     static final Set<String> REPLACING_BASE = !COMPACT ? Collections.EMPTY_SET : new HashSet<String>(
         Arrays.asList("type id key count".split("\\s")));

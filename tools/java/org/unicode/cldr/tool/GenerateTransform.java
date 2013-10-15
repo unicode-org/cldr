@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLFileReader;
@@ -30,7 +31,7 @@ import com.ibm.icu.util.ULocale;
  */
 // TODO handle casing
 public class GenerateTransform {
-    private static final String TRANSFORM_DIRECTORY = CldrUtility.COMMON_DIRECTORY
+    private static final String TRANSFORM_DIRECTORY = CLDRPaths.COMMON_DIRECTORY
         + "transforms"
         + File.separator;
 

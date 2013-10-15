@@ -8,7 +8,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -20,9 +20,9 @@ import com.ibm.icu.dev.util.Relation;
 
 public class CheckEnglishCurrencyNames {
     static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-        .getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     static StandardCodes sc = StandardCodes.make();
-    static Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     static CLDRFile english = cldrFactory.make("en", true);
 
     public static void main(String[] args) {

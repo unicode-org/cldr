@@ -23,6 +23,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.TestTransformsSimple;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 import org.unicode.cldr.util.CldrUtility;
@@ -43,7 +44,7 @@ import com.ibm.icu.util.ULocale;
 
 public class GenerateTransformCharts {
 
-    private static final String TRANSFORM_DIRECTORY = CldrUtility.CHART_DIRECTORY + File.separatorChar + "transforms/";
+    private static final String TRANSFORM_DIRECTORY = CLDRPaths.CHART_DIRECTORY + File.separatorChar + "transforms/";
     private static final UnicodeSet NON_LATIN = new UnicodeSet("[^[:latin:][:common:][:inherited:]]");
     private static final boolean verbose = CldrUtility.getProperty("verbose", false);
 

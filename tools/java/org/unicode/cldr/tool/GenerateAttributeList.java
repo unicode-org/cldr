@@ -22,6 +22,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
@@ -44,14 +45,14 @@ public class GenerateAttributeList {
 
     public GenerateAttributeList(Factory cldrFactory) throws IOException {
         addFromStandardCodes();
-        addFromDTD(CldrUtility.COMMON_DIRECTORY + "main/en.xml");
-        addFromDTD(CldrUtility.COMMON_DIRECTORY + "supplemental/characters.xml");
-        addFromDirectory(CldrUtility.COMMON_DIRECTORY + "collation/");
-        addFromDirectory(CldrUtility.COMMON_DIRECTORY + "main/");
-        addFromDirectory(CldrUtility.COMMON_DIRECTORY + "rbnf/");
-        addFromDirectory(CldrUtility.COMMON_DIRECTORY + "segments/");
-        addFromDirectory(CldrUtility.COMMON_DIRECTORY + "supplemental/");
-        addFromDirectory(CldrUtility.COMMON_DIRECTORY + "transforms/");
+        addFromDTD(CLDRPaths.COMMON_DIRECTORY + "main/en.xml");
+        addFromDTD(CLDRPaths.COMMON_DIRECTORY + "supplemental/characters.xml");
+        addFromDirectory(CLDRPaths.COMMON_DIRECTORY + "collation/");
+        addFromDirectory(CLDRPaths.COMMON_DIRECTORY + "main/");
+        addFromDirectory(CLDRPaths.COMMON_DIRECTORY + "rbnf/");
+        addFromDirectory(CLDRPaths.COMMON_DIRECTORY + "segments/");
+        addFromDirectory(CLDRPaths.COMMON_DIRECTORY + "supplemental/");
+        addFromDirectory(CLDRPaths.COMMON_DIRECTORY + "transforms/");
         /*
          * Set seenAlready = new HashSet();
          * for (Iterator it = cldrFactory.getAvailable().iterator(); it.hasNext();) {
@@ -207,7 +208,7 @@ public class GenerateAttributeList {
         pw.println("</head><body>");
         pw.println("<p>Date: $" +
             "Date$</p>");
-        pw.println("<p>Version: " + CldrUtility.CHART_DISPLAY_VERSION + "</p>");
+        pw.println("<p>Version: " + ToolConstants.CHART_DISPLAY_VERSION + "</p>");
         pw.println("<table>");
         pw.println("<tr><th>Element</th><th>Attribute</th><th>Actual Attribute Values</th><th>Other DTD Attribute Values</th></tr>");
 

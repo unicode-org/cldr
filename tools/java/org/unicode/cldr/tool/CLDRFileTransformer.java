@@ -6,9 +6,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.XMLSource;
@@ -155,11 +155,11 @@ public class CLDRFileTransformer {
     }
 
     public static void main(String[] args) throws Exception {
-        Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
-        CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CldrUtility.COMMON_DIRECTORY + "transforms/");
+        Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+        CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CLDRPaths.COMMON_DIRECTORY + "transforms/");
         for (LocaleTransform localeTransform : LocaleTransform.values()) {
             CLDRFile output = transformer.transform(localeTransform);
-            String outputDir = CldrUtility.GEN_DIRECTORY + "main" + File.separator;
+            String outputDir = CLDRPaths.GEN_DIRECTORY + "main" + File.separator;
             String outputFile = output.getLocaleID() + ".xml";
             PrintWriter out = BagFormatter.openUTF8Writer(outputDir, outputFile);
             System.out.println("Generating locale file: " + outputDir + outputFile);

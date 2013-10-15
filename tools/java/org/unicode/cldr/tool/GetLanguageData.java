@@ -5,7 +5,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Pair;
@@ -15,9 +15,9 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
 public class GetLanguageData {
     SupplementalDataInfo sdata = SupplementalDataInfo
-        .getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     Factory cldrFactory = Factory
-        .make(CldrUtility.MAIN_DIRECTORY, ".*");
+        .make(CLDRPaths.MAIN_DIRECTORY, ".*");
     CLDRFile english = cldrFactory.make("en", true);
     Set<String> euCountries = sdata.getContained("EU");
     private Map<Pair<String, String>, Double> override = new TreeMap();

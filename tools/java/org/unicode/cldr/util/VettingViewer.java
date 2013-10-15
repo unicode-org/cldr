@@ -1809,10 +1809,10 @@ public class VettingViewer<T> {
         repeat(null, null, "Repeat indefinitely"),
         filter(".*", ".*", "Filter files"),
         locale(".*", "af", "Single locale for testing"),
-        source(".*", CldrUtility.MAIN_DIRECTORY, // CldrUtility.TMP2_DIRECTORY + "/vxml/common/main"
+        source(".*", CLDRPaths.MAIN_DIRECTORY, // CldrUtility.TMP2_DIRECTORY + "/vxml/common/main"
             "if summary, creates filtered version (eg -d main): does a find in the name, which is of the form dir/file"),
             verbose(null, null, "verbose debugging messages"),
-            output(".*", CldrUtility.TMP_DIRECTORY + "dropbox/mark/vetting/", "filter the raw files (non-summary, mostly for debugging)"), ;
+            output(".*", CLDRPaths.TMP_DIRECTORY + "dropbox/mark/vetting/", "filter the raw files (non-summary, mostly for debugging)"), ;
         // boilerplate
         final Option option;
 
@@ -1830,16 +1830,16 @@ public class VettingViewer<T> {
         String LOCALE = MyOptions.locale.option.getValue();
         String CURRENT_MAIN = MyOptions.source.option.getValue();
         final String version = "24.0";
-        final String lastMain = CldrUtility.ARCHIVE_DIRECTORY + "/cldr-" + version + "/common/main";
+        final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version + "/common/main";
         do {
         Timer timer = new Timer();
         timer.start();
 
         Factory cldrFactory = Factory.make(CURRENT_MAIN, fileFilter);
-        cldrFactory.setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
+        cldrFactory.setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
         Factory cldrFactoryOld = Factory.make(lastMain, fileFilter);
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-            .getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+            .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
         CheckCLDR.setDisplayInformation(cldrFactory.make("en", true));
 
         // FAKE this, because we don't have access to ST data

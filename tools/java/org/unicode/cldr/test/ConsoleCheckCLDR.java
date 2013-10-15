@@ -32,6 +32,7 @@ import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.tool.TablePrinter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -121,10 +122,10 @@ public class ConsoleCheckCLDR {
         UOption.create("errors_only", 'e', UOption.NO_ARG),
         UOption.create("check-on-submit", 'k', UOption.NO_ARG),
         UOption.create("noaliases", 'n', UOption.NO_ARG),
-        UOption.create("source_directory", 's', UOption.REQUIRES_ARG).setDefault(CldrUtility.MAIN_DIRECTORY),
+        UOption.create("source_directory", 's', UOption.REQUIRES_ARG).setDefault(CLDRPaths.MAIN_DIRECTORY),
         UOption.create("user", 'u', UOption.REQUIRES_ARG),
         UOption.create("phase", 'z', UOption.REQUIRES_ARG),
-        UOption.create("generate_html", 'g', UOption.OPTIONAL_ARG).setDefault(CldrUtility.CHART_DIRECTORY + "/errors/"),
+        UOption.create("generate_html", 'g', UOption.OPTIONAL_ARG).setDefault(CLDRPaths.CHART_DIRECTORY + "/errors/"),
         UOption.create("vote resolution", 'v', UOption.NO_ARG),
         UOption.create("id view", 'i', UOption.NO_ARG),
         UOption.create("subtype_filter", 'y', UOption.REQUIRES_ARG),
@@ -149,7 +150,7 @@ public class ConsoleCheckCLDR {
 
     private static String[] HelpMessage = {
         "-h \t This message",
-        "-s \t Source directory, default = " + CldrUtility.MAIN_DIRECTORY,
+        "-s \t Source directory, default = " + CLDRPaths.MAIN_DIRECTORY,
         "-fxxx \t Pick the locales (files) to check: xxx is a regular expression, eg -f fr, or -f fr.*, or -f (fr|en-.*)",
         "-pxxx \t Pick the paths to check, eg -p(.*languages.*)",
         "-cxxx \t Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic",
@@ -273,9 +274,9 @@ public class ConsoleCheckCLDR {
         idView = options[ID_VIEW].doesOccur;
 
         if (options[VOTE_RESOLVE].doesOccur) {
-            resolveVotesDirectory = CldrUtility.checkValidFile(CldrUtility.BASE_DIRECTORY + "incoming/vetted/votes/",
+            resolveVotesDirectory = CldrUtility.checkValidFile(CLDRPaths.BASE_DIRECTORY + "incoming/vetted/votes/",
                 true, null);
-            VoteResolver.setVoterToInfo(CldrUtility.checkValidFile(CldrUtility.BASE_DIRECTORY
+            VoteResolver.setVoterToInfo(CldrUtility.checkValidFile(CLDRPaths.BASE_DIRECTORY
                 + "incoming/vetted/usersa/usersa.xml", false, null));
             voteResolver = new VoteResolver<String>();
         }
@@ -309,7 +310,7 @@ public class ConsoleCheckCLDR {
 
         // set up the test
         Factory cldrFactory = Factory.make(sourceDirectory, factoryFilter)
-            .setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
+            .setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
         CompoundCheckCLDR checkCldr = CheckCLDR.getCheckAll(cldrFactory, checkFilter);
         if (checkCldr.getFilteredTestList().size() == 0) {
             throw new IllegalArgumentException("The filter doesn't match any tests.");
@@ -318,12 +319,12 @@ public class ConsoleCheckCLDR {
         try {
             english = cldrFactory.make("en", true);
         } catch (Exception e1) {
-            Factory backCldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, factoryFilter)
-                .setSupplementalDirectory(new File(CldrUtility.SUPPLEMENTAL_DIRECTORY));
+            Factory backCldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, factoryFilter)
+                .setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
             english = backCldrFactory.make("en", true);
         }
         checkCldr.setDisplayInformation(english);
-        setExampleGenerator(new ExampleGenerator(english, english, CldrUtility.SUPPLEMENTAL_DIRECTORY));
+        setExampleGenerator(new ExampleGenerator(english, english, CLDRPaths.SUPPLEMENTAL_DIRECTORY));
         PathShower pathShower = new PathShower();
 
         // call on the files
@@ -342,7 +343,7 @@ public class ConsoleCheckCLDR {
 
         showHeaderLine();
 
-        supplementalDataInfo = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        supplementalDataInfo = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
 
         LocaleIDParser localeIDParser = new LocaleIDParser();
         String lastBaseLanguage = "";
@@ -493,7 +494,7 @@ public class ConsoleCheckCLDR {
 
             // only create if we are going to use
             ExampleGenerator exampleGenerator = SHOW_EXAMPLES ? new ExampleGenerator(file, englishFile,
-                CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY) : null;
+                CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY) : null;
             ExampleContext exampleContext = new ExampleContext();
 
             // Status pathStatus = new Status();

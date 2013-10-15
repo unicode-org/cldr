@@ -90,7 +90,7 @@ public class WikipediaOfficialLanguages {
         Pattern commentBreak = Pattern.compile("\\)\\s*\\(?|\\s*\\(");
         int count = 0;
         try {
-            BufferedReader input = BagFormatter.openUTF8Reader(CldrUtility.UTIL_DATA_DIR, "WikipediaOfficialLanguages.txt");
+            BufferedReader input = BagFormatter.openUTF8Reader(CLDRPaths.UTIL_DATA_DIR, "WikipediaOfficialLanguages.txt");
             Set<String> regionSet = null;
             while (true) {
                 String line = input.readLine();

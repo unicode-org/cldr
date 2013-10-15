@@ -10,6 +10,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -26,7 +27,7 @@ public class DiffWithParent {
         try {
             fileMatcher = Pattern.compile(CldrUtility.getProperty("FILE", ".*")).matcher(
                 "");
-            Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+            Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile english = cldrFactory.make("en", true);
             TablePrinter table = new TablePrinter().addColumn("Path").setSpanRows(
                 true).addColumn("Locale").addColumn("Value").addColumn("FullPath");
@@ -61,7 +62,7 @@ public class DiffWithParent {
                                 pvalue).addCell(pfullPath).finishRow();
                         }
                     }
-                    PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
+                    PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
                         locale + "_diff.html");
                     String title = locale + " " + english.getName(locale)
                         + " Diff with Parent";

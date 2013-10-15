@@ -11,6 +11,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 
@@ -434,7 +435,7 @@ public class FrequencyData {
             long runningTotal = 0;
             double threshold = standardDeviation[4] * total;
 
-            PrintWriter out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "/char_frequencies/" + lang
+            PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "/char_frequencies/" + lang
                 + (MARKUP ? "_markup" : "") + ".txt");
             out.println("lang\trank\tcount\tlangPPB\tNFC\tcat\tscript\tcodepoint\tchar\tname");
 

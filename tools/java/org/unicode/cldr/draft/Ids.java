@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 
 import com.ibm.icu.dev.util.BagFormatter;
@@ -824,7 +824,7 @@ public abstract class Ids implements Comparable<Ids> {
         if (out != null) {
             out.close();
         }
-        out = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY + "/../ids/", filename);
+        out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/../ids/", filename);
         out.print('\uFEFF');
         out.println(header);
     }

@@ -18,6 +18,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
@@ -49,10 +50,10 @@ public class GenerateEnums {
 
     private StandardCodes sc = StandardCodes.make();
 
-    private Factory factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+    private Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
 
     private Factory supplementalFactory = Factory.make(
-        CldrUtility.SUPPLEMENTAL_DIRECTORY, ".*");
+        CLDRPaths.SUPPLEMENTAL_DIRECTORY, ".*");
 
     private Set cldrCodes = new TreeSet();
 
@@ -100,7 +101,7 @@ public class GenerateEnums {
     }
 
     private void showCurrencies() throws IOException {
-        Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/currency_enum.txt");
+        Log.setLog(CLDRPaths.GEN_DIRECTORY + "/enum/currency_enum.txt");
         Log.println();
         Log.println("Currency Data");
         Log.println();
@@ -158,7 +159,7 @@ public class GenerateEnums {
     }
 
     private void showScripts() throws IOException {
-        Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/script_enum.txt");
+        Log.setLog(CLDRPaths.GEN_DIRECTORY + "/enum/script_enum.txt");
         Log.println();
         Log.println("Script Data");
         Log.println();
@@ -180,7 +181,7 @@ public class GenerateEnums {
     }
 
     private void showLanguageInfo() throws IOException {
-        Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/language_info.txt");
+        Log.setLog(CLDRPaths.GEN_DIRECTORY + "/enum/language_info.txt");
         System.out.println();
         System.out.println("Language Converter");
         System.out.println();
@@ -211,7 +212,7 @@ public class GenerateEnums {
     }
 
     private void showLanguages() throws IOException {
-        Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/language_enum.txt");
+        Log.setLog(CLDRPaths.GEN_DIRECTORY + "/enum/language_enum.txt");
         System.out.println();
         System.out.println("Language Data");
         System.out.println();
@@ -575,7 +576,7 @@ public class GenerateEnums {
     private Set<String> validCurrencyCodes;
 
     static SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo
-        .getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+        .getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
 
     /**
      * Get the RegionCode Enum
@@ -583,7 +584,7 @@ public class GenerateEnums {
      * @throws IOException
      */
     private void showRegionCodeInfo() throws IOException {
-        Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/region_enum.txt");
+        Log.setLog(CLDRPaths.GEN_DIRECTORY + "/enum/region_enum.txt");
         System.out.println();
         System.out.println("Data for RegionCode");
         System.out.println();
@@ -601,7 +602,7 @@ public class GenerateEnums {
         showGeneratedCommentEnd(CODE_INDENT);
         Log.close();
 
-        Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/region_info.txt");
+        Log.setLog(CLDRPaths.GEN_DIRECTORY + "/enum/region_info.txt");
         Log.println();
         Log.println("Data for ISO Region Codes");
         Log.println();
@@ -649,7 +650,7 @@ public class GenerateEnums {
         }
         Log.close();
 
-        Log.setLog(CldrUtility.GEN_DIRECTORY + "/enum/region_converters.txt");
+        Log.setLog(CLDRPaths.GEN_DIRECTORY + "/enum/region_converters.txt");
         Log.println();
         Log.println("Data for ISO Region Codes");
         Log.println();

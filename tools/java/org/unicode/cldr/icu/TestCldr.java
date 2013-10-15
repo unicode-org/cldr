@@ -32,6 +32,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -85,7 +86,7 @@ public class TestCldr extends TestFmwk {
 
     public void TestScripts() {
         Factory cldrFactory = Factory.make(
-            CldrUtility.MAIN_DIRECTORY, MATCH, DraftStatus.contributed);
+            CLDRPaths.MAIN_DIRECTORY, MATCH, DraftStatus.contributed);
         ULocale locales[] = ULocale.getAvailableLocales();
         for (int i = 0; i < locales.length; ++i) {
             ULocale locale = locales[i];
@@ -147,7 +148,7 @@ public class TestCldr extends TestFmwk {
     }
 
     public void TestFiles() throws SAXException, IOException {
-        directory = CldrUtility.TEST_DIR;
+        directory = CLDRPaths.TEST_DIR;
         /*
          * Set s = GenerateCldrTests.getMatchingXMLFiles(directory, ".*");
          * for (Iterator it = s.iterator(); it.hasNext();) {

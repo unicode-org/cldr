@@ -14,7 +14,7 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ElementAttributeInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.XPathParts;
@@ -429,10 +429,10 @@ public class TestAttributes extends TestFmwk {
         static Map<DtdType, NodeData> fullNodeData = new HashMap<DtdType, NodeData>();
         static {
             int counter = 0;
-            File common = new File(CldrUtility.COMMON_DIRECTORY);
+            File common = new File(CLDRPaths.COMMON_DIRECTORY);
             XPathParts parts = new XPathParts();
             for (String dir : common.list()) {
-                Factory cldrFactory = Factory.make(CldrUtility.COMMON_DIRECTORY + "/" + dir, ".*");
+                Factory cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "/" + dir, ".*");
                 Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
                 for (String locale : locales) {
                     if ((counter++ % 10) == 0) {

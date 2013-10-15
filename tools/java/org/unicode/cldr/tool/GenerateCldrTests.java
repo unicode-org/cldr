@@ -32,6 +32,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
@@ -82,9 +83,9 @@ public class GenerateCldrTests {
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.SOURCEDIR().setDefault(CldrUtility.COMMON_DIRECTORY),
-        UOption.DESTDIR().setDefault(CldrUtility.GEN_DIRECTORY + "/test/"),
-        UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault(CldrUtility.GEN_DIRECTORY),
+        UOption.SOURCEDIR().setDefault(CLDRPaths.COMMON_DIRECTORY),
+        UOption.DESTDIR().setDefault(CLDRPaths.GEN_DIRECTORY + "/test/"),
+        UOption.create("log", 'l', UOption.REQUIRES_ARG).setDefault(CLDRPaths.GEN_DIRECTORY),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
         UOption.create("notresolved", 'n', UOption.NO_ARG),
         UOption.create("languages", 'g', UOption.NO_ARG),
@@ -359,7 +360,7 @@ public class GenerateCldrTests {
         generateItems(locale, collationLocales, CollationShower);
         out.println(" </cldrTest>");
         out.close();
-        CldrUtility.generateBat(options[SOURCEDIR].value + "test" + File.separator,
+        ToolUtilities.generateBat(options[SOURCEDIR].value + "test" + File.separator,
             locale + ".xml", options[DESTDIR].value, locale + ".xml",
             new CldrUtility.SimpleLineComparator(0));
     }

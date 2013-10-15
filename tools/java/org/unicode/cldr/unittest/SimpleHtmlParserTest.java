@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
@@ -12,7 +13,7 @@ import com.ibm.icu.dev.util.BagFormatter;
 
 public class SimpleHtmlParserTest {
     public static void main(String[] args) throws IOException {
-        PrintWriter writer = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY,
+        PrintWriter writer = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
             "chart_messages2.html");
         try {
             BufferedReader reader = CldrUtility.getUTF8Data("chart_messages.html");

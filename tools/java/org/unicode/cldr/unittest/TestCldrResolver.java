@@ -13,6 +13,7 @@ import org.unicode.cldr.tool.resolver.CldrResolver;
 import org.unicode.cldr.tool.resolver.ResolutionType;
 import org.unicode.cldr.tool.resolver.ResolverUtils;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -95,7 +96,7 @@ public class TestCldrResolver extends TestFmwk {
         private CldrResolver resolver;
 
         public ResolverTest(ResolutionType resolutionType) {
-            factory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+            factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             resolver = new CldrResolver(factory, resolutionType);
         }
 

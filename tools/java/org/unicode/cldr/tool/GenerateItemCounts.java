@@ -21,7 +21,7 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.PathStarrer;
 import org.unicode.cldr.util.RegexUtilities;
@@ -42,7 +42,7 @@ import com.ibm.icu.util.VersionInfo;
 
 public class GenerateItemCounts {
     private static final boolean SKIP_ORDERING = true;
-    private static final String OUT_DIRECTORY = CldrUtility.GEN_DIRECTORY + "/itemcount/"; // CldrUtility.MAIN_DIRECTORY;
+    private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/itemcount/"; // CldrUtility.MAIN_DIRECTORY;
     private Map<String, List<StackTraceElement>> cantRead = new TreeMap<String, List<StackTraceElement>>();
 
     private static String[] DIRECTORIES = {
@@ -97,7 +97,7 @@ public class GenerateItemCounts {
             Relation<String, String> oldPath2value = null;
             for (String dir : DIRECTORIES) {
                 // if (dirPattern != null && !dirPattern.matcher(dir).find()) continue;
-                String fulldir = new File(CldrUtility.ARCHIVE_DIRECTORY + "/" + dir).getCanonicalPath();
+                String fulldir = new File(CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir).getCanonicalPath();
                 String prefix = (MyOptions.rawfilter.option.doesOccur() ? "filtered_" : "");
                 String fileKey = dir.replace("/", "_");
                 PrintWriter summary = BagFormatter.openUTF8Writer(OUT_DIRECTORY, prefix + "count_" + fileKey + ".txt");

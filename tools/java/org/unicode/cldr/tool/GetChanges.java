@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
@@ -41,9 +42,9 @@ public class GetChanges {
         TestInfo testInfo = TestInfo.getInstance();
         CLDRFile english = testInfo.getEnglish();
 
-        Factory lastReleaseFactory = Factory.make(CldrUtility.LAST_DIRECTORY + "common/main/", ".*");
+        Factory lastReleaseFactory = Factory.make(CLDRPaths.LAST_DIRECTORY + "common/main/", ".*");
         Factory trunkFactory = testInfo.getCldrFactory();
-        Factory snapshotFactory = Factory.make(CldrUtility.TMP2_DIRECTORY + "vxml/common/main/", ".*");
+        Factory snapshotFactory = Factory.make(CLDRPaths.TMP2_DIRECTORY + "vxml/common/main/", ".*");
         PathHeader.Factory phf = PathHeader.getFactory(english);
 
         int totalCount = 0;

@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
@@ -16,7 +17,7 @@ import com.ibm.icu.dev.util.Relation;
 
 public class GenerateLanguageData {
     // static StandardCodes sc = StandardCodes.make();
-    static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CldrUtility.SUPPLEMENTAL_DIRECTORY);
+    static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
     static Iso639Data iso639Data = new Iso639Data();
 
     public static void main(String[] args) {

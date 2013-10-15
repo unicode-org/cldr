@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -30,8 +31,8 @@ public class CompareData {
     private static final UOption[] options = {
         UOption.HELP_H(),
         UOption.HELP_QUESTION_MARK(),
-        UOption.SOURCEDIR().setDefault(CldrUtility.BASE_DIRECTORY),
-        UOption.DESTDIR().setDefault(CldrUtility.BASE_DIRECTORY + "../cldr-last/"),
+        UOption.SOURCEDIR().setDefault(CLDRPaths.BASE_DIRECTORY),
+        UOption.DESTDIR().setDefault(CLDRPaths.BASE_DIRECTORY + "../cldr-last/"),
         UOption.create("match", 'm', UOption.REQUIRES_ARG).setDefault(".*"),
     };
 

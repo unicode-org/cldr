@@ -49,7 +49,7 @@ class GenerateStatistics {
     public static void generateSize(String sourceDir, String logDir, String match, boolean transliterate)
         throws IOException {
         factory = Factory.make(sourceDir, match);
-        CldrUtility.registerExtraTransliterators();
+        ToolUtilities.registerExtraTransliterators();
 
         PrintWriter logHtml = BagFormatter.openUTF8Writer(
             logDir,

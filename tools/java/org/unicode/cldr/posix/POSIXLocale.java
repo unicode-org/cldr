@@ -13,7 +13,7 @@ import java.nio.charset.Charset;
 
 import org.unicode.cldr.icu.SimpleConverter;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
@@ -48,11 +48,11 @@ public class POSIXLocale {
         this.codeset = codeset;
         this.variant = variant;
 
-        Factory mainFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
-        Factory suppFactory = Factory.make(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
-        Factory collFactory = Factory.make(CldrUtility.COLLATION_DIRECTORY, ".*");
+        Factory mainFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+        Factory suppFactory = Factory.make(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
+        Factory collFactory = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*");
         CLDRFile doc = mainFactory.make(locale_name, true);
-        SupplementalDataInfo supp = SupplementalDataInfo.getInstance(CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        SupplementalDataInfo supp = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
         CLDRFile char_fallbk = suppFactory.make("characters", false);
         CLDRFile collrules = collFactory.makeWithFallback(locale_name);
 

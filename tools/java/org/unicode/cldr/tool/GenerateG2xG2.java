@@ -14,7 +14,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
@@ -41,7 +41,7 @@ public class GenerateG2xG2 {
 
         String sourceLanguage = "G5";
         String targetLanguage = "G5";
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         english = cldrFactory.make("en", true);
         root = cldrFactory.make("root", true);
         StandardCodes sc = StandardCodes.make();
@@ -121,7 +121,7 @@ public class GenerateG2xG2 {
             }
         }
         // print out missing translations.
-        PrintWriter pw = BagFormatter.openUTF8Writer(CldrUtility.GEN_DIRECTORY, "G2xG2.txt");
+        PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "G2xG2.txt");
         // show priorities
         Comparator comp = new UTF16.StringComparator();
         Set priority_set = new TreeSet(new ArrayComparator(new Comparator[] { comp, comp, comp }));
@@ -193,7 +193,7 @@ public class GenerateG2xG2 {
         StandardCodes sc = StandardCodes.make();
         {
             Set<String> countries = sc.getGoodAvailableCodes("territory");
-            Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+            Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             english = cldrFactory.make("en", true);
             for (Iterator it = countries.iterator(); it.hasNext();) {
                 String territory = (String) it.next();
@@ -207,7 +207,7 @@ public class GenerateG2xG2 {
         if (choice == -1) {
 
             testSet.addAll(sc.getGoodAvailableCodes("currency"));
-            Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+            Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             english = cldrFactory.make("en", false);
             for (Iterator it = testSet.iterator(); it.hasNext();) {
                 String country = (String) it.next();
@@ -368,7 +368,7 @@ public class GenerateG2xG2 {
     private static List<String> getCurrency(String territory) {
         if (territory_currency == null) {
             territory_currency = new TreeMap<String, List<String>>();
-            Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+            Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
             XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
             for (String path : supp) {

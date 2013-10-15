@@ -39,7 +39,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.GenerateBirth.Versions;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -193,12 +193,12 @@ public class WritePluralRulesSpreadsheets {
 
             if (supplementalNew == null) {
                 supplementalNew = SupplementalDataInfo.getInstance(
-                    CldrUtility.ARCHIVE_DIRECTORY + "cldr-" + versions[0] + "/common/supplemental/");
+                    CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + versions[0] + "/common/supplemental/");
                 continue;
             }
 
             supplementalNew = SupplementalDataInfo.getInstance(
-                CldrUtility.ARCHIVE_DIRECTORY + "cldr-" + newVersion + "/common/supplemental/");
+                CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + newVersion + "/common/supplemental/");
             System.out.println("# " + oldVersion + "➞" + newVersion);
 
             Set<String> oldLocales = supplementalOld.getPluralLocales();

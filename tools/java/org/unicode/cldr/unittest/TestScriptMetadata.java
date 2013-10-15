@@ -16,7 +16,7 @@ import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.draft.ScriptMetadata.Shaping;
 import org.unicode.cldr.draft.ScriptMetadata.Trinary;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
@@ -121,7 +121,7 @@ public class TestScriptMetadata extends TestFmwk {
     public void TestShowLanguages() {
         // lifted from ShowLanguages - this is what ShowLanguages tried to do.
         StandardCodes sc = StandardCodes.make();
-        Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
+        Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
         Set<String> bads = new TreeSet<String>();
 

@@ -902,7 +902,10 @@ public class SupplementalDataInfo {
     }
 
     static private SupplementalDataInfo defaultInstance = null;
-
+    /**
+     * Which directory did we come from?
+     */
+    final private File directory;   
     /**
      * Get an instance chosen using setAsDefaultInstance(), otherwise return an instance using the default directory
      * CldrUtility.SUPPLEMENTAL_DIRECTORY
@@ -947,21 +950,30 @@ public class SupplementalDataInfo {
                     return instance;
                 }
             }
-            instance = new SupplementalDataInfo();
+            File directory = new File(canonicalpath);
+            instance = new SupplementalDataInfo(directory);
             MyHandler myHandler = instance.new MyHandler();
             XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
-            File files1[] = new File(canonicalpath).listFiles();
+            File files1[] = directory.listFiles();
             if (files1 == null) {
                 throw new InternalError("Could not list XML Files from " + canonicalpath);
             }
+            if (files1.length == 0) {
+                throw new InternalError("Error: Supplemental files missing from " + directory.getAbsolutePath());
+            }
             // get bcp47 files also
-            File files2[] = new File(canonicalpath + "/../bcp47").listFiles();
+            File bcp47dir = instance.getBcp47Directory();
+            if(!bcp47dir.isDirectory()) {
+                throw new InternalError("Error: BCP47 dir is not a directory: " + bcp47dir.getAbsolutePath());
+            }
+            File files2[] = bcp47dir.listFiles();
+            if (files2 == null || files2.length == 0) {
+                throw new InternalError("Error: BCP47 files missing from " + bcp47dir.getAbsolutePath());
+            }
 
             CBuilder<File, ArrayList<File>> builder = Builder.with(new ArrayList<File>());
             builder.addAll(files1);
-            if (files2 != null) {
-                builder.addAll(files2);
-            }
+            builder.addAll(files2);
             for (File file : builder.get()) {
                 if (DEBUG) {
                     try {
@@ -991,7 +1003,12 @@ public class SupplementalDataInfo {
         }
     }
 
-    private SupplementalDataInfo() {
+    private File getBcp47Directory() {
+        return new File(getDirectory().getParent(), "bcp47");
+    }
+
+    private SupplementalDataInfo(File directory) {
+        this.directory = directory;
     }; // hide
 
     private void makeStuffSafe() {
@@ -1066,6 +1083,9 @@ public class SupplementalDataInfo {
         bcp47Key2Subtypes.freeze();
         bcp47Extension2Keys.freeze();
         bcp47Aliases.freeze();
+        if(bcp47Key2Subtypes.isEmpty()) {
+            throw new InternalError("No BCP47 key 2 subtype data was loaded from bcp47 dir " + getBcp47Directory().getAbsolutePath());
+        }
         CldrUtility.protectCollection(bcp47Descriptions);
 
         CoverageLevelInfo.fixEU(coverageLevels, this);
@@ -3629,5 +3649,9 @@ public class SupplementalDataInfo {
 
     public VersionInfo getCldrVersion() {
         return cldrVersion;
+    }
+
+    public File getDirectory() {
+        return directory;
     }
 }

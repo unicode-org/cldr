@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.io.File;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -278,7 +279,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             simpleHandler = new DtdData(type);
             XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
             StringReader s = new StringReader("<?xml version='1.0' encoding='UTF-8' ?>"
-                + "<!DOCTYPE ldml SYSTEM '" + CLDRPaths.BASE_DIRECTORY + type.dtdPath + "'>");
+                + "<!DOCTYPE ldml SYSTEM '" + new File(CLDRConfig.getInstance().getCldrBaseDirectory(),type.dtdPath).getAbsolutePath() + "'>");
             xfr.read(type.toString(), s, -1, true); //  DTD_TYPE_TO_FILE.get(type)
             if (simpleHandler.ROOT.children.size() == 0) {
                 throw new IllegalArgumentException(); // should never happen

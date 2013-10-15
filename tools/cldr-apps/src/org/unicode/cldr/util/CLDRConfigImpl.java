@@ -197,11 +197,8 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             pw.println("## Current SurveyTool phase ");
             pw.println("CLDR_PHASE=" + Phase.BETA.name());
             pw.println();
-            pw.println("## CLDR common data. Default value shown, uncomment to override");
-            pw.println("CLDR_COMMON=" + homeFile.getAbsolutePath() + "/common");
-            pw.println();
-            pw.println("## CLDR seed data. Default value shown, uncomment to override");
-            pw.println("CLDR_SEED=" + homeFile.getAbsolutePath() + "/seed");
+            pw.println("## CLDR trunk. Default value shown");
+            pw.println("CLDR_DIR=" + homeFile.getAbsolutePath() + "/cldr-trunk");
             pw.println();
             pw.println("## SMTP server. Mail is disabled by default.");
             pw.println("#CLDR_SMTP=127.0.0.1");

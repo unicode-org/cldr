@@ -892,18 +892,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (fileBase == null) {
             String cldrHome = getSurveyHome();
             CLDRConfig survprops = CLDRConfig.getInstance();
-            fileBase = survprops.getProperty("CLDR_COMMON", cldrHome + "/common") + "/main"; // not
-                                                                                             // static
-                                                                                             // -
-                                                                                             // may
-                                                                                             // change
-                                                                                             // lager
-            fileBaseSeed = survprops.getProperty("CLDR_SEED", cldrHome + "/seed") + "/main"; // not
-                                                                                             // static
-                                                                                             // -
-                                                                                             // may
-                                                                                             // change
-                                                                                             // lager
+            File base = survprops.getCldrBaseDirectory();
+            fileBase     = new File(base, "common/main").getAbsolutePath();
+            fileBaseSeed = new File(base, "seed/main")  .getAbsolutePath();
         }
         if (fileBase == null)
             throw new NullPointerException("fileBase==NULL");
@@ -4388,8 +4379,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public synchronized Factory getDiskFactory() {
         if (gFactory == null) {
-            ensureOrCheckout("CLDR_COMMON", getFileBase(), "http://unicode.org/repos/cldr/trunk/common");
-            ensureOrCheckout("CLDR_SEED", getFileBaseSeed(), "http://unicode.org/repos/cldr/trunk/seed");
+            CLDRConfig config = CLDRConfig.getInstance();
+            ensureOrCheckout("CLDR_DIR", config.getCldrBaseDirectory(), "http://unicode.org/repos/cldr/trunk");
+            // verify readable
+            File root = new File(config.getCldrBaseDirectory(), "common/main");
+            if (!root.isDirectory()) {
+                throw new InternalError("Not a dir:  " + root.getAbsolutePath() + " - check the value of " + "CLDR_DIR" 
+                    + " in cldr.properties.");
+            }
 
             final File list[] = { new File(getFileBase()), new File(getFileBaseSeed()) };
             gFactory = SimpleFactory.make(list, ".*");
@@ -4397,51 +4394,54 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return gFactory;
     }
 
-    private void ensureOrCheckout(final String param, final String base, final String url) {
-        File dir = new File(base).getParentFile(); // these dirs come in as
-                                                   // '/main'
-        if (!dir.isDirectory()) {
+    private void ensureOrCheckout(final String param, final File dir, final String url) {
+        if(dir == null) {
+          busted("Configuration Error: " + param + " is not set.");  
+        } else if (!dir.isDirectory()) {
             try {
                 ElapsedTimer et = new ElapsedTimer();
+                
+                if(true) {
+                    throw new InternalError("Please run this manually:  'svn checkout " + url + " " + dir.getAbsolutePath()+"' - and restart the server. TODO- this will be fixed by the step-by-step install.");
+                }
+                
                 System.err.println(param + " directory " + dir.getAbsolutePath() + " did not exist - checking out " + url
                     + " - if this is not desired, modify " + param + " in cldr.properties. THIS MAY TAKE A WHILE!");
 
                 long res;
-                if (dir.getName().equals("common")) {
-                    res = getOutputFileManager().svnCheckout(dir, url, SVNRevision.UNDEFINED, SVNRevision.HEAD,
-                        SVNDepth.IMMEDIATES, true);
-                    Vector<File> toUpdate = new Vector<File>();
-                    // for(File f : dir.listFiles()) {
-                    // if(f.isDirectory()) {
-                    // if(f.getName().equals(".svn")) continue;
-                    // if(f.getName().equals("main")) continue;
-                    // if(f.getName().equals("collation")) continue;
-                    // toUpdate.add(f);
-                    // }
-                    // }
-                    String addLocales[] = { "root.xml", "en.xml", "en_US.xml" };
-                    for (String s : addLocales) {
-                        toUpdate.add(new File(base, s));
-                    }
-                    String addDirs[] = { "dtd", "supplemental" };
-                    for (String s : addDirs) {
-                        toUpdate.add(new File(dir, s));
-                    }
-                    getOutputFileManager().svnUpdate(toUpdate.toArray(new File[0]), SVNRevision.create(res), SVNDepth.INFINITY,
-                        true, true);
-                } else if (dir.getName().equals("seed")) {
-                    res = getOutputFileManager().svnCheckout(dir, url, SVNRevision.UNDEFINED, SVNRevision.HEAD,
-                        SVNDepth.IMMEDIATES, true);
-                    getOutputFileManager().svnUpdate(new File(base, BASELINE_ID + ".xml"));
-                    getOutputFileManager().svnUpdate(new File(base, "und" + ".xml"));
-                    getOutputFileManager().svnUpdate(new File(base, "und_ZZ" + ".xml"));
-                    System.err.println("Checked out stub seed dir.");
-                } else {
-                    res = getOutputFileManager().svnCheckout(dir, url);
-                }
-
+                res = getOutputFileManager().svnCheckout(dir, url, SVNRevision.UNDEFINED, SVNRevision.HEAD,
+                    SVNDepth.INFINITY, true);
+//                Vector<File> toUpdate = new Vector<File>();
+//                File commonFile = new File(dir, "common");
+//                File commonMainFile = new File(commonFile, "main");
+//                /*
+//                String addLocales[] = { "root.xml", "en.xml", "en_US.xml" };
+//                for (String s : addLocales) {
+//                    toUpdate.add(new File(commonMainFile, s));
+//                }
+//                */
+//                toUpdate.add(commonMainFile);
+//                String addDirs[] = { "dtd", "supplemental" };
+//                for (String s : addDirs) {
+//                    toUpdate.add(new File(commonFile, s));
+//                }
+//                File seedFile = new File(dir, "seed");
+//                File seedMainFile = new File(seedFile, "main");
+//                /*
+//                String addSeedLocales[] = { BASELINE_ID + ".xml", "und.xml", "und_ZZ.xml" };
+//                for (String s : addSeedLocales) {
+//                    toUpdate.add(new File(seedMainFile, s));
+//                }
+//                */
+//                toUpdate.add(seedMainFile);
+//                File fileArray[] = toUpdate.toArray(new File[0]);
+//                long res2[] = getOutputFileManager().svnUpdate(fileArray, SVNRevision.create(res), SVNDepth.INFINITY,
+//                        true, true);
                 System.err.println("Checked out " + url + " r " + res + " to " + dir.getAbsolutePath() + " - see the value of "
                     + param + " if you want to have a different location.  Took: " + et);
+//                for(int i=0;i<res2.length;i++) {
+//                    System.err.println(res2[i]+ " " + fileArray[i]);
+//                }
             } catch (SVNException e) {
                 final String msg = "Checking out " + url + " into " + dir.getAbsolutePath();
                 SurveyLog.logException(e, msg);
@@ -4456,13 +4456,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 busted(msg);
                 throw new InternalError(msg);
             }
-        }
-
-        // verify readable
-        File root = new File(dir, "main");
-        if (!root.isDirectory()) {
-            throw new InternalError("Not a dir:  " + root.getAbsolutePath() + " - check the value of " + param
-                + " in cldr.properties.");
         }
     }
 

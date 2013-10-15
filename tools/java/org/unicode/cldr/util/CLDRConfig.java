@@ -1,5 +1,6 @@
 package org.unicode.cldr.util;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
@@ -278,6 +279,15 @@ public class CLDRConfig extends Properties {
             } catch (NumberFormatException nfe) {
                 return defVal;
             }
+        }
+    }
+
+    public File getCldrBaseDirectory() {
+        String dir = getProperty("CLDR_DIR", null);
+        if(dir!=null) {
+            return new File(dir);
+        } else {
+            return null;
         }
     }
 }

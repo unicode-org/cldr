@@ -120,7 +120,8 @@ public class TestBasic extends TestFmwk {
             if (name.startsWith(".")) {
                 continue;
             } else if (fileName.isDirectory()) {
-                if (name.equals("tools") || name.equals("specs")) {
+                if (name.equals("tools") || name.equals("specs") 
+                        || name.equals("cldr-apps") || name.equals("Servers") || name.equals("cldr-tools")) {
                     continue;
                 }
                 if (name.equals("exemplars")) {

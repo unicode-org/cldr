@@ -106,7 +106,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         String locale = cldrFileToCheck.getLocaleID();
         col = Collator.getInstance(new ULocale(locale));
         spaceCol = Collator.getInstance(new ULocale(locale));
-        spaceCol.setStrength(col.PRIMARY);
+        spaceCol.setStrength(Collator.PRIMARY);
         isRoot = cldrFileToCheck.getLocaleID().equals("root");
         prettyPrinter = new PrettyPrinter()
             .setOrdering(col != null ? col : Collator.getInstance(ULocale.ROOT))

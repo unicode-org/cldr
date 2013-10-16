@@ -93,6 +93,11 @@ public class UDataInfo
 
     class IncorrectArrayLengthException extends Exception
     {
+        /**
+         * 
+         */
+        private static final long serialVersionUID = -3238261375903639881L;
+
         IncorrectArrayLengthException(String message)
         {
             super(message);

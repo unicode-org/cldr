@@ -13,7 +13,7 @@ public class CheckAlt extends CheckCLDR {
 
     XPathParts parts = new XPathParts();
     // CLDRFile.Status status = new CLDRFile.Status();
-    Set seenSoFar = new HashSet();
+    Set<String> seenSoFar = new HashSet<String>();
 
     // determine if we have an alt=...proposed
     // if we have one, and there is not a non-proposed version -- in this same file, unaliased, there's a problem.

@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
@@ -281,8 +282,15 @@ public class CLDRTest extends TestFmwk {
         logln("Total Count: " + totalCount);
         System.out.println("All exemplars: " + allExemplars.toPattern(true));
     }
-
-    static final long disableDate = new Date(2005 - 1900, 6 - 1, 3).getTime();
+    
+    // Get DatE-Time in milliseconds
+    private static Calendar cal = Calendar.getInstance();
+    private static long getDateTimeinMillis(int year, int month, int date){
+        cal.set(year, month, date);
+        return cal.getTimeInMillis();
+    }
+    
+    static final long disableDate = getDateTimeinMillis(2005, 6 - 1, 3);
 
     /**
      * 
@@ -413,13 +421,13 @@ public class CLDRTest extends TestFmwk {
      */
     public void TestForIllegalAttributeValues() {
         // check for illegal attribute values that are not in the DTD
-        Map result = new TreeMap();
-        Map totalResult = new TreeMap();
+        Map<String, Set<String>> result = new TreeMap<String, Set<String>>();
+        Map<String, Set<String>> totalResult = new TreeMap<String, Set<String>>();
         for (String locale : locales) {
             logln("Testing: " + locale);
             CLDRFile item = cldrFactory.make(locale, false);
             result.clear();
-            Set xpathFailures = null; // don't collect
+            Set<String> xpathFailures = null; // don't collect
             // XPathParts parts;
             // String xpath;
             // CLDRFile.StringValue value;
@@ -428,19 +436,19 @@ public class CLDRTest extends TestFmwk {
             checkAttributeValidity(item, result, xpathFailures);
 
             // now show
-            String localeName = getLocaleAndName(locale);
-            for (Iterator it3 = result.keySet().iterator(); it3.hasNext();) {
-                String code = (String) it3.next();
-                Set avalues = (Set) result.get(code);
+            //String localeName = getLocaleAndName(locale);
+            for (Iterator<String> it3 = result.keySet().iterator(); it3.hasNext();) {
+                String code = it3.next();
+                Set<String> avalues = result.get(code);
                 errln(getLocaleAndName(locale) + "\tillegal attribute value for " + code + ", value:\t" + show(avalues));
-                Set totalvalues = (Set) totalResult.get(code);
-                if (totalvalues == null) totalResult.put(code, totalvalues = new TreeSet());
+                Set<String> totalvalues = totalResult.get(code);
+                if (totalvalues == null) totalResult.put(code, totalvalues = new TreeSet<String>());
                 totalvalues.addAll(avalues);
             }
         }
-        for (Iterator it3 = totalResult.keySet().iterator(); it3.hasNext();) {
-            String code = (String) it3.next();
-            Set avalues = (Set) totalResult.get(code);
+        for (Iterator<String> it3 = totalResult.keySet().iterator(); it3.hasNext();) {
+            String code = it3.next();
+            Set<String> avalues = totalResult.get(code);
             errln("All illegal attribute values for " + code + ", value:\t" + show(avalues));
         }
     }
@@ -453,19 +461,19 @@ public class CLDRTest extends TestFmwk {
     public void TestDisplayNameCollisions() {
         if (disableUntilLater("TestDisplayNameCollisions")) return;
 
-        Map[] maps = new HashMap[CLDRFile.LIMIT_TYPES];
+        Map<String, String>[] maps = new HashMap[CLDRFile.LIMIT_TYPES];
         for (int i = 0; i < maps.length; ++i)
-            maps[i] = new HashMap();
-        Set collisions = new TreeSet();
-        for (Iterator it = locales.iterator(); it.hasNext();) {
-            String locale = (String) it.next();
+            maps[i] = new HashMap<String, String>();
+        Set<String> collisions = new TreeSet<String>();
+        for (Iterator<String> it = locales.iterator(); it.hasNext();) {
+            String locale = it.next();
             CLDRFile item = cldrFactory.make(locale, true);
             for (int i = 0; i < maps.length; ++i)
                 maps[i].clear();
             collisions.clear();
 
-            for (Iterator it2 = item.iterator(); it2.hasNext();) {
-                String xpath = (String) it2.next();
+            for (Iterator<String> it2 = item.iterator(); it2.hasNext();) {
+                String xpath = it2.next();
                 int nameType = CLDRFile.getNameType(xpath);
                 if (nameType < 0) continue;
                 String value = item.getStringValue(xpath);
@@ -478,8 +486,8 @@ public class CLDRTest extends TestFmwk {
                 surveyInfo.add(locale + "\t" + xpath + "\t'" + value + "' is a duplicate of what is in " + xpath2);
             }
             String name = getLocaleAndName(locale) + "\t";
-            for (Iterator it2 = collisions.iterator(); it2.hasNext();) {
-                errln(name + (String) it2.next());
+            for (Iterator<String> it2 = collisions.iterator(); it2.hasNext();) {
+                errln(name + it2.next());
             }
         }
     }
@@ -492,18 +500,18 @@ public class CLDRTest extends TestFmwk {
      * @param badCodes
      * @param xpathFailures
      */
-    public static void checkAttributeValidity(CLDRFile item, Map badCodes, Set xpathFailures) {
+    public static void checkAttributeValidity(CLDRFile item, Map<String, Set<String>> badCodes, Set<String> xpathFailures) {
         XPathParts parts = new XPathParts(null, null);
-        for (Iterator it2 = item.iterator(); it2.hasNext();) {
-            String xpath = (String) it2.next();
+        for (Iterator<String> it2 = item.iterator(); it2.hasNext();) {
+            String xpath = it2.next();
             parts.set(item.getFullXPath(xpath));
             for (int i = 0; i < parts.size(); ++i) {
                 if (parts.getAttributeCount(i) == 0) continue;
                 String element = parts.getElement(i);
-                Map attributes = parts.getAttributes(i);
-                for (Iterator it3 = attributes.keySet().iterator(); it3.hasNext();) {
-                    String attribute = (String) it3.next();
-                    String avalue = (String) attributes.get(attribute);
+                Map<String, String> attributes = parts.getAttributes(i);
+                for (Iterator<String> it3 = attributes.keySet().iterator(); it3.hasNext();) {
+                    String attribute = it3.next();
+                    String avalue = attributes.get(attribute);
                     checkValidity(xpath, element, attribute, avalue, badCodes, xpathFailures);
                 }
             }
@@ -513,10 +521,10 @@ public class CLDRTest extends TestFmwk {
     /**
      * Internal
      */
-    private String show(Collection avalues) {
+    private String show(Collection<String> avalues) {
         StringBuffer result = new StringBuffer("{");
         boolean first = true;
-        for (Iterator it3 = avalues.iterator(); it3.hasNext();) {
+        for (Iterator<String> it3 = avalues.iterator(); it3.hasNext();) {
             if (first)
                 first = false;
             else
@@ -530,8 +538,8 @@ public class CLDRTest extends TestFmwk {
     /**
      * Internal function
      */
-    private static void checkValidity(String xpath, String element, String attribute, String avalue, Map results,
-        Set xpathsFailing) {
+    private static void checkValidity(String xpath, String element, String attribute, String avalue, Map<String, Set<String>> results,
+        Set<String> xpathsFailing) {
         StandardCodes codes = StandardCodes.make();
         if (attribute.equals("type")) {
             boolean checkReplacements = xpath.indexOf("/identity") < 0;
@@ -554,7 +562,7 @@ public class CLDRTest extends TestFmwk {
      * @param checkReplacements
      *            TODO
      */
-    private static void checkCodes(String xpath, String code, String avalue, StandardCodes codes, Map results,
+    private static void checkCodes(String xpath, String code, String avalue, StandardCodes codes, Map<String, Set<String>> results,
         Set<String> xpathFailures, boolean checkReplacements) {
         // ok if code is found AND it has no replacement
         if (codes.getData(code, avalue) != null
@@ -562,9 +570,9 @@ public class CLDRTest extends TestFmwk {
 
         if (xpathFailures != null) xpathFailures.add(xpath);
         if (results == null) return;
-        Set s = (Set) results.get(code);
+        Set<String> s = results.get(code);
         if (s == null) {
-            s = new TreeSet();
+            s = new TreeSet<String>();
             results.put(code, s);
         }
         s.add(avalue);
@@ -641,17 +649,17 @@ public class CLDRTest extends TestFmwk {
 
     // <territoryContainment><group type="001" contains="002 009 019 142 150"/>
     // <languageData><language type="af" scripts="Latn" territories="ZA"/>
-    void getSupplementalData(Map language_scripts, Map language_territories, Map group_territory,
+    void getSupplementalData(Map<String, TreeSet<List<String>>> language_scripts, Map<String, TreeSet<List<String>>> language_territories, Map group_territory,
         Map territory_currencies, Map aliases) {
         boolean SHOW = false;
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
         XPathParts parts = new XPathParts(new UTF16.StringComparator(), null);
-        for (Iterator it = supp.iterator(); it.hasNext();) {
-            String path = (String) it.next();
+        for (Iterator<String> it = supp.iterator(); it.hasNext();) {
+            String path = it.next();
             try {
                 parts.set(supp.getFullXPath(path));
-                Map m;
+                Map<String, String> m;
                 String type = "";
                 if (aliases != null && parts.findElement("alias") >= 0) {
                     m = parts.findAttributes(type = "languageAlias");

@@ -81,8 +81,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
 
     private UnicodeSet exemplars;
     private UnicodeSet exemplarsPlusAscii;
-    private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplars = new UnicodeSet("[()（）;,；，]").freeze();
-    private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplarsWithParens = new UnicodeSet("[;,；，]").freeze();
+    //private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplars = new UnicodeSet("[()（）;,；，]").freeze();
+    //private static final UnicodeSet DISALLOWED_IN_scriptRegionExemplarsWithParens = new UnicodeSet("[;,；，]").freeze();
 
     // Hack until cldrbug 6566 is fixed. TODO
     private static final Pattern IGNORE_PLACEHOLDER_PARENTHESES = Pattern.compile("\\p{Ps}#\\p{Pe}");

@@ -1,5 +1,6 @@
 package org.unicode.cldr.test;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,11 +23,18 @@ import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
-
+    
+    // Get Date-Time in milliseconds
+    private static Calendar cal = Calendar.getInstance();
+    private static long getDateTimeinMillis(int year, int month, int date){
+        cal.set(year, month, date);
+        return cal.getTimeInMillis();
+    }
+    
     // TODO probably need to fix this to be more accurate over time
     static long year = (long) (365.2425 * 86400 * 1000); // can be approximate
-    static long startDate = new Date(1995 - 1900, 1 - 1, 15).getTime(); // can be approximate
-    static long endDate = new Date(2011 - 1900, 1 - 1, 15).getTime(); // can be approximate
+    static long startDate = getDateTimeinMillis(1995, 1 - 1, 15); // can be approximate
+    static long endDate = getDateTimeinMillis(2011, 1 - 1, 15); // can be approximate
 
     /**
      * An enum representing the types of xpaths that we don't want display collisions for.

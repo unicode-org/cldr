@@ -24,7 +24,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
+//import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
 
 import com.ibm.icu.util.Output;
 
@@ -445,13 +445,13 @@ public class LocaleMapper extends Mapper {
      *            the type of measurement required
      * @return the measurement of the specified locale
      */
-    private String getMeasurement(String localeID, MeasurementType measurementType) {
-        String region = localeID.equals("root") ? "001" : new LanguageTagParser().set(localeID).getRegion();
-        Map<MeasurementType, Map<String, String>> regionMeasurementData = supplementalDataInfo
-            .getTerritoryMeasurementData();
-        Map<String, String> typeMap = regionMeasurementData.get(measurementType);
-        return typeMap.get(region);
-    }
+//    private String getMeasurement(String localeID, MeasurementType measurementType) {
+//        String region = localeID.equals("root") ? "001" : new LanguageTagParser().set(localeID).getRegion();
+//        Map<MeasurementType, Map<String, String>> regionMeasurementData = supplementalDataInfo
+//            .getTerritoryMeasurementData();
+//        Map<String, String> typeMap = regionMeasurementData.get(measurementType);
+//        return typeMap.get(region);
+//    }     //not used
 
     /**
      * Sets xpath to monitor for debugging purposes.

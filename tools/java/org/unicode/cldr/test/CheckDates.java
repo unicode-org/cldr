@@ -3,6 +3,7 @@ package org.unicode.cldr.test;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.EnumMap;
@@ -584,10 +585,17 @@ public class CheckDates extends FactoryCheckCLDR {
         neutralFormat.setTimeZone(ExampleGenerator.ZONE_SAMPLE);
     }
     XPathParts pathParts = new XPathParts(null, null);
-
-    static long date1950 = new Date(50, 0, 1, 0, 0, 0).getTime();
-    static long date2010 = new Date(110, 0, 1, 0, 0, 0).getTime();
-    static long date4004BC = new Date(-4004 - 1900, 9, 23, 2, 0, 0).getTime();
+    
+    // Get DatE-Time in milliseconds
+    private static Calendar cal = Calendar.getInstance();
+    private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second){
+        cal.set(year, month, date, hourOfDay, minute, second);
+        return cal.getTimeInMillis();
+    }
+    
+    static long date1950 = getDateTimeinMillis(1950, 0, 1, 0, 0, 0);
+    static long date2010 = getDateTimeinMillis(2010, 0, 1, 0, 0, 0);
+    static long date4004BC = getDateTimeinMillis(-4004, 9, 23, 2, 0, 0);
     static Random random = new Random(0);
 
     private void checkPattern(DateTimePatternType dateTypePatternType, String path, String fullPath, String value, List<CheckStatus> result)

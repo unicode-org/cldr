@@ -51,7 +51,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
         }
 
         if (this.getPhase() != null && this.getPhase().equals(Phase.FINAL_TESTING)) {
-            Factory factory = PathHeader.getFactory(this.getDisplayInformation());
+            Factory factory = PathHeader.getFactory(CheckCLDR.getDisplayInformation());
             DraftStatus myStatus = null;
             EnumMap<DraftStatus, PathHeader> draftStatuses = new EnumMap<DraftStatus, PathHeader>(DraftStatus.class);
             for (String apath : paths) {

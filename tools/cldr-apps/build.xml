@@ -12,15 +12,15 @@
         <property name="jarDocs.file" value="cldr-apps-docs.jar"/>
         <property name="doc.dir" value="doc"/>
         <property name="doc.params" value=""/>
-        <!--  Load local definitions from an optional build.properties file, if available. 
+        <!--  Load local definitions from an optional build.properties file, if available.
               build.properties is NOT checked into CVS. -->
-        <property file="build.properties" />
         <!-- Load environment variables -->
         <!--
             <property environment="env"/>
         -->
+        <property file="build.properties" />
 
-        <!-- CLDR_TOOLS defaults to ../java, override if not correct. -->        
+        <!-- CLDR_TOOLS defaults to ../java, override if not correct. -->
         <property name="CLDR_TOOLS" value="../java"/>
         <property name="CLDR_DIR" value="../../common/.."/>
         <property name="CLDR_JAR" value="${CLDR_TOOLS}/cldr.jar"/>
@@ -28,7 +28,7 @@
         <path id="build.classpath">
             <pathelement path="${build.dir}"/>
         </path>
-        
+
         <property name="ICU4J_JAR" value="${CLDR_TOOLS}/libs/icu4j.jar"/>
         <property name="UTILITIES_JAR" value="${CLDR_TOOLS}/libs/utilities.jar"/>
 
@@ -39,12 +39,29 @@
         <property name="tomcat.home"        value="${CATALINA_HOME}"/>
         <condition property="is.tomcat.home.set" >
                 <isset property="CATALINA_HOME" />
-        </condition> 
-        <fail unless="is.tomcat.home.set" message="Please set the CATALINA_HOME property in build.properties to point at your Tomcat installation."/>   
+        </condition>
+        <fail unless="is.tomcat.home.set" message="Please set the CATALINA_HOME property in build.properties to point at your Tomcat installation."/>
         <property name="SERVLET_JAR"        value="${CATALINA_HOME}/lib/servlet-api.jar"/>
 
+        <!-- Configure the context path for this application -->
+        <property name="path"     value="/cldr-apps"/>
+        <property name="hostport" value="http://localhost:8080"/>
+        <!-- Configure properties to access the Manager application -->
+        <property name="managerpath" value="/manager/text" />
+        <property name="url"      value="${hostport}${managerpath}"/>  <!-- TODO: support multiple, overrides -->
+        <property name="appurl"   value="${hostport}${path}"/>
+        <property name="username" value="admin"/> <!-- TODO: support overrides -->
+        <property name="webcheck.delay" value="15"/> <!-- delay time -->
+        <!-- call ant with:  -Dpassword=adminpass to use the updating stuff -->
+
+        <property name="warfile" location="cldr-apps.war"/>
+
+	<property name="WebContent" location="./WebContent"/>
+	<property name="WEB-INF" location="${WebContent}/WEB-INF"/>
+        <property name="webxml" location="${WEB-INF}/web.xml"/>
+
         <mkdir dir="${build.dir}"/>
-        
+
         <path id="project.class.path">
             <pathelement path="${java.class.path}/"/>
             <pathelement path="${build.dir}"/>
@@ -65,19 +82,19 @@
             <pathelement location="${ROME_LIB}"/>
 
         </path>
-        
+
  <!--       <property name="icu.home"           value="${env.ICU4J_HOME}"/> -->
-        
+
         <property name="wardata" value="${src.dir}/org/unicode/cldr/web/data"/>
 
-  <path id="catalina-ant.classpath">
-	<fileset dir="${tomcat.home}/lib">
-		<include name="**/*.jar"/>
-	</fileset>
-	<fileset dir="${tomcat.home}/bin">
-		<include name="**/*.jar"/>
-	</fileset>
-  </path>
+        <path id="catalina-ant.classpath">
+          <fileset dir="${tomcat.home}/lib">
+	    <include name="**/*.jar"/>
+	  </fileset>
+	  <fileset dir="${tomcat.home}/bin">
+	    <include name="**/*.jar"/>
+	  </fileset>
+        </path>
 
         <!-- Configure the custom Ant tasks for the Manager application -->
         <taskdef name="deploy"    classname="org.apache.catalina.ant.DeployTask"><classpath refid="catalina-ant.classpath" /></taskdef>
@@ -89,26 +106,13 @@
         <taskdef name="stop"      classname="org.apache.catalina.ant.StopTask"><classpath refid="catalina-ant.classpath" /></taskdef>
         <taskdef name="undeploy"  classname="org.apache.catalina.ant.UndeployTask"><classpath refid="catalina-ant.classpath" /></taskdef>
 
-        <!-- Configure the context path for this application -->
-        <property name="path"     value="/cldr-apps"/>
-
-        <!-- Configure properties to access the Manager application -->
-        <property name="url"      value="http://localhost:8080/manager"/>  <!-- TODO: support multiple, overrides -->
-        <property name="username" value="admin"/> <!-- TODO: support overrides -->
-        <!-- call ant with:  -Dpassword=adminpass to use the updating stuff --> 
-        
-        <property name="warfile" location="cldr-apps.war"/>
-
-		<property name="WebContent" location="./WebContent"/>
-		<property name="WEB-INF" location="${WebContent}/WEB-INF"/>
-        <property name="webxml" location="${WEB-INF}/web.xml"/>
         <!--
-        TODO: do the following for the other env variables above.. 
+        TODO: do the following for the other env variables above..
         <condition property="is.icu4j.classes.set" >
             <isset property="env.ICU4J_CLASSES" />
-        </condition > 
+        </condition >
         <fail unless="is.icu4j.classes.set" message="Please set the ICU4J_CLASSES environment variable."/>
-        -->                
+        -->
 
         <echo message="Java: ${java.version}. [For verbose list of properties, use the 'properties' target.]"/>
     </target>
@@ -142,6 +146,10 @@
         <echo message="CLDR_CLASSES: ${CLDR_CLASSES}"/>
         <echo message="env.UTILITIES_JAR: ${env.UTILITIES_JAR}"/>
         <echo message="env.XML_APIS_JAR: ${env.XML_APIS_JAR}"/>
+        <echo/>
+        <echo message="Servlet properties"/>
+        <echo message="appurl: ${appurl}"/>
+        <echo message="url: ${url}"/>
     </target>
 
 
@@ -153,7 +161,7 @@
         <delete file="${jarDocs.file}"/>
         <delete dir="${doc.dir}"/>
     </target>
-    
+
     <target name="jar" depends="web" description="build full 'cldr.jar' jar file">
         <jar jarfile="${jar.file}"
             compress="true"
@@ -191,10 +199,10 @@
     </target>
                <!-- bottom="&lt;font size=-1>Copyright (c) ${current.year} IBM Corporation and others.&lt;/font>" -->
 
-    
+
   <!-- SurveyTool (web) stuff follows ................. -->
-    
-    
+
+
     <!-- build all web related things -->
     <!--
     	// includes="${src.dir}/**/*.java"
@@ -203,7 +211,7 @@
 	<target name="web" depends="all" description="alias for old 'web' target"/>
 
     <target name="all" depends="init" description="build web classes">
-        <javac 
+        <javac
             srcdir="${src.dir}"
         	includes="org/unicode/cldr/util/*.java,org/unicode/cldr/web/*.java,org/json/*.java"
             destdir="${build.dir}"
@@ -211,27 +219,28 @@
             source="1.7"
             target="1.7"
             debug="on" deprecation="off"
+            includeantruntime="false"
             encoding="UTF-8"/>
     </target>
- 
- 
+
+
     <!-- build as a WAR file -->
     <!-- TODO: include CLDR as a jar? Only include certain classes? -->
-    <target name="war" depends="web" description="Build war">        
+    <target name="war" depends="web" description="Build war">
         <war destfile="${warfile}" webxml="${webxml}">
-            <!-- classes (for now, may want to take cldr utils as a jar later) --> 
+            <!-- classes (for now, may want to take cldr utils as a jar later) -->
             <classes dir="${build.dir}" />
 
-            <!-- all other files in /root --> 
+            <!-- all other files in /root -->
             <zipfileset dir="${WebContent}" excludes="**/.svn/**/*"/>
-            
-            <!-- certain jars that we want --> 
+
+            <!-- certain jars that we want -->
             <lib file="${UTILITIES_JAR}"/>  <!-- CLDR utilities -->
             <lib file="${ICU4J_JAR}"/>  <!-- CLDR jar -->
             <lib file="${CLDR_JAR}"/>  <!-- CLDR jar -->
             <!-- May want this later. -->
             <!--  <pathelement path="${jsp.jar}"/> -->
-            
+
         </war>
     </target>
 
@@ -253,10 +262,10 @@
         <undeploy url="${url}" username="${username}" password="${password}"
             path="${path}"/>
     </target>
-  
+
     <!-- redeploy to the server.  Builds first so we catch trouble early.
         Note, this will fail if you haven't deployed the first time. -->
-    <target name="redeploy" description="Redeploy SurveyTool application" 
+    <target name="redeploy" description="Redeploy SurveyTool application"
         depends="init,war,undeploy,deploy">
     </target>
 
@@ -270,12 +279,12 @@
 		<pathelement location="${DERBY_LIB}"/>
 		<pathelement location="${DERBYTOOLS_LIB}"/>
 	 </classpath>
-	</java>	
+	</java>
     </target>
 
 
    <target name="tests" depends="all" description="Rebuild just tests">
-        <javac 
+        <javac
             srcdir="${src.dir}"
         	includes="org/unicode/cldr/unittest/web/*.java"
             destdir="${build.dir}"
@@ -306,6 +315,29 @@
             <arg line="${runcheck.arg}"/>
             <jvmarg line="${runcheck.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST -Djava.awt.headless=true"/>
         </java>
+   </target>
+
+   <target name="webcheck" description="Test that the server is semi working" depends="init">
+     <delete file="tmp.survey.html"/>
+     <get src="${appurl}/survey" dest="tmp.survey.html" verbose="false" httpusecaches="false" />
+     <echo message="... waiting ${webcheck.delay}s for server to settle ..."/>
+     <sleep seconds="${webcheck.delay}" />
+     <delete file="tmp.survey2.html"/>
+     <get src="${appurl}/survey" dest="tmp.survey2.html" verbose="false" httpusecaches="false" />
+     <delete file="tmp.mt.xml"/>
+     <get src="${appurl}/survey/vxml/main/mt.xml" dest="tmp.mt.xml" verbose="false" httpusecaches="false" />
+     <delete file="tmp.status.json"/>
+     <get src="${appurl}/SurveyAjax?what=status" dest="tmp.status.json" verbose="false" httpusecaches="false" />
+     <loadfile property="st.status" srcfile="tmp.status.json" />
+     <loadfile property="st.ok" srcfile="tmp.status.json">
+       <filterchain>
+         <linecontainsregexp>
+           <regexp pattern="isSetup.:true" />
+         </linecontainsregexp>
+       </filterchain>
+     </loadfile>
+     <fail unless="st.ok" message="${appurl} SurveyTool not running: ${st.status}"/>
+     <echo message="${appurl} SurveyTool OK: ${st.status}"/>
    </target>
 
 </project>

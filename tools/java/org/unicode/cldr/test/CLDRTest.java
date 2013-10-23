@@ -649,8 +649,8 @@ public class CLDRTest extends TestFmwk {
 
     // <territoryContainment><group type="001" contains="002 009 019 142 150"/>
     // <languageData><language type="af" scripts="Latn" territories="ZA"/>
-    void getSupplementalData(Map<String, TreeSet<List<String>>> language_scripts, Map<String, TreeSet<List<String>>> language_territories, Map group_territory,
-        Map territory_currencies, Map aliases) {
+    void getSupplementalData(Map<String, Set<String>> language_scripts, Map<String, Set<String>> language_territories, Map<String, Set<String>> group_territory,
+        Map<String, Set<String>> territory_currencies, Map<String, Map<String, String>> aliases) {
         boolean SHOW = false;
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile supp = cldrFactory.make(CLDRFile.SUPPLEMENTAL_NAME, false);
@@ -702,18 +702,18 @@ public class CLDRTest extends TestFmwk {
                 String language = (String) m.get("type");
                 String scripts = (String) m.get("scripts");
                 if (scripts == null)
-                    language_scripts.put(language, new TreeSet());
+                    language_scripts.put(language, new TreeSet<String>());
                 else {
-                    language_scripts.put(language, new TreeSet(CldrUtility.splitList(scripts, ' ', true)));
+                    language_scripts.put(language, new TreeSet<String>(CldrUtility.splitList(scripts, ' ', true)));
                     if (SHOW)
                         System.out.println(getIDAndLocalization(language) + "\t\t"
                             + getIDAndLocalization((Set) language_scripts.get(language)));
                 }
                 String territories = (String) m.get("territories");
                 if (territories == null)
-                    language_territories.put(language, new TreeSet());
+                    language_territories.put(language, new TreeSet<String>());
                 else {
-                    language_territories.put(language, new TreeSet(CldrUtility.splitList(territories, ' ', true)));
+                    language_territories.put(language, new TreeSet<String>(CldrUtility.splitList(territories, ' ', true)));
                     if (SHOW)
                         System.out.println(getIDAndLocalization(language) + "\t\t"
                             + getIDAndLocalization((Set) language_territories.get(language)));
@@ -731,15 +731,15 @@ public class CLDRTest extends TestFmwk {
         if (disableUntilLater("TestMinimalLocalization")) return;
 
         boolean testDraft = false;
-        Map language_scripts = new HashMap();
-        Map language_territories = new HashMap();
+        Map<String, Set<String>> language_scripts = new HashMap<String, Set<String>>();
+        Map<String, Set<String>> language_territories = new HashMap<String, Set<String>>();
         getSupplementalData(language_scripts, language_territories, null, null, null);
         LanguageTagParser localIDParser = new LanguageTagParser();
         // see http://oss.software.ibm.com/cvs/icu/~checkout~/locale/docs/design/minimal_requirements.htm
         int[] failureCount = new int[1];
         int[] warningCount = new int[1];
-        for (Iterator it = languageLocales.iterator(); it.hasNext();) {
-            String locale = (String) it.next();
+        for (Iterator<String> it = languageLocales.iterator(); it.hasNext();) {
+            String locale = it.next();
             if (locale.equals("root")) continue;
             // if (!locale.equals("zh_Hant")) continue;
 
@@ -756,7 +756,7 @@ public class CLDRTest extends TestFmwk {
             String language = localIDParser.getLanguage();
             logln("Testing: " + locale);
             // languages
-            Set languages = new TreeSet(CldrUtility.MINIMUM_LANGUAGES);
+            Set<String> languages = new TreeSet<String>(CldrUtility.MINIMUM_LANGUAGES);
             languages.add(language);
             // LANGUAGE_NAME = 0, SCRIPT_NAME = 1, TERRITORY_NAME = 2, VARIANT_NAME = 3,
             // CURRENCY_NAME = 4, CURRENCY_SYMBOL = 5, TZID = 6
@@ -769,22 +769,22 @@ public class CLDRTest extends TestFmwk {
              * checkTranslatedCode(cldrfile, codes, "variant", "//ldml/localeDisplayNames/variants/variant");
              */
 
-            Set scripts = new TreeSet();
+            Set<String> scripts = new TreeSet<String>();
             scripts.add("Latn");
-            Set others = (Set) language_scripts.get(language);
+            Set<String> others = (Set<String>) language_scripts.get(language);
             if (others != null) scripts.addAll(others);
             checkForItems(item, scripts, CLDRFile.SCRIPT_NAME, missing, failureCount, null);
 
-            Set countries = new TreeSet(CldrUtility.MINIMUM_TERRITORIES);
-            others = (Set) language_territories.get(language);
+            Set<String> countries = new TreeSet<String>(CldrUtility.MINIMUM_TERRITORIES);
+            others = (Set<String>) language_territories.get(language);
             if (others != null) countries.addAll(others);
             checkForItems(item, countries, CLDRFile.TERRITORY_NAME, missing, failureCount, null);
 
-            Set currencies = new TreeSet();
+            Set<String> currencies = new TreeSet<String>();
             StandardCodes sc = StandardCodes.make();
-            for (Iterator it2 = countries.iterator(); it2.hasNext();) {
-                String country = (String) it2.next();
-                Set countryCurrencies = sc.getMainCurrencies(country);
+            for (Iterator<String> it2 = countries.iterator(); it2.hasNext();) {
+                String country = it2.next();
+                Set<String> countryCurrencies = sc.getMainCurrencies(country);
                 if (countryCurrencies == null) {
                     errln("Internal Error: no currencies for " + country + ", locale: " + locale);
                 } else {
@@ -795,10 +795,10 @@ public class CLDRTest extends TestFmwk {
             checkForItems(item, currencies, CLDRFile.CURRENCY_SYMBOL, missing, failureCount, exemplars);
 
             // context=format and width=wide; context=stand-alone & width=abbreviated
-            Set months = new TreeSet();
+            Set<String> months = new TreeSet<String>();
             for (int i = 1; i <= 12; ++i)
                 months.add(i + "");
-            Set days = new TreeSet(Arrays.asList(new String[] { "sun", "mon", "tue", "wed", "thu", "fri", "sat" }));
+            Set<String> days = new TreeSet<String>(Arrays.asList(new String[] { "sun", "mon", "tue", "wed", "thu", "fri", "sat" }));
             for (int i = -7; i < 0; ++i) {
                 checkForItems(item, (i < -4 ? months : days), i, missing, failureCount, null);
             }
@@ -853,11 +853,11 @@ public class CLDRTest extends TestFmwk {
      *            TODO
      *            TODO
      */
-    private void checkForItems(CLDRFile item, Set codes, int type, CLDRFile missing, int failureCount[],
+    private void checkForItems(CLDRFile item, Set<String> codes, int type, CLDRFile missing, int failureCount[],
         UnicodeSet exemplarTest) {
         // check codes
-        for (Iterator it2 = codes.iterator(); it2.hasNext();) {
-            String code = (String) it2.next();
+        for (Iterator<String> it2 = codes.iterator(); it2.hasNext();) {
+            String code = it2.next();
             String key;
             if (type >= 0) {
                 key = CLDRFile.getKey(type, code);
@@ -918,35 +918,35 @@ public class CLDRTest extends TestFmwk {
      * 
      */
     public void TestSupplementalData() {
-        Map language_scripts = new TreeMap();
-        Map language_territories = new TreeMap();
-        Map groups = new TreeMap();
-        Map territory_currencies = new TreeMap();
-        Map aliases = new TreeMap();
+        Map<String, Set<String>> language_scripts = new TreeMap<String, Set<String>>();
+        Map<String, Set<String>> language_territories = new TreeMap<String, Set<String>>();
+        Map<String, Set<String>> groups = new TreeMap<String, Set<String>>();
+        Map<String, Set<String>> territory_currencies = new TreeMap<String, Set<String>>();
+        Map<String, Map<String, String>> aliases = new TreeMap<String, Map<String, String>>();
         getSupplementalData(language_scripts, language_territories, groups, territory_currencies, aliases);
-        Set sTerritories = new TreeSet();
-        for (Iterator it = language_territories.values().iterator(); it.hasNext();) {
-            sTerritories.addAll((Collection) it.next());
+        Set<String> sTerritories = new TreeSet<String>();
+        for (Iterator<Set<String>> it = language_territories.values().iterator(); it.hasNext();) {
+            sTerritories.addAll(it.next());
         }
         StandardCodes sc = StandardCodes.make();
-        Set fullTerritories = sc.getAvailableCodes("territory");
-        Set fullLanguages = sc.getAvailableCodes("language");
+        Set<String> fullTerritories = sc.getAvailableCodes("territory");
+        Set<String> fullLanguages = sc.getAvailableCodes("language");
 
-        Set allLanguages = new TreeSet(language_scripts.keySet());
+        Set<String> allLanguages = new TreeSet<String>(language_scripts.keySet());
         allLanguages.addAll(language_territories.keySet());
-        for (Iterator it = allLanguages.iterator(); it.hasNext();) {
+        for (Iterator<String> it = allLanguages.iterator(); it.hasNext();) {
             Object language = it.next();
-            Set scripts = (Set) language_scripts.get(language);
-            Set territories = (Set) language_territories.get(language);
+            Set<String> scripts = (Set<String>) language_scripts.get(language);
+            Set<String> territories = (Set<String>) language_territories.get(language);
             logln(EnglishName.transform(language)
                 + " scripts: " + EnglishName.transform(scripts)
                 + " territories: " + EnglishName.transform(territories));
         }
 
-        Map changedLanguage = new TreeMap();
-        for (Iterator it = fullLanguages.iterator(); it.hasNext();) {
-            String code = (String) it.next();
-            List data = sc.getFullData("language", code);
+        Map<String, String> changedLanguage = new TreeMap<String, String>();
+        for (Iterator<String> it = fullLanguages.iterator(); it.hasNext();) {
+            String code = it.next();
+            List<String> data = sc.getFullData("language", code);
             if (data.size() < 3) {
                 System.out.println("data problem: " + data);
                 continue;
@@ -959,12 +959,12 @@ public class CLDRTest extends TestFmwk {
         }
 
         // remove private use, deprecated, groups
-        Set standardTerritories = new TreeSet();
-        Map changedTerritory = new TreeMap();
-        for (Iterator it = fullTerritories.iterator(); it.hasNext();) {
-            String code = (String) it.next();
+        Set<String> standardTerritories = new TreeSet<String>();
+        Map<String, String> changedTerritory = new TreeMap<String, String>();
+        for (Iterator<String> it = fullTerritories.iterator(); it.hasNext();) {
+            String code = it.next();
             if (code.equals("200")) continue; // || code.equals("YU") || code.equals("PZ")
-            List data = sc.getFullData("territory", code);
+            List<String> data = sc.getFullData("territory", code);
             if (data.get(0).equals("PRIVATE USE")) continue;
             if (!data.get(2).equals("")) {
                 if (!data.get(2).equals("--")) changedTerritory.put(code, data.get(2));
@@ -975,12 +975,12 @@ public class CLDRTest extends TestFmwk {
         standardTerritories.removeAll(groups.keySet());
 
         if (!standardTerritories.containsAll(sTerritories)) {
-            TreeSet extras = new TreeSet(sTerritories);
+            TreeSet<String> extras = new TreeSet<String>(sTerritories);
             extras.removeAll(standardTerritories);
             errln("Supplemental Language Territories contain illegal values: " + EnglishName.transform(extras));
         }
         if (!sTerritories.containsAll(standardTerritories)) {
-            TreeSet extras = new TreeSet(standardTerritories);
+            TreeSet<String> extras = new TreeSet<String>(standardTerritories);
             extras.removeAll(sTerritories);
             warnln("Missing Language Territories: " + EnglishName.transform(extras));
         }
@@ -988,60 +988,60 @@ public class CLDRTest extends TestFmwk {
         // now test currencies
         logln("Check that no illegal territories are used");
         if (!standardTerritories.containsAll(territory_currencies.keySet())) {
-            TreeSet extras = new TreeSet(territory_currencies.keySet());
+            TreeSet<String> extras = new TreeSet<String>(territory_currencies.keySet());
             extras.removeAll(fullTerritories);
             if (extras.size() != 0) errln("Currency info -- Illegal Territories: " + EnglishName.transform(extras));
-            extras = new TreeSet(territory_currencies.keySet());
+            extras = new TreeSet<String>(territory_currencies.keySet());
             extras.retainAll(fullTerritories);
             extras.removeAll(standardTerritories);
             if (extras.size() != 0) warnln("Currency info -- Archaic Territories: " + EnglishName.transform(extras));
         }
         logln("Check that no territories are missing");
         if (!territory_currencies.keySet().containsAll(standardTerritories)) {
-            TreeSet extras = new TreeSet(standardTerritories);
+            TreeSet<String> extras = new TreeSet<String>(standardTerritories);
             extras.removeAll(territory_currencies.keySet());
             errln("Currency info -- Missing Territories: " + EnglishName.transform(extras));
         }
-        Set currencies = new TreeSet();
-        for (Iterator it = territory_currencies.values().iterator(); it.hasNext();) {
-            currencies.addAll((Collection) it.next());
+        Set<String> currencies = new TreeSet<String>();
+        for (Iterator<Set<String>> it = territory_currencies.values().iterator(); it.hasNext();) {
+            currencies.addAll(it.next());
         }
         logln("Check that no illegal currencies are used");
-        Set legalCurrencies = new TreeSet(sc.getAvailableCodes("currency"));
+        Set<String> legalCurrencies = new TreeSet<String>(sc.getAvailableCodes("currency"));
         // first remove non-ISO
-        for (Iterator it = legalCurrencies.iterator(); it.hasNext();) {
-            String code = (String) it.next();
-            List data = sc.getFullData("currency", code);
+        for (Iterator<String> it = legalCurrencies.iterator(); it.hasNext();) {
+            String code = it.next();
+            List<String> data = sc.getFullData("currency", code);
             if ("X".equals(data.get(3))) it.remove();
         }
         if (!legalCurrencies.containsAll(currencies)) {
-            TreeSet extras = new TreeSet(currencies);
+            TreeSet<String> extras = new TreeSet<String>(currencies);
             extras.removeAll(legalCurrencies);
             errln("Currency info -- Illegal Currencies: " + EnglishCurrencyName.transform(extras));
         }
         logln("Check that there are no missing currencies");
         if (!currencies.containsAll(legalCurrencies)) {
-            TreeSet extras = new TreeSet(legalCurrencies);
+            TreeSet<String> extras = new TreeSet<String>(legalCurrencies);
             extras.removeAll(currencies);
-            Map failures = new TreeMap();
-            for (Iterator it = extras.iterator(); it.hasNext();) {
-                String code = (String) it.next();
-                List data = sc.getFullData("currency", code);
+            Map<String, Set<String>> failures = new TreeMap<String, Set<String>>();
+            for (Iterator<String> it = extras.iterator(); it.hasNext();) {
+                String code = it.next();
+                List<String> data = sc.getFullData("currency", code);
                 if (data.get(1).equals("ZZ")) continue;
                 String type = data.get(3) + "/" + data.get(1);
-                Set s = (Set) failures.get(type);
-                if (s == null) failures.put(type, s = new TreeSet());
+                Set<String> s = (Set<String>) failures.get(type);
+                if (s == null) failures.put(type, s = new TreeSet<String>());
                 s.add(code);
             }
-            for (Iterator it = failures.keySet().iterator(); it.hasNext();) {
-                String type = (String) it.next();
-                Set s = (Set) failures.get(type);
+            for (Iterator<String> it = failures.keySet().iterator(); it.hasNext();) {
+                String type = it.next();
+                Set<String> s = (Set<String>) failures.get(type);
                 warnln("Currency info -- Missing Currencies: " + type + "\t \u2192 " + EnglishCurrencyName.transform(s));
             }
         }
         logln("Missing English currency names");
-        for (Iterator it = legalCurrencies.iterator(); it.hasNext();) {
-            String currency = (String) it.next();
+        for (Iterator<String> it = legalCurrencies.iterator(); it.hasNext();) {
+            String currency =  it.next();
             String name = english.getName("currency", currency);
             if (name == null) {
                 String standardName = (String) sc.getFullData("currency", currency).get(0);
@@ -1051,16 +1051,16 @@ public class CLDRTest extends TestFmwk {
             }
         }
         logln("Check Aliases");
-        for (Iterator it = aliases.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = aliases.keySet().iterator(); it.hasNext();) {
             // the first part of the mapping had better not be in the standardTerritories
-            String key = (String) it.next();
-            Map submap = (Map) aliases.get(key);
+            String key = it.next();
+            Map<String, String> submap = (Map<String, String>) aliases.get(key);
             if (key.equals("territoryAlias")) {
                 checkEqual(key, submap, changedTerritory);
             } else if (key.equals("languageAlias")) {
-                for (Iterator it2 = submap.keySet().iterator(); it2.hasNext();) {
-                    Object k = it2.next();
-                    String value = (String) submap.get(k);
+                for (Iterator<String> it2 = submap.keySet().iterator(); it2.hasNext();) {
+                    String k = it2.next();
+                    String value = submap.get(k);
                     if (value.indexOf("_") >= 0) it2.remove();
                 }
                 checkEqual(key, submap, changedLanguage);
@@ -1096,12 +1096,12 @@ public class CLDRTest extends TestFmwk {
     public void TestZones() {
         StandardCodes sc = StandardCodes.make();
 
-        Map defaultNames = new TreeMap();
-        Map old_new = sc.getZoneLinkold_new();
-        Set core = sc.getZoneData().keySet();
+        Map<String, String> defaultNames = new TreeMap();
+        Map<String, String> old_new = sc.getZoneLinkold_new();
+        Set<String> core = sc.getZoneData().keySet();
         logln("Checking for collisions with last field");
-        for (Iterator it = core.iterator(); it.hasNext();) {
-            String currentItem = (String) it.next();
+        for (Iterator<String> it = core.iterator(); it.hasNext();) {
+            String currentItem = it.next();
             String defaultName = TimezoneFormatter.getFallbackName(currentItem);
             String fullName = (String) defaultNames.get(defaultName);
             if (fullName == null)
@@ -1112,21 +1112,21 @@ public class CLDRTest extends TestFmwk {
         }
 
         logln("Checking that all links are TO canonical zones");
-        Set s = new TreeSet(old_new.values());
+        Set<String> s = new TreeSet<String>(old_new.values());
         s.removeAll(core);
         if (s.size() != 0) {
             errln("Links go TO zones that are not canonical! " + s);
         }
 
         logln("Checking that no links are FROM canonical zones");
-        s = new TreeSet(core);
+        s = new TreeSet<String>(core);
         s.retainAll(old_new.keySet());
         if (s.size() != 0) {
             errln("Links go FROM zones that are canonical! " + s);
         }
 
         logln("Checking that the zones with rule data are all canonical");
-        Set zonesWithRules = sc.getZone_rules().keySet();
+        Set<String> zonesWithRules = sc.getZone_rules().keySet();
         s.clear();
         s.addAll(zonesWithRules);
         s.removeAll(core);
@@ -1139,18 +1139,18 @@ public class CLDRTest extends TestFmwk {
         s.removeAll(old_new.keySet());
         if (s.size() != 0) logln("Canonical zones that don't have rules or links: " + s);
 
-        for (Iterator it = old_new.keySet().iterator(); it.hasNext();) {
-            String oldItem = (String) it.next();
+        for (Iterator<String> it = old_new.keySet().iterator(); it.hasNext();) {
+            String oldItem = it.next();
             logln("old: " + oldItem + "\tnew: " + old_new.get(oldItem));
         }
-        Map new_old = new TreeMap();
-        for (Iterator it = core.iterator(); it.hasNext();) {
-            new_old.put(it.next(), new TreeSet());
+        Map<String, Set<String>> new_old = new TreeMap<String, Set<String>>();
+        for (Iterator<String> it = core.iterator(); it.hasNext();) {
+            new_old.put(it.next(), new TreeSet<String>());
         }
-        for (Iterator it = old_new.keySet().iterator(); it.hasNext();) {
-            String oldItem = (String) it.next();
-            String newItem = (String) old_new.get(oldItem);
-            Set oldItems = (Set) new_old.get(newItem);
+        for (Iterator<String> it = old_new.keySet().iterator(); it.hasNext();) {
+            String oldItem = it.next();
+            String newItem = old_new.get(oldItem);
+            Set<String> oldItems = (Set<String>) new_old.get(newItem);
             if (oldItems == null) { // try recursing
                 logln("!!!!Skipping " + oldItem + " \u2192 " + newItem);
                 continue;
@@ -1158,9 +1158,9 @@ public class CLDRTest extends TestFmwk {
             }
             oldItems.add(oldItem);
         }
-        for (Iterator it = new_old.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = new_old.keySet().iterator(); it.hasNext();) {
             String newOne = (String) it.next();
-            Set oldItems = (Set) new_old.get(newOne);
+            Set<String> oldItems = (Set<String>) new_old.get(newOne);
             logln(newOne + "\t" + oldItems);
         }
     }
@@ -1168,15 +1168,15 @@ public class CLDRTest extends TestFmwk {
     public void TestNarrowForms() {
         if (disableUntilLater("TestMinimalLocalization")) return;
 
-        for (Iterator it = locales.iterator(); it.hasNext();) {
-            String locale = (String) it.next();
+        for (Iterator<String> it = locales.iterator(); it.hasNext();) {
+            String locale = it.next();
             logln("Testing: " + getLocaleAndName(locale));
             BreakIterator bi = BreakIterator.getCharacterInstance(new ULocale(locale));
             CLDRFile item = cldrFactory.make(locale, false);
             // Walk through all the xpaths, adding to currentValues
             // Whenever two values for the same xpath are different, we remove from currentValues, and add to okValues
-            for (Iterator it2 = item.iterator(); it2.hasNext();) {
-                String xpath = (String) it2.next();
+            for (Iterator<String> it2 = item.iterator(); it2.hasNext();) {
+                String xpath = it2.next();
                 if (xpath.indexOf("[@type=\"narrow\"]") >= 0) {
                     String value = item.getStringValue(xpath);
                     // logln("\tTesting: " + value + "\t path: " + xpath);

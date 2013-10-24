@@ -34,7 +34,7 @@ public class GenerateBcp47Bits {
             regions = Arrays.asList("AA AB ZZ 000 003 999".split("\\s"));
             regionStaticTest = null;
         } else {
-            languages = new Iso639Data().getAvailable();
+            languages = Iso639Data.getAvailable();
             languageStaticTest = null; // javaTestLanguages;
             regions = StandardCodes.make().getAvailableCodes("territory");
             regionStaticTest = null; // javaTestRegions;
@@ -126,7 +126,7 @@ public class GenerateBcp47Bits {
         if (QUICK) System.out.println(reversed);
         if (QUICK) System.out.println(reversed.toString(16, indent, 4));
         if (!reversed.equals(bits)) {
-            int diff = reversed.firstDifference(bits);
+            //int diff = reversed.firstDifference(bits);
             throw new IllegalArgumentException("Reversal failure" + bits + " != " + reversed);
         }
 
@@ -155,7 +155,7 @@ public class GenerateBcp47Bits {
         public Bits set(int bit) {
             final int index = bit >> SHIFT;
             final int remainder = bit & MASK;
-            int restore = (index << SHIFT) | remainder;
+            //int restore = (index << SHIFT) | remainder;
             final long mask = 1L << remainder;
             bits[index] |= mask;
             return this;
@@ -164,7 +164,7 @@ public class GenerateBcp47Bits {
         public boolean get(int bit) {
             final int index = bit >> SHIFT;
             final int remainder = bit & MASK;
-            int restore = (index << SHIFT) | remainder;
+            //int restore = (index << SHIFT) | remainder;
             final long mask = 1L << remainder;
             final long masked = bits[index] & mask;
             return 0 != masked;

@@ -565,7 +565,7 @@ public class TestMisc {
         StandardCodes sc = StandardCodes.make();
         XPathParts parts = new XPathParts();
         Set<String> careAbout = new HashSet<String>(Arrays.asList(new String[] { "language", "script", "territory", "variant" }));
-        HashMap<String, Set> foundItems = new HashMap<String, Set>();
+        HashMap<String, Set<String>> foundItems = new HashMap<String, Set<String>>();
         TreeSet<String> problems = new TreeSet<String>();
         for (Iterator<String> it = cldrFile.iterator("", new UTF16.StringComparator(true, false, 0)); it.hasNext();) {
             String requestedPath = it.next();

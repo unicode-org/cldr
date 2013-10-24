@@ -180,8 +180,8 @@ class CheckLangTagBNF {
         System.out.println("ulocale.getScript " + loc2.getScript());
         System.out.println("ulocale.getCountry " + loc2.getCountry());
         System.out.println("ulocale.getVariant " + loc2.getVariant());
-        for (Iterator it = loc2.getKeywords(); it.hasNext();) {
-            String keyword = (String) it.next();
+        for (Iterator<String> it = loc2.getKeywords(); it.hasNext();) {
+            String keyword = it.next();
             System.out.println("\tulocale.getKeywords " + keyword + " = " + loc2.getKeywordValue(keyword));
         }
 
@@ -218,7 +218,7 @@ class CheckLangTagBNF {
         // System.out.println(langTagPattern);
         // System.out.println(cleanedLangTagPattern);
         StandardCodes sc = StandardCodes.make();
-        Set grandfathered = sc.getAvailableCodes("grandfathered");
+        Set<String> grandfathered = sc.getAvailableCodes("grandfathered");
         // for (Iterator it = grandfathered.iterator(); it.hasNext();) {
         // System.out.print(it.next() + " | ");
         // }
@@ -286,7 +286,7 @@ class CheckLangTagBNF {
                 checkStrings("script", ltp.getScript(), slp.getScript());
                 checkStrings("country", ltp.getRegion(), slp.getCountry());
                 checkStrings("variants", ltp.getVariants(), slp.getVariants());
-                Map<String, String> foo = new LinkedHashMap();
+                Map<String, String> foo = new LinkedHashMap<String, String>();
                 foo.putAll(ltp.getExtensions());
                 foo.putAll(ltp.getLocaleExtensions());
                 checkStrings("variants", foo, slp.getExtensions());

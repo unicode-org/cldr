@@ -49,8 +49,8 @@ public class TestSegments {
     private static final boolean SHOW_RULE_LIST = false;
     private static final int monkeyLimit = 1000, monkeyStringCount = 10;
 
-    private static final Matcher flagItems = Pattern.compile(
-        "[$](BK|CR|LF|CM|NL|WJ|ZW|GL|SP|CB)").matcher("");
+//    private static final Matcher flagItems = Pattern.compile(
+//        "[$](BK|CR|LF|CM|NL|WJ|ZW|GL|SP|CB)").matcher("");
 
     /**
      * Quick test of features for debugging

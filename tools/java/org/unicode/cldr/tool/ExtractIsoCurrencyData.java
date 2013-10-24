@@ -44,7 +44,7 @@ public class ExtractIsoCurrencyData {
             String[][] parts = new String[5][5];
             int count = 0;
 
-            boolean inContent = false;
+            //boolean inContent = false;
             // if the table level is 1 (we are in the main table), then we look for <td>...</td><td>...</td>. That means
             // that we have column 1 and column 2.
 

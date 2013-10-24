@@ -17,7 +17,7 @@ public class ExtractListInfo {
 
     public static void main(String[] args) {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        Set<String> skipped = new LinkedHashSet();
+        Set<String> skipped = new LinkedHashSet<String>();
         for (String locale : cldrFactory.getAvailableLanguages()) {
             CLDRFile file = cldrFactory.make(locale, true);
             StringBuilder sb = new StringBuilder("ListFormat.add(\"" + locale + "\"");

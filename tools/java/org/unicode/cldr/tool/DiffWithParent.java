@@ -92,15 +92,15 @@ public class DiffWithParent {
         fullParts.set(fullPath);
         String path = CLDRFile.getDistinguishingXPath(fullPath, null, false);
         parts.set(path);
-        Set s = new TreeSet();
+        Set<Pair<String,String>> s = new TreeSet<Pair<String,String>>();
         for (int i = 0; i < fullParts.size(); ++i) {
-            Map fullAttributes = fullParts.getAttributes(i);
-            Map attributes = parts.getAttributes(i);
+            Map<String, String> fullAttributes = fullParts.getAttributes(i);
+            Map<String, String> attributes = parts.getAttributes(i);
             for (String key : fullParts.getAttributeKeys(i)) {
-                s.add(new Pair(key, fullParts.getAttributeValue(i, key)));
+                s.add(new Pair<String,String>(key, fullParts.getAttributeValue(i, key)));
             }
             for (String key : parts.getAttributeKeys(i)) {
-                s.remove(new Pair(key, parts.getAttributeValue(i, key)));
+                s.remove(new Pair<String,String>(key, parts.getAttributeValue(i, key)));
             }
         }
         return s.toString();

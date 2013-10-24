@@ -45,7 +45,7 @@ class ExtractMessages {
         double startTime = System.currentTimeMillis();
         output = BagFormatter.openUTF8Writer(DIR, "additions.txt");
         int totalCount = 0;
-        Set<String> skipped = new TreeSet();
+        Set<String> skipped = new TreeSet<String>();
 
         try {
             String sourceDirectory = getProperty("SOURCE", null);
@@ -159,7 +159,7 @@ class ExtractMessages {
         return fileRegex;
     }
 
-    private static Map<String, Pair<String, DataHandler>> numericId_Id = new TreeMap();
+    private static Map<String, Pair<String, DataHandler>> numericId_Id = new TreeMap<String, Pair<String, DataHandler>>();
     private static Matcher numericIdMatcher = Pattern.compile("\\[@id=\"([^\"]+)\"\\]").matcher("");
     private static Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
     private static CLDRFile english = cldrFactory.make("en", true);
@@ -180,7 +180,7 @@ class ExtractMessages {
                         handler.missing.add(value);
                         return;
                     }
-                    numericId_Id.put(id, new Pair(realID, handler));
+                    numericId_Id.put(id, new Pair<String, DataHandler>(realID, handler));
                     // System.out.println(id + "\t" + path + "\t" + value);
                 }
             }

@@ -102,9 +102,8 @@ public class CLDRFileTransformer {
         if (transliterators.containsKey(localeTransform)) {
             return transliterators.get(localeTransform);
         }
-        CLDRTransforms transforms = CLDRTransforms.getInstance();
         ParsedTransformID directionInfo = new ParsedTransformID();
-        String ruleString = transforms.getIcuRulesFromXmlFile(
+        String ruleString = CLDRTransforms.getIcuRulesFromXmlFile(
             transformDir, localeTransform.getTransformFilename(), directionInfo);
         Transliterator transliterator = Transliterator.createFromRules(directionInfo.getId(),
             ruleString, localeTransform.getDirection());

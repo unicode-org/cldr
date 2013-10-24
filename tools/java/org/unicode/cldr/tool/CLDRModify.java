@@ -942,7 +942,7 @@ public class CLDRModify {
             SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
             Map<String, Map<String, Relation<String, String>>> deprecationInfo = sdi.getDeprecationInfo();
 
-            Map ourTypes[] = null;
+            Map<String, Relation<String, String>> ourTypes[] = null;
 
             @Override
             public void handleSetup() {
@@ -1071,7 +1071,7 @@ public class CLDRModify {
                 String v = cldrFileToFilter.getStringValue(xpath);
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
                 fullparts.set(fullXPath);
-                Map attributes = fullparts.findAttributes("transform");
+                Map<String, String> attributes = fullparts.findAttributes("transform");
                 String oldValue = (String) attributes.get("direction");
                 if ("both".equals(oldValue)) {
                     attributes.put("direction", "forward");
@@ -1102,7 +1102,7 @@ public class CLDRModify {
                 if (m == null) {
                     m = Pattern.compile(options[PATH].value).matcher("");
                 }
-                String v = cldrFileToFilter.getStringValue(xpath);
+                //String v = cldrFileToFilter.getStringValue(xpath);
                 String fullXPath = cldrFileToFilter.getFullXPath(xpath);
                 if (!m.reset(fullXPath).matches()) {
                     remove(xpath);
@@ -1755,7 +1755,7 @@ public class CLDRModify {
                     String fullpath = cldrFileToFilter.getFullXPath(xpath);
                     String value = cldrFileToFilter.getStringValue(xpath);
                     boolean gotChange = false;
-                    List list = formatParser.set(value).getItems();
+                    List<Object> list = formatParser.set(value).getItems();
                     for (int i = 0; i < list.size(); ++i) {
                         Object item = list.get(i);
                         if (item instanceof DateTimePatternGenerator.VariableField) {
@@ -1800,7 +1800,7 @@ public class CLDRModify {
 
             private String toStringWorkaround() {
                 StringBuffer result = new StringBuffer();
-                List items = formatParser.getItems();
+                List<Object> items = formatParser.getItems();
                 for (int i = 0; i < items.size(); ++i) {
                     Object item = items.get(i);
                     if (item instanceof String) {
@@ -1897,7 +1897,7 @@ public class CLDRModify {
             int currentRef = 500;
             Map<String, TreeMap<String, String>> locale_oldref_newref = new TreeMap<String, TreeMap<String, String>>();
             TreeMap<String, String> oldref_newref;
-            LanguageTagParser ltp = new LanguageTagParser();
+            //LanguageTagParser ltp = new LanguageTagParser();
 
             // References standards = new References(true);
             // References references = new References(false);
@@ -1906,7 +1906,7 @@ public class CLDRModify {
                 String locale = cldrFileToFilter.getLocaleID();
                 oldref_newref = locale_oldref_newref.get(locale);
                 if (oldref_newref == null) {
-                    oldref_newref = new TreeMap();
+                    oldref_newref = new TreeMap<String, String>();
                     locale_oldref_newref.put(locale, oldref_newref);
                 }
             }
@@ -1992,7 +1992,7 @@ public class CLDRModify {
                     System.out.println("# Checking entries & adding:\t" + keyValues.size());
                     for (Map<ConfigKeys, ConfigMatch> entry : keyValues) {
                         ConfigMatch action = entry.get(ConfigKeys.action);
-                        ConfigMatch locale = entry.get(ConfigKeys.locale);
+                        //ConfigMatch locale = entry.get(ConfigKeys.locale);
                         ConfigMatch pathMatch = entry.get(ConfigKeys.path);
                         ConfigMatch valueMatch = entry.get(ConfigKeys.value);
                         ConfigMatch newPath = entry.get(ConfigKeys.new_path);

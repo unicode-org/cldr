@@ -189,7 +189,7 @@ public class GenerateBirth {
                 }
             }
             birthToPaths = Relation.of(new TreeMap<Versions, Set<String>>(), TreeSet.class);
-            pathToBirthCurrentPrevious = new HashMap();
+            pathToBirthCurrentPrevious = new HashMap<String, Row.R3<Versions, String, String>>();
             for (String xpath : files[0]) {
 
                 xpath = xpath.intern();
@@ -235,7 +235,7 @@ public class GenerateBirth {
 
             // Load and process all the locales
 
-            TreeMap<String, Set<String>> localeToNewer = new TreeMap<String, Set<String>>();
+            //TreeMap<String, Set<String>> localeToNewer = new TreeMap<String, Set<String>>();
             for (Entry<String, R3<Versions, String, String>> entry : pathToBirthCurrentPrevious.entrySet()) {
                 String path = entry.getKey();
                 R3<Versions, String, String> birthCurrentPrevious = entry.getValue();

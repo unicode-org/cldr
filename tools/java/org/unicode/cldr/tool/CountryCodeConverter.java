@@ -19,7 +19,7 @@ public class CountryCodeConverter {
 
     private static final boolean SHOW_SKIP = CldrUtility.getProperty("SHOW_SKIP", false);
 
-    private static Map<String, String> nameToCountryCode = new TreeMap(new UTF16.StringComparator(true, true, 0));
+    private static Map<String, String> nameToCountryCode = new TreeMap<String, String>(new UTF16.StringComparator(true, true, 0));
     private static Set<String> parseErrors = new LinkedHashSet<String>();
 
     public static String getCodeFromName(String display) {

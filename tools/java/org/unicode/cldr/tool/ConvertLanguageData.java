@@ -267,8 +267,8 @@ public class ConvertLanguageData {
 
         // Relation<String, BasicLanguageData> newLanguageData = new Relation(new TreeMap(), TreeSet.class);
         LanguageTagParser ltp = new LanguageTagParser();
-        Map<String, Relation<BasicLanguageData.Type, String>> language_status_territories = new TreeMap();
-        Map<String, Pair<String, String>> languageToBestCountry;
+        Map<String, Relation<BasicLanguageData.Type, String>> language_status_territories = new TreeMap<String, Relation<BasicLanguageData.Type, String>>();
+        //Map<String, Pair<String, String>> languageToBestCountry;
         for (RowData rowData : sortedInput) {
             if (rowData.countryCode.equals("ZZ")) continue;
             ltp.set(rowData.languageCode);
@@ -397,7 +397,7 @@ public class ConvertLanguageData {
         Relation<String, String> languageToScripts = new Relation(new TreeMap(), TreeSet.class);
         for (String languageSubtag : language2BasicLanguageData.keySet()) {
             for (BasicLanguageData item : language2BasicLanguageData.getAll(languageSubtag)) {
-                Set<String> scripts = new TreeSet();
+                Set<String> scripts = new TreeSet<String>();
                 languageToScripts.putAll(StandardCodes.fixLanguageTag(languageSubtag), item.getScripts());
             }
         }
@@ -433,8 +433,8 @@ public class ConvertLanguageData {
                 }
             }
         }
-        Set<String> populationOver20 = new TreeSet();
-        Set<String> population = new TreeSet();
+        Set<String> populationOver20 = new TreeSet<String>();
+        Set<String> population = new TreeSet<String>();
         LanguageTagParser ltp = new LanguageTagParser();
         for (String rawLocale : localeToRowData.keySet()) {
             ltp.set(rawLocale);
@@ -451,7 +451,7 @@ public class ConvertLanguageData {
                 }
             }
         }
-        Set<String> inBasicButNotPopulation = new TreeSet(primaryCombos);
+        Set<String> inBasicButNotPopulation = new TreeSet<String>(primaryCombos);
 
         inBasicButNotPopulation.removeAll(population);
         System.out.println("In Basic Data but not Population > 20%:\t" + inBasicButNotPopulation);
@@ -478,7 +478,7 @@ public class ConvertLanguageData {
                 );
         }
 
-        Set<String> inPopulationButNotBasic = new TreeSet(populationOver20);
+        Set<String> inPopulationButNotBasic = new TreeSet<String>(populationOver20);
         inPopulationButNotBasic.removeAll(basicCombos);
         for (Iterator<String> it = inPopulationButNotBasic.iterator(); it.hasNext();) {
             String locale = it.next();
@@ -505,36 +505,36 @@ public class ConvertLanguageData {
 
         private LanguageInfo() {
             cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-            Set available = cldrFactory.getAvailable();
+            //Set<String> available = cldrFactory.getAvailable();
             CLDRFile supplemental = cldrFactory.make("supplementalData", true);
             XPathParts parts = new XPathParts();
-            for (Iterator it = supplemental.iterator("//supplementalData/languageData/language"); it.hasNext();) {
-                String xpath = (String) it.next();
-                Map x = parts.set(xpath).getAttributes(-1);
+            for (Iterator<String> it = supplemental.iterator("//supplementalData/languageData/language"); it.hasNext();) {
+                String xpath = it.next();
+                Map<String, String> x = parts.set(xpath).getAttributes(-1);
                 boolean alt = x.containsKey("alt");
                 String lang = (String) x.get("type");
-                List scripts = getAttributeList(x, "scripts");
+                List<String> scripts = getAttributeList(x, "scripts");
                 if (scripts != null) {
                     if (alt) {
-                        putAll(languageToScriptsAlt, lang, new LinkedHashSet(scripts));
+                        putAll(languageToScriptsAlt, lang, new LinkedHashSet<String>(scripts));
                     } else {
-                        putAll(languageToScripts, lang, new LinkedHashSet(scripts));
+                        putAll(languageToScripts, lang, new LinkedHashSet<String>(scripts));
                     }
                 }
-                List regions = getAttributeList(x, "territories");
+                List<String> regions = getAttributeList(x, "territories");
                 if (regions != null) {
                     if (alt) {
-                        putAll(languageToRegionsAlt, lang, new LinkedHashSet(regions));
+                        putAll(languageToRegionsAlt, lang, new LinkedHashSet<String>(regions));
                     } else {
-                        putAll(languageToRegions, lang, new LinkedHashSet(regions));
+                        putAll(languageToRegions, lang, new LinkedHashSet<String>(regions));
                     }
                 }
             }
         }
 
-        private List getAttributeList(Map x, String attribute) {
-            List scripts = null;
-            String scriptString = (String) x.get(attribute);
+        private List<String> getAttributeList(Map<String, String> x, String attribute) {
+            List<String> scripts = null;
+            String scriptString = x.get(attribute);
             if (scriptString != null) {
                 scripts = Arrays.asList(scriptString.split("\\s+"));
             }
@@ -561,7 +561,7 @@ public class ConvertLanguageData {
 
     // public enum OfficialStatus {unknown, de_facto_official, official, official_regional, official_minority};
 
-    static class RowData implements Comparable {
+    static class RowData implements Comparable<Object> {
         private final String countryCode;
         private final double countryGdp;
         private final double countryLiteracy;
@@ -575,7 +575,7 @@ public class ConvertLanguageData {
         private final String badLanguageName;
         private final boolean relativeLanguagePopulation;
         // String badLanguageCode = "";
-        private final static Set<String> doneCountries = new HashSet();
+        private final static Set<String> doneCountries = new HashSet<String>();
 
         private final static Set<String> countryCodes = sc.getGoodAvailableCodes("territory");
 
@@ -875,7 +875,7 @@ public class ConvertLanguageData {
 
     public static String getCountryCodeAndName(String code) {
         if (code == null) return null;
-        return english.getName(english.TERRITORY_NAME, code) + " [" + code + "]";
+        return english.getName(CLDRFile.TERRITORY_NAME, code) + " [" + code + "]";
     }
 
     static class RickComparator implements Comparator<RowData> {
@@ -1019,10 +1019,10 @@ public class ConvertLanguageData {
     }
 
     static class References {
-        Map<String, Pair<String, String>> Rxxx_to_reference = new TreeMap();
-        Map<Pair<String, String>, String> reference_to_Rxxx = new TreeMap();
+        Map<String, Pair<String, String>> Rxxx_to_reference = new TreeMap<String, Pair<String, String>>();
+        Map<Pair<String, String>, String> reference_to_Rxxx = new TreeMap<Pair<String, String>, String>();
         Map<String, Pair<String, String>> Rxxx_to_oldReferences = supplementalData.getReferences();
-        Map<Pair<String, String>, String> oldReferences_to_Rxxx = new TreeMap();
+        Map<Pair<String, String>, String> oldReferences_to_Rxxx = new TreeMap<Pair<String, String>, String>();
         {
             for (String Rxxx : Rxxx_to_oldReferences.keySet()) {
                 oldReferences_to_Rxxx.put(Rxxx_to_oldReferences.get(Rxxx), Rxxx);
@@ -1040,12 +1040,12 @@ public class ConvertLanguageData {
          */
         private String addReference(String rawReferenceText) {
             if (rawReferenceText == null || rawReferenceText.length() == 0) return "";
-            Pair p;
+            Pair<String, String> p;
             if (URI.reset(rawReferenceText).matches()) {
-                p = (Pair) new Pair(URI.group(1), URI.group(2) == null || URI.group(2).length() == 0 ? "[missing]"
+                p = (Pair<String, String>) new Pair<String, String>(URI.group(1), URI.group(2) == null || URI.group(2).length() == 0 ? "[missing]"
                     : URI.group(2)).freeze();
             } else {
-                p = (Pair) new Pair(null, rawReferenceText).freeze();
+                p = (Pair<String, String>) new Pair<String, String>(null, rawReferenceText).freeze();
             }
 
             String Rxxx = reference_to_Rxxx.get(p);
@@ -1101,20 +1101,20 @@ public class ConvertLanguageData {
 
         Set<String> languages = languagesNeeded; // sc.getGoodAvailableCodes("language");
 
-        Set<String> territories = new TreeSet(sc.getGoodAvailableCodes("territory"));
+        Set<String> territories = new TreeSet<String>(sc.getGoodAvailableCodes("territory"));
         territories.removeAll(supplementalData.getContainers());
         territories.remove("EU");
         territories.remove("QO");
 
-        Set<String> countriesNotFound = new TreeSet(territories);
-        Set<OfficialStatus> statusFound = new TreeSet();
-        Set<String> countriesWithoutOfficial = new TreeSet(territories);
+        Set<String> countriesNotFound = new TreeSet<String>(territories);
+        Set<OfficialStatus> statusFound = new TreeSet<OfficialStatus>();
+        Set<String> countriesWithoutOfficial = new TreeSet<String>(territories);
         countriesWithoutOfficial.remove("ZZ");
 
         Map<String, Row.R2<String, Double>> countryToLargestOfficialLanguage = new HashMap<String, Row.R2<String, Double>>();
 
-        Set<String> languagesNotFound = new TreeSet(languages);
-        Set<RowData> sortedInput = new TreeSet();
+        Set<String> languagesNotFound = new TreeSet<String>(languages);
+        Set<RowData> sortedInput = new TreeSet<RowData>();
         int count = 0;
         for (List<String> row : input) {
             ++count;
@@ -1178,7 +1178,7 @@ public class ConvertLanguageData {
             // see which countries have languages that are larger than any offical language
 
             if (!row.officialStatus.isOfficial()) {
-                String country = row.countryCode;
+                //String country = row.countryCode;
                 Row.R2<String, Double> largestOffical = countryToLargestOfficialLanguage.get(row.countryCode);
                 if (largestOffical != null && largestOffical.get1() < row.languagePopulation) {
                     System.out.println("*WARNING*	language population greater than any official language: "
@@ -1211,7 +1211,7 @@ public class ConvertLanguageData {
                 "\tNotes"
             );
         RickComparator rickSorting = new RickComparator();
-        Set<RowData> rickSorted = new TreeSet(rickSorting);
+        Set<RowData> rickSorted = new TreeSet<RowData>(rickSorting);
         rickSorted.addAll(sortedInput);
 
         for (RowData row : rickSorted) {
@@ -1236,10 +1236,10 @@ public class ConvertLanguageData {
         return sortedInput;
     }
 
-    private static Set<String> getCldrParents(Set available) {
+    private static Set<String> getCldrParents(Set<String> available) {
         LanguageTagParser ltp2 = new LanguageTagParser();
         Set<String> cldrParents = new TreeSet<String>();
-        for (String locale : (Set<String>) available) {
+        for (String locale : available) {
             if (skipLocales.contains(locale)) continue;
             try {
                 ltp2.set(locale);
@@ -1273,7 +1273,7 @@ public class ConvertLanguageData {
         }
     }
 
-    private static void showContent(Set available) {
+    private static void showContent(Set<String> available) {
         System.out.println();
         System.out.println("CLDR Content");
         System.out.println();
@@ -1333,7 +1333,7 @@ public class ConvertLanguageData {
         // System.out.println(warning);
         // }
 
-        // for (String localeCode : (Set<String>) available) {
+        // for (String localeCode : available) {
         // if (skipLocales.contains(localeCode)) continue;
         // String resolvedLanguageCode = getFullyResolved(localeCode);
         // // a locale will be empty if its parent has the same resolved code
@@ -1406,7 +1406,7 @@ public class ConvertLanguageData {
         }
 
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        Set<String> locales = new TreeSet(cldrFactory.getAvailable());
+        Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
         LocaleIDParser lidp = new LocaleIDParser();
 
         // add all the combinations of language, script, and territory.
@@ -1419,7 +1419,7 @@ public class ConvertLanguageData {
         }
 
         // adding parents
-        Set<String> toAdd = new TreeSet();
+        Set<String> toAdd = new TreeSet<String>();
         while (true) {
             for (String locale : locales) {
                 String newguy = LocaleIDParser.getParent(locale);
@@ -1439,17 +1439,17 @@ public class ConvertLanguageData {
         Set<Set<String>> siblingSets = new TreeSet<Set<String>>(firstElementComparator);
         Set<String> needsADoin = new TreeSet<String>(locales);
 
-        Set<String> deprecatedLanguages = new TreeSet();
+        Set<String> deprecatedLanguages = new TreeSet<String>();
         deprecatedLanguages.add("sh");
-        Set<String> deprecatedRegions = new TreeSet();
+        Set<String> deprecatedRegions = new TreeSet<String>();
         deprecatedRegions.add("YU");
         deprecatedRegions.add("CS");
         deprecatedRegions.add("ZZ");
 
         // first find all the language subtags that have scripts, and those we need to skip. Those are aliased-only
-        Set<String> skippingItems = new TreeSet();
-        Set<String> hasAScript = new TreeSet();
-        Set<LocaleIDParser.Level> languageOnly = EnumSet.of(LocaleIDParser.Level.Language);
+        Set<String> skippingItems = new TreeSet<String>();
+        Set<String> hasAScript = new TreeSet<String>();
+        //Set<LocaleIDParser.Level> languageOnly = EnumSet.of(LocaleIDParser.Level.Language);
         for (String locale : locales) {
             lidp.set(locale);
             if (lidp.getScript().length() != 0) {
@@ -1538,7 +1538,7 @@ public class ConvertLanguageData {
                         missingData.add(locale);
                     }
                 }
-                data.add(new Pair(languageLiteratePopulation, locale));
+                data.add(new Pair<Double, String>(languageLiteratePopulation, locale));
                 if (best < languageLiteratePopulation) {
                     best = languageLiteratePopulation;
                     bestLocale = locale;
@@ -1735,7 +1735,7 @@ public class ConvertLanguageData {
         }
     }
 
-    static Set languagesNeeded = new TreeSet(
+    static Set<String> languagesNeeded = new TreeSet<String>(
         Arrays
             .asList("ab ba bh bi bo fj fy gd ha ht ik iu ks ku ky lg mi na nb rm sa sd sg si sm sn su tg tk to tw vo yi za lb dv chr syr kha sco gv"
                 .split("\\s")));
@@ -1759,13 +1759,13 @@ public class ConvertLanguageData {
     static Relation<String, BasicLanguageData> language2BasicLanguageData = new Relation(new TreeMap(), TreeSet.class);
 
     static Map<String, Relation<BasicLanguageData.Type, String>> language_status_scripts;
-    static Map<Pair<String, String>, String> language_script_references = new TreeMap();
+    static Map<Pair<String, String>, String> language_script_references = new TreeMap<Pair<String, String>, String>();
 
     static final Map<String, Map<String, R2<List<String>, String>>> LOCALE_ALIAS_INFO = SupplementalDataInfo
         .getInstance().getLocaleAliasInfo();
 
     static void getLanguage2Scripts(Set<RowData> sortedInput) throws IOException {
-        language_status_scripts = new TreeMap();
+        language_status_scripts = new TreeMap<String, Relation<BasicLanguageData.Type, String>>();
 
         // // get current scripts
         // Relation<String,String> languageToDefaultScript = new Relation(new TreeMap(), TreeSet.class);
@@ -1784,11 +1784,11 @@ public class ConvertLanguageData {
         // /Users/markdavis/Documents/workspace/cldr-code/java/org/unicode/cldr/util/data/language_script_raw.txt
         System.out.println(CldrUtility.LINE_SEPARATOR + "Problems in language_script_raw.txt"
             + CldrUtility.LINE_SEPARATOR);
-        int count = -1;
+        //int count = -1;
         for (List<String> row : input) {
             try {
                 if (row.size() == 0) continue;
-                ++count;
+                //++count;
                 String language = row.get(0).trim();
                 if (language.length() == 0 || language.startsWith("#")) continue;
                 BasicLanguageData.Type status = BasicLanguageData.Type.valueOf(row.get(2));
@@ -1835,7 +1835,7 @@ public class ConvertLanguageData {
                     if (row.size() > 5) {
                         String reference = row.get(5);
                         if (reference != null && reference.length() == 0) {
-                            language_script_references.put(new Pair(language, script), reference);
+                            language_script_references.put(new Pair<String, String>(language, script), reference);
                         }
                     }
                 }
@@ -1977,7 +1977,7 @@ public class ConvertLanguageData {
         // }
         // nameToTerritoryCode.put("iran", nameToTerritoryCode.get("iran, islamic republic of")); //
 
-        BasicLanguageData languageData = new BasicLanguageData();
+        //BasicLanguageData languageData = new BasicLanguageData();
 
         BufferedReader in = CldrUtility.getUTF8Data("extraLanguagesAndScripts.txt");
         while (true) {
@@ -1995,14 +1995,14 @@ public class ConvertLanguageData {
                     continue;
                 }
             }
-            String name = parts[1];
+            //String name = parts[1];
             Set<String> names = Iso639Data.getNames(languageSubtag);
             if (names == null) {
                 Map<String, String> name2 = sc.getLangData("language", languageSubtag);
                 if (name2 != null) {
                     String name3 = name2.get("Description");
                     if (name3 != null) {
-                        names = new TreeSet();
+                        names = new TreeSet<String>();
                         names.add(name3);
                     }
                 }
@@ -2016,8 +2016,8 @@ public class ConvertLanguageData {
             Set<String> fullScriptList = sc.getGoodAvailableCodes("script");
 
             String[] scriptList = parts[2].split("[;,]\\s*");
-            Set<String> scripts = new TreeSet();
-            Set<String> scriptsAlt = new TreeSet();
+            Set<String> scripts = new TreeSet<String>();
+            Set<String> scriptsAlt = new TreeSet<String>();
             for (String script : scriptList) {
                 if (script.length() == 0) continue;
                 boolean alt = false;
@@ -2036,7 +2036,7 @@ public class ConvertLanguageData {
                 }
             }
             // now territories
-            Set<String> territories = new TreeSet();
+            Set<String> territories = new TreeSet<String>();
             if (parts.length > 4) {
                 String[] territoryList = parts[4].split("\\s*[;,-]\\s*");
                 for (String territoryName : territoryList) {

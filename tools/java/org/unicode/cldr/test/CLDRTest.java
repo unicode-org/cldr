@@ -283,9 +283,9 @@ public class CLDRTest extends TestFmwk {
         System.out.println("All exemplars: " + allExemplars.toPattern(true));
     }
     
-    // Get DatE-Time in milliseconds
-    private static Calendar cal = Calendar.getInstance();
+    // Get Date-Time in milliseconds
     private static long getDateTimeinMillis(int year, int month, int date){
+        Calendar cal = Calendar.getInstance();
         cal.set(year, month, date);
         return cal.getTimeInMillis();
     }

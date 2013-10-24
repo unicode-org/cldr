@@ -454,7 +454,7 @@ public class CheckHtmlFiles {
                     Type x = parser.next(content);
                     if (verbose) {
                         LOG.write(x + ":\t");
-                        parser.writeResult(x, content, LOG);
+                        SimpleHtmlParser.writeResult(x, content, LOG);
                         LOG.write("\n");
                         LOG.flush();
                     }

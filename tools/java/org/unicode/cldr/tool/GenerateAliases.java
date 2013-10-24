@@ -232,7 +232,7 @@ public class GenerateAliases {
             return languages;
         }
 
-        Map<String, Boolean> wholeAliasCache = new HashMap();
+        Map<String, Boolean> wholeAliasCache = new HashMap<String, Boolean>();
 
         private boolean isWholeAlias(Factory factory, String localeID) {
             Boolean result = wholeAliasCache.get(localeID);

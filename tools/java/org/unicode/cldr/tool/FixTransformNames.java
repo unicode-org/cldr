@@ -32,10 +32,10 @@ public class FixTransformNames {
         new FixTransformNames().run(args);
     }
 
-    Map<String, String> fieldToCode = new HashMap();
-    Map<String, String> oldToNewVariant = new HashMap();
-    Map<String, String> fieldToVariant = new HashMap();
-    Map<String, String> targetToCode = new HashMap();
+    Map<String, String> fieldToCode = new HashMap<String, String>();
+    Map<String, String> oldToNewVariant = new HashMap<String, String>();
+    Map<String, String> fieldToVariant = new HashMap<String, String>();
+    Map<String, String> targetToCode = new HashMap<String, String>();
 
     Set<String> languageCodes = new HashSet<String>();
 
@@ -99,7 +99,7 @@ public class FixTransformNames {
 
          */
 
-        CLDRTransforms transforms = CLDRTransforms.getInstance();
+        //CLDRTransforms transforms = CLDRTransforms.getInstance();
         Relation<String, String> missing = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Set<String> found = new TreeSet<String>();
         Map<String, String> allFields = new TreeMap<String, String>();
@@ -269,11 +269,11 @@ public class FixTransformNames {
     }
 
     private Set<String> getCldrIds(Set<String> internal) {
-        Set<String> result = new LinkedHashSet();
+        Set<String> result = new LinkedHashSet<String>();
         for (String s : CLDRTransforms.getAvailableIds()) {
-            String dir;
+            //String dir;
             ParsedTransformID directionInfo = new ParsedTransformID();
-            String rules = CLDRTransforms.getIcuRulesFromXmlFile(CLDRTransforms.TRANSFORM_DIR, s, directionInfo);
+            //String rules = CLDRTransforms.getIcuRulesFromXmlFile(CLDRTransforms.TRANSFORM_DIR, s, directionInfo);
             Set<String> store = directionInfo.getVisibility() == Visibility.external ? result : internal;
             if (directionInfo.getDirection() != Direction.backward) {
                 store.add(directionInfo.getId());

@@ -1156,7 +1156,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
-        return distinguishedXPath.getDistinguishingXPath(xpath, normalizedPath, nonInheriting);
+        return DistinguishedXPath.getDistinguishingXPath(xpath, normalizedPath, nonInheriting);
     }
 
     private static boolean equalsIgnoringDraft(String path1, String path2) {

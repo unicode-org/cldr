@@ -77,8 +77,8 @@ public class CLDRFormat {
         }
     }
 
-    static Set<String> keys1 = new TreeSet();
-    static Set<String> keys2 = new TreeSet();
+    static Set<String> keys1 = new TreeSet<String>();
+    static Set<String> keys2 = new TreeSet<String>();
 
     private static String findFirstDifference(CLDRFile cldrFile, CLDRFile regenFile) {
         keys1.clear();
@@ -86,9 +86,9 @@ public class CLDRFormat {
         CollectionUtilities.addAll(cldrFile.iterator(), keys1);
         CollectionUtilities.addAll(regenFile.iterator(), keys2);
         if (!keys1.equals(keys2)) {
-            Set missing = new TreeSet(keys1);
+            Set<String> missing = new TreeSet<String>(keys1);
             missing.removeAll(keys2);
-            Set extras = new TreeSet(keys2);
+            Set<String> extras = new TreeSet<String>(keys2);
             extras.removeAll(keys1);
             return "\tMissing: " + missing.toString().replace(", ", ",\n") + ";\n\tExtras: "
                 + extras.toString().replace(", ", ",\n");

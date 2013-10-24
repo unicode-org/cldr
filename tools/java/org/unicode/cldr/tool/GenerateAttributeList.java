@@ -39,9 +39,9 @@ import com.ibm.icu.dev.util.TransliteratorUtilities;
 
 public class GenerateAttributeList {
     XPathParts parts = new XPathParts(null, null);
-    Map element_attribute_valueSet = new TreeMap();
-    Set allElements = new TreeSet();
-    Map defaults = new HashMap();
+    Map<String, Map<String, Set<String>[]>> element_attribute_valueSet = new TreeMap<String, Map<String, Set<String>[]>>();
+    Set<String> allElements = new TreeSet<String>();
+    Map<String, String> defaults = new HashMap<String, String>();
 
     public GenerateAttributeList(Factory cldrFactory) throws IOException {
         addFromStandardCodes();
@@ -85,7 +85,6 @@ public class GenerateAttributeList {
     */
     private void addFromStandardCodes() {
         StandardCodes sc = StandardCodes.make();
-        String cat = "language";
         addFromStandardCodes(sc, "language");
         addFromStandardCodes(sc, "territory");
         addFromStandardCodes(sc, "script");
@@ -98,10 +97,10 @@ public class GenerateAttributeList {
     * 
     */
     private void addFromStandardCodes(StandardCodes sc, String cat) {
-        Collection c = sc.getGoodAvailableCodes(cat);
+        Collection<String> c = sc.getGoodAvailableCodes(cat);
         String target = cat.equals("tzid") ? "zone" : cat;
-        for (Iterator it = c.iterator(); it.hasNext();) {
-            String item = (String) it.next();
+        for (Iterator<String> it = c.iterator(); it.hasNext();) {
+            String item = it.next();
             add(target, "type", item, true);
         }
     }
@@ -184,14 +183,14 @@ public class GenerateAttributeList {
             element = "[common]";
         }
         // now add
-        Map attribute_valueSet = (Map) element_attribute_valueSet.get(element);
-        if (attribute_valueSet == null) element_attribute_valueSet.put(element, attribute_valueSet = new TreeMap());
-        Set[] valueSets = (Set[]) attribute_valueSet.get(attribute);
+        Map<String, Set<String>[]> attribute_valueSet = element_attribute_valueSet.get(element);
+        if (attribute_valueSet == null) element_attribute_valueSet.put(element, attribute_valueSet = new TreeMap<String, Set<String>[]>());
+        Set<String>[] valueSets = attribute_valueSet.get(attribute);
         if (valueSets == null) {
-            Comparator c = CLDRFile.getAttributeValueComparator(element, attribute);
+            Comparator<String> c = CLDRFile.getAttributeValueComparator(element, attribute);
             valueSets = new Set[2];
-            valueSets[0] = new TreeSet(c);
-            valueSets[1] = new TreeSet();
+            valueSets[0] = new TreeSet<String>(c);
+            valueSets[1] = new TreeSet<String>();
             attribute_valueSet.put(attribute, valueSets);
         }
         try {
@@ -221,15 +220,15 @@ public class GenerateAttributeList {
          * pw.println("</td><td>{none}</td><td>{none}</td></tr>");
          */
 
-        for (Iterator it = element_attribute_valueSet.keySet().iterator(); it.hasNext();) {
-            String element = (String) it.next();
-            Map attribute_valueSet = (Map) element_attribute_valueSet.get(element);
+        for (Iterator<String> it = element_attribute_valueSet.keySet().iterator(); it.hasNext();) {
+            String element = it.next();
+            Map<String, Set<String>[]> attribute_valueSet = element_attribute_valueSet.get(element);
             int size = attribute_valueSet.size();
             if (size == 0) continue;
             boolean first = true;
-            for (Iterator it2 = attribute_valueSet.keySet().iterator(); it2.hasNext();) {
-                String attribute = (String) it2.next();
-                Set[] valueSets = (Set[]) attribute_valueSet.get(attribute);
+            for (Iterator<String> it2 = attribute_valueSet.keySet().iterator(); it2.hasNext();) {
+                String attribute = it2.next();
+                Set<String>[] valueSets = attribute_valueSet.get(attribute);
                 pw.print("<tr>");
                 if (first) {
                     first = false;
@@ -240,8 +239,8 @@ public class GenerateAttributeList {
                 String defaultKey = element + "|" + attribute;
                 pw.print(toString(valueSets[0], defaultKey));
                 pw.println("</td><td>");
-                Set toRemove = new TreeSet(valueSets[0]);
-                Set remainder = new TreeSet(valueSets[1]);
+                Set<String> toRemove = new TreeSet<String>(valueSets[0]);
+                Set<String> remainder = new TreeSet<String>(valueSets[1]);
                 remainder.removeAll(toRemove);
                 pw.print(toString(remainder, defaultKey));
                 pw.println("</td></tr>");
@@ -255,11 +254,11 @@ public class GenerateAttributeList {
     /**
     * 
     */
-    private String toString(Collection source, String defaultKey) {
+    private String toString(Collection<String> source, String defaultKey) {
         StringBuffer result = new StringBuffer();
         boolean first = true;
-        for (Iterator it = source.iterator(); it.hasNext();) {
-            String value = (String) it.next();
+        for (Iterator<String> it = source.iterator(); it.hasNext();) {
+            String value = it.next();
             if (first)
                 first = false;
             else

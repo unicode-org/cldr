@@ -24,13 +24,13 @@ import com.ibm.icu.util.ULocale;
 
 public class GenerateCldrCollationTests {
     String sourceDir;
-    Set validLocales = new TreeSet();
-    Map<String, Object> ulocale_rules = new TreeMap(GenerateCldrTests.ULocaleComparator);
-    Map<String, Map> locale_types_rules = new TreeMap<String, Map>();
-    Map collation_collation = new HashMap();
+    Set<String> validLocales = new TreeSet<String>();
+    Map<String, Object> ulocale_rules = new TreeMap<String, Object>(GenerateCldrTests.ULocaleComparator);
+    Map<String, Map<String, RuleBasedCollator>> locale_types_rules = new TreeMap<String, Map<String, RuleBasedCollator>>();
+    Map<RuleBasedCollator, RuleBasedCollator> collation_collation = new HashMap<RuleBasedCollator, RuleBasedCollator>();
     RuleBasedCollator emptyCollator = (RuleBasedCollator) Collator.getInstance(new ULocale(""));
 
-    public Set getAvailableSet() {
+    public Set<String> getAvailableSet() {
         return ulocale_rules.keySet();
     }
 
@@ -50,22 +50,22 @@ public class GenerateCldrCollationTests {
 
     GenerateCldrCollationTests(String sourceDir, String localeRegex, Set<String> locales) throws Exception {
         this.sourceDir = sourceDir;
-        Set s = GenerateCldrTests.getMatchingXMLFiles(sourceDir, localeRegex);
-        for (Iterator it = s.iterator(); it.hasNext();) {
-            getCollationRules((String) it.next());
+        Set<String> s = GenerateCldrTests.getMatchingXMLFiles(sourceDir, localeRegex);
+        for (Iterator<String> it = s.iterator(); it.hasNext();) {
+            getCollationRules(it.next());
         }
 
         // now fixup the validLocales, adding in what they inherit
         // TODO, add check: validSubLocales are masked by intervening locales.
-        for (Iterator it = validLocales.iterator(); it.hasNext();) {
-            String locale = (String) it.next();
-            Map types_rules = (Map) locale_types_rules.get(locale);
+        for (Iterator<String> it = validLocales.iterator(); it.hasNext();) {
+            String locale = it.next();
+            Map<String, RuleBasedCollator> types_rules = locale_types_rules.get(locale);
             if (types_rules != null)
                 Log.logln("Weird: overlap in validLocales: " + locale);
             else {
                 for (String parentlocale = LocaleIDParser.getSimpleParent(locale); parentlocale != null; parentlocale = LocaleIDParser
                     .getSimpleParent(parentlocale)) {
-                    types_rules = (Map) locale_types_rules.get(parentlocale);
+                    types_rules = locale_types_rules.get(parentlocale);
                     if (types_rules != null) {
                         locale_types_rules.put(locale, types_rules);
                         break;
@@ -76,11 +76,11 @@ public class GenerateCldrCollationTests {
         // now generate the @-style locales
         ulocale_rules.put("root", Collator.getInstance(ULocale.ROOT));
 
-        for (Iterator it = locale_types_rules.keySet().iterator(); it.hasNext();) {
-            String locale = (String) it.next();
-            Map types_rules = (Map) locale_types_rules.get(locale);
-            for (Iterator it2 = types_rules.keySet().iterator(); it2.hasNext();) {
-                String type = (String) it2.next();
+        for (Iterator<String> it = locale_types_rules.keySet().iterator(); it.hasNext();) {
+            String locale = it.next();
+            Map<String, RuleBasedCollator> types_rules = locale_types_rules.get(locale);
+            for (Iterator<String> it2 = types_rules.keySet().iterator(); it2.hasNext();) {
+                String type = it2.next();
                 // TODO fix HACK
                 if (type.equals("unihan")) {
                     if (!locale.startsWith("zh")) continue;

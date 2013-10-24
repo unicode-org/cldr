@@ -25,8 +25,8 @@ import org.unicode.cldr.util.XPathParts;
 public class CheckDisplayCollisions extends FactoryCheckCLDR {
     
     // Get Date-Time in milliseconds
-    private static Calendar cal = Calendar.getInstance();
     private static long getDateTimeinMillis(int year, int month, int date){
+        Calendar cal = Calendar.getInstance();
         cal.set(year, month, date);
         return cal.getTimeInMillis();
     }

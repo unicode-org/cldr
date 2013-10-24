@@ -45,7 +45,7 @@ public class CompareData {
 
     static PrettyPath prettyPathMaker = new PrettyPath();
     static CLDRFile english;
-    static Set locales;
+    static Set<String> locales;
     static Factory cldrFactory;
 
     public static void main(String[] args) throws Exception {
@@ -60,27 +60,27 @@ public class CompareData {
             cldrFactory = Factory.make(sourceDir, options[MATCH].value);
             Factory oldFactory = Factory.make(compareDir, options[MATCH].value);
 
-            locales = new TreeSet(cldrFactory.getAvailable());
+            locales = new TreeSet<String>(cldrFactory.getAvailable());
             new CldrUtility.MatcherFilter(options[MATCH].value).retainAll(locales);
-            Set pathsSeen = new HashSet();
+            Set<String> pathsSeen = new HashSet<String>();
             int newItemsTotal = 0;
             int replacementItemsTotal = 0;
             int deletedItemsTotal = 0;
             int sameItemsTotal = 0;
 
-            for (Iterator it = locales.iterator(); it.hasNext();) {
+            for (Iterator<String> it = locales.iterator(); it.hasNext();) {
                 int newItems = 0;
                 int replacementItems = 0;
                 int deletedItems = 0;
                 int sameItems = 0;
-                String locale = (String) it.next();
+                String locale = it.next();
                 if (locale.startsWith("supplem") || locale.startsWith("character")) continue;
                 CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
                 try {
                     CLDRFile oldFile = (CLDRFile) oldFactory.make(locale, false);
                     pathsSeen.clear();
-                    for (Iterator it2 = file.iterator(); it2.hasNext();) {
-                        String path = (String) it2.next();
+                    for (Iterator<String> it2 = file.iterator(); it2.hasNext();) {
+                        String path = it2.next();
                         String value = file.getStringValue(path);
                         String oldValue = oldFile.getStringValue(path);
                         if (oldValue == null) {
@@ -92,8 +92,8 @@ public class CompareData {
                         }
                         pathsSeen.add(path);
                     }
-                    for (Iterator it2 = oldFile.iterator(); it2.hasNext();) {
-                        String path = (String) it2.next();
+                    for (Iterator<String> it2 = oldFile.iterator(); it2.hasNext();) {
+                        String path = it2.next();
                         if (!pathsSeen.contains(path)) {
                             deletedItems++;
                         }

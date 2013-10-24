@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -715,10 +716,17 @@ public class TestMetazones {
                 return 1;
             return 0;
         }
+        
+        // Get Date-Time in milliseconds
+        private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second){
+            Calendar cal = Calendar.getInstance();
+            cal.set(year, month, date, hourOfDay, minute, second);
+            return cal.getTimeInMillis();
+        }
 
-        static long MIN_DATE = new Date(70, 0, 1, 0, 0, 0).getTime();
+        static long MIN_DATE = getDateTimeinMillis(70, 0, 1, 0, 0, 0);
 
-        static long MAX_DATE = new Date(110, 0, 1, 0, 0, 0).getTime();
+        static long MAX_DATE = getDateTimeinMillis(110, 0, 1, 0, 0, 0);
 
         public String toString() {
             return "{" + format(startDate) + " to " + format(endDate) + "}";

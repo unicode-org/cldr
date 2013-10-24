@@ -586,9 +586,9 @@ public class CheckDates extends FactoryCheckCLDR {
     }
     XPathParts pathParts = new XPathParts(null, null);
     
-    // Get DatE-Time in milliseconds
-    private static Calendar cal = Calendar.getInstance();
+    // Get Date-Time in milliseconds
     private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second){
+        Calendar cal = Calendar.getInstance();
         cal.set(year, month, date, hourOfDay, minute, second);
         return cal.getTimeInMillis();
     }

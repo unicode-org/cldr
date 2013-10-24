@@ -21,19 +21,19 @@ import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
 class GenerateCldrDateTimeTests {
-    Map ulocale_exemplars = new TreeMap(GenerateCldrTests.ULocaleComparator);
-    Map uniqueExemplars = new HashMap();
-    Set locales = new TreeSet(GenerateCldrTests.ULocaleComparator);
+    Map<ULocale, UnicodeSet> ulocale_exemplars = new TreeMap<ULocale, UnicodeSet>(GenerateCldrTests.ULocaleComparator);
+    Map<UnicodeSet, UnicodeSet> uniqueExemplars = new HashMap<UnicodeSet, UnicodeSet>();
+    Set<ULocale> locales = new TreeSet<ULocale>(GenerateCldrTests.ULocaleComparator);
 
     UnicodeSet getExemplarSet(ULocale locale) {
-        return (UnicodeSet) ulocale_exemplars.get(locale);
+        return ulocale_exemplars.get(locale);
     }
 
     void show() {
         Log.logln("Showing Locales");
         Log.logln("Unique Exemplars: " + uniqueExemplars.size());
-        for (Iterator it2 = ulocale_exemplars.keySet().iterator(); it2.hasNext();) {
-            ULocale locale = (ULocale) it2.next();
+        for (Iterator<ULocale> it2 = ulocale_exemplars.keySet().iterator(); it2.hasNext();) {
+            ULocale locale = it2.next();
             UnicodeSet us = getExemplarSet(locale);
             Log.logln("\t" + locale + ", " + us);
         }
@@ -46,13 +46,13 @@ class GenerateCldrDateTimeTests {
     GenerateCldrDateTimeTests(String sourceDir, String localeRegex, boolean doResolved) {
         this.cldrFactory = Factory.make(sourceDir, ".*");
         icuServiceBuilder = new ICUServiceBuilder();
-        Set s = GenerateCldrTests.getMatchingXMLFiles(sourceDir, localeRegex);
-        for (Iterator it = s.iterator(); it.hasNext();) {
-            getInfo((String) it.next(), doResolved);
+        Set<String> s = GenerateCldrTests.getMatchingXMLFiles(sourceDir, localeRegex);
+        for (Iterator<String> it = s.iterator(); it.hasNext();) {
+            getInfo(it.next(), doResolved);
         }
         // now do inheritance manually
-        for (Iterator it = locales.iterator(); it.hasNext();) {
-            ULocale locale = (ULocale) it.next();
+        for (Iterator<ULocale> it = locales.iterator(); it.hasNext();) {
+            ULocale locale = it.next();
             UnicodeSet ex = (UnicodeSet) ulocale_exemplars.get(locale);
             if (ex != null) continue;
             for (ULocale parent = locale.getFallback(); parent != null; parent = parent.getFallback()) {

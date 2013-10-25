@@ -18,6 +18,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
+import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.Collator;
@@ -70,13 +71,6 @@ public class VoteResolver<T> {
             return source == null ? missing : Status.valueOf(source);
         }
     }
-
-    private final static Set<String> ESTABLISHED_LOCALES = Collections
-        .unmodifiableSet(new HashSet(
-            Arrays
-                .asList(
-                "ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant"
-                    .split(" "))));
 
     /**
      * This list needs updating as a new organizations are added; that's by design
@@ -505,7 +499,8 @@ public class VoteResolver<T> {
     private Status trunkStatus;
 
     private boolean resolved;
-    private boolean isEstablished;
+    private int requiredVotes;
+    private SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
 
     private final Comparator<T> ucaCollator = new Comparator<T>() {
         Collator col = Collator.getInstance(ULocale.ENGLISH);
@@ -557,8 +552,8 @@ public class VoteResolver<T> {
      * @param locale
      * @return
      */
-    public VoteResolver<T> setEstablishedFromLocale(String locale) {
-        isEstablished = ESTABLISHED_LOCALES.contains(new LanguageTagParser().set(locale).getLanguage());
+    public VoteResolver<T> setLocale(String locale) {
+        requiredVotes = supplementalDataInfo.getRequiredVotes(new LanguageTagParser().set(locale).getLanguage());
         return this;
     }
 
@@ -568,13 +563,13 @@ public class VoteResolver<T> {
      * @param locale
      * @return
      */
-    public VoteResolver<T> setEstablishedFromLocale(CLDRLocale locale) {
-        isEstablished = ESTABLISHED_LOCALES.contains(locale.getLanguage());
+    public VoteResolver<T> setLocale(CLDRLocale locale) {
+        requiredVotes = supplementalDataInfo.getRequiredVotes(locale.getLanguage());
         return this;
     }
 
     public boolean isEstablished() {
-        return isEstablished;
+        return (requiredVotes == 8);
     }
 
     /**
@@ -700,8 +695,7 @@ public class VoteResolver<T> {
     private Status computeStatus(long weight1, long weight2, Status oldStatus) {
         int orgCount = organizationToValueAndVote.getOrgCount(winningValue);
         return weight1 > weight2 &&
-            (weight1 >= 8
-            || (weight1 >= 4 && !isEstablished)) ? Status.approved
+            (weight1 >= requiredVotes) ? Status.approved
             : weight1 > weight2 &&
                 (weight1 >= 4 && Status.contributed.compareTo(oldStatus) > 0
                 || weight1 >= 2 && orgCount >= 2) ? Status.contributed

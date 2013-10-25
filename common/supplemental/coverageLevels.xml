@@ -10,6 +10,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<version number="$Revision$"/>
 	<generation date="$Date$"/>
 	<coverageLevels>
+		<approvalRequirements>
+			<approvalRequirement votes="8" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" paths=""/>
+			<approvalRequirement votes="4" locales="*" paths=""/>
+		</approvalRequirements>
+		
 		<coverageVariable key="%acctPattern" value="[@type='accounting']/pattern[@type='standard']"/>
 		<coverageVariable key="%allWidths" value="(wide|abbreviated|narrow)"/>
 		<coverageVariable key="%arabextLanguages" value="(fa|pa|ps|uz)"/>

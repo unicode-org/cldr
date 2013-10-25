@@ -529,7 +529,7 @@ public class TestUtilities extends TestFmwk {
     public void TestTrunkStatus() {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
-        resolver.setEstablishedFromLocale("de");
+        resolver.setLocale("de");
 
         resolver.setLastRelease("old-item", Status.approved);
         resolver.setTrunk("new-item", Status.approved);
@@ -544,7 +544,7 @@ public class TestUtilities extends TestFmwk {
     public void TestVoteResolverNgombaTrunkStatus() {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
-        resolver.setEstablishedFromLocale("jgo");
+        resolver.setLocale("jgo");
         final String jgo21 = "\uA78B"; // "[ɑ ɑ́ ɑ̂ ɑ̌ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p pf s sh t ts u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z Ꞌ]";
         final String jgo22trunk = "\uA78C"; // "[a á â ǎ b c d ɛ {ɛ́} {ɛ̂} {ɛ̌} {ɛ̀} {ɛ̄} f ɡ h i í î ǐ j k l m ḿ {m̀} {m̄} n ń ǹ {n̄} ŋ {ŋ́} {ŋ̀} {ŋ̄} ɔ {ɔ́} {ɔ̂} {ɔ̌} p {pf} s {sh} t {ts} u ú û ǔ ʉ {ʉ́} {ʉ̂} {ʉ̌} {ʉ̈} v w ẅ y z ꞌ]";
         Status oldStatus = Status.approved;
@@ -560,7 +560,7 @@ public class TestUtilities extends TestFmwk {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
 
-        resolver.setEstablishedFromLocale("de");
+        resolver.setLocale("de");
         resolver.setLastRelease("foo", Status.approved);
         resolver.add("fii", toVoterId("adobeE"));
         resolver.add("fii", toVoterId("appleV"));
@@ -592,7 +592,7 @@ public class TestUtilities extends TestFmwk {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
 
-        resolver.setEstablishedFromLocale("af");
+        resolver.setLocale("af");
         resolver.setLastRelease("BQ", Status.missing);
         VoteStatus status = resolver.getStatusForOrganization(Organization.openoffice_org);
         assertEquals("", VoteStatus.provisionalOrWorse, status);
@@ -621,7 +621,7 @@ public class TestUtilities extends TestFmwk {
 
         Status oldStatus = Status.unconfirmed;
 
-        resolver.setEstablishedFromLocale("de");
+        resolver.setLocale("de");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
@@ -633,7 +633,7 @@ public class TestUtilities extends TestFmwk {
         assertEquals("", Status.provisional, winningStatus);
 
         resolver.clear();
-        resolver.setEstablishedFromLocale("de");
+        resolver.setLocale("de");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("zebra", toVoterId("googleS"));
@@ -652,7 +652,7 @@ public class TestUtilities extends TestFmwk {
 
         Status oldStatus = Status.unconfirmed;
 
-        resolver.setEstablishedFromLocale("de");
+        resolver.setLocale("de");
         resolver.setLastRelease("foo", oldStatus);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
@@ -663,7 +663,7 @@ public class TestUtilities extends TestFmwk {
         assertEquals("", "foo", new ArrayList<String>(counts.keySet()).get(2));
 
         resolver.clear();
-        resolver.setEstablishedFromLocale("de");
+        resolver.setLocale("de");
         resolver.setLastRelease("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleV"));
         resolver.add("apple", toVoterId("appleV"));
@@ -672,7 +672,7 @@ public class TestUtilities extends TestFmwk {
         assertEquals("", "foo", new ArrayList<String>(counts.keySet()).get(0));
 
         resolver.clear();
-        resolver.setEstablishedFromLocale("de");
+        resolver.setLocale("de");
         resolver.setLastRelease("foo", Status.approved);
         resolver.add("zebra", toVoterId("googleS"));
         counts = resolver.getResolvedVoteCounts();
@@ -843,7 +843,7 @@ public class TestUtilities extends TestFmwk {
             } else if (name.equalsIgnoreCase("check")) {
                 counter++;
                 // load the resolver
-                resolver.setEstablishedFromLocale(locale);
+                resolver.setLocale(locale);
                 resolver.setLastRelease(oldValue, oldStatus);
                 for (int voter : values.keySet()) {
                     resolver.add(values.get(voter), voter);

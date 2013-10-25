@@ -1398,7 +1398,13 @@ public class SupplementalDataInfo {
         }
 
         private void handleCoverageLevels() {
-            if (parts.containsElement("coverageLevel")) {
+            if(parts.containsElement("approvalRequirement") && parts.getAttributeValue(-1, "votes").equals("8")){
+                String locales = parts.getAttributeValue(-1, "locales");
+                String[] el = locales.split(" ");
+                for (int i = 0; i < el.length; i++) {
+                    establishedLocales.add(el[i]);
+                }
+            }else if (parts.containsElement("coverageLevel")) {
                 String match = parts.containsAttribute("match") ? coverageVariables.replace(parts.getAttributeValue(-1,
                     "match")) : null;
                 String valueStr = parts.getAttributeValue(-1, "value");
@@ -1862,6 +1868,7 @@ public class SupplementalDataInfo {
     // make public temporarily until we resolve.
     private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<CoverageLevelInfo>();
     private Map<String, String> parentLocales = new HashMap<String, String>();
+    private Set<String> establishedLocales = new HashSet<String>();
     private Map<String, List<String>> calendarPreferences = new HashMap<String, List<String>>();
     private Map<String, CoverageVariableInfo> localeSpecificVariables = new TreeMap<String, CoverageVariableInfo>();
     private VariableReplacer coverageVariables = new VariableReplacer();
@@ -2426,6 +2433,13 @@ public class SupplementalDataInfo {
             return parentLocales.get(loc);
         }
         return null;
+    }
+    
+    public int getRequiredVotes(String loc) {
+        if (establishedLocales.contains(loc)) {
+            return 8;
+        }
+        return 4;
     }
 
     /**

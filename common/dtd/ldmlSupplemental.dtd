@@ -499,7 +499,14 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST primaryZone iso3166 NMTOKEN #REQUIRED >
 
 <!-- Coverage levels -->
-<!ELEMENT coverageLevels ( coverageVariable*, coverageLevel* ) >
+<!ELEMENT coverageLevels ( approvalRequirements, coverageVariable*, coverageLevel* ) >
+
+<!ELEMENT approvalRequirements ( approvalRequirement* ) >
+<!ELEMENT approvalRequirement EMPTY >
+
+<!ATTLIST approvalRequirement votes CDATA #REQUIRED>
+<!ATTLIST approvalRequirement locales CDATA #REQUIRED>
+<!ATTLIST approvalRequirement paths CDATA #REQUIRED>
 
 <!ELEMENT coverageVariable EMPTY >
 <!ATTLIST coverageVariable key CDATA #REQUIRED >

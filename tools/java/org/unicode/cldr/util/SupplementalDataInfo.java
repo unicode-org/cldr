@@ -16,6 +16,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -2164,7 +2165,7 @@ public class SupplementalDataInfo {
      */
     public Level getCoverageLevel(String xpath, String loc) {
         Level result = null;
-        result = coverageCache.get(loc + ":" + xpath);
+        result = coverageCache.get(xpath, loc);
         if (result == null) {
             CoverageLevel2 cov = localeToCoverageLevelInfo.get(loc);
             if (cov == null) {
@@ -2173,9 +2174,84 @@ public class SupplementalDataInfo {
             }
 
             result = cov.getLevel(xpath);
-            coverageCache.put(loc + ":" + xpath, result);
+            coverageCache.put(xpath, loc, result);
         }
         return result;
+    }
+    
+    /**
+     * Cache Data structure with object expiry,
+     * List that can hold up to MAX_LOCALES caches of locales, when one locale hasn't been used for a while it will removed and GC'd
+     */
+    private class CoverageCache {
+        private LinkedList<Node> localeList;
+        private final int MAX_LOCALES = 10;
+        
+        /*
+         * constructor
+         */
+        public CoverageCache() {
+            localeList = new LinkedList<Node>();
+        }
+        
+        /*
+         * retrieves coverage level associated with two keys if it exists in the cache, otherwise returns null
+         * @param xpath
+         * @param loc
+         * @return the coverage level of the above two keys
+         */
+        public Level get(String xpath, String loc) {
+            for( Iterator<Node> it = localeList.iterator(); it.hasNext(); ) {
+                Node node = it.next();
+                if( node.loc.equals(loc) ) {
+                    //move node to front of list
+                    localeList.remove(node);
+                    localeList.addFirst(node);
+                    return node.map.get(xpath);
+                }
+            }
+            return null;
+        }
+        
+        /*
+         * places a coverage level into the cache, with two keys
+         * @param xpath
+         * @param loc
+         * @param covLevel    the coverage level of the above two keys
+         */
+        public void put(String xpath, String loc, Level covLevel) {
+            //if locale's map is already in the cache add to it
+            for( Iterator<Node> it = localeList.iterator(); it.hasNext(); ) {
+                Node node = it.next();
+                if( node.loc.equals(loc) ) {
+                    node.map.put(xpath, covLevel);
+                    return;
+                }
+            }
+            
+            //if it is not, add a new map with the coverage level, and remove the last map in the list (used most seldom) if the lis tis too large
+            Map<String, Level> newMap = new ConcurrentHashMap<String, Level>();
+            newMap.put(xpath, covLevel);
+            localeList.addFirst(new Node(xpath, newMap));
+            
+            if( localeList.size() > MAX_LOCALES ) {
+                localeList.removeLast();
+            }
+        }
+        
+        /*
+         * node to hold a location and a Map
+         */
+        private class Node {
+            //public fields to emulate a C/C++ struct
+            public String loc;
+            public Map<String, Level> map;
+            
+            public Node(String _loc, Map<String, Level> _map) {
+                loc = _loc;
+                map = _map;
+            }
+        }
     }
 
     /**
@@ -2563,7 +2639,7 @@ public class SupplementalDataInfo {
     private Map<String, PluralInfo> localeToOrdinalInfo = new LinkedHashMap<String, PluralInfo>();
     private Map<String, DayPeriodInfo> localeToDayPeriodInfo = new LinkedHashMap<String, DayPeriodInfo>();
     private Map<String, CoverageLevel2> localeToCoverageLevelInfo = new ConcurrentHashMap<String, CoverageLevel2>();
-    private Map<String, Level> coverageCache = new ConcurrentHashMap<String, Level>();
+    private CoverageCache coverageCache = new CoverageCache();
     private transient String lastPluralLocales = "root";
     private transient boolean lastPluralWasOrdinal = false;
     private transient Map<Count, String> lastPluralMap = new EnumMap<Count, String>(Count.class);

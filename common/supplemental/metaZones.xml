@@ -175,7 +175,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone to="1996-09-29 22:00" from="1990-05-03 23:00" mzone="Europe_Eastern"/>
 				<usesMetazone to="1997-10-03 22:00" from="1996-09-29 22:00" mzone="Europe_Central"/>
 				<usesMetazone to="2012-11-10 00:00" from="1997-10-03 22:00" mzone="Europe_Eastern"/>
-				<usesMetazone from="2012-11-10 00:00" mzone="Europe_Central"/>
+				<usesMetazone to="2013-10-25 00:00" from="2012-11-10 00:00" mzone="Europe_Central"/>
+				<usesMetazone from="2013-10-25 00:00" mzone="Europe_Eastern"/>
 			</timezone>
 			<timezone type="Africa/Tunis">
 				<usesMetazone mzone="Europe_Central"/>
@@ -372,7 +373,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Eirunepe">
 				<usesMetazone to="2008-06-24 05:00" mzone="Acre"/>
-				<usesMetazone from="2008-06-24 05:00" mzone="Amazon"/>
+				<usesMetazone to="2013-11-10 04:00" from="2008-06-24 05:00" mzone="Amazon"/>
+				<usesMetazone from="2013-11-10 04:00" mzone="Acre"/>
 			</timezone>
 			<timezone type="America/El_Salvador">
 				<usesMetazone mzone="America_Central"/>
@@ -656,7 +658,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Rio_Branco">
 				<usesMetazone to="2008-06-24 05:00" mzone="Acre"/>
-				<usesMetazone from="2008-06-24 05:00" mzone="Amazon"/>
+				<usesMetazone to="2013-11-10 04:00" from="2008-06-24 05:00" mzone="Amazon"/>
+				<usesMetazone from="2013-11-10 04:00" mzone="Acre"/>
 			</timezone>
 			<timezone type="America/Santa_Isabel">
 				<usesMetazone mzone="America_Pacific"/>

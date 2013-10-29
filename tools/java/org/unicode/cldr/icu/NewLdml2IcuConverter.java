@@ -180,7 +180,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
                 specialFactory = Factory.make(option.getValue(), ".*");
             }
         } else if (type == Type.brkitr) {
-            specialFactory = Factory.make(sourceDir, ".*");
+            specialFactory = Factory.make(options.get("specialsdir").getValue(), ".*");
         }
 
         // Get list of locales if defined.
@@ -241,7 +241,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             processBcp47Data();
             break;
         case brkitr:
-            mapper = new BreakIteratorMapper(specialFactory);
+            mapper = new BreakIteratorMapper(sourceDir, specialFactory);
             break;
         case collation:
             mapper = new CollationMapper(sourceDir, specialFactory);

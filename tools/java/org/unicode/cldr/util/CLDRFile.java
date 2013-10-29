@@ -2534,6 +2534,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
             // <ruleset> children
             "rbnfrule",
+            
+            // <exceptions> children
+            "exception",
 
             // DTD: supplementalData
             // <territory> children

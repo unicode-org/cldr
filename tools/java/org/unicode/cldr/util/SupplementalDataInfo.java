@@ -2229,10 +2229,10 @@ public class SupplementalDataInfo {
                 }
             }
             
-            //if it is not, add a new map with the coverage level, and remove the last map in the list (used most seldom) if the lis tis too large
+            //if it is not, add a new map with the coverage level, and remove the last map in the list (used most seldom) if the list is too large
             Map<String, Level> newMap = new ConcurrentHashMap<String, Level>();
             newMap.put(xpath, covLevel);
-            localeList.addFirst(new Node(xpath, newMap));
+            localeList.addFirst(new Node(loc, newMap));
             
             if( localeList.size() > MAX_LOCALES ) {
                 localeList.removeLast();

@@ -255,6 +255,9 @@ public class SurveyAjax extends HttpServlet {
         String vhash = request.getParameter("vhash");
         String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
         CookieSession mySession = null;
+        
+        //loc can have either - or _
+        loc = (loc == null) ? null : loc.replace('-', '_');
 
         CLDRLocale l = null;
         if (sm != null && sm.isSetup && loc != null && !loc.isEmpty()) {

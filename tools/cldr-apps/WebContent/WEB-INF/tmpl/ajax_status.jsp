@@ -19,6 +19,8 @@ var surveyCurrentPage = '';
 var surveyCurrentSpecial = null; //  null for locale, else oldvotes, etc
 <%
 String surveyCurrentLocale = request.getParameter(SurveyMain.QUERY_LOCALE);
+//locale can have either - or _
+surveyCurrentLocale = (surveyCurrentLocale == null) ? null : surveyCurrentLocale.replace("-", "_");
 String surveyCurrentLocaleName = "";
 if(surveyCurrentLocale!=null) {
 	CLDRLocale aloc = CLDRLocale.getInstance(surveyCurrentLocale);

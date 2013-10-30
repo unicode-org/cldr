@@ -6,6 +6,9 @@
 			String sess = request.getParameter(SurveyMain.QUERY_SESSION);
 			String loc = request.getParameter(SurveyMain.QUERY_LOCALE);
 			
+			//locale can have either - or _
+			loc = (loc == null) ? null : loc.replace("-", "_");
+			
 			CLDRLocale l = SurveyAjax.validateLocale(new PrintWriter(out), loc);
 			if(l==null) return;
 			ctx.setLocale(l);

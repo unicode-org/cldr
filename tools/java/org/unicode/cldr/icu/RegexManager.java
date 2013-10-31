@@ -522,8 +522,8 @@ class RegexManager {
         for (Entry<String, String> entry : xpathVariables.entrySet()) {
             cldrVariables.add(entry.getKey(), cldrFile.getStringValue(entry.getValue()));
         }
-        for (R2<Finder, RegexResult> entry : basePathConverter) {
-            processedPathConverter.add(entry.get0(), entry.get1());
+        for (Map.Entry<Finder, RegexResult> entry : basePathConverter) {
+            processedPathConverter.add(entry.getKey(), entry.getValue());
         }
         for (Entry<String, RegexResult> entry : unprocessedMatchers.entrySet()) {
             processedPathConverter.add(cldrVariables.replace(entry.getKey()),

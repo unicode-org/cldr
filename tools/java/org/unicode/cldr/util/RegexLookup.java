@@ -26,10 +26,10 @@ import com.ibm.icu.util.Output;
  * 
  * @param <T>
  */
-public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
+public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     private VariableReplacer variables = new VariableReplacer();
     private static final boolean DEBUG = true;
-    private final Map<Finder, Row.R2<Finder, T>> entries = new LinkedHashMap<Finder, Row.R2<Finder, T>>();
+    private final Map<Finder, T> entries = new LinkedHashMap<Finder, T>();
     private Transform<String, ? extends Finder> patternTransform = RegexFinderTransform;
     private Transform<String, ? extends T> valueTransform;
     private Merger<T> valueMerger;
@@ -141,7 +141,22 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
      * @return
      */
     public T get(String source, Object context, Output<String[]> arguments) {
-        return get(source, context, arguments, null, null);
+        for (Map.Entry<Finder, T> entry : entries.entrySet()) {
+            Finder matcher = entry.getKey();
+            synchronized (matcher) {
+                if (matcher.find(source, context)) {
+                    if (arguments != null) {
+                        arguments.value = matcher.getInfo();
+                    }
+                    return entry.getValue();
+                }
+            }
+        }
+        // not really necessary, but makes debugging easier.
+        if (arguments != null) {
+            arguments.value = null;
+        }
+        return null;
     }
 
     /**
@@ -155,8 +170,8 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
      */
     public T get(String source, Object context, Output<String[]> arguments,
         Output<Finder> matcherFound, List<String> failures) {
-        for (R2<Finder, T> entry : entries.values()) {
-            Finder matcher = entry.get0();
+        for (Map.Entry<Finder, T> entry : entries.entrySet()) {
+            Finder matcher = entry.getKey();
             synchronized (matcher) {
                 if (matcher.find(source, context)) {
                     if (arguments != null) {
@@ -165,7 +180,7 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
                     if (matcherFound != null) {
                         matcherFound.value = matcher;
                     }
-                    return entry.get1();
+                    return entry.getValue();
                 } else if (failures != null) {
                     int failPoint = matcher.getFailPoint(source);
                     String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t"
@@ -195,13 +210,13 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
      */
     public List<T> getAll(String source, Object context, List<Finder> matcherList, List<String> failures) {
         List<T> matches = new ArrayList<T>();
-        for (R2<Finder, T> entry : entries.values()) {
-            Finder matcher = entry.get0();
+        for (Map.Entry<Finder, T> entry : entries.entrySet()) {
+            Finder matcher = entry.getKey();
             if (matcher.find(source, context)) {
                 if (matcherList != null) {
                     matcherList.add(matcher);
                 }
-                matches.add(entry.get1());
+                matches.add(entry.getValue());
             } else if (failures != null) {
                 int failPoint = matcher.getFailPoint(source);
                 String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t"
@@ -220,10 +235,10 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
      */
     public Map<String, T> getUnmatchedPatterns(Set<String> matched, Map<String, T> outputUnmatched) {
         outputUnmatched.clear();
-        for (R2<Finder, T> entry : entries.values()) {
-            String pattern = entry.get0().toString();
+        for (Map.Entry<Finder, T> entry : entries.entrySet()) {
+            String pattern = entry.getKey().toString();
             if (!matched.contains(pattern)) {
-                outputUnmatched.put(pattern, entry.get1());
+                outputUnmatched.put(pattern, entry.getValue());
             }
         }
         return outputUnmatched;
@@ -343,11 +358,11 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
         if (!allowNull && target == null) {
             throw new NullPointerException("null disallowed, unless allowNull(true) is called.");
         }
-        R2<Finder, T> old = entries.get(pattern);
+        T old = entries.get(pattern);
         if (old == null) {
-            entries.put(pattern, Row.of(pattern, target));
+            entries.put(pattern, target);
         } else if (valueMerger != null) {
-            valueMerger.merge(target, old.get1());
+            valueMerger.merge(target, old);
         } else {
             throw new IllegalArgumentException("Duplicate matcher without Merger defined " + pattern + "; old: " + old
                 + "; new: " + target);
@@ -356,8 +371,8 @@ public class RegexLookup<T> implements Iterable<Row.R2<Finder, T>> {
     }
 
     @Override
-    public Iterator<R2<Finder, T>> iterator() {
-        return Collections.unmodifiableCollection(entries.values()).iterator();
+    public Iterator<Map.Entry<Finder, T>> iterator() {
+        return Collections.unmodifiableCollection(entries.entrySet()).iterator();
     }
 
     public static String replace(String lookup, String... arguments) {

@@ -875,9 +875,9 @@ public class PathHeader implements Comparable<PathHeader> {
         public Counter<CounterData> getInternalCounter() {
             synchronized (lookup) {
                 Counter<CounterData> result = new Counter<CounterData>();
-                for (R2<Finder, RawData> foo : lookup) {
-                    Finder finder = foo.get0();
-                    RawData data = foo.get1();
+                for (Map.Entry<Finder, RawData> foo : lookup) {
+                    Finder finder = foo.getKey();
+                    RawData data = foo.getValue();
                     long count = counter.get(data);
                     result.add(new CounterData(finder.toString(), data, samples.get(data)), count);
                 }

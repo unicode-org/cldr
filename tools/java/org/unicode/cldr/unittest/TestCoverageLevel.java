@@ -262,8 +262,8 @@ public class TestCoverageLevel extends TestFmwk {
     }, null).loadFromFile(TestCoverageLevel.class, "TestCoverageLevel.txt");
 
     public void TestExceptions() {
-        for (R2<Finder, Level> x : exceptions) {
-            logln(x.get0().toString() + " => " + x.get1());
+        for (Map.Entry<Finder, Level> x : exceptions) {
+            logln(x.getKey().toString() + " => " + x.getValue());
         }
     }
 

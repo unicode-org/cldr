@@ -141,22 +141,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      * @return
      */
     public T get(String source, Object context, Output<String[]> arguments) {
-        for (Map.Entry<Finder, T> entry : entries.entrySet()) {
-            Finder matcher = entry.getKey();
-            synchronized (matcher) {
-                if (matcher.find(source, context)) {
-                    if (arguments != null) {
-                        arguments.value = matcher.getInfo();
-                    }
-                    return entry.getValue();
-                }
-            }
-        }
-        // not really necessary, but makes debugging easier.
-        if (arguments != null) {
-            arguments.value = null;
-        }
-        return null;
+        return get(source, context, arguments, null, null);
     }
 
     /**

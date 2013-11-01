@@ -52,7 +52,7 @@ public class XMLValidator {
                     parseDirectory(f);
                 } else {
                     if (!quiet) System.out.println("Processing file " + args[i]);
-                    /* Document doc = */parse(args[i]);
+                    new fileParserThread(args[i]).run();
                 }
             }
         }
@@ -88,7 +88,7 @@ public class XMLValidator {
             }
         })) {
             if (!quiet) System.out.println("Processing file " + s.getPath());
-            /* Document doc = */parse(s.getCanonicalPath());
+            new fileParserThread(s.getCanonicalPath()).run();
         }
     }
 
@@ -157,11 +157,19 @@ public class XMLValidator {
 
     }
 
-    static Document parse(String filename) {
-        // Force filerefs to be URI's if needed: note this is independent of any
-        // other files
-        String docURI = filenameToURL(filename);
-        return parse(new InputSource(docURI), filename);
+    public static class fileParserThread extends Thread {
+        String filename;
+        
+        fileParserThread(String _filename) {
+            filename = _filename;
+        }
+        
+        public void run() {
+            // Force filerefs to be URI's if needed: note this is independent of any
+            // other files
+            String docURI = filenameToURL(filename);
+            parse(new InputSource(docURI), filename);
+        }
     }
 
     static Document parse(InputSource docSrc, String filename) {

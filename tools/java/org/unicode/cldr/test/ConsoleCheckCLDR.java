@@ -182,7 +182,7 @@ public class ConsoleCheckCLDR {
      * @throws IOException
      */
     public static void main(String[] args) throws IOException {
-        final int THREAD_DIVISIONS = 12;         //This has been tested to be the optimal number for run time
+        final int THREAD_DIVISIONS = 2;         //This has been tested to be the optimal number for run time
         
         _supplementalDataInfo = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
         ElapsedTimer totalTimer = new ElapsedTimer();
@@ -352,7 +352,7 @@ public class ConsoleCheckCLDR {
         for (i = 0; i < THREAD_DIVISIONS; i++) {
             //last sublist has to reach end of locale list
             List<String> localesDivision = (i != THREAD_DIVISIONS-1) ? 
-                                           locales.subList(divisionSize*i, (divisionSize+1)*i) :
+                                           locales.subList(divisionSize*i, divisionSize*(i+1)) :
                                            locales.subList(divisionSize*i, locales.size());
             CheckLocaleThread thread = new CheckLocaleThread( localesDivision, doneBaseLanguages, fatalErrors, 
                                                               coverageLevel, organization, phase, user, 
@@ -463,7 +463,8 @@ public class ConsoleCheckCLDR {
             SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);
             
             //run tests
-            for (String localeID: locales) {
+            for (Iterator it = locales.iterator(); it.hasNext();) {
+                String localeID = (String) it.next();
                 if (CLDRFile.isSupplementalName(localeID)) continue;
                 if (supplementalDataInfo.getDefaultContentLocales().contains(localeID)) {
                     System.out.println("# Skipping default content locale: " + localeID);

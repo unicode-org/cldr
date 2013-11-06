@@ -20,10 +20,14 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.CLDRFileTransformer;
+import org.unicode.cldr.tool.CLDRFileTransformer.LocaleTransform;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -52,6 +56,7 @@ import com.ibm.icu.text.PluralRules.FixedDecimalRange;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.TimeZone;
 import com.ibm.icu.util.ULocale;
@@ -326,6 +331,14 @@ public class ExampleGenerator {
             String unchained = verboseErrors ? ("<br>" + finalizeBackground(unchainException(e))) : "";
             return "<i>Parsing error. " + finalizeBackground(e.getMessage()) + "</i>" + unchained;
         }
+        
+        String test = parts.getElement(-1);
+        
+        //add transliteration if one exists
+        if( type == ExampleType.NATIVE && result != null ) {
+            result = addTransliteration(result, value);
+        }
+
         result = finalizeBackground(result);
 
         if (CACHING) {
@@ -1471,7 +1484,33 @@ public class ExampleGenerator {
         Matcher m = patternToEmbed.matcher(inputPattern);
         return m.replaceAll(backgroundStartSymbol + "$1" + backgroundEndSymbol);
     }
-
+    
+    /**
+     * This adds the transliteration of a result in case it has one (i.e. sr_Cyrl -> sr_Latn).
+     * 
+     * @param input
+     *            string with special characters from setBackground.
+     * @param value
+     *            value to be transliterated
+     * @return string with attached transliteration if there is one.
+     */
+    private String addTransliteration(String input, String value) {
+        for (LocaleTransform localeTransform : LocaleTransform.values()) {
+            
+            String locale = cldrFile.getLocaleID();
+            
+            if(!(localeTransform.getInputLocale().equals(locale))){
+                continue;
+            }
+            
+            Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
+            CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CLDRPaths.COMMON_DIRECTORY + "transforms/");
+            Transliterator transliterator = transformer.loadTransliterator(localeTransform);
+            return backgroundStartSymbol + "[ " + transliterator.transliterate(value) + " ]" + backgroundEndSymbol + exampleSeparatorSymbol + input;
+        }
+        return input;
+    }
+    
     /**
      * This is called just before we return a result. It fixes the special characters that were added by setBackground.
      * 

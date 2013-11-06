@@ -98,7 +98,7 @@ public class CLDRFileTransformer {
         this.transformDir = transformDir;
     }
 
-    private Transliterator loadTransliterator(LocaleTransform localeTransform) {
+    public Transliterator loadTransliterator(LocaleTransform localeTransform) {
         if (transliterators.containsKey(localeTransform)) {
             return transliterators.get(localeTransform);
         }

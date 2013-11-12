@@ -153,6 +153,10 @@ public class ChainedMap {
         return mapBase.entrySet().iterator();
     }
 
+    public void clear() {
+        mapBase.clear();
+    }
+
     @SuppressWarnings("unchecked")
     private Object handleGet(Object... keys) {
         Map<Object, Object> map = mapBase;

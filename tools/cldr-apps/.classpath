@@ -14,6 +14,9 @@
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/classes"/>
 		</attributes>
+		<accessrules>
+			<accessrule kind="nonaccessible" pattern="org/unicode/cldr/tool/**"/>
+		</accessrules>
 	</classpathentry>
 	<classpathentry exported="true" kind="lib" path="/cldr-tools/libs/icu4j.jar" sourcepath="/cldr-tools/libs/icu4j-src.jar">
 		<attributes>

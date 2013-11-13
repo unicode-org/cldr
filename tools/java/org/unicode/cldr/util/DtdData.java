@@ -22,8 +22,10 @@ import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile.DtdType;
+import org.unicode.cldr.util.DtdData.Attribute;
 
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UTF16;
 
 /**
@@ -42,16 +44,21 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private MapComparator<String> elementComparator;
 
     public final Element ROOT;
-    public final Element PCDATA = elementFrom("PCDATA");
+    public final Element PCDATA = elementFrom("#PCDATA");
     public final Element ANY = elementFrom("ANY");
     public final DtdType dtdType;
+    public final String version;
+    private Element lastElement;
+    private Attribute lastAttribute;
+    private String firstComment;
 
-    enum Mode {
+    public enum Mode {
         REQUIRED("#REQUIRED"),
         OPTIONAL("#IMPLIED"),
         FIXED("#FIXED"),
         NULL("null");
-        final String source;
+
+        public final String source;
 
         Mode(String s) {
             source = s;
@@ -81,6 +88,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public final String defaultValue;
         public final AttributeType type;
         public final Map<String, Integer> values;
+        private String comment;
 
         private Attribute(Element element2, String aName, Mode mode2, String[] split, String value2) {
             element = element2;
@@ -125,21 +133,36 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public String getName() {
             return name;
         }
+
+        public void addComment(String commentIn) {
+            comment = comment == null ? commentIn : comment + "\n" + commentIn;
+        }
     }
 
-    private DtdData(DtdType type) {
+    private DtdData(DtdType type, String version) {
         this.dtdType = type;
         this.ROOT = elementFrom(type.toString());
+        this.version = version;
     }
 
     private void addAttribute(String eName, String aName, String type, String mode, String value) {
         Attribute a = new Attribute(nameToElement.get(eName), aName, Mode.forString(mode), FILLER.split(type), value);
         getAttributesFromName().put(aName, a);
         CldrUtility.putNew(a.element.attributes, a, a.element.attributes.size());
+        lastElement = null;
+        lastAttribute = a;
     }
 
     public enum ElementType {
-        EMPTY, ANY, PCDATA, CHILDREN
+        EMPTY, ANY, PCDATA("(#PCDATA)"), CHILDREN;
+        public final String source;
+
+        private ElementType(String s) {
+            source = s;
+        }
+        private ElementType() {
+            source = name();
+        }
     }
 
     interface Named {
@@ -149,14 +172,17 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public static class Element implements Named {
         public final String name;
         private ElementType type;
+        private String rawChildren;
         private final Map<Element, Integer> children = new LinkedHashMap<Element, Integer>();
         private final Map<Attribute, Integer> attributes = new LinkedHashMap<Attribute, Integer>();
+        private String comment;
 
         private Element(String name2) {
             name = name2.intern();
         }
 
         private void setChildren(DtdData dtdData, String model) {
+            rawChildren = model;
             if (model.equals("EMPTY")) {
                 type = ElementType.EMPTY;
                 return;
@@ -173,7 +199,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     }
                 }
             }
-            if ((type == ElementType.CHILDREN) == (children.size() == 0) && !model.startsWith("(#PCDATA|cp")) {
+            if ((type == ElementType.CHILDREN) == (children.size() == 0) 
+                && !model.startsWith("(#PCDATA|cp")) {
                 throw new IllegalArgumentException("CLDR does not permit Mixed content. " + name + ":" + model);
             }
         }
@@ -208,6 +235,28 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public String getName() {
             return name;
         }
+
+        public Element getChildNamed(String string) {
+            for (Element e : children.keySet()) {
+                if (e.name.equals(string)) {
+                    return e;
+                }
+            }
+            return null;
+        }
+
+        public Attribute getAttributeNamed(String string) {
+            for (Attribute a : attributes.keySet()) {
+                if (a.name.equals(string)) {
+                    return a;
+                }
+            }
+            return null;
+        }
+
+        public void addComment(String comment) {
+            this.comment = this.comment == null ? comment : this.comment + "\n" + comment;
+        }
     }
 
     private Element elementFrom(String name) {
@@ -221,6 +270,21 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     private void addElement(String name2, String model) {
         Element element = elementFrom(name2);
         element.setChildren(this, model);
+        lastElement = element;
+        lastAttribute = null;
+    }
+
+    private void addComment(String comment) {
+        if (comment.contains("##########")) {
+            return;
+        }
+        if (lastElement != null) {
+            lastElement.addComment(comment);
+        } else if (lastAttribute != null) {
+            lastAttribute.addComment(comment);
+        } else {
+            firstComment = firstComment == null ? comment : firstComment + "\n" + comment;
+        }
     }
 
     // TODO hide this
@@ -250,6 +314,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         addAttribute(eName, aName, type, mode, value);
     }
+    
+    @Override
+    public void handleComment(String path, String comment) {
+        addComment(comment);
+    }
 
     // TODO hide this
     /**
@@ -260,75 +329,86 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         throw new XMLFileReader.AbortException();
     }
 
-//    static final Map<CLDRFile.DtdType, String> DTD_TYPE_TO_FILE;
-//    static {
-//        EnumMap<CLDRFile.DtdType, String> temp = new EnumMap<CLDRFile.DtdType, String>(CLDRFile.DtdType.class);
-//        temp.put(CLDRFile.DtdType.ldml, CldrUtility.BASE_DIRECTORY + "common/dtd/ldml.dtd");
-//        temp.put(CLDRFile.DtdType.supplementalData, CldrUtility.BASE_DIRECTORY + "common/dtd/ldmlSupplemental.dtd");
-//        temp.put(CLDRFile.DtdType.ldmlBCP47, CldrUtility.BASE_DIRECTORY + "common/dtd/ldmlBCP47.dtd");
-//        temp.put(CLDRFile.DtdType.keyboard, CldrUtility.BASE_DIRECTORY + "keyboards/dtd/ldmlKeyboard.dtd");
-//        temp.put(CLDRFile.DtdType.platform, CldrUtility.BASE_DIRECTORY + "keyboards/dtd/ldmlPlatform.dtd");
-//        DTD_TYPE_TO_FILE = Collections.unmodifiableMap(temp);
-//    }
+    //    static final Map<CLDRFile.DtdType, String> DTD_TYPE_TO_FILE;
+    //    static {
+    //        EnumMap<CLDRFile.DtdType, String> temp = new EnumMap<CLDRFile.DtdType, String>(CLDRFile.DtdType.class);
+    //        temp.put(CLDRFile.DtdType.ldml, CldrUtility.BASE_DIRECTORY + "common/dtd/ldml.dtd");
+    //        temp.put(CLDRFile.DtdType.supplementalData, CldrUtility.BASE_DIRECTORY + "common/dtd/ldmlSupplemental.dtd");
+    //        temp.put(CLDRFile.DtdType.ldmlBCP47, CldrUtility.BASE_DIRECTORY + "common/dtd/ldmlBCP47.dtd");
+    //        temp.put(CLDRFile.DtdType.keyboard, CldrUtility.BASE_DIRECTORY + "keyboards/dtd/ldmlKeyboard.dtd");
+    //        temp.put(CLDRFile.DtdType.platform, CldrUtility.BASE_DIRECTORY + "keyboards/dtd/ldmlPlatform.dtd");
+    //        DTD_TYPE_TO_FILE = Collections.unmodifiableMap(temp);
+    //    }
 
     static final EnumMap<CLDRFile.DtdType, DtdData> CACHE = new EnumMap<CLDRFile.DtdType, DtdData>(CLDRFile.DtdType.class);
 
     public static synchronized DtdData getInstance(CLDRFile.DtdType type) {
-        DtdData simpleHandler = CACHE.get(type);
+        return getInstance(type, null);
+    }
+
+    public static synchronized DtdData getInstance(CLDRFile.DtdType type, String version) {
+        DtdData simpleHandler = version == null ? CACHE.get(type) : null; // don't bother caching old versions
         if (simpleHandler == null) {
-            simpleHandler = new DtdData(type);
+            simpleHandler = new DtdData(type, version);
             XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
+            File directory = version == null ? CLDRConfig.getInstance().getCldrBaseDirectory()
+                : new File(CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version);
+            File file = new File(directory,type.dtdPath);
             StringReader s = new StringReader("<?xml version='1.0' encoding='UTF-8' ?>"
-                + "<!DOCTYPE ldml SYSTEM '" + new File(CLDRConfig.getInstance().getCldrBaseDirectory(),type.dtdPath).getAbsolutePath() + "'>");
+                + "<!DOCTYPE ldml SYSTEM '" + file.getAbsolutePath() + "'>");
             xfr.read(type.toString(), s, -1, true); //  DTD_TYPE_TO_FILE.get(type)
             if (simpleHandler.ROOT.children.size() == 0) {
                 throw new IllegalArgumentException(); // should never happen
             }
             simpleHandler.freeze();
-            CACHE.put(type, simpleHandler);
+            if (version == null) {
+                CACHE.put(type, simpleHandler);
+            }
         }
         return simpleHandler;
     }
 
     private void freeze() {
-        MergeLists<String> elementMergeList = new MergeLists<String>();
-        elementMergeList.add(dtdType.toString());
-        MergeLists<String> attributeMergeList = new MergeLists<String>();
-        attributeMergeList.add("_q");
+        if (version == null) { // only generate for new versions
+            MergeLists<String> elementMergeList = new MergeLists<String>();
+            elementMergeList.add(dtdType.toString());
+            MergeLists<String> attributeMergeList = new MergeLists<String>();
+            attributeMergeList.add("_q");
 
-        for (Element element : nameToElement.values()) {
-            if (element.children.size() > 0) {
-                Collection<String> names = getNames(element.children.keySet());
-                elementMergeList.add(names);
-                if (DEBUG) {
-                    System.out.println(element.getName() + "\t→\t" + names);
+            for (Element element : nameToElement.values()) {
+                if (element.children.size() > 0) {
+                    Collection<String> names = getNames(element.children.keySet());
+                    elementMergeList.add(names);
+                    if (DEBUG) {
+                        System.out.println(element.getName() + "\t→\t" + names);
+                    }
+                }
+                if (element.attributes.size() > 0) {
+                    Collection<String> names = getNames(element.attributes.keySet());
+                    attributeMergeList.add(names);
+                    if (DEBUG) {
+                        System.out.println(element.getName() + "\t→\t@" + names);
+                    }
                 }
             }
-            if (element.attributes.size() > 0) {
-                Collection<String> names = getNames(element.attributes.keySet());
-                attributeMergeList.add(names);
-                if (DEBUG) {
-                    System.out.println(element.getName() + "\t→\t@" + names);
-                }
+            List<String> elementList = elementMergeList.merge();
+            List<String> attributeList = attributeMergeList.merge();
+            if (DEBUG) {
+                System.out.println("Element Ordering:\t" + elementList);
+                System.out.println("Attribute Ordering:\t" + attributeList);
             }
+            // double-check
+            //        for (Element element : elements) {
+            //            if (!MergeLists.hasConsistentOrder(elementList, element.children.keySet())) {
+            //                throw new IllegalArgumentException("Failed to find good element order: " + element.children.keySet());
+            //            }
+            //            if (!MergeLists.hasConsistentOrder(attributeList, element.attributes.keySet())) {
+            //                throw new IllegalArgumentException("Failed to find good attribute order: " + element.attributes.keySet());
+            //            }
+            //        }
+            elementComparator = new MapComparator(elementList).setErrorOnMissing(true).freeze();
+            attributeComparator = new MapComparator(attributeList).setErrorOnMissing(true).freeze();
         }
-        List<String> elementList = elementMergeList.merge();
-        List<String> attributeList = attributeMergeList.merge();
-        if (DEBUG) {
-            System.out.println("Element Ordering:\t" + elementList);
-            System.out.println("Attribute Ordering:\t" + attributeList);
-        }
-        // double-check
-        //        for (Element element : elements) {
-        //            if (!MergeLists.hasConsistentOrder(elementList, element.children.keySet())) {
-        //                throw new IllegalArgumentException("Failed to find good element order: " + element.children.keySet());
-        //            }
-        //            if (!MergeLists.hasConsistentOrder(attributeList, element.attributes.keySet())) {
-        //                throw new IllegalArgumentException("Failed to find good attribute order: " + element.attributes.keySet());
-        //            }
-        //        }
-        elementComparator = new MapComparator(elementList).setErrorOnMissing(true).freeze();
-        attributeComparator = new MapComparator(attributeList).setErrorOnMissing(true).freeze();
         nameToAttributes.freeze();
         nameToElement = Collections.unmodifiableMap(nameToElement);
     }
@@ -390,7 +470,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
                 // at this point the elements are the same and correspond to elementA
                 // in the dtd
-                
+
                 // Handle the special added elements
                 String aqValue = a.getAttributeValue(i, "_q");
                 if (aqValue != null) {
@@ -405,33 +485,33 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 }
 
                 attributes: 
-                for (Entry<Attribute, Integer> attr : elementA.attributes.entrySet()) {
-                    Attribute main = attr.getKey();
-                    String valueA = a.getAttributeValue(i, main.name);
-                    String valueB = b.getAttributeValue(i, main.name);
-                    if (valueA == null) {
-                        if (valueB != null) {
-                            return -1;
+                    for (Entry<Attribute, Integer> attr : elementA.attributes.entrySet()) {
+                        Attribute main = attr.getKey();
+                        String valueA = a.getAttributeValue(i, main.name);
+                        String valueB = b.getAttributeValue(i, main.name);
+                        if (valueA == null) {
+                            if (valueB != null) {
+                                return -1;
+                            }
+                        } else if (valueB == null) {
+                            return 1;
+                        } else if (valueA.equals(valueB)) {
+                            --countA;
+                            --countB;
+                            if (countA == 0 && countB == 0) {
+                                break attributes;
+                            }
+                            continue; // TODO
+                        } else if (avc != null) {
+                            return avc.compare(elementA.name, main.name, valueA, valueB);
+                        } else if (main.values.size() != 0) {
+                            int aa = main.values.get(valueA);
+                            int bb = main.values.get(valueB);
+                            return aa - bb;
+                        } else {
+                            return valueA.compareTo(valueB);
                         }
-                    } else if (valueB == null) {
-                        return 1;
-                    } else if (valueA.equals(valueB)) {
-                        --countA;
-                        --countB;
-                        if (countA == 0 && countB == 0) {
-                            break attributes;
-                        }
-                        continue; // TODO
-                    } else if (avc != null) {
-                        return avc.compare(elementA.name, main.name, valueA, valueB);
-                    } else if (main.values.size() != 0) {
-                        int aa = main.values.get(valueA);
-                        int bb = main.values.get(valueB);
-                        return aa - bb;
-                    } else {
-                        return valueA.compareTo(valueB);
                     }
-                }
                 if (countA != 0 || countB != 0) {
                     throw new IllegalArgumentException();
                 }
@@ -513,4 +593,104 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     //        }
     //    }
 
+    public String toString() {
+        StringBuilder b = new StringBuilder();
+        // <!ELEMENT ldml (identity, (alias | (fallback*, localeDisplayNames?, layout?, contextTransforms?, characters?, delimiters?, measurement?, dates?, numbers?, units?, listPatterns?, collations?, posix?, segmentations?, rbnf?, metadata?, references?, special*))) >
+        // <!ATTLIST ldml draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
+        if (firstComment != null) {
+            b.append("\n<!--").append(firstComment).append("-->");
+        }
+        toString(ROOT, b, new HashSet<Element>());
+        return b.toString();
+    }
+
+    private void toString(Element current, StringBuilder b, Set<Element> seen) {
+        if (seen.contains(current)) {
+            return;
+        }
+        seen.add(current);
+
+        b.append("\n\n<!ELEMENT " + current.name + " ");
+        boolean first = true;
+        Element aliasElement = getElementFromName().get("alias");
+        Element specialElement = getElementFromName().get("special");
+        //b.append(current.rawChildren);
+        if (current.type == ElementType.CHILDREN) {
+            LinkedHashSet<Element> elements = new LinkedHashSet(current.children.keySet());
+            boolean hasAlias = aliasElement != null && elements.remove(aliasElement);
+            //boolean hasSpecial = specialElement != null && elements.remove(specialElement);
+            if (hasAlias) {
+                b.append("(alias |");
+            }
+            b.append("(");
+            // <!ELEMENT transformNames ( alias | (transformName | special)* ) >
+            // <!ELEMENT layout ( alias | (orientation*, inList*, inText*, special*) ) >
+
+            for (Element e : elements) {
+                if (first) {
+                    first = false;
+                } else {
+                    b.append(", ");
+                }
+                b.append(e.name);
+                if (e.type != ElementType.PCDATA) {
+                    b.append("*");
+                }
+            }
+            if (hasAlias) {
+                b.append(")");
+            }
+            b.append(")");
+        } else {
+            b.append(current.type.source);
+        }
+        b.append(">");
+        if (current.comment != null) {
+            b.append(" <!--").append(current.comment).append("-->");
+        }
+        for (Attribute a : current.attributes.keySet()) {
+            b.append("\n<!ATTLIST " + current.name + " " + a.name);
+            if (a.type == AttributeType.ENUMERATED_TYPE) {
+                b.append(" (");
+                first = true;
+                for (String s : a.values.keySet()) {
+                    if (first) {
+                        first = false;
+                    } else {
+                        b.append(" | ");
+                    }
+                    b.append(s);
+                }
+                b.append(")");
+            } else {
+                b.append(' ').append(a.type);
+            }
+            if (a.mode != Mode.NULL){ 
+                b.append(" ").append(a.mode.source);
+            }
+            if (a.defaultValue != null) {
+                b.append(" \"").append(a.defaultValue).append('"');
+            }
+            b.append(">");
+            if (a.comment != null) {
+                b.append(" <!--").append(a.comment).append("-->");
+            }
+        }
+        if (current.children.size() > 0) {
+            for (Element e : current.children.keySet()) {
+                toString(e, b, seen);
+            }
+        }
+    }
+
+    public static <T> T removeFirst(Collection<T> elements, Transform<T,Boolean> matcher) {
+        for (Iterator<T> it = elements.iterator(); it.hasNext();) {
+            T item = it.next();
+            if (matcher.transform(item) == Boolean.TRUE) {
+                it.remove();
+                return item;
+            }
+        }
+        return null;
+    }
 }

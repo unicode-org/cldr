@@ -39,6 +39,7 @@ public class LanguageCodeConverter {
     public static final Map<String, String> GOOGLE_CLDR =
         Builder.with(new LinkedHashMap<String, String>()) // preserve order
             .put("iw", "he")
+            .put("jw", "jv")
             .put("no", "nb")
             .put("tl", "fil")
             .put("pt-BR", "pt")

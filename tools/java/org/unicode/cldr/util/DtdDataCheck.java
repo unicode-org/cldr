@@ -1,7 +1,11 @@
 package org.unicode.cldr.util;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -10,6 +14,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DtdData.Attribute;
@@ -18,9 +23,11 @@ import org.unicode.cldr.util.DtdData.AttributeValueComparator;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 
+import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 
@@ -29,8 +36,8 @@ public class DtdDataCheck {
     static SupplementalDataInfo SUPPLEMENTAL = SupplementalDataInfo.getInstance();
 
     static final Set<Row.R4<DtdType,String,String,String>> DEPRECATED = new LinkedHashSet<Row.R4<DtdType,String,String,String>>();
-    static final Set<Row.R3<DtdType,String,String>> DISTINGUISHING = new LinkedHashSet<Row.R3<DtdType,String,String>>();
-    static final Set<Row.R3<DtdType,String,String>> NONDISTINGUISHING = new LinkedHashSet<Row.R3<DtdType,String,String>>();
+    static final Map<Row.R2<DtdType,String>, Relation<Boolean,String>> TYPE_ATTRIBUTE_TO_DIST_ELEMENTS 
+    = new TreeMap<Row.R2<DtdType,String>, Relation<Boolean,String>>();
 
     private static final boolean CHECK_CORRECTNESS = false;
 
@@ -140,12 +147,14 @@ public class DtdDataCheck {
                         }
                     }
                     if (!allDeprecated) {
-                        if (CLDRFile.isDistinguishing(dtdData.dtdType, element.name, a.name)) {
-                            special += "\t#DISTINGUISHING#";
-                            DISTINGUISHING.add(Row.of(dtdData.dtdType, element.name, a.name));
-                        } else {
-                            NONDISTINGUISHING.add(Row.of(dtdData.dtdType, element.name, a.name));
+                        R2<DtdType, String> key = Row.of(dtdData.dtdType, a.name);
+                        boolean isDisting = CLDRFile.isDistinguishing(dtdData.dtdType, element.name, a.name);
+                        special += "\t#DISTINGUISHING#";
+                        Relation<Boolean, String> info = TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.get(key);
+                        if (info == null) {
+                            TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.put(key, info = Relation.of(new TreeMap<Boolean,Set<String>>(), TreeSet.class));
                         }
+                        info.put(isDisting, element.name);
                     }
                     System.out.println(indent + "@" + a.name + "\t" + a.features() + special);
                 }
@@ -159,7 +168,7 @@ public class DtdDataCheck {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         if (args.length == 0) {
             DtdType[] args2 = DtdType.values();
             args = new String[args2.length];
@@ -170,11 +179,18 @@ public class DtdDataCheck {
         }
         Timer timer = new Timer();
         for (String arg : args) {
+            
             timer.start();
             DtdType type = CLDRFile.DtdType.valueOf(arg);
             DtdData dtdData = DtdData.getInstance(type);
+            PrintWriter br = BagFormatter.openUTF8Writer("/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/dataproj/src/temp/", type + "-gen.dtd");
+            br.append(dtdData.toString());
+            br.close();
             long duration = timer.stop();
             System.out.println("Time: " + timer);
+            if (true) {
+                return;
+            }
             new Walker(dtdData).show(dtdData.ROOT);
             if (CHECK_CORRECTNESS && type == DtdType.ldml) {
                 Set<String> errors = new LinkedHashSet<String>();
@@ -232,13 +248,45 @@ public class DtdDataCheck {
             System.out.println("Time: " + timer);
         }
         int i = 0;
-        for (R3<DtdType, String, String> x : DISTINGUISHING) {
-            System.out.println(++i + "\tDISTINGUISHING\t" + x);
+        System.out.println("        <distinguishing>");
+        Set<String> allElements = new TreeSet<String>();
+        allElements.add("_q");
+        DtdType lastType = null;
+        
+        for (Entry<R2<DtdType, String>, Relation<Boolean, String>> typeAttributeToDistElement : TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.entrySet()) {
+            R2<DtdType, String> typeAttribute = typeAttributeToDistElement.getKey();
+            Relation<Boolean, String> distElement = typeAttributeToDistElement.getValue();
+            Set<String> areDisting = distElement.get(true);
+            if (areDisting == null) {
+                continue;
+            }
+            DtdType type = typeAttribute.get0();
+            if (lastType != type) {
+                if (lastType != null) {
+                    showAll(lastType, allElements);
+                }
+                lastType = type;
+            }
+            String attribute = typeAttribute.get1();
+            Set<String> areNotDisting = distElement.get(false);
+            if (areNotDisting == null) {
+                allElements.add(attribute);
+                continue;
+            }
+            System.out.println("            <distinguishingItems"
+                + " type=\"" + type 
+                + "\" elements=\"" + CollectionUtilities.join(areDisting, " ") 
+                + "\" attributes=\"" + attribute 
+                + "\"/>" 
+                + "\n            <!-- NONDISTINGUISH." 
+                + " TYPE=\"" + type
+                + "\" ELEMENTS=\"" + CollectionUtilities.join(areNotDisting, " ") 
+                + "\" ATTRIBUTES=\"" + attribute
+                + "\" -->");
         }
-        i = 0;
-        for (R3<DtdType, String, String> x : NONDISTINGUISHING) {
-            System.out.println(++i + "\tNONDISTINGUISHING\t" + x);
-        }
+        showAll(lastType, allElements);
+        System.out.println("        </distinguishing>");
+        
         i = 0;
         for (R4<DtdType, String, String, String> x : DEPRECATED) {
             System.out.println(++i + "\tDEPRECATED\t" + x);
@@ -249,6 +297,16 @@ public class DtdDataCheck {
             System.out.println("\n" + arg);
             new Walker(dtdData).showSuppressed();
         }
+    }
+
+    public static void showAll(DtdType type, Set<String> allElements) {
+        System.out.println("            <distinguishingItems"
+            + " type=\"" + type 
+            + "\" elements=\"*"
+            + "\" attributes=\"" + CollectionUtilities.join(allElements, " ")
+            + "\"/>");
+        allElements.clear();
+        allElements.add("_q");
     }
 
     static final int LOOP = 100;

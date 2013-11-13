@@ -1,12 +1,15 @@
 package org.unicode.cldr.draft;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.unicode.cldr.tool.CountryCodeConverter;
@@ -68,8 +71,12 @@ public class ScriptMetadata {
     }
 
     public enum IdUsage {
-        UNKNOWN("Other"), EXCLUSION("Historic"), LIMITED_USE("Limited Use"), ASPIRATIONAL("Aspirational"), RECOMMENDED(
-            "Major Use");
+        UNKNOWN("Other"), 
+        EXCLUSION("Historic"), 
+        LIMITED_USE("Limited Use"), 
+        ASPIRATIONAL("Aspirational"), 
+        RECOMMENDED("Major Use");
+        
         public final String name;
 
         private IdUsage(String name) {
@@ -108,7 +115,7 @@ public class ScriptMetadata {
 
     public static void addNameToCode(String type, Map<String, String> hashMap) {
         for (String language : SC.getAvailableCodes(type)) {
-            Map<String, String> fullData = SC.getLStreg().get(type).get(language);
+            Map<String, String> fullData = StandardCodes.getLStreg().get(type).get(language);
             String name = (String) (fullData.get("Description"));
             hashMap.put(name.toUpperCase(Locale.ENGLISH), language);
         }
@@ -216,7 +223,7 @@ public class ScriptMetadata {
     static HashMap<String, Integer> titleToColumn = new HashMap<String, Integer>();
 
     private static class MyFileReader extends FileUtilities.SemiFileReader {
-        public Map<String, Info> data = new HashMap<String, Info>();
+        private Map<String, Info> data = new HashMap<String, Info>();
 
         @Override
         protected boolean isCodePoint() {
@@ -267,6 +274,9 @@ public class ScriptMetadata {
             return this;
         }
 
+        private Map<String, Info> getData() {
+            return Collections.unmodifiableMap(data);
+        }
     }
 
     static Relation<String, String> EXTRAS = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
@@ -275,11 +285,19 @@ public class ScriptMetadata {
         EXTRAS.put("Hani", "Hant");
         EXTRAS.put("Hang", "Kore");
         EXTRAS.put("Hira", "Jpan");
+        EXTRAS.freeze();
     }
-    static Map<String, Info> data = new MyFileReader().process(ScriptMetadata.class, DATA_FILE).data;
+    static final Map<String, Info> data = new MyFileReader().process(ScriptMetadata.class, DATA_FILE).getData();
 
     public static Info getInfo(String s) {
-        return data.get(s);
+        Info result = data.get(s);
+        if (result == null) {
+            try {
+                String name2 = UScript.getShortName(UScript.getCodeFromName(s));
+                result = data.get(name2);
+            } catch (Exception e) {}
+        }
+        return result;
     }
 
     public static Set<String> getScripts() {
@@ -288,5 +306,17 @@ public class ScriptMetadata {
 
     public static Info getInfo(int i) {
         return data.get(UScript.getShortName(i));
+    }
+
+    public static Set<Entry<String, Info>> iterable() {
+        return data.entrySet();
+    }
+    
+    /** 
+     * Specialized scripts
+     * @return
+     */
+    public static Set<String> getExtras() {
+        return EXTRAS.values();
     }
 }

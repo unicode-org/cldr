@@ -15,8 +15,10 @@ import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.draft.ScriptMetadata.Shaping;
 import org.unicode.cldr.draft.ScriptMetadata.Trinary;
+import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XPathParts;
@@ -24,6 +26,9 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
@@ -104,7 +109,7 @@ public class TestScriptMetadata extends TestFmwk {
         Set<String> result = new HashSet<String>(sc.getSurveyToolDisplayCodes(type));
         XPathParts parts = new XPathParts();
         for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext();) {
-            parts.set(it.next());
+            parts.set(it.next()); 
             String newType = parts.getAttributeValue(-1, "type");
             if (!result.contains(newType)) {
                 result.add(newType);
@@ -132,6 +137,35 @@ public class TestScriptMetadata extends TestFmwk {
         }
         if (!bads.isEmpty() && !logKnownIssue("6647", "missing script metadata")) {
             errln("No metadata for scripts: " + bads.toString());
+        }
+    }
+
+    public void TestGeographicGrouping() {
+        CLDRFile english = TestInfo.getInstance().getEnglish();
+        Set<Row.R3<IdUsage, String, String>> lines = new TreeSet();
+        Set<String> extras = ScriptMetadata.getExtras();
+        for (Entry<String, Info> sc : ScriptMetadata.iterable()) {
+            String scriptCode = sc.getKey();
+            if (extras.contains(scriptCode)) {
+                continue;
+            }
+            Info info = sc.getValue();
+            String continent = Containment.getContinent(info.originCountry);
+            String container = !continent.equals("142") ? continent :
+                Containment.getSubcontinent(info.originCountry);
+
+            lines.add(
+                Row.of(info.idUsage,
+                    english.getName(CLDRFile.TERRITORY_NAME, continent),
+                    info.idUsage
+                    + "\t" + 
+                    english.getName(CLDRFile.TERRITORY_NAME, container)
+                    + "\t" + scriptCode + "\t" +
+                    english.getName(CLDRFile.SCRIPT_NAME, scriptCode) 
+                    ));
+        }
+        for (Row.R3<IdUsage, String, String> s : lines) {
+            logln(s.get2());
         }
     }
 }

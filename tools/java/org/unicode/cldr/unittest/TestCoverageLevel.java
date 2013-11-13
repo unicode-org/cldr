@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,9 +14,13 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.ChainedMap;
+import org.unicode.cldr.util.ChainedMap.M3;
+import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -33,6 +38,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.XPathParts;
 
 import com.ibm.icu.dev.test.TestFmwk;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -50,6 +56,64 @@ public class TestCoverageLevel extends TestFmwk {
         // TestCoverageLevel.getStarred(true, "en", "de");
         // new TestCoverageLevel().getOrgs();
         new TestCoverageLevel().run(args);
+    }
+
+    public void oldTestInvariantPaths() {
+        org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
+        PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
+        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+
+        Set<String> allPaths = new HashSet<String>();
+        M4<String, String, Level, Boolean> starredToLocalesToLevels = ChainedMap.of(
+            new TreeMap<String,Object>(),
+            new TreeMap<String,Object>(), 
+            new TreeMap<Level,Object>(), 
+            Boolean.class);
+        
+        for (String locale : factory.getAvailableLanguages()) {
+            logln(locale);
+            CLDRFile cldrFileToCheck = factory.make(locale, true);
+            for (String path : cldrFileToCheck.fullIterable()) {
+                allPaths.add(path);
+                String starred = pathStarrer.set(path);
+                String attributes = pathStarrer.getAttributesString("|");
+                Level level = sdi.getCoverageLevel(path, locale);
+                starredToLocalesToLevels.put(starred, locale, level, true);
+            }
+        }
+
+        Set<Level> levelsFound = EnumSet.noneOf(Level.class);
+        Set<String> localesWithUniqueLevels = new TreeSet<String>();
+        for (Entry<String, Map<String, Map<Level, Boolean>>> entry : starredToLocalesToLevels) {
+            String starred = entry.getKey();
+            Map<String, Map<Level, Boolean>> localesToLevels = entry.getValue();
+            int maxLevelCount = 0;
+            double localeCount = 0;
+            levelsFound.clear();
+            localesWithUniqueLevels.clear();
+
+            for (Entry<String, Map<Level, Boolean>> entry2 : localesToLevels.entrySet()) {
+                String locale = entry2.getKey();
+                Map<Level, Boolean> levels = entry2.getValue();
+                levelsFound.addAll(levels.keySet());
+                if (levels.size() > maxLevelCount) {
+                    maxLevelCount = levels.size();
+                }
+                if (levels.size() == 1) {
+                    localesWithUniqueLevels.add(locale);
+                }
+                localeCount++;
+            }
+            System.out.println(
+                maxLevelCount
+                + "\t" + localesWithUniqueLevels.size()/localeCount
+                + "\t" + starred 
+                + "\t" + CollectionUtilities.join(levelsFound, ", ")
+                + "\t" + (maxLevelCount == 1 ? "all" 
+                    : localesWithUniqueLevels.size() == 0 ? "none" 
+                        : CollectionUtilities.join(localesWithUniqueLevels, ", "))
+                );
+        }
     }
 
     private static void getStarred(boolean longForm, String... locales) {

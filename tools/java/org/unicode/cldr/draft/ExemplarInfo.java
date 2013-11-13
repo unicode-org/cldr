@@ -7,6 +7,8 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.tool.ConvertLanguageData;
+import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
@@ -226,13 +228,14 @@ public class ExemplarInfo {
     }
 
     public static String getCldrLanguage(String language) {
-        String cldrLanguage = language.replace("-", "_");
-        if (cldrLanguage.equals("tl")) {
-            cldrLanguage = "fil";
-        } else if (cldrLanguage.equals("no")) {
-            cldrLanguage = "nb";
-        }
-        return cldrLanguage;
+        return LanguageCodeConverter.fromGoogleLocaleId(language);
+//        String cldrLanguage = language.replace("-", "_");
+//        if (cldrLanguage.equals("tl")) {
+//            cldrLanguage = "fil";
+//        } else if (cldrLanguage.equals("no")) {
+//            cldrLanguage = "nb";
+//        }
+//        return cldrLanguage;
     }
 
     public static String specialNormalize(String marks, ULocale locale) {

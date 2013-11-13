@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -18,6 +19,8 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
+import org.unicode.cldr.tool.GenerateBirth;
+import org.unicode.cldr.tool.GenerateBirth.Versions;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
@@ -33,6 +36,7 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
+import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -121,7 +125,7 @@ public class TestBasic extends TestFmwk {
                 continue;
             } else if (fileName.isDirectory()) {
                 if (name.equals("tools") || name.equals("specs") 
-                        || name.equals("cldr-apps") || name.equals("Servers") || name.equals("cldr-tools")) {
+                    || name.equals("cldr-apps") || name.equals("Servers") || name.equals("cldr-tools")) {
                     continue;
                 }
                 if (name.equals("exemplars")) {
@@ -185,7 +189,7 @@ public class TestBasic extends TestFmwk {
         }
         Relation<String, R3<Boolean, DtdType, String>> attributesToTypeElementUsed 
         = Relation.of(new TreeMap<String, Set<R3<Boolean, DtdType, String>>>(), LinkedHashSet.class);
-        
+
         for (Entry<R2<DtdType, String>, Set<String>> s : theoryAttributes.keyValuesSet()) {
             R2<DtdType, String> typeElement = s.getKey();
             Set<String> theoryAttributeSet = s.getValue();
@@ -207,7 +211,7 @@ public class TestBasic extends TestFmwk {
                 + siftDeprecated(type, element, usedAttributes, attributesToTypeElementUsed, true) 
                 + "\t" + siftDeprecated(type, element, unusedAttributes, attributesToTypeElementUsed, false));
         }
-        
+
         System.out.println("Undeprecated Attributes\t");
         for (Entry<String, R3<Boolean, DtdType, String>> s : attributesToTypeElementUsed.keyValueSet()) {
             R3<Boolean, DtdType, String> typeElementUsed = s.getValue();
@@ -809,5 +813,99 @@ public class TestBasic extends TestFmwk {
 
     private boolean isTopLevel(String localeID) {
         return "root".equals(LocaleIDParser.getParent(localeID));
+    }
+
+    public void TestDtdCompatibility() {
+        for (DtdType type : DtdType.values()) {
+            DtdData dtdData = DtdData.getInstance(type);
+            Map<String, Element> currentElementFromName = dtdData.getElementFromName();
+
+            // current has no orphan
+            Set<Element> orphans = new LinkedHashSet(dtdData.getElementFromName().values());
+            orphans.remove(dtdData.ROOT);
+            orphans.remove(dtdData.PCDATA);
+            orphans.remove(dtdData.ANY);
+            Set<String> elementsWithoutAlt = new TreeSet();
+            Set<String> elementsWithoutDraft = new TreeSet();
+            Set<String> elementsWithoutAlias = new TreeSet();
+            Set<String> elementsWithoutSpecial = new TreeSet();
+
+            for (Element element : dtdData.getElementFromName().values()) {
+                Set<Element> children = element.getChildren().keySet();
+                orphans.removeAll(children);
+                if (type == DtdType.ldml 
+                    && !SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element.name, "*", "*")) {
+                    if (element.getType() == ElementType.PCDATA ) {
+                        if (element.getAttributeNamed("alt") == null) {
+                            elementsWithoutAlt.add(element.name);
+                        }
+                        if (element.getAttributeNamed("draft") == null) {
+                            elementsWithoutDraft.add(element.name);
+                        }
+                    }
+                    if (children.size() != 0 && !"alias".equals(element.name)) {
+                        if (element.getChildNamed("alias") == null) {
+                            elementsWithoutAlias.add(element.name);
+                        }
+                        if (element.getChildNamed("special") == null) {
+                            elementsWithoutSpecial.add(element.name);
+                        }
+                    }
+                }
+            }
+            assertEquals(type + " DTD Must not have orphan elements", Collections.EMPTY_SET, orphans);
+            assertEquals(type + " DTD elements with PCDATA must have 'alt' attributes", Collections.EMPTY_SET, elementsWithoutAlt);
+            assertEquals(type + " DTD elements with PCDATA must have 'draft' attributes", Collections.EMPTY_SET, elementsWithoutDraft);
+            assertEquals(type + " DTD elements with children must have 'alias' elements", Collections.EMPTY_SET, elementsWithoutAlias);
+            assertEquals(type + " DTD elements with children must have 'special' elements", Collections.EMPTY_SET, elementsWithoutSpecial);
+
+            for (Versions version : Versions.values()) {
+                if (version == Versions.trunk) {
+                    continue;
+                } else if (version == Versions.v1_1_1) {
+                    break;
+                }
+                DtdData dtdDataOld;
+                try {
+                    dtdDataOld = DtdData.getInstance(type, version.toString());
+                } catch (IllegalArgumentException e) {
+                    boolean tooOld = false;
+                    switch (type) {
+                    case ldmlBCP47:
+                        tooOld = version.compareTo(Versions.v1_7_2) >= 0;
+                        break;
+                    case keyboard:
+                    case platform:
+                        tooOld = version.compareTo(Versions.v22_1) >= 0;
+                        break;
+                    }
+                    if (tooOld) {
+                        continue;
+                    } else {
+                        throw e;
+                    }
+                }
+                // verify that if E is in dtdDataOld, then it is in dtdData, and has at least the same children and attributes
+                for (Entry<String, Element> entry : dtdDataOld.getElementFromName().entrySet()) {
+                    Element oldElement = entry.getValue();
+                    Element newElement = currentElementFromName.get(entry.getKey());
+                    if (assertNotNull(type + " DTD for trunk must be superset of v" + version + ", and must contain «"
+                        + oldElement.getName() + "»", newElement)) {
+                        // TODO Check order also
+                        for (Element oldChild : oldElement.getChildren().keySet()) {
+                            Element newChild = newElement.getChildNamed(oldChild.getName());
+                            assertNotNull(type + " DTD - Children of «" + newElement.getName() +
+                                "» must be superset of v" + version + ", and must contain «" + oldChild.getName() + "»", newChild);
+                        }
+                        for (Attribute oldAttribute : oldElement.getAttributes().keySet()) {
+                            Attribute newAttribute = newElement.getAttributeNamed(oldAttribute.getName());
+                            assertNotNull(type + " DTD - Attributes of «" + newElement.getName() +
+                                "» must be superset of v" + version + ", and must contain «" + oldAttribute.getName() + "»", newAttribute);
+
+                        }
+                    }
+                }
+            }
+        }
     }
 }

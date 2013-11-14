@@ -24,6 +24,7 @@ import org.unicode.cldr.tool.GenerateBirth.Versions;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.DtdType;
@@ -71,6 +72,9 @@ import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
 
 public class TestBasic extends TestFmwk {
+    
+    private static final boolean TEST_VERSIONS = false;
+
     static TestInfo testInfo = TestInfo.getInstance();
 
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
@@ -666,6 +670,7 @@ public class TestBasic extends TestFmwk {
 
     static final Map<String, String> likelyData = SUPPLEMENTAL_DATA_INFO.getLikelySubtags();
 
+
     public void TestLikelySubtagsComplete() {
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
@@ -816,6 +821,9 @@ public class TestBasic extends TestFmwk {
     }
 
     public void TestDtdCompatibility() {
+        if (logKnownIssue("6827", "Need the directory before enabling this test")) {
+            return; 
+        }
         for (DtdType type : DtdType.values()) {
             DtdData dtdData = DtdData.getInstance(type);
             Map<String, Element> currentElementFromName = dtdData.getElementFromName();

@@ -66,7 +66,6 @@ public class GenerateTransformCharts {
     // }
 
     static String testString = "\u0946\u093E";
-    private static boolean useICU;
 
     // Latin Arabic Bengali Cyrillic Devanagari Greek Greek/UNGEGN Gujarati Gurmukhi Hangul Hebrew Hiragana Kannada
     // Katakana Malayalam Oriya Tamil Telugu Thai
@@ -78,7 +77,6 @@ public class GenerateTransformCharts {
     }
 
     public static void main(String[] args) throws IOException {
-        useICU = CldrUtility.getProperty("USEICU", false);
         String filter = CldrUtility.getProperty("filter", null);
         System.out.println("Start");
 
@@ -300,14 +298,14 @@ public class GenerateTransformCharts {
     // System.out.println("InterIndic: " + sets[1]);
     // }
 
-    private static String findItemInScript(Set equivs, UnicodeSet scriptSet) {
-        Iterator sit;
+    private static String findItemInScript(Set<String> equivs, UnicodeSet scriptSet) {
+        Iterator<String> sit;
         String item;
         sit = equivs.iterator();
         item = "";
         // find the item that is all in script i
         while (sit.hasNext()) {
-            String trial = (String) sit.next();
+            String trial = sit.next();
             if (!scriptSet.containsAll(trial))
                 continue;
             item = trial;
@@ -344,12 +342,12 @@ public class GenerateTransformCharts {
             "<b>Note:</b> these charts are preliminary; for more information, see below.</p.>");
         index.flush();
         index.println("<ul>");
-        Set nonScripts = new TreeSet(Arrays.asList("ConjoiningJamo", "InterIndic", "Han",
+        Set<String> nonScripts = new TreeSet<String>(Arrays.asList("ConjoiningJamo", "InterIndic", "Han",
             "el", "Jamo", "JapaneseKana", "Korean", "NumericPinyin", "ThaiLogical", "ThaiSemi"));
         try {
             SimpleEquivalenceClass ec = new SimpleEquivalenceClass(UCA);
             Set<String> availableTransliterators = getAvailableTransliterators();
-            Set scripts = new TreeSet();
+            Set<String> scripts = new TreeSet<String>();
             for (String id : availableTransliterators) {
                 index.flush();
                 CLDRTransforms.ParsedTransformID parsedID = new CLDRTransforms.ParsedTransformID().set(id);
@@ -379,10 +377,10 @@ public class GenerateTransformCharts {
                 ec.add(parsedID.getTargetVariant(), UScript.getName(getScriptFromScriptOrLanguage(parsedID.target)));
             }
 
-            Set alreadySeen = new HashSet();
-            for (Iterator it = ec.getSetIterator(null); it.hasNext();) {
-                Set scriptSet = new TreeSet(UCA);
-                scriptSet.addAll((Set) it.next());
+            Set<String> alreadySeen = new HashSet<String>();
+            for (Iterator<Set<String>> it = ec.getSetIterator(null); it.hasNext();) {
+                Set<String> scriptSet = new TreeSet<String>(UCA);
+                scriptSet.addAll(it.next());
                 scriptSet.removeAll(alreadySeen);
                 if (scriptSet.size() <= 0) continue;
                 showLatin(getName(scriptSet), scriptSet);
@@ -445,7 +443,7 @@ public class GenerateTransformCharts {
     static {
         RuleBasedCollator UCA2 = (RuleBasedCollator) Collator.getInstance(ULocale.ROOT);
         UCA2.setNumericCollation(true);
-        UCA2.setStrength(UCA2.IDENTICAL);
+        UCA2.setStrength(Collator.IDENTICAL);
         UCA = new com.ibm.icu.impl.MultiComparator(UCA2, new UTF16.StringComparator(true, false, 0));
     }
 
@@ -454,15 +452,15 @@ public class GenerateTransformCharts {
             return;
         }
         CLDRTransforms.ParsedTransformID parsedID = new CLDRTransforms.ParsedTransformID();
-        Set ids = new TreeSet();
-        Map id_unmapped = new HashMap();
-        Map id_noRoundTrip = new HashMap();
-        Set latinItems = new TreeSet(UCA);
+        Set<String> ids = new TreeSet<String>();
+        Map<String, UnicodeSet> id_unmapped = new HashMap<String, UnicodeSet>();
+        Map<String, Map<String, String>> id_noRoundTrip = new HashMap<String, Map<String, String>>();
+        Set<String> latinItems = new TreeSet<String>(UCA);
 
-        Map nonLatinToLatin = new TreeMap(UCA);
-        Set totalLatin = new TreeSet();
-        Map latinToTaggedNonLatin = new TreeMap(UCA);
-        Map nonLatinToLatinTagged = new TreeMap(UCA);
+        Map<String, String> nonLatinToLatin = new TreeMap<String, String>(UCA);
+        Set<String> totalLatin = new TreeSet<String>();
+        Map<String, Map<String, Map<String, Boolean>>> latinToTaggedNonLatin = new TreeMap<String, Map<String, Map<String, Boolean>>>(UCA);
+        Map<String, Map<String, Map<String, Boolean>>> nonLatinToLatinTagged = new TreeMap<String, Map<String, Map<String, Boolean>>>(UCA);
 
         UnicodeSet totalNonLatinSet = new UnicodeSet();
 
@@ -487,7 +485,7 @@ public class GenerateTransformCharts {
             // }
             UnicodeSet nonLatinUnmapped = new UnicodeSet();
             id_unmapped.put(id, nonLatinUnmapped);
-            Map noRoundTrip = new TreeMap(UCA);
+            Map<String, String> noRoundTrip = new TreeMap<String, String>(UCA);
             id_noRoundTrip.put(id, noRoundTrip);
             ids.add(parsedID.toString());
             UnicodeSet nonLatinUnicodeSet = getNonLatinSet(script, scriptCode);
@@ -667,7 +665,8 @@ public class GenerateTransformCharts {
         return Normalizer.compare(a, b, 0) == 0;
     }
 
-    private static void addToLatinMap(Set latinItems, Map latinToTaggedNonLatin, Map nonLatinToLatinTagged,
+    private static void addToLatinMap(Set<String> latinItems, Map<String, Map<String, Map<String, Boolean>>> latinToTaggedNonLatin, 
+        Map<String, Map<String, Map<String, Boolean>>> nonLatinToLatinTagged,
         String nonLatinId, Transliterator nonLatin_latin, Transliterator latin_nonLatin, String latin) {
         latinItems.add(latin);
         String nonLatin = latin_nonLatin.transliterate(latin);
@@ -747,13 +746,13 @@ public class GenerateTransformCharts {
         Map<String, Map<String, Map<String, Boolean>>> xToTagToYToRoundtrip, boolean fromNonLatinToLatin,
         String scriptChoice, UnicodeSet totalNonLatinSet) {
 
-        Set<String> extras = new TreeSet(UCA);
+        Set<String> extras = new TreeSet<String>(UCA);
         for (UnicodeSetIterator it = new UnicodeSetIterator(totalNonLatinSet); it.next();) {
             extras.add(it.getString());
         }
 
         // find the ids that actually occur
-        Set<String> ids = new TreeSet(UCA);
+        Set<String> ids = new TreeSet<String>(UCA);
         for (String x : xToTagToYToRoundtrip.keySet()) {
             ids.addAll(xToTagToYToRoundtrip.get(x).keySet());
         }
@@ -822,8 +821,8 @@ public class GenerateTransformCharts {
 
         pw.println("<table border='1' cellspacing='0'><tr>");
         if (!latinAtEnd) pw.println("<th>Latin</th>");
-        for (Iterator it2 = ids.iterator(); it2.hasNext();) {
-            parsedID.set((String) it2.next());
+        for (Iterator<String> it2 = ids.iterator(); it2.hasNext();) {
+            parsedID.set(it2.next());
             pw.println("<th>" + parsedID.source + (parsedID.variant == null ? "" : "/" + parsedID.variant) + "</th>");
         }
         if (latinAtEnd) pw.println("<th>Latin</th>");
@@ -854,9 +853,9 @@ public class GenerateTransformCharts {
         return getScriptFromScriptOrLanguage(string) >= 0;
     }
 
-    private static Set getAvailableTransliterators() {
-        Set results = new HashSet();
-        for (Enumeration e = Transliterator.getAvailableIDs(); e.hasMoreElements();) {
+    private static Set<String> getAvailableTransliterators() {
+        Set<String> results = new HashSet<String>();
+        for (Enumeration<String> e = Transliterator.getAvailableIDs(); e.hasMoreElements();) {
             results.add(e.nextElement());
         }
         return results;

@@ -53,7 +53,7 @@ public class GenerateItemCounts {
     };
 
     static boolean doChanges = true;
-    static Relation<String, String> path2value = new Relation(new TreeMap<String, String>(), TreeSet.class);
+    static Relation<String, String> path2value = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
     static final AttributeTypes ATTRIBUTE_TYPES = new AttributeTypes();
 
     final static Options myOptions = new Options();
@@ -109,7 +109,7 @@ public class GenerateItemCounts {
                         compare(summary, changes, oldPath2value, path2value);
                     }
                     oldPath2value = path2value;
-                    path2value = new Relation(new TreeMap<String, String>(), TreeSet.class);
+                    path2value = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
                 }
                 summary.close();
                 changes.close();
@@ -137,7 +137,7 @@ public class GenerateItemCounts {
         public void add(String path) {
             parts.set(path);
             elementPath.setLength(0);
-            DtdType type = CLDRFile.DtdType.valueOf(parts.getElement(0));
+            //DtdType type = CLDRFile.DtdType.valueOf(parts.getElement(0));
             for (int i = 0; i < parts.size(); ++i) {
                 String element = parts.getElement(i);
                 elementPath.append('/').append(element);
@@ -233,8 +233,8 @@ public class GenerateItemCounts {
         // int releaseCount = 1;
         Relation<String, String> release_keys = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Relation<String, String> localesToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        Set<String> writtenLanguages = new TreeSet();
-        Set<String> countries = new TreeSet();
+        Set<String> writtenLanguages = new TreeSet<String>();
+        Set<String> countries = new TreeSet<String>();
 
         File[] listFiles = new File(OUT_DIRECTORY).listFiles();
         // find the most recent version

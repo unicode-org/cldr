@@ -144,12 +144,12 @@ public class LikelySubtags {
             ltp.setRegion(region = "");
         }
         if (variants.size() != 0) {
-            variants = new ArrayList(variants); // make copy
-            ltp.setVariants(Collections.EMPTY_SET);
+            variants = new ArrayList<String>(variants); // make copy
+            ltp.setVariants(Collections.<String> emptySet());
         }
         if (extensions.size() != 0) {
-            extensions = new LinkedHashMap(extensions);
-            ltp.setExtensions(Collections.EMPTY_MAP);
+            extensions = new LinkedHashMap<String, String>(extensions);
+            ltp.setExtensions(Collections.<String, String> emptyMap());
         }
 
         // check whole

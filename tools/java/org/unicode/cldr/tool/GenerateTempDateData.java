@@ -24,20 +24,20 @@ public class GenerateTempDateData {
      */
     public static void main(String[] args) throws IOException {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        Set x = cldrFactory.getAvailable();
+        Set<String> x = cldrFactory.getAvailable();
         XPathParts parts = new XPathParts();
         PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "datedata/", "DateData.java");
         pw.println("package com.ibm.icu.impl.data;");
         pw.println("import java.util.ListResourceBundle;");
         pw.println("class DateData { // extracted from CLDR 1.4");
-        for (Iterator it = x.iterator(); it.hasNext();) {
-            String locale = (String) it.next();
+        for (Iterator<String> it = x.iterator(); it.hasNext();) {
+            String locale = it.next();
             CLDRFile file = cldrFactory.make(locale, false);
             if (file.isNonInheriting()) continue;
             System.out.println(locale);
             boolean gotOne = false;
-            for (Iterator it2 = file.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/"); it2.hasNext();) {
-                String path = (String) it2.next();
+            for (Iterator<String> it2 = file.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/"); it2.hasNext();) {
+                String path = it2.next();
                 if (path.indexOf("dateTimeFormats/availableFormats/dateFormatItem") >= 0) {
                     gotOne = doHeader(pw, locale, gotOne);
                     String id = parts.set(path).getAttributeValue(-1, "id");

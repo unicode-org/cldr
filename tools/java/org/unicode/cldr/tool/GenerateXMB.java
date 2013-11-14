@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.EnumSet;
@@ -30,6 +31,7 @@ import org.unicode.cldr.test.CheckExemplars;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
+import org.unicode.cldr.tool.GenerateXMB.PathInfo;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -373,7 +375,7 @@ public class GenerateXMB {
     private static void showDefaultContents(String targetDir, CLDRFile english) throws IOException {
         PrintWriter out = BagFormatter.openUTF8Writer(targetDir + "/log/", "locales.txt");
         String[] locales = stock.split("\\|");
-        Set<R2<String, String>> sorted = new TreeSet();
+        Set<R2<String, String>> sorted = new TreeSet<R2<String, String>>();
         for (String locale : locales) {
             if (locale.isEmpty()) continue;
             String name = english.getName(locale);
@@ -993,8 +995,8 @@ public class GenerateXMB {
 
     static class EnglishInfo implements Iterable<PathInfo> {
 
-        final Map<String, PathInfo> pathToPathInfo = new TreeMap();
-        final Map<Long, PathInfo> longToPathInfo = new HashMap();
+        final Map<String, PathInfo> pathToPathInfo = new TreeMap<String, PathInfo>();
+        final Map<Long, PathInfo> longToPathInfo = new HashMap<Long, PathInfo>();
         final CLDRFile english;
 
         PathInfo getPathInfo(long hash) {
@@ -1019,7 +1021,7 @@ public class GenerateXMB {
 
             this.english = english;
             // we don't want the fully resolved paths, but we do want the direct inheritance from root.
-            Status status = new Status();
+            //Status status = new Status();
             Map<String, List<Set<String>>> starredPaths = new TreeMap<String, List<Set<String>>>();
 
             HashSet<String> metazonePaths = new HashSet<String>();
@@ -1080,7 +1082,7 @@ public class GenerateXMB {
 
             Relation<String, String> reasonsToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
             Set<String> missingDescriptions = new TreeSet<String>();
-            Output<String[]> pathArguments = new Output<String[]>();
+            //Output<String[]> pathArguments = new Output<String[]>();
 
             CoverageLevel2 coverageLevel = CoverageLevel2.getInstance("en");
             RegexLookup<Boolean> coverageAllow = new RegexLookup<Boolean>()
@@ -1192,9 +1194,16 @@ public class GenerateXMB {
         String path, String value) {
         reasonsToPaths.put(descriptionStatus + "\t" + level, path + "\t" + value);
     }
+    
+    // Get Date-Time in milliseconds
+    private static long getDateTimeinMillis(int year, int month, int date){
+        Calendar cal = Calendar.getInstance();
+        cal.set(year, month, date);
+        return cal.getTimeInMillis();
+    }
 
-    static final long START_TIME = new Date(2000 - 1900, 1 - 1, 0).getTime();
-    static final long END_TIME = new Date(2015 - 1900, 1 - 1, 0).getTime();
+    static final long START_TIME = getDateTimeinMillis(2000, 1, 0);
+    static final long END_TIME = getDateTimeinMillis(2015, 1, 0);
     static final long DELTA_TIME = 15 * 60 * 1000;
     static final long MIN_DAYLIGHT_PERIOD = 90L * 24 * 60 * 60 * 1000;
 

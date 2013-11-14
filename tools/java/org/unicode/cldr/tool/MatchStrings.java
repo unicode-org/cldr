@@ -37,7 +37,7 @@ public class MatchStrings {
         }
     }
 
-    Relation<String, Info> letter_correspondances = new Relation(new TreeMap(),
+    Relation<String, Info> letter_correspondances = Relation.of(new TreeMap<String, Set<Info>>(),
         LinkedHashSet.class);
 
     MatchStrings() throws IOException {

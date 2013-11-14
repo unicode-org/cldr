@@ -15,6 +15,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.tool.GeneratedPluralSamples.DataSamples;
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
@@ -204,7 +205,7 @@ public class GeneratedPluralSamples {
                 if (sampleLimit < 2) {
                     sampleLimit = 2;
                 }
-                for (Iterator it = data[i].iterator(); it.hasNext();) {
+                for (Iterator<Range> it = data[i].iterator(); it.hasNext();) {
                     it.next();
                     --sampleLimit;
                     if (sampleLimit < 0) {
@@ -221,7 +222,7 @@ public class GeneratedPluralSamples {
             Warning, Error
         }
 
-        Set<String> bounds = new TreeSet();
+        Set<String> bounds = new TreeSet<String>();
 
         public void add(Type type, String string) {
             if (string != null && !string.isEmpty()) {
@@ -431,7 +432,7 @@ public class GeneratedPluralSamples {
         return result;
     }
 
-    private final TreeMap<String, DataSamples> keywordToData = new TreeMap();
+    private final TreeMap<String, DataSamples> keywordToData = new TreeMap<String, DataSamples>();
     private final PluralType type;
 
     GeneratedPluralSamples(PluralInfo pluralInfo, PluralType type) {
@@ -497,7 +498,7 @@ public class GeneratedPluralSamples {
 
     public static String checkForDuplicates(PluralRules pluralRules, FixedDecimal ni) {
         // add test that there are no duplicates
-        Set<String> keywords = new LinkedHashSet();
+        Set<String> keywords = new LinkedHashSet<String>();
         for (String keywordCheck : pluralRules.getKeywords()) {
             if (pluralRules.matches(ni, keywordCheck)) {
                 keywords.add(keywordCheck);
@@ -569,7 +570,7 @@ public class GeneratedPluralSamples {
             }
             System.out.println("\n");
             Set<String> locales = testInfo.getSupplementalDataInfo().getPluralLocales(type);
-            Relation<PluralInfo, String> seenAlready = Relation.of(new TreeMap(), TreeSet.class);
+            Relation<PluralInfo, String> seenAlready = Relation.of(new TreeMap<PluralInfo, Set<String>>(), TreeSet.class);
 
             //System.out.println(type + ": " + locales);
             for (String locale : locales) {
@@ -584,14 +585,14 @@ public class GeneratedPluralSamples {
             }
 
             // sort if necessary
-            Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet()
-                : new TreeSet(new HackComparator(type == PluralType.cardinal
+            Set<Entry<PluralInfo, Set<String>>> sorted = sortNew ? new LinkedHashSet<Entry<PluralInfo, Set<String>>>()
+                : new TreeSet<Entry<PluralInfo, Set<String>>>(new HackComparator(type == PluralType.cardinal
                     ? WritePluralRules.HACK_ORDER_PLURALS : WritePluralRules.HACK_ORDER_ORDINALS));
             for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
                 sorted.add(entry);
             }
 
-            Relation<GeneratedPluralSamples, PluralInfo> samplesToPlurals = Relation.of(new LinkedHashMap(), LinkedHashSet.class);
+            Relation<GeneratedPluralSamples, PluralInfo> samplesToPlurals = Relation.of(new LinkedHashMap<GeneratedPluralSamples, Set<PluralInfo>>(), LinkedHashSet.class);
             for (Entry<PluralInfo, Set<String>> entry : sorted) {
                 PluralInfo pluralInfo = entry.getKey();
                 Set<String> equivalentLocales = entry.getValue();
@@ -649,7 +650,7 @@ public class GeneratedPluralSamples {
                     if (entry.getValue().size() == 1) {
                         continue;
                     }
-                    Set<String> remainder = new LinkedHashSet(entry.getValue());
+                    Set<String> remainder = new LinkedHashSet<String>(entry.getValue());
                     String first = remainder.iterator().next();
                     remainder.remove(first);
                     System.err.println(type + "\tEQUIV:\t\t" + first + "\t≣\t" + CollectionUtilities.join(remainder, ", "));

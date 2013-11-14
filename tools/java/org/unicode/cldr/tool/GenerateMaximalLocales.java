@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
+import org.unicode.cldr.tool.GenerateMaximalLocales.RowData;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -255,7 +256,7 @@ public class GenerateMaximalLocales {
         final int minTotalPopulation = 10000000;
         final int minTerritoryPopulation = 1000000;
         final double minTerritoryPercent = 1.0 / 3;
-        Map<String, Set<RowData>> languageToReason = new TreeMap();
+        Map<String, Set<RowData>> languageToReason = new TreeMap<String, Set<RowData>>();
         Counter<String> languageToLiteratePopulation = new Counter<String>();
         NumberFormat nf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
         nf.setGroupingUsed(true);
@@ -273,7 +274,7 @@ public class GenerateMaximalLocales {
         OfficialStatus minimalStatus = OfficialStatus.official_regional; // OfficialStatus.de_facto_official;
         Map<String, String> languages = new TreeMap<String, String>();
         for (String language : standardCodes.getAvailableCodes("language")) {
-            String path = CLDRFile.getKey(english.LANGUAGE_NAME, language);
+            String path = CLDRFile.getKey(CLDRFile.LANGUAGE_NAME, language);
             String result = english.getStringValue(path);
             if (result != null) {
                 languages.put(language, result);
@@ -423,7 +424,7 @@ public class GenerateMaximalLocales {
         // go through all the cldr locales, and add default contents
         // now computed from toMaximized
         Set<String> available = factory.getAvailable();
-        Relation<String, String> toChildren = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> toChildren = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         LanguageTagParser ltp = new LanguageTagParser();
 
         // System.out.println(maximize("az_Latn_AZ", toMaximized));
@@ -555,23 +556,23 @@ public class GenerateMaximalLocales {
     // }
 
     private static class MaxData {
-        Relation<String, Row.R3<Double, String, String>> languages = new Relation(new TreeMap(), TreeSet.class);
-        Map<String, Counter<String>> languagesToScripts = new TreeMap();
-        Map<String, Counter<String>> languagesToRegions = new TreeMap();
+        Relation<String, Row.R3<Double, String, String>> languages = Relation.of(new TreeMap<String, Set<Row.R3<Double, String, String>>>(), TreeSet.class);
+        Map<String, Counter<String>> languagesToScripts = new TreeMap<String, Counter<String>>();
+        Map<String, Counter<String>> languagesToRegions = new TreeMap<String, Counter<String>>();
 
-        Relation<String, Row.R3<Double, String, String>> scripts = new Relation(new TreeMap(), TreeSet.class);
-        Map<String, Counter<String>> scriptsToLanguages = new TreeMap();
-        Map<String, Counter<String>> scriptsToRegions = new TreeMap();
+        Relation<String, Row.R3<Double, String, String>> scripts = Relation.of(new TreeMap<String, Set<Row.R3<Double, String, String>>>(), TreeSet.class);
+        Map<String, Counter<String>> scriptsToLanguages = new TreeMap<String, Counter<String>>();
+        Map<String, Counter<String>> scriptsToRegions = new TreeMap<String, Counter<String>>();
 
-        Relation<String, Row.R3<Double, String, String>> regions = new Relation(new TreeMap(), TreeSet.class);
-        Map<String, Counter<String>> regionsToLanguages = new TreeMap();
-        Map<String, Counter<String>> regionsToScripts = new TreeMap();
+        Relation<String, Row.R3<Double, String, String>> regions = Relation.of(new TreeMap<String, Set<Row.R3<Double, String, String>>>(), TreeSet.class);
+        Map<String, Counter<String>> regionsToLanguages = new TreeMap<String, Counter<String>>();
+        Map<String, Counter<String>> regionsToScripts = new TreeMap<String, Counter<String>>();
 
-        Relation<Row.R2<String, String>, Row.R2<Double, String>> languageScripts = new Relation(new TreeMap(),
+        Relation<Row.R2<String, String>, Row.R2<Double, String>> languageScripts = Relation.of(new TreeMap<Row.R2<String, String>, Set<Row.R2<Double, String>>>(),
             TreeSet.class);
-        Relation<Row.R2<String, String>, Row.R2<Double, String>> scriptRegions = new Relation(new TreeMap(),
+        Relation<Row.R2<String, String>, Row.R2<Double, String>> scriptRegions = Relation.of(new TreeMap<Row.R2<String, String>, Set<Row.R2<Double, String>>>(),
             TreeSet.class);
-        Relation<Row.R2<String, String>, Row.R2<Double, String>> languageRegions = new Relation(new TreeMap(),
+        Relation<Row.R2<String, String>, Row.R2<Double, String>> languageRegions = Relation.of(new TreeMap<Row.R2<String, String>, Set<Row.R2<Double, String>>>(),
             TreeSet.class);
 
         void add(String language, String script, String region, Double order) {
@@ -672,7 +673,7 @@ public class GenerateMaximalLocales {
         // Set<Row.R3<String,String,String>,Double> rowsToCounts = new TreeMap();
         MaxData maxData = new MaxData();
         Set<String> cldrLocales = factory.getAvailable();
-        Set<String> otherTerritories = new TreeSet(standardCodes.getGoodAvailableCodes("territory"));
+        Set<String> otherTerritories = new TreeSet<String>(standardCodes.getGoodAvailableCodes("territory"));
 
         // process all the information to get the top values for each triple.
         // each of the combinations of 1 or 2 components gets to be a key.
@@ -778,8 +779,8 @@ public class GenerateMaximalLocales {
         // now, get the best for each one
         for (String language : maxData.languages.keySet()) {
             R3<Double, String, String> value = maxData.languages.getAll(language).iterator().next();
-            final Comparable script = value.get1();
-            final Comparable region = value.get2();
+            final Comparable<String> script = value.get1();
+            final Comparable<String> region = value.get2();
             add(language, language + "_" + script + "_" + region, toMaximized, "L->SR", Override.REPLACE_EXISTING,
                 SHOW_ADD);
         }
@@ -794,8 +795,8 @@ public class GenerateMaximalLocales {
 
         for (String script : maxData.scripts.keySet()) {
             R3<Double, String, String> value = maxData.scripts.getAll(script).iterator().next();
-            final Comparable language = value.get1();
-            final Comparable region = value.get2();
+            final Comparable<String> language = value.get1();
+            final Comparable<String> region = value.get2();
             add("und_" + script, language + "_" + script + "_" + region, toMaximized, "S->LR",
                 Override.REPLACE_EXISTING, SHOW_ADD);
         }
@@ -811,8 +812,8 @@ public class GenerateMaximalLocales {
 
         for (String region : maxData.regions.keySet()) {
             R3<Double, String, String> value = maxData.regions.getAll(region).iterator().next();
-            final Comparable language = value.get1();
-            final Comparable script = value.get2();
+            final Comparable<String> language = value.get1();
+            final Comparable<String> script = value.get2();
             add("und_" + region, language + "_" + script + "_" + region, toMaximized, "R->LS",
                 Override.REPLACE_EXISTING, SHOW_ADD);
         }
@@ -828,27 +829,27 @@ public class GenerateMaximalLocales {
 
         for (R2<String, String> languageScript : maxData.languageScripts.keySet()) {
             R2<Double, String> value = maxData.languageScripts.getAll(languageScript).iterator().next();
-            final Comparable language = languageScript.get0();
-            final Comparable script = languageScript.get1();
-            final Comparable region = value.get1();
+            final Comparable<String> language = languageScript.get0();
+            final Comparable<String> script = languageScript.get1();
+            final Comparable<String> region = value.get1();
             add(language + "_" + script, language + "_" + script + "_" + region, toMaximized, "LS->R",
                 Override.REPLACE_EXISTING, SHOW_ADD);
         }
 
         for (R2<String, String> scriptRegion : maxData.scriptRegions.keySet()) {
             R2<Double, String> value = maxData.scriptRegions.getAll(scriptRegion).iterator().next();
-            final Comparable script = scriptRegion.get0();
-            final Comparable region = scriptRegion.get1();
-            final Comparable language = value.get1();
+            final Comparable<String> script = scriptRegion.get0();
+            final Comparable<String> region = scriptRegion.get1();
+            final Comparable<String> language = value.get1();
             add("und_" + script + "_" + region, language + "_" + script + "_" + region, toMaximized, "SR->L",
                 Override.REPLACE_EXISTING, SHOW_ADD);
         }
 
         for (R2<String, String> languageRegion : maxData.languageRegions.keySet()) {
             R2<Double, String> value = maxData.languageRegions.getAll(languageRegion).iterator().next();
-            final Comparable language = languageRegion.get0();
-            final Comparable region = languageRegion.get1();
-            final Comparable script = value.get1();
+            final Comparable<String> language = languageRegion.get0();
+            final Comparable<String> region = languageRegion.get1();
+            final Comparable<String> script = value.get1();
             add(language + "_" + region, language + "_" + script + "_" + region, toMaximized, "LR->S",
                 Override.REPLACE_EXISTING, SHOW_ADD);
         }
@@ -872,7 +873,7 @@ public class GenerateMaximalLocales {
 
     private static void doAlt(Map<String, String> toMaximized) {
         // TODO Auto-generated method stub
-        Map<String, String> temp = new TreeMap();
+        Map<String, String> temp = new TreeMap<String, String>();
         for (String locale : toMaximized.keySet()) {
             String target = toMaximized.get(locale);
             temp.put(toAlt(locale, true), toAlt(target, true));

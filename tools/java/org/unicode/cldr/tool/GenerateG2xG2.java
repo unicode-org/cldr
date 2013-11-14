@@ -13,6 +13,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.tool.GenerateG2xG2.Totals;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
@@ -100,21 +101,21 @@ public class GenerateG2xG2 {
             // else if (gdp >= 1E+10) addPriority("G4", countryCode);
         }
         // fill in the currencies, and TZs for the countries that have multiple zones
-        Map c2z = sc.getCountryToZoneSet();
+        Map<String, Set<String>> c2z = sc.getCountryToZoneSet();
         SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
-        Set mainTimeZones = supplementalDataInfo.getCanonicalTimeZones();
-        for (Iterator it = targetRegionSet.iterator(); it.hasNext();) {
-            String country = (String) it.next();
+        Set<String> mainTimeZones = supplementalDataInfo.getCanonicalTimeZones();
+        for (Iterator<String> it = targetRegionSet.iterator(); it.hasNext();) {
+            String country = it.next();
             String priority = (String) priorityMap.get(country);
-            for (Iterator it2 = getCurrency(country).iterator(); it2.hasNext();) {
-                String currency = (String) it2.next();
+            for (Iterator<String> it2 = getCurrency(country).iterator(); it2.hasNext();) {
+                String currency = it2.next();
                 targetCurrencySet.add(currency);
                 addPriority(priority, currency);
             }
-            Set s = (Set) c2z.get(country);
+            Set<String> s = c2z.get(country);
             if (s.size() == 1) continue;
-            for (Iterator it2 = s.iterator(); it2.hasNext();) {
-                String tzid = (String) it2.next();
+            for (Iterator<String> it2 = s.iterator(); it2.hasNext();) {
+                String tzid = it2.next();
                 if (!mainTimeZones.contains(tzid)) continue;
                 targetTZSet.add(tzid);
                 addPriority(priority, tzid);
@@ -123,20 +124,20 @@ public class GenerateG2xG2 {
         // print out missing translations.
         PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "G2xG2.txt");
         // show priorities
-        Comparator comp = new UTF16.StringComparator();
-        Set priority_set = new TreeSet(new ArrayComparator(new Comparator[] { comp, comp, comp }));
-        for (Iterator it = priorityMap.keySet().iterator(); it.hasNext();) {
-            String code = (String) it.next();
-            String priority = (String) priorityMap.get(code);
+        Comparator<String> comp = new UTF16.StringComparator();
+        Set<String[]> priority_set = new TreeSet<String[]>(new ArrayComparator(new Comparator[] { comp, comp, comp }));
+        for (Iterator<String> it = priorityMap.keySet().iterator(); it.hasNext();) {
+            String code = it.next();
+            String priority = priorityMap.get(code);
             if (priority == null) continue;
             int type = getType((String) code);
             // if (type != CLDRFile.TERRITORY_NAME) continue;
             priority_set.add(new String[] { priority, type + "", code });
         }
         String lastPriority = "";
-        String lastType = "";
-        for (Iterator it = priority_set.iterator(); it.hasNext();) {
-            String[] items = (String[]) it.next();
+        //String lastType = "";
+        for (Iterator<String[]> it = priority_set.iterator(); it.hasNext();) {
+            String[] items =  it.next();
             if (!lastPriority.equals(items[0])) {
                 lastPriority = items[0];
                 pw.println();
@@ -147,21 +148,21 @@ public class GenerateG2xG2 {
         }
         pw.flush();
         // print out missing translations.
-        for (Iterator it = sourceSet.iterator(); it.hasNext();) {
-            String sourceLocale = (String) it.next();
+        for (Iterator<String> it = sourceSet.iterator(); it.hasNext();) {
+            String sourceLocale = it.next();
             System.out.print(sourceLocale + ", ");
             CLDRFile sourceData = cldrFactory.make(sourceLocale, true);
             pw.println();
             String title = sourceLocale;
-            checkItems(pw, title, sourceData, sourceData.LANGUAGE_NAME, targetLanguageSet);
-            checkItems(pw, title, sourceData, sourceData.SCRIPT_NAME, targetScriptSet);
-            checkItems(pw, title, sourceData, sourceData.TERRITORY_NAME, targetRegionSet);
-            checkItems(pw, title, sourceData, sourceData.CURRENCY_NAME, targetCurrencySet);
+            checkItems(pw, title, sourceData, CLDRFile.LANGUAGE_NAME, targetLanguageSet);
+            checkItems(pw, title, sourceData, CLDRFile.SCRIPT_NAME, targetScriptSet);
+            checkItems(pw, title, sourceData, CLDRFile.TERRITORY_NAME, targetRegionSet);
+            checkItems(pw, title, sourceData, CLDRFile.CURRENCY_NAME, targetCurrencySet);
             // only check timezones if exemplar characters don't include a-z
             String v = sourceData.getStringValue("//ldml/characters/exemplarCharacters");
             UnicodeSet exemplars = new UnicodeSet(v);
             if (exemplars.contains('a', 'z')) continue;
-            checkItems(pw, title, sourceData, sourceData.TZ_EXEMPLAR, targetTZSet);
+            checkItems(pw, title, sourceData, CLDRFile.TZ_EXEMPLAR, targetTZSet);
         }
         pw.println();
         pw.println("Sizes - incremental");
@@ -195,8 +196,8 @@ public class GenerateG2xG2 {
             Set<String> countries = sc.getGoodAvailableCodes("territory");
             Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             english = cldrFactory.make("en", true);
-            for (Iterator it = countries.iterator(); it.hasNext();) {
-                String territory = (String) it.next();
+            for (Iterator<String> it = countries.iterator(); it.hasNext();) {
+                String territory = it.next();
                 if (territory.charAt(0) < 'A') continue;
                 String locale = "haw-" + territory;
                 System.out.print(locale + ": " + english.getName(locale) + ", ");
@@ -250,8 +251,8 @@ public class GenerateG2xG2 {
                 testSet.add(result);
             }
         }
-        for (Iterator it = testSet.iterator(); it.hasNext();) {
-            ULocale language = new ULocale((String) it.next());
+        for (Iterator<String> it = testSet.iterator(); it.hasNext();) {
+            ULocale language = new ULocale(it.next());
             System.out.println(language + " \t" + language.getDisplayName(desiredDisplayLocale));
         }
         return true;
@@ -269,12 +270,12 @@ public class GenerateG2xG2 {
 
     private static void showExample(RuleBasedCollator col) {
         String samples = "a A b B \u5416 \u93CA \u516b \u7C3F";
-        Set s = new TreeSet(col);
+        Set<String> s = new TreeSet<String>(col);
         s.addAll(Arrays.asList(samples.split(" ")));
         System.out.println(com.ibm.icu.impl.Utility.escape(s.toString()));
     }
 
-    static Map priorityMap = new TreeMap();
+    static Map<String, String> priorityMap = new TreeMap<String, String>();
 
     static void addPriority(String priority, String code) {
         if (code.length() == 0) return;
@@ -288,11 +289,11 @@ public class GenerateG2xG2 {
         int missingCount;
     }
 
-    static Map totalMap = new TreeMap();
+    static Map<String, Totals> totalMap = new TreeMap<String, Totals>();
 
-    static void checkItems(PrintWriter pw, String sourceLocale, CLDRFile sourceData, int type, Set targetItemSet) {
-        for (Iterator it2 = targetItemSet.iterator(); it2.hasNext();) {
-            String item = (String) it2.next();
+    static void checkItems(PrintWriter pw, String sourceLocale, CLDRFile sourceData, int type, Set<String> targetItemSet) {
+        for (Iterator<String> it2 = targetItemSet.iterator(); it2.hasNext();) {
+            String item = it2.next();
             if (item.length() == 0) continue;
             String key = priorityMap.get(sourceLocale) + "" + priorityMap.get(item);
             Totals t = (Totals) totalMap.get(key);
@@ -377,7 +378,7 @@ public class GenerateG2xG2 {
                     // <currency iso4217="ARS" from="1992-01-01"/>
                     if (path.indexOf("/region") >= 0) {
                         parts.set(supp.getFullXPath(path));
-                        Map attributes = parts.getAttributes(parts.size() - 2);
+                        Map<String, String> attributes = parts.getAttributes(parts.size() - 2);
                         String iso3166 = (String) attributes.get("iso3166");
                         attributes = parts.getAttributes(parts.size() - 1);
                         String iso4217 = (String) attributes.get("iso4217");

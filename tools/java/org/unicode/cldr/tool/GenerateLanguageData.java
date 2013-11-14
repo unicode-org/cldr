@@ -22,12 +22,12 @@ public class GenerateLanguageData {
 
     public static void main(String[] args) {
         // Set<String> languageRegistryCodes = sc.getAvailableCodes("language");
-        Set<String> languageCodes = new TreeSet(iso639Data.getAvailable());
+        Set<String> languageCodes = new TreeSet<String>(Iso639Data.getAvailable());
 
         System.out.println("Macrolanguages");
         Set<String> bcp47languages = StandardCodes.make().getAvailableCodes("language");
         for (String languageCode : languageCodes) {
-            Set<String> suffixes = iso639Data.getEncompassedForMacro(languageCode);
+            Set<String> suffixes = Iso639Data.getEncompassedForMacro(languageCode);
             if (suffixes == null) continue;
             // System.out.println(
             // languageCode
@@ -42,31 +42,31 @@ public class GenerateLanguageData {
                 System.out.println(
                     languageCode
                         + "\t" + (bcp47languages.contains(languageCode) ? "4646" : "new")
-                        + "\t" + iso639Data.getNames(languageCode).iterator().next() // Utility.join(iso639Data.getNames(languageCode),"; ")
+                        + "\t" + Iso639Data.getNames(languageCode).iterator().next() // Utility.join(iso639Data.getNames(languageCode),"; ")
                         + "\t" + suffix
                         // + "\t" + iso639Data.getSource(suffix)
                         + "\t" + (bcp47languages.contains(suffix) ? "4646" : "new")
                         // + "\t" + iso639Data.getScope(suffix)
                         // + "\t" + iso639Data.getType(suffix)
-                        + "\t" + iso639Data.getNames(suffix).iterator().next()
+                        + "\t" + Iso639Data.getNames(suffix).iterator().next()
                     );
             }
         }
         System.out.println("All");
         // languageCodes.addAll(languageRegistryCodes);
-        Relation<String, String> type_codes = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> type_codes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         for (String languageCode : languageCodes) {
-            Scope scope = iso639Data.getScope(languageCode);
-            Type type = iso639Data.getType(languageCode);
-            Set<String> names = iso639Data.getNames(languageCode);
-            Source source = iso639Data.getSource(languageCode);
-            String prefix = iso639Data.getMacroForEncompassed(languageCode);
-            Set<String> prefixNames = prefix == null ? null : iso639Data.getNames(prefix);
+            Scope scope = Iso639Data.getScope(languageCode);
+            Type type = Iso639Data.getType(languageCode);
+            Set<String> names = Iso639Data.getNames(languageCode);
+            Source source = Iso639Data.getSource(languageCode);
+            String prefix = Iso639Data.getMacroForEncompassed(languageCode);
+            Set<String> prefixNames = prefix == null ? null : Iso639Data.getNames(prefix);
             String prefixName = prefixNames == null || prefixNames.size() == 0 ? "" : prefixNames.iterator().next()
                 + "::\t";
             String fullCode = (prefix != null ? prefix + "-" : "") + languageCode;
             String scopeString = String.valueOf(scope);
-            if (iso639Data.getEncompassedForMacro(languageCode) != null) {
+            if (Iso639Data.getEncompassedForMacro(languageCode) != null) {
                 scopeString += "*";
             }
             System.out.println(

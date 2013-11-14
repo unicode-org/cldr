@@ -26,7 +26,7 @@ public class GenerateKaraList {
         cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY, ".*");
         english = cldrFactory.make("en", true);
         PrintWriter log = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "main/", "karaList.xml");
-        Set locales = LanguageTagParser.getLanguageScript(cldrFactory.getAvailable());
+        Set<String> locales = LanguageTagParser.getLanguageScript(cldrFactory.getAvailable());
         // hack for now
         locales.remove("sr");
         locales.remove("zh");
@@ -95,18 +95,18 @@ public class GenerateKaraList {
      * @param choice
      *            TODO
      */
-    private static void printCodes(PrintWriter log, Set locales, Set availableCodes, int choice) {
+    private static void printCodes(PrintWriter log, Set<String> locales, Set<String> availableCodes, int choice) {
         boolean hasAbbreviation = choice == CLDRFile.CURRENCY_NAME;
         // boolean skipDraft = true;
-        Set errors = new HashSet();
-        for (Iterator it = availableCodes.iterator(); it.hasNext();) {
-            String id = (String) it.next();
+        Set<String> errors = new HashSet<String>();
+        for (Iterator<String> it = availableCodes.iterator(); it.hasNext();) {
+            String id = it.next();
             String ename = english.getName(choice, id);
             if (ename == null) ename = "[untranslated: " + id + "]";
             System.out.println(id + "\t" + ename);
             log.println("\t<entry>");
             log.println("\t\t<hdterm>" + TransliteratorUtilities.toXML.transliterate(ename) + "</hdterm>\t<!-- "
-                + TransliteratorUtilities.toXML.transliterate(english.getNameName(choice)) + ": " + id + " -->"); // English
+                + TransliteratorUtilities.toXML.transliterate(CLDRFile.getNameName(choice)) + ": " + id + " -->"); // English
                                                                                                                   // name
             log.println("\t\t<hom>");
             log.println("\t\t\t<epos>n</epos>"); // this is the part of speech value. It is fixed.
@@ -117,8 +117,8 @@ public class GenerateKaraList {
                     log.println("\t\t\t\t<eabbr>" + TransliteratorUtilities.toXML.transliterate(aename) + "</eabbr>");
                 }
             }
-            for (Iterator it2 = locales.iterator(); it2.hasNext();) {
-                String locale = (String) it2.next();
+            for (Iterator<String> it2 = locales.iterator(); it2.hasNext();) {
+                String locale = it2.next();
                 try {
                     CLDRFile cldrfile = cldrFactory.make(locale, true);
                     String trans = cldrfile.getName(choice, id);

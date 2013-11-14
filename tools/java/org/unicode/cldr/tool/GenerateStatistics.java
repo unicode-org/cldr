@@ -54,19 +54,19 @@ class GenerateStatistics {
         PrintWriter logHtml = BagFormatter.openUTF8Writer(
             logDir,
             "test_generation_log.html");
-        String dir = logDir + "main" + File.separator;
+        //String dir = logDir + "main" + File.separator;
         // DraftChecker dc = new DraftChecker(dir);
         english = factory.make("en", true);
-        Set languages = new TreeSet(col), countries = new TreeSet(col), draftLanguages = new TreeSet(
-            col), draftCountries = new TreeSet(col);
+        Set<String> languages = new TreeSet<String>(col), countries = new TreeSet<String>(col), draftLanguages = new TreeSet<String>(
+            col), draftCountries = new TreeSet<String>(col);
         Set nativeLanguages = new TreeSet(), nativeCountries = new TreeSet(), draftNativeLanguages = new TreeSet(), draftNativeCountries = new TreeSet();
         int localeCount = 0;
         int draftLocaleCount = 0;
 
-        Set contents = removeSingleLanguagesWhereWeHaveScripts(factory.getAvailable());
+        Set<String> contents = removeSingleLanguagesWhereWeHaveScripts(factory.getAvailable());
 
-        for (Iterator it = contents.iterator(); it.hasNext();) {
-            String localeID = (String) it.next();
+        for (Iterator<String> it = contents.iterator(); it.hasNext();) {
+            String localeID = it.next();
             if (CLDRFile.isSupplementalName(localeID)) continue;
             if (localeID.equals("root"))
                 continue; // skip root
@@ -116,9 +116,9 @@ class GenerateStatistics {
     /**
      * 
      */
-    private static Set removeSingleLanguagesWhereWeHaveScripts(Set contents) {
+    private static Set<String> removeSingleLanguagesWhereWeHaveScripts(Set<String> contents) {
         StandardCodes sc = StandardCodes.make();
-        contents = new TreeSet(contents); // make writable
+        contents = new TreeSet<String>(contents); // make writable
         if (false && HACK) {
             contents.add("bs_Latn");
             contents.add("bs_Cyrl");
@@ -126,11 +126,11 @@ class GenerateStatistics {
             contents.add("bs_Cyrl_BA");
         }
         // find the languages with scripts
-        Set toRemove = new HashSet();
+        Set<String> toRemove = new HashSet<String>();
         if (HACK) toRemove.add("sh");
 
-        for (Iterator it = contents.iterator(); it.hasNext();) {
-            String localeID = (String) it.next();
+        for (Iterator<String> it = contents.iterator(); it.hasNext();) {
+            String localeID = it.next();
             if (CLDRFile.isSupplementalName(localeID)) {
                 continue;
             }
@@ -151,8 +151,8 @@ class GenerateStatistics {
             if (!lang.equals(langscript)) toRemove.add(lang);
         }
 
-        for (Iterator it = contents.iterator(); it.hasNext();) {
-            String localeID = (String) it.next();
+        for (Iterator<String> it = contents.iterator(); it.hasNext();) {
+            String localeID = it.next();
             if (CLDRFile.isSupplementalName(localeID)) {
                 continue;
             }
@@ -189,24 +189,22 @@ class GenerateStatistics {
             s.add(llist);
         }
 
-        Set titleSet = new TreeSet(col);
-        Set qualifierSet = new TreeSet(col);
+        Set<String> titleSet = new TreeSet<String>(col);
+        Set<String> qualifierSet = new TreeSet<String>(col);
 
-        for (Iterator it = sb.keySet().iterator(); it.hasNext();) {
-            String englishName = (String) it.next();
+        for (Iterator<String> it = sb.keySet().iterator(); it.hasNext();) {
+            String englishName = it.next();
             Set s = (Set) sb.get(englishName);
             if (result.length() != 0) {
                 result.append("; ");
             }
             String code = "";
-            int count = 0;
             boolean needQualifier = s.size() != 1;
             titleSet.clear();
             qualifierSet.clear();
 
-            for (Iterator it2 = s.iterator(); it2.hasNext();) {
-                count += 1;
-                LanguageList llist = (LanguageList) it2.next();
+            for (Iterator<LanguageList> it2 = s.iterator(); it2.hasNext();) {
+                LanguageList llist = it2.next();
                 String localName = llist.getLocalName();
                 String locale = llist.getLocale();
 
@@ -289,7 +287,7 @@ class GenerateStatistics {
      * @param draftNativeLanguages
      * @param draftNativeCountries
      */
-    private static void addCounts(String localeID, boolean isDraft, Set draftLanguages, Set draftCountries,
+    private static void addCounts(String localeID, boolean isDraft, Set<String> draftLanguages, Set<String> draftCountries,
         Set draftNativeLanguages, Set draftNativeCountries) {
         // ULocale uloc = new ULocale(localeName);
         ltp.set(localeID);
@@ -406,7 +404,7 @@ class GenerateStatistics {
         return name;
     }
 
-    static Map fixCountryNames = new HashMap();
+    static Map<String, String> fixCountryNames = new HashMap<String, String>();
     static {
         fixCountryNames.put("\u0408\u0443\u0433\u043E\u0441\u043B\u0430\u0432\u0438\u0458\u0430",
             "\u0421\u0440\u0431\u0438\u0458\u0430 \u0438 \u0426\u0440\u043D\u0430 \u0413\u043E\u0440\u0430");
@@ -417,7 +415,7 @@ class GenerateStatistics {
 
     public static class DraftChecker {
         String dir;
-        Map cache = new HashMap();
+        Map<String, Object> cache = new HashMap<String, Object>();
         Object TRUE = new Object();
         Object FALSE = new Object();
 
@@ -431,7 +429,7 @@ class GenerateStatistics {
                 return check == TRUE;
             }
             BufferedReader pw = null;
-            boolean result = true;
+            //boolean result = true;
             try {
                 pw = BagFormatter.openUTF8Reader(dir, localeName + ".xml");
                 while (true) {

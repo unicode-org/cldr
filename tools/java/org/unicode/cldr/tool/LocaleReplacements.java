@@ -31,8 +31,8 @@ public class LocaleReplacements {
     /**
      * eg language, eng, <overlong,en>
      */
-    static Map<String, Map<String, Row.R2<Set<String>, String>>> type2item2replacementAndReason = new HashMap();
-    static Map<String, Relation<String, Row.R2<String, Set<String>>>> type2reason2itemAndreplacement = new TreeMap();
+    static Map<String, Map<String, Row.R2<Set<String>, String>>> type2item2replacementAndReason = new HashMap<String, Map<String, Row.R2<Set<String>, String>>>();
+    static Map<String, Relation<String, Row.R2<String, Set<String>>>> type2reason2itemAndreplacement = new TreeMap<String, Relation<String, Row.R2<String, Set<String>>>>();
     static Relation<String, String> fixed = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
 
     public String get(String old, Output<String> reason) {
@@ -74,7 +74,7 @@ public class LocaleReplacements {
          * public String transform(String region) {
          * return IsoRegionData.getNumeric(region);
          */
-        Set<String> available2 = IsoRegionData.getAvailable();
+        //Set<String> available2 = IsoRegionData.getAvailable();
 
         for (String region : IsoRegionData.getAvailable()) {
             String alpha3 = IsoRegionData.get_alpha3(region);
@@ -97,7 +97,7 @@ public class LocaleReplacements {
         // fix up the data by recursing
 
         for (Entry<String, Map<String, R2<Set<String>, String>>> entry : type2item2replacementAndReason.entrySet()) {
-            String type = entry.getKey();
+            //String type = entry.getKey();
             final Map<String, R2<Set<String>, String>> item2replacementAndReason = entry.getValue();
             while (true) {
                 boolean keepGoing = false;
@@ -105,7 +105,7 @@ public class LocaleReplacements {
                     String item = entry2.getKey();
                     R2<Set<String>, String> replacementAndReason = entry2.getValue();
                     Set<String> replacements = replacementAndReason.get0();
-                    String reason = replacementAndReason.get1();
+                    //String reason = replacementAndReason.get1();
                     Set<String> newReplacements = new LinkedHashSet<String>(replacements.size());
                     boolean gotChange = false;
                     for (String oldRep : replacements) {
@@ -180,7 +180,7 @@ public class LocaleReplacements {
 
         Map<String, R2<Set<String>, String>> item2replacementAndReason = type2item2replacementAndReason.get(type);
         if (item2replacementAndReason == null) {
-            type2item2replacementAndReason.put(type, item2replacementAndReason = new HashMap());
+            type2item2replacementAndReason.put(type, item2replacementAndReason = new HashMap<String, R2<Set<String>, String>>());
         }
 
         R2<Set<String>, String> oldReplacementAndReason = item2replacementAndReason.get(key);
@@ -241,7 +241,7 @@ public class LocaleReplacements {
 
         Set<String> oldNotNew = Builder.with(new TreeSet<String>(oldStuff)).removeAll(newStuff).get();
         Set<String> newNotOld = Builder.with(new TreeSet<String>(newStuff)).removeAll(oldStuff).get();
-        Set<String> shared = Builder.with(new TreeSet<String>(oldStuff)).retainAll(newStuff).get();
+        //Set<String> shared = Builder.with(new TreeSet<String>(oldStuff)).retainAll(newStuff).get();
         // for (String s : shared) {
         // merged.add(Row.of(s,"\tSAME"));
         // }

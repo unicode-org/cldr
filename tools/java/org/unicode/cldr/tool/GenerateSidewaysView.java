@@ -326,7 +326,7 @@ public class GenerateSidewaysView {
                 if (script == null) {
                     script = UScript.getName(UScript.UNKNOWN);
                 }
-                Set temp = new HashSet();
+                Set<String> temp = new HashSet<String>();
                 temp.add(locale);
                 checkTr(script_UnicodeMap);
                 UnicodeMap<Set<String>> mapping = script_UnicodeMap.get(script);
@@ -569,7 +569,7 @@ public class GenerateSidewaysView {
         }
     };
 
-    static Map<String, String> LOCALE_TO_SCRIPT = new HashMap();
+    static Map<String, String> LOCALE_TO_SCRIPT = new HashMap<String, String>();
 
     private static void loadInformation(Factory cldrFactory) {
         Set<String> alllocales = cldrFactory.getAvailable();

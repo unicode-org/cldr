@@ -214,7 +214,7 @@ public class GenerateTransform {
 
         public MyComparator(ULocale locale) {
             collator = Collator.getInstance(locale);
-            collator.setStrength(collator.IDENTICAL);
+            collator.setStrength(Collator.IDENTICAL);
         }
 
         public int compare(Pair<String, String> arg0, Pair<String, String> arg1) {
@@ -234,7 +234,7 @@ public class GenerateTransform {
     }
 
     static class UnicodeContext {
-        Map<String, UnicodeSet> first_second = new LinkedHashMap();
+        Map<String, UnicodeSet> first_second = new LinkedHashMap<String, UnicodeSet>();
 
         void add(String a, String b) {
             UnicodeSet second = first_second.get(a);
@@ -245,7 +245,7 @@ public class GenerateTransform {
         }
 
         Set<UnicodeSet[]> get() {
-            Map<UnicodeSet, UnicodeSet> second_first = new LinkedHashMap();
+            Map<UnicodeSet, UnicodeSet> second_first = new LinkedHashMap<UnicodeSet, UnicodeSet>();
             for (String first : first_second.keySet()) {
                 UnicodeSet second = first_second.get(first);
                 UnicodeSet firstSet = second_first.get(second);
@@ -254,7 +254,7 @@ public class GenerateTransform {
                 }
                 firstSet.add(first);
             }
-            Set<UnicodeSet[]> result = new LinkedHashSet();
+            Set<UnicodeSet[]> result = new LinkedHashSet<UnicodeSet[]>();
             for (UnicodeSet second : second_first.keySet()) {
                 UnicodeSet first = second_first.get(second);
                 result.add(new UnicodeSet[] { first, second });

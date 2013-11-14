@@ -334,7 +334,7 @@ public class GenerateCoverageLevels {
         LanguageTagParser languageTagParser = new LanguageTagParser();
 
         StringBuilder header = new StringBuilder();
-        EnumSet<Level> skipLevels = EnumSet.of(Level.CORE, Level.POSIX, Level.COMPREHENSIVE, Level.OPTIONAL);
+        //EnumSet<Level> skipLevels = EnumSet.of(Level.CORE, Level.POSIX, Level.COMPREHENSIVE, Level.OPTIONAL);
         for (String locale : mapLevelData.keySet()) {
             LevelData levelData = mapLevelData.get(locale);
             String max = LikelySubtags.maximize(locale, supplementalData.getLikelySubtags());

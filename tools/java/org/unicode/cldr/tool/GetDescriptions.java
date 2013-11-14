@@ -44,7 +44,7 @@ public class GetDescriptions {
             if (type.equals("tzid")) continue;
             if (type.equals("currency")) continue;
             for (String code : (Set<String>) sc.getAvailableCodes(type)) {
-                Map x = sc.getLangData(type, code);
+                Map<String, String> x = sc.getLangData(type, code);
                 if (x == null) {
                     continue;
                 }

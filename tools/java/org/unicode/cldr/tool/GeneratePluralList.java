@@ -201,8 +201,8 @@ public class GeneratePluralList {
         String realZeroType = rules.select(0);
         for (String category : finalExamples) {
             String exampleValue = exampleMap.get(category);
-            String overallCategory = rules.select(Double.valueOf(exampleValue));
-            String exampleFormat = nouns.get(overallCategory);
+            //String overallCategory = rules.select(Double.valueOf(exampleValue));
+            //String exampleFormat = nouns.get(overallCategory);
 
             out.println(locale + "\t" + exampleValue + "\t" +
                 category.replace("zero", realZeroType).replace('|', '\t'));

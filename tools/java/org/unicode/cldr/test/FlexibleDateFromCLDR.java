@@ -164,7 +164,7 @@ class FlexibleDateFromCLDR {
             return;
         }
 
-        if (path.indexOf("pattern") < 0 && path.indexOf("dateFormatItem") < 0) return;
+        if (path.indexOf("pattern") < 0 && path.indexOf("dateFormatItem") < 0 && path.indexOf("intervalFormatItem") < 0) return;
         // set the am/pm preference
         if (path.indexOf("timeFormatLength[@type=\"short\"]") >= 0) {
             fp.set(value);
@@ -177,38 +177,60 @@ class FlexibleDateFromCLDR {
             }
         }
         if (path.indexOf("dateTimeFormatLength") > 0) return; // exclude {1} {0}
-        // add to generator
-        try {
-            gen.addPattern(value, false, patternInfo);
-            switch (patternInfo.status) {
-            case PatternInfo.CONFLICT:
-                failureMap.put(path, "Conflicting Patterns: \"" + value + "\"\t&\t\"" + patternInfo.conflictingPattern
-                    + "\"");
-                break;
+        if (path.indexOf("intervalFormatItem") < 0) {
+            // add to generator
+            try {
+                gen.addPattern(value, false, patternInfo);
+                switch (patternInfo.status) {
+                case PatternInfo.CONFLICT:
+                    failureMap.put(path, "Conflicting Patterns: \"" + value + "\"\t&\t\"" + patternInfo.conflictingPattern
+                        + "\"");
+                    break;
+                }
+            } catch (RuntimeException e) {
+                failureMap.put(path, e.getMessage());
             }
-        } catch (RuntimeException e) {
-            failureMap.put(path, e.getMessage());
         }
         String failure = checkValueAgainstSkeleton(path, value);
         if (failure != null) {
             failureMap.put(path, failure);
         }
     }
+    
+    private String stripLiterals(String pattern) {
+        int i = 0, patlen = pattern.length();
+        StringBuilder stripped = new StringBuilder(patlen);
+        boolean inLiteral = false;
+        while (i < patlen) {
+            char c = pattern.charAt(i++);
+            if (c == '\'') {
+                inLiteral = !inLiteral;
+            } else if (!inLiteral) {
+                stripped.append(c);
+            }
+        }
+        return stripped.toString();
+    }
 
     public String checkValueAgainstSkeleton(String path, String value) {
         String failure = null;
+        String skeleton = null;
+        String strippedPattern = null;
         if (path.contains("dateFormatItem")) {
-            String skeleton = (String) parts.set(path).findAttributeValue("dateFormatItem", "id"); // the skeleton
-            if (skeleton != null) {
-                String strippedPattern = gen.getSkeleton(value); // the pattern stripped of literals
-                if (skeleton.indexOf('H') >= 0 || skeleton.indexOf('k') >= 0) { // if skeleton uses 24-hour time
-                    if (strippedPattern.indexOf('h') >= 0 || strippedPattern.indexOf('K') >= 0) { // but pattern uses 12...
-                        failure = "Skeleton uses 24-hour cycle (H,k) but pattern uses 12-hour (h,K)";
-                    }
-                } else if (skeleton.indexOf('h') >= 0 || skeleton.indexOf('K') >= 0) { // if skeleton uses 12-hour time
-                    if (strippedPattern.indexOf('H') >= 0 || strippedPattern.indexOf('k') >= 0) { // but pattern uses 24...
-                        failure = "Skeleton uses 12-hour cycle (h,K) but pattern uses 24-hour (H,k)";
-                    }
+            skeleton = (String) parts.set(path).findAttributeValue("dateFormatItem", "id"); // the skeleton
+            strippedPattern = gen.getSkeleton(value); // the pattern stripped of literals
+        } else if (path.contains("intervalFormatItem")) {
+            skeleton = (String) parts.set(path).findAttributeValue("intervalFormatItem", "id"); // the skeleton
+            strippedPattern = stripLiterals(value); // can't use gen on intervalFormat pattern (throws exception)
+        }
+        if (skeleton != null && strippedPattern != null) {
+            if (skeleton.indexOf('H') >= 0 || skeleton.indexOf('k') >= 0) { // if skeleton uses 24-hour time
+                if (strippedPattern.indexOf('h') >= 0 || strippedPattern.indexOf('K') >= 0) { // but pattern uses 12...
+                    failure = "Skeleton uses 24-hour cycle (H,k) but pattern uses 12-hour (h,K)";
+                }
+            } else if (skeleton.indexOf('h') >= 0 || skeleton.indexOf('K') >= 0) { // if skeleton uses 12-hour time
+                if (strippedPattern.indexOf('H') >= 0 || strippedPattern.indexOf('k') >= 0) { // but pattern uses 24...
+                    failure = "Skeleton uses 12-hour cycle (h,K) but pattern uses 24-hour (H,k)";
                 }
             }
         }

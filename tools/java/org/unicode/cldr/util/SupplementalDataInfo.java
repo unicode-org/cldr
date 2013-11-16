@@ -50,6 +50,7 @@ import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
@@ -2178,7 +2179,7 @@ public class SupplementalDataInfo {
         }
         return result;
     }
-    
+
     /**
      * Cache Data structure with object expiry,
      * List that can hold up to MAX_LOCALES caches of locales, when one locale hasn't been used for a while it will removed and GC'd
@@ -2186,14 +2187,14 @@ public class SupplementalDataInfo {
     private class CoverageCache {
         private LinkedList<Node> localeList;
         private final int MAX_LOCALES = 10;
-        
+
         /*
          * constructor
          */
         public CoverageCache() {
             localeList = new LinkedList<Node>();
         }
-        
+
         /*
          * retrieves coverage level associated with two keys if it exists in the cache, otherwise returns null
          * @param xpath
@@ -2212,7 +2213,7 @@ public class SupplementalDataInfo {
             }
             return null;
         }
-        
+
         /*
          * places a coverage level into the cache, with two keys
          * @param xpath
@@ -2228,17 +2229,17 @@ public class SupplementalDataInfo {
                     return;
                 }
             }
-            
+
             //if it is not, add a new map with the coverage level, and remove the last map in the list (used most seldom) if the list is too large
             Map<String, Level> newMap = new ConcurrentHashMap<String, Level>();
             newMap.put(xpath, covLevel);
             localeList.addFirst(new Node(loc, newMap));
-            
+
             if( localeList.size() > MAX_LOCALES ) {
                 localeList.removeLast();
             }
         }
-        
+
         /*
          * node to hold a location and a Map
          */
@@ -2246,7 +2247,7 @@ public class SupplementalDataInfo {
             //public fields to emulate a C/C++ struct
             public String loc;
             public Map<String, Level> map;
-            
+
             public Node(String _loc, Map<String, Level> _map) {
                 loc = _loc;
                 map = _map;
@@ -2510,7 +2511,7 @@ public class SupplementalDataInfo {
         }
         return null;
     }
-    
+
     public int getRequiredVotes(String loc) {
         if (establishedLocales.contains(loc)) {
             return 8;
@@ -2731,7 +2732,7 @@ public class SupplementalDataInfo {
 
     private void addPluralInfo(boolean isOrdinal) {
         final String[] locales = lastPluralLocales.split("\\s+");
-        PluralInfo info = new PluralInfo(lastPluralMap);
+        PluralInfo info = new PluralInfo(lastPluralMap, isOrdinal);
         Map<String, PluralInfo> localeToInfo = isOrdinal ? localeToOrdinalInfo : localeToPluralInfo;
         for (String locale : locales) {
             if (localeToInfo.containsKey(locale)) {
@@ -2845,7 +2846,7 @@ public class SupplementalDataInfo {
         private final Map<Count, SampleList> countToIntegerSamples9999;
         private final Map<Count, SampleList[]> countToDigitToIntegerSamples9999;
 
-        CountSampleList(PluralRules pluralRules, Set<Count> keywords) {
+        CountSampleList(PluralRules pluralRules, Set<Count> keywords, boolean isOrdinal) {
             // Create the integer counts
             countToIntegerSamples9999 = new EnumMap<Count, SampleList>(Count.class);
             countToDigitToIntegerSamples9999 = new EnumMap<Count, SampleList[]>(Count.class);
@@ -2875,11 +2876,13 @@ public class SupplementalDataInfo {
                 if (haveFractions(keywords, digit)) {
                     continue;
                 }
-                for (int f = 0; f < 30; ++f) {
-                    FixedDecimal ni = new FixedDecimal(i + f / 10.0d, f < 10 ? 1 : 2, f);
-                    count = Count.valueOf(pluralRules.select(ni));
-                    addSimple(countToIntegerSamples9999, ni, count);
-                    addDigit(countToDigitToIntegerSamples9999, ni, count, digit);
+                if (!isOrdinal) {
+                    for (int f = 0; f < 30; ++f) {
+                        FixedDecimal ni = new FixedDecimal(i + f / 10.0d, f < 10 ? 1 : 2, f);
+                        count = Count.valueOf(pluralRules.select(ni));
+                        addSimple(countToIntegerSamples9999, ni, count);
+                        addDigit(countToDigitToIntegerSamples9999, ni, count, digit);
+                    }
                 }
             }
             // HACK for Breton
@@ -2972,7 +2975,7 @@ public class SupplementalDataInfo {
         private final CountSampleList countSampleList;
         private final Map<Count, String> countToRule;
 
-        private PluralInfo(Map<Count, String> countToRule) {
+        private PluralInfo(Map<Count, String> countToRule, boolean isOrdinal) {
             EnumMap<Count, String> tempCountToRule = new EnumMap<Count, String>(Count.class);
             tempCountToRule.putAll(countToRule);
             this.countToRule = Collections.unmodifiableMap(tempCountToRule);
@@ -2997,7 +3000,7 @@ public class SupplementalDataInfo {
                 _keywords.add(Count.valueOf(s));
             }
             keywords = Collections.unmodifiableSet(_keywords);
-            countSampleList = new CountSampleList(pluralRules, keywords);
+            countSampleList = new CountSampleList(pluralRules, keywords, isOrdinal);
 
             Map<Count, List<Double>> countToExampleListRaw = new TreeMap<Count, List<Double>>();
             Map<Integer, Count> exampleToCountRaw = new TreeMap<Integer, Count>();
@@ -3430,7 +3433,7 @@ public class SupplementalDataInfo {
         return isDeprecated(deprecated.get(STAR), element, attribute, value) 
             || isDeprecated(deprecated.get(type.toString()), element, attribute, value);
     }
-    
+
     private boolean isDeprecated(Map<String, Relation<String, String>> map, 
         String element, String attribute, String value) {
         return map == null ? false 

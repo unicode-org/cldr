@@ -34,7 +34,7 @@ public class CheckHtmlFiles {
     final static Options myOptions = new Options();
     final static Writer LOG = new OutputStreamWriter(System.out);
     static Pattern WELLFORMED_HEADER = Pattern.compile("\\s*(\\d+(\\.\\d+)*\\s*).*");
-    static Pattern SUPPRESS_SECTION_NUMBER = Pattern.compile("Migration|References|Acknowledgments|Modifications|Revision \\d+");
+    static Pattern SUPPRESS_SECTION_NUMBER = Pattern.compile("(Annex [A-Z]: .*)|Migration|References|Acknowledgments|Modifications|(Revision \\d+)");
     static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+");
     static Pattern SPACES = Pattern.compile("\\s+");
 
@@ -60,6 +60,8 @@ public class CheckHtmlFiles {
     public static void main(String[] args) throws IOException {
         System.out.println("First do a replace of <a\\s+name=\"([^\"]*)\"\\s*> by <a name=\"$1\" href=\"#$1\">");
         System.out.println("Then check for all links with no anchors: <a([^>]*)></a>");
+        System.out.println("Then check for all links that don't start with name or href <a (?!href|name)");
+        
         myOptions.parse(MyOptions.target, args, true);
         verbose = MyOptions.verbose.option.doesOccur();
 
@@ -68,7 +70,9 @@ public class CheckHtmlFiles {
 //            return;
 //        }
 //        Data source = new Data().getSentences(MyOptions.old.option.getValue());
-        Data target = new Data().getSentences(MyOptions.target.option.getValue());
+        String file = MyOptions.target.option.getValue();
+        
+        Data target = new Data().getSentences(file);
 
 //        int missingCount = 0, extraCount = 0;
 //        int line = 0;
@@ -109,7 +113,17 @@ public class CheckHtmlFiles {
     }
 
     static class Levels implements Comparable<Levels> {
-        int[] levels = new int[10];
+        final int[] levels = new int[10];
+        final int h2_start;
+
+        public Levels(int h2_start) {
+            levels[0] = h2_start; // special adjustment of starting header level
+            this.h2_start = h2_start;
+        }
+
+        public Levels() {
+            this(0);
+        }
 
         /**
          * h2 = level 0, h3 is level 1, etc.
@@ -119,7 +133,10 @@ public class CheckHtmlFiles {
         Levels next(int level, Output<Boolean> missingLevel) {
             level -= 2; // h2 = level 0
             missingLevel.value = false;
-            for (int i = 0; i < level; ++i) {
+            if (levels[0] < h2_start) {
+                missingLevel.value = true;
+            }
+            for (int i = 1; i < level; ++i) {
                 if (levels[i] == 0) {
                     missingLevel.value = true;
                 }
@@ -291,10 +308,14 @@ public class CheckHtmlFiles {
 
     static class HeadingInfoList extends ArrayList<HeadingInfo> {
         private static final long serialVersionUID = -6722150173224993960L;
-        Levels lastBuildLevel = new Levels();
+        Levels lastBuildLevel;
         private Set<String> errors = new LinkedHashSet<String>();
         private Set<String> warnings = new LinkedHashSet<String>();
         Output<Boolean> missingLevel = new Output<Boolean>(false);
+
+        public HeadingInfoList(int h2_START) {
+            lastBuildLevel = new Levels(h2_START);
+            }
 
         public boolean add(HeadingInfo h) {
             if (SUPPRESS_REVISION.matcher(h.text).matches()) {
@@ -423,6 +444,7 @@ public class CheckHtmlFiles {
             if (!sourceDirectory.exists()) {
                 throw new IllegalArgumentException("Can't find " + sourceDirectory);
             }
+
             int count = 0;
             Matcher m = Pattern.compile(sourceFile.getName()).matcher("");
             Matcher wsMatcher = WHITESPACE.matcher("");
@@ -435,6 +457,7 @@ public class CheckHtmlFiles {
                     }
                     continue;
                 }
+                int H2_START = fileString.contains("tr18") ? -1 : 0;
                 ++count;
 
                 System.out.println("\nProcessing:\t" + sourceDirectory + "/" + fileString + "\n");
@@ -444,7 +467,7 @@ public class CheckHtmlFiles {
                 StringBuilder buffer = new StringBuilder();
                 StringBuilder content = new StringBuilder();
                 HeadingInfo heading = new HeadingInfo();
-                HeadingInfoList headingInfoList = new HeadingInfoList();
+                HeadingInfoList headingInfoList = new HeadingInfoList(H2_START);
                 String contentString;
                 boolean inHeading = false;
                 boolean inPop = false;

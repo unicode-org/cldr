@@ -114,11 +114,12 @@ public class ShowLanguages {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
 
-        linfo.showCoverageGoals(pw);
         
 //        linfo.showTerritoryInfo();
 
         ShowPlurals.printPlurals(english, null, pw);
+                
+        linfo.showCoverageGoals(pw);
 
         linfo.printLikelySubtags(pw);
 
@@ -977,21 +978,21 @@ public class ShowLanguages {
                 }
             }
             Log.setLog(CLDRPaths.CHART_DIRECTORY + "supplemental/", "characterLog.txt");
-            CLDRFile chars = cldrFactory.make("characters", false);
-            int count = 0;
-            for (Iterator it = chars.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();) {
-                String path = (String) it.next();
-                parts.set(chars.getFullXPath(path));
-                if (parts.getElement(1).equals("version"))
-                    continue;
-                if (parts.getElement(1).equals("generation"))
-                    continue;
-                String value = parts.getAttributeValue(-2, "value");
-                String substitute = chars.getStringValue(path, true);
-                addCharSubstitution(value, substitute);
-            }
-            if (count != 0)
-                System.out.println("Skipped NFKC/NFC items: " + count);
+//            CLDRFile chars = cldrFactory.make("characters", false);
+//            int count = 0;
+//            for (Iterator it = chars.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();) {
+//                String path = (String) it.next();
+//                parts.set(chars.getFullXPath(path));
+//                if (parts.getElement(1).equals("version"))
+//                    continue;
+//                if (parts.getElement(1).equals("generation"))
+//                    continue;
+//                String value = parts.getAttributeValue(-2, "value");
+//                String substitute = chars.getStringValue(path, true);
+//                addCharSubstitution(value, substitute);
+//            }
+//            if (count != 0)
+//                System.out.println("Skipped NFKC/NFC items: " + count);
             Log.close();
         }
 

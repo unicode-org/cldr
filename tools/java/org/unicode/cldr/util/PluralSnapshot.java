@@ -2,6 +2,7 @@ package org.unicode.cldr.util;
 
 import java.io.PrintWriter;
 import java.util.BitSet;
+import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -12,9 +13,11 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.UnicodeSet;
@@ -73,12 +76,12 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
         private BitSet pluralsTransitionAt = new BitSet();
         private Integral integral;
 
-        private SnapshotInfo(Integral integral) {
+        private SnapshotInfo(PluralType pluralType, Integral integral) {
             this.integral = integral;
             SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
             Map<String, PluralSnapshot> rulesToSnapshot = new HashMap<String, PluralSnapshot>();
             for (String locale : supplementalDataInfo.getPluralLocales()) {
-                PluralInfo plurals = supplementalDataInfo.getPlurals(locale);
+                PluralInfo plurals = supplementalDataInfo.getPlurals(pluralType, locale);
                 String rules = plurals.getRules();
                 PluralSnapshot snap = rulesToSnapshot.get(rules);
                 if (snap == null) {
@@ -125,15 +128,21 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
         }
     }
 
-    private static SnapshotInfo[] SINGLETON = new SnapshotInfo[2];
+    private static final EnumMap<PluralType, EnumMap<Integral,SnapshotInfo>> SINGLETONS
+    = new EnumMap<PluralType, EnumMap<Integral,SnapshotInfo>>(PluralType.class);
+    static {
+        SINGLETONS.put(PluralType.cardinal, new EnumMap<Integral,SnapshotInfo>(Integral.class));
+        SINGLETONS.put(PluralType.ordinal, new EnumMap<Integral,SnapshotInfo>(Integral.class));
+    }
     private EnumSet<Plurals> found;
 
-    public static SnapshotInfo getInstance(Integral integral) {
-        int item = integral.ordinal();
-        if (SINGLETON[item] == null) {
-            SINGLETON[item] = new SnapshotInfo(integral);
+    public static SnapshotInfo getInstance(PluralType pluralType, Integral integral) {
+        EnumMap<Integral, SnapshotInfo> temp = SINGLETONS.get(pluralType);
+        SnapshotInfo result = temp.get(integral);
+        if (result == null) {
+            temp.put(integral, result = new SnapshotInfo(pluralType, integral));
         }
-        return SINGLETON[item];
+        return result;
     }
 
     PluralSnapshot(PluralRules pluralRules, Integral integral, BitSet pluralsTransitionAt) {
@@ -233,7 +242,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
             result.append(" colSpan='" + colSpan + "'");
         }
         result.append(" title='").append(item.toString()).append("'>")
-            .append(item.abbreviated()).append("</td>");
+        .append(item.abbreviated()).append("</td>");
     }
 
     private static <T> void appendItems(StringBuilder result, T[] plurals3, double offset) {
@@ -271,54 +280,61 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
     }
 
     public static void writeTables(CLDRFile english, PrintWriter out) {
-        for (Integral integral : Integral.values()) {
-            SnapshotInfo info = PluralSnapshot.getInstance(integral);
-
-            System.out.println("\n" + integral + "\n");
-            System.out.println(info.toOverview());
-
-            out.println("<h3>" + integral + "</h3>");
-            if (integral == Integral.fraction) {
-                out.println("<p><i>This table has not yet been updated to capture the new types of plural fraction behavior.</i></p>");
-            }
-            out.println("<table class='pluralComp'>");
-            int lastCount = -1;
-            int lastCount01 = -1;
-
-            out.println(info.toHtmlStringHeader());
-
-            for (Entry<PluralSnapshot, Set<String>> ruleEntry : info) {
-                PluralSnapshot ss = ruleEntry.getKey();
-                Set<String> locales = ruleEntry.getValue();
-                System.out.println();
-                System.out.println(locales);
-                System.out.println(ss);
-                // if (ss.count != lastCount) {
-                // out.println(info.toHtmlStringHeader());
-                // lastCount = ss.count;
-                // lastCount01 = ss.count01;
-                // }
-                Map<String, String> fullLocales = new TreeMap<String, String>();
-                for (String localeId : locales) {
-                    String name = english.getName(localeId);
-                    fullLocales.put(name, localeId);
+        for (PluralType pluralType : PluralType.values()) {
+            for (Integral integral : Integral.values()) {
+                if (pluralType == PluralType.ordinal && integral == Integral.fraction) {
+                    continue;
                 }
-                out.print("<tr><td rowSpan='2'>" + ss.count +
-                    "</td><td class='l' colSpan='121'>");
-                int count = 0;
-                for (Entry<String, String> entry : fullLocales.entrySet()) {
-                    String code = entry.getValue();
-                    out.print("<span title='" + code + "'>"
-                        + (count == 0 ? "" : ", ")
-                        + CldrUtility.getDoubleLinkedText(code + "-comp", entry.getKey())
-                        + "</span>");
-                    count++;
+                SnapshotInfo info = PluralSnapshot.getInstance(pluralType, integral);
+
+                System.out.println("\n" + integral + "\n");
+                System.out.println(info.toOverview());
+
+                String title = UCharacter.toTitleCase(pluralType.toString(), null) 
+                    + "-" + UCharacter.toTitleCase(integral.toString(), null);
+                out.println("<h3>" + CldrUtility.getDoubleLinkedText(title) + "</h3>");
+                if (integral == Integral.fraction) {
+                    out.println("<p><i>This table has not yet been updated to capture the new types of plural fraction behavior.</i></p>");
                 }
-                out.println("</td></tr>");
-                out.println(ss.toHtmlString());
+                out.println("<table class='pluralComp'>");
+                int lastCount = -1;
+                int lastCount01 = -1;
+
                 out.println(info.toHtmlStringHeader());
+
+                for (Entry<PluralSnapshot, Set<String>> ruleEntry : info) {
+                    PluralSnapshot ss = ruleEntry.getKey();
+                    Set<String> locales = ruleEntry.getValue();
+                    System.out.println();
+                    System.out.println(locales);
+                    System.out.println(ss);
+                    // if (ss.count != lastCount) {
+                    // out.println(info.toHtmlStringHeader());
+                    // lastCount = ss.count;
+                    // lastCount01 = ss.count01;
+                    // }
+                    Map<String, String> fullLocales = new TreeMap<String, String>();
+                    for (String localeId : locales) {
+                        String name = english.getName(localeId);
+                        fullLocales.put(name, localeId);
+                    }
+                    out.print("<tr><td rowSpan='2'>" + ss.count +
+                        "</td><td class='l' colSpan='121'>");
+                    int count = 0;
+                    for (Entry<String, String> entry : fullLocales.entrySet()) {
+                        String code = entry.getValue();
+                        out.print("<span title='" + code + "'>"
+                            + (count == 0 ? "" : ", ")
+                            + CldrUtility.getDoubleLinkedText(code + "-comp", entry.getKey())
+                            + "</span>");
+                        count++;
+                    }
+                    out.println("</td></tr>");
+                    out.println(ss.toHtmlString());
+                    out.println(info.toHtmlStringHeader());
+                }
+                out.println("</table>");
             }
-            out.println("</table>");
         }
     }
 }

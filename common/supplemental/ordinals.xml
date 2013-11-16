@@ -101,7 +101,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="other"> @integer 0~2, 5, 7, 8, 11, 12, 15, 17, 18, 20~22, 25, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
         <pluralRules locales="cy">
-            <pluralRule count="zero">n = 7,8,9 @integer 7~9</pluralRule>
+            <pluralRule count="zero">n = 0,7,8,9 @integer 7~9</pluralRule>
             <pluralRule count="one">n = 1 @integer 1</pluralRule>
             <pluralRule count="two">n = 2 @integer 2</pluralRule>
             <pluralRule count="few">n = 3,4 @integer 3, 4</pluralRule>

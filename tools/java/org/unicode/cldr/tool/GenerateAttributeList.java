@@ -442,7 +442,7 @@ public class GenerateAttributeList {
         }
     }
 
-    public Map getElement_attribute_valueSet() {
+    public Map<String, Map<String, Set<String>[]>> getElement_attribute_valueSet() {
         return element_attribute_valueSet;
     }
 }

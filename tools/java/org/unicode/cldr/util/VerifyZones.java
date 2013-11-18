@@ -132,7 +132,7 @@ public class VerifyZones {
     private final static Map<String, Map<String, String>> metazoneToRegionToZone = sdi.getMetazoneToRegionToZone();
     private final static Set<MetazoneRow> rows = new TreeSet<MetazoneRow>();
     private final static Set<String> goldenZones = new HashSet<String>();
-    private final static Map<String, Integer> countryToOrder = new HashMap();
+    private final static Map<String, Integer> countryToOrder = new HashMap<String, Integer>();
 
     private final static List<Format> FORMAT_LIST = Arrays.asList(Format.VVVV, Format.vvvv, Format.v, Format.zzzz,
         Format.z, Format.zzzz, Format.z);
@@ -172,7 +172,7 @@ public class VerifyZones {
 
         Set<String> zonesInMetazones = new LinkedHashSet<String>();
         for (String metazone : metazones) {
-            String container = PathHeader.getMetazonePageTerritory(metazone);
+            //String container = PathHeader.getMetazonePageTerritory(metazone);
             Map<String, String> regionToZone = metazoneToRegionToZone.get(metazone);
             String zone = regionToZone.get("001");
             goldenZones.add(zone);
@@ -426,7 +426,7 @@ public class VerifyZones {
     private static void addZones(ZoneFormats englishZoneFormats, CLDRFile cldrFile, Matcher timezoneFilter,
         TablePrinter output) throws IOException {
         CLDRFile englishCldrFile = englishZoneFormats.cldrFile;
-        ZoneFormats nativeZoneFormats = new ZoneFormats().set(cldrFile);
+        //ZoneFormats nativeZoneFormats = new ZoneFormats().set(cldrFile);
         TimezoneFormatter tzformatter = new TimezoneFormatter(cldrFile);
 
         for (MetazoneRow row : rows) {

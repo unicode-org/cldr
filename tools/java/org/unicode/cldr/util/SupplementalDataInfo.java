@@ -3017,10 +3017,7 @@ public class SupplementalDataInfo {
 
             // add fractional samples
             Map<Count, String> countToStringExampleRaw = new TreeMap<Count, String>();
-            int fractionValue = fractStart + fractDecrement;
             for (Count type : keywords) {
-                StringBuilder b = new StringBuilder();
-                final ArrayList<Double> arrayList = new ArrayList<Double>();
                 SampleList uset = countSampleList.get(type);
                 countToStringExampleRaw.put(type, uset.toString(5, 5));
             }

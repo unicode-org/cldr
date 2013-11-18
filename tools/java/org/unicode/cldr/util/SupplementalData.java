@@ -74,11 +74,11 @@ public class SupplementalData {
     /**
      * Territory alias parsing
      */
-    Hashtable territoryAlias = null;
+    Hashtable<String, String[]> territoryAlias = null;
 
-    public synchronized Hashtable getTerritoryAliases() {
+    public synchronized Hashtable<String, String[]> getTerritoryAliases() {
         if (territoryAlias == null) {
-            Hashtable ta = new Hashtable();
+            Hashtable<String, String[]> ta = new Hashtable<String, String[]>();
             NodeList territoryAliases =
                 LDMLUtilities.getNodeList(getMetadata(),
                     "//supplementalData/metadata/alias/territoryAlias");
@@ -100,7 +100,7 @@ public class SupplementalData {
         return territoryAlias;
     }
 
-    public Set getObsoleteTerritories() {
+    public Set<String> getObsoleteTerritories() {
         if (territoryAlias == null) {
             getTerritoryAliases();
         }
@@ -111,8 +111,8 @@ public class SupplementalData {
      * some containment parsing stuff
      */
 
-    private Hashtable tcDown = null; // String -> String[]
-    private Hashtable tcUp = null; // String -> String (parent)
+    private Hashtable<String, String[]> tcDown = null; // String -> String[]
+    private Hashtable<String, String> tcUp = null; // String -> String (parent)
 
     public String[] getContainedTerritories(String territory) {
         if (tcUp == null) {
@@ -128,7 +128,7 @@ public class SupplementalData {
         return (String) tcUp.get(territory);
     }
 
-    void findParents(Hashtable u, Hashtable d, String w, int n)
+    void findParents(Hashtable<String, String> u, Hashtable<String, String[]> d, String w, int n)
     {
         if (n == 0) {
             throw new InternalError("SupplementalData:findParents() recursed too deep, at " + w);
@@ -145,10 +145,9 @@ public class SupplementalData {
 
     private synchronized void parseTerritoryContainment()
     {
-        Set ot = getObsoleteTerritories();
         if (tcDown == null) {
-            Hashtable d = new Hashtable();
-            Hashtable u = new Hashtable();
+            Hashtable<String, String[]> d = new Hashtable<String, String[]>();
+            Hashtable<String, String> u = new Hashtable<String, String>();
 
             NodeList territoryContainment =
                 LDMLUtilities.getNodeList(getSupplemental(),
@@ -198,7 +197,7 @@ public class SupplementalData {
         return result;
     }
 
-    Hashtable validityVariables = new Hashtable();
+    Hashtable<String, String> validityVariables = new Hashtable<String, String>();
 
     // variables
     synchronized String getValidityVariable(String id, String type) {

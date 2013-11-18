@@ -130,7 +130,7 @@ public class TestUtilities {
         // invoke once
         System.out.println("Processing paths");
         StringBuilder result = new StringBuilder();
-        Relation<String, String> message_paths = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> message_paths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         for (String path : english) {
             String value = english.getStringValue(path);
             result.setLength(0);
@@ -171,7 +171,7 @@ public class TestUtilities {
         Map<String, Integer> map_timezone_integer = new TreeMap<String, Integer>();
         BufferedReader input = CldrUtility.getUTF8Data("timezone_numeric.txt");
         int maxNumeric = -1;
-        Map fixOld = sc.zoneParser.getZoneLinkold_new();
+        Map<String, String> fixOld = sc.zoneParser.getZoneLinkold_new();
         while (true) {
             String line = input.readLine();
             if (line == null)
@@ -345,16 +345,16 @@ public class TestUtilities {
          */
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         GenerateAttributeList attributes = new GenerateAttributeList(cldrFactory);
-        Map element_attribute_valueSet = attributes.getElement_attribute_valueSet();
-        for (Iterator it = element_attribute_valueSet.keySet().iterator(); it.hasNext();) {
-            String element = (String) it.next();
-            Map attribute_valueSet = (Map) element_attribute_valueSet.get(element);
+        Map<String, Map<String, Set<String>[]>> element_attribute_valueSet = attributes.getElement_attribute_valueSet();
+        for (Iterator<String> it = element_attribute_valueSet.keySet().iterator(); it.hasNext();) {
+            String element = it.next();
+            Map<String, Set<String>[]> attribute_valueSet = element_attribute_valueSet.get(element);
             int size = attribute_valueSet.size();
             if (size == 0)
                 continue;
-            for (Iterator it2 = attribute_valueSet.keySet().iterator(); it2.hasNext();) {
-                String attribute = (String) it2.next();
-                Set[] valueSets = (Set[]) attribute_valueSet.get(attribute);
+            for (Iterator<String> it2 = attribute_valueSet.keySet().iterator(); it2.hasNext();) {
+                String attribute = it2.next();
+                Set<String>[] valueSets = attribute_valueSet.get(attribute);
                 for (int i = 0; i < 2; ++i) {
                     meta.add(prefix + "valid/attributeValues" + "[@elements=\"" + element + "\"]" + "[@attributes=\""
                         + attribute + "\"]" + (i == 1 ? "[@x=\"true\"]" : ""), CollectionUtilities.join(
@@ -496,7 +496,7 @@ public class TestUtilities {
         showCodes(sc, "tzid");
         showCodes(sc, "currency");
 
-        Map m = StandardCodes.getLStreg();
+        Map<String, Map<String, Map<String, String>>> m = StandardCodes.getLStreg();
         // print lstreg first
         if (false) {
             System.out.println("Printing Data");
@@ -510,30 +510,30 @@ public class TestUtilities {
                 }
             }
         }
-        for (Iterator it = m.keySet().iterator(); it.hasNext();) {
-            String type = (String) it.next();
-            Map subtagData = (Map) m.get(type);
+        for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
+            String type = it.next();
+            Map<String, Map<String, String>> subtagData = m.get(type);
 
             String oldType = type.equals("region") ? "territory" : type;
-            Set allCodes = sc.getAvailableCodes(oldType);
-            Set temp = new TreeSet(subtagData.keySet());
+            Set<String> allCodes = sc.getAvailableCodes(oldType);
+            Set<String> temp = new TreeSet<String>(subtagData.keySet());
             temp.removeAll(allCodes);
             System.out.println(type + "\t in new but not old\t" + temp);
 
-            temp = new TreeSet(allCodes);
+            temp = new TreeSet<String>(allCodes);
             temp.removeAll(subtagData.keySet());
             System.out.println(type + "\t in old but not new\t" + temp);
         }
-        for (Iterator it = m.keySet().iterator(); it.hasNext();) {
-            String type = (String) it.next();
-            Map subtagData = (Map) m.get(type);
+        for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
+            String type = it.next();
+            Map<String, Map<String, String>> subtagData = m.get(type);
             String oldType = type.equals("region") ? "territory" : type;
-            Set goodCodes = sc.getGoodAvailableCodes(oldType);
+            Set<String> goodCodes = sc.getGoodAvailableCodes(oldType);
 
-            for (Iterator it2 = subtagData.keySet().iterator(); it2.hasNext();) {
-                String tag = (String) it2.next();
-                Map data = (Map) subtagData.get(tag);
-                List sdata = sc.getFullData(oldType, tag);
+            for (Iterator<String> it2 = subtagData.keySet().iterator(); it2.hasNext();) {
+                String tag = it2.next();
+                Map<String, String> data = subtagData.get(tag);
+                List<String> sdata = sc.getFullData(oldType, tag);
                 if (sdata == null) {
                     if (true)
                         continue;
@@ -560,18 +560,18 @@ public class TestUtilities {
             }
         }
         // print metadata
-        for (Iterator it = m.keySet().iterator(); it.hasNext();) {
-            String type = (String) it.next();
-            Map subtagData = (Map) m.get(type);
+        for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
+            String type = it.next();
+            Map<String, Map<String, String>> subtagData = m.get(type);
             String oldType = type.equals("region") ? "territory" : type;
 
             String aliasType = oldType.equals("grandfathered") ? "language" : oldType;
-            Set allCodes = new TreeSet();
-            Set deprecatedCodes = new TreeSet();
+            Set<String> allCodes = new TreeSet<String>();
+            Set<String> deprecatedCodes = new TreeSet<String>();
 
-            for (Iterator it2 = subtagData.keySet().iterator(); it2.hasNext();) {
+            for (Iterator<String> it2 = subtagData.keySet().iterator(); it2.hasNext();) {
                 String tag = (String) it2.next();
-                Map data = (Map) subtagData.get(tag);
+                Map<String, String> data = subtagData.get(tag);
                 if (data.get("Deprecated") != null) {
                     String preferred = (String) data.get("Preferred-Value");
                     String cldr = null != data.get("CLDR") ? "CLDR: " : "";
@@ -585,14 +585,14 @@ public class TestUtilities {
                 }
             }
             // get old ones
-            Set goodCodes = sc.getAvailableCodes(oldType);
-            TreeSet oldAndNotNew = new TreeSet(goodCodes);
+            Set<String> goodCodes = sc.getAvailableCodes(oldType);
+            TreeSet<String> oldAndNotNew = new TreeSet<String>(goodCodes);
             oldAndNotNew.removeAll(allCodes);
             oldAndNotNew.removeAll(deprecatedCodes);
-            for (Iterator it2 = oldAndNotNew.iterator(); it2.hasNext();) {
-                String tag = (String) it2.next();
-                List sdata = sc.getFullData(oldType, tag);
-                String preferred = (String) sdata.get(2);
+            for (Iterator<String> it2 = oldAndNotNew.iterator(); it2.hasNext();) {
+                String tag = it2.next();
+                List<String> sdata = sc.getFullData(oldType, tag);
+                String preferred = sdata.get(2);
                 System.out.println("\t\t\t<" + aliasType + "Alias type=\"" + tag + "\" replacement=\"" + preferred
                     + "\"/> <!-- CLDR:" + sdata.get(0) + " -->");
             }
@@ -614,13 +614,13 @@ public class TestUtilities {
         // TODO Auto-generated method stub
 
         Factory mainCldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "main" + File.separator, ".*");
-        Set availableLocales = mainCldrFactory.getAvailable();
-        Set available = new TreeSet();
+        Set<String> availableLocales = mainCldrFactory.getAvailable();
+        Set<String> available = new TreeSet<String>();
         LocaleIDParser lip = new LocaleIDParser();
-        for (Iterator it = availableLocales.iterator(); it.hasNext();) {
-            available.add(lip.set((String) it.next()).getLanguage());
+        for (Iterator<String> it = availableLocales.iterator(); it.hasNext();) {
+            available.add(lip.set(it.next()).getLanguage());
         }
-        Set langHack = new TreeSet();
+        Set<String> langHack = new TreeSet<String>();
         for (int i = 0; i < language_territory_hack.length; ++i) {
             String lang = language_territory_hack[i][0];
             langHack.add(lang);
@@ -629,8 +629,8 @@ public class TestUtilities {
             System.out.println("All ok");
         else {
             available.removeAll(langHack);
-            for (Iterator it = available.iterator(); it.hasNext();) {
-                String item = (String) it.next();
+            for (Iterator<String> it = available.iterator(); it.hasNext();) {
+                String item = it.next();
                 System.out.println("{\"" + item + "\", \"XXX\"},/t//"
                     + ULocale.getDisplayLanguage(item, ULocale.ENGLISH));
             }
@@ -646,18 +646,18 @@ public class TestUtilities {
         CLDRFile english = mainCldrFactory.make("en", true);
         PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "country_language_names.txt");
         StandardCodes sc = StandardCodes.make();
-        for (Iterator it = sc.getGoodAvailableCodes("language").iterator(); it.hasNext();) {
-            String code = (String) it.next();
+        for (Iterator<String> it = sc.getGoodAvailableCodes("language").iterator(); it.hasNext();) {
+            String code = it.next();
             out.println(code + "\t" + english.getName(CLDRFile.LANGUAGE_NAME, code));
         }
         out.println("****");
-        for (Iterator it = sc.getGoodAvailableCodes("territory").iterator(); it.hasNext();) {
-            String code = (String) it.next();
+        for (Iterator<String> it = sc.getGoodAvailableCodes("territory").iterator(); it.hasNext();) {
+            String code = it.next();
             out.println(code + "\t" + english.getName(CLDRFile.TERRITORY_NAME, code));
         }
         out.println("****");
-        for (Iterator it = sc.getGoodAvailableCodes("script").iterator(); it.hasNext();) {
-            String code = (String) it.next();
+        for (Iterator<String> it = sc.getGoodAvailableCodes("script").iterator(); it.hasNext();) {
+            String code = it.next();
             out.println(code + "\t" + english.getName(CLDRFile.SCRIPT_NAME, code));
         }
         out.close();
@@ -668,11 +668,11 @@ public class TestUtilities {
      */
     private static void printCurrencies() {
         StandardCodes sc = StandardCodes.make();
-        Set s = sc.getAvailableCodes("currency");
-        for (Iterator it = s.iterator(); it.hasNext();) {
-            String code = (String) it.next();
+        Set<String> s = sc.getAvailableCodes("currency");
+        for (Iterator<String> it = s.iterator(); it.hasNext();) {
+            String code = it.next();
             String name = sc.getData("currency", code);
-            List data = sc.getFullData("currency", code);
+            List<String> data = sc.getFullData("currency", code);
             System.out.println(code + "\t" + name + "\t" + data);
         }
     }

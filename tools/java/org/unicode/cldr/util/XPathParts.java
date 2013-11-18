@@ -17,8 +17,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
-import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -1018,8 +1016,8 @@ public final class XPathParts implements Freezable<XPathParts> {
             boolean first = true;
             int countEmptyLines = 0;
             // trim the line iff the indent != 0.
-            for (Iterator it = CldrUtility.splitList(comment, '\n', indent != 0, null).iterator(); it.hasNext();) {
-                String line = (String) it.next();
+            for (Iterator<String> it = CldrUtility.splitList(comment, '\n', indent != 0, null).iterator(); it.hasNext();) {
+                String line = it.next();
                 if (line.length() == 0) {
                     ++countEmptyLines;
                     continue;

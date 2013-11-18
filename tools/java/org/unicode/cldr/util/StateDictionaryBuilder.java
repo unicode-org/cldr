@@ -33,7 +33,6 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
 
     // only used while building
     private Row buildingCurrentAddRow;
-    private CharSequence buildingLastEntry;
     private int builtTotalBytes;
     private int builtTotalStrings;
 
@@ -89,7 +88,6 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
     public StateDictionary<T> make(Map<CharSequence, T> source) {
         // clear out state
         buildingCurrentAddRow = null;
-        buildingLastEntry = "";
         builtTotalBytes = builtTotalStrings = builtMaxByteLength = 0;
         builtRows = new ArrayList<Row>();
         builtBaseRow = makeRow();
@@ -97,7 +95,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
         if (SHOW_SIZE) System.out.println("***VALUE STORAGE: " + builtResults.approximateStorage());
 
         Map<T, Integer> valueToInt = builtResults.getValueMap();
-        Map<byte[], Integer> sorted = new TreeMap(SHORTER_BYTE_ARRAY_COMPARATOR);
+        Map<byte[], Integer> sorted = new TreeMap<byte[], Integer>(SHORTER_BYTE_ARRAY_COMPARATOR);
         for (CharSequence text : source.keySet()) {
             sorted.put(byteConverter.toBytes(text), valueToInt.get(source.get(text)));
         }

@@ -1,12 +1,10 @@
 package org.unicode.cldr.util;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -464,7 +462,7 @@ public class VoteResolver<T> {
         }
 
         public Map<T, Long> getOrgToVotes(Organization org) {
-            Map<T, Long> result = new LinkedHashMap();
+            Map<T, Long> result = new LinkedHashMap<T, Long>();
             MaxCounter<T> counter = orgToVotes.get(org);
             for (T item : counter) {
                 result.put(item, counter.getCount(item));
@@ -839,7 +837,7 @@ public class VoteResolver<T> {
                 }
                 Relation<Level, Integer> rel = orgToVoter.get(info.getOrganization());
                 if (rel == null) {
-                    orgToVoter.put(info.getOrganization(), rel = new Relation(new TreeMap(), TreeSet.class));
+                    orgToVoter.put(info.getOrganization(), rel = Relation.of(new TreeMap<Level, Set<Integer>>(), TreeSet.class));
                 }
                 rel.put(info.getLevel(), voter);
             }
@@ -1144,6 +1142,10 @@ public class VoteResolver<T> {
     }
 
     public static class UnknownVoterException extends RuntimeException {
+        /**
+         * 
+         */
+        private static final long serialVersionUID = 3430877787936678609L;
         int voter;
 
         public UnknownVoterException(int voter) {

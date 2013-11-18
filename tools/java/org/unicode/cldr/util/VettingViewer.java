@@ -215,21 +215,21 @@ public class VettingViewer<T> {
     static final OutdatedPaths outdatedPaths = new OutdatedPaths();
 
     private static final UnicodeSet NEEDS_PERCENT_ESCAPED = new UnicodeSet("[[\\u0000-\\u009F]-[a-zA-z0-9]]");
-    private static final Transform<String, String> percentEscape = new Transform<String, String>() {
-        @Override
-        public String transform(String source) {
-            StringBuilder buffer = new StringBuilder();
-            buffer.setLength(0);
-            for (int cp : CharSequences.codePoints(source)) {
-                if (NEEDS_PERCENT_ESCAPED.contains(cp)) {
-                    buffer.append('%').append(Utility.hex(cp, 2));
-                } else {
-                    buffer.appendCodePoint(cp);
-                }
-            }
-            return buffer.toString();
-        }
-    };
+//    private static final Transform<String, String> percentEscape = new Transform<String, String>() {
+//        @Override
+//        public String transform(String source) {
+//            StringBuilder buffer = new StringBuilder();
+//            buffer.setLength(0);
+//            for (int cp : CharSequences.codePoints(source)) {
+//                if (NEEDS_PERCENT_ESCAPED.contains(cp)) {
+//                    buffer.append('%').append(Utility.hex(cp, 2));
+//                } else {
+//                    buffer.appendCodePoint(cp);
+//                }
+//            }
+//            return buffer.toString();
+//        }
+//    };
 
     /**
      * See VoteResolver getStatusForOrganization to see how this is computed.
@@ -426,12 +426,12 @@ public class VettingViewer<T> {
     private final Factory cldrFactory;
     private final Factory cldrFactoryOld;
     private final CLDRFile englishFile;
-    private final CLDRFile oldEnglishFile;
+    //private final CLDRFile oldEnglishFile;
     private final UsersChoice<T> userVoteStatus;
     private final SupplementalDataInfo supplementalDataInfo;
     private final String lastVersionTitle;
     private final String currentWinningTitle;
-    private final PathDescription pathDescription;
+    //private final PathDescription pathDescription;
     private ErrorChecker errorChecker; // new
 
     private final Set<String> defaultContentLocales;
@@ -462,18 +462,18 @@ public class VettingViewer<T> {
         if (pathTransform == null) {
             pathTransform = PathHeader.getFactory(englishFile);
         }
-        oldEnglishFile = cldrFactoryOld.make("en", true);
+        //oldEnglishFile = cldrFactoryOld.make("en", true);
         this.userVoteStatus = userVoteStatus;
         this.supplementalDataInfo = supplementalDataInfo;
         this.defaultContentLocales = supplementalDataInfo.getDefaultContentLocales();
 
         this.lastVersionTitle = lastVersionTitle;
         this.currentWinningTitle = currentWinningTitle;
-        Map<String, List<Set<String>>> starredPaths = new HashMap();
-        Map<String, String> extras = new HashMap();
-        reasonsToPaths = new Relation(new HashMap<String, Set<String>>(), HashSet.class);
-        this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths,
-            PathDescription.ErrorHandling.CONTINUE);
+        //Map<String, List<Set<String>>> starredPaths = new HashMap<String, List<Set<String>>>();
+        //Map<String, String> extras = new HashMap<String, String>();
+        reasonsToPaths = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
+        //this.pathDescription = new PathDescription(supplementalDataInfo, englishFile, extras, starredPaths,
+        //    PathDescription.ErrorHandling.CONTINUE);
         errorChecker = new DefaultErrorStatus(cldrFactory);
     }
 
@@ -1003,7 +1003,7 @@ public class VettingViewer<T> {
     private void writeSummaryTable(Appendable output, String header, Level desiredLevel,
         EnumSet<Choice> choices, T organization) throws IOException {
 
-        Map<String, String> sortedNames = new TreeMap(Collator.getInstance());
+        Map<String, String> sortedNames = new TreeMap<String, String>(Collator.getInstance());
 
         // Gather the relevant paths
         // Each one will be marked with the choice that it triggered.
@@ -1098,7 +1098,7 @@ public class VettingViewer<T> {
                 continue;
             }
             String name = entry.getKey();
-            String[] names = name.split(SPLIT_CHAR);
+            //String[] names = name.split(SPLIT_CHAR);
             String localeID = sortedNames.get(name);
             output.append("<tr>").append(TH_AND_STYLES);
             appendNameAndCode(name, localeID, output);
@@ -1274,7 +1274,7 @@ public class VettingViewer<T> {
             "data/paths/missingOk.txt");
 
     private static boolean isMissingOk(CLDRFile sourceFile, String path, boolean latin, boolean aliased) {
-        Output<String[]> arguments = new Output();
+        Output<String[]> arguments = new Output<String[]>();
         MissingOK value = missingOk.get(path, null, arguments);
         if (value == null) {
             return false;
@@ -1764,7 +1764,7 @@ public class VettingViewer<T> {
             }
 
             Level level = coverageLevel2.getLevel(path);
-            String localeFound = file.getSourceLocaleID(path, status);
+            // String localeFound = file.getSourceLocaleID(path, status);
             // String value = file.getSourceLocaleID(path, status);
             MissingStatus missingStatus = VettingViewer.getMissingStatus(file, path, status, latin);
 

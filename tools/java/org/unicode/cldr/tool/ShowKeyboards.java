@@ -127,7 +127,7 @@ public class ShowKeyboards {
             if (platformId.equals("und")) {
                 continue;
             }
-            Platform p = Keyboard.getPlatform(platformId);
+            //Platform p = Keyboard.getPlatform(platformId);
             // System.out.println(platformId + "\t" + p.getHardwareMap());
             for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {
                 if (!idMatcher.reset(keyboardId).matches()) {
@@ -207,13 +207,13 @@ public class ShowKeyboards {
         Set<String> errors = new LinkedHashSet<String>();
         Relation<String, Row.R3<String, String, String>> locale2keyboards = Relation.of(
             new TreeMap<String, Set<Row.R3<String, String, String>>>(), TreeSet.class);
-        Map<String, String> localeIndex = new TreeMap();
+        Map<String, String> localeIndex = new TreeMap<String, String>();
 
         for (String platformId : Keyboard.getPlatformIDs()) {
             if (platformId.equals("und")) {
                 continue;
             }
-            Platform p = Keyboard.getPlatform(platformId);
+            //Platform p = Keyboard.getPlatform(platformId);
             // System.out.println(platformId + "\t" + p.getHardwareMap());
             for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {
                 if (!idMatcher.reset(keyboardId).matches()) {
@@ -793,7 +793,7 @@ public class ShowKeyboards {
     }
 
     static final UnicodeSet SKIP_LOG = new UnicodeSet("[가一]").freeze();
-    static Relation<Row.R2<String, UnicodeSet>, Id> logInfo = Relation.of(new TreeMap(), TreeSet.class);
+    static Relation<Row.R2<String, UnicodeSet>, Id> logInfo = Relation.of(new TreeMap<Row.R2<String, UnicodeSet>, Set<Id>>(), TreeSet.class);
 
     static class Id implements Comparable<Id> {
         final String locale;
@@ -844,7 +844,7 @@ public class ShowKeyboards {
     }
 
     static class IdSet {
-        Map<String, Relation<String, String>> data = new TreeMap();
+        Map<String, Relation<String, String>> data = new TreeMap<String, Relation<String, String>>();
 
         public void add(Id id) {
             Relation<String, String> platform2variant = data.get(id.platform);

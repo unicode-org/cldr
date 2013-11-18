@@ -116,7 +116,7 @@ public class SearchCLDR {
         boolean showEnglish = myOptions.get("english").doesOccur();
 
         Factory cldrFactory = Factory.make(sourceDirectory, fileMatcher);
-        Set<String> locales = new TreeSet(cldrFactory.getAvailable());
+        Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
 
         CLDRFile english = cldrFactory.make("en", true);
         PathHeader.Factory pathHeaderFactory = PathHeader.getFactory(english);
@@ -141,7 +141,7 @@ public class SearchCLDR {
             CLDRFile file = (CLDRFile) cldrFactory.make(locale, resolved);
 
             Counter<Level> levelCounter = new Counter<Level>();
-            CLDRFile parent = null;
+            //CLDRFile parent = null;
             boolean headerShown = false;
 
             // System.out.println("*Checking " + locale);

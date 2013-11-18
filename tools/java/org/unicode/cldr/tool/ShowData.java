@@ -128,19 +128,19 @@ public class ShowData {
             // .make(sourceDir.replace("incoming/vetted/","common/") + "../collation/", ".*");
             // ExtractCollationRules collationRules = new ExtractCollationRules();
 
-            locales = new TreeSet(cldrFactory.getAvailable());
+            locales = new TreeSet<String>(cldrFactory.getAvailable());
             new CldrUtility.MatcherFilter(options[MATCH].value).retainAll(locales);
             // Set paths = new TreeSet();
             Set<PathHeader> prettySet = new TreeSet<PathHeader>();
-            Set skipList = new HashSet(Arrays.asList(new String[] { "id" }));
+            Set<String> skipList = new HashSet<String>(Arrays.asList(new String[] { "id" }));
 
             CLDRFile.Status status = new CLDRFile.Status();
             LocaleIDParser localeIDParser = new LocaleIDParser();
 
-            Map nonDistinguishingAttributes = new LinkedHashMap();
-            CLDRFile parent = null;
+            //Map nonDistinguishingAttributes = new LinkedHashMap();
+            //CLDRFile parent = null;
 
-            Map<PathHeader, Relation<String, String>> pathHeaderToValuesToLocale = new TreeMap();
+            Map<PathHeader, Relation<String, String>> pathHeaderToValuesToLocale = new TreeMap<PathHeader, Relation<String, String>>();
 
             Set<String> defaultContents = testInfo.getSupplementalDataInfo().getDefaultContentLocales();
 
@@ -160,11 +160,11 @@ public class ShowData {
             for (Entry<String, Set<String>> group : parentToChildren.keyValuesSet()) {
                 String locale = group.getKey();
                 Set<String> children = group.getValue();
-                Map<String, Row.R2<CLDRFile, CLDRFile>> sublocales = new TreeMap();
+                Map<String, Row.R2<CLDRFile, CLDRFile>> sublocales = new TreeMap<String, R2<CLDRFile, CLDRFile>>();
 
                 boolean doResolved = localeIDParser.set(locale).getRegion().length() == 0;
                 String languageSubtag = localeIDParser.getLanguage();
-                boolean isLanguageLocale = locale.equals(languageSubtag);
+                //boolean isLanguageLocale = locale.equals(languageSubtag);
 
                 CLDRFile file = cldrFactory.make(locale, true);
                 for (String s : children) {
@@ -195,8 +195,8 @@ public class ShowData {
                 int aliasedCount = 0;
                 int inheritedCount = 0;
                 prettySet.clear();
-                for (Iterator it2 = file.iterator(); it2.hasNext();) {
-                    String path = (String) it2.next();
+                for (Iterator<String> it2 = file.iterator(); it2.hasNext();) {
+                    String path = it2.next();
                     if (path.indexOf("/alias") >= 0) {
                         skippedCount++;
                         continue; // skip code fllback
@@ -283,7 +283,7 @@ public class ShowData {
                         inheritedCount++;
                     }
 
-                    StringBuffer tempDraftRef = new StringBuffer();
+                    //StringBuffer tempDraftRef = new StringBuffer();
 
                     String lastValue = null;
                     boolean lastNonEmpty = false;
@@ -438,14 +438,14 @@ public class ShowData {
     }
 
     private static void getScripts() throws IOException {
-        Set locales = cldrFactory.getAvailableLanguages();
-        Set scripts = new TreeSet();
-        XPathParts parts = new XPathParts();
-        Map script_name_locales = new TreeMap();
+        Set<String> locales = cldrFactory.getAvailableLanguages();
+        Set<String> scripts = new TreeSet<String>();
+        //XPathParts parts = new XPathParts();
+        Map<String, Map<String, Set<String>>> script_name_locales = new TreeMap<String, Map<String, Set<String>>>();
         PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY,
             "scriptNames.txt");
-        for (Iterator it = locales.iterator(); it.hasNext();) {
-            String locale = (String) it.next();
+        for (Iterator<String> it = locales.iterator(); it.hasNext();) {
+            String locale = it.next();
             System.out.println(locale);
             CLDRFile file = cldrFactory.make(locale, false);
             if (file.isNonInheriting())
@@ -457,24 +457,24 @@ public class ShowData {
                     .println(locale + "\t" + english.getName(locale) + "\t"
                         + localeName);
             }
-            for (Iterator it2 = UnicodeScripts.iterator(); it2.hasNext();) {
-                String script = (String) it2.next();
+            for (Iterator<String> it2 = UnicodeScripts.iterator(); it2.hasNext();) {
+                String script = it2.next();
                 if (script.equals("Latn"))
                     continue;
                 String name = file.getName(CLDRFile.SCRIPT_NAME, script);
                 if (getScripts(name, scripts).contains(script)) {
-                    Map names_locales = (Map) script_name_locales.get(script);
+                    Map<String, Set<String>> names_locales = script_name_locales.get(script);
                     if (names_locales == null)
-                        script_name_locales.put(script, names_locales = new TreeMap());
-                    Set localeSet = (Set) names_locales.get(name);
+                        script_name_locales.put(script, names_locales = new TreeMap<String, Set<String>>());
+                    Set<String> localeSet = names_locales.get(name);
                     if (localeSet == null)
-                        names_locales.put(name, localeSet = new TreeSet());
+                        names_locales.put(name, localeSet = new TreeSet<String>());
                     localeSet.add(getName(locale));
                 }
             }
         }
-        for (Iterator it2 = UnicodeScripts.iterator(); it2.hasNext();) {
-            String script = (String) it2.next();
+        for (Iterator<String> it2 = UnicodeScripts.iterator(); it2.hasNext();) {
+            String script = it2.next();
             Object names = script_name_locales.get(script);
             out.println(script + "\t("
                 + english.getName(CLDRFile.SCRIPT_NAME, script) + ")\t" + names);
@@ -482,7 +482,7 @@ public class ShowData {
         out.close();
     }
 
-    static Set UnicodeScripts = Collections.unmodifiableSet(new TreeSet(Arrays
+    static Set<String> UnicodeScripts = Collections.unmodifiableSet(new TreeSet<String>(Arrays
         .asList(new String[] { "Arab", "Armn", "Bali", "Beng", "Bopo", "Brai",
             "Bugi", "Buhd", "Cans", "Cher", "Copt", "Cprt", "Cyrl", "Deva",
             "Dsrt", "Ethi", "Geor", "Glag", "Goth", "Grek", "Gujr", "Guru",
@@ -493,7 +493,7 @@ public class ShowData {
             "Talu", "Taml", "Telu", "Tfng", "Tglg", "Thaa", "Thai", "Tibt",
             "Ugar", "Xpeo", "Xsux", "Yiii" })));
 
-    private static Set getScripts(String exemplars, Set results) {
+    private static Set<String> getScripts(String exemplars, Set<String> results) {
         results.clear();
         if (exemplars == null)
             return results;
@@ -515,8 +515,8 @@ public class ShowData {
             return; // skip
         }
         collationRules.set(collationFile);
-        for (Iterator it = collationRules.iterator(); it.hasNext();) {
-            String key = (String) it.next();
+        for (Iterator<String> it = collationRules.iterator(); it.hasNext();) {
+            String key = it.next();
             System.out.println(key + ": ");
             String rules = collationRules.getRules(key);
             System.out.println(rules);
@@ -548,7 +548,7 @@ public class ShowData {
             String outValue = TransliteratorUtilities.toHTML
                 .transliterate(textToInsert);
             String transValue = textToInsert;
-            String span = "";
+            //String span = "";
             try {
                 transValue = toLatin.transliterate(textToInsert);
             } catch (RuntimeException e) {
@@ -563,7 +563,7 @@ public class ShowData {
         }
     }
 
-    private static String getNda(Set skipList, Map nonDistinguishingAttributes,
+    private static String getNda(Set<String> skipList, Map<String, String> nonDistinguishingAttributes,
         CLDRFile file, String path, String parentFullPath, StringBuffer draftRef) {
         draftRef.setLength(0);
         if (parentFullPath != null && !parentFullPath.equals(path)) {
@@ -571,9 +571,9 @@ public class ShowData {
                 nonDistinguishingAttributes, skipList);
             if (nonDistinguishingAttributes.size() != 0) {
                 String parentNda = "";
-                for (Iterator it = nonDistinguishingAttributes.keySet().iterator(); it
+                for (Iterator<String> it = nonDistinguishingAttributes.keySet().iterator(); it
                     .hasNext();) {
-                    String key = (String) it.next();
+                    String key = it.next();
                     String value = (String) nonDistinguishingAttributes.get(key);
                     if (key.equals("draft") && !value.equals("contributed")) {
                         if (draftRef.length() != 0)
@@ -620,9 +620,9 @@ public class ShowData {
 
     private static void showChildren(PrintWriter pw, String locale) {
         boolean first = true;
-        for (Iterator it = cldrFactory.getAvailableWithParent(locale, true)
+        for (Iterator<String> it = cldrFactory.getAvailableWithParent(locale, true)
             .iterator(); it.hasNext();) {
-            String possible = (String) it.next();
+            String possible = it.next();
             if (possible.startsWith("supplem") || possible.startsWith("character"))
                 continue;
             if (LocaleIDParser.getParent(possible).equals(locale)) {

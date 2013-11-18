@@ -21,6 +21,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.tool.VettingAdder.VettingInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
@@ -44,7 +45,7 @@ public class VettingAdder {
 
     private Map<String, Set<String>> locale_files = new TreeMap<String, Set<String>>();
     private Comparator<String> scomp = new UTF16.StringComparator();
-    private Set conflictSet = new TreeSet(
+    private Set<Object[]> conflictSet = new TreeSet<Object[]>(
         new ArrayComparator(new Comparator[] { scomp, scomp, scomp }));
 
     public VettingAdder(String sourceDirectory) throws IOException {
@@ -124,21 +125,21 @@ public class VettingAdder {
         }
     }
 
-    public Set keySet() {
+    public Set<String> keySet() {
         return locale_files.keySet();
     }
 
     public void incorporateVetting(String locale, String targetDir) throws IOException {
-        Set s = (Set) locale_files.get(locale);
+        Set<String> s = locale_files.get(locale);
         Log.logln("Vetting Data for: " + locale);
         VettingInfoSet accum = new VettingInfoSet();
-        for (Iterator it2 = s.iterator(); it2.hasNext();) {
-            String dir = (String) it2.next() + File.separator;
+        for (Iterator<String> it2 = s.iterator(); it2.hasNext();) {
+            String dir = it2.next() + File.separator;
             String fixedLocale = "fixed-" + locale + ".xml";
             fixXML(dir, locale + ".xml", dir, fixedLocale);
             CLDRFile cldr = SimpleFactory.makeFromFile(dir + fixedLocale, locale, DraftStatus.approved);
-            for (Iterator it3 = cldr.iterator(); it3.hasNext();) {
-                String path = (String) it3.next();
+            for (Iterator<String> it3 = cldr.iterator(); it3.hasNext();) {
+                String path = it3.next();
                 String value = (String) cldr.getStringValue(path);
                 String fullPath = (String) cldr.getFullXPath(path);
                 // skip bogus values
@@ -151,16 +152,16 @@ public class VettingAdder {
         }
         // now walk though items. If there is a single value, keep it
         // otherwise show
-        Set uniquePathAndValue = new TreeSet(PathAndValueComparator);
+        Set<VettingInfo> uniquePathAndValue = new TreeSet<VettingInfo>(PathAndValueComparator);
         CLDRFile cldrDelta = SimpleFactory.makeFile(locale);
         boolean gotOne = false;
-        for (Iterator it2 = accum.iterator(); it2.hasNext();) {
-            String path = (String) it2.next();
-            Collection c = accum.get(path);
+        for (Iterator<String> it2 = accum.iterator(); it2.hasNext();) {
+            String path = it2.next();
+            Collection<VettingInfo> c = accum.get(path);
             uniquePathAndValue.clear();
             uniquePathAndValue.addAll(c);
             if (uniquePathAndValue.size() == 1) { // no conflict
-                VettingInfo vi = (VettingInfo) uniquePathAndValue.iterator().next();
+                VettingInfo vi = uniquePathAndValue.iterator().next();
                 cldrDelta.add(vi.fullPath, vi.value);
                 gotOne = true;
             } else { // there is a conflict
@@ -178,10 +179,10 @@ public class VettingAdder {
     }
 
     public void showSources() {
-        for (Iterator it = locale_files.keySet().iterator(); it.hasNext();) {
-            Object key = it.next();
-            Set s = (Set) locale_files.get(key);
-            for (Iterator it2 = s.iterator(); it2.hasNext();) {
+        for (Iterator<String> it = locale_files.keySet().iterator(); it.hasNext();) {
+            String key = it.next();
+            Set<String> s = locale_files.get(key);
+            for (Iterator<String> it2 = s.iterator(); it2.hasNext();) {
                 Log.logln(key + " \t" + it2.next());
                 key = "";
             }
@@ -238,7 +239,7 @@ public class VettingAdder {
     /**
      * @return Returns the conflictSet.
      */
-    public Set getConflictSet() {
+    public Set<Object[]> getConflictSet() {
         return conflictSet;
     }
 
@@ -258,9 +259,9 @@ public class VettingAdder {
         Log.logln("");
         Log.logln("B. Intermediate Results");
         Log.logln("");
-        Set vettedLocales = keySet();
-        for (Iterator it = vettedLocales.iterator(); it.hasNext();) {
-            incorporateVetting((String) it.next(), targetDir);
+        Set<String> vettedLocales = keySet();
+        for (Iterator<String> it = vettedLocales.iterator(); it.hasNext();) {
+            incorporateVetting(it.next(), targetDir);
         }
 
         Log.logln("");
@@ -272,14 +273,14 @@ public class VettingAdder {
         Log.logln("D. Missing Vetting");
         Log.logln("");
 
-        Set availableLocales = new TreeSet(cldrFactory.getAvailable());
+        Set<String> availableLocales = new TreeSet<String>(cldrFactory.getAvailable());
         availableLocales.removeAll(vettedLocales);
 
-        for (Iterator it = availableLocales.iterator(); it.hasNext();) {
-            String locale = (String) it.next();
+        for (Iterator<String> it = availableLocales.iterator(); it.hasNext();) {
+            String locale = it.next();
             CLDRFile cldr = cldrFactory.make(locale, false);
-            for (Iterator it2 = cldr.iterator(); it2.hasNext();) {
-                String path = (String) it2.next();
+            for (Iterator<String> it2 = cldr.iterator(); it2.hasNext();) {
+                String path = it2.next();
                 String fullPath = cldr.getFullXPath(path);
                 if (fullPath.indexOf("[@draft=") >= 0) {
                     Log.logln(locale + " \t" + english.getName(locale) + "\texample: " + fullPath);
@@ -296,15 +297,15 @@ public class VettingAdder {
      */
     private void showConflicts(Factory cldrFactory) {
 
-        Set s = getConflictSet();
+        Set<Object[]> s = getConflictSet();
         String lastLocale = "";
         CLDRFile cldr = null;
         Transliterator any_latin = Transliterator.getInstance("any-latin");
-        Set emails = new LinkedHashSet();
+        Set<String> emails = new LinkedHashSet<String>();
         String[] pieces = new String[5];
 
-        for (Iterator it = s.iterator(); it.hasNext();) {
-            Object[] items = (Object[]) it.next();
+        for (Iterator<Object[]> it = s.iterator(); it.hasNext();) {
+            Object[] items = it.next();
             String entry = "";
             if (!lastLocale.equals(items[0])) {
                 showSet(emails);
@@ -318,9 +319,9 @@ public class VettingAdder {
                 + Utility.LINE_SEPARATOR;
 
             entry += "\tEnglish value:\t" + getValue(any_latin, english.getStringValue(path)) + Utility.LINE_SEPARATOR;
-            Collection c = (Collection) items[2];
-            for (Iterator it2 = c.iterator(); it2.hasNext();) {
-                VettingInfo vi = (VettingInfo) it2.next();
+            Collection<VettingInfo> c = (Collection<VettingInfo>) items[2];
+            for (Iterator<VettingInfo> it2 = c.iterator(); it2.hasNext();) {
+                VettingInfo vi = it2.next();
                 entry += "\t\tvalue:\t" + getValue(any_latin, vi.value) + "\t source: " + vi.dir
                     + Utility.LINE_SEPARATOR;
                 // get third field, that's the email
@@ -342,10 +343,10 @@ public class VettingAdder {
     /**
      * 
      */
-    private void showSet(Set emails) {
+    private void showSet(Set<String> emails) {
         if (emails.size() == 0) return;
         String result = "Emails:\t";
-        for (Iterator it = emails.iterator(); it.hasNext();) {
+        for (Iterator<String> it = emails.iterator(); it.hasNext();) {
             result += it.next() + ", ";
         }
         result += "cldr@unicode.org";
@@ -369,7 +370,7 @@ public class VettingAdder {
      */
     private String stripAlt(String path) {
         tempParts.set(path);
-        Map x = tempParts.getAttributes(tempParts.size() - 1);
+        Map<String, String> x = tempParts.getAttributes(tempParts.size() - 1);
         String value = (String) x.get("alt");
         if (value != null && value.startsWith("proposed")) {
             x.remove("alt");

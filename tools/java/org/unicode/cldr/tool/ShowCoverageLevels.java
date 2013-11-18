@@ -16,7 +16,7 @@ public class ShowCoverageLevels {
 
     public static void main(String[] args) {
         if (true) {
-            ShowLocaleCoverage foo;
+            //ShowLocaleCoverage foo;
             throw new IllegalArgumentException("See ShowLocaleCoverage (TODO: merge these).");
         }
 

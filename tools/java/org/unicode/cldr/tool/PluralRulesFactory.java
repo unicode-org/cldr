@@ -81,7 +81,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
             return PluralRules.getAvailableULocales(); // TODO fix if we add more locales
         }
 
-        static final Map<String, ULocale> rulesToULocale = new HashMap();
+        static final Map<String, ULocale> rulesToULocale = new HashMap<String, ULocale>();
 
         @Override
         public ULocale getFunctionalEquivalent(ULocale locale, boolean[] isAvailable) {
@@ -101,8 +101,8 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
     };
 
     public static class SamplePatterns {
-        final Map<PluralInfo.Count, String> keywordToPattern = new EnumMap(PluralInfo.Count.class);
-        final Map<PluralInfo.Count, String> keywordToErrors = new EnumMap(PluralInfo.Count.class);
+        final Map<PluralInfo.Count, String> keywordToPattern = new EnumMap<PluralInfo.Count, String>(PluralInfo.Count.class);
+        final Map<PluralInfo.Count, String> keywordToErrors = new EnumMap<PluralInfo.Count, String>(PluralInfo.Count.class);
 
         public void put(ULocale locale, String keyword1, String sample) {
             Count count = Count.valueOf(keyword1);
@@ -114,7 +114,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         }
 
         public void checkErrors(Set<String> set) {
-            final Map<String, PluralInfo.Count> skeletonToKeyword = new HashMap();
+            final Map<String, PluralInfo.Count> skeletonToKeyword = new HashMap<String, PluralInfo.Count>();
             for (String keyword1 : set) {
                 Count count = Count.valueOf(keyword1);
                 String error = "";

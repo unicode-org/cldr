@@ -24,7 +24,7 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
 public class ExtractCollationRules {
-    Map type_rules = new TreeMap();
+    Map<String, String> type_rules = new TreeMap<String, String>();
     XPathParts parts = new XPathParts();
     StringBuffer rules = new StringBuffer();
 

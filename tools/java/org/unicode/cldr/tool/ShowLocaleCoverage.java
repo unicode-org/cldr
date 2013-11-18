@@ -98,11 +98,11 @@ public class ShowLocaleCoverage {
         Set<String> availableLanguages = factory.getAvailableLanguages();
         System.out.println("# Checking: " + availableLanguages);
 
-        Set<String> extraCheckLocales = new HashSet(); // testInfo.getStandardCodes().getLocaleCoverageLocales("google");
+        Set<String> extraCheckLocales = new HashSet<String>(); // testInfo.getStandardCodes().getLocaleCoverageLocales("google");
 
         Relation<MissingStatus, String> missingPaths = Relation.of(new EnumMap<MissingStatus, Set<String>>(
             MissingStatus.class), TreeSet.class, CLDRFile.getLdmlComparator());
-        Set<String> unconfirmed = new TreeSet(CLDRFile.getLdmlComparator());
+        Set<String> unconfirmed = new TreeSet<String>(CLDRFile.getLdmlComparator());
 
         LanguageTagParser ltp = new LanguageTagParser();
         Map<String, String> likely = testInfo.getSupplementalDataInfo().getLikelySubtags();
@@ -148,7 +148,7 @@ public class ShowLocaleCoverage {
                 if (defaultContents.contains(locale) || "root".equals(locale)) {
                     continue;
                 }
-                boolean capture = locale.equals("en");
+                //boolean capture = locale.equals("en");
                 String region = ltp.set(locale).getRegion();
                 if (!region.isEmpty()) continue; // skip regions
 

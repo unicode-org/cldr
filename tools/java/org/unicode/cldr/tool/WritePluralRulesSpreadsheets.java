@@ -6,49 +6,20 @@
  */
 package org.unicode.cldr.tool;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.Charset;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.BitSet;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.EnumSet;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
-import java.util.TreeSet;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import org.unicode.cldr.tool.GenerateBirth.Versions;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.FixedDecimalRange;
@@ -80,8 +51,8 @@ public class WritePluralRulesSpreadsheets {
             PluralRules rules = supplemental.getPlurals(locale).getPluralRules();
             SamplePatterns samplePatterns = getSamples(sampleMap, locale);
             Set<String> keywords = rules.getKeywords();
-            Map<String, FixedDecimal> leastMap = new LinkedHashMap();
-            Map<String, FixedDecimal> greatestMap = new LinkedHashMap();
+            //Map<String, FixedDecimal> leastMap = new LinkedHashMap<String, FixedDecimal>();
+            //Map<String, FixedDecimal> greatestMap = new LinkedHashMap<String, FixedDecimal>();
             for (String start : keywords) {
                 FixedDecimal small = getSample(rules, start, null); // smallest
                 String startPattern = getSamplePattern(samplePatterns, start);
@@ -179,7 +150,7 @@ public class WritePluralRulesSpreadsheets {
         x.set(3,6);
         x.set(9);
         x.set(11,13);
-        Map<String,BitSet> foo = new TreeMap();
+        Map<String,BitSet> foo = new TreeMap<String,BitSet>();
         foo.put("x", x);
         show(foo);
 
@@ -203,7 +174,7 @@ public class WritePluralRulesSpreadsheets {
 
             Set<String> oldLocales = supplementalOld.getPluralLocales();
             for (String locale : oldLocales) {
-                Map<String,BitSet> results = new TreeMap();
+                Map<String,BitSet> results = new TreeMap<String,BitSet>();
                 PluralRules oldRules = supplementalOld.getPlurals(locale).getPluralRules();
                 PluralRules newRules = supplementalNew.getPlurals(locale).getPluralRules();
                 for (int i = 0; i < 101; ++i) {

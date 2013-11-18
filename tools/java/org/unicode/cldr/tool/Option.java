@@ -18,7 +18,7 @@ public class Option {
     private final Pattern match;
     private final String defaultArgument;
     private final String helpString;
-    private final Enum<?> optionEnumValue;
+    //private final Enum<?> optionEnumValue;
     private boolean doesOccur;
     private String value;
 
@@ -67,7 +67,7 @@ public class Option {
         this.tag = tag;
         this.flag = flag;
         this.defaultArgument = defaultArgument;
-        optionEnumValue = null;
+        //optionEnumValue = null;
     }
 
     public String toString() {

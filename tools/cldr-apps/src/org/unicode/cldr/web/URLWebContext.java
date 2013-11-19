@@ -49,8 +49,8 @@ public class URLWebContext extends WebContext {
 
     // imps
 
-    public Map getParameterMap() {
-        return (Map) params;
+    public Map<String, String> getParameterMap() {
+        return params;
         // throw new InternalError("unsupported");
     }
 
@@ -63,7 +63,7 @@ public class URLWebContext extends WebContext {
     }
 
     String serverName() {
-        return sm.localhost();
+        return SurveyMain.localhost();
     }
 
     String serverHostport() {

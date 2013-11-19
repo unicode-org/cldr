@@ -239,7 +239,7 @@ public class VettingViewerQueue {
                     status = "Beginning Process, Calculating";
 
                     vv = new VettingViewer<VoteResolver.Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
-                        sm.getOldFactory(), getUsersChoice(sm), "CLDR " + sm.getOldVersion(), "Winning " + sm.getNewVersion());
+                        sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
                     vv.setBaseUrl(baseUrl);
                     progress.update("Got VettingViewer");
                     statusCode = Status.PROCESSING;
@@ -368,7 +368,7 @@ public class VettingViewerQueue {
          * organization c. Any locale with at least one vote by a user in that
          * organization
          */
-        final VoteResolver.Organization vr_org = CookieSession.sm.reg.computeVROrganization(st_org); /*
+        final VoteResolver.Organization vr_org = UserRegistry.computeVROrganization(st_org); /*
                                                                                                       * VoteResolver
                                                                                                       * organization
                                                                                                       * name

@@ -99,7 +99,7 @@ public abstract class PerfTest {
         /**
          * @return The names for all available test.
          */
-        public Set getAllTestCmdNames();
+        public Set<String> getAllTestCmdNames();
 
         /**
          * @param name
@@ -121,8 +121,8 @@ public abstract class PerfTest {
      * object as the test methods.
      */
     static class TestPrefixProvider implements TestCmdProvider {
-        private Map theTests = null; // Map<string(no case), string(with case)>
-        private Set orgNames = null; // shadow reference, ==theTests, for better
+        private Map<String, String> theTests = null; // Map<string(no case), string(with case)>
+        private Set<String> orgNames = null; // shadow reference, ==theTests, for better
                                      // output
         private Object refer;
 
@@ -130,10 +130,10 @@ public abstract class PerfTest {
             refer = theProvider;
         }
 
-        public Set getAllTestCmdNames() {
+        public Set<String> getAllTestCmdNames() {
             if (theTests == null) {
-                theTests = new HashMap();
-                orgNames = new HashSet();
+                theTests = new HashMap<String, String>();
+                orgNames = new HashSet<String>();
                 Method[] methods = refer.getClass().getDeclaredMethods();
                 for (int i = 0; i < methods.length; i++) {
                     String org = methods[i].getName();
@@ -366,11 +366,11 @@ public abstract class PerfTest {
      * parameters. See the class description for details.
      */
     protected final void run(String[] args) throws Exception {
-        Set testList = parseOptions(args);
+        Set<String> testList = parseOptions(args);
 
         // Run the tests
-        for (Iterator iter = testList.iterator(); iter.hasNext();) {
-            String meth = (String) iter.next();
+        for (Iterator<String> iter = testList.iterator(); iter.hasNext();) {
+            String meth = iter.next();
 
             // Call meth to set up the test
             // long eventsPerCall = -1;
@@ -431,7 +431,7 @@ public abstract class PerfTest {
      * @return the method list to call
      * @throws UsageException
      */
-    private Set parseOptions(String[] args) throws UsageException {
+    private Set<String> parseOptions(String[] args) throws UsageException {
 
         doPriorGC = false;
         encoding = "";
@@ -454,9 +454,9 @@ public abstract class PerfTest {
 
         if (options[LIST].doesOccur) {
             System.err.println("Available tests:");
-            Set testNames = testProvider.getAllTestCmdNames();
-            for (Iterator iter = testNames.iterator(); iter.hasNext();) {
-                String name = (String) iter.next();
+            Set<String> testNames = testProvider.getAllTestCmdNames();
+            for (Iterator<String> iter = testNames.iterator(); iter.hasNext();) {
+                String name = iter.next();
                 System.err.println(" " + name);
             }
             System.exit(0);
@@ -516,7 +516,7 @@ public abstract class PerfTest {
             locale = LocaleUtility.getLocaleFromName(options[LOCALE].value);
 
         // build the test list
-        Set testList = new HashSet();
+        Set<String> testList = new HashSet<String>();
         int i, j;
         for (i = 0; i < remainingArgc; ++i) {
             // is args[i] a method name?
@@ -532,8 +532,8 @@ public abstract class PerfTest {
 
         // if no tests were specified, put all the tests in the test list
         if (testList.size() == 0) {
-            Set testNames = testProvider.getAllTestCmdNames();
-            Iterator iter = testNames.iterator();
+            Set<String> testNames = testProvider.getAllTestCmdNames();
+            Iterator<String> iter = testNames.iterator();
             while (iter.hasNext())
                 testList.add((String) iter.next());
         }
@@ -660,7 +660,7 @@ public abstract class PerfTest {
     }
 
     public static char[] readToEOS(Reader reader) {
-        ArrayList vec = new ArrayList();
+        ArrayList<char[]> vec = new ArrayList<char[]>();
         int count = 0;
         int pos = 0;
         final int MAXLENGTH = 0x8000; // max buffer size - 32K
@@ -696,7 +696,7 @@ public abstract class PerfTest {
 
     public static byte[] readToEOS(InputStream stream) {
 
-        ArrayList vec = new ArrayList();
+        ArrayList<byte[]> vec = new ArrayList<byte[]>();
         int count = 0;
         int pos = 0;
         final int MAXLENGTH = 0x8000; // max buffer size - 32K
@@ -742,7 +742,7 @@ public abstract class PerfTest {
             System.err.println("Error: File access exception: " + e.getMessage() + "!");
             System.exit(1);
         }
-        ArrayList list = new ArrayList();
+        ArrayList<String> list = new ArrayList<String>();
         while (true) {
             String line = null;
             try {

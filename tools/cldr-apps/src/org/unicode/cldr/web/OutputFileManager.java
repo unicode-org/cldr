@@ -281,7 +281,7 @@ public class OutputFileManager {
     private File writeOutputFile(CLDRLocale loc, String kind) {
         long st = System.currentTimeMillis();
         // ElapsedTimer et = new ElapsedTimer("Output "+loc);
-        XMLSource dbSource;
+        //XMLSource dbSource;
         CLDRFile file;
         boolean isFlat = false;
         if (kind.equals("vxml")) {
@@ -728,7 +728,7 @@ public class OutputFileManager {
                 ctx.println("<a href='" + ctx.base() + "'>Return to SurveyTool</a><p>");
                 ctx.println("<h4>Locales</h4>");
                 ctx.println("<ul>");
-                CLDRLocale locales[] = sm.getLocales();
+                CLDRLocale locales[] = SurveyMain.getLocales();
                 int nrInFiles = locales.length;
                 for (int i = 0; i < nrInFiles; i++) {
                     CLDRLocale locale = locales[i];
@@ -746,7 +746,7 @@ public class OutputFileManager {
                 response.sendRedirect(ctx.schemeHostPort() + ctx.base() + XML_PREFIX + "/");
             } else {
                 boolean found = false;
-                CLDRLocale locales[] = sm.getLocales();
+                CLDRLocale locales[] = SurveyMain.getLocales();
                 CLDRLocale foundLocale = null;
                 int nrInFiles = locales.length;
                 for (int i = 0; (!found) && (i < nrInFiles); i++) {
@@ -996,7 +996,7 @@ public class OutputFileManager {
 
         System.err.println("addPeriodicTask... updater");
         final ScheduledFuture<?> myTask = SurveyMain.addPeriodicTask(new Runnable() {
-            int spinner = (int) Math.round(Math.random() * (double) sm.getLocales().length); // Start
+            int spinner = (int) Math.round(Math.random() * (double) SurveyMain.getLocales().length); // Start
                                                                                              // on
                                                                                              // a
                                                                                              // different
@@ -1006,7 +1006,7 @@ public class OutputFileManager {
 
             @Override
             public void run() {
-                if (sm.isBusted() || !sm.isSetup) {
+                if (SurveyMain.isBusted() || !sm.isSetup) {
                     return;
                 }
                 // System.err.println("spinner hot...ac="+SurveyThread.activeCount());
@@ -1024,8 +1024,8 @@ public class OutputFileManager {
                 CLDRProgressTask progress = null;
                 try {
                     conn = DBUtils.getInstance().getDBConnection();
-                    CLDRLocale locs[] = sm.getLocales();
-                    File outFile = null;
+                    CLDRLocale locs[] = SurveyMain.getLocales();
+                    //File outFile = null;
                     // SurveyLog.logger.warning("Updater: locs to do: "
                     // +locs.length );
                     CLDRLocale loc = null;
@@ -1151,7 +1151,7 @@ public class OutputFileManager {
             @Override
             public void run() {
                 SurveyMain sm = CookieSession.sm;
-                ElapsedTimer daily = new ElapsedTimer();
+                //ElapsedTimer daily = new ElapsedTimer();
                 // Date ourDate = new Date();
                 try {
                     File usersa = sm.makeDataDir("usersa");
@@ -1174,7 +1174,7 @@ public class OutputFileManager {
                     return;
                 ElapsedTimer daily = new ElapsedTimer();
                 try {
-                    boolean svnOk = true;
+                    //boolean svnOk = true;
                     System.err.println("Beginning daily (or once at boot) update of SVN " + type + " data: " + new Date());
                     // quickAddAll
                     int added = 0;

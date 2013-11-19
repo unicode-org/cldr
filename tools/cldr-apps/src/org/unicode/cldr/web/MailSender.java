@@ -119,7 +119,7 @@ public class MailSender implements Runnable {
             conn.setAutoCommit(false);
             if (!DBUtils.getInstance().hasTable(conn, CLDR_MAIL)) {
                 System.out.println("Creating " + CLDR_MAIL);
-                s = db.prepareStatementWithArgs(conn, "CREATE TABLE " + CLDR_MAIL + " (id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " // PK:  id
+                s = DBUtils.prepareStatementWithArgs(conn, "CREATE TABLE " + CLDR_MAIL + " (id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " // PK:  id
                     + USER + " int not null, " // userid TO
                     + "sender int not null DEFAULT -1 , " // userid TO
                     + "subject " + DBUtils.DB_SQL_MIDTEXT + " not null, " // mail subj
@@ -136,7 +136,7 @@ public class MailSender implements Runnable {
                     + "xpath INT DEFAULT NULL "
                     + (!DBUtils.db_Mysql ? ",primary key(id)" : "") + ")");
                 s.execute();
-                s2 = db.prepareStatementWithArgs(conn, "INSERT INTO " + CLDR_MAIL + "(" + USER + ",subject,text,queue_date) VALUES(?,?,?,?)",
+                s2 = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + CLDR_MAIL + "(" + USER + ",subject,text,queue_date) VALUES(?,?,?,?)",
                     1, "Hello", "Hello from the SurveyTool!", DBUtils.sqlNow());
                 s2.execute();
                 conn.commit();
@@ -235,12 +235,12 @@ public class MailSender implements Runnable {
             conn = db.getDBConnection();
             final String sql = "INSERT INTO " + CLDR_MAIL + "(sender, " + USER + ",subject,text,queue_date,cc,locale,xpath,post) VALUES(?,?,?,?,?,?,?,?,?)";
             if (!DBUtils.db_Derby) { // hack around derby
-                s2 = db.prepareStatementWithArgs(conn, sql,
+                s2 = DBUtils.prepareStatementWithArgs(conn, sql,
                     fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow(),
                     ccstr, locale, xpath, post);
 
             } else {
-                s2 = db.prepareStatementWithArgs(conn, sql,
+                s2 = DBUtils.prepareStatementWithArgs(conn, sql,
                     fromUser, toUser, DBUtils.prepareUTF8(subject), DBUtils.prepareUTF8(body), DBUtils.sqlNow()); // just the ones that can't be null
                 if (ccstr == null) {
                     s2.setNull(6, java.sql.Types.VARCHAR);
@@ -352,8 +352,8 @@ public class MailSender implements Runnable {
                 DBUtils db = DBUtils.getInstance();
                 conn = db.getDBConnection();
                 conn.setAutoCommit(false);
-                java.sql.Timestamp sqlnow = db.sqlNow();
-                s = db.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ?  and try_count < 3 order by id "
+                java.sql.Timestamp sqlnow = DBUtils.sqlNow();
+                s = DBUtils.prepareForwardUpdateable(conn, "select * from " + CLDR_MAIL + " where sent_date is NULL and id > ?  and try_count < 3 order by id "
                     + (DBUtils.db_Mysql ? "limit 1" : ""));
                 s.setInt(1, lastIdProcessed);
                 rs = s.executeQuery();

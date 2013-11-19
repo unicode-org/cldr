@@ -260,7 +260,7 @@ public class SurveyAjax extends HttpServlet {
         loc = (loc == null) ? null : loc.replace('-', '_');
 
         CLDRLocale l = null;
-        if (sm != null && sm.isSetup && loc != null && !loc.isEmpty()) {
+        if (sm != null && SurveyMain.isSetup && loc != null && !loc.isEmpty()) {
             l = validateLocale(out, loc);
             if (l == null) {
                 return; // error was already thrown.
@@ -486,7 +486,7 @@ public class SurveyAjax extends HttpServlet {
 
                                     DataRow pvi = section.getDataRow(xp);
                                     final Level covLev = pvi.getCoverageLevel();
-                                    final int coverageValue = covLev.getLevel();
+                                    //final int coverageValue = covLev.getLevel();
                                     CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
 
                                     if (otherErr != null) {
@@ -571,7 +571,7 @@ public class SurveyAjax extends HttpServlet {
                         }
 
                         if (pref.equals("oldVoteRemind")) {
-                            pref = "oldVoteRemind" + sm.getNewVersion();
+                            pref = "oldVoteRemind" + SurveyMain.getNewVersion();
                         }
 
                         if (val != null && !val.isEmpty()) {
@@ -613,7 +613,7 @@ public class SurveyAjax extends HttpServlet {
 
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
                         int id = Integer.parseInt(xpath);
-                        String xp = sm.xpt.getById(id);
+                        //String xp = sm.xpt.getById(id);
                         r.put("loc", loc);
                         r.put("xpath", xpath);
                         r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id));
@@ -671,12 +671,12 @@ public class SurveyAjax extends HttpServlet {
                             // any special messages?
                             if (mySession.user != null && mySession.user.canImportOldVotes()) {
                                 // old votes?
-                                String oldVotesPref = "oldVoteRemind" + sm.getNewVersion();
+                                String oldVotesPref = "oldVoteRemind" + SurveyMain.getNewVersion();
                                 String oldVoteRemind = mySession.settings().get(oldVotesPref, null);
                                 if (oldVoteRemind == null || // never been asked
                                     !oldVoteRemind.equals("*")) { //  dont ask again
                                     String votesAfterSQL = SurveyMain.getSQLVotesAfter();
-                                    String votesAfterString = SurveyMain.getVotesAfterString();
+                                    //String votesAfterString = SurveyMain.getVotesAfterString();
 
                                     int count = DBUtils.sqlCount("select  count(*) as count from " + STFactory.CLDR_VBV
                                         + " where submitter=? and last_mod < " + votesAfterSQL +
@@ -839,10 +839,10 @@ public class SurveyAjax extends HttpServlet {
                                     {
                                         String sqlStr = "select xpath,value from " + STFactory.CLDR_VBV + " where locale=? and submitter=? and last_mod < "
                                             + votesAfterSQL + " and value is not null";
-                                        Map rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
+                                        Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
                                         //                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
-                                        JSONArray contested = new JSONArray();
+                                        //JSONArray contested = new JSONArray();
 
                                         for (Map m : rows) {
                                             String value = m.get("value").toString();
@@ -908,7 +908,7 @@ public class SurveyAjax extends HttpServlet {
 
                                     String sqlStr = "select xpath,value from " + STFactory.CLDR_VBV + " where locale=? and submitter=? and last_mod < "
                                         + votesAfterSQL + " and value is not null";
-                                    Map rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
+                                    Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
                                     //                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
                                     // extract the pathheaders
@@ -982,8 +982,8 @@ public class SurveyAjax extends HttpServlet {
 
                             r.put("oldvotes", oldvotes);
 
-                            r.put("BASELINE_LANGUAGE_NAME", sm.BASELINE_LANGUAGE_NAME);
-                            r.put("BASELINE_ID", sm.BASELINE_ID);
+                            r.put("BASELINE_LANGUAGE_NAME", SurveyMain.BASELINE_LANGUAGE_NAME);
+                            r.put("BASELINE_ID", SurveyMain.BASELINE_ID);
                         }
 
                         send(r, out);
@@ -1035,7 +1035,7 @@ public class SurveyAjax extends HttpServlet {
         JSONObject locales = new JSONObject();
         SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
 
-        for (CLDRLocale loc : sm.getLocales()) {
+        for (CLDRLocale loc : SurveyMain.getLocales()) {
             JSONObject locale = new JSONObject();
 
             locale.put("name", loc.getDisplayName());
@@ -1045,7 +1045,7 @@ public class SurveyAjax extends HttpServlet {
 
             locale.put("dcParent", dcParent);
             locale.put("dcChild", dcChild);
-            if (sm.getReadOnlyLocales().contains(loc)) {
+            if (SurveyMain.getReadOnlyLocales().contains(loc)) {
                 locale.put("readonly", true);
                 String comment = SpecialLocales.getComment(loc);
                 locale.put("readonly_why", comment);
@@ -1107,7 +1107,7 @@ public class SurveyAjax extends HttpServlet {
      * @param r
      */
     private void setLocaleStatus(SurveyMain sm, String locale, JSONWriter r) {
-        if (locale != null && locale.length() > 0 && sm.isBusted == null && sm.isSetup) {
+        if (locale != null && locale.length() > 0 && SurveyMain.isBusted == null && sm.isSetup) {
             CLDRLocale loc = CLDRLocale.getInstance(locale);
             if (loc != null && SurveyMain.getLocalesSet().contains(loc)) {
                 r.put("localeStampName", loc.getDisplayName());

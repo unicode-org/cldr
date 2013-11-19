@@ -443,7 +443,7 @@ public class CookieSession {
      */
     public final Object getByLocale(String key, String aLocale) {
         synchronized (stuff) {
-            Hashtable f = getLocales().get(aLocale);
+            Hashtable<String, Object> f = getLocales().get(aLocale);
             if (f != null) {
                 return f.get(key);
             } else {
@@ -483,7 +483,7 @@ public class CookieSession {
      */
     public final void removeByLocale(String key, String aLocale) {
         synchronized (stuff) {
-            Hashtable f = getLocales().get(aLocale);
+            Hashtable<String, Object> f = getLocales().get(aLocale);
             if (f != null) {
                 f.remove(key);
             }
@@ -852,9 +852,7 @@ public class CookieSession {
             } else {
                 bur.hit("(Banned by Admin)");
             }
-            int kickCount = 0;
             this.remove();
-            kickCount++;
             return "banned and kicked this session";
         }
     }

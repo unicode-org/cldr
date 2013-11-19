@@ -99,8 +99,8 @@ public class SurveyForum {
             .replaceAll("&amp;", "&");
     }
 
-    Hashtable numToName = new Hashtable();
-    Hashtable nameToNum = new Hashtable();
+    Hashtable<Integer, String> numToName = new Hashtable<Integer, String>();
+    Hashtable<String, Integer> nameToNum = new Hashtable<String, Integer>();
 
     static final int GOOD_FORUM = 0; // 0 or greater
     static final int BAD_FORUM = -1;
@@ -193,8 +193,8 @@ public class SurveyForum {
         }
         // Add to list
         Integer i = new Integer(num);
-        numToName.put(forum, i);
-        nameToNum.put(i, forum);
+        nameToNum.put(forum, i);
+        numToName.put(i, forum);
         return num;
     }
 
@@ -397,7 +397,7 @@ public class SurveyForum {
         if (sessionMessage != null) {
             ctx.println(sessionMessage + "<hr>");
         }
-        boolean nopopups = ctx.prefBool(SurveyMain.PREF_NOPOPUPS);
+        // boolean nopopups = ctx.prefBool(SurveyMain.PREF_NOPOPUPS);
         String returnText = returnText(ctx, base_xpath);
         // if(nopopups) {
         ctx.println(returnText + "<hr>");
@@ -605,7 +605,7 @@ public class SurveyForum {
             ctx.println("<input type='hidden' name='replyto' value='" + replyTo + "'>");
         }
 
-        if (sm.isPhaseBeta()) {
+        if (SurveyMain.isPhaseBeta()) {
             ctx.println("<div class='ferrbox'>Please remember that the SurveyTool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
         }
 
@@ -616,7 +616,7 @@ public class SurveyForum {
             // (ctx.hasField("text")?"":"disabled")+ // require preview
             " type=submit value=Post>");
         ctx.println("<input type=submit name=preview value=Preview><br>");
-        if (sm.isPhaseBeta()) {
+        if (SurveyMain.isPhaseBeta()) {
             ctx.println("<div class='ferrbox'>Please remember that the SurveyTool is in Beta, therefore your post will be deleted when the beta period closes.</div>");
         }
         ctx.println("</form>");
@@ -705,7 +705,7 @@ public class SurveyForum {
     }
 
     public static String showXpath(WebContext baseCtx, String section_xpath, int item_xpath) {
-        String base_xpath = section_xpath;
+        //String base_xpath = section_xpath;
         CLDRLocale loc = baseCtx.getLocale();
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(loc);
@@ -1202,14 +1202,12 @@ public class SurveyForum {
 
     public void reloadLocales(Connection conn) throws SQLException {
         String sql = "";
-        String what = "";
         synchronized (conn) {
             {
                 // ElapsedTimer et = new
                 // ElapsedTimer("setting up DB_LOC2FORUM");
                 Statement s = conn.createStatement();
                 if (!DBUtils.hasTable(conn, DB_LOC2FORUM)) { // user attribute
-                    what = DB_LOC2FORUM;
                     sql = "";
 
                     // System.err.println("setting up "+DB_LOC2FORUM);
@@ -1252,7 +1250,6 @@ public class SurveyForum {
                 conn.commit();
                 // System.err.println("Updated "+DB_LOC2FORUM+": " + et +
                 // ", "+updates+" updates, and " + errs + " SQL complaints");
-                what = "?";
             }
         }
 
@@ -1276,7 +1273,6 @@ public class SurveyForum {
         }
         System.err.println("CLDR_OLD_POSTS_BEFORE: date: " + sdf.format(oldOnOrBefore) + " (format: mm/dd/yy)");
         // synchronized(conn) {
-        String what = "";
         String sql = null;
         // logger.info("SurveyForum DB: initializing...");
         String locindex = "loc";
@@ -1286,7 +1282,6 @@ public class SurveyForum {
 
         if (!DBUtils.hasTable(conn, DB_FORA)) { // user attribute
             Statement s = conn.createStatement();
-            what = DB_FORA;
             sql = "";
 
             sql = "CREATE TABLE " + DB_FORA + " ( " + " id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY
@@ -1300,11 +1295,9 @@ public class SurveyForum {
             sql = "";
             s.close();
             conn.commit();
-            what = "?";
         }
         if (!DBUtils.hasTable(conn, DB_POSTS)) { // user attribute
             Statement s = conn.createStatement();
-            what = DB_POSTS;
             sql = "";
 
             sql = "CREATE TABLE " + DB_POSTS + " ( " + " id INT NOT NULL "
@@ -1338,7 +1331,6 @@ public class SurveyForum {
             sql = "";
             s.close();
             conn.commit();
-            what = "?";
         }
 
         reloadLocales(conn);
@@ -1551,7 +1543,7 @@ public class SurveyForum {
     }
 
     // XML/RSS
-    private static final String DATE_FORMAT = "yyyy-MM-dd";
+    //private static final String DATE_FORMAT = "yyyy-MM-dd";
 
     private static void sendErr(HttpServletRequest request, HttpServletResponse response, String err) throws IOException {
         response.setContentType("text/html; charset=utf-8");
@@ -1593,7 +1585,7 @@ public class SurveyForum {
 
         String base = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath()
             + request.getServletPath();
-        String kind = request.getParameter("kind");
+        //String kind = request.getParameter("kind");
         String loc = request.getParameter("_");
 
         if ((loc != null) && (!UserRegistry.userCanModifyLocale(user, CLDRLocale.getInstance(loc)))) {
@@ -1624,7 +1616,7 @@ public class SurveyForum {
                         pList = prepare_pList(conn);
 
                         int forumNumber = getForumNumberFromDB(loc);
-                        int count = 0;
+                        //int count = 0;
                         if (forumNumber >= GOOD_FORUM) {
                             pList.setInt(1, forumNumber);
                             ResultSet rs = pList.executeQuery();
@@ -1652,7 +1644,7 @@ public class SurveyForum {
                                 entry.setDescription(description);
                                 entries.add(entry);
 
-                                count++;
+                                //count++;
                             }
                         }
                     } finally {
@@ -1705,7 +1697,7 @@ public class SurveyForum {
                             rs = pAll.executeQuery();
                         }
 
-                        int count = 0;
+                        //int count = 0;
 
                         while (rs.next() && true) {
                             int poster = rs.getInt(1);
@@ -1714,14 +1706,14 @@ public class SurveyForum {
                             java.sql.Timestamp lastDate = rs.getTimestamp(4); // TODO:
                                                                               // timestamp
                             int id = rs.getInt(5);
-                            String forum = rs.getString(6);
+                            //String forum = rs.getString(6);
                             String ploc = rs.getString(7);
 
                             String forumText = new ULocale(ploc).getLanguage();
                             String nameLink = getNameTextFromUid(user, poster);
 
                             entry = new SyndEntryImpl();
-                            String forumPrefix = forumText + ":";
+                            //String forumPrefix = forumText + ":";
                             if (subj.startsWith(forumText)) {
                                 entry.setTitle(subj);
                             } else {
@@ -1737,7 +1729,7 @@ public class SurveyForum {
                             entry.setDescription(description);
                             entries.add(entry);
 
-                            count++;
+                            //count++;
                         }
 
                         // now, data??
@@ -1915,7 +1907,7 @@ public class SurveyForum {
             try {
                 conn = sm.dbUtils.getDBConnection();
 
-                Object[][] o = sm.dbUtils.sqlQueryArrayArrayObj(conn, "select " + pAllResultFora + "  FROM " + DB_POSTS
+                Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + pAllResultFora + "  FROM " + DB_POSTS
                     + " WHERE (" + DB_POSTS + ".forum =? AND " + DB_POSTS + " .xpath =?) ORDER BY " + DB_POSTS
                     + ".last_time DESC", forumNumber, base_xpath);
 
@@ -1932,7 +1924,7 @@ public class SurveyForum {
                         if (lastDate.after(oldOnOrBefore) || false) {
                             JSONObject post = new JSONObject();
                             post.put("poster", poster)
-                                .put("posterInfo", SurveyAjax.JSONWriter.wrap(session.sm.reg.getInfo(poster)))
+                                .put("posterInfo", SurveyAjax.JSONWriter.wrap(CookieSession.sm.reg.getInfo(poster)))
                                 .put("subject", subj2).put("text", text2).put("date", lastDate).put("id", id);
                             ret.put(post);
                         }

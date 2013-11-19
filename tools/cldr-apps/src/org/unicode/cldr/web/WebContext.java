@@ -1005,7 +1005,7 @@ public class WebContext implements Cloneable, Appendable {
      *            locale to set
      */
     public void setLocale(CLDRLocale l) {
-        if (!sm.getLocalesSet().contains(l)) { // bogus
+        if (!SurveyMain.getLocalesSet().contains(l)) { // bogus
             locale = null;
             return;
         }
@@ -1145,9 +1145,6 @@ public class WebContext implements Cloneable, Appendable {
      * @return number of sub-objects including this object
      */
     public int staticInfo_DataPod(Object o) {
-        int s = 0;
-        DataSection section = (DataSection) o;
-
         print(o.toString());
 
         return 1;
@@ -1220,7 +1217,6 @@ public class WebContext implements Cloneable, Appendable {
      */
     public int staticInfo_Boolean(Object o) {
         Boolean obj = (Boolean) o;
-        boolean b = (boolean) obj;
         println(obj.toString() + "<br>");
         return 1;
     }
@@ -1300,7 +1296,7 @@ public class WebContext implements Cloneable, Appendable {
         }
         print("Recommended level: <tt class='codebox'>" + recLevel.toString() + "</tt><br>");
         print("<ul><li>To change your default coverage level, see ");
-        sm.printMenu(this, "", "options", "My Options", SurveyMain.QUERY_DO);
+        SurveyMain.printMenu(this, "", "options", "My Options", SurveyMain.QUERY_DO);
         println("</li></ul>");
         if (false && SurveyMain.isUnofficial()) {
             println("<smaller><i> // User Org:" + session.getUserOrg() + "isCoverageOrg:"
@@ -1406,7 +1402,7 @@ public class WebContext implements Cloneable, Appendable {
      * @see SurveyMain#basicOptionsMap()
      */
     public Map<String, String> getOptionsMap() {
-        return getOptionsMap(sm.basicOptionsMap());
+        return getOptionsMap(SurveyMain.basicOptionsMap());
     }
 
     /**
@@ -2256,7 +2252,7 @@ public class WebContext implements Cloneable, Appendable {
 
         HttpSession httpSession = request.getSession(true); // create httpsession
 
-        boolean idFromSession = false; // did the id come from the httpsession? (and why do we care?)
+        //boolean idFromSession = false; // did the id come from the httpsession? (and why do we care?)
 
         if (myNum.equals(SurveyMain.SURVEYTOOL_COOKIE_NONE)) { // "0"- for testing
             httpSession.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);

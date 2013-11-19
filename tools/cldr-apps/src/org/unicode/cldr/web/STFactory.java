@@ -658,7 +658,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     r = getResolverInternal(m, path, r);
                 } catch (VoteResolver.UnknownVoterException uve2) {
                     SurveyLog.logException(uve2);
-                    sm.busted(uve2.toString(), uve2);
+                    SurveyMain.busted(uve2.toString(), uve2);
                     throw new InternalError(uve2.toString());
                 }
             }
@@ -1259,7 +1259,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 rLocales.put(locale, pld);
                 locales.put(locale, (new SoftReference<PerLocaleData>(pld)));
                 // update the locale display name cache.
-                sm.outputFileManager.updateLocaleDisplayName(pld.getFile(true), locale);
+                OutputFileManager.updateLocaleDisplayName(pld.getFile(true), locale);
             } else {
                 rLocales.put(locale, pld); // keep it in the lru
             }
@@ -1562,7 +1562,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     }
 
     private String getVotesSometimeTableName() {
-        return ("cldr_v" + sm.getNewVersion() + "submission").toLowerCase();
+        return ("cldr_v" + SurveyMain.getNewVersion() + "submission").toLowerCase();
     }
 
     /*
@@ -1600,12 +1600,12 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             while (rs.next()) {
                 String xp = sm.xpt.getById(rs.getInt(1));
                 int sub = rs.getInt(2);
-                String prefix = sm.xpt.altProposedPrefix(sub);
+                String prefix = XPathTable.altProposedPrefix(sub);
 
                 StringBuilder sb = new StringBuilder(xp);
                 String alt = null;
                 if (xp.contains("[@alt")) {
-                    alt = sm.xpt.getAlt(xp, xpp);
+                    alt = XPathTable.getAlt(xp, xpp);
                     sb = new StringBuilder(sm.xpt.removeAlt(xp, xpp)); // replace
                 }
 
@@ -1647,7 +1647,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     public Integer[] readPXMLFiles(final File inFileList[]) {
         int nusers = 0;
-        int nlocs = 0;
+        //int nlocs = 0;
         if (CLDRConfig.getInstance().getEnvironment() != Environment.LOCAL) {
             throw new InternalError("Error: can only do this in LOCAL"); // insanity
                                                                          // check
@@ -1658,8 +1658,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         Connection conn = null;
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
-        PreparedStatement ps3 = null;
-        int maxUserId = 0;
+        //PreparedStatement ps3 = null;
+        //int maxUserId = 0;
         try { // do this in 1 transaction. just in case.
             conn = DBUtils.getInstance().getDBConnection();
 
@@ -1671,7 +1671,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
             XMLFileReader myReader = new XMLFileReader();
             final XPathParts xpp = new XPathParts(null, null);
-            final Map<String, String> attrs = new TreeMap<String, String>();
+            //final Map<String, String> attrs = new TreeMap<String, String>();
             // final Map<String,UserRegistry.User> users = new
             // TreeMap<String,UserRegistry.User>();
 

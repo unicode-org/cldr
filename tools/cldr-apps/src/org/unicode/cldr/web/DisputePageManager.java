@@ -18,7 +18,7 @@ public class DisputePageManager {
 
         // doOrgDisputePage(ctx);
 
-        ctx.addQuery(ctx.sm.QUERY_DO, "disputed");
+        ctx.addQuery(SurveyMain.QUERY_DO, "disputed");
 
         ctx.println("<h2>Disputed Items</h2>");
 

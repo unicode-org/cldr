@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -225,7 +224,6 @@ public class UserRegistry {
     public static final String SQL_updateIntLoc = "INSERT INTO " + CLDR_INTEREST + " (uid,forum) VALUES(?,?)";
 
     private UserSettingsData userSettings;
-    private static final Charset UTF_8 = Charset.forName("UTF-8");
 
     /**
      * This nested class is the representation of an individual user. It may not
@@ -633,7 +631,7 @@ public class UserRegistry {
             (!DBUtils.db_Mysql ? ",primary key(id)" : "") + ")");
         s.execute(sql);
         sql = ("INSERT INTO " + CLDR_USERS + "(userlevel,name,org,email,password) " + "VALUES(" + ADMIN + "," + "'admin',"
-            + "'SurveyTool'," + "'admin@'," + "'" + sm.vap + "')");
+            + "'SurveyTool'," + "'admin@'," + "'" + SurveyMain.vap + "')");
         s.execute(sql);
         sql = null;
         SurveyLog.debug("DB: added user Admin");
@@ -720,7 +718,7 @@ public class UserRegistry {
                 PreparedStatement pstmt = null;
                 Connection conn = DBUtils.getInstance().getDBConnection();
                 try {
-                    pstmt = DBUtils.prepareForwardReadOnly(conn, this.SQL_queryIdStmt_FRO);
+                    pstmt = DBUtils.prepareForwardReadOnly(conn, UserRegistry.SQL_queryIdStmt_FRO);
                     pstmt.setInt(1, id);
                     // First, try to query it back from the DB.
                     rs = pstmt.executeQuery();
@@ -828,7 +826,7 @@ public class UserRegistry {
             return null; // nothing to do
         }
 
-        if (email.startsWith("!") && pass != null && pass.equals(sm.vap)) {
+        if (email.startsWith("!") && pass != null && pass.equals(SurveyMain.vap)) {
             email = email.substring(1);
             letmein = true;
         }

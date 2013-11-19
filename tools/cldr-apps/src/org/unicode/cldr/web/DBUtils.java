@@ -641,8 +641,8 @@ public class DBUtils {
                 // ignore
             }
         }
-        if (this.db_number_open > 0) {
-            System.err.println("DBUtils: removing my instance. " + this.db_number_open + " still open?\n" + tracker);
+        if (DBUtils.db_number_open > 0) {
+            System.err.println("DBUtils: removing my instance. " + DBUtils.db_number_open + " still open?\n" + tracker);
         }
         if (tracker != null)
             tracker.clear();
@@ -939,7 +939,7 @@ public class DBUtils {
     }
 
     @SuppressWarnings("rawtypes")
-    private static Map[] resultToArrayAssoc(ResultSet rs) throws SQLException {
+    private static Map<String, Object>[] resultToArrayAssoc(ResultSet rs) throws SQLException {
         ResultSetMetaData rsm = rs.getMetaData();
         ArrayList<Map<String, Object>> al = new ArrayList<Map<String, Object>>();
         while (rs.next()) {
@@ -1311,7 +1311,7 @@ public class DBUtils {
      * @throws SQLException
      * @throws IOException
      */
-    public static Map[] queryToArrayAssoc(String string, Object... args) throws SQLException, IOException {
+    public static Map<String, Object>[] queryToArrayAssoc(String string, Object... args) throws SQLException, IOException {
         Connection conn = null;
         PreparedStatement s = null;
         ResultSet rs = null;

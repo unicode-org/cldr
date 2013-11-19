@@ -300,7 +300,7 @@ public class XPathTable {
         } catch (SQLException sqe) {
             SurveyLog.logger.warning("xpath [" + xpath + "] len " + xpath.length());
             SurveyLog.logger.severe("XPathTable: Failed in addXPath(" + xpath + "): " + DBUtils.unchainSqlException(sqe));
-            sm.busted("XPathTable: Failed in addXPath(" + xpath + "): " + DBUtils.unchainSqlException(sqe));
+            SurveyMain.busted("XPathTable: Failed in addXPath(" + xpath + "): " + DBUtils.unchainSqlException(sqe));
         } finally {
             if (inConn != null) {
                 conn = null; // don't close
@@ -572,7 +572,7 @@ public class XPathTable {
     public static String removeAttribute(String path, XPathParts xpp, String att) {
         xpp.clear();
         xpp.initialize(path);
-        Map lastAtts = xpp.getAttributes(-1);
+        Map<String, String> lastAtts = xpp.getAttributes(-1);
         lastAtts.remove(att);
         return xpp.toString();
     }

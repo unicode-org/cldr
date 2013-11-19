@@ -125,7 +125,7 @@ public class DataSection implements JSONString {
 
             private String valueHash = null;
             public boolean isOldValue = false;
-            private String dv = null;
+            //private String dv = null;
             public boolean isBailey = false; // is this the fallback value?
 
             public String getProcessedValue() {
@@ -1740,7 +1740,7 @@ public class DataSection implements JSONString {
                 }
 
                 String displayExample = null;
-                String displayHelp = null;
+                //String displayHelp = null;
                 ExampleBuilder b = getExampleBuilder();
                 if (b != null) {
                     displayExample = b.getExampleHtml(xpath, displayName, ExampleType.ENGLISH);
@@ -1755,7 +1755,7 @@ public class DataSection implements JSONString {
                 return new JSONObject()
                     .put("xpath", xpath)
                     .put("xpid", xpathId)
-                    .put("xpstrid", sm.xpt.getStringIDString(xpath))
+                    .put("xpstrid", XPathTable.getStringIDString(xpath))
                     .put("winningValue", winningValue)
                     .put("displayName", displayName)
                     .put("displayExample", displayExample)
@@ -1790,7 +1790,7 @@ public class DataSection implements JSONString {
 
         public StatusAction getStatusAction() {
             // null because this is for display.
-            return sm.phase().getCPhase()
+            return SurveyMain.phase().getCPhase()
                 .getShowRowAction(this, InputMethod.DIRECT, getPathHeader().getSurveyToolStatus(), userForVotelist);
         }
 
@@ -2413,8 +2413,8 @@ public class DataSection implements JSONString {
             options = ctx.getOptionsMap();
         } else {
             // ugly
-            options = session.sm.basicOptionsMap();
-            String def = session.sm
+            options = SurveyMain.basicOptionsMap();
+            String def = CookieSession.sm
                 .getListSetting(session.settings(), SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
             options.put("CheckCoverage.requiredLevel", def);
 
@@ -2590,7 +2590,7 @@ public class DataSection implements JSONString {
         STFactory stf = sm.getSTFactory();
         SectionId sectionId = (pageId != null) ? pageId.getSectionId() : null;
 
-        SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
+        //SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
         int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
         if (sectionId == SectionId.Timezones || pageId == PageId.Timezone_Cities || pageId == PageId.Timezone_Display_Patterns
             || (pageId == null && xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames"))) {
@@ -2674,7 +2674,7 @@ public class DataSection implements JSONString {
                         // podBase = "//ldml/dates/timeZoneNames/metazone";
                     }
                     // synthesize a new row..
-                    String rowXpath = zone + suff;
+                    //String rowXpath = zone + suff;
                     String base_xpath_string = podBase + ourSuffix + suff;
 
                     SurveyToolStatus ststats = SurveyToolStatus.READ_WRITE;
@@ -3355,7 +3355,7 @@ public class DataSection implements JSONString {
                     subCtx2.removeQuery(SurveyMain.QUERY_LOCALE);
                     subCtx2.removeQuery(SurveyMain.QUERY_LOCALE);
                     subCtx2.removeQuery(SurveyForum.F_FORUM);
-                    sm.printMenu(subCtx2, "", "options", "My Options", SurveyMain.QUERY_DO);
+                    SurveyMain.printMenu(subCtx2, "", "options", "My Options", SurveyMain.QUERY_DO);
 
                     ctx.println("and set your coverage level to a higher value.");
                 }

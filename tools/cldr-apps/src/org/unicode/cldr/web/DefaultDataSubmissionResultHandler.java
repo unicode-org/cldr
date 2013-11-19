@@ -33,7 +33,7 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
     @Override
     public void handleRemoveItem(DataRow p, CandidateItem item, boolean removingVote) {
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>:  Removing alternate \"" + item.value + "\" ("
-            + item.altProposed + ")<br>");
+            + CandidateItem.altProposed + ")<br>");
         if (removingVote) {
             ctx.println(" <i>Also, removing your vote for it</i><br>");
         }
@@ -50,7 +50,7 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
     public void handleRemoveVote(DataRow p, UserRegistry.User voter, CandidateItem item) {
         ctx.print("<tt title='#" + p.getXpathId() + "' class='codebox'>" + p.getDisplayName()
             + "</tt>:  Removing vote for <span title='#" + p.getXpathId() + "'>" + "\"" + item.value + "\" ("
-            + item.altProposed + ")</span> by " + voter.toHtml(ctx.session.user) + "<br>");
+            + CandidateItem.altProposed + ")</span> by " + voter.toHtml(ctx.session.user) + "<br>");
     }
 
     @Override
@@ -64,14 +64,14 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
         ctx.println(ctx.iconHtml("warn", "duplicate")
             + " This value was already entered, accepting your vote for "
-            + ((item.altProposed == null) ? " the current item. <br>"
+            + ((CandidateItem.altProposed == null) ? " the current item. <br>"
                 : (" the proposal <tt>" + item.altProposed + "</tt>.<br>")));
     }
 
     public void warnAlreadyVotingFor(DataRow p, CandidateItem item) {
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
         ctx.println(ctx.iconHtml("warn", "duplicate") + " Your current vote is already for "
-            + ((item.altProposed == null) ? " the current item " : (" the proposal <tt>" + item.altProposed + "</tt> "))
+            + ((CandidateItem.altProposed == null) ? " the current item " : (" the proposal <tt>" + item.altProposed + "</tt> "))
             + " which has the same value.<br>");
     }
 

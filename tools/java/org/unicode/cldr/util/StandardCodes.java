@@ -1010,6 +1010,7 @@ public class StandardCodes {
             LstrField lastLabel = null;
             String lastRest = null;
             boolean inRealContent = false;
+            Map<String, String> translitCache = new HashMap<String, String>();
             for (;; ++lineNumber) {
                 line = lstreg.readLine();
                 if (line == null)
@@ -1088,7 +1089,13 @@ public class StandardCodes {
                     // System.out.println("Odd Line: " + lastType + "\t" + lastTag + "\t" + line);
                 } else {
                     lastLabel = label;
-                    lastRest = TransliteratorUtilities.fromXML.transliterate(rest);
+                    if(!translitCache.containsKey(rest)) {
+                        lastRest = TransliteratorUtilities.fromXML.transliterate(rest);
+                        translitCache.put(rest, lastRest);
+                    } else {
+                        lastRest = translitCache.get(rest);
+                    }
+                        
                     String oldValue = (String) CldrUtility.get(currentData, lastLabel);
                     if (oldValue != null) {
                         lastRest = oldValue + DESCRIPTION_SEPARATOR + lastRest;

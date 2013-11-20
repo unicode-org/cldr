@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.EnumMap;
+import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -18,6 +19,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -122,9 +124,8 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestPluralRanges() {
-        Relation<Set<String>, String> seen 
-        = Relation.of(new TreeMap<Set<String>,Set<String>>(
-            SetComparator), TreeSet.class);
+        Map<Set<Count>, Relation<Set<String>, String>> seen 
+        = new TreeMap<Set<Count>, Relation<Set<String>, String>>(COUNT_SET_COMPARATOR);
         for (String locale : SUPPLEMENTAL.getPluralRangesLocales()) {
             // check that there are no null values
             PluralRanges pluralRanges = SUPPLEMENTAL.getPluralRanges(locale);
@@ -138,39 +139,48 @@ public class TestSupplementalInfo extends TestFmwk {
                 }
             }
             Set<String> s = minimize(pluralRanges, pluralInfo);
-            seen.put(s, locale);
+            Relation<Set<String>, String> item = seen.get(counts);
+            if (item == null) {
+                seen.put(counts, 
+                    item = Relation.of(new TreeMap<Set<String>,Set<String>>(STRING_SET_COMPARATOR), TreeSet.class));
+            }
+            item.put(s, locale);
         }
 
-        if (isVerbose()) {            
-            for (Entry<Set<String>, Set<String>> entry : seen.keyValuesSet()) {
-                logln("\n\t<pluralRanges locales=\"" + CollectionUtilities.join(entry.getValue(), " ") + "\">");
-                if (entry.getValue().contains("cy")) {
-                    int debug = 1;
+        if (isVerbose()) {     
+            logln("Minimized rules, but not ready for prime-time");
+            for (Entry<Set<Count>, Relation<Set<String>, String>> entry0 : seen.entrySet()) {
+                logln("\n<!-- " + CollectionUtilities.join(entry0.getKey(), ", ") + " -->");
+                for (Entry<Set<String>, Set<String>> entry : entry0.getValue().keyValuesSet()) {
+                    logln("\n\t<pluralRanges locales=\"" + CollectionUtilities.join(entry.getValue(), " ") + "\">");
+                    for (String line : entry.getKey()) {
+                        logln("\t" + line);
+                    }
+                    logln("</pluralRanges>");
                 }
-                for (String line : entry.getKey()) {
-                    logln("\t" + line);
-                }
-                logln("<pluralRanges/>");
             }
         }
     }
 
-    public static final Comparator<Set<String>> SetComparator = new Comparator<Set<String>>() {
-        public int compare(Set<String> o1, Set<String> o2) {
-            return CollectionUtilities.compare((Collection<String>)o1, (Collection<String>)o2);
+    public static final Comparator<Set<String>> STRING_SET_COMPARATOR = new SetComparator<String, Set<String>>();
+    public static final Comparator<Set<Count>> COUNT_SET_COMPARATOR = new SetComparator<Count, Set<Count>>();
+
+    static final class SetComparator<T extends Comparable<T>, U extends Set<T>> implements Comparator<U> {
+        public int compare(U o1, U o2) {
+            return CollectionUtilities.compare((Collection<T>)o1, (Collection<T>)o2);
         }
     };
 
+
     private static final boolean MINIMAL = true;
 
-    private static final boolean SHOW_RANGE = true;
+    private static final boolean SHOW_RANGE = false;
 
 
     Set<String> minimize(PluralRanges pluralRanges, PluralInfo pluralInfo) {
         int count = Count.VALUES.size();
         Set<String> result = new LinkedHashSet<String>();
         PluralRules pluralRules = pluralInfo.getPluralRules();
-        result.add("<!-- " + CollectionUtilities.join(pluralInfo.getCounts(), ", ") + " -->");
         // make it easier to manage
         Count[][] matrix = new Count[count][]; // [start][end]
         boolean allOther = true;

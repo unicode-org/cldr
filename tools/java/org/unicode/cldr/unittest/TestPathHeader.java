@@ -253,14 +253,30 @@ public class TestPathHeader extends TestFmwkPlus {
         Set<String> filePaths = pathHeaderFactory.pathsForFile(english);
 
         // check that English doesn't contain few or many
-        verifyContains(PageId.Currencies, filePaths, "many", false);
         verifyContains(PageId.Duration, filePaths, "few", false);
+        verifyContains(PageId.C_America, filePaths, "many", false);
+        verifyContains(PageId.C_Caribbean, filePaths, "many", false);
+        verifyContains(PageId.C_Africa, filePaths, "many", false);
+        verifyContains(PageId.C_Europe, filePaths, "many", false);
+        verifyContains(PageId.C_Asia, filePaths, "many", false);
+        verifyContains(PageId.C_Australasia, filePaths, "many", false);
+        verifyContains(PageId.C_Melanesia, filePaths, "many", false);
+        verifyContains(PageId.C_Polynesia, filePaths, "many", false);
+        verifyContains(PageId.C_Unknown, filePaths, "many", false);
 
         // check that Arabic does contain few and many
         filePaths = pathHeaderFactory.pathsForFile(info.getCldrFactory().make("ar", true));
 
-        verifyContains(PageId.Currencies, filePaths, "many", true);
         verifyContains(PageId.Duration, filePaths, "few", true);
+        verifyContains(PageId.C_America, filePaths, "many", true);
+        verifyContains(PageId.C_Caribbean, filePaths, "many", true);
+        verifyContains(PageId.C_Africa, filePaths, "many", true);
+        verifyContains(PageId.C_Europe, filePaths, "many", true);
+        verifyContains(PageId.C_Asia, filePaths, "many", true);
+        verifyContains(PageId.C_Australasia, filePaths, "many", true);
+        verifyContains(PageId.C_Melanesia, filePaths, "many", true);
+        verifyContains(PageId.C_Polynesia, filePaths, "many", true);
+        verifyContains(PageId.C_Unknown, filePaths, "many", true);
     }
 
     public void TestCoverage() {

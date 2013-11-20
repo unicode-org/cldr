@@ -93,10 +93,10 @@
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Formats when using &numberingSystem($2) ; &count2($7-digits-$4-$8)
 
 
-//ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Numbers ; Currencies ; &categoryFromCurrency($1) ; &count($1-name)
-//ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Numbers ; Currencies ; &categoryFromCurrency($1) ; &count($1-name-$2)
-//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="narrow"]        ; Numbers ; Currencies ; &categoryFromCurrency($1) ; &count($1-symbol)-narrow; READ_ONLY
-//ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Numbers ; Currencies ; &categoryFromCurrency($1) ; &count($1-symbol)
+//ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)
+//ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name-$2)
+//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="narrow"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-symbol)-narrow; READ_ONLY
+//ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-symbol)
 
 ### Units
 

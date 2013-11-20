@@ -79,6 +79,7 @@ public class PathHeader implements Comparable<PathHeader> {
         DateTime("Date & Time"),
         Timezones,
         Numbers,
+        Currencies,
         Units,
         Misc("Miscellaneous"),
         Special;
@@ -182,7 +183,6 @@ public class PathHeader implements Comparable<PathHeader> {
         Symbols(SectionId.Numbers),
         Number_Formatting_Patterns(SectionId.Numbers, "Number Formatting Patterns"),
         Compact_Decimal_Formatting(SectionId.Numbers, "Compact Decimal Formatting"),
-        Currencies(SectionId.Numbers),
         Measurement_Systems(SectionId.Units, "Measurement Systems"),
         Duration(SectionId.Units),
         Length(SectionId.Units),
@@ -197,7 +197,17 @@ public class PathHeader implements Comparable<PathHeader> {
         Version(SectionId.Special),
         Suppress(SectionId.Special),
         Deprecated(SectionId.Special),
-        Unknown(SectionId.Special), ;
+        Unknown(SectionId.Special), 
+        C_America(SectionId.Currencies, "America (C)"),     //need to add (C) to differentiate from Timezone territories
+        C_Caribbean(SectionId.Currencies, "Caribbean (C)"),
+        C_Africa(SectionId.Currencies, "Africa (C)"),
+        C_Europe(SectionId.Currencies, "Europe (C)"),
+        C_Asia(SectionId.Currencies, "Asia (C)"),
+        C_Australasia(SectionId.Currencies, "Australasia (C)"),
+        C_Melanesia(SectionId.Currencies, "Melanesia (C)"),
+        C_Polynesia(SectionId.Currencies, "Polynesia (C)"),
+        C_Unknown(SectionId.Currencies, "Unknown Region (C)")
+        ;
 
         private final SectionId sectionId;
 
@@ -1223,6 +1233,26 @@ public class PathHeader implements Comparable<PathHeader> {
                             + englishFile.getName(CLDRFile.TERRITORY_NAME, territory)
                             + tenderOrNot;
                     }
+                }
+            });
+            functionMap.put("continentFromCurrency", new Transform<String, String>() {
+                public String transform(String source0) {
+                    String territoryRepresentation;
+                    String territory = likelySubtags.getLikelyTerritoryFromCurrency(source0);
+                    if (currencyToTerritoryOverrides.keySet().contains(source0)) {
+                        territory = currencyToTerritoryOverrides.get(source0);
+                    } else if (territory == null) {
+                        territory = source0.substring(0, 2);
+                    }
+
+                    if (territory.equals("ZZ")) {
+                        order = 999;
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, territory) + " (C)";
+                    } else {
+                        territoryRepresentation = catFromTerritory.transform(territory);
+                    }
+                    
+                    return territoryRepresentation.substring(territoryRepresentation.lastIndexOf(" ")+1) + " (C)";   //the continent is the last word in the territory representation
                 }
             });
             functionMap.put("numberingSystem", new Transform<String, String>() {

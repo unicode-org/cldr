@@ -360,7 +360,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST likelySubtag from NMTOKEN #REQUIRED>
 <!ATTLIST likelySubtag to NMTOKEN #REQUIRED>
 
-<!ELEMENT plurals (pluralRules*) >
+<!ELEMENT plurals (pluralRules*, pluralRanges*) >
 <!ATTLIST plurals type ( ordinal | cardinal ) #IMPLIED > <!-- default is cardinal -->
 <!ATTLIST plurals draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
 <!ATTLIST plurals references CDATA #IMPLIED >
@@ -374,6 +374,19 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST pluralRule count (zero | one | two | few | many | other) #REQUIRED > <!-- 'other' is implicitly everything else -->
 <!ATTLIST pluralRule draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST pluralRule references CDATA #IMPLIED >
+
+<!ELEMENT pluralRanges (pluralRange*) >
+<!ATTLIST pluralRanges locales NMTOKENS #REQUIRED >
+<!ATTLIST pluralRanges draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
+<!ATTLIST pluralRanges references CDATA #IMPLIED >
+
+<!ELEMENT pluralRange ( #PCDATA ) >
+<!ATTLIST pluralRange start (zero | one | two | few | many | other) #IMPLIED > <!-- if missing, means *all* -->
+<!ATTLIST pluralRange end (zero | one | two | few | many | other) #IMPLIED > <!-- if missing, means *all* -->
+<!ATTLIST pluralRange result (zero | one | two | few | many | other) #REQUIRED > <!-- if a whole rule is missing, means *other* -->
+<!ATTLIST pluralRange draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
+<!ATTLIST pluralRange references CDATA #IMPLIED >
+
 
 <!ELEMENT telephoneCodeData ( codesByTerritory* ) >
 

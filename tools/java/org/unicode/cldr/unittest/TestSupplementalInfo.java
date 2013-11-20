@@ -2,7 +2,10 @@ package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.BitSet;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -47,6 +50,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralRanges;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
@@ -61,8 +65,12 @@ import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.FixedDecimalRange;
+import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.StringTransform;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 public class TestSupplementalInfo extends TestFmwk {
@@ -75,6 +83,254 @@ public class TestSupplementalInfo extends TestFmwk {
     public static void main(String[] args) {
         new TestSupplementalInfo().run(args);
     }
+
+    public void TestPluralSampleOrder() {
+        HashSet seen = new HashSet();
+        for (String locale : SUPPLEMENTAL.getPluralLocales()) {
+            if (locale.equals("root")) {
+                continue;
+            }
+            PluralInfo pi = SUPPLEMENTAL.getPlurals(locale);
+            if (seen.contains(pi)) {
+                continue;
+            }
+            seen.add(pi);
+            for (SampleType s : SampleType.values()) {
+                for (Count c : pi.getCounts(s)) {
+                    FixedDecimalSamples sSamples = pi.getPluralRules().getDecimalSamples(c.toString(), s);
+                    if (sSamples == null) {
+                        errln(locale + " no sample for " + c);
+                        continue;
+                    }
+                    if (s == SampleType.DECIMAL) {
+                        continue; // skip
+                    }
+                    FixedDecimalRange lastSample = null;
+                    for (FixedDecimalRange sample : sSamples.samples) {
+                        if (lastSample != null) {
+                            if (lastSample.start.compareTo(sample.start) > 0) {
+                                errln(locale + ":" + c + ": out of order with " + lastSample + " > " + sample);
+                            } else if (false) {
+                                logln(locale + ":" + c + ": in order with " + lastSample + " < " + sample);
+                            }
+                        }
+                        lastSample = sample;
+                    }
+                }    
+            }
+        }
+    }
+
+    public void TestPluralRanges() {
+        Relation<Set<String>, String> seen 
+        = Relation.of(new TreeMap<Set<String>,Set<String>>(
+            SetComparator), TreeSet.class);
+        for (String locale : SUPPLEMENTAL.getPluralRangesLocales()) {
+            // check that there are no null values
+            PluralRanges pluralRanges = SUPPLEMENTAL.getPluralRanges(locale);
+            PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(locale);
+            Set<Count> counts = pluralInfo.getCounts();
+            for (Count count : Count.values()) {
+                if (pluralRanges.isExplicit(count) && !counts.contains(count)) {
+                    assertTrue(locale + "\t pluralRanges categories must be valid for locale:\t"
+                        + count + " must be in " + counts, 
+                        !pluralRanges.isExplicit(count));
+                }
+            }
+            Set<String> s = minimize(pluralRanges, pluralInfo);
+            seen.put(s, locale);
+        }
+
+        if (isVerbose()) {            
+            for (Entry<Set<String>, Set<String>> entry : seen.keyValuesSet()) {
+                logln("\n\t<pluralRanges locales=\"" + CollectionUtilities.join(entry.getValue(), " ") + "\">");
+                if (entry.getValue().contains("cy")) {
+                    int debug = 1;
+                }
+                for (String line : entry.getKey()) {
+                    logln("\t" + line);
+                }
+                logln("<pluralRanges/>");
+            }
+        }
+    }
+
+    public static final Comparator<Set<String>> SetComparator = new Comparator<Set<String>>() {
+        public int compare(Set<String> o1, Set<String> o2) {
+            return CollectionUtilities.compare((Collection<String>)o1, (Collection<String>)o2);
+        }
+    };
+
+    private static final boolean MINIMAL = true;
+
+    private static final boolean SHOW_RANGE = true;
+
+
+    Set<String> minimize(PluralRanges pluralRanges, PluralInfo pluralInfo) {
+        int count = Count.VALUES.size();
+        Set<String> result = new LinkedHashSet<String>();
+        PluralRules pluralRules = pluralInfo.getPluralRules();
+        result.add("<!-- " + CollectionUtilities.join(pluralInfo.getCounts(), ", ") + " -->");
+        // make it easier to manage
+        Count[][] matrix = new Count[count][]; // [start][end]
+        boolean allOther = true;
+        for (Count s : Count.VALUES) {
+            matrix[s.ordinal()] = new Count[count];
+            for (Count e : Count.VALUES) {
+                if (!rangeExists(pluralInfo, s, e)) {
+                    continue;
+                }
+                Count r = pluralRanges.getResult(s,e);
+                matrix[s.ordinal()][e.ordinal()] = r;
+                if (r != Count.other) {
+                    allOther = false;
+                }
+            }
+        }
+        // if everything is 'other', we are done
+        if (allOther == true) {
+            return result;
+        }
+        BitSet endDone = new BitSet();
+        BitSet startDone = new BitSet();
+        if (MINIMAL) {
+            for (Count end : pluralInfo.getCounts()) {
+                Count r = endSame(matrix, end);
+                if (r != null && r != Count.other) {
+                    FixedDecimal max = getMinMax(pluralRules, end, MinMax.MAX);
+                    result.add("<pluralRange" +
+                        "              \t\tend=\"" + end 
+                        + "\"\tresult=\"" + r + "\"/>"
+                        + (SHOW_RANGE ? " <!-- " + "*" + "–" + max + " -->" : "")
+                        );
+                    endDone.set(end.ordinal());
+                }
+            }
+            Output<Boolean> emit = new Output();
+            for (Count start : pluralInfo.getCounts()) {
+                Count r = startSame(matrix, start, endDone, emit);
+                if (r != null && r != Count.other) {
+                    if (emit.value) {
+                        FixedDecimal min = getMinMax(pluralRules, start, MinMax.MIN);
+                        result.add("<pluralRange" +
+                            "\tstart=\"" + start 
+                            + "\"          \t\tresult=\"" + r + "\"/>"
+                            + (SHOW_RANGE ? " <!-- " + min + "–" + "*" + " -->" : "")
+                            );
+                    }
+                    startDone.set(start.ordinal());
+                }
+            }
+        }
+        for (int end = 0; end < count; ++end) {
+            if (!endDone.get(end)) {
+                for (int start = 0; start < count; ++start) {
+                    Count r = matrix[start][end];
+                    if (r != null 
+                        && !(MINIMAL && r == Count.other)
+                        && !startDone.get(start)) {
+                        FixedDecimal min = getMinMax(pluralRules, Count.VALUES.get(start), MinMax.MIN);
+                        FixedDecimal max = getMinMax(pluralRules, Count.VALUES.get(end), MinMax.MAX);
+                        result.add("<pluralRange" +
+                            "\tstart=\"" + Count.VALUES.get(start) 
+                            + "\" \tend=\"" + Count.VALUES.get(end) 
+                            + "\" \tresult=\"" + r + "\"/>"
+                            + (SHOW_RANGE ? " <!-- " + min + "–" + max + " -->" : "")
+                            );
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    enum MinMax {MIN, MAX}
+
+    private boolean rangeExists(PluralInfo pluralInfo, Count s, Count e) {
+        if (!pluralInfo.getCounts().contains(s) 
+            || !pluralInfo.getCounts().contains(e)) {
+            return false;
+        }
+        PluralRules pluralRules = pluralInfo.getPluralRules();
+        FixedDecimal min = getMinMax(pluralRules, s, MinMax.MIN);
+        FixedDecimal max = getMinMax(pluralRules, e, MinMax.MAX);
+        return min.doubleValue() < max.doubleValue();
+    }
+
+    private FixedDecimal getMinMax(PluralRules pluralRules, Count s, MinMax minMax) {
+        FixedDecimal result = getMinMax(pluralRules, s, minMax, SampleType.INTEGER, null);
+        result = getMinMax(pluralRules, s, minMax, SampleType.DECIMAL, result);
+        if (result == null) {
+            errln("Need samples for " + s);
+        }
+        return result;
+    }
+
+    public FixedDecimal getMinMax(PluralRules pluralRules, Count s, MinMax minMax, SampleType sampleType, FixedDecimal result) {
+        FixedDecimalSamples sSamples1 = pluralRules.getDecimalSamples(s.toString(), sampleType);
+        if (sSamples1 != null) {
+            for (FixedDecimalRange x : sSamples1.samples) {
+                if (minMax == MinMax.MIN) {
+                    if (result == null
+                        || x.start.doubleValue() < result.doubleValue()
+                        || x.start.doubleValue() == result.doubleValue() && x.start.decimalDigits < result.decimalDigits) {
+                        result = x.start;
+                    }
+                } else {
+                    if (result == null
+                        || x.end.doubleValue() > result.doubleValue()
+                        || x.end.doubleValue() == result.doubleValue() && x.end.decimalDigits < result.decimalDigits) {
+                        result = x.end;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    private static Count startSame(Count[][] matrix, Count main, BitSet endDone, Output<Boolean> emit) {
+        int index = main.ordinal();
+        emit.value = false;
+        Count first = null;
+        for (int i = 0; i < matrix.length; ++i) {
+            Count item = matrix[index][i];
+            if (item == null) {
+                continue;
+            }
+            if (first == null) {
+                first = item;
+                continue;
+            }
+            if (first != item) {
+                return null;
+            }
+            // only emit if we didn't cover with the 'end' values
+            if (!endDone.get(i)) {
+                emit.value = true;
+            }
+        }
+        return first;
+    }
+
+    private static Count endSame(Count[][] matrix, Count main) {
+        int index = main.ordinal();
+        Count first = null;
+        for (int i = 0; i < matrix.length; ++i) {
+            Count item = matrix[i][index];
+            if (item == null) {
+                continue;
+            }
+            if (first == null) {
+                first = item;
+                continue;
+            }
+            if (first != item) {
+                return null;
+            }
+        }
+        return first;
+    }
+
 
     public void TestPluralSamples() {
         String[][] test = {
@@ -281,7 +537,7 @@ public class TestSupplementalInfo extends TestFmwk {
                     String countRules = plurals.getPluralRules().getRules(c.toString());
                     ruleToExceptions.put(
                         countRules == null ? "" : countRules,
-                        "{\"" + locale + "\", \"" + c + "\", \"" + CollectionUtilities.join(compose, ",") + "\"},");
+                            "{\"" + locale + "\", \"" + c + "\", \"" + CollectionUtilities.join(compose, ",") + "\"},");
                 }
             }
         }
@@ -867,7 +1123,7 @@ public class TestSupplementalInfo extends TestFmwk {
             TreeSet.class);
         Set<String> territoriesWithoutModernCurrencies = new TreeSet<String>(STANDARD_CODES
             .getGoodAvailableCodes(
-            "territory"));
+                "territory"));
         Map<String, Date> currencyFirstValid = new TreeMap<String, Date>();
         Map<String, Date> currencyLastValid = new TreeMap<String, Date>();
         territoriesWithoutModernCurrencies.remove("ZZ");

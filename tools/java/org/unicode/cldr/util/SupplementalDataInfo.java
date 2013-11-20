@@ -51,6 +51,7 @@ import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Freezable;
@@ -1076,6 +1077,7 @@ public class SupplementalDataInfo {
         }
         localeToPluralInfo = Collections.unmodifiableMap(localeToPluralInfo);
         localeToOrdinalInfo = Collections.unmodifiableMap(localeToOrdinalInfo);
+        localeToPluralRanges = Collections.unmodifiableMap(localeToPluralRanges);
 
         if (lastDayPeriodLocales != null) {
             addDayPeriodInfo();
@@ -1215,8 +1217,9 @@ public class SupplementalDataInfo {
                         return;
                     }
                 } else if (level1.equals("plurals")) {
-                    addPluralPath(parts, value);
-                    return;
+                    if (addPluralPath(parts, value)) {
+                        return;
+                    }
                 } else if (level1.equals("dayPeriodRuleSet")) {
                     addDayPeriodPath(parts, value);
                     return;
@@ -2638,6 +2641,8 @@ public class SupplementalDataInfo {
 
     private Map<String, PluralInfo> localeToPluralInfo = new LinkedHashMap<String, PluralInfo>();
     private Map<String, PluralInfo> localeToOrdinalInfo = new LinkedHashMap<String, PluralInfo>();
+    private Map<String, PluralRanges> localeToPluralRanges = new LinkedHashMap<String, PluralRanges>();
+
     private Map<String, DayPeriodInfo> localeToDayPeriodInfo = new LinkedHashMap<String, DayPeriodInfo>();
     private Map<String, CoverageLevel2> localeToCoverageLevelInfo = new ConcurrentHashMap<String, CoverageLevel2>();
     private CoverageCache coverageCache = new CoverageCache();
@@ -2712,22 +2717,154 @@ public class SupplementalDataInfo {
         }
     }
 
-    private void addPluralPath(XPathParts path, String value) {
+    public static class PluralRanges implements Comparable<PluralRanges> {
+        private static final int count = Count.values().length;
+        private Count[] overrides = new Count[count*count];
+        private boolean[] explicit = new boolean[count];
+
+        private void add(Count rangeStart, Count rangeEnd, Count result) {
+            explicit[result.ordinal()] = true;
+            if (rangeStart == null) {
+                for (Count rs : Count.values()) {
+                    if (rangeEnd == null) {
+                        for (Count re : Count.values()) {
+                            _add(rs, re, result);
+                        }
+                    } else {
+                        explicit[rangeEnd.ordinal()] = true;
+                        _add(rs, rangeEnd, result);
+                    }
+                }
+            } else if (rangeEnd == null) {
+                explicit[rangeStart.ordinal()] = true;
+                for (Count re : Count.values()) {
+                    _add(rangeStart, re, result);
+                }
+            } else {
+                explicit[rangeStart.ordinal()] = true;
+                explicit[rangeEnd.ordinal()] = true;
+                _add(rangeStart, rangeEnd, result);
+            }
+        }
+
+        public void _add(Count rangeStart, Count rangeEnd, Count result) {
+            Count resultValue = overrides[rangeStart.ordinal()*count + rangeEnd.ordinal()];
+            if (resultValue != null) {
+                throw new IllegalArgumentException("Previously set value for <" +
+                    rangeStart + ", " + rangeEnd + ", " + resultValue + ">");
+            }
+            overrides[rangeStart.ordinal()*count + rangeEnd.ordinal()] = result;
+        }
+
+        public Count getResult(Count rangeStart, Count rangeEnd) {
+            // keep the default value null so we can tell if we attempt to override in adding.
+            Count result = overrides[rangeStart.ordinal()*count + rangeEnd.ordinal()];
+            return result;
+            //return result == null ? Count.other : result;
+        }
+
+        public boolean isExplicit(Count count) {
+            return explicit[count.ordinal()];
+        }
+
+        public boolean equals(Object other) {
+            PluralRanges that = (PluralRanges) other;
+            for (Count s : Count.values()) {
+                for (Count e : Count.values()) {
+                    if (getResult(s,e) != that.getResult(s, e)) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public int hashCode() {
+            int result = 0;
+            for (Count s : Count.values()) {
+                for (Count e : Count.values()) {
+                    result = result * 37 + getResult(s,e).ordinal();
+                }
+            }
+            return result;
+        }
+
+        @Override
+        public int compareTo(PluralRanges that) {
+            for (Count s : Count.values()) {
+                for (Count e : Count.values()) {
+                    int diff = getResult(s,e).compareTo(that.getResult(s, e));
+                    if (diff != 0) {
+                        return diff;
+                    }
+                }
+            }
+            return 0;
+        }
+    }
+
+    static String lastPluralRangesLocales = null;
+    static PluralRanges lastPluralRanges = null;
+
+    private boolean addPluralPath(XPathParts path, String value) {
+        /*
+         * Adding 
+         <pluralRanges locales="am">
+          <pluralRange start="one" end="one" result="one" />
+         </pluralRanges>
+         */
         String locales = path.getAttributeValue(2, "locales");
-        String type = path.getAttributeValue(1, "type");
-        boolean isOrdinal = type != null && type.equals("ordinal");
-        if (!lastPluralLocales.equals(locales)) {
-            addPluralInfo(isOrdinal);
-            lastPluralLocales = locales;
+        String element = path.getElement(2);
+        if ("pluralRanges".equals(element)) {
+            if (!locales.equals(lastPluralRangesLocales)) {
+                addPluralRanges(locales);
+            }
+            if (path.size() == 3) {
+                // ok for ranges to be empty
+                return true;
+            }
+            String rangeStart = path.getAttributeValue(-1, "start");
+            String rangeEnd = path.getAttributeValue(-1, "end");
+            String result = path.getAttributeValue(-1, "result");
+            lastPluralRanges.add(rangeStart == null ? null : Count.valueOf(rangeStart),
+                rangeEnd == null ? null : Count.valueOf(rangeEnd),
+                    Count.valueOf(result)
+                );
+            return true;
+        } else if ("pluralRules".equals(element)) {
+
+            String type = path.getAttributeValue(1, "type");
+            boolean isOrdinal = type != null && type.equals("ordinal");
+            if (!lastPluralLocales.equals(locales)) {
+                addPluralInfo(isOrdinal);
+                lastPluralLocales = locales;
+            }
+            final String countString = path.getAttributeValue(-1, "count");
+            if (countString == null) {
+                return false;
+            }
+            Count count = Count.valueOf(countString);
+            if (lastPluralMap.containsKey(count)) {
+                throw new IllegalArgumentException("Duplicate plural count: " + count + " in " + locales);
+            }
+            lastPluralMap.put(count, value);
+            lastPluralWasOrdinal = isOrdinal;
+            return true;
+        } else {
+            return false;
         }
-        final String countString = path.getAttributeValue(-1, "count");
-        if (countString == null) return;
-        Count count = Count.valueOf(countString);
-        if (lastPluralMap.containsKey(count)) {
-            throw new IllegalArgumentException("Duplicate plural count: " + count + " in " + locales);
+    }
+
+    private void addPluralRanges(String localesString) {
+        final String[] locales = localesString.split("\\s+");
+        lastPluralRanges = new PluralRanges();
+        for (String locale : locales) {
+            if (localeToPluralRanges.containsKey(locale)) {
+                throw new IllegalArgumentException("Duplicate plural locale: " + locale);
+            }
+            localeToPluralRanges.put(locale, lastPluralRanges);
         }
-        lastPluralMap.put(count, value);
-        lastPluralWasOrdinal = isOrdinal;
+        lastPluralRangesLocales = localesString;
     }
 
     private void addPluralInfo(boolean isOrdinal) {
@@ -2959,6 +3096,7 @@ public class SupplementalDataInfo {
 
         public enum Count {
             zero, one, two, few, many, other;
+            public static final List<Count> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         }
 
         static final Pattern pluralPaths = Pattern.compile(".*pluralRule.*");
@@ -2972,6 +3110,8 @@ public class SupplementalDataInfo {
         private final String pluralRulesString;
         private final Set<String> canonicalKeywords;
         private final Set<Count> keywords;
+        private final Set<Count> integerKeywords;
+        private final Set<Count> decimalKeywords;
         private final CountSampleList countSampleList;
         private final Map<Count, String> countToRule;
 
@@ -2996,10 +3136,26 @@ public class SupplementalDataInfo {
                 throw new IllegalArgumentException("Can't create plurals from <" + pluralRulesString + ">");
             }
             EnumSet<Count> _keywords = EnumSet.noneOf(Count.class);
+            EnumSet<Count> _integerKeywords = EnumSet.noneOf(Count.class);
+            EnumSet<Count> _decimalKeywords = EnumSet.noneOf(Count.class);
             for (String s : pluralRules.getKeywords()) {
-                _keywords.add(Count.valueOf(s));
+                Count c = Count.valueOf(s);
+                _keywords.add(c);
+                if (pluralRules.getDecimalSamples(s, SampleType.DECIMAL) != null) {
+                    _decimalKeywords.add(c);
+                } else {
+                    int debug = 1;
+                }
+                if (pluralRules.getDecimalSamples(s, SampleType.INTEGER) != null) {
+                    _integerKeywords.add(c);
+                } else {
+                    int debug = 1;
+                }
             }
             keywords = Collections.unmodifiableSet(_keywords);
+            decimalKeywords = Collections.unmodifiableSet(_decimalKeywords);
+            integerKeywords = Collections.unmodifiableSet(_integerKeywords);
+            
             countSampleList = new CountSampleList(pluralRules, keywords, isOrdinal);
 
             Map<Count, List<Double>> countToExampleListRaw = new TreeMap<Count, List<Double>>();
@@ -3117,6 +3273,10 @@ public class SupplementalDataInfo {
             return keywords;
         }
 
+        public Set<Count> getCounts(SampleType sampleType) {
+            return sampleType == SampleType.DECIMAL ? decimalKeywords : integerKeywords;
+        }
+
         /**
          * Return the integer samples from 0 to 9999. For simplicity and compactness, this is a UnicodeSet, but
          * the interpretation is simply as a list of integers. UnicodeSet.EMPTY is returned if there are none.
@@ -3181,6 +3341,14 @@ public class SupplementalDataInfo {
      */
     public Set<String> getPluralLocales(PluralType type) {
         return type == PluralType.cardinal ? localeToPluralInfo.keySet() : localeToOrdinalInfo.keySet();
+    }
+
+    public Set<String> getPluralRangesLocales() {
+        return localeToPluralRanges.keySet();
+    }
+
+    public PluralRanges getPluralRanges(String locale) {
+        return localeToPluralRanges.get(locale);
     }
 
     /**

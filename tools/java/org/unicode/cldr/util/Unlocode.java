@@ -39,33 +39,33 @@ public class Unlocode {
         T merge(T a);
     }
 
-//    public static class Iso3166_2Data implements Mergeable<Iso3166_2Data> {
-//        public final Set<String> names;
-//        public Iso3166_2Data(String... name) {
-//            this(Arrays.asList(name));
-//        }
-//        public Iso3166_2Data(Collection<String> names) {
-//            this.names = Collections.unmodifiableSet(new LinkedHashSet(names));
-//        }
-//        @Override
-//        public String toString() {
-//            return names.toString();
-//        }
-//        @Override
-//        public boolean equals(Object obj) {
-//            return names.equals((Iso3166_2Data)obj);
-//        }
-//        @Override
-//        public int hashCode() {
-//            return names.hashCode();
-//        }
-//        @Override
-//        public Iso3166_2Data merge(Iso3166_2Data b) {
-//            LinkedHashSet set = new LinkedHashSet(names);
-//            set.addAll(b.names);
-//            return new Iso3166_2Data(set);
-//        }
-//    }
+    public static class Iso3166_2Data implements Mergeable<Iso3166_2Data> {
+        public final Set<String> names;
+        public Iso3166_2Data(String... name) {
+            this(Arrays.asList(name));
+        }
+        public Iso3166_2Data(Collection<String> names) {
+            this.names = Collections.unmodifiableSet(new LinkedHashSet(names));
+        }
+        @Override
+        public String toString() {
+            return names.toString();
+        }
+        @Override
+        public boolean equals(Object obj) {
+            return names.equals((Iso3166_2Data)obj);
+        }
+        @Override
+        public int hashCode() {
+            return names.hashCode();
+        }
+        @Override
+        public Iso3166_2Data merge(Iso3166_2Data b) {
+            LinkedHashSet set = new LinkedHashSet(names);
+            set.addAll(b.names);
+            return new Iso3166_2Data(set);
+        }
+    }
 
     public static class LocodeData implements Mergeable<LocodeData>, Comparable<LocodeData> {
         public final String locode;
@@ -129,14 +129,14 @@ public class Unlocode {
     static Map<String,LocodeData> locodeToData = new HashMap<String,LocodeData>();
     static Relation<String,LocodeData> nameToLocodeData 
     = Relation.of(new HashMap<String,Set<LocodeData>>(), HashSet.class);
-//    static Map<String,Iso3166_2Data> iso3166_2Data = new HashMap<String,Iso3166_2Data>();
+    static Map<String,Iso3166_2Data> iso3166_2Data = new HashMap<String,Iso3166_2Data>();
     static Relation<String,String> ERRORS = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
 
     static {
         // read the data
         try {
-//            loadIso();
-//            iso3166_2Data = Collections.unmodifiableMap(iso3166_2Data);
+            loadIso();
+            iso3166_2Data = Collections.unmodifiableMap(iso3166_2Data);
             load(1);
             load(2);
             load(3);
@@ -215,30 +215,52 @@ public class Unlocode {
             Torbay: 47°39′N 052°44′W "4739N 05244W"
      */
 
-//    public static void loadIso() throws IOException {
-//        BufferedReader br = 
-//            FileUtilities.openFile(CldrUtility.class, 
-//                "data/external/ISO3166-2.csv", FileUtilities.UTF8);
-//        while (true) {
-//            // "GT", "GT-AV*", "Alta Verapaz"
-//            String line = br.readLine();
-//            if (line == null) {
-//                break;
-//            }
-//            line = line.trim();
-//            if (line.isEmpty()) {
+    public static void loadIso() throws IOException {
+        BufferedReader br = 
+            FileUtilities.openFile(CldrUtility.class, 
+                "data/external/subdivisionData.txt", FileUtilities.UTF8);
+        while (true) {
+            // "GT", "GT-AV*", "Alta Verapaz"
+            String line = br.readLine();
+            if (line == null) {
+                break;
+            }
+            line = line.trim();
+            int hash = line.indexOf('#');
+            if (hash >= 0) {
+                line = line.substring(0,hash).trim();
+            }
+            if (line.isEmpty()) {
+                continue;
+            }
+            String[] list = line.split("\\s*;\\s*");
+            String locode = list[0];
+            String bestName = list[1];
+//            if (!locode.contains("-")) {
+//                //System.out.println("*skipping: " + locode);
 //                continue;
 //            }
-//            String[] list = FileUtilities.splitCommaSeparated(line);
-//            String locode = list[1];
+//
+//            String names = list[5];
+//            String[] name = names.split("\\+");
+//            String bestName = null;
+//            for (String namePair : name) {
+//                if (bestName == null) {
+//                    bestName = namePair.split("=")[1];
+//                } else if (namePair.startsWith("en=")) {
+//                    bestName = namePair.split("=")[1];
+//                    break;
+//                }
+//            }
 //            if (locode.endsWith("*")) {
 //                locode = locode.substring(0,locode.length()-1);
 //            }
-//            String name = list[2];
-//            putCheckingDuplicate(iso3166_2Data, locode, new Iso3166_2Data(name));
-//        }
-//        br.close();
-//    }
+            //System.out.println(locode + ";" + bestName);
+
+            putCheckingDuplicate(iso3166_2Data, locode, new Iso3166_2Data(bestName));
+        }
+        br.close();
+    }
 
     public static void load(int file) throws IOException {
         BufferedReader br = 
@@ -306,9 +328,9 @@ public class Unlocode {
             String subdivision = list[5];
             if (!subdivision.isEmpty()) {
                 subdivision = countryCode + "-" + subdivision;
-//                if (getIso3166_2Data(subdivision) == null) {
-//                    ERRORS.put(subdivision, "Missing subdivision " + subdivision + " on line " + line);
-//                }
+                if (getIso3166_2Data(subdivision) == null) {
+                    ERRORS.put(subdivision, "Missing subdivision " + subdivision + " on line " + line);
+                }
             }
             String latLong = list[10];
             float latN = 0;
@@ -396,17 +418,17 @@ public class Unlocode {
         return locodeToData.keySet();
     }
 
-//    public static Iso3166_2Data getIso3166_2Data(String unlocode) {
-//        return iso3166_2Data.get(unlocode);
-//    }
-//
-//    public static Set<Entry<String, Iso3166_2Data>> isoEntrySet() {
-//        return iso3166_2Data.entrySet();
-//    }
-//
-//    public static Set<String> getAvailableIso3166_2() {
-//        return iso3166_2Data.keySet();
-//    }
+    public static Iso3166_2Data getIso3166_2Data(String unlocode) {
+        return iso3166_2Data.get(unlocode);
+    }
+
+    public static Set<Entry<String, Iso3166_2Data>> isoEntrySet() {
+        return iso3166_2Data.entrySet();
+    }
+
+    public static Set<String> getAvailableIso3166_2() {
+        return iso3166_2Data.keySet();
+    }
 
     public static Relation<String,String> getLoadErrors() {
         return ERRORS;
@@ -459,7 +481,10 @@ public class Unlocode {
         showLocodes("In exemplars already:", already);
         System.out.println();
         showLocodes("In exemplars but not new cities:", missing);
-
+        System.out.println();
+        for (Entry<String, Set<String>> errorEntry : ERRORS.keyValuesSet()) {
+            System.out.println(errorEntry.getKey() + "\t" + errorEntry.getValue());
+        }
         if (true) return;
 
         int i = 0;

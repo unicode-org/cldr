@@ -2,10 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.BitSet;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.EnumMap;
 import java.util.EnumSet;
@@ -19,7 +16,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -40,6 +36,7 @@ import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Pair;
+import org.unicode.cldr.util.PluralRanges;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
 import org.unicode.cldr.util.PreferredAndAllowedHour.HourStyle;
 import org.unicode.cldr.util.StandardCodes;
@@ -52,7 +49,6 @@ import org.unicode.cldr.util.SupplementalDataInfo.CurrencyDateInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralRanges;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
@@ -124,223 +120,69 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestPluralRanges() {
-        Map<Set<Count>, Relation<Set<String>, String>> seen 
-        = new TreeMap<Set<Count>, Relation<Set<String>, String>>(COUNT_SET_COMPARATOR);
-        for (String locale : SUPPLEMENTAL.getPluralRangesLocales()) {
+        Set<String> localesToTest = new TreeSet(SUPPLEMENTAL.getPluralRangesLocales());
+        for (String locale : StandardCodes.make().getLocaleCoverageLocales("google")) { //superset
+            if (locale.equals("*") || locale.contains("_")) {
+                continue;
+            }
+            localesToTest.add(locale);
+        }
+
+        for (String locale : localesToTest) {
+
             // check that there are no null values
             PluralRanges pluralRanges = SUPPLEMENTAL.getPluralRanges(locale);
+            if (pluralRanges == null) {
+                ignoreErrln("Missing plural ranges for " + locale);
+                pluralRanges = new PluralRanges().freeze();
+            }
             PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(locale);
             Set<Count> counts = pluralInfo.getCounts();
+            EnumSet<Count> found = EnumSet.noneOf(Count.class);
             for (Count count : Count.values()) {
-                if (pluralRanges.isExplicit(count) && !counts.contains(count)) {
+                if (pluralRanges.isExplicitlySet(count) && !counts.contains(count)) {
                     assertTrue(locale + "\t pluralRanges categories must be valid for locale:\t"
                         + count + " must be in " + counts, 
-                        !pluralRanges.isExplicit(count));
+                        !pluralRanges.isExplicitlySet(count));
                 }
-            }
-            Set<String> s = minimize(pluralRanges, pluralInfo);
-            Relation<Set<String>, String> item = seen.get(counts);
-            if (item == null) {
-                seen.put(counts, 
-                    item = Relation.of(new TreeMap<Set<String>,Set<String>>(STRING_SET_COMPARATOR), TreeSet.class));
-            }
-            item.put(s, locale);
-        }
-
-        if (isVerbose()) {     
-            logln("Minimized rules, but not ready for prime-time");
-            for (Entry<Set<Count>, Relation<Set<String>, String>> entry0 : seen.entrySet()) {
-                logln("\n<!-- " + CollectionUtilities.join(entry0.getKey(), ", ") + " -->");
-                for (Entry<Set<String>, Set<String>> entry : entry0.getValue().keyValuesSet()) {
-                    logln("\n\t<pluralRanges locales=\"" + CollectionUtilities.join(entry.getValue(), " ") + "\">");
-                    for (String line : entry.getKey()) {
-                        logln("\t" + line);
+                for (Count end : Count.values()) {
+                    Count result = pluralRanges.getExplicit(count, end);
+                    if (result != null) {
+                        found.add(result);
                     }
-                    logln("</pluralRanges>");
                 }
             }
-        }
-    }
 
-    public static final Comparator<Set<String>> STRING_SET_COMPARATOR = new SetComparator<String, Set<String>>();
-    public static final Comparator<Set<Count>> COUNT_SET_COMPARATOR = new SetComparator<Count, Set<Count>>();
-
-    static final class SetComparator<T extends Comparable<T>, U extends Set<T>> implements Comparator<U> {
-        public int compare(U o1, U o2) {
-            return CollectionUtilities.compare((Collection<T>)o1, (Collection<T>)o2);
-        }
-    };
-
-
-    private static final boolean MINIMAL = true;
-
-    private static final boolean SHOW_RANGE = false;
-
-
-    Set<String> minimize(PluralRanges pluralRanges, PluralInfo pluralInfo) {
-        int count = Count.VALUES.size();
-        Set<String> result = new LinkedHashSet<String>();
-        PluralRules pluralRules = pluralInfo.getPluralRules();
-        // make it easier to manage
-        Count[][] matrix = new Count[count][]; // [start][end]
-        boolean allOther = true;
-        for (Count s : Count.VALUES) {
-            matrix[s.ordinal()] = new Count[count];
-            for (Count e : Count.VALUES) {
-                if (!rangeExists(pluralInfo, s, e)) {
-                    continue;
-                }
-                Count r = pluralRanges.getResult(s,e);
-                matrix[s.ordinal()][e.ordinal()] = r;
-                if (r != Count.other) {
-                    allOther = false;
-                }
+            // check empty range results
+            if (found.isEmpty()) {
+                ignoreErrln("Empty range results for " + locale);
+            } else if (isVerbose()) {
+                logln("Range results for " + locale + ":\t" + found);
             }
-        }
-        // if everything is 'other', we are done
-        if (allOther == true) {
-            return result;
-        }
-        BitSet endDone = new BitSet();
-        BitSet startDone = new BitSet();
-        if (MINIMAL) {
-            for (Count end : pluralInfo.getCounts()) {
-                Count r = endSame(matrix, end);
-                if (r != null && r != Count.other) {
-                    FixedDecimal max = getMinMax(pluralRules, end, MinMax.MAX);
-                    result.add("<pluralRange" +
-                        "              \t\tend=\"" + end 
-                        + "\"\tresult=\"" + r + "\"/>"
-                        + (SHOW_RANGE ? " <!-- " + "*" + "–" + max + " -->" : "")
-                        );
-                    endDone.set(end.ordinal());
-                }
-            }
-            Output<Boolean> emit = new Output();
-            for (Count start : pluralInfo.getCounts()) {
-                Count r = startSame(matrix, start, endDone, emit);
-                if (r != null && r != Count.other) {
-                    if (emit.value) {
-                        FixedDecimal min = getMinMax(pluralRules, start, MinMax.MIN);
-                        result.add("<pluralRange" +
-                            "\tstart=\"" + start 
-                            + "\"          \t\tresult=\"" + r + "\"/>"
-                            + (SHOW_RANGE ? " <!-- " + min + "–" + "*" + " -->" : "")
-                            );
-                    }
-                    startDone.set(start.ordinal());
-                }
-            }
-        }
-        for (int end = 0; end < count; ++end) {
-            if (!endDone.get(end)) {
-                for (int start = 0; start < count; ++start) {
-                    Count r = matrix[start][end];
-                    if (r != null 
-                        && !(MINIMAL && r == Count.other)
-                        && !startDone.get(start)) {
-                        FixedDecimal min = getMinMax(pluralRules, Count.VALUES.get(start), MinMax.MIN);
-                        FixedDecimal max = getMinMax(pluralRules, Count.VALUES.get(end), MinMax.MAX);
-                        result.add("<pluralRange" +
-                            "\tstart=\"" + Count.VALUES.get(start) 
-                            + "\" \tend=\"" + Count.VALUES.get(end) 
-                            + "\" \tresult=\"" + r + "\"/>"
-                            + (SHOW_RANGE ? " <!-- " + min + "–" + max + " -->" : "")
-                            );
+
+            // check for missing values
+            Output<FixedDecimal> maxSample = new Output<FixedDecimal>();
+            Output<FixedDecimal> minSample = new Output<FixedDecimal>();
+            for (Count start : counts) {
+                for (Count end : counts) {
+                    boolean needsValue = pluralInfo.rangeExists(start, end, minSample, maxSample);
+                    Count explicitValue = pluralRanges.getExplicit(start, end);
+                    if (needsValue && explicitValue == null) {
+                        ignoreErrln(locale + "\tNeeds value, but has none: " + PluralRanges.showRange(start, end, Count.other)
+                            + ", eg: " + minSample + "–" + maxSample);
+                    } else if (!needsValue && explicitValue != null) {
+                        ignoreErrln(locale + "\tDoesn't need value, but has one: " + PluralRanges.showRange(start, end, explicitValue));
                     }
                 }
             }
         }
-        return result;
     }
 
-    enum MinMax {MIN, MAX}
-
-    private boolean rangeExists(PluralInfo pluralInfo, Count s, Count e) {
-        if (!pluralInfo.getCounts().contains(s) 
-            || !pluralInfo.getCounts().contains(e)) {
-            return false;
+    public void ignoreErrln(String s) {
+        if (!logKnownIssue("6722", "fix once data is complete for ar, etc.")) {
+            errln(s);
         }
-        PluralRules pluralRules = pluralInfo.getPluralRules();
-        FixedDecimal min = getMinMax(pluralRules, s, MinMax.MIN);
-        FixedDecimal max = getMinMax(pluralRules, e, MinMax.MAX);
-        return min.doubleValue() < max.doubleValue();
     }
-
-    private FixedDecimal getMinMax(PluralRules pluralRules, Count s, MinMax minMax) {
-        FixedDecimal result = getMinMax(pluralRules, s, minMax, SampleType.INTEGER, null);
-        result = getMinMax(pluralRules, s, minMax, SampleType.DECIMAL, result);
-        if (result == null) {
-            errln("Need samples for " + s);
-        }
-        return result;
-    }
-
-    public FixedDecimal getMinMax(PluralRules pluralRules, Count s, MinMax minMax, SampleType sampleType, FixedDecimal result) {
-        FixedDecimalSamples sSamples1 = pluralRules.getDecimalSamples(s.toString(), sampleType);
-        if (sSamples1 != null) {
-            for (FixedDecimalRange x : sSamples1.samples) {
-                if (minMax == MinMax.MIN) {
-                    if (result == null
-                        || x.start.doubleValue() < result.doubleValue()
-                        || x.start.doubleValue() == result.doubleValue() && x.start.decimalDigits < result.decimalDigits) {
-                        result = x.start;
-                    }
-                } else {
-                    if (result == null
-                        || x.end.doubleValue() > result.doubleValue()
-                        || x.end.doubleValue() == result.doubleValue() && x.end.decimalDigits < result.decimalDigits) {
-                        result = x.end;
-                    }
-                }
-            }
-        }
-        return result;
-    }
-
-    private static Count startSame(Count[][] matrix, Count main, BitSet endDone, Output<Boolean> emit) {
-        int index = main.ordinal();
-        emit.value = false;
-        Count first = null;
-        for (int i = 0; i < matrix.length; ++i) {
-            Count item = matrix[index][i];
-            if (item == null) {
-                continue;
-            }
-            if (first == null) {
-                first = item;
-                continue;
-            }
-            if (first != item) {
-                return null;
-            }
-            // only emit if we didn't cover with the 'end' values
-            if (!endDone.get(i)) {
-                emit.value = true;
-            }
-        }
-        return first;
-    }
-
-    private static Count endSame(Count[][] matrix, Count main) {
-        int index = main.ordinal();
-        Count first = null;
-        for (int i = 0; i < matrix.length; ++i) {
-            Count item = matrix[i][index];
-            if (item == null) {
-                continue;
-            }
-            if (first == null) {
-                first = item;
-                continue;
-            }
-            if (first != item) {
-                return null;
-            }
-        }
-        return first;
-    }
-
 
     public void TestPluralSamples() {
         String[][] test = {

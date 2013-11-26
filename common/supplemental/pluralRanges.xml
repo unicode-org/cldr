@@ -7,6 +7,9 @@
 	<version number="$Revision$" />
 	<generation date="$Date$" />
 	<plurals>
+		<pluralRanges locales="id ja km ko lo ms my th vi zh">
+			<pluralRange end="other" result="other"/>
+		</pluralRanges>
 		<pluralRanges locales="af">
 			<pluralRange start="one" end="other" result="other" />
 			<pluralRange start="other" end="one" result="other" />
@@ -91,6 +94,9 @@
 			<pluralRange start="few" end="many" result="many" />
 			<pluralRange start="few" end="other" result="other" />
 			<pluralRange start="many" end="other" result="other" />
+    		<pluralRange start="other" end="one"   result="one"/>
+			<pluralRange start="other" end="two"   result="two"/>
+			<pluralRange start="other" end="few"   result="few"/>
 			<pluralRange start="other" end="many" result="many" />
 			<pluralRange start="other" end="other" result="other" />
 		</pluralRanges>

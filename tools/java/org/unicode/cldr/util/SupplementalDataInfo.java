@@ -36,6 +36,7 @@ import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -50,6 +51,7 @@ import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.FixedDecimalRange;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.text.SimpleDateFormat;
@@ -1078,6 +1080,9 @@ public class SupplementalDataInfo {
         localeToPluralInfo = Collections.unmodifiableMap(localeToPluralInfo);
         localeToOrdinalInfo = Collections.unmodifiableMap(localeToOrdinalInfo);
         localeToPluralRanges = Collections.unmodifiableMap(localeToPluralRanges);
+        for (PluralRanges pluralRanges : localeToPluralRanges.values()) {
+            pluralRanges.freeze();
+        }
 
         if (lastDayPeriodLocales != null) {
             addDayPeriodInfo();
@@ -2717,92 +2722,6 @@ public class SupplementalDataInfo {
         }
     }
 
-    public static class PluralRanges implements Comparable<PluralRanges> {
-        private static final int count = Count.values().length;
-        private Count[] overrides = new Count[count*count];
-        private boolean[] explicit = new boolean[count];
-
-        private void add(Count rangeStart, Count rangeEnd, Count result) {
-            explicit[result.ordinal()] = true;
-            if (rangeStart == null) {
-                for (Count rs : Count.values()) {
-                    if (rangeEnd == null) {
-                        for (Count re : Count.values()) {
-                            _add(rs, re, result);
-                        }
-                    } else {
-                        explicit[rangeEnd.ordinal()] = true;
-                        _add(rs, rangeEnd, result);
-                    }
-                }
-            } else if (rangeEnd == null) {
-                explicit[rangeStart.ordinal()] = true;
-                for (Count re : Count.values()) {
-                    _add(rangeStart, re, result);
-                }
-            } else {
-                explicit[rangeStart.ordinal()] = true;
-                explicit[rangeEnd.ordinal()] = true;
-                _add(rangeStart, rangeEnd, result);
-            }
-        }
-
-        public void _add(Count rangeStart, Count rangeEnd, Count result) {
-            Count resultValue = overrides[rangeStart.ordinal()*count + rangeEnd.ordinal()];
-            if (resultValue != null) {
-                throw new IllegalArgumentException("Previously set value for <" +
-                    rangeStart + ", " + rangeEnd + ", " + resultValue + ">");
-            }
-            overrides[rangeStart.ordinal()*count + rangeEnd.ordinal()] = result;
-        }
-
-        public Count getResult(Count rangeStart, Count rangeEnd) {
-            // keep the default value null so we can tell if we attempt to override in adding.
-            Count result = overrides[rangeStart.ordinal()*count + rangeEnd.ordinal()];
-            return result;
-            //return result == null ? Count.other : result;
-        }
-
-        public boolean isExplicit(Count count) {
-            return explicit[count.ordinal()];
-        }
-
-        public boolean equals(Object other) {
-            PluralRanges that = (PluralRanges) other;
-            for (Count s : Count.values()) {
-                for (Count e : Count.values()) {
-                    if (getResult(s,e) != that.getResult(s, e)) {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-
-        public int hashCode() {
-            int result = 0;
-            for (Count s : Count.values()) {
-                for (Count e : Count.values()) {
-                    result = result * 37 + getResult(s,e).ordinal();
-                }
-            }
-            return result;
-        }
-
-        @Override
-        public int compareTo(PluralRanges that) {
-            for (Count s : Count.values()) {
-                for (Count e : Count.values()) {
-                    int diff = getResult(s,e).compareTo(that.getResult(s, e));
-                    if (diff != 0) {
-                        return diff;
-                    }
-                }
-            }
-            return 0;
-        }
-    }
-
     static String lastPluralRangesLocales = null;
     static PluralRanges lastPluralRanges = null;
 
@@ -3096,6 +3015,7 @@ public class SupplementalDataInfo {
 
         public enum Count {
             zero, one, two, few, many, other;
+            public static final int LENGTH = Count.values().length;
             public static final List<Count> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
         }
 
@@ -3325,6 +3245,47 @@ public class SupplementalDataInfo {
                 }
             }
             return pluralRules.compareTo(other.pluralRules);
+        }
+        
+        enum MinMax {MIN, MAX}
+
+        public boolean rangeExists(Count s, Count e, Output<FixedDecimal> minSample, Output<FixedDecimal> maxSample) {
+            PluralInfo pluralInfo = this;
+            if (!pluralInfo.getCounts().contains(s) 
+                || !pluralInfo.getCounts().contains(e)) {
+                return false;
+            }
+            minSample.value = getMinMax(s, MinMax.MIN);
+            maxSample.value = getMinMax(e, MinMax.MAX);
+            return minSample.value.doubleValue() < maxSample.value.doubleValue();
+        }
+
+        private FixedDecimal getMinMax(Count s, MinMax minMax) {
+            FixedDecimal result = getMinMax(s, minMax, SampleType.INTEGER, null);
+            result = getMinMax(s, minMax, SampleType.DECIMAL, result);
+            return result;
+        }
+
+        private FixedDecimal getMinMax(Count s, MinMax minMax, SampleType sampleType, FixedDecimal result) {
+            FixedDecimalSamples sSamples1 = pluralRules.getDecimalSamples(s.toString(), sampleType);
+            if (sSamples1 != null) {
+                for (FixedDecimalRange x : sSamples1.samples) {
+                    if (minMax == MinMax.MIN) {
+                        if (result == null
+                            || x.start.doubleValue() < result.doubleValue()
+                            || x.start.doubleValue() == result.doubleValue() && x.start.decimalDigits < result.decimalDigits) {
+                            result = x.start;
+                        }
+                    } else {
+                        if (result == null
+                            || x.end.doubleValue() > result.doubleValue()
+                            || x.end.doubleValue() == result.doubleValue() && x.end.decimalDigits < result.decimalDigits) {
+                            result = x.end;
+                        }
+                    }
+                }
+            }
+            return result;
         }
     }
 

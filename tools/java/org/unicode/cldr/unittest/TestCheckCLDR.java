@@ -295,11 +295,10 @@ public class TestCheckCLDR extends TestFmwk {
     public void TestCheckNew() {
         String path = "//ldml/localeDisplayNames/territories/territory[@type=\"AX\"]";
         CheckCLDR c = new CheckNew(testInfo.getCldrFactory());
-        List<CheckStatus> result = new ArrayList();
-        Map<String, String> options = new HashMap();
+        List<CheckStatus> result = new ArrayList<CheckStatus>();
+        Map<String, String> options = new HashMap<String, String>();
         c.setCldrFileToCheck(testInfo.getCldrFactory().make("fr", true), options, result);
         c.check(path, path, "foobar", options, result);
-        boolean ok = false;
         for (CheckStatus status : result) {
             if (status.getSubtype() != Subtype.modifiedEnglishValue) {
                 continue;

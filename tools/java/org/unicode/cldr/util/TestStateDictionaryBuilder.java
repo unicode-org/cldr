@@ -172,7 +172,7 @@ public class TestStateDictionaryBuilder<T> {
             + Dictionary.load(dictionary.getMapping(), new TreeMap<CharSequence, U>()));
         System.out.println("Searching in: {" + originalText + "} with filter=" + filter);
         // Dictionaries are immutable, so we create a Matcher to search/test text.
-        Matcher matcher = dictionary.getMatcher();
+        Matcher<U> matcher = dictionary.getMatcher();
         matcher.setText(charListText);
         while (true) {
             Status status = matcher.find(filter);

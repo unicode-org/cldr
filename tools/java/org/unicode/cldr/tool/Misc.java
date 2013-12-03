@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -330,8 +329,8 @@ public class Misc {
         out.println("<tr><th></th><th>No</th><th>Country</th><th>Offset(s)</th>");
 
         // do the header
-        for (Iterator it2 = priorities.iterator(); it2.hasNext();) {
-            String locale = (String) it2.next();
+        for (Iterator<String> it2 = priorities.iterator(); it2.hasNext();) {
+            String locale = it2.next();
             String englishLocaleName = english.getName(locale);
             out.println("<th>" + locale + " (" + englishLocaleName + ")" + "</th>");
         }
@@ -791,9 +790,9 @@ public class Misc {
         temp.clear();
         temp.addAll(countries);
         temp.removeAll(sc.getOld3166());
-        for (Iterator it = sc.getZoneData().values().iterator(); it.hasNext();) {
-            Object x = it.next();
-            List<String> list = (List<String>) x;
+        for (Iterator<List<String>> it = sc.getZoneData().values().iterator(); it.hasNext();) {
+            List<String> x = it.next();
+            List<String> list = x;
             temp.remove(list.get(2));
         }
         for (Iterator<String> it = temp.iterator(); it.hasNext();) {
@@ -973,7 +972,7 @@ public class Misc {
             String line = br.readLine();
             if (line == null) break;
             if (line.startsWith("place name")) continue;
-            List list = CldrUtility.splitList(line, '\t', true);
+            List<String> list = CldrUtility.splitList(line, '\t', true);
             String place = (String) list.get(0);
             place = t.transliterate(place);
             String place2 = t2.transliterate(place);
@@ -1061,7 +1060,7 @@ public class Misc {
             Map<String, String> attributes = parts.getAttributes(2);
             String type = (String) attributes.get("type");
             Collection<String> contents = CldrUtility
-                .splitList((String) attributes.get("contains"), ' ', true, new ArrayList());
+                .splitList((String) attributes.get("contains"), ' ', true, new ArrayList<String>());
             groups.put(type, contents);
             if (false) {
                 System.out.print("\t\t<group type=\"" + fixNumericKey(type)
@@ -1140,7 +1139,7 @@ public class Misc {
             log2.println("\t<fallbackFormat>TODO {0} ({1})</fallbackFormat>");
             for (Iterator<String> it = missing[1].iterator(); it.hasNext();) {
                 String key = it.next();
-                List data = (List) StandardCodes.make().getZoneData().get(key);
+                List<String> data = StandardCodes.make().getZoneData().get(key);
                 String countryCode = (String) data.get(2);
                 String country = english.getName(CLDRFile.TERRITORY_NAME, countryCode);
                 if (!country.equals(lastCountry)) {
@@ -1171,13 +1170,10 @@ public class Misc {
         if (log != null)
             log.print(Utility.repeat("\t", indent) + "<" + element + " n=\"" + name
                 + (showCode ? " (" + key + ")" : "") + "\"");
-        boolean gotZones = true;
         if (s == null) {
             s = zone_countrySet.get(key);
             if (s == null || s.size() == 1)
                 s = null; // skip singletons
-            else
-                gotZones = true;
         }
         if (s == null) {
             if (log != null) log.println("/>");
@@ -1269,15 +1265,14 @@ public class Misc {
 
     private static void compareLists() throws IOException {
         BufferedReader in = BagFormatter.openUTF8Reader("", "language_list.txt");
-        String[] pieces = new String[4];
         Factory cldrFactory = Factory.make(options[SOURCEDIR].value + "main\\", ".*");
         // CLDRKey.main(new String[]{"-mde.*"});
         Set<String> locales = cldrFactory.getAvailable();
         Set<String> cldr = new TreeSet<String>();
         LanguageTagParser parser = new LanguageTagParser();
-        for (Iterator it = locales.iterator(); it.hasNext();) {
+        for (Iterator<String> it = locales.iterator(); it.hasNext();) {
             // if doesn't have exactly one _, skip
-            String locale = (String) it.next();
+            String locale = it.next();
             parser.set(locale);
             if (parser.getScript().length() == 0 && parser.getRegion().length() == 0) continue;
             if (parser.getVariants().size() > 0) continue;

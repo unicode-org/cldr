@@ -3,7 +3,6 @@ package org.unicode.cldr.util;
 import java.io.File;
 import java.io.StringReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -15,25 +14,20 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeSet;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile.DtdType;
-import org.unicode.cldr.util.DtdData.Attribute;
-
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.Transform;
-import com.ibm.icu.text.UTF16;
 
 /**
  * An immutable object that contains the structure of a DTD.
  * @author markdavis
  */
 public class DtdData extends XMLFileReader.SimpleHandler {
-    private static final boolean SHOW_PROGRESS = CldrUtility.getProperty("verbose", false);
     private static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
     private static final boolean DEBUG = false;
     private static final Pattern FILLER = Pattern.compile("[^-a-zA-Z0-9#_]");
@@ -97,7 +91,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             defaultValue = value2 == null ? null 
                 : value2.intern();
             AttributeType _type = AttributeType.ENUMERATED_TYPE;
-            Map _values = Collections.EMPTY_MAP;
+            Map<String, Integer> _values = Collections.emptyMap();
             if (split.length == 1) {
                 try {
                     _type = AttributeType.valueOf(split[0]);
@@ -172,7 +166,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     public static class Element implements Named {
         public final String name;
         private ElementType type;
-        private String rawChildren;
         private final Map<Element, Integer> children = new LinkedHashMap<Element, Integer>();
         private final Map<Attribute, Integer> attributes = new LinkedHashMap<Attribute, Integer>();
         private String comment;
@@ -182,7 +175,6 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
 
         private void setChildren(DtdData dtdData, String model) {
-            rawChildren = model;
             if (model.equals("EMPTY")) {
                 type = ElementType.EMPTY;
                 return;
@@ -406,15 +398,15 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             //                throw new IllegalArgumentException("Failed to find good attribute order: " + element.attributes.keySet());
             //            }
             //        }
-            elementComparator = new MapComparator(elementList).setErrorOnMissing(true).freeze();
-            attributeComparator = new MapComparator(attributeList).setErrorOnMissing(true).freeze();
+            elementComparator = new MapComparator<String>(elementList).setErrorOnMissing(true).freeze();
+            attributeComparator = new MapComparator<String>(attributeList).setErrorOnMissing(true).freeze();
         }
         nameToAttributes.freeze();
         nameToElement = Collections.unmodifiableMap(nameToElement);
     }
 
     private Collection<String> getNames(Collection<? extends Named> keySet) {
-        List<String> result = new ArrayList();
+        List<String> result = new ArrayList<String>();
         for (Named e : keySet) {
             result.add(e.getName());
         }
@@ -613,10 +605,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         b.append("\n\n<!ELEMENT " + current.name + " ");
         boolean first = true;
         Element aliasElement = getElementFromName().get("alias");
-        Element specialElement = getElementFromName().get("special");
         //b.append(current.rawChildren);
         if (current.type == ElementType.CHILDREN) {
-            LinkedHashSet<Element> elements = new LinkedHashSet(current.children.keySet());
+            LinkedHashSet<Element> elements = new LinkedHashSet<Element>(current.children.keySet());
             boolean hasAlias = aliasElement != null && elements.remove(aliasElement);
             //boolean hasSpecial = specialElement != null && elements.remove(specialElement);
             if (hasAlias) {

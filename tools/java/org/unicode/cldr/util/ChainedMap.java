@@ -48,6 +48,7 @@ public class ChainedMap {
             return (Iterator<Entry<K2, Map<K1, V>>>) super.iterator();
         }
 
+        @SuppressWarnings("unchecked")
         public Iterable<Row.R3<K2, K1, V>> rows() {
             List<R3<K2, K1, V>> result = new ArrayList<R3<K2, K1, V>>();
             for (Entry<Object, Object> entry0 : super.mapBase.entrySet()) {
@@ -59,6 +60,7 @@ public class ChainedMap {
             return result;
         }
 
+        @SuppressWarnings("unchecked")
         public Set<K2> keySet() {
             return (Set<K2>) super.mapBase.keySet();
         }
@@ -75,9 +77,8 @@ public class ChainedMap {
             return (V) super.handleGet(key3, key2, key1);
         }
 
-        @SuppressWarnings("unchecked")
         public M3<K2, K1, V> get(K3 key3) {
-            return new M3((Map<?, ?>) super.handleGet(key3), super.mapConstructors, super.indexStart + 1);
+            return new M3<K2, K1, V>((Map<?, ?>) super.handleGet(key3), super.mapConstructors, super.indexStart + 1);
         }
 
         @SuppressWarnings("unchecked")
@@ -91,6 +92,7 @@ public class ChainedMap {
             return (Iterator<Entry<K3, Map<K2, Map<K1, V>>>>) super.iterator();
         }
 
+        @SuppressWarnings("unchecked")
         public Iterable<Row.R4<K3, K2, K1, V>> rows() {
             List<R4<K3, K2, K1, V>> result = new ArrayList<R4<K3, K2, K1, V>>();
             for (Entry<Object, Object> entry0 : super.mapBase.entrySet()) {
@@ -104,6 +106,7 @@ public class ChainedMap {
             return result;
         }
 
+        @SuppressWarnings("unchecked")
         public Set<K3> keySet() {
             return (Set<K3>) super.mapBase.keySet();
         }
@@ -125,6 +128,7 @@ public class ChainedMap {
         this.indexStart = indexStart;
     }
 
+    @SuppressWarnings("unchecked")
     private static Constructor<Map<Object, Object>>[] constructorList(Map<? extends Object, ? extends Object>... maps) {
         Constructor<Map<Object, Object>>[] tempMapConstructors = new Constructor[maps.length];
         items: for (int i = 0; i < maps.length; ++i) {
@@ -139,12 +143,10 @@ public class ChainedMap {
         return tempMapConstructors;
     }
 
-    @SuppressWarnings("unchecked")
     public static <K2, K1, V> M3<K2, K1, V> of(Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
         return new M3<K2, K1, V>(map2, map1, valueClass);
     }
 
-    @SuppressWarnings("unchecked")
     public static <K3, K2, K1, V> M4<K3, K2, K1, V> of(Map<K3, Object> map3, Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
         return new M4<K3, K2, K1, V>(map3, map2, map1, valueClass);
     }

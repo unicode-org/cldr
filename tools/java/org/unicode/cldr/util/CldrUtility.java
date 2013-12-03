@@ -418,7 +418,7 @@ public class CldrUtility {
     public static <T> T clone(T source) {
         try {
             final Class<? extends Object> class1 = source.getClass();
-            final Method declaredMethod = class1.getDeclaredMethod("clone", (Class) null);
+            final Method declaredMethod = class1.getDeclaredMethod("clone", (Class<?>) null);
             return (T) declaredMethod.invoke(source, (Object) null);
         } catch (Exception e) {
             return null; // uncloneable
@@ -599,7 +599,7 @@ public class CldrUtility {
         Map<UnicodeSet, UnicodeSet> lastToFirst = new TreeMap<UnicodeSet, UnicodeSet>(new UnicodeSetComparator());
         int alternateCount = 0;
         while (it.nextRange()) {
-            if (it.codepoint == it.IS_STRING) {
+            if (it.codepoint == UnicodeSetIterator.IS_STRING) {
                 ++alternateCount;
                 alternates.append('|').append(escaper.transliterate(it.string));
             } else if (!onlyBmp || it.codepointEnd <= 0xFFFF) { // BMP
@@ -853,11 +853,11 @@ public class CldrUtility {
      * @param source_key_valueSet
      * @param output_value_key
      */
-    public static void putAllTransposed(Map source_key_valueSet, Map output_value_key) {
-        for (Iterator it = source_key_valueSet.keySet().iterator(); it.hasNext();) {
+    public static void putAllTransposed(Map<Object, Set<Object>> source_key_valueSet, Map<Object, Object> output_value_key) {
+        for (Iterator<Object> it = source_key_valueSet.keySet().iterator(); it.hasNext();) {
             Object key = it.next();
-            Set values = (Set) source_key_valueSet.get(key);
-            for (Iterator it2 = values.iterator(); it2.hasNext();) {
+            Set<Object> values = source_key_valueSet.get(key);
+            for (Iterator<Object> it2 = values.iterator(); it2.hasNext();) {
                 Object value = it2.next();
                 output_value_key.put(value, key);
             }
@@ -968,7 +968,7 @@ public class CldrUtility {
         Set<String> names = new TreeSet<String>();
         for (int i = 0; i < methods.length; ++i) {
             if (methods[i].getGenericParameterTypes().length != 0) continue;
-            int mods = methods[i].getModifiers();
+            //int mods = methods[i].getModifiers();
             // if (!Modifier.isStatic(mods)) continue;
             String name = methods[i].getName();
             names.add(name);
@@ -1219,8 +1219,8 @@ public class CldrUtility {
         return collection.contains(key);
     }
 
-    public static <E extends Enum<E>> EnumSet<E> toEnumSet(Class classValue, Collection<String> stringValues) {
-        EnumSet result = EnumSet.noneOf(classValue);
+    public static <E extends Enum<E>> EnumSet<E> toEnumSet(Class<E> classValue, Collection<String> stringValues) {
+        EnumSet<E> result = EnumSet.noneOf(classValue);
         for (String s : stringValues) {
             result.add(Enum.valueOf(classValue, s));
         }

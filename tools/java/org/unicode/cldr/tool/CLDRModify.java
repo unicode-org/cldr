@@ -37,7 +37,6 @@ import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Factory;
-import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.PathHeader;
@@ -1137,6 +1136,23 @@ public class CLDRModify {
             }
         });
 
+        fixList.add('l', "change language code", new CLDRFilter() {
+            private CLDRFile resolved;
+
+            public void handleStart() {
+                resolved = factory.make(cldrFileToFilter.getLocaleID(), true);
+            }
+
+            public void handlePath(String xpath) {
+                if (!xpath.contains("/language")) return;
+                String languageCode = parts.set(xpath).findAttributeValue("language", "type");
+                String v = resolved.getStringValue(xpath);
+                if (!languageCode.equals("mo")) return;
+                parts.setAttribute("language", "type", "ro_MD");
+                replace(xpath, parts.toString(), v);
+            }
+        });
+
         if (false) fixList.add('s', "fix stand-alone narrows", new CLDRFilter() {
             public void handlePath(String xpath) {
                 if (xpath.indexOf("[@type=\"narrow\"]") < 0) return;
@@ -1483,14 +1499,14 @@ public class CLDRModify {
             }
         });
 
-        fixList.add('l', "Remove losing items", new CLDRFilter() {
-            public void handlePath(String xpath) {
-                String fullXPath = cldrFileToFilter.getFullXPath(xpath);
-                if (fullXPath.indexOf("proposed-x10") < 0) return;
-                if (fullXPath.indexOf("unconfirmed") < 0) return;
-                remove(fullXPath, "Losing item");
-            }
-        });
+//        fixList.add('l', "Remove losing items", new CLDRFilter() {
+//            public void handlePath(String xpath) {
+//                String fullXPath = cldrFileToFilter.getFullXPath(xpath);
+//                if (fullXPath.indexOf("proposed-x10") < 0) return;
+//                if (fullXPath.indexOf("unconfirmed") < 0) return;
+//                remove(fullXPath, "Losing item");
+//            }
+//        });
 
         if (false) fixList.add('z', "fix ZZ", new CLDRFilter() {
             public void handlePath(String xpath) {

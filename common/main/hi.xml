@@ -1162,12 +1162,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d MMMM Gy</pattern>
+							<pattern>EEEE, d MMMM G y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM Gy</pattern>
+							<pattern>d MMMM G y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
@@ -1205,10 +1205,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
-						<dateFormatItem id="Gy">Gy</dateFormatItem>
-						<dateFormatItem id="GyMMM">MMM Gy</dateFormatItem>
-						<dateFormatItem id="GyMMMd">d MMM Gy</dateFormatItem>
-						<dateFormatItem id="GyMMMEd">E, d MMM Gy</dateFormatItem>
+						<dateFormatItem id="Gy">G y</dateFormatItem>
+						<dateFormatItem id="GyMMM">MMM G y</dateFormatItem>
+						<dateFormatItem id="GyMMMd">d MMM G y</dateFormatItem>
+						<dateFormatItem id="GyMMMEd">E, d MMM G y</dateFormatItem>
 						<dateFormatItem id="h" draft="contributed">h a</dateFormatItem>
 						<dateFormatItem id="H" draft="contributed">HH</dateFormatItem>
 						<dateFormatItem id="hm" draft="contributed">h:mm a</dateFormatItem>
@@ -1223,17 +1223,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">d MMM</dateFormatItem>
 						<dateFormatItem id="MMMEd">E, d MMM</dateFormatItem>
 						<dateFormatItem id="ms">mm:ss</dateFormatItem>
-						<dateFormatItem id="y">Gy</dateFormatItem>
+						<dateFormatItem id="y">G y</dateFormatItem>
 						<dateFormatItem id="yyyy">G y</dateFormatItem>
 						<dateFormatItem id="yyyyM">M/y GGGGG</dateFormatItem>
 						<dateFormatItem id="yyyyMd" draft="contributed">d/M/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMEd" draft="contributed">E, d/M/y G</dateFormatItem>
 						<dateFormatItem id="yyyyMMdd">dd-MM-y G</dateFormatItem>
-						<dateFormatItem id="yyyyMMM">MMM Gy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMd">d MMM Gy</dateFormatItem>
-						<dateFormatItem id="yyyyMMMEd">E, d MMM Gy</dateFormatItem>
-						<dateFormatItem id="yyyyQQQ">QQQ Gy</dateFormatItem>
-						<dateFormatItem id="yyyyQQQQ">QQQQ Gy</dateFormatItem>
+						<dateFormatItem id="yyyyMMM">MMM G y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMd">d MMM G y</dateFormatItem>
+						<dateFormatItem id="yyyyMMMEd">E, d MMM G y</dateFormatItem>
+						<dateFormatItem id="yyyyQQQ">QQQ G y</dateFormatItem>
+						<dateFormatItem id="yyyyQQQQ">QQQQ G y</dateFormatItem>
 					</availableFormats>
 					<intervalFormats>
 						<intervalFormatFallback>{0} – {1}</intervalFormatFallback>

@@ -30,11 +30,32 @@ import com.ibm.icu.util.Output;
 public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     private VariableReplacer variables = new VariableReplacer();
     private static final boolean DEBUG = true;
-    public final RegexTree entries = new RegexTree();
+    private RegexTree<T> RTEntries;
+    private Map<Finder, T> MEntries;
     private Transform<String, ? extends Finder> patternTransform = RegexFinderTransform;
     private Transform<String, ? extends T> valueTransform;
     private Merger<T> valueMerger;
     private final boolean allowNull = false;
+    
+    /*
+     * OPTIMIZED_DIRECTORY_PATTERN_LOOKUP
+     * 
+     * When true, RegexLookup can match regex's in O(log(n)) time, where n is the number of regex's stored. 
+     * This is provided that all regex patterns follow a directory based format and all directories are separated by a forward slash '/'
+     * for example: ^//ldml/dates/calendars/calendar[@type="([^"']++)"]/alias[@source="locale"][@path="../calendar[@type='([^"']++)']"]
+     * 
+     * When false, RegexLookup will match regex's in O(n) time, where n is the number of regex's stored.
+     * However regex's no longer need to follow any specific format (Slower but more versatile).
+     */
+    static final boolean OPTIMIZED_DIRECTORY_PATTERN_LOOKUP = true;
+    
+    public RegexLookup() {
+        if(OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) {
+            RTEntries = new RegexTree<T>();
+        } else {
+            MEntries = new LinkedHashMap<Finder, T>();
+        }
+    }
 
     public abstract static class Finder {
         abstract public String[] getInfo();
@@ -99,7 +120,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
         }
     }
     
-    public class RegexTree{
+    private static class RegexTree<T>{
         private RTNode root;
         private int _size;
         private RTNodeRankComparator rankComparator = new RTNodeRankComparator();
@@ -430,19 +451,42 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     public T get(String source, Object context, Output<String[]> arguments,
         Output<Finder> matcherFound, List<String> failures) {
         
-        T ret = entries.get(source, context, arguments, matcherFound);
-        if( ret != null ){
-            return ret;
-        }
-        
-        if( failures != null ) {
-            for (Map.Entry<Finder, T> entry : entries.entrySet()) {
-                Finder matcher = entry.getKey();
-                synchronized (matcher) {
-                    int failPoint = matcher.getFailPoint(source);
-                    String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t"
-                        + matcher.toString();
-                    failures.add(show);
+        if(OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) {
+            T ret = RTEntries.get(source, context, arguments, matcherFound);
+            if( ret != null ){
+                return ret;
+            }
+            
+            if( failures != null ) {
+                for (Map.Entry<Finder, T> entry : RTEntries.entrySet()) {
+                    Finder matcher = entry.getKey();
+                    synchronized (matcher) {
+                        int failPoint = matcher.getFailPoint(source);
+                        String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t"
+                            + matcher.toString();
+                        failures.add(show);
+                    }
+                }
+            }
+        } else {
+            //slow but versatile implementation
+            for (Map.Entry<Finder, T> entry : MEntries.entrySet()) { 
+                Finder matcher = entry.getKey(); 
+                synchronized (matcher) { 
+                    if (matcher.find(source, context)) { 
+                        if (arguments != null) { 
+                            arguments.value = matcher.getInfo(); 
+                        } 
+                        if (matcherFound != null) { 
+                            matcherFound.value = matcher; 
+                        } 
+                        return entry.getValue(); 
+                    } else if (failures != null) { 
+                        int failPoint = matcher.getFailPoint(source);
+                        String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t"
+                            + matcher.toString();
+                        failures.add(show);
+                    }
                 }
             }
         }
@@ -467,23 +511,43 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      * @return
      */
     public List<T> getAll(String source, Object context, List<Finder> matcherList, List<String> failures) {    
-        List<T> matches = entries.getAll(source, context, matcherList);
-        if( matches != null ){
-            return matches;
-        }
-        
-        if( failures != null ) {
-            for (Map.Entry<Finder, T> entry : entries.entrySet()) {
-                Finder matcher = entry.getKey();
-                synchronized (matcher) {
-                    int failPoint = matcher.getFailPoint(source);
-                    String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t"
-                        + matcher.toString();
-                    failures.add(show);
+        if(OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) {
+            List<T> matches = RTEntries.getAll(source, context, matcherList);
+            if( matches != null ){
+                return matches;
+            }
+            
+            if( failures != null ) {
+                for (Map.Entry<Finder, T> entry : RTEntries.entrySet()) {
+                    Finder matcher = entry.getKey();
+                    synchronized (matcher) {
+                        int failPoint = matcher.getFailPoint(source);
+                        String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t"
+                            + matcher.toString();
+                        failures.add(show);
+                    }
                 }
             }
+            return null;
+        } else {
+            //slow but versatile implementation
+            List<T> matches = new ArrayList<T>(); 
+            for (Map.Entry<Finder, T> entry : MEntries.entrySet()) { 
+                Finder matcher = entry.getKey(); 
+                if (matcher.find(source, context)) { 
+                    if (matcherList != null) { 
+                        matcherList.add(matcher); 
+                    } 
+                    matches.add(entry.getValue()); 
+                } else if (failures != null) { 
+                    int failPoint = matcher.getFailPoint(source); 
+                    String show = source.substring(0, failPoint) + "☹" + source.substring(failPoint) + "\t" 
+                        + matcher.toString();
+                    failures.add(show);
+                } 
+            } 
+            return matches; 
         }
-        return null;
     }
 
     /**
@@ -494,7 +558,11 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      */
     public Map<String, T> getUnmatchedPatterns(Set<String> matched, Map<String, T> outputUnmatched) {
         outputUnmatched.clear();
-        for (Map.Entry<Finder, T> entry : entries.entrySet()) {
+        
+        Set<Map.Entry<Finder, T>> entrySet = (OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) ? RTEntries.entrySet() : MEntries.entrySet();
+            
+            
+        for (Map.Entry<Finder, T> entry : entrySet) {
             String pattern = entry.getKey().toString();
             if (!matched.contains(pattern)) {
                 outputUnmatched.put(pattern, entry.getValue());
@@ -618,9 +686,12 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             throw new NullPointerException("null disallowed, unless allowNull(true) is called.");
         }
         
-        T old = entries.get(pattern);
+        T old = (OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) ? RTEntries.get(pattern) : MEntries.get(pattern);
         if (old == null) {
-            entries.put(pattern, target);
+            if(OPTIMIZED_DIRECTORY_PATTERN_LOOKUP)
+                RTEntries.put(pattern, target);
+            else
+                MEntries.put(pattern, target);
         } else if (valueMerger != null) {
             valueMerger.merge(target, old);
         } else {
@@ -632,7 +703,8 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
     @Override
     public Iterator<Map.Entry<Finder, T>> iterator() {
-        return Collections.unmodifiableCollection(entries.entrySet()).iterator();
+        return (OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) ? Collections.unmodifiableCollection(RTEntries.entrySet()).iterator() : 
+                                                      Collections.unmodifiableCollection(MEntries.entrySet()).iterator();
     }
 
     public static String replace(String lookup, String... arguments) {
@@ -661,6 +733,6 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      * @return the number of entries
      */
     public int size() {
-        return entries.size();
+        return (OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) ? RTEntries.size() : MEntries.size();
     }
 }

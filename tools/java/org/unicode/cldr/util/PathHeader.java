@@ -41,9 +41,10 @@ import com.ibm.icu.util.ULocale;
 public class PathHeader implements Comparable<PathHeader> {
     public static final String SECTION_LINK = "<a target='CLDR_ST-SECTION' href='";
     static boolean UNIFORM_CONTINENTS = true;
+    static Factory factorySingleton = null;
 
     /**
-     * What status the survey tool should use. Can be overriden in
+     * What status the survey tool should use. Can be overridden in
      * Phase.getAction()
      */
     public enum SurveyToolStatus {
@@ -338,10 +339,13 @@ public class PathHeader implements Comparable<PathHeader> {
      * @param englishFile
      */
     public static Factory getFactory(CLDRFile englishFile) {
-        if (englishFile == null) {
-            throw new IllegalArgumentException("English CLDRFile must not be null");
+        if (factorySingleton == null) {
+            if (englishFile == null) {
+                throw new IllegalArgumentException("English CLDRFile must not be null");
+            }
+            factorySingleton = new Factory(englishFile);
         }
-        return new Factory(englishFile);
+        return factorySingleton;
     }
 
     /**

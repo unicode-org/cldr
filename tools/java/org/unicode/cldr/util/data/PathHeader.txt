@@ -129,8 +129,9 @@
 # HIDE OTHERS
 //ldml/layout/orientation/(%E)                              ; Special ; Alphabetic Information ; Layout ; $1 ; HIDE
 
-
 //ldml/dates/calendars/calendar[@type="%A"]/dateTimeFormats/appendItems/appendItem[@request="%A"]    ; Special ; Suppress ; Append-Fallback-$1 ; $2 ; HIDE
+
+//ldml/contextTransforms/contextTransformUsage[@type="%E"]/contextTransform[@type="%E"]              ; Special ; Suppress ; Usage-$1 ; $2 ; HIDE
 
 
 //ldml/fallback                             ; Special ; Deprecated ; null ; fallback ; DEPRECATED

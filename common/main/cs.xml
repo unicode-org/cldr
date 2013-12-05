@@ -1194,6 +1194,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<contextTransformUsage type="month-standalone-except-narrow">
 			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
 		</contextTransformUsage>
+		<contextTransformUsage type="tense">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
 	</contextTransforms>
 	<characters>
 		<exemplarCharacters>[a á b c č d ď e é ě f g h {ch} i í j k l m n ň o ó p q r ř s š t ť u ú ů v w x y ý z ž]</exemplarCharacters>

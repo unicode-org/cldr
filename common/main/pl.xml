@@ -1231,6 +1231,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<codePattern type="territory">Region: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
+	<contextTransforms>
+		<contextTransformUsage type="tense">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+	</contextTransforms>
 	<characters>
 		<exemplarCharacters>[a ą b c ć d e ę f g h i j k l ł m n ń o ó p r s ś t u w y z ź ż]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[à â å ä æ ç é è ê ë î ï ô ö œ q ß ù û ü v x ÿ]</exemplarCharacters>

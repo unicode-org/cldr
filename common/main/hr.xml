@@ -1254,6 +1254,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<contextTransformUsage type="month-standalone-except-narrow">
 			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
 		</contextTransformUsage>
+		<contextTransformUsage type="tense">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
 	</contextTransforms>
 	<characters>
 		<exemplarCharacters>[a b c č ć d {dž} đ e f g h i j k l {lj} m n {nj} o p r s š t u v z ž]</exemplarCharacters>

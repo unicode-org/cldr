@@ -1249,6 +1249,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<codePattern type="territory">Bölge: {0}</codePattern>
 		</codePatterns>
 	</localeDisplayNames>
+	<contextTransforms>
+		<contextTransformUsage type="tense">
+			<contextTransform type="stand-alone">titlecase-firstword</contextTransform>
+			<contextTransform type="uiListOrMenu">titlecase-firstword</contextTransform>
+		</contextTransformUsage>
+	</contextTransforms>
 	<characters>
 		<exemplarCharacters>[a b c ç d e f g ğ h ı i İ j k l m n o ö p r s ş t u ü v y z]</exemplarCharacters>
 		<exemplarCharacters type="auxiliary">[á à ă â å ä ã ā æ ç é è ĕ ê ë ē í ì ĭ î ï ī ñ ó ò ŏ ô ø ō œ ö q ß ú ù ŭ û ū ü w x ÿ]</exemplarCharacters>

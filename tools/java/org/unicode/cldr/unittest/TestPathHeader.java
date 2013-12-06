@@ -254,28 +254,28 @@ public class TestPathHeader extends TestFmwkPlus {
 
         // check that English doesn't contain few or many
         verifyContains(PageId.Duration, filePaths, "few", false);
-        verifyContains(PageId.C_America, filePaths, "many", false);
-        verifyContains(PageId.C_Caribbean, filePaths, "many", false);
-        verifyContains(PageId.C_Africa, filePaths, "many", false);
+        verifyContains(PageId.C_NAmerica, filePaths, "many", false);
+        verifyContains(PageId.C_SAmerica, filePaths, "many", false);
         verifyContains(PageId.C_Europe, filePaths, "many", false);
-        verifyContains(PageId.C_Asia, filePaths, "many", false);
-        verifyContains(PageId.C_Australasia, filePaths, "many", false);
-        verifyContains(PageId.C_Melanesia, filePaths, "many", false);
-        verifyContains(PageId.C_Polynesia, filePaths, "many", false);
+        verifyContains(PageId.C_NWAfrica, filePaths, "many", false);
+        verifyContains(PageId.C_SEAfrica, filePaths, "many", false);
+        verifyContains(PageId.C_WCAsia, filePaths, "many", false);
+        verifyContains(PageId.C_SEAsia, filePaths, "many", false);
+        verifyContains(PageId.C_Oceania, filePaths, "many", false);
         verifyContains(PageId.C_Unknown, filePaths, "many", false);
 
         // check that Arabic does contain few and many
         filePaths = pathHeaderFactory.pathsForFile(info.getCldrFactory().make("ar", true));
 
         verifyContains(PageId.Duration, filePaths, "few", true);
-        verifyContains(PageId.C_America, filePaths, "many", true);
-        verifyContains(PageId.C_Caribbean, filePaths, "many", true);
-        verifyContains(PageId.C_Africa, filePaths, "many", true);
+        verifyContains(PageId.C_NAmerica, filePaths, "many", true);
+        verifyContains(PageId.C_SAmerica, filePaths, "many", true);
         verifyContains(PageId.C_Europe, filePaths, "many", true);
-        verifyContains(PageId.C_Asia, filePaths, "many", true);
-        verifyContains(PageId.C_Australasia, filePaths, "many", true);
-        verifyContains(PageId.C_Melanesia, filePaths, "many", true);
-        verifyContains(PageId.C_Polynesia, filePaths, "many", true);
+        verifyContains(PageId.C_NWAfrica, filePaths, "many", true);
+        verifyContains(PageId.C_SEAfrica, filePaths, "many", true);
+        verifyContains(PageId.C_WCAsia, filePaths, "many", true);
+        verifyContains(PageId.C_SEAsia, filePaths, "many", true);
+        verifyContains(PageId.C_Oceania, filePaths, "many", true);
         verifyContains(PageId.C_Unknown, filePaths, "many", true);
     }
 

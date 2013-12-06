@@ -199,15 +199,15 @@ public class PathHeader implements Comparable<PathHeader> {
         Suppress(SectionId.Special),
         Deprecated(SectionId.Special),
         Unknown(SectionId.Special), 
-        C_America(SectionId.Currencies, "America (C)"),     //need to add (C) to differentiate from Timezone territories
-        C_Caribbean(SectionId.Currencies, "Caribbean (C)"),
-        C_Africa(SectionId.Currencies, "Africa (C)"),
+        C_NAmerica(SectionId.Currencies, "North America (C)"),     //need to add (C) to differentiate from Timezone territories
+        C_SAmerica(SectionId.Currencies, "South America (C)"),
         C_Europe(SectionId.Currencies, "Europe (C)"),
-        C_Asia(SectionId.Currencies, "Asia (C)"),
-        C_Australasia(SectionId.Currencies, "Australasia (C)"),
-        C_Melanesia(SectionId.Currencies, "Melanesia (C)"),
-        C_Polynesia(SectionId.Currencies, "Polynesia (C)"),
-        C_Unknown(SectionId.Currencies, "Unknown Region (C)")
+        C_NWAfrica(SectionId.Currencies, "Northern/Western Africa (C)"),
+        C_SEAfrica(SectionId.Currencies, "Southern/Eastern Africa (C)"),
+        C_WCAsia(SectionId.Currencies, "Western/Central Asia (C)"),
+        C_SEAsia(SectionId.Currencies, "Eastern/Southern Asia (C)"),
+        C_Oceania(SectionId.Currencies, "Oceania (C)"),
+        C_Unknown(SectionId.Currencies, "Unknown Region (C)"),
         ;
 
         private final SectionId sectionId;
@@ -1212,8 +1212,35 @@ public class PathHeader implements Comparable<PathHeader> {
                 { "ZRN", "CD" },
                 { "ZRZ", "CD" },
             };
+            
+            Object[][] sctc = {
+                { "Northern America", "North America (C)" },
+                { "Central America", "North America (C)" },
+                { "Caribbean", "North America (C)" },
+                { "South America", "South America (C)" },
+                { "Northern Africa", "Northern/Western Africa (C)" },
+                { "Western Africa", "Northern/Western Africa (C)" },
+                { "Middle Africa", "Northern/Western Africa (C)" },
+                { "Eastern Africa", "Southern/Eastern Africa (C)" },
+                { "Southern Africa", "Southern/Eastern Africa (C)" },
+                { "Europe", "Europe (C)" },
+                { "Northern Europe", "Europe (C)" },
+                { "Western Europe", "Europe (C)" },
+                { "Eastern Europe", "Europe (C)" },
+                { "Southern Europe", "Europe (C)" },
+                { "Western Asia", "Western/Central Asia (C)" },
+                { "Central Asia", "Western/Central Asia (C)" },
+                { "Eastern Asia", "Eastern/Southern Asia (C)" },
+                { "Southern Asia", "Eastern/Southern Asia (C)" },
+                { "South-Eastern Asia", "Eastern/Southern Asia (C)" },
+                { "Australasia", "Oceania (C)" },
+                { "Melanesia", "Oceania (C)" },
+                { "Polynesia", "Oceania (C)" },
+                { "Unknown Region", "Unknown Region (C)" },
+            };
 
             final Map<String, String> currencyToTerritoryOverrides = CldrUtility.asMap(ctto);
+            final Map<String, String> subContinentToContinent = CldrUtility.asMap(sctc);
             // TODO: Put this into supplementalDataInfo ?
 
             functionMap.put("categoryFromCurrency", new Transform<String, String>() {
@@ -1241,7 +1268,7 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("continentFromCurrency", new Transform<String, String>() {
                 public String transform(String source0) {
-                    String territoryRepresentation;
+                    String subContinent;
                     String territory = likelySubtags.getLikelyTerritoryFromCurrency(source0);
                     if (currencyToTerritoryOverrides.keySet().contains(source0)) {
                         territory = currencyToTerritoryOverrides.get(source0);
@@ -1251,12 +1278,12 @@ public class PathHeader implements Comparable<PathHeader> {
 
                     if (territory.equals("ZZ")) {
                         order = 999;
-                        return englishFile.getName(CLDRFile.TERRITORY_NAME, territory) + " (C)";
+                        subContinent = englishFile.getName(CLDRFile.TERRITORY_NAME, territory);
                     } else {
-                        territoryRepresentation = catFromTerritory.transform(territory);
+                        subContinent = catFromTerritory.transform(territory);
                     }
                     
-                    return territoryRepresentation.substring(territoryRepresentation.lastIndexOf(" ")+1) + " (C)";   //the continent is the last word in the territory representation
+                    return subContinentToContinent.get(subContinent);   //the continent is the last word in the territory representation
                 }
             });
             functionMap.put("numberingSystem", new Transform<String, String>() {

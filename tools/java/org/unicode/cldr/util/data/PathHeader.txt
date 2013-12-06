@@ -92,6 +92,7 @@
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting ; Long Formats when using &numberingSystem($2) ; &count2($7-digits-$4-$8)
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Formats when using &numberingSystem($2) ; &count2($7-digits-$4-$8)
 
+### Currencies
 
 //ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)
 //ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name-$2)

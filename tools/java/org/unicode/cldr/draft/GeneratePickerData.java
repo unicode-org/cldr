@@ -30,6 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.GeneratePickerData.CategoryTable.Separation;
+import org.unicode.cldr.draft.GeneratePickerData.SimplePair;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
@@ -1624,7 +1625,7 @@ class GeneratePickerData {
         // }
         // }
 
-        Map<SimplePair, SimplePair> renameCache = new HashMap();
+        Map<SimplePair, SimplePair> renameCache = new HashMap<SimplePair, SimplePair>();
 
         SimplePair rename(String maincategory, String subcategory) {
             final SimplePair originals = new SimplePair(maincategory, subcategory);

@@ -54,8 +54,7 @@ public class JsonConverter {
         final XPathParts oldParts = new XPathParts();
         final XPathParts parts = new XPathParts();
         // ElementName elementName = new ElementName();
-        LinkedHashMap<String, String> nonDistinguishing = new LinkedHashMap<String, String>();
-        BitSet ordered = new BitSet();
+        // LinkedHashMap<String, String> nonDistinguishing = new LinkedHashMap<String, String>();
         for (String locale : locales) {
             System.out.println("Converting:\t" + locale);
             final CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
@@ -99,7 +98,7 @@ public class JsonConverter {
         }
     }
 
-    static Relation<String, String> extraDistinguishing = new Relation(new TreeMap(), LinkedHashSet.class);
+    static Relation<String, String> extraDistinguishing = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
     static {
         putAll(extraDistinguishing, "dayPeriodRule", "earlyMorning", "before", "from");
     }

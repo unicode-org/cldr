@@ -21,10 +21,10 @@ public class ShortestCanonicalForm {
     static final UnicodeSet leading = new UnicodeSet();
     static final UnicodeSet leading3 = new UnicodeSet();
     static StringComparator cpCompare = new UTF16.StringComparator(true, false, 0);
-    static final Map<Integer, Set<String>> leadToTrail = new TreeMap();
+    static final Map<Integer, Set<String>> leadToTrail = new TreeMap<Integer, Set<String>>();
     static UnicodeSet skip = new UnicodeSet(
         "[[:hangulsyllabletype=l:][:hangulsyllabletype=v:][:hangulsyllabletype=t:]]");
-    static Map<String, String> restoreExclusions = new TreeMap();
+    static Map<String, String> restoreExclusions = new TreeMap<String, String>();
     static UnicodeSet breakingTrail = new UnicodeSet();
 
     static {
@@ -49,7 +49,7 @@ public class ShortestCanonicalForm {
                 trailing.addAll(trailingString);
                 Set<String> trails = leadToTrail.get(first);
                 if (trails == null) {
-                    leadToTrail.put(first, trails = new TreeSet(cpCompare));
+                    leadToTrail.put(first, trails = new TreeSet<String>(cpCompare));
                 }
                 trails.add(trailingString);
                 if (UScript.getScript(i) != UScript.HANGUL

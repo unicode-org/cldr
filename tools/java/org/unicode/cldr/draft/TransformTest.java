@@ -63,7 +63,6 @@ public class TransformTest extends TestFmwk {
         };
         boolean setRules = true;
         String rules;
-        String test = "";
         StringTransform transform = null;
         Transliterator oldTransform = null;
         for (String testCase : tests) {
@@ -80,7 +79,6 @@ public class TransformTest extends TestFmwk {
                 setRules = false;
                 continue;
             }
-            test = testCase;
             check(TIMING_ITERATIONS, testCase, transform, transform);
         }
     }

@@ -57,7 +57,7 @@ public abstract class Ids implements Comparable<Ids> {
         UnicodeMap<String> remap = new UnicodeMap<String>();
         UnicodeSet radicals = new UnicodeSet();
         String line = "";
-        Relation<String, String> problems = new Relation(new LinkedHashMap(), LinkedHashSet.class);
+        Relation<String, String> problems = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
 
         void addProblem(String problem) {
             if (problem != null) {
@@ -490,7 +490,7 @@ public abstract class Ids implements Comparable<Ids> {
             BufferedReader in = BagFormatter.openUTF8Reader(dirString, file);
             boolean radicals = file.startsWith("CJK Radicals");
             boolean corrections = file.startsWith("X-Corrections");
-            Map<Integer, String> radicalToBase = new TreeMap();
+            Map<Integer, String> radicalToBase = new TreeMap<Integer, String>();
 
             while (true) {
                 String line = in.readLine();
@@ -581,7 +581,7 @@ public abstract class Ids implements Comparable<Ids> {
                 out.println(hacks.badChars.getCount(cp) + "\t" + charAndHex(cp) + "\t" + UCharacter.getName(cp));
             }
         }
-        TreeSet<String> sortedUCA = new TreeSet(Collator.getInstance(ULocale.ROOT));
+        TreeSet<String> sortedUCA = new TreeSet<String>(Collator.getInstance(ULocale.ROOT));
         for (String s : hacks.hackStrings) {
             if (!s.startsWith("X-")) {
                 sortedUCA.add(s);
@@ -642,7 +642,7 @@ public abstract class Ids implements Comparable<Ids> {
         // hacks.hackStringSample.get(s));
         // }
 
-        Relation<Ids, Integer> reverseData = new Relation(new HashMap(), LinkedHashSet.class);
+        Relation<Ids, Integer> reverseData = Relation.of(new HashMap<Ids, Set<Integer>>(), LinkedHashSet.class);
         UnicodeMap<UnicodeSet> charsToContainingChars = new UnicodeMap<UnicodeSet>();
 
         // get other data

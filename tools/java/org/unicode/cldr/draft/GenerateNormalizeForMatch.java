@@ -284,11 +284,11 @@ public class GenerateNormalizeForMatch {
         out.println("#");
 
         // special mappings
-        UnicodeMap SPECIAL_MAPPINGS = new UnicodeMap();
+        UnicodeMap<String> SPECIAL_MAPPINGS = new UnicodeMap<String>();
 
         loadMappings(specialMappingsFile, SPECIAL_MAPPINGS, true);
 
-        UnicodeMap mappings = new UnicodeMap();
+        UnicodeMap<String> mappings = new UnicodeMap<String>();
         for (UnicodeSetIterator it = new UnicodeSetIterator(ASSIGNED); it.next();) {
             if (LIST_STYLE == ListStyle.ONLY_OLD && !U50.contains(it.codepoint)) {
                 continue;
@@ -301,7 +301,7 @@ public class GenerateNormalizeForMatch {
 
         // Transitively close the mapping
         while (true) {
-            UnicodeMap deltaMappings = new UnicodeMap();
+            UnicodeMap<String> deltaMappings = new UnicodeMap<String>();
             UnicodeSet done = new UnicodeSet();
             for (UnicodeSetIterator it = new UnicodeSetIterator(mappings.keySet()); it.next();) {
                 String target = (String) mappings.getValue(it.codepoint);
@@ -330,7 +330,7 @@ public class GenerateNormalizeForMatch {
         }
     }
 
-    private static String replace(String target, UnicodeMap mappings) {
+    private static String replace(String target, UnicodeMap<String> mappings) {
         if (target.indexOf('\u2044') >= 0) {
             // System.out.println("?debug?");
         }
@@ -350,7 +350,7 @@ public class GenerateNormalizeForMatch {
         return changed ? result.toString() : target;
     }
 
-    private static String getRemapped(int codepoint, UnicodeMap mapping) {
+    private static String getRemapped(int codepoint, UnicodeMap<String> mapping) {
         return getRemapped(codepoint, (String) mapping.getValue(codepoint));
     }
 
@@ -478,7 +478,7 @@ public class GenerateNormalizeForMatch {
      *            TODO
      * @throws IOException
      */
-    private static void loadMappings(String filename, UnicodeMap resultMappings, boolean printWriter)
+    private static void loadMappings(String filename, UnicodeMap<String> resultMappings, boolean printWriter)
         throws IOException {
         // SPECIAL_MAPPINGS.putAll(0,0x10FFFF, "exclude");
         BufferedReader in = openUTF8Reader(filename);
@@ -504,7 +504,7 @@ public class GenerateNormalizeForMatch {
      * @param mappings
      */
     private static void getMappingFromSemiLine(int lineNumber, String line, boolean skipIfIdentical,
-        UnicodeMap resultMappings, boolean printWriter) {
+        UnicodeMap<String> resultMappings, boolean printWriter) {
         line = line.trim();
         if (line.startsWith("\uFEFF")) {
             line = line.substring(1);
@@ -560,7 +560,7 @@ public class GenerateNormalizeForMatch {
      * @param mappings
      */
     private static void addMappings(UnicodeSet source, String target, UnicodeSet targetFilter,
-        UnicodeMap resultMappings, boolean printWriter) {
+        UnicodeMap<String> resultMappings, boolean printWriter) {
         // remap options
 
         if (target.equalsIgnoreCase("delete")) {
@@ -581,7 +581,7 @@ public class GenerateNormalizeForMatch {
         // show a sample of what changed
         // and absorb new mappings, where they make a difference
         UnicodeSet affected = new UnicodeSet(source).retainAll(ASSIGNED);
-        UnicodeMap deltaMappings = new UnicodeMap();
+        UnicodeMap<String> deltaMappings = new UnicodeMap<String>();
         UnicodeSet done = new UnicodeSet();
 
         for (UnicodeSetIterator it = new UnicodeSetIterator(affected); it.next();) {
@@ -758,7 +758,7 @@ public class GenerateNormalizeForMatch {
      * @throws IOException
      */
     private static void fixOld(String sourceFile, String targetFile) throws IOException {
-        UnicodeMap oldMap = new UnicodeMap();
+        UnicodeMap<String> oldMap = new UnicodeMap<String>();
         BufferedReader in = openUTF8Reader(sourceFile);
         int lineNumber = 0;
         while (true) {

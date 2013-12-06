@@ -35,14 +35,14 @@ public class Typology {
     // label_to_uset.put("Z", new UnicodeSet("[:Z:]").freeze());
     // label_to_uset.put("P", new UnicodeSet("[:P:]").freeze());
     // }
-    static Set<String> skiplabels = new HashSet(Arrays.asList("", "Symbol", "Punctuation", "Letter", "S", "L", "M",
+    static Set<String> skiplabels = new HashSet<String>(Arrays.asList("", "Symbol", "Punctuation", "Letter", "S", "L", "M",
         "N", "C", "Z", "P"));
 
     public static Map<String, UnicodeSet> full_path_to_uset = new TreeMap<String, UnicodeSet>();
     public static Map<String, UnicodeSet> path_to_uset = new TreeMap<String, UnicodeSet>();
     // static Map<List<String>,UnicodeSet> path_to_uset = new TreeMap<List<String>,UnicodeSet>();
-    public static Relation<String, String> labelToPaths = new Relation(new TreeMap(), TreeSet.class);
-    public static Map<String, Map<String, UnicodeSet>> label_parent_uset = new TreeMap();
+    public static Relation<String, String> labelToPaths = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+    public static Map<String, Map<String, UnicodeSet>> label_parent_uset = new TreeMap<String, Map<String, UnicodeSet>>();
 
     // public static Relation<String, String> pathToList = new Relation(new TreeMap(), TreeSet.class);
 
@@ -87,7 +87,7 @@ public class Typology {
 
             String[] labels = fullPath.split("/");
             String path = "";
-            Set<String> labelSet = new TreeSet();
+            Set<String> labelSet = new TreeSet<String>();
             for (String item : labels) {
                 if (skiplabels.contains(item)) {
                     continue;

@@ -352,6 +352,7 @@ public class CharacterListCompressor {
                     sc.next();
                 }
             }
+            sc.close();
         } catch (IOException ex) {
             ex.printStackTrace();
         }

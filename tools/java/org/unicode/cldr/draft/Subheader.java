@@ -69,13 +69,13 @@ class Subheader {
 
                 Set<String> set = block2subblock.get(block);
                 if (set == null) {
-                    block2subblock.put(block, set = new TreeSet());
+                    block2subblock.put(block, set = new TreeSet<String>());
                 }
                 set.add(subblock);
 
                 set = subblock2block.get(subblock);
                 if (set == null) {
-                    subblock2block.put(subblock, set = new TreeSet());
+                    subblock2block.put(subblock, set = new TreeSet<String>());
                 }
                 set.add(block);
 
@@ -115,7 +115,7 @@ class Subheader {
         htmlHeader(out);
         out.println("<tr><th>" + "Subblock" + "</th><th>" + "Notes" + "</th><th>" + "Blocks" + "</th></tr>");
         StringComparator caseless = new UTF16.StringComparator(true, true, 0);
-        TreeSet<String> tests = new TreeSet(caseless);
+        TreeSet<String> tests = new TreeSet<String>(caseless);
         tests.addAll(subblock2block.keySet());
         for (String subblock2 : subblock2block.keySet()) {
             final Set<String> set = subblock2block.get(subblock2);

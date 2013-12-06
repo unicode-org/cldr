@@ -7,7 +7,6 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.tool.ConvertLanguageData;
 import org.unicode.cldr.tool.LanguageCodeConverter;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;

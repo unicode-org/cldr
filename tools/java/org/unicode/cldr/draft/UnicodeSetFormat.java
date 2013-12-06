@@ -9,7 +9,6 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.draft.PatternFixer.Target;
 
-import com.ibm.icu.dev.util.PrettyPrinter;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -33,7 +32,6 @@ public class UnicodeSetFormat extends Format {
     @Override
     // TODO clean up prototype
     public StringBuffer format(Object obj, StringBuffer toAppendTo, FieldPosition pos) {
-        PrettyPrinter foo;
         // API for Format calls for StringBuffer, but should update to StringBuilder
         int startPos = toAppendTo.length();
         Set<String> strings = null;

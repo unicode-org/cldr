@@ -558,7 +558,6 @@ public class IdnaLabelTester {
             System.out.println("valid2-valid:" + new UnicodeSet(valid2).removeAll(valid));
         }
         UnicodeSet pvalid = new UnicodeSet(valid).removeAll(contexto).removeAll(contextj);
-        UnicodeSet pvalidWithContexto = new UnicodeSet(valid).removeAll(contextj);
         UnicodeMap<Row.R5<IdnaStatus, String, IdnaStatus, String, Integer>> myLines = new UnicodeMap<Row.R5<IdnaStatus, String, IdnaStatus, String, Integer>>();
 
         mine.putAll(contextj, IdnaStatus.CONTEXTJ);
@@ -606,10 +605,10 @@ public class IdnaLabelTester {
                 String s = UTF16.valueOf(cp);
 
                 IdnaStatus idna2008 = IdnaStatus.valueOf(parts[1]);
-                String rule2008 = parts[2];
+                //String rule2008 = parts[2];
                 String gcPatrik = parts[3];
-                IdnaStatus idna2003out = parts[4].equals("OK") ? IdnaStatus.PVALID : IdnaStatus.DISALLOWED;
-                String idna2003why = parts[5];
+                //IdnaStatus idna2003out = parts[4].equals("OK") ? IdnaStatus.PVALID : IdnaStatus.DISALLOWED;
+                //String idna2003why = parts[5];
                 String cpName = parts[6];
 
                 String diff = "";

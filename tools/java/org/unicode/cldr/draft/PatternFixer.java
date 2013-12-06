@@ -4,8 +4,6 @@ import java.text.ParseException;
 import java.text.ParsePosition;
 import java.util.regex.Pattern;
 
-import com.ibm.icu.text.UnicodeSet;
-
 /**
  * Immutable class that allows people to fix regex pattern strings to be provide for internationalization support
  * (as per UTS 18 Unicode Regular Expressions). The chief problem with the internationalization of
@@ -63,7 +61,6 @@ public class PatternFixer {
         // TODO optimize
         // TODO handle (?#), #, ...
         UnicodeSetBuilder builder = new UnicodeSetBuilder(); // target, patternOptions
-        UnicodeSet set;
         ParsePosition parsePosition = new ParsePosition(0);
         StringBuffer result = new StringBuffer();
         State state = State.BASE;

@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
@@ -205,7 +204,7 @@ public class ScriptMetadata {
         }
 
         public Object getName(String type, String code) {
-            List fullData = SC.getFullData(type, code);
+            List<String> fullData = SC.getFullData(type, code);
             if (fullData == null) {
                 return "unavailable";
             }

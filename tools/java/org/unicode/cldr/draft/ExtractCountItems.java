@@ -12,6 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.unicode.cldr.draft.ExtractCountItems.SampleData;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
@@ -31,7 +32,7 @@ public class ExtractCountItems {
 
     static class SampleData {
         EnumMap<Count, String> countToString = new EnumMap<Count, String>(Count.class);
-        Relation<String, Count> stringToCount = new Relation(new HashMap(), HashSet.class);
+        Relation<String, Count> stringToCount = Relation.of(new HashMap<String, Set<Count>>(), HashSet.class);
         String basePath;
 
         public SampleData(String basePath) {
@@ -54,7 +55,7 @@ public class ExtractCountItems {
     }
 
     XPathParts parts = new XPathParts();
-    Map<String, SampleData> samples = new LinkedHashMap();
+    Map<String, SampleData> samples = new LinkedHashMap<String, SampleData>();
 
     public static void main(String[] args) {
 
@@ -62,8 +63,8 @@ public class ExtractCountItems {
     }
 
     void gatherData() {
-        Set<String> singletonLanguages = new LinkedHashSet();
-        Map<String, Map<String, SampleData>> defectiveLocales = new LinkedHashMap();
+        Set<String> singletonLanguages = new LinkedHashSet<String>();
+        Map<String, Map<String, SampleData>> defectiveLocales = new LinkedHashMap<String, Map<String, SampleData>>();
 
         for (String locale : factory.getAvailableLanguages()) {
             Map<String, Level> locale_status = StandardCodes.make().getLocaleTypes().get("google"); // later, make
@@ -86,7 +87,7 @@ public class ExtractCountItems {
             }
 
             CLDRFile cldr = factory.make(locale, true);
-            Map<String, SampleData> data = new LinkedHashMap();
+            Map<String, SampleData> data = new LinkedHashMap<String, SampleData>();
             SampleData sampleData = getSamples(cldr, keywordCount, "//ldml/units/unit", data);
             if (sampleData == null) {
                 // try currencies
@@ -114,13 +115,13 @@ public class ExtractCountItems {
             for (String s : keywords) {
                 realKeywords.add(Count.valueOf(s));
             }
-            Set<Pair<Count, Count>> missingPairs = new HashSet();
+            Set<Pair<Count, Count>> missingPairs = new HashSet<Pair<Count, Count>>();
             for (Count i : realKeywords) {
                 for (Count j : realKeywords) {
                     if (i.compareTo(j) >= 0) {
                         continue;
                     }
-                    missingPairs.add(new Pair(i, j));
+                    missingPairs.add(new Pair<Count, Count>(i, j));
                 }
             }
             showMinimalPairs(missingPairs, entry.getValue());
@@ -129,7 +130,6 @@ public class ExtractCountItems {
 
     private void showMinimalPairs(Set<Pair<Count, Count>> missingPairs, Map<String, SampleData> pathToSamples) {
         for (Entry<String, SampleData> entry : pathToSamples.entrySet()) {
-            String path = entry.getKey();
             SampleData samples = entry.getValue();
             for (Iterator<Pair<Count, Count>> it = missingPairs.iterator(); it.hasNext();) {
                 Pair<Count, Count> missing = it.next();

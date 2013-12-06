@@ -23,7 +23,7 @@ public class StateMachineBuilder<T> {
     // TODO intern the actions
 
     private short currentState = StateMachine.UNDEFINED;
-    private UnicodeMap currentMap = null;
+    private UnicodeMap<StateAction> currentMap = null;
     private List<UnicodeMap> stateToData = new ArrayList<UnicodeMap>();
     private ParsePosition parsePosition = new ParsePosition(0);
     private Map<String, UnicodeSet> variables = new LinkedHashMap<String, UnicodeSet>();
@@ -124,7 +124,7 @@ start:
                 if (stateToData.size() > currentState && stateToData.get(currentState) != null) {
                     throw new IllegalArgumentException("Cannot define state twice: " + rule);
                 }
-                currentMap = new UnicodeMap();
+                currentMap = new UnicodeMap<StateAction>();
                 while (stateToData.size() <= currentState) {
                     stateToData.add(null); // TODO make this more efficient
                 }

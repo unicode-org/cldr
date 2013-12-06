@@ -141,7 +141,7 @@ public class NormalizedIdentifierParser {
     }
 
     static void showDiffs() {
-        Map<Status, Map<Status, UnicodeSet>> map = new TreeMap();
+        Map<Status, Map<Status, UnicodeSet>> map = new TreeMap<Status, Map<Status, UnicodeSet>>();
         NormalizedIdentifierParser parser = new NormalizedIdentifierParser();
         for (int codePoint = 0; codePoint <= 0x10FFFF; ++codePoint) {
             String source = new StringBuilder().appendCodePoint(codePoint).toString();
@@ -153,7 +153,7 @@ public class NormalizedIdentifierParser {
             }
             Map<Status, UnicodeSet> map2 = map.get(sourceStatus);
             if (map2 == null) {
-                map.put(sourceStatus, map2 = new TreeMap());
+                map.put(sourceStatus, map2 = new TreeMap<Status, UnicodeSet>());
             }
             UnicodeSet set = map2.get(targetStatus);
             if (set == null) {

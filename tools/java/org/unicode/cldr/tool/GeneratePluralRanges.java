@@ -1,35 +1,207 @@
 package org.unicode.cldr.tool;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.Map.Entry;
 
+import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.ICUServiceBuilder;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PluralRanges;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Utility;
+import com.ibm.icu.text.DecimalFormat;
+import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 
 public class GeneratePluralRanges {
     private static final boolean MINIMAL = true;
 
     public static void main(String[] args) {
-        new GeneratePluralRanges().reformatPluralRanges();
+        GeneratePluralRanges me = new GeneratePluralRanges();
+        //me.reformatPluralRanges();
+        me.generateSamples();
     }
+
+    private void generateSamples() {
+        Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
+        // add all the items with plural ranges
+        Set<String> sorted = new TreeSet(SUPPLEMENTAL.getPluralRangesLocales());
+        // add the core locales
+        sorted.addAll(StandardCodes.make().getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN)));
+        // add any variant plural forms
+        LanguageTagParser ltp = new LanguageTagParser();
+        for (String locale : SUPPLEMENTAL.getPluralLocales()) {
+            if (locale.contains("_")) {
+                if (sorted.contains(ltp.set(locale).getLanguage())) {
+                    sorted.add(locale);
+                }
+            }
+        }
+        //sorted.add("fil");
+        System.out.println("Co.\tLocale Name\tStart\tEnd\tResult\tStart Sample\tEnd Sample\tStart Example\tEnd Example\tCombined Example");
+        for (String locale : sorted) {
+            PluralInfo pluralInfo3 = SUPPLEMENTAL.getPlurals(locale);
+            if (locale.contains("_")) {
+                PluralInfo pluralInfo2 = SUPPLEMENTAL.getPlurals(ltp.set(locale).getLanguage());
+                if (pluralInfo2.equals(pluralInfo3)) {
+                    continue;
+                }
+            }
+
+            Set<Count> counts3 = pluralInfo3.getCounts();
+            if (counts3.size() == 1) {
+                continue; // skip japanese, etc.
+            }
+
+            List<RangeSample> list = getRangeInfo(locale);
+
+            for (RangeSample rangeSample : list) {
+                System.out.println(locale + "\t" + testInfo.getEnglish().getName(locale)
+                    + "\t" + rangeSample.start 
+                    + "\t" + rangeSample.end 
+                    + "\t" + (rangeSample.result == null ? "missing" : rangeSample.result) 
+                    + "\t" + rangeSample.min
+                    + "\t" + rangeSample.max
+                    + "\t" + rangeSample.startExample
+                    + "\t" + rangeSample.endExample
+                    + "\t" + rangeSample.resultExample
+                    );
+            }
+        }
+    }
+
+    public static List<RangeSample> getRangeInfo(String locale) {
+        if (locale.equals("iw")) {
+            locale = "he";
+        }
+        Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
+        List<RangeSample> list = new ArrayList();
+        PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(locale);
+        Set<Count> counts = pluralInfo.getCounts();
+        PluralRanges pluralRanges = SUPPLEMENTAL.getPluralRanges(locale);
+        if (pluralRanges == null) {
+            return null;
+        }
+        ULocale ulocale = new ULocale(locale);
+        SamplePatterns samplePatterns = CldrUtility.get(samples, ulocale);
+        if (samplePatterns == null && locale.contains("_")) {
+            ulocale = new ULocale(ulocale.getLanguage());
+            samplePatterns = CldrUtility.get(samples, ulocale);
+            if (samplePatterns == null) {
+                return null;
+            }
+        }
+
+        Output<FixedDecimal> maxSample = new Output();
+        Output<FixedDecimal> minSample = new Output();
+
+        CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
+        ICUServiceBuilder icusb = new ICUServiceBuilder();
+        icusb.setCldrFile(cldrFile);
+        DecimalFormat nf = icusb.getNumberFormat(1);
+        //String decimal = cldrFile.getWinningValue("//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal");
+        String defaultNumberingSystem = cldrFile.getWinningValue("//ldml/numbers/defaultNumberingSystem");
+        String range = cldrFile.getWinningValue("//ldml/numbers/miscPatterns[@numberSystem=\"" 
+            + defaultNumberingSystem
+            + "\"]/pattern[@type=\"range\"]");
+
+        //            if (decimal == null) {
+        //                throw new IllegalArgumentException();
+        //            }
+        for (Count s : counts) {
+            for (Count e : counts) {
+                if (!pluralInfo.rangeExists(s, e, minSample, maxSample)) {
+                    continue;
+                }
+                Count r = pluralRanges.getExplicit(s,e);
+                String minFormatted = format(nf, minSample.value);
+                String maxFormatted = format(nf, maxSample.value);
+                String rangeFormatted = MessageFormat.format(range, minFormatted, maxFormatted);
+
+                list.add(new RangeSample(
+                    s, e, r, 
+                    minSample.value,
+                    maxSample.value,
+                    getExample(locale, samplePatterns, s, minFormatted)
+                    ,getExample(locale, samplePatterns, e, maxFormatted)
+                    ,getExample(locale, samplePatterns, r, rangeFormatted)));
+            }
+        }
+        return list;
+    }
+
+    public static class RangeSample {
+        // Category Examples    Minimal Pairs   Rules
+        public RangeSample(Count start, Count end, Count result, 
+            FixedDecimal min, FixedDecimal max, 
+            String startExample, String endExample, String resultExample) {
+            this.start = start;
+            this.end = end;
+            this.result = result;
+            this.min = min;
+            this.max = max;
+            this.startExample = startExample;
+            this.endExample = endExample;
+            this.resultExample = resultExample;
+        }
+        final Count start;
+        final Count end;
+        final Count result;
+        final FixedDecimal min;
+        final FixedDecimal max;
+        final String startExample;
+        final String endExample;
+        final String resultExample;
+    }
+
+    public static String format(DecimalFormat nf, FixedDecimal minSample) {
+        nf.setMinimumFractionDigits(minSample.visibleDecimalDigitCount);
+        nf.setMaximumFractionDigits(minSample.visibleDecimalDigitCount);
+        return nf.format(minSample);
+    }
+
+    //    private String format(String decimal, Output<FixedDecimal> minSample) {
+    //        return minSample.toString().replace(".", decimal);
+    //    }
+
+    public static String getExample(String locale, SamplePatterns samplePatterns, Count r, String numString) {
+        if (r == null) {
+            return "«missing»";
+        }
+        String samplePattern;
+        try {
+            samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, r);
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Locale: " + locale + "; Count: " + r, e);
+        }
+        return samplePattern
+            .replace('\u00A0', '\u0020')
+            .replace("{0}", numString);
+    }
+
 
     static TestInfo testInfo = TestInfo.getInstance();
 
@@ -52,9 +224,6 @@ public class GeneratePluralRanges {
         for (String locale : SUPPLEMENTAL.getPluralRangesLocales()) {
 
             PluralRanges pluralRanges = SUPPLEMENTAL.getPluralRanges(locale);
-            if (pluralRanges == null) {
-                pluralRanges = new PluralRanges().freeze();
-            }
             PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(locale);
             Set<Count> counts = pluralInfo.getCounts();
 
@@ -149,9 +318,9 @@ public class GeneratePluralRanges {
             }
         }
         // if everything is 'other', we are done
-//        if (allOther == true) {
-//            return result;
-//        }
+        //        if (allOther == true) {
+        //            return result;
+        //        }
         EnumSet<Count> endDone = EnumSet.noneOf(Count.class);
         EnumSet<Count> startDone = EnumSet.noneOf(Count.class);
         if (MINIMAL) {

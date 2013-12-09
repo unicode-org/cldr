@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.tool.GeneratePluralRanges.RangeSample;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
 import org.unicode.cldr.util.CLDRConfig;
@@ -27,6 +28,8 @@ import com.ibm.icu.util.ULocale;
 
 public class ShowPlurals {
 
+    private static final String NO_PLURAL_DIFFERENCES = "<i>no plural differences</i>";
+    private static final String NOT_AVAILABLE = "<i>Not available.<br>Please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to supply.</i>";
     static SupplementalDataInfo supplementalDataInfo = CLDRConfig.getInstance().getSupplementalDataInfo();
 
     public static void printPlurals(CLDRFile english, String localeFilter, PrintWriter index) throws IOException {
@@ -80,6 +83,7 @@ public class ShowPlurals {
             if (localeFilter != null && !localeFilter.equals(locale)) {
                 continue;
             }
+            final String name = english.getName(locale);
             for (PluralType pluralType : PluralType.values()) {
                 final PluralInfo plurals = supplementalDataInfo.getPlurals(pluralType, locale);
                 ULocale locale2 = new ULocale(locale);
@@ -90,7 +94,6 @@ public class ShowPlurals {
                 String rules = plurals.getRules();
                 rules += rules.length() == 0 ? "other:<i>everything</i>" : ";other:<i>everything else</i>";
                 rules = rules.replace(":", " → ").replace(";", ";<br>");
-                final String name = english.getName(locale);
                 PluralRules pluralRules = plurals.getPluralRules();
                 //final Map<PluralInfo.Count, String> typeToExamples = plurals.getCountToStringExamplesMap();
                 //final String examples = typeToExamples.get(type).toString().replace(";", ";<br>");
@@ -105,8 +108,7 @@ public class ShowPlurals {
                         .replace(" or ", " or<br>")
                         : counts.size() == 1 ? "<i>everything</i>"
                             : "<i>everything else</i>";
-                        String sample = counts.size() == 1 ? "<i>no plural differences</i>"
-                            : "<i>Not available.<br>Please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to supply.</i>";
+                        String sample = counts.size() == 1 ? NO_PLURAL_DIFFERENCES : NOT_AVAILABLE;
                         if (samplePatterns != null) {
                             String samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));
                             if (samplePattern != null) {
@@ -129,13 +131,38 @@ public class ShowPlurals {
                         tablePrinter.addRow()
                         .addCell(name)
                         .addCell(locale)
-                        .addCell(pluralType)
+                        .addCell(pluralType.toString())
                         .addCell(count.toString())
                         .addCell(examples.toString())
                         .addCell(sample)
                         .addCell(rule)
                         .finishRow();
                 }
+            }
+            List<RangeSample> rangeInfoList = GeneratePluralRanges.getRangeInfo(locale);
+            if (rangeInfoList != null) {
+                for (RangeSample item : rangeInfoList) {
+                    tablePrinter.addRow()
+                    .addCell(name)
+                    .addCell(locale)
+                    .addCell("range")
+                    .addCell(item.start + "+" + item.end)
+                    .addCell(item.min + "–" + item.max)
+                    .addCell(item.resultExample.replace(". ", ".<br>"))
+                    .addCell(item.start + " + " + item.end + " → " + item.result)
+                    .finishRow();
+                }
+            } else {
+                String message = supplementalDataInfo.getPlurals(PluralType.cardinal, locale).getCounts().size() == 1 ? NO_PLURAL_DIFFERENCES : NOT_AVAILABLE;
+                tablePrinter.addRow()
+                .addCell(name)
+                .addCell(locale)
+                .addCell("range")
+                .addCell("<i>n/a</i>")
+                .addCell("<i>n/a</i>")
+                .addCell(message)
+                .addCell("<i>n/a</i>")
+                .finishRow();
             }
         }
         appendable.append(tablePrinter.toTable()).append('\n');

@@ -3075,7 +3075,7 @@ public class SupplementalDataInfo {
             keywords = Collections.unmodifiableSet(_keywords);
             decimalKeywords = Collections.unmodifiableSet(_decimalKeywords);
             integerKeywords = Collections.unmodifiableSet(_integerKeywords);
-            
+
             countSampleList = new CountSampleList(pluralRules, keywords, isOrdinal);
 
             Map<Count, List<Double>> countToExampleListRaw = new TreeMap<Count, List<Double>>();
@@ -3246,42 +3246,105 @@ public class SupplementalDataInfo {
             }
             return pluralRules.compareTo(other.pluralRules);
         }
-        
+
         enum MinMax {MIN, MAX}
 
+        public static final FixedDecimal NEGATIVE_INFINITY = new FixedDecimal(Double.NEGATIVE_INFINITY,0,0);
+        public static final FixedDecimal POSITIVE_INFINITY = new FixedDecimal(Double.POSITIVE_INFINITY,0,0);
+
+        static double doubleValue(FixedDecimal a) {
+            return a.isNegative ? -a.doubleValue() : a.doubleValue();
+        }
+        
         public boolean rangeExists(Count s, Count e, Output<FixedDecimal> minSample, Output<FixedDecimal> maxSample) {
-            PluralInfo pluralInfo = this;
-            if (!pluralInfo.getCounts().contains(s) 
-                || !pluralInfo.getCounts().contains(e)) {
+            if (!getCounts().contains(s) || !getCounts().contains(e)) {
                 return false;
             }
-            minSample.value = getMinMax(s, MinMax.MIN);
-            maxSample.value = getMinMax(e, MinMax.MAX);
-            return minSample.value.doubleValue() < maxSample.value.doubleValue();
+            FixedDecimal temp;
+            minSample.value = getLeastIn(s, SampleType.INTEGER, NEGATIVE_INFINITY, POSITIVE_INFINITY);
+            temp = getLeastIn(s, SampleType.DECIMAL, NEGATIVE_INFINITY, POSITIVE_INFINITY);
+            if (lessOrFewerDecimals(temp, minSample.value)) {
+                minSample.value = temp;
+            }
+            maxSample.value = getGreatestIn(e, SampleType.INTEGER, NEGATIVE_INFINITY, POSITIVE_INFINITY);
+            temp = getGreatestIn(e, SampleType.DECIMAL, NEGATIVE_INFINITY, POSITIVE_INFINITY);
+            if (greaterOrFewerDecimals(temp, maxSample.value)) {
+                maxSample.value = temp;
+            }
+            // if there is no range, just return
+            if (doubleValue(minSample.value) >= doubleValue(maxSample.value)) {
+                return false;
+            }
+            // see if we can get a better range, with not such a large end range
+            
+            FixedDecimal lowestMax = new FixedDecimal(doubleValue(minSample.value)+0.00001, 5);
+            SampleType bestType = getCounts(SampleType.INTEGER).contains(e) ? SampleType.INTEGER : SampleType.DECIMAL;
+            temp = getLeastIn(e, bestType, lowestMax, POSITIVE_INFINITY);
+            if (lessOrFewerDecimals(temp, maxSample.value)) {
+                maxSample.value = temp;
+            }
+            if (maxSample.value.source > 100000) {
+                temp = getLeastIn(e, bestType, lowestMax, POSITIVE_INFINITY);
+                if (lessOrFewerDecimals(temp, maxSample.value)) {
+                    maxSample.value = temp;
+                }
+            }
+           
+            return true;
+        }
+        
+        public boolean greaterOrFewerDecimals(FixedDecimal a, FixedDecimal b) {
+            return doubleValue(a) > doubleValue(b)
+                || doubleValue(b) == doubleValue(a) && b.decimalDigits > a.decimalDigits;
         }
 
-        private FixedDecimal getMinMax(Count s, MinMax minMax) {
-            FixedDecimal result = getMinMax(s, minMax, SampleType.INTEGER, null);
-            result = getMinMax(s, minMax, SampleType.DECIMAL, result);
-            return result;
+        public boolean lessOrFewerDecimals(FixedDecimal a, FixedDecimal b) {
+            return doubleValue(a) < doubleValue(b)
+                || doubleValue(b) == doubleValue(a) && b.decimalDigits > a.decimalDigits;
         }
 
-        private FixedDecimal getMinMax(Count s, MinMax minMax, SampleType sampleType, FixedDecimal result) {
+        private FixedDecimal getLeastIn(Count s, SampleType sampleType, FixedDecimal min, FixedDecimal max) {
+            FixedDecimal result = POSITIVE_INFINITY;
             FixedDecimalSamples sSamples1 = pluralRules.getDecimalSamples(s.toString(), sampleType);
             if (sSamples1 != null) {
                 for (FixedDecimalRange x : sSamples1.samples) {
-                    if (minMax == MinMax.MIN) {
-                        if (result == null
-                            || x.start.doubleValue() < result.doubleValue()
-                            || x.start.doubleValue() == result.doubleValue() && x.start.decimalDigits < result.decimalDigits) {
-                            result = x.start;
-                        }
-                    } else {
-                        if (result == null
-                            || x.end.doubleValue() > result.doubleValue()
-                            || x.end.doubleValue() == result.doubleValue() && x.end.decimalDigits < result.decimalDigits) {
-                            result = x.end;
-                        }
+                    // overlap in ranges??
+                    if (doubleValue(x.start) > doubleValue(max)
+                        || doubleValue(x.end) < doubleValue(min)
+                        ) {
+                        continue; // no, continue
+                    }
+                    // get restricted range
+                    FixedDecimal minOverlap = greaterOrFewerDecimals(min, x.start) ? max : x.start;
+                    //FixedDecimal maxOverlap = lessOrFewerDecimals(max, x.end) ? max : x.end;
+
+                    // replace if better
+                    if (lessOrFewerDecimals(minOverlap, result)) {
+                        result = minOverlap;
+                    }
+                }
+            }
+            return result;
+        }
+
+        private FixedDecimal getGreatestIn(Count s, SampleType sampleType, FixedDecimal min, FixedDecimal max) {
+            FixedDecimal result = NEGATIVE_INFINITY;
+            FixedDecimalSamples sSamples1 = pluralRules.getDecimalSamples(s.toString(), sampleType);
+            if (sSamples1 != null) {
+                for (FixedDecimalRange x : sSamples1.samples) {
+                    // overlap in ranges??
+                    if (doubleValue(x.start) > doubleValue(max)
+                        || doubleValue(x.end) < doubleValue(min)
+                        ) {
+                        continue; // no, continue
+                    }
+                    // get restricted range
+                    //FixedDecimal minOverlap = greaterOrFewerDecimals(min, x.start) ? max : x.start;
+                    FixedDecimal maxOverlap = lessOrFewerDecimals(max, x.end) ? max : x.end;
+
+                    // replace if better
+                    if (greaterOrFewerDecimals(maxOverlap, result)) {
+                        result = maxOverlap;
                     }
                 }
             }

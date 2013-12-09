@@ -442,6 +442,16 @@ public class StandardCodes {
         return platform_locale_level.get(organization).keySet();
     }
 
+    public Set<String> getLocaleCoverageLocales(String organization, Set<Level> choice) {
+        Set<String> result = new LinkedHashSet<String>();
+        for (String locale : getLocaleCoverageLocales(organization)) {
+            if (choice.contains(getLocaleCoverageLevel(organization, locale))) {
+                result.add(locale);
+            }
+        }
+        return result;
+    }
+
     private void loadPlatformLocaleStatus() {
         LocaleIDParser parser = new LocaleIDParser();
         platform_locale_level = new TreeMap(caseless);

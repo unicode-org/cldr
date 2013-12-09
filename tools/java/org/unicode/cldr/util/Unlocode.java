@@ -2,10 +2,13 @@ package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -18,6 +21,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.tool.CLDRModify;
 import org.unicode.cldr.tool.ConvertLanguageData;
 import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
@@ -215,47 +219,72 @@ public class Unlocode {
             Torbay: 47°39′N 052°44′W "4739N 05244W"
      */
 
+    //    public static class FieldData<K extends Enum<K>> {
+    //        private List<EnumMap<K,String>> data;
+    //        public FieldData(Class<K> classInstance, BufferedReader r, String filename) {
+    //            data = new ArrayList<EnumMap<K,String>>();
+    //            FileUtilities.FileProcessor myReader = new FileUtilities.FileProcessor() {
+    //                @Override
+    //                protected boolean handleLine(int lineCount, String line) {
+    //                    // TODO Auto-generated method stub
+    //                    return super.handleLine(lineCount, line);
+    //                }
+    //            };
+    //            myReader.process(r, filename);
+    //            //new EnumMap<K, String>(classInstance);
+    //        }
+    //    }
+
+    enum SubdivisionFields {
+        Subdivision_category,
+        Code_3166_2,
+        Subdivision_name,
+        Language_code,
+        Romanization_system,
+        Parent_subdivision
+    }
+
     public static void loadIso() throws IOException {
         BufferedReader br = 
             FileUtilities.openFile(CldrUtility.class, 
                 "data/external/subdivisionData.txt", FileUtilities.UTF8);
         while (true) {
-            // "GT", "GT-AV*", "Alta Verapaz"
+            // Subdivision category TAB 3166-2 code TAB Subdivision name TAB Language code TAB Romanization system TAB Parent subdivision
+
             String line = br.readLine();
             if (line == null) {
                 break;
             }
-            line = line.trim();
             int hash = line.indexOf('#');
             if (hash >= 0) {
-                line = line.substring(0,hash).trim();
+                line = line.substring(0,hash);
             }
-            if (line.isEmpty()) {
+            if (line.trim().isEmpty()) {
                 continue;
             }
-            String[] list = line.split("\\s*;\\s*");
-            String locode = list[0];
-            String bestName = list[1];
-//            if (!locode.contains("-")) {
-//                //System.out.println("*skipping: " + locode);
-//                continue;
-//            }
-//
-//            String names = list[5];
-//            String[] name = names.split("\\+");
-//            String bestName = null;
-//            for (String namePair : name) {
-//                if (bestName == null) {
-//                    bestName = namePair.split("=")[1];
-//                } else if (namePair.startsWith("en=")) {
-//                    bestName = namePair.split("=")[1];
-//                    break;
-//                }
-//            }
-//            if (locode.endsWith("*")) {
-//                locode = locode.substring(0,locode.length()-1);
-//            }
-            //System.out.println(locode + ";" + bestName);
+            String[] list = line.split("\t");
+            String locode = list[SubdivisionFields.Code_3166_2.ordinal()].trim();
+            if (locode.endsWith("*")) {
+                locode = locode.substring(0,locode.length()-1);
+            }
+            String bestName = list[SubdivisionFields.Subdivision_name.ordinal()].trim();
+            //            if (!locode.contains("-")) {
+            //                //System.out.println("*skipping: " + locode);
+            //                continue;
+            //            }
+            //
+            //            String names = list[5];
+            //            String[] name = names.split("\\+");
+            //            String bestName = null;
+            //            for (String namePair : name) {
+            //                if (bestName == null) {
+            //                    bestName = namePair.split("=")[1];
+            //                } else if (namePair.startsWith("en=")) {
+            //                    bestName = namePair.split("=")[1];
+            //                    break;
+            //                }
+            //            }
+//            System.out.println("\t" + locode + "\t" + bestName + "\t\t\t");
 
             putCheckingDuplicate(iso3166_2Data, locode, new Iso3166_2Data(bestName));
         }
@@ -488,10 +517,10 @@ public class Unlocode {
         if (true) return;
 
         int i = 0;
-//        for (String s : new TreeSet<String>(Unlocode.getAvailableIso3166_2())) {
-//            System.out.println((i++) + "\t" + s + "\t" + Unlocode.getIso3166_2Data(s));
-//            //if (i > 1000) break;
-//        }
+        //        for (String s : new TreeSet<String>(Unlocode.getAvailableIso3166_2())) {
+        //            System.out.println((i++) + "\t" + s + "\t" + Unlocode.getIso3166_2Data(s));
+        //            //if (i > 1000) break;
+        //        }
         for (String s : new TreeSet<String>(Unlocode.getAvailable())) {
             if (!s.startsWith("GT")) {
                 continue;

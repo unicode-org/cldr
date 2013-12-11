@@ -2641,7 +2641,20 @@ public class SupplementalDataInfo {
     }
 
     public enum PluralType {
-        cardinal, ordinal
+        cardinal(PluralRules.PluralType.CARDINAL), 
+        ordinal(PluralRules.PluralType.ORDINAL);
+
+        // add some gorp to interwork until we clean things up
+
+        public final PluralRules.PluralType standardType;
+        PluralType(PluralRules.PluralType standardType) {
+            this.standardType = standardType;
+        }
+        public static PluralType fromStandardType(PluralRules.PluralType standardType) {
+            return standardType == null ? null 
+                : standardType == PluralRules.PluralType.CARDINAL ? cardinal 
+                    : ordinal;
+        }
     };
 
     private Map<String, PluralInfo> localeToPluralInfo = new LinkedHashMap<String, PluralInfo>();
@@ -3255,7 +3268,7 @@ public class SupplementalDataInfo {
         static double doubleValue(FixedDecimal a) {
             return a.isNegative ? -a.doubleValue() : a.doubleValue();
         }
-        
+
         public boolean rangeExists(Count s, Count e, Output<FixedDecimal> minSample, Output<FixedDecimal> maxSample) {
             if (!getCounts().contains(s) || !getCounts().contains(e)) {
                 return false;
@@ -3276,7 +3289,7 @@ public class SupplementalDataInfo {
                 return false;
             }
             // see if we can get a better range, with not such a large end range
-            
+
             FixedDecimal lowestMax = new FixedDecimal(doubleValue(minSample.value)+0.00001, 5);
             SampleType bestType = getCounts(SampleType.INTEGER).contains(e) ? SampleType.INTEGER : SampleType.DECIMAL;
             temp = getLeastIn(e, bestType, lowestMax, POSITIVE_INFINITY);
@@ -3289,10 +3302,10 @@ public class SupplementalDataInfo {
                     maxSample.value = temp;
                 }
             }
-           
+
             return true;
         }
-        
+
         public boolean greaterOrFewerDecimals(FixedDecimal a, FixedDecimal b) {
             return doubleValue(a) > doubleValue(b)
                 || doubleValue(b) == doubleValue(a) && b.decimalDigits > a.decimalDigits;

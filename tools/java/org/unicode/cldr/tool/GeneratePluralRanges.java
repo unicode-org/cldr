@@ -46,7 +46,7 @@ public class GeneratePluralRanges {
     }
 
     private void generateSamples() {
-        Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
+        //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
         // add all the items with plural ranges
         Set<String> sorted = new TreeSet(SUPPLEMENTAL.getPluralRangesLocales());
         // add the core locales
@@ -77,7 +77,10 @@ public class GeneratePluralRanges {
             }
 
             List<RangeSample> list = getRangeInfo(locale);
-
+            if (list == null) {
+                System.out.println("Failure with " + locale);
+                continue;
+            }
             for (RangeSample rangeSample : list) {
                 System.out.println(locale + "\t" + testInfo.getEnglish().getName(locale)
                     + "\t" + rangeSample.start 
@@ -97,23 +100,27 @@ public class GeneratePluralRanges {
         if (locale.equals("iw")) {
             locale = "he";
         }
-        Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
+        //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
         List<RangeSample> list = new ArrayList();
         PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(locale);
         Set<Count> counts = pluralInfo.getCounts();
         PluralRanges pluralRanges = SUPPLEMENTAL.getPluralRanges(locale);
+        if (pluralRanges == null && locale.contains("_")) {
+            String locale2 = new ULocale(locale).getLanguage();
+            pluralRanges = SUPPLEMENTAL.getPluralRanges(locale2);
+        }
         if (pluralRanges == null) {
             return null;
         }
         ULocale ulocale = new ULocale(locale);
-        SamplePatterns samplePatterns = CldrUtility.get(samples, ulocale);
-        if (samplePatterns == null && locale.contains("_")) {
-            ulocale = new ULocale(ulocale.getLanguage());
-            samplePatterns = CldrUtility.get(samples, ulocale);
-            if (samplePatterns == null) {
-                return null;
-            }
-        }
+        SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(ulocale); // CldrUtility.get(samples, ulocale);
+//        if (samplePatterns == null && locale.contains("_")) {
+//            ulocale = new ULocale(ulocale.getLanguage());
+//            samplePatterns = CldrUtility.get(samples, ulocale);
+//            if (samplePatterns == null) {
+//                return null;
+//            }
+//        }
 
         Output<FixedDecimal> maxSample = new Output();
         Output<FixedDecimal> minSample = new Output();
@@ -193,7 +200,7 @@ public class GeneratePluralRanges {
         }
         String samplePattern;
         try {
-            samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, r);
+            samplePattern = samplePatterns.get(PluralRules.PluralType.CARDINAL, r); // CldrUtility.get(samplePatterns.keywordToPattern, r);
         } catch (Exception e) {
             throw new IllegalArgumentException("Locale: " + locale + "; Count: " + r, e);
         }

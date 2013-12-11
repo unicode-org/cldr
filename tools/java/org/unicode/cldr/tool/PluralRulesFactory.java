@@ -14,6 +14,10 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.SupplementalData;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
@@ -103,14 +107,20 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
     public static class SamplePatterns {
         final Map<PluralInfo.Count, String> keywordToPattern = new EnumMap<PluralInfo.Count, String>(PluralInfo.Count.class);
         final Map<PluralInfo.Count, String> keywordToErrors = new EnumMap<PluralInfo.Count, String>(PluralInfo.Count.class);
+        final Map<PluralInfo.Count, String> ordinalKeywordToPattern = new EnumMap<PluralInfo.Count, String>(PluralInfo.Count.class);
 
-        public void put(ULocale locale, String keyword1, String sample) {
-            Count count = Count.valueOf(keyword1);
-            if (keywordToPattern.containsKey(count)) {
+        public void put(ULocale locale, PluralType type, Count count, String sample) {
+            Map<Count, String> map = type == PluralType.CARDINAL ? keywordToPattern : ordinalKeywordToPattern;
+            if (map.containsKey(count)) {
                 throw new IllegalArgumentException("Duplicate keyword <" + count + "> for " + locale);
             } else {
-                keywordToPattern.put(count, sample.replace(" ", "\u00A0"));
+                map.put(count, sample.replace(" ", "\u00A0"));
             }
+        }
+        
+        public String get(PluralType type, Count count) {
+            Map<Count, String> map = type == PluralType.CARDINAL ? keywordToPattern : ordinalKeywordToPattern;
+            return map.get(count);
         }
 
         public void checkErrors(Set<String> set) {
@@ -136,15 +146,53 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
                 }
             }
         }
+
+        public Set<Count> getCounts(PluralType type) {
+            Map<Count, String> map = type == PluralType.CARDINAL ? keywordToPattern : ordinalKeywordToPattern;
+            return Collections.unmodifiableSet(map.keySet());
+        }
     }
 
-    public static Map<ULocale, SamplePatterns> getLocaleToSamplePatterns() {
+    private static Map<ULocale, SamplePatterns> getLocaleToSamplePatterns() {
         if (LOCALE_TO_SAMPLE_PATTERNS == null) {
             loadData();
         }
         return LOCALE_TO_SAMPLE_PATTERNS;
     }
 
+    public static SamplePatterns getSamplePatterns(ULocale uLocale) {
+        SamplePatterns samplePatterns = getLocaleToSamplePatterns().get(uLocale);
+        if (samplePatterns == null) {
+            uLocale = new ULocale(uLocale.getLanguage());
+            samplePatterns = getLocaleToSamplePatterns().get(uLocale);
+            if (samplePatterns == null) {
+                return null;
+            }
+        }
+        return samplePatterns;
+    }
+    public static Set<ULocale> getLocales() {
+        // TODO Auto-generated method stub
+        return getLocaleToSamplePatterns().keySet();
+    }
+
+    public static Set<Count> getSampleCounts(ULocale uLocale, PluralType type) {
+        SamplePatterns samplePatterns = getSamplePatterns(uLocale);
+        return samplePatterns == null ? null : samplePatterns.getCounts(type);
+    }
+
+    public static String getSamplePattern(ULocale uLocale, PluralType type, Count count) {
+        SamplePatterns samplePatterns = getSamplePatterns(uLocale);
+        if (samplePatterns != null) {
+            String result = samplePatterns.get(type, count);
+            if (result != null) {
+                return result;
+            }
+        }
+        return "{0} {no pattern available}";
+    }
+
+    
     public static Map<ULocale, PluralRules> getPluralOverrides() {
         if (OVERRIDES == null) {
             loadData();
@@ -176,8 +224,29 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
                 temp.put(locale, samplePatterns = new SamplePatterns());
             }
             //System.out.println("*Adding sample:\t" + locale + "\t" + keyword + "\t" + sample);
-            samplePatterns.put(locale, keyword, sample);
+            samplePatterns.put(locale, PluralType.CARDINAL, Count.valueOf(keyword), sample);
         }
+        for (String[] row : ORDINAL_SAMPLES) {
+            ULocale locale = new ULocale(row[0]);
+            PluralInfo pluralInfo = TestInfo.getInstance().getSupplementalDataInfo().getPlurals(SupplementalDataInfo.PluralType.ordinal, row[0]);
+
+            int integerValue = Integer.parseInt(row[2]);
+            Count count = pluralInfo.getCount(integerValue);
+            
+            String sample = row[1];
+            SamplePatterns samplePatterns = temp.get(locale);
+            if (samplePatterns == null) {
+                temp.put(locale, samplePatterns = new SamplePatterns());
+            }
+            samplePatterns.put(locale, PluralType.ORDINAL, count, sample);
+            //System.out.println("*Adding ordinal sample:\t" + locale + "\t" + count + "\t" + sample + "\t" + integerValue);
+//            try {
+//                samplePatterns.put(locale, PluralType.ORDINAL, count, sample);
+//            } catch (Exception e) {
+//                System.out.println("***" + e.getMessage());
+//            }
+        }
+
         for (String[] pair : overrides) {
             for (String locale : pair[0].split("\\s*,\\s*")) {
                 ULocale uLocale = new ULocale(locale);
@@ -546,5 +615,114 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
             "few: n mod 10 in 2..9 and n mod 100 not in 11..19; " +
             "many: f is not 0" },
     };
-
+    static String[][] ORDINAL_SAMPLES = {
+        {"af","Neem die {0}e afdraai na regs.","1"},
+        {"am","በቀኝ በኩል ባለው በ{0}ኛው መታጠፊያ ግባ።","1"},
+        {"ar","اتجه إلى المنعطف الـ {0} يمينًا.","1"},
+        {"az","{0}-ci sağ döngəni seçin.","1"},
+        {"az","{0}-cı sağ döngəni seçin.","6"},
+        {"az","{0}-cu sağ döngəni seçin.","9"},
+        {"az","{0}-cü sağ döngəni seçin.","3"},
+        {"bg","Завийте надясно по {0}-ата пресечка.","1"},
+        {"bn","ডান দিকে {0}ম বাঁকটি নিন।","1"},
+        {"bn","ডান দিকে {0}য় বাঁকটি নিন।","2"},
+        {"bn","ডান দিকে {0}র্থ বাঁকটি নিন।","4"},
+        {"bn","ডান দিকে {0}ষ্ঠ বাঁকটি নিন।","6"},
+        {"bn","ডান দিকে {0}তম বাঁকটি নিন।","11"},
+        {"ca","Agafa el {0}r a la dreta.","1"},
+        {"ca","Agafa el {0}n a la dreta.","2"},
+        {"ca","Agafa el {0}rt a la dreta.","4"},
+        {"ca","Agafa el {0}è a la dreta.","5"},
+        {"cs","Na {0}. křižovatce odbočte vpravo.","1"},
+        {"da","Tag den {0}. vej til højre.","1"},
+        {"de","{0}. Abzweigung nach rechts nehmen","1"},
+        {"en","Take the {0}st right.","1"},
+        {"en","Take the {0}nd right.","2"},
+        {"en","Take the {0}rd right.","3"},
+        {"en","Take the {0}th right.","4"},
+        {"el","Στρίψτε στην {0}η γωνία δεξιά.","1"},
+        {"es","Toma la {0}.ª a la derecha.","1"},
+        {"et","Tehke {0}. parempööre.","1"},
+        {"fa","در پیچ {0}ام سمت راست بپیچید.","1"},
+        {"fi","Käänny {0}. risteyksestä oikealle.","1"},
+        {"fil","Lumiko sa unang kanan.","1"},
+        {"fil","Lumiko sa ika-{0} kanan.","2"},
+        {"fr","Prenez la {0}re à droite.","1"},
+        {"fr","Prenez la {0}e à droite.","2"},
+        {"gl","Colle a {0}.ª curva á dereita.","1"},
+        {"gu","જમણી બાજુએ {0}લો વળાંક લો.","1"},
+        {"gu","જમણી બાજુએ {0}જો વળાંક લો.","2"},
+        {"gu","જમણી બાજુએ {0}થો વળાંક લો.","4"},
+        {"gu","જમણી બાજુએ {0}મો વળાંક લો.","5"},
+        {"gu","જમણી બાજુએ {0}ઠો વળાંક લો.","6"},
+        {"hi","{0}ला दाहिना मोड़ लें.","1"},
+        {"hi","{0}रा दाहिना मोड़ लें.","2"},
+        {"hi","{0}था दाहिना मोड़ लें.","4"},
+        {"hi","{0}वां दाहिना मोड़ लें.","5"},
+        {"hi","{0}ठा दाहिना मोड़ लें.","6"},
+        {"hr","Skrenite na {0}. križanju desno.","1"},
+        {"hu","Az {0}. lehetőségnél forduljon jobbra.","1"},
+        {"hu","A {0}. lehetőségnél forduljon jobbra.","2"},
+        {"hy","Թեքվեք աջ {0}-ին խաչմերուկով:","1"},
+        {"hy","Թեքվեք աջ {0}-րդ խաչմերուկով:","2"},
+        {"id","Ambil belokan kanan ke-{0}.","1"},
+        {"is","Taktu {0}. beygju til hægri.","1"},
+        {"it","Prendi la {0}° a destra.","1"},
+        {"it","Prendi l'{0}° a destra.","8"},
+        {"he","פנה ימינה בפנייה ה-{0}","1"},
+        {"ja","{0} 番目の角を右折します。","1"},
+        {"ka","{0}-ე სახლი მარცხნივ.","21"},
+        {"ka","{0}-ლი სახლი მარცხნივ.","1"},
+        {"ka","გამოიყენეთ მე-{0} მარჯვენა შესახვევი.","2"},
+        {"kk","{0}-ші бұрылыстан оңға бұрылыңыз.","1"},
+        {"kk","{0}-шы бұрылыстан оңға бұрылыңыз.","6"},
+        {"km","បត់​ស្តាំ​លើក​ទី​ {0}","1"},
+        {"kn","{0}ನೇ ಬಲತಿರುವನ್ನು ತೆಗೆದುಕೊಳ್ಳಿ.","1"},
+        {"ko","{0}번째 길목에서 우회전하세요.","1"},
+        {"ky","{0}-бурулуштан оңго бурулуңуз.","1"},
+        {"lo","ລ້ຽວຂວາທຳອິດ.","1"},
+        {"lo","ລ້ຽວຂວາທີ {0}.","23"},
+        {"lt","{0}-ame posūkyje sukite į dešinę.","1"},
+        {"lv","Dodieties {0}. pagriezienā pa labi.","1"},
+        {"mk","Сврти на {0}-вата улица десно.","1"},
+        {"ml","{0}-ാമത്തെ വലത്തേക്ക് തിരിയുക.","1"},
+        {"mn","{0}-р баруун эргэлтээр орно уу","1"},
+        {"mr","{0}ले उजवे वळण घ्या.","1"},
+        {"mr","{0}रे उजवे वळण घ्या.","2"},
+        {"mr","{0}थे उजवे वळण घ्या.","4"},
+        {"mr","{0}वे उजवे वळण घ्या.","5"},
+        {"ms","Ambil belokan kanan yang pertama.","1"},
+        {"ms","Ambil belokan kanan yang ke-{0}.","2"},
+        {"ne","{0} ओ दायाँ घुम्ति लिनुहोस्","1"},
+        {"ne","{0} औं दायाँ घुम्ति लिनुहोस्","5"},
+        {"nl","Neem de {0}e afslag rechts.","1"},
+        {"nb","Ta {0}. svingen til høyre.","1"},
+        {"pa","ਸਜੇ ਪਾਸੇ {0} ਮੋੜ ਲਵੋ","1"},
+        {"pl","Skręć w {0} w prawo.","1"},
+        {"pt","pt-BR","1"},
+        {"ro","Faceţi virajul nr. {0} la dreapta.","1"},
+        {"ro","Faceţi virajul al {0}-lea la dreapta.","2"},
+        {"ru","Сверните направо на {0}-м перекрестке.","1"},
+        {"sk","Na {0}. križovatke odbočte doprava.","1"},
+        {"sl","V {0}. križišču zavijte desno.","1"},
+        {"sq","Merrni kthesën e {0}-rë në të djathtë.","1"},
+        {"sq","Merrni kthesën e {0}-t në të djathtë.","4"},
+        {"sq","Merrni kthesën e {0}-të në të djathtë.","2"},
+        {"sr","Скрените у {0}. десно.","1"},
+        {"sv","Ta {0}:a svängen till höger","1"},
+        {"sv","Ta {0}:e svängen till höger","3"},
+        {"sw","Chukua mpinduko wa {0} kulia.","1"},
+        {"ta","{0}வது வலது திருப்பத்தை எடு.","1"},
+        {"te","{0}వ కుడి మలుపు తీసుకోండి.","1"},
+        {"th","เลี้ยวขวาที่ทางเลี้ยวที่ {0}","1"},
+        {"tr","{0}. sağdan dönün.","2"},
+        {"uk","Поверніть праворуч на {0}-му повороті.","1"},
+        {"ur","دایاں موڑ نمبر {0} مڑیں۔","1"},
+        {"uz","{0}chi chorraxada o'ngga buriling.","1"},
+        {"vi","Rẽ vào lối rẽ thứ {0} bên phải.","1"},
+        {"zh","zh-Cn","1"},
+        {"zh_Hant","在第 {0} 個路口右轉。","1"},
+        {"zu","Thatha indlela ejikela kwesokudla yama-{0}","99"},
+        {"zu","Thatha indlela ejikela kwesokudla ye-{0}","100"},
+    };
 }

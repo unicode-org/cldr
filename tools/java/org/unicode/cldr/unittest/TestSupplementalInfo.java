@@ -1208,51 +1208,61 @@ public class TestSupplementalInfo extends TestFmwk {
     public void TestPluralCompleteness() {
         Set<String> cardinalLocales = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.cardinal));
         Set<String> ordinalLocales = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.ordinal));
-        Map<ULocale, PluralRulesFactory.SamplePatterns> sampleCardinals = PluralRulesFactory.getLocaleToSamplePatterns();
-        Set<ULocale> sampleCardinalLocales = new HashSet(sampleCardinals.keySet());
+        //Map<ULocale, PluralRulesFactory.SamplePatterns> sampleCardinals = PluralRulesFactory.getLocaleToSamplePatterns();
+        //Set<ULocale> sampleCardinalLocales = PluralRulesFactory.getLocales(); // new HashSet(PluralRulesFactory.getSampleCounts(uLocale, type).keySet());
         Map<ULocale, PluralRules> overrideCardinals = PluralRulesFactory.getPluralOverrides();
         Set<ULocale> overrideCardinalLocales = new HashSet(overrideCardinals.keySet());
 
         Set<String> testLocales = STANDARD_CODES.getLocaleCoverageLocales("google");
         Set<String> allLocales = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
-        for (boolean test : Arrays.asList(true, false)) {
-            for (String locale : allLocales) {
-                // the only known case where plural rules depend on region or script is pt_PT
-                if (locale.equals("root")) {
-                    continue;
-                }
-                ltp.set(locale);
-                if (!ltp.getRegion().isEmpty() || !ltp.getScript().isEmpty()) {
-                    continue;
-                }
-                if (test != testLocales.contains(locale)) {
-                    continue;
-                }
-                ULocale ulocale = new ULocale(locale);
-                PluralRules overrideRules = overrideCardinals.get(ulocale);
-                PluralRules cardinalRules = SUPPLEMENTAL.getPlurals(locale).getPluralRules();
-                boolean hasSamples = sampleCardinalLocales.contains(ulocale);
-                boolean hasCardinalRules = cardinalLocales.contains(locale);
-                boolean hasOrdinals = ordinalLocales.contains(locale);
-                if (test) {
-                    if (!hasSamples || !hasCardinalRules) {
-                        errln("Plurals for " + locale + ", Missing samples or cardinal rules");
-                    }
-                    if (!hasOrdinals) {
-                        logln("Plurals for " + locale + ", Missing ordinal rules");
-                    }
-                }
-                logln(test
-                    + "\t" + locale
-                    + "\t" + (hasCardinalRules ? "card" : "NO-card")
-                    + "\t" + (hasOrdinals ? "ord" : "NO-ord")
-                    + "\t" + (hasSamples ? "samp" : "NO-samp")
-                    + (!overrideCardinalLocales.contains(ulocale) ? ""
-                        : overrideRules.equals(cardinalRules) ? ""
-                            : "\t" + cardinalRules + "\t" + overrideRules));
-
+        for (String locale : allLocales) {
+            // the only known case where plural rules depend on region or script is pt_PT
+            if (locale.equals("root")) {
+                continue;
             }
+            ltp.set(locale);
+            if (!ltp.getRegion().isEmpty() || !ltp.getScript().isEmpty()) {
+                continue;
+            }
+            boolean needsCoverage = testLocales.contains(locale);
+            ULocale ulocale = new ULocale(locale);
+
+            for (PluralType type : PluralType.values()) {
+                PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(type, locale, false);
+                if (pluralInfo == null) {
+                    errOrLog(needsCoverage, locale + ", missing plural " + type + " rules");
+                    continue;
+                }
+                HashSet<String> samples = new HashSet();
+                EnumSet<Count> countsWithNoSamples = EnumSet.noneOf(Count.class);
+                EnumSet<Count> countsWithDuplicateSample = EnumSet.noneOf(Count.class);
+                Set<Count> countsFound = PluralRulesFactory.getSampleCounts(ulocale, type.standardType);
+                for (Count count : pluralInfo.getCounts()) {
+                    String pattern = PluralRulesFactory.getSamplePattern(ulocale, type.standardType, count);
+                    if (countsFound == null || !countsFound.contains(count)) {
+                        countsWithNoSamples.add(count);
+                    } else if (samples.contains(pattern)) {
+                        countsWithDuplicateSample.add(count);
+                    } else {
+                        logln(ulocale + "\t" + type + "\t" + count + "\t" + pattern);
+                    }
+                }
+                if (!countsWithNoSamples.isEmpty()) {
+                    errOrLog(needsCoverage, ulocale + "\t" + type + "\t missing samples: " + countsWithNoSamples);
+                }
+                if (!countsWithDuplicateSample.isEmpty()) {
+                    errOrLog(needsCoverage, ulocale + "\t" + type + "\t duplicate samples: " + countsWithDuplicateSample);
+                }
+            }
+        }
+    }
+
+    public void errOrLog(boolean causeError, String message) {
+        if (causeError) {
+            errln(message);
+        } else {
+            logln(message);
         }
     }
 

@@ -40,7 +40,7 @@ public class WritePluralRulesSpreadsheets {
     private static void ranges() {
         SupplementalDataInfo supplemental = SupplementalDataInfo.getInstance();
         Set<String> locales = StandardCodes.make().getLocaleCoverageLocales("Google"); // superset
-        Map<ULocale, PluralRulesFactory.SamplePatterns> sampleMap = PluralRulesFactory.getLocaleToSamplePatterns();
+        //Map<ULocale, PluralRulesFactory.SamplePatterns> sampleMap = PluralRulesFactory.getLocaleToSamplePatterns();
         Factory factory = TestInfo.getInstance().getCldrFactory();
 
         for (String locale : locales) {
@@ -49,7 +49,7 @@ public class WritePluralRulesSpreadsheets {
             }
             String rangePattern = factory.make(locale, true).getStringValue("//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"range\"]");
             PluralRules rules = supplemental.getPlurals(locale).getPluralRules();
-            SamplePatterns samplePatterns = getSamples(sampleMap, locale);
+            SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(new ULocale(locale));
             Set<String> keywords = rules.getKeywords();
             //Map<String, FixedDecimal> leastMap = new LinkedHashMap<String, FixedDecimal>();
             //Map<String, FixedDecimal> greatestMap = new LinkedHashMap<String, FixedDecimal>();

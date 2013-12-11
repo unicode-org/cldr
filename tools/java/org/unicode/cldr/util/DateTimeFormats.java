@@ -91,9 +91,22 @@ public class DateTimeFormats {
      * @return
      */
     public DateTimeFormats set(CLDRFile file, String calendarID) {
+        return set(file, calendarID, true);
+    }
+
+    /**
+     * Set a CLDRFile and calendar. Must be done before calling addTable.
+     * 
+     * @param file
+     * @param calendarID
+     * @return
+     */
+    public DateTimeFormats set(CLDRFile file, String calendarID, boolean useStock) {
         this.file = file;
         locale = new ULocale(file.getLocaleID());
-        icuServiceBuilder = new ICUServiceBuilder().setCldrFile(file);
+        if (useStock) {
+            icuServiceBuilder = new ICUServiceBuilder().setCldrFile(file);
+        }
         PatternInfo returnInfo = new PatternInfo();
         XPathParts parts = new XPathParts();
         generator = DateTimePatternGenerator.getEmptyInstance();
@@ -106,13 +119,17 @@ public class DateTimeFormats {
                 stock +
                 "\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
             String dateTimePattern = file.getStringValue(path);
-            generator.addPattern(dateTimePattern, true, returnInfo);
+            if (useStock) {
+                generator.addPattern(dateTimePattern, true, returnInfo);
+            }
             path = "//ldml/dates/calendars/calendar[@type=\"" + calendarID
                 + "\"]/timeFormats/timeFormatLength[@type=\"" +
                 stock +
                 "\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
             dateTimePattern = file.getStringValue(path);
-            generator.addPattern(dateTimePattern, true, returnInfo);
+            if (useStock) {
+                generator.addPattern(dateTimePattern, true, returnInfo);
+            }
             if (DEBUG
                 && DEBUG_LIST_PATTERNS.equals(locale)) {
                 System.out.println("* Adding: " + locale + "\t" + dateTimePattern);
@@ -182,7 +199,7 @@ public class DateTimeFormats {
         }
 
         generator
-            .setDateTimeFormat(Calendar.getDateTimePattern(Calendar.getInstance(locale), locale, DateFormat.MEDIUM));
+        .setDateTimeFormat(Calendar.getDateTimePattern(Calendar.getInstance(locale), locale, DateFormat.MEDIUM));
 
         // ldml/dates/calendars/calendar[@type=\"gregorian\"]/dateTimeFormats/intervalFormats/intervalFormatItem[@id=\"yMMMEd\"]/greatestDifference[@id=\"d\"]
         for (String path : With.in(file.iterator("//ldml/dates/calendars/calendar[@type=\"" + calendarID
@@ -193,8 +210,11 @@ public class DateTimeFormats {
             String intervalPattern = file.getStringValue(path);
             dateIntervalInfo.setIntervalPattern(skeleton, diffNumber, intervalPattern);
         }
-        dateIntervalInfo.setFallbackIntervalPattern(file.getStringValue("//ldml/dates/calendars/calendar[@type=\""
-            + calendarID + "\"]/dateTimeFormats/intervalFormats/intervalFormatFallback"));
+        if (useStock) {
+            dateIntervalInfo.setFallbackIntervalPattern(
+                file.getStringValue("//ldml/dates/calendars/calendar[@type=\""
+                    + calendarID + "\"]/dateTimeFormats/intervalFormats/intervalFormatFallback"));
+        }
         return this;
     }
 
@@ -587,14 +607,14 @@ public class DateTimeFormats {
      */
     private void showRow(Appendable output, RowStyle rowStyle, String name, String skeleton, String english,
         String example, boolean isPresent)
-        throws IOException {
+            throws IOException {
         output.append("<tr>");
         switch (rowStyle) {
         case separator:
             String link = name.replace(' ', '_');
             output.append("<th colSpan='3' class='dtf-sep'>")
-                .append(CldrUtility.getDoubleLinkedText(link, name))
-                .append("</th>");
+            .append(CldrUtility.getDoubleLinkedText(link, name))
+            .append("</th>");
             break;
         case header:
         case normal:
@@ -612,7 +632,7 @@ public class DateTimeFormats {
             }
             // .append(startCell).append(skeleton).append(endCell)
             output.append(startCell).append(english).append(endCell)
-                .append(startCell).append(example).append(endCell)
+            .append(startCell).append(example).append(endCell)
             //.append(startCell).append(isPresent ? " " : "c").append(endCell)
             ;
             if (rowStyle != RowStyle.header) {
@@ -709,11 +729,11 @@ public class DateTimeFormats {
     private void addDateSubtable(String path, CLDRFile english, Appendable output, String... types) throws IOException {
         path = path.replace("CALENDAR", calendarID);
         output
-            .append("<table class='dtf-table'>\n"
-                +
-                "<tr><th class='dtf-th'>English</th><th class='dtf-th'>Wide</th><th class='dtf-th'>Abbr.</th><th class='dtf-th'>Narrow</th></tr>"
-                +
-                "\n");
+        .append("<table class='dtf-table'>\n"
+            +
+            "<tr><th class='dtf-th'>English</th><th class='dtf-th'>Wide</th><th class='dtf-th'>Abbr.</th><th class='dtf-th'>Narrow</th></tr>"
+            +
+            "\n");
         for (String type : types) {
             String path1 = path.replace("TYPE", type);
             output.append("<tr>");
@@ -727,7 +747,7 @@ public class DateTimeFormats {
                     if (first) {
                         String value = english.getStringValue(path3);
                         output.append("<th class='dtf-left'>").append(TransliteratorUtilities.toHTML.transform(value))
-                            .append("</th>");
+                        .append("</th>");
                         first = false;
                     }
                     String value = file.getStringValue(path3);
@@ -776,7 +796,7 @@ public class DateTimeFormats {
         DateTimeFormats english = new DateTimeFormats().set(englishFile, "gregorian");
         PrintWriter index = BagFormatter.openUTF8Writer(CLDRPaths.CHART_DIRECTORY + "dates/", "index.html");
         index
-            .println(
+        .println(
             "<html><head>\n"
                 +
                 "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>\n"
@@ -793,7 +813,7 @@ public class DateTimeFormats {
                 "<p style='clear:both'><b>The charts have been incorporated into the Survey Tool, as Date/Time Review. </b></p>\n"
                 +
                 "<p>The following charts show typical usage of date and time formatting with the Gregorian calendar. " +
-                "Please review the chart for your locale(s).</p><div style='margin:2em'>");
+            "Please review the chart for your locale(s).</p><div style='margin:2em'>");
 
         Map<String, String> sorted = new TreeMap<String, String>();
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
@@ -866,7 +886,7 @@ public class DateTimeFormats {
                     +
                     "<i>There is important information on <a target='CLDR_ST_DOCS' href='http://cldr.unicode.org/translation/date-time-review'>Date/Time Review</a>, "
                     +
-                    "so please read that page before starting!</i></p>\n");
+                "so please read that page before starting!</i></p>\n");
             formats.addTable(english, out);
             formats.addDateTable(englishFile, out);
             out.println("<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>"

@@ -4,20 +4,29 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Locale;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PrettyPath;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
@@ -27,6 +36,10 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
 import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.DateFormatSymbols;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Simple test that loads each file in the cldr directory, thus verifying that
@@ -54,6 +67,8 @@ public class QuickCheck {
     private static boolean verbose;
 
     public static void main(String[] args) throws IOException {
+        checkStock();
+        if (true) return;
         verbose = CldrUtility.getProperty("verbose", "false", "true").matches("(?i)T|TRUE");
         localeRegex = CldrUtility.getProperty("locale", ".*");
 
@@ -307,6 +322,70 @@ public class QuickCheck {
                     + " Paths were not prettied: use -DSHOW and look for ones with %% in them.");
             }
         }
+    }
+
+    private static final String[] STOCK = { "short", "medium", "long", "full" };
+
+    static void checkStock() {
+        TestInfo testInfo = TestInfo.getInstance();
+        Factory factory = testInfo.getCldrFactory();
+
+        String[][] items = {
+            {"full",    "yMMMMEEEEd",   "jmmsszzzz"},
+            {"long",    "yMMMMd",       "jmmssz"},
+            {"medium",  "yMMMd",        "jmmss"},
+            {"short",   "yMd",         "jmm"},
+        };
+        String calendarID = "gregorian";
+        String datetimePathPrefix = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/";
+
+        int total = 0;
+        int mismatch = 0;
+        LanguageTagParser ltp = new LanguageTagParser();
+        for (String locale : StandardCodes.make().getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN))) {
+            if (!ltp.set(locale).getRegion().isEmpty()) {
+                continue;
+            }
+            CLDRFile file = factory.make(locale, false);
+            DateTimeFormats dtf = new DateTimeFormats();
+            dtf.set(file, "gregorian", false);
+            for (String[] stockInfo : items) {
+                String length = stockInfo[0];
+                //ldml/dates/calendars/calendar[@type="gregorian"]/dateFormats/dateFormatLength[@type="full"]/dateFormat[@type="standard"]/pattern[@type="standard"]
+                String path = datetimePathPrefix + "dateFormats/dateFormatLength[@type=\"" +
+                    length + "\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+                String stockDatePattern = file.getStringValue(path);
+                String flexibleDatePattern = dtf.getBestPattern(stockInfo[1]);
+                mismatch += showStatus(++total, locale, "date", length, stockInfo[1], stockDatePattern, flexibleDatePattern);
+                path = datetimePathPrefix + "timeFormats/timeFormatLength[@type=\"" + length +
+                    "\"]/timeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";
+                String stockTimePattern = file.getStringValue(path);
+                String flexibleTimePattern = dtf.getBestPattern(stockInfo[2]);
+                mismatch += showStatus(++total, locale, "time", length, stockInfo[2], stockTimePattern, flexibleTimePattern);
+            }
+        }
+        System.out.println("Mismatches:\t" + mismatch + "\tTotal:\t" + total);
+    }
+
+    static final Date SAMPLE_DATE = new Date(2013-1900, 1-1, 29, 13, 59, 59);
+
+    private static int showStatus(int total, String locale, String type, String length, 
+        String skeleton, String stockPattern, String flexiblePattern) {
+        ULocale ulocale = new ULocale(locale);
+        DateFormatSymbols dfs= new DateFormatSymbols(ulocale); // just use ICU for now
+        boolean areSame = Objects.equals(stockPattern, flexiblePattern);
+        System.out.println(total 
+            + "\t" + (areSame ? "ok" : "diff")
+            + "\t" + locale 
+            + "\t" + type 
+            + "\t" + length 
+            + "\t" + skeleton 
+            + "\t" + stockPattern
+            + "\t" + (areSame ? "" : flexiblePattern)
+            + "\t'" + new SimpleDateFormat(stockPattern, dfs, ulocale).format(SAMPLE_DATE)
+            + "\t'" + (areSame ? "" : new SimpleDateFormat(flexiblePattern, dfs, ulocale).format(SAMPLE_DATE))
+            );
+        return areSame ? 0 : 1;
     }
 
 }

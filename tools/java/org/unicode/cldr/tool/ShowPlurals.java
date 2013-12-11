@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -20,10 +21,14 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.FixedDecimalRange;
+import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.util.ULocale;
 
 public class ShowPlurals {
@@ -39,7 +44,7 @@ public class ShowPlurals {
         final String title = "Language Plural Rules";
         final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, false));
         ShowLanguages.showContents(pw, "rules", "Rules", "comparison", "Comparison");
-        
+
         pw.append("<h2>" + CldrUtility.getDoubleLinkedText("rules", "1. " + section1) + "</h2>\n");
         printPluralTable(english, localeFilter, pw);
 
@@ -77,18 +82,27 @@ public class ShowPlurals {
         .setSpanRows(false)
         ;
 
-        Map<ULocale, org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
+        //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
+        Set<String> cardinalLocales = supplementalDataInfo.getPluralLocales(PluralType.cardinal);
+        Set<String> ordinalLocales = supplementalDataInfo.getPluralLocales(PluralType.ordinal);
+        Set<String> all = new LinkedHashSet(cardinalLocales);
+        all.addAll(ordinalLocales);
 
         for (String locale : supplementalDataInfo.getPluralLocales()) {
-            if (localeFilter != null && !localeFilter.equals(locale)) {
+            if (localeFilter != null && !localeFilter.equals(locale) || locale.equals("root")) {
                 continue;
             }
             final String name = english.getName(locale);
             for (PluralType pluralType : PluralType.values()) {
+                if (pluralType == PluralType.ordinal && !ordinalLocales.contains(locale)
+                    || pluralType == PluralType.cardinal && !cardinalLocales.contains(locale)) {
+                    continue;
+                }
                 final PluralInfo plurals = supplementalDataInfo.getPlurals(pluralType, locale);
                 ULocale locale2 = new ULocale(locale);
-                final SamplePatterns samplePatterns = pluralType == PluralType.ordinal ? null 
-                    : CldrUtility.get(samples, locale2);
+                final SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(locale2);
+                //                    pluralType == PluralType.ordinal ? null 
+                //                    : CldrUtility.get(samples, locale2);
                 NumberFormat nf = NumberFormat.getInstance(locale2);
 
                 String rules = plurals.getRules();
@@ -100,31 +114,32 @@ public class ShowPlurals {
                 Set<Count> counts = plurals.getCounts();
                 for (PluralInfo.Count count : counts) {
                     String keyword = count.toString();
-                    SampleList exampleList = plurals.getSamples9999(count);
-                    String examples = exampleList.toString();
+                    FixedDecimalSamples exampleList = pluralRules.getDecimalSamples(keyword, PluralRules.SampleType.INTEGER); // plurals.getSamples9999(count);
+                    FixedDecimalSamples exampleList2 = pluralRules.getDecimalSamples(keyword, PluralRules.SampleType.DECIMAL);
+                    if (exampleList == null) {
+                        exampleList = exampleList2;
+                        exampleList2 = null;
+                    }
+                    String examples = getExamples(exampleList);
+                    if (exampleList2 != null) {
+                        examples += "<br>" + getExamples(exampleList2);
+                    }
                     String rule = pluralRules.getRules(keyword);
                     rule = rule != null ? rule.replace(":", " → ")
                         .replace(" and ", " and<br>&nbsp;&nbsp;")
                         .replace(" or ", " or<br>")
                         : counts.size() == 1 ? "<i>everything</i>"
                             : "<i>everything else</i>";
+
                         String sample = counts.size() == 1 ? NO_PLURAL_DIFFERENCES : NOT_AVAILABLE;
                         if (samplePatterns != null) {
-                            String samplePattern = CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));
+                            String samplePattern = samplePatterns.get(pluralType.standardType, Count.valueOf(keyword)); // CldrUtility.get(samplePatterns.keywordToPattern, Count.valueOf(keyword));
                             if (samplePattern != null) {
-                                if (exampleList.getRangeCount() > 0) {
-                                    int intSample = exampleList.getRangeStart(0);
-                                    sample = getSample(new FixedDecimal(intSample), samplePattern, nf);
-                                } else {
-                                    sample = "";
-                                }
-                                List<FixedDecimal> fractions = exampleList.getFractions();
-                                if (fractions.size() != 0) {
-                                    FixedDecimal numb = fractions.iterator().next();
-                                    if (sample.length() != 0) {
-                                        sample += "<br>";
-                                    }
-                                    sample += getSample(numb, samplePattern, nf);
+                                FixedDecimal sampleDecimal = getNonZeroSampleIfPossible(exampleList);
+                                sample = getSample(sampleDecimal, samplePattern, nf);
+                                if (exampleList2 != null) {
+                                    sampleDecimal = getNonZeroSampleIfPossible(exampleList2);
+                                    sample += "<br>" + getSample(sampleDecimal, samplePattern, nf);
                                 }
                             }
                         }
@@ -166,6 +181,27 @@ public class ShowPlurals {
             }
         }
         appendable.append(tablePrinter.toTable()).append('\n');
+    }
+
+    private static String getExamples(FixedDecimalSamples exampleList) {
+        return CollectionUtilities.join(exampleList.getSamples(), ", ") + (exampleList.bounded ? "" : ", …");
+    }
+
+    public static FixedDecimal getNonZeroSampleIfPossible(FixedDecimalSamples exampleList) {
+        Set<FixedDecimalRange> sampleSet = exampleList.getSamples();
+        FixedDecimal sampleDecimal = null;
+        // skip 0 if possible
+        for (FixedDecimalRange range : sampleSet) {
+            sampleDecimal = range.start;
+            if (sampleDecimal.source != 0.0) {
+                break;
+            }
+            sampleDecimal = range.end;
+            if (sampleDecimal.source != 0.0) {
+                break;
+            }
+        }
+        return sampleDecimal;
     }
 
     private static String getSample(FixedDecimal numb, String samplePattern, NumberFormat nf) {

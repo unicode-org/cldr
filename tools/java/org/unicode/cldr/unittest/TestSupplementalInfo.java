@@ -1263,7 +1263,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void errOrLog(boolean causeError, String message) {
-        if (causeError // && !logKnownIssue("6290", "Fix this once we have all ordinal messages.")
+        if (causeError && !logKnownIssue("6290", "Fix this once we have all ordinal messages.")
             ) {
             errln(message);
         } else {

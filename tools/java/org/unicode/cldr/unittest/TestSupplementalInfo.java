@@ -1234,11 +1234,15 @@ public class TestSupplementalInfo extends TestFmwk {
                     errOrLog(needsCoverage, locale + ", missing plural " + type + " rules");
                     continue;
                 }
+                Set<Count> counts = pluralInfo.getCounts();
+                if (counts.size() == 1) {
+                    continue; // skip checking samples
+                }
                 HashSet<String> samples = new HashSet();
                 EnumSet<Count> countsWithNoSamples = EnumSet.noneOf(Count.class);
                 EnumSet<Count> countsWithDuplicateSample = EnumSet.noneOf(Count.class);
                 Set<Count> countsFound = PluralRulesFactory.getSampleCounts(ulocale, type.standardType);
-                for (Count count : pluralInfo.getCounts()) {
+                for (Count count : counts) {
                     String pattern = PluralRulesFactory.getSamplePattern(ulocale, type.standardType, count);
                     if (countsFound == null || !countsFound.contains(count)) {
                         countsWithNoSamples.add(count);
@@ -1259,7 +1263,8 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void errOrLog(boolean causeError, String message) {
-        if (causeError && !logKnownIssue("6290", "Fix this once we have all ordinal messages.")) {
+        if (causeError // && !logKnownIssue("6290", "Fix this once we have all ordinal messages.")
+            ) {
             errln(message);
         } else {
             logln(message);

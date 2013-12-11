@@ -723,6 +723,11 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         {"zh","zh-Cn","1"},
         {"zh_Hant","在第 {0} 個路口右轉。","1"},
         {"zu","Thatha indlela ejikela kwesokudla yama-{0}","99"},
-        {"zu","Thatha indlela ejikela kwesokudla ye-{0}","100"},
+        {"cy","{0}fed ci","7"},
+        {"cy","ci {0}af","1"},
+        {"cy","{0}il gi","2"},
+        {"cy","{0}ydd ci","3"},
+        {"cy","{0}ed ci","5"},
+        {"cy","ci rhif {0}","10"},
     };
 }

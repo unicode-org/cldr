@@ -851,7 +851,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     } else {
                         ps2 = DBUtils.prepareForwardReadOnly(conn, "DELETE FROM " + CLDR_VBV
                             + " where locale=? and xpath=? and submitter=? ");
-                        ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO  " + CLDR_VBV
+                        ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + CLDR_VBV
                             + " (locale,xpath,submitter,value,last_mod) VALUES (?,?,?,?,CURRENT_TIMESTAMP) ");
 
                         ps2.setString(1, locale.getBaseName());
@@ -904,6 +904,87 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 getXpathToVotes(distinguishingXpath).remove(user);
                 allVoters.add(user);
             }
+            stamp.next();
+            return resolver = source.setValueFromResolver(distinguishingXpath, resolver);
+        }
+        
+        @Override
+        public synchronized void deleteValue(User user, String distinguishingXpath, String value) throws BallotBox.InvalidXPathException {
+            if (!getPathsForFile().contains(distinguishingXpath)) {
+                throw new BallotBox.InvalidXPathException(distinguishingXpath);
+            }
+            
+            //make sure user is not deleting a path with 1 or more votes
+            if (getVotesForValue(distinguishingXpath, value) != null){
+                SurveyLog.debug("failed to delete value: " + value + " because it has 1 or more votes");
+                return;
+            }
+            
+            SurveyLog.debug("V4v: " + locale + " " + distinguishingXpath + " : " + user + " deleting '" + value + "'");
+            ModifyDenial denial = UserRegistry.userCanModifyLocaleWhy(user, locale); // this
+                                                                                     // has
+                                                                                     // to
+                                                                                     // do
+                                                                                     // with
+                                                                                     // changing
+                                                                                     // a
+                                                                                     // vote
+                                                                                     // -
+                                                                                     // not
+                                                                                     // counting
+                                                                                     // it.
+            if (denial != null) {
+                throw new IllegalArgumentException("User " + user + " cannot modify " + locale + " " + denial);
+            }
+
+            if (value != null && value.length() > MAX_VAL_LEN) {
+                throw new IllegalArgumentException("Value exceeds limit of " + MAX_VAL_LEN);
+            }
+
+            if (!readonly) {
+                makeSource(false);
+                ElapsedTimer et = !SurveyLog.DEBUG ? null : new ElapsedTimer("{0} Recording PLD for " + locale + " "
+                    + distinguishingXpath + " : " + user + " deleting '" + value);
+                Connection conn = null;
+                PreparedStatement ps = null;
+                try {
+                    conn = DBUtils.getInstance().getDBConnection();
+                    
+                    ps = DBUtils.prepareForwardReadOnly(conn, "DELETE FROM " + CLDR_VBV_ALT + " where value=? ");
+                    
+                    DBUtils.setStringUTF8(ps, 1, value);
+
+                    ps.executeUpdate();
+
+                    conn.commit();
+                } catch (SQLException e) {
+                    SurveyLog.logException(e);
+                    SurveyMain.busted("Could not delete value " + value + " in locale locale " + locale, e);
+                    throw new InternalError("Could not load locale " + locale + " : " + DBUtils.unchainSqlException(e));
+                } finally {
+                    DBUtils.close(ps, conn);
+                }
+                SurveyLog.debug(et);
+            } else {
+                readonly();
+            }
+
+            internalDeleteValue(user, distinguishingXpath, value, null, xmlsource); // will create/throw away a resolver.
+        }
+        
+        /**
+         * @param user
+         * @param distinguishingXpath
+         * @param value
+         * @param source
+         * @return
+         */
+        private final VoteResolver<String> internalDeleteValue(User user, String distinguishingXpath, String value,
+            VoteResolver<String> resolver, DataBackedSource source) throws InvalidXPathException {
+            if (!getPathsForFile().contains(distinguishingXpath)) {
+                throw new InvalidXPathException(distinguishingXpath);
+            }
+            getXpathToOthers(sm.xpt.getByXpath(distinguishingXpath)).remove(value);
             stamp.next();
             return resolver = source.setValueFromResolver(distinguishingXpath, resolver);
         }

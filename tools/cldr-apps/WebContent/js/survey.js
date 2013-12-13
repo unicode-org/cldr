@@ -1400,6 +1400,26 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 }
 
 /**
+ * wire up the button to perform a cancel
+ * @method wireUpButton
+ * @param button
+ * @param tr
+ * @param theRow
+ * @param vHash
+ * @param box
+ */
+function wireUpCancelButton(button, tr, theRow, vHash) {
+	if(vHash==null) {
+		button.id="C_NO_" + tr.rowHash;
+		vHash="";
+	} else {
+		button.id = "c"+vHash+"_"+tr.rowHash;
+	}
+	listenFor(button,"click",
+			function(e){ handleCancelWiredClick(tr,theRow,vHash,button); stStopPropagation(e); return false; });
+}
+
+/**
  * Append an icon to the div
  * @method addIcon
  * @param {Node} td
@@ -2063,8 +2083,9 @@ function appendExample(parent, text) {
  * @param {JSON} item JSON of the specific item we are adding
  * @param {String} vHash     stringid of the item
  * @param {DOM} newButton     button prototype object
+ * @param {DOM} cancelButton     cancel button object
  */
-function addVitem(td, tr,theRow,item,vHash,newButton) {
+function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 //	var canModify = tr.theTable.json.canModify;
 	var div = document.createElement("div");
 	var isWinner = (td==tr.proposedcell);
@@ -2081,6 +2102,7 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 		wireUpButton(newButton,tr,theRow,vHash);
 		div.appendChild(newButton);
 	}
+	
     var subSpan = document.createElement("span");
     subSpan.className = "subSpan";
 	var span = appendItem(subSpan,item.value,item.pClass,tr);
@@ -2093,6 +2115,12 @@ function addVitem(td, tr,theRow,item,vHash,newButton) {
 	}
 	if(item.votes && !isWinner) {
 		addIcon(div,"i-vote");
+	}
+	
+	if(cancelButton && !item.votes && item.isOldValue==false) {
+		cancelButton.value=item.value;
+		wireUpCancelButton(cancelButton,tr,theRow,vHash);
+		div.appendChild(cancelButton);
 	}
 
     // wire up the onclick
@@ -2366,8 +2394,10 @@ function updateRow(tr, theRow) {
 	var children = getTagChildren(tr);
 	var config = surveyConfig;
 	var protoButton = dojo.byId('proto-button');
+	var cancelButton = dojo.byId('cancel-button');
 	if(!canModify) {
 		protoButton = null; // no voting at all.
+		cancelButton = null;
 	}
 	
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus + " d-dr-status";
@@ -2489,7 +2519,7 @@ function updateRow(tr, theRow) {
 		}
 	}
 	if(theRow.items&&theRow.winningVhash) {
-		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton));
+		addVitem(children[config.proposedcell],tr,theRow,theRow.items[theRow.winningVhash],theRow.winningVhash,cloneAnon(protoButton), null);
 	} else {
 		children[config.proposedcell].showFn = function(){};  // nothing else to show
 	}
@@ -2505,7 +2535,7 @@ function updateRow(tr, theRow) {
 			continue; // skip the winner
 		}
 		hadOtherItems=true;
-		addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton));
+		addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton), cloneAnon(cancelButton));
 	}
 	if(!hadOtherItems /*!onIE*/) {
 		listenToPop(null, tr, children[config.othercell]);
@@ -4824,6 +4854,104 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	queueXhr(xhrArgs);
 }
 
+/**
+* bottleneck for cancel buttons
+ * @method handleWiredClick
+ */
+function handleCancelWiredClick(tr,theRow,vHash,button) {
+	var value="";
+	var valToShow;
+	if(tr.wait) {
+		return;
+	}
+	
+	valToShow=button.value;
+	
+	var what = 'delete';
+
+	// select
+	updateCurrentId(theRow.xpstrid);
+	// and scroll
+	showCurrentId();
+	
+	var myUnDefer = function() {
+		tr.wait=false;
+		setDefer(false);
+	};
+	tr.wait=true;
+	resetPop(tr);
+	setDefer(true);
+	theRow.proposedResults = null;
+
+
+	console.log("Delete " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
+	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
+//	tr.className='tr_checking';
+	var loadHandler = function(json){
+		try {
+			// var newHtml = "";
+			if(json.err && json.err.length >0) {
+				tr.className='tr_err';
+				// v_tr.className="tr_err";
+				// v_tr2.className="tr_err";
+//				showLoader(tr.theTable.theDiv.loader,"Error!");
+				handleDisconnect('Error deleting a value', json);
+				tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
+				// e_div.innerHTML = newHtml;
+				myUnDefer();
+				handleDisconnect('Error deleting a value', json);
+			} else {
+				if(json.deleteResultRaw) { // if deleted..
+					tr.className='tr_checking2';
+					refreshRow2(tr,theRow,vHash,function(theRow){
+
+						// delete went through. Now show the pop.
+						//button.className='ichoice-o';
+						hideLoader(tr.theTable.theDiv.loader);
+						//tr.className = 'vother';
+						myUnDefer();
+					}, function(err) {
+						myUnDefer();
+						handleDisconnect(err, json);
+					}); // end refresh-loaded-fcn
+					// end: async
+				} else {
+					// Did not submit. Show errors, etc
+					if(
+							(json.statusAction&&json.statusAction!='ALLOW')
+						|| (json.testResults && (json.testWarnings || json.testErrors ))) {
+						showProposedItem(tr.inputTd,tr,theRow,valToShow,json.testResults,json); // TODO: use  inputTd= (getTagChildren(tr)[tr.theTable.config.changecell])
+					} else {
+						// no errors, not submitted.  Nothing to do.
+					}
+					hideLoader(tr.theTable.theDiv.loader);
+					myUnDefer();
+				}
+			}
+		}catch(e) {
+			tr.className='tr_err';
+			tr.innerHTML = stopIcon + " Could not check value. Try reloading the page.<br>"+e.message;
+			console.log("Error in ajax post [handleCancelWiredClick] ",e.message);
+			myUnDefer();
+			handleDisconnect("handleCancelWiredClick:"+e.message, json);
+		}
+	};
+	var errorHandler = function(err, ioArgs){
+		console.log('Error: ' + err + ' response ' + ioArgs.xhr.responseText);
+		handleDisconnect('Error: ' + err + ' response ' + ioArgs.xhr.responseText, null);
+		theRow.className = "ferrbox";
+		theRow.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
+		myUnDefer();
+	};
+	var xhrArgs = {
+			url: ourUrl+cacheKill(),
+			handleAs:"json",
+			timeout: ajaxTimeout,
+			load: loadHandler,
+			error: errorHandler
+	};
+	queueXhr(xhrArgs);
+}
 
 // TODO move admin panel to separate module
 /**

@@ -938,7 +938,7 @@ public class DBUtils {
         return al.toArray(new Object[al.size()][]);
     }
 
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings( "unchecked" )
     private static Map<String, Object>[] resultToArrayAssoc(ResultSet rs) throws SQLException {
         ResultSetMetaData rsm = rs.getMetaData();
         ArrayList<Map<String, Object>> al = new ArrayList<Map<String, Object>>();

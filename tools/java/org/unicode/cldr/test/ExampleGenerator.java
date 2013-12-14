@@ -793,7 +793,7 @@ public class ExampleGenerator {
         int decimalCount = currencyFormat.getMinimumFractionDigits();
 
         // we will cycle until we have (at most) two examples.
-        Set<FixedDecimal> examplesSeen = new HashSet();
+        Set<FixedDecimal> examplesSeen = new HashSet<FixedDecimal>();
         int maxCount = 2;
         main:
         // If we are a currency, we will try to see if we can set the decimals to match.

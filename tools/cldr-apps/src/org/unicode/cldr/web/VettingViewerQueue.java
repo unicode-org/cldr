@@ -661,7 +661,7 @@ public class VettingViewerQueue {
         private DataTester getTester(CLDRLocale loc) {
             DataTester tester = testMap.get(loc);
             if (tester == null) {
-                BallotBox<User> ballotBox = getBox(sm, loc);
+                //BallotBox<User> ballotBox = getBox(sm, loc);
                 // tester = getTester(ballotBox);
                 testMap.put(loc, tester);
             }

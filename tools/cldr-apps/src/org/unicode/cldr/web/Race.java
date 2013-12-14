@@ -69,10 +69,6 @@ public class Race {
         }
     }
 
-    private org.unicode.cldr.util.VoteResolver.Organization getVROrg(String name) {
-        return org.unicode.cldr.util.VoteResolver.Organization.fromString(name);
-    }
-
     /**
      * Get a map of xpath to score for this org.
      */

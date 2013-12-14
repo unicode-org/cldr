@@ -513,16 +513,9 @@ public class SurveyForum {
                 // Apparently, it posted.
 
                 // ElapsedTimer et = new ElapsedTimer("Sending email to " + forum);
-                int emailCount = 0;
                 // Do email-
                 Set<Integer> cc_emails = new HashSet<Integer>();
                 Set<Integer> bcc_emails = new HashSet<Integer>();
-
-                emailCount = gatherInterestedUsers(forum, cc_emails, bcc_emails);
-
-                CLDRConfig survprops = CLDRConfig.getInstance();
-                String from = survprops.getProperty("CLDR_FROM", "nobody@example.com");
-                String smtp = survprops.getProperty("CLDR_SMTP", null);
 
                 String subject = "CLDR forum post (" + CLDRLocale.getInstance(forum).getDisplayName() + " - " + forum + "): " + subj;
 
@@ -640,7 +633,7 @@ public class SurveyForum {
                 try {
                     conn = sm.dbUtils.getDBConnection();
 
-                    Object[][] o = sm.dbUtils.sqlQueryArrayArrayObj(conn, "select " + pAllResultFora + "  FROM " + DB_POSTS
+                    Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + pAllResultFora + "  FROM " + DB_POSTS
                         + " WHERE (" + DB_POSTS + ".forum =? AND " + DB_POSTS + " .xpath =?) ORDER BY " + DB_POSTS
                         + ".last_time DESC", forumNumber, base_xpath);
 
@@ -1627,8 +1620,6 @@ public class SurveyForum {
                                 String text = rs.getString(3);
                                 int id = rs.getInt(4);
                                 java.sql.Timestamp lastDate = rs.getTimestamp(5);
-                                String ploc = rs.getString(6);
-                                int xpath = rs.getInt(7);
 
                                 String nameLink = getNameTextFromUid(user, poster);
 

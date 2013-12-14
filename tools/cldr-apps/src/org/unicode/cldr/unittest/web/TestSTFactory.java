@@ -42,8 +42,6 @@ import com.ibm.icu.text.SimpleDateFormat;
 
 public class TestSTFactory extends TestFmwk {
 
-    private static final String CACHETEST = "cachetest";
-
     TestAll.WebTestInfo testInfo = WebTestInfo.getInstance();
 
     STFactory gFac = null;

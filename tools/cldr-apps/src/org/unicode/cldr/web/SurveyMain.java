@@ -558,8 +558,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 startupTime = null;
             }
 
-            String remoteIP = WebContext.userIP(request);
-
             response.setHeader("Cache-Control", "no-cache");
             response.setDateHeader("Expires", 0);
             response.setHeader("Pragma", "no-cache");
@@ -890,7 +888,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public static String getFileBase() {
         if (fileBase == null) {
-            String cldrHome = getSurveyHome();
             CLDRConfig survprops = CLDRConfig.getInstance();
             File base = survprops.getCldrBaseDirectory();
             fileBase     = new File(base, "common/main").getAbsolutePath();
@@ -1190,10 +1187,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         } else {
             return b.booleanValue();
         }
-    }
-
-    private boolean twidGetBool(String key) {
-        return twidGetBool(key, false);
     }
 
     public void twidPut(String key, boolean val) {
@@ -2678,7 +2671,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     String theirEmail = rs.getString(4);
                     String theirOrg = rs.getString(5);
                     String theirLocales = rs.getString(6);
-                    String theirIntlocs = rs.getString(7);
                     java.sql.Timestamp theirLast = rs.getTimestamp(8);
                     boolean havePermToChange = ctx.session.user.isAdminFor(reg.getInfo(theirId));
 
@@ -3160,14 +3152,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             ctx.println("<a href='" + ctx.url() + ctx.urlConnector() + "do=list'>\u22d6 Show all users</a><br>");
         }
         printFooter(ctx);
-    }
-
-    /**
-     * @param ctx
-     * @param userEmail
-     */
-    private void printUserZoomLink(WebContext ctx, String userEmail) {
-        printUserZoomLink(ctx, userEmail, "");
     }
 
     /**
@@ -3708,7 +3692,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println("<p align='right'><B>Recent locales: </B> ");
                     shownHeader = true;
                 }
-                boolean canModify = UserRegistry.userCanModifyLocale(ctx.session.user, CLDRLocale.getInstance(k));
                 ctx.print(getLocaleLink(ctx, k, null));
             }
             if (shownHeader) {
@@ -4585,7 +4568,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     Set<UserLocaleStuff> allUserLocaleStuffs = new HashSet<UserLocaleStuff>();
 
     /* Sentinel value indicating that there was no baseline string available. */
-    private static final String NULL_STRING = "";
 
     public static final String DATAROW_JSP = "datarow_jsp"; // context tag for
                                                             // which datarow jsp
@@ -5161,7 +5143,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.putByLocale(e, d);
                 }
 
-                Map mapOfArrays = ctx.getParameterMap();
+                Map<?, ?> mapOfArrays = ctx.getParameterMap();
                 Map<String, String> m = new TreeMap<String, String>();
                 for (Iterator i = mapOfArrays.keySet().iterator(); i.hasNext();) {
                     String k = i.next().toString();

@@ -1851,7 +1851,6 @@ public class WebContext implements Cloneable, Appendable {
      * @param string
      * @param object
      */
-    @SuppressWarnings("unchecked")
     public void put(String string, Object object) {
         if (object == null) {
             temporaryStuff.remove(string);

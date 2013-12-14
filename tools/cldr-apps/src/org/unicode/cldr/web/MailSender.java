@@ -111,13 +111,14 @@ public class MailSender implements Runnable {
 
     private MailSender() {
         DBUtils db = DBUtils.getInstance();
-        USER = db.db_Mysql ? "user" : "to_user";
+        USER = DBUtils.db_Mysql ? "user" : "to_user";
         Connection conn = null;
         PreparedStatement s = null, s2 = null;
         try {
             conn = db.getDBConnection();
             conn.setAutoCommit(false);
-            if (!DBUtils.getInstance().hasTable(conn, CLDR_MAIL)) {
+            DBUtils.getInstance();
+            if (!DBUtils.hasTable(conn, CLDR_MAIL)) {
                 System.out.println("Creating " + CLDR_MAIL);
                 s = DBUtils.prepareStatementWithArgs(conn, "CREATE TABLE " + CLDR_MAIL + " (id INT NOT NULL " + DBUtils.DB_SQL_IDENTITY + ", " // PK:  id
                     + USER + " int not null, " // userid TO
@@ -166,7 +167,7 @@ public class MailSender implements Runnable {
                 int firstTime = SurveyMain.isUnofficial() ? 5 : 60; // for official use, give some time for ST to settle before starting on mail s ending.
                 int eachTime = 6; /* Check for outbound mail every 6 seconds */// SurveyMain.isUnofficial()?6:45; // 63;
                 periodicThis = SurveyMain.getTimer().scheduleWithFixedDelay(this, firstTime, eachTime, TimeUnit.SECONDS);
-                System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = " + db.sqlCount(COUNTLEFTSQL));
+                System.out.println("Set up mail thread every " + eachTime + "s starting in " + firstTime + "s - waiting count = " + DBUtils.sqlCount(COUNTLEFTSQL));
             }
         } catch (SQLException se) {
             SurveyMain.busted("Cant set up " + CLDR_MAIL, se);
@@ -189,9 +190,6 @@ public class MailSender implements Runnable {
             SurveyLog.logException(t, "shutting down mailSender");
         }
     }
-
-    private boolean KEEP_ALIVE = true;
-    // int port = Integer.getInteger(CLDR_SMTP_PORT);
 
     static private MailSender fInstance = null;
 

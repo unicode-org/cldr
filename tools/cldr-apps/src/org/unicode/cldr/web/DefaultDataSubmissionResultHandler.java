@@ -65,13 +65,13 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
         ctx.println(ctx.iconHtml("warn", "duplicate")
             + " This value was already entered, accepting your vote for "
             + ((CandidateItem.altProposed == null) ? " the current item. <br>"
-                : (" the proposal <tt>" + item.altProposed + "</tt>.<br>")));
+                : (" the proposal <tt>" + CandidateItem.altProposed + "</tt>.<br>")));
     }
 
     public void warnAlreadyVotingFor(DataRow p, CandidateItem item) {
         ctx.print("<tt class='codebox'>" + p.getDisplayName() + "</tt>: ");
         ctx.println(ctx.iconHtml("warn", "duplicate") + " Your current vote is already for "
-            + ((CandidateItem.altProposed == null) ? " the current item " : (" the proposal <tt>" + item.altProposed + "</tt> "))
+            + ((CandidateItem.altProposed == null) ? " the current item " : (" the proposal <tt>" + CandidateItem.altProposed + "</tt> "))
             + " which has the same value.<br>");
     }
 
@@ -93,7 +93,7 @@ public class DefaultDataSubmissionResultHandler implements DataSubmissionResultH
         ctx.print("&nbsp;&nbsp; Value: <b>" + choice_v + "</b>  ");
         String cls = SurveyMain.shortClassName(status.getCause());
         ctx.printHelpLink("/" + cls, "<!-- help with -->" + cls, true);
-        if (status.getType().equals(status.errorType)) {
+        if (status.getType().equals(CheckStatus.errorType)) {
             ctx.print(ctx.iconHtml("stop", cls));
         } else {
             ctx.print(ctx.iconHtml("warn", cls));

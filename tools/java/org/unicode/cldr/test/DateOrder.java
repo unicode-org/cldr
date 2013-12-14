@@ -47,7 +47,6 @@ public class DateOrder implements Comparable<DateOrder> {
     }
 
     private String toString2(int etype) {
-        char lead;
         switch (etype >> 1) {
 
         }
@@ -77,7 +76,6 @@ public class DateOrder implements Comparable<DateOrder> {
                     if (path.contains("[@id=\"Ed\"]")) {
                         continue;
                     }
-                    String locale = resolved.getSourceLocaleID(path, status);
                     if (!path.equals(status.pathWhereFound)) {
                         continue;
                     }

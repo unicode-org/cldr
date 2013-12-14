@@ -53,7 +53,6 @@ import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;

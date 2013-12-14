@@ -474,7 +474,6 @@ public class SurveyAjax extends HttpServlet {
                                         throw new InternalError("User cannot modify locale.");
                                     }
 
-                                    SupplementalDataInfo sdi = mySession.sm.getSupplementalDataInfo();
                                     PathHeader ph = stf.getPathHeader(xp);
                                     CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
                                     SurveyToolStatus phStatus = ph.getSurveyToolStatus();
@@ -731,9 +730,8 @@ public class SurveyAjax extends HttpServlet {
                         if (!"null".equals(eff)) {
                             optMap.put("CheckCoverage.localeType", eff);
                         }
-                        CheckCLDR checkCldr = uf.getCheck(eff, optMap);
 
-                        List<CheckStatus> checkCldrResult = (List) uf.hash.get(SurveyMain.CHECKCLDR_RES + eff);
+                        List<CheckStatus> checkCldrResult = (List<CheckStatus>) uf.hash.get(SurveyMain.CHECKCLDR_RES + eff);
 
                         if (checkCldrResult == null) {
                             r.put("possibleProblems", new JSONArray());
@@ -1118,7 +1116,7 @@ public class SurveyAjax extends HttpServlet {
      * @param r
      */
     private void setLocaleStatus(SurveyMain sm, String locale, JSONWriter r) {
-        if (locale != null && locale.length() > 0 && SurveyMain.isBusted == null && sm.isSetup) {
+        if (locale != null && locale.length() > 0 && SurveyMain.isBusted == null && SurveyMain.isSetup) {
             CLDRLocale loc = CLDRLocale.getInstance(locale);
             if (loc != null && SurveyMain.getLocalesSet().contains(loc)) {
                 r.put("localeStampName", loc.getDisplayName());

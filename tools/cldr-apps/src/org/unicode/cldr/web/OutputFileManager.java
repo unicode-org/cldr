@@ -48,7 +48,6 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Pair;
-import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
@@ -1006,7 +1005,7 @@ public class OutputFileManager {
 
             @Override
             public void run() {
-                if (SurveyMain.isBusted() || !sm.isSetup) {
+                if (SurveyMain.isBusted() || !SurveyMain.isSetup) {
                     return;
                 }
                 // System.err.println("spinner hot...ac="+SurveyThread.activeCount());

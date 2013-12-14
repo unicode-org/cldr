@@ -440,7 +440,7 @@ public class ConsoleCheckCLDR {
                 CheckStatus.Type statusType = status.getType();
 
                 if (errorsOnly) {
-                    if (!statusType.equals(status.errorType)) continue;
+                    if (!statusType.equals(CheckStatus.errorType)) continue;
                 }
 
                 if (subtypeFilter != null) {
@@ -477,7 +477,7 @@ public class ConsoleCheckCLDR {
             // initialize the first time in.
             if (englishPaths == null) {
                 englishPaths = new HashSet<String>();
-                final CLDRFile displayFile = checkCldr.getDisplayInformation();
+                final CLDRFile displayFile = CheckCLDR.getDisplayInformation();
                 addPrettyPaths(displayFile, pathFilter, pathHeaderFactory, noaliases, true, englishPaths);
                 addPrettyPaths(displayFile, displayFile.getExtraPaths(), pathFilter, pathHeaderFactory, noaliases,
                     true, englishPaths);
@@ -1113,7 +1113,7 @@ public class ConsoleCheckCLDR {
 
         private static Relation<String, String> getOrgToLocales() {
             if (orgToLocales == null) {
-                orgToLocales = new Relation(new TreeMap(), TreeSet.class);
+                orgToLocales = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
                 StandardCodes sc = StandardCodes.make();
                 for (String org : sc.getLocaleCoverageOrganizations()) {
                     for (String locale : sc.getLocaleCoverageLocales(org)) {
@@ -1381,9 +1381,7 @@ public class ConsoleCheckCLDR {
 
     private static void showHeaderLine() {
         if (SHOW_LOCALE) {
-            String idViewString = "";
             if (idView) {
-                idViewString = "\tID\tDesc.";
                 System.out
                     .println("Locale\tID\tDesc.\t〈Eng.Value〉\t【Eng.Ex.】\t〈Loc.Value〉\t【Loc.Ex】\t⁅error/warning type⁆\t❮Error/Warning Msg❯");
             } else {
@@ -1500,10 +1498,6 @@ public class ConsoleCheckCLDR {
     private static boolean idView;
     private static SupplementalDataInfo supplementalDataInfo;
     private static CLDRFile english;
-
-    private static String safeForHtml(String value) {
-        return value == null ? "" : TransliteratorUtilities.toHTML.transliterate(value);
-    }
 
     public static class PathShower {
         String localeID;

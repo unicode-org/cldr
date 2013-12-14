@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='fa-t-k0-android'>
-	<version platform='4.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="fa-t-k0-android">
+	<version platform="4.3" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='fa'/>
+		<name value="Persian"/>
 	</names>
 	<keyMap>
 		<map iso="D01" to="ض"/> <!-- Q -->
@@ -35,12 +35,12 @@
 		<map iso="B06" to="ر"/> <!-- N -->
 		<map iso="B07" to="ة"/> <!-- M -->
 		<map iso="B08" to="و" longPress="ؤ"/> <!-- , -->
-		<map iso="A02" to="/" longPress="@"/> <!-- (key to left of space) -->
+		<map iso="A02" to="،"/> <!-- (key to left of space) -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to=" "/> <!-- (key to right of space) -->
 		<map iso="A05" to="." longPress="8 \u{22} &apos; # - : ! ، ؟ @ &amp; % + ؛ / ( )"/> <!-- (2 keys to right of space)  long=8 " " # - : ! ، ؟ @ & % + ؛ / ( )  -->
 	</keyMap>
-	<keyMap modifiers='opt'>
+	<keyMap modifiers="opt">
 		<map iso="D01" to="۱" longPress="¹ ½ ⅓ ¼ ⅛"/> <!-- Q  base=ض -->
 		<map iso="D02" to="۲" longPress="² ⅔"/> <!-- W  base=ص -->
 		<map iso="D03" to="۳" longPress="³ ¾ ⅜"/> <!-- E  base=ق -->
@@ -53,28 +53,29 @@
 		<map iso="D10" to="۰" longPress="ⁿ ∅"/> <!-- P  base=ج -->
 		<map iso="C01" to="٬" longPress="@"/> <!-- A  base=ش -->
 		<map iso="C02" to="٫" longPress="#"/> <!-- S  base=س -->
-		<map iso="C03" to="﷼"/> <!-- D  base=ي -->
+		<map iso="C03" to="$" longPress="$ ¢ € £ ¥ ₱"/> <!-- D  base=ي -->
 		<map iso="C04" to="٪" longPress="% ‰"/> <!-- F  base=ب -->
 		<map iso="C05" to="&amp;"/> <!-- G  base=ل -->
 		<map iso="C06" to="*" longPress="★ ٭"/> <!-- H  base=ا -->
-		<map iso="C07" to="-" longPress="_ – —"/> <!-- J  base=ت -->
+		<map iso="C07" to="-" longPress="_ – — ·"/> <!-- J  base=ت -->
 		<map iso="C08" to="+" longPress="±"/> <!-- K  base=ن -->
 		<map iso="C09" to="(" longPress="4 ﴿ &gt; } ]"/> <!-- L  base=م -->
 		<map iso="C10" to=")" longPress="4 ﴾ &lt; { ["/> <!-- ;  base=ك -->
 		<map iso="B01" to="= \ &lt;"/> <!-- Z  base=ظ -->
 		<map iso="B02" to="!" longPress="¡"/> <!-- X  base=ط -->
-		<map iso="B03" to="«" longPress="4 “ ” \u{22} &apos;"/> <!-- C  base=ذ  long=4 “ ” " "  -->
-		<map iso="B04" to="»" longPress="4 ‘ ’ ‚ ‛"/> <!-- V  base=د -->
+		<map iso="B03" to="«" longPress="5 !text/double_quotes !text/double_angle_quotes"/> <!-- C  base=ذ -->
+		<map iso="B04" to="»" longPress="5 !text/single_quotes !text/single_angle_quotes"/> <!-- V  base=د -->
 		<map iso="B05" to=":"/> <!-- B  base=ز -->
 		<map iso="B06" to="؛" longPress=";"/> <!-- N  base=ر -->
 		<map iso="B07" to="/"/> <!-- M  base=ة -->
 		<map iso="B08" to="؟" longPress="?"/> <!-- ,  base=و -->
-		<map iso="A02" to="،"/> <!-- (key to left of space)  base=/ -->
+		<map iso="A01" to="ا\u{200C}ب\u{200C}پ"/> <!-- (2 keys to left of space)  to= ا‌ب‌پ  -->
+		<map iso="A02" to="،"/> <!-- (key to left of space) -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to=" "/> <!-- (key to right of space) -->
 		<map iso="A05" to="." longPress="8 \u{22} &apos; # - : ! ، ؟ @ &amp; % + ؛ / ( )"/> <!-- (2 keys to right of space)  long=8 " " # - : ! ، ؟ @ & % + ؛ / ( )  -->
 	</keyMap>
-	<keyMap modifiers='opt+shift'>
+	<keyMap modifiers="opt+shift">
 		<map iso="D01" to="~"/> <!-- Q  base=ض -->
 		<map iso="D02" to="`"/> <!-- W  base=ص -->
 		<map iso="D03" to="|"/> <!-- E  base=ق -->
@@ -101,7 +102,8 @@
 		<map iso="B05" to="\"/> <!-- B  base=ز -->
 		<map iso="B06" to="«" longPress="3 › ≥ &gt;"/> <!-- N  base=ر -->
 		<map iso="B07" to="»" longPress="3 ‹ ≤ &lt;"/> <!-- M  base=ة -->
-		<map iso="A02" to="„"/> <!-- (key to left of space)  base=/ -->
+		<map iso="A01" to="ا\u{200C}ب\u{200C}پ"/> <!-- (2 keys to left of space)  to= ا‌ب‌پ  -->
+		<map iso="A02" to="„" longPress="‚"/> <!-- (key to left of space)  base=، -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to=" "/> <!-- (key to right of space) -->
 		<map iso="A05" to="…"/> <!-- (2 keys to right of space)  base=. -->

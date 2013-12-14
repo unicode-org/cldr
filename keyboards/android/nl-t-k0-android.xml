@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='nl-t-k0-android'>
-	<version platform='4.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="nl-t-k0-android">
+	<version platform="4.3" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='nl'/>
+		<name value="Dutch"/>
 	</names>
 	<keyMap>
 		<map iso="D01" to="q"/>
@@ -33,11 +33,11 @@
 		<map iso="B05" to="b"/>
 		<map iso="B06" to="n" longPress="ñ ń"/>
 		<map iso="B07" to="m"/>
-		<map iso="A02" to="/" longPress="@"/> <!-- (key to left of space) -->
+		<map iso="A02" to=","/> <!-- (key to left of space) -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to="." longPress="8 \u{22} &apos; # - : ! , ? @ &amp; % + ; / ( )"/> <!-- (key to right of space)  long=8 " " # - : ! , ? @ & % + ; / ( )  -->
 	</keyMap>
-	<keyMap modifiers='shift caps'>
+	<keyMap modifiers="shift caps">
 		<map iso="D01" to="Q"/>
 		<map iso="D02" to="W"/>
 		<map iso="D03" to="E" longPress="É Ë Ê È Ę Ė Ē"/>
@@ -64,11 +64,11 @@
 		<map iso="B05" to="B"/>
 		<map iso="B06" to="N" longPress="Ñ Ń"/>
 		<map iso="B07" to="M"/>
-		<map iso="A02" to="/" longPress="@"/> <!-- (key to left of space) -->
+		<map iso="A02" to=","/> <!-- (key to left of space) -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to="." longPress="8 \u{22} &apos; # - : ! , ? @ &amp; % + ; / ( )"/> <!-- (key to right of space)  long=8 " " # - : ! , ? @ & % + ; / ( )  -->
 	</keyMap>
-	<keyMap modifiers='opt'>
+	<keyMap modifiers="opt">
 		<map iso="D01" to="1" longPress="¹ ½ ⅓ ¼ ⅛"/> <!-- Q -->
 		<map iso="D02" to="2" longPress="² ⅔"/> <!-- W -->
 		<map iso="D03" to="3" longPress="³ ¾ ⅜"/> <!-- E -->
@@ -85,23 +85,24 @@
 		<map iso="C04" to="%" longPress="‰"/> <!-- F -->
 		<map iso="C05" to="&amp;"/> <!-- G -->
 		<map iso="C06" to="*" longPress="† ‡ ★"/> <!-- H -->
-		<map iso="C07" to="-" longPress="_ – —"/> <!-- J -->
+		<map iso="C07" to="-" longPress="_ – — ·"/> <!-- J -->
 		<map iso="C08" to="+" longPress="±"/> <!-- K -->
 		<map iso="C09" to="(" longPress="3 &lt; { ["/> <!-- L -->
 		<map iso="C10" to=")" longPress="3 &gt; } ]"/> <!-- ; -->
 		<map iso="B01" to="= \ &lt;"/> <!-- Z -->
 		<map iso="B02" to="!" longPress="¡"/> <!-- X -->
-		<map iso="B03" to="\u{22}" longPress="4 “ ” « »"/> <!-- C  to= "  -->
-		<map iso="B04" to="&apos;" longPress="4 ‘ ’ ‚ ‛"/> <!-- V -->
+		<map iso="B03" to="\u{22}" longPress="5 !text/double_quotes !text/double_angle_quotes"/> <!-- C  to= "  -->
+		<map iso="B04" to="&apos;" longPress="5 !text/single_quotes !text/single_angle_quotes"/> <!-- V -->
 		<map iso="B05" to=":"/> <!-- B -->
 		<map iso="B06" to=";"/> <!-- N -->
 		<map iso="B07" to="/"/> <!-- M -->
 		<map iso="B08" to="?" longPress="¿"/> <!-- , -->
-		<map iso="A02" to=","/> <!-- (key to left of space)  base=/ -->
+		<map iso="A01" to="ABC"/> <!-- (2 keys to left of space) -->
+		<map iso="A02" to=","/> <!-- (key to left of space) -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to="." longPress="8 \u{22} &apos; # - : ! , ? @ &amp; % + ; / ( )"/> <!-- (key to right of space)  long=8 " " # - : ! , ? @ & % + ; / ( )  -->
 	</keyMap>
-	<keyMap modifiers='opt+shift'>
+	<keyMap modifiers="opt+shift">
 		<map iso="D01" to="~"/> <!-- Q -->
 		<map iso="D02" to="`"/> <!-- W -->
 		<map iso="D03" to="|"/> <!-- E -->
@@ -128,7 +129,8 @@
 		<map iso="B05" to="\"/> <!-- B -->
 		<map iso="B06" to="&lt;" longPress="3 ‹ ≤ «"/> <!-- N -->
 		<map iso="B07" to="&gt;" longPress="3 › ≥ »"/> <!-- M -->
-		<map iso="A02" to="„"/> <!-- (key to left of space)  base=/ -->
+		<map iso="A01" to="ABC"/> <!-- (2 keys to left of space) -->
+		<map iso="A02" to="„" longPress="‚"/> <!-- (key to left of space)  base=, -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to="…"/> <!-- (key to right of space)  base=. -->
 	</keyMap>

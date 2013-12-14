@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='ru-t-k0-android'>
-	<version platform='4.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="ru-t-k0-android">
+	<version platform="4.3" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='ru'/>
+		<name value="Russian"/>
 	</names>
 	<keyMap>
 		<map iso="D01" to="й"/> <!-- Q -->
@@ -17,7 +17,7 @@
 		<map iso="D08" to="ш"/> <!-- I -->
 		<map iso="D09" to="щ"/> <!-- O -->
 		<map iso="D10" to="з"/> <!-- P -->
-		<map iso="D11" to="х" longPress="ъ"/> <!-- [ -->
+		<map iso="D11" to="х"/> <!-- [ -->
 		<map iso="C01" to="ф"/> <!-- A -->
 		<map iso="C02" to="ы"/> <!-- S -->
 		<map iso="C03" to="в"/> <!-- D -->
@@ -38,11 +38,11 @@
 		<map iso="B07" to="ь" longPress="ъ"/> <!-- M -->
 		<map iso="B08" to="б"/> <!-- , -->
 		<map iso="B09" to="ю"/> <!-- . -->
-		<map iso="A02" to="/" longPress="@"/> <!-- (key to left of space) -->
+		<map iso="A02" to=","/> <!-- (key to left of space) -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to="." longPress="8 \u{22} &apos; # - : ! , ? @ &amp; % + ; / ( )"/> <!-- (key to right of space)  long=8 " " # - : ! , ? @ & % + ; / ( )  -->
 	</keyMap>
-	<keyMap modifiers='shift caps'>
+	<keyMap modifiers="shift caps">
 		<map iso="D01" to="Й"/> <!-- Q -->
 		<map iso="D02" to="Ц"/> <!-- W -->
 		<map iso="D03" to="У"/> <!-- E -->
@@ -53,7 +53,7 @@
 		<map iso="D08" to="Ш"/> <!-- I -->
 		<map iso="D09" to="Щ"/> <!-- O -->
 		<map iso="D10" to="З"/> <!-- P -->
-		<map iso="D11" to="Х" longPress="Ъ"/> <!-- [ -->
+		<map iso="D11" to="Х"/> <!-- [ -->
 		<map iso="C01" to="Ф"/> <!-- A -->
 		<map iso="C02" to="Ы"/> <!-- S -->
 		<map iso="C03" to="В"/> <!-- D -->
@@ -74,11 +74,11 @@
 		<map iso="B07" to="Ь" longPress="Ъ"/> <!-- M -->
 		<map iso="B08" to="Б"/> <!-- , -->
 		<map iso="B09" to="Ю"/> <!-- . -->
-		<map iso="A02" to="/" longPress="@"/> <!-- (key to left of space) -->
+		<map iso="A02" to=","/> <!-- (key to left of space) -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to="." longPress="8 \u{22} &apos; # - : ! , ? @ &amp; % + ; / ( )"/> <!-- (key to right of space)  long=8 " " # - : ! , ? @ & % + ; / ( )  -->
 	</keyMap>
-	<keyMap modifiers='opt'>
+	<keyMap modifiers="opt">
 		<map iso="D01" to="1" longPress="¹ ½ ⅓ ¼ ⅛"/> <!-- Q  base=й -->
 		<map iso="D02" to="2" longPress="² ⅔"/> <!-- W  base=ц -->
 		<map iso="D03" to="3" longPress="³ ¾ ⅜"/> <!-- E  base=у -->
@@ -95,23 +95,24 @@
 		<map iso="C04" to="%" longPress="‰"/> <!-- F  base=а -->
 		<map iso="C05" to="&amp;"/> <!-- G  base=п -->
 		<map iso="C06" to="*" longPress="† ‡ ★"/> <!-- H  base=р -->
-		<map iso="C07" to="-" longPress="_ – —"/> <!-- J  base=о -->
+		<map iso="C07" to="-" longPress="_ – — ·"/> <!-- J  base=о -->
 		<map iso="C08" to="+" longPress="±"/> <!-- K  base=л -->
 		<map iso="C09" to="(" longPress="3 &lt; { ["/> <!-- L  base=д -->
 		<map iso="C10" to=")" longPress="3 &gt; } ]"/> <!-- ;  base=ж -->
 		<map iso="B01" to="= \ &lt;"/> <!-- Z  base=я -->
 		<map iso="B02" to="!" longPress="¡"/> <!-- X  base=ч -->
-		<map iso="B03" to="\u{22}" longPress="4 “ ” « »"/> <!-- C  base=с  to= "  -->
-		<map iso="B04" to="&apos;" longPress="4 ‘ ’ ‚ ‛"/> <!-- V  base=м -->
+		<map iso="B03" to="\u{22}" longPress="5 !text/double_quotes !text/double_angle_quotes"/> <!-- C  base=с  to= "  -->
+		<map iso="B04" to="&apos;" longPress="5 !text/single_quotes !text/single_angle_quotes"/> <!-- V  base=м -->
 		<map iso="B05" to=":"/> <!-- B  base=и -->
 		<map iso="B06" to=";"/> <!-- N  base=т -->
 		<map iso="B07" to="/"/> <!-- M  base=ь -->
 		<map iso="B08" to="?" longPress="¿"/> <!-- ,  base=б -->
-		<map iso="A02" to=","/> <!-- (key to left of space)  base=/ -->
+		<map iso="A01" to="АБВ"/> <!-- (2 keys to left of space) -->
+		<map iso="A02" to=","/> <!-- (key to left of space) -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to="." longPress="8 \u{22} &apos; # - : ! , ? @ &amp; % + ; / ( )"/> <!-- (key to right of space)  long=8 " " # - : ! , ? @ & % + ; / ( )  -->
 	</keyMap>
-	<keyMap modifiers='opt+shift'>
+	<keyMap modifiers="opt+shift">
 		<map iso="D01" to="~"/> <!-- Q  base=й -->
 		<map iso="D02" to="`"/> <!-- W  base=ц -->
 		<map iso="D03" to="|"/> <!-- E  base=у -->
@@ -138,7 +139,8 @@
 		<map iso="B05" to="\"/> <!-- B  base=и -->
 		<map iso="B06" to="&lt;" longPress="3 ‹ ≤ «"/> <!-- N  base=т -->
 		<map iso="B07" to="&gt;" longPress="3 › ≥ »"/> <!-- M  base=ь -->
-		<map iso="A02" to="„"/> <!-- (key to left of space)  base=/ -->
+		<map iso="A01" to="АБВ"/> <!-- (2 keys to left of space) -->
+		<map iso="A02" to="„" longPress="‚"/> <!-- (key to left of space)  base=, -->
 		<map iso="A03" to=" "/> <!-- space -->
 		<map iso="A04" to="…"/> <!-- (key to right of space)  base=. -->
 	</keyMap>

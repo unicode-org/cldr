@@ -334,7 +334,7 @@ class ExtractMessages {
         private Set<String> missing = new TreeSet<String>();
 
         // changes with each locale, must call reset
-        private Relation<String, String> id_to_value = new Relation(new TreeMap<String, String>(), TreeSet.class);
+        private Relation<String, String> id_to_value = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         private Map<String, String> id_to_cldrValue = new TreeMap<String, String>();
         private CasingAction forceCasing = CasingAction.NONE;
 

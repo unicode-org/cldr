@@ -10,13 +10,13 @@ import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Random;
-import java.util.Set;
+//import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
-import org.unicode.cldr.util.StandardCodes;
+//import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.dev.util.BNF;
 import com.ibm.icu.dev.util.BagFormatter;
@@ -217,8 +217,8 @@ class CheckLangTagBNF {
 
         // System.out.println(langTagPattern);
         // System.out.println(cleanedLangTagPattern);
-        StandardCodes sc = StandardCodes.make();
-        Set<String> grandfathered = sc.getAvailableCodes("grandfathered");
+//        StandardCodes sc = StandardCodes.make();
+//        Set<String> grandfathered = sc.getAvailableCodes("grandfathered");
         // for (Iterator it = grandfathered.iterator(); it.hasNext();) {
         // System.out.print(it.next() + " | ");
         // }
@@ -230,7 +230,7 @@ class CheckLangTagBNF {
         int errorCount = 0;
         BufferedReader in = BagFormatter.openUTF8Reader("", LANGUAGE_TAG_TEST_FILE);
 
-        for (int i = 0;; ++i) {
+        while (true) {
             String test = in.readLine();
             if (test == null) break;
 

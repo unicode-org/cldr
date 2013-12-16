@@ -332,7 +332,6 @@ public class TestCLDRTests extends TestFmwk {
     DefaultHandler DEFAULT_HANDLER = new DefaultHandler() {
         static final boolean DEBUG = false;
         StringBuffer lastChars = new StringBuffer();
-        boolean justPopped = false;
         Handler handler;
 
         public void startElement(
@@ -356,7 +355,6 @@ public class TestCLDRTests extends TestFmwk {
                     // handler.set("locale", uLocale.toString());
                 }
                 // if (DEBUG) System.out.println("startElement:\t" + contextStack);
-                justPopped = false;
             } catch (RuntimeException e) {
                 e.printStackTrace();
                 throw e;
@@ -373,7 +371,6 @@ public class TestCLDRTests extends TestFmwk {
                     // logln("Unexpected contents of: " + qName + ", <" + lastChars + ">");
                 }
                 lastChars.setLength(0);
-                justPopped = true;
             } catch (RuntimeException e) {
                 e.printStackTrace();
                 throw e;
@@ -387,7 +384,6 @@ public class TestCLDRTests extends TestFmwk {
                 String value = new String(ch, start, length);
                 if (DEBUG) System.out.println("characters:\t" + value);
                 lastChars.append(value);
-                justPopped = false;
             } catch (RuntimeException e) {
                 e.printStackTrace();
                 throw e;

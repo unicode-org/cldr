@@ -2830,7 +2830,7 @@ public class DataSection implements JSONString {
         STFactory stf = sm.getSTFactory();
         CLDRFile oldFile = stf.getOldFile(locale);
         diskFile = stf.getDiskFile(locale);
-        List<?> examplesResult = new ArrayList<Object>();
+        List<CheckStatus> examplesResult = new ArrayList<CheckStatus>();
         long lastTime = -1;
         String workPrefix = xpathPrefix;
         long nextTime = -1;
@@ -3260,8 +3260,8 @@ public class DataSection implements JSONString {
                 if (myItem.examples == null) {
                     myItem.examples = new Vector<ExampleEntry>();
                 }
-                for (Iterator<?> it3 = examplesResult.iterator(); it3.hasNext();) {
-                    CheckCLDR.CheckStatus status = (CheckCLDR.CheckStatus) it3.next();
+                for (Iterator<CheckStatus> it3 = examplesResult.iterator(); it3.hasNext();) {
+                    CheckCLDR.CheckStatus status = it3.next();
                     myItem.examples.add(addExampleEntry(new ExampleEntry(this, p, myItem, status)));
                 }
                 // myItem.examplesList = examplesResult;

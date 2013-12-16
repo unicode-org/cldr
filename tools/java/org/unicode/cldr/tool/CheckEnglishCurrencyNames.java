@@ -28,8 +28,8 @@ public class CheckEnglishCurrencyNames {
     public static void main(String[] args) {
         Date now = new Date();
         Set<String> currencyCodes = sc.getGoodAvailableCodes("currency");
-        Relation<String, String> currencyCodesWithDates = new Relation(new TreeMap(), TreeSet.class);
-        Relation<String, String> modernCurrencyCodes2territory = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> currencyCodesWithDates = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> modernCurrencyCodes2territory = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Set<String> territoriesWithoutModernCurrencies = new TreeSet<String>(sc.getGoodAvailableCodes("territory"));
 
         for (String territory : sc.getGoodAvailableCodes("territory")) {

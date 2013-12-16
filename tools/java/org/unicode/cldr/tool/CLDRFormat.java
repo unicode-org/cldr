@@ -13,7 +13,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
-import org.unicode.cldr.util.XPathParts.Comments;
+//import org.unicode.cldr.util.XPathParts.Comments;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -104,8 +104,8 @@ public class CLDRFormat {
                 return "\tFull XPaths differ: " + full1 + "!=" + full2;
             }
         }
-        Comments comments1 = cldrFile.getXpath_comments();
-        Comments comments2 = regenFile.getXpath_comments();
+//        Comments comments1 = cldrFile.getXpath_comments();
+//        Comments comments2 = regenFile.getXpath_comments();
         // TODO fix later
         return null;
     }

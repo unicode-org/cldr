@@ -10,7 +10,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumMap;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -275,8 +274,8 @@ public class ConvertLanguageData {
             String languageCode = ltp.getLanguage();
             Relation<BasicLanguageData.Type, String> status_territories = language_status_territories.get(languageCode);
             if (status_territories == null) {
-                language_status_territories.put(languageCode, status_territories = new Relation(
-                    new TreeMap(),
+                language_status_territories.put(languageCode, status_territories = Relation.of(
+                    new TreeMap<BasicLanguageData.Type, Set<String>>(),
                     TreeSet.class));
             }
             if (rowData.officialStatus.isMajor()) {
@@ -394,10 +393,9 @@ public class ConvertLanguageData {
 
     private static void checkBasicData(Map<String, RowData> localeToRowData) {
         // find languages with multiple scripts
-        Relation<String, String> languageToScripts = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> languageToScripts = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         for (String languageSubtag : language2BasicLanguageData.keySet()) {
             for (BasicLanguageData item : language2BasicLanguageData.getAll(languageSubtag)) {
-                Set<String> scripts = new TreeSet<String>();
                 languageToScripts.putAll(StandardCodes.fixLanguageTag(languageSubtag), item.getScripts());
             }
         }
@@ -599,7 +597,6 @@ public class ConvertLanguageData {
             }
 
             double countryPopulation1 = parseDecimal(row.get(COUNTRY_POPULATION));
-            double countryGdp1 = parseDecimal(row.get(COUNTRY_GDP));
             double countryLiteracy1 = parsePercent(row.get(COUNTRY_LITERACY), countryPopulation1);
 
             countryGdp = roundToPartsPer(AddPopulationData.getGdp(countryCode).doubleValue(), 1000);
@@ -1470,7 +1467,7 @@ public class ConvertLanguageData {
             }
         }
         // walk through the locales, getting the ones we care about.
-        Map<String, Double> scriptLocaleToLanguageLiteratePopulation = new TreeMap();
+        Map<String, Double> scriptLocaleToLanguageLiteratePopulation = new TreeMap<String, Double>();
 
         for (String locale : new TreeSet<String>(needsADoin)) {
             if (!needsADoin.contains(locale)) continue;
@@ -1511,9 +1508,9 @@ public class ConvertLanguageData {
         }
 
         // walk through the data
-        Set<String> skippingSingletons = new TreeSet();
+        Set<String> skippingSingletons = new TreeSet<String>();
 
-        Set<String> missingData = new TreeSet();
+        Set<String> missingData = new TreeSet<String>();
         for (Set<String> siblingSet : siblingSets) {
             if (SHOW_OLD_DEFAULT_CONTENTS) System.out.println("** From siblings: " + siblingSet);
 
@@ -1756,7 +1753,7 @@ public class ConvertLanguageData {
         }
     }
 
-    static Relation<String, BasicLanguageData> language2BasicLanguageData = new Relation(new TreeMap(), TreeSet.class);
+    static Relation<String, BasicLanguageData> language2BasicLanguageData = Relation.of(new TreeMap<String, Set<BasicLanguageData>>(), TreeSet.class);
 
     static Map<String, Relation<BasicLanguageData.Type, String>> language_status_scripts;
     static Map<Pair<String, String>, String> language_script_references = new TreeMap<Pair<String, String>, String>();
@@ -1900,7 +1897,7 @@ public class ConvertLanguageData {
         }
 
         // check that every living language in the row data has a script
-        Set<String> livingLanguagesWithTerritories = new TreeSet();
+        Set<String> livingLanguagesWithTerritories = new TreeSet<String>();
         for (RowData rowData : sortedInput) {
             String language = rowData.languageCode;
             if (sc.isModernLanguage(language) && Iso639Data.getSource(language) != Iso639Data.Source.ISO_639_3) {
@@ -1954,7 +1951,7 @@ public class ConvertLanguageData {
     private static void addLanguage2Script(String language, BasicLanguageData.Type type, String script) {
         Relation<BasicLanguageData.Type, String> status_scripts = language_status_scripts.get(language);
         if (status_scripts == null)
-            language_status_scripts.put(language, status_scripts = new Relation(new TreeMap(), TreeSet.class));
+            language_status_scripts.put(language, status_scripts = Relation.of(new TreeMap<BasicLanguageData.Type, Set<String>>(), TreeSet.class));
         status_scripts.put(type, script);
     }
 
@@ -2114,7 +2111,7 @@ public class ConvertLanguageData {
     private static void showBasicLanguageData(String languageSubtag, Relation<String, String> primaryCombos,
         Set<String> suppressEmptyScripts, BasicLanguageData.Type type) {
         Set<String> scriptsWithSameTerritories = new TreeSet<String>();
-        Set<String> lastTerritories = Collections.EMPTY_SET;
+        Set<String> lastTerritories = Collections.emptySet();
         for (String script : primaryCombos.keySet()) {
             Set<String> territories = primaryCombos.getAll(script);
             if (lastTerritories == Collections.EMPTY_SET) {

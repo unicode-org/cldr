@@ -146,7 +146,7 @@ public class CountItems {
         UnicodeSet patterns = new UnicodeSet("[:pattern_syntax:]");
         UnicodeSet unassigned = new UnicodeSet("[:unassigned:]");
         UnicodeSet punassigned = new UnicodeSet(patterns).retainAll(unassigned);
-        UnicodeMap blocks = ICUPropertyFactory.make().getProperty("block")
+        UnicodeMap<String> blocks = ICUPropertyFactory.make().getProperty("block")
             .getUnicodeMap();
         blocks.setMissing("<Reserved-Block>");
         // blocks.composeWith(new UnicodeMap().putAll(new UnicodeSet(patterns).retainAll(unassigned),"<reserved>"),
@@ -160,7 +160,7 @@ public class CountItems {
         // }
         // return a.toString() + " " + b.toString();
         // }});
-        for (UnicodeMapIterator it = new UnicodeMapIterator(blocks); it
+        for (UnicodeMapIterator<String> it = new UnicodeMapIterator<String>(blocks); it
             .nextRange();) {
             UnicodeSet range = new UnicodeSet(it.codepoint, it.codepointEnd);
             boolean hasPat = range.containsSome(patterns);
@@ -174,7 +174,7 @@ public class CountItems {
                 System.out.println();
             System.out.println(prefix + "\t" + range + "\t" + it.value);
             if (show) {
-                System.out.println(new UnicodeMap().putAll(unassigned, "<reserved>")
+                System.out.println(new UnicodeMap<String>().putAll(unassigned, "<reserved>")
                     .putAll(punassigned, "<reserved-for-syntax>").setMissing(
                         "<assigned>").putAll(range.complement(), null));
             }
@@ -202,7 +202,7 @@ public class CountItems {
             if (exemplars.size() != 0 && exemplars.size() < 500) {
                 Collator col = Collator.getInstance(new ULocale(locale));
                 Collator spaceCol = Collator.getInstance(new ULocale(locale));
-                spaceCol.setStrength(col.PRIMARY);
+                spaceCol.setStrength(Collator.PRIMARY);
                 out.println(locale + ":\t\u200E" + v + '\u200E');
                 // String fixedFull = CollectionUtilities.prettyPrint(exemplars, col, false);
                 // System.out.println(" =>\t" + fixedFull);
@@ -411,7 +411,7 @@ public class CountItems {
     }
 
     private static Map<String, String> getCountryToContinent(SupplementalDataInfo supplementalDataInfo, CLDRFile english) {
-        Relation<String, String> countryToContinent = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> countryToContinent = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Set<String> continents = new HashSet<String>(Arrays.asList("002", "019", "142", "150", "009"));
         // note: we don't need more than 3 levels
         for (String continent : continents) {
@@ -858,7 +858,7 @@ public class CountItems {
     private static String toString(Collection aliases, String separator) {
         StringBuffer result = new StringBuffer();
         boolean first = true;
-        for (Iterator it = aliases.iterator(); it.hasNext();) {
+        for (Iterator<Object> it = aliases.iterator(); it.hasNext();) {
             Object item = it.next();
             if (first)
                 first = false;

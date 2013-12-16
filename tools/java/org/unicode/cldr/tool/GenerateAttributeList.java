@@ -149,7 +149,6 @@ public class GenerateAttributeList {
         FileInputStream fis = new FileInputStream(file);
         try {
             XMLReader xmlReader = CLDRFile.createXMLReader(true);
-            MyDeclHandler me = new MyDeclHandler();
             xmlReader.setContentHandler(new MyContentHandler());
             InputSource is = new InputSource(fis);
             is.setSystemId(file);

@@ -8,7 +8,6 @@ import java.util.Date;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
@@ -36,7 +35,6 @@ import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
 import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.text.DateFormatSymbols;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.ULocale;
@@ -57,8 +55,6 @@ public class QuickCheck {
 
     private static String commonDirectory;
     private static String mainDirectory;
-
-    private static boolean showForceZoom;
 
     private static boolean resolved;
 
@@ -82,8 +78,6 @@ public class QuickCheck {
         mainDirectory = CldrUtility.getProperty("main", CLDRPaths.COMMON_DIRECTORY + "/main");
         // System.out.println("Main Source Directory: " + commonDirectory +
         // "\t\t(to change, use -DSOURCE=xxx, eg -DSOURCE=C:/cvsdata/unicode/cldr/incoming/proposed/main)");
-
-        showForceZoom = CldrUtility.getProperty("forcezoom", "false", "true").matches("(?i)T|TRUE");
 
         resolved = CldrUtility.getProperty("resolved", "false", "true").matches("(?i)T|TRUE");
 
@@ -323,8 +317,6 @@ public class QuickCheck {
             }
         }
     }
-
-    private static final String[] STOCK = { "short", "medium", "long", "full" };
 
     static void checkStock() {
         TestInfo testInfo = TestInfo.getInstance();

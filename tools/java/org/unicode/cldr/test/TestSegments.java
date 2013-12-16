@@ -105,7 +105,7 @@ public class TestSegments {
             System.out.println();
             System.out.println("Testing");
             Segmenter rl = rb.make();
-            Collection values = rl.getSamples().getAvailableValues();
+            Collection<Object> values = rl.getSamples().getAvailableValues();
             System.out.println("Value Partition: " + values);
 
             if (false) debugRule(rb);

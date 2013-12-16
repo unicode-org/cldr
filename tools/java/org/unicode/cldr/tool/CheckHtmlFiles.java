@@ -70,9 +70,9 @@ public class CheckHtmlFiles {
 //            return;
 //        }
 //        Data source = new Data().getSentences(MyOptions.old.option.getValue());
-        String file = MyOptions.target.option.getValue();
+//        String file = MyOptions.target.option.getValue();
         
-        Data target = new Data().getSentences(file);
+//        Data target = new Data().getSentences(file);
 
 //        int missingCount = 0, extraCount = 0;
 //        int line = 0;
@@ -310,7 +310,6 @@ public class CheckHtmlFiles {
         private static final long serialVersionUID = -6722150173224993960L;
         Levels lastBuildLevel;
         private Set<String> errors = new LinkedHashSet<String>();
-        private Set<String> warnings = new LinkedHashSet<String>();
         Output<Boolean> missingLevel = new Output<Boolean>(false);
 
         public HeadingInfoList(int h2_START) {
@@ -579,7 +578,6 @@ public class CheckHtmlFiles {
          */
         private String normalizeWhitespace(CharSequence input) {
             Matcher m = WHITESPACE.matcher(input);
-            int pos = input.toString().indexOf('\n');
             StringBuilder buffer = new StringBuilder();
             int last = 0;
             while (m.find()) {

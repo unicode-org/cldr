@@ -12,7 +12,6 @@ import org.unicode.cldr.util.SupplementalDataInfo;
 public class FallbackIteratorDataGenerator {
     static TestInfo testInfo = TestInfo.getInstance();
 
-    @SuppressWarnings("unchecked")
     public static void main(String[] args) {
         final StandardCodes sc = testInfo.getStandardCodes();
         List<String> decanonicalizeList = new ArrayList<String>();

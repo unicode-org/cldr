@@ -3,7 +3,6 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Iterator;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -94,8 +93,6 @@ public class DiffWithParent {
         parts.set(path);
         Set<Pair<String,String>> s = new TreeSet<Pair<String,String>>();
         for (int i = 0; i < fullParts.size(); ++i) {
-            Map<String, String> fullAttributes = fullParts.getAttributes(i);
-            Map<String, String> attributes = parts.getAttributes(i);
             for (String key : fullParts.getAttributeKeys(i)) {
                 s.add(new Pair<String,String>(key, fullParts.getAttributeValue(i, key)));
             }

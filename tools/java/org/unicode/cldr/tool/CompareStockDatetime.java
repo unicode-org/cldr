@@ -52,7 +52,7 @@ public class CompareStockDatetime {
                 String key = type + "-" + length;
                 Relation<String, String> skeletonToLocales = lengthToSkeletonToLocales.get(key);
                 if (skeletonToLocales == null) {
-                    lengthToSkeletonToLocales.put(key, skeletonToLocales = new Relation(new TreeMap(), TreeSet.class));
+                    lengthToSkeletonToLocales.put(key, skeletonToLocales = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class));
                 }
                 skeletonToLocales.put(skeleton, locale);
                 // System.out.println(key + "\t" + skeleton + "\t" + locale);

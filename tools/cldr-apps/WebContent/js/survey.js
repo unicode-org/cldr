@@ -2117,7 +2117,12 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 		addIcon(div,"i-vote");
 	}
 	
-	if(cancelButton && !item.votes && item.isOldValue==false) {
+	var inheritedClassName = "fallback";
+	var defaultClassName = "fallback_code";
+	
+	if(cancelButton && !item.votes && item.isOldValue==false && 
+	   item.pClass.substring(0, inheritedClassName.length)!=inheritedClassName && 
+	   item.pClass.substring(0, defaultClassName.length)!=defaultClassName) {
 		cancelButton.value=item.value;
 		wireUpCancelButton(cancelButton,tr,theRow,vHash);
 		div.appendChild(cancelButton);

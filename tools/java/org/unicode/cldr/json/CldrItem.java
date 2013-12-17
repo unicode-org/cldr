@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.util.ArrayList;
 
 import org.unicode.cldr.json.LdmlConvertRules.SplittableAttributeSpec;
+import org.unicode.cldr.util.CLDRFile.DtdType;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.ZoneParser;
 
@@ -73,11 +75,26 @@ public class CldrItem implements Comparable<CldrItem> {
     private String path;
 
     /**
+     * The full path of a CLDR item.
+     * 
+     * Comparing to path, this full contains non-distinguishable attributes.
+     */
+    private String untransformedFullPath;
+
+    /**
+     * The resolution path of a CLDR item.
+     * 
+     * This path only contains distinguishable attributes that are necessary to
+     * identify a CLDR XML item in the CLDR tree.
+     */
+    private String untransformedPath;
+
+    /**
      * The value of this CLDR item.
      */
     private String value;
 
-    CldrItem(String path, String fullPath, String value) {
+    CldrItem(String path, String fullPath, String untransformedPath, String untransformedFullPath, String value) {
 
         if (DEBUG) {
             System.out.println("---");
@@ -89,6 +106,8 @@ public class CldrItem implements Comparable<CldrItem> {
 
         this.path = path;
         this.fullPath = fullPath;
+        this.untransformedPath = untransformedPath;
+        this.untransformedFullPath = untransformedFullPath;
 
         if (value == null) {
             this.value = "";
@@ -190,30 +209,39 @@ public class CldrItem implements Comparable<CldrItem> {
         XPathParts fullxpp = new XPathParts();
         XPathParts newxpp = new XPathParts();
         XPathParts newfullxpp = new XPathParts();
+        XPathParts untransformedxpp = new XPathParts();
+        XPathParts untransformedfullxpp = new XPathParts();
+        XPathParts untransformednewxpp = new XPathParts();
+        XPathParts untransformednewfullxpp = new XPathParts();
         xpp.set(path);
         fullxpp.set(fullPath);
+        untransformedxpp.set(untransformedPath);
+        untransformedfullxpp.set(untransformedFullPath);
         for (SplittableAttributeSpec s : LdmlConvertRules.SPLITTABLE_ATTRS) {
             if (fullxpp.containsElement(s.element) && fullxpp.containsAttribute(s.attribute)) {
                 ArrayList<CldrItem> list = new ArrayList<CldrItem>();
                 String wordString = fullxpp.findAttributeValue(s.element, s.attribute);
                 String[] words = null;
                 words = wordString.trim().split("\\s+");
+                XPathParts[] newparts = { newxpp, newfullxpp, untransformednewxpp, untransformednewfullxpp };
                 for (String word : words) {
                     newxpp.set(xpp);
                     newfullxpp.set(fullxpp);
-                    newxpp.setAttribute(s.element, s.attribute, word);
-                    newfullxpp.setAttribute(s.element, s.attribute, word);
+                    untransformednewxpp.set(untransformedxpp);
+                    untransformednewfullxpp.set(untransformedfullxpp);
+                    for (XPathParts np : newparts) {
+                        np.setAttribute(s.element, s.attribute, word);                        
+                    }
                     if (s.attrAsValueAfterSplit != null) {
                         String newValue = fullxpp.findAttributeValue(s.element, s.attrAsValueAfterSplit);
-                        newxpp.removeAttribute(s.element, s.attrAsValueAfterSplit);
-                        newfullxpp.removeAttribute(s.element, s.attrAsValueAfterSplit);
-                        newxpp.removeAttribute(s.element, s.attribute);
-                        newfullxpp.removeAttribute(s.element, s.attribute);
-                        newxpp.addElement(word);
-                        newfullxpp.addElement(word);
-                        list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), newValue));
+                        for (XPathParts np : newparts) {
+                            np.removeAttribute(s.element, s.attrAsValueAfterSplit);
+                            np.removeAttribute(s.element, s.attribute);
+                            np.addElement(word);
+                        }
+                       list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), untransformednewxpp.toString(),untransformednewfullxpp.toString(),newValue));
                     } else {
-                        list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), value));
+                        list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), untransformednewxpp.toString(),untransformednewfullxpp.toString(),value));
                     }
                 }
                 return list.toArray(new CldrItem[list.size()]);
@@ -246,8 +274,8 @@ public class CldrItem implements Comparable<CldrItem> {
     public int compareTo(CldrItem otherItem) {
         XPathParts thisxpp = new XPathParts();
         XPathParts otherxpp = new XPathParts();
-        thisxpp.set(path);
-        otherxpp.set(otherItem.path);
+        thisxpp.set(untransformedPath);
+        otherxpp.set(otherItem.untransformedFullPath);
         if (thisxpp.containsElement("zone") && otherxpp.containsElement("zone")) {
             String[] thisZonePieces = thisxpp.findAttributeValue("zone", "type").split("/");
             String[] otherZonePieces = otherxpp.findAttributeValue("zone", "type").split("/");
@@ -260,7 +288,18 @@ public class CldrItem implements Comparable<CldrItem> {
                 return result;
             }
         }
+        DtdType fileDtdType;
+        switch (thisxpp.getElement(0)){
+            case "supplementalData": 
+                fileDtdType = DtdType.supplementalData;
+                break;
+            default : fileDtdType = DtdType.ldml;
+                break;
+        }
+        
+        int result = DtdData.getInstance(fileDtdType).getDtdComparator(null).compare(untransformedPath, otherItem.untransformedPath);
+        return result;
         //return CLDRFile.getLdmlComparator().compare(path, otherItem.path);
-        return path.compareTo(otherItem.path);
+        //return path.compareTo(otherItem.path);
     }
 }

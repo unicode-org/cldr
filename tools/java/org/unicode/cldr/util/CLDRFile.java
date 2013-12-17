@@ -125,6 +125,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public static final String SUPPLEMENTAL_METADATA = "supplementalMetadata";
     public static final String SUPPLEMENTAL_PREFIX = "supplemental";
     public static final String GEN_VERSION = "25";
+    public static final List<String> SUPPLEMENTAL_NAMES = Arrays.asList("characters", "coverageLevels", "dayPeriods", "genderList", "languageInfo",
+        "likelySubtags", "metaZones", "numberingSystems", "ordinals", "plurals", "postalCodeData", "supplementalData", "supplementalMetadata",
+        "telephoneCodeData", "windowsZones");
 
     private Collection<String> extraPaths = null;
 
@@ -1432,7 +1435,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     public static boolean isSupplementalName(String localeName) {
-        return localeName.startsWith(SUPPLEMENTAL_PREFIX) || localeName.equals("characters");
+        return SUPPLEMENTAL_NAMES.contains(localeName);
     }
 
     // static String[] keys = {"calendar", "collation", "currency"};

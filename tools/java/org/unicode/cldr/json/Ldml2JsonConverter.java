@@ -19,8 +19,10 @@ import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -229,8 +231,13 @@ public class Ldml2JsonConverter {
                 activeNumberingSystems.add(ns);
             }
         }
-
-        for (Iterator<String> it = file.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();) {
+        DtdType fileDtdType;
+        if (CLDRFile.isSupplementalName(locID)) {
+            fileDtdType = DtdType.supplementalData;
+        } else {
+            fileDtdType = DtdType.ldml;
+        }
+        for (Iterator<String> it = file.iterator("", DtdData.getInstance(fileDtdType).getDtdComparator(null)); it.hasNext();) {
             int cv = Level.UNDETERMINED.getLevel();
             String path = it.next();
             String fullPath = file.getFullXPath(path);
@@ -275,7 +282,7 @@ public class Ldml2JsonConverter {
             for (JSONSection js : sections) {
                 js.matcher.reset(transformedPath);
                 if (js.matcher.matches()) {
-                    CldrItem item = new CldrItem(transformedPath, transformedFullPath, file.getWinningValue(path));
+                    CldrItem item = new CldrItem(transformedPath, transformedFullPath, path, fullPath, file.getWinningValue(path));
                     List<CldrItem> cldrItems = sectionItems.get(js);
                     if (cldrItems == null) {
                         cldrItems = new ArrayList<CldrItem>();
@@ -560,7 +567,7 @@ public class Ldml2JsonConverter {
         }
 
         String leadingPath = matcher.group(1);
-        CldrItem fakeItem = new CldrItem(leadingPath, leadingPath, "");
+        CldrItem fakeItem = new CldrItem(leadingPath, leadingPath, leadingPath, leadingPath, "");
         return fakeItem.getNodesInPath().size() - 1;
     }
 

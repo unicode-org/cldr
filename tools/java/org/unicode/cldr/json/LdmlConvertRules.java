@@ -295,7 +295,7 @@ class LdmlConvertRules {
     public static final String[] ELEMENT_NEED_SORT = {
         "zone", "timezone", "zoneItem", "typeMap", "dayPeriodRule",
         "pluralRules", "personList", "calendarPreferenceData", "character-fallback", "types", "timeData", "minDays",
-        "firstDay", "weekendStart", "weekendEnd", "parentLocale"
+        "firstDay", "weekendStart", "weekendEnd"
     };
 
     /**

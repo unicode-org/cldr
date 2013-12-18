@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale="ru-t-k0-chromeos-qwerty">
-	<version platform="33" number="$Revision$"/>
-	<generation date="$Date$"/>
+<keyboard locale='ru-t-k0-chromeos-qwerty'>
+	<version platform='33' number='$Revision$'/>
+	<generation date='$Date$'/>
 	<names>
-		<name value="Russia - Phonetic"/>
+		<name value='Russia - Phonetic'/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="ю"/> <!-- ` -->
@@ -57,7 +57,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift+altR?">
+	<keyMap modifiers='shift+altR?'>
 		<map iso="E00" to="Ю"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -94,7 +94,7 @@
 		<map iso="C08" to="К"/> <!-- K -->
 		<map iso="C09" to="Л"/> <!-- L -->
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- "  to= "  -->
+		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="B00" to="¦"/> <!-- (key to left of Z)  base=| -->
 		<map iso="B01" to="З"/> <!-- Z -->
 		<map iso="B02" to="Ь"/> <!-- X -->
@@ -108,7 +108,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps+altR?">
+	<keyMap modifiers='caps+altR?'>
 		<map iso="E00" to="Ю"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -159,7 +159,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps+shift+altR?">
+	<keyMap modifiers='caps+shift+altR?'>
 		<map iso="E00" to="ю"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -196,7 +196,7 @@
 		<map iso="C08" to="к"/> <!-- K -->
 		<map iso="C09" to="л"/> <!-- L -->
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- "  to= "  -->
+		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="B00" to="¦"/> <!-- (key to left of Z)  base=| -->
 		<map iso="B01" to="з"/> <!-- Z -->
 		<map iso="B02" to="ь"/> <!-- X -->

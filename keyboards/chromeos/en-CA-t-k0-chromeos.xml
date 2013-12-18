@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale="en-CA-t-k0-chromeos">
-	<version platform="33" number="$Revision$"/>
-	<generation date="$Date$"/>
+<keyboard locale='en-CA-t-k0-chromeos'>
+	<version platform='33' number='$Revision$'/>
+	<generation date='$Date$'/>
 	<names>
-		<name value="Canada - English"/>
+		<name value='Canada - English'/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="`"/>
@@ -56,7 +56,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift+altR?">
+	<keyMap modifiers='shift+altR?'>
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -93,7 +93,7 @@
 		<map iso="C08" to="K"/>
 		<map iso="C09" to="L"/>
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- "  to= "  -->
+		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="B01" to="Z"/>
 		<map iso="B02" to="X"/>
 		<map iso="B03" to="C"/>
@@ -106,7 +106,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps+altR?">
+	<keyMap modifiers='caps+altR?'>
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -156,7 +156,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps+shift+altR?">
+	<keyMap modifiers='caps+shift+altR?'>
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -193,7 +193,7 @@
 		<map iso="C08" to="k"/>
 		<map iso="C09" to="l"/>
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- "  to= "  -->
+		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="B01" to="z"/>
 		<map iso="B02" to="x"/>
 		<map iso="B03" to="c"/>

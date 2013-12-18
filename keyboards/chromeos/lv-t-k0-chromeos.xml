@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale="lv-t-k0-chromeos">
-	<version platform="33" number="$Revision$"/>
-	<generation date="$Date$"/>
+<keyboard locale='lv-t-k0-chromeos'>
+	<version platform='33' number='$Revision$'/>
+	<generation date='$Date$'/>
 	<names>
-		<name value="Latvia - Apostrophe (&apos;) variant"/>
+		<name value='Latvia - Apostrophe (&apos;) variant'/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="`"/>
@@ -43,7 +43,7 @@
 		<map iso="C08" to="k"/>
 		<map iso="C09" to="l"/>
 		<map iso="C10" to=";"/>
-		<map iso="C11" to="\u{0}"/> <!-- " -->
+		<map iso="C11" to="\u{0}"/> <!-- ' -->
 		<map iso="B01" to="z"/>
 		<map iso="B02" to="x"/>
 		<map iso="B03" to="c"/>
@@ -56,7 +56,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift">
+	<keyMap modifiers='shift'>
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -93,7 +93,7 @@
 		<map iso="C08" to="K"/>
 		<map iso="C09" to="L"/>
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- "  to= "  -->
+		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="B01" to="Z"/>
 		<map iso="B02" to="X"/>
 		<map iso="B03" to="C"/>
@@ -106,7 +106,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps">
+	<keyMap modifiers='caps'>
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -143,7 +143,7 @@
 		<map iso="C08" to="K"/>
 		<map iso="C09" to="L"/>
 		<map iso="C10" to=";"/>
-		<map iso="C11" to="\u{0}"/> <!-- " -->
+		<map iso="C11" to="\u{0}"/> <!-- ' -->
 		<map iso="B01" to="Z"/>
 		<map iso="B02" to="X"/>
 		<map iso="B03" to="C"/>
@@ -156,7 +156,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps+shift">
+	<keyMap modifiers='caps+shift'>
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -193,7 +193,7 @@
 		<map iso="C08" to="k"/>
 		<map iso="C09" to="l"/>
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- "  to= "  -->
+		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="B01" to="z"/>
 		<map iso="B02" to="x"/>
 		<map iso="B03" to="c"/>
@@ -206,7 +206,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR">
+	<keyMap modifiers='altR'>
 		<map iso="E00" to="´"/> <!-- ` -->
 		<map iso="E01" to="¹"/> <!-- 1 -->
 		<map iso="E02" to="²"/> <!-- 2 -->
@@ -256,7 +256,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to="&apos;"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+shift">
+	<keyMap modifiers='altR+shift'>
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="¡"/> <!-- 1 -->
 		<map iso="E02" to="⅛"/> <!-- 2 -->
@@ -293,7 +293,7 @@
 		<map iso="C08" to="Ķ"/> <!-- K -->
 		<map iso="C09" to="Ļ"/> <!-- L -->
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- "  to= "  -->
+		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="B01" to="Ž"/> <!-- Z -->
 		<map iso="B02" to="X"/>
 		<map iso="B03" to="Č"/> <!-- C -->
@@ -306,7 +306,7 @@
 		<map iso="B10" to="˙"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+caps">
+	<keyMap modifiers='altR+caps'>
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -343,7 +343,7 @@
 		<map iso="C08" to="Ķ"/> <!-- K -->
 		<map iso="C09" to="Ļ"/> <!-- L -->
 		<map iso="C10" to=";"/>
-		<map iso="C11" to="\u{0}"/> <!-- " -->
+		<map iso="C11" to="\u{0}"/> <!-- ' -->
 		<map iso="B01" to="Ž"/> <!-- Z -->
 		<map iso="B02" to="X"/>
 		<map iso="B03" to="Č"/> <!-- C -->
@@ -356,7 +356,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+caps+shift">
+	<keyMap modifiers='altR+caps+shift'>
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -393,7 +393,7 @@
 		<map iso="C08" to="ķ"/> <!-- K -->
 		<map iso="C09" to="ļ"/> <!-- L -->
 		<map iso="C10" to=";"/>
-		<map iso="C11" to="\u{0}"/> <!-- " -->
+		<map iso="C11" to="\u{0}"/> <!-- ' -->
 		<map iso="B01" to="ž"/> <!-- Z -->
 		<map iso="B02" to="x"/>
 		<map iso="B03" to="č"/> <!-- C -->

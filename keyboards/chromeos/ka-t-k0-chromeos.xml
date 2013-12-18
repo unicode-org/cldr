@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale="ka-t-k0-chromeos">
-	<version platform="33" number="$Revision$"/>
-	<generation date="$Date$"/>
+<keyboard locale='ka-t-k0-chromeos'>
+	<version platform='33' number='$Revision$'/>
+	<generation date='$Date$'/>
 	<names>
-		<name value="Georgian"/>
+		<name value='Georgian'/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="„"/> <!-- ` -->
@@ -57,7 +57,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift+caps?">
+	<keyMap modifiers='shift+caps?'>
 		<map iso="E00" to="“"/> <!-- `  base=„ -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -94,7 +94,7 @@
 		<map iso="C08" to="K"/> <!--   base=კ -->
 		<map iso="C09" to="L"/> <!--   base=ლ -->
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- "  to= "  -->
+		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="B00" to="»"/> <!-- (key to left of Z)  base=« -->
 		<map iso="B01" to="ძ"/> <!-- Z  base=ზ -->
 		<map iso="B02" to="X"/> <!--   base=ხ -->
@@ -108,7 +108,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR">
+	<keyMap modifiers='altR'>
 		<map iso="E00" to="„"/> <!-- ` -->
 		<map iso="E01" to="&apos;"/> <!-- 1 -->
 		<map iso="E02" to="„"/> <!-- 2 -->
@@ -159,7 +159,7 @@
 		<map iso="B10" to="჻"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+shift">
+	<keyMap modifiers='altR+shift'>
 		<map iso="E00" to="~"/> <!-- `  base=„ -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -196,7 +196,7 @@
 		<map iso="C08" to="K"/> <!--   base=კ -->
 		<map iso="C09" to="L"/> <!--   base=ლ -->
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- "  to= "  -->
+		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="B00" to="»"/> <!-- (key to left of Z)  base=« -->
 		<map iso="B01" to="ძ"/> <!-- Z  base=ზ -->
 		<map iso="B02" to="ხ"/> <!-- X -->
@@ -210,7 +210,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+caps+shift">
+	<keyMap modifiers='altR+caps+shift'>
 		<map iso="E00" to="„"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -247,7 +247,7 @@
 		<map iso="C08" to="K"/> <!--   base=კ -->
 		<map iso="C09" to="L"/> <!--   base=ლ -->
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="\u{22}"/> <!-- "  to= "  -->
+		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
 		<map iso="B00" to="»"/> <!-- (key to left of Z)  base=« -->
 		<map iso="B01" to="ძ"/> <!-- Z  base=ზ -->
 		<map iso="B02" to="ხ"/> <!-- X -->

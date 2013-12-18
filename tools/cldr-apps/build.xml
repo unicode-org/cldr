@@ -42,6 +42,7 @@
         </condition>
         <fail unless="is.tomcat.home.set" message="Please set the CATALINA_HOME property in build.properties to point at your Tomcat installation."/>
         <property name="SERVLET_JAR"        value="${CATALINA_HOME}/lib/servlet-api.jar"/>
+        <property name="JSP_JAR"        value="${CATALINA_HOME}/lib/jsp-api.jar"/>
 
         <!-- Configure the context path for this application -->
         <property name="path"     value="/cldr-apps"/>
@@ -78,6 +79,7 @@
             <pathelement location="${DERBY_LIB}"/>
             <pathelement location="${JDOM_LIB}"/>
             <pathelement location="${SERVLET_JAR}"/>
+            <pathelement location="${JSP_JAR}"/>
             <pathelement location="${MAIL_LIB}"/>
             <pathelement location="${ROME_LIB}"/>
 
@@ -140,6 +142,7 @@
         <echo message="ROME_LIB: ${ROME_LIB}"/>
         <echo message="MAIL_LIB: ${MAIL_LIB}"/>
         <echo message="SERVLET_JAR: ${SERVLET_JAR}"/>
+        <echo message="JSP_JAR: ${JSP_JAR}"/>
         <echo/>
         <echo message="Derived properties"/>
         <echo message="CLDR_JAR: ${CLDR_JAR}"/>

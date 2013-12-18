@@ -31,7 +31,10 @@
 		}
 		new JSONWriter(out).object().key("users").value(users)
 				.endObject();
-
+// 	} else if (action.equals("verifycheckout")) {
+// 		CLDRConfig cconfig = CLDRConfig.getInstance();
+		
+// 		CookieSession.sm.ensureOrCheckout(out, "CLDR_DIR", new java.io.File(cconfig.getProperty("CLDR_DIR")), SurveyMain.CLDR_DIR_REPOS);
 	} else if (action.equals("threads")) {
 
 		JSONObject threads = new JSONObject();

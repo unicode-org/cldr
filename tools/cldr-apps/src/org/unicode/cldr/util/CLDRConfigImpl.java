@@ -21,6 +21,7 @@ import org.unicode.cldr.web.UserRegistry;
 
 public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
+    public static final String CLDR_PROPERTIES = "cldr.properties";
     /**
      * 
      */
@@ -95,7 +96,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 // }
             }
             homeFile = new File(homeParent, "cldr");
-            propFile = new File(homeFile, "cldr.properties");
+            propFile = new File(homeFile, CLDR_PROPERTIES);
             if (!propFile.exists()) {
                 System.err.println("Does not exist: " + propFile.getAbsolutePath());
                 createBasicCldr(homeFile); // attempt to create
@@ -107,7 +108,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             cldrHome = homeFile.getAbsolutePath();
         } else {
             homeFile = new File(cldrHome);
-            propFile = new File(homeFile, "cldr.properties");
+            propFile = new File(homeFile, CLDR_PROPERTIES);
         }
 
         SurveyLog.setDir(homeFile);
@@ -150,13 +151,30 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
         isInitted = true;
     }
+    
+    public void writeHelperFile(String hostportpath, File helperFile) throws IOException {
+        if (!helperFile.exists()) {
+            OutputStream file = new FileOutputStream(helperFile, false); // Append
+            PrintWriter pw = new PrintWriter(file);
+            String vap = (String)survprops.get("CLDR_VAP");
+            pw.write("<h3>Survey Tool admin interface link</h3>");
+            pw.write("If the SurveyTool is in maintenance mode, you can configure it here: ");
+            String url0 = hostportpath + "cldr-setup.jsp" + "?vap=" + vap;
+            pw.write("<b>SurveyTool Setup:</b>  <a href='" + url0 + "'>" + url0 + "</a><hr>");
+            String url = hostportpath + ("AdminPanel.jsp") + "?vap=" + vap;
+            pw.write("<b>Admin Panel:</b>  <a href='" + url + "'>" + url + "</a>");
+            pw.write("<hr>if you change the admin password ( CLDR_VAP in config.properties ), please: 1. delete this admin.html file 2. restart the server 3. navigate back to the main SurveyTool page.<p>");
+            pw.close();
+            file.close();
+        }
+    }
 
     private void createBasicCldr(File homeFile) {
         System.err.println("Attempting to create /cldr  dir at " + homeFile.getAbsolutePath());
 
         try {
             homeFile.mkdir();
-            File propsFile = new File(homeFile, "cldr.properties");
+            File propsFile = new File(homeFile, CLDR_PROPERTIES);
             OutputStream file = new FileOutputStream(propsFile, false); // Append
             PrintWriter pw = new PrintWriter(file);
 
@@ -168,6 +186,9 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             pw.println("##");
             pw.println("## SurveyTool must be reloaded, or the web server restarted, \n## for these to take effect.");
             pw.println();
+            pw.println("## Put the SurveyTool in setup mode. This enables cldr-setup.jsp?vap=(CLDR_VAP)");
+            pw.println("CLDR_MAINTENANCE=true");
+            pw.println();
             pw.println("## your password. Login as user 'admin@' and this password for admin access.");
             pw.println("CLDR_VAP=" + UserRegistry.makePassword("admin@"));
             pw.println();
@@ -176,8 +197,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             pw.println();
             pw.println("## Special message shown to users as to why survey tool is down.");
             pw.println("## Comment out for normal start-up.");
-            pw.println("CLDR_MESSAGE=Welcome to SurveyTool@" + SurveyMain.localhost() + ". Please edit "
-                + propsFile.getAbsolutePath() + ". Comment out CLDR_MESSAGE to continue normal startup.");
+            pw.println("#CLDR_MESSAGE=");
             pw.println();
             pw.println("## Special message shown to users.");
             pw.println("CLDR_HEADER=Welcome to SurveyTool@" + SurveyMain.localhost() + ". Please edit "

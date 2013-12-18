@@ -1375,7 +1375,7 @@ public class DBUtils {
                 // Try to print something helpful
                 sb.insert(
                     0,
-                    "</pre>Read the rest of this exception - but, you may be able to add the following to your <b>context.xml</b> file:  <br><br><pre class='graybox adminExceptionLogsite'>"
+                    "</pre>Read the rest of this notice - for derby, add the following to <b>context.xml</b> file:  <br><br><pre class='graybox adminExceptionLogsite'>"
                         + "&lt;Resource name=\"jdbc/SurveyTool\" type=\"javax.sql.DataSource\" auth=\"Container\" \n"
                         + "description=\"database for ST\" maxActive=\"100\" maxIdle=\"30\" maxWait=\"10000\" \n"
                         + " username=\"\" password=\"\" driverClassName=\"org.apache.derby.jdbc.EmbeddedDriver\" \n"

@@ -56,6 +56,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.jsp.JspWriter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -121,6 +122,9 @@ import com.ibm.icu.util.ULocale;
  * The main servlet class of Survey Tool
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Externalizable {
+
+    public static final String CLDR_DIR = "CLDR_DIR";
+    public static final String CLDR_DIR_REPOS = "http://unicode.org/repos/cldr/trunk";
 
     public static final String NEWVERSION_EPOCH = "1970-01-01 00:00:00";
 
@@ -488,7 +492,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             SurveyMain.config = config;
 
             // verify config sanity
-            CLDRConfigImpl.getInstance().getSupplementalDataInfo();
+            CLDRConfig cconfig  = CLDRConfigImpl.getInstance();
+            
+            stopIfMaintenance();
+            
+            cconfig.getSupplementalDataInfo();
 
             PathHeader.PageId.forString(PathHeader.PageId.Africa.name()); // Make
                                                                           // sure
@@ -676,21 +684,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         String baseThreadName = Thread.currentThread().getName();
 
-        // helper file
-        if (CLDRConfig.getInstance().getEnvironment() == Environment.LOCAL) {
-            File helperFile = new File(getSurveyHome(), "admin.html");
-            if (!helperFile.exists()) {
-                OutputStream file = new FileOutputStream(helperFile, false); // Append
-                PrintWriter pw = new PrintWriter(file);
-                pw.write("<h3>Survey Tool admin interface link</h3>");
-                pw.write("if you change the admin password ( CLDR_VAP in config.properties ), you will also need to change this link.<p>");
-                String url = ctx.schemeHostPort() + ctx.context("AdminPanel.jsp") + "?vap=" + vap;
-                pw.write("<b>Admin Panel:</b>  <a href='" + url + "'>" + url + "</a>");
-                pw.close();
-                file.close();
-            }
-        }
-
         try {
 
             // process any global redirects here.
@@ -779,6 +772,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private boolean ensureStartup(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         setInstance(request);
         if (!isSetup) {
+            
+            stopIfMaintenance(request);
+            
             boolean isGET = "GET".equals(request.getMethod());
             int sec = 600; // was 4
             if (isBusted != null) {
@@ -818,7 +814,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 out.print("Unofficial");
                 out.println("</p></div>");
             }
-            if (isBusted != null) {
+            if(isMaintenance()) {
+                final File maintFile = getHelperFile();
+                final String maintMessage = getMaintMessage(maintFile, request);
+                out.println("<h2>Setting up the SurveyTool</h2>");
+                out.println("<div class='st_setup'>");
+                out.println(maintMessage); // TODO
+                out.println("</div>");
+                out.println("<hr>");
+            } else if (isBusted != null) {
                 out.println(SHOWHIDE_SCRIPT);
                 out.println("<script type=\"text/javascript\">clickContinue = '" + loadOnOk + "';</script>");
                 out.println("</head>");
@@ -861,14 +865,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             out.println("<script type=\"text/javascript\">loadOnOk = '" + loadOnOk + "';</script>");
             out.println("<script type=\"text/javascript\">clickContinue = '" + loadOnOk + "';</script>");
-            if (!isGET) {
-                out.println("(Sorry,  we can't automatically retry your " + request.getMethod()
-                    + " request - you may attempt Reload in a few seconds " + "<a href='" + base + "'>or click here</a><br>");
-            } else {
-                out.println("If this page does not load in " + sec + " seconds, you may <a href='" + base
-                    + "'>click here to go to the main Survey Tool page</a>");
+            if(!isMaintenance()) {
+                if (!isGET) {
+                    out.println("(Sorry,  we can't automatically retry your " + request.getMethod()
+                        + " request - you may attempt Reload in a few seconds " + "<a href='" + base + "'>or click here</a><br>");
+                } else {
+                    out.println("If this page does not load in " + sec + " seconds, you may <a href='" + base
+                        + "'>click here to go to the main Survey Tool page</a>");
+                }
             }
-
             out.println("<noscript><h1>JavaScript is required for logging into the SurveyTool.</h1></noscript>");
             out.print(sysmsg("startup_footer"));
             out.println("<span id='visitors'></span>");
@@ -1187,6 +1192,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         } else {
             return b.booleanValue();
         }
+    }
+
+    private boolean twidGetBool(String key) {
+        return twidGetBool(key, false);
     }
 
     public void twidPut(String key, boolean val) {
@@ -4363,7 +4372,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public synchronized Factory getDiskFactory() {
         if (gFactory == null) {
             CLDRConfig config = CLDRConfig.getInstance();
-            ensureOrCheckout("CLDR_DIR", config.getCldrBaseDirectory(), "http://unicode.org/repos/cldr/trunk");
+            // may fail at server startup time- should do this through setup mode
+            ensureOrCheckout(null, "CLDR_DIR", config.getCldrBaseDirectory(), CLDR_DIR_REPOS);
             // verify readable
             File root = new File(config.getCldrBaseDirectory(), "common/main");
             if (!root.isDirectory()) {
@@ -4377,10 +4387,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return gFactory;
     }
 
-    private void ensureOrCheckout(final String param, final File dir, final String url) {
+    public void ensureOrCheckout(JspWriter o, final String param, final File dir, final String url) {
         if(dir == null) {
           busted("Configuration Error: " + param + " is not set.");  
         } else if (!dir.isDirectory()) {
+            
+            if(o==null) {
+                busted("Not able to checkout " + dir.getAbsolutePath() + " for " + param + " - go into setup mode.");
+                return; /* NOTREACHED */
+            }
             try {
                 ElapsedTimer et = new ElapsedTimer();
                 
@@ -4388,7 +4403,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     throw new InternalError("Please run this manually:  'svn checkout " + url + " " + dir.getAbsolutePath()+"' - and restart the server. TODO- this will be fixed by the step-by-step install.");
                 }
                 
-                System.err.println(param + " directory " + dir.getAbsolutePath() + " did not exist - checking out " + url
+                
+                o.println(param + " directory " + dir.getAbsolutePath() + " did not exist - checking out " + url
                     + " - if this is not desired, modify " + param + " in cldr.properties. THIS MAY TAKE A WHILE!");
 
                 long res;
@@ -4420,12 +4436,17 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 //                File fileArray[] = toUpdate.toArray(new File[0]);
 //                long res2[] = getOutputFileManager().svnUpdate(fileArray, SVNRevision.create(res), SVNDepth.INFINITY,
 //                        true, true);
-                System.err.println("Checked out " + url + " r " + res + " to " + dir.getAbsolutePath() + " - see the value of "
+                o.println("Checked out " + url + " r " + res + " to " + dir.getAbsolutePath() + " - see the value of "
                     + param + " if you want to have a different location.  Took: " + et);
 //                for(int i=0;i<res2.length;i++) {
-//                    System.err.println(res2[i]+ " " + fileArray[i]);
+//                    o.println(res2[i]+ " " + fileArray[i]);
 //                }
             } catch (SVNException e) {
+                final String msg = "Checking out " + url + " into " + dir.getAbsolutePath();
+                SurveyLog.logException(e, msg);
+                busted(msg, e);
+                throw new InternalError(msg);
+            } catch (IOException e) {
                 final String msg = "Checking out " + url + " into " + dir.getAbsolutePath();
                 SurveyLog.logException(e, msg);
                 busted(msg, e);
@@ -5729,8 +5750,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             CLDRConfig survprops = CLDRConfig.getInstance();
 
             isConfigSetup = true;
-
+            
             cldrHome = survprops.getProperty("CLDRHOME");
+            stopIfMaintenance();
 
             progress.update("Setup DB config");
             // set up DB properties
@@ -5915,6 +5937,55 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             SurveyLog.logger.info("------- SurveyTool FAILED TO STARTUP, " + setupTime + "/" + uptime + ". Memory in use: " + usedK()
                 + "----------------------------\n\n\n");
         }
+    }
+
+    public static void stopIfMaintenance() {
+        stopIfMaintenance(null);
+    }
+    
+    public static void stopIfMaintenance(HttpServletRequest request) {
+        if(isMaintenance()) {
+            final File maintFile = getHelperFile();
+            final String maintMessage = getMaintMessage(maintFile, request);
+            if(!maintFile.exists()) {
+                busted("SurveyTool is in setup mode. Please view the main page such as http://127.0.0.1:8080/cldr-apps/survey/ so we can generate a helper file.");
+            } else {
+                isBusted=null; // reset busted notice
+                busted(maintMessage);
+            }
+        }
+    }
+
+    private static String getMaintMessage(final File maintFile, HttpServletRequest request) {
+        if(!maintFile.exists() && request!=null) {
+            try {
+                writeHelperFile(request, maintFile);
+            } catch (IOException e) {
+                busted("Trying to write helper file " + maintFile.getAbsolutePath(), e);
+            }
+        }
+        if(maintFile.exists()) {
+            final String maintMessage = "SurveyTool is in setup mode. <br><b>Administrator</b>: Please open the file <a href='file://"+maintFile.getAbsolutePath()+"'>"+maintFile.getAbsolutePath()+"</a>" + " for more instructions. <br><b>Users:</b> you must wait until the SurveyTool is back online.";
+            return maintMessage;
+        }  else { 
+            return null;
+        }
+    }
+
+    public static void writeHelperFile(HttpServletRequest request, File maintFile) throws IOException {
+        CLDRConfig cconfig = CLDRConfig.getInstance();
+            ((CLDRConfigImpl)cconfig).writeHelperFile(request.getScheme()+"://"+request.getServerName()+":"+
+                    request.getServerPort()+request.getContextPath()+"/", maintFile);
+    }
+
+    public static File getHelperFile() {
+        File maintFile = new File(getSurveyHome(), "admin.html");
+        return maintFile;
+    }
+    
+    public static boolean isMaintenance() {
+        CLDRConfig survprops = CLDRConfig.getInstance();
+        return survprops.getProperty("CLDR_MAINTENANCE", false);
     }
 
     public synchronized File getVetdir() {
@@ -6657,6 +6728,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public DBUtils dbUtils = null;
 
     private void doStartupDB() {
+        if(isMaintenance()) {
+            throw new InternalError("SurveyTool is in setup mode.");
+        }
         CLDRProgressTask progress = openProgress("Database Setup");
         try {
             progress.update("begin.."); // restore

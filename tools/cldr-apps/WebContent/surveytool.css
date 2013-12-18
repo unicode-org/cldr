@@ -1532,6 +1532,10 @@ border: 1px solid red; margin: 1em; padding: 1em;	 */
     padding-left: 2em;
     background: #DDFFDD url(okay.png) no-repeat 0.25em center;
 }
+.squoText {
+    padding-left: 2em;
+    background: #DDFFDD url(squo.png) no-repeat 0.25em center;
+}
 .stopText {
     padding-left: 2em;
     background: #FFDDDD url(stop.png) no-repeat 0.25em center;
@@ -3116,4 +3120,23 @@ p.mailContent {
 
 .mailListChunk li.mailRow.readMail {
     font-weight: normal;
+}
+
+.st_setup_text {
+	padding: 0.5em;
+	font-size: large;
+}
+
+ol.st_setup {
+	
+}
+
+ol.st_setup li {
+	margin-bottom: 1em;
+}
+
+div.st_setup  {
+	font-size: x-large;
+	padding: 1em;
+	background-color: #ddf;
 }

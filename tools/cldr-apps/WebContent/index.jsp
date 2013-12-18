@@ -37,7 +37,9 @@
 		<ul>
 			<li><strong><a href="survey/">CLDR Survey Tool
 			</a></strong> - <a href='<%= SurveyMain.GENERAL_HELP_URL %>'>(Instructions)</a>
-			<% if(SurveyMain.isBusted()) {		%>
+			<% if(SurveyMain.isMaintenance()) { %>
+			  <span style='color: red;'>setup mode</span>
+			<% } else if(SurveyMain.isBusted()) {		%>
 			  <span style='color: red;'>offline</span>
             <% } else if(!SurveyMain.isSetup) { %>
               <span style='color: green;'>starting..</span>

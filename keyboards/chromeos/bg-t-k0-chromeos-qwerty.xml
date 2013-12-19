@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale="bg-t-k0-chromeos-qwerty">
-	<version platform="33" number="$Revision$"/>
-	<generation date="$Date$"/>
+<keyboard locale='bg-t-k0-chromeos-qwerty'>
+	<version platform='33' number='$Revision$'/>
+	<generation date='$Date$'/>
 	<names>
-		<name value="Bulgaria - Traditional phonetic"/>
+		<name value='Bulgaria - Traditional phonetic'/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="ч"/> <!-- ` -->
@@ -57,7 +57,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift">
+	<keyMap modifiers='shift'>
 		<map iso="E00" to="Ч"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -108,7 +108,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps">
+	<keyMap modifiers='caps'>
 		<map iso="E00" to="Ч"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -159,7 +159,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps+shift">
+	<keyMap modifiers='caps+shift'>
 		<map iso="E00" to="ч"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -210,7 +210,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR">
+	<keyMap modifiers='altR'>
 		<map iso="E00" to="ч"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -261,7 +261,7 @@
 		<map iso="B10" to="\u{300}"/> <!-- /  to= ̀  -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+shift">
+	<keyMap modifiers='altR+shift'>
 		<map iso="E00" to="Ч"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -312,7 +312,7 @@
 		<map iso="B10" to="\u{301}"/> <!-- /  to= ́  -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+caps">
+	<keyMap modifiers='altR+caps'>
 		<map iso="E00" to="Ч"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -363,7 +363,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+caps+shift">
+	<keyMap modifiers='altR+caps+shift'>
 		<map iso="E00" to="ч"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->

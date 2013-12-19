@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale="cs-t-k0-chromeos">
-	<version platform="33" number="$Revision$"/>
-	<generation date="$Date$"/>
+<keyboard locale='cs-t-k0-chromeos'>
+	<version platform='33' number='$Revision$'/>
+	<generation date='$Date$'/>
 	<names>
-		<name value="Czechia"/>
+		<name value='Czechia'/>
 	</names>
-	<settings transformFailure="omit" transformPartial="hide"/>
+	<settings transformFailure='omit' transformPartial='hide'/>
 	<keyMap>
 		<map iso="E00" to=";"/> <!-- ` -->
 		<map iso="E01" to="+"/> <!-- 1 -->
@@ -59,7 +59,7 @@
 		<map iso="B10" to="-"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="shift">
+	<keyMap modifiers='shift'>
 		<map iso="E00" to="\u{30A}"/> <!-- `  base=;  to= ̊  -->
 		<map iso="E01" to="1"/> <!--   base=+ -->
 		<map iso="E02" to="2"/> <!--   base=ě -->
@@ -111,7 +111,7 @@
 		<map iso="B10" to="_"/> <!-- /  base=- -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps">
+	<keyMap modifiers='caps'>
 		<map iso="E00" to=";"/> <!-- ` -->
 		<map iso="E01" to="+"/> <!-- 1 -->
 		<map iso="E02" to="ě"/> <!-- 2 -->
@@ -163,7 +163,7 @@
 		<map iso="B10" to="-"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="caps+shift">
+	<keyMap modifiers='caps+shift'>
 		<map iso="E00" to="~"/> <!-- `  base=; -->
 		<map iso="E01" to="!"/> <!-- 1  base=+ -->
 		<map iso="E02" to="@"/> <!-- 2  base=ě -->
@@ -215,7 +215,7 @@
 		<map iso="B10" to="?"/> <!-- /  base=- -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR">
+	<keyMap modifiers='altR'>
 		<map iso="E00" to="`"/> <!--   base=; -->
 		<map iso="E01" to="!"/> <!-- 1  base=+ -->
 		<map iso="E02" to="@"/> <!-- 2  base=ě -->
@@ -267,7 +267,7 @@
 		<map iso="B10" to="*"/> <!-- /  base=- -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+shift">
+	<keyMap modifiers='altR+shift'>
 		<map iso="E00" to="~"/> <!-- `  base=; -->
 		<map iso="E01" to="\u{303}"/> <!-- 1  base=+  to= ̃  -->
 		<map iso="E02" to="\u{30C}"/> <!-- 2  base=ě  to= ̌  -->
@@ -319,7 +319,7 @@
 		<map iso="B10" to="-"/> <!-- / -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+caps">
+	<keyMap modifiers='altR+caps'>
 		<map iso="E00" to=";"/> <!-- ` -->
 		<map iso="E01" to="+"/> <!-- 1 -->
 		<map iso="E02" to="ě"/> <!-- 2 -->
@@ -371,7 +371,7 @@
 		<map iso="B10" to="-"/> <!-- / -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers="altR+caps+shift">
+	<keyMap modifiers='altR+caps+shift'>
 		<map iso="E00" to=";"/> <!-- ` -->
 		<map iso="E01" to="+"/> <!-- 1 -->
 		<map iso="E02" to="ě"/> <!-- 2 -->
@@ -423,7 +423,7 @@
 		<map iso="B10" to="-"/> <!-- / -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<transforms type="simple">
+	<transforms type='simple'>
 		<transform from="\u{301}\u{301}" to="´"/> <!--  ́́ → ´ -->
 		<transform from="\u{300}\u{300}" to="`"/> <!--  ̀̀ → ` -->
 		<transform from="\u{306}\u{306}" to="˘"/> <!--  ̆̆ → ˘ -->

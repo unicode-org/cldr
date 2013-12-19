@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='en-t-k0-chromeos-dvorak'>
-	<version platform='33' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="en-t-k0-chromeos-dvorak">
+	<version platform="33" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='USA - Dvorak'/>
+		<name value="USA - Dvorak"/>
 	</names>
-	<settings transformFailure='omit' transformPartial='hide'/>
+	<settings transformFailure="omit" transformPartial="hide"/>
 	<keyMap>
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
@@ -57,7 +57,7 @@
 		<map iso="B10" to="z"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift'>
+	<keyMap modifiers="shift">
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -107,7 +107,7 @@
 		<map iso="B10" to="Z"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+altR?'>
+	<keyMap modifiers="caps+altR?">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -157,7 +157,7 @@
 		<map iso="B10" to="Z"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+shift'>
+	<keyMap modifiers="caps+shift">
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -207,7 +207,7 @@
 		<map iso="B10" to="z"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR'>
+	<keyMap modifiers="altR">
 		<map iso="E00" to="\u{300}"/> <!-- `  to= ̀  -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -257,7 +257,7 @@
 		<map iso="B10" to="z"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+shift'>
+	<keyMap modifiers="altR+shift">
 		<map iso="E00" to="\u{303}"/> <!-- `  to= ̃  -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -307,7 +307,7 @@
 		<map iso="B10" to="Z"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+caps+shift'>
+	<keyMap modifiers="altR+caps+shift">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -357,7 +357,7 @@
 		<map iso="B10" to="z"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<transforms type='simple'>
+	<transforms type="simple">
 		<transform from="\u{301}\u{301}" to="´"/> <!--  ́́ → ´ -->
 		<transform from="\u{300}\u{300}" to="`"/> <!--  ̀̀ → ` -->
 		<transform from="\u{302}\u{302}" to="^"/> <!--  ̂̂ → ^ -->

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='sr-t-k0-chromeos'>
-	<version platform='33' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="sr-t-k0-chromeos">
+	<version platform="33" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Serbia'/>
+		<name value="Serbia"/>
 	</names>
-	<settings transformFailure='omit' transformPartial='hide'/>
+	<settings transformFailure="omit" transformPartial="hide"/>
 	<keyMap>
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
@@ -57,7 +57,7 @@
 		<map iso="B10" to="-"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift'>
+	<keyMap modifiers="shift">
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="\u{22}"/> <!-- 2  to= "  -->
@@ -107,7 +107,7 @@
 		<map iso="B10" to="_"/> <!-- /  base=- -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps'>
+	<keyMap modifiers="caps">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -157,7 +157,7 @@
 		<map iso="B10" to="-"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+shift'>
+	<keyMap modifiers="caps+shift">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="\u{22}"/> <!-- 2  to= "  -->
@@ -207,7 +207,7 @@
 		<map iso="B10" to="-"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR'>
+	<keyMap modifiers="altR">
 		<map iso="E00" to="°"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -257,7 +257,7 @@
 		<map iso="B10" to="—"/> <!-- /  base=- -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+shift'>
+	<keyMap modifiers="altR+shift">
 		<map iso="E00" to="¬"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -307,7 +307,7 @@
 		<map iso="B10" to="–"/> <!-- /  base=- -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<transforms type='simple'>
+	<transforms type="simple">
 		<transform from="\u{301}\u{301}" to="´"/> <!--  ́́ → ´ -->
 		<transform from="\u{300}\u{300}" to="`"/> <!--  ̀̀ → ` -->
 		<transform from="\u{302}\u{302}" to="^"/> <!--  ̂̂ → ^ -->

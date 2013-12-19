@@ -735,7 +735,7 @@ public class VettingViewer<T> {
      * @param nonVettingPhase
      */
     public void generateHtmlErrorTables(Appendable output, EnumSet<Choice> choices, String localeID, T user,
-        Level usersLevel, boolean nonVettingPhase) {
+        Level usersLevel, boolean nonVettingPhase, boolean quick) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
@@ -746,17 +746,19 @@ public class VettingViewer<T> {
 
         // Initialize
         CLDRFile lastSourceFile = null;
-        try {
-            lastSourceFile = cldrFactoryOld.make(localeID, true);
-        } catch (Exception e) {
+        if(!quick){
+            try {
+                lastSourceFile = cldrFactoryOld.make(localeID, true);
+            } catch (Exception e) {
+            }
         }
 
         FileInfo fileInfo = new FileInfo().
             getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,
-                usersLevel);
+                usersLevel, quick);
 
         // now write the results out
-        writeTables(output, sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, fileInfo);
+        writeTables(output, sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, fileInfo, quick);
     }
 
     private class FileInfo {
@@ -773,7 +775,7 @@ public class VettingViewer<T> {
         private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile lastSourceFile,
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
             EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
-            T user, Level usersLevel) {
+            T user, Level usersLevel, boolean quick) {
 
             Status status = new Status();
             errorChecker.initErrorStatus(sourceFile);
@@ -790,6 +792,15 @@ public class VettingViewer<T> {
             boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
 
             for (String path : sourceFile.fullIterable()) {
+                String value = sourceFile.getWinningValue(path);
+                statusMessage.setLength(0);
+                subtypes.clear();
+                ErrorChecker.Status errorStatus = errorChecker.getErrorStatus(path, value, statusMessage, subtypes);
+                
+                if(quick && errorStatus != ErrorChecker.Status.error && errorStatus != ErrorChecker.Status.warning){      //skip all values but errors and warnings if in "quick" mode
+                    continue;
+                }
+                
                 if (seenSoFar.contains(path)) {
                     continue;
                 }
@@ -818,8 +829,6 @@ public class VettingViewer<T> {
                 if (level.compareTo(usersLevel) > 0) {
                     continue;
                 }
-
-                String value = sourceFile.getWinningValue(path);
 
                 problems.clear();
                 htmlMessage.setLength(0);
@@ -854,9 +863,6 @@ public class VettingViewer<T> {
                     }
                 }
 
-                statusMessage.setLength(0);
-                subtypes.clear();
-                ErrorChecker.Status errorStatus = errorChecker.getErrorStatus(path, value, statusMessage, subtypes);
                 Choice choice = errorStatus == ErrorChecker.Status.error ? Choice.error
                     : errorStatus == ErrorChecker.Status.warning ? Choice.warning
                         : null;
@@ -1054,7 +1060,7 @@ public class VettingViewer<T> {
                 level = StandardCodes.make().getLocaleCoverageLevel(organization.toString(), localeID);
             }
             FileInfo fileInfo = new FileInfo().
-                getFileInfo(sourceFile, lastSourceFile, null, choices, localeID, true, organization, level);
+                getFileInfo(sourceFile, lastSourceFile, null, choices, localeID, true, organization, level, false);
             localeNameToFileInfo.put(name, fileInfo);
             totals.addAll(fileInfo);
 
@@ -1498,9 +1504,11 @@ public class VettingViewer<T> {
         EnumSet<Choice> choices,
         String localeID,
         boolean nonVettingPhase,
-        FileInfo outputFileInfo
+        FileInfo outputFileInfo,
+        boolean quick
         ) {
         try {
+            
             boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
 
             Status status = new Status();
@@ -1525,6 +1533,9 @@ public class VettingViewer<T> {
             // }
 
             for (Choice choice : choices) {
+                if (quick && choice != Choice.error && choice != Choice.warning) {  //if "quick" mode, only show errors and warnings
+                    continue;
+                }
                 long count = outputFileInfo.problemCounter.get(choice);
                 output.append("<tr><td class='tvs-count'>")
                 .append(nf.format(count))
@@ -1830,7 +1841,8 @@ public class VettingViewer<T> {
         String LOCALE = MyOptions.locale.option.getValue();
         String CURRENT_MAIN = MyOptions.source.option.getValue();
         final String version = "24.0";
-        final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version + "/common/main";
+        //final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version + "/common/main";
+        final String lastMain = CLDRPaths.ARCHIVE_DIRECTORY + "/common/main";
         do {
         Timer timer = new Timer();
         timer.start();
@@ -1971,7 +1983,7 @@ public class VettingViewer<T> {
 
         switch (newCode) {
         case newCode:
-            tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, organization, usersLevel, SHOW_ALL);
+            tableView.generateHtmlErrorTables(out, choiceSet, localeStringID, organization, usersLevel, SHOW_ALL, false);
             break;
             // case oldCode:
             // tableView.generateHtmlErrorTablesOld(out, choiceSet, localeStringID, userNumericID, usersLevel, SHOW_ALL);

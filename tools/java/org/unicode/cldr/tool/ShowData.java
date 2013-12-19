@@ -12,9 +12,7 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -37,8 +35,6 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SectionId;
-import org.unicode.cldr.util.XPathParts;
-
 import com.ibm.icu.dev.tool.UOption;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -132,7 +128,6 @@ public class ShowData {
             new CldrUtility.MatcherFilter(options[MATCH].value).retainAll(locales);
             // Set paths = new TreeSet();
             Set<PathHeader> prettySet = new TreeSet<PathHeader>();
-            Set<String> skipList = new HashSet<String>(Arrays.asList(new String[] { "id" }));
 
             CLDRFile.Status status = new CLDRFile.Status();
             LocaleIDParser localeIDParser = new LocaleIDParser();
@@ -308,13 +303,11 @@ public class ShowData {
                     }
 
                     String englishValue = null;
-                    String englishFullPath = null;
                     if (zeroOutEnglish) {
-                        englishValue = englishFullPath = "";
+                        englishValue = "";
                     }
                     if (showEnglish
                         && null != (englishValue = english.getStringValue(path))) {
-                        englishFullPath = english.getFullXPath(path);
                     }
 
                     String statusClass = isAliased ? (isInherited ? " class='ah'"

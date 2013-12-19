@@ -816,7 +816,7 @@ public class GenerateTransformCharts {
 
     }
 
-    private static void doMainTable2(CLDRTransforms.ParsedTransformID parsedID, Set ids, PrintWriter pw,
+    private static void doMainTable2(CLDRTransforms.ParsedTransformID parsedID, Set<String> ids, PrintWriter pw,
         Map<String, String> mapping, boolean latinAtEnd) {
 
         pw.println("<table border='1' cellspacing='0'><tr>");

@@ -507,8 +507,8 @@ public class GenerateEnums {
 
     private void generateContains() {
 
-        for (String region : (Collection<String>) containment.keySet()) {
-            Collection plain = (Collection) containment.get(region);
+        for (String region : containment.keySet()) {
+            List<String> plain = containment.get(region);
             // Collection recursive = (Collection)recursiveContainment.get(region);
 
             String setAsString = CldrUtility.join(plain, " ");
@@ -661,10 +661,10 @@ public class GenerateEnums {
         reordered.addAll(enum_UN.keySet());
         for (Iterator<String> it = reordered.iterator(); it.hasNext();) {
             String region = it.next();
-            String cldrName = region.length() < 5 ? region : region.substring(2); // fix
+            // String cldrName = region.length() < 5 ? region : region.substring(2); // fix
             // UN
             // name
-            int un = Integer.parseInt((String) enum_UN.get(region)); // get around
+            // int un = Integer.parseInt((String) enum_UN.get(region)); // get around
             // dumb octal
             // syntax
             String isoCode = (String) enum_alpha3.get(region);
@@ -698,7 +698,7 @@ public class GenerateEnums {
         System.out.println("Plain list");
         for (Iterator<String> it = reordered.iterator(); it.hasNext();) {
             String region = it.next();
-            String cldrName = region.length() < 5 ? region : region.substring(2); // fix
+            // String cldrName = region.length() < 5 ? region : region.substring(2); // fix
             // UN
             // name
             String newCode = code_replacements.get(region);

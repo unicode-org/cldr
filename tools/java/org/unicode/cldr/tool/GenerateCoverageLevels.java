@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.EnumMap;
-import java.util.EnumSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -235,7 +234,7 @@ public class GenerateCoverageLevels {
                     String element = lastParts.getElement(i);
                     Relation<String, String> old = differences.get(element);
                     if (old == null) {
-                        old = new Relation(new TreeMap(attributeComparator), TreeSet.class);
+                        old = Relation.of(new TreeMap<String, Set<String>>(attributeComparator), TreeSet.class);
                         differences.put(element, old);
                     }
                     Set<String> union = Builder.with(new TreeSet<String>()).addAll(lastAttrs.keySet())

@@ -47,7 +47,7 @@ public class ShowLanguageData {
             for (String language : langCounter.getKeysetSortedByCount(false)) {
                 long litPop = langCounter.getCount(language);
                 System.out.println(language + "\t" + english.getName(language)
-                    + "\t" + territory + "\t" + english.getName(english.TERRITORY_NAME, territory)
+                    + "\t" + territory + "\t" + english.getName(CLDRFile.TERRITORY_NAME, territory)
                     + "\t" + litPop / (double) total);
             }
         }

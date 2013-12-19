@@ -150,7 +150,6 @@ public class ShowZoneEquivalences {
         out.println("<p>Zones identical after: "
             + ICUServiceBuilder.isoDateFormat(minimumDate) + "</p>");
         String lastCountry = "";
-        ZoneInflections lastZip = null;
         ZoneInflections.OutputLong diff = new ZoneInflections.OutputLong(0);
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         TimezoneFormatter tzf = new TimezoneFormatter(cldrFactory, "en", true);
@@ -168,7 +167,6 @@ public class ShowZoneEquivalences {
                 continue;
             ZoneInflections zip = (ZoneInflections) row[1];
             String zoneID = (String) row[2];
-            int zipComp = zip.compareTo(lastZip, diff);
 
             if (!country.equals(lastCountry)) {
                 if (first)
@@ -209,7 +207,6 @@ public class ShowZoneEquivalences {
                 + tzf.getFormattedZone(zoneID, "vvvv", minimumDate, false) + "\t"
                 + minOffset + "\t" + maxOffset));
             lastCountry = country;
-            lastZip = zip;
         }
         CountItems.subheader(out, tabber3);
         out.println("</table>");

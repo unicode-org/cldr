@@ -81,7 +81,6 @@ public class GenerateComparison {
         Factory oldFactory = Factory.make(oldDirectory, filter);
         Factory newFactory = Factory.make(newDirectory, filter);
         CLDRFile english = newFactory.make("en", true);
-        CLDRFile oldRoot = oldFactory.make("root", true);
         CLDRFile newRoot = newFactory.make("root", true);
 
         // Get the union of all the language locales, sorted by English name
@@ -230,9 +229,6 @@ public class GenerateComparison {
 
                 // get the actual place the data is stored
                 // AND adjust if the same as root!
-
-                Status oldStatus = new Status();
-                String oldFoundLocale = getStatus(oldFile, oldRoot, cleanedPath, oldValue, oldStatus);
 
                 Status newStatus = new Status();
                 String newFoundLocale = getStatus(newFile, newRoot, path, newValue, newStatus);

@@ -706,7 +706,6 @@ public class Misc {
 
     void showOrderedTimezones() {
         StandardCodes sc = StandardCodes.make();
-        String world = sc.getData("territory", "001");
     }
 
     static CldrUtility.VariableReplacer langTag = new CldrUtility.VariableReplacer()
@@ -1042,7 +1041,7 @@ public class Misc {
         for (Iterator<String> it = supp.iterator(); it.hasNext();) {
             String path = it.next();
             parts.set(supp.getFullXPath(path));
-            Map m = parts.findAttributes("language");
+            Map<String, String> m = parts.findAttributes("language");
             if (m == null) continue;
             if (false) System.out.println("Type: " + m.get("type")
                 + "\tscripts: " + m.get("scripts")
@@ -1101,6 +1100,7 @@ public class Misc {
     private static void printTimezonesToLocalize(PrintWriter log, CLDRFile localization, Map<String, Collection<String>> groups, Set<String> seen,
         Collator col, boolean showCode,
         CLDRFile english) throws IOException {
+        @SuppressWarnings("unchecked")
         Set<String>[] missing = new Set[2];
         missing[0] = new TreeSet<String>();
         missing[1] = new TreeSet<String>(StandardCodes.make().getTZIDComparator());

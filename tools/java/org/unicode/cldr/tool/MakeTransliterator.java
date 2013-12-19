@@ -36,7 +36,6 @@ import com.ibm.icu.util.ULocale;
  */
 public class MakeTransliterator {
     // DEBUGGING
-    private static final String separateSuffix = ""; // "}$x";
     static int forceSeparateIfShorter = 4; // 4
 
     private static final String CHECK_BASE = null; // "vessel";
@@ -555,23 +554,16 @@ public class MakeTransliterator {
         String target = skeletonize.transliterate(inTarget);
         String targetUsingCore = skeletonize.transliterate(inTargetUsingCore);
 
-        int vowelCount = 0;
-        int diffCount = 0;
         for (int i = 0; i < target.length(); ++i) {
             char ca = target.charAt(i);
             char cb = targetUsingCore.charAt(i);
-            if (vowels.contains(ca)) {
-                vowelCount++;
-            }
             if (ca != cb) {
                 // disregard differences with short vowels
                 if (ca == 'ə' && short_vowels.contains(cb) || short_vowels.contains(ca) && cb == 'ə') {
-                    diffCount++;
                     continue;
                 }
                 // ɛ")  && a.startsWith("ɪ")
                 if (ca == 'ɪ' && cb == 'ɛ' || ca == 'ɪ' && cb == 'ɛ') {
-                    diffCount++;
                     continue;
                 }
                 return false;

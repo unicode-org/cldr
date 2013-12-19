@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;

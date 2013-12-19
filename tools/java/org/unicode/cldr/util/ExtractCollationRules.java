@@ -139,7 +139,7 @@ public class ExtractCollationRules {
         }
     }
 
-    public Iterator iterator() {
+    public Iterator<String> iterator() {
         return type_rules.keySet().iterator();
     }
 

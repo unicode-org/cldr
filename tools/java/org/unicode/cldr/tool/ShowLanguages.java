@@ -67,7 +67,6 @@ import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Collator;
-import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.Normalizer;
 import com.ibm.icu.text.Normalizer2;
 import com.ibm.icu.text.NumberFormat;
@@ -876,16 +875,16 @@ public class ShowLanguages {
                     String type = (String) attributes.get("type");
                     String name = english.getName(CLDRFile.TERRITORY_NAME, type);
                     Map<String, Object> languageData = territoryLanguageData.get(name);
-                    if (languageData == null) territoryLanguageData.put(name, languageData = new TreeMap());
+                    if (languageData == null) territoryLanguageData.put(name, languageData = new TreeMap<String, Object>());
                     languageData.put("code", attributes.get("type"));
                     languageData.put("gdp", attributes.get("gdp"));
                     languageData.put("literacyPercent", attributes.get("literacyPercent"));
                     languageData.put("population", attributes.get("population"));
                     if (parts.size() > 3) {
                         attributes = parts.getAttributes(3);
-                        Set languageData2 = (Set) languageData.get("language");
+                        Set<Pair<Double, Pair<Double, String>>> languageData2 = (Set<Pair<Double, Pair<Double, String>>>) languageData.get("language");
                         if (languageData2 == null)
-                            languageData.put("language", languageData2 = new TreeSet(INVERSE_COMPARABLE));
+                            languageData.put("language", languageData2 = new TreeSet<Pair<Double, Pair<Double, String>>>(INVERSE_COMPARABLE));
                         String literacy = attributes.get("literacyPercent");
                         languageData2.add(
                             new Pair(Double.parseDouble(attributes.get("populationPercent")),

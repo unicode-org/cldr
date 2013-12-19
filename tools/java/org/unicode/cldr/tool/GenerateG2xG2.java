@@ -13,7 +13,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.tool.GenerateG2xG2.Totals;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
@@ -174,8 +173,8 @@ public class GenerateG2xG2 {
         NumberFormat nf = NumberFormat.getInstance();
         nf.setGroupingUsed(true);
         nf.setMinimumFractionDigits(0);
-        for (Iterator it = totalMap.keySet().iterator(); it.hasNext();) {
-            String key = (String) it.next();
+        for (Iterator<String> it = totalMap.keySet().iterator(); it.hasNext();) {
+            String key = it.next();
             Totals t = (Totals) totalMap.get(key);
             runningTotalCount = t.totalCount;
             runningMissingCount = t.missingCount;
@@ -353,9 +352,9 @@ public class GenerateG2xG2 {
 
     private static String getItemName(CLDRFile data, int type, String item) {
         String result;
-        if (type == data.LANGUAGE_NAME) {
+        if (type == CLDRFile.LANGUAGE_NAME) {
             result = data.getName(item);
-        } else if (type != data.TZ_EXEMPLAR) {
+        } else if (type != CLDRFile.TZ_EXEMPLAR) {
             result = data.getName(type, item);
         } else {
             String prefix = "//ldml/dates/timeZoneNames/zone[@type=\"" + item + "\"]/exemplarCity";

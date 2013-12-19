@@ -38,7 +38,6 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.TimezoneFormatter;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -241,7 +240,7 @@ public class GenerateCldrTests {
 
     // Relation rulesToLocales = new Relation(new TreeMap(ULocaleComparator),TreeSet.class);
 
-    Relation<String, String> parentToLocales = new Relation(new TreeMap<String, Set<String>>(), TreeSet.class);
+    Relation<String, String> parentToLocales = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
     /*
      * void getLocaleList() { collationLocales = new TreeSet(ULocaleComparator);
@@ -653,7 +652,6 @@ public class GenerateCldrTests {
     }
 
     DataShower ZoneFieldShower = new DataShower() {
-        StandardCodes sc = StandardCodes.make();
 
         // Set zones = new
         // TreeSet(sc.getAvailableCodes("tzid"));

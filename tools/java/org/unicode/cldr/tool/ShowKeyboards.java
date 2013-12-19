@@ -22,7 +22,6 @@ import org.unicode.cldr.draft.Keyboard.Gesture;
 import org.unicode.cldr.draft.Keyboard.Iso;
 import org.unicode.cldr.draft.Keyboard.KeyMap;
 import org.unicode.cldr.draft.Keyboard.Output;
-import org.unicode.cldr.draft.Keyboard.Platform;
 import org.unicode.cldr.draft.Keyboard.TransformStatus;
 import org.unicode.cldr.draft.Keyboard.TransformType;
 import org.unicode.cldr.draft.Keyboard.Transforms;
@@ -570,6 +569,7 @@ public class ShowKeyboards {
         final Collator collator = Collator.getInstance(ULocale.ENGLISH);
         BitSet bitset = new BitSet();
         BitSet bitset2 = new BitSet();
+        @SuppressWarnings("unchecked")
         TreeMap<String, IdSet>[] charToKeyboards = new TreeMap[UScript.CODE_LIMIT];
         {
             collator.setStrength(Collator.IDENTICAL);

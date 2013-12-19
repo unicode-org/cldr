@@ -6,7 +6,6 @@
 package org.unicode.cldr.tool;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Comparator;
@@ -59,7 +58,7 @@ class GenerateStatistics {
         english = factory.make("en", true);
         Set<String> languages = new TreeSet<String>(col), countries = new TreeSet<String>(col), draftLanguages = new TreeSet<String>(
             col), draftCountries = new TreeSet<String>(col);
-        Set nativeLanguages = new TreeSet(), nativeCountries = new TreeSet(), draftNativeLanguages = new TreeSet(), draftNativeCountries = new TreeSet();
+        Set<Object> nativeLanguages = new TreeSet<Object>(), nativeCountries = new TreeSet<Object>(), draftNativeLanguages = new TreeSet<Object>(), draftNativeCountries = new TreeSet<Object>();
         int localeCount = 0;
         int draftLocaleCount = 0;
 
@@ -89,7 +88,7 @@ class GenerateStatistics {
                     + ", " + draftCountries.size());
         }
         draftLanguages.removeAll(languages);
-        for (Iterator it = nativeLanguages.iterator(); it.hasNext();) {
+        for (Iterator<Object> it = nativeLanguages.iterator(); it.hasNext();) {
             draftNativeLanguages.remove(it.next());
         }
         logHtml.println("<html><head>");
@@ -288,7 +287,7 @@ class GenerateStatistics {
      * @param draftNativeCountries
      */
     private static void addCounts(String localeID, boolean isDraft, Set<String> draftLanguages, Set<String> draftCountries,
-        Set draftNativeLanguages, Set draftNativeCountries) {
+        Set<Object> draftNativeLanguages, Set<Object> draftNativeCountries) {
         // ULocale uloc = new ULocale(localeName);
         ltp.set(localeID);
         String lang = ltp.getLanguage();

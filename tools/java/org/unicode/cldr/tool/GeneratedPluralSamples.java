@@ -15,7 +15,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.tool.GeneratedPluralSamples.DataSamples;
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
@@ -146,6 +145,7 @@ public class GeneratedPluralSamples {
      * Add-only set of ranges.
      */
     static class Ranges {
+        @SuppressWarnings("unchecked")
         Set<Range>[] data = new Set[5];
         int size = 0;
         {

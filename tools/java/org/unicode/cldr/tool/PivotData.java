@@ -65,7 +65,7 @@ public class PivotData {
 
     private void pivotGroup(Factory cldrFactory, Set<LocaleIDParser.Level> conditions) throws IOException {
         CLDRFile supplementalMetadata = cldrFactory.make("supplementalMetadata", false);
-        if (false) for (Iterator it = supplementalMetadata.iterator(); it.hasNext();) {
+        if (false) for (Iterator<String> it = supplementalMetadata.iterator(); it.hasNext();) {
             System.out.println(it.next());
         }
         String defaultContentList = supplementalMetadata.getFullXPath("//supplementalData/metadata/defaultContent",

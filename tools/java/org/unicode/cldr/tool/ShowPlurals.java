@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.tool.GeneratePluralRanges.RangeSample;
@@ -15,12 +14,9 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PluralSnapshot;
 import org.unicode.cldr.util.SupplementalDataInfo;
-import org.unicode.cldr.util.PluralSnapshot.Integral;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.SupplementalDataInfo.SampleList;
-
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
@@ -28,7 +24,6 @@ import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 import com.ibm.icu.text.PluralRules.FixedDecimalRange;
 import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
-import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.util.ULocale;
 
 public class ShowPlurals {
@@ -85,7 +80,7 @@ public class ShowPlurals {
         //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
         Set<String> cardinalLocales = supplementalDataInfo.getPluralLocales(PluralType.cardinal);
         Set<String> ordinalLocales = supplementalDataInfo.getPluralLocales(PluralType.ordinal);
-        Set<String> all = new LinkedHashSet(cardinalLocales);
+        Set<String> all = new LinkedHashSet<String>(cardinalLocales);
         all.addAll(ordinalLocales);
 
         for (String locale : supplementalDataInfo.getPluralLocales()) {

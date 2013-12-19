@@ -37,8 +37,6 @@ public class ShowLocaleCoverage {
     final static Options myOptions = new Options();
     private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
 
-    private static final String TEST_PATH = "//ldml/dates/calendars/calendar[@type=\"chinese\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"abbreviated\"]/month[@type=\"1\"]";
-
     enum MyOptions {
         filter(".+", ".*", "Filter the information based on id, using a regex argument."),
         draftStatus(".+", "unconfirmed", "Filter the information to a minimum draft status."),

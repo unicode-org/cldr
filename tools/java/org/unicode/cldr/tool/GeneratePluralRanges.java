@@ -15,7 +15,6 @@ import java.util.Map.Entry;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -23,12 +22,10 @@ import org.unicode.cldr.util.PluralRanges;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
-import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.DecimalFormat;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.PluralRules;
@@ -48,7 +45,7 @@ public class GeneratePluralRanges {
     private void generateSamples() {
         //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
         // add all the items with plural ranges
-        Set<String> sorted = new TreeSet(SUPPLEMENTAL.getPluralRangesLocales());
+        Set<String> sorted = new TreeSet<String>(SUPPLEMENTAL.getPluralRangesLocales());
         // add the core locales
         sorted.addAll(StandardCodes.make().getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN)));
         // add any variant plural forms
@@ -101,7 +98,7 @@ public class GeneratePluralRanges {
             locale = "he";
         }
         //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
-        List<RangeSample> list = new ArrayList();
+        List<RangeSample> list = new ArrayList<RangeSample>();
         PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(locale);
         Set<Count> counts = pluralInfo.getCounts();
         PluralRanges pluralRanges = SUPPLEMENTAL.getPluralRanges(locale);
@@ -122,8 +119,8 @@ public class GeneratePluralRanges {
 //            }
 //        }
 
-        Output<FixedDecimal> maxSample = new Output();
-        Output<FixedDecimal> minSample = new Output();
+        Output<FixedDecimal> maxSample = new Output<FixedDecimal>();
+        Output<FixedDecimal> minSample = new Output<FixedDecimal>();
 
         CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
         ICUServiceBuilder icusb = new ICUServiceBuilder();
@@ -304,14 +301,11 @@ public class GeneratePluralRanges {
     }
 
     Set<String> minimize(PluralRanges pluralRanges, PluralInfo pluralInfo) {
-        int count = Count.VALUES.size();
         Set<String> result = new LinkedHashSet<String>();
-        PluralRules pluralRules = pluralInfo.getPluralRules();
         // make it easier to manage
         PluralRanges.Matrix matrix = new PluralRanges.Matrix();
-        boolean allOther = true;
-        Output<FixedDecimal> maxSample = new Output();
-        Output<FixedDecimal> minSample = new Output();
+        Output<FixedDecimal> maxSample = new Output<FixedDecimal>();
+        Output<FixedDecimal> minSample = new Output<FixedDecimal>();
         for (Count s : Count.VALUES) {
             for (Count e : Count.VALUES) {
                 if (!pluralInfo.rangeExists(s, e, minSample, maxSample)) {
@@ -319,9 +313,6 @@ public class GeneratePluralRanges {
                 }
                 Count r = pluralRanges.getExplicit(s,e);
                 matrix.set(s, e, r);
-                if (r != Count.other) {
-                    allOther = false;
-                }
             }
         }
         // if everything is 'other', we are done
@@ -343,7 +334,7 @@ public class GeneratePluralRanges {
                     endDone.add(end);
                 }
             }
-            Output<Boolean> emit = new Output();
+            Output<Boolean> emit = new Output<Boolean>();
             for (Count start : pluralInfo.getCounts()) {
                 Count r = matrix.startSame(start, endDone, emit);
                 if (r != null 

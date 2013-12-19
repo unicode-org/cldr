@@ -37,7 +37,6 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R4;
-import com.ibm.icu.util.ULocale;
 import com.ibm.icu.util.VersionInfo;
 
 public class GenerateItemCounts {
@@ -177,7 +176,6 @@ public class GenerateItemCounts {
         Relation<String, String> path2value2) {
         Set<String> union = Builder.with(new TreeSet<String>()).addAll(oldPath2value.keySet())
             .addAll(path2value2.keySet()).get();
-        long changes = 0;
         long total = 0;
         Matcher prefixMatcher = prefix.matcher("");
         Counter<String> newCount = new Counter<String>();
@@ -195,17 +193,14 @@ public class GenerateItemCounts {
             }
             if (set1 == null) {
                 changes2.println(prefix + "\tNew:\t" + "\t" + set2 + "\t" + localPath);
-                changes += set2.size();
                 newCount.add(prefix, set2.size());
             } else if (set2 == null) {
                 changes2.println(prefix + "\tDeleted:\t" + set1 + "\t\t" + localPath);
-                changes += set1.size();
                 deletedCount.add(prefix, set1.size());
             } else if (!set1.equals(set2)) {
                 TreeSet<String> set1minus2 = Builder.with(new TreeSet<String>()).addAll(set1).removeAll(set2).get();
                 TreeSet<String> set2minus1 = Builder.with(new TreeSet<String>()).addAll(set2).removeAll(set1).get();
                 int diffCount = set1minus2.size() + set2minus1.size();
-                changes += diffCount;
                 newCount.add(prefix, set2minus1.size());
                 deletedCount.add(prefix, set1minus2.size());
                 changes2.println(prefix + "\tChanged:\t" + set1minus2
@@ -226,7 +221,7 @@ public class GenerateItemCounts {
         "([a-z]{2,3})(?:[_-]([A-Z][a-z]{3}))?(?:[_-]([a-zA-Z0-9]{2,3}))?([_-][a-zA-Z0-9]{1,8})*");
 
     public static void doSummary() throws IOException {
-        Map<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>> key_release_count = new TreeMap();
+        Map<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>> key_release_count = new TreeMap<String, R4<Counter<String>, Counter<String>, Counter<String>, Counter<String>>>();
         Matcher countryLocale = LOCALE_PATTERN.matcher("");
         List<String> releases = new ArrayList<String>();
         Pattern releaseNumber = Pattern.compile("count_.*-(\\d+(\\.\\d+)*)\\.txt");

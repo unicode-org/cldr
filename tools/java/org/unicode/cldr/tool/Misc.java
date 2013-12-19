@@ -705,7 +705,7 @@ public class Misc {
     }
 
     void showOrderedTimezones() {
-        StandardCodes sc = StandardCodes.make();
+        StandardCodes.make();
     }
 
     static CldrUtility.VariableReplacer langTag = new CldrUtility.VariableReplacer()
@@ -743,7 +743,7 @@ public class Misc {
     public static void getZoneData() {
         StandardCodes sc = StandardCodes.make();
         System.out.println("Links: Old->New");
-        Map<String, Object> m = sc.getZoneLinkold_new();
+        Map<String, String> m = sc.getZoneLinkold_new();
         int count = 0;
         for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
             String key = it.next();
@@ -768,10 +768,10 @@ public class Misc {
             System.out.println(count + "\t" + key + " => " + newOne + " # NOT FINAL => " + further);
         }
 
-        m = sc.getZone_rules();
+        Map<String, List<ZoneLine>> m2 = sc.getZone_rules();
         System.out.println();
         System.out.println("Zones with old IDs");
-        for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
+        for (Iterator<String> it = m2.keySet().iterator(); it.hasNext();) {
             String key = it.next();
             if (oldIDs.contains(key)) System.out.println(key);
         }
@@ -779,7 +779,7 @@ public class Misc {
         Set<String> modernIDs = sc.getZoneData().keySet();
         System.out.println();
         System.out.println("Zones without countries");
-        TreeSet<String> temp = new TreeSet<String>(m.keySet());
+        TreeSet<String> temp = new TreeSet<String>(m2.keySet());
         temp.removeAll(modernIDs);
         System.out.println(temp);
 
@@ -802,20 +802,20 @@ public class Misc {
 
         System.out.println();
         System.out.println("Zone->RulesIDs");
-        m = sc.getZone_rules();
-        for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
+        m2 = sc.getZone_rules();
+        for (Iterator<String> it = m2.keySet().iterator(); it.hasNext();) {
             String key = it.next();
             System.out.println(key + " => " + XPathParts.NEWLINE + "\t"
-                + getSeparated((Collection) m.get(key), XPathParts.NEWLINE + "\t"));
+                + getSeparated(m2.get(key), XPathParts.NEWLINE + "\t"));
         }
 
         System.out.println();
         System.out.println("RulesID->Rules");
-        m = sc.getZoneRuleID_rules();
-        for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
+        m2 = sc.getZoneRuleID_rules();
+        for (Iterator<String> it = m2.keySet().iterator(); it.hasNext();) {
             String key = it.next();
             System.out.println(key + " => " + XPathParts.NEWLINE + "\t"
-                + getSeparated((Collection) m.get(key), XPathParts.NEWLINE + "\t"));
+                + getSeparated(m2.get(key), XPathParts.NEWLINE + "\t"));
         }
 
         System.out.println();
@@ -826,21 +826,21 @@ public class Misc {
 
         Map<String, List<RuleLine>> ruleID_Rules = sc.getZoneRuleID_rules();
         Map<String, Set<String>> abb_zones = new TreeMap<String, Set<String>>();
-        m = sc.getZone_rules();
-        for (Iterator<String> it = m.keySet().iterator(); it.hasNext();) {
+        m2 = sc.getZone_rules();
+        for (Iterator<String> it = m2.keySet().iterator(); it.hasNext();) {
             String key = it.next();
             Set<String> abbreviations = new TreeSet<String>();
             // rule_abbreviations.put(key, abbreviations);
             ZoneLine lastZoneLine = null;
 
-            for (Iterator<ZoneLine> it2 = ((Collection) m.get(key)).iterator(); it2.hasNext();) {
+            for (Iterator<ZoneLine> it2 = m2.get(key).iterator(); it2.hasNext();) {
                 ZoneLine zoneLine = it2.next();
                 //int thisYear = zoneLine.untilYear;
                 String format = zoneLine.format;
                 if (format.indexOf('/') >= 0) {
-                    Collection abb = Arrays.asList(format.split("/"));
-                    for (Iterator it3 = abb.iterator(); it3.hasNext();) {
-                        add(abbreviations, format.replaceAll("%s", it3.next().toString()), key, lastZoneLine, zoneLine);
+                    List<String> abb = Arrays.asList(format.split("/"));
+                    for (Iterator<String> it3 = abb.iterator(); it3.hasNext();) {
+                        add(abbreviations, format.replaceAll("%s", it3.next()), key, lastZoneLine, zoneLine);
                     }
                 } else if (format.indexOf('%') >= 0) {
                     Set<String> abb = getAbbreviations(ruleID_Rules, lastZoneLine, zoneLine);
@@ -884,7 +884,7 @@ public class Misc {
         for (Iterator<String> it = abb_zones.keySet().iterator(); it.hasNext();) {
             String key = it.next();
             System.out.println(key + " => " + XPathParts.NEWLINE + "\t"
-                + getSeparated((Collection) abb_zones.get(key), XPathParts.NEWLINE + "\t"));
+                + getSeparated((Set<String>) abb_zones.get(key), XPathParts.NEWLINE + "\t"));
         }
 
         System.out.println("Types: " + ZoneParser.RuleLine.types);
@@ -919,6 +919,7 @@ public class Misc {
         return result;
     }
 
+    @SuppressWarnings("rawtypes")
     private static String getSeparated(Collection c, String separator) {
         StringBuffer result = new StringBuffer();
         boolean first = true;

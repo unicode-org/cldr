@@ -173,6 +173,7 @@ class GenerateStatistics {
      * @param isLanguage
      *            TODO
      */
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     private static String showSet(Set nativeCountries, boolean transliterate,
         boolean isLanguage) {
         UnicodeSet BIDI_R = new UnicodeSet(
@@ -321,10 +322,10 @@ class GenerateStatistics {
         }
     }
 
-    private static class LanguageList implements Comparable {
+    private static class LanguageList implements Comparable<Object> {
         Object[] contents;
         static Collator col = Collator.getInstance(ULocale.ENGLISH);
-        static Comparator comp = new ArrayComparator(new Collator[] { col, col, null });
+        static Comparator<Object[]> comp = new ArrayComparator(new Collator[] { col, col, null });
 
         LanguageList(String locale, String englishName, String localName) {
             contents = new Object[] { englishName, locale, localName };

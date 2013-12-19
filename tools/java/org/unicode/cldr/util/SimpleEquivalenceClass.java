@@ -43,6 +43,7 @@ public class SimpleEquivalenceClass {
         }
     }
 
+    @SuppressWarnings({"rawtypes", "unchecked"})
     private class MyIterator implements Iterator {
         private Iterator it;
 
@@ -69,7 +70,7 @@ public class SimpleEquivalenceClass {
         }
     }
 
-    public Iterator getSetIterator(Comparator comp) {
+    public Iterator<Set<String>> getSetIterator(Comparator comp) {
         return new MyIterator(comp);
     }
 

@@ -198,10 +198,11 @@ public class PivotData {
         return countChanges;
     }
 
+    @SuppressWarnings("rawtypes")
     private int size(Iterator name) {
         int count = 0;
         while (name.hasNext()) {
-            Object x = name.next();
+            name.next();
             count++;
         }
         return count;

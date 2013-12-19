@@ -268,9 +268,6 @@ public class ShowData {
                         continue;
                     }
                     String value = file.getStringValue(path);
-                    if (value.equals("{0} meter")) {
-                        int debug = 0;
-                    }
 
                     //String baileyValue = file.getBaileyValue(path, null, null);
                     boolean isInherited = !source.equals(locale); // !CldrUtility.equals(baileyValue, value); 

@@ -499,7 +499,7 @@ public class ShowLanguages {
         }
         String languageName = english.getName(CLDRFile.LANGUAGE_NAME, language);
         if (languageName == null) languageName = "???";
-        Comparable isLanguageTranslated = "";
+        String isLanguageTranslated = "";
         String nativeLanguageName = nativeLanguage == null ? null : nativeLanguage.getName(CLDRFile.LANGUAGE_NAME,
             language);
         if (nativeLanguageName == null || nativeLanguageName.equals(language)) {
@@ -514,7 +514,7 @@ public class ShowLanguages {
         // scriptName = nativeScriptName + "[" + scriptName + "]";
         // }
 
-        Comparable isTerritoryTranslated = "";
+        String isTerritoryTranslated = "";
         String territoryName = english.getName(CLDRFile.TERRITORY_NAME, territory);
         String nativeTerritoryName = nativeLanguage == null ? null : nativeLanguage.getName(CLDRFile.TERRITORY_NAME,
             territory);
@@ -523,7 +523,7 @@ public class ShowLanguages {
             isTerritoryTranslated = "n";
         }
 
-        Type t = Iso639Data.getType(language);
+        // Type t = Iso639Data.getType(language);
         // if ((s == Scope.Individual || s == Scope.Macrolanguage || s == Scope.Collection) && t == Type.Living) {
         // // ok
         // } else if (!language.equals("und")){

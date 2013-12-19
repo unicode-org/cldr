@@ -446,6 +446,7 @@ public class GenerateCldrTests {
     /*
      * public interface Equator { public boolean equals(Object o1, Object o2); }
      */
+    @SuppressWarnings("rawtypes")
     static boolean intersects(Collection a, Collection b) {
         for (Iterator it = a.iterator(); it.hasNext();) {
             if (b.contains(it.next()))

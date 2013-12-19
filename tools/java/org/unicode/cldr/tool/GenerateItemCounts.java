@@ -200,7 +200,6 @@ public class GenerateItemCounts {
             } else if (!set1.equals(set2)) {
                 TreeSet<String> set1minus2 = Builder.with(new TreeSet<String>()).addAll(set1).removeAll(set2).get();
                 TreeSet<String> set2minus1 = Builder.with(new TreeSet<String>()).addAll(set2).removeAll(set1).get();
-                int diffCount = set1minus2.size() + set2minus1.size();
                 newCount.add(prefix, set2minus1.size());
                 deletedCount.add(prefix, set1minus2.size());
                 changes2.println(prefix + "\tChanged:\t" + set1minus2

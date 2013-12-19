@@ -258,6 +258,7 @@ public class GenerateEnums {
         Log.close();
     }
 
+    @SuppressWarnings("rawtypes")
     private Object join(Collection collection, String separator) {
         if (collection == null)
             return null;
@@ -532,6 +533,7 @@ public class GenerateEnums {
         }
     }
 
+    @SuppressWarnings("rawtypes")
     private void compareSets(String name, Set availableCodes, String name2,
         Set cldrCodes) {
         Set temp = new TreeSet();
@@ -544,6 +546,7 @@ public class GenerateEnums {
         System.out.println("Not in " + name + " but in " + name2 + ": " + temp);
     }
 
+    @SuppressWarnings("rawtypes")
     private void checkDuplicates(Map m) {
         Map backMap = new HashMap();
         for (Iterator it = m.keySet().iterator(); it.hasNext();) {
@@ -682,7 +685,7 @@ public class GenerateEnums {
 
         for (Iterator<String> it = reordered.iterator(); it.hasNext();) {
             String region = it.next();
-            String cldrName = region.length() < 5 ? region : region.substring(2); // fix
+            // String cldrName = region.length() < 5 ? region : region.substring(2); // fix
             // UN
             // name
             int un = Integer.parseInt((String) enum_UN.get(region), 10); // get
@@ -761,7 +764,7 @@ public class GenerateEnums {
         Log.println(indent + " */");
     }
 
-    public final static class LengthFirstComparator implements Comparator {
+    public final static class LengthFirstComparator implements Comparator<Object> {
         public int compare(Object a, Object b) {
             String as = a.toString();
             String bs = b.toString();
@@ -773,7 +776,7 @@ public class GenerateEnums {
         }
     }
 
-    public final class DeprecatedAndLengthFirstComparator implements Comparator {
+    public final class DeprecatedAndLengthFirstComparator implements Comparator<Object> {
         String type;
 
         DeprecatedAndLengthFirstComparator(String type) {

@@ -124,6 +124,7 @@ public class GenerateG2xG2 {
         PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY, "G2xG2.txt");
         // show priorities
         Comparator<String> comp = new UTF16.StringComparator();
+        @SuppressWarnings("unchecked")
         Set<String[]> priority_set = new TreeSet<String[]>(new ArrayComparator(new Comparator[] { comp, comp, comp }));
         for (Iterator<String> it = priorityMap.keySet().iterator(); it.hasNext();) {
             String code = it.next();

@@ -172,6 +172,7 @@ public class TablePrinter {
         return this;
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public TablePrinter addCell(Comparable cell) {
         if (rows.size() > 0) {
             int i = partialRow.size();
@@ -197,11 +198,13 @@ public class TablePrinter {
         return this;
     }
 
+    @SuppressWarnings("unchecked")
     public TablePrinter addRow(Collection<Comparable<Object>> data) {
         addRow(data.toArray(new Comparable[data.size()]));
         return this;
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public TablePrinter addRows(Collection data) {
         for (Object row : data) {
             if (row instanceof Collection) {
@@ -213,6 +216,7 @@ public class TablePrinter {
         return this;
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public TablePrinter addRows(Comparable[][] data) {
         for (Comparable[] row : data) {
             addRow(row);
@@ -224,16 +228,19 @@ public class TablePrinter {
         return toTable();
     }
 
+    @SuppressWarnings("rawtypes")
     public String toTable() {
         Comparable[][] sortedFlat = (Comparable[][]) (rows.toArray(new Comparable[rows.size()][]));
         return toTableInternal(sortedFlat);
     }
 
+    @SuppressWarnings("rawtypes")
     static class ColumnSorter<T extends Comparable> implements Comparator<T[]> {
         private int[] sortPriorities = new int[0];
         private BitSet ascending = new BitSet();
         Collator englishCollator = Collator.getInstance(ULocale.ENGLISH);
 
+        @SuppressWarnings("unchecked")
         public int compare(T[] o1, T[] o2) {
             int result;
             for (int curr : sortPriorities) {
@@ -271,8 +278,10 @@ public class TablePrinter {
         }
     }
 
+    @SuppressWarnings("rawtypes")
     ColumnSorter<Comparable> columnSorter = new ColumnSorter<Comparable>();
 
+    @SuppressWarnings("rawtypes")
     public String toTableInternal(Comparable[][] sortedFlat) {
         // TreeSet<String[]> sorted = new TreeSet();
         // sorted.addAll(data);
@@ -366,6 +375,7 @@ public class TablePrinter {
     static final char RLE = '\u202B';
     static final char PDF = '\u202C';
 
+    @SuppressWarnings("rawtypes")
     private String format(Comparable comparable) {
         if (comparable == null) {
             return null;
@@ -398,6 +408,7 @@ public class TablePrinter {
      * @param colIndex
      * @return
      */
+    @SuppressWarnings("rawtypes")
     private int findIdentical(Comparable[][] sortedFlat, int rowIndex, int colIndex) {
         if (!columnsFlat[colIndex].spanRows) return 1;
         Comparable item = sortedFlat[rowIndex][colIndex];
@@ -423,6 +434,7 @@ public class TablePrinter {
      * @param rowIndex
      * @return
      */
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     private boolean breakSpans(Comparable[][] sortedFlat, int rowIndex) {
         for (int colIndex = 0; colIndex < breaksSpans.length(); ++colIndex) {
             if (!breaksSpans.get(colIndex)) return false;

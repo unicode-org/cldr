@@ -917,6 +917,7 @@ public class GenerateTransformCharts {
         return sb.toString();
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     static public class CollectionOfComparablesComparator implements Comparator {
         public int compare(Object o1, Object o2) {
             if (o1 == null) {
@@ -945,7 +946,7 @@ public class GenerateTransformCharts {
 
     }
 
-    static class ReverseComparator implements Comparator {
+    static class ReverseComparator implements Comparator<Object> {
         public int compare(Object o1, Object o2) {
             String a = o1.toString();
             char a1 = a.charAt(0);

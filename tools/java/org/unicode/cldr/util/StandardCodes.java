@@ -32,6 +32,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.util.Iso639Data.Type;
+import org.unicode.cldr.util.ZoneParser.ZoneLine;
 
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
@@ -1204,7 +1205,7 @@ public class StandardCodes {
     /**
      * @deprecated
      */
-    public Map getZone_rules() {
+    public Map<String, List<ZoneLine>> getZone_rules() {
         return zoneParser.getZone_rules();
     }
 

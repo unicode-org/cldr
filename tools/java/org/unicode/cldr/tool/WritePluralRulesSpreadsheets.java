@@ -206,7 +206,7 @@ public class WritePluralRulesSpreadsheets {
                 }
                 System.out.println(oldVersion + "➞" + newVersion 
                     + "\t" + TestInfo.getInstance().getEnglish().getName(locale) 
-                    + "\t" + locale 
+                    + "\t" + locale
                     + "\t" + type 
                     //+ "\t" + oldKeywords + "\t" + newKeywords 
                     + "\t" + show(results));

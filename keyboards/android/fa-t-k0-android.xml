@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='fa-t-k0-android'>
-	<version platform='4.4' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="fa-t-k0-android">
+	<version platform="4.4" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Persian'/>
+		<name value="Persian"/>
 	</names>
 	<keyMap>
 		<map iso="D01" to="ض"/> <!-- Q -->
@@ -44,7 +44,7 @@
 		<map iso="A04" to=" "/> <!-- (key to right of space) -->
 		<map iso="A05" to="." longPress="\u{22} ' # - : ! ، ؟ @ &amp; % + ؛ / ) ("/> <!-- (2 keys to right of space)  long=" ' # - : ! ، ؟ @ & % + ؛ / ) (  -->
 	</keyMap>
-	<keyMap modifiers='opt'>
+	<keyMap modifiers="opt">
 		<map iso="D01" to="۱" longPress="¹ ½ ⅓ ¼ ⅛"/> <!-- Q  base=ض -->
 		<map iso="D02" to="۲" longPress="² ⅔"/> <!-- W  base=ص -->
 		<map iso="D03" to="۳" longPress="³ ¾ ⅜"/> <!-- E  base=ث -->
@@ -77,7 +77,7 @@
 		<map iso="A03" to="،" longPress=": ! ؟ ؛ - / » «"/> <!-- space -->
 		<map iso="A04" to="." longPress="\u{655} \u{654} \u{652} \u{64D} \u{64C} \u{64B} \u{651} \u{656} \u{670} \u{653} \u{650} \u{64F} \u{64E} ـ"/> <!-- (key to right of space)  long= ٕ  ٔ  ْ  ٍ  ٌ  ً  ّ  ٖ  ٰ  ٓ  ِ  ُ  َ ـ  -->
 	</keyMap>
-	<keyMap modifiers='opt+shift'>
+	<keyMap modifiers="opt+shift">
 		<map iso="D01" to="~"/> <!-- Q  base=ض -->
 		<map iso="D02" to="`"/> <!-- W  base=ص -->
 		<map iso="D03" to="|"/> <!-- E  base=ث -->

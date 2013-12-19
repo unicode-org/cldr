@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='af-t-k0-android-600dpi'>
-	<version platform='4.4' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="af-t-k0-android-600dpi">
+	<version platform="4.4" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Afrikaans (600dpi)'/>
+		<name value="Afrikaans (600dpi)"/>
 	</names>
 	<keyMap>
 		<map iso="D01" to="q"/>
@@ -40,7 +40,7 @@
 		<map iso="A03" to=","/> <!-- space -->
 		<map iso="A04" to="." longPress="…"/> <!-- (key to right of space) -->
 	</keyMap>
-	<keyMap modifiers='shift caps'>
+	<keyMap modifiers="shift caps">
 		<map iso="D01" to="Q"/>
 		<map iso="D02" to="W"/>
 		<map iso="D03" to="E" longPress="É È Ê Ë Ę Ė Ē"/>
@@ -74,7 +74,7 @@
 		<map iso="A03" to=","/> <!-- space -->
 		<map iso="A04" to="." longPress="…"/> <!-- (key to right of space) -->
 	</keyMap>
-	<keyMap modifiers='opt'>
+	<keyMap modifiers="opt">
 		<map iso="D01" to="1" longPress="¹ ½ ⅓ ¼ ⅛"/> <!-- Q -->
 		<map iso="D02" to="2" longPress="² ⅔"/> <!-- W -->
 		<map iso="D03" to="3" longPress="³ ¾ ⅜"/> <!-- E -->
@@ -109,7 +109,7 @@
 		<map iso="A03" to=","/> <!-- space -->
 		<map iso="A04" to="." longPress="…"/> <!-- (key to right of space) -->
 	</keyMap>
-	<keyMap modifiers='opt+shift'>
+	<keyMap modifiers="opt+shift">
 		<map iso="D01" to="~"/> <!-- Q -->
 		<map iso="D02" to="`"/> <!-- W -->
 		<map iso="D03" to="|"/> <!-- E -->

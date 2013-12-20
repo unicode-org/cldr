@@ -436,15 +436,16 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public int compare(String path1, String path2) {
             XPathParts a = XPathParts.getFrozenInstance(path1);
             XPathParts b = XPathParts.getFrozenInstance(path2);
-            int max = Math.max(a.size(), b.size());
+            // there must always be at least one element
             String baseA = a.getElement(0);
             String baseB = b.getElement(0);
             if (!ROOT.name.equals(baseA) || !ROOT.name.equals(baseB)) {
                 throw new IllegalArgumentException("Comparing two different DTDs: " + baseA + ", " + baseB);
             }
+            int min = Math.min(a.size(), b.size());
             Element parent = ROOT;
             Element elementA;
-            for (int i = 1; i < max; ++i, parent = elementA) {
+            for (int i = 1; i < min; ++i, parent = elementA) {
                 elementA = nameToElement.get(a.getElement(i));
                 Element elementB = nameToElement.get(b.getElement(i));
                 if (elementA != elementB) {

@@ -5,7 +5,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -46,6 +48,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
+import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
@@ -915,5 +918,32 @@ public class TestBasic extends TestFmwk {
                 }
             }
         }
+    }
+    
+    /**
+     * Compare each path to each other path
+     */
+    public void TestDtdComparison() {
+        CLDRFile f = testInfo.getEnglish();
+        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
+        Comparator<String> dc = dtdData.getDtdComparator(null);
+        sortPaths(dc, Arrays.asList(
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", 
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats"));
+        
+        List<String> paths = With.in(f).toList();
+        sortPaths(dc, paths);
+        // TODO one file of each type
+//        Map<DtdType, String> samples = null;
+//        Map<DtdType, String> samples = null;
+//        for (DtdType type : DtdType.values()) {
+//            String sample = samples.get(type);
+//            DtdData dtdData = DtdData.getInstance(type);
+//            dtdData
+//        } 
+    }
+
+    public void sortPaths(Comparator<String> dc, Collection<String> paths) {
+        Arrays.sort(paths.toArray(new String[paths.size()]), 0, paths.size(), dc);
     }
 }

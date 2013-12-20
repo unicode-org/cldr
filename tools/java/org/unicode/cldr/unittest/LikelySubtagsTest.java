@@ -32,13 +32,13 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     static class Tags {
-        final Set<String> languages = new TreeSet();
-        final Set<String> scripts = new TreeSet();
-        final Set<String> regions = new TreeSet();
-        final Set<String> scriptRegion = new TreeSet();
-        final Set<String> languageScript = new TreeSet();
-        final Set<String> languageRegion = new TreeSet();
-        final Set<String> all = new TreeSet();
+        final Set<String> languages = new TreeSet<String>();
+        final Set<String> scripts = new TreeSet<String>();
+        final Set<String> regions = new TreeSet<String>();
+        final Set<String> scriptRegion = new TreeSet<String>();
+        final Set<String> languageScript = new TreeSet<String>();
+        final Set<String> languageRegion = new TreeSet<String>();
+        final Set<String> all = new TreeSet<String>();
         public Tags() {
             final LanguageTagParser ltp = new LanguageTagParser();
             for (Entry<String, String> entry : likely.entrySet()) {

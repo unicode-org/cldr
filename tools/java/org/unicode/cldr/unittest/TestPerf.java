@@ -37,10 +37,10 @@ public class TestPerf extends TestFmwkPlus {
     static final String[] sortedArray;
 
     static {
-        Set<String> testPaths_ = new HashSet();
+        Set<String> testPaths_ = new HashSet<String>();
         CollectionUtilities.addAll(TestInfo.getInstance().getEnglish().iterator(), testPaths_);
         testPaths = Collections.unmodifiableSet(testPaths_);
-        Set<String> sorted = new TreeSet(CLDRFile.getLdmlComparator());
+        Set<String> sorted = new TreeSet<String>(CLDRFile.getLdmlComparator());
         sorted.addAll(testPaths);
         sortedArray = sorted.toArray(new String[sorted.size()]);
 

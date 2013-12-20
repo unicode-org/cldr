@@ -21,12 +21,10 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
-import org.unicode.cldr.tool.GenerateBirth;
 import org.unicode.cldr.tool.GenerateBirth.Versions;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.DtdType;
@@ -75,8 +73,6 @@ import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
 
 public class TestBasic extends TestFmwk {
-    
-    private static final boolean TEST_VERSIONS = false;
 
     static TestInfo testInfo = TestInfo.getInstance();
 
@@ -97,8 +93,6 @@ public class TestBasic extends TestFmwk {
         "references"));
 
     private final String localeRegex = CldrUtility.getProperty("locale", ".*");
-
-    private final String commonDirectory = CLDRPaths.COMMON_DIRECTORY;
 
     private final String mainDirectory = CLDRPaths.MAIN_DIRECTORY;
 
@@ -165,7 +159,6 @@ public class TestBasic extends TestFmwk {
                                 foundAttributes.put(typeElement, "NONE");
                             } else {
                                 for (String attribute : parts.getAttributeKeys(i)) {
-                                    String value = parts.getAttributeValue(i, attribute);
                                     foundAttributes.put(typeElement, attribute);
                                 }
                             }
@@ -208,7 +201,7 @@ public class TestBasic extends TestFmwk {
             boolean deprecatedElement = SUPPLEMENTAL_DATA_INFO.isDeprecated(type, element, "*", "*");
             String header = type + "\t" + element + "\t" + (deprecatedElement ? "X" : "") + "\t";
             Set<String> usedAttributes = foundAttributes.get(typeElement);
-            Set<String> unusedAttributes = new LinkedHashSet(theoryAttributeSet);
+            Set<String> unusedAttributes = new LinkedHashSet<String>(theoryAttributeSet);
             if (usedAttributes == null) {
                 System.out.println(header + "<NOT-FOUND>\t\t" + siftDeprecated(type, element, unusedAttributes, attributesToTypeElementUsed, false));
                 continue;
@@ -832,14 +825,14 @@ public class TestBasic extends TestFmwk {
             Map<String, Element> currentElementFromName = dtdData.getElementFromName();
 
             // current has no orphan
-            Set<Element> orphans = new LinkedHashSet(dtdData.getElementFromName().values());
+            Set<Element> orphans = new LinkedHashSet<Element>(dtdData.getElementFromName().values());
             orphans.remove(dtdData.ROOT);
             orphans.remove(dtdData.PCDATA);
             orphans.remove(dtdData.ANY);
-            Set<String> elementsWithoutAlt = new TreeSet();
-            Set<String> elementsWithoutDraft = new TreeSet();
-            Set<String> elementsWithoutAlias = new TreeSet();
-            Set<String> elementsWithoutSpecial = new TreeSet();
+            Set<String> elementsWithoutAlt = new TreeSet<String>();
+            Set<String> elementsWithoutDraft = new TreeSet<String>();
+            Set<String> elementsWithoutAlias = new TreeSet<String>();
+            Set<String> elementsWithoutSpecial = new TreeSet<String>();
 
             for (Element element : dtdData.getElementFromName().values()) {
                 Set<Element> children = element.getChildren().keySet();

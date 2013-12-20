@@ -27,8 +27,6 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.UnicodeSet;
@@ -142,7 +140,7 @@ public class TestScriptMetadata extends TestFmwk {
 
     public void TestGeographicGrouping() {
         CLDRFile english = TestInfo.getInstance().getEnglish();
-        Set<Row.R3<IdUsage, String, String>> lines = new TreeSet();
+        Set<Row.R3<IdUsage, String, String>> lines = new TreeSet<Row.R3<IdUsage, String, String>>();
         Set<String> extras = ScriptMetadata.getExtras();
         for (Entry<String, Info> sc : ScriptMetadata.iterable()) {
             String scriptCode = sc.getKey();

@@ -114,7 +114,7 @@ public class TestXMLSource extends TestFmwk {
     public void TestA() {
         TestInfo testInfo = TestInfo.getInstance();
         CLDRFile file = testInfo.getEnglish();
-        Set<String> result = new LinkedHashSet();
+        Set<String> result = new LinkedHashSet<String>();
         file.getPathsWithValue("ms", "", null, result);
         for (String path : result) {
             String value = file.getStringValue(path);

@@ -14,8 +14,6 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PathHeader.SectionId;
-import org.unicode.cldr.util.XPathParts;
-
 import com.ibm.icu.dev.util.CollectionUtilities;
 
 public class TestPaths extends TestFmwkPlus {
@@ -34,13 +32,11 @@ public class TestPaths extends TestFmwkPlus {
         }
         Factory phf = PathHeader.getFactory(testInfo.getEnglish());
         Status status = new Status();
-        Set<PathHeader> suspiciousPaths = new TreeSet();
-        Set<PathHeader> errorPaths = new TreeSet();
-        XPathParts parts = new XPathParts();
-        Set<String> SKIP_VARIANT = new HashSet(Arrays.asList(
+        Set<PathHeader> suspiciousPaths = new TreeSet<PathHeader>();
+        Set<PathHeader> errorPaths = new TreeSet<PathHeader>();
+        Set<String> SKIP_VARIANT = new HashSet<String>(Arrays.asList(
             "ps-variant", "ug-variant", "ky-variant", "az-short", "Arab-variant", "am-variant", "pm-variant"));
         for (String path : englishPaths) {
-            String source = testInfo.getEnglish().getSourceLocaleID(path, status);
             // skip aliases, other counts
             if (!status.pathWhereFound.equals(path) || path.contains("[@count=\"one\"]")) {
                 continue;

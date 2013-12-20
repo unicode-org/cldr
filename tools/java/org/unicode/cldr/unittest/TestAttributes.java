@@ -198,6 +198,7 @@ public class TestAttributes extends TestFmwk {
         }
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     private <T extends Collection> T getCommon(T a, T b, T result) {
         result.addAll(a);
         result.retainAll(b);

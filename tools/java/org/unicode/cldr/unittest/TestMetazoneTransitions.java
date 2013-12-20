@@ -234,13 +234,12 @@ public class TestMetazoneTransitions {
 
     private void run() {
         // String[] zones = TimeZone.getAvailableIDs();
-        Relation<ZoneTransitions, String> partition = new Relation(new TreeMap(),
+        Relation<ZoneTransitions, String> partition = Relation.of(new TreeMap<ZoneTransitions, Set<String>>(),
             TreeSet.class);
-        Relation<ZoneTransitions, String> daylightPartition = new Relation(
-            new TreeMap(), TreeSet.class);
-        Map<String, String> toDaylight = new TreeMap();
-        Map<ZoneTransitions, String> daylightNames = new TreeMap();
-        int daylightCount = 0;
+        Relation<ZoneTransitions, String> daylightPartition = Relation.of(
+            new TreeMap<ZoneTransitions, Set<String>>(), TreeSet.class);
+        Map<String, String> toDaylight = new TreeMap<String, String>();
+        Map<ZoneTransitions, String> daylightNames = new TreeMap<ZoneTransitions, String>();
 
         // get the main data
         for (String zone : supplementalData.getCanonicalZones()) {
@@ -276,9 +275,9 @@ public class TestMetazoneTransitions {
         System.out.println();
 
         count = 0;
-        Set<String> noMeta = new TreeSet();
-        Set<String> multiMeta = new TreeSet();
-        Set<String> stableZones = new TreeSet();
+        Set<String> noMeta = new TreeSet<String>();
+        Set<String> multiMeta = new TreeSet<String>();
+        Set<String> stableZones = new TreeSet<String>();
         for (ZoneTransitions transitions : partition.keySet()) {
 
             System.out.println();

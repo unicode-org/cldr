@@ -31,6 +31,7 @@ import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DayPeriodInfo;
+import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
@@ -83,7 +84,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestPluralSampleOrder() {
-        HashSet seen = new HashSet();
+        HashSet<PluralInfo> seen = new HashSet<PluralInfo>();
         for (String locale : SUPPLEMENTAL.getPluralLocales()) {
             if (locale.equals("root")) {
                 continue;
@@ -120,7 +121,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestPluralRanges() {
-        Set<String> localesToTest = new TreeSet(SUPPLEMENTAL.getPluralRangesLocales());
+        Set<String> localesToTest = new TreeSet<String>(SUPPLEMENTAL.getPluralRangesLocales());
         for (String locale : StandardCodes.make().getLocaleCoverageLocales("google")) { //superset
             if (locale.equals("*") || locale.contains("_")) {
                 continue;
@@ -206,7 +207,7 @@ public class TestSupplementalInfo extends TestFmwk {
     public void TestPluralLocales() {
         // get the unique rules
         for (PluralType type : PluralType.values()) {
-            Relation<PluralInfo, String> pluralsToLocale = new Relation(new HashMap(), TreeSet.class);
+            Relation<PluralInfo, String> pluralsToLocale = Relation.of(new HashMap<PluralInfo, Set<String>>(), TreeSet.class);
             for (String locale : new TreeSet<String>(SUPPLEMENTAL.getPluralLocales(type))) {
                 PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(type, locale);
                 pluralsToLocale.put(pluralInfo, locale);
@@ -336,7 +337,7 @@ public class TestSupplementalInfo extends TestFmwk {
             { "lt", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100 not in 11..19
         };
         // parse out the exceptions
-        Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap();
+        Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<PluralInfo, Relation<Count, Integer>>();
         Relation<Count, Integer> fallback = Relation.of(new EnumMap<Count, Set<Integer>>(Count.class), TreeSet.class);
         for (String[] row : exceptionStrings) {
             Relation<Count, Integer> countToDigits;
@@ -355,8 +356,8 @@ public class TestSupplementalInfo extends TestFmwk {
                 countToDigits.put(c, digit.length());
             }
         }
-        Set<PluralInfo> seen = new HashSet();
-        Set<String> sorted = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.cardinal));
+        Set<PluralInfo> seen = new HashSet<PluralInfo>();
+        Set<String> sorted = new TreeSet<String>(SUPPLEMENTAL.getPluralLocales(PluralType.cardinal));
         Relation<String, String> ruleToExceptions = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
         for (String locale : sorted) {
@@ -436,8 +437,8 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestEquivalentLocales() {
-        Set<Set<String>> seen = new HashSet();
-        Set<String> toTest = new TreeSet(testInfo.getCldrFactory().getAvailable());
+        Set<Set<String>> seen = new HashSet<Set<String>>();
+        Set<String> toTest = new TreeSet<String>(testInfo.getCldrFactory().getAvailable());
         toTest.addAll(SUPPLEMENTAL.getLikelySubtags().keySet());
         toTest.addAll(SUPPLEMENTAL.getLikelySubtags().values());
         toTest.addAll(SUPPLEMENTAL.getDefaultContentLocales());
@@ -587,8 +588,8 @@ public class TestSupplementalInfo extends TestFmwk {
         // The feedback gathered from our translators is that the following use 24 hour time ONLY:
         Set<String> only24lang = new TreeSet<String>(Arrays.asList(("sq, br, bu, ca, hr, cs, da, de, nl, et, eu, fi, " +
             "fr, gl, he, is, id, it, nb, pt, ro, ru, sr, sk, sl, sv, tr, hy").split(",\\s*")));
-        Set<String> only24region = new TreeSet();
-        Set<String> either24or12region = new TreeSet();
+        Set<String> only24region = new TreeSet<String>();
+        Set<String> either24or12region = new TreeSet<String>();
 
         // get all countries where official or de-facto official
         // add them two one of two lists, based on the above list of languages
@@ -612,7 +613,7 @@ public class TestSupplementalInfo extends TestFmwk {
         only24region.removeAll(current12preferred);
         // now verify
         if (!current24only.containsAll(only24region)) {
-            Set<String> missing24only = new TreeSet(only24region);
+            Set<String> missing24only = new TreeSet<String>(only24region);
             missing24only.removeAll(current24only);
 
             errln("24-hour-only doesn't include needed items:\n"
@@ -805,7 +806,7 @@ public class TestSupplementalInfo extends TestFmwk {
             .getLocaleAliasInfo();
         Map<String, R2<List<String>, String>> tagToReplacement = typeToTagToReplacement.get("language");
 
-        Relation<String, String> replacementToReplaced = new Relation(new TreeMap(), TreeSet.class);
+        Relation<String, String> replacementToReplaced = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         for (String language : tagToReplacement.keySet()) {
             List<String> replacements = tagToReplacement.get(language).get0();
             if (replacements != null) {
@@ -817,7 +818,7 @@ public class TestSupplementalInfo extends TestFmwk {
         Map<String, Map<String, Map<String, String>>> lstreg = StandardCodes.getLStreg();
         Map<String, Map<String, String>> lstregLanguageInfo = lstreg.get("language");
 
-        Relation<Scope, String> scopeToCodes = new Relation(new TreeMap(), TreeSet.class);
+        Relation<Scope, String> scopeToCodes = Relation.of(new TreeMap<Scope, Set<String>>(), TreeSet.class);
         // the invariant is that every macrolanguage has exactly 1 encompassed language that maps to it
 
         main: for (String language : Builder.with(new TreeSet<String>()).addAll(languageCodes)
@@ -1124,7 +1125,7 @@ public class TestSupplementalInfo extends TestFmwk {
 
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(file.getSupplementalDirectory());
         DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(file.getLocaleID());
-        LinkedHashSet<DayPeriodInfo.DayPeriod> items = new LinkedHashSet(dayPeriods.getPeriods());
+        LinkedHashSet<DayPeriodInfo.DayPeriod> items = new LinkedHashSet<DayPeriod>(dayPeriods.getPeriods());
         String prefix = "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/dayPeriodContext[@type=\"format\"]/dayPeriodWidth[@type=\"wide\"]/dayPeriod[@type=\"";
 
         for (DayPeriodInfo.DayPeriod dayPeriod : items) {
@@ -1206,12 +1207,12 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestPluralCompleteness() {
-        Set<String> cardinalLocales = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.cardinal));
-        Set<String> ordinalLocales = new TreeSet(SUPPLEMENTAL.getPluralLocales(PluralType.ordinal));
+        //Set<String> cardinalLocales = new TreeSet<String>(SUPPLEMENTAL.getPluralLocales(PluralType.cardinal));
+        //Set<String> ordinalLocales = new TreeSet<String>(SUPPLEMENTAL.getPluralLocales(PluralType.ordinal));
         //Map<ULocale, PluralRulesFactory.SamplePatterns> sampleCardinals = PluralRulesFactory.getLocaleToSamplePatterns();
         //Set<ULocale> sampleCardinalLocales = PluralRulesFactory.getLocales(); // new HashSet(PluralRulesFactory.getSampleCounts(uLocale, type).keySet());
-        Map<ULocale, PluralRules> overrideCardinals = PluralRulesFactory.getPluralOverrides();
-        Set<ULocale> overrideCardinalLocales = new HashSet(overrideCardinals.keySet());
+        //Map<ULocale, PluralRules> overrideCardinals = PluralRulesFactory.getPluralOverrides();
+        //Set<ULocale> overrideCardinalLocales = new HashSet<ULocale>(overrideCardinals.keySet());
 
         Set<String> testLocales = STANDARD_CODES.getLocaleCoverageLocales("google");
         Set<String> allLocales = testInfo.getCldrFactory().getAvailable();
@@ -1238,7 +1239,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 if (counts.size() == 1) {
                     continue; // skip checking samples
                 }
-                HashSet<String> samples = new HashSet();
+                HashSet<String> samples = new HashSet<String>();
                 EnumSet<Count> countsWithNoSamples = EnumSet.noneOf(Count.class);
                 EnumSet<Count> countsWithDuplicateSample = EnumSet.noneOf(Count.class);
                 Set<Count> countsFound = PluralRulesFactory.getSampleCounts(ulocale, type.standardType);

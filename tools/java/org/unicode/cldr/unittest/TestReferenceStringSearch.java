@@ -20,6 +20,7 @@ import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedCollator;
+import com.ibm.icu.text.SearchIterator;
 import com.ibm.icu.text.StringCharacterIterator;
 import com.ibm.icu.text.StringSearch;
 import com.ibm.icu.util.ULocale;
@@ -40,7 +41,7 @@ public class TestReferenceStringSearch {
     static final RuleBasedCollator TEST_COLLATOR = (RuleBasedCollator) Collator
         .getInstance(ULocale.ENGLISH);
     static {
-        TEST_COLLATOR.setStrength(TEST_COLLATOR.PRIMARY);
+        TEST_COLLATOR.setStrength(Collator.PRIMARY);
         TEST_COLLATOR.setAlternateHandlingShifted(true); // ignore puncuation
     }
 
@@ -125,7 +126,6 @@ public class TestReferenceStringSearch {
     private static int checkNew(String key, String bigText, int[] newPos, Timer newTimer, Timer icuTimer) {
         int count;
 
-        long time, delta;
         count = 0;
         Range range = new Range();
         ReferenceStringSearch rss = new ReferenceStringSearch().setCollator(TEST_COLLATOR).setBreaker(TEST_BREAKER)
@@ -153,7 +153,6 @@ public class TestReferenceStringSearch {
     private static int checkDirect(String key, String bigText, int[] newPos, Timer newTimer, Timer icuTimer) {
         int count;
 
-        long time, delta;
         count = 0;
         Range range = new Range();
         rss.setKey(key).setTarget(bigText);
@@ -177,8 +176,8 @@ public class TestReferenceStringSearch {
 
     static class DirectStringSearch {
 
-        private DictionaryCharList textToSearchIn;
-        private DictionaryCharList key;
+        private DictionaryCharList<String> textToSearchIn;
+        private DictionaryCharList<String> key;
 
         private BreakIterator breaker;
         int textPosition = 0;
@@ -217,7 +216,7 @@ public class TestReferenceStringSearch {
         }
 
         public DirectStringSearch setTarget(String textToSearchIn) {
-            this.textToSearchIn = new DictionaryCharList(dictionary, textToSearchIn);
+            this.textToSearchIn = new DictionaryCharList<String>(dictionary, textToSearchIn);
             if (breaker != null) {
                 breaker.setText(textToSearchIn);
             }
@@ -225,7 +224,7 @@ public class TestReferenceStringSearch {
         }
 
         public DirectStringSearch setKey(String key) {
-            this.key = new DictionaryCharList(dictionary, key);
+            this.key = new DictionaryCharList<String>(dictionary, key);
             keyLength = key.length();
             return this;
         }
@@ -482,7 +481,7 @@ public class TestReferenceStringSearch {
 
         icuTimer.start();
 
-        while (foo.next() != foo.DONE) {
+        while (foo.next() != SearchIterator.DONE) {
             icuPos[count++] = foo.getMatchStart();
             icuPos[count++] = foo.getMatchStart() + foo.getMatchLength();
         }

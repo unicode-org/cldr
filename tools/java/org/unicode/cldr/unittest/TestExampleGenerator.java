@@ -137,15 +137,15 @@ public class TestExampleGenerator extends TestFmwk {
                     errln("No example:\t<" + value + ">\t" + javaEscapedStarred);
                 }
             } else {
-                if (path.equals("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"per\"]/unitPattern[@count=\"one\"]")) {
-                    String example2 = exampleGenerator.getExampleHtml(path, value);
-                }
+//                if (path.equals("//ldml/units/unitLength[@type=\"long\"]/compoundUnit[@type=\"per\"]/unitPattern[@count=\"one\"]")) {
+//                    String example2 = exampleGenerator.getExampleHtml(path, value);
+//                }
                 String simplified = ExampleGenerator.simplify(example, false);
 
                 if (simplified.contains("null")) {
                     if (true || !seen.contains(javaEscapedStarred)) {
                         errln("'null' in message:\t<" + value + ">\t" + simplified + "\t" + javaEscapedStarred);
-                        String example2 = exampleGenerator.getExampleHtml(path, value); // for debugging
+                        //String example2 = exampleGenerator.getExampleHtml(path, value); // for debugging
                     }
                 } else if (!simplified.startsWith("〖")) {
                     if (!seen.contains(javaEscapedStarred)) {

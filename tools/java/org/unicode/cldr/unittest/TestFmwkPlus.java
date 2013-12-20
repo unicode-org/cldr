@@ -14,22 +14,27 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestFmwkPlus extends TestFmwk {
 
+    @SuppressWarnings("unchecked")
     public <T, V, R extends TestRelation<T, V>> boolean assertTrue(String message, T arg0, R relation, V... args) {
         return assertRelation(message, true, arg0, relation, args);
     }
 
+    @SuppressWarnings("unchecked")
     public <T, V, R extends TestRelation<T, V>> boolean assertFalse(String message, T arg0, R relation, V... args) {
         return assertRelation(message, false, arg0, relation, args);
     }
 
+    @SuppressWarnings("unchecked")
     public <T, V, R extends TestRelation<T, V>> boolean assertTrue(T arg0, R relation, V... args) {
         return assertRelation(null, true, arg0, relation, args);
     }
 
+    @SuppressWarnings("unchecked")
     public <T, V, R extends TestRelation<T, V>> boolean assertFalse(T arg0, R relation, V... args) {
         return assertRelation(null, false, arg0, relation, args);
     }
 
+    @SuppressWarnings("unchecked")
     public <T, V, R extends TestRelation<T, V>> boolean assertRelation(String message, boolean expected, T arg0, R relation, V... args) {
         boolean actual = args.length == 0 ? relation.isTrue(arg0) : relation.isTrue(arg0, args);
         boolean test = expected == actual;
@@ -65,6 +70,7 @@ public class TestFmwkPlus extends TestFmwk {
             + simpleName + "(‹" + source + "›)";
     }
 
+    @SuppressWarnings("unchecked")
     private <T, V, R extends TestRelation<T, V>> String showArgs(String prefix, String message, boolean expected, T arg0, R relation, V... args) {
         StringBuilder others = new StringBuilder();
         for (V arg : args) {
@@ -82,6 +88,7 @@ public class TestFmwkPlus extends TestFmwk {
     }
 
     public abstract static class TestRelation<T, U> {
+        @SuppressWarnings("unchecked")
         public abstract boolean isTrue(T a, U... b);
 
         @Override
@@ -115,6 +122,7 @@ public class TestFmwkPlus extends TestFmwk {
             this.other = other;
         }
 
+        @SuppressWarnings("unchecked")
         @Override
         public boolean isTrue(T a, U... b) {
             return !other.isTrue(a, b);
@@ -129,10 +137,12 @@ public class TestFmwkPlus extends TestFmwk {
     public static class And<T, U> extends TestRelation<T, U> {
         private final TestRelation<T, U>[] others;
 
+        @SuppressWarnings("unchecked")
         public And(TestRelation<T, U>... others) {
             this.others = others;
         }
 
+        @SuppressWarnings("unchecked")
         @Override
         public boolean isTrue(T a, U... b) {
             for (TestRelation<T, U> other : others) {
@@ -152,10 +162,12 @@ public class TestFmwkPlus extends TestFmwk {
     public static class Or<T, U> extends TestRelation<T, U> {
         private final TestRelation<T, U>[] others;
 
+        @SuppressWarnings("unchecked")
         public Or(TestRelation<T, U>... others) {
             this.others = others;
         }
 
+        @SuppressWarnings("unchecked")
         @Override
         public boolean isTrue(T a, U... b) {
             for (TestRelation<T, U> other : others) {
@@ -172,6 +184,7 @@ public class TestFmwkPlus extends TestFmwk {
         }
     }
 
+    @SuppressWarnings("rawtypes")
     public static TestRelation CONTAINS = new TestRelation<Collection, Object>() {
         @Override
         public boolean isTrue(Collection a, Object... bs) {
@@ -189,6 +202,7 @@ public class TestFmwkPlus extends TestFmwk {
         }
     };
 
+    @SuppressWarnings("rawtypes")
     public static TestRelation EMPTY = new TestRelation<Collection, Object>() {
         @Override
         public boolean isTrue(Collection a, Object... bs) {
@@ -204,7 +218,9 @@ public class TestFmwkPlus extends TestFmwk {
         }
     };
 
+    @SuppressWarnings("rawtypes")
     public static TestRelation LEQ = new TestRelation<Comparable, Comparable>() {
+        @SuppressWarnings("unchecked")
         @Override
         public boolean isTrue(Comparable a, Comparable... bs) {
             if (bs.length != 1) {
@@ -219,6 +235,7 @@ public class TestFmwkPlus extends TestFmwk {
         }
     };
 
+    @SuppressWarnings("rawtypes")
     public static TestRelation IDENTICAL = new TestRelation<Object, Object>() {
         @Override
         public boolean isTrue(Object a, Object... bs) {
@@ -236,6 +253,7 @@ public class TestFmwkPlus extends TestFmwk {
         }
     };
 
+    @SuppressWarnings("rawtypes")
     public static TestRelation CONTAINS_US = new TestRelation<UnicodeSet, Object>() {
         @Override
         public boolean isTrue(UnicodeSet a, Object... bs) {
@@ -283,7 +301,7 @@ public class TestFmwkPlus extends TestFmwk {
     }
 
     public void TestTest() {
-        Set<String> containerA = new HashSet();
+        Set<String> containerA = new HashSet<String>();
         String stringA = "a";
         String stringA2 = "ab".substring(0, 1);
         containerA.add(stringA);

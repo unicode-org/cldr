@@ -204,7 +204,7 @@ public class TestPathHeader extends TestFmwkPlus {
 
                 PathHeader p = pathHeaderFactory.fromPath(path);
                 final SurveyToolStatus status = p.getSurveyToolStatus();
-                if (status == status.DEPRECATED) {
+                if (status == SurveyToolStatus.DEPRECATED) {
                     continue;
                 }
                 sorted.put(p, locale + "\t" + status + "\t" + p + "\t" + p.getOriginalPath());
@@ -385,9 +385,8 @@ public class TestPathHeader extends TestFmwkPlus {
     public void TestMetazones() {
 
         CLDRFile nativeFile = factory.make("en", true);
-        PathStarrer starrer = new PathStarrer();
         Set<PathHeader> pathHeaders = getPathHeaders(nativeFile);
-        String oldPage = "";
+        //String oldPage = "";
         String oldHeader = "";
         for (PathHeader entry : pathHeaders) {
             final String page = entry.getPage();
@@ -443,8 +442,8 @@ public class TestPathHeader extends TestFmwkPlus {
 
     public void TestUniqueness() {
         CLDRFile nativeFile = factory.make("en", true);
-        Map<PathHeader, String> headerToPath = new HashMap();
-        Map<String, String> headerVisibleToPath = new HashMap();
+        Map<PathHeader, String> headerToPath = new HashMap<PathHeader, String>();
+        Map<String, String> headerVisibleToPath = new HashMap<String, String>();
         for (String path : nativeFile.fullIterable()) {
             PathHeader p = pathHeaderFactory.fromPath(path);
             if (p.getSectionId() == SectionId.Special) {
@@ -471,7 +470,6 @@ public class TestPathHeader extends TestFmwkPlus {
         PathStarrer starrer = new PathStarrer();
         EnumMap<SurveyToolStatus, Relation<String, String>> info2 = new EnumMap<SurveyToolStatus, Relation<String, String>>(
             SurveyToolStatus.class);
-        Counter<SurveyToolStatus> counter = new Counter<SurveyToolStatus>();
         Set<String> nuked = new HashSet<String>();
         PrettyPath pp = new PrettyPath();
         XPathParts parts = new XPathParts();
@@ -545,11 +543,11 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestPathsNotInEnglish() {
-        Set<String> englishPaths = new HashSet();
+        Set<String> englishPaths = new HashSet<String>();
         for (String path : english.fullIterable()) {
             englishPaths.add(path);
         }
-        Set<String> alreadySeen = new HashSet(englishPaths);
+        Set<String> alreadySeen = new HashSet<String>(englishPaths);
 
         for (String locale : factory.getAvailable()) {
             CLDRFile nativeFile = factory.make(locale, false);
@@ -615,7 +613,7 @@ public class TestPathHeader extends TestFmwkPlus {
     public void TestTerritoryOrder() {
         final Set<String> goodAvailableCodes = TestInfo.getInstance().getStandardCodes()
             .getGoodAvailableCodes("territory");
-        Set<String> results = showContained("001", 0, new HashSet(goodAvailableCodes));
+        Set<String> results = showContained("001", 0, new HashSet<String>(goodAvailableCodes));
         results.remove("ZZ");
         for (String territory : results) {
             String sub = Containment.getSubcontinent(territory);
@@ -651,8 +649,8 @@ public class TestPathHeader extends TestFmwkPlus {
     }
 
     public void TestZCompleteness() {
-        Map<String, PathHeader> uniqueness = new HashMap();
-        Set<String> alreadySeen = new HashSet();
+        Map<String, PathHeader> uniqueness = new HashMap<String, PathHeader>();
+        Set<String> alreadySeen = new HashSet<String>();
         LanguageTagParser ltp = new LanguageTagParser();
         int count = 0;
         for (String locale : factory.getAvailable()) {
@@ -789,7 +787,6 @@ public class TestPathHeader extends TestFmwkPlus {
 
         for (PathHeader pathHeader : sorted) {
             String original = pathHeader.getOriginalPath();
-            String sourceLocale = english.getSourceLocaleID(original, status);
             if (!original.equals(status.pathWhereFound)) {
                 continue;
             }

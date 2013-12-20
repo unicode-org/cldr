@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -179,10 +180,10 @@ public class TestPathsModule extends TestFmwk {
      * Note that a leaf node is a final one OR the last one before any ordered element.
      */
     private class DistinguishingText extends PathTest {
-        private Relation<R3<DtdType, String, String>, String> nonFinalNonDistingishing = new Relation(new TreeMap(),
+        private Relation<R3<DtdType, String, String>, String> nonFinalNonDistingishing = Relation.of(new TreeMap<R3<DtdType, String, String>, Set<String>>(),
             TreeSet.class);
 
-        private Relation<R2<DtdType, String>, String> illFormedOrder = new Relation(new TreeMap(), TreeSet.class);
+        private Relation<R2<DtdType, String>, String> illFormedOrder = Relation.of(new TreeMap<R2<DtdType, String>, Set<String>>(), TreeSet.class);
 
         private Map<String, OrderedChildren> orderedChildrenStatus = new TreeMap<String, OrderedChildren>();
 

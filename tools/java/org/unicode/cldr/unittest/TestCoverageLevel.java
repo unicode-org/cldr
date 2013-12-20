@@ -2,7 +2,6 @@ package org.unicode.cldr.unittest;
 
 import java.io.IOException;
 import java.util.Date;
-import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -14,12 +13,10 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.ChainedMap;
-import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
 import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -76,7 +73,6 @@ public class TestCoverageLevel extends TestFmwk {
             for (String path : cldrFileToCheck.fullIterable()) {
                 allPaths.add(path);
                 String starred = pathStarrer.set(path);
-                String attributes = pathStarrer.getAttributesString("|");
                 Level level = sdi.getCoverageLevel(path, locale);
                 starredToLocalesToLevels.put(starred, locale, level, true);
             }
@@ -128,7 +124,6 @@ public class TestCoverageLevel extends TestFmwk {
             // HashSet.class);
 
             PathStarrer pathStarrer = new PathStarrer();
-            Status status = new Status();
 
             for (String path : cldrFileToCheck) {
                 if (path.contains("/alias")) {

@@ -22,8 +22,8 @@ public class TestVariantFolder {
         String[] tests = { "abc", "aß", "\uFB01sh", "Åbë" };
         for (String test : tests) {
             Set<String> set = variantFolder.getClosure(test);
-            System.out.println(test + "\t" + set.size() + "\t" + new TreeSet(set));
-            final Set closed = closeUnderCanonicalization(set, new TreeSet());
+            System.out.println(test + "\t" + set.size() + "\t" + new TreeSet<Object>(set));
+            final Set<String> closed = closeUnderCanonicalization(set, new TreeSet<String>());
             System.out.println(test + "\t" + closed.size() + "\t" + closed);
         }
 
@@ -53,7 +53,7 @@ public class TestVariantFolder {
 
     static CanonicalIterator canonicalterator = new CanonicalIterator("");
 
-    static Set closeUnderCanonicalization(Set<String> source, Set<String> output) {
+    static Set<String> closeUnderCanonicalization(Set<String> source, Set<String> output) {
         for (String item : source) {
             canonicalterator.setSource(item);
             for (String equiv = canonicalterator.next(); equiv != null; equiv = canonicalterator.next()) {

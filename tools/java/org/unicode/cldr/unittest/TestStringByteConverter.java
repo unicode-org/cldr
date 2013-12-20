@@ -28,9 +28,6 @@ public class TestStringByteConverter {
     };
 
     public static void main(String[] args) throws IOException {
-        byte[] bytes = new byte[1000];
-        StringBuilder chars = new StringBuilder();
-        int[] ioBytePosition = new int[1];
 
         String testString = "Mauritania";
         for (int i = 0; i < testString.length(); ++i) {

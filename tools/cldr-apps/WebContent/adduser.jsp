@@ -89,7 +89,7 @@ return to Survey Tool</a>
 <a href="./index.jsp">Return to CLDR Applications</a>
 |
 <a target="_new"
-	href="http://dev.icu-project.org/cgi-bin/cldrwiki.pl?SurveyToolHelp/AddModifyUser">Help
+	href="http://cldr.unicode.org/index/survey-tool/managing-users">Help
 on this page (in a new window)</a>
 </body>
 </html>

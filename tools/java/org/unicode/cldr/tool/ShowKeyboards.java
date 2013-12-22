@@ -59,6 +59,7 @@ public class ShowKeyboards {
     // TODO - fix ' > xxx
     // TODO - check for bad locale ids
 
+    private static final String ABOUT_KEYBOARD_CHARTS = "<p>For more information, see <a target='ABOUT_KB' href='http://cldr.unicode.org/index/charts/keyboards'>About Keyboard Charts</a>.</p>";
     private static String keyboardChartDir;
     private static String keyboardChartLayoutsDir;
     static final TestInfo testInfo = TestInfo.getInstance();
@@ -168,8 +169,7 @@ public class ShowKeyboards {
                 ToolConstants.CHART_DISPLAY_VERSION,
                 "",
                 headerAndFooter);
-            out.println(headerAndFooter[0]
-                + "<p>For more information, see <a href='http://cldr.unicode.org/index/charts/keyboards'>Keyboard Charts</a>.</p>");
+            out.println(headerAndFooter[0] + ABOUT_KEYBOARD_CHARTS);
 
             // printTop("Characters → Keyboards", out);
             idInfo.print(out);
@@ -184,7 +184,7 @@ public class ShowKeyboards {
                 "",
                 headerAndFooter);
             out.println(headerAndFooter[0]
-                + "<p>For more information, see <a href='http://cldr.unicode.org/index/charts/keyboards'>Keyboard Charts</a>.</p>");
+                + ABOUT_KEYBOARD_CHARTS);
             // printTop("Keyboards → Characters", out);
             showLocaleToCharacters(out, id2unicodeset, locale2ids);
             // printBottom(out);
@@ -236,8 +236,7 @@ public class ShowKeyboards {
             "",
             headerAndFooter);
         index
-            .println(headerAndFooter[0]
-                + "<p>For more information, see <a href='http://cldr.unicode.org/index/charts/keyboards'>Keyboard Charts</a>.</p>");
+            .println(headerAndFooter[0] + ABOUT_KEYBOARD_CHARTS);
         // printTop("Keyboard Layout Index", index);
         index.println("<ol>");
         for (Entry<String, String> entry : localeIndex.entrySet()) {
@@ -263,8 +262,7 @@ public class ShowKeyboards {
                 ToolConstants.CHART_DISPLAY_VERSION,
                 "",
                 headerAndFooter);
-            out.println(headerAndFooter[0]
-                + "<p>For more information, see <a href='http://cldr.unicode.org/index/charts/keyboards'>Keyboard Charts</a>.</p>");
+            out.println(headerAndFooter[0] + ABOUT_KEYBOARD_CHARTS);
             // printTop("Layouts: " + localeName + " (" + locale + ")", out);
             Set<R3<String, String, String>> keyboards = localeKeyboards.getValue();
             for (R3<String, String, String> platformKeyboard : keyboards) {
@@ -316,7 +314,9 @@ public class ShowKeyboards {
                         out.println("</tr>");
                     }
                     String modsString = mods.getShortInput();
-                    if (modsString.length() > 20) {
+                    if (modsString.isEmpty()) {
+                        modsString = "\u00A0";
+                    } else if (modsString.length() > 20) {
                         modsString = modsString.substring(0, 20) + "…";
                     }
                     out.println("</table><span class='modifiers'>"
@@ -335,7 +335,7 @@ public class ShowKeyboards {
     private static void showErrors(Set<String> errors) {
         for (String error : errors) {
             String title = error.contains("No minimal data for") ? "Warning" : "Error";
-            System.out.println("\t*" + title + ":\t" + errors);
+            System.out.println("\t*" + title + ":\t" + error);
         }
     }
 
@@ -381,7 +381,7 @@ public class ShowKeyboards {
             + ";\n");
     }
 
-    static UnicodeSet INVISIBLE = new UnicodeSet("[[:C:][:Z:][:whitespace:][:Default_Ignorable_Code_Point:]]").freeze();
+    static UnicodeSet INVISIBLE = new UnicodeSet("[[:C:][:Z:][:whitespace:][:Default_Ignorable_Code_Point:]-[\\u0020]]").freeze();
     static UnicodeSet FAILING_INVISIBLE = new UnicodeSet();
 
     public static String toSafeHtml(Object hover) {

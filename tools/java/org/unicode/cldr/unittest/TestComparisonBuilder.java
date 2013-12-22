@@ -83,6 +83,9 @@ public class TestComparisonBuilder extends TestFmwk {
         Set<String> specials = new HashSet<String>(Arrays.asList(new String[] { "EMPTY", "PCDATA", "ANY" }));
         Builder<String> builder = new Builder<String>(Ordering.NATURAL);
         for (DtdType dtd : DtdType.values()) {
+            if (dtd.rootType != dtd) {
+                continue;
+            }
             builder.add(dtd.toString());
             Relation<String, String> eaInfo = ElementAttributeInfo.getInstance(dtd).getElement2Children();
             for (String element : eaInfo.keySet()) {
@@ -96,6 +99,9 @@ public class TestComparisonBuilder extends TestFmwk {
         DiscreteComparator<String> comp = builder.get();
         logln("Element Ordering: " + comp.getOrdering().toString());
         for (DtdType dtd : DtdType.values()) {
+            if (dtd.rootType != dtd) {
+                continue;
+            }
             Relation<String, String> eaInfo = ElementAttributeInfo.getInstance(dtd).getElement2Children();
             // check that the ordering is right
             for (String element : eaInfo.keySet()) {

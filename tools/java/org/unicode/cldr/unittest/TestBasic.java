@@ -2,6 +2,7 @@ package org.unicode.cldr.unittest;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,6 +12,7 @@ import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +27,7 @@ import org.unicode.cldr.tool.GenerateBirth.Versions;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.DtdType;
@@ -48,6 +51,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLFileReader;
+import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
@@ -73,6 +77,8 @@ import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
 
 public class TestBasic extends TestFmwk {
+
+    private static final boolean TEST_VERSIONS = false;
 
     static TestInfo testInfo = TestInfo.getInstance();
 
@@ -912,31 +918,109 @@ public class TestBasic extends TestFmwk {
             }
         }
     }
-    
+
     /**
-     * Compare each path to each other path
+     * Compare each path to each other path for every single file in CLDR
      */
     public void TestDtdComparison() {
-        CLDRFile f = testInfo.getEnglish();
-        DtdData dtdData = DtdData.getInstance(DtdType.ldml);
-        Comparator<String> dc = dtdData.getDtdComparator(null);
-        sortPaths(dc, Arrays.asList(
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]", 
-            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats"));
-        
-        List<String> paths = With.in(f).toList();
-        sortPaths(dc, paths);
-        // TODO one file of each type
-//        Map<DtdType, String> samples = null;
-//        Map<DtdType, String> samples = null;
-//        for (DtdType type : DtdType.values()) {
-//            String sample = samples.get(type);
-//            DtdData dtdData = DtdData.getInstance(type);
-//            dtdData
-//        } 
+        // try some simple paths for regression
+
+        sortPaths(DtdData.getInstance(DtdType.ldml).getDtdComparator(null), 
+            "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats/dateTimeFormatLength[@type=\"full\"]/dateTimeFormat[@type=\"standard\"]/pattern[@type=\"standard\"]"
+            , "//ldml/dates/calendars/calendar[@type=\"generic\"]/dateTimeFormats");
+
+        sortPaths(DtdData.getInstance(DtdType.supplementalData).getDtdComparator(null), 
+            "//supplementalData/territoryContainment/group[@type=\"419\"][@contains=\"013 029 005\"][@grouping=\"true\"]",
+            "//supplementalData/territoryContainment/group[@type=\"003\"][@contains=\"021 013 029\"][@grouping=\"true\"]");
+
+        checkDtdComparatorFor(new File("org/unicode/cldr/unittest/TestBasic_ja.xml"), DtdType.ldmlICU);
+    }
+    
+    public void TestDtdComparisonsAll() {
+        CLDRConfig config = CLDRConfig.getInstance();
+        File dir = config.getCldrBaseDirectory();
+        FilenameFilter filter = new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".xml") 
+                    && !name.startsWith("#") 
+                    && !dir.toString().contains("/tools/")
+                    && !dir.toString().contains("/specs/");
+            }
+        };
+        Set<File> list = getFilesRecursively(dir, filter, new LinkedHashSet<File>());
+        for (File file : list) {
+            checkDtdComparatorFor(file, null);
+        }
+    }
+
+    public Set<File> getFilesRecursively(File directory, FilenameFilter filter, Set<File> toAddTo) {
+        for (File subfile : directory.listFiles()) {
+            if (subfile.isDirectory()) {
+                getFilesRecursively(subfile, filter, toAddTo);
+            } else if (filter.accept(directory, subfile.getName())) {
+                toAddTo.add(subfile);
+            }
+        }
+        return toAddTo;
+    }
+
+    public void checkDtdComparatorFor(File fileToRead, DtdType overrideDtdType) {        
+        MyHandler myHandler = new MyHandler(overrideDtdType);
+        XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
+        try {
+            myHandler.fileName = fileToRead.getCanonicalPath();
+            xfr.read(myHandler.fileName, -1, true);
+            logln(myHandler.fileName);
+        } catch (Exception e) {
+            if (logKnownIssue("6743", "Bad xml files")) {
+                try {
+                    if (fileToRead.getCanonicalPath().contains("/exemplars/")) {
+                        return;
+                    }
+                } catch (IOException e1) {} // skip
+            }
+            Throwable t = e;
+            StringBuilder b = new StringBuilder();
+            String indent = "";
+            while (t != null) {
+                b.append(indent).append(t.getMessage());
+                indent = indent.isEmpty() ? "\n\t\t" : indent + "\t";
+                t = t.getCause();
+            }
+            errln(b.toString());
+            return;
+        }
+        DtdData dtdData = DtdData.getInstance(myHandler.dtdType);
+        sortPaths(dtdData.getDtdComparator(null), myHandler.data);
+    }
+
+    static class MyHandler extends XMLFileReader.SimpleHandler {
+        private String fileName;
+        private DtdType dtdType; 
+        private final Set<String> data = new LinkedHashSet<>();
+
+        public MyHandler(DtdType overrideDtdType) {
+            dtdType = overrideDtdType;
+        }
+
+        public void handlePathValue(String path, String value) {
+            if (dtdType == null) {
+                try {
+                    dtdType = DtdType.fromPath(path);
+                } catch (Exception e) {
+                    throw new IllegalArgumentException("Can't read " + fileName, e);
+                }
+            }
+            data.add(path);
+        }
     }
 
     public void sortPaths(Comparator<String> dc, Collection<String> paths) {
-        Arrays.sort(paths.toArray(new String[paths.size()]), 0, paths.size(), dc);
+        String[] array = paths.toArray(new String[paths.size()]);
+        sortPaths(dc, array);
+    }
+
+    public void sortPaths(Comparator<String> dc, String... array) {
+        Arrays.sort(array, 0, array.length, dc);
     }
 }

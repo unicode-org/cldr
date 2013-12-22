@@ -1236,36 +1236,41 @@ public class TestSupplementalInfo extends TestFmwk {
                     continue;
                 }
                 Set<Count> counts = pluralInfo.getCounts();
-                if (counts.size() == 1) {
-                    continue; // skip checking samples
-                }
+//                if (counts.size() == 1) {
+//                    continue; // skip checking samples
+//                }
                 HashSet<String> samples = new HashSet<String>();
                 EnumSet<Count> countsWithNoSamples = EnumSet.noneOf(Count.class);
-                EnumSet<Count> countsWithDuplicateSample = EnumSet.noneOf(Count.class);
+                Relation<String, Count> samplesToCounts = Relation.of(new HashMap(), LinkedHashSet.class);
                 Set<Count> countsFound = PluralRulesFactory.getSampleCounts(ulocale, type.standardType);
                 for (Count count : counts) {
                     String pattern = PluralRulesFactory.getSamplePattern(ulocale, type.standardType, count);
                     if (countsFound == null || !countsFound.contains(count)) {
                         countsWithNoSamples.add(count);
-                    } else if (samples.contains(pattern)) {
-                        countsWithDuplicateSample.add(count);
                     } else {
+                        samplesToCounts.put(pattern, count);
                         logln(ulocale + "\t" + type + "\t" + count + "\t" + pattern);
                     }
                 }
                 if (!countsWithNoSamples.isEmpty()) {
                     errOrLog(needsCoverage, ulocale + "\t" + type + "\t missing samples: " + countsWithNoSamples);
                 }
-                if (!countsWithDuplicateSample.isEmpty()) {
-                    errOrLog(needsCoverage, ulocale + "\t" + type + "\t duplicate samples: " + countsWithDuplicateSample);
+                for (Entry<String, Set<Count>> entry : samplesToCounts.keyValuesSet()) {
+                    if (entry.getValue().size() != 1) {
+                        errOrLog(needsCoverage, ulocale + "\t" + type 
+                            + "\t duplicate samples: " + entry.getValue() 
+                            + " => «" + entry.getKey() + "»");
+                    }
                 }
             }
         }
     }
 
+    static final boolean SHOW_KNOWN_ERROR = false;
+    
     public void errOrLog(boolean causeError, String message) {
-        if (causeError && !logKnownIssue("6290", "Fix this once we have all ordinal messages.")
-            ) {
+        if (causeError && 
+            (SHOW_KNOWN_ERROR || !logKnownIssue("6290", "Fix this once we have all ordinal messages."))) {
             errln(message);
         } else {
             logln(message);

@@ -14,12 +14,15 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile.DtdType;
+import org.xml.sax.SAXException;
+
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.Transform;
 
@@ -30,7 +33,7 @@ import com.ibm.icu.text.Transform;
 public class DtdData extends XMLFileReader.SimpleHandler {
     private static final boolean SHOW_ALL = CldrUtility.getProperty("show_all", false);
     private static final boolean DEBUG = false;
-    private static final Pattern FILLER = Pattern.compile("[^-a-zA-Z0-9#_]");
+    private static final Pattern FILLER = Pattern.compile("[^-a-zA-Z0-9#_:]");
 
     private final Relation<String, Attribute> nameToAttributes = Relation.of(new TreeMap<String, Set<Attribute>>(), LinkedHashSet.class);
     private Map<String, Element> nameToElement = new HashMap<String, Element>();
@@ -131,11 +134,47 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public void addComment(String commentIn) {
             comment = comment == null ? commentIn : comment + "\n" + commentIn;
         }
+        
+        /**
+         * Special version of identity; only considers name and name of element
+         */
+        @Override
+        public boolean equals(Object obj) {
+            if (!(obj instanceof Attribute)) {
+                return false;
+            }
+            Attribute that = (Attribute) obj;
+            return name.equals(that.name)
+                && element.name.equals(that.element.name) // don't use plain element: circularity
+                // not relevant to identity
+//                && Objects.equals(comment, that.comment)
+//                && mode.equals(that.mode)
+//                && Objects.equals(defaultValue, that.defaultValue)
+//                && type.equals(that.type)
+//                && values.equals(that.values)
+                ;
+        }
+        /**
+         * Special version of identity; only considers name and name of element
+         */
+        @Override
+        public int hashCode() {
+            return name.hashCode() * 37
+                + element.name.hashCode() // don't use plain element: circularity
+                // not relevant to identity
+//                ) * 37 + Objects.hashCode(comment)) * 37
+//                + mode.hashCode()) * 37
+//                + Objects.hashCode(defaultValue)) * 37
+//                + type.hashCode()) * 37
+//                + values.hashCode()
+                ;
+        }
+
     }
 
     private DtdData(DtdType type, String version) {
         this.dtdType = type;
-        this.ROOT = elementFrom(type.toString());
+        this.ROOT = elementFrom(type.rootType.toString());
         this.version = version;
     }
 
@@ -249,6 +288,38 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public void addComment(String comment) {
             this.comment = this.comment == null ? comment : this.comment + "\n" + comment;
         }
+
+        /**
+         * Special version of equals. Only the name is considered in the identity.
+         */
+        @Override
+        public boolean equals(Object obj) {
+            if (!(obj instanceof Element)) {
+                return false;
+            }
+            Element that = (Element) obj;
+            return name.equals(that.name)
+                // not relevant to the identity of the object
+//                && Objects.equals(comment, that.comment)
+//                && type == that.type
+//                && attributes.equals(that.attributes)
+//                && children.equals(that.children)
+                ;
+        }
+
+        /**
+         * Special version of hashcode. Only the name is considered in the identity.
+         */
+        @Override
+        public int hashCode() {
+            return name.hashCode()
+                // not relevant to the identity of the object
+                // * 37 + Objects.hashCode(comment)
+                //) * 37 + Objects.hashCode(type)
+//                ) * 37 + attributes.hashCode()
+//                ) * 37 + children.hashCode()
+                ;
+        }
     }
 
     private Element elementFrom(String name) {
@@ -295,6 +366,18 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     /**
      * @deprecated
      */
+    @Override
+    public void handleStartDtd(String name, String publicId, String systemId) {
+        DtdType explicitDtdType = DtdType.valueOf(name);
+        if (explicitDtdType != dtdType && explicitDtdType != dtdType.rootType) {
+            throw new IllegalArgumentException("Mismatch in dtdTypes");
+        }
+    };
+
+    /**
+     * @deprecated
+     */
+    @Override
     public void handleAttributeDecl(String eName, String aName, String type, String mode, String value) {
         if (SHOW_ALL) {
             System.out.println("eName: " + eName
@@ -306,7 +389,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
         addAttribute(eName, aName, type, mode, value);
     }
-    
+
+    /**
+     * @deprecated
+     */
     @Override
     public void handleComment(String path, String comment) {
         addComment(comment);
@@ -345,10 +431,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             XMLFileReader xfr = new XMLFileReader().setHandler(simpleHandler);
             File directory = version == null ? CLDRConfig.getInstance().getCldrBaseDirectory()
                 : new File(CLDRPaths.ARCHIVE_DIRECTORY + "/cldr-" + version);
-            File file = new File(directory,type.dtdPath);
-            StringReader s = new StringReader("<?xml version='1.0' encoding='UTF-8' ?>"
-                + "<!DOCTYPE ldml SYSTEM '" + file.getAbsolutePath() + "'>");
-            xfr.read(type.toString(), s, -1, true); //  DTD_TYPE_TO_FILE.get(type)
+
+            if (type != type.rootType) {
+                // read the real first, then add onto it.
+                readFile(type.rootType, xfr, directory);
+            }
+            readFile(type, xfr, directory);
             if (simpleHandler.ROOT.children.size() == 0) {
                 throw new IllegalArgumentException(); // should never happen
             }
@@ -358,6 +446,14 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
         }
         return simpleHandler;
+    }
+
+    public static void readFile(CLDRFile.DtdType type, XMLFileReader xfr, File directory) {
+        File file = new File(directory,type.dtdPath);
+        StringReader s = new StringReader("<?xml version='1.0' encoding='UTF-8' ?>"
+            + "<!DOCTYPE " + type
+            + " SYSTEM '" + file.getAbsolutePath() + "'>");
+        xfr.read(type.toString(), s, -1, true); //  DTD_TYPE_TO_FILE.get(type)
     }
 
     private void freeze() {
@@ -593,79 +689,114 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         if (firstComment != null) {
             b.append("\n<!--").append(firstComment).append("-->");
         }
-        toString(ROOT, b, new HashSet<Element>());
+        Seen seen = new Seen(dtdType);
+        seen.seenElements.add(ANY);
+        seen.seenElements.add(PCDATA);
+        toString(ROOT, b, seen );
+        
+        // Hack for ldmlIcu: catch the items that are not mentioned in the original
+        int currentEnd = b.length();
+        for (Element e : nameToElement.values()) {
+            toString(e, b, seen);
+        }
+        if (currentEnd != b.length()) {
+            b.insert(currentEnd, "\n\n\n<!-- Elements not reachable from root! -->\n");
+        }
         return b.toString();
     }
 
-    private void toString(Element current, StringBuilder b, Set<Element> seen) {
-        if (seen.contains(current)) {
-            return;
+    static final class Seen {
+        Set<Element> seenElements = new HashSet<Element>();
+        Set<Attribute> seenAttributes = new HashSet<Attribute>();
+        public Seen(DtdType dtdType) {
+            if (dtdType.rootType == dtdType) {
+                return;
+            }
+            DtdData otherData = DtdData.getInstance(dtdType.rootType);
+            walk(otherData, otherData.ROOT);
         }
-        seen.add(current);
+        private void walk(DtdData otherData, Element current) {
+            seenElements.add(current);
+            seenAttributes.addAll(current.attributes.keySet());
+            if (current.type == ElementType.CHILDREN) {
+                for (Element e : current.children.keySet()) {
+                    walk(otherData, e);
+                }
+            }
+        }
+    }
 
-        b.append("\n\n<!ELEMENT " + current.name + " ");
+    private void toString(Element current, StringBuilder b, Seen seen) {
         boolean first = true;
-        Element aliasElement = getElementFromName().get("alias");
-        //b.append(current.rawChildren);
-        if (current.type == ElementType.CHILDREN) {
-            LinkedHashSet<Element> elements = new LinkedHashSet<Element>(current.children.keySet());
-            boolean hasAlias = aliasElement != null && elements.remove(aliasElement);
-            //boolean hasSpecial = specialElement != null && elements.remove(specialElement);
-            if (hasAlias) {
-                b.append("(alias |");
-            }
-            b.append("(");
-            // <!ELEMENT transformNames ( alias | (transformName | special)* ) >
-            // <!ELEMENT layout ( alias | (orientation*, inList*, inText*, special*) ) >
+        if (!seen.seenElements.contains(current)) {
+            seen.seenElements.add(current);
 
-            for (Element e : elements) {
-                if (first) {
-                    first = false;
-                } else {
-                    b.append(", ");
+            b.append("\n\n<!ELEMENT " + current.name + " ");
+            Element aliasElement = getElementFromName().get("alias");
+            //b.append(current.rawChildren);
+            if (current.type == ElementType.CHILDREN) {
+                LinkedHashSet<Element> elements = new LinkedHashSet<Element>(current.children.keySet());
+                boolean hasAlias = aliasElement != null && elements.remove(aliasElement);
+                //boolean hasSpecial = specialElement != null && elements.remove(specialElement);
+                if (hasAlias) {
+                    b.append("(alias |");
                 }
-                b.append(e.name);
-                if (e.type != ElementType.PCDATA) {
-                    b.append("*");
-                }
-            }
-            if (hasAlias) {
-                b.append(")");
-            }
-            b.append(")");
-        } else {
-            b.append(current.type.source);
-        }
-        b.append(">");
-        if (current.comment != null) {
-            b.append(" <!--").append(current.comment).append("-->");
-        }
-        for (Attribute a : current.attributes.keySet()) {
-            b.append("\n<!ATTLIST " + current.name + " " + a.name);
-            if (a.type == AttributeType.ENUMERATED_TYPE) {
-                b.append(" (");
-                first = true;
-                for (String s : a.values.keySet()) {
+                b.append("(");
+                // <!ELEMENT transformNames ( alias | (transformName | special)* ) >
+                // <!ELEMENT layout ( alias | (orientation*, inList*, inText*, special*) ) >
+
+                for (Element e : elements) {
                     if (first) {
                         first = false;
                     } else {
-                        b.append(" | ");
+                        b.append(", ");
                     }
-                    b.append(s);
+                    b.append(e.name);
+                    if (e.type != ElementType.PCDATA) {
+                        b.append("*");
+                    }
+                }
+                if (hasAlias) {
+                    b.append(")");
                 }
                 b.append(")");
             } else {
-                b.append(' ').append(a.type);
-            }
-            if (a.mode != Mode.NULL){ 
-                b.append(" ").append(a.mode.source);
-            }
-            if (a.defaultValue != null) {
-                b.append(" \"").append(a.defaultValue).append('"');
+                b.append(current.type == null ? "???" : current.type.source);
             }
             b.append(">");
-            if (a.comment != null) {
-                b.append(" <!--").append(a.comment).append("-->");
+            if (current.comment != null) {
+                b.append(" <!--").append(current.comment).append("-->");
+            }
+        }
+        for (Attribute a : current.attributes.keySet()) {
+            if (!seen.seenAttributes.contains(a)) {
+                seen.seenAttributes.add(a);
+                b.append("\n<!ATTLIST " + current.name + " " + a.name);
+                if (a.type == AttributeType.ENUMERATED_TYPE) {
+                    b.append(" (");
+                    first = true;
+                    for (String s : a.values.keySet()) {
+                        if (first) {
+                            first = false;
+                        } else {
+                            b.append(" | ");
+                        }
+                        b.append(s);
+                    }
+                    b.append(")");
+                } else {
+                    b.append(' ').append(a.type);
+                }
+                if (a.mode != Mode.NULL){ 
+                    b.append(" ").append(a.mode.source);
+                }
+                if (a.defaultValue != null) {
+                    b.append(" \"").append(a.defaultValue).append('"');
+                }
+                b.append(">");
+                if (a.comment != null) {
+                    b.append(" <!--").append(a.comment).append("-->");
+                }
             }
         }
         if (current.children.size() > 0) {

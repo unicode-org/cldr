@@ -91,7 +91,7 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         }
         return result;
     }
-
+    
     /**
      * Create a simple object for use in for loops. Example:
      * 

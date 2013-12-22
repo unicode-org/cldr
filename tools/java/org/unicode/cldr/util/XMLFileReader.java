@@ -62,6 +62,9 @@ public class XMLFileReader {
         };
 
         public void handleEndDtd() {
+        }
+
+        public void handleStartDtd(String name, String publicId, String systemId) {
         };
     }
 
@@ -171,6 +174,7 @@ public class XMLFileReader {
                 + ", publicId: " + publicId
                 + ", systemId: " + systemId
                 );
+            simpleHandler.handleStartDtd(name, publicId, systemId);
         }
 
         public void endDTD() throws SAXException {

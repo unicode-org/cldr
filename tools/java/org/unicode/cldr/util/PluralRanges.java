@@ -14,6 +14,7 @@ import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
 import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
+import com.ibm.icu.util.ULocale;
 
 /**
  * Utility class for returning the plural category for a range of numbers, such as 1–5, so that appropriate messages can be chosen. 
@@ -158,7 +159,14 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
     private boolean[] explicit = new boolean[Count.LENGTH];
 
     /**
-     * Used internally for building. If the start or end are null, it means everything of that type.
+     * Returns a 
+     * @return
+     */
+    public static PluralRanges getInstance(ULocale locale) {
+        return null;
+    }
+    /**
+     * Internal method for building. If the start or end are null, it means everything of that type.
      * @param rangeStart
      * @param rangeEnd
      * @param result
@@ -191,11 +199,13 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
     }
 
     /**
-     * Show a range in XML format
+     * Internal method to show a range in XML format.
      * @param start
      * @param end
      * @param result
      * @return
+     * @internal
+     * @deprecated
      */
     public static String showRange(Count start, Count end, Count result) {
         String startEnd = "start=\"" + start + "\"" + Utility.repeat(" ", 5 - start.toString().length())
@@ -207,6 +217,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
 
     /**
      * Returns the appropriate plural category for a range from start to end.
+     * If there is no available data, then 'other' is returned.
      * @param start
      * @param end
      * @return
@@ -228,7 +239,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
     }
 
     /**
-     * Determines whether the Count was explicitly used in an add statement.
+     * Internal method to determines whether the Count was explicitly used in any add statement.
      * @param count
      * @return
      * @internal
@@ -273,6 +284,4 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
         result.matrix = matrix.clone();
         return result;
     }
-    
-
 }

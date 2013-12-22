@@ -142,6 +142,15 @@ public class ChainedMap {
         }
         return tempMapConstructors;
     }
+    
+    public static <T> Constructor<T> getEmptyConstructor(Class<T> c) {
+        for (Constructor<?> constructor : c.getConstructors()) {
+            if (constructor.getParameterTypes().length == 0) {
+                return (Constructor<T>) constructor;
+            }
+        }
+        return null;
+    }
 
     public static <K2, K1, V> M3<K2, K1, V> of(Map<K2, Object> map2, Map<K1, Object> map1, Class<V> valueClass) {
         return new M3<K2, K1, V>(map2, map1, valueClass);

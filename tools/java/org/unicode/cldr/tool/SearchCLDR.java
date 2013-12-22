@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -205,7 +206,7 @@ public class SearchCLDR {
                     !showParent ? null : english.getBaileyValue(path, null, null),
                     english == null ? null : english.getStringValue(path),
                     resolvedSource,
-                    organizationLevel == null ? null : organizationLevel.toString());
+                    Objects.toString(pathLevel));
             }
             if (countOnly) {
                 System.out.print(locale);

@@ -105,7 +105,6 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * @param iterator
      * @return Iterable, for use in for loops, etc.
      */
-    @SuppressWarnings("unchecked")
     public static <V> V[] array(V... values) {
         return values;
     }
@@ -154,7 +153,6 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * @param iterator
      * @return Iterable, for use in for loops, etc.
      */
-    @SuppressWarnings("unchecked")
     public static <V> With<V> in(Iterator<V>... iterators) {
         return new With<V>().and(iterators);
     }
@@ -172,7 +170,6 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * @param iterator
      * @return Iterable, for use in for loops, etc.
      */
-    @SuppressWarnings("unchecked")
     public static <V> With<V> in(Iterable<V>... iterables) {
         return new With<V>().and(iterables);
     }
@@ -190,7 +187,6 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * @param iterator
      * @return Iterable, for use in for loops, etc.
      */
-    @SuppressWarnings("unchecked")
     public static <V> With<V> in(V... items) {
         return new With<V>().and(items);
     }
@@ -202,7 +198,6 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * @param old
      * @return
      */
-    @SuppressWarnings("unchecked")
     public static <T> Iterable<T> in(SimpleIterator<T>... sources) {
         return new With<T>().and(sources);
     }
@@ -210,7 +205,6 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
     private With() {
     }
 
-    @SuppressWarnings("unchecked")
     public With<V> and(Iterator<V>... iterators) {
         for (Iterator<V> iterator : iterators) {
             this.iterators.add(iterator);
@@ -223,7 +217,6 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         return and(Arrays.asList(items));
     }
 
-    @SuppressWarnings("unchecked")
     public With<V> and(Iterable<V>... iterables) {
         for (Iterable<V> iterable : iterables) {
             this.iterators.add(iterable.iterator());
@@ -231,7 +224,6 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         return this;
     }
 
-    @SuppressWarnings("unchecked")
     public With<V> and(SimpleIterator<V>... iterators) {
         for (SimpleIterator<V> iterator : iterators) {
             this.iterators.add(new ToIterator<V>(iterator));

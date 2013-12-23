@@ -33,6 +33,7 @@ public class SupplementalData {
     String pathName = null;
     private Document supplementalDocument = null;
     private Document supplementalMetaDocument = null;
+    private SupplementalDataInfo sdi = null;
 
     static final String SPLIT_PATTERN = "[, \t\u00a0\\s]+"; // whitespace
 
@@ -56,6 +57,7 @@ public class SupplementalData {
         if (supplementalMetaDocument == null) {
             throw new InternalError("Can't parse metadata: " + pathName + "/supplementalMetadata.xml");
         }
+        sdi = SupplementalDataInfo.getInstance(pathName);
     }
 
     /**

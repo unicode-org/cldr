@@ -194,7 +194,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     private boolean isAncestorOf(String possibleAncestor, String possibleDescendent) {
         if (ancestorToDescendant == null) {
-            ancestorToDescendant = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+            ancestorToDescendant = new Relation(new TreeMap<String, String>(), TreeSet.class);
             buildPairwiseRelations(new ArrayList<String>(), "ldml");
         }
         Set<String> possibleDescendents = ancestorToDescendant.getAll(possibleAncestor);
@@ -229,7 +229,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     Object DONE = new Object(); // marker
 
-    Relation<String, String> elementToChildren = Relation.of(new TreeMap<String, Set<String>>(),
+    Relation<String, String> elementToChildren = new Relation(new TreeMap(),
         TreeSet.class);
 
     FindDTDOrder() {
@@ -625,7 +625,7 @@ public class FindDTDOrder implements DeclHandler, ContentHandler, ErrorHandler {
 
     Map<String, Set<String>> attribEquiv = new TreeMap<String, Set<String>>();
 
-    Relation<String, String> attributeToElements = Relation.of(new TreeMap<String, Set<String>>(),
+    Relation<String, String> attributeToElements = new Relation(new TreeMap(),
         TreeSet.class);
     private XEquivalenceClass attributeEquivalents;
 

@@ -372,7 +372,6 @@ public class CldrUtility {
      * Protect a collection (as much as Java lets us!) from modification.
      * Really, really ugly code, since Java doesn't let us do better.
      */
-    @SuppressWarnings({ "rawtypes", "unchecked" })
     public static <T> T protectCollection(T source) {
         // TODO - exclude UnmodifiableMap, Set, ...
         if (source instanceof Map) {
@@ -416,7 +415,6 @@ public class CldrUtility {
      * @param source
      * @return
      */
-    @SuppressWarnings("unchecked")
     public static <T> T clone(T source) {
         try {
             final Class<? extends Object> class1 = source.getClass();
@@ -482,7 +480,6 @@ public class CldrUtility {
     /**
      * Utility like Arrays.asList()
      */
-    @SuppressWarnings("unchecked")
     public static <K, V> Map<K, V> asMap(Object[][] source, Map<K, V> target, boolean reverse) {
         int from = 0, to = 1;
         if (reverse) {
@@ -689,7 +686,6 @@ public class CldrUtility {
         }
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
     public static void addTreeMapChain(Map coverageData, Object... objects) {
         Map<Object, Object> base = coverageData;
         for (int i = 0; i < objects.length - 2; ++i) {

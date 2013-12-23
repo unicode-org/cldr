@@ -22,10 +22,9 @@ public class SimpleFactory extends Factory {
 
     private volatile CLDRFile result; // used in handleMake
     private File sourceDirectories[];
+    private String matchString;
     private Set<String> localeList = new TreeSet<String>();
-    @SuppressWarnings("unchecked")
     private Map<String, CLDRFile>[] mainCache = new Map[DraftStatus.values().length];
-    @SuppressWarnings("unchecked")
     private Map<String, CLDRFile>[] resolvedCache = new Map[DraftStatus.values().length];
     {
         for (int i = 0; i < mainCache.length; ++i) {
@@ -78,6 +77,7 @@ public class SimpleFactory extends Factory {
 
     private SimpleFactory(File sourceDirectories[], String matchString, DraftStatus minimalDraftStatus) {
         this.sourceDirectories = sourceDirectories;
+        this.matchString = matchString;
         this.minimalDraftStatus = minimalDraftStatus;
         Matcher m = Pattern.compile(matchString).matcher("");
         this.localeList = CLDRFile.getMatchingXMLFiles(sourceDirectories, m);

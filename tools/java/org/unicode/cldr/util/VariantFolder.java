@@ -46,7 +46,6 @@ public class VariantFolder {
     // {0,2}, {1,3}
     // {0,3}}
 
-    @SuppressWarnings("unchecked")
     public Set<String> getClosure(String source) {
         int stringLength = source.length();
         if (stringLength == 0) {

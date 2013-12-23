@@ -62,6 +62,8 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
 
     Plurals[] plurals = new Plurals[LEN];
 
+    private Integral integral;
+
     private BitSet pluralsTransitionAt;
 
     static NumberFormat nf = NumberFormat.getInstance(ULocale.ENGLISH);
@@ -145,6 +147,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
 
     PluralSnapshot(PluralRules pluralRules, Integral integral, BitSet pluralsTransitionAt) {
         this.pluralsTransitionAt = pluralsTransitionAt;
+        this.integral = integral;
         double offset = integral == Integral.integer ? 0 : 0.5;
         found = EnumSet.noneOf(Plurals.class);
         not01 = EnumSet.noneOf(Plurals.class);

@@ -70,6 +70,8 @@ public class VerifyZones {
     }
 
     public static class ZoneFormats {
+        private String regionFormat;
+        private String fallbackFormat;
         private String gmtFormat;
         private String hourFormat;
         private String[] hourFormatPlusMinus;
@@ -89,6 +91,8 @@ public class VerifyZones {
 
         public ZoneFormats set(CLDRFile cldrFile) {
             this.cldrFile = cldrFile;
+            regionFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/regionFormat");
+            fallbackFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/fallbackFormat");
 
             gmtFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/gmtFormat");
             hourFormat = cldrFile.getWinningValue("//ldml/dates/timeZoneNames/hourFormat");
@@ -215,6 +219,9 @@ public class VerifyZones {
     }
 
     private static void addRow(String metaZone, String tz_string, int orderInMetazone) {
+        if (tz_string.contains("Jamaica") || tz_string.contains("Iqaluit")) {
+            int x = 3;
+        }
         TimeZone currentZone = TimeZone.getTimeZone(tz_string);
         String container = PathHeader.getMetazonePageTerritory(metaZone);
         if (container == null) {
@@ -256,7 +263,6 @@ public class VerifyZones {
         secondMinusFirst.removeAll(common);
     }
 
-    @SuppressWarnings("unused")
     private static <T> void vennSets(Set<T> first, Set<T> second, Set<T> common) {
         common.clear();
         common.addAll(first);

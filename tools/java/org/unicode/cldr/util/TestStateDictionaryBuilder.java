@@ -229,7 +229,6 @@ public class TestStateDictionaryBuilder<T> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     private void testWithUnicodeNames() {
         UnicodeSet testSet = new UnicodeSet(
             "[[:assigned:] - [:ideographic:] - [:Co:] - [:Cs:]]"); // &
@@ -385,7 +384,6 @@ public class TestStateDictionaryBuilder<T> {
         }
     }
 
-    @SuppressWarnings("unchecked")
     private void addToBoth(CharSequence string, int i) {
         baseMapping.put(string, (T) (i + "/" + string));
     }

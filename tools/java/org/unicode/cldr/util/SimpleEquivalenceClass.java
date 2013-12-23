@@ -9,19 +9,15 @@ import java.util.TreeSet;
 
 public class SimpleEquivalenceClass {
 
-    @SuppressWarnings({ "unchecked", "rawtypes" })
     public SimpleEquivalenceClass(Comparator c) {
         comparator = c;
         itemToSet = new TreeMap(c);
     }
 
-    @SuppressWarnings("rawtypes")
     private Map itemToSet;
 
-    @SuppressWarnings("rawtypes")
     private Comparator comparator;
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
     public void add(Object a, Object b) {
         if (a == b) {
             throw new InternalError("Err! a is b!");

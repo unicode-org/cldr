@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -35,7 +36,6 @@ public class MergeLists<T> {
         return this;
     }
 
-    @SuppressWarnings("unchecked")
     public MergeLists<T> add(T... stuff) {
         return add(Arrays.asList(stuff));
     }

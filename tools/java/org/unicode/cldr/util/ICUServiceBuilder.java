@@ -171,6 +171,7 @@ public class ICUServiceBuilder {
         result = getFullFormat(calendar, pattern, numbersOverride);
         cacheDateFormats.put(key, result);
         // System.out.println("created " + key);
+        SimpleDateFormat sdf = (SimpleDateFormat) result.clone();
         return (SimpleDateFormat) result.clone();
     }
 
@@ -210,6 +211,8 @@ public class ICUServiceBuilder {
         DateFormatSymbols result = cacheDateFormatSymbols.get(key);
         if (result != null) return (DateFormatSymbols) result.clone();
 
+        DateFormatSymbols gregorianBackup = null;
+        boolean notGregorian = !calendar.equals("gregorian");
         String[] last;
         // TODO We would also like to be able to set the new symbols leapMonthPatterns & shortYearNames
         // (related to Chinese calendar) to their currently-winning values. Until we have the necessary
@@ -231,7 +234,7 @@ public class ICUServiceBuilder {
 
         int minEras = (calendar.equals("chinese") || calendar.equals("dangi")) ? 0 : 1;
 
-        List<String> temp = getArray(prefix + "eras/eraAbbr/era[@type=\"", 0, null, "\"]", minEras);
+        List temp = getArray(prefix + "eras/eraAbbr/era[@type=\"", 0, null, "\"]", minEras);
         formatData.setEras(last = (String[]) temp.toArray(new String[temp.size()]));
         if (minEras != 0) checkFound(last);
         // if (temp.size() < 2 && notGregorian) {
@@ -385,7 +388,7 @@ public class ICUServiceBuilder {
         String postfix = "\"]";
         boolean isDay = type.equals("day");
         final int arrayCount = isDay ? 7 : type.equals("month") ? 12 : 4;
-        List<String> temp = getArray(prefix, isDay ? 0 : 1, isDay ? Days : null, postfix, arrayCount);
+        List temp = getArray(prefix, isDay ? 0 : 1, isDay ? Days : null, postfix, arrayCount);
         if (isDay) temp.add(0, "");
         String[] result = (String[]) temp.toArray(new String[temp.size()]);
         checkFound(result);
@@ -424,6 +427,9 @@ public class ICUServiceBuilder {
     }
 
     private static String[] NumberNames = { "integer", "decimal", "percent", "scientific" }; // // "standard", , "INR",
+                                                                                             // "CHF", "GBP"
+    private static int firstReal = 1;
+    private static int firstCurrency = 4;
 
     public String getNumberNames(int i) {
         return NumberNames[i];

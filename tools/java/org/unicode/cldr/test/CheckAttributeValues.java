@@ -212,7 +212,7 @@ public class CheckAttributeValues extends FactoryCheckCLDR {
     private void getMetadata(CLDRFile metadata, SupplementalDataInfo sdi) {
         // sorting is expensive, but we need it here.
         
-        Comparator<String> ldmlComparator = CLDRFile.getLdmlComparator();
+        Comparator<String> ldmlComparator = metadata.getComparator();
         String path2 = metadata.iterator().next();
         if (!path2.startsWith("//ldml")) {
             ldmlComparator = null;

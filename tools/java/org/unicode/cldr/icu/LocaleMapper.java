@@ -18,6 +18,7 @@ import org.unicode.cldr.test.DisplayAndInputProcessor.NumericType;
 import org.unicode.cldr.tool.FilterFactory;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -109,7 +110,7 @@ public class LocaleMapper extends Mapper {
                 }
             }
 
-            return CLDRFile.getLdmlComparator().compare(arg0, arg1);
+            return CLDRFile.getComparator(DtdType.ldml).compare(arg0, arg1);
         }
     };
 

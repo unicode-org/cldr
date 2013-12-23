@@ -170,7 +170,7 @@ public class POSIXUtilities {
             String SearchLocation = "//supplementalData/characters/character-fallback/character[@value='"
                 + UCharacter.toString(cp) + "']/substitute";
 
-            for (Iterator<String> it = char_fallbk.iterator(SearchLocation, CLDRFile.getLdmlComparator()); it.hasNext()
+            for (Iterator<String> it = char_fallbk.iterator(SearchLocation, char_fallbk.getComparator()); it.hasNext()
                 && !SubFound;)
             {
                 String path = it.next();

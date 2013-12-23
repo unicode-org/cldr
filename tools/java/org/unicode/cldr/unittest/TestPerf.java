@@ -40,7 +40,7 @@ public class TestPerf extends TestFmwkPlus {
         Set<String> testPaths_ = new HashSet<String>();
         CollectionUtilities.addAll(TestInfo.getInstance().getEnglish().iterator(), testPaths_);
         testPaths = Collections.unmodifiableSet(testPaths_);
-        Set<String> sorted = new TreeSet<String>(CLDRFile.getLdmlComparator());
+        Set<String> sorted = new TreeSet<String>(CLDRFile.getComparator(DtdType.ldml));
         sorted.addAll(testPaths);
         sortedArray = sorted.toArray(new String[sorted.size()]);
 
@@ -162,9 +162,9 @@ public class TestPerf extends TestFmwkPlus {
         Output<Integer> failures = new Output<Integer>();
 
         // warmup
-        checkCost(sortedArray, CLDRFile.getLdmlComparator(), 1, failures);
+        checkCost(sortedArray, CLDRFile.getComparator(DtdType.ldml), 1, failures);
         assertRelation("CLDRFile.ldmlComparator-check", true, failures.value, LEQ, 0);
-        double seconds = checkCost(sortedArray, CLDRFile.getLdmlComparator(), iterations, failures);
+        double seconds = checkCost(sortedArray, CLDRFile.getComparator(DtdType.ldml), iterations, failures);
         assertRelation("CLDRFile.ldmlComparator", true, seconds, LEQ, 0.1);
         //logln(title + "\tTime:\t" + timer.toString(iterations));
 

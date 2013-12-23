@@ -518,7 +518,7 @@ public class CLDRModify {
 
                         System.out.println(k.getStringValue(testPath));
                         // if (true) return;
-                        Set orderedSet = new TreeSet(CLDRFile.getLdmlComparator());
+                        Set orderedSet = new TreeSet(k.getComparator());
                         CollectionUtilities.addAll(k.iterator(), orderedSet);
                         for (Iterator it3 = orderedSet.iterator(); it3.hasNext();) {
                             String path = (String) it3.next();
@@ -2333,7 +2333,7 @@ public class CLDRModify {
         // TODO before modifying, make sure that it is fully resolved.
         // then minimize against the NEW parents
 
-        Set<String> removal = new TreeSet<String>(CLDRFile.getLdmlComparator());
+        Set<String> removal = new TreeSet<String>(k.getComparator());
         CLDRFile replacements = SimpleFactory.makeFile("temp");
         fixList.setFile(k, cldrFactory, removal, replacements);
 

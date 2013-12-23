@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -69,7 +70,8 @@ public class TestCLDRFile extends TestFmwk {
     private void checkPlurals(String locale) {
         CLDRFile cldrFile = cldrFactory.make(locale, true);
         Matcher m = COUNT_MATCHER.matcher("");
-        Relation<String, String> skeletonToKeywords = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.getLdmlComparator()), TreeSet.class);
+        Relation<String, String> skeletonToKeywords = Relation.of(
+            new TreeMap<String, Set<String>>(cldrFile.getComparator()), TreeSet.class);
         PluralInfo plurals = sdi.getPlurals(PluralType.cardinal, locale);
         Set<String> normalKeywords = plurals.getCanonicalKeywords();
         for (String path : cldrFile.fullIterable()) {
@@ -112,8 +114,8 @@ public class TestCLDRFile extends TestFmwk {
 
     public void testExtraPaths() {
         Map<String, LocaleInfo> localeInfos = new LinkedHashMap<String, LocaleInfo>();
-        Relation<String, String> missingPathsToLocales = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.getLdmlComparator()), TreeSet.class);
-        Relation<String, String> extraPathsToLocales = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.getLdmlComparator()), TreeSet.class);
+        Relation<String, String> missingPathsToLocales = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.getComparator(DtdType.ldml)), TreeSet.class);
+        Relation<String, String> extraPathsToLocales = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.getComparator(DtdType.ldml)), TreeSet.class);
 
         for (String locale : new String[] { "en", "root", "fr", "ar", "ja" }) {
             localeInfos.put(locale, new LocaleInfo(locale));
@@ -363,7 +365,7 @@ public class TestCLDRFile extends TestFmwk {
             Output<String> localeWhereFound = new Output<String>();
             Output<String> pathWhereFound = new Output<String>();
 
-            Map<String, String> diff = new TreeMap<String, String>(CLDRFile.getLdmlComparator());
+            Map<String, String> diff = new TreeMap<String, String>(CLDRFile.getComparator(DtdType.ldml));
 
             Size countSuperfluous = new Size();
             Size countExtraLevel = new Size();

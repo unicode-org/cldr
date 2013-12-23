@@ -16,6 +16,7 @@ import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
+import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
@@ -99,8 +100,8 @@ public class ShowLocaleCoverage {
         Set<String> extraCheckLocales = new HashSet<String>(); // testInfo.getStandardCodes().getLocaleCoverageLocales("google");
 
         Relation<MissingStatus, String> missingPaths = Relation.of(new EnumMap<MissingStatus, Set<String>>(
-            MissingStatus.class), TreeSet.class, CLDRFile.getLdmlComparator());
-        Set<String> unconfirmed = new TreeSet<String>(CLDRFile.getLdmlComparator());
+            MissingStatus.class), TreeSet.class, CLDRFile.getComparator(DtdType.ldml));
+        Set<String> unconfirmed = new TreeSet<String>(CLDRFile.getComparator(DtdType.ldml));
 
         LanguageTagParser ltp = new LanguageTagParser();
         Map<String, String> likely = testInfo.getSupplementalDataInfo().getLikelySubtags();

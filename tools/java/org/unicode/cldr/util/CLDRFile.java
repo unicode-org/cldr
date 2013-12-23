@@ -140,6 +140,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     private Collection<String> extraPaths = null;
 
     private boolean locked;
+    private DtdType dtdType;
+
     XMLSource dataSource; // TODO(jchye): make private
 
     private File supplementalDirectory;
@@ -335,7 +337,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      *            map of options for writing
      */
     public CLDRFile write(PrintWriter pw, Map<String, Object> options) {
-        Set<String> orderedSet = new TreeSet<String>(getLdmlComparator());
+        Set<String> orderedSet = new TreeSet<String>(getComparator());
         CollectionUtilities.addAll(dataSource.iterator(), orderedSet);
 
         String firstPath = null;
@@ -370,7 +372,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
          * <language type="en"/>
          */
         // if ldml has any attributes, get them.
-        Set<String> identitySet = new TreeSet<String>(getLdmlComparator());
+        Set<String> identitySet = new TreeSet<String>(getComparator());
         if (isNonInheriting()) {
             // identitySet.add("//supplementalData[@version=\"" + GEN_VERSION + "\"]/version[@number=\"$" +
             // "Revision: $\"]");
@@ -675,7 +677,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         if (locked) throw new UnsupportedOperationException("Attempt to modify locked object");
         XPathParts parts = new XPathParts(null, null);
         if (conflict_resolution == MERGE_KEEP_MINE) {
-            Map temp = isNonInheriting() ? new TreeMap() : new TreeMap(getLdmlComparator());
+            Map temp = isNonInheriting() ? new TreeMap() : new TreeMap(getComparator());
             dataSource.putAll(other.dataSource, MERGE_KEEP_MINE);
         } else if (conflict_resolution == MERGE_REPLACE_MINE) {
             dataSource.putAll(other.dataSource, MERGE_REPLACE_MINE);
@@ -1237,25 +1239,25 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // }
     // }
 
-//    private static String[][] distinguishingData = {
-//        { "*", "key" },
-//        { "*", "id" },
-//        { "*", "_q" },
-//        { "*", "alt" },
-//        { "*", "iso4217" },
-//        { "*", "iso3166" },
-//        { "*", "indexSource" },
-//        { "default", "type" },
-//        { "measurementSystem", "type" },
-//        { "mapping", "type" },
-//        { "abbreviationFallback", "type" },
-//        { "preferenceOrdering", "type" },
-//        { "deprecatedItems", "iso3166" },
-//        { "ruleset", "type" },
-//        { "rbnfrule", "value" },
-//    };
-//
-//    private final static Map distinguishingAttributeMap = asMap(distinguishingData, true);
+    //    private static String[][] distinguishingData = {
+    //        { "*", "key" },
+    //        { "*", "id" },
+    //        { "*", "_q" },
+    //        { "*", "alt" },
+    //        { "*", "iso4217" },
+    //        { "*", "iso3166" },
+    //        { "*", "indexSource" },
+    //        { "default", "type" },
+    //        { "measurementSystem", "type" },
+    //        { "mapping", "type" },
+    //        { "abbreviationFallback", "type" },
+    //        { "preferenceOrdering", "type" },
+    //        { "deprecatedItems", "iso3166" },
+    //        { "ruleset", "type" },
+    //        { "rbnfrule", "value" },
+    //    };
+    //
+    //    private final static Map distinguishingAttributeMap = asMap(distinguishingData, true);
 
     /**
      * Determine if an attribute is a distinguishing attribute.
@@ -1804,10 +1806,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 );
             try {
                 if (isSupplemental < 0) { // set by first element
-                    DtdType type = DtdType.valueOf(qName);
-                    dtdData = DtdData.getInstance(type);
                     attributeOrder = new TreeMap(dtdData.getAttributeComparator());
-                    isSupplemental = type == DtdType.ldml ? 0 : 1;
+                    isSupplemental = target.dtdType == DtdType.ldml ? 0 : 1;
                     //                    if (qName.equals("ldml"))
                     //                        isSupplemental = 0;
                     //                    else if (qName.equals("supplementalData"))
@@ -1862,6 +1862,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 + ", systemId: " + systemId
                 );
             commentStack++;
+            target.dtdType = DtdType.valueOf(name);
+            dtdData = DtdData.getInstance(target.dtdType);
         }
 
         public void endDTD() throws SAXException {
@@ -2435,26 +2437,26 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // note: run FindDTDOrder to get this list
     // TODO, convert to use SupplementalInfo
 
-//    private static MapComparator<String> attributeOrdering = new MapComparator<String>()
-//        .add(
-//            // START MECHANICALLY attributeOrdering GENERATED BY FindDTDOrder
-//            "_q type id choice key registry source target path day date version count lines characters before from to iso4217 mzone number time casing list uri digits rounding iso3166 hex request direction alternate backwards caseFirst caseLevel hiraganaQuarternary hiraganaQuaternary variableTop normalization numeric strength elements element attributes attribute attributeValue contains multizone order other replacement scripts services territories territory aliases tzidVersion value values variant variants visibility alpha3 code end exclude fips10 gdp internet literacyPercent locales population writingPercent populationPercent officialStatus start used otherVersion typeVersion access after allowsParsing at bcp47 decexp desired indexSource numberSystem numbers oneway ordering percent priority radix rules supported tender territoryId yeartype cldrVersion grouping inLanguage inScript inTerritory match parent private reason reorder status cashDigits cashRounding allowed override preferred regions validSubLocales standard references alt draft" // END
-//            // MECHANICALLY
-//            // attributeOrdering
-//            // GENERATED
-//            // BY
-//            // FindDTDOrder
-//            .trim().split("\\s+"))
-//            .setErrorOnMissing(false)
-//            .freeze();
+    //    private static MapComparator<String> attributeOrdering = new MapComparator<String>()
+    //        .add(
+    //            // START MECHANICALLY attributeOrdering GENERATED BY FindDTDOrder
+    //            "_q type id choice key registry source target path day date version count lines characters before from to iso4217 mzone number time casing list uri digits rounding iso3166 hex request direction alternate backwards caseFirst caseLevel hiraganaQuarternary hiraganaQuaternary variableTop normalization numeric strength elements element attributes attribute attributeValue contains multizone order other replacement scripts services territories territory aliases tzidVersion value values variant variants visibility alpha3 code end exclude fips10 gdp internet literacyPercent locales population writingPercent populationPercent officialStatus start used otherVersion typeVersion access after allowsParsing at bcp47 decexp desired indexSource numberSystem numbers oneway ordering percent priority radix rules supported tender territoryId yeartype cldrVersion grouping inLanguage inScript inTerritory match parent private reason reorder status cashDigits cashRounding allowed override preferred regions validSubLocales standard references alt draft" // END
+    //            // MECHANICALLY
+    //            // attributeOrdering
+    //            // GENERATED
+    //            // BY
+    //            // FindDTDOrder
+    //            .trim().split("\\s+"))
+    //            .setErrorOnMissing(false)
+    //            .freeze();
 
-//    private static MapComparator<String> elementOrdering = new MapComparator<String>()
-//        .add(
-//            // START MECHANICALLY elementOrdering GENERATED BY FindDTDOrder
-//            "ldml alternate attributeOrder attributes blockingItems calendarPreference calendarSystem casingData casingItem character character-fallback characterOrder codesByTerritory comment context coverageVariable coverageLevel cp dayPeriodRule dayPeriodRules deprecatedItems distinguishingItems elementOrder exception first_variable fractions hours identity indexSeparator compressedIndexSeparator indexRangePattern indexLabelBefore indexLabelAfter indexLabel info keyMap languageAlias languageCodes languageCoverage languageMatch languageMatches languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing likelySubtag lineOrder mapKeys mapTypes mapZone numberingSystem parentLocale personList pluralRule pluralRules postCodeRegex primaryZone reference region scriptAlias scriptCoverage serialElements stopwordList substitute suppress tRule telephoneCountryCode territoryAlias territoryCodes territoryCoverage currencyCoverage timezone timezoneCoverage transform typeMap usesMetazone validity alias appendItem base beforeCurrency afterCurrency codePattern compoundUnit compoundUnitPattern contextTransform contextTransformUsage currencyMatch cyclicName cyclicNameContext cyclicNameSet cyclicNameWidth dateFormatItem day dayPeriod dayPeriodContext dayPeriodWidth defaultCollation defaultNumberingSystem deprecated distinguishing blocking coverageAdditions durationUnitPattern era eraNames eraAbbr eraNarrow exemplarCharacters ellipsis fallback field generic greatestDifference height hourFormat hoursFormat gmtFormat gmtZeroFormat intervalFormatFallback intervalFormatItem key listPattern listPatternPart localeDisplayNames layout contextTransforms localeDisplayPattern languages localePattern localeSeparator localeKeyTypePattern localizedPatternChars dateRangePattern calendars long measurementSystem measurementSystemName messages minDays firstDay month monthPattern monthPatternContext monthPatternWidth months monthNames monthAbbr monthPatterns days dayNames dayAbbr moreInformation native orientation inList inText otherNumberingSystems paperSize quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd rbnfrule regionFormat fallbackFormat fallbackRegionFormat abbreviationFallback preferenceOrdering relativeTimePattern reset import p pc rule ruleset rulesetGrouping s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength intervalFormats monthContext monthWidth pattern displayName percentFormat percentFormatLength quarterContext quarterWidth relative relativeTime scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight stopwords indexLabels mapping suppress_contractions optimize cr rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential superscriptingExponent perMille infinity nan currencyDecimal currencyGroup symbols decimalFormats scientificFormats percentFormats currencyFormats currencies miscPatterns t tc q qc i ic extend territories timeFormat timeFormatLength traditional finance transformName type unit unitLength durationUnit unitPattern variable attributeValues variables segmentRules exceptions variantAlias variants keys types transformNames measurementSystemNames codePatterns version generation cldrVersion currencyData language script territory territoryContainment languageData territoryInfo postalCodeData calendarData calendarPreferenceData variant week am pm dayPeriods eras cyclicNameSets dateFormats timeFormats dateTimeFormats fields timeZoneNames weekData timeData measurementData timezoneData characters delimiters measurement dates numbers transforms units listPatterns collations posix segmentations rbnf metadata codeMappings parentLocales likelySubtags metazoneInfo mapTimezones plurals telephoneCodeData numberingSystems bcp47KeywordMappings gender references languageMatching dayPeriodRuleSet metaZones primaryZones weekendStart weekendEnd width windowsZones coverageLevels x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData"
-//            .trim().split("\\s+"))
-//            .setErrorOnMissing(false)
-//            .freeze();
+    //    private static MapComparator<String> elementOrdering = new MapComparator<String>()
+    //        .add(
+    //            // START MECHANICALLY elementOrdering GENERATED BY FindDTDOrder
+    //            "ldml alternate attributeOrder attributes blockingItems calendarPreference calendarSystem casingData casingItem character character-fallback characterOrder codesByTerritory comment context coverageVariable coverageLevel cp dayPeriodRule dayPeriodRules deprecatedItems distinguishingItems elementOrder exception first_variable fractions hours identity indexSeparator compressedIndexSeparator indexRangePattern indexLabelBefore indexLabelAfter indexLabel info keyMap languageAlias languageCodes languageCoverage languageMatch languageMatches languagePopulation last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing likelySubtag lineOrder mapKeys mapTypes mapZone numberingSystem parentLocale personList pluralRule pluralRules postCodeRegex primaryZone reference region scriptAlias scriptCoverage serialElements stopwordList substitute suppress tRule telephoneCountryCode territoryAlias territoryCodes territoryCoverage currencyCoverage timezone timezoneCoverage transform typeMap usesMetazone validity alias appendItem base beforeCurrency afterCurrency codePattern compoundUnit compoundUnitPattern contextTransform contextTransformUsage currencyMatch cyclicName cyclicNameContext cyclicNameSet cyclicNameWidth dateFormatItem day dayPeriod dayPeriodContext dayPeriodWidth defaultCollation defaultNumberingSystem deprecated distinguishing blocking coverageAdditions durationUnitPattern era eraNames eraAbbr eraNarrow exemplarCharacters ellipsis fallback field generic greatestDifference height hourFormat hoursFormat gmtFormat gmtZeroFormat intervalFormatFallback intervalFormatItem key listPattern listPatternPart localeDisplayNames layout contextTransforms localeDisplayPattern languages localePattern localeSeparator localeKeyTypePattern localizedPatternChars dateRangePattern calendars long measurementSystem measurementSystemName messages minDays firstDay month monthPattern monthPatternContext monthPatternWidth months monthNames monthAbbr monthPatterns days dayNames dayAbbr moreInformation native orientation inList inText otherNumberingSystems paperSize quarter quarters quotationStart quotationEnd alternateQuotationStart alternateQuotationEnd rbnfrule regionFormat fallbackFormat fallbackRegionFormat abbreviationFallback preferenceOrdering relativeTimePattern reset import p pc rule ruleset rulesetGrouping s sc scripts segmentation settings short commonlyUsed exemplarCity singleCountries default calendar collation currency currencyFormat currencySpacing currencyFormatLength dateFormat dateFormatLength dateTimeFormat dateTimeFormatLength availableFormats appendItems dayContext dayWidth decimalFormat decimalFormatLength intervalFormats monthContext monthWidth pattern displayName percentFormat percentFormatLength quarterContext quarterWidth relative relativeTime scientificFormat scientificFormatLength skipDefaultLocale defaultContent standard daylight stopwords indexLabels mapping suppress_contractions optimize cr rules surroundingMatch insertBetween symbol decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential superscriptingExponent perMille infinity nan currencyDecimal currencyGroup symbols decimalFormats scientificFormats percentFormats currencyFormats currencies miscPatterns t tc q qc i ic extend territories timeFormat timeFormatLength traditional finance transformName type unit unitLength durationUnit unitPattern variable attributeValues variables segmentRules exceptions variantAlias variants keys types transformNames measurementSystemNames codePatterns version generation cldrVersion currencyData language script territory territoryContainment languageData territoryInfo postalCodeData calendarData calendarPreferenceData variant week am pm dayPeriods eras cyclicNameSets dateFormats timeFormats dateTimeFormats fields timeZoneNames weekData timeData measurementData timezoneData characters delimiters measurement dates numbers transforms units listPatterns collations posix segmentations rbnf metadata codeMappings parentLocales likelySubtags metazoneInfo mapTimezones plurals telephoneCodeData numberingSystems bcp47KeywordMappings gender references languageMatching dayPeriodRuleSet metaZones primaryZones weekendStart weekendEnd width windowsZones coverageLevels x yesstr nostr yesexpr noexpr zone metazone special zoneAlias zoneFormatting zoneItem supplementalData"
+    //            .trim().split("\\s+"))
+    //            .setErrorOnMissing(false)
+    //            .freeze();
 
     private static MapComparator<String> valueOrdering = new MapComparator<String>().setErrorOnMissing(false).freeze();
     /*
@@ -2545,7 +2547,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
             // <ruleset> children
             "rbnfrule",
-            
+
             // <exceptions> children
             "exception",
 
@@ -2644,78 +2646,78 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
     };
 
-    private static Comparator<String> ldmlComparator = DtdData.getInstance(DtdType.ldml).getDtdComparator(avc);
+    private static Comparator<String> ldmlComparator = DtdData.getInstance(DtdType.ldmlICU).getDtdComparator(avc);
     // new LDMLComparator();
 
-//    private static class LDMLComparator implements Comparator<String> {
-//
-//        transient XPathParts a = new XPathParts(getAttributeOrdering(), null);
-//        transient XPathParts b = new XPathParts(getAttributeOrdering(), null);
-//
-//        public void addElement(String a) {
-//            // elementOrdering.add(a);
-//        }
-//
-//        public void addAttribute(String a) {
-//            // attributeOrdering.add(a);
-//        }
-//
-//        public void addValue(String a) {
-//            // valueOrdering.add(a);
-//        }
-//
-//        public int compare(String o1, String o2) {
-//            if (o1 == o2) return 0; // quick test for common case
-//            int result;
-//            a.set(o1);
-//            b.set(o2);
-//            int minSize = a.size();
-//            if (b.size() < minSize) minSize = b.size();
-//            for (int i = 0; i < minSize; ++i) {
-//                String aname = a.getElement(i);
-//                String bname = b.getElement(i);
-//                if (0 != (result = elementOrdering.compare(aname, bname))) {
-//                    // if they are different, then
-//                    // all ordered items are equal, and > than all unordered
-//                    boolean aOrdered = orderedElements.contains(aname);
-//                    boolean bOrdered = orderedElements.contains(bname);
-//                    // if both ordered, continue, return result
-//                    if (aOrdered && bOrdered) {
-//                        // continue with comparison
-//                    } else {
-//                        if (aOrdered == bOrdered) return result; // both off
-//                        return aOrdered ? 1 : -1;
-//                    }
-//                }
-//                Map<String, String> am = a.getAttributes(i);
-//                Map<String, String> bm = b.getAttributes(i);
-//                int minMapSize = am.size();
-//                if (bm.size() < minMapSize) minMapSize = bm.size();
-//                if (minMapSize != 0) {
-//                    Iterator ait = am.keySet().iterator();
-//                    Iterator bit = bm.keySet().iterator();
-//                    for (int j = 0; j < minMapSize; ++j) {
-//                        String akey = (String) ait.next();
-//                        String bkey = (String) bit.next();
-//                        if (0 != (result = getAttributeOrdering().compare(akey, bkey))) return result;
-//                        String avalue = (String) am.get(akey);
-//                        String bvalue = (String) bm.get(bkey);
-//                        if (!avalue.equals(bvalue)) {
-//                            Comparator<String> comp = getAttributeValueComparator(aname, akey);
-//                            if (0 != (result = comp.compare(avalue, bvalue))) {
-//                                return result;
-//                            }
-//                        }
-//                    }
-//                }
-//                if (am.size() < bm.size()) return -1;
-//                if (am.size() > bm.size()) return 1;
-//            }
-//            if (a.size() < b.size()) return -1;
-//            if (a.size() > b.size()) return 1;
-//            return 0;
-//        }
-//    }
+    //    private static class LDMLComparator implements Comparator<String> {
+    //
+    //        transient XPathParts a = new XPathParts(getAttributeOrdering(), null);
+    //        transient XPathParts b = new XPathParts(getAttributeOrdering(), null);
+    //
+    //        public void addElement(String a) {
+    //            // elementOrdering.add(a);
+    //        }
+    //
+    //        public void addAttribute(String a) {
+    //            // attributeOrdering.add(a);
+    //        }
+    //
+    //        public void addValue(String a) {
+    //            // valueOrdering.add(a);
+    //        }
+    //
+    //        public int compare(String o1, String o2) {
+    //            if (o1 == o2) return 0; // quick test for common case
+    //            int result;
+    //            a.set(o1);
+    //            b.set(o2);
+    //            int minSize = a.size();
+    //            if (b.size() < minSize) minSize = b.size();
+    //            for (int i = 0; i < minSize; ++i) {
+    //                String aname = a.getElement(i);
+    //                String bname = b.getElement(i);
+    //                if (0 != (result = elementOrdering.compare(aname, bname))) {
+    //                    // if they are different, then
+    //                    // all ordered items are equal, and > than all unordered
+    //                    boolean aOrdered = orderedElements.contains(aname);
+    //                    boolean bOrdered = orderedElements.contains(bname);
+    //                    // if both ordered, continue, return result
+    //                    if (aOrdered && bOrdered) {
+    //                        // continue with comparison
+    //                    } else {
+    //                        if (aOrdered == bOrdered) return result; // both off
+    //                        return aOrdered ? 1 : -1;
+    //                    }
+    //                }
+    //                Map<String, String> am = a.getAttributes(i);
+    //                Map<String, String> bm = b.getAttributes(i);
+    //                int minMapSize = am.size();
+    //                if (bm.size() < minMapSize) minMapSize = bm.size();
+    //                if (minMapSize != 0) {
+    //                    Iterator ait = am.keySet().iterator();
+    //                    Iterator bit = bm.keySet().iterator();
+    //                    for (int j = 0; j < minMapSize; ++j) {
+    //                        String akey = (String) ait.next();
+    //                        String bkey = (String) bit.next();
+    //                        if (0 != (result = getAttributeOrdering().compare(akey, bkey))) return result;
+    //                        String avalue = (String) am.get(akey);
+    //                        String bvalue = (String) bm.get(bkey);
+    //                        if (!avalue.equals(bvalue)) {
+    //                            Comparator<String> comp = getAttributeValueComparator(aname, akey);
+    //                            if (0 != (result = comp.compare(avalue, bvalue))) {
+    //                                return result;
+    //                            }
+    //                        }
+    //                    }
+    //                }
+    //                if (am.size() < bm.size()) return -1;
+    //                if (am.size() > bm.size()) return 1;
+    //            }
+    //            if (a.size() < b.size()) return -1;
+    //            if (a.size() > b.size()) return 1;
+    //            return 0;
+    //        }
+    //    }
 
     private final static Map defaultSuppressionMap;
     static {
@@ -3635,8 +3637,21 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return iterator("//ldml/alias").hasNext();
     }
 
-    public static Comparator<String> getLdmlComparator() {
-        return ldmlComparator;
+    public static Comparator<String> getComparator(DtdType dtdType) {
+        if (dtdType == null) {
+            return ldmlComparator;           
+        }
+        switch (dtdType) {
+        default:
+            return DtdData.getInstance(dtdType).getDtdComparator(null);
+        case ldml:
+        case ldmlICU:
+            return ldmlComparator;           
+        }
+    }
+
+    public Comparator<String> getComparator() {
+        return getComparator(dtdType);
     }
 
     public static MapComparator<String> getAttributeOrdering() {

@@ -3,6 +3,7 @@ package org.unicode.cldr.util;
 import java.io.File;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -21,6 +22,7 @@ import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile.DtdType;
+import org.unicode.cldr.util.DtdData.Element;
 import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.util.Relation;
@@ -134,7 +136,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public void addComment(String commentIn) {
             comment = comment == null ? commentIn : comment + "\n" + commentIn;
         }
-        
+
         /**
          * Special version of identity; only considers name and name of element
          */
@@ -147,11 +149,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return name.equals(that.name)
                 && element.name.equals(that.element.name) // don't use plain element: circularity
                 // not relevant to identity
-//                && Objects.equals(comment, that.comment)
-//                && mode.equals(that.mode)
-//                && Objects.equals(defaultValue, that.defaultValue)
-//                && type.equals(that.type)
-//                && values.equals(that.values)
+                //                && Objects.equals(comment, that.comment)
+                //                && mode.equals(that.mode)
+                //                && Objects.equals(defaultValue, that.defaultValue)
+                //                && type.equals(that.type)
+                //                && values.equals(that.values)
                 ;
         }
         /**
@@ -162,11 +164,11 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             return name.hashCode() * 37
                 + element.name.hashCode() // don't use plain element: circularity
                 // not relevant to identity
-//                ) * 37 + Objects.hashCode(comment)) * 37
-//                + mode.hashCode()) * 37
-//                + Objects.hashCode(defaultValue)) * 37
-//                + type.hashCode()) * 37
-//                + values.hashCode()
+                //                ) * 37 + Objects.hashCode(comment)) * 37
+                //                + mode.hashCode()) * 37
+                //                + Objects.hashCode(defaultValue)) * 37
+                //                + type.hashCode()) * 37
+                //                + values.hashCode()
                 ;
         }
 
@@ -300,10 +302,10 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             Element that = (Element) obj;
             return name.equals(that.name)
                 // not relevant to the identity of the object
-//                && Objects.equals(comment, that.comment)
-//                && type == that.type
-//                && attributes.equals(that.attributes)
-//                && children.equals(that.children)
+                //                && Objects.equals(comment, that.comment)
+                //                && type == that.type
+                //                && attributes.equals(that.attributes)
+                //                && children.equals(that.children)
                 ;
         }
 
@@ -316,8 +318,8 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 // not relevant to the identity of the object
                 // * 37 + Objects.hashCode(comment)
                 //) * 37 + Objects.hashCode(type)
-//                ) * 37 + attributes.hashCode()
-//                ) * 37 + children.hashCode()
+                //                ) * 37 + attributes.hashCode()
+                //                ) * 37 + children.hashCode()
                 ;
         }
     }
@@ -437,6 +439,23 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 readFile(type.rootType, xfr, directory);
             }
             readFile(type, xfr, directory);
+            // HACK
+            if (type == DtdType.ldmlICU) {
+                Element special = simpleHandler.nameToElement.get("special");
+                for (String extraElementName : Arrays.asList(
+                    "icu:breakIteratorData",
+                    "icu:UCARules",
+                    "icu:scripts",
+                    "icu:transforms",
+                    "icu:ruleBasedNumberFormats",
+                    "icu:isLeapMonth",
+                    "icu:version",
+                    "icu:breakDictionaryData",
+                    "icu:depends")) {
+                    Element extraElement = simpleHandler.nameToElement.get(extraElementName);
+                    special.children.put(extraElement, special.children.size());
+                }
+            }
             if (simpleHandler.ROOT.children.size() == 0) {
                 throw new IllegalArgumentException(); // should never happen
             }
@@ -693,7 +712,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         seen.seenElements.add(ANY);
         seen.seenElements.add(PCDATA);
         toString(ROOT, b, seen );
-        
+
         // Hack for ldmlIcu: catch the items that are not mentioned in the original
         int currentEnd = b.length();
         for (Element e : nameToElement.values()) {
@@ -718,12 +737,20 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private void walk(DtdData otherData, Element current) {
             seenElements.add(current);
             seenAttributes.addAll(current.attributes.keySet());
-            if (current.type == ElementType.CHILDREN) {
-                for (Element e : current.children.keySet()) {
-                    walk(otherData, e);
-                }
+            for (Element e : current.children.keySet()) {
+                walk(otherData, e);
             }
         }
+    }
+
+    public Set<Element> getDescendents(Element start, Set<Element> toAddTo) {
+        if (!toAddTo.contains(start)) {
+            toAddTo.add(start);
+            for (Element e : start.children.keySet()) {
+                getDescendents(e, toAddTo);
+            }
+        }
+        return toAddTo;
     }
 
     private void toString(Element current, StringBuilder b, Seen seen) {
@@ -734,7 +761,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             b.append("\n\n<!ELEMENT " + current.name + " ");
             Element aliasElement = getElementFromName().get("alias");
             //b.append(current.rawChildren);
-            if (current.type == ElementType.CHILDREN) {
+            if (!current.children.isEmpty()) {
                 LinkedHashSet<Element> elements = new LinkedHashSet<Element>(current.children.keySet());
                 boolean hasAlias = aliasElement != null && elements.remove(aliasElement);
                 //boolean hasSpecial = specialElement != null && elements.remove(specialElement);
@@ -815,5 +842,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
         }
         return null;
+    }
+
+    public Set<Element> getElements() {
+        return new LinkedHashSet<Element>(nameToElement.values());
+    }
+
+    public Set<Attribute> getAttributes() {
+        return new LinkedHashSet<Attribute>(nameToAttributes.values());
     }
 }

@@ -209,7 +209,7 @@ public class DtdDataCheck {
                 };
                 Comparator<String> comp = dtdData.getDtdComparator(avc);
                 CLDRFile test = TestInfo.getInstance().getEnglish();
-                Set<String> sorted = new TreeSet(CLDRFile.getLdmlComparator());
+                Set<String> sorted = new TreeSet(test.getComparator());
                 CollectionUtilities.addAll(test.iterator(), sorted);
                 String[] sortedArray = sorted.toArray(new String[sorted.size()]);
 
@@ -234,7 +234,7 @@ public class DtdDataCheck {
                 // check cost
                 checkCost("DtdComparator", sortedArray, comp);
                 checkCost("DtdComparator(null)", sortedArray, dtdData.getDtdComparator(null));
-                checkCost("CLDRFile.ldmlComparator", sortedArray, CLDRFile.getLdmlComparator());
+//                checkCost("CLDRFile.ldmlComparator", sortedArray, CLDRFile.getLdmlComparator());
                 //checkCost("XPathParts", sortedArray);
 
             }

@@ -445,7 +445,8 @@ public class TestBasic extends TestFmwk {
         Factory cldrFactory = testInfo.getCldrFactory();
         CLDRFile english = cldrFactory.make("en", true);
 
-        Relation<String, String> pathToLocale = Relation.of(new TreeMap<String, Set<String>>(CLDRFile.getLdmlComparator()),
+        Relation<String, String> pathToLocale = Relation.of(
+            new TreeMap<String, Set<String>>(CLDRFile.getComparator(DtdType.ldml)),
             TreeSet.class, null);
 
         for (String locale : cldrFactory.getAvailable()) {
@@ -698,7 +699,7 @@ public class TestBasic extends TestFmwk {
         final String localeParent = LocaleIDParser.getParent(locale);
         CLDRFile parentFile = testInfo.getCldrFactory().make(localeParent, true);
         int funnyCount = 0;
-        for (Iterator<String> it = cldrFile.iterator("", CLDRFile.getLdmlComparator()); it.hasNext();) {
+        for (Iterator<String> it = cldrFile.iterator("", cldrFile.getComparator()); it.hasNext();) {
             String path = it.next();
             if (path.contains("/identity")) {
                 continue;
@@ -822,6 +823,45 @@ public class TestBasic extends TestFmwk {
         return "root".equals(LocaleIDParser.getParent(localeID));
     }
 
+    /**
+     * Tests that every dtd item is connected from root
+     */
+    public void TestDtdCompleteness() {
+        for (DtdType type : DtdType.values()) {
+            DtdData dtdData = DtdData.getInstance(type);
+            Set<Element> descendents = new LinkedHashSet();
+            dtdData.getDescendents(dtdData.ROOT, descendents);
+            Set<Element> elements = dtdData.getElements();
+            if (!elements.equals(descendents)) {
+                for (Element e : elements) {
+                    if (!descendents.contains(e) 
+                        && !e.equals(dtdData.PCDATA)
+                        && !e.equals(dtdData.ANY)
+                        ) {
+                        if (e.name.equals("usesMetazone")) {
+                            logKnownIssue("6768", "catch orphan usesMetazone");
+                        } else {
+                            errln(type + ": Element " + e + " not contained in descendents of ROOT.");
+                        }
+                    }
+                }
+                for (Element e : descendents) {
+                    if (!elements.contains(e)) {
+                        errln(type + ": Element " + e + ", descendent of ROOT, not in elements.");
+                    }
+                }
+            }
+            LinkedHashSet<Element> all = new LinkedHashSet<Element>(descendents);
+            all.addAll(elements);
+            Set<Attribute> attributes = dtdData.getAttributes();
+            for (Attribute a : attributes) {
+                if (!elements.contains(a.element)) {
+                    errln(type + ": Attribute " + a + " isn't for any element.");
+                }
+            }            
+        }
+    }
+
     public void TestDtdCompatibility() {
         if (logKnownIssue("6827", "Need the directory before enabling this test")) {
             return; 
@@ -935,7 +975,7 @@ public class TestBasic extends TestFmwk {
 
         checkDtdComparatorFor(new File("org/unicode/cldr/unittest/TestBasic_ja.xml"), DtdType.ldmlICU);
     }
-    
+
     public void TestDtdComparisonsAll() {
         CLDRConfig config = CLDRConfig.getInstance();
         File dir = config.getCldrBaseDirectory();

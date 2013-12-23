@@ -5656,7 +5656,7 @@ public class LDML2ICUConverter extends CLDRConverterTool {
         String currentRulesetGrouping = "";
         String currentRulesetType = "";
 
-        for (Iterator<String> iter = loc.getFile().iterator(xpath, CLDRFile.getLdmlComparator()); iter.hasNext();) {
+        for (Iterator<String> iter = loc.getFile().iterator(xpath, loc.getFile().getComparator()); iter.hasNext();) {
             String aPath = iter.next();
             String fullPath = loc.getFile().getFullXPath(aPath);
             String name = XPPUtil.getXpathName(aPath);

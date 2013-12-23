@@ -36,7 +36,7 @@ public class ExtractCollationRules {
 
         String context = null;
 
-        for (Iterator it = file.iterator("//ldml/collations", CLDRFile.getLdmlComparator()); it.hasNext();) {
+        for (Iterator it = file.iterator("//ldml/collations", file.getComparator()); it.hasNext();) {
 
             // System.out.print(rules.substring(lastLen, rules.length()));
             // lastLen = rules.length();

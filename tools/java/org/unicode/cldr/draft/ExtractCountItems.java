@@ -148,7 +148,7 @@ public class ExtractCountItems {
     }
 
     SampleData getSamples(CLDRFile cldr, int keywordCount, String prefix, Map<String, SampleData> data) {
-        for (String path : With.in(cldr.iterator(prefix, CLDRFile.getLdmlComparator()))) {
+        for (String path : With.in(cldr.iterator(prefix, cldr.getComparator()))) {
             if (!path.contains("@count")) {
                 continue;
             }

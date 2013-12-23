@@ -57,7 +57,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
         return intMapFactory;
     }
 
-    public StateDictionaryBuilder setIntMapFactory(IntMapFactory<T> intMapFactory) {
+    public StateDictionaryBuilder<T> setIntMapFactory(IntMapFactory<T> intMapFactory) {
         this.intMapFactory = intMapFactory;
         return this;
     }
@@ -72,7 +72,7 @@ public class StateDictionaryBuilder<T> implements DictionaryBuilder<T> {
         return byteConverter;
     }
 
-    public StateDictionaryBuilder setByteConverter(StringByteConverter byteConverter) {
+    public StateDictionaryBuilder<T> setByteConverter(StringByteConverter byteConverter) {
         this.byteConverter = byteConverter;
         return this;
     }

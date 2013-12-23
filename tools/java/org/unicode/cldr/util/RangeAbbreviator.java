@@ -51,7 +51,6 @@ public class RangeAbbreviator {
 
         // find common initial section
         int end1 = breaker1.last();
-        int end2 = breaker2.last();
         while (true) {
             breaker1.previous();
             final int current1 = breaker1.current();
@@ -67,7 +66,6 @@ public class RangeAbbreviator {
                 break;
             }
             end1 = current1;
-            end2 = current2;
         }
         return buffer.append(firstString.substring(0, end1)).append(separator).append(secondString.substring(start2))
             .toString();

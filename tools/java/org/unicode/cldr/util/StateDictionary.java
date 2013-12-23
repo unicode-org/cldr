@@ -76,7 +76,7 @@ public class StateDictionary<T> extends Dictionary<T> {
         Map<T, Integer> map = builtResults.getValueMap();
         Set<Pair<Integer, String>> sorted = new TreeSet<Pair<Integer, String>>();
         for (T item : map.keySet()) {
-            sorted.add(new Pair(map.get(item), item.toString()));
+            sorted.add(new Pair<Integer, String>(map.get(item), item.toString()));
         }
         for (Pair<Integer, String> pair : sorted) {
             result.append(pair.getFirst()).append("*=").append(pair.getSecond()).append(CldrUtility.LINE_SEPARATOR);
@@ -517,7 +517,7 @@ public class StateDictionary<T> extends Dictionary<T> {
 
         public String debugShow() {
             rowsSeen.clear();
-            Counter debugCounter = new Counter();
+            Counter<Integer> debugCounter = new Counter<Integer>();
             getDebugWords(0, 0, builtBaseRow, Integer.MAX_VALUE);
             for (Row row : builtRows) {
                 debugCounter.add(row.byteToCell.size(), 1);

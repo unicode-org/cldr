@@ -73,8 +73,8 @@ public class IsoCurrencyParser {
         iso4217CountryToCountryCode.putAll(COUNTRY_CORRECTIONS);
     }
 
-    private Relation<String, Data> codeList = new Relation(new TreeMap(), TreeSet.class, null);
-    private Relation<String, String> countryToCodes = new Relation(new TreeMap(), TreeSet.class, null);
+    private Relation<String, Data> codeList = Relation.of(new TreeMap<String, Set<Data>>(), TreeSet.class, null);
+    private Relation<String, String> countryToCodes = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
 
     public static class Data implements Comparable<Object> {
         private String name;

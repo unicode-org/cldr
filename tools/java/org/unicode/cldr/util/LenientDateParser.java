@@ -728,7 +728,7 @@ public class LenientDateParser {
             zoneFormatList.add(new SimpleDateFormat(zoneFormat, locale));
         }
         final BestTimeZone bestTimeZone = new BestTimeZone(locale);
-        Relation<String, String> stringToZones = new Relation(new TreeMap(), TreeSet.class, bestTimeZone);
+        Relation<String, String> stringToZones = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class, bestTimeZone);
 
         // final UTF16.StringComparator stringComparator = new UTF16.StringComparator(true, false, 0);
         // Set<String[]> zoneRemaps = new TreeSet(new ArrayComparator(new Comparator[] {stringComparator,
@@ -792,8 +792,8 @@ public class LenientDateParser {
         // get separators from formats
         // we walk through to see what can come before or after a separator, accumulating them all together
         FormatParser formatParser = new FormatParser();
-        Map<String, EnumSet<Type>> beforeTypes = new HashMap();
-        Map<String, EnumSet<Type>> afterTypes = new HashMap();
+        Map<String, EnumSet<Type>> beforeTypes = new HashMap<String, EnumSet<Type>>();
+        Map<String, EnumSet<Type>> afterTypes = new HashMap<String, EnumSet<Type>>();
         EnumSet<Type> nonDateTypes = EnumSet.allOf(Type.class);
         nonDateTypes.removeAll(dateTypes);
         EnumSet<Type> nonTimeTypes = EnumSet.allOf(Type.class);
@@ -810,7 +810,7 @@ public class LenientDateParser {
         add(beforeTypes, " ", timeTypes);
         add(afterTypes, " ", timeTypes);
 
-        Set<String> allSeparators = new HashSet(beforeTypes.keySet());
+        Set<String> allSeparators = new HashSet<String>(beforeTypes.keySet());
         allSeparators.addAll(afterTypes.keySet());
         for (String item : allSeparators) {
             loadItem(map, item, beforeTypes.get(item), afterTypes.get(item));
@@ -930,7 +930,7 @@ public class LenientDateParser {
 
         // add missing Etc zones
         canonicalZones = new TreeSet<String>(supplementalData.getCanonicalZones());
-        Set zones = getAllGmtZones();
+        Set<String> zones = getAllGmtZones();
         zones.removeAll(canonicalZones);
         System.out.println("Missing GMT Zones: " + zones);
         canonicalZones.addAll(zones);
@@ -945,7 +945,7 @@ public class LenientDateParser {
     }
 
     private static Set<String> getFirstMinusSecond(Set<String> first, Set<String> second) {
-        Set<String> difference = new TreeSet(first);
+        Set<String> difference = new TreeSet<String>(first);
         difference.removeAll(second);
         return difference;
     }
@@ -1101,8 +1101,8 @@ public class LenientDateParser {
         }
     };
 
-    private static LinkedHashSet getIcuEquivalentZones(String zoneID) {
-        LinkedHashSet result = new LinkedHashSet();
+    private static LinkedHashSet<String> getIcuEquivalentZones(String zoneID) {
+        LinkedHashSet<String> result = new LinkedHashSet<String>();
         final int count = TimeZone.countEquivalentIDs(zoneID);
         for (int i = 0; i < count; ++i) {
             result.add(TimeZone.getEquivalentID(zoneID, i));
@@ -1123,7 +1123,7 @@ public class LenientDateParser {
             System.out.println("Adding Pattern:\t" + pattern);
         }
         formatParser.set(pattern);
-        List list = formatParser.getItems();
+        List<Object> list = formatParser.getItems();
         List<Type> temp = new ArrayList<Type>();
         for (int i = 0; i < list.size(); ++i) {
             Object item = list.get(i);

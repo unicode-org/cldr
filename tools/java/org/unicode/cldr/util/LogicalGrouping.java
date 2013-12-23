@@ -139,7 +139,6 @@ public class LogicalGrouping {
         if (!pluralType.equals("zero") && !pluralType.equals("one")) return false;
 
         PluralRules pluralRules = getPluralInfo(cldrFile).getPluralRules();
-        String lastElement = parts.getElement(-1);
         parts.setAttribute(-1, "count", "0");
         Set<Double> explicits = new HashSet<Double>();
         if (cldrFile.isHere(parts.toString())) {

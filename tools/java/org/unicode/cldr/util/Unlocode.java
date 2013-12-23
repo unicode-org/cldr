@@ -2,17 +2,13 @@ package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Reader;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -21,13 +17,10 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.FileUtilities;
-import org.unicode.cldr.tool.CLDRModify;
-import org.unicode.cldr.tool.ConvertLanguageData;
 import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.ChainedMap.M3;
 
-import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.Transform;
@@ -49,7 +42,7 @@ public class Unlocode {
             this(Arrays.asList(name));
         }
         public Iso3166_2Data(Collection<String> names) {
-            this.names = Collections.unmodifiableSet(new LinkedHashSet(names));
+            this.names = Collections.unmodifiableSet(new LinkedHashSet<String>(names));
         }
         @Override
         public String toString() {
@@ -65,7 +58,7 @@ public class Unlocode {
         }
         @Override
         public Iso3166_2Data merge(Iso3166_2Data b) {
-            LinkedHashSet set = new LinkedHashSet(names);
+            LinkedHashSet<String> set = new LinkedHashSet<String>(names);
             set.addAll(b.names);
             return new Iso3166_2Data(set);
         }
@@ -84,7 +77,7 @@ public class Unlocode {
 
         public LocodeData(String locode, Collection<String> names, String subdivision, float north, float east) {
             this.locode = locode;
-            this.names = Collections.unmodifiableSet(new LinkedHashSet(names));
+            this.names = Collections.unmodifiableSet(new LinkedHashSet<String>(names));
             this.subdivision = subdivision;
             this.north = north;
             this.east = east;
@@ -121,7 +114,7 @@ public class Unlocode {
                 && subdivision.equals(other.subdivision)
                 && north == other.north
                 && east == other.east) {
-                LinkedHashSet set = new LinkedHashSet(names);
+                LinkedHashSet<String> set = new LinkedHashSet<String>(names);
                 set.addAll(other.names);
                 return new LocodeData(locode, set, subdivision, north, east);
             }
@@ -307,9 +300,6 @@ public class Unlocode {
                 break;
             }
             line = line.trim();
-            if (line.contains("Hagåtña")) {
-                int x = 0;
-            }
             if (line.isEmpty()) {
                 continue;
             }
@@ -398,7 +388,6 @@ public class Unlocode {
     }
 
     public static String removeParens(String name, Output<String> tempOutput) {
-        String orginal = name;
         int paren = name.indexOf("(");
         tempOutput.value = null;
         if (paren > 0) {
@@ -676,7 +665,7 @@ public class Unlocode {
         if (locodeDatas == null) {
             errors2.add("** No matching record for\t" + countryName + "\t" + countryCode + "\t" + cityName);
         } else {
-            Set<LocodeData> rem = new LinkedHashSet();
+            Set<LocodeData> rem = new LinkedHashSet<LocodeData>();
             for (LocodeData x : locodeDatas) {
                 if (x.locode.startsWith(countryCode)) {
                     if (x.subdivision.equals(subdivision)) {

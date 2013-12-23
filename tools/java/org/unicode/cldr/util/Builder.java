@@ -132,6 +132,7 @@ public final class Builder {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public CBuilder<E, U> addAll(E... items) {
             for (E item : items) {
                 collection.add(item);
@@ -150,6 +151,7 @@ public final class Builder {
             return addAll(Transformer.iterator(transform, c));
         }
 
+        @SuppressWarnings("unchecked")
         public <T> CBuilder<E, U> addAll(Transform<T, E> transform, T... items) {
             return addAll(Transformer.iterator(transform, items));
         }
@@ -173,6 +175,7 @@ public final class Builder {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public CBuilder<E, U> removeAll(E... items) {
             for (E item : items) {
                 collection.remove(item);
@@ -192,6 +195,7 @@ public final class Builder {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public CBuilder<E, U> retainAll(E... items) {
             collection.retainAll(Arrays.asList(items));
             return this;
@@ -218,6 +222,7 @@ public final class Builder {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public CBuilder<E, U> xor(E... items) {
             return xor(Arrays.asList(items));
         }
@@ -235,6 +240,7 @@ public final class Builder {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public CBuilder<E, U> keepNew(E... items) {
             return keepNew(Arrays.asList(items));
         }
@@ -331,6 +337,7 @@ public final class Builder {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public MBuilder<K, V, M> on(K... keys) {
             this.keys = Arrays.asList(keys);
             return this;
@@ -349,6 +356,7 @@ public final class Builder {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public MBuilder<K, V, M> put(V... values) {
             int v = 0;
             for (K key : keys) {
@@ -384,6 +392,7 @@ public final class Builder {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public MBuilder<K, V, M> putAll(K[][] m) {
             for (K[] pair : m) {
                 put(pair[0], (V) (pair[1]));
@@ -409,6 +418,7 @@ public final class Builder {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public MBuilder<K, V, M> removeAll(K... keys) {
             return removeAll(Arrays.asList(keys));
         }
@@ -428,6 +438,7 @@ public final class Builder {
             return this;
         }
 
+        @SuppressWarnings("unchecked")
         public MBuilder<K, V, M> retainAll(K... keys) {
             return retainAll(Arrays.asList(keys));
         }

@@ -977,31 +977,9 @@ public class TestBasic extends TestFmwk {
     }
 
     public void TestDtdComparisonsAll() {
-        CLDRConfig config = CLDRConfig.getInstance();
-        File dir = config.getCldrBaseDirectory();
-        FilenameFilter filter = new FilenameFilter() {
-            public boolean accept(File dir, String name) {
-                return name.endsWith(".xml") 
-                    && !name.startsWith("#") 
-                    && !dir.toString().contains("/tools/")
-                    && !dir.toString().contains("/specs/");
-            }
-        };
-        Set<File> list = getFilesRecursively(dir, filter, new LinkedHashSet<File>());
-        for (File file : list) {
+        for (File file : CLDRConfig.getInstance().getAllXMLFiles()) {
             checkDtdComparatorFor(file, null);
         }
-    }
-
-    public Set<File> getFilesRecursively(File directory, FilenameFilter filter, Set<File> toAddTo) {
-        for (File subfile : directory.listFiles()) {
-            if (subfile.isDirectory()) {
-                getFilesRecursively(subfile, filter, toAddTo);
-            } else if (filter.accept(directory, subfile.getName())) {
-                toAddTo.add(subfile);
-            }
-        }
-        return toAddTo;
     }
 
     public void checkDtdComparatorFor(File fileToRead, DtdType overrideDtdType) {        

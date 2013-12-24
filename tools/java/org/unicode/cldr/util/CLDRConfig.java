@@ -1,7 +1,12 @@
 package org.unicode.cldr.util;
 
 import java.io.File;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
@@ -290,4 +295,89 @@ public class CLDRConfig extends Properties {
             return null;
         }
     }
+
+    /**
+     * Get all CLDR XML files in the CLDR base directory.
+     * @return
+     */
+    public Set<File> getAllXMLFiles() {
+        FilenameFilter filter = new FilenameFilter() {
+            public boolean accept(File dir, String name) {
+                return name.endsWith(".xml") 
+                    && !name.startsWith("#"); // skip junk and backup files
+            }
+        };
+        final File dir = getCldrBaseDirectory();
+        Set<File> list;
+        list = getCLDRFilesMatching(filter, dir);
+        return list;
+    }
+
+    /**
+     * Return all CLDR data files matching this filter
+     * @param filter matching filter
+     * @param baseDir base directory, see {@link #getCldrBaseDirectory()}
+     * @return set of files
+     */
+    public Set<File> getCLDRFilesMatching(FilenameFilter filter, final File baseDir) {
+        Set<File> list;
+        list = new LinkedHashSet<File>();
+        for (String subdir : getCLDRDataDirectories()) {
+            getFilesRecursively(new File(baseDir,subdir), filter, list);
+        }
+        return list;
+    }
+    
+    /**
+     * TODO: better place for these constants?
+     */
+    private static final String COMMON_DIR = "common";
+    /**
+     * TODO: better place for these constants?
+     */
+    private static final String EXEMPLARS_DIR = "exemplars";
+    /**
+     * TODO: better place for these constants?
+     */
+    private static final String SEED_DIR = "seed";
+    /**
+     * TODO: better place for these constants?
+     */
+    private static final String KEYBOARDS_DIR = "keyboards"; 
+    /**
+     * TODO: better place for these constants?
+     */
+    private static final String CLDR_DATA_DIRECTORIES[] = { COMMON_DIR, SEED_DIR, KEYBOARDS_DIR, EXEMPLARS_DIR };
+
+    /**
+     * Get a list of CLDR directories containing actual data
+     * @return an iterable containing the names of all CLDR data subdirectories
+     */
+    public Iterable<String> getCLDRDataDirectories() {
+        return Arrays.asList(CLDR_DATA_DIRECTORIES);
+    }
+    
+    /**
+     * Utility function. Recursively add to a list of files. Skips ".svn" directories.
+     * @param directory base directory
+     * @param filter filter to restrict files added
+     * @param toAddTo set to add to
+     * @return returns toAddTo.
+     */
+    public Set<File> getFilesRecursively(File directory, FilenameFilter filter, Set<File> toAddTo) {
+        File files[] = directory.listFiles();
+        if(files!=null) {
+            for (File subfile : files) {
+                if (subfile.isDirectory()) {
+                    if(!subfile.getName().equals(".svn")) {
+                        getFilesRecursively(subfile, filter, toAddTo);
+                    }
+                } else if (filter.accept(directory, subfile.getName())) {
+                    toAddTo.add(subfile);
+                }
+            }
+        }
+        return toAddTo;
+    }
+
 }

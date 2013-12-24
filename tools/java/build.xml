@@ -21,7 +21,8 @@
 
         <property name="CLDR_DIR" value="${env.CLDR_DIR}"/>
         <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false"/>
-        <property name="jvm_options" value="${env.JVM_OPTIONS}"/>
+        <property name="env.JVM_EXTRA_OPTIONS" value=""/>
+        <property name="jvm_options" value="${env.JVM_OPTIONS} ${env.JVM_EXTRA_OPTIONS}"/>
 
         
         <condition property="is.icu4j.classes.set" >
@@ -29,14 +30,14 @@
                 <isset property="env.ICU4J_CLASSES" />
                 <isset property="env.ICU4J_JAR" />
             </or>
-        </condition > 
+        </condition> 
         
         <condition property="is.utilities.classes.set" >
             <or>
                 <isset property="env.ICU4J_CLASSES" />
                 <isset property="env.UTILITIES_JAR" />
             </or>
-        </condition > 
+        </condition> 
 
         <mkdir dir="${build.dir}"/>
         

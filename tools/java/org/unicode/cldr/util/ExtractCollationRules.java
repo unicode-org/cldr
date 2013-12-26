@@ -32,7 +32,6 @@ public class ExtractCollationRules {
         type_rules.clear();
         String lastType = "";
         rules.setLength(0);
-        int lastLen = 0;
 
         String context = null;
 
@@ -49,7 +48,6 @@ public class ExtractCollationRules {
                 lastType = type;
                 type_rules.put(lastType, rules.toString());
                 rules.setLength(0);
-                lastLen = 0;
             }
             String mainType = parts.getElement(3);
             // base?, settings?, suppress_contractions?, optimize?
@@ -127,10 +125,10 @@ public class ExtractCollationRules {
         }
     }
 
-    private void writeSettings(Map attributes, StringBuffer results) {
-        for (Iterator it = attributes.keySet().iterator(); it.hasNext();) {
-            String attribute = (String) it.next();
-            String value = (String) attributes.get(attribute);
+    private void writeSettings(Map<String, String> attributes, StringBuffer results) {
+        for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext();) {
+            String attribute = it.next();
+            String value = attributes.get(attribute);
             // TODO fix different cases
             results.append("[" + attribute + " " + value + "]" + CldrUtility.LINE_SEPARATOR);
             // if (attribute.equals("normalization")) {

@@ -8,6 +8,7 @@ public class DelegatingIterator<T> implements Iterator<T> {
     private Iterator<T>[] iterators;
     private int item = 0;
 
+    @SuppressWarnings("unchecked")
     public DelegatingIterator(Iterator<T>... iterators) {
         this.iterators = iterators;
     }
@@ -38,10 +39,12 @@ public class DelegatingIterator<T> implements Iterator<T> {
         throw new UnsupportedOperationException();
     }
 
+    @SuppressWarnings("unchecked")
     public static <T> Iterable<T> iterable(Iterable<T>... s) {
         return new MyIterable<T>(s);
     }
 
+    @SuppressWarnings("unchecked")
     public static <T> T[] array(T... s) {
         return s;
     }
@@ -49,6 +52,7 @@ public class DelegatingIterator<T> implements Iterator<T> {
     private static class MyIterable<T> implements Iterable<T> {
         public Iterable<T>[] iterables;
 
+        @SuppressWarnings("unchecked")
         public MyIterable(Iterable<T>... s) {
             iterables = s;
         }

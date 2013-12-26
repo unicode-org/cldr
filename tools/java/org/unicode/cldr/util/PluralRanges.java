@@ -1,17 +1,10 @@
 package org.unicode.cldr.util;
 
-import java.util.EnumMap;
 import java.util.EnumSet;
 
-import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.impl.Utility;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalRange;
-import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
-import com.ibm.icu.text.PluralRules.SampleType;
 import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;

@@ -16,7 +16,7 @@ public class SpreadSheet {
 
     public static List<List<String>> convert(BufferedReader r) throws IOException {
         List<List<String>> result = new ArrayList<List<String>>();
-        boolean inQuote = false;
+        // boolean inQuote = false;
         while (true) {
             String line = r.readLine();
             if (line == null) break;

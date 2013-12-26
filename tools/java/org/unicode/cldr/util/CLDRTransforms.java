@@ -123,7 +123,7 @@ public class CLDRTransforms {
         // the following are file names, not IDs, so the dependencies have to go both directions
         // List<String> extras = new ArrayList<String>();
 
-        Relation<Matcher, String> dependsOn = new Relation(new LinkedHashMap(), LinkedHashSet.class);
+        Relation<Matcher, String> dependsOn = Relation.of(new LinkedHashMap<Matcher, Set<String>>(), LinkedHashSet.class);
         {
             addDependency("Latin-(Jamo|Hangul)(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");
             addDependency("(Jamo|Hangul)-Latin(/.*)?", "Latin-ConjoiningJamo", "ConjoiningJamo-Latin");

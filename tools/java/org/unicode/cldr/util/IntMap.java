@@ -75,6 +75,7 @@ public abstract class IntMap<T> {
     }
 
     public static class BasicIntMapFactory<T> implements IntMapFactory<T> {
+        @SuppressWarnings("unchecked")
         public BasicIntMap<T> make(Collection<T> values) {
             return new BasicIntMap<T>((T[]) new ArrayList<T>(new HashSet<T>(values)).toArray());
         }
@@ -130,7 +131,7 @@ public abstract class IntMap<T> {
     public static class CompactStringIntMapFactory implements IntMapFactory<String> {
         public CompactStringIntMap make(Collection<String> values) {
             // first sort, longest first
-            Set<String> sorted = new TreeSet(LONGEST_FIRST_COMPARATOR);
+            Set<String> sorted = new TreeSet<String>(LONGEST_FIRST_COMPARATOR);
             sorted.addAll(values);
 
             StringBuilder data = new StringBuilder();

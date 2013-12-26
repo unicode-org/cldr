@@ -172,6 +172,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
          * @param items
          * @return this, for chaining
          */
+        @SuppressWarnings("unchecked")
         public Builder<T> add(T... items) {
             if (items.length < 2) {
                 if (items.length == 1) {
@@ -331,7 +332,7 @@ public class DiscreteComparator<T> implements Comparator<T> {
             return result.toString();
         }
 
-        @SuppressWarnings("unchecked")
+        @SuppressWarnings({ "unchecked", "rawtypes" })
         public int compareTo(Node<T> o) {
             return ((Comparable) me).compareTo((Comparable) (o.me));
         }

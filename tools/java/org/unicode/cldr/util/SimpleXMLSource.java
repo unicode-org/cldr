@@ -121,7 +121,7 @@ public class SimpleXMLSource extends XMLSource {
         // build a Relation mapping value to paths, if needed
         synchronized (VALUE_TO_PATH_MUTEX) {
             if (VALUE_TO_PATH == null) {
-                VALUE_TO_PATH = new Relation(new HashMap(), HashSet.class);
+                VALUE_TO_PATH = Relation.of(new HashMap<String, Set<String>>(), HashSet.class);
                 for (Iterator<String> it = iterator(); it.hasNext();) {
                     String path = it.next();
                     String value = normalize(getValueAtDPath(path));

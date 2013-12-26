@@ -85,6 +85,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
         return this;
     }
 
+    @SuppressWarnings("unchecked")
     public MapComparator<K> add(K... data) {
         for (int i = 0; i < data.length; ++i) {
             add(data[i]);
@@ -94,6 +95,7 @@ public class MapComparator<K> implements Comparator<K>, Freezable<MapComparator<
 
     private static final UnicodeSet numbers = new UnicodeSet("[\\-0-9.]").freeze();
 
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public int compare(K a, K b) {
         if (false && (a.equals("lines") || b.equals("lines"))) {
             System.out.println();

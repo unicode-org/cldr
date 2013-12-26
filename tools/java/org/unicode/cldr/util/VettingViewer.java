@@ -214,7 +214,7 @@ public class VettingViewer<T> {
     static final Pattern breaks = Pattern.compile("\\|");
     static final OutdatedPaths outdatedPaths = new OutdatedPaths();
 
-    private static final UnicodeSet NEEDS_PERCENT_ESCAPED = new UnicodeSet("[[\\u0000-\\u009F]-[a-zA-z0-9]]");
+//    private static final UnicodeSet NEEDS_PERCENT_ESCAPED = new UnicodeSet("[[\\u0000-\\u009F]-[a-zA-z0-9]]");
 //    private static final Transform<String, String> percentEscape = new Transform<String, String>() {
 //        @Override
 //        public String transform(String source) {

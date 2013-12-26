@@ -28,9 +28,9 @@ public class ElementAttributeInfo {
 
     private DtdType dtdType;
     private Map<R2<String, String>, R3<Set<String>, String, String>> elementAttribute2Data = new TreeMap<R2<String, String>, R3<Set<String>, String, String>>();
-    private Relation<String, String> element2children = new Relation(new LinkedHashMap(), LinkedHashSet.class);
-    private Relation<String, String> element2parents = new Relation(new LinkedHashMap(), LinkedHashSet.class);
-    private Relation<String, String> element2attributes = new Relation(new LinkedHashMap(), LinkedHashSet.class);
+    private Relation<String, String> element2children = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
+    private Relation<String, String> element2parents = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
+    private Relation<String, String> element2attributes = Relation.of(new LinkedHashMap<String, Set<String>>(), LinkedHashSet.class);
 
     static Map<String, Map<DtdType, ElementAttributeInfo>> cache = new HashMap<String, Map<DtdType, ElementAttributeInfo>>(); // new
                                                                                                                               // HashMap<DtdType,

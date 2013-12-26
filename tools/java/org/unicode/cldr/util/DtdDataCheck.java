@@ -1,11 +1,9 @@
 package org.unicode.cldr.util;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -14,7 +12,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DtdData.Attribute;
@@ -28,7 +25,6 @@ import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Row.R4;
 
 public class DtdDataCheck {
@@ -45,8 +41,6 @@ public class DtdDataCheck {
         HashSet<Element> seen = new HashSet<Element>();
         Set<Element> elementsMissingDraft = new LinkedHashSet<Element>();
         Set<Element> elementsMissingAlt = new LinkedHashSet<Element>();
-        Set<Element> elementsMissingAlias = new LinkedHashSet<Element>();
-        Set<Element> elementsMissingSpecial = new LinkedHashSet<Element>();
         static final Set<String> SKIP_ATTRIBUTES = new HashSet<String>(Arrays.asList(
             "draft", "alt", "standard", "references"));
         static final Set<String> SKIP_ELEMENTS = new HashSet<String>(Arrays.asList(
@@ -186,7 +180,7 @@ public class DtdDataCheck {
             PrintWriter br = BagFormatter.openUTF8Writer("/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/dataproj/src/temp/", type + "-gen.dtd");
             br.append(dtdData.toString());
             br.close();
-            long duration = timer.stop();
+            timer.stop();
             System.out.println("Time: " + timer);
             if (true) {
                 return;
@@ -244,7 +238,7 @@ public class DtdDataCheck {
             timer.start();
             DtdType type = CLDRFile.DtdType.valueOf(arg);
             DtdData dtdData = DtdData.getInstance(type);
-            long duration = timer.stop();
+            timer.stop();
             System.out.println("Time: " + timer);
         }
         int i = 0;

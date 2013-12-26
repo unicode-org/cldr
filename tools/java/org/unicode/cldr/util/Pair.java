@@ -78,6 +78,7 @@ public final class Pair<T extends Comparable<?>, U extends Comparable<?>> implem
         }
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     public int compareTo(Object other) {
         Pair that = (Pair) other;
         int trial = Utility.checkCompare(first, that.first);

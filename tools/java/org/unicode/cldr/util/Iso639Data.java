@@ -272,10 +272,6 @@ public class Iso639Data {
         Id, Print_Name, Inverted_Name
     };
 
-    private enum Status {
-        BASE, BEFORE_CELL, IN_CELL, IN_INSIDE_TABLE
-    };
-
     private static void getData() {
         try {
             BufferedReader in = CldrUtility.getUTF8Data("iso-639-3-version.tab");
@@ -284,17 +280,17 @@ public class Iso639Data {
 
             in = CldrUtility.getUTF8Data("iso-639-3.tab");
             Pattern tabs = Pattern.compile("\\t");
-            toAlpha3 = new HashMap();
-            fromAlpha3 = new HashMap();
-            toBiblio3 = new HashMap();
-            fromBiblio3 = new HashMap();
-            toScope = new HashMap();
-            toType = new HashMap();
-            toNames = new Relation(new TreeMap(), LinkedHashSet.class);
-            toRetirements = new Relation(new TreeMap(), LinkedHashSet.class);
-            macro_encompassed = new Relation(new TreeMap(), LinkedHashSet.class);
-            encompassed_macro = new HashMap();
-            toSource = new HashMap();
+            toAlpha3 = new HashMap<String, String>();
+            fromAlpha3 = new HashMap<String, String>();
+            toBiblio3 = new HashMap<String, String>();
+            fromBiblio3 = new HashMap<String, String>();
+            toScope = new HashMap<String, Scope>();
+            toType = new HashMap<String, Type>();
+            toNames = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
+            toRetirements = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
+            macro_encompassed = Relation.of(new TreeMap<String, Set<String>>(), LinkedHashSet.class);
+            encompassed_macro = new HashMap<String, String>();
+            toSource = new HashMap<String, Source>();
             toSource.put("sh", Source.ISO_639_1); // add deprecated language
 
             while (true) {
@@ -406,7 +402,6 @@ public class Iso639Data {
             // an English name,
             // and a French name of a language are all separated by pipe (|)
             // characters.
-            int addCounter = 0;
             while (true) {
                 String line = in.readLine();
                 if (line == null)

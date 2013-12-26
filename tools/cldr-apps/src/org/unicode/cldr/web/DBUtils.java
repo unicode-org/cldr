@@ -11,6 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.Driver;
@@ -31,7 +32,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -43,13 +43,11 @@ import org.unicode.cldr.util.StackTracker;
 
 import com.ibm.icu.text.UnicodeSet;
 
-//import org.apache.tomcat.dbcp.dbcp.BasicDataSource;
-
 /**
  * All of the database related stuff has been moved here.
- * 
+ *
  * @author srl
- * 
+ *
  */
 public class DBUtils {
     private static final boolean DEBUG = false;// CldrUtility.getProperty("TEST",
@@ -75,7 +73,7 @@ public class DBUtils {
 
     /**
      * Return a string as to which SQL flavor is in use.
-     * 
+     *
      * @return
      */
     public static final String getDBKind() {
@@ -630,8 +628,10 @@ public class DBUtils {
     }
 
     public void doShutdown() throws SQLException {
-        if (datasource != null && datasource instanceof BasicDataSource) {
-            ((BasicDataSource) datasource).close();
+        try {
+            DBUtils.close(datasource);
+        } catch (IllegalArgumentException iae) {
+            System.err.println("DB Shutdown in progress, ignoring: " + iae);
         }
         datasource = null;
         if (db_Derby) {
@@ -729,7 +729,7 @@ public class DBUtils {
 
     /**
      * Shortcut for certain statements.
-     * 
+     *
      * @param conn
      * @param str
      * @return
@@ -741,7 +741,7 @@ public class DBUtils {
 
     /**
      * Shortcut for certain statements.
-     * 
+     *
      * @param conn
      * @param str
      * @return
@@ -753,7 +753,7 @@ public class DBUtils {
 
     /**
      * prepare statements for this connection
-     * 
+     *
      * @throws SQLException
      **/
     public static final PreparedStatement prepareStatementForwardReadOnly(Connection conn, String name, String sql)
@@ -779,7 +779,7 @@ public class DBUtils {
 
     /**
      * prepare statements for this connection. Assumes generated keys.
-     * 
+     *
      * @throws SQLException
      **/
     public static final PreparedStatement prepareStatement(Connection conn, String name, String sql) throws SQLException {
@@ -805,7 +805,7 @@ public class DBUtils {
     /**
      * Close all of the objects in order, if not null. Knows how to close
      * Connection, Statement, ResultSet, otherwise you'll get an IAE.
-     * 
+     *
      * @param a1
      * @throws SQLException
      */
@@ -827,8 +827,25 @@ public class DBUtils {
                 } else if (o instanceof DBCloseable) {
                     ((DBCloseable) o).close();
                 } else {
-                    throw new IllegalArgumentException("Don't know how to close " + an(o.getClass().getSimpleName()) + " "
-                        + o.getClass().getName());
+                    final Class theClass = o.getClass();
+                    final String simpleName = theClass.getSimpleName();
+                    if(simpleName.equals("BasicDataSource")) { // could expand this later, if we want to generically call close()
+                        try {
+                            // try to find a "close"
+                            final Method m = theClass.getDeclaredMethod("close");
+                            if(m!=null) {
+                                System.err.println("Attempting to call close() on " + theClass.getName());
+                                m.invoke(o);
+                            }
+                        } catch(Exception nsm) {
+                            nsm.printStackTrace();
+                            System.err.println("Caught exception " + nsm + " - so, don't know how to close " + an(simpleName) + " "
+                                                               + theClass.getName());
+                        }
+                    } else {
+                        throw new IllegalArgumentException("Don't know how to close " + an(simpleName) + " "
+                                                           + theClass.getName());
+                    }
                 }
             } catch (SQLException e) {
                 System.err.println(unchainSqlException(e));
@@ -840,7 +857,7 @@ public class DBUtils {
 
     /**
      * Print A or AN appropriately.
-     * 
+     *
      * @param str
      * @return
      */
@@ -1067,9 +1084,9 @@ public class DBUtils {
 
     /**
      * Interface to an object that contains a held Connection
-     * 
+     *
      * @author srl
-     * 
+     *
      */
     public interface ConnectionHolder {
         /**
@@ -1080,9 +1097,9 @@ public class DBUtils {
 
     /**
      * Interface to an object that DBUtils.close can close.
-     * 
+     *
      * @author srl
-     * 
+     *
      */
     public interface DBCloseable {
         /**
@@ -1297,7 +1314,7 @@ public class DBUtils {
      * Get the first row of the first column.  Useful when the query is very simple, such as a count.
      * @param obj
      * @return the int
-     * @throws JSONException 
+     * @throws JSONException
      */
     public static final int getFirstInt(JSONObject json) throws JSONException {
         return json.getJSONArray("data").getJSONArray(0).getInt(0);

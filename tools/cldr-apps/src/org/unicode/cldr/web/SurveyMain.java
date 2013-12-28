@@ -123,8 +123,10 @@ import com.ibm.icu.util.ULocale;
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Externalizable {
 
+    public static final String CLDR_OLDVERSION = "CLDR_OLDVERSION";
+    public static final String CLDR_NEWVERSION = "CLDR_NEWVERSION";
     public static final String CLDR_DIR = "CLDR_DIR";
-    public static final String CLDR_DIR_REPOS = "http://unicode.org/repos/cldr/trunk";
+    public static final String CLDR_DIR_REPOS = "http://unicode.org/repos/cldr";
 
     public static final String NEWVERSION_EPOCH = "1970-01-01 00:00:00";
 
@@ -241,7 +243,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static String oldVersion = "OLDVERSION";
     private static String newVersion = "NEWVERSION";
 
-    private static boolean isConfigSetup = false;
+    public static boolean isConfigSetup = false;
 
     /**
      * @return the isUnofficial. - will return true (even in production) until configfile is setup 
@@ -912,7 +914,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         CLDRConfig survprops = CLDRConfig.getInstance();
 
         if (!(survprops instanceof CLDRConfigImpl)) {
-            File tmpHome = new File("testing_cldr_home");
+            File tmpHome = new File("testing_cldr_home");   
             if (!tmpHome.isDirectory()) {
                 if (!tmpHome.mkdir()) {
                     throw new InternalError("Couldn't create " + tmpHome.getAbsolutePath());
@@ -1859,7 +1861,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public void doCoverage(WebContext ctx) {
         boolean showCodes = false; // ctx.prefBool(PREF_SHOWCODES);
-        final String votesAfter = SurveyMain.getSQLVotesAfter();
         printHeader(ctx, "Locale Coverage");
 
         if (!UserRegistry.userIsVetter(ctx.session.user)) {
@@ -1871,7 +1872,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         showAddUser(ctx);
 
-        ctx.println("        <i>Showing only votes cast after " + SurveyMain.getVotesAfterDate() + "-" + SurveyMain.defaultTimezoneInfo() + "</i><br/>");
+        ctx.println("        <i>Showing only votes in the current release</i><br/>");
         ctx.print("<br>");
         ctx.println("<a href='" + ctx.url() + "'><b>SurveyTool in</b></a><hr>");
         String org = ctx.session.user.org;
@@ -1942,11 +1943,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
         try {
             conn = dbUtils.getDBConnection();
-            psMySubmit = conn.prepareStatement("select COUNT(submitter) from cldr_votevalue where submitter=? and last_mod > "
-                + votesAfter + "", ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            psMySubmit = conn.prepareStatement("select COUNT(submitter) from "+DBUtils.Table.VOTE_VALUE+" where submitter=?",
+                    ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
             psnSubmit = conn.prepareStatement(
-                "select COUNT(submitter) from cldr_votevalue where submitter=? and locale=? and last_mod > " + votesAfter
-                    + "", ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+                "select COUNT(submitter) from "+DBUtils.Table.VOTE_VALUE+" where submitter=? and locale=?",
+                    ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
 
             synchronized (reg) {
                 java.sql.ResultSet rs = reg.list(org, conn);
@@ -4510,12 +4511,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @return
      */
     public synchronized Factory getOldFactory() {
+        final String repository = CLDRConfig.getInstance().getProperty("CLDR_REPOS", CLDR_DIR_REPOS);
         if (gOldFactory == null) {
             File oldBase = new File(getFileBaseOld());
             File oldCommon = new File(oldBase, "common/main");
             String verAsMilestone = "release-" + oldVersion.replaceAll("\\.", "-");
             if (!oldCommon.isDirectory()) {
-                final String url = "http://unicode.org/repos/cldr/tags/" + verAsMilestone + "/common";
+                final String url = repository+"/tags/" + verAsMilestone + "/common";
                 try {
                     getOutputFileManager().svnExport(oldCommon.getParentFile(), url);
                 } catch (SVNException e) {
@@ -4525,7 +4527,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     throw new InternalError(msg);
                 }
                 if (!oldCommon.isDirectory()) {
-                    String msg = ("Could not read old data - " + oldCommon.getAbsolutePath() + ": you might do 'svn export  "
+                    String msg = ("Could not read old data - " + oldCommon.getAbsolutePath() + ": you might do 'svn export "+repository+"/tags/" + verAsMilestone + "/common "
                         + oldBase.getAbsolutePath() + "/common' - or check " + getOldVersionParam() + " and CLDR_OLDVERSION parameters. ");
                     // svn export http://unicode.org/repos/cldr/tags/release-1-8
                     // 1.8
@@ -4536,7 +4538,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
             File oldSeed = new File(oldBase, "seed/main");
             if (!oldSeed.isDirectory()) {
-                final String url = "http://unicode.org/repos/cldr/tags/" + verAsMilestone + "/seed";
+                final String url = repository+"/tags/" + verAsMilestone + "/seed";
                 try {
                     getOutputFileManager().svnExport(oldSeed.getParentFile(), url);
                 } catch (SVNException e) {
@@ -4548,7 +4550,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                 if (!oldSeed.isDirectory()) {
                     String msg = ("Could not read old seed data - " + oldSeed.getAbsolutePath()
-                        + ": you might do 'svn export http://unicode.org/repos/cldr/tags/" + verAsMilestone + "/seed "
+                        + ": you might do 'svn export "+repository+"/tags/" + verAsMilestone + "/seed "
                         + oldBase.getAbsolutePath() + "/seed' - or check " + getOldVersionParam() + " and CLDR_OLDVERSION parameters. ");
                     // svn export http://unicode.org/repos/cldr/tags/release-1-8
                     // 1.8
@@ -5783,8 +5785,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
             System.out.println("Phase: " + phase() + ", cPhase: " + phase().getCPhase() + ", " + getCurrevStr());
             progress.update("Setup props..");
-            newVersion = survprops.getProperty("CLDR_NEWVERSION", "CLDR_NEWVERSION");
-            oldVersion = survprops.getProperty("CLDR_OLDVERSION", "CLDR_OLDVERSION");
+            newVersion = survprops.getProperty(CLDR_NEWVERSION, CLDR_NEWVERSION);
+            oldVersion = survprops.getProperty(CLDR_OLDVERSION, CLDR_OLDVERSION);
             progress.update("Setup dirs..");
 
             getVetdir();

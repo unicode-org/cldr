@@ -47,6 +47,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -320,15 +321,15 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             diskFile = sm.getDiskFactory().make(locale.getBaseName(), true).freeze();
             pathsForFile = phf.pathsForFile(diskFile);
 
-            if (checkHadVotesSometimeThisRelease) {
-                votesSometimeThisRelease = loadVotesSometimeThisRelease(locale);
-                if (votesSometimeThisRelease == null) {
-                    SurveyLog.warnOnce("Note: giving up on loading 'sometime this release' votes. The database name would be "
-                        + getVotesSometimeTableName());
-                    checkHadVotesSometimeThisRelease = false; // don't try
-                                                              // anymore.
-                }
-            }
+//            if (checkHadVotesSometimeThisRelease) {
+//                votesSometimeThisRelease = loadVotesSometimeThisRelease(locale);
+//                if (votesSometimeThisRelease == null) {
+//                    SurveyLog.warnOnce("Note: giving up on loading 'sometime this release' votes. The database name would be "
+//                        + getVotesSometimeTableName());
+//                    checkHadVotesSometimeThisRelease = false; // don't try
+//                                                              // anymore.
+//                }
+//            }
             stamp = mintLocaleStamp(locale);
         }
 
@@ -398,7 +399,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 VoteResolver<String> resolver = null; // save recalculating
                                                       // this.
                 Set<String> hitXpaths = new HashSet<String>();
-                ElapsedTimer et = (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale + " - cutoff = " + SurveyMain.getSQLVotesAfter()) : null;
+                ElapsedTimer et = (SurveyLog.DEBUG) ? new ElapsedTimer("Loading PLD for " + locale) : null;
                 Connection conn = null;
                 PreparedStatement ps = null;
                 PreparedStatement ps2 = null;
@@ -439,7 +440,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         }
                     }
 
-                    ps2 = DBUtils.prepareStatementWithArgs(conn, "select xpath,value from " + CLDR_VBV_ALT + " where locale=?",
+                    ps2 = DBUtils.prepareStatementWithArgs(conn, "select xpath,value from " + DBUtils.Table.VOTE_VALUE_ALT + " where locale=?",
                         locale);
                     rs2 = ps2.executeQuery();
                     while (rs2.next()) {
@@ -825,13 +826,13 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         add0 = "IGNORE";
                         // add1="ON DUPLICATE KEY IGNORE";
                     } else {
-                        add2 = "and not exists (select * from " + CLDR_VBV_ALT + " where " + CLDR_VBV_ALT + ".locale=" + CLDR_VBV
-                            + ".locale and " + CLDR_VBV_ALT + ".xpath=" + CLDR_VBV + ".xpath " + " and " + CLDR_VBV_ALT
-                            + ".value=" + CLDR_VBV + ".value )";
+                        add2 = "and not exists (select * from " + DBUtils.Table.VOTE_VALUE_ALT + " where " + DBUtils.Table.VOTE_VALUE_ALT + ".locale=" + DBUtils.Table.VOTE_VALUE
+                            + ".locale and " + DBUtils.Table.VOTE_VALUE_ALT + ".xpath=" + DBUtils.Table.VOTE_VALUE + ".xpath " + " and " + DBUtils.Table.VOTE_VALUE_ALT
+                            + ".value=" + DBUtils.Table.VOTE_VALUE + ".value )";
                     }
-                    String sql = "insert " + add0 + " into " + CLDR_VBV_ALT + "   " + add1 + " select " + CLDR_VBV + ".locale,"
-                        + CLDR_VBV + ".xpath," + CLDR_VBV + ".value "
-                        + " from cldr_votevalue where locale=? and xpath=? and submitter=? and value is not null " + add2;
+                    String sql = "insert " + add0 + " into " + DBUtils.Table.VOTE_VALUE_ALT + "   " + add1 + " select " + DBUtils.Table.VOTE_VALUE + ".locale,"
+                        + DBUtils.Table.VOTE_VALUE + ".xpath," + DBUtils.Table.VOTE_VALUE + ".value "
+                        + " from "+DBUtils.Table.VOTE_VALUE+" where locale=? and xpath=? and submitter=? and value is not null " + add2;
                     // if(DEBUG) System.out.println(sql);
                     saveOld = DBUtils.prepareStatementWithArgs(conn, sql, locale.getBaseName(), xpathId, user.id);
 
@@ -840,7 +841,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     // " values");
 
                     if (DBUtils.db_Mysql) { // use 'on duplicate key' syntax
-                        ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + CLDR_VBV
+                        ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + DBUtils.Table.VOTE_VALUE
                             + " (locale,xpath,submitter,value,last_mod) values (?,?,?,?,CURRENT_TIMESTAMP) "
                             + "ON DUPLICATE KEY UPDATE locale=?,xpath=?,submitter=?,value=?,last_mod=CURRENT_TIMESTAMP");
 
@@ -849,9 +850,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                         ps.setInt(7, submitter);
                         DBUtils.setStringUTF8(ps, 8, value);
                     } else {
-                        ps2 = DBUtils.prepareForwardReadOnly(conn, "DELETE FROM " + CLDR_VBV
+                        ps2 = DBUtils.prepareForwardReadOnly(conn, "DELETE FROM " + DBUtils.Table.VOTE_VALUE
                             + " where locale=? and xpath=? and submitter=? ");
-                        ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + CLDR_VBV
+                        ps = DBUtils.prepareForwardReadOnly(conn, "INSERT INTO " + DBUtils.Table.VOTE_VALUE
                             + " (locale,xpath,submitter,value,last_mod) VALUES (?,?,?,?,CURRENT_TIMESTAMP) ");
 
                         ps2.setString(1, locale.getBaseName());
@@ -950,7 +951,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 try {
                     conn = DBUtils.getInstance().getDBConnection();
                     
-                    ps = DBUtils.prepareForwardReadOnly(conn, "DELETE FROM " + CLDR_VBV_ALT + " where value=? ");
+                    ps = DBUtils.prepareForwardReadOnly(conn, "DELETE FROM " + DBUtils.Table.VOTE_VALUE_ALT + " where value=? ");
                     
                     DBUtils.setStringUTF8(ps, 1, value);
 
@@ -1196,10 +1197,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return delegate.getDtdVersionInfo();
         }
     }
-
-    // Database stuff here.
-    public static final String CLDR_VBV = "cldr_votevalue";
-    static final String CLDR_VBV_ALT = "cldr_votevalue_alt";
 
     // private static final String SOME_KEY =
     // "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
@@ -1459,9 +1456,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      */
     private PreparedStatement openQueryByLocaleRW(Connection conn) throws SQLException {
         setupDB();
-        final String votesAfter = SurveyMain.getSQLVotesAfter();
         return DBUtils
-            .prepareForwardUpdateable(conn, "SELECT xpath,submitter,value,locale FROM " + CLDR_VBV + " WHERE locale = ? and last_mod > " + votesAfter);
+            .prepareForwardUpdateable(conn, "SELECT xpath,submitter,value,locale FROM " + DBUtils.Table.VOTE_VALUE + " WHERE locale = ?");
     }
 
     private synchronized final void setupDB() {
@@ -1473,7 +1469,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         Statement s = null;
         try {
             conn = DBUtils.getInstance().getDBConnection();
-            if (!DBUtils.hasTable(conn, CLDR_VBV)) {
+            if (!DBUtils.hasTable(conn, DBUtils.Table.VOTE_VALUE.toString())) {
                 /*
                  * CREATE TABLE cldr_votevalue ( locale VARCHAR(20), xpath INT
                  * NOT NULL, submitter INT NOT NULL, value BLOB );
@@ -1483,7 +1479,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                  */
                 s = conn.createStatement();
 
-                sql = "create table " + CLDR_VBV + "( " + "locale VARCHAR(20), " + "xpath  INT NOT NULL, "
+                sql = "create table " + DBUtils.Table.VOTE_VALUE + "( " + "locale VARCHAR(20), " + "xpath  INT NOT NULL, "
                     + "submitter INT NOT NULL, " + "value " + DBUtils.DB_SQL_UNICODE + ", " + DBUtils.DB_SQL_LAST_MOD + " "
                     + ", PRIMARY KEY (locale,submitter,xpath) " +
 
@@ -1491,32 +1487,32 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 // SurveyLog.logger.info(sql);
                 s.execute(sql);
 
-                sql = "CREATE UNIQUE INDEX  " + CLDR_VBV + " ON cldr_votevalue (locale,xpath,submitter)";
+                sql = "CREATE UNIQUE INDEX  " + DBUtils.Table.VOTE_VALUE + " ON " + DBUtils.Table.VOTE_VALUE +" (locale,xpath,submitter)";
                 s.execute(sql);
                 s.close();
                 s = null; // don't close twice.
                 conn.commit();
-                System.err.println("Created table " + CLDR_VBV);
+                System.err.println("Created table " + DBUtils.Table.VOTE_VALUE);
             }
-            if (!DBUtils.hasTable(conn, CLDR_VBV_ALT)) {
+            if (!DBUtils.hasTable(conn, DBUtils.Table.VOTE_VALUE_ALT.toString())) {
                 s = conn.createStatement();
                 String valueLen = DBUtils.db_Mysql ? "(750)" : "";
-                sql = "create table " + CLDR_VBV_ALT + "( " + "locale VARCHAR(20), " + "xpath  INT NOT NULL, " + "value "
+                sql = "create table " + DBUtils.Table.VOTE_VALUE_ALT + "( " + "locale VARCHAR(20), " + "xpath  INT NOT NULL, " + "value "
                     + DBUtils.DB_SQL_UNICODE + ", " +
                     // DBUtils.DB_SQL_LAST_MOD + " " +
                     " PRIMARY KEY (locale,xpath,value" + valueLen + ") " + " )";
                 // SurveyLog.logger.info(sql);
                 s.execute(sql);
 
-                sql = "CREATE UNIQUE INDEX  " + CLDR_VBV_ALT + " ON cldr_votevalue_alt (locale,xpath,value" + valueLen + ")";
+                sql = "CREATE UNIQUE INDEX  " + DBUtils.Table.VOTE_VALUE_ALT + " ON " + DBUtils.Table.VOTE_VALUE_ALT+ " (locale,xpath,value" + valueLen + ")";
                 s.execute(sql);
-                // sql = "CREATE INDEX  " + CLDR_VBV_ALT +
+                // sql = "CREATE INDEX  " + DBUtils.Table.VOTE_VALUE_ALT +
                 // " ON cldr_votevalue_alt (locale)";
                 // s.execute(sql);
                 s.close();
                 s = null; // don't close twice.
                 conn.commit();
-                System.err.println("Created table " + CLDR_VBV_ALT);
+                System.err.println("Created table " + DBUtils.Table.VOTE_VALUE_ALT);
             }
         } catch (SQLException se) {
             SurveyLog.logException(se, "SQL: " + sql);
@@ -1601,50 +1597,50 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
         return ret;
     }
-
-    /**
-     * Load the 'cldr_v22submission' table.
-     * 
-     * @param forLocale
-     * @return
-     */
-    private BitSet loadVotesSometimeThisRelease(CLDRLocale forLocale) {
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        int n = 0;
-        BitSet result = new BitSet(CookieSession.sm.xpt.count());
-        String tableName = getVotesSometimeTableName();
-        try {
-            conn = DBUtils.getInstance().getDBConnection();
-
-            if (!DBUtils.hasTable(conn, tableName)) {
-                SurveyLog.warnOnce(StackTracker.currentElement(0) + ": no table (this is probably OK):" + tableName);
-                return null;
-            }
-
-            ps = DBUtils.prepareForwardReadOnly(conn, "select xpath from " + tableName + " where locale=?");
-            ps.setString(1, forLocale.getBaseName());
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                int xp = rs.getInt(1);
-                result.set(xp);
-                n++;
-            }
-        } catch (SQLException e) {
-            SurveyLog.logException(e, "loadVotesSometimeThisRelease for " + tableName + " " + forLocale);
-            return null;
-        } finally {
-            DBUtils.close(rs, ps, conn);
-        }
-        System.err.println("loadVotesSometimeThisRelease: " + n + " xpaths from " + tableName + " " + forLocale);
-        return result;
-    }
-
-    private String getVotesSometimeTableName() {
-        return ("cldr_v" + SurveyMain.getNewVersion() + "submission").toLowerCase();
-    }
+//
+//    /**
+//     * Load the 'cldr_v22submission' table.
+//     * 
+//     * @param forLocale
+//     * @return
+//     */
+//    private BitSet loadVotesSometimeThisRelease(CLDRLocale forLocale) {
+//        Connection conn = null;
+//        PreparedStatement ps = null;
+//        ResultSet rs = null;
+//        int n = 0;
+//        BitSet result = new BitSet(CookieSession.sm.xpt.count());
+//        String tableName = getVotesSometimeTableName();
+//        try {
+//            conn = DBUtils.getInstance().getDBConnection();
+//
+//            if (!DBUtils.hasTable(conn, tableName)) {
+//                SurveyLog.warnOnce(StackTracker.currentElement(0) + ": no table (this is probably OK):" + tableName);
+//                return null;
+//            }
+//
+//            ps = DBUtils.prepareForwardReadOnly(conn, "select xpath from " + tableName + " where locale=?");
+//            ps.setString(1, forLocale.getBaseName());
+//            rs = ps.executeQuery();
+//
+//            while (rs.next()) {
+//                int xp = rs.getInt(1);
+//                result.set(xp);
+//                n++;
+//            }
+//        } catch (SQLException e) {
+//            SurveyLog.logException(e, "loadVotesSometimeThisRelease for " + tableName + " " + forLocale);
+//            return null;
+//        } finally {
+//            DBUtils.close(rs, ps, conn);
+//        }
+//        System.err.println("loadVotesSometimeThisRelease: " + n + " xpaths from " + tableName + " " + forLocale);
+//        return result;
+//    }
+//
+//    private String getVotesSometimeTableName() {
+//        return ("cldr_v" + SurveyMain.getNewVersion() + "submission").toLowerCase();
+//    }
 
     /*
      * votes sometime table
@@ -1664,7 +1660,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * where cldr_votevalue.value is not null;
      */
     public CLDRFile makeProposedFile(CLDRLocale locale) {
-        final String votesAfter = SurveyMain.getSQLVotesAfter();
 
         Connection conn = null;
         PreparedStatement ps = null; // all for mysql, or 1st step for derby
@@ -1673,8 +1668,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         try {
             conn = DBUtils.getInstance().getDBConnection();
 
-            ps = DBUtils.prepareStatementWithArgsFRO(conn, "select xpath,submitter,value from " + CLDR_VBV
-                + " where locale=? and value IS NOT NULL and last_mod > " + SurveyMain.getSQLVotesAfter(), locale);
+            ps = DBUtils.prepareStatementWithArgsFRO(conn, "select xpath,submitter,value from " + DBUtils.Table.VOTE_VALUE
+                + " where locale=? and value IS NOT NULL", locale);
 
             rs = ps.executeQuery();
             XPathParts xpp = new XPathParts(null, null);
@@ -1744,9 +1739,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         try { // do this in 1 transaction. just in case.
             conn = DBUtils.getInstance().getDBConnection();
 
-            ps = DBUtils.prepareStatementWithArgs(conn, "delete from " + CLDR_VBV);
+            ps = DBUtils.prepareStatementWithArgs(conn, "delete from " + DBUtils.Table.VOTE_VALUE);
             int del = ps.executeUpdate();
-            ps2 = DBUtils.prepareStatementWithArgs(conn, "delete from " + CLDR_VBV_ALT);
+            ps2 = DBUtils.prepareStatementWithArgs(conn, "delete from " + DBUtils.Table.VOTE_VALUE_ALT);
             del += ps2.executeUpdate();
             System.err.println("DELETED " + del + "regular votes .. reading from files");
 
@@ -1761,7 +1756,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // >>
             // //users/user[@id="10"][@email="__"][@level="vetter"][@name="Apple"][@org="apple"][@locales="nl.. "]
             final PreparedStatement myInsert = ps2 = DBUtils.prepareStatementForwardReadOnly(conn, "myInser", "INSERT INTO  "
-                + CLDR_VBV + " (locale,xpath,submitter,value) VALUES (?,?,?,?) ");
+                + DBUtils.Table.VOTE_VALUE + " (locale,xpath,submitter,value) VALUES (?,?,?,?) ");
             final SurveyMain sm2 = sm;
             myReader.setHandler(new XMLFileReader.SimpleHandler() {
                 int nusers = 0;
@@ -1835,4 +1830,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * For tests.
      */
     static private Map<String, String> basicOptions = Collections.unmodifiableMap(SurveyMain.basicOptionsMap());
+    
+    /**
+     * Return the table for old votes 
+     */
+    public static final String getOldVoteTable() {
+        return DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getOldVersion(), false).toString();
+    }
 }

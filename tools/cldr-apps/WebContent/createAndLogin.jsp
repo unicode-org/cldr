@@ -9,7 +9,7 @@ if(vap==null ||
     vap.length()==0 ||
     	!SurveyMain.isUnofficial() || 
 			(!SurveyMain.vap.equals(vap) && !vap.equals(SurveyMain.testpw))  ) {
-	response.sendRedirect(request.getContextPath() + "index.jsp");
+	response.sendRedirect(request.getContextPath() + "/index.jsp");
 	return;
 }
 	

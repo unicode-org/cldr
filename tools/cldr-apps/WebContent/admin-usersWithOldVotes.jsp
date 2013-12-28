@@ -26,19 +26,23 @@ if(!SurveyMain.vap.equals(request.getParameter("vap"))) {
 
 <h1>users with old votes</h1>
 
+<%
+String oldVoteTable = STFactory.getOldVoteTable();
+%>
 
 
 <%
 SurveyMain sm = CookieSession.sm;
 //String xp = "http://st.unicode.org/cldr-apps/survey?_=fr&x=Numbers&stdebug=true;#x@a1ef41eaeb6982d";
 //int xpid = sm.xpt.getByXpath(xp);
-String votesAfterSQL = SurveyMain.getSQLVotesAfter();
- java.util.Map rows[] =    DBUtils.queryToArrayAssoc( "select  cldr_votevalue.submitter as submitter, cldr_users.id as id, cldr_users.email as email, cldr_users.password as password, count(*) as count from cldr_votevalue,cldr_users where cldr_votevalue.last_mod < "+votesAfterSQL+" and cldr_votevalue.value is not null and cldr_votevalue.submitter=cldr_users.id  group by cldr_votevalue.submitter order by cldr_votevalue.submitter");
+ java.util.Map rows[] =    DBUtils.queryToArrayAssoc( "select  "+oldVoteTable
+		 +".submitter as submitter, cldr_users.id as id, cldr_users.email as email, cldr_users.password as password, count(*) as count from "+oldVoteTable
+		 +",cldr_users where "+oldVoteTable+".value is not null and "+oldVoteTable+".submitter=cldr_users.id  group by "+oldVoteTable+".submitter order by "+oldVoteTable+".submitter");
 
   
 %>
 
-<h2><%= votesAfterSQL %></h2>
+<h2><%= oldVoteTable %></h2>
 <ol>
     <% for(java.util.Map m : rows) {
     	UserRegistry.User u = sm.reg.getInfo((Integer)m.get("id"));

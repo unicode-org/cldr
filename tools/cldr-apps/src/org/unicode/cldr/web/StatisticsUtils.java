@@ -80,10 +80,9 @@ public class StatisticsUtils {
         if (!SurveyMain.isSetup || SurveyMain.isBusted()) {
             return -2;
         }
-        String votesAfter = SurveyMain.getSQLVotesAfter();
         try {
             return DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_items", 1 * 60 * 1000,
-                "select count(*) from cldr_votevalue where submitter is not null and last_mod > " + votesAfter));
+                "select count(*) from "+DBUtils.Table.VOTE_VALUE+" where submitter is not null"));
         } catch (Throwable t) {
             return -1;
         }

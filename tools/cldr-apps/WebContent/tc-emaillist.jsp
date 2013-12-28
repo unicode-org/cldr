@@ -15,7 +15,7 @@ Connection conn = null;
 	try {
 		conn = cs.sm.dbUtils.getDBConnection();
 
-		String l[][] = cs.sm.dbUtils.sqlQueryArrayArray(conn,"select email from cldr_users where exists (select * from cldr_votevalue where cldr_votevalue.submitter = cldr_users.id) and (cldr_users.userlevel < "+UserRegistry.LOCKED+") order by email");
+		String l[][] = cs.sm.dbUtils.sqlQueryArrayArray(conn,"select email from cldr_users where exists (select * from "+DBUtils.Table.VOTE_VALUE+" where "+DBUtils.Table.VOTE_VALUE+".submitter = cldr_users.id) and (cldr_users.userlevel < "+UserRegistry.LOCKED+") order by email");
 %>
 <a href="<%=request.getContextPath()%>/survey?do=list">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <hr/>

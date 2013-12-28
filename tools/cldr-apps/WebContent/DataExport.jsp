@@ -71,11 +71,10 @@
         java.sql.ResultSet rs = null;
         java.sql.PreparedStatement stmt = null;
         String sql = "(none)";
-        String votesAfter = SurveyMain.getSQLVotesAfter();
         try {
             conn = DBUtils.getInstance().getDBConnection();
             synchronized (sm.reg) {
-                String q1 = "select cldr_votevalue.xpath, cldr_votevalue.value from cldr_votevalue where cldr_votevalue.submitter = ? and cldr_votevalue.value is not NULL  and cldr_votevalue.locale=? and cldr_votevalue.last_mod > " + votesAfter;
+                String q1 = "select "+DBUtils.Table.VOTE_VALUE+".xpath, "+DBUtils.Table.VOTE_VALUE+".value from "+DBUtils.Table.VOTE_VALUE+" where "+DBUtils.Table.VOTE_VALUE+".submitter = ? and "+DBUtils.Table.VOTE_VALUE+".value is not NULL  and "+DBUtils.Table.VOTE_VALUE+".locale=?";
                 stmt = DBUtils.prepareStatementWithArgs(conn, sql = (q1), u,l.getBaseName());
                 rs = stmt.executeQuery();
                 
@@ -131,9 +130,9 @@
         try {
             conn = DBUtils.getInstance().getDBConnection();
             synchronized (sm.reg) {
-                String q1 = "select cldr_votevalue.locale,cldr_xpaths.xpath, cldr_votevalue.value, cldr_votevalue.last_mod  from cldr_xpaths,cldr_votevalue,cldr_users  where ";
-                String q2 = "cldr_xpaths.id=cldr_votevalue.xpath and cldr_users.id=cldr_votevalue.submitter and cldr_votevalue.value is not NULL ";
-                stmt = DBUtils.prepareStatementWithArgs(conn, sql = (q1 + q2 + " and cldr_votevalue.submitter=?"), u);
+                String q1 = "select "+DBUtils.Table.VOTE_VALUE+".locale,cldr_xpaths.xpath, "+DBUtils.Table.VOTE_VALUE+".value, "+DBUtils.Table.VOTE_VALUE+".last_mod  from cldr_xpaths,"+DBUtils.Table.VOTE_VALUE+",cldr_users  where ";
+                String q2 = "cldr_xpaths.id="+DBUtils.Table.VOTE_VALUE+".xpath and cldr_users.id="+DBUtils.Table.VOTE_VALUE+".submitter and "+DBUtils.Table.VOTE_VALUE+".value is not NULL ";
+                stmt = DBUtils.prepareStatementWithArgs(conn, sql = (q1 + q2 + " and "+DBUtils.Table.VOTE_VALUE+".submitter=?"), u);
                 rs = stmt.executeQuery();
                 DBUtils.writeCsv(rs, out);
 

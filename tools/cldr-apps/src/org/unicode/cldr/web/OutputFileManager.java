@@ -901,16 +901,16 @@ public class OutputFileManager {
 
     public Timestamp getLocaleTime(Connection conn, CLDRLocale loc) throws SQLException {
         Timestamp theDate = null;
-        if (haveVbv || DBUtils.hasTable(conn, STFactory.CLDR_VBV)) {
+        if (haveVbv || DBUtils.hasTable(conn, DBUtils.Table.VOTE_VALUE.toString())) {
             if (haveVbv == false) {
                 SurveyLog
                     .debug("OutputFileManager: have "
-                        + STFactory.CLDR_VBV
+                        + DBUtils.Table.VOTE_VALUE
                         + ", commencing  output file updates ( use CLDR_NOOUTPUT=true in cldr.properties to suppress  -  CLDR_NOOUTPUT current value = "
                         + CldrUtility.getProperty("CLDR_NOOUTPUT", false));
             }
             haveVbv = true;
-            Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from cldr_votevalue where locale=?", loc);
+            Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from "+DBUtils.Table.VOTE_VALUE+" where locale=?", loc);
             if (o != null && o.length > 0 && o[0] != null && o[0].length > 0) {
                 theDate = (Timestamp) o[0][0];
                 // System.err.println("for " + loc + " = " + theDate +

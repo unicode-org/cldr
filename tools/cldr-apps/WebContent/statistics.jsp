@@ -8,8 +8,6 @@
 <head>
 <%
 
-	String votesAfter = SurveyMain.getSQLVotesAfter();
-
 
 	boolean doingByLocaleSubmit = false;
 	boolean doingByLocaleVote = false;
@@ -49,7 +47,7 @@
 	DBUtils dbUtils = DBUtils.getInstance();
 	
     int totalItems = StatisticsUtils.getTotalItems();
-    int totalSubmitters = DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_submitters", 1*60*1000, "select count(distinct submitter) from cldr_votevalue where last_mod > " + votesAfter));
+    int totalSubmitters = DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_submitters", 1*60*1000, "select count(distinct submitter) from "+DBUtils.Table.VOTE_VALUE+" "));
 	Connection conn = dbUtils.getDBConnection();
 	if (conn == null) {
 		throw new InternalError(
@@ -59,10 +57,9 @@
 		String limit = "";
 %>
 	<h1>SurveyTool Statistics: <%=title%></h1>
-	<i>Showing only votes cast after <%= SurveyMain.getVotesAfterDate() %></i><br/>
-
+	<br/>
     <%
-        String theSqlVet = "select  locale,count(*) as count from cldr_votevalue  where submitter is not null and last_mod > " + votesAfter + " "
+        String theSqlVet = "select  locale,count(*) as count from "+DBUtils.Table.VOTE_VALUE+"  where submitter is not null "
                     + limit + " group by locale ";
             String theSqlData = theSqlVet;
 

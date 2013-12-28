@@ -55,6 +55,7 @@ public class DBUtils {
     private static final boolean DEBUG_QUICKLY = false;// CldrUtility.getProperty("TEST",
                                                        // false);
 
+    private static final boolean DEBUG_SQL = false; // show "all" SQL 
     private static DBUtils instance = null;
     private static final String JDBC_SURVEYTOOL = ("jdbc/SurveyTool");
     private static DataSource datasource = null;
@@ -404,6 +405,18 @@ public class DBUtils {
         }
     }
 
+    
+    public static boolean hasTable(String table) {
+        Connection conn = null;
+        try {
+            conn = DBUtils.getInstance().getDBConnection();
+            return hasTable(conn,table);
+        } finally {
+            DBUtils.close(conn);
+        }
+    }
+
+    
     static int sqlCount(Connection conn, PreparedStatement ps) throws SQLException {
         int rv = -1;
         ResultSet rs = ps.executeQuery();
@@ -736,6 +749,7 @@ public class DBUtils {
      * @throws SQLException
      */
     public static final PreparedStatement prepareForwardReadOnly(Connection conn, String str) throws SQLException {
+        if(DEBUG_SQL) System.out.println("SQL: " + str);
         return conn.prepareStatement(str, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
     }
 
@@ -971,10 +985,9 @@ public class DBUtils {
 
     private static Map<String, Object> assocOfResult(ResultSet rs, ResultSetMetaData rsm) throws SQLException {
         Map<String, Object> m = new HashMap<String, Object>(rsm.getColumnCount());
-
         for (int i = 1; i <= rsm.getColumnCount(); i++) {
             Object obj = extractObject(rs, rsm, i);
-            m.put(rsm.getColumnName(i), obj);
+            m.put(rsm.getColumnName(i).toLowerCase(), obj);
         }
 
         return m;
@@ -1062,6 +1075,31 @@ public class DBUtils {
         } finally {
             DBUtils.close(rs, ps);
         }
+    }
+
+    /**
+     * Standardized way of versioning a string.
+     * @param sb
+     * @param forVersion
+     * @param isBeta
+     * @return 
+     */
+    public static StringBuilder appendVersionString(StringBuilder sb, String forVersion, Boolean isBeta) {
+        if(forVersion!=null) {
+            sb.append('_');
+            sb.append(forVersion.toLowerCase());
+        }
+        if(isBeta!=null && isBeta) {
+            sb.append("_beta");
+        }
+        return sb;
+    }
+    
+    /**
+     * Append a versioned string
+     */
+    public static StringBuilder appendVersionString(StringBuilder sb) {
+        return appendVersionString(sb, SurveyMain.getNewVersion(), SurveyMain.phase()==SurveyMain.Phase.BETA);
     }
 
     private static String[] arrayOfResult(ResultSet rs) throws SQLException {
@@ -1419,5 +1457,48 @@ public class DBUtils {
         ResultSet rs = s.getGeneratedKeys();
         if (!rs.next()) return null;
         return rs.getInt(1);
+    }
+    
+    
+    /**
+     * Table name management.
+     * Manage table names according to versions.
+     */
+    public enum Table {
+        VOTE_VALUE(true,true),
+        VOTE_VALUE_ALT(true,true),
+        FORUM_POSTS(true,true);
+        
+        /**
+         * 
+         * @param isVersioned
+         * @param hasBeta
+         */
+        Table(boolean isVersioned, boolean hasBeta) {
+            this.isVersioned = isVersioned;
+            this.hasBeta = hasBeta;
+        }
+        final boolean isVersioned, hasBeta;
+        
+        String defaultString = null;
+        /**
+         * High runner case.
+         * WARNING: Do not use in constant strings
+         */
+        public synchronized String toString() {
+            if(defaultString == null) {
+                if(!SurveyMain.isConfigSetup && CLDRConfig.getInstance().getEnvironment()!=CLDRConfig.Environment.UNITTEST) {
+                    throw new InternalError("Error: don't use Table.toString before CLDRConfig is setup.");
+                }
+                defaultString = forVersion(SurveyMain.getNewVersion(), SurveyMain.phase()==SurveyMain.phase().BETA).toString();
+            }
+            return defaultString;
+        }
+        public CharSequence forVersion(String forVersion, boolean isBeta) {
+            StringBuilder sb = new StringBuilder("cldr_");
+            sb.append(name().toLowerCase());
+            DBUtils.appendVersionString(sb, isVersioned?forVersion:null, hasBeta?isBeta:null);
+            return sb;
+        }
     }
 }

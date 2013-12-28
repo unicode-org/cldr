@@ -1,3 +1,4 @@
+<%@page import="org.unicode.cldr.web.SurveyMain.Phase"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="org.unicode.cldr.util.VoteResolver.VoterInfo"%>
 <%@page import="com.ibm.icu.util.VersionInfo"%>
@@ -198,12 +199,19 @@ if(request.getParameter("remove_maint")!=null) {
 	<h2>Set Parameters</h2>
 	<%
 	{
+		Set<String>  s = new TreeSet<String>();
+		for(org.unicode.cldr.web.SurveyMain.Phase p : org.unicode.cldr.web.SurveyMain.Phase.values()) {
+			s.add("<tt class='codebox'>"+p.name().toUpperCase()+"</tt>");
+		}
+		final String possiblePhases = "Possible phases: " + com.ibm.icu.text.ListFormatter.getInstance().format(s);
+
 		String setupvars[] = {
-				"CLDR_VAP", "This is the master password (the 'VAP') for the surveytool. You may leave this value as is or change it.",
+				"CLDR_VAP", "This is the master password (the 'VAP') for the surveytool. You may leave this value as is or change it. (The admin.html file may become out of date if the password is changed. Delete it and it will be regenerated.)",
+				"CLDR_TESTPW",   "Test password for 'smoketest' like functionality. Allows anyone with password to create an account. May be left blank.",
 				"CLDR_DIR", "If you already have CLDR's trunk (http://unicode.org/repos/cldr/trunk) checked out somewhere else, enter its path here. <br>If left as the default, it will be checked out automatically in a later step.",
 				"CLDR_OLDVERSION", "Required: What is the previous released version of CLDR? (One possible value: " + (VersionInfo.getInstance(CLDRFile.GEN_VERSION).getMajor()-1),
 				"CLDR_NEWVERSION", "Required: What is the version of CLDR being surveyed for? (One possible value:  " + CLDRFile.GEN_VERSION ,
-				"CLDR_PHASE", "Required: What phase is the SurveyTool in? A good phase for testing is: " + org.unicode.cldr.web.SurveyMain.Phase.BETA.name(),
+				"CLDR_PHASE", "Required: What phase is the SurveyTool in? A good phase for testing is: " + org.unicode.cldr.web.SurveyMain.Phase.BETA.name() + " - " + possiblePhases,
 				"CLDR_MESSAGE",   "This message is only used when you wish the SurveyTool to be offline. Leave blank for normal startup",
 				"CLDR_HEADER", "This message is displayed at the top of each SurveyTool page. It may be removed if desired.",
 		};
@@ -263,13 +271,9 @@ if(request.getParameter("remove_maint")!=null) {
 			} else if(field.equals("CLDR_PHASE")) {
 				try {
 					org.unicode.cldr.web.SurveyMain.Phase p  = org.unicode.cldr.web.SurveyMain.Phase.valueOf(value.toUpperCase());
-					value = p.toString().toUpperCase();
+					value = p.name().toUpperCase();
 				} catch (Throwable t) {
-					Set<String>  s = new TreeSet<String>();
-					for(org.unicode.cldr.web.SurveyMain.Phase p : org.unicode.cldr.web.SurveyMain.Phase.values()) {
-						s.add("<tt class='codebox'>"+p.name().toUpperCase()+"</tt>");
-					}
-					valueErr = "Possible phases: " + com.ibm.icu.text.ListFormatter.getInstance().format(s);
+					valueErr = possiblePhases;
 				}
 			}
 			
@@ -317,7 +321,7 @@ if(request.getParameter("remove_maint")!=null) {
 									final File rootXml = new File(cldrDir, rootXmlPath);
 									String fileErr = null;
 									final String thePath = SurveyMain.CLDR_DIR +" ="+ cldrDir.getAbsolutePath() + " :";
-									final String checkoutFix = "Please consider running <pre>svn checkout "+SurveyMain.CLDR_DIR_REPOS+" "+cldrDir.getAbsolutePath()+"</pre> to fix this situation, or go back and fix <b>CLDR_DIR</b> to point to a valid CLDR root. Then try reloading this page.";
+									final String checkoutFix = "Please consider running <pre>svn checkout "+SurveyMain.CLDR_DIR_REPOS+"/trunk "+cldrDir.getAbsolutePath()+"</pre> to fix this situation, or go back and fix <b>CLDR_DIR</b> to point to a valid CLDR root. Then try reloading this page.";
 									
 									if(!cldrDir.isDirectory()) {
 										fileErr = thePath + " not a directory. <br>" + checkoutFix;

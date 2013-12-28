@@ -3,6 +3,8 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -275,31 +277,27 @@ public class SurveyAjax extends HttpServlet {
                 sendError(out, "Missing parameter: " + REQ_WHAT);
             } else if (what.equals(WHAT_STATS_BYDAYUSERLOC)) {
                 String votesAfterString = SurveyMain.getVotesAfterString();
-                String votesAfterSQL = SurveyMain.getSQLVotesAfter();
                 JSONWriter r = newJSONStatus(sm);
                 final String day = DBUtils.db_Mysql ? "DATE_FORMAT(last_mod, '%Y-%m-%d')" : "last_mod ";
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000,
-                    "select submitter," + day + " as day,locale,count(*) as count from cldr_votevalue  where last_mod > " + votesAfterSQL
+                    "select submitter," + day + " as day,locale,count(*) as count from "+DBUtils.Table.VOTE_VALUE
                         + " group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod)  order by day desc");
                 r.put(what, query);
                 r.put("after", votesAfterString);
                 send(r, out);
-                // select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale,count(*) from cldr_votevalue group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod) order by day desc limit 10000;
+                // select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale,count(*) from "+DBUtils.Table.VOTE_VALUE+" group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod) order by day desc limit 10000;
             } else if (what.equals(WHAT_STATS_BYDAY)) {
-                String votesAfterSQL = SurveyMain.getSQLVotesAfter();
-                String votesAfterString = SurveyMain.getVotesAfterString();
                 JSONWriter r = newJSONStatus(sm);
                 JSONObject query = DBUtils
-                    .queryToCachedJSON(what, (5 * 60 * 1000), "select count(*) as count ,last_mod from cldr_votevalue where last_mod > " + votesAfterSQL
+                    .queryToCachedJSON(what, (5 * 60 * 1000), "select count(*) as count ,last_mod from "+DBUtils.Table.VOTE_VALUE
                         + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc");
                 r.put("byday", query);
-                r.put("after", votesAfterString);
+                r.put("after", "n/a");
                 send(r, out);
             } else if (what.equals(WHAT_MY_LOCALES)) {
-                String votesAfterSQL = SurveyMain.getSQLVotesAfter();
                 JSONWriter r = newJSONStatus(sm);
-                String q1 = "select count(*) as count, cldr_votevalue.locale as locale from cldr_votevalue WHERE cldr_votevalue.submitter=? AND cldr_votevalue.value is not NULL AND last_mod > "
-                    + votesAfterSQL + " group by cldr_votevalue.locale order by cldr_votevalue.locale desc";
+                String q1 = "select count(*) as count, "+DBUtils.Table.VOTE_VALUE+".locale as locale from "+DBUtils.Table.VOTE_VALUE+" WHERE "+DBUtils.Table.VOTE_VALUE+".submitter=? AND "+DBUtils.Table.VOTE_VALUE+".value is not NULL "+
+                     " group by "+DBUtils.Table.VOTE_VALUE+".locale order by "+DBUtils.Table.VOTE_VALUE+".locale desc";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;
                 if (user != null && !user.isEmpty())
@@ -314,8 +312,6 @@ public class SurveyAjax extends HttpServlet {
                 r.put("mine", query);
                 send(r, out);
             } else if (what.equals(WHAT_RECENT_ITEMS)) {
-                String votesAfterSQL = SurveyMain.getSQLVotesAfter();
-                // String votesAfterString = SurveyMain.getVotesAfterString();
                 JSONWriter r = newJSONStatus(sm);
                 int limit = 15;
                 try {
@@ -323,9 +319,9 @@ public class SurveyAjax extends HttpServlet {
                 } catch (Throwable t) {
                     limit = 15;
                 }
-                String q1 = "select cldr_votevalue.locale,cldr_xpaths.xpath,cldr_users.org, cldr_votevalue.value, cldr_votevalue.last_mod  from cldr_xpaths,cldr_votevalue,cldr_users  where ";
-                String q2 = "cldr_xpaths.id=cldr_votevalue.xpath and cldr_users.id=cldr_votevalue.submitter and cldr_votevalue.last_mod > " + votesAfterSQL
-                    + "  order by cldr_votevalue.last_mod desc limit ?";
+                String q1 = "select "+DBUtils.Table.VOTE_VALUE+".locale,cldr_xpaths.xpath,cldr_users.org, "+DBUtils.Table.VOTE_VALUE+".value, "+DBUtils.Table.VOTE_VALUE+".last_mod  from cldr_xpaths,"+DBUtils.Table.VOTE_VALUE+",cldr_users  where ";
+                String q2 = "cldr_xpaths.id="+DBUtils.Table.VOTE_VALUE+".xpath and cldr_users.id="+DBUtils.Table.VOTE_VALUE+".submitter"
+                    + "  order by "+DBUtils.Table.VOTE_VALUE+".last_mod desc limit ?";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;
                 if (user != null && !user.isEmpty())
@@ -339,11 +335,11 @@ public class SurveyAjax extends HttpServlet {
                 if (l == null && u == null) {
                     query = DBUtils.queryToJSON(q1 + q2, limit);
                 } else if (u == null && l != null) {
-                    query = DBUtils.queryToJSON(q1 + " cldr_votevalue.locale=? AND " + q2, l, limit);
+                    query = DBUtils.queryToJSON(q1 + " "+DBUtils.Table.VOTE_VALUE+".locale=? AND " + q2, l, limit);
                 } else if (u != null && l == null) {
-                    query = DBUtils.queryToJSON(q1 + " cldr_votevalue.submitter=? AND " + q2, u.id, limit);
+                    query = DBUtils.queryToJSON(q1 + " "+DBUtils.Table.VOTE_VALUE+".submitter=? AND " + q2, u.id, limit);
                 } else {
-                    query = DBUtils.queryToJSON(q1 + " cldr_votevalue.locale=? AND cldr_votevalue.submitter=? " + q2, l, u.id,
+                    query = DBUtils.queryToJSON(q1 + " "+DBUtils.Table.VOTE_VALUE+".locale=? AND "+DBUtils.Table.VOTE_VALUE+".submitter=? " + q2, l, u.id,
                         limit);
                 }
                 r.put("recent", query);
@@ -581,7 +577,7 @@ public class SurveyAjax extends HttpServlet {
                         }
 
                         if (pref.equals("oldVoteRemind")) {
-                            pref = "oldVoteRemind" + SurveyMain.getNewVersion();
+                            pref = getOldVotesPref();
                         }
 
                         if (val != null && !val.isEmpty()) {
@@ -681,24 +677,26 @@ public class SurveyAjax extends HttpServlet {
                             // any special messages?
                             if (mySession.user != null && mySession.user.canImportOldVotes()) {
                                 // old votes?
-                                String oldVotesPref = "oldVoteRemind" + SurveyMain.getNewVersion();
+                                String oldVotesPref = getOldVotesPref();
                                 String oldVoteRemind = mySession.settings().get(oldVotesPref, null);
                                 if (oldVoteRemind == null || // never been asked
                                     !oldVoteRemind.equals("*")) { //  dont ask again
-                                    String votesAfterSQL = SurveyMain.getSQLVotesAfter();
-                                    //String votesAfterString = SurveyMain.getVotesAfterString();
-
-                                    int count = DBUtils.sqlCount("select  count(*) as count from " + STFactory.CLDR_VBV
-                                        + " where submitter=? and last_mod < " + votesAfterSQL +
-                                        " and value is not null", mySession.user.id);
-
-                                    if (count == 0) {
-                                        mySession.settings().set(oldVotesPref, "*"); // Do not ask again this release
-                                    } else {
-                                        if (SurveyMain.isUnofficial())
-                                            System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count + " and " + oldVotesPref
-                                                + "=" + oldVoteRemind);
-                                        r.put("oldVotesRemind", new JSONObject().put("pref", oldVotesPref).put("remind", oldVoteRemind).put("count", count));
+                                    
+                                    String oldVotesTable  = STFactory.getOldVoteTable();
+                                    
+                                    if(DBUtils.hasTable(oldVotesTable)) {
+                                        int count = DBUtils.sqlCount("select  count(*) as count from " + oldVotesTable
+                                            + " where submitter=? " +
+                                            " and value is not null", mySession.user.id);
+    
+                                        if (count == 0) { // may be -1 on error
+                                            mySession.settings().set(oldVotesPref, "*"); // Do not ask again this release
+                                        } else {
+                                            if (SurveyMain.isUnofficial())
+                                                System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count + " and " + oldVotesPref
+                                                    + "=" + oldVoteRemind);
+                                            r.put("oldVotesRemind", new JSONObject().put("pref", oldVotesPref).put("remind", oldVoteRemind).put("count", count));
+                                        }
                                     }
                                 }
                             }
@@ -784,17 +782,18 @@ public class SurveyAjax extends HttpServlet {
                             r.put("err_code", "E_NO_PERMISSION");
                         } else {
                             JSONObject oldvotes = new JSONObject();
-
-                            String votesAfterSQL = SurveyMain.getSQLVotesAfter();
-                            String votesAfterString = SurveyMain.getVotesAfterString();
-
-                            oldvotes.put("votesafter", votesAfterString);
+                            final String oldVotesTable = STFactory.getOldVoteTable();
+                            final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString();
+                            oldvotes.put("votesafter", "(version"+SurveyMain.getOldVersion()+")");
 
                             if (loc == null || loc.isEmpty()) {
                                 oldvotes.put("locales",
-                                    DBUtils.queryToJSON("select  locale,count(*) as count from " + STFactory.CLDR_VBV
-                                        + " where submitter=? and last_mod < " + votesAfterSQL +
-                                        " and value is not null  group by locale order by locale", mySession.user.id));
+                                    DBUtils.queryToJSON("select  locale,count(*) as count from " + oldVotesTable
+                                        + " where submitter=? " +
+                                        " and value is not null " + 
+                                        " and not exists (select * from " + newVotesTable +" where " + oldVotesTable+".locale="+newVotesTable+".locale "+
+                                        " and "+oldVotesTable+".xpath="+newVotesTable+".xpath and "+newVotesTable+".locale="+oldVotesTable+".locale )" +
+                                        "group by locale order by locale", mySession.user.id));
                             } else {
                                 CLDRLocale locale = CLDRLocale.getInstance(loc);
                                 oldvotes.put("locale", locale);
@@ -846,8 +845,8 @@ public class SurveyAjax extends HttpServlet {
 
                                     // now, get all
                                     {
-                                        String sqlStr = "select xpath,value from " + STFactory.CLDR_VBV + " where locale=? and submitter=? and last_mod < "
-                                            + votesAfterSQL + " and value is not null";
+                                        String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null "+
+                                            " and not exists (select * from " + newVotesTable +" where " + oldVotesTable+".locale="+newVotesTable+".locale  and "+oldVotesTable+".xpath="+newVotesTable+".xpath and "+newVotesTable+".value is not null)";
                                         Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
                                         //                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
@@ -888,35 +887,11 @@ public class SurveyAjax extends HttpServlet {
                                     System.out.println("Old Vote migration for " + mySession.user + " " + locale + " - delete:" + deletions + ", confirm:"
                                         + confirmations + ", uncontestedconfirm:" + uncontested);
                                     oldvotes.put("ok", true);
-                                    /*
-                                      Connection conn = null;
-                                      PreparedStatement ps1=null,ps2 = null;
-                                      try {
-                                      conn = DBUtils.getInstance().getDBConnection();
-
-                                      conn.setAutoCommit(false); //  make this one txn
-                                    
-                                    
-                                      ps1 = DBUtils.prepareStatementWithArgs(conn, "delete from  " + STFactory.CLDR_VBV + " where submitter=? and locale=? and xpath=?" , mySession.user.id, locale, -2); 
-                                      // delete
-                                      for(int i =0 ; i < confirmList.length(); i++) {
-                                      String strid = confirmList.getString(i);
-                                      ps1.setInt(3, sm.xpt.getXpathIdFromStringId(strid));
-                                      deletions += ps1.executeUpdate();
-                                      }
-                                    
-                                      ps2 = DBUtils.prepareStatementWithArgs(conn, "update " + STFactory.CLDR_VBV + " set last_mod = CURRENT_TIMESTAMP" +
-                                      " where submitter=? and locale=? and xpath=? and last_mod < ", mySession.user.id, locale, -2, votesAfterSQL);
-                                    
-                                      conn.commit();
-                                      } finally {
-                                      DBUtils.close(ps1,ps2,conn);
-                                      }*/
 
                                 } else {
-
-                                    String sqlStr = "select xpath,value from " + STFactory.CLDR_VBV + " where locale=? and submitter=? and last_mod < "
-                                        + votesAfterSQL + " and value is not null";
+                                    // view old votes
+                                    String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null "+ 
+                                        " and not exists (select * from " + newVotesTable +" where " + oldVotesTable+".locale="+newVotesTable+".locale  and "+oldVotesTable+".xpath="+newVotesTable+".xpath  and "+newVotesTable+".value is not null)";
                                     Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
                                     //                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
@@ -1010,6 +985,14 @@ public class SurveyAjax extends HttpServlet {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "SQLException: " + e);
         }
+    }
+
+    /**
+     * @return
+     */
+    public String getOldVotesPref() {
+        String oldVotesPref = DBUtils.appendVersionString(new StringBuilder("oldVoteRemind")).toString(); // version the preference
+        return oldVotesPref;
     }
 
     /**

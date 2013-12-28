@@ -121,7 +121,7 @@ public class UserRegistry {
             s = DBUtils
                 .prepareStatementWithArgs(
                     conn,
-                    "select distinct cldr_votevalue.locale from cldr_votevalue where exists (select * from cldr_users	where cldr_votevalue.submitter=cldr_users.id and cldr_users.org=?)",
+                    "select distinct "+DBUtils.Table.VOTE_VALUE+".locale from "+DBUtils.Table.VOTE_VALUE+" where exists (select * from cldr_users	where "+DBUtils.Table.VOTE_VALUE+".submitter=cldr_users.id and cldr_users.org=?)",
                     st_org);
             rs = s.executeQuery();
             while (rs.next()) {

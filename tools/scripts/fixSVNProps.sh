@@ -10,7 +10,7 @@ then
 fi
 
 cd ${CLDR_DIR}
-find common keyboards seed specs tools/java -type f -print | while read filename
+find common exemplars keyboards seed specs tools/java -type f -print | while read filename
 do
    echo "Processing... ${filename}"
    ext=`echo ${filename} | cut -f2 -d'.'`

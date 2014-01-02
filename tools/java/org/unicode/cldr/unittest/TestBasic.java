@@ -135,10 +135,6 @@ public class TestBasic extends TestFmwk {
                     || name.equals("cldr-apps") || name.equals("Servers") || name.equals("cldr-tools")) {
                     continue;
                 }
-                if (name.equals("exemplars")) {
-                    logKnownIssue("6743", "Bad xml files");
-                    continue;
-                }
                 checkDtds(fileName, level+1, foundAttributes);
             } else if (name.endsWith(".xml")) {
                 check(fileName);

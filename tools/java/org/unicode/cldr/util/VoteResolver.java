@@ -566,8 +566,20 @@ public class VoteResolver<T> {
         return this;
     }
 
+    /**
+     * Is this an established locale? If so, the requiredVotes is higher.
+     * @return
+     */
     public boolean isEstablished() {
         return (requiredVotes == 8);
+    }
+    
+    /**
+     * What are the required votes for this item?
+     * @return the number of votes (as of this writing: usually 4, 8 for established locales)
+     */
+    public int getRequiredVotes() {
+        return requiredVotes;
     }
 
     /**

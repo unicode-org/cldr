@@ -140,7 +140,7 @@ public class VoteResolver<T> {
      * weight.
      */
     public enum Level {
-        locked(0, 999), street(1, 10), vetter(4, 5), expert(8, 3), manager(4, 2), tc(8, 1), admin(100, 0);
+        locked(0, 999), street(1, 10), vetter(4, 5), expert(8, 3), manager(4, 2), tc(20, 1), admin(100, 0);
         private int votes;
         private int stlevel;
 
@@ -350,19 +350,38 @@ public class VoteResolver<T> {
         public T getSingleVotedItem() {
             return totalVotes.size() != 1 ? null : totalVotes.iterator().next();
         }
-
+        
         /**
          * Call this to add votes
          * 
          * @param value
          * @param voter
+         * @param withVotes optionally, vote at a reduced voting level. May not exceed voter's typical level. null = use default level.
          */
-        public void add(T value, int voter) {
-            VoterInfo info = getVoterToInfo().get(voter);
+        public void add(T value, int voter, Integer withVotes) {
+            final VoterInfo info = getVoterToInfo().get(voter);
             if (info == null) {
                 throw new UnknownVoterException(voter);
             }
-            final int votes = info.getLevel().getVotes();
+            final int maxVotes = info.getLevel().getVotes(); // max votes available for user
+            if(withVotes == null) {
+                withVotes = maxVotes; // use max (default)
+            } else {
+                withVotes = Math.min(withVotes, maxVotes); // override to lower vote count
+            }
+            addInternal(value, voter, info, withVotes); // do the add
+        }
+        
+        /**
+         * Called by add(T,int,Integer) to actually add a value.
+         * 
+         * @param value
+         * @param voter
+         * @param info
+         * @param votes
+         * @see #add(Object, int, Integer)
+         */
+        private void addInternal(T value, int voter, final VoterInfo info, final int votes) {
             totalVotes.add(value, votes);
             orgToVotes.get(info.getOrganization()).add(value, votes);
             // add the new votes to orgToMax, if they are greater that what was there
@@ -602,13 +621,24 @@ public class VoteResolver<T> {
      * 
      * @param value
      * @param voter
+     * @param withVotes override to lower the user's voting permission. May be null for default.
      */
-    public void add(T value, int voter) {
+    public void add(T value, int voter, Integer withVotes) {
         if (resolved) {
             throw new IllegalArgumentException("Must be called after clear, and before any getters.");
         }
-        organizationToValueAndVote.add(value, voter);
+        organizationToValueAndVote.add(value, voter, withVotes);
         values.add(value);
+    }
+    
+    /**
+     * Call once for each voter for a value. If there are no voters for an item, then call add(value);
+     * 
+     * @param value
+     * @param voter
+     */
+    public void add(T value, int voter) {
+        add(value, voter, null);
     }
 
     /**

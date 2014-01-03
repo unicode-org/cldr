@@ -515,6 +515,8 @@ public class TestUtilities extends TestFmwk {
             { 304, new VoterInfo(Organization.apple, Level.vetter, "appleV") },
             { 208, new VoterInfo(Organization.adobe, Level.expert, "adobeE") },
             { 101, new VoterInfo(Organization.ibm, Level.street, "ibmS") },
+            { 118, new VoterInfo(Organization.ibm, Level.expert, "ibmE") },
+            { 129, new VoterInfo(Organization.ibm, Level.tc, "ibmT") },
         });
 
     private int toVoterId(String s) {
@@ -644,6 +646,48 @@ public class TestUtilities extends TestFmwk {
         winningStatus = resolver.getWinningStatus();
         assertEquals("", "zebra", winner);
         assertEquals("", Status.provisional, winningStatus);
+    }
+    
+    public void TestVoteDowngrade() {
+        VoteResolver.setVoterToInfo(testdata);
+        VoteResolver<String> resolver = new VoteResolver<String>();
+
+        Status oldStatus = Status.unconfirmed;
+
+        resolver.setLocale("mt");
+        resolver.setLastRelease("foo", oldStatus);
+        resolver.add("aardvark", toVoterId("adobeE"));
+        resolver.add("zebra", toVoterId("ibmT"));
+        assertEquals("", "zebra", resolver.getWinningValue()); // TC vote of 20 beats expert's 8
+        assertEquals("", Status.approved, resolver.getWinningStatus());
+
+        resolver.clear();
+        resolver.setLocale("mt");
+        resolver.setLastRelease("foo", oldStatus);
+        resolver.add("aardvark", toVoterId("adobeE"));
+        resolver.add("zebra", toVoterId("ibmT"));
+        resolver.add("aardvark", toVoterId("ibmE"));
+        assertEquals("", "zebra", resolver.getWinningValue()); // TC vote of 20 beats expert's 8 and its own expert's 8
+        assertEquals("", Status.approved, resolver.getWinningStatus());
+
+
+        resolver.clear();
+        resolver.setLocale("mt");
+        resolver.setLastRelease("foo", oldStatus);
+        resolver.add("aardvark", toVoterId("adobeE"));
+        resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes()); // NOTE: reduced votes: as vetter.
+        resolver.add("aardvark", toVoterId("ibmE"));
+        assertEquals("", "aardvark", resolver.getWinningValue()); // Now aardvark wins - experts win out.
+        assertEquals("", Status.approved, resolver.getWinningStatus());
+
+
+        resolver.clear();
+        resolver.setLocale("mt");
+        resolver.setLastRelease("foo", oldStatus);
+        resolver.add("aardvark", toVoterId("adobeE"));
+        resolver.add("zebra", toVoterId("ibmT"), Level.vetter.getVotes()); // NOTE: reduced votes: as vetter.
+        assertEquals("", "aardvark", resolver.getWinningValue()); // Now aardvark wins - experts win out.
+        assertEquals("", Status.approved, resolver.getWinningStatus());
     }
 
     public void TestResolvedVoteCounts() {

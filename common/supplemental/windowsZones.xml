@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7dd0003" typeVersion="2013d">
+		<mapTimezones otherVersion="7de0000" typeVersion="2013i">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -93,6 +93,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC-05:00) Bogota, Lima, Quito -->
 			<mapZone other="SA Pacific Standard Time" territory="001" type="America/Bogota"/>
+			<mapZone other="SA Pacific Standard Time" territory="BR" type="America/Rio_Branco America/Eirunepe"/>
 			<mapZone other="SA Pacific Standard Time" territory="CA" type="America/Coral_Harbour"/>
 			<mapZone other="SA Pacific Standard Time" territory="CO" type="America/Bogota"/>
 			<mapZone other="SA Pacific Standard Time" territory="EC" type="America/Guayaquil"/>
@@ -143,7 +144,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="SA Western Standard Time" territory="BL" type="America/St_Barthelemy"/>
 			<mapZone other="SA Western Standard Time" territory="BO" type="America/La_Paz"/>
 			<mapZone other="SA Western Standard Time" territory="BQ" type="America/Kralendijk"/>
-			<mapZone other="SA Western Standard Time" territory="BR" type="America/Manaus America/Boa_Vista America/Eirunepe America/Porto_Velho America/Rio_Branco"/>
+			<mapZone other="SA Western Standard Time" territory="BR" type="America/Manaus America/Boa_Vista America/Porto_Velho"/>
 			<mapZone other="SA Western Standard Time" territory="CA" type="America/Blanc-Sablon"/>
 			<mapZone other="SA Western Standard Time" territory="CW" type="America/Curacao"/>
 			<mapZone other="SA Western Standard Time" territory="DM" type="America/Dominica"/>
@@ -175,7 +176,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC-03:00) Brasilia -->
 			<mapZone other="E. South America Standard Time" territory="001" type="America/Sao_Paulo"/>
-			<mapZone other="E. South America Standard Time" territory="BR" type="America/Sao_Paulo America/Araguaina"/>
+			<mapZone other="E. South America Standard Time" territory="BR" type="America/Sao_Paulo"/>
 
 			<!-- (UTC-03:00) Buenos Aires -->
 			<mapZone other="Argentina Standard Time" territory="001" type="America/Buenos_Aires"/>
@@ -184,7 +185,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC-03:00) Cayenne, Fortaleza -->
 			<mapZone other="SA Eastern Standard Time" territory="001" type="America/Cayenne"/>
 			<mapZone other="SA Eastern Standard Time" territory="AQ" type="Antarctica/Rothera"/>
-			<mapZone other="SA Eastern Standard Time" territory="BR" type="America/Fortaleza America/Belem America/Maceio America/Recife America/Santarem"/>
+			<mapZone other="SA Eastern Standard Time" territory="BR" type="America/Fortaleza America/Araguaina America/Belem America/Maceio America/Recife America/Santarem"/>
 			<mapZone other="SA Eastern Standard Time" territory="FK" type="Atlantic/Stanley"/>
 			<mapZone other="SA Eastern Standard Time" territory="GF" type="America/Cayenne"/>
 			<mapZone other="SA Eastern Standard Time" territory="SR" type="America/Paramaribo"/>
@@ -208,9 +209,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="UTC-02" territory="GS" type="Atlantic/South_Georgia"/>
 			<mapZone other="UTC-02" territory="ZZ" type="Etc/GMT+2"/>
 
-			<!-- (UTC-02:00) Mid-Atlantic -->
-			<!-- Unmappable -->
-
 			<!-- (UTC-01:00) Azores -->
 			<mapZone other="Azores Standard Time" territory="001" type="Atlantic/Azores"/>
 			<mapZone other="Azores Standard Time" territory="GL" type="America/Scoresbysund"/>
@@ -223,6 +221,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC) Casablanca -->
 			<mapZone other="Morocco Standard Time" territory="001" type="Africa/Casablanca"/>
+			<mapZone other="Morocco Standard Time" territory="EH" type="Africa/El_Aaiun"/>
 			<mapZone other="Morocco Standard Time" territory="MA" type="Africa/Casablanca"/>
 
 			<!-- (UTC) Coordinated Universal Time -->
@@ -245,7 +244,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Greenwich Standard Time" territory="001" type="Atlantic/Reykjavik"/>
 			<mapZone other="Greenwich Standard Time" territory="BF" type="Africa/Ouagadougou"/>
 			<mapZone other="Greenwich Standard Time" territory="CI" type="Africa/Abidjan"/>
-			<mapZone other="Greenwich Standard Time" territory="EH" type="Africa/El_Aaiun"/>
 			<mapZone other="Greenwich Standard Time" territory="GH" type="Africa/Accra"/>
 			<mapZone other="Greenwich Standard Time" territory="GM" type="Africa/Banjul"/>
 			<mapZone other="Greenwich Standard Time" territory="GN" type="Africa/Conakry"/>
@@ -302,10 +300,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Central European Standard Time" territory="HR" type="Europe/Zagreb"/>
 			<mapZone other="Central European Standard Time" territory="MK" type="Europe/Skopje"/>
 			<mapZone other="Central European Standard Time" territory="PL" type="Europe/Warsaw"/>
-
-			<!-- (UTC+01:00) Tripoli -->
-			<mapZone other="Libya Standard Time" territory="001" type="Africa/Tripoli"/>
-			<mapZone other="Libya Standard Time" territory="LY" type="Africa/Tripoli"/>
 
 			<!-- (UTC+01:00) West Central Africa -->
 			<mapZone other="W. Central Africa Standard Time" territory="001" type="Africa/Lagos"/>
@@ -383,6 +377,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Israel Standard Time" territory="001" type="Asia/Jerusalem"/>
 			<mapZone other="Israel Standard Time" territory="IL" type="Asia/Jerusalem"/>
 
+			<!-- (UTC+02:00) Tripoli -->
+			<mapZone other="Libya Standard Time" territory="001" type="Africa/Tripoli"/>
+			<mapZone other="Libya Standard Time" territory="LY" type="Africa/Tripoli"/>
+
 			<!-- (UTC+03:00) Amman -->
 			<mapZone other="Jordan Standard Time" territory="001" type="Asia/Amman"/>
 			<mapZone other="Jordan Standard Time" territory="JO" type="Asia/Amman"/>
@@ -457,11 +455,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Afghanistan Standard Time" territory="001" type="Asia/Kabul"/>
 			<mapZone other="Afghanistan Standard Time" territory="AF" type="Asia/Kabul"/>
 
-			<!-- (UTC+05:00) Islamabad, Karachi -->
-			<mapZone other="Pakistan Standard Time" territory="001" type="Asia/Karachi"/>
-			<mapZone other="Pakistan Standard Time" territory="PK" type="Asia/Karachi"/>
-
-			<!-- (UTC+05:00) Tashkent -->
+			<!-- (UTC+05:00) Ashgabat, Tashkent -->
 			<mapZone other="West Asia Standard Time" territory="001" type="Asia/Tashkent"/>
 			<mapZone other="West Asia Standard Time" territory="AQ" type="Antarctica/Mawson"/>
 			<mapZone other="West Asia Standard Time" territory="KZ" type="Asia/Oral Asia/Aqtau Asia/Aqtobe"/>
@@ -471,6 +465,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="West Asia Standard Time" territory="TM" type="Asia/Ashgabat"/>
 			<mapZone other="West Asia Standard Time" territory="UZ" type="Asia/Tashkent Asia/Samarkand"/>
 			<mapZone other="West Asia Standard Time" territory="ZZ" type="Etc/GMT-5"/>
+
+			<!-- (UTC+05:00) Islamabad, Karachi -->
+			<mapZone other="Pakistan Standard Time" territory="001" type="Asia/Karachi"/>
+			<mapZone other="Pakistan Standard Time" territory="PK" type="Asia/Karachi"/>
 
 			<!-- (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi -->
 			<mapZone other="India Standard Time" territory="001" type="Asia/Calcutta"/>
@@ -619,8 +617,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+12:00) Auckland, Wellington -->
 			<mapZone other="New Zealand Standard Time" territory="001" type="Pacific/Auckland"/>
-			<mapZone other="New Zealand Standard Time" territory="AQ" type="Antarctica/South_Pole Antarctica/McMurdo"/>
-			<mapZone other="New Zealand Standard Time" territory="NZ" type="Pacific/Auckland"/>
+			<mapZone other="New Zealand Standard Time" territory="AQ" type="Antarctica/McMurdo"/>
+			<mapZone other="New Zealand Standard Time" territory="NZ" type="Pacific/Auckland Antarctica/South_Pole"/>
 
 			<!-- (UTC+12:00) Coordinated Universal Time+12 -->
 			<mapZone other="UTC+12" territory="001" type="Etc/GMT-12"/>

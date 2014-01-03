@@ -15,6 +15,8 @@
     String theirVap = cconfig.getProperty("CLDR_VAP", null);
     String vap = request.getParameter("vap");
     File propsFile = new File(surveyHome,CLDRConfigImpl.CLDR_PROPERTIES);
+    File adminHtml = new File(surveyHome, "admin.html");
+    String clickHere = "<a href='"+request.getContextPath()+"/survey'>here</a>";
     Properties survProps = new Properties();
     java.io.FileInputStream is = new java.io.FileInputStream(propsFile);
     survProps.load(is);
@@ -51,10 +53,10 @@ if(!surveyHome.isDirectory()) {
 
 
 if(theirVap==null) {
-    	problem = ("SurveyTool does not yet have a password. Please attempty to view the main page such as <a href='"+request.getContextPath()+"/survey'>here</a> and then try this page again.");
+    	problem = ("SurveyTool does not yet have a password. Please attempty to view the main page such as "+clickHere+" and then try this page again.");
 }
 if(!theirVap.equals(survProps.getProperty("CLDR_VAP"))) {
-	problem = ("Could not re-read raw file " + propsFile.getAbsolutePath() );
+	problem = ("<h2>VAP did not match in " + propsFile.getAbsolutePath()  + "-maybe you changed the password? <br> please #1 delete the file "+adminHtml.getAbsolutePath() +", <br>#2 restart the server and <br>#3 click " + clickHere + " to rebuild admin.html.</h2>");
 }
 
 
@@ -192,6 +194,8 @@ if(request.getParameter("remove_maint")!=null) {
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href="surveytool.css" rel="stylesheet" type="text/css"/>
 	<title>CLDR | SurveyTool Configurator</title>
+						<script src='js/cldr-setup.js'>
+						</script>
 	</head>
 	<body>
 	<h1>SurveyTool Configurator</h1>
@@ -291,7 +295,15 @@ if(request.getParameter("remove_maint")!=null) {
 				if(getNow!=getFirst) {
 					%><div class='okayText'>Set <tt><%= field %></tt> = <tt><%= value %></tt><br/>Updated cldr.properties..<%
 					writeProps(survProps, propsFile, request);
-					%></div><%
+					
+					if(field.equals("CLDR_VAP")) {
+						adminHtml.delete();
+						%><h2>You've changed the CLDR_VAP password, great. Please: <br>#1 restart the server, and <br>#2 click <%= clickHere %> to build admin.html before continuing. Thanks!</h2>
+						<% // delete admin.html if PW changed 
+				 	} // delete admin.html
+					%>
+					</div>
+					<%
 				} else {
 					%><div class='squoText'>No change: <tt><%= field %></tt> = <tt><%= value %></tt></div><%
 				}
@@ -355,7 +367,7 @@ if(request.getParameter("remove_maint")!=null) {
 						<pre><%= DBUtils.getDbBrokenMessage() %></pre>
 						</div>
 						<br>
-						For MySQL, see the links given here.
+						For MySQL, try the <button onclick='return mysqlhelp()'>MySQL Configurator</button>
 						
 						<p>
 						Restart the web server and reload this page to try again.

@@ -111,7 +111,11 @@ public class TestBasic extends TestFmwk {
     public void TestDtds() throws IOException {
         Relation<Row.R2<DtdType, String>,String> foundAttributes 
         = Relation.of(new TreeMap<Row.R2<DtdType, String>,Set<String>>(), TreeSet.class);
-        checkDtds(new File(CLDRPaths.BASE_DIRECTORY), 0, foundAttributes);
+        final CLDRConfig config = CLDRConfig.getInstance();
+        final File basedir = config.getCldrBaseDirectory();
+        for(String subdir : config.getCLDRDataDirectories()) {
+            checkDtds(new File(basedir, subdir), 0, foundAttributes);
+        }
         if (foundAttributes.size() > 0) {
             showFoundElements(foundAttributes);
         }
@@ -125,16 +129,12 @@ public class TestBasic extends TestFmwk {
         if (listFiles == null) {
             throw new IllegalArgumentException(indent + "Empty directory: " + canonicalPath);
         }
-        logln(indent + "Checking files for DTD errors in: " + canonicalPath);
+        logln("Checking files for DTD errors in: " + indent + canonicalPath);
         for (File fileName : listFiles) {
             String name = fileName.getName();
-            if (name.startsWith(".")) {
+            if (CLDRConfig.isJunkFile(name)) {
                 continue;
             } else if (fileName.isDirectory()) {
-                if (name.equals("tools") || name.equals("specs") 
-                    || name.equals("cldr-apps") || name.equals("Servers") || name.equals("cldr-tools")) {
-                    continue;
-                }
                 checkDtds(fileName, level+1, foundAttributes);
             } else if (name.endsWith(".xml")) {
                 check(fileName);
@@ -973,7 +973,7 @@ public class TestBasic extends TestFmwk {
     }
 
     public void TestDtdComparisonsAll() {
-        for (File file : CLDRConfig.getInstance().getAllXMLFiles()) {
+        for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
             checkDtdComparatorFor(file, null);
         }
     }

@@ -300,11 +300,10 @@ public class CLDRConfig extends Properties {
      * Get all CLDR XML files in the CLDR base directory.
      * @return
      */
-    public Set<File> getAllXMLFiles() {
+    public Set<File> getAllCLDRFilesEndingWith(final String suffix) {
         FilenameFilter filter = new FilenameFilter() {
             public boolean accept(File dir, String name) {
-                return name.endsWith(".xml") 
-                    && !name.startsWith("#"); // skip junk and backup files
+                return name.endsWith(suffix) && !isJunkFile(name); // skip junk and backup files
             }
         };
         final File dir = getCldrBaseDirectory();
@@ -358,7 +357,7 @@ public class CLDRConfig extends Properties {
     }
     
     /**
-     * Utility function. Recursively add to a list of files. Skips ".svn" directories.
+     * Utility function. Recursively add to a list of files. Skips ".svn" and junk directories.
      * @param directory base directory
      * @param filter filter to restrict files added
      * @param toAddTo set to add to
@@ -369,7 +368,7 @@ public class CLDRConfig extends Properties {
         if(files!=null) {
             for (File subfile : files) {
                 if (subfile.isDirectory()) {
-                    if(!subfile.getName().equals(".svn")) {
+                    if(!isJunkFile(subfile.getName())) {
                         getFilesRecursively(subfile, filter, toAddTo);
                     }
                 } else if (filter.accept(directory, subfile.getName())) {
@@ -378,6 +377,15 @@ public class CLDRConfig extends Properties {
             }
         }
         return toAddTo;
+    }
+
+    /**
+     * Is the filename junk?  (subversion, backup, etc)
+     * @param name
+     * @return
+     */
+    public static final boolean isJunkFile(String name) {
+        return name.startsWith(".") || (name.startsWith("#")); // Skip:  .svn, .BACKUP,  #backup# files.
     }
 
 }

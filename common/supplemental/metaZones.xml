@@ -325,7 +325,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Chihuahua">
 				<usesMetazone to="1998-04-05 09:00" mzone="America_Central"/>
-				<usesMetazone from="1998-04-05 09:00" mzone="America_Mountain"/>
+				<usesMetazone from="1998-04-05 09:00" mzone="Mexico_Pacific"/>
 			</timezone>
 			<timezone type="America/Coral_Harbour">
 				<usesMetazone mzone="America_Eastern"/>
@@ -419,7 +419,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Hermosillo">
 				<usesMetazone to="1970-01-01 08:00" mzone="America_Pacific"/>
-				<usesMetazone from="1970-01-01 08:00" mzone="America_Mountain"/>
+				<usesMetazone from="1970-01-01 08:00" mzone="Mexico_Pacific"/>
 			</timezone>
 			<timezone type="America/Indiana/Knox">
 				<usesMetazone to="1991-10-27 07:00" mzone="America_Central"/>
@@ -531,7 +531,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="America/Mazatlan">
 				<usesMetazone to="1970-01-01 08:00" mzone="America_Pacific"/>
-				<usesMetazone from="1970-01-01 08:00" mzone="America_Mountain"/>
+				<usesMetazone from="1970-01-01 08:00" mzone="Mexico_Pacific"/>
 			</timezone>
 			<timezone type="America/Mendoza">
 				<usesMetazone to="1990-03-04 02:00" mzone="Argentina"/>
@@ -662,7 +662,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="2013-11-10 04:00" mzone="Acre"/>
 			</timezone>
 			<timezone type="America/Santa_Isabel">
-				<usesMetazone mzone="America_Pacific"/>
+				<usesMetazone mzone="Mexico_Northwest"/>
 			</timezone>
 			<timezone type="America/Santarem">
 				<usesMetazone to="2008-06-24 04:00" mzone="Amazon"/>
@@ -1767,6 +1767,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Marshall_Islands" territory="001" type="Pacific/Majuro"/>
 			<mapZone other="Mauritius" territory="001" type="Indian/Mauritius"/>
 			<mapZone other="Mawson" territory="001" type="Antarctica/Mawson"/>
+			<mapZone other="Mexico_Northwest" territory="001" type="America/Santa_Isabel"/>
+			<mapZone other="Mexico_Pacific" territory="001" type="America/Mazatlan"/>
 			<mapZone other="Mongolia" territory="001" type="Asia/Ulaanbaatar"/>
 			<mapZone other="Moscow" territory="001" type="Europe/Moscow"/>
 			<mapZone other="Myanmar" territory="001" type="Asia/Rangoon"/>

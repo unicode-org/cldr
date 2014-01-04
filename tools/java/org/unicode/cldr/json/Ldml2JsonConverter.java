@@ -207,7 +207,12 @@ public class Ldml2JsonConverter {
         result = result.replaceFirst("/ldml/", pathPrefix);
         result = result.replaceFirst("/supplementalData/", pathPrefix);
 
-        if ( result.contains("languages") || result.contains("languageAlias")) {
+        if (result.contains("languages") ||
+            result.contains("languageAlias") ||
+            result.contains("languageMatches") ||
+            result.contains("likelySubtags") ||
+            result.contains("parentLocale") ||
+            result.contains("locales=")) {
             result = result.replaceAll("_", "-");
         }
         if (DEBUG) {

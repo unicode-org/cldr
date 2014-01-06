@@ -678,17 +678,25 @@ public class XPathTable {
     // proposed-u4-1
     public static final String PROPOSED_U = LDMLConstants.PROPOSED + "-u";
     public static final String PROPOSED_SEP = "-";
+    public static final String PROPOSED_V = "v";
     public static final int NO_XPATH = -1;
 
-    public static final String altProposedPrefix(int userid) {
-        return PROPOSED_U + userid + PROPOSED_SEP;
+    public static final StringBuilder appendAltProposedPrefix(StringBuilder sb, int userid, Integer voteValue) {
+        sb.append(PROPOSED_U);
+        sb.append(userid);
+        if(voteValue!=null) {
+            sb.append(PROPOSED_V);
+            sb.append(voteValue);
+        }
+        sb.append(PROPOSED_SEP);
+        return sb;
     }
 
     /**
      * parse an alt-proposed, such as "proposed-u4-1" into a userid (4, in this
      * case). returns -1 if altProposed is null or in any way malformed.
      */
-    public static final int altProposedToUserid(String altProposed) {
+    public static final int altProposedToUserid(String altProposed, Integer voteValue[]) {
         if ((altProposed == null) || !altProposed.contains(PROPOSED_U)) {
             return -1;
         }

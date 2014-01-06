@@ -1737,7 +1737,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         try {
             conn = DBUtils.getInstance().getDBConnection();
 
-            ps = DBUtils.prepareStatementWithArgsFRO(conn, "select xpath,submitter,value from " + DBUtils.Table.VOTE_VALUE
+            ps = DBUtils.prepareStatementWithArgsFRO(conn, "select xpath,submitter,value,"+VOTE_OVERRIDE+" from " + DBUtils.Table.VOTE_VALUE
                 + " where locale=? and value IS NOT NULL", locale);
 
             rs = ps.executeQuery();
@@ -1745,7 +1745,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             while (rs.next()) {
                 String xp = sm.xpt.getById(rs.getInt(1));
                 int sub = rs.getInt(2);
-                String prefix = XPathTable.altProposedPrefix(sub);
+                Integer voteValue = rs.getInt(4);
+                if(voteValue==0 && rs.wasNull()) {
+                    voteValue = null;
+                }
 
                 StringBuilder sb = new StringBuilder(xp);
                 String alt = null;
@@ -1759,7 +1762,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     sb.append(alt);
                     sb.append('-');
                 }
-                sb.append(prefix);
+                XPathTable.appendAltProposedPrefix(sb, sub, voteValue);
                 sb.append("\"]");
 
                 sxs.putValueAtPath(sb.toString(), DBUtils.getStringUTF8(rs, 3)); // value
@@ -1825,7 +1828,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             // >>
             // //users/user[@id="10"][@email="__"][@level="vetter"][@name="Apple"][@org="apple"][@locales="nl.. "]
             final PreparedStatement myInsert = ps2 = DBUtils.prepareStatementForwardReadOnly(conn, "myInser", "INSERT INTO  "
-                + DBUtils.Table.VOTE_VALUE + " (locale,xpath,submitter,value) VALUES (?,?,?,?) ");
+                + DBUtils.Table.VOTE_VALUE + " (locale,xpath,submitter,value,"+VOTE_OVERRIDE+") VALUES (?,?,?,?) ");
             final SurveyMain sm2 = sm;
             myReader.setHandler(new XMLFileReader.SimpleHandler() {
                 int nusers = 0;
@@ -1844,7 +1847,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
                     try {
                         myInsert.setInt(2, sm2.xpt.getByXpath(newPath.toString()));
-                        myInsert.setInt(3, XPathTable.altProposedToUserid(altParts[1]));
+                        Integer voteValueArray[] = new Integer[1];
+                        // TODO: need to handle a string like 'proposed-u8v4-' to re-introduce the voting override at vote level 4.
+                        if(true) throw new InternalError("TODO: don't know how to handle voting overrides on read-in");
+                        //myInsert.setInt(3, XPathTable.altProposedToUserid(altParts[1], voteValueArray));
                         DBUtils.setStringUTF8(myInsert, 4, value);
                         myInsert.executeUpdate();
                     } catch (SQLException e) {

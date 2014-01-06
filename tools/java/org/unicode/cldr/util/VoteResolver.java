@@ -202,6 +202,18 @@ public class VoteResolver<T> {
         public boolean canManageSomeUsers() {
             return this.getSTLevel() <= manager.getSTLevel();
         }
+        
+        /**
+         * Can this user vote at a reduced level?
+         * @return the vote count this user can vote at, or null if it must vote at its assigned level
+         */
+        public Integer canVoteAtReducedLevel() {
+            if(this.getSTLevel() <= tc.getSTLevel()) {
+                return vetter.votes;
+            } else {
+                return null;
+            }
+        }
 
         /**
          * Policy: can this user create or set a user to the specified level?

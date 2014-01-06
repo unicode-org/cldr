@@ -34,6 +34,14 @@
             // -->
             </script>
             <button style='float: left;' type='button' onclick='exitclick();'>Cancel</button>
+
+        <% if(org.unicode.cldr.web.SurveyMain.isUnofficial()) {
+        	final String CLDR_TESTPW = org.unicode.cldr.util.CLDRConfig.getInstance().getProperty("CLDR_TESTPW", "");
+			if(CLDR_TESTPW !=null && CLDR_TESTPW.length()>0) { %>
+			<a href='<%= request.getContextPath() %>/login.jsp'>Need to create a test login?</a>
+		<% 	}
+		   } %>
+
         </div>
         <div id='small_login_shower' class='small_login_normal'>
         	<button type='button'  onclick='loginclick();'>Login...</button>

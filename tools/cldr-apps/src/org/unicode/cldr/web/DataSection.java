@@ -2,7 +2,7 @@
 //  DataSection.java
 //
 //  Created by Steven R. Loomis on 18/11/2005.
-//  Copyright 2005-2012 IBM. All rights reserved.
+//  Copyright 2005-2014 IBM. All rights reserved.
 //
 
 //  TODO: this class now has lots of knowledge about specific data types.. so does SurveyMain
@@ -120,7 +120,7 @@ public class DataSection implements JSONString {
             public List<CheckStatus> tests = null;
             final public String value; // actual value
 
-            public Set<UserRegistry.User> votes = null; // Set of Users who
+            public Set<UserRegistry.User> votes = null; // Set of Users who voted on this item
 
             private String valueHash = null;
             public boolean isOldValue = false;
@@ -587,7 +587,16 @@ public class DataSection implements JSONString {
                         JSONObject uu = new JSONObject();
                         uu.put("org", u.getOrganization());
                         uu.put("level", u.getLevel());
-                        uu.put("votes", u.getLevel().getVotes());
+                        Integer voteCount = null;
+                        Map<User, Integer> overrides = ballotBox.getOverridesPerUser(xpath);
+                        if(overrides != null) {
+                            voteCount = overrides.get(u);
+                        }
+                        uu.put("overridedVotes", voteCount);
+                        if (voteCount == null) {
+                            voteCount = u.getLevel().getVotes();
+                        }
+                        uu.put("votes", voteCount);
                         if (userForVotelist != null) {
                             uu.put("name", u.name);
                             uu.put("email", u.email.replace("@", " (at) "));

@@ -2116,6 +2116,13 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	if(item.votes && !isWinner) {
 		addIcon(div,"i-vote");
 	}
+	if(newButton && 
+			theRow.voteVhash == vHash &&
+			vHash !== '' &&  // not 'no opinion'
+			theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes) {
+		var overrideTag = createChunk(theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,"span","i-override");		
+		div.appendChild(overrideTag);
+	}
 	
 	var inheritedClassName = "fallback";
 	var defaultClassName = "fallback_code";
@@ -2225,6 +2232,12 @@ function updateRow(tr, theRow) {
 		
 		tr.voteDiv.appendChild(document.createElement("hr"));
 		
+		
+		if(theRow.voteVhash &&
+				theRow.voteVhash!=='' &&
+				theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes) {
+			tr.voteDiv.appendChild(createChunk(stui.sub("override_explain_msg", {overrideVotes:theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes, votes: surveyUser.votecount}),"p","voteInfo_overrideExplain"));
+		}
 		var haveWinner = false;
 		var haveLast = false;
 		
@@ -2240,6 +2253,7 @@ function updateRow(tr, theRow) {
 				var item = tr.rawValueToItem[value]; // backlink to specific item in hash
 				if(item==null) continue;
 				var vdiv = createChunk(null, "div", "voteInfo_perValue");
+
 				
 				// heading row
 				{
@@ -2270,6 +2284,9 @@ function updateRow(tr, theRow) {
 				}
 				
 				var createVoter = function(v) {
+					if(v==null) {
+						return createChunk("(NULL)!","i","stopText");
+					}
 					var div = createChunk(v.email,"div","voteInfo_voterInfo voteInfo_td");
 					div.title = v.name + " ("+v.org+")";
 					return div;
@@ -4766,6 +4783,13 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 
 	console.log("Vote for " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
 	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
+	
+	// vote reduced
+	var voteReduced =	dijit.registry.byId('voteReduced');
+	if(voteReduced) {
+		ourUrl = ourUrl + "&voteReduced="+voteReduced.value;
+	}
+	
 //	tr.className='tr_checking';
 	var loadHandler = function(json){
 		try {

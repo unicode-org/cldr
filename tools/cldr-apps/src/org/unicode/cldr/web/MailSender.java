@@ -39,6 +39,8 @@ import org.unicode.cldr.util.CLDRLocale;
  * Helper class. Sends mail with a simple interface
  */
 public class MailSender implements Runnable {
+    
+    private long waitTill = 0;
     private static final String CLDR_MAIL = "cldr_mail";
 
     private static final String COUNTLEFTSQL = "select count(*) from " + CLDR_MAIL + " where sent_date is NULL and try_count < 3";
@@ -324,11 +326,16 @@ public class MailSender implements Runnable {
     }
 
     private int lastIdProcessed = -1; // spinner 
-
+    
     public void run() {
         if (DBUtils.db_Derby) {
             SurveyLog.warnOnce("************* mail processing disabled for derby. Sorry. **************");
             return;
+        }
+        
+        if(System.currentTimeMillis()<waitTill) {
+            SurveyLog.warnOnce("************* delaying mail processing due to previous errors. **************");
+            return; // wait a bit
         }
 
         SurveyLog.warnOnce("MailSender: processing mail queue");
@@ -426,9 +433,14 @@ public class MailSender implements Runnable {
 
                     if (DEBUG) System.out.println("Successful send of id " + lastIdProcessed + " to " + toUser);
 
-                    rs.updateTimestamp("sent_date", sqlnow);
-                    if (DEBUG) System.out.println("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
-                    rs.updateRow();
+                    if(!DBUtils.updateTimestamp(rs,"sent_date", sqlnow)) {
+                        SurveyLog.warnOnce("Sorry, mail isn't supported without SQL update. You may need to use a different database or JDBC driver.");
+                        shutdown();
+                        return;
+                    } else {
+                        if (DEBUG) System.out.println("Mail: Row updated: #id " + lastIdProcessed + " to " + toUser);
+                        rs.updateRow();
+                    }
                     if (DEBUG) System.out.println("Mail: do updated: #id " + lastIdProcessed + " to " + toUser);
                     conn.commit();
                     if (DEBUG) System.out.println("Mail: comitted: #id " + lastIdProcessed + " to " + toUser);
@@ -455,6 +467,7 @@ public class MailSender implements Runnable {
                 }
             } catch (SQLException se) {
                 SurveyLog.logException(se, "processing mail");
+                waitTill = System.currentTimeMillis()+(1000*60*5); // backoff 5 minutes
             } finally {
                 DBUtils.close(rs, s, s2, conn);
             }

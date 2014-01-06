@@ -1,6 +1,6 @@
 define({
 	root: ({
-		copyright: "(C) 2012-2013 IBM Corporation and Others. All Rights Reserved",
+		copyright: "(C) 2012-2014 IBM Corporation and Others. All Rights Reserved",
 		loading: "loading",
 		loading2: "loading.",
 		loading3: "loading..",
@@ -50,6 +50,7 @@ define({
 		flyoverothers: "Other non-winning items",
 		flyoverchange: "Enter new values here",
 		flyovernoopinion: "Abstain from voting on this item",
+		"i-override_desc": "You have voted on this item with a lower vote count (shown in parenthesis).",
 
 		itemInfoBlank: "This area shows further details about the selected item.",
 
@@ -146,7 +147,10 @@ define({
 		pClass_loser: "This is a proposed item which is not currently winning.",
 		pClass_fallback: "This item is inherited.", //  ${inheritFromDisplay}.", - removed in r8801
 		pClassExplain_desc: "This area shows the item's status.",
-
+		
+		override_explain_msg: "You have voted for this item with ${overrideVotes} votes instead of the usual ${votes}",
+		voteInfo_overrideExplain_desc: "",
+		
 		xpath_desc: "This is the XPath denoting the currently clicked item. For more information, see http://cldr.unicode.org (click to select)",
 
 		winningStatus_disputed: "Disputed",

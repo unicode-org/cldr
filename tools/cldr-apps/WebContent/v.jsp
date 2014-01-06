@@ -251,7 +251,15 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
                <span class='user_name'><%= ctx.session.user.name %></span>
                <span class='user_org'>(<%= ctx.session.user.org %>)</span>
               </span>
-              
+              <% Integer reducedLevelVote =ctx.session.user.getLevel().canVoteAtReducedLevel(); 
+              	 int regularVote = ctx.session.user.getLevel().getVotes(); %>
+              <% if(reducedLevelVote != null) { %>
+              	<select title="vote with a reduced number of votes" id="voteReduced" name="voteReduced" data-dojo-type="dijit/form/Select" >
+              		<option selected="selected" value="<%= regularVote %>"><%= regularVote %> votes</option>
+              		<option value="<%= reducedLevelVote %>"><%= reducedLevelVote %> votes</option>
+             		</select>
+              	 |
+              <% } %>
                <a class='notselected' href='<%= survURL + "?do=logout" %>'>Logout<%= cookieMessage %></a>
                |
             <% } else { %>

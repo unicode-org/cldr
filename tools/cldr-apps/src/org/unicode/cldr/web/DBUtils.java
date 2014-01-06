@@ -20,7 +20,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -322,7 +324,7 @@ public class DBUtils {
     }
 
     public static boolean hasTable(Connection conn, String table) {
-        String canonName = db_Derby ? table.toUpperCase() : table;
+        String canonName = canonTableName(table);
         try {
             ResultSet rs;
 
@@ -344,6 +346,36 @@ public class DBUtils {
             }
         } catch (SQLException se) {
             SurveyMain.busted("While looking for table '" + table + "': ", se);
+            return false; // NOTREACHED
+        }
+    }
+
+    private static String canonTableName(String table) {
+        String canonName = db_Derby ? table.toUpperCase() : table;
+        return canonName;
+    }
+    
+    public static boolean tableHasColumn(Connection conn, String table, String column) {
+        final String canonTable = canonTableName(table);
+        final String canonColumn = canonTableName(column);
+        try {
+            if(db_Derby) {
+                ResultSet rs;
+                DatabaseMetaData dbmd = conn.getMetaData();
+                rs = dbmd.getColumns(null, null, canonTable, canonColumn);
+                if (rs.next() == true) {
+                    rs.close();
+                    //System.err.println("column " + table +"."+column + " did exist.");
+                    return true;
+                } else {
+                    SurveyLog.debug("column " + table +"."+column + " did not exist.");
+                    return false;
+                }
+            } else {
+                return sqlCount(conn, "select count(*) from information_schema.COLUMNS where table_name=? and column_name=?", canonTable, canonColumn)>0;
+            }
+        } catch (SQLException se) {
+            SurveyMain.busted("While looking for column '" + table +"."+column+ "': ", se);
             return false; // NOTREACHED
         }
     }
@@ -391,9 +423,17 @@ public class DBUtils {
      */
     public static int sqlCount(String sql, Object... args) {
         Connection conn = null;
-        PreparedStatement ps = null;
         try {
             conn = DBUtils.getInstance().getDBConnection();
+            return sqlCount(conn, sql, args);
+        } finally {
+            DBUtils.close(conn);
+        }
+    }
+    
+    public static int sqlCount(Connection conn, String sql, Object... args) {
+        PreparedStatement ps = null;
+        try {
             ps = prepareForwardReadOnly(conn, sql);
             setArgs(ps, args);
             return sqlCount(conn, ps);
@@ -401,7 +441,7 @@ public class DBUtils {
             SurveyLog.logException(sqe, "running sqlcount " + sql);
             return -1;
         } finally {
-            DBUtils.close(ps, conn);
+            DBUtils.close(ps);
         }
     }
 
@@ -1499,6 +1539,44 @@ public class DBUtils {
             sb.append(name().toLowerCase());
             DBUtils.appendVersionString(sb, isVersioned?forVersion:null, hasBeta?isBeta:null);
             return sb;
+        }
+    }
+
+    static boolean tryUpdates = true;
+    
+    /**
+     * 
+     * @param rs
+     * @param string
+     * @param sqlnow
+     * @return false if caller needs to 'manually' update the item.
+     * @throws SQLException
+     */
+    public static final boolean updateTimestamp(ResultSet rs, String string, Timestamp sqlnow) throws SQLException {
+        if(tryUpdates) {
+            try {
+                rs.updateTimestamp(string, sqlnow);
+                return true; // success- caller doesn't need to do an update.
+            } catch (SQLFeatureNotSupportedException sfns) {
+                tryUpdates = false;
+                SurveyLog.warnOnce("SQL: Apparently updates aren't supported: " + sfns.toString() + " - falling back.");
+            }
+        }
+        return false; // caller needs to do an update
+    }
+
+    /**
+     * Set an Integer object, either as an int or as a null
+     * @param ps
+     * @param i
+     * @param withVote
+     * @throws SQLException
+     */
+    public static void setInteger(PreparedStatement ps, int i, Integer withVote) throws SQLException {
+        if(withVote==null) {
+            ps.setNull(i, java.sql.Types.INTEGER);
+        } else {
+            ps.setInt(i, withVote);
         }
     }
 }

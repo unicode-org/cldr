@@ -526,7 +526,13 @@ public class SurveyAjax extends HttpServlet {
                                         } else {
                                             if (DEBUG)
                                                 System.err.println("Voting for::  " + val);
-                                            ballotBox.voteForValue(mySession.user, xp, val);
+                                            Integer withVote = null;
+                                            try {
+                                                withVote = Integer.parseInt(request.getParameter("voteReduced"));
+                                            } catch (Throwable t) {
+                                                withVote = null;
+                                            }
+                                            ballotBox.voteForValue(mySession.user, xp, val, withVote);
                                             String subRes = ballotBox.getResolver(xp).toString();
                                             if (DEBUG)
                                                 System.err.println("Voting result ::  " + subRes);

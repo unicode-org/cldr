@@ -489,6 +489,8 @@ public class UserRegistry {
                 put("emailHash", getEmailHash()).
                 put("name", name).
                 put("userlevel", userlevel).
+                put("votecount", getLevel().getVotes()).
+                put("votecount_alt", getLevel().canVoteAtReducedLevel()).
                 put("userlevelName", UserRegistry.levelAsStr(userlevel)).
                 put("org", vrOrg().name()).
                 put("orgName", vrOrg().displayName).

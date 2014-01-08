@@ -36,6 +36,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.DtdData.AttributeValueComparator;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.With.SimpleIterator;
@@ -3331,15 +3332,20 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     private Collection<String> getRawExtraPathsPrivate(Collection<String> toAddTo) {
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());
         // units
-        final Set<Count> pluralCounts = supplementalData
-            .getPlurals(PluralType.cardinal, getLocaleID())
-            .getCounts();
-        if (pluralCounts.size() != 1) {
-            // we get all the root paths with count
-            addPluralCounts(toAddTo, pluralCounts, this);
-            //            addPluralCounts(toAddTo, pluralCounts, getRootCountOther());
-            if (false) {
-                showStars(getLocaleID() + " toAddTo", toAddTo);
+        PluralInfo plurals = supplementalData.getPlurals(PluralType.cardinal, getLocaleID());
+        if (plurals==null && DEBUG) {
+            System.err.println("No " + PluralType.cardinal + "  plurals for " + getLocaleID() + " in " + supplementalData.getDirectory().getAbsolutePath());
+        }
+        Set<Count> pluralCounts = null;
+        if (plurals!=null) {
+            pluralCounts = plurals.getCounts();
+            if (pluralCounts.size() != 1) {
+                // we get all the root paths with count
+                addPluralCounts(toAddTo, pluralCounts, this);
+                //            addPluralCounts(toAddTo, pluralCounts, getRootCountOther());
+                if (false) {
+                    showStars(getLocaleID() + " toAddTo", toAddTo);
+                }
             }
         }
         // dayPeriods
@@ -3390,8 +3396,10 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             String currencyCode = code.toUpperCase();
             toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/symbol");
             toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/displayName");
-            for (Count count : pluralCounts) {
-                toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/displayName[@count=\"" + count.toString() + "\"]");
+            if (pluralCounts != null) {
+                for (Count count : pluralCounts) {
+                    toAddTo.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/displayName[@count=\"" + count.toString() + "\"]");
+                }
             }
         }
 

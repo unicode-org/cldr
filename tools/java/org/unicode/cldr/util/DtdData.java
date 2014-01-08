@@ -711,7 +711,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         Seen seen = new Seen(dtdType);
         seen.seenElements.add(ANY);
         seen.seenElements.add(PCDATA);
-        toString(ROOT, b, seen );
+        toString(ROOT, b, seen);
 
         // Hack for ldmlIcu: catch the items that are not mentioned in the original
         int currentEnd = b.length();
@@ -733,6 +733,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             DtdData otherData = DtdData.getInstance(dtdType.rootType);
             walk(otherData, otherData.ROOT);
+            seenElements.remove(otherData.nameToElement.get("special"));
         }
         private void walk(DtdData otherData, Element current) {
             seenElements.add(current);
@@ -755,7 +756,9 @@ public class DtdData extends XMLFileReader.SimpleHandler {
 
     private void toString(Element current, StringBuilder b, Seen seen) {
         boolean first = true;
-        if (!seen.seenElements.contains(current)) {
+        if (seen.seenElements.contains(current)) {
+            return;
+        } else {
             seen.seenElements.add(current);
 
             b.append("\n\n<!ELEMENT " + current.name + " ");

@@ -69,11 +69,12 @@ public class TestScriptMetadata extends TestFmwk {
         assertEquals("Latin-rtl?", Trinary.NO, info0.rtl);
         assertEquals("Latin-shaping", Shaping.MIN, info0.shapingReq);
         assertEquals("Latin-density", 1, info0.density);
+        assertEquals("Latin-Case", Trinary.YES, info0.hasCase);
 
         info0 = ScriptMetadata.getInfo(UScript.HEBREW);
         assertEquals("Arabic-rtl", Trinary.YES, info0.rtl);
         assertEquals("Arabic-shaping", Shaping.NO, info0.shapingReq);
-
+        assertEquals("Arabic-Case", Trinary.NO, info0.hasCase);
     }
 
     public void TestScripts() {
@@ -86,10 +87,12 @@ public class TestScriptMetadata extends TestFmwk {
             if (info != null) {
                 map.put(info.idUsage, UScript.getName(i) + "\t(" + UScript.getShortName(i) + ")\t" + info);
             } else {
-                temp.applyIntPropertyValue(UProperty.SCRIPT, i); // TODO: What's the point of this?
-                if (temp.size() != 0) {
+                // There are many script codes that are not "real"; there are no Unicode characters for them.
+                // separate those out.
+                temp.applyIntPropertyValue(UProperty.SCRIPT, i);
+                if (temp.size() != 0) { // is real
                     errln("Missing data for " + UScript.getName(i) + "\t(" + UScript.getShortName(i));
-                } else {
+                } else { // is not real
                     missingScripts.add(UScript.getShortName(i));
                 }
             }
@@ -97,7 +100,7 @@ public class TestScriptMetadata extends TestFmwk {
         for (Entry<IdUsage, String> entry : map.keyValueSet()) {
             logln(entry.getValue());
         }
-        if (!missingScripts.isEmpty() && !logKnownIssue("6647", "missing script metadata")) {
+        if (!missingScripts.isEmpty() && !logKnownIssue("6647", "missing script metadata: " + missingScripts.toString())) {
             errln("Also missing: " + missingScripts.toString());
         }
     }
@@ -133,7 +136,7 @@ public class TestScriptMetadata extends TestFmwk {
                 bads.add(s);
             }
         }
-        if (!bads.isEmpty() && !logKnownIssue("6647", "missing script metadata")) {
+        if (!bads.isEmpty() && !logKnownIssue("6647", "missing script metadata: " + bads.toString())) {
             errln("No metadata for scripts: " + bads.toString());
         }
     }

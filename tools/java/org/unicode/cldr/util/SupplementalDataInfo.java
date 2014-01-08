@@ -1159,7 +1159,7 @@ public class SupplementalDataInfo {
             if (lastPluralMap.size() > 0) {
                 addPluralInfo(lastPluralWasOrdinal);
             }
-            lastPluralLocales = "root";
+            lastPluralLocales = "";
         }
 
         public void handlePathValue(String path, String value) {
@@ -2663,7 +2663,7 @@ public class SupplementalDataInfo {
     private Map<String, DayPeriodInfo> localeToDayPeriodInfo = new LinkedHashMap<String, DayPeriodInfo>();
     private Map<String, CoverageLevel2> localeToCoverageLevelInfo = new ConcurrentHashMap<String, CoverageLevel2>();
     private CoverageCache coverageCache = new CoverageCache();
-    private transient String lastPluralLocales = "root";
+    private transient String lastPluralLocales = "";
     private transient boolean lastPluralWasOrdinal = false;
     private transient Map<Count, String> lastPluralMap = new EnumMap<Count, String>(Count.class);
     private transient String lastDayPeriodLocales = null;

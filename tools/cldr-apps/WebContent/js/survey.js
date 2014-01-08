@@ -2327,21 +2327,23 @@ function updateRow(tr, theRow) {
 			if(voteForItem.votes[surveyUser.id].overridedVotes) {
 				tr.voteDiv.appendChild(createChunk(stui.sub("override_explain_msg", 
 						{overrideVotes:voteForItem.votes[surveyUser.id].overridedVotes, votes: surveyUser.votecount}
-					),"p","voteInfo_overrideExplain"));
+					),"p","helpContent"));
 			}
 			if(theRow.voteVhash !== theRow.winningVhash 
 				&& theRow.canFlagOnLosing) {
 					if(!theRow.rowFlagged) {
 						var newIcon = addIcon(tr.voteDiv,"i-stop");
-						tr.voteDiv.appendChild(createChunk(stui.sub("mustflag_explain_msg", {}), "p", "voteInfo_mustflag_explain"));
+						tr.voteDiv.appendChild(createChunk(stui.sub("mustflag_explain_msg", { }), "p", "helpContent"));
 					} else {
 						var newIcon = addIcon(tr.voteDiv,"i-flag");
-						tr.voteDiv.appendChild(createChunk(stui.sub("flagged_explain_msg", {}), "p", "voteInfo_mustflag_explain"));
-
+						tr.voteDiv.appendChild(createChunk(stui.str("flag_desc", "p", "helpContent")));
 					}
 			}
 		}
-
+		if(!theRow.rowFlagged && theRow.canFlagOnLosing) {
+			var newIcon = addIcon(tr.voteDiv,"i-flag-d");
+			tr.voteDiv.appendChild(createChunk(stui.str("flag_d_desc", "p", "helpContent")));
+		}
 		var haveWinner = false;
 		var haveLast = false;
 		
@@ -2350,8 +2352,9 @@ function updateRow(tr, theRow) {
 			// next, the org votes
 			var perValueContainer = div; // IF NEEDED: >>  = document.createElement("div");  perValueContainer.className = "perValueContainer";  
 			
-			if(stdebug_enabled && surveyUser != null) {
-				perValueContainer.appendChild(createChunk("NeededVotes="+vr.requiredVotes +", myvotes=" + surveyUser.votecount,"p"));
+			if(vr.requiredVotes) {
+				var msg = stui.sub("explainRequiredVotes", {requiredVotes: vr.requiredVotes  /* , votecount: surveyUser.votecount */ });
+				perValueContainer.appendChild(createChunk(msg,"p", "helpContent"));
 			}
 			
 			var n = 0;
@@ -2635,6 +2638,10 @@ function updateRow(tr, theRow) {
 	removeAllChildNodes(children[config.proposedcell]); // win
 	if(theRow.rowFlagged) {
 		var flagIcon = addIcon(children[config.proposedcell], "s-flag");
+		flagIcon.title = stui.str("flag_desc");
+	} else if(theRow.canFlagOnLosing) {
+		var flagIcon = addIcon(children[config.proposedcell], "s-flag-d");
+		flagIcon.title = stui.str("flag_d_desc");
 	}
 	children[config.proposedcell].dir = tr.theTable.json.dir;
 	tr.proposedcell = children[config.proposedcell];

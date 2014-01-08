@@ -1630,7 +1630,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @throws SQLException
      * @return number of rows changed
      */
-    public static int setFlag(Connection conn, CLDRLocale locale, int xpath, User user) throws SQLException {
+    public int setFlag(Connection conn, CLDRLocale locale, int xpath, User user) throws SQLException {
         PreparedStatement ps = null;
         try {
             synchronized(STFactory.class) {
@@ -1664,7 +1664,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @throws SQLException
      * @return number of rows changed
      */
-    public static int clearFlag(Connection conn, CLDRLocale locale, int xpath, User user) throws SQLException {
+    public int clearFlag(Connection conn, CLDRLocale locale, int xpath, User user) throws SQLException {
         PreparedStatement ps = null;
         try {
             synchronized(STFactory.class) {
@@ -1685,20 +1685,26 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
      * @param xpath
      * @return user or null
      */
-    public static boolean getFlag(CLDRLocale locale, int xpath) {
+    public boolean getFlag(CLDRLocale locale, int xpath) {
         synchronized(STFactory.class) {
             return loadFlag().contains(new Pair<CLDRLocale,Integer>(locale,xpath));
         }
     }
     
-    public static boolean haveFlags() {
+    public boolean haveFlags() {
         synchronized(STFactory.class) {
             return !(loadFlag().isEmpty());
         }
     }
     
-    private synchronized static Set<Pair<CLDRLocale, Integer>> loadFlag() {
+    /**
+     * Bottleneck for flag functions.
+     * @return
+     */
+    private Set<Pair<CLDRLocale, Integer>> loadFlag() {
         if(flagList == null) {
+            setupDB();
+
             flagList = new HashSet<Pair<CLDRLocale,Integer>>();
             
             System.out.println("Loading flagged items from .." + DBUtils.Table.VOTE_FLAGGED);
@@ -1717,7 +1723,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         return flagList;
     }
     
-    private static Set<Pair<CLDRLocale,Integer>> flagList = null;
+    /**
+     * In memory cache.
+     */
+    private Set<Pair<CLDRLocale,Integer>> flagList = null;
     
     /**
      * Close and re-open the factory. For testing only!

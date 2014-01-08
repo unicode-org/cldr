@@ -1763,7 +1763,7 @@ public class DataSection implements JSONString {
                 return new JSONObject()
                     .put("xpath", xpath)
                     .put("xpid", xpathId)
-                    .put("rowFlagged", STFactory.getFlag(locale,xpathId)?true:null)
+                    .put("rowFlagged", sm.getSTFactory().getFlag(locale,xpathId)?true:null)
                     .put("xpstrid", XPathTable.getStringIDString(xpath))
                     .put("winningValue", winningValue)
                     .put("displayName", displayName)

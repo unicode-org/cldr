@@ -267,7 +267,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
             <% } %>
             <a class='notselected' href='<%= survURL  %>?do=options'>
             	Manage 
-		 	            <% if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  STFactory.haveFlags()) { %>
+		 	            <% if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  sm.getSTFactory().haveFlags()) { %>
 		 	            	<img src='flag.png' border='0' title='Flagged items' />
 		 	            <% } %>
             		</a> 

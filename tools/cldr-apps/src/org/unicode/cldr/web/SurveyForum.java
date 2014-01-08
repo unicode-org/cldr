@@ -474,7 +474,7 @@ public class SurveyForum {
                 }
 
                 Integer postId;
-                final boolean couldFlagOnLosing = couldFlagOnLosing(ctx, xpath, ctx.getLocale()) && !STFactory.getFlag(locale, base_xpath);
+                final boolean couldFlagOnLosing = couldFlagOnLosing(ctx, xpath, ctx.getLocale()) && !sm.getSTFactory().getFlag(locale, base_xpath);
 
                 if(couldFlagOnLosing) {
                     text = text + " <p>[This item was flagged for CLDR TC review.]";
@@ -703,7 +703,7 @@ public class SurveyForum {
 
                 int n = pAdd.executeUpdate();
                 if(couldFlagOnLosing) {
-                    STFactory.setFlag(conn, locale, base_xpath, user);
+                    sm.getSTFactory().setFlag(conn, locale, base_xpath, user);
                     System.out.println("NOTE: flag was set on " + locale + " " + base_xpath+ " by " + user.toString());
                 }
                 conn.commit();
@@ -893,7 +893,7 @@ public class SurveyForum {
     public void showXpath(WebContext baseCtx, String xpath, int base_xpath, CLDRLocale locale) {
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(locale);
-        boolean isFlagged = STFactory.getFlag(locale, base_xpath);
+        boolean isFlagged = sm.getSTFactory().getFlag(locale, base_xpath);
         if(isFlagged) {
             ctx.print(ctx.iconHtml("flag", "flag icon"));
             ctx.println("<i>This item is already flagged for CLDR technical committee review.</i>");
@@ -1156,7 +1156,7 @@ public class SurveyForum {
             ctx.println("</span> * ");
         }
         if (xpath != -1) {
-            boolean isFlagged = STFactory.getFlag(loc, xpath);
+            boolean isFlagged = sm.getSTFactory().getFlag(loc, xpath);
             if(isFlagged) {
                 ctx.print(ctx.iconHtml("flag", "flag icon"));
             }

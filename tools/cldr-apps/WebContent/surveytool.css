@@ -2740,6 +2740,12 @@ transition: background-color 0.5s;
 	height: 17px;
 	background: url(flag.png) no-repeat center center;
 }
+.i-flag-d {
+	padding: 2px;
+	width: 17px;
+	height: 17px;
+	background: url(flag-d.png) no-repeat center center;
+}
 
 .s-flag {
 	width: 17px;
@@ -2747,7 +2753,11 @@ transition: background-color 0.5s;
 	background: url(flag.png) no-repeat center center ;
 }
 
-
+.s-flag-d {
+	width: 17px;
+	height: 30px;
+	background: url(flag-d.png) no-repeat center center ;
+}
 td.d-change,td.d-change-err,td.d-change-warn {
 	white-space: nowrap;
 }

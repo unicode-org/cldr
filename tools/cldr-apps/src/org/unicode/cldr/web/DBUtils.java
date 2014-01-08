@@ -338,7 +338,7 @@ public class DBUtils {
 
             if (rs.next() == true) {
                 rs.close();
-                // System.err.println("table " + canonName + " did exist.");
+                System.out.println("table " + canonName + " did exist.");
                 return true;
             } else {
                 SurveyLog.debug("table " + canonName + " did not exist.");

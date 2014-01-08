@@ -78,6 +78,17 @@ public class TestLocale extends TestFmwk {
             { "no-YU", "nb_RS" },
             { "no", "nb" },
             { "eng-833", "en_IM" },
+            { "mo", "ro_MD" },
+            { "mo_Cyrl", "ro_Cyrl_MD" },
+            { "mo_US", "ro_US" },
+            { "mo_Cyrl_US", "ro_Cyrl_US" },
+            { "sh", "sr_Latn" },
+            { "sh_US", "sr_Latn_US" },
+            { "sh_Cyrl", "sr_Cyrl" },
+            { "sh_Cyrl_US", "sr_Cyrl_US" },
+            { "hy_SU", "hy_AM" },
+            { "en_SU", "en_RU" },
+            { "rO-cYrl-aQ", "ro_Cyrl_AQ" },
         };
         for (String[] pair : tests) {
             String actual = canonicalizer.transform(pair[0]);

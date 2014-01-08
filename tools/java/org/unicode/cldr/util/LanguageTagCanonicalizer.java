@@ -5,11 +5,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.tool.LikelySubtags;
+
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.text.StringTransform;
 
 public class LanguageTagCanonicalizer implements StringTransform {
     static SupplementalDataInfo info = SupplementalDataInfo.getInstance();
+    static Map<String, String> likely = info.getLikelySubtags();
     static Map<String, Map<String, R2<List<String>, String>>> aliases = info.getLocaleAliasInfo();
 
     // instance variables, since they can change.
@@ -22,9 +25,9 @@ public class LanguageTagCanonicalizer implements StringTransform {
     // TODO, handle variants
     public String transform(String locale) {
         ltp1.set(locale);
-        copyFields(LanguageTagField.language);
-        copyFields(LanguageTagField.script);
-        copyFields(LanguageTagField.region);
+        copyFields(LanguageTagField.language, locale);
+        copyFields(LanguageTagField.script, locale);
+        copyFields(LanguageTagField.region, locale);
 
         // special code for variants
 
@@ -70,17 +73,25 @@ public class LanguageTagCanonicalizer implements StringTransform {
         }
     }
 
-    private String getReplacement(LanguageTagField tagField) {
-        return getReplacement(tagField, tagField.get(ltp1));
+    private String getReplacement(LanguageTagField tagField, String languageTag) {
+        return getReplacement(tagField, tagField.get(ltp1), languageTag);
     }
 
-    private String getReplacement(LanguageTagField tagField, String field) {
+    private String getReplacement(LanguageTagField tagField, String field, String languageTag) {
         String newField = null;
         R2<List<String>, String> otherLanguage = tagField.replacements.get(field);
         if (otherLanguage != null) {
             List<String> list = otherLanguage.get0();
             if (list.size() != 0) {
                 newField = list.get(0);
+                if (list.size() > 1 && tagField == LanguageTagField.region) {
+                    LanguageTagParser x = new LanguageTagParser().set(languageTag).setRegion("");
+                    String max = LikelySubtags.maximize(x.toString(), likely);
+                    String region = x.set(max).getRegion();
+                    if (list.contains(region)) {
+                        newField = region;
+                    }
+                }
             }
         }
         return newField;
@@ -93,12 +104,12 @@ public class LanguageTagCanonicalizer implements StringTransform {
      * @param mainField
      *            - for this field, force a copy. For other fields, only copy if target is empty
      */
-    private void copyFields(LanguageTagField mainField) {
-        String otherField = getReplacement(mainField);
-        copyFields(mainField, otherField);
+    private void copyFields(LanguageTagField mainField, String languageTag) {
+        String otherField = getReplacement(mainField, languageTag);
+        copyFields2(mainField, otherField);
     }
 
-    private void copyFields(LanguageTagField mainField, String otherField) {
+    private void copyFields2(LanguageTagField mainField, String otherField) {
         if (otherField == null) {
             return;
         }

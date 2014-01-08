@@ -35,11 +35,11 @@ public class LanguageTagCanonicalizer implements StringTransform {
         if (originalVariants.size() != 0) {
             Set<String> newVariants = new TreeSet<String>();
             for (String item : originalVariants) {
-                String replacement = getReplacement(LanguageTagField.variant, item);
+                String replacement = getReplacement2(LanguageTagField.variant, item, locale);
                 if (replacement == null) {
                     newVariants.add(item);
                 } else {
-                    copyFields(LanguageTagField.variant, replacement);
+                    copyFields2(LanguageTagField.variant, replacement);
                     List<String> otherVariants = ltp2.getVariants();
                     newVariants.addAll(otherVariants);
                 }
@@ -74,10 +74,12 @@ public class LanguageTagCanonicalizer implements StringTransform {
     }
 
     private String getReplacement(LanguageTagField tagField, String languageTag) {
-        return getReplacement(tagField, tagField.get(ltp1), languageTag);
+        return getReplacement2(tagField, 
+            tagField.get(ltp1), 
+            languageTag);
     }
 
-    private String getReplacement(LanguageTagField tagField, String field, String languageTag) {
+    private String getReplacement2(LanguageTagField tagField, String field, String languageTag) {
         String newField = null;
         R2<List<String>, String> otherLanguage = tagField.replacements.get(field);
         if (otherLanguage != null) {

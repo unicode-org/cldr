@@ -150,6 +150,8 @@ define({
 		
 		override_explain_msg: "You have voted for this item with ${overrideVotes} votes instead of the usual ${votes}",
 		voteInfo_overrideExplain_desc: "",
+		mustflag_explain_msg: "The item you voted for is not winning. However, you may post a forum entry to flag the item for Committee review.",
+		voteInfo_mustflag_explain_desc: "",
 		
 		xpath_desc: "This is the XPath denoting the currently clicked item. For more information, see http://cldr.unicode.org (click to select)",
 
@@ -257,6 +259,10 @@ define({
 		
 		forumNewPostButton: "New Post",
 		forumNewButton_desc: "Clicking this will bring up a form to reply to this particular item, in a new window. Click 'view item' after submitting to return to this item.",
+		forumNewPostFlagButton: "Flag for Review",
+		forumNewPostFlagButton_desc: "Clicking this will bring up a form to reply to this particular item, in a new window. Click 'view item' after submitting to return to this item.",
+		
+		flagged_explain_msg: "This item has been flagged for review by the CLDR Technical Committee.",
 		special_general: "Please click the <b class='fakebutton'>General Info</b> button above, and choose a page to begin entering data. If you have not already done so, please read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Review: Priority Items to see all the errors, warnings, and missing items in one place.",
 
 		defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",

@@ -4,6 +4,7 @@
 package org.unicode.cldr.web;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 import java.sql.Connection;
@@ -38,6 +39,7 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.LruMap;
+import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.VoteResolver;
@@ -843,6 +845,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
 
             if (!readonly) {
+                boolean didClearFlag = false;
                 makeSource(false);
                 ElapsedTimer et = !SurveyLog.DEBUG ? null : new ElapsedTimer("{0} Recording PLD for " + locale + " "
                     + distinguishingXpath + " : " + user + " voting for '" + value);
@@ -853,6 +856,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 PreparedStatement ps2 = null; // 2nd step for derby
                 ResultSet rs = null;
                 int xpathId = sm.xpt.getByXpath(distinguishingXpath);
+                final boolean wasFlagged = getFlag(locale, xpathId); // do this outside of the txn..
                 int submitter = user.id;
                 try {
                     conn = DBUtils.getInstance().getDBConnection();
@@ -914,6 +918,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     }
                     ps.executeUpdate();
 
+                    
+                    if(wasFlagged && UserRegistry.userIsTC(user)) {
+                        clearFlag(conn, locale, xpathId, user);
+                        didClearFlag = true;
+                    }
                     conn.commit();
                 } catch (SQLException e) {
                     SurveyLog.logException(e);
@@ -923,6 +932,18 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     DBUtils.close(saveOld, rs, ps, ps2, conn);
                 }
                 SurveyLog.debug(et);
+
+                
+                if(didClearFlag) {
+                    // now, outside of THAT txn, make a forum post about clearing the flag.
+                    final String forum = SurveyForum.localeToForum(locale.toULocale());
+                    final int forumNumber = sm.fora.getForumNumber(forum);
+                    int newPostId = sm.fora.doPostInternal(forum,forumNumber,xpathId,-1,locale,"Flag Removed","(The flag was removed.)",false,user);
+                    //sm.fora.emailNotify(ctx, forum, base_xpath, subj, text, postId);
+                    SurveyLog.warnOnce("TODO: no email notify on flag clear. This may be OK, it could be a lot of mail.");
+                    System.out.println("NOTE: flag was removed from " + locale + " " + distinguishingXpath + " - post ID="+newPostId + "  by " + user.toString());
+                }
+
             } else {
                 readonly();
             }
@@ -1554,15 +1575,6 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 conn.commit();
                 System.err.println("Created table " + DBUtils.Table.VOTE_VALUE);
             }
-            
-            if(!DBUtils.tableHasColumn(conn, DBUtils.Table.VOTE_VALUE.toString(), VOTE_OVERRIDE)) {
-                SurveyMain.busted("Error: table " + DBUtils.Table.VOTE_VALUE + " doesn't have column " + VOTE_OVERRIDE + 
-                    ". At this point, I don't have a way to migrate the table. Please just DROP this table and restart. If you are stuck, just delete the " + 
-                    sm.getSurveyHome() + " directory and start over.");
-            } else {
-                System.err.println("Congratulations, table " + DBUtils.Table.VOTE_VALUE + " does have column " + VOTE_OVERRIDE);
-            }
-            
             if (!DBUtils.hasTable(conn, DBUtils.Table.VOTE_VALUE_ALT.toString())) {
                 s = conn.createStatement();
                 String valueLen = DBUtils.db_Mysql ? "(750)" : "";
@@ -1583,6 +1595,23 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 conn.commit();
                 System.err.println("Created table " + DBUtils.Table.VOTE_VALUE_ALT);
             }
+            if (!DBUtils.hasTable(conn, DBUtils.Table.VOTE_FLAGGED.toString())) {
+                s = conn.createStatement();
+
+                sql = "create table " + DBUtils.Table.VOTE_FLAGGED + "( " + "locale VARCHAR(20), " + "xpath  INT NOT NULL, "
+                    + "submitter INT NOT NULL, " + DBUtils.DB_SQL_LAST_MOD + " "
+                    + ", PRIMARY KEY (locale,xpath) " +
+                    " )";
+                // SurveyLog.logger.info(sql);
+                s.execute(sql);
+
+                sql = "CREATE UNIQUE INDEX  " + DBUtils.Table.VOTE_FLAGGED + " ON " + DBUtils.Table.VOTE_FLAGGED +" (locale,xpath)";
+                s.execute(sql);
+                s.close();
+                s = null; // don't close twice.
+                conn.commit();
+                System.err.println("Created table " + DBUtils.Table.VOTE_FLAGGED);
+            }
         } catch (SQLException se) {
             SurveyLog.logException(se, "SQL: " + sql);
             SurveyMain.busted("Setting up DB for STFactory, SQL: " + sql, se);
@@ -1591,7 +1620,105 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             DBUtils.close(s, conn);
         }
     }
+    
+    /**
+     * Flag the specified xpath for review.
+     * @param conn
+     * @param locale
+     * @param xpath
+     * @param user
+     * @throws SQLException
+     * @return number of rows changed
+     */
+    public static int setFlag(Connection conn, CLDRLocale locale, int xpath, User user) throws SQLException {
+        PreparedStatement ps = null;
+        try {
+            synchronized(STFactory.class) {
+                final Pair<CLDRLocale, Integer> theKey = new Pair<CLDRLocale,Integer>(locale,xpath);
+                final Set<Pair<CLDRLocale, Integer>> m = loadFlag();
+                if(m.contains(theKey)) {
+                    return 0; // already there.
+                }
+                m.add(theKey);
+            } // make sure that the DB is loaded before we attempt to update.
+            if(DBUtils.db_Mysql) {
+                ps = DBUtils.prepareStatementWithArgs(conn, "INSERT IGNORE INTO " + DBUtils.Table.VOTE_FLAGGED +
+                    " (locale,xpath,submitter) VALUES (?,?,?)", locale.toString(), xpath, user.id);
+            } else {
+                ps = DBUtils.prepareStatementWithArgs(conn, "INSERT INTO " + DBUtils.Table.VOTE_FLAGGED +
+                    " (locale,xpath,submitter) VALUES (?,?,?)", locale.toString(), xpath, user.id);
+            }
+            int rv = ps.executeUpdate();
+            return rv;
+        } finally {
+            DBUtils.close(ps);
+        }
+    }
 
+    /**
+     * Flag the specified xpath for review.
+     * @param conn
+     * @param locale
+     * @param xpath
+     * @param user
+     * @throws SQLException
+     * @return number of rows changed
+     */
+    public static int clearFlag(Connection conn, CLDRLocale locale, int xpath, User user) throws SQLException {
+        PreparedStatement ps = null;
+        try {
+            synchronized(STFactory.class) {
+                loadFlag().remove(new Pair<CLDRLocale,Integer>(locale,xpath));
+            } // make sure DB is loaded before we attempt to update
+            ps = DBUtils.prepareStatementWithArgs(conn, "DELETE FROM " + DBUtils.Table.VOTE_FLAGGED +
+                " WHERE locale=? AND xpath=?", locale.toString(), xpath);
+            int rv = ps.executeUpdate();
+            return rv;
+        } finally {
+            DBUtils.close(ps);
+        }
+    }
+    
+    /**
+     * Returns userid of flagger, or null if not flagged
+     * @param locale
+     * @param xpath
+     * @return user or null
+     */
+    public static boolean getFlag(CLDRLocale locale, int xpath) {
+        synchronized(STFactory.class) {
+            return loadFlag().contains(new Pair<CLDRLocale,Integer>(locale,xpath));
+        }
+    }
+    
+    public static boolean haveFlags() {
+        synchronized(STFactory.class) {
+            return !(loadFlag().isEmpty());
+        }
+    }
+    
+    private synchronized static Set<Pair<CLDRLocale, Integer>> loadFlag() {
+        if(flagList == null) {
+            flagList = new HashSet<Pair<CLDRLocale,Integer>>();
+            
+            System.out.println("Loading flagged items from .." + DBUtils.Table.VOTE_FLAGGED);
+            try {
+                for(Map<String, Object> r : DBUtils.queryToArrayAssoc("select * from " + DBUtils.Table.VOTE_FLAGGED)) {
+                    flagList.add(new Pair<CLDRLocale, Integer>(CLDRLocale.getInstance(r.get("locale").toString()),
+                        (Integer)r.get("xpath")));
+                }
+                System.out.println("Loaded " + flagList.size() + " items into flagged list.");
+            } catch(SQLException sqe) {
+                SurveyMain.busted("loading flagged votes from " + DBUtils.Table.VOTE_FLAGGED, sqe);
+            } catch(IOException ioe) {
+                SurveyMain.busted("loading flagged votes from " + DBUtils.Table.VOTE_FLAGGED, ioe);
+            }
+        }
+        return flagList;
+    }
+    
+    private static Set<Pair<CLDRLocale,Integer>> flagList = null;
+    
     /**
      * Close and re-open the factory. For testing only!
      * 

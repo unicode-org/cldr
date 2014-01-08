@@ -1763,6 +1763,7 @@ public class DataSection implements JSONString {
                 return new JSONObject()
                     .put("xpath", xpath)
                     .put("xpid", xpathId)
+                    .put("rowFlagged", STFactory.getFlag(locale,xpathId)?true:null)
                     .put("xpstrid", XPathTable.getStringIDString(xpath))
                     .put("winningValue", winningValue)
                     .put("displayName", displayName)
@@ -1777,6 +1778,7 @@ public class DataSection implements JSONString {
                     .put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false)
                     .put("winningVhash", winningVhash).put("ourVote", ourVote).put("voteVhash", voteVhash)
                     .put("voteResolver", SurveyAjax.JSONWriter.wrap(ballotBox.getResolver(xpath))).put("items", itemsJson)
+                    .put("canFlagOnLosing", canFlagOnLosing(this.getPathHeader(), locale, xpath))
                     .toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in toJSONString of " + this);
@@ -1811,7 +1813,7 @@ public class DataSection implements JSONString {
         public Level getCoverageLevel() {
             return sm.getSupplementalDataInfo().getCoverageLevel(getXpath(), locale.getBaseName());
         }
-
+        
         /**
          * There was at least one vote at the end of DataSubmission, or there is
          * a vote now. TODO: add check for whether there was a vote in data
@@ -3694,5 +3696,22 @@ public class DataSection implements JSONString {
     private ExampleBuilder getExampleBuilder() {
         return examplebuilder;
     }
-
+    
+    
+    /**
+     * TODO: move this into PathHeader / coverage / ???
+     * @param pathHeader
+     * @return
+     */
+    public static final boolean canFlagOnLosing(PathHeader pathHeader, CLDRLocale locale, String xpath) {
+        if(!SurveyMain.isUnofficial()) {
+            return false;
+        }
+        SurveyLog.warnOnce("note: using TEST values for DataSection.canFlagOnLosing - FIXME!");
+        if(xpath.startsWith("//ldml/numbers/symbols") &&
+            ( xpath.endsWith("/decimal") || xpath.endsWith("/group") ) ) {
+            return true;
+        }
+        return false;
+    }
 }

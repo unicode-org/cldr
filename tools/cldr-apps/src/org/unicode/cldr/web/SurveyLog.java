@@ -223,4 +223,7 @@ public class SurveyLog {
         }
     }
 
+    static void shutdown() {
+        debug("SurveyLog: Number of items in warnOnce() list: " + alreadyWarned.size());
+    }
 }

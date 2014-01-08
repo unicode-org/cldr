@@ -67,6 +67,11 @@ String helpName = subCtx.getString("helpName");
             }
             %>
          <h3>Forum</h3>
+              <% if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  STFactory.haveFlags()) { %>
+              	<a href="<%= subCtx.context("tc-flagged.jsp?s="+ctx.session.id) %>"><img src='flag.png' alt='flag' border='0' /> View Flagged Entries</a> 
+              <% }  else { %>
+              	<i>(no flagged items.)</i><br/>
+              <% } %>
               <%= ctx.sm.fora.mainFeedIcon(ctx) %>
           <%
         }

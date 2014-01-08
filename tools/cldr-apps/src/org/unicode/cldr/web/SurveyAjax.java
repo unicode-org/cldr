@@ -142,6 +142,7 @@ public class SurveyAjax extends HttpServlet {
             JSONObject ret = new JSONObject().put("raw", r.toString()).put("isDisputed", r.isDisputed())
                 .put("isEstablished", r.isEstablished()).put("lastReleaseStatus", r.getLastReleaseStatus())
                 .put("winningValue", r.getWinningValue()).put("lastReleaseValue", r.getLastReleaseValue())
+                .put("requiredVotes", r.getRequiredVotes())
                 .put("winningStatus", r.getWinningStatus());
 
             EnumSet<VoteResolver.Organization> conflictedOrgs = r.getConflictedOrganizations();

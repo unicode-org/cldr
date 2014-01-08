@@ -6152,6 +6152,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (isBusted != null)
                 isBusted = "servlet destroyed + destroyTimer";
             super.destroy();
+            SurveyLog.shutdown();
         } finally {
             progress.close();
             System.out.println("------------------- end of SurveyMain.destroy() ------------" + uptime + destroyTimer);

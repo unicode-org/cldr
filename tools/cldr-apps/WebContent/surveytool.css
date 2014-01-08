@@ -1211,6 +1211,15 @@ button.forumNewButton {
 	
 }
 
+button.forumNewPostFlagButton {
+    padding-left: 2em;
+}
+
+button.forumNewPostFlagButton:hover {
+    padding-left: 2em;
+    background: url(flag.png) no-repeat;
+}
+
 div.forumDiv .adminUserUser {
 	background-color: lightgrey !important;
 	margin: 3px !important;
@@ -2717,6 +2726,25 @@ transition: background-color 0.5s;
 	width: 17px;
 	height: 17px;
 	background: url(vote.png) no-repeat center center;
+}
+
+.i-stop {
+	padding: 2px;
+	width: 17px;
+	height: 17px;
+	background: url(stop.png) no-repeat center center;
+}
+.i-flag {
+	padding: 2px;
+	width: 17px;
+	height: 17px;
+	background: url(flag.png) no-repeat center center;
+}
+
+.s-flag {
+	width: 17px;
+	height: 30px;
+	background: url(flag.png) no-repeat center center ;
 }
 
 

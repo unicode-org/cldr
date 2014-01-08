@@ -56,6 +56,7 @@ String helpName = ctx.getString("helpName");
     		}
 
             ctx.print(" | ");
+
             SurveyMain.printMenu(ctx, doWhat, "options", "Manage", SurveyMain.QUERY_DO);
     	} else {
     		boolean haveCookies = (ctx.getCookie(SurveyMain.QUERY_EMAIL)!=null&&ctx.getCookie(SurveyMain.QUERY_PASSWORD)!=null);
@@ -98,6 +99,9 @@ String helpName = ctx.getString("helpName");
     			ctx.print(" <smaller>Coverage: "+curSetting+"</smaller>");
     		}
     		ctx.print(" | ");
+            if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  STFactory.haveFlags()) { 
+            	ctx.println(ctx.iconHtml("flag", "(flagged items"));
+            }
             ctx.sm.printMenu(ctx, doWhat, "options", "Manage", SurveyMain.QUERY_DO);
     		//ctx.println(" | <a class='deactivated' _href='"+ctx.url()+ctx.urlConnector()+"do=mylocs"+"'>My locales</a>");
     		if(UserRegistry.userIsAdmin(ctx.session.user)) {

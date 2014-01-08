@@ -265,7 +265,12 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
             <% } else { %>
                 <a href='<%= request.getContextPath() %>/login.jsp' id='loginlink' class='notselected'>Login…</a> |
             <% } %>
-            <a class='notselected' href='<%= survURL  %>?do=options'>Manage</a> 
+            <a class='notselected' href='<%= survURL  %>?do=options'>
+            	Manage 
+		 	            <% if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  STFactory.haveFlags()) { %>
+		 	            	<img src='flag.png' border='0' title='Flagged items' />
+		 	            <% } %>
+            		</a> 
             |
             <a id='generalHelpLink' class='notselected'  href='<%= SurveyMain.GENERAL_HELP_URL %>'><%= SurveyMain.GENERAL_HELP_NAME %></a>
 					|

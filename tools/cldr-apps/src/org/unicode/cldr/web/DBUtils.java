@@ -597,6 +597,7 @@ public class DBUtils {
                     dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion();
                     setupSqlForServerType();
                     SurveyLog.debug("Metadata: " + dbInfo);
+                    handleHaveDatasource(datasource);
                 }
             } catch (SQLException t) {
                 datasource = null;
@@ -619,6 +620,10 @@ public class DBUtils {
 
     }
 
+    private void handleHaveDatasource(DataSource datasource2) {
+        // process migrations here..
+    }
+
     public DBUtils(DataSource dataSource2) {
         datasource = dataSource2;
         Connection c = null;
@@ -636,6 +641,7 @@ public class DBUtils {
                     throw new IllegalArgumentException("autoCommit was true, expected false. Check your configuration.");
                 }
                 SurveyLog.debug("Metadata: " + dbInfo + ", autocommit: " + autoCommit);
+                handleHaveDatasource(datasource);
             }
         } catch (SQLException t) {
             datasource = null;
@@ -1505,9 +1511,10 @@ public class DBUtils {
      * Manage table names according to versions.
      */
     public enum Table {
-        VOTE_VALUE(true,true),
-        VOTE_VALUE_ALT(true,true),
-        FORUM_POSTS(true,true);
+        VOTE_VALUE,
+        VOTE_VALUE_ALT,
+        VOTE_FLAGGED,
+        FORUM_POSTS;
         
         /**
          * 
@@ -1517,6 +1524,10 @@ public class DBUtils {
         Table(boolean isVersioned, boolean hasBeta) {
             this.isVersioned = isVersioned;
             this.hasBeta = hasBeta;
+        }
+        Table() {
+            this.isVersioned = true;
+            this.hasBeta = true;
         }
         final boolean isVersioned, hasBeta;
         

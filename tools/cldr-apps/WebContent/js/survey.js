@@ -1,4 +1,4 @@
-// survey.js  -Copyright (C) 2012-2013 IBM Corporation and Others. All Rights Reserved.
+// survey.js  -Copyright (C) 2012-2014 IBM Corporation and Others. All Rights Reserved.
 // move anything that's not dynamically generated here.
 
 // These need to be available @ bootstrap time.
@@ -28,6 +28,10 @@ if(!Object.prototype.keys && !Object.keys) {
 	};
 }
 
+/**
+ * @class Array
+ * @method isArray
+ */
 if(!Array.prototype.isArray && !Array.isArray) {
 	console.log("fixing missing Array.isArray() ");
 	Array.isArray = function(x) {
@@ -36,6 +40,10 @@ if(!Array.prototype.isArray && !Array.isArray) {
 	};
 }
 
+/**
+ * @class String
+ * @method trim
+ */
 if(!String.prototype.trim && !String.trim) {
 	console.log("TODO fix broken String.trim() ");
 	String.prototype.trim = function(x) {
@@ -47,11 +55,24 @@ if(!String.prototype.trim && !String.trim) {
  * @class GLOBAL
  */
 
+/**
+ * @method removeClass
+ * remove a CSS class from a node
+ * @param {Node} obj
+ * @param {String} className
+ */
 function removeClass(obj, className) {
 	if(obj.className.indexOf(className)>-1) {
 		obj.className = obj.className.substring(className.length+1);
 	}
 }
+
+/**
+ * @method addClass
+ * add a CSS class from a node
+ * @param {Node} obj
+ * @param {String} className
+ */
 function addClass(obj, className) {
 	if(obj.className.indexOf(className)==-1) {
 		obj.className = className+" "+obj.className;
@@ -1392,7 +1413,7 @@ function wireUpButton(button, tr, theRow, vHash,box) {
 	} else if((theRow.voteVhash==vHash) && !box) {
 		button.className = "ichoice-x";
 		button.checked = true;
-		tr.lastOn = button;
+		tr.lastOn = button;		
 	} else {
 		button.className = "ichoice-o";
 		button.checked = false;
@@ -1440,9 +1461,28 @@ var gPopStatus = {
 		popToken: 0
 };
 
+/**
+ * @method showInPop2
+ * This is the actual function is called to display the right-hand "info" panel.
+ * It is defined dynamically because it depends on variables that aren't available at startup time. 
+ * @param {String} str the string to show at the top
+ * @param {Node} tr the <TR> of the row
+ * @param {Boolean} hideIfLast 
+ * @param {Function} fn 
+ * @param {Boolean} immediate
+ */
 function showInPop(str,tr, theObj, fn, immediate) {
 }
 
+/**
+ * @method listenToPop
+ * Make the object "theObj" cause the infowindow to show when clicked.
+ * @param {String} str
+ * @param {Node} tr the TR element that is clicked
+ * @param {Node} theObj to listen to
+ * @param {Function} fn the draw function
+ * @returns {Function}
+ */
 function listenToPop(str, tr, theObj, fn) {
 	var theFn;
 	listenFor(theObj, "click",
@@ -1471,11 +1511,26 @@ function incrPopToken(x) {
 //	stStopPropagation(e); return false; 
 //}
 
-
-// called when showing the popup each time
+/**
+ * @method showForumStuff
+ * called when showing the popup each time
+ * @param {Node} frag
+ * @param {Node} forumDiv
+ * @param {Node} tr
+ */
 function showForumStuff(frag, forumDiv, tr) {
 	// prepend something
-	var newButton = createChunk(stui.str("forumNewPostButton"), "button", "forumNewButton");
+	var buttonTitle = "forumNewPostButton";
+	var buttonClass = "forumNewButton";
+	if(tr.theRow) {
+		if(tr.theRow.voteVhash !== tr.theRow.winningVhash 
+				&& tr.theRow.canFlagOnLosing && 
+				!tr.theRow.rowFlagged) {
+			buttonTitle = "forumNewPostFlagButton";
+			buttonClass = "forumNewPostFlagButton"
+		}
+	}
+	var newButton = createChunk(stui.str(buttonTitle), "button", buttonClass);
 	frag.appendChild(newButton);
 	
 	listenFor(newButton, "click", function(e) {
@@ -1488,6 +1543,10 @@ function showForumStuff(frag, forumDiv, tr) {
 	var loader2 = createChunk(stui.str("loading"),"i");
 	frag.appendChild(loader2);
 
+	/**
+	 * @method havePosts
+	 * @param {Integer} nrPosts
+	 */
 	function havePosts(nrPosts) {
 		setDisplayed(loader2,false); // not needed
 		tr.forumDiv.forumPosts = nrPosts;
@@ -1605,7 +1664,13 @@ function showForumStuff(frag, forumDiv, tr) {
 	
 }
 
-// called when initially setting up the section
+/**
+ * @method appendForumStuff
+ * called when initially setting up the section.
+ * @param {Node} tr
+ * @param {Node} theRow
+ * @param {Node} forumDiv
+ */
 function appendForumStuff(tr, theRow, forumDiv) {
 	removeAllChildNodes(forumDiv); // we may be updating.
 	var theForum = 	locmap.getLanguage(surveyCurrentLocale);
@@ -1680,7 +1745,17 @@ dojo.ready(function() {
 	}
 	
 	var deferHelp = {};
-	
+
+	/**
+	 * @method showInPop2
+	 * This is the actual function is called to display the right-hand "info" panel.
+	 * It is defined dynamically because it depends on variables that aren't available at startup time. 
+	 * @param {String} str the string to show at the top
+	 * @param {Node} tr the <TR> of the row
+	 * @param {Boolean} hideIfLast 
+	 * @param {Function} fn 
+	 * @param {Boolean} immediate
+	 */
 	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate) {
 //		if(hideIfLast&&lastShown==hideIfLast) {
 //			return; // keep up
@@ -2115,6 +2190,19 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	}
 	if(item.votes && !isWinner) {
 		addIcon(div,"i-vote");
+
+		if(vHash == theRow.voteVhash && theRow.canFlagOnLosing && !theRow.rowFlagged){
+			var newIcon = addIcon(div,"i-stop"); // DEBUG
+			/*
+			listenFor(newIcon, "click", function(e) {
+				//window.blur(); // submit anything unsubmitted
+				// TODO!
+				window.open(tr.forumDiv.postUrl);
+				stStopPropagation(e);
+				return true;
+			});
+			 */
+		}
 	}
 	if(newButton && 
 			theRow.voteVhash == vHash &&
@@ -2233,11 +2321,27 @@ function updateRow(tr, theRow) {
 		tr.voteDiv.appendChild(document.createElement("hr"));
 		
 		
-		if(theRow.voteVhash &&
-				theRow.voteVhash!=='' &&
-				theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes) {
-			tr.voteDiv.appendChild(createChunk(stui.sub("override_explain_msg", {overrideVotes:theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes, votes: surveyUser.votecount}),"p","voteInfo_overrideExplain"));
+		if(theRow.voteVhash && 
+				theRow.voteVhash!=='') {
+			var voteForItem = theRow.items[theRow.voteVhash];
+			if(voteForItem.votes[surveyUser.id].overridedVotes) {
+				tr.voteDiv.appendChild(createChunk(stui.sub("override_explain_msg", 
+						{overrideVotes:voteForItem.votes[surveyUser.id].overridedVotes, votes: surveyUser.votecount}
+					),"p","voteInfo_overrideExplain"));
+			}
+			if(theRow.voteVhash !== theRow.winningVhash 
+				&& theRow.canFlagOnLosing) {
+					if(!theRow.rowFlagged) {
+						var newIcon = addIcon(tr.voteDiv,"i-stop");
+						tr.voteDiv.appendChild(createChunk(stui.sub("mustflag_explain_msg", {}), "p", "voteInfo_mustflag_explain"));
+					} else {
+						var newIcon = addIcon(tr.voteDiv,"i-flag");
+						tr.voteDiv.appendChild(createChunk(stui.sub("flagged_explain_msg", {}), "p", "voteInfo_mustflag_explain"));
+
+					}
+			}
 		}
+
 		var haveWinner = false;
 		var haveLast = false;
 		
@@ -2245,6 +2349,11 @@ function updateRow(tr, theRow) {
 		if(true /*theRow.voteResolver.orgs && Object.keys(theRow.voteResolver.orgs).length > 0*/) {
 			// next, the org votes
 			var perValueContainer = div; // IF NEEDED: >>  = document.createElement("div");  perValueContainer.className = "perValueContainer";  
+			
+			if(stdebug_enabled && surveyUser != null) {
+				perValueContainer.appendChild(createChunk("NeededVotes="+vr.requiredVotes +", myvotes=" + surveyUser.votecount,"p"));
+			}
+			
 			var n = 0;
 			while(n < vr.value_vote.length) {
 				var value = vr.value_vote[n++];
@@ -2253,7 +2362,6 @@ function updateRow(tr, theRow) {
 				var item = tr.rawValueToItem[value]; // backlink to specific item in hash
 				if(item==null) continue;
 				var vdiv = createChunk(null, "div", "voteInfo_perValue");
-
 				
 				// heading row
 				{
@@ -2525,6 +2633,9 @@ function updateRow(tr, theRow) {
 		children[config.comparisoncell].isSetup=true;
 	}
 	removeAllChildNodes(children[config.proposedcell]); // win
+	if(theRow.rowFlagged) {
+		var flagIcon = addIcon(children[config.proposedcell], "s-flag");
+	}
 	children[config.proposedcell].dir = tr.theTable.json.dir;
 	tr.proposedcell = children[config.proposedcell];
 	if(theRow.items && theRow.winningVhash == "") {
@@ -2600,6 +2711,9 @@ function updateRow(tr, theRow) {
 	}
 	
 	tr.className='vother cov'+theRow.coverageValue;
+	if(surveyCurrentId!== '' && surveyCurrentId === tr.id) {
+		window.showCurrentId(); // refresh again - to get the updated voting status.
+	}
 }
 
 function findPartition(partitions,partitionList,curPartition,i) {
@@ -2868,7 +2982,7 @@ function insertRows(theDiv,xpath,session,json) {
 		updateCoverage(theDiv);
 		localizeFlyover(theTable);
 		theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
-		var toAdd = dojo.byId('proto-datarow');
+		var toAdd = dojo.byId('proto-datarow');  // loaded from "hidden.html", which see.
 		/*if(!surveyConfig)*/ {
 			var rowChildren = getTagChildren(toAdd);
 			theTable.config = surveyConfig ={};
@@ -5463,8 +5577,11 @@ function loadAdminPanel() {
 	adminStuff.appendChild(content);
 }
 
-//////////////////
-/// stats
+/**
+ * @method showstats
+ * Show the statistics area in the named element
+ * @param {String} hname the name of the element to draw into
+ */
 function showstats(hname) {
 	dojo.ready(function() {
 		loadStui();

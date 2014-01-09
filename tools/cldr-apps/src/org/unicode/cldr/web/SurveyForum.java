@@ -288,20 +288,6 @@ public class SurveyForum {
 
         /* can we accept a string xpath? (ignore if 'forum' is set) */
         if (!ctx.hasField(F_FORUM) && base_xpath == -1 && ctx.hasField(F_XPATH) && ctx.field(F_XPATH).length() > 0) {
-
-            if (base_xpath == -1 && !xstr.startsWith("//ldml")) {
-                // try prettypath
-                String ostr = sm.xpt.getOriginal(xstr);
-                if (ostr != null) {
-                    base_xpath = sm.xpt.peekByXpath(ostr);
-                    if (base_xpath == -1) {
-                        msg = "PrettyPath lookup resulted in unfound xpath";
-                    }
-                } else {
-                    msg = "PrettyPath lookup failed.";
-                }
-            }
-
             if (base_xpath == -1) {
                 String str = ctx.jspUrl("xpath.jsp") + "&_=" + URLEncoder.encode(ctx.getLocale().toString()) + "&xpath="
                     + URLEncoder.encode(xstr) + "&msg=" + URLEncoder.encode(msg);

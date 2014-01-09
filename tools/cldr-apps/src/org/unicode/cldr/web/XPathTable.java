@@ -3,13 +3,12 @@
 //  fourjay
 //
 //  Created by Steven R. Loomis on 20/10/2005.
-//  Copyright 2005 IBM. All rights reserved.
+//  Copyright 2005-2014 IBM. All rights reserved.
 //
 //
 
 package org.unicode.cldr.web;
 
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,7 +23,6 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.icu.LDMLConstants;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StringId;
@@ -419,18 +417,6 @@ public class XPathTable {
         }
     }
 
-    public String pathToTinyXpath(String path) {
-        return pathToTinyXpath(path, new XPathParts(null, null));
-    }
-
-    public String pathToTinyXpath(String path, XPathParts xpp) {
-        typeFromPathToTinyXpath(path, xpp);
-        return xpp.toString();
-    }
-
-    public String typeFromPathToTinyXpath(String path, XPathParts xpp) {
-        return whatFromPathToTinyXpath(path, xpp, LDMLConstants.TYPE);
-    }
 
     public String altFromPathToTinyXpath(String path, XPathParts xpp) {
         return whatFromPathToTinyXpath(path, xpp, LDMLConstants.ALT);
@@ -468,14 +454,6 @@ public class XPathTable {
         xpp.removeAttribute(-1, LDMLConstants.DRAFT);
 
         String removed = xpp.toString();
-
-        if (false) {
-            String dPath = CLDRFile.getDistinguishingXPath(path, null, false);
-
-            if (!removed.equals(dPath)) {
-                System.err.println("RDAP: " + dPath + " vs " + removed);
-            }
-        }
 
         return removed;
     }
@@ -523,66 +501,32 @@ public class XPathTable {
     }
 
     public static String removeAlt(String path, XPathParts xpp) {
-        xpp.clear();
-        xpp.initialize(path);
-        Map<String, String> lastAtts = xpp.getAttributes(-1);
-        lastAtts.remove(LDMLConstants.ALT);
-        return xpp.toString();
-    }
-
-    public static String removeDraft(String path) {
-        return removeDraft(path, new XPathParts(null, null));
+        return removeAttribute(path, xpp, LDMLConstants.ALT);
     }
 
     public static String removeDraft(String path, XPathParts xpp) {
+        return removeAttribute(path, xpp, LDMLConstants.DRAFT);
+    }
+    
+    public static String removeAttribute(String path, XPathParts xpp, String attribute) {
         xpp.clear();
         xpp.initialize(path);
-        Map<String, String> lastAtts = xpp.getAttributes(-1);
-        lastAtts.remove(LDMLConstants.DRAFT);
+        xpp.removeAttribute(-1, attribute);
         return xpp.toString();
-    }
-
-    public static String getAlt(String path) {
-        return getAlt(path, new XPathParts(null, null));
     }
 
     public static String getAlt(String path, XPathParts xpp) {
+        return getAttributeValue(path, xpp, LDMLConstants.ALT);
+    }
+    
+    public static String getAttributeValue(String path, XPathParts xpp, String attribute) {
         xpp.clear();
         xpp.initialize(path);
-        Map<String, String> lastAtts = xpp.getAttributes(-1);
-        return lastAtts.get(LDMLConstants.ALT);
-    }
-
-    public static String removeAltFromStub(String stub) {
-        int ix = stub.indexOf("[@alt=\"");
-        if (ix == -1) {
-            return stub;
-        }
-        int nx = stub.indexOf(']', ix + 1);
-        if (nx == -1) {
-            return stub; // ?
-        }
-        return stub.substring(0, ix) + stub.substring(nx + 1);
-    }
-
-    public static String removeAttribute(String path, String att) {
-        return removeAttribute(path, new XPathParts(null, null), att);
-    }
-
-    public static String removeAttribute(String path, XPathParts xpp, String att) {
-        xpp.clear();
-        xpp.initialize(path);
-        Map<String, String> lastAtts = xpp.getAttributes(-1);
-        lastAtts.remove(att);
-        return xpp.toString();
+        return xpp.getAttributeValue(-1, attribute);
     }
 
     public final int xpathToBaseXpathId(String xpath) {
         return getByXpath(xpathToBaseXpath(xpath));
-    }
-
-    public final int xpathToBaseXpathId(int xpath) {
-        return getByXpath(xpathToBaseXpath(getById(xpath)));
     }
 
     /**
@@ -606,11 +550,11 @@ public class XPathTable {
 
         String newAlt = LDMLUtilities.parseAlt(oldAlt)[0]; // #0 : altType
         if (newAlt == null) {
-            lastAtts.remove(LDMLConstants.ALT); // alt dropped out existence
+            xpp.removeAttribute(-1, LDMLConstants.ALT); // alt dropped out existence
         } else if (newAlt.equals(oldAlt)) {
             return xpath; // No change
         } else {
-            lastAtts.put(LDMLConstants.ALT, newAlt);
+            xpp.putAttributeValue(-1, LDMLConstants.ALT, newAlt);
         }
         String newXpath = xpp.toString();
         // SurveyLog.logger.warning("xp2Bxp: " + xpath + " --> " + newXpath);
@@ -631,11 +575,11 @@ public class XPathTable {
 
         String newAlt = LDMLUtilities.parseAlt(oldAlt)[0]; // #0 : altType
         if (newAlt == null) {
-            lastAtts.remove(LDMLConstants.ALT); // alt dropped out existence
+            xpp.removeAttribute(-1, LDMLConstants.ALT); // alt dropped out existence
         } else if (newAlt.equals(oldAlt)) {
             return xpath; // No change
         } else {
-            lastAtts.put(LDMLConstants.ALT, newAlt);
+            xpp.putAttributeValue(-1, LDMLConstants.ALT, newAlt);
         }
         String newXpath = xpp.toString();
         // SurveyLog.logger.warning("xp2Bxp: " + xpath + " --> " + newXpath);
@@ -719,7 +663,9 @@ public class XPathTable {
      * later mapping.
      * 
      * @param path
+     * @deprecated PrettyPath is deprecated.
      */
+    @Deprecated
     public String getPrettyPath(String path) {
         if (path == null) {
             return null;
@@ -729,6 +675,12 @@ public class XPathTable {
         }
     }
 
+    /**
+     * @deprecated PrettyPath
+     * @param path
+     * @return
+     */
+    @Deprecated
     public String getPrettyPath(int path) {
         if (path == -1) {
             return null;
@@ -742,16 +694,12 @@ public class XPathTable {
      * 
      * @param prettyPath
      * @return original path
+     * @deprecated PrettyPath
      */
+    @Deprecated
     public String getOriginal(String prettyPath) {
         synchronized (ppath) {
             return ppath.getOriginal(prettyPath);
-        }
-    }
-
-    public String getOutputForm(String prettyPath) {
-        synchronized (ppath) {
-            return ppath.getOutputForm(prettyPath);
         }
     }
 
@@ -762,10 +710,6 @@ public class XPathTable {
      */
     public int count() {
         return stringToId.size();
-    }
-
-    public long getStringID(int baseXpath) {
-        return getStringID(getById(baseXpath));
     }
 
     public static final long getStringID(String byId) {
@@ -808,36 +752,4 @@ public class XPathTable {
         return null;
     }
 
-    public void writeXpathFragment(PrintWriter out, boolean xpathSet[]) {
-        Map<String, String> m = new TreeMap<String, String>();
-        for (int path = 0; path < xpathSet.length; path++) {
-            if (xpathSet[path]) {
-                m.put(SurveyMain.xmlescape(getById(path)), getStringIDString(path));
-            }
-        }
-        for (Map.Entry<String, String> e : m.entrySet()) {
-            out.println("<xpath id=\"" + e.getValue() + "\">" + e.getKey() + "</xpath>");
-        }
-    }
-
-    public void writeXpathFragment(PrintWriter out, Set<Integer> xpathSet) {
-        for (int path : xpathSet) {
-            out.println("<xpath id=\"" + getStringIDString(path) + "\">" + SurveyMain.xmlescape(getById(path)) + "</xpath>");
-        }
-    }
-
-    public void writeXpaths(PrintWriter out, String ourDate, boolean xpathSet[]) {
-        out.println("<xpathTable type=\"StringID\" date=\"" + ourDate + "\" >"); // TODO:
-                                                                                 // 8601
-        writeXpathFragment(out, xpathSet);
-        out.println("</xpathTable>");
-    }
-
-    /** Old version **/
-    public void writeXpaths(PrintWriter out, String ourDate, Set<Integer> xpathSet) {
-        out.println("<xpathTable host=\"" + SurveyMain.localhost() + "\" date=\"" + ourDate + "\" type=\"StringID\" count=\""
-            + xpathSet.size() + "\" >");
-        writeXpathFragment(out, xpathSet);
-        out.println("</xpathTable>");
-    }
 }

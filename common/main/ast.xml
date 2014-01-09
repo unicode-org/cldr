@@ -1498,6 +1498,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard draft="unconfirmed">Hora estándar d'Europa Central</standard>
 					<daylight draft="unconfirmed">Hora de branu d'Europa Central</daylight>
 				</long>
+				<short>
+					<generic draft="unconfirmed">CET</generic>
+					<standard draft="unconfirmed">CET</standard>
+					<daylight draft="unconfirmed">CEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
@@ -1505,6 +1510,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard draft="unconfirmed">Hora estándar d'Europa del Este</standard>
 					<daylight draft="unconfirmed">Hora de branu d'Europa del Este</daylight>
 				</long>
+				<short>
+					<generic draft="unconfirmed">EET</generic>
+					<standard draft="unconfirmed">EET</standard>
+					<daylight draft="unconfirmed">EEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
@@ -1512,11 +1522,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard draft="unconfirmed">Hora estándar d'Europa Occidental</standard>
 					<daylight draft="unconfirmed">Hora de branu d'Europa Occidental</daylight>
 				</long>
+				<short>
+					<generic draft="unconfirmed">WET</generic>
+					<standard draft="unconfirmed">WET</standard>
+					<daylight draft="unconfirmed">WEST</daylight>
+				</short>
 			</metazone>
 			<metazone type="GMT">
 				<long>
 					<standard draft="unconfirmed">Hora media de Greenwich</standard>
 				</long>
+				<short>
+					<standard draft="unconfirmed">GMT</standard>
+				</short>
 			</metazone>
 			<metazone type="Irkutsk">
 				<long>

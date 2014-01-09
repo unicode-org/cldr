@@ -68,10 +68,10 @@
 	Map<String,String> fields = new HashMap<String,String>();
 	for(FileItem item : list) {
 		if(item.isFormField()) {
-			fields.put(item.getFieldName(),item.getString());
+	fields.put(item.getFieldName(),item.getString());
 		} else {
-			if(fis!=null) throw new InternalError("Error, already got one");
-			fis = item.getInputStream();
+	if(fis!=null) throw new InternalError("Error, already got one");
+	fis = item.getInputStream();
 		}
 	}
 	
@@ -88,11 +88,22 @@
 		response.sendRedirect(request.getContextPath()+"/upload.jsp?s="+sid);
 		return;
 	}
-        UserRegistry.User theirU = cs.sm.reg.get(email.trim());
-        if(theirU==null || (!theirU.equals(cs.user) && !cs.user.isAdminFor(theirU))) {
-		response.sendRedirect(request.getContextPath()+"/upload.jsp?s="+sid+"&email="+email.trim()+"&emailbad=t");
+	UserRegistry.User theirU = cs.sm.reg.get(email.trim());
+	if (theirU == null
+			|| (!theirU.equals(cs.user) && !cs.user.isAdminFor(theirU))) {
+				// if no/bad file was given, kick them back o the upload form
+		response.sendRedirect(request.getContextPath()
+				+ "/upload.jsp?s=" + sid + "&email=" + email.trim()
+				+ "&emailbad=t");
 		return;
-        }
+	}
+	if (fis==null || fis.available()==0) {
+				// if no/bad file was given, kick them back o the upload form
+		response.sendRedirect(request.getContextPath()
+				+ "/upload.jsp?s=" + sid + "&email=" + email.trim()
+				+ "&filebad=t");
+		return;
+	}
 	String title = isSubmit ? "Submitted As You"
 			: "Submitted As Your Org";
 %>
@@ -116,14 +127,18 @@
 
 <i>Checking upload...</i>
 
+<div style='padding: 1em;'>
 <%
 try {
 	cf = SimpleFactory.makeFile(SurveyMain.fileBase+"/upload.xml",fis,DraftStatus.unconfirmed);
 } catch(Throwable t) {
+	SurveyLog.logException(t, "while "+email+"uploading bulk file ");
 	out.println("<h3>Failed to parse.</h3>");
 	while(t!=null) {
-		t.printStackTrace();
-		out.println(" " + t.toString()+"<br/>");
+		%>
+		<div class='adminThreadStack'><%= StackTracker.stackToString(t.getStackTrace(), 1) %></div>
+		<pre class='adminExceptionMESSAGE'><%= t %></pre>	
+		<%
 		t = t.getCause();
 		if(t!=null) {
 			out.println("<i>caused by</i><br/>");
@@ -137,6 +152,7 @@ try {
 CLDRLocale loc = CLDRLocale.getInstance(cf.getLocaleID());
 cs.stuff.remove("SubmitLocale");
 %>
+</div>
 
 <h3>Locale</h3>
  <tt class='codebox'><%= loc + "</tt> <br/>Name:  " + loc.getDisplayName(SurveyMain.BASELINE_LOCALE)  %><br/>

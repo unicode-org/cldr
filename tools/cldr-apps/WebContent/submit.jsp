@@ -240,7 +240,13 @@
 			String baseNoAlt = xpp.toString();
 			int root_xpath_id = cs.sm.xpt.getByXpath(baseNoAlt);
 			
-			int coverageValue = sdi.getCoverageValue(base, loc.getBaseName());
+			int coverageValue = 0;
+			
+			try { 
+				coverageValue = sdi.getCoverageValue(base, loc.getBaseName());
+			} catch(Throwable t) {
+				SurveyLog.warnOnce("getCoverageValue failed for " + loc.getBaseName() +": " + t.getMessage());
+			}
 
 			String result = "";
 			String resultStyle = "";

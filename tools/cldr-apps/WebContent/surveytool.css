@@ -1803,10 +1803,6 @@ div.topnotices p.admin {
 	background-color: red;
 }
 
-div.topnotices p.unofficial {
-	background-color: goldenrod;
-}
-
 div#stchanged {
 	display: none;
 	background-color: yellow;
@@ -1874,8 +1870,11 @@ div.d-example {
 	font-weight: bold;
 }
 
-div.topnotices div.unofficial {
+.unofficial {
 	background-color: goldenrod;
+}
+
+div.topnotices div.unofficial {
 	padding: 3px;
 	position: fixed;
 	top: 30px;

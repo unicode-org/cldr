@@ -36,10 +36,22 @@ if((CookieSession.sm==null)||(cs = CookieSession.retrieve(sid))==null||cs.user==
 <% 
 
 String email = request.getParameter("email");
+
+if(SurveyMain.isUnofficial() && email==null) {
+	email = cs.user.email;
+	%>	
+		    <div class='unofficial' title='Not an official SurveyTool' >
+		        <%= WebContext.iconHtml(request,"warn","Unofficial Site") %>Unofficial
+		    </div>
+	<%
+}
+
 if(email==null) email="";
 
 if(request.getParameter("emailbad")!=null) { %>
 <div class='ferrbox'><%= WebContext.iconHtml(request, "stop", "error") %> Invalid address or access denied: <address><%= email %></address></div>
+<% } else if(request.getParameter("filebad")!=null) { %>
+<div class='ferrbox'><%= WebContext.iconHtml(request, "stop", "error") %> No file was uploaded, or a file error occured.</div>
 <% } 
 
 if(request.getParameter("s")==null) { %>

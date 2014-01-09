@@ -6005,6 +6005,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
     
     public static boolean isMaintenance() {
+        if(!isConfigSetup) return false; // avoid access to CLDRConfig before setup.
         CLDRConfig survprops = CLDRConfig.getInstance();
         return survprops.getProperty("CLDR_MAINTENANCE", false);
     }

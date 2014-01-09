@@ -57,6 +57,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yyyyMMMd">d MMM y G</dateFormatItem>
+					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="h">
 							<greatestDifference id="h" draft="unconfirmed">h-h 'ч'. a</greatestDifference>
@@ -136,6 +139,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="yMMMd">d MMM y</dateFormatItem>
+					</availableFormats>
 					<intervalFormats>
 						<intervalFormatItem id="h">
 							<greatestDifference id="h" draft="unconfirmed">h-h 'ч'. a</greatestDifference>

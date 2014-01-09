@@ -82,9 +82,9 @@
 # array, which is treated like just another value in /DateTimePatterns.
 # The group keyword is used here to specify that values from the same xpath
 # should be grouped into their own separate array.
-# So far (June 2012), this only happens in the Chinese calendar for zh_Hant
-# and the Hebrew calendar for he.
-//ldml/dates/calendars/calendar[@type="(%A)"]/dateFormats/dateFormatLength[@type="(%A)"]/dateFormat[@type="%A"]/pattern[@type="%A"][@numbers="(%W)"] ; /calendar/$1/DateTimePatterns ;  values="{value}" $3 ; group=$2
+# So far (Jan 2014), this only happens in the Chinese calendar for ja/zh/zh_Hant
+# and the Hebrew calendar for he, and all calendars for haw (which has numbers="M=romanlow").
+//ldml/dates/calendars/calendar[@type="(%A)"]/dateFormats/dateFormatLength[@type="(%A)"]/dateFormat[@type="%A"]/pattern[@type="%A"][@numbers="(%A)"] ; /calendar/$1/DateTimePatterns ;  values="{value}" $3 ; group=$2
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/((date|time|dateTime)Format)s/\2Length[@type="(%A)"]/\2[@type="%A"]/pattern[@type="%A"] ; /calendar/$1/DateTimePatterns
 

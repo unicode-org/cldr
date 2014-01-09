@@ -1805,7 +1805,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 );
             try {
                 if (isSupplemental < 0) { // set by first element
-                    attributeOrder = new TreeMap<String, String>(dtdData.getAttributeComparator());
+                    attributeOrder = new TreeMap<String, String>(
+                        // HACK for ldmlIcu
+                        dtdData.dtdType == DtdType.ldml 
+                        ? CLDRFile.getAttributeOrdering() : 
+                            dtdData.getAttributeComparator()
+                        );
                     isSupplemental = target.dtdType == DtdType.ldml ? 0 : 1;
                     //                    if (qName.equals("ldml"))
                     //                        isSupplemental = 0;
@@ -3662,6 +3667,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
     public static MapComparator<String> getAttributeOrdering() {
         //return attributeOrdering;
-        return DtdData.getInstance(DtdType.ldml).getAttributeComparator();
+        return DtdData.getInstance(DtdType.ldmlICU).getAttributeComparator();
     }
 }

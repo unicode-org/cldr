@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -153,7 +154,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
         destinationDir = options.get("destdir").getValue();
         if (!options.get("type").doesOccur()) {
-            throw new IllegalArgumentException("Type not specified");
+            throw new IllegalArgumentException("Type not specified: " + Arrays.asList(Type.values()));
         }
         Type type = Type.valueOf(options.get("type").getValue());
         keepTogether = options.get("keeptogether").doesOccur();

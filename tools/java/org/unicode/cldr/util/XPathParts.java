@@ -914,7 +914,9 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     public MapComparator<String> getAttributeComparator(String currentElement) {
-        return dtdData == null ? null : dtdData.getAttributeComparator();
+        return dtdData == null ? null 
+            : dtdData.dtdType == DtdType.ldml ? CLDRFile.getAttributeOrdering() 
+                : dtdData.getAttributeComparator();
     }
 
     /**

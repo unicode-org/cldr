@@ -112,6 +112,7 @@ import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Calendar;
@@ -4974,8 +4975,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             int n = 0;
             int cachehit = 0;
             SurveyLog.logger.warning("Parse " + locales.size() + " locales from XML to look for aliases or errors...");
+            
+            Set<CLDRLocale> failedSuppTest = new TreeSet<CLDRLocale>();
+            
             for (File f : getInFiles()) {
                 CLDRLocale loc = fileNameToLocale(f.getName());
+                
+                
+                try {
+                    getSupplementalDataInfo().getCoverageValue("//ldml", loc.getBaseName());
+                } catch(Throwable t) {
+                    SurveyLog.logException(t, "checking SDI for " + loc);
+                    failedSuppTest.add(loc);
+                }
                 String locString = loc.toString();
                 // ULocale uloc = new ULocale(locString);
                 progress.update(n++, loc.toString() /*
@@ -5037,6 +5049,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     throw new InternalError("isLocaleAliased: Failed load/validate on: " + loc + " - " + t.toString());
                 }
             }
+            
+            
 
             if (useCache)
                 try {
@@ -5059,6 +5073,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 return;
             }
 
+            if(!failedSuppTest.isEmpty()) {
+                busted("Supplemental Data Test failed on startup for: " + ListFormatter.getInstance().format(failedSuppTest));
+            }
+            
             SurveyLog.logger.warning("Finished verify+alias check of " + locales.size() + ", " + aliasMapNew.size()
                 + " aliased locales (" + cachehit + " in cache) found in " + et.toString());
             aliasMap = aliasMapNew;
@@ -6219,7 +6237,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         };
     }
 
-    // TODO: seed
+    /**
+     * Internal function to get all input files. 
+     * Most functions should use getLocalesSet, etc.
+     * @return
+     */
     static protected File[] getInFiles() {
         //        ElapsedTimer et = SurveyLog.DEBUG ? new ElapsedTimer("getInFiles()") : null;
         Set<File> s = new HashSet<File>();
@@ -6234,16 +6256,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return arr;
     }
 
-    // TODO: seed
-    static protected File[] getInFiles(String base) {
-        File baseDir = new File(base);
-        return getInFiles(baseDir);
-    }
-
-    /*
-     * Note, do NOT use this with just the base dir, doesn't include seed.
+    /**
+     * Only to be used by getInFiles.
+     * @param base
+     * @return
      */
-    static protected File[] getInFiles(File baseDir) {
+    static private File[] getInFiles(String base) {
+        File baseDir = new File(base);
         // 1. get the list of input XML files
         FileFilter myFilter = getXmlFileFilter();
         return baseDir.listFiles(myFilter);

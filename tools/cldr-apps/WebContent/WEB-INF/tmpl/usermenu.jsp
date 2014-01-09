@@ -99,7 +99,7 @@ String helpName = ctx.getString("helpName");
     			ctx.print(" <smaller>Coverage: "+curSetting+"</smaller>");
     		}
     		ctx.print(" | ");
-            if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  STFactory.haveFlags()) { 
+            if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  ctx.sm.getSTFactory().haveFlags()) { 
             	ctx.println(ctx.iconHtml("flag", "(flagged items"));
             }
             ctx.sm.printMenu(ctx, doWhat, "options", "Manage", SurveyMain.QUERY_DO);

@@ -157,45 +157,6 @@ abstract public class CheckCLDR {
         }
 
         /**
-         * Only bulk import calls this.
-         * @deprecated
-         */
-        public StatusAction getAction(List<CheckStatus> statusList, VoteResolver.VoterInfo voterInfo,
-            InputMethod inputMethod, PathHeader.SurveyToolStatus status, Level coverageLevel) {
-            // don't need phase or inputMethod yet, but might in the future.
-
-            // always forbid deprecated items.
-            if (status == SurveyToolStatus.DEPRECATED) {
-                return StatusAction.FORBID_READONLY;
-            }
-
-            // if TC+, allow anything else, even suppress items
-            if (voterInfo.getLevel().compareTo(VoteResolver.Level.tc) >= 0) {
-                return StatusAction.ALLOW;
-            }
-
-            // if the coverage level is optional, disallow
-            if (coverageLevel.compareTo(Level.COMPREHENSIVE) > 0) {
-                return StatusAction.FORBID_COVERAGE;
-            }
-
-            // check for errors (allowing collisions
-            for (CheckStatus item : statusList) {
-                if (item.getType().equals(CheckStatus.errorType)) {
-                    if (item.getSubtype() != Subtype.dateSymbolCollision
-                        && item.getSubtype() != Subtype.displayCollision) {
-                        return StatusAction.FORBID_ERRORS;
-                    }
-                }
-            }
-            // finally, allow if read-write, otherwise forbid
-            if (status == SurveyToolStatus.READ_WRITE) {
-                return StatusAction.ALLOW;
-            }
-            return StatusAction.FORBID_READONLY;
-        }
-
-        /**
          * Return whether or not to show a row, and if so, how.
          * 
          * @param pathValueInfo

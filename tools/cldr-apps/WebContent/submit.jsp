@@ -1,3 +1,4 @@
+<%@page import="org.unicode.cldr.icu.LDMLConstants"%>
 <%@page import="org.unicode.cldr.util.PathHeader.SurveyToolStatus"%>
 <%@page
 	import="org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask"%>
@@ -5,6 +6,8 @@
 <%@page import="org.xml.sax.SAXParseException"%>
 <%@page import="org.unicode.cldr.util.CLDRFile.DraftStatus"%>
 <%@page import="org.unicode.cldr.util.*"%>
+<%@page import="org.unicode.cldr.util.CLDRInfo.CandidateInfo"%>
+<%@page import="org.unicode.cldr.util.CLDRInfo.UserInfo"%>
 <%@page import="org.unicode.cldr.test.*"%>
 <%@page import="org.unicode.cldr.web.*"%>
 <%@page import="org.unicode.cldr.util.CLDRFile"%>
@@ -154,7 +157,7 @@
 	</form>
 <% } else { %>
 	<div class='helpHtml'>
-		Your items have been submitted.
+		Items listed have been submitted.
 		<br>
 		For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a> 
 	</div>
@@ -181,7 +184,7 @@
 	int r = 0;
 	XPathParts xppMine = new XPathParts(null, null);
 	XPathParts xppBase = new XPathParts(null, null);
-    List<CheckCLDR.CheckStatus> checkResult = new ArrayList<CheckCLDR.CheckStatus>();
+    final List<CheckCLDR.CheckStatus> checkResult = new ArrayList<CheckCLDR.CheckStatus>();
     Map<String,String> options = DataSection.getOptions(null, cs, loc);
     TestCache.TestResultBundle cc = stf.getTestResult(loc, options);
 	UserRegistry.User u = theirU;
@@ -195,12 +198,14 @@
 			
 			String full = cf.getFullXPath(x);
 			String alt = XPathTable.getAlt(full, xppMine);
-			String val0 = cf.getStringValue(x);
+			String valOrig = cf.getStringValue(x);
 			Exception exc[] = new Exception[1];
-			val0 = processor.processInput(x, val0, exc);
+			final String val0 = processor.processInput(x, valOrig, exc);
 			String altPieces[] = LDMLUtilities.parseAlt(alt);
 			String base = XPathTable.xpathToBaseXpath(x, xppMine);
-			base = XPathTable.removeDraft(base, xppMine);
+			xppMine.removeAttribute(-1, LDMLConstants.DRAFT);
+			base = xppMine.toString();
+			//base = XPathTable.removeDraft(base, xppMine);
 			int base_xpath_id = cs.sm.xpt.getByXpath(base);
 			
 			String valb = baseFile.getWinningValue(base);
@@ -228,7 +233,11 @@
 			//int dpathId = xpt.getByXpath(xpathStr);
 			// now, find the ID to vote for.
 			Set<String> resultPaths = new HashSet<String>();
-			String baseNoAlt = cs.sm.xpt.removeAlt(base);
+			XPathParts xpp = new XPathParts();
+			xpp.clear();
+			xpp.initialize(base);
+			xpp.removeAttribute(-1,LDMLConstants.ALT);
+			String baseNoAlt = xpp.toString();
 			int root_xpath_id = cs.sm.xpt.getByXpath(baseNoAlt);
 			
 			int coverageValue = sdi.getCoverageValue(base, loc.getBaseName());
@@ -251,8 +260,53 @@
 	            cc.check(base,checkResult, val0);
 	            
 	            SurveyToolStatus phStatus = ph.getSurveyToolStatus();
-	            CheckCLDR.StatusAction status = cPhase.getAction(checkResult, cs.user.voterInfo(), CheckCLDR.InputMethod.BULK,phStatus,org.unicode.cldr.util.Level.fromLevel(coverageValue));
+	            
+                DataSection section = DataSection.make(null, null, cs, loc, base, null, false,
+                        Level.COMPREHENSIVE.toString());
+                section.setUserAndFileForVotelist(cs.user, null);
+
+               DataSection.DataRow pvi = section.getDataRow(base);
+               final Level covLev = pvi.getCoverageLevel();
+               //final int coverageValue = covLev.getLevel();
+               CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
+			
+               	if (showRowAction.isForbidden()) {
+                    result="Item may not be modified. ("+showRowAction+")";
+                    resultIcon="stop";
+               	} else {
+               			CandidateInfo ci;
+                        if (val0 == null) {
+                            ci = null; // abstention
+                        } else {
+                            ci = pvi.getItem(val0); // existing
+                                                       // item?
+                            if (ci == null) { // no, new item
+                                ci = new CandidateInfo() {
+                                    @Override
+                                    public String getValue() {
+                                        return val0;
+                                    }
+
+                                    @Override
+                                    public Collection<UserInfo> getUsersVotingOn() {
+                                        return Collections.emptyList(); // No
+                                                                        // users
+                                                                        // voting
+                                                                        // -
+                                                                        // yet.
+                                    }
+
+                                    @Override
+                                    public List<CheckCLDR.CheckStatus> getCheckStatusList() {
+                                        return checkResult;
+                                    }
+                                };
+                            }
+                        }		            
+	            CheckCLDR.StatusAction status = cPhase.getAcceptNewItemAction(ci, pvi,
+                        CheckCLDR.InputMethod.BULK, phStatus, cs.user);
             
+	            
 	        if(status != CheckCLDR.StatusAction.ALLOW) {
                 result="Item will be skipped. ("+status+")";
                 resultIcon="stop";
@@ -266,7 +320,8 @@
 				}
 				updCnt++;
 			}
-			}
+		  }
+		}
 %>
 		<tr class='r<%=(r) % 2%>'>
 			<th title='<%=base + " #" + base_xpath_id%>'
@@ -277,7 +332,11 @@
 					<%=ph.toString()%></a>
 			</a><br><tt><%= base %></tt></tt></th>
 		<!--  	<td style='<%=stylea%>'><%=valb%></td> -->
-			<td style='<%=style%>'><%=valm%></td>
+			<td style='<%=style%>'><%=valm%>
+			<% if(!valm.equals(valOrig)) { %>
+				<div class='graybox' title='original text'><%= valOrig %></div>
+			<% } %>
+				</td>
 			<td title='vote:' style='<%=resultStyle%>'>
 			<% if(!checkResult.isEmpty()){  %>
 			<script>

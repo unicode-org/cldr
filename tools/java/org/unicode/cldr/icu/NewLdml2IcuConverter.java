@@ -325,11 +325,12 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
     private void convert(Mapper mapper) {
         IcuData icuData;
         Iterator<IcuData> iterator = mapper.iterator(filter);
+        final Type type = Type.valueOf(options.get("type").getValue());
         while (iterator.hasNext()) {
             long time = System.currentTimeMillis();
             icuData = iterator.next();
             writeIcuData(icuData, destinationDir);
-            System.out.println("Converted " + icuData.getName() + ".xml in " +
+            System.out.println("Converted " + type +": " + icuData.getName() + ".xml in " +
                 (System.currentTimeMillis() - time) + "ms");
         }
     }

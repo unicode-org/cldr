@@ -15,9 +15,11 @@ import org.unicode.cldr.util.Factory;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.impl.Utility;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.ULocale;
 
 public class TestTransforms extends TestFmwkPlus {
     TestInfo testInfo = TestInfo.getInstance();
@@ -234,42 +236,81 @@ public class TestTransforms extends TestFmwkPlus {
         }
     }
 
+    enum Casing {Upper, Title, Lower}
+
     public void TestCasing() {
         register();
         String greekSource = "ΟΔΌΣ Οδός Σο ΣΟ oΣ ΟΣ σ ἕξ";
         // Transliterator.DEBUG = true;
-        Transliterator elTitle = checkString("el-Title", "Οδός Οδός Σο Σο Oς Ος Σ Ἕξ", greekSource);
-        Transliterator elLower = checkString("el-Lower", "οδός οδός σο σο oς ος σ ἕξ", greekSource);
-        Transliterator elUpper = checkString("el-Upper", "ΟΔΟΣ ΟΔΟΣ ΣΟ ΣΟ OΣ ΟΣ Σ ΕΞ", greekSource);
+        Transliterator elTitle = checkString("el", Casing.Title, "Οδός Οδός Σο Σο Oς Ος Σ Ἕξ", greekSource, true);
+        Transliterator elLower = checkString("el", Casing.Lower, "οδός οδός σο σο oς ος σ ἕξ", greekSource, true);
+        Transliterator elUpper = checkString("el", Casing.Upper, "ΟΔΟΣ ΟΔΟΣ ΣΟ ΣΟ OΣ ΟΣ Σ ΕΞ", greekSource, false);
 
         String turkishSource = "Isiİ İsıI";
-        Transliterator trTitle = checkString("tr-Title", "Isii İsıı", turkishSource);
-        Transliterator trLower = checkString("tr-Lower", "ısii isıı", turkishSource);
-        Transliterator trUpper = checkString("tr-Upper", "ISİİ İSII", turkishSource);
-        Transliterator azTitle = checkString("az-Title", "Isii İsıı", turkishSource);
-        Transliterator azLower = checkString("az-Lower", "ısii isıı", turkishSource);
-        Transliterator azUpper = checkString("az-Upper", "ISİİ İSII", turkishSource);
+        Transliterator trTitle = checkString("tr", Casing.Title, "Isii İsıı", turkishSource, true);
+        Transliterator trLower = checkString("tr", Casing.Lower, "ısii isıı", turkishSource, true);
+        Transliterator trUpper = checkString("tr", Casing.Upper, "ISİİ İSII", turkishSource, true);
+        Transliterator azTitle = checkString("az", Casing.Title, "Isii İsıı", turkishSource, true);
+        Transliterator azLower = checkString("az", Casing.Lower, "ısii isıı", turkishSource, true);
+        Transliterator azUpper = checkString("az", Casing.Upper, "ISİİ İSII", turkishSource, true);
 
         String lituanianSource = "I Ï J J̈ Į Į̈ Ì Í Ĩ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ XI XÏ XJ XJ̈ XĮ XĮ̈";
-        Transliterator ltTitle = checkString("lt-Title",
-            "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lituanianSource);
-        Transliterator ltLower = checkString("lt-Lower",
-            "i i̇̈ j j̇̈ į į̇̈ i̇̀ i̇́ i̇̃ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ xi xi̇̈ xj xj̇̈ xį xį̇̈", lituanianSource);
-        Transliterator ltUpper = checkString("lt-Upper", "I Ï J J̈ Į Į̈ Ì Í Ĩ XÏ XJ̈ XĮ̈ XÌ XÍ XĨ XI XÏ XJ XJ̈ XĮ XĮ̈",
-            lituanianSource);
+        Transliterator ltTitle = checkString("lt", Casing.Title,
+            "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lituanianSource, true);
+        Transliterator ltLower = checkString("lt", Casing.Lower,
+            "i i̇̈ j j̇̈ į į̇̈ i̇̀ i̇́ i̇̃ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ xi xi̇̈ xj xj̇̈ xį xį̇̈", lituanianSource, true);
+        Transliterator ltUpper = checkString("lt", Casing.Upper, "I Ï J J̈ Į Į̈ Ì Í Ĩ XÏ XJ̈ XĮ̈ XÌ XÍ XĨ XI XÏ XJ XJ̈ XĮ XĮ̈",
+            lituanianSource, true);
 
+        String dutchSource = "IJKIJ ijkij IjkIj";
+        Transliterator nlTitle = checkString("nl", Casing.Title, "IJkij IJkij IJkij", dutchSource, true);
+        //        Transliterator nlLower = checkString("nl", Casing.Lower, "ısii isıı", turkishSource);
+        //        Transliterator nlUpper = checkString("tr", Casing.Upper, "ISİİ İSII", turkishSource);
     }
 
-    private Transliterator checkString(String id, String expected, String source) {
-        Transliterator elLower = Transliterator.getInstance(id);
-        return checkString(id, expected, source, elLower);
-    }
-
-    private Transliterator checkString(String id, String expected, String source, Transliterator translit) {
-        if (!assertEquals(id, expected, translit.transform(source))) {
-            showTransliterator(translit);
+    private Transliterator checkString(String locale, Casing casing, String expected, String source, boolean sameAsSpecialCasing) {
+        Transliterator translit = Transliterator.getInstance(locale + "-" + casing);
+        String result = checkString(locale, expected, source, translit);
+        ULocale ulocale = new ULocale(locale);
+        String specialCasing;
+        switch (casing) {
+        case Upper: specialCasing = UCharacter.toUpperCase(ulocale, source); break;
+        case Title: specialCasing = UCharacter.toTitleCase(ulocale, source, null); break;
+        case Lower: specialCasing = UCharacter.toLowerCase(ulocale, source); break;
+        default: throw new IllegalArgumentException();
+        }
+        if (sameAsSpecialCasing) {
+            if (!assertEquals(locale + "-" + casing + " Vs SpecialCasing", specialCasing, result)) {
+                showFirstDifference("Special: ", specialCasing, "Transform: ", result);
+            }
+        } else {
+            assertNotEquals(locale + "-" + casing + "Vs SpecialCasing", specialCasing, result);
         }
         return translit;
+    }
+
+    private String checkString(String locale, String expected, String source, Transliterator translit) {
+        String transformed = translit.transform(source);
+        if (!assertEquals(locale, expected, transformed)) {
+            showTransliterator(translit);
+        }
+        return transformed;
+    }
+
+    private void showFirstDifference(String titleA, String a, String titleB, String b) {
+        StringBuilder buffer = new StringBuilder();
+        for (int i = 0; i < Math.min(a.length(), b.length()); ++i) {
+            char aChar = a.charAt(i);
+            char bChar = b.charAt(i);
+            if (aChar == bChar) {
+                buffer.append(aChar);
+            } else {
+                errln("\t" + buffer + "\n\t\t" + titleA + "\t" + Utility.hex(a.substring(i)) 
+                    + "\n\t\t" + titleB + "\t" + Utility.hex(b.substring(i)));
+                return;
+            }
+        }
+        errln("different length");
     }
 
     private void showTransliterator(Transliterator t) {

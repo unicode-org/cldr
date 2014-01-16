@@ -564,6 +564,24 @@ pre.adminExceptionMESSAGE {
 	margin-bottom: 0;
 }
 
+div.sidewaysArea {
+	font-size: smaller;
+}
+
+div.sidewaysArea select {
+	padding-left: 20px;
+}
+
+div.sideways_same select {
+	background: url(squo.png) no-repeat 0 top;
+}
+
+
+div.sideways_diff select {
+	background-color: #fbb;
+	background: url(zoom.png) no-repeat 0 top;
+}
+
 div.adminException {
 	display: block;
 	padding-top:  0.25em;

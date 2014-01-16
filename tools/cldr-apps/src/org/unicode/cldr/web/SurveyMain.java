@@ -31,6 +31,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
@@ -108,6 +109,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
@@ -3728,7 +3730,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return getLocaleTree().getLocaleCode(localeName);
     }
 
-    protected synchronized LocaleTree getLocaleTree() {
+    public synchronized LocaleTree getLocaleTree() {
         if (localeTree == null) {
             CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(getBaselineFile(), FormatBehavior.replace);
             CLDRLocale.setDefaultFormatter(defaultFormatter);
@@ -3750,7 +3752,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     // but, is it just an alias?
                     CLDRLocale aliasTo = isLocaleAliased(loc);
                     if (aliasTo == null) {
-                        newLocaleTree.add(CLDRLocale.getInstance(localeName));
+                        newLocaleTree.add(loc);
                     }
                 }
             }
@@ -3758,6 +3760,34 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
         return localeTree;
     }
+
+    /**
+     * Get all related locales, given a 'top' (highestNonrootParent) locale.   Example:  ar ->  ar, ar_EG ...     skips readonly locales. 
+     * @see CLDRLocale#getHighestNonrootParent()
+     * @param topLocale
+     * @return the resulting set, unmodifiable
+     */
+    public synchronized Collection<CLDRLocale> getRelatedLocs(CLDRLocale topLocale) {
+        Set<CLDRLocale> cachedSet = relatedLocales.get(topLocale);
+        if(cachedSet==null) {
+            final LocaleTree lt = getLocaleTree();
+            final Set<CLDRLocale> set = new HashSet<CLDRLocale>();
+            set.add(topLocale); // add the top locale itself
+            for(CLDRLocale atopLocale : lt.getTopCLDRLocales()) { // add each of the top locales that has the same "highest nonroot parent"
+                if(atopLocale.getHighestNonrootParent() == topLocale) {
+                    final Collection<CLDRLocale> topLocales = lt.getSubLocales(atopLocale).values();
+                    if(topLocales != null) {
+                        set.addAll(topLocales);
+                    }
+                }
+            }
+            cachedSet=Collections.unmodifiableSet(set);
+            relatedLocales.put(topLocale, cachedSet);
+        }
+        return cachedSet;
+    }
+    
+    private Map<CLDRLocale, Set<CLDRLocale>> relatedLocales = new HashMap<CLDRLocale,Set<CLDRLocale>>();
 
     public static String getLocaleDisplayName(CLDRLocale locale) {
         return locale.getDisplayName();
@@ -7180,5 +7210,4 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     public static String defaultTimezoneInfo() {
         return new SimpleDateFormat("VVVV: ZZZZ", SurveyMain.BASELINE_LOCALE).format(System.currentTimeMillis());
     }
-
 }

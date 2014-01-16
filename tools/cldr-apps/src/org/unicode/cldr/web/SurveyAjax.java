@@ -13,6 +13,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.derby.iapi.services.io.ArrayUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,6 +44,7 @@ import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
@@ -182,6 +185,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_SUBMIT = "submit";
     public static final String WHAT_DELETE = "delete";
     public static final String WHAT_GETROW = "getrow";
+    public static final String WHAT_GETSIDEWAYS = "getsideways";
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_GETVV = "vettingviewer";
     public static final String WHAT_STATS_BYDAY = "stats_byday";
@@ -978,6 +982,53 @@ public class SurveyAjax extends HttpServlet {
                         }
 
                         send(r, out);
+                    } else if(what.equals(WHAT_GETSIDEWAYS)) {
+                        mySession.userDidAction();
+                        final JSONWriter r = newJSONStatusQuick(sm);
+                        r.put("what", what);
+                        r.put("loc", loc);
+                        r.put("xpath", xpath);
+                        final String xpathString = sm.xpt.getByStringID(xpath);
+                        
+                        if(xpathString == null) {
+                            throw new IllegalArgumentException("could not find strid: " + xpath);
+                        }
+                        final CLDRLocale topLocale = l.getHighestNonrootParent();
+                        r.put("topLocale", topLocale);
+                        final Map<String,Set<CLDRLocale>> valueToLocale = new HashMap<String,Set<CLDRLocale>>();
+                        
+                        final Collection<CLDRLocale> relatedLocs = sm.getRelatedLocs(topLocale); // sublocales of the 'top' locale
+                        for(CLDRLocale ol : relatedLocs) {
+                            //if(ol == l) continue;
+                            XMLSource src = sm.getSTFactory().makeSource(ol.getBaseName(), true);
+                            String ov = src.getValueAtDPath(xpathString);
+                            if(ov!=null) {
+                                Set<CLDRLocale> subset = valueToLocale.get(ov);
+                                if(subset==null) {
+                                    subset = new HashSet<CLDRLocale>();
+                                    valueToLocale.put(ov,subset);
+                                }
+                                subset.add(ol);
+                            }
+                        }
+                        // TODO: expected that Map<String, Set<CLDRLocales>> would convert to JSON directly. 
+                        // since it didn't, had to add a 2nd loop here. 
+                        // might be easier to combine these two loops.
+                        if(!valueToLocale.isEmpty()) {
+                            //System.out.println("dumping sideways for " + loc + ":"+xpath);
+                            JSONObject others = new JSONObject();
+                            for(Map.Entry<String, Set<CLDRLocale>> e : valueToLocale.entrySet()) {
+                                //System.out.println("-v="+e.getKey()+" -> " + e.getValue().toString());
+                                JSONArray locs = new JSONArray();
+                                for(CLDRLocale ol : e.getValue()) {
+                                    locs.put(ol.getBaseName());
+                                }
+                                others.put(e.getKey(), locs);
+                            }
+                            r.put("others", others);
+                            //r.put("others", valueToLocale);
+                        }
+                        send(r, out);
                     } else {
                         sendError(out, "Unknown Session-based Request: " + what);
                     }
@@ -1129,6 +1180,16 @@ public class SurveyAjax extends HttpServlet {
     private JSONWriter newJSONStatus(SurveyMain sm) {
         JSONWriter r = newJSON();
         setupStatus(sm, r);
+        return r;
+    }
+
+    private JSONWriter newJSONStatusQuick(SurveyMain sm) {
+        JSONWriter r = newJSON();
+        if(sm.isSetup && !sm.isBusted()) {
+            r.put("SurveyOK", "1");
+            r.put("isSetup", "1");
+            r.put("isBusted", "0");
+        }
         return r;
     }
 

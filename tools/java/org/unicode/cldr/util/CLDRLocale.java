@@ -21,6 +21,8 @@ import com.ibm.icu.util.ULocale;
  * @see ULocale
  */
 public final class CLDRLocale implements Comparable<CLDRLocale> {
+    private static final boolean DEBUG=false;
+    
     public interface NameFormatter {
         String getDisplayName(CLDRLocale cldrLocale);
 
@@ -271,13 +273,15 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         // }
         str = process(str);
         // System.err.println("bn: " + str);
-        if (str.equals(ULocale.ROOT.getBaseName())) {
-            fullname = ULocale.ROOT.getBaseName();
+        if (str.equals(ULocale.ROOT.getBaseName()) || str.equals("root")) {
+            fullname = "root";
+            parent = null;
         } else {
             parts = new LocaleIDParser();
             parts.set(str);
             fullname = parts.toString();
             String parentId = LocaleIDParser.getParent(str);
+            if(DEBUG) System.out.println(str + " par = " + parentId);
             if (parentId != null) {
                 parent = CLDRLocale.getInstance(parentId);
             } else {
@@ -568,5 +572,24 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
     public String getDisplayName(NameFormatter engFormat, boolean combined, Transform<String, String> picker) {
         return engFormat.getDisplayName(this, combined, picker);
+    }
+
+    /**
+     * Return the highest parent that is a child of root, or null.
+     * @return highest parent, or null.  ROOT.getHighestNonrootParent() also returns null.
+     */
+    public CLDRLocale getHighestNonrootParent() {
+        CLDRLocale res;
+        if(this==ROOT) {
+            res = null;;
+        } else if(this.parent == ROOT) {
+            res = this;
+        } else if(this.parent == null) {
+            res = this;
+        } else {
+            res = parent.getHighestNonrootParent();
+        }
+        if(DEBUG) System.out.println(this+".HNRP="+res);
+        return res;
     }
 }

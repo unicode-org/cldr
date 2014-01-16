@@ -272,6 +272,13 @@ define({
 		defaultContent_titleLink: "content",
 		readonly_msg: "This locale may not be edited.<br/> ${msg}",
 		readonly_unknown: "Reason: Administrative Policy.",
+		
+		sidewaysArea_desc: "view of what the votes are in other, sister locales",
+		sideways_loading0: " ",
+		sideways_loading1: "Comparing to other locales...",
+		sideways_same: "Other locales have the same value.",
+		sideways_diff: "Other locales have different values!",
+		
 
 		ari_message: 'Something went wrong!',
 		ari_sessiondisconnect_message: "Your session has been disconnected.",

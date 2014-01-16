@@ -1,5 +1,6 @@
 package org.unicode.cldr.web;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -107,6 +108,10 @@ public class LocaleTree {
      */
     public Set<String> getTopLocales() {
         return localeListMap.keySet();
+    }
+
+    public Collection<CLDRLocale> getTopCLDRLocales() {
+        return localeListMap.values();
     }
 
     public Map<String, CLDRLocale> getSubLocales(CLDRLocale locale) {

@@ -526,11 +526,16 @@ var timerID = -1;
 /**
  * Update the item, if it exists
  * @method updateIf
- * @param id ID of DOM node
+ * @param id ID of DOM node, or a Node itself 
  * @param txt text to replace with - should just be plaintext, but currently can be HTML
  */
 function updateIf(id, txt) {
-    var something = document.getElementById(id);
+	var something;
+    if(id instanceof Node) {
+    	something = id;
+    } else {
+   		something = document.getElementById(id);
+    }
     if(something != null) {
         something.innerHTML = txt;  // TODO shold only use for plain text
     }
@@ -1511,6 +1516,9 @@ function incrPopToken(x) {
 //	stStopPropagation(e); return false; 
 //}
 
+// timeout for showing sideways view
+var sidewaysShowTimeout = -1;
+
 /**
  * @method showForumStuff
  * called when showing the popup each time
@@ -1519,6 +1527,89 @@ function incrPopToken(x) {
  * @param {Node} tr
  */
 function showForumStuff(frag, forumDiv, tr) {
+	{
+		var sidewaysControl = createChunk(stui.str("sideways_loading0"), "div", "sidewaysArea");
+		frag.appendChild(sidewaysControl);		
+		
+		function clearMyTimeout() {
+			if(sidewaysShowTimeout != -1) {
+				window.clearInterval(sidewaysShowTimeout);
+				sidewaysShowTimeout = -1;
+			}
+		}
+		clearMyTimeout();
+		sidewaysShowTimeout = window.setTimeout(function() {
+			clearMyTimeout();
+			console.log("surprised");
+			updateIf(sidewaysControl, stui.str("sideways_loading1"));
+			
+			var url = contextPath + "/SurveyAjax?what=getsideways&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.theRow.xpstrid +  cacheKill();
+			myLoad(url, "sidewaysView", function(json) {
+				//updateIf(sidewaysControl, JSON.stringify(json));
+				if(!json.others) {
+					updateIf(sidewaysControl, ""); // no sibling locales.
+				} else {
+					var theMsg = null;
+					if(Object.keys(json.others).length == 1) {
+						theMsg = stui.str("sideways_same");
+						addClass(sidewaysControl, "sideways_same");
+					} else {
+						theMsg = stui.str("sideways_diff");
+						addClass(sidewaysControl, "sideways_diff");
+					}
+					updateIf(sidewaysControl, ""); // remove string
+					
+					//var popupArea = document.createElement("div");
+					//addClass(popupArea, "sideways_popup");
+					//sidewaysControl.appendChild(popupArea); // will be initially hidden
+					
+					var popupSelect = document.createElement("select");
+					for(var s in json.others) {
+						//console.log("k:" + s + " in " + JSON.stringify(json.others));
+						var group = document.createElement("optGroup");
+						group.setAttribute("label", s);
+						json.others[s].sort(); // at least sort the locale ids
+						for(var l=0;l<json.others[s].length;l++) {
+							var loc = json.others[s][l];
+							var item = document.createElement("option");
+							item.setAttribute("value",loc);
+							var str;
+							if(loc === surveyCurrentLocale) {
+								str = loc + ": " + theMsg;
+								item.setAttribute("selected", "selected");
+								item.setAttribute("title",'"'+s+'"');
+							} else {
+								str = loc+": " + locmap.getLocaleName(loc); // TODO, fetch name
+				        		var bund = locmap.getLocaleInfo(loc);
+				        		if(bund && bund.readonly) {
+			        				addClass(item, "locked");
+			        				item.setAttribute("disabled","disabled");
+			        				item.setAttribute("title",stui.str("readonlyGuidance"));
+				        		} else {
+				        			item.setAttribute("title",'"'+s+'"');
+				        		}
+							}							
+							item.appendChild(document.createTextNode(str));
+							group.appendChild(item);
+						}
+						popupSelect.appendChild(group);
+					}
+					
+					listenFor(popupSelect, "change", function(e) {
+						var newLoc = popupSelect.value;
+						if(newLoc !== surveyCurrentLocale) {
+							surveyCurrentLocale = newLoc;
+							reloadV();
+						}
+						return stStopPropagation(e);
+					});
+					
+					sidewaysControl.appendChild(popupSelect);
+				}
+			});
+		}, 2000); // wait 2 seconds before loading this.
+	}
+	
 	// prepend something
 	var buttonTitle = "forumNewPostButton";
 	var buttonClass = "forumNewButton";
@@ -1527,7 +1618,7 @@ function showForumStuff(frag, forumDiv, tr) {
 				&& tr.theRow.canFlagOnLosing && 
 				!tr.theRow.rowFlagged) {
 			buttonTitle = "forumNewPostFlagButton";
-			buttonClass = "forumNewPostFlagButton"
+			buttonClass = "forumNewPostFlagButton";
 		}
 	}
 	var newButton = createChunk(stui.str(buttonTitle), "button", buttonClass);
@@ -3423,7 +3514,7 @@ function showV() {
 		/**
 		 * @param postData optional - makes this a POST
 		 */
-		function myLoad(url, message, handler, postData, headers) {
+		window.myLoad = function myLoad(url, message, handler, postData, headers) {
 			var otime = new Date().getTime();
 			console.log("MyLoad: " + url + " for " + message);
 			var errorHandler = function(err, ioArgs){
@@ -3448,7 +3539,7 @@ function showV() {
 					headers: headers
 			};
 			queueXhr(xhrArgs);
-		}
+		};
 		
 		/**
 		 * Verify that the JSON returned is as expected.

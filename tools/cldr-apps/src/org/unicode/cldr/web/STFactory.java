@@ -509,20 +509,15 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                 return ((PerLocaleData) other).locale.equals(locale);
             }
         }
-
         public synchronized CLDRFile getFile(boolean resolved) {
             if (resolved) {
-                if (true) { // reuse r-files?
-                    return new CLDRFile(makeSource(true)).setSupplementalDirectory(getSupplementalDirectory());
-                } else {
-                    if (rFile == null) {
-                        if (getSupplementalDirectory() == null)
-                            throw new InternalError("getSupplementalDirectory() == null!");
-                        rFile = new CLDRFile(makeSource(true)).setSupplementalDirectory(getSupplementalDirectory());
-                        rFile.getSupplementalDirectory();
-                    }
-                    return rFile;
+                if (rFile == null) {
+                    if (getSupplementalDirectory() == null)
+                        throw new InternalError("getSupplementalDirectory() == null!");
+                    rFile = new CLDRFile(makeSource(true)).setSupplementalDirectory(getSupplementalDirectory());
+                    rFile.getSupplementalDirectory();
                 }
+                return rFile;
             } else {
                 if (file == null) {
                     if (getSupplementalDirectory() == null)
@@ -764,14 +759,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         
         public synchronized XMLSource makeSource(boolean resolved) {
             if (resolved == true) {
-                if (true) { // cache r-sources?
-                    return makeResolvingSource(locale.getBaseName(), getMinimalDraftStatus());
-                } else {
-                    if (resolvedXmlsource == null) {
-                        resolvedXmlsource = makeResolvingSource(locale.getBaseName(), getMinimalDraftStatus());
-                    }
-                    return resolvedXmlsource;
+                if (resolvedXmlsource == null) {
+                    resolvedXmlsource = makeResolvingSource(locale.getBaseName(), getMinimalDraftStatus());
                 }
+                return resolvedXmlsource;
             } else {
                 if (readonly) {
                     return diskData;

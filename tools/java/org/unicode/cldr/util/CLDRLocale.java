@@ -487,6 +487,14 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     public String getDisplayName() {
         return getDisplayName(getDefaultFormatter());
     }
+    
+    public String getDisplayRegion() {
+        return getDisplayCountry(getDefaultFormatter());
+    }
+    
+    public String getDisplayVariant() {
+        return getDisplayVariant(getDefaultFormatter());
+    }
 
     public String getDisplayName(boolean combined, Transform<String, String> picker) {
         return getDisplayName(getDefaultFormatter(), combined, picker);

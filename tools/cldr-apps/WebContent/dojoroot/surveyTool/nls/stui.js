@@ -278,6 +278,7 @@ define({
 		sideways_loading1: "Comparing to other locales...",
 		sideways_same: "Other locales have the same value.",
 		sideways_diff: "Other locales have different values!",
+		sideways_noValue: "(no value)",
 		
 
 		ari_message: 'Something went wrong!',

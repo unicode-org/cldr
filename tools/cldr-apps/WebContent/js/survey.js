@@ -276,6 +276,33 @@ LocaleMap.prototype.getLocaleName = function getLocaleName(locid) {
 	}
 };
 
+/**
+ * Return the locale name, 
+ * @method getLocaleName
+ * @param menuMap the map
+ * @param locid the id - will canonicalize
+ * @return the display name - or else the id
+ */
+LocaleMap.prototype.getRegionAndOrVariantName = function getRegionAndOrVariantName(locid) {
+	locid = this.canonicalizeLocaleId(locid);
+	var bund = this.getLocaleInfo( locid);
+	if(bund) {
+		var ret = "";
+		if (bund.name_rgn) {
+			ret = ret + bund.name_rgn;
+		}
+		if (bund.name_var) {
+			ret = ret + " ("+bund.name_var+")";
+		}
+		if(ret != "") {
+			return ret; // region OR variant OR both
+		}
+		if(bund.name) {
+			return bund.name; // fallback to name
+		}
+	}
+	return locid; // fallbcak to locid
+};
 
 /**
  * Return the locale language 
@@ -1540,14 +1567,13 @@ function showForumStuff(frag, forumDiv, tr) {
 		clearMyTimeout();
 		sidewaysShowTimeout = window.setTimeout(function() {
 			clearMyTimeout();
-			console.log("surprised");
 			updateIf(sidewaysControl, stui.str("sideways_loading1"));
 			
 			var url = contextPath + "/SurveyAjax?what=getsideways&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.theRow.xpstrid +  cacheKill();
 			myLoad(url, "sidewaysView", function(json) {
 				//updateIf(sidewaysControl, JSON.stringify(json));
 				if(!json.others) {
-					updateIf(sidewaysControl, ""); // no sibling locales.
+					updateIf(sidewaysControl, ""); // no sibling locales (or all null?)
 				} else {
 					var theMsg = null;
 					if(Object.keys(json.others).length == 1) {
@@ -1562,24 +1588,21 @@ function showForumStuff(frag, forumDiv, tr) {
 					//var popupArea = document.createElement("div");
 					//addClass(popupArea, "sideways_popup");
 					//sidewaysControl.appendChild(popupArea); // will be initially hidden
-					
-					var popupSelect = document.createElement("select");
-					for(var s in json.others) {
-						//console.log("k:" + s + " in " + JSON.stringify(json.others));
+					var appendLocaleList = function appendLocaleList(list, name, title) {
 						var group = document.createElement("optGroup");
-						group.setAttribute("label", s);
-						json.others[s].sort(); // at least sort the locale ids
-						for(var l=0;l<json.others[s].length;l++) {
-							var loc = json.others[s][l];
+						group.setAttribute("label", name +  " (" + list.length + ")");
+						group.setAttribute("title", title);
+						list.sort(); // at least sort the locale ids
+						for(var l=0;l<list.length;l++) {
+							var loc = list[l];
 							var item = document.createElement("option");
 							item.setAttribute("value",loc);
-							var str;
+							var str = locmap.getRegionAndOrVariantName(loc);
 							if(loc === surveyCurrentLocale) {
-								str = loc + ": " + theMsg;
+								str = str + ": " + theMsg;
 								item.setAttribute("selected", "selected");
 								item.setAttribute("title",'"'+s+'"');
 							} else {
-								str = loc+": " + locmap.getLocaleName(loc); // TODO, fetch name
 				        		var bund = locmap.getLocaleInfo(loc);
 				        		if(bund && bund.readonly) {
 			        				addClass(item, "locked");
@@ -1594,6 +1617,15 @@ function showForumStuff(frag, forumDiv, tr) {
 						}
 						popupSelect.appendChild(group);
 					}
+					
+					var popupSelect = document.createElement("select");
+					for(var s in json.others) {
+						appendLocaleList(json.others[s], s, s);
+						//console.log("k:" + s + " in " + JSON.stringify(json.others));
+					}
+					if(json.novalue) {
+						appendLocaleList(json.novalue,  stui.str("sideways_noValue"),  stui.str("sideways_noValue"));
+					}					
 					
 					listenFor(popupSelect, "change", function(e) {
 						var newLoc = popupSelect.value;

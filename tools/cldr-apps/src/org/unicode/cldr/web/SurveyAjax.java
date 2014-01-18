@@ -995,39 +995,28 @@ public class SurveyAjax extends HttpServlet {
                         }
                         final CLDRLocale topLocale = l.getHighestNonrootParent();
                         r.put("topLocale", topLocale);
-                        final Map<String,Set<CLDRLocale>> valueToLocale = new HashMap<String,Set<CLDRLocale>>();
-                        
                         final Collection<CLDRLocale> relatedLocs = sm.getRelatedLocs(topLocale); // sublocales of the 'top' locale
+                        JSONObject others = new JSONObject(); // values
+                        JSONArray empties = new JSONArray(); // no value
                         for(CLDRLocale ol : relatedLocs) {
                             //if(ol == l) continue;
-                            XMLSource src = sm.getSTFactory().makeSource(ol.getBaseName(), true);
+                            XMLSource src = sm.getSTFactory().makeSource(ol.getBaseName(), false);
                             String ov = src.getValueAtDPath(xpathString);
                             if(ov!=null) {
-                                Set<CLDRLocale> subset = valueToLocale.get(ov);
-                                if(subset==null) {
-                                    subset = new HashSet<CLDRLocale>();
-                                    valueToLocale.put(ov,subset);
+                                JSONArray other = null;
+                                if(others.has(ov)) {
+                                    other = others.getJSONArray(ov);
+                                } else {
+                                    other = new JSONArray();
+                                    others.put(ov, other);
                                 }
-                                subset.add(ol);
+                                other.put(ol.getBaseName());
+                            } else {
+                                empties.put(ol.getBaseName());
                             }
                         }
-                        // TODO: expected that Map<String, Set<CLDRLocales>> would convert to JSON directly. 
-                        // since it didn't, had to add a 2nd loop here. 
-                        // might be easier to combine these two loops.
-                        if(!valueToLocale.isEmpty()) {
-                            //System.out.println("dumping sideways for " + loc + ":"+xpath);
-                            JSONObject others = new JSONObject();
-                            for(Map.Entry<String, Set<CLDRLocale>> e : valueToLocale.entrySet()) {
-                                //System.out.println("-v="+e.getKey()+" -> " + e.getValue().toString());
-                                JSONArray locs = new JSONArray();
-                                for(CLDRLocale ol : e.getValue()) {
-                                    locs.put(ol.getBaseName());
-                                }
-                                others.put(e.getKey(), locs);
-                            }
-                            r.put("others", others);
-                            //r.put("others", valueToLocale);
-                        }
+                        r.put("others", others);
+                        r.put("novalue", empties);
                         send(r, out);
                     } else {
                         sendError(out, "Unknown Session-based Request: " + what);
@@ -1089,6 +1078,12 @@ public class SurveyAjax extends HttpServlet {
             JSONObject locale = new JSONObject();
 
             locale.put("name", loc.getDisplayName());
+            if(loc.getCountry() != null) {
+                locale.put("name_rgn", loc.getDisplayRegion());
+            }
+            if(loc.getVariant() != null) {
+                locale.put("name_var", loc.getDisplayVariant());
+            }
 
             CLDRLocale dcParent = sdi.getBaseFromDefaultContent(loc);
             CLDRLocale dcChild = sdi.getDefaultContentFromBase(loc);

@@ -594,7 +594,8 @@ public class DBUtils {
                 if (datasource != null) {
                     c = datasource.getConnection();
                     DatabaseMetaData dmd = c.getMetaData();
-                    dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion();
+                    dbInfo = dmd.getDatabaseProductName() + " v" + dmd.getDatabaseProductVersion() + " " +
+                        "driver " + dmd.getDriverName() + " ver "+dmd.getDriverVersion();
                     setupSqlForServerType();
                     SurveyLog.debug("Metadata: " + dbInfo);
                     handleHaveDatasource(datasource);
@@ -660,6 +661,7 @@ public class DBUtils {
 
     private void setupSqlForServerType() {
         SurveyLog.debug("setting up SQL for database type " + dbInfo);
+        System.err.println("setting up SQL for database type " + dbInfo);
         if (dbInfo.contains("Derby")) {
             db_Derby = true;
             System.err.println("Note: Derby (embedded) mode. ** some features may not work as expected **");

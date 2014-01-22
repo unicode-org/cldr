@@ -164,7 +164,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             PrintWriter pw = new PrintWriter(file);
             String vap = (String)survprops.get("CLDR_VAP");
             pw.write("<h3>Survey Tool admin interface link</h3>");
-            pw.write("If the SurveyTool is in maintenance mode, you can configure it here: ");
+            pw.write("To configure the SurveyTool, use ");
             String url0 = hostportpath + "cldr-setup.jsp" + "?vap=" + vap;
             pw.write("<b>SurveyTool Setup:</b>  <a href='" + url0 + "'>" + url0 + "</a><hr>");
             String url = hostportpath + ("AdminPanel.jsp") + "?vap=" + vap;

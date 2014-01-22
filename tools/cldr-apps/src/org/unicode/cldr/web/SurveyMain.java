@@ -615,43 +615,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 out.println("<title>CLDR Survey Tool offline</title>");
                 out.println("<link rel='stylesheet' type='text/css' href='" + request.getContextPath() + "/" + "surveytool.css"
                     + "'>");
-                out.println(SHOWHIDE_SCRIPT);
-                SurveyAjax.includeAjaxScript(request, response, SurveyAjax.AjaxType.STATUS);
-                out.println("<script type=\"text/javascript\">timerSpeed = 60080;</script>"); // don't
-                                                                                              // flood
-                                                                                              // server
-                                                                                              // if
-                                                                                              // busted-
-                                                                                              // check
-                                                                                              // every
-                                                                                              // minute.
-                out.print("<div id='st_err'><!-- for ajax errs --></div><span id='progress'>");
-                out.print(getTopBox());
-                out.println("</span>");
-                // showSpecialHeader(out);
-                // out.println("<h1>The CLDR Survey Tool is offline</h1>");
-                // out.println("<div class='ferrbox'><pre>" + isBusted
-                // +"</pre><hr>");
-                // out.println("\n");
-                // out.println(getShortened((SurveyForum.HTMLSafe(isBustedStack).replaceAll("\t",
-                // "&nbsp;&nbsp;&nbsp;").replaceAll("\n", "<br>"))));
-                // out.println("</div><br>");
-
-                out.println("<hr>");
-                // if(!isUnofficial) {
-                // out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
-                // out.println("<hr>");
-                // }
-                out.println("An Administrator must intervene to bring the Survey Tool back online. <br> "
-                    + " <i>This message has been viewed " + pages + " time(s), SurveyTool has been down for " + isBustedTimer
-                    + "</i>");
-
-                // if(false) { // dump static tables.
-                // response.setContentType("application/xml; charset=utf-8");
-                // WebContext xctx = new WebContext(request,response);
-                // xctx.staticInfo();
-                // xctx.close();
-                // }
+                showOfflinePage(request, response, out);
                 return;
             }
         }
@@ -764,6 +728,71 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     /**
+     * @param request
+     * @param response
+     * @param out
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void showOfflinePage(HttpServletRequest request, HttpServletResponse response, PrintWriter out) throws ServletException, IOException {
+        out.println(SHOWHIDE_SCRIPT);
+        SurveyAjax.includeAjaxScript(request, response, SurveyAjax.AjaxType.STATUS);
+        out.println("<script type=\"text/javascript\">timerSpeed = 60080;</script>"); // don't
+                                                                                      // flood
+                                                                                      // server
+                                                                                      // if
+                                                                                      // busted-
+                                                                                      // check
+                                                                                      // every
+                                                                                      // minute.
+        out.print("<div id='st_err'><!-- for ajax errs --></div><span id='progress'>");
+        out.print(getTopBox());
+        out.println("</span>");
+        // showSpecialHeader(out);
+        // out.println("<h1>The CLDR Survey Tool is offline</h1>");
+        // out.println("<div class='ferrbox'><pre>" + isBusted
+        // +"</pre><hr>");
+        // out.println("\n");
+        // out.println(getShortened((SurveyForum.HTMLSafe(isBustedStack).replaceAll("\t",
+        // "&nbsp;&nbsp;&nbsp;").replaceAll("\n", "<br>"))));
+        // out.println("</div><br>");
+
+        out.println("<hr>");
+        // if(!isUnofficial) {
+        // out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
+        // out.println("<hr>");
+        // }
+        out.println("<p class='ferrbox'>An Administrator must intervene to bring the Survey Tool back online.");
+        if(isUnofficial() || !isConfigSetup) {
+            final File maintFile = getHelperFile();
+            if(!maintFile.exists() && request!=null) {
+                try {
+                    writeHelperFile(request, maintFile);
+                } catch (IOException e) {
+                    SurveyLog.warnOnce("Trying to write helper file " + maintFile.getAbsolutePath() + " - " +  e.toString());
+                }
+            }
+            if(maintFile.exists()) {
+                out.println("<br/>If you are the administrator, try opening <a href='file://"+maintFile.getAbsolutePath()+"'>"+maintFile.getAbsolutePath()+"</a> to choose setup mode.");
+            } else {
+                out.println("<br/>If you are the administrator, try loading the main SurveyTool page to create <a style='color: gray' href='file://"+maintFile.getAbsolutePath()+"'>"+maintFile.getAbsolutePath()+"</a>" );
+            }
+        } else {
+            out.println("<br/> See: <a href='http://cldr.unicode.org/index/survey-tool#TOC-FAQ-Known-Bugs'>FAQ and Known Bugs</a>");
+        }
+        out.println("</p> <br> "
+            + " <i>This message has been viewed " + pages + " time(s), SurveyTool has been down for " + isBustedTimer
+            + "</i>");
+
+        // if(false) { // dump static tables.
+        // response.setContentType("application/xml; charset=utf-8");
+        // WebContext xctx = new WebContext(request,response);
+        // xctx.staticInfo();
+        // xctx.close();
+        // }
+    }
+
+    /**
      * Make sure we're started up, otherwise tell 'em, "please wait.."
      * 
      * @param request
@@ -827,28 +856,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 out.println("</div>");
                 out.println("<hr>");
             } else if (isBusted != null) {
-                out.println(SHOWHIDE_SCRIPT);
-                out.println("<script type=\"text/javascript\">clickContinue = '" + loadOnOk + "';</script>");
-                out.println("</head>");
-                out.println("<body>");
-                out.print("<div id='st_err'><!-- for ajax errs --></div><span id='progress'>" + getTopBox() + "</span>");
-                // showSpecialHeader(out);
-                // out.println("<h1>The CLDR Survey Tool is offline</h1>");
-                // out.println("<div class='ferrbox'><pre>" + isBusted
-                // +"</pre><hr>");
-                // out.println("\n");
-                // out.println(getShortened((SurveyForum.HTMLSafe(isBustedStack).replaceAll("\t",
-                // "&nbsp;&nbsp;&nbsp;").replaceAll("\n", "<br>"))));
-                // out.println("</div><br>");
-
-                out.println("<hr>");
-                // if(!isUnofficial) {
-                // out.println("Please try this link for info: <a href='"+CLDR_WIKI_BASE+"?SurveyTool/Status'>"+CLDR_WIKI_BASE+"?SurveyTool/Status</a><br>");
-                // out.println("<hr>");
-                // }
-                out.println("An Administrator must intervene to bring the Survey Tool back online. <br> "
-                    + " <i>This message has been viewed " + pages + " time(s), SurveyTool has been down for " + isBustedTimer
-                    + "</i>");
+                showOfflinePage(request, response, out);
             } else {
                 out.print(sysmsg("startup_header"));
 

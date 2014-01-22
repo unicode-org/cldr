@@ -19,6 +19,11 @@ import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.UserRegistry;
 
+/**
+ * This is a concrete implementation of CLDRConfig customized for SurveyTool usage.
+ * Its main distinction is that it uses the "cldr.properties" file in the server root
+ * rather than environment variables.
+ */
 public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
     public static final String CLDR_PROPERTIES = "cldr.properties";
@@ -74,7 +79,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         survprops.put("CLDR_SURVEY_URL", "survey"); // default to relative URL.
 
         File propFile;
-        System.err.println("init, cldrHome=" + cldrHome);
+        System.err.println(CLDRConfigImpl.class.getName()+".init(), cldrHome=" + cldrHome);
         if (cldrHome == null) {
             String homeParent = null;
             String props[] = { "catalina.home", "websphere.home", "user.dir" };
@@ -82,7 +87,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
                 if (homeParent == null) {
                     homeParent = System.getProperty(prop);
                     if (homeParent != null) {
-                        System.err.println(" Using " + prop + " = " + homeParent);
+                        System.err.println(" cldrHome found, using " + prop + " = " + homeParent);
                     } else {
                         System.err.println(" Unset: " + prop);
                     }
@@ -113,6 +118,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
         SurveyLog.setDir(homeFile);
 
+        System.out.println("CLDRConfig: reading " + propFile.getAbsolutePath()); // make it explicit where this comes from
         // SurveyLog.logger.info("SurveyTool starting up. root=" + new
         // File(cldrHome).getAbsolutePath() + " time="+setupTime);
 

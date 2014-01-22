@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2004-2012 IBM Corporation and Others. All Rights Reserved.
+ * Copyright (C) 2004-2014 IBM Corporation and Others. All Rights Reserved.
  */
 package org.unicode.cldr.web;
 
@@ -43,13 +43,11 @@ import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
 
+import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
- * All of the database related stuff has been moved here.
- *
- * @author srl
- *
+ * Singleton utility class for simple(r) DB access.
  */
 public class DBUtils {
     private static final boolean DEBUG = false;// CldrUtility.getProperty("TEST",
@@ -580,6 +578,8 @@ public class DBUtils {
 
     private DBUtils() {
         // Initialize DB context
+        System.err.println("Loading datasource: java:comp/env " +JDBC_SURVEYTOOL);
+        ElapsedTimer et = new ElapsedTimer();
         try {
             Context initialContext = new InitialContext();
             Context eCtx = (Context) initialContext.lookup("java:comp/env");
@@ -587,7 +587,7 @@ public class DBUtils {
             // datasource = (DataSource) envContext.lookup("ASDSDASDASDASD");
 
             if (datasource != null) {
-                System.err.println("Got datasource: " + datasource.toString());
+                System.err.println("Got datasource: " + datasource.toString() + " in " + et);
             }
             Connection c = null;
             try {

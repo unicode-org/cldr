@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2004-2013, International Business Machines Corporation and   *
+ * Copyright (C) 2004-2014, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -10,12 +10,10 @@ import java.io.BufferedReader;
 import java.io.Externalizable;
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -71,7 +69,6 @@ import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -109,7 +106,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
@@ -500,9 +496,11 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             // verify config sanity
             CLDRConfig cconfig  = CLDRConfigImpl.getInstance();
             
-            stopIfMaintenance();
+            isConfigSetup = true; // we have a CLDRConfig - so config is setup.
             
-            cconfig.getSupplementalDataInfo();
+            stopIfMaintenance(); 
+
+            cconfig.getSupplementalDataInfo(); // will fail if CLDR_DIR is broken.
 
             PathHeader.PageId.forString(PathHeader.PageId.Africa.name()); // Make
                                                                           // sure
@@ -5803,6 +5801,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             isConfigSetup = true;
             
             cldrHome = survprops.getProperty("CLDRHOME");
+            
+            System.err.println("CLDRHOME="+cldrHome+", maint mode="+isMaintenance());
+            
             stopIfMaintenance();
 
             progress.update("Setup DB config");
@@ -5995,9 +5996,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
     
     public static void stopIfMaintenance(HttpServletRequest request) {
+        final File maintFile = getHelperFile();
+        final String maintMessage = getMaintMessage(maintFile, request);
         if(isMaintenance()) {
-            final File maintFile = getHelperFile();
-            final String maintMessage = getMaintMessage(maintFile, request);
             if(!maintFile.exists()) {
                 busted("SurveyTool is in setup mode. Please view the main page such as http://127.0.0.1:8080/cldr-apps/survey/ so we can generate a helper file.");
             } else {
@@ -6023,7 +6024,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
     }
 
-    public static void writeHelperFile(HttpServletRequest request, File maintFile) throws IOException {
+    public static synchronized void writeHelperFile(HttpServletRequest request, File maintFile) throws IOException {
         CLDRConfig cconfig = CLDRConfig.getInstance();
             ((CLDRConfigImpl)cconfig).writeHelperFile(request.getScheme()+"://"+request.getServerName()+":"+
                     request.getServerPort()+request.getContextPath()+"/", maintFile);

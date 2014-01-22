@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2010-2011 IBM Corporation and Others. All Rights Reserved.
+ * Copyright (C) 2010-2014 IBM Corporation and Others. All Rights Reserved.
  */
 package org.unicode.cldr.web;
 
@@ -8,6 +8,8 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.TreeSet;
+
+import org.unicode.cldr.util.StackTracker;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.NumberFormat;
@@ -37,7 +39,11 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
 
         @Override
         public void close() {
-            tasks.remove(this); // remove from deque
+            if(tasks.isEmpty()||!tasks.contains(this)) {
+                SurveyLog.warnOnce("State Error: Closing an already-closed CLDRProgressIndicator at stack " + StackTracker.currentStack());
+            } else {
+                tasks.remove(this); // remove from deque
+            }
             if (DEBUG_PROGRESS && SurveyMain.isUnofficial())
                 System.err.println("Progress (" + progressWhat + ") DONE - "
                     + ElapsedTimer.elapsedTime(taskTime, System.currentTimeMillis()) + " @" + SurveyMain.uptime);

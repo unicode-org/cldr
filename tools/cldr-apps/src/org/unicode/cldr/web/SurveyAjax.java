@@ -38,6 +38,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
@@ -1079,6 +1080,8 @@ public class SurveyAjax extends HttpServlet {
         // locales will have info about each locale, including name
         JSONObject locales = new JSONObject();
         SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
+        
+        Factory disk = sm.getDiskFactory();
 
         for (CLDRLocale loc : SurveyMain.getLocales()) {
             JSONObject locale = new JSONObject();
@@ -1099,6 +1102,7 @@ public class SurveyAjax extends HttpServlet {
             locale.put("highestParent", loc.getHighestNonrootParent());
             locale.put("dcParent", dcParent);
             locale.put("dcChild", dcChild);
+            locale.put("type",  Factory.getSourceTreeType(disk.getSourceDirectoryForLocale(loc.getBaseName())));
             if (SurveyMain.getReadOnlyLocales().contains(loc)) {
                 locale.put("readonly", true);
                 String comment = SpecialLocales.getComment(loc);

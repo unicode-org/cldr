@@ -40,9 +40,8 @@ var surveyCurrentSection  = '<%= surveyCurrentSection %>';
 var surveyCurrentLocale = null;
 var surveyCurrentLocaleName = null;
 var surveyCurrentSection  = '';
-<% } 
-
-%>
+<% } %>
+var surveyBaselineLocale = '<%= SurveyMain.BASELINE_LOCALE.getBaseName() %>';
 var surveyCurrentLocaleStamp = 0;
 var surveyCurrentLocaleStampId = '';
 var surveyVersion = '<%=SurveyMain.getNewVersion() %>';

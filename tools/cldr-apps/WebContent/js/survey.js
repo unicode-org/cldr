@@ -2152,7 +2152,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		}
 		var h3 = document.createElement("span");
 		var span=appendItem(h3, value, "value",tr);
-		span.dir = tr.theTable.json.dir;
+		setLang(span);
 		ourDiv.appendChild(h3);
 		
 		children[config.othercell].appendChild(tr.myProposal);
@@ -2183,7 +2183,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		if(!ourItem) {
 			var h3 = document.createElement("h3");
 			var span=appendItem(h3, value, "value",tr);
-			span.dir = tr.theTable.json.dir;
+			setLang(span);
 			h3.className="span";
 			div3.appendChild(h3);
 		}
@@ -2227,6 +2227,7 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 
 		var h3 = document.createElement("h3");
 		var span = appendItem(h3, item.value, item.pClass); /* no need to pass in 'tr' - clicking this span would have no effect. */
+		setLang(span);
 		h3.className="span";
 		if(false) { // click to copy
 			h3.onclick = function() {
@@ -2264,10 +2265,11 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 }
 
 
-function appendExample(parent, text) {
+function appendExample(parent, text, loc) {
 	var div = document.createElement("div");
 	div.className="d-example";
 	div.innerHTML=text;
+	setLang(div, loc);
 	parent.appendChild(div);
 	return div;
 }
@@ -2306,7 +2308,7 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	var span = appendItem(subSpan,item.value,item.pClass,tr);
 	div.appendChild(subSpan);
 	
-	span.dir = tr.theTable.json.dir;
+	setLang(span);
 	
 	if(item.isOldValue==true && !isWinner) {
 		addIcon(div,"i-star");
@@ -2370,9 +2372,10 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	            ready(function(){
 	            if(!ieb) {
 	                ieb = new InlineEditBox({
-	                	dir: tr.theTable.json.dir,
+	                	dir: locInfo().dir,
+	                	lang: locInfo().bcp47,
 	                	editor: TextBox, 
-	                	editorParams:  { dir: tr.theTable.json.dir },
+	                	editorParams:  { dir: locInfo().dir, lang: locInfo().bcp47 },
 	                	autoSave: true, 
 	                    onChange: function (newValue) {
 	                                  //  console.log("Destroyed -> "+ newValue);
@@ -2427,7 +2430,7 @@ function updateRow(tr, theRow) {
 	tr.theRow = theRow;
 	tr.valueToItem = {}; // hash:  string value to item (which has a div)
 	tr.rawValueToItem = {}; // hash:  string value to item (which has a div)
-	for(k in theRow.items) {
+	for(var k in theRow.items) {
 		var item = theRow.items[k];
 		if(item.value) {
 			tr.valueToItem[item.value] = item; // back link by value
@@ -2511,6 +2514,7 @@ function updateRow(tr, theRow) {
 						appendIcon(isection,"voteInfo_lastRelease i-star");
 					}
 					
+					setLang(vvalue);
 					appendItem(vvalue, value, calcPClass(value, vr.winningValue), tr);
 					vrow.appendChild(vvalue);
 					vrow.appendChild(createChunk(vote,"div","voteInfo_voteTitle voteInfo_td"+""));
@@ -2748,8 +2752,9 @@ function updateRow(tr, theRow) {
 	if(!children[config.comparisoncell].isSetup) {
 		if(theRow.displayName) {
 			children[config.comparisoncell].appendChild(document.createTextNode(theRow.displayName));
+			setLang(children[config.comparisoncell], surveyBaselineLocale);
 			if(theRow.displayExample) {
-				var theExample = appendExample(children[config.comparisoncell], theRow.displayExample);
+				var theExample = appendExample(children[config.comparisoncell], theRow.displayExample, surveyBaselineLocale);
 				listenToPop(null,tr,theExample);
 			}
 		} else {
@@ -2766,7 +2771,7 @@ function updateRow(tr, theRow) {
 		var flagIcon = addIcon(children[config.proposedcell], "s-flag-d");
 		flagIcon.title = stui.str("flag_d_desc");
 	}
-	children[config.proposedcell].dir = tr.theTable.json.dir;
+	setLang(children[config.proposedcell]);
 	tr.proposedcell = children[config.proposedcell];
 	if(theRow.items && theRow.winningVhash == "") {
 		// find the bailey value
@@ -2792,7 +2797,7 @@ function updateRow(tr, theRow) {
 	
 	var hadOtherItems  = false;
 	removeAllChildNodes(children[config.othercell]); // other
-	children[config.othercell].dir = tr.theTable.json.dir;
+	setLang(children[config.othercell]);
 	for(k in theRow.items) {
 		if(k == theRow.winningVhash) {
 			continue; // skip the winner
@@ -3315,6 +3320,30 @@ var _thePages = null;
 
 
 window.locmap = new LocaleMap(null);
+
+/**
+ * @method locInfo
+ * @param loc  optional
+ * @returns locale bundle
+ */
+function locInfo(loc) {
+	if(!loc) {
+		loc = window.surveyCurrentLocale;
+	}
+	return locmap.getLocaleInfo(loc);
+}
+
+function setLang(node, loc) {
+	var info = locInfo(loc);
+	
+	if(info.dir) {
+		node.dir = info.dir;
+	}
+	
+	if(info.bcp47) {
+		node.lang = info.bcp47;
+	}
+}
 
 /**
  * Utilities for the 'v.jsp' (new dispatcher) page.  Call this once in the page. It expects to find a node #DynamicDataSection

@@ -50,6 +50,8 @@ import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
 
+import com.ibm.icu.dev.util.ElapsedTimer;
+
 /**
  * Servlet implementation class SurveyAjax
  * 
@@ -1022,6 +1024,10 @@ public class SurveyAjax extends HttpServlet {
                         sendError(out, "Unknown Session-based Request: " + what);
                     }
                 }
+            } else if(what.equals("locmap")) {
+                final JSONWriter r = newJSONStatusQuick(sm);
+                r.put("locmap", getJSONLocMap(sm));
+                send(r, out);
             } else {
                 sendError(out, "Unknown Request: " + what);
             }
@@ -1084,10 +1090,13 @@ public class SurveyAjax extends HttpServlet {
             if(loc.getVariant() != null) {
                 locale.put("name_var", loc.getDisplayVariant());
             }
+            locale.put("bcp47", loc.toLanguageTag());
+            locale.put("dir", sm.getHTMLDirectionFor(loc));
 
             CLDRLocale dcParent = sdi.getBaseFromDefaultContent(loc);
             CLDRLocale dcChild = sdi.getDefaultContentFromBase(loc);
-
+            locale.put("parent", loc.getParent());
+            locale.put("highestParent", loc.getHighestNonrootParent());
             locale.put("dcParent", dcParent);
             locale.put("dcChild", dcChild);
             if (SurveyMain.getReadOnlyLocales().contains(loc)) {
@@ -1102,6 +1111,12 @@ public class SurveyAjax extends HttpServlet {
         }
 
         locmap.put("locales", locales);
+        locmap.put("surveyBaseLocale", SurveyMain.BASELINE_LOCALE);
+        JSONArray topLocales = new JSONArray();
+        for(CLDRLocale l : sm.getLocaleTree().getTopCLDRLocales()) {
+            topLocales.put(l.getBaseName());
+        }
+        locmap.put("topLocales", topLocales);
 
         // map non-canonicalids to localeids
         //JSONObject idmap = new JSONObject();
@@ -1113,9 +1128,9 @@ public class SurveyAjax extends HttpServlet {
 
     private static synchronized JSONObject getJSONLocMap(SurveyMain sm) throws JSONException {
         if (gLocMap == null) {
-            //           ElapsedTimer et = new ElapsedTimer("creating JSON locmap");
+            ElapsedTimer et = new ElapsedTimer("SurveyAjax.getJSONLocMap: created JSON locale map ");
             gLocMap = createJSONLocMap(sm);
-            //           System.err.println(et.toString());
+            System.err.println(et.toString() + " - serializes to: " + gLocMap.toString().length() + "chars.");
         }
         return gLocMap;
     }

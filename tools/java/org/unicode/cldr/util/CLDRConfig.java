@@ -59,7 +59,14 @@ public class CLDRConfig extends Properties {
         return INSTANCE;
     }
 
+    String initStack = null;
+    
     protected CLDRConfig() {
+        initStack = StackTracker.currentStack();
+    }
+    
+    public String getInitStack() {
+        return initStack;
     }
 
     private SupplementalDataInfo supplementalDataInfo;

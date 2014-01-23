@@ -26,6 +26,23 @@ import org.unicode.cldr.web.UserRegistry;
  */
 public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 
+    /**
+     * Get an instance and downcast
+     * @return
+     */
+    public static CLDRConfigImpl getInstance() {
+        CLDRConfig config = CLDRConfig.getInstance();
+        try {
+            return (CLDRConfigImpl)config;
+        } catch(ClassCastException cce) {
+            System.err.println("Error: CLDRConfig.getInstance() returned " 
+                    + config.getClass().getName() 
+                    + " initialized at " 
+                    + config.getInitStack());
+            throw new RuntimeException("CLDRConfig is not a CLDRConfigImpl - probably CLDRConfig.getInstance() was called before " + CLDRConfigImpl.class.getName() + " was available.", cce);
+        }
+    }
+    
     public static final String CLDR_PROPERTIES = "cldr.properties";
     /**
      * 

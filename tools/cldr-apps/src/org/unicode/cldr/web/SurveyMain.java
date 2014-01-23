@@ -494,8 +494,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             SurveyMain.config = config;
 
             // verify config sanity
-            CLDRConfig cconfig  = CLDRConfigImpl.getInstance();
-            
+            CLDRConfig cconfig  = CLDRConfigImpl.getInstance();            
             isConfigSetup = true; // we have a CLDRConfig - so config is setup.
             
             stopIfMaintenance(); 
@@ -6033,8 +6032,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     public static synchronized void writeHelperFile(HttpServletRequest request, File maintFile) throws IOException {
-        CLDRConfig cconfig = CLDRConfig.getInstance();
-            ((CLDRConfigImpl)cconfig).writeHelperFile(request.getScheme()+"://"+request.getServerName()+":"+
+        CLDRConfigImpl.getInstance().writeHelperFile(request.getScheme()+"://"+request.getServerName()+":"+
                     request.getServerPort()+request.getContextPath()+"/", maintFile);
     }
 

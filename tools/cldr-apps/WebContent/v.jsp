@@ -130,7 +130,7 @@ if(false) { // if we need to redirect for some reason..
 	 return;
  }
 %>
-<html class='claro'>
+<html lang='<%= SurveyMain.BASELINE_LOCALE.toLanguageTag() %>' class='claro'>
 <head class='claro'>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>CLDR  <%= ctx.sm.getNewVersion() %> SurveyTool | view</title>
@@ -153,7 +153,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
   showV();
 </script>
 </head>
-<body class='claro'>
+<body lang='<%= SurveyMain.BASELINE_LOCALE.toLanguageTag() %>' class='claro'>
 
 <div data-dojo-type="dijit/Dialog" data-dojo-id="ariDialog" title="CLDR Survey Tool"
     execute="" data-dojo-props="onHide: function(){ariReload.style.display='';ariRetry.style.display='none';   if(disconnected) { unbust();}}">

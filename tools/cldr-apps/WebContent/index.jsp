@@ -23,9 +23,16 @@
     		Tool.
     	</i>
     </p>
+    <% } else { %>
+    			<!--  reload  -->
+              <script type="application/javascript">
+              window.setTimeout(function(){
+                  window.location.reload(true);                
+              },<%= SurveyMain.isSetup ? 1800000 : 60000 %>);
+              </script>
     <% } %>
     
-    <% if(request.getParameter("stdown")!=null) { %>
+    <% if(request.getParameter("stdown")!=null && !SurveyMain.isSetup) { %>
         <div class='ferrbox'>
             <i><%= WebContext.iconHtml(request, "warn", "ST is down") %>The page you tried to access can't be loaded until the <a href='survey/'>Survey Tool</a> has been started. </i>
         </div>
@@ -42,8 +49,10 @@
 			<% } else if(SurveyMain.isBusted()) {		%>
 			  <span style='color: red;'>offline</span>
             <% } else if(!SurveyMain.isSetup) { %>
-              <span style='color: green;'>starting..</span>
-              <% } %>
+              <span style='color: goldenrod;'>starting..</span>
+            <% }  else {%>
+              <span style='color: green;'>running</span>
+            <% } %>  
 			<br />
 			<%
 			   int numServed = StatisticsUtils.getTotalItems();

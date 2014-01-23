@@ -2235,6 +2235,10 @@ public class WebContext implements Cloneable, Appendable {
                 if (myPassword != null && (password == null || password.isEmpty())) {
                     password = myPassword;
                 }
+            } else {
+                if(myEmail != null && !myEmail.equals(email)) {
+                    removeLoginCookies(request, response);
+                }
             }
         }
 
@@ -2405,6 +2409,14 @@ public class WebContext implements Cloneable, Appendable {
             }
             session.removeAttribute(SurveyMain.SURVEYTOOL_COOKIE_SESSION);
         }
+        removeLoginCookies(request, response);
+    }
+
+    /**
+     * @param request
+     * @param response
+     */
+    public static void removeLoginCookies(HttpServletRequest request, HttpServletResponse response) {
         Cookie c0 = WebContext.getCookie(request, SurveyMain.QUERY_EMAIL);
         if (c0 != null) { // only zap extant cookies
             c0.setValue("");

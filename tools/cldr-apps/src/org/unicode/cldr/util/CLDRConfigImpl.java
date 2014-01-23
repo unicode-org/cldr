@@ -32,6 +32,9 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
      */
     public static CLDRConfigImpl getInstance() {
         CLDRConfig config = CLDRConfig.getInstance();
+        if(config.getEnvironment() == Environment.UNITTEST) {
+            throw new RuntimeException("CLDR_ENVIRONMENT is set to UNITTEST - please correct this (remove any -DCLDR_ENVIRONMENT)");
+        }
         try {
             return (CLDRConfigImpl)config;
         } catch(ClassCastException cce) {

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='mk-t-k0-windows-legacy'>
-	<version platform='6.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="mk-t-k0-windows-legacy">
+	<version platform="8" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Macedonian (FYROM)'/>
+		<name value="Macedonian (FYROM)"/>
 	</names>
-	<settings fallback='omit'/>
+	<settings fallback="omit"/>
 	<keyMap>
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
@@ -44,8 +44,8 @@
 		<map iso="C09" to="л"/> <!-- L -->
 		<map iso="C10" to="ч"/> <!-- ; -->
 		<map iso="C11" to="ќ"/> <!-- ' -->
-		<map iso="C12" to="ж"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="ё"/> <!-- (1 key to left of Z) -->
+		<map iso="C12" to="ж"/> <!-- (key to right of ') -->
+		<map iso="B00" to="ё"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="з"/> <!-- Z -->
 		<map iso="B02" to="џ"/> <!-- X -->
 		<map iso="B03" to="ц"/> <!-- C -->
@@ -58,7 +58,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift'>
+	<keyMap modifiers="shift">
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="„"/> <!-- 2 -->
@@ -95,8 +95,8 @@
 		<map iso="C09" to="Л"/> <!-- L -->
 		<map iso="C10" to="Ч"/> <!-- ; -->
 		<map iso="C11" to="Ќ"/> <!-- ' -->
-		<map iso="C12" to="Ж"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="Ё"/> <!-- (1 key to left of Z) -->
+		<map iso="C12" to="Ж"/> <!-- (key to right of ') -->
+		<map iso="B00" to="Ё"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="З"/> <!-- Z -->
 		<map iso="B02" to="Џ"/> <!-- X -->
 		<map iso="B03" to="Ц"/> <!-- C -->
@@ -109,7 +109,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps'>
+	<keyMap modifiers="caps">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -146,8 +146,8 @@
 		<map iso="C09" to="Л"/> <!-- L -->
 		<map iso="C10" to="Ч"/> <!-- ; -->
 		<map iso="C11" to="Ќ"/> <!-- ' -->
-		<map iso="C12" to="Ж"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="Ё"/> <!-- (1 key to left of Z) -->
+		<map iso="C12" to="Ж"/> <!-- (key to right of ') -->
+		<map iso="B00" to="Ё"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="З"/> <!-- Z -->
 		<map iso="B02" to="Џ"/> <!-- X -->
 		<map iso="B03" to="Ц"/> <!-- C -->
@@ -160,7 +160,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+shift'>
+	<keyMap modifiers="caps+shift">
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="„"/> <!-- 2 -->
@@ -197,8 +197,8 @@
 		<map iso="C09" to="л"/> <!-- L -->
 		<map iso="C10" to="ч"/> <!-- ; -->
 		<map iso="C11" to="ќ"/> <!-- ' -->
-		<map iso="C12" to="ж"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="ё"/> <!-- (1 key to left of Z) -->
+		<map iso="C12" to="ж"/> <!-- (key to right of ') -->
+		<map iso="B00" to="ё"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="з"/> <!-- Z -->
 		<map iso="B02" to="џ"/> <!-- X -->
 		<map iso="B03" to="ц"/> <!-- C -->
@@ -211,7 +211,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+caps? ctrl+alt+caps?'>
+	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
 		<map iso="D03" to="€"/> <!-- E  base=е -->
 		<map iso="D11" to="Ђ"/> <!-- [  base=ш -->
 		<map iso="D12" to="ђ"/> <!-- ]  base=ѓ -->
@@ -224,11 +224,12 @@
 		<map iso="B06" to="}"/> <!-- N  base=н -->
 		<map iso="B07" to="§"/> <!-- M  base=м -->
 	</keyMap>
-	<keyMap modifiers='ctrl+caps?'>
+	<keyMap modifiers="ctrl+caps?">
 		<map iso="D12" to="\u{1B}"/> <!-- ]  base=ѓ -->
 		<map iso="C10" to="\u{1D}"/> <!-- ;  base=ч -->
-		<map iso="C12" to="\u{1C}"/> <!-- (1 key to right of ')  base=ж -->
-		<map iso="B00" to="\u{1C}"/> <!-- (1 key to left of Z)  base=ё -->
+		<map iso="C12" to="\u{1C}"/> <!-- (key to right of ')  base=ж -->
+		<map iso="B00" to="\u{1C}"/> <!-- (key to left of Z)  base=ё -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
+

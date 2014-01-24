@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='ps-t-k0-windows'>
-	<version platform='6.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="ps-t-k0-windows">
+	<version platform="8" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Pashto (Afghanistan)'/>
+		<name value="Pashto (Afghanistan)"/>
 	</names>
-	<settings fallback='omit'/>
+	<settings fallback="omit"/>
 	<keyMap>
 		<map iso="E00" to="\u{200D}"/> <!-- ` -->
 		<map iso="E01" to="۱"/> <!-- 1 -->
@@ -44,7 +44,7 @@
 		<map iso="C09" to="م"/> <!-- L -->
 		<map iso="C10" to="ک"/> <!-- ; -->
 		<map iso="C11" to="ګ"/> <!-- ' -->
-		<map iso="C12" to="\"/> <!-- (1 key to right of ') -->
+		<map iso="C12" to="\"/> <!-- (key to right of ') -->
 		<map iso="B01" to="ظ"/> <!-- Z -->
 		<map iso="B02" to="ط"/> <!-- X -->
 		<map iso="B03" to="ز"/> <!-- C -->
@@ -57,7 +57,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift+caps?'>
+	<keyMap modifiers="shift+caps?">
 		<map iso="E00" to="\u{654}"/> <!-- `  to= ٔ  -->
 		<map iso="E01" to="!"/> <!-- 1  base=۱ -->
 		<map iso="E02" to="٬"/> <!-- 2  base=۲ -->
@@ -94,7 +94,7 @@
 		<map iso="C09" to="ة"/> <!-- L  base=م -->
 		<map iso="C10" to=":"/> <!-- ;  base=ک -->
 		<map iso="C11" to="؛"/> <!-- '  base=ګ -->
-		<map iso="C12" to="*"/> <!-- (1 key to right of ')  base=\ -->
+		<map iso="C12" to="*"/> <!-- (key to right of ')  base=\ -->
 		<map iso="B01" to="ئ"/> <!-- Z  base=ظ -->
 		<map iso="B02" to="ې"/> <!-- X  base=ط -->
 		<map iso="B03" to="ژ"/> <!-- C  base=ز -->
@@ -107,7 +107,7 @@
 		<map iso="B10" to="؟"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+caps? ctrl+alt+caps?'>
+	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="~"/> <!-- 1  base=۱ -->
 		<map iso="E02" to="@"/> <!-- 2  base=۲ -->
@@ -142,7 +142,7 @@
 		<map iso="C09" to="&lt;"/> <!-- L  base=م -->
 		<map iso="C10" to="ك"/> <!-- ;  base=ک -->
 		<map iso="C11" to="گ"/> <!-- '  base=ګ -->
-		<map iso="C12" to="|"/> <!-- (1 key to right of ')  base=\ -->
+		<map iso="C12" to="|"/> <!-- (key to right of ')  base=\ -->
 		<map iso="B01" to="?"/> <!-- Z  base=ظ -->
 		<map iso="B02" to=";"/> <!-- X  base=ط -->
 		<map iso="B06" to="ڈ"/> <!-- N  base=د -->
@@ -153,3 +153,4 @@
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
 </keyboard>
+

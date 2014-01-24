@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='ro-t-k0-windows-legacy'>
-	<version platform='6.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="ro-t-k0-windows-legacy">
+	<version platform="8" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Romanian (Legacy)'/>
+		<name value="Romanian (Legacy)"/>
 	</names>
-	<settings fallback='omit' transformPartial='hide'/>
+	<settings fallback="omit" transformPartial="hide"/>
 	<keyMap>
 		<map iso="E00" to="]"/> <!-- ` -->
 		<map iso="E01" to="1"/>
@@ -44,8 +44,8 @@
 		<map iso="C09" to="l"/>
 		<map iso="C10" to="ş"/> <!-- ; -->
 		<map iso="C11" to="ţ"/> <!-- ' -->
-		<map iso="C12" to="â"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="&lt;"/> <!-- (1 key to left of Z) -->
+		<map iso="C12" to="â"/> <!-- (key to right of ') -->
+		<map iso="B00" to="&lt;"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="y"/> <!-- Z -->
 		<map iso="B02" to="x"/>
 		<map iso="B03" to="c"/>
@@ -58,7 +58,7 @@
 		<map iso="B10" to="-"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift'>
+	<keyMap modifiers="shift">
 		<map iso="E00" to="["/> <!-- `  base=] -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="\u{22}"/> <!-- 2  to= "  -->
@@ -95,8 +95,8 @@
 		<map iso="C09" to="L"/>
 		<map iso="C10" to="Ş"/> <!-- ; -->
 		<map iso="C11" to="Ţ"/> <!-- ' -->
-		<map iso="C12" to="Â"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="&gt;"/> <!-- (1 key to left of Z)  base=< -->
+		<map iso="C12" to="Â"/> <!-- (key to right of ') -->
+		<map iso="B00" to="&gt;"/> <!-- (key to left of Z)  base=< -->
 		<map iso="B01" to="Y"/> <!-- Z -->
 		<map iso="B02" to="X"/>
 		<map iso="B03" to="C"/>
@@ -109,7 +109,7 @@
 		<map iso="B10" to="_"/> <!-- /  base=- -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps'>
+	<keyMap modifiers="caps">
 		<map iso="E00" to="]"/> <!-- ` -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -146,8 +146,8 @@
 		<map iso="C09" to="L"/>
 		<map iso="C10" to="Ş"/> <!-- ; -->
 		<map iso="C11" to="Ţ"/> <!-- ' -->
-		<map iso="C12" to="Â"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="&lt;"/> <!-- (1 key to left of Z) -->
+		<map iso="C12" to="Â"/> <!-- (key to right of ') -->
+		<map iso="B00" to="&lt;"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="Y"/> <!-- Z -->
 		<map iso="B02" to="X"/>
 		<map iso="B03" to="C"/>
@@ -160,7 +160,7 @@
 		<map iso="B10" to="-"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+shift'>
+	<keyMap modifiers="caps+shift">
 		<map iso="E00" to="["/> <!-- `  base=] -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="\u{22}"/> <!-- 2  to= "  -->
@@ -197,8 +197,8 @@
 		<map iso="C09" to="l"/>
 		<map iso="C10" to="ş"/> <!-- ; -->
 		<map iso="C11" to="ţ"/> <!-- ' -->
-		<map iso="C12" to="â"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="&gt;"/> <!-- (1 key to left of Z)  base=< -->
+		<map iso="C12" to="â"/> <!-- (key to right of ') -->
+		<map iso="B00" to="&gt;"/> <!-- (key to left of Z)  base=< -->
 		<map iso="B01" to="y"/> <!-- Z -->
 		<map iso="B02" to="x"/>
 		<map iso="B03" to="c"/>
@@ -211,7 +211,7 @@
 		<map iso="B10" to="_"/> <!-- /  base=- -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+caps? ctrl+alt+caps?'>
+	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
 		<map iso="E01" to="~"/> <!-- 1 -->
 		<map iso="E02" to="ˇ"/> <!-- 2 -->
 		<map iso="E03" to="^"/> <!-- 3 -->
@@ -234,7 +234,7 @@
 		<map iso="C09" to="Ł"/> <!-- L -->
 		<map iso="C10" to="$"/> <!-- ;  base=ş -->
 		<map iso="C11" to="ß"/> <!-- '  base=ţ -->
-		<map iso="B00" to="\u{1C}"/> <!-- (1 key to left of Z)  base=< -->
+		<map iso="B00" to="\u{1C}"/> <!-- (key to left of Z)  base=< -->
 		<map iso="B04" to="@"/> <!-- V -->
 		<map iso="B05" to="{"/> <!-- B -->
 		<map iso="B06" to="}"/> <!-- N -->
@@ -243,16 +243,16 @@
 		<map iso="B09" to="&gt;"/> <!-- . -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrl+caps?'>
+	<keyMap modifiers="ctrl+caps?">
 		<map iso="D11" to="\u{1B}"/> <!-- [  base=ă -->
 		<map iso="D12" to="\u{1D}"/> <!-- ]  base=î -->
-		<map iso="C12" to="\u{1C}"/> <!-- (1 key to right of ')  base=â -->
+		<map iso="C12" to="\u{1C}"/> <!-- (key to right of ')  base=â -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrl+shift+caps?'>
+	<keyMap modifiers="ctrl+shift+caps?">
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<transforms type='simple'>
+	<transforms type="simple">
 		<transform from="· " to="·"/>
 		<transform from="·z" to="ż"/>
 		<transform from="·Z" to="Ż"/>
@@ -341,3 +341,4 @@
 		<transform from="°U" to="Ů"/>
 	</transforms>
 </keyboard>
+

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='ug-t-k0-windows'>
-	<version platform='6.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="ug-t-k0-windows">
+	<version platform="8" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Uyghur'/>
+		<name value="Uyghur"/>
 	</names>
-	<settings fallback='omit'/>
+	<settings fallback="omit"/>
 	<keyMap>
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
@@ -44,7 +44,7 @@
 		<map iso="C09" to="ل"/> <!-- L -->
 		<map iso="C10" to="؛"/> <!-- ; -->
 		<map iso="C11" to="&apos;"/>
-		<map iso="C12" to="\"/> <!-- (1 key to right of ') -->
+		<map iso="C12" to="\"/> <!-- (key to right of ') -->
 		<map iso="B01" to="ز"/> <!-- Z -->
 		<map iso="B02" to="ش"/> <!-- X -->
 		<map iso="B03" to="غ"/> <!-- C -->
@@ -57,7 +57,7 @@
 		<map iso="B10" to="ئ"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift'>
+	<keyMap modifiers="shift">
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -82,13 +82,13 @@
 		<map iso="C09" to="لا"/> <!-- L  base=ل -->
 		<map iso="C10" to=":"/> <!-- ;  base=؛ -->
 		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
-		<map iso="C12" to="|"/> <!-- (1 key to right of ')  base=\ -->
+		<map iso="C12" to="|"/> <!-- (key to right of ')  base=\ -->
 		<map iso="B08" to="&gt;"/> <!-- ,  base=، -->
 		<map iso="B09" to="&lt;"/> <!-- . -->
 		<map iso="B10" to="؟"/> <!-- /  base=ئ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+shift'>
+	<keyMap modifiers="caps+shift">
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -112,10 +112,11 @@
 		<map iso="C08" to="ۆ"/> <!-- K  base=ك -->
 		<map iso="C10" to=":"/> <!-- ;  base=؛ -->
 		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
-		<map iso="C12" to="|"/> <!-- (1 key to right of ')  base=\ -->
+		<map iso="C12" to="|"/> <!-- (key to right of ')  base=\ -->
 		<map iso="B08" to="&gt;"/> <!-- ,  base=، -->
 		<map iso="B09" to="&lt;"/> <!-- . -->
 		<map iso="B10" to="؟"/> <!-- /  base=ئ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
+

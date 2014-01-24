@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='th-t-k0-windows-var'>
-	<version platform='6.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="th-t-k0-windows-var">
+	<version platform="8" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Thai Kedmanee (non-ShiftLock)'/>
+		<name value="Thai Kedmanee (non-ShiftLock)"/>
 	</names>
-	<settings fallback='omit'/>
+	<settings fallback="omit"/>
 	<keyMap>
 		<map iso="E00" to="_"/> <!-- ` -->
 		<map iso="E01" to="ๅ"/> <!-- 1 -->
@@ -44,8 +44,8 @@
 		<map iso="C09" to="ส"/> <!-- L -->
 		<map iso="C10" to="ว"/> <!-- ; -->
 		<map iso="C11" to="ง"/> <!-- ' -->
-		<map iso="C12" to="ฃ"/> <!-- (1 key to right of ') -->
-		<map iso="B00" to="ฃ"/> <!-- (1 key to left of Z) -->
+		<map iso="C12" to="ฃ"/> <!-- (key to right of ') -->
+		<map iso="B00" to="ฃ"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="ผ"/> <!-- Z -->
 		<map iso="B02" to="ป"/> <!-- X -->
 		<map iso="B03" to="แ"/> <!-- C -->
@@ -58,7 +58,7 @@
 		<map iso="B10" to="ฝ"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift+caps?'>
+	<keyMap modifiers="shift+caps?">
 		<map iso="E00" to="%"/> <!-- `  base=_ -->
 		<map iso="E01" to="+"/> <!-- 1  base=ๅ -->
 		<map iso="E02" to="๑"/> <!-- 2  base=/ -->
@@ -95,8 +95,8 @@
 		<map iso="C09" to="ศ"/> <!-- L  base=ส -->
 		<map iso="C10" to="ซ"/> <!-- ;  base=ว -->
 		<map iso="C11" to="."/> <!-- '  base=ง -->
-		<map iso="C12" to="ฅ"/> <!-- (1 key to right of ')  base=ฃ -->
-		<map iso="B00" to="ฅ"/> <!-- (1 key to left of Z)  base=ฃ -->
+		<map iso="C12" to="ฅ"/> <!-- (key to right of ')  base=ฃ -->
+		<map iso="B00" to="ฅ"/> <!-- (key to left of Z)  base=ฃ -->
 		<map iso="B01" to="("/> <!-- Z  base=ผ -->
 		<map iso="B02" to=")"/> <!-- X  base=ป -->
 		<map iso="B03" to="ฉ"/> <!-- C  base=แ -->
@@ -109,11 +109,12 @@
 		<map iso="B10" to="ฦ"/> <!-- /  base=ฝ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrl+caps?'>
+	<keyMap modifiers="ctrl+caps?">
 		<map iso="D11" to="\u{1B}"/> <!-- [  base=บ -->
 		<map iso="D12" to="\u{1D}"/> <!-- ]  base=ล -->
-		<map iso="C12" to="\u{1C}"/> <!-- (1 key to right of ')  base=ฃ -->
-		<map iso="B00" to="\u{1C}"/> <!-- (1 key to left of Z)  base=ฃ -->
+		<map iso="C12" to="\u{1C}"/> <!-- (key to right of ')  base=ฃ -->
+		<map iso="B00" to="\u{1C}"/> <!-- (key to left of Z)  base=ฃ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
+

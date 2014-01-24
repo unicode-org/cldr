@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='lo-t-k0-windows'>
-	<version platform='6.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="lo-t-k0-windows">
+	<version platform="8" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Lao'/>
+		<name value="Lao"/>
 	</names>
-	<settings fallback='omit'/>
+	<settings fallback="omit"/>
 	<keyMap>
 		<map iso="E00" to="\u{22}"/> <!-- `  to= "  -->
 		<map iso="E01" to="ຢ"/> <!-- 1 -->
@@ -44,7 +44,7 @@
 		<map iso="C09" to="ສ"/> <!-- L -->
 		<map iso="C10" to="ວ"/> <!-- ; -->
 		<map iso="C11" to="ງ"/> <!-- ' -->
-		<map iso="C12" to="/"/> <!-- (1 key to right of ') -->
+		<map iso="C12" to="/"/> <!-- (key to right of ') -->
 		<map iso="B01" to="ຜ"/> <!-- Z -->
 		<map iso="B02" to="ປ"/> <!-- X -->
 		<map iso="B03" to="ແ"/> <!-- C -->
@@ -57,7 +57,7 @@
 		<map iso="B10" to="ຝ"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift'>
+	<keyMap modifiers="shift">
 		<map iso="E00" to="&apos;"/> <!-- `  base=" -->
 		<map iso="E01" to="1"/> <!--   base=ຢ -->
 		<map iso="E02" to="2"/> <!--   base=ຟ -->
@@ -94,7 +94,7 @@
 		<map iso="C09" to="?"/> <!-- L  base=ສ -->
 		<map iso="C10" to="%"/> <!-- ;  base=ວ -->
 		<map iso="C11" to="="/> <!-- '  base=ງ -->
-		<map iso="C12" to="\"/> <!-- (1 key to right of ')  base=/ -->
+		<map iso="C12" to="\"/> <!-- (key to right of ')  base=/ -->
 		<map iso="B01" to="₭"/> <!-- Z  base=ຜ -->
 		<map iso="B02" to="("/> <!-- X  base=ປ -->
 		<map iso="B03" to="ຯ"/> <!-- C  base=ແ -->
@@ -107,7 +107,7 @@
 		<map iso="B10" to=")"/> <!-- /  base=ຝ -->
 		<map iso="A03" to="\u{200B}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+shift'>
+	<keyMap modifiers="caps+shift">
 		<map iso="E00" to="&apos;"/> <!-- `  base=" -->
 		<map iso="E01" to="1"/> <!--   base=ຢ -->
 		<map iso="E02" to="2"/> <!--   base=ຟ -->
@@ -138,7 +138,7 @@
 		<map iso="C09" to="?"/> <!-- L  base=ສ -->
 		<map iso="C10" to="%"/> <!-- ;  base=ວ -->
 		<map iso="C11" to="="/> <!-- '  base=ງ -->
-		<map iso="C12" to="\"/> <!-- (1 key to right of ')  base=/ -->
+		<map iso="C12" to="\"/> <!-- (key to right of ')  base=/ -->
 		<map iso="B01" to="₭"/> <!-- Z  base=ຜ -->
 		<map iso="B02" to="("/> <!-- X  base=ປ -->
 		<map iso="B03" to="ຯ"/> <!-- C  base=ແ -->
@@ -149,7 +149,7 @@
 		<map iso="B10" to=")"/> <!-- /  base=ຝ -->
 		<map iso="A03" to="\u{200B}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+caps? ctrl+alt+caps?'>
+	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
 		<map iso="E01" to="໑"/> <!-- 1  base=ຢ -->
 		<map iso="E02" to="໒"/> <!-- 2  base=ຟ -->
 		<map iso="E03" to="໓"/> <!-- 3  base=ໂ -->
@@ -161,7 +161,8 @@
 		<map iso="E09" to="໙"/> <!-- 9  base=ຈ -->
 		<map iso="E10" to="໐"/> <!-- 0  base=ຂ -->
 	</keyMap>
-	<keyMap modifiers='ctrl+caps?'>
+	<keyMap modifiers="ctrl+caps?">
 		<map iso="A03" to="\u{200B}"/> <!-- space -->
 	</keyMap>
 </keyboard>
+

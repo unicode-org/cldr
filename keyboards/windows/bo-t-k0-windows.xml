@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='bo-t-k0-windows'>
-	<version platform='6.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="bo-t-k0-windows">
+	<version platform="8" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Tibetan (PRC)'/>
+		<name value="Tibetan (PRC)"/>
 	</names>
-	<settings fallback='omit' transformPartial='hide'/>
+	<settings fallback="omit" transformPartial="hide"/>
 	<keyMap>
 		<map iso="E00" to="ཨ"/> <!-- ` -->
 		<map iso="E01" to="༡"/> <!-- 1 -->
@@ -44,7 +44,7 @@
 		<map iso="C09" to="ལ"/> <!-- L -->
 		<map iso="C10" to="ཞ"/> <!-- ; -->
 		<map iso="C11" to="།"/> <!-- ' -->
-		<map iso="C12" to="ཛ"/> <!-- (1 key to right of ') -->
+		<map iso="C12" to="ཛ"/> <!-- (key to right of ') -->
 		<map iso="B01" to="ཟ"/> <!-- Z -->
 		<map iso="B02" to="ཤ"/> <!-- X -->
 		<map iso="B03" to="ཀ"/> <!-- C -->
@@ -57,7 +57,7 @@
 		<map iso="B10" to="ཉ"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift caps'>
+	<keyMap modifiers="shift caps">
 		<map iso="E00" to="༁"/> <!-- `  base=ཨ -->
 		<map iso="E01" to="༪"/> <!-- 1  base=༡ -->
 		<map iso="E02" to="༫"/> <!-- 2  base=༢ -->
@@ -94,7 +94,7 @@
 		<map iso="C09" to="༆"/> <!-- L  base=ལ -->
 		<map iso="C10" to="༇"/> <!-- ;  base=ཞ -->
 		<map iso="C11" to="༸"/> <!-- '  base=། -->
-		<map iso="C12" to="༞"/> <!-- (1 key to right of ')  base=ཛ -->
+		<map iso="C12" to="༞"/> <!-- (key to right of ')  base=ཛ -->
 		<map iso="B01" to="༴"/> <!-- Z  base=ཟ -->
 		<map iso="B02" to="ཥ"/> <!-- X  base=ཤ -->
 		<map iso="B03" to="ཀྵ"/> <!-- C  base=ཀ -->
@@ -107,10 +107,10 @@
 		<map iso="B10" to="༻"/> <!-- /  base=ཉ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+caps? ctrl+alt?+caps?'>
+	<keyMap modifiers="altR+caps? ctrl+alt?+caps?">
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+shift+caps? ctrl+alt+shift+caps?'>
+	<keyMap modifiers="altR+shift+caps? ctrl+alt+shift+caps?">
 		<map iso="E00" to="ༀ"/> <!-- `  base=ཨ -->
 		<map iso="E01" to="\u{F76}"/> <!-- 1  base=༡  to= ྲྀ  -->
 		<map iso="E02" to="\u{F77}"/> <!-- 2  base=༢  to= ཷ  -->
@@ -147,7 +147,7 @@
 		<map iso="C09" to="࿉"/> <!-- L  base=ལ -->
 		<map iso="C10" to="࿊"/> <!-- ;  base=ཞ -->
 		<map iso="C11" to="࿋"/> <!-- '  base=། -->
-		<map iso="C12" to="ཛྷ"/> <!-- (1 key to right of ')  base=ཛ -->
+		<map iso="C12" to="ཛྷ"/> <!-- (key to right of ')  base=ཛ -->
 		<map iso="B01" to="࿌"/> <!-- Z  base=ཟ -->
 		<map iso="B02" to="\u{FB5}"/> <!-- X  base=ཤ  to= ྵ  -->
 		<map iso="B03" to="\u{FB9}"/> <!-- C  base=ཀ  to= ྐྵ  -->
@@ -160,7 +160,7 @@
 		<map iso="B10" to="ྊ"/> <!-- /  base=ཉ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<transforms type='simple'>
+	<transforms type="simple">
 		<transform from="m་" to="\u{F84}"/> <!--  m་ → ྄ -->
 		<transform from="m།" to="༎"/>
 		<transform from="m༠" to="༈"/>
@@ -217,3 +217,4 @@
 		<transform from="m\u{F7C}" to="\u{F7D}"/> <!--  mོ → ཽ -->
 	</transforms>
 </keyboard>
+

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='bn-t-k0-windows-qwerty'>
-	<version platform='6.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="bn-t-k0-windows-qwerty">
+	<version platform="8" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Bengali'/>
+		<name value="Bengali"/>
 	</names>
-	<settings fallback='omit'/>
+	<settings fallback="omit"/>
 	<keyMap>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -54,7 +54,8 @@
 		<map iso="B10" to="য"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift'>
+	<keyMap modifiers="shift">
+		<map iso="E01" to="অ\u{9CD}য\u{9BE}"/> <!-- 1  to= অ্যা  -->
 		<map iso="E03" to="\u{9CD}র"/> <!-- 3  to= ্র  -->
 		<map iso="E04" to="র\u{9CD}"/> <!-- 4  to= র্  -->
 		<map iso="E05" to="জ\u{9CD}র"/> <!-- 5  to= জ্র  -->
@@ -95,7 +96,7 @@
 		<map iso="B10" to="য়"/> <!-- /  base=য -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+shift'>
+	<keyMap modifiers="caps+shift">
 		<map iso="E09" to="("/> <!-- 9 -->
 		<map iso="E10" to=")"/> <!-- 0 -->
 		<map iso="E11" to="\u{983}"/> <!-- -  to= ঃ  -->
@@ -130,7 +131,7 @@
 		<map iso="B10" to="য়"/> <!-- /  base=য -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+caps? ctrl+alt+caps?'>
+	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
 		<map iso="E01" to="১"/> <!-- 1 -->
 		<map iso="E02" to="২"/> <!-- 2 -->
 		<map iso="E03" to="৩"/> <!-- 3 -->
@@ -144,6 +145,7 @@
 		<map iso="E12" to="\u{9E2}"/> <!-- =  base=ৃ  to= ৢ  -->
 		<map iso="D01" to="\u{9D7}"/> <!-- Q  base=ৌ  to= ৗ  -->
 		<map iso="D04" to="\u{9E3}"/> <!-- R  base=ী  to= ৣ  -->
+		<map iso="D08" to="ৎ"/> <!-- I  base=গ -->
 		<map iso="D11" to="ড়"/> <!-- [  base=ড -->
 		<map iso="C01" to="৴"/> <!-- A  base=ো -->
 		<map iso="C02" to="৶"/> <!-- S  base=ে -->
@@ -152,7 +154,7 @@
 		<map iso="C07" to="ৰ"/> <!-- J  base=র -->
 		<map iso="B02" to="৺"/> <!-- X  base=ং -->
 	</keyMap>
-	<keyMap modifiers='altR+shift+caps? ctrl+alt+shift+caps?'>
+	<keyMap modifiers="altR+shift+caps? ctrl+alt+shift+caps?">
 		<map iso="E12" to="ৠ"/> <!-- =  base=ৃ -->
 		<map iso="D04" to="ৡ"/> <!-- R  base=ী -->
 		<map iso="D11" to="ঢ়"/> <!-- [  base=ড -->
@@ -162,8 +164,10 @@
 		<map iso="C04" to="ঌ"/> <!-- F  base=ি -->
 		<map iso="C07" to="ৱ"/> <!-- J  base=র -->
 	</keyMap>
-	<keyMap modifiers='ctrl+shift+caps?'>
+	<keyMap modifiers="ctrl+shift+caps?">
 		<map iso="E01" to="\u{200D}"/> <!-- 1 -->
 		<map iso="E02" to="\u{200C}"/> <!-- 2 -->
+		<map iso="E04" to="₹"/> <!-- 4 -->
 	</keyMap>
 </keyboard>
+

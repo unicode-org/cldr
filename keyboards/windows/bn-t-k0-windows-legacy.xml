@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='bn-t-k0-windows-legacy'>
-	<version platform='6.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="bn-t-k0-windows-legacy">
+	<version platform="8" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Bengali - INSCRIPT (Legacy)'/>
+		<name value="Bengali - INSCRIPT (Legacy)"/>
 	</names>
-	<settings fallback='omit'/>
+	<settings fallback="omit"/>
 	<keyMap>
 		<map iso="E01" to="১"/> <!-- 1 -->
 		<map iso="E02" to="২"/> <!-- 2 -->
@@ -54,7 +54,7 @@
 		<map iso="B10" to="য়"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift'>
+	<keyMap modifiers="shift">
 		<map iso="E01" to="!"/> <!-- 1  base=১ -->
 		<map iso="E02" to="@"/> <!-- 2  base=২ -->
 		<map iso="E04" to="র\u{9CD}"/> <!-- 4  base=৪  to= র্  -->
@@ -95,7 +95,7 @@
 		<map iso="B10" to="য"/> <!-- /  base=য় -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+shift'>
+	<keyMap modifiers="caps+shift">
 		<map iso="E01" to="!"/> <!-- 1  base=১ -->
 		<map iso="E02" to="@"/> <!-- 2  base=২ -->
 		<map iso="E09" to="("/> <!-- 9  base=৯ -->
@@ -131,4 +131,10 @@
 		<map iso="B10" to="য"/> <!-- /  base=য় -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
+	<keyMap modifiers="ctrl+shift+caps?">
+		<map iso="E01" to="\u{200D}"/> <!-- 1  base=১ -->
+		<map iso="E02" to="\u{200C}"/> <!-- 2  base=২ -->
+		<map iso="E04" to="₹"/> <!-- 4  base=৪ -->
+	</keyMap>
 </keyboard>
+

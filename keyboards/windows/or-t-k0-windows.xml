@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='or-t-k0-windows'>
-	<version platform='6.1' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="or-t-k0-windows">
+	<version platform="8" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Oriya'/>
+		<name value="Odia"/>
 	</names>
-	<settings fallback='omit'/>
+	<settings fallback="omit"/>
 	<keyMap>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -18,7 +18,7 @@
 		<map iso="E08" to="8"/>
 		<map iso="E09" to="9"/>
 		<map iso="E10" to="0"/>
-		<map iso="E11" to="0"/> <!-- - -->
+		<map iso="E11" to="-"/>
 		<map iso="E12" to="\u{B43}"/> <!-- =  to= ୃ  -->
 		<map iso="D01" to="\u{B4C}"/> <!-- Q  to= ୌ  -->
 		<map iso="D02" to="\u{B48}"/> <!-- W  to= ୈ  -->
@@ -47,15 +47,15 @@
 		<map iso="B02" to="\u{B02}"/> <!-- X  to= ଂ  -->
 		<map iso="B03" to="ମ"/> <!-- C -->
 		<map iso="B04" to="ନ"/> <!-- V -->
-		<map iso="B05" to="ବ"/> <!-- B -->
+		<map iso="B05" to="ୱ"/> <!-- B -->
 		<map iso="B06" to="ଲ"/> <!-- N -->
 		<map iso="B07" to="ସ"/> <!-- M -->
 		<map iso="B08" to=","/>
 		<map iso="B09" to="."/>
-		<map iso="B10" to="ଯ"/> <!-- / -->
+		<map iso="B10" to="ୟ"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift'>
+	<keyMap modifiers="shift">
 		<map iso="E03" to="\u{B4D}ର"/> <!-- 3  to= ୍ର  -->
 		<map iso="E04" to="ର\u{B4D}"/> <!-- 4  to= ର୍  -->
 		<map iso="E05" to="ଜ\u{B4D}ଞ"/> <!-- 5  to= ଜ୍ଞ  -->
@@ -64,7 +64,7 @@
 		<map iso="E08" to="ଶ\u{B4D}ର"/> <!-- 8  to= ଶ୍ର  -->
 		<map iso="E09" to="("/> <!-- 9 -->
 		<map iso="E10" to=")"/> <!-- 0 -->
-		<map iso="E11" to="\u{B03}"/> <!-- -  base=0  to= ଃ  -->
+		<map iso="E11" to="\u{B03}"/> <!-- -  to= ଃ  -->
 		<map iso="E12" to="ଋ"/> <!-- =  base=ୃ -->
 		<map iso="D01" to="ଔ"/> <!-- Q  base=ୌ -->
 		<map iso="D02" to="ଐ"/> <!-- W  base=ୈ -->
@@ -94,13 +94,14 @@
 		<map iso="B06" to="ଳ"/> <!-- N  base=ଲ -->
 		<map iso="B07" to="ଶ"/> <!-- M  base=ସ -->
 		<map iso="B08" to="ଷ"/> <!-- , -->
-		<map iso="B10" to="ଯ\u{B3C}"/> <!-- /  base=ଯ  to= ଯ଼  -->
+		<map iso="B09" to="।"/> <!-- . -->
+		<map iso="B10" to="ଯ"/> <!-- /  base=ୟ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+shift'>
+	<keyMap modifiers="caps+shift">
 		<map iso="E09" to="("/> <!-- 9 -->
 		<map iso="E10" to=")"/> <!-- 0 -->
-		<map iso="E11" to="\u{B03}"/> <!-- -  base=0  to= ଃ  -->
+		<map iso="E11" to="\u{B03}"/> <!-- -  to= ଃ  -->
 		<map iso="E12" to="ଋ"/> <!-- =  base=ୃ -->
 		<map iso="D01" to="ଔ"/> <!-- Q  base=ୌ -->
 		<map iso="D02" to="ଐ"/> <!-- W  base=ୈ -->
@@ -130,9 +131,11 @@
 		<map iso="B06" to="ଳ"/> <!-- N  base=ଲ -->
 		<map iso="B07" to="ଶ"/> <!-- M  base=ସ -->
 		<map iso="B08" to="ଷ"/> <!-- , -->
+		<map iso="B09" to="।"/> <!-- . -->
+		<map iso="B10" to="ଯ"/> <!-- /  base=ୟ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='altR+caps? ctrl+alt+caps?'>
+	<keyMap modifiers="altR+caps? ctrl+alt+caps?">
 		<map iso="E01" to="୧"/> <!-- 1 -->
 		<map iso="E02" to="୨"/> <!-- 2 -->
 		<map iso="E03" to="୩"/> <!-- 3 -->
@@ -143,21 +146,28 @@
 		<map iso="E08" to="୮"/> <!-- 8 -->
 		<map iso="E09" to="୯"/> <!-- 9 -->
 		<map iso="E10" to="୦"/> <!-- 0 -->
+		<map iso="E12" to="\u{B44}"/> <!-- =  base=ୃ  to= ୄ  -->
+		<map iso="D04" to="\u{B63}"/> <!-- R  base=ୀ  to= ୣ  -->
 		<map iso="D11" to="ଡ଼"/> <!-- [  base=ଡ -->
+		<map iso="C04" to="\u{B62}"/> <!-- F  base=ି  to= ୢ  -->
+		<map iso="B02" to="୰"/> <!-- X  base=ଂ -->
+		<map iso="B05" to="ଵ"/> <!-- B  base=ୱ -->
+		<map iso="B09" to="॥"/> <!-- . -->
 	</keyMap>
-	<keyMap modifiers='altR+shift+caps? ctrl+alt+shift+caps?'>
+	<keyMap modifiers="altR+shift+caps? ctrl+alt+shift+caps?">
 		<map iso="E12" to="ୠ"/> <!-- =  base=ୃ -->
 		<map iso="D04" to="ୡ"/> <!-- R  base=ୀ -->
 		<map iso="D11" to="ଢ଼"/> <!-- [  base=ଡ -->
 		<map iso="C04" to="ଌ"/> <!-- F  base=ି -->
 		<map iso="B09" to="ଽ"/> <!-- . -->
-		<map iso="B10" to="ୟ"/> <!-- /  base=ଯ -->
 	</keyMap>
-	<keyMap modifiers='ctrl+caps?'>
+	<keyMap modifiers="ctrl+caps?">
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrl+shift+caps?'>
+	<keyMap modifiers="ctrl+shift+caps?">
 		<map iso="E01" to="\u{200D}"/> <!-- 1 -->
 		<map iso="E02" to="\u{200C}"/> <!-- 2 -->
+		<map iso="E04" to="₹"/> <!-- 4 -->
 	</keyMap>
 </keyboard>
+

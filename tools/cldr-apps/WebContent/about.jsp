@@ -1,3 +1,4 @@
+<%@page import="org.unicode.cldr.web.DBUtils"%>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!-- Copyright (C) 2012 IBM and Others. All Rights Reserved --> 
 <html>
@@ -77,6 +78,33 @@
     <%
         }
     %>
+
+<% { org.unicode.cldr.web.DBUtils d = org.unicode.cldr.web.DBUtils.peekInstance();  if (d!=null) { %>
+
+        <h4 class="selected">Database information</h4>
+    <% 
+        int i=0;
+    %>
+    
+    <table class="userlist" border="2">
+    
+        <tr class="row<%= ((i++)%2) %>">
+            <th>Have Datasource?</th>
+            <td> <%= d.hasDataSource() %>  </td>
+        </tr>
+        <tr class="row<%= ((i++)%2) %>">
+            <th>DB Kind / Info</th>
+            <td>	<%= DBUtils.getDBKind() %>
+            		 <br /> <%= d.getDBInfo() %>  </td>
+        </tr>
+
+    </table>    
+    <%
+        }
+    }
+    %>
+
+
 		<hr/>
 		<a href="./survey">Return to Survey Tool</a> |
 		<a href="./index.jsp">Return to CLDR Applications</a> |

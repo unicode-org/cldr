@@ -86,6 +86,10 @@ public class DBUtils {
             return "Unknown";
         }
     }
+    
+    public String getDBInfo() {
+        return dbInfo;
+    }
 
     // === DB workarounds :( - derby by default
     public static String DB_SQL_IDENTITY = "GENERATED ALWAYS AS IDENTITY";
@@ -263,7 +267,7 @@ public class DBUtils {
         }
         return instance;
     }
-
+    
     public synchronized static void makeInstanceFrom(DataSource dataSource2) {
         if (instance == null) {
             instance = new DBUtils(dataSource2);

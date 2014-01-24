@@ -139,6 +139,11 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         if (!check_is_unicode.equals(is_unicode)) {
             errln("Myanmar should not have converted:\n" + is_unicode + " to\n" + check_is_unicode);
         }
+        is_unicode = "\u1001\u103E\u103A";
+        check_is_unicode = daip.processInput("", is_unicode, null);
+        if (!check_is_unicode.equals(is_unicode)) {
+            errln("Myanmar should not have converted:\n" + is_unicode + " to\n" + check_is_unicode);
+        }
     }
     
     public void TestCompactNumberFormats() {

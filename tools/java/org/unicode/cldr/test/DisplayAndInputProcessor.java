@@ -139,8 +139,6 @@ public class DisplayAndInputProcessor {
         + "|[\u1000-\u102a]\u103a[\u102d\u102e\u1032]"
         // 1031 after other vowel signs
         + "|[\u102b-\u1030\u1032\u1036-\u1038\u103a]\u1031"
-        // 103a after medial
-        + "|[\u103b-\u103e]\u103a"
         // Using Shan combining characters with other languages.
         + "|[\u1087-\u108d][\u106e-\u1070\u1072-\u1074]"
         // Non-Burmese diacritics at start, following space, or following sections

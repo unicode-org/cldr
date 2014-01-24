@@ -32,6 +32,7 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CLDRFile.DtdType;
+import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
@@ -808,6 +809,7 @@ public class SupplementalDataInfo {
     // Relation(new TreeMap(), TreeSet.class, null);
 
     private Set<String> allLanguages = new TreeSet<String>();
+    final private List<String> approvalRequirements = new LinkedList<String>();  // xpath array
 
     private Relation<String, String> containment = Relation.of(new LinkedHashMap<String, Set<String>>(),
         LinkedHashSet.class);
@@ -909,7 +911,8 @@ public class SupplementalDataInfo {
     /**
      * Which directory did we come from?
      */
-    final private File directory;   
+    final private File directory;
+
     /**
      * Get an instance chosen using setAsDefaultInstance(), otherwise return an instance using the default directory
      * CldrUtility.SUPPLEMENTAL_DIRECTORY
@@ -1407,13 +1410,9 @@ public class SupplementalDataInfo {
         }
 
         private void handleCoverageLevels() {
-            if(parts.containsElement("approvalRequirement") && parts.getAttributeValue(-1, "votes").equals("8")){
-                String locales = parts.getAttributeValue(-1, "locales");
-                String[] el = locales.split(" ");
-                for (int i = 0; i < el.length; i++) {
-                    establishedLocales.add(el[i]);
-                }
-            }else if (parts.containsElement("coverageLevel")) {
+            if(parts.containsElement("approvalRequirement")) {
+                approvalRequirements.add(parts.toString());
+            } else if (parts.containsElement("coverageLevel")) {
                 String match = parts.containsAttribute("match") ? coverageVariables.replace(parts.getAttributeValue(-1,
                     "match")) : null;
                 String valueStr = parts.getAttributeValue(-1, "value");
@@ -1877,7 +1876,6 @@ public class SupplementalDataInfo {
     // make public temporarily until we resolve.
     private SortedSet<CoverageLevelInfo> coverageLevels = new TreeSet<CoverageLevelInfo>();
     private Map<String, String> parentLocales = new HashMap<String, String>();
-    private Set<String> establishedLocales = new HashSet<String>();
     private Map<String, List<String>> calendarPreferences = new HashMap<String, List<String>>();
     private Map<String, CoverageVariableInfo> localeSpecificVariables = new TreeMap<String, CoverageVariableInfo>();
     private VariableReplacer coverageVariables = new VariableReplacer();
@@ -2519,13 +2517,99 @@ public class SupplementalDataInfo {
         return null;
     }
 
-    public int getRequiredVotes(String loc) {
-        if (establishedLocales.contains(loc)) {
-            return 8;
+    private final static class ApprovalRequirementMatcher {
+        @Override
+        public String toString() {
+            return locales + " / " + xpathMatcher + " = " + requiredVotes;
         }
-        return 4;
-    }
+        
+        
+        ApprovalRequirementMatcher(String xpath) {
+            XPathParts parts = new XPathParts();
+            parts.set(xpath);
+            if(parts.containsElement("approvalRequirement")) {
+                requiredVotes = Integer.parseInt(parts.getAttributeValue(-1, "votes"));
+                String localeAttrib = parts.getAttributeValue(-1, "locales");
+                if(localeAttrib == null || localeAttrib.equals(STAR) || localeAttrib.isEmpty()) {
+                    locales = null; // no locale listed == '*'
+                } else {
+                    Set<CLDRLocale> localeList = new HashSet<CLDRLocale>();
+                    String[] el = localeAttrib.split(" ");
+                    for (int i = 0; i < el.length; i++) {
+                        localeList.add(CLDRLocale.getInstance(el[i]));
+                    }
+                    locales = Collections.unmodifiableSet(localeList);
+                }
+                String xpathMatch = parts.getAttributeValue(-1, "paths");
+                if(xpathMatch==null||xpathMatch.isEmpty()||xpathMatch.equals(STAR)) {
+                    xpathMatcher = null;
+                } else {
+                    xpathMatcher = Pattern.compile(xpathMatch);
+                }
+            } else {
+                throw new RuntimeException("Unknown approval requirement: " + xpath);
+            }
+        }
 
+        final private Set<CLDRLocale> locales;
+        final private Pattern xpathMatcher;
+        final int requiredVotes;
+        public static List<ApprovalRequirementMatcher> buildAll(List<String> approvalRequirements) {
+            List<ApprovalRequirementMatcher> newList = new LinkedList<ApprovalRequirementMatcher>();
+            
+            for(String xpath : approvalRequirements) {
+                newList.add(new ApprovalRequirementMatcher(xpath));
+            }
+            
+            return Collections.unmodifiableList(newList);
+        }
+        public boolean matches(CLDRLocale loc, PathHeader ph) {
+            if(false) System.err.println(">> testing " + loc + " / " + ph + " vs " + toString());
+            if(locales!=null) {
+                if(!locales.contains(loc)) {
+                    return false;
+                }
+            }
+            if( xpathMatcher != null ) {
+                if(ph != null) {
+                    if(!xpathMatcher.matcher(ph.getOriginalPath()).matches()) {
+                        return false;
+                    } else {   
+                        return true;
+                    }
+                } else {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public int getRequiredVotes() {
+            return requiredVotes;
+        }
+    }
+    
+    // run these from first to last to get the approval info.
+    volatile List<ApprovalRequirementMatcher> approvalMatchers = null;
+
+    /**
+     * Only called by VoteResolver.
+     * @param loc
+     * @param PathHeader - which path this is applied to, or null if unknown.
+     * @return
+     */
+    public int getRequiredVotes(CLDRLocale loc, PathHeader ph) {
+        if(approvalMatchers == null) {
+            approvalMatchers = ApprovalRequirementMatcher.buildAll(approvalRequirements);
+        }        
+        
+        for(ApprovalRequirementMatcher m : approvalMatchers) {
+            if(m.matches(loc, ph)) {
+                return m.getRequiredVotes();
+            }
+        }
+        throw new RuntimeException("Error: " + loc + " " + ph + " ran off the end of the approvalMatchers.");
+    }        
+    
     /**
      * Return the canonicalized zone, or null if there is none.
      * 

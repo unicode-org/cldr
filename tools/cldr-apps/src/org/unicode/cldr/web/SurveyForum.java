@@ -946,7 +946,7 @@ public class SurveyForum {
      * @return
      */
     public boolean couldFlagOnLosing(WebContext baseCtx, String xpath, CLDRLocale locale) {
-        if(DataSection.canFlagOnLosing(sm.getSTFactory().getPathHeader(xpath), locale, xpath)) {
+        if(sm.supplementalDataInfo.getRequiredVotes(locale, sm.getSTFactory().getPathHeader(xpath)) == VoteResolver.HIGH_BAR) {
             BallotBox<User> bb = sm.getSTFactory().ballotBoxForLocale(locale);
             if(bb.userDidVote(baseCtx.session.user, xpath)) {
                 VoteResolver<String> vr = bb.getResolver(xpath);

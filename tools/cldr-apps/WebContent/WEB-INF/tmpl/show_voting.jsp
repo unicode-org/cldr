@@ -6,6 +6,12 @@ WebContext.HTMLDirection dir = ctx.getDirectionForLocale();
 String winner = r.getWinningValue();
 %>
 
+<!--
+
+	THIS FILE IS BELIEVED TO BE UNUSED (DEAD CODE).
+	
+-->
+
 
 <b class='selected'>
 <% if(r.isDisputed()) { %>
@@ -323,8 +329,6 @@ if(lastRelease != null ) {
 //            }
 //        }
 %>
-
-//<% if (r.isEstablished()) { %><a href='http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value'><%= ctx.iconHtml("warn", "established")%> This is an established locale.</a><br/><% } %>
 
 <% if(SurveyMain.isUnofficial()) { %>
 <tt>

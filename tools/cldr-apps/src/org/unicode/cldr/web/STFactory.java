@@ -617,7 +617,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             final ValueChecker vc = ERRORS_ALLOWED_IN_VETTING ? null : new ValueChecker(path);
 
             // Set established locale
-            r.setLocale(locale);
+            r.setLocale(locale, getPathHeader(path));
 
             CLDRFile anOldFile = getOldFile();
             if (anOldFile == null)

@@ -53,6 +53,7 @@ import org.unicode.cldr.util.PathHeader.SectionId;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.VoteResolver.Status;
 import org.unicode.cldr.util.XMLSource;
@@ -1760,6 +1761,7 @@ public class DataSection implements JSONString {
                     pathCode = ph.getCode();
                 }
 
+                VoteResolver<String> resolver = ballotBox.getResolver(xpath);
                 return new JSONObject()
                     .put("xpath", xpath)
                     .put("xpid", xpathId)
@@ -1777,8 +1779,8 @@ public class DataSection implements JSONString {
                     .put("hasErrors", hasErrors).put("hasWarnings", hasWarnings).put("confirmStatus", confirmStatus)
                     .put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false)
                     .put("winningVhash", winningVhash).put("ourVote", ourVote).put("voteVhash", voteVhash)
-                    .put("voteResolver", SurveyAjax.JSONWriter.wrap(ballotBox.getResolver(xpath))).put("items", itemsJson)
-                    .put("canFlagOnLosing", canFlagOnLosing(this.getPathHeader(), locale, xpath))
+                    .put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver)).put("items", itemsJson)
+                    .put("canFlagOnLosing", resolver.getRequiredVotes()==VoteResolver.HIGH_BAR)
                     .toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in toJSONString of " + this);
@@ -3695,23 +3697,5 @@ public class DataSection implements JSONString {
 
     private ExampleBuilder getExampleBuilder() {
         return examplebuilder;
-    }
-    
-    
-    /**
-     * TODO: move this into PathHeader / coverage / ???
-     * @param pathHeader
-     * @return
-     */
-    public static final boolean canFlagOnLosing(PathHeader pathHeader, CLDRLocale locale, String xpath) {
-        if(!SurveyMain.isUnofficial()) {
-            return false;
-        }
-        SurveyLog.warnOnce("note: using TEST values for DataSection.canFlagOnLosing - FIXME!");
-        if(xpath.startsWith("//ldml/numbers/symbols") &&
-            ( xpath.endsWith("/decimal") || xpath.endsWith("/group") ) ) {
-            return true;
-        }
-        return false;
     }
 }

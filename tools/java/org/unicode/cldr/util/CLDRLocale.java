@@ -444,6 +444,14 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         };
     }
 
+    /**
+     * Get the 'language' locale, as an object. Might be 'this'.
+     * @return
+     */
+    public CLDRLocale getLanguageLocale() {
+        return getInstance(getLanguage());
+    }
+
     public String getLanguage() {
         return parts == null ? fullname : parts.getLanguage();
     }

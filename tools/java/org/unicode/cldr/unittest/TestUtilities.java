@@ -17,11 +17,13 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -723,7 +725,38 @@ public class TestUtilities extends TestFmwk {
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList<String>(counts.keySet()).get(0));
     }
+    
+    private void verifyRequiredVotes(VoteResolver resolver, String locale, String xpath, int required) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Locale: " + locale);
+        resolver.clear();
+        PathHeader ph = null;
+        if(xpath!=null)  {
+            sb.append(" XPath: " + xpath);
+            ph = PathHeader.getFactory(TestInfo.getInstance().getEnglish()).fromPath(xpath);
+        }
+        resolver.setLocale(CLDRLocale.getInstance(locale), ph);
+        assertEquals(ph.toString(), required, resolver.getRequiredVotes());
+    }
+    
+    public void TestRequiredVotes() {
+        VoteResolver.setVoterToInfo(testdata);
+        VoteResolver<String> resolver = new VoteResolver<String>();
 
+        verifyRequiredVotes(resolver, "mt", "//ldml/localeDisplayNames/languages/language[@type=\"fr_CA\"]", 4);
+        verifyRequiredVotes(resolver, "fr", "//ldml/localeDisplayNames/languages/language[@type=\"fr_CA\"]", 8);
+ 
+        assertEquals("VoteResolver.HIGH_BAR", VoteResolver.HIGH_BAR, 20);
+        verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"latn\"]/group", VoteResolver.HIGH_BAR); // == 20
+        verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "ast", "//ldml/numbers/symbols[@numberSystem=\"latn\"]/group", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/decimal", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/group", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/decimal", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "ast", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/group", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/decimal", VoteResolver.HIGH_BAR);
+    }
+    
     public void TestVoteResolver() {
         // to make it easier to debug failures, the first digit is an org, second is the individual in that org, and
         // third is the voting weight.

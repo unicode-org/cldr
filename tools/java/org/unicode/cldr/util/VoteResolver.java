@@ -136,6 +136,12 @@ public class VoteResolver<T> {
     static final Map<String, Organization> OrganizationNameMap = new HashMap<String, Organization>();
 
     /**
+     * This is the "high bar" level where flagging is required.
+     * @see #getRequiredVotes()
+     */
+    public static final int HIGH_BAR = Level.tc.votes;
+
+    /**
      * This is the level at which a vote counts. Each level also contains the
      * weight.
      */
@@ -577,30 +583,35 @@ public class VoteResolver<T> {
 
     /**
      * You must call this locale whenever you are using a VoteResolver with a new locale.
+     * More efficient to call the CLDRLocale version.
      * 
      * @param locale
      * @return
+     * @deprecated need to use the other version to get path-based voting requirements right. 
      */
+    @Deprecated
     public VoteResolver<T> setLocale(String locale) {
-        requiredVotes = supplementalDataInfo.getRequiredVotes(new LanguageTagParser().set(locale).getLanguage());
+        setLocale(CLDRLocale.getInstance(locale), null);
         return this;
     }
 
     /**
-     * You must call this locale whenever you are using a VoteResolver with a new locale.
+     * You must call this locale whenever you are using a VoteResolver with a new locale or a new Pathheader
      * 
      * @param locale
      * @return
      */
-    public VoteResolver<T> setLocale(CLDRLocale locale) {
-        requiredVotes = supplementalDataInfo.getRequiredVotes(locale.getLanguage());
+    public VoteResolver<T> setLocale(CLDRLocale locale, PathHeader path) {
+        requiredVotes = supplementalDataInfo.getRequiredVotes(locale.getLanguageLocale(), path);
         return this;
     }
 
     /**
      * Is this an established locale? If so, the requiredVotes is higher.
      * @return
+     * @deprecated use {@link #getRequiredVotes()}
      */
+    @Deprecated
     public boolean isEstablished() {
         return (requiredVotes == 8);
     }

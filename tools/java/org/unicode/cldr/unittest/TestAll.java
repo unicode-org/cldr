@@ -16,6 +16,7 @@ public class TestAll extends TestGroup {
 
     public static void main(String[] args) {
         CLDRConfig.getInstance().setTestLog(new TestAll()).run(args);
+        int x = 0;
     }
 
     public TestAll() {

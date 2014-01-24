@@ -2744,7 +2744,7 @@ public class SupplementalDataInfo {
           <pluralRange start="one" end="one" result="one" />
          </pluralRanges>
          */
-        String locales = path.getAttributeValue(2, "locales");
+        String locales = path.getAttributeValue(2, "locales").trim();
         String element = path.getElement(2);
         if ("pluralRanges".equals(element)) {
             if (!locales.equals(lastPluralRangesLocales)) {
@@ -2805,8 +2805,9 @@ public class SupplementalDataInfo {
         for (String locale : locales) {
             if (localeToInfo.containsKey(locale)) {
                 throw new IllegalArgumentException("Duplicate plural locale: " + locale);
+            } else if (!locale.isEmpty()) {
+                localeToInfo.put(locale, info);
             }
-            localeToInfo.put(locale, info);
         }
         lastPluralMap.clear();
     }

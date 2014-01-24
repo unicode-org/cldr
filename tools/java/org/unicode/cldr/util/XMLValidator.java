@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2003-2008, International Business Machines Corporation and   *
+ * Copyright (C) 2003-2014, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -13,6 +13,7 @@ package org.unicode.cldr.util;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FilenameFilter;
 import java.io.IOException;
@@ -174,6 +175,25 @@ public class XMLValidator {
 
     static Document parse(InputSource docSrc, String filename) {
 
+        // Check for BOM.
+        try {
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(filename);
+                byte bytes[] = new byte[3];
+                if(fis.read(bytes) == 3 &&
+                   bytes[0] == (byte)0xef &&
+                   bytes[1] == (byte)0xbb &&
+                   bytes[2] == (byte)0xbf) {
+                    System.err.println(filename+": ERROR: contains UTF-8 BOM (shouldn't happen in CLDR XML files)");
+                }
+            } finally {
+                if(fis!=null) {
+                    fis.close();
+                }
+            }
+        } catch(IOException ioe) { /* ignored- other branches will report an error. */ }
+        
         DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
         // Always set namespaces on
         if (!parseonly) {

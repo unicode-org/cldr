@@ -29,6 +29,12 @@ Color english brown
 }
 */
 
+@import url('http://mmwebfonts.comquas.com/fonts/?font=padauk');
+@import url('http://mmwebfonts.comquas.com/fonts/?font=myanmar3');
+
+:lang(my) {
+  font-family:padauk,Myanmar3;
+}
 
 span.age  {
 	font-weight: bold;

@@ -26,7 +26,8 @@ public class CheckCasing extends CheckCLDR {
     ULocale uLocale = null;
     BreakIterator breaker = null;
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
@@ -36,7 +37,7 @@ public class CheckCasing extends CheckCLDR {
     }
 
     // If you don't need any file initialization or postprocessing, you only need this one routine
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         // it helps performance to have a quick reject of most paths
         if (fullPath == null) return this; // skip paths that we don't have

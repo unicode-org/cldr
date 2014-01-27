@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckConsistentCasing;
 import org.unicode.cldr.test.CheckForExemplars;
 import org.unicode.cldr.test.CheckNames;
@@ -51,7 +52,7 @@ public class TestCheckCLDR extends TestFmwk {
         }
 
         @Override
-        public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+        public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
             List<CheckStatus> result) {
             return null;
         }
@@ -96,7 +97,7 @@ public class TestCheckCLDR extends TestFmwk {
 
         CheckCLDR test = CheckCLDR.getCheckAll(factory, ".*");
         List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
-        Map<String, String> options = new HashMap<String, String>();
+        Options options = new Options();
         test.setCldrFileToCheck(english, options, possibleErrors);
         List<CheckStatus> result = new ArrayList<CheckStatus>();
 
@@ -208,7 +209,7 @@ public class TestCheckCLDR extends TestFmwk {
     public void checkLocale(CheckCLDR test, CLDRFile nativeFile, String dummyValue, Set<String> unique) {
         String localeID = nativeFile.getLocaleID();
         List<CheckStatus> possibleErrors = new ArrayList<CheckStatus>();
-        Map<String, String> options = new HashMap<String, String>();
+        CheckCLDR.Options options = new CheckCLDR.Options();
         test.setCldrFileToCheck(nativeFile, options, possibleErrors);
         List<CheckStatus> result = new ArrayList<CheckStatus>();
 

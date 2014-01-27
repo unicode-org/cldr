@@ -33,6 +33,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
@@ -1393,37 +1394,15 @@ public class WebContext implements Cloneable, Appendable {
     }
 
     /**
-     * Get the basic and WebContext Options map
-     * 
-     * @return the map
-     * @see #getOptionsMap(Map)
-     * @see org.unicode.cldr.test.CheckCoverage#check(String, String, String,
-     *      Map, List)
-     * @see SurveyMain#basicOptionsMap()
-     */
-    public Map<String, String> getOptionsMap() {
-        return getOptionsMap(SurveyMain.basicOptionsMap());
-    }
-
-    /**
      * Append the WebContext Options map to the specified map
      * 
      * @return the map
-     * @see #getOptionsMap(Map)
-     * @see org.unicode.cldr.test.CheckCoverage#check(String, String, String,
-     *      Map, List)
-     * @see SurveyMain#basicOptionsMap()
      */
-    public Map<String, String> getOptionsMap(Map<String, String> options) {
+    public CheckCLDR.Options getOptionsMap() {
         String def = getRequiredCoverageLevel();
-        options.put("CheckCoverage.requiredLevel", def);
-
         String org = getEffectiveCoverageLevel();
-        if (org != null) {
-            options.put("CoverageLevel.localeType", org);
-        }
-
-        return options;
+        
+        return new CheckCLDR.Options(getLocale(),SurveyMain.getTestPhase(), def, org);
     }
 
     /**

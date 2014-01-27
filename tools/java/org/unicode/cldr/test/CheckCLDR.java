@@ -1,6 +1,6 @@
 /*
  ******************************************************************************
- * Copyright (C) 2005-2013, International Business Machines Corporation and   *
+ * Copyright (C) 2005-2014, International Business Machines Corporation and   *
  * others. All Rights Reserved.                                               *
  ******************************************************************************
  */
@@ -17,6 +17,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +27,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.InternalCldrException;
@@ -33,11 +36,13 @@ import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.RegexFileParser;
 import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.VoteResolver;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.text.ListFormatter;
 import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.Transliterator;
 
@@ -317,6 +322,219 @@ abstract public class CheckCLDR {
             return previous;
         }
     }
+    
+    public static final class Options implements Comparable<Options> {
+        
+        public enum Option {
+            locale,
+            CoverageLevel_requiredLevel("CoverageLevel.requiredLevel"), 
+            CoverageLevel_localeType("CoverageLevel.localeType"), SHOW_TIMES, phase,
+            CheckCoverage_skip("CheckCoverage.skip");
+            
+            
+            private String key;
+            public String getKey() {
+                return key;
+            }
+            Option(String key) {
+                this.key = key;
+            }
+            Option() {
+                this.key = name();
+            }
+        };
+        private static StandardCodes sc = StandardCodes.make();
+
+        private final boolean DEBUG_OPTS = false;
+        
+        String options[] = new String[Option.values().length];
+        CLDRLocale locale = null;
+        
+        private final String key; // for fast compare 
+        
+        /**
+         * Adopt some other map
+         * @param fromOptions
+         */
+        public Options(Map<String,String> fromOptions) {
+            clear();
+            setAll(fromOptions);
+            key = null; // no key = slow compare
+        }
+                
+        private void setAll(Map<String, String> fromOptions) {
+            for(Map.Entry<String, String> e : fromOptions.entrySet()) {
+                set(e.getKey(), e.getValue());
+            }
+        }
+
+        /**
+         * @param key
+         * @param value
+         */
+        private void set(String key, String value) {
+            // TODO- cache the map
+            for(Option o : Option.values()) {
+                if(o.getKey().equals(key)) {
+                    set(o, value);
+                    return;
+                }
+            }
+            throw new IllegalArgumentException("Unknown CLDR option: '" + key + "' - valid keys are: " + Options.getValidKeys());
+        }
+
+        private static String getValidKeys() {
+            Set<String> allkeys = new TreeSet<String>();
+            for(Option o : Option.values()) {
+                allkeys.add(o.getKey());
+            }
+            return ListFormatter.getInstance().format(allkeys);
+        }
+
+        public Options() {
+            clear();
+            key = "".intern(); // null Options.
+        }
+        /**
+         * Deep clone
+         * @param options2
+         */
+        public Options(Options options2) {
+            this.options = Arrays.copyOf(options2.options, options2.options.length);
+            this.key = options2.key;
+        }
+
+        public Options(CLDRLocale locale, CheckCLDR.Phase testPhase, String requiredLevel, String localeType) {
+            this.locale = locale;
+            options = new String[Option.values().length];
+            StringBuilder sb = new StringBuilder();
+            set(Option.locale, locale.getBaseName());
+            sb.append(locale.getBaseName()).append('/');
+            set(Option.CoverageLevel_requiredLevel, requiredLevel);
+            sb.append(requiredLevel).append('/');
+            set(Option.CoverageLevel_localeType, localeType);
+            sb.append(localeType).append('/');
+            set(Option.phase, testPhase.name().toLowerCase());
+            sb.append(testPhase.name()).append('/');
+            key = sb.toString().intern();
+        }
+
+        @Override
+        public Options clone() {
+            return new Options(this);
+        }
+        
+        @Override
+        public boolean equals(Object other) {
+            if(this==other) return true;
+            if(!(other instanceof Options)) return false;
+            if(this.key!=null && ((Options)other).key != null) {
+                return (this.key == ((Options)other).key);
+            } else {
+                return this.compareTo((Options)other)==0;
+            }
+        }
+        
+        private Options clear(Option o) {
+            set(o, null);
+            return this;
+        }
+        private Options clear() {
+            for(int i=0;i<options.length;i++) {
+                options[i]=null;
+            }
+            return this;
+        }
+        private Options set(Option o, String v) {
+            options[o.ordinal()] = v;
+            if(DEBUG_OPTS) System.err.println("Setting " + o + " = " + v);
+            return this;                
+        }
+        public String get(Option o) {            
+            final String v = options[o.ordinal()];
+            if(DEBUG_OPTS) System.err.println("Getting " + o + " = " + v);
+            return v;
+        }
+        public CLDRLocale getLocale() {
+            if(locale!=null) return locale;
+            return CLDRLocale.getInstance(get(Option.locale));
+        }
+
+        public Level getRequiredLevel(String localeID) {
+            Level result;
+            // see if there is an explicit level
+            String localeType = get(Option.CoverageLevel_requiredLevel);
+            if (localeType != null) {
+                result = Level.get(localeType);
+                if (result != Level.UNDETERMINED) {
+                    return result;
+                }
+            }
+            // otherwise, see if there is an organization level
+            return sc.getLocaleCoverageLevel(get(Option.CoverageLevel_localeType), localeID);
+        }
+
+        public boolean contains(Option o) {
+            String s = get(o);
+            return (s!=null && !s.isEmpty());
+        }
+        
+        @Override
+        public int compareTo(Options other) {
+            if(other == this) return 0;
+            if(key!=null && other.key!=null) {
+                if(key == other.key) return 0;
+                return key.compareTo(other.key);
+            }
+            for(int i=0;i<options.length;i++) {
+                final String s1 = options[i];
+                final String s2 = other.options[i];
+                if(s1==null && s2 == null) {
+                    // no difference
+                } else if(s1==null) {
+                    return -1;
+                } else if(s2==null) {
+                    return 1;
+                } else {
+                    int rv = s1.compareTo(s2);
+                    if(rv!=0) {
+                        return rv;
+                    }
+                }
+            }
+            return 0;
+        }
+        
+        @Override
+        public int hashCode() {
+            if(key!=null) return key.hashCode();
+
+            int h = 1;
+            for(int i=0;i<options.length;i++) {
+                if(options[i]==null) {
+                    h *= 11;
+                } else {
+                    h = (h*11) + options[i].hashCode();
+                }
+            }
+            return h;
+        }
+        
+        @Override
+        public String toString() {
+            if(key!=null) return "Options:"+key;
+            StringBuilder sb = new StringBuilder();
+            for(Option o : Option.values()) {
+                if(options[o.ordinal()] != null) {
+                    sb.append(o)
+                      .append('=')
+                      .append(options[o.ordinal()])
+                      .append(' ');
+                }
+            }
+            return sb.toString();
+        }
+    };
 
     public boolean isSkipTest() {
         return skipTest;
@@ -439,6 +657,20 @@ abstract public class CheckCLDR {
     }
 
     /**
+     * Don't override this, use the other setCldrFileToCheck which takes an Options instead of a Map<>
+     * @param cldrFileToCheck
+     * @param options
+     * @param possibleErrors
+     * @return
+     * @see #setCldrFileToCheck(CLDRFile, Options, List)
+     */
+    final public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+        List<CheckStatus> possibleErrors) {
+        return setCldrFileToCheck(cldrFileToCheck, new Options(options), possibleErrors);
+    }
+    
+    
+    /**
      * Set the CLDRFile. Must be done before calling check. If null is called, just skip
      * Often subclassed for initializing. If so, make the first 2 lines:
      * if (cldrFileToCheck == null) return this;
@@ -446,12 +678,11 @@ abstract public class CheckCLDR {
      * do stuff
      * 
      * @param cldrFileToCheck
-     * @param options
-     *            TODO
+     * @param options (not currently used)
      * @param possibleErrors
      *            TODO
      */
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         this.cldrFileToCheck = cldrFileToCheck;
 
@@ -809,11 +1040,9 @@ abstract public class CheckCLDR {
                 "</tr>");
         }
     }
-
+    
     /**
-     * Checks the path/value in the cldrFileToCheck for correctness, according to some criterion.
-     * If the path is relevant to the check, there is an alert or warning, then a CheckStatus is added to List.
-     * 
+     * Wraps the options in an Options and delegates.
      * @param path
      *            Must be a distinguished path, such as what comes out of CLDRFile.iterator()
      * @param fullPath
@@ -829,8 +1058,28 @@ abstract public class CheckCLDR {
      *            options.put("phase", Phase.<something>);
      *            It can be used for new data entry.
      * @param result
+     * @return
+     * @deprecated use CheckCLDR#check(String, String, String, Options, List)
      */
+    @Deprecated
     public final CheckCLDR check(String path, String fullPath, String value, Map<String, String> options,
+        List<CheckStatus> result) {
+        return check(path, fullPath, value, new Options(options), result);
+    }
+
+    /**
+     * Checks the path/value in the cldrFileToCheck for correctness, according to some criterion.
+     * If the path is relevant to the check, there is an alert or warning, then a CheckStatus is added to List.
+     * 
+     * @param path
+     *            Must be a distinguished path, such as what comes out of CLDRFile.iterator()
+     * @param fullPath
+     *            Must be the full path
+     * @param value
+     *            the value associated with the path
+     * @param result
+     */
+    public final CheckCLDR check(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (cldrFileToCheck == null) {
             throw new InternalCldrException("CheckCLDR problem: cldrFileToCheck must not be null");
@@ -858,19 +1107,34 @@ abstract public class CheckCLDR {
     }
 
     /**
+     * @deprecated use {@link #getExamples(String, String, String, Options, List)}
+     * @param path
+     * @param fullPath
+     * @param value
+     * @param options
+     * @param result
+     * @return
+     */
+    @Deprecated
+    public final CheckCLDR getExamples(String path, String fullPath, String value, Map<String,String> options,
+        List<CheckStatus> result) {
+        return getExamples(path,fullPath,value,new Options(options), result);
+    }
+
+    /**
      * Returns any examples in the result parameter. Both examples and demos can
      * be returned. A demo will have getType() == CheckStatus.demoType. In that
      * case, there will be no getMessage or getHTMLMessage available; instead,
      * call getDemo() to get the demo, then call getHTML() to get the initial
      * HTML.
      */
-    public final CheckCLDR getExamples(String path, String fullPath, String value, Map<String, String> options,
+    public final CheckCLDR getExamples(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         result.clear();
         return handleGetExamples(path, fullPath, value, options, result);
     }
 
-    protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map<String, String> options2,
+    protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Options options2,
         List<CheckStatus> result) {
         return this; // NOOP unless overridden
     }
@@ -896,7 +1160,7 @@ abstract public class CheckCLDR {
      *            TODO
      */
     abstract public CheckCLDR handleCheck(String path, String fullPath, String value,
-        Map<String, String> options, List<CheckStatus> result);
+        Options options, List<CheckStatus> result);
 
     /**
      * Internal class used to bundle up a number of Checks.
@@ -923,7 +1187,7 @@ abstract public class CheckCLDR {
         }
 
         public CheckCLDR handleCheck(String path, String fullPath, String value,
-            Map<String, String> options, List<CheckStatus> result) {
+            Options options, List<CheckStatus> result) {
             result.clear();
             for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext();) {
                 CheckCLDR item = it.next();
@@ -945,7 +1209,7 @@ abstract public class CheckCLDR {
             return this;
         }
 
-        protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Map<String, String> options,
+        protected CheckCLDR handleGetExamples(String path, String fullPath, String value, Options options,
             List<CheckStatus> result) {
             result.clear();
             for (Iterator<CheckCLDR> it = filteredCheckList.iterator(); it.hasNext();) {
@@ -971,12 +1235,12 @@ abstract public class CheckCLDR {
             }));
         }
 
-        public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+        public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
             List<CheckStatus> possibleErrors) {
             ElapsedTimer testTime = null, testOverallTime = null;
             if (cldrFileToCheck == null) return this;
-            boolean SHOW_TIMES = options.containsKey("SHOW_TIMES");
-            setPhase(Phase.forString(options.get("phase")));
+            boolean SHOW_TIMES = options.contains(Options.Option.SHOW_TIMES);
+            setPhase(Phase.forString(options.get(Options.Option.phase)));
             if (SHOW_TIMES) testOverallTime = new ElapsedTimer("Test setup time for setCldrFileToCheck: {0}");
             super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
             possibleErrors.clear();
@@ -1015,7 +1279,7 @@ abstract public class CheckCLDR {
                 CheckCLDR item = it.next();
                 if (filter == null || filter.reset(item.getClass().getName()).matches()) {
                     filteredCheckList.add(item);
-                    item.setCldrFileToCheck(getCldrFileToCheck(), null, null);
+                    item.setCldrFileToCheck(getCldrFileToCheck(), (Options)null, null);
                 }
             }
             return this;

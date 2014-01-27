@@ -1,3 +1,7 @@
+<%
+	if(true==true) throw new InternalError("Not implemented- broken.");
+%>
+
 <%@ include file="/WEB-INF/jspf/stcontext.jspf"%><%-- setup 'ctx' --%>
 <%@ include file="/WEB-INF/jspf/report.jspf"%>
 <%@ page
@@ -70,7 +74,7 @@
 	BallotBox<UserRegistry.User> ballotBox = ctx.sm.getSTFactory()
 			.ballotBoxForLocale(locale);
 	TestCache.TestResultBundle bund = ctx.sm.getSTFactory()
-			.getTestResult(locale, ctx.getOptionsMap());
+			.getTestResult(locale, null /* TODO: ctx.getOptionsMap()*/);
 	List<CheckCLDR.CheckStatus> result = new ArrayList<CheckCLDR.CheckStatus>();
 	//Actions allActions[] = Actions.values();
 
@@ -95,7 +99,7 @@
                   ballotBox = ctx.sm.getSTFactory()
                           .ballotBoxForLocale(locale);
                   bund = ctx.sm.getSTFactory()
-                          .getTestResult(locale, ctx.getOptionsMap());
+                          .getTestResult(locale, null /* TODO:  ctx.getOptionsMap()*/);
                    exem = f.getExemplarSet("",
                           CLDRFile.WinningChoice.WINNING);
                   out.println("Now in locale " + locale + "<br>");

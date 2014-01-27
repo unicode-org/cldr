@@ -145,7 +145,7 @@ public class CheckForCopy extends FactoryCheckCLDR {
     }
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
-        Map<String, String> options, List<CheckStatus> result) {
+        Options options, List<CheckStatus> result) {
 
         if (fullPath == null || value == null) return this; // skip paths that we don't have
 
@@ -220,7 +220,8 @@ public class CheckForCopy extends FactoryCheckCLDR {
         return this;
     }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
 

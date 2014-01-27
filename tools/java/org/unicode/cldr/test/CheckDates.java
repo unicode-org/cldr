@@ -141,7 +141,8 @@ public class CheckDates extends FactoryCheckCLDR {
         super(factory);
     }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
@@ -168,7 +169,7 @@ public class CheckDates extends FactoryCheckCLDR {
         String localeID = getCldrFileToCheck().getLocaleID();
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         coverageLevel = CoverageLevel2.getInstance(sdi, localeID);
-        requiredLevel = CoverageLevel2.getRequiredLevel(localeID, options);
+        requiredLevel = options.getRequiredLevel(localeID);
 
         // load gregorian appendItems
         for (Iterator<String> it = resolved.iterator("//ldml/dates/calendars/calendar[@type=\"gregorian\"]"); it.hasNext();) {
@@ -248,7 +249,7 @@ public class CheckDates extends FactoryCheckCLDR {
     PathStarrer pathStarrer = new PathStarrer();
     PathHeader.Factory pathHeaderFactory;
 
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) {
             return this; // skip paths that we don't have
@@ -565,7 +566,7 @@ public class CheckDates extends FactoryCheckCLDR {
 
     static final Pattern HACK_CONFLICTING = Pattern.compile("Conflicting fields:\\s+M+,\\s+l");
 
-    public CheckCLDR handleGetExamples(String path, String fullPath, String value, Map<String, String> options, List<CheckStatus> result) {
+    public CheckCLDR handleGetExamples(String path, String fullPath, String value, Options options, List<CheckStatus> result) {
         if (path.indexOf("/dates") < 0 || path.indexOf("gregorian") < 0) return this;
         try {
             if (path.indexOf("/pattern") >= 0 && path.indexOf("/dateTimeFormat") < 0

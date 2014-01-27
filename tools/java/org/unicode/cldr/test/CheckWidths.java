@@ -2,7 +2,6 @@ package org.unicode.cldr.test;
 
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -214,7 +213,7 @@ public class CheckWidths extends CheckCLDR {
 
     Set<Limit> found = new LinkedHashSet<Limit>();
 
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (value == null) {
             return this; // skip

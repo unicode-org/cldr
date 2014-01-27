@@ -1,7 +1,6 @@
 package org.unicode.cldr.test;
 
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,7 +13,7 @@ public class CheckNames extends CheckCLDR {
         "//ldml/localeDisplayNames/(languages|currencies|scripts|territories|measurementSystemNames|transformNames)/.*");
 
     @Override
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (!YEARS_NOT_ALLOWED.matcher(path).matches() ||
             !getCldrFileToCheck().isNotRoot(path)) {

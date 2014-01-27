@@ -28,7 +28,8 @@ public class CheckZones extends FactoryCheckCLDR {
         super(factory);
     }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFile == null) return this;
         //        if (Phase.FINAL_TESTING == getPhase()) {
         //            setSkipTest(false); // ok
@@ -54,7 +55,7 @@ public class CheckZones extends FactoryCheckCLDR {
     String previousTo = new String("present");
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
-        Map<String, String> options, List<CheckStatus> result) {
+        Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
         if (path.indexOf("timeZoneNames") < 0 || path.indexOf("usesMetazone") < 0)
             return this;
@@ -145,9 +146,9 @@ public class CheckZones extends FactoryCheckCLDR {
         }
         return null; // unknown
     }
-
+    @Override
     public CheckCLDR handleGetExamples(String path, String fullPath, String value,
-        Map options, List result) {
+        Options options, List result) {
         if (path.indexOf("timeZoneNames") < 0) {
             return this;
         }

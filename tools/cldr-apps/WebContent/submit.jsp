@@ -185,8 +185,7 @@
 	XPathParts xppMine = new XPathParts(null, null);
 	XPathParts xppBase = new XPathParts(null, null);
     final List<CheckCLDR.CheckStatus> checkResult = new ArrayList<CheckCLDR.CheckStatus>();
-    Map<String,String> options = DataSection.getOptions(null, cs, loc);
-    TestCache.TestResultBundle cc = stf.getTestResult(loc, options);
+    TestCache.TestResultBundle cc = stf.getTestResult(loc, DataSection.getOptions(null, cs, loc));
 	UserRegistry.User u = theirU;
 	CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
 	Set<String> allValidPaths = stf.getPathsForFile(loc);

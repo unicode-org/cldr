@@ -99,7 +99,8 @@ public class CheckExemplars extends FactoryCheckCLDR {
 
     // Allowed[:script=common:][:script=inherited:][:alphabetic=false:]
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
@@ -130,7 +131,7 @@ public class CheckExemplars extends FactoryCheckCLDR {
         return this;
     }
 
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
         if (path.indexOf("/exemplarCharacters") < 0) return this;

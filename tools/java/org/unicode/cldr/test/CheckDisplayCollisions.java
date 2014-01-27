@@ -93,7 +93,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         pathHeaderFactory = PathHeader.getFactory(factory.make("en", true));
     }
 
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
 
@@ -355,7 +355,8 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         return locale.equals(XMLSource.CODE_FALLBACK_ID);
     }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);

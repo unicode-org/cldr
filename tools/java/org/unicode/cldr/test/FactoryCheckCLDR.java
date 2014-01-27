@@ -28,7 +28,7 @@ abstract class FactoryCheckCLDR extends CheckCLDR {
     }
 
     @Override
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         resolvedCldrFileToCheck = null;

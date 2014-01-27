@@ -2,7 +2,6 @@ package org.unicode.cldr.test;
 
 import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -24,7 +23,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
 
     private XPathParts parts = new XPathParts(); // used to parse out a path
 
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         // if (fullPath == null) return this; // skip paths that we don't have
         if (LogicalGrouping.isOptional(getCldrFileToCheck(), path)) return this;

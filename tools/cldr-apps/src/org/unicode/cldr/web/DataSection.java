@@ -34,6 +34,7 @@ import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.InputMethod;
+import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.StatusAction;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
@@ -2419,21 +2420,19 @@ public class DataSection implements JSONString {
      * @param locale
      * @return
      */
-    public static Map<String, String> getOptions(WebContext ctx, CookieSession session, CLDRLocale locale) {
-        Map<String, String> options;
+    public static CheckCLDR.Options getOptions(WebContext ctx, CookieSession session, CLDRLocale locale) {
+        CheckCLDR.Options options;
         if (ctx != null) {
-            options = ctx.getOptionsMap();
+            options = (ctx.getOptionsMap());
         } else {
             // ugly
-            options = SurveyMain.basicOptionsMap();
-            String def = CookieSession.sm
-                .getListSetting(session.settings(), SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST, false);
-            options.put("CheckCoverage.requiredLevel", def);
+            final String def = CookieSession.sm
+                .getListSetting(session.settings(), SurveyMain.PREF_COVLEV, 
+                    WebContext.PREF_COVLEV_LIST, false);
 
-            String org = session.getEffectiveCoverageLevel(locale.toString());
-            if (org != null) {
-                options.put("CoverageLevel.localeType", org);
-            }
+            final String org = session.getEffectiveCoverageLevel(locale.toString());
+            
+            options = new Options(locale,SurveyMain.getTestPhase(), def, org);
         }
         return options;
     }
@@ -3350,8 +3349,7 @@ public class DataSection implements JSONString {
         synchronized (ctx.session) {
             uf = ctx.getUserFile();
 
-            CheckCLDR checkCldr = uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()),
-                ctx.getOptionsMap(SurveyMain.basicOptionsMap()));
+            CheckCLDR checkCldr = uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()), ctx.getOptionsMap());
 
             boolean disputedOnly = ctx.field("only").equals("disputed");
 

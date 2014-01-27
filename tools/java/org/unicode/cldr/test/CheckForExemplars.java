@@ -157,7 +157,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         }
     }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Map<String, String> options, List<CheckStatus> possibleErrors) {
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFile, Options options, List<CheckStatus> possibleErrors) {
         if (cldrFile == null) return this;
         skip = true;
         super.setCldrFileToCheck(cldrFile, options, possibleErrors);
@@ -214,7 +215,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
     }
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
-        Map<String, String> options, List<CheckStatus> result) {
+        Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
         if (value == null) return this; // skip values that we don't have ?
         if (skip) return this;

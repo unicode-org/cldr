@@ -1,7 +1,6 @@
 package org.unicode.cldr.test;
 
 import java.util.List;
-import java.util.Map;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.LogicalGrouping;
@@ -14,7 +13,7 @@ public class CheckMetazones extends CheckCLDR {
     XPathParts parts = new XPathParts(); // used to parse out a path
 
     // If you don't need any file initialization or postprocessing, you only need this one routine
-    public CheckCLDR handleCheck(String path, String fullPath, String value, Map<String, String> options,
+    public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
         // it helps performance to have a quick reject of most paths
         if (fullPath == null) return this; // skip paths that we don't have

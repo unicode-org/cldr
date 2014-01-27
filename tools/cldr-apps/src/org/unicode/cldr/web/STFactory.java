@@ -19,6 +19,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -1079,9 +1080,9 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             return false;
         }
 
-        public TestResultBundle getTestResultData(Map<String, String> options) {
+        public TestResultBundle getTestResultData(CheckCLDR.Options options) {
             synchronized (gTestCache) {
-                return gTestCache.getBundle(locale, options);
+                return gTestCache.getBundle(options);
             }
         }
 
@@ -1333,6 +1334,23 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         phf = PathHeader.getFactory(sm.getBaselineFile());
         surveyMenus = new SurveyMenus(this, phf);
     }
+    
+    /**
+     * For statistics
+     */
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(super.toString());
+        sb.append("-cache:");
+        int good=0;
+        for(Entry<CLDRLocale, Reference<PerLocaleData>> e : locales.entrySet()) {
+            if(e.getValue().get()!=null) {
+                good++;
+            }
+        }
+        sb.append(good+"/"+locales.size()+" locales. TestCache:"+gTestCache+", diskTestCache:"+gDiskTestCache+"}");
+        return sb.toString();
+    }
 
     @Override
     public BallotBox<User> ballotBoxForLocale(CLDRLocale locale) {
@@ -1417,8 +1435,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         return get(CLDRLocale.getInstance(locale));
     }
 
-    @SuppressWarnings("unchecked")
-    public TestCache.TestResultBundle getTestResult(CLDRLocale loc, Map<String, String> options) {
+    public TestCache.TestResultBundle getTestResult(CLDRLocale loc, CheckCLDR.Options options) {
+//        System.err.println("Fetching: " + options);
         return get(loc).getTestResultData(options);
     }
 
@@ -2023,16 +2041,11 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     private TestResultBundle getDiskTestBundle(CLDRLocale locale) {
         synchronized (gDiskTestCache) {
             TestResultBundle q;
-            q = gDiskTestCache.getBundle(locale, basicOptions);
+            q = gDiskTestCache.getBundle(new CheckCLDR.Options(locale,SurveyMain.getTestPhase(),null,null));
             return q;
         }
     }
 
-    /**
-     * For tests.
-     */
-    static private Map<String, String> basicOptions = Collections.unmodifiableMap(SurveyMain.basicOptionsMap());
-    
     /**
      * Return the table for old votes 
      */

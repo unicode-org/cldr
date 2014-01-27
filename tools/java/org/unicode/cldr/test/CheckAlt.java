@@ -18,7 +18,7 @@ public class CheckAlt extends CheckCLDR {
     // determine if we have an alt=...proposed
     // if we have one, and there is not a non-proposed version -- in this same file, unaliased, there's a problem.
     public CheckCLDR handleCheck(String path, String fullPath, String value,
-        Map<String, String> options, List<CheckStatus> result) {
+        Options options, List<CheckStatus> result) {
         if (fullPath == null) return this; // skip paths that we don't have
 
         // quick checks
@@ -95,7 +95,8 @@ public class CheckAlt extends CheckCLDR {
     // return strippedPath;
     // }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         // Skip if the phase is not final testing

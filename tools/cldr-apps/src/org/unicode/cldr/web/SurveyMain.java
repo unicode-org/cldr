@@ -66,6 +66,7 @@ import org.tmatesoft.svn.core.wc.SVNRevision;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.Options.Option;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRConfig;
@@ -4322,7 +4323,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     private CheckCLDR getCheck(WebContext ctx, UserLocaleStuff uf) {
         return (CheckCLDR) uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()),
-            ctx.getOptionsMap(basicOptionsMap()));
+            ctx.getOptionsMap());
     }
 
     private static Pattern reportSuffixPattern = Pattern.compile("^[0-9a-z]([0-9a-z_]*)$");
@@ -4692,18 +4693,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      * @see org.unicode.cldr.test.CheckCoverage#check(String, String, String,
      *      Map, List)
      */
-    public static Map<String, String> basicOptionsMap() {
-        Map<String, String> options = new HashMap<String, String>();
-
-        // the following is highly suspicious. But, CheckCoverage seems to
-        // require it.
-        options.put("submission", "true");
-        // options.put("CheckCoverage.requiredLevel", "minimal");
-
-        // pass in the current ST phase
-        options.put("phase", phase().getCPhase().name().toLowerCase());
-
-        return options;
+    public static final org.unicode.cldr.test.CheckCLDR.Phase getTestPhase() {
+        return phase().getCPhase();
     }
 
     public CheckCLDR createCheck() {
@@ -4868,7 +4859,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             hash.clear();
         }
 
-        public CheckCLDR getCheck(String ptype, Map<String, String> options) {
+        public CheckCLDR getCheck(String ptype, CheckCLDR.Options options) {
             CheckCLDR checkCldr = (CheckCLDR) hash.get(CHECKCLDR + ptype);
             if (checkCldr == null) {
                 List<CheckStatus> checkCldrResult = new ArrayList<CheckStatus>();
@@ -7108,7 +7099,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return phase() == Phase.BETA;
     }
 
-    public static Phase phase() {
+    public static final Phase phase() {
         return currentPhase;
     }
 

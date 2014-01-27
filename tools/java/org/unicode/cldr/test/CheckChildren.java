@@ -21,7 +21,7 @@ public class CheckChildren extends FactoryCheckCLDR {
     }
 
     public CheckCLDR handleCheck(String path, String fullPath, String value,
-        Map<String, String> options, List<CheckStatus> result) {
+        Options options, List<CheckStatus> result) {
         if (immediateChildren == null) return this; // skip - test isn't even relevant
         if (isSkipTest()) return this; // disabled
         if (fullPath == null) return this; // skip paths that we don't have
@@ -57,7 +57,8 @@ public class CheckChildren extends FactoryCheckCLDR {
         return this;
     }
 
-    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Map<String, String> options,
+    @Override
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
         List<CheckStatus> possibleErrors) {
         if (cldrFileToCheck == null) return this;
         if (cldrFileToCheck.getLocaleID().equals("root")) return this; // Root's children can override.

@@ -2,7 +2,6 @@ package org.unicode.cldr.test;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -16,7 +15,6 @@ import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.RegexLookup.RegexFinder;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CoverageLevelInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CoverageVariableInfo;
@@ -31,7 +29,6 @@ public class CoverageLevel2 {
     // To modify the results, see /cldr/common/supplemental/coverageLevels.xml
 
     private RegexLookup<Level> lookup = null;
-    private static StandardCodes sc = StandardCodes.make();
 
     enum SetMatchType {
         Target_Language, Target_Scripts, Target_Territories, Target_TimeZones, Target_Currencies, Target_Plurals, Calendar_List
@@ -170,20 +167,6 @@ public class CoverageLevel2 {
 
     public int getIntLevel(String path) {
         return getLevel(path).getLevel();
-    }
-
-    public static Level getRequiredLevel(String localeID, Map<String, String> options) {
-        Level result;
-        // see if there is an explicit level
-        String localeType = options.get("CoverageLevel.requiredLevel");
-        if (localeType != null) {
-            result = Level.get(localeType);
-            if (result != Level.UNDETERMINED) {
-                return result;
-            }
-        }
-        // otherwise, see if there is an organization level
-        return sc.getLocaleCoverageLevel(options.get("CoverageLevel.localeType"), localeID);
     }
 
     public static void main(String[] args) {

@@ -1,6 +1,7 @@
 package org.unicode.cldr.draft;
 
 import java.io.File;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -143,7 +144,7 @@ public class Keyboard {
                 .read(fileName, -1, true);
             return platformHandler.getPlatform();
         } catch (Exception e) {
-            throw new IllegalArgumentException(fileName, e);
+            throw new KeyboardException(fileName, e);
         }
     }
 
@@ -159,7 +160,7 @@ public class Keyboard {
         this.transforms = Collections.unmodifiableMap(transforms);
     }
 
-    public static Keyboard getKeyboard(String keyboardId, Set<String> errors) {
+    public static Keyboard getKeyboard(String keyboardId, Set<Exception> errors) {
         int pos = keyboardId.indexOf("-t-k0-") + 6;
         int pos2 = keyboardId.indexOf('-', pos);
         if (pos2 < 0) {
@@ -168,16 +169,30 @@ public class Keyboard {
         return getKeyboard(keyboardId.substring(pos, pos2), keyboardId, errors);
     }
 
-    private static Keyboard getKeyboard(String platformId, String keyboardId, Set<String> errors) {
+    private static Keyboard getKeyboard(String platformId, String keyboardId, Set<Exception> errors) {
         final String fileName = BASE + platformId + "/" + keyboardId + ".xml";
         try {
-            final KeyboardHandler keyboardHandler = new KeyboardHandler();
+            final KeyboardHandler keyboardHandler = new KeyboardHandler(errors);
             new XMLFileReader()
                 .setHandler(keyboardHandler)
                 .read(fileName, -1, true);
-            return keyboardHandler.getKeyboard(errors);
+            return keyboardHandler.getKeyboard();
         } catch (Exception e) {
-            throw new IllegalArgumentException(fileName, e);
+            throw new KeyboardException(fileName, e);
+        }
+    }
+    
+    public static Keyboard getKeyboard(String id, Reader r, Set<Exception> errors) {
+        //final String fileName = BASE + platformId + "/" + keyboardId + ".xml";
+        try {
+            final KeyboardHandler keyboardHandler = new KeyboardHandler(errors);
+            new XMLFileReader()
+                .setHandler(keyboardHandler)
+                .read(id, r, -1, true);
+            return keyboardHandler.getKeyboard();
+        } catch (Exception e) {
+            errors.add(e);
+            return null;
         }
     }
 
@@ -395,7 +410,7 @@ public class Keyboard {
     }
 
     private static class KeyboardHandler extends SimpleHandler {
-        Set<String> errors = new LinkedHashSet<String>();
+        Set<Exception> errors; //  = new LinkedHashSet<Exception>();
         Set<String> errors2 = new LinkedHashSet<String>();
         // doesn't do any error checking for collisions, etc. yet.
         String locale; // TODO
@@ -417,14 +432,19 @@ public class Keyboard {
         XPathParts parts = new XPathParts();
         LanguageTagParser ltp = new LanguageTagParser();
 
-        public Keyboard getKeyboard(Set<String> errors) {
+        public KeyboardHandler(Set<Exception> errorsOutput) {
+            errors = errorsOutput;
+            errors.clear();
+        }
+
+        public Keyboard getKeyboard() {
             // finish everything off
             addToKeyMaps();
             if (currentType != null) {
                 transformMap.put(currentType, new Transforms(currentTransforms));
             }
-            errors.clear();
-            errors.addAll(this.errors);
+//            errors.clear();
+//            errors.addAll(this.errors);
             return new Keyboard(locale, version, platformVersion, generation, names, fallback, keyMaps, transformMap);
         }
 
@@ -436,9 +456,10 @@ public class Keyboard {
                     // <keyboard locale='bg-t-k0-chromeos-phonetic'>
                     locale = parts.getAttributeValue(0, "locale");
                     ltp.set(locale);
+                    Map<String, String> extensions = ltp.getExtensions();
                     LanguageTagParser.Status status = ltp.getStatus(errors2);
-                    if (status != Status.MINIMAL || errors2.size() != 0) {
-                        errors.add("Bad locale tag: " + locale + ", " + errors2.toString());
+                    if (status != Status.MINIMAL || errors2.size() != 0 || !extensions.containsKey("t")) {
+                        errors.add(new KeyboardException("Bad locale tag: " + locale + ", " + errors2.toString()));
                     }
                 }
                 String element1 = parts.getElement(1);
@@ -484,7 +505,7 @@ public class Keyboard {
                     final String from = fixValue(parts.getAttributeValue(2, "from"));
                     final String to = fixValue(parts.getAttributeValue(2, "to"));
                     if (from.equals(to)) {
-                        errors.add("Illegal transform from:" + from + " to:" + to);
+                        errors.add(new KeyboardException("Illegal transform from:" + from + " to:" + to));
                     }
                     if (DEBUG) {
                         System.out.println("transform: from=" + from + ";\tto=" + to + ";");
@@ -508,20 +529,20 @@ public class Keyboard {
                     // <settings fallback='omit'/>
                     fallback = Fallback.forString(parts.getAttributeValue(1, "fallback"));
                 } else {
-                    throw new IllegalArgumentException("Unexpected element: " + element1);
+                    throw new KeyboardException("Unexpected element: " + element1);
                 }
             } catch (Exception e) {
-                throw new IllegalArgumentException("Unexpected error in: " + path, e);
+                throw new KeyboardException("Unexpected error in: " + path, e);
             }
         }
 
         public void addToKeyMaps() {
             for (KeyMap item : keyMaps) {
                 if (item.modifiers.containsSome(keyMapModifiers)) {
-                    errors.add("Modifier overlap: " + item.modifiers + " already contains " + keyMapModifiers);
+                    errors.add(new KeyboardException("Modifier overlap: " + item.modifiers + " already contains " + keyMapModifiers));
                 }
                 if (item.iso2output.equals(iso2output)) {
-                    errors.add("duplicate keyboard: " + item.modifiers + " has same layout as " + keyMapModifiers);
+                    errors.add(new KeyboardException("duplicate keyboard: " + item.modifiers + " has same layout as " + keyMapModifiers));
                 }
             }
             keyMaps.add(new KeyMap(keyMapModifiers, iso2output));
@@ -561,7 +582,7 @@ public class Keyboard {
                         System.out.println("\tchars=" + chars + ";");
                     }
                     if (chars.isEmpty()) {
-                        errors.add("**Empty result at " + parts.toString());
+                        errors.add(new KeyboardException("**Empty result at " + parts.toString()));
                     }
                 } else if (attribute.equals("transform")) {
                     transformStatus = TransformStatus.fromString(attributeValue);
@@ -572,7 +593,7 @@ public class Keyboard {
                     for (String item : attributeValue.trim().split(" ")) {
                         final String fixedValue = fixValue(item);
                         if (fixedValue.isEmpty()) {
-                            // throw new IllegalArgumentException("Null string in list. " + parts);
+                            // throw new KeyboardException("Null string in list. " + parts);
                             continue;
                         }
                         list.add(fixedValue);
@@ -587,5 +608,14 @@ public class Keyboard {
             return new Output(chars, gestures, transformStatus);
         };
     }
-
+    
+    public static final class KeyboardException extends RuntimeException {
+        private static final long serialVersionUID = 3802627982169201480L;
+        public KeyboardException(String string) {
+            super(string);
+        }
+        public KeyboardException(String string, Exception e) {
+            super(string, e);
+        }
+    }
 }

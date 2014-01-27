@@ -114,8 +114,8 @@ public class ShowKeyboards {
     }
 
     public static void showRepertoire(Matcher idMatcher) {
-        Set<String> totalErrors = new LinkedHashSet<String>();
-        Set<String> errors = new LinkedHashSet<String>();
+        Set<Exception> totalErrors = new LinkedHashSet<Exception>();
+        Set<Exception> errors = new LinkedHashSet<Exception>();
         UnicodeSet controls = new UnicodeSet("[:Cc:]").freeze();
         // check what the characters are, excluding controls.
         Map<Id, UnicodeSet> id2unicodeset = new TreeMap<Id, UnicodeSet>();
@@ -134,15 +134,15 @@ public class ShowKeyboards {
                     continue;
                 }
                 Keyboard keyboard = Keyboard.getKeyboard(keyboardId, errors);
-                for (String error : errors) {
-                    totalErrors.add(keyboardId + " " + error);
+                for (Exception error : errors) {
+                    totalErrors.add(new IllegalArgumentException(keyboardId, error));
                 }
                 UnicodeSet unicodeSet = keyboard.getPossibleResults().removeAll(controls);
                 final Id id = new Id(keyboardId, keyboard.getPlatformVersion());
                 idInfo.add(id, unicodeSet);
                 String canonicalLocale = canonicalizer.transform(id.locale).replace('_', '-');
                 if (!id.locale.equals(canonicalLocale)) {
-                    totalErrors.add("Non-canonical id: " + id.locale + "\t=>\t" + canonicalLocale);
+                    totalErrors.add(new IllegalArgumentException("Non-canonical id: " + id.locale + "\t=>\t" + canonicalLocale));
                 }
                 id2unicodeset.put(id, unicodeSet.freeze());
                 locale2ids.put(id.locale, id);
@@ -203,7 +203,7 @@ public class ShowKeyboards {
     }
 
     private static void showHtml(Matcher idMatcher) throws IOException {
-        Set<String> errors = new LinkedHashSet<String>();
+        Set<Exception> errors = new LinkedHashSet<Exception>();
         Relation<String, Row.R3<String, String, String>> locale2keyboards = Relation.of(
             new TreeMap<String, Set<Row.R3<String, String, String>>>(), TreeSet.class);
         Map<String, String> localeIndex = new TreeMap<String, String>();
@@ -332,9 +332,9 @@ public class ShowKeyboards {
         System.out.println("Failing Invisibles: " + FAILING_INVISIBLE.retainAll(INVISIBLE));
     }
 
-    private static void showErrors(Set<String> errors) {
-        for (String error : errors) {
-            String title = error.contains("No minimal data for") ? "Warning" : "Error";
+    private static void showErrors(Set<Exception> errors) {
+        for (Exception error : errors) {
+            String title = error.getMessage().contains("No minimal data for") ? "Warning" : "Error";
             System.out.println("\t*" + title + ":\t" + error);
         }
     }

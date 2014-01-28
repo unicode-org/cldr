@@ -215,7 +215,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
          </div>
       
          <div id='title-locale-container' class='menu-container'>
-                <span id='title-locale'></span>
+                <a href='#locales///' id='title-locale'></a>
                 <span id='title-dcontent-container'><a href='http://cldr.unicode.org/translation/default-content' id='title-dcontent'></a></span>
          </div>
          

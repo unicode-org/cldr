@@ -3509,8 +3509,27 @@ function showV() {
 					if(surveyCurrentSpecial=='') {
 						surveyCurrentSpecial='locales';
 					}
-					surveyCurrentPage = '';
-					surveyCurrentId = '';
+					if(surveyCurrentSpecial=='locales') {
+						// allow locales list to retain ID / Page string for passthrough.
+						surveyCurrentLocale='';
+						if(pieces.length>2) {
+							surveyCurrentPage = pieces[2];
+							if(pieces.length>3){
+								surveyCurrentId = pieces[3];
+								if(surveyCurrentId.substr(0,2)=='x@') {
+									surveyCurrentId=surveyCurrentId.substr(2);
+								}
+							} else {
+								surveyCurrentId = '';
+							}
+						} else {
+							surveyCurrentPage='';
+							surveyCurrentId='';
+						}
+					} else {
+						surveyCurrentPage = '';
+						surveyCurrentId = '';
+					}
 				}
 			} else {
 				surveyCurrentLocale = '';
@@ -3798,6 +3817,11 @@ function showV() {
 						setDisplayed(titlePageContainer, false);
 //						menubuttons.set(menubuttons.page);
 					}
+				}
+				if(surveyCurrentSpecial=='' || surveyCurrentSpecial===null) {
+					dojo.byId('st-link').href = dojo.byId('title-locale').href = '#locales//'+surveyCurrentPage+'/'+surveyCurrentId;
+				} else {
+					dojo.byId('st-link').href = dojo.byId('title-locale').href = '#locales///';
 				}
 			}
 
@@ -4750,7 +4774,7 @@ function showV() {
 					var appendLocaleLink = function appendLocaleLink(subLocDiv, subLoc, subInfo) {
 						var name = locmap.getRegionAndOrVariantName(subLoc);
 						var clickyLink = createChunk(name, "a", "locName");
-						clickyLink.href = "#/"+subLoc+"//";
+						clickyLink.href = "#/"+subLoc+"/"+surveyCurrentPage+"/"+surveyCurrentId;
 						subLocDiv.appendChild(clickyLink);
 						if(subInfo.name_var) {
 							addClass(clickyLink, "name_var");

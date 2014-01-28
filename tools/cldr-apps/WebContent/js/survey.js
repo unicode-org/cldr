@@ -4851,6 +4851,7 @@ function showV() {
 					
 					surveyCurrentLocale=null;
 					surveyCurrentSpecial='locales';
+					showInPop2(stui.str("localesInitialGuidance"), null, null, null, true); /* show the box the first time */					
 				} else {
 					var msg_fmt = stui.sub("v_bad_special_msg",
 							{special: surveyCurrentSpecial });

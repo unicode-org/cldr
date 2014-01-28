@@ -51,6 +51,7 @@ import org.unicode.cldr.web.BallotBox.InvalidXPathException;
 import org.unicode.cldr.web.DataSection.DataRow;
 import org.unicode.cldr.web.SurveyMain.UserLocaleStuff;
 import org.unicode.cldr.web.UserRegistry.User;
+import org.unicode.cldr.web.WebContext.HTMLDirection;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 
@@ -689,9 +690,22 @@ public class SurveyAjax extends HttpServlet {
 
                         if ("true".equals(request.getParameter("locmap"))) {
                             r.put("locmap", getJSONLocMap(sm));
-
+                            
                             // any special messages?
                             if (mySession.user != null && mySession.user.canImportOldVotes()) {
+                                // list of modifyable locales
+                                JSONArray modifyableLocs = new JSONArray();
+                                Set<CLDRLocale> rolocs = sm.getReadOnlyLocales();
+                                for(CLDRLocale al : SurveyMain.getLocales()) {
+                                    if(rolocs.contains(al)) continue;
+                                    if(UserRegistry.userCanModifyLocale(mySession.user,al)) {
+                                        modifyableLocs.put(al.getBaseName());
+                                    }
+                                }
+                                if(modifyableLocs.length()>0) {
+                                    r.put("canmodify", modifyableLocs);
+                                }
+                                
                                 // old votes?
                                 String oldVotesPref = getOldVotesPref();
                                 String oldVoteRemind = mySession.settings().get(oldVotesPref, null);
@@ -1097,8 +1111,12 @@ public class SurveyAjax extends HttpServlet {
                 locale.put("name_var", loc.getDisplayVariant());
             }
             locale.put("bcp47", loc.toLanguageTag());
-            locale.put("dir", sm.getHTMLDirectionFor(loc));
-
+            
+            HTMLDirection dir = sm.getHTMLDirectionFor(loc);
+            if(!dir.equals("ltr")) {
+                locale.put("dir", dir);
+            }
+            
             CLDRLocale dcParent = sdi.getBaseFromDefaultContent(loc);
             CLDRLocale dcChild = sdi.getDefaultContentFromBase(loc);
             locale.put("parent", loc.getParent());
@@ -1113,8 +1131,18 @@ public class SurveyAjax extends HttpServlet {
             } else if (dcParent != null) {
                 locale.put("readonly", true);
             }
-
-            locales.put(loc.getBaseName(), locale);
+            
+            JSONArray subLocales = new JSONArray();
+            Map<String, CLDRLocale> subLocList = sm.getLocaleTree().getSubLocales(loc);
+            if(subLocList!=null && !subLocList.isEmpty()) {
+                for(CLDRLocale l : subLocList.values()) {
+                    subLocales.put(l.getBaseName());
+                }
+                if(subLocales.length()>0) {
+                    locale.put("sub", subLocales);
+                }
+            }
+            locales.put(loc.getBaseName(), locale); // note, this is in sorted (baseline) order.
         }
 
         locmap.put("locales", locales);

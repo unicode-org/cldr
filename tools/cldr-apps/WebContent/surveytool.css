@@ -778,12 +778,77 @@ tr.warnrow {
 	border: 1px solid gray;
 	background-color: #fff;
 	margin: 5px;
-
-
-/*
-
-align: left;*/
+/*align: left;*/
 }
+
+.localeList {
+    display:  table;
+    width:  auto;
+}
+
+.topLocaleRow:nth-child(even) {
+    background-color: #c5deed;
+}
+
+.topLocaleRow:nth-child(odd) {
+}
+
+.topLocaleRow:nth-child(odd) .subLocale:nth-child(even) {
+    background-color: #e4e5e5;
+}
+.topLocaleRow:nth-child(even) .subLocale:nth-child(even) {
+    background-color: #b3d1d8;
+}
+
+
+.localeList .topLocaleRow {
+    display:  table-row;
+    width:  auto;
+}
+
+.topLocale a {
+    white-space: nowrap;
+    font-weight: bold;
+    font-size:  larger;
+}
+
+.localeList a:hover {
+    color:  red;
+    background-color: silver;
+}
+
+.topLocaleRow .topLocaleDiv {
+    display:  table-cell;
+}
+.topLocaleRow .subLocaleList {
+    display:  block;
+    padding-left:  4em;
+    padding-bottom: 0.25em;
+}
+
+.subLocaleList .subLocale {
+    display: inline-block;
+    margin-right:  0.25em;
+}
+
+.subLocale a.locked.locName {
+    color:  silver;
+}
+
+.subLocale a.canmodify {
+    background: url(hand.png) left no-repeat;
+    padding-left:  18px;
+}
+
+.topLocale a.locName {
+    padding-left:  20px;
+}
+
+.name_var {
+    font-style: oblique;
+}
+
+
 
 .inputbox {
 	width: 95%;

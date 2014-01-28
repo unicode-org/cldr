@@ -207,7 +207,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
         <%-- abbreviated form of usermenu  --%>
         <div id='toptitle'>
         <div id='title-cldr-container' class='menu-container' >
-        <a href='<%= survURL %>'>
+        <a href='<%= /* survURL */ "#locales///" %>'>
          <span class='title-cldr'>CLDR <%= ctx.sm.getNewVersion() %> Survey Tool
         <%=  (ctx.sm.phase()!=SurveyMain.Phase.SUBMIT)?ctx.sm.phase().toString():"" %>
          </span>

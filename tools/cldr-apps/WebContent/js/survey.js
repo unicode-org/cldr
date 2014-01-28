@@ -3415,7 +3415,7 @@ function showV() {
 		var pages = { 
 				loading: "LoadingMessageSection",
 				data: "DynamicDataSection",
-				other: "OtherSection"
+				other: "OtherSection",
 		};
 		var flipper = new Flipper( [pages.loading, pages.data, pages.other] );
 
@@ -3507,14 +3507,14 @@ function showV() {
 				} else {
 					window.surveyCurrentSpecial = pieces[0];
 					if(surveyCurrentSpecial=='') {
-						surveyCurrentSpecial='none';
+						surveyCurrentSpecial='locales';
 					}
 					surveyCurrentPage = '';
 					surveyCurrentId = '';
 				}
 			} else {
 				surveyCurrentLocale = '';
-				surveyCurrentSpecial='none';
+				surveyCurrentSpecial='locales';
 				surveyCurrentId='';
 				surveyCurrentPage='';
 				surveyCurrentSection='';
@@ -3988,6 +3988,15 @@ function showV() {
 							
 							if(json.locmap) {
 								locmap = new LocaleMap(locmap); // overwrite with real data
+							}
+							
+							// make this into a hashmap.
+							if(json.canmodify) {
+								var canmodify = {};
+								for(var k in json.canmodify) {
+									canmodify[json.canmodify[k]]=true;
+								}
+								window.canmodify = canmodify;
 							}
 							
 							updateCovFromJson(json);
@@ -4731,6 +4740,93 @@ function showV() {
 					hideLoader(null);
 					isLoading=false;
 					window.location = survURL; // redirect home
+				} else if(surveyCurrentSpecial == 'locales') {
+					//for now - redurect
+					hideLoader(null);
+					isLoading=false;					
+					var theDiv = document.createElement("div");
+					theDiv.className = 'localeList';
+
+					var appendLocaleLink = function appendLocaleLink(subLocDiv, subLoc, subInfo) {
+						var name = locmap.getRegionAndOrVariantName(subLoc);
+						var clickyLink = createChunk(name, "a", "locName");
+						clickyLink.href = "#/"+subLoc+"//";
+						subLocDiv.appendChild(clickyLink);
+						if(subInfo.name_var) {
+							addClass(clickyLink, "name_var");
+						}
+						clickyLink.title=subLoc; // remove auto generated "locName.title"
+						
+						if(subInfo.readonly) {
+	        				addClass(clickyLink, "locked");
+	        				if(subInfo.readonly_why) {
+	        					clickyLink.title = subInfo.readonly_why;
+	        				} else if(subInfo.dcChild) {
+	        					clickyLink.title = stui.sub("defaultContentChild_msg", { info: subInfo, locale: subLoc, dcChildName: locmap.getLocaleName(subInfo.dcChild)});
+	        				} else {
+	        					clickyLink.title = 	stui.str("readonlyGuidance");
+	        				}
+						} else if(window.canmodify && subLoc in window.canmodify) {
+							addClass(clickyLink, "canmodify");
+						}
+						return clickyLink;
+					};
+					
+					var addSubLocale;
+					
+					addSubLocale = function addSubLocale(parLocDiv, subLoc) {
+						var subLocInfo = locmap.getLocaleInfo(subLoc);
+						var subLocDiv = createChunk(null, "div", "subLocale");
+						appendLocaleLink(subLocDiv, subLoc, subLocInfo);
+						
+						parLocDiv.appendChild(subLocDiv);
+					};
+					
+					var addSubLocales = function addSubLocales(parLocDiv, subLocInfo) {
+						if(subLocInfo.sub) {
+							for(var n in subLocInfo.sub) {
+								var subLoc = subLocInfo.sub[n];
+								addSubLocale(parLocDiv, subLoc);
+							}
+						}
+					};
+					
+					var addTopLocale = function addTopLocale(topLoc) {
+						var topLocInfo = locmap.getLocaleInfo(topLoc);
+
+
+						var topLocRow = document.createElement("div");
+						topLocRow.className="topLocaleRow";
+
+						var topLocDiv = document.createElement("div");
+						topLocDiv.className="topLocale";
+						appendLocaleLink(topLocDiv, topLoc, topLocInfo);
+
+						var topLocList = document.createElement("div");
+						topLocList.className="subLocaleList";
+						
+						addSubLocales(topLocList, topLocInfo);
+						
+						topLocRow.appendChild(topLocDiv);
+						topLocRow.appendChild(topLocList);
+						theDiv.appendChild(topLocRow);
+					};
+					
+					
+					addTopLocale("root");
+					// top locales
+					for(var n in locmap.locmap.topLocales) {
+						var topLoc = locmap.locmap.topLocales[n];
+						addTopLocale(topLoc);						
+					}
+					
+					//theDiv.appendChild(createChunk(locmap.locmap.topLocales.length));
+					
+					
+					flipper.flipTo(pages.other, theDiv);
+					
+					surveyCurrentLocale=null;
+					surveyCurrentSpecial='locales';
 				} else {
 					var msg_fmt = stui.sub("v_bad_special_msg",
 							{special: surveyCurrentSpecial });
@@ -4777,6 +4873,16 @@ function showV() {
 					return;
 				} else {
 					locmap = new LocaleMap(json.locmap);
+
+					// make this into a hashmap.
+					if(json.canmodify) {
+						var canmodify = {};
+						for(var k in json.canmodify) {
+							canmodify[json.canmodify[k]]=true;
+						}
+						window.canmodify = canmodify;
+					}
+					
 
 					// any special message? "oldVotesRemind":{"count":60,"pref":"oldVoteRemind24", "remind":"* | ##"}
 					if(json.oldVotesRemind && surveyCurrentSpecial!='oldvotes') {

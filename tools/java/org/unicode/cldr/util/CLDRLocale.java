@@ -149,13 +149,13 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
 
         @Override
         public String getDisplayName(CLDRLocale cldrLocale) {
-            if (file != null) return file.getName(cldrLocale.toLanguageTag(), true, null);
+            if (file != null) return file.getName(cldrLocale.toDisplayLanguageTag(), true, null);
             return super.getDisplayName(cldrLocale);
         }
 
         @Override
         public String getDisplayName(CLDRLocale cldrLocale, boolean onlyConstructCompound, Transform<String, String> altPicker) {
-            if (file != null) return file.getName(cldrLocale.toLanguageTag(), onlyConstructCompound, altPicker);
+            if (file != null) return file.getName(cldrLocale.toDisplayLanguageTag(), onlyConstructCompound, altPicker);
             return super.getDisplayName(cldrLocale);
         }
 
@@ -232,6 +232,18 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      */
     private CLDRLocale(ULocale loc) {
         init(loc);
+    }
+
+    /**
+     * Returns the BCP47 langauge tag for all except root. For root, returns "root".
+     * @return
+     */
+    private String toDisplayLanguageTag() {
+        if(getBaseName().equals("root")) {
+            return "root";
+        } else {
+            return toLanguageTag();
+        }
     }
 
     /**

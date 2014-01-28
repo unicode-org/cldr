@@ -245,10 +245,10 @@ define({
 		v_oldvote_remind_dontask: "No, and don't ask again",
 		"v-title_desc": "This area shows the date before which votes are considered “old”.",
 		special_oldvotes: "Import Old Votes",
+		special_locales: "Locale List",
 		section_general: "General Info",
 		section_forum: "Forum",
 		section_subpages: "Subpages",
-		
 		section_help: "Choose an item from the 'Subpages' menu to begin working with this section.",
 		
         section_info_Core_Data:  "The Core Data is vital for proper functioning of each locale. Because changes can disrupt the survey tool, data can only be changed via tickets. Please also review the Plural Rules for your locale: they are also vital.",

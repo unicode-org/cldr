@@ -123,6 +123,7 @@ import com.ibm.icu.util.ULocale;
  */
 public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Externalizable {
 
+    private static final String VURL_LOCALES = "v#locales///";
     public static final String CLDR_OLDVERSION = "CLDR_OLDVERSION";
     public static final String CLDR_NEWVERSION = "CLDR_NEWVERSION";
     public static final String CLDR_DIR = "CLDR_DIR";
@@ -3627,7 +3628,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             title = title + " Example";
         } else if (which == null || which.isEmpty()) {
             if (ctx.getLocale() == null) {
-                title = "Locales";
+                ctx.redirect(ctx.context(VURL_LOCALES));
+                ctx.redirectToVurl(ctx.context(VURL_LOCALES)); // may blink.
+                return;
             } else {
                 title = ""; // general";
             }
@@ -4021,8 +4024,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             printPathListOpen(ctx);
         }
         if ((locale == null) || (locale.length() <= 0)) {
-            doLocaleList(ctx, baseContext);
-            ctx.println("<br/>");
+            ctx.println("<i>Loading locale list...</i>");
+            ctx.flush();
+            ctx.redirectToVurl(ctx.context(VURL_LOCALES)); // may blink.
+            return;
+            //doLocaleList(ctx, baseContext);
+            //ctx.println("<br/>");
         } else {
             showLocale(ctx, which, whyBad);
         }

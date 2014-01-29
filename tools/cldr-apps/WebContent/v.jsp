@@ -281,7 +281,16 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 					         <% for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) { %>
 						<div data-dojo-type="dijit/MenuItem"
 							data-dojo-props="<%-- iconClass:menu-o  --%>onClick:function(){
+									<% if(m.hasQuery()) { %>
                                                 window.location='<%= survURL + "?" + m.urlQuery() %>&_=' + surveyCurrentLocale;
+                                     <% } else {
+                                    	 	// can do in 'embedded' mode
+                                    	 	%>
+                                     			surveyCurrentSpecial = '<%= m.urlStub() %>';
+                                     			surveyCurrentId = '';
+                                     			surveyCurrentPage = '';
+                                     			reloadV();
+                                     <% } %>
                                         }"><%= m.display() %></div>
           <% } %>
                     </div>

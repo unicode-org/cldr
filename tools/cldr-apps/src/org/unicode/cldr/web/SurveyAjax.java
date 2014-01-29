@@ -1,8 +1,10 @@
 package org.unicode.cldr.web;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.io.StringBufferInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -200,7 +202,8 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_FORUM_FETCH = "forum_fetch";
     public static final String WHAT_FORUM_COUNT = "forum_count";
     public static final String WHAT_POSS_PROBLEMS = "possibleProblems";
-    public static final Object WHAT_GET_MENUS = "menus";
+    public static final String WHAT_GET_MENUS = "menus";
+    public static final String WHAT_REPORT = "report";
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "oldVoteRemind", "dummy" }; // list

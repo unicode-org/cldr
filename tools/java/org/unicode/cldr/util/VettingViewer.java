@@ -1176,9 +1176,9 @@ public class VettingViewer<T> {
     private void appendNameAndCode(String name, String localeID, Appendable output) throws IOException {
         String[] names = name.split(SPLIT_CHAR);
         output
-        .append("<a target='CLDR-ST-LOCALE' href='" + baseUrl + "?_=")
+        .append("<a href='" + PathHeader.trimLast(baseUrl) + "v#r_vetting/")
         .append(localeID)
-        .append("&x=r_vetting&p_covlev=default'>")
+        .append("/'>")
         .append(TransliteratorUtilities.toHTML.transform(names[0]))
         .append("</a>")
         .append("</th>")
@@ -1593,7 +1593,7 @@ public class VettingViewer<T> {
 
                 output.append("\n<h2 class='tv-s'>Section: ")
                 .append(section.toString())
-                .append(" — <i><a target='CLDR_ST-SECTION' href='")
+                .append(" — <i><a "+/*target='CLDR_ST-SECTION' */"href='")
                 .append(getPageUrl(localeId, subsection))
                 .append("'>Page: ")
                 .append(subsection.toString())
@@ -1655,7 +1655,7 @@ public class VettingViewer<T> {
                         : "tv-win", HTMLType.plain);
                     // Fix?
                     // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
-                    output.append(" <td class='tv-fix'><a target='CLDR-ST-ZOOMED' href='")
+                    output.append(" <td class='tv-fix'><a href='")
                     .append(pathInfo.getUrl(localeId)) // .append(c)baseUrl + "?_=")
                     // .append(localeID)
                     // .append("&amp;xpath=")
@@ -1665,7 +1665,7 @@ public class VettingViewer<T> {
                     // String otherUrl = pathInfo.getUrl(sourceFile.getLocaleID());
                     output.append("</a></td>");
                     // if (!otherUrl.equals(url)) {
-                    // output.append("<td class='tv-test'><a target='CLDR_ST-SECTION' href='")
+                    // output.append("<td class='tv-test'><a "+/*target='CLDR_ST-SECTION' */"href='")
                     // .append(otherUrl)
                     // .append("'><i>Section*</i></a></td>");
                     // }

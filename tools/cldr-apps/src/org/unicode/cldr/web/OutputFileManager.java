@@ -1390,14 +1390,18 @@ public class OutputFileManager {
 
     // update the cache
     public static void updateLocaleDisplayName(CLDRFile f, CLDRLocale l) {
-        Pair<String, String> ret = statGetLocaleDisplayName(l);
-        String newValue = (f.getName(l.getBaseName()));
-        if (DEBUG) {
-            if (!newValue.equals(ret.getSecond())) {
-                System.out.println("Setting: " + newValue + " insteadof " + ret.getSecond() + " for " + ret.getFirst());
+        try {
+            Pair<String, String> ret = statGetLocaleDisplayName(l);
+            String newValue = (f.getName(l.getBaseName()));
+            if (DEBUG) {
+                if (!newValue.equals(ret.getSecond())) {
+                    System.out.println("Setting: " + newValue + " insteadof " + ret.getSecond() + " for " + ret.getFirst());
+                }
             }
+            ret.setSecond(newValue);
+        } catch(Throwable t) {
+            SurveyLog.logException(t, "Updating the Locale Display Name for " + l.getBaseName()+ " with language tag " + l.toLanguageTag());
         }
-        ret.setSecond(newValue);
     }
 
 }

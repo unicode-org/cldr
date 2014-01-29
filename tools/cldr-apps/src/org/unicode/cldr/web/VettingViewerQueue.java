@@ -42,7 +42,7 @@ public class VettingViewerQueue {
 
     public static final boolean DEBUG = false || CldrUtility.getProperty("TEST", false);
 
-    public static CLDRLocale SUMMARY_LOCALE = CLDRLocale.getInstance(ULocale.forLanguageTag("und-x-summary"));
+    public static CLDRLocale SUMMARY_LOCALE = CLDRLocale.getInstance(ULocale.forLanguageTag("und-vetting"));
 
     static VettingViewerQueue instance = new VettingViewerQueue();
 
@@ -52,8 +52,6 @@ public class VettingViewerQueue {
      * @return
      */
     public static VettingViewerQueue getInstance() {
-        // if(DEBUG)
-        // System.err.println("SUMMARY_LOCALE="+SUMMARY_LOCALE.toString());
         return instance;
     }
 

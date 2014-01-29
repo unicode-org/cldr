@@ -204,17 +204,24 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public enum ReportMenu {
         PRIORITY_ITEMS("Priority Items", SurveyMain.R_VETTING),
-        PRIORITY_ITEMS_QUICK("Priority Items (Quick)", SurveyMain.R_VETTING + "&quick=true"),
-        DATE_TIME("Date/Time", "r_datetime&calendar=gregorian"),
+        PRIORITY_ITEMS_QUICK("Priority Items (Quick)", SurveyMain.R_VETTING ,"quick=true"),
+        DATE_TIME("Date/Time", "r_datetime","calendar=gregorian"),
         ZONES("Zones", "r_zones"),
         NUMBERS("Numbers", "r_compact");
 
         private String display;
         private String url;
+        private String query;
 
         private ReportMenu(String d, String u) {
             display = d;
             url = u;
+            query = null;
+        }
+        private ReportMenu(String d, String u, String q) {
+            display = d;
+            url = u;
+            query = q;
         }
 
         public String urlStub() {
@@ -222,7 +229,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
 
         public String urlQuery() {
-            return SurveyMain.QUERY_SECTION + "=" + urlStub();
+            if(query == null) {
+                return SurveyMain.QUERY_SECTION + "=" + url;
+            } else {
+                return SurveyMain.QUERY_SECTION + "=" + url + "&" + query;
+            }
+        }
+        
+        public boolean hasQuery() {
+            return query != null;
         }
 
         public String urlFull(String base, String locale) {
@@ -4311,7 +4326,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
 
             if (which.startsWith(REPORT_PREFIX)) {
-                doReport(subCtx, which);
+                if(!subCtx.doReport(which)) {
+                    doMain(ctx);
+                }
             } else if (pageId != null && !which.equals(xMAIN)) {
                 showPathList(subCtx, which, pageId);
             } else if (RAW_MENU_ITEM.equals(which)) {
@@ -4331,37 +4348,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private CheckCLDR getCheck(WebContext ctx, UserLocaleStuff uf) {
         return (CheckCLDR) uf.getCheck(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()),
             ctx.getOptionsMap());
-    }
-
-    private static Pattern reportSuffixPattern = Pattern.compile("^[0-9a-z]([0-9a-z_]*)$");
-
-    /**
-     * Is this a legal report suffix? Must contain one or more of [0-9a-z].
-     * 
-     * @param suffix
-     *            The suffix (not including r_)
-     * @return true if legal.
-     */
-    public static final boolean isLegalReportSuffix(String suffix) {
-        return reportSuffixPattern.matcher(suffix).matches();
-    }
-
-    /**
-     * Show a 'report' template (r_)
-     * 
-     * @param ctx
-     *            context- preset with Locale
-     * @param which
-     *            current section
-     */
-    public void doReport(WebContext ctx, String which) {
-        if (isLegalReportSuffix(which.substring(2))) {
-            ctx.flush();
-            ctx.includeFragment(which + ".jsp");
-        } else {
-            ctx.println("<i>Illegal report name: " + which + "</i><br/>");
-            doMain(ctx);
-        }
     }
 
     /**

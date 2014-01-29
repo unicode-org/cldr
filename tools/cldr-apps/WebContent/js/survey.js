@@ -55,6 +55,10 @@ if(!String.prototype.trim && !String.trim) {
  * @class GLOBAL
  */
 
+function isReport(str) {
+	return (str[0]=='r' && str[1]=='_');
+}
+
 /**
  * @method removeClass
  * remove a CSS class from a node
@@ -3526,6 +3530,18 @@ function showV() {
 							surveyCurrentPage='';
 							surveyCurrentId='';
 						}
+					} else if(isReport(surveyCurrentSpecial)) { // allow page and ID to fall through.
+						if(pieces.length>2) {
+							surveyCurrentPage = pieces[2];
+							if(pieces.length>3){
+								surveyCurrentId = pieces[3];
+							} else {
+								surveyCurrentId = '';
+							}
+						} else {
+							surveyCurrentPage='';
+							surveyCurrentId='';
+						}
 					} else {
 						surveyCurrentPage = '';
 						surveyCurrentId = '';
@@ -4759,6 +4775,37 @@ function showV() {
 							
 						}
 					});
+				} else if(isReport(surveyCurrentSpecial)) {
+					showInPop2(stui.str("reportGuidance"), null, null, null, true); /* show the box the first time */					
+					require([
+					         "dojo/ready",
+					         "dojo/dom",
+					         "dojo/dom-construct",
+					         "dojo/request",
+					         "dojo/number",
+					         "dojo/domReady!"
+					         ],
+					         // HANDLES
+					         function(
+					        		 ready,
+					        		 dom,
+					        		 dcons,
+					        		 request,
+					        		 dojoNumber
+					        ) { ready(function(){
+					        	
+								var url = contextPath + "/EmbeddedReport.jsp?x="+surveyCurrentSpecial+"&_="+surveyCurrentLocale+"&s="+surveySessionId+cacheKill();
+
+								request
+				    			.get(url, {handleAs: 'html'})
+				    			.then(function(html) {
+
+									hideLoader(null,stui.loading2);
+									isLoading=false;
+									flipper.flipTo(pages.other, domConstruct.toDom(html));
+								});
+					        });
+					 });
 				} else if(surveyCurrentSpecial == 'none') {
 					//for now - redurect
 					hideLoader(null);

@@ -38,7 +38,10 @@ import com.ibm.icu.util.ULocale;
  * categories, eg for the Survey tool.
  */
 public class PathHeader implements Comparable<PathHeader> {
-    public static final String SECTION_LINK = "<a target='CLDR_ST-SECTION' href='";
+    /**
+     * Link to a section. Commenting out the page switch for now.
+     */
+    public static final String SECTION_LINK = "<a " + /* "target='CLDR_ST-SECTION' "+*/ "href='";
     static boolean UNIFORM_CONTINENTS = true;
     static Factory factorySingleton = null;
 
@@ -1507,14 +1510,25 @@ public class PathHeader implements Comparable<PathHeader> {
     public String getUrl(String baseUrl, String locale) {
         return getUrl(baseUrl, locale, getOriginalPath());
     }
+    
+    /**
+     * Map http://st.unicode.org/smoketest/survey  to http://st.unicode.org/smoketest etc
+     * @param str
+     * @return
+     */
+    public static String trimLast(String str) {
+        int n = str.lastIndexOf('/');
+        if(n==-1) return "";
+        return str.substring(0,n+1);
+    }
 
     public static String getUrl(String baseUrl, String locale, String path) {
-        return baseUrl + "?_=" + locale + "&strid=" + StringId.getHexId(path);
+        return trimLast(baseUrl)+"v#/"+locale+"//"+ StringId.getHexId(path);
     }
 
     // eg http://st.unicode.org/cldr-apps/survey?_=fr&x=Locale%20Name%20Patterns
-    public static String getPageUrl(String baseUrl, String localeId, PageId subsection) {
-        return baseUrl + "?_=" + localeId + "&x=" + subsection;
+    public static String getPageUrl(String baseUrl, String locale, PageId subsection) {
+        return trimLast(baseUrl)+"v#/"+locale+"/"+ subsection + "/";
     }
 
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {

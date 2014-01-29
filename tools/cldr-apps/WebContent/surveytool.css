@@ -29,11 +29,23 @@ Color english brown
 }
 */
 
+/* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
+@font-face {
+font-family:'MON3 Anonta 1';
+src:local('MON3 Anonta 1'),url('http://mmwebfonts.comquas.com/fonts/mon3.ttf');
+}
+
+/* 
+Remove these to save load time.
 @import url('http://mmwebfonts.comquas.com/fonts/?font=padauk');
 @import url('http://mmwebfonts.comquas.com/fonts/?font=myanmar3');
+*/
 
+/*
+Use padauk or MM3 if available, otherwise Mon3.
+*/
 :lang(my) {
-  font-family:padauk,Myanmar3;
+  font-family:padauk,Myanmar3,'MON3 Anonta 1';
 }
 
 span.age  {

@@ -138,10 +138,16 @@ static void writeMenu(JspWriter jout, WebContext wCtx, String title,
 		/* ctx.includeFragment("report_menu.jsp");  don't use JSP include, because of variables */
 %>
 	      <br><b>Review:</b> 
-	      <% for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) { %>
-	      <label class='menutop-other'><a href="<%= m.urlFull(ctx.base(), ctx.getLocale().getBaseName()).replace("&", "&amp;")%>" class="<%=
-	    		     request.getQueryString().contains(m.urlQuery())?"selected":"notselected"
-	               %>"><%= m.display() %></a></label> 
+	      <% for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) { 
+	    	  final String theClass = request.getQueryString().contains(m.urlQuery())?"selected":"notselected";
+	      	  String url;
+	    	  if(m.hasQuery()) {
+	      		  url = m.urlFull(ctx.base(), ctx.getLocale().getBaseName()).replace("&", "&amp;");
+	    	  } else {
+	    		  url = ctx.context()+"/v#"+m.urlStub()+"/"+ctx.getLocale();
+	    	  }
+		      %>
+		      <label class='menutop-other'><a href="<%= url %>" class="<%= theClass %>"><%= m.display() %></a></label> 
 	      <% } %>
         <br />
         <%

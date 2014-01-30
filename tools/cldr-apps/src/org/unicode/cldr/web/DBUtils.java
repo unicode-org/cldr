@@ -1332,6 +1332,13 @@ public class DBUtils {
     }
 
     public static JSONObject queryToJSON(String string, Object... args) throws SQLException, IOException, JSONException {
+        return queryToJSONLimit(null, string, args);
+    }
+    
+    public static JSONObject queryToJSONLimit(Integer limit, String string, Object... args) throws SQLException, IOException, JSONException {
+        if(limit!=null && DBUtils.db_Mysql) {
+            string = string + " limit " + limit;
+        }
         Connection conn = null;
         PreparedStatement s = null;
         ResultSet rs = null;
@@ -1339,6 +1346,9 @@ public class DBUtils {
             conn = getInstance().getDBConnection();
             s = DBUtils.prepareForwardReadOnly(conn, string);
             setArgs(s, args);
+            if(limit!=null && !DBUtils.db_Mysql) {
+                s.setMaxRows(limit);
+            }
             rs = s.executeQuery();
             return getJSON(rs);
         } finally {

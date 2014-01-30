@@ -293,18 +293,22 @@ public class SurveyAjax extends HttpServlet {
                 String votesAfterString = SurveyMain.getVotesAfterString();
                 JSONWriter r = newJSONStatus(sm);
                 final String day = DBUtils.db_Mysql ? "DATE_FORMAT(last_mod, '%Y-%m-%d')" : "last_mod ";
+                final String sql =  "select submitter," + day + " as day,locale,count(*) as count from "+DBUtils.Table.VOTE_VALUE
+                    + " group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod)  order by day desc";
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000,
-                    "select submitter," + day + " as day,locale,count(*) as count from "+DBUtils.Table.VOTE_VALUE
-                        + " group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod)  order by day desc");
+                    sql);
                 r.put(what, query);
                 r.put("after", votesAfterString);
                 send(r, out);
                 // select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale,count(*) from "+DBUtils.Table.VOTE_VALUE+" group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod) order by day desc limit 10000;
             } else if (what.equals(WHAT_STATS_BYDAY)) {
                 JSONWriter r = newJSONStatus(sm);
+                final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from "+DBUtils.Table.VOTE_VALUE
+                    + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc" )  // mysql
+                            : ("select count(*) as count ,Date("+DBUtils.Table.VOTE_VALUE+".last_mod) as last_mod from "+DBUtils.Table.VOTE_VALUE
+                                + " group by Date("+DBUtils.Table.VOTE_VALUE+".last_mod)" ); // derby
                 JSONObject query = DBUtils
-                    .queryToCachedJSON(what, (5 * 60 * 1000), "select count(*) as count ,last_mod from "+DBUtils.Table.VOTE_VALUE
-                        + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc");
+                    .queryToCachedJSON(what, (5 * 60 * 1000), sql);
                 r.put("byday", query);
                 r.put("after", "n/a");
                 send(r, out);
@@ -335,7 +339,7 @@ public class SurveyAjax extends HttpServlet {
                 }
                 String q1 = "select "+DBUtils.Table.VOTE_VALUE+".locale,cldr_xpaths.xpath,cldr_users.org, "+DBUtils.Table.VOTE_VALUE+".value, "+DBUtils.Table.VOTE_VALUE+".last_mod  from cldr_xpaths,"+DBUtils.Table.VOTE_VALUE+",cldr_users  where ";
                 String q2 = "cldr_xpaths.id="+DBUtils.Table.VOTE_VALUE+".xpath and cldr_users.id="+DBUtils.Table.VOTE_VALUE+".submitter"
-                    + "  order by "+DBUtils.Table.VOTE_VALUE+".last_mod desc limit ?";
+                    + "  order by "+DBUtils.Table.VOTE_VALUE+".last_mod desc ";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;
                 if (user != null && !user.isEmpty())
@@ -344,17 +348,16 @@ public class SurveyAjax extends HttpServlet {
                     } catch (Throwable t) {
                         SurveyLog.logException(t, "Parsing user " + user);
                     }
-
+                System.out.println("SQL: " + q1+q2);
                 JSONObject query;
                 if (l == null && u == null) {
-                    query = DBUtils.queryToJSON(q1 + q2, limit);
+                    query = DBUtils.queryToJSONLimit(limit, q1 + q2);
                 } else if (u == null && l != null) {
-                    query = DBUtils.queryToJSON(q1 + " "+DBUtils.Table.VOTE_VALUE+".locale=? AND " + q2, l, limit);
+                    query = DBUtils.queryToJSONLimit(limit, q1 + " "+DBUtils.Table.VOTE_VALUE+".locale=? AND " + q2, l);
                 } else if (u != null && l == null) {
-                    query = DBUtils.queryToJSON(q1 + " "+DBUtils.Table.VOTE_VALUE+".submitter=? AND " + q2, u.id, limit);
+                    query = DBUtils.queryToJSONLimit(limit, q1 + " "+DBUtils.Table.VOTE_VALUE+".submitter=? AND " + q2, u.id);
                 } else {
-                    query = DBUtils.queryToJSON(q1 + " "+DBUtils.Table.VOTE_VALUE+".locale=? AND "+DBUtils.Table.VOTE_VALUE+".submitter=? " + q2, l, u.id,
-                        limit);
+                    query = DBUtils.queryToJSONLimit(limit, q1 + " "+DBUtils.Table.VOTE_VALUE+".locale=? AND "+DBUtils.Table.VOTE_VALUE+".submitter=? " + q2, l, u.id);
                 }
                 r.put("recent", query);
                 send(r, out);

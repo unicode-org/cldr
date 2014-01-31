@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='th-t-k0-osx'>
-	<version platform='10.4' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="th-t-k0-osx">
+	<version platform="10.9" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Thai'/>
+		<name value="Thai"/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="-"/> <!-- ` -->
@@ -56,57 +56,7 @@
 		<map iso="B10" to="ฝ"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shiftL'>
-		<map iso="E00" to="%"/> <!-- `  base=- -->
-		<map iso="E01" to="+"/> <!-- 1  base=ๅ -->
-		<map iso="E02" to="๑"/> <!-- 2  base=/ -->
-		<map iso="E03" to="๒"/> <!-- 3  base=_ -->
-		<map iso="E04" to="๓"/> <!-- 4  base=ภ -->
-		<map iso="E05" to="๔"/> <!-- 5  base=ถ -->
-		<map iso="E06" to="\u{E39}"/> <!-- 6  base=ุ  to= ู  -->
-		<map iso="E07" to="฿"/> <!-- 7  base=ึ -->
-		<map iso="E08" to="๕"/> <!-- 8  base=ค -->
-		<map iso="E09" to="๖"/> <!-- 9  base=ต -->
-		<map iso="E10" to="๗"/> <!-- 0  base=จ -->
-		<map iso="E11" to="๘"/> <!-- -  base=ข -->
-		<map iso="E12" to="๙"/> <!-- =  base=ช -->
-		<map iso="D01" to="๐"/> <!-- Q  base=ๆ -->
-		<map iso="D02" to="\u{22}"/> <!-- W  base=ไ  to= "  -->
-		<map iso="D03" to="ฎ"/> <!-- E  base=ำ -->
-		<map iso="D04" to="ฑ"/> <!-- R  base=พ -->
-		<map iso="D05" to="ธ"/> <!-- T  base=ะ -->
-		<map iso="D06" to="\u{E4D}"/> <!-- Y  base=ั  to= ํ  -->
-		<map iso="D07" to="\u{E4A}"/> <!-- U  base=ี  to= ๊  -->
-		<map iso="D08" to="ณ"/> <!-- I  base=ร -->
-		<map iso="D09" to="ฯ"/> <!-- O  base=น -->
-		<map iso="D10" to="ญ"/> <!-- P  base=ย -->
-		<map iso="D11" to="ฐ"/> <!-- [  base=บ -->
-		<map iso="D12" to=","/> <!-- ]  base=ล -->
-		<map iso="D13" to="ฅ"/> <!-- \  base=ฃ -->
-		<map iso="C01" to="ฤ"/> <!-- A  base=ฟ -->
-		<map iso="C02" to="ฆ"/> <!-- S  base=ห -->
-		<map iso="C03" to="ฏ"/> <!-- D  base=ก -->
-		<map iso="C04" to="โ"/> <!-- F  base=ด -->
-		<map iso="C05" to="ฌ"/> <!-- G  base=เ -->
-		<map iso="C06" to="\u{E47}"/> <!-- H  base=้  to= ็  -->
-		<map iso="C07" to="\u{E4B}"/> <!-- J  base=่  to= ๋  -->
-		<map iso="C08" to="ษ"/> <!-- K  base=า -->
-		<map iso="C09" to="ศ"/> <!-- L  base=ส -->
-		<map iso="C10" to="ซ"/> <!-- ;  base=ว -->
-		<map iso="C11" to="."/> <!-- '  base=ง -->
-		<map iso="B01" to="("/> <!-- Z  base=ผ -->
-		<map iso="B02" to=")"/> <!-- X  base=ป -->
-		<map iso="B03" to="ฉ"/> <!-- C  base=แ -->
-		<map iso="B04" to="ฮ"/> <!-- V  base=อ -->
-		<map iso="B05" to="\u{E3A}"/> <!-- B  base=ิ  to= ฺ  -->
-		<map iso="B06" to="\u{E4C}"/> <!-- N  base=ื  to= ์  -->
-		<map iso="B07" to="?"/> <!-- M  base=ท -->
-		<map iso="B08" to="ฒ"/> <!-- ,  base=ม -->
-		<map iso="B09" to="ฬ"/> <!-- .  base=ใ -->
-		<map iso="B10" to="ฦ"/> <!-- /  base=ฝ -->
-		<map iso="A03" to="\u{200B}"/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='shiftR+shiftL? caps+shift'>
+	<keyMap modifiers="shiftR+shiftL? cmd+shift+opt?+caps?">
 		<map iso="E00" to="~"/> <!-- `  base=- -->
 		<map iso="E01" to="!"/> <!-- 1  base=ๅ -->
 		<map iso="E02" to="@"/> <!-- 2  base=/ -->
@@ -156,7 +106,57 @@
 		<map iso="B10" to="?"/> <!-- /  base=ฝ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps cmd+shift? cmd+shift+caps?'>
+	<keyMap modifiers="shiftL">
+		<map iso="E00" to="%"/> <!-- `  base=- -->
+		<map iso="E01" to="+"/> <!-- 1  base=ๅ -->
+		<map iso="E02" to="๑"/> <!-- 2  base=/ -->
+		<map iso="E03" to="๒"/> <!-- 3  base=_ -->
+		<map iso="E04" to="๓"/> <!-- 4  base=ภ -->
+		<map iso="E05" to="๔"/> <!-- 5  base=ถ -->
+		<map iso="E06" to="\u{E39}"/> <!-- 6  base=ุ  to= ู  -->
+		<map iso="E07" to="฿"/> <!-- 7  base=ึ -->
+		<map iso="E08" to="๕"/> <!-- 8  base=ค -->
+		<map iso="E09" to="๖"/> <!-- 9  base=ต -->
+		<map iso="E10" to="๗"/> <!-- 0  base=จ -->
+		<map iso="E11" to="๘"/> <!-- -  base=ข -->
+		<map iso="E12" to="๙"/> <!-- =  base=ช -->
+		<map iso="D01" to="๐"/> <!-- Q  base=ๆ -->
+		<map iso="D02" to="\u{22}"/> <!-- W  base=ไ  to= "  -->
+		<map iso="D03" to="ฎ"/> <!-- E  base=ำ -->
+		<map iso="D04" to="ฑ"/> <!-- R  base=พ -->
+		<map iso="D05" to="ธ"/> <!-- T  base=ะ -->
+		<map iso="D06" to="\u{E4D}"/> <!-- Y  base=ั  to= ํ  -->
+		<map iso="D07" to="\u{E4A}"/> <!-- U  base=ี  to= ๊  -->
+		<map iso="D08" to="ณ"/> <!-- I  base=ร -->
+		<map iso="D09" to="ฯ"/> <!-- O  base=น -->
+		<map iso="D10" to="ญ"/> <!-- P  base=ย -->
+		<map iso="D11" to="ฐ"/> <!-- [  base=บ -->
+		<map iso="D12" to=","/> <!-- ]  base=ล -->
+		<map iso="D13" to="ฅ"/> <!-- \  base=ฃ -->
+		<map iso="C01" to="ฤ"/> <!-- A  base=ฟ -->
+		<map iso="C02" to="ฆ"/> <!-- S  base=ห -->
+		<map iso="C03" to="ฏ"/> <!-- D  base=ก -->
+		<map iso="C04" to="โ"/> <!-- F  base=ด -->
+		<map iso="C05" to="ฌ"/> <!-- G  base=เ -->
+		<map iso="C06" to="\u{E47}"/> <!-- H  base=้  to= ็  -->
+		<map iso="C07" to="\u{E4B}"/> <!-- J  base=่  to= ๋  -->
+		<map iso="C08" to="ษ"/> <!-- K  base=า -->
+		<map iso="C09" to="ศ"/> <!-- L  base=ส -->
+		<map iso="C10" to="ซ"/> <!-- ;  base=ว -->
+		<map iso="C11" to="."/> <!-- '  base=ง -->
+		<map iso="B01" to="("/> <!-- Z  base=ผ -->
+		<map iso="B02" to=")"/> <!-- X  base=ป -->
+		<map iso="B03" to="ฉ"/> <!-- C  base=แ -->
+		<map iso="B04" to="ฮ"/> <!-- V  base=อ -->
+		<map iso="B05" to="\u{E3A}"/> <!-- B  base=ิ  to= ฺ  -->
+		<map iso="B06" to="\u{E4C}"/> <!-- N  base=ื  to= ์  -->
+		<map iso="B07" to="?"/> <!-- M  base=ท -->
+		<map iso="B08" to="ฒ"/> <!-- ,  base=ม -->
+		<map iso="B09" to="ฬ"/> <!-- .  base=ใ -->
+		<map iso="B10" to="ฦ"/> <!-- /  base=ฝ -->
+		<map iso="A03" to="\u{200B}"/> <!-- space -->
+	</keyMap>
+	<keyMap modifiers="caps+cmd?">
 		<map iso="E00" to="`"/> <!--   base=- -->
 		<map iso="E01" to="1"/> <!--   base=ๅ -->
 		<map iso="E02" to="2"/> <!--   base=/ -->
@@ -206,26 +206,7 @@
 		<map iso="B10" to="/"/> <!--   base=ฝ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt optL+caps'>
-		<map iso="E02" to="™"/> <!-- 2  base=/ -->
-		<map iso="E08" to="•"/> <!-- 8  base=ค -->
-		<map iso="E11" to="–"/> <!-- -  base=ข -->
-		<map iso="D04" to="®"/> <!-- R  base=พ -->
-		<map iso="D11" to="“"/> <!-- [  base=บ -->
-		<map iso="D12" to="‘"/> <!-- ]  base=ล -->
-		<map iso="D13" to="«"/> <!-- \  base=ฃ -->
-		<map iso="C05" to="©"/> <!-- G  base=เ -->
-		<map iso="C10" to="…"/> <!-- ;  base=ว -->
-		<map iso="A03" to="\u{A0}"/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='opt+shift+cmd?+caps?'>
-		<map iso="E11" to="—"/> <!-- -  base=ข -->
-		<map iso="D11" to="”"/> <!-- [  base=บ -->
-		<map iso="D12" to="’"/> <!-- ]  base=ล -->
-		<map iso="D13" to="»"/> <!-- \  base=ฃ -->
-		<map iso="A03" to="\u{FEFF}"/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='optR+caps+optL? cmd+opt+caps'>
+	<keyMap modifiers="optR+caps+optL?">
 		<map iso="E00" to="`"/> <!--   base=- -->
 		<map iso="E01" to="ม"/> <!-- 1  base=ๅ -->
 		<map iso="E02" to="ช"/> <!-- 2  base=/ -->
@@ -275,7 +256,26 @@
 		<map iso="B10" to="\u{E36}"/> <!-- /  base=ฝ  to= ึ  -->
 		<map iso="A03" to="ส"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?'>
+	<keyMap modifiers="opt">
+		<map iso="E02" to="™"/> <!-- 2  base=/ -->
+		<map iso="E08" to="•"/> <!-- 8  base=ค -->
+		<map iso="E11" to="–"/> <!-- -  base=ข -->
+		<map iso="D04" to="®"/> <!-- R  base=พ -->
+		<map iso="D11" to="“"/> <!-- [  base=บ -->
+		<map iso="D12" to="‘"/> <!-- ]  base=ล -->
+		<map iso="D13" to="«"/> <!-- \  base=ฃ -->
+		<map iso="C05" to="©"/> <!-- G  base=เ -->
+		<map iso="C10" to="…"/> <!-- ;  base=ว -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
+	</keyMap>
+	<keyMap modifiers="opt+shift+caps?">
+		<map iso="E11" to="—"/> <!-- -  base=ข -->
+		<map iso="D11" to="”"/> <!-- [  base=บ -->
+		<map iso="D12" to="’"/> <!-- ]  base=ล -->
+		<map iso="D13" to="»"/> <!-- \  base=ฃ -->
+		<map iso="A03" to="\u{FEFF}"/> <!-- space -->
+	</keyMap>
+	<keyMap modifiers="ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?">
 		<map iso="E00" to="`"/> <!--   base=- -->
 		<map iso="E01" to="1"/> <!--   base=ๅ -->
 		<map iso="E02" to="2"/> <!--   base=/ -->
@@ -313,7 +313,7 @@
 		<map iso="C09" to="\u{C}"/> <!-- L  base=ส -->
 		<map iso="C10" to=";"/> <!--   base=ว -->
 		<map iso="C11" to="&apos;"/> <!--   base=ง -->
-		<map iso="B00" to="0"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="0"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="\u{1A}"/> <!-- Z  base=ผ -->
 		<map iso="B02" to="\u{18}"/> <!-- X  base=ป -->
 		<map iso="B03" to="\u{3}"/> <!-- C  base=แ -->
@@ -326,104 +326,5 @@
 		<map iso="B10" to="/"/> <!--   base=ฝ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+caps'>
-		<map iso="E00" to="`"/> <!--   base=- -->
-		<map iso="E01" to="1"/> <!--   base=ๅ -->
-		<map iso="E02" to="2"/> <!--   base=/ -->
-		<map iso="E03" to="3"/> <!--   base=_ -->
-		<map iso="E04" to="4"/> <!--   base=ภ -->
-		<map iso="E05" to="5"/> <!--   base=ถ -->
-		<map iso="E06" to="6"/> <!--   base=ุ -->
-		<map iso="E07" to="7"/> <!--   base=ึ -->
-		<map iso="E08" to="8"/> <!--   base=ค -->
-		<map iso="E09" to="9"/> <!--   base=ต -->
-		<map iso="E10" to="0"/> <!--   base=จ -->
-		<map iso="E11" to="-"/> <!--   base=ข -->
-		<map iso="E12" to="="/> <!--   base=ช -->
-		<map iso="D01" to="Q"/> <!--   base=ๆ -->
-		<map iso="D02" to="W"/> <!--   base=ไ -->
-		<map iso="D03" to="E"/> <!--   base=ำ -->
-		<map iso="D04" to="R"/> <!--   base=พ -->
-		<map iso="D05" to="T"/> <!--   base=ะ -->
-		<map iso="D06" to="Y"/> <!--   base=ั -->
-		<map iso="D07" to="U"/> <!--   base=ี -->
-		<map iso="D08" to="I"/> <!--   base=ร -->
-		<map iso="D09" to="O"/> <!--   base=น -->
-		<map iso="D10" to="P"/> <!--   base=ย -->
-		<map iso="D11" to="["/> <!--   base=บ -->
-		<map iso="D12" to="]"/> <!--   base=ล -->
-		<map iso="D13" to="\"/> <!--   base=ฃ -->
-		<map iso="C01" to="A"/> <!--   base=ฟ -->
-		<map iso="C02" to="S"/> <!--   base=ห -->
-		<map iso="C03" to="D"/> <!--   base=ก -->
-		<map iso="C04" to="F"/> <!--   base=ด -->
-		<map iso="C05" to="G"/> <!--   base=เ -->
-		<map iso="C06" to="H"/> <!--   base=้ -->
-		<map iso="C07" to="J"/> <!--   base=่ -->
-		<map iso="C08" to="K"/> <!--   base=า -->
-		<map iso="C09" to="L"/> <!--   base=ส -->
-		<map iso="C10" to=";"/> <!--   base=ว -->
-		<map iso="C11" to="&apos;"/> <!--   base=ง -->
-		<map iso="B01" to="Z"/> <!--   base=ผ -->
-		<map iso="B02" to="X"/> <!--   base=ป -->
-		<map iso="B03" to="C"/> <!--   base=แ -->
-		<map iso="B04" to="V"/> <!--   base=อ -->
-		<map iso="B05" to="B"/> <!--   base=ิ -->
-		<map iso="B06" to="N"/> <!--   base=ื -->
-		<map iso="B07" to="M"/> <!--   base=ท -->
-		<map iso="B08" to=","/> <!--   base=ม -->
-		<map iso="B09" to="."/> <!--   base=ใ -->
-		<map iso="B10" to="/"/> <!--   base=ฝ -->
-		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='cmd+opt'>
-		<map iso="E00" to="`"/> <!--   base=- -->
-		<map iso="E01" to="ม"/> <!-- 1  base=ๅ -->
-		<map iso="E02" to="ช"/> <!-- 2  base=/ -->
-		<map iso="E03" to="ฃ"/> <!-- 3  base=_ -->
-		<map iso="E04" to="ข"/> <!-- 4  base=ภ -->
-		<map iso="E05" to="ฐ"/> <!-- 5  base=ถ -->
-		<map iso="E06" to="ค"/> <!-- 6  base=ุ -->
-		<map iso="E07" to="ฆ"/> <!-- 7  base=ึ -->
-		<map iso="E08" to="ฅ"/> <!-- 8  base=ค -->
-		<map iso="E09" to="ป"/> <!-- 9  base=ต -->
-		<map iso="E10" to="ผ"/> <!-- 0  base=จ -->
-		<map iso="E11" to="ะ"/> <!-- -  base=ข -->
-		<map iso="E12" to="ญ"/> <!-- =  base=ช -->
-		<map iso="D01" to="ฯ"/> <!-- Q  base=ๆ -->
-		<map iso="D02" to="ท"/> <!-- W  base=ไ -->
-		<map iso="D03" to="ซ"/> <!-- E  base=ำ -->
-		<map iso="D04" to="จ"/> <!-- R  base=พ -->
-		<map iso="D05" to="\u{A0}"/> <!-- T  base=ะ -->
-		<map iso="D06" to="ด"/> <!-- Y  base=ั -->
-		<map iso="D07" to="ฌ"/> <!-- U  base=ี -->
-		<map iso="D08" to="^"/> <!-- I  base=ร -->
-		<map iso="D09" to="ฟ"/> <!-- O  base=น -->
-		<map iso="D10" to="น"/> <!-- P  base=ย -->
-		<map iso="D11" to="า"/> <!-- [  base=บ -->
-		<map iso="D12" to="\u{E34}"/> <!-- ]  base=ล  to= ิ  -->
-		<map iso="D13" to="ว"/> <!-- \  base=ฃ -->
-		<map iso="C01" to="\u{E4C}"/> <!-- A  base=ฟ  to= ์  -->
-		<map iso="C02" to="ง"/> <!-- S  base=ห -->
-		<map iso="C03" to="ถ"/> <!-- D  base=ก -->
-		<map iso="C04" to="ฤ"/> <!-- F  base=ด -->
-		<map iso="C05" to="ฉ"/> <!-- G  base=เ -->
-		<map iso="C06" to="®"/> <!-- H  base=้ -->
-		<map iso="C07" to="ฦ"/> <!-- J  base=่ -->
-		<map iso="C08" to="©"/> <!-- K  base=า -->
-		<map iso="C09" to="ย"/> <!-- L  base=ส -->
-		<map iso="C10" to="ษ"/> <!-- ;  base=ว -->
-		<map iso="C11" to="พ"/> <!-- '  base=ง -->
-		<map iso="B01" to="ฝ"/> <!-- Z  base=ผ -->
-		<map iso="B02" to="ล"/> <!-- X  base=ป -->
-		<map iso="B03" to="“"/> <!-- C  base=แ -->
-		<map iso="B04" to="ร"/> <!-- V  base=อ -->
-		<map iso="B05" to="บ"/> <!-- B  base=ิ -->
-		<map iso="B06" to="~"/> <!-- N  base=ื -->
-		<map iso="B07" to="ต"/> <!-- M  base=ท -->
-		<map iso="B08" to="ฒ"/> <!-- ,  base=ม -->
-		<map iso="B09" to="ณ"/> <!-- .  base=ใ -->
-		<map iso="B10" to="\u{E36}"/> <!-- /  base=ฝ  to= ึ  -->
-		<map iso="A03" to="ส"/> <!-- space -->
-	</keyMap>
 </keyboard>
+

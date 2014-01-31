@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='el-POLYTON-t-k0-osx'>
-	<version platform='10.4' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="el-POLYTON-t-k0-osx">
+	<version platform="10.9" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Greek Polytonic'/>
+		<name value="Greek Polytonic"/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="`"/>
@@ -44,7 +44,7 @@
 		<map iso="C09" to="λ"/> <!-- L -->
 		<map iso="C10" to="´"/> <!-- ; -->
 		<map iso="C11" to="᾽"/> <!-- ' -->
-		<map iso="B00" to="§"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="§"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="ζ"/> <!-- Z -->
 		<map iso="B02" to="χ"/> <!-- X -->
 		<map iso="B03" to="ψ"/> <!-- C -->
@@ -57,7 +57,7 @@
 		<map iso="B10" to="῎"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift+caps?'>
+	<keyMap modifiers="shift+caps?">
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -95,7 +95,7 @@
 		<map iso="C09" to="Λ"/> <!-- L -->
 		<map iso="C10" to="¨"/> <!-- ;  base=´ -->
 		<map iso="C11" to="῾"/> <!-- '  base=᾽ -->
-		<map iso="B00" to="±"/> <!-- (1 key to left of Z)  base=§ -->
+		<map iso="B00" to="±"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="Ζ"/> <!-- Z -->
 		<map iso="B02" to="Χ"/> <!-- X -->
 		<map iso="B03" to="Ψ"/> <!-- C -->
@@ -108,7 +108,7 @@
 		<map iso="B10" to="῞"/> <!-- /  base=῎ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps'>
+	<keyMap modifiers="caps">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -146,7 +146,7 @@
 		<map iso="C09" to="Λ"/> <!-- L -->
 		<map iso="C10" to="´"/> <!-- ; -->
 		<map iso="C11" to="&apos;"/> <!--   base=᾽ -->
-		<map iso="B00" to="§"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="§"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="Ζ"/> <!-- Z -->
 		<map iso="B02" to="Χ"/> <!-- X -->
 		<map iso="B03" to="Ψ"/> <!-- C -->
@@ -159,7 +159,7 @@
 		<map iso="B10" to="/"/> <!--   base=῎ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt+caps?'>
+	<keyMap modifiers="opt+caps?">
 		<map iso="E00" to=";"/> <!-- ` -->
 		<map iso="E01" to="¹"/> <!-- 1 -->
 		<map iso="E02" to="²"/> <!-- 2 -->
@@ -197,7 +197,7 @@
 		<map iso="C09" to="˘"/> <!-- L  base=λ -->
 		<map iso="C10" to=";"/> <!--   base=´ -->
 		<map iso="C11" to="&apos;"/> <!--   base=᾽ -->
-		<map iso="B00" to="§"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="§"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="ϟ"/> <!-- Z  base=ζ -->
 		<map iso="B02" to="ϸ"/> <!-- X  base=χ -->
 		<map iso="B03" to="ϡ"/> <!-- C  base=ψ -->
@@ -210,8 +210,9 @@
 		<map iso="B10" to="/"/> <!--   base=῎ -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt+shift+caps?'>
+	<keyMap modifiers="opt+shift+caps?">
 		<map iso="E00" to="·"/> <!-- ` -->
+		<map iso="E01" to="ʹ"/> <!-- 1 -->
 		<map iso="E02" to="½"/> <!-- 2 -->
 		<map iso="E03" to="϶"/> <!-- 3 -->
 		<map iso="E04" to="¢"/> <!-- 4 -->
@@ -232,7 +233,7 @@
 		<map iso="C09" to="¯"/> <!-- L  base=λ -->
 		<map iso="C10" to=":"/> <!-- ;  base=´ -->
 		<map iso="C11" to="\u{22}"/> <!-- '  base=᾽  to= "  -->
-		<map iso="B00" to="±"/> <!-- (1 key to left of Z)  base=§ -->
+		<map iso="B00" to="±"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="Ϟ"/> <!-- Z  base=ζ -->
 		<map iso="B02" to="Ϸ"/> <!-- X  base=χ -->
 		<map iso="B03" to="Ϡ"/> <!-- C  base=ψ -->
@@ -244,7 +245,7 @@
 		<map iso="B10" to="?"/> <!-- /  base=῎ -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?'>
+	<keyMap modifiers="ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -282,7 +283,7 @@
 		<map iso="C09" to="\u{C}"/> <!-- L  base=λ -->
 		<map iso="C10" to=":"/> <!-- ;  base=´ -->
 		<map iso="C11" to="\u{22}"/> <!-- '  base=᾽  to= "  -->
-		<map iso="B00" to="0"/> <!-- (1 key to left of Z)  base=§ -->
+		<map iso="B00" to="0"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="\u{1A}"/> <!-- Z  base=ζ -->
 		<map iso="B02" to="\u{18}"/> <!-- X  base=χ -->
 		<map iso="B03" to="\u{3}"/> <!-- C  base=ψ -->
@@ -295,7 +296,7 @@
 		<map iso="B10" to="/"/> <!--   base=῎ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+shift? cmd+shift+caps?'>
+	<keyMap modifiers="cmd cmd+opt+caps">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -333,7 +334,7 @@
 		<map iso="C09" to="l"/> <!--   base=λ -->
 		<map iso="C10" to=";"/> <!--   base=´ -->
 		<map iso="C11" to="&apos;"/> <!--   base=᾽ -->
-		<map iso="B00" to="Λ"/> <!-- (1 key to left of Z)  base=§ -->
+		<map iso="B00" to="Λ"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="z"/> <!--   base=ζ -->
 		<map iso="B02" to="x"/> <!--   base=χ -->
 		<map iso="B03" to="c"/> <!--   base=ψ -->
@@ -346,7 +347,57 @@
 		<map iso="B10" to="/"/> <!--   base=῎ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+caps'>
+	<keyMap modifiers="cmd+shift+opt?+caps?">
+		<map iso="E00" to="~"/> <!-- ` -->
+		<map iso="E01" to="!"/> <!-- 1 -->
+		<map iso="E02" to="@"/> <!-- 2 -->
+		<map iso="E03" to="#"/> <!-- 3 -->
+		<map iso="E04" to="$"/> <!-- 4 -->
+		<map iso="E05" to="%"/> <!-- 5 -->
+		<map iso="E06" to="^"/> <!-- 6 -->
+		<map iso="E07" to="&amp;"/> <!-- 7 -->
+		<map iso="E08" to="*"/> <!-- 8 -->
+		<map iso="E09" to="("/> <!-- 9 -->
+		<map iso="E10" to=")"/> <!-- 0 -->
+		<map iso="E11" to="_"/> <!-- -  base=῏ -->
+		<map iso="E12" to="+"/> <!-- =  base=῍ -->
+		<map iso="D01" to="Q"/> <!--   base=; -->
+		<map iso="D02" to="W"/> <!--   base=ς -->
+		<map iso="D03" to="E"/> <!--   base=ε -->
+		<map iso="D04" to="R"/> <!--   base=ρ -->
+		<map iso="D05" to="T"/> <!--   base=τ -->
+		<map iso="D06" to="Y"/> <!--   base=υ -->
+		<map iso="D07" to="U"/> <!--   base=θ -->
+		<map iso="D08" to="I"/> <!--   base=ι -->
+		<map iso="D09" to="O"/> <!--   base=ο -->
+		<map iso="D10" to="P"/> <!--   base=π -->
+		<map iso="D11" to="{"/> <!-- [  base=῀ -->
+		<map iso="D12" to="}"/> <!-- ]  base=` -->
+		<map iso="D13" to="|"/> <!-- \ -->
+		<map iso="C01" to="A"/> <!--   base=α -->
+		<map iso="C02" to="S"/> <!--   base=σ -->
+		<map iso="C03" to="D"/> <!--   base=δ -->
+		<map iso="C04" to="F"/> <!--   base=φ -->
+		<map iso="C05" to="G"/> <!--   base=γ -->
+		<map iso="C06" to="H"/> <!--   base=η -->
+		<map iso="C07" to="J"/> <!--   base=ξ -->
+		<map iso="C08" to="K"/> <!--   base=κ -->
+		<map iso="C09" to="L"/> <!--   base=λ -->
+		<map iso="C10" to=":"/> <!-- ;  base=´ -->
+		<map iso="C11" to="\u{22}"/> <!-- '  base=᾽  to= "  -->
+		<map iso="B01" to="Z"/> <!--   base=ζ -->
+		<map iso="B02" to="X"/> <!--   base=χ -->
+		<map iso="B03" to="C"/> <!--   base=ψ -->
+		<map iso="B04" to="V"/> <!--   base=ω -->
+		<map iso="B05" to="B"/> <!--   base=β -->
+		<map iso="B06" to="N"/> <!--   base=ν -->
+		<map iso="B07" to="M"/> <!--   base=μ -->
+		<map iso="B08" to="&lt;"/> <!-- , -->
+		<map iso="B09" to="&gt;"/> <!-- . -->
+		<map iso="B10" to="?"/> <!-- /  base=῎ -->
+		<map iso="A03" to=" " transform="no"/> <!-- space -->
+	</keyMap>
+	<keyMap modifiers="cmd+caps">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -384,7 +435,7 @@
 		<map iso="C09" to="L"/> <!--   base=λ -->
 		<map iso="C10" to=";"/> <!--   base=´ -->
 		<map iso="C11" to="&apos;"/> <!--   base=᾽ -->
-		<map iso="B00" to="Λ"/> <!-- (1 key to left of Z)  base=§ -->
+		<map iso="B00" to="Λ"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="Z"/> <!--   base=ζ -->
 		<map iso="B02" to="X"/> <!--   base=χ -->
 		<map iso="B03" to="C"/> <!--   base=ψ -->
@@ -397,7 +448,7 @@
 		<map iso="B10" to="/"/> <!--   base=῎ -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+opt'>
+	<keyMap modifiers="cmd+opt">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="Ν"/> <!-- 1 -->
 		<map iso="E02" to="Σ"/> <!-- 2 -->
@@ -427,7 +478,7 @@
 		<map iso="C01" to="¨" transform="no"/> <!-- A  base=α -->
 		<map iso="C02" to="ß"/> <!-- S  base=σ -->
 		<map iso="C03" to="Ε" transform="no"/> <!-- D  base=δ -->
-		<map iso="C04" to="Ρ"/> <!-- F  base=φ -->
+		<map iso="C04" to="Ρ" transform="no"/> <!-- F  base=φ -->
 		<map iso="C05" to="©"/> <!-- G  base=γ -->
 		<map iso="C06" to="ζ"/> <!-- H  base=η -->
 		<map iso="C07" to="Τ"/> <!-- J  base=ξ -->
@@ -447,136 +498,11 @@
 		<map iso="B10" to="÷"/> <!-- /  base=῎ -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+opt+shift+caps?'>
-		<map iso="E00" to="Ό"/> <!-- ` -->
-		<map iso="E01" to="Ύ"/> <!-- 1 -->
-		<map iso="E02" to="έ"/> <!-- 2 -->
-		<map iso="E03" to="ή"/> <!-- 3 -->
-		<map iso="E04" to="ί"/> <!-- 4 -->
-		<map iso="E05" to="ό"/> <!-- 5 -->
-		<map iso="E06" to="Ώ"/> <!-- 6 -->
-		<map iso="E07" to="ύ"/> <!-- 7 -->
-		<map iso="E08" to="Γ"/> <!-- 8 -->
-		<map iso="E09" to="α"/> <!-- 9 -->
-		<map iso="E10" to="β"/> <!-- 0 -->
-		<map iso="E11" to="―"/> <!-- -  base=῏ -->
-		<map iso="E12" to="±"/> <!-- =  base=῍ -->
-		<map iso="D01" to="Έ"/> <!-- Q  base=; -->
-		<map iso="D02" to="ψ"/> <!-- W  base=ς -->
-		<map iso="D03" to="δ"/> <!-- E  base=ε -->
-		<map iso="D04" to="ε"/> <!-- R  base=ρ -->
-		<map iso="D05" to="φ"/> <!-- T  base=τ -->
-		<map iso="D06" to="γ"/> <!-- Y  base=υ -->
-		<map iso="D07" to="η"/> <!-- U  base=θ -->
-		<map iso="D08" to="ι"/> <!-- I -->
-		<map iso="D09" to="·"/> <!-- O  base=ο -->
-		<map iso="D10" to="Η"/> <!-- P  base=π -->
-		<map iso="D11" to="”"/> <!-- [  base=῀ -->
-		<map iso="D12" to="’"/> <!-- ]  base=` -->
-		<map iso="D13" to="»"/> <!-- \ -->
-		<map iso="C01" to="¹"/> <!-- A  base=α -->
-		<map iso="C02" to="ξ"/> <!-- S  base=σ -->
-		<map iso="C03" to="κ"/> <!-- D  base=δ -->
-		<map iso="C04" to="λ"/> <!-- F  base=φ -->
-		<map iso="C05" to="μ"/> <!-- G  base=γ -->
-		<map iso="C06" to="ν"/> <!-- H  base=η -->
-		<map iso="C07" to="ο"/> <!-- J  base=ξ -->
-		<map iso="C08" to="π"/> <!-- K  base=κ -->
-		<map iso="C09" to="ώ"/> <!-- L  base=λ -->
-		<map iso="C10" to="ρ" transform="no"/> <!-- ;  base=´ -->
-		<map iso="C11" to="°"/> <!-- '  base=᾽ -->
-		<map iso="B01" to="σ"/> <!-- Z  base=ζ -->
-		<map iso="B02" to="τ"/> <!-- X  base=χ -->
-		<map iso="B03" to="²"/> <!-- C  base=ψ -->
-		<map iso="B04" to="Ή"/> <!-- V  base=ω -->
-		<map iso="B05" to="θ"/> <!-- B  base=β -->
-		<map iso="B06" to="ω"/> <!-- N  base=ν -->
-		<map iso="B07" to="ς"/> <!-- M  base=μ -->
-		<map iso="B08" to="χ"/> <!-- , -->
-		<map iso="B09" to="υ"/> <!-- . -->
-		<map iso="B10" to="ά"/> <!-- /  base=῎ -->
-		<map iso="A03" to="\u{A0}"/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='cmd+opt+caps'>
-		<map iso="E00" to="`"/>
-		<map iso="E01" to="Ν"/> <!-- 1 -->
-		<map iso="E02" to="Σ"/> <!-- 2 -->
-		<map iso="E03" to="Θ"/> <!-- 3 -->
-		<map iso="E04" to="Δ"/> <!-- 4 -->
-		<map iso="E05" to="Α"/> <!-- 5 -->
-		<map iso="E06" to="Λ"/> <!-- 6 -->
-		<map iso="E07" to="Π"/> <!-- 7 -->
-		<map iso="E08" to="Ξ"/> <!-- 8 -->
-		<map iso="E09" to="Μ"/> <!-- 9 -->
-		<map iso="E10" to="Φ"/> <!-- 0 -->
-		<map iso="E11" to="–"/> <!-- -  base=῏ -->
-		<map iso="E12" to="≠"/> <!-- =  base=῍ -->
-		<map iso="D01" to="Έ"/> <!-- Q  base=; -->
-		<map iso="D02" to="ψ"/> <!-- W  base=ς -->
-		<map iso="D03" to="δ"/> <!-- E  base=ε -->
-		<map iso="D04" to="ε"/> <!-- R  base=ρ -->
-		<map iso="D05" to="φ"/> <!-- T  base=τ -->
-		<map iso="D06" to="γ"/> <!-- Y  base=υ -->
-		<map iso="D07" to="η"/> <!-- U  base=θ -->
-		<map iso="D08" to="ι"/> <!-- I -->
-		<map iso="D09" to="·"/> <!-- O  base=ο -->
-		<map iso="D10" to="Η"/> <!-- P  base=π -->
-		<map iso="D11" to="“"/> <!-- [  base=῀ -->
-		<map iso="D12" to="‘"/> <!-- ]  base=` -->
-		<map iso="D13" to="«"/> <!-- \ -->
-		<map iso="C01" to="¹"/> <!-- A  base=α -->
-		<map iso="C02" to="ξ"/> <!-- S  base=σ -->
-		<map iso="C03" to="κ"/> <!-- D  base=δ -->
-		<map iso="C04" to="λ"/> <!-- F  base=φ -->
-		<map iso="C05" to="μ"/> <!-- G  base=γ -->
-		<map iso="C06" to="ν"/> <!-- H  base=η -->
-		<map iso="C07" to="ο"/> <!-- J  base=ξ -->
-		<map iso="C08" to="π"/> <!-- K  base=κ -->
-		<map iso="C09" to="ώ"/> <!-- L  base=λ -->
-		<map iso="C10" to="…"/> <!-- ;  base=´ -->
-		<map iso="C11" to="°"/> <!-- '  base=᾽ -->
-		<map iso="B01" to="σ"/> <!-- Z  base=ζ -->
-		<map iso="B02" to="τ"/> <!-- X  base=χ -->
-		<map iso="B03" to="²"/> <!-- C  base=ψ -->
-		<map iso="B04" to="Ή"/> <!-- V  base=ω -->
-		<map iso="B05" to="θ"/> <!-- B  base=β -->
-		<map iso="B06" to="ω"/> <!-- N  base=ν -->
-		<map iso="B07" to="ς"/> <!-- M  base=μ -->
-		<map iso="B08" to="≤"/> <!-- , -->
-		<map iso="B09" to="≥"/> <!-- . -->
-		<map iso="B10" to="÷"/> <!-- /  base=῎ -->
-		<map iso="A03" to="\u{A0}"/> <!-- space -->
-	</keyMap>
-	<transforms type='simple'>
+	<transforms type="simple">
 		<transform from="` " to="`"/>
-		<transform from="`\u{A0}" to="\u{300}"/> <!--  `  → ̀ -->
-		<transform from="``\u{345}῍\u{345}α" to="ᾂ"/> <!--  ``ͅ῍ͅα → ᾂ -->
-		<transform from="``\u{345}῍\u{345}Α" to="ᾊ"/> <!--  ``ͅ῍ͅΑ → ᾊ -->
-		<transform from="``\u{345}῍\u{345}η" to="ᾒ"/> <!--  ``ͅ῍ͅη → ᾒ -->
-		<transform from="``\u{345}῍\u{345}Η" to="ᾚ"/> <!--  ``ͅ῍ͅΗ → ᾚ -->
-		<transform from="``\u{345}῍\u{345}ω" to="ᾢ"/> <!--  ``ͅ῍ͅω → ᾢ -->
-		<transform from="``\u{345}῍\u{345}Ω" to="ᾪ"/> <!--  ``ͅ῍ͅΩ → ᾪ -->
-		<transform from="``\u{345}῝\u{345}α" to="ᾃ"/> <!--  ``ͅ῝ͅα → ᾃ -->
-		<transform from="``\u{345}῝\u{345}Α" to="ᾋ"/> <!--  ``ͅ῝ͅΑ → ᾋ -->
-		<transform from="``\u{345}῝\u{345}η" to="ᾓ"/> <!--  ``ͅ῝ͅη → ᾓ -->
-		<transform from="``\u{345}῝\u{345}Η" to="ᾛ"/> <!--  ``ͅ῝ͅΗ → ᾛ -->
-		<transform from="``\u{345}῝\u{345}ω" to="ᾣ"/> <!--  ``ͅ῝ͅω → ᾣ -->
-		<transform from="``\u{345}῝\u{345}Ω" to="ᾫ"/> <!--  ``ͅ῝ͅΩ → ᾫ -->
-		<transform from="``\u{345}α" to="ᾲ"/> <!--  ``ͅα → ᾲ -->
-		<transform from="``\u{345}η" to="ῂ"/> <!--  ``ͅη → ῂ -->
-		<transform from="``\u{345}ω" to="ῲ"/> <!--  ``ͅω → ῲ -->
-		<transform from="`῭ " to="῭"/>
-		<transform from="`῭\u{A0}" to="῭"/> <!--  `῭  → ῭ -->
-		<transform from="`῭ι" to="ῒ"/>
-		<transform from="`῭υ" to="ῢ"/>
+		<transform from="`\u{A0}" to="\u{300}"/>
 		<transform from="`῍ " to="῍"/>
-		<transform from="`῍\u{A0}" to="῍"/> <!--  `῍  → ῍ -->
-		<transform from="`῍῍\u{345}α" to="ᾂ"/> <!--  `῍῍ͅα → ᾂ -->
-		<transform from="`῍῍\u{345}Α" to="ᾊ"/> <!--  `῍῍ͅΑ → ᾊ -->
-		<transform from="`῍῍\u{345}η" to="ᾒ"/> <!--  `῍῍ͅη → ᾒ -->
-		<transform from="`῍῍\u{345}Η" to="ᾚ"/> <!--  `῍῍ͅΗ → ᾚ -->
-		<transform from="`῍῍\u{345}ω" to="ᾢ"/> <!--  `῍῍ͅω → ᾢ -->
-		<transform from="`῍῍\u{345}Ω" to="ᾪ"/> <!--  `῍῍ͅΩ → ᾪ -->
+		<transform from="`῍\u{A0}" to="῍"/>
 		<transform from="`῍α" to="ἂ"/>
 		<transform from="`῍Α" to="Ἂ"/>
 		<transform from="`῍ε" to="ἒ"/>
@@ -591,13 +517,7 @@
 		<transform from="`῍ω" to="ὢ"/>
 		<transform from="`῍Ω" to="Ὤ"/>
 		<transform from="`῝ " to="῝"/>
-		<transform from="`῝\u{A0}" to="῝"/> <!--  `῝  → ῝ -->
-		<transform from="`῝῝\u{345}α" to="ᾃ"/> <!--  `῝῝ͅα → ᾃ -->
-		<transform from="`῝῝\u{345}Α" to="ᾋ"/> <!--  `῝῝ͅΑ → ᾋ -->
-		<transform from="`῝῝\u{345}η" to="ᾓ"/> <!--  `῝῝ͅη → ᾓ -->
-		<transform from="`῝῝\u{345}Η" to="ᾛ"/> <!--  `῝῝ͅΗ → ᾛ -->
-		<transform from="`῝῝\u{345}ω" to="ᾣ"/> <!--  `῝῝ͅω → ᾣ -->
-		<transform from="`῝῝\u{345}Ω" to="ᾫ"/> <!--  `῝῝ͅΩ → ᾫ -->
+		<transform from="`῝\u{A0}" to="῝"/>
 		<transform from="`῝α" to="ἃ"/>
 		<transform from="`῝Α" to="Ἃ"/>
 		<transform from="`῝ε" to="ἓ"/>
@@ -627,34 +547,13 @@
 		<transform from="`ω" to="ὼ"/>
 		<transform from="`Ω" to="Ὼ"/>
 		<transform from="´ " to="´"/>
-		<transform from="´\u{A0}" to="\u{301}"/> <!--  ´  → ́ -->
-		<transform from="´´\u{345}῎\u{345}α" to="ᾄ"/> <!--  ´´ͅ῎ͅα → ᾄ -->
-		<transform from="´´\u{345}῎\u{345}Α" to="ᾌ"/> <!--  ´´ͅ῎ͅΑ → ᾌ -->
-		<transform from="´´\u{345}῎\u{345}η" to="ᾔ"/> <!--  ´´ͅ῎ͅη → ᾔ -->
-		<transform from="´´\u{345}῎\u{345}Η" to="ᾜ"/> <!--  ´´ͅ῎ͅΗ → ᾜ -->
-		<transform from="´´\u{345}῎\u{345}ω" to="ᾤ"/> <!--  ´´ͅ῎ͅω → ᾤ -->
-		<transform from="´´\u{345}῎\u{345}Ω" to="ᾬ"/> <!--  ´´ͅ῎ͅΩ → ᾬ -->
-		<transform from="´´\u{345}῞\u{345}α" to="ᾅ"/> <!--  ´´ͅ῞ͅα → ᾅ -->
-		<transform from="´´\u{345}῞\u{345}Α" to="ᾍ"/> <!--  ´´ͅ῞ͅΑ → ᾍ -->
-		<transform from="´´\u{345}῞\u{345}η" to="ᾕ"/> <!--  ´´ͅ῞ͅη → ᾕ -->
-		<transform from="´´\u{345}῞\u{345}Η" to="ᾝ"/> <!--  ´´ͅ῞ͅΗ → ᾝ -->
-		<transform from="´´\u{345}῞\u{345}ω" to="ᾥ"/> <!--  ´´ͅ῞ͅω → ᾥ -->
-		<transform from="´´\u{345}῞\u{345}Ω" to="ᾭ"/> <!--  ´´ͅ῞ͅΩ → ᾭ -->
-		<transform from="´´\u{345}α" to="ᾴ"/> <!--  ´´ͅα → ᾴ -->
-		<transform from="´´\u{345}η" to="ῄ"/> <!--  ´´ͅη → ῄ -->
-		<transform from="´´\u{345}ω" to="ῴ"/> <!--  ´´ͅω → ῴ -->
+		<transform from="´\u{A0}" to="\u{301}"/>
 		<transform from="´΅ " to="΅"/>
-		<transform from="´΅\u{A0}" to="΅"/> <!--  ´΅  → ΅ -->
+		<transform from="´΅\u{A0}" to="΅"/>
 		<transform from="´΅ι" to="ΐ"/>
 		<transform from="´΅υ" to="ΰ"/>
 		<transform from="´῎ " to="῎"/>
-		<transform from="´῎\u{A0}" to="῎"/> <!--  ´῎  → ῎ -->
-		<transform from="´῎῎\u{345}α" to="ᾄ"/> <!--  ´῎῎ͅα → ᾄ -->
-		<transform from="´῎῎\u{345}Α" to="ᾌ"/> <!--  ´῎῎ͅΑ → ᾌ -->
-		<transform from="´῎῎\u{345}η" to="ᾔ"/> <!--  ´῎῎ͅη → ᾔ -->
-		<transform from="´῎῎\u{345}Η" to="ᾜ"/> <!--  ´῎῎ͅΗ → ᾜ -->
-		<transform from="´῎῎\u{345}ω" to="ᾤ"/> <!--  ´῎῎ͅω → ᾤ -->
-		<transform from="´῎῎\u{345}Ω" to="ᾬ"/> <!--  ´῎῎ͅΩ → ᾬ -->
+		<transform from="´῎\u{A0}" to="῎"/>
 		<transform from="´῎α" to="ἄ"/>
 		<transform from="´῎Α" to="Ἄ"/>
 		<transform from="´῎ε" to="ἔ"/>
@@ -669,13 +568,7 @@
 		<transform from="´῎ω" to="ὤ"/>
 		<transform from="´῎Ω" to="Ὤ"/>
 		<transform from="´῞ " to="῞"/>
-		<transform from="´῞\u{A0}" to="῞"/> <!--  ´῞  → ῞ -->
-		<transform from="´῞῞\u{345}α" to="ᾅ"/> <!--  ´῞῞ͅα → ᾅ -->
-		<transform from="´῞῞\u{345}Α" to="ᾍ"/> <!--  ´῞῞ͅΑ → ᾍ -->
-		<transform from="´῞῞\u{345}η" to="ᾕ"/> <!--  ´῞῞ͅη → ᾕ -->
-		<transform from="´῞῞\u{345}Η" to="ᾝ"/> <!--  ´῞῞ͅΗ → ᾝ -->
-		<transform from="´῞῞\u{345}ω" to="ᾥ"/> <!--  ´῞῞ͅω → ᾥ -->
-		<transform from="´῞῞\u{345}Ω" to="ᾭ"/> <!--  ´῞῞ͅΩ → ᾭ -->
+		<transform from="´῞\u{A0}" to="῞"/>
 		<transform from="´῞α" to="ἅ"/>
 		<transform from="´῞Α" to="Ἅ"/>
 		<transform from="´῞ε" to="ἕ"/>
@@ -706,7 +599,7 @@
 		<transform from="´ω" to="ώ"/>
 		<transform from="´Ω" to="Ώ"/>
 		<transform from="¯ " to="ˉ"/>
-		<transform from="¯\u{A0}" to="\u{304}"/> <!--  ¯  → ̄ -->
+		<transform from="¯\u{A0}" to="\u{304}"/>
 		<transform from="¯α" to="ᾱ"/>
 		<transform from="¯Α" to="Ᾱ"/>
 		<transform from="¯ι" to="ῑ"/>
@@ -714,7 +607,7 @@
 		<transform from="¯υ" to="ῡ"/>
 		<transform from="¯Υ" to="Ῡ"/>
 		<transform from="˘ " to="˘"/>
-		<transform from="˘\u{A0}" to="\u{306}"/> <!--  ˘  → ̆ -->
+		<transform from="˘\u{A0}" to="\u{306}"/>
 		<transform from="˘α" to="ᾰ"/>
 		<transform from="˘Α" to="Ᾰ"/>
 		<transform from="˘ι" to="ῐ"/>
@@ -722,21 +615,13 @@
 		<transform from="˘υ" to="ῠ"/>
 		<transform from="˘Υ" to="Ῠ"/>
 		<transform from="¨ " to="¨"/>
-		<transform from="¨\u{A0}" to="\u{308}"/> <!--  ¨  → ̈ -->
+		<transform from="¨\u{A0}" to="\u{308}"/>
 		<transform from="΅ " to="΅"/>
-		<transform from="΅\u{A0}" to="΅"/> <!--  ΅  → ΅ -->
+		<transform from="΅\u{A0}" to="΅"/>
 		<transform from="¨΅ " to="΅"/>
-		<transform from="¨΅\u{A0}" to="΅"/> <!--  ¨΅  → ΅ -->
-		<transform from="¨῭ " to="῭"/>
-		<transform from="¨῭\u{A0}" to="῭"/> <!--  ¨῭  → ῭ -->
-		<transform from="¨῁ " to="῁"/>
-		<transform from="¨῁\u{A0}" to="῁"/> <!--  ¨῁  → ῁ -->
+		<transform from="¨΅\u{A0}" to="΅"/>
 		<transform from="¨΅ι" to="ΐ"/>
-		<transform from="¨῭ι" to="ῒ"/>
-		<transform from="¨῁ι" to="ῗ"/>
 		<transform from="¨΅υ" to="ΰ"/>
-		<transform from="¨῭υ" to="ῢ"/>
-		<transform from="¨῁υ" to="ῧ"/>
 		<transform from="¨¥" to="ϔ"/>
 		<transform from="¨ι" to="ϊ"/>
 		<transform from="¨Ι" to="Ϊ"/>
@@ -745,69 +630,25 @@
 		<transform from="¨Υ" to="Ϋ"/>
 		<transform from="΅υ" to="ΰ"/>
 		<transform from="᾽ " to="᾽"/>
-		<transform from="᾽\u{A0}" to="\u{313}"/> <!--  ᾽  → ̓ -->
+		<transform from="᾽\u{A0}" to="\u{313}"/>
 		<transform from="῎ " to="῎"/>
-		<transform from="῎\u{A0}" to="῎"/> <!--  ῎  → ῎ -->
+		<transform from="῎\u{A0}" to="῎"/>
 		<transform from="῍ " to="῍"/>
-		<transform from="῍\u{A0}" to="῍"/> <!--  ῍  → ῍ -->
+		<transform from="῍\u{A0}" to="῍"/>
 		<transform from="῏ " to="῏"/>
-		<transform from="῏\u{A0}" to="῏"/> <!--  ῏  → ῏ -->
+		<transform from="῏\u{A0}" to="῏"/>
 		<transform from="᾽῎ " to="῎"/>
-		<transform from="᾽῎\u{A0}" to="῎"/> <!--  ᾽῎  → ῎ -->
+		<transform from="᾽῎\u{A0}" to="῎"/>
 		<transform from="᾽῍ " to="῍"/>
-		<transform from="᾽῍\u{A0}" to="῍"/> <!--  ᾽῍  → ῍ -->
+		<transform from="᾽῍\u{A0}" to="῍"/>
 		<transform from="᾽῏ " to="῏"/>
-		<transform from="᾽῏\u{A0}" to="῏"/> <!--  ᾽῏  → ῏ -->
-		<transform from="᾽῎῎\u{345}α" to="ᾄ"/> <!--  ᾽῎῎ͅα → ᾄ -->
-		<transform from="᾽῎῎\u{345}Α" to="ᾌ"/> <!--  ᾽῎῎ͅΑ → ᾌ -->
-		<transform from="᾽῍῍\u{345}α" to="ᾂ"/> <!--  ᾽῍῍ͅα → ᾂ -->
-		<transform from="᾽῍῍\u{345}Α" to="ᾊ"/> <!--  ᾽῍῍ͅΑ → ᾊ -->
-		<transform from="᾽῏῏\u{345}α" to="ᾆ"/> <!--  ᾽῏῏ͅα → ᾆ -->
-		<transform from="᾽῏῏\u{345}Α" to="ᾎ"/> <!--  ᾽῏῏ͅΑ → ᾎ -->
-		<transform from="᾽᾽\u{345}῎\u{345}α" to="ᾄ"/> <!--  ᾽᾽ͅ῎ͅα → ᾄ -->
-		<transform from="᾽᾽\u{345}῎\u{345}Α" to="ᾌ"/> <!--  ᾽᾽ͅ῎ͅΑ → ᾌ -->
-		<transform from="᾽᾽\u{345}῍\u{345}α" to="ᾂ"/> <!--  ᾽᾽ͅ῍ͅα → ᾂ -->
-		<transform from="᾽᾽\u{345}῍\u{345}Α" to="ᾊ"/> <!--  ᾽᾽ͅ῍ͅΑ → ᾊ -->
-		<transform from="᾽᾽\u{345}῏\u{345}α" to="ᾆ"/> <!--  ᾽᾽ͅ῏ͅα → ᾆ -->
-		<transform from="᾽᾽\u{345}῏\u{345}Α" to="ᾎ"/> <!--  ᾽᾽ͅ῏ͅΑ → ᾎ -->
-		<transform from="᾽῎῎\u{345}η" to="ᾔ"/> <!--  ᾽῎῎ͅη → ᾔ -->
-		<transform from="᾽῎῎\u{345}Η" to="ᾜ"/> <!--  ᾽῎῎ͅΗ → ᾜ -->
-		<transform from="᾽῍῍\u{345}η" to="ᾒ"/> <!--  ᾽῍῍ͅη → ᾒ -->
-		<transform from="᾽῍῍\u{345}Η" to="ᾚ"/> <!--  ᾽῍῍ͅΗ → ᾚ -->
-		<transform from="᾽῏῏\u{345}η" to="ᾖ"/> <!--  ᾽῏῏ͅη → ᾖ -->
-		<transform from="᾽῏῏\u{345}Η" to="ᾞ"/> <!--  ᾽῏῏ͅΗ → ᾞ -->
-		<transform from="᾽᾽\u{345}῎\u{345}η" to="ᾔ"/> <!--  ᾽᾽ͅ῎ͅη → ᾔ -->
-		<transform from="᾽᾽\u{345}῎\u{345}Η" to="ᾜ"/> <!--  ᾽᾽ͅ῎ͅΗ → ᾜ -->
-		<transform from="᾽᾽\u{345}῍\u{345}η" to="ᾒ"/> <!--  ᾽᾽ͅ῍ͅη → ᾒ -->
-		<transform from="᾽᾽\u{345}῍\u{345}Η" to="ᾚ"/> <!--  ᾽᾽ͅ῍ͅΗ → ᾚ -->
-		<transform from="᾽᾽\u{345}῏\u{345}η" to="ᾖ"/> <!--  ᾽᾽ͅ῏ͅη → ᾖ -->
-		<transform from="᾽᾽\u{345}῏\u{345}Η" to="ᾞ"/> <!--  ᾽᾽ͅ῏ͅΗ → ᾞ -->
-		<transform from="᾽῎῎\u{345}ω" to="ᾤ"/> <!--  ᾽῎῎ͅω → ᾤ -->
-		<transform from="᾽῎῎\u{345}Ω" to="ᾬ"/> <!--  ᾽῎῎ͅΩ → ᾬ -->
-		<transform from="᾽῍῍\u{345}ω" to="ᾢ"/> <!--  ᾽῍῍ͅω → ᾢ -->
-		<transform from="᾽῍῍\u{345}Ω" to="ᾪ"/> <!--  ᾽῍῍ͅΩ → ᾪ -->
-		<transform from="᾽῏῏\u{345}ω" to="ᾦ"/> <!--  ᾽῏῏ͅω → ᾦ -->
-		<transform from="᾽῏῏\u{345}Ω" to="ᾮ"/> <!--  ᾽῏῏ͅΩ → ᾮ -->
-		<transform from="᾽᾽\u{345}῎\u{345}ω" to="ᾤ"/> <!--  ᾽᾽ͅ῎ͅω → ᾤ -->
-		<transform from="᾽᾽\u{345}῎\u{345}Ω" to="ᾬ"/> <!--  ᾽᾽ͅ῎ͅΩ → ᾬ -->
-		<transform from="᾽᾽\u{345}῍\u{345}ω" to="ᾢ"/> <!--  ᾽᾽ͅ῍ͅω → ᾢ -->
-		<transform from="᾽᾽\u{345}῍\u{345}Ω" to="ᾪ"/> <!--  ᾽᾽ͅ῍ͅΩ → ᾪ -->
-		<transform from="᾽᾽\u{345}῏\u{345}ω" to="ᾦ"/> <!--  ᾽᾽ͅ῏ͅω → ᾦ -->
-		<transform from="᾽᾽\u{345}῏\u{345}Ω" to="ᾮ"/> <!--  ᾽᾽ͅ῏ͅΩ → ᾮ -->
+		<transform from="᾽῏\u{A0}" to="῏"/>
 		<transform from="᾽῎α" to="ἄ"/>
 		<transform from="᾽῎Α" to="Ἄ"/>
 		<transform from="᾽῍α" to="ἂ"/>
 		<transform from="᾽῍Α" to="Ἂ"/>
 		<transform from="᾽῏α" to="ἆ"/>
 		<transform from="᾽῏Α" to="Ἆ"/>
-		<transform from="᾽᾽\u{345}α" to="ᾀ"/> <!--  ᾽᾽ͅα → ᾀ -->
-		<transform from="᾽᾽\u{345}Α" to="ᾈ"/> <!--  ᾽᾽ͅΑ → ᾈ -->
-		<transform from="῎῎\u{345}α" to="ᾄ"/> <!--  ῎῎ͅα → ᾄ -->
-		<transform from="῎῎\u{345}Α" to="ᾌ"/> <!--  ῎῎ͅΑ → ᾌ -->
-		<transform from="῍῍\u{345}α" to="ᾂ"/> <!--  ῍῍ͅα → ᾂ -->
-		<transform from="῍῍\u{345}Α" to="ᾊ"/> <!--  ῍῍ͅΑ → ᾊ -->
-		<transform from="῏῏\u{345}α" to="ᾆ"/> <!--  ῏῏ͅα → ᾆ -->
-		<transform from="῏῏\u{345}Α" to="ᾎ"/> <!--  ῏῏ͅΑ → ᾎ -->
 		<transform from="᾽῎ε" to="ἔ"/>
 		<transform from="᾽῎Ε" to="Ἔ"/>
 		<transform from="᾽῍ε" to="ἒ"/>
@@ -818,14 +659,6 @@
 		<transform from="᾽῍Η" to="Ἢ"/>
 		<transform from="᾽῏η" to="ἦ"/>
 		<transform from="᾽῏Η" to="Ἦ"/>
-		<transform from="᾽᾽\u{345}η" to="ᾐ"/> <!--  ᾽᾽ͅη → ᾐ -->
-		<transform from="᾽᾽\u{345}Η" to="ᾘ"/> <!--  ᾽᾽ͅΗ → ᾘ -->
-		<transform from="῎῎\u{345}η" to="ᾔ"/> <!--  ῎῎ͅη → ᾔ -->
-		<transform from="῎῎\u{345}Η" to="ᾜ"/> <!--  ῎῎ͅΗ → ᾜ -->
-		<transform from="῍῍\u{345}η" to="ᾒ"/> <!--  ῍῍ͅη → ᾒ -->
-		<transform from="῍῍\u{345}Η" to="ᾚ"/> <!--  ῍῍ͅΗ → ᾚ -->
-		<transform from="῏῏\u{345}η" to="ᾖ"/> <!--  ῏῏ͅη → ᾖ -->
-		<transform from="῏῏\u{345}Η" to="ᾞ"/> <!--  ῏῏ͅΗ → ᾞ -->
 		<transform from="᾽῎ι" to="ἴ"/>
 		<transform from="᾽῎Ι" to="Ἴ"/>
 		<transform from="᾽῍ι" to="ἲ"/>
@@ -845,14 +678,6 @@
 		<transform from="᾽῍Ω" to="Ὤ"/>
 		<transform from="᾽῏ω" to="ὦ"/>
 		<transform from="᾽῏Ω" to="Ὦ"/>
-		<transform from="᾽᾽\u{345}ω" to="ᾠ"/> <!--  ᾽᾽ͅω → ᾠ -->
-		<transform from="᾽᾽\u{345}Ω" to="ᾨ"/> <!--  ᾽᾽ͅΩ → ᾨ -->
-		<transform from="῎῎\u{345}ω" to="ᾤ"/> <!--  ῎῎ͅω → ᾤ -->
-		<transform from="῎῎\u{345}Ω" to="ᾬ"/> <!--  ῎῎ͅΩ → ᾬ -->
-		<transform from="῍῍\u{345}ω" to="ᾢ"/> <!--  ῍῍ͅω → ᾢ -->
-		<transform from="῍῍\u{345}Ω" to="ᾪ"/> <!--  ῍῍ͅΩ → ᾪ -->
-		<transform from="῏῏\u{345}ω" to="ᾦ"/> <!--  ῏῏ͅω → ᾦ -->
-		<transform from="῏῏\u{345}Ω" to="ᾮ"/> <!--  ῏῏ͅΩ → ᾮ -->
 		<transform from="᾽α" to="ἀ"/>
 		<transform from="᾽Α" to="Ἀ"/>
 		<transform from="῎α" to="ἄ"/>
@@ -903,69 +728,25 @@
 		<transform from="῏ω" to="ὦ"/>
 		<transform from="῏Ω" to="Ὦ"/>
 		<transform from="῾ " to="῾"/>
-		<transform from="῾\u{A0}" to="\u{314}"/> <!--  ῾  → ̔ -->
+		<transform from="῾\u{A0}" to="\u{314}"/>
 		<transform from="῞ " to="῞"/>
-		<transform from="῞\u{A0}" to="῞"/> <!--  ῞  → ῞ -->
+		<transform from="῞\u{A0}" to="῞"/>
 		<transform from="῝ " to="῝"/>
-		<transform from="῝\u{A0}" to="῝"/> <!--  ῝  → ῝ -->
+		<transform from="῝\u{A0}" to="῝"/>
 		<transform from="῟ " to="῟"/>
-		<transform from="῟\u{A0}" to="῟"/> <!--  ῟  → ῟ -->
+		<transform from="῟\u{A0}" to="῟"/>
 		<transform from="῾῞ " to="῞"/>
-		<transform from="῾῞\u{A0}" to="῞"/> <!--  ῾῞  → ῞ -->
+		<transform from="῾῞\u{A0}" to="῞"/>
 		<transform from="῾῝ " to="῝"/>
-		<transform from="῾῝\u{A0}" to="῝"/> <!--  ῾῝  → ῝ -->
+		<transform from="῾῝\u{A0}" to="῝"/>
 		<transform from="῾῟ " to="῟"/>
-		<transform from="῾῟\u{A0}" to="῟"/> <!--  ῾῟  → ῟ -->
-		<transform from="῾῞῞\u{345}α" to="ᾅ"/> <!--  ῾῞῞ͅα → ᾅ -->
-		<transform from="῾῞῞\u{345}Α" to="ᾍ"/> <!--  ῾῞῞ͅΑ → ᾍ -->
-		<transform from="῾῝῝\u{345}α" to="ᾃ"/> <!--  ῾῝῝ͅα → ᾃ -->
-		<transform from="῾῝῝\u{345}Α" to="ᾋ"/> <!--  ῾῝῝ͅΑ → ᾋ -->
-		<transform from="῾῟῟\u{345}α" to="ᾇ"/> <!--  ῾῟῟ͅα → ᾇ -->
-		<transform from="῾῟῟\u{345}Α" to="ᾏ"/> <!--  ῾῟῟ͅΑ → ᾏ -->
-		<transform from="῾῾\u{345}῞\u{345}α" to="ᾅ"/> <!--  ῾῾ͅ῞ͅα → ᾅ -->
-		<transform from="῾῾\u{345}῞\u{345}Α" to="ᾍ"/> <!--  ῾῾ͅ῞ͅΑ → ᾍ -->
-		<transform from="῾῾\u{345}῝\u{345}α" to="ᾃ"/> <!--  ῾῾ͅ῝ͅα → ᾃ -->
-		<transform from="῾῾\u{345}῝\u{345}Α" to="ᾋ"/> <!--  ῾῾ͅ῝ͅΑ → ᾋ -->
-		<transform from="῾῾\u{345}῟\u{345}α" to="ᾇ"/> <!--  ῾῾ͅ῟ͅα → ᾇ -->
-		<transform from="῾῾\u{345}῟\u{345}Α" to="ᾏ"/> <!--  ῾῾ͅ῟ͅΑ → ᾏ -->
-		<transform from="῾῞῞\u{345}η" to="ᾕ"/> <!--  ῾῞῞ͅη → ᾕ -->
-		<transform from="῾῞῞\u{345}Η" to="ᾝ"/> <!--  ῾῞῞ͅΗ → ᾝ -->
-		<transform from="῾῝῝\u{345}η" to="ᾓ"/> <!--  ῾῝῝ͅη → ᾓ -->
-		<transform from="῾῝῝\u{345}Η" to="ᾛ"/> <!--  ῾῝῝ͅΗ → ᾛ -->
-		<transform from="῾῟῟\u{345}η" to="ᾗ"/> <!--  ῾῟῟ͅη → ᾗ -->
-		<transform from="῾῟῟\u{345}Η" to="ᾟ"/> <!--  ῾῟῟ͅΗ → ᾟ -->
-		<transform from="῾῾\u{345}῞\u{345}η" to="ᾕ"/> <!--  ῾῾ͅ῞ͅη → ᾕ -->
-		<transform from="῾῾\u{345}῞\u{345}Η" to="ᾝ"/> <!--  ῾῾ͅ῞ͅΗ → ᾝ -->
-		<transform from="῾῾\u{345}῝\u{345}η" to="ᾓ"/> <!--  ῾῾ͅ῝ͅη → ᾓ -->
-		<transform from="῾῾\u{345}῝\u{345}Η" to="ᾛ"/> <!--  ῾῾ͅ῝ͅΗ → ᾛ -->
-		<transform from="῾῾\u{345}῟\u{345}η" to="ᾗ"/> <!--  ῾῾ͅ῟ͅη → ᾗ -->
-		<transform from="῾῾\u{345}῟\u{345}Η" to="ᾟ"/> <!--  ῾῾ͅ῟ͅΗ → ᾟ -->
-		<transform from="῾῞῞\u{345}ω" to="ᾥ"/> <!--  ῾῞῞ͅω → ᾥ -->
-		<transform from="῾῞῞\u{345}Ω" to="ᾭ"/> <!--  ῾῞῞ͅΩ → ᾭ -->
-		<transform from="῾῝῝\u{345}ω" to="ᾣ"/> <!--  ῾῝῝ͅω → ᾣ -->
-		<transform from="῾῝῝\u{345}Ω" to="ᾫ"/> <!--  ῾῝῝ͅΩ → ᾫ -->
-		<transform from="῾῟῟\u{345}ω" to="ᾧ"/> <!--  ῾῟῟ͅω → ᾧ -->
-		<transform from="῾῟῟\u{345}Ω" to="ᾯ"/> <!--  ῾῟῟ͅΩ → ᾯ -->
-		<transform from="῾῾\u{345}῞\u{345}ω" to="ᾥ"/> <!--  ῾῾ͅ῞ͅω → ᾥ -->
-		<transform from="῾῾\u{345}῞\u{345}Ω" to="ᾭ"/> <!--  ῾῾ͅ῞ͅΩ → ᾭ -->
-		<transform from="῾῾\u{345}῝\u{345}ω" to="ᾣ"/> <!--  ῾῾ͅ῝ͅω → ᾣ -->
-		<transform from="῾῾\u{345}῝\u{345}Ω" to="ᾫ"/> <!--  ῾῾ͅ῝ͅΩ → ᾫ -->
-		<transform from="῾῾\u{345}῟\u{345}ω" to="ᾧ"/> <!--  ῾῾ͅ῟ͅω → ᾧ -->
-		<transform from="῾῾\u{345}῟\u{345}Ω" to="ᾯ"/> <!--  ῾῾ͅ῟ͅΩ → ᾯ -->
+		<transform from="῾῟\u{A0}" to="῟"/>
 		<transform from="῾῞α" to="ἅ"/>
 		<transform from="῾῞Α" to="Ἅ"/>
 		<transform from="῾῝α" to="ἃ"/>
 		<transform from="῾῝Α" to="Ἃ"/>
 		<transform from="῾῟α" to="ἇ"/>
 		<transform from="῾῟Α" to="Ἇ"/>
-		<transform from="῾῾\u{345}α" to="ᾁ"/> <!--  ῾῾ͅα → ᾁ -->
-		<transform from="῾῾\u{345}Α" to="ᾉ"/> <!--  ῾῾ͅΑ → ᾉ -->
-		<transform from="῞῞\u{345}α" to="ᾅ"/> <!--  ῞῞ͅα → ᾅ -->
-		<transform from="῞῞\u{345}Α" to="ᾍ"/> <!--  ῞῞ͅΑ → ᾍ -->
-		<transform from="῝῝\u{345}α" to="ᾃ"/> <!--  ῝῝ͅα → ᾃ -->
-		<transform from="῝῝\u{345}Α" to="ᾋ"/> <!--  ῝῝ͅΑ → ᾋ -->
-		<transform from="῟῟\u{345}α" to="ᾇ"/> <!--  ῟῟ͅα → ᾇ -->
-		<transform from="῟῟\u{345}Α" to="ᾏ"/> <!--  ῟῟ͅΑ → ᾏ -->
 		<transform from="῾῞ε" to="ἕ"/>
 		<transform from="῾῞Ε" to="Ἕ"/>
 		<transform from="῾῝ε" to="ἓ"/>
@@ -976,14 +757,6 @@
 		<transform from="῾῝Η" to="Ἣ"/>
 		<transform from="῾῟η" to="ἧ"/>
 		<transform from="῾῟Η" to="Ἧ"/>
-		<transform from="῾῾\u{345}η" to="ᾑ"/> <!--  ῾῾ͅη → ᾑ -->
-		<transform from="῾῾\u{345}Η" to="ᾙ"/> <!--  ῾῾ͅΗ → ᾙ -->
-		<transform from="῞῞\u{345}η" to="ᾕ"/> <!--  ῞῞ͅη → ᾕ -->
-		<transform from="῞῞\u{345}Η" to="ᾝ"/> <!--  ῞῞ͅΗ → ᾝ -->
-		<transform from="῝῝\u{345}η" to="ᾓ"/> <!--  ῝῝ͅη → ᾓ -->
-		<transform from="῝῝\u{345}Η" to="ᾛ"/> <!--  ῝῝ͅΗ → ᾛ -->
-		<transform from="῟῟\u{345}η" to="ᾗ"/> <!--  ῟῟ͅη → ᾗ -->
-		<transform from="῟῟\u{345}Η" to="ᾟ"/> <!--  ῟῟ͅΗ → ᾟ -->
 		<transform from="῾῞ι" to="ἵ"/>
 		<transform from="῾῞Ι" to="Ἵ"/>
 		<transform from="῾῝ι" to="ἳ"/>
@@ -1006,14 +779,6 @@
 		<transform from="῾῝Ω" to="Ὣ"/>
 		<transform from="῾῟ω" to="ὧ"/>
 		<transform from="῾῟Ω" to="Ὧ"/>
-		<transform from="῾῾\u{345}ω" to="ᾡ"/> <!--  ῾῾ͅω → ᾡ -->
-		<transform from="῾῾\u{345}Ω" to="ᾩ"/> <!--  ῾῾ͅΩ → ᾩ -->
-		<transform from="῞῞\u{345}ω" to="ᾥ"/> <!--  ῞῞ͅω → ᾥ -->
-		<transform from="῞῞\u{345}Ω" to="ᾭ"/> <!--  ῞῞ͅΩ → ᾭ -->
-		<transform from="῝῝\u{345}ω" to="ᾣ"/> <!--  ῝῝ͅω → ᾣ -->
-		<transform from="῝῝\u{345}Ω" to="ᾫ"/> <!--  ῝῝ͅΩ → ᾫ -->
-		<transform from="῟῟\u{345}ω" to="ᾧ"/> <!--  ῟῟ͅω → ᾧ -->
-		<transform from="῟῟\u{345}Ω" to="ᾯ"/> <!--  ῟῟ͅΩ → ᾯ -->
 		<transform from="῾α" to="ἁ"/>
 		<transform from="῾Α" to="Ἁ"/>
 		<transform from="῞α" to="ἅ"/>
@@ -1051,6 +816,7 @@
 		<transform from="῝ο" to="ὃ"/>
 		<transform from="῝Ο" to="Ὃ"/>
 		<transform from="῾ρ" to="ῥ"/>
+		<transform from="῾Ρ" to="Ῥ"/>
 		<transform from="῾υ" to="ὑ"/>
 		<transform from="῾Υ" to="Ὑ"/>
 		<transform from="῞υ" to="ὕ"/>
@@ -1068,19 +834,9 @@
 		<transform from="῟ω" to="ὧ"/>
 		<transform from="῟Ω" to="Ὧ"/>
 		<transform from="῀ " to="῀"/>
-		<transform from="῀\u{A0}" to="\u{342}"/> <!--  ῀  → ͂ -->
-		<transform from="῀῁ " to="῁"/>
-		<transform from="῀῁\u{A0}" to="῁"/> <!--  ῀῁  → ῁ -->
-		<transform from="῀῁ι" to="ῗ"/>
-		<transform from="῀῁υ" to="ῧ"/>
+		<transform from="῀\u{A0}" to="\u{342}"/>
 		<transform from="῀῏ " to="῏"/>
-		<transform from="῀῏\u{A0}" to="῏"/> <!--  ῀῏  → ῏ -->
-		<transform from="῀῏῏\u{345}α" to="ᾆ"/> <!--  ῀῏῏ͅα → ᾆ -->
-		<transform from="῀῏῏\u{345}Α" to="ᾎ"/> <!--  ῀῏῏ͅΑ → ᾎ -->
-		<transform from="῀῏῏\u{345}η" to="ᾖ"/> <!--  ῀῏῏ͅη → ᾖ -->
-		<transform from="῀῏῏\u{345}Η" to="ᾞ"/> <!--  ῀῏῏ͅΗ → ᾞ -->
-		<transform from="῀῏῏\u{345}ω" to="ᾦ"/> <!--  ῀῏῏ͅω → ᾦ -->
-		<transform from="῀῏῏\u{345}Ω" to="ᾮ"/> <!--  ῀῏῏ͅΩ → ᾮ -->
+		<transform from="῀῏\u{A0}" to="῏"/>
 		<transform from="῀῏α" to="ἆ"/>
 		<transform from="῀῏Α" to="Ἆ"/>
 		<transform from="῀῏η" to="ἦ"/>
@@ -1091,13 +847,7 @@
 		<transform from="῀῏ω" to="ὦ"/>
 		<transform from="῀῏Ω" to="Ὦ"/>
 		<transform from="῀῟ " to="῟"/>
-		<transform from="῀῟\u{A0}" to="῟"/> <!--  ῀῟  → ῟ -->
-		<transform from="῀῟῟\u{345}α" to="ᾇ"/> <!--  ῀῟῟ͅα → ᾇ -->
-		<transform from="῀῟῟\u{345}Α" to="ᾏ"/> <!--  ῀῟῟ͅΑ → ᾏ -->
-		<transform from="῀῟῟\u{345}η" to="ᾗ"/> <!--  ῀῟῟ͅη → ᾗ -->
-		<transform from="῀῟῟\u{345}Η" to="ᾟ"/> <!--  ῀῟῟ͅΗ → ᾟ -->
-		<transform from="῀῟῟\u{345}ω" to="ᾧ"/> <!--  ῀῟῟ͅω → ᾧ -->
-		<transform from="῀῟῟\u{345}Ω" to="ᾯ"/> <!--  ῀῟῟ͅΩ → ᾯ -->
+		<transform from="῀῟\u{A0}" to="῟"/>
 		<transform from="῀῟α" to="ἇ"/>
 		<transform from="῀῟Α" to="Ἇ"/>
 		<transform from="῀῟η" to="ἧ"/>
@@ -1108,18 +858,6 @@
 		<transform from="῀῟Υ" to="Ὗ"/>
 		<transform from="῀῟ω" to="ὧ"/>
 		<transform from="῀῟Ω" to="Ὧ"/>
-		<transform from="῀῀ι῏\u{345}α" to="ᾆ"/> <!--  ῀῀ι῏ͅα → ᾆ -->
-		<transform from="῀῀ι῏\u{345}Α" to="ᾎ"/> <!--  ῀῀ι῏ͅΑ → ᾎ -->
-		<transform from="῀῀ι῏\u{345}η" to="ᾖ"/> <!--  ῀῀ι῏ͅη → ᾖ -->
-		<transform from="῀῀ι῏\u{345}Η" to="ᾞ"/> <!--  ῀῀ι῏ͅΗ → ᾞ -->
-		<transform from="῀῀ι῏\u{345}ω" to="ᾦ"/> <!--  ῀῀ι῏ͅω → ᾦ -->
-		<transform from="῀῀ι῏\u{345}Ω" to="ᾮ"/> <!--  ῀῀ι῏ͅΩ → ᾮ -->
-		<transform from="῀῀ι῟\u{345}α" to="ᾇ"/> <!--  ῀῀ι῟ͅα → ᾇ -->
-		<transform from="῀῀ι῟\u{345}Α" to="ᾏ"/> <!--  ῀῀ι῟ͅΑ → ᾏ -->
-		<transform from="῀῀ι῟\u{345}η" to="ᾗ"/> <!--  ῀῀ι῟ͅη → ᾗ -->
-		<transform from="῀῀ι῟\u{345}Η" to="ᾟ"/> <!--  ῀῀ι῟ͅΗ → ᾟ -->
-		<transform from="῀῀ι῟\u{345}ω" to="ᾧ"/> <!--  ῀῀ι῟ͅω → ᾧ -->
-		<transform from="῀῀ι῟\u{345}Ω" to="ᾯ"/> <!--  ῀῀ι῟ͅΩ → ᾯ -->
 		<transform from="῀῀ια" to="ᾷ"/>
 		<transform from="῀῀ιη" to="ῇ"/>
 		<transform from="῀῀ιω" to="ῷ"/>
@@ -1129,97 +867,7 @@
 		<transform from="῀υ" to="ῦ"/>
 		<transform from="῀ω" to="ῶ"/>
 		<transform from="ι " to="ι"/>
-		<transform from="ι\u{A0}" to="\u{345}"/> <!--  ι  → ͅ -->
-		<transform from="ι`\u{345}῍\u{345}α" to="ᾂ"/> <!--  ι`ͅ῍ͅα → ᾂ -->
-		<transform from="ι`\u{345}῍\u{345}Α" to="ᾊ"/> <!--  ι`ͅ῍ͅΑ → ᾊ -->
-		<transform from="ι`\u{345}῍\u{345}η" to="ᾒ"/> <!--  ι`ͅ῍ͅη → ᾒ -->
-		<transform from="ι`\u{345}῍\u{345}Η" to="ᾚ"/> <!--  ι`ͅ῍ͅΗ → ᾚ -->
-		<transform from="ι`\u{345}῍\u{345}ω" to="ᾢ"/> <!--  ι`ͅ῍ͅω → ᾢ -->
-		<transform from="ι`\u{345}῍\u{345}Ω" to="ᾪ"/> <!--  ι`ͅ῍ͅΩ → ᾪ -->
-		<transform from="ι`\u{345}῝\u{345}α" to="ᾃ"/> <!--  ι`ͅ῝ͅα → ᾃ -->
-		<transform from="ι`\u{345}῝\u{345}Α" to="ᾋ"/> <!--  ι`ͅ῝ͅΑ → ᾋ -->
-		<transform from="ι`\u{345}῝\u{345}η" to="ᾓ"/> <!--  ι`ͅ῝ͅη → ᾓ -->
-		<transform from="ι`\u{345}῝\u{345}Η" to="ᾛ"/> <!--  ι`ͅ῝ͅΗ → ᾛ -->
-		<transform from="ι`\u{345}῝\u{345}ω" to="ᾣ"/> <!--  ι`ͅ῝ͅω → ᾣ -->
-		<transform from="ι`\u{345}῝\u{345}Ω" to="ᾫ"/> <!--  ι`ͅ῝ͅΩ → ᾫ -->
-		<transform from="ι`\u{345}α" to="ᾲ"/> <!--  ι`ͅα → ᾲ -->
-		<transform from="ι`\u{345}η" to="ῂ"/> <!--  ι`ͅη → ῂ -->
-		<transform from="ι`\u{345}ω" to="ῲ"/> <!--  ι`ͅω → ῲ -->
-		<transform from="ι´\u{345}῎\u{345}α" to="ᾄ"/> <!--  ι´ͅ῎ͅα → ᾄ -->
-		<transform from="ι´\u{345}῎\u{345}Α" to="ᾌ"/> <!--  ι´ͅ῎ͅΑ → ᾌ -->
-		<transform from="ι´\u{345}῎\u{345}η" to="ᾔ"/> <!--  ι´ͅ῎ͅη → ᾔ -->
-		<transform from="ι´\u{345}῎\u{345}Η" to="ᾜ"/> <!--  ι´ͅ῎ͅΗ → ᾜ -->
-		<transform from="ι´\u{345}῎\u{345}ω" to="ᾤ"/> <!--  ι´ͅ῎ͅω → ᾤ -->
-		<transform from="ι´\u{345}῎\u{345}Ω" to="ᾬ"/> <!--  ι´ͅ῎ͅΩ → ᾬ -->
-		<transform from="ι´\u{345}῞\u{345}α" to="ᾅ"/> <!--  ι´ͅ῞ͅα → ᾅ -->
-		<transform from="ι´\u{345}῞\u{345}Α" to="ᾍ"/> <!--  ι´ͅ῞ͅΑ → ᾍ -->
-		<transform from="ι´\u{345}῞\u{345}η" to="ᾕ"/> <!--  ι´ͅ῞ͅη → ᾕ -->
-		<transform from="ι´\u{345}῞\u{345}Η" to="ᾝ"/> <!--  ι´ͅ῞ͅΗ → ᾝ -->
-		<transform from="ι´\u{345}῞\u{345}ω" to="ᾥ"/> <!--  ι´ͅ῞ͅω → ᾥ -->
-		<transform from="ι´\u{345}῞\u{345}Ω" to="ᾭ"/> <!--  ι´ͅ῞ͅΩ → ᾭ -->
-		<transform from="ι´\u{345}α" to="ᾴ"/> <!--  ι´ͅα → ᾴ -->
-		<transform from="ι´\u{345}η" to="ῄ"/> <!--  ι´ͅη → ῄ -->
-		<transform from="ι´\u{345}ω" to="ῴ"/> <!--  ι´ͅω → ῴ -->
-		<transform from="ι᾽\u{345}῎\u{345}α" to="ᾄ"/> <!--  ι᾽ͅ῎ͅα → ᾄ -->
-		<transform from="ι᾽\u{345}῎\u{345}Α" to="ᾌ"/> <!--  ι᾽ͅ῎ͅΑ → ᾌ -->
-		<transform from="ι᾽\u{345}῍\u{345}α" to="ᾂ"/> <!--  ι᾽ͅ῍ͅα → ᾂ -->
-		<transform from="ι᾽\u{345}῍\u{345}Α" to="ᾊ"/> <!--  ι᾽ͅ῍ͅΑ → ᾊ -->
-		<transform from="ι᾽\u{345}῏\u{345}α" to="ᾆ"/> <!--  ι᾽ͅ῏ͅα → ᾆ -->
-		<transform from="ι᾽\u{345}῏\u{345}Α" to="ᾎ"/> <!--  ι᾽ͅ῏ͅΑ → ᾎ -->
-		<transform from="ι᾽\u{345}῎\u{345}η" to="ᾔ"/> <!--  ι᾽ͅ῎ͅη → ᾔ -->
-		<transform from="ι᾽\u{345}῎\u{345}Η" to="ᾜ"/> <!--  ι᾽ͅ῎ͅΗ → ᾜ -->
-		<transform from="ι᾽\u{345}῍\u{345}η" to="ᾒ"/> <!--  ι᾽ͅ῍ͅη → ᾒ -->
-		<transform from="ι᾽\u{345}῍\u{345}Η" to="ᾚ"/> <!--  ι᾽ͅ῍ͅΗ → ᾚ -->
-		<transform from="ι᾽\u{345}῏\u{345}η" to="ᾖ"/> <!--  ι᾽ͅ῏ͅη → ᾖ -->
-		<transform from="ι᾽\u{345}῏\u{345}Η" to="ᾞ"/> <!--  ι᾽ͅ῏ͅΗ → ᾞ -->
-		<transform from="ι᾽\u{345}῎\u{345}ω" to="ᾤ"/> <!--  ι᾽ͅ῎ͅω → ᾤ -->
-		<transform from="ι᾽\u{345}῎\u{345}Ω" to="ᾬ"/> <!--  ι᾽ͅ῎ͅΩ → ᾬ -->
-		<transform from="ι᾽\u{345}῍\u{345}ω" to="ᾢ"/> <!--  ι᾽ͅ῍ͅω → ᾢ -->
-		<transform from="ι᾽\u{345}῍\u{345}Ω" to="ᾪ"/> <!--  ι᾽ͅ῍ͅΩ → ᾪ -->
-		<transform from="ι᾽\u{345}῏\u{345}ω" to="ᾦ"/> <!--  ι᾽ͅ῏ͅω → ᾦ -->
-		<transform from="ι᾽\u{345}῏\u{345}Ω" to="ᾮ"/> <!--  ι᾽ͅ῏ͅΩ → ᾮ -->
-		<transform from="ι᾽\u{345}α" to="ᾀ"/> <!--  ι᾽ͅα → ᾀ -->
-		<transform from="ι᾽\u{345}Α" to="ᾈ"/> <!--  ι᾽ͅΑ → ᾈ -->
-		<transform from="ι᾽\u{345}η" to="ᾐ"/> <!--  ι᾽ͅη → ᾐ -->
-		<transform from="ι᾽\u{345}Η" to="ᾘ"/> <!--  ι᾽ͅΗ → ᾘ -->
-		<transform from="ι᾽\u{345}ω" to="ᾠ"/> <!--  ι᾽ͅω → ᾠ -->
-		<transform from="ι᾽\u{345}Ω" to="ᾨ"/> <!--  ι᾽ͅΩ → ᾨ -->
-		<transform from="ι῾\u{345}῞\u{345}α" to="ᾅ"/> <!--  ι῾ͅ῞ͅα → ᾅ -->
-		<transform from="ι῾\u{345}῞\u{345}Α" to="ᾍ"/> <!--  ι῾ͅ῞ͅΑ → ᾍ -->
-		<transform from="ι῾\u{345}῝\u{345}α" to="ᾃ"/> <!--  ι῾ͅ῝ͅα → ᾃ -->
-		<transform from="ι῾\u{345}῝\u{345}Α" to="ᾋ"/> <!--  ι῾ͅ῝ͅΑ → ᾋ -->
-		<transform from="ι῾\u{345}῟\u{345}α" to="ᾇ"/> <!--  ι῾ͅ῟ͅα → ᾇ -->
-		<transform from="ι῾\u{345}῟\u{345}Α" to="ᾏ"/> <!--  ι῾ͅ῟ͅΑ → ᾏ -->
-		<transform from="ι῾\u{345}῞\u{345}η" to="ᾕ"/> <!--  ι῾ͅ῞ͅη → ᾕ -->
-		<transform from="ι῾\u{345}῞\u{345}Η" to="ᾝ"/> <!--  ι῾ͅ῞ͅΗ → ᾝ -->
-		<transform from="ι῾\u{345}῝\u{345}η" to="ᾓ"/> <!--  ι῾ͅ῝ͅη → ᾓ -->
-		<transform from="ι῾\u{345}῝\u{345}Η" to="ᾛ"/> <!--  ι῾ͅ῝ͅΗ → ᾛ -->
-		<transform from="ι῾\u{345}῟\u{345}η" to="ᾗ"/> <!--  ι῾ͅ῟ͅη → ᾗ -->
-		<transform from="ι῾\u{345}῟\u{345}Η" to="ᾟ"/> <!--  ι῾ͅ῟ͅΗ → ᾟ -->
-		<transform from="ι῾\u{345}῞\u{345}ω" to="ᾥ"/> <!--  ι῾ͅ῞ͅω → ᾥ -->
-		<transform from="ι῾\u{345}῞\u{345}Ω" to="ᾭ"/> <!--  ι῾ͅ῞ͅΩ → ᾭ -->
-		<transform from="ι῾\u{345}῝\u{345}ω" to="ᾣ"/> <!--  ι῾ͅ῝ͅω → ᾣ -->
-		<transform from="ι῾\u{345}῝\u{345}Ω" to="ᾫ"/> <!--  ι῾ͅ῝ͅΩ → ᾫ -->
-		<transform from="ι῾\u{345}῟\u{345}ω" to="ᾧ"/> <!--  ι῾ͅ῟ͅω → ᾧ -->
-		<transform from="ι῾\u{345}῟\u{345}Ω" to="ᾯ"/> <!--  ι῾ͅ῟ͅΩ → ᾯ -->
-		<transform from="ι῾\u{345}α" to="ᾁ"/> <!--  ι῾ͅα → ᾁ -->
-		<transform from="ι῾\u{345}Α" to="ᾉ"/> <!--  ι῾ͅΑ → ᾉ -->
-		<transform from="ι῾\u{345}η" to="ᾑ"/> <!--  ι῾ͅη → ᾑ -->
-		<transform from="ι῾\u{345}Η" to="ᾙ"/> <!--  ι῾ͅΗ → ᾙ -->
-		<transform from="ι῾\u{345}ω" to="ᾡ"/> <!--  ι῾ͅω → ᾡ -->
-		<transform from="ι῾\u{345}Ω" to="ᾩ"/> <!--  ι῾ͅΩ → ᾩ -->
-		<transform from="ι῀ι῏\u{345}α" to="ᾆ"/> <!--  ι῀ι῏ͅα → ᾆ -->
-		<transform from="ι῀ι῏\u{345}Α" to="ᾎ"/> <!--  ι῀ι῏ͅΑ → ᾎ -->
-		<transform from="ι῀ι῏\u{345}η" to="ᾖ"/> <!--  ι῀ι῏ͅη → ᾖ -->
-		<transform from="ι῀ι῏\u{345}Η" to="ᾞ"/> <!--  ι῀ι῏ͅΗ → ᾞ -->
-		<transform from="ι῀ι῏\u{345}ω" to="ᾦ"/> <!--  ι῀ι῏ͅω → ᾦ -->
-		<transform from="ι῀ι῏\u{345}Ω" to="ᾮ"/> <!--  ι῀ι῏ͅΩ → ᾮ -->
-		<transform from="ι῀ι῟\u{345}α" to="ᾇ"/> <!--  ι῀ι῟ͅα → ᾇ -->
-		<transform from="ι῀ι῟\u{345}Α" to="ᾏ"/> <!--  ι῀ι῟ͅΑ → ᾏ -->
-		<transform from="ι῀ι῟\u{345}η" to="ᾗ"/> <!--  ι῀ι῟ͅη → ᾗ -->
-		<transform from="ι῀ι῟\u{345}Η" to="ᾟ"/> <!--  ι῀ι῟ͅΗ → ᾟ -->
-		<transform from="ι῀ι῟\u{345}ω" to="ᾧ"/> <!--  ι῀ι῟ͅω → ᾧ -->
-		<transform from="ι῀ι῟\u{345}Ω" to="ᾯ"/> <!--  ι῀ι῟ͅΩ → ᾯ -->
+		<transform from="ι\u{A0}" to="\u{345}"/>
 		<transform from="ι῀ια" to="ᾷ"/>
 		<transform from="ι῀ιη" to="ῇ"/>
 		<transform from="ι῀ιω" to="ῷ"/>
@@ -1231,3 +879,4 @@
 		<transform from="ιΩ" to="ῼ"/>
 	</transforms>
 </keyboard>
+

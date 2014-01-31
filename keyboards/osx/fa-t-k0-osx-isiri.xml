@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='fa-t-k0-osx-isiri'>
-	<version platform='10.4' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="fa-t-k0-osx-isiri">
+	<version platform="10.9" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Persian-ISIRI 2901'/>
+		<name value="Persian-ISIRI 2901"/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="\u{200D}"/> <!-- ` -->
@@ -44,7 +44,7 @@
 		<map iso="C09" to="م"/> <!-- L -->
 		<map iso="C10" to="ک"/> <!-- ; -->
 		<map iso="C11" to="گ"/> <!-- ' -->
-		<map iso="B00" to="\u{200D}"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="\u{200D}"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="ظ"/> <!-- Z -->
 		<map iso="B02" to="ط"/> <!-- X -->
 		<map iso="B03" to="ز"/> <!-- C -->
@@ -57,11 +57,12 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift+caps?'>
+	<keyMap modifiers="shift+caps?">
+		<map iso="E00" to="÷"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1  base=۱ -->
 		<map iso="E02" to="٬"/> <!-- 2  base=۲ -->
 		<map iso="E03" to="٫"/> <!-- 3  base=۳ -->
-		<map iso="E04" to="ریال"/> <!-- 4  base=۴ -->
+		<map iso="E04" to="﷼"/> <!-- 4  base=۴ -->
 		<map iso="E05" to="٪"/> <!-- 5  base=۵ -->
 		<map iso="E06" to="×"/> <!-- 6  base=۶ -->
 		<map iso="E07" to="،"/> <!-- 7  base=۷ -->
@@ -94,16 +95,58 @@
 		<map iso="C09" to="»"/> <!-- L  base=م -->
 		<map iso="C10" to=":"/> <!-- ;  base=ک -->
 		<map iso="C11" to="؛"/> <!-- '  base=گ -->
+		<map iso="B00" to="÷"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="ك"/> <!-- Z  base=ظ -->
+		<map iso="B02" to="\u{653}"/> <!-- X  base=ط  to= ٓ  -->
 		<map iso="B03" to="ژ"/> <!-- C  base=ز -->
+		<map iso="B04" to="\u{670}"/> <!-- V  base=ر  to= ٰ  -->
 		<map iso="B05" to="\u{200C}"/> <!-- B  base=ذ -->
+		<map iso="B06" to="\u{654}"/> <!-- N  base=د  to= ٔ  -->
 		<map iso="B07" to="ء"/> <!-- M  base=پ -->
 		<map iso="B08" to="&lt;"/> <!-- ,  base=و -->
 		<map iso="B09" to="&gt;"/> <!-- . -->
 		<map iso="B10" to="؟"/> <!-- / -->
 		<map iso="A03" to="\u{200C}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt opt+shift+caps? opt+caps+shift?'>
+	<keyMap modifiers="opt">
+		<map iso="E00" to="~"/> <!-- ` -->
+		<map iso="E01" to="`"/> <!-- 1  base=۱ -->
+		<map iso="E02" to="@"/> <!-- 2  base=۲ -->
+		<map iso="E03" to="#"/> <!-- 3  base=۳ -->
+		<map iso="E04" to="$"/> <!-- 4  base=۴ -->
+		<map iso="E05" to="%"/> <!-- 5  base=۵ -->
+		<map iso="E06" to="^"/> <!-- 6  base=۶ -->
+		<map iso="E07" to="&amp;"/> <!-- 7  base=۷ -->
+		<map iso="E08" to="•"/> <!-- 8  base=۸ -->
+		<map iso="E09" to="\u{200E}"/> <!-- 9  base=۹ -->
+		<map iso="E10" to="\u{200F}"/> <!-- 0  base=۰ -->
+		<map iso="E11" to="_"/> <!-- - -->
+		<map iso="E12" to="−"/> <!-- = -->
+		<map iso="D01" to="°"/> <!-- Q  base=ض -->
+		<map iso="D03" to="€"/> <!-- E  base=ث -->
+		<map iso="D08" to="\u{202D}"/> <!-- I  base=ه -->
+		<map iso="D09" to="\u{202E}"/> <!-- O  base=خ -->
+		<map iso="D10" to="\u{202C}"/> <!-- P  base=ح -->
+		<map iso="D11" to="\u{202A}"/> <!-- [  base=ج -->
+		<map iso="D12" to="\u{202B}"/> <!-- ]  base=چ -->
+		<map iso="D13" to="‐"/> <!-- \ -->
+		<map iso="C03" to="ى"/> <!-- D  base=ی -->
+		<map iso="C06" to="ٱ"/> <!-- H  base=ا -->
+		<map iso="C08" to="﴾"/> <!-- K  base=ن -->
+		<map iso="C09" to="﴿"/> <!-- L  base=م -->
+		<map iso="C10" to=";"/> <!--   base=ک -->
+		<map iso="C11" to="\u{22}"/> <!-- '  base=گ  to= "  -->
+		<map iso="B00" to="~"/> <!-- (key to left of Z) -->
+		<map iso="B04" to="\u{656}"/> <!-- V  base=ر  to= ٖ  -->
+		<map iso="B05" to="\u{200D}"/> <!-- B  base=ذ -->
+		<map iso="B06" to="\u{655}"/> <!-- N  base=د  to= ٕ  -->
+		<map iso="B07" to="…"/> <!-- M  base=پ -->
+		<map iso="B08" to=","/> <!--   base=و -->
+		<map iso="B09" to="&apos;"/> <!-- . -->
+		<map iso="B10" to="?"/> <!-- / -->
+		<map iso="A03" to="\u{A0}"/> <!-- space -->
+	</keyMap>
+	<keyMap modifiers="opt+shift+caps? opt+caps+shift?">
 		<map iso="E01" to="~"/> <!-- 1  base=۱ -->
 		<map iso="E02" to="@"/> <!-- 2  base=۲ -->
 		<map iso="E03" to="#"/> <!-- 3  base=۳ -->
@@ -125,11 +168,11 @@
 		<map iso="D10" to="\u{22}"/> <!-- P  base=ح  to= "  -->
 		<map iso="D13" to="?"/> <!-- \ -->
 		<map iso="C10" to=";"/> <!--   base=ک -->
-		<map iso="B00" to="`"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="`"/> <!-- (key to left of Z) -->
 		<map iso="B08" to=","/> <!--   base=و -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?'>
+	<keyMap modifiers="ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="۱"/> <!-- 1 -->
 		<map iso="E02" to="۲"/> <!-- 2 -->
@@ -167,7 +210,6 @@
 		<map iso="C09" to="\u{C}"/> <!-- L  base=م -->
 		<map iso="C10" to=";"/> <!--   base=ک -->
 		<map iso="C11" to="&apos;"/> <!--   base=گ -->
-		<map iso="B00" to="0"/> <!-- (1 key to left of Z) -->
 		<map iso="B01" to="\u{1A}"/> <!-- Z  base=ظ -->
 		<map iso="B02" to="\u{18}"/> <!-- X  base=ط -->
 		<map iso="B03" to="\u{3}"/> <!-- C  base=ز -->
@@ -180,7 +222,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+opt?+shift? cmd+shift+caps?'>
+	<keyMap modifiers="cmd+opt?+shift? cmd+shift+caps?">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/> <!--   base=۱ -->
 		<map iso="E02" to="2"/> <!--   base=۲ -->
@@ -230,7 +272,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+caps'>
+	<keyMap modifiers="cmd+caps">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/> <!--   base=۱ -->
 		<map iso="E02" to="2"/> <!--   base=۲ -->
@@ -281,3 +323,4 @@
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
 </keyboard>
+

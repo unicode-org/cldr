@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='en-GB-t-k0-osx'>
-	<version platform='10.4' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="en-GB-t-k0-osx">
+	<version platform="10.9" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='British'/>
+		<name value="British"/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="`" transform="no"/>
@@ -44,7 +44,7 @@
 		<map iso="C09" to="l"/>
 		<map iso="C10" to=";"/>
 		<map iso="C11" to="&apos;"/>
-		<map iso="B00" to="§"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="§"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="z"/>
 		<map iso="B02" to="x"/>
 		<map iso="B03" to="c"/>
@@ -57,7 +57,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift+caps?'>
+	<keyMap modifiers="shift+caps?">
 		<map iso="E00" to="~" transform="no"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="@"/> <!-- 2 -->
@@ -95,7 +95,7 @@
 		<map iso="C09" to="L"/>
 		<map iso="C10" to=":"/> <!-- ; -->
 		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
-		<map iso="B00" to="±"/> <!-- (1 key to left of Z)  base=§ -->
+		<map iso="B00" to="±"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="Z"/>
 		<map iso="B02" to="X"/>
 		<map iso="B03" to="C"/>
@@ -108,7 +108,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+cmd?'>
+	<keyMap modifiers="caps+cmd?">
 		<map iso="E00" to="`" transform="no"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -146,7 +146,7 @@
 		<map iso="C09" to="L"/>
 		<map iso="C10" to=";"/>
 		<map iso="C11" to="&apos;"/>
-		<map iso="B00" to="±"/> <!-- (1 key to left of Z)  base=§ -->
+		<map iso="B00" to="§"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="Z"/>
 		<map iso="B02" to="X"/>
 		<map iso="B03" to="C"/>
@@ -159,7 +159,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt'>
+	<keyMap modifiers="opt">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="¡"/> <!-- 1 -->
 		<map iso="E02" to="€"/> <!-- 2 -->
@@ -209,7 +209,7 @@
 		<map iso="B10" to="÷"/> <!-- / -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt+shift+cmd?+caps?'>
+	<keyMap modifiers="opt+shift+cmd?+caps?">
 		<map iso="E00" to="Ÿ"/> <!-- ` -->
 		<map iso="E01" to="⁄"/> <!-- 1 -->
 		<map iso="E02" to="™"/> <!-- 2 -->
@@ -259,7 +259,7 @@
 		<map iso="B10" to="¿"/> <!-- / -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt+caps+cmd?'>
+	<keyMap modifiers="opt+caps+cmd?">
 		<map iso="E00" to="`" transform="no"/>
 		<map iso="E01" to="¡"/> <!-- 1 -->
 		<map iso="E02" to="™"/> <!-- 2 -->
@@ -309,7 +309,7 @@
 		<map iso="B10" to="÷"/> <!-- / -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrl+opt?+caps?+shift? ctrl+cmd?+opt?+shift? ctrl+cmd?+opt?+caps? cmd+ctrl+caps+shift+optL? cmd+ctrl+caps+shift+optR? cmd+ctrl+opt+caps+shiftL? cmd+ctrl+opt+caps+shiftR? cmd+ctrlL+opt+caps+shift cmd+ctrlR+opt+caps+shift'>
+	<keyMap modifiers="ctrl+opt?+caps?+shift? ctrl+cmd?+opt?+shift? ctrl+cmd?+opt?+caps? cmd+ctrlR+opt+caps+shift cmd+ctrlL+opt+caps+shift cmd+ctrl+caps+shift+optR? cmd+ctrl+caps+shift+optL? cmd+ctrl+opt+caps+shiftR? cmd+ctrl+opt+caps+shiftL?">
 		<map iso="E00" to="`" transform="no"/>
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -347,7 +347,7 @@
 		<map iso="C09" to="\u{C}"/> <!-- L -->
 		<map iso="C10" to=":"/> <!-- ; -->
 		<map iso="C11" to="\u{22}"/> <!-- '  to= "  -->
-		<map iso="B00" to="`" transform="no"/> <!-- (1 key to left of Z)  base=§ -->
+		<map iso="B00" to="`" transform="no"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="\u{1A}"/> <!-- Z -->
 		<map iso="B02" to="\u{18}"/> <!-- X -->
 		<map iso="B03" to="\u{3}"/> <!-- C -->
@@ -360,7 +360,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+opt'>
+	<keyMap modifiers="cmd+opt">
 		<map iso="E00" to="`" transform="no"/>
 		<map iso="E01" to="¡"/> <!-- 1 -->
 		<map iso="E02" to="€"/> <!-- 2 -->
@@ -398,7 +398,7 @@
 		<map iso="C09" to="¬"/> <!-- L -->
 		<map iso="C10" to="…"/> <!-- ; -->
 		<map iso="C11" to="æ"/> <!-- ' -->
-		<map iso="B00" to="°"/> <!-- (1 key to left of Z)  base=§ -->
+		<map iso="B00" to="°"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="Ω"/> <!-- Z -->
 		<map iso="B02" to="≈"/> <!-- X -->
 		<map iso="B03" to="ç"/> <!-- C -->
@@ -411,7 +411,7 @@
 		<map iso="B10" to="÷"/> <!-- / -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<transforms type='simple'>
+	<transforms type="simple">
 		<transform from="` " to="`"/>
 		<transform from="`a" to="à"/>
 		<transform from="`A" to="À"/>
@@ -467,3 +467,4 @@
 		<transform from="~O" to="Õ"/>
 	</transforms>
 </keyboard>
+

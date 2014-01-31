@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='ar-t-k0-osx'>
-	<version platform='10.4' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="ar-t-k0-osx">
+	<version platform="10.9" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Arabic'/>
+		<name value="Arabic"/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="ـ"/> <!-- ` -->
@@ -44,7 +44,7 @@
 		<map iso="C09" to="م"/> <!-- L -->
 		<map iso="C10" to="ك"/> <!-- ; -->
 		<map iso="C11" to="؛"/> <!-- ' -->
-		<map iso="B00" to="\u{3}"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="§"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="ظ"/> <!-- Z -->
 		<map iso="B02" to="ط"/> <!-- X -->
 		<map iso="B03" to="ذ"/> <!-- C -->
@@ -57,9 +57,9 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift+caps?'>
+	<keyMap modifiers="shift+caps?">
 		<map iso="E01" to="!"/> <!-- 1  base=١ -->
-		<map iso="E02" to="❊"/> <!-- 2  base=٢ -->
+		<map iso="E02" to="@"/> <!-- 2  base=٢ -->
 		<map iso="E03" to="#"/> <!-- 3  base=٣ -->
 		<map iso="E04" to="$"/> <!-- 4  base=٤ -->
 		<map iso="E05" to="٪"/> <!-- 5  base=٥ -->
@@ -87,9 +87,11 @@
 		<map iso="C02" to="»"/> <!-- S  base=س -->
 		<map iso="C03" to="ى"/> <!-- D  base=ي -->
 		<map iso="C06" to="آ"/> <!-- H  base=ا -->
+		<map iso="C08" to="٫"/> <!-- K  base=ن -->
+		<map iso="C09" to="٬"/> <!-- L  base=م -->
 		<map iso="C10" to=":"/> <!-- ;  base=ك -->
 		<map iso="C11" to="\u{22}"/> <!-- '  base=؛  to= "  -->
-		<map iso="B00" to="\u{3}"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="±"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="&apos;"/> <!-- Z  base=ظ -->
 		<map iso="B03" to="ئ"/> <!-- C  base=ذ -->
 		<map iso="B04" to="ء"/> <!-- V  base=د -->
@@ -101,7 +103,7 @@
 		<map iso="B10" to="؟"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps'>
+	<keyMap modifiers="caps">
 		<map iso="E00" to="ـ"/> <!-- ` -->
 		<map iso="E01" to="1"/> <!--   base=١ -->
 		<map iso="E02" to="2"/> <!--   base=٢ -->
@@ -139,7 +141,7 @@
 		<map iso="C09" to="م"/> <!-- L -->
 		<map iso="C10" to="ك"/> <!-- ; -->
 		<map iso="C11" to="؛"/> <!-- ' -->
-		<map iso="B00" to="\u{3}"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="\u{3}"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="ظ"/> <!-- Z -->
 		<map iso="B02" to="ط"/> <!-- X -->
 		<map iso="B03" to="ذ"/> <!-- C -->
@@ -152,23 +154,32 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt'>
+	<keyMap modifiers="opt">
 		<map iso="E01" to="ظ"/> <!-- 1  base=١ -->
 		<map iso="E02" to="ط"/> <!-- 2  base=٢ -->
 		<map iso="E03" to="ذ"/> <!-- 3  base=٣ -->
 		<map iso="E04" to="د"/> <!-- 4  base=٤ -->
+		<map iso="E05" to="∞"/> <!-- 5  base=٥ -->
+		<map iso="E06" to="ٱ"/> <!-- 6  base=٦ -->
+		<map iso="E10" to="°"/> <!-- 0  base=٠ -->
 		<map iso="E11" to="_"/> <!-- - -->
+		<map iso="D01" to="‘"/> <!-- Q  base=ض -->
+		<map iso="D02" to="’"/> <!-- W  base=ص -->
+		<map iso="D03" to="“"/> <!-- E  base=ث -->
+		<map iso="D04" to="”"/> <!-- R  base=ق -->
 		<map iso="D05" to="ڤ"/> <!-- T  base=ف -->
 		<map iso="D07" to="ە"/> <!-- U  base=ع -->
 		<map iso="D11" to="چ"/> <!-- [  base=ج -->
 		<map iso="C02" to="ے"/> <!-- S  base=س -->
 		<map iso="C03" to="ی"/> <!-- D  base=ي -->
 		<map iso="C04" to="پ"/> <!-- F  base=ب -->
+		<map iso="C05" to="\u{653}"/> <!-- G  base=ل  to= ٓ  -->
+		<map iso="C06" to="\u{670}"/> <!-- H  base=ا  to= ٰ  -->
 		<map iso="C07" to="ٹ"/> <!-- J  base=ت -->
 		<map iso="C08" to="ں"/> <!-- K  base=ن -->
 		<map iso="C10" to="گ"/> <!-- ;  base=ك -->
 		<map iso="C11" to="…"/> <!-- '  base=؛ -->
-		<map iso="B00" to="\u{3}"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="\u{3}"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B03" to="ڈ"/> <!-- C  base=ذ -->
 		<map iso="B04" to="ڑ"/> <!-- V  base=د -->
 		<map iso="B05" to="ژ"/> <!-- B  base=ز -->
@@ -176,12 +187,13 @@
 		<map iso="B10" to="÷"/> <!-- / -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt+shift+caps? opt+caps+shift?'>
+	<keyMap modifiers="opt+shift+caps? opt+caps+shift?">
 		<map iso="E01" to="ظ"/> <!-- 1  base=١ -->
-		<map iso="E02" to="ط"/> <!-- 2  base=٢ -->
-		<map iso="E03" to="ذ"/> <!-- 3  base=٣ -->
+		<map iso="E02" to="❊"/> <!-- 2  base=٢ -->
+		<map iso="E03" to="£"/> <!-- 3  base=٣ -->
 		<map iso="E04" to="€"/> <!-- 4  base=٤ -->
 		<map iso="E11" to="_"/> <!-- - -->
+		<map iso="D04" to="؉"/> <!-- R  base=ق -->
 		<map iso="D05" to="ڤ"/> <!-- T  base=ف -->
 		<map iso="D07" to="ە"/> <!-- U  base=ع -->
 		<map iso="D11" to="چ"/> <!-- [  base=ج -->
@@ -192,7 +204,7 @@
 		<map iso="C08" to="ں"/> <!-- K  base=ن -->
 		<map iso="C10" to="ک"/> <!-- ;  base=ك -->
 		<map iso="C11" to="…"/> <!-- '  base=؛ -->
-		<map iso="B00" to="\u{3}"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="\u{3}"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B03" to="ڈ"/> <!-- C  base=ذ -->
 		<map iso="B04" to="ڑ"/> <!-- V  base=د -->
 		<map iso="B05" to="ژ"/> <!-- B  base=ز -->
@@ -200,7 +212,7 @@
 		<map iso="B10" to="÷"/> <!-- / -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?'>
+	<keyMap modifiers="ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?">
 		<map iso="E00" to="`"/> <!--   base=ـ -->
 		<map iso="E01" to="١"/> <!-- 1 -->
 		<map iso="E02" to="٢"/> <!-- 2 -->
@@ -238,7 +250,7 @@
 		<map iso="C09" to="\u{C}"/> <!-- L  base=م -->
 		<map iso="C10" to=";"/> <!--   base=ك -->
 		<map iso="C11" to="&apos;"/> <!--   base=؛ -->
-		<map iso="B00" to="0"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="0"/> <!-- (key to left of Z)  base=§ -->
 		<map iso="B01" to="\u{1A}"/> <!-- Z  base=ظ -->
 		<map iso="B02" to="\u{18}"/> <!-- X  base=ط -->
 		<map iso="B03" to="\u{3}"/> <!-- C  base=ذ -->
@@ -251,7 +263,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+shift? cmd+shift+caps?'>
+	<keyMap modifiers="cmd+caps? cmd+opt+caps?">
 		<map iso="E00" to="`"/> <!--   base=ـ -->
 		<map iso="E01" to="1"/> <!--   base=١ -->
 		<map iso="E02" to="2"/> <!--   base=٢ -->
@@ -301,20 +313,20 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+caps'>
-		<map iso="E00" to="`"/> <!--   base=ـ -->
-		<map iso="E01" to="1"/> <!--   base=١ -->
-		<map iso="E02" to="2"/> <!--   base=٢ -->
-		<map iso="E03" to="3"/> <!--   base=٣ -->
-		<map iso="E04" to="4"/> <!--   base=٤ -->
-		<map iso="E05" to="5"/> <!--   base=٥ -->
-		<map iso="E06" to="6"/> <!--   base=٦ -->
-		<map iso="E07" to="7"/> <!--   base=٧ -->
-		<map iso="E08" to="8"/> <!--   base=٨ -->
-		<map iso="E09" to="9"/> <!--   base=٩ -->
-		<map iso="E10" to="0"/> <!--   base=٠ -->
-		<map iso="E11" to="-"/>
-		<map iso="E12" to="="/>
+	<keyMap modifiers="cmd+shift+opt?+caps?">
+		<map iso="E00" to="~"/> <!-- `  base=ـ -->
+		<map iso="E01" to="!"/> <!-- 1  base=١ -->
+		<map iso="E02" to="@"/> <!-- 2  base=٢ -->
+		<map iso="E03" to="#"/> <!-- 3  base=٣ -->
+		<map iso="E04" to="$"/> <!-- 4  base=٤ -->
+		<map iso="E05" to="%"/> <!-- 5  base=٥ -->
+		<map iso="E06" to="^"/> <!-- 6  base=٦ -->
+		<map iso="E07" to="&amp;"/> <!-- 7  base=٧ -->
+		<map iso="E08" to="*"/> <!-- 8  base=٨ -->
+		<map iso="E09" to="("/> <!-- 9  base=٩ -->
+		<map iso="E10" to=")"/> <!-- 0  base=٠ -->
+		<map iso="E11" to="_"/> <!-- - -->
+		<map iso="E12" to="+"/> <!-- = -->
 		<map iso="D01" to="Q"/> <!--   base=ض -->
 		<map iso="D02" to="W"/> <!--   base=ص -->
 		<map iso="D03" to="E"/> <!--   base=ث -->
@@ -325,9 +337,9 @@
 		<map iso="D08" to="I"/> <!--   base=ه -->
 		<map iso="D09" to="O"/> <!--   base=خ -->
 		<map iso="D10" to="P"/> <!--   base=ح -->
-		<map iso="D11" to="["/> <!--   base=ج -->
-		<map iso="D12" to="]"/> <!--   base=ة -->
-		<map iso="D13" to="\"/>
+		<map iso="D11" to="{"/> <!-- [  base=ج -->
+		<map iso="D12" to="}"/> <!-- ]  base=ة -->
+		<map iso="D13" to="|"/> <!-- \ -->
 		<map iso="C01" to="A"/> <!--   base=ش -->
 		<map iso="C02" to="S"/> <!--   base=س -->
 		<map iso="C03" to="D"/> <!--   base=ي -->
@@ -337,8 +349,8 @@
 		<map iso="C07" to="J"/> <!--   base=ت -->
 		<map iso="C08" to="K"/> <!--   base=ن -->
 		<map iso="C09" to="L"/> <!--   base=م -->
-		<map iso="C10" to=";"/> <!--   base=ك -->
-		<map iso="C11" to="&apos;"/> <!--   base=؛ -->
+		<map iso="C10" to=":"/> <!-- ;  base=ك -->
+		<map iso="C11" to="\u{22}"/> <!-- '  base=؛  to= "  -->
 		<map iso="B01" to="Z"/> <!--   base=ظ -->
 		<map iso="B02" to="X"/> <!--   base=ط -->
 		<map iso="B03" to="C"/> <!--   base=ذ -->
@@ -346,159 +358,10 @@
 		<map iso="B05" to="B"/> <!--   base=ز -->
 		<map iso="B06" to="N"/> <!--   base=ر -->
 		<map iso="B07" to="M"/> <!--   base=و -->
-		<map iso="B08" to=","/> <!--   base=، -->
-		<map iso="B09" to="."/>
-		<map iso="B10" to="/"/>
+		<map iso="B08" to="&lt;"/> <!-- ,  base=، -->
+		<map iso="B09" to="&gt;"/> <!-- . -->
+		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+opt'>
-		<map iso="E00" to="`"/> <!--   base=ـ -->
-		<map iso="E01" to="ء"/> <!-- 1  base=١ -->
-		<map iso="E02" to="*"/> <!-- 2  base=٢ -->
-		<map iso="E03" to="#"/> <!-- 3  base=٣ -->
-		<map iso="E04" to="\u{22}"/> <!-- 4  base=٤  to= "  -->
-		<map iso="E05" to="٠"/> <!-- 5  base=٥ -->
-		<map iso="E06" to="$"/> <!-- 6  base=٦ -->
-		<map iso="E07" to="&amp;"/> <!-- 7  base=٧ -->
-		<map iso="E08" to="٪"/> <!-- 8  base=٨ -->
-		<map iso="E09" to="؛"/> <!-- 9  base=٩ -->
-		<map iso="E10" to="&lt;"/> <!-- 0  base=٠ -->
-		<map iso="E11" to="ذ"/> <!-- - -->
-		<map iso="E12" to="-"/> <!-- = -->
-		<map iso="D01" to="د"/> <!-- Q  base=ض -->
-		<map iso="D02" to="٧"/> <!-- W  base=ص -->
-		<map iso="D03" to="+"/> <!-- E  base=ث -->
-		<map iso="D04" to="("/> <!-- R  base=ق -->
-		<map iso="D05" to=" "/> <!-- T  base=ف -->
-		<map iso="D06" to="٤"/> <!-- Y  base=غ -->
-		<map iso="D07" to="،"/> <!-- U  base=ع -->
-		<map iso="D08" to="^"/> <!-- I  base=ه -->
-		<map iso="D09" to="؟"/> <!-- O  base=خ -->
-		<map iso="D10" to="٩"/> <!-- P  base=ح -->
-		<map iso="D11" to="ز"/> <!-- [  base=ج -->
-		<map iso="D12" to="ش"/> <!-- ]  base=ة -->
-		<map iso="D13" to="ا"/> <!-- \ -->
-		<map iso="C01" to="«"/> <!-- A  base=ش -->
-		<map iso="C02" to="&apos;"/> <!-- S  base=س -->
-		<map iso="C03" to="٦"/> <!-- D  base=ي -->
-		<map iso="C04" to="ؤ"/> <!-- F  base=ب -->
-		<map iso="C05" to=")"/> <!-- G  base=ل -->
-		<map iso="C06" to="ڑ"/> <!-- H  base=ا -->
-		<map iso="C07" to="ئ"/> <!-- J  base=ت -->
-		<map iso="C08" to="{"/> <!-- K  base=ن -->
-		<map iso="C09" to="آ"/> <!-- L  base=م -->
-		<map iso="C10" to="ة"/> <!-- ;  base=ك -->
-		<map iso="C11" to="&gt;"/> <!-- '  base=؛ -->
-		<map iso="B01" to="="/> <!-- Z  base=ظ -->
-		<map iso="B02" to="إ"/> <!-- X  base=ط -->
-		<map iso="B03" to="ç"/> <!-- C  base=ذ -->
-		<map iso="B04" to="أ"/> <!-- V  base=د -->
-		<map iso="B05" to=":"/> <!-- B  base=ز -->
-		<map iso="B06" to="~"/> <!-- N  base=ر -->
-		<map iso="B07" to="٥"/> <!-- M  base=و -->
-		<map iso="B08" to="٢"/> <!-- ,  base=، -->
-		<map iso="B09" to="٣"/> <!-- . -->
-		<map iso="B10" to="ض"/> <!-- / -->
-		<map iso="A03" to="ت"/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='cmd+opt+shift+caps?'>
-		<map iso="E00" to="ع"/> <!-- `  base=ـ -->
-		<map iso="E01" to="غ"/> <!-- 1  base=١ -->
-		<map iso="E02" to="["/> <!-- 2  base=٢ -->
-		<map iso="E03" to="\"/> <!-- 3  base=٣ -->
-		<map iso="E04" to="]"/> <!-- 4  base=٤ -->
-		<map iso="E05" to="^"/> <!-- 5  base=٥ -->
-		<map iso="E06" to="_"/> <!-- 6  base=٦ -->
-		<map iso="E07" to="ـ"/> <!-- 7  base=٧ -->
-		<map iso="E08" to="!"/> <!-- 8  base=٨ -->
-		<map iso="E09" to="ف"/> <!-- 9  base=٩ -->
-		<map iso="E10" to="ق"/> <!-- 0  base=٠ -->
-		<map iso="E11" to="ر"/> <!-- - -->
-		<map iso="E12" to="١"/> <!-- = -->
-		<map iso="D01" to="خ"/> <!-- Q  base=ض -->
-		<map iso="D02" to="ك"/> <!-- W  base=ص -->
-		<map iso="D03" to="ل"/> <!-- E  base=ث -->
-		<map iso="D04" to="م"/> <!-- R  base=ق -->
-		<map iso="D05" to="ن"/> <!-- T  base=ف -->
-		<map iso="D06" to="ه"/> <!-- Y  base=غ -->
-		<map iso="D07" to="و"/> <!-- U  base=ع -->
-		<map iso="D08" to="ى"/> <!-- I  base=ه -->
-		<map iso="D09" to="/"/> <!-- O  base=خ -->
-		<map iso="D10" to="٨"/> <!-- P  base=ح -->
-		<map iso="D11" to="س"/> <!-- [  base=ج -->
-		<map iso="D12" to="ص"/> <!-- ]  base=ة -->
-		<map iso="D13" to="ب"/> <!-- \ -->
-		<map iso="C01" to="\u{A0}"/> <!-- A  base=ش -->
-		<map iso="C02" to="ي"/> <!-- S  base=س -->
-		<map iso="C03" to="\u{64B}"/> <!-- D  base=ي  to= ً  -->
-		<map iso="C04" to="\u{64C}"/> <!-- F  base=ب  to= ٌ  -->
-		<map iso="C05" to="\u{64D}"/> <!-- G  base=ل  to= ٍ  -->
-		<map iso="C06" to="\u{64E}"/> <!-- H  base=ا  to= َ  -->
-		<map iso="C07" to="\u{64F}"/> <!-- J  base=ت  to= ُ  -->
-		<map iso="C08" to="\u{650}"/> <!-- K  base=ن  to= ِ  -->
-		<map iso="C09" to="\u{651}"/> <!-- L  base=م  to= ّ  -->
-		<map iso="C10" to="\u{652}"/> <!-- ;  base=ك  to= ْ  -->
-		<map iso="C11" to="."/> <!-- '  base=؛ -->
-		<map iso="B01" to="پ"/> <!-- Z  base=ظ -->
-		<map iso="B02" to="ٹ"/> <!-- X  base=ط -->
-		<map iso="B03" to="Ç"/> <!-- C  base=ذ -->
-		<map iso="B04" to="ط"/> <!-- V  base=د -->
-		<map iso="B05" to="چ"/> <!-- B  base=ز -->
-		<map iso="B06" to="ە"/> <!-- N  base=ر -->
-		<map iso="B07" to="ڤ"/> <!-- M  base=و -->
-		<map iso="B08" to="گ"/> <!-- ,  base=، -->
-		<map iso="B09" to="ڈ"/> <!-- . -->
-		<map iso="B10" to="❊"/> <!-- / -->
-		<map iso="A03" to="ت"/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='cmd+opt+caps'>
-		<map iso="E00" to="`"/> <!--   base=ـ -->
-		<map iso="E01" to="ء"/> <!-- 1  base=١ -->
-		<map iso="E02" to="*"/> <!-- 2  base=٢ -->
-		<map iso="E03" to="#"/> <!-- 3  base=٣ -->
-		<map iso="E04" to="\u{22}"/> <!-- 4  base=٤  to= "  -->
-		<map iso="E05" to="٠"/> <!-- 5  base=٥ -->
-		<map iso="E06" to="$"/> <!-- 6  base=٦ -->
-		<map iso="E07" to="&amp;"/> <!-- 7  base=٧ -->
-		<map iso="E08" to="٪"/> <!-- 8  base=٨ -->
-		<map iso="E09" to="؛"/> <!-- 9  base=٩ -->
-		<map iso="E10" to="&lt;"/> <!-- 0  base=٠ -->
-		<map iso="E11" to="ذ"/> <!-- - -->
-		<map iso="E12" to="-"/> <!-- = -->
-		<map iso="D01" to="خ"/> <!-- Q  base=ض -->
-		<map iso="D02" to="ك"/> <!-- W  base=ص -->
-		<map iso="D03" to="ل"/> <!-- E  base=ث -->
-		<map iso="D04" to="م"/> <!-- R  base=ق -->
-		<map iso="D05" to="ن"/> <!-- T  base=ف -->
-		<map iso="D06" to="ه"/> <!-- Y  base=غ -->
-		<map iso="D07" to="و"/> <!-- U  base=ع -->
-		<map iso="D08" to="ى"/> <!-- I  base=ه -->
-		<map iso="D09" to="/"/> <!-- O  base=خ -->
-		<map iso="D10" to="٨"/> <!-- P  base=ح -->
-		<map iso="D11" to="ز"/> <!-- [  base=ج -->
-		<map iso="D12" to="ش"/> <!-- ]  base=ة -->
-		<map iso="D13" to="ا"/> <!-- \ -->
-		<map iso="C01" to="\u{A0}"/> <!-- A  base=ش -->
-		<map iso="C02" to="ي"/> <!-- S  base=س -->
-		<map iso="C03" to="\u{64B}"/> <!-- D  base=ي  to= ً  -->
-		<map iso="C04" to="\u{64C}"/> <!-- F  base=ب  to= ٌ  -->
-		<map iso="C05" to="\u{64D}"/> <!-- G  base=ل  to= ٍ  -->
-		<map iso="C06" to="\u{64E}"/> <!-- H  base=ا  to= َ  -->
-		<map iso="C07" to="\u{64F}"/> <!-- J  base=ت  to= ُ  -->
-		<map iso="C08" to="\u{650}"/> <!-- K  base=ن  to= ِ  -->
-		<map iso="C09" to="\u{651}"/> <!-- L  base=م  to= ّ  -->
-		<map iso="C10" to="ة"/> <!-- ;  base=ك -->
-		<map iso="C11" to="."/> <!-- '  base=؛ -->
-		<map iso="B01" to="پ"/> <!-- Z  base=ظ -->
-		<map iso="B02" to="ٹ"/> <!-- X  base=ط -->
-		<map iso="B03" to="Ç"/> <!-- C  base=ذ -->
-		<map iso="B04" to="ط"/> <!-- V  base=د -->
-		<map iso="B05" to="چ"/> <!-- B  base=ز -->
-		<map iso="B06" to="ە"/> <!-- N  base=ر -->
-		<map iso="B07" to="ڤ"/> <!-- M  base=و -->
-		<map iso="B08" to="٢"/> <!-- ,  base=، -->
-		<map iso="B09" to="٣"/> <!-- . -->
-		<map iso="B10" to="ض"/> <!-- / -->
-		<map iso="A03" to="ت"/> <!-- space -->
-	</keyMap>
 </keyboard>
+

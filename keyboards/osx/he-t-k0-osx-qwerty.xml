@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='he-t-k0-osx-qwerty'>
-	<version platform='10.4' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="he-t-k0-osx-qwerty">
+	<version platform="10.9" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Hebrew-QWERTY'/>
+		<name value="Hebrew-QWERTY"/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="\u{5BC}"/> <!-- `  to= ּ  -->
@@ -43,8 +43,8 @@
 		<map iso="C08" to="כ"/> <!-- K -->
 		<map iso="C09" to="ל"/> <!-- L -->
 		<map iso="C10" to=";"/>
-		<map iso="C11" to="&apos;"/>
-		<map iso="B00" to="\u{3}"/> <!-- (1 key to left of Z) -->
+		<map iso="C11" to="׳"/> <!-- ' -->
+		<map iso="B00" to="\u{3}"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="ז"/> <!-- Z -->
 		<map iso="B02" to="כ"/> <!-- X -->
 		<map iso="B03" to="צ"/> <!-- C -->
@@ -57,7 +57,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift+caps? caps+shift?'>
+	<keyMap modifiers="shift+caps? caps+shift?">
 		<map iso="E00" to="\u{5BC}"/> <!-- `  to= ּ  -->
 		<map iso="E01" to="!"/> <!-- 1 -->
 		<map iso="E02" to="“"/> <!-- 2 -->
@@ -90,7 +90,7 @@
 		<map iso="C08" to="ך"/> <!-- K  base=כ -->
 		<map iso="C09" to="ל\u{5B9}"/> <!-- L  base=ל  to= לֹ  -->
 		<map iso="C10" to=":"/> <!-- ; -->
-		<map iso="C11" to="’"/> <!-- ' -->
+		<map iso="C11" to="’"/> <!-- '  base=׳ -->
 		<map iso="B02" to="ך"/> <!-- X  base=כ -->
 		<map iso="B03" to="ץ"/> <!-- C  base=צ -->
 		<map iso="B04" to="ב"/> <!-- V  base=ו -->
@@ -102,7 +102,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt opt+caps+shift?'>
+	<keyMap modifiers="opt opt+caps+shift?">
 		<map iso="E00" to="\u{5BC}"/> <!-- `  to= ּ  -->
 		<map iso="E01" to="\u{5B2}"/> <!-- 1  to= ֲ  -->
 		<map iso="E02" to="\u{5B3}"/> <!-- 2  to= ֳ  -->
@@ -133,8 +133,8 @@
 		<map iso="C06" to="ח"/> <!-- H  base=ה -->
 		<map iso="C07" to="\u{5B4}"/> <!-- J  base=ח  to= ִ  -->
 		<map iso="C10" to="\u{5B0}"/> <!-- ;  to= ְ  -->
-		<map iso="C11" to="’"/> <!-- ' -->
-		<map iso="B00" to="\u{3}"/> <!-- (1 key to left of Z) -->
+		<map iso="C11" to="‘"/> <!-- '  base=׳ -->
+		<map iso="B00" to="\u{3}"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="–"/> <!-- Z  base=ז -->
 		<map iso="B02" to="—"/> <!-- X  base=כ -->
 		<map iso="B03" to="“"/> <!-- C  base=צ -->
@@ -142,11 +142,11 @@
 		<map iso="B05" to="‘"/> <!-- B  base=ב -->
 		<map iso="B06" to="’"/> <!-- N  base=נ -->
 		<map iso="B07" to="ם"/> <!-- M  base=מ -->
-		<map iso="B08" to="’"/> <!-- , -->
+		<map iso="B08" to="‘"/> <!-- , -->
 		<map iso="B09" to="\u{5BC}"/> <!-- .  to= ּ  -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt+shift'>
+	<keyMap modifiers="opt+shift">
 		<map iso="E00" to="\u{5BC}"/> <!-- `  to= ּ  -->
 		<map iso="E01" to="\u{5B2}"/> <!-- 1  to= ֲ  -->
 		<map iso="E02" to="\u{5B3}"/> <!-- 2  to= ֳ  -->
@@ -178,8 +178,8 @@
 		<map iso="C06" to="ח"/> <!-- H  base=ה -->
 		<map iso="C07" to="\u{5B4}"/> <!-- J  base=ח  to= ִ  -->
 		<map iso="C10" to="\u{5B0}"/> <!-- ;  to= ְ  -->
-		<map iso="C11" to="’"/> <!-- ' -->
-		<map iso="B00" to="\u{3}"/> <!-- (1 key to left of Z) -->
+		<map iso="C11" to="’"/> <!-- '  base=׳ -->
+		<map iso="B00" to="\u{3}"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="–"/> <!-- Z  base=ז -->
 		<map iso="B02" to="—"/> <!-- X  base=כ -->
 		<map iso="B03" to="\u{59E}"/> <!-- C  base=צ  to= ֞  -->
@@ -191,7 +191,7 @@
 		<map iso="B09" to="…"/> <!-- . -->
 		<map iso="A03" to="\u{A0}"/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrl+opt?+caps?+shift? ctrl+cmd?+opt?+shift? ctrl+cmd?+opt?+caps? cmd+ctrl+caps+shift+optL? cmd+ctrl+caps+shift+optR? cmd+ctrl+opt+caps+shiftL? cmd+ctrl+opt+caps+shiftR? cmd+ctrlL+opt+caps+shift cmd+ctrlR+opt+caps+shift'>
+	<keyMap modifiers="ctrl+cmd?+opt?+caps?+shift? cmd+ctrlR+opt+caps+shift cmd+ctrlL+opt+caps+shift cmd+ctrl+caps+shift+optR? cmd+ctrl+caps+shift+optL? cmd+ctrl+opt+caps+shiftR? cmd+ctrl+opt+caps+shiftL?">
 		<map iso="E00" to="`"/> <!--   base=ּ -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -228,8 +228,8 @@
 		<map iso="C08" to="\u{B}"/> <!-- K  base=כ -->
 		<map iso="C09" to="\u{C}"/> <!-- L  base=ל -->
 		<map iso="C10" to=";"/>
-		<map iso="C11" to="&apos;"/>
-		<map iso="B00" to="0"/> <!-- (1 key to left of Z) -->
+		<map iso="C11" to="׳"/> <!-- ' -->
+		<map iso="B00" to="0"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="\u{1A}"/> <!-- Z  base=ז -->
 		<map iso="B02" to="\u{18}"/> <!-- X  base=כ -->
 		<map iso="B03" to="\u{3}"/> <!-- C  base=צ -->
@@ -242,7 +242,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+shift? cmd+shift+caps?'>
+	<keyMap modifiers="cmd+opt? cmd+opt+caps?">
 		<map iso="E00" to="`"/> <!--   base=ּ -->
 		<map iso="E01" to="1"/>
 		<map iso="E02" to="2"/>
@@ -279,7 +279,7 @@
 		<map iso="C08" to="k"/> <!--   base=כ -->
 		<map iso="C09" to="l"/> <!--   base=ל -->
 		<map iso="C10" to=";"/>
-		<map iso="C11" to="&apos;"/>
+		<map iso="C11" to="&apos;"/> <!--   base=׳ -->
 		<map iso="B01" to="z"/> <!--   base=ז -->
 		<map iso="B02" to="x"/> <!--   base=כ -->
 		<map iso="B03" to="c"/> <!--   base=צ -->
@@ -292,20 +292,20 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+caps'>
-		<map iso="E00" to="`"/> <!--   base=ּ -->
-		<map iso="E01" to="1"/>
-		<map iso="E02" to="2"/>
-		<map iso="E03" to="3"/>
-		<map iso="E04" to="4"/>
-		<map iso="E05" to="5"/>
-		<map iso="E06" to="6"/>
-		<map iso="E07" to="7"/>
-		<map iso="E08" to="8"/>
-		<map iso="E09" to="9"/>
-		<map iso="E10" to="0"/>
-		<map iso="E11" to="-"/> <!--   base=– -->
-		<map iso="E12" to="="/>
+	<keyMap modifiers="cmd+shift+opt?+caps?">
+		<map iso="E00" to="~"/> <!-- `  base=ּ -->
+		<map iso="E01" to="!"/> <!-- 1 -->
+		<map iso="E02" to="@"/> <!-- 2 -->
+		<map iso="E03" to="#"/> <!-- 3 -->
+		<map iso="E04" to="$"/> <!-- 4 -->
+		<map iso="E05" to="%"/> <!-- 5 -->
+		<map iso="E06" to="^"/> <!-- 6 -->
+		<map iso="E07" to="&amp;"/> <!-- 7 -->
+		<map iso="E08" to="*"/> <!-- 8 -->
+		<map iso="E09" to="("/> <!-- 9 -->
+		<map iso="E10" to=")"/> <!-- 0 -->
+		<map iso="E11" to="_"/> <!-- -  base=– -->
+		<map iso="E12" to="+"/> <!-- = -->
 		<map iso="D01" to="Q"/> <!--   base=ק -->
 		<map iso="D02" to="W"/> <!--   base=ש -->
 		<map iso="D03" to="E"/> <!--   base=ע -->
@@ -316,9 +316,9 @@
 		<map iso="D08" to="I"/> <!--   base=י -->
 		<map iso="D09" to="O"/> <!--   base=ו -->
 		<map iso="D10" to="P"/> <!--   base=פ -->
-		<map iso="D11" to="["/> <!--   base=’ -->
-		<map iso="D12" to="]"/> <!--   base=ײַ -->
-		<map iso="D13" to="\"/> <!--   base=ֿ -->
+		<map iso="D11" to="{"/> <!-- [  base=’ -->
+		<map iso="D12" to="}"/> <!-- ]  base=ײַ -->
+		<map iso="D13" to="|"/> <!-- \  base=ֿ -->
 		<map iso="C01" to="A"/> <!--   base=א -->
 		<map iso="C02" to="S"/> <!--   base=ס -->
 		<map iso="C03" to="D"/> <!--   base=ד -->
@@ -328,8 +328,8 @@
 		<map iso="C07" to="J"/> <!--   base=ח -->
 		<map iso="C08" to="K"/> <!--   base=כ -->
 		<map iso="C09" to="L"/> <!--   base=ל -->
-		<map iso="C10" to=";"/>
-		<map iso="C11" to="&apos;"/>
+		<map iso="C10" to=":"/> <!-- ; -->
+		<map iso="C11" to="\u{22}"/> <!-- '  base=׳  to= "  -->
 		<map iso="B01" to="Z"/> <!--   base=ז -->
 		<map iso="B02" to="X"/> <!--   base=כ -->
 		<map iso="B03" to="C"/> <!--   base=צ -->
@@ -337,155 +337,10 @@
 		<map iso="B05" to="B"/> <!--   base=ב -->
 		<map iso="B06" to="N"/> <!--   base=נ -->
 		<map iso="B07" to="M"/> <!--   base=מ -->
-		<map iso="B08" to=","/>
-		<map iso="B09" to="."/>
-		<map iso="B10" to="/"/>
+		<map iso="B08" to="&lt;"/> <!-- , -->
+		<map iso="B09" to="&gt;"/> <!-- . -->
+		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+opt'>
-		<map iso="E00" to="`"/> <!--   base=ּ -->
-		<map iso="E01" to="„"/> <!-- 1 -->
-		<map iso="E02" to="*"/> <!-- 2 -->
-		<map iso="E03" to="#"/> <!-- 3 -->
-		<map iso="E04" to="\u{22}"/> <!-- 4  to= "  -->
-		<map iso="E05" to="0"/> <!-- 5 -->
-		<map iso="E06" to="$"/> <!-- 6 -->
-		<map iso="E07" to="₪"/> <!-- 7 -->
-		<map iso="E08" to="%"/> <!-- 8 -->
-		<map iso="E09" to=";"/> <!-- 9 -->
-		<map iso="E10" to="&gt;"/> <!-- 0 -->
-		<map iso="E11" to="–"/> <!-- - -->
-		<map iso="E12" to="-"/> <!-- = -->
-		<map iso="D01" to="\u{5B4}"/> <!-- Q  base=ק  to= ִ  -->
-		<map iso="D02" to="7"/> <!-- W  base=ש -->
-		<map iso="D03" to="+"/> <!-- E  base=ע -->
-		<map iso="D04" to="("/> <!-- R  base=ר -->
-		<map iso="D05" to=" "/> <!-- T  base=ת -->
-		<map iso="D06" to="4"/> <!-- Y  base=ט -->
-		<map iso="D07" to=","/> <!-- U  base=ו -->
-		<map iso="D08" to="^"/> <!-- I  base=י -->
-		<map iso="D09" to="?"/> <!-- O  base=ו -->
-		<map iso="D10" to="9"/> <!-- P  base=פ -->
-		<map iso="D11" to="“"/> <!-- [  base=’ -->
-		<map iso="D12" to="‘"/> <!-- ]  base=ײַ -->
-		<map iso="D13" to="ו\u{5B9}"/> <!-- \  base=ֿ  to= וֹ  -->
-		<map iso="C01" to="å"/> <!-- A  base=א -->
-		<map iso="C02" to="&apos;"/> <!-- S  base=ס -->
-		<map iso="C03" to="6"/> <!-- D  base=ד -->
-		<map iso="C05" to=")"/> <!-- G  base=ג -->
-		<map iso="C06" to="ת"/> <!-- H  base=ה -->
-		<map iso="C07" to="\u{5BC}"/> <!-- J  base=ח  to= ּ  -->
-		<map iso="C08" to="{"/> <!-- K  base=כ -->
-		<map iso="C10" to="…"/> <!-- ; -->
-		<map iso="C11" to="&lt;"/> <!-- ' -->
-		<map iso="B01" to="="/> <!-- Z  base=ז -->
-		<map iso="B03" to="ç"/> <!-- C  base=צ -->
-		<map iso="B05" to=":"/> <!-- B  base=ב -->
-		<map iso="B06" to="~"/> <!-- N  base=נ -->
-		<map iso="B07" to="5"/> <!-- M  base=מ -->
-		<map iso="B08" to="2"/> <!-- , -->
-		<map iso="B09" to="3"/> <!-- . -->
-		<map iso="B10" to="ש\u{5C1}"/> <!-- /  to= שׁ  -->
-		<map iso="A03" to="\u{A0}"/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='cmd+opt+shift+caps?'>
-		<map iso="E00" to="\u{5B0}"/> <!-- `  base=ּ  to= ְ  -->
-		<map iso="E01" to="\u{5B2}"/> <!-- 1  to= ֲ  -->
-		<map iso="E02" to="\u{5B1}"/> <!-- 2  to= ֱ  -->
-		<map iso="E03" to="\u{5BB}"/> <!-- 3  to= ֻ  -->
-		<map iso="E04" to="\u{5B9}"/> <!-- 4  to= ֹ  -->
-		<map iso="E05" to="\u{5B8}"/> <!-- 5  to= ָ  -->
-		<map iso="E06" to="\u{5B3}"/> <!-- 6  to= ֳ  -->
-		<map iso="E07" to="א"/> <!-- 7 -->
-		<map iso="E08" to="!"/> <!-- 8 -->
-		<map iso="E09" to="ב"/> <!-- 9 -->
-		<map iso="E10" to="ג"/> <!-- 0 -->
-		<map iso="E11" to="—"/> <!-- -  base=– -->
-		<map iso="E12" to="1"/> <!-- = -->
-		<map iso="D01" to="\u{5B6}"/> <!-- Q  base=ק  to= ֶ  -->
-		<map iso="D02" to="ד"/> <!-- W  base=ש -->
-		<map iso="D03" to="ה"/> <!-- E  base=ע -->
-		<map iso="D04" to="ו"/> <!-- R  base=ר -->
-		<map iso="D05" to="ז"/> <!-- T  base=ת -->
-		<map iso="D06" to="ח"/> <!-- Y  base=ט -->
-		<map iso="D07" to="ט"/> <!-- U  base=ו -->
-		<map iso="D08" to="י"/> <!-- I -->
-		<map iso="D09" to="/"/> <!-- O  base=ו -->
-		<map iso="D10" to="8"/> <!-- P  base=פ -->
-		<map iso="D11" to="”"/> <!-- [  base=’ -->
-		<map iso="D12" to="’"/> <!-- ]  base=ײַ -->
-		<map iso="D13" to="ו\u{5BC}"/> <!-- \  base=ֿ  to= וּ  -->
-		<map iso="C01" to="ײ\u{5B7}"/> <!-- A  base=א  to= ײַ  -->
-		<map iso="C02" to="ך"/> <!-- S  base=ס -->
-		<map iso="C03" to="כ"/> <!-- D  base=ד -->
-		<map iso="C04" to="ל"/> <!-- F  base=פ -->
-		<map iso="C05" to="ם"/> <!-- G  base=ג -->
-		<map iso="C06" to="מ"/> <!-- H  base=ה -->
-		<map iso="C07" to="ן"/> <!-- J  base=ח -->
-		<map iso="C08" to="נ"/> <!-- K  base=כ -->
-		<map iso="C09" to="ס"/> <!-- L  base=ל -->
-		<map iso="C10" to="ע"/> <!-- ; -->
-		<map iso="C11" to="."/> <!-- ' -->
-		<map iso="B01" to="ף"/> <!-- Z  base=ז -->
-		<map iso="B02" to="פ"/> <!-- X  base=כ -->
-		<map iso="B03" to="Ç"/> <!-- C  base=צ -->
-		<map iso="B04" to="ש\u{5C2}"/> <!-- V  base=ו  to= שׂ  -->
-		<map iso="B05" to="ץ"/> <!-- B  base=ב -->
-		<map iso="B06" to="צ"/> <!-- N  base=נ -->
-		<map iso="B07" to="ק"/> <!-- M  base=מ -->
-		<map iso="B08" to="ר"/> <!-- , -->
-		<map iso="B09" to="ש"/> <!-- . -->
-		<map iso="B10" to="ל\u{5B9}"/> <!-- /  to= לֹ  -->
-		<map iso="A03" to="\u{A0}"/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='cmd+opt+caps'>
-		<map iso="E00" to="`"/> <!--   base=ּ -->
-		<map iso="E01" to="„"/> <!-- 1 -->
-		<map iso="E02" to="*"/> <!-- 2 -->
-		<map iso="E03" to="#"/> <!-- 3 -->
-		<map iso="E04" to="\u{22}"/> <!-- 4  to= "  -->
-		<map iso="E05" to="0"/> <!-- 5 -->
-		<map iso="E06" to="$"/> <!-- 6 -->
-		<map iso="E07" to="₪"/> <!-- 7 -->
-		<map iso="E08" to="%"/> <!-- 8 -->
-		<map iso="E09" to=";"/> <!-- 9 -->
-		<map iso="E10" to="&lt;"/> <!-- 0 -->
-		<map iso="E11" to="–"/> <!-- - -->
-		<map iso="E12" to="-"/> <!-- = -->
-		<map iso="D01" to="\u{5B6}"/> <!-- Q  base=ק  to= ֶ  -->
-		<map iso="D02" to="ד"/> <!-- W  base=ש -->
-		<map iso="D03" to="ה"/> <!-- E  base=ע -->
-		<map iso="D04" to="ו"/> <!-- R  base=ר -->
-		<map iso="D05" to="ז"/> <!-- T  base=ת -->
-		<map iso="D06" to="ח"/> <!-- Y  base=ט -->
-		<map iso="D07" to="ט"/> <!-- U  base=ו -->
-		<map iso="D08" to="י"/> <!-- I -->
-		<map iso="D09" to="/"/> <!-- O  base=ו -->
-		<map iso="D10" to="8"/> <!-- P  base=פ -->
-		<map iso="D11" to="“"/> <!-- [  base=’ -->
-		<map iso="D12" to="‘"/> <!-- ]  base=ײַ -->
-		<map iso="D13" to="ו\u{5B9}"/> <!-- \  base=ֿ  to= וֹ  -->
-		<map iso="C01" to="ײ\u{5B7}"/> <!-- A  base=א  to= ײַ  -->
-		<map iso="C02" to="ך"/> <!-- S  base=ס -->
-		<map iso="C03" to="כ"/> <!-- D  base=ד -->
-		<map iso="C04" to="ל"/> <!-- F  base=פ -->
-		<map iso="C05" to="ם"/> <!-- G  base=ג -->
-		<map iso="C06" to="מ"/> <!-- H  base=ה -->
-		<map iso="C07" to="ן"/> <!-- J  base=ח -->
-		<map iso="C08" to="נ"/> <!-- K  base=כ -->
-		<map iso="C09" to="ס"/> <!-- L  base=ל -->
-		<map iso="C10" to="…"/> <!-- ; -->
-		<map iso="C11" to="."/> <!-- ' -->
-		<map iso="B01" to="ף"/> <!-- Z  base=ז -->
-		<map iso="B02" to="פ"/> <!-- X  base=כ -->
-		<map iso="B03" to="Ç"/> <!-- C  base=צ -->
-		<map iso="B04" to="ש\u{5C2}"/> <!-- V  base=ו  to= שׂ  -->
-		<map iso="B05" to="ץ"/> <!-- B  base=ב -->
-		<map iso="B06" to="צ"/> <!-- N  base=נ -->
-		<map iso="B07" to="ק"/> <!-- M  base=מ -->
-		<map iso="B08" to="2"/> <!-- , -->
-		<map iso="B09" to="3"/> <!-- . -->
-		<map iso="B10" to="ש\u{5C1}"/> <!-- /  to= שׁ  -->
-		<map iso="A03" to="\u{A0}"/> <!-- space -->
-	</keyMap>
 </keyboard>
+

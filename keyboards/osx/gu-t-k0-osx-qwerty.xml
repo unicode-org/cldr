@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='gu-t-k0-osx-qwerty'>
-	<version platform='10.4' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="gu-t-k0-osx-qwerty">
+	<version platform="10.9" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Gujarati-QWERTY'/>
+		<name value="Gujarati-QWERTY"/>
 	</names>
 	<keyMap>
 		<map iso="E01" to="૧"/> <!-- 1 -->
@@ -52,7 +52,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift'>
+	<keyMap modifiers="shift">
 		<map iso="E01" to="!"/> <!-- 1  base=૧ -->
 		<map iso="E02" to="@"/> <!-- 2  base=૨ -->
 		<map iso="E03" to="#"/> <!-- 3  base=૩ -->
@@ -98,7 +98,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps cmd+opt?+caps?+shift?'>
+	<keyMap modifiers="caps cmd+opt?+caps?+shift?">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/> <!--   base=૧ -->
 		<map iso="E02" to="2"/> <!--   base=૨ -->
@@ -148,7 +148,7 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps+shift'>
+	<keyMap modifiers="caps+shift">
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="!"/> <!-- 1  base=૧ -->
 		<map iso="E02" to="@"/> <!-- 2  base=૨ -->
@@ -198,7 +198,7 @@
 		<map iso="B10" to="?"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt+caps?'>
+	<keyMap modifiers="opt+caps?">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/> <!--   base=૧ -->
 		<map iso="E02" to="2"/> <!--   base=૨ -->
@@ -233,7 +233,7 @@
 		<map iso="B09" to="।"/> <!-- . -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt+shift+caps?'>
+	<keyMap modifiers="opt+shift+caps?">
 		<map iso="E00" to="~"/> <!-- ` -->
 		<map iso="E01" to="…"/> <!-- 1  base=૧ -->
 		<map iso="E02" to="©"/> <!-- 2  base=૨ -->
@@ -264,7 +264,7 @@
 		<map iso="B09" to="॥"/> <!-- . -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?'>
+	<keyMap modifiers="ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?">
 		<map iso="E00" to="`"/>
 		<map iso="E01" to="1"/> <!--   base=૧ -->
 		<map iso="E02" to="2"/> <!--   base=૨ -->
@@ -302,7 +302,7 @@
 		<map iso="C09" to="\u{C}"/> <!-- L  base=લ -->
 		<map iso="C10" to=";"/>
 		<map iso="C11" to="&apos;"/>
-		<map iso="B00" to="0"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="0"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="\u{1A}"/> <!-- Z  base=ઙ -->
 		<map iso="B02" to="\u{18}"/> <!-- X  base=ષ -->
 		<map iso="B03" to="\u{3}"/> <!-- C  base=ચ -->
@@ -315,8 +315,9 @@
 		<map iso="B10" to="/"/>
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<transforms type='simple'>
+	<transforms type="simple">
 		<transform from="\u{ACD}\u{ABC}" to="\u{ACD}\u{200D}"/> <!--  ઼્ → ્‍ -->
 		<transform from="\u{ACD}\u{ACD}" to="\u{ACD}\u{200C}"/> <!--  ્્ → ્‌ -->
 	</transforms>
 </keyboard>
+

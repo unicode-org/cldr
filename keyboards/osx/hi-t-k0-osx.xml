@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE keyboard SYSTEM "../dtd/ldmlKeyboard.dtd">
-<keyboard locale='hi-t-k0-osx'>
-	<version platform='10.4' number='$Revision$'/>
-	<generation date='$Date$'/>
+<keyboard locale="hi-t-k0-osx">
+	<version platform="10.9" number="$Revision$"/>
+	<generation date="$Date$"/>
 	<names>
-		<name value='Devanagari'/>
+		<name value="Devanagari"/>
 	</names>
 	<keyMap>
 		<map iso="E00" to="\u{94A}"/> <!-- `  to= ॊ  -->
@@ -56,7 +56,7 @@
 		<map iso="B10" to="य"/> <!-- / -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='shift+caps?'>
+	<keyMap modifiers="shift">
 		<map iso="E00" to="ऒ"/> <!-- `  base=ॊ -->
 		<map iso="E01" to="ऍ"/> <!-- 1  base=१ -->
 		<map iso="E02" to="\u{945}"/> <!-- 2  base=२  to= ॅ  -->
@@ -106,57 +106,7 @@
 		<map iso="B10" to="य़"/> <!-- /  base=य -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='caps'>
-		<map iso="E00" to="\u{94A}"/> <!-- `  to= ॊ  -->
-		<map iso="E01" to="1"/> <!--   base=१ -->
-		<map iso="E02" to="2"/> <!--   base=२ -->
-		<map iso="E03" to="3"/> <!--   base=३ -->
-		<map iso="E04" to="4"/> <!--   base=४ -->
-		<map iso="E05" to="5"/> <!--   base=५ -->
-		<map iso="E06" to="6"/> <!--   base=६ -->
-		<map iso="E07" to="7"/> <!--   base=७ -->
-		<map iso="E08" to="8"/> <!--   base=८ -->
-		<map iso="E09" to="9"/> <!--   base=९ -->
-		<map iso="E10" to="0"/> <!--   base=० -->
-		<map iso="E11" to="-"/>
-		<map iso="E12" to="\u{943}"/> <!-- =  to= ृ  -->
-		<map iso="D01" to="\u{94C}"/> <!-- Q  to= ौ  -->
-		<map iso="D02" to="\u{948}"/> <!-- W  to= ै  -->
-		<map iso="D03" to="\u{93E}"/> <!-- E  to= ा  -->
-		<map iso="D04" to="\u{940}"/> <!-- R  to= ी  -->
-		<map iso="D05" to="\u{942}"/> <!-- T  to= ू  -->
-		<map iso="D06" to="ब"/> <!-- Y -->
-		<map iso="D07" to="ह"/> <!-- U -->
-		<map iso="D08" to="ग"/> <!-- I -->
-		<map iso="D09" to="द"/> <!-- O -->
-		<map iso="D10" to="ज"/> <!-- P -->
-		<map iso="D11" to="ड"/> <!-- [ -->
-		<map iso="D12" to="\u{93C}"/> <!-- ]  to= ़  -->
-		<map iso="D13" to="\u{949}"/> <!-- \  to= ॉ  -->
-		<map iso="C01" to="\u{94B}"/> <!-- A  to= ो  -->
-		<map iso="C02" to="\u{947}"/> <!-- S  to= े  -->
-		<map iso="C03" to="\u{94D}"/> <!-- D  to= ्  -->
-		<map iso="C04" to="\u{93F}"/> <!-- F  to= ि  -->
-		<map iso="C05" to="\u{941}"/> <!-- G  to= ु  -->
-		<map iso="C06" to="प"/> <!-- H -->
-		<map iso="C07" to="र"/> <!-- J -->
-		<map iso="C08" to="क"/> <!-- K -->
-		<map iso="C09" to="त"/> <!-- L -->
-		<map iso="C10" to="च"/> <!-- ; -->
-		<map iso="C11" to="ट"/> <!-- ' -->
-		<map iso="B01" to="\u{946}"/> <!-- Z  to= ॆ  -->
-		<map iso="B02" to="\u{902}"/> <!-- X  to= ं  -->
-		<map iso="B03" to="म"/> <!-- C -->
-		<map iso="B04" to="न"/> <!-- V -->
-		<map iso="B05" to="व"/> <!-- B -->
-		<map iso="B06" to="ल"/> <!-- N -->
-		<map iso="B07" to="स"/> <!-- M -->
-		<map iso="B08" to=","/>
-		<map iso="B09" to="."/>
-		<map iso="B10" to="य"/> <!-- / -->
-		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
-	<keyMap modifiers='opt+caps?'>
+	<keyMap modifiers="caps cmd+opt?+caps?">
 		<map iso="E00" to="`"/> <!--   base=ॊ -->
 		<map iso="E01" to="1"/> <!--   base=१ -->
 		<map iso="E02" to="2"/> <!--   base=२ -->
@@ -168,7 +118,7 @@
 		<map iso="E08" to="8"/> <!--   base=८ -->
 		<map iso="E09" to="9"/> <!--   base=९ -->
 		<map iso="E10" to="0"/> <!--   base=० -->
-		<map iso="E11" to="—"/> <!-- - -->
+		<map iso="E11" to="-"/>
 		<map iso="E12" to="="/> <!--   base=ृ -->
 		<map iso="D01" to="q"/> <!--   base=ौ -->
 		<map iso="D02" to="w"/> <!--   base=ै -->
@@ -206,7 +156,7 @@
 		<map iso="B10" to="/"/> <!--   base=य -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='opt+shift+caps?'>
+	<keyMap modifiers="caps+shift cmd+shift+opt?+caps?">
 		<map iso="E00" to="~"/> <!-- `  base=ॊ -->
 		<map iso="E01" to="!"/> <!-- 1  base=१ -->
 		<map iso="E02" to="@"/> <!-- 2  base=२ -->
@@ -256,7 +206,35 @@
 		<map iso="B10" to="?"/> <!-- /  base=य -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?'>
+	<keyMap modifiers="opt+caps?">
+		<map iso="E00" to="`"/> <!--   base=ॊ -->
+		<map iso="E02" to="ऽ"/> <!-- 2  base=२ -->
+		<map iso="E04" to="₹"/> <!-- 4  base=४ -->
+		<map iso="E10" to="॰"/> <!-- 0  base=० -->
+		<map iso="E11" to="\u{962}"/> <!-- -  to= ॢ  -->
+		<map iso="E12" to="\u{944}"/> <!-- =  base=ृ  to= ॄ  -->
+		<map iso="D08" to="ग़"/> <!-- I  base=ग -->
+		<map iso="D10" to="ज़"/> <!-- P  base=ज -->
+		<map iso="D11" to="ड़"/> <!-- [  base=ड -->
+		<map iso="C08" to="क़"/> <!-- K  base=क -->
+		<map iso="C11" to="\u{951}"/> <!-- '  base=ट  to= ॑  -->
+		<map iso="B02" to="ॐ"/> <!-- X  base=ं -->
+		<map iso="B06" to="ऌ"/> <!-- N  base=ल -->
+		<map iso="B09" to="॥"/> <!-- . -->
+		<map iso="A03" to=" "/> <!-- space -->
+	</keyMap>
+	<keyMap modifiers="opt+shift+caps?">
+		<map iso="E11" to="\u{963}"/> <!-- -  to= ॣ  -->
+		<map iso="E12" to="ॠ"/> <!-- =  base=ृ -->
+		<map iso="D10" to="ॹ"/> <!-- P  base=ज -->
+		<map iso="D11" to="ढ़"/> <!-- [  base=ड -->
+		<map iso="C06" to="फ़"/> <!-- H  base=प -->
+		<map iso="C08" to="ख़"/> <!-- K  base=क -->
+		<map iso="C11" to="\u{952}"/> <!-- '  base=ट  to= ॒  -->
+		<map iso="B06" to="ॡ"/> <!-- N  base=ल -->
+		<map iso="A03" to=" "/> <!-- space -->
+	</keyMap>
+	<keyMap modifiers="ctrlL+cmd?+opt?+caps? ctrlL+shift+cmd?+optL?+caps? ctrlL+opt+cmd?+caps?+shiftL?">
 		<map iso="E00" to="`"/> <!--   base=ॊ -->
 		<map iso="E01" to="1"/> <!--   base=१ -->
 		<map iso="E02" to="2"/> <!--   base=२ -->
@@ -294,7 +272,7 @@
 		<map iso="C09" to="\u{C}"/> <!-- L  base=त -->
 		<map iso="C10" to=";"/> <!--   base=च -->
 		<map iso="C11" to="&apos;"/> <!--   base=ट -->
-		<map iso="B00" to="0"/> <!-- (1 key to left of Z) -->
+		<map iso="B00" to="0"/> <!-- (key to left of Z) -->
 		<map iso="B01" to="\u{1A}"/> <!-- Z  base=ॆ -->
 		<map iso="B02" to="\u{18}"/> <!-- X  base=ं -->
 		<map iso="B03" to="\u{3}"/> <!-- C  base=म -->
@@ -307,58 +285,9 @@
 		<map iso="B10" to="/"/> <!--   base=य -->
 		<map iso="A03" to=" "/> <!-- space -->
 	</keyMap>
-	<keyMap modifiers='cmd+opt?+caps?+shift?'>
-		<map iso="E00" to="`"/> <!--   base=ॊ -->
-		<map iso="E01" to="1"/> <!--   base=१ -->
-		<map iso="E02" to="2"/> <!--   base=२ -->
-		<map iso="E03" to="3"/> <!--   base=३ -->
-		<map iso="E04" to="4"/> <!--   base=४ -->
-		<map iso="E05" to="5"/> <!--   base=५ -->
-		<map iso="E06" to="6"/> <!--   base=६ -->
-		<map iso="E07" to="7"/> <!--   base=७ -->
-		<map iso="E08" to="8"/> <!--   base=८ -->
-		<map iso="E09" to="9"/> <!--   base=९ -->
-		<map iso="E10" to="0"/> <!--   base=० -->
-		<map iso="E11" to="-"/>
-		<map iso="E12" to="="/> <!--   base=ृ -->
-		<map iso="D01" to="q"/> <!--   base=ौ -->
-		<map iso="D02" to="w"/> <!--   base=ै -->
-		<map iso="D03" to="e"/> <!--   base=ा -->
-		<map iso="D04" to="r"/> <!--   base=ी -->
-		<map iso="D05" to="t"/> <!--   base=ू -->
-		<map iso="D06" to="y"/> <!--   base=ब -->
-		<map iso="D07" to="u"/> <!--   base=ह -->
-		<map iso="D08" to="i"/> <!--   base=ग -->
-		<map iso="D09" to="o"/> <!--   base=द -->
-		<map iso="D10" to="p"/> <!--   base=ज -->
-		<map iso="D11" to="["/> <!--   base=ड -->
-		<map iso="D12" to="]"/> <!--   base=़ -->
-		<map iso="D13" to="\"/> <!--   base=ॉ -->
-		<map iso="C01" to="a"/> <!--   base=ो -->
-		<map iso="C02" to="s"/> <!--   base=े -->
-		<map iso="C03" to="d"/> <!--   base=् -->
-		<map iso="C04" to="f"/> <!--   base=ि -->
-		<map iso="C05" to="g"/> <!--   base=ु -->
-		<map iso="C06" to="h"/> <!--   base=प -->
-		<map iso="C07" to="j"/> <!--   base=र -->
-		<map iso="C08" to="k"/> <!--   base=क -->
-		<map iso="C09" to="l"/> <!--   base=त -->
-		<map iso="C10" to=";"/> <!--   base=च -->
-		<map iso="C11" to="&apos;"/> <!--   base=ट -->
-		<map iso="B01" to="z"/> <!--   base=ॆ -->
-		<map iso="B02" to="x"/> <!--   base=ं -->
-		<map iso="B03" to="c"/> <!--   base=म -->
-		<map iso="B04" to="v"/> <!--   base=न -->
-		<map iso="B05" to="b"/> <!--   base=व -->
-		<map iso="B06" to="n"/> <!--   base=ल -->
-		<map iso="B07" to="m"/> <!--   base=स -->
-		<map iso="B08" to=","/>
-		<map iso="B09" to="."/>
-		<map iso="B10" to="/"/> <!--   base=य -->
-		<map iso="A03" to=" "/> <!-- space -->
-	</keyMap>
-	<transforms type='simple'>
+	<transforms type="simple">
 		<transform from="\u{94D}\u{93C}" to="\u{94D}\u{200D}"/> <!--  ़् → ्‍ -->
 		<transform from="\u{94D}\u{94D}" to="\u{94D}\u{200C}"/> <!--  ्् → ्‌ -->
 	</transforms>
 </keyboard>
+

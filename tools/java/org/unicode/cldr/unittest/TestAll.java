@@ -2,6 +2,8 @@
 
 package org.unicode.cldr.unittest;
 
+
+
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -15,8 +17,10 @@ import com.ibm.icu.util.VersionInfo;
 public class TestAll extends TestGroup {
 
     public static void main(String[] args) {
+        long startTime=System.currentTimeMillis();
         CLDRConfig.getInstance().setTestLog(new TestAll()).run(args);
-        int x = 0;
+        long endTime=System.currentTimeMillis();
+        System.out.println("Tests took "+(endTime-startTime)+" milliseconds. ");
     }
 
     public TestAll() {
@@ -49,6 +53,7 @@ public class TestAll extends TestGroup {
                 "org.unicode.cldr.unittest.TestExampleGenerator",
                 "org.unicode.cldr.unittest.TestLdml2ICU",
                 "org.unicode.cldr.unittest.LikelySubtagsTest",
+                "org.unicode.cldr.unittest.TestTimeEnd"
             },
             "All tests in CLDR");
     }

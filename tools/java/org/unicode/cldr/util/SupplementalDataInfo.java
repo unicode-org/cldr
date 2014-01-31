@@ -2763,7 +2763,7 @@ public class SupplementalDataInfo {
         /*
          * <supplementalData>
          * <version number="$Revision$"/>
-         * <generation date="$Date$"/>
+         * <generation date="$D..e... $"/>
          * <dayPeriodRuleSet>
          * <dayPeriodRules locales = "en"> <!-- default for any locales not listed under other dayPeriods -->
          * <dayPeriodRule type = "am" from = "0:00" before="12:00"/>
@@ -4038,4 +4038,5 @@ public class SupplementalDataInfo {
     public File getDirectory() {
         return directory;
     }
+
 }

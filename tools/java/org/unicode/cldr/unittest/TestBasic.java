@@ -76,7 +76,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.Currency;
 import com.ibm.icu.util.ULocale;
 
-public class TestBasic extends TestFmwk {
+public class TestBasic extends TestFmwkPlus {
 
     private static final boolean TEST_VERSIONS = false;
 
@@ -434,6 +434,18 @@ public class TestBasic extends TestFmwk {
         return result;
     }
 
+//    public void TestCLDRFileCache() {
+//        long start = System.nanoTime();
+//        Factory cldrFactory = testInfo.getCldrFactory();
+//        String unusualLocale = "hi";
+//        CLDRFile file = cldrFactory.make(unusualLocale, true);
+//        long afterOne = System.nanoTime();
+//        logln("First: " + (afterOne-start));
+//        CLDRFile file2 = cldrFactory.make(unusualLocale, true);
+//        long afterTwo = System.nanoTime();
+//        logln("Second: " + (afterTwo-afterOne));
+//    }
+//    
     public void TestPaths() {
         Relation<String, String> distinguishing = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Relation<String, String> nonDistinguishing = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);

@@ -42,7 +42,7 @@ public class ShowLocaleCoverage {
         filter(".+", ".*", "Filter the information based on id, using a regex argument."),
         draftStatus(".+", "unconfirmed", "Filter the information to a minimum draft status."),
         organization(".+", null, "Only locales for organization"),
-        version(".+", "23.0", "To get different versions");
+        version(".+", "24.0", "To get different versions");
 
         // targetDirectory(".+", CldrUtility.CHART_DIRECTORY + "keyboards/", "The target directory."),
         // layouts(null, null, "Only create html files for keyboard layouts"),

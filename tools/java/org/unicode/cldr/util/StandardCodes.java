@@ -32,7 +32,6 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.util.Iso639Data.Type;
-import org.unicode.cldr.util.ZoneParser.RuleLine;
 import org.unicode.cldr.util.ZoneParser.ZoneLine;
 
 import com.ibm.icu.dev.util.TransliteratorUtilities;
@@ -1022,7 +1021,7 @@ public class StandardCodes {
             LstrField lastLabel = null;
             String lastRest = null;
             boolean inRealContent = false;
-            Map<String, String> translitCache = new HashMap<String, String>();
+//            Map<String, String> translitCache = new HashMap<String, String>();
             for (;; ++lineNumber) {
                 line = lstreg.readLine();
                 if (line == null)
@@ -1101,13 +1100,17 @@ public class StandardCodes {
                     // System.out.println("Odd Line: " + lastType + "\t" + lastTag + "\t" + line);
                 } else {
                     lastLabel = label;
-                    if(!translitCache.containsKey(rest)) {
-                        lastRest = TransliteratorUtilities.fromXML.transliterate(rest);
-                        translitCache.put(rest, lastRest);
-                    } else {
-                        lastRest = translitCache.get(rest);
-                    }
-                        
+                    // The following code was removed because in the standard tests (TestAll) both lastRest and rest were always equal.
+                    //                    if(!translitCache.containsKey(rest)) {
+                    //                        lastRest = TransliteratorUtilities.fromXML.transliterate(rest);
+                    //                        translitCache.put(rest, lastRest);
+                    //                        if (!lastRest.equals(rest)) {
+                    //                            System.out.println(System.currentTimeMillis()+" initLStr: LastRest: '"+lastRest+"' Rest: '"+rest+"'");
+                    //                        }
+                    //                    } else {
+                    //                        lastRest = translitCache.get(rest);
+                    //                    }
+                      lastRest=rest;  
                     String oldValue = (String) CldrUtility.get(currentData, lastLabel);
                     if (oldValue != null) {
                         lastRest = oldValue + DESCRIPTION_SEPARATOR + lastRest;

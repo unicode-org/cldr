@@ -32,7 +32,6 @@ import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CLDRFile.DtdType;
-import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
@@ -902,8 +901,9 @@ public class SupplementalDataInfo {
         try {
             return getInstance(supplementalDirectory.getCanonicalPath());
         } catch (IOException e) {
-            throw (IllegalArgumentException) new IllegalArgumentException()
-            .initCause(e);
+            throw new IllegalArgumentException(e);
+//            throw (IllegalArgumentException) new IllegalArgumentException()
+//            .initCause(e);
         }
     }
 
@@ -934,29 +934,33 @@ public class SupplementalDataInfo {
 
     public static SupplementalDataInfo getInstance(String supplementalDirectory) {
         synchronized (SupplementalDataInfo.class) {
-            SupplementalDataInfo instance = directory_instance
-                .get(supplementalDirectory);
-            if (instance != null) {
-                return instance;
+            // Sanity checks - not null, not empty
+            if (supplementalDirectory == null) {
+                throw new IllegalArgumentException("Error: null supplemental directory.");
             }
-            // canonicalize name & try again
-            String canonicalpath;
+            if (supplementalDirectory.isEmpty()) {
+                throw new IllegalArgumentException("Error: The string passed as a parameter resolves to the empty string.");
+            }
+            // canonicalize path
+            String canonicalpath=null;
             try {
-                if (supplementalDirectory == null) {
-                    throw new IllegalArgumentException("Error: null supplemental directory");
-                }
                 canonicalpath = new File(supplementalDirectory).getCanonicalPath();
             } catch (IOException e) {
-                throw (IllegalArgumentException) new IllegalArgumentException()
-                .initCause(e);
+                throw new IllegalArgumentException(e);
             }
-            if (!canonicalpath.equals(supplementalDirectory)) {
-                instance = directory_instance.get(canonicalpath);
-                if (instance != null) {
-                    directory_instance.put(supplementalDirectory, instance);
-                    return instance;
-                }
+            SupplementalDataInfo instance=directory_instance.get(canonicalpath);
+            if (instance!=null) {
+                return instance;
             }
+            //            if (!canonicalpath.equals(supplementalDirectory)) {
+            //                instance = directory_instance.get(canonicalpath);
+            //                if (instance != null) {
+            //                    directory_instance.put(supplementalDirectory, instance);
+            //                    directory_instance.put(canonicalpath,instance);
+            //                    return instance;
+            //                }
+            //            }
+            // reaching here means we have not cached the entry
             File directory = new File(canonicalpath);
             instance = new SupplementalDataInfo(directory);
             MyHandler myHandler = instance.new MyHandler();
@@ -1002,10 +1006,11 @@ public class SupplementalDataInfo {
 
             instance.makeStuffSafe();
             // cache
-            directory_instance.put(supplementalDirectory, instance);
-            if (!canonicalpath.equals(supplementalDirectory)) {
-                directory_instance.put(canonicalpath, instance);
-            }
+            //            directory_instance.put(supplementalDirectory, instance);
+            directory_instance.put(canonicalpath, instance);
+            //            if (!canonicalpath.equals(supplementalDirectory)) {
+            //                directory_instance.put(canonicalpath, instance);
+            //            }
             return instance;
         }
     }

@@ -99,6 +99,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
      *  FALSE - do not use buffering
      */
     private static final boolean USE_LOADING_BUFFER=true;
+    
     private static final boolean DEBUG = false;
 
     public static final Pattern ALT_PROPOSED_PATTERN = Pattern.compile(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");

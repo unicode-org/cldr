@@ -8,6 +8,7 @@
  */
 package org.unicode.cldr.util;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
@@ -90,6 +91,14 @@ import com.ibm.icu.util.VersionInfo;
 
 public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
 
+    /**
+     * Variable to control whether File reads are buffered; this will about halve the time spent in 
+     * loadFromFile() and Factory.make() from about 20 % to about 10 %. It will also noticeably improve the different 
+     * unit tests take in the TestAll fixture. 
+     *  TRUE - use buffering (default)
+     *  FALSE - do not use buffering
+     */
+    private static final boolean USE_LOADING_BUFFER=true;
     private static final boolean DEBUG = false;
 
     public static final Pattern ALT_PROPOSED_PATTERN = Pattern.compile(".*\\[@alt=\"[^\"]*proposed[^\"]*\"].*");
@@ -213,14 +222,31 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 System.out.println("Parsing: " + fullFileName);
                 Log.logln(LOG_PROGRESS, "Parsing: " + fullFileName);
             }
-            FileInputStream fis = new FileInputStream(f);
-            CLDRFile cldrFile = load(fullFileName, localeName, fis, minimalDraftStatus, source);
-            fis.close();
-            return cldrFile;
-        } catch (Exception e) {
+            final CLDRFile cldrFile;
+            if (USE_LOADING_BUFFER)   {
+                // Use Buffering -  improves performance at little cost to memory footprint
+                try (InputStream fis = new BufferedInputStream(new FileInputStream(f));) {
+                     cldrFile = load(fullFileName, localeName, fis, minimalDraftStatus, source);   
+                     return cldrFile;
+                }
+            } else {
+                // previous version - do not use buffering
+                try (InputStream fis = new FileInputStream(f);) {
+                     cldrFile = load(fullFileName, localeName, fis, minimalDraftStatus, source);
+                     return cldrFile;
+                }
+            }
+           
+        } catch (IOException e) {
             // e.printStackTrace();
-            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fullFileName + " - "
-                + e.toString()).initCause(e);
+            // use a StringBuilder to construct the message.
+            StringBuilder sb=new StringBuilder("Cannot read the file '");
+            sb.append(fullFileName);
+            sb.append("': ");
+            sb.append(e.getMessage());
+            throw new IllegalArgumentException(sb.toString(),e);
+//            throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fullFileName + " - "
+//                + e.toString()).initCause(e);
         }
     }
 

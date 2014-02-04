@@ -31,6 +31,8 @@ import org.unicode.cldr.test.ExampleGenerator.ExampleContext;
 import org.unicode.cldr.test.ExampleGenerator.ExampleType;
 import org.unicode.cldr.tool.ShowData;
 import org.unicode.cldr.tool.TablePrinter;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -243,15 +245,43 @@ public class ConsoleCheckCLDR {
                     + organizations);
             }
         }
-
-        Phase phase = Phase.BUILD;
+        final CLDRConfig cldrConf=CLDRConfig.getInstance();
+        // set the envronment to UNITTEST as suggested
+        cldrConf.setEnvironment(Environment.UNITTEST);
+        // get the Phase from CLDRConfig object     
+       final  Phase phase;
+     //   Phase phase = Phase.BUILD; 
         if (options[PHASE].doesOccur) {
+            String phaseVal = options[PHASE].value;
             try {
-                phase = Phase.forString(options[PHASE].value);
-            } catch (RuntimeException e) {
-                throw (IllegalArgumentException) new IllegalArgumentException(
-                    "Incorrect Phase value: should be one of " + Arrays.asList(Phase.values())).initCause(e);
+                // no null check for argument; if it is is null, Phase.forString would return the one from CLDRConfig
+                phase = Phase.forString(phaseVal);
+            } catch (IllegalArgumentException e) {
+                StringBuilder sb=new StringBuilder( "Incorrect Phase value"); 
+                if (phaseVal!=null && !phaseVal.isEmpty()) {
+                    sb.append(" '");
+                    sb.append(phaseVal);
+                    sb.append("'");
+                }
+                sb.append(": should be one of ");
+                for (Phase curPhase: Phase.values()) {
+                    // implicitly does a toString;
+                    sb.append(curPhase);
+                    sb.append(", ");
+                }
+                int lastIdx=sb.lastIndexOf(",");
+                // remove the last comma, if it occurs
+                if (lastIdx>-1) {
+                    String tmpBuf=sb.substring(0,lastIdx);
+                    sb.setLength(0);
+                    sb.append(tmpBuf);
+                }
+                sb.append(".");
+                // TODO: Reporting should be similar to an error (wrong parameter...), and not actually an Exception
+                throw new IllegalArgumentException(sb.toString(),e);
             }
+        } else {
+            phase = cldrConf.getPhase();
         }
 
         String sourceDirectory = CldrUtility.checkValidDirectory(options[SOURCE_DIRECTORY].value,

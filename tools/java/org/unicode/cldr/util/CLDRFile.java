@@ -8,7 +8,6 @@
  */
 package org.unicode.cldr.util;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
@@ -226,7 +225,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             final CLDRFile cldrFile;
             if (USE_LOADING_BUFFER)   {
                 // Use Buffering -  improves performance at little cost to memory footprint
-                try (InputStream fis = new BufferedInputStream(new FileInputStream(f));) {
+               // try (InputStream fis = new BufferedInputStream(new FileInputStream(f),32000);) {
+                try(InputStream fis=InputStreamFactory.createInputStream(f)) {
                      cldrFile = load(fullFileName, localeName, fis, minimalDraftStatus, source);   
                      return cldrFile;
                 }
@@ -238,7 +238,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                 }
             }
            
-        } catch (IOException e) {
+        } catch (IOException e) { 
             // e.printStackTrace();
             // use a StringBuilder to construct the message.
             StringBuilder sb=new StringBuilder("Cannot read the file '");

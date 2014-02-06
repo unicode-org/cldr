@@ -4,11 +4,17 @@ package org.unicode.cldr.unittest;
 
 
 
+import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.io.Writer;
+import java.util.Date;
+
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
+import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.util.VersionInfo;
 
 /**
@@ -16,11 +22,143 @@ import com.ibm.icu.util.VersionInfo;
  */
 public class TestAll extends TestGroup {
 
+    private static interface FormattableDate {
+        String format(Date d);
+    }
+ 
+    /**
+     * NullObject, to suppress Timestamp printing
+     * @author ribnitz
+     *
+     */
+    private static class NullFormatableDate implements FormattableDate {
+
+        @Override
+        public String format(Date d) {
+            return null;
+        }
+    }
+    /**
+     * Simplistic approach at formatting a Date (using Date and Time)
+     * @author ribnitz
+     *
+     */
+    private static class SimpleFormattableDate implements FormattableDate {
+        private final DateFormat df;
+        
+        public SimpleFormattableDate() {
+            df=DateFormat.getDateTimeInstance();
+        }
+        
+        @Override
+        public String format(Date d) {
+           return " << "+ df.format(d) +" >>";
+        }
+        
+    }
+    /**
+     * Class putting a timestamp at the end of each line output
+     * @author ribnitz
+     *
+     */
+    private static class TimeStampingPrintWriter extends PrintWriter {
+        protected FormattableDate df=new SimpleFormattableDate();
+
+        public TimeStampingPrintWriter(Writer out, boolean autoFlush) {
+            super(out, autoFlush);
+        }
+
+        public TimeStampingPrintWriter(Writer out) {
+            super(out);
+            // TODO Auto-generated constructor stub
+        }
+
+    
+        
+        public TimeStampingPrintWriter(OutputStream out, boolean autoFlush) {
+            super(out, autoFlush);
+            // TODO Auto-generated constructor stub
+        }
+
+        public TimeStampingPrintWriter(OutputStream out) {
+            super(out);
+            // TODO Auto-generated constructor stub
+        }
+
+        public void setFormatableDate(FormattableDate aDate) {
+            df=aDate;
+        }
+        
+        
+        private String getFormattedDateString() {
+            return df.format(new Date());
+        }
+
+        @Override
+        public void write(String s) {
+            if (s.equals("\n") || s.equals("\r\n")) {
+               String ss=getFormattedDateString();
+               super.write(" "+ss+s);
+            } else {
+                super.write(s);
+            }
+        }
+        
+    }
+    /**
+     * Helper class to convert milliseconds into hours/minuy
+     * @author ribnitz
+     *
+     */
+    private static class DateDisplayBean {
+        public final int hours;
+        public final int minutes;
+        public final int seconds;
+        public final int millis;
+        
+        public DateDisplayBean(long ms) {
+            long m=ms;
+             hours=(int) (m/(60*60*1000));
+            if (hours>0) {
+                m-=(hours*60*60*1000);
+            }
+             minutes=(int) (m/(60*1000));
+            if (minutes>0) {
+                m-=minutes*60*1000;
+            }
+            seconds=(int) (m/1000);
+            millis=(int) (m-(seconds*1000));
+        }
+        public String toString() {
+            StringBuilder sb=new StringBuilder();
+            if (hours>0) {
+                sb.append(hours);
+                sb.append(" hours ");
+            }
+            if (minutes>0) {
+                sb.append(minutes);
+                sb.append(" minutes ");
+            }
+            if (seconds>0) {
+                sb.append(seconds);
+                sb.append(" seconds ");
+            }
+            if(millis>0) {
+                sb.append(millis);
+                sb.append( " milliseconds");
+            }
+            return sb.toString();
+        }
+    }
     public static void main(String[] args) {
         long startTime=System.currentTimeMillis();
-        CLDRConfig.getInstance().setTestLog(new TestAll()).run(args);
+        CLDRConfig.getInstance().setTestLog(new TestAll()).run(args,new TimeStampingPrintWriter(System.out));
         long endTime=System.currentTimeMillis();
-        System.out.println("Tests took "+(endTime-startTime)+" milliseconds. ");
+        DateDisplayBean dispBean=new DateDisplayBean(endTime-startTime);
+        StringBuffer sb=new StringBuffer();
+        sb.append("Tests took ");
+        sb.append(dispBean.toString());
+        System.out.println(sb.toString());
     }
 
     public TestAll() {
@@ -52,8 +190,7 @@ public class TestAll extends TestGroup {
                 "org.unicode.cldr.unittest.TestCoverageLevel",
                 "org.unicode.cldr.unittest.TestExampleGenerator",
                 "org.unicode.cldr.unittest.TestLdml2ICU",
-                "org.unicode.cldr.unittest.LikelySubtagsTest",
-                "org.unicode.cldr.unittest.TestTimeEnd"
+                "org.unicode.cldr.unittest.LikelySubtagsTest"
             },
             "All tests in CLDR");
     }

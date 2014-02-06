@@ -430,10 +430,10 @@ class GeneratePickerData {
         out.println("public class CharData {");
         out.println("static String[][] CHARACTERS_TO_NAME = {");
         out.println(buildNames());
-        out.println("  };\r\n" + "  static String[][][] CATEGORIES = {");
+        out.println("  };\n" + "  static String[][][] CATEGORIES = {");
 
         out.println(categoryTable);
-        out.println("  };\r\n" + "}");
+        out.println("  };\n" + "}");
         out.close();
     }
 
@@ -641,7 +641,7 @@ class GeneratePickerData {
     private static String buildNames() {
         StringBuilder result = new StringBuilder();
         for (UnicodeSetIterator it = new UnicodeSetIterator(NAMED_CHARACTERS); it.next();) {
-            result.append("{\"" + it.getString() + "\",\"" + UCharacter.getExtendedName(it.codepoint) + "\"},\r\n");
+            result.append("{\"" + it.getString() + "\",\"" + UCharacter.getExtendedName(it.codepoint) + "\"},\n");
         }
         return result.toString();
     }
@@ -884,7 +884,7 @@ class GeneratePickerData {
                 Map<String, GeneratePickerData.USet> sub = categoryTable.get(category);
                 htmlChart = openChart(htmlChart, localDataDirectory, category, categoryTable.keySet());
 
-                result.append("{{\"" + category + "\"},\r\n");
+                result.append("{{\"" + category + "\"},\n");
                 // clean up results
                 for (Iterator<String> subcategoryIterator = sub.keySet().iterator(); subcategoryIterator.hasNext();) {
                     String subcategory = subcategoryIterator.next();
@@ -926,7 +926,7 @@ class GeneratePickerData {
                     duplicates.addAll(dups);
                     soFar.addAll(valueChars.strings);
                 }
-                result.append("},\r\n");
+                result.append("},\n");
             }
             if (missing.size() != 0) {
                 System.out.println("MISSING!\t" + missing.size() + "\t" + missing.toPattern(false));
@@ -937,7 +937,7 @@ class GeneratePickerData {
             duplicates.clear(); // don't show anymore
             soFar.complement().removeAll(SKIP);
             if (soFar.size() > 0 || duplicates.size() > 0) {
-                result.append("{{\"" + "TODO" + "\"},\r\n");
+                result.append("{{\"" + "TODO" + "\"},\n");
                 if (soFar.size() > 0) {
                     USet temp = new USet(UCA);
                     addAllToCollection(soFar, temp.strings);
@@ -948,7 +948,7 @@ class GeneratePickerData {
                     addAllToCollection(duplicates, temp.strings);
                     addResult(result, temp, "TODO", "Duplicates", displayData);
                 }
-                result.append("},\r\n");
+                result.append("},\n");
             }
             // return results
             System.out.println("Total Chars:\t" + totalChars);
@@ -1076,7 +1076,7 @@ class GeneratePickerData {
             }
             final String quoteFixedvalueCharsString = valueCharsString.replace("\\", "\\\\").replace("\"", "\\\"");
             result.append("/*" + size + "," + length + "*/" + " {\"" + subcategory + "\",\""
-                + quoteFixedvalueCharsString + "\"},\r\n");
+                + quoteFixedvalueCharsString + "\"},\n");
             if (doDisplayData) {
                 System.out.println("/*" + size + "," + length + "*/" + " " + category + MAIN_SUB_SEPARATOR
                     + subcategory + "\t" + valueSet.toPattern(false) + ", " + toHex(valueCharsString, true));
@@ -1274,9 +1274,9 @@ class GeneratePickerData {
                 Set<String> ba = new LinkedHashSet<String>(reversal);
                 ba.removeAll(original);
                 System.out.println("FAILED!!!!");
-                IllegalArgumentException e = new IllegalArgumentException("Failed with: " + original + "\r\n"
-                    + "Range String: " + Compacter.getInternalRangeString(strings) + "\r\n"
-                    + "In original but not restored: " + ab + "\r\n" + "In restored but not original: " + ba + "\r\n"
+                IllegalArgumentException e = new IllegalArgumentException("Failed with: " + original + "\n"
+                    + "Range String: " + Compacter.getInternalRangeString(strings) + "\n"
+                    + "In original but not restored: " + ab + "\n" + "In restored but not original: " + ba + "\n"
                     + "Returned range string: " + CharacterListCompressor.base88DecodeList(result.toString())
                     // CharacterListCompressor.base88Decode(in);
                     );

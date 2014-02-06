@@ -1,5 +1,5 @@
 package org.unicode.cldr.draft.picker;
-// $Date: 2013-12-06 01:10:07 +0100 (Fri, 06 Dec 2013) $
+// $Date: 2014-02-05 17:06:29 -0800 (Wed, 05 Feb 2014) $
 public class CharData {
 static String[][] CHARACTERS_TO_NAME = {
 {" ","SPACE"},

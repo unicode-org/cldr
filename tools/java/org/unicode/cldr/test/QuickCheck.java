@@ -1,8 +1,8 @@
 package org.unicode.cldr.test;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.EnumSet;
@@ -22,6 +22,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PrettyPath;
@@ -143,24 +144,25 @@ public class QuickCheck {
     }
 
     public static void check(File systemID) {
-        try {
-            FileInputStream fis = new FileInputStream(systemID);
+        try (InputStream fis=InputStreamFactory.createInputStream(systemID)) {
+//            FileInputStream fis = new FileInputStream(systemID);
             XMLReader xmlReader = XMLFileReader.createXMLReader(true);
             xmlReader.setErrorHandler(new MyErrorHandler());
             InputSource is = new InputSource(fis);
             is.setSystemId(systemID.toString());
             xmlReader.parse(is);
-            fis.close();
-        } catch (SAXParseException e) {
+//            fis.close();
+        } catch (SAXException | IOException e) { // SAXParseException is a Subtype of SaxException
             System.out.println("\t" + "Can't read " + systemID);
             System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
-        } catch (SAXException e) {
-            System.out.println("\t" + "Can't read " + systemID);
-            System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
-        } catch (IOException e) {
-            System.out.println("\t" + "Can't read " + systemID);
-            System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
-        }
+        } 
+//        catch (SAXException e) {
+//            System.out.println("\t" + "Can't read " + systemID);
+//            System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
+//        } catch (IOException e) {
+//            System.out.println("\t" + "Can't read " + systemID);
+//            System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
+//        }
     }
 
     static Matcher skipPaths = Pattern.compile("/identity" + "|/alias" + "|\\[@alt=\"proposed").matcher("");

@@ -1,11 +1,14 @@
 package org.unicode.cldr.icu;
 
-import java.io.FileInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.util.Formatter;
 import java.util.Locale;
+
+import org.unicode.cldr.util.InputStreamFactory;
 
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.RuleBasedNumberFormat;
@@ -123,12 +126,13 @@ public class ListNumbers {
 
     private static String fileToString(String file) {
         String str = "";
-        try {
-            InputStream is = new FileInputStream(file);
-            InputStreamReader reader = new InputStreamReader(is, "UTF-8");
+        try (InputStream is = InputStreamFactory.createInputStream(new File(file));
+            Reader reader = new InputStreamReader(is, "UTF-8");) {
+//            InputStream is = new FileInputStream(file);
+           
             char[] buffer = new char[is.available() + 1];
             int i = reader.read(buffer);
-            reader.close();
+//            reader.close();
             if (i >= buffer.length) {
                 // This should never happen. Summary of UTF-8 to UTF-16 conversion per codepoint:
                 // 1 byte -> 1 char, 2 bytes -> 1 char, 3 bytes -> 1 char, 4 bytes -> 2 chars.

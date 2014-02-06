@@ -848,7 +848,9 @@ public class CldrUtility {
     }
 
     public static InputStream getInputStream(Class<?> callingClass, String relativePath) {
-        return callingClass.getResourceAsStream(relativePath);
+        InputStream is=callingClass.getResourceAsStream(relativePath);
+        // add buffering
+        return InputStreamFactory.buffer(is);
     }
 
     /**

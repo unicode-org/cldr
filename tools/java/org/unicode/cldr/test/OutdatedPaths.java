@@ -16,6 +16,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.StringId;
@@ -132,9 +133,9 @@ public class OutdatedPaths {
     private DataInputStream openDataInput(String directory, String filename) throws FileNotFoundException {
         String dataFileName = filename;
         InputStream fileInputStream = directory == null
-            ? CldrUtility.getInputStream(OUTDATED_DIR + dataFileName)
-            : new FileInputStream(new File(directory, dataFileName));
-
+            ? CldrUtility.getInputStream(OUTDATED_DIR + dataFileName) :
+            //: new FileInputStream(new File(directory, dataFileName));
+            InputStreamFactory.createInputStream(new File(directory, dataFileName));
         DataInputStream dataIn = new DataInputStream(fileInputStream);
         return dataIn;
     }

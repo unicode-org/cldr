@@ -1,9 +1,8 @@
 package org.unicode.cldr.unittest;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -12,7 +11,6 @@ import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +40,7 @@ import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.Element;
 import org.unicode.cldr.util.DtdData.ElementType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.InputStreamFactory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -49,9 +48,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
-import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XMLFileReader;
-import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.InputSource;
@@ -59,7 +56,6 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
@@ -266,21 +262,22 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     public void check(File systemID) {
-        try {
-            FileInputStream fis = new FileInputStream(systemID);
+        try (InputStream fis=InputStreamFactory.createInputStream(systemID)){
+//            FileInputStream fis = new FileInputStream(systemID);
             XMLReader xmlReader = XMLFileReader.createXMLReader(true);
             xmlReader.setErrorHandler(new MyErrorHandler());
             InputSource is = new InputSource(fis);
             is.setSystemId(systemID.toString());
             xmlReader.parse(is);
-            fis.close();
-        } catch (SAXParseException e) {
+//            fis.close();
+        } catch (SAXException |IOException e) {
             errln("\t" + "Can't read " + systemID + "\t" + e.getClass() + "\t" + e.getMessage());
-        } catch (SAXException e) {
-            errln("\t" + "Can't read " + systemID + "\t" + e.getClass() + "\t" + e.getMessage());
-        } catch (IOException e) {
-            errln("\t" + "Can't read " + systemID + "\t" + e.getClass() + "\t" + e.getMessage());
-        }
+        } 
+//        catch (SAXParseException e) {
+//            errln("\t" + "Can't read " + systemID + "\t" + e.getClass() + "\t" + e.getMessage());
+//        } catch (IOException e) {
+//            errln("\t" + "Can't read " + systemID + "\t" + e.getClass() + "\t" + e.getMessage());
+//        }
     }
 
     public void TestCurrencyFallback() {

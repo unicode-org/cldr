@@ -34,6 +34,7 @@ import org.unicode.cldr.draft.GeneratePickerData.SimplePair;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -153,7 +154,8 @@ class GeneratePickerData {
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        output(".*", CLDRPaths.GEN_DIRECTORY + "picker/", "output data directory"),
+        output(".*", CLDRPaths.BASE_DIRECTORY + "tools/java/org/unicode/cldr/draft/picker/", 
+        "output data directory"),
         unicodedata(null, CLDRPaths.UCD_DIRECTORY, "Unicode Data directory"),
         verbose(null, null, "verbose debugging messages"),
         korean(null, null, "generate korean hangul defectives instead"), ;
@@ -423,7 +425,7 @@ class GeneratePickerData {
 
     private static void writeMainFile(String directory, String categoryTable) throws IOException, FileNotFoundException {
         PrintWriter out = getFileWriter(directory, "CharData.java");
-        out.println("package org.unicode.cldr.draft;");
+        out.println("package org.unicode.cldr.draft.picker;");
         out.println("// $Date$");
         out.println("public class CharData {");
         out.println("static String[][] CHARACTERS_TO_NAME = {");
@@ -1036,7 +1038,9 @@ class GeneratePickerData {
         }
 
         private String fileNameFromCategory(String category) {
-            return "PickerData_" + fixCategoryName(category).replace(' ', '_') + ".html";
+            return "PickerData_" + fixCategoryName(category)
+                .replace(' ', '_')
+                .replace("&", "and") + ".html";
         }
 
         private void writePageIndex(PrintWriter htmlChart, Set<String> set) {
@@ -1728,7 +1732,7 @@ class GeneratePickerData {
     }
 
     private static void addEmojiCharacters() throws IOException {
-        File emojiSources = new File(unicodeDataDirectory + "/EmojiSources-6.2.0d1.txt"); // Needs fixing for release vs
+        File emojiSources = new File(unicodeDataDirectory + "/EmojiSources.txt"); // Needs fixing for release vs
                                                                                           // non-released directory
         FileInputStream fis = new FileInputStream(emojiSources);
         BufferedReader in = new BufferedReader(new InputStreamReader(fis, "UTF-8"));

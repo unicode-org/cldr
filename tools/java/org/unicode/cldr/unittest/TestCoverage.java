@@ -48,6 +48,7 @@ public class TestCoverage extends TestFmwkPlus {
     static final boolean DEBUG = false;
 
     public void TestLocales() {
+        long start = System.currentTimeMillis();
         logln("Status\tLocale\tName\tLevel\tCount" + showColumn(all) + "\tError Messages");
         LanguageTagParser ltp = new LanguageTagParser();
         Set<String> errors = new LinkedHashSet<>();
@@ -83,6 +84,8 @@ public class TestCoverage extends TestFmwkPlus {
                 logln("OK\t" + getLocaleAndName(locale) + "\t" + level + "\t" + missing.size());
             }
         }
+        long end = System.currentTimeMillis();
+        logln("Elapsed:\t" + (end-start));
     }
 
     private String getLocaleAndName(String locale) {

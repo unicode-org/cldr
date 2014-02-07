@@ -256,10 +256,10 @@ class GeneratePickerData {
 
         addLatin();
         Set<String> EuropeanMinusLatin = new TreeSet<String>(ScriptCategories.EUROPEAN);
-        EuropeanMinusLatin.remove("Latin");
+        EuropeanMinusLatin.remove("Latn");
         Set<String> EastAsianMinusHanAndHangul = new TreeSet<String>(ScriptCategories.EAST_ASIAN);
-        EastAsianMinusHanAndHangul.remove("Han");
-        EastAsianMinusHanAndHangul.remove("Hangul");
+        EastAsianMinusHanAndHangul.remove("Hani");
+        EastAsianMinusHanAndHangul.remove("Hang");
         addProperty("Script", EUROPEAN, buttonComparator, EuropeanMinusLatin);
         addProperty("Script", AFRICAN, buttonComparator, ScriptCategories.AFRICAN);
         addProperty("Script", MIDDLE_EASTERN, buttonComparator, ScriptCategories.MIDDLE_EASTERN);
@@ -871,9 +871,9 @@ class GeneratePickerData {
         public String toString(boolean displayData, String localDataDirectory) throws FileNotFoundException,
             IOException {
             UnicodeSet missing = new UnicodeSet(0, 0x10FFFF).removeAll(Typology.SKIP);
-            PrintWriter htmlChart = getFileWriter(localDataDirectory, "header.html");
+            PrintWriter htmlChart = getFileWriter(localDataDirectory, "index.html");
             writeHtmlHeader(htmlChart, localDataDirectory, null, "main",
-                "p {font-size:75%; margin:0; margin-left:1em; text-indent:-1em;}");
+                "p {font-size:100%; margin:0; margin-left:1em; text-indent:-1em;}");
             writePageIndex(htmlChart, categoryTable.keySet());
 
             int totalChars = 0, totalCompressed = 0;
@@ -1005,16 +1005,19 @@ class GeneratePickerData {
             return result.toString();
         }
 
-        private PrintWriter openChart(PrintWriter htmlChart, String localDataDirectory, String category, Set<String> set)
+        private PrintWriter openChart(PrintWriter htmlChart, String localDataDirectory, 
+            String category, Set<String> set)
             throws IOException, FileNotFoundException {
             if (htmlChart != null) {
                 htmlChart = writeHtmlFooterAndClose(htmlChart);
             }
             if (category != null) {
-                htmlChart = getFileWriter(localDataDirectory, fileNameFromCategory(category));
+                String fileNameFromCategory = fileNameFromCategory(category);
+                htmlChart = getFileWriter(localDataDirectory, fileNameFromCategory);
                 htmlChart = writeHtmlHeader(htmlChart, localDataDirectory, category, "main",
                     "table, th, td {border-collapse:collapse; border:1px solid blue;}");
                 writeCategoryH1(htmlChart, category);
+                htmlChart.println("<p><a href='index.html'>Index</a></p>");
                 htmlChart.println("<table>");
             }
             return htmlChart;
@@ -1044,11 +1047,13 @@ class GeneratePickerData {
         }
 
         private void writePageIndex(PrintWriter htmlChart, Set<String> set) {
+            htmlChart.println("<h1>Index</h1>");
+            htmlChart.println("<ul>");
             for (String s : set) {
                 s = fixCategoryName(s);
-                htmlChart.println("<p><a href='" + fixHtml(fileNameFromCategory(s)) + "'>" + fixHtml(s) + "</a></p>");
+                htmlChart.println("<li><a href='" + fixHtml(fileNameFromCategory(s)) + "'>" + fixHtml(s) + "</a></li>");
             }
-            htmlChart.println("<p>&nbsp;</p><p>(" + new Date() + ")</p>");
+            htmlChart.println("</ul>\n<p>&nbsp;</p><p>(" + new Date() + ")</p>");
         }
 
         private void writeCategoryH1(PrintWriter htmlChart, String category) {
@@ -1137,7 +1142,7 @@ class GeneratePickerData {
             valueChars.clear();
             // valueChars.applyPropertyAlias(propertyAlias, valueAlias);
             ScriptCategories.applyPropertyAlias(propertyAlias, valueAlias, valueChars);
-            valueAlias = ScriptCategories.getFixedPropertyValue(propertyAlias, valueAlias);
+            valueAlias = ScriptCategories.getFixedPropertyValue(propertyAlias, valueAlias, UProperty.NameChoice.SHORT);
 
             if (DEBUG) System.out.println(valueAlias + ": " + valueChars.size() + ", " + valueChars);
             valueChars.removeAll(SKIP);
@@ -1149,8 +1154,12 @@ class GeneratePickerData {
                 Separation separation = Separation.AUTOMATIC;
                 if (ScriptCategories.HISTORIC_SCRIPTS.contains(valueAlias)) {
                     separation = Separation.ALL_HISTORIC;
+                } else {
+                    int debug = 0;
                 }
-                CATEGORYTABLE.add(title, true, valueAlias, sortItems(sort, propertyAlias, valueAlias), separation,
+                String longName = ScriptCategories.TO_LONG_SCRIPT.transform(valueAlias);
+                CATEGORYTABLE.add(title, true, longName, 
+                    sortItems(sort, propertyAlias, longName), separation,
                     it.codepoint);
             }
         }

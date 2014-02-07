@@ -14,10 +14,17 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
+import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.Containment;
+import org.unicode.cldr.util.With;
+
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
 import com.ibm.icu.text.Normalizer;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.VersionInfo;
@@ -51,17 +58,17 @@ public class ScriptCategories {
         // +
         // "[:block=Ancient_Greek_Musical_Notation:][:block=Phaistos_Disc:]]"
         "[ [:blk=Ancient_Greek_Musical_Notation:]" +
-            "[:blk=Buginese:] " +
-            "[:blk=Buhid:] [:blk=Carian:] " +
-            "[:blk=Coptic:] [:blk=Cuneiform:] " +
-            "[:blk=Cuneiform_Numbers_And_Punctuation:] " +
-            "[:blk=Cypriot_Syllabary:] [:blk=Deseret:] [:blk=Glagolitic:] " +
-            "[:blk=Gothic:] [:blk=Hanunoo:] [:blk=Kharoshthi:] [:blk=Linear_B_Ideograms:] " +
-            "[:blk=Linear_B_Syllabary:] [:blk=Lycian:] [:blk=Lydian:] [:blk=Ogham:]" +
-            "[:blk=Old_Italic:] [:blk=Old_Persian:] [:blk=Osmanya:] [:blk=Phags_Pa:] " +
-            "[:blk=Phaistos_Disc:] [:blk=Phoenician:] [:blk=Rejang:] [:blk=Runic:] " +
-            "[:blk=Shavian:] [:blk=Sundanese:] [:blk=Syloti_Nagri:] [:blk=Syriac:] " +
-            "[:blk=Tagalog:] [:blk=Tagbanwa:] [:blk=Ugaritic:] [:sc=Copt:]]"
+        "[:blk=Buginese:] " +
+        "[:blk=Buhid:] [:blk=Carian:] " +
+        "[:blk=Coptic:] [:blk=Cuneiform:] " +
+        "[:blk=Cuneiform_Numbers_And_Punctuation:] " +
+        "[:blk=Cypriot_Syllabary:] [:blk=Deseret:] [:blk=Glagolitic:] " +
+        "[:blk=Gothic:] [:blk=Hanunoo:] [:blk=Kharoshthi:] [:blk=Linear_B_Ideograms:] " +
+        "[:blk=Linear_B_Syllabary:] [:blk=Lycian:] [:blk=Lydian:] [:blk=Ogham:]" +
+        "[:blk=Old_Italic:] [:blk=Old_Persian:] [:blk=Osmanya:] [:blk=Phags_Pa:] " +
+        "[:blk=Phaistos_Disc:] [:blk=Phoenician:] [:blk=Rejang:] [:blk=Runic:] " +
+        "[:blk=Shavian:] [:blk=Sundanese:] [:blk=Syloti_Nagri:] [:blk=Syriac:] " +
+        "[:blk=Tagalog:] [:blk=Tagbanwa:] [:blk=Ugaritic:] [:sc=Copt:]]"
         ).freeze();
     // from the old version of UTS39
     public static final UnicodeSet ARCHAIC_39 = (UnicodeSet) new UnicodeSet(
@@ -85,12 +92,12 @@ public class ScriptCategories {
         // +
         // "\\U00010A38-\\U00010A3A\\U00010A3F-\\U00010A47\\U00010A50-\\U00010A58\\U00012000-\\U0001236E\\U00012400-\\U00012462\\U00012470-\\U00012473]"
         "[ " +
-            // "[:blk=Balinese:] " +
-            "[:blk=Ancient_Greek_Numbers:]" +
-            "[:Block=Hangul_Jamo:]" +
-            "[:Block=Hangul_Compatibility_Jamo:]" +
-            "[֢ ׅ ̓ ᷀-᷃ ҃-҆ ׇ ៑ ៝ ׆ ꜀-꜇ ɟ ʞ ɷ ɼ ƪ ƾ ƫ ƍ ƹ ƺ ȝȜ ƿ ƻ ϐ ϝϜ ϛϚ ϑ ϗ ϖ ϻϺ ϟϞ ϙϘ Ϲ ϕ ϡϠ ϸ Ϸ ჱ-ჶ ٮ ڎ ٯ ೞ ឨ]" +
-            "]"
+        // "[:blk=Balinese:] " +
+        "[:blk=Ancient_Greek_Numbers:]" +
+        "[:Block=Hangul_Jamo:]" +
+        "[:Block=Hangul_Compatibility_Jamo:]" +
+        "[֢ ׅ ̓ ᷀-᷃ ҃-҆ ׇ ៑ ៝ ׆ ꜀-꜇ ɟ ʞ ɷ ɼ ƪ ƾ ƫ ƍ ƹ ƺ ȝȜ ƿ ƻ ϐ ϝϜ ϛϚ ϑ ϗ ϖ ϻϺ ϟϞ ϙϘ Ϲ ϕ ϡϠ ϸ Ϸ ჱ-ჶ ٮ ڎ ٯ ೞ ឨ]" +
+        "]"
         // "[\u018D\u01AA\u01AB\u01B9-\u01BB\u01BE\u01BF\u021C\u021D\u025F\u0277\u027C\u029E\u0343\u03D0\u03D1\u03D5-\u03E1\u03F7-\u03FB\u0483-\u0486\u05A2\u05C5-\u05C7\u066E\u066F\u068E\u0CDE\u10F1-\u10F6\u1100-\u115E\u1161-\u11FF\u17A8\u17D1\u17DD\u1DC0-\u1DC3\u3165-\u318E\uA700-\uA707\\U00010140-\\U00010174]]"
         ).freeze();
 
@@ -102,7 +109,7 @@ public class ScriptCategories {
             "[:blk=Cyrillic_Extended_B:]" +
             "[˯-˿ͣ-ͳͶͷߨ-ߪ᷎-᷿ᷦ᷾ẜẝẟ Ỻ-ỿ⁖⁘-⁞ↀ-Ↄↅ-ↈⱷ-ⱽ⸀-⸗⸪-⸰ ꜠꜡ꜰ-ꝸꟻ-ꟿ[ݾ ݿ ػ-ؿ]]" +
             "]"
-        // "[\u02EF-\u02FF\u0363-\u0373\u0376\u0377\u07E8-\u07EA\u1DCE-\u1DE6\u1DFE\u1DFF\u1E9C\u1E9D\u1E9F\u1EFA-\u1EFF\u2056\u2058-\u205E\u2180-\u2183\u2185-\u2188\u2C77-\u2C7D\u2E00-\u2E17\u2E2A-\u2E30\uA720\uA721\uA730-\uA778\uA7FB-\uA7FF]]"
+            // "[\u02EF-\u02FF\u0363-\u0373\u0376\u0377\u07E8-\u07EA\u1DCE-\u1DE6\u1DFE\u1DFF\u1E9C\u1E9D\u1E9F\u1EFA-\u1EFF\u2056\u2058-\u205E\u2180-\u2183\u2185-\u2188\u2C77-\u2C7D\u2E00-\u2E17\u2E2A-\u2E30\uA720\uA721\uA730-\uA778\uA7FB-\uA7FF]]"
         ).freeze();
 
     public static final UnicodeSet ARCHAIC_ADDITIONS = (UnicodeSet) new UnicodeSet(
@@ -112,16 +119,16 @@ public class ScriptCategories {
             "[:block=Georgian Supplement:]" +
             "[ͻ-ͽϏϽ-Ͽ[ƨ ƽ ƅ][ؕ-ؚ ۖ-ۤ ۧ ۨ ۪-ۭ ۩ ۥ ۦ][֑-֯][ׄ ׅ][ﬠ-ﬨ][ﭏ][Ⴀ-Ⴆ Ⴡ Ⴇ-Ⴌ Ⴢ Ⴍ-Ⴒ Ⴣ Ⴓ-Ⴞ Ⴤ Ⴟ Ⴠ Ⴥ][Ⴀ-Ⴥ][ƄƧƸƼǷϲϴↄ]჻]" +
             "]"
-        // "[\u0269\u027F\u0285-\u0287\u0293\u0296\u0297\u029A\u02A0\u02A3\u02A5\u02A6\u02A8-\u02AF\u0313\u037B-\u037D\u03CF\u03FD-\u03FF]]"
+            // "[\u0269\u027F\u0285-\u0287\u0293\u0296\u0297\u029A\u02A0\u02A3\u02A5\u02A6\u02A8-\u02AF\u0313\u037B-\u037D\u03CF\u03FD-\u03FF]]"
         ).freeze();
 
     public static final UnicodeSet ARCHAIC = (UnicodeSet) new UnicodeSet(ARCHAIC_31)
-        .addAll(ARCHAIC_39)
-        .addAll(ARCHAIC_HEURISTIC)
-        .addAll(ARCHAIC_ADDITIONS)
-        .removeAll(IPA)
-        .removeAll(IPA_EXTENSIONS)
-        .freeze();
+    .addAll(ARCHAIC_39)
+    .addAll(ARCHAIC_HEURISTIC)
+    .addAll(ARCHAIC_ADDITIONS)
+    .removeAll(IPA)
+    .removeAll(IPA_EXTENSIONS)
+    .freeze();
     static {
         UnicodeSet knownOk = new UnicodeSet("[\u0392\u0398\u03A0\u03A6\u03B2\u03B8\u03C0\u03C6[\u10C7\u10CD]]");
         final UnicodeSet caseProblems = new UnicodeSet(ARCHAIC).closeOver(UnicodeSet.CASE).removeAll(ARCHAIC)
@@ -401,7 +408,7 @@ public class ScriptCategories {
 
     public static final UnicodeSet SCRIPT_CHANGED = (UnicodeSet) new UnicodeSet(
         "[\\^`\\u00A8\\u00AF\\u00B4\\u00B5\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02FF\\u0374\\u0375\\u037E\\u0385\\u0387\\u03F6\\u0589\\u0600-\\u0603\\u060C\\u061B\\u061F\\u0640\\u064B-\\u0655\\u0660-\\u0669\\u0670\\u06DD\\u0951\\u0952\\u0964\\u0965\\u0970\\u0CF1\\u0CF2\\u10FB\\u16EB-\\u16ED\\u1735\\u1736\\u1802\\u1803\\u1805\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100-\\u2125\\u2127\\u2128\\u212C-\\u2131\\u2133\\u2134\\u2139-\\u213B\\u2145-\\u214A\\u214C\\u214D\\u249C-\\u24E9\\u2FF0-\\u2FFF\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u302A-\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u3190-\\u319F\\u31C0-\\u31E3\\u3220-\\u3243\\u3250\\u327F-\\u32B0\\u32C0-\\u32CF\\u3358-\\u33FF\\uA700-\\uA721\\uA788-\\uA78A\\uFDFD\\uFE45\\uFE46\\uFF61-\\uFF65\\uFF70\\uFF9E\\uFF9F]")
-        .freeze();
+    .freeze();
     public static final Map<String, UnicodeSet> SCRIPT_NEW;
     static {
         String[][] data = {
@@ -410,7 +417,7 @@ public class ScriptCategories {
             { "Bengali", "[\\u0964\\u0965\\u0CF1\\u0CF2]" },
             {
                 "Bopomofo",
-                "[\\u02EA\\u02EB\\u3001-\\u3004\\u3006\\u3008-\\u3011\\u3013-\\u3020\\u302A-\\u302D\\u3030\\u3037\\u303C-\\u303F\\uFE45\\uFE46\\uFF61-\\uFF64]" },
+            "[\\u02EA\\u02EB\\u3001-\\u3004\\u3006\\u3008-\\u3011\\u3013-\\u3020\\u302A-\\u302D\\u3030\\u3037\\u303C-\\u303F\\uFE45\\uFE46\\uFF61-\\uFF64]" },
             { "Buhid", "[\\u1735\\u1736]" },
             { "Common", "[\\u03F6\\u06DD]" },
             { "Cyrillic", "[\\u02BC]" },
@@ -421,21 +428,21 @@ public class ScriptCategories {
             { "Gurmukhi", "[\\u0964\\u0965\\u0CF1\\u0CF2]" },
             {
                 "Han",
-                "[\\u2FF0-\\u2FFF\\u3001-\\u3004\\u3006\\u3008-\\u3011\\u3013-\\u3020\\u302A-\\u302D\\u3030\\u3037\\u303C-\\u303F\\u31C0-\\u31E3\\u3220-\\u3243\\u3280-\\u32B0\\u32C0-\\u32CB\\u3358-\\u3370\\u337B-\\u337F\\u33E0-\\u33FE\\uFE45\\uFE46\\uFF61-\\uFF64]" },
+            "[\\u2FF0-\\u2FFF\\u3001-\\u3004\\u3006\\u3008-\\u3011\\u3013-\\u3020\\u302A-\\u302D\\u3030\\u3037\\u303C-\\u303F\\u31C0-\\u31E3\\u3220-\\u3243\\u3280-\\u32B0\\u32C0-\\u32CB\\u3358-\\u3370\\u337B-\\u337F\\u33E0-\\u33FE\\uFE45\\uFE46\\uFF61-\\uFF64]" },
             {
                 "Hangul",
-                "[\\u3001-\\u3004\\u3006\\u3008-\\u3011\\u3013-\\u3020\\u302E-\\u3030\\u3037\\u303C-\\u303F\\u327F\\uFE45\\uFE46\\uFF61-\\uFF64]" },
+            "[\\u3001-\\u3004\\u3006\\u3008-\\u3011\\u3013-\\u3020\\u302E-\\u3030\\u3037\\u303C-\\u303F\\u327F\\uFE45\\uFE46\\uFF61-\\uFF64]" },
             { "Hanunoo", "[\\u1735\\u1736]" },
             {
                 "Hiragana",
-                "[\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u3030-\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u3190-\\u319F\\uFE45\\uFE46\\uFF61-\\uFF65\\uFF70\\uFF9E\\uFF9F]" },
+            "[\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u3030-\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u3190-\\u319F\\uFE45\\uFE46\\uFF61-\\uFF65\\uFF70\\uFF9E\\uFF9F]" },
             { "Kannada", "[\\u0CF1\\u0CF2]" },
             {
                 "Katakana",
-                "[\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u3030-\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u3190-\\u319F\\uFE45\\uFE46\\uFF61-\\uFF65\\uFF70\\uFF9E\\uFF9F]" },
+            "[\\u3001-\\u3004\\u3006\\u3008-\\u3020\\u3030-\\u3037\\u303C-\\u303F\\u3099-\\u309C\\u30A0\\u30FB\\u30FC\\u3190-\\u319F\\uFE45\\uFE46\\uFF61-\\uFF65\\uFF70\\uFF9E\\uFF9F]" },
             {
                 "Latin",
-                "[\\^`\\u00A8\\u00AF\\u00B4\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02E9\\u02EC-\\u02FF\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100-\\u2125\\u2127\\u2128\\u212C-\\u2131\\u2133\\u2134\\u2139-\\u213B\\u2145-\\u214A\\u214C\\u214D\\u249C-\\u24E9\\u3250\\u32CC-\\u32CF\\u3371-\\u337A\\u3380-\\u33DF\\u33FF\\uA700-\\uA721\\uA788-\\uA78A]" },
+            "[\\^`\\u00A8\\u00AF\\u00B4\\u00B8\\u02B9-\\u02DF\\u02E5-\\u02E9\\u02EC-\\u02FF\\u1D26-\\u1D2B\\u1D5D-\\u1D61\\u1D66-\\u1D6A\\u1D78\\u1DBF\\u2100-\\u2125\\u2127\\u2128\\u212C-\\u2131\\u2133\\u2134\\u2139-\\u213B\\u2145-\\u214A\\u214C\\u214D\\u249C-\\u24E9\\u3250\\u32CC-\\u32CF\\u3371-\\u337A\\u3380-\\u33DF\\u33FF\\uA700-\\uA721\\uA788-\\uA78A]" },
             { "Malayalam", "[\\u0CF1\\u0CF2]" },
             { "Mongolian", "[\\u1802\\u1803\\u1805]" },
             { "Oriya", "[\\u0964\\u0965\\u0CF1\\u0CF2]" },
@@ -454,17 +461,17 @@ public class ScriptCategories {
     }
     public static final UnicodeSet CATEGORY_CHANGED = (UnicodeSet) new UnicodeSet(
         "[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172\\U0001D400-\\U0001D7FF]")
-        .freeze();
+    .freeze();
     public static final Map<String, UnicodeSet> CATEGORY_NEW;
     static {
         String[][] data = {
             {
                 "Math_Symbol",
-                "[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D400-\\U0001D7FF]" },
+            "[\\u2102\\u210A-\\u2113\\u2115\\u2119-\\u211D\\u2124\\u2128\\u2129\\u212C\\u212D\\u212F-\\u2131\\u2133-\\u2138\\u213C-\\u213F\\u2145-\\u2149\\U0001D400-\\U0001D7FF]" },
             { "Modifier_Symbol", "[\\U0001D165\\U0001D166\\U0001D16D-\\U0001D172]" },
             {
                 "Symbol",
-                "[\\$+<->\\^`|~\\u00A2-\\u00A9\\u00AC\\u00AE-\\u00B1\\u00B4\\u00B6\\u00B8\\u00D7\\u00F7\\u02C2-\\u02C5\\u02D2-\\u02DF\\u02E5-\\u02EB\\u02ED\\u02EF-\\u02FF\\u0375\\u0384\\u0385\\u03F6\\u0482\\u0606-\\u0608\\u060B\\u060E\\u060F\\u06E9\\u06FD\\u06FE\\u07F6\\u09F2\\u09F3\\u09FA\\u0AF1\\u0B70\\u0BF3-\\u0BFA\\u0C7F\\u0CF1\\u0CF2\\u0D79\\u0E3F\\u0F01-\\u0F03\\u0F13-\\u0F17\\u0F1A-\\u0F1F\\u0F34\\u0F36\\u0F38\\u0FBE-\\u0FC5\\u0FC7-\\u0FCC\\u0FCE\\u0FCF\\u109E\\u109F\\u1360\\u1390-\\u1399\\u17DB\\u1940\\u19E0-\\u19FF\\u1B61-\\u1B6A\\u1B74-\\u1B7C\\u1FBD\\u1FBF-\\u1FC1\\u1FCD-\\u1FCF\\u1FDD-\\u1FDF\\u1FED-\\u1FEF\\u1FFD\\u1FFE\\u2044\\u2052\\u207A-\\u207C\\u208A-\\u208C\\u20A0-\\u20B5\\u2100-\\u2106\\u2108-\\u2125\\u2127-\\u2129\\u212C-\\u2131\\u2133-\\u2138\\u213A-\\u214D\\u214F\\u2190-\\u2328\\u232B-\\u23E7\\u2400-\\u2426\\u2440-\\u244A\\u249C-\\u24E9\\u2500-\\u269D\\u26A0-\\u26BC\\u26C0-\\u26C3\\u2701-\\u2704\\u2706-\\u2709\\u270C-\\u2727\\u2729-\\u274B\\u274D\\u274F-\\u2752\\u2756\\u2758-\\u275E\\u2761-\\u2767\\u2794\\u2798-\\u27AF\\u27B1-\\u27BE\\u27C0-\\u27C4\\u27C7-\\u27CA\\u27CC\\u27D0-\\u27E5\\u27F0-\\u2982\\u2999-\\u29D7\\u29DC-\\u29FB\\u29FE-\\u2B4C\\u2B50-\\u2B54\\u2CE5-\\u2CEA\\u2E80-\\u2E99\\u2E9B-\\u2EF3\\u2F00-\\u2FD5\\u2FF0-\\u2FFB\\u3004\\u3012\\u3013\\u3020\\u3036\\u3037\\u303E\\u303F\\u309B\\u309C\\u3190\\u3191\\u3196-\\u319F\\u31C0-\\u31E3\\u3200-\\u321E\\u322A-\\u3243\\u3250\\u3260-\\u327F\\u328A-\\u32B0\\u32C0-\\u32FE\\u3300-\\u33FF\\u4DC0-\\u4DFF\\uA490-\\uA4C6\\uA700-\\uA716\\uA720\\uA721\\uA789\\uA78A\\uA828-\\uA82B\\uFB29\\uFDFC\\uFDFD\\uFE62\\uFE64-\\uFE66\\uFE69\\uFF04\\uFF0B\\uFF1C-\\uFF1E\\uFF3E\\uFF40\\uFF5C\\uFF5E\\uFFE0-\\uFFE6\\uFFE8-\\uFFEE\\uFFFC\\uFFFD\\U00010102\\U00010137-\\U0001013F\\U00010179-\\U00010189\\U00010190-\\U0001019B\\U000101D0-\\U000101FC\\U0001D000-\\U0001D0F5\\U0001D100-\\U0001D126\\U0001D129-\\U0001D166\\U0001D16A-\\U0001D172\\U0001D183\\U0001D184\\U0001D18C-\\U0001D1A9\\U0001D1AE-\\U0001D1DD\\U0001D200-\\U0001D241\\U0001D245\\U0001D300-\\U0001D356\\U0001D400-\\U0001D7FF\\U0001F000-\\U0001F02B\\U0001F030-\\U0001F093]" },
+            "[\\$+<->\\^`|~\\u00A2-\\u00A9\\u00AC\\u00AE-\\u00B1\\u00B4\\u00B6\\u00B8\\u00D7\\u00F7\\u02C2-\\u02C5\\u02D2-\\u02DF\\u02E5-\\u02EB\\u02ED\\u02EF-\\u02FF\\u0375\\u0384\\u0385\\u03F6\\u0482\\u0606-\\u0608\\u060B\\u060E\\u060F\\u06E9\\u06FD\\u06FE\\u07F6\\u09F2\\u09F3\\u09FA\\u0AF1\\u0B70\\u0BF3-\\u0BFA\\u0C7F\\u0CF1\\u0CF2\\u0D79\\u0E3F\\u0F01-\\u0F03\\u0F13-\\u0F17\\u0F1A-\\u0F1F\\u0F34\\u0F36\\u0F38\\u0FBE-\\u0FC5\\u0FC7-\\u0FCC\\u0FCE\\u0FCF\\u109E\\u109F\\u1360\\u1390-\\u1399\\u17DB\\u1940\\u19E0-\\u19FF\\u1B61-\\u1B6A\\u1B74-\\u1B7C\\u1FBD\\u1FBF-\\u1FC1\\u1FCD-\\u1FCF\\u1FDD-\\u1FDF\\u1FED-\\u1FEF\\u1FFD\\u1FFE\\u2044\\u2052\\u207A-\\u207C\\u208A-\\u208C\\u20A0-\\u20B5\\u2100-\\u2106\\u2108-\\u2125\\u2127-\\u2129\\u212C-\\u2131\\u2133-\\u2138\\u213A-\\u214D\\u214F\\u2190-\\u2328\\u232B-\\u23E7\\u2400-\\u2426\\u2440-\\u244A\\u249C-\\u24E9\\u2500-\\u269D\\u26A0-\\u26BC\\u26C0-\\u26C3\\u2701-\\u2704\\u2706-\\u2709\\u270C-\\u2727\\u2729-\\u274B\\u274D\\u274F-\\u2752\\u2756\\u2758-\\u275E\\u2761-\\u2767\\u2794\\u2798-\\u27AF\\u27B1-\\u27BE\\u27C0-\\u27C4\\u27C7-\\u27CA\\u27CC\\u27D0-\\u27E5\\u27F0-\\u2982\\u2999-\\u29D7\\u29DC-\\u29FB\\u29FE-\\u2B4C\\u2B50-\\u2B54\\u2CE5-\\u2CEA\\u2E80-\\u2E99\\u2E9B-\\u2EF3\\u2F00-\\u2FD5\\u2FF0-\\u2FFB\\u3004\\u3012\\u3013\\u3020\\u3036\\u3037\\u303E\\u303F\\u309B\\u309C\\u3190\\u3191\\u3196-\\u319F\\u31C0-\\u31E3\\u3200-\\u321E\\u322A-\\u3243\\u3250\\u3260-\\u327F\\u328A-\\u32B0\\u32C0-\\u32FE\\u3300-\\u33FF\\u4DC0-\\u4DFF\\uA490-\\uA4C6\\uA700-\\uA716\\uA720\\uA721\\uA789\\uA78A\\uA828-\\uA82B\\uFB29\\uFDFC\\uFDFD\\uFE62\\uFE64-\\uFE66\\uFE69\\uFF04\\uFF0B\\uFF1C-\\uFF1E\\uFF3E\\uFF40\\uFF5C\\uFF5E\\uFFE0-\\uFFE6\\uFFE8-\\uFFEE\\uFFFC\\uFFFD\\U00010102\\U00010137-\\U0001013F\\U00010179-\\U00010189\\U00010190-\\U0001019B\\U000101D0-\\U000101FC\\U0001D000-\\U0001D0F5\\U0001D100-\\U0001D126\\U0001D129-\\U0001D166\\U0001D16A-\\U0001D172\\U0001D183\\U0001D184\\U0001D18C-\\U0001D1A9\\U0001D1AE-\\U0001D1DD\\U0001D200-\\U0001D241\\U0001D245\\U0001D300-\\U0001D356\\U0001D400-\\U0001D7FF\\U0001F000-\\U0001F02B\\U0001F030-\\U0001F093]" },
         };
         CATEGORY_NEW = loadData(data);
     }
@@ -499,7 +506,7 @@ public class ScriptCategories {
             UnicodeSet additions;
             switch (propEnum) {
             case UProperty.SCRIPT:
-                pvalue = getFixedPropertyValue(propEnum, propertyValue);
+                pvalue = getFixedPropertyValue(propEnum, propertyValue, UProperty.NameChoice.LONG);
                 result2 = new UnicodeSet().applyIntPropertyValue(propEnum,
                     UCharacter.getPropertyValueEnum(propEnum, pvalue)).removeAll(SCRIPT_CHANGED);
                 additions = SCRIPT_NEW.get(pvalue);
@@ -511,7 +518,7 @@ public class ScriptCategories {
             case UProperty.GENERAL_CATEGORY_MASK:
             case UProperty.GENERAL_CATEGORY:
                 // TODO: fix Mask
-                pvalue = getFixedPropertyValue(propEnum, propertyValue);
+                pvalue = getFixedPropertyValue(propEnum, propertyValue, UProperty.NameChoice.LONG);
                 result2 = new UnicodeSet().applyIntPropertyValue(propEnum,
                     UCharacter.getPropertyValueEnum(propEnum, pvalue)).removeAll(CATEGORY_CHANGED);
                 additions = CATEGORY_NEW.get(pvalue);
@@ -569,38 +576,119 @@ public class ScriptCategories {
         return result;
     }
 
+    static class RegionFilter implements com.ibm.icu.text.Transform<String,String> {
+        final String[] containingRegion;
+        RegionFilter(String... containingRegion) {
+            this.containingRegion = containingRegion; 
+        }
+        @Override
+        public String transform(String script) {
+            String currentRegion = ScriptMetadata.getInfo(script).originCountry;
+            while (true) {
+                for (String s : containingRegion) {
+                    if (s.equals(currentRegion)) {
+                        return script;
+                    }
+                }
+                if (currentRegion.equals("001") || currentRegion.equals("ZZ")) {
+                    return null;
+                }
+                currentRegion = Containment.getContainer(currentRegion);
+            }
+        }
+    }
+
+    static class UsageFilter implements com.ibm.icu.text.Transform<String,String> {
+        IdUsage[] usage;
+        UsageFilter(IdUsage... usage) {
+            this.usage = usage; 
+        }
+        @Override
+        public String transform(String script) {
+            IdUsage scriptUsage = ScriptMetadata.getInfo(script).idUsage;
+            for (IdUsage s : usage) {
+                if (s == scriptUsage) {
+                    return script;
+                }
+            }
+            return null;
+        }
+    }
+
+    public static Transform<String,String> TO_SHORT_SCRIPT = new Transform<String,String>() {
+        @Override
+        public String transform(String source) {
+            return UScript.getShortName(UScript.getCodeFromName(source));
+        }
+    };
+
+    public static Transform<String,String> TO_LONG_SCRIPT = new Transform<String,String>() {
+        @Override
+        public String transform(String source) {
+            return UScript.getName(UScript.getCodeFromName(source));
+        }
+    };
+
+    public enum Groupings {
+        EUROPEAN("150"),
+        MIDDLE_EASTERN("145"),
+        SOUTH_ASIAN("034"),
+        SOUTHEAST_ASIAN("035"),
+        EAST_ASIAN("030"),
+        AFRICAN("002"),
+        AMERICAN("019"),
+        ;
+        public final Set<String> scripts;
+        private Groupings(String...regions) {
+            scripts = With
+                .in(ScriptMetadata.getScripts())
+                .toUnmodifiableCollection(new RegionFilter(regions), new TreeSet());
+        }
+    }
     // Standard items
-    public static final Set<String> EUROPEAN = loadUnmodifiable(new TreeSet<String>(),
+    public static final Set<String> EUROPEAN = Groupings.EUROPEAN.scripts;
+    public static final Set<String> MIDDLE_EASTERN = Groupings.MIDDLE_EASTERN.scripts;
+    public static final Set<String> SOUTH_ASIAN = Groupings.SOUTH_ASIAN.scripts;
+    public static final Set<String> SOUTHEAST_ASIAN = Groupings.SOUTHEAST_ASIAN.scripts;
+    public static final Set<String> EAST_ASIAN = Groupings.EAST_ASIAN.scripts;
+    public static final Set<String> AFRICAN = Groupings.AFRICAN.scripts;
+    public static final Set<String> AMERICAN = Groupings.AMERICAN.scripts;
+    public static final Set<String> HISTORIC_SCRIPTS = With
+        .in(ScriptMetadata.getScripts())
+        .toUnmodifiableCollection(new UsageFilter(IdUsage.EXCLUSION, IdUsage.LIMITED_USE),
+            new TreeSet());
+
+    public static final Set<String> OLD_EUROPEAN = loadUnmodifiable(new TreeSet<String>(),
         "Latin", "Greek", "Coptic", "Cyrillic",
         "Glag", "Armenian", "Georgian", "Shavian", "braille",
         "ogham", "runic", "Gothic", "Cypriot", "Linear b",
         "old italic");
 
-    public static final Set<String> MIDDLE_EASTERN = loadUnmodifiable(new TreeSet<String>(),
+    public static final Set<String> OLD_MIDDLE_EASTERN = loadUnmodifiable(new TreeSet<String>(),
         "Hebrew", "Arabic", "Syriac", "Thaana", "Carian", "Lycian", "Lydian", "Phoenician",
         "Cuneiform", "old persian", "ugaritic"
         );
-    public static final Set<String> SOUTH_ASIAN = loadUnmodifiable(new TreeSet<String>(),
+    public static final Set<String> OLD_SOUTH_ASIAN = loadUnmodifiable(new TreeSet<String>(),
         "Devanagari", "Bengali", "Gurmukhi", "Gujarati",
         "Oriya", "Tamil", "Telugu", "Kannada", "Malayalam",
         "Sinhala", "Tibetan", "Phags-Pa", "Limbu", "Sylo", "Kharoshthi", "lepcha", "saurashtra", "ol chiki"
         );
-    public static final Set<String> SOUTHEAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
+    public static final Set<String> OLD_SOUTHEAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
         "Thai", "Lao", "Myanmar", "Khmer",
         "Tai_Le", "New Tai Lue", "Tagalog", "Hanunoo", "Buhid",
         "Tagbanwa", "Buginese", "Balinese", "Cham", "kayah li", "rejang", "sundanese"
         );
-    public static final Set<String> EAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
+    public static final Set<String> OLD_EAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
         "Bopomofo", "Hiragana", "Katakana", "Mongolian", "Yi", "Han", "Hangul"
         );
-    public static final Set<String> AFRICAN = loadUnmodifiable(new TreeSet<String>(),
+    public static final Set<String> OLD_AFRICAN = loadUnmodifiable(new TreeSet<String>(),
         "Ethiopic", "Osmanya", "Tifinagh", "Nko", "vai"
         );
-    public static final Set<String> AMERICAN = loadUnmodifiable(new TreeSet<String>(),
+    public static final Set<String> OLD_AMERICAN = loadUnmodifiable(new TreeSet<String>(),
         "Cherokee", "CANS", "Deseret"
         );
 
-    public static final Set<String> HISTORIC_SCRIPTS = loadUnmodifiable(new TreeSet<String>(),
+    public static final Set<String> OLD_HISTORIC_SCRIPTS = loadUnmodifiable(new TreeSet<String>(),
         "Buginese", "Buhid", "Carian", "Coptic", "Cypriot", "Deseret", "Glagolitic",
         "Gothic", "Hanunoo", "Old_Italic", "Kharoshthi", "Linear_B", "Lycian", "Lydian",
         "Ogham", "Osmanya", "Phags_Pa", "Phoenician", "Rejang", "Runic", "Shavian", "Sundanese",
@@ -683,13 +771,13 @@ public class ScriptCategories {
                             // check
                             try {
                                 // scriptSet = new UnicodeSet("[:script=" + part + ":]");
-                                fixed = getFixedPropertyValue(UProperty.SCRIPT, part);
+                                fixed = getFixedPropertyValue(UProperty.SCRIPT, part, UProperty.NameChoice.LONG);
                                 newRemapType = RemapType.SCRIPT;
                                 propertiesToAddTo.add(fixed);
 
                             } catch (Exception e) {
                                 // scriptSet = new UnicodeSet("[:gc=" + part + ":]");
-                                fixed = getFixedPropertyValue(UProperty.GENERAL_CATEGORY, part);
+                                fixed = getFixedPropertyValue(UProperty.GENERAL_CATEGORY, part, UProperty.NameChoice.LONG);
                                 newRemapType = RemapType.CATEGORY;
                                 propertiesToAddTo.add(fixed);
                             }
@@ -728,14 +816,14 @@ public class ScriptCategories {
         return data;
     }
 
-    public static String getFixedPropertyValue(int propertyEnum, String valueName) {
+    public static String getFixedPropertyValue(int propertyEnum, String valueName, int length) {
         int valueEnum = UCharacter.getPropertyValueEnum(propertyEnum, valueName);
-        String fixed = UCharacter.getPropertyValueName(propertyEnum, valueEnum, UProperty.NameChoice.LONG);
+        String fixed = UCharacter.getPropertyValueName(propertyEnum, valueEnum, length);
         return fixed;
     }
 
-    public static String getFixedPropertyValue(String propertyName, String valueName) {
-        return getFixedPropertyValue(UCharacter.getPropertyEnum(propertyName), valueName);
+    public static String getFixedPropertyValue(String propertyName, String valueName, int length) {
+        return getFixedPropertyValue(UCharacter.getPropertyEnum(propertyName), valueName, length);
     }
 
     private static <T> void addToMapToUnicodeSet(Map<T, UnicodeSet> mapToUnicodeSet, T key, UnicodeSet additions) {

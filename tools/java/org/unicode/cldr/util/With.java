@@ -2,10 +2,12 @@ package org.unicode.cldr.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
 import com.ibm.icu.lang.CharSequences;
+import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UTF16;
 
 /**
@@ -90,6 +92,32 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
             result.add(next());
         }
         return result;
+    }
+        
+    /**
+     * Create a collection from whatever is left in the iterator. For example, myCollection =
+     * With.in(anIterator).toList();
+     * 
+     * @return
+     */
+    public <W, C extends Collection<W>> C toCollection(Transform<V,W> filter, C output) {
+        while (hasNext()) {
+            W transformedItem = filter.transform(next());
+            if (transformedItem != null) {
+                output.add(transformedItem);
+            }
+        }
+        return output;
+    }
+    
+    /**
+     * Create an immutable collection from whatever is left in the iterator. For example, myCollection =
+     * With.in(anIterator).toList();
+     * 
+     * @return
+     */
+    public <W, C extends Collection<W>> C toUnmodifiableCollection(Transform<V,W> filter, C output) {
+        return CldrUtility.protectCollection(toCollection(filter, output));
     }
     
     /**

@@ -35,8 +35,8 @@ public class ToolUtilities {
         TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Georgian-Latin");
     
         // do nothing, too complicated to do quickly
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Tibetan-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Khmer-Latin");
+        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Tibetan-Latin"); // needed
+        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Khmer-Latin"); // needed
         TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Lao-Latin");
     }
 

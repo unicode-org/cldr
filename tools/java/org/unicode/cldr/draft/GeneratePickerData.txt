@@ -31,6 +31,9 @@ Symbol:.*Miscellaneous Technical.* > Symbol:Technical
 Symbol:.*(Tai Xuan Jing|Yijing).* > Symbol:Yijing / Tai Xuan Jing
 Symbol:(.*)Historic.* > Symbol:$1Historic
 Symbol:(.*)Letterlike(.*) > Symbol:$1Technical$2
+Symbol:.*Enclosed Alphanumeric Supplement.*>Symbol:Compatibility
+
+
 
 
 #Punctuation:Other~(.*)>Punctuation:$1

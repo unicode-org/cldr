@@ -197,16 +197,16 @@ public class TestScriptMetadata extends TestFmwkPlus {
             }
         }
 
-        assertEqualsX(Groupings.EUROPEAN, ScriptCategories.OLD_EUROPEAN);
-        assertEqualsX(Groupings.MIDDLE_EASTERN, ScriptCategories.OLD_MIDDLE_EASTERN);
-        assertEqualsX(Groupings.SOUTH_ASIAN, ScriptCategories.OLD_SOUTH_ASIAN);
-        assertEqualsX(Groupings.SOUTHEAST_ASIAN, ScriptCategories.OLD_SOUTHEAST_ASIAN);
-        assertEqualsX(Groupings.EAST_ASIAN, ScriptCategories.OLD_EAST_ASIAN);
-        assertEqualsX(Groupings.AFRICAN, ScriptCategories.OLD_AFRICAN);
-        assertEqualsX(Groupings.AMERICAN, ScriptCategories.OLD_AMERICAN);
-
-        assertEqualsX("Historic: ", ScriptCategories.HISTORIC_SCRIPTS, ScriptCategories.OLD_HISTORIC_SCRIPTS);
-
+//        assertEqualsX(Groupings.EUROPEAN, ScriptCategories.OLD_EUROPEAN);
+//        assertEqualsX(Groupings.MIDDLE_EASTERN, ScriptCategories.OLD_MIDDLE_EASTERN);
+//        assertEqualsX(Groupings.SOUTH_ASIAN, ScriptCategories.OLD_SOUTH_ASIAN);
+//        assertEqualsX(Groupings.SOUTHEAST_ASIAN, ScriptCategories.OLD_SOUTHEAST_ASIAN);
+//        assertEqualsX(Groupings.EAST_ASIAN, ScriptCategories.OLD_EAST_ASIAN);
+//        assertEqualsX(Groupings.AFRICAN, ScriptCategories.OLD_AFRICAN);
+//        assertEqualsX(Groupings.AMERICAN, ScriptCategories.OLD_AMERICAN);
+//
+//        assertEqualsX("Historic: ", ScriptCategories.HISTORIC_SCRIPTS, ScriptCategories.OLD_HISTORIC_SCRIPTS);
+//
     }
 
     private void assertEqualsX(Groupings aRaw, Set<String> bRaw) {

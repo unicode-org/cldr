@@ -658,42 +658,42 @@ public class ScriptCategories {
         .toUnmodifiableCollection(new UsageFilter(IdUsage.EXCLUSION, IdUsage.LIMITED_USE),
             new TreeSet());
 
-    public static final Set<String> OLD_EUROPEAN = loadUnmodifiable(new TreeSet<String>(),
-        "Latin", "Greek", "Coptic", "Cyrillic",
-        "Glag", "Armenian", "Georgian", "Shavian", "braille",
-        "ogham", "runic", "Gothic", "Cypriot", "Linear b",
-        "old italic");
-
-    public static final Set<String> OLD_MIDDLE_EASTERN = loadUnmodifiable(new TreeSet<String>(),
-        "Hebrew", "Arabic", "Syriac", "Thaana", "Carian", "Lycian", "Lydian", "Phoenician",
-        "Cuneiform", "old persian", "ugaritic"
-        );
-    public static final Set<String> OLD_SOUTH_ASIAN = loadUnmodifiable(new TreeSet<String>(),
-        "Devanagari", "Bengali", "Gurmukhi", "Gujarati",
-        "Oriya", "Tamil", "Telugu", "Kannada", "Malayalam",
-        "Sinhala", "Tibetan", "Phags-Pa", "Limbu", "Sylo", "Kharoshthi", "lepcha", "saurashtra", "ol chiki"
-        );
-    public static final Set<String> OLD_SOUTHEAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
-        "Thai", "Lao", "Myanmar", "Khmer",
-        "Tai_Le", "New Tai Lue", "Tagalog", "Hanunoo", "Buhid",
-        "Tagbanwa", "Buginese", "Balinese", "Cham", "kayah li", "rejang", "sundanese"
-        );
-    public static final Set<String> OLD_EAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
-        "Bopomofo", "Hiragana", "Katakana", "Mongolian", "Yi", "Han", "Hangul"
-        );
-    public static final Set<String> OLD_AFRICAN = loadUnmodifiable(new TreeSet<String>(),
-        "Ethiopic", "Osmanya", "Tifinagh", "Nko", "vai"
-        );
-    public static final Set<String> OLD_AMERICAN = loadUnmodifiable(new TreeSet<String>(),
-        "Cherokee", "CANS", "Deseret"
-        );
-
-    public static final Set<String> OLD_HISTORIC_SCRIPTS = loadUnmodifiable(new TreeSet<String>(),
-        "Buginese", "Buhid", "Carian", "Coptic", "Cypriot", "Deseret", "Glagolitic",
-        "Gothic", "Hanunoo", "Old_Italic", "Kharoshthi", "Linear_B", "Lycian", "Lydian",
-        "Ogham", "Osmanya", "Phags_Pa", "Phoenician", "Rejang", "Runic", "Shavian", "Sundanese",
-        "Syloti_Nagri", "Syriac", "Tagbanwa", "Tagalog", "Ugaritic", "Old_Persian", "Cuneiform"
-        );
+//    public static final Set<String> OLD_EUROPEAN = loadUnmodifiable(new TreeSet<String>(),
+//        "Latin", "Greek", "Coptic", "Cyrillic",
+//        "Glag", "Armenian", "Georgian", "Shavian", "braille",
+//        "ogham", "runic", "Gothic", "Cypriot", "Linear b",
+//        "old italic");
+//
+//    public static final Set<String> OLD_MIDDLE_EASTERN = loadUnmodifiable(new TreeSet<String>(),
+//        "Hebrew", "Arabic", "Syriac", "Thaana", "Carian", "Lycian", "Lydian", "Phoenician",
+//        "Cuneiform", "old persian", "ugaritic"
+//        );
+//    public static final Set<String> OLD_SOUTH_ASIAN = loadUnmodifiable(new TreeSet<String>(),
+//        "Devanagari", "Bengali", "Gurmukhi", "Gujarati",
+//        "Oriya", "Tamil", "Telugu", "Kannada", "Malayalam",
+//        "Sinhala", "Tibetan", "Phags-Pa", "Limbu", "Sylo", "Kharoshthi", "lepcha", "saurashtra", "ol chiki"
+//        );
+//    public static final Set<String> OLD_SOUTHEAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
+//        "Thai", "Lao", "Myanmar", "Khmer",
+//        "Tai_Le", "New Tai Lue", "Tagalog", "Hanunoo", "Buhid",
+//        "Tagbanwa", "Buginese", "Balinese", "Cham", "kayah li", "rejang", "sundanese"
+//        );
+//    public static final Set<String> OLD_EAST_ASIAN = loadUnmodifiable(new TreeSet<String>(),
+//        "Bopomofo", "Hiragana", "Katakana", "Mongolian", "Yi", "Han", "Hangul"
+//        );
+//    public static final Set<String> OLD_AFRICAN = loadUnmodifiable(new TreeSet<String>(),
+//        "Ethiopic", "Osmanya", "Tifinagh", "Nko", "vai"
+//        );
+//    public static final Set<String> OLD_AMERICAN = loadUnmodifiable(new TreeSet<String>(),
+//        "Cherokee", "CANS", "Deseret"
+//        );
+//
+//    public static final Set<String> OLD_HISTORIC_SCRIPTS = loadUnmodifiable(new TreeSet<String>(),
+//        "Buginese", "Buhid", "Carian", "Coptic", "Cypriot", "Deseret", "Glagolitic",
+//        "Gothic", "Hanunoo", "Old_Italic", "Kharoshthi", "Linear_B", "Lycian", "Lydian",
+//        "Ogham", "Osmanya", "Phags_Pa", "Phoenician", "Rejang", "Runic", "Shavian", "Sundanese",
+//        "Syloti_Nagri", "Syriac", "Tagbanwa", "Tagalog", "Ugaritic", "Old_Persian", "Cuneiform"
+//        );
 
     // public static final UnicodeSet OTHER_SCRIPTS = (UnicodeSet)
     // parseUnicodeSet("[^[:script=common:][:script=inherited:]]")

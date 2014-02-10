@@ -1,5 +1,5 @@
 package org.unicode.cldr.draft.picker;
-// $Date: 2014-02-05 17:09:58 -0800 (Wed, 05 Feb 2014) $
+// $Date: 2014-02-06 16:16:19 -0800 (Thu, 06 Feb 2014) $
 public class CharData {
 static String[][] CHARACTERS_TO_NAME = {
 {" ","SPACE"},
@@ -364,7 +364,6 @@ static String[][] CHARACTERS_TO_NAME = {
 /*49,50*/ {"Currency","H3XBMQQ10HB(2106uPM]N:qol202S20V2I:Z0^xM0:91E]J6O6"},
 /*621,221*/ {"Emoji",";O906vIMOG%I9UGOun294v1O%1916$6n16]1]1u68WGWGGUGG88:48WE891X4EH2f@695^O1091vs8g0U1nE6916P1G,P9692:1G!]16HH]26G68#18M8-3W#191N3888]1M8|f2EG68Gt18#188738cGt58sGt4G8U868Mmm?8EeF1GM$Mv1|fE@18E8U8E8@2W?X4GE88GG8E8886u868kWOGc8"},
 /*76,8*/ {"Emoticons@Other ",";(i1-5W?"},
-/*94,15*/ {"Enclosed Alphanumeric Supplement@Other ","(jh1N2m-28,:6N2"},
 /*249,42*/ {"Game Pieces","Q6A06f5#1H2,]4MeEY[W1@3W}891N1GF1GN18N1P%k"},
 /*14,7*/ {"Gender and Genealogical","2JA0sOc"},
 /*317,38*/ {"Geometric Shapes","oG90nMcPTFNfFEQE10t2H3kg3u0%E6OW6^<$0s"},
@@ -383,8 +382,9 @@ static String[][] CHARACTERS_TO_NAME = {
 /*10,9*/ {"Vedic Extensions@Other Letter","(u70M8MO6"},
 /*67,23*/ {"Weather and Astrological","Q4A0F1mv3}1v8,uUe^zX171"},
 /*165,20*/ {"Yijing / Tai Xuan Jing","w8A0sf7c2WA0#5A>E1-7"},
+/*158,16*/ {"Compatibility","^dh1#28F5m-3:6N2"},
 /*67,14*/ {"Historic","I{)0%4!P7|%4}3"},
-/*124,27*/ {"Compatibility","(PD0M;DU1#28-2:5HA6H1-3e!u6"},
+/*60,18*/ {"Compatibility","(PD0M(ZU16H1-3e!u6"},
 },
 {{"Punctuation"},
 /*20,22*/ {"ASCII Based","]2E8EG886[6O6f2H6eP16u"},

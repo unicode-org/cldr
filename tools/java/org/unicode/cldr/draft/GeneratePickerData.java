@@ -868,9 +868,15 @@ class GeneratePickerData {
             throw new IllegalArgumentException();
         }
 
+        static final UnicodeSet DEPRECATED = new UnicodeSet("[:deprecated:]").freeze();
+        static final UnicodeSet CONTROLS = new UnicodeSet("[[:cc:]]").freeze();
+        
         public String toString(boolean displayData, String localDataDirectory) throws FileNotFoundException,
             IOException {
-            UnicodeSet missing = new UnicodeSet(0, 0x10FFFF).removeAll(Typology.SKIP);
+            UnicodeSet missing = new UnicodeSet(0, 0x10FFFF).removeAll(Typology.SKIP)
+                .removeAll(DEPRECATED)
+                .removeAll(CONTROLS)
+                ;
             PrintWriter htmlChart = getFileWriter(localDataDirectory, "index.html");
             writeHtmlHeader(htmlChart, localDataDirectory, null, "main",
                 "p {font-size:100%; margin:0; margin-left:1em; text-indent:-1em;}");

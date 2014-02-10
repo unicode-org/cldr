@@ -252,7 +252,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
             }
         }
 
-        log("CollidingTypes has a size of "+collidingTypes);
+        log("CollidingTypes has a size of "+collidingTypes.size());
         CheckStatus.Type thisErrorType;
         // Specifically allow display collisions during the submission phase only, so that
         // we don't prevent people from entering stuff properly.

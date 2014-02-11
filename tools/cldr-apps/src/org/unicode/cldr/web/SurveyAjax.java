@@ -1,12 +1,8 @@
 package org.unicode.cldr.web;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
-import java.io.StringBufferInputStream;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -15,25 +11,23 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumSet;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.derby.iapi.services.io.ArrayUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
-import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
 import org.unicode.cldr.util.CLDRConfig;
@@ -56,6 +50,7 @@ import org.unicode.cldr.web.UserRegistry.User;
 import org.unicode.cldr.web.WebContext.HTMLDirection;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
+import com.ibm.icu.text.UnicodeSet;
 
 /**
  * Servlet implementation class SurveyAjax
@@ -182,6 +177,14 @@ public class SurveyAjax extends HttpServlet {
             ret.put("value_vote", valueToVoteA);
             return ret;
         }
+
+        public static JSONObject wrap(PathHeader pathHeader) throws JSONException {
+            if(pathHeader==null) return null;
+            return new JSONObject().put("section",pathHeader.getSectionId().name())
+                                   .put("page", pathHeader.getPageId().name())
+                                   .put("code", pathHeader.getCode())
+                                   .put("str", pathHeader.toString());
+        }
     }
 
     private static final long serialVersionUID = 1L;
@@ -204,6 +207,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_POSS_PROBLEMS = "possibleProblems";
     public static final String WHAT_GET_MENUS = "menus";
     public static final String WHAT_REPORT = "report";
+    public static final String WHAT_SEARCH = "search";
 
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "oldVoteRemind", "dummy" }; // list
@@ -1044,6 +1048,20 @@ public class SurveyAjax extends HttpServlet {
                         r.put("others", others);
                         r.put("novalue", empties);
                         send(r, out);
+                    } else if (what.equals(WHAT_SEARCH)){
+                        mySession.userDidAction();
+                        final JSONWriter r = newJSONStatusQuick(sm);
+                        final String q = val;
+                        r.put("what", what);
+                        r.put("loc", loc);
+                        r.put("q", q);
+                        
+                        
+                        JSONArray results = searchResults(q, l, mySession);
+                            
+                        r.put("results", results);
+                        
+                        send(r,out);
                     } else {
                         sendError(out, "Unknown Session-based Request: " + what);
                     }
@@ -1061,6 +1079,131 @@ public class SurveyAjax extends HttpServlet {
         } catch (SQLException e) {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "SQLException: " + e);
+        }
+    }
+
+    private JSONArray searchResults(String q, CLDRLocale l, CookieSession mySession) {
+        JSONArray results = new JSONArray();
+
+        if( q != null ) {
+            if(l==null) {
+                searchLocales(results, q, mySession);
+            } else {
+                //ElapsedTimer et = new ElapsedTimer("search for " + q);
+                // try as xpath
+                searchXPath(results, l, q, mySession);
+                
+                // try PH substring
+                searchPathheader(results, l, q, mySession);
+                //System.err.println("Done searching for " + et);
+            }
+        }
+        
+        return results;
+    }
+
+    private void searchLocales(JSONArray results, String q, CookieSession mySession) {
+        for(CLDRLocale l : mySession.sm.getLocales()) {
+            if(l.getBaseName().equalsIgnoreCase(q) ||
+                l.getDisplayName().toLowerCase().contains(q.toLowerCase()) ||
+                l.toLanguageTag().toLowerCase().equalsIgnoreCase(q)) {
+                try {
+                    results.put(new JSONObject().put("loc", l.getBaseName()));
+                } catch (JSONException e) {
+                    //
+                }
+            }
+        }
+    }
+
+    private void searchPathheader(JSONArray results, CLDRLocale l, String q, CookieSession mySession) {
+        if(l==null) return; // don't search with no locale
+        try {
+            PathHeader.PageId page = PathHeader.PageId.valueOf(q);
+            if(page!=null) {
+                results.put(new JSONObject().put("page",page.name())
+                    .put("section", page.getSectionId().name()));
+            }
+        } catch(Throwable t) {
+            //
+        }
+        try {
+            PathHeader.SectionId section = PathHeader.SectionId.valueOf(q);
+            if(section!=null) {
+                results.put(new JSONObject().put("section",section.name()));
+            }
+        } catch(Throwable t) {
+            //
+        }
+        
+        // substring search
+        Set<PathHeader> resultPh = new TreeSet<PathHeader>();
+        
+        if(new UnicodeSet("[:Letter:]").containsSome(q)) {
+            // check English
+            Set<String> retrievedPaths = new HashSet<String>();        
+            mySession.sm.getBaselineFile().getPathsWithValue(q,"", null, retrievedPaths);
+            final STFactory stFactory = mySession.sm.getSTFactory();
+            if(l!=null) {
+                stFactory.make(l, true).getPathsWithValue(q, "", null, retrievedPaths);
+            }
+            for(String xp : retrievedPaths) {
+                PathHeader ph = stFactory.getPathHeader(xp);
+                if(ph!=null) {
+                    resultPh.add(ph);
+                }
+            }
+        }
+        // add any others
+        
+        
+        for(PathHeader ph:resultPh) {
+            try {
+                final String originalPath = ph.getOriginalPath();
+                if(ph.getSectionId()!= PathHeader.SectionId.Special &&
+                    mySession.sm.getSupplementalDataInfo().getCoverageLevel(originalPath, l.getBaseName()).getLevel()<=100) {
+                    results.put(new JSONObject()
+                    .put("xpath", originalPath)
+                    .put("strid", mySession.sm.xpt.getStringIDString(originalPath))
+                    .put("ph", JSONWriter.wrap(ph)));
+                }
+            } catch (JSONException e) {
+                //
+            }
+        }
+    }
+
+    private void searchXPath(JSONArray results, CLDRLocale l2, String q, CookieSession mySession) {
+        // is it a stringid?
+        try {
+            Long l = Long.parseLong(q, 16);
+            if(l!=null && Long.toHexString(l).equalsIgnoreCase(q)) {
+                String x = mySession.sm.xpt.getByStringID(q);
+                if(x!=null) {
+                    results.put(new JSONObject()
+                        .put("xpath", x)
+                        .put("strid", mySession.sm.xpt.getStringIDString(x))
+                        .put("ph", JSONWriter.wrap(mySession.sm.getSTFactory().getPathHeader(x))));
+                }
+            }
+        } catch(Throwable t) {
+            //
+        }
+        
+        // is it a full XPath?
+        try {
+            final String xp = mySession.sm.xpt.xpathToBaseXpath(q);
+            if(mySession.sm.xpt.peekByXpath(xp)!= XPathTable.NO_XPATH) {
+                PathHeader ph = mySession.sm.getSTFactory().getPathHeader(xp);
+                if(ph != null) {
+                    results.put(new JSONObject()
+                    .put("xpath", xp)
+                    .put("strid", mySession.sm.xpt.getStringIDString(xp))
+                    .put("ph", JSONWriter.wrap(ph)));
+                }
+            }
+        } catch(Throwable t) {
+            //
         }
     }
 

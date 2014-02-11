@@ -293,6 +293,11 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
                                      <% } %>
                                         }"><%= m.display() %></div>
           <% } %>
+
+						<div data-dojo-type="dijit/MenuItem"
+							data-dojo-props="onClick:function(){ surveyCurrentSpecial = 'search'; surveyCurrentId = ''; surveyCurrentPage = ''; reloadV();}">Search...</div>
+
+
                     </div>
                    </div>
 

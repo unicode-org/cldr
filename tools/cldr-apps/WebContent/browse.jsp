@@ -47,7 +47,7 @@ CLDRLocale loc = CLDRLocale.getInstance(pageLocale);
 	   dojo.xhrGet({
 	        url:"<%= request.getContextPath() %>/browse_results.jsp?loc=<%= pageLocale.getBaseName() %>&q=" + v,
 /* 	        handleAs:"text",
- */	        load: function(h){
+*/	        load: function(h){
 	        	  r.innerHTML = h;
 	        },
 	        error: function(err, ioArgs){

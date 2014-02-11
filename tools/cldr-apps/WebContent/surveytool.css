@@ -428,6 +428,29 @@ A.nodraft:visited {
 	font-size: smaller;
 }
 
+div.search div.results h3, div.search div.results h4 {
+    display:  inline;
+    padding-right:  2em;
+}
+
+div.search div.results li {
+    display:  block;
+}
+
+div.search a.xpath {
+    display: block;
+    color:  gray;
+}
+
+div.search div.results li {
+    border-top:  1px solid silver;
+    list-style: none;
+    padding-bottom: 0.5em;
+}
+
+div.search div.results li a.codebox {
+    font-size:  larger;
+}
 
 #itemInfo div.xpath {
     position: fixed;
@@ -2618,6 +2641,13 @@ tr.d-inforow-hid {
 
 .menu-o {
     background: white url(rado.png) no-repeat center center;
+    width: 16px;
+    height: 16px;
+    margin-top: 5px;
+}
+
+.menu-zoom {
+    background: white url(zoom.png) no-repeat center center;
     width: 16px;
     height: 16px;
     margin-top: 5px;

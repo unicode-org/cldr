@@ -3402,7 +3402,35 @@ function showV() {
 	        		 dojoNumber
 	         ) {
 
-		
+
+		var appendLocaleLink = function appendLocaleLink(subLocDiv, subLoc, subInfo, fullTitle) {
+			var name = locmap.getRegionAndOrVariantName(subLoc);
+			if(fullTitle) {
+				name = locmap.getLocaleName(subLoc);
+			}
+			var clickyLink = createChunk(name, "a", "locName");
+			clickyLink.href = "#/"+subLoc+"/"+surveyCurrentPage+"/"+surveyCurrentId;
+			subLocDiv.appendChild(clickyLink);
+			if(subInfo.name_var) {
+				addClass(clickyLink, "name_var");
+			}
+			clickyLink.title=subLoc; // remove auto generated "locName.title"
+			
+			if(subInfo.readonly) {
+				addClass(clickyLink, "locked");
+				if(subInfo.readonly_why) {
+					clickyLink.title = subInfo.readonly_why;
+				} else if(subInfo.dcChild) {
+					clickyLink.title = stui.sub("defaultContentChild_msg", { info: subInfo, locale: subLoc, dcChildName: locmap.getLocaleName(subInfo.dcChild)});
+				} else {
+					clickyLink.title = 	stui.str("readonlyGuidance");
+				}
+			} else if(window.canmodify && subLoc in window.canmodify) {
+				addClass(clickyLink, "canmodify");
+			}
+			return clickyLink;
+		};
+
 		/* trace for dijit leak */
 		if(!surveyOfficial) window.TRL=function() {
 			var sec = 5;
@@ -3542,6 +3570,9 @@ function showV() {
 							surveyCurrentPage='';
 							surveyCurrentId='';
 						}
+					} else if(surveyCurrentSpecial=='search') {
+						surveyCurrentPage='';
+						surveyCurrentId=''; // for now
 					} else {
 						surveyCurrentPage = '';
 						surveyCurrentId = '';
@@ -4812,37 +4843,11 @@ function showV() {
 					isLoading=false;
 					window.location = survURL; // redirect home
 				} else if(surveyCurrentSpecial == 'locales') {
-					//for now - redurect
 					hideLoader(null);
 					isLoading=false;					
 					var theDiv = document.createElement("div");
 					theDiv.className = 'localeList';
 
-					var appendLocaleLink = function appendLocaleLink(subLocDiv, subLoc, subInfo) {
-						var name = locmap.getRegionAndOrVariantName(subLoc);
-						var clickyLink = createChunk(name, "a", "locName");
-						clickyLink.href = "#/"+subLoc+"/"+surveyCurrentPage+"/"+surveyCurrentId;
-						subLocDiv.appendChild(clickyLink);
-						if(subInfo.name_var) {
-							addClass(clickyLink, "name_var");
-						}
-						clickyLink.title=subLoc; // remove auto generated "locName.title"
-						
-						if(subInfo.readonly) {
-	        				addClass(clickyLink, "locked");
-	        				if(subInfo.readonly_why) {
-	        					clickyLink.title = subInfo.readonly_why;
-	        				} else if(subInfo.dcChild) {
-	        					clickyLink.title = stui.sub("defaultContentChild_msg", { info: subInfo, locale: subLoc, dcChildName: locmap.getLocaleName(subInfo.dcChild)});
-	        				} else {
-	        					clickyLink.title = 	stui.str("readonlyGuidance");
-	        				}
-						} else if(window.canmodify && subLoc in window.canmodify) {
-							addClass(clickyLink, "canmodify");
-						}
-						return clickyLink;
-					};
-					
 					var addSubLocale;
 					
 					addSubLocale = function addSubLocale(parLocDiv, subLoc) {
@@ -4899,6 +4904,178 @@ function showV() {
 					surveyCurrentLocale=null;
 					surveyCurrentSpecial='locales';
 					showInPop2(stui.str("localesInitialGuidance"), null, null, null, true); /* show the box the first time */					
+				} else if(surveyCurrentSpecial=='search') {
+					// setup
+					var searchCache = window.searchCache;
+					if(!searchCache) {
+						searchCache = window.searchCache = {};
+					}
+					
+					hideLoader(null);
+					isLoading=false;					
+					var theDiv = document.createElement("div");
+					theDiv.className = 'search';
+
+					// install
+					var theInput = document.createElement("input");
+					theDiv.appendChild(theInput);
+					
+					var theSearch = createChunk(stui.str("search"), "button");
+					theDiv.appendChild(theSearch);
+					
+					var theResult = document.createElement("div");
+					theResult.className = 'results';
+					theDiv.appendChild(theResult);
+
+					
+					var newLocale = surveyCurrentLocale;
+					
+					var showResults = function showResults(searchTerm) {
+						var results=searchCache[searchTerm];
+						removeAllChildNodes(theResult);
+						if(newLocale!=surveyCurrentLocale) {
+							var newName = locmap.getLocaleName(newLocale);
+							theResult.appendChild(createChunk(newName, "h4"));
+						}
+						theResult.appendChild(createChunk(searchTerm, "h3"));
+						
+						if(results.length == 0) {
+							theResult.appendChild(createChunk(stui.str("searchNoResults", "h3", "searchNoResults")));
+						} else {
+							for(var i=0;i<results.length;i++) {
+								var result = results[i];
+								
+								var theLi = document.createElement("li");
+								
+								var appendLink = function appendLink(title, url, theClass) {
+									var theA = createChunk(title, "a");
+									if(url && newLocale!='' && newLocale!=null) {
+										theA.href = url;
+									}
+									if(theClass!=null) {
+										theA.className = theClass;
+									}
+									theLi.appendChild(theA);
+								};
+								
+								if(result.xpath) {
+									if(result.strid) {
+										codeUrl = "#/"+newLocale+"//"+result.strid;
+									}
+									appendLink(result.xpath, codeUrl, "xpath");
+								}
+								
+								if(result.ph) {
+									result.ph.strid = result.strid;
+									result = result.ph; // pick up as section
+								}
+								
+								var codeUrl = null;
+								
+								if(result.section) {
+									codeUrl =  "#/"+newLocale+"/"+result.section+"/!";
+									if(result.page) {
+										codeUrl = "#/"+newLocale+"/"+result.page+"/";
+										if(result.strid) {
+											codeUrl = "#/"+newLocale+"/"+result.page+"/"+result.strid;
+										}
+									}
+								}
+								
+								if(result.section) {
+									appendLink(result.section, codeUrl);
+									if(result.page) {
+										theLi.appendChild(createChunk("»"));
+										appendLink(result.page, codeUrl);
+										if(result.code) {
+											theLi.appendChild(createChunk("»"));
+											appendLink(result.code, codeUrl, "codebox");
+										}
+									}
+								}
+								
+								if(result.loc) {
+									appendLocaleLink(theLi, result.loc, locmap.getLocaleInfo(result.loc), true);
+								}
+								
+								theResult.appendChild(theLi);
+							}
+						}
+						
+						theResult.last = searchTerm;
+						theResult.loc = newLocale;
+					};
+					
+					var showSearchTerm = function showSearchTerm(searchTerm) {
+						if((searchTerm != theResult.last || theResult.loc != newLocale) && searchTerm != null) {
+							theResult.last = null;
+							theResult.loc = null;
+							removeAllChildNodes(theResult);
+							theResult.appendChild(createChunk(searchTerm, "h3"));
+							
+							if(!(searchTerm in searchCache)) {
+								   var xurl = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=search"; // allow cache
+								   if(newLocale!=null&&newLocale!='') {
+									   xurl = xurl + "&_="+newLocale;
+								   }
+								   queueXhr({
+								        url:xurl, // allow cache
+							 	        handleAs:"json",
+							 	        load: function(h){
+							 	        	if(h.results) {
+							 	        		searchCache[searchTerm] = h.results;
+									 			showResults(searchTerm);
+							 	        	} else {
+							 	        		theResult.appendChild(createChunk("(search error)","i"));
+							 	        	}
+								        },
+								        error: function(err, ioArgs){
+								 			var msg ="Error: "+err.name + " - " + err.message;
+						 	        		theResult.appendChild(createChunk(msg,"i"));
+								        },
+								        postData: searchTerm
+								    });
+							} else {
+								showResults(searchTerm);
+							}
+							
+
+						} else {
+							//no change;
+						}
+					};
+					
+					var searchFn = function searchFn(e) {
+						var searchTerm = theInput.value;
+						
+						if(searchTerm.indexOf(':')>0) {
+							var segs = searchTerm.split(':');
+							if(locmap.getLocaleInfo(segs[0])!=null) {
+								newLocale = segs[0];
+								// goto
+								if(segs.length==1) {
+									surveyCurrentSpecial='';
+									surveyCurrentLocale=newLocale;
+									reloadV();
+									return;
+								}
+								searchTerm = segs[1];
+							}
+						}
+						
+						showSearchTerm(searchTerm);
+
+						return stStopPropagation(e);
+					};
+					
+					listenFor(theInput, "change", searchFn);
+					listenFor(theSearch, "click", searchFn);
+
+					flipper.flipTo(pages.other, theDiv);
+					theInput.focus();
+					surveyCurrentLocale=null;
+					surveyCurrentSpecial='search';
+					showInPop2(stui.str("searchGuidance"), null, null, null, true); /* show the box the first time */					
 				} else {
 					var msg_fmt = stui.sub("v_bad_special_msg",
 							{special: surveyCurrentSpecial });

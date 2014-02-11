@@ -2281,9 +2281,9 @@ public class SupplementalDataInfo {
 
     public synchronized RegexLookup<Level> getCoverageLookup() {
         if (coverageLookup == null) {
-            RegexLookup<Level> lookup = new RegexLookup<Level>();
+            RegexLookup<Level> lookup = new RegexLookup<Level>(RegexLookup.LookupType.STAR_PATTERN_LOOKUP);
 
-            Matcher variable = Pattern.compile("\\$\\{[\\-A-Za-z]*\\}").matcher("");
+            Matcher variable = Pattern.compile("\\$\\{[A-Za-z][\\-A-Za-z]*\\}").matcher("");
 
             for (CoverageLevelInfo ci : getCoverageLevelInfo()) {
                 String pattern = ci.match.replace('\'', '"')

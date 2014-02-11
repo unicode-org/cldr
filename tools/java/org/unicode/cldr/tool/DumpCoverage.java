@@ -19,6 +19,7 @@ public class DumpCoverage {
      */
     public static void main(String[] args) throws IOException {
 
+        long start_time = System.currentTimeMillis();
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         Set<String> languages = cldrFactory.getAvailableLanguages();
@@ -35,5 +36,7 @@ public class DumpCoverage {
             }
         }
         out.close();
+        long end_time = System.currentTimeMillis();
+        System.out.println(end_time-start_time+" ms elapsed...");
     }
 }

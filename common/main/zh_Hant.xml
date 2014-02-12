@@ -1369,8 +1369,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="8">八月</month>
 							<month type="9">九月</month>
 							<month type="10">十月</month>
-							<month type="11">十一月</month>
-							<month type="12">十二月</month>
+							<month type="11">冬月</month>
+							<month type="12">臘月</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">正</month>
@@ -1383,8 +1383,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="8">八</month>
 							<month type="9">九</month>
 							<month type="10">十</month>
-							<month type="11">十一</month>
-							<month type="12">十二</month>
+							<month type="11">冬</month>
+							<month type="12">臘</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">正月</month>
@@ -1397,8 +1397,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="8">八月</month>
 							<month type="9">九月</month>
 							<month type="10">十月</month>
-							<month type="11">十一月</month>
-							<month type="12">十二月</month>
+							<month type="11">冬月</month>
+							<month type="12">臘月</month>
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
@@ -1413,8 +1413,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="8">八月</month>
 							<month type="9">九月</month>
 							<month type="10">十月</month>
-							<month type="11">十一月</month>
-							<month type="12">十二月</month>
+							<month type="11">冬月</month>
+							<month type="12">臘月</month>
 						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">正</month>
@@ -1427,8 +1427,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="8">八</month>
 							<month type="9">九</month>
 							<month type="10">十</month>
-							<month type="11">十一</month>
-							<month type="12">十二</month>
+							<month type="11">冬</month>
+							<month type="12">臘</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">正月</month>
@@ -1441,8 +1441,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="8">八月</month>
 							<month type="9">九月</month>
 							<month type="10">十月</month>
-							<month type="11">十一月</month>
-							<month type="12">十二月</month>
+							<month type="11">冬月</month>
+							<month type="12">臘月</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -1603,11 +1603,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="MMMd">MMMd日</dateFormatItem>
 						<dateFormatItem id="MMMEd">MMMd日E</dateFormatItem>
 						<dateFormatItem id="y">U年</dateFormatItem>
-						<dateFormatItem id="yMd">U年M月d日</dateFormatItem>
+						<dateFormatItem id="yMd">U年MMMd日</dateFormatItem>
 						<dateFormatItem id="yyyy">U年</dateFormatItem>
-						<dateFormatItem id="yyyyM">U年M月</dateFormatItem>
-						<dateFormatItem id="yyyyMd">U年M月d日</dateFormatItem>
-						<dateFormatItem id="yyyyMEd">U年M月d日，E</dateFormatItem>
+						<dateFormatItem id="yyyyM">U年MMM</dateFormatItem>
+						<dateFormatItem id="yyyyMd">U年MMMd日</dateFormatItem>
+						<dateFormatItem id="yyyyMEd">U年MMMd日，E</dateFormatItem>
 						<dateFormatItem id="yyyyMMM">U年MMM</dateFormatItem>
 						<dateFormatItem id="yyyyMMMd">U年MMMd日</dateFormatItem>
 						<dateFormatItem id="yyyyMMMEd">U年MMMd日E</dateFormatItem>
@@ -1645,7 +1645,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="H">HH–HH [v]</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="M">
-							<greatestDifference id="M">M月至M月</greatestDifference>
+							<greatestDifference id="M">MMM至MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Md">
 							<greatestDifference id="d">M/d至M/d</greatestDifference>

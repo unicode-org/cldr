@@ -720,16 +720,19 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      */
     public Map<String, T> getUnmatchedPatterns(Set<String> matched, Map<String, T> outputUnmatched) {
         outputUnmatched.clear();
-        
+
         Set<Map.Entry<Finder, T>> entrySet;
-        if (_lookupType == RegexLookup.LookupType.STAR_PATTERN_LOOKUP) {
+        switch (_lookupType) {
+        case STAR_PATTERN_LOOKUP:
             entrySet = SPEntries.entrySet();
-        } else if (_lookupType == RegexLookup.LookupType.OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) {
+            break;
+        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP:
             entrySet = RTEntries.entrySet();
-        } else {
+            break;
+        default:
             entrySet = MEntries.entrySet();
+            break;
         }
-            
             
         for (Map.Entry<Finder, T> entry : entrySet) {
             String pattern = entry.getKey().toString();
@@ -856,21 +859,29 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
         }
         
         T old;
-        if (_lookupType == RegexLookup.LookupType.STAR_PATTERN_LOOKUP) {
+        switch (_lookupType) {
+        case STAR_PATTERN_LOOKUP : 
             old = SPEntries.get(pattern);
-        } else if (_lookupType == RegexLookup.LookupType.OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) {
+            break;
+        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP :
             old = RTEntries.get(pattern);
-        } else {
+            break;
+        default :
             old = MEntries.get(pattern);
+            break;
         }
         
         if (old == null) {
-            if(_lookupType == RegexLookup.LookupType.STAR_PATTERN_LOOKUP) {
+            switch (_lookupType) {
+            case STAR_PATTERN_LOOKUP :
                 SPEntries.put(pattern, target);
-            } else if (_lookupType == RegexLookup.LookupType.OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) {
+                break;
+            case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP :
                 RTEntries.put(pattern, target);
-            } else {
+                break;
+            default :
                 MEntries.put(pattern, target);
+                break;
             }
         } else if (valueMerger != null) {
             valueMerger.merge(target, old);
@@ -883,13 +894,14 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
     @Override
     public Iterator<Map.Entry<Finder, T>> iterator() {
-        if (_lookupType == RegexLookup.LookupType.STAR_PATTERN_LOOKUP) {
+        switch (_lookupType) {
+        case STAR_PATTERN_LOOKUP :
             return Collections.unmodifiableCollection(SPEntries.entrySet()).iterator();
-        }
-        if (_lookupType == RegexLookup.LookupType.OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) {
+        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP :
             return Collections.unmodifiableCollection(RTEntries.entrySet()).iterator(); 
+        default :
+            return Collections.unmodifiableCollection(MEntries.entrySet()).iterator();
         }
-        return Collections.unmodifiableCollection(MEntries.entrySet()).iterator();
     }
 
     public static String replace(String lookup, String... arguments) {
@@ -918,12 +930,13 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
      * @return the number of entries
      */
     public int size() {
-        if (_lookupType == RegexLookup.LookupType.STAR_PATTERN_LOOKUP) {
+        switch (_lookupType) {
+        case STAR_PATTERN_LOOKUP :
             return SPEntries.size();
-        }
-        if (_lookupType == RegexLookup.LookupType.OPTIMIZED_DIRECTORY_PATTERN_LOOKUP) {
+        case OPTIMIZED_DIRECTORY_PATTERN_LOOKUP :
             return RTEntries.size();
+        default :
+            return MEntries.size();
         }
-        return MEntries.size();
     }
 }

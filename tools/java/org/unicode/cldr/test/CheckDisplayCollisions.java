@@ -26,7 +26,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     /**
      * Set to true to get verbose logging of path removals
      */
-    private static final boolean LOG_PATH_REMOVALS=true;
+    private static final boolean LOG_PATH_REMOVALS=false;
     
     // Get Date-Time in milliseconds
     private static long getDateTimeinMillis(int year, int month, int date){

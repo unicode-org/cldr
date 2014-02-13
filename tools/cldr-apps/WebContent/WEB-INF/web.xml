@@ -34,6 +34,18 @@
 		http://www.unicode.org/cldr )
 	</javaee:description>
 	<servlet>
+		<!--  we use Java 1.7 for our JSPs. -->
+		<servlet-name>jsp</servlet-name>
+		<init-param>
+			<param-name>compilerSourceVM</param-name>
+			<param-value>1.7</param-value>
+		</init-param>
+		<init-param>
+			<param-name>compilerTargetVM</param-name>
+			<param-value>1.7</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
 		<servlet-name>SurveyMain</servlet-name>
 		<servlet-class>
 			org.unicode.cldr.web.SurveyMain

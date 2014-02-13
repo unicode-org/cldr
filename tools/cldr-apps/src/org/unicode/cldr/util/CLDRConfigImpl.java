@@ -1,8 +1,10 @@
 package org.unicode.cldr.util;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.Date;
@@ -142,46 +144,61 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         // SurveyLog.logger.info("SurveyTool starting up. root=" + new
         // File(cldrHome).getAbsolutePath() + " time="+setupTime);
 
-        try {
-            java.io.FileInputStream is = new java.io.FileInputStream(propFile);
-            survprops.load(is);
-            // progress.update("Loading configuration..");
-            is.close();
-        } catch (java.io.IOException ioe) {
-            /* throw new UnavailableException */
-            InternalError ie = new InternalError("Couldn't load cldr.properties file from '" + propFile.getAbsolutePath() + "' :"
-                + ioe.toString());
-            System.err.println(ie.toString() + ioe.toString());
-            ioe.printStackTrace();
-            throw ie;
-        }
-
+        loadIntoProperties(survprops,propFile);
         File currev = new File(homeFile, "currev.properties");
         if (currev.canRead()) {
-            try {
-                java.io.FileInputStream is = new java.io.FileInputStream(currev);
-                survprops.load(is);
-                // progress.update("Loading configuration..");
-                is.close();
-            } catch (java.io.IOException ioe) {
-                /* throw new UnavailableException */
-                InternalError ie = new InternalError("Warning: Couldn't load currev.properties file from '"
-                    + currev.getAbsolutePath() + "' :" + ioe.toString());
-                System.err.println(ie.toString() + ioe.toString());
-                // ioe.printStackTrace();
-                // throw ie;
-            }
+            loadIntoProperties(survprops, currev);
+//            try {
+//                java.io.FileInputStream is = new java.io.FileInputStream(currev);
+//                survprops.load(is);
+//                // progress.update("Loading configuration..");
+//                is.close();
+//            } catch (java.io.IOException ioe) {
+//                /* throw new UnavailableException */
+//                InternalError ie = new InternalError("Warning: Couldn't load currev.properties file from '"
+//                    + currev.getAbsolutePath() + "' :" + ioe.toString());
+//                System.err.println(ie.toString() + ioe.toString());
+//                // ioe.printStackTrace();
+//                // throw ie;
+//            }
         }
 
         survprops.put("CLDRHOME", cldrHome);
 
         isInitted = true;
     }
+
+    private void loadIntoProperties(Properties props, File propFile) throws InternalError {
+        try (InputStream is = InputStreamFactory.createInputStream(propFile)) {
+            props.load(is);
+            // progress.update("Loading configuration..");
+//            is.close();
+        } catch (IOException ioe) {
+            /* throw new UnavailableException */
+            StringBuilder sb=new StringBuilder("Couldn't load ");
+            sb.append(propFile.getName());
+            sb.append(" file from '");
+            sb.append(propFile.getAbsolutePath());
+            sb.append("': ");
+            sb.append(ioe.getMessage());
+            // append the stacktrace
+            sb.append("\r\n");
+            sb.append(ioe.getStackTrace());
+            InternalError ie=new InternalError(sb.toString());
+//            InternalError ie = new InternalError("Couldn't load cldr.properties file from '" + propFile.getAbsolutePath() + "' :"
+//                + ioe.toString());
+            System.err.println(ie.toString() + ioe.toString());
+            ioe.printStackTrace();
+            throw ie;
+        }
+    }
     
     public void writeHelperFile(String hostportpath, File helperFile) throws IOException {
         if (!helperFile.exists()) {
-            OutputStream file = new FileOutputStream(helperFile, false); // Append
-            PrintWriter pw = new PrintWriter(file);
+            try (OutputStream file =new BufferedOutputStream( new FileOutputStream(helperFile, false)); // Append 
+                PrintWriter pw = new PrintWriter(file);) {
+            
+           
             String vap = (String)survprops.get("CLDR_VAP");
             pw.write("<h3>Survey Tool admin interface link</h3>");
             pw.write("To configure the SurveyTool, use ");
@@ -189,9 +206,11 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             pw.write("<b>SurveyTool Setup:</b>  <a href='" + url0 + "'>" + url0 + "</a><hr>");
             String url = hostportpath + ("AdminPanel.jsp") + "?vap=" + vap;
             pw.write("<b>Admin Panel:</b>  <a href='" + url + "'>" + url + "</a>");
-            pw.write("<hr>if you change the admin password ( CLDR_VAP in config.properties ), please: 1. delete this admin.html file 2. restart the server 3. navigate back to the main SurveyTool page.<p>");
-            pw.close();
-            file.close();
+            pw.write("<hr>if you change the admin password ( CLDR_VAP in config.properties ), please: "
+                + "1. delete this admin.html file 2. restart the server 3. navigate back to the main SurveyTool page.<p>");
+            }
+//            pw.close();
+//            file.close();
         }
     }
 
@@ -201,9 +220,8 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         try {
             homeFile.mkdir();
             File propsFile = new File(homeFile, CLDR_PROPERTIES);
-            OutputStream file = new FileOutputStream(propsFile, false); // Append
-            PrintWriter pw = new PrintWriter(file);
-
+            try ( OutputStream file = new FileOutputStream(propsFile, false); // Append 
+                PrintWriter pw = new PrintWriter(file);) {
             pw.println("## autogenerated cldr.properties config file");
             pw.println("## generated on " + SurveyMain.localhost() + " at " + new Date());
             pw.println("## see the readme at \n## " + SurveyMain.URL_CLDR
@@ -253,8 +271,9 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             pw.println("#CLDR_FROM=bad_administrator@" + SurveyMain.localhost());
             pw.println();
             pw.println("# That's all!");
-            pw.close();
-            file.close();
+            }
+//            pw.close();
+//            file.close();
         } catch (IOException exception) {
             System.err.println("While writing " + homeFile.getAbsolutePath() + " props: " + exception);
             exception.printStackTrace();

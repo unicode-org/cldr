@@ -17,7 +17,6 @@
 .*[@alt="variant"\]$ ; unconverted
 
 //ldml/dates/calendars/calendar[@type="%A"]/.*[@alt="variant"] ; unconverted
-//ldml/dates/calendars/calendar[@type="%A"]/dayPeriods/dayPeriodContext[@type="%A"]/dayPeriodWidth[@type="%A"]/dayPeriod[@type="(?![ap]m)%A"] ; unconverted
 
 //supplementalData/calendarData/calendar[@type="(%A)"]$ ; unconverted
 //supplementalData/codeMappings/territoryCodes[@type="%A"]$ ; unconverted

@@ -333,12 +333,18 @@ if(request.getParameter("remove_maint")!=null) {
 				if (value != null && field != null) {
 					String valueErr = null;
 
-					if (field.equals("CLDR_VAP")) {
+					// Switch on Strings - needs JDK 7.
+					switch (field) {
+					case "CLDR_VAP":
+				//	if (field.equals("CLDR_VAP")) {
 						if (value == null || value.trim().length() == 0) {
 							valueErr = "This parameter may not be left blank.";
 						}
-					} else if (field.equals("CLDR_OLDVERSION")
-							|| field.equals("CLDR_NEWVERSION")) {
+						break;
+						case "CLDR_OLDVERSION": // fallthrough
+						case "CLDR_NEWVERSION":
+					//} else if (field.equals("CLDR_OLDVERSION")
+					//		|| field.equals("CLDR_NEWVERSION")) {
 						if (value == null || value.trim().length() == 0) {
 							valueErr = "Version number must not be null.";
 							value = "";
@@ -355,14 +361,16 @@ if(request.getParameter("remove_maint")!=null) {
 								valueErr = iae.getMessage();
 							}
 						}
-					} else if (field.equals("CLDR_PHASE")) {
+						break;
+						case "CLDR_PHASE":
+				//	} else if (field.equals("CLDR_PHASE")) {
 						try {
-							org.unicode.cldr.web.SurveyMain.Phase p = org.unicode.cldr.web.SurveyMain.Phase
-									.valueOf(value.toUpperCase());
+							Phase p = Phase.valueOf(value.toUpperCase());
 							value = p.name().toUpperCase();
 						} catch (Throwable t) {
 							valueErr = possiblePhases;
 						}
+				//}
 					}
 
 					if (valueErr == null) {

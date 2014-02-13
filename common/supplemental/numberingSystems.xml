@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -26,6 +26,7 @@ For terms of use, see http://www.unicode.org/copyright.html
         <numberingSystem id="greklow" type="algorithmic" rules="greek-lower"/>
         <numberingSystem id="gujr" type="numeric" digits="૦૧૨૩૪૫૬૭૮૯"/>
         <numberingSystem id="guru" type="numeric" digits="੦੧੨੩੪੫੬੭੮੯"/>
+        <numberingSystem id="hanidays" type="algorithmic" rules="zh/SpelloutRules/spellout-numbering-days"/>
         <numberingSystem id="hanidec" type="numeric" digits="〇一二三四五六七八九"/>
         <numberingSystem id="hans" type="algorithmic" rules="zh/SpelloutRules/spellout-cardinal"/>
         <numberingSystem id="hansfin" type="algorithmic" rules="zh/SpelloutRules/spellout-cardinal-financial"/>

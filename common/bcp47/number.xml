@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldmlBCP47 SYSTEM "../../common/dtd/ldmlBCP47.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -29,6 +29,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="greklow" description="Greek lower case numerals — algorithmic"/>
             <type name="gujr" description="Gujarati digits"/>
             <type name="guru" description="Gurmukhi digits"/>
+            <type name="hanidays" description="Han-character day-of-month numbering for lunar/other traditional calendars" since="25"/>
             <type name="hanidec" description="Positional decimal system using Chinese number ideographs as digits" since="1.9"/>
             <type name="hans" description="Simplified Chinese numerals — algorithmic"/>
             <type name="hansfin" description="Simplified Chinese financial numerals — algorithmic"/>

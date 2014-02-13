@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -24,6 +24,23 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="10">←←→→→;</rbnfrule>
                 <rbnfrule value="100">←←→→→;</rbnfrule>
                 <rbnfrule value="1000">←←→→→;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering-days">
+                <rbnfrule value="-x">负→→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">〇;</rbnfrule>
+                <rbnfrule value="1">初=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="11">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="21">=%%numbering-days=;</rbnfrule>
+            </ruleset>
+            <ruleset type="numbering-days" access="private">
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+                <rbnfrule value="21">廿→→;</rbnfrule>
+                <rbnfrule value="30">←←十;</rbnfrule>
+                <rbnfrule value="31">丗→→;</rbnfrule>
+                <rbnfrule value="40">←←十;</rbnfrule>
+                <rbnfrule value="41">卌→→;</rbnfrule>
+                <rbnfrule value="50">=%spellout-numbering=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-numbering">
                 <rbnfrule value="-x">负→→;</rbnfrule>

@@ -1087,10 +1087,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<alias source="locale" path="../dayPeriodWidth[@type='wide']"/>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<alias source="locale" path="../dayPeriodWidth[@type='abbreviated']"/>
+							<dayPeriod type="am">a</dayPeriod>
+                                                        <dayPeriod type="noon">n</dayPeriod>
+							<dayPeriod type="pm">p</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">AM</dayPeriod>
+                                                        <dayPeriod type="noon">noon</dayPeriod>
 							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>

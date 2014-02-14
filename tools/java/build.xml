@@ -8,12 +8,12 @@
         <property name="jarSrc.file" value="cldrsrc.jar"/>
         <property name="doc.dir" value="doc"/>
         <property name="doc.params" value=""/>
-        <!--  Load local definitions from an optional build.properties file, if available. 
+        <!--  Load local definitions from an optional build.properties file, if available.
               build.properties is NOT checked into CVS. -->
         <property file="build.properties" />
         <!-- Load environment variables -->
         <property environment="env"/>
-        
+
         <path id="build.classpath">
             <pathelement path="${build.dir}"/>
             <pathelement path="${libs.dir}"/>
@@ -24,23 +24,23 @@
         <property name="env.JVM_EXTRA_OPTIONS" value=""/>
         <property name="jvm_options" value="${env.JVM_OPTIONS} ${env.JVM_EXTRA_OPTIONS}"/>
 
-        
+
         <condition property="is.icu4j.classes.set" >
             <or>
                 <isset property="env.ICU4J_CLASSES" />
                 <isset property="env.ICU4J_JAR" />
             </or>
-        </condition> 
-        
+        </condition>
+
         <condition property="is.utilities.classes.set" >
             <or>
                 <isset property="env.ICU4J_CLASSES" />
                 <isset property="env.UTILITIES_JAR" />
             </or>
-        </condition> 
+        </condition>
 
         <mkdir dir="${build.dir}"/>
-        
+
         <path id="project.class.path">
             <pathelement path="${java.class.path}/"/>
             <pathelement path="${build.dir}"/>
@@ -92,7 +92,7 @@
         <!-- copy data files into classes.. -->
         <mkdir dir="${build.dir}/org/unicode/cldr/util/data"/>
         <copy todir="${build.dir}/org/unicode/cldr/util/data">
-            <fileset dir="${src.dir}/org/unicode/cldr/util/data" 
+            <fileset dir="${src.dir}/org/unicode/cldr/util/data"
                 excludes="**/CVS/**/*"/>
         </copy>
     </target>
@@ -109,7 +109,7 @@
         <!-- copy data files into classes.. -->
         <mkdir dir="${build.dir}/org/unicode/cldr/tool"/>
         <copy todir="${build.dir}/org/unicode/cldr/tool">
-            <fileset dir="${src.dir}/org/unicode/cldr/tool" 
+            <fileset dir="${src.dir}/org/unicode/cldr/tool"
                 excludes="**/CVS/**/* **/**/*.java"/>
         </copy>
     </target>
@@ -137,7 +137,7 @@
         <!-- copy data files into classes.. -->
         <mkdir dir="${build.dir}/org/unicode/cldr/icu"/>
         <copy todir="${build.dir}/org/unicode/cldr/icu">
-            <fileset dir="${src.dir}/org/unicode/cldr/icu" 
+            <fileset dir="${src.dir}/org/unicode/cldr/icu"
                 excludes="**/CVS/**/* **/**/*.java"/>
         </copy>
 	</target>
@@ -154,11 +154,11 @@
         <!-- copy data files into classes.. -->
         <mkdir dir="${build.dir}/org/unicode/cldr/json"/>
         <copy todir="${build.dir}/org/unicode/cldr/json">
-            <fileset dir="${src.dir}/org/unicode/cldr/json" 
+            <fileset dir="${src.dir}/org/unicode/cldr/json"
                 excludes="**/CVS/**/* **/**/*.java"/>
         </copy>
 	</target>
-    <target name="test" depends="init,util,tool" description="build tests">
+    <target name="test" depends="init,util,tool,icu" description="build tests">
         <javac includeantruntime="false" includes="org/unicode/cldr/test/**/*.java org/unicode/cldr/unittest/**/*.java"
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
@@ -171,13 +171,13 @@
         <!-- copy data files into classes.. -->
         <mkdir dir="${build.dir}/org/unicode/cldr/test"/>
         <copy todir="${build.dir}/org/unicode/cldr/test">
-            <fileset dir="${src.dir}/org/unicode/cldr/test" 
+            <fileset dir="${src.dir}/org/unicode/cldr/test"
                 excludes="**/CVS/**/* **/**/*.java"/>
         </copy>
         <!-- and unittest files -->
         <mkdir dir="${build.dir}/org/unicode/cldr/unittest"/>
         <copy todir="${build.dir}/org/unicode/cldr/unittest">
-            <fileset dir="${src.dir}/org/unicode/cldr/unittest" 
+            <fileset dir="${src.dir}/org/unicode/cldr/unittest"
                 excludes="**/CVS/**/* **/**/*.java"/>
         </copy>
     </target>
@@ -185,7 +185,7 @@
         <delete dir="${build.dir}"/>
         <delete file="${jar.file}"/>
     </target>
-    
+
     <target name="jar" depends="all" description="build full 'cldr.jar' jar file">
         <jar jarfile="${jar.file}"
             compress="true"
@@ -221,7 +221,7 @@
   <!-- for testing and development -->
   <target name="icu4c" depends="init, ant-plugin, icu">
     <ant dir="${env.ICU4C_DIR}/source/data" antfile="build.xml" target="all" />
-  </target>   
+  </target>
 
 
     <target name="check" description="Run the standard CLDR test suite" depends="init">

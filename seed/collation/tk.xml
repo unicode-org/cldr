@@ -11,32 +11,16 @@
 	</identity>
 	<collations  >
 		<collation type="standard">
-			<rules>
-				<reset>C</reset>
-				<p>ç</p>
-				<t>Ç</t>
-				<reset>E</reset>
-				<p>ä</p>
-				<t>Ä</t>
-				<reset>J</reset>
-				<p>ž</p>
-				<t>Ž</t>
-				<reset>N</reset>
-				<p>ň</p>
-				<t>Ň</t>
-				<reset>O</reset>
-				<p>ö</p>
-				<t>Ö</t>
-				<reset>S</reset>
-				<p>ş</p>
-				<t>Ş</t>
-				<reset>U</reset>
-				<p>ü</p>
-				<t>Ü</t>
-				<reset>Y</reset>
-				<p>ý</p>
-				<t>Ý</t>
-			</rules>
+			<cr><![CDATA[
+				&C<ç<<<Ç
+				&E<ä<<<Ä
+				&J<ž<<<Ž
+				&N<ň<<<Ň
+				&O<ö<<<Ö
+				&S<ş<<<Ş
+				&U<ü<<<Ü
+				&Y<ý<<<Ý
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

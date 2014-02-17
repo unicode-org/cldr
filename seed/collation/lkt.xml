@@ -11,23 +11,13 @@
 	</identity>
 	<collations>
 		<collation type="standard">
-            <rules>
-				<reset>C</reset>
-					<p>č</p>
-					<t>Č</t>
-				<reset>G</reset>
-					<p>ǧ</p>
-					<t>Ǧ</t>
-				<reset>H</reset>
-					<p>ȟ</p>
-					<t>Ȟ</t>
-				<reset>S</reset>
-					<p>š</p>
-					<t>Š</t>
-				<reset>Z</reset>
-					<p>ž</p>
-					<t>Ž</t>
-			</rules>
+            <cr><![CDATA[
+				&C<č<<<Č
+				&G<ǧ<<<Ǧ
+				&H<ȟ<<<Ȟ
+				&S<š<<<Š
+				&Z<ž<<<Ž
+			]]></cr>
 		</collation>
 	</collations>
 </ldml>

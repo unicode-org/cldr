@@ -22,7 +22,7 @@ import os.path
 import sys
 
 def GetIndent(s):
-  for i in xrange(len(s)):
+  for i in range(len(s)):
     if s[i] not in " \t": return s[:i]
   return s
 

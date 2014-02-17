@@ -68,6 +68,7 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale ROMANIAN = CLDRLocale.getInstance("ro");
     private static final CLDRLocale CATALAN = CLDRLocale.getInstance("ca");
     private static final CLDRLocale NGOMBA = CLDRLocale.getInstance("jgo");
+    private static final CLDRLocale KWASIO = CLDRLocale.getInstance("nmg");
     private static final CLDRLocale HEBREW = CLDRLocale.getInstance("he");
     private static final CLDRLocale MYANMAR = CLDRLocale.getInstance("my");
 
@@ -82,6 +83,15 @@ public class DisplayAndInputProcessor {
 
     private static final char[][] NGOMBA_CONVERSIONS = {
         { '\u0251', '\u0061' }, { '\u0261', '\u0067' } }; //  ɑ -> a , ɡ -> g , See ticket #5691
+
+    private static final char[][] KWASIO_CONVERSIONS = {
+        { '\u0306', '\u030C' },  // See ticket #6571, use caron instead of breve
+        { '\u0103', '\u01CE' }, { '\u0102' , '\u01CD' }, // a-breve -> a-caron
+        { '\u0115', '\u011B' }, { '\u011A' , '\u01CD' }, // e-breve -> e-caron
+        { '\u012D', '\u01D0' }, { '\u012C' , '\u01CF' }, // i-breve -> i-caron
+        { '\u014F', '\u01D2' }, { '\u014E' , '\u01D1' }, // o-breve -> o-caron
+        { '\u016D', '\u01D4' }, { '\u016C' , '\u01D3' } // u-breve -> u-caron
+    };
 
     private static final char[][] HEBREW_CONVERSIONS = {
         { '\'', '\u05F3' }, { '"', '\u05F4' } }; //  ' -> geresh  " -> gershayim
@@ -511,6 +521,8 @@ public class DisplayAndInputProcessor {
                 value = standardizeCatalan(value);
             } else if (locale.childOf(NGOMBA) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
                 value = standardizeNgomba(value);
+            } else if (locale.childOf(KWASIO) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+                value = standardizeKwasio(value);
             } else if (locale.childOf(HEBREW) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
                 value = standardizeHebrew(value);
             } else if (locale.childOf(MYANMAR) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
@@ -684,6 +696,19 @@ public class DisplayAndInputProcessor {
         return builder.toString();
     }
 
+    private String standardizeKwasio(String value) {
+        StringBuilder builder = new StringBuilder();
+        for (char c : value.toCharArray()) {
+            for (char[] pair : KWASIO_CONVERSIONS) {
+                if (c == pair[0]) {
+                    c = pair[1];
+                    break;
+                }
+            }
+            builder.append(c);
+        }
+        return builder.toString();
+    }
     private String standardizeNgomba(String value) {
         StringBuilder builder = new StringBuilder();
         for (char c : value.toCharArray()) {

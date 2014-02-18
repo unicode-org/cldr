@@ -636,8 +636,8 @@ public class TestBasic extends TestFmwkPlus {
 
         for (String locale : defaultContents) {
 
-            if (locale.equals("en_US")) {
-                continue; // en_US_POSIX
+            if (locale.equals("en_US")||locale.equals("ca_ES")) {
+                continue; // en_US_POSIX or ca_ES_VALENCIA
             }
             Set<String> children = parentToChildren.get(locale);
             if (children != null) {

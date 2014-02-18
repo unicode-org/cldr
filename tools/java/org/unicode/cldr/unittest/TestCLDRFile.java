@@ -19,6 +19,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRFile.Status;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -425,5 +426,33 @@ public class TestCLDRFile extends TestFmwk {
         assertEquals("contructed bailey", "es", display);
         display = eng.getConstructedBaileyValue(prefix + "missing" + "\"]", null, null);
         assertEquals("contructed bailey", null, display);
+    }
+    public void TestFileLocations() {
+        File mainDir = new File(CLDRPaths.MAIN_DIRECTORY);
+        if (!mainDir.isDirectory()) {
+            throw new IllegalArgumentException("MAIN_DIRECTORY is not a directory: " + CLDRPaths.MAIN_DIRECTORY);
+        }
+        File mainCollationDir = new File(CLDRPaths.COLLATION_DIRECTORY);
+        if (!mainCollationDir.isDirectory()) {
+            throw new IllegalArgumentException("COLLATION_DIRECTORY is not a directory: " + CLDRPaths.COLLATION_DIRECTORY);
+        }
+        File seedDir = new File(CLDRPaths.SEED_DIRECTORY);
+        if (!seedDir.isDirectory()) {
+            throw new IllegalArgumentException("SEED_DIRECTORY is not a directory: " + CLDRPaths.SEED_DIRECTORY);
+        }
+        File seedCollationDir = new File(CLDRPaths.SEED_COLLATION_DIRECTORY);
+        if (!seedCollationDir.isDirectory()) {
+            throw new IllegalArgumentException("SEED_COLLATION_DIRECTORY is not a directory: " + CLDRPaths.SEED_COLLATION_DIRECTORY);
+        }
+        File[] md = { mainDir, mainCollationDir };
+        File[] sd = { seedDir, seedCollationDir };
+        Factory mf = SimpleFactory.make(md, ".*", DraftStatus.unconfirmed);
+        Factory sf = SimpleFactory.make(sd, ".*", DraftStatus.unconfirmed);
+        Set<CLDRLocale> mainLocales = mf.getAvailableCLDRLocales();
+        Set<CLDRLocale> seedLocales = sf.getAvailableCLDRLocales();
+        mainLocales.retainAll(seedLocales);
+        if (!mainLocales.isEmpty()) {
+            errln("CLDR locale files located in both common and seed ==> "+mainLocales.toString());
+        }
     }
 }

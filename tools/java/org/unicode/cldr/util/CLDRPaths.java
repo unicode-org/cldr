@@ -26,6 +26,7 @@ public class CLDRPaths {
     CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "main"));
     public static final String SEED_DIRECTORY = CldrUtility.getProperty("CLDR_SEED",
     CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "../seed/main"));
+    public static final String SEED_COLLATION_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../collation/");
     public static final String TMP_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
     CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp/")));
     public static final String AUX_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",

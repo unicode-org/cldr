@@ -139,7 +139,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         .add("//ldml/localeDisplayNames/territories/territory", Category.territory)
         .add("//ldml/localeDisplayNames/variants/variant", Category.variant)
         .add("//ldml/localeDisplayNames/keys/key", Category.key)
-        .add("//ldml/localeDisplayNames/types/type", Category.type)
+        .add("//ldml/localeDisplayNames/types/type", Category.keyValue)
         .add("//ldml/dates/calendars/calendar.*/months.*narrow", Category.month_narrow)
         .add("//ldml/dates/calendars/calendar.*/months.*format", Category.month_format_except_narrow)
         .add("//ldml/dates/calendars/calendar.*/months", Category.month_standalone_except_narrow)
@@ -153,7 +153,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         .add("//ldml/dates/calendars/calendar.*/quarters.*abbreviated", Category.quarter_abbreviated)
         .add("//ldml/dates/calendars/calendar.*/quarters.*format", Category.quarter_format_wide)
         .add("//ldml/dates/calendars/calendar.*/quarters", Category.quarter_standalone_wide)
-        .add("//ldml/.*/relative", Category.tense)
+        .add("//ldml/.*/relative", Category.relative)
         .add("//ldml/dates/fields", Category.calendar_field)
         .add("//ldml/dates/timeZoneNames/zone.*/exemplarCity", Category.zone_exemplarCity)
         .add("//ldml/dates/timeZoneNames/zone.*/short", Category.zone_short)
@@ -162,9 +162,9 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         .add("//ldml/dates/timeZoneNames/metazone.*/short", Category.metazone_long)
         .add("//ldml/dates/timeZoneNames/metazone", Category.metazone_long)
         .add("//ldml/numbers/currencies/currency.*/symbol", Category.symbol)
-        .add("//ldml/numbers/currencies/currency.*/displayName.*@count", Category.displayName_count)
-        .add("//ldml/numbers/currencies/currency.*/displayName", Category.displayName)
-        .add("//ldml/units/unit.*/unitPattern.*(past|future)", Category.tense)
+        .add("//ldml/numbers/currencies/currency.*/displayName.*@count", Category.currencyName_count)
+        .add("//ldml/numbers/currencies/currency.*/displayName", Category.currencyName)
+        .add("//ldml/units/unit.*/unitPattern.*(past|future)", Category.relative)
         .add("//ldml/units/unit.*/unitPattern", Category.unit_pattern)
     // ldml/localeDisplayNames/keys/key[@type=".*"]
     // ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type=".*"]
@@ -174,7 +174,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
     Map<Category, CasingType> types = new EnumMap<Category, CasingType>(Category.class);
 
     public enum Category {
-        language, script, territory, variant, type,
+        language, script, territory, variant, keyValue,
         month_narrow, month_format_except_narrow, month_standalone_except_narrow,
         day_narrow, day_format_except_narrow, day_standalone_except_narrow,
         era_narrow, era_abbr, era_name,
@@ -184,8 +184,8 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         NOT_USED,
         metazone_short, metazone_long,
         symbol,
-        displayName_count, displayName,
-        tense, unit_pattern,
+        currencyName_count, currencyName,
+        relative, unit_pattern,
         key;
     }
 

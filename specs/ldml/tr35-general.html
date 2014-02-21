@@ -2991,8 +2991,8 @@ h2,h3,h4,table {
 				<td>localeDisplayNames key names</td>
 			</tr>
 			<tr>
-				<td>type</td>
-				<td>localeDisplayNames type names</td>
+				<td class="changed">keyValue</td>
+				<td>localeDisplayNames <span class="changed">key value </span>type names</td>
 			</tr>
 			<tr>
 				<td>month-format-except-narrow</td>
@@ -3087,17 +3087,17 @@ h2,h3,h4,table {
 				<td>numbers/currencies/currency[type=*]/symbol symbol names</td>
 			</tr>
 			<tr>
-				<td>displayName-count</td>
-				<td>numbers/currencies/currency[type=*]/displayName[count=*]
-					currency names for use with count</td>
-			</tr>
-			<tr>
-				<td>displayName</td>
+				<td class="changed">currencyName</td>
 				<td>numbers/currencies/currency[type=*]/displayName currency
 					names</td>
 			</tr>
 			<tr>
-				<td>tense</td>
+				<td class="changed">currencyName-count</td>
+				<td>numbers/currencies/currency[type=*]/displayName[count=*]
+					currency names for use with count</td>
+			</tr>
+			<tr>
+				<td class="changed">relative</td>
 				<td>dates/fields/field[type=*]/relative
 					and
 						dates/fields/field[type=*]/relativeTime relative field names</td>
@@ -3106,6 +3106,11 @@ h2,h3,h4,table {
 				<td>unit-pattern</td>
 				<td>units/unitLength[type=*]/unit[type=*]/unitPattern[count=*]
 					unit names
+				</td>
+			</tr>
+			<tr class="changed">
+				<td>number-spellout</td>
+				<td>rbnf/rulesetGrouping[type=*]/ruleset[type=*]/rbnfrule number spellout rules
 				</td>
 			</tr>
 		</table>
@@ -3164,7 +3169,7 @@ h2,h3,h4,table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001-2013 Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001-<span class="changed">2014</span> Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

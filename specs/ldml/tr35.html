@@ -101,7 +101,7 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-02-12</span></td>
+				<td><span class="changed">2014-02-20</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -403,6 +403,9 @@ h2,h3,h4,table {
 							subelements of &lt;timeZoneNames&gt;</a></li>
 					<li>8.11 <a href="#Deprecated_subelements_of_zone_metazone">Deprecated
 							subelements of &lt;zone&gt; and &lt;metazone&gt;</a></li>
+					<li class="changed">8.12 <a href="#Renamed_attribute_values_for_contextTransformUsage">
+							Renamed attribute values for &lt;contextTransformUsage&gt;
+							element</a></li>
 				</ul>
 			</li>
 			<li>9 <a href="#Links_to_Other_Parts">Links to Other Parts</a></li>
@@ -5478,6 +5481,27 @@ decimal?, group?, special*)) &gt;</pre>
 				zone was commonly used in the locale.</li>
 		</ul>
 
+		<h3 class="changed">
+			<a name="Renamed_attribute_values_for_contextTransformUsage"
+				href="#Renamed_attribute_values_for_contextTransformUsage">8.12
+				Renamed attribute values for &lt;contextTransformUsage&gt;
+				element</a>
+		</h3>
+		<p class="changed">
+			The &lt;contextTransformUsage&gt; element was introduced in CLDR 21.
+			The values for its <em>type</em> attribute are documented in <a
+			href="tr35-general.html#contextTransformUsage_type_attribute_values">
+			&lt;contextTransformUsage&gt; type attribute values</a>. In CLDR 25,
+			some of these values were renamed from their previous values for
+			improved clarity:
+		</p>
+		<ul class="changed">
+			<li>"type" was renamed to "keyValue"</li>
+			<li>"displayName" was renamed to "currencyName"</li>
+			<li>"displayName-count" was renamed to "currencyName-count"</li>
+			<li>"tense" was renamed to "relative"</li>
+		</ul>
+
 		<hr>
 		<h2>
 			<a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">9
@@ -6679,11 +6703,33 @@ decimal?, group?, special*)) &gt;</pre>
 		</h3>
 		<ul class="changed">
 			<li>Proposed update for Version 25.</li>
+			<li><strong>Part 1: <a href="tr35.html#Contents">Core
+						specification</a></strong>
+				<ul>
+					<li>Added <em>Section 8.12 <a
+						href="#Renamed_attribute_values_for_contextTransformUsage">
+						Renamed attribute values for &lt;contextTransformUsage&gt;
+						element</a></em>. [<a
+						href="http://unicode.org/cldr/trac/ticket/6857">#6857</a>]
+					</li>
+				</ul></li>
+			<li><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong>
+				<ul>
+					<li>In <em><a
+						href="tr35-general.html#contextTransformUsage_type_attribute_values">
+						&lt;contextTransformUsage&gt; type attribute values</a>,</em>
+						changed attribute value "type" to "keyValue", "displayName" to
+						"currencyName", "displayName-count" to "currencyName-count",
+						"tense" to "relative" and added attribute value "number-spellout".
+						[<a href="http://unicode.org/cldr/trac/ticket/6857">#6857</a>]
+					</li>
+				</ul></li>
 			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
 				<ul>
-					<li>Added 'r' symbol (for related Gregorian year) to<strong> Part 4: Dates, </strong> <a
-						href="tr35-dates.html#Date_Field_Symbol_Table">Date Field
-							Symbol Table</a>. [<a href="http://unicode.org/cldr/trac/ticket/6938">#6938</a>]
+					<li>In <em><a
+						href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol
+						Table</a>,</em> added 'r' symbol (for related Gregorian year).
+						[<a href="http://unicode.org/cldr/trac/ticket/6938">#6938</a>]
 					</li>
 				</ul></li>
 		</ul>
@@ -7789,7 +7835,7 @@ decimal?, group?, special*)) &gt;</pre>
 		</ul>
 		<hr>
 		<p class="copyright">
-			Copyright © 2001-2013 Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001-<span class="changed">2014</span> Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

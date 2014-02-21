@@ -109,15 +109,29 @@ public class TestBasic extends TestFmwkPlus {
         = Relation.of(new TreeMap<Row.R2<DtdType, String>,Set<String>>(), TreeSet.class);
         final CLDRConfig config = CLDRConfig.getInstance();
         final File basedir = config.getCldrBaseDirectory();
+        List<TimingInfo> data = new ArrayList<>();
+
         for(String subdir : config.getCLDRDataDirectories()) {
-            checkDtds(new File(basedir, subdir), 0, foundAttributes);
+            checkDtds(new File(basedir, subdir), 0, foundAttributes, data);
         }
         if (foundAttributes.size() > 0) {
             showFoundElements(foundAttributes);
         }
+        if (isVerbose()) {
+            long totalBytes = 0;
+            long totalNanos = 0;
+            for (TimingInfo i : data) {
+                long length = i.file.length();
+                totalBytes += length;
+                totalNanos += i.nanos;
+                logln(i.nanos + "\t" + length + "\t" + i.file);
+            }
+            logln(totalNanos + "\t" + totalBytes);
+        }
     }
 
-    private void checkDtds(File directoryFile, int level, Relation<R2<DtdType, String>, String> foundAttributes) throws IOException {
+    private void checkDtds(File directoryFile, int level, Relation<R2<DtdType, String>, String> foundAttributes,
+            List<TimingInfo> data) throws IOException {
         boolean deepCheck = getInclusion() >= 10;
         File[] listFiles = directoryFile.listFiles();
         String canonicalPath = directoryFile.getCanonicalPath();
@@ -131,9 +145,9 @@ public class TestBasic extends TestFmwkPlus {
             if (CLDRConfig.isJunkFile(name)) {
                 continue;
             } else if (fileName.isDirectory()) {
-                checkDtds(fileName, level+1, foundAttributes);
+                checkDtds(fileName, level+1, foundAttributes, data);
             } else if (name.endsWith(".xml")) {
-                check(fileName);
+                data.add(check(fileName));
                 if (deepCheck // takes too long to do all the time
                     // fileName.getCanonicalPath().compareTo("/Users/markdavis/workspace/cldr/common/supplemental") >= 0
                     ) {
@@ -261,7 +275,13 @@ public class TestBasic extends TestFmwkPlus {
         }
     }
 
-    public void check(File systemID) {
+    private class TimingInfo {
+        File file;
+        long nanos;
+    }
+    
+    public TimingInfo check(File systemID) {
+        long start = System.nanoTime();
         try (InputStream fis=InputStreamFactory.createInputStream(systemID)){
 //            FileInputStream fis = new FileInputStream(systemID);
             XMLReader xmlReader = XMLFileReader.createXMLReader(true);
@@ -278,6 +298,10 @@ public class TestBasic extends TestFmwkPlus {
 //        } catch (IOException e) {
 //            errln("\t" + "Can't read " + systemID + "\t" + e.getClass() + "\t" + e.getMessage());
 //        }
+        TimingInfo timingInfo = new TimingInfo();
+        timingInfo.nanos = System.nanoTime() - start;
+        timingInfo.file = systemID;
+        return timingInfo;
     }
 
     public void TestCurrencyFallback() {

@@ -1343,9 +1343,10 @@ $Date$
 <!ATTLIST settings caseFirst            ( upper | lower | off ) #IMPLIED >
 <!ATTLIST settings hiraganaQuarternary  ( on | off ) #IMPLIED > <!-- deprecated -->
 <!ATTLIST settings hiraganaQuaternary   ( on | off ) #IMPLIED > <!-- deprecated -->
+<!ATTLIST settings maxVariable          ( space | punct | symbol | currency ) #IMPLIED >
 <!ATTLIST settings numeric              ( on | off ) #IMPLIED >
 <!ATTLIST settings private              ( true | false ) #IMPLIED > <!-- deprecated -->
-<!ATTLIST settings variableTop          CDATA #IMPLIED >
+<!ATTLIST settings variableTop          CDATA #IMPLIED > <!-- deprecated -->
 <!ATTLIST settings reorder              NMTOKENS #IMPLIED >
 
 <!ELEMENT suppress_contractions (  #PCDATA | cp )* >

@@ -492,7 +492,7 @@ h2,h3,h4,table {
 			are not “variable” in CLDR. So <em>shifted</em> only causes
 			whitespace and punctuation to be ignored, but not symbols (like ♥).
 			The DUCET behavior can be specified with a locale ID using the
-			&quot;vt&quot; keyword, to set the Variable section to include all of
+			&quot;<span class="removed">vt</span> <span class="changed">kv</span>&quot; keyword, to set the Variable section to include all of
 			the symbols below it, or be set parametrically where implementations
 			allow access.
 		</p>
@@ -1199,7 +1199,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td rowspan="2">kh</td>
 				<td rowspan="2">hiraganaQuaternary<br>
 				<span class="changed"><i><strong>Deprecated:</strong></i>
-				Use rules with quater&shy;nary relations instead</span></td>
+				Use rules with quater&shy;nary relations instead.</span></td>
 				<td>true</td>
 				<td>on</td>
 				<td rowspan="2"><code>
@@ -1246,8 +1246,52 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td><i><strong>off</strong></i></td>
 			</tr>
 			<tr>
+				<td>kr</td>
+				<td>reorder</td>
+				<td colspan="2">a sequence of one or more reorder codes: <strong>space,
+						punct, symbol, currency, digit</strong>, or any BCP47 script ID
+				</td>
+				<td><code>
+						reorder = &quot;Grek digit&quot;<br> <br> [reorder Grek
+						digit]
+					</code></td>
+				<td>Specifies a reordering of scripts or other significant
+					blocks of characters such as symbols, punctuation, and digits. For
+					the precise meaning and usage of the reorder codes, see <em>Section
+						3.12, <a href="#Script_Reordering">Collation Reordering</a>.
+				</em>
+				</td>
+			</tr>
+			<tr class="changed">
+				<td rowspan="4">kv</td>
+				<td rowspan="4">maxVariable</td>
+				<td>space</td>
+				<td>space</td>
+				<td rowspan="4"><code>maxVariable = &quot;<span style="color: blue">space</span>&quot;<br>
+						<br> [maxVariable space]</code></td>
+				<td rowspan="4">Sets the variable top to the top of the specified reordering group.
+					All code points with primary weights less than or equal to the variable top will be
+					considered variable, and thus affected by the alternate handling.
+					Variables are ignorable by default in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
+					but not in CLDR.</td>
+			</tr>
+			<tr class="changed">
+				<td>punct</td>
+				<td><i><strong>punct</strong></i></td>
+			</tr>
+			<tr class="changed">
+				<td>symbol</td>
+				<td><strong>symbol (UCA default)</strong></td>
+			</tr>
+			<tr class="changed">
+				<td>currency</td>
+				<td>currency</td>
+			</tr>
+			<tr>
 				<td>vt</td>
-				<td>variableTop</td>
+				<td>variableTop<br>
+					<span class="changed"><i><strong>Deprecated:</strong></i>
+					Use maxVariable instead.</span></td>
 				<td>See <i>Appendix Q: <a
 						href="tr35.html#Locale_Extension_Key_and_Type_Data">Locale
 							Extension Keys and Types</a>.
@@ -1271,29 +1315,15 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					</p>
 					<p>
 						Sets the string value for the variable top. All the code points
-						with primary strengths less than or equal to that string will be
-						considered variable, and thus affected by the alternate handling.
-						Variables are ignorable by default in [<a
-							href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], but
-						not in CLDR. See below for more information.
+						with primary <span class="removed">strengths</span> <span class="changed">weights</span> less than or equal to <span class="removed">that string</span> <span class="changed">the variable top</span> will be
+						considered variable, and thus affected by the alternate handling.<br>
+						<span class="changed">An implementation that supports the variableTop setting
+						should also support the maxVariable setting,
+						and it should "pin" ("round up") the variableTop to the top of
+						the containing reordering group.</span><br>
+						Variables are ignorable by default in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
+						but not in CLDR. See below for more information.
 					</p></td>
-			</tr>
-			<tr>
-				<td>kr</td>
-				<td>reorder</td>
-				<td colspan="2">a sequence of one or more reorder codes: <strong>space,
-						punct, symbol, currency, digit</strong>, or any BCP47 script ID
-				</td>
-				<td><code>
-						reorder = &quot;Grek digit&quot;<br> <br> [reorder Grek
-						digit]
-					</code></td>
-				<td>Specifies a reordering of scripts or other significant
-					blocks of characters such as symbols, punctuation, and digits. For
-					the precise meaning and usage of the reorder codes, see <em>Section
-						3.12, <a href="#Script_Reordering">Collation Reordering</a>.
-				</em>
-				</td>
 			</tr>
 			<tr>
 				<td rowspan="3"><em>n/a</em></td>
@@ -1337,23 +1367,26 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</tr>
 		</table>
 		<p>
-			<strong>Variable Top (vt) </strong>bears more explanation. Users may
-			want to include more or fewer characters as Variable. For example,
-			someone could want to restrict the Variable characters to just
-			include space marks. In that case, variableTop would be set to U+1680
-			(see <a
+			<span class="removed"><strong>Variable Top (vt) </strong>bears more explanation.</span>
+			<span class="changed"><strong>Notes on variable top settings:</strong></span>
+			Users may want to include more or fewer characters as Variable.
+			For example, someone could want to restrict the Variable characters to just
+			include space marks. In that case, <span class="changed">maxVariable would be set to "space".
+			(In CLDR 24 and earlier, the now-deprecated</span> variableTop would be set to U+1680,
+			see <a
 				href="http://unicode.org/charts/collation/chart_Variable.html">UCA
-				Variable chart</a>). Alternatively, someone could want more of the
+				Variable chart</a>).
+			Alternatively, someone could want more of the
 			Common characters in them, and include characters up to (but not
-			including '0'), by setting variableTop to be U+20BA (in Unicode 6.2;
-			see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA
-				Common chart</a>).
+			including) '0', by setting <span class="changed">maxVariable to "currency".
+			(In CLDR 24 and earlier, the now-deprecated</span> variableTop <span class="changed">would be set to</span> U+20BA <span class="removed">(in Unicode 6.2</span>,
+			see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).
 		</p>
 		<p>The effect of these settings is to customize to ignore
 			different sets of characters when comparing strings. For example, the
-			locale identifier "de-u-ka-shifted-vt-0024" is requesting settings
+			locale identifier "de-u-ka-shifted-<span class="removed">vt-0024</span> <span class="changed">kv-currency</span>" is requesting settings
 			appropriate for German, including German sorting conventions, and
-			that '$' and characters sorting below it are ignored in sorting.</p>
+			that <span class="removed">'$'</span> <span class="changed">currency symbols</span> and characters sorting below <span class="removed">it</span> <span class="changed">them</span> are ignored in sorting.</p>
 
 		<h3>
 			3.4 <a name="Rules" href="#Rules">Collation Rule Syntax</a>
@@ -1991,12 +2024,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			The
 			<code>[last variable]</code>
 			indicates the &quot;highest&quot; character that is treated as
-			punctuation with alternate handling. Unlike the other logical
+			punctuation with alternate handling.
+			<span class="removed">Unlike the other logical
 			positions, it can be reset as well as referenced. For example, it can
 			be reset to be just above spaces if all visible punctuation are to be
-			treated as having distinct primary values.
+			treated as having distinct primary values.</span>
 		</p>
-		<table>
+		<table class="removed">
 			<caption>
 				Specifying the Position of
 				<code>[last variable]</code>
@@ -2028,16 +2062,19 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</tr>
 		</table>
 		<p>
-			The default value for
+			<span class="removed">The default value for
 			<code>[last variable]</code>
-			is the highest punctuation mark, thus below symbols. The value can be
-			further changed by using the variable-top setting. This takes effect,
-			however, after the rules have been built, and does not affect any
+			is the highest punctuation mark, thus below symbols.</span>
+			The value can be <span class="removed">further</span> changed by using the <span class="removed">variable-top</span> <span class="changed">maxVariable</span> setting.
+			This takes effect, however, after the rules have been built, and does not affect any
 			characters that are reset relative to the
 			<code>[last variable]</code>
-			value when the rules are being built. The variable-top setting might
-			also be changed via a runtime parameter. That also does not effect
-			the rules.
+			value when the rules are being built. The <span class="removed">variable-top</span> <span class="changed">maxVariable</span> setting might
+			also be changed via a runtime parameter.
+			That also does not affect the rules.<br>
+			<span class="changed">(In CLDR 24 and earlier,
+			the variable top could also be set by using a tailoring rule with
+			<code>[variable top]</code> in the place of a relation string.)</span>
 		</p>
 
 		<h3>

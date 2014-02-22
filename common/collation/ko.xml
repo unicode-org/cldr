@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -535,7 +535,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					# Don't need explicit entries for 064B - 0652 ARABIC FATHATAN - ARABIC SUKUN;
 					# these are already ignorable at level 1, and are not involved in contractions
 					<<ฺ	# 0E3A THAI CHARACTER PHINTHU
-				# root search rules for modern Korean jamos
+				# root search rules for modern Korean Jamos
 				# Korean modern complex consonants, decompose: x(L) = CHOSEONG x, x(T) = JONGSEONG x
 				&ᄀ	# 1100 KIYEOK(L) = 11A8 KIYEOK(T)
 					=ᆨ
@@ -938,8 +938,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 					# Don't need explicit entries for 064B - 0652 ARABIC FATHATAN - ARABIC SUKUN;
 					# these are already ignorable at level 1, and are not involved in contractions
 					<<ฺ	# 0E3A THAI CHARACTER PHINTHU
-				# Korean jamo lead consonant search rules, part 1:
-				# Continue secondary differences from last_primary_ignorable with modern Hangul V T jamo
+				# Korean Jamo lead consonant search rules, part 1:
+				# Continue secondary differences from last_primary_ignorable with modern Hangul V T Jamo.
 					<<ᅡ	# 1161 HANGUL JUNGSEONG A
 					<<ᅢ	# 1162
 					<<ᅣ	# 1163
@@ -988,28 +988,24 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<<ᇀ	# 11C0
 					<<ᇁ	# 11C1
 					<<ᇂ	# 11C2
-				# Korean jamo lead consonant search rules, part 2:
-				# Make modern compound L jamo primary equivalent to non-compound forms
-				&ᄀ	# 1100 HANGUL CHOSEONG KIYEOK
-					<<ᄁ		# 1101 HANGUL CHOSEONG SSANGKIYEOK
-					=ᄀᄀ		# 1100 1100
-					<<<ㄲ		# 3132 HANGUL LETTER SSANGKIYEOK
-				&ᄃ	# 1103 HANGUL CHOSEONG TIKEUT
-					<<ᄄ		# 1104 HANGUL CHOSEONG SSANGTIKEUT
-					=ᄃᄃ		# 1103 1103
-					<<<ㄸ		# 3138 HANGUL LETTER SSANGTIKEUT
-				&ᄇ	# 1107 HANGUL CHOSEONG PIEUP
-					<<ᄈ		# 1108 HANGUL CHOSEONG SSANGPIEUP
-					=ᄇᄇ		# 1107 1107
-					<<<ㅃ		# 3143 HANGUL LETTER SSANGPIEUP
-				&ᄉ	# 1109 HANGUL CHOSEONG SIOS
-					<<ᄊ		# 110A HANGUL CHOSEONG SSANGSIOS
-					=ᄉᄉ		# 1109 1109
-					<<<ㅆ		# 3146 HANGUL LETTER SSANGSIOS
-				&ᄌ	# 110C HANGUL CHOSEONG CIEUC
-					<<ᄍ		# 110D HANGUL CHOSEONG SSANGCIEUC
-					=ᄌᄌ		# 110C 110C
-					<<<ㅉ		# 3149 HANGUL LETTER SSANGCIEUC
+				# Korean Jamo lead consonant search rules, part 2:
+				# Make modern compound L Jamo primary equivalent to non-compound forms.
+				# Pairs of Jamo L sort secondary-after a single one.
+				# Reuse the first secondary CE which should have a single-byte secondary weight.
+				# Use the same secondary weight for all of these:
+				# They are already distinguished by the preceding Jamo L.
+				&[first primary ignorable]
+					=\u1100|\u1100
+					=\u1103|\u1103
+					=\u1107|\u1107
+					=\u1109|\u1109
+					=\u110C|\u110C
+				# Reset to pairs of L and tailor the compound forms.
+				&\u1100\u1100=\u1101<<<\u3132  # HANGUL CHOSEONG SSANGKIYEOK, HANGUL LETTER SSANGKIYEOK
+				&\u1103\u1103=\u1104<<<\u3138  # HANGUL CHOSEONG SSANGTIKEUT, HANGUL LETTER SSANGTIKEUT
+				&\u1107\u1107=\u1108<<<\u3143  # HANGUL CHOSEONG SSANGPIEUP, HANGUL LETTER SSANGPIEUP
+				&\u1109\u1109=\u110A<<<\u3146  # HANGUL CHOSEONG SSANGSIOS, HANGUL LETTER SSANGSIOS
+				&\u110C\u110C=\u110D<<<\u3149  # HANGUL CHOSEONG SSANGCIEUC, HANGUL LETTER SSANGCIEUC
 			]]></cr>
 		</collation>
 		<collation type='unihan'>

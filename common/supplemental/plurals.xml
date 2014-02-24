@@ -10,7 +10,6 @@ For terms of use, see http://www.unicode.org/copyright.html
     <generation date="$Date$"/>
     <plurals type="cardinal">
         <!-- For a canonicalized list, use GeneratedPluralSamples -->
-        <!-- if locale is known to have no plurals, there are no rules -->
         <pluralRules locales="ar">
             <pluralRule count="zero">n = 0 @integer 0 @decimal 0.0, 0.00, 0.000, 0.0000</pluralRule>
             <pluralRule count="one">n = 1 @integer 1 @decimal 1.0, 1.00, 1.000, 1.0000</pluralRule>

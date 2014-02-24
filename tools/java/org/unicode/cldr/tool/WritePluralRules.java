@@ -115,7 +115,7 @@ public class WritePluralRules {
             "$\"/>\n"
             + "    <plurals type=\"" + type + "\">\n"
             + "        <!-- For a canonicalized list, use " + filename + " -->\n"
-            + "        <!-- if locale is known to have no plurals, there are no rules -->";
+            ;
     }
 
     //    static Map<String,String> hackComments = new HashMap<String,String>();

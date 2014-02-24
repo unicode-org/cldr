@@ -22,7 +22,7 @@ import com.ibm.icu.text.RuleBasedCollator;
 
 public class CLDRConfig extends Properties {
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -2605254975303398336L;
     public static boolean DEBUG = false;
@@ -60,11 +60,11 @@ public class CLDRConfig extends Properties {
     }
 
     String initStack = null;
-    
+
     protected CLDRConfig() {
         initStack = StackTracker.currentStack();
     }
-    
+
     public String getInitStack() {
         return initStack;
     }
@@ -240,7 +240,7 @@ public class CLDRConfig extends Properties {
      * For test use only. Will throw an exception in non test environments.
      * @param k
      * @param v
-     * @return 
+     * @return
      */
     @Override
     public Object setProperty(String k, String v) {
@@ -333,7 +333,7 @@ public class CLDRConfig extends Properties {
         }
         return list;
     }
-    
+
     /**
      * TODO: better place for these constants?
      */
@@ -349,7 +349,8 @@ public class CLDRConfig extends Properties {
     /**
      * TODO: better place for these constants?
      */
-    private static final String KEYBOARDS_DIR = "keyboards"; 
+    private static final String KEYBOARDS_DIR = "keyboards";
+    private static final String MAIN_DIR = "main";
     /**
      * TODO: better place for these constants?
      */
@@ -362,7 +363,31 @@ public class CLDRConfig extends Properties {
     public Iterable<String> getCLDRDataDirectories() {
         return Arrays.asList(CLDR_DATA_DIRECTORIES);
     }
-    
+
+    /**
+     * given comma separated list "common" or "common,main" return a list of actual files
+     */
+    public File[] getCLDRDataDirectories(String list) {
+        final File dir = getCldrBaseDirectory();
+        String stubs[] = list.split(",");
+        File[] ret = new File[stubs.length];
+        for(int i=0;i<stubs.length;i++) {
+            ret[i] = new File(dir, stubs[i]);
+        }
+        return ret;
+    }
+
+    /**
+     * map "common","seed" -> "common/main", "seed/main"
+     */
+    public File[] getMainDataDirectories(File base[]) {
+        File[] ret = new File[base.length];
+        for(int i=0;i<base.length;i++) {
+            ret[i] = new File(base[i], MAIN_DIR);
+        }
+        return ret;
+    }
+
     /**
      * Utility function. Recursively add to a list of files. Skips ".svn" and junk directories.
      * @param directory base directory

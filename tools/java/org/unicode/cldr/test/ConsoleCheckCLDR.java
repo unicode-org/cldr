@@ -39,6 +39,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -106,8 +107,9 @@ public class ConsoleCheckCLDR {
         GENERATE_HTML = 16,
         VOTE_RESOLVE = 17,
         ID_VIEW = 18,
-        SUBTYPE_FILTER = 19
-        // VOTE_RESOLVE2 = 18
+        SUBTYPE_FILTER = 19,
+        SOURCE_ALL = 20
+        // VOTE_RESOLVE2 = 21
         ;
 
     private static final UOption[] options = {
@@ -131,6 +133,7 @@ public class ConsoleCheckCLDR {
         UOption.create("vote resolution", 'v', UOption.NO_ARG),
         UOption.create("id view", 'i', UOption.NO_ARG),
         UOption.create("subtype_filter", 'y', UOption.REQUIRES_ARG),
+        UOption.create("source_all", 'S', UOption.REQUIRES_ARG)
         // UOption.create("vote resolution2", 'w', UOption.OPTIONAL_ARG).setDefault(Utility.BASE_DIRECTORY +
         // "incoming/vetted/main/votes/"),
         // -v /Users/markdavis/Documents/workspace/cldr/src/incoming/vetted/main/usersa.xml
@@ -153,6 +156,7 @@ public class ConsoleCheckCLDR {
     private static String[] HelpMessage = {
         "-h \t This message",
         "-s \t Source directory, default = " + CLDRPaths.MAIN_DIRECTORY,
+        "-S common,seed\t Use common AND seed directories. ( Set CLDR_DIR, don't use this with -s. )\n",
         "-fxxx \t Pick the locales (files) to check: xxx is a regular expression, eg -f fr, or -f fr.*, or -f (fr|en-.*)",
         "-pxxx \t Pick the paths to check, eg -p(.*languages.*)",
         "-cxxx \t Set the coverage: eg -c comprehensive or -c modern or -c moderate or -c basic",
@@ -284,8 +288,18 @@ public class ConsoleCheckCLDR {
             phase = cldrConf.getPhase();
         }
 
-        String sourceDirectory = CldrUtility.checkValidDirectory(options[SOURCE_DIRECTORY].value,
-            "Fix with -s. Use -h for help.");
+        File sourceDirectories[] = null;
+
+        if(options[SOURCE_ALL].doesOccur) {
+            if(options[SOURCE_DIRECTORY].doesOccur) {
+                throw new IllegalArgumentException("Don't use -s and -S together.");
+            }
+            sourceDirectories = cldrConf.getMainDataDirectories(cldrConf.getCLDRDataDirectories(options[SOURCE_ALL].value));
+        } else {
+            sourceDirectories = new File[1];
+            sourceDirectories[0] = new File(CldrUtility.checkValidDirectory(options[SOURCE_DIRECTORY].value,
+                                                                            "Fix with -s. Use -h for help."));
+        }
 
         if (options[GENERATE_HTML].doesOccur) {
             coverageLevel = Level.MODERN; // reset
@@ -318,8 +332,11 @@ public class ConsoleCheckCLDR {
 
         String user = options[USER].value;
 
-        System.out.println("source directory: " + sourceDirectory + "\t("
-            + new File(sourceDirectory).getCanonicalPath() + ")");
+        System.out.println("Source directories:\n");
+        for(File f : sourceDirectories) {
+            System.out.println("    " + f.getPath() + "\t("
+                               + f.getCanonicalPath() + ")");
+        }
         System.out.println("factoryFilter: " + factoryFilter);
         System.out.println("test filter: " + checkFilter);
         System.out.println("organization: " + organization);
@@ -339,7 +356,8 @@ public class ConsoleCheckCLDR {
         System.out.println("subtype filter: " + subtypeFilter);
 
         // set up the test
-        Factory cldrFactory = Factory.make(sourceDirectory, factoryFilter)
+        Factory cldrFactory
+            = SimpleFactory.make(sourceDirectories, factoryFilter)
             .setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
         CompoundCheckCLDR checkCldr = CheckCLDR.getCheckAll(cldrFactory, checkFilter);
         if (checkCldr.getFilteredTestList().size() == 0) {

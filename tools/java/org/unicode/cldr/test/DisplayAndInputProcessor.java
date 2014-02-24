@@ -82,7 +82,8 @@ public class DisplayAndInputProcessor {
         { '\u0140', '\u006C', '\u00B7' } }; // ŀ -> l·
 
     private static final char[][] NGOMBA_CONVERSIONS = {
-        { '\u0251', '\u0061' }, { '\u0261', '\u0067' } }; //  ɑ -> a , ɡ -> g , See ticket #5691
+        { '\u0251', '\u0061' }, { '\u0261', '\u0067' },   //  ɑ -> a , ɡ -> g , See ticket #5691
+        { '\u2019', '\uA78C' }, { '\u02BC', '\uA78C' } }; //  Saltillo, see ticket #6805
 
     private static final char[][] KWASIO_CONVERSIONS = {
         { '\u0306', '\u030C' },  // See ticket #6571, use caron instead of breve
@@ -711,12 +712,23 @@ public class DisplayAndInputProcessor {
     }
     private String standardizeNgomba(String value) {
         StringBuilder builder = new StringBuilder();
-        for (char c : value.toCharArray()) {
+        char[] charArray = value.toCharArray();
+        for (int i = 0 ; i < charArray.length ; i++) {
+            char c = charArray[i];
+            boolean convertedSaltillo = false;
             for (char[] pair : NGOMBA_CONVERSIONS) {
                 if (c == pair[0]) {
                     c = pair[1];
+                    if (c == '\uA78C') {
+                        convertedSaltillo = true;
+                    }
                     break;
                 }
+            }
+            if (convertedSaltillo &&
+                ((i > 0 && i < charArray.length - 1 && Character.isUpperCase(charArray[i-1]) && Character.isUpperCase(charArray[i+1])) ||
+                 (i > 1 && Character.isUpperCase(charArray[i-1]) && Character.isUpperCase(charArray[i-2])))) {
+                c = '\uA78B'; // UPPER CASE SALTILLO
             }
             builder.append(c);
         }

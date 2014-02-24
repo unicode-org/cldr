@@ -171,6 +171,7 @@ public class TestAll extends TestGroup {
             new String[] {
                 "org.unicode.cldr.unittest.TestCLDRUtils",
                 "org.unicode.cldr.unittest.TestCLDRFile",
+                "org.unicode.cldr.unittest.TestDTDAttributes",
                 "org.unicode.cldr.unittest.TestCanonicalIds",
                 "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
                 "org.unicode.cldr.unittest.TestLocalCurrency",

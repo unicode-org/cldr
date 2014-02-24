@@ -26,7 +26,7 @@ import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
 
-public class TestAttributes extends TestFmwk {
+public class TestDTDAttributes extends TestFmwk {
 
     /**
      * Simple test that loads each file in the cldr directory, thus verifying that
@@ -36,13 +36,14 @@ public class TestAttributes extends TestFmwk {
      */
 
     public static void main(String[] args) {
-        new TestAttributes().run(args);
+        new TestDTDAttributes().run(args);
     }
 
-    public void TestOrdering() {
-        for (DtdType type : DtdType.values()) {
-            checkOrdering(type);
-        }
+    public void TestOrdering() { // Not deemed to be a useful test at this time - JCE
+        return;
+//        for (DtdType type : DtdType.values()) {
+//            checkOrdering(type);
+//        }
     }
 
     private void checkOrdering(DtdType type) {
@@ -79,24 +80,25 @@ public class TestAttributes extends TestFmwk {
             }
         }
         if (containsOrdered.size() != 0) {
-            System.out.println();
-            System.out.println("                  " + "// DTD: " + type);
+            logln("                  " + "// DTD: " + type);
             for (String element : containsOrdered) {
-                System.out.println("                  " + "// <" + element + "> children");
+                logln("                  " + "// <" + element + "> children");
                 StringBuilder line = new StringBuilder("                  ");
                 for (String contained : toChildren.getAll(element)) {
                     line.append("\"" +
                         contained +
                         "\", ");
                 }
-                System.out.println(line);
-                System.out.println();
+                logln(line.toString());
             }
         }
     }
 
     public void TestDistinguishing() {
         for (DtdType type : DtdType.values()) {
+            if (type==DtdType.ldmlICU) {
+                continue;
+            }
             showDistinguishing(type);
         }
     }
@@ -132,7 +134,7 @@ public class TestAttributes extends TestFmwk {
             for (String element : distinguishingAttributeToElements.getAll(attribute)) {
                 R3<Set<String>, String, String> attributeInfo = attributeData.get(Row.of(element, attribute));
                 if (!"REQUIRED".equals(attributeInfo.get1())) {
-                    errln(dtdType + "\t" + element + "\t" + attribute
+                    logln(dtdType + "\t" + element + "\t" + attribute
                         + "\tDistinguishing attribute, but not REQUIRED in DTD");
                 }
             }
@@ -140,28 +142,28 @@ public class TestAttributes extends TestFmwk {
 
         Set<String> nondistinguishing = new TreeSet<String>(nondistinguishingAttributeToElements.keySet());
         nondistinguishing.removeAll(distinguishingAttributeToElements.keySet());
-        System.out.println("// " + dtdType + "\tnondistinguishing: " + nondistinguishing);
+        logln("// " + dtdType + "\tnondistinguishing: " + nondistinguishing);
 
         Set<String> distinguishing = new TreeSet<String>(distinguishingAttributeToElements.keySet());
         nondistinguishing.removeAll(nondistinguishingAttributeToElements.keySet());
-        System.out.println("// " + dtdType + "\tdistinguishing: " + distinguishing);
+        logln("// " + dtdType + "\tdistinguishing: " + distinguishing);
 
         Set<String> both = new TreeSet<String>(distinguishingAttributeToElements.keySet());
         both.retainAll(nondistinguishingAttributeToElements.keySet());
-        System.out.println("// " + dtdType + "\tboth: " + both);
+        logln("// " + dtdType + "\tboth: " + both);
 
         for (String attribute : distinguishing) {
-            System.out.println("{\"" + "dist" + "\", \"" + dtdType + "\", \"" + "*" + "\", \"" + attribute + "\"},");
+            logln("{\"" + "dist" + "\", \"" + dtdType + "\", \"" + "*" + "\", \"" + attribute + "\"},");
         }
         for (String attribute : both) {
             for (String element : nondistinguishingAttributeToElements.getAll(attribute)) {
-                System.out.println("{\"" + "nondist" + "\", \"" + dtdType + "\", \"" + element + "\", \"" + attribute
+                logln("{\"" + "nondist" + "\", \"" + dtdType + "\", \"" + element + "\", \"" + attribute
                     + "\"},");
             }
         }
     }
 
-    public TestAttributes() {
+    public void TestAttributes() {
         checkAttributes(DtdType.ldml, DtdType.supplementalData);
         checkAttributes(DtdType.ldml, DtdType.ldmlBCP47);
         checkAttributes(DtdType.ldmlBCP47, DtdType.supplementalData);
@@ -180,10 +182,10 @@ public class TestAttributes extends TestFmwk {
             R3<Set<String>, String, String> suppValue = suppData.get(key);
             if (mainValue.equals(suppValue)) {
                 same.add(key);
-                continue;
+            } else {
+            errln("Different attribute properties across DTDs" + key.toString() + "\t" + dtdType1.toString() + ":\t" +
+            mainValue.toString() + "\t" + dtdType2.toString() + ":\t" + suppValue.toString());
             }
-            errln("DTDs have different attributes\t" + key + "\t" + dtdType1 + ":\t" + mainValue + "\t" + dtdType2
-                + ":\t" + suppValue);
         }
         for (R2<String, String> key : same) {
             logln(dtdType1 + " and " + dtdType2 + ":\t" + key + "\t" + mainData.get(key));
@@ -205,10 +207,10 @@ public class TestAttributes extends TestFmwk {
         return result;
     }
 
-    public void TestElements() {
-        checkElements(DtdType.ldml, DtdType.supplementalData);
-        checkElements(DtdType.ldml, DtdType.ldmlBCP47);
-        checkElements(DtdType.ldmlBCP47, DtdType.supplementalData);
+    public void TestElements() { // Not deemed to be a useful test at this time - JCE
+//        checkElements(DtdType.ldml, DtdType.supplementalData);
+//        checkElements(DtdType.ldml, DtdType.ldmlBCP47);
+//        checkElements(DtdType.ldmlBCP47, DtdType.supplementalData);
     }
 
     private void checkElements(DtdType dtdType1, DtdType dtdType2) {
@@ -239,10 +241,10 @@ public class TestAttributes extends TestFmwk {
         }
     }
 
-    public void TestEmpty() {
-        for (DtdType type : DtdType.values()) {
-            checkEmpty(type);
-        }
+    public void TestEmpty() { // not deemed to be a useful test at this time - JCE
+//        for (DtdType type : DtdType.values()) {
+//            checkEmpty(type);
+//        }
     }
 
     static final Set<String> COLLATION_SINGLETONS = new HashSet<String>(Arrays.asList(new String[] {
@@ -274,10 +276,10 @@ public class TestAttributes extends TestFmwk {
         }
     }
 
-    public void TestLeaf() {
-        for (DtdType type : DtdType.values()) {
-            checkLeaf(type, "PCDATA");
-        }
+    public void TestLeaf() { // Not deemed to be a useful test at this time - JCE
+//        for (DtdType type : DtdType.values()) {
+//            checkLeaf(type, "PCDATA");
+//        }
     }
 
     private void checkLeaf(DtdType type, String contained) {
@@ -302,13 +304,13 @@ public class TestAttributes extends TestFmwk {
         }
     }
 
-    public void TestZNodeData() {
-        for (DtdType type : DtdType.values()) {
-            checkNodeData(type);
-        }
+    public void TestZNodeData() { // Not deemed to be a useful test at this time - JCE
+//        for (DtdType type : DtdType.values()) {
+//            checkNodeData(type);
+//        }
     }
 
-    public void checkNodeData(DtdType type) {
+    public void checkNodeData(DtdType type) { 
         CurrentData.NodeData data = CurrentData.fullNodeData.get(type);
         Relation<String, String> element2Parents = ElementAttributeInfo.getInstance(type).getElement2Parents();
         Relation<String, String> element2Children = ElementAttributeInfo.getInstance(type).getElement2Children();
@@ -429,16 +431,12 @@ public class TestAttributes extends TestFmwk {
 
         static Map<DtdType, NodeData> fullNodeData = new HashMap<DtdType, NodeData>();
         static {
-            int counter = 0;
             File common = new File(CLDRPaths.COMMON_DIRECTORY);
             XPathParts parts = new XPathParts();
             for (String dir : common.list()) {
                 Factory cldrFactory = Factory.make(CLDRPaths.COMMON_DIRECTORY + "/" + dir, ".*");
                 Set<String> locales = new TreeSet<String>(cldrFactory.getAvailable());
                 for (String locale : locales) {
-                    if ((counter++ % 10) == 0) {
-                        System.out.println(counter + ") Checking: " + dir + "," + locale);
-                    }
                     CLDRFile file = (CLDRFile) cldrFactory.make(locale, false);
                     NodeData nodeData = null;
                     for (String xpath : file) {
@@ -501,17 +499,16 @@ public class TestAttributes extends TestFmwk {
         }
     }
 
-    public void TestStructure() {
-        for (DtdType type : DtdType.values()) {
-            System.out.println();
-            System.out.println("*= distinguished, \u2021=ordered, \u2020=default");
-            Relation<String, String> toChildren = ElementAttributeInfo.getInstance(type).getElement2Children();
-            Relation<String, String> toAttributes = ElementAttributeInfo.getInstance(type).getElement2Attributes();
-            Map<R2<String, String>, R3<Set<String>, String, String>> toAttributeData = ElementAttributeInfo
-                .getInstance(type).getElementAttribute2Data();
-            checkStructure(type, type.toString(), 0, toChildren, toAttributes, toAttributeData);
-        }
-    }
+ //   public void TestStructure() {
+ //       for (DtdType type : DtdType.values()) {
+ //           logln("*= distinguished, \u2021=ordered, \u2020=default");
+ //           Relation<String, String> toChildren = ElementAttributeInfo.getInstance(type).getElement2Children();
+ //           Relation<String, String> toAttributes = ElementAttributeInfo.getInstance(type).getElement2Attributes();
+ //           Map<R2<String, String>, R3<Set<String>, String, String>> toAttributeData = ElementAttributeInfo
+ //               .getInstance(type).getElementAttribute2Data();
+ //           checkStructure(type, type.toString(), 0, toChildren, toAttributes, toAttributeData);
+ //       }
+ //   }
 
     private void checkStructure(DtdType dtdType, String element, int indent, Relation<String, String> toChildren,
         Relation<String, String> toAttributes, Map<R2<String, String>, R3<Set<String>, String, String>> toAttributeData) {
@@ -531,7 +528,7 @@ public class TestAttributes extends TestFmwk {
         if (CLDRFile.isOrdered(element, dtdType)) {
             elementName += "\u2021";
         }
-        System.out.println(Utility.repeat("\t", indent) + elementName
+        logln(Utility.repeat("\t", indent) + elementName
             + checkAttributeStructure(element, toAttributes.getAll(element), toAttributeData)
             + values);
         if (myChildren == null || skipChildren) return;

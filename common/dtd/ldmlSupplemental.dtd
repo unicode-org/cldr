@@ -107,7 +107,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT calendarData ( calendar* ) >
 
 <!ELEMENT calendar ( calendarSystem?, eras? ) >
-<!ATTLIST calendar type NMTOKENS #REQUIRED >
+<!ATTLIST calendar type NMTOKEN #REQUIRED >
 <!ATTLIST calendar territories NMTOKENS #IMPLIED > <!-- territories are deprecated.  use ordering attribute in calendarPreference element instead. -->
 <!ATTLIST calendar draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST calendar references CDATA #IMPLIED >
@@ -121,7 +121,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ATTLIST eras references CDATA #IMPLIED >
 
 <!ELEMENT era EMPTY >
-<!ATTLIST era type NMTOKENS #REQUIRED >
+<!ATTLIST era type NMTOKEN #REQUIRED >
 <!ATTLIST era start CDATA #IMPLIED >
 <!ATTLIST era end CDATA #IMPLIED >
 
@@ -244,7 +244,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 
 <!ELEMENT variable ( #PCDATA ) >
 <!ATTLIST variable type NMTOKEN #IMPLIED >
-<!ATTLIST variable id CDATA #IMPLIED >
+<!ATTLIST variable id CDATA #REQUIRED >
 <!ATTLIST variable draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
 <!ELEMENT attributeValues (  #PCDATA ) >

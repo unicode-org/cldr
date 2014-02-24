@@ -383,7 +383,7 @@ $Date$
 <!ATTLIST width references CDATA #IMPLIED >
 
 <!ELEMENT measurementSystem (special*) > <!-- deprecated, use measurementSystem in supplemental instead -->
-<!ATTLIST measurementSystem type ( metric | US | UK ) #IMPLIED > <!-- deprecated in favor of choice -->
+<!ATTLIST measurementSystem type ( metric | US | UK ) #REQUIRED > <!-- deprecated in favor of choice -->
 <!ATTLIST measurementSystem choice ( metric | US | UK ) #IMPLIED > <!-- really required, but needs to be optional to support type also -->
 <!ATTLIST measurementSystem alt NMTOKENS #IMPLIED >
 <!ATTLIST measurementSystem draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
@@ -574,7 +574,7 @@ $Date$
 <!ATTLIST minDays references CDATA #IMPLIED >
 
 <!ELEMENT firstDay (special*) > <!-- deprecated in ldml, use supplemental -->
-<!ATTLIST firstDay day NMTOKEN #REQUIRED >
+<!ATTLIST firstDay day ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED >
 <!ATTLIST firstDay alt NMTOKENS #IMPLIED >
 <!ATTLIST firstDay draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST firstDay references CDATA #IMPLIED >

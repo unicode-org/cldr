@@ -151,8 +151,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				&UE<<ü<<<Ü
 			]]></cr>
 		</collation>
-		<collation type="eor" references="European Standard EN13710:2011-06 - European Ordering Rules - Annex E.4 National Delta for German">
-		<!--  Principles from EN13710:2011-06 Annex E.4 are as follows:
+		<collation type="eor" draft="provisional" references="European Standard EN13710:2011-06 - European Ordering Rules - Annex E.4 National Delta for German">
+		<!--  This tailoring is based on EN13710:2011-06 Annex E.4.  However, it is marked as draft=provisional
+			primarily because it goes contrary to some of the stated goals of CLDR tailoring, specifically
+			to only tailor those characters that are necessary for the language in question.  However, this
+			tailoring is provided as a reference for those who require strict adherence to EN13710 for
+			German based on EN13710 Annex E.4.
+			Principles from EN13710:2011-06 Annex E.4 are as follows:
 			1). First level letters are A-Z only.
 			2). Thorn (U+00FE & U+00DE) is ordered as th, not as a first level letter.
 			3). Digits FOLLOW letters.
@@ -163,11 +168,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			    in combination with the base letters a, o, and u.  The sequence of the other
 			    diacritics is compatible with the EOR delta.
 		 -->
-        	<import source="root" type="eor"/>
-			<settings reorder="space Latn Grek Cyrl Geor Armn digit"/>
+        		<import source="root" type="eor"/>
+			<settings reorder="others digit"/>
 			<cr><![CDATA[
-				&t<<<þ/h
-				&T<<<Þ/H
+				&th<<<þ
+				&TH<<<Þ
 				&Y<<ƿ<<<Ƿ<<ʒ<<<Ʒ<<<ᶾ
 				&A<<ä<<<Ä<<ǟ<<<Ǟ<<á<<<Á<<à<<<À<<ă<<<Ă<<ắ<<<Ắ<<ằ<<<Ằ<<ẵ<<<Ẵ<<ẳ<<<Ẳ
 				  <<â<<<Â<<ấ<<<Ấ<<ầ<<<Ầ<<ẫ<<<Ẫ<<ẩ<<<Ẩ<<ǎ<<<Ǎ<<å<<<Å=Å<<ǻ<<<Ǻ

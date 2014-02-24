@@ -97,17 +97,17 @@ public class TestScriptMetadata extends TestFmwkPlus {
                 // separate those out.
                 temp.applyIntPropertyValue(UProperty.SCRIPT, i);
                 if (temp.size() != 0) { // is real
-                    errln("Missing data for " + UScript.getName(i) + "\t(" + UScript.getShortName(i));
+                    errln("Missing script metadata for " + UScript.getName(i) + "\t(" + UScript.getShortName(i));
                 } else { // is not real
                     missingScripts.add(UScript.getShortName(i));
                 }
             }
         }
         for (Entry<IdUsage, String> entry : map.keyValueSet()) {
-            logln(entry.getValue());
+            logln("Script metadata found for script:" + entry.getValue());
         }
-        if (!missingScripts.isEmpty() && !logKnownIssue("6647", "missing script metadata: " + missingScripts.toString())) {
-            errln("Also missing: " + missingScripts.toString());
+        if (!missingScripts.isEmpty()) {
+            logln("No script metadata for the following scripts (no Unicode characters defined): " + missingScripts.toString());
         }
     }
 
@@ -136,13 +136,18 @@ public class TestScriptMetadata extends TestFmwkPlus {
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
         CLDRFile english = cldrFactory.make("en", true);
         Set<String> bads = new TreeSet<String>();
-
+        UnicodeSet temp = new UnicodeSet();
         for (String s : getScriptsToShow(sc, english)) {
             if (ScriptMetadata.getInfo(s) == null) {
-                bads.add(s);
+                // There are many script codes that are not "real"; there are no Unicode characters for them.
+                // separate those out.
+                temp.applyIntPropertyValue(UProperty.SCRIPT, UScript.getCodeFromName(s));
+                if (temp.size() != 0) { // is real
+                    bads.add(s);
+                }
             }
         }
-        if (!bads.isEmpty() && !logKnownIssue("6647", "missing script metadata: " + bads.toString())) {
+        if (!bads.isEmpty()) {
             errln("No metadata for scripts: " + bads.toString());
         }
     }

@@ -152,13 +152,18 @@ public class TestAll extends TestGroup {
     }
     public static void main(String[] args) {
         long startTime=System.currentTimeMillis();
-        CLDRConfig.getInstance().setTestLog(new TestAll()).run(args,new TimeStampingPrintWriter(System.out));
+        int errCount = CLDRConfig.getInstance()
+                         .setTestLog(new TestAll())
+                         .run(args,new TimeStampingPrintWriter(System.out));
         long endTime=System.currentTimeMillis();
         DateDisplayBean dispBean=new DateDisplayBean(endTime-startTime);
         StringBuffer sb=new StringBuffer();
         sb.append("Tests took ");
         sb.append(dispBean.toString());
         System.out.println(sb.toString());
+        if(errCount != 0) {
+            System.exit(1);
+        }
     }
 
     public TestAll() {

@@ -15,17 +15,17 @@ public class TestFallbackIterator extends TestFmwk {
     public void TestSimpleFallbacks() {
         String[] tests = {
             // throw in some extreme cases with multiple variants
-            "zh-TW-foobar-variant, zh-Hant-TW-foobar-variant, zh-Hant-foobar-variant, zh-Hant-TW-foobar, zh-Hant-foobar, zh-TW-foobar, zh-Hant-TW, zh-Hant, zh-TW, zh",
-            "zh-HK-foobar-variant, zh-Hant-TW, zh-Hant, zh-TW, zh",
-            "zh-HK, zh-Hant-HK, zh-Hant, zh-TW, zh",
-            "zh-Hant-HK, zh-Hant, zh-TW, zh",
-            "zh-Hans-HK, zh-Hans, zh-CN, zh",
-            "zh-Hant-SG, zh-Hant, zh-TW, zh",
-            "zh-Hans-SG, zh-Hans, zh-CN, zh",
-            "zh-SG, zh-Hans-SG, zh-Hans, zh-CN, zh",
-            "zh-US, zh-Hans-US, zh-Hans, zh-CN, zh",
-            "zh-US-foobar, zh-Hans-US, zh-Hans, zh-CN, zh",
-            "zh-foobar-variant, zh-Hant-TW, zh-Hant, zh-TW, zh",
+            "zh-TW-foobar-variant, zh-Hant-TW-foobar-variant, zh-Hant-TW-foobar, zh-Hant-TW, zh-Hant, zh",
+            "zh-HK-foobar-variant, zh-Hant-HK-foobar-variant, zh-Hant-HK-foobar, zh-Hant-HK, zh-Hant, zh",
+            "zh-HK, zh-Hant-HK, zh-Hant, zh",
+            "zh-Hant-HK, zh-Hant, zh",
+            "zh-Hans-HK, zh-Hans, zh",
+            "zh-Hant-SG, zh-Hant, zh",
+            "zh-Hans-SG, zh-Hans, zh",
+            "zh-SG, zh-Hans-SG, zh-Hans, zh",
+            "zh-US, zh-Hans-US, zh-Hans, zh",
+            "zh-US-foobar, zh-Hans-US-foobar, zh-Hans-US, zh-Hans, zh",
+            "zh-foobar-variant, zh-foobar, zh",
             "en-Latn-US-foobar, en-Latn-US, en-Latn, en",
             "no-NO, nb-NO, nb, no",
             "nb-NO, no-NO, nb, no",
@@ -35,15 +35,15 @@ public class TestFallbackIterator extends TestFmwk {
             "sh-Cyrl-CS, sh-Cyrl-YU, sr-Cyrl-CS, sr-Cyrl-YU, sr-Cyrl, sr",
             "cmn, zh",
             "zh-cmn, zh",
-            "zh-YU, zh-CS, zh-Hans-CS, zh-Hans-YU, zh-Hans, zh-CN, zh",
-            "zh-Hant-YU, zh-Hant-CS, zh-Hant, zh-TW, zh",
+            "zh-YU, zh-CS, zh-Hans-CS, zh-Hans-YU, zh-Hans, zh",
+            "zh-Hant-YU, zh-Hant-CS, zh-Hant, zh",
             "zh-CN, zh-Hans-CN, zh-Hans, zh",
-            "zh-Hans, zh-CN, zh",
-            "zh-Hans-CN, zh-Hans, zh-CN, zh",
+            "zh-Hans, zh",
+            "zh-Hans-CN, zh-Hans, zh",
             "zh-TW, zh-Hant-TW, zh-Hant, zh",
-            "zh-Hant, zh-TW, zh",
-            "zh-Hant-TW, zh-Hant, zh-TW, zh",
-            "zh-Hant-TW-foobar, zh-Hant-TW, zh-Hant, zh-TW, zh",
+            "zh-Hant, zh",
+            "zh-Hant-TW, zh-Hant, zh",
+            "zh-Hant-TW-foobar, zh-Hant-TW, zh-Hant, zh",
         };
         for (String testString : tests) {
             String[] test = testString.split(",\\s*");
@@ -54,7 +54,7 @@ public class TestFallbackIterator extends TestFmwk {
                 items.add(it.next());
             }
             // expected is the whole list, since the first item is always the same
-            assertEquals("Fallback chain", Arrays.asList(test).toString(), items.toString());
+            assertEquals("Fallback chain for " +test[0], Arrays.asList(test).toString(), items.toString());
         }
     }
 }

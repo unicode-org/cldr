@@ -174,6 +174,7 @@ public class TestAll extends TestGroup {
                 "org.unicode.cldr.unittest.TestDTDAttributes",
                 "org.unicode.cldr.unittest.TestCanonicalIds",
                 "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
+                "org.unicode.cldr.unittest.TestFallbackIterator",
                 "org.unicode.cldr.unittest.TestLocalCurrency",
                 "org.unicode.cldr.unittest.TestLocale",
                 "org.unicode.cldr.unittest.TestBasic",

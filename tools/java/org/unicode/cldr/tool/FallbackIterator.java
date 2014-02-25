@@ -164,6 +164,7 @@ public class FallbackIterator implements Iterator<String> {
             // "zh-Hant;zh-TW;zh",
             // "zh-Hans;zh-CN;zh",
             "zh-TW(-.*)?;zh-Hant-TW$1",
+            "zh-CN(-.*)?;zh-Hans-CN$1",
             "zh-HK(-.*)?;zh-Hant-HK$1",
             "zh-MO(-.*)?;zh-Hant-MO$1",
             "zh(?!-[a-zA-Z]{4}(?:-.*)?)(-.*);zh-Hans$1", // insert Hans if no script
@@ -174,12 +175,12 @@ public class FallbackIterator implements Iterator<String> {
             "(.*)-[^-]*;$1",
 
             "decanonicalize",
-            "zh-Hant;zh-TW",
+            //"zh-Hant;zh-TW",
             // "zh-TW;zh-Hant",
-            "zh-Hant-TW(-.*)?;zh-Hant$1;zh-TW$1",
-            "zh-Hant-HK(-.*)?;zh-HK$1",
-            "zh-Hans;zh-CN",
-            "zh-CN;zh-Hans",
+            //"zh-Hant-TW(-.*)?;zh-Hant$1;zh-TW$1",
+            //"zh-Hant-HK(-.*)?;zh-HK$1",
+            //"zh-Hans;zh-CN",
+            //"zh-CN;zh-Hans",
             "nb(-.*)?;no$1",
 
         };

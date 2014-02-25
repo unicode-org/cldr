@@ -1,27 +1,110 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
+import java.util.EnumSet;
 import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.ExampleGenerator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.Iso639Data;
+import org.unicode.cldr.util.Iso639Data.Scope;
+import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SimpleXMLSource;
+import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.ULocale;
 
-public class TestLocale extends TestFmwk {
+public class TestLocale extends TestFmwkPlus {
     static TestInfo testInfo = TestInfo.getInstance();
 
     public static void main(String[] args) {
         new TestLocale().run(args);
+    }
+
+    static Set<Type> ALLOWED_LANGUAGE_TYPES = EnumSet.of(Type.Ancient, Type.Living, Type.Constructed, Type.Historical, Type.Extinct);
+    static Set<Scope> ALLOWED_LANGUAGE_SCOPES = EnumSet.of(
+        Scope.Individual, Scope.Macrolanguage); // , Special, Collection, PrivateUse, Unknown
+    static Set<String> ALLOWED_SCRIPTS = testInfo.getStandardCodes().getGoodAvailableCodes(CodeType.script);
+    static Set<String> ALLOWED_REGIONS = testInfo.getStandardCodes().getGoodAvailableCodes(CodeType.territory);
+
+    /**
+     * Tests the validity of the file names and of the English localeDisplayName types.
+     */
+    public void TestLocalePartsValidity() {
+        if (logKnownIssue("4558", "Hold off on this test until we get the data fixes.")) {
+            return;
+        }
+        LanguageTagParser ltp = new LanguageTagParser();
+        for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
+            String parent = file.getParent();
+            if (parent.contains("transform") || parent.contains("bcp47") || parent.contains("supplemental")) {
+                continue;
+            }
+            String localeName = file.getName();
+            localeName = localeName.substring(0,localeName.length()-4); // remove .xml
+            if (localeName.equals("root") || localeName.equals("_platform")) {
+                continue;
+            }
+            String fileString = file.toString();
+            checkLocale(fileString, localeName, ltp);
+        }
+        // now check English-resolved
+        CLDRFile english = testInfo.getEnglish();
+        for (String xpath : english) {
+            if (!xpath.startsWith("//ldml/localeDisplayNames/")) {
+                continue;
+            }
+            switch (CLDRFile.getNameType(xpath)) {
+            case 0: 
+                checkLocale("English xpath", CLDRFile.getCode(xpath), ltp);
+                break;
+            case 1:             
+                checkScript("English xpath", CLDRFile.getCode(xpath));
+                break;
+            case 2: 
+                checkRegion("English xpath", CLDRFile.getCode(xpath));
+                break;
+            }
+        }
+    }
+
+    public void checkLocale(String fileString, String localeName, LanguageTagParser ltp) {
+        ltp.set(localeName);
+        checkLanguage(fileString, ltp.getLanguage());
+        checkScript(fileString, ltp.getScript());
+        checkRegion(fileString, ltp.getRegion());
+    }
+
+    public void checkRegion(String file, String region) {
+        if (!region.isEmpty() && !region.equals("AN")) {
+            assertRelation("Region ok? " + region + " in " + file, true, ALLOWED_REGIONS, TestFmwkPlus.CONTAINS, region);
+        }
+    }
+
+    public void checkScript(String file, String script) {
+        if (!script.isEmpty()) {
+            assertRelation("Script ok? " + script + " in " + file, true, ALLOWED_SCRIPTS, TestFmwkPlus.CONTAINS, script);
+        }
+    }
+
+    public void checkLanguage(String file, String language) {
+        if (!language.equals("und") && !language.equals("root") && !language.equals("zxx") && !language.equals("mul")) {
+            Scope scope = Iso639Data.getScope(language);
+            if (assertRelation("Language ok? " + language + " in " + file, true, ALLOWED_LANGUAGE_SCOPES, TestFmwkPlus.CONTAINS, scope)) {
+                Type type = Iso639Data.getType(language);
+                assertRelation("Language ok? " + language + " in " + file, true, ALLOWED_LANGUAGE_TYPES, TestFmwkPlus.CONTAINS, type);
+            }
+        }
     }
 
     public void TestConsistency() {
@@ -99,11 +182,11 @@ public class TestLocale extends TestFmwk {
     public void TestBrackets() {
         String[][] tests = {
             { "language", "en", "Anglish (abc)", "en", "Anglish [abc]",
-                "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
+            "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
             { "script", "Latn", "Latine (def)", "en_Latn", "Anglish [abc] (Latine [def])",
-                "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
+            "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
             { "territory", "US", "U.S. (ghi)", "en_Latn_US", "Anglish [abc] (Latine [def], U.S. [ghi])",
-                "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
+            "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
             { null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null },
             { "variant", "foobar", "foo (jkl)", "en_foobar", "Anglish [abc] (foo [jkl])", null },
             { "key", "co", "sort (mno)", "en_foobar@co=FOO", "Anglish [abc] (foo [jkl], sort [mno]=FOO)", null },

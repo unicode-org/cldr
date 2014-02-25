@@ -172,6 +172,7 @@ public class TestAll extends TestGroup {
                 "org.unicode.cldr.unittest.TestCLDRUtils",
                 "org.unicode.cldr.unittest.TestCLDRFile",
                 "org.unicode.cldr.unittest.TestDTDAttributes",
+                "org.unicode.cldr.unittest.TestIdentifierInfo",
                 "org.unicode.cldr.unittest.TestCanonicalIds",
                 "org.unicode.cldr.unittest.TestDisplayAndInputProcessor",
                 "org.unicode.cldr.unittest.TestFallbackIterator",

@@ -38,7 +38,7 @@ public class TestIdentifierInfo extends TestFmwk {
             { "AᎪ", "MINIMALLY_RESTRICTIVE", "Cher Latn" },
             { "aА가一", "MINIMALLY_RESTRICTIVE", "Cyrl Hani Hang Latn" },
             { "AᎪА♥", "MINIMALLY_RESTRICTIVE", "Zyyy Cher Cyrl Latn" },
-            { "a1२", "UNRESTRICTIVE", "Zyyy Latn Deva", "", "[0०]" },
+            { "a1२", "UNRESTRICTIVE", "Zyyy Latn", "Deva Kthi", "[0०]" },
             { "a1٢", "UNRESTRICTIVE", "Zyyy Latn", "Arab Thaa", "[0٠]" },
         };
         IdentifierInfo actualInfo = new IdentifierInfo();
@@ -64,7 +64,7 @@ public class TestIdentifierInfo extends TestFmwk {
                 || !actualStatus.equals(expectedStatus)
                 || !actualInfo.getAlternates().equals(expectedMultiscripts)
                 || !actualInfo.getNumerics().equals(expectedNumerics)) {
-                errln("(" + item + ") " + Arrays.asList(testCase) + " !=\t" + actualInfo);
+                errln("(" + item + ") " + Arrays.asList(testCase) + " !=" + actualInfo);
             }
         }
     }

@@ -20,7 +20,6 @@ import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.ULocale;
 
@@ -41,9 +40,6 @@ public class TestLocale extends TestFmwkPlus {
      * Tests the validity of the file names and of the English localeDisplayName types.
      */
     public void TestLocalePartsValidity() {
-        if (logKnownIssue("4558", "Hold off on this test until we get the data fixes.")) {
-            return;
-        }
         LanguageTagParser ltp = new LanguageTagParser();
         for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
             String parent = file.getParent();

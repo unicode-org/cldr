@@ -200,7 +200,8 @@ public class TestAll extends TestGroup {
                 "org.unicode.cldr.unittest.TestLdml2ICU",
                 "org.unicode.cldr.unittest.LikelySubtagsTest",
                 "org.unicode.cldr.unittest.GenerateTransformTest",
-                "org.unicode.cldr.unittest.LanguageInfoTest"
+                "org.unicode.cldr.unittest.LanguageInfoTest",
+                "org.unicode.cldr.unittest.LanguageTest"
             },
             "All tests in CLDR");
     }

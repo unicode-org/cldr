@@ -318,6 +318,8 @@ public class GenerateTransform {
                 // "<>");
                 value = fixup.transliterate(value);
                 output.append(value).append(CldrUtility.LINE_SEPARATOR);
+            } else if (path.indexOf("/version") >= 0 || path.indexOf("/generation") >= 0) {
+                // Ignore identity info
             } else {
                 throw new IllegalArgumentException("Unknown element: " + path + "\t " + value);
             }

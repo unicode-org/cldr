@@ -56,8 +56,7 @@ public class LanguageInfoTest extends TestFmwk {
     public void testBasics() {
         final LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList
             .add(ULocale.FRENCH).add(ULocale.UK)
-            .add(ULocale.ENGLISH).build(),
-            data);
+            .add(ULocale.ENGLISH).build().toString());
         logln(matcher.toString());
 
         assertEquals("UK in FR, UK, EN", ULocale.UK, matcher.getBestMatch(ULocale.UK));
@@ -67,7 +66,10 @@ public class LanguageInfoTest extends TestFmwk {
     }
 
     public void testFallbacks() {
-        Builder priorities = LocalePriorityList.add("mul"); // the default
+        if (logKnownIssue("10705","Make ICU's localeMatcher use CLDR fallback data")){
+            return;
+        }
+        Builder priorities = LocalePriorityList.add(new ULocale("mul")); // the default
         for (ULocale supported : new LinkedHashSet<>(FALLBACKS.values())) {
             priorities.add(supported);
         }

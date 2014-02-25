@@ -153,7 +153,6 @@ public class TestTransforms extends TestFmwkPlus {
 
     public void Test1461() {
         register();
-        System.out.println("hi");
 
         String[][] tests = {
             { "transliterator=", "Katakana-Latin" },
@@ -254,14 +253,15 @@ public class TestTransforms extends TestFmwkPlus {
         Transliterator azLower = checkString("az", Casing.Lower, "ısii isıı", turkishSource, true);
         Transliterator azUpper = checkString("az", Casing.Upper, "ISİİ İSII", turkishSource, true);
 
-        String lituanianSource = "I Ï J J̈ Į Į̈ Ì Í Ĩ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ XI XÏ XJ XJ̈ XĮ XĮ̈";
-        Transliterator ltTitle = checkString("lt", Casing.Title,
-            "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lituanianSource, true);
-        Transliterator ltLower = checkString("lt", Casing.Lower,
-            "i i̇̈ j j̇̈ į į̇̈ i̇̀ i̇́ i̇̃ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ xi xi̇̈ xj xj̇̈ xį xį̇̈", lituanianSource, true);
-        Transliterator ltUpper = checkString("lt", Casing.Upper, "I Ï J J̈ Į Į̈ Ì Í Ĩ XÏ XJ̈ XĮ̈ XÌ XÍ XĨ XI XÏ XJ XJ̈ XĮ XĮ̈",
-            lituanianSource, true);
-
+        if (!logKnownIssue("cldrbug:7010", "Investigate/fix lt casing transforms")) {
+            String lithuanianSource = "I Ï J J̈ Į Į̈ Ì Í Ĩ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ XI XÏ XJ XJ̈ XĮ XĮ̈";
+            Transliterator ltTitle = checkString("lt", Casing.Title,
+                "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lithuanianSource, true);
+            Transliterator ltLower = checkString("lt", Casing.Lower,
+                "i i̇̈ j j̇̈ į į̇̈ i̇̀ i̇́ i̇̃ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ xi xi̇̈ xj xj̇̈ xį xį̇̈", lithuanianSource, true);
+            Transliterator ltUpper = checkString("lt", Casing.Upper, "I Ï J J̈ Į Į̈ Ì Í Ĩ XÏ XJ̈ XĮ̈ XÌ XÍ XĨ XI XÏ XJ XJ̈ XĮ XĮ̈",
+                lithuanianSource, true);
+        }
         String dutchSource = "IJKIJ ijkij IjkIj";
         Transliterator nlTitle = checkString("nl", Casing.Title, "IJkij IJkij IJkij", dutchSource, true);
         //        Transliterator nlLower = checkString("nl", Casing.Lower, "ısii isıı", turkishSource);
@@ -315,8 +315,5 @@ public class TestTransforms extends TestFmwkPlus {
 
     private void showTransliterator(Transliterator t) {
         org.unicode.cldr.test.TestTransforms.showTransliterator("", t, 999);
-    }
-
-    public void TestZZZ() {
     }
 }

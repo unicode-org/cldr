@@ -123,7 +123,7 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     public void TestCompleteness() {
-        if (logKnownIssue("6671", "problems with likely subtags")) {
+        if (logKnownIssue("Cldrbug:6671", "problems with likely subtags")) {
             return;
         }
         checkAdding("und_Bopo");
@@ -237,7 +237,7 @@ public class LikelySubtagsTest extends TestFmwk {
                         errln("Missing likely subtags for region: " + region + "\t" + english.getName("territory", region));
                     }
                 } else { // container
-                    if (logKnownIssue("ICU:9447", "Fix after warnings don't cause failure")) {
+                    if (logKnownIssue("9447", "Fix after warnings don't cause failure")) {
                         logln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t"
                             + english.getName("territory", region));
                     } else {

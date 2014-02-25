@@ -358,7 +358,7 @@ public class TestCoverageLevel extends TestFmwk {
         );
 
     public void TestEnglishModern() {
-        if (logKnownIssue("5712", "Finish enabling more comprehensive tests")) {
+        if (logKnownIssue("Cldrbug:5712", "Finish enabling more comprehensive tests")) {
             return;
         }
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();

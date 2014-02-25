@@ -180,7 +180,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void ignoreErrln(String s) {
-        if (!logKnownIssue("6722", "fix once data is complete for ar, etc.")) {
+        if (!logKnownIssue("Cldrbug:6722", "fix once data is complete for ar, etc.")) {
             errln(s);
         }
     }
@@ -1270,7 +1270,7 @@ public class TestSupplementalInfo extends TestFmwk {
     
     public void errOrLog(boolean causeError, String message) {
         if (causeError && 
-            (SHOW_KNOWN_ERROR || !logKnownIssue("6290", "Fix this once we have all ordinal messages."))) {
+            (SHOW_KNOWN_ERROR || !logKnownIssue("Cldrbug:6290", "Fix this once we have all ordinal messages."))) {
             errln(message);
         } else {
             logln(message);

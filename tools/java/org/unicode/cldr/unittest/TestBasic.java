@@ -872,7 +872,7 @@ public class TestBasic extends TestFmwkPlus {
                         && !e.equals(dtdData.ANY)
                         ) {
                         if (e.name.equals("usesMetazone")) {
-                            logKnownIssue("6768", "catch orphan usesMetazone");
+                            logKnownIssue("cldrbug:6768", "catch orphan usesMetazone");
                         } else {
                             errln(type + ": Element " + e + " not contained in descendents of ROOT.");
                         }
@@ -1127,7 +1127,7 @@ public class TestBasic extends TestFmwkPlus {
             xfr.read(myHandler.fileName, -1, true);
             logln(myHandler.fileName);
         } catch (Exception e) {
-            if (logKnownIssue("6743", "Bad xml files")) {
+            if (logKnownIssue("cldrbug:6743", "Bad xml files")) {
                 try {
                     if (fileToRead.getCanonicalPath().contains("/exemplars/")) {
                         return;

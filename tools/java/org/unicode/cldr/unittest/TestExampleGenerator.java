@@ -114,7 +114,7 @@ public class TestExampleGenerator extends TestFmwk {
             ));
 
     public void TestAllPaths() {
-        if (logKnownIssue("6342", "In our tests, make sure that either we have an example for every path, or that the path is on an exception list.")) {
+        if (logKnownIssue("Cldrbug:6342", "In our tests, make sure that either we have an example for every path, or that the path is on an exception list.")) {
             return;
         }
         ExampleGenerator exampleGenerator = getExampleGenerator("en");

@@ -31,18 +31,30 @@ public class CLDRConfig extends Properties {
      * Object to use for synchronization when interacting with Factory 
      */
     private static final Object CLDR_FACTORY_SYNC=new Object();
-    private static final Object SUPPLEMENTAL_DATA_SYNC=new Object();
-    private static final Object GET_COLLATOR_SYNC=new Object();
+   
     /**
-     * Object to use for Synchronization in getRoot
+     * Object used for synchronization when interacting with SupplementalData
+     */
+    private static final Object SUPPLEMENTAL_DATA_SYNC=new Object();
+   
+    /**
+     * Object used for synchronization in getCollator()
+     */
+    private static final Object GET_COLLATOR_SYNC=new Object();
+  
+    /**
+     * Object to use for Synchronization in getRoot()
      */
     private static final Object GET_ROOT_SYNC=new Object();
     
     /**
-     * Object to use for Synchronization in GetEnglish
+     * Object to use for synchronization in getEnglish()
      */
     private static final Object GET_ENGLISH_SYNC=new Object();
     
+    /**
+     * Object used for synchronization in getStandardCodes()
+     */
     private static final Object GET_STANDARD_CODES_SYNC=new Object();
     
     public enum Environment {

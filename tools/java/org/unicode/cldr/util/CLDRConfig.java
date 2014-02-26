@@ -73,11 +73,11 @@ public class CLDRConfig extends Properties {
                     System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - "
                         + INSTANCE.getClass().getName());
                 } catch (ClassNotFoundException e) {
-                   // TODO: think about logging a useful message
+                   // TODO: log a useful message
                 } catch (InstantiationException e) {
-                    // TODO: think about logging a useful message
+                    // TODO: log a useful message
                 } catch (IllegalAccessException e) {
-                    // TODO: think about logging a useful message
+                    // TODO: log a useful message
                 }
             }
             if (INSTANCE == null) {

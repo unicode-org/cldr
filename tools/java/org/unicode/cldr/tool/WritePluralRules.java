@@ -151,15 +151,15 @@ public class WritePluralRules {
     static Map<String, Integer> HACK_ORDER_PLURALS = new HashMap<String, Integer>();
     static Map<String, Integer> HACK_ORDER_ORDINALS = new HashMap<String, Integer>();
     static {
-        int i = 0;
-        for (String s : "ar he iw af asa ast az bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw ha haw hu jgo jmc ka kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn nah nb nd ne nn nnh no nr ny nyn om or os pap ps rm rof rwk saq seh sn so sq ss ssy st syr ta te teo tig tk tn tr ts uz ve vo vun wae xh xog ak bh guw ln mg nso pa ti wa ff fr hy kab lv iu kw naq se sma smi smj smn sms ga mo ro lt be cs sk pl sl mt mk cy lag shi br ksh tzm gv gd bm bo dz id in ig ii ja jbo jv jw kde kea km ko lkt lo ms my nqo sah ses sg th to vi wo yo zh fil tl ca de en et fi gl it nl sv sw ur yi ji pt da pt_PT am bn fa gu hi kn mr zu is si bs hr sh sr ru uk"
-            .split(" ")) {
-            HACK_ORDER_PLURALS.put(s, i++);
-        }
-        i = 0;
-        for (String s : "af fil hu sv en it ca mr gu hi bn zu".split(" ")) {
-            HACK_ORDER_ORDINALS.put(s, i++);
-        }
+//        int i = 0;
+//        for (String s : "ar he iw af asa ast az bem bez bg brx cgg chr ckb dv ee el eo es eu fo fur fy gsw ha haw hu jgo jmc ka kaj kcg kk kkj kl ks ksb ku ky lb lg mas mgo ml mn nah nb nd ne nn nnh no nr ny nyn om or os pap ps rm rof rwk saq seh sn so sq ss ssy st syr ta te teo tig tk tn tr ts uz ve vo vun wae xh xog ak bh guw ln mg nso pa ti wa ff fr hy kab lv iu kw naq se sma smi smj smn sms ga mo ro lt be cs sk pl sl mt mk cy lag shi br ksh tzm gv gd bm bo dz id in ig ii ja jbo jv jw kde kea km ko lkt lo ms my nqo sah ses sg th to vi wo yo zh fil tl ca de en et fi gl it nl sv sw ur yi ji pt da pt_PT am bn fa gu hi kn mr zu is si bs hr sh sr ru uk"
+//            .split(" ")) {
+//            HACK_ORDER_PLURALS.put(s, i++);
+//        }
+//        i = 0;
+//        for (String s : "af fil hu sv en it ca mr gu hi bn zu".split(" ")) {
+//            HACK_ORDER_ORDINALS.put(s, i++);
+//        }
     }
 
     static class PluralRulesComparator implements Comparator<PluralRules> {

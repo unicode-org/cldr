@@ -93,7 +93,6 @@ import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SpecialLocales.Type;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalData;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
@@ -5234,32 +5233,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
     }
 
-    /**
-     * @deprecated -better to use SupplementalDataInfo if possible
-     */
-    public SupplementalData supplemental = null;
-
     SupplementalDataInfo supplementalDataInfo = null;
-
-    /**
-     * @return
-     * @deprecated SupplementalData is deprecated.
-     */
-    public SupplementalData getSupplementalData() {
-        if (supplemental == null) {
-            getSupplementalDataInfo();
-        }
-        return supplemental;
-    }
 
     public synchronized final SupplementalDataInfo getSupplementalDataInfo() {
         if (supplementalDataInfo == null) {
             supplementalDataDir = getDiskFactory().getSupplementalDirectory();
             supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDataDir);
             supplementalDataInfo.setAsDefaultInstance();
-            supplemental = new SupplementalData(supplementalDataDir.getAbsolutePath());
-            // CldrUtility.DEFAULT_SUPPLEMENTAL_DIRECTORY =
-            // supplementalDataDir.getCanonicalPath();
         }
         return supplementalDataInfo;
     }

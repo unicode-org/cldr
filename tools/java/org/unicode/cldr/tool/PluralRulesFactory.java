@@ -226,8 +226,12 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         }
         for (String[] row : ORDINAL_SAMPLES) {
             ULocale locale = new ULocale(row[0]);
-            PluralInfo pluralInfo = TestInfo.getInstance().getSupplementalDataInfo().getPlurals(SupplementalDataInfo.PluralType.ordinal, row[0]);
-
+            PluralInfo pluralInfo = TestInfo.getInstance()
+                .getSupplementalDataInfo()
+                .getPlurals(SupplementalDataInfo.PluralType.ordinal, row[0]);
+            if (pluralInfo == null) {
+                throw new IllegalArgumentException("Can't get plural info for " + row[0]);
+            }
             int integerValue = Integer.parseInt(row[2]);
             Count count = pluralInfo.getCount(integerValue);
             
@@ -442,8 +446,10 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "ja", "other", "{0}日" },
         { "ka", "one", "თქვენი კალათა შეიცავს {0} X-ს. გსურთ მისი შეძენა?" }, // 
         { "ka", "other", "თქვენი კალათა შეიცავს {0} X-ს. გსურთ მათი შეძენა?" }, // 
-        { "kk", "one", "Кәрзеңкеде {0} X бар. Оны сатып алғыңыз келе ме?" }, // 
-        { "kk", "other", "Кәрзеңкеде {0} X бар. Оларды сатып алғыңыз келе ме?" }, // 
+        { "kk", "one", "Себетте {0} X бар. Оны сатып алғыңыз келе ме?" }, // 
+        { "kk", "other", "Себетте {0} X бар. Оларды сатып алғыңыз келе ме?" }, // 
+        {"kl", "one", "{0} Ulloq"},
+        {"kl", "other", "{0} Ullut"},
         { "km", "other", "{0} ថ្ងៃ" },
         { "kn", "one", "{0} ದಿನ" },
         { "kn", "other", "{0} ದಿನಗಳು" },

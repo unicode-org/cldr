@@ -335,6 +335,8 @@ public class TestSupplementalInfo extends TestFmwk {
             { "lv", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100 is not 11 or v is 2 and f mod 10 is 1 and f mod 100 is not 11 or v is not 2 and f mod 10 is 1
             { "br", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100 not in 11,71,91
             { "lt", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100 not in 11..19
+            {"fil", "one", "0,00,000,0000"},    // v = 0 and i = 1,2,3 or v = 0 and i % 10 != 4,6,9 or v != 0 and f % 10 != 4,6,9
+            {"tl", "one", "0,00,000,0000"}, // v = 0 and i = 1,2,3 or v = 0 and i % 10 != 4,6,9 or v != 0 and f % 10 != 4,6,9
         };
         // parse out the exceptions
         Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<PluralInfo, Relation<Count, Integer>>();

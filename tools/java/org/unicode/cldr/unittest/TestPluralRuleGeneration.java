@@ -29,6 +29,27 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         boolean d = rules.computeLimited("one", SampleType.DECIMAL);
         System.out.println(i + ", " + d);
     }
+    
+    public void TestFilipino() {
+        /*
+        <pluralRules locales="am bn fa gu hi kn mr zu">
+            <pluralRule count="one">i = 0 or n = 1 @integer 0, 1 @decimal 0.0~1.0, 0.00~0.04</pluralRule>
+            <pluralRule count="other"> @integer 2~17, 100, 1000, 10000, 100000, 1000000, … @decimal 1.1~2.6, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, …</pluralRule>
+        </pluralRules>
+         */
+        PluralRules rules = PluralRules.createRules("one:v = 0 and i = 1,2,3 or v = 0 and i % 10 != 4,6,9 or v != 0 and f % 10 != 4,6,9");
+        Object[][] test = {
+            {1, "one"},
+            {3, "one"},
+            {5, "one"},
+            {15, "one"},
+            {4.5, "one"},
+            {4, "other"},
+            {1.4, "other"},
+        };
+    }
+
+
 
     public void TestAtoms() {
         TestInfo testInfo = TestAll.TestInfo.getInstance();

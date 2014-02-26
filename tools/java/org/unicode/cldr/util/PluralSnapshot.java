@@ -78,7 +78,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
             this.integral = integral;
             SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
             Map<String, PluralSnapshot> rulesToSnapshot = new HashMap<String, PluralSnapshot>();
-            for (String locale : supplementalDataInfo.getPluralLocales()) {
+            for (String locale : supplementalDataInfo.getPluralLocales(pluralType)) {
                 PluralInfo plurals = supplementalDataInfo.getPlurals(pluralType, locale);
                 String rules = plurals.getRules();
                 PluralSnapshot snap = rulesToSnapshot.get(rules);

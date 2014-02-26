@@ -29,6 +29,12 @@ import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.PluralRules;
 import com.ibm.icu.text.PluralRules.FixedDecimal;
 
+/**
+ * Regenerate the plural files. Related classes are:
+ * ShowPlurals.printPlurals(english, null, pw); // for doing the charts
+ * PluralRulesFactory.getSamplePatterns(locale2); for the samples (to be moved into data)
+ * When you change the plural rules, be sure to look at the minimal pairs in PluralRulesFactory.
+ */
 public class GeneratedPluralSamples {
     private static final double VALUE_TO_CHECK = 7.1;
     static TestInfo testInfo = TestInfo.getInstance();

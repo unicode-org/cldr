@@ -10,10 +10,11 @@ For terms of use, see http://www.unicode.org/copyright.html
     <generation date="$Date$"/>
     <plurals type="ordinal">
         <!-- For a canonicalized list, use GeneratedPluralSamples -->
-        <pluralRules locales="af am ar bg cs da de el es et eu fa fi fy gl he hr id in is iw ja kn ko lt lv ml nb nl pl prg pt root ru sh sk sl sr sw ta te th tr uk ur zh">
+
+        <pluralRules locales="af am ar bg cs da de el es et eu fa fi fy gl he hr id in is iw ja km kn ko ky lt lv mk ml mn my nb nl pa pl prg pt ru sh si sk sl sr sw ta te th tr uk ur uz zh">
             <pluralRule count="other"> @integer 0~15, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
-        <pluralRules locales="fil fr mo ms ro tl vi">
+        <pluralRules locales="fil fr hy lo mo ms ro tl vi">
             <pluralRule count="one">n = 1 @integer 1</pluralRule>
             <pluralRule count="other"> @integer 0, 2~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
@@ -67,16 +68,9 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="many">n = 10..19,100..199,1000..1999 @integer 10~19, 100~105, 1000</pluralRule>
             <pluralRule count="other"> @integer 0, 20~34, 200, 2000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
-        <pluralRules locales="km ky mk mn my pa si uz">
-            <pluralRule count="other"> @integer 0~15, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
-        </pluralRules>
         <pluralRules locales="ne">
             <pluralRule count="one">n = 1..4 @integer 1~4</pluralRule>
             <pluralRule count="other"> @integer 0, 5~19, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
-        </pluralRules>
-        <pluralRules locales="hy lo">
-            <pluralRule count="one">n = 1 @integer 1</pluralRule>
-            <pluralRule count="other"> @integer 0, 2~16, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
         <pluralRules locales="kk">
             <pluralRule count="many">n % 10 = 6 or n % 10 = 9 or n % 10 = 0 and n != 0 @integer 6, 9, 10, 16, 19, 20, 26, 29, 30, 36, 39, 40, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
@@ -100,12 +94,12 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="other"> @integer 0~2, 5, 7, 8, 11, 12, 15, 17, 18, 20~22, 25, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
         <pluralRules locales="cy">
-            <pluralRule count="zero">n = 0,7,8,9 @integer 7~9</pluralRule>
+            <pluralRule count="zero">n = 0,7,8,9 @integer 0, 7~9</pluralRule>
             <pluralRule count="one">n = 1 @integer 1</pluralRule>
             <pluralRule count="two">n = 2 @integer 2</pluralRule>
             <pluralRule count="few">n = 3,4 @integer 3, 4</pluralRule>
             <pluralRule count="many">n = 5,6 @integer 5, 6</pluralRule>
-            <pluralRule count="other"> @integer 0, 10~24, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+            <pluralRule count="other"> @integer 10~25, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
     </plurals>
 </supplementalData>

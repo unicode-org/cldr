@@ -418,6 +418,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "gv", "one", "{0} thunnag/vuc/ooyl" },
         { "gv", "two", "{0} hunnag/vuc/ooyl" },
         { "gv", "few", "{0} thunnag/muc/ooyl" },
+        { "gv", "many", "{0} dy hunnagyn/dy vucyn/dy ooylyn" },
         { "gv", "other", "{0} thunnagyn/mucyn/ooylyn" },
         { "he", "many", "{0} שנה" },
         { "he", "one", "שנה" },

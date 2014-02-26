@@ -10,6 +10,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     <generation date="$Date$"/>
     <plurals type="cardinal">
         <!-- For a canonicalized list, use GeneratedPluralSamples -->
+
         <pluralRules locales="ar">
             <pluralRule count="zero">n = 0 @integer 0 @decimal 0.0, 0.00, 0.000, 0.0000</pluralRule>
             <pluralRule count="one">n = 1 @integer 1 @decimal 1.0, 1.00, 1.000, 1.0000</pluralRule>
@@ -144,7 +145,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="few">n = 3..10,13..19 @integer 3~10, 13~19 @decimal 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 13.0, 14.0, 15.0, 16.0, 17.0, 18.0, 19.0, 3.00</pluralRule>
             <pluralRule count="other"> @integer 0, 20~34, 100, 1000, 10000, 100000, 1000000, … @decimal 0.0~0.9, 1.1~1.6, 10.1, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, …</pluralRule>
         </pluralRules>
-        <pluralRules locales="bm bo dz id ig ii in ja jbo jv jw kde kea km ko lkt lo ms my nqo root sah ses sg th to vi wo yo zh">
+        <pluralRules locales="bm bo dz id ig ii in ja jbo jv jw kde kea km ko lkt lo ms my nqo sah ses sg th to vi wo yo zh">
             <pluralRule count="other"> @integer 0~15, 100, 1000, 10000, 100000, 1000000, … @decimal 0.0~1.5, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, …</pluralRule>
         </pluralRules>
         <pluralRules locales="fil tl">
@@ -184,13 +185,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="few">v = 0 and i % 10 = 2..4 and i % 100 != 12..14 or f % 10 = 2..4 and f % 100 != 12..14 @integer 2~4, 22~24, 32~34, 42~44, 52~54, 62, 102, 1002, … @decimal 0.2~0.4, 1.2~1.4, 2.2~2.4, 3.2~3.4, 4.2~4.4, 5.2, 10.2, 100.2, 1000.2, …</pluralRule>
             <pluralRule count="other"> @integer 0, 5~19, 100, 1000, 10000, 100000, 1000000, … @decimal 0.0, 0.5~1.0, 1.5~2.0, 2.5~2.7, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, …</pluralRule>
         </pluralRules>
-        <pluralRules locales="ru">
-            <pluralRule count="one">v = 0 and i % 10 = 1 and i % 100 != 11 @integer 1, 21, 31, 41, 51, 61, 71, 81, 101, 1001, …</pluralRule>
-            <pluralRule count="few">v = 0 and i % 10 = 2..4 and i % 100 != 12..14 @integer 2~4, 22~24, 32~34, 42~44, 52~54, 62, 102, 1002, …</pluralRule>
-            <pluralRule count="many">v = 0 and i % 10 = 0 or v = 0 and i % 10 = 5..9 or v = 0 and i % 100 = 11..14 @integer 0, 5~19, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
-            <pluralRule count="other">   @decimal 0.0~1.5, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, …</pluralRule>
-        </pluralRules>
-        <pluralRules locales="uk">
+        <pluralRules locales="ru uk">
             <pluralRule count="one">v = 0 and i % 10 = 1 and i % 100 != 11 @integer 1, 21, 31, 41, 51, 61, 71, 81, 101, 1001, …</pluralRule>
             <pluralRule count="few">v = 0 and i % 10 = 2..4 and i % 100 != 12..14 @integer 2~4, 22~24, 32~34, 42~44, 52~54, 62, 102, 1002, …</pluralRule>
             <pluralRule count="many">v = 0 and i % 10 = 0 or v = 0 and i % 10 = 5..9 or v = 0 and i % 100 = 11..14 @integer 0, 5~19, 100, 1000, 10000, 100000, 1000000, …</pluralRule>

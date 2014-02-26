@@ -2,11 +2,9 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.FilenameFilter;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
@@ -29,6 +27,24 @@ public class CLDRConfig extends Properties {
     private static CLDRConfig INSTANCE = null;
     public static final String SUBCLASS = CLDRConfig.class.getName() + "Impl";
 
+    /**
+     * Object to use for synchronization when interacting with Factory 
+     */
+    private static final Object CLDR_FACTORY_SYNC=new Object();
+    private static final Object SUPPLEMENTAL_DATA_SYNC=new Object();
+    private static final Object GET_COLLATOR_SYNC=new Object();
+    /**
+     * Object to use for Synchronization in getRoot
+     */
+    private static final Object GET_ROOT_SYNC=new Object();
+    
+    /**
+     * Object to use for Synchronization in GetEnglish
+     */
+    private static final Object GET_ENGLISH_SYNC=new Object();
+    
+    private static final Object GET_STANDARD_CODES_SYNC=new Object();
+    
     public enum Environment {
         LOCAL, // < == unknown.
         SMOKETEST, // staging area
@@ -44,10 +60,12 @@ public class CLDRConfig extends Properties {
                     INSTANCE = (CLDRConfig) (Class.forName(SUBCLASS).newInstance());
                     System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - "
                         + INSTANCE.getClass().getName());
-                } catch (Throwable t) {
-                    // t.printStackTrace();
-                    // System.err.println("Could not use "+SUBCLASS + " - " + t.toString() +
-                    // " - falling back to parent");
+                } catch (ClassNotFoundException e) {
+                   // TODO: think about logging a useful message
+                } catch (InstantiationException e) {
+                    // TODO: think about logging a useful message
+                } catch (IllegalAccessException e) {
+                    // TODO: think about logging a useful message
                 }
             }
             if (INSTANCE == null) {
@@ -100,9 +118,9 @@ public class CLDRConfig extends Properties {
             System.out.flush();
         }
     }
-
+   
     public SupplementalDataInfo getSupplementalDataInfo() {
-        synchronized (this) {
+        synchronized (SUPPLEMENTAL_DATA_SYNC) {
             if (supplementalDataInfo == null) {
                 supplementalDataInfo = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
             }
@@ -111,7 +129,7 @@ public class CLDRConfig extends Properties {
     }
 
     public StandardCodes getStandardCodes() {
-        synchronized (this) {
+        synchronized (GET_STANDARD_CODES_SYNC) {
             if (sc == null) {
                 sc = StandardCodes.make();
             }
@@ -119,8 +137,10 @@ public class CLDRConfig extends Properties {
         return sc;
     }
 
+   
+    
     public Factory getCldrFactory() {
-        synchronized (this) {
+        synchronized (CLDR_FACTORY_SYNC) {
             if (cldrFactory == null) {
                 cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             }
@@ -129,7 +149,7 @@ public class CLDRConfig extends Properties {
     }
 
     public Factory getSupplementalFactory() {
-        synchronized (this) {
+        synchronized (CLDR_FACTORY_SYNC) {
             if (supplementalFactory == null) {
                 supplementalFactory = Factory.make(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY, ".*");
             }
@@ -137,17 +157,19 @@ public class CLDRConfig extends Properties {
         return supplementalFactory;
     }
 
+   
     public CLDRFile getEnglish() {
-        synchronized (this) {
+        synchronized (GET_ENGLISH_SYNC) {
+            
             if (english == null) {
                 english = getCldrFactory().make("en", true);
             }
         }
         return english;
     }
-
+   
     public CLDRFile getRoot() {
-        synchronized (this) {
+        synchronized (GET_ROOT_SYNC) {
             if (root == null) {
                 root = getCldrFactory().make("root", true);
             }
@@ -155,8 +177,9 @@ public class CLDRConfig extends Properties {
         return root;
     }
 
+   
     public Collator getCollator() {
-        synchronized (this) {
+        synchronized (GET_COLLATOR_SYNC) {
             if (col == null) {
                 col = (RuleBasedCollator) Collator.getInstance();
                 col.setNumericCollation(true);

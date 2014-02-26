@@ -1,3 +1,8 @@
+<!--
+    see readme.txt
+-->
+
+
 <project name="CLDR" default="util" basedir=".">
     <target name="init">
         <tstamp/>
@@ -24,6 +29,7 @@
         <property name="env.JVM_EXTRA_OPTIONS" value=""/>
         <property name="jvm_options" value="${env.JVM_OPTIONS} ${env.JVM_EXTRA_OPTIONS}"/>
 
+        <property name="tooltmp.dir" value="tmp"/>
 
         <condition property="is.icu4j.classes.set" >
             <or>
@@ -190,7 +196,15 @@
         <jar jarfile="${jar.file}"
             compress="true"
             includes="org/unicode/cldr/draft/**/*,org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/json/**/*,org/unicode/cldr/icu/**/*"
-            basedir="${build.dir}"/>
+            basedir="${build.dir}">
+          <manifest>
+            <attribute name="Built-By" value="${user.name}"/>
+            <attribute name="Main-Class"
+                       value="org.unicode.cldr.tool.Main"/>
+            <attribute name="Class-Path"
+                       value="./libs/icu4j.jar ./libs/utilities.jar ./libs/xercesImpl.jar icu4j.jar utilities.jar xercesImpl.jar"/>
+          </manifest>
+        </jar>
     </target>
   <!-- Docs stuff -->
     <!-- use excludefiles below when we move to ant 1.5 -->
@@ -240,4 +254,61 @@
         </java>
    </target>
 
+
+   <target name="GenerateMaximalLocales" depends="init" description="Build likelySubtags.xml and supplementalMetadata.xml - see https://sites.google.com/site/cldr/development/updating-codes/likelysubtags">
+     <antcall target="_runTool">
+       <param name="runTool.class" value="org.unicode.cldr.tool.GenerateMaximalLocales"/>
+       <param name="runTool.arg" value=""/>
+       <param name="runTool.jvmarg" value="${jvm_options}"/>
+     </antcall>
+     <antcall target="_toolcopy"/>
+   </target>
+
+   <target name="AddPopulationData" depends="init" description="test population data - see https://sites.google.com/site/cldr/development/updating-codes/update-language-script-info ">
+     <antcall target="_runTool">
+       <param name="runTool.class" value="org.unicode.cldr.tool.AddPopulationData"/>
+       <param name="runTool.arg" value=""/>
+       <param name="runTool.jvmarg" value="${jvm_options} -DADD_POP=true"/>
+     </antcall>
+   </target>
+
+   <target name="ConvertLanguageData" depends="init" description="convert population data - updates supplementalData.xml -  see https://sites.google.com/site/cldr/development/updating-codes/update-language-script-info">
+     <antcall target="_runTool">
+       <param name="runTool.class" value="org.unicode.cldr.tool.ConvertLanguageData"/>
+       <param name="runTool.arg" value=""/>
+       <param name="runTool.jvmarg" value="${jvm_options} -DADD_POP=true"/>
+     </antcall>
+     <antcall target="_toolcopy"/>
+   </target>
+
+   <target name="GenerateAllCharts" depends="init" description="generate all html charts -  see http://cldr.unicode.org/development/cldr-big-red-switch/generating-charts">
+     <antcall target="_runTool">
+       <param name="runTool.class" value="org.unicode.cldr.tool.GenerateAllCharts"/>
+       <param name="runTool.arg" value=""/>
+       <param name="runTool.jvmarg" value="${jvm_options}"/>
+     </antcall>
+<!--     <antcall target="_toolcopy"/> -->
+   </target>
+
+   <target name="RunAllTools" depends="GenerateMaximalLocales,AddPopulationData,ConvertLanguageData"
+           description="Run several of the automated tools that are currently available to this build script.">
+   </target>
+
+   <target name="_runTool" depends="all">
+     <delete dir="${tooltmp.dir}"/>
+        <echo message="JVM argument:    ${runTool.jvmarg} -Djava.awt.headless=true"/>
+        <echo message="Tool class:      ${runTool.class}"/>
+        <echo message="Tool argument:   ${runTool.arg}"/>
+        <java classname="${runTool.class}" fork="yes" failonerror="true" classpathref="project.class.path">
+          <arg line="${runTool.arg}"/>
+          <jvmarg line="${runTool.jvmarg} -DCLDR_GEN_DIR=${tooltmp.dir} -DCLDR_DIR=${CLDR_DIR} -Djava.awt.headless=true"/>
+        </java>
+   </target>
+
+   <target name="_toolcopy">
+     <copy verbose="true" todir="${CLDR_DIR}/common/">
+       <fileset dir="${tooltmp.dir}"/>
+     </copy>
+     <delete dir="${tooltmp.dir}"/>
+   </target>
 </project>

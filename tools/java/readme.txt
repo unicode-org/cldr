@@ -1,9 +1,11 @@
 CLDR Tools ReadMe
 -----------------
 
-The tools folder will contain tools, tests, and utilities for dealing with CLDR data. 
-The code is very preliminary, so don't expect stability from the APIs (or documentation!), 
+The tools folder will contain tools, tests, and utilities for dealing with CLDR data.
+The code is very preliminary, so don't expect stability from the APIs (or documentation!),
 since we still have to work out how we want to do the architecture.
+
+See: http://cldr.unicode.org/development/new-cldr-developers
 
 The directory structure is:
 [./org/unicode/cldr..]
@@ -12,15 +14,15 @@ posix	Tools for generating POSIX-format data from CLDR
 test	Test tools for CLDR
 tool	Tools for manipulating CLDR files
 util	Utilities for handling CLDR files
-ooo 	OpenOffice.org tools for : 
+ooo 	OpenOffice.org tools for :
 			- Converting OpenOffice.org format to LDML
-			- CLDR data to OpenOffice.org format 
+			- CLDR data to OpenOffice.org format
 			- Comparing OpenOffice.org data
 web     ... is no longer here. Look at the 'cldr-apps' project parallel to this one.
 -----------------
 
-The tools may use ICU4J code for testing, but should use none of the data in ICU4J. 
-We'll be using the ICU4J test framework also (we looked at JUnit, but it would be 
+The tools may use ICU4J code for testing, but should use none of the data in ICU4J.
+We'll be using the ICU4J test framework also (we looked at JUnit, but it would be
 really clumsy for the ways in which we'd have to test).
 
 
@@ -34,38 +36,31 @@ http://ant.apache.org
 
 3. Build the tools with the following command:
 
-   ant clean all
-   
+   ant clean all jar
+
 For a list of build targets use the following command:
 
    ant -projecthelp
 
-4. Run the tool you are interested in, e.g:
+4. For running automated and console tests, you will want to create a 'build.properties' file.
 
-   java -cp <dir>/utilities.jar;<dir>/icu4j.jar;<dir>/cldr.jar com.ibm.icu.dev.tool.cldr.LDML2ICUConverter 
-   -s <dir>/cldr/common/main/ -d . -p <dir>/cldr/icu/main  zh_TW.xml 
+    If you checked out CLDR as one directory (i.e. there is a ../../common relative to this readme),
+    then create build.properties containing:
 
-   or
+              CLDR_DIR=../..
 
-   java -cp "<dir>/utilities.jar;<dir>/icu4j.jar;<dir>/cldr.jar;<dir>/xml-apis.jar; <dir>/xercesImpl.jar;<dir>/xalan.jar"
-   com.ibm.icu.dev.tool.cldr.LDML2ICUConverter  -s <dir>/cldr/common/main/ -d . -p <dir>/cldr/icu/main  zh_TW.xml 
+    Otherwise, if inside of an eclipse workspace (i.e. there is a ../common relative to this readme),
+    this may work for you:
 
-   Note: When you run any of the tools, you probably want to set up a DTD cache; that will speed
-   things up. To specify a local DTD cache directory, pass the location using system property
-   CLDR_DTD_CACHE. The cache directory should exist before running the tools. Please clear out the 
-   directory periodically so that the latest DTDs are downloaded to the machine.
+              CLDR_DIR=..
 
-   For example,
+5. Run the tool you are interested in, e.g:
 
-   java -DCLDR_DTD_CACHE=C:\cldrcashe\ -cp <cldr tool classpath> <cldr tool class>
+   java -jar cldr.jar com.ibm.icu.dev.tool.cldr.LDML2ICUConverter  -s <dir>/cldr/common/main/ -d . -p <dir>/cldr/icu/main  zh_TW.xml
 
-
-CLDR Tool Development on Eclipse IDE:
+CLDR Tool Development on Eclipse IDE
 
    Eclipse project files are available for CLDR Tools development.
    To set up the environment on Eclipse IDE, see the link:
-   http://sites.google.com/site/cldr/development/building-cldr-tools/cldr-java-tool-development-environment-on-eclipse-ide
 
-Survey Tool:
-
-  If you are building the survey tool, see org/unicode/cldr/web/data/readme.txt
+   http://cldr.unicode.org/development/new-cldr-developers

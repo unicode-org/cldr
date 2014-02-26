@@ -2,6 +2,7 @@ package org.unicode.cldr.tool;
 
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -572,7 +573,7 @@ public class GeneratedPluralSamples {
             if (fileFormat) {
                 out = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/plurals/",
                     (type == PluralType.cardinal ? "plurals.xml" : "ordinals.xml"));
-                out.println(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
+                out.print(WritePluralRules.formatPluralHeader(type, "GeneratedPluralSamples"));
             }
             System.out.println("\n");
             Set<String> locales = testInfo.getSupplementalDataInfo().getPluralLocales(type);
@@ -597,7 +598,7 @@ public class GeneratedPluralSamples {
             for (Entry<PluralInfo, Set<String>> entry : seenAlready.keyValuesSet()) {
                 sorted.add(entry);
             }
-
+            Set<String> oldKeywords = Collections.EMPTY_SET;
             Relation<GeneratedPluralSamples, PluralInfo> samplesToPlurals = Relation.of(new LinkedHashMap<GeneratedPluralSamples, Set<PluralInfo>>(), LinkedHashSet.class);
             for (Entry<PluralInfo, Set<String>> entry : sorted) {
                 PluralInfo pluralInfo = entry.getKey();
@@ -606,15 +607,21 @@ public class GeneratedPluralSamples {
                 CHECK_VALUE = equivalentLocales.contains("pt"); // for debugging
                 
                 String representative = equivalentLocales.iterator().next();
+                
+                PluralRules pluralRules = pluralInfo.getPluralRules();
+                Set<String> keywords = pluralRules.getKeywords();
 
                 if (fileFormat) {
+                    if (!keywords.equals(oldKeywords)) {
+                        out.println("\n        <!-- " + keywords.size() + ": " + CollectionUtilities.join(keywords, ",") + " -->\n");
+                        oldKeywords = keywords;
+                    }
                     out.println(WritePluralRules.formatPluralRuleHeader(equivalentLocales));
                     System.out.println(type + "\t" + equivalentLocales);
                 }
-                PluralRules pluralRules = pluralInfo.getPluralRules();
                 GeneratedPluralSamples samples = new GeneratedPluralSamples(pluralInfo, type);
                 samplesToPlurals.put(samples, pluralInfo);
-                for (String keyword : pluralRules.getKeywords()) {
+                for (String keyword : keywords) {
                     Count count = Count.valueOf(keyword);
                     String rule = pluralInfo.getRule(count);
                     if (rule != null) {

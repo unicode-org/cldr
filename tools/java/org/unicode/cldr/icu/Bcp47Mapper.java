@@ -81,7 +81,16 @@ public class Bcp47Mapper {
             // <type name="adalv" alias="Europe/Andorra" description="Andorra"/>
             // ...
             if (qName.equals("key")) {
-                String keyAlias = attr.getValue("alias").toLowerCase();
+                String keyAlias = null;
+                if(attr != null) {
+                    keyAlias = attr.getValue("alias");
+                }
+                if(keyAlias == null) {
+                    keyAlias = attr.getValue("name");
+                    System.err.println(Bcp47Mapper.class.getSimpleName()+ " Note: BCP47 key " + keyAlias
+                                       +" didn't have the optional alias= value, mapping " + keyAlias +"->"+keyAlias);
+                }
+                keyAlias = keyAlias.toLowerCase();
                 typeAliasPrefix = "/typeAlias/" + keyAlias + '/';
                 typeMapPrefix = "/typeMap/" + keyAlias + '/';
                 keyMap.put(attr.getValue("name"), keyAlias);

@@ -30,6 +30,7 @@
 //ldml/dates/calendars/calendar[@type="(%A)"]/eras/eraNames/alias[@source="locale"][@path="../eraAbbr"] ; /calendar/$1/eras/wide:alias ; values=/LOCALE/calendar/$1/eras/abbreviated
 
 //ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet)s/\2[@type="(%W)"]/alias[@source="locale"][@path="../\2[@type='(%A)']"]   ; /calendar/$1/$2s/$3:alias ; values=/LOCALE/calendar/$1/$2s/$4
+//ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet)s/\2[@type="(%W)"]/(cyclicName)Context[@type="(%W)"]/\4Width[@type="(%W)"]/alias[@source="locale"][@path="../../../\4Set[@type='(%A)']/\4Context[@type='(%A)']/\4Width[@type='(%A)']"]   ; /calendar/$1/$2s/$3/$5/$6:alias ; values=/LOCALE/calendar/$1/$2s/$7/$8/$9
 //ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet)s/\2[@type="(%W)"]/(cyclicName)Context[@type="(%W)"]/\4Width[@type="(%W)"]/alias[@source="locale"][@path="../\4Width[@type='(%A)']"]   ; /calendar/$1/$2s/$3/$5/$6:alias ; values=/LOCALE/calendar/$1/$2s/$3/$5/$7
 //ldml/dates/calendars/calendar[@type="(%A)"]/(cyclicNameSet|monthPattern|quarter)s/\2Context[@type="(%W)"]/\2Width[@type="(%W)"]/alias[@source="locale"][@path="../../\2Context[@type='(%W)']/\2Width[@type='(%A)']"]   ; /calendar/$1/$2s/$3/$4:alias ; values=/LOCALE/calendar/$1/$2s/$5/$6
 

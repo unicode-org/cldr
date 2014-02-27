@@ -64,6 +64,18 @@ public class LanguageInfoTest extends TestFmwk {
         assertEquals("FR in FR, UK, EN", ULocale.FRENCH, matcher.getBestMatch(ULocale.FRANCE));
         assertEquals("JA in FR, UK, EN", ULocale.FRENCH, matcher.getBestMatch(ULocale.JAPAN));
     }
+    
+    public void TestChinese() {
+        LocaleMatcher matcher = new LocaleMatcher("zh_CN, zh_TW, iw");
+        ULocale taiwanChinese = new ULocale("zh_TW");
+        ULocale chinaChinese = new ULocale("zh_CN");
+        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_TW"));
+        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant"));
+        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_TW"));
+        assertEquals("zh_CN, zh_TW, iw;", chinaChinese, matcher.getBestMatch("zh_Hans_CN"));
+        assertEquals("zh_CN, zh_TW, iw;", chinaChinese, matcher.getBestMatch("zh_CN"));
+        assertEquals("zh_CN, zh_TW, iw;", chinaChinese, matcher.getBestMatch("zh"));
+    }
 
     public void testFallbacks() {
         if (logKnownIssue("10705","Make ICU's localeMatcher use CLDR fallback data")){

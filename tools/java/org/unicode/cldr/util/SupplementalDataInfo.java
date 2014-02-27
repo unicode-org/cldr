@@ -3153,9 +3153,10 @@ public class SupplementalDataInfo {
                 pluralRuleBuilder.append(count).append(':').append(countToRule.get(count));
             }
             pluralRulesString = pluralRuleBuilder.toString();
-            pluralRules = PluralRules.createRules(pluralRulesString);
-            if (pluralRules == null) {
-                throw new IllegalArgumentException("Can't create plurals from <" + pluralRulesString + ">");
+            try {
+                pluralRules = PluralRules.parseDescription(pluralRulesString);
+            } catch (ParseException e) {
+                throw new IllegalArgumentException("Can't create plurals from <" + pluralRulesString + ">", e);
             }
             EnumSet<Count> _keywords = EnumSet.noneOf(Count.class);
             EnumSet<Count> _integerKeywords = EnumSet.noneOf(Count.class);

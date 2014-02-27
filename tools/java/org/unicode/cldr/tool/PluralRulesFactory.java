@@ -232,14 +232,20 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
             if (pluralInfo == null) {
                 throw new IllegalArgumentException("Can't get plural info for " + row[0]);
             }
-            int integerValue = Integer.parseInt(row[2]);
-            Count count = pluralInfo.getCount(integerValue);
+            Count count;
+            try {
+                int integerValue = Integer.parseInt(row[2]);
+                count = pluralInfo.getCount(integerValue);
+            } catch (NumberFormatException e) {
+                count = Count.valueOf(row[2]);
+            }
             
             String sample = row[1];
             SamplePatterns samplePatterns = temp.get(locale);
             if (samplePatterns == null) {
                 temp.put(locale, samplePatterns = new SamplePatterns());
             }
+            // { "af", "one", "{0} dag" },
             samplePatterns.put(locale, PluralType.ORDINAL, count, sample);
             //System.out.println("*Adding ordinal sample:\t" + locale + "\t" + count + "\t" + sample + "\t" + integerValue);
 //            try {
@@ -530,8 +536,8 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "th", "other", "{0} วัน" },
         { "tr", "one", "Sizin alış-veriş kartınızda {0} X var. Onu almak istiyor musunuz?" },
         { "tr", "other", "Sizin alış-veriş kartınızda {0} X var. Onları almak istiyor musunuz?" },
-        { "ug", "one", "{0}  كىتاب" },
-        { "ug", "other", "{0} بېلىق كۆردۈم ۋە ئۇنى يەۋەتتىم." },
+//        { "ug", "one", "{0}  كىتاب" },
+//        { "ug", "other", "{0} بېلىق كۆردۈم ۋە ئۇنى يەۋەتتىم." },
         { "uk", "few", "{0} дні" },
         { "uk", "many", "{0} днів" },
         { "uk", "one", "{0} день" },
@@ -652,6 +658,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         {"el","Στρίψτε στην {0}η γωνία δεξιά.","1"},
         {"es","Toma la {0}.ª a la derecha.","1"},
         {"et","Tehke {0}. parempööre.","1"},
+        {"eu","{0}. bira eskuinetara","other"},
         {"fa","در پیچ {0}ام سمت راست بپیچید.","1"},
         {"fi","Käänny {0}. risteyksestä oikealle.","1"},
         {"fil","Lumiko sa unang kanan.","1"},
@@ -672,23 +679,23 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         {"hr","Skrenite na {0}. križanju desno.","1"},
         {"hu","Az {0}. lehetőségnél forduljon jobbra.","1"},
         {"hu","A {0}. lehetőségnél forduljon jobbra.","2"},
-        {"hy","Թեքվեք աջ {0}-ին խաչմերուկով:","1"},
-        {"hy","Թեքվեք աջ {0}-րդ խաչմերուկով:","2"},
+        {"hy","Թեքվեք աջ 1-ին խաչմերուկից:","one"},
+        {"hy","Թեքվեք աջ 2-րդ խաչմերուկից:","other"},
         {"id","Ambil belokan kanan ke-{0}.","1"},
         {"is","Taktu {0}. beygju til hægri.","1"},
         {"it","Prendi la {0}° a destra.","1"},
         {"it","Prendi l'{0}° a destra.","8"},
         {"he","פנה ימינה בפנייה ה-{0}","1"},
         {"ja","{0} 番目の角を右折します。","1"},
-        {"ka","{0}-ე სახლი მარცხნივ.","21"},
-        {"ka","{0}-ლი სახლი მარცხნივ.","1"},
-        {"ka","გამოიყენეთ მე-{0} მარჯვენა შესახვევი.","2"},
-        {"kk","{0}-ші бұрылыстан оңға бұрылыңыз.","1"},
-        {"kk","{0}-шы бұрылыстан оңға бұрылыңыз.","6"},
+        {"ka","{0}-ლი","one"},
+        {"ka","მე-{0}","many"},
+        {"ka","{0}-ე","other"},
+        {"kk","{0}-ші бұрылыстан оңға бұрылыңыз.","one"},
+        {"kk","{0}-шы бұрылыстан оңға бұрылыңыз.","other"},
         {"km","បត់​ស្តាំ​លើក​ទី​ {0}","1"},
         {"kn","{0}ನೇ ಬಲತಿರುವನ್ನು ತೆಗೆದುಕೊಳ್ಳಿ.","1"},
         {"ko","{0}번째 길목에서 우회전하세요.","1"},
-        {"ky","{0}-бурулуштан оңго бурулуңуз.","1"},
+        {"ky","{0}-бурулуштан оңго бурулуңуз.","other"},
         {"lo","ລ້ຽວຂວາທຳອິດ.","1"},
         {"lo","ລ້ຽວຂວາທີ {0}.","23"},
         {"lt","{0}-ame posūkyje sukite į dešinę.","1"},
@@ -712,6 +719,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         {"ro","Faceţi virajul nr. {0} la dreapta.","1"},
         {"ro","Faceţi virajul al {0}-lea la dreapta.","2"},
         {"ru","Сверните направо на {0}-м перекрестке.","1"},
+        {"si","{0} වන හැරවුම දකුණට","other"},
         {"sk","Na {0}. križovatke odbočte doprava.","1"},
         {"sl","V {0}. križišču zavijte desno.","1"},
         {"sq","Merrni kthesën e {0}-rë në të djathtë.","1"},

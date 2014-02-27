@@ -240,7 +240,7 @@
 
     <target name="check" description="Run the standard CLDR test suite" depends="init">
         <antcall target="_runCheck">
-            <param name="runcheck.arg" value="-n -w"/>
+            <param name="runcheck.arg" value="-n -u"/>
             <param name="runcheck.jvmarg" value="${jvm_options}"/>
         </antcall>
     </target>

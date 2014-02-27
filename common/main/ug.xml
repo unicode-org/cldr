@@ -346,7 +346,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			<language type="nia" draft="contributed">نىئاسچە</language>
 			<language type="niu" draft="contributed">نيۇئېچە</language>
 			<language type="nl" draft="contributed">گوللاندىيەچە</language>
-			<language type="nl_BE" draft="contributed">گوللاندىيەچە</language>
 			<language type="nmg" draft="contributed">كۋاسىيوچە</language>
 			<language type="nn" draft="contributed">يېڭى نورۋېگچە</language>
 			<language type="nnh" draft="contributed">نگېمبۇنچە</language>
@@ -390,11 +389,9 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			<language type="qu" draft="contributed">كېچياچە</language>
 			<language type="raj" draft="contributed">راجاستانچە</language>
 			<language type="rap" draft="contributed">راپانىيچە</language>
-			<language type="rar" draft="contributed">ماۋرىچە</language>
 			<language type="rm" draft="contributed">رومانىشچە</language>
 			<language type="rn" draft="contributed">رۇندىچە</language>
 			<language type="ro" draft="contributed">رۇمىنىيەچە</language>
-			<language type="ro_MD" draft="contributed">رۇمىنىيەچە</language>
 			<language type="rof" draft="contributed">رومبوچە</language>
 			<language type="rom" draft="contributed">سىگانچە</language>
 			<language type="root" draft="contributed">غول تىل</language>
@@ -574,7 +571,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			<script type="Grek" draft="contributed">گىرېكچە</script>
 			<script type="Gujr" draft="contributed">گۇجاراتچە</script>
 			<script type="Guru" draft="contributed">گۇرمۇكىچە</script>
-			<script type="Hang" draft="contributed">كورېيەچە</script>
 			<script type="Hani" draft="contributed">خەنچە</script>
 			<script type="Hano" draft="contributed">خانۇنۇچە</script>
 			<script type="Hans" draft="contributed">ئاددىي خەنچە</script>
@@ -705,9 +701,9 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			<territory type="014" draft="contributed">شەرقىي ئافرىقا</territory>
 			<territory type="015" draft="contributed">شىمالىي ئافرىقا</territory>
 			<territory type="017" draft="contributed">ئوتتۇرا ئافرىقا</territory>
-			<territory type="018" draft="contributed">جەنۇبىي ئافرىقا</territory>
+			<territory type="018" draft="contributed">جەنۇبىي ئافرىقا رايونى</territory>
 			<territory type="019" draft="contributed">ئامېرىكا</territory>
-			<territory type="021" draft="contributed">شىمالىي ئامېرىكا</territory>
+			<territory type="021" draft="contributed">شىمالىي ئامېرىكا رايونى</territory>
 			<territory type="029" draft="contributed">كارىب دېڭىزى</territory>
 			<territory type="030" draft="contributed">شەرقىي ئاسىيا</territory>
 			<territory type="034" draft="contributed">جەنۇبىي ئاسىيا</territory>
@@ -2306,7 +2302,7 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<long>
 					<generic draft="contributed">كۇبا ۋاقتى</generic>
 					<standard draft="contributed">كۇبا ئۆلچەملىك ۋاقتى</standard>
-					<daylight draft="contributed">كۇبا ئۆلچەملىك ۋاقتى</daylight>
+					<daylight draft="contributed">كۇبا يازلىق ۋاقتى</daylight>
 				</long>
 			</metazone>
 			<metazone type="Davis">
@@ -3399,6 +3395,7 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<displayName draft="contributed">جۇڭگو يۈەنى</displayName>
 				<displayName count="one" draft="contributed">جۇڭگو يۈەنى</displayName>
 				<displayName count="other" draft="contributed">جۇڭگو يۈەنى</displayName>
+				<symbol>￥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName draft="contributed">كولومبىيە پېسوسى</displayName>
@@ -3724,7 +3721,6 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<displayName draft="contributed">ياپونىيە يېنى</displayName>
 				<displayName count="one" draft="contributed">ياپونىيە يېنى</displayName>
 				<displayName count="other" draft="contributed">ياپونىيە يېنى</displayName>
-				<symbol draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName draft="contributed">كېنىيە شىللىڭى</displayName>
@@ -4398,9 +4394,9 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<displayName count="other" draft="contributed">ياۋروپا مۇرەككەپ بىرلىكى</displayName>
 			</currency>
 			<currency type="XBB">
-				<displayName draft="contributed">ياۋروپا پۇل بىرلىكى</displayName>
-				<displayName count="one" draft="contributed">ياۋروپا پۇل بىرلىكى</displayName>
-				<displayName count="other" draft="contributed">ياۋروپا پۇل بىرلىكى</displayName>
+				<displayName draft="contributed">ياۋروپا پۇل بىرلىكى (XBB)</displayName>
+				<displayName count="one" draft="contributed">ياۋروپا پۇل بىرلىكى (XBB)</displayName>
+				<displayName count="other" draft="contributed">ياۋروپا پۇل بىرلىكى (XBB)</displayName>
 			</currency>
 			<currency type="XBC">
 				<displayName draft="contributed">ياۋروپا ھېسابات بىرلىكى (XBC)</displayName>
@@ -4438,9 +4434,9 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 				<displayName count="other" draft="contributed">فىرانسىيە UIC فرانكى</displayName>
 			</currency>
 			<currency type="XOF">
-				<displayName draft="contributed">ئافرىقا قىتئەسى پۇل-مۇئامىلە ئىتتىپاقى فرانكى</displayName>
-				<displayName count="one" draft="contributed">ئافرىقا قىتئەسى پۇل-مۇئامىلە ئىتتىپاقى فرانكى</displayName>
-				<displayName count="other" draft="contributed">ئافرىقا قىتئەسى پۇل-مۇئامىلە ئىتتىپاقى فرانكى</displayName>
+				<displayName draft="contributed">ئافرىقا قىتئەسى پۇل-مۇئامىلە ئىتتىپاقى فرانكى (BCEAO)</displayName>
+				<displayName count="one" draft="contributed">ئافرىقا قىتئەسى پۇل-مۇئامىلە ئىتتىپاقى فرانكى (BCEAO)</displayName>
+				<displayName count="other" draft="contributed">ئافرىقا قىتئەسى پۇل-مۇئامىلە ئىتتىپاقى فرانكى (BCEAO)</displayName>
 			</currency>
 			<currency type="XPD">
 				<displayName draft="contributed">پاللادىي</displayName>
@@ -4933,6 +4929,10 @@ Reviewed by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Sci
 			<unit type="angle-degree">
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
+			</unit>
+			<unit type="area-acre">
+				<unitPattern count="one">{0}ac</unitPattern>
+				<unitPattern count="other">{0}ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
 				<unitPattern count="one" draft="contributed">{0}گېكتار</unitPattern>

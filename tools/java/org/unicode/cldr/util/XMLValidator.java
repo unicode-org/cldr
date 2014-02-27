@@ -29,13 +29,14 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
+@CLDRTool(alias="validate",description="Check XML files for validity",url="http://cldr.unicode.org/development/adding-locales")
 public class XMLValidator {
     public static boolean quiet = false;
     public static boolean parseonly = false;
 
     public static void main(String[] args) throws IOException {
         if (args.length == 0) {
-            System.out.println("No files specified. Validation failed");
+            System.out.println("No files specified. Validation failed. Use --help for help.");
             return;
         }
         for (int i = 0; i < args.length; i++) {

@@ -36,6 +36,7 @@ import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -80,6 +81,9 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  * 
  */
+@CLDRTool(alias="check",
+          description="Run CheckCLDR against CLDR data",
+          url = "http://cldr.unicode.org/development/building-cldr-tools/running-consolecheckcldr")
 public class ConsoleCheckCLDR {
     public static boolean showStackTrace = false;
     public static boolean errorsOnly = false;

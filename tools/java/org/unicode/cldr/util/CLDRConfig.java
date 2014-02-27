@@ -23,40 +23,40 @@ public class CLDRConfig extends Properties {
      *
      */
     private static final long serialVersionUID = -2605254975303398336L;
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
     private static CLDRConfig INSTANCE = null;
     public static final String SUBCLASS = CLDRConfig.class.getName() + "Impl";
 
     /**
-     * Object to use for synchronization when interacting with Factory 
+     * Object to use for synchronization when interacting with Factory
      */
     private static final Object CLDR_FACTORY_SYNC=new Object();
-   
+
     /**
      * Object used for synchronization when interacting with SupplementalData
      */
     private static final Object SUPPLEMENTAL_DATA_SYNC=new Object();
-   
+
     /**
      * Object used for synchronization in getCollator()
      */
     private static final Object GET_COLLATOR_SYNC=new Object();
-  
+
     /**
      * Object to use for Synchronization in getRoot()
      */
     private static final Object GET_ROOT_SYNC=new Object();
-    
+
     /**
      * Object to use for synchronization in getEnglish()
      */
     private static final Object GET_ENGLISH_SYNC=new Object();
-    
+
     /**
      * Object used for synchronization in getStandardCodes()
      */
     private static final Object GET_STANDARD_CODES_SYNC=new Object();
-    
+
     public enum Environment {
         LOCAL, // < == unknown.
         SMOKETEST, // staging area
@@ -67,23 +67,39 @@ public class CLDRConfig extends Properties {
     public static CLDRConfig getInstance() {
         synchronized (CLDRConfig.class) {
             if (INSTANCE == null) {
-                try {
-                    // System.err.println("Attempting to new up a " + SUBCLASS);
-                    INSTANCE = (CLDRConfig) (Class.forName(SUBCLASS).newInstance());
-                    System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - "
-                        + INSTANCE.getClass().getName());
-                } catch (ClassNotFoundException e) {
-                   // TODO: log a useful message
-                } catch (InstantiationException e) {
-                    // TODO: log a useful message
-                } catch (IllegalAccessException e) {
-                    // TODO: log a useful message
+                final String env = System.getProperty("CLDR_ENVIRONMENT");
+                if (env != null && env.equals(Environment.UNITTEST.name())) {
+                    if ( DEBUG ) {
+                        System.err.println("-DCLDR_ENVIRONMENT=" + env + " - not loading " + SUBCLASS);
+                    } else {
+                        try {
+                            // System.err.println("Attempting to new up a " + SUBCLASS);
+                            INSTANCE = (CLDRConfig) (Class.forName(SUBCLASS).newInstance());
+
+                            if(INSTANCE != null) {
+                                System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - "
+                                                   + INSTANCE.getClass().getName());
+                            } else {
+                                if( DEBUG ) {
+                                    // Probably occurred because ( config.getEnvironment() == Environment.UNITTEST )
+                                    // see CLDRConfigImpl
+                            System.err.println("Note: CLDRConfig Subclass " +
+                                               SUBCLASS + ".newInstance() returned NULL " +
+                                               "( this is OK if we aren't inside the SurveyTool's web server )");
+                                }
+                            }
+                        } catch (ClassNotFoundException e) {
+                            // Expected - when not under cldr-apps, this class doesn't exist.
+                        } catch (InstantiationException | IllegalAccessException e) {
+                            // TODO: log a useful message
+                        }
+                    }
                 }
             }
             if (INSTANCE == null) {
                 INSTANCE = new CLDRConfig();
                 CldrUtility.checkValidDirectory(INSTANCE.getProperty("CLDR_DIR"),
-                    "You have to set -DCLDR_DIR=<validdirectory>");
+                                                "You have to set -DCLDR_DIR=<validdirectory>");
             }
         }
         return INSTANCE;
@@ -130,7 +146,7 @@ public class CLDRConfig extends Properties {
             System.out.flush();
         }
     }
-   
+
     public SupplementalDataInfo getSupplementalDataInfo() {
         synchronized (SUPPLEMENTAL_DATA_SYNC) {
             if (supplementalDataInfo == null) {
@@ -149,8 +165,8 @@ public class CLDRConfig extends Properties {
         return sc;
     }
 
-   
-    
+
+
     public Factory getCldrFactory() {
         synchronized (CLDR_FACTORY_SYNC) {
             if (cldrFactory == null) {
@@ -169,17 +185,17 @@ public class CLDRConfig extends Properties {
         return supplementalFactory;
     }
 
-   
+
     public CLDRFile getEnglish() {
         synchronized (GET_ENGLISH_SYNC) {
-            
+
             if (english == null) {
                 english = getCldrFactory().make("en", true);
             }
         }
         return english;
     }
-   
+
     public CLDRFile getRoot() {
         synchronized (GET_ROOT_SYNC) {
             if (root == null) {
@@ -189,7 +205,7 @@ public class CLDRConfig extends Properties {
         return root;
     }
 
-   
+
     public Collator getCollator() {
         synchronized (GET_COLLATOR_SYNC) {
             if (col == null) {

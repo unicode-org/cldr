@@ -530,6 +530,8 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "th", "other", "{0} วัน" },
         { "tr", "one", "Sizin alış-veriş kartınızda {0} X var. Onu almak istiyor musunuz?" },
         { "tr", "other", "Sizin alış-veriş kartınızda {0} X var. Onları almak istiyor musunuz?" },
+        { "ug", "one", "{0}  كىتاب" },
+        { "ug", "other", "{0} بېلىق كۆردۈم ۋە ئۇنى يەۋەتتىم." },
         { "uk", "few", "{0} дні" },
         { "uk", "many", "{0} днів" },
         { "uk", "one", "{0} день" },

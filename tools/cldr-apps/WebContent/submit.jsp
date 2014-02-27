@@ -193,7 +193,7 @@
 			all.size());
 	try {
 		for (String x : all) {
-			progress.update(r++);
+			//progress.update(r++);
 			
 			String full = cf.getFullXPath(x);
 			String alt = XPathTable.getAlt(full, xppMine);

@@ -69,30 +69,30 @@ public class CLDRConfig extends Properties {
             if (INSTANCE == null) {
                 final String env = System.getProperty("CLDR_ENVIRONMENT");
                 if (env != null && env.equals(Environment.UNITTEST.name())) {
-                    if ( DEBUG ) {
+                    if ( DEBUG  ) {
                         System.err.println("-DCLDR_ENVIRONMENT=" + env + " - not loading " + SUBCLASS);
-                    } else {
-                        try {
-                            // System.err.println("Attempting to new up a " + SUBCLASS);
-                            INSTANCE = (CLDRConfig) (Class.forName(SUBCLASS).newInstance());
+                    }
+                } else {
+                    try {
+                        // System.err.println("Attempting to new up a " + SUBCLASS);
+                        INSTANCE = (CLDRConfig) (Class.forName(SUBCLASS).newInstance());
 
-                            if(INSTANCE != null) {
-                                System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - "
-                                                   + INSTANCE.getClass().getName());
-                            } else {
-                                if( DEBUG ) {
-                                    // Probably occurred because ( config.getEnvironment() == Environment.UNITTEST )
-                                    // see CLDRConfigImpl
-                            System.err.println("Note: CLDRConfig Subclass " +
-                                               SUBCLASS + ".newInstance() returned NULL " +
-                                               "( this is OK if we aren't inside the SurveyTool's web server )");
-                                }
+                        if(INSTANCE != null) {
+                            System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - "
+                                + INSTANCE.getClass().getName());
+                        } else {
+                            if( DEBUG ) {
+                                // Probably occurred because ( config.getEnvironment() == Environment.UNITTEST )
+                                // see CLDRConfigImpl
+                                System.err.println("Note: CLDRConfig Subclass " +
+                                    SUBCLASS + ".newInstance() returned NULL " +
+                                    "( this is OK if we aren't inside the SurveyTool's web server )");
                             }
-                        } catch (ClassNotFoundException e) {
-                            // Expected - when not under cldr-apps, this class doesn't exist.
-                        } catch (InstantiationException | IllegalAccessException e) {
-                            // TODO: log a useful message
                         }
+                    } catch (ClassNotFoundException e) {
+                        // Expected - when not under cldr-apps, this class doesn't exist.
+                    } catch (InstantiationException | IllegalAccessException e) {
+                        // TODO: log a useful message
                     }
                 }
             }

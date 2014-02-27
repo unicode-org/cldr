@@ -38,8 +38,8 @@ public class GeneratePluralRanges {
 
     public static void main(String[] args) {
         GeneratePluralRanges me = new GeneratePluralRanges();
-        //me.reformatPluralRanges();
-        me.generateSamples();
+        me.reformatPluralRanges();
+        //me.generateSamples();
     }
 
     private void generateSamples() {

@@ -10,7 +10,7 @@ Originally prepared by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur C
 	<version number="$Revision$"/>
 	<generation date="$Date$"/>
     <transforms>
-        <transform source="Uyghur" target="Latin" direction="both" draft="provisional">
+        <transform source="ug" target="Latin" direction="both" draft="provisional">
             <comment># Follows the Latin-Script Uyghur alphabet 2001-todate rules defined at ←http://ukij.org/html/ , https://en.wikipedia.org/wiki/Uyghur_Latin_alphabet, 			         			http://www.uyghurdictionary.org/excerpts/An%20Introduction%20to%20LSU.pdf
 				</comment>
 				<comment># Rules are predicated on running NFD first, and NFC afterwards</comment>
@@ -57,14 +57,15 @@ Originally prepared by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur C
 				<tRule>ڭھ ← NG [’'] { H ;</tRule>
 
 				<comment># special treatment for apostrof</comment>
-				<tRule>سھ → s'h ;</tRule>
-				<tRule>نغ → n'gh ;</tRule>
-				<tRule>نگ → n'g ;</tRule>
-				<tRule>ڭھ → ng'h ;</tRule>
-				<tRule>سھ → S'H ;</tRule>
-				<tRule>نغ → N'GH ;</tRule>
-				<tRule>نگ → N'G ;</tRule>
-				<tRule>ڭھ → NG'H ;</tRule>
+				<tRule>سھ → s''h ;</tRule>
+				<tRule>نغ → n''gh ;</tRule>
+				<tRule>نگ → n''g ;</tRule>
+				<tRule>ڭھ → ng''h ;</tRule>
+                                <!-- following 4 were duplicates. -->
+				<!-- <tRule>سھ → S''H ;</tRule> -->
+				<!-- <tRule>نغ → N''GH ;</tRule> -->
+				<!-- <tRule>نگ → N''G ;</tRule> -->
+				<!-- <tRule>ڭھ → NG''H ;</tRule> -->
 
 				<comment># disambiguation for ژ by covering the most common words with ژ</comment>
 				<tRule>دىرىژور ← dirijor ;</tRule>
@@ -85,12 +86,12 @@ Originally prepared by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur C
 				<tRule>تىراژ ← tiraj ;</tRule>
 				<tRule>ستاژ ← staj ;</tRule>
 				<tRule>پروژېكتور ← projéktor ;</tRule>
-				<tRule>گاژ-گۇژ ← gaj-guj ;</tRule>
-				<tRule>پاژ-پۇژ ← paj-puj ;</tRule>
-				<tRule>ۋاژ-ۋۇژ ← waj-wuj ;</tRule>
-				<tRule>پىژ-پىژ ← pij-pij ;</tRule>
-				<tRule>گىژ-گىژ ← gij-gij ;</tRule>
-				<tRule>مىژ-مىژ ← mij-mij ;</tRule>
+				<tRule>'گاژ-گۇژ' ← 'gaj-guj' ;</tRule>
+				<tRule>'پاژ-پۇژ' ← 'paj-puj' ;</tRule>
+				<tRule>'ۋاژ-ۋۇژ' ← 'waj-wuj' ;</tRule>
+				<tRule>'پىژ-پىژ' ← 'pij-pij' ;</tRule>
+				<tRule>'گىژ-گىژ' ← 'gij-gij' ;</tRule>
+				<tRule>'مىژ-مىژ' ← 'mij-mij' ;</tRule>
 				<tRule>ژاندارم ← jandarm ;</tRule>
 
 				<tRule>دىرىژور ← DIRIJOR ;</tRule>
@@ -111,12 +112,12 @@ Originally prepared by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur C
 				<tRule>تىراژ ← TIRAJ ;</tRule>
 				<tRule>ستاژ ← STAJ ;</tRule>
 				<tRule>پروژېكتور ← PROJÉKTOR ;</tRule>
-				<tRule>گاژ-گۇژ ← GAJ-GUJ ;</tRule>
-				<tRule>پاژ-پۇژ ← PAJ-PUJ ;</tRule>
-				<tRule>ۋاژ-ۋۇژ ← WAJ-WUJ ;</tRule>
-				<tRule>پىژ-پىژ ← PIJ-PIJ ;</tRule>
-				<tRule>گىژ-گىژ ← GIJ-GIJ ;</tRule>
-				<tRule>مىژ-مىژ ← MIJ-MIJ ;</tRule>
+				<tRule>'گاژ-گۇژ' ← 'GAJ-GUJ' ;</tRule>
+				<tRule>'پاژ-پۇژ' ← 'PAJ-PUJ' ;</tRule>
+				<tRule>'ۋاژ-ۋۇژ' ← 'WAJ-WUJ' ;</tRule>
+				<tRule>'پىژ-پىژ' ← 'PIJ-PIJ' ;</tRule>
+				<tRule>'گىژ-گىژ' ← 'GIJ-GIJ' ;</tRule>
+				<tRule>'مىژ-مىژ' ← 'MIJ-MIJ' ;</tRule>
 				<tRule>ژاندارم ← JANDARM ;</tRule>
 
 				<comment># letters</comment>

@@ -342,10 +342,7 @@ public class GenerateEnums {
             macro_name.put(codeName, line);
         }
         codes.close();
-
-        String values = supplementalMetadata.getStringValue(
-            "//supplementalData/metadata/validity/variable[@id=\"$territory\"]",
-            true).trim();
+        String values = supplementalDataInfo.getValidityInfo().get("$territory").get1().trim();
         String[] validTerritories = values.split("\\s+");
         for (int i = 0; i < validTerritories.length; ++i) {
             if (corrigendum.contains(validTerritories[i])) {

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!-- Copyright © 1991-2013 Unicode, Inc. -->
+<!-- CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/) -->
+<!-- For terms of use, see http://www.unicode.org/copyright.html -->
+<!-- Originally prepared by Waris Abdukerim Janbaz <oyghan@gmail.com> of the Uyghur Computer Science Association http://ukij.org -->
+<!-- Uyghur letter names in comments are written in Latin-Script Uyghur alphabet -->
+<ldml>
+  <identity>
+    <version number="$Revision$"/>
+    <generation date="$Date$"/>
+    <language type="ug"/>
+  </identity>
+  <collations>
+    <collation type="standard" draft="unconfirmed">
+      <rules>
+	<reset>ا</reset>
+	<!-- E is sorted after A, position 2-->
+	<p>ە</p>
+	<!-- B is sorted after E, position 3-->
+	<p>ب</p>
+	<reset>ك</reset>
+	<!-- G is sorted after K, position 19-->
+	<p>گ</p>
+	<!-- NG is sorted after G, position 20-->
+	<p>ڭ</p>
+	<!-- L is sorted after NG, position 21-->
+	<p>ل</p>
+	<reset>ھ</reset>
+	<!-- O is sorted after H, position 25-->
+	<p>و</p>
+	<!-- U is sorted after O, position 26-->
+	<p>ۇ</p>
+	<!-- Ö is sorted after U, position 27-->
+	<p>ۆ</p>
+	<!-- Ü is sorted after Ö, position 28-->
+	<p>ۈ</p>
+	<!-- W is sorted after Ü, position 29-->
+	<p>ۋ</p>
+	<!-- é is sorted after W, position 30-->
+	<p>ې</p>
+	<!-- I is sorted after é, position 31-->
+	<p>ى</p>
+	<!-- Y is sorted after I, position 32-->
+	<p>ي</p>
+      </rules>
+    </collation>
+  </collations>
+</ldml>

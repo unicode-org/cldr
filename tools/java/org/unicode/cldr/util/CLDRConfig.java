@@ -23,7 +23,7 @@ public class CLDRConfig extends Properties {
      *
      */
     private static final long serialVersionUID = -2605254975303398336L;
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
     private static CLDRConfig INSTANCE = null;
     public static final String SUBCLASS = CLDRConfig.class.getName() + "Impl";
 

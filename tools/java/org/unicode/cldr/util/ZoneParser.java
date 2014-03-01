@@ -594,14 +594,14 @@ public class ZoneParser {
 
     private static Map<String, String> FIX_UNSTABLE_TZIDS;
 
-    private static Set<String> SKIP_LINKS = new HashSet<String>(Arrays.asList(new String[] {
-        "Navajo", "America/Shiprock" }));
+    //private static Set<String> SKIP_LINKS = new HashSet<String>(Arrays.asList(new String[] {
+    //    "Navajo", "America/Shiprock" }));
 
     private static Set<String> PREFERRED_BASES = new HashSet<String>(Arrays.asList(new String[] { "Europe/London" }));
 
     private static String[][] ADD_ZONE_ALIASES_DATA = { { "Etc/UTC", "Etc/GMT" },
         { "Etc/UCT", "Etc/GMT" },
-        { "Navajo", "America/Shiprock" },
+        // { "Navajo", "America/Shiprock" },
         // extras added in 2006g
         { "SystemV/AST4ADT", "America/Halifax" },
         { "SystemV/EST5EDT", "America/New_York" },
@@ -623,7 +623,8 @@ public class ZoneParser {
         { "SystemV/PST8", "Etc/GMT+8" },
         { "SystemV/YST9", "Etc/GMT+9" },
         { "SystemV/HST10", "Etc/GMT+10" },
-        { "HST", "Etc/GMT+10" }, };
+        { "HST", "Etc/GMT+10" },
+};
 
     /*
      * ## Zone SystemV/AST4 -4:00 - AST
@@ -639,7 +640,10 @@ public class ZoneParser {
         "Africa/Timbuktu",
         "America/Argentina/ComodRivadavia",
         "Europe/Belfast",
-        "Pacific/Yap" };
+        "Pacific/Yap",
+        "Antarctica/South_Pole",
+        "America/Shiprock",
+        "America/Montreal"};
     static {
         // The format is <new name>, <old name>
         String[][] FIX_UNSTABLE_TZID_DATA = new String[][] {
@@ -822,10 +826,10 @@ public class ZoneParser {
                     } else if (items[0].equals("Link")) {
                         String old = items[2];
                         String newOne = items[1];
-                        if (!SKIP_LINKS.contains(old) && !SKIP_LINKS.contains(newOne)) {
+                        //if (!SKIP_LINKS.contains(old) && !SKIP_LINKS.contains(newOne)) {
                             // System.out.println("Original " + old + "\t=>\t" + newOne);
                             linkedItems.add(old, newOne);
-                        }
+                        //}
                         /*
                          * String conflict = (String) linkold_new.get(old); if (conflict !=
                          * null) { System.out.println("Conflict with old: " + old + " => " +

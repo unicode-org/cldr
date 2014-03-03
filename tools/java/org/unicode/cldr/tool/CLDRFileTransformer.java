@@ -155,7 +155,7 @@ public class CLDRFileTransformer {
 
     public static void main(String[] args) throws Exception {
         Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
-        CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CLDRPaths.COMMON_DIRECTORY + "transforms/");
+        CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CLDRPaths.COMMON_DIRECTORY + "transforms" + File.separator);
         for (LocaleTransform localeTransform : LocaleTransform.values()) {
             CLDRFile output = transformer.transform(localeTransform);
             String outputDir = CLDRPaths.GEN_DIRECTORY + "main" + File.separator;

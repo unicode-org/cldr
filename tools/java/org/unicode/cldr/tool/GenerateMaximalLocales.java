@@ -611,13 +611,12 @@ public class GenerateMaximalLocales {
     private static final List<String> KEEP_TARGETS = Arrays.asList( "und_Arab_PK" , "und_Latn_ET" );
     // Many of the overrides below can be removed once the language/pop/country data is updated.
     private static final Map<String, String> LANGUAGE_OVERRIDES = CldrUtility.asMap(new String[][] {
-        { "dyo", "dyo_Latn_SN" },
         { "eo", "eo_Latn_001" },
         { "eo_Latn", "eo_Latn_001" },
         { "es", "es_Latn_ES" },
         { "es_Latn", "es_Latn_ES" },
-        { "ia", "ia_Latn_FR" },
-        { "ia_Latn", "ia_Latn_FR" },
+        { "hsb", "hsb_Latn_DE" },
+        { "hsb_Latn", "hsb_Latn_DE" },
         { "jgo", "jgo_Latn_CM" },
         { "ku_Arab", "ku_Arab_IQ" },
         { "man", "man_Latn_GM" },
@@ -632,6 +631,8 @@ public class GenerateMaximalLocales {
         { "nus", "nus_Latn_SD" },
         { "pap", "pap_Latn_AW" },
         { "pap_Latn", "pap_Latn_AW" },
+        { "prg", "prg_Latn_001" },
+        { "prg_Latn", "prg_Latn_001" },
         { "sbp", "sbp_Latn_TZ" },
         { "shi", "shi_Tfng_MA" },
         { "shi_Tfng", "shi_Tfng_MA" },
@@ -735,7 +736,6 @@ public class GenerateMaximalLocales {
             { "bss", "Latn", "CM" },
             { "gez", "Ethi", "ET" },
             { "ken", "Latn", "CM" },
-            { "syr", "Syrc", "SY" },
             { "und", "Arab", "PK" },
             { "wa", "Latn", "BE" }
         }) {

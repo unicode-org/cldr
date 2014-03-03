@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -15,6 +15,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Abkhazian; ?; ? } => { Abkhazian; Cyrillic; Georgia }-->
 		<likelySubtag from="ace" to="ace_Latn_ID"/>
 		<!--{ Achinese; ?; ? } => { Achinese; Latin; Indonesia }-->
+		<likelySubtag from="ach" to="ach_Latn_UG"/>
+		<!--{ Acoli; ?; ? } => { Acoli; Latin; Uganda }-->
 		<likelySubtag from="ady" to="ady_Cyrl_RU"/>
 		<!--{ Adyghe; ?; ? } => { Adyghe; Cyrillic; Russia }-->
 		<likelySubtag from="af" to="af_Latn_ZA"/>
@@ -160,7 +162,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<likelySubtag from="csb" to="csb_Latn_PL"/>
 		<!--{ Kashubian; ?; ? } => { Kashubian; Latin; Poland }-->
 		<likelySubtag from="cu" to="cu_Cyrl_RU"/>
-		<!--{ Church Slavonic; ?; ? } => { Church Slavonic; Cyrillic; Russia }-->
+		<!--{ Church Slavic; ?; ? } => { Church Slavic; Cyrillic; Russia }-->
 		<likelySubtag from="cv" to="cv_Cyrl_RU"/>
 		<!--{ Chuvash; ?; ? } => { Chuvash; Cyrillic; Russia }-->
 		<likelySubtag from="cy" to="cy_Latn_GB"/>
@@ -297,7 +299,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Hadothi; ?; ? } => { Hadothi; Devanagari; India }-->
 		<likelySubtag from="hr" to="hr_Latn_HR"/>
 		<!--{ Croatian; ?; ? } => { Croatian; Latin; Croatia }-->
-                <likelySubtag from="hsb" to="hsb_Latn_DE"/>
+		<likelySubtag from="hsb" to="hsb_Latn_DE"/>
+		<!--{ Upper Sorbian; ?; ? } => { Upper Sorbian; Latin; Germany }-->
 		<likelySubtag from="ht" to="ht_Latn_HT"/>
 		<!--{ Haitian; ?; ? } => { Haitian; Latin; Haiti }-->
 		<likelySubtag from="hu" to="hu_Latn_HU"/>
@@ -382,6 +385,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Kikuyu; ?; ? } => { Kikuyu; Latin; Kenya }-->
 		<likelySubtag from="kj" to="kj_Latn_NA"/>
 		<!--{ Kuanyama; ?; ? } => { Kuanyama; Latin; Namibia }-->
+		<likelySubtag from="kjg" to="kjg_Laoo_LA"/>
+		<!--{ Khmu; ?; ? } => { Khmu; Lao; Laos }-->
 		<likelySubtag from="kk" to="kk_Cyrl_KZ"/>
 		<!--{ Kazakh; ?; ? } => { Kazakh; Cyrillic; Kazakhstan }-->
 		<likelySubtag from="kk_AF" to="kk_Arab_AF"/>
@@ -490,6 +495,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Lao; ?; ? } => { Lao; Lao; Laos }-->
 		<likelySubtag from="lol" to="lol_Latn_CD"/>
 		<!--{ Mongo; ?; ? } => { Mongo; Latin; Congo - Kinshasa }-->
+		<likelySubtag from="loz" to="loz_Latn_ZM"/>
+		<!--{ Lozi; ?; ? } => { Lozi; Latin; Zambia }-->
 		<likelySubtag from="lt" to="lt_Latn_LT"/>
 		<!--{ Lithuanian; ?; ? } => { Lithuanian; Latin; Lithuania }-->
 		<likelySubtag from="lu" to="lu_Latn_CD"/>
@@ -538,6 +545,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Makhuwa-Meetto; ?; ? } => { Makhuwa-Meetto; Latin; Mozambique }-->
 		<likelySubtag from="mgo" to="mgo_Latn_CM"/>
 		<!--{ Meta'; ?; ? } => { Meta'; Latin; Cameroon }-->
+		<likelySubtag from="mgy" to="mgy_Latn_TZ"/>
+		<!--{ Mbunga; ?; ? } => { Mbunga; Latin; Tanzania }-->
 		<likelySubtag from="mh" to="mh_Latn_MH"/>
 		<!--{ Marshallese; ?; ? } => { Marshallese; Latin; Marshall Islands }-->
 		<likelySubtag from="mi" to="mi_Latn_NZ"/>
@@ -558,8 +567,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Manipuri; ?; ? } => { Manipuri; Bengali; India }-->
 		<likelySubtag from="mnw" to="mnw_Mymr_MM"/>
 		<!--{ Mon; ?; ? } => { Mon; Myanmar; Myanmar (Burma) }-->
-		<likelySubtag from="mo" to="mo_Latn_RO"/>
-		<!--{ Moldavian; ?; ? } => { Moldavian; Latin; Romania }-->
 		<likelySubtag from="mos" to="mos_Latn_BF"/>
 		<!--{ Mossi; ?; ? } => { Mossi; Latin; Burkina Faso }-->
 		<likelySubtag from="mr" to="mr_Deva_IN"/>
@@ -648,12 +655,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Papiamento; ?; ? } => { Papiamento; Latin; Aruba }-->
 		<likelySubtag from="pau" to="pau_Latn_PW"/>
 		<!--{ Palauan; ?; ? } => { Palauan; Latin; Palau }-->
+		<likelySubtag from="pcm" to="pcm_Latn_NG"/>
+		<!--{ Nigerian Pidgin; ?; ? } => { Nigerian Pidgin; Latin; Nigeria }-->
 		<likelySubtag from="pl" to="pl_Latn_PL"/>
 		<!--{ Polish; ?; ? } => { Polish; Latin; Poland }-->
 		<likelySubtag from="pon" to="pon_Latn_FM"/>
 		<!--{ Pohnpeian; ?; ? } => { Pohnpeian; Latin; Micronesia }-->
 		<likelySubtag from="prd" to="prd_Arab_IR"/>
 		<!--{ Parsi-Dari; ?; ? } => { Parsi-Dari; Arabic; Iran }-->
+		<likelySubtag from="prg" to="prg_Latn_001"/>
+		<!--{ Prussian; ?; ? } => { Prussian; Latin; World }-->
 		<likelySubtag from="ps" to="ps_Arab_AF"/>
 		<!--{ Pashto; ?; ? } => { Pashto; Arabic; Afghanistan }-->
 		<likelySubtag from="pt" to="pt_Latn_BR"/>
@@ -672,6 +683,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Rangpuri; ?; ? } => { Rangpuri; Bengali; Bangladesh }-->
 		<likelySubtag from="rm" to="rm_Latn_CH"/>
 		<!--{ Romansh; ?; ? } => { Romansh; Latin; Switzerland }-->
+		<likelySubtag from="rmt" to="rmt_Arab_IR"/>
+		<!--{ Domari; ?; ? } => { Domari; Arabic; Iran }-->
 		<likelySubtag from="rn" to="rn_Latn_BI"/>
 		<!--{ Rundi; ?; ? } => { Rundi; Latin; Burundi }-->
 		<likelySubtag from="ro" to="ro_Latn_RO"/>
@@ -964,6 +977,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Chinese; ?; Vietnam } => { Chinese; Traditional; Vietnam }-->
 		<likelySubtag from="zh_Hant" to="zh_Hant_TW"/>
 		<!--{ Chinese; Traditional; ? } => { Chinese; Traditional; Taiwan }-->
+		<likelySubtag from="zmi" to="zmi_Latn_MY"/>
+		<!--{ Negeri Sembilan Malay; ?; ? } => { Negeri Sembilan Malay; Latin; Malaysia }-->
 		<likelySubtag from="zu" to="zu_Latn_ZA"/>
 		<!--{ Zulu; ?; ? } => { Zulu; Latin; South Africa }-->
 		<likelySubtag from="zza" to="zza_Arab_TR"/>
@@ -1401,7 +1416,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<likelySubtag from="und_Bopo" to="zh_Bopo_TW"/>
 		<!--{ ?; Bopomofo; ? } => { Chinese; Bopomofo; Taiwan }-->
 		<likelySubtag from="und_Brah" to="pra_Brah_IN"/>
-		<!--{ ?; Brahmi; ? } => { Prakrit Language; Brahmi; India }-->
+		<!--{ ?; Brahmi; ? } => { Prakrit languages; Brahmi; India }-->
 		<likelySubtag from="und_Brai" to="und_Brai_FR"/>
 		<!--{ ?; Braille; ? } => { ?; Braille; France }-->
 		<likelySubtag from="und_Bugi" to="bug_Bugi_ID"/>
@@ -1503,7 +1518,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<likelySubtag from="und_Kana" to="ja_Kana_JP"/>
 		<!--{ ?; Katakana; ? } => { Japanese; Katakana; Japan }-->
 		<likelySubtag from="und_Khar" to="pra_Khar_PK"/>
-		<!--{ ?; Kharoshthi; ? } => { Prakrit Language; Kharoshthi; Pakistan }-->
+		<!--{ ?; Kharoshthi; ? } => { Prakrit languages; Kharoshthi; Pakistan }-->
 		<likelySubtag from="und_Khmr" to="km_Khmr_KH"/>
 		<!--{ ?; Khmer; ? } => { Khmer; Khmer; Cambodia }-->
 		<likelySubtag from="und_Knda" to="kn_Knda_IN"/>

@@ -866,6 +866,8 @@ public class SupplementalDataInfo {
         new TreeMap<Row.R2<String, String>, Set<String>>(), LinkedHashSet.class);
     public Map<Row.R2<String, String>, String> bcp47Descriptions = new TreeMap<Row.R2<String, String>, String>();
     public Map<Row.R2<String, String>, String> bcp47Since = new TreeMap<Row.R2<String, String>, String>();
+    public Map<Row.R2<String, String>, String> bcp47Preferred = new TreeMap<Row.R2<String, String>, String>();
+    public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<Row.R2<String, String>, String>();
 
     public Map<String, Row.R2<String, String>> validityInfo = new HashMap<String, Row.R2<String, String>>();
 
@@ -1360,6 +1362,8 @@ public class SupplementalDataInfo {
                 String subtypeAlias = parts.getAttributeValue(3, "alias");
                 String subtypeDescription = parts.getAttributeValue(3, "description");
                 String subtypeSince = parts.getAttributeValue(3, "since");
+                String subtypePreferred = parts.getAttributeValue(3, "preferred");
+                String subtypeDeprecated = parts.getAttributeValue(3, "deprecated");
                 bcp47Key2Subtypes.put(key, subtype);
                 if (subtypeAlias != null) {
                     bcp47Aliases.putAll((R2<String, String>) Row.of(key, subtype).freeze(),
@@ -1371,6 +1375,12 @@ public class SupplementalDataInfo {
                 }
                 if (subtypeDescription != null) {
                     bcp47Since.put((R2<String, String>) Row.of(key, subtype).freeze(), subtypeSince);
+                }
+                if (subtypePreferred != null) {
+                    bcp47Preferred.put((R2<String, String>) Row.of(key, subtype).freeze(), subtypePreferred);
+                }
+                if (subtypeDeprecated != null) {
+                    bcp47Deprecated.put((R2<String, String>) Row.of(key, subtype).freeze(), subtypeDeprecated);
                 }
             }
 
@@ -3667,6 +3677,20 @@ public class SupplementalDataInfo {
      */
     public Map<R2<String, String>, String> getBcp47Since() {
         return bcp47Since;
+    }
+
+    /**
+     * Return mapping from &lt;key,subtype> to preferred
+     */
+    public Map<R2<String, String>, String> getBcp47Preferred() {
+        return bcp47Preferred;
+    }
+
+    /**
+     * Return mapping from &lt;key,subtype> to deprecated
+     */
+    public Map<R2<String, String>, String> getBcp47Deprecated() {
+        return bcp47Deprecated;
     }
 
     static Set<String> MainTimeZones;;

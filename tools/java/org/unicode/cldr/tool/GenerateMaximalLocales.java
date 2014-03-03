@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -607,15 +608,15 @@ public class GenerateMaximalLocales {
     private static final double MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE = 100000;
     private static final double UNOFFICIAL_SCALE_DOWN = 0.2;
 
+    private static final List<String> KEEP_TARGETS = Arrays.asList( "und_Arab_PK" , "und_Latn_ET" );
     // Many of the overrides below can be removed once the language/pop/country data is updated.
     private static final Map<String, String> LANGUAGE_OVERRIDES = CldrUtility.asMap(new String[][] {
-        { "dyo", "dyo_Latn_SN" },
         { "eo", "eo_Latn_001" },
         { "eo_Latn", "eo_Latn_001" },
         { "es", "es_Latn_ES" },
         { "es_Latn", "es_Latn_ES" },
-        { "ia", "ia_Latn_FR" },
-        { "ia_Latn", "ia_Latn_FR" },
+        { "hsb", "hsb_Latn_DE" },
+        { "hsb_Latn", "hsb_Latn_DE" },
         { "jgo", "jgo_Latn_CM" },
         { "ku_Arab", "ku_Arab_IQ" },
         { "man", "man_Latn_GM" },
@@ -630,6 +631,8 @@ public class GenerateMaximalLocales {
         { "nus", "nus_Latn_SD" },
         { "pap", "pap_Latn_AW" },
         { "pap_Latn", "pap_Latn_AW" },
+        { "prg", "prg_Latn_001" },
+        { "prg_Latn", "prg_Latn_001" },
         { "sbp", "sbp_Latn_TZ" },
         { "shi", "shi_Tfng_MA" },
         { "shi_Tfng", "shi_Tfng_MA" },
@@ -647,6 +650,7 @@ public class GenerateMaximalLocales {
         { "und_Hani", "zh_Hani_CN" },
         { "und_Hani_CN", "zh_Hani_CN" },
         { "und_Latn", "en_Latn_US" },
+        { "und_Latn_ET", "en_Latn_ET" },
         { "und_Latn_NE", "ha_Latn_NE" },
         { "und_Latn_PH", "fil_Latn_PH" },
         { "und_ML", "bm_Latn_ML" },
@@ -732,7 +736,6 @@ public class GenerateMaximalLocales {
             { "bss", "Latn", "CM" },
             { "gez", "Ethi", "ET" },
             { "ken", "Latn", "CM" },
-            { "syr", "Syrc", "SY" },
             { "und", "Arab", "PK" },
             { "wa", "Latn", "BE" }
         }) {
@@ -1426,7 +1429,7 @@ public class GenerateMaximalLocales {
                     String newTarget = fluffup.get(newLocale);
                     if (newTarget != null) {
                         newTarget = targetParser.set(newTarget).setRegion(region).toString();
-                        if (target.equals(newTarget)) {
+                        if (target.equals(newTarget) && !KEEP_TARGETS.contains(locale)) {
                             removals.add(locale);
                             if (SHOW_ADD)
                                 System.out.println("Removing:\t" + locale + "\t=>\t" + target + "\t\tRedundant with "
@@ -1451,7 +1454,7 @@ public class GenerateMaximalLocales {
                     String newTarget = fluffup.get(newLocale);
                     if (newTarget != null) {
                         newTarget = targetParser.set(newTarget).setScript(script).toString();
-                        if (target.equals(newTarget)) {
+                        if (target.equals(newTarget) && !KEEP_TARGETS.contains(locale)) {
                             removals.add(locale);
                             if (SHOW_ADD)
                                 System.out.println("Removing:\t" + locale + "\t=>\t" + target + "\t\tRedundant with "

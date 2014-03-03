@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -607,6 +608,7 @@ public class GenerateMaximalLocales {
     private static final double MIN_UNOFFICIAL_CLDR_LANGUAGE_SIZE = 100000;
     private static final double UNOFFICIAL_SCALE_DOWN = 0.2;
 
+    private static final List<String> KEEP_TARGETS = Arrays.asList( "und_Arab_PK" , "und_Latn_ET" );
     // Many of the overrides below can be removed once the language/pop/country data is updated.
     private static final Map<String, String> LANGUAGE_OVERRIDES = CldrUtility.asMap(new String[][] {
         { "dyo", "dyo_Latn_SN" },
@@ -647,6 +649,7 @@ public class GenerateMaximalLocales {
         { "und_Hani", "zh_Hani_CN" },
         { "und_Hani_CN", "zh_Hani_CN" },
         { "und_Latn", "en_Latn_US" },
+        { "und_Latn_ET", "en_Latn_ET" },
         { "und_Latn_NE", "ha_Latn_NE" },
         { "und_Latn_PH", "fil_Latn_PH" },
         { "und_ML", "bm_Latn_ML" },
@@ -1426,7 +1429,7 @@ public class GenerateMaximalLocales {
                     String newTarget = fluffup.get(newLocale);
                     if (newTarget != null) {
                         newTarget = targetParser.set(newTarget).setRegion(region).toString();
-                        if (target.equals(newTarget)) {
+                        if (target.equals(newTarget) && !KEEP_TARGETS.contains(locale)) {
                             removals.add(locale);
                             if (SHOW_ADD)
                                 System.out.println("Removing:\t" + locale + "\t=>\t" + target + "\t\tRedundant with "
@@ -1451,7 +1454,7 @@ public class GenerateMaximalLocales {
                     String newTarget = fluffup.get(newLocale);
                     if (newTarget != null) {
                         newTarget = targetParser.set(newTarget).setScript(script).toString();
-                        if (target.equals(newTarget)) {
+                        if (target.equals(newTarget) && !KEEP_TARGETS.contains(locale)) {
                             removals.add(locale);
                             if (SHOW_ADD)
                                 System.out.println("Removing:\t" + locale + "\t=>\t" + target + "\t\tRedundant with "

@@ -985,6 +985,64 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ Zaza; ?; ? } => { Zaza; Arabic; Turkey }-->
 		<likelySubtag from="und" to="en_Latn_US"/>
 		<!--{ ?; ?; ? } => { English; Latin; United States }-->
+		<likelySubtag from="und_002" to="en_Latn_NG"/>
+		<!--{ ?; ?; Africa } => { English; Latin; Nigeria }-->
+		<likelySubtag from="und_003" to="en_Latn_US"/>
+		<!--{ ?; ?; North America } => { English; Latin; United States }-->
+		<likelySubtag from="und_005" to="pt_Latn_BR"/>
+		<!--{ ?; ?; South America } => { Portuguese; Latin; Brazil }-->
+		<likelySubtag from="und_009" to="en_Latn_AU"/>
+		<!--{ ?; ?; Oceania } => { English; Latin; Australia }-->
+		<likelySubtag from="und_011" to="en_Latn_NG"/>
+		<!--{ ?; ?; Western Africa } => { English; Latin; Nigeria }-->
+		<likelySubtag from="und_013" to="es_Latn_MX"/>
+		<!--{ ?; ?; Central America } => { Spanish; Latin; Mexico }-->
+		<likelySubtag from="und_014" to="en_Latn_KE"/>
+		<!--{ ?; ?; Eastern Africa } => { English; Latin; Kenya }-->
+		<likelySubtag from="und_015" to="ar_Arab_EG"/>
+		<!--{ ?; ?; Northern Africa } => { Arabic; Arabic; Egypt }-->
+		<likelySubtag from="und_017" to="sw_Latn_CD"/>
+		<!--{ ?; ?; Middle Africa } => { Swahili; Latin; Congo - Kinshasa }-->
+		<likelySubtag from="und_018" to="en_Latn_ZA"/>
+		<!--{ ?; ?; Southern Africa } => { English; Latin; South Africa }-->
+		<likelySubtag from="und_019" to="en_Latn_US"/>
+		<!--{ ?; ?; Americas } => { English; Latin; United States }-->
+		<likelySubtag from="und_021" to="en_Latn_US"/>
+		<!--{ ?; ?; Northern America } => { English; Latin; United States }-->
+		<likelySubtag from="und_029" to="es_Latn_CU"/>
+		<!--{ ?; ?; Caribbean } => { Spanish; Latin; Cuba }-->
+		<likelySubtag from="und_030" to="zh_Hans_CN"/>
+		<!--{ ?; ?; Eastern Asia } => { Chinese; Simplified; China }-->
+		<likelySubtag from="und_034" to="hi_Deva_IN"/>
+		<!--{ ?; ?; Southern Asia } => { Hindi; Devanagari; India }-->
+		<likelySubtag from="und_035" to="id_Latn_ID"/>
+		<!--{ ?; ?; South-Eastern Asia } => { Indonesian; Latin; Indonesia }-->
+		<likelySubtag from="und_039" to="it_Latn_IT"/>
+		<!--{ ?; ?; Southern Europe } => { Italian; Latin; Italy }-->
+		<likelySubtag from="und_053" to="en_Latn_AU"/>
+		<!--{ ?; ?; Australasia } => { English; Latin; Australia }-->
+		<likelySubtag from="und_054" to="en_Latn_PG"/>
+		<!--{ ?; ?; Melanesia } => { English; Latin; Papua New Guinea }-->
+		<likelySubtag from="und_057" to="en_Latn_KI"/>
+		<!--{ ?; ?; Micronesian Region } => { English; Latin; Kiribati }-->
+		<likelySubtag from="und_061" to="sm_Latn_WS"/>
+		<!--{ ?; ?; Polynesia } => { Samoan; Latin; Samoa }-->
+		<likelySubtag from="und_142" to="zh_Hans_CN"/>
+		<!--{ ?; ?; Asia } => { Chinese; Simplified; China }-->
+		<likelySubtag from="und_143" to="uz_Latn_UZ"/>
+		<!--{ ?; ?; Central Asia } => { Uzbek; Latin; Uzbekistan }-->
+		<likelySubtag from="und_145" to="ar_Arab_SA"/>
+		<!--{ ?; ?; Western Asia } => { Arabic; Arabic; Saudi Arabia }-->
+		<likelySubtag from="und_150" to="ru_Cyrl_RU"/>
+		<!--{ ?; ?; Europe } => { Russian; Cyrillic; Russia }-->
+		<likelySubtag from="und_151" to="ru_Cyrl_RU"/>
+		<!--{ ?; ?; Eastern Europe } => { Russian; Cyrillic; Russia }-->
+		<likelySubtag from="und_154" to="en_Latn_GB"/>
+		<!--{ ?; ?; Northern Europe } => { English; Latin; United Kingdom }-->
+		<likelySubtag from="und_155" to="de_Latn_DE"/>
+		<!--{ ?; ?; Western Europe } => { German; Latin; Germany }-->
+		<likelySubtag from="und_419" to="es_Latn_419"/>
+		<!--{ ?; ?; Latin America } => { Spanish; Latin; Latin America }-->
 		<likelySubtag from="und_AD" to="ca_Latn_AD"/>
 		<!--{ ?; ?; Andorra } => { Catalan; Latin; Andorra }-->
 		<likelySubtag from="und_AE" to="ar_Arab_AE"/>
@@ -1101,6 +1159,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ ?; ?; Spain } => { Spanish; Latin; Spain }-->
 		<likelySubtag from="und_ET" to="am_Ethi_ET"/>
 		<!--{ ?; ?; Ethiopia } => { Amharic; Ethiopic; Ethiopia }-->
+		<likelySubtag from="und_EU" to="en_Latn_GB"/>
+		<!--{ ?; ?; European Union } => { English; Latin; United Kingdom }-->
 		<likelySubtag from="und_FI" to="fi_Latn_FI"/>
 		<!--{ ?; ?; Finland } => { Finnish; Latin; Finland }-->
 		<likelySubtag from="und_FM" to="chk_Latn_FM"/>
@@ -1279,6 +1339,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<!--{ ?; ?; Paraguay } => { Guarani; Latin; Paraguay }-->
 		<likelySubtag from="und_QA" to="ar_Arab_QA"/>
 		<!--{ ?; ?; Qatar } => { Arabic; Arabic; Qatar }-->
+		<likelySubtag from="und_QO" to="en_Latn_IO"/>
+		<!--{ ?; ?; Outlying Oceania } => { English; Latin; British Indian Ocean Territory }-->
 		<likelySubtag from="und_RE" to="fr_Latn_RE"/>
 		<!--{ ?; ?; Réunion } => { French; Latin; Réunion }-->
 		<likelySubtag from="und_RO" to="ro_Latn_RO"/>

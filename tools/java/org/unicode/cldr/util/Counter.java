@@ -22,6 +22,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+
 public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
     Map<T, RWLong> map;
     Comparator<T> comparator;
@@ -146,6 +149,19 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         Set<T> result = new LinkedHashSet<T>();
         for (Entry<T> entry : count_key) {
             result.add(entry.value);
+        }
+        return result;
+    }
+
+    public Set<Row.R2<Long,T>> getEntrySetSortedByCount(boolean ascending, Comparator<T> byValue) {
+        Set<Entry<T>> count_key = new TreeSet<Entry<T>>(new EntryComparator<T>(ascending, byValue));
+        int counter = 0;
+        for (T key : map.keySet()) {
+            count_key.add(new Entry<T>(map.get(key), key, counter++));
+        }
+        Set<R2<Long, T>> result = new LinkedHashSet<Row.R2<Long,T>>();
+        for (Entry<T> entry : count_key) {
+            result.add(Row.of(entry.count.value, entry.value));
         }
         return result;
     }

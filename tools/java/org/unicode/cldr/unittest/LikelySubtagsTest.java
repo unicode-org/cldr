@@ -12,6 +12,7 @@ import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -45,10 +46,10 @@ public class LikelySubtagsTest extends TestFmwk {
                 add(ltp.set(entry.getKey()), true);
                 add(ltp.set(entry.getValue()), false);
             }
-//            System.out.println("all: " + all);
-//            System.out.println("scriptRegion: " + scriptRegion);
-//            System.out.println("languageScript: " + languageScript);
-//            System.out.println("languageRegion: " + languageRegion);
+            //            System.out.println("all: " + all);
+            //            System.out.println("scriptRegion: " + scriptRegion);
+            //            System.out.println("languageScript: " + languageScript);
+            //            System.out.println("languageRegion: " + languageRegion);
         }
         void add(LanguageTagParser ltp, boolean source) {
             String sourceLanguage = ltp.getLanguage();
@@ -171,7 +172,9 @@ public class LikelySubtagsTest extends TestFmwk {
                 assertEquals("script", sourceScript, targetScript);
             }
             if (!sourceRegion.isEmpty()) {
-                assertEquals("region", sourceRegion, targetRegion);
+                if (Containment.isLeaf(sourceRegion)) {
+                    assertEquals("region", sourceRegion, targetRegion);
+                }
             }
         }
 

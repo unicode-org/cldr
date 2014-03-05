@@ -6,13 +6,15 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.util.TimeZone;
 
 public class Containment {
-    static final Relation<String, String> containmentCore = SupplementalDataInfo.getInstance()
+    private static final SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance();
+    static final Relation<String, String> containmentCore = supplementalData
         .getContainmentCore();
     static final Set<String> continents = containmentCore.get("001");
     static final Set<String> subcontinents;
@@ -23,16 +25,39 @@ public class Containment {
         }
         subcontinents = Collections.unmodifiableSet(temp);
     }
-    static final Relation<String, String> containmentFull = SupplementalDataInfo.getInstance()
+    static final Relation<String, String> containmentFull = supplementalData
         .getTerritoryToContained();
-    static final Relation<String, String> containedToContainer = Relation
-        .of(new HashMap<String, Set<String>>(),
-            HashSet.class)
-        .addAllInverted(containmentFull);
-    static final Relation<String, String> containedToContainerCore = Relation
-        .of(new HashMap<String, Set<String>>(),
-            HashSet.class)
-        .addAllInverted(containmentCore);
+    static final Relation<String, String> containedToContainer 
+    = (Relation<String, String>) Relation
+    .of(new HashMap<String, Set<String>>(),
+        HashSet.class)
+        .addAllInverted(containmentFull)
+        .freeze();
+    
+    static final Relation<String, String> leavesToContainers;
+    static {
+        leavesToContainers = Relation
+            .of(new HashMap<String, Set<String>>(),
+                HashSet.class);
+        // for each container, get all of its leaf nodes
+        Set<String> containers = supplementalData.getContainers();
+        for (String s : containers) {
+            HashSet<String> leaves = new HashSet<String>();
+            addLeaves(s, leaves, containers);
+            leavesToContainers.putAll(leaves,s);
+        }
+        leavesToContainers.freeze();
+//        for (Entry<String, Set<String>> e : leavesToContainers.keyValuesSet()) {
+//            System.out.println(e.getKey() + " " + e.getValue());
+//        }
+    }
+
+    static final Relation<String, String> containedToContainerCore 
+    = (Relation<String, String>) Relation
+    .of(new HashMap<String, Set<String>>(),
+        HashSet.class)
+        .addAllInverted(containmentCore)
+        .freeze();
     static final Map<String, Integer> toOrder = new LinkedHashMap<String, Integer>();
     static int level = 0;
     static int order;
@@ -58,6 +83,20 @@ public class Containment {
         // return zone2country.get(source0);
     }
 
+    private static void addLeaves(String s, Set<String> target, Set<String> nonLeaf) {
+        Set<String> contained = supplementalData.getContained(s);
+        if (contained == null) {
+            return;
+        }
+        for (String child : contained) {
+            if (!nonLeaf.contains(child)) {
+                target.add(child);
+            } else {
+                addLeaves(child, target, nonLeaf);
+            }
+        }
+    }
+
     public static String getContainer(String territory) {
         Set<String> containers = containedToContainerCore.get(territory);
         if (containers == null) {
@@ -65,8 +104,17 @@ public class Containment {
         }
         String container = containers != null
             ? containers.iterator().next()
-            : territory.equals("001") ? "001" : "ZZ";
-        return container;
+                : territory.equals("001") ? "001" : "ZZ";
+            return container;
+    }
+
+    /**
+     * Return all the containers, including deprecated.
+     * @param territory
+     * @return
+     */
+    public static Set<String> getContainers(String territory) {
+        return containedToContainer.get(territory);
     }
 
     /**
@@ -149,5 +197,17 @@ public class Containment {
 
     public Set<String> getSubontinents() {
         return subcontinents;
+    }
+    /**
+     * For each leaf region (eg "CO"), return all containers [019, 419, 005, 001]
+     * @param leaf
+     * @return
+     */
+    public static Set<String> leafToContainer(String leaf) {
+        return leavesToContainers.get(leaf);
+    }
+
+    public static boolean isLeaf(String region) {
+        return leavesToContainers.containsKey(region);
     }
 }

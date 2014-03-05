@@ -1153,6 +1153,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</availableFormats>
 					<appendItems>
 						<appendItem request="Day-Of-Week">{1} {0}</appendItem>
+						<appendItem request="Timezone">{0} ({1})</appendItem>
 					</appendItems>
 					<intervalFormats>
 						<intervalFormatFallback>{0} تا {1}</intervalFormatFallback>
@@ -1932,6 +1933,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="GyMMMEd">E d MMM y G</dateFormatItem>
 						<dateFormatItem id="h">h a</dateFormatItem>
 						<dateFormatItem id="H">H</dateFormatItem>
+						<dateFormatItem id="HmZ">HH:mm (Z)</dateFormatItem>
 						<dateFormatItem id="hm">h:mm a</dateFormatItem>
 						<dateFormatItem id="Hm">H:mm</dateFormatItem>
 						<dateFormatItem id="hms">h:mm:ss a</dateFormatItem>

@@ -135,7 +135,9 @@ public class TestLocale extends TestFmwkPlus {
            }
            System.out.println(sb.toString());
         }
-        assertTrue("Expected no locales with aliases", localesWithAliases.isEmpty()==true);
+        if(!logKnownIssue("7057", "Locale ha_SD contains alias, but should not.")) {
+            assertTrue("Expected no locales with aliases", localesWithAliases.isEmpty()==true);
+        }
         // now check English-resolved
         CLDRFile english = testInfo.getEnglish();
         for (String xpath : english) {

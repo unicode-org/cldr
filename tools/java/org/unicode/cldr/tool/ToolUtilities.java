@@ -22,22 +22,22 @@ public class ToolUtilities {
     public static void registerExtraTransliterators() {
         // NOTE: UTIL_DATA_DIR is required here only because TransliteratorUtilities
         // requires a file path.
-        String tzadir = CLDRPaths.UTIL_DATA_DIR + File.separatorChar; // work around bad pattern (dir+filename)
-        // HACK around lack of Armenian, Ethiopic
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Armenian");
-        // TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Ethiopic");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Cyrillic-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Arabic-Latin");
-        // needed
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Thaana-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Syriac-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Canadian_Aboriginal-Latin");
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Georgian-Latin");
-    
-        // do nothing, too complicated to do quickly
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Tibetan-Latin"); // needed
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Khmer-Latin"); // needed
-        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Lao-Latin");
+//        String tzadir = CLDRPaths.UTIL_DATA_DIR + File.separatorChar; // work around bad pattern (dir+filename)
+//        // HACK around lack of Armenian, Ethiopic
+//        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Armenian");
+//        // TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Latin-Ethiopic");
+//        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Cyrillic-Latin");
+//        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Arabic-Latin");
+//        // needed
+//        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Thaana-Latin");
+//        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Syriac-Latin");
+//        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Canadian_Aboriginal-Latin");
+//        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Georgian-Latin");
+//    
+//        // do nothing, too complicated to do quickly
+//        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Tibetan-Latin"); // needed
+//        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Khmer-Latin"); // needed
+//        TransliteratorUtilities.registerTransliteratorFromFile(tzadir, "Lao-Latin");
     }
 
     static public void generateBat(String sourceDir, String sourceFile, String targetDir, String targetFile) {

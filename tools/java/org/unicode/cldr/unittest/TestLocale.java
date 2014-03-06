@@ -1,9 +1,14 @@
 package org.unicode.cldr.unittest;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.EnumSet;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+
+import javax.xml.xpath.XPathException;
 
 import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.ExampleGenerator;
@@ -19,6 +24,9 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.SimpleXMLSource;
 import org.unicode.cldr.util.StandardCodes.CodeType;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XPathExpressionParser;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.ULocale;
@@ -35,12 +43,69 @@ public class TestLocale extends TestFmwkPlus {
         Scope.Individual, Scope.Macrolanguage); // , Special, Collection, PrivateUse, Unknown
     static Set<String> ALLOWED_SCRIPTS = testInfo.getStandardCodes().getGoodAvailableCodes(CodeType.script);
     static Set<String> ALLOWED_REGIONS = testInfo.getStandardCodes().getGoodAvailableCodes(CodeType.territory);
+    
+    /**
+     * XPath expression that will find all alias tags
+     */
+    static String XPATH_ALIAS_STRING="//alias";
 
     /**
-     * Tests the validity of the file names and of the English localeDisplayName types.
+     * Determine whether the file should be checked for aliases; this is currently not done for
+     * Keyboard definitions or DTD's
+     * @param f the file to check
+     * @return
+     */
+    protected boolean shouldCheckForAliases(File f) {
+        if (!f.canRead()) {
+            return false;
+        }
+        String absPath=f.getAbsolutePath();
+        return  absPath.endsWith("xml") && !absPath.contains("dtd") &&!absPath.contains("keyboard") &&!absPath.contains("Keyboard");
+    }
+    
+    /**
+     * Check a single file for aliases, on a content level, the only check that is done is that the one for readability. 
+     * @param localeName - the localename
+     * @param file - the file to check
+     * @param localesWithAliases - a set of locale strings the files of which contain aliases
+     */
+    private void checkForAliases(final String localeName, File file,final Set<String> localesWithAliases) {
+        try {
+            if (file.canRead()) {
+                XPathExpressionParser parser = new XPathExpressionParser(file);
+                parser.iterateThroughNodeSet(XPATH_ALIAS_STRING, new XPathExpressionParser.NodeHandlingInterface() {
+
+                    //Handle gets called for every node of the node set
+                    @Override
+                    public void handle(Node result) {
+                        if (result instanceof Element) {
+                            Element el=(Element)result;
+                            // this node likely has an attribute source
+                            if (el.hasAttributes()) {
+                                String sourceAttr=el.getAttribute("source");
+                                if (sourceAttr!=null && !sourceAttr.isEmpty()) {
+                                    localesWithAliases.add(localeName);
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (XPathException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+    /**
+     * Tests the validity of the file names and of the English localeDisplayName types. 
+     * Also tests for aliases outside root
      */
     public void TestLocalePartsValidity() {
         LanguageTagParser ltp = new LanguageTagParser();
+        final Set<String> localesWithAliases=new HashSet<>();
         for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
             String parent = file.getParent();
             if (parent.contains("transform") || parent.contains("bcp47") || parent.contains("supplemental")) {
@@ -53,7 +118,24 @@ public class TestLocale extends TestFmwkPlus {
             }
             String fileString = file.toString();
             checkLocale(fileString, localeName, ltp);
+            // check for aliases 
+           if (shouldCheckForAliases(file)) {
+               checkForAliases(localeName, file, localesWithAliases);
+           }
         }
+        // we ran through all of them
+        if (!localesWithAliases.isEmpty()) {
+           StringBuilder sb=new StringBuilder();
+           sb.append("\r\n");
+           sb.append("The following locales have aliases, but must not: ");
+           Iterator<String> lIter=localesWithAliases.iterator();
+           while (lIter.hasNext()) {
+               sb.append(lIter.next());
+               sb.append(" ");
+           }
+           System.out.println(sb.toString());
+        }
+        assertTrue("Expected no locales with aliases", localesWithAliases.isEmpty()==true);
         // now check English-resolved
         CLDRFile english = testInfo.getEnglish();
         for (String xpath : english) {

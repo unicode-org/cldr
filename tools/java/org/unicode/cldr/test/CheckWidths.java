@@ -30,7 +30,7 @@ public class CheckWidths extends CheckCLDR {
     /**
      * Set to TRUE to read the constants for the RegexLookup from a file
      */
-    private static final boolean READ_FROM_FILE = false;
+    private static final boolean READ_FROM_FILE = true;
     /**
      * Path of the width specification file, relative to the data directory
      */

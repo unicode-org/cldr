@@ -120,7 +120,7 @@
 			<limit>MAXIMUM</limit>
 			<measure>DISPLAY_WIDTH</measure>
 			<special>PLACEHOLDERS</special>
-			<pathName>//ldml/units/unitLength[@type="narrow"]/unit[@type=%A]/unitPattern</pathName>
+			<pathName>//ldml/units/unitLength[@type="narrow"]/unit[@type="%A"]/unitPattern</pathName>
 		</path>
 		<!-- // Short units .add("//ldml/units/unitLength[@type=\"short\"]/unit[@type=%A]/unitPattern", 
 			new Limit[] { new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, 

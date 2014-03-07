@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widthSpecifications xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="WidthSpecification.xsd">
+	<variables>
+		<variable name="%A" value='\"[^\"]+\"' />
+		<variable name="%ALLOW_LONGER"
+			value="(area-acre|area-square-foot|area-square-mile|length-footlength-inch|length-mile|length-light-year|length-yard|mass-ounce|mass-pound|power-horsepower|pressure-inch-hg|speed-mile-per-hour|temperature-fahrenheit|volume-cubic-mile|acceleration-g-force|speed-kilometer-per-hour|speed-meter-per-second)" />
+	</variables>
+	<paths>
+		<path>
+			<warningReference>1</warningReference>
+			<errorReference>1</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>CODE_POINTS</measure>
+			<special>NONE</special>
+			<pathName>//ldml/delimiters/(quotation|alternateQuotation)</pathName>
+		</path>
+		<path>
+			<warningReference>1</warningReference>
+			<errorReference>1</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>CODE_POINTS</measure>
+			<special>NUMBERSYMBOLS</special>
+			<pathName>//ldml/numbers/symbols[@numberSystem=%A]/(decimal|group|minus|percent|perMille|plus)</pathName>
+			<description>Numeric items should be no more than a single character</description>
+		</path>
+		<path>
+			<warningReference relativeToEM="true">2</warningReference>
+			<errorReference relativeToEM="true">5</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/characters/ellipsis[@type='(final|initial|medial)']</pathName>
+		</path>
+		<path>
+			<warningReference relativeToEM="true">2</warningReference>
+			<errorReference relativeToEM="true">3</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/localeDisplayNames/localeDisplayPattern/</pathName>
+		</path>
+		<path>
+			<warningReference relativeToEM="false">10</warningReference>
+			<errorReference relativeToEM="true">5</errorReference>
+			<limit>MINIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/listPatterns/listPattern/listPatternPart[@type=%A]</pathName>
+		</path>
+		<path>
+			<warningReference>2</warningReference>
+			<errorReference>3</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/dates/timeZoneNames/fallbackFormat</pathName>
+		</path>
+		<path>
+			<warningReference relativeToEM="true">10</warningReference>
+			<errorReference relativeToEM="true">20</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/dates/timeZoneNames/(regionFormat|hourFormat)</pathName>
+			<description>{0} Time, +HH:mm;-HH:mm</description>
+		</path>
+		<path>
+			<warningReference relativeToEM="true">1.5</warningReference>
+			<errorReference relativeToEM="true">2.25</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>NONE</special>
+			<pathName>//ldml/dates/calendars/calendar.*[@type='narrow'](?!/cyclic|/dayPeriod|/monthPattern)</pathName>
+			<description>Narrow items</description>
+		</path>
+		<path>
+			<warningReference relativeToEM="true">4</warningReference>
+			<errorReference relativeToEM="true">5</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>QUOTES</special>
+			<pathName>//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type='short']/decimalFormat[@type=%A]/pattern[@type='1'</pathName>
+		</path>
+		<!--  
+		<path>
+			<warningReference relativeToEM="true">10</warningReference>
+			<errorReference relativeToEM="true">15</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/units/unitLength[@type='narrow']/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern</pathName>
+			<description>Catch -future/past Narrow units  and allow much wider values</description>
+		</path>
+		-->
+		<path>
+			<warningReference relativeToEM="true">4</warningReference>
+			<errorReference relativeToEM="true">5</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/units/unitLength[@type='narrow']/unit[@type='%ALLOW_LONGER']/unitPattern</pathName>
+			<description>Catch special units and allow a bit wider</description>
+		</path>
+		<path>
+			<warningReference relativeToEM="true">3</warningReference>
+			<errorReference relativeToEM="true">4</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/units/unitLength[@type='narrow']/unit[@type=%A]/unitPattern</pathName>
+			<description>Narrow units</description>
+		</path>
+		<path>
+			<warningReference relativeToEM="true">5</warningReference>
+			<errorReference relativeToEM="true">10</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/units/unitLength[@type='short']/unit[@type=%A]/unitPattern</pathName>
+			<description>Short units</description>
+		</path>
+		<path>
+			<warningReference relativeToEM="true">3</warningReference>
+			<errorReference relativeToEM="true">5</errorReference>
+			<limit>MAXIMUM</limit>
+			<measure>DISPLAY_WIDTH</measure>
+			<special>PLACEHOLDERS</special>
+			<pathName>//ldml/numbers/currencies/currency[@type=%A]/symbol</pathName>
+			<description>Currencies</description>
+		</path>
+	</paths>
+</widthSpecifications>

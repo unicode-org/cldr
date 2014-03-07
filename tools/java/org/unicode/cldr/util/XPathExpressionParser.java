@@ -1,10 +1,12 @@
 package org.unicode.cldr.util;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Reader;
 import java.nio.file.Files;
 import java.util.Iterator;
 
@@ -69,11 +71,31 @@ public class XPathExpressionParser {
         } 
         return null;
     }
-    
+    /**
+     * Initialize by reading the file specified
+     * @param f
+     * @throws IOException
+     */
     public XPathExpressionParser(File f) throws IOException {
        buf=Files.readAllBytes(f.toPath());
     }
-
+    
+    /**
+     * Create an expression parser using the Reader given
+     * @param rdr
+     * @throws IOException
+     */
+    public XPathExpressionParser(Reader rdr) throws IOException {
+        StringBuilder sb=new StringBuilder();
+        try (BufferedReader br=new BufferedReader(rdr)) {
+            String s=null;
+            while ((s=br.readLine())!=null) {
+                sb.append(s);
+            }
+        }
+        buf=sb.toString().getBytes();
+    }
+    
     @SuppressWarnings({ "rawtypes", "unchecked" })
     private void evaluateWithXPathFixture(String xPathString,QName expectedResult, boolean iterate, SimpleContentHandlingInterface handler) throws XPathExpressionException {
         if ( handler!=null) {

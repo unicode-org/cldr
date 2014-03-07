@@ -3247,13 +3247,14 @@ h2,h3,h4,table {
 					the same as the 'u' year.</td>
 			</tr>
 			<tr>
-				<th rowspan="6" style="vertical-align: top; text-align: left">quarter</th>
-				<td style="text-align: center; vertical-align: top" rowspan="3">Q</td>
+				<th rowspan="8" style="vertical-align: top; text-align: left">quarter</th>
+				<td style="text-align: center; vertical-align: top" rowspan="4">Q</td>
 				<td style="text-align: center; vertical-align: top">1..2</td>
 				<td style="vertical-align: top; text-align: left">02</td>
-				<td rowspan="3" style="vertical-align: top; text-align: left">Quarter
+				<td rowspan="4" style="vertical-align: top; text-align: left">Quarter
 					- Use one or two for the numerical quarter, three for the
-					abbreviation, or four for the full name.</td>
+					abbreviation, four for the full name<span class="changed">, or five
+					for the narrow name</span>.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3263,13 +3264,18 @@ h2,h3,h4,table {
 				<td style="text-align: center; vertical-align: top">4</td>
 				<td style="vertical-align: top; text-align: left">2nd quarter</td>
 			</tr>
+			<tr class="changed">
+				<td style="text-align: center; vertical-align: top">5</td>
+				<td style="vertical-align: top; text-align: left">2/</td>
+			</tr>
 			<tr>
-				<td style="text-align: center; vertical-align: top" rowspan="3">q</td>
+				<td style="text-align: center; vertical-align: top" rowspan="4">q</td>
 				<td style="text-align: center; vertical-align: top">1..2</td>
 				<td style="vertical-align: top; text-align: left">02</td>
-				<td rowspan="3" style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
+				<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
 					Quarter - Use one or two for the numerical quarter, three for the
-					abbreviation, or four for the full name.</td>
+					abbreviation, four for the full name<span class="changed">, or five
+					for the narrow name</span>.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3278,6 +3284,10 @@ h2,h3,h4,table {
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
 				<td style="vertical-align: top; text-align: left">2nd quarter</td>
+			</tr>
+			<tr class="changed">
+				<td style="text-align: center; vertical-align: top">5</td>
+				<td style="vertical-align: top; text-align: left">2/</td>
 			</tr>
 			<tr>
 				<th rowspan="9" style="vertical-align: top; text-align: left">month</th>
@@ -3772,11 +3782,12 @@ h2,h3,h4,table {
 			These are characters that can be used when displaying a date pattern
 			to an end user. This can occur, for example, when a spreadsheet
 			allows users to specify date patterns. Whatever is in the string is
-			substituted one-for-one with the characters &quot;<span class="tx">GyMdkHmsSEDFwWahKzYe&quot;,
-				with the above meanings</span>. Thus, for example, if &quot;J&quot; is to
-			be used instead of &quot;Y&quot; to mean Year, then the string would
-			be: &quot;<span class="tx">GyMdkHmsSEDFwWahKz<u>J</u>e&quot;.
-			</span>
+			substituted one-for-one with the characters
+			"GyMdkHmsSEDFwWahKzYe<span class="changed">ugAZvcLQqVUOXxr</span>",
+			with the above meanings. Thus, for example, if 'J' is to be used
+			instead of 'Y' to mean Year<span class="changed"> (for Week of Year)</span>,
+			then the string would be:
+			"GyMdkHmsSEDFwWahKz<u>J</u>e<span class="changed">ugAZvcLQqVUOXxr</span>".
 		</p>
 
 		<p>

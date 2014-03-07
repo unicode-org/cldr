@@ -581,9 +581,9 @@ public class GeneratedPluralSamples {
 
             //System.out.println(type + ": " + locales);
             for (String locale : locales) {
-                if (locale.equals("root")) {
-                    continue;
-                }
+//                if (locale.equals("root")) {
+//                    continue;
+//                }
                 if (localeMatcher != null && !localeMatcher.reset(locale).find()) {
                     continue;
                 }

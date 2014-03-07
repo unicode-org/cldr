@@ -56,7 +56,7 @@ public class LanguageInfoTest extends TestFmwk {
     public void testBasics() {
         final LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList
             .add(ULocale.FRENCH).add(ULocale.UK)
-            .add(ULocale.ENGLISH).build().toString());
+            .add(ULocale.ENGLISH).build(), data);
         logln(matcher.toString());
 
         assertEquals("UK in FR, UK, EN", ULocale.UK, matcher.getBestMatch(ULocale.UK));
@@ -66,9 +66,11 @@ public class LanguageInfoTest extends TestFmwk {
     }
     
     public void TestChinese() {
-        LocaleMatcher matcher = new LocaleMatcher("zh_CN, zh_TW, iw");
+        LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList.add("zh_CN, zh_TW, iw").build(), data);
         ULocale taiwanChinese = new ULocale("zh_TW");
         ULocale chinaChinese = new ULocale("zh_CN");
+        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_HK")); 
+
         assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_TW"));
         assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant"));
         assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_TW"));
@@ -85,7 +87,7 @@ public class LanguageInfoTest extends TestFmwk {
         for (ULocale supported : new LinkedHashSet<>(FALLBACKS.values())) {
             priorities.add(supported);
         }
-        final LocaleMatcher matcher = new LocaleMatcher(priorities.build());
+        final LocaleMatcher matcher = new LocaleMatcher(priorities.build(), data);
         logln(matcher.toString());
         for (Entry<ULocale, ULocale> entry : FALLBACKS.entrySet()) {
             ULocale bestMatch = matcher.getBestMatch(entry.getKey());

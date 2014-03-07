@@ -129,7 +129,6 @@
 			<languageMatch desired="xh" supported="en" percent="10" oneway="true" />
 			<languageMatch desired="yi" supported="en" percent="10" oneway="true" />
 			<languageMatch desired="yo" supported="en" percent="10" oneway="true" />
-			<languageMatch desired="zh_HK" supported="zh_TW" percent="10" oneway="true" />
 			<languageMatch desired="zu" supported="en" percent="10" oneway="true" />
 			<!-- Script Matches -->
 			<languageMatch desired="sr_Latn" supported="sr_Cyrl" percent="90" /> <!-- Most serbs can read either script. -->
@@ -142,6 +141,7 @@
 			<languageMatch desired="es_*_ES" supported="es_*_*" percent="97" />    <!-- Latin American Spanishes are closer to each other. Managed by having es-ES be further from everything else. -->
 			<languageMatch desired="es_*_419" supported="es_*_*" percent="99" />	<!-- Make 419 a bit closer to each one than they are to one another. -->
 			<languageMatch desired="es_*_*" supported="es_*_*" percent="98" />
+						
 			<!-- Fallbacks -->
 			<languageMatch desired="*" supported="*" percent="1" />  <!-- [Default value - must be at end!] Normally there is no comprehension of different languages. -->
 			<languageMatch desired="*_*" supported="*_*" percent="20" /> <!-- [Default value - must be at end!] Normally there is little comprehension of different scripts. -->

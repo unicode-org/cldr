@@ -950,12 +950,12 @@ h2,h3,h4,table {
 		<pre>     &lt;dateTimeFormats&gt;
        &lt;dateTimeFormatLength type=”<span style="color: blue">long</span>”&gt;
          &lt;dateTimeFormat&gt;
-            &lt;pattern&gt;<span style="color: blue">{0} 'at' {1}</span>&lt;/pattern&gt;
+            &lt;pattern&gt;<span style="color: blue"><span class="changed">{1}</span> 'at' <span class="changed">{0}</span></span>&lt;/pattern&gt;
          &lt;/dateTimeFormat&gt;
        &lt;/dateTimeFormatLength&gt;
        &lt;dateTimeFormatLength type=”<span style="color: blue">medium</span>”&gt;
          &lt;dateTimeFormat&gt;
-            &lt;pattern&gt;<span style="color: blue">{0}, {1}</span>&lt;/pattern&gt;
+            &lt;pattern&gt;<span style="color: blue"><span class="changed">{1}</span>, <span class="changed">{0}</span></span>&lt;/pattern&gt;
          &lt;/dateTimeFormat&gt;
        &lt;/dateTimeFormatLength&gt;
        &lt;availableFormats&gt;
@@ -1060,12 +1060,12 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>full date + short time</td>
-				<td>full, e.g. "{0} 'at' {1}"</td>
+				<td>full, e.g. "<span class="changed">{1}</span> 'at' <span class="changed">{0}</span>"</td>
 				<td>Wednesday, September 18, 2013 at 4:30 PM</td>
 			</tr>
 			<tr>
 				<td>medium date + long time</td>
-				<td>medium, e.g. "{0}, {1}"</td>
+				<td>medium, e.g. "<span class="changed">{1}</span>, <span class="changed">{0}</span>"</td>
 				<td>Sep 18, 2013, 4:30:00 PM PDT</td>
 			</tr>
 		</table>

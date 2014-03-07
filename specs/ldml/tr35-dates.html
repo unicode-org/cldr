@@ -206,8 +206,19 @@ h2,h3,h4,table {
 					<li>2.3 <a href="#dayPeriods">&lt;dayPeriods&gt;</a></li>
 					<li>2.4 <a href="#dateFormats">&lt;dateFormats&gt;</a></li>
 					<li>2.5 <a href="#timeFormats">&lt;timeFormats&gt;</a></li>
-					<li>2.6 <a href="#dateTimeFormats">&lt;dateTimeFormats&gt;</a></li>
+					<li>2.6 <a href="#dateTimeFormats">&lt;dateTimeFormats&gt;</a>
+						<ul class="toc">
+							<li class="changed">2.6.1 <a
+								href="#dateTimeFormat">&lt;dateTimeFormat&gt;</a>
+							<li class="changed">2.6.2 <a 
+								href="#availableFormats_appendItems">&lt;availableFormats&gt;,
+								&lt;appendItems&gt;</a>
+							<li class="changed">2.6.3 <a
+								href="#intervalFormats">&lt;intervalFormats&gt;</a>
+						</ul>
+					</li>
 				</ul>
+			</li>
 			<li>3 <a href="#Calendar_Fields">Calendar Fields</a></li>
 			<li>4 <a href="#Supplemental_Calendar_Data">Supplemental
 					Calendar Data</a>
@@ -1025,7 +1036,9 @@ h2,h3,h4,table {
 		<p>These formats allow for date and time formats to be composed in
 			various ways.</p>
 
-		<h4>&lt;dateTimeFormat&gt;</h4>
+		<h4><span class="changed">2.6.1 </span><a name="dateTimeFormat"
+			href="#dateTimeFormat">&lt;dateTimeFormat&gt;</a>
+		</h4>
 
 		<p class="dtd">
 			&lt;!ELEMENT dateTimeFormatLength (alias | (default*,
@@ -1070,7 +1083,9 @@ h2,h3,h4,table {
 			</tr>
 		</table>
 
-		<h4>&lt;availableFormats&gt;, &lt;appendItems&gt;</h4>
+		<h4><span class="changed">2.6.2 </span><a name="availableFormats_appendItems"
+			href="#availableFormats_appendItems">&lt;availableFormats&gt;, &lt;appendItems&gt;</a>
+		</h4>
 
 		<p class="dtd">
 			&lt;!ELEMENT availableFormats (alias | (dateFormatItem*,
@@ -1185,7 +1200,9 @@ h2,h3,h4,table {
 			of the field (see <a href="#Calendar_Fields">Calendar Fields</a>).
 		</p>
 
-		<h4>&lt;intervalFormats&gt;</h4>
+		<h4><span class="changed">2.6.3 </span><a name="intervalFormats"
+			href="#intervalFormats">&lt;intervalFormats&gt;</a>
+		</h4>
 
 		<p class="dtd">&lt;!ELEMENT intervalFormats (alias |
 			(intervalFormatFallback*, intervalFormatItem*, special*)) &gt;</p>

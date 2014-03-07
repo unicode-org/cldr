@@ -3108,8 +3108,8 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">AD</td>
 				<td rowspan="3" style="vertical-align: top; text-align: left">Era
 					- Replaced with the Era string for the current date. One to three
-					letters for the abbreviated form, four letters for the long form,
-					five for the narrow form.</td>
+					letters for the abbreviated form, four letters for the long<span class="changed"> (wide)</span>
+					form, five for the narrow form.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
@@ -3212,12 +3212,12 @@ h2,h3,h4,table {
 					year name. Calendars such as the Chinese lunar calendar (and
 					related calendars) and the Hindu calendars use 60-year cycles of
 					year names. Use one through three letters for the abbreviated name,
-					four for the full name, or five for the narrow name (currently the
-					data only provides abbreviated names, which will be used for all
-					requested name widths). If the calendar does not provide cyclic
-					year name data, or if the year value to be formatted is out of the
-					range of years for which cyclic name data is provided, then numeric
-					formatting is used (behaves like 'y').</td>
+					four for the full<span class="changed"> (wide)</span> name, or five for the narrow name
+					(currently the data only provides abbreviated names, which will be
+					used for all requested name widths). If the calendar does not provide
+					cyclic year name data, or if the year value to be formatted is out of
+					the range of years for which cyclic name data is provided, then
+					numeric formatting is used (behaves like 'y').</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
@@ -3253,7 +3253,7 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">02</td>
 				<td rowspan="4" style="vertical-align: top; text-align: left">Quarter
 					- Use one or two for the numerical quarter, three for the
-					abbreviation, four for the full name<span class="changed">, or five
+					abbreviation, four for the full<span class="changed"> (wide)</span> name<span class="changed">, or five
 					for the narrow name</span>.</td>
 			</tr>
 			<tr>
@@ -3296,7 +3296,8 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">09</td>
 				<td rowspan="4" style="vertical-align: top; text-align: left">Month
 					- Use one or two for the numerical month, three for the
-					abbreviation, four for the full name, or five for the narrow name.</td>
+					abbreviation, four for the full<span class="changed"> (wide)</span> name, or five for the
+					narrow name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3316,7 +3317,8 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">09</td>
 				<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
 					Month - Use one or two for the numerical month, three for the
-					abbreviation, or four for the full name, or 5 for the narrow name.</td>
+					abbreviation, four for the full<span class="changed"> (wide)</span> name, or 5 for the
+					narrow name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3394,9 +3396,9 @@ h2,h3,h4,table {
 				<td style="text-align: center; vertical-align: top">1..3</td>
 				<td style="vertical-align: top; text-align: left">Tues</td>
 				<td rowspan="4" style="vertical-align: top; text-align: left">Day
-					of week - Use one through three letters for the short day, or four
-					for the full name, five for the narrow name, or six for the short
-					name.</td>
+					of week - Use one through three letters for the <span class="changed">abbreviated</span>
+					day<span class="changed"> name</span>, four for the full<span class="changed"> (wide)</span>
+					name, five for the narrow name, or six for the short name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
@@ -3441,8 +3443,9 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">2</td>
 				<td rowspan="5" style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
 					local day of week - Use one letter for the local numeric value
-					(same as &#39;e&#39;), three for the short day, four for the full
-					name, five for the narrow name, or six for the short name.</td>
+					(same as &#39;e&#39;), three for the <span class="changed">abbreviated</span>
+					day<span class="changed"> name</span>, four for the full<span class="changed"> (wide)</span> name,
+					five for the narrow name, or six for the short name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3810,9 +3813,11 @@ h2,h3,h4,table {
 		<h3>
 			8.3 <a name="Date_Patterns_Eras" href="#Date_Patterns_Eras">Eras</a>
 		</h3>
-		<p>There are only two values for an era in a Gregorian calendar,
-			&quot;BC&quot; and &quot;AD&quot;. These values can be translated
-			into other languages, like &quot;a.C.&quot; and and &quot;d.C.&quot;
+		<p>There are only two values for era in the Gregorian calendar,
+			<span class="changed">with two common naming conventions (here
+			in abbreviated form for English): </span>"BC" and "AD"<span class="changed">,
+			or "BCE" and "CE"</span>. These values can be translated into
+			other languages, like &quot;a.C.&quot; and and &quot;d.C.&quot;
 			for Spanish, but there are no other eras in the Gregorian calendar.
 			Other calendars have a different numbers of eras. Care should be
 			taken when translating the era names for a specific calendar.</p>

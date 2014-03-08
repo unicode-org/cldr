@@ -272,8 +272,7 @@ h2,h3,h4,table {
 		</p>
 
 		<h3>
-			<a name="CLDR_Collation_Algorithm" href="#CLDR_Collation_Algorithm">1.1
-				CLDR Collation Algorithm</a>
+			1.1 <a name="CLDR_Collation_Algorithm" href="#CLDR_Collation_Algorithm">CLDR Collation Algorithm</a>
 		</h3>
 
 		<p>
@@ -283,7 +282,7 @@ h2,h3,h4,table {
 		</p>
 
 		<h4>
-			<a name="Algorithm_FFFE" href="#Algorithm_FFFE">U+FFFE</a>
+			1.1.1 <a name="Algorithm_FFFE" href="#Algorithm_FFFE">U+FFFE</a>
 		</h4>
 
 		<p>
@@ -309,7 +308,7 @@ h2,h3,h4,table {
 		</p>
 
 		<h4>
-			<a name="Context_Sensitive_Mappings"
+			1.1.2 <a name="Context_Sensitive_Mappings"
 				href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a>
 		</h4>
 
@@ -646,7 +645,7 @@ h2,h3,h4,table {
 			formats for CLDR 23 and beyond are as follows. As usual, text after a
 			# is a comment.</p>
 
-		<h4>allkeys_CLDR.txt</h4>
+		<h4>2.6.1 <a name="File_Format_allkeys_CLDR_txt" href="#File_Format_allkeys_CLDR_txt">allkeys_CLDR.txt</a></h4>
 		<p>
 			This file defines CLDR’s tailoring of the DUCET, as described in <i>Section
 				2, <a href="#Root_Collation">Root Collation</a>
@@ -658,7 +657,7 @@ h2,h3,h4,table {
 			although there may be some differences in whitespace.
 		</p>
 
-		<h4>FractionalUCA.txt</h4>
+		<h4>2.6.2 <a name="File_Format_FractionalUCA_txt" href="#File_Format_FractionalUCA_txt">FractionalUCA.txt</a></h4>
 		<p>The format is illustrated by the following sample lines, with
 			commentary afterwards.</p>
 		<pre>[UCA version = 6.0.0]</pre>
@@ -910,7 +909,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				&quot;trailing weights&quot; as described in the UCA.</p>
 		</blockquote>
 
-		<h4>UCA_Rules.txt</h4>
+		<h4>2.6.3 <a name="File_Format_UCA_Rules_txt" href="#File_Format_UCA_Rules_txt">UCA_Rules.txt</a></h4>
 		<p>
 			The format for this file uses the CLDR
 			collation syntax, see <i>Section 3, <a
@@ -919,8 +918,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 
 		<h2>
-			<a name="Collation_Tailorings" href="#Collation_Tailorings">3
-				Collation Tailorings</a>
+			3 <a name="Collation_Tailorings" href="#Collation_Tailorings">Collation Tailorings</a>
 		</h2>
 		<p class="dtd">
 			&lt;!ELEMENT collations (alias | (defaultCollation?,
@@ -2256,7 +2254,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				(Unknown Script) is a synonym for <strong>others</strong>.</li>
 		</ol>
 		<p>It is an error if a code occurs multiple times.</p>
-		<h4>Interpretation of a reordering list</h4>
+		<h4>3.12.1 <a name="Interpretation_reordering" href="#Interpretation_reordering">Interpretation of a reordering list</a></h4>
 		<p>The reordering list is interpreted as if it were processed in
 			the following way.</p>
 		<ol>
@@ -2383,7 +2381,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			characteristics more closely.
 		</p>
 
-		<h4>Untailored Characters</h4>
+		<h4>3.13.1 <a name="Case_Untailored" href="#Case_Untailored">Untailored Characters</a></h4>
 		<p>For untailored characters and strings, that is, for mappings in
 			the root collation, the case value for each collation element is
 			computed from the tertiary weight listed in allkeys_CLDR.txt. This is
@@ -2405,7 +2403,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</li>
 		</ol>
 
-		<h4>Compute Modified Collation Elements</h4>
+		<h4>3.13.2 <a name="Case_Weights" href="#Case_Weights">Compute Modified Collation Elements</a></h4>
 		<p>
 			From a computed case value, set a weight <strong>c</strong> according
 			to the following.
@@ -2495,7 +2493,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
 		</p>
 
-		<h4>Tailored Strings</h4>
+		<h4>3.13.3 <a name="Case_Tailored" href="#Case_Tailored">Tailored Strings</a></h4>
 		<p>
 			Characters and strings that are tailored have case
 			values computed from their root collation case bits.</p>
@@ -2549,7 +2547,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			3.15 <a name="Collation_Indexes" href="#Collation_Indexes">Collation
 				Indexes</a>
 		</h3>
-		<h4>Index Characters</h4>
+		<h4>3.15.1 <a name="Index_Characters" href="#Index_Characters">Index Characters</a></h4>
 		<p>
 			The main data includes &lt;exemplarCharacters&gt; for collation
 			indexes. See the main document, <i>Section 5.6 <a
@@ -2696,7 +2694,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</i>.
 		</p>
 
-		<h4>CJK Index Markers</h4>
+		<h4>3.15.2 <a name="CJK_Index_Markers" href="#CJK_Index_Markers">CJK Index Markers</a></h4>
 		<p>Special index markers have been added to the CJK collations for
 			stroke, pinyin, zhuyin, and unihan. These markers allow for effective
 			and robust use of indexes for these collations. For example, near the

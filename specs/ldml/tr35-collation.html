@@ -854,16 +854,18 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			also shows the allkeys_CLDR.txt collation elements.</p>
 			<p class="changed">For allkeys_DUCET.txt, the start of each reordering group
 			is normally the same character sequence as for allkeys_CLDR.txt.
-			In a few cases this may need to be adjusted,
+			In a few cases this requires adjustment,
 			especially for the special reordering groups, due to CLDR’s
 			ordering the common characters more strictly by category than the DUCET
 			(as described above).
-			If necessary, the start of an allkeys_DUCET.txt reordering group should be adjusted
+			The necessary adjustment would set the start of each allkeys_DUCET.txt reordering group
 			to the first mapping for the relevant General_Category (e.g., gc=S for SYMBOL) for a special reordering group,
 			or the first mapping for the first script (e.g., sc=Grek) of an “alphabetic” group.</p>
-			<p class="changed">CLDR does not support reordering of each individual script.
-			For example, Greek and Coptic are reordered together;
-			see <i>Section 3.12, <a href="#Script_Reordering">Collation Reordering</a></i>.
+			<p class="changed">Some scripts are grouped together by CLDR,
+			and cannot be ordered independently.
+			For example, Greek and Coptic are grouped together:
+			Reordering Greek after Devanagari will also cause Coptic to be reordered after Devanagari.
+			For more information see <i>Section 3.12, <a href="#Script_Reordering">Collation Reordering</a></i>.
 			Implementations that are not based on the primary weights of FractionalUCA.txt
 			may group scripts differently or may not have this limitation.</p>
 		</blockquote>

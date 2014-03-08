@@ -455,7 +455,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "ka", "one", "კალათში {0} X-ია. შეიძენთ მას?" }, // 
         { "ka", "other", "კალათში {0} X-ია. შეიძენთ მათ?" }, // 
         { "kk", "one", "Cебетте {0} Х бар. Ол сіздікі ме?" }, // 
-        { "kk", "other", "Себетте 0 Х бар. Олар сіздікі ме?" }, // 
+        { "kk", "other", "Себетте {0} Х бар. Олар сіздікі ме?" }, // 
         {"kl", "one", "{0} Ulloq"},
         {"kl", "other", "{0} Ullut"},
         { "km", "other", "{0} ថ្ងៃ" },
@@ -485,7 +485,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "nb", "one", "{0} dag" },
         { "nb", "other", "{0} dager" },
         { "ne", "one", "तपाईँसँग {0} निम्तो छ" },
-        { "ne", "other", "तपाईँसँग 2 निम्ता छन््" },
+        { "ne", "other", "तपाईँसँग {0} निम्ता छन््" },
         //        {"ne", "", "{0} दिन बाँकी छ ।"},
         //        {"ne", "", "{0} दिन बाँकी छ ।"},
         //        {"ne", "", "{0} दिन बाँकी छ ।"},
@@ -679,8 +679,8 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         {"hr","Skrenite na {0}. križanju desno.","1"},
         {"hu","Az {0}. lehetőségnél forduljon jobbra.","1"},
         {"hu","A {0}. lehetőségnél forduljon jobbra.","2"},
-        {"hy","Թեքվեք աջ 1-ին խաչմերուկից:","one"},
-        {"hy","Թեքվեք աջ 2-րդ խաչմերուկից:","other"},
+        {"hy","Թեքվեք աջ {0}-ին խաչմերուկից:","one"},
+        {"hy","Թեքվեք աջ {0}-րդ խաչմերուկից:","other"},
         {"id","Ambil belokan kanan ke-{0}.","1"},
         {"is","Taktu {0}. beygju til hægri.","1"},
         {"it","Prendi la {0}° a destra.","1"},
@@ -718,7 +718,6 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         {"nb","Ta {0}. svingen til høyre.","1"},
         {"pa","ਸਜੇ ਪਾਸੇ {0} ਮੋੜ ਲਵੋ","1"},
         {"pl","Skręć w {0} w prawo.","1"},
-        {"pt","pt-BR","1"},
         {"ro","Faceţi virajul nr. {0} la dreapta.","1"},
         {"ro","Faceţi virajul al {0}-lea la dreapta.","2"},
         {"ru","Сверните направо на {0}-м перекрестке.","1"},
@@ -742,7 +741,6 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         {"uz","{0}chi chorraxada o'ngga buriling.","1"},
         {"vi","Rẽ vào lối rẽ thứ {0} bên phải.","1"},
         {"vi","Rẽ vào lối rẽ thứ {0} bên phải.","2"},
-        {"zh","zh-Cn","1"},
         {"zh_Hant","在第 {0} 個路口右轉。","1"},
         {"zu","Thatha indlela ejikela kwesokudla engu-{0}","other"},
         {"cy","{0}fed ci","7"},

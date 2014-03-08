@@ -843,6 +843,29 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					this table precedes the regular mappings, so that parsers can use
 					this information while processing and optimizing mappings.
 			</p>
+			<p class="changed">For allkeys_CLDR.txt, the start of each reordering group can be
+			found by looking up the first <code>top_byte</code> of the group
+			(e.g., <code>[top_byte  0D  SYMBOL ]</code>),
+			finding the first real mapping (after “xyz first primary”)
+			with that <code>top_byte</code> in FractionalUCA.txt
+			(e.g., <code>0060; [0D 07, 05, 05]  # Zyyy Sk  [0312.0020.0002]  * GRAVE ACCENT</code>),
+			and looking for that mapping's character sequence (<code>0060</code>) in allkeys_CLDR.txt.
+			The comment in FractionalUCA.txt (<code>[0312.0020.0002]</code>)
+			also shows the allkeys_CLDR.txt collation elements.</p>
+			<p class="changed">For allkeys_DUCET.txt, the start of each reordering group
+			is normally the same character sequence as for allkeys_CLDR.txt.
+			In a few cases this may need to be adjusted,
+			especially for the special reordering groups, due to CLDR’s
+			ordering the common characters more strictly by category than the DUCET
+			(as described above).
+			If necessary, the start of an allkeys_DUCET.txt reordering group should be adjusted
+			to the first mapping for the relevant General_Category (e.g., gc=S for SYMBOL) for a special reordering group,
+			or the first mapping for the first script (e.g., sc=Grek) of an “alphabetic” group.</p>
+			<p class="changed">CLDR does not support reordering of each individual script.
+			For example, Greek and Coptic are reordered together;
+			see <i>Section 3.12, <a href="#Script_Reordering">Collation Reordering</a></i>.
+			Implementations that are not based on the primary weights of FractionalUCA.txt
+			may group scripts differently or may not have this limitation.</p>
 		</blockquote>
 		<pre># Reordering Tokens =&gt; Top Bytes
 [reorderingTokens     Arab    61=910 62=910 ]
@@ -2313,9 +2336,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<p>
 			The default reordering groups follow the allkeys_CLDR.txt ordering;
 			they also may be tailored by implementations to different values. For
-			more information on FractionalUCA.txt and allkeys_CLDR.txt, see <a
-				href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation
-				Auxiliary</a>.
+			more information on FractionalUCA.txt and allkeys_CLDR.txt, see
+			<a class="removed" href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation
+				Auxiliary</a>
+			<i class="changed">Section 2.5, <a href="Root Collation Data Files">Root Collation Data Files</a></i>.
 		</p>
 		<p>The DUCET ordering is slightly different from the allkeys_CLDR
 			ordering. The reordering groups for the DUCET are not specified here.

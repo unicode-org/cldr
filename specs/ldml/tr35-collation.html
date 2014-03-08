@@ -1726,6 +1726,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				that is, it does not have a canonical decomposition and it does not reorder (ccc=0).
 				This keeps abbreviated rules unambiguous.</span>
 		</p>
+		<p class="changed">A starred relation operator is followed by a sequence of characters
+		  with the same quoting/escaping rules as normal relation strings.
+		  Such a sequence can also be followed by one or more pairs of ‘-’ and another sequence of characters.
+		  The single characters adjacent to the ‘-’ establish a code point order range.
+		  The same character cannot be both the end of a range and the start of another range.
+		  (For example, <code>&lt;a-d-g</code> is not allowed.)</p>
 		<table>
 			<caption>Abbreviating Ordering Specifications</caption>
 			<tr>
@@ -1737,12 +1743,19 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td><code>&lt;*</code></td>
 				<td><code>
 						&amp; <span style="color: blue">a</span><br> &lt;* <span
-							style="color: blue">bcd</span>&nbsp;
+							style="color: blue">bcd<span class="changed">-gp-s</span></span>&nbsp;
 					</code></td>
 				<td><code>
 						&amp; <span style="color: blue">a</span><br> &lt; <span
 							style="color: blue">b </span>&lt;<span style="color: blue">
-							c </span>&lt;<span style="color: blue"> d</span>&nbsp;
+							c </span>&lt;<span style="color: blue"> d</span>
+							<span class="changed">&lt; <span style="color: blue">e</span>
+							&lt; <span style="color: blue">f</span>
+							&lt; <span style="color: blue">g</span>
+							&lt; <span style="color: blue">p</span>
+							&lt; <span style="color: blue">q</span>
+							&lt; <span style="color: blue">r</span>
+							&lt; <span style="color: blue">s</span></span>
 					</code></td>
 			</tr>
 			<tr>

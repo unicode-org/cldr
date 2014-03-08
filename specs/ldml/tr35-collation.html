@@ -973,6 +973,32 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				syntax.
 			</li>
 		</ul>
+
+		<h4 class="changed">3.0.1 <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a></h4>
+		<p class="changed">When loading a requested tailoring from its data file and the parent file chain,
+		use the following type fallback to find the tailoring.</p>
+		<ol class="changed">
+			<li>Determine the default type from the &lt;defaultCollation&gt; element;
+			  map the default type to its alias if one is defined.
+			  If there is no &lt;defaultCollation&gt; element, then use "standard" as the default type.</li>
+			<li>If the request language tag specifies the collation type (keyword "co"),
+			  then map it to its alias if one is defined (e.g., "-co-phonebk" → "phonebook").
+			  If the language tag does not specify the type, then use the default type.</li>
+			<li>Use the &lt;collation&gt; element with this type.</li>
+			<li>If it does not exist, and the type starts with "search" but is longer,
+			  then set the type to "search" and use that &lt;collation&gt; element.
+			  (For example, "searchjl" → "search".)</li>
+			<li>If it does not exist, and the type is not the default type,
+			  then set the type to the default type and use that &lt;collation&gt; element.</li>
+			<li>If it does not exist, and the type is not "standard",
+			  then set the type to "standard" and use that &lt;collation&gt; element.</li>
+			<li>If it does not exist, then use the CLDR root collation.</li>
+		</ol>
+		<p class="changed">Note that the CLDR collation/root.xml contains
+		&lt;defaultCollation&gt;standard&lt;/defaultCollation&gt;,
+		&lt;collation type="standard"&gt; (with an empty tailoring, so this is the same as the CLDR root collation),
+		and &lt;collation type="search"&gt;.</p>
+
 		<h3>
 			3.1 <a name="Collation_Version" href="#Collation_Version">Version</a>
 		</h3>
@@ -1011,7 +1037,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			change. The following illustrates the overall structure of a <span
 				class="element">collation</span>:
 		</p>
-		<pre>&lt;collation&gt;
+		<pre>&lt;collation <span class="changed">type="phonebook"</span>&gt;
   &lt;settings caseLevel=&quot;on&quot;/&gt;
   &lt;cr&gt;&lt;![CDATA[
     &amp;c &lt; k

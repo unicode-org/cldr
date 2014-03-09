@@ -861,9 +861,22 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			ordering the common characters more strictly by category than the DUCET
 			(as described above).
 			The necessary adjustment would set the start of each allkeys_DUCET.txt reordering group
-			to the first mapping for the relevant General_Category (e.g., gc=S for SYMBOL) for a special reordering group,
-			or the first mapping for the first script (e.g., sc=Grek) of an “alphabetic” group.</p>
-			<p class="changed">Some scripts are grouped together by CLDR,
+			to the first mapping for the relevant General_Category for a special reordering group
+			(for characters that sort before ‘a’),
+			or the first mapping for the first script (e.g., sc=Grek) of an “alphabetic” group
+			(for characters that sort at or after ‘a’).</p>
+			<p class="changed">The special reordering groups correspond to General_Category values as follows:</p>
+			<ul class="changed">
+			  <li>space: Z, Cc</li>
+			  <li>punct: P</li>
+			  <li>symbol: Sk, Sm, So</li>
+			  <li>currency: Sc</li>
+			  <li>digit: N</li>
+			</ul>
+			<p class="changed">Characters that sort below ‘a’ and have
+			other General_Category values not mentioned above (e.g., gc=Lm)
+			are also grouped with symbols.</p>
+			<p class="changed">Some scripts are grouped together by CLDR
 			and cannot be ordered independently.
 			For example, Greek and Coptic are grouped together:
 			Reordering Greek after Devanagari will also cause Coptic to be reordered after Devanagari.
@@ -2404,10 +2417,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				Auxiliary</a>
 			<i class="changed">Section 2.5, <a href="Root Collation Data Files">Root Collation Data Files</a></i>.
 		</p>
-		<p>The DUCET ordering is slightly different from the allkeys_CLDR
-			ordering. The reordering groups for the DUCET are not specified here.
+		<p>The DUCET ordering <span class="changed">of some characters</span> is slightly different from the <span class="removed">allkeys_CLDR
+			ordering.</span> <span class="changed">CLDR root collation order.</span>
+			<span class="removed">The reordering groups for the DUCET are not specified here.</span>
 			However, most reordering groups would start with the same characters
-			as in FractionalUCA.txt.</p>
+			as in FractionalUCA.txt.
+			<span class="changed">For details see <i>Section 2.6.2,
+			<a href="#File_Format_FractionalUCA_txt">FractionalUCA.txt</a></i>.</span></p>
 
 		<h3>
 			3.13 <a name="Case_Parameters" href="#Case_Parameters">Case

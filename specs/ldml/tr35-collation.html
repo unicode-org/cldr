@@ -845,44 +845,6 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					this table precedes the regular mappings, so that parsers can use
 					this information while processing and optimizing mappings.
 			</p>
-			<p class="changed">For allkeys_CLDR.txt, the start of each reordering group can be
-			found by looking up the first <code>top_byte</code> of the group
-			(e.g., <code>[top_byte  0D  SYMBOL ]</code>),
-			finding the first real mapping (after “xyz first primary”)
-			with that <code>top_byte</code> in FractionalUCA.txt
-			(e.g., <code>0060; [0D 07, 05, 05]  # Zyyy Sk  [0312.0020.0002]  * GRAVE ACCENT</code>),
-			and looking for that mapping's character sequence (<code>0060</code>) in allkeys_CLDR.txt.
-			The comment in FractionalUCA.txt (<code>[0312.0020.0002]</code>)
-			also shows the allkeys_CLDR.txt collation elements.</p>
-			<p class="changed">For allkeys_DUCET.txt, the start of each reordering group
-			is normally the same character sequence as for allkeys_CLDR.txt.
-			In a few cases this requires adjustment,
-			especially for the special reordering groups, due to CLDR’s
-			ordering the common characters more strictly by category than the DUCET
-			(as described above).
-			The necessary adjustment would set the start of each allkeys_DUCET.txt reordering group
-			to the first mapping for the relevant General_Category for a special reordering group
-			(for characters that sort before ‘a’),
-			or the first mapping for the first script (e.g., sc=Grek) of an “alphabetic” group
-			(for characters that sort at or after ‘a’).</p>
-			<p class="changed">The special reordering groups correspond to General_Category values as follows:</p>
-			<ul class="changed">
-			  <li>space: Z, Cc</li>
-			  <li>punct: P</li>
-			  <li>symbol: Sk, Sm, So</li>
-			  <li>currency: Sc</li>
-			  <li>digit: N</li>
-			</ul>
-			<p class="changed">Characters that sort below ‘a’ and have
-			other General_Category values not mentioned above (e.g., gc=Lm)
-			are also grouped with symbols.</p>
-			<p class="changed">Some scripts are grouped together by CLDR
-			and cannot be ordered independently.
-			For example, Greek and Coptic are grouped together:
-			Reordering Greek after Devanagari will also cause Coptic to be reordered after Devanagari.
-			For more information see <i>Section 3.12, <a href="#Script_Reordering">Collation Reordering</a></i>.
-			Implementations that are not based on the primary weights of FractionalUCA.txt
-			may group scripts differently or may not have this limitation.</p>
 		</blockquote>
 		<pre># Reordering Tokens =&gt; Top Bytes
 [reorderingTokens     Arab    61=910 62=910 ]
@@ -2409,21 +2371,67 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</ul>
 		<p class="changed">For example, <code>reorder="Hani Zzzz Grek"</code> sorts
 		Hani, Latin, Cyrillic, ... (all other scripts) ..., unassigned, Greek, TRAILING.</p>
-		<p>
+		<p class="removed">
 			The default reordering groups follow the allkeys_CLDR.txt ordering;
 			they also may be tailored by implementations to different values. For
 			more information on FractionalUCA.txt and allkeys_CLDR.txt, see
-			<a class="removed" href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation
-				Auxiliary</a>
-			<i class="changed">Section 2.5, <a href="Root Collation Data Files">Root Collation Data Files</a></i>.
+			<a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation
+				Auxiliary</a>.
 		</p>
+		<p class="changed">
+		  The reordering groups are defined in FractionalUCA.txt, see
+		  <i>Section 2.6.2, <a href="File_Format_FractionalUCA_txt">FractionalUCA.txt</a></i>.
+		</p>
+
+		<h4 class="changed">3.12.2 <a name="Reordering_Groups_allkeys"
+			href="#Reordering_Groups_allkeys">Reordering Groups for allkeys.txt</a></h4>
+		<p class="changed">For allkeys_CLDR.txt, the start of each reordering group can be
+		determined from FractionalUCA.txt, by looking up the first <code>top_byte</code> of the group
+		(e.g., <code>[top_byte  0D  SYMBOL ]</code>),
+		finding the first real mapping (after “xyz first primary”)
+		with that <code>top_byte</code>
+		(e.g., <code>0060; [0D 07, 05, 05]  # Zyyy Sk  [0312.0020.0002]  * GRAVE ACCENT</code>),
+		and looking for that mapping's character sequence (<code>0060</code>) in allkeys_CLDR.txt.
+		The comment in FractionalUCA.txt (<code>[0312.0020.0002]</code>)
+		also shows the allkeys_CLDR.txt collation elements.</p>
+
 		<p>The DUCET ordering <span class="changed">of some characters</span> is slightly different from the <span class="removed">allkeys_CLDR
-			ordering.</span> <span class="changed">CLDR root collation order.</span>
-			<span class="removed">The reordering groups for the DUCET are not specified here.</span>
-			However, most reordering groups would start with the same characters
-			as in FractionalUCA.txt.
-			<span class="changed">For details see <i>Section 2.6.2,
-			<a href="#File_Format_FractionalUCA_txt">FractionalUCA.txt</a></i>.</span></p>
+		ordering.</span> <span class="changed">CLDR root collation order.</span>
+		The reordering groups for the DUCET are not specified <span class="removed">here</span>.
+		<span class="removed">However, most reordering groups would start with the same characters
+		as in FractionalUCA.txt.</span>
+		<span class="changed">The following describes how reordering groups for the DUCET can be derived.</span></p>
+		<p class="changed">For allkeys_DUCET.txt, the start of each reordering group
+		is normally the primary weight corresponding to the same character sequence as for allkeys_CLDR.txt.
+		In a few cases this requires adjustment,
+		especially for the special reordering groups, due to CLDR’s
+		ordering the common characters more strictly by category than the DUCET
+		(as described in <i>Section 2, <a href="#Root_Collation">Root Collation</a></i>).
+		The necessary adjustment would set the start of each allkeys_DUCET.txt reordering group
+		to the primary weight of the first mapping for the relevant General_Category
+		for a special reordering group (for characters that sort before ‘a’),
+		or the primary weight of the first mapping for the first script (e.g., sc=Grek) of an “alphabetic” group
+		(for characters that sort at or after ‘a’).</p>
+		<p class="changed">Note that the following only applies to primary weights
+		greater than the one for U+FFFE and less than "trailing" weights.</p>
+		<p class="changed">The special reordering groups correspond to General_Category values as follows:</p>
+		<ul class="changed">
+			<li>space: Z, Cc</li>
+			<li>punct: P</li>
+			<li>symbol: Sk, Sm, So</li>
+			<li>currency: Sc</li>
+			<li>digit: Nd</li>
+		</ul>
+		<p class="changed">Characters that sort below ‘a’ and have
+		other General_Category values not mentioned above (e.g., gc=Lm or gc=No)
+		are also grouped with symbols.</p>
+		<p class="changed">Each collation element of an expansion may be in a different reordering group,
+		for example for parenthesized characters.</p>
+		<p class="changed">Some scripts are grouped together by CLDR
+		and cannot be ordered independently,
+		as mentioned above in <i>Section 3.12, <a href="#Script_Reordering">Collation Reordering</a></i>.
+		Implementations that are not based on the primary weights of FractionalUCA.txt
+		may group scripts differently or may not have this limitation.</p>
 
 		<h3>
 			3.13 <a name="Case_Parameters" href="#Case_Parameters">Case

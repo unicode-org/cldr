@@ -1162,7 +1162,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					</code></td>
 				<td rowspan="2">If <strong>on</strong>, then the normal [<a
 					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
-					algorithm is used. If <strong>off</strong>, then all strings that
+					algorithm is used. <span class="removed">If <strong>off</strong>, then all strings that
 					are in [<a href="tr35.html#FCD">FCD</a>] and do not contain any
 					composite combining marks will sort correctly, but others will not
 					necessarily sort correctly.<br> So should only be set <strong>off</strong>
@@ -1172,7 +1172,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5B%3A%5Elccc%3D0%3A%5D%26%5B%3AtoNFD%3D%2F..%2F%3A%5D&amp;abb=on&amp;g=">[[:^lccc=0:]&amp;[:toNFD=/../:]]</a>
 					(These characters must be decomposed for discontiguous contractions
 					to work properly. Use of these characters is discouraged by the
-					Unicode Standard.)<br> <em>Note that the default for CLDR
+					Unicode Standard.)</span>
+					<span class="changed">If <strong>off</strong>, then most strings should still
+					sort correctly despite not normalizing to NFD first.</span><br>
+					<em>Note that the default for CLDR
 						locales may be different than in the UCA. The rules for particular
 						locales have it set to <strong>on</strong>: those locales whose
 						exemplar characters (in forms commonly interchanged) would be
@@ -1402,10 +1405,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td>maximal</td>
 			</tr>
 		</table>
+
+		<h4 class="changed">3.3.1 <a name="Variable_Top_Settings" href="#Variable_Top_Settings">Notes on variable top settings</a></h4>
 		<p>
 			<span class="removed"><strong>Variable Top (vt) </strong>bears more explanation.</span>
-			<span class="changed"><strong>Notes on variable top settings:</strong></span>
-			Users may want to include more or fewer characters as Variable.
+			<span class="changed">Users may want to include more or fewer characters as Variable.
 			For example, someone could want to restrict the Variable characters to just
 			include space marks. In that case, <span class="changed">maxVariable would be set to "space".
 			(In CLDR 24 and earlier, the now-deprecated</span> variableTop would be set to U+1680,
@@ -1423,6 +1427,36 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			locale identifier "de-u-ka-shifted-<span class="removed">vt-0024</span> <span class="changed">kv-currency</span>" is requesting settings
 			appropriate for German, including German sorting conventions, and
 			that <span class="removed">'$'</span> <span class="changed">currency symbols</span> and characters sorting below <span class="removed">it</span> <span class="changed">them</span> are ignored in sorting.</p>
+
+		<h4 class="changed">3.3.2 <a name="Normalization_Setting"
+			href="#Normalization_Setting">Notes on the normalization setting</a></h4>
+		<p class="changed">The UCA always normalizes input strings into NFD form
+		before the rest of the algorithm. However, this results in poor performance.</p>
+		<p class="changed">With <strong>normalization=off</strong>,
+		strings that are in [<a href="tr35.html#FCD">FCD</a>]
+		and do not contain Tibetan precomposed vowels (U+0F73, U+0F75, U+0F81)
+		should sort correctly.
+		With <strong>normalization=on</strong>, an implementation that does not normalize to NFD
+		must at least perform an incremental FCD check and normalize substrings as necessary.
+		It should also always decompose the Tibetan precomposed vowels.
+		(Otherwise discontiguous contractions across their leading components
+		cannot be handled correctly.)</p>
+		<p class="changed">Another complication for an implementation that does not always use NFD
+		arises when contraction mappings overlap with canonical Decomposition_Mapping strings.
+		For example, the Danish contraction “aa” overlaps with
+		the decompositions of ‘ä’, ‘å’, and other characters.
+		In the root collation (and in the DUCET), Cyrillic ‘ӛ’ maps to a single collation element,
+		which means that its decomposition “ә+&#x25CC;&#x0308;” forms a contraction,
+		and its second character (U+0308) is the same as
+		the first character in the Decomposition_Mapping of
+		U+0344 ‘&#x25CC;&#x0344;’=“&#x25CC;&#x0308;+&#x25CC;&#x0308;”.</p>
+		<p class="changed">In order to handle strings with these characters
+		(e.g., “aä” and “ә&#x0344;” [which are in FCD])
+		exactly as with prior NFD normalization,
+		an implementation needs to either add overlap contractions to its data
+		(e.g., “a+ä” and “ә+&#x25CC;&#x0344;”),
+		or it needs to decompose the relevant composites (e.g., ‘ä’ and ‘&#x25CC;&#x0344;’)
+		as soon as they are encountered.</p>
 
 		<h3>
 			3.4 <a name="Rules" href="#Rules">Collation Rule Syntax</a>

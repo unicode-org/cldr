@@ -757,6 +757,9 @@ F967; [U+4E0D]  # Hani Lo       [FB40.0020.0002][CE0D.0000.0000]        * CJK CO
 				only copies U+4E36’s primary weight and specifies other secondary
 				and tertiary weights.
 			</p>
+			<p class="changed">FractionalUCA.txt does not have any explicit mappings for implicit weights.
+			  Therefore, an implementation is free to choose an algorithm for computing implicit weights
+			  according to the principles specified in the UCA.</p>
 		</blockquote>
 
 		<pre>
@@ -908,6 +911,15 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				&quot;trail&quot; area is provided for implementation of the
 				&quot;trailing weights&quot; as described in the UCA.</p>
 		</blockquote>
+
+		<p class="changed">Note: The particular primary lead bytes for
+		Hani vs. IMPLICIT vs. TRAILING are only an example.
+		An implementation is free to move them if it also moves
+		the weights for explicit TRAILING weights.
+		This affects only a small number of explicit mappings in FractionalUCA.txt,
+		such as for U+FFFD, U+FFFF, and the “unassigned first primary”.
+		It is possible to use no SPECIAL bytes at all,
+		and to use only the one primary lead byte FF for TRAILING weights.</p>
 
 		<h4>2.6.3 <a name="File_Format_UCA_Rules_txt" href="#File_Format_UCA_Rules_txt">UCA_Rules.txt</a></h4>
 		<p>
@@ -2363,15 +2375,27 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</blockquote>
 		<p>There are some special cases:</p>
 		<ul>
+			<li class="changed">The <strong>Hani</strong> group includes
+			  implicit weights for <em>Han characters</em> according to the UCA
+			  as well as any characters tailored relative to a Han character,
+			  or after <code>&amp;[first Hani]</code>.</li>
+			<li class="changed">Implicit weights for <em>unassigned code points</em> according to the UCA
+			  reorder as the last weights in the <strong>others</strong> (<strong>Zzzz</strong>) group.<br>
+			  There is no script code to explicitly reorder the unassigned-implicit weights
+			  into a particular position.
+			  (Unassigned-implicit weights are used for non-Hani code points without any mappings.
+			  For a given Unicode version they are the code points with General_Category values Cn, Co, Cs.)</li>
 			<li>The TRAILING group, the FIELD-SEPARATOR (associated with
 				U+FFFE), and collation elements with only zero primary weights are
 				not reordered.</li>
-			<li>The IMPLICIT group is currently treated as if it were part
+			<li class="removed">The IMPLICIT group is currently treated as if it were part
 				of <strong>Hani</strong>.
 			</li>
 			<li>The TERMINATOR, LEVEL-SEPARATOR, and SPECIAL groups are
 				never associated with characters.</li>
 		</ul>
+		<p class="changed">For example, <code>reorder="Hani Zzzz Grek"</code> sorts
+		Hani, Latin, Cyrillic, ... (all other scripts) ..., unassigned, Greek, TRAILING.</p>
 		<p>
 			The default reordering groups follow the allkeys_CLDR.txt ordering;
 			they also may be tailored by implementations to different values. For

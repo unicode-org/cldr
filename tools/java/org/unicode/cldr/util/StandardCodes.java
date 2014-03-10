@@ -17,6 +17,7 @@ import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -34,6 +35,7 @@ import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
 import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.ZoneParser.ZoneLine;
 
+import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
@@ -331,6 +333,7 @@ public class StandardCodes {
     }
 
     private Map<String, Map<String, Level>> platform_locale_level = null;
+    private Map<String, Relation<Level, String>> platform_level_locale = null;
     private Map<String, Map<String, String>> platform_locale_levelString = null;
 
     /**
@@ -442,6 +445,15 @@ public class StandardCodes {
         }
         return platform_locale_level.get(organization).keySet();
     }
+    
+    public Relation<Level, String> getLevelsToLocalesFor(String organization) {
+        synchronized (StandardCodes.class) {
+            if (platform_level_locale == null) {
+                loadPlatformLocaleStatus();
+            }
+        }
+        return platform_level_locale.get(organization);
+    }
 
     public Set<String> getLocaleCoverageLocales(String organization, Set<Level> choice) {
         Set<String> result = new LinkedHashSet<String>();
@@ -546,6 +558,7 @@ public class StandardCodes {
         }
         // backwards compat hack
         platform_locale_levelString = new TreeMap<String, Map<String, String>>(caseless);
+        platform_level_locale = new TreeMap<>();
         for (String platform : platform_locale_level.keySet()) {
             Map<String, String> locale_levelString = new TreeMap<String, String>();
             platform_locale_levelString.put(platform, locale_levelString);
@@ -553,7 +566,11 @@ public class StandardCodes {
             for (String locale : locale_level.keySet()) {
                 locale_levelString.put(locale, locale_level.get(locale).toString());
             }
+            Relation level_locale = Relation.of(new EnumMap(Level.class), HashSet.class);
+            level_locale.addAllInverted(locale_level).freeze();
+            platform_level_locale.put(platform, level_locale);
         }
+        CldrUtility.protectCollection(platform_level_locale);
         platform_locale_level = CldrUtility.protectCollection(platform_locale_level);
         platform_locale_levelString = CldrUtility.protectCollection(platform_locale_levelString);
     }

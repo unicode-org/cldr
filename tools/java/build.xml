@@ -195,14 +195,21 @@
     <target name="jar" depends="all" description="build full 'cldr.jar' jar file">
         <jar jarfile="${jar.file}"
             compress="true"
-            includes="org/unicode/cldr/draft/**/*,org/unicode/cldr/util/**/*,org/unicode/cldr/tool/**/*,org/unicode/cldr/test/**/*,org/unicode/cldr/posix/**/*,org/unicode/cldr/ant/**/*,org/unicode/cldr/json/**/*,org/unicode/cldr/icu/**/*"
+            includes="org/unicode/cldr/draft/**/*,
+        		org/unicode/cldr/util/**/*,
+        		org/unicode/cldr/tool/**/*,
+        		org/unicode/cldr/test/**/*,
+        		org/unicode/cldr/posix/**/*,
+        		org/unicode/cldr/ant/**/*,
+        		org/unicode/cldr/json/**/*,
+        		org/unicode/cldr/icu/**/*"
             basedir="${build.dir}">
           <manifest>
             <attribute name="Built-By" value="${user.name}"/>
             <attribute name="Main-Class"
                        value="org.unicode.cldr.tool.Main"/>
             <attribute name="Class-Path"
-                       value="./libs/icu4j.jar ./libs/utilities.jar ./libs/xercesImpl.jar icu4j.jar utilities.jar xercesImpl.jar"/>
+                       value="./libs/icu4j.jar ./libs/utilities.jar ./libs/xercesImpl.jar ./libs/guava-16.0.1.jar icu4j.jar utilities.jar xercesImpl.jar"/>
           </manifest>
         </jar>
     </target>

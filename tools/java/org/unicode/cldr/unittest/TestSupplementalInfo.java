@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.tool.PluralRulesFactory;
+import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
@@ -157,8 +158,18 @@ public class TestSupplementalInfo extends TestFmwk {
             // check empty range results
             if (found.isEmpty()) {
                 ignoreErrln("Empty range results for " + locale);
-            } else if (isVerbose()) {
-                logln("Range results for " + locale + ":\t" + found);
+            } else {
+                final SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(new ULocale(locale));
+                for (Count result : found) {
+                    String samplePattern = samplePatterns.get(PluralRules.PluralType.CARDINAL, result);
+                    if (samplePattern != null && !samplePattern.contains("{0}")) {
+                        errln("Plural Ranges cannot have results that don't use {0} in samples: "
+                            + locale + ", " + result + "\t«" + samplePattern + "»");
+                    }
+                }
+                if (isVerbose()) {
+                    logln("Range results for " + locale + ":\t" + found);
+                }
             }
 
             // check for missing values
@@ -197,6 +208,38 @@ public class TestSupplementalInfo extends TestFmwk {
             checkPluralSamples(row);
         }
     }
+    public void TestPluralSamples2() {
+        for (ULocale locale : PluralRulesFactory.getLocales()) {
+            if (locale.toString().equals("und")) {
+                continue;
+            }
+            final SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(locale);
+            for (PluralRules.PluralType type : PluralRules.PluralType.values()) {
+                PluralInfo rules = SUPPLEMENTAL.getPlurals(
+                    SupplementalDataInfo.PluralType.fromStandardType(type), 
+                    locale.toString());
+                for (Count count : rules.getCounts()) {
+                    String sample = samplePatterns.get(type, count);
+                    if (sample == null) {
+                        if (type == PluralRules.PluralType.ORDINAL 
+                            && logKnownIssue("cldrbug:7075", "missing ordinal minimal pair")) {
+                            continue;
+                        }
+                        assertNotNull("Missing sample for " + locale + ", " + type + ", " + count, sample); 
+                    } else {
+                        PluralRules pRules = rules.getPluralRules();
+                        double unique = pRules.getUniqueKeywordValue(count.toString());
+                        if (unique == PluralRules.NO_UNIQUE_VALUE 
+                            && !sample.contains("{0}")) {
+                            errln("Missing {0} in sample: " + locale + ", " + type + ", " + count
+                                + " «" + sample + "»");                   
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 
     public void checkPluralSamples(String... row) {
         PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(PluralType.valueOf(row[1]), row[0]);
@@ -1238,9 +1281,9 @@ public class TestSupplementalInfo extends TestFmwk {
                     continue;
                 }
                 Set<Count> counts = pluralInfo.getCounts();
-//                if (counts.size() == 1) {
-//                    continue; // skip checking samples
-//                }
+                //                if (counts.size() == 1) {
+                //                    continue; // skip checking samples
+                //                }
                 HashSet<String> samples = new HashSet<String>();
                 EnumSet<Count> countsWithNoSamples = EnumSet.noneOf(Count.class);
                 Relation<String, Count> samplesToCounts = Relation.of(new HashMap(), LinkedHashSet.class);
@@ -1269,7 +1312,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     static final boolean SHOW_KNOWN_ERROR = false;
-    
+
     public void errOrLog(boolean causeError, String message) {
         if (causeError && 
             (SHOW_KNOWN_ERROR || !logKnownIssue("Cldrbug:6290", "Fix this once we have all ordinal messages."))) {

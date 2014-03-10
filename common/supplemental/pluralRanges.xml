@@ -114,10 +114,10 @@
 
 <!-- one, two, many, other -->
 		<pluralRanges locales="he">
-			<pluralRange start="one"   end="two"   result="two"/>
+			<pluralRange start="one"   end="two"   result="other"/>
 			<pluralRange start="one"   end="many"  result="many"/>
 			<pluralRange start="one"   end="other" result="other"/>
-			<pluralRange start="two"   end="many"  result="one"/>
+			<pluralRange start="two"   end="many"  result="other"/>
 			<pluralRange start="two"   end="other" result="other"/>
 			<pluralRange start="many"  end="many"  result="many"/>
 			<pluralRange start="many"  end="other" result="many"/>

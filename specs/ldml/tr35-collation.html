@@ -272,8 +272,7 @@ h2,h3,h4,table {
 		</p>
 
 		<h3>
-			<a name="CLDR_Collation_Algorithm" href="#CLDR_Collation_Algorithm">1.1
-				CLDR Collation Algorithm</a>
+			1.1 <a name="CLDR_Collation_Algorithm" href="#CLDR_Collation_Algorithm">CLDR Collation Algorithm</a>
 		</h3>
 
 		<p>
@@ -283,7 +282,7 @@ h2,h3,h4,table {
 		</p>
 
 		<h4>
-			<a name="Algorithm_FFFE" href="#Algorithm_FFFE">U+FFFE</a>
+			1.1.1 <a name="Algorithm_FFFE" href="#Algorithm_FFFE">U+FFFE</a>
 		</h4>
 
 		<p>
@@ -309,7 +308,7 @@ h2,h3,h4,table {
 		</p>
 
 		<h4>
-			<a name="Context_Sensitive_Mappings"
+			1.1.2 <a name="Context_Sensitive_Mappings"
 				href="#Context_Sensitive_Mappings">Context-Sensitive Mappings</a>
 		</h4>
 
@@ -646,7 +645,7 @@ h2,h3,h4,table {
 			formats for CLDR 23 and beyond are as follows. As usual, text after a
 			# is a comment.</p>
 
-		<h4>allkeys_CLDR.txt</h4>
+		<h4>2.6.1 <a name="File_Format_allkeys_CLDR_txt" href="#File_Format_allkeys_CLDR_txt">allkeys_CLDR.txt</a></h4>
 		<p>
 			This file defines CLDR’s tailoring of the DUCET, as described in <i>Section
 				2, <a href="#Root_Collation">Root Collation</a>
@@ -658,7 +657,7 @@ h2,h3,h4,table {
 			although there may be some differences in whitespace.
 		</p>
 
-		<h4>FractionalUCA.txt</h4>
+		<h4>2.6.2 <a name="File_Format_FractionalUCA_txt" href="#File_Format_FractionalUCA_txt">FractionalUCA.txt</a></h4>
 		<p>The format is illustrated by the following sample lines, with
 			commentary afterwards.</p>
 		<pre>[UCA version = 6.0.0]</pre>
@@ -758,6 +757,9 @@ F967; [U+4E0D]  # Hani Lo       [FB40.0020.0002][CE0D.0000.0000]        * CJK CO
 				only copies U+4E36’s primary weight and specifies other secondary
 				and tertiary weights.
 			</p>
+			<p class="changed">FractionalUCA.txt does not have any explicit mappings for implicit weights.
+			  Therefore, an implementation is free to choose an algorithm for computing implicit weights
+			  according to the principles specified in the UCA.</p>
 		</blockquote>
 
 		<pre>
@@ -885,7 +887,16 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				&quot;trailing weights&quot; as described in the UCA.</p>
 		</blockquote>
 
-		<h4>UCA_Rules.txt</h4>
+		<p class="changed">Note: The particular primary lead bytes for
+		Hani vs. IMPLICIT vs. TRAILING are only an example.
+		An implementation is free to move them if it also moves
+		the explicit TRAILING weights.
+		This affects only a small number of explicit mappings in FractionalUCA.txt,
+		such as for U+FFFD, U+FFFF, and the “unassigned first primary”.
+		It is possible to use no SPECIAL bytes at all,
+		and to use only the one primary lead byte FF for TRAILING weights.</p>
+
+		<h4>2.6.3 <a name="File_Format_UCA_Rules_txt" href="#File_Format_UCA_Rules_txt">UCA_Rules.txt</a></h4>
 		<p>
 			The format for this file uses the CLDR
 			collation syntax, see <i>Section 3, <a
@@ -894,8 +905,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 
 		<h2>
-			<a name="Collation_Tailorings" href="#Collation_Tailorings">3
-				Collation Tailorings</a>
+			3 <a name="Collation_Tailorings" href="#Collation_Tailorings">Collation Tailorings</a>
 		</h2>
 		<p class="dtd">
 			&lt;!ELEMENT collations (alias | (defaultCollation?,
@@ -950,6 +960,32 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				syntax.
 			</li>
 		</ul>
+
+		<h4 class="changed">3.0.1 <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a></h4>
+		<p class="changed">When loading a requested tailoring from its data file and the parent file chain,
+		use the following type fallback to find the tailoring.</p>
+		<ol class="changed">
+			<li>Determine the default type from the &lt;defaultCollation&gt; element;
+			  map the default type to its alias if one is defined.
+			  If there is no &lt;defaultCollation&gt; element, then use "standard" as the default type.</li>
+			<li>If the request language tag specifies the collation type (keyword "co"),
+			  then map it to its alias if one is defined (e.g., "-co-phonebk" → "phonebook").
+			  If the language tag does not specify the type, then use the default type.</li>
+			<li>Use the &lt;collation&gt; element with this type.</li>
+			<li>If it does not exist, and the type starts with "search" but is longer,
+			  then set the type to "search" and use that &lt;collation&gt; element.
+			  (For example, "searchjl" → "search".)</li>
+			<li>If it does not exist, and the type is not the default type,
+			  then set the type to the default type and use that &lt;collation&gt; element.</li>
+			<li>If it does not exist, and the type is not "standard",
+			  then set the type to "standard" and use that &lt;collation&gt; element.</li>
+			<li>If it does not exist, then use the CLDR root collation.</li>
+		</ol>
+		<p class="changed">Note that the CLDR collation/root.xml contains
+		&lt;defaultCollation&gt;standard&lt;/defaultCollation&gt;,
+		&lt;collation type="standard"&gt; (with an empty tailoring, so this is the same as the CLDR root collation),
+		and &lt;collation type="search"&gt;.</p>
+
 		<h3>
 			3.1 <a name="Collation_Version" href="#Collation_Version">Version</a>
 		</h3>
@@ -988,7 +1024,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			change. The following illustrates the overall structure of a <span
 				class="element">collation</span>:
 		</p>
-		<pre>&lt;collation&gt;
+		<pre>&lt;collation <span class="changed">type="phonebook"</span>&gt;
   &lt;settings caseLevel=&quot;on&quot;/&gt;
   &lt;cr&gt;&lt;![CDATA[
     &amp;c &lt; k
@@ -1126,7 +1162,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					</code></td>
 				<td rowspan="2">If <strong>on</strong>, then the normal [<a
 					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
-					algorithm is used. If <strong>off</strong>, then all strings that
+					algorithm is used. <span class="removed">If <strong>off</strong>, then all strings that
 					are in [<a href="tr35.html#FCD">FCD</a>] and do not contain any
 					composite combining marks will sort correctly, but others will not
 					necessarily sort correctly.<br> So should only be set <strong>off</strong>
@@ -1136,7 +1172,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5B%3A%5Elccc%3D0%3A%5D%26%5B%3AtoNFD%3D%2F..%2F%3A%5D&amp;abb=on&amp;g=">[[:^lccc=0:]&amp;[:toNFD=/../:]]</a>
 					(These characters must be decomposed for discontiguous contractions
 					to work properly. Use of these characters is discouraged by the
-					Unicode Standard.)<br> <em>Note that the default for CLDR
+					Unicode Standard.)</span>
+					<span class="changed">If <strong>off</strong>, then most strings should still
+					sort correctly despite not normalizing to NFD first.</span><br>
+					<em>Note that the default for CLDR
 						locales may be different than in the UCA. The rules for particular
 						locales have it set to <strong>on</strong>: those locales whose
 						exemplar characters (in forms commonly interchanged) would be
@@ -1366,10 +1405,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td>maximal</td>
 			</tr>
 		</table>
+
+		<h4 class="changed">3.3.1 <a name="Variable_Top_Settings" href="#Variable_Top_Settings">Notes on variable top settings</a></h4>
 		<p>
 			<span class="removed"><strong>Variable Top (vt) </strong>bears more explanation.</span>
-			<span class="changed"><strong>Notes on variable top settings:</strong></span>
-			Users may want to include more or fewer characters as Variable.
+			<span class="changed">Users may want to include more or fewer characters as Variable.
 			For example, someone could want to restrict the Variable characters to just
 			include space marks. In that case, <span class="changed">maxVariable would be set to "space".
 			(In CLDR 24 and earlier, the now-deprecated</span> variableTop would be set to U+1680,
@@ -1387,6 +1427,36 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			locale identifier "de-u-ka-shifted-<span class="removed">vt-0024</span> <span class="changed">kv-currency</span>" is requesting settings
 			appropriate for German, including German sorting conventions, and
 			that <span class="removed">'$'</span> <span class="changed">currency symbols</span> and characters sorting below <span class="removed">it</span> <span class="changed">them</span> are ignored in sorting.</p>
+
+		<h4 class="changed">3.3.2 <a name="Normalization_Setting"
+			href="#Normalization_Setting">Notes on the normalization setting</a></h4>
+		<p class="changed">The UCA always normalizes input strings into NFD form
+		before the rest of the algorithm. However, this results in poor performance.</p>
+		<p class="changed">With <strong>normalization=off</strong>,
+		strings that are in [<a href="tr35.html#FCD">FCD</a>]
+		and do not contain Tibetan precomposed vowels (U+0F73, U+0F75, U+0F81)
+		should sort correctly.
+		With <strong>normalization=on</strong>, an implementation that does not normalize to NFD
+		must at least perform an incremental FCD check and normalize substrings as necessary.
+		It should also always decompose the Tibetan precomposed vowels.
+		(Otherwise discontiguous contractions across their leading components
+		cannot be handled correctly.)</p>
+		<p class="changed">Another complication for an implementation that does not always use NFD
+		arises when contraction mappings overlap with canonical Decomposition_Mapping strings.
+		For example, the Danish contraction “aa” overlaps with
+		the decompositions of ‘ä’, ‘å’, and other characters.
+		In the root collation (and in the DUCET), Cyrillic ‘ӛ’ maps to a single collation element,
+		which means that its decomposition “ә+&#x25CC;&#x0308;” forms a contraction,
+		and its second character (U+0308) is the same as
+		the first character in the Decomposition_Mapping of
+		U+0344 ‘&#x25CC;&#x0344;’=“&#x25CC;&#x0308;+&#x25CC;&#x0308;”.</p>
+		<p class="changed">In order to handle strings with these characters
+		(e.g., “aä” and “ә&#x0344;” [which are in FCD])
+		exactly as with prior NFD normalization,
+		an implementation needs to either add overlap contractions to its data
+		(e.g., “a+ä” and “ә+&#x25CC;&#x0344;”),
+		or it needs to decompose the relevant composites (e.g., ‘ä’ and ‘&#x25CC;&#x0344;’)
+		as soon as they are encountered.</p>
 
 		<h3>
 			3.4 <a name="Rules" href="#Rules">Collation Rule Syntax</a>
@@ -1677,6 +1747,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				that is, it does not have a canonical decomposition and it does not reorder (ccc=0).
 				This keeps abbreviated rules unambiguous.</span>
 		</p>
+		<p class="changed">A starred relation operator is followed by a sequence of characters
+		  with the same quoting/escaping rules as normal relation strings.
+		  Such a sequence can also be followed by one or more pairs of ‘-’ and another sequence of characters.
+		  The single characters adjacent to the ‘-’ establish a code point order range.
+		  The same character cannot be both the end of a range and the start of another range.
+		  (For example, <code>&lt;a-d-g</code> is not allowed.)</p>
 		<table>
 			<caption>Abbreviating Ordering Specifications</caption>
 			<tr>
@@ -1688,12 +1764,19 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td><code>&lt;*</code></td>
 				<td><code>
 						&amp; <span style="color: blue">a</span><br> &lt;* <span
-							style="color: blue">bcd</span>&nbsp;
+							style="color: blue">bcd<span class="changed">-gp-s</span></span>&nbsp;
 					</code></td>
 				<td><code>
 						&amp; <span style="color: blue">a</span><br> &lt; <span
 							style="color: blue">b </span>&lt;<span style="color: blue">
-							c </span>&lt;<span style="color: blue"> d</span>&nbsp;
+							c </span>&lt;<span style="color: blue"> d</span>
+							<span class="changed">&lt; <span style="color: blue">e</span>
+							&lt; <span style="color: blue">f</span>
+							&lt; <span style="color: blue">g</span>
+							&lt; <span style="color: blue">p</span>
+							&lt; <span style="color: blue">q</span>
+							&lt; <span style="color: blue">r</span>
+							&lt; <span style="color: blue">s</span></span>
 					</code></td>
 			</tr>
 			<tr>
@@ -2231,7 +2314,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				(Unknown Script) is a synonym for <strong>others</strong>.</li>
 		</ol>
 		<p>It is an error if a code occurs multiple times.</p>
-		<h4>Interpretation of a reordering list</h4>
+		<h4>3.12.1 <a name="Interpretation_reordering" href="#Interpretation_reordering">Interpretation of a reordering list</a></h4>
 		<p>The reordering list is interpreted as if it were processed in
 			the following way.</p>
 		<ol>
@@ -2301,26 +2384,89 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</blockquote>
 		<p>There are some special cases:</p>
 		<ul>
+			<li class="changed">The <strong>Hani</strong> group includes
+			  implicit weights for <em>Han characters</em> according to the UCA
+			  as well as any characters tailored relative to a Han character,
+			  or after <code>&amp;[first Hani]</code>.</li>
+			<li class="changed">Implicit weights for <em>unassigned code points</em> according to the UCA
+			  reorder as the last weights in the <strong>others</strong> (<strong>Zzzz</strong>) group.<br>
+			  There is no script code to explicitly reorder the unassigned-implicit weights
+			  into a particular position.
+			  (Unassigned-implicit weights are used for non-Hani code points without any mappings.
+			  For a given Unicode version they are the code points with General_Category values Cn, Co, Cs.)</li>
 			<li>The TRAILING group, the FIELD-SEPARATOR (associated with
 				U+FFFE), and collation elements with only zero primary weights are
 				not reordered.</li>
-			<li>The IMPLICIT group is currently treated as if it were part
+			<li class="removed">The IMPLICIT group is currently treated as if it were part
 				of <strong>Hani</strong>.
 			</li>
 			<li>The TERMINATOR, LEVEL-SEPARATOR, and SPECIAL groups are
 				never associated with characters.</li>
 		</ul>
-		<p>
+		<p class="changed">For example, <code>reorder="Hani Zzzz Grek"</code> sorts
+		Hani, Latin, Cyrillic, ... (all other scripts) ..., unassigned, Greek, TRAILING.</p>
+		<p class="removed">
 			The default reordering groups follow the allkeys_CLDR.txt ordering;
 			they also may be tailored by implementations to different values. For
-			more information on FractionalUCA.txt and allkeys_CLDR.txt, see <a
-				href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation
+			more information on FractionalUCA.txt and allkeys_CLDR.txt, see
+			<a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation
 				Auxiliary</a>.
 		</p>
-		<p>The DUCET ordering is slightly different from the allkeys_CLDR
-			ordering. The reordering groups for the DUCET are not specified here.
-			However, most reordering groups would start with the same characters
-			as in FractionalUCA.txt.</p>
+		<p class="changed">
+		  The reordering groups are defined in FractionalUCA.txt, see
+		  <i>Section 2.6.2, <a href="File_Format_FractionalUCA_txt">FractionalUCA.txt</a></i>.
+		</p>
+
+		<h4 class="changed">3.12.2 <a name="Reordering_Groups_allkeys"
+			href="#Reordering_Groups_allkeys">Reordering Groups for allkeys.txt</a></h4>
+		<p class="changed">For allkeys_CLDR.txt, the start of each reordering group can be
+		determined from FractionalUCA.txt, by looking up the first <code>top_byte</code> of the group
+		(e.g., <code>[top_byte  0D  SYMBOL ]</code>),
+		finding the first real mapping (after “xyz first primary”)
+		with that <code>top_byte</code>
+		(e.g., <code>0060; [0D 07, 05, 05]  # Zyyy Sk  [0312.0020.0002]  * GRAVE ACCENT</code>),
+		and looking for that mapping's character sequence (<code>0060</code>) in allkeys_CLDR.txt.
+		The comment in FractionalUCA.txt (<code>[0312.0020.0002]</code>)
+		also shows the allkeys_CLDR.txt collation elements.</p>
+
+		<p>The DUCET ordering <span class="changed">of some characters</span> is slightly different from the <span class="removed">allkeys_CLDR
+		ordering.</span> <span class="changed">CLDR root collation order.</span>
+		The reordering groups for the DUCET are not specified <span class="removed">here</span>.
+		<span class="removed">However, most reordering groups would start with the same characters
+		as in FractionalUCA.txt.</span>
+		<span class="changed">The following describes how reordering groups for the DUCET can be derived.</span></p>
+		<p class="changed">For allkeys_DUCET.txt, the start of each reordering group
+		is normally the primary weight corresponding to the same character sequence as for allkeys_CLDR.txt.
+		In a few cases this requires adjustment,
+		especially for the special reordering groups, due to CLDR’s
+		ordering the common characters more strictly by category than the DUCET
+		(as described in <i>Section 2, <a href="#Root_Collation">Root Collation</a></i>).
+		The necessary adjustment would set the start of each allkeys_DUCET.txt reordering group
+		to the primary weight of the first mapping for the relevant General_Category
+		for a special reordering group (for characters that sort before ‘a’),
+		or the primary weight of the first mapping for the first script (e.g., sc=Grek) of an “alphabetic” group
+		(for characters that sort at or after ‘a’).</p>
+		<p class="changed">Note that the following only applies to primary weights
+		greater than the one for U+FFFE and less than "trailing" weights.</p>
+		<p class="changed">The special reordering groups correspond to General_Category values as follows:</p>
+		<ul class="changed">
+			<li>space: Z, Cc</li>
+			<li>punct: P</li>
+			<li>symbol: Sk, Sm, So</li>
+			<li>currency: Sc</li>
+			<li>digit: Nd</li>
+		</ul>
+		<p class="changed">In the DUCET, some characters that sort below ‘a’ and have
+		other General_Category values not mentioned above (e.g., gc=Lm)
+		are also grouped with symbols.
+		Variants of numbers (gc=No or Nl) can be found among punctuation, symbols, and digits.</p>
+		<p class="changed">Each collation element of an expansion may be in a different reordering group,
+		for example for parenthesized characters.</p>
+		<p class="changed">Some scripts are grouped together by CLDR
+		and cannot be ordered independently,
+		as mentioned above in <i>Section 3.12, <a href="#Script_Reordering">Collation Reordering</a></i>.
+		Implementations that are not based on the primary weights of FractionalUCA.txt
+		may group scripts differently or may not have this limitation.</p>
 
 		<h3>
 			3.13 <a name="Case_Parameters" href="#Case_Parameters">Case
@@ -2357,7 +2503,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			characteristics more closely.
 		</p>
 
-		<h4>Untailored Characters</h4>
+		<h4>3.13.1 <a name="Case_Untailored" href="#Case_Untailored">Untailored Characters</a></h4>
 		<p>For untailored characters and strings, that is, for mappings in
 			the root collation, the case value for each collation element is
 			computed from the tertiary weight listed in allkeys_CLDR.txt. This is
@@ -2379,7 +2525,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</li>
 		</ol>
 
-		<h4>Compute Modified Collation Elements</h4>
+		<h4>3.13.2 <a name="Case_Weights" href="#Case_Weights">Compute Modified Collation Elements</a></h4>
 		<p>
 			From a computed case value, set a weight <strong>c</strong> according
 			to the following.
@@ -2469,7 +2615,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
 		</p>
 
-		<h4>Tailored Strings</h4>
+		<h4>3.13.3 <a name="Case_Tailored" href="#Case_Tailored">Tailored Strings</a></h4>
 		<p>
 			Characters and strings that are tailored have case
 			values computed from their root collation case bits.</p>
@@ -2523,7 +2669,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			3.15 <a name="Collation_Indexes" href="#Collation_Indexes">Collation
 				Indexes</a>
 		</h3>
-		<h4>Index Characters</h4>
+		<h4>3.15.1 <a name="Index_Characters" href="#Index_Characters">Index Characters</a></h4>
 		<p>
 			The main data includes &lt;exemplarCharacters&gt; for collation
 			indexes. See the main document, <i>Section 5.6 <a
@@ -2670,7 +2816,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</i>.
 		</p>
 
-		<h4>CJK Index Markers</h4>
+		<h4>3.15.2 <a name="CJK_Index_Markers" href="#CJK_Index_Markers">CJK Index Markers</a></h4>
 		<p>Special index markers have been added to the CJK collations for
 			stroke, pinyin, zhuyin, and unihan. These markers allow for effective
 			and robust use of indexes for these collations. For example, near the

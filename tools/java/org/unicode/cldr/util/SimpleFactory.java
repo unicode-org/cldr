@@ -34,7 +34,7 @@ public class SimpleFactory extends Factory {
      * Variable that customizes the caching of the results of SimpleFactory.make
      * 
      */
-    private static final boolean CACHE_SIMPLE_FACTORIES = true;
+    private static final boolean CACHE_SIMPLE_FACTORIES = false;
     
     /**
      * The maximum cache size the caches in

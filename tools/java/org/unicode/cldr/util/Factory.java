@@ -18,6 +18,11 @@ import org.unicode.cldr.util.XMLSource.ResolvingSource;
  */
 public abstract class Factory implements SublocaleProvider {
 
+	/**
+	 * Flag to set more verbose output in makeServolingSource
+	 */
+    private static final boolean DEBUG_FACTORY=false;
+    
     private File supplementalDirectory = null;
 
     /**
@@ -146,11 +151,15 @@ public abstract class Factory implements SublocaleProvider {
         List<XMLSource> sourceList = new ArrayList<XMLSource>();
         String curLocale = localeID;
         while (curLocale != null) {
+            if (DEBUG_FACTORY) {
+                System.out.println("Factory.makeResolvingSource: calling handleMake for locale "+
+                    curLocale+" and MimimalDraftStatus "+madeWithMinimalDraftStatus);
+            }
             CLDRFile file = handleMake(curLocale, false, madeWithMinimalDraftStatus);
             if (file == null) {
                 throw new NullPointerException(this + ".handleMake returned a null CLDRFile for " + curLocale);
             }
-            XMLSource source = file.dataSource;
+            XMLSource source= file.dataSource;
             sourceList.add(source);
             curLocale = LocaleIDParser.getParent(curLocale);
         }

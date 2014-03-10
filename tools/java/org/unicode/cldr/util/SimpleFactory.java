@@ -2,40 +2,298 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.collect.MapMaker;
+
+
 public class SimpleFactory extends Factory {
+    
+    /**
+     * Variable to control the behaviour of the class. 
+     *  TRUE -  use a (non-static) array of Maps, indexed by locale String (old behaviour)
+     *  FALSE - use a single static map, indexed with a more elaborate key.
+     */
+    private  static final boolean USE_OLD_HANDLEMAKE_CODE=false;
+    
+    /**
+     * Variable that customizes the caching of the results of SimpleFactory.make
+     * 
+     */
+    private static final boolean CACHE_SIMPLE_FACTORIES = true;
+    
     /**
      * The maximum cache size the caches in
      * 15 is a safe limit for instances with limited amounts of memory (around 128MB).
      * Larger numbers are tolerable if more memory is available.
      * This constant may be moved to CldrUtilities in future if needed.
      */
-    private static final int CACHE_LIMIT = 15;
+//    private static final int CACHE_LIMIT = 15;
 
-    private volatile CLDRFile result; // used in handleMake
-    private File sourceDirectories[];
-    private Set<String> localeList = new TreeSet<String>();
-    @SuppressWarnings("unchecked")
-    private Map<String, CLDRFile>[] mainCache = new Map[DraftStatus.values().length];
-    @SuppressWarnings("unchecked")
-    private Map<String, CLDRFile>[] resolvedCache = new Map[DraftStatus.values().length];
-    {
-        for (int i = 0; i < mainCache.length; ++i) {
-            mainCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
-            resolvedCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
+    private static final int CACHE_LIMIT = 215;
+
+    private static final boolean DEBUG_SIMPLEFACTORY = false;
+    
+    /**
+     * Simple class used as a key for the map that holds the CLDRFiles -only used in the new version of the code
+     * @author ribnitz
+     *
+     */
+    private static class CLDRCacheKey {
+        private final String localeName;
+        private final boolean resolved;
+        private final DraftStatus draftStatus;
+        private final String directory;
+     
+        public CLDRCacheKey(String localeName, boolean resolved, DraftStatus draftStatus, File directory) {
+            super();
+            this.localeName = localeName;
+            this.resolved = resolved;
+            this.draftStatus = draftStatus;
+            this.directory=directory.toString();
+        }
+        
+       
+        
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result + ((directory == null) ? 0 : directory.hashCode());
+            result = prime * result + ((draftStatus == null) ? 0 : draftStatus.hashCode());
+            result = prime * result + ((localeName == null) ? 0 : localeName.hashCode());
+            result = prime * result + (resolved ? 1231 : 1237);
+            return result;
+        }
+
+
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            CLDRCacheKey other = (CLDRCacheKey) obj;
+            if (directory == null) {
+                if (other.directory != null) {
+                    return false;
+                }
+            } else if (!directory.equals(other.directory)) {
+                return false;
+            }
+            if (draftStatus != other.draftStatus) {
+                return false;
+            }
+            if (localeName == null) {
+                if (other.localeName != null) {
+                    return false;
+                }
+            } else if (!localeName.equals(other.localeName)) {
+                return false;
+            }
+            if (resolved != other.resolved) {
+                return false;
+            }
+            return true;
+        }
+
+
+
+        public String toString() {
+            StringBuilder sb=new StringBuilder("[ ");
+            sb.append("LocaleName: ");
+            sb.append(localeName);
+            sb.append(" Resolved: ");
+            sb.append(resolved);
+            sb.append(" Draft status: ");
+            sb.append(draftStatus);
+            sb.append(" Directory: '");
+            sb.append(directory);
+            sb.append("' ] ");
+            return sb.toString();
         }
     }
 
+    /**
+     * If a SimpleDFactory covers more than one directory, SimpleFactoryLookupKey Objects may
+     * be needed to find the SimpleFactory that is responsible for the given directory
+     * @author ribnitz
+     *
+     */
+    private static class SimpleFactoryLookupKey {
+        private final String directory;
+        private final String matchString;
+        public SimpleFactoryLookupKey(String directory, String matchString) {
+            this.directory=directory;
+            this.matchString=matchString;
+        }
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result + ((directory == null) ? 0 : directory.hashCode());
+            result = prime * result + ((matchString == null) ? 0 : matchString.hashCode());
+            return result;
+        }
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            SimpleFactoryLookupKey other = (SimpleFactoryLookupKey) obj;
+            if (directory == null) {
+                if (other.directory != null) {
+                    return false;
+                }
+            } else if (!directory.equals(other.directory)) {
+                return false;
+            }
+            if (matchString == null) {
+                if (other.matchString != null) {
+                    return false;
+                }
+            } else if (!matchString.equals(other.matchString)) {
+                return false;
+            }
+            return true;
+        }
+        public String getDirectory() {
+            return directory;
+        }
+        public String getMatchString() {
+            return matchString;
+        }
+        @Override
+        public String toString() {
+            StringBuilder builder = new StringBuilder();
+            builder.append("SimpleFactoryLookupKey [directory=").append(directory).append(", matchString=").append(matchString).append("]");
+            return builder.toString();
+        }
+        
+    }
+    
+    /**
+     * Simple class to use as a Key in a map that caches SimpleFacotry instances.
+     * @author ribnitz
+     *
+     */
+    private static class SimpleFactoryCacheKey {
+        private List<String> sourceDirectories;
+        private String matchString;
+        private DraftStatus mimimalDraftStatus;
+        public SimpleFactoryCacheKey(List<String> sourceDirectories, String matchString, DraftStatus mimimalDraftStatus) {
+            this.sourceDirectories = sourceDirectories;
+            this.matchString = matchString;
+            this.mimimalDraftStatus = mimimalDraftStatus;
+        }
+        @Override
+        public int hashCode() {
+            final int prime = 31;
+            int result = 1;
+            result = prime * result + ((matchString == null) ? 0 : matchString.hashCode());
+            result = prime * result + ((mimimalDraftStatus == null) ? 0 : mimimalDraftStatus.hashCode());
+            result = prime * result + ((sourceDirectories == null) ? 0 : sourceDirectories.hashCode());
+            return result;
+        }
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            SimpleFactoryCacheKey other = (SimpleFactoryCacheKey) obj;
+            if (matchString == null) {
+                if (other.matchString != null) {
+                    return false;
+                }
+            } else if (!matchString.equals(other.matchString)) {
+                return false;
+            }
+            if (mimimalDraftStatus != other.mimimalDraftStatus) {
+                return false;
+            }
+            if (sourceDirectories == null) {
+                if (other.sourceDirectories != null) {
+                    return false;
+                }
+            } else if (!sourceDirectories.equals(other.sourceDirectories)) {
+                return false;
+            }
+            return true;
+        }
+        public List<String> getSourceDirectories() {
+            return sourceDirectories;
+        }
+        public String getMatchString() {
+            return matchString;
+        }
+        public DraftStatus getMimimalDraftStatus() {
+            return mimimalDraftStatus;
+        }
+       
+        @Override
+        public String toString() {
+            StringBuilder builder = new StringBuilder();
+            builder.append("SimpleFactoryCacheKey [sourceDirectories=").append(sourceDirectories).append(", matchString=").append(matchString)
+                .append(", mimimalDraftStatus=").append(mimimalDraftStatus).append("]");
+            return builder.toString();
+        }
+        
+    }
+    
+   // private volatile CLDRFile result; // used in handleMake
+    private File sourceDirectories[];
+    private Set<String> localeList = new TreeSet<String>();
+    private Cache<CLDRCacheKey,CLDRFile> combinedCache=null;
+    //private   Map<CLDRCacheKey,CLDRFile> combinedCache=  null;
+   //     Collections.synchronizedMap(new LruMap<CLDRCacheKey, CLDRFile>(CACHE_LIMIT));
+
+    private  Map<String, CLDRFile>[] mainCache= null; /* new Map[DraftStatus.values().length]; */
+    private  Map<String, CLDRFile>[] resolvedCache =  null; /*new Map[DraftStatus.values().length]; */
+//    {
+//        for (int i = 0; i < mainCache.length; ++i) {
+//            mainCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
+//            resolvedCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
+//        }
+//    }
     private DraftStatus minimalDraftStatus = DraftStatus.unconfirmed;
 
+    /* Use WeakValues - automagically remove a value once it is no longer useed elsewhere */
+    private static ConcurrentMap<SimpleFactoryCacheKey,SimpleFactory> factoryCache=new MapMaker().weakValues().makeMap();
+   private static LockSupportMap<SimpleFactoryCacheKey> factoryCacheLocks=new LockSupportMap<>();
+   private static ConcurrentMap<SimpleFactoryLookupKey,SimpleFactoryCacheKey> factoryLookupMap=new MapMaker().weakValues().makeMap();
+    
     private SimpleFactory() {
     }
 
@@ -53,7 +311,32 @@ public class SimpleFactory extends Factory {
 
     public static Factory make(String sourceDirectory, String matchString, DraftStatus minimalDraftStatus) {
         File list[] = { new File(sourceDirectory) };
-        return new SimpleFactory(list, matchString, minimalDraftStatus);
+        if (!CACHE_SIMPLE_FACTORIES) {
+            return new SimpleFactory(list, matchString, minimalDraftStatus);
+        }   
+        // we cache simple factories
+        
+        final String sourceDirPathName = list[0].getAbsolutePath();
+        List<String> strList = Arrays.asList( new String[] {sourceDirPathName});
+        final SimpleFactoryCacheKey key=new SimpleFactoryCacheKey(strList,matchString,minimalDraftStatus);
+        synchronized(factoryCacheLocks.getItemLock(key)) {
+            if (!factoryCache.containsKey(key)) {
+                // try looking it up
+                SimpleFactoryLookupKey lookupKey=new SimpleFactoryLookupKey(sourceDirPathName, matchString);
+                SimpleFactoryCacheKey key2=factoryLookupMap.get(lookupKey);
+                if (key2!=null) {
+                    return factoryCache.get(key2);
+                }
+                // out of luck
+                SimpleFactory sf=new SimpleFactory(list, matchString, minimalDraftStatus);
+                factoryCache.put(key, sf);
+                if (DEBUG_SIMPLEFACTORY) {
+                    System.out.println("Created new Factory with parameters "+key);
+                }
+                factoryLookupMap.put(lookupKey, key);
+            }
+            return factoryCache.get(key);
+        }
     }
 
     /**
@@ -73,10 +356,60 @@ public class SimpleFactory extends Factory {
      * @return
      */
     public static Factory make(File sourceDirectory[], String matchString, DraftStatus minimalDraftStatus) {
-        return new SimpleFactory(sourceDirectory, matchString, minimalDraftStatus);
+        if (!CACHE_SIMPLE_FACTORIES) {
+            return new SimpleFactory(sourceDirectory, matchString, minimalDraftStatus);
+        } 
+        // we cache simple factories
+        List<String> strList = new ArrayList<>();
+        List<SimpleFactoryLookupKey> lookupList=new ArrayList<>();
+        for (int i=0;i<sourceDirectory.length;i++) {
+            String cur=sourceDirectory[i].getAbsolutePath();
+            strList.add(cur);
+            lookupList.add(new SimpleFactoryLookupKey(cur, matchString));
+        }
+        final SimpleFactoryCacheKey key=new SimpleFactoryCacheKey(strList,matchString,minimalDraftStatus);
+        synchronized(factoryCacheLocks.getItemLock(key)) {
+            if (!factoryCache.containsKey(key)) {
+                    Iterator<SimpleFactoryLookupKey> iter=lookupList.iterator();
+                    while (iter.hasNext()) {
+                        SimpleFactoryLookupKey curKey=iter.next();
+                        SimpleFactoryCacheKey key2=factoryLookupMap.get(curKey);
+                        if ((key2!=null) && factoryCache.containsKey(key2)) {
+                            if (DEBUG_SIMPLEFACTORY) {
+                            System.out.println("Using key "+key2+" instead of "+key+" for factory lookup");
+                            }
+                            return factoryCache.get(key2);
+                        }
+                    }
+                    SimpleFactory sf=new SimpleFactory(sourceDirectory, matchString, minimalDraftStatus);
+                    if (DEBUG_SIMPLEFACTORY) {
+                        System.out.println("Created new Factory with parameters "+key);
+                    }
+                    factoryCache.put(key, sf);
+                    iter=lookupList.iterator();
+                    while (iter.hasNext()) {
+                        factoryLookupMap.putIfAbsent(iter.next(), key);
+                    }
+            }
+           return factoryCache.get(key);
+        }
     }
 
+    @SuppressWarnings("unchecked")
     private SimpleFactory(File sourceDirectories[], String matchString, DraftStatus minimalDraftStatus) {
+        // initialize class based
+        if (USE_OLD_HANDLEMAKE_CODE) {
+            mainCache=  new Map[DraftStatus.values().length];
+            resolvedCache =  new Map[DraftStatus.values().length]; 
+            for (int i = 0; i < mainCache.length; ++i) {
+                mainCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
+                resolvedCache[i] = Collections.synchronizedMap(new LruMap<String, CLDRFile>(CACHE_LIMIT));
+            }
+        } else {
+          // combinedCache=  Collections.synchronizedMap(new LruMap<CLDRCacheKey, CLDRFile>(CACHE_LIMIT)); 
+            combinedCache = CacheBuilder.newBuilder().maximumSize(CACHE_LIMIT).build();
+        }
+        //
         this.sourceDirectories = sourceDirectories;
         this.minimalDraftStatus = minimalDraftStatus;
         Matcher m = Pattern.compile(matchString).matcher("");
@@ -108,33 +441,78 @@ public class SimpleFactory extends Factory {
     protected Set<String> handleGetAvailable() {
         return localeList;
     }
-
+ 
+   
     /**
      * Make a CLDR file. The result is a locked file, so that it can be cached. If you want to modify it,
      * use clone().
      */
+    @SuppressWarnings("unchecked")
     public CLDRFile handleMake(String localeName, boolean resolved, DraftStatus minimalDraftStatus) {
-        Map<String, CLDRFile> cache = resolved ? resolvedCache[minimalDraftStatus.ordinal()]
-            : mainCache[minimalDraftStatus.ordinal()];
-        // Use double-check idiom.
-        result = cache.get(localeName);
-        if (result != null) return result;
-        synchronized (cache) {
+        @SuppressWarnings("rawtypes")
+        final Map mapToSynchronizeOn;
+        final File parentDir = getSourceDirectoryForLocale(localeName);
+        final Object cacheKey;
+        CLDRFile result; // result of the lookup / generation
+        if (USE_OLD_HANDLEMAKE_CODE) {
+            final Map<String, CLDRFile> cache = resolved ? 
+                resolvedCache[minimalDraftStatus.ordinal()] :
+                mainCache[minimalDraftStatus.ordinal()];
+            mapToSynchronizeOn=cache;
+            cacheKey=localeName;
+            result = cache.get(localeName);
+        } else {
+            // Use double-check idiom
+            cacheKey=new CLDRCacheKey(localeName,resolved,minimalDraftStatus,parentDir);
+            //        result = cache.get(localeName);
+          //  result=combinedCache.asMap().get(cacheKey);
+            result=combinedCache.getIfPresent(cacheKey);
+            mapToSynchronizeOn=combinedCache.asMap();
+        }
+        if (result != null) {
+            if (DEBUG_SIMPLEFACTORY) {
+                System.out.println("HandleMake:Returning cached result for locale "+localeName);
+            }
+            return result;
+        }
+//        synchronized (cache) {
+        synchronized(mapToSynchronizeOn) {
             // Check cache twice to ensure that CLDRFile is only loaded once
             // even with multiple threads.
-            result = cache.get(localeName);
-            if (result != null) return result;
+            //            result = cache.get(localeName);
+            //     result=combinedCache.get(cacheKey);
+            Object returned= mapToSynchronizeOn.get(cacheKey);
+            if (returned instanceof CLDRFile) {
+                result=(CLDRFile)returned;
+            }
+            if (result != null) {
+                if (DEBUG_SIMPLEFACTORY) {
+                    System.out.println("HandleMake:Returning cached result for locale "+localeName);
+                }
+                return result;
+            }
             if (resolved) {
                 result = new CLDRFile(makeResolvingSource(localeName, minimalDraftStatus));
             } else {
-                final File parentDir = getSourceDirectoryForLocale(localeName);
                 if (parentDir != null) {
+                    if (DEBUG_SIMPLEFACTORY) {
+                        StringBuilder sb=new StringBuilder();
+                        sb.append("HandleMake: Calling makeFile with locale: ");
+                        sb.append(localeName);
+                        sb.append(", parentDir: ");
+                        sb.append(parentDir.getAbsolutePath());
+                        sb.append(", DraftStatus: ");
+                        sb.append(minimalDraftStatus);
+                        System.out.println(sb.toString());
+                    }
                     result = makeFile(localeName, parentDir, minimalDraftStatus);
                     result.freeze();
                 }
             }
             if (result != null) {
-                cache.put(localeName, result);
+                mapToSynchronizeOn.put(cacheKey, result);
+                //                combinedCache.put(cacheKey, result);
+                //                cache.put(localeName, result);
             }
             return result;
         }
@@ -255,4 +633,5 @@ public class SimpleFactory extends Factory {
         return null;
     }
 
+    
 }

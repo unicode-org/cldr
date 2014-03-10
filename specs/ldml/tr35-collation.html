@@ -384,9 +384,15 @@ h2,h3,h4,table {
 			the original text index (right after the prefix) from where it will
 			start to look at all of the contractions for that prefix.</p>
 
-		<p>If there is a mapping for p|c where c is a single character,
+		<p class="removed">If there is a mapping for p|c where c is a single character,
 			and text "...pc...", then the p|c mapping should "win" over any
 			contractions that start with c but do not have the prefix.</p>
+
+		<p class="changed">If there is a match for a prefix but
+		no match for any of the suffixes for that prefix,
+		then fall back to mappings with the next-longest matching prefix,
+		and so on, ultimately to mappings with no prefix.
+		(Otherwise mappings with longer prefixes would “hide” mappings with shorter prefixes.)</p>
 
 		<p>Consider the following mappings.</p>
 		<ol>
@@ -396,6 +402,8 @@ h2,h3,h4,table {
 			<li>ch → CE(d)</li>
 			<li>p|c → CE(u)</li>
 			<li>p|ci → CE(v)</li>
+			<li class="changed">p|ĉ → CE(w)</li>
+			<li class="changed">op|ck → CE(x)</li>
 		</ol>
 
 		<p>With these, text collates like this:</p>
@@ -403,11 +411,17 @@ h2,h3,h4,table {
 			<li>pc → CE(p)CE(u)</li>
 			<li>pci → CE(p)CE(v)</li>
 			<li>pch → CE(p)CE(u)CE(h)</li>
+			<li class="changed">pĉ → CE(p)CE(w)</li>
+			<li class="changed">pĉ̣ → CE(p)CE(w)CE(U+0323) // discontiguous</li>
+			<li class="changed">opck → CE(o)CE(p)CE(x)</li>
+			<li class="changed">opch → CE(o)CE(p)CE(u)CE(h)</li>
 		</ul>
 
 		<p>However, if the mapping p|c → CE(u) is missing, then text "pch"
-			maps to CE(p)CE(d).</p>
-
+			maps to CE(p)CE(d)<span class="changed">, "opch" maps to CE(o)CE(p)CE(d),
+			and "pĉ̣" maps to CE(p)CE(c)CE(U+0323)CE(U+0302)
+			(because discontiguous contraction matching extends
+			<i>an existing match</i> by one non-starter at a time)</span>.</p>
 
 		<h2>
 			2 <a name="Root_Collation" href="#Root_Collation">Root Collation</a>

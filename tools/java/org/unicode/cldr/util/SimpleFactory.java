@@ -2,15 +2,11 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.ConcurrentMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -18,7 +14,6 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.google.common.collect.MapMaker;
 
 
 public class SimpleFactory extends Factory {
@@ -34,7 +29,7 @@ public class SimpleFactory extends Factory {
      * Variable that customizes the caching of the results of SimpleFactory.make
      * 
      */
-    private static final boolean CACHE_SIMPLE_FACTORIES = false;
+  //  private static final boolean CACHE_SIMPLE_FACTORIES = false;
     
     /**
      * The maximum cache size the caches in
@@ -44,7 +39,7 @@ public class SimpleFactory extends Factory {
      */
 //    private static final int CACHE_LIMIT = 15;
 
-    private static final int CACHE_LIMIT = 215;
+    private static final int CACHE_LIMIT = 75;
 
     private static final boolean DEBUG_SIMPLEFACTORY = false;
     
@@ -290,9 +285,11 @@ public class SimpleFactory extends Factory {
     private DraftStatus minimalDraftStatus = DraftStatus.unconfirmed;
 
     /* Use WeakValues - automagically remove a value once it is no longer useed elsewhere */
+    /*
     private static ConcurrentMap<SimpleFactoryCacheKey,SimpleFactory> factoryCache=new MapMaker().weakValues().makeMap();
    private static LockSupportMap<SimpleFactoryCacheKey> factoryCacheLocks=new LockSupportMap<>();
    private static ConcurrentMap<SimpleFactoryLookupKey,SimpleFactoryCacheKey> factoryLookupMap=new MapMaker().weakValues().makeMap();
+   */
     
     private SimpleFactory() {
     }
@@ -311,11 +308,11 @@ public class SimpleFactory extends Factory {
 
     public static Factory make(String sourceDirectory, String matchString, DraftStatus minimalDraftStatus) {
         File list[] = { new File(sourceDirectory) };
-        if (!CACHE_SIMPLE_FACTORIES) {
+     //   if (!CACHE_SIMPLE_FACTORIES) {
             return new SimpleFactory(list, matchString, minimalDraftStatus);
-        }   
+      //  }   
         // we cache simple factories
-        
+        /*
         final String sourceDirPathName = list[0].getAbsolutePath();
         List<String> strList = Arrays.asList( new String[] {sourceDirPathName});
         final SimpleFactoryCacheKey key=new SimpleFactoryCacheKey(strList,matchString,minimalDraftStatus);
@@ -337,6 +334,7 @@ public class SimpleFactory extends Factory {
             }
             return factoryCache.get(key);
         }
+        */
     }
 
     /**
@@ -356,9 +354,10 @@ public class SimpleFactory extends Factory {
      * @return
      */
     public static Factory make(File sourceDirectory[], String matchString, DraftStatus minimalDraftStatus) {
-        if (!CACHE_SIMPLE_FACTORIES) {
+     //   if (!CACHE_SIMPLE_FACTORIES) {
             return new SimpleFactory(sourceDirectory, matchString, minimalDraftStatus);
-        } 
+       // } 
+        /*
         // we cache simple factories
         List<String> strList = new ArrayList<>();
         List<SimpleFactoryLookupKey> lookupList=new ArrayList<>();
@@ -393,6 +392,7 @@ public class SimpleFactory extends Factory {
             }
            return factoryCache.get(key);
         }
+        */
     }
 
     @SuppressWarnings("unchecked")

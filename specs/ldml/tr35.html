@@ -101,7 +101,7 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-03-07</span></td>
+				<td><span class="changed">2014-03-10</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -6759,6 +6759,23 @@ decimal?, group?, special*)) &gt;</pre>
 								[<a href="http://unicode.org/cldr/trac/ticket/6788">#6790</a>]
 							</li>
 						</ul></li>
+				</ul></li>
+			<li><strong>Part 5: <a
+					href="tr35-collation.html#Contents">Collation</a></strong>
+				<ul>
+					<li>Mappings with prefix (context before) fall back to mappings with the next-shortest prefix
+						when there is no suffix match.</li>
+					<li>Expanded the list of CLDR collation algorithm features beyond those in the UCA.</li>
+					<li>Specified the collation type fallback (e.g., searchjl → search → default → standard).</li>
+					<li>Deprecated the hiraganaQuaternary setting.
+						Real quaternary relations should be used instead.</li>
+					<li>Deprecated the variableTop setting and the [variable top] syntax,
+						replaced by the new maxVariable setting.</li>
+					<li>Compact syntax: Specified ranges for abbreviated relation operators,
+						and each character must be NFD-inert.</li>
+					<li>Added description for how DUCET reordering groups can be
+						derived from CLDR data files.</li>
+					<li>Several further notes, clarifications, explanations, and corrections.</li>
 				</ul></li>
 		</ul>
 

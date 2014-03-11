@@ -2,7 +2,10 @@ package org.unicode.cldr.util;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -29,8 +32,17 @@ public class SimpleFactory extends Factory {
      * Variable that customizes the caching of the results of SimpleFactory.make
      * 
      */
-  //  private static final boolean CACHE_SIMPLE_FACTORIES = false;
+    private static final boolean CACHE_SIMPLE_FACTORIES = false;
     
+    /**
+     * Number of Factories that should be cached, if caching of factories is enabled
+     */
+    private static final int FACTORY_CACHE_LIMIT=10;
+    
+    /**
+     * Object that is used for synchronization when looking up simple factories
+     */
+    private static final Object FACTORY_LOOKUP_SYNC=new Object();
     /**
      * The maximum cache size the caches in
      * 15 is a safe limit for instances with limited amounts of memory (around 128MB).
@@ -111,21 +123,9 @@ public class SimpleFactory extends Factory {
             }
             return true;
         }
-
-
-
+        
         public String toString() {
-            StringBuilder sb=new StringBuilder("[ ");
-            sb.append("LocaleName: ");
-            sb.append(localeName);
-            sb.append(" Resolved: ");
-            sb.append(resolved);
-            sb.append(" Draft status: ");
-            sb.append(draftStatus);
-            sb.append(" Directory: '");
-            sb.append(directory);
-            sb.append("' ] ");
-            return sb.toString();
+            return "[ LocaleName: "+localeName+" Resolved: "+resolved+" Draft status: "+draftStatus+" Direcrory: "+directory+" ]";
         }
     }
 
@@ -186,9 +186,7 @@ public class SimpleFactory extends Factory {
         }
         @Override
         public String toString() {
-            StringBuilder builder = new StringBuilder();
-            builder.append("SimpleFactoryLookupKey [directory=").append(directory).append(", matchString=").append(matchString).append("]");
-            return builder.toString();
+            return "SimpleFactoryLookupKey [directory="+directory+", matchString="+matchString+"]";
         }
         
     }
@@ -285,11 +283,10 @@ public class SimpleFactory extends Factory {
     private DraftStatus minimalDraftStatus = DraftStatus.unconfirmed;
 
     /* Use WeakValues - automagically remove a value once it is no longer useed elsewhere */
-    /*
-    private static ConcurrentMap<SimpleFactoryCacheKey,SimpleFactory> factoryCache=new MapMaker().weakValues().makeMap();
-   private static LockSupportMap<SimpleFactoryCacheKey> factoryCacheLocks=new LockSupportMap<>();
-   private static ConcurrentMap<SimpleFactoryLookupKey,SimpleFactoryCacheKey> factoryLookupMap=new MapMaker().weakValues().makeMap();
-   */
+    private static Cache<SimpleFactoryCacheKey,SimpleFactory> factoryCache=null;
+  // private static LockSupportMap<SimpleFactoryCacheKey> factoryCacheLocks=new LockSupportMap<>();
+   private static Cache<SimpleFactoryLookupKey,SimpleFactoryCacheKey> factoryLookupMap=null;
+  
     
     private SimpleFactory() {
     }
@@ -308,21 +305,28 @@ public class SimpleFactory extends Factory {
 
     public static Factory make(String sourceDirectory, String matchString, DraftStatus minimalDraftStatus) {
         File list[] = { new File(sourceDirectory) };
-     //   if (!CACHE_SIMPLE_FACTORIES) {
+        if (!CACHE_SIMPLE_FACTORIES) {
             return new SimpleFactory(list, matchString, minimalDraftStatus);
-      //  }   
+        }   
         // we cache simple factories
-        /*
         final String sourceDirPathName = list[0].getAbsolutePath();
         List<String> strList = Arrays.asList( new String[] {sourceDirPathName});
         final SimpleFactoryCacheKey key=new SimpleFactoryCacheKey(strList,matchString,minimalDraftStatus);
-        synchronized(factoryCacheLocks.getItemLock(key)) {
-            if (!factoryCache.containsKey(key)) {
+        
+        synchronized(FACTORY_LOOKUP_SYNC) {
+            if (factoryCache==null) {
+                factoryCache=CacheBuilder.newBuilder().maximumSize(FACTORY_CACHE_LIMIT).build();
+            }
+            SimpleFactory fact=factoryCache.getIfPresent(key);
+            if (fact==null) {
                 // try looking it up
                 SimpleFactoryLookupKey lookupKey=new SimpleFactoryLookupKey(sourceDirPathName, matchString);
-                SimpleFactoryCacheKey key2=factoryLookupMap.get(lookupKey);
+                if (factoryLookupMap==null) {
+                    factoryLookupMap=CacheBuilder.newBuilder().maximumSize(FACTORY_CACHE_LIMIT).build();
+                }
+                SimpleFactoryCacheKey key2=factoryLookupMap.getIfPresent(lookupKey);
                 if (key2!=null) {
-                    return factoryCache.get(key2);
+                    return factoryCache.asMap().get(key2);
                 }
                 // out of luck
                 SimpleFactory sf=new SimpleFactory(list, matchString, minimalDraftStatus);
@@ -332,9 +336,8 @@ public class SimpleFactory extends Factory {
                 }
                 factoryLookupMap.put(lookupKey, key);
             }
-            return factoryCache.get(key);
+            return factoryCache.asMap().get(key);
         }
-        */
     }
 
     /**
@@ -354,10 +357,10 @@ public class SimpleFactory extends Factory {
      * @return
      */
     public static Factory make(File sourceDirectory[], String matchString, DraftStatus minimalDraftStatus) {
-     //   if (!CACHE_SIMPLE_FACTORIES) {
+        if (!CACHE_SIMPLE_FACTORIES) {
             return new SimpleFactory(sourceDirectory, matchString, minimalDraftStatus);
-       // } 
-        /*
+        } 
+        
         // we cache simple factories
         List<String> strList = new ArrayList<>();
         List<SimpleFactoryLookupKey> lookupList=new ArrayList<>();
@@ -367,17 +370,24 @@ public class SimpleFactory extends Factory {
             lookupList.add(new SimpleFactoryLookupKey(cur, matchString));
         }
         final SimpleFactoryCacheKey key=new SimpleFactoryCacheKey(strList,matchString,minimalDraftStatus);
-        synchronized(factoryCacheLocks.getItemLock(key)) {
-            if (!factoryCache.containsKey(key)) {
+        synchronized(FACTORY_LOOKUP_SYNC) {
+            if (factoryCache==null) {
+                factoryCache=CacheBuilder.newBuilder().maximumSize(FACTORY_CACHE_LIMIT).build();
+            }
+            SimpleFactory fact=factoryCache.getIfPresent(key);
+            if (fact==null) {
+                    if (factoryLookupMap==null) {
+                        factoryLookupMap=CacheBuilder.newBuilder().maximumSize(FACTORY_CACHE_LIMIT).build();
+                    }
                     Iterator<SimpleFactoryLookupKey> iter=lookupList.iterator();
                     while (iter.hasNext()) {
                         SimpleFactoryLookupKey curKey=iter.next();
-                        SimpleFactoryCacheKey key2=factoryLookupMap.get(curKey);
-                        if ((key2!=null) && factoryCache.containsKey(key2)) {
+                        SimpleFactoryCacheKey key2=factoryLookupMap.asMap().get(curKey);
+                        if ((key2!=null) && factoryCache.asMap().containsKey(key2)) {
                             if (DEBUG_SIMPLEFACTORY) {
                             System.out.println("Using key "+key2+" instead of "+key+" for factory lookup");
                             }
-                            return factoryCache.get(key2);
+                            return factoryCache.asMap().get(key2);
                         }
                     }
                     SimpleFactory sf=new SimpleFactory(sourceDirectory, matchString, minimalDraftStatus);
@@ -387,12 +397,11 @@ public class SimpleFactory extends Factory {
                     factoryCache.put(key, sf);
                     iter=lookupList.iterator();
                     while (iter.hasNext()) {
-                        factoryLookupMap.putIfAbsent(iter.next(), key);
+                        factoryLookupMap.put(iter.next(), key);
                     }
             }
-           return factoryCache.get(key);
+           return factoryCache.asMap().get(key);
         }
-        */
     }
 
     @SuppressWarnings("unchecked")

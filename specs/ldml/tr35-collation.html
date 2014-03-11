@@ -423,6 +423,20 @@ h2,h3,h4,table {
 			(because discontiguous contraction matching extends
 			<i>an existing match</i> by one non-starter at a time)</span>.</p>
 
+		<h4 class="changed">1.1.3 <a name="Algorithm_Case" href="#Algorithm_Case">Case Handling</a></h4>
+		<p class="changed">CLDR specifies how to sort lowercase or uppercase first,
+		as a stronger distinction than other tertiary variants (<strong>caseFirst</strong>)
+		or while completely ignoring all other tertiary distinctions (<strong>caseLevel</strong>).
+		See <i>Section 3.3 <a href="#Setting_Options">Setting Options</a></i>
+		and <i>Section 3.13 <a href="#Case_Parameters">Case Parameters</a></i>.</p>
+
+		<h4 class="changed">1.1.4 <a name="Algorithm_Reordering_Groups"
+			href="#Algorithm_Reordering_Groups">Reordering Groups</a></h4>
+		<p class="changed">CLDR specifies how to do parametric reordering of
+		groups of scripts (e.g., “native script first”)
+		as well special groups (e.g., “digits after letters”),
+		and provides data for the effective implementation of such reordering.</p>
+
 		<h2>
 			2 <a name="Root_Collation" href="#Root_Collation">Root Collation</a>
 		</h2>
@@ -963,7 +977,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<ul>
 			<li class="note">There is an on-line demonstration of collation
 				at [<a href="tr35.html#LocaleExplorer">LocaleExplorer</a>] 
-				that uses the basic syntax. (Pick the locale
+				that uses the <span class="removed">basic</span> <span class="changed">same rule</span> syntax. (Pick the locale
 				and scroll to &quot;Collation Rules&quot;, near the end.)
 			</li>
 			<li class="note">In CLDR 23 and before, LDML collation
@@ -1066,9 +1080,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			corresponding keywords.
 		</p>
 		<p>
-			The Example cells include an LDML
-				example followed by the same example in basic syntax <span class="element">settings</span>
-				attributes as well as rule syntax. In LDML files, parametric
+			The Example cells include an LDML <span class="changed"><span class="element">settings</span> attribute</span>
+				example followed by the same example in <span class="removed">basic syntax <span class="element">settings</span>
+				attributes as well as</span> <span class="changed">ICU</span> rule syntax. In LDML files, parametric
 			settings should be specified via <span class="element">settings</span>
 			attributes, rather than in the rules.
 		</p>
@@ -1420,27 +1434,20 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</tr>
 		</table>
 
-		<h4 class="changed">3.3.1 <a name="Variable_Top_Settings" href="#Variable_Top_Settings">Notes on variable top settings</a></h4>
-		<p>
-			<span class="removed"><strong>Variable Top (vt) </strong>bears more explanation.</span>
-			<span class="changed">Users may want to include more or fewer characters as Variable.
-			For example, someone could want to restrict the Variable characters to just
-			include space marks. In that case, <span class="changed">maxVariable would be set to "space".
-			(In CLDR 24 and earlier, the now-deprecated</span> variableTop would be set to U+1680,
-			see <a
-				href="http://unicode.org/charts/collation/chart_Variable.html">UCA
-				Variable chart</a>).
-			Alternatively, someone could want more of the
-			Common characters in them, and include characters up to (but not
-			including) '0', by setting <span class="changed">maxVariable to "currency".
-			(In CLDR 24 and earlier, the now-deprecated</span> variableTop <span class="changed">would be set to</span> U+20BA <span class="removed">(in Unicode 6.2</span>,
-			see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).
-		</p>
-		<p>The effect of these settings is to customize to ignore
-			different sets of characters when comparing strings. For example, the
-			locale identifier "de-u-ka-shifted-<span class="removed">vt-0024</span> <span class="changed">kv-currency</span>" is requesting settings
-			appropriate for German, including German sorting conventions, and
-			that <span class="removed">'$'</span> <span class="changed">currency symbols</span> and characters sorting below <span class="removed">it</span> <span class="changed">them</span> are ignored in sorting.</p>
+		<h4 class="changed">3.3.1 <a name="Common_Settings"
+			href="#Common_Settings">Common settings combinations</a></h4>
+		<p class="changed">Some commonly used parametric collation settings
+		are available via combinations of LDML settings attributes:</p>
+		<ul class="changed">
+			<li>“Ignore accents”: <strong>strength=primary</strong></li>
+			<li>“Ignore accents” but take case into account:
+				<strong>strength=primary caseLevel=on</strong></li>
+			<li>“Ignore case”: <strong>strength=secondary</strong></li>
+			<li>“Ignore punctuation” (completely):
+				<strong>strength=tertiary alternate=shifted</strong></li>
+			<li>“Ignore punctuation” but distinguish among punctuation marks:
+				<strong>strength=quaternary alternate=shifted</strong></li>
+		</ul>
 
 		<h4 class="changed">3.3.2 <a name="Normalization_Setting"
 			href="#Normalization_Setting">Notes on the normalization setting</a></h4>
@@ -1471,6 +1478,28 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		(e.g., “a+ä” and “ә+&#x25CC;&#x0344;”),
 		or it needs to decompose the relevant composites (e.g., ‘ä’ and ‘&#x25CC;&#x0344;’)
 		as soon as they are encountered.</p>
+
+		<h4 class="changed">3.3.3 <a name="Variable_Top_Settings" href="#Variable_Top_Settings">Notes on variable top settings</a></h4>
+		<p>
+			<span class="removed"><strong>Variable Top (vt) </strong>bears more explanation.</span>
+			<span class="changed">Users may want to include more or fewer characters as Variable.
+			For example, someone could want to restrict the Variable characters to just
+			include space marks. In that case, <span class="changed">maxVariable would be set to "space".
+			(In CLDR 24 and earlier, the now-deprecated</span> variableTop would be set to U+1680,
+			see <a
+				href="http://unicode.org/charts/collation/chart_Variable.html">UCA
+				Variable chart</a>).
+			Alternatively, someone could want more of the
+			Common characters in them, and include characters up to (but not
+			including) '0', by setting <span class="changed">maxVariable to "currency".
+			(In CLDR 24 and earlier, the now-deprecated</span> variableTop <span class="changed">would be set to</span> U+20BA <span class="removed">(in Unicode 6.2</span>,
+			see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).
+		</p>
+		<p>The effect of these settings is to customize to ignore
+			different sets of characters when comparing strings. For example, the
+			locale identifier "de-u-ka-shifted-<span class="removed">vt-0024</span> <span class="changed">kv-currency</span>" is requesting settings
+			appropriate for German, including German sorting conventions, and
+			that <span class="removed">'$'</span> <span class="changed">currency symbols</span> and characters sorting below <span class="removed">it</span> <span class="changed">them</span> are ignored in sorting.</p>
 
 		<h3>
 			3.4 <a name="Rules" href="#Rules">Collation Rule Syntax</a>
@@ -1574,7 +1603,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<caption>Specifying Collation Ordering</caption>
 			<tr>
 				<th>Relation Operator</th>
-				<th>Basic Example</th>
+				<th><span class="removed">Basic</span> Example</th>
 				<th>Description</th>
 			</tr>
 			<tr>
@@ -2049,10 +2078,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				</td>
 			</tr>
 			<tr>
-				<td><i>implicits</i></td>
+				<td><span class="removed"><i>implicits</i></span><br>
+				<span class="changed">first implicit<br>...<br>last implicit</span></td>
 				<td>p != ignore, assigned automatically</td>
 				<td>CJK, CJK compatibility (those that are not decomposed)<br>
-					CJK Extension A, B<br> Unassigned
+					CJK Extension A, B<span class="changed">, C, ...</span><br> Unassigned
 				</td>
 			</tr>
 			<tr>
@@ -2060,12 +2090,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				</td>
 				<td>p != ignore,<br> used for trailing syllable components
 				</td>
-				<td>Jamo Trailing<br> Jamo Leading
+				<td>Jamo Trailing<br> Jamo Leading<br><span class="changed">U+FFFD<br>U+FFFF</span>
 				</td>
 			</tr>
 		</table>
 		<p>
-			Each of the above Names (except <i>implicits</i>) can be used with a
+			Each of the above Names <span class="removed">(except <i>implicits</i>)</span> can be used with a
 			reset to position characters relative to that logical position. That
 			allows characters to be ordered before or after a <i>logical</i>
 			position rather than a specific character.
@@ -2104,6 +2134,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			.
 		</p>
 
+		<p class="changed">[first variable] and [first regular] and [first trailing]
+		should be the first real such CEs (e.g., CE(U+0060 &#x0060;)),
+		as adjusted according to the tailoring, not the boundary CEs
+		(see the FractionalUCA.txt “first primary” mappings starting with U+FDD1).</p>
+
 		<p>
 			<code>[last regular]</code>
 			is not actually the last normal CE with a primary weight before
@@ -2116,6 +2151,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			beginning of this range. For example:
 			<code>&amp;[last regular]&lt;*亜唖娃阿...</code>
 		</p>
+
+		<p class="changed">The [last trailing] is the CE of U+FFFF.
+		Tailoring to that is not allowed.</p>
 
 		<p>
 			The
@@ -2328,6 +2366,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				(Unknown Script) is a synonym for <strong>others</strong>.</li>
 		</ol>
 		<p>It is an error if a code occurs multiple times.</p>
+
+		<p class="changed">Interaction with <strong>alternate=shifted</strong>:
+		Whether a primary weight is “variable” is determined according to the “variable top”,
+		before applying script reordering.
+		Once that is determined, script reordering is applied to the primary weight
+		regardless of whether it is “regular” (used in the primary level)
+		or “shifted” (used in the quaternary level).</p>
+
 		<h4>3.12.1 <a name="Interpretation_reordering" href="#Interpretation_reordering">Interpretation of a reordering list</a></h4>
 		<p>The reordering list is interpreted as if it were processed in
 			the following way.</p>
@@ -2556,8 +2602,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<p>
 			Compute a new collation element according to the following table. The
 			notation <em>xt</em> means that the values are numerically combined
-			into a single level, such that xt &lt; yu whenever x &lt; y. The
-			fourth level (if it exists) is unaffected.
+			into a single level, such that xt &lt; yu whenever x &lt; y.
+			The fourth level (if it exists) is unaffected.
+			<span class="changed">Note that a secondary CE must have a secondary weight S
+			which is greater than the secondary weight s of any primary CE;
+			and a tertiary CE must have a tertiary weight T
+			which is greater than the tertiary weight t of any primary or secondary CE
+			([<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
+			<a href="http://www.unicode.org/reports/tr10/#WF2">WF2</a>).</span>
 		</p>
 
 		<div align="center">
@@ -2573,7 +2625,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					<tr>
 						<td rowspan="5"><strong>on</strong></td>
 						<td rowspan="2"><strong>primary</strong></td>
-						<td><code>0.s.t</code></td>
+						<td><code>0.<span class="changed">S</span>.t</code></td>
 						<td><code>0.0</code></td>
 						<td rowspan="2">ignore case level weights of
 							primary-ignorable CEs</td>
@@ -2585,14 +2637,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					<tr>
 						<td rowspan="3"><strong>secondary<br>
 						</strong>or higher</td>
-						<td><code>0.0.t</code></td>
-						<td><code>0.0.0.t</code></td>
+						<td><code>0.0.<span class="changed">T</span></code></td>
+						<td><code>0.0.0.<span class="changed">T</span></code></td>
 						<td rowspan="3">ignore case level weights of
 							secondary-ignorable CEs</td>
 					</tr>
 					<tr>
-						<td><code>0.s.t</code></td>
-						<td><code>0.s.c.t</code></td>
+						<td><code>0.<span class="changed">S</span>.t</code></td>
+						<td><code>0.<span class="changed">S</span>.c.t</code></td>
 					</tr>
 					<tr>
 						<td><code>p.s.t</code></td>
@@ -2607,12 +2659,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 							tertiary-ignorable CEs</td>
 					</tr>
 					<tr>
-						<td><code>0.0.t</code></td>
-						<td><code>0.0.4t</code></td>
+						<td><code>0.0.<span class="changed">T</span></code></td>
+						<td><code>0.0.4<span class="changed">T</span></code></td>
 					</tr>
 					<tr>
-						<td><code>0.s.t</code></td>
-						<td><code>0.s.ct</code></td>
+						<td><code>0.<span class="changed">S</span>.t</code></td>
+						<td><code>0.<span class="changed">S</span>.ct</code></td>
 					</tr>
 					<tr>
 						<td><code>p.s.t</code></td>
@@ -2622,12 +2674,32 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</table>
 		</div>
 
-		<p>
+		<p class="removed">
 			Note the special case weights when s = 0. They ensure the
 			construction of well-formed case and tertiay weights. For details,
 			see <em>Section 3.7, Well-Formed Collation Element Tables</em> in [<a
 				href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
 		</p>
+		<p class="changed">For primary+case, which is used for “ignore accents but not case” collation,
+		primary ignorables are ignored so that a = ä.
+		For secondary+case, which would by analogy mean “ignore variants but not case”,
+		secondary ignorables are ignored for equivalent behavior.</p>
+		<p class="changed">When using <strong>caseFirst</strong> but not <strong>caseLevel</strong>,
+		the combined case+tertiary weight of a tertiary CE
+		must be greater than the combined case+tertiary
+		weight of any primary or secondary CE so that
+		[<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
+		<a href="http://www.unicode.org/reports/tr10/#WF2">well-formedness condition 2</a>
+		is fulfilled.
+		Since the tertiary CE’s tertiary weight T is already greater than
+		any t of primary or secondary CEs,
+		it is sufficient to set its case weight to UPPER=4.
+		It must not be affected by <strong>caseFirst=upper</strong>.
+		(The table uses the constant 4 in this case rather than the computed c.)</p>
+		<p class="changed">The case weight of a tertiary-ignorable CE must be 0 so that
+		[<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
+		<a href="http://www.unicode.org/reports/tr10/#WF1">well-formedness condition 1</a>
+		is fulfilled.</p>
 
 		<h4>3.13.3 <a name="Case_Tailored" href="#Case_Tailored">Tailored Strings</a></h4>
 		<p>

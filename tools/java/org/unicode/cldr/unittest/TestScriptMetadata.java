@@ -28,13 +28,11 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.With;
 import org.unicode.cldr.util.XPathParts;
 
-import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
-import com.ibm.icu.text.Transform;
 import com.ibm.icu.text.UnicodeSet;
 
 public class TestScriptMetadata extends TestFmwkPlus {

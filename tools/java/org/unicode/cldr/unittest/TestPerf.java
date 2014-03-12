@@ -1,27 +1,22 @@
 package org.unicode.cldr.unittest;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
-import java.util.TreeSet;
 import java.util.Map.Entry;
 import java.util.Set;
-import java.util.jar.Attributes;
+import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DtdData;
+import org.unicode.cldr.util.DtdData.AttributeValueComparator;
 import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.XPathParts;
-import org.unicode.cldr.util.CLDRFile.DtdType;
-import org.unicode.cldr.util.DtdData.AttributeValueComparator;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.text.DecimalFormat;
-import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.util.Output;
-import com.ibm.icu.util.ULocale;
 
 public class TestPerf extends TestFmwkPlus {
     public static void main(String[] args) {

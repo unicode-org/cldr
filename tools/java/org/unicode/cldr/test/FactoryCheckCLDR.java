@@ -1,7 +1,6 @@
 package org.unicode.cldr.test;
 
 import java.util.List;
-import java.util.Map;
 
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;

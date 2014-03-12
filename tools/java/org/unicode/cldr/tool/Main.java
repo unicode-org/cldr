@@ -1,15 +1,11 @@
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRTool;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.Class;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
-import java.nio.file.FileSystem;
-import java.nio.file.FileSystems;
+
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRTool;
 
 
 /**

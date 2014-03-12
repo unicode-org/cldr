@@ -1,7 +1,6 @@
 package org.unicode.cldr.unittest;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import java.util.Collections;
@@ -10,10 +9,6 @@ import java.util.Set;
 
 import org.unicode.cldr.draft.Keyboard;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile.DtdType;
-import org.unicode.cldr.util.DtdData;
-import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.XMLFileReader;
 
 public class TestKeyboard extends TestFmwkPlus {
     public static void main(String[] args) {

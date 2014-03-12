@@ -101,7 +101,7 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-03-10</span></td>
+				<td><span class="changed">2014-03-12</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -248,15 +248,17 @@ h2,h3,h4,table {
 					<li>3.4 <a href="#Field_Definitions">Field Definitions</a></li>
 					<li>3.5 <a href="#Key_And_Type_Definitions_">Key And Type
 							Definitions</a></li>
-					<li>3.6 <a href="#Unknown_or_Invalid_Identifiers">Unknown
-							or Invalid Identifiers</a>
+					<li class="changed">3.6 <a href="#Unknown_or_Invalid_Identifiers">Special Codes</a>
 						<ul class="toc">
-							<li>3.6.1 <a href="#Numeric_Codes">Numeric Codes</a></li>
+							<li>3.6.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown
+							or Invalid Identifiers</a></li>
+							<li>3.6.2 <a href="#Numeric_Codes">Numeric Codes</a></li>
+							<li>3.6.3 <a href="#Numeric_Codes">Priviate Use Codes</a></li>
 						</ul>
 					</li>
 					<li>3.7 <a href="#Locale_Extension_Key_and_Type_Data">Unicode
 							BCP 47 Extension Data</a>
-						<ul class="toc">
+					  <ul class="toc">
 							<li>3.7.1 <a href="#Unicode_Locale_Extension_Data_Files">Unicode
 									Locale Extension Data Files</a>
 								<ul class="toc">
@@ -366,13 +368,13 @@ h2,h3,h4,table {
 							<li>5.6.1 <a href="#Content">Content</a></li>
 							<li>5.6.2 <a href="#Ordering">Ordering</a></li>
 							<li>5.6.3 <a href="#Comments">Comments</a></li>
-							<li>5.6.4 <a href="#Canonicalization">Canonicalization</a></li>
-							<li>5.6.5 <a href="#Element_Order_Table">Element Order
+							<li class="removed">5.6.4 <a href="#Canonicalization">Canonicalization</a></li>
+							<li class="removed">5.6.5 <a href="#Element_Order_Table">Element Order
 									Table</a></li>
-							<li>5.6.6 <a href="#Attribute_Order_Table">Attribute
+							<li class="removed">5.6.6 <a href="#Attribute_Order_Table">Attribute
 									Order Table</a></li>
-							<li>5.6.7 <a href="#Value_Order_Table">Value Order Table</a></li>
-							<li>5.6.8 <a href="#Defaulted_Values_Table">Defaulted
+							<li class="removed">5.6.7 <a href="#Value_Order_Table">Value Order Table</a></li>
+							<li class="removed">5.6.8 <a href="#Defaulted_Values_Table">Defaulted
 									Values Table</a></li>
 						</ul>
 					</li>
@@ -859,46 +861,94 @@ h2,h3,h4,table {
 				attribute of a <i>languageAlias</i> element in <a
 				href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
 				replace the language subtag with the <i>replacement</i> value.
+				<ol>
+				  <li class="changed">If there are additional subtags in  the <i>replacement</i> value, add them to the result, but only if there is no corresponding subtag already in the tag.</li>
+			  </ol>
 			</li>
 			<li>If the BCP 47 region subtag matches the <i>type</i>
 				attribute of a <i>territoryAlias</i> element in <a
 				href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-				replace the language subtag with the <i>replacement</i> value. (When
-				multiple <i>replacement</i> values are available, use the first one)
+				replace the language subtag with the <i>replacement</i> value<span class="changed">, as follows: </span>
+				<ol>
+				  <li class="changed">If there is a single territory in the replacement, use it. </li>
+				  <li><span class="changed">If there are  multiple territories:</span>
+				    <ol>
+				      <li class="changed">Look up the most likely territory for the base language code (and script, if there is one).</li>
+				      <li class="changed">If that likely territory is in the list, use it.</li>
+				      <li class="changed">Otherwise, use the first territory in the list. </li>
+			        </ol>
+				  </li>
+			  </ol>
 			</li>
 		</ol>
-		For example,
+		<p class="changed">Examples</p>
+		<table class="changed">
+		  <tr>
+		    <th>Original</th>
+		    <th>Result</th>
+		    <th>Comments</th>
+	      </tr>
+		  <tr>
+		    <td><code>en-US</code></td>
+		    <td><code>en-US</code></td>
+		    <td>no changes</td>
+	      </tr>
+			  <tr>
+		    <td><code>und</code></td>
+		    <td><code>root</code></td>
+		    <td>no changes</td>
+	      </tr>
+		  <tr>
+		    <td><code>und-US</code></td>
+		    <td><code>und-US</code></td>
+		    <td>no changes, because region subtag is present</td>
+	      </tr>
+		  <tr>
+		    <td nowrap><code>und-u-cu-USD</code></td>
+		    <td nowrap><code>root-u-cu-usd</code></td>
+		    <td>changes, because no script, region, or variant tag is present</td>
+	      </tr>
+		  <tr>
+		    <td><code>cmn-TW</code></td>
+		    <td><code>zh-TW</code></td>
+		    <td>language alias</td>
+	      </tr>
+		  <tr>
+		    <td><code>sr-CS</code></td>
+		    <td><code>sr-RS</code></td>
+		    <td>territory alias</td>
+	      </tr>
+		  <tr>
+		    <td><code>sh</code></td>
+		    <td><code>sr-Latn</code></td>
+		    <td>multiple replacement subtags, 3.1 above</td>
+	      </tr>
+		  <tr>
+		    <td><code>sh-Cyrl</code></td>
+		    <td><code>sr-Cyrl</code></td>
+		    <td>no replacement with multiple replacement subtags, 3.1 above</td>
+	      </tr>
+		  <tr>
+		    <td><code>hy-SU</code></td>
+		    <td><code>hy-AM</code></td>
+		    <td>multiple territory values, 4.2 above<br>		      
+		      <code>&lt;territoryAlias type=&quot;SU&quot; replacement=&quot;RU AM AZ BY EE GE KZ KG LV LT MD TJ TM UA UZ&quot; …/&gt;</code></td>
+	      </tr>
+  </table>
 		<blockquote>
-			<code>en-US</code>
-			→
-			<code>en-US</code>
-			(no changes)<br>
-			<code>und</code>
-			→
-			<code>root</code>
-			<br>
-			<code>und-US</code>
-			→
-			<code>und-US</code>
-			(no changes, because region subtag is present)<br>
-			<code>und-u-cu-USD</code>
-			→
-			<code>root-u-cu-usd</code>
-			<br>
-			<code>cmn-TW</code>
-			→
-			<code>zh-TW</code>
-			(language alias)<br>
-			<code>sr-CS</code>
-			→
-			<code>sr-RS</code>
-			(territory alias)
-		</blockquote>
+			<p class="removed">en-US → en-US (no changes)<br>
+			  und → root <br>
+			  und-US → und-US (no changes, because region subtag is present)<br>
+			  und-u-cu-USD → root-u-cu-usd <br>
+			  cmn-TW → zh-TW (language alias)<br>
+			  sr-CS → sr-RS (territory alias)<br>
+		  </p>
+	  </blockquote>
 		<p>
 			<b>Note:</b> In some rare cases, BCP 47 language tags cannot be
 			converted to valid Unicode language/locale identifiers, such as
 			certain [<a href="#BCP47">BCP 47</a>] grandfathered tags.
-		</p>
+	  </p>
 		<h3>
 			<a name="Field_Definitions" href="#Field_Definitions">3.4 Field
 				Definitions</a>
@@ -1161,10 +1211,10 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			and territory subtag is called a <i>territory locale</i> (or <i>country
 				locale</i>).
 		</p>
-		<h3>
-			<a name="Key_And_Type_Definitions_" href="#Key_And_Type_Definitions_">3.5
-				Key And Type Definitions</a>
-		</h3>
+<h3>
+	  <a name="Key_And_Type_Definitions_" href="#Key_And_Type_Definitions_">3.5
+		  Key And Type Definitions</a>
+</h3>
 		<p>
 			The following chart contains a set of key values that are currently
 			available, with a description or sampling of type values. Each
@@ -1371,8 +1421,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 					<p>
 						<em>bcp47/currency.xml</em>
 					</p></td>
-				<td>"cu"<br>(currency)
-				</td>
+				<td>"cu"<br>(currency)</td>
 				<td>Currency type</td>
 				<td><i>ISO 4217 code,</i>
 					<p>
@@ -1396,8 +1445,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 					<p>
 						<em>bcp47/number.xml</em>
 					</p></td>
-				<td rowspan="7">"nu"<br>(numbers)
-				</td>
+				<td rowspan="7">"nu"<br>(numbers)</td>
 				<td rowspan="7">Numbering system</td>
 				<td><i>Unicode script subtag</i></td>
 				<td><p>
@@ -1485,13 +1533,17 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 
 		<p>Additional keys or types might be added in future versions.
 			Implementations of LDML should be robust to handle any syntactically
-			valid key or type values.</p>
-
+			valid key or type values.		</p>
 		<h3>
+			<a name="Special_Codes"
+				href="#Special_Codes">3.6 Special Codes</a>
+	  </h3>
+
+		<h4>
 			<a name="Unknown_or_Invalid_Identifiers"
-				href="#Unknown_or_Invalid_Identifiers">3.6 Unknown or Invalid
+				href="#Unknown_or_Invalid_Identifiers">3.6.1 Unknown or Invalid
 				Identifiers</a>
-		</h3>
+</h4>
 		<p>The following identifiers are used to indicate an unknown or
 			invalid code in Unicode language and locale identifiers. For Unicode
 			identifiers, the region code uses a private use ISO 3166 code, and
@@ -1541,7 +1593,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			tag &quot;und_Grek&quot; represents the Greek script;
 			&quot;und_US&quot; represents the US territory.</p>
 		<h4>
-			<a name="Numeric_Codes" href="#Numeric_Codes">3.6.1 Numeric Codes</a>
+			<a name="Numeric_Codes" href="#Numeric_Codes">3.6.2 Numeric Codes</a>
 		</h4>
 		<p>For region codes, ISO and the UN establish a mapping to
 			three-letter codes and numeric codes. However, this does not extend
@@ -1591,12 +1643,86 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 				<td><code>Qaaa..Qabx</code></td>
 				<td><code>900..949</code></td>
 			</tr>
-		</table>
-		<h3>
-			<a name="Locale_Extension_Key_and_Type_Data"
+		</table><br>
+		<h4 class="changed">3.6.3 <a name="Private_Use" href="#Private_Use">Private Use Codes</a></h4>
+      <p class="changed">Private use codes fall into three groups.</p>
+        <ul>
+          <li class="changed"><strong>defined:</strong> those that are given particular semantics currently in CLDR</li>
+          <li class="changed"><strong>reserved:</strong> those that may be given particular semantics in future versions of CLDR</li>
+          <li class="changed"><strong>excluded:</strong> those that will never be given particular CLDR semantics in the future, and thus can be used by applications without worrying about collisions        </li>
+        </ul>
+        <table>
+          <caption>
+          <span class="changed"><a name="Private_Use_CLDR" href="#Private_Use_CLDR">Private Use Codes in CLDR</a>
+          </span>
+          </caption>
+          <tr>
+            <th class="changed">category</th>
+            <th class="changed">status</th>
+            <th class="changed">codes</th>
+          </tr>
+          <tr>
+            <td rowspan="3" class="changed">base language</td>
+            <td class="changed">defined</td>
+            <td class="changed">none</td>
+          </tr>
+          <tr>
+            <td class="changed">reserved</td>
+            <td class="changed"> qaa..qfy</td>
+          </tr>
+          <tr>
+            <td class="changed">excluded</td>
+            <td class="changed">qfz..qtz</td>
+          </tr>
+          <tr>
+            <td rowspan="3" class="changed">script</td>
+            <td class="changed">defined</td>
+            <td class="changed">Qaai (obsolete)</td>
+          </tr>
+          <tr>
+            <td class="changed">reserved</td>
+            <td class="changed">Qaaa..Qaap</td>
+          </tr>
+          <tr>
+            <td class="changed">excluded</td>
+            <td class="changed">Qaaq..Qabx</td>
+          </tr>
+          <tr>
+            <td rowspan="3" class="changed">region</td>
+            <td class="changed">defined</td>
+            <td class="changed">QO, QU, UK, ZZ</td>
+          </tr>
+          <tr>
+            <td class="changed">reserved</td>
+            <td class="changed">AA, QM..QZ</td>
+          </tr>
+          <tr>
+            <td class="changed">excluded</td>
+            <td class="changed">XA..XZ</td>
+          </tr>
+          <tr>
+            <td rowspan="3" class="changed">timezone</td>
+            <td class="changed">defined</td>
+            <td class="changed">IANA: Etc/Unknown<br>
+            bcp47: as listed in the bcp47 file</td>
+          </tr>
+          <tr>
+            <td class="changed">reserved</td>
+            <td class="changed">bcp47: all non-5 letter codes</td>
+          </tr>
+          <tr>
+            <td class="changed">excluded</td>
+            <td class="changed">none</td>
+          </tr>
+      </table>
+        <p class="changed">See also <em>Section 3.6.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown
+        or Invalid Identifiers</a></em>.</p>
+<p></p>
+<h3>
+	  <a name="Locale_Extension_Key_and_Type_Data"
 				href="#Locale_Extension_Key_and_Type_Data">3.7 Unicode BCP 47
-				Extension Data</a><a name="u_Extension"></a>
-		</h3>
+		  Extension Data</a><a name="u_Extension"></a>
+  </h3>
 		<p>
 			[<a href="#BCP47">BCP47</a>] Language Tags provides a mechanism for
 			extending language tags for use in various applications by extension
@@ -4987,21 +5113,30 @@ decimal?, group?, special*)) &gt;</pre>
 		<h4>
 			<a name="Ordering" href="#Ordering">5.6.2 Ordering</a>
 		</h4>
-		<ol>
-			<li>Element names are ordered by the Element Order Table in //supplementalData/metadata/elementOrder.</li>
-			<li>Attribute names are ordered by the Attribute Order Table in //supplementalData/metadata/attributeOrder</li>
-			<li>Attribute value comparison is a bit more complicated, and may depend on the attribute and type. This is currently done with specific ordering tables
+		<p>An element is ordered first by the element name, and then if
+				the element names are identical, by the sorted set of
+				attribute-value pairs (sorted by #4). For the latter, compare the
+				first pair in each (in sorted order by attribute pair). If not
+		identical, go to the second pair, and so on.</p>
+		<p>Elements and attributes are ordered according to their order in the respective DTDs. Attribute value comparison is a bit more complicated, and may depend on the attribute and type. This is currently done with specific ordering tables.</p>
+        <p>Any future additions to the DTD must be structured so as to
+		    allow compatibility with this ordering. See also <a href="#Valid_Attribute_Values">Section 5.5
+		    Valid Attribute Values.</a>		</p>
+        <ol>
+      <li class="removed">Element names are ordered by the Element Order Table in //supplementalData/metadata/elementOrder.</li>
+  <li class="removed">Attribute names are ordered by the Attribute Order Table in //supplementalData/metadata/attributeOrder</li>
+			<li class="removed">Attribute value comparison is a bit more complicated, and may depend on the attribute and type. This is currently done with specific ordering tables
 			</li>
-			<li>An attribute-value pair is ordered first by attribute name,
+			<li class="removed">An attribute-value pair is ordered first by attribute name,
 				and then if the attribute names are identical, by the value.</li>
-			<li>An element is ordered first by the element name, and then if
+			<li class="removed">An element is ordered first by the element name, and then if
 				the element names are identical, by the sorted set of
 				attribute-value pairs (sorted by #4). For the latter, compare the
 				first pair in each (in sorted order by attribute pair). If not
 				identical, go to the second pair, and so on.</li>
-			<li>Any future additions to the DTD must be structured so as to
+			<li class="removed">Any future additions to the DTD must be structured so as to
 				allow compatibility with this ordering.</li>
-			<li>See also <a href="#Valid_Attribute_Values">Section 5.5
+			<li class="removed">See also <a href="#Valid_Attribute_Values">Section 5.5
 					Valid Attribute Values</a></li>
 		</ol>
 		<h4>
@@ -5038,19 +5173,19 @@ decimal?, group?, special*)) &gt;</pre>
 		and needs to be improved in the future --&gt;
 	&lt;zone type=&quot;Asia/Jerusalem&quot;&gt;</pre>
 		<h4>
-			<a name="Canonicalization" href="#Canonicalization">5.6.4
+			<span class="removed"><a name="Canonicalization" href="#Canonicalization">5.6.4
 				Canonicalization</a>
-		</h4>
-		<p>The process of canonicalization is fairly straightforward,
+	    </span></h4>
+		<p class="removed">The process of canonicalization is fairly straightforward,
 			except for comments. Inline comments will have any linebreaks
 			replaced by a space. There may be cases where the attachment node is
 			not permitted, such as the following.</p>
-		<pre>		&lt;/dayWidth&gt;
+		<pre>		<span class="removed">&lt;/dayWidth&gt;
 		&lt;!-- some comment --&gt;
 	&lt;/dayContext&gt;
-&lt;/days&gt;</pre>
-		<p>
-			In those cases, the comment will be made into a block comment on the
+&lt;/days&gt;</span></pre>
+		<p class="removed">
+		  In those cases, the comment will be made into a block comment on the
 			last previous leaf node, if it is at that level or deeper. (If there
 			is one already, it will be appended, with a line-break between.) If
 			there is no place to attach the node (for example, as a result of
@@ -5058,37 +5193,37 @@ decimal?, group?, special*)) &gt;</pre>
 			node&#39;s [<a href="#XPath">XPath</a>] will be appended to the final
 			comment in the document.
 		</p>
-		<p>Multiline comments will have leading tabs stripped, so any
+		<p class="removed">Multiline comments will have leading tabs stripped, so any
 			indentation should be done with spaces.</p>
 		<h4>
-			<a name="Element_Order_Table" href="#Element_Order_Table">5.6.5
+			<span class="removed"><a name="Element_Order_Table" href="#Element_Order_Table">5.6.5
 				Element Order Table</a>
-		</h4>
-		<p>The order of attributes is given by the elementOrder table in
+	    </span></h4>
+		<p class="removed">The order of attributes is given by the elementOrder table in
 			the supplemental metadata.</p>
 		<h4>
-			<a name="Attribute_Order_Table" href="#Attribute_Order_Table">5.6.6
+			<span class="removed"><a name="Attribute_Order_Table" href="#Attribute_Order_Table">5.6.6
 				Attribute Order Table</a>
-		</h4>
-		<p>The order of attributes is given by the attributeOrder table in
+	    </span></h4>
+		<p class="removed">The order of attributes is given by the attributeOrder table in
 			the supplemental metadata.</p>
 		<h4>
-			<a name="Value_Order_Table" href="#Value_Order_Table">5.6.7 Value
+			<span class="removed"><a name="Value_Order_Table" href="#Value_Order_Table">5.6.7 Value
 				Order Table</a>
-		</h4>
-		<p>The order of attribute values is given by the order of the
+	    </span></h4>
+		<p class="removed">The order of attribute values is given by the order of the
 			values in the attributeValues elements that have the attribute
 			order=&quot;given&quot;. Numeric values are sorted in numeric order,
 			while tzids are ordered by country, then longitude, then latitude.</p>
 		<h4>
-			<a name="Defaulted_Values_Table" href="#Defaulted_Values_Table">5.6.8
+			<span class="removed"><a name="Defaulted_Values_Table" href="#Defaulted_Values_Table">5.6.8
 				Defaulted Values Table</a>
-		</h4>
-		<p>
-			The defaulted attributes are given by the <i>suppress</i> table in
+	    </span></h4>
+		<p class="removed">
+		  The defaulted attributes are given by the <i>suppress</i> table in
 			the supplemental metadata. There is one special value _q; that is
 			used on serial elements internally to preserve ordering.
-		</p>
+    </p>
 		<h2>
 			<a name="Property_Data" href="#Property_Data">6 Property Data</a>
 		</h2>
@@ -6712,7 +6847,13 @@ decimal?, group?, special*)) &gt;</pre>
 						element</a></em>. [<a
 						href="http://unicode.org/cldr/trac/ticket/6857">#6857</a>]
 					</li>
-				</ul></li>
+					<li>Restructured <em>Section 3.6 <a href="#Unknown_or_Invalid_Identifiers">Special Codes</a></em>, adding 3.6.3 <a href="#Numeric_Codes">Private Use Codes.</a>					  [<a href="http://unicode.org/cldr/trac/ticket/6449">#6449</a>] </li>
+					<li>Updated <em>Section 5.6 <a href="#Canonical_Form">Canonical Form</a></em>, removing several subsections.[<a href="http://unicode.org/cldr/trac/ticket/6707">#6707</a>] </li>
+					<li>Fleshed out <em>Section 3.3.1 <a
+				href="#BCP_47_Language_Tag_Conversion"> BCP 47 Language Tag
+				Conversion</a></em> for special cases.[<a href="http://unicode.org/cldr/trac/ticket/6901">#6901</a>] </li>
+				</ul>
+			</li>
 			<li><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong>
 				<ul>
 					<li>In <em><a
@@ -6727,13 +6868,18 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 3: <a
 					href="tr35-numbers.html#Contents">Numbers</a></strong>
 				<ul>
-					<li>In <em>3.6 <a
+					<li>In <em>Section 3.6 <a
 						href="tr35-numbers.html#Padding">Padding</a>,</em> subsection
 						<strong>Rounding,</strong> first paragraph, fixed the incorrect
 						operation order of multiplying then dividing.
 						[<a href="http://unicode.org/cldr/trac/ticket/7001">#7001</a>]
 					</li>
-				</ul></li>
+					<li>In <em>Section 5 <a href="tr35-numbers.html#Language_Plural_Rules">Language Plural Rules</a></em>, added caveat on the use of RBNF data. 
+					[<a href="http://unicode.org/cldr/trac/ticket/6269">#6269</a>] </li>
+					<li>In <em>Section 3.5 <a href="tr35-numbers.html#sigdig">Significant Digits</a></em>, removed the restriction on combining significant digits  with min/max integer/fraction digits. [<a href="http://unicode.org/cldr/trac/ticket/7018">#7018</a>] </li>
+					<li>In <em>Section 5.1 <a href="#Plural_Ranges">Plural Ranges</a></em> , described the new plural ranges structure.</li>
+				</ul>
+		  </li>
 			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
 				<ul>
 					<li>In <em>2.6 <a
@@ -6758,30 +6904,64 @@ decimal?, group?, special*)) &gt;</pre>
 								same section.
 								[<a href="http://unicode.org/cldr/trac/ticket/6788">#6790</a>]
 							</li>
-						</ul></li>
+						</ul>
+				  </li>
+					<li>In 3 <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a>, clarified that the fields are typically titlecase. [<a href="http://unicode.org/cldr/trac/ticket/6818">#6818</a>] </li>
 				</ul></li>
 			<li><strong>Part 5: <a
 					href="tr35-collation.html#Contents">Collation</a></strong>
 				<ul>
-					<li>Mappings with prefix (context before) fall back to mappings with the next-shortest prefix
-						when there is no suffix match.</li>
-					<li>Expanded the list of CLDR collation algorithm features beyond those in the UCA.</li>
-					<li>Specified the collation type fallback (e.g., searchjl → search → default → standard).</li>
-					<li>Deprecated the hiraganaQuaternary setting.
-						Real quaternary relations should be used instead.</li>
-					<li>Deprecated the variableTop setting and the [variable top] syntax,
-						replaced by the new maxVariable setting.</li>
-					<li>Compact syntax: Specified ranges for abbreviated relation operators,
-						and each character must be NFD-inert.</li>
-					<li>Added description for how DUCET reordering groups can be
-						derived from CLDR data files.</li>
-					<li>Several further notes, clarifications, explanations, and corrections.</li>
-				</ul></li>
+					<li><i>Section 1.1.2, <a href="tr35-collation.html#Context_Sensitive_Mappings">Context-Sensitive Mappings</a></i>:
+						Mappings with prefix (context before) fall back to mappings with the next-shortest prefix
+						when there is no suffix match.
+						[<a href="http://unicode.org/cldr/trac/ticket/6850">#6850</a>]</li>
+					<li>New <i>Section 1.1.3, <a href="tr35-collation.html#Algorithm_Case">Case Handling</a></i> &amp;
+						<i>Section 1.1.4, <a href="tr35-collation.html#Algorithm_Reordering_Groups">Reordering Groups</a></i>:
+						Expanded the list of CLDR collation algorithm features beyond those in the UCA.
+						[<a href="http://unicode.org/cldr/trac/ticket/7038">#7038</a>]</li>
+					<li>New <i>Section 3.0.1, <a href="tr35-collation.html#Collation_Type_Fallback">Collation Type Fallback</a></i>:
+						Specified the collation type fallback (e.g., searchjl → search → default → standard).
+						[<a href="http://unicode.org/cldr/trac/ticket/6739">#6739</a>]</li>
+					<li><i>Section 3.3, <a href="tr35-collation.html#Setting_Options">Setting Options</a></i>:
+						Deprecated the hiraganaQuaternary setting.
+						Real quaternary relations should be used instead.
+						[<a href="http://unicode.org/cldr/trac/ticket/5015">#5015</a>]</li>
+					<li><i>Section 3.3, <a href="tr35-collation.html#Setting_Options">Setting Options</a></i>:
+						Deprecated the variableTop setting and the [variable top] syntax,
+						replaced by the new maxVariable setting.
+						[<a href="http://unicode.org/cldr/trac/ticket/5016">#5016</a>]</li>
+					<li><i>Section 3.5, <a href="tr35-collation.html#Orderings">Orderings</a></i>:
+						Compact syntax: Specified ranges for abbreviated relation operators,
+						and each character must be NFD-inert.
+						[<a href="http://unicode.org/cldr/trac/ticket/6738">#6738</a>,
+						<a href="http://unicode.org/cldr/trac/ticket/6817">#6817</a>]</li>
+					<li>New <i>Section 3.12.2, <a href="tr35-collation.html#Reordering_Groups_allkeys">Reordering Groups for allkeys.txt</a></i>:
+						Added description for how DUCET reordering groups can be
+						derived from CLDR data files.
+						[<a href="http://unicode.org/cldr/trac/ticket/5813">#5813</a>]</li>
+					<li>Several further notes, clarifications, explanations, and corrections.
+						[<a href="http://unicode.org/cldr/trac/ticket/5866">#5866</a>,
+						<a href="http://unicode.org/cldr/trac/ticket/6816">#6816</a>]</li>
+				</ul>
+		  </li>
+			<li><strong>Part 6: <a href="tr35-info.html#Contents">Related
+			  Information</a></strong>
+			  <ul>
+			    <li><em>no content changes in this version</em></li>
+		      </ul>
+		  </li>
+            <li><strong>Part 7: <a
+					href="tr35-keyboards.html#Contents">Keyboards</a></strong><a
+				href="tr35-keyboards.html#Contents"></a>
+              <ul>
+                <li>In 1.3 <a href="tr35-keyboards.html#File_and_Dir_Structure">File and
+                Directory Structure</a>, made it clear that the platform directory contents (except /und/) are intended to reflect the standard data on that platform. [<a href="http://unicode.org/cldr/trac/ticket/7030">#7030</a>] </li>
+              </ul>
+          </li>
 		</ul>
-
-		<h3>
-			Revision 33
-		</h3>
+	  <h3>
+	  Revision 33
+</h3>
 		<ul>
 			<li>Updated for Version 24.</li>
 			<li>Added Parts section (with double-links) to each Part. [<a

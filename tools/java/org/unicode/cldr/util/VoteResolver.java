@@ -16,7 +16,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.VettingViewer.VoteStatus;
-import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.Collator;

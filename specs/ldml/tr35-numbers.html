@@ -242,6 +242,8 @@ h2,h3,h4,table {
 							<li>5.1.4 <a href="#Using_cardinals">Using Cardinals</a></li>
 						</ul>
 					</li>
+                    <li class="changed">5.1 <a href="#Plural_Ranges">Plural Ranges</a>
+					</li>
 				</ul>
 			</li>
 			<li>6 <a href="#Rule-Based_Number_Formatting">Rule-Based
@@ -1129,13 +1131,14 @@ h2,h3,h4,table {
 		<p>There are two ways of controlling how many digits are shows:
 			(a) significant digits counts, or (b) integer and fraction digit
 			counts. Integer and fraction digit counts are described above. When a
-			formatter is using significant digits counts, the number of integer
+			formatter is using significant digits counts, <span class="removed">the number of integer
 			and fraction digits is not specified directly, and the formatter
-			settings for these counts are ignored. Instead, the formatter uses
+			settings for these counts are ignored. Instead, the formatter </span>uses
 			however many integer and fraction digits are required to display the
-			specified number of significant digits. Examples:</p>
+  specified number of significant digits. <span class="changed">It may ignore min/max integer/fraction digits, or it may use them to the extent possible.</span></p>
+		<p>Examples:</p>
 		<blockquote>
-			<table cellspacing="3" cellpadding="0" border="0">
+		  <table cellspacing="3" cellpadding="0" border="0">
 				<tr bgcolor="#ccccff">
 					<th align="left">Pattern</th>
 					<th align="left">Minimum significant digits</th>
@@ -1194,11 +1197,10 @@ h2,h3,h4,table {
 				number of significant digits have been shown. For example, the
 				pattern <code>&quot;@##&quot;</code> formats the number 0.1203 as <code>&quot;0.12&quot;</code>.
 			</li>
-			<li>If a pattern uses significant digits, it may not contain a
+			<li><span class="changed">Implementations may forbid the use of significant digits in combination with min/max integer/fraction digits. In such a case, i</span>f a pattern uses significant digits, it may not contain a
 				decimal separator, nor the <code>&#39;0&#39;</code> pattern
 				character. Patterns such as <code>&quot;@00&quot;</code> or <code>&quot;@.###&quot;</code>
-				are disallowed.
-			</li>
+			<span class="changed">would be </span>disallowed. </li>
 			<li>Any number of <code>&#39;#&#39;</code> characters may be
 				prepended to the left of the leftmost <code>&#39;@&#39;</code>
 				character. These have no effect on the minimum and maximum
@@ -1219,7 +1221,7 @@ h2,h3,h4,table {
 		</ul>
 		<h3>
 			3.6 <a name="Padding" href="#Padding">Padding</a>
-		</h3>
+	  </h3>
 		<p>
 			Patterns support padding the result to a specific width. In a pattern
 			the pad escape character, followed by a single pad character, causes
@@ -1861,25 +1863,24 @@ h2,h3,h4,table {
 				of CLDR may express all the rules for a locale using the following
 				syntax:
 		</p>
-		<pre>rules         = rule (';' rule)*<br>rule          = keyword ':' condition<br>keyword       = [a-z]+</pre>
+		<pre>rules         = rule (';' rule)*<br>rule          = keyword ':' condition<span class="changed"> samples<br>              | 'other' ':' samples</span><br>keyword       = [a-z]+<br>keyword       = [a-z]+</pre>
 		<p>In CLDR, the keyword is the attribute
 			value of 'count'. Those values in CLDR are currently limited to just
-			what is in the DTD, but clients may support other values.</p>
+		  what is in the DTD, but clients may support other values.</p>
 		<p>The conditions themselves have the
 			following syntax.</p>
-		<pre>condition     = and_condition ('or' and_condition)*
-                ('@integer' samples)?<br>                ('@decimal' samples)?
+		<pre>condition     = <span class="changed"></span>and_condition ('or' and_condition)*
+<span class="changed">samples       = </span>('@integer' sample<span class="changed">List</span>)?<br>                ('@decimal' sample<span class="changed">List</span>)?                
 and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation <br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr (('not')? 'in' | '=' | '!=') range_list<br>within_relation = expr ('not')? 'within' range_list<br>expr          = operand (('mod' | '%') value)?
-operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range | value) (',' range_list)*<br>value         = digit+<br>digit         = 0|1|2|3|4|5|6|7|8|9<br>range         = value'..'value
-samples       = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
+operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range | value) (',' range_list)*<br>range         = value'..'value
+sample<span class="changed">List</span>    = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
 sampleRange   = decimalValue '~' decimalValue
-decimalValue  = value ('.' value)?
-		</pre>
+value         = digit+
+decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9<br></pre>
 		<ul>
 			<li>Whitespace (defined as Unicode <a
 				href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D">Pattern_White_Space</a>)
-				can occur between or around any of the above tokens.
-			</li>
+				can occur between or around any of the above tokens<span class="changed">, with the exception of the tokens in value, digit, and decimalValue</span>.</li>
 			<li>In the syntax, <strong>and</strong> binds more tightly than
 				<strong>or</strong>. So <strong>X or Y and Z</strong> is interpreted
 				as <strong>(X or (Y and Z))</strong>.
@@ -1890,12 +1891,13 @@ decimalValue  = value ('.' value)?
 				condition can only be true for one of the pluralRule elements. 
 				Each keyword can have at most one condition.
 					The 'other' keyword must have an empty condition: it is only
-					present for samples.
-			</li>
+					present for samples.</li>
+			<li class="changed">The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.</li>
+			<li class="changed">The 'other' keyword must have no condition, and all other keywords must have a condition.</li>
 		</ul>
 		<h4>
 			<a name="Operands" href="#Operands">5.1.1 Operands</a>
-		</h4>
+</h4>
 		<p>The operands have the following
 			meaning:</p>
 		<div dir="ltr">
@@ -2063,7 +2065,7 @@ decimalValue  = value ('.' value)?
 			</li>
 			<li>Otherwise return !R.</li>
 		</ol>
-		<p></p>
+<p></p>
 		<p>
 			Example Rules:
 		</p>
@@ -2178,11 +2180,26 @@ decimalValue  = value ('.' value)?
 			<li>The main document section 5.11 <a
 				href="tr35.html#Unit_Elements">Unit Elements</a></li>
 		</ul>
-		<h2>
-			<a name="Rule-Based_Number_Formatting"
+	  <h3>
+			<a
+				href="#Plural_Ranges" name="Plural_Ranges" class="changed">5.2 Plural Ranges</a>
+		</h3>
+        
+<p class="dtd"><span class="changed">&lt;!ELEMENT pluralRanges (pluralRange*) &gt;<br>
+  &lt;!ATTLIST pluralRanges locales NMTOKENS #REQUIRED &gt;<br>
+  <br>
+  &lt;!ELEMENT pluralRange ( #PCDATA ) &gt;<br>
+  &lt;!ATTLIST pluralRange start (zero|one|two|few|many|other) #IMPLIED &gt;<br>
+  &lt;!ATTLIST pluralRange end (zero|one|two|few|many|other) #IMPLIED &gt;<br>
+  &lt;!ATTLIST pluralRange result (zero|one|two|few|many|other) #REQUIRED &gt;</span></p>
+
+<p class="changed">Often ranges of numbers are presented to users, such as in “Length: 3.2-4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive. However, different languages have different conventions for the pluralization given to a range: should it be “0-1 centimeter” or “0-1 centimeters”? This becomes much more complicated for languages that have many different plural forms, such as Russian or Arabic.</p>
+<p class="changed">The <strong>pluralRanges</strong> element provides information allowing an implementation to derive the plural category of a range from the plural categories of the <em>start</em> and <em>end</em> values. If there is no value for a <em>&lt;start,end&gt;</em> pair, the default result is <em>other</em>. However, where that result has been verified for a given language, it is included in the CLDR data.</p>
+<h2>
+	  <a name="Rule-Based_Number_Formatting"
 				href="#Rule-Based_Number_Formatting">6 Rule-Based Number
-				Formatting</a>
-		</h2>
+		  Formatting</a>
+</h2>
 		<p class="dtd">
 			&lt;!ELEMENT rbnf ( alias | rulesetGrouping*) &gt;<br> <br>
 			&lt;!ELEMENT rulesetGrouping ( alias | ruleset*) &gt;<br>
@@ -2200,13 +2217,15 @@ decimalValue  = value ('.' value)?
 			mapping binary numbers to and from a readable representation. They
 			are typically used for spelling out numbers, but can also be used for
 			other number systems like roman numerals, Chinese numerals, or for
-			ordinal numbers (1st, 2nd, 3rd,...). The syntax used in the CLDR
-			representation of rules is intended to be simply a transcription of
-			ICU based RBNF rules into an XML compatible syntax. The rules are
-			fairly sophisticated; for details see <i>Rule-Based Number
-				Formatter</i> [<a href="tr35.html#RBNF">RBNF</a>].
-		</p>
-		<p class="dtd">&lt;ruleSetGrouping&gt;</p>
+		ordinal numbers (1st, 2nd, 3rd,...). </p>
+	  <p class="changed">Where, however, the CLDR plurals or ordinals can be used, their usage is recommended in preference to the RBNF data. First,  the RBNF data is not completely fleshed out over all languages that otherwise have modern coverage. Secondly, the alternate forms are neither complete, nor useful without additional information. For example, for German there is spellout-cardinal-masculine, and spellout-cardinal-feminine. But a complete solution would have all genders (masculine/feminine/neuter), all cases (nominative, accusative, dative, genitive), plus  context (with strong or weak determiner or none). Moreover, even for the alternate forms that do exist, CLDR does not supply any data for when to use one vs another (eg, when to use spellout-cardinal-masculine vs spellout-cardinal-feminine). So these data are inappropriate for  general purpose software.</p>
+		<p>The syntax used in the CLDR
+		  representation of rules is intended to be simply a transcription of
+		  ICU based RBNF rules into an XML compatible syntax. The rules are
+		  fairly sophisticated; for details see <i>Rule-Based Number
+		    Formatter</i> [<a href="tr35.html#RBNF">RBNF</a>].
+	    </p>
+    <p class="dtd">&lt;ruleSetGrouping&gt;</p>
 		<p>Used to group rules into functional sets for use with ICU.
 			Currently, the valid types of rule set groupings are
 			&quot;SpelloutRules&quot;, &quot;OrdinalRules&quot;, and

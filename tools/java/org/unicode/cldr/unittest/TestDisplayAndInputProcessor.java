@@ -1,6 +1,5 @@
 package org.unicode.cldr.unittest;
 
-import org.apache.tools.ant.util.StringUtils;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;

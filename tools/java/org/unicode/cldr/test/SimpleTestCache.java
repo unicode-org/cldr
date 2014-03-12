@@ -5,17 +5,14 @@ package org.unicode.cldr.test;
 
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
-import java.util.Map;
 import java.util.Map.Entry;
-import java.util.TreeMap;
 import java.util.Vector;
 
 import org.unicode.cldr.test.CheckCLDR.Options;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.SublocaleProvider;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.LruMap;
-import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.XMLSource;
 
 /**

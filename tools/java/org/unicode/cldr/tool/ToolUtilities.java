@@ -7,8 +7,8 @@ import java.io.PrintWriter;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineComparer;
+
 import com.ibm.icu.dev.util.BagFormatter;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 
 /**
  * Utilities for CLDR tools.

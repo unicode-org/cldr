@@ -1129,13 +1129,14 @@ h2,h3,h4,table {
 		<p>There are two ways of controlling how many digits are shows:
 			(a) significant digits counts, or (b) integer and fraction digit
 			counts. Integer and fraction digit counts are described above. When a
-			formatter is using significant digits counts, the number of integer
+			formatter is using significant digits counts, <span class="removed">the number of integer
 			and fraction digits is not specified directly, and the formatter
-			settings for these counts are ignored. Instead, the formatter uses
+			settings for these counts are ignored. Instead, the formatter </span>uses
 			however many integer and fraction digits are required to display the
-			specified number of significant digits. Examples:</p>
+  specified number of significant digits. <span class="changed">It may ignore min/max integer/fraction digits, or it may use them to the extent possible.</span></p>
+		<p>Examples:</p>
 		<blockquote>
-			<table cellspacing="3" cellpadding="0" border="0">
+		  <table cellspacing="3" cellpadding="0" border="0">
 				<tr bgcolor="#ccccff">
 					<th align="left">Pattern</th>
 					<th align="left">Minimum significant digits</th>
@@ -1194,11 +1195,10 @@ h2,h3,h4,table {
 				number of significant digits have been shown. For example, the
 				pattern <code>&quot;@##&quot;</code> formats the number 0.1203 as <code>&quot;0.12&quot;</code>.
 			</li>
-			<li>If a pattern uses significant digits, it may not contain a
+			<li><span class="changed">Implementations may forbid the use of significant digits in combination with min/max integer/fraction digits. In such a case, i</span>f a pattern uses significant digits, it may not contain a
 				decimal separator, nor the <code>&#39;0&#39;</code> pattern
 				character. Patterns such as <code>&quot;@00&quot;</code> or <code>&quot;@.###&quot;</code>
-				are disallowed.
-			</li>
+			<span class="changed">would be </span>disallowed. </li>
 			<li>Any number of <code>&#39;#&#39;</code> characters may be
 				prepended to the left of the leftmost <code>&#39;@&#39;</code>
 				character. These have no effect on the minimum and maximum
@@ -1219,7 +1219,7 @@ h2,h3,h4,table {
 		</ul>
 		<h3>
 			3.6 <a name="Padding" href="#Padding">Padding</a>
-		</h3>
+	  </h3>
 		<p>
 			Patterns support padding the result to a specific width. In a pattern
 			the pad escape character, followed by a single pad character, causes
@@ -2063,7 +2063,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			</li>
 			<li>Otherwise return !R.</li>
 		</ol>
-		<p></p>
+<p></p>
 		<p>
 			Example Rules:
 		</p>

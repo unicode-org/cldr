@@ -2200,13 +2200,15 @@ decimalValue  = value ('.' value)?
 			mapping binary numbers to and from a readable representation. They
 			are typically used for spelling out numbers, but can also be used for
 			other number systems like roman numerals, Chinese numerals, or for
-			ordinal numbers (1st, 2nd, 3rd,...). The syntax used in the CLDR
-			representation of rules is intended to be simply a transcription of
-			ICU based RBNF rules into an XML compatible syntax. The rules are
-			fairly sophisticated; for details see <i>Rule-Based Number
-				Formatter</i> [<a href="tr35.html#RBNF">RBNF</a>].
-		</p>
-		<p class="dtd">&lt;ruleSetGrouping&gt;</p>
+		ordinal numbers (1st, 2nd, 3rd,...). </p>
+	  <p class="changed">Where, however, the CLDR plurals or ordinals can be used, their usage is recommended in preference to the RBNF data. First,  the RBNF data is not completely fleshed out over all languages that otherwise have modern coverage. Secondly, the alternate forms are neither complete, nor useful without additional information. For example, for German there is spellout-cardinal-masculine, and spellout-cardinal-feminine. But a complete solution would have all genders (masculine/feminine/neuter), all cases (nominative, accusative, dative, genitive), plus  context (with strong or weak determiner or none). Moreover, even for the alternate forms that do exist, CLDR does not supply any data for when to use one vs another (eg, when to use spellout-cardinal-masculine vs spellout-cardinal-feminine). So these data are inappropriate for  general purpose software.</p>
+		<p>The syntax used in the CLDR
+		  representation of rules is intended to be simply a transcription of
+		  ICU based RBNF rules into an XML compatible syntax. The rules are
+		  fairly sophisticated; for details see <i>Rule-Based Number
+		    Formatter</i> [<a href="tr35.html#RBNF">RBNF</a>].
+	    </p>
+    <p class="dtd">&lt;ruleSetGrouping&gt;</p>
 		<p>Used to group rules into functional sets for use with ICU.
 			Currently, the valid types of rule set groupings are
 			&quot;SpelloutRules&quot;, &quot;OrdinalRules&quot;, and

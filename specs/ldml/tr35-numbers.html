@@ -242,6 +242,8 @@ h2,h3,h4,table {
 							<li>5.1.4 <a href="#Using_cardinals">Using Cardinals</a></li>
 						</ul>
 					</li>
+                    <li class="changed">5.1 <a href="#Plural_Ranges">Plural Ranges</a>
+					</li>
 				</ul>
 			</li>
 			<li>6 <a href="#Rule-Based_Number_Formatting">Rule-Based
@@ -2178,11 +2180,26 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			<li>The main document section 5.11 <a
 				href="tr35.html#Unit_Elements">Unit Elements</a></li>
 		</ul>
-		<h2>
-			<a name="Rule-Based_Number_Formatting"
+	  <h3>
+			<a
+				href="#Plural_Ranges" name="Plural_Ranges" class="changed">5.2 Plural Ranges</a>
+		</h3>
+        
+<p class="dtd"><span class="changed">&lt;!ELEMENT pluralRanges (pluralRange*) &gt;<br>
+  &lt;!ATTLIST pluralRanges locales NMTOKENS #REQUIRED &gt;<br>
+  <br>
+  &lt;!ELEMENT pluralRange ( #PCDATA ) &gt;<br>
+  &lt;!ATTLIST pluralRange start (zero|one|two|few|many|other) #IMPLIED &gt;<br>
+  &lt;!ATTLIST pluralRange end (zero|one|two|few|many|other) #IMPLIED &gt;<br>
+  &lt;!ATTLIST pluralRange result (zero|one|two|few|many|other) #REQUIRED &gt;</span></p>
+
+<p class="changed">Often ranges of numbers are presented to users, such as in “Length: 3.2-4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive. However, different languages have different conventions for the pluralization given to a range: should it be “0-1 centimeter” or “0-1 centimeters”? This becomes much more complicated for languages that have many different plural forms, such as Russian or Arabic.</p>
+<p class="changed">The <strong>pluralRanges</strong> element provides information allowing an implementation to derive the plural category of a range from the plural categories of the <em>start</em> and <em>end</em> values. If there is no value for a <em>&lt;start,end&gt;</em> pair, the default result is <em>other</em>. However, where that result has been verified for a given language, it is included in the CLDR data.</p>
+<h2>
+	  <a name="Rule-Based_Number_Formatting"
 				href="#Rule-Based_Number_Formatting">6 Rule-Based Number
-				Formatting</a>
-		</h2>
+		  Formatting</a>
+</h2>
 		<p class="dtd">
 			&lt;!ELEMENT rbnf ( alias | rulesetGrouping*) &gt;<br> <br>
 			&lt;!ELEMENT rulesetGrouping ( alias | ruleset*) &gt;<br>

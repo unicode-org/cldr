@@ -15,11 +15,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.draft.ScriptMetadata.IdUsage;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Containment;
 import org.unicode.cldr.util.With;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;

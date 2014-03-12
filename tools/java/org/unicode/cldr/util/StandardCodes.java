@@ -36,7 +36,6 @@ import org.unicode.cldr.util.Iso639Data.Type;
 import org.unicode.cldr.util.ZoneParser.ZoneLine;
 
 import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.Output;

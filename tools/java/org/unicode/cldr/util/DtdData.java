@@ -15,15 +15,12 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.util.CLDRFile.DtdType;
-import org.unicode.cldr.util.DtdData.Element;
-import org.xml.sax.SAXException;
 
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.Transform;

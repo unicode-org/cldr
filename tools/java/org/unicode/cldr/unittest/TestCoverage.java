@@ -10,10 +10,10 @@ import java.util.Set;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CoreCoverageInfo;
-import org.unicode.cldr.util.Level;
-import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
+import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class TestCoverage extends TestFmwkPlus {

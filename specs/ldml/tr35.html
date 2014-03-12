@@ -101,7 +101,7 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-03-10</span></td>
+				<td><span class="changed">2014-03-12</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -6910,19 +6910,37 @@ decimal?, group?, special*)) &gt;</pre>
 			<li><strong>Part 5: <a
 					href="tr35-collation.html#Contents">Collation</a></strong>
 				<ul>
-					<li>Mappings with prefix (context before) fall back to mappings with the next-shortest prefix
-						when there is no suffix match.</li>
-					<li>Expanded the list of CLDR collation algorithm features beyond those in the UCA.</li>
-					<li>Specified the collation type fallback (e.g., searchjl → search → default → standard).</li>
-					<li>Deprecated the hiraganaQuaternary setting.
-						Real quaternary relations should be used instead.</li>
-					<li>Deprecated the variableTop setting and the [variable top] syntax,
-						replaced by the new maxVariable setting.</li>
-					<li>Compact syntax: Specified ranges for abbreviated relation operators,
-						and each character must be NFD-inert.</li>
-					<li>Added description for how DUCET reordering groups can be
-						derived from CLDR data files.</li>
-					<li>Several further notes, clarifications, explanations, and corrections.</li>
+					<li><i>Section 1.1.2, <a href="tr35-collation.html#Context_Sensitive_Mappings">Context-Sensitive Mappings</a></i>:
+						Mappings with prefix (context before) fall back to mappings with the next-shortest prefix
+						when there is no suffix match.
+						[<a href="http://unicode.org/cldr/trac/ticket/6850">#6850</a>]</li>
+					<li>New <i>Section 1.1.3, <a href="tr35-collation.html#Algorithm_Case"></a>Case Handling</i> &amp;
+						<i>Section 1.1.4, <a href="tr35-collation.html#Algorithm_Reordering_Groups">Reordering Groups</a></i>:
+						Expanded the list of CLDR collation algorithm features beyond those in the UCA.
+						[<a href="http://unicode.org/cldr/trac/ticket/7038">#7038</a>]</li>
+					<li>New <i>Section 3.0.1, <a href="tr35-collation.html#Collation_Type_Fallback">Collation Type Fallback</a></i>:
+						Specified the collation type fallback (e.g., searchjl → search → default → standard).
+						[<a href="http://unicode.org/cldr/trac/ticket/6739">#6739</a>]</li>
+					<li><i>Section 3.3, <a href="tr35-collation.html#Setting_Options">Setting Options</a></i>:
+						Deprecated the hiraganaQuaternary setting.
+						Real quaternary relations should be used instead.
+						[<a href="http://unicode.org/cldr/trac/ticket/5015">#5015</a>]</li>
+					<li><i>Section 3.3, <a href="tr35-collation.html#Setting_Options">Setting Options</a></i>:
+						Deprecated the variableTop setting and the [variable top] syntax,
+						replaced by the new maxVariable setting.
+						[<a href="http://unicode.org/cldr/trac/ticket/5016">#5016</a>]</li>
+					<li><i>Section 3.5, <a href="tr35-collation.html#Orderings">Orderings</a></i>:
+						Compact syntax: Specified ranges for abbreviated relation operators,
+						and each character must be NFD-inert.
+						[<a href="http://unicode.org/cldr/trac/ticket/6738">#6738</a>,
+						<a href="http://unicode.org/cldr/trac/ticket/6817">#6817</a>]</li>
+					<li>New <i>Section 3.12.2, <a href="tr35-collation.html#Reordering_Groups_allkeys">Reordering Groups for allkeys.txt</a></i>:
+						Added description for how DUCET reordering groups can be
+						derived from CLDR data files.
+						[<a href="http://unicode.org/cldr/trac/ticket/5813">#5813</a>]</li>
+					<li>Several further notes, clarifications, explanations, and corrections.
+						[<a href="http://unicode.org/cldr/trac/ticket/5866">#5866</a>,
+						<a href="http://unicode.org/cldr/trac/ticket/6816">#6816</a>]</li>
 				</ul>
 		  </li>
 			<li><strong>Part 6: <a href="tr35-info.html#Contents">Related

@@ -1014,6 +1014,77 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		&lt;collation type="standard"&gt; (with an empty tailoring, so this is the same as the CLDR root collation),
 		and &lt;collation type="search"&gt;.</p>
 
+		<p class="changed">For example, assume that we have collation data for the following tailorings.
+		("da/search" is shorthand for "da-u-co-search".)</p>
+		<ul class="changed">
+			<li>root/defaultCollation=standard</li>
+			<li>root/standard (this is the same as “the CLDR root collator”)</li>
+			<li>root/search</li>
+			<li>da/standard</li>
+			<li>da/search</li>
+			<li>el/standard</li>
+			<li>ko/standard</li>
+			<li>ko/search</li>
+			<li>ko/searchjl</li>
+			<li>zh/defaultCollation=pinyin</li>
+			<li>zh/pinyin</li>
+			<li>zh/stroke</li>
+			<li>zh-Hant/defaultCollation=stroke</li>
+		</ul>
+		<p class="changed">Sample requested and actual collation locales and types:</p>
+		<table class="changed">
+		  <tr>
+		    <th>requested</th>
+		    <th>actual</th>
+		    <th>comment</th>
+		  </tr>
+		  <tr>
+		    <td>da/phonebook</td>
+		    <td>da/standard</td>
+		    <td>default type for Danish</td>
+		  </tr>
+		  <tr>
+		    <td>zh</td>
+		    <td>zh/pinyin</td>
+		    <td>default type for zh</td>
+		  </tr>
+		  <tr>
+		    <td>zh/standard</td>
+		    <td>root/standard</td>
+		    <td>no "standard" tailoring for zh, falls back to root</td>
+		  </tr>
+		  <tr>
+		    <td>zh/phonebook</td>
+		    <td>zh/pinyin</td>
+		    <td>default type for zh</td>
+		  </tr>
+		  <tr>
+		    <td>zh-Hant/phonebook</td>
+		    <td>zh/stroke</td>
+		    <td>default type for zh-Hant is "stroke"</td>
+		  </tr>
+		  <tr>
+		    <td>da/searchjl</td>
+		    <td>da/search</td>
+		    <td>"search.+" falls back to "search"</td>
+		  </tr>
+		  <tr>
+		    <td>el/search</td>
+		    <td>root/search</td>
+		    <td>no "search" tailoring for Greek</td>
+		  </tr>
+		  <tr>
+		    <td>el/searchjl</td>
+		    <td>root/search</td>
+		    <td>"search.+" falls back to "search", found in root</td>
+		  </tr>
+		  <tr>
+		    <td>ko/searchjl</td>
+		    <td>ko/searchjl</td>
+		    <td>requested data is actually available</td>
+		  </tr>
+		</table>
+
 		<h3>
 			3.1 <a name="Collation_Version" href="#Collation_Version">Version</a>
 		</h3>

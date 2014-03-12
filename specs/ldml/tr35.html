@@ -861,46 +861,94 @@ h2,h3,h4,table {
 				attribute of a <i>languageAlias</i> element in <a
 				href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
 				replace the language subtag with the <i>replacement</i> value.
+				<ol>
+				  <li class="changed">If there are additional subtags in  the <i>replacement</i> value, add them to the result, but only if there is no corresponding subtag already in the tag.</li>
+			  </ol>
 			</li>
 			<li>If the BCP 47 region subtag matches the <i>type</i>
 				attribute of a <i>territoryAlias</i> element in <a
 				href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-				replace the language subtag with the <i>replacement</i> value. (When
-				multiple <i>replacement</i> values are available, use the first one)
+				replace the language subtag with the <i>replacement</i> value<span class="changed">, as follows: </span>
+				<ol>
+				  <li class="changed">If there is a single territory in the replacement, use it. </li>
+				  <li><span class="changed">If there are  multiple territories:</span>
+				    <ol>
+				      <li class="changed">Look up the most likely territory for the base language code (and script, if there is one).</li>
+				      <li class="changed">If that likely territory is in the list, use it.</li>
+				      <li class="changed">Otherwise, use the first territory in the list. </li>
+			        </ol>
+				  </li>
+			  </ol>
 			</li>
 		</ol>
-		For example,
+		<p class="changed">Examples</p>
+		<table class="changed">
+		  <tr>
+		    <th>Original</th>
+		    <th>Result</th>
+		    <th>Comments</th>
+	      </tr>
+		  <tr>
+		    <td><code>en-US</code></td>
+		    <td><code>en-US</code></td>
+		    <td>no changes</td>
+	      </tr>
+			  <tr>
+		    <td><code>und</code></td>
+		    <td><code>root</code></td>
+		    <td>no changes</td>
+	      </tr>
+		  <tr>
+		    <td><code>und-US</code></td>
+		    <td><code>und-US</code></td>
+		    <td>no changes, because region subtag is present</td>
+	      </tr>
+		  <tr>
+		    <td nowrap><code>und-u-cu-USD</code></td>
+		    <td nowrap><code>root-u-cu-usd</code></td>
+		    <td>changes, because no script, region, or variant tag is present</td>
+	      </tr>
+		  <tr>
+		    <td><code>cmn-TW</code></td>
+		    <td><code>zh-TW</code></td>
+		    <td>language alias</td>
+	      </tr>
+		  <tr>
+		    <td><code>sr-CS</code></td>
+		    <td><code>sr-RS</code></td>
+		    <td>territory alias</td>
+	      </tr>
+		  <tr>
+		    <td><code>sh</code></td>
+		    <td><code>sr-Latn</code></td>
+		    <td>multiple replacement subtags, 3.1 above</td>
+	      </tr>
+		  <tr>
+		    <td><code>sh-Cyrl</code></td>
+		    <td><code>sr-Cyrl</code></td>
+		    <td>no replacement with multiple replacement subtags, 3.1 above</td>
+	      </tr>
+		  <tr>
+		    <td><code>hy-SU</code></td>
+		    <td><code>hy-AM</code></td>
+		    <td>multiple territory values, 4.2 above<br>		      
+		      <code>&lt;territoryAlias type=&quot;SU&quot; replacement=&quot;RU AM AZ BY EE GE KZ KG LV LT MD TJ TM UA UZ&quot; …/&gt;</code></td>
+	      </tr>
+  </table>
 		<blockquote>
-			<code>en-US</code>
-			→
-			<code>en-US</code>
-			(no changes)<br>
-			<code>und</code>
-			→
-			<code>root</code>
-			<br>
-			<code>und-US</code>
-			→
-			<code>und-US</code>
-			(no changes, because region subtag is present)<br>
-			<code>und-u-cu-USD</code>
-			→
-			<code>root-u-cu-usd</code>
-			<br>
-			<code>cmn-TW</code>
-			→
-			<code>zh-TW</code>
-			(language alias)<br>
-			<code>sr-CS</code>
-			→
-			<code>sr-RS</code>
-			(territory alias)
-		</blockquote>
+			<p class="removed">en-US → en-US (no changes)<br>
+			  und → root <br>
+			  und-US → und-US (no changes, because region subtag is present)<br>
+			  und-u-cu-USD → root-u-cu-usd <br>
+			  cmn-TW → zh-TW (language alias)<br>
+			  sr-CS → sr-RS (territory alias)<br>
+		  </p>
+	  </blockquote>
 		<p>
 			<b>Note:</b> In some rare cases, BCP 47 language tags cannot be
 			converted to valid Unicode language/locale identifiers, such as
 			certain [<a href="#BCP47">BCP 47</a>] grandfathered tags.
-		</p>
+	  </p>
 		<h3>
 			<a name="Field_Definitions" href="#Field_Definitions">3.4 Field
 				Definitions</a>
@@ -1373,8 +1421,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 					<p>
 						<em>bcp47/currency.xml</em>
 					</p></td>
-				<td>"cu"<br>(currency)
-				</td>
+				<td>"cu"<br>(currency)</td>
 				<td>Currency type</td>
 				<td><i>ISO 4217 code,</i>
 					<p>
@@ -1398,8 +1445,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 					<p>
 						<em>bcp47/number.xml</em>
 					</p></td>
-				<td rowspan="7">"nu"<br>(numbers)
-				</td>
+				<td rowspan="7">"nu"<br>(numbers)</td>
 				<td rowspan="7">Numbering system</td>
 				<td><i>Unicode script subtag</i></td>
 				<td><p>
@@ -6803,6 +6849,9 @@ decimal?, group?, special*)) &gt;</pre>
 					</li>
 					<li>Restructured 3.6 <a href="#Unknown_or_Invalid_Identifiers">Special Codes</a>, adding 3.6.3 <a href="#Numeric_Codes">Priviate Use Codes.</a>					  [<a href="http://unicode.org/cldr/trac/ticket/6449">#6449</a>] </li>
 					<li>Updated 5.6 <a href="#Canonical_Form">Canonical Form</a>, removing several subsections.[<a href="http://unicode.org/cldr/trac/ticket/6707">#6707</a>] </li>
+					<li>Fleshed out <a
+				href="#BCP_47_Language_Tag_Conversion">3.3.1 BCP 47 Language Tag
+				Conversion</a> for special cases.[<a href="http://unicode.org/cldr/trac/ticket/6901">#6901</a>] </li>
 				</ul>
 			</li>
 			<li><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong>

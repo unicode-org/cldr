@@ -1861,25 +1861,24 @@ h2,h3,h4,table {
 				of CLDR may express all the rules for a locale using the following
 				syntax:
 		</p>
-		<pre>rules         = rule (';' rule)*<br>rule          = keyword ':' condition<br>keyword       = [a-z]+</pre>
+		<pre>rules         = rule (';' rule)*<br>rule          = keyword ':' condition<span class="changed"> samples<br>              | 'other' ':' samples</span><br>keyword       = [a-z]+<br>keyword       = [a-z]+</pre>
 		<p>In CLDR, the keyword is the attribute
 			value of 'count'. Those values in CLDR are currently limited to just
-			what is in the DTD, but clients may support other values.</p>
+		  what is in the DTD, but clients may support other values.</p>
 		<p>The conditions themselves have the
 			following syntax.</p>
-		<pre>condition     = and_condition ('or' and_condition)*
-                ('@integer' samples)?<br>                ('@decimal' samples)?
+		<pre>condition     = <span class="changed"></span>and_condition ('or' and_condition)*
+<span class="changed">samples       = </span>('@integer' sample<span class="changed">List</span>)?<br>                ('@decimal' sample<span class="changed">List</span>)?                
 and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation <br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr (('not')? 'in' | '=' | '!=') range_list<br>within_relation = expr ('not')? 'within' range_list<br>expr          = operand (('mod' | '%') value)?
-operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range | value) (',' range_list)*<br>value         = digit+<br>digit         = 0|1|2|3|4|5|6|7|8|9<br>range         = value'..'value
-samples       = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
+operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range | value) (',' range_list)*<br>range         = value'..'value
+sample<span class="changed">List</span>    = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
 sampleRange   = decimalValue '~' decimalValue
-decimalValue  = value ('.' value)?
-		</pre>
+value         = digit+
+decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9<br></pre>
 		<ul>
 			<li>Whitespace (defined as Unicode <a
 				href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D">Pattern_White_Space</a>)
-				can occur between or around any of the above tokens.
-			</li>
+				can occur between or around any of the above tokens<span class="changed">, with the exception of the tokens in value, digit, and decimalValue</span>.</li>
 			<li>In the syntax, <strong>and</strong> binds more tightly than
 				<strong>or</strong>. So <strong>X or Y and Z</strong> is interpreted
 				as <strong>(X or (Y and Z))</strong>.
@@ -1890,12 +1889,13 @@ decimalValue  = value ('.' value)?
 				condition can only be true for one of the pluralRule elements. 
 				Each keyword can have at most one condition.
 					The 'other' keyword must have an empty condition: it is only
-					present for samples.
-			</li>
+					present for samples.</li>
+			<li class="changed">The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.</li>
+			<li class="changed">The 'other' keyword must have no condition, and all other keywords must have a condition.</li>
 		</ul>
 		<h4>
 			<a name="Operands" href="#Operands">5.1.1 Operands</a>
-		</h4>
+</h4>
 		<p>The operands have the following
 			meaning:</p>
 		<div dir="ltr">

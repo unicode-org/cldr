@@ -248,15 +248,17 @@ h2,h3,h4,table {
 					<li>3.4 <a href="#Field_Definitions">Field Definitions</a></li>
 					<li>3.5 <a href="#Key_And_Type_Definitions_">Key And Type
 							Definitions</a></li>
-					<li>3.6 <a href="#Unknown_or_Invalid_Identifiers">Unknown
-							or Invalid Identifiers</a>
+					<li class="changed">3.6 <a href="#Unknown_or_Invalid_Identifiers">Special Codes</a>
 						<ul class="toc">
-							<li>3.6.1 <a href="#Numeric_Codes">Numeric Codes</a></li>
+							<li>3.6.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown
+							or Invalid Identifiers</a></li>
+							<li>3.6.2 <a href="#Numeric_Codes">Numeric Codes</a></li>
+							<li>3.6.3 <a href="#Numeric_Codes">Priviate Use Codes</a></li>
 						</ul>
 					</li>
 					<li>3.7 <a href="#Locale_Extension_Key_and_Type_Data">Unicode
 							BCP 47 Extension Data</a>
-						<ul class="toc">
+					  <ul class="toc">
 							<li>3.7.1 <a href="#Unicode_Locale_Extension_Data_Files">Unicode
 									Locale Extension Data Files</a>
 								<ul class="toc">
@@ -1161,10 +1163,10 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			and territory subtag is called a <i>territory locale</i> (or <i>country
 				locale</i>).
 		</p>
-		<h3>
-			<a name="Key_And_Type_Definitions_" href="#Key_And_Type_Definitions_">3.5
-				Key And Type Definitions</a>
-		</h3>
+<h3>
+	  <a name="Key_And_Type_Definitions_" href="#Key_And_Type_Definitions_">3.5
+		  Key And Type Definitions</a>
+</h3>
 		<p>
 			The following chart contains a set of key values that are currently
 			available, with a description or sampling of type values. Each
@@ -1485,13 +1487,17 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 
 		<p>Additional keys or types might be added in future versions.
 			Implementations of LDML should be robust to handle any syntactically
-			valid key or type values.</p>
-
+			valid key or type values.		</p>
 		<h3>
+			<a name="Special_Codes"
+				href="#Special_Codes">3.6 Special Codes</a>
+	  </h3>
+
+		<h4>
 			<a name="Unknown_or_Invalid_Identifiers"
-				href="#Unknown_or_Invalid_Identifiers">3.6 Unknown or Invalid
+				href="#Unknown_or_Invalid_Identifiers">3.6.1 Unknown or Invalid
 				Identifiers</a>
-		</h3>
+</h4>
 		<p>The following identifiers are used to indicate an unknown or
 			invalid code in Unicode language and locale identifiers. For Unicode
 			identifiers, the region code uses a private use ISO 3166 code, and
@@ -1541,7 +1547,7 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 			tag &quot;und_Grek&quot; represents the Greek script;
 			&quot;und_US&quot; represents the US territory.</p>
 		<h4>
-			<a name="Numeric_Codes" href="#Numeric_Codes">3.6.1 Numeric Codes</a>
+			<a name="Numeric_Codes" href="#Numeric_Codes">3.6.2 Numeric Codes</a>
 		</h4>
 		<p>For region codes, ISO and the UN establish a mapping to
 			three-letter codes and numeric codes. However, this does not extend
@@ -1591,12 +1597,86 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 				<td><code>Qaaa..Qabx</code></td>
 				<td><code>900..949</code></td>
 			</tr>
-		</table>
-		<h3>
-			<a name="Locale_Extension_Key_and_Type_Data"
+		</table><br>
+		<h4 class="changed">3.6.3 <a name="Private_Use" href="#Private_Use">Private Use Codes</a></h4>
+      <p class="changed">Private use codes fall into three groups.</p>
+        <ul>
+          <li class="changed"><strong>defined:</strong> those that are given particular semantics currently in CLDR</li>
+          <li class="changed"><strong>reserved:</strong> those that may be given particular semantics in future versions of CLDR</li>
+          <li class="changed"><strong>excluded:</strong> those that will never be given particular CLDR semantics in the future, and thus can be used by applications without worrying about collisions        </li>
+        </ul>
+        <table>
+          <caption>
+          <span class="changed"><a name="Private_Use_CLDR" href="#Private_Use_CLDR">Private Use Codes in CLDR</a>
+          </span>
+          </caption>
+          <tr>
+            <th class="changed">category</th>
+            <th class="changed">status</th>
+            <th class="changed">codes</th>
+          </tr>
+          <tr>
+            <td rowspan="3" class="changed">base language</td>
+            <td class="changed">defined</td>
+            <td class="changed">none</td>
+          </tr>
+          <tr>
+            <td class="changed">reserved</td>
+            <td class="changed"> qaa..qfy</td>
+          </tr>
+          <tr>
+            <td class="changed">excluded</td>
+            <td class="changed">qfz..qtz</td>
+          </tr>
+          <tr>
+            <td rowspan="3" class="changed">script</td>
+            <td class="changed">defined</td>
+            <td class="changed">Qaai (obsolete)</td>
+          </tr>
+          <tr>
+            <td class="changed">reserved</td>
+            <td class="changed">Qaaa..Qaap</td>
+          </tr>
+          <tr>
+            <td class="changed">excluded</td>
+            <td class="changed">Qaaq..Qabx</td>
+          </tr>
+          <tr>
+            <td rowspan="3" class="changed">region</td>
+            <td class="changed">defined</td>
+            <td class="changed">QO, QU, UK, ZZ</td>
+          </tr>
+          <tr>
+            <td class="changed">reserved</td>
+            <td class="changed">AA, QM..QZ</td>
+          </tr>
+          <tr>
+            <td class="changed">excluded</td>
+            <td class="changed">XA..XZ</td>
+          </tr>
+          <tr>
+            <td rowspan="3" class="changed">timezone</td>
+            <td class="changed">defined</td>
+            <td class="changed">IANA: Etc/Unknown<br>
+            bcp47: as listed in the bcp47 file</td>
+          </tr>
+          <tr>
+            <td class="changed">reserved</td>
+            <td class="changed">bcp47: all non-5 letter codes</td>
+          </tr>
+          <tr>
+            <td class="changed">excluded</td>
+            <td class="changed">none</td>
+          </tr>
+      </table>
+        <p class="changed">See also <em>Section 3.6.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown
+        or Invalid Identifiers</a></em>.</p>
+<p></p>
+<h3>
+	  <a name="Locale_Extension_Key_and_Type_Data"
 				href="#Locale_Extension_Key_and_Type_Data">3.7 Unicode BCP 47
-				Extension Data</a><a name="u_Extension"></a>
-		</h3>
+		  Extension Data</a><a name="u_Extension"></a>
+  </h3>
 		<p>
 			[<a href="#BCP47">BCP47</a>] Language Tags provides a mechanism for
 			extending language tags for use in various applications by extension
@@ -6712,7 +6792,9 @@ decimal?, group?, special*)) &gt;</pre>
 						element</a></em>. [<a
 						href="http://unicode.org/cldr/trac/ticket/6857">#6857</a>]
 					</li>
-				</ul></li>
+					<li>Restructured 3.6 <a href="#Unknown_or_Invalid_Identifiers">Special Codes</a>, adding 3.6.3 <a href="#Numeric_Codes">Priviate Use Codes</a>					  [<a href="http://unicode.org/cldr/trac/ticket/6449">#6449</a>] </li>
+				</ul>
+			</li>
 			<li><strong>Part 2: <a href="tr35-general.html#Contents">General</a></strong>
 				<ul>
 					<li>In <em><a
@@ -6784,7 +6866,7 @@ decimal?, group?, special*)) &gt;</pre>
 
 		<h3>
 			Revision 33
-    </h3>
+</h3>
 		<ul>
 			<li>Updated for Version 24.</li>
 			<li>Added Parts section (with double-links) to each Part. [<a

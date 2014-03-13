@@ -1597,24 +1597,28 @@ h2,h3,h4,table {
 			<li><b>digits: </b>the number of decimal digits normally
 				formatted. The default is 2.</li>
 			<li><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>.
-				The default is 0,
-					which means no rounding is to be done. Therefore, rounding=0 and
-					rounding=1 have identical behavior. Thus with fraction digits of 2
-				and rounding increment of 5, numeric values are rounded to the
-				nearest 0.05 units in formatting. With fraction digits of 0 and
+				The default is 0, which means no rounding is to be done. Therefore,
+				rounding=0 and rounding=1 have identical behavior. Thus with fraction
+				digits of 2 and rounding increment of 5, numeric values are rounded to
+				the nearest 0.05 units in formatting. With fraction digits of 0 and
 				rounding increment of 50, numeric values are rounded to the nearest
 				50.</li>
-			<li><b>cashDigits: </b>the number
-					of decimal digits to be used when formatting quantities used in
-					cash transactions (as opposed to a quantity that would appear in a
-					more formal setting, such as on a bank statement). If absent, the
-					value of "digits" should be used as a default.</li>
-			<li><b>cashRounding: </b>the
-					rounding increment to be used when formatting quantities used in
-					cash transactions (as opposed to a quantity that would appear in a
-					more formal setting, such as on a bank statement). If absent, the
-					value of "rounding" should be used as a default.</li>
+			<li><b>cashDigits: </b>the number of decimal digits to be used when 
+				formatting quantities used in cash transactions (as opposed to a
+				quantity that would appear in a more formal setting, such as on a
+				bank statement). If absent, the value of "digits" should be used as
+				a default.</li>
+			<li><b>cashRounding: </b>the <span class="changed">cash rounding increment,
+				in units of 10<sup>-cashDigits</sup>. The default is 0, which means no
+				rounding is to be done; and as with rounding, this has the same effect
+				as cashRounding="1". This is the </span>rounding increment to be used
+				when formatting quantities used in cash transactions (as opposed to a
+				quantity that would appear in a more formal setting, such as on a bank
+				statement). If absent, the value of "rounding" should be used as a default.</li>
 		</ul>
+		<p class="changed">For example, the following line</p>
+		<pre><span class="changed">    &lt;info iso4217="CZK" digits="2" rounding="0"/&gt;</span></pre>
+		<p class="changed">should cause the value 2.006 to be displayed as “2.01”, not “2.00”.</p>
 		<p>Each region element contains one attribute:</p>
 		<ul>
 			<li><b>iso3166:</b> the ISO 3166 code for the region in
@@ -2315,7 +2319,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001-2013 Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001-<span class="changed">2014</span> Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

@@ -2,8 +2,6 @@
 
 package org.unicode.cldr.unittest;
 
-
-
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Writer;
@@ -25,7 +23,7 @@ public class TestAll extends TestGroup {
     private static interface FormattableDate {
         String format(Date d);
     }
- 
+
     /**
      * NullObject, to suppress Timestamp printing
      * @author ribnitz
@@ -38,6 +36,7 @@ public class TestAll extends TestGroup {
             return null;
         }
     }
+
     /**
      * Simplistic approach at formatting a Date (using Date and Time)
      * @author ribnitz
@@ -45,24 +44,25 @@ public class TestAll extends TestGroup {
      */
     private static class SimpleFormattableDate implements FormattableDate {
         private final DateFormat df;
-        
+
         public SimpleFormattableDate() {
-            df=DateFormat.getDateTimeInstance();
+            df = DateFormat.getDateTimeInstance();
         }
-        
+
         @Override
         public String format(Date d) {
-           return " << "+ df.format(d) +" >>";
+            return " << " + df.format(d) + " >>";
         }
-        
+
     }
+
     /**
      * Class putting a timestamp at the end of each line output
      * @author ribnitz
      *
      */
     private static class TimeStampingPrintWriter extends PrintWriter {
-        protected FormattableDate df=new SimpleFormattableDate();
+        protected FormattableDate df = new SimpleFormattableDate();
 
         public TimeStampingPrintWriter(Writer out, boolean autoFlush) {
             super(out, autoFlush);
@@ -73,8 +73,6 @@ public class TestAll extends TestGroup {
             // TODO Auto-generated constructor stub
         }
 
-    
-        
         public TimeStampingPrintWriter(OutputStream out, boolean autoFlush) {
             super(out, autoFlush);
             // TODO Auto-generated constructor stub
@@ -86,10 +84,9 @@ public class TestAll extends TestGroup {
         }
 
         public void setFormatableDate(FormattableDate aDate) {
-            df=aDate;
+            df = aDate;
         }
-        
-        
+
         private String getFormattedDateString() {
             return df.format(new Date());
         }
@@ -97,14 +94,15 @@ public class TestAll extends TestGroup {
         @Override
         public void write(String s) {
             if (s.equals("\n") || s.equals("\r\n")) {
-               String ss=getFormattedDateString();
-               super.write(" "+ss+s);
+                String ss = getFormattedDateString();
+                super.write(" " + ss + s);
             } else {
                 super.write(s);
             }
         }
-        
+
     }
+
     /**
      * Helper class to convert milliseconds into hours/minuy
      * @author ribnitz
@@ -115,53 +113,55 @@ public class TestAll extends TestGroup {
         public final int minutes;
         public final int seconds;
         public final int millis;
-        
+
         public DateDisplayBean(long ms) {
-            long m=ms;
-             hours=(int) (m/(60*60*1000));
-            if (hours>0) {
-                m-=(hours*60*60*1000);
+            long m = ms;
+            hours = (int) (m / (60 * 60 * 1000));
+            if (hours > 0) {
+                m -= (hours * 60 * 60 * 1000);
             }
-             minutes=(int) (m/(60*1000));
-            if (minutes>0) {
-                m-=minutes*60*1000;
+            minutes = (int) (m / (60 * 1000));
+            if (minutes > 0) {
+                m -= minutes * 60 * 1000;
             }
-            seconds=(int) (m/1000);
-            millis=(int) (m-(seconds*1000));
+            seconds = (int) (m / 1000);
+            millis = (int) (m - (seconds * 1000));
         }
+
         public String toString() {
-            StringBuilder sb=new StringBuilder();
-            if (hours>0) {
+            StringBuilder sb = new StringBuilder();
+            if (hours > 0) {
                 sb.append(hours);
                 sb.append(" hours ");
             }
-            if (minutes>0) {
+            if (minutes > 0) {
                 sb.append(minutes);
                 sb.append(" minutes ");
             }
-            if (seconds>0) {
+            if (seconds > 0) {
                 sb.append(seconds);
                 sb.append(" seconds ");
             }
-            if(millis>0) {
+            if (millis > 0) {
                 sb.append(millis);
-                sb.append( " milliseconds");
+                sb.append(" milliseconds");
             }
             return sb.toString();
         }
     }
+
     public static void main(String[] args) {
-        long startTime=System.currentTimeMillis();
+        long startTime = System.currentTimeMillis();
         int errCount = CLDRConfig.getInstance()
-                         .setTestLog(new TestAll())
-                         .run(args,new TimeStampingPrintWriter(System.out));
-        long endTime=System.currentTimeMillis();
-        DateDisplayBean dispBean=new DateDisplayBean(endTime-startTime);
-        StringBuffer sb=new StringBuffer();
+            .setTestLog(new TestAll())
+            .run(args, new TimeStampingPrintWriter(System.out));
+        long endTime = System.currentTimeMillis();
+        DateDisplayBean dispBean = new DateDisplayBean(endTime - startTime);
+        StringBuffer sb = new StringBuffer();
         sb.append("Tests took ");
         sb.append(dispBean.toString());
         System.out.println(sb.toString());
-        if(errCount != 0) {
+        if (errCount != 0) {
             System.exit(1);
         }
     }

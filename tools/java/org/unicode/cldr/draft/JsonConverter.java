@@ -34,7 +34,7 @@ public class JsonConverter {
 
     private static final String FILES = "el.*";
     private static final String MAIN_DIRECTORY = CLDRPaths.MAIN_DIRECTORY;// CldrUtility.SUPPLEMENTAL_DIRECTORY;
-                                                                            // //CldrUtility.MAIN_DIRECTORY;
+                                                                          // //CldrUtility.MAIN_DIRECTORY;
     private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/jason/"; // CldrUtility.MAIN_DIRECTORY;
     private static boolean COMPACT = false;
     static final Set<String> REPLACING_BASE = !COMPACT ? Collections.EMPTY_SET : new HashSet<String>(

@@ -126,33 +126,33 @@ public class ExtractICUData {
                 input = CldrUtility.getUTF8Data(fileName);
             }
             {
-            CLDRFile outFile = SimpleFactory.makeSupplemental(fileName);
-            int count = 0;
-            String prefixBase = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform"
-                + attributes;
-            String rulePrefix = prefixBase + "/tRule[@_q=\"";
-            String commentPrefix = prefixBase + "/comment[@_q=\"";
+                CLDRFile outFile = SimpleFactory.makeSupplemental(fileName);
+                int count = 0;
+                String prefixBase = "//supplementalData[@version=\"" + CLDRFile.GEN_VERSION + "\"]/transforms/transform"
+                    + attributes;
+                String rulePrefix = prefixBase + "/tRule[@_q=\"";
+                String commentPrefix = prefixBase + "/comment[@_q=\"";
 
-            StringBuffer accumulatedLines = new StringBuffer();
-            while (true) {
-                String line = input.readLine();
-                if (line == null) break;
-                if (line.startsWith("\uFEFF")) line = line.substring(1); // remove BOM
-                line = line.trim();
-                if (skipLines.contains(line)) continue;
-                if (line.length() == 0) continue;
-                String fixedLine = fixTransRule(line);
-                // if (accumulatedLines.length() == 0)
-                accumulatedLines.append("\n\t\t");
-                accumulatedLines.append(fixedLine);
-                String prefix = (line.startsWith("#")) ? commentPrefix : rulePrefix;
-                addInTwo(outFile, accumulatedItems, prefix + (++count) + "\"]", fixedLine);
-            }
+                StringBuffer accumulatedLines = new StringBuffer();
+                while (true) {
+                    String line = input.readLine();
+                    if (line == null) break;
+                    if (line.startsWith("\uFEFF")) line = line.substring(1); // remove BOM
+                    line = line.trim();
+                    if (skipLines.contains(line)) continue;
+                    if (line.length() == 0) continue;
+                    String fixedLine = fixTransRule(line);
+                    // if (accumulatedLines.length() == 0)
+                    accumulatedLines.append("\n\t\t");
+                    accumulatedLines.append(fixedLine);
+                    String prefix = (line.startsWith("#")) ? commentPrefix : rulePrefix;
+                    addInTwo(outFile, accumulatedItems, prefix + (++count) + "\"]", fixedLine);
+                }
 
-            PrintWriter pw = BagFormatter
-                .openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
-            outFile.write(pw);
-            pw.close();
+                PrintWriter pw = BagFormatter
+                    .openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", outName + ".xml");
+                outFile.write(pw);
+                pw.close();
             }
         }
         PrintWriter pw = BagFormatter.openUTF8Writer(CLDRPaths.GEN_DIRECTORY + "/translit/gen/", "All" + ".xml");
@@ -441,7 +441,7 @@ public class ExtractICUData {
             out.println("</table></td></tr>");
         }
         Collator c = Collator.getInstance(ULocale.ENGLISH);
-        ((RuleBasedCollator)c).setNumericCollation(true);
+        ((RuleBasedCollator) c).setNumericCollation(true);
 
         // int enumValue = UCharacter.getIntPropertyValue(codePoint, propEnum);
         // return UCharacter.getPropertyValueName(propEnum,enumValue, (int)nameChoice);

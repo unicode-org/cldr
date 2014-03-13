@@ -70,12 +70,12 @@ public class ScriptMetadata {
     }
 
     public enum IdUsage {
-        UNKNOWN("Other"), 
-        EXCLUSION("Historic"), 
-        LIMITED_USE("Limited Use"), 
-        ASPIRATIONAL("Aspirational"), 
+        UNKNOWN("Other"),
+        EXCLUSION("Historic"),
+        LIMITED_USE("Limited Use"),
+        ASPIRATIONAL("Aspirational"),
         RECOMMENDED("Major Use");
-        
+
         public final String name;
 
         private IdUsage(String name) {
@@ -294,7 +294,8 @@ public class ScriptMetadata {
             try {
                 String name2 = UScript.getShortName(UScript.getCodeFromName(s));
                 result = data.get(name2);
-            } catch (Exception e) {}
+            } catch (Exception e) {
+            }
         }
         return result;
     }
@@ -310,7 +311,7 @@ public class ScriptMetadata {
     public static Set<Entry<String, Info>> iterable() {
         return data.entrySet();
     }
-    
+
     /** 
      * Specialized scripts
      * @return

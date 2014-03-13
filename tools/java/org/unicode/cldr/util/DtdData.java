@@ -90,7 +90,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             element = element2;
             name = aName.intern();
             mode = mode2;
-            defaultValue = value2 == null ? null 
+            defaultValue = value2 == null ? null
                 : value2.intern();
             AttributeType _type = AttributeType.ENUMERATED_TYPE;
             Map<String, Integer> _values = Collections.emptyMap();
@@ -145,14 +145,15 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             Attribute that = (Attribute) obj;
             return name.equals(that.name)
                 && element.name.equals(that.element.name) // don't use plain element: circularity
-                // not relevant to identity
-                //                && Objects.equals(comment, that.comment)
-                //                && mode.equals(that.mode)
-                //                && Objects.equals(defaultValue, that.defaultValue)
-                //                && type.equals(that.type)
-                //                && values.equals(that.values)
-                ;
+            // not relevant to identity
+            //                && Objects.equals(comment, that.comment)
+            //                && mode.equals(that.mode)
+            //                && Objects.equals(defaultValue, that.defaultValue)
+            //                && type.equals(that.type)
+            //                && values.equals(that.values)
+            ;
         }
+
         /**
          * Special version of identity; only considers name and name of element
          */
@@ -160,13 +161,13 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         public int hashCode() {
             return name.hashCode() * 37
                 + element.name.hashCode() // don't use plain element: circularity
-                // not relevant to identity
-                //                ) * 37 + Objects.hashCode(comment)) * 37
-                //                + mode.hashCode()) * 37
-                //                + Objects.hashCode(defaultValue)) * 37
-                //                + type.hashCode()) * 37
-                //                + values.hashCode()
-                ;
+            // not relevant to identity
+            //                ) * 37 + Objects.hashCode(comment)) * 37
+            //                + mode.hashCode()) * 37
+            //                + Objects.hashCode(defaultValue)) * 37
+            //                + type.hashCode()) * 37
+            //                + values.hashCode()
+            ;
         }
 
     }
@@ -192,6 +193,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         private ElementType(String s) {
             source = s;
         }
+
         private ElementType() {
             source = name();
         }
@@ -229,7 +231,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     }
                 }
             }
-            if ((type == ElementType.CHILDREN) == (children.size() == 0) 
+            if ((type == ElementType.CHILDREN) == (children.size() == 0)
                 && !model.startsWith("(#PCDATA|cp")) {
                 throw new IllegalArgumentException("CLDR does not permit Mixed content. " + name + ":" + model);
             }
@@ -298,12 +300,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             }
             Element that = (Element) obj;
             return name.equals(that.name)
-                // not relevant to the identity of the object
-                //                && Objects.equals(comment, that.comment)
-                //                && type == that.type
-                //                && attributes.equals(that.attributes)
-                //                && children.equals(that.children)
-                ;
+            // not relevant to the identity of the object
+            //                && Objects.equals(comment, that.comment)
+            //                && type == that.type
+            //                && attributes.equals(that.attributes)
+            //                && children.equals(that.children)
+            ;
         }
 
         /**
@@ -312,12 +314,12 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         @Override
         public int hashCode() {
             return name.hashCode()
-                // not relevant to the identity of the object
-                // * 37 + Objects.hashCode(comment)
-                //) * 37 + Objects.hashCode(type)
-                //                ) * 37 + attributes.hashCode()
-                //                ) * 37 + children.hashCode()
-                ;
+            // not relevant to the identity of the object
+            // * 37 + Objects.hashCode(comment)
+            //) * 37 + Objects.hashCode(type)
+            //                ) * 37 + attributes.hashCode()
+            //                ) * 37 + children.hashCode()
+            ;
         }
     }
 
@@ -465,7 +467,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     }
 
     public static void readFile(CLDRFile.DtdType type, XMLFileReader xfr, File directory) {
-        File file = new File(directory,type.dtdPath);
+        File file = new File(directory, type.dtdPath);
         StringReader s = new StringReader("<?xml version='1.0' encoding='UTF-8' ?>"
             + "<!DOCTYPE " + type
             + " SYSTEM '" + file.getAbsolutePath() + "'>");
@@ -589,34 +591,33 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                     --countB;
                 }
 
-                attributes: 
-                    for (Entry<Attribute, Integer> attr : elementA.attributes.entrySet()) {
-                        Attribute main = attr.getKey();
-                        String valueA = a.getAttributeValue(i, main.name);
-                        String valueB = b.getAttributeValue(i, main.name);
-                        if (valueA == null) {
-                            if (valueB != null) {
-                                return -1;
-                            }
-                        } else if (valueB == null) {
-                            return 1;
-                        } else if (valueA.equals(valueB)) {
-                            --countA;
-                            --countB;
-                            if (countA == 0 && countB == 0) {
-                                break attributes;
-                            }
-                            continue; // TODO
-                        } else if (avc != null) {
-                            return avc.compare(elementA.name, main.name, valueA, valueB);
-                        } else if (main.values.size() != 0) {
-                            int aa = main.values.get(valueA);
-                            int bb = main.values.get(valueB);
-                            return aa - bb;
-                        } else {
-                            return valueA.compareTo(valueB);
+                attributes: for (Entry<Attribute, Integer> attr : elementA.attributes.entrySet()) {
+                    Attribute main = attr.getKey();
+                    String valueA = a.getAttributeValue(i, main.name);
+                    String valueB = b.getAttributeValue(i, main.name);
+                    if (valueA == null) {
+                        if (valueB != null) {
+                            return -1;
                         }
+                    } else if (valueB == null) {
+                        return 1;
+                    } else if (valueA.equals(valueB)) {
+                        --countA;
+                        --countB;
+                        if (countA == 0 && countB == 0) {
+                            break attributes;
+                        }
+                        continue; // TODO
+                    } else if (avc != null) {
+                        return avc.compare(elementA.name, main.name, valueA, valueB);
+                    } else if (main.values.size() != 0) {
+                        int aa = main.values.get(valueA);
+                        int bb = main.values.get(valueB);
+                        return aa - bb;
+                    } else {
+                        return valueA.compareTo(valueB);
                     }
+                }
                 if (countA != 0 || countB != 0) {
                     throw new IllegalArgumentException();
                 }
@@ -724,6 +725,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
     static final class Seen {
         Set<Element> seenElements = new HashSet<Element>();
         Set<Attribute> seenAttributes = new HashSet<Attribute>();
+
         public Seen(DtdType dtdType) {
             if (dtdType.rootType == dtdType) {
                 return;
@@ -732,6 +734,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
             walk(otherData, otherData.ROOT);
             seenElements.remove(otherData.nameToElement.get("special"));
         }
+
         private void walk(DtdData otherData, Element current) {
             seenElements.add(current);
             seenAttributes.addAll(current.attributes.keySet());
@@ -814,7 +817,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
                 } else {
                     b.append(' ').append(a.type);
                 }
-                if (a.mode != Mode.NULL){ 
+                if (a.mode != Mode.NULL) {
                     b.append(" ").append(a.mode.source);
                 }
                 if (a.defaultValue != null) {
@@ -833,7 +836,7 @@ public class DtdData extends XMLFileReader.SimpleHandler {
         }
     }
 
-    public static <T> T removeFirst(Collection<T> elements, Transform<T,Boolean> matcher) {
+    public static <T> T removeFirst(Collection<T> elements, Transform<T, Boolean> matcher) {
         for (Iterator<T> it = elements.iterator(); it.hasNext();) {
             T item = it.next();
             if (matcher.transform(item) == Boolean.TRUE) {

@@ -53,15 +53,14 @@ import com.ibm.icu.util.Freezable;
 import com.ibm.icu.util.TimeZone;
 
 public class CldrUtility {
-    
+
     public static final boolean BETA = true;
-    
 
 //    // Old ones for illustration
 //    public static final boolean BETA = false;
 //    public static final String CHART_VERSION = "24";
 //    private static final String LAST_CHART_VERSION = "23.1"; // must have 1 decimal
-    
+
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
     // Constant for "∅∅∅". Indicates that a child locale has no value for a
     // path even though a parent does.
@@ -146,6 +145,7 @@ public class CldrUtility {
 
     public interface LineComparer {
         static final int LINES_DIFFERENT = -1, LINES_SAME = 0, SKIP_FIRST = 1, SKIP_SECOND = 2;
+
         /**
          * Returns LINES_DIFFERENT, LINES_SAME, or if one of the lines is ignorable, SKIP_FIRST or SKIP_SECOND
          * 
@@ -279,8 +279,6 @@ public class CldrUtility {
             br1.close();
         }
     }
-
-    
 
     /*
      * static String getLineWithoutFluff(BufferedReader br1, boolean first, int flags) throws IOException {
@@ -848,7 +846,7 @@ public class CldrUtility {
     }
 
     public static InputStream getInputStream(Class<?> callingClass, String relativePath) {
-        InputStream is=callingClass.getResourceAsStream(relativePath);
+        InputStream is = callingClass.getResourceAsStream(relativePath);
         // add buffering
         return InputStreamFactory.buffer(is);
     }

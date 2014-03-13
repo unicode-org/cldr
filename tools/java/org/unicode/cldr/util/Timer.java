@@ -6,7 +6,7 @@ import com.ibm.icu.util.ULocale;
 
 public final class Timer {
     private static final double NANOS_PER_SECOND = 1000000000.0d;
-    
+
     private long startTime;
     private long duration;
     {
@@ -30,7 +30,7 @@ public final class Timer {
     }
 
     public double getSeconds() {
-        return getDuration()/NANOS_PER_SECOND;
+        return getDuration() / NANOS_PER_SECOND;
     }
 
     /**

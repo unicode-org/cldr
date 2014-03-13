@@ -51,7 +51,7 @@ public class CoreCoverageInfo {
         locale = ltp.set(locale).getLanguageScript();
         String baseLanguage = ltp.getLanguage();
         String script = ltp.getScript();
-        
+
         Set<CoreItems> result = EnumSet.noneOf(CoreItems.class);
 
         //      (04) Exemplar sets: main, auxiliary, index, punctuation. [main/xxx.xml]
@@ -59,7 +59,7 @@ public class CoreCoverageInfo {
         boolean isRtl = false;
         for (CoreItems exemplar : EXEMPLARS) {
             String type = exemplar.toString();
-            type = type.substring(0,type.indexOf('_'));
+            type = type.substring(0, type.indexOf('_'));
 
             String path = "//ldml/characters/exemplarCharacters";
             boolean isMain = type.equals("main");
@@ -95,7 +95,6 @@ public class CoreCoverageInfo {
         }
 
         //      (01) Default content script and region (normally: normally country with largest population using that language, and normal script for that).  [supplemental/supplementalMetadata.xml]
-
 
         String defaultContent = sdi.getDefaultContentLocale(locale);
         if (defaultContent != null) {
@@ -177,17 +176,15 @@ public class CoreCoverageInfo {
     }
 
     private static final Set<CoreItems> EXEMPLARS = EnumSet.of(
-        CoreItems.main_exemplar, 
-        CoreItems.auxiliary_exemplar, 
+        CoreItems.main_exemplar,
+        CoreItems.auxiliary_exemplar,
         CoreItems.index_exemplar);
 
-
-    private static final String [][] ROMANIZATION_PATHS = {
-        {"", "-Latin"},
-        {"", "-Latin-BGN"},
-        {"Latin-", ""},
+    private static final String[][] ROMANIZATION_PATHS = {
+        { "", "-Latin" },
+        { "", "-Latin-BGN" },
+        { "Latin-", "" },
     };
-
 
     private static final Relation SCRIPT_NAMES = Relation.of(new HashMap(), HashSet.class);
     static {
@@ -198,7 +195,7 @@ public class CoreCoverageInfo {
         SCRIPT_NAMES.putAll("Kore", Arrays.asList("Hang", "Hangul"));
         SCRIPT_NAMES.freeze();
     }
-    
+
     private static Set<String> getScriptNames(String script) {
         Set<String> result = SCRIPT_NAMES.get(script);
         if (result != null) {
@@ -211,7 +208,9 @@ public class CoreCoverageInfo {
         return result;
     }
 
-    private enum SpecialDir {transforms, collation, casing}
+    private enum SpecialDir {
+        transforms, collation, casing
+    }
 
     private static final Relation<SpecialDir, String> SPECIAL_FILES = Relation.of(new EnumMap(SpecialDir.class), HashSet.class);
     static {
@@ -219,7 +218,7 @@ public class CoreCoverageInfo {
             File realDir = new File(CLDR_BASE_DIRECTORY + "/common/" + dir);
             for (String s : realDir.list()) {
                 if (s.endsWith(".xml")) {
-                    s = s.substring(0,s.length()-4);
+                    s = s.substring(0, s.length() - 4);
                 }
                 SPECIAL_FILES.put(dir, s);
             }

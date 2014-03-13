@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
  * 
  * @author srl
  */
-@Target({ElementType.TYPE})
+@Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface CLDRTool {
 
@@ -38,7 +38,7 @@ public @interface CLDRTool {
      * @return
      */
     String hidden() default "";
-    
+
     /**
      * If non-empty, URL to further docs on this tool.
      */

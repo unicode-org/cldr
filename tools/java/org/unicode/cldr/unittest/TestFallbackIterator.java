@@ -54,7 +54,7 @@ public class TestFallbackIterator extends TestFmwk {
                 items.add(it.next());
             }
             // expected is the whole list, since the first item is always the same
-            assertEquals("Fallback chain for " +test[0], Arrays.asList(test).toString(), items.toString());
+            assertEquals("Fallback chain for " + test[0], Arrays.asList(test).toString(), items.toString());
         }
     }
 }

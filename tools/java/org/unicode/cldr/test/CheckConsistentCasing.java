@@ -54,8 +54,8 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
         locale = cldrFileToCheck.getLocaleID();
         // get info about casing; note that this is done in two steps since 
         // ScriptMetadata.getInfo() returns null, in some instances.
-        Info localeInfo=ScriptMetadata.getInfo(locale);
-        if (localeInfo!=null && localeInfo.hasCase == Trinary.YES) {
+        Info localeInfo = ScriptMetadata.getInfo(locale);
+        if (localeInfo != null && localeInfo.hasCase == Trinary.YES) {
             // this script has casing info, so we can request it here
             types = casingInfo.getLocaleCasing(locale);
         } else {
@@ -70,7 +70,7 @@ public class CheckConsistentCasing extends FactoryCheckCLDR {
                 .setMessage("Could not load casing info for {0}", locale));
         }
         // types may be null, avoid NPE
-        hasCasingInfo = (types == null)? false :types.size() > 0;
+        hasCasingInfo = (types == null) ? false : types.size() > 0;
         return this;
     }
 

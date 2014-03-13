@@ -34,20 +34,21 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
      */
     public static CLDRConfigImpl getInstance() {
         CLDRConfig config = CLDRConfig.getInstance();
-        if(config.getEnvironment() == Environment.UNITTEST) {
+        if (config.getEnvironment() == Environment.UNITTEST) {
             throw new RuntimeException("CLDR_ENVIRONMENT is set to UNITTEST - please correct this (remove any -DCLDR_ENVIRONMENT)");
         }
         try {
-            return (CLDRConfigImpl)config;
-        } catch(ClassCastException cce) {
-            System.err.println("Error: CLDRConfig.getInstance() returned " 
-                    + config.getClass().getName() 
-                    + " initialized at " 
-                    + config.getInitStack());
-            throw new RuntimeException("CLDRConfig is not a CLDRConfigImpl - probably CLDRConfig.getInstance() was called before " + CLDRConfigImpl.class.getName() + " was available.", cce);
+            return (CLDRConfigImpl) config;
+        } catch (ClassCastException cce) {
+            System.err.println("Error: CLDRConfig.getInstance() returned "
+                + config.getClass().getName()
+                + " initialized at "
+                + config.getInitStack());
+            throw new RuntimeException("CLDRConfig is not a CLDRConfigImpl - probably CLDRConfig.getInstance() was called before "
+                + CLDRConfigImpl.class.getName() + " was available.", cce);
         }
     }
-    
+
     public static final String CLDR_PROPERTIES = "cldr.properties";
     /**
      * 
@@ -101,7 +102,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         survprops.put("CLDR_SURVEY_URL", "survey"); // default to relative URL.
 
         File propFile;
-        System.err.println(CLDRConfigImpl.class.getName()+".init(), cldrHome=" + cldrHome);
+        System.err.println(CLDRConfigImpl.class.getName() + ".init(), cldrHome=" + cldrHome);
         if (cldrHome == null) {
             String homeParent = null;
             String props[] = { "catalina.home", "websphere.home", "user.dir" };
@@ -144,7 +145,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         // SurveyLog.logger.info("SurveyTool starting up. root=" + new
         // File(cldrHome).getAbsolutePath() + " time="+setupTime);
 
-        loadIntoProperties(survprops,propFile);
+        loadIntoProperties(survprops, propFile);
         File currev = new File(homeFile, "currev.properties");
         if (currev.canRead()) {
             loadIntoProperties(survprops, currev);
@@ -175,7 +176,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
 //            is.close();
         } catch (IOException ioe) {
             /* throw new UnavailableException */
-            StringBuilder sb=new StringBuilder("Couldn't load ");
+            StringBuilder sb = new StringBuilder("Couldn't load ");
             sb.append(propFile.getName());
             sb.append(" file from '");
             sb.append(propFile.getAbsolutePath());
@@ -184,7 +185,7 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             // append the stacktrace
             sb.append("\r\n");
             sb.append(ioe.getStackTrace());
-            InternalError ie=new InternalError(sb.toString());
+            InternalError ie = new InternalError(sb.toString());
 //            InternalError ie = new InternalError("Couldn't load cldr.properties file from '" + propFile.getAbsolutePath() + "' :"
 //                + ioe.toString());
             System.err.println(ie.toString() + ioe.toString());
@@ -192,22 +193,21 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
             throw ie;
         }
     }
-    
+
     public void writeHelperFile(String hostportpath, File helperFile) throws IOException {
         if (!helperFile.exists()) {
-            try (OutputStream file =new BufferedOutputStream( new FileOutputStream(helperFile, false)); // Append 
+            try (OutputStream file = new BufferedOutputStream(new FileOutputStream(helperFile, false)); // Append 
                 PrintWriter pw = new PrintWriter(file);) {
-            
-           
-            String vap = (String)survprops.get("CLDR_VAP");
-            pw.write("<h3>Survey Tool admin interface link</h3>");
-            pw.write("To configure the SurveyTool, use ");
-            String url0 = hostportpath + "cldr-setup.jsp" + "?vap=" + vap;
-            pw.write("<b>SurveyTool Setup:</b>  <a href='" + url0 + "'>" + url0 + "</a><hr>");
-            String url = hostportpath + ("AdminPanel.jsp") + "?vap=" + vap;
-            pw.write("<b>Admin Panel:</b>  <a href='" + url + "'>" + url + "</a>");
-            pw.write("<hr>if you change the admin password ( CLDR_VAP in config.properties ), please: "
-                + "1. delete this admin.html file 2. restart the server 3. navigate back to the main SurveyTool page.<p>");
+
+                String vap = (String) survprops.get("CLDR_VAP");
+                pw.write("<h3>Survey Tool admin interface link</h3>");
+                pw.write("To configure the SurveyTool, use ");
+                String url0 = hostportpath + "cldr-setup.jsp" + "?vap=" + vap;
+                pw.write("<b>SurveyTool Setup:</b>  <a href='" + url0 + "'>" + url0 + "</a><hr>");
+                String url = hostportpath + ("AdminPanel.jsp") + "?vap=" + vap;
+                pw.write("<b>Admin Panel:</b>  <a href='" + url + "'>" + url + "</a>");
+                pw.write("<hr>if you change the admin password ( CLDR_VAP in config.properties ), please: "
+                    + "1. delete this admin.html file 2. restart the server 3. navigate back to the main SurveyTool page.<p>");
             }
 //            pw.close();
 //            file.close();
@@ -220,57 +220,57 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
         try {
             homeFile.mkdir();
             File propsFile = new File(homeFile, CLDR_PROPERTIES);
-            try ( OutputStream file = new FileOutputStream(propsFile, false); // Append 
+            try (OutputStream file = new FileOutputStream(propsFile, false); // Append 
                 PrintWriter pw = new PrintWriter(file);) {
-            pw.println("## autogenerated cldr.properties config file");
-            pw.println("## generated on " + SurveyMain.localhost() + " at " + new Date());
-            pw.println("## see the readme at \n## " + SurveyMain.URL_CLDR
-                + "data/tools/java/org/unicode/cldr/web/data/readme.txt ");
-            pw.println("## make sure these settings are OK,\n## and comment out CLDR_MESSAGE for normal operation");
-            pw.println("##");
-            pw.println("## SurveyTool must be reloaded, or the web server restarted, \n## for these to take effect.");
-            pw.println();
-            pw.println("## Put the SurveyTool in setup mode. This enables cldr-setup.jsp?vap=(CLDR_VAP)");
-            pw.println("CLDR_MAINTENANCE=true");
-            pw.println();
-            pw.println("## your password. Login as user 'admin@' and this password for admin access.");
-            pw.println("CLDR_VAP=" + UserRegistry.makePassword("admin@"));
-            pw.println();
-            pw.println("## Special Test Enablement.");
-            pw.println("CLDR_TESTPW=" + UserRegistry.makePassword("user@example.com"));
-            pw.println();
-            pw.println("## Special message shown to users as to why survey tool is down.");
-            pw.println("## Comment out for normal start-up.");
-            pw.println("#CLDR_MESSAGE=");
-            pw.println();
-            pw.println("## Special message shown to users.");
-            pw.println("CLDR_HEADER=Welcome to SurveyTool@" + SurveyMain.localhost() + ". Please edit "
-                + propsFile.getAbsolutePath()
-                + " to change CLDR_HEADER (to change this message), or comment it out entirely. Also see "
-                + homeFile.getAbsolutePath() + "/admin.html to get to the admin panel.");
-            pw.println();
-            pw.println("## Current SurveyTool phase ");
-            pw.println("CLDR_PHASE=" + Phase.BETA.name());
-            pw.println();
-            pw.println("## 'old' (previous) version");
-            pw.println("CLDR_OLDVERSION=CLDR_OLDVERSION");
-            pw.println();
-            pw.println("## 'new'  version");
-            pw.println("CLDR_NEWVERSION=CLDR_NEWVERSION");
-            pw.println();
-            pw.println("## Current SurveyTool phase ");
-            pw.println("CLDR_PHASE=" + Phase.BETA.name());
-            pw.println();
-            pw.println("## CLDR trunk. Default value shown");
-            pw.println("CLDR_DIR=" + homeFile.getAbsolutePath() + "/cldr-trunk");
-            pw.println();
-            pw.println("## SMTP server. Mail is disabled by default.");
-            pw.println("#CLDR_SMTP=127.0.0.1");
-            pw.println();
-            pw.println("## FROM address for mail. Don't be a bad administrator, change this.");
-            pw.println("#CLDR_FROM=bad_administrator@" + SurveyMain.localhost());
-            pw.println();
-            pw.println("# That's all!");
+                pw.println("## autogenerated cldr.properties config file");
+                pw.println("## generated on " + SurveyMain.localhost() + " at " + new Date());
+                pw.println("## see the readme at \n## " + SurveyMain.URL_CLDR
+                    + "data/tools/java/org/unicode/cldr/web/data/readme.txt ");
+                pw.println("## make sure these settings are OK,\n## and comment out CLDR_MESSAGE for normal operation");
+                pw.println("##");
+                pw.println("## SurveyTool must be reloaded, or the web server restarted, \n## for these to take effect.");
+                pw.println();
+                pw.println("## Put the SurveyTool in setup mode. This enables cldr-setup.jsp?vap=(CLDR_VAP)");
+                pw.println("CLDR_MAINTENANCE=true");
+                pw.println();
+                pw.println("## your password. Login as user 'admin@' and this password for admin access.");
+                pw.println("CLDR_VAP=" + UserRegistry.makePassword("admin@"));
+                pw.println();
+                pw.println("## Special Test Enablement.");
+                pw.println("CLDR_TESTPW=" + UserRegistry.makePassword("user@example.com"));
+                pw.println();
+                pw.println("## Special message shown to users as to why survey tool is down.");
+                pw.println("## Comment out for normal start-up.");
+                pw.println("#CLDR_MESSAGE=");
+                pw.println();
+                pw.println("## Special message shown to users.");
+                pw.println("CLDR_HEADER=Welcome to SurveyTool@" + SurveyMain.localhost() + ". Please edit "
+                    + propsFile.getAbsolutePath()
+                    + " to change CLDR_HEADER (to change this message), or comment it out entirely. Also see "
+                    + homeFile.getAbsolutePath() + "/admin.html to get to the admin panel.");
+                pw.println();
+                pw.println("## Current SurveyTool phase ");
+                pw.println("CLDR_PHASE=" + Phase.BETA.name());
+                pw.println();
+                pw.println("## 'old' (previous) version");
+                pw.println("CLDR_OLDVERSION=CLDR_OLDVERSION");
+                pw.println();
+                pw.println("## 'new'  version");
+                pw.println("CLDR_NEWVERSION=CLDR_NEWVERSION");
+                pw.println();
+                pw.println("## Current SurveyTool phase ");
+                pw.println("CLDR_PHASE=" + Phase.BETA.name());
+                pw.println();
+                pw.println("## CLDR trunk. Default value shown");
+                pw.println("CLDR_DIR=" + homeFile.getAbsolutePath() + "/cldr-trunk");
+                pw.println();
+                pw.println("## SMTP server. Mail is disabled by default.");
+                pw.println("#CLDR_SMTP=127.0.0.1");
+                pw.println();
+                pw.println("## FROM address for mail. Don't be a bad administrator, change this.");
+                pw.println("#CLDR_FROM=bad_administrator@" + SurveyMain.localhost());
+                pw.println();
+                pw.println("# That's all!");
             }
 //            pw.close();
 //            file.close();

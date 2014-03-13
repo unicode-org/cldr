@@ -29,7 +29,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-@CLDRTool(alias="validate",description="Check XML files for validity",url="http://cldr.unicode.org/development/adding-locales")
+@CLDRTool(alias = "validate", description = "Check XML files for validity", url = "http://cldr.unicode.org/development/adding-locales")
 public class XMLValidator {
     public static boolean quiet = false;
     public static boolean parseonly = false;
@@ -161,11 +161,11 @@ public class XMLValidator {
 
     public static class fileParserThread extends Thread {
         String filename;
-        
+
         fileParserThread(String _filename) {
             filename = _filename;
         }
-        
+
         public void run() {
             // Force filerefs to be URI's if needed: note this is independent of any
             // other files
@@ -182,19 +182,20 @@ public class XMLValidator {
             try {
                 fis = new FileInputStream(filename);
                 byte bytes[] = new byte[3];
-                if(fis.read(bytes) == 3 &&
-                   bytes[0] == (byte)0xef &&
-                   bytes[1] == (byte)0xbb &&
-                   bytes[2] == (byte)0xbf) {
-                    System.err.println(filename+": ERROR: contains UTF-8 BOM (shouldn't happen in CLDR XML files)");
+                if (fis.read(bytes) == 3 &&
+                    bytes[0] == (byte) 0xef &&
+                    bytes[1] == (byte) 0xbb &&
+                    bytes[2] == (byte) 0xbf) {
+                    System.err.println(filename + ": ERROR: contains UTF-8 BOM (shouldn't happen in CLDR XML files)");
                 }
             } finally {
-                if(fis!=null) {
+                if (fis != null) {
                     fis.close();
                 }
             }
-        } catch(IOException ioe) { /* ignored- other branches will report an error. */ }
-        
+        } catch (IOException ioe) { /* ignored- other branches will report an error. */
+        }
+
         DocumentBuilderFactory dfactory = DocumentBuilderFactory.newInstance();
         // Always set namespaces on
         if (!parseonly) {

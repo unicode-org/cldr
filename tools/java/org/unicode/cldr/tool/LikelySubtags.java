@@ -185,7 +185,7 @@ public class LikelySubtags {
                 }
             }
         }
-        
+
         // now check und_script
         if (!noScript) {
             ltp.setLanguage("und");
@@ -206,7 +206,7 @@ public class LikelySubtags {
                 return ltp.toString();
             }
         }
-        
+
         //        String result = toMaximized.get(ltp.toString());
         //        if (result != null) {
         //            return ltp.set(result).setVariants(variants).setExtensions(extensions).toString();
@@ -268,8 +268,8 @@ public class LikelySubtags {
 
     static final Map<String, String> EXTRA_SCRIPTS =
         Builder.with(new HashMap<String, String>())
-        .on("crs", "pcm", "tlh").put("Latn")
-        .freeze();
+            .on("crs", "pcm", "tlh").put("Latn")
+            .freeze();
 
     public String getLikelyScript(String code) {
         String max = this.maximize(code);

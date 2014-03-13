@@ -191,7 +191,7 @@ public final class FileUtilities {
                 throw new IllegalArgumentException("Couldn't open file: " + file + "; relative to class: "
                     + className, e);
             }
-            throw new IllegalArgumentException("Couldn't open file "  + file + "; in path " + canonicalName + "; relative to class: "
+            throw new IllegalArgumentException("Couldn't open file " + file + "; in path " + canonicalName + "; relative to class: "
                 + className, e);
         }
     }

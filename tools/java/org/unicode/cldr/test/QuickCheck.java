@@ -144,7 +144,7 @@ public class QuickCheck {
     }
 
     public static void check(File systemID) {
-        try (InputStream fis=InputStreamFactory.createInputStream(systemID)) {
+        try (InputStream fis = InputStreamFactory.createInputStream(systemID)) {
 //            FileInputStream fis = new FileInputStream(systemID);
             XMLReader xmlReader = XMLFileReader.createXMLReader(true);
             xmlReader.setErrorHandler(new MyErrorHandler());
@@ -155,7 +155,7 @@ public class QuickCheck {
         } catch (SAXException | IOException e) { // SAXParseException is a Subtype of SaxException
             System.out.println("\t" + "Can't read " + systemID);
             System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
-        } 
+        }
 //        catch (SAXException e) {
 //            System.out.println("\t" + "Can't read " + systemID);
 //            System.out.println("\t" + e.getClass() + "\t" + e.getMessage());
@@ -170,14 +170,14 @@ public class QuickCheck {
     private static boolean pretty;
 
     private static void checkPaths() {
-        Relation<String, String> distinguishing = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
-        Relation<String, String> nonDistinguishing = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
+        Relation<String, String> distinguishing = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
+        Relation<String, String> nonDistinguishing = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
         XPathParts parts = new XPathParts();
         Factory cldrFactory = Factory.make(mainDirectory, localeRegex);
         CLDRFile english = cldrFactory.make("en", true);
 
         Relation<String, String> pathToLocale = Relation.of(
-            new TreeMap<String, Set<String>>(CLDRFile.getComparator(DtdType.ldml)), 
+            new TreeMap<String, Set<String>>(CLDRFile.getComparator(DtdType.ldml)),
             TreeSet.class, null);
         for (String locale : cldrFactory.getAvailable()) {
             // if (locale.equals("root") && !localeRegex.equals("root"))
@@ -327,10 +327,10 @@ public class QuickCheck {
         Factory factory = testInfo.getCldrFactory();
 
         String[][] items = {
-            {"full",    "yMMMMEEEEd",   "jmmsszzzz"},
-            {"long",    "yMMMMd",       "jmmssz"},
-            {"medium",  "yMMMd",        "jmmss"},
-            {"short",   "yMd",         "jmm"},
+            { "full", "yMMMMEEEEd", "jmmsszzzz" },
+            { "long", "yMMMMd", "jmmssz" },
+            { "medium", "yMMMd", "jmmss" },
+            { "short", "yMd", "jmm" },
         };
         String calendarID = "gregorian";
         String datetimePathPrefix = "//ldml/dates/calendars/calendar[@type=\"" + calendarID + "\"]/";
@@ -363,19 +363,19 @@ public class QuickCheck {
         System.out.println("Mismatches:\t" + mismatch + "\tTotal:\t" + total);
     }
 
-    static final Date SAMPLE_DATE = new Date(2013-1900, 1-1, 29, 13, 59, 59);
+    static final Date SAMPLE_DATE = new Date(2013 - 1900, 1 - 1, 29, 13, 59, 59);
 
-    private static int showStatus(int total, String locale, String type, String length, 
+    private static int showStatus(int total, String locale, String type, String length,
         String skeleton, String stockPattern, String flexiblePattern) {
         ULocale ulocale = new ULocale(locale);
-        DateFormatSymbols dfs= new DateFormatSymbols(ulocale); // just use ICU for now
+        DateFormatSymbols dfs = new DateFormatSymbols(ulocale); // just use ICU for now
         boolean areSame = Objects.equals(stockPattern, flexiblePattern);
-        System.out.println(total 
+        System.out.println(total
             + "\t" + (areSame ? "ok" : "diff")
-            + "\t" + locale 
-            + "\t" + type 
-            + "\t" + length 
-            + "\t" + skeleton 
+            + "\t" + locale
+            + "\t" + type
+            + "\t" + length
+            + "\t" + skeleton
             + "\t" + stockPattern
             + "\t" + (areSame ? "" : flexiblePattern)
             + "\t'" + new SimpleDateFormat(stockPattern, dfs, ulocale).format(SAMPLE_DATE)

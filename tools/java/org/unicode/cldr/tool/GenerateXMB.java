@@ -1192,9 +1192,9 @@ public class GenerateXMB {
         String path, String value) {
         reasonsToPaths.put(descriptionStatus + "\t" + level, path + "\t" + value);
     }
-    
+
     // Get Date-Time in milliseconds
-    private static long getDateTimeinMillis(int year, int month, int date){
+    private static long getDateTimeinMillis(int year, int month, int date) {
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, date);
         return cal.getTimeInMillis();

@@ -1401,8 +1401,8 @@ public class WebContext implements Cloneable, Appendable {
     public CheckCLDR.Options getOptionsMap() {
         String def = getRequiredCoverageLevel();
         String org = getEffectiveCoverageLevel();
-        
-        return new CheckCLDR.Options(getLocale(),SurveyMain.getTestPhase(), def, org);
+
+        return new CheckCLDR.Options(getLocale(), SurveyMain.getTestPhase(), def, org);
     }
 
     /**
@@ -2216,7 +2216,7 @@ public class WebContext implements Cloneable, Appendable {
                     password = myPassword;
                 }
             } else {
-                if(myEmail != null && !myEmail.equals(email)) {
+                if (myEmail != null && !myEmail.equals(email)) {
                     removeLoginCookies(request, response);
                 }
             }

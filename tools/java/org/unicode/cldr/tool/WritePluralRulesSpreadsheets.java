@@ -64,8 +64,8 @@ public class WritePluralRulesSpreadsheets {
                     }
                     String endPattern = getSamplePattern(samplePatterns, end);
                     String range = MessageFormat.format(rangePattern, small.toString(), large.toString());
-                    System.out.println(locale 
-                        + "\t" + start + "—" + end 
+                    System.out.println(locale
+                        + "\t" + start + "—" + end
                         + "\t" + (startPattern.contains("{0}") ? startPattern.replace("{0}", range) : "?")
                         + "\t" + (endPattern.contains("{0}") ? endPattern.replace("{0}", range) : "?")
                         );
@@ -86,7 +86,7 @@ public class WritePluralRulesSpreadsheets {
             if (pos < 0) {
                 return null;
             }
-            locale = locale.substring(0,pos);
+            locale = locale.substring(0, pos);
         }
     }
 
@@ -121,7 +121,7 @@ public class WritePluralRulesSpreadsheets {
         if (samples2 == null) {
             return null;
         }
-        for (FixedDecimalRange sample : samples2){
+        for (FixedDecimalRange sample : samples2) {
             if (minimum == null) {
                 return sample.start;
             } else if (minimum.getSource() < sample.start.getSource()) {
@@ -137,21 +137,21 @@ public class WritePluralRulesSpreadsheets {
         String[] versions = {
             //"1.4.1", 
             //"1.5.1", 
-            "1.6.1", 
-            "1.7.2", 
-            "1.8.1", 
-            "1.9.1", 
-            "2.0.1", 
-            "21.0", 
-            "22.1", 
-            "23.1", 
-        "24.0"};
+            "1.6.1",
+            "1.7.2",
+            "1.8.1",
+            "1.9.1",
+            "2.0.1",
+            "21.0",
+            "22.1",
+            "23.1",
+            "24.0" };
 
         BitSet x = new BitSet();
-        x.set(3,6);
+        x.set(3, 6);
         x.set(9);
-        x.set(11,13);
-        Map<String,BitSet> foo = new TreeMap<String,BitSet>();
+        x.set(11, 13);
+        Map<String, BitSet> foo = new TreeMap<String, BitSet>();
         foo.put("x", x);
         show(foo);
 
@@ -175,7 +175,7 @@ public class WritePluralRulesSpreadsheets {
 
             Set<String> oldLocales = supplementalOld.getPluralLocales();
             for (String locale : oldLocales) {
-                Map<String,BitSet> results = new TreeMap<String,BitSet>();
+                Map<String, BitSet> results = new TreeMap<String, BitSet>();
                 PluralRules oldRules = supplementalOld.getPlurals(locale).getPluralRules();
                 PluralRules newRules = supplementalNew.getPlurals(locale).getPluralRules();
                 for (int i = 0; i < 101; ++i) {
@@ -205,10 +205,10 @@ public class WritePluralRulesSpreadsheets {
                 } else {
                     type = "DISJOINT";
                 }
-                System.out.println(oldVersion + "➞" + newVersion 
-                    + "\t" + TestInfo.getInstance().getEnglish().getName(locale) 
+                System.out.println(oldVersion + "➞" + newVersion
+                    + "\t" + TestInfo.getInstance().getEnglish().getName(locale)
                     + "\t" + locale
-                    + "\t" + type 
+                    + "\t" + type
                     //+ "\t" + oldKeywords + "\t" + newKeywords 
                     + "\t" + show(results));
             }
@@ -224,7 +224,7 @@ public class WritePluralRulesSpreadsheets {
                 result.append("; ");
             }
             result.append(key).append("={");
-            int start=0;
+            int start = 0;
             boolean first = true;
             while (true) {
                 start = value.nextSetBit(start);
@@ -244,7 +244,7 @@ public class WritePluralRulesSpreadsheets {
                 result.append(start);
                 if (end != start) {
                     result.append(start + 1 == end ? "," : "–")
-                    .append(end);
+                        .append(end);
                 }
                 start = limit;
             }

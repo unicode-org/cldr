@@ -12,8 +12,7 @@ import java.io.InputStream;
  *
  */
 public class InputStreamFactory {
-    
-    
+
     /**
      * Create a Stream to read from the given fˇile
      * @param f - the file to read from
@@ -22,10 +21,10 @@ public class InputStreamFactory {
      * @throws SecurityException - if a security manager exists and its checkRead method denies read access to the file
      */
     public static InputStream createInputStream(File f) throws FileNotFoundException {
-       FileInputStream fis=new FileInputStream(f);
-       return InputStreamFactory.buffer(fis);
+        FileInputStream fis = new FileInputStream(f);
+        return InputStreamFactory.buffer(fis);
     }
-    
+
     /**
      * Decorate another InputStream to create a Buffering version
      * @param in -the Stream to decorate

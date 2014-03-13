@@ -93,14 +93,14 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         }
         return result;
     }
-        
+
     /**
      * Create a collection from whatever is left in the iterator. For example, myCollection =
      * With.in(anIterator).toList();
      * 
      * @return
      */
-    public <W, C extends Collection<W>> C toCollection(Transform<V,W> filter, C output) {
+    public <W, C extends Collection<W>> C toCollection(Transform<V, W> filter, C output) {
         while (hasNext()) {
             W transformedItem = filter.transform(next());
             if (transformedItem != null) {
@@ -109,17 +109,17 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
         }
         return output;
     }
-    
+
     /**
      * Create an immutable collection from whatever is left in the iterator. For example, myCollection =
      * With.in(anIterator).toList();
      * 
      * @return
      */
-    public <W, C extends Collection<W>> C toUnmodifiableCollection(Transform<V,W> filter, C output) {
+    public <W, C extends Collection<W>> C toUnmodifiableCollection(Transform<V, W> filter, C output) {
         return CldrUtility.protectCollection(toCollection(filter, output));
     }
-    
+
     /**
      * Create a simple object for use in for loops. Example:
      * 

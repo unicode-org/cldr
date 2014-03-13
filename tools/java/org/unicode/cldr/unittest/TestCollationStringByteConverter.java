@@ -125,7 +125,7 @@ public class TestCollationStringByteConverter {
         System.out.println(ULocale.getDisplayName("en_GB", "en"));
 
         DictionaryBuilder<CharSequence> builder = new StateDictionaryBuilder<CharSequence>();
-        Map <CharSequence, CharSequence>map = new TreeMap<CharSequence, CharSequence>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
+        Map<CharSequence, CharSequence> map = new TreeMap<CharSequence, CharSequence>(Dictionary.CHAR_SEQUENCE_COMPARATOR);
         map.put("a", "ABC");
         map.put("bc", "B"); // ß
         Dictionary<CharSequence> dict = builder.make(map);

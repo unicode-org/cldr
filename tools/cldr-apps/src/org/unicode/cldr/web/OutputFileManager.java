@@ -910,7 +910,7 @@ public class OutputFileManager {
                         + CldrUtility.getProperty("CLDR_NOOUTPUT", false));
             }
             haveVbv = true;
-            Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from "+DBUtils.Table.VOTE_VALUE+" where locale=?", loc);
+            Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select max(last_mod) from " + DBUtils.Table.VOTE_VALUE + " where locale=?", loc);
             if (o != null && o.length > 0 && o[0] != null && o[0].length > 0) {
                 theDate = (Timestamp) o[0][0];
                 // System.err.println("for " + loc + " = " + theDate +
@@ -996,12 +996,12 @@ public class OutputFileManager {
         System.err.println("addPeriodicTask... updater");
         final ScheduledFuture<?> myTask = SurveyMain.addPeriodicTask(new Runnable() {
             int spinner = (int) Math.round(Math.random() * (double) SurveyMain.getLocales().length); // Start
-                                                                                             // on
-                                                                                             // a
-                                                                                             // different
-                                                                                             // locale
-                                                                                             // each
-                                                                                             // time.
+                                                                                                     // on
+                                                                                                     // a
+                                                                                                     // different
+                                                                                                     // locale
+                                                                                                     // each
+                                                                                                     // time.
 
             @Override
             public void run() {
@@ -1399,8 +1399,8 @@ public class OutputFileManager {
                 }
             }
             ret.setSecond(newValue);
-        } catch(Throwable t) {
-            SurveyLog.logException(t, "Updating the Locale Display Name for " + l.getBaseName()+ " with language tag " + l.toLanguageTag());
+        } catch (Throwable t) {
+            SurveyLog.logException(t, "Updating the Locale Display Name for " + l.getBaseName() + " with language tag " + l.toLanguageTag());
         }
     }
 

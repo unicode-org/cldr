@@ -417,7 +417,6 @@ public class XPathTable {
         }
     }
 
-
     public String altFromPathToTinyXpath(String path, XPathParts xpp) {
         return whatFromPathToTinyXpath(path, xpp, LDMLConstants.ALT);
     }
@@ -507,7 +506,7 @@ public class XPathTable {
     public static String removeDraft(String path, XPathParts xpp) {
         return removeAttribute(path, xpp, LDMLConstants.DRAFT);
     }
-    
+
     public static String removeAttribute(String path, XPathParts xpp, String attribute) {
         xpp.clear();
         xpp.initialize(path);
@@ -518,7 +517,7 @@ public class XPathTable {
     public static String getAlt(String path, XPathParts xpp) {
         return getAttributeValue(path, xpp, LDMLConstants.ALT);
     }
-    
+
     public static String getAttributeValue(String path, XPathParts xpp, String attribute) {
         xpp.clear();
         xpp.initialize(path);
@@ -589,7 +588,7 @@ public class XPathTable {
     public String whatFromPathToTinyXpath(String path, XPathParts xpp, String what) {
         xpp.clear();
         xpp.initialize(path);
-        Map<String,String> lastAtts = xpp.getAttributes(-1);
+        Map<String, String> lastAtts = xpp.getAttributes(-1);
         String type = lastAtts.get(what);
         if (type != null) {
             xpp.removeAttribute(-1, what);
@@ -628,7 +627,7 @@ public class XPathTable {
     public static final StringBuilder appendAltProposedPrefix(StringBuilder sb, int userid, Integer voteValue) {
         sb.append(PROPOSED_U);
         sb.append(userid);
-        if(voteValue!=null) {
+        if (voteValue != null) {
             sb.append(PROPOSED_V);
             sb.append(voteValue);
         }

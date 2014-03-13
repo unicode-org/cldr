@@ -37,18 +37,18 @@ public class MapperUtils {
     public static void parseFile(File inputFile, ContentHandler handler) {
         XMLReader xmlReader = XMLFileReader.createXMLReader(true);
         xmlReader.setContentHandler(handler);
-        if (inputFile==null) {
+        if (inputFile == null) {
             System.err.println("Please call with non-null input file");
             return;
         }
-        try (InputStream fis=InputStreamFactory.createInputStream(inputFile))  {
+        try (InputStream fis = InputStreamFactory.createInputStream(inputFile)) {
 //            FileInputStream fis = new FileInputStream(inputFile);
             InputSource is = new InputSource(fis);
             // Set the system ID so the parser knows where to find the dtd.
             is.setSystemId(inputFile.toString());
             xmlReader.parse(is);
 //            fis.close();
-        } catch (IOException|SAXException e) {
+        } catch (IOException | SAXException e) {
             System.err.println("Error loading " + inputFile.getAbsolutePath());
             e.printStackTrace();
         }

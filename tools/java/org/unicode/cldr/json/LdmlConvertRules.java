@@ -100,8 +100,8 @@ class LdmlConvertRules {
         "validity:variable:type",
         "deprecated:deprecatedItems:elements",
         "deprecated:deprecatedItems:attributes",
-        "deprecated:deprecatedItems:type",        
-        
+        "deprecated:deprecatedItems:type",
+
         // in common/supplemental/telephoneCodeData.xml
         "codesByTerritory:telephoneCountryCode:code",
 
@@ -392,19 +392,21 @@ class LdmlConvertRules {
         new PathTransformSpec("(.*)/types/type\\[@type=\"([^\"]*)\"\\]\\[@key=\"([^\"]*)\"\\](.*)$",
             "$1/types/$3/$2$4"),
 
-
-        new PathTransformSpec("(.*/numbers/(decimal|scientific|percent|currency)Formats\\[@numberSystem=\"([^\"]*)\"\\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\\[@type=\"standard\"]/pattern.*$",
-                    "$1/standard"),
-
-        new PathTransformSpec("(.*/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"\\])/currencyFormatLength/currencyFormat\\[@type=\"accounting\"]/pattern.*$",
-                            "$1/accounting"),
-        // Add "type" attribute with value "standard" if there is no "type" in
-        // "decimalFormatLength".
-        new PathTransformSpec( "(.*/numbers/(decimal|scientific|percent)Formats\\[@numberSystem=\"([^\"]*)\"\\]/(decimal|scientific|percent)FormatLength)/(.*)$",
-                                "$1[@type=\"standard\"]/$5"),
+        new PathTransformSpec(
+            "(.*/numbers/(decimal|scientific|percent|currency)Formats\\[@numberSystem=\"([^\"]*)\"\\])/(decimal|scientific|percent|currency)FormatLength/(decimal|scientific|percent|currency)Format\\[@type=\"standard\"]/pattern.*$",
+            "$1/standard"),
 
         new PathTransformSpec(
-                    "(.*/listPattern)/(.*)$", "$1[@type=\"standard\"]/$2"),
+            "(.*/numbers/currencyFormats\\[@numberSystem=\"([^\"]*)\"\\])/currencyFormatLength/currencyFormat\\[@type=\"accounting\"]/pattern.*$",
+            "$1/accounting"),
+        // Add "type" attribute with value "standard" if there is no "type" in
+        // "decimalFormatLength".
+        new PathTransformSpec(
+            "(.*/numbers/(decimal|scientific|percent)Formats\\[@numberSystem=\"([^\"]*)\"\\]/(decimal|scientific|percent)FormatLength)/(.*)$",
+            "$1[@type=\"standard\"]/$5"),
+
+        new PathTransformSpec(
+            "(.*/listPattern)/(.*)$", "$1[@type=\"standard\"]/$2"),
 
         new PathTransformSpec("(.*/languagePopulation)\\[@type=\"([^\"]*)\"\\](.*)",
             "$1/$2$3"),

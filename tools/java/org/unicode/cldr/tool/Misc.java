@@ -386,14 +386,14 @@ public class Misc {
         if (juneOffset != janOffset) result += " / " + hours.format(juneOffset / 3600000.0);
         return result;
     }
-    
+
     // Get Date-Time in milliseconds
-    private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second){
+    private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second) {
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, date, hourOfDay, minute, second);
         return cal.getTimeInMillis();
     }
-    
+
     static long JAN152006 = getDateTimeinMillis(2006, 1, 15, 0, 0, 0);
     static long JUNE152006 = getDateTimeinMillis(2006, 6, 15, 0, 0, 0);
     static NumberFormat hours = new DecimalFormat("0.##");
@@ -936,7 +936,7 @@ public class Misc {
     private static void getCities() throws IOException {
         StandardCodes sc = StandardCodes.make();
         Set<String> territories = sc.getAvailableCodes("territory");
-        Map<String, List<String>>  zoneData = sc.getZoneData();
+        Map<String, List<String>> zoneData = sc.getZoneData();
 
         Set<String> s = new TreeSet<String>(sc.getTZIDComparator());
         s.addAll(sc.getZoneData().keySet());
@@ -1071,7 +1071,7 @@ public class Misc {
                         first = false;
                     else
                         System.out.print(" ");
-                    System.out.print(fixNumericKey( it2.next()));
+                    System.out.print(fixNumericKey(it2.next()));
                 }
                 System.out.println("\"> <!--" + desiredLocaleFile.getName(CLDRFile.TERRITORY_NAME, type) + " -->");
             }

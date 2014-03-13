@@ -243,7 +243,7 @@ public class SupplementalDataInfo {
      * Simple language/script/region information
      */
     public static class BasicLanguageData implements Comparable<BasicLanguageData>,
-    com.ibm.icu.util.Freezable<BasicLanguageData> {
+        com.ibm.icu.util.Freezable<BasicLanguageData> {
         public enum Type {
             primary, secondary
         };
@@ -318,13 +318,13 @@ public class SupplementalDataInfo {
             if (scripts.size() == 0 && territories.size() == 0)
                 return "";
             return "\t\t<language type=\""
-            + languageSubtag
-            + "\""
-            + (scripts.size() == 0 ? "" : " scripts=\""
-                + CldrUtility.join(scripts, " ") + "\"")
+                + languageSubtag
+                + "\""
+                + (scripts.size() == 0 ? "" : " scripts=\""
+                    + CldrUtility.join(scripts, " ") + "\"")
                 + (territories.size() == 0 ? "" : " territories=\""
                     + CldrUtility.join(territories, " ") + "\"")
-                    + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
+                + (type == Type.primary ? "" : " alt=\"" + type + "\"") + "/>";
         }
 
         public String toString() {
@@ -808,7 +808,7 @@ public class SupplementalDataInfo {
     // Relation(new TreeMap(), TreeSet.class, null);
 
     private Set<String> allLanguages = new TreeSet<String>();
-    final private List<String> approvalRequirements = new LinkedList<String>();  // xpath array
+    final private List<String> approvalRequirements = new LinkedList<String>(); // xpath array
 
     private Relation<String, String> containment = Relation.of(new LinkedHashMap<String, Set<String>>(),
         LinkedHashSet.class);
@@ -944,14 +944,14 @@ public class SupplementalDataInfo {
                 throw new IllegalArgumentException("Error: The string passed as a parameter resolves to the empty string.");
             }
             // canonicalize path
-            String canonicalpath=null;
+            String canonicalpath = null;
             try {
                 canonicalpath = new File(supplementalDirectory).getCanonicalPath();
             } catch (IOException e) {
                 throw new IllegalArgumentException(e);
             }
-            SupplementalDataInfo instance=directory_instance.get(canonicalpath);
-            if (instance!=null) {
+            SupplementalDataInfo instance = directory_instance.get(canonicalpath);
+            if (instance != null) {
                 return instance;
             }
             //            if (!canonicalpath.equals(supplementalDirectory)) {
@@ -976,7 +976,7 @@ public class SupplementalDataInfo {
             }
             // get bcp47 files also
             File bcp47dir = instance.getBcp47Directory();
-            if(!bcp47dir.isDirectory()) {
+            if (!bcp47dir.isDirectory()) {
                 throw new InternalError("Error: BCP47 dir is not a directory: " + bcp47dir.getAbsolutePath());
             }
             File files2[] = bcp47dir.listFiles();
@@ -1101,7 +1101,7 @@ public class SupplementalDataInfo {
         bcp47Key2Subtypes.freeze();
         bcp47Extension2Keys.freeze();
         bcp47Aliases.freeze();
-        if(bcp47Key2Subtypes.isEmpty()) {
+        if (bcp47Key2Subtypes.isEmpty()) {
             throw new InternalError("No BCP47 key 2 subtype data was loaded from bcp47 dir " + getBcp47Directory().getAbsolutePath());
         }
         CldrUtility.protectCollection(bcp47Descriptions);
@@ -1425,7 +1425,7 @@ public class SupplementalDataInfo {
         }
 
         private void handleCoverageLevels() {
-            if(parts.containsElement("approvalRequirement")) {
+            if (parts.containsElement("approvalRequirement")) {
                 approvalRequirements.add(parts.toString());
             } else if (parts.containsElement("coverageLevel")) {
                 String match = parts.containsAttribute("match") ? coverageVariables.replace(parts.getAttributeValue(-1,
@@ -1672,9 +1672,9 @@ public class SupplementalDataInfo {
             double territoryGdp = parseDouble(territoryAttributes.get("gdp"));
             if (territoryToPopulationData.get(territory) == null) {
                 territoryToPopulationData.put(territory, new PopulationData()
-                .setPopulation(territoryPopulation)
-                .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
-                .setGdp(territoryGdp));
+                    .setPopulation(territoryPopulation)
+                    .setLiteratePopulation(territoryLiteracyPercent * territoryPopulation / 100)
+                    .setGdp(territoryGdp));
             }
             if (parts.size() > 3) {
 
@@ -1685,10 +1685,10 @@ public class SupplementalDataInfo {
                 if (Double.isNaN(languageLiteracyPercent)) {
                     languageLiteracyPercent = territoryLiteracyPercent;
                 }// else {
-                // System.out.println("writingPercent\t" + languageLiteracyPercent
-                // + "\tterritory\t" + territory
-                // + "\tlanguage\t" + language);
-                // }
+                 // System.out.println("writingPercent\t" + languageLiteracyPercent
+                 // + "\tterritory\t" + territory
+                 // + "\tlanguage\t" + language);
+                 // }
                 double languagePopulationPercent = parseDouble(languageInTerritoryAttributes.get("populationPercent"));
                 double languagePopulation = languagePopulationPercent * territoryPopulation / 100;
                 // double languageGdp = languagePopulationPercent * territoryGdp;
@@ -1705,16 +1705,16 @@ public class SupplementalDataInfo {
                 if (officialStatusString != null) officialStatus = OfficialStatus.valueOf(officialStatusString);
 
                 PopulationData newData = new PopulationData()
-                .setPopulation(languagePopulation)
-                .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
-                .setOfficialStatus(officialStatus)
+                    .setPopulation(languagePopulation)
+                    .setLiteratePopulation(languageLiteracyPercent * languagePopulation / 100)
+                    .setOfficialStatus(officialStatus)
                 // .setGdp(languageGdp)
                 ;
                 newData.freeze();
                 if (territoryLanguageToPopulation.get(language) != null) {
                     System.out
-                    .println("Internal Problem in supplementalData: multiple data items for "
-                        + language + ", " + territory + "\tSkipping " + newData);
+                        .println("Internal Problem in supplementalData: multiple data items for "
+                            + language + ", " + territory + "\tSkipping " + newData);
                     return true;
                 }
 
@@ -1823,10 +1823,10 @@ public class SupplementalDataInfo {
             String language = (String) parts.getAttributeValue(2, "type");
             BasicLanguageData languageData = new BasicLanguageData();
             languageData
-            .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
-                : BasicLanguageData.Type.secondary);
+                .setType(parts.getAttributeValue(2, "alt") == null ? BasicLanguageData.Type.primary
+                    : BasicLanguageData.Type.secondary);
             languageData.setScripts(parts.getAttributeValue(2, "scripts"))
-            .setTerritories(parts.getAttributeValue(2, "territories"));
+                .setTerritories(parts.getAttributeValue(2, "territories"));
             Map<Type, BasicLanguageData> map = languageToBasicLanguageData.get(language);
             if (map == null) {
                 languageToBasicLanguageData.put(language, map = new EnumMap<Type, BasicLanguageData>(
@@ -1843,8 +1843,8 @@ public class SupplementalDataInfo {
                 return false;
             }
             System.out
-            .println("Internal Problem in supplementalData: range check fails for "
-                + input + ", min: " + min + ", max:" + max + "\t" + path);
+                .println("Internal Problem in supplementalData: range check fails for "
+                    + input + ", min: " + min + ", max:" + max + "\t" + path);
 
             return false;
         }
@@ -1981,14 +1981,20 @@ public class SupplementalDataInfo {
     //        return allowDeprecated ? containment : containmentNonDeprecated;
     //    }
     //
-    public enum ContainmentStyle {all, core, grouping, deprecated}
+    public enum ContainmentStyle {
+        all, core, grouping, deprecated
+    }
 
     public Relation<String, String> getTerritoryToContained(ContainmentStyle containmentStyle) {
-        switch(containmentStyle) {
-        case all: return containment;
-        case core: return containmentCore;
-        case grouping: return containmentGrouping;
-        case deprecated: return containmentDeprecated;
+        switch (containmentStyle) {
+        case all:
+            return containment;
+        case core:
+            return containmentCore;
+        case grouping:
+            return containmentGrouping;
+        case deprecated:
+            return containmentDeprecated;
         }
         throw new IllegalArgumentException("internal error");
     }
@@ -2222,9 +2228,9 @@ public class SupplementalDataInfo {
          * @return the coverage level of the above two keys
          */
         public Level get(String xpath, String loc) {
-            for( Iterator<Node> it = localeList.iterator(); it.hasNext(); ) {
+            for (Iterator<Node> it = localeList.iterator(); it.hasNext();) {
                 Node node = it.next();
-                if( node.loc.equals(loc) ) {
+                if (node.loc.equals(loc)) {
                     //move node to front of list
                     localeList.remove(node);
                     localeList.addFirst(node);
@@ -2242,9 +2248,9 @@ public class SupplementalDataInfo {
          */
         public void put(String xpath, String loc, Level covLevel) {
             //if locale's map is already in the cache add to it
-            for( Iterator<Node> it = localeList.iterator(); it.hasNext(); ) {
+            for (Iterator<Node> it = localeList.iterator(); it.hasNext();) {
                 Node node = it.next();
-                if( node.loc.equals(loc) ) {
+                if (node.loc.equals(loc)) {
                     node.map.put(xpath, covLevel);
                     return;
                 }
@@ -2255,7 +2261,7 @@ public class SupplementalDataInfo {
             newMap.put(xpath, covLevel);
             localeList.addFirst(new Node(loc, newMap));
 
-            if( localeList.size() > MAX_LOCALES ) {
+            if (localeList.size() > MAX_LOCALES) {
                 localeList.removeLast();
             }
         }
@@ -2299,8 +2305,8 @@ public class SupplementalDataInfo {
                 String pattern = ci.match.replace('\'', '"')
                     .replace("[@", "\\[@") // make sure that attributes are quoted
                     .replace("(", "(?:") // make sure that there are no capturing groups (beyond what we generate
-                    // below).
-                    ;
+                // below).
+                ;
                 pattern = "^//ldml/" + pattern + "$"; // for now, force a complete match
                 String variableType = null;
                 variable.reset(pattern);
@@ -2537,15 +2543,14 @@ public class SupplementalDataInfo {
         public String toString() {
             return locales + " / " + xpathMatcher + " = " + requiredVotes;
         }
-        
-        
+
         ApprovalRequirementMatcher(String xpath) {
             XPathParts parts = new XPathParts();
             parts.set(xpath);
-            if(parts.containsElement("approvalRequirement")) {
+            if (parts.containsElement("approvalRequirement")) {
                 requiredVotes = Integer.parseInt(parts.getAttributeValue(-1, "votes"));
                 String localeAttrib = parts.getAttributeValue(-1, "locales");
-                if(localeAttrib == null || localeAttrib.equals(STAR) || localeAttrib.isEmpty()) {
+                if (localeAttrib == null || localeAttrib.equals(STAR) || localeAttrib.isEmpty()) {
                     locales = null; // no locale listed == '*'
                 } else {
                     Set<CLDRLocale> localeList = new HashSet<CLDRLocale>();
@@ -2556,7 +2561,7 @@ public class SupplementalDataInfo {
                     locales = Collections.unmodifiableSet(localeList);
                 }
                 String xpathMatch = parts.getAttributeValue(-1, "paths");
-                if(xpathMatch==null||xpathMatch.isEmpty()||xpathMatch.equals(STAR)) {
+                if (xpathMatch == null || xpathMatch.isEmpty() || xpathMatch.equals(STAR)) {
                     xpathMatcher = null;
                 } else {
                     xpathMatcher = Pattern.compile(xpathMatch);
@@ -2569,27 +2574,29 @@ public class SupplementalDataInfo {
         final private Set<CLDRLocale> locales;
         final private Pattern xpathMatcher;
         final int requiredVotes;
+
         public static List<ApprovalRequirementMatcher> buildAll(List<String> approvalRequirements) {
             List<ApprovalRequirementMatcher> newList = new LinkedList<ApprovalRequirementMatcher>();
-            
-            for(String xpath : approvalRequirements) {
+
+            for (String xpath : approvalRequirements) {
                 newList.add(new ApprovalRequirementMatcher(xpath));
             }
-            
+
             return Collections.unmodifiableList(newList);
         }
+
         public boolean matches(CLDRLocale loc, PathHeader ph) {
-            if(false) System.err.println(">> testing " + loc + " / " + ph + " vs " + toString());
-            if(locales!=null) {
-                if(!locales.contains(loc)) {
+            if (false) System.err.println(">> testing " + loc + " / " + ph + " vs " + toString());
+            if (locales != null) {
+                if (!locales.contains(loc)) {
                     return false;
                 }
             }
-            if( xpathMatcher != null ) {
-                if(ph != null) {
-                    if(!xpathMatcher.matcher(ph.getOriginalPath()).matches()) {
+            if (xpathMatcher != null) {
+                if (ph != null) {
+                    if (!xpathMatcher.matcher(ph.getOriginalPath()).matches()) {
                         return false;
-                    } else {   
+                    } else {
                         return true;
                     }
                 } else {
@@ -2598,11 +2605,12 @@ public class SupplementalDataInfo {
             }
             return true;
         }
+
         public int getRequiredVotes() {
             return requiredVotes;
         }
     }
-    
+
     // run these from first to last to get the approval info.
     volatile List<ApprovalRequirementMatcher> approvalMatchers = null;
 
@@ -2613,18 +2621,18 @@ public class SupplementalDataInfo {
      * @return
      */
     public int getRequiredVotes(CLDRLocale loc, PathHeader ph) {
-        if(approvalMatchers == null) {
+        if (approvalMatchers == null) {
             approvalMatchers = ApprovalRequirementMatcher.buildAll(approvalRequirements);
-        }        
-        
-        for(ApprovalRequirementMatcher m : approvalMatchers) {
-            if(m.matches(loc, ph)) {
+        }
+
+        for (ApprovalRequirementMatcher m : approvalMatchers) {
+            if (m.matches(loc, ph)) {
                 return m.getRequiredVotes();
             }
         }
         throw new RuntimeException("Error: " + loc + " " + ph + " ran off the end of the approvalMatchers.");
-    }        
-    
+    }
+
     /**
      * Return the canonicalized zone, or null if there is none.
      * 
@@ -2739,18 +2747,20 @@ public class SupplementalDataInfo {
     }
 
     public enum PluralType {
-        cardinal(PluralRules.PluralType.CARDINAL), 
+        cardinal(PluralRules.PluralType.CARDINAL),
         ordinal(PluralRules.PluralType.ORDINAL);
 
         // add some gorp to interwork until we clean things up
 
         public final PluralRules.PluralType standardType;
+
         PluralType(PluralRules.PluralType standardType) {
             this.standardType = standardType;
         }
+
         public static PluralType fromStandardType(PluralRules.PluralType standardType) {
-            return standardType == null ? null 
-                : standardType == PluralRules.PluralType.CARDINAL ? cardinal 
+            return standardType == null ? null
+                : standardType == PluralRules.PluralType.CARDINAL ? cardinal
                     : ordinal;
         }
     };
@@ -2858,7 +2868,7 @@ public class SupplementalDataInfo {
             String result = path.getAttributeValue(-1, "result");
             lastPluralRanges.add(rangeStart == null ? null : Count.valueOf(rangeStart),
                 rangeEnd == null ? null : Count.valueOf(rangeEnd),
-                    Count.valueOf(result)
+                Count.valueOf(result)
                 );
             return true;
         } else if ("pluralRules".equals(element)) {
@@ -3360,10 +3370,12 @@ public class SupplementalDataInfo {
             return pluralRules.compareTo(other.pluralRules);
         }
 
-        enum MinMax {MIN, MAX}
+        enum MinMax {
+            MIN, MAX
+        }
 
-        public static final FixedDecimal NEGATIVE_INFINITY = new FixedDecimal(Double.NEGATIVE_INFINITY,0,0);
-        public static final FixedDecimal POSITIVE_INFINITY = new FixedDecimal(Double.POSITIVE_INFINITY,0,0);
+        public static final FixedDecimal NEGATIVE_INFINITY = new FixedDecimal(Double.NEGATIVE_INFINITY, 0, 0);
+        public static final FixedDecimal POSITIVE_INFINITY = new FixedDecimal(Double.POSITIVE_INFINITY, 0, 0);
 
         static double doubleValue(FixedDecimal a) {
             return a.isNegative ? -a.doubleValue() : a.doubleValue();
@@ -3390,7 +3402,7 @@ public class SupplementalDataInfo {
             }
             // see if we can get a better range, with not such a large end range
 
-            FixedDecimal lowestMax = new FixedDecimal(doubleValue(minSample.value)+0.00001, 5);
+            FixedDecimal lowestMax = new FixedDecimal(doubleValue(minSample.value) + 0.00001, 5);
             SampleType bestType = getCounts(SampleType.INTEGER).contains(e) ? SampleType.INTEGER : SampleType.DECIMAL;
             temp = getLeastIn(e, bestType, lowestMax, POSITIVE_INFINITY);
             if (lessOrFewerDecimals(temp, maxSample.value)) {
@@ -3423,8 +3435,7 @@ public class SupplementalDataInfo {
                 for (FixedDecimalRange x : sSamples1.samples) {
                     // overlap in ranges??
                     if (doubleValue(x.start) > doubleValue(max)
-                        || doubleValue(x.end) < doubleValue(min)
-                        ) {
+                        || doubleValue(x.end) < doubleValue(min)) {
                         continue; // no, continue
                     }
                     // get restricted range
@@ -3447,8 +3458,7 @@ public class SupplementalDataInfo {
                 for (FixedDecimalRange x : sSamples1.samples) {
                     // overlap in ranges??
                     if (doubleValue(x.start) > doubleValue(max)
-                        || doubleValue(x.end) < doubleValue(min)
-                        ) {
+                        || doubleValue(x.end) < doubleValue(min)) {
                         continue; // no, continue
                     }
                     // get restricted range
@@ -3746,28 +3756,28 @@ public class SupplementalDataInfo {
     }
 
     public boolean isDeprecated(DtdType type, String element, String attribute, String value) {
-        return isDeprecated(deprecated.get(STAR), element, attribute, value) 
+        return isDeprecated(deprecated.get(STAR), element, attribute, value)
             || isDeprecated(deprecated.get(type.toString()), element, attribute, value);
     }
 
-    private boolean isDeprecated(Map<String, Relation<String, String>> map, 
+    private boolean isDeprecated(Map<String, Relation<String, String>> map,
         String element, String attribute, String value) {
-        return map == null ? false 
-            : isDeprecated(map.get(STAR), attribute, value) 
-            || isDeprecated(map.get(element), attribute, value);
+        return map == null ? false
+            : isDeprecated(map.get(STAR), attribute, value)
+                || isDeprecated(map.get(element), attribute, value);
     }
 
-    private boolean isDeprecated(Relation<String, String> relation, 
+    private boolean isDeprecated(Relation<String, String> relation,
         String attribute, String value) {
-        return relation == null ? false 
-            : isDeprecated(relation.get(STAR), value) 
-            || isDeprecated(relation.get(attribute), value);
+        return relation == null ? false
+            : isDeprecated(relation.get(STAR), value)
+                || isDeprecated(relation.get(attribute), value);
     }
 
     private boolean isDeprecated(Set<String> set, String value) {
         return set == null ? false
-            : set.contains(STAR) 
-            || value != null && set.contains(value);
+            : set.contains(STAR)
+                || value != null && set.contains(value);
     }
 
     /**

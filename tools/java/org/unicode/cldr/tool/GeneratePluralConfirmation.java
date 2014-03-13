@@ -33,7 +33,7 @@ public class GeneratePluralConfirmation {
     public static void main(String[] args) {
         Set<String> testLocales = new TreeSet(Arrays.asList(
             "az cy hy ka kk km ky lo mk mn my ne pa si sq uz eu my si sq vi zu"
-            .split(" ")));
+                .split(" ")));
         // STANDARD_CODES.getLocaleCoverageLocales("google");
         System.out.println(testLocales);
         LanguageTagParser ltp = new LanguageTagParser();
@@ -86,6 +86,7 @@ public class GeneratePluralConfirmation {
         PluralType type;
         Relation<Count, FixedDecimal> soFar = Relation.of(new EnumMap(Count.class), TreeSet.class);
         Map<FixedDecimal, String> sorted = new TreeMap();
+
         private void showValue(String keyword, FixedDecimal fd) {
             Set<FixedDecimal> soFarSet = soFar.getAll(keyword);
             if (soFarSet != null && soFarSet.contains(fd)) {
@@ -94,6 +95,7 @@ public class GeneratePluralConfirmation {
             soFar.put(Count.valueOf(keyword), fd);
             sorted.put(fd, keyword);
         }
+
         public void showSamples(String keyword, FixedDecimalSamples samples) {
             if (samples == null) {
                 return;
@@ -104,7 +106,7 @@ public class GeneratePluralConfirmation {
                     break;
                 }
                 showValue(keyword, range.start);
-                if (!range.end.equals(range.start)){
+                if (!range.end.equals(range.start)) {
                     soFarSet = soFar.getAll(keyword);
                     if (soFarSet != null && soFarSet.size() > 10) {
                         break;
@@ -113,6 +115,7 @@ public class GeneratePluralConfirmation {
                 }
             }
         }
+
         @Override
         public String toString() {
             StringBuilder buffer = new StringBuilder();

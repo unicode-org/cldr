@@ -153,13 +153,13 @@ public class Counter<T> implements Iterable<T>, Comparable<Counter<T>> {
         return result;
     }
 
-    public Set<Row.R2<Long,T>> getEntrySetSortedByCount(boolean ascending, Comparator<T> byValue) {
+    public Set<Row.R2<Long, T>> getEntrySetSortedByCount(boolean ascending, Comparator<T> byValue) {
         Set<Entry<T>> count_key = new TreeSet<Entry<T>>(new EntryComparator<T>(ascending, byValue));
         int counter = 0;
         for (T key : map.keySet()) {
             count_key.add(new Entry<T>(map.get(key), key, counter++));
         }
-        Set<R2<Long, T>> result = new LinkedHashSet<Row.R2<Long,T>>();
+        Set<R2<Long, T>> result = new LinkedHashSet<Row.R2<Long, T>>();
         for (Entry<T> entry : count_key) {
             result.add(Row.of(entry.count.value, entry.value));
         }

@@ -42,7 +42,7 @@ class BreakIteratorMapper extends Mapper {
         BreakIteratorHandler handler = new BreakIteratorHandler(icuData);
         File file = new File(sourceDir, locale + ".xml");
         MapperUtils.parseFile(file, handler);
-        
+
         for (String path : specialsFile) {
             /*
              * example paths:
@@ -57,28 +57,29 @@ class BreakIteratorMapper extends Mapper {
             final String element2 = xpp.getElement(-2);
             Set<String> source = null;
             if (!element.startsWith("icu:") || !element.startsWith("icu:")) {
-                System.err.println("WARNING: brkiter: in " + locale+".xml (ICU specials): Ignoring path: " + fullPath);
+                System.err.println("WARNING: brkiter: in " + locale + ".xml (ICU specials): Ignoring path: " + fullPath);
             } else {
                 final String type;
-                
-                if(!element.startsWith("icu:") || !element.startsWith("icu:")) {
-                    System.err.println("WARNING: brkiter: in " + locale+".xml (ICU specials): Ignoring path (unknown special): " + fullPath);
+
+                if (!element.startsWith("icu:") || !element.startsWith("icu:")) {
+                    System.err.println("WARNING: brkiter: in " + locale + ".xml (ICU specials): Ignoring path (unknown special): " + fullPath);
                     continue;
                 }
-                
+
                 if (element2.equals("icu:boundaries")) {
                     type = element.split(":")[1]; // icu:word -> "word"
                     source = brkSource;
-                } else if(element2.equals("icu:dictionaries")) {
+                } else if (element2.equals("icu:dictionaries")) {
                     type = xpp.getAttributeValue(-1, "type"); // [@type="Laoo"] -> "Laoo"
                     source = dictSource;
                 } else {
-                    System.err.println("WARNING: brkiter: in " + locale+".xml (ICU specials): Ignoring path (unknown element: " + element2 +"): " + fullPath);
+                    System.err
+                        .println("WARNING: brkiter: in " + locale + ".xml (ICU specials): Ignoring path (unknown element: " + element2 + "): " + fullPath);
                     continue;
                 }
                 final String filename = xpp.getAttributeValue(-1, "icu:dependency");
-                if(filename==null||type==null) {
-                    System.err.println("WARNING: brkiter: in " + locale+".xml (ICU specials): Malformed path: " + fullPath);
+                if (filename == null || type == null) {
+                    System.err.println("WARNING: brkiter: in " + locale + ".xml (ICU specials): Malformed path: " + fullPath);
                 } else {
                     source.add(filename.substring(0, filename.lastIndexOf('.'))); // "title.brk" -> "title"
                     icuData.add(
@@ -86,10 +87,10 @@ class BreakIteratorMapper extends Mapper {
                 }
             }
         }
-        
+
         return new IcuData[] { icuData };
     }
-    
+
     /**
      * The XML handler for collation data.  (from the CLDR side)
      */

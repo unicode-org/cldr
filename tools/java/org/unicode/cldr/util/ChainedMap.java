@@ -142,7 +142,7 @@ public class ChainedMap {
         }
         return tempMapConstructors;
     }
-    
+
     public static <T> Constructor<T> getEmptyConstructor(Class<T> c) {
         for (Constructor<?> constructor : c.getConstructors()) {
             if (constructor.getParameterTypes().length == 0) {

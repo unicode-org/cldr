@@ -113,7 +113,8 @@ public class TestBcp47Transforms extends TestFmwk {
     }
 
     static ULocale.Builder ubuilder = new ULocale.Builder();
-    static Relation<String, Row.R2<Type, String>> MISSING = Relation.<String, Row.R2<Type, String>>of(new TreeMap<String, Set<Row.R2<Type, String>>>(), TreeSet.class);
+    static Relation<String, Row.R2<Type, String>> MISSING = Relation.<String, Row.R2<Type, String>> of(new TreeMap<String, Set<Row.R2<Type, String>>>(),
+        TreeSet.class);
     static StandardCodes sc = StandardCodes.make();
 
     static Map<String, String> SPECIAL_CASES;

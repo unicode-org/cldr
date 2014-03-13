@@ -61,11 +61,11 @@ public class TestCoverageLevel extends TestFmwk {
 
         Set<String> allPaths = new HashSet<String>();
         M4<String, String, Level, Boolean> starredToLocalesToLevels = ChainedMap.of(
-            new TreeMap<String,Object>(),
-            new TreeMap<String,Object>(), 
-            new TreeMap<Level,Object>(), 
+            new TreeMap<String, Object>(),
+            new TreeMap<String, Object>(),
+            new TreeMap<Level, Object>(),
             Boolean.class);
-        
+
         for (String locale : factory.getAvailableLanguages()) {
             logln(locale);
             CLDRFile cldrFileToCheck = factory.make(locale, true);
@@ -101,12 +101,12 @@ public class TestCoverageLevel extends TestFmwk {
             }
             System.out.println(
                 maxLevelCount
-                + "\t" + localesWithUniqueLevels.size()/localeCount
-                + "\t" + starred 
-                + "\t" + CollectionUtilities.join(levelsFound, ", ")
-                + "\t" + (maxLevelCount == 1 ? "all" 
-                    : localesWithUniqueLevels.size() == 0 ? "none" 
-                        : CollectionUtilities.join(localesWithUniqueLevels, ", "))
+                    + "\t" + localesWithUniqueLevels.size() / localeCount
+                    + "\t" + starred
+                    + "\t" + CollectionUtilities.join(levelsFound, ", ")
+                    + "\t" + (maxLevelCount == 1 ? "all"
+                        : localesWithUniqueLevels.size() == 0 ? "none"
+                            : CollectionUtilities.join(localesWithUniqueLevels, ", "))
                 );
         }
     }

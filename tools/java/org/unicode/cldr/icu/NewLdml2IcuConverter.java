@@ -330,7 +330,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
             long time = System.currentTimeMillis();
             icuData = iterator.next();
             writeIcuData(icuData, destinationDir);
-            System.out.println("Converted " + type +": " + icuData.getName() + ".xml in " +
+            System.out.println("Converted " + type + ": " + icuData.getName() + ".xml in " +
                 (System.currentTimeMillis() - time) + "ms");
         }
     }

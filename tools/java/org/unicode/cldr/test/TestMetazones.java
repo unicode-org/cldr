@@ -122,10 +122,10 @@ public class TestMetazones {
         errorLog.println("Testing metazone info in: " + locale);
         // get the resolved version
         file = factory.make(locale, true);
-        Relation<String, DateRangeAndZone> mzoneToData = Relation.<String, DateRangeAndZone>of(
+        Relation<String, DateRangeAndZone> mzoneToData = Relation.<String, DateRangeAndZone> of(
             new TreeMap<String, Set<DateRangeAndZone>>(), TreeSet.class);
 
-        Relation<String, DateRangeAndZone> zoneToDateRanges = Relation.<String, DateRangeAndZone>of(
+        Relation<String, DateRangeAndZone> zoneToDateRanges = Relation.<String, DateRangeAndZone> of(
             new TreeMap<String, Set<DateRangeAndZone>>(), TreeSet.class);
 
         fillMetazoneData(file, mzoneToData, zoneToDateRanges);
@@ -716,9 +716,9 @@ public class TestMetazones {
                 return 1;
             return 0;
         }
-        
+
         // Get Date-Time in milliseconds
-        private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second){
+        private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second) {
             Calendar cal = Calendar.getInstance();
             cal.set(year, month, date, hourOfDay, minute, second);
             return cal.getTimeInMillis();

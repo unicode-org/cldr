@@ -196,7 +196,7 @@ class FlexibleDateFromCLDR {
             failureMap.put(path, failure);
         }
     }
-    
+
     private String stripLiterals(String pattern) {
         int i = 0, patlen = pattern.length();
         StringBuilder stripped = new StringBuilder(patlen);

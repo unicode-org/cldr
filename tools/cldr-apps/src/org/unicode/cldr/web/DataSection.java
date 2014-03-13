@@ -590,7 +590,7 @@ public class DataSection implements JSONString {
                         uu.put("level", u.getLevel());
                         Integer voteCount = null;
                         Map<User, Integer> overrides = ballotBox.getOverridesPerUser(xpath);
-                        if(overrides != null) {
+                        if (overrides != null) {
                             voteCount = overrides.get(u);
                         }
                         uu.put("overridedVotes", voteCount);
@@ -1765,7 +1765,7 @@ public class DataSection implements JSONString {
                 return new JSONObject()
                     .put("xpath", xpath)
                     .put("xpid", xpathId)
-                    .put("rowFlagged", sm.getSTFactory().getFlag(locale,xpathId)?true:null)
+                    .put("rowFlagged", sm.getSTFactory().getFlag(locale, xpathId) ? true : null)
                     .put("xpstrid", XPathTable.getStringIDString(xpath))
                     .put("winningValue", winningValue)
                     .put("displayName", displayName)
@@ -1780,7 +1780,7 @@ public class DataSection implements JSONString {
                     .put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false)
                     .put("winningVhash", winningVhash).put("ourVote", ourVote).put("voteVhash", voteVhash)
                     .put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver)).put("items", itemsJson)
-                    .put("canFlagOnLosing", resolver.getRequiredVotes()==VoteResolver.HIGH_BAR)
+                    .put("canFlagOnLosing", resolver.getRequiredVotes() == VoteResolver.HIGH_BAR)
                     .toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in toJSONString of " + this);
@@ -1815,7 +1815,7 @@ public class DataSection implements JSONString {
         public Level getCoverageLevel() {
             return sm.getSupplementalDataInfo().getCoverageLevel(getXpath(), locale.getBaseName());
         }
-        
+
         /**
          * There was at least one vote at the end of DataSubmission, or there is
          * a vote now. TODO: add check for whether there was a vote in data
@@ -2426,12 +2426,12 @@ public class DataSection implements JSONString {
         } else {
             // ugly
             final String def = CookieSession.sm
-                .getListSetting(session.settings(), SurveyMain.PREF_COVLEV, 
+                .getListSetting(session.settings(), SurveyMain.PREF_COVLEV,
                     WebContext.PREF_COVLEV_LIST, false);
 
             final String org = session.getEffectiveCoverageLevel(locale.toString());
-            
-            options = new Options(locale,SurveyMain.getTestPhase(), def, org);
+
+            options = new Options(locale, SurveyMain.getTestPhase(), def, org);
         }
         return options;
     }

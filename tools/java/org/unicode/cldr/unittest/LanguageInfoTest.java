@@ -20,7 +20,7 @@ import com.ibm.icu.util.ULocale;
 public class LanguageInfoTest extends TestFmwk {
     static TestInfo testInfo = TestInfo.getInstance();
     static LanguageMatcherData data = new LanguageMatcherData();
-    static Map<ULocale,ULocale> FALLBACKS = new LinkedHashMap<>();
+    static Map<ULocale, ULocale> FALLBACKS = new LinkedHashMap<>();
 
     @Override
     protected void init() throws Exception {
@@ -29,12 +29,10 @@ public class LanguageInfoTest extends TestFmwk {
         List<R4<String, String, Integer, Boolean>> languageData = supp.getLanguageMatcherData("written");
         for (R4<String, String, Integer, Boolean> item : languageData) {
             data.addDistance(item.get0().replace('_', '-'), item.get1().replace('_', '-'), item.get2(), item.get3());
-            logln(
-                item.get0() + "\t" + getName(item.get0())
+            logln(item.get0() + "\t" + getName(item.get0())
                 + "\t" + item.get1() + "\t" + getName(item.get1())
                 + "\t" + item.get2()
-                + "\t" + item.get3()
-                );
+                + "\t" + item.get3());
             if (item.get2() == 10) {
                 FALLBACKS.put(new ULocale(item.get0()), new ULocale(item.get1()));
             }
@@ -61,12 +59,12 @@ public class LanguageInfoTest extends TestFmwk {
         assertEquals("FR in FR, UK, EN", ULocale.FRENCH, matcher.getBestMatch(ULocale.FRANCE));
         assertEquals("JA in FR, UK, EN", ULocale.FRENCH, matcher.getBestMatch(ULocale.JAPAN));
     }
-    
+
     public void TestChinese() {
         LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList.add("zh_CN, zh_TW, iw").build(), data);
         ULocale taiwanChinese = new ULocale("zh_TW");
         ULocale chinaChinese = new ULocale("zh_CN");
-        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_HK")); 
+        assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_HK"));
 
         assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_TW"));
         assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant"));
@@ -77,7 +75,7 @@ public class LanguageInfoTest extends TestFmwk {
     }
 
     public void testFallbacks() {
-        if (logKnownIssue("10705","Make ICU's localeMatcher use CLDR fallback data")){
+        if (logKnownIssue("10705", "Make ICU's localeMatcher use CLDR fallback data")) {
             return;
         }
         Builder priorities = LocalePriorityList.add(new ULocale("mul")); // the default

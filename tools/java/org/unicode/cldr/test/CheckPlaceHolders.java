@@ -11,6 +11,7 @@ public class CheckPlaceHolders extends CheckCLDR {
     private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("([0-9]|[1-9][0-9]+)");
     private static final Pattern SKIP_PATH_LIST = Pattern
         .compile("//ldml/characters/exemplarCharacters.*");
+
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
@@ -22,23 +23,23 @@ public class CheckPlaceHolders extends CheckCLDR {
         if (value == null) {
             return this;
         }
-        while ( startPlaceHolder != -1 && startPlaceHolder < value.length() ) {
-            startPlaceHolder = value.indexOf('{',startPlaceHolder+1);
+        while (startPlaceHolder != -1 && startPlaceHolder < value.length()) {
+            startPlaceHolder = value.indexOf('{', startPlaceHolder + 1);
             if (startPlaceHolder != -1) {
-                endPlaceHolder = value.indexOf('}',startPlaceHolder+1);
+                endPlaceHolder = value.indexOf('}', startPlaceHolder + 1);
                 if (endPlaceHolder == -1) {
                     result.add(new CheckStatus().setCause(this)
                         .setMainType(CheckStatus.errorType)
                         .setSubtype(Subtype.invalidPlaceHolder)
-                        .setMessage("Invalid placeholder in value \""+ value + "\""));
+                        .setMessage("Invalid placeholder in value \"" + value + "\""));
                 } else {
-                    String placeHolderString = value.substring(startPlaceHolder+1, endPlaceHolder);
+                    String placeHolderString = value.substring(startPlaceHolder + 1, endPlaceHolder);
                     Matcher matcher = PLACEHOLDER_PATTERN.matcher(placeHolderString);
-                    if (!matcher.matches()){
+                    if (!matcher.matches()) {
                         result.add(new CheckStatus().setCause(this)
                             .setMainType(CheckStatus.errorType)
                             .setSubtype(Subtype.invalidPlaceHolder)
-                            .setMessage("Invalid placeholder in value \""+ value + "\""));
+                            .setMessage("Invalid placeholder in value \"" + value + "\""));
                     }
                     startPlaceHolder = endPlaceHolder;
                 }

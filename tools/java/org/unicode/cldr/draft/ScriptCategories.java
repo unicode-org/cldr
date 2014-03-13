@@ -32,6 +32,8 @@ public class ScriptCategories {
     private static final boolean DEBUG = false;
     private static final boolean DEBUG_MAIN = false;
 
+    //@formatter:off
+
     // From: http://www.phon.ucl.ac.uk/home/wells/ipa-unicode.htm
     public static final UnicodeSet IPA = (UnicodeSet) new UnicodeSet(
         "[a-zæçðøħŋœǀ-ǃɐ-ɨɪ-ɶ ɸ-ɻɽɾʀ-ʄʈ-ʒʔʕʘʙʛ-ʝʟʡʢ ʤʧʰ-ʲʴʷʼˈˌːˑ˞ˠˤ̀́̃̄̆̈ ̘̊̋̏-̜̚-̴̠̤̥̩̪̬̯̰̹-̽͜ ͡βθχ↑-↓↗↘]"
@@ -475,6 +477,7 @@ public class ScriptCategories {
     }
 
     // END OF GENERATED CODE
+    //@formatter:on
 
     // UnicodeSet override
     static UnicodeSet.XSymbolTable myXSymbolTable = new UnicodeSet.XSymbolTable() {
@@ -574,11 +577,13 @@ public class ScriptCategories {
         return result;
     }
 
-    static class RegionFilter implements com.ibm.icu.text.Transform<String,String> {
+    static class RegionFilter implements com.ibm.icu.text.Transform<String, String> {
         final String[] containingRegion;
+
         RegionFilter(String... containingRegion) {
-            this.containingRegion = containingRegion; 
+            this.containingRegion = containingRegion;
         }
+
         @Override
         public String transform(String script) {
             String currentRegion = ScriptMetadata.getInfo(script).originCountry;
@@ -596,11 +601,13 @@ public class ScriptCategories {
         }
     }
 
-    static class UsageFilter implements com.ibm.icu.text.Transform<String,String> {
+    static class UsageFilter implements com.ibm.icu.text.Transform<String, String> {
         IdUsage[] usage;
+
         UsageFilter(IdUsage... usage) {
-            this.usage = usage; 
+            this.usage = usage;
         }
+
         @Override
         public String transform(String script) {
             IdUsage scriptUsage = ScriptMetadata.getInfo(script).idUsage;
@@ -613,14 +620,14 @@ public class ScriptCategories {
         }
     }
 
-    public static Transform<String,String> TO_SHORT_SCRIPT = new Transform<String,String>() {
+    public static Transform<String, String> TO_SHORT_SCRIPT = new Transform<String, String>() {
         @Override
         public String transform(String source) {
             return UScript.getShortName(UScript.getCodeFromName(source));
         }
     };
 
-    public static Transform<String,String> TO_LONG_SCRIPT = new Transform<String,String>() {
+    public static Transform<String, String> TO_LONG_SCRIPT = new Transform<String, String>() {
         @Override
         public String transform(String source) {
             return UScript.getName(UScript.getCodeFromName(source));
@@ -634,15 +641,16 @@ public class ScriptCategories {
         SOUTHEAST_ASIAN("035"),
         EAST_ASIAN("030"),
         AFRICAN("002"),
-        AMERICAN("019"),
-        ;
+        AMERICAN("019"), ;
         public final Set<String> scripts;
-        private Groupings(String...regions) {
+
+        private Groupings(String... regions) {
             scripts = With
                 .in(ScriptMetadata.getScripts())
                 .toUnmodifiableCollection(new RegionFilter(regions), new TreeSet());
         }
     }
+
     // Standard items
     public static final Set<String> EUROPEAN = Groupings.EUROPEAN.scripts;
     public static final Set<String> MIDDLE_EASTERN = Groupings.MIDDLE_EASTERN.scripts;

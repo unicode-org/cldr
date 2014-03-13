@@ -137,7 +137,7 @@ public class GenerateG2xG2 {
         String lastPriority = "";
         //String lastType = "";
         for (Iterator<String[]> it = priority_set.iterator(); it.hasNext();) {
-            String[] items =  it.next();
+            String[] items = it.next();
             if (!lastPriority.equals(items[0])) {
                 lastPriority = items[0];
                 pw.println();

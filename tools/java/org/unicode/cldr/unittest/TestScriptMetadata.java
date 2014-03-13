@@ -114,7 +114,7 @@ public class TestScriptMetadata extends TestFmwkPlus {
         Set<String> result = new HashSet<String>(sc.getSurveyToolDisplayCodes(type));
         XPathParts parts = new XPathParts();
         for (Iterator<String> it = english.getAvailableIterator(code); it.hasNext();) {
-            parts.set(it.next()); 
+            parts.set(it.next());
             String newType = parts.getAttributeValue(-1, "type");
             if (!result.contains(newType)) {
                 result.add(newType);
@@ -168,10 +168,10 @@ public class TestScriptMetadata extends TestFmwkPlus {
                 Row.of(info.idUsage,
                     english.getName(CLDRFile.TERRITORY_NAME, continent),
                     info.idUsage
-                    + "\t" + 
-                    english.getName(CLDRFile.TERRITORY_NAME, container)
-                    + "\t" + scriptCode + "\t" +
-                    english.getName(CLDRFile.SCRIPT_NAME, scriptCode) 
+                        + "\t" +
+                        english.getName(CLDRFile.TERRITORY_NAME, container)
+                        + "\t" + scriptCode + "\t" +
+                        english.getName(CLDRFile.SCRIPT_NAME, scriptCode)
                     ));
         }
         for (Row.R3<IdUsage, String, String> s : lines) {

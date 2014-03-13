@@ -82,7 +82,7 @@ public class StatisticsUtils {
         }
         try {
             return DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_items", 1 * 60 * 1000,
-                "select count(*) from "+DBUtils.Table.VOTE_VALUE+" where submitter is not null"));
+                "select count(*) from " + DBUtils.Table.VOTE_VALUE + " where submitter is not null"));
         } catch (Throwable t) {
             return -1;
         }

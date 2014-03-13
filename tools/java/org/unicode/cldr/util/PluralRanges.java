@@ -22,19 +22,20 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
      * @deprecated
      */
     public static final class Matrix implements Comparable<Matrix>, Cloneable {
-        private byte[] data = new byte[Count.LENGTH*Count.LENGTH];
+        private byte[] data = new byte[Count.LENGTH * Count.LENGTH];
         {
             for (int i = 0; i < data.length; ++i) {
                 data[i] = -1;
             }
         }
+
         /**
          * Internal method for setting.
          * @internal
          * @deprecated
          */
         public void set(Count start, Count end, Count result) {
-            data[start.ordinal()*Count.LENGTH + end.ordinal()] = result == null ? (byte)-1 : (byte)result.ordinal();
+            data[start.ordinal() * Count.LENGTH + end.ordinal()] = result == null ? (byte) -1 : (byte) result.ordinal();
         }
 
         /**
@@ -43,12 +44,12 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
          * @deprecated
          */
         public void setIfNew(Count start, Count end, Count result) {
-            byte old = data[start.ordinal()*Count.LENGTH + end.ordinal()];
+            byte old = data[start.ordinal() * Count.LENGTH + end.ordinal()];
             if (old >= 0) {
                 throw new IllegalArgumentException("Previously set value for <" +
                     start + ", " + end + ", " + Count.VALUES.get(old) + ">");
             }
-            data[start.ordinal()*Count.LENGTH + end.ordinal()] = result == null ? (byte)-1 : (byte)result.ordinal();
+            data[start.ordinal() * Count.LENGTH + end.ordinal()] = result == null ? (byte) -1 : (byte) result.ordinal();
         }
 
         /**
@@ -57,7 +58,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
          * @deprecated
          */
         public Count get(Count start, Count end) {
-            byte result = data[start.ordinal()*Count.LENGTH + end.ordinal()];
+            byte result = data[start.ordinal() * Count.LENGTH + end.ordinal()];
             return result < 0 ? null : Count.VALUES.get(result);
         }
 
@@ -116,7 +117,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
         public int hashCode() {
             int result = 0;
             for (int i = 0; i < data.length; ++i) {
-                result = result*37 + data[i];
+                result = result * 37 + data[i];
             }
             return result;
         }
@@ -126,7 +127,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
             if (!(other instanceof Matrix)) {
                 return false;
             }
-            return 0 == compareTo((Matrix)other);
+            return 0 == compareTo((Matrix) other);
         }
 
         @Override
@@ -158,6 +159,7 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
     public static PluralRanges getInstance(ULocale locale) {
         return null;
     }
+
     /**
      * Internal method for building. If the start or end are null, it means everything of that type.
      * @param rangeStart
@@ -203,9 +205,9 @@ public final class PluralRanges implements Comparable<PluralRanges>, Freezable<P
     public static String showRange(Count start, Count end, Count result) {
         String startEnd = "start=\"" + start + "\"" + Utility.repeat(" ", 5 - start.toString().length())
             + " end=\"" + end + "\"" + Utility.repeat(" ", 5 - end.toString().length());
-        return result == null 
-            ? "<!--         " + startEnd + " result=? -->" 
-                : "<pluralRange " + startEnd + " result=\"" + result + "\"/>";
+        return result == null
+            ? "<!--         " + startEnd + " result=? -->"
+            : "<pluralRange " + startEnd + " result=\"" + result + "\"/>";
     }
 
     /**

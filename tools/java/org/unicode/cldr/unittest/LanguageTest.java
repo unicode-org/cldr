@@ -90,7 +90,7 @@ public class LanguageTest extends TestFmwk {
     }
 
     public void TestThatLanguagesHaveScript() {
-        if (logKnownIssue("7007","Fully populate language/script data")){
+        if (logKnownIssue("7007", "Fully populate language/script data")) {
             return;
         }
         Set<String> needTransfer = new LinkedHashSet<String>();

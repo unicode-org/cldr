@@ -47,7 +47,7 @@ public class SimpleEquivalenceClass {
         }
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     private class MyIterator implements Iterator {
         private Iterator it;
 

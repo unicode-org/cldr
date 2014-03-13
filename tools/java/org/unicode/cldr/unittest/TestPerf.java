@@ -58,7 +58,7 @@ public class TestPerf extends TestFmwkPlus {
         }
         elementSize = size;
     }
-    
+
     public void TestA() {
         logln("Path count: " + testPaths.size());
         logln("Elements: " + elements.size());
@@ -82,7 +82,7 @@ public class TestPerf extends TestFmwkPlus {
             }
         }
         long duration = t.stop();
-        assertRelation("", true, duration/ITERATIONS/1000000.0, LEQ, 50.0); // 47231000
+        assertRelation("", true, duration / ITERATIONS / 1000000.0, LEQ, 50.0); // 47231000
     }
 
     public void TestMutableXPathParts() {
@@ -97,8 +97,8 @@ public class TestPerf extends TestFmwkPlus {
             }
         }
         long duration = t.stop();
-        assertRelation("", true, duration/ITERATIONS/1000000.0, LEQ, 50.0); // 47231000
-        assertEquals("", elementSize, size/ITERATIONS);
+        assertRelation("", true, duration / ITERATIONS / 1000000.0, LEQ, 50.0); // 47231000
+        assertEquals("", elementSize, size / ITERATIONS);
     }
 
     public void TestFastFrozenXPathParts() {
@@ -112,8 +112,8 @@ public class TestPerf extends TestFmwkPlus {
             }
         }
         long duration = t.stop();
-        assertRelation("", true, duration/ITERATIONS/1000000.0, LEQ, 50.0);
-        assertEquals("", elementSize, size/ITERATIONS);
+        assertRelation("", true, duration / ITERATIONS / 1000000.0, LEQ, 50.0);
+        assertEquals("", elementSize, size / ITERATIONS);
     }
 
     public void TestFastXPathParts() {
@@ -127,10 +127,10 @@ public class TestPerf extends TestFmwkPlus {
             }
         }
         long duration = t.stop();
-        assertRelation("", true, duration/ITERATIONS/1000000.0, LEQ, 50.0);
-        assertEquals("", elementSize, size/ITERATIONS);
+        assertRelation("", true, duration / ITERATIONS / 1000000.0, LEQ, 50.0);
+        assertEquals("", elementSize, size / ITERATIONS);
     }
-    
+
     public void TestXPathPartsWithComparators() {
         XPathParts normal = new XPathParts();
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
@@ -141,7 +141,7 @@ public class TestPerf extends TestFmwkPlus {
             assertEquals("path", path, newPath);
         }
     }
-    
+
     public void TestPathComparison() {
         DtdData dtdData = DtdData.getInstance(DtdType.ldml);
         AttributeValueComparator avc = new AttributeValueComparator() {
@@ -152,7 +152,7 @@ public class TestPerf extends TestFmwkPlus {
             }
         };
         Comparator<String> comp = dtdData.getDtdComparator(avc);
-        
+
         int iterations = 50;
         Output<Integer> failures = new Output<Integer>();
 
@@ -167,9 +167,9 @@ public class TestPerf extends TestFmwkPlus {
         checkCost(sortedArray, comp, 1, failures);
         assertRelation("DtdComparator-check", true, failures.value, LEQ, 0);
         double newSeconds = checkCost(sortedArray, comp, iterations, failures);
-        assertRelation("DtdComparator", true, newSeconds, LEQ, seconds*.5); // new code needs to be twice as fast
+        assertRelation("DtdComparator", true, newSeconds, LEQ, seconds * .5); // new code needs to be twice as fast
     }
-    
+
     private double checkCost(String[] sortedArray, Comparator<String> comp, int iterations, Output<Integer> failures2) {
         Timer timer = new Timer();
         int failures = 0;
@@ -186,10 +186,10 @@ public class TestPerf extends TestFmwkPlus {
         }
         timer.stop();
         failures2.value = failures;
-        return timer.getSeconds()/iterations;
+        return timer.getSeconds() / iterations;
     }
-    
+
     public void TestUnused() {
-        
+
     }
 }

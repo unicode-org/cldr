@@ -428,15 +428,15 @@ public class ConvertXTB {
         XMLReader xmlReader = XMLFileReader.createXMLReader(false);
         xmlReader.setContentHandler(handler);
         File inputFile = new File(xtbDir, locale + ".xtb");
-        try (InputStream fis=InputStreamFactory.createInputStream(inputFile)){        
-          //  FileInputStream fis = new FileInputStream(inputFile);
+        try (InputStream fis = InputStreamFactory.createInputStream(inputFile)) {
+            //  FileInputStream fis = new FileInputStream(inputFile);
             InputSource is = new InputSource(fis);
             xmlReader.parse(is);
-           // fis.close();
-        } catch (SAXException |IOException e) {
+            // fis.close();
+        } catch (SAXException | IOException e) {
             System.err.println("Error loading " + inputFile.getAbsolutePath());
             e.printStackTrace();
-        } 
+        }
 //            catch (SAXException e) {
 //            System.err.println("Error loading " + inputFile.getAbsolutePath());
 //            e.printStackTrace();

@@ -331,11 +331,11 @@ public class ExampleGenerator {
             String unchained = verboseErrors ? ("<br>" + finalizeBackground(unchainException(e))) : "";
             return "<i>Parsing error. " + finalizeBackground(e.getMessage()) + "</i>" + unchained;
         }
-        
+
         String test = parts.getElement(-1);
-        
+
         //add transliteration if one exists
-        if( type == ExampleType.NATIVE && result != null ) {
+        if (type == ExampleType.NATIVE && result != null) {
             result = addTransliteration(result, value);
         }
 
@@ -1484,7 +1484,7 @@ public class ExampleGenerator {
         Matcher m = patternToEmbed.matcher(inputPattern);
         return m.replaceAll(backgroundStartSymbol + "$1" + backgroundEndSymbol);
     }
-    
+
     /**
      * This adds the transliteration of a result in case it has one (i.e. sr_Cyrl -> sr_Latn).
      * 
@@ -1496,13 +1496,13 @@ public class ExampleGenerator {
      */
     private String addTransliteration(String input, String value) {
         for (LocaleTransform localeTransform : LocaleTransform.values()) {
-            
+
             String locale = cldrFile.getLocaleID();
-            
-            if(!(localeTransform.getInputLocale().equals(locale))){
+
+            if (!(localeTransform.getInputLocale().equals(locale))) {
                 continue;
             }
-            
+
             Factory factory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
             CLDRFileTransformer transformer = new CLDRFileTransformer(factory, CLDRPaths.COMMON_DIRECTORY + "transforms/");
             Transliterator transliterator = transformer.loadTransliterator(localeTransform);
@@ -1510,7 +1510,7 @@ public class ExampleGenerator {
         }
         return input;
     }
-    
+
     /**
      * This is called just before we return a result. It fixes the special characters that were added by setBackground.
      * 

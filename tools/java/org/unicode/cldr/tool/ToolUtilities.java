@@ -50,10 +50,10 @@ public class ToolUtilities {
             String batDir = targetDir + "diff" + File.separator;
             String batName = targetFile + ".bat";
             String[] failureLines = new String[2];
-    
+
             String fullSource = sourceDir + File.separator + sourceFile;
             String fullTarget = targetDir + File.separator + targetFile;
-    
+
             if (!new File(sourceDir, sourceFile).exists()) {
                 File f = new File(batDir, batName);
                 if (f.exists()) {

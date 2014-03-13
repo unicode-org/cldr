@@ -39,6 +39,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     private final Map<String, Map<String, String>> suppressionMap;
 
     private static final Map<String, XPathParts> cache = new ConcurrentHashMap<String, XPathParts>();
+
     //private static final Map<Element, Element> ELEMENT_CACHE = new ConcurrentHashMap<Element, Element>();
 
     public XPathParts() {
@@ -688,7 +689,7 @@ public final class XPathParts implements Freezable<XPathParts> {
 
         @Override
         protected Object clone() throws CloneNotSupportedException {
-            return frozen ? this 
+            return frozen ? this
                 : new Element(element, attributes);
         }
 
@@ -786,8 +787,8 @@ public final class XPathParts implements Freezable<XPathParts> {
                 }
                 try {
                     result.append(prefix).append(attribute).append("=\"")
-                    .append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value)
-                    .append(postfix);
+                        .append(removeLDMLExtras ? TransliteratorUtilities.toHTML.transliterate(value) : value)
+                        .append(postfix);
                 } catch (RuntimeException e) {
                     throw e; // for debugging
                 }
@@ -815,10 +816,10 @@ public final class XPathParts implements Freezable<XPathParts> {
             try {
                 Element that = (Element) other;
                 // == check is ok since we intern elements
-                return element == that.element 
+                return element == that.element
                     && (attributes == null ? that.attributes == null
-                    : that.attributes == null ? attributes == null
-                    : attributes.equals(that.attributes));
+                        : that.attributes == null ? attributes == null
+                            : attributes.equals(that.attributes));
             } catch (ClassCastException e) {
                 return false;
             }
@@ -884,7 +885,7 @@ public final class XPathParts implements Freezable<XPathParts> {
         @Override
         public Element freeze() {
             if (!frozen) {
-                attributes = attributes == null ? null 
+                attributes = attributes == null ? null
                     : Collections.unmodifiableMap(attributes);
                 frozen = true;
             }
@@ -914,8 +915,8 @@ public final class XPathParts implements Freezable<XPathParts> {
     }
 
     public MapComparator<String> getAttributeComparator(String currentElement) {
-        return dtdData == null ? null 
-            : dtdData.dtdType == DtdType.ldml ? CLDRFile.getAttributeOrdering() 
+        return dtdData == null ? null
+            : dtdData.dtdType == DtdType.ldml ? CLDRFile.getAttributeOrdering()
                 : dtdData.getAttributeComparator();
     }
 

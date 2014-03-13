@@ -74,8 +74,8 @@ public class LanguageTagCanonicalizer implements StringTransform {
     }
 
     private String getReplacement(LanguageTagField tagField, String languageTag) {
-        return getReplacement2(tagField, 
-            tagField.get(ltp1), 
+        return getReplacement2(tagField,
+            tagField.get(ltp1),
             languageTag);
     }
 

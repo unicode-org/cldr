@@ -39,7 +39,7 @@ public class SurveyProgressManager implements CLDRProgressIndicator {
 
         @Override
         public void close() {
-            if(tasks.isEmpty()||!tasks.contains(this)) {
+            if (tasks.isEmpty() || !tasks.contains(this)) {
                 SurveyLog.warnOnce("State Error: Closing an already-closed CLDRProgressIndicator at stack " + StackTracker.currentStack());
             } else {
                 tasks.remove(this); // remove from deque

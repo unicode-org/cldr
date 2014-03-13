@@ -624,7 +624,7 @@ public class ZoneParser {
         { "SystemV/YST9", "Etc/GMT+9" },
         { "SystemV/HST10", "Etc/GMT+10" },
         { "HST", "Etc/GMT+10" },
-};
+    };
 
     /*
      * ## Zone SystemV/AST4 -4:00 - AST
@@ -643,7 +643,7 @@ public class ZoneParser {
         "Pacific/Yap",
         "Antarctica/South_Pole",
         "America/Shiprock",
-        "America/Montreal"};
+        "America/Montreal" };
     static {
         // The format is <new name>, <old name>
         String[][] FIX_UNSTABLE_TZID_DATA = new String[][] {
@@ -827,8 +827,8 @@ public class ZoneParser {
                         String old = items[2];
                         String newOne = items[1];
                         //if (!SKIP_LINKS.contains(old) && !SKIP_LINKS.contains(newOne)) {
-                            // System.out.println("Original " + old + "\t=>\t" + newOne);
-                            linkedItems.add(old, newOne);
+                        // System.out.println("Original " + old + "\t=>\t" + newOne);
+                        linkedItems.add(old, newOne);
                         //}
                         /*
                          * String conflict = (String) linkold_new.get(old); if (conflict !=

@@ -99,7 +99,7 @@ public class ShowLocaleCoverage {
         Set<String> checkModernLocales = STANDARD_CODES.getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN));
         Set<String> availableLanguages = new TreeSet(factory.getAvailableLanguages());
         availableLanguages.addAll(checkModernLocales);
-        
+
         System.out.println("# Checking: " + availableLanguages);
 
 
@@ -124,7 +124,9 @@ public class ShowLocaleCoverage {
         Factory pathHeaderFactory = PathHeader.getFactory(testInfo.getCldrFactory().make("en", true));
 
         PrintWriter out = BagFormatter.openUTF8Writer(OUT_DIRECTORY, "simpleCoverage.tsv");
-        out.println("#Script\tEnglish\tNative\tCode*\tCode*\tEnglish\tNative\tCorrect Value (or ‘OK’ if F is good)\tSection\tPage\tHeader\tCode\tPath");
+        out.println("#Script\tEnglish Name\tNative Name\tCode\tRank\tLevel" +
+            "\tEnglish Value\tNative Value\tCorrect Value (or ‘OK’ if F is good)" +
+            "\tStatus\tSection\tPage\tHeader\tCode\tPath");
 
         Counter<Level> foundCounter = new Counter<Level>();
         Counter<Level> unconfirmedCounter = new Counter<Level>();
@@ -132,17 +134,17 @@ public class ShowLocaleCoverage {
 
         int localeCount = 0;
         System.out
-        .print("#Script\tEnglish\tNative\tCode\tRank");
+        .print("#Script\tEnglish\tNative\tCode\tLevel\tRank");
         for (Level level : Level.values()) {
             if (skipPrintingLevels.contains(level)) {
                 continue;
             }
             System.out.print("\t" + level + " confirmed%" + "\t" + level);
         }
-        System.out.println();
+        System.out.println("\tFields");
         long start = System.currentTimeMillis();
         LikelySubtags likelySubtags = new LikelySubtags();
-        
+
         for (String locale : availableLanguages) {
             try {
                 if (locale.contains("supplemental")) { // for old versions
@@ -163,24 +165,24 @@ public class ShowLocaleCoverage {
                 //boolean capture = locale.equals("en");
                 String region = ltp.set(locale).getRegion();
                 if (!region.isEmpty()) continue; // skip regions
-                
+
                 String max = likelySubtags.maximize(locale);
                 String script = ltp.set(max).getScript();
 
                 String language = likelySubtags.minimize(locale);
                 Level currentLevel = STANDARD_CODES.getLocaleCoverageLevel("google", locale);
 
-//                String language = ltp.getLanguage();
-//                String script = ltp.getScript();
-//                if (script.isEmpty()) {
-//                    String likelySubtags = likely.get(language);
-//                    if (likelySubtags != null) {
-//                        script = ltp.set(likelySubtags).getScript();
-//                        if ("bs".equals(language)) {
-//                            script = "Latn";
-//                        }
-//                    }
-//                }
+                //                String language = ltp.getLanguage();
+                //                String script = ltp.getScript();
+                //                if (script.isEmpty()) {
+                //                    String likelySubtags = likely.get(language);
+                //                    if (likelySubtags != null) {
+                //                        script = ltp.set(likelySubtags).getScript();
+                //                        if ("bs".equals(language)) {
+                //                            script = "Latn";
+                //                        }
+                //                    }
+                //                }
                 missingPaths.clear();
                 unconfirmed.clear();
 
@@ -194,8 +196,8 @@ public class ShowLocaleCoverage {
                     + "\t" + testInfo.getEnglish().getName(language)
                     + "\t" + file.getName(language)
                     + "\t" + language
+                    + "\t" + currentLevel
                     + "\t" + 0 // rank
-                    + "\t" + currentLevel;
                     ;
                 System.out.print(header);
 
@@ -205,7 +207,7 @@ public class ShowLocaleCoverage {
                 double modernUnconfirmedCoverage = 0.0d;
                 double modernConfirmedCoverage = 0.0d;
                 StringBuilder b = new StringBuilder();
-                
+
                 // get the totals
                 EnumMap<Level,Integer> totals = new EnumMap<>(Level.class);
                 EnumMap<Level,Integer> confirmed = new EnumMap<>(Level.class);
@@ -223,8 +225,8 @@ public class ShowLocaleCoverage {
                 base.put(Level.BASIC, 16/100d);
                 base.put(Level.MODERATE, 33/100d);
                 base.put(Level.MODERN, 100/100d);
-                
-                
+
+
                 // now display percentages
                 //int last = 0;
                 for (Level level : Level.values()) {

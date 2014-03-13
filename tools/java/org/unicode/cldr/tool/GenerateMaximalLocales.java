@@ -698,6 +698,8 @@ public class GenerateMaximalLocales {
         { "und_Bopo", "zh_Bopo_TW" },
         { "und_Hani", "zh_Hani_CN" },
         { "und_Hani_CN", "zh_Hani_CN" },
+        { "und_Kana", "ja_Kana_JP" },
+        { "und_Kana_JP", "ja_Kana_JP" },
         { "und_Latn", "en_Latn_US" },
         { "und_Latn_ET", "en_Latn_ET" },
         { "und_Latn_NE", "ha_Latn_NE" },

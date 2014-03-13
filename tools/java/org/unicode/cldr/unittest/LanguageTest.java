@@ -90,9 +90,6 @@ public class LanguageTest extends TestFmwk {
     }
 
     public void TestThatLanguagesHaveScript() {
-        if (logKnownIssue("7007", "Fully populate language/script data")) {
-            return;
-        }
         Set<String> needTransfer = new LinkedHashSet<String>();
         LanguageTagParser parser = new LanguageTagParser();
         Map<String, Counter2<String>> scriptToLanguageCounter = new TreeMap<String, Counter2<String>>();

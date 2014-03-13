@@ -726,7 +726,6 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         { "sk", "Na {0}. križovatke odbočte doprava.", "1" },
         { "sl", "V {0}. križišču zavijte desno.", "1" },
         { "sq", "Merrni kthesën e {0}-rë në të djathtë.", "1" },
-        { "sq", "Merrni kthesën e {0}-rë në të djathtë.", "11" },
         { "sq", "Merrni kthesën e {0}-t në të djathtë.", "4" },
         { "sq", "Merrni kthesën e {0}-të në të djathtë.", "2" },
         { "sr", "Скрените у {0}. десно.", "1" },

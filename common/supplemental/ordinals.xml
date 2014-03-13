@@ -54,6 +54,11 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="many">i = 0 or i % 100 = 2..20,40,60,80 @integer 0, 2~16, 102, 1002, …</pluralRule>
             <pluralRule count="other"> @integer 21~36, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
+        <pluralRules locales="sq">
+            <pluralRule count="one">n = 1 @integer 1</pluralRule>
+            <pluralRule count="many">n % 10 = 4 and n % 100 != 14 @integer 4, 24, 34, 44, 54, 64, 74, 84, 104, 1004, …</pluralRule>
+            <pluralRule count="other"> @integer 0, 2, 3, 5~17, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
+        </pluralRules>
 
         <!-- 4: one,two,few,other -->
 
@@ -92,12 +97,6 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="few">i % 10 = 3,4 or i % 1000 = 100,200,300,400,500,600,700,800,900 @integer 3, 4, 13, 14, 23, 24, 33, 34, 43, 44, 53, 54, 63, 64, 73, 74, 100, 1003, …</pluralRule>
             <pluralRule count="many">i = 0 or i % 10 = 6 or i % 100 = 40,60,90 @integer 0, 6, 16, 26, 36, 40, 46, 56, 106, 1006, …</pluralRule>
             <pluralRule count="other"> @integer 9, 10, 19, 29, 30, 39, 49, 59, 69, 79, 109, 1000, 10000, 100000, 1000000, …</pluralRule>
-        </pluralRules>
-        <pluralRules locales="sq">
-            <pluralRule count="one">n = 1 @integer 1</pluralRule>
-            <pluralRule count="few">n % 10 = 1 and n != 1 or n % 100 = 14 @integer 11, 14, 21, 31, 41, 51, 61, 71, 101, 1001, …</pluralRule>
-            <pluralRule count="many">n % 10 = 4 and n % 100 != 14 @integer 4, 24, 34, 44, 54, 64, 74, 84, 104, 1004, …</pluralRule>
-            <pluralRule count="other"> @integer 0, 2, 3, 5~10, 12, 13, 15~19, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
 
         <!-- 5: one,two,few,many,other -->

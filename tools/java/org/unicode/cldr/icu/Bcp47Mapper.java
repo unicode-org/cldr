@@ -82,13 +82,13 @@ public class Bcp47Mapper {
             // ...
             if (qName.equals("key")) {
                 String keyAlias = null;
-                if(attr != null) {
+                if (attr != null) {
                     keyAlias = attr.getValue("alias");
                 }
-                if(keyAlias == null) {
+                if (keyAlias == null) {
                     keyAlias = attr.getValue("name");
-                    System.err.println(Bcp47Mapper.class.getSimpleName()+ " Note: BCP47 key " + keyAlias
-                                       +" didn't have the optional alias= value, mapping " + keyAlias +"->"+keyAlias);
+                    System.err.println(Bcp47Mapper.class.getSimpleName() + " Note: BCP47 key " + keyAlias
+                        + " didn't have the optional alias= value, mapping " + keyAlias + "->" + keyAlias);
                 }
                 keyAlias = keyAlias.toLowerCase();
                 typeAliasPrefix = "/typeAlias/" + keyAlias + '/';

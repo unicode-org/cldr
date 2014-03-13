@@ -55,7 +55,7 @@ public class TestSupplementalData {
 
     private static void showMultiZones() {
         // reverse the list
-        Relation<String, String> territoryToZones = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> territoryToZones = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class);
         for (String zone : supplementalData.getCanonicalZones()) {
             territoryToZones.put(supplementalData.getZone_territory(zone), zone);
         }
@@ -94,7 +94,7 @@ public class TestSupplementalData {
     }
 
     private static void checkPlurals() {
-        Relation<PluralInfo, String> pluralsToLocale = Relation.<PluralInfo, String>of(new HashMap<PluralInfo, Set<String>>(), TreeSet.class);
+        Relation<PluralInfo, String> pluralsToLocale = Relation.<PluralInfo, String> of(new HashMap<PluralInfo, Set<String>>(), TreeSet.class);
         for (String locale : new TreeSet<String>(supplementalData.getPluralLocales())) {
             PluralInfo pluralInfo = supplementalData.getPlurals(locale);
             System.out.println(locale + ":\t" + pluralInfo);
@@ -167,7 +167,7 @@ public class TestSupplementalData {
     }
 
     static void checkAgainstLanguageScript() {
-        Relation<String, String> otherTerritoryToLanguages = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
+        Relation<String, String> otherTerritoryToLanguages = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class, null);
         // get other language data
         for (String language : sc.getGoodAvailableCodes("language")) {
             Set<BasicLanguageData> newLanguageData = supplementalData.getBasicLanguageData(language);

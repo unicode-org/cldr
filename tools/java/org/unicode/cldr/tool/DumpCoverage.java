@@ -37,6 +37,6 @@ public class DumpCoverage {
         }
         out.close();
         long end_time = System.currentTimeMillis();
-        System.out.println(end_time-start_time+" ms elapsed...");
+        System.out.println(end_time - start_time + " ms elapsed...");
     }
 }

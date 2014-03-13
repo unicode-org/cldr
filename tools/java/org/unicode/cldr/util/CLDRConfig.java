@@ -30,32 +30,32 @@ public class CLDRConfig extends Properties {
     /**
      * Object to use for synchronization when interacting with Factory
      */
-    private static final Object CLDR_FACTORY_SYNC=new Object();
+    private static final Object CLDR_FACTORY_SYNC = new Object();
 
     /**
      * Object used for synchronization when interacting with SupplementalData
      */
-    private static final Object SUPPLEMENTAL_DATA_SYNC=new Object();
+    private static final Object SUPPLEMENTAL_DATA_SYNC = new Object();
 
     /**
      * Object used for synchronization in getCollator()
      */
-    private static final Object GET_COLLATOR_SYNC=new Object();
+    private static final Object GET_COLLATOR_SYNC = new Object();
 
     /**
      * Object to use for Synchronization in getRoot()
      */
-    private static final Object GET_ROOT_SYNC=new Object();
+    private static final Object GET_ROOT_SYNC = new Object();
 
     /**
      * Object to use for synchronization in getEnglish()
      */
-    private static final Object GET_ENGLISH_SYNC=new Object();
+    private static final Object GET_ENGLISH_SYNC = new Object();
 
     /**
      * Object used for synchronization in getStandardCodes()
      */
-    private static final Object GET_STANDARD_CODES_SYNC=new Object();
+    private static final Object GET_STANDARD_CODES_SYNC = new Object();
 
     public enum Environment {
         LOCAL, // < == unknown.
@@ -69,7 +69,7 @@ public class CLDRConfig extends Properties {
             if (INSTANCE == null) {
                 final String env = System.getProperty("CLDR_ENVIRONMENT");
                 if (env != null && env.equals(Environment.UNITTEST.name())) {
-                    if ( DEBUG  ) {
+                    if (DEBUG) {
                         System.err.println("-DCLDR_ENVIRONMENT=" + env + " - not loading " + SUBCLASS);
                     }
                 } else {
@@ -77,11 +77,11 @@ public class CLDRConfig extends Properties {
                         // System.err.println("Attempting to new up a " + SUBCLASS);
                         INSTANCE = (CLDRConfig) (Class.forName(SUBCLASS).newInstance());
 
-                        if(INSTANCE != null) {
+                        if (INSTANCE != null) {
                             System.err.println("Using CLDRConfig: " + INSTANCE.toString() + " - "
                                 + INSTANCE.getClass().getName());
                         } else {
-                            if( DEBUG ) {
+                            if (DEBUG) {
                                 // Probably occurred because ( config.getEnvironment() == Environment.UNITTEST )
                                 // see CLDRConfigImpl
                                 System.err.println("Note: CLDRConfig Subclass " +
@@ -99,7 +99,7 @@ public class CLDRConfig extends Properties {
             if (INSTANCE == null) {
                 INSTANCE = new CLDRConfig();
                 CldrUtility.checkValidDirectory(INSTANCE.getProperty("CLDR_DIR"),
-                                                "You have to set -DCLDR_DIR=<validdirectory>");
+                    "You have to set -DCLDR_DIR=<validdirectory>");
             }
         }
         return INSTANCE;
@@ -165,8 +165,6 @@ public class CLDRConfig extends Properties {
         return sc;
     }
 
-
-
     public Factory getCldrFactory() {
         synchronized (CLDR_FACTORY_SYNC) {
             if (cldrFactory == null) {
@@ -184,7 +182,6 @@ public class CLDRConfig extends Properties {
         }
         return supplementalFactory;
     }
-
 
     public CLDRFile getEnglish() {
         synchronized (GET_ENGLISH_SYNC) {
@@ -204,7 +201,6 @@ public class CLDRConfig extends Properties {
         }
         return root;
     }
-
 
     public Collator getCollator() {
         synchronized (GET_COLLATOR_SYNC) {
@@ -347,7 +343,7 @@ public class CLDRConfig extends Properties {
 
     public File getCldrBaseDirectory() {
         String dir = getProperty("CLDR_DIR", null);
-        if(dir!=null) {
+        if (dir != null) {
             return new File(dir);
         } else {
             return null;
@@ -380,7 +376,7 @@ public class CLDRConfig extends Properties {
         Set<File> list;
         list = new LinkedHashSet<File>();
         for (String subdir : getCLDRDataDirectories()) {
-            getFilesRecursively(new File(baseDir,subdir), filter, list);
+            getFilesRecursively(new File(baseDir, subdir), filter, list);
         }
         return list;
     }
@@ -422,7 +418,7 @@ public class CLDRConfig extends Properties {
         final File dir = getCldrBaseDirectory();
         String stubs[] = list.split(",");
         File[] ret = new File[stubs.length];
-        for(int i=0;i<stubs.length;i++) {
+        for (int i = 0; i < stubs.length; i++) {
             ret[i] = new File(dir, stubs[i]);
         }
         return ret;
@@ -433,7 +429,7 @@ public class CLDRConfig extends Properties {
      */
     public File[] getMainDataDirectories(File base[]) {
         File[] ret = new File[base.length];
-        for(int i=0;i<base.length;i++) {
+        for (int i = 0; i < base.length; i++) {
             ret[i] = new File(base[i], MAIN_DIR);
         }
         return ret;
@@ -448,10 +444,10 @@ public class CLDRConfig extends Properties {
      */
     public Set<File> getFilesRecursively(File directory, FilenameFilter filter, Set<File> toAddTo) {
         File files[] = directory.listFiles();
-        if(files!=null) {
+        if (files != null) {
             for (File subfile : files) {
                 if (subfile.isDirectory()) {
-                    if(!isJunkFile(subfile.getName())) {
+                    if (!isJunkFile(subfile.getName())) {
                         getFilesRecursively(subfile, filter, toAddTo);
                     }
                 } else if (filter.accept(directory, subfile.getName())) {

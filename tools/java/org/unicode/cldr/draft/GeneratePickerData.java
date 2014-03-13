@@ -152,8 +152,8 @@ class GeneratePickerData {
     final static Options myOptions = new Options();
 
     enum MyOptions {
-        output(".*", CLDRPaths.BASE_DIRECTORY + "tools/java/org/unicode/cldr/draft/picker/", 
-        "output data directory"),
+        output(".*", CLDRPaths.BASE_DIRECTORY + "tools/java/org/unicode/cldr/draft/picker/",
+            "output data directory"),
         unicodedata(null, CLDRPaths.UCD_DIRECTORY, "Unicode Data directory"),
         verbose(null, null, "verbose debugging messages"),
         korean(null, null, "generate korean hangul defectives instead"), ;
@@ -868,13 +868,12 @@ class GeneratePickerData {
 
         static final UnicodeSet DEPRECATED = new UnicodeSet("[:deprecated:]").freeze();
         static final UnicodeSet CONTROLS = new UnicodeSet("[[:cc:]]").freeze();
-        
+
         public String toString(boolean displayData, String localDataDirectory) throws FileNotFoundException,
             IOException {
             UnicodeSet missing = new UnicodeSet(0, 0x10FFFF).removeAll(Typology.SKIP)
                 .removeAll(DEPRECATED)
-                .removeAll(CONTROLS)
-                ;
+                .removeAll(CONTROLS);
             PrintWriter htmlChart = getFileWriter(localDataDirectory, "index.html");
             writeHtmlHeader(htmlChart, localDataDirectory, null, "main",
                 "p {font-size:100%; margin:0; margin-left:1em; text-indent:-1em;}");
@@ -1009,7 +1008,7 @@ class GeneratePickerData {
             return result.toString();
         }
 
-        private PrintWriter openChart(PrintWriter htmlChart, String localDataDirectory, 
+        private PrintWriter openChart(PrintWriter htmlChart, String localDataDirectory,
             String category, Set<String> set)
             throws IOException, FileNotFoundException {
             if (htmlChart != null) {
@@ -1162,7 +1161,7 @@ class GeneratePickerData {
                     int debug = 0;
                 }
                 String longName = ScriptCategories.TO_LONG_SCRIPT.transform(valueAlias);
-                CATEGORYTABLE.add(title, true, longName, 
+                CATEGORYTABLE.add(title, true, longName,
                     sortItems(sort, propertyAlias, longName), separation,
                     it.codepoint);
             }
@@ -1746,7 +1745,7 @@ class GeneratePickerData {
 
     private static void addEmojiCharacters() throws IOException {
         File emojiSources = new File(unicodeDataDirectory + "/EmojiSources.txt"); // Needs fixing for release vs
-                                                                                          // non-released directory
+                                                                                  // non-released directory
         FileInputStream fis = new FileInputStream(emojiSources);
         BufferedReader in = new BufferedReader(new InputStreamReader(fis, "UTF-8"));
         UnicodeSet emojiCharacters = new UnicodeSet();

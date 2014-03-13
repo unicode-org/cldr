@@ -41,7 +41,7 @@ public class PathHeader implements Comparable<PathHeader> {
     /**
      * Link to a section. Commenting out the page switch for now.
      */
-    public static final String SECTION_LINK = "<a " + /* "target='CLDR_ST-SECTION' "+*/ "href='";
+    public static final String SECTION_LINK = "<a " + /* "target='CLDR_ST-SECTION' "+*/"href='";
     static boolean UNIFORM_CONTINENTS = true;
     static Factory factorySingleton = null;
 
@@ -200,8 +200,8 @@ public class PathHeader implements Comparable<PathHeader> {
         Version(SectionId.Special),
         Suppress(SectionId.Special),
         Deprecated(SectionId.Special),
-        Unknown(SectionId.Special), 
-        C_NAmerica(SectionId.Currencies, "North America (C)"),     //need to add (C) to differentiate from Timezone territories
+        Unknown(SectionId.Special),
+        C_NAmerica(SectionId.Currencies, "North America (C)"), //need to add (C) to differentiate from Timezone territories
         C_SAmerica(SectionId.Currencies, "South America (C)"),
         C_Europe(SectionId.Currencies, "Europe (C)"),
         C_NWAfrica(SectionId.Currencies, "Northern/Western Africa (C)"),
@@ -209,8 +209,7 @@ public class PathHeader implements Comparable<PathHeader> {
         C_WCAsia(SectionId.Currencies, "Western/Central Asia (C)"),
         C_SEAsia(SectionId.Currencies, "Eastern/Southern Asia (C)"),
         C_Oceania(SectionId.Currencies, "Oceania (C)"),
-        C_Unknown(SectionId.Currencies, "Unknown Region (C)"),
-        ;
+        C_Unknown(SectionId.Currencies, "Unknown Region (C)"), ;
 
         private final SectionId sectionId;
 
@@ -1214,7 +1213,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 { "ZRN", "CD" },
                 { "ZRZ", "CD" },
             };
-            
+
             Object[][] sctc = {
                 { "Northern America", "North America (C)" },
                 { "Central America", "North America (C)" },
@@ -1284,8 +1283,8 @@ public class PathHeader implements Comparable<PathHeader> {
                     } else {
                         subContinent = catFromTerritory.transform(territory);
                     }
-                    
-                    return subContinentToContinent.get(subContinent);   //the continent is the last word in the territory representation
+
+                    return subContinentToContinent.get(subContinent); //the continent is the last word in the territory representation
                 }
             });
             functionMap.put("numberingSystem", new Transform<String, String>() {
@@ -1510,7 +1509,7 @@ public class PathHeader implements Comparable<PathHeader> {
     public String getUrl(String baseUrl, String locale) {
         return getUrl(baseUrl, locale, getOriginalPath());
     }
-    
+
     /**
      * Map http://st.unicode.org/smoketest/survey  to http://st.unicode.org/smoketest etc
      * @param str
@@ -1518,17 +1517,17 @@ public class PathHeader implements Comparable<PathHeader> {
      */
     public static String trimLast(String str) {
         int n = str.lastIndexOf('/');
-        if(n==-1) return "";
-        return str.substring(0,n+1);
+        if (n == -1) return "";
+        return str.substring(0, n + 1);
     }
 
     public static String getUrl(String baseUrl, String locale, String path) {
-        return trimLast(baseUrl)+"v#/"+locale+"//"+ StringId.getHexId(path);
+        return trimLast(baseUrl) + "v#/" + locale + "//" + StringId.getHexId(path);
     }
 
     // eg http://st.unicode.org/cldr-apps/survey?_=fr&x=Locale%20Name%20Patterns
     public static String getPageUrl(String baseUrl, String locale, PageId subsection) {
-        return trimLast(baseUrl)+"v#/"+locale+"/"+ subsection + "/";
+        return trimLast(baseUrl) + "v#/" + locale + "/" + subsection + "/";
     }
 
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {

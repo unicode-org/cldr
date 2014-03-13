@@ -21,8 +21,8 @@ public class GenerateTransformTest extends TestFmwk {
             Transliterator trans = Transliterator.getInstance("Georgian-Latin");
             UnicodeSet sourceSet = trans.getSourceSet();
             for (UnicodeSetIterator it = new UnicodeSetIterator(sourceSet); it.next();) {
-            String source = it.getString();
-            gen.add(source, trans.transform(source));
+                String source = it.getString();
+                gen.add(source, trans.transform(source));
             }
             gen.addFallback("{c}[iey]", "s");
             gen.addFallback("c", "k");

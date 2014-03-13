@@ -107,7 +107,7 @@ public class GenerateKaraList {
             log.println("\t<entry>");
             log.println("\t\t<hdterm>" + TransliteratorUtilities.toXML.transliterate(ename) + "</hdterm>\t<!-- "
                 + TransliteratorUtilities.toXML.transliterate(CLDRFile.getNameName(choice)) + ": " + id + " -->"); // English
-                                                                                                                  // name
+                                                                                                                   // name
             log.println("\t\t<hom>");
             log.println("\t\t\t<epos>n</epos>"); // this is the part of speech value. It is fixed.
             log.println("\t\t\t<sense>");

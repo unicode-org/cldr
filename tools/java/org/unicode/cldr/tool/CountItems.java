@@ -296,7 +296,7 @@ public class CountItems {
         Map<String, Set<String>> new_old = new TreeMap<String, Set<String>>();
 
         for (Iterator<String> it = old_new.keySet().iterator(); it.hasNext();) {
-            String old =  it.next();
+            String old = it.next();
             String newOne = (String) old_new.get(old);
             Set<String> oldSet = (Set<String>) new_old.get(newOne);
             if (oldSet == null)

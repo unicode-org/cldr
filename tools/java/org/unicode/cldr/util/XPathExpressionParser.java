@@ -35,10 +35,10 @@ import org.xml.sax.SAXException;
  */
 public class XPathExpressionParser {
 
-   /**
-    * Buffer which holds the contents to work on, initialized once, when it is read from file. Preferred over
-    * private final File f, to prevent re-reading the file on every request
-    */
+    /**
+     * Buffer which holds the contents to work on, initialized once, when it is read from file. Preferred over
+     * private final File f, to prevent re-reading the file on every request
+     */
     private final byte[] buf;
 
     /**
@@ -48,66 +48,69 @@ public class XPathExpressionParser {
      * @param <G>
      */
     public static interface SimpleContentHandlingInterface<G> {
-        
+
         void handle(G result);
     }
+
     /**
      * Interface for handling Nodes/NodeSets; in the case of NodeSets call will be made for each node separately
      * @author ribnitz
      *
      */
-    
+
     public static interface NodeHandlingInterface extends SimpleContentHandlingInterface<Node> {
-        
+
     }
 
     private Document getDocument(InputStream is) throws SAXException, IOException {
-        DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
             return dbf.newDocumentBuilder().parse(is);
         } catch (ParserConfigurationException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        } 
+        }
         return null;
     }
+
     /**
      * Initialize by reading the file specified
      * @param f
      * @throws IOException
      */
     public XPathExpressionParser(File f) throws IOException {
-       buf=Files.readAllBytes(f.toPath());
+        buf = Files.readAllBytes(f.toPath());
     }
-    
+
     /**
      * Create an expression parser using the Reader given
      * @param rdr
      * @throws IOException
      */
     public XPathExpressionParser(Reader rdr) throws IOException {
-        StringBuilder sb=new StringBuilder();
-        try (BufferedReader br=new BufferedReader(rdr)) {
-            String s=null;
-            while ((s=br.readLine())!=null) {
+        StringBuilder sb = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(rdr)) {
+            String s = null;
+            while ((s = br.readLine()) != null) {
                 sb.append(s);
             }
         }
-        buf=sb.toString().getBytes();
+        buf = sb.toString().getBytes();
     }
-    
+
     @SuppressWarnings({ "rawtypes", "unchecked" })
-    private void evaluateWithXPathFixture(String xPathString,QName expectedResult, boolean iterate, SimpleContentHandlingInterface handler) throws XPathExpressionException {
-        if ( handler!=null) {
-            try (InputStream is=new BufferedInputStream(new ByteArrayInputStream(buf))) {
-                Document doc=getDocument(is);
-                XPathFactory xpFact=XPathFactory.newInstance();
-                XPath xp=xpFact.newXPath();
-                Object result=xp.compile(xPathString).evaluate(doc,expectedResult);
-                if (expectedResult==XPathConstants.NODESET && iterate) {
+    private void evaluateWithXPathFixture(String xPathString, QName expectedResult, boolean iterate, SimpleContentHandlingInterface handler)
+        throws XPathExpressionException {
+        if (handler != null) {
+            try (InputStream is = new BufferedInputStream(new ByteArrayInputStream(buf))) {
+                Document doc = getDocument(is);
+                XPathFactory xpFact = XPathFactory.newInstance();
+                XPath xp = xpFact.newXPath();
+                Object result = xp.compile(xPathString).evaluate(doc, expectedResult);
+                if (expectedResult == XPathConstants.NODESET && iterate) {
                     if (result instanceof NodeList) {
-                        NodeList nl=(NodeList)result;
-                        Iterator<Node> nlIter=new NodeListIterator(nl);
+                        NodeList nl = (NodeList) result;
+                        Iterator<Node> nlIter = new NodeListIterator(nl);
                         while (nlIter.hasNext()) {
                             handler.handle(nlIter.next());
                         }
@@ -115,13 +118,13 @@ public class XPathExpressionParser {
                 } else {
                     handler.handle(result);
                 }
-            }  catch (IOException e) {
+            } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             } catch (SAXException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
-            } 
+            }
         }
     }
 
@@ -132,10 +135,10 @@ public class XPathExpressionParser {
      * @param handler
      * @throws XPathException 
      */
-    public void evaluate(String xPathString,QName expectedResult,  SimpleContentHandlingInterface<?> handler) throws XPathException {
-       evaluateWithXPathFixture(xPathString, expectedResult, false, handler);
+    public void evaluate(String xPathString, QName expectedResult, SimpleContentHandlingInterface<?> handler) throws XPathException {
+        evaluateWithXPathFixture(xPathString, expectedResult, false, handler);
     }
-    
+
     /**
      * Evaluate this xPathString, and feed the result to the handler. The result is assumed to be a Node.
      * @param xPathString
@@ -143,8 +146,9 @@ public class XPathExpressionParser {
      * @throws XPathException 
      */
     public void evaluateToNode(String xPathString, NodeHandlingInterface handler) throws XPathException {
-        iterate(xPathString,XPathConstants.NODE,handler);
+        iterate(xPathString, XPathConstants.NODE, handler);
     }
+
     /**
      * Internal method that gets the ResultSet identified by the xPathString, and that calls the 
      * handler for each node. 
@@ -153,7 +157,7 @@ public class XPathExpressionParser {
      * @throws XPathException 
      */
     public void iterate(String xPathString, QName expectedReturnType, NodeHandlingInterface handler) throws XPathException {
-        evaluateWithXPathFixture(xPathString,expectedReturnType,true,handler);
+        evaluateWithXPathFixture(xPathString, expectedReturnType, true, handler);
     }
 
     /**
@@ -164,7 +168,7 @@ public class XPathExpressionParser {
      * @param handler
      * @throws XPathException 
      */
-    public void iterateThroughNodeSet(String xPathExpression,NodeHandlingInterface handler) throws XPathException {
+    public void iterateThroughNodeSet(String xPathExpression, NodeHandlingInterface handler) throws XPathException {
         iterate(xPathExpression, XPathConstants.NODESET, handler);
     }
 }

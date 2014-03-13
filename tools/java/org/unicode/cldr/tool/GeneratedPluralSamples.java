@@ -599,15 +599,16 @@ public class GeneratedPluralSamples {
                 sorted.add(entry);
             }
             Set<String> oldKeywords = Collections.EMPTY_SET;
-            Relation<GeneratedPluralSamples, PluralInfo> samplesToPlurals = Relation.of(new LinkedHashMap<GeneratedPluralSamples, Set<PluralInfo>>(), LinkedHashSet.class);
+            Relation<GeneratedPluralSamples, PluralInfo> samplesToPlurals = Relation.of(new LinkedHashMap<GeneratedPluralSamples, Set<PluralInfo>>(),
+                LinkedHashSet.class);
             for (Entry<PluralInfo, Set<String>> entry : sorted) {
                 PluralInfo pluralInfo = entry.getKey();
                 Set<String> equivalentLocales = entry.getValue();
-                
+
                 CHECK_VALUE = equivalentLocales.contains("pt"); // for debugging
-                
+
                 String representative = equivalentLocales.iterator().next();
-                
+
                 PluralRules pluralRules = pluralInfo.getPluralRules();
                 Set<String> keywords = pluralRules.getKeywords();
 

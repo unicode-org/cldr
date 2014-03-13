@@ -129,7 +129,7 @@ public class ListNumbers {
         try (InputStream is = InputStreamFactory.createInputStream(new File(file));
             Reader reader = new InputStreamReader(is, "UTF-8");) {
 //            InputStream is = new FileInputStream(file);
-           
+
             char[] buffer = new char[is.available() + 1];
             int i = reader.read(buffer);
 //            reader.close();

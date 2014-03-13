@@ -31,7 +31,7 @@ import java.util.Map;
  * 
  * @author srl
  */
-@CLDRTool(alias="test.stacktracker",description="Test for StackTracker",hidden="test")
+@CLDRTool(alias = "test.stacktracker", description = "Test for StackTracker", hidden = "test")
 public class StackTracker implements Iterable<Object> {
     private Hashtable<Object, String> stacks = new Hashtable<Object, String>();
 

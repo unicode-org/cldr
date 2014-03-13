@@ -61,7 +61,7 @@ public class CheckHtmlFiles {
         System.out.println("First do a replace of <a\\s+name=\"([^\"]*)\"\\s*> by <a name=\"$1\" href=\"#$1\">");
         System.out.println("Then check for all links with no anchors: <a([^>]*)></a>");
         System.out.println("Then check for all links that don't start with name or href <a (?!href|name)");
-        
+
         myOptions.parse(MyOptions.target, args, true);
         verbose = MyOptions.verbose.option.doesOccur();
 
@@ -71,7 +71,7 @@ public class CheckHtmlFiles {
 //        }
 //        Data source = new Data().getSentences(MyOptions.old.option.getValue());
 //        String file = MyOptions.target.option.getValue();
-        
+
 //        Data target = new Data().getSentences(file);
 
 //        int missingCount = 0, extraCount = 0;
@@ -101,7 +101,7 @@ public class CheckHtmlFiles {
 
     static Pattern WHITESPACE = Pattern.compile("[\\s]+");
     static Pattern BADSECTION = Pattern.compile("^\\s*(\\d+\\s*)?Section\\s*\\d+\\s*[-:]\\s*");
-    
+
     static final Set<String> FORCEBREAK = new HashSet<String>();
     static {
         FORCEBREAK.addAll(Arrays.asList("table", "div", "blockquote",
@@ -255,7 +255,7 @@ public class CheckHtmlFiles {
             text += toAppend;
             text = SPACES.matcher(text).replaceAll(" ").trim(); // clean up all spaces; make more efficient later
         }
-        
+
         public boolean isContents() {
             return text.toString().startsWith("Contents");
         }
@@ -314,7 +314,7 @@ public class CheckHtmlFiles {
 
         public HeadingInfoList(int h2_START) {
             lastBuildLevel = new Levels(h2_START);
-            }
+        }
 
         public boolean add(HeadingInfo h) {
             if (SUPPRESS_REVISION.matcher(h.text).matches()) {
@@ -528,7 +528,7 @@ public class CheckHtmlFiles {
                         contentString = wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
                         buffer.append(contentString.indexOf('&') >= 0
                             ? TransliteratorUtilities.fromHTML.transform(contentString)
-                                : contentString);
+                            : contentString);
                         if (inHeading) {
                             heading.addText(contentString);
                         }

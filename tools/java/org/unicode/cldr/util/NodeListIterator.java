@@ -23,25 +23,25 @@ public class NodeListIterator implements Iterator<Node> {
      * Since node lists are indexed by position, the current
      * position
      */
-    private int currentPos=0;
+    private int currentPos = 0;
+
     public NodeListIterator(NodeList aNodeList) {
-        nodeList=aNodeList;
+        nodeList = aNodeList;
     }
-    
+
     @Override
     public boolean hasNext() {
-        return (currentPos<nodeList.getLength());
+        return (currentPos < nodeList.getLength());
     }
-    
+
     @Override
     public Node next() {
-       return nodeList.item(currentPos++);
+        return nodeList.item(currentPos++);
     }
-    
+
     @Override
     public void remove() {
-        throw new UnsupportedOperationException("This iterator does not support item removal");     
+        throw new UnsupportedOperationException("This iterator does not support item removal");
     }
-   
-    
+
 }

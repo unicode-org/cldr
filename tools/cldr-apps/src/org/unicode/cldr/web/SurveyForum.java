@@ -420,7 +420,7 @@ public class SurveyForum {
             // is this a reply? get base xpath from parent item.
             base_xpath = DBUtils.sqlCount("select xpath from " + DBUtils.Table.FORUM_POSTS + " where id=?", replyTo); // default to -1
         }
-        final CLDRLocale locale =  ctx.getLocale();
+        final CLDRLocale locale = ctx.getLocale();
         // if(postToXpath!=-1) base_xpath = postToXpath;
         String xpath = sm.xpt.getById(base_xpath);
 
@@ -462,11 +462,11 @@ public class SurveyForum {
                 Integer postId;
                 final boolean couldFlagOnLosing = couldFlagOnLosing(ctx, xpath, ctx.getLocale()) && !sm.getSTFactory().getFlag(locale, base_xpath);
 
-                if(couldFlagOnLosing) {
+                if (couldFlagOnLosing) {
                     text = text + " <p>[This item was flagged for CLDR TC review.]";
                 }
                 final UserRegistry.User user = ctx.session.user;
-                
+
                 postId = doPostInternal(forum, forumNumber, base_xpath, replyTo, locale, subj, text, couldFlagOnLosing, user);
 
                 // Apparently, it posted.
@@ -580,7 +580,8 @@ public class SurveyForum {
                     conn = sm.dbUtils.getDBConnection();
 
                     Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                        + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =?) ORDER BY " + DBUtils.Table.FORUM_POSTS.toString()
+                        + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =?) ORDER BY "
+                        + DBUtils.Table.FORUM_POSTS.toString()
                         + ".last_time DESC", forumNumber, base_xpath);
 
                     // private final static String pAllResult =
@@ -679,18 +680,18 @@ public class SurveyForum {
                 pAdd.setString(3, preparePostText(text));
                 pAdd.setInt(4, forumNumber);
                 pAdd.setInt(5, replyTo); // record parent
-                pAdd.setString(6,locale.toString()); // real
-                                                               // locale
-                                                               // of
-                                                               // item,
-                                                               // not
-                                                               // furm #
+                pAdd.setString(6, locale.toString()); // real
+                                                      // locale
+                                                      // of
+                                                      // item,
+                                                      // not
+                                                      // furm #
                 pAdd.setInt(7, base_xpath);
 
                 int n = pAdd.executeUpdate();
-                if(couldFlagOnLosing) {
+                if (couldFlagOnLosing) {
                     sm.getSTFactory().setFlag(conn, locale, base_xpath, user);
-                    System.out.println("NOTE: flag was set on " + locale + " " + base_xpath+ " by " + user.toString());
+                    System.out.println("NOTE: flag was set on " + locale + " " + base_xpath + " by " + user.toString());
                 }
                 conn.commit();
                 postId = DBUtils.getLastId(pAdd);
@@ -880,21 +881,20 @@ public class SurveyForum {
         WebContext ctx = new WebContext(baseCtx);
         ctx.setLocale(locale);
         boolean isFlagged = sm.getSTFactory().getFlag(locale, base_xpath);
-        if(isFlagged) {
+        if (isFlagged) {
             ctx.print(ctx.iconHtml("flag", "flag icon"));
             ctx.println("<i>This item is already flagged for CLDR technical committee review.</i>");
             ctx.println("<br>");
         } else {
-            boolean couldFlagOnLosing =  couldFlagOnLosing(baseCtx, xpath, locale);
-            if(couldFlagOnLosing) {
+            boolean couldFlagOnLosing = couldFlagOnLosing(baseCtx, xpath, locale);
+            if (couldFlagOnLosing) {
                 ctx.print(ctx.iconHtml("flag", "flag icon"));
                 ctx.println("<i>Posting this item will flag it for CLDR technical committee review.</i>");
                 ctx.println("<br>");
             }
         }
         ctx.println("<i>Note: item cannot be shown here. Click \"View Item\" once the item is posted.</i>");
-        
-        
+
         //        ctx.println("       <div id='DynamicDataSection'><noscript>" + ctx.iconHtml("stop", "sorry")
         //                + "JavaScript is required.</noscript></div>      " + " <script type='text/javascript'>   "
         //                + "surveyCurrentLocale='" + locale + "';\n" + "showRows BROKEN('DynamicDataSection', '" + xpath + "', '"
@@ -946,13 +946,13 @@ public class SurveyForum {
      * @return
      */
     public boolean couldFlagOnLosing(WebContext baseCtx, String xpath, CLDRLocale locale) {
-        if(sm.supplementalDataInfo.getRequiredVotes(locale, sm.getSTFactory().getPathHeader(xpath)) == VoteResolver.HIGH_BAR) {
+        if (sm.supplementalDataInfo.getRequiredVotes(locale, sm.getSTFactory().getPathHeader(xpath)) == VoteResolver.HIGH_BAR) {
             BallotBox<User> bb = sm.getSTFactory().ballotBoxForLocale(locale);
-            if(bb.userDidVote(baseCtx.session.user, xpath)) {
+            if (bb.userDidVote(baseCtx.session.user, xpath)) {
                 VoteResolver<String> vr = bb.getResolver(xpath);
                 String winningValue = vr.getWinningValue();
                 String userValue = bb.getVoteValue(baseCtx.session.user, xpath);
-                if(userValue!=null&&!userValue.equals(winningValue)) {
+                if (userValue != null && !userValue.equals(winningValue)) {
                     return true;
                 }
             }
@@ -1143,7 +1143,7 @@ public class SurveyForum {
         }
         if (xpath != -1) {
             boolean isFlagged = sm.getSTFactory().getFlag(loc, xpath);
-            if(isFlagged) {
+            if (isFlagged) {
                 ctx.print(ctx.iconHtml("flag", "flag icon"));
             }
             ctx.println("<span class='reply'><a href='" + forumItemUrl(ctx, loc, xpath) + "'>View Item</a></span> * ");
@@ -1422,7 +1422,6 @@ public class SurveyForum {
     // }
     // return ps;
     // }
-
 
     public static PreparedStatement prepare_fGetById(Connection conn) throws SQLException {
         return DBUtils.prepareStatement(conn, "fGetById", "SELECT loc FROM " + DB_FORA + " where id=?");
@@ -1966,7 +1965,8 @@ public class SurveyForum {
                 conn = sm.dbUtils.getDBConnection();
 
                 Object[][] o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                    + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =?) ORDER BY " + DBUtils.Table.FORUM_POSTS.toString()
+                    + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =?) ORDER BY "
+                    + DBUtils.Table.FORUM_POSTS.toString()
                     + ".last_time DESC", forumNumber, base_xpath);
 
                 // private final static String pAllResult =
@@ -2008,7 +2008,8 @@ public class SurveyForum {
      * @return the pallresult
      */
     private static String getPallresult() {
-        return DBUtils.Table.FORUM_POSTS + ".poster," + DBUtils.Table.FORUM_POSTS + ".subj," + DBUtils.Table.FORUM_POSTS + ".text," + DBUtils.Table.FORUM_POSTS.toString()
+        return DBUtils.Table.FORUM_POSTS + ".poster," + DBUtils.Table.FORUM_POSTS + ".subj," + DBUtils.Table.FORUM_POSTS + ".text,"
+            + DBUtils.Table.FORUM_POSTS.toString()
             + ".last_time," + DBUtils.Table.FORUM_POSTS + ".id," + DBUtils.Table.FORUM_POSTS + ".forum," + DB_FORA + ".loc";
     }
 
@@ -2016,7 +2017,8 @@ public class SurveyForum {
      * @return the pallresultfora
      */
     private static String getPallresultfora() {
-        return  DBUtils.Table.FORUM_POSTS + ".poster," + DBUtils.Table.FORUM_POSTS + ".subj," + DBUtils.Table.FORUM_POSTS + ".text," + DBUtils.Table.FORUM_POSTS.toString()
+        return DBUtils.Table.FORUM_POSTS + ".poster," + DBUtils.Table.FORUM_POSTS + ".subj," + DBUtils.Table.FORUM_POSTS + ".text,"
+            + DBUtils.Table.FORUM_POSTS.toString()
             + ".last_time," + DBUtils.Table.FORUM_POSTS + ".id";
     }
 }

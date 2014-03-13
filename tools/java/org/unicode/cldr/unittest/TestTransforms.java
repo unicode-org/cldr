@@ -235,7 +235,9 @@ public class TestTransforms extends TestFmwkPlus {
         }
     }
 
-    enum Casing {Upper, Title, Lower}
+    enum Casing {
+        Upper, Title, Lower
+    }
 
     public void TestCasing() {
         register();
@@ -274,10 +276,17 @@ public class TestTransforms extends TestFmwkPlus {
         ULocale ulocale = new ULocale(locale);
         String specialCasing;
         switch (casing) {
-        case Upper: specialCasing = UCharacter.toUpperCase(ulocale, source); break;
-        case Title: specialCasing = UCharacter.toTitleCase(ulocale, source, null); break;
-        case Lower: specialCasing = UCharacter.toLowerCase(ulocale, source); break;
-        default: throw new IllegalArgumentException();
+        case Upper:
+            specialCasing = UCharacter.toUpperCase(ulocale, source);
+            break;
+        case Title:
+            specialCasing = UCharacter.toTitleCase(ulocale, source, null);
+            break;
+        case Lower:
+            specialCasing = UCharacter.toLowerCase(ulocale, source);
+            break;
+        default:
+            throw new IllegalArgumentException();
         }
         if (sameAsSpecialCasing) {
             if (!assertEquals(locale + "-" + casing + " Vs SpecialCasing", specialCasing, result)) {
@@ -305,7 +314,7 @@ public class TestTransforms extends TestFmwkPlus {
             if (aChar == bChar) {
                 buffer.append(aChar);
             } else {
-                errln("\t" + buffer + "\n\t\t" + titleA + "\t" + Utility.hex(a.substring(i)) 
+                errln("\t" + buffer + "\n\t\t" + titleA + "\t" + Utility.hex(a.substring(i))
                     + "\n\t\t" + titleB + "\t" + Utility.hex(b.substring(i)));
                 return;
             }

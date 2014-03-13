@@ -41,11 +41,11 @@ public class GenerateCoverageLevels {
     private static int SHOW_EXAMPLES = 5;
     private static final String FILES = ".*";
     private static final String MAIN_DIRECTORY = CLDRPaths.MAIN_DIRECTORY;// CldrUtility.SUPPLEMENTAL_DIRECTORY;
-                                                                            // //CldrUtility.MAIN_DIRECTORY;
+                                                                          // //CldrUtility.MAIN_DIRECTORY;
     private static final String COLLATION_DIRECTORY = CLDRPaths.COMMON_DIRECTORY + "/collation/";// CldrUtility.SUPPLEMENTAL_DIRECTORY;
-                                                                                                   // //CldrUtility.MAIN_DIRECTORY;
+                                                                                                 // //CldrUtility.MAIN_DIRECTORY;
     private static final String RBNF_DIRECTORY = CLDRPaths.COMMON_DIRECTORY + "/rbnf/";// CldrUtility.SUPPLEMENTAL_DIRECTORY;
-                                                                                         // //CldrUtility.MAIN_DIRECTORY;
+                                                                                       // //CldrUtility.MAIN_DIRECTORY;
     private static final String OUT_DIRECTORY = CLDRPaths.GEN_DIRECTORY + "/coverage/"; // CldrUtility.MAIN_DIRECTORY;
     private static final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
     private static final Comparator<String> attributeComparator = CLDRFile.getAttributeOrdering();

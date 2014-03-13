@@ -116,7 +116,7 @@ public class TestSupplementalInfo extends TestFmwk {
                         }
                         lastSample = sample;
                     }
-                }    
+                }
             }
         }
     }
@@ -144,7 +144,7 @@ public class TestSupplementalInfo extends TestFmwk {
             for (Count count : Count.values()) {
                 if (pluralRanges.isExplicitlySet(count) && !counts.contains(count)) {
                     assertTrue(locale + "\t pluralRanges categories must be valid for locale:\t"
-                        + count + " must be in " + counts, 
+                        + count + " must be in " + counts,
                         !pluralRanges.isExplicitlySet(count));
                 }
                 for (Count end : Count.values()) {
@@ -208,6 +208,7 @@ public class TestSupplementalInfo extends TestFmwk {
             checkPluralSamples(row);
         }
     }
+
     public void TestPluralSamples2() {
         for (ULocale locale : PluralRulesFactory.getLocales()) {
             if (locale.toString().equals("und")) {
@@ -216,30 +217,29 @@ public class TestSupplementalInfo extends TestFmwk {
             final SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(locale);
             for (PluralRules.PluralType type : PluralRules.PluralType.values()) {
                 PluralInfo rules = SUPPLEMENTAL.getPlurals(
-                    SupplementalDataInfo.PluralType.fromStandardType(type), 
+                    SupplementalDataInfo.PluralType.fromStandardType(type),
                     locale.toString());
                 for (Count count : rules.getCounts()) {
                     String sample = samplePatterns.get(type, count);
                     if (sample == null) {
-                        if (type == PluralRules.PluralType.ORDINAL 
+                        if (type == PluralRules.PluralType.ORDINAL
                             && logKnownIssue("cldrbug:7075", "missing ordinal minimal pair")) {
                             continue;
                         }
-                        assertNotNull("Missing sample for " + locale + ", " + type + ", " + count, sample); 
+                        assertNotNull("Missing sample for " + locale + ", " + type + ", " + count, sample);
                     } else {
                         PluralRules pRules = rules.getPluralRules();
                         double unique = pRules.getUniqueKeywordValue(count.toString());
-                        if (unique == PluralRules.NO_UNIQUE_VALUE 
+                        if (unique == PluralRules.NO_UNIQUE_VALUE
                             && !sample.contains("{0}")) {
                             errln("Missing {0} in sample: " + locale + ", " + type + ", " + count
-                                + " «" + sample + "»");                   
+                                + " «" + sample + "»");
                         }
                     }
                 }
             }
         }
     }
-
 
     public void checkPluralSamples(String... row) {
         PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(PluralType.valueOf(row[1]), row[0]);
@@ -356,8 +356,8 @@ public class TestSupplementalInfo extends TestFmwk {
             { "cy", "zero", "0" }, // n is 0
             { "ksh", "zero", "0" }, // n is 0
             { "lag", "zero", "0" }, // n is 0
-            { "pt", "one", "0"}, // i = 1 and v = 0 or i = 0 and t = 1
-            { "pt_PT", "one", "0"},  // n = 1 and v = 0 
+            { "pt", "one", "0" }, // i = 1 and v = 0 or i = 0 and t = 1
+            { "pt_PT", "one", "0" }, // n = 1 and v = 0 
             { "ar", "two", "0" }, // n is 2
             { "cy", "two", "0" }, // n is 2
             { "ga", "two", "0" }, // n is 2
@@ -378,8 +378,8 @@ public class TestSupplementalInfo extends TestFmwk {
             { "lv", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100 is not 11 or v is 2 and f mod 10 is 1 and f mod 100 is not 11 or v is not 2 and f mod 10 is 1
             { "br", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100 not in 11,71,91
             { "lt", "one", "0,00,000,0000" }, // n mod 10 is 1 and n mod 100 not in 11..19
-            {"fil", "one", "0,00,000,0000"},    // v = 0 and i = 1,2,3 or v = 0 and i % 10 != 4,6,9 or v != 0 and f % 10 != 4,6,9
-            {"tl", "one", "0,00,000,0000"}, // v = 0 and i = 1,2,3 or v = 0 and i % 10 != 4,6,9 or v != 0 and f % 10 != 4,6,9
+            { "fil", "one", "0,00,000,0000" }, // v = 0 and i = 1,2,3 or v = 0 and i % 10 != 4,6,9 or v != 0 and f % 10 != 4,6,9
+            { "tl", "one", "0,00,000,0000" }, // v = 0 and i = 1,2,3 or v = 0 and i % 10 != 4,6,9 or v != 0 and f % 10 != 4,6,9
         };
         // parse out the exceptions
         Map<PluralInfo, Relation<Count, Integer>> exceptions = new HashMap<PluralInfo, Relation<Count, Integer>>();
@@ -435,7 +435,7 @@ public class TestSupplementalInfo extends TestFmwk {
                     String countRules = plurals.getPluralRules().getRules(c.toString());
                     ruleToExceptions.put(
                         countRules == null ? "" : countRules,
-                            "{\"" + locale + "\", \"" + c + "\", \"" + CollectionUtilities.join(compose, ",") + "\"},");
+                        "{\"" + locale + "\", \"" + c + "\", \"" + CollectionUtilities.join(compose, ",") + "\"},");
                 }
             }
         }
@@ -1021,7 +1021,7 @@ public class TestSupplementalInfo extends TestFmwk {
             TreeSet.class);
         Set<String> territoriesWithoutModernCurrencies = new TreeSet<String>(STANDARD_CODES
             .getGoodAvailableCodes(
-                "territory"));
+            "territory"));
         Map<String, Date> currencyFirstValid = new TreeMap<String, Date>();
         Map<String, Date> currencyLastValid = new TreeMap<String, Date>();
         territoriesWithoutModernCurrencies.remove("ZZ");
@@ -1302,8 +1302,8 @@ public class TestSupplementalInfo extends TestFmwk {
                 }
                 for (Entry<String, Set<Count>> entry : samplesToCounts.keyValuesSet()) {
                     if (entry.getValue().size() != 1) {
-                        errOrLog(needsCoverage, ulocale + "\t" + type 
-                            + "\t duplicate samples: " + entry.getValue() 
+                        errOrLog(needsCoverage, ulocale + "\t" + type
+                            + "\t duplicate samples: " + entry.getValue()
                             + " => «" + entry.getKey() + "»");
                     }
                 }
@@ -1314,7 +1314,7 @@ public class TestSupplementalInfo extends TestFmwk {
     static final boolean SHOW_KNOWN_ERROR = false;
 
     public void errOrLog(boolean causeError, String message) {
-        if (causeError && 
+        if (causeError &&
             (SHOW_KNOWN_ERROR || !logKnownIssue("Cldrbug:6290", "Fix this once we have all ordinal messages."))) {
             errln(message);
         } else {

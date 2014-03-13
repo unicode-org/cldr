@@ -29,7 +29,7 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
         boolean d = rules.computeLimited("one", SampleType.DECIMAL);
         System.out.println(i + ", " + d);
     }
-    
+
     public void TestFilipino() {
         /*
         <pluralRules locales="am bn fa gu hi kn mr zu">
@@ -39,17 +39,15 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
          */
         PluralRules rules = PluralRules.createRules("one:v = 0 and i = 1,2,3 or v = 0 and i % 10 != 4,6,9 or v != 0 and f % 10 != 4,6,9");
         Object[][] test = {
-            {1, "one"},
-            {3, "one"},
-            {5, "one"},
-            {15, "one"},
-            {4.5, "one"},
-            {4, "other"},
-            {1.4, "other"},
+            { 1, "one" },
+            { 3, "one" },
+            { 5, "one" },
+            { 15, "one" },
+            { 4.5, "one" },
+            { 4, "other" },
+            { 1.4, "other" },
         };
     }
-
-
 
     public void TestAtoms() {
         TestInfo testInfo = TestAll.TestInfo.getInstance();
@@ -81,8 +79,8 @@ public class TestPluralRuleGeneration extends TestFmwkPlus {
                             boolean d = rules.computeLimited("one", SampleType.DECIMAL);
                             limitedSet.add(
                                 (i ? "in" : "i∞")
-                                + " " + (d ? "dn" : "d∞")
-                                + " : " + andPart);
+                                    + " " + (d ? "dn" : "d∞")
+                                    + " : " + andPart);
                         }
                     }
                 }

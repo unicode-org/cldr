@@ -32,30 +32,36 @@ public class Unlocode {
 
     private static final Charset LATIN1 = Charset.forName("ISO8859-1");
 
-    public interface Mergeable<T>  {
+    public interface Mergeable<T> {
         T merge(T a);
     }
 
     public static class Iso3166_2Data implements Mergeable<Iso3166_2Data> {
         public final Set<String> names;
+
         public Iso3166_2Data(String... name) {
             this(Arrays.asList(name));
         }
+
         public Iso3166_2Data(Collection<String> names) {
             this.names = Collections.unmodifiableSet(new LinkedHashSet<String>(names));
         }
+
         @Override
         public String toString() {
             return names.toString();
         }
+
         @Override
         public boolean equals(Object obj) {
-            return names.equals((Iso3166_2Data)obj);
+            return names.equals((Iso3166_2Data) obj);
         }
+
         @Override
         public int hashCode() {
             return names.hashCode();
         }
+
         @Override
         public Iso3166_2Data merge(Iso3166_2Data b) {
             LinkedHashSet<String> set = new LinkedHashSet<String>(names);
@@ -82,6 +88,7 @@ public class Unlocode {
             this.north = north;
             this.east = east;
         }
+
         @Override
         public String toString() {
             return names + ", " + locode + ", " + subdivision + ", " + north + ", " + east;
@@ -101,13 +108,15 @@ public class Unlocode {
          */
         @Override
         public boolean equals(Object obj) {
-            LocodeData other = (LocodeData)obj;
+            LocodeData other = (LocodeData) obj;
             return locode.equals(other.locode);
         }
+
         @Override
         public int hashCode() {
             return locode.hashCode();
         }
+
         @Override
         public LocodeData merge(LocodeData other) {
             if (locode.equals(other.locode)
@@ -123,11 +132,10 @@ public class Unlocode {
 
     }
 
-    static Map<String,LocodeData> locodeToData = new HashMap<String,LocodeData>();
-    static Relation<String,LocodeData> nameToLocodeData 
-    = Relation.of(new HashMap<String,Set<LocodeData>>(), HashSet.class);
-    static Map<String,Iso3166_2Data> iso3166_2Data = new HashMap<String,Iso3166_2Data>();
-    static Relation<String,String> ERRORS = Relation.of(new TreeMap<String,Set<String>>(), TreeSet.class);
+    static Map<String, LocodeData> locodeToData = new HashMap<String, LocodeData>();
+    static Relation<String, LocodeData> nameToLocodeData = Relation.of(new HashMap<String, Set<LocodeData>>(), HashSet.class);
+    static Map<String, Iso3166_2Data> iso3166_2Data = new HashMap<String, Iso3166_2Data>();
+    static Relation<String, String> ERRORS = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
     static {
         // read the data
@@ -139,7 +147,7 @@ public class Unlocode {
             load(3);
             // load exceptions
             try {
-                BufferedReader br = FileUtilities.openFile(CldrUtility.class, 
+                BufferedReader br = FileUtilities.openFile(CldrUtility.class,
                     "data/external/alternate_locode_name.txt");
                 while (true) {
                     String line = br.readLine();
@@ -148,7 +156,7 @@ public class Unlocode {
                     }
                     int hash = line.indexOf('#');
                     if (hash >= 0) {
-                        line = line.substring(0,hash);
+                        line = line.substring(0, hash);
                     }
                     line = line.trim();
                     if (line.isEmpty()) {
@@ -180,7 +188,8 @@ public class Unlocode {
             nameToLocodeData.freeze();
             locodeToData = Collections.unmodifiableMap(locodeToData);
             ERRORS.freeze();
-        } catch (IOException e) {}
+        } catch (IOException e) {
+        }
     }
 
     /* http://www.unece.org/fileadmin/DAM/cefact/locode/unlocode_manual.pdf
@@ -238,8 +247,8 @@ public class Unlocode {
     }
 
     public static void loadIso() throws IOException {
-        BufferedReader br = 
-            FileUtilities.openFile(CldrUtility.class, 
+        BufferedReader br =
+            FileUtilities.openFile(CldrUtility.class,
                 "data/external/subdivisionData.txt", FileUtilities.UTF8);
         while (true) {
             // Subdivision category TAB 3166-2 code TAB Subdivision name TAB Language code TAB Romanization system TAB Parent subdivision
@@ -250,7 +259,7 @@ public class Unlocode {
             }
             int hash = line.indexOf('#');
             if (hash >= 0) {
-                line = line.substring(0,hash);
+                line = line.substring(0, hash);
             }
             if (line.trim().isEmpty()) {
                 continue;
@@ -258,7 +267,7 @@ public class Unlocode {
             String[] list = line.split("\t");
             String locode = list[SubdivisionFields.Code_3166_2.ordinal()].trim();
             if (locode.endsWith("*")) {
-                locode = locode.substring(0,locode.length()-1);
+                locode = locode.substring(0, locode.length() - 1);
             }
             String bestName = list[SubdivisionFields.Subdivision_name.ordinal()].trim();
             //            if (!locode.contains("-")) {
@@ -285,12 +294,12 @@ public class Unlocode {
     }
 
     public static void load(int file) throws IOException {
-        BufferedReader br = 
+        BufferedReader br =
             //CldrUtility.getUTF8Data( 
-            FileUtilities.openFile(CldrUtility.class, 
+            FileUtilities.openFile(CldrUtility.class,
                 "data/external/2013-1_UNLOCODE_CodeListPart" + file + ".csv",
                 LATIN1);
-        M3<String, String, Boolean> nameToAlternate = ChainedMap.of(new TreeMap<String,Object>(), new TreeMap<String,Object>(), Boolean.class);
+        M3<String, String, Boolean> nameToAlternate = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), Boolean.class);
         Output<String> tempOutput = new Output<String>();
 
         String oldCountryCode = null;
@@ -359,7 +368,7 @@ public class Unlocode {
                 latN = parse(latlong[0]);
                 longE = parse(latlong[1]);
             }
-            String locode = countryCode+locSuffix;
+            String locode = countryCode + locSuffix;
             LocodeData locodeData = new LocodeData(locode, name, subdivision, latN, longE);
             putCheckingDuplicate(locodeToData, locode, locodeData);
             Map<String, Boolean> alternates = nameToAlternate.get(name);
@@ -394,7 +403,7 @@ public class Unlocode {
             int paren2 = name.indexOf(")", paren);
             if (paren2 < 0) {
                 paren2 = name.length();
-            }            
+            }
             // if the parens start with (ex, then it appears to be a safe alias.
             // if not, we don't know, since the UN format is ambiguous
             // sometimes yes: «Ras Zubbaya (Ras Dubayyah)»
@@ -403,15 +412,15 @@ public class Unlocode {
             if (temp.startsWith("ex ")) {
                 tempOutput.value = temp.substring(3);
             }
-            name = paren2 == name.length() 
-                ? name.substring(0,paren).trim() 
-                    : (name.substring(0,paren) + name.substring(paren2+1)).replace("  ", " ").trim();
-                //System.out.println("«" + orginal + "» => «" + name + "», «" + tempOutput.value + "»");
+            name = paren2 == name.length()
+                ? name.substring(0, paren).trim()
+                : (name.substring(0, paren) + name.substring(paren2 + 1)).replace("  ", " ").trim();
+            //System.out.println("«" + orginal + "» => «" + name + "», «" + tempOutput.value + "»");
         }
         return name;
     }
 
-    public static <K, V extends Mergeable<V>> void putCheckingDuplicate(Map<K,V> map, K key, V value) {
+    public static <K, V extends Mergeable<V>> void putCheckingDuplicate(Map<K, V> map, K key, V value) {
         V old = map.get(key);
         if (old != null && !old.equals(value)) {
             try {
@@ -448,22 +457,22 @@ public class Unlocode {
         return iso3166_2Data.keySet();
     }
 
-    public static Relation<String,String> getLoadErrors() {
+    public static Relation<String, String> getLoadErrors() {
         return ERRORS;
     }
 
     private static float parse(String string) {
         int len = string.length();
-        char dir = string.charAt(len-1);
-        int result0 = Integer.parseInt(string.substring(0,len-1));
+        char dir = string.charAt(len - 1);
+        int result0 = Integer.parseInt(string.substring(0, len - 1));
         float fract = (result0 % 100) / 60f;
-        fract = ((int)(fract * 100 + 0.499999999f)) / 100f;
+        fract = ((int) (fract * 100 + 0.499999999f)) / 100f;
         float result = (result0 / 100) + fract;
         return dir == 'N' || dir == 'E' ? result : -result;
     }
 
     public static void main(String[] args) throws IOException {
-        Relation<String,LocodeData> countryNameToCities = Relation.of(new TreeMap<String,Set<LocodeData>>(), TreeSet.class);
+        Relation<String, LocodeData> countryNameToCities = Relation.of(new TreeMap<String, Set<LocodeData>>(), TreeSet.class);
         Set<String> errors = new TreeSet<String>();
         loadCitiesCapitals(countryNameToCities, errors);
         loadCitiesOver1M(countryNameToCities, errors);
@@ -479,8 +488,8 @@ public class Unlocode {
             LinkedHashSet<String> remainingNames = new LinkedHashSet<String>(item.names);
             remainingNames.remove(firstName);
             String lowerLocode = item.locode.toLowerCase(Locale.ENGLISH);
-            String info = countryName 
-                + "\t" + (remainingNames.isEmpty() ? "" : remainingNames) 
+            String info = countryName
+                + "\t" + (remainingNames.isEmpty() ? "" : remainingNames)
                 + "\t" + (item.subdivision.isEmpty() ? "" : "(" + item.subdivision + ")");
 
             if (missing.contains(lowerLocode)) {
@@ -488,8 +497,8 @@ public class Unlocode {
                 already.add(lowerLocode);
                 continue;
             }
-            System.out.println("<location type=\"" + lowerLocode 
-                + "\">" + firstName 
+            System.out.println("<location type=\"" + lowerLocode
+                + "\">" + firstName
                 + "</location>\t<!--" + info
                 + "-->");
         }
@@ -518,7 +527,6 @@ public class Unlocode {
             //if (i > 1000) break;
         }
 
-
         //        Set<String> KNOWN_ERRORS = new HashSet<String>(Arrays.asList("AR-LA", "DE-BR"));
         //        
         //        for (Entry<String, Set<String>> s : getLoadErrors().keyValuesSet()) {
@@ -538,7 +546,7 @@ public class Unlocode {
         Set<String> noData2 = new TreeSet<String>();
         for (String locode : already) {
             String upperLocode = locode.toUpperCase(Locale.ENGLISH);
-            String countryName = ULocale.getDisplayCountry("und-" + upperLocode.substring(0,2), ULocale.ENGLISH);
+            String countryName = ULocale.getDisplayCountry("und-" + upperLocode.substring(0, 2), ULocale.ENGLISH);
             LocodeData data = locodeToData.get(upperLocode);
             if (data == null) {
                 if (locode.length() == 5) {
@@ -554,65 +562,63 @@ public class Unlocode {
         System.out.println("* No locode data:\t" + noData2);
     }
 
-
     public static int loadCitiesOver1M(Relation<String, LocodeData> countryNameToCities, Set<String> errors2) throws IOException {
         int i = 1;
 
         BufferedReader br = FileUtilities.openFile(CldrUtility.class, "data/external/Cities-Over1M.txt");
-        main:
-            while (true) {
-                String line = br.readLine();
-                if (line == null) {
-                    break;
-                }
-                if (line.startsWith("#")) {
-                    continue;
-                }
-                String[] parts = line.split("\t");
-                //System.out.println(Arrays.asList(parts));
-                String cityName = parts[2];
-                String subdivision = null;
-                int bracket = cityName.indexOf('[');
-                if (bracket > 0) {
-                    try {
-                        subdivision = cityName.substring(bracket+1,cityName.indexOf(']'));
-                        cityName = cityName.substring(0,bracket);
-                    } catch (Exception e) {
-                        throw new IllegalArgumentException(cityName);
-                    }
-                }
-                String countryName = parts[3];
-                add(countryName, subdivision, cityName, countryNameToCities, errors2);
-
-                //                String countryCode = CountryCodeConverter.getCodeFromName(countryName);
-                //                if (countryCode == null) {
-                //                    System.out.println("*** Couldn't find country " + countryName);
-                //                    continue;
-                //                }
-                //                Set<LocodeData> locodeDatas = nameToLocodeData.get(cityName);
-                //                if (locodeDatas == null) {
-                //                    System.out.println((i++) + " Couldn't find city " + cityName + " in " + countryName);
-                //                    continue;
-                //                } else if (locodeDatas.size() == 1) {
-                //                    add(countryNameToCities,locodeDatas.iterator().next());
-                //                } else  {
-                //                    Set<LocodeData> rem = new LinkedHashSet();
-                //                    for (LocodeData x : locodeDatas) {
-                //                        if (x.subdivision.equals(subdivision)) {
-                //                            add(countryNameToCities, x);
-                //                            continue main;
-                //                        }
-                //                        if (x.subdivision.startsWith(countryCode)) {
-                //                            rem.add(x);
-                //                        }
-                //                    }
-                //                    if (rem.size() != 1) {
-                //                        System.out.println((i++) + " No single record for " + cityName + "\t" + rem);
-                //                    } else {
-                //                        add(countryNameToCities, rem.iterator().next());
-                //                    }
-                //                }
+        main: while (true) {
+            String line = br.readLine();
+            if (line == null) {
+                break;
             }
+            if (line.startsWith("#")) {
+                continue;
+            }
+            String[] parts = line.split("\t");
+            //System.out.println(Arrays.asList(parts));
+            String cityName = parts[2];
+            String subdivision = null;
+            int bracket = cityName.indexOf('[');
+            if (bracket > 0) {
+                try {
+                    subdivision = cityName.substring(bracket + 1, cityName.indexOf(']'));
+                    cityName = cityName.substring(0, bracket);
+                } catch (Exception e) {
+                    throw new IllegalArgumentException(cityName);
+                }
+            }
+            String countryName = parts[3];
+            add(countryName, subdivision, cityName, countryNameToCities, errors2);
+
+            //                String countryCode = CountryCodeConverter.getCodeFromName(countryName);
+            //                if (countryCode == null) {
+            //                    System.out.println("*** Couldn't find country " + countryName);
+            //                    continue;
+            //                }
+            //                Set<LocodeData> locodeDatas = nameToLocodeData.get(cityName);
+            //                if (locodeDatas == null) {
+            //                    System.out.println((i++) + " Couldn't find city " + cityName + " in " + countryName);
+            //                    continue;
+            //                } else if (locodeDatas.size() == 1) {
+            //                    add(countryNameToCities,locodeDatas.iterator().next());
+            //                } else  {
+            //                    Set<LocodeData> rem = new LinkedHashSet();
+            //                    for (LocodeData x : locodeDatas) {
+            //                        if (x.subdivision.equals(subdivision)) {
+            //                            add(countryNameToCities, x);
+            //                            continue main;
+            //                        }
+            //                        if (x.subdivision.startsWith(countryCode)) {
+            //                            rem.add(x);
+            //                        }
+            //                    }
+            //                    if (rem.size() != 1) {
+            //                        System.out.println((i++) + " No single record for " + cityName + "\t" + rem);
+            //                    } else {
+            //                        add(countryNameToCities, rem.iterator().next());
+            //                    }
+            //                }
+        }
         br.close();
         return i;
     }
@@ -639,10 +645,10 @@ public class Unlocode {
     }
 
     static final Set<String> noncountries = new HashSet<String>(Arrays.asList(
-        "United States Virgin Islands", "Akrotiri and Dhekelia", "Easter Island", "Somaliland", "Northern Cyprus", "Nagorno-Karabakh Republic", "Abkhazia", "Transnistria", "South Ossetia"));
+        "United States Virgin Islands", "Akrotiri and Dhekelia", "Easter Island", "Somaliland", "Northern Cyprus", "Nagorno-Karabakh Republic", "Abkhazia",
+        "Transnistria", "South Ossetia"));
 
-    static final Transform<String,String> REMOVE_ACCENTS 
-    = Transliterator.getInstance("nfd;[:mn:]remove");
+    static final Transform<String, String> REMOVE_ACCENTS = Transliterator.getInstance("nfd;[:mn:]remove");
 
     static void add(String countryName, String subdivision, String cityName, Relation<String, LocodeData> countryNameToCities, Set<String> errors2) {
         String countryCode = CountryCodeConverter.getCodeFromName(countryName);

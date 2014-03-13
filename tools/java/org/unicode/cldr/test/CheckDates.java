@@ -586,14 +586,14 @@ public class CheckDates extends FactoryCheckCLDR {
         neutralFormat.setTimeZone(ExampleGenerator.ZONE_SAMPLE);
     }
     XPathParts pathParts = new XPathParts(null, null);
-    
+
     // Get Date-Time in milliseconds
-    private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second){
+    private static long getDateTimeinMillis(int year, int month, int date, int hourOfDay, int minute, int second) {
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, date, hourOfDay, minute, second);
         return cal.getTimeInMillis();
     }
-    
+
     static long date1950 = getDateTimeinMillis(1950, 0, 1, 0, 0, 0);
     static long date2010 = getDateTimeinMillis(2010, 0, 1, 0, 0, 0);
     static long date4004BC = getDateTimeinMillis(-4004, 9, 23, 2, 0, 0);

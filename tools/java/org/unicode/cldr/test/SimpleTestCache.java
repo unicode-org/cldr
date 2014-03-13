@@ -28,8 +28,8 @@ public class SimpleTestCache extends TestCache {
      * @param o
      * @return
      */
-    private LruMap<CheckCLDR.Options, Reference<TestResultBundle>> map 
-        = new LruMap<CheckCLDR.Options, Reference<TestResultBundle>>(CLDRConfig.getInstance().getProperty("CLDR_TESTCACHE_SIZE", 12));
+    private LruMap<CheckCLDR.Options, Reference<TestResultBundle>> map = new LruMap<CheckCLDR.Options, Reference<TestResultBundle>>(CLDRConfig.getInstance()
+        .getProperty("CLDR_TESTCACHE_SIZE", 12));
 
     /*
      * (non-Javadoc)
@@ -43,42 +43,42 @@ public class SimpleTestCache extends TestCache {
     }
 
     private void valueChanged(String xpath, CLDRLocale locale) {
-        if(DEBUG) System.err.println("BundDelLoc " + locale + " @ " + xpath);
+        if (DEBUG) System.err.println("BundDelLoc " + locale + " @ " + xpath);
         for (CLDRLocale sub : ((SublocaleProvider) getFactory()).subLocalesOf(locale)) {
             valueChanged(xpath, sub);
         }
         Vector<CheckCLDR.Options> toRemove = new Vector<CheckCLDR.Options>();
-        for(CheckCLDR.Options k : map.keySet()) {
-            if(k.getLocale()==locale) {
+        for (CheckCLDR.Options k : map.keySet()) {
+            if (k.getLocale() == locale) {
                 toRemove.add(k);
             }
         }
         // avoid concurrent remove
-        for(CheckCLDR.Options k : toRemove) {
+        for (CheckCLDR.Options k : toRemove) {
             map.remove(k);
-            if(DEBUG) System.err.println("BundDel " + k);
+            if (DEBUG) System.err.println("BundDel " + k);
         }
     }
-    
+
     @Override
     public String toString() {
         StringBuilder stats = new StringBuilder();
-        stats.append("{"+this.getClass().getSimpleName()+super.toString()+" Size: " + map.size()+" (");
-        int good =0;
-        int total=0;
-        for(Entry<Options, Reference<TestResultBundle>> k : map.entrySet()) {
-            if(k.getValue().get()!=null) good++;
-            if(DEBUG && true) stats.append(","+k.getKey()+"="+k.getValue().get());
+        stats.append("{" + this.getClass().getSimpleName() + super.toString() + " Size: " + map.size() + " (");
+        int good = 0;
+        int total = 0;
+        for (Entry<Options, Reference<TestResultBundle>> k : map.entrySet()) {
+            if (k.getValue().get() != null) good++;
+            if (DEBUG && true) stats.append("," + k.getKey() + "=" + k.getValue().get());
             total++;
         }
-        stats.append(" "+good+"/"+total+"}");
+        stats.append(" " + good + "/" + total + "}");
         return stats.toString();
     }
 
     @Override
     public TestResultBundle getBundle(CheckCLDR.Options options) {
         Reference<TestResultBundle> ref = map.get(options);
-        if (DEBUG && ref!=null) System.err.println("Bundle refvalid: " + options + " -> " + (ref.get()!=null));
+        if (DEBUG && ref != null) System.err.println("Bundle refvalid: " + options + " -> " + (ref.get() != null));
         TestResultBundle b = (ref != null ? ref.get() : null);
         if (DEBUG) System.err.println("Bundle " + b + " for " + options + " in " + this.toString());
         if (b == null) {

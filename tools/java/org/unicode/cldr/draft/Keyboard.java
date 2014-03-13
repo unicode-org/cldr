@@ -181,7 +181,7 @@ public class Keyboard {
             throw new KeyboardException(fileName, e);
         }
     }
-    
+
     public static Keyboard getKeyboard(String id, Reader r, Set<Exception> errors) {
         //final String fileName = BASE + platformId + "/" + keyboardId + ".xml";
         try {
@@ -608,12 +608,14 @@ public class Keyboard {
             return new Output(chars, gestures, transformStatus);
         };
     }
-    
+
     public static final class KeyboardException extends RuntimeException {
         private static final long serialVersionUID = 3802627982169201480L;
+
         public KeyboardException(String string) {
             super(string);
         }
+
         public KeyboardException(String string, Exception e) {
             super(string, e);
         }

@@ -121,7 +121,8 @@ public class UserRegistry {
             s = DBUtils
                 .prepareStatementWithArgs(
                     conn,
-                    "select distinct "+DBUtils.Table.VOTE_VALUE+".locale from "+DBUtils.Table.VOTE_VALUE+" where exists (select * from cldr_users	where "+DBUtils.Table.VOTE_VALUE+".submitter=cldr_users.id and cldr_users.org=?)",
+                    "select distinct " + DBUtils.Table.VOTE_VALUE + ".locale from " + DBUtils.Table.VOTE_VALUE
+                        + " where exists (select * from cldr_users	where " + DBUtils.Table.VOTE_VALUE + ".submitter=cldr_users.id and cldr_users.org=?)",
                     st_org);
             rs = s.executeQuery();
             while (rs.next()) {
@@ -2231,9 +2232,9 @@ public class UserRegistry {
             }
         } catch (SQLException se) {
             /* logger.severe */System.err.println(/*
-                                                    * java.util.logging.Level.SEVERE
-                                                    * ,
-                                                    */"UserRegistry: SQL error trying to get orgs resultset for: VI " + " - "
+                                                     * java.util.logging.Level.SEVERE
+                                                     * ,
+                                                     */"UserRegistry: SQL error trying to get orgs resultset for: VI " + " - "
                 + DBUtils.unchainSqlException(se)/* ,se */);
         } finally {
             // close out the RS
@@ -2246,9 +2247,9 @@ public class UserRegistry {
                 }
             } catch (SQLException se) {
                 /* logger.severe */System.err.println(/*
-                                                        * java.util.logging.Level.
-                                                        * SEVERE,
-                                                        */"UserRegistry: SQL error trying to close out: "
+                                                         * java.util.logging.Level.
+                                                         * SEVERE,
+                                                         */"UserRegistry: SQL error trying to close out: "
                     + DBUtils.unchainSqlException(se)/* ,se */);
             }
         } // end try

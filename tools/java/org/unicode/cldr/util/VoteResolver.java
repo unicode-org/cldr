@@ -207,13 +207,13 @@ public class VoteResolver<T> {
         public boolean canManageSomeUsers() {
             return this.getSTLevel() <= manager.getSTLevel();
         }
-        
+
         /**
          * Can this user vote at a reduced level?
          * @return the vote count this user can vote at, or null if it must vote at its assigned level
          */
         public Integer canVoteAtReducedLevel() {
-            if(this.getSTLevel() <= tc.getSTLevel()) {
+            if (this.getSTLevel() <= tc.getSTLevel()) {
                 return vetter.votes;
             } else {
                 return null;
@@ -367,7 +367,7 @@ public class VoteResolver<T> {
         public T getSingleVotedItem() {
             return totalVotes.size() != 1 ? null : totalVotes.iterator().next();
         }
-        
+
         /**
          * Call this to add votes
          * 
@@ -381,14 +381,14 @@ public class VoteResolver<T> {
                 throw new UnknownVoterException(voter);
             }
             final int maxVotes = info.getLevel().getVotes(); // max votes available for user
-            if(withVotes == null) {
+            if (withVotes == null) {
                 withVotes = maxVotes; // use max (default)
             } else {
                 withVotes = Math.min(withVotes, maxVotes); // override to lower vote count
             }
             addInternal(value, voter, info, withVotes); // do the add
         }
-        
+
         /**
          * Called by add(T,int,Integer) to actually add a value.
          * 
@@ -614,7 +614,7 @@ public class VoteResolver<T> {
     public boolean isEstablished() {
         return (requiredVotes == 8);
     }
-    
+
     /**
      * What are the required votes for this item?
      * @return the number of votes (as of this writing: usually 4, 8 for established locales)
@@ -652,7 +652,7 @@ public class VoteResolver<T> {
         organizationToValueAndVote.add(value, voter, withVotes);
         values.add(value);
     }
-    
+
     /**
      * Call once for each voter for a value. If there are no voters for an item, then call add(value);
      * 

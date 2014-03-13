@@ -31,9 +31,8 @@ public class DtdDataCheck {
 
     static SupplementalDataInfo SUPPLEMENTAL = SupplementalDataInfo.getInstance();
 
-    static final Set<Row.R4<DtdType,String,String,String>> DEPRECATED = new LinkedHashSet<Row.R4<DtdType,String,String,String>>();
-    static final Map<Row.R2<DtdType,String>, Relation<Boolean,String>> TYPE_ATTRIBUTE_TO_DIST_ELEMENTS 
-    = new TreeMap<Row.R2<DtdType,String>, Relation<Boolean,String>>();
+    static final Set<Row.R4<DtdType, String, String, String>> DEPRECATED = new LinkedHashSet<Row.R4<DtdType, String, String, String>>();
+    static final Map<Row.R2<DtdType, String>, Relation<Boolean, String>> TYPE_ATTRIBUTE_TO_DIST_ELEMENTS = new TreeMap<Row.R2<DtdType, String>, Relation<Boolean, String>>();
 
     private static final boolean CHECK_CORRECTNESS = false;
 
@@ -46,7 +45,6 @@ public class DtdDataCheck {
         static final Set<String> SKIP_ELEMENTS = new HashSet<String>(Arrays.asList(
             "alias", "special"));
         Set<Attribute> attributesWithDefaultValues = new LinkedHashSet<Attribute>();
-
 
         private DtdData dtdData;
 
@@ -146,7 +144,7 @@ public class DtdDataCheck {
                         special += "\t#DISTINGUISHING#";
                         Relation<Boolean, String> info = TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.get(key);
                         if (info == null) {
-                            TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.put(key, info = Relation.of(new TreeMap<Boolean,Set<String>>(), TreeSet.class));
+                            TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.put(key, info = Relation.of(new TreeMap<Boolean, Set<String>>(), TreeSet.class));
                         }
                         info.put(isDisting, element.name);
                     }
@@ -173,11 +171,12 @@ public class DtdDataCheck {
         }
         Timer timer = new Timer();
         for (String arg : args) {
-            
+
             timer.start();
             DtdType type = CLDRFile.DtdType.valueOf(arg);
             DtdData dtdData = DtdData.getInstance(type);
-            PrintWriter br = BagFormatter.openUTF8Writer("/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/dataproj/src/temp/", type + "-gen.dtd");
+            PrintWriter br = BagFormatter.openUTF8Writer("/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/dataproj/src/temp/", type
+                + "-gen.dtd");
             br.append(dtdData.toString());
             br.close();
             timer.stop();
@@ -246,7 +245,7 @@ public class DtdDataCheck {
         Set<String> allElements = new TreeSet<String>();
         allElements.add("_q");
         DtdType lastType = null;
-        
+
         for (Entry<R2<DtdType, String>, Relation<Boolean, String>> typeAttributeToDistElement : TYPE_ATTRIBUTE_TO_DIST_ELEMENTS.entrySet()) {
             R2<DtdType, String> typeAttribute = typeAttributeToDistElement.getKey();
             Relation<Boolean, String> distElement = typeAttributeToDistElement.getValue();
@@ -268,19 +267,19 @@ public class DtdDataCheck {
                 continue;
             }
             System.out.println("            <distinguishingItems"
-                + " type=\"" + type 
-                + "\" elements=\"" + CollectionUtilities.join(areDisting, " ") 
-                + "\" attributes=\"" + attribute 
-                + "\"/>" 
-                + "\n            <!-- NONDISTINGUISH." 
+                + " type=\"" + type
+                + "\" elements=\"" + CollectionUtilities.join(areDisting, " ")
+                + "\" attributes=\"" + attribute
+                + "\"/>"
+                + "\n            <!-- NONDISTINGUISH."
                 + " TYPE=\"" + type
-                + "\" ELEMENTS=\"" + CollectionUtilities.join(areNotDisting, " ") 
+                + "\" ELEMENTS=\"" + CollectionUtilities.join(areNotDisting, " ")
                 + "\" ATTRIBUTES=\"" + attribute
                 + "\" -->");
         }
         showAll(lastType, allElements);
         System.out.println("        </distinguishing>");
-        
+
         i = 0;
         for (R4<DtdType, String, String, String> x : DEPRECATED) {
             System.out.println(++i + "\tDEPRECATED\t" + x);
@@ -295,7 +294,7 @@ public class DtdDataCheck {
 
     public static void showAll(DtdType type, Set<String> allElements) {
         System.out.println("            <distinguishingItems"
-            + " type=\"" + type 
+            + " type=\"" + type
             + "\" elements=\"*"
             + "\" attributes=\"" + CollectionUtilities.join(allElements, " ")
             + "\"/>");

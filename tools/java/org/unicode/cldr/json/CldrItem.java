@@ -230,7 +230,7 @@ public class CldrItem implements Comparable<CldrItem> {
                     untransformednewxpp.set(untransformedxpp);
                     untransformednewfullxpp.set(untransformedfullxpp);
                     for (XPathParts np : newparts) {
-                        np.setAttribute(s.element, s.attribute, word);                        
+                        np.setAttribute(s.element, s.attribute, word);
                     }
                     if (s.attrAsValueAfterSplit != null) {
                         String newValue = fullxpp.findAttributeValue(s.element, s.attrAsValueAfterSplit);
@@ -239,9 +239,11 @@ public class CldrItem implements Comparable<CldrItem> {
                             np.removeAttribute(s.element, s.attribute);
                             np.addElement(word);
                         }
-                       list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), untransformednewxpp.toString(),untransformednewfullxpp.toString(),newValue));
+                        list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), untransformednewxpp.toString(), untransformednewfullxpp.toString(),
+                            newValue));
                     } else {
-                        list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), untransformednewxpp.toString(),untransformednewfullxpp.toString(),value));
+                        list.add(new CldrItem(newxpp.toString(), newfullxpp.toString(), untransformednewxpp.toString(), untransformednewfullxpp.toString(),
+                            value));
                     }
                 }
                 return list.toArray(new CldrItem[list.size()]);
@@ -289,14 +291,15 @@ public class CldrItem implements Comparable<CldrItem> {
             }
         }
         DtdType fileDtdType;
-        switch (thisxpp.getElement(0)){
-            case "supplementalData": 
-                fileDtdType = DtdType.supplementalData;
-                break;
-            default : fileDtdType = DtdType.ldml;
-                break;
+        switch (thisxpp.getElement(0)) {
+        case "supplementalData":
+            fileDtdType = DtdType.supplementalData;
+            break;
+        default:
+            fileDtdType = DtdType.ldml;
+            break;
         }
-        
+
         int result = DtdData.getInstance(fileDtdType).getDtdComparator(null).compare(untransformedPath, otherItem.untransformedPath);
         return result;
         //return CLDRFile.getLdmlComparator().compare(path, otherItem.path);

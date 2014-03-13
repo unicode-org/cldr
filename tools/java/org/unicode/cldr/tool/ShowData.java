@@ -52,7 +52,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.ULocale;
 
 public class ShowData {
-    private static final int 
+    private static final int
         HELP1 = 0, HELP2 = 1, SOURCEDIR = 2, DESTDIR = 3,
         MATCH = 4, GET_SCRIPTS = 5,
         LAST_DIR = 6,

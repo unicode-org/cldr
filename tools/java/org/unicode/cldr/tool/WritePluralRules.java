@@ -114,8 +114,7 @@ public class WritePluralRules {
             + "    <generation date=\"$Date" +
             "$\"/>\n"
             + "    <plurals type=\"" + type + "\">\n"
-            + "        <!-- For a canonicalized list, use " + filename + " -->\n"
-            ;
+            + "        <!-- For a canonicalized list, use " + filename + " -->\n";
     }
 
     //    static Map<String,String> hackComments = new HashMap<String,String>();

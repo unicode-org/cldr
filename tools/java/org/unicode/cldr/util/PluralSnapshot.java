@@ -126,11 +126,11 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
         }
     }
 
-    private static final EnumMap<PluralType, EnumMap<Integral,SnapshotInfo>> SINGLETONS
-    = new EnumMap<PluralType, EnumMap<Integral,SnapshotInfo>>(PluralType.class);
+    private static final EnumMap<PluralType, EnumMap<Integral, SnapshotInfo>> SINGLETONS = new EnumMap<PluralType, EnumMap<Integral, SnapshotInfo>>(
+        PluralType.class);
     static {
-        SINGLETONS.put(PluralType.cardinal, new EnumMap<Integral,SnapshotInfo>(Integral.class));
-        SINGLETONS.put(PluralType.ordinal, new EnumMap<Integral,SnapshotInfo>(Integral.class));
+        SINGLETONS.put(PluralType.cardinal, new EnumMap<Integral, SnapshotInfo>(Integral.class));
+        SINGLETONS.put(PluralType.ordinal, new EnumMap<Integral, SnapshotInfo>(Integral.class));
     }
     private EnumSet<Plurals> found;
 
@@ -239,7 +239,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
             result.append(" colSpan='" + colSpan + "'");
         }
         result.append(" title='").append(item.toString()).append("'>")
-        .append(item.abbreviated()).append("</td>");
+            .append(item.abbreviated()).append("</td>");
     }
 
     private static <T> void appendItems(StringBuilder result, T[] plurals3, double offset) {
@@ -287,7 +287,7 @@ public class PluralSnapshot implements Comparable<PluralSnapshot> {
                 System.out.println("\n" + integral + "\n");
                 System.out.println(info.toOverview());
 
-                String title = UCharacter.toTitleCase(pluralType.toString(), null) 
+                String title = UCharacter.toTitleCase(pluralType.toString(), null)
                     + "-" + UCharacter.toTitleCase(integral.toString(), null);
                 out.println("<h3>" + CldrUtility.getDoubleLinkedText(title) + "</h3>");
                 if (integral == Integral.fraction) {

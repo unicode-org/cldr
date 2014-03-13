@@ -96,7 +96,7 @@ public class TestDTDAttributes extends TestFmwk {
 
     public void TestDistinguishing() {
         for (DtdType type : DtdType.values()) {
-            if (type==DtdType.ldmlICU) {
+            if (type == DtdType.ldmlICU) {
                 continue;
             }
             showDistinguishing(type);
@@ -106,9 +106,9 @@ public class TestDTDAttributes extends TestFmwk {
     private void showDistinguishing(DtdType dtdType) {
         Relation<String, String> elementToAttributes = ElementAttributeInfo.getInstance(dtdType)
             .getElement2Attributes();
-        Relation<String, String> distinguishingAttributeToElements = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        Relation<String, String> nondistinguishingAttributeToElements = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
-        Relation<String, String> orderedAttributeToElements = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> distinguishingAttributeToElements = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> nondistinguishingAttributeToElements = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class);
+        Relation<String, String> orderedAttributeToElements = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class);
         Map<R2<String, String>, R3<Set<String>, String, String>> attributeData = ElementAttributeInfo.getInstance(
             dtdType).getElementAttribute2Data();
 
@@ -183,8 +183,8 @@ public class TestDTDAttributes extends TestFmwk {
             if (mainValue.equals(suppValue)) {
                 same.add(key);
             } else {
-            errln("Different attribute properties across DTDs" + key.toString() + "\t" + dtdType1.toString() + ":\t" +
-            mainValue.toString() + "\t" + dtdType2.toString() + ":\t" + suppValue.toString());
+                errln("Different attribute properties across DTDs" + key.toString() + "\t" + dtdType1.toString() + ":\t" +
+                    mainValue.toString() + "\t" + dtdType2.toString() + ":\t" + suppValue.toString());
             }
         }
         for (R2<String, String> key : same) {
@@ -310,7 +310,7 @@ public class TestDTDAttributes extends TestFmwk {
 //        }
     }
 
-    public void checkNodeData(DtdType type) { 
+    public void checkNodeData(DtdType type) {
         CurrentData.NodeData data = CurrentData.fullNodeData.get(type);
         Relation<String, String> element2Parents = ElementAttributeInfo.getInstance(type).getElement2Parents();
         Relation<String, String> element2Children = ElementAttributeInfo.getInstance(type).getElement2Children();
@@ -421,8 +421,8 @@ public class TestDTDAttributes extends TestFmwk {
             Map<String, R2<String, String>> branchNodes = new TreeMap<String, R2<String, String>>();
             Map<String, R3<String, String, String>> valueNodes = new TreeMap<String, R3<String, String, String>>();
             Map<String, R2<String, String>> valuelessNodes = new TreeMap<String, R2<String, String>>();
-            Relation<String, String> elementToAttributes = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
-            Relation<String, String> elementToAttributesAlwaysFound = Relation.<String, String>of(new TreeMap<String, Set<String>>(), TreeSet.class);
+            Relation<String, String> elementToAttributes = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class);
+            Relation<String, String> elementToAttributesAlwaysFound = Relation.<String, String> of(new TreeMap<String, Set<String>>(), TreeSet.class);
 
             NodeData(DtdType type) {
                 myType = type;
@@ -499,16 +499,16 @@ public class TestDTDAttributes extends TestFmwk {
         }
     }
 
- //   public void TestStructure() {
- //       for (DtdType type : DtdType.values()) {
- //           logln("*= distinguished, \u2021=ordered, \u2020=default");
- //           Relation<String, String> toChildren = ElementAttributeInfo.getInstance(type).getElement2Children();
- //           Relation<String, String> toAttributes = ElementAttributeInfo.getInstance(type).getElement2Attributes();
- //           Map<R2<String, String>, R3<Set<String>, String, String>> toAttributeData = ElementAttributeInfo
- //               .getInstance(type).getElementAttribute2Data();
- //           checkStructure(type, type.toString(), 0, toChildren, toAttributes, toAttributeData);
- //       }
- //   }
+    //   public void TestStructure() {
+    //       for (DtdType type : DtdType.values()) {
+    //           logln("*= distinguished, \u2021=ordered, \u2020=default");
+    //           Relation<String, String> toChildren = ElementAttributeInfo.getInstance(type).getElement2Children();
+    //           Relation<String, String> toAttributes = ElementAttributeInfo.getInstance(type).getElement2Attributes();
+    //           Map<R2<String, String>, R3<Set<String>, String, String>> toAttributeData = ElementAttributeInfo
+    //               .getInstance(type).getElementAttribute2Data();
+    //           checkStructure(type, type.toString(), 0, toChildren, toAttributes, toAttributeData);
+    //       }
+    //   }
 
     private void checkStructure(DtdType dtdType, String element, int indent, Relation<String, String> toChildren,
         Relation<String, String> toAttributes, Map<R2<String, String>, R3<Set<String>, String, String>> toAttributeData) {

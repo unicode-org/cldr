@@ -21,8 +21,8 @@ import com.ibm.icu.util.ULocale;
  * @see ULocale
  */
 public final class CLDRLocale implements Comparable<CLDRLocale> {
-    private static final boolean DEBUG=false;
-    
+    private static final boolean DEBUG = false;
+
     public interface NameFormatter {
         String getDisplayName(CLDRLocale cldrLocale);
 
@@ -239,7 +239,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      * @return
      */
     private String toDisplayLanguageTag() {
-        if(getBaseName().equals("root")) {
+        if (getBaseName().equals("root")) {
             return "root";
         } else {
             return toLanguageTag();
@@ -293,7 +293,7 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
             parts.set(str);
             fullname = parts.toString();
             String parentId = LocaleIDParser.getParent(str);
-            if(DEBUG) System.out.println(str + " par = " + parentId);
+            if (DEBUG) System.out.println(str + " par = " + parentId);
             if (parentId != null) {
                 parent = CLDRLocale.getInstance(parentId);
             } else {
@@ -507,11 +507,11 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
     public String getDisplayName() {
         return getDisplayName(getDefaultFormatter());
     }
-    
+
     public String getDisplayRegion() {
         return getDisplayCountry(getDefaultFormatter());
     }
-    
+
     public String getDisplayVariant() {
         return getDisplayVariant(getDefaultFormatter());
     }
@@ -608,16 +608,17 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
      */
     public CLDRLocale getHighestNonrootParent() {
         CLDRLocale res;
-        if(this==ROOT) {
-            res = null;;
-        } else if(this.parent == ROOT) {
+        if (this == ROOT) {
+            res = null;
+            ;
+        } else if (this.parent == ROOT) {
             res = this;
-        } else if(this.parent == null) {
+        } else if (this.parent == null) {
             res = this;
         } else {
             res = parent.getHighestNonrootParent();
         }
-        if(DEBUG) System.out.println(this+".HNRP="+res);
+        if (DEBUG) System.out.println(this + ".HNRP=" + res);
         return res;
     }
 }

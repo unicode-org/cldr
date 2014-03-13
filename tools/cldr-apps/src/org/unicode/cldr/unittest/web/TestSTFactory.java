@@ -618,73 +618,74 @@ public class TestSTFactory extends TestFmwk {
             }
         }
     }
-/*
- * 
- * !!! Can't work this way.. 
-    public void TestVotingAge() throws SQLException, IOException, InterruptedException, JSONException, InvalidXPathException {
-        CLDRConfig config = CLDRConfig.getInstance();
-        // "Old" version
-        config.setProperty(SurveyMain.CLDR_NEWVERSION_AFTER, SurveyMain.NEWVERSION_EPOCH);
-        config.setProperty(SurveyMain.CLDR_NEWVERSION, "111x");
-        config.setProperty(SurveyMain.CLDR_OLDVERSION, "000x");
 
-        STFactory fac = resetFactory();
+    /*
+     * 
+     * !!! Can't work this way.. 
+        public void TestVotingAge() throws SQLException, IOException, InterruptedException, JSONException, InvalidXPathException {
+            CLDRConfig config = CLDRConfig.getInstance();
+            // "Old" version
+            config.setProperty(SurveyMain.CLDR_NEWVERSION_AFTER, SurveyMain.NEWVERSION_EPOCH);
+            config.setProperty(SurveyMain.CLDR_NEWVERSION, "111x");
+            config.setProperty(SurveyMain.CLDR_OLDVERSION, "000x");
 
-        final String somePath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
-        final String somePath2 = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
-        final CLDRLocale loc = CLDRLocale.getInstance("und");
-        final String aValueOld = "oldValue";
-        final String aValueNew = "newValue";
-        String origBase = ANY;
+            STFactory fac = resetFactory();
 
-        {
-            CLDRFile file = fac.make(loc, false);
-            BallotBox<User> box = fac.ballotBoxForLocale(loc);
-            box.voteForValue(getMyUser(), somePath, null); // unvote
-            origBase = expect(somePath, ANY, false, file, box);
-            logln(loc + ":" + somePath + " = " + origBase);
+            final String somePath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
+            final String somePath2 = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
+            final CLDRLocale loc = CLDRLocale.getInstance("und");
+            final String aValueOld = "oldValue";
+            final String aValueNew = "newValue";
+            String origBase = ANY;
 
-            box.voteForValue(getMyUser(), somePath, aValueOld); // unvote
-            expect(somePath, aValueOld, true, file, box);
-
-        }
-
-        logln("Sleeping at .." + new Date());
-        Thread.sleep(2000); // so that the 'old' vote is prior to the cut
-        Date cutTime = new Date();
-        String cutEpoch = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss'.00000'").format(cutTime);
-        config.setProperty(SurveyMain.CLDR_NEWVERSION_AFTER, cutEpoch);
-        config.setProperty(SurveyMain.CLDR_NEWVERSION, "222x");  // new version
-        config.setProperty(SurveyMain.CLDR_OLDVERSION, "111x");
-
-        logln("Sleeping.. (set old release cut to " + cutEpoch);
-        Thread.sleep(2000); // so that the 'new' vote is after the cut
-        logln("Retesting at " + new Date());
-        fac = resetFactory();
-
-        {
-            CLDRFile file = fac.make(loc, false);
-            BallotBox<User> box = fac.ballotBoxForLocale(loc);
-            box.voteForValue(getMyUser(), somePath2, aValueNew); // vote on 2nd path
-            final String votesAfter = SurveyMain.getSQLVotesAfter();
-            logln("votesAfter = " + votesAfter);
             {
-                JSONObject query = DBUtils
-                    .queryToJSON("select xpath,value,last_mod from " + DBUtils.Table.VOTE_VALUE.toString() + " where locale=?", loc);
-                logln("*: " + query.toString());
+                CLDRFile file = fac.make(loc, false);
+                BallotBox<User> box = fac.ballotBoxForLocale(loc);
+                box.voteForValue(getMyUser(), somePath, null); // unvote
+                origBase = expect(somePath, ANY, false, file, box);
+                logln(loc + ":" + somePath + " = " + origBase);
+
+                box.voteForValue(getMyUser(), somePath, aValueOld); // unvote
+                expect(somePath, aValueOld, true, file, box);
+
             }
 
-            logln("Expect to find the old value gone (too old)");
-            expect(somePath, origBase, false, file, box);
-            logln("Expect to find the new value  in the new path OK gone (new)");
-            expect(somePath2, aValueNew, true, file, box);
+            logln("Sleeping at .." + new Date());
+            Thread.sleep(2000); // so that the 'old' vote is prior to the cut
+            Date cutTime = new Date();
+            String cutEpoch = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss'.00000'").format(cutTime);
+            config.setProperty(SurveyMain.CLDR_NEWVERSION_AFTER, cutEpoch);
+            config.setProperty(SurveyMain.CLDR_NEWVERSION, "222x");  // new version
+            config.setProperty(SurveyMain.CLDR_OLDVERSION, "111x");
 
-            logln("Expect to find the new value after revoting");
-            box.voteForValue(getMyUser(), somePath, aValueNew);
-            expect(somePath, aValueNew, true, file, box);
-        }
+            logln("Sleeping.. (set old release cut to " + cutEpoch);
+            Thread.sleep(2000); // so that the 'new' vote is after the cut
+            logln("Retesting at " + new Date());
+            fac = resetFactory();
 
-    }*/
+            {
+                CLDRFile file = fac.make(loc, false);
+                BallotBox<User> box = fac.ballotBoxForLocale(loc);
+                box.voteForValue(getMyUser(), somePath2, aValueNew); // vote on 2nd path
+                final String votesAfter = SurveyMain.getSQLVotesAfter();
+                logln("votesAfter = " + votesAfter);
+                {
+                    JSONObject query = DBUtils
+                        .queryToJSON("select xpath,value,last_mod from " + DBUtils.Table.VOTE_VALUE.toString() + " where locale=?", loc);
+                    logln("*: " + query.toString());
+                }
+
+                logln("Expect to find the old value gone (too old)");
+                expect(somePath, origBase, false, file, box);
+                logln("Expect to find the new value  in the new path OK gone (new)");
+                expect(somePath2, aValueNew, true, file, box);
+
+                logln("Expect to find the new value after revoting");
+                box.voteForValue(getMyUser(), somePath, aValueNew);
+                expect(somePath, aValueNew, true, file, box);
+            }
+
+        }*/
 
     private void verifyReadOnly(CLDRFile f) {
         String loc = f.getLocaleID();

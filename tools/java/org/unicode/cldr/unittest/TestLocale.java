@@ -43,11 +43,11 @@ public class TestLocale extends TestFmwkPlus {
         Scope.Individual, Scope.Macrolanguage); // , Special, Collection, PrivateUse, Unknown
     static Set<String> ALLOWED_SCRIPTS = testInfo.getStandardCodes().getGoodAvailableCodes(CodeType.script);
     static Set<String> ALLOWED_REGIONS = testInfo.getStandardCodes().getGoodAvailableCodes(CodeType.territory);
-    
+
     /**
      * XPath expression that will find all alias tags
      */
-    static String XPATH_ALIAS_STRING="//alias";
+    static String XPATH_ALIAS_STRING = "//alias";
 
     /**
      * Determine whether the file should be checked for aliases; this is currently not done for
@@ -59,17 +59,17 @@ public class TestLocale extends TestFmwkPlus {
         if (!f.canRead()) {
             return false;
         }
-        String absPath=f.getAbsolutePath();
-        return  absPath.endsWith("xml") && !absPath.contains("dtd") &&!absPath.contains("keyboard") &&!absPath.contains("Keyboard");
+        String absPath = f.getAbsolutePath();
+        return absPath.endsWith("xml") && !absPath.contains("dtd") && !absPath.contains("keyboard") && !absPath.contains("Keyboard");
     }
-    
+
     /**
      * Check a single file for aliases, on a content level, the only check that is done is that the one for readability. 
      * @param localeName - the localename
      * @param file - the file to check
      * @param localesWithAliases - a set of locale strings the files of which contain aliases
      */
-    private void checkForAliases(final String localeName, File file,final Set<String> localesWithAliases) {
+    private void checkForAliases(final String localeName, File file, final Set<String> localesWithAliases) {
         try {
             if (file.canRead()) {
                 XPathExpressionParser parser = new XPathExpressionParser(file);
@@ -79,11 +79,11 @@ public class TestLocale extends TestFmwkPlus {
                     @Override
                     public void handle(Node result) {
                         if (result instanceof Element) {
-                            Element el=(Element)result;
+                            Element el = (Element) result;
                             // this node likely has an attribute source
                             if (el.hasAttributes()) {
-                                String sourceAttr=el.getAttribute("source");
-                                if (sourceAttr!=null && !sourceAttr.isEmpty()) {
+                                String sourceAttr = el.getAttribute("source");
+                                if (sourceAttr != null && !sourceAttr.isEmpty()) {
                                     localesWithAliases.add(localeName);
                                 }
                             }
@@ -99,41 +99,42 @@ public class TestLocale extends TestFmwkPlus {
             e.printStackTrace();
         }
     }
+
     /**
      * Tests the validity of the file names and of the English localeDisplayName types. 
      * Also tests for aliases outside root
      */
     public void TestLocalePartsValidity() {
         LanguageTagParser ltp = new LanguageTagParser();
-        final Set<String> localesWithAliases=new HashSet<>();
+        final Set<String> localesWithAliases = new HashSet<>();
         for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
             String parent = file.getParent();
             if (parent.contains("transform") || parent.contains("bcp47") || parent.contains("supplemental")) {
                 continue;
             }
             String localeName = file.getName();
-            localeName = localeName.substring(0,localeName.length()-4); // remove .xml
+            localeName = localeName.substring(0, localeName.length() - 4); // remove .xml
             if (localeName.equals("root") || localeName.equals("_platform")) {
                 continue;
             }
             String fileString = file.toString();
             checkLocale(fileString, localeName, ltp);
             // check for aliases 
-           if (shouldCheckForAliases(file)) {
-               checkForAliases(localeName, file, localesWithAliases);
-           }
+            if (shouldCheckForAliases(file)) {
+                checkForAliases(localeName, file, localesWithAliases);
+            }
         }
         // we ran through all of them
         if (!localesWithAliases.isEmpty()) {
-           StringBuilder sb=new StringBuilder();
-           sb.append("\r\n");
-           sb.append("The following locales have aliases, but must not: ");
-           Iterator<String> lIter=localesWithAliases.iterator();
-           while (lIter.hasNext()) {
-               sb.append(lIter.next());
-               sb.append(" ");
-           }
-           System.out.println(sb.toString());
+            StringBuilder sb = new StringBuilder();
+            sb.append("\r\n");
+            sb.append("The following locales have aliases, but must not: ");
+            Iterator<String> lIter = localesWithAliases.iterator();
+            while (lIter.hasNext()) {
+                sb.append(lIter.next());
+                sb.append(" ");
+            }
+            System.out.println(sb.toString());
         }
         // now check English-resolved
         CLDRFile english = testInfo.getEnglish();
@@ -142,13 +143,13 @@ public class TestLocale extends TestFmwkPlus {
                 continue;
             }
             switch (CLDRFile.getNameType(xpath)) {
-            case 0: 
+            case 0:
                 checkLocale("English xpath", CLDRFile.getCode(xpath), ltp);
                 break;
-            case 1:             
+            case 1:
                 checkScript("English xpath", CLDRFile.getCode(xpath));
                 break;
-            case 2: 
+            case 2:
                 checkRegion("English xpath", CLDRFile.getCode(xpath));
                 break;
             }
@@ -259,11 +260,11 @@ public class TestLocale extends TestFmwkPlus {
     public void TestBrackets() {
         String[][] tests = {
             { "language", "en", "Anglish (abc)", "en", "Anglish [abc]",
-            "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
+                "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
             { "script", "Latn", "Latine (def)", "en_Latn", "Anglish [abc] (Latine [def])",
-            "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
+                "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
             { "territory", "US", "U.S. (ghi)", "en_Latn_US", "Anglish [abc] (Latine [def], U.S. [ghi])",
-            "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
+                "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
             { null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null },
             { "variant", "foobar", "foo (jkl)", "en_foobar", "Anglish [abc] (foo [jkl])", null },
             { "key", "co", "sort (mno)", "en_foobar@co=FOO", "Anglish [abc] (foo [jkl], sort [mno]=FOO)", null },

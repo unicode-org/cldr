@@ -282,14 +282,14 @@ public class CLDRTest extends TestFmwk {
         logln("Total Count: " + totalCount);
         System.out.println("All exemplars: " + allExemplars.toPattern(true));
     }
-    
+
     // Get Date-Time in milliseconds
-    private static long getDateTimeinMillis(int year, int month, int date){
+    private static long getDateTimeinMillis(int year, int month, int date) {
         Calendar cal = Calendar.getInstance();
         cal.set(year, month, date);
         return cal.getTimeInMillis();
     }
-    
+
     static final long disableDate = getDateTimeinMillis(2005, 6 - 1, 3);
 
     /**
@@ -649,7 +649,8 @@ public class CLDRTest extends TestFmwk {
 
     // <territoryContainment><group type="001" contains="002 009 019 142 150"/>
     // <languageData><language type="af" scripts="Latn" territories="ZA"/>
-    void getSupplementalData(Map<String, Set<String>> language_scripts, Map<String, Set<String>> language_territories, Map<String, Set<String>> group_territory,
+    void getSupplementalData(Map<String, Set<String>> language_scripts, Map<String, Set<String>> language_territories,
+        Map<String, Set<String>> group_territory,
         Map<String, Set<String>> territory_currencies, Map<String, Map<String, String>> aliases) {
         boolean SHOW = false;
         Factory cldrFactory = Factory.make(CLDRPaths.MAIN_DIRECTORY, ".*");
@@ -1041,7 +1042,7 @@ public class CLDRTest extends TestFmwk {
         }
         logln("Missing English currency names");
         for (Iterator<String> it = legalCurrencies.iterator(); it.hasNext();) {
-            String currency =  it.next();
+            String currency = it.next();
             String name = english.getName("currency", currency);
             if (name == null) {
                 String standardName = (String) sc.getFullData("currency", currency).get(0);

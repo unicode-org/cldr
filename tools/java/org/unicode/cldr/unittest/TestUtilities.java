@@ -649,7 +649,7 @@ public class TestUtilities extends TestFmwk {
         assertEquals("", "zebra", winner);
         assertEquals("", Status.provisional, winningStatus);
     }
-    
+
     public void TestVoteDowngrade() {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
@@ -672,7 +672,6 @@ public class TestUtilities extends TestFmwk {
         assertEquals("", "zebra", resolver.getWinningValue()); // TC vote of 20 beats expert's 8 and its own expert's 8
         assertEquals("", Status.approved, resolver.getWinningStatus());
 
-
         resolver.clear();
         resolver.setLocale("mt");
         resolver.setLastRelease("foo", oldStatus);
@@ -681,7 +680,6 @@ public class TestUtilities extends TestFmwk {
         resolver.add("aardvark", toVoterId("ibmE"));
         assertEquals("", "aardvark", resolver.getWinningValue()); // Now aardvark wins - experts win out.
         assertEquals("", Status.approved, resolver.getWinningStatus());
-
 
         resolver.clear();
         resolver.setLocale("mt");
@@ -725,27 +723,27 @@ public class TestUtilities extends TestFmwk {
         logln(counts.toString());
         assertEquals("", "foo", new ArrayList<String>(counts.keySet()).get(0));
     }
-    
+
     private void verifyRequiredVotes(VoteResolver resolver, String locale, String xpath, int required) {
         StringBuilder sb = new StringBuilder();
         sb.append("Locale: " + locale);
         resolver.clear();
         PathHeader ph = null;
-        if(xpath!=null)  {
+        if (xpath != null) {
             sb.append(" XPath: " + xpath);
             ph = PathHeader.getFactory(TestInfo.getInstance().getEnglish()).fromPath(xpath);
         }
         resolver.setLocale(CLDRLocale.getInstance(locale), ph);
         assertEquals(ph.toString(), required, resolver.getRequiredVotes());
     }
-    
+
     public void TestRequiredVotes() {
         VoteResolver.setVoterToInfo(testdata);
         VoteResolver<String> resolver = new VoteResolver<String>();
 
         verifyRequiredVotes(resolver, "mt", "//ldml/localeDisplayNames/languages/language[@type=\"fr_CA\"]", 4);
         verifyRequiredVotes(resolver, "fr", "//ldml/localeDisplayNames/languages/language[@type=\"fr_CA\"]", 8);
- 
+
         assertEquals("VoteResolver.HIGH_BAR", VoteResolver.HIGH_BAR, 20);
         verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"latn\"]/group", VoteResolver.HIGH_BAR); // == 20
         verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal", VoteResolver.HIGH_BAR);
@@ -756,7 +754,7 @@ public class TestUtilities extends TestFmwk {
         verifyRequiredVotes(resolver, "ast", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/group", VoteResolver.HIGH_BAR);
         verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/decimal", VoteResolver.HIGH_BAR);
     }
-    
+
     public void TestVoteResolver() {
         // to make it easier to debug failures, the first digit is an org, second is the individual in that org, and
         // third is the voting weight.

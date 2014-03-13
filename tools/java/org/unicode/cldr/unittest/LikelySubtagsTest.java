@@ -40,6 +40,7 @@ public class LikelySubtagsTest extends TestFmwk {
         final Set<String> languageScript = new TreeSet<String>();
         final Set<String> languageRegion = new TreeSet<String>();
         final Set<String> all = new TreeSet<String>();
+
         public Tags() {
             final LanguageTagParser ltp = new LanguageTagParser();
             for (Entry<String, String> entry : likely.entrySet()) {
@@ -51,6 +52,7 @@ public class LikelySubtagsTest extends TestFmwk {
             //            System.out.println("languageScript: " + languageScript);
             //            System.out.println("languageRegion: " + languageRegion);
         }
+
         void add(LanguageTagParser ltp, boolean source) {
             String sourceLanguage = ltp.getLanguage();
             String sourceScript = ltp.getScript();
@@ -76,6 +78,7 @@ public class LikelySubtagsTest extends TestFmwk {
             regions.add(sourceRegion);
         }
     }
+
     static final Tags TAGS = new Tags();
 
     final LanguageTagParser maxLtp = new LanguageTagParser();
@@ -130,20 +133,19 @@ public class LikelySubtagsTest extends TestFmwk {
         checkAdding("und_Bopo");
         checkAdding("und_AF");
         final LanguageTagParser ltp = new LanguageTagParser();
-        main:
-            for (String language : TAGS.languages) {
-                ltp.setLanguage(language);
-                for (String script : TAGS.scripts) {
-                    ltp.setScript(script);
-                    for (String region : TAGS.regions) {
-                        ltp.setRegion(region);
-                        String testTag = ltp.toString();
-                        if (!checkAdding(testTag)) {
-                            continue main;
-                        }
+        main: for (String language : TAGS.languages) {
+            ltp.setLanguage(language);
+            for (String script : TAGS.scripts) {
+                ltp.setScript(script);
+                for (String region : TAGS.regions) {
+                    ltp.setRegion(region);
+                    String testTag = ltp.toString();
+                    if (!checkAdding(testTag)) {
+                        continue main;
                     }
                 }
             }
+        }
     }
 
     static Set<String> exceptions = new HashSet<String>(Arrays.asList("Zyyy", "Zinh", "Zzzz", "Brai"));

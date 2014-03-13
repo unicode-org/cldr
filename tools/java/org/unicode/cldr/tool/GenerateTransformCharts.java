@@ -665,7 +665,7 @@ public class GenerateTransformCharts {
         return Normalizer.compare(a, b, 0) == 0;
     }
 
-    private static void addToLatinMap(Set<String> latinItems, Map<String, Map<String, Map<String, Boolean>>> latinToTaggedNonLatin, 
+    private static void addToLatinMap(Set<String> latinItems, Map<String, Map<String, Map<String, Boolean>>> latinToTaggedNonLatin,
         Map<String, Map<String, Map<String, Boolean>>> nonLatinToLatinTagged,
         String nonLatinId, Transliterator nonLatin_latin, Transliterator latin_nonLatin, String latin) {
         latinItems.add(latin);

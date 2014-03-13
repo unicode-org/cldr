@@ -57,7 +57,7 @@ public class CheckWidths extends CheckCLDR {
 
     private static final Pattern PLACEHOLDER_PATTERN = Pattern.compile("\\{\\d\\}");
 
-    private static class Limit  {
+    private static class Limit {
         final double warningReference;
         final double errorReference;
         final LimitType limit;
@@ -107,7 +107,8 @@ public class CheckWidths extends CheckCLDR {
             case NUMBERSYMBOLS:
                 value = value.replaceAll("[\u200E\u200F]", ""); // don't include LRM/RLM when checking length of number symbols
                 break;
-            case NONE: break; // do nothing
+            case NONE:
+                break; // do nothing
             }
             double valueMeasure = measure == Measure.CODE_POINTS ? value.codePointCount(0, value.length()) : ApproximateWidth.getWidth(value);
             CheckStatus.Type errorType = CheckStatus.warningType;
@@ -195,9 +196,9 @@ public class CheckWidths extends CheckCLDR {
             }
             return true;
         }
-        
+
     }
-        
+
     // WARNING: errors must occur before warnings!!
     // we allow unusual units and English units to be a little longer
     static final String ALLOW_LONGER = "(area-acre" +
@@ -220,87 +221,86 @@ public class CheckWidths extends CheckCLDR {
         "|speed-meter-per-second" +
         ")";
 
-   
-    static boolean LOOKUP_ASSEMBLED=false;
-   
-    private final static Object INITIALIZE_LOKUP_LOCK=new Object();
-    
+    static boolean LOOKUP_ASSEMBLED = false;
+
+    private final static Object INITIALIZE_LOKUP_LOCK = new Object();
+
     static RegexLookup<Limit[]> lookup = new RegexLookup<Limit[]>()
         .setPatternTransform(RegexLookup.RegexFinderTransformPath);
-       /*
-        .addVariable("%A", "\"[^\"]+\"")
-        .add("//ldml/delimiters/(quotation|alternateQuotation)", new Limit[] {
-            new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NONE)
-        })
+    /*
+     .addVariable("%A", "\"[^\"]+\"")
+     .add("//ldml/delimiters/(quotation|alternateQuotation)", new Limit[] {
+         new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NONE)
+     })
 
-        // Numeric items should be no more than a single character
+     // Numeric items should be no more than a single character
 
-        .add("//ldml/numbers/symbols[@numberSystem=%A]/(decimal|group|minus|percent|perMille|plus)", new Limit[] {
-            new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NUMBERSYMBOLS)
-        })
+     .add("//ldml/numbers/symbols[@numberSystem=%A]/(decimal|group|minus|percent|perMille|plus)", new Limit[] {
+         new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NUMBERSYMBOLS)
+     })
 
-        // Now widths
-        // The following are rough measures, just to check strange cases
+     // Now widths
+     // The following are rough measures, just to check strange cases
 
-        .add("//ldml/characters/ellipsis[@type=\"(final|initial|medial)\"]", new Limit[] {
-            new Limit(2 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
+     .add("//ldml/characters/ellipsis[@type=\"(final|initial|medial)\"]", new Limit[] {
+         new Limit(2 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     })
 
-        .add("//ldml/localeDisplayNames/localeDisplayPattern/", new Limit[] { // {0}: {1}, {0} ({1}), ,
-            new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
+     .add("//ldml/localeDisplayNames/localeDisplayPattern/", new Limit[] { // {0}: {1}, {0} ({1}), ,
+         new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     })
 
-        .add("//ldml/listPatterns/listPattern/listPatternPart[@type=%A]", new Limit[] { // {0} and {1}
-            new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
+     .add("//ldml/listPatterns/listPattern/listPatternPart[@type=%A]", new Limit[] { // {0} and {1}
+         new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     })
 
-        .add("//ldml/dates/timeZoneNames/fallbackFormat", new Limit[] { // {1} ({0})
-            new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
+     .add("//ldml/dates/timeZoneNames/fallbackFormat", new Limit[] { // {1} ({0})
+         new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     })
 
-        .add("//ldml/dates/timeZoneNames/(regionFormat|hourFormat)", new Limit[] { // {0} Time,
-            // +HH:mm;-HH:mm
-            new Limit(10 * EM, 20 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
+     .add("//ldml/dates/timeZoneNames/(regionFormat|hourFormat)", new Limit[] { // {0} Time,
+         // +HH:mm;-HH:mm
+         new Limit(10 * EM, 20 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     })
 
-        .add("//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat)", new Limit[] { // GMT{0}, GMT
-            new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
+     .add("//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat)", new Limit[] { // GMT{0}, GMT
+         new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     })
 
-        // Narrow items
+     // Narrow items
 
-        .add("//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod|/monthPattern)", new Limit[] {
-            new Limit(1.5 * EM, 2.25 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
-        })
-        // \"(?!am|pm)[^\"]+\"\\
+     .add("//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod|/monthPattern)", new Limit[] {
+         new Limit(1.5 * EM, 2.25 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+     })
+     // \"(?!am|pm)[^\"]+\"\\
 
-        // Compact number formats
+     // Compact number formats
 
-        .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1",
-            new Limit[] {
-            new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.QUOTES)
-            })
-        // Catch -future/past Narrow units  and allow much wider values
-        .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {
-            new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
-        // Catch special units and allow a bit wider
-        .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"" + ALLOW_LONGER + "\"]/unitPattern", new Limit[] {
-            new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
-        // Narrow units
-        .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=%A]/unitPattern", new Limit[] {
-            new Limit(3 * EM, 4 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
-        // Short units
-        .add("//ldml/units/unitLength[@type=\"short\"]/unit[@type=%A]/unitPattern", new Limit[] {
-            new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        })
+     .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1",
+         new Limit[] {
+         new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.QUOTES)
+         })
+     // Catch -future/past Narrow units  and allow much wider values
+     .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {
+         new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     })
+     // Catch special units and allow a bit wider
+     .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"" + ALLOW_LONGER + "\"]/unitPattern", new Limit[] {
+         new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     })
+     // Narrow units
+     .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=%A]/unitPattern", new Limit[] {
+         new Limit(3 * EM, 4 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     })
+     // Short units
+     .add("//ldml/units/unitLength[@type=\"short\"]/unit[@type=%A]/unitPattern", new Limit[] {
+         new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     })
 
-        // Currency Symbols
-        .add("//ldml/numbers/currencies/currency[@type=%A]/symbol", new Limit[] {
-            new Limit(3 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-        });  */
+     // Currency Symbols
+     .add("//ldml/numbers/currencies/currency[@type=%A]/symbol", new Limit[] {
+         new Limit(3 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+     });  */
 
     Set<Limit> found = new LinkedHashSet<Limit>();
 
@@ -309,21 +309,22 @@ public class CheckWidths extends CheckCLDR {
      * @author ribnitz
      *
      */
-    private static class CheckWidthPathAndVariableExtractor implements 
-        ExtractablePath<String,Limit>, ExtractableVariable {
-        private static CheckWidthPathAndVariableExtractor instance=null;
-      
-        private CheckWidthPathAndVariableExtractor() {}
-      
+    private static class CheckWidthPathAndVariableExtractor implements
+        ExtractablePath<String, Limit>, ExtractableVariable {
+        private static CheckWidthPathAndVariableExtractor instance = null;
+
+        private CheckWidthPathAndVariableExtractor() {
+        }
+
         public static CheckWidthPathAndVariableExtractor getInstance() {
-            synchronized(CheckWidthPathAndVariableExtractor.class) {
-                if (instance==null) {
-                    instance=new CheckWidthPathAndVariableExtractor();
+            synchronized (CheckWidthPathAndVariableExtractor.class) {
+                if (instance == null) {
+                    instance = new CheckWidthPathAndVariableExtractor();
                 }
                 return instance;
             }
         }
-     
+
         /**
          * Given a node, extract a variable definition, and return it as a Map.Entry
          * @param aNode - the node to process
@@ -333,11 +334,11 @@ public class CheckWidths extends CheckCLDR {
         public Map.Entry<String, String> extractVariable(Node aNode) {
             // the current node has two attributes, name and value
             if (aNode.hasAttributes()) {
-                NamedNodeMap nodeMap=aNode.getAttributes();
-                Node nameNode=nodeMap.getNamedItem("name");
-                String varName= nameNode.getNodeValue();
-                Node valNode=nodeMap.getNamedItem("value");
-                String varVal=valNode.getNodeValue();
+                NamedNodeMap nodeMap = aNode.getAttributes();
+                Node nameNode = nodeMap.getNamedItem("name");
+                String varName = nameNode.getNodeValue();
+                Node valNode = nodeMap.getNamedItem("value");
+                String varVal = valNode.getNodeValue();
                 return new SimpleImmutableEntry<String, String>(varName, varVal);
             }
             return null;
@@ -349,12 +350,13 @@ public class CheckWidths extends CheckCLDR {
          * @return
          */
         private String getValueOfFirstChild(Node aNode) {
-            if (aNode!=null &&aNode.hasChildNodes()) {
-                Node firstChild=aNode.getFirstChild();
+            if (aNode != null && aNode.hasChildNodes()) {
+                Node firstChild = aNode.getFirstChild();
                 return firstChild.getNodeValue();
             }
             return null;
         }
+
         /**
          * Treat a node which contains a double value, but which may contain an attribute, which will 
          * change the calculation of that value, if set to true.
@@ -362,88 +364,88 @@ public class CheckWidths extends CheckCLDR {
          * @return
          */
         private double extractErrorOrWarningValue(Node curChild) {
-            String cs=getValueOfFirstChild(curChild);
+            String cs = getValueOfFirstChild(curChild);
             // the current child is supposed to have one child, which holds a numeric value
-            double d= cs==null?0:Double.parseDouble(cs);
-            double multiplier=1;
+            double d = cs == null ? 0 : Double.parseDouble(cs);
+            double multiplier = 1;
             if (curChild.hasAttributes()) {
-                Node relAttr=curChild.getAttributes().getNamedItem("relativeToEM");
-                String relVal=relAttr.getNodeValue();
-                if (relVal!=null && !relVal.isEmpty()) {
-                    if (relVal.equalsIgnoreCase("true")|| relVal.equals("1")) {
-                        multiplier=EM;
+                Node relAttr = curChild.getAttributes().getNamedItem("relativeToEM");
+                String relVal = relAttr.getNodeValue();
+                if (relVal != null && !relVal.isEmpty()) {
+                    if (relVal.equalsIgnoreCase("true") || relVal.equals("1")) {
+                        multiplier = EM;
                     }
                 }
             }
-            return d*multiplier;
+            return d * multiplier;
         }
-        
+
         /**
          * Given a DOM Node, extract the information contained therein, and return it as a Key-Value pair
          * @param aNode the DOM Node to extract from
          * @return a Key/Value pair with the key and the data
          */
         @Override
-        public Map.Entry<String,Limit> extractPath(Node aNode) {
-            double errRef=0;
-            double warnRef=0;
-            LimitType curLim=null;
-            Measure measure=null;
-            String curPath=null;
-            Special special=null;
+        public Map.Entry<String, Limit> extractPath(Node aNode) {
+            double errRef = 0;
+            double warnRef = 0;
+            LimitType curLim = null;
+            Measure measure = null;
+            String curPath = null;
+            Special special = null;
             // iterate through the children
             if (aNode.hasChildNodes()) {
-                NodeList children=aNode.getChildNodes();
-                if (children!=null && children.getLength()>0) {
-                    Iterator<Node> childNodeIter=new NodeListIterator(children);
+                NodeList children = aNode.getChildNodes();
+                if (children != null && children.getLength() > 0) {
+                    Iterator<Node> childNodeIter = new NodeListIterator(children);
                     while (childNodeIter.hasNext()) {
-                        Node curChild=childNodeIter.next();
+                        Node curChild = childNodeIter.next();
                         if (curChild instanceof Element) {
-                            Element el=(Element)curChild;
-                            String tagname=el.getTagName();
-                            String nodeVal=null;
+                            Element el = (Element) curChild;
+                            String tagname = el.getTagName();
+                            String nodeVal = null;
                             // Switch on String requires Java 7
                             switch (tagname) {
-                            case "errorReference" : 
-                                errRef=extractErrorOrWarningValue(curChild);
+                            case "errorReference":
+                                errRef = extractErrorOrWarningValue(curChild);
                                 break;
-                            case "warningReference": 
-                                warnRef=extractErrorOrWarningValue(curChild);
+                            case "warningReference":
+                                warnRef = extractErrorOrWarningValue(curChild);
                                 break;
-                            case "limit": 
+                            case "limit":
                                 // the current child has a child (Text node) containing 
                                 // the value
-                                nodeVal=getValueOfFirstChild(curChild);
-                                curLim=LimitType.valueOf(nodeVal);
+                                nodeVal = getValueOfFirstChild(curChild);
+                                curLim = LimitType.valueOf(nodeVal);
                                 break;
-                            case "measure": 
-                                nodeVal=getValueOfFirstChild(curChild);
-                                measure= Measure.valueOf(nodeVal);
+                            case "measure":
+                                nodeVal = getValueOfFirstChild(curChild);
+                                measure = Measure.valueOf(nodeVal);
                                 break;
-                            case "special": 
-                                nodeVal=getValueOfFirstChild(curChild);
-                                special= Special.valueOf(nodeVal);
+                            case "special":
+                                nodeVal = getValueOfFirstChild(curChild);
+                                special = Special.valueOf(nodeVal);
                                 break;
-                            case "pathName": 
-                                nodeVal=getValueOfFirstChild(curChild);
-                                curPath=nodeVal;
+                            case "pathName":
+                                nodeVal = getValueOfFirstChild(curChild);
+                                curPath = nodeVal;
                                 break;
                             }
                         }
                     }
                     // construct a limit that we can associate with the path
-                    Limit l=new Limit(warnRef,errRef,measure,curLim,special);
-                    return new SimpleImmutableEntry<String,Limit>(curPath,l);
+                    Limit l = new Limit(warnRef, errRef, measure, curLim, special);
+                    return new SimpleImmutableEntry<String, Limit>(curPath, l);
                 }
             }
             return null;
         }
     }
-   
+
     private static interface LookupInitializable {
         void initialize();
     }
-    
+
     /**
      * Initializer that hold an object it can synchronize on, for initialization 
      * @author ribnitz
@@ -454,11 +456,12 @@ public class CheckWidths extends CheckCLDR {
          * Object subclasses can use for synchronization in initialize
          */
         protected final Object syncObject;
+
         public SynchronizingLookupInitializer(Object aLock) {
-            syncObject=aLock;
+            syncObject = aLock;
         }
     }
-    
+
     /**
      * Initializer that whose values are obtained through a Reader
      * @author ribnitz
@@ -469,55 +472,55 @@ public class CheckWidths extends CheckCLDR {
          * XPath expression used to access the Paths; this is supposed to return a NodeList
          */
         private static final String XPATH_PATHS = "//paths/path";
-        
+
         /**
          * XPath expression used to access the variables; this is supposed to return a NodeList
          */
         private static final String XPATH_VARIABLES = "//variables/variable";
-        
+
         /**
          * Internal buffer used for parsing
          */
         private final byte[] buf;
-        
-        public StreamBasedLookupInitializer(Object aLock,Reader in) throws IOException {
+
+        public StreamBasedLookupInitializer(Object aLock, Reader in) throws IOException {
             super(aLock);
-            StringBuilder sb=new StringBuilder();
-            try (BufferedReader br=new BufferedReader(in)) {
-                String s=null;
-                while ((s=br.readLine())!=null) {
+            StringBuilder sb = new StringBuilder();
+            try (BufferedReader br = new BufferedReader(in)) {
+                String s = null;
+                while ((s = br.readLine()) != null) {
                     sb.append(s);
                 }
             }
-            buf=sb.toString().getBytes();
+            buf = sb.toString().getBytes();
         }
-        
+
         @Override
         public void initialize() {
-            synchronized(syncObject) {
+            synchronized (syncObject) {
                 if (!LOOKUP_ASSEMBLED) {
-                    CheckWidthPathAndVariableExtractor exractor=CheckWidthPathAndVariableExtractor.getInstance();
-                    try (Reader rdr=new InputStreamReader(new ByteArrayInputStream(buf))) {
-                        VariableAndPathParser<String,Limit> vpp=new VariableAndPathParser<>(rdr);
+                    CheckWidthPathAndVariableExtractor exractor = CheckWidthPathAndVariableExtractor.getInstance();
+                    try (Reader rdr = new InputStreamReader(new ByteArrayInputStream(buf))) {
+                        VariableAndPathParser<String, Limit> vpp = new VariableAndPathParser<>(rdr);
                         vpp.setVariableExtractor(exractor);
                         vpp.setPathExtractor(exractor);
-                        Map<String,String> variablesReadFromFile=vpp.getVariables(XPATH_VARIABLES);
+                        Map<String, String> variablesReadFromFile = vpp.getVariables(XPATH_VARIABLES);
                         if (!variablesReadFromFile.isEmpty()) {
                             // add the variables
-                            Iterator<String> iter=variablesReadFromFile.keySet().iterator();
+                            Iterator<String> iter = variablesReadFromFile.keySet().iterator();
                             while (iter.hasNext()) {
-                                String varKey=iter.next();
-                                String varVal=variablesReadFromFile.get(varKey);
+                                String varKey = iter.next();
+                                String varVal = variablesReadFromFile.get(varKey);
                                 lookup.addVariable(varKey, varVal);
                             }
                         }
-                        Map<String,Limit> pathsReadFromFile=vpp.getPaths(XPATH_PATHS);
+                        Map<String, Limit> pathsReadFromFile = vpp.getPaths(XPATH_PATHS);
                         if (!pathsReadFromFile.isEmpty()) {
-                            Iterator<String> iter=pathsReadFromFile.keySet().iterator();
+                            Iterator<String> iter = pathsReadFromFile.keySet().iterator();
                             while (iter.hasNext()) {
-                                String curKey=iter.next();
-                                Limit curVal=pathsReadFromFile.get(curKey);
-                                lookup.add(curKey, new Limit[] {curVal});
+                                String curKey = iter.next();
+                                Limit curVal = pathsReadFromFile.get(curKey);
+                                lookup.add(curKey, new Limit[] { curVal });
                             }
                         }
                     } catch (IOException e) {
@@ -525,15 +528,15 @@ public class CheckWidths extends CheckCLDR {
                     }
                 }
             }
-        }  
+        }
     }
-    
+
     /**
      * Initializer that uses static values
      * @author ribnitz
      *
      */
-    private static class StaticValueLookupInitializer  extends SynchronizingLookupInitializer {
+    private static class StaticValueLookupInitializer extends SynchronizingLookupInitializer {
 
         public StaticValueLookupInitializer(Object aLock) {
             super(aLock);
@@ -541,85 +544,85 @@ public class CheckWidths extends CheckCLDR {
 
         @Override
         public void initialize() {
-            synchronized(syncObject) {
+            synchronized (syncObject) {
                 lookup.addVariable("%A", "\"[^\"]+\"")
-                .add("//ldml/delimiters/(quotation|alternateQuotation)", new Limit[] {
-                    new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NONE)
-                })
+                    .add("//ldml/delimiters/(quotation|alternateQuotation)", new Limit[] {
+                        new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NONE)
+                    })
 
-                // Numeric items should be no more than a single character
+                    // Numeric items should be no more than a single character
 
-                .add("//ldml/numbers/symbols[@numberSystem=%A]/(decimal|group|minus|percent|perMille|plus)", new Limit[] {
-                    new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NUMBERSYMBOLS)
-                })
+                    .add("//ldml/numbers/symbols[@numberSystem=%A]/(decimal|group|minus|percent|perMille|plus)", new Limit[] {
+                        new Limit(1, 1, Measure.CODE_POINTS, LimitType.MAXIMUM, Special.NUMBERSYMBOLS)
+                    })
 
-                // Now widths
-                // The following are rough measures, just to check strange cases
+                    // Now widths
+                    // The following are rough measures, just to check strange cases
 
-                .add("//ldml/characters/ellipsis[@type=\"(final|initial|medial)\"]", new Limit[] {
-                    new Limit(2 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                })
+                    .add("//ldml/characters/ellipsis[@type=\"(final|initial|medial)\"]", new Limit[] {
+                        new Limit(2 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    })
 
-                .add("//ldml/localeDisplayNames/localeDisplayPattern/", new Limit[] { // {0}: {1}, {0} ({1}), ,
-                    new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                })
+                    .add("//ldml/localeDisplayNames/localeDisplayPattern/", new Limit[] { // {0}: {1}, {0} ({1}), ,
+                        new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    })
 
-                .add("//ldml/listPatterns/listPattern/listPatternPart[@type=%A]", new Limit[] { // {0} and {1}
-                    new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                })
+                    .add("//ldml/listPatterns/listPattern/listPatternPart[@type=%A]", new Limit[] { // {0} and {1}
+                        new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    })
 
-                .add("//ldml/dates/timeZoneNames/fallbackFormat", new Limit[] { // {1} ({0})
-                    new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                })
+                    .add("//ldml/dates/timeZoneNames/fallbackFormat", new Limit[] { // {1} ({0})
+                        new Limit(2 * EM, 3 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    })
 
-                .add("//ldml/dates/timeZoneNames/(regionFormat|hourFormat)", new Limit[] { // {0} Time,
-                    // +HH:mm;-HH:mm
-                    new Limit(10 * EM, 20 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                })
+                    .add("//ldml/dates/timeZoneNames/(regionFormat|hourFormat)", new Limit[] { // {0} Time,
+                        // +HH:mm;-HH:mm
+                        new Limit(10 * EM, 20 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    })
 
-                .add("//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat)", new Limit[] { // GMT{0}, GMT
-                    new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                })
+                    .add("//ldml/dates/timeZoneNames/(gmtFormat|gmtZeroFormat)", new Limit[] { // GMT{0}, GMT
+                        new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    })
 
-                // Narrow items
+                    // Narrow items
 
-                .add("//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod|/monthPattern)", new Limit[] {
-                    new Limit(1.5 * EM, 2.25 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
-                })
-                // \"(?!am|pm)[^\"]+\"\\
+                    .add("//ldml/dates/calendars/calendar.*[@type=\"narrow\"](?!/cyclic|/dayPeriod|/monthPattern)", new Limit[] {
+                        new Limit(1.5 * EM, 2.25 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.NONE)
+                    })
+                    // \"(?!am|pm)[^\"]+\"\\
 
-                // Compact number formats
+                    // Compact number formats
 
-                .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1",
-                    new Limit[] {
-                    new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.QUOTES)
-                })
-                // Catch -future/past Narrow units  and allow much wider values
-                .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {
-                    new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                })
-                // Catch special units and allow a bit wider
-                .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"" + ALLOW_LONGER + "\"]/unitPattern", new Limit[] {
-                    new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                })
-                // Narrow units
-                .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=%A]/unitPattern", new Limit[] {
-                    new Limit(3 * EM, 4 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                })
-                // Short units
-                .add("//ldml/units/unitLength[@type=\"short\"]/unit[@type=%A]/unitPattern", new Limit[] {
-                    new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                })
+                    .add("//ldml/numbers/decimalFormats[@numberSystem=%A]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=%A]/pattern[@type=\"1",
+                        new Limit[] {
+                        new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.QUOTES)
+                        })
+                    // Catch -future/past Narrow units  and allow much wider values
+                    .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"[^\"]+-(future|past)\"]/unitPattern", new Limit[] {
+                        new Limit(10 * EM, 15 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    })
+                    // Catch special units and allow a bit wider
+                    .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=\"" + ALLOW_LONGER + "\"]/unitPattern", new Limit[] {
+                        new Limit(4 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    })
+                    // Narrow units
+                    .add("//ldml/units/unitLength[@type=\"narrow\"]/unit[@type=%A]/unitPattern", new Limit[] {
+                        new Limit(3 * EM, 4 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    })
+                    // Short units
+                    .add("//ldml/units/unitLength[@type=\"short\"]/unit[@type=%A]/unitPattern", new Limit[] {
+                        new Limit(5 * EM, 10 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    })
 
-                // Currency Symbols
-                .add("//ldml/numbers/currencies/currency[@type=%A]/symbol", new Limit[] {
-                    new Limit(3 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
-                });
+                    // Currency Symbols
+                    .add("//ldml/numbers/currencies/currency[@type=%A]/symbol", new Limit[] {
+                        new Limit(3 * EM, 5 * EM, Measure.DISPLAY_WIDTH, LimitType.MAXIMUM, Special.PLACEHOLDERS)
+                    });
             }
         }
-        
-        
+
     }
+
     @SuppressWarnings("rawtypes")
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
@@ -634,25 +637,25 @@ public class CheckWidths extends CheckCLDR {
         // lookup.get("//ldml/numbers/decimalFormats[@numberSystem=\"latn\"]/decimalFormatLength[@type=\"short\"]/decimalFormat[@type=\"standard\"]/pattern[@type=\"1000000000\"][@count=\"other\"]");
         // item0.check("123456789", result, this);
 
-        synchronized(INITIALIZE_LOKUP_LOCK) {
+        synchronized (INITIALIZE_LOKUP_LOCK) {
             if (!LOOKUP_ASSEMBLED) {
-                LookupInitializable initializer=null;
+                LookupInitializable initializer = null;
                 if (READ_FROM_FILE) {
                     //  lookup the variables etc. form a File
-                    try (Reader is=CldrUtility.getUTF8Data(WIDTH_SPECIFICATION_FILE)) {
-                        initializer=new StreamBasedLookupInitializer(INITIALIZE_LOKUP_LOCK, is);
+                    try (Reader is = CldrUtility.getUTF8Data(WIDTH_SPECIFICATION_FILE)) {
+                        initializer = new StreamBasedLookupInitializer(INITIALIZE_LOKUP_LOCK, is);
                     } catch (IOException e) {
                         // TODO Auto-generated catch block
                         e.printStackTrace();
-                       //use the static version
-                        initializer=new StaticValueLookupInitializer(INITIALIZE_LOKUP_LOCK);
+                        //use the static version
+                        initializer = new StaticValueLookupInitializer(INITIALIZE_LOKUP_LOCK);
                     }
                 } else {
-                    initializer=new StaticValueLookupInitializer(INITIALIZE_LOKUP_LOCK);
+                    initializer = new StaticValueLookupInitializer(INITIALIZE_LOKUP_LOCK);
                 }
-                if (initializer!=null) {
+                if (initializer != null) {
                     initializer.initialize();
-                    LOOKUP_ASSEMBLED=true;
+                    LOOKUP_ASSEMBLED = true;
                 }
             }
         }

@@ -444,7 +444,7 @@ public class StandardCodes {
         }
         return platform_locale_level.get(organization).keySet();
     }
-    
+
     public Relation<Level, String> getLevelsToLocalesFor(String organization) {
         synchronized (StandardCodes.class) {
             if (platform_level_locale == null) {
@@ -1126,7 +1126,7 @@ public class StandardCodes {
                     //                    } else {
                     //                        lastRest = translitCache.get(rest);
                     //                    }
-                      lastRest=rest;  
+                    lastRest = rest;
                     String oldValue = (String) CldrUtility.get(currentData, lastLabel);
                     if (oldValue != null) {
                         lastRest = oldValue + DESCRIPTION_SEPARATOR + lastRest;

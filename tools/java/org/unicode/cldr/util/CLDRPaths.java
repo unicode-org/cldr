@@ -17,31 +17,31 @@ public class CLDRPaths {
 
     public static final String BASE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_DIR", null)); // new
     // File(Utility.getProperty("CLDR_DIR",
-                                                                                                    // null)).getPath();
-                                                                                                    // // get up to
-                                                                                                    // <CLDR>
+    // null)).getPath();
+    // // get up to
+    // <CLDR>
     public static final String COMMON_DIRECTORY = CldrUtility.getPath(BASE_DIRECTORY, "common/");
     public static final String COLLATION_DIRECTORY = CldrUtility.getPath(COMMON_DIRECTORY, "collation/");
     public static final String MAIN_DIRECTORY = CldrUtility.getProperty("CLDR_MAIN",
-    CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "main"));
+        CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "main"));
     public static final String SEED_DIRECTORY = CldrUtility.getProperty("CLDR_SEED",
-    CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "../seed/main"));
+        CldrUtility.getPath(CLDRPaths.COMMON_DIRECTORY, "../seed/main"));
     public static final String SEED_COLLATION_DIRECTORY = CldrUtility.getPath(SEED_DIRECTORY, "../collation/");
     public static final String TMP_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
-    CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp/")));
+        CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp/")));
     public static final String AUX_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
-    CldrUtility.getPath(BASE_DIRECTORY, "../cldr-aux/")));
+        CldrUtility.getPath(BASE_DIRECTORY, "../cldr-aux/")));
     public static final String TMP2_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_TMP_DIR",
-    CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp2/")));
+        CldrUtility.getPath(BASE_DIRECTORY, "../cldr-tmp2/")));
     // external data
     public static final String EXTERNAL_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("UCD_DIR", BASE_DIRECTORY) + "/../");
     public static final String ARCHIVE_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("ARCHIVE", BASE_DIRECTORY));
     public static final String LAST_DIRECTORY = ARCHIVE_DIRECTORY + "cldr-" +
-    ToolConstants.LAST_CHART_VERSION +
-    "/";
+        ToolConstants.LAST_CHART_VERSION +
+        "/";
     public static final String UCD_DIRECTORY = CldrUtility.getPath(EXTERNAL_DIRECTORY, "data/UCD/6.3.0-Update");
     public static final String GEN_DIRECTORY = CldrUtility.getPath(CldrUtility.getProperty("CLDR_GEN_DIR",
-    CldrUtility.getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
+        CldrUtility.getPath(EXTERNAL_DIRECTORY, "Generated/cldr/")));
     public static final String ICU_DATA_DIR = CldrUtility.getPath(CldrUtility.getProperty("ICU_DATA_DIR", null)); // eg
     /**
      * @deprecated please use XMLFile and CLDRFILE getSupplementalDirectory()

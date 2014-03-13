@@ -47,11 +47,10 @@ public interface BallotBox<T> {
      * @return the full xpath of the user's vote, or null if not applicable.
      */
     public void voteForValue(T user, String distinguishingXpath, String value, Integer withVote) throws InvalidXPathException;
-    
 
     public void voteForValue(T user, String distinguishingXpath, String value) throws InvalidXPathException;
-    
-/**
+
+    /**
      * Delete an item. Will (eventually) throw a number of
      * exceptions.
      * 
@@ -89,8 +88,8 @@ public interface BallotBox<T> {
      * @param xpath
      * @return
      */
-    public Map<User,Integer> getOverridesPerUser(String xpath);
-    
+    public Map<User, Integer> getOverridesPerUser(String xpath);
+
     /**
      * Get the possible user values at this path. Could be null.
      * 

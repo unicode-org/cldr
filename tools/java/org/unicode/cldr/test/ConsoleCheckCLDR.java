@@ -80,9 +80,9 @@ import com.ibm.icu.util.ULocale;
  * @author markdavis
  * 
  */
-@CLDRTool(alias="check",
-          description="Run CheckCLDR against CLDR data",
-          url = "http://cldr.unicode.org/development/building-cldr-tools/running-consolecheckcldr")
+@CLDRTool(alias = "check",
+    description = "Run CheckCLDR against CLDR data",
+    url = "http://cldr.unicode.org/development/building-cldr-tools/running-consolecheckcldr")
 public class ConsoleCheckCLDR {
     public static boolean showStackTrace = false;
     public static boolean errorsOnly = false;
@@ -252,40 +252,40 @@ public class ConsoleCheckCLDR {
                     + organizations);
             }
         }
-        final CLDRConfig cldrConf=CLDRConfig.getInstance();
+        final CLDRConfig cldrConf = CLDRConfig.getInstance();
         // set the envronment to UNITTEST as suggested
         cldrConf.setEnvironment(Environment.UNITTEST);
         // get the Phase from CLDRConfig object     
-       final  Phase phase;
-     //   Phase phase = Phase.BUILD; 
+        final Phase phase;
+        //   Phase phase = Phase.BUILD; 
         if (options[PHASE].doesOccur) {
             String phaseVal = options[PHASE].value;
             try {
                 // no null check for argument; if it is is null, Phase.forString would return the one from CLDRConfig
                 phase = Phase.forString(phaseVal);
             } catch (IllegalArgumentException e) {
-                StringBuilder sb=new StringBuilder( "Incorrect Phase value"); 
-                if (phaseVal!=null && !phaseVal.isEmpty()) {
+                StringBuilder sb = new StringBuilder("Incorrect Phase value");
+                if (phaseVal != null && !phaseVal.isEmpty()) {
                     sb.append(" '");
                     sb.append(phaseVal);
                     sb.append("'");
                 }
                 sb.append(": should be one of ");
-                for (Phase curPhase: Phase.values()) {
+                for (Phase curPhase : Phase.values()) {
                     // implicitly does a toString;
                     sb.append(curPhase);
                     sb.append(", ");
                 }
-                int lastIdx=sb.lastIndexOf(",");
+                int lastIdx = sb.lastIndexOf(",");
                 // remove the last comma, if it occurs
-                if (lastIdx>-1) {
-                    String tmpBuf=sb.substring(0,lastIdx);
+                if (lastIdx > -1) {
+                    String tmpBuf = sb.substring(0, lastIdx);
                     sb.setLength(0);
                     sb.append(tmpBuf);
                 }
                 sb.append(".");
                 // TODO: Reporting should be similar to an error (wrong parameter...), and not actually an Exception
-                throw new IllegalArgumentException(sb.toString(),e);
+                throw new IllegalArgumentException(sb.toString(), e);
             }
         } else {
             phase = cldrConf.getPhase();
@@ -293,15 +293,15 @@ public class ConsoleCheckCLDR {
 
         File sourceDirectories[] = null;
 
-        if(options[SOURCE_ALL].doesOccur) {
-            if(options[SOURCE_DIRECTORY].doesOccur) {
+        if (options[SOURCE_ALL].doesOccur) {
+            if (options[SOURCE_DIRECTORY].doesOccur) {
                 throw new IllegalArgumentException("Don't use -s and -S together.");
             }
             sourceDirectories = cldrConf.getMainDataDirectories(cldrConf.getCLDRDataDirectories(options[SOURCE_ALL].value));
         } else {
             sourceDirectories = new File[1];
             sourceDirectories[0] = new File(CldrUtility.checkValidDirectory(options[SOURCE_DIRECTORY].value,
-                                                                            "Fix with -s. Use -h for help."));
+                "Fix with -s. Use -h for help."));
         }
 
         if (options[GENERATE_HTML].doesOccur) {
@@ -336,9 +336,9 @@ public class ConsoleCheckCLDR {
         String user = options[USER].value;
 
         System.out.println("Source directories:\n");
-        for(File f : sourceDirectories) {
+        for (File f : sourceDirectories) {
             System.out.println("    " + f.getPath() + "\t("
-                               + f.getCanonicalPath() + ")");
+                + f.getCanonicalPath() + ")");
         }
         System.out.println("factoryFilter: " + factoryFilter);
         System.out.println("test filter: " + checkFilter);
@@ -359,8 +359,7 @@ public class ConsoleCheckCLDR {
         System.out.println("subtype filter: " + subtypeFilter);
 
         // set up the test
-        Factory cldrFactory
-            = SimpleFactory.make(sourceDirectories, factoryFilter)
+        Factory cldrFactory = SimpleFactory.make(sourceDirectories, factoryFilter)
             .setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
         CompoundCheckCLDR checkCldr = CheckCLDR.getCheckAll(cldrFactory, checkFilter);
         if (checkCldr.getFilteredTestList().size() == 0) {
@@ -386,7 +385,7 @@ public class ConsoleCheckCLDR {
         Set<PathHeader> paths = new TreeSet<PathHeader>(); // CLDRFile.ldmlComparator);
         Map m = new TreeMap();
         // double testNumber = 0;
-        Map<String,String> options = new HashMap<String,String>();
+        Map<String, String> options = new HashMap<String, String>();
         FlexibleDateFromCLDR fset = new FlexibleDateFromCLDR();
         Set<String> englishPaths = null;
 

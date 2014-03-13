@@ -145,6 +145,7 @@ public class CheckZones extends FactoryCheckCLDR {
         }
         return null; // unknown
     }
+
     @Override
     public CheckCLDR handleGetExamples(String path, String fullPath, String value,
         Options options, List result) {

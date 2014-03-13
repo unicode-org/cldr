@@ -1,6 +1,7 @@
 package org.unicode.cldr.icu;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -62,8 +63,14 @@ public class IcuDataSplitter {
                     }
                 } else {
                     if (!dir.mkdirs()) {
+                        String canonicalPath;
+                        try {
+                            canonicalPath = dir.getCanonicalPath();
+                        } catch (IOException e) {
+                            canonicalPath = dirPath;
+                        }
                         throw new IllegalArgumentException(
-                            "Unable to create directory path \"" + dirPath + "\"");
+                            "Unable to create directory path \"" + canonicalPath + "\"");
                     }
                 }
                 targetDirs.put(dirPath, dir);

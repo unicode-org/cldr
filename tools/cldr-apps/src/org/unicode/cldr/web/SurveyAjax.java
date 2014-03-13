@@ -179,11 +179,11 @@ public class SurveyAjax extends HttpServlet {
         }
 
         public static JSONObject wrap(PathHeader pathHeader) throws JSONException {
-            if(pathHeader==null) return null;
-            return new JSONObject().put("section",pathHeader.getSectionId().name())
-                                   .put("page", pathHeader.getPageId().name())
-                                   .put("code", pathHeader.getCode())
-                                   .put("str", pathHeader.toString());
+            if (pathHeader == null) return null;
+            return new JSONObject().put("section", pathHeader.getSectionId().name())
+                .put("page", pathHeader.getPageId().name())
+                .put("code", pathHeader.getCode())
+                .put("str", pathHeader.toString());
         }
     }
 
@@ -276,7 +276,7 @@ public class SurveyAjax extends HttpServlet {
         String vhash = request.getParameter("vhash");
         String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
         CookieSession mySession = null;
-        
+
         //loc can have either - or _
         loc = (loc == null) ? null : loc.replace('-', '_');
 
@@ -297,7 +297,7 @@ public class SurveyAjax extends HttpServlet {
                 String votesAfterString = SurveyMain.getVotesAfterString();
                 JSONWriter r = newJSONStatus(sm);
                 final String day = DBUtils.db_Mysql ? "DATE_FORMAT(last_mod, '%Y-%m-%d')" : "last_mod ";
-                final String sql =  "select submitter," + day + " as day,locale,count(*) as count from "+DBUtils.Table.VOTE_VALUE
+                final String sql = "select submitter," + day + " as day,locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE
                     + " group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod)  order by day desc";
                 JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000,
                     sql);
@@ -307,10 +307,10 @@ public class SurveyAjax extends HttpServlet {
                 // select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale,count(*) from "+DBUtils.Table.VOTE_VALUE+" group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod) order by day desc limit 10000;
             } else if (what.equals(WHAT_STATS_BYDAY)) {
                 JSONWriter r = newJSONStatus(sm);
-                final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from "+DBUtils.Table.VOTE_VALUE
-                    + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc" )  // mysql
-                            : ("select count(*) as count ,Date("+DBUtils.Table.VOTE_VALUE+".last_mod) as last_mod from "+DBUtils.Table.VOTE_VALUE
-                                + " group by Date("+DBUtils.Table.VOTE_VALUE+".last_mod)" ); // derby
+                final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
+                    + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
+                    : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
+                        + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
                 JSONObject query = DBUtils
                     .queryToCachedJSON(what, (5 * 60 * 1000), sql);
                 r.put("byday", query);
@@ -318,8 +318,9 @@ public class SurveyAjax extends HttpServlet {
                 send(r, out);
             } else if (what.equals(WHAT_MY_LOCALES)) {
                 JSONWriter r = newJSONStatus(sm);
-                String q1 = "select count(*) as count, "+DBUtils.Table.VOTE_VALUE+".locale as locale from "+DBUtils.Table.VOTE_VALUE+" WHERE "+DBUtils.Table.VOTE_VALUE+".submitter=? AND "+DBUtils.Table.VOTE_VALUE+".value is not NULL "+
-                     " group by "+DBUtils.Table.VOTE_VALUE+".locale order by "+DBUtils.Table.VOTE_VALUE+".locale desc";
+                String q1 = "select count(*) as count, " + DBUtils.Table.VOTE_VALUE + ".locale as locale from " + DBUtils.Table.VOTE_VALUE + " WHERE "
+                    + DBUtils.Table.VOTE_VALUE + ".submitter=? AND " + DBUtils.Table.VOTE_VALUE + ".value is not NULL " +
+                    " group by " + DBUtils.Table.VOTE_VALUE + ".locale order by " + DBUtils.Table.VOTE_VALUE + ".locale desc";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;
                 if (user != null && !user.isEmpty())
@@ -341,9 +342,10 @@ public class SurveyAjax extends HttpServlet {
                 } catch (Throwable t) {
                     limit = 15;
                 }
-                String q1 = "select "+DBUtils.Table.VOTE_VALUE+".locale,cldr_xpaths.xpath,cldr_users.org, "+DBUtils.Table.VOTE_VALUE+".value, "+DBUtils.Table.VOTE_VALUE+".last_mod  from cldr_xpaths,"+DBUtils.Table.VOTE_VALUE+",cldr_users  where ";
-                String q2 = "cldr_xpaths.id="+DBUtils.Table.VOTE_VALUE+".xpath and cldr_users.id="+DBUtils.Table.VOTE_VALUE+".submitter"
-                    + "  order by "+DBUtils.Table.VOTE_VALUE+".last_mod desc ";
+                String q1 = "select " + DBUtils.Table.VOTE_VALUE + ".locale,cldr_xpaths.xpath,cldr_users.org, " + DBUtils.Table.VOTE_VALUE + ".value, "
+                    + DBUtils.Table.VOTE_VALUE + ".last_mod  from cldr_xpaths," + DBUtils.Table.VOTE_VALUE + ",cldr_users  where ";
+                String q2 = "cldr_xpaths.id=" + DBUtils.Table.VOTE_VALUE + ".xpath and cldr_users.id=" + DBUtils.Table.VOTE_VALUE + ".submitter"
+                    + "  order by " + DBUtils.Table.VOTE_VALUE + ".last_mod desc ";
                 String user = request.getParameter("user");
                 UserRegistry.User u = null;
                 if (user != null && !user.isEmpty())
@@ -352,16 +354,17 @@ public class SurveyAjax extends HttpServlet {
                     } catch (Throwable t) {
                         SurveyLog.logException(t, "Parsing user " + user);
                     }
-                System.out.println("SQL: " + q1+q2);
+                System.out.println("SQL: " + q1 + q2);
                 JSONObject query;
                 if (l == null && u == null) {
                     query = DBUtils.queryToJSONLimit(limit, q1 + q2);
                 } else if (u == null && l != null) {
-                    query = DBUtils.queryToJSONLimit(limit, q1 + " "+DBUtils.Table.VOTE_VALUE+".locale=? AND " + q2, l);
+                    query = DBUtils.queryToJSONLimit(limit, q1 + " " + DBUtils.Table.VOTE_VALUE + ".locale=? AND " + q2, l);
                 } else if (u != null && l == null) {
-                    query = DBUtils.queryToJSONLimit(limit, q1 + " "+DBUtils.Table.VOTE_VALUE+".submitter=? AND " + q2, u.id);
+                    query = DBUtils.queryToJSONLimit(limit, q1 + " " + DBUtils.Table.VOTE_VALUE + ".submitter=? AND " + q2, u.id);
                 } else {
-                    query = DBUtils.queryToJSONLimit(limit, q1 + " "+DBUtils.Table.VOTE_VALUE+".locale=? AND "+DBUtils.Table.VOTE_VALUE+".submitter=? " + q2, l, u.id);
+                    query = DBUtils.queryToJSONLimit(limit, q1 + " " + DBUtils.Table.VOTE_VALUE + ".locale=? AND " + DBUtils.Table.VOTE_VALUE + ".submitter=? "
+                        + q2, l, u.id);
                 }
                 r.put("recent", query);
                 send(r, out);
@@ -575,7 +578,7 @@ public class SurveyAjax extends HttpServlet {
                                     if (!UserRegistry.userCanModifyLocale(mySession.user, locale)) {
                                         throw new InternalError("User cannot modify locale.");
                                     }
-                                    
+
                                     ballotBox.deleteValue(mySession.user, xp, val);
                                     String delRes = ballotBox.getResolver(xp).toString();
                                     if (DEBUG)
@@ -700,40 +703,41 @@ public class SurveyAjax extends HttpServlet {
 
                         if ("true".equals(request.getParameter("locmap"))) {
                             r.put("locmap", getJSONLocMap(sm));
-                            
+
                             // any special messages?
                             if (mySession.user != null && mySession.user.canImportOldVotes()) {
                                 // list of modifyable locales
                                 JSONArray modifyableLocs = new JSONArray();
                                 Set<CLDRLocale> rolocs = sm.getReadOnlyLocales();
-                                for(CLDRLocale al : SurveyMain.getLocales()) {
-                                    if(rolocs.contains(al)) continue;
-                                    if(UserRegistry.userCanModifyLocale(mySession.user,al)) {
+                                for (CLDRLocale al : SurveyMain.getLocales()) {
+                                    if (rolocs.contains(al)) continue;
+                                    if (UserRegistry.userCanModifyLocale(mySession.user, al)) {
                                         modifyableLocs.put(al.getBaseName());
                                     }
                                 }
-                                if(modifyableLocs.length()>0) {
+                                if (modifyableLocs.length() > 0) {
                                     r.put("canmodify", modifyableLocs);
                                 }
-                                
+
                                 // old votes?
                                 String oldVotesPref = getOldVotesPref();
                                 String oldVoteRemind = mySession.settings().get(oldVotesPref, null);
                                 if (oldVoteRemind == null || // never been asked
                                     !oldVoteRemind.equals("*")) { //  dont ask again
-                                    
-                                    String oldVotesTable  = STFactory.getOldVoteTable();
-                                    
-                                    if(DBUtils.hasTable(oldVotesTable)) {
+
+                                    String oldVotesTable = STFactory.getOldVoteTable();
+
+                                    if (DBUtils.hasTable(oldVotesTable)) {
                                         int count = DBUtils.sqlCount("select  count(*) as count from " + oldVotesTable
                                             + " where submitter=? " +
                                             " and value is not null", mySession.user.id);
-    
+
                                         if (count == 0) { // may be -1 on error
                                             mySession.settings().set(oldVotesPref, "*"); // Do not ask again this release
                                         } else {
                                             if (SurveyMain.isUnofficial())
-                                                System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count + " and " + oldVotesPref
+                                                System.out.println("Old Votes remaining: " + mySession.user + " oldVotesCount = " + count + " and "
+                                                    + oldVotesPref
                                                     + "=" + oldVoteRemind);
                                             r.put("oldVotesRemind", new JSONObject().put("pref", oldVotesPref).put("remind", oldVoteRemind).put("count", count));
                                         }
@@ -825,15 +829,18 @@ public class SurveyAjax extends HttpServlet {
                             JSONObject oldvotes = new JSONObject();
                             final String oldVotesTable = STFactory.getOldVoteTable();
                             final String newVotesTable = DBUtils.Table.VOTE_VALUE.toString();
-                            oldvotes.put("votesafter", "(version"+SurveyMain.getOldVersion()+")");
+                            oldvotes.put("votesafter", "(version" + SurveyMain.getOldVersion() + ")");
 
                             if (loc == null || loc.isEmpty()) {
-                                oldvotes.put("locales",
+                                oldvotes.put(
+                                    "locales",
                                     DBUtils.queryToJSON("select  locale,count(*) as count from " + oldVotesTable
                                         + " where submitter=? " +
-                                        " and value is not null " + 
-                                        " and not exists (select * from " + newVotesTable +" where " + oldVotesTable+".locale="+newVotesTable+".locale "+
-                                        " and "+oldVotesTable+".xpath="+newVotesTable+".xpath and "+newVotesTable+".locale="+oldVotesTable+".locale )" +
+                                        " and value is not null " +
+                                        " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable + ".locale "
+                                        +
+                                        " and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable + ".locale=" + oldVotesTable
+                                        + ".locale )" +
                                         "group by locale order by locale", mySession.user.id));
                             } else {
                                 CLDRLocale locale = CLDRLocale.getInstance(loc);
@@ -886,8 +893,10 @@ public class SurveyAjax extends HttpServlet {
 
                                     // now, get all
                                     {
-                                        String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null "+
-                                            " and not exists (select * from " + newVotesTable +" where " + oldVotesTable+".locale="+newVotesTable+".locale  and "+oldVotesTable+".xpath="+newVotesTable+".xpath and "+newVotesTable+".value is not null)";
+                                        String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
+                                            " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
+                                            + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath and " + newVotesTable
+                                            + ".value is not null)";
                                         Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
                                         //                                        System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
@@ -931,8 +940,9 @@ public class SurveyAjax extends HttpServlet {
 
                                 } else {
                                     // view old votes
-                                    String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null "+ 
-                                        " and not exists (select * from " + newVotesTable +" where " + oldVotesTable+".locale="+newVotesTable+".locale  and "+oldVotesTable+".xpath="+newVotesTable+".xpath  and "+newVotesTable+".value is not null)";
+                                    String sqlStr = "select xpath,value from " + oldVotesTable + " where locale=? and submitter=? and value is not null " +
+                                        " and not exists (select * from " + newVotesTable + " where " + oldVotesTable + ".locale=" + newVotesTable
+                                        + ".locale  and " + oldVotesTable + ".xpath=" + newVotesTable + ".xpath  and " + newVotesTable + ".value is not null)";
                                     Map<String, Object> rows[] = DBUtils.queryToArrayAssoc(sqlStr, locale, mySession.user.id);
                                     //                                    System.out.println("Running >> " + sqlStr + " -> " + rows.length);
 
@@ -1012,15 +1022,15 @@ public class SurveyAjax extends HttpServlet {
                         }
 
                         send(r, out);
-                    } else if(what.equals(WHAT_GETSIDEWAYS)) {
+                    } else if (what.equals(WHAT_GETSIDEWAYS)) {
                         mySession.userDidAction();
                         final JSONWriter r = newJSONStatusQuick(sm);
                         r.put("what", what);
                         r.put("loc", loc);
                         r.put("xpath", xpath);
                         final String xpathString = sm.xpt.getByStringID(xpath);
-                        
-                        if(xpathString == null) {
+
+                        if (xpathString == null) {
                             throw new IllegalArgumentException("could not find strid: " + xpath);
                         }
                         final CLDRLocale topLocale = l.getHighestNonrootParent();
@@ -1028,13 +1038,13 @@ public class SurveyAjax extends HttpServlet {
                         final Collection<CLDRLocale> relatedLocs = sm.getRelatedLocs(topLocale); // sublocales of the 'top' locale
                         JSONObject others = new JSONObject(); // values
                         JSONArray empties = new JSONArray(); // no value
-                        for(CLDRLocale ol : relatedLocs) {
+                        for (CLDRLocale ol : relatedLocs) {
                             //if(ol == l) continue;
                             XMLSource src = sm.getSTFactory().makeSource(ol.getBaseName(), false);
                             String ov = src.getValueAtDPath(xpathString);
-                            if(ov!=null) {
+                            if (ov != null) {
                                 JSONArray other = null;
-                                if(others.has(ov)) {
+                                if (others.has(ov)) {
                                     other = others.getJSONArray(ov);
                                 } else {
                                     other = new JSONArray();
@@ -1048,25 +1058,24 @@ public class SurveyAjax extends HttpServlet {
                         r.put("others", others);
                         r.put("novalue", empties);
                         send(r, out);
-                    } else if (what.equals(WHAT_SEARCH)){
+                    } else if (what.equals(WHAT_SEARCH)) {
                         mySession.userDidAction();
                         final JSONWriter r = newJSONStatusQuick(sm);
                         final String q = val;
                         r.put("what", what);
                         r.put("loc", loc);
                         r.put("q", q);
-                        
-                        
+
                         JSONArray results = searchResults(q, l, mySession);
-                            
+
                         r.put("results", results);
-                        
-                        send(r,out);
+
+                        send(r, out);
                     } else {
                         sendError(out, "Unknown Session-based Request: " + what);
                     }
                 }
-            } else if(what.equals("locmap")) {
+            } else if (what.equals("locmap")) {
                 final JSONWriter r = newJSONStatusQuick(sm);
                 r.put("locmap", getJSONLocMap(sm));
                 send(r, out);
@@ -1085,26 +1094,26 @@ public class SurveyAjax extends HttpServlet {
     private JSONArray searchResults(String q, CLDRLocale l, CookieSession mySession) {
         JSONArray results = new JSONArray();
 
-        if( q != null ) {
-            if(l==null) {
+        if (q != null) {
+            if (l == null) {
                 searchLocales(results, q, mySession);
             } else {
                 //ElapsedTimer et = new ElapsedTimer("search for " + q);
                 // try as xpath
                 searchXPath(results, l, q, mySession);
-                
+
                 // try PH substring
                 searchPathheader(results, l, q, mySession);
                 //System.err.println("Done searching for " + et);
             }
         }
-        
+
         return results;
     }
 
     private void searchLocales(JSONArray results, String q, CookieSession mySession) {
-        for(CLDRLocale l : mySession.sm.getLocales()) {
-            if(l.getBaseName().equalsIgnoreCase(q) ||
+        for (CLDRLocale l : mySession.sm.getLocales()) {
+            if (l.getBaseName().equalsIgnoreCase(q) ||
                 l.getDisplayName().toLowerCase().contains(q.toLowerCase()) ||
                 l.toLanguageTag().toLowerCase().equalsIgnoreCase(q)) {
                 try {
@@ -1117,55 +1126,54 @@ public class SurveyAjax extends HttpServlet {
     }
 
     private void searchPathheader(JSONArray results, CLDRLocale l, String q, CookieSession mySession) {
-        if(l==null) return; // don't search with no locale
+        if (l == null) return; // don't search with no locale
         try {
             PathHeader.PageId page = PathHeader.PageId.valueOf(q);
-            if(page!=null) {
-                results.put(new JSONObject().put("page",page.name())
+            if (page != null) {
+                results.put(new JSONObject().put("page", page.name())
                     .put("section", page.getSectionId().name()));
             }
-        } catch(Throwable t) {
+        } catch (Throwable t) {
             //
         }
         try {
             PathHeader.SectionId section = PathHeader.SectionId.valueOf(q);
-            if(section!=null) {
-                results.put(new JSONObject().put("section",section.name()));
+            if (section != null) {
+                results.put(new JSONObject().put("section", section.name()));
             }
-        } catch(Throwable t) {
+        } catch (Throwable t) {
             //
         }
-        
+
         // substring search
         Set<PathHeader> resultPh = new TreeSet<PathHeader>();
-        
-        if(new UnicodeSet("[:Letter:]").containsSome(q)) {
+
+        if (new UnicodeSet("[:Letter:]").containsSome(q)) {
             // check English
-            Set<String> retrievedPaths = new HashSet<String>();        
-            mySession.sm.getBaselineFile().getPathsWithValue(q,"", null, retrievedPaths);
+            Set<String> retrievedPaths = new HashSet<String>();
+            mySession.sm.getBaselineFile().getPathsWithValue(q, "", null, retrievedPaths);
             final STFactory stFactory = mySession.sm.getSTFactory();
-            if(l!=null) {
+            if (l != null) {
                 stFactory.make(l, true).getPathsWithValue(q, "", null, retrievedPaths);
             }
-            for(String xp : retrievedPaths) {
+            for (String xp : retrievedPaths) {
                 PathHeader ph = stFactory.getPathHeader(xp);
-                if(ph!=null) {
+                if (ph != null) {
                     resultPh.add(ph);
                 }
             }
         }
         // add any others
-        
-        
-        for(PathHeader ph:resultPh) {
+
+        for (PathHeader ph : resultPh) {
             try {
                 final String originalPath = ph.getOriginalPath();
-                if(ph.getSectionId()!= PathHeader.SectionId.Special &&
-                    mySession.sm.getSupplementalDataInfo().getCoverageLevel(originalPath, l.getBaseName()).getLevel()<=100) {
+                if (ph.getSectionId() != PathHeader.SectionId.Special &&
+                    mySession.sm.getSupplementalDataInfo().getCoverageLevel(originalPath, l.getBaseName()).getLevel() <= 100) {
                     results.put(new JSONObject()
-                    .put("xpath", originalPath)
-                    .put("strid", mySession.sm.xpt.getStringIDString(originalPath))
-                    .put("ph", JSONWriter.wrap(ph)));
+                        .put("xpath", originalPath)
+                        .put("strid", mySession.sm.xpt.getStringIDString(originalPath))
+                        .put("ph", JSONWriter.wrap(ph)));
                 }
             } catch (JSONException e) {
                 //
@@ -1177,32 +1185,32 @@ public class SurveyAjax extends HttpServlet {
         // is it a stringid?
         try {
             Long l = Long.parseLong(q, 16);
-            if(l!=null && Long.toHexString(l).equalsIgnoreCase(q)) {
+            if (l != null && Long.toHexString(l).equalsIgnoreCase(q)) {
                 String x = mySession.sm.xpt.getByStringID(q);
-                if(x!=null) {
+                if (x != null) {
                     results.put(new JSONObject()
                         .put("xpath", x)
                         .put("strid", mySession.sm.xpt.getStringIDString(x))
                         .put("ph", JSONWriter.wrap(mySession.sm.getSTFactory().getPathHeader(x))));
                 }
             }
-        } catch(Throwable t) {
+        } catch (Throwable t) {
             //
         }
-        
+
         // is it a full XPath?
         try {
             final String xp = mySession.sm.xpt.xpathToBaseXpath(q);
-            if(mySession.sm.xpt.peekByXpath(xp)!= XPathTable.NO_XPATH) {
+            if (mySession.sm.xpt.peekByXpath(xp) != XPathTable.NO_XPATH) {
                 PathHeader ph = mySession.sm.getSTFactory().getPathHeader(xp);
-                if(ph != null) {
+                if (ph != null) {
                     results.put(new JSONObject()
-                    .put("xpath", xp)
-                    .put("strid", mySession.sm.xpt.getStringIDString(xp))
-                    .put("ph", JSONWriter.wrap(ph)));
+                        .put("xpath", xp)
+                        .put("strid", mySession.sm.xpt.getStringIDString(xp))
+                        .put("ph", JSONWriter.wrap(ph)));
                 }
             }
-        } catch(Throwable t) {
+        } catch (Throwable t) {
             //
         }
     }
@@ -1246,33 +1254,33 @@ public class SurveyAjax extends HttpServlet {
         // locales will have info about each locale, including name
         JSONObject locales = new JSONObject();
         SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
-        
+
         Factory disk = sm.getDiskFactory();
 
         for (CLDRLocale loc : SurveyMain.getLocales()) {
             JSONObject locale = new JSONObject();
 
             locale.put("name", loc.getDisplayName());
-            if(loc.getCountry() != null) {
+            if (loc.getCountry() != null) {
                 locale.put("name_rgn", loc.getDisplayRegion());
             }
-            if(loc.getVariant() != null) {
+            if (loc.getVariant() != null) {
                 locale.put("name_var", loc.getDisplayVariant());
             }
             locale.put("bcp47", loc.toLanguageTag());
-            
+
             HTMLDirection dir = sm.getHTMLDirectionFor(loc);
-            if(!dir.equals("ltr")) {
+            if (!dir.equals("ltr")) {
                 locale.put("dir", dir);
             }
-            
+
             CLDRLocale dcParent = sdi.getBaseFromDefaultContent(loc);
             CLDRLocale dcChild = sdi.getDefaultContentFromBase(loc);
             locale.put("parent", loc.getParent());
             locale.put("highestParent", loc.getHighestNonrootParent());
             locale.put("dcParent", dcParent);
             locale.put("dcChild", dcChild);
-            locale.put("type",  Factory.getSourceTreeType(disk.getSourceDirectoryForLocale(loc.getBaseName())));
+            locale.put("type", Factory.getSourceTreeType(disk.getSourceDirectoryForLocale(loc.getBaseName())));
             if (SurveyMain.getReadOnlyLocales().contains(loc)) {
                 locale.put("readonly", true);
                 String comment = SpecialLocales.getComment(loc);
@@ -1280,14 +1288,14 @@ public class SurveyAjax extends HttpServlet {
             } else if (dcParent != null) {
                 locale.put("readonly", true);
             }
-            
+
             JSONArray subLocales = new JSONArray();
             Map<String, CLDRLocale> subLocList = sm.getLocaleTree().getSubLocales(loc);
-            if(subLocList!=null && !subLocList.isEmpty()) {
-                for(CLDRLocale l : subLocList.values()) {
+            if (subLocList != null && !subLocList.isEmpty()) {
+                for (CLDRLocale l : subLocList.values()) {
                     subLocales.put(l.getBaseName());
                 }
-                if(subLocales.length()>0) {
+                if (subLocales.length() > 0) {
                     locale.put("sub", subLocales);
                 }
             }
@@ -1297,7 +1305,7 @@ public class SurveyAjax extends HttpServlet {
         locmap.put("locales", locales);
         locmap.put("surveyBaseLocale", SurveyMain.BASELINE_LOCALE);
         JSONArray topLocales = new JSONArray();
-        for(CLDRLocale l : sm.getLocaleTree().getTopCLDRLocales()) {
+        for (CLDRLocale l : sm.getLocaleTree().getTopCLDRLocales()) {
             topLocales.put(l.getBaseName());
         }
         locmap.put("topLocales", topLocales);
@@ -1379,7 +1387,7 @@ public class SurveyAjax extends HttpServlet {
 
     private JSONWriter newJSONStatusQuick(SurveyMain sm) {
         JSONWriter r = newJSON();
-        if(sm.isSetup && !sm.isBusted()) {
+        if (sm.isSetup && !sm.isBusted()) {
             r.put("SurveyOK", "1");
             r.put("isSetup", "1");
             r.put("isBusted", "0");

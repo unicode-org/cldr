@@ -44,7 +44,7 @@ public class TestCoverage extends TestFmwkPlus {
             showDiff("Extra", coreCoverage, none);
         }
     }
-    
+
     static final boolean DEBUG = false;
 
     public void TestLocales() {
@@ -54,10 +54,10 @@ public class TestCoverage extends TestFmwkPlus {
         Set<String> errors = new LinkedHashSet<>();
         Set<String> toTest = new HashSet(Arrays.asList("ky mn ms uz az kk pa sr zh lo".split(" ")));
         Set<String> defaultContents = sdi.getDefaultContentLocales();
-        
+
         for (String locale : testInfo.getCldrFactory().getAvailable()) {
-            if (!ltp.set(locale).getRegion().isEmpty() 
-                || locale.equals("root") 
+            if (!ltp.set(locale).getRegion().isEmpty()
+                || locale.equals("root")
                 || defaultContents.contains(locale)) {
                 continue;
             }
@@ -65,7 +65,7 @@ public class TestCoverage extends TestFmwkPlus {
             if (DEBUG && (!toTest.contains(locale) || level != Level.MODERN)) {
                 continue;
             }
-            
+
             CLDRFile testFile = testInfo.getCldrFactory().make(locale, false);
             Set<CoreItems> coreCoverage;
             errors.clear();
@@ -85,7 +85,7 @@ public class TestCoverage extends TestFmwkPlus {
             }
         }
         long end = System.currentTimeMillis();
-        logln("Elapsed:\t" + (end-start));
+        logln("Elapsed:\t" + (end - start));
     }
 
     private String getLocaleAndName(String locale) {

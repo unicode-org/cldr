@@ -427,6 +427,7 @@ public class TestCLDRFile extends TestFmwk {
         display = eng.getConstructedBaileyValue(prefix + "missing" + "\"]", null, null);
         assertEquals("contructed bailey", null, display);
     }
+
     public void TestFileLocations() {
         File mainDir = new File(CLDRPaths.MAIN_DIRECTORY);
         if (!mainDir.isDirectory()) {
@@ -452,7 +453,7 @@ public class TestCLDRFile extends TestFmwk {
         Set<CLDRLocale> seedLocales = sf.getAvailableCLDRLocales();
         mainLocales.retainAll(seedLocales);
         if (!mainLocales.isEmpty()) {
-            errln("CLDR locale files located in both common and seed ==> "+mainLocales.toString());
+            errln("CLDR locale files located in both common and seed ==> " + mainLocales.toString());
         }
     }
 }

@@ -123,7 +123,7 @@ public abstract class PerfTest {
     static class TestPrefixProvider implements TestCmdProvider {
         private Map<String, String> theTests = null; // Map<string(no case), string(with case)>
         private Set<String> orgNames = null; // shadow reference, ==theTests, for better
-                                     // output
+        // output
         private Object refer;
 
         TestPrefixProvider(Object theProvider) {

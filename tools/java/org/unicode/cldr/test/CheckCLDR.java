@@ -176,7 +176,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-            ) {
+        ) {
 
             // always forbid deprecated items - don't show.
             if (status == SurveyToolStatus.DEPRECATED) {
@@ -209,7 +209,7 @@ abstract public class CheckCLDR {
             if (this == Phase.SUBMISSION) {
                 return status == SurveyToolStatus.READ_WRITE
                     ? StatusAction.ALLOW
-                        : StatusAction.ALLOW_VOTING_AND_TICKET;
+                    : StatusAction.ALLOW_VOTING_AND_TICKET;
             }
 
             // We are not in submission.
@@ -220,7 +220,7 @@ abstract public class CheckCLDR {
                 if (valueStatus != ValueStatus.NONE) {
                     return status == SurveyToolStatus.READ_WRITE
                         ? StatusAction.ALLOW
-                            : StatusAction.ALLOW_VOTING_AND_TICKET;
+                        : StatusAction.ALLOW_VOTING_AND_TICKET;
                 }
             }
 
@@ -247,7 +247,7 @@ abstract public class CheckCLDR {
             InputMethod inputMethod,
             PathHeader.SurveyToolStatus status,
             UserInfo userInfo // can get voterInfo from this.
-            ) {
+        ) {
             if (status != SurveyToolStatus.READ_WRITE) {
                 return StatusAction.FORBID_READONLY; // not writable.
             }
@@ -322,48 +322,51 @@ abstract public class CheckCLDR {
             return previous;
         }
     }
-    
+
     public static final class Options implements Comparable<Options> {
-        
+
         public enum Option {
             locale,
-            CoverageLevel_requiredLevel("CoverageLevel.requiredLevel"), 
+            CoverageLevel_requiredLevel("CoverageLevel.requiredLevel"),
             CoverageLevel_localeType("CoverageLevel.localeType"), SHOW_TIMES, phase,
             CheckCoverage_skip("CheckCoverage.skip");
-            
-            
+
             private String key;
+
             public String getKey() {
                 return key;
             }
+
             Option(String key) {
                 this.key = key;
             }
+
             Option() {
                 this.key = name();
             }
         };
+
         private static StandardCodes sc = StandardCodes.make();
 
         private final boolean DEBUG_OPTS = false;
-        
+
         String options[] = new String[Option.values().length];
         CLDRLocale locale = null;
-        
+
         private final String key; // for fast compare 
-        
+
         /**
          * Adopt some other map
          * @param fromOptions
          */
-        public Options(Map<String,String> fromOptions) {
+        public Options(Map<String, String> fromOptions) {
             clear();
             setAll(fromOptions);
             key = null; // no key = slow compare
         }
-                
+
         private void setAll(Map<String, String> fromOptions) {
-            for(Map.Entry<String, String> e : fromOptions.entrySet()) {
+            for (Map.Entry<String, String> e : fromOptions.entrySet()) {
                 set(e.getKey(), e.getValue());
             }
         }
@@ -374,8 +377,8 @@ abstract public class CheckCLDR {
          */
         private void set(String key, String value) {
             // TODO- cache the map
-            for(Option o : Option.values()) {
-                if(o.getKey().equals(key)) {
+            for (Option o : Option.values()) {
+                if (o.getKey().equals(key)) {
                     set(o, value);
                     return;
                 }
@@ -385,7 +388,7 @@ abstract public class CheckCLDR {
 
         private static String getValidKeys() {
             Set<String> allkeys = new TreeSet<String>();
-            for(Option o : Option.values()) {
+            for (Option o : Option.values()) {
                 allkeys.add(o.getKey());
             }
             return ListFormatter.getInstance().format(allkeys);
@@ -395,6 +398,7 @@ abstract public class CheckCLDR {
             clear();
             key = "".intern(); // null Options.
         }
+
         /**
          * Deep clone
          * @param options2
@@ -423,40 +427,44 @@ abstract public class CheckCLDR {
         public Options clone() {
             return new Options(this);
         }
-        
+
         @Override
         public boolean equals(Object other) {
-            if(this==other) return true;
-            if(!(other instanceof Options)) return false;
-            if(this.key!=null && ((Options)other).key != null) {
-                return (this.key == ((Options)other).key);
+            if (this == other) return true;
+            if (!(other instanceof Options)) return false;
+            if (this.key != null && ((Options) other).key != null) {
+                return (this.key == ((Options) other).key);
             } else {
-                return this.compareTo((Options)other)==0;
+                return this.compareTo((Options) other) == 0;
             }
         }
-        
+
         private Options clear(Option o) {
             set(o, null);
             return this;
         }
+
         private Options clear() {
-            for(int i=0;i<options.length;i++) {
-                options[i]=null;
+            for (int i = 0; i < options.length; i++) {
+                options[i] = null;
             }
             return this;
         }
+
         private Options set(Option o, String v) {
             options[o.ordinal()] = v;
-            if(DEBUG_OPTS) System.err.println("Setting " + o + " = " + v);
-            return this;                
+            if (DEBUG_OPTS) System.err.println("Setting " + o + " = " + v);
+            return this;
         }
-        public String get(Option o) {            
+
+        public String get(Option o) {
             final String v = options[o.ordinal()];
-            if(DEBUG_OPTS) System.err.println("Getting " + o + " = " + v);
+            if (DEBUG_OPTS) System.err.println("Getting " + o + " = " + v);
             return v;
         }
+
         public CLDRLocale getLocale() {
-            if(locale!=null) return locale;
+            if (locale != null) return locale;
             return CLDRLocale.getInstance(get(Option.locale));
         }
 
@@ -476,60 +484,60 @@ abstract public class CheckCLDR {
 
         public boolean contains(Option o) {
             String s = get(o);
-            return (s!=null && !s.isEmpty());
+            return (s != null && !s.isEmpty());
         }
-        
+
         @Override
         public int compareTo(Options other) {
-            if(other == this) return 0;
-            if(key!=null && other.key!=null) {
-                if(key == other.key) return 0;
+            if (other == this) return 0;
+            if (key != null && other.key != null) {
+                if (key == other.key) return 0;
                 return key.compareTo(other.key);
             }
-            for(int i=0;i<options.length;i++) {
+            for (int i = 0; i < options.length; i++) {
                 final String s1 = options[i];
                 final String s2 = other.options[i];
-                if(s1==null && s2 == null) {
+                if (s1 == null && s2 == null) {
                     // no difference
-                } else if(s1==null) {
+                } else if (s1 == null) {
                     return -1;
-                } else if(s2==null) {
+                } else if (s2 == null) {
                     return 1;
                 } else {
                     int rv = s1.compareTo(s2);
-                    if(rv!=0) {
+                    if (rv != 0) {
                         return rv;
                     }
                 }
             }
             return 0;
         }
-        
+
         @Override
         public int hashCode() {
-            if(key!=null) return key.hashCode();
+            if (key != null) return key.hashCode();
 
             int h = 1;
-            for(int i=0;i<options.length;i++) {
-                if(options[i]==null) {
+            for (int i = 0; i < options.length; i++) {
+                if (options[i] == null) {
                     h *= 11;
                 } else {
-                    h = (h*11) + options[i].hashCode();
+                    h = (h * 11) + options[i].hashCode();
                 }
             }
             return h;
         }
-        
+
         @Override
         public String toString() {
-            if(key!=null) return "Options:"+key;
+            if (key != null) return "Options:" + key;
             StringBuilder sb = new StringBuilder();
-            for(Option o : Option.values()) {
-                if(options[o.ordinal()] != null) {
+            for (Option o : Option.values()) {
+                if (options[o.ordinal()] != null) {
                     sb.append(o)
-                      .append('=')
-                      .append(options[o.ordinal()])
-                      .append(' ');
+                        .append('=')
+                        .append(options[o.ordinal()])
+                        .append(' ');
                 }
             }
             return sb.toString();
@@ -555,27 +563,27 @@ abstract public class CheckCLDR {
      */
     public static CompoundCheckCLDR getCheckAll(Factory factory, String nameMatcher) {
         return new CompoundCheckCLDR()
-        .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
-        //.add(new CheckAttributeValues(factory))
-        .add(new CheckChildren(factory))
-        // .add(new CheckCoverage(factory)) // outmoded
-        .add(new CheckDates(factory))
-        .add(new CheckForCopy(factory))
-        .add(new CheckDisplayCollisions(factory))
-        .add(new CheckExemplars(factory))
-        .add(new CheckForExemplars(factory))
-        .add(new CheckNames())
-        .add(new CheckNumbers(factory))
-        // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
-        .add(new CheckMetazones())
-        .add(new CheckLogicalGroupings())
-        .add(new CheckAlt())
-        .add(new CheckCurrencies())
-        .add(new CheckCasing())
-        .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
-        .add(new CheckWidths())
-        .add(new CheckPlaceHolders())
-        .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
+            .setFilter(Pattern.compile(nameMatcher, Pattern.CASE_INSENSITIVE).matcher(""))
+            //.add(new CheckAttributeValues(factory))
+            .add(new CheckChildren(factory))
+            // .add(new CheckCoverage(factory)) // outmoded
+            .add(new CheckDates(factory))
+            .add(new CheckForCopy(factory))
+            .add(new CheckDisplayCollisions(factory))
+            .add(new CheckExemplars(factory))
+            .add(new CheckForExemplars(factory))
+            .add(new CheckNames())
+            .add(new CheckNumbers(factory))
+            // .add(new CheckZones()) // this doesn't work; many spurious errors that user can't correct
+            .add(new CheckMetazones())
+            .add(new CheckLogicalGroupings())
+            .add(new CheckAlt())
+            .add(new CheckCurrencies())
+            .add(new CheckCasing())
+            .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
+            .add(new CheckWidths())
+            .add(new CheckPlaceHolders())
+            .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
         // not add a message if there are any.
         ;
     }
@@ -669,8 +677,7 @@ abstract public class CheckCLDR {
         List<CheckStatus> possibleErrors) {
         return setCldrFileToCheck(cldrFileToCheck, new Options(options), possibleErrors);
     }
-    
-    
+
     /**
      * Set the CLDRFile. Must be done before calling check. If null is called, just skip
      * Often subclassed for initializing. If so, make the first 2 lines:
@@ -1015,16 +1022,16 @@ abstract public class CheckCLDR {
         public static void appendLine(StringBuffer htmlMessage, String pattern, String input, String formatted,
             String reparsed) {
             htmlMessage.append("<tr><td><input type='text' name='pattern' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(pattern))
-            .append("'></td><td><input type='text' name='input' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(input))
-            .append("'></td><td>")
-            .append("<input type='submit' value='Test' name='Test'>")
-            .append("</td><td>" + "<input type='text' name='formatted' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(formatted))
-            .append("'></td><td>" + "<input type='text' name='reparsed' value='")
-            .append(TransliteratorUtilities.toXML.transliterate(reparsed))
-            .append("'></td></tr>");
+                .append(TransliteratorUtilities.toXML.transliterate(pattern))
+                .append("'></td><td><input type='text' name='input' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(input))
+                .append("'></td><td>")
+                .append("<input type='submit' value='Test' name='Test'>")
+                .append("</td><td>" + "<input type='text' name='formatted' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(formatted))
+                .append("'></td><td>" + "<input type='text' name='reparsed' value='")
+                .append(TransliteratorUtilities.toXML.transliterate(reparsed))
+                .append("'></td></tr>");
         }
 
         /**
@@ -1042,7 +1049,7 @@ abstract public class CheckCLDR {
                 "</tr>");
         }
     }
-    
+
     /**
      * Wraps the options in an Options and delegates.
      * @param path
@@ -1118,9 +1125,9 @@ abstract public class CheckCLDR {
      * @return
      */
     @Deprecated
-    public final CheckCLDR getExamples(String path, String fullPath, String value, Map<String,String> options,
+    public final CheckCLDR getExamples(String path, String fullPath, String value, Map<String, String> options,
         List<CheckStatus> result) {
-        return getExamples(path,fullPath,value,new Options(options), result);
+        return getExamples(path, fullPath, value, new Options(options), result);
     }
 
     /**
@@ -1228,13 +1235,13 @@ abstract public class CheckCLDR {
 
         private void addError(List<CheckStatus> result, CheckCLDR item, Exception e) {
             result.add(new CheckStatus()
-            .setCause(this)
-            .setMainType(CheckStatus.errorType)
-            .setSubtype(Subtype.internalError)
-            .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
-                new Object[] { item.getClass().getName(), e.getClass().getName(), e,
-                Arrays.asList(e.getStackTrace())
-            }));
+                .setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.internalError)
+                .setMessage("Internal error in {0}. Exception: {1}, Message: {2}, Trace: {3}",
+                    new Object[] { item.getClass().getName(), e.getClass().getName(), e,
+                        Arrays.asList(e.getStackTrace())
+                    }));
         }
 
         public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
@@ -1281,7 +1288,7 @@ abstract public class CheckCLDR {
                 CheckCLDR item = it.next();
                 if (filter == null || filter.reset(item.getClass().getName()).matches()) {
                     filteredCheckList.add(item);
-                    item.setCldrFileToCheck(getCldrFileToCheck(), (Options)null, null);
+                    item.setCldrFileToCheck(getCldrFileToCheck(), (Options) null, null);
                 }
             }
             return this;
@@ -1312,7 +1319,7 @@ abstract public class CheckCLDR {
             return Transliterator.createFromRules(ID, input.toString(), Transliterator.FORWARD);
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't open transliterator file " + file)
-            .initCause(e);
+                .initCause(e);
         }
     }
 

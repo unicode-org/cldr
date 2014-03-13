@@ -73,13 +73,13 @@ public class PathStarrer implements Transform<String, String> {
     // Used for coverage lookups - strips off the leading ^ and trailing $ from regexp pattern.
     public String transform2(String source) {
         String result = Utility.unescape(set(source));
-        if (result.startsWith("^")&&result.endsWith("$")){
-            result = result.substring(1,result.length()-1);
+        if (result.startsWith("^") && result.endsWith("$")) {
+            result = result.substring(1, result.length() - 1);
         }
         //System.out.println("Path in  => "+source);
         //System.out.println("Path out => "+result);
         //System.out.println("-----------");
-        
+
         return result;
     }
 }

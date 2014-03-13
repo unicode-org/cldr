@@ -61,7 +61,8 @@ public class LanguageInfoTest extends TestFmwk {
     }
 
     public void TestChinese() {
-        LocaleMatcher matcher = new LocaleMatcher(LocalePriorityList.add("zh_CN, zh_TW, iw").build(), data);
+        LocaleMatcher matcher = new LocaleMatcher(
+            LocalePriorityList.add("zh_CN, zh_TW, iw").build(), data);
         ULocale taiwanChinese = new ULocale("zh_TW");
         ULocale chinaChinese = new ULocale("zh_CN");
         assertEquals("zh_CN, zh_TW, iw;", taiwanChinese, matcher.getBestMatch("zh_Hant_HK"));

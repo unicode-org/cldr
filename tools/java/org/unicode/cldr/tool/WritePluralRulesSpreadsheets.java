@@ -7,15 +7,11 @@
 package org.unicode.cldr.tool;
 
 import java.text.MessageFormat;
-import java.util.BitSet;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
-import java.util.TreeMap;
 
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
-import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -34,8 +30,8 @@ import com.ibm.icu.util.ULocale;
 public class WritePluralRulesSpreadsheets {
     // This is older code that we might rework in the future...
     public static void main(String[] args) {
-        ranges();
-        if (false) diff();
+        // ranges();
+        FindPluralDifferences.diff();
     }
 
     private static void ranges() {
@@ -129,126 +125,6 @@ public class WritePluralRulesSpreadsheets {
             } else if (minimum.getSource() < sample.end.getSource()) {
                 return sample.end;
             }
-        }
-        return null;
-    }
-
-    public static void diff() {
-        String[] versions = {
-            //"1.4.1", 
-            //"1.5.1", 
-            "1.6.1",
-            "1.7.2",
-            "1.8.1",
-            "1.9.1",
-            "2.0.1",
-            "21.0",
-            "22.1",
-            "23.1",
-            "24.0" };
-
-        BitSet x = new BitSet();
-        x.set(3, 6);
-        x.set(9);
-        x.set(11, 13);
-        Map<String, BitSet> foo = new TreeMap<String, BitSet>();
-        foo.put("x", x);
-        show(foo);
-
-        SupplementalDataInfo supplementalNew = null;
-        String newVersion = null;
-
-        for (String version : versions) {
-            String oldVersion = newVersion;
-            newVersion = version;
-            SupplementalDataInfo supplementalOld = supplementalNew;
-
-            if (supplementalNew == null) {
-                supplementalNew = SupplementalDataInfo.getInstance(
-                    CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + versions[0] + "/common/supplemental/");
-                continue;
-            }
-
-            supplementalNew = SupplementalDataInfo.getInstance(
-                CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + newVersion + "/common/supplemental/");
-            System.out.println("# " + oldVersion + "➞" + newVersion);
-
-            Set<String> oldLocales = supplementalOld.getPluralLocales();
-            for (String locale : oldLocales) {
-                Map<String, BitSet> results = new TreeMap<String, BitSet>();
-                PluralRules oldRules = supplementalOld.getPlurals(locale).getPluralRules();
-                PluralRules newRules = supplementalNew.getPlurals(locale).getPluralRules();
-                for (int i = 0; i < 101; ++i) {
-                    String oldKeyword = oldRules.select(i);
-                    String newKeyword = newRules.select(i);
-                    if (!oldKeyword.equals(newKeyword)) {
-                        String key = oldKeyword + "➞" + newKeyword;
-                        BitSet diff = results.get(key);
-                        if (diff == null) {
-                            results.put(key, diff = new BitSet());
-                        }
-                        diff.set(i);
-                    }
-                }
-                if (results.size() == 0) {
-                    continue;
-                }
-                Set<String> oldKeywords = oldRules.getKeywords();
-                Set<String> newKeywords = newRules.getKeywords();
-                String type = null;
-                if (oldKeywords.equals(newKeywords)) {
-                    type = "SAME";
-                } else if (oldKeywords.containsAll(newKeywords)) {
-                    type = "MERGE";
-                } else if (newKeywords.containsAll(oldKeywords)) {
-                    type = "SPLIT";
-                } else {
-                    type = "DISJOINT";
-                }
-                System.out.println(oldVersion + "➞" + newVersion
-                    + "\t" + TestInfo.getInstance().getEnglish().getName(locale)
-                    + "\t" + locale
-                    + "\t" + type
-                    //+ "\t" + oldKeywords + "\t" + newKeywords 
-                    + "\t" + show(results));
-            }
-        }
-    }
-
-    private static String show(Map<String, BitSet> results) {
-        StringBuilder result = new StringBuilder();
-        for (Entry<String, BitSet> entry : results.entrySet()) {
-            String key = entry.getKey();
-            BitSet value = entry.getValue();
-            if (result.length() != 0) {
-                result.append("; ");
-            }
-            result.append(key).append("={");
-            int start = 0;
-            boolean first = true;
-            while (true) {
-                start = value.nextSetBit(start);
-                if (start < 0) {
-                    break;
-                }
-                int limit = value.nextClearBit(start);
-                if (limit < 0) {
-                    limit = value.size();
-                }
-                int end = limit - 1;
-                if (first) {
-                    first = false;
-                } else {
-                    result.append(",");
-                }
-                result.append(start);
-                if (end != start) {
-                    result.append(start + 1 == end ? "," : "–")
-                        .append(end);
-                }
-                start = limit;
-            }
-            return result.append("}").toString();
         }
         return null;
     }

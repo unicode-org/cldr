@@ -12,7 +12,7 @@ class LdmlConvertRules {
 
     /** File set that will not be processed in JSON transformation. */
     public static final Set<String> IGNORE_FILE_SET = Builder.with(new HashSet<String>())
-        .add("coverageLevels").freeze();
+        .add("coverageLevels").add("pluralRanges").freeze();
 
     /**
      * The attribute list that should become part of the name in form of
@@ -193,7 +193,7 @@ class LdmlConvertRules {
      * @return True if the attribute should be suppressed.
      */
     public static boolean IsSuppresedAttr(String attr) {
-        return attr.endsWith("_q");
+        return attr.endsWith("_q") || attr.endsWith("-q");
     }
 
     /**
@@ -310,6 +310,7 @@ class LdmlConvertRules {
             "|.*/windowsZones[^/]*/mapTimezones[^/]*/" +
             "|.*/metaZones[^/]*/mapTimezones[^/]*/" +
             "|.*/segmentation[^/]*/variables[^/]*/" +
+            "|.*/segmentation[^/]*/exceptions[^/]*/" +
             "|.*/transform[^/]*/tRules[^/]*/" +
             "|.*/region/region[^/]*/" +
             "|.*/keyword[^/]*/key[^/]*/" +

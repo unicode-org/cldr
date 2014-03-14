@@ -1086,8 +1086,9 @@ public class SupplementalDataInfo {
                 languageToPopulationDataTemp.get(language).freeze();
             }
         }
-        localeToPluralInfo = Collections.unmodifiableMap(localeToPluralInfo);
-        localeToOrdinalInfo = Collections.unmodifiableMap(localeToOrdinalInfo);
+        localeToPluralInfo2.put(PluralType.cardinal, Collections.unmodifiableMap(localeToPluralInfo2.get(PluralType.cardinal)));
+        localeToPluralInfo2.put(PluralType.ordinal, Collections.unmodifiableMap(localeToPluralInfo2.get(PluralType.ordinal)));
+
         localeToPluralRanges = Collections.unmodifiableMap(localeToPluralRanges);
         for (PluralRanges pluralRanges : localeToPluralRanges.values()) {
             pluralRanges.freeze();
@@ -2765,15 +2766,18 @@ public class SupplementalDataInfo {
         }
     };
 
-    private Map<String, PluralInfo> localeToPluralInfo = new LinkedHashMap<String, PluralInfo>();
-    private Map<String, PluralInfo> localeToOrdinalInfo = new LinkedHashMap<String, PluralInfo>();
+    private EnumMap<PluralType,Map<String, PluralInfo>> localeToPluralInfo2 = new EnumMap<>(PluralType.class);
+    {
+        localeToPluralInfo2.put(PluralType.cardinal, new LinkedHashMap<String, PluralInfo>());
+        localeToPluralInfo2.put(PluralType.ordinal, new LinkedHashMap<String, PluralInfo>());
+    }
     private Map<String, PluralRanges> localeToPluralRanges = new LinkedHashMap<String, PluralRanges>();
 
     private Map<String, DayPeriodInfo> localeToDayPeriodInfo = new LinkedHashMap<String, DayPeriodInfo>();
     private Map<String, CoverageLevel2> localeToCoverageLevelInfo = new ConcurrentHashMap<String, CoverageLevel2>();
     private CoverageCache coverageCache = new CoverageCache();
     private transient String lastPluralLocales = "";
-    private transient boolean lastPluralWasOrdinal = false;
+    private transient PluralType lastPluralWasOrdinal = null;
     private transient Map<Count, String> lastPluralMap = new EnumMap<Count, String>(Count.class);
     private transient String lastDayPeriodLocales = null;
     private transient DayPeriodInfo.Builder dayPeriodBuilder = new DayPeriodInfo.Builder();
@@ -2874,9 +2878,9 @@ public class SupplementalDataInfo {
         } else if ("pluralRules".equals(element)) {
 
             String type = path.getAttributeValue(1, "type");
-            boolean isOrdinal = type != null && type.equals("ordinal");
+            PluralType pluralType = type == null ? PluralType.cardinal : PluralType.valueOf(type);
             if (!lastPluralLocales.equals(locales)) {
-                addPluralInfo(isOrdinal);
+                addPluralInfo(pluralType);
                 lastPluralLocales = locales;
             }
             final String countString = path.getAttributeValue(-1, "count");
@@ -2888,7 +2892,7 @@ public class SupplementalDataInfo {
                 throw new IllegalArgumentException("Duplicate plural count: " + count + " in " + locales);
             }
             lastPluralMap.put(count, value);
-            lastPluralWasOrdinal = isOrdinal;
+            lastPluralWasOrdinal = pluralType;
             return true;
         } else {
             return false;
@@ -2907,10 +2911,10 @@ public class SupplementalDataInfo {
         lastPluralRangesLocales = localesString;
     }
 
-    private void addPluralInfo(boolean isOrdinal) {
+    private void addPluralInfo(PluralType pluralType) {
         final String[] locales = lastPluralLocales.split("\\s+");
-        PluralInfo info = new PluralInfo(lastPluralMap, isOrdinal);
-        Map<String, PluralInfo> localeToInfo = isOrdinal ? localeToOrdinalInfo : localeToPluralInfo;
+        PluralInfo info = new PluralInfo(lastPluralMap, pluralType);
+        Map<String, PluralInfo> localeToInfo = localeToPluralInfo2.get(pluralType);
         for (String locale : locales) {
             if (localeToInfo.containsKey(locale)) {
                 throw new IllegalArgumentException("Duplicate plural locale: " + locale);
@@ -3024,7 +3028,7 @@ public class SupplementalDataInfo {
         private final Map<Count, SampleList> countToIntegerSamples9999;
         private final Map<Count, SampleList[]> countToDigitToIntegerSamples9999;
 
-        CountSampleList(PluralRules pluralRules, Set<Count> keywords, boolean isOrdinal) {
+        CountSampleList(PluralRules pluralRules, Set<Count> keywords, PluralType pluralType) {
             // Create the integer counts
             countToIntegerSamples9999 = new EnumMap<Count, SampleList>(Count.class);
             countToDigitToIntegerSamples9999 = new EnumMap<Count, SampleList[]>(Count.class);
@@ -3054,7 +3058,7 @@ public class SupplementalDataInfo {
                 if (haveFractions(keywords, digit)) {
                     continue;
                 }
-                if (!isOrdinal) {
+                if (pluralType == PluralType.cardinal) {
                     for (int f = 0; f < 30; ++f) {
                         FixedDecimal ni = new FixedDecimal(i + f / 10.0d, f < 10 ? 1 : 2, f);
                         count = Count.valueOf(pluralRules.select(ni));
@@ -3157,7 +3161,7 @@ public class SupplementalDataInfo {
         private final CountSampleList countSampleList;
         private final Map<Count, String> countToRule;
 
-        private PluralInfo(Map<Count, String> countToRule, boolean isOrdinal) {
+        private PluralInfo(Map<Count, String> countToRule, PluralType pluralType) {
             EnumMap<Count, String> tempCountToRule = new EnumMap<Count, String>(Count.class);
             tempCountToRule.putAll(countToRule);
             this.countToRule = Collections.unmodifiableMap(tempCountToRule);
@@ -3199,7 +3203,7 @@ public class SupplementalDataInfo {
             decimalKeywords = Collections.unmodifiableSet(_decimalKeywords);
             integerKeywords = Collections.unmodifiableSet(_integerKeywords);
 
-            countSampleList = new CountSampleList(pluralRules, keywords, isOrdinal);
+            countSampleList = new CountSampleList(pluralRules, keywords, pluralType);
 
             Map<Count, List<Double>> countToExampleListRaw = new TreeMap<Count, List<Double>>();
             Map<Integer, Count> exampleToCountRaw = new TreeMap<Integer, Count>();
@@ -3487,7 +3491,7 @@ public class SupplementalDataInfo {
      * @return the set of locales that have rules for the specified plural type
      */
     public Set<String> getPluralLocales(PluralType type) {
-        return type == PluralType.cardinal ? localeToPluralInfo.keySet() : localeToOrdinalInfo.keySet();
+        return localeToPluralInfo2.get(type).keySet();
     }
 
     public Set<String> getPluralRangesLocales() {
@@ -3531,13 +3535,15 @@ public class SupplementalDataInfo {
      * @return
      */
     public PluralInfo getPlurals(PluralType type, String locale, boolean allowRoot) {
-        Map<String, PluralInfo> infoMap = type == PluralType.cardinal ? localeToPluralInfo : localeToOrdinalInfo;
+        Map<String, PluralInfo> infoMap = localeToPluralInfo2.get(type);
         while (locale != null) {
             if (!allowRoot && locale.equals("root")) {
                 break;
             }
             PluralInfo result = infoMap.get(locale);
-            if (result != null) return result;
+            if (result != null) {
+                return result;
+            }
             locale = LocaleIDParser.getSimpleParent(locale);
         }
         return null;

@@ -2,9 +2,11 @@ package org.unicode.cldr.tool;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -132,10 +134,13 @@ public class ShowLocaleCoverage {
         Counter<Level> unconfirmedCounter = new Counter<Level>();
         Counter<Level> missingCounter = new Counter<Level>();
 
+        List<Level> reversedLevels = Arrays.asList(Level.values());
+        java.util.Collections.reverse(reversedLevels);
+
         int localeCount = 0;
         System.out
         .print("#Script\tEnglish\tNative\tCode\tLevel\tRank");
-        for (Level level : Level.values()) {
+        for (Level level : reversedLevels) {
             if (skipPrintingLevels.contains(level)) {
                 continue;
             }
@@ -144,6 +149,7 @@ public class ShowLocaleCoverage {
         System.out.println("\tFields");
         long start = System.currentTimeMillis();
         LikelySubtags likelySubtags = new LikelySubtags();
+
 
         for (String locale : availableLanguages) {
             try {
@@ -211,13 +217,14 @@ public class ShowLocaleCoverage {
                 // get the totals
                 EnumMap<Level,Integer> totals = new EnumMap<>(Level.class);
                 EnumMap<Level,Integer> confirmed = new EnumMap<>(Level.class);
+                EnumMap<Level,Integer> unconfirmedByLevel = new EnumMap<>(Level.class);
                 for (Level level : Level.values()) {
                     sumFound += foundCounter.get(level);
                     sumUnconfirmed += unconfirmedCounter.get(level);
                     sumMissing += missingCounter.get(level);
                     confirmed.put(level, sumFound);
-                    int total = sumFound + sumUnconfirmed + sumMissing;
-                    totals.put(level, total);
+                    unconfirmedByLevel.put(level, sumFound + sumUnconfirmed);
+                    totals.put(level, sumFound + sumUnconfirmed + sumMissing);
                 }
                 double modernTotal = totals.get(Level.MODERN);
                 double modernConfirmed = confirmed.get(Level.MODERN);
@@ -229,17 +236,19 @@ public class ShowLocaleCoverage {
 
                 // now display percentages
                 //int last = 0;
-                for (Level level : Level.values()) {
+                for (Level level : reversedLevels) {
                     if (useOrgLevel && currentLevel != level) {
                         continue;
                     } else if (skipPrintingLevels.contains(level)) {
                         continue;
                     }
                     int confirmedCoverage = confirmed.get(level);
+                    int unconfirmedCoverage = unconfirmedByLevel.get(level);
                     int total = totals.get(level);
                     Double factor = base.get(level) / (total / modernTotal);
                     b.append("\t" + factor * confirmedCoverage / modernTotal);                    
-                    b.append("\t" + factor * total / modernTotal); // will be factor
+                    b.append("\t" + factor * unconfirmedCoverage / modernTotal);                    
+                    //b.append("\t" + factor * total / modernTotal); // will be factor
                 }
                 b.append("\t" + modernTotal);
                 System.out.print(b);

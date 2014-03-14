@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRPaths;
@@ -15,7 +16,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import com.ibm.icu.text.PluralRules;
 
 public class FindPluralDifferences {
-    
+
     public static void main(String[] args) {
         diff();
     }
@@ -35,7 +36,7 @@ public class FindPluralDifferences {
             "24.0",
             "trunk"
         };
-    
+
         BitSet x = new BitSet();
         x.set(3,6);
         x.set(9);
@@ -43,28 +44,41 @@ public class FindPluralDifferences {
         Map<String,BitSet> foo = new TreeMap<String,BitSet>();
         foo.put("x", x);
         FindPluralDifferences.show(foo);
-    
+
         SupplementalDataInfo supplementalNew = null;
         String newVersion = null;
-    
+
         for (String version : versions) {
             String oldVersion = newVersion;
             newVersion = version;
             SupplementalDataInfo supplementalOld = supplementalNew;
-    
+
             if (supplementalNew == null) {
                 supplementalNew = SupplementalDataInfo.getInstance(
                     CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + versions[0] + "/common/supplemental/");
                 continue;
             }
-    
+
             supplementalNew = newVersion.equals("trunk") ? SupplementalDataInfo.getInstance()
                 : SupplementalDataInfo.getInstance(
                     CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + newVersion + "/common/supplemental/");
             System.out.println("# " + oldVersion + "➞" + newVersion);
-    
+
             for (PluralType pluralType : PluralType.values()) {
                 Set<String> oldLocales = supplementalOld.getPluralLocales(pluralType);
+                Set<String> newLocales = supplementalNew.getPluralLocales(pluralType);
+
+                TreeSet justOldLocales = new TreeSet(oldLocales);
+                justOldLocales.removeAll(newLocales);
+                if (!justOldLocales.isEmpty()) {
+                    System.err.println("Old locales REMOVED:\t" + justOldLocales.size() + "\t" + justOldLocales);
+                }
+
+                TreeSet justNewLocales = new TreeSet(newLocales);
+                justNewLocales.removeAll(oldLocales);
+                System.out.println("\nNew locales for " + pluralType + "s:\t" + justNewLocales.size() + "\t" + justNewLocales);
+                System.out.println("Modifications:");
+
                 for (String locale : oldLocales) {
                     Map<String,BitSet> results = new TreeMap<String,BitSet>();
                     PluralInfo oldPluralInfo = supplementalOld.getPlurals(pluralType, locale);
@@ -107,6 +121,9 @@ public class FindPluralDifferences {
                 }
             }
         }
+        Set<String> pluralRangesLocales = supplementalNew.getPluralRangesLocales();
+        System.out.println("\nLocales for plural ranges: " + pluralRangesLocales.size() 
+            + "\t" + new TreeSet(pluralRangesLocales));
     }
 
     static String show(Map<String, BitSet> results) {

@@ -2205,7 +2205,7 @@ h2,h3,h4,table {
 			example above, otherVersion="07dc0000" specifies the version of
 			Windows time zone and typeVersion="2011n" specifies the version of
 			Unicode time zone IDs. The attribute territory="001" in
-			&lt;mapZone&gt; element indicates the Unicode time zone ID specified
+			&lt;mapZone&gt; element indicates the <span class="changed">long canonical </span>Unicode time zone ID specified
 			by the type attribute is used as the default mapping for the Windows
 			TZID. For each unique Windows TZID, there must be exactly one
 			&lt;mapZone&gt; element with territory="001". &lt;mapZone&gt;
@@ -2216,6 +2216,20 @@ h2,h3,h4,table {
 			entry represents the default mapping for the territory. The territory
 			"ZZ" is used when a Unicode time zone ID is not associated with a
 			specific territory.</p>
+		<p class="changed"><b>Note: </b>The long canonical Unicode time zone ID might be deprecated
+			in the tz database[<a href="tr35.html#Olson">Olson</a>]. For example,
+			CLDR uses "Asia/Culcutta" as the long canonical time zone ID for
+			Kolkata, India. The same ID was moved to 'backward' file and replaced
+			with a new ID "Asia/Kolkata" in the tz database. Therefore, if
+			you want to get an equivalent Windows TZID for a zone ID in the
+			tz dadtabase, you have to resolve the long canonical Unicode time
+			zone ID (e.g. "Asia/Culcutta") for the zone ID (e.g. "Asia/Kolkata").
+			For more details, see <a href="tr35.html#Time_Zone_Identifiers">Section 3.7.1.2 Time Zone Indetifiers</a>.</p>
+		<p class="changed"><b>Note: </b>Not all Unicode time zones have equivalent Windows TZID
+			mappings. Also, not all Windows TZIDs have equivalent Unicode time zones.
+			For example, there is no equivalent Windows zone for Unicode time zone "Australia/Lord_Howe",
+			and there is no equivalent Unicode time zone for Windows zone "E. Europe Standard Time"
+			(as of CLDR 25 release).</p>
 
 		<h3>
 			6.3 <a name="Primary_Zones" href="#Primary_Zones">Primary Zones</a>

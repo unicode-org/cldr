@@ -2223,6 +2223,20 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			other number systems like roman numerals, Chinese numerals, or for
 		ordinal numbers (1st, 2nd, 3rd,...). </p>
 	  <p class="changed">Where, however, the CLDR plurals or ordinals can be used, their usage is recommended in preference to the RBNF data. First,  the RBNF data is not completely fleshed out over all languages that otherwise have modern coverage. Secondly, the alternate forms are neither complete, nor useful without additional information. For example, for German there is spellout-cardinal-masculine, and spellout-cardinal-feminine. But a complete solution would have all genders (masculine/feminine/neuter), all cases (nominative, accusative, dative, genitive), plus  context (with strong or weak determiner or none). Moreover, even for the alternate forms that do exist, CLDR does not supply any data for when to use one vs another (eg, when to use spellout-cardinal-masculine vs spellout-cardinal-feminine). So these data are inappropriate for  general purpose software.</p>
+<p class="changed">There are 4 common spellout rules. Some languages may provide more than these 4 types:<br>
+    </p>
+    <ul>
+      <li class="changed"><strong>numbering: </strong>This is the default used when there is no context for the number. For many languages, this may also be used for enumeration of objects, like used when pronouncing "table number one" and "table number two". It can also be used for pronouncing a math equation, like "2 - 3 = -1".</li>
+      <li class="changed"><strong>numbering-year: </strong>This is used for cases where years are pronounced or written a certain way. An example in English is the year 1999, which comes out as "nineteen ninety-nine" instead of the numbering value "one thousand nine hundred ninety-nine". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.</li>
+      <li class="changed"><strong>cardinal: </strong>This is used when providing the quantity of the number of objects. For many languages, there may not be a default cardinal type. Many languages require the notion of the gender and other grammatical properties so that the number and the objects being referenced are in grammatical agreement. An example of its usage is "one e-mail", "two people" or "three kilometers". Some languages may not have dedicated words for 0 or negative numbers for cardinals. In those cases, the words from the numbering type can be reused.</li>
+      <li class="changed"><strong>ordinal: </strong>This is used when providing the order of the number of objects. For many languages, there may not be a default ordinal type. Many languages also require the notion of the gender for ordinal so that the ordinal number and the objects being referenced are in grammatical agreement. An example of its usage is "first place", "second e-mail" or "third house on the right". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.</li>
+    </ul>
+    <p class="changed">In addition to the spellout rules, there are also a numbering system rules. Even though they may be derived from a specific culture, they are typically not translated and the rules are in <strong>root</strong>. An example of these rules are the Roman numerals where the value 8 comes out as VIII.<br>
+    </p>
+    <p class="changed">With regards to the number range supported for all these number types, the largest possible number range tries to be supported, but some languages may not have words for large numbers. For example, the old Roman numbering system can't support the value 5000 and beyond. For those unsupported cases, the default number format from CLDR is used.<br>
+    </p>
+    <p><span class="changed">Any rules marked as <strong>private</strong> should never be referenced externally. Frequently they only support a subrange of numbers that are used in the public rules.</span><br>
+    </p>
 		<p>The syntax used in the CLDR
 		  representation of rules is intended to be simply a transcription of
 		  ICU based RBNF rules into an XML compatible syntax. The rules are

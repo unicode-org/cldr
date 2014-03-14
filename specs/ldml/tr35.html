@@ -5115,13 +5115,13 @@ decimal?, group?, special*)) &gt;</pre>
 		</h4>
 		<p>An element is ordered first by the element name, and then if
 				the element names are identical, by the sorted set of
-				attribute-value pairs (sorted by #4). For the latter, compare the
+				attribute-value pairs<span class="removed"> (sorted by #4)</span>. For the latter, compare the
 				first pair in each (in sorted order by attribute pair). If not
-		identical, go to the second pair, and so on.</p>
-		<p>Elements and attributes are ordered according to their order in the respective DTDs. Attribute value comparison is a bit more complicated, and may depend on the attribute and type. This is currently done with specific ordering tables.</p>
-        <p>Any future additions to the DTD must be structured so as to
+</p>
+		<p class="changed">Elements and attributes are ordered according to their order in the respective DTDs. Attribute value comparison is a bit more complicated, and may depend on the attribute and type. This is currently done with specific ordering tables.</p>
+        <p class="changed">Any future additions to the DTD must be structured so as to
 		    allow compatibility with this ordering. See also <a href="#Valid_Attribute_Values">Section 5.5
-		    Valid Attribute Values.</a>		</p>
+	      Valid Attribute Values.</a>		</p>
         <ol>
       <li class="removed">Element names are ordered by the Element Order Table in //supplementalData/metadata/elementOrder.</li>
   <li class="removed">Attribute names are ordered by the Attribute Order Table in //supplementalData/metadata/attributeOrder</li>

@@ -223,7 +223,7 @@ public class TestSupplementalInfo extends TestFmwk {
                     String sample = samplePatterns.get(type, count);
                     if (sample == null) {
                         if (type == PluralRules.PluralType.ORDINAL
-                            && logKnownIssue("cldrbug:7075", "missing ordinal minimal pair")) {
+                            && logKnownIssue("cldrbug:7075", "Missing ordinal minimal pairs")) {
                             continue;
                         }
                         assertNotNull("Missing sample for " + locale + ", " + type + ", " + count, sample);
@@ -1219,7 +1219,7 @@ public class TestSupplementalInfo extends TestFmwk {
             String likelyScript = likely == null ? null : CLDRLocale.getInstance(likely).getScript();
             Map<Type, BasicLanguageData> scriptInfo = supp.getBasicLanguageDataMap(baseLanguage);
             if (scriptInfo == null) {
-                if (!logKnownIssue("cldrbug:6114", "Use of scripts in locales")) {
+                if (!logKnownIssue("cldrbug:7120", "Missing basic language data for CLDR locales")) {
                     errln(loc + ": has no BasicLanguageData");
                 }
             } else {
@@ -1230,7 +1230,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 if (data == null) {
                     errln(loc + ": has no scripts in BasicLanguageData");
                 } else if (!data.getScripts().contains(defaultScript)) {
-                    if (!logKnownIssue("cldrbug:6114", "Use of scripts in locales")) {
+                    if (!logKnownIssue("cldrbug:7120", "Missing basic language data for CLDR locales")) {
                         errln(loc + ": " + defaultScript + " not in BasicLanguageData " + data.getScripts());
                     }
                 }
@@ -1242,9 +1242,7 @@ public class TestSupplementalInfo extends TestFmwk {
 
             if (!loc.getScript().isEmpty()) {
                 if (!loc.getScript().equals(defaultScript)) {
-                    if (!logKnownIssue("cldrbug:6114", "Use of scripts in locales")) {
-                        assertNotEquals(locale + ": only include script if not default", loc.getScript(), defaultScript);
-                    }
+                    assertNotEquals(locale + ": only include script if not default", loc.getScript(), defaultScript);
                 }
             }
 
@@ -1297,11 +1295,11 @@ public class TestSupplementalInfo extends TestFmwk {
                         logln(ulocale + "\t" + type + "\t" + count + "\t" + pattern);
                     }
                 }
-                if (!countsWithNoSamples.isEmpty()) {
+                if (!countsWithNoSamples.isEmpty() && (type == PluralType.cardinal || !logKnownIssue("cldrbug:7075","Missing ordinal minimal pairs"))) {
                     errOrLog(needsCoverage, ulocale + "\t" + type + "\t missing samples: " + countsWithNoSamples);
                 }
                 for (Entry<String, Set<Count>> entry : samplesToCounts.keyValuesSet()) {
-                    if (entry.getValue().size() != 1) {
+                    if (entry.getValue().size() != 1 && !logKnownIssue("cldrbug:7119","Some duplicate minimal pairs")) {
                         errOrLog(needsCoverage, ulocale + "\t" + type
                             + "\t duplicate samples: " + entry.getValue()
                             + " => «" + entry.getKey() + "»");
@@ -1311,11 +1309,9 @@ public class TestSupplementalInfo extends TestFmwk {
         }
     }
 
-    static final boolean SHOW_KNOWN_ERROR = false;
 
     public void errOrLog(boolean causeError, String message) {
-        if (causeError &&
-            (SHOW_KNOWN_ERROR || !logKnownIssue("Cldrbug:6290", "Fix this once we have all ordinal messages."))) {
+        if (causeError) {
             errln(message);
         } else {
             logln(message);

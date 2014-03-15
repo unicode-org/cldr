@@ -127,7 +127,7 @@ public class LikelySubtagsTest extends TestFmwk {
     }
 
     public void TestCompleteness() {
-        if (logKnownIssue("Cldrbug:6671", "problems with likely subtags")) {
+        if (logKnownIssue("Cldrbug:7121", "Problems with likely subtags test")) {
             return;
         }
         checkAdding("und_Bopo");
@@ -236,19 +236,14 @@ public class LikelySubtagsTest extends TestFmwk {
         for (String region : StandardCodes.make().getGoodAvailableCodes("territory")) {
             String likelyExpansion = likely.get("und_" + region);
             if (likelyExpansion == null) {
-                if (region.equals("ZZ") || SUPPLEMENTAL_DATA_INFO.getContained(region) == null) { // not container
+                if (region.equals("ZZ") || region.equals("001") || SUPPLEMENTAL_DATA_INFO.getContained(region) == null) { // not container
                     String likelyTag = LikelySubtags.maximize("und_" + region, likely);
                     if (likelyTag == null || !likelyTag.startsWith("en_Latn_")) {
                         errln("Missing likely subtags for region: " + region + "\t" + english.getName("territory", region));
                     }
                 } else { // container
-                    if (logKnownIssue("9447", "Fix after warnings don't cause failure")) {
-                        logln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t"
-                            + english.getName("territory", region));
-                    } else {
-                        errln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t"
-                            + english.getName("territory", region));
-                    }
+                    errln("Missing likely subtags for macroregion (fix to exclude regions having 'en'): " + region + "\t"
+                        + english.getName("territory", region));
                 }
             } else {
                 logln("Likely subtags for region: " + region + ":\t " + likely);

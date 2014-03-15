@@ -6903,18 +6903,30 @@ decimal?, group?, special*)) &gt;</pre>
 		  </li>
 			<li><strong>Part 4: <a href="tr35-dates.html#Contents">Dates</a></strong>
 				<ul>
-					<li>In <em>2.6 <a
-						href="tr35-dates.html#dateTimeFormats">&lt;dateTimeFormats&gt;</a>,</em>
+					<li>In <em>Section 2.6 <a
+						href="tr35-dates.html#dateTimeFormats">&lt;dateTimeFormats&gt;</a></em>,
 						fixed the incorrect &lt;dateTimeFormat&gt;&lt;pattern&gt;
 						examples (used the wrong order).
 						[<a href="http://unicode.org/cldr/trac/ticket/6849">#6849</a>]
 					</li>
-					<li>In 3 <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a>,
+					<li>In <em>Section 3 <a href="tr35-dates.html#Calendar_Fields">Calendar Fields</a></em>,
 						clarified that the fields are typically titlecase.
 						[<a href="http://unicode.org/cldr/trac/ticket/6818">#6818</a>] </li>
-					<li>In <em><a
+					<li>In <em>Section 6.2 <a href="tr35-dates.html#Windows_Zones">Windows Zones</a></em>,
+						clarified that a time zone ID used in the mapping data is
+						long canonical Unicode time zone ID, and the same ID in the tz database
+						might be already replaced with a new ID. Also added a note explaining
+						not all Windows TZID can be mapped to Unicode time zones, or the other
+						way around.
+						[<a href="http://unicode.org/cldr/trac/ticket/6819">#6819</a>]
+					</li>
+					<li>In <em>Section 7.1 <a href="tr35-dates.html#Time_Zone_Format_Terminology">Time Zone
+						Format Terminology</a></em>, noted that a time zone can be a golden zone
+						of multiple diffent metazones.
+						[<a href="http://unicode.org/cldr/trac/ticket/6826">#6826</a>]</li>
+					<li>In <em>Section 8 <a
 						href="tr35-dates.html#Date_Field_Symbol_Table">Date Field Symbol
-						Table</a>:</em>
+						Table</a></em>:
 						<ul>
 							<li>Added 'r' symbol (for related Gregorian year).
 								[<a href="http://unicode.org/cldr/trac/ticket/6938">#6938</a>]
@@ -6928,14 +6940,6 @@ decimal?, group?, special*)) &gt;</pre>
 								same section.
 								[<a href="http://unicode.org/cldr/trac/ticket/6788">#6790</a>]
 							</li></ul>
-					</li>
-					<li>In 6.2 <a href="tr35-dates.html#Windows_Zones">Windows Zones</a>,
-						clarified that a time zone ID used in the mapping data is
-						long canonical Unicode time zone ID, and the same ID in the tz database
-						might be already replaced with a new ID. Also added a note explaining
-						not all Windows TZID can be mapped to Unicode time zones, or the other
-						way around.
-						[<a href="http://unicode.org/cldr/trac/ticket/6819">#6819</a>]
 					</li>
 				</ul></li>
 			<li><strong>Part 5: <a

@@ -2471,7 +2471,9 @@ h2,h3,h4,table {
 					zone, for the entire period that it is in the metazone. (It might
 					not have the same offset when daylight savings is in effect.)</li>
 				<li>A golden zone in mapTimezones must have reverse mapping in
-					metazoneInfo</li>
+					metazoneInfo.</li>
+				<li class="changed">A single time zone can be a golden zone of multiple different
+					metazones if any two of them are never active at a same time.</li>
 			</ul>
 		</blockquote>
 

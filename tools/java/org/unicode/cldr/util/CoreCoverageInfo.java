@@ -42,6 +42,8 @@ public class CoreCoverageInfo {
         romanization,
         casing,
         collation;
+        public static Set<CoreItems> ONLY_RECOMMENDED = Collections.unmodifiableSet(
+            EnumSet.of(romanization, ordinals));
         public static final int COUNT = CoreItems.values().length;
     }
 

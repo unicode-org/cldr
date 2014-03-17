@@ -42,10 +42,15 @@ public class CoreCoverageInfo {
         romanization,
         casing,
         collation;
+        public static Set<CoreItems> ONLY_RECOMMENDED = Collections.unmodifiableSet(
+            EnumSet.of(romanization, ordinals));
         public static final int COUNT = CoreItems.values().length;
     }
 
     public static Set<CoreItems> getCoreCoverageInfo(CLDRFile file, Set<String> detailedErrors) {
+        if (file.isResolved()) {
+            file = file.getUnresolved();
+        }
         String locale = file.getLocaleID();
         LanguageTagParser ltp = new LanguageTagParser();
         locale = ltp.set(locale).getLanguageScript();

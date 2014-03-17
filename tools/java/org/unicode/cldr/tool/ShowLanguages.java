@@ -114,6 +114,8 @@ public class ShowLanguages {
 
 //        linfo.showTerritoryInfo();
 
+        ShowLocaleCoverage.showCoverage(pw);
+        
         ShowPlurals.printPlurals(english, null, pw);
 
         linfo.showCoverageGoals(pw);

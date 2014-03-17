@@ -3696,4 +3696,12 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         //return attributeOrdering;
         return DtdData.getInstance(DtdType.ldmlICU).getAttributeComparator();
     }
+
+    public CLDRFile getUnresolved() {
+        if (!isResolved()) {
+            return this;
+        }
+        XMLSource source = dataSource.getUnresolving();
+        return new CLDRFile(source);
+    }
 }

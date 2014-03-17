@@ -48,6 +48,9 @@ public class CoreCoverageInfo {
     }
 
     public static Set<CoreItems> getCoreCoverageInfo(CLDRFile file, Set<String> detailedErrors) {
+        if (file.isResolved()) {
+            file = file.getUnresolved();
+        }
         String locale = file.getLocaleID();
         LanguageTagParser ltp = new LanguageTagParser();
         locale = ltp.set(locale).getLanguageScript();

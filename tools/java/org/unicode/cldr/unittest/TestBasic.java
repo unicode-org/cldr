@@ -996,7 +996,7 @@ public class TestBasic extends TestFmwkPlus {
     }
 
     public void TestDtdCompatibility() {
-        if (logKnownIssue("Cldrbug:6903", "Need the directory before enabling this test")) {
+        if (logKnownIssue("Cldrbug:6768", "catch orphan usesMetazone")) {
             return;
         }
         for (DtdType type : DtdType.values()) {

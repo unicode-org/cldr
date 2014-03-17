@@ -192,7 +192,9 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void ignoreErrln(String s) {
-        if (!logKnownIssue("Cldrbug:6722", "fix once data is complete for ar, etc.")) {
+        if (logKnownIssue("Cldrbug:7137", "Missing/extra plural ranges")) {
+            logln(s);
+        } else {
             errln(s);
         }
     }

@@ -37,6 +37,7 @@ import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.IsoCurrencyParser;
 import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Pair;
 import org.unicode.cldr.util.PluralRanges;
 import org.unicode.cldr.util.PreferredAndAllowedHour;
@@ -1257,7 +1258,7 @@ public class TestSupplementalInfo extends TestFmwk {
         //Map<ULocale, PluralRules> overrideCardinals = PluralRulesFactory.getPluralOverrides();
         //Set<ULocale> overrideCardinalLocales = new HashSet<ULocale>(overrideCardinals.keySet());
 
-        Set<String> testLocales = STANDARD_CODES.getLocaleCoverageLocales("google");
+        Set<String> testLocales = STANDARD_CODES.getLocaleCoverageLocales("google",EnumSet.of(Level.MODERN, Level.MODERATE));
         Set<String> allLocales = testInfo.getCldrFactory().getAvailable();
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : allLocales) {

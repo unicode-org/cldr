@@ -76,7 +76,7 @@ public class LanguageInfoTest extends TestFmwk {
     }
 
     public void testFallbacks() {
-        if (logKnownIssue("10705", "Make ICU's localeMatcher use CLDR fallback data")) {
+        if (logKnownIssue("Cldrbug:7133", "Problems with LocaleMatcher fallback test.")) {
             return;
         }
         Builder priorities = LocalePriorityList.add(new ULocale("mul")); // the default

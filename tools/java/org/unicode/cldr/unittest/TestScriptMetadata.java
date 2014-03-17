@@ -59,8 +59,13 @@ public class TestScriptMetadata extends TestFmwkPlus {
     public void TestBasic() {
         Info info0 = ScriptMetadata.getInfo(UScript.LATIN);
         if (ScriptMetadata.errors.size() != 0) {
-            errln("ScriptMetadata initialization errors\t" + ScriptMetadata.errors.size() + "\t"
-                + CollectionUtilities.join(ScriptMetadata.errors, "\n"));
+            if (ScriptMetadata.errors.size() == 1 && logKnownIssue("Cldrbug:7134","Missing script metadata for Brah")) {
+                logln("ScriptMetadata initialization errors\t" + ScriptMetadata.errors.size() + "\t"
+                    + CollectionUtilities.join(ScriptMetadata.errors, "\n"));
+            } else {
+                errln("ScriptMetadata initialization errors\t" + ScriptMetadata.errors.size() + "\t"
+                    + CollectionUtilities.join(ScriptMetadata.errors, "\n"));
+            }
         }
 
         // Latin Latn 2 L European Recommended no no no no

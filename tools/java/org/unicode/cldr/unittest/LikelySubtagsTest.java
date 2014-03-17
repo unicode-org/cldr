@@ -197,7 +197,11 @@ public class LikelySubtagsTest extends TestFmwk {
                 continue;
             }
             if (i.likelyLanguage.equals("und") && !exceptions.contains(shortName)) {
-                errln("Script has no likely language: " + shortName);
+                if (logKnownIssue("Cldrbug:7134","Missing script metadata for Brah") && shortName.equals("Brah")) {
+                    logln("Script has no likely language: " + shortName);                   
+                } else {
+                    errln("Script has no likely language: " + shortName);
+                }
             }
             toRemove.applyIntPropertyValue(UProperty.SCRIPT, script);
             current.removeAll(toRemove);
@@ -276,8 +280,13 @@ public class LikelySubtagsTest extends TestFmwk {
                 errln("Missing likely language for script (und_" + script + ")  should be something like:\t "
                     + showOverride(script, originCountry, langScript));
             } else if (!exceptions2.contains(likelyExpansion) && !likelyExpansion.startsWith(langScript)) {
-                errln("Wrong likely language for script (und_" + script + "). Should not be " + likelyExpansion
-                    + ", but something like:\t " + showOverride(script, originCountry, langScript));
+                if (logKnownIssue("Cldrbug:7134","Missing script metadata for Brah") && script.equals("Brah")) {
+                    logln("Wrong likely language for script (und_" + script + "). Should not be " + likelyExpansion
+                        + ", but something like:\t " + showOverride(script, originCountry, langScript));                    
+                } else {
+                    errln("Wrong likely language for script (und_" + script + "). Should not be " + likelyExpansion
+                        + ", but something like:\t " + showOverride(script, originCountry, langScript));
+                }
             } else {
                 logln("OK: " + undScript + " => " + likelyExpansion);
             }

@@ -673,7 +673,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 				to Supplemental Data</a>, the specific XML filename may change.)
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT coverageLevels ( coverageVariable*, coverageLevel* )
+			&lt;!ELEMENT coverageLevels ( <span class="changed">approvalRequirements,</span>coverageVariable*, coverageLevel* )
 			&gt;<br> &lt;!ELEMENT coverageLevel EMPTY &gt;<br>
 			&lt;!ATTLIST coverageLevel inLanguage CDATA #IMPLIED &gt;<br>
 			&lt;!ATTLIST coverageLevel inScript CDATA #IMPLIED &gt;<br>
@@ -720,6 +720,44 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			are used to substitute their respective values into the match
 			expression. This allows us to reuse the same variable for other
 			coverageLevel matches that use the same regular expression fragment.</p>
+			<p class="dtd"><span class="changed"><br>
+			&lt;!ELEMENT approvalRequirements ( approvalRequirement* ) &gt;<br>
+			&lt;!ELEMENT approvalRequirement EMPTY &gt;<br>
+
+			&lt;!ATTLIST approvalRequirement votes CDATA #REQUIRED&gt;<br>
+			&lt;!ATTLIST approvalRequirement locales CDATA #REQUIRED&gt;<br>
+			&lt;!ATTLIST approvalRequirement paths CDATA #REQUIRED&gt;<br></span><p>
+
+			
+			<p><span class="changed">The approvalRequirements allows to specify the number of survey tool votes required
+			for approval, either based on locale, or path, or both.  Certain locales require a higher
+			voting threshhold (usually 8 votes instead of 4), in order to promote greater stability
+			in the data.  Furthermore, certain fields that are very high visibility fields, such as
+			number formats, require a CLDR TC committee member&apos;s vote for approval.</span></p>
+		<p>
+			<span class="changed">Here is an example of the
+				approvalRequirements section.</span>
+		</p>
+		<pre><span class="changed">&lt;approvalRequirements&gt;<br>	&lt;!--  &quot;high bar&quot; items --&gt;
+		&lt;approvalRequirement votes=&quot;20&quot; locales=&quot;*&quot; paths=&quot;//ldml/numbers/symbols[^/]++/(decimal|group)&quot;/&gt;
+		&lt;!--  established locales - http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value --&gt;
+		&lt;approvalRequirement votes=&quot;8&quot; locales=&quot;ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant&quot; paths=&quot;&quot;/&gt;
+		&lt;!--  all other items --&gt;
+		&lt;approvalRequirement votes=&quot;4&quot; locales=&quot;*&quot; paths=&quot;&quot;/&gt;<br>&lt;/approvalRequirements&gt;</span>
+		</pre>
+		<p>
+			<span class="changed">This section specifies that a TC vote
+				(20 votes) is required for decimal and grouping separators.
+				Furthermore it specifies that any field in the established locales
+				list (i.e. ar, ca, cs, etc.) requires 8 votes, and that all other
+				locales require 4 votes only. </span>
+		</p>
+		<p>
+			<span class="changed">For more information on the CLDR Voting
+				process, See <a href="http://cldr.unicode.org/index/process">http://cldr.unicode.org/index/process</a>
+			</span>
+		</p>
+		</span>
 
 		<h3>
 			7.1 <a name="Coverage_Level_Definitions"

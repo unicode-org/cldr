@@ -22,6 +22,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLFileReader.SimpleHandler;
 import org.unicode.cldr.util.XPathParts;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
@@ -160,16 +161,25 @@ public class Keyboard {
         this.transforms = Collections.unmodifiableMap(transforms);
     }
 
-    public static Keyboard getKeyboard(String keyboardId, Set<Exception> errors) {
-        int pos = keyboardId.indexOf("-t-k0-") + 6;
-        int pos2 = keyboardId.indexOf('-', pos);
-        if (pos2 < 0) {
-            pos2 = keyboardId.length();
-        }
-        return getKeyboard(keyboardId.substring(pos, pos2), keyboardId, errors);
-    }
+//    public static Keyboard getKeyboard(String keyboardId, Set<Exception> errors) {
+//        int pos = keyboardId.indexOf("-t-k0-") + 6;
+//        int pos2 = keyboardId.indexOf('-', pos);
+//        if (pos2 < 0) {
+//            pos2 = keyboardId.length();
+//        }
+//        return getKeyboard(keyboardId.substring(pos, pos2), keyboardId, errors);
+//    }
 
-    private static Keyboard getKeyboard(String platformId, String keyboardId, Set<Exception> errors) {
+    public static String getPlatformId(String keyboardId) {
+      int pos = keyboardId.indexOf("-t-k0-") + 6;
+      int pos2 = keyboardId.indexOf('-', pos);
+      if (pos2 < 0) {
+          pos2 = keyboardId.length();
+      }
+      return keyboardId.substring(pos, pos2);
+    }
+    
+    public static Keyboard getKeyboard(String platformId, String keyboardId, Set<Exception> errors) {
         final String fileName = BASE + platformId + "/" + keyboardId + ".xml";
         try {
             final KeyboardHandler keyboardHandler = new KeyboardHandler(errors);
@@ -178,7 +188,7 @@ public class Keyboard {
                 .read(fileName, -1, true);
             return keyboardHandler.getKeyboard();
         } catch (Exception e) {
-            throw new KeyboardException(fileName, e);
+            throw new KeyboardException(fileName + "\n" + CollectionUtilities.join(errors, ", "), e);
         }
     }
 

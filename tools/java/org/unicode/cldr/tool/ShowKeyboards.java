@@ -124,16 +124,13 @@ public class ShowKeyboards {
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
         IdInfo idInfo = new IdInfo();
         for (String platformId : Keyboard.getPlatformIDs()) {
-            if (platformId.equals("und")) {
-                continue;
-            }
             //Platform p = Keyboard.getPlatform(platformId);
             // System.out.println(platformId + "\t" + p.getHardwareMap());
             for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {
                 if (!idMatcher.reset(keyboardId).matches()) {
                     continue;
                 }
-                Keyboard keyboard = Keyboard.getKeyboard(keyboardId, errors);
+                Keyboard keyboard = Keyboard.getKeyboard(platformId, keyboardId, errors);
                 for (Exception error : errors) {
                     totalErrors.add(new IllegalArgumentException(keyboardId, error));
                 }
@@ -209,9 +206,6 @@ public class ShowKeyboards {
         Map<String, String> localeIndex = new TreeMap<String, String>();
 
         for (String platformId : Keyboard.getPlatformIDs()) {
-            if (platformId.equals("und")) {
-                continue;
-            }
             //Platform p = Keyboard.getPlatform(platformId);
             // System.out.println(platformId + "\t" + p.getHardwareMap());
             for (String keyboardId : Keyboard.getKeyboardIDs(platformId)) {
@@ -266,12 +260,15 @@ public class ShowKeyboards {
             // printTop("Layouts: " + localeName + " (" + locale + ")", out);
             Set<R3<String, String, String>> keyboards = localeKeyboards.getValue();
             for (R3<String, String, String> platformKeyboard : keyboards) {
+                String platformId = platformKeyboard.get0();
                 String keyboardId = platformKeyboard.get2();
                 // System.out.println(platformId + "\t" + p.getHardwareMap());
-                Keyboard keyboard = Keyboard.getKeyboard(keyboardId, errors);
+                Keyboard keyboard = Keyboard.getKeyboard(platformId, keyboardId, errors);
                 showErrors(errors);
                 Set<String> names = keyboard.getNames();
-                out.println("<h2>" + CldrUtility.getDoubleLinkedText(keyboardId, keyboardId)
+                String platformFromKeyboardId = Keyboard.getPlatformId(keyboardId);
+                String printId = platformId.equals(platformFromKeyboardId) ? keyboardId : keyboardId + "/und";
+                out.println("<h2>" + CldrUtility.getDoubleLinkedText(printId, printId)
                     + (names.size() == 0 ? "" : " " + names)
                     + "</h2>");
 

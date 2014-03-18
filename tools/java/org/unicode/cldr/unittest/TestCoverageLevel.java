@@ -357,7 +357,7 @@ public class TestCoverageLevel extends TestFmwk {
         );
 
     public void TestEnglishModern() {
-        if (logKnownIssue("Cldrbug:6114", "Finish enabling more comprehensive tests")) {
+        if (logKnownIssue("Cldrbug:7135", "Problems with TestCoverageLevel test")) {
             return;
         }
         SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
@@ -376,7 +376,7 @@ public class TestCoverageLevel extends TestFmwk {
             all.put(row, code);
             Level coverageLevel = sdi.getCoverageLevel(path, "en");
 
-            if (coverageLevel.compareTo(Level.MODERN) <= 0) {
+            if (coverageLevel.compareTo(Level.COMPREHENSIVE) <= 0) {
                 continue;
             }
 

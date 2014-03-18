@@ -705,7 +705,12 @@ public class GenerateSidewaysView {
     }
 
     private static String getFileName2(PathHeader header, String suffix) {
-        String result = (header.getSection() + "." + header.getPage()).replace(" ", "_");
+        String result = (header.getSection() + "." + header.getPage())
+            .replace(" ", "_")
+            .replace("/", "_")
+            .replace("(", "_")
+            .replace(")", "_")
+            ;
         if (suffix != null) {
             result += "." + suffix;
         }

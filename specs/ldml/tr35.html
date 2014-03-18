@@ -82,7 +82,7 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 		<h1 style="text-align: center">Unicode Locale Data Markup
 			Language (LDML)</h1>
 
@@ -90,7 +90,7 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">25 (draft)</span></td>
+				<td>25</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -101,19 +101,19 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-03-14</span></td>
+				<td>2014-03-18</td>
 			</tr>
 			<tr>
 				<td>This Version</td>
 				<td>
-				<a hrefdisabled="http://www.unicode.org/reports/tr35/tr35-35/tr35.html" class="changed">http://www.unicode.org/reports/tr35/tr35-35/tr35.html</a></td>
+				<a href="http://www.unicode.org/reports/tr35/tr35-35/tr35.html">http://www.unicode.org/reports/tr35/tr35-35/tr35.html</a></td>
 				<!-- This link must be made live when posting the final version but is disabled during proposed update stage. -->
 			</tr>
 			<tr>
 				<td>Previous Version</td>
 				<td>
 				<a
-					href="http://www.unicode.org/reports/tr35/tr35-33/tr35.html" class="changed">http://www.unicode.org/reports/tr35/tr35-33/tr35.html</a></td>
+					href="http://www.unicode.org/reports/tr35/tr35-33/tr35.html">http://www.unicode.org/reports/tr35/tr35-33/tr35.html</a></td>
 			</tr>
 			<tr>
 				<td>Latest Version</td>
@@ -134,11 +134,11 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>DTDs</td>
-				<td><a href="http://unicode.org/cldr/dtd/25/" class="changed">http://unicode.org/cldr/dtd/25/</a></td>
+				<td><a href="http://unicode.org/cldr/dtd/25/">http://unicode.org/cldr/dtd/25/</a></td>
 			</tr>
 			<tr>
 				<td>Revision</td>
-				<td><a href="tr35.html#Modifications" class="changed">34</a></td>
+				<td><a href="tr35.html#Modifications">35</a></td>
 			</tr>
 		</table>
 		<h3>
@@ -155,7 +155,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -165,13 +165,13 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED --> 
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -248,7 +248,7 @@ h2,h3,h4,table {
 					<li>3.4 <a href="#Field_Definitions">Field Definitions</a></li>
 					<li>3.5 <a href="#Key_And_Type_Definitions_">Key And Type
 							Definitions</a></li>
-					<li class="changed">3.6 <a href="#Unknown_or_Invalid_Identifiers">Special Codes</a>
+					<li>3.6 <a href="#Unknown_or_Invalid_Identifiers">Special Codes</a>
 						<ul class="toc">
 							<li>3.6.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown
 							or Invalid Identifiers</a></li>
@@ -368,14 +368,6 @@ h2,h3,h4,table {
 							<li>5.6.1 <a href="#Content">Content</a></li>
 							<li>5.6.2 <a href="#Ordering">Ordering</a></li>
 							<li>5.6.3 <a href="#Comments">Comments</a></li>
-							<li class="removed">5.6.4 <a href="#Canonicalization">Canonicalization</a></li>
-							<li class="removed">5.6.5 <a href="#Element_Order_Table">Element Order
-									Table</a></li>
-							<li class="removed">5.6.6 <a href="#Attribute_Order_Table">Attribute
-									Order Table</a></li>
-							<li class="removed">5.6.7 <a href="#Value_Order_Table">Value Order Table</a></li>
-							<li class="removed">5.6.8 <a href="#Defaulted_Values_Table">Defaulted
-									Values Table</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -405,7 +397,7 @@ h2,h3,h4,table {
 							subelements of &lt;timeZoneNames&gt;</a></li>
 					<li>8.11 <a href="#Deprecated_subelements_of_zone_metazone">Deprecated
 							subelements of &lt;zone&gt; and &lt;metazone&gt;</a></li>
-					<li class="changed">8.12 <a href="#Renamed_attribute_values_for_contextTransformUsage">
+					<li>8.12 <a href="#Renamed_attribute_values_for_contextTransformUsage">
 							Renamed attribute values for &lt;contextTransformUsage&gt;
 							element</a></li>
 				</ul>
@@ -862,27 +854,27 @@ h2,h3,h4,table {
 				href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
 				replace the language subtag with the <i>replacement</i> value.
 				<ol>
-				  <li class="changed">If there are additional subtags in  the <i>replacement</i> value, add them to the result, but only if there is no corresponding subtag already in the tag.</li>
+				  <li>If there are additional subtags in  the <i>replacement</i> value, add them to the result, but only if there is no corresponding subtag already in the tag.</li>
 			  </ol>
 			</li>
 			<li>If the BCP 47 region subtag matches the <i>type</i>
 				attribute of a <i>territoryAlias</i> element in <a
 				href="tr35-info.html#Supplemental_Data">Supplemental Data</a>,
-				replace the language subtag with the <i>replacement</i> value<span class="changed">, as follows: </span>
+				replace the language subtag with the <i>replacement</i> value, as follows: 
 				<ol>
-				  <li class="changed">If there is a single territory in the replacement, use it. </li>
-				  <li><span class="changed">If there are  multiple territories:</span>
+				  <li>If there is a single territory in the replacement, use it. </li>
+				  <li>If there are  multiple territories:
 				    <ol>
-				      <li class="changed">Look up the most likely territory for the base language code (and script, if there is one).</li>
-				      <li class="changed">If that likely territory is in the list, use it.</li>
-				      <li class="changed">Otherwise, use the first territory in the list. </li>
+				      <li>Look up the most likely territory for the base language code (and script, if there is one).</li>
+				      <li>If that likely territory is in the list, use it.</li>
+				      <li>Otherwise, use the first territory in the list. </li>
 			        </ol>
 				  </li>
 			  </ol>
 			</li>
 		</ol>
-		<p class="changed">Examples</p>
-		<table class="changed">
+		<p>Examples</p>
+		<table>
 		  <tr>
 		    <th>Original</th>
 		    <th>Result</th>
@@ -935,15 +927,7 @@ h2,h3,h4,table {
 		      <code>&lt;territoryAlias type=&quot;SU&quot; replacement=&quot;RU AM AZ BY EE GE KZ KG LV LT MD TJ TM UA UZ&quot; …/&gt;</code></td>
 	      </tr>
   </table>
-		<blockquote>
-			<p class="removed">en-US → en-US (no changes)<br>
-			  und → root <br>
-			  und-US → und-US (no changes, because region subtag is present)<br>
-			  und-u-cu-USD → root-u-cu-usd <br>
-			  cmn-TW → zh-TW (language alias)<br>
-			  sr-CS → sr-RS (territory alias)<br>
-		  </p>
-	  </blockquote>
+
 		<p>
 			<b>Note:</b> In some rare cases, BCP 47 language tags cannot be
 			converted to valid Unicode language/locale identifiers, such as
@@ -1644,78 +1628,77 @@ de_DE_u_co_phonebk_cu_ddm</pre>
 				<td><code>900..949</code></td>
 			</tr>
 		</table><br>
-		<h4 class="changed">3.6.3 <a name="Private_Use" href="#Private_Use">Private Use Codes</a></h4>
-      <p class="changed">Private use codes fall into three groups.</p>
+		<h4>3.6.3 <a name="Private_Use" href="#Private_Use">Private Use Codes</a></h4>
+      <p>Private use codes fall into three groups.</p>
         <ul>
-          <li class="changed"><strong>defined:</strong> those that are given particular semantics currently in CLDR</li>
-          <li class="changed"><strong>reserved:</strong> those that may be given particular semantics in future versions of CLDR</li>
-          <li class="changed"><strong>excluded:</strong> those that will never be given particular CLDR semantics in the future, and thus can be used by applications without worrying about collisions        </li>
+          <li><strong>defined:</strong> those that are given particular semantics currently in CLDR</li>
+          <li><strong>reserved:</strong> those that may be given particular semantics in future versions of CLDR</li>
+          <li><strong>excluded:</strong> those that will never be given particular CLDR semantics in the future, and thus can be used by applications without worrying about collisions        </li>
         </ul>
         <table>
           <caption>
-          <span class="changed"><a name="Private_Use_CLDR" href="#Private_Use_CLDR">Private Use Codes in CLDR</a>
-          </span>
+          <a name="Private_Use_CLDR" href="#Private_Use_CLDR">Private Use Codes in CLDR</a>
           </caption>
           <tr>
-            <th class="changed">category</th>
-            <th class="changed">status</th>
-            <th class="changed">codes</th>
+            <th>category</th>
+            <th>status</th>
+            <th>codes</th>
           </tr>
           <tr>
-            <td rowspan="3" class="changed">base language</td>
-            <td class="changed">defined</td>
-            <td class="changed">none</td>
+            <td rowspan="3">base language</td>
+            <td>defined</td>
+            <td>none</td>
           </tr>
           <tr>
-            <td class="changed">reserved</td>
-            <td class="changed"> qaa..qfy</td>
+            <td>reserved</td>
+            <td> qaa..qfy</td>
           </tr>
           <tr>
-            <td class="changed">excluded</td>
-            <td class="changed">qfz..qtz</td>
+            <td>excluded</td>
+            <td>qfz..qtz</td>
           </tr>
           <tr>
-            <td rowspan="3" class="changed">script</td>
-            <td class="changed">defined</td>
-            <td class="changed">Qaai (obsolete)</td>
+            <td rowspan="3">script</td>
+            <td>defined</td>
+            <td>Qaai (obsolete)</td>
           </tr>
           <tr>
-            <td class="changed">reserved</td>
-            <td class="changed">Qaaa..Qaap</td>
+            <td>reserved</td>
+            <td>Qaaa..Qaap</td>
           </tr>
           <tr>
-            <td class="changed">excluded</td>
-            <td class="changed">Qaaq..Qabx</td>
+            <td>excluded</td>
+            <td>Qaaq..Qabx</td>
           </tr>
           <tr>
-            <td rowspan="3" class="changed">region</td>
-            <td class="changed">defined</td>
-            <td class="changed">QO, QU, UK, ZZ</td>
+            <td rowspan="3">region</td>
+            <td>defined</td>
+            <td>QO, QU, UK, ZZ</td>
           </tr>
           <tr>
-            <td class="changed">reserved</td>
-            <td class="changed">AA, QM..QZ</td>
+            <td>reserved</td>
+            <td>AA, QM..QZ</td>
           </tr>
           <tr>
-            <td class="changed">excluded</td>
-            <td class="changed">XA..XZ</td>
+            <td>excluded</td>
+            <td>XA..XZ</td>
           </tr>
           <tr>
-            <td rowspan="3" class="changed">timezone</td>
-            <td class="changed">defined</td>
-            <td class="changed">IANA: Etc/Unknown<br>
+            <td rowspan="3">timezone</td>
+            <td>defined</td>
+            <td>IANA: Etc/Unknown<br>
             bcp47: as listed in the bcp47 file</td>
           </tr>
           <tr>
-            <td class="changed">reserved</td>
-            <td class="changed">bcp47: all non-5 letter codes</td>
+            <td>reserved</td>
+            <td>bcp47: all non-5 letter codes</td>
           </tr>
           <tr>
-            <td class="changed">excluded</td>
-            <td class="changed">none</td>
+            <td>excluded</td>
+            <td>none</td>
           </tr>
       </table>
-        <p class="changed">See also <em>Section 3.6.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown
+        <p>See also <em>Section 3.6.1 <a href="#Unknown_or_Invalid_Identifiers">Unknown
         or Invalid Identifiers</a></em>.</p>
 <p></p>
 <h3>
@@ -5115,31 +5098,15 @@ decimal?, group?, special*)) &gt;</pre>
 		</h4>
 		<p>An element is ordered first by the element name, and then if
 				the element names are identical, by the sorted set of
-				attribute-value pairs<span class="removed"> (sorted by #4)</span>.
+				attribute-value pairs.
 				For the latter, compare the first pair in each (in sorted order by
 				attribute pair). If not identical, go to the second pair, and so on.</p>
-		<p class="changed">Elements and attributes are ordered according to their order in the respective DTDs. Attribute value comparison is a bit more complicated, and may depend on the attribute and type. This is currently done with specific ordering tables.</p>
-        <p class="changed">Any future additions to the DTD must be structured so as to
+		<p>Elements and attributes are ordered according to their order in the respective DTDs. Attribute value comparison is a bit more complicated, and may depend on the attribute and type. This is currently done with specific ordering tables.</p>
+        <p>Any future additions to the DTD must be structured so as to
 		    allow compatibility with this ordering. See also <a href="#Valid_Attribute_Values">Section 5.5
 	      Valid Attribute Values.</a>		</p>
-        <ol>
-      <li class="removed">Element names are ordered by the Element Order Table in //supplementalData/metadata/elementOrder.</li>
-  <li class="removed">Attribute names are ordered by the Attribute Order Table in //supplementalData/metadata/attributeOrder</li>
-			<li class="removed">Attribute value comparison is a bit more complicated, and may depend on the attribute and type. This is currently done with specific ordering tables
-			</li>
-			<li class="removed">An attribute-value pair is ordered first by attribute name,
-				and then if the attribute names are identical, by the value.</li>
-			<li class="removed">An element is ordered first by the element name, and then if
-				the element names are identical, by the sorted set of
-				attribute-value pairs (sorted by #4). For the latter, compare the
-				first pair in each (in sorted order by attribute pair). If not
-				identical, go to the second pair, and so on.</li>
-			<li class="removed">Any future additions to the DTD must be structured so as to
-				allow compatibility with this ordering.</li>
-			<li class="removed">See also <a href="#Valid_Attribute_Values">Section 5.5
-					Valid Attribute Values</a></li>
-		</ol>
-		<h4>
+        
+       	<h4>
 			<a name="Comments" href="#Comments">5.6.3 Comments</a>
 		</h4>
 		<ol>
@@ -5172,58 +5139,7 @@ decimal?, group?, special*)) &gt;</pre>
 	&lt;!-- Note: the following is known to be sparse,
 		and needs to be improved in the future --&gt;
 	&lt;zone type=&quot;Asia/Jerusalem&quot;&gt;</pre>
-		<h4>
-			<span class="removed"><a name="Canonicalization" href="#Canonicalization">5.6.4
-				Canonicalization</a>
-	    </span></h4>
-		<p class="removed">The process of canonicalization is fairly straightforward,
-			except for comments. Inline comments will have any linebreaks
-			replaced by a space. There may be cases where the attachment node is
-			not permitted, such as the following.</p>
-		<pre>		<span class="removed">&lt;/dayWidth&gt;
-		&lt;!-- some comment --&gt;
-	&lt;/dayContext&gt;
-&lt;/days&gt;</span></pre>
-		<p class="removed">
-		  In those cases, the comment will be made into a block comment on the
-			last previous leaf node, if it is at that level or deeper. (If there
-			is one already, it will be appended, with a line-break between.) If
-			there is no place to attach the node (for example, as a result of
-			processing that removes the attachment node), the comment and its
-			node&#39;s [<a href="#XPath">XPath</a>] will be appended to the final
-			comment in the document.
-		</p>
-		<p class="removed">Multiline comments will have leading tabs stripped, so any
-			indentation should be done with spaces.</p>
-		<h4>
-			<span class="removed"><a name="Element_Order_Table" href="#Element_Order_Table">5.6.5
-				Element Order Table</a>
-	    </span></h4>
-		<p class="removed">The order of attributes is given by the elementOrder table in
-			the supplemental metadata.</p>
-		<h4>
-			<span class="removed"><a name="Attribute_Order_Table" href="#Attribute_Order_Table">5.6.6
-				Attribute Order Table</a>
-	    </span></h4>
-		<p class="removed">The order of attributes is given by the attributeOrder table in
-			the supplemental metadata.</p>
-		<h4>
-			<span class="removed"><a name="Value_Order_Table" href="#Value_Order_Table">5.6.7 Value
-				Order Table</a>
-	    </span></h4>
-		<p class="removed">The order of attribute values is given by the order of the
-			values in the attributeValues elements that have the attribute
-			order=&quot;given&quot;. Numeric values are sorted in numeric order,
-			while tzids are ordered by country, then longitude, then latitude.</p>
-		<h4>
-			<span class="removed"><a name="Defaulted_Values_Table" href="#Defaulted_Values_Table">5.6.8
-				Defaulted Values Table</a>
-	    </span></h4>
-		<p class="removed">
-		  The defaulted attributes are given by the <i>suppress</i> table in
-			the supplemental metadata. There is one special value _q; that is
-			used on serial elements internally to preserve ordering.
-    </p>
+
 		<h2>
 			<a name="Property_Data" href="#Property_Data">6 Property Data</a>
 		</h2>
@@ -5616,13 +5532,13 @@ decimal?, group?, special*)) &gt;</pre>
 				zone was commonly used in the locale.</li>
 		</ul>
 
-		<h3 class="changed">
+		<h3>
 			<a name="Renamed_attribute_values_for_contextTransformUsage"
 				href="#Renamed_attribute_values_for_contextTransformUsage">8.12
 				Renamed attribute values for &lt;contextTransformUsage&gt;
 				element</a>
 		</h3>
-		<p class="changed">
+		<p>
 			The &lt;contextTransformUsage&gt; element was introduced in CLDR 21.
 			The values for its <em>type</em> attribute are documented in <a
 			href="tr35-general.html#contextTransformUsage_type_attribute_values">
@@ -5630,7 +5546,7 @@ decimal?, group?, special*)) &gt;</pre>
 			some of these values were renamed from their previous values for
 			improved clarity:
 		</p>
-		<ul class="changed">
+		<ul>
 			<li>"type" was renamed to "keyValue"</li>
 			<li>"displayName" was renamed to "currencyName"</li>
 			<li>"displayName-count" was renamed to "currencyName-count"</li>
@@ -6833,11 +6749,11 @@ decimal?, group?, special*)) &gt;</pre>
 					Bug Reports</a>.
 			</p>
 
-		<h3 class="changed">
-			Revision 34
+		<h3>
+			Revision 354
 		</h3>
-		<ul class="changed">
-			<li>Proposed update for Version 25.</li>
+		<ul>
+			<li><b>Reissued</b> for Version 25.</li>
 			<li><strong>Part 1: <a href="tr35.html#Contents">Core
 						specification</a></strong>
 				<ul>
@@ -7003,6 +6919,9 @@ decimal?, group?, special*)) &gt;</pre>
               </ul>
           </li>
 		</ul>
+		
+<p>Revision 34 being a proposed update, only changes between revisions 33 and 35 are summarized here.</p>
+
 	  <h3>
 	  Revision 33
 </h3>
@@ -8104,7 +8023,7 @@ decimal?, group?, special*)) &gt;</pre>
 		</ul>
 		<hr>
 		<p class="copyright">
-			Copyright © 2001-<span class="changed">2014</span> Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001-2014 Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

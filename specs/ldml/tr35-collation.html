@@ -82,7 +82,7 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 		<h1>
 			Unicode Locale Data Markup Language (LDML)<br>Part 5: Collation
 		</h1>
@@ -91,7 +91,7 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">25 (draft)</span></td>
+				<td>25</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -124,7 +124,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -134,13 +134,13 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -384,11 +384,7 @@ h2,h3,h4,table {
 			the original text index (right after the prefix) from where it will
 			start to look at all of the contractions for that prefix.</p>
 
-		<p class="removed">If there is a mapping for p|c where c is a single character,
-			and text "...pc...", then the p|c mapping should "win" over any
-			contractions that start with c but do not have the prefix.</p>
-
-		<p class="changed">If there is a match for a prefix but
+		<p>If there is a match for a prefix but
 		no match for any of the suffixes for that prefix,
 		then fall back to mappings with the next-longest matching prefix,
 		and so on, ultimately to mappings with no prefix.
@@ -402,8 +398,8 @@ h2,h3,h4,table {
 			<li>ch → CE(d)</li>
 			<li>p|c → CE(u)</li>
 			<li>p|ci → CE(v)</li>
-			<li class="changed">p|ĉ → CE(w)</li>
-			<li class="changed">op|ck → CE(x)</li>
+			<li>p|ĉ → CE(w)</li>
+			<li>op|ck → CE(x)</li>
 		</ol>
 
 		<p>With these, text collates like this:</p>
@@ -411,28 +407,28 @@ h2,h3,h4,table {
 			<li>pc → CE(p)CE(u)</li>
 			<li>pci → CE(p)CE(v)</li>
 			<li>pch → CE(p)CE(u)CE(h)</li>
-			<li class="changed">pĉ → CE(p)CE(w)</li>
-			<li class="changed">pĉ̣ → CE(p)CE(w)CE(U+0323) // discontiguous</li>
-			<li class="changed">opck → CE(o)CE(p)CE(x)</li>
-			<li class="changed">opch → CE(o)CE(p)CE(u)CE(h)</li>
+			<li>pĉ → CE(p)CE(w)</li>
+			<li>pĉ̣ → CE(p)CE(w)CE(U+0323) // discontiguous</li>
+			<li>opck → CE(o)CE(p)CE(x)</li>
+			<li>opch → CE(o)CE(p)CE(u)CE(h)</li>
 		</ul>
 
 		<p>However, if the mapping p|c → CE(u) is missing, then text "pch"
-			maps to CE(p)CE(d)<span class="changed">, "opch" maps to CE(o)CE(p)CE(d),
+			maps to CE(p)CE(d), "opch" maps to CE(o)CE(p)CE(d),
 			and "pĉ̣" maps to CE(p)CE(c)CE(U+0323)CE(U+0302)
 			(because discontiguous contraction matching extends
-			<i>an existing match</i> by one non-starter at a time)</span>.</p>
+			<i>an existing match</i> by one non-starter at a time).</p>
 
-		<h4 class="changed">1.1.3 <a name="Algorithm_Case" href="#Algorithm_Case">Case Handling</a></h4>
-		<p class="changed">CLDR specifies how to sort lowercase or uppercase first,
+		<h4>1.1.3 <a name="Algorithm_Case" href="#Algorithm_Case">Case Handling</a></h4>
+		<p>CLDR specifies how to sort lowercase or uppercase first,
 		as a stronger distinction than other tertiary variants (<strong>caseFirst</strong>)
 		or while completely ignoring all other tertiary distinctions (<strong>caseLevel</strong>).
 		See <i>Section 3.3 <a href="#Setting_Options">Setting Options</a></i>
 		and <i>Section 3.13 <a href="#Case_Parameters">Case Parameters</a></i>.</p>
 
-		<h4 class="changed">1.1.4 <a name="Algorithm_Reordering_Groups"
+		<h4>1.1.4 <a name="Algorithm_Reordering_Groups"
 			href="#Algorithm_Reordering_Groups">Reordering Groups</a></h4>
-		<p class="changed">CLDR specifies how to do parametric reordering of
+		<p>CLDR specifies how to do parametric reordering of
 		groups of scripts (e.g., “native script first”)
 		as well special groups (e.g., “digits after letters”),
 		and provides data for the effective implementation of such reordering.</p>
@@ -519,7 +515,7 @@ h2,h3,h4,table {
 			are not “variable” in CLDR. So <em>shifted</em> only causes
 			whitespace and punctuation to be ignored, but not symbols (like ♥).
 			The DUCET behavior can be specified with a locale ID using the
-			&quot;<span class="removed">vt</span> <span class="changed">kv</span>&quot; keyword, to set the Variable section to include all of
+			&quot;kv&quot; keyword, to set the Variable section to include all of
 			the symbols below it, or be set parametrically where implementations
 			allow access.
 		</p>
@@ -785,7 +781,7 @@ F967; [U+4E0D]  # Hani Lo       [FB40.0020.0002][CE0D.0000.0000]        * CJK CO
 				only copies U+4E36’s primary weight and specifies other secondary
 				and tertiary weights.
 			</p>
-			<p class="changed">FractionalUCA.txt does not have any explicit mappings for implicit weights.
+			<p>FractionalUCA.txt does not have any explicit mappings for implicit weights.
 			  Therefore, an implementation is free to choose an algorithm for computing implicit weights
 			  according to the principles specified in the UCA.</p>
 		</blockquote>
@@ -915,7 +911,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				&quot;trailing weights&quot; as described in the UCA.</p>
 		</blockquote>
 
-		<p class="changed">Note: The particular primary lead bytes for
+		<p>Note: The particular primary lead bytes for
 		Hani vs. IMPLICIT vs. TRAILING are only an example.
 		An implementation is free to move them if it also moves
 		the explicit TRAILING weights.
@@ -975,9 +971,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<b>Note:</b>
 		</p>
 		<ul>
-			<li class="note">There is an on-line demonstration of collation
+			<li>There is an on-line demonstration of collation
 				at [<a href="tr35.html#LocaleExplorer">LocaleExplorer</a>] 
-				that uses the <span class="removed">basic</span> <span class="changed">same rule</span> syntax. (Pick the locale
+				that uses the same rule syntax. (Pick the locale
 				and scroll to &quot;Collation Rules&quot;, near the end.)
 			</li>
 			<li class="note">In CLDR 23 and before, LDML collation
@@ -989,10 +985,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</li>
 		</ul>
 
-		<h4 class="changed">3.0.1 <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a></h4>
-		<p class="changed">When loading a requested tailoring from its data file and the parent file chain,
+		<h4>3.0.1 <a name="Collation_Type_Fallback" href="#Collation_Type_Fallback">Collation Type Fallback</a></h4>
+		<p>When loading a requested tailoring from its data file and the parent file chain,
 		use the following type fallback to find the tailoring.</p>
-		<ol class="changed">
+		<ol>
 			<li>Determine the default type from the &lt;defaultCollation&gt; element;
 			  map the default type to its alias if one is defined.
 			  If there is no &lt;defaultCollation&gt; element, then use "standard" as the default type.</li>
@@ -1009,14 +1005,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			  then set the type to "standard" and use that &lt;collation&gt; element.</li>
 			<li>If it does not exist, then use the CLDR root collation.</li>
 		</ol>
-		<p class="changed">Note that the CLDR collation/root.xml contains
+		<p>Note that the CLDR collation/root.xml contains
 		&lt;defaultCollation&gt;standard&lt;/defaultCollation&gt;,
 		&lt;collation type="standard"&gt; (with an empty tailoring, so this is the same as the CLDR root collation),
 		and &lt;collation type="search"&gt;.</p>
 
-		<p class="changed">For example, assume that we have collation data for the following tailorings.
+		<p>For example, assume that we have collation data for the following tailorings.
 		("da/search" is shorthand for "da-u-co-search".)</p>
-		<ul class="changed">
+		<ul>
 			<li>root/defaultCollation=standard</li>
 			<li>root/standard (this is the same as “the CLDR root collator”)</li>
 			<li>root/search</li>
@@ -1031,8 +1027,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<li>zh/stroke</li>
 			<li>zh-Hant/defaultCollation=stroke</li>
 		</ul>
-		<p class="changed">Sample requested and actual collation locales and types:</p>
-		<table class="changed">
+		<p>Sample requested and actual collation locales and types:</p>
+		<table>
 		  <tr>
 		    <th>requested</th>
 		    <th>actual</th>
@@ -1123,7 +1119,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			change. The following illustrates the overall structure of a <span
 				class="element">collation</span>:
 		</p>
-		<pre>&lt;collation <span class="changed">type="phonebook"</span>&gt;
+		<pre>&lt;collation type="phonebook"&gt;
   &lt;settings caseLevel=&quot;on&quot;/&gt;
   &lt;cr&gt;&lt;![CDATA[
     &amp;c &lt; k
@@ -1151,9 +1147,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			corresponding keywords.
 		</p>
 		<p>
-			The Example cells include an LDML <span class="changed"><span class="element">settings</span> attribute</span>
-				example followed by the same example in <span class="removed">basic syntax <span class="element">settings</span>
-				attributes as well as</span> <span class="changed">ICU</span> rule syntax. In LDML files, parametric
+			The Example cells include an LDML settings attribute
+				example followed by the same example in ICU rule syntax. In LDML files, parametric
 			settings should be specified via <span class="element">settings</span>
 			attributes, rather than in the rules.
 		</p>
@@ -1261,19 +1256,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					</code></td>
 				<td rowspan="2">If <strong>on</strong>, then the normal [<a
 					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
-					algorithm is used. <span class="removed">If <strong>off</strong>, then all strings that
-					are in [<a href="tr35.html#FCD">FCD</a>] and do not contain any
-					composite combining marks will sort correctly, but others will not
-					necessarily sort correctly.<br> So should only be set <strong>off</strong>
-					if the the strings to be compared are in FCD and do not contain any
-					composite combining marks. Composite combining marks are: { U+0344,
-					U+0F73, U+0F75, U+0F81 } <a
-					href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5B%3A%5Elccc%3D0%3A%5D%26%5B%3AtoNFD%3D%2F..%2F%3A%5D&amp;abb=on&amp;g=">[[:^lccc=0:]&amp;[:toNFD=/../:]]</a>
-					(These characters must be decomposed for discontiguous contractions
-					to work properly. Use of these characters is discouraged by the
-					Unicode Standard.)</span>
-					<span class="changed">If <strong>off</strong>, then most strings should still
-					sort correctly despite not normalizing to NFD first.</span><br>
+					algorithm is used. If <strong>off</strong>, then most strings should still
+					sort correctly despite not normalizing to NFD first.<br>
 					<em>Note that the default for CLDR
 						locales may be different than in the UCA. The rules for particular
 						locales have it set to <strong>on</strong>: those locales whose
@@ -1336,8 +1320,8 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<tr>
 				<td rowspan="2">kh</td>
 				<td rowspan="2">hiraganaQuaternary<br>
-				<span class="changed"><i><strong>Deprecated:</strong></i>
-				Use rules with quater&shy;nary relations instead.</span></td>
+				<i><strong>Deprecated:</strong></i>
+				Use rules with quater&shy;nary relations instead.</td>
 				<td>true</td>
 				<td>on</td>
 				<td rowspan="2"><code>
@@ -1400,12 +1384,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				</em>
 				</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td rowspan="4">kv</td>
 				<td rowspan="4">maxVariable</td>
 				<td>space</td>
 				<td>space</td>
-				<td rowspan="4"><code>maxVariable = &quot;<span style="color: blue">space</span>&quot;<br>
+				<td rowspan="4"><code>maxVariable = &quot;space&quot;<br>
 						<br> [maxVariable space]</code></td>
 				<td rowspan="4">Sets the variable top to the top of the specified reordering group.
 					All code points with primary weights less than or equal to the variable top will be
@@ -1413,23 +1397,23 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					Variables are ignorable by default in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
 					but not in CLDR.</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>punct</td>
 				<td><i><strong>punct</strong></i></td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>symbol</td>
 				<td><strong>symbol (UCA default)</strong></td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td>currency</td>
 				<td>currency</td>
 			</tr>
 			<tr>
 				<td>vt</td>
 				<td>variableTop<br>
-					<span class="changed"><i><strong>Deprecated:</strong></i>
-					Use maxVariable instead.</span></td>
+					<i><strong>Deprecated:</strong></i>
+					Use maxVariable instead.</td>
 				<td>See <i>Appendix Q: <a
 						href="tr35.html#Locale_Extension_Key_and_Type_Data">Locale
 							Extension Keys and Types</a>.
@@ -1453,12 +1437,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					</p>
 					<p>
 						Sets the string value for the variable top. All the code points
-						with primary <span class="removed">strengths</span> <span class="changed">weights</span> less than or equal to <span class="removed">that string</span> <span class="changed">the variable top</span> will be
+						with primary weights less than or equal to the variable top will be
 						considered variable, and thus affected by the alternate handling.<br>
-						<span class="changed">An implementation that supports the variableTop setting
+						An implementation that supports the variableTop setting
 						should also support the maxVariable setting,
 						and it should "pin" ("round up") the variableTop to the top of
-						the containing reordering group.</span><br>
+						the containing reordering group.<br>
 						Variables are ignorable by default in [<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>],
 						but not in CLDR. See below for more information.
 					</p></td>
@@ -1505,11 +1489,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</tr>
 		</table>
 
-		<h4 class="changed">3.3.1 <a name="Common_Settings"
+		<h4>3.3.1 <a name="Common_Settings"
 			href="#Common_Settings">Common settings combinations</a></h4>
-		<p class="changed">Some commonly used parametric collation settings
+		<p>Some commonly used parametric collation settings
 		are available via combinations of LDML settings attributes:</p>
-		<ul class="changed">
+		<ul>
 			<li>“Ignore accents”: <strong>strength=primary</strong></li>
 			<li>“Ignore accents” but take case into account:
 				<strong>strength=primary caseLevel=on</strong></li>
@@ -1520,11 +1504,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<strong>strength=quaternary alternate=shifted</strong></li>
 		</ul>
 
-		<h4 class="changed">3.3.2 <a name="Normalization_Setting"
+		<h4>3.3.2 <a name="Normalization_Setting"
 			href="#Normalization_Setting">Notes on the normalization setting</a></h4>
-		<p class="changed">The UCA always normalizes input strings into NFD form
+		<p>The UCA always normalizes input strings into NFD form
 		before the rest of the algorithm. However, this results in poor performance.</p>
-		<p class="changed">With <strong>normalization=off</strong>,
+		<p>With <strong>normalization=off</strong>,
 		strings that are in [<a href="tr35.html#FCD">FCD</a>]
 		and do not contain Tibetan precomposed vowels (U+0F73, U+0F75, U+0F81)
 		should sort correctly.
@@ -1533,7 +1517,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		It should also always decompose the Tibetan precomposed vowels.
 		(Otherwise discontiguous contractions across their leading components
 		cannot be handled correctly.)</p>
-		<p class="changed">Another complication for an implementation that does not always use NFD
+		<p>Another complication for an implementation that does not always use NFD
 		arises when contraction mappings overlap with canonical Decomposition_Mapping strings.
 		For example, the Danish contraction “aa” overlaps with
 		the decompositions of ‘ä’, ‘å’, and other characters.
@@ -1542,7 +1526,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		and its second character (U+0308) is the same as
 		the first character in the Decomposition_Mapping of
 		U+0344 ‘&#x25CC;&#x0344;’=“&#x25CC;&#x0308;+&#x25CC;&#x0301;”.</p>
-		<p class="changed">In order to handle strings with these characters
+		<p>In order to handle strings with these characters
 		(e.g., “aä” and “ә&#x0344;” [which are in FCD])
 		exactly as with prior NFD normalization,
 		an implementation needs to either add overlap contractions to its data
@@ -1550,27 +1534,26 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		or it needs to decompose the relevant composites (e.g., ‘ä’ and ‘&#x25CC;&#x0344;’)
 		as soon as they are encountered.</p>
 
-		<h4 class="changed">3.3.3 <a name="Variable_Top_Settings" href="#Variable_Top_Settings">Notes on variable top settings</a></h4>
+		<h4>3.3.3 <a name="Variable_Top_Settings" href="#Variable_Top_Settings">Notes on variable top settings</a></h4>
 		<p>
-			<span class="removed"><strong>Variable Top (vt) </strong>bears more explanation.</span>
-			<span class="changed">Users may want to include more or fewer characters as Variable.
+			Users may want to include more or fewer characters as Variable.
 			For example, someone could want to restrict the Variable characters to just
 			include space marks. In that case, maxVariable would be set to "space".
-			(In CLDR 24 and earlier, the now-deprecated</span> variableTop would be set to U+1680,
+			(In CLDR 24 and earlier, the now-deprecated variableTop would be set to U+1680,
 			see <a
 				href="http://unicode.org/charts/collation/chart_Variable.html">UCA
 				Variable chart</a>).
 			Alternatively, someone could want more of the
 			Common characters in them, and include characters up to (but not
-			including) '0', by setting <span class="changed">maxVariable to "currency".
-			(In CLDR 24 and earlier, the now-deprecated</span> variableTop <span class="changed">would be set to</span> U+20BA <span class="removed">(in Unicode 6.2</span>,
+			including) '0', by setting maxVariable to "currency".
+			(In CLDR 24 and earlier, the now-deprecated variableTop would be set to U+20BA,
 			see <a href="http://unicode.org/charts/collation/chart_Common.html">UCA Common chart</a>).
 		</p>
 		<p>The effect of these settings is to customize to ignore
 			different sets of characters when comparing strings. For example, the
-			locale identifier "de-u-ka-shifted-<span class="removed">vt-0024</span> <span class="changed">kv-currency</span>" is requesting settings
+			locale identifier "de-u-ka-shifted-kv-currency" is requesting settings
 			appropriate for German, including German sorting conventions, and
-			that <span class="removed">'$'</span> <span class="changed">currency symbols</span> and characters sorting below <span class="removed">it</span> <span class="changed">them</span> are ignored in sorting.</p>
+			that currency symbols and characters sorting below them are ignored in sorting.</p>
 
 		<h3>
 			3.4 <a name="Rules" href="#Rules">Collation Rule Syntax</a>
@@ -1674,7 +1657,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<caption>Specifying Collation Ordering</caption>
 			<tr>
 				<th>Relation Operator</th>
-				<th><span class="removed">Basic</span> Example</th>
+				<th>&nbsp;Example</th>
 				<th>Description</th>
 			</tr>
 			<tr>
@@ -1855,13 +1838,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				operator indicates that each of the following
 				single characters are to be handled as if they were separate 
 				relations with the corresponding strength. 
-				<span class="removed">In the basic syntax,</span> These are expressed by
+				These are expressed by
 				adding a * to the operation.
-				<span class="changed">Each of the following single characters must be NFD-inert,
+				Each of the following single characters must be NFD-inert,
 				that is, it does not have a canonical decomposition and it does not reorder (ccc=0).
-				This keeps abbreviated rules unambiguous.</span>
+				This keeps abbreviated rules unambiguous.
 		</p>
-		<p class="changed">A starred relation operator is followed by a sequence of characters
+		<p>A starred relation operator is followed by a sequence of characters
 		  with the same quoting/escaping rules as normal relation strings.
 		  Such a sequence can also be followed by one or more pairs of ‘-’ and another sequence of characters.
 		  The single characters adjacent to the ‘-’ establish a code point order range.
@@ -1878,31 +1861,31 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				<td><code>&lt;*</code></td>
 				<td><code>
 						&amp; <span style="color: blue">a</span><br> &lt;* <span
-							style="color: blue">bcd<span class="changed">-gp-s</span></span>&nbsp;
+							style="color: blue">bcd-gp-s</span>&nbsp;
 					</code></td>
 				<td><code>
 						&amp; <span style="color: blue">a</span><br> &lt; <span
 							style="color: blue">b </span>&lt;<span style="color: blue">
 							c </span>&lt;<span style="color: blue"> d</span>
-							<span class="changed">&lt; <span style="color: blue">e</span>
+							&lt; <span style="color: blue">e</span>
 							&lt; <span style="color: blue">f</span>
 							&lt; <span style="color: blue">g</span>
 							&lt; <span style="color: blue">p</span>
 							&lt; <span style="color: blue">q</span>
 							&lt; <span style="color: blue">r</span>
-							&lt; <span style="color: blue">s</span></span>
+							&lt; <span style="color: blue">s</span>
 					</code></td>
 			</tr>
 			<tr>
 				<td><code>&lt;&lt;</code> <code>*</code></td>
 				<td><code>
-						&amp;<span style="color: blue"> a</span><br> &lt;&lt;*<span class="removed">àáâã</span><span
-							style="color: blue" class="changed"> æᶏɐ</span>
+						&amp;<span style="color: blue"> a</span><br> &lt;&lt;*<span
+							style="color: blue"> æᶏɐ</span>
 					</code></td>
 				<td><code>
 						&amp;<span style="color: blue"> a</span><br> &lt;&lt;<span
-							style="color: blue" class="changed"> æ </span>&lt;&lt; <span style="color: blue" class="changed">ᶏ
-						</span>&lt;&lt; <span style="color: blue" class="changed">ɐ</span>
+							style="color: blue" > æ </span>&lt;&lt; <span style="color: blue">ᶏ
+						</span>&lt;&lt; <span style="color: blue">ɐ</span>
 					</code></td>
 			</tr>
 			<tr>
@@ -2149,11 +2132,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				</td>
 			</tr>
 			<tr>
-				<td><span class="removed"><i>implicits</i></span><br>
-				<span class="changed">first implicit<br>...<br>last implicit</span></td>
+				<td>first implicit<br>...<br>last implicit</td>
 				<td>p != ignore, assigned automatically</td>
 				<td>CJK, CJK compatibility (those that are not decomposed)<br>
-					CJK Extension A, B<span class="changed">, C, ...</span><br> Unassigned
+					CJK Extension A, B, C, ...<br> Unassigned
 				</td>
 			</tr>
 			<tr>
@@ -2161,12 +2143,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 				</td>
 				<td>p != ignore,<br> used for trailing syllable components
 				</td>
-				<td>Jamo Trailing<br> Jamo Leading<br><span class="changed">U+FFFD<br>U+FFFF</span>
+				<td>Jamo Trailing<br> Jamo Leading<br>U+FFFD<br>U+FFFF
 				</td>
 			</tr>
 		</table>
 		<p>
-			Each of the above Names <span class="removed">(except <i>implicits</i>)</span> can be used with a
+			Each of the above Names can be used with a
 			reset to position characters relative to that logical position. That
 			allows characters to be ordered before or after a <i>logical</i>
 			position rather than a specific character.
@@ -2205,7 +2187,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			.
 		</p>
 
-		<p class="changed">[first variable] and [first regular] and [first trailing]
+		<p>[first variable] and [first regular] and [first trailing]
 		should be the first real such CEs (e.g., CE(U+0060 &#x0060;)),
 		as adjusted according to the tailoring, not the boundary CEs
 		(see the FractionalUCA.txt “first primary” mappings starting with U+FDD1).</p>
@@ -2223,64 +2205,25 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<code>&amp;[last regular]&lt;*亜唖娃阿...</code>
 		</p>
 
-		<p class="changed">The [last trailing] is the CE of U+FFFF.
+		<p>The [last trailing] is the CE of U+FFFF.
 		Tailoring to that is not allowed.</p>
 
 		<p>
 			The
 			<code>[last variable]</code>
 			indicates the &quot;highest&quot; character that is treated as
-			punctuation with alternate handling.
-			<span class="removed">Unlike the other logical
-			positions, it can be reset as well as referenced. For example, it can
-			be reset to be just above spaces if all visible punctuation are to be
-			treated as having distinct primary values.</span>
-		</p>
-		<table class="removed">
-			<caption>
-				Specifying the Position of
-				<code>[last variable]</code>
-			</caption>
-			<tr>
-				<th>Attribute</th>
-				<th>Options</th>
-				<th>Example</th>
-			</tr>
-			<tr>
-				<td rowspan="3">variableTop</td>
-				<td><font color="#000000">at</font></td>
-				<td><code>
-						&amp; x<br> = [variable top]
-					</code></td>
-			</tr>
-			<tr>
-				<td><font color="#000000">after</font></td>
-				<td><code>
-						&amp; x<br> &lt; [variable top]
-					</code></td>
-			</tr>
-			<tr>
-				<td><font color="#000000">before</font></td>
-				<td><code>
-						&amp; [before 1] x<br> &lt; [variable
-							top]
-					</code></td>
-			</tr>
-		</table>
+			punctuation with alternate handling.</p>
 		<p>
-			<span class="removed">The default value for
-			<code>[last variable]</code>
-			is the highest punctuation mark, thus below symbols.</span>
-			The value can be <span class="removed">further</span> changed by using the <span class="removed">variable-top</span> <span class="changed">maxVariable</span> setting.
+			The value can be changed by using the maxVariable setting.
 			This takes effect, however, after the rules have been built, and does not affect any
 			characters that are reset relative to the
 			<code>[last variable]</code>
-			value when the rules are being built. The <span class="removed">variable-top</span> <span class="changed">maxVariable</span> setting might
+			value when the rules are being built. The maxVariable setting might
 			also be changed via a runtime parameter.
 			That also does not affect the rules.<br>
-			<span class="changed">(In CLDR 24 and earlier,
+			(In CLDR 24 and earlier,
 			the variable top could also be set by using a tailoring rule with
-			<code>[variable top]</code> in the place of a relation string.)</span>
+			<code>[variable top]</code> in the place of a relation string.)
 		</p>
 
 		<h3>
@@ -2438,7 +2381,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</ol>
 		<p>It is an error if a code occurs multiple times.</p>
 
-		<p class="changed">Interaction with <strong>alternate=shifted</strong>:
+		<p>Interaction with <strong>alternate=shifted</strong>:
 		Whether a primary weight is “variable” is determined according to the “variable top”,
 		before applying script reordering.
 		Once that is determined, script reordering is applied to the primary weight
@@ -2515,11 +2458,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</blockquote>
 		<p>There are some special cases:</p>
 		<ul>
-			<li class="changed">The <strong>Hani</strong> group includes
+			<li>The <strong>Hani</strong> group includes
 			  implicit weights for <em>Han characters</em> according to the UCA
 			  as well as any characters tailored relative to a Han character,
 			  or after <code>&amp;[first Hani]</code>.</li>
-			<li class="changed">Implicit weights for <em>unassigned code points</em> according to the UCA
+			<li>Implicit weights for <em>unassigned code points</em> according to the UCA
 			  reorder as the last weights in the <strong>others</strong> (<strong>Zzzz</strong>) group.<br>
 			  There is no script code to explicitly reorder the unassigned-implicit weights
 			  into a particular position.
@@ -2528,29 +2471,19 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<li>The TRAILING group, the FIELD-SEPARATOR (associated with
 				U+FFFE), and collation elements with only zero primary weights are
 				not reordered.</li>
-			<li class="removed">The IMPLICIT group is currently treated as if it were part
-				of <strong>Hani</strong>.
-			</li>
 			<li>The TERMINATOR, LEVEL-SEPARATOR, and SPECIAL groups are
 				never associated with characters.</li>
 		</ul>
-		<p class="changed">For example, <code>reorder="Hani Zzzz Grek"</code> sorts
+		<p>For example, <code>reorder="Hani Zzzz Grek"</code> sorts
 		Hani, Latin, Cyrillic, ... (all other scripts) ..., unassigned, Greek, TRAILING.</p>
-		<p class="removed">
-			The default reordering groups follow the allkeys_CLDR.txt ordering;
-			they also may be tailored by implementations to different values. For
-			more information on FractionalUCA.txt and allkeys_CLDR.txt, see
-			<a href="http://unicode.org/Public/UCA/latest/CollationAuxiliary.html">Collation
-				Auxiliary</a>.
-		</p>
-		<p class="changed">
+		<p>
 		  The reordering groups are defined in FractionalUCA.txt, see
 		  <i>Section 2.6.2, <a href="File_Format_FractionalUCA_txt">FractionalUCA.txt</a></i>.
 		</p>
 
-		<h4 class="changed">3.12.2 <a name="Reordering_Groups_allkeys"
+		<h4>3.12.2 <a name="Reordering_Groups_allkeys"
 			href="#Reordering_Groups_allkeys">Reordering Groups for allkeys.txt</a></h4>
-		<p class="changed">For allkeys_CLDR.txt, the start of each reordering group can be
+		<p>For allkeys_CLDR.txt, the start of each reordering group can be
 		determined from FractionalUCA.txt, by looking up the first <code>top_byte</code> of the group
 		(e.g., <code>[top_byte  0D  SYMBOL ]</code>),
 		finding the first real mapping (after “xyz first primary”)
@@ -2560,13 +2493,10 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		The comment in FractionalUCA.txt (<code>[0312.0020.0002]</code>)
 		also shows the allkeys_CLDR.txt collation elements.</p>
 
-		<p>The DUCET ordering <span class="changed">of some characters</span> is slightly different from the <span class="removed">allkeys_CLDR
-		ordering.</span> <span class="changed">CLDR root collation order.</span>
-		The reordering groups for the DUCET are not specified <span class="removed">here</span>.
-		<span class="removed">However, most reordering groups would start with the same characters
-		as in FractionalUCA.txt.</span>
-		<span class="changed">The following describes how reordering groups for the DUCET can be derived.</span></p>
-		<p class="changed">For allkeys_DUCET.txt, the start of each reordering group
+		<p>The DUCET ordering of some characters is slightly different from the CLDR root collation order.
+		The reordering groups for the DUCET are not specified.
+		The following describes how reordering groups for the DUCET can be derived.</p>
+		<p>For allkeys_DUCET.txt, the start of each reordering group
 		is normally the primary weight corresponding to the same character sequence as for allkeys_CLDR.txt.
 		In a few cases this requires adjustment,
 		especially for the special reordering groups, due to CLDR’s
@@ -2577,23 +2507,23 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		for a special reordering group (for characters that sort before ‘a’),
 		or the primary weight of the first mapping for the first script (e.g., sc=Grek) of an “alphabetic” group
 		(for characters that sort at or after ‘a’).</p>
-		<p class="changed">Note that the following only applies to primary weights
+		<p>Note that the following only applies to primary weights
 		greater than the one for U+FFFE and less than "trailing" weights.</p>
-		<p class="changed">The special reordering groups correspond to General_Category values as follows:</p>
-		<ul class="changed">
-			<li>space: Z, Cc</li>
+		<p>The special reordering groups correspond to General_Category values as follows:</p>
+		<ul>
 			<li>punct: P</li>
 			<li>symbol: Sk, Sm, So</li>
+			<li>space: Z, Cc</li>
 			<li>currency: Sc</li>
 			<li>digit: Nd</li>
 		</ul>
-		<p class="changed">In the DUCET, some characters that sort below ‘a’ and have
+		<p>In the DUCET, some characters that sort below ‘a’ and have
 		other General_Category values not mentioned above (e.g., gc=Lm)
 		are also grouped with symbols.
 		Variants of numbers (gc=No or Nl) can be found among punctuation, symbols, and digits.</p>
-		<p class="changed">Each collation element of an expansion may be in a different reordering group,
+		<p>Each collation element of an expansion may be in a different reordering group,
 		for example for parenthesized characters.</p>
-		<p class="changed">Some scripts are grouped together by CLDR
+		<p>Some scripts are grouped together by CLDR
 		and cannot be ordered independently,
 		as mentioned above in <i>Section 3.12, <a href="#Script_Reordering">Collation Reordering</a></i>.
 		Implementations that are not based on the primary weights of FractionalUCA.txt
@@ -2675,12 +2605,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			notation <em>xt</em> means that the values are numerically combined
 			into a single level, such that xt &lt; yu whenever x &lt; y.
 			The fourth level (if it exists) is unaffected.
-			<span class="changed">Note that a secondary CE must have a secondary weight S
+			Note that a secondary CE must have a secondary weight S
 			which is greater than the secondary weight s of any primary CE;
 			and a tertiary CE must have a tertiary weight T
 			which is greater than the tertiary weight t of any primary or secondary CE
 			([<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
-			<a href="http://www.unicode.org/reports/tr10/#WF2">WF2</a>).</span>
+			<a href="http://www.unicode.org/reports/tr10/#WF2">WF2</a>).
 		</p>
 
 		<div align="center">
@@ -2696,7 +2626,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					<tr>
 						<td rowspan="5"><strong>on</strong></td>
 						<td rowspan="2"><strong>primary</strong></td>
-						<td><code>0.<span class="changed">S</span>.t</code></td>
+						<td><code>0.S.t</code></td>
 						<td><code>0.0</code></td>
 						<td rowspan="2">ignore case level weights of
 							primary-ignorable CEs</td>
@@ -2708,14 +2638,14 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					<tr>
 						<td rowspan="3"><strong>secondary<br>
 						</strong>or higher</td>
-						<td><code>0.0.<span class="changed">T</span></code></td>
-						<td><code>0.0.0.<span class="changed">T</span></code></td>
+						<td><code>0.0.T</code></td>
+						<td><code>0.0.0.T</code></td>
 						<td rowspan="3">ignore case level weights of
 							secondary-ignorable CEs</td>
 					</tr>
 					<tr>
-						<td><code>0.<span class="changed">S</span>.t</code></td>
-						<td><code>0.<span class="changed">S</span>.c.t</code></td>
+						<td><code>0.S.t</code></td>
+						<td><code>0.S.c.t</code></td>
 					</tr>
 					<tr>
 						<td><code>p.s.t</code></td>
@@ -2730,12 +2660,12 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 							tertiary-ignorable CEs</td>
 					</tr>
 					<tr>
-						<td><code>0.0.<span class="changed">T</span></code></td>
-						<td><code>0.0.4<span class="changed">T</span></code></td>
+						<td><code>0.0.T</code></td>
+						<td><code>0.0.4T</code></td>
 					</tr>
 					<tr>
-						<td><code>0.<span class="changed">S</span>.t</code></td>
-						<td><code>0.<span class="changed">S</span>.ct</code></td>
+						<td><code>0.S.t</code></td>
+						<td><code>0.S.ct</code></td>
 					</tr>
 					<tr>
 						<td><code>p.s.t</code></td>
@@ -2745,17 +2675,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</table>
 		</div>
 
-		<p class="removed">
-			Note the special case weights when s = 0. They ensure the
-			construction of well-formed case and tertiay weights. For details,
-			see <em>Section 3.7, Well-Formed Collation Element Tables</em> in [<a
-				href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>].
-		</p>
-		<p class="changed">For primary+case, which is used for “ignore accents but not case” collation,
+		<p>For primary+case, which is used for “ignore accents but not case” collation,
 		primary ignorables are ignored so that a = ä.
 		For secondary+case, which would by analogy mean “ignore variants but not case”,
 		secondary ignorables are ignored for equivalent behavior.</p>
-		<p class="changed">When using <strong>caseFirst</strong> but not <strong>caseLevel</strong>,
+		<p>When using <strong>caseFirst</strong> but not <strong>caseLevel</strong>,
 		the combined case+tertiary weight of a tertiary CE
 		must be greater than the combined case+tertiary
 		weight of any primary or secondary CE so that
@@ -2767,7 +2691,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		it is sufficient to set its case weight to UPPER=4.
 		It must not be affected by <strong>caseFirst=upper</strong>.
 		(The table uses the constant 4 in this case rather than the computed c.)</p>
-		<p class="changed">The case weight of a tertiary-ignorable CE must be 0 so that
+		<p>The case weight of a tertiary-ignorable CE must be 0 so that
 		[<a href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>]
 		<a href="http://www.unicode.org/reports/tr10/#WF1">well-formedness condition 1</a>
 		is fulfilled.</p>

@@ -82,7 +82,7 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 		<h1 style="text-align: center">
 			Unicode Locale Data Markup Language (LDML)<br> Part 3: Numbers
 		</h1>
@@ -91,7 +91,7 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">25 (draft)</span></td>
+				<td>25</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -122,7 +122,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-				<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -132,13 +132,13 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -242,7 +242,7 @@ h2,h3,h4,table {
 							<li>5.1.4 <a href="#Using_cardinals">Using Cardinals</a></li>
 						</ul>
 					</li>
-                    <li class="changed">5.2 <a href="#Plural_Ranges">Plural Ranges</a>
+                    <li>5.2 <a href="#Plural_Ranges">Plural Ranges</a>
 					</li>
 				</ul>
 			</li>
@@ -1030,7 +1030,7 @@ h2,h3,h4,table {
 		</h3>
 		<p>
 			Formatting is guided by several parameters, all of which can be
-			specified either using a pattern or using <span class="changed">an external API designed for number formatting.</span> The following
+			specified either using a pattern or using an external API designed for number formatting. The following
 			description applies to formats that do not use <a href="#sci">scientific
 				notation</a> or <a href="#sigdig">significant digits</a>.
 		</p>
@@ -1131,11 +1131,9 @@ h2,h3,h4,table {
 		<p>There are two ways of controlling how many digits are shows:
 			(a) significant digits counts, or (b) integer and fraction digit
 			counts. Integer and fraction digit counts are described above. When a
-			formatter is using significant digits counts, <span class="removed">the number of integer
-			and fraction digits is not specified directly, and the formatter
-			settings for these counts are ignored. Instead, the formatter </span>uses
+			formatter is using significant digits counts, uses
 			however many integer and fraction digits are required to display the
-  specified number of significant digits. <span class="changed">It may ignore min/max integer/fraction digits, or it may use them to the extent possible.</span></p>
+  specified number of significant digits. It may ignore min/max integer/fraction digits, or it may use them to the extent possible.</p>
 		<p>Examples:</p>
 		<blockquote>
 		  <table cellspacing="3" cellpadding="0" border="0">
@@ -1197,10 +1195,10 @@ h2,h3,h4,table {
 				number of significant digits have been shown. For example, the
 				pattern <code>&quot;@##&quot;</code> formats the number 0.1203 as <code>&quot;0.12&quot;</code>.
 			</li>
-			<li><span class="changed">Implementations may forbid the use of significant digits in combination with min/max integer/fraction digits. In such a case, i</span>f a pattern uses significant digits, it may not contain a
+			<li>Implementations may forbid the use of significant digits in combination with min/max integer/fraction digits. In such a case, if a pattern uses significant digits, it may not contain a
 				decimal separator, nor the <code>&#39;0&#39;</code> pattern
 				character. Patterns such as <code>&quot;@00&quot;</code> or <code>&quot;@.###&quot;</code>
-			<span class="changed">would be </span>disallowed. </li>
+			would be disallowed. </li>
 			<li>Any number of <code>&#39;#&#39;</code> characters may be
 				prepended to the left of the leftmost <code>&#39;@&#39;</code>
 				character. These have no effect on the minimum and maximum
@@ -1263,8 +1261,8 @@ h2,h3,h4,table {
 		</p>
 		<p>Patterns support rounding to a specific increment. For example,
 			1230 rounded to the nearest 50 is 1250. Mathematically, rounding to
-			specific increments is performed by <span class="changed">dividing</span> by the increment,
-			rounding to an integer, then <span class="changed">multiplying</span> by the increment. To take a
+			specific increments is performed by dividing by the increment,
+			rounding to an integer, then multiplying by the increment. To take a
 			more bizarre example, 1.234 rounded to the nearest 0.65 is 1.3, as
 			follows:</p>
 		<table border="1" cellpadding="0" cellspacing="0"
@@ -1608,17 +1606,17 @@ h2,h3,h4,table {
 				quantity that would appear in a more formal setting, such as on a
 				bank statement). If absent, the value of "digits" should be used as
 				a default.</li>
-			<li><b>cashRounding: </b>the <span class="changed">cash rounding increment,
+			<li><b>cashRounding: </b>the cash rounding increment,
 				in units of 10<sup>-cashDigits</sup>. The default is 0, which means no
 				rounding is to be done; and as with rounding, this has the same effect
-				as cashRounding="1". This is the </span>rounding increment to be used
+				as cashRounding="1". This is the rounding increment to be used
 				when formatting quantities used in cash transactions (as opposed to a
 				quantity that would appear in a more formal setting, such as on a bank
 				statement). If absent, the value of "rounding" should be used as a default.</li>
 		</ul>
-		<p class="changed">For example, the following line</p>
-		<pre><span class="changed">    &lt;info iso4217="CZK" digits="2" rounding="0"/&gt;</span></pre>
-		<p class="changed">should cause the value 2.006 to be displayed as “2.01”, not “2.00”.</p>
+		<p>For example, the following line</p>
+		<pre>    &lt;info iso4217="CZK" digits="2" rounding="0"/&gt;</pre>
+		<p>should cause the value 2.006 to be displayed as “2.01”, not “2.00”.</p>
 		<p>Each region element contains one attribute:</p>
 		<ul>
 			<li><b>iso3166:</b> the ISO 3166 code for the region in
@@ -1710,7 +1708,7 @@ h2,h3,h4,table {
 				Language Plural Rules</a>
 		</h2>
 		<p class="dtd">
-			&lt;!ELEMENT plurals (pluralRules*<span class="changed">, pluralRanges*</span>) &gt;<br> &lt;!ATTLIST
+			&lt;!ELEMENT plurals (pluralRules*, pluralRanges*) &gt;<br> &lt;!ATTLIST
 			plurals type ( ordinal | cardinal ) #IMPLIED &gt; &lt;!-- default is
 			cardinal --&gt;<br> <br> &lt;!ELEMENT pluralRules
 			(pluralRule*) &gt;<br> &lt;!ATTLIST pluralRules locales NMTOKENS
@@ -1867,24 +1865,24 @@ h2,h3,h4,table {
 				of CLDR may express all the rules for a locale using the following
 				syntax:
 		</p>
-		<pre>rules         = rule (';' rule)*<br>rule          = keyword ':' condition<span class="changed"> samples<br>              | 'other' ':' samples</span><br>keyword       = [a-z]+<br>keyword       = [a-z]+</pre>
+		<pre>rules         = rule (';' rule)*<br>rule          = keyword ':' condition samples<br>              | 'other' ':' samples<br>keyword       = [a-z]+<br>keyword       = [a-z]+</pre>
 		<p>In CLDR, the keyword is the attribute
 			value of 'count'. Those values in CLDR are currently limited to just
 		  what is in the DTD, but clients may support other values.</p>
 		<p>The conditions themselves have the
 			following syntax.</p>
 		<pre>condition     = <span class="changed"></span>and_condition ('or' and_condition)*
-<span class="changed">samples       = </span>('@integer' sample<span class="changed">List</span>)?<br>                ('@decimal' sample<span class="changed">List</span>)?                
+samples       = ('@integer' sampleList)?<br>                ('@decimal' sampleList)?                
 and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation <br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr (('not')? 'in' | '=' | '!=') range_list<br>within_relation = expr ('not')? 'within' range_list<br>expr          = operand (('mod' | '%') value)?
 operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range | value) (',' range_list)*<br>range         = value'..'value
-sample<span class="changed">List</span>    = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
+sampleList    = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
 sampleRange   = decimalValue '~' decimalValue
 value         = digit+
 decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9<br></pre>
 		<ul>
 			<li>Whitespace (defined as Unicode <a
 				href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D">Pattern_White_Space</a>)
-				can occur between or around any of the above tokens<span class="changed">, with the exception of the tokens in value, digit, and decimalValue</span>.</li>
+				can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and decimalValue.</li>
 			<li>In the syntax, <strong>and</strong> binds more tightly than
 				<strong>or</strong>. So <strong>X or Y and Z</strong> is interpreted
 				as <strong>(X or (Y and Z))</strong>.
@@ -1896,8 +1894,8 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 				Each keyword can have at most one condition.
 					The 'other' keyword must have an empty condition: it is only
 					present for samples.</li>
-			<li class="changed">The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.</li>
-			<li class="changed">The 'other' keyword must have no condition, and all other keywords must have a condition.</li>
+			<li>The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.</li>
+			<li>The 'other' keyword must have no condition, and all other keywords must have a condition.</li>
 		</ul>
 		<h4>
 			<a name="Operands" href="#Operands">5.1.1 Operands</a>
@@ -2184,21 +2182,21 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			<li>The main document section 5.11 <a
 				href="tr35.html#Unit_Elements">Unit Elements</a></li>
 		</ul>
-		<h3 class="changed">
+		<h3>
 			5.2 <a
 				name="Plural_Ranges" href="#Plural_Ranges">Plural Ranges</a>
 		</h3>
         
-<p class="dtd"><span class="changed">&lt;!ELEMENT pluralRanges (pluralRange*) &gt;<br>
+<p class="dtd">&lt;!ELEMENT pluralRanges (pluralRange*) &gt;<br>
   &lt;!ATTLIST pluralRanges locales NMTOKENS #REQUIRED &gt;<br>
   <br>
   &lt;!ELEMENT pluralRange ( #PCDATA ) &gt;<br>
   &lt;!ATTLIST pluralRange start (zero|one|two|few|many|other) #IMPLIED &gt;<br>
   &lt;!ATTLIST pluralRange end (zero|one|two|few|many|other) #IMPLIED &gt;<br>
-  &lt;!ATTLIST pluralRange result (zero|one|two|few|many|other) #REQUIRED &gt;</span></p>
+  &lt;!ATTLIST pluralRange result (zero|one|two|few|many|other) #REQUIRED &gt;</p>
 
-<p class="changed">Often ranges of numbers are presented to users, such as in “Length: 3.2-4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive. However, different languages have different conventions for the pluralization given to a range: should it be “0-1 centimeter” or “0-1 centimeters”? This becomes much more complicated for languages that have many different plural forms, such as Russian or Arabic.</p>
-<p class="changed">The <strong>pluralRanges</strong> element provides information allowing an implementation to derive the plural category of a range from the plural categories of the <em>start</em> and <em>end</em> values. If there is no value for a <em>&lt;start,end&gt;</em> pair, the default result is <em>other</em>. However, where that result has been verified for a given language, it is included in the CLDR data.</p>
+<p>Often ranges of numbers are presented to users, such as in “Length: 3.2-4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive. However, different languages have different conventions for the pluralization given to a range: should it be “0-1 centimeter” or “0-1 centimeters”? This becomes much more complicated for languages that have many different plural forms, such as Russian or Arabic.</p>
+<p>The <strong>pluralRanges</strong> element provides information allowing an implementation to derive the plural category of a range from the plural categories of the <em>start</em> and <em>end</em> values. If there is no value for a <em>&lt;start,end&gt;</em> pair, the default result is <em>other</em>. However, where that result has been verified for a given language, it is included in the CLDR data.</p>
 <h2>
 	  6 <a name="Rule-Based_Number_Formatting"
 				href="#Rule-Based_Number_Formatting">Rule-Based Number
@@ -2222,20 +2220,20 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			are typically used for spelling out numbers, but can also be used for
 			other number systems like roman numerals, Chinese numerals, or for
 		ordinal numbers (1st, 2nd, 3rd,...). </p>
-	  <p class="changed">Where, however, the CLDR plurals or ordinals can be used, their usage is recommended in preference to the RBNF data. First,  the RBNF data is not completely fleshed out over all languages that otherwise have modern coverage. Secondly, the alternate forms are neither complete, nor useful without additional information. For example, for German there is spellout-cardinal-masculine, and spellout-cardinal-feminine. But a complete solution would have all genders (masculine/feminine/neuter), all cases (nominative, accusative, dative, genitive), plus  context (with strong or weak determiner or none). Moreover, even for the alternate forms that do exist, CLDR does not supply any data for when to use one vs another (eg, when to use spellout-cardinal-masculine vs spellout-cardinal-feminine). So these data are inappropriate for  general purpose software.</p>
-<p class="changed">There are 4 common spellout rules. Some languages may provide more than these 4 types:<br>
+	  <p>Where, however, the CLDR plurals or ordinals can be used, their usage is recommended in preference to the RBNF data. First,  the RBNF data is not completely fleshed out over all languages that otherwise have modern coverage. Secondly, the alternate forms are neither complete, nor useful without additional information. For example, for German there is spellout-cardinal-masculine, and spellout-cardinal-feminine. But a complete solution would have all genders (masculine/feminine/neuter), all cases (nominative, accusative, dative, genitive), plus  context (with strong or weak determiner or none). Moreover, even for the alternate forms that do exist, CLDR does not supply any data for when to use one vs another (eg, when to use spellout-cardinal-masculine vs spellout-cardinal-feminine). So these data are inappropriate for  general purpose software.</p>
+<p>There are 4 common spellout rules. Some languages may provide more than these 4 types:<br>
     </p>
     <ul>
-      <li class="changed"><strong>numbering: </strong>This is the default used when there is no context for the number. For many languages, this may also be used for enumeration of objects, like used when pronouncing "table number one" and "table number two". It can also be used for pronouncing a math equation, like "2 - 3 = -1".</li>
-      <li class="changed"><strong>numbering-year: </strong>This is used for cases where years are pronounced or written a certain way. An example in English is the year 1999, which comes out as "nineteen ninety-nine" instead of the numbering value "one thousand nine hundred ninety-nine". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.</li>
-      <li class="changed"><strong>cardinal: </strong>This is used when providing the quantity of the number of objects. For many languages, there may not be a default cardinal type. Many languages require the notion of the gender and other grammatical properties so that the number and the objects being referenced are in grammatical agreement. An example of its usage is "one e-mail", "two people" or "three kilometers". Some languages may not have dedicated words for 0 or negative numbers for cardinals. In those cases, the words from the numbering type can be reused.</li>
-      <li class="changed"><strong>ordinal: </strong>This is used when providing the order of the number of objects. For many languages, there may not be a default ordinal type. Many languages also require the notion of the gender for ordinal so that the ordinal number and the objects being referenced are in grammatical agreement. An example of its usage is "first place", "second e-mail" or "third house on the right". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.</li>
+      <li><strong>numbering: </strong>This is the default used when there is no context for the number. For many languages, this may also be used for enumeration of objects, like used when pronouncing "table number one" and "table number two". It can also be used for pronouncing a math equation, like "2 - 3 = -1".</li>
+      <li><strong>numbering-year: </strong>This is used for cases where years are pronounced or written a certain way. An example in English is the year 1999, which comes out as "nineteen ninety-nine" instead of the numbering value "one thousand nine hundred ninety-nine". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.</li>
+      <li><strong>cardinal: </strong>This is used when providing the quantity of the number of objects. For many languages, there may not be a default cardinal type. Many languages require the notion of the gender and other grammatical properties so that the number and the objects being referenced are in grammatical agreement. An example of its usage is "one e-mail", "two people" or "three kilometers". Some languages may not have dedicated words for 0 or negative numbers for cardinals. In those cases, the words from the numbering type can be reused.</li>
+      <li><strong>ordinal: </strong>This is used when providing the order of the number of objects. For many languages, there may not be a default ordinal type. Many languages also require the notion of the gender for ordinal so that the ordinal number and the objects being referenced are in grammatical agreement. An example of its usage is "first place", "second e-mail" or "third house on the right". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.</li>
     </ul>
-    <p class="changed">In addition to the spellout rules, there are also a numbering system rules. Even though they may be derived from a specific culture, they are typically not translated and the rules are in <strong>root</strong>. An example of these rules are the Roman numerals where the value 8 comes out as VIII.<br>
+    <p>In addition to the spellout rules, there are also a numbering system rules. Even though they may be derived from a specific culture, they are typically not translated and the rules are in <strong>root</strong>. An example of these rules are the Roman numerals where the value 8 comes out as VIII.<br>
     </p>
-    <p class="changed">With regards to the number range supported for all these number types, the largest possible number range tries to be supported, but some languages may not have words for large numbers. For example, the old Roman numbering system can't support the value 5000 and beyond. For those unsupported cases, the default number format from CLDR is used.<br>
+    <p>With regards to the number range supported for all these number types, the largest possible number range tries to be supported, but some languages may not have words for large numbers. For example, the old Roman numbering system can't support the value 5000 and beyond. For those unsupported cases, the default number format from CLDR is used.<br>
     </p>
-    <p><span class="changed">Any rules marked as <strong>private</strong> should never be referenced externally. Frequently they only support a subrange of numbers that are used in the public rules.</span><br>
+    <p>Any rules marked as <strong>private</strong> should never be referenced externally. Frequently they only support a subrange of numbers that are used in the public rules.<br>
     </p>
 		<p>The syntax used in the CLDR
 		  representation of rules is intended to be simply a transcription of
@@ -2333,7 +2331,7 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001-<span class="changed">2014</span> Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001-2014 Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

@@ -82,7 +82,7 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 		<h1 style="text-align: center">
 			Unicode Locale Data Markup Language (LDML)<br> Part 4: Dates
 		</h1>
@@ -91,7 +91,7 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">25 (draft)</span></td>
+				<td>25</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -122,7 +122,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -132,13 +132,13 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -208,12 +208,12 @@ h2,h3,h4,table {
 					<li>2.5 <a href="#timeFormats">&lt;timeFormats&gt;</a></li>
 					<li>2.6 <a href="#dateTimeFormats">&lt;dateTimeFormats&gt;</a>
 						<ul class="toc">
-							<li class="changed">2.6.1 <a
+							<li>2.6.1 <a
 								href="#dateTimeFormat">&lt;dateTimeFormat&gt;</a>
-							<li class="changed">2.6.2 <a 
+							<li>2.6.2 <a 
 								href="#availableFormats_appendItems">&lt;availableFormats&gt;,
 								&lt;appendItems&gt;</a>
-							<li class="changed">2.6.3 <a
+							<li>2.6.3 <a
 								href="#intervalFormats">&lt;intervalFormats&gt;</a>
 						</ul>
 					</li>
@@ -961,12 +961,12 @@ h2,h3,h4,table {
 		<pre>     &lt;dateTimeFormats&gt;
        &lt;dateTimeFormatLength type=”<span style="color: blue">long</span>”&gt;
          &lt;dateTimeFormat&gt;
-            &lt;pattern&gt;<span style="color: blue"><span class="changed">{1}</span> 'at' <span class="changed">{0}</span></span>&lt;/pattern&gt;
+            &lt;pattern&gt;{1} 'at' {0}&lt;/pattern&gt;
          &lt;/dateTimeFormat&gt;
        &lt;/dateTimeFormatLength&gt;
        &lt;dateTimeFormatLength type=”<span style="color: blue">medium</span>”&gt;
          &lt;dateTimeFormat&gt;
-            &lt;pattern&gt;<span style="color: blue"><span class="changed">{1}</span>, <span class="changed">{0}</span></span>&lt;/pattern&gt;
+            &lt;pattern&gt;{1}, {0}&lt;/pattern&gt;
          &lt;/dateTimeFormat&gt;
        &lt;/dateTimeFormatLength&gt;
        &lt;availableFormats&gt;
@@ -1036,7 +1036,7 @@ h2,h3,h4,table {
 		<p>These formats allow for date and time formats to be composed in
 			various ways.</p>
 
-		<h4><span class="changed">2.6.1 </span><a name="dateTimeFormat"
+		<h4>2.6.1 <a name="dateTimeFormat"
 			href="#dateTimeFormat">&lt;dateTimeFormat&gt;</a>
 		</h4>
 
@@ -1073,17 +1073,17 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>full date + short time</td>
-				<td>full, e.g. "<span class="changed">{1}</span> 'at' <span class="changed">{0}</span>"</td>
+				<td>full, e.g. "{1} 'at' {0}"</td>
 				<td>Wednesday, September 18, 2013 at 4:30 PM</td>
 			</tr>
 			<tr>
 				<td>medium date + long time</td>
-				<td>medium, e.g. "<span class="changed">{1}</span>, <span class="changed">{0}</span>"</td>
+				<td>medium, e.g. "{1}, {0}"</td>
 				<td>Sep 18, 2013, 4:30:00 PM PDT</td>
 			</tr>
 		</table>
 
-		<h4><span class="changed">2.6.2 </span><a name="availableFormats_appendItems"
+		<h4>2.6.2 <a name="availableFormats_appendItems"
 			href="#availableFormats_appendItems">&lt;availableFormats&gt;, &lt;appendItems&gt;</a>
 		</h4>
 
@@ -1200,7 +1200,7 @@ h2,h3,h4,table {
 			of the field (see <a href="#Calendar_Fields">Calendar Fields</a>).
 		</p>
 
-		<h4><span class="changed">2.6.3 </span><a name="intervalFormats"
+		<h4>2.6.3 <a name="intervalFormats"
 			href="#intervalFormats">&lt;intervalFormats&gt;</a>
 		</h4>
 
@@ -1346,7 +1346,7 @@ h2,h3,h4,table {
 		<ul>
 			<li>&lt;displayName&gt; General display name for the field type.
 				This should be relevant for all elements, including those like era
-      and zone that might not have useful forms for the other name types.<span class="changed"> These are typically presented in titlecase (eg “Day”) since they are intended as labels in a UI.</span></li>
+      and zone that might not have useful forms for the other name types. These are typically presented in titlecase (eg “Day”) since they are intended as labels in a UI.</li>
 			<li>&lt;relative&gt; Display names for the current instance of
 				the field, and one or two past and future instances. In English,
 				this is only used for year, month, week, day, and specific days of
@@ -2205,7 +2205,7 @@ h2,h3,h4,table {
 			example above, otherVersion="07dc0000" specifies the version of
 			Windows time zone and typeVersion="2011n" specifies the version of
 			Unicode time zone IDs. The attribute territory="001" in
-			&lt;mapZone&gt; element indicates the <span class="changed">long canonical </span>Unicode time zone ID specified
+			&lt;mapZone&gt; element indicates the long canonical Unicode time zone ID specified
 			by the type attribute is used as the default mapping for the Windows
 			TZID. For each unique Windows TZID, there must be exactly one
 			&lt;mapZone&gt; element with territory="001". &lt;mapZone&gt;
@@ -2216,7 +2216,7 @@ h2,h3,h4,table {
 			entry represents the default mapping for the territory. The territory
 			"ZZ" is used when a Unicode time zone ID is not associated with a
 			specific territory.</p>
-		<p class="changed"><b>Note: </b>The long canonical Unicode time zone ID might be deprecated
+		<p><b>Note: </b>The long canonical Unicode time zone ID might be deprecated
 			in the tz database[<a href="tr35.html#Olson">Olson</a>]. For example,
 			CLDR uses "Asia/Culcutta" as the long canonical time zone ID for
 			Kolkata, India. The same ID was moved to 'backward' file and replaced
@@ -2225,7 +2225,7 @@ h2,h3,h4,table {
 			tz dadtabase, you have to resolve the long canonical Unicode time
 			zone ID (e.g. "Asia/Culcutta") for the zone ID (e.g. "Asia/Kolkata").
 			For more details, see <a href="tr35.html#Time_Zone_Identifiers">Section 3.7.1.2 Time Zone Indetifiers</a>.</p>
-		<p class="changed"><b>Note: </b>Not all Unicode time zones have equivalent Windows TZID
+		<p><b>Note: </b>Not all Unicode time zones have equivalent Windows TZID
 			mappings. Also, not all Windows TZIDs have equivalent Unicode time zones.
 			For example, there is no equivalent Windows zone for Unicode time zone "Australia/Lord_Howe",
 			and there is no equivalent Unicode time zone for Windows zone "E. Europe Standard Time"
@@ -2472,7 +2472,7 @@ h2,h3,h4,table {
 					not have the same offset when daylight savings is in effect.)</li>
 				<li>A golden zone in mapTimezones must have reverse mapping in
 					metazoneInfo.</li>
-				<li class="changed">A single time zone can be a golden zone of multiple different
+				<li>A single time zone can be a golden zone of multiple different
 					metazones if any two of them are never active at a same time.</li>
 			</ul>
 		</blockquote>
@@ -3124,7 +3124,7 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">AD</td>
 				<td rowspan="3" style="vertical-align: top; text-align: left">Era
 					- Replaced with the Era string for the current date. One to three
-					letters for the abbreviated form, four letters for the long<span class="changed"> (wide)</span>
+					letters for the abbreviated form, four letters for the long (wide)
 					form, five for the narrow form.</td>
 			</tr>
 			<tr>
@@ -3228,7 +3228,7 @@ h2,h3,h4,table {
 					year name. Calendars such as the Chinese lunar calendar (and
 					related calendars) and the Hindu calendars use 60-year cycles of
 					year names. Use one through three letters for the abbreviated name,
-					four for the full<span class="changed"> (wide)</span> name, or five for the narrow name
+					four for the full (wide) name, or five for the narrow name
 					(currently the data only provides abbreviated names, which will be
 					used for all requested name widths). If the calendar does not provide
 					cyclic year name data, or if the year value to be formatted is out of
@@ -3245,9 +3245,9 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">(currently
 					also 甲子)</td>
 			</tr>
-			<tr class="changed">
-				<td style="text-align: center">r</td>
-				<td style="text-align: center">1..n</td>
+			<tr>
+				<td>r</td>
+				<td>1..n</td>
 				<td>1996</td>
 				<td>Related Gregorian year. For non-Gregorian calendars, this corresponds
 					to the extended Gregorian year in which the calendar’s year begins.
@@ -3267,10 +3267,10 @@ h2,h3,h4,table {
 				<td style="text-align: center; vertical-align: top" rowspan="4">Q</td>
 				<td style="text-align: center; vertical-align: top">1..2</td>
 				<td style="vertical-align: top; text-align: left">02</td>
-				<td rowspan="4" style="vertical-align: top; text-align: left">Quarter
+				<td rowspan="4">Quarter
 					- Use one or two for the numerical quarter, three for the
-					abbreviation, four for the full<span class="changed"> (wide)</span> name<span class="changed">, or five
-					for the narrow name</span>.</td>
+					abbreviation, four for the full (wide) name, or five
+					for the narrow name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3280,7 +3280,7 @@ h2,h3,h4,table {
 				<td style="text-align: center; vertical-align: top">4</td>
 				<td style="vertical-align: top; text-align: left">2nd quarter</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td style="text-align: center; vertical-align: top">5</td>
 				<td style="vertical-align: top; text-align: left">2</td>
 			</tr>
@@ -3290,8 +3290,8 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">02</td>
 				<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
 					Quarter - Use one or two for the numerical quarter, three for the
-					abbreviation, four for the full name<span class="changed">, or five
-					for the narrow name</span>.</td>
+					abbreviation, four for the full name, or five
+					for the narrow name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3301,7 +3301,7 @@ h2,h3,h4,table {
 				<td style="text-align: center; vertical-align: top">4</td>
 				<td style="vertical-align: top; text-align: left">2nd quarter</td>
 			</tr>
-			<tr class="changed">
+			<tr>
 				<td style="text-align: center; vertical-align: top">5</td>
 				<td style="vertical-align: top; text-align: left">2</td>
 			</tr>
@@ -3312,7 +3312,7 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">09</td>
 				<td rowspan="4" style="vertical-align: top; text-align: left">Month
 					- Use one or two for the numerical month, three for the
-					abbreviation, four for the full<span class="changed"> (wide)</span> name, or five for the
+					abbreviation, four for the full (wide) name, or five for the
 					narrow name.</td>
 			</tr>
 			<tr>
@@ -3333,7 +3333,7 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">09</td>
 				<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
 					Month - Use one or two for the numerical month, three for the
-					abbreviation, four for the full<span class="changed"> (wide)</span> name, or 5 for the
+					abbreviation, four for the full (wide) name, or 5 for the
 					narrow name.</td>
 			</tr>
 			<tr>
@@ -3411,9 +3411,9 @@ h2,h3,h4,table {
 				<td rowspan="4" style="text-align: center; vertical-align: top">E</td>
 				<td style="text-align: center; vertical-align: top">1..3</td>
 				<td style="vertical-align: top; text-align: left">Tues</td>
-				<td rowspan="4" style="vertical-align: top; text-align: left">Day
-					of week - Use one through three letters for the <span class="changed">abbreviated</span>
-					day<span class="changed"> name</span>, four for the full<span class="changed"> (wide)</span>
+				<td rowspan="4">Day
+					of week - Use one through three letters for the abbreviated
+					day name, four for the full (wide)
 					name, five for the narrow name, or six for the short name.</td>
 			</tr>
 			<tr>
@@ -3457,10 +3457,10 @@ h2,h3,h4,table {
 				<td rowspan="5" style="text-align: center; vertical-align: top">c</td>
 				<td style="text-align: center; vertical-align: top">1</td>
 				<td style="vertical-align: top; text-align: left">2</td>
-				<td rowspan="5" style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
+				<td rowspan="5"><b>Stand-Alone</b>
 					local day of week - Use one letter for the local numeric value
-					(same as &#39;e&#39;), three for the <span class="changed">abbreviated</span>
-					day<span class="changed"> name</span>, four for the full<span class="changed"> (wide)</span> name,
+					(same as &#39;e&#39;), three for the abbreviated
+					day name, four for the full (wide) name,
 					five for the narrow name, or six for the short name.</td>
 			</tr>
 			<tr>
@@ -3802,11 +3802,11 @@ h2,h3,h4,table {
 			to an end user. This can occur, for example, when a spreadsheet
 			allows users to specify date patterns. Whatever is in the string is
 			substituted one-for-one with the characters
-			"GyMdkHmsSEDFwWahKzYe<span class="changed">ugAZvcLQqVUOXxr</span>",
+			"GyMdkHmsSEDFwWahKzYeugAZvcLQqVUOXxr",
 			with the above meanings. Thus, for example, if 'J' is to be used
-			instead of 'Y' to mean Year<span class="changed"> (for Week of Year)</span>,
+			instead of 'Y' to mean Year (for Week of Year),
 			then the string would be:
-			"GyMdkHmsSEDFwWahKz<u>J</u>e<span class="changed">ugAZvcLQqVUOXxr</span>".
+			"GyMdkHmsSEDFwWahKz<u>J</u>eugAZvcLQqVUOXxr".
 		</p>
 
 		<p>
@@ -3830,9 +3830,9 @@ h2,h3,h4,table {
 			8.3 <a name="Date_Patterns_Eras" href="#Date_Patterns_Eras">Eras</a>
 		</h3>
 		<p>There are only two values for era in the Gregorian calendar,
-			<span class="changed">with two common naming conventions (here
-			in abbreviated form for English): </span>"BC" and "AD"<span class="changed">,
-			or "BCE" and "CE"</span>. These values can be translated into
+			with two common naming conventions (here
+			in abbreviated form for English): "BC" and "AD",
+			or "BCE" and "CE". These values can be translated into
 			other languages, like &quot;a.C.&quot; and and &quot;d.C.&quot;
 			for Spanish, but there are no other eras in the Gregorian calendar.
 			Other calendars have a different numbers of eras. Care should be
@@ -3968,7 +3968,7 @@ h2,h3,h4,table {
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001-<span class="changed">2014</span> Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001-2014 Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

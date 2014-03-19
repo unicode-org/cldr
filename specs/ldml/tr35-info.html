@@ -82,7 +82,7 @@ h2,h3,h4,table {
 		</tr>
 	</table>
 	<div class="body">
-		<h2 style="text-align: center"><span class="changed">Proposed Update </span>Unicode Technical Standard #35</h2>
+		<h2 style="text-align: center">Unicode Technical Standard #35</h2>
 		<h1>
 			Unicode Locale Data Markup Language (LDML)<br>Part 6: Related
 			Information
@@ -92,7 +92,7 @@ h2,h3,h4,table {
 		<table border="1" cellpadding="2" cellspacing="0" class="wide">
 			<tr>
 				<td>Version</td>
-				<td><span class="changed">25 (draft)</span></td>
+				<td>25</td>
 			</tr>
 			<tr>
 				<td>Editors</td>
@@ -123,7 +123,7 @@ h2,h3,h4,table {
 			<i>Status</i>
 		</h3>
 
-		<!-- NOT YET APPROVED -->
+		<!-- NOT YET APPROVED 
 		<p>
 			<i class="changed">This is a<b><font color="#ff3333">
 						draft </font></b>document which may be updated, replaced, or superseded by
@@ -133,13 +133,13 @@ h2,h3,h4,table {
 				progress.
 			</i>
 		</p>
-		<!-- END NOT YET APPROVED -->
-		<!-- APPROVED 
+		 END NOT YET APPROVED -->
+		<!-- APPROVED -->
       <p><i>This document has been reviewed by Unicode members and other 
 	  interested parties, and has been approved for publication by the Unicode 
 	  Consortium. This is a stable document and may be used as reference 
 	  material or cited as a normative reference by other specifications.</i></p>
-       END APPROVED -->
+      <!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -673,7 +673,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 				to Supplemental Data</a>, the specific XML filename may change.)
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT coverageLevels ( <span class="changed">approvalRequirements,</span>coverageVariable*, coverageLevel* )
+			&lt;!ELEMENT coverageLevels ( approvalRequirements, coverageVariable*, coverageLevel* )
 			&gt;<br> &lt;!ELEMENT coverageLevel EMPTY &gt;<br>
 			&lt;!ATTLIST coverageLevel inLanguage CDATA #IMPLIED &gt;<br>
 			&lt;!ATTLIST coverageLevel inScript CDATA #IMPLIED &gt;<br>
@@ -720,44 +720,40 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 			are used to substitute their respective values into the match
 			expression. This allows us to reuse the same variable for other
 			coverageLevel matches that use the same regular expression fragment.</p>
-			<p class="dtd"><span class="changed"><br>
+			<p class="dtd"><br>
 			&lt;!ELEMENT approvalRequirements ( approvalRequirement* ) &gt;<br>
 			&lt;!ELEMENT approvalRequirement EMPTY &gt;<br>
 
 			&lt;!ATTLIST approvalRequirement votes CDATA #REQUIRED&gt;<br>
 			&lt;!ATTLIST approvalRequirement locales CDATA #REQUIRED&gt;<br>
-			&lt;!ATTLIST approvalRequirement paths CDATA #REQUIRED&gt;<br></span><p>
+			&lt;!ATTLIST approvalRequirement paths CDATA #REQUIRED&gt;<br><p>
 
 			
-			<p><span class="changed">The approvalRequirements allows to specify the number of survey tool votes required
+			<p>The approvalRequirements allows to specify the number of survey tool votes required
 			for approval, either based on locale, or path, or both.  Certain locales require a higher
 			voting threshhold (usually 8 votes instead of 4), in order to promote greater stability
 			in the data.  Furthermore, certain fields that are very high visibility fields, such as
-			number formats, require a CLDR TC committee member&apos;s vote for approval.</span></p>
-		<p>
-			<span class="changed">Here is an example of the
-				approvalRequirements section.</span>
-		</p>
-		<pre><span class="changed">&lt;approvalRequirements&gt;<br>	&lt;!--  &quot;high bar&quot; items --&gt;
+			number formats, require a CLDR TC committee member's vote for approval.</p>
+
+		<p>Here is an example of the approvalRequirements section.</p>
+			
+		<pre>&lt;approvalRequirements&gt;<br>	&lt;!--  &quot;high bar&quot; items --&gt;
 		&lt;approvalRequirement votes=&quot;20&quot; locales=&quot;*&quot; paths=&quot;//ldml/numbers/symbols[^/]++/(decimal|group)&quot;/&gt;
 		&lt;!--  established locales - http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value --&gt;
 		&lt;approvalRequirement votes=&quot;8&quot; locales=&quot;ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant&quot; paths=&quot;&quot;/&gt;
 		&lt;!--  all other items --&gt;
-		&lt;approvalRequirement votes=&quot;4&quot; locales=&quot;*&quot; paths=&quot;&quot;/&gt;<br>&lt;/approvalRequirements&gt;</span>
-		</pre>
+		&lt;approvalRequirement votes=&quot;4&quot; locales=&quot;*&quot; paths=&quot;&quot;/&gt;<br>&lt;/approvalRequirements&gt;		</pre>
 		<p>
-			<span class="changed">This section specifies that a TC vote
+			This section specifies that a TC vote
 				(20 votes) is required for decimal and grouping separators.
 				Furthermore it specifies that any field in the established locales
 				list (i.e. ar, ca, cs, etc.) requires 8 votes, and that all other
-				locales require 4 votes only. </span>
+				locales require 4 votes only. 
 		</p>
 		<p>
-			<span class="changed">For more information on the CLDR Voting
+			For more information on the CLDR Voting
 				process, See <a href="http://cldr.unicode.org/index/process">http://cldr.unicode.org/index/process</a>
-			</span>
-		</p>
-		</span>
+					</p>
 
 		<h3>
 			7.1 <a name="Coverage_Level_Definitions"
@@ -1131,7 +1127,7 @@ LY MA OM PS QA SA SD SY TN YE&quot;/&gt;
 
 		<hr>
 		<p class="copyright">
-			Copyright © 2001-2013 Unicode, Inc. All Rights Reserved. The Unicode
+			Copyright © 2001-2014 Unicode, Inc. All Rights Reserved. The Unicode
 			Consortium makes no expressed or implied warranty of any kind, and
 			assumes no liability for errors or omissions. No liability is assumed
 			for incidental and consequential damages in connection with or

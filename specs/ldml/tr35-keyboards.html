@@ -95,11 +95,16 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Editors</td>
-				<td>Steven Loomis (<a href="mailto:srl@icu-project.org">srl@icu-project.org</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td>
+				<td>Steven Loomis (<a href="mailto:srl@icu-project.org">srl@icu-project.org</a>)
+					and <a href="tr35.html#Acknowledgments">other CLDR committee
+						members</a></td>
 			</tr>
-			</table>
+		</table>
 
-			<p>For the full header, summary, and status, see <a href="tr35.html">​Part 1: Core specification</a></p>
+		<p>
+			For the full header, summary, and status, see <a href="tr35.html">
+				Part 1: Core specification</a>
+		</p>
 
 		<h3>
 			<i>Summary</i>
@@ -133,11 +138,14 @@ h2,h3,h4,table {
 		</p>
 		 END NOT YET APPROVED -->
 		<!-- APPROVED -->
-      <p><i>This document has been reviewed by Unicode members and other 
-	  interested parties, and has been approved for publication by the Unicode 
-	  Consortium. This is a stable document and may be used as reference 
-	  material or cited as a normative reference by other specifications.</i></p>
-      <!-- END APPROVED -->
+		<p>
+			<i>This document has been reviewed by Unicode members and other
+				interested parties, and has been approved for publication by the
+				Unicode Consortium. This is a stable document and may be used as
+				reference material or cited as a normative reference by other
+				specifications.</i>
+		</p>
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -163,11 +171,10 @@ h2,h3,h4,table {
 		</h2>
 
 		<!-- This section of Parts should be identical in all of the parts of this UTS. -->
-		<p>The LDML specification is divided into the
-			following parts:</p>
+		<p>The LDML specification is divided into the following parts:</p>
 		<ul class="toc">
-			<li>Part 1: <a href="tr35.html#Contents">Core
-					specification</a> (languages, locales, basic structure)
+			<li>Part 1: <a href="tr35.html#Contents">Core specification</a>
+				(languages, locales, basic structure)
 			</li>
 			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
 				(display names &amp; transforms, etc.)
@@ -175,19 +182,17 @@ h2,h3,h4,table {
 			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
 				(number &amp; currency formatting)
 			</li>
-			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a>
-				(date, time, time zone formatting)
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date,
+				time, time zone formatting)
 			</li>
-			<li>Part 5: <a
-				href="tr35-collation.html#Contents">Collation</a> (sorting,
-				searching, grouping)
+			<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a>
+				(sorting, searching, grouping)
 			</li>
 			<li>Part 6: <a href="tr35-info.html#Contents">Related
 					Information</a> (supplemental data)
 			</li>
-			<li>Part 7: <a
-				href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard
-				mappings)
+			<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a>
+				(keyboard mappings)
 			</li>
 		</ul>
 		<h2>
@@ -274,8 +279,8 @@ h2,h3,h4,table {
 			mapping):</p>
 		<pre>&lt;platform id=&quot;osx&quot;&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;0&quot; iso=&quot;C01&quot; /&gt;<br>		&lt;map keycode=&quot;1&quot; iso=&quot;C02&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;B01&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;B02&quot; /&gt;<br>		&lt;map keycode=&quot;12&quot; iso=&quot;D01&quot; /&gt;<br>		&lt;map keycode=&quot;13&quot; iso=&quot;D02&quot; /&gt;<br>		&lt;map keycode=&quot;18&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;50&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
 		<h3>
-			1.1 <a name="Goals_and_Nongoals"
-				href="#Goals_and_Nongoals">Goals and Nongoals</a>
+			1.1 <a name="Goals_and_Nongoals" href="#Goals_and_Nongoals">Goals
+				and Nongoals</a>
 		</h3>
 		<p>Some goals of this format are:</p>
 		<ol>
@@ -306,8 +311,7 @@ h2,h3,h4,table {
 			the end, they were kept separate, but for comparison across platforms
 			implementers may choose to unify them.</p>
 		<h3>
-			1.2 <a name="Definitions"
-				href="#Definitions">Definitions</a>
+			1.2 <a name="Definitions" href="#Definitions">Definitions</a>
 		</h3>
 		<p>Keyboard: The physical keyboard.</p>
 		<p>Key: A key on a physical keyboard.</p>
@@ -364,8 +368,8 @@ h2,h3,h4,table {
 			particular locale. Within a keyboard layout, there is a single base
 			map, one or more key maps and one or more transforms.</p>
 		<h3>
-			1.3 <a name="File_and_Dir_Structure"
-				href="#File_and_Dir_Structure">File and Directory Structure</a>
+			1.3 <a name="File_and_Dir_Structure" href="#File_and_Dir_Structure">File
+				and Directory Structure</a>
 		</h3>
 		<p>Each platform has its own directory, where a "platform" is a
 			designation for a set of keyboards available from a particular
@@ -382,13 +386,17 @@ h2,h3,h4,table {
 			<li>Multiple layout files named by their locale identifiers.
 				(eg. lt-t-k0-chromeos.xml or ne-t-k0-windows.xml).</li>
 		</ol>
-		<p>Keyboard data that is not supported on a given platform, but intended for use with that platform, may be added to the directory /und/. For example, there could be a file /und/lt-t-k0-chromeos.xml, where the data is intended for use with ChromeOS, but does not reflect data that is distributed as part of a standard ChromeOS release.</p>
-<h3>
-	  1.4 <a
-				name="Element_Heirarchy_Layout_File"
+		<p>Keyboard data that is not supported on a given platform, but
+			intended for use with that platform, may be added to the directory
+			/und/. For example, there could be a file /und/lt-t-k0-chromeos.xml,
+			where the data is intended for use with ChromeOS, but does not
+			reflect data that is distributed as part of a standard ChromeOS
+			release.</p>
+		<h3>
+			1.4 <a name="Element_Heirarchy_Layout_File"
 				href="#Element_Heirarchy_Layout_File">Element Hierarchy - Layout
 				File</a>
-</h3>
+		</h3>
 		<h4>
 			1.4.1 <a name="Element_Keyboard" href="#Element_Keyboard">Element:
 				keyboard</a>
@@ -403,12 +411,11 @@ h2,h3,h4,table {
 		<p>Attribute: locale (required)</p>
 		<p>
 			This mandatory attribute represents the locale of the keyboard using
-			Unicode locale identifiers (see <a
-				href="tr35.html">LDML</a>) - for example
-			&#39;el&#39; for Greek. Sometimes, the locale may not specify the
-			base language. For example, a Devanagari keyboard for many languages
-			could be specified by BCP-47 code: 'und-Deva'. For details, see <a
-				href="#Keyboard_IDs">Keyboard IDs</a> .
+			Unicode locale identifiers (see <a href="tr35.html">LDML</a>) - for
+			example &#39;el&#39; for Greek. Sometimes, the locale may not specify
+			the base language. For example, a Devanagari keyboard for many
+			languages could be specified by BCP-47 code: 'und-Deva'. For details,
+			see <a href="#Keyboard_IDs">Keyboard IDs</a> .
 		</p>
 		<p>Examples (for illustrative purposes only, not indicative of the
 			real data)</p>
@@ -878,8 +885,7 @@ h2,h3,h4,table {
 		<p>Examples</p>
 		<pre>&lt;keyboard locale=&quot;fr-CA-t-k0-CSA-osx&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;´a&quot; to=&quot;á&quot; /&gt;<br>		&lt;transform from=&quot;´A&quot; to=&quot;Á&quot; /&gt;<br>		&lt;transform from=&quot;´e&quot; to=&quot;é&quot; /&gt;<br>		&lt;transform from=&quot;´E&quot; to=&quot;É&quot; /&gt;<br>		&lt;transform from=&quot;´i&quot; to=&quot;í&quot; /&gt;<br>		&lt;transform from=&quot;´I&quot; to=&quot;Í&quot; /&gt;<br>		&lt;transform from=&quot;´o&quot; to=&quot;ó&quot; /&gt;<br>		&lt;transform from=&quot;´O&quot; to=&quot;Ó&quot; /&gt;<br>		&lt;transform from=&quot;´u&quot; to=&quot;ú&quot; /&gt;<br>		&lt;transform from=&quot;´U&quot; to=&quot;Ú&quot; /&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;<br>&lt;keyboard locale=&quot;nl-BE-t-k0-chromeos&quot;&gt;<br>	&lt;transforms type=&quot;simple&quot;&gt;<br>		&lt;transform from=&quot;\u{30c}a&quot; to=&quot;ǎ&quot; /&gt; &lt;!-- ̌a → ǎ --&gt;<br>		&lt;transform from=&quot;\u{30c}A&quot; to=&quot;Ǎ&quot; /&gt; &lt;!-- ̌A → Ǎ --&gt;<br>		&lt;transform from=&quot;\u{30a}a&quot; to=&quot;å&quot; /&gt; &lt;!-- ̊a → å --&gt;<br>		&lt;transform from=&quot;\u{30a}A&quot; to=&quot;Å&quot; /&gt; &lt;!-- ̊A → Å --&gt;<br>	&lt;/transforms&gt;<br>	...<br>&lt;/keyboard&gt;</pre>
 		<h3>
-			1.5 <a
-				name="Element_Heirarchy_Platform_File"
+			1.5 <a name="Element_Heirarchy_Platform_File"
 				href="#Element_Heirarchy_Platform_File">Element Hierarchy -
 				Platform File</a>
 		</h3>
@@ -933,8 +939,7 @@ h2,h3,h4,table {
 		<p>Examples</p>
 		<pre>&lt;platform&gt;<br>	&lt;hardwareMap&gt;<br>		&lt;map keycode=&quot;2&quot; iso=&quot;E01&quot; /&gt;<br>		&lt;map keycode=&quot;3&quot; iso=&quot;E02&quot; /&gt;<br>		&lt;map keycode=&quot;4&quot; iso=&quot;E03&quot; /&gt;<br>		&lt;map keycode=&quot;5&quot; iso=&quot;E04&quot; /&gt;<br>		&lt;map keycode=&quot;6&quot; iso=&quot;E05&quot; /&gt;<br>		&lt;map keycode=&quot;7&quot; iso=&quot;E06&quot; /&gt;<br>		&lt;map keycode=&quot;41&quot; iso=&quot;E00&quot; /&gt;<br>	&lt;/hardwareMap&gt;<br>&lt;/platform&gt;</pre>
 		<h3>
-			1.6 <a name="Invariants"
-				href="#Invariants">Invariants</a>
+			1.6 <a name="Invariants" href="#Invariants">Invariants</a>
 		</h3>
 		<p>Beyond what the DTD imposes, certain other restrictions on the
 			data are imposed on the data.</p>
@@ -1074,8 +1079,7 @@ h2,h3,h4,table {
 			</tbody>
 		</table>
 		<h3>
-			1.7 <a name="Data_Sources"
-				href="#Data_Sources">Data Sources</a>
+			1.7 <a name="Data_Sources" href="#Data_Sources">Data Sources</a>
 		</h3>
 		<p>Here is a list of the data sources used to generate the initial
 			key map layouts:</p>
@@ -1126,8 +1130,7 @@ h2,h3,h4,table {
 			</tbody>
 		</table>
 		<h3>
-			1.8 <a name="Keyboard_IDs"
-				href="#Keyboard_IDs">Keyboard IDs</a>
+			1.8 <a name="Keyboard_IDs" href="#Keyboard_IDs">Keyboard IDs</a>
 		</h3>
 		<p>There is a set of subtags that help identify the keyboards.
 			Each of these are used after the "t-k0" subtags to help identify the
@@ -1169,8 +1172,7 @@ h2,h3,h4,table {
 				-u/-t extensions and in <a
 				href="http://www.iana.org/assignments/language-subtag-registry">language-subtag-registry</a>
 				variants, eg for Traditional use "-trad" or "-traditio" (both exist
-				in <a
-				href="http://unicode.org/repos/cldr/trunk/common/bcp47/">bcp47</a>).
+				in <a href="http://unicode.org/repos/cldr/trunk/common/bcp47/">bcp47</a>).
 			</li>
 			<li>Multiple languages cannot be indicated, so the predominant
 				target is used.
@@ -1183,8 +1185,7 @@ h2,h3,h4,table {
 			<li>Otherwise, platform names are used as a guide.</li>
 		</ol>
 		<h3>
-			1.9 <a
-				name="Platform_Behaviors_in_Edge_Cases"
+			1.9 <a name="Platform_Behaviors_in_Edge_Cases"
 				href="#Platform_Behaviors_in_Edge_Cases">Platform Behaviors in
 				Edge Cases</a>
 		</h3>

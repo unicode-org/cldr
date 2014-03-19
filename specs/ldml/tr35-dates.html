@@ -95,11 +95,16 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Editors</td>
-				<td>Peter Edberg (<a href="mailto:pedberg@apple.com">pedberg@apple.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td>
+				<td>Peter Edberg (<a href="mailto:pedberg@apple.com">pedberg@apple.com</a>)
+					and <a href="tr35.html#Acknowledgments">other CLDR committee
+						members</a></td>
 			</tr>
-			</table>
+		</table>
 
-			<p>For the full header, summary, and status, see <a href="tr35.html">​Part 1: Core specification</a></p>
+		<p>
+			For the full header, summary, and status, see <a href="tr35.html">
+				Part 1: Core specification</a>
+		</p>
 
 		<h3>
 			<i>Summary</i>
@@ -134,11 +139,14 @@ h2,h3,h4,table {
 		</p>
 		 END NOT YET APPROVED -->
 		<!-- APPROVED -->
-      <p><i>This document has been reviewed by Unicode members and other 
-	  interested parties, and has been approved for publication by the Unicode 
-	  Consortium. This is a stable document and may be used as reference 
-	  material or cited as a normative reference by other specifications.</i></p>
-      <!-- END APPROVED -->
+		<p>
+			<i>This document has been reviewed by Unicode members and other
+				interested parties, and has been approved for publication by the
+				Unicode Consortium. This is a stable document and may be used as
+				reference material or cited as a normative reference by other
+				specifications.</i>
+		</p>
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -163,11 +171,10 @@ h2,h3,h4,table {
 		<h2>
 			<a name="Parts" href="#Parts">Parts</a>
 		</h2>
-		<p>The LDML specification is divided into the
-			following parts:</p>
+		<p>The LDML specification is divided into the following parts:</p>
 		<ul class="toc">
-			<li>Part 1: <a href="tr35.html#Contents">Core
-					specification</a> (languages, locales, basic structure)
+			<li>Part 1: <a href="tr35.html#Contents">Core specification</a>
+				(languages, locales, basic structure)
 			</li>
 			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
 				(display names &amp; transforms, etc.)
@@ -175,19 +182,17 @@ h2,h3,h4,table {
 			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
 				(number &amp; currency formatting)
 			</li>
-			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a>
-				(date, time, time zone formatting)
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date,
+				time, time zone formatting)
 			</li>
-			<li>Part 5: <a
-				href="tr35-collation.html#Contents">Collation</a> (sorting,
-				searching, grouping)
+			<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a>
+				(sorting, searching, grouping)
 			</li>
 			<li>Part 6: <a href="tr35-info.html#Contents">Related
 					Information</a> (supplemental data)
 			</li>
-			<li>Part 7: <a
-				href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard
-				mappings)
+			<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a>
+				(keyboard mappings)
 			</li>
 		</ul>
 
@@ -208,13 +213,10 @@ h2,h3,h4,table {
 					<li>2.5 <a href="#timeFormats">&lt;timeFormats&gt;</a></li>
 					<li>2.6 <a href="#dateTimeFormats">&lt;dateTimeFormats&gt;</a>
 						<ul class="toc">
-							<li>2.6.1 <a
-								href="#dateTimeFormat">&lt;dateTimeFormat&gt;</a>
-							<li>2.6.2 <a 
-								href="#availableFormats_appendItems">&lt;availableFormats&gt;,
-								&lt;appendItems&gt;</a>
-							<li>2.6.3 <a
-								href="#intervalFormats">&lt;intervalFormats&gt;</a>
+							<li>2.6.1 <a href="#dateTimeFormat">&lt;dateTimeFormat&gt;</a>
+							<li>2.6.2 <a href="#availableFormats_appendItems">&lt;availableFormats&gt;,
+									&lt;appendItems&gt;</a>
+							<li>2.6.3 <a href="#intervalFormats">&lt;intervalFormats&gt;</a>
 						</ul>
 					</li>
 				</ul>
@@ -233,8 +235,7 @@ h2,h3,h4,table {
 			</li>
 			<li>5 <a href="#Time_Zone_Names">Time Zone Names</a>
 				<ul class="toc">
-					<li>5.1 <a href="#Metazone_Names">Metazone
-							Names</a></li>
+					<li>5.1 <a href="#Metazone_Names">Metazone Names</a></li>
 				</ul>
 			</li>
 			<li>6 <a href="#Supplemental_Time_Zone_Data">Supplemental
@@ -247,9 +248,8 @@ h2,h3,h4,table {
 			</li>
 			<li>7 <a href="#Using_Time_Zone_Names">Using Time Zone Names</a>
 				<ul class="toc">
-					<li>7.1 <a
-						href="#Time_Zone_Format_Terminology">Time Zone Format
-							Terminology</a></li>
+					<li>7.1 <a href="#Time_Zone_Format_Terminology">Time Zone
+							Format Terminology</a></li>
 					<li>7.2 <a href="#Time_Zone_Goals">Goals</a></li>
 					<li>7.3 <a href="#Time_Zone_Parsing">Parsing</a></li>
 				</ul>
@@ -258,14 +258,11 @@ h2,h3,h4,table {
 				<ul class="toc">
 					<li>Table: <a href="#Date_Field_Symbol_Table">Date Field
 							Symbol Table</a></li>
-					<li>8.1 <a
-						href="#Localized_Pattern_Characters">Localized Pattern
-							Characters (deprecated)</a></li>
-					<li>8.2 <a href="#Date_Patterns_AM_PM">AM
-							/ PM</a></li>
+					<li>8.1 <a href="#Localized_Pattern_Characters">Localized
+							Pattern Characters (deprecated)</a></li>
+					<li>8.2 <a href="#Date_Patterns_AM_PM">AM / PM</a></li>
 					<li>8.3 <a href="#Date_Patterns_Eras">Eras</a></li>
-					<li>8.4 <a href="#Date_Patterns_Week_Of_Year">Week
-							of Year</a></li>
+					<li>8.4 <a href="#Date_Patterns_Week_Of_Year">Week of Year</a></li>
 					<li>8.5 <a href="#Date_Patterns_Week_Elements">Week
 							Elements</a></li>
 				</ul>
@@ -279,10 +276,8 @@ h2,h3,h4,table {
 				Element, Supplemental Date and Calendar Information</a>
 		</h2>
 
-		<p class="dtd">
-			&lt;!ELEMENT dates (alias | (calendars?, fields?, timeZoneNames?, special*))
-			&gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT dates (alias | (calendars?, fields?,
+			timeZoneNames?, special*)) &gt;</p>
 
 		<p>The LDML top-level &lt;dates&gt; element contains information
 			regarding the format and parsing of dates and times, the formatting
@@ -330,10 +325,10 @@ h2,h3,h4,table {
 		</h2>
 
 		<p class="dtd">
-			&lt;!ELEMENT calendars (alias | (calendar*, special*)) &gt;<br> &lt;!ELEMENT calendar (alias |
-			(months?, monthPatterns?,
-			days?, quarters?, dayPeriods?, eras?,
-			cyclicNameSets?, dateFormats?, timeFormats?, dateTimeFormats?, special*))&gt;<br> &lt;!ATTLIST
+			&lt;!ELEMENT calendars (alias | (calendar*, special*)) &gt;<br>
+			&lt;!ELEMENT calendar (alias | (months?, monthPatterns?, days?,
+			quarters?, dayPeriods?, eras?, cyclicNameSets?, dateFormats?,
+			timeFormats?, dateTimeFormats?, special*))&gt;<br> &lt;!ATTLIST
 			calendar type NMTOKEN #REQUIRED &gt;
 		</p>
 
@@ -383,34 +378,34 @@ h2,h3,h4,table {
 		</h3>
 
 		<p class="dtd">
-			&lt;!ELEMENT months ( alias | (monthContext*, special*)) &gt;<br> &lt;!ELEMENT monthContext (
-			alias | (default*, monthWidth*, special*)) &gt;<br> &lt;!ATTLIST
-			monthContext type ( format | stand-alone ) #REQUIRED &gt;<br>
-			&lt;!ELEMENT monthWidth ( alias | (month*, special*)) &gt;<br>
-			&lt;!ATTLIST monthWidth type ( abbreviated| narrow | wide) #REQUIRED
-			&gt;<br> &lt;!ELEMENT month ( #PCDATA | cp )* &gt;<br>
-			&lt;!ATTLIST month type ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11
-			| 12 | 13 ) #REQUIRED &gt;<br> &lt;!ATTLIST month yeartype (
-			standard | leap ) #IMPLIED &gt;
+			&lt;!ELEMENT months ( alias | (monthContext*, special*)) &gt;<br>
+			&lt;!ELEMENT monthContext ( alias | (default*, monthWidth*,
+			special*)) &gt;<br> &lt;!ATTLIST monthContext type ( format |
+			stand-alone ) #REQUIRED &gt;<br> &lt;!ELEMENT monthWidth ( alias
+			| (month*, special*)) &gt;<br> &lt;!ATTLIST monthWidth type (
+			abbreviated| narrow | wide) #REQUIRED &gt;<br> &lt;!ELEMENT
+			month ( #PCDATA | cp )* &gt;<br> &lt;!ATTLIST month type ( 1 | 2
+			| 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 ) #REQUIRED &gt;<br>
+			&lt;!ATTLIST month yeartype ( standard | leap ) #IMPLIED &gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT days ( alias | (dayContext*,
-			special*)) &gt;<br> &lt;!ELEMENT dayContext ( alias | (default*,
-			dayWidth*, special*)) &gt;<br> &lt;!ATTLIST dayContext type (
-			format | stand-alone ) #REQUIRED &gt;<br> &lt;!ELEMENT dayWidth
-			( alias | (day*, special*)) &gt;<br> &lt;!ATTLIST dayWidth type
-			NMTOKEN #REQUIRED &gt;<br> &lt;!ELEMENT day ( #PCDATA ) &gt;<br>
-			&lt;!ATTLIST day type ( sun | mon | tue | wed | thu | fri | sat )
-			#REQUIRED &gt;
+			&lt;!ELEMENT days ( alias | (dayContext*, special*)) &gt;<br>
+			&lt;!ELEMENT dayContext ( alias | (default*, dayWidth*, special*))
+			&gt;<br> &lt;!ATTLIST dayContext type ( format | stand-alone )
+			#REQUIRED &gt;<br> &lt;!ELEMENT dayWidth ( alias | (day*,
+			special*)) &gt;<br> &lt;!ATTLIST dayWidth type NMTOKEN #REQUIRED
+			&gt;<br> &lt;!ELEMENT day ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			day type ( sun | mon | tue | wed | thu | fri | sat ) #REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT quarters ( alias | (quarterContext*, special*)) &gt;<br> &lt;!ELEMENT quarterContext
-			( alias | (default*, quarterWidth*, special*)) &gt;<br>
-			&lt;!ATTLIST quarterContext type ( format | stand-alone ) #REQUIRED
-			&gt;<br> &lt;!ELEMENT quarterWidth ( alias | (quarter*,
-			special*)) &gt;<br> &lt;!ATTLIST quarterWidth type NMTOKEN
-			#REQUIRED &gt;<br> &lt;!ELEMENT quarter ( #PCDATA ) &gt;<br>
-			&lt;!ATTLIST quarter type ( 1 | 2 | 3 | 4 ) #REQUIRED &gt;
+			&lt;!ELEMENT quarters ( alias | (quarterContext*, special*)) &gt;<br>
+			&lt;!ELEMENT quarterContext ( alias | (default*, quarterWidth*,
+			special*)) &gt;<br> &lt;!ATTLIST quarterContext type ( format |
+			stand-alone ) #REQUIRED &gt;<br> &lt;!ELEMENT quarterWidth (
+			alias | (quarter*, special*)) &gt;<br> &lt;!ATTLIST quarterWidth
+			type NMTOKEN #REQUIRED &gt;<br> &lt;!ELEMENT quarter ( #PCDATA )
+			&gt;<br> &lt;!ATTLIST quarter type ( 1 | 2 | 3 | 4 ) #REQUIRED
+			&gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT eras (alias | (eraNames?, eraAbbr?, eraNarrow?,
@@ -519,14 +514,14 @@ h2,h3,h4,table {
 			II&quot;. There are currently only two defined year types, standard
 			(the implied default) and leap.</p>
 
-		<p>For era elements, an additional
-			alt=&quot;variant&quot; form may be supplied. This is primarily
-			intended for use in the &quot;gregorian&quot; calendar, with which
-			two parallel sets of era designations are used in some locales: one
-			set with a religious reference (e.g. English BC/AD), and one set
-			without (e.g. English BCE/CE). The most commonly-used set for the
-			locale should be provided as the default, and the other set may be
-			provided as the alt=&quot;variant&quot; forms. See the example below.</p>
+		<p>For era elements, an additional alt=&quot;variant&quot; form
+			may be supplied. This is primarily intended for use in the
+			&quot;gregorian&quot; calendar, with which two parallel sets of era
+			designations are used in some locales: one set with a religious
+			reference (e.g. English BC/AD), and one set without (e.g. English
+			BCE/CE). The most commonly-used set for the locale should be provided
+			as the default, and the other set may be provided as the
+			alt=&quot;variant&quot; forms. See the example below.</p>
 
 		<p class="example">Example:</p>
 		<pre>  &lt;calendar type=&quot;<span style="color: blue">gregorian</span>&quot;&gt;
@@ -661,28 +656,24 @@ h2,h3,h4,table {
        &lt;eraAbbr&gt;
         &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span
 				style="color: blue">BC</span>&lt;/era&gt;
-        		&lt;era type=&quot;<span
-				style="color: blue">0</span>&quot; alt=&quot;<span
+        		&lt;era type=&quot;<span style="color: blue">0</span>&quot; alt=&quot;<span
 				style="color: blue">variant</span>&quot;&gt;<span
 				style="color: blue">BCE</span>&lt;/era&gt;
         &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span
 				style="color: blue">AD</span>&lt;/era&gt;
-        &lt;era type=&quot;<span
-				style="color: blue">1</span>&quot; alt=&quot;<span
+        &lt;era type=&quot;<span style="color: blue">1</span>&quot; alt=&quot;<span
 				style="color: blue">variant</span>&quot;&gt;<span
 				style="color: blue">CE</span>&lt;/era&gt;
        &lt;/eraAbbr&gt;
        &lt;eraNames&gt;
         &lt;era type=&quot;<span style="color: blue">0</span>&quot;&gt;<span
 				style="color: blue">Before Christ</span>&lt;/era&gt;
-        		&lt;era type=&quot;<span
-				style="color: blue">0</span>&quot; alt=&quot;<span
+        		&lt;era type=&quot;<span style="color: blue">0</span>&quot; alt=&quot;<span
 				style="color: blue">variant</span>&quot;&gt;<span
 				style="color: blue">Before Common Era</span>&lt;/era&gt;
         &lt;era type=&quot;<span style="color: blue">1</span>&quot;&gt;<span
 				style="color: blue">Anno Domini</span>&lt;/era&gt;
-        		&lt;era type=&quot;<span
-				style="color: blue">1</span>&quot; alt=&quot;<span
+        		&lt;era type=&quot;<span style="color: blue">1</span>&quot; alt=&quot;<span
 				style="color: blue">variant</span>&quot;&gt;<span
 				style="color: blue">Common Era</span>&lt;/era&gt;
        &lt;/eraNames&gt;
@@ -882,8 +873,7 @@ h2,h3,h4,table {
         &lt;/dateFormat&gt;
       &lt;/dateFormatLength&gt;
       &lt;dateFormatLength type=&quot;<span style="color: blue">medium</span>&quot;&gt;
-        &lt;dateFormat type=&quot;<span
-				style="color: blue">DateFormatsKey2</span>&quot;&gt;
+        &lt;dateFormat type=&quot;<span style="color: blue">DateFormatsKey2</span>&quot;&gt;
           &lt;pattern&gt;<span style="color: blue">MMM d, y</span>&lt;/pattern&gt;
         &lt;/dateFormat&gt;
       &lt;/dateFormatLength&gt;
@@ -897,10 +887,9 @@ h2,h3,h4,table {
 			grammatical form should be chosen appropriately.
 		</p>
 
-		<p>Standard date and time patterns are each
-			normally provided in four types: full (usually with weekday name),
-			long (with wide month name), medium, and short (usually with numeric
-			month).</p>
+		<p>Standard date and time patterns are each normally provided in
+			four types: full (usually with weekday name), long (with wide month
+			name), medium, and short (usually with numeric month).</p>
 
 		<h3>
 			2.5 <a name="timeFormats" href="#timeFormats">&lt;timeFormats&gt;</a>
@@ -1036,8 +1025,8 @@ h2,h3,h4,table {
 		<p>These formats allow for date and time formats to be composed in
 			various ways.</p>
 
-		<h4>2.6.1 <a name="dateTimeFormat"
-			href="#dateTimeFormat">&lt;dateTimeFormat&gt;</a>
+		<h4>
+			2.6.1 <a name="dateTimeFormat" href="#dateTimeFormat">&lt;dateTimeFormat&gt;</a>
 		</h4>
 
 		<p class="dtd">
@@ -1061,9 +1050,9 @@ h2,h3,h4,table {
 			intended to represent literal text.
 		</p>
 
-		<p>When combining a standard date pattern with a
-			standard time pattern, the type of dateTimeFormat used to combine
-			them is determined by the type of the date pattern. For example:</p>
+		<p>When combining a standard date pattern with a standard time
+			pattern, the type of dateTimeFormat used to combine them is
+			determined by the type of the date pattern. For example:</p>
 
 		<table cellspacing="0" cellpadding="4" border="1">
 			<tr>
@@ -1083,8 +1072,10 @@ h2,h3,h4,table {
 			</tr>
 		</table>
 
-		<h4>2.6.2 <a name="availableFormats_appendItems"
-			href="#availableFormats_appendItems">&lt;availableFormats&gt;, &lt;appendItems&gt;</a>
+		<h4>
+			2.6.2 <a name="availableFormats_appendItems"
+				href="#availableFormats_appendItems">&lt;availableFormats&gt;,
+				&lt;appendItems&gt;</a>
 		</h4>
 
 		<p class="dtd">
@@ -1131,10 +1122,10 @@ h2,h3,h4,table {
 			<li>The &#39;a&#39; field is not allowed in the skeleton.</li>
 		</ul>
 
-		<p>It is not necessary to supply dateFormatItems
-			with skeletons for every field length; in many cases fields in the
-			skeleton and pattern can be expanded in parallel to handle a request.
-			Consider the following dateFormatItem:</p>
+		<p>It is not necessary to supply dateFormatItems with skeletons
+			for every field length; in many cases fields in the skeleton and
+			pattern can be expanded in parallel to handle a request. Consider the
+			following dateFormatItem:</p>
 		<pre>    &lt;dateFormatItem id="yMMMd"&gt;<span
 				style="color: blue">d MMM y</span>&lt;/dateFormatItem&gt;
 </pre>
@@ -1160,10 +1151,10 @@ h2,h3,h4,table {
 			skeletons using H or k should have patterns that only use H or k for
 			hours.</p>
 
-		<p>If a client-requested set of fields includes
-			both date and time fields, and if the availableFormats data does not
-			include a dateFormatItem whose skeleton matches the same set of
-			fields, then the request should be handled as follows:</p>
+		<p>If a client-requested set of fields includes both date and time
+			fields, and if the availableFormats data does not include a
+			dateFormatItem whose skeleton matches the same set of fields, then
+			the request should be handled as follows:</p>
 		<ol>
 			<li>Divide the request into a date fields part and a time fields
 				part</li>
@@ -1200,8 +1191,8 @@ h2,h3,h4,table {
 			of the field (see <a href="#Calendar_Fields">Calendar Fields</a>).
 		</p>
 
-		<h4>2.6.3 <a name="intervalFormats"
-			href="#intervalFormats">&lt;intervalFormats&gt;</a>
+		<h4>
+			2.6.3 <a name="intervalFormats" href="#intervalFormats">&lt;intervalFormats&gt;</a>
 		</h4>
 
 		<p class="dtd">&lt;!ELEMENT intervalFormats (alias |
@@ -1314,39 +1305,37 @@ h2,h3,h4,table {
 
 		<p class="dtd">
 			&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
-			&lt;!ELEMENT field ( alias | (displayName*, relative*, 
-			relativeTime*, special*)) &gt; &lt;!ATTLIST
-			field type ( era | year | month | week | day | weekday | 
-			sun | mon | tue | wed | thu | fri | sat | dayperiod
-			| hour | minute | second | zone ) #IMPLIED &gt;
+			&lt;!ELEMENT field ( alias | (displayName*, relative*, relativeTime*,
+			special*)) &gt; &lt;!ATTLIST field type ( era | year | month | week |
+			day | weekday | sun | mon | tue | wed | thu | fri | sat | dayperiod |
+			hour | minute | second | zone ) #IMPLIED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT relative (#PCDATA) &gt;<br> &lt;!ATTLIST relative
 			type NMTOKEN #IMPLIED &gt;
 		</p>
 		<p class="dtd">
-			 &lt;!ELEMENT relativeTime ( alias |
-				(relativeTimePattern*, special*)) &gt;<br> &lt;!ATTLIST
-				relativeTime type NMTOKEN #REQUIRED &gt;
+			&lt;!ELEMENT relativeTime ( alias | (relativeTimePattern*, special*))
+			&gt;<br> &lt;!ATTLIST relativeTime type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			 &lt;!ELEMENT relativeTimePattern (
-				#PCDATA ) &gt;<br> &lt;!ATTLIST relativeTimePattern count (
-				zero | one | two | few | many | other ) #REQUIRED &gt;
+			&lt;!ELEMENT relativeTimePattern ( #PCDATA ) &gt;<br>
+			&lt;!ATTLIST relativeTimePattern count ( zero | one | two | few |
+			many | other ) #REQUIRED &gt;
 		</p>
 
-		<p>
-			Translations may be supplied for names of calendar fields (elements
-			of a calendar, such as Day, Month, Year, Hour, and so on), and for
-			relative values for those fields (for example, the day with relative
-			value -1 is &quot;Yesterday&quot;). There
-				are three types of translations; some are only relevant or useful
-				for certain types of fields:
-		</p>
+		<p>Translations may be supplied for names of calendar fields
+			(elements of a calendar, such as Day, Month, Year, Hour, and so on),
+			and for relative values for those fields (for example, the day with
+			relative value -1 is &quot;Yesterday&quot;). There are three types of
+			translations; some are only relevant or useful for certain types of
+			fields:</p>
 		<ul>
 			<li>&lt;displayName&gt; General display name for the field type.
 				This should be relevant for all elements, including those like era
-      and zone that might not have useful forms for the other name types. These are typically presented in titlecase (eg “Day”) since they are intended as labels in a UI.</li>
+				and zone that might not have useful forms for the other name types.
+				These are typically presented in titlecase (eg “Day”) since they are
+				intended as labels in a UI.</li>
 			<li>&lt;relative&gt; Display names for the current instance of
 				the field, and one or two past and future instances. In English,
 				this is only used for year, month, week, day, and specific days of
@@ -1357,11 +1346,9 @@ h2,h3,h4,table {
 				English, this is only used for year, month, week, day, hour, minute,
 				and second.</li>
 		</ul>
-		<p>
-			Where there is not a convenient, customary word or phrase in a
-			particular language for a particular
-				type of relative value, it should be omitted.
-		</p>
+		<p>Where there is not a convenient, customary word or phrase in a
+			particular language for a particular type of relative value, it
+			should be omitted.</p>
 
 		<p>Examples, first for English:</p>
 		<pre>  &lt;fields&gt;
@@ -1403,8 +1390,8 @@ h2,h3,h4,table {
     …
   &lt;/fields&gt;
 </pre>
-		<p>Second, for German; includes relative
-			type="-2"/"2", present in the English example:</p>
+		<p>Second, for German; includes relative type="-2"/"2", present in
+			the English example:</p>
 		<pre>  &lt;fields&gt;
     …
     &lt;field type="day"&gt;
@@ -1426,9 +1413,8 @@ h2,h3,h4,table {
     …
   &lt;/fields&gt;
 </pre>
-		<p>A special name for “now” is indicated using
-			&lt;relative type="0"&gt; for the "second" field. For example, in
-			English:</p>
+		<p>A special name for “now” is indicated using &lt;relative
+			type="0"&gt; for the "second" field. For example, in English:</p>
 		<pre>    &lt;field type="second"&gt;
       &lt;displayName&gt;Second&lt;/displayName&gt;
       &lt;relative type="0"&gt;now&lt;/relative&gt;
@@ -1619,13 +1605,13 @@ h2,h3,h4,table {
 			that are considered acceptable in the region. The defaults are those
 			specified for region 001.</p>
 		<p>
-			There is a single preferred value, and multiple possible values. The meanings of the values H, h, K, k are
-				defined in <a href="#Date_Field_Symbol_Table">Date Field Symbol
-					Table</a>.
-			</p>
-		<p>For example, in the following, RU (Russia) is
-			marked as using only 24 hour time, and in particular the 24 hour time
-			that goes from 0..23 (H), rather than from 1..24 (k).</p>
+			There is a single preferred value, and multiple possible values. The
+			meanings of the values H, h, K, k are defined in <a
+				href="#Date_Field_Symbol_Table">Date Field Symbol Table</a>.
+		</p>
+		<p>For example, in the following, RU (Russia) is marked as using
+			only 24 hour time, and in particular the 24 hour time that goes from
+			0..23 (H), rather than from 1..24 (k).</p>
 
 		<pre>&lt;timeData&gt;
     &lt;hours preferred="H" allowed="H h" regions="001 …"/&gt;
@@ -1723,28 +1709,26 @@ h2,h3,h4,table {
 				Names</a>
 		</h2>
 
-		<p class="dtd">
-			&lt;!ELEMENT timeZoneNames (alias | (hourFormat*, gmtFormat*, gmtZeroFormat*,
-			regionFormat*, fallbackFormat*, zone*, metazone*, special*)) &gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT timeZoneNames (alias | (hourFormat*,
+			gmtFormat*, gmtZeroFormat*, regionFormat*, fallbackFormat*, zone*,
+			metazone*, special*)) &gt;</p>
 		<p class="dtd">
 			&lt;!ELEMENT hourFormat ( #PCDATA ) &gt;<br> &lt;!ELEMENT
 			gmtFormat ( #PCDATA ) &gt;<br> &lt;!ELEMENT gmtZeroFormat (
 			#PCDATA ) &gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT regionFormat ( #PCDATA ) &gt;<br> 
-			&lt;!ATTLIST regionFormat type ( standard |
-				daylight ) #IMPLIED &gt;
+			&lt;!ELEMENT regionFormat ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			regionFormat type ( standard | daylight ) #IMPLIED &gt;
 		</p>
 		<p class="dtd">&lt;!ELEMENT fallbackFormat ( #PCDATA ) &gt;</p>
 		<p class="dtd">
-			&lt;!ELEMENT zone (alias | ( long*, short*, exemplarCity*, special*)) &gt;<br> &lt;!ATTLIST zone type CDATA
-			#REQUIRED &gt;
+			&lt;!ELEMENT zone (alias | ( long*, short*, exemplarCity*, special*))
+			&gt;<br> &lt;!ATTLIST zone type CDATA #REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT metazone (alias | ( long*, short*, special*)) &gt;<br> &lt;!ATTLIST metazone type CDATA #REQUIRED
-			&gt;
+			&lt;!ELEMENT metazone (alias | ( long*, short*, special*)) &gt;<br>
+			&lt;!ATTLIST metazone type CDATA #REQUIRED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT long (alias | (generic*, standard*, daylight*,
@@ -2089,8 +2073,7 @@ h2,h3,h4,table {
 			and &#39;vvvv date time pattern characters, and not with the
 			&#39;Z&#39;, &#39;ZZZZ&#39;, &#39;VVVV&#39; and other pattern
 			characters for time zone formatting. For more information, see <a
-				href="#Date_Format_Patterns">
-				<u>Date Format Patterns</u>
+				href="#Date_Format_Patterns"> <u>Date Format Patterns</u>
 			</a>.
 		<p>The commonlyUsed element is now deprecated. The CLDR committee
 			has found it nearly impossible to obtain accurate and reliable data
@@ -2205,31 +2188,38 @@ h2,h3,h4,table {
 			example above, otherVersion="07dc0000" specifies the version of
 			Windows time zone and typeVersion="2011n" specifies the version of
 			Unicode time zone IDs. The attribute territory="001" in
-			&lt;mapZone&gt; element indicates the long canonical Unicode time zone ID specified
-			by the type attribute is used as the default mapping for the Windows
-			TZID. For each unique Windows TZID, there must be exactly one
-			&lt;mapZone&gt; element with territory="001". &lt;mapZone&gt;
-			elements other than territory="001" specify territory specific
-			mappings. When multiple Unicode time zone IDs are available for a
-			single territory, the value of the type attribute will be a list of
-			Unicode time zone IDs delimited by space. In this case, the first
-			entry represents the default mapping for the territory. The territory
-			"ZZ" is used when a Unicode time zone ID is not associated with a
-			specific territory.</p>
-		<p><b>Note: </b>The long canonical Unicode time zone ID might be deprecated
-			in the tz database[<a href="tr35.html#Olson">Olson</a>]. For example,
-			CLDR uses "Asia/Culcutta" as the long canonical time zone ID for
-			Kolkata, India. The same ID was moved to 'backward' file and replaced
-			with a new ID "Asia/Kolkata" in the tz database. Therefore, if
-			you want to get an equivalent Windows TZID for a zone ID in the
-			tz dadtabase, you have to resolve the long canonical Unicode time
-			zone ID (e.g. "Asia/Culcutta") for the zone ID (e.g. "Asia/Kolkata").
-			For more details, see <a href="tr35.html#Time_Zone_Identifiers">Section 3.7.1.2 Time Zone Indetifiers</a>.</p>
-		<p><b>Note: </b>Not all Unicode time zones have equivalent Windows TZID
-			mappings. Also, not all Windows TZIDs have equivalent Unicode time zones.
-			For example, there is no equivalent Windows zone for Unicode time zone "Australia/Lord_Howe",
-			and there is no equivalent Unicode time zone for Windows zone "E. Europe Standard Time"
-			(as of CLDR 25 release).</p>
+			&lt;mapZone&gt; element indicates the long canonical Unicode time
+			zone ID specified by the type attribute is used as the default
+			mapping for the Windows TZID. For each unique Windows TZID, there
+			must be exactly one &lt;mapZone&gt; element with territory="001".
+			&lt;mapZone&gt; elements other than territory="001" specify territory
+			specific mappings. When multiple Unicode time zone IDs are available
+			for a single territory, the value of the type attribute will be a
+			list of Unicode time zone IDs delimited by space. In this case, the
+			first entry represents the default mapping for the territory. The
+			territory "ZZ" is used when a Unicode time zone ID is not associated
+			with a specific territory.</p>
+		<p>
+			<b>Note: </b>The long canonical Unicode time zone ID might be
+			deprecated in the tz database[<a href="tr35.html#Olson">Olson</a>].
+			For example, CLDR uses "Asia/Culcutta" as the long canonical time
+			zone ID for Kolkata, India. The same ID was moved to 'backward' file
+			and replaced with a new ID "Asia/Kolkata" in the tz database.
+			Therefore, if you want to get an equivalent Windows TZID for a zone
+			ID in the tz dadtabase, you have to resolve the long canonical
+			Unicode time zone ID (e.g. "Asia/Culcutta") for the zone ID (e.g.
+			"Asia/Kolkata"). For more details, see <a
+				href="tr35.html#Time_Zone_Identifiers">Section 3.7.1.2 Time Zone
+				Indetifiers</a>.
+		</p>
+		<p>
+			<b>Note: </b>Not all Unicode time zones have equivalent Windows TZID
+			mappings. Also, not all Windows TZIDs have equivalent Unicode time
+			zones. For example, there is no equivalent Windows zone for Unicode
+			time zone "Australia/Lord_Howe", and there is no equivalent Unicode
+			time zone for Windows zone "E. Europe Standard Time" (as of CLDR 25
+			release).
+		</p>
 
 		<h3>
 			6.3 <a name="Primary_Zones" href="#Primary_Zones">Primary Zones</a>
@@ -2472,8 +2462,9 @@ h2,h3,h4,table {
 					not have the same offset when daylight savings is in effect.)</li>
 				<li>A golden zone in mapTimezones must have reverse mapping in
 					metazoneInfo.</li>
-				<li>A single time zone can be a golden zone of multiple different
-					metazones if any two of them are never active at a same time.</li>
+				<li>A single time zone can be a golden zone of multiple
+					different metazones if any two of them are never active at a same
+					time.</li>
 			</ul>
 		</blockquote>
 
@@ -2945,7 +2936,7 @@ h2,h3,h4,table {
 				</ul></li>
 			<li><font color="#000000">If N or M is a localized
 					metazone</font>
-			<ul>
+				<ul>
 					<li><font color="#000000">If it corresponds to only one
 							TZID, return it.</font></li>
 					<li><font color="#000000">If C is set, look up the
@@ -3230,10 +3221,10 @@ h2,h3,h4,table {
 					year names. Use one through three letters for the abbreviated name,
 					four for the full (wide) name, or five for the narrow name
 					(currently the data only provides abbreviated names, which will be
-					used for all requested name widths). If the calendar does not provide
-					cyclic year name data, or if the year value to be formatted is out of
-					the range of years for which cyclic name data is provided, then
-					numeric formatting is used (behaves like 'y').</td>
+					used for all requested name widths). If the calendar does not
+					provide cyclic year name data, or if the year value to be formatted
+					is out of the range of years for which cyclic name data is
+					provided, then numeric formatting is used (behaves like 'y').</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
@@ -3249,28 +3240,27 @@ h2,h3,h4,table {
 				<td>r</td>
 				<td>1..n</td>
 				<td>1996</td>
-				<td>Related Gregorian year. For non-Gregorian calendars, this corresponds
-					to the extended Gregorian year in which the calendar’s year begins.
-					Related Gregorian years are often displayed, for example, when
-					formatting dates in the Japanese calendar — e.g.
+				<td>Related Gregorian year. For non-Gregorian calendars, this
+					corresponds to the extended Gregorian year in which the calendar’s
+					year begins. Related Gregorian years are often displayed, for
+					example, when formatting dates in the Japanese calendar — e.g.
 					“2012(平成24)年1月15日” — or in the Chinese calendar — e.g.
 					“2012壬辰年腊月初四”. The related Gregorian year is usually displayed
 					using the "latn" numbering system, regardless of what numbering
 					systems may be used for other parts of the formatted date. If the
 					calendar’s year is linked to the solar year (perhaps using leap
-					months), then for that calendar the 'r' year will always be at a fixed
-					offset from the 'u' year. For the Gregorian calendar, the 'r' year is
-					the same as the 'u' year.</td>
+					months), then for that calendar the 'r' year will always be at a
+					fixed offset from the 'u' year. For the Gregorian calendar, the 'r'
+					year is the same as the 'u' year.</td>
 			</tr>
 			<tr>
 				<th rowspan="8" style="vertical-align: top; text-align: left">quarter</th>
 				<td style="text-align: center; vertical-align: top" rowspan="4">Q</td>
 				<td style="text-align: center; vertical-align: top">1..2</td>
 				<td style="vertical-align: top; text-align: left">02</td>
-				<td rowspan="4">Quarter
-					- Use one or two for the numerical quarter, three for the
-					abbreviation, four for the full (wide) name, or five
-					for the narrow name.</td>
+				<td rowspan="4">Quarter - Use one or two for the numerical
+					quarter, three for the abbreviation, four for the full (wide) name,
+					or five for the narrow name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3290,8 +3280,7 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">02</td>
 				<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
 					Quarter - Use one or two for the numerical quarter, three for the
-					abbreviation, four for the full name, or five
-					for the narrow name.</td>
+					abbreviation, four for the full name, or five for the narrow name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3312,8 +3301,8 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">09</td>
 				<td rowspan="4" style="vertical-align: top; text-align: left">Month
 					- Use one or two for the numerical month, three for the
-					abbreviation, four for the full (wide) name, or five for the
-					narrow name.</td>
+					abbreviation, four for the full (wide) name, or five for the narrow
+					name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3333,8 +3322,8 @@ h2,h3,h4,table {
 				<td style="vertical-align: top; text-align: left">09</td>
 				<td rowspan="4" style="vertical-align: top; text-align: left"><b>Stand-Alone</b>
 					Month - Use one or two for the numerical month, three for the
-					abbreviation, four for the full (wide) name, or 5 for the
-					narrow name.</td>
+					abbreviation, four for the full (wide) name, or 5 for the narrow
+					name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3411,10 +3400,9 @@ h2,h3,h4,table {
 				<td rowspan="4" style="text-align: center; vertical-align: top">E</td>
 				<td style="text-align: center; vertical-align: top">1..3</td>
 				<td style="vertical-align: top; text-align: left">Tues</td>
-				<td rowspan="4">Day
-					of week - Use one through three letters for the abbreviated
-					day name, four for the full (wide)
-					name, five for the narrow name, or six for the short name.</td>
+				<td rowspan="4">Day of week - Use one through three letters for
+					the abbreviated day name, four for the full (wide) name, five for
+					the narrow name, or six for the short name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">4</td>
@@ -3457,11 +3445,10 @@ h2,h3,h4,table {
 				<td rowspan="5" style="text-align: center; vertical-align: top">c</td>
 				<td style="text-align: center; vertical-align: top">1</td>
 				<td style="vertical-align: top; text-align: left">2</td>
-				<td rowspan="5"><b>Stand-Alone</b>
-					local day of week - Use one letter for the local numeric value
-					(same as &#39;e&#39;), three for the abbreviated
-					day name, four for the full (wide) name,
-					five for the narrow name, or six for the short name.</td>
+				<td rowspan="5"><b>Stand-Alone</b> local day of week - Use one
+					letter for the local numeric value (same as &#39;e&#39;), three for
+					the abbreviated day name, four for the full (wide) name, five for
+					the narrow name, or six for the short name.</td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: top">3</td>
@@ -3802,11 +3789,9 @@ h2,h3,h4,table {
 			to an end user. This can occur, for example, when a spreadsheet
 			allows users to specify date patterns. Whatever is in the string is
 			substituted one-for-one with the characters
-			"GyMdkHmsSEDFwWahKzYeugAZvcLQqVUOXxr",
-			with the above meanings. Thus, for example, if 'J' is to be used
-			instead of 'Y' to mean Year (for Week of Year),
-			then the string would be:
-			"GyMdkHmsSEDFwWahKz<u>J</u>eugAZvcLQqVUOXxr".
+			"GyMdkHmsSEDFwWahKzYeugAZvcLQqVUOXxr", with the above meanings. Thus,
+			for example, if 'J' is to be used instead of 'Y' to mean Year (for
+			Week of Year), then the string would be: "GyMdkHmsSEDFwWahKz<u>J</u>eugAZvcLQqVUOXxr".
 		</p>
 
 		<p>
@@ -3830,13 +3815,13 @@ h2,h3,h4,table {
 			8.3 <a name="Date_Patterns_Eras" href="#Date_Patterns_Eras">Eras</a>
 		</h3>
 		<p>There are only two values for era in the Gregorian calendar,
-			with two common naming conventions (here
-			in abbreviated form for English): "BC" and "AD",
-			or "BCE" and "CE". These values can be translated into
-			other languages, like &quot;a.C.&quot; and and &quot;d.C.&quot;
-			for Spanish, but there are no other eras in the Gregorian calendar.
-			Other calendars have a different numbers of eras. Care should be
-			taken when translating the era names for a specific calendar.</p>
+			with two common naming conventions (here in abbreviated form for
+			English): "BC" and "AD", or "BCE" and "CE". These values can be
+			translated into other languages, like &quot;a.C.&quot; and and
+			&quot;d.C.&quot; for Spanish, but there are no other eras in the
+			Gregorian calendar. Other calendars have a different numbers of eras.
+			Care should be taken when translating the era names for a specific
+			calendar.</p>
 
 		<h3>
 			8.4 <a name="Date_Patterns_Week_Of_Year"

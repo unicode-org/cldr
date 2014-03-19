@@ -95,12 +95,16 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Editors</td>
-				<td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>) 
-				and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td>
+				<td>Yoshito Umaoka (<a href="mailto:yoshito_umaoka@us.ibm.com">yoshito_umaoka@us.ibm.com</a>)
+					and <a href="tr35.html#Acknowledgments">other CLDR committee
+						members</a></td>
 			</tr>
-			</table>
+		</table>
 
-			<p>For the full header, summary, and status, see <a href="tr35.html">​Part 1: Core specification</a></p>
+		<p>
+			For the full header, summary, and status, see <a href="tr35.html">
+				Part 1: Core specification</a>
+		</p>
 
 		<h3>
 			<i>Summary</i>
@@ -135,11 +139,14 @@ h2,h3,h4,table {
 		</p>
 		 END NOT YET APPROVED -->
 		<!-- APPROVED -->
-      <p><i>This document has been reviewed by Unicode members and other 
-	  interested parties, and has been approved for publication by the Unicode 
-	  Consortium. This is a stable document and may be used as reference 
-	  material or cited as a normative reference by other specifications.</i></p>
-      <!-- END APPROVED -->
+		<p>
+			<i>This document has been reviewed by Unicode members and other
+				interested parties, and has been approved for publication by the
+				Unicode Consortium. This is a stable document and may be used as
+				reference material or cited as a normative reference by other
+				specifications.</i>
+		</p>
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -164,11 +171,10 @@ h2,h3,h4,table {
 		<h2>
 			<a name="Parts" href="#Parts">Parts</a>
 		</h2>
-		<p>The LDML specification is divided into the
-			following parts:</p>
+		<p>The LDML specification is divided into the following parts:</p>
 		<ul class="toc">
-			<li>Part 1: <a href="tr35.html#Contents">Core
-					specification</a> (languages, locales, basic structure)
+			<li>Part 1: <a href="tr35.html#Contents">Core specification</a>
+				(languages, locales, basic structure)
 			</li>
 			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
 				(display names &amp; transforms, etc.)
@@ -176,19 +182,17 @@ h2,h3,h4,table {
 			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
 				(number &amp; currency formatting)
 			</li>
-			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a>
-				(date, time, time zone formatting)
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date,
+				time, time zone formatting)
 			</li>
-			<li>Part 5: <a
-				href="tr35-collation.html#Contents">Collation</a> (sorting,
-				searching, grouping)
+			<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a>
+				(sorting, searching, grouping)
 			</li>
 			<li>Part 6: <a href="tr35-info.html#Contents">Related
 					Information</a> (supplemental data)
 			</li>
-			<li>Part 7: <a
-				href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard
-				mappings)
+			<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a>
+				(keyboard mappings)
 			</li>
 		</ul>
 		<h2>
@@ -247,10 +251,13 @@ h2,h3,h4,table {
 							<li>10.3.4 <a href="#Example">Example</a></li>
 							<li>10.3.5 <a href="#Rule_Syntax">Rule Syntax</a></li>
 							<li>10.3.6 <a href="#Transform_Rules">Transform Rules</a></li>
-							<li>10.3.7 <a href="#Variable_Definition_Rules">Variable Definition Rules</a></li>
+							<li>10.3.7 <a href="#Variable_Definition_Rules">Variable
+									Definition Rules</a></li>
 							<li>10.3.8 <a href="#Filter_Rules">Filter Rules</a></li>
 							<li>10.3.9 <a href="#Conversion_Rules">Conversion Rules</a></li>
-							<li>10.3.10 <a href="#Intermixing_Transform_Rules_and_Conversion_Rules">Intermixing Transform Rules and Conversion Rules</a></li>
+							<li>10.3.10 <a
+								href="#Intermixing_Transform_Rules_and_Conversion_Rules">Intermixing
+									Transform Rules and Conversion Rules</a></li>
 							<li>10.3.11 <a href="#Inverse_Summary">Inverse Summary</a></li>
 						</ul>
 					</li>
@@ -330,15 +337,14 @@ h2,h3,h4,table {
 				as "{0} ({1})" in which {0} is replaced by the display name for the
 				primary language subtag and {1} is replaced by a list of the display
 				names for the remaining subtags.</li>
-			<li>The &lt;localeSeparator&gt; element specifies 
-			a pattern such as "{0}, {1}" used when
-					appending a subtag display name to the list in the
-					&lt;localePattern&gt; subpattern {1} above. If that list includes
-					more than one display name, then &lt;localeSeparator&gt; subpattern
-					{1} represents a new display name to be appended to the current
-					list in {0}. <em>Note: Before CLDR 24, the
-						&lt;localeSeparator&gt; element specified a separator string such
-						as ", ", not a pattern.</em>
+			<li>The &lt;localeSeparator&gt; element specifies a pattern such
+				as "{0}, {1}" used when appending a subtag display name to the list
+				in the &lt;localePattern&gt; subpattern {1} above. If that list
+				includes more than one display name, then &lt;localeSeparator&gt;
+				subpattern {1} represents a new display name to be appended to the
+				current list in {0}. <em>Note: Before CLDR 24, the
+					&lt;localeSeparator&gt; element specified a separator string such
+					as ", ", not a pattern.</em>
 			</li>
 			<li>The &lt;localeKeyTypePattern&gt; element specifies the
 				pattern used to display key-type pairs, such as "{0}: {1}"</li>
@@ -408,8 +414,8 @@ h2,h3,h4,table {
 			longest match in the language type is used, and the remaining fields
 			(if any) added using composition.</p>
 
-		<p>Alternate short forms may be provided for some
-			languages (and for territories and other display names), for example.</p>
+		<p>Alternate short forms may be provided for some languages (and
+			for territories and other display names), for example.</p>
 
 		<blockquote>
 			<pre>&lt;language type="<span style="color: blue">az</span>"&gt;<span
@@ -450,12 +456,11 @@ h2,h3,h4,table {
 </pre>
 		</blockquote>
 
-		<p>The script names are most commonly used in
-			conjunction with a language name, using the &lt;localePattern&gt;
-			combining pattern, and the default form of the script name should be
-			suitable for such use. When a script name requires a different form
-			for stand-alone use, this can be specified using the "stand-alone"
-			alternate:</p>
+		<p>The script names are most commonly used in conjunction with a
+			language name, using the &lt;localePattern&gt; combining pattern, and
+			the default form of the script name should be suitable for such use.
+			When a script name requires a different form for stand-alone use,
+			this can be specified using the "stand-alone" alternate:</p>
 
 		<blockquote>
 			<pre>&lt;script type="<span style="color: blue">Hans</span>"&gt;<span
@@ -471,8 +476,7 @@ h2,h3,h4,table {
 </pre>
 		</blockquote>
 
-		<p>This will produce results such as the
-			following:</p>
+		<p>This will produce results such as the following:</p>
 		<ul>
 			<li>Display name of language + script, using
 				&lt;localePattern&gt;: “Chinese (Simplified)”</li>
@@ -502,14 +506,12 @@ h2,h3,h4,table {
 					style="color: blue">Algeria</span>&lt;/territory&gt;
 &lt;territory type="<span style="color: blue">GB</span>"&gt;<span
 					style="color: blue">United Kingdom</span>&lt;/territory&gt;
-&lt;territory type="<span
-					style="color: blue">GB</span>" alt="<span style="color: blue">short</span>"&gt;<span
-					style="color: blue">U.K.</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">GB</span>" alt="<span
+					style="color: blue">short</span>"&gt;<span style="color: blue">U.K.</span>&lt;/territory&gt;
 &lt;territory type="<span style="color: blue">US</span>"&gt;<span
 					style="color: blue">United States</span>&lt;/territory&gt;
-&lt;territory type="<span
-					style="color: blue">US</span>" alt="<span style="color: blue">short</span>"&gt;<span
-					style="color: blue">U.S.</span>&lt;/territory&gt;
+&lt;territory type="<span style="color: blue">US</span>" alt="<span
+					style="color: blue">short</span>"&gt;<span style="color: blue">U.S.</span>&lt;/territory&gt;
 </pre>
 		</blockquote>
 
@@ -518,8 +520,9 @@ h2,h3,h4,table {
 		<p>
 			This contains a list of elements that provide the user-translated
 			names for the <i>variant_code</i> values described in <i> <a
-				href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section 3,
-					Unicode Language and Locale Identifiers</a></i>.
+				href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section
+					3, Unicode Language and Locale Identifiers</a>
+			</i>.
 		</p>
 
 		<blockquote>
@@ -549,9 +552,9 @@ h2,h3,h4,table {
 			This contains a list of elements that provide the user-translated
 			names&nbsp; for the <i>type</i> values described in <i> <a
 				href="tr35.html#Unicode_Language_and_Locale_Identifiers">Section
-					3, Unicode Language and Locale Identifiers</a></i>. Since the translation
-			of an option name may depend on the <i>key</i> it is used with, the
-			latter is optionally supplied.
+					3, Unicode Language and Locale Identifiers</a>
+			</i>. Since the translation of an option name may depend on the <i>key</i>
+			it is used with, the latter is optionally supplied.
 		</p>
 
 		<blockquote>
@@ -667,7 +670,8 @@ h2,h3,h4,table {
 		<p>
 			The &lt;inList&gt; element is deprecated and has been superseded by
 			the &lt;contextTransforms&gt; element; see <i>Section 12 <a
-				href="#Context_Transform_Elements">ContextTransform Elements</a></i>.
+				href="#Context_Transform_Elements">ContextTransform Elements</a>
+			</i>.
 		</p>
 
 		<p>This element controls whether display names (language,
@@ -695,7 +699,8 @@ h2,h3,h4,table {
 		<p>
 			The &lt;inList&gt; element is deprecated and has been superseded by
 			the &lt;contextTransforms&gt; element; see <i>Section 12 <a
-				href="#Context_Transform_Elements">ContextTransform Elements</a></i>.
+				href="#Context_Transform_Elements">ContextTransform Elements</a>
+			</i>.
 		</p>
 
 		<p>This element indicates the casing of the data in the category
@@ -732,11 +737,10 @@ h2,h3,h4,table {
 			characters that are in common use in the locale, and information that
 			can be helpful in picking resources or data appropriate for the
 			locale, such as when choosing among character encodings that are
-			typically used to transmit data in the language of the locale. 
-			It may also be used to help reduce
-				confusability issues: see [<a
-				href="http://www.unicode.org/reports/tr41/#UTR36">UTR39</a>].
-			It typically only occurs in a language locale, not in a
+			typically used to transmit data in the language of the locale. It may
+			also be used to help reduce confusability issues: see [<a
+				href="http://www.unicode.org/reports/tr41/#UTR36">UTR39</a>]. It
+			typically only occurs in a language locale, not in a
 			language/territory locale. The stopwords are an experimental feature,
 			and should not be used.
 		</p>
@@ -830,13 +834,13 @@ h2,h3,h4,table {
 			sequences) that allow the user to see a segment of a larger "target"
 			list. For details see the <a
 				href="tr35-collation.html#Collation_Indexes">Unicode LDML:
-				Collation</a> document. The index set may
-				only contain characters whose lowercase versions are in the main and
-				auxiliary exemplar sets, though for cased languages the index
-				exemplars are typically in uppercase. Characters from the auxiliary
-				exemplar set may be necessary in the index set if it needs to
-				properly handle items such as names which may require characters not
-				included in the main exemplar set.
+				Collation</a> document. The index set may only contain characters whose
+			lowercase versions are in the main and auxiliary exemplar sets,
+			though for cased languages the index exemplars are typically in
+			uppercase. Characters from the auxiliary exemplar set may be
+			necessary in the index set if it needs to properly handle items such
+			as names which may require characters not included in the main
+			exemplar set.
 		</p>
 
 		<p>Here is a sample of the XML structure:</p>
@@ -895,17 +899,15 @@ h2,h3,h4,table {
 			case, the exemplar characters simply contain a set of reasonably
 			frequent characters for the language.</p>
 
-		<p>
-			The ordering of the characters in the set is irrelevant, but for
-			readability in the XML file the characters should be in sorted order
-			according to the locale's conventions. The main
-				and auxiliary sets should only contain lower case characters (except
-			for the special case of Turkish and similar languages, where the
-			dotted capital I should be included); the upper case letters are to
-			be mechanically added when the set is used. For more information on
+		<p>The ordering of the characters in the set is irrelevant, but
+			for readability in the XML file the characters should be in sorted
+			order according to the locale's conventions. The main and auxiliary
+			sets should only contain lower case characters (except for the
+			special case of Turkish and similar languages, where the dotted
+			capital I should be included); the upper case letters are to be
+			mechanically added when the set is used. For more information on
 			casing, see the discussion of Special Casing in the Unicode Character
-			Database.
-		</p>
+			Database.</p>
 
 		<h4>
 			3.1.1 <a name="Restrictions" href="#Restrictions">Restrictions</a>
@@ -913,8 +915,8 @@ h2,h3,h4,table {
 
 
 		<ol>
-			<li>The main, auxiliary and index sets
-				are normally restricted to those letters with a specific <a
+			<li>The main, auxiliary and index sets are normally restricted
+				to those letters with a specific <a
 				href="http://unicode.org/Public/UNIDATA/Scripts.txt">Script </a>character
 				property (that is, not the values Common or Inherited) or required <a
 				href="http://unicode.org/Public/UNIDATA/DerivedCoreProperties.txt">Default_Ignorable_Code_Point</a>
@@ -1080,8 +1082,8 @@ h2,h3,h4,table {
 
 		<p class="dtd">
 			&lt;!ELEMENT ellipsis ( #PCDATA ) &gt;<br> &lt;!ATTLIST ellipsis
-			type ( initial | medial | final |
-				word-initial | word-medial | word-final ) #IMPLIED &gt;
+			type ( initial | medial | final | word-initial | word-medial |
+			word-final ) #IMPLIED &gt;
 		</p>
 
 		<p>The ellipsis element provides patterns for use when truncating
@@ -1100,9 +1102,9 @@ h2,h3,h4,table {
 				&lt;ellipsis type="final"&gt;{0}…&lt;/ellipsis&gt;
 			</code>
 		</p>
-		<p>There are alternatives for cases where the
-			breaks are on a word boundary, where some languages include a space.
-			For example, such as case would be:</p>
+		<p>There are alternatives for cases where the breaks are on a word
+			boundary, where some languages include a space. For example, such as
+			case would be:</p>
 		<p>
 			<code>&lt;ellipsis type="word-initial"&gt;…
 				{0}&lt;/ellipsis&gt;</code>
@@ -1238,28 +1240,24 @@ h2,h3,h4,table {
 		</h2>
 
 
+		<p class="dtd">&lt;!ELEMENT units (alias | (unit*, unitLength*,
+			durationUnit*, special*)) &gt;</p>
 		<p class="dtd">
-			&lt;!ELEMENT units (alias | (unit*, unitLength*,
-				durationUnit*, special*)) &gt;
+			&lt;!ELEMENT unitLength (alias | (compoundUnit*, unit*, special*))
+			&gt;<br> &lt;!ATTLIST unitLength type ( long | short | narrow )
+			#REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			 &lt;!ELEMENT unitLength (alias |
-				(compoundUnit*, unit*, special*)) &gt;<br> &lt;!ATTLIST
-				unitLength type ( long | short | narrow ) #REQUIRED &gt;
-		</p>
-		<p class="dtd">
-			&lt;!ELEMENT compoundUnit (alias |
-				(compoundUnitPattern*, special*)) &gt;<br> &lt;!ATTLIST
-				compoundUnit type NMTOKEN #REQUIRED &gt;
+			&lt;!ELEMENT compoundUnit (alias | (compoundUnitPattern*, special*))
+			&gt;<br> &lt;!ATTLIST compoundUnit type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT unit (alias | (unitPattern*, special*)) &gt;<br>
 			&lt;!ATTLIST unit type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT durationUnit (alias |
-				(durationUnitPattern*, special*)) &gt;<br> &lt;!ATTLIST
-				durationUnit type NMTOKEN #REQUIRED &gt;
+			&lt;!ELEMENT durationUnit (alias | (durationUnitPattern*, special*))
+			&gt;<br> &lt;!ATTLIST durationUnit type NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT unitPattern ( #PCDATA ) &gt;<br> &lt;!ATTLIST
@@ -1267,12 +1265,10 @@ h2,h3,h4,table {
 			#REQUIRED &gt;
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT compoundUnitPattern (
-				#PCDATA ) &gt;<br>
+			&lt;!ELEMENT compoundUnitPattern ( #PCDATA ) &gt;<br>
 		</p>
 		<p class="dtd">
-			&lt;!ELEMENT durationUnitPattern (
-				#PCDATA ) &gt;<br>
+			&lt;!ELEMENT durationUnitPattern ( #PCDATA ) &gt;<br>
 		</p>
 
 		<p>These elements specify the localized way of formatting
@@ -1289,15 +1285,13 @@ h2,h3,h4,table {
 		<p>
 			Units, like other values with a <strong>count</strong> attribute, use
 			a special inheritance. See <strong>Part 1: Core:</strong> <em>Section
-				4.1 <a
-				href="tr35.html#Multiple_Inheritance">Multiple
+				4.1 <a href="tr35.html#Multiple_Inheritance">Multiple
 					Inheritance</a>
 			</em>.
 		</p>
 
-		<p>The units in CLDR are not comprehensive; it is
-			anticipated that more will be added over time. They currently include
-			the following:</p>
+		<p>The units in CLDR are not comprehensive; it is anticipated that
+			more will be added over time. They currently include the following:</p>
 		<table>
 			<tr>
 				<td><strong>Type</strong></td>
@@ -1551,12 +1545,11 @@ h2,h3,h4,table {
 			locale. For example, in Russian it may be more typical to see the
 			Cyrillic characters “мм”.
 		</p>
-		<p>Units are included for translation even where
-			they are not typically used in a particular locale, such as
-			kilometers in the US, or inches in Germany. This is to account for
-			use by travelers and specialized domains, such as the German
-			“̌Fernseher von 32 bis 55 Zoll (80 bis 140 cm)” for TV screen size in
-			inches and centimeters.</p>
+		<p>Units are included for translation even where they are not
+			typically used in a particular locale, such as kilometers in the US,
+			or inches in Germany. This is to account for use by travelers and
+			specialized domains, such as the German “̌Fernseher von 32 bis 55
+			Zoll (80 bis 140 cm)” for TV screen size in inches and centimeters.</p>
 		<h3>
 			6.1 <a name="compoundUnitPattern" href="#compoundUnitPattern">compoundUnitPattern</a>
 		</h3>
@@ -1567,15 +1560,16 @@ h2,h3,h4,table {
 			where such units exist, they should be used in preference to
 			composing with compoundUnitPattern.
 		</p>
-		<p>For the divisor, the &quot;one&quot; plural
-			category should be used, while for the dividend the appropriate
-			plural form according the placeholder number should be used.</p>
-		<p>[There is a known problem with some languages
-			in the long form in that the divisor should be inflected. This will
-			probably require the future addition of a special 'divisor' form of
-			units commonly used in the divisor.]</p>
+		<p>For the divisor, the &quot;one&quot; plural category should be
+			used, while for the dividend the appropriate plural form according
+			the placeholder number should be used.</p>
+		<p>[There is a known problem with some languages in the long form
+			in that the divisor should be inflected. This will probably require
+			the future addition of a special 'divisor' form of units commonly
+			used in the divisor.]</p>
 		<h3>
-			6.2 <a name="Unit_Sequences" href="#Unit_Sequences">Unit Sequences</a>
+			6.2 <a name="Unit_Sequences" href="#Unit_Sequences">Unit
+				Sequences</a>
 		</h3>
 		<p>
 			Units may be used in composed sequences, such as <strong>5°
@@ -1590,15 +1584,15 @@ h2,h3,h4,table {
 		<h3>
 			6.3 <a name="durationUnit" href="#durationUnit">durationUnit</a>
 		</h3>
-		<p>The durationUnit is a special type of unit used
-			for composed time unit durations.</p>
+		<p>The durationUnit is a special type of unit used for composed
+			time unit durations.</p>
 		<pre>&lt;durationUnit type=&quot;hms&quot;&gt;
   &lt;durationUnitPattern&gt;h:mm:ss&lt;/durationUnitPattern&gt; &lt;!-- 33:04:59 --&gt;
 &lt;/durationUnit&gt;   </pre>
-		<p>The type contains a skeleton, where 'h' stands
-			for hours, 'm' for minutes, and 's' for sections. These are the same
-			symbols used in availableFormats, except that there is no need to
-			distinguish different forms of the hour.</p>
+		<p>The type contains a skeleton, where 'h' stands for hours, 'm'
+			for minutes, and 's' for sections. These are the same symbols used in
+			availableFormats, except that there is no need to distinguish
+			different forms of the hour.</p>
 		<h2>
 			7 <a name="POSIX_Elements" href="#POSIX_Elements">POSIX Elements</a>
 		</h2>
@@ -1695,9 +1689,9 @@ h2,h3,h4,table {
 		<p class="dtd">&lt;!ELEMENT segmentations ( alias | segmentation*)
 			&gt;</p>
 		<p class="dtd">
-			&lt;!ELEMENT segmentation ( alias | (variables?, segmentRules?
-			, exceptions?) | special*) &gt;<br>
-			&lt;!ATTLIST segmentation type NMTOKEN #REQUIRED &gt;
+			&lt;!ELEMENT segmentation ( alias | (variables?, segmentRules? ,
+			exceptions?) | special*) &gt;<br> &lt;!ATTLIST segmentation type
+			NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">&lt;!ELEMENT variables ( alias | variable*) &gt;</p>
 		<p class="dtd">
@@ -1709,13 +1703,8 @@ h2,h3,h4,table {
 			&lt;!ELEMENT rule ( #PCDATA ) &gt;<br> &lt;!ATTLIST rule id
 			NMTOKEN #REQUIRED &gt;
 		</p>
-		<p class="dtd">
-			&lt;!ELEMENT exceptions ( exception* )
-				&gt; 
-		</p>
-		<p class="dtd">
-			&lt;!ELEMENT exception ( #PCDATA ) &gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT exceptions ( exception* ) &gt;</p>
+		<p class="dtd">&lt;!ELEMENT exception ( #PCDATA ) &gt;</p>
 
 		<p>
 			The segmentations element provides for segmentation of text into
@@ -1882,10 +1871,10 @@ h2,h3,h4,table {
 			skipped during segmentation.
 		</p>
 
-		<p>For example, in the English phrase "Mr. Smith",
-			CLDR segmentation rules would normally find a Sentence Break between
-			"Mr" and "Smith". However, typically, "Mr." is just an abbreviation
-			for "Mister", and not actually the end of a sentence.</p>
+		<p>For example, in the English phrase "Mr. Smith", CLDR
+			segmentation rules would normally find a Sentence Break between "Mr"
+			and "Smith". However, typically, "Mr." is just an abbreviation for
+			"Mister", and not actually the end of a sentence.</p>
 
 		<p>
 			Each exception has a separate
@@ -2481,7 +2470,8 @@ h2,h3,h4,table {
 			below.</p>
 
 		<h4>
-			10.3.6 <a name="Transform_Rules" href="#Transform_Rules">Transform Rules</a>
+			10.3.6 <a name="Transform_Rules" href="#Transform_Rules">Transform
+				Rules</a>
 		</h4>
 
 		<p>Each transform rule consists of two colons followed by a
@@ -2535,7 +2525,8 @@ h2,h3,h4,table {
 		</table>
 
 		<h4>
-			10.3.7 <a name="Variable_Definition_Rules" href="#Variable_Definition_Rules">Variable Definition Rules</a>
+			10.3.7 <a name="Variable_Definition_Rules"
+				href="#Variable_Definition_Rules">Variable Definition Rules</a>
 		</h4>
 
 		<p>Each variable definition is of the following form:</p>
@@ -2601,7 +2592,8 @@ h2,h3,h4,table {
 			filters.</p>
 
 		<h4>
-			10.3.9 <a name="Conversion_Rules" href="#Conversion_Rules">Conversion Rules</a>
+			10.3.9 <a name="Conversion_Rules" href="#Conversion_Rules">Conversion
+				Rules</a>
 		</h4>
 
 		<p>Conversion rules can be forward, backward, or double. The
@@ -2674,7 +2666,7 @@ h2,h3,h4,table {
 
 		<h4>
 			10.3.10 <a name="Intermixing_Transform_Rules_and_Conversion_Rules"
-						href="#Intermixing_Transform_Rules_and_Conversion_Rules">
+				href="#Intermixing_Transform_Rules_and_Conversion_Rules">
 				Intermixing Transform Rules and Conversion Rules</a>
 		</h4>
 
@@ -2819,7 +2811,8 @@ h2,h3,h4,table {
 		</table>
 
 		<h4>
-			10.3.11 <a name="Inverse_Summary" href="#Inverse_Summary">Inverse Summary</a>
+			10.3.11 <a name="Inverse_Summary" href="#Inverse_Summary">Inverse
+				Summary</a>
 		</h4>
 
 		<p>The following table shows how the same rule list generates two
@@ -3129,8 +3122,8 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>calendar-field</td>
-				<td>dates/fields/field[type=*]/displayName
-					field names<br>(for relative forms see type "tense" below)
+				<td>dates/fields/field[type=*]/displayName field names<br>(for
+					relative forms see type "tense" below)
 				</td>
 			</tr>
 			<tr>
@@ -3169,20 +3162,18 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>relative</td>
-				<td>dates/fields/field[type=*]/relative
-					and
-						dates/fields/field[type=*]/relativeTime relative field names</td>
+				<td>dates/fields/field[type=*]/relative and
+					dates/fields/field[type=*]/relativeTime relative field names</td>
 			</tr>
 			<tr>
 				<td>unit-pattern</td>
 				<td>units/unitLength[type=*]/unit[type=*]/unitPattern[count=*]
-					unit names
-				</td>
+					unit names</td>
 			</tr>
 			<tr>
 				<td>number-spellout</td>
-				<td>rbnf/rulesetGrouping[type=*]/ruleset[type=*]/rbnfrule number spellout rules
-				</td>
+				<td>rbnf/rulesetGrouping[type=*]/ruleset[type=*]/rbnfrule
+					number spellout rules</td>
 			</tr>
 		</table>
 

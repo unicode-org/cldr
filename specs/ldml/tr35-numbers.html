@@ -95,11 +95,16 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Editors</td>
-				<td>John Emmons (<a href="mailto:emmo@us.ibm.com">emmo@us.ibm.com</a>) and <a href="tr35.html#Acknowledgments">other CLDR committee members</a></td>
+				<td>John Emmons (<a href="mailto:emmo@us.ibm.com">emmo@us.ibm.com</a>)
+					and <a href="tr35.html#Acknowledgments">other CLDR committee
+						members</a></td>
 			</tr>
-			</table>
+		</table>
 
-			<p>For the full header, summary, and status, see <a href="tr35.html">​Part 1: Core specification</a></p>
+		<p>
+			For the full header, summary, and status, see <a href="tr35.html">
+				Part 1: Core specification</a>
+		</p>
 
 		<h3>
 			<i>Summary</i>
@@ -134,11 +139,14 @@ h2,h3,h4,table {
 		</p>
 		 END NOT YET APPROVED -->
 		<!-- APPROVED -->
-      <p><i>This document has been reviewed by Unicode members and other 
-	  interested parties, and has been approved for publication by the Unicode 
-	  Consortium. This is a stable document and may be used as reference 
-	  material or cited as a normative reference by other specifications.</i></p>
-      <!-- END APPROVED -->
+		<p>
+			<i>This document has been reviewed by Unicode members and other
+				interested parties, and has been approved for publication by the
+				Unicode Consortium. This is a stable document and may be used as
+				reference material or cited as a normative reference by other
+				specifications.</i>
+		</p>
+		<!-- END APPROVED -->
 
 		<blockquote>
 			<p>
@@ -163,11 +171,10 @@ h2,h3,h4,table {
 		<h2>
 			<a name="Parts" href="#Parts">Parts</a>
 		</h2>
-		<p>The LDML specification is divided into the
-			following parts:</p>
+		<p>The LDML specification is divided into the following parts:</p>
 		<ul class="toc">
-			<li>Part 1: <a href="tr35.html#Contents">Core
-					specification</a> (languages, locales, basic structure)
+			<li>Part 1: <a href="tr35.html#Contents">Core specification</a>
+				(languages, locales, basic structure)
 			</li>
 			<li>Part 2: <a href="tr35-general.html#Contents">General</a>
 				(display names &amp; transforms, etc.)
@@ -175,19 +182,17 @@ h2,h3,h4,table {
 			<li>Part 3: <a href="tr35-numbers.html#Contents">Numbers</a>
 				(number &amp; currency formatting)
 			</li>
-			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a>
-				(date, time, time zone formatting)
+			<li>Part 4: <a href="tr35-dates.html#Contents">Dates</a> (date,
+				time, time zone formatting)
 			</li>
-			<li>Part 5: <a
-				href="tr35-collation.html#Contents">Collation</a> (sorting,
-				searching, grouping)
+			<li>Part 5: <a href="tr35-collation.html#Contents">Collation</a>
+				(sorting, searching, grouping)
 			</li>
 			<li>Part 6: <a href="tr35-info.html#Contents">Related
 					Information</a> (supplemental data)
 			</li>
-			<li>Part 7: <a
-				href="tr35-keyboards.html#Contents">Keyboards</a> (keyboard
-				mappings)
+			<li>Part 7: <a href="tr35-keyboards.html#Contents">Keyboards</a>
+				(keyboard mappings)
 			</li>
 		</ul>
 		<h2>
@@ -242,7 +247,7 @@ h2,h3,h4,table {
 							<li>5.1.4 <a href="#Using_cardinals">Using Cardinals</a></li>
 						</ul>
 					</li>
-                    <li>5.2 <a href="#Plural_Ranges">Plural Ranges</a>
+					<li>5.2 <a href="#Plural_Ranges">Plural Ranges</a>
 					</li>
 				</ul>
 			</li>
@@ -324,12 +329,10 @@ h2,h3,h4,table {
 			<a name="Number_Elements" href="#Number_Elements">2 Number
 				Elements</a>
 		</h2>
-		<p class="dtd">
-			&lt;!ELEMENT numbers (alias | (defaultNumberingSystem*,
-			otherNumberingSystems*, symbols*, decimalFormats*,
-			scientificFormats*, percentFormats*, currencyFormats*, currencies?, 
-			miscPatterns*, special*)) &gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT numbers (alias |
+			(defaultNumberingSystem*, otherNumberingSystems*, symbols*,
+			decimalFormats*, scientificFormats*, percentFormats*,
+			currencyFormats*, currencies?, miscPatterns*, special*)) &gt;</p>
 		<p>
 			The numbers element supplies information for formatting and parsing
 			numbers and currencies. It has the following sub-elements:
@@ -413,12 +416,10 @@ h2,h3,h4,table {
 			2.3 <a name="Number_Symbols" href="#Number_Symbols">Number
 				Symbols</a>
 		</h3>
-		<p class="dtd">
-			&lt;!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*,
-			nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*,
-			superscriptingExponent*, perMille*,
-			infinity*, nan*, currencyDecimal*, currencyGroup*, special*)) &gt;
-		</p>
+		<p class="dtd">&lt;!ELEMENT symbols (alias | (decimal*, group*,
+			list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*,
+			minusSign*, exponential*, superscriptingExponent*, perMille*,
+			infinity*, nan*, currencyDecimal*, currencyGroup*, special*)) &gt;</p>
 		<p>
 			Number symbols define the localized symbols that are commonly used
 			when formatting numbers in a given locale. These symbols can be
@@ -531,8 +532,7 @@ h2,h3,h4,table {
       &lt;plusSign&gt;<span style="color: blue">+</span>&lt;/plusSign&gt;
       &lt;minusSign&gt;<span style="color: blue">-</span>&lt;/minusSign&gt;
       &lt;exponential&gt;<span style="color: blue">E</span>&lt;/exponential&gt;
-      &lt;superscriptingExponent&gt;<span
-				style="color: blue">×</span>&lt;/exponential&gt;
+      &lt;superscriptingExponent&gt;<span style="color: blue">×</span>&lt;/exponential&gt;
       &lt;perMille&gt;<span style="color: blue">‰</span>&lt;/perMille&gt;
       &lt;infinity&gt;<span style="color: blue">∞</span>&lt;/infinity&gt;
       &lt;nan&gt;<span style="color: blue">☹</span>&lt;/nan&gt;
@@ -690,10 +690,10 @@ h2,h3,h4,table {
 			&gt;<br> &lt;!ELEMENT currencyFormat (alias | (pattern*,
 			special*)) &gt;
 		</p>
-		<p>In addition to a standard currency format, in
-			which negative currency amounts might typically be displayed as
-			something like “-$3.27”, locales may provide an "accounting" form, in
-			which for "en_US" the same example would appear as “($3.27)”.</p>
+		<p>In addition to a standard currency format, in which negative
+			currency amounts might typically be displayed as something like
+			“-$3.27”, locales may provide an "accounting" form, in which for
+			"en_US" the same example would appear as “($3.27)”.</p>
 		<pre>&lt;currencyFormats&gt;
   &lt;currencyFormatLength&gt;
     &lt;currencyFormat type="standard"&gt;
@@ -710,34 +710,34 @@ h2,h3,h4,table {
 				Patterns</a>
 		</h3>
 		<p class="dtd">
-			&lt;!ELEMENT miscPatterns (alias |
-				(default*, pattern*, special*)) &gt;<br> &lt;!ATTLIST
-				miscPatterns numberSystem CDATA #IMPLIED &gt;
+			&lt;!ELEMENT miscPatterns (alias | (default*, pattern*, special*))
+			&gt;<br> &lt;!ATTLIST miscPatterns numberSystem CDATA #IMPLIED
+			&gt;
 		</p>
-		<p>The miscPatterns supply additional patterns for
-			special purposes. The currently defined values are:</p>
+		<p>The miscPatterns supply additional patterns for special
+			purposes. The currently defined values are:</p>
 		<dl>
 			<dt>
 				<strong>atLeast</strong>
 			</dt>
-			<dd>indicates a number or higher, such as: “99+”
-				to indicate that there are 99 items or more.</dd>
+			<dd>indicates a number or higher, such as: “99+” to indicate
+				that there are 99 items or more.</dd>
 			<dt>
 				<strong>range</strong>
 			</dt>
-			<dd>indicates a range of numbers, such as:
-				“99-103” to indicate that there are from 99 to 103 items.</dd>
+			<dd>indicates a range of numbers, such as: “99-103” to indicate
+				that there are from 99 to 103 items.</dd>
 		</dl>
 		<p>
 			<em>For example: </em>
 		</p>
 		<p>
-			 <code>
-					&lt;miscPatterns numberSystem=&quot;…&quot;&gt;<br>
-					  &lt;pattern type=&quot;atLeast&quot;&gt;⩾{0}&lt;/pattern&gt;<br>
-					  &lt;pattern type=&quot;range&quot;&gt;{0}–{1}&lt;/pattern&gt;<br>
-					&lt;/miscPatterns&gt;
-				</code>
+			<code>
+				&lt;miscPatterns numberSystem=&quot;…&quot;&gt;<br>
+				  &lt;pattern type=&quot;atLeast&quot;&gt;⩾{0}&lt;/pattern&gt;<br>
+				  &lt;pattern type=&quot;range&quot;&gt;{0}–{1}&lt;/pattern&gt;<br>
+				&lt;/miscPatterns&gt;
+			</code>
 		</p>
 		<h2>
 			<a name="Number_Format_Patterns" href="#Number_Format_Patterns">3
@@ -1030,9 +1030,10 @@ h2,h3,h4,table {
 		</h3>
 		<p>
 			Formatting is guided by several parameters, all of which can be
-			specified either using a pattern or using an external API designed for number formatting. The following
-			description applies to formats that do not use <a href="#sci">scientific
-				notation</a> or <a href="#sigdig">significant digits</a>.
+			specified either using a pattern or using an external API designed
+			for number formatting. The following description applies to formats
+			that do not use <a href="#sci">scientific notation</a> or <a
+				href="#sigdig">significant digits</a>.
 		</p>
 		<ul>
 			<li>If the number of actual integer digits exceeds the <em>maximum
@@ -1108,8 +1109,7 @@ h2,h3,h4,table {
 				adjusting the exponent. Example: 0.00123 formatted with
 				&quot;00.###E0&quot; yields &quot;12.3E-4&quot;. This only happens
 				if there is no maximum number of integer digits. If there is a
-				maximum, then the minimum number of integer digits is fixed at one.
-			</li>
+				maximum, then the minimum number of integer digits is fixed at one.</li>
 			<li>The maximum number of integer digits, if present, specifies
 				the exponent grouping. The most common use of this is to generate <em>engineering
 					notation</em>, in which the exponent is a multiple of three, for
@@ -1131,12 +1131,13 @@ h2,h3,h4,table {
 		<p>There are two ways of controlling how many digits are shows:
 			(a) significant digits counts, or (b) integer and fraction digit
 			counts. Integer and fraction digit counts are described above. When a
-			formatter is using significant digits counts, uses
-			however many integer and fraction digits are required to display the
-  specified number of significant digits. It may ignore min/max integer/fraction digits, or it may use them to the extent possible.</p>
+			formatter is using significant digits counts, uses however many
+			integer and fraction digits are required to display the specified
+			number of significant digits. It may ignore min/max integer/fraction
+			digits, or it may use them to the extent possible.</p>
 		<p>Examples:</p>
 		<blockquote>
-		  <table cellspacing="3" cellpadding="0" border="0">
+			<table cellspacing="3" cellpadding="0" border="0">
 				<tr bgcolor="#ccccff">
 					<th align="left">Pattern</th>
 					<th align="left">Minimum significant digits</th>
@@ -1195,10 +1196,13 @@ h2,h3,h4,table {
 				number of significant digits have been shown. For example, the
 				pattern <code>&quot;@##&quot;</code> formats the number 0.1203 as <code>&quot;0.12&quot;</code>.
 			</li>
-			<li>Implementations may forbid the use of significant digits in combination with min/max integer/fraction digits. In such a case, if a pattern uses significant digits, it may not contain a
-				decimal separator, nor the <code>&#39;0&#39;</code> pattern
-				character. Patterns such as <code>&quot;@00&quot;</code> or <code>&quot;@.###&quot;</code>
-			would be disallowed. </li>
+			<li>Implementations may forbid the use of significant digits in
+				combination with min/max integer/fraction digits. In such a case, if
+				a pattern uses significant digits, it may not contain a decimal
+				separator, nor the <code>&#39;0&#39;</code> pattern character.
+				Patterns such as <code>&quot;@00&quot;</code> or <code>&quot;@.###&quot;</code>
+				would be disallowed.
+			</li>
 			<li>Any number of <code>&#39;#&#39;</code> characters may be
 				prepended to the left of the leftmost <code>&#39;@&#39;</code>
 				character. These have no effect on the minimum and maximum
@@ -1219,7 +1223,7 @@ h2,h3,h4,table {
 		</ul>
 		<h3>
 			3.6 <a name="Padding" href="#Padding">Padding</a>
-	  </h3>
+		</h3>
 		<p>
 			Patterns support padding the result to a specific width. In a pattern
 			the pad escape character, followed by a single pad character, causes
@@ -1546,16 +1550,16 @@ h2,h3,h4,table {
 			&lt;!ELEMENT fractions ( info+ ) &gt;<br> <br> &lt;!ELEMENT
 			info EMPTY &gt;<br> &lt;!ATTLIST info iso4217 NMTOKEN #REQUIRED
 			&gt;<br> &lt;!ATTLIST info digits NMTOKEN #IMPLIED &gt;<br>
-			&lt;!ATTLIST info rounding NMTOKEN #IMPLIED &gt;<br> 
-			&lt;!ATTLIST info cashDigits NMTOKEN #IMPLIED
-				&gt;<br> &lt;!ATTLIST info
-				cashRounding NMTOKEN #IMPLIED &gt;<br> <br> &lt;!ELEMENT
-			region ( currency* ) &gt;<br> &lt;!ATTLIST region iso3166
-			NMTOKEN #REQUIRED &gt;<br> <br> &lt;!ELEMENT currency (
-			alternate* ) &gt;<br> &lt;!ATTLIST currency from NMTOKEN
-			#IMPLIED &gt;<br> &lt;!ATTLIST currency to NMTOKEN #IMPLIED &gt;<br>
-			&lt;!ATTLIST currency iso4217 NMTOKEN #REQUIRED &gt;<br>
-			&lt;!ATTLIST currency tender ( true | false ) #IMPLIED &gt;
+			&lt;!ATTLIST info rounding NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST info cashDigits NMTOKEN #IMPLIED &gt;<br>
+			&lt;!ATTLIST info cashRounding NMTOKEN #IMPLIED &gt;<br> <br>
+			&lt;!ELEMENT region ( currency* ) &gt;<br> &lt;!ATTLIST region
+			iso3166 NMTOKEN #REQUIRED &gt;<br> <br> &lt;!ELEMENT
+			currency ( alternate* ) &gt;<br> &lt;!ATTLIST currency from
+			NMTOKEN #IMPLIED &gt;<br> &lt;!ATTLIST currency to NMTOKEN
+			#IMPLIED &gt;<br> &lt;!ATTLIST currency iso4217 NMTOKEN
+			#REQUIRED &gt;<br> &lt;!ATTLIST currency tender ( true | false )
+			#IMPLIED &gt;
 		</p>
 		<p>Each currencyData element contains one fractions element
 			followed by one or more region elements. Here is an example for
@@ -1596,27 +1600,29 @@ h2,h3,h4,table {
 				formatted. The default is 2.</li>
 			<li><b>rounding: </b>the rounding increment, in units of 10<sup>-digits</sup>.
 				The default is 0, which means no rounding is to be done. Therefore,
-				rounding=0 and rounding=1 have identical behavior. Thus with fraction
-				digits of 2 and rounding increment of 5, numeric values are rounded to
-				the nearest 0.05 units in formatting. With fraction digits of 0 and
-				rounding increment of 50, numeric values are rounded to the nearest
-				50.</li>
-			<li><b>cashDigits: </b>the number of decimal digits to be used when 
-				formatting quantities used in cash transactions (as opposed to a
-				quantity that would appear in a more formal setting, such as on a
+				rounding=0 and rounding=1 have identical behavior. Thus with
+				fraction digits of 2 and rounding increment of 5, numeric values are
+				rounded to the nearest 0.05 units in formatting. With fraction
+				digits of 0 and rounding increment of 50, numeric values are rounded
+				to the nearest 50.</li>
+			<li><b>cashDigits: </b>the number of decimal digits to be used
+				when formatting quantities used in cash transactions (as opposed to
+				a quantity that would appear in a more formal setting, such as on a
 				bank statement). If absent, the value of "digits" should be used as
 				a default.</li>
-			<li><b>cashRounding: </b>the cash rounding increment,
-				in units of 10<sup>-cashDigits</sup>. The default is 0, which means no
-				rounding is to be done; and as with rounding, this has the same effect
-				as cashRounding="1". This is the rounding increment to be used
-				when formatting quantities used in cash transactions (as opposed to a
-				quantity that would appear in a more formal setting, such as on a bank
-				statement). If absent, the value of "rounding" should be used as a default.</li>
+			<li><b>cashRounding: </b>the cash rounding increment, in units
+				of 10<sup>-cashDigits</sup>. The default is 0, which means no
+				rounding is to be done; and as with rounding, this has the same
+				effect as cashRounding="1". This is the rounding increment to be
+				used when formatting quantities used in cash transactions (as
+				opposed to a quantity that would appear in a more formal setting,
+				such as on a bank statement). If absent, the value of "rounding"
+				should be used as a default.</li>
 		</ul>
 		<p>For example, the following line</p>
 		<pre>    &lt;info iso4217="CZK" digits="2" rounding="0"/&gt;</pre>
-		<p>should cause the value 2.006 to be displayed as “2.01”, not “2.00”.</p>
+		<p>should cause the value 2.006 to be displayed as “2.01”, not
+			“2.00”.</p>
 		<p>Each region element contains one attribute:</p>
 		<ul>
 			<li><b>iso3166:</b> the ISO 3166 code for the region in
@@ -1638,7 +1644,8 @@ h2,h3,h4,table {
 				were never used.</li>
 			<li><b>from: </b>the currency was valid from to the datetime
 				indicated by the value. See the main document <i>Section 5.2.1 <a
-					href="tr35.html#Date_Ranges">Dates and Date Ranges</a></i>.</li>
+					href="tr35.html#Date_Ranges">Dates and Date Ranges</a>
+			</i>.</li>
 			<li><b>to: </b>the currency was valid up to the datetime
 				indicated by the value of <i>before</i>. See the main document <i>Section
 					5.2.1 <a href="tr35.html#Date_Ranges">Dates and Date Ranges</a>
@@ -1708,41 +1715,37 @@ h2,h3,h4,table {
 				Language Plural Rules</a>
 		</h2>
 		<p class="dtd">
-			&lt;!ELEMENT plurals (pluralRules*, pluralRanges*) &gt;<br> &lt;!ATTLIST
-			plurals type ( ordinal | cardinal ) #IMPLIED &gt; &lt;!-- default is
-			cardinal --&gt;<br> <br> &lt;!ELEMENT pluralRules
-			(pluralRule*) &gt;<br> &lt;!ATTLIST pluralRules locales NMTOKENS
-			#REQUIRED &gt;<br> <br> &lt;!ELEMENT pluralRule ( #PCDATA )
-			&gt;<br> &lt;!ATTLIST pluralRule count (zero | one | two | few |
-			many | other) #REQUIRED &gt;
+			&lt;!ELEMENT plurals (pluralRules*, pluralRanges*) &gt;<br>
+			&lt;!ATTLIST plurals type ( ordinal | cardinal ) #IMPLIED &gt;
+			&lt;!-- default is cardinal --&gt;<br> <br> &lt;!ELEMENT
+			pluralRules (pluralRule*) &gt;<br> &lt;!ATTLIST pluralRules
+			locales NMTOKENS #REQUIRED &gt;<br> <br> &lt;!ELEMENT
+			pluralRule ( #PCDATA ) &gt;<br> &lt;!ATTLIST pluralRule count
+			(zero | one | two | few | many | other) #REQUIRED &gt;
 		</p>
-		<p>The plural categories are used to
-			format messages with numeric placeholders, expressed as decimal
-			numbers. The fundamental rule for determining plural categories is
-			the existence of minimal pairs: whenever two different numbers may
-			require different versions of the same message, then the numbers have
-			different plural categories.</p>
-		<p>This happens even if nouns are
-			invariant; even if all English nouns were invariant (like
-			&ldquo;sheep&rdquo;), English would still require 2 plural categories
-			because of subject-verb agreement, and pronoun agreement. For
-			example:</p>
+		<p>The plural categories are used to format messages with numeric
+			placeholders, expressed as decimal numbers. The fundamental rule for
+			determining plural categories is the existence of minimal pairs:
+			whenever two different numbers may require different versions of the
+			same message, then the numbers have different plural categories.</p>
+		<p>This happens even if nouns are invariant; even if all English
+			nouns were invariant (like &ldquo;sheep&rdquo;), English would still
+			require 2 plural categories because of subject-verb agreement, and
+			pronoun agreement. For example:</p>
 		<ol>
-			<li>1 sheep <strong>is</strong> here.
-				Do you want to buy <strong>it</strong>?
+			<li>1 sheep <strong>is</strong> here. Do you want to buy <strong>it</strong>?
 			</li>
-			<li>2 sheep <strong>are</strong> here.
-				Do you want to buy <strong>them</strong>?
+			<li>2 sheep <strong>are</strong> here. Do you want to buy <strong>them</strong>?
 			</li>
 		</ol>
 		<p>
 			For more information, see <a
 				href="http://cldr.unicode.org/index/cldr-spec/plural-rules#TOC-Determining-Plural-Categories">Determining-Plural-Categories</a>.
 		</p>
-		<p>English does not have a separate
-			plural category for &ldquo;zero&rdquo;, because it does not require a
-			different message for &ldquo;0&rdquo;. For example, the same message
-			can be used below, with just the numeric placeholder changing.</p>
+		<p>English does not have a separate plural category for
+			&ldquo;zero&rdquo;, because it does not require a different message
+			for &ldquo;0&rdquo;. For example, the same message can be used below,
+			with just the numeric placeholder changing.</p>
 		<ol>
 			<li>
 				<p>You have 3 friends online.</p>
@@ -1751,24 +1754,21 @@ h2,h3,h4,table {
 				<p>You have 0 friends online.</p>
 			</li>
 		</ol>
-		<p>However, across many languages it is
-			commonly more natural to express &quot;0&quot; messages with a
-			negative (&ldquo;None of your friends are online.&rdquo;) and
-			&quot;1&quot; messages also with an alternate form &ldquo;You have a
-			friend online.&rdquo;. Thus pluralized message APIs should also offer
-			the ability to specify at least the 0 and 1 cases explicitly;
-			developers can use that ability whenever these values might occur in
-			a placeholder.</p>
-		<p>
-			This section defines the types of plural
-				forms that exist in a language—namely, the cardinal and ordinal
-			plural forms. Cardinal plural forms express units such as time,
-			currency or distance, used in conjunction with a number expressed in
-			decimal digits (i.e. &quot;2&quot;, not &quot;two&quot;, and not an
-			indefinite number such as &quot;some&quot; or &quot;many&quot;).
-			Ordinal plural forms denote the order of items in a set and are
-			always integers. For example, English has two forms for cardinals:
-		</p>
+		<p>However, across many languages it is commonly more natural to
+			express &quot;0&quot; messages with a negative (&ldquo;None of your
+			friends are online.&rdquo;) and &quot;1&quot; messages also with an
+			alternate form &ldquo;You have a friend online.&rdquo;. Thus
+			pluralized message APIs should also offer the ability to specify at
+			least the 0 and 1 cases explicitly; developers can use that ability
+			whenever these values might occur in a placeholder.</p>
+		<p>This section defines the types of plural forms that exist in a
+			language—namely, the cardinal and ordinal plural forms. Cardinal
+			plural forms express units such as time, currency or distance, used
+			in conjunction with a number expressed in decimal digits (i.e.
+			&quot;2&quot;, not &quot;two&quot;, and not an indefinite number such
+			as &quot;some&quot; or &quot;many&quot;). Ordinal plural forms denote
+			the order of items in a set and are always integers. For example,
+			English has two forms for cardinals:</p>
 		<ul>
 			<li>form &quot;one&quot;: 1 day</li>
 			<li>form &quot;other&quot;: 0 days, 2 days, 10 days, 0.3 days</li>
@@ -1811,9 +1811,9 @@ h2,h3,h4,table {
 			else: 0, 5-20, 25-30, 35-40, …, decimals). Russian does not need
 			additional separate forms for zero, two, or many, so these are not
 			defined.</p>
-		<p>Plural categories may also differ according to
-			the decimals. For example, here are some of the behaviors exhibited
-			by different languages:</p>
+		<p>Plural categories may also differ according to the decimals.
+			For example, here are some of the behaviors exhibited by different
+			languages:</p>
 		<div dir="ltr">
 			<table>
 				<tr>
@@ -1823,36 +1823,35 @@ h2,h3,h4,table {
 				</tr>
 				<tr>
 					<td>Base</td>
-					<td>The fractions are ignored; the category is
-						the same as the category of the integer.</td>
+					<td>The fractions are ignored; the category is the same as the
+						category of the integer.</td>
 					<td>1.13 has the same plural category as 1.</td>
 				</tr>
 				<tr>
 					<td>Separate</td>
-					<td>All fractions by value are in one category
-						(typically &lsquo;other&rsquo; = &lsquo;plural&rsquo;).</td>
-					<td>1.01 gets the same class as 9;<br>1.00
-						gets the same category as 1.
+					<td>All fractions by value are in one category (typically
+						&lsquo;other&rsquo; = &lsquo;plural&rsquo;).</td>
+					<td>1.01 gets the same class as 9;<br>1.00 gets the same
+						category as 1.
 					</td>
 				</tr>
 				<tr>
 					<td>Visible</td>
-					<td>All visible fractions are in one category
-						(typically &lsquo;other&rsquo; = &lsquo;plural).</td>
+					<td>All visible fractions are in one category (typically
+						&lsquo;other&rsquo; = &lsquo;plural).</td>
 					<td>1.00, 1.01, 3.5 all get the same category.</td>
 				</tr>
 				<tr>
 					<td>Digits</td>
-					<td>The visible fraction determines the
-						category.</td>
+					<td>The visible fraction determines the category.</td>
 					<td>1.13 gets the same class as 13.</td>
 				</tr>
 			</table>
 		</div>
 		<br>
-		<p>There are also variants of the above: for
-			example, short fractions may have the Digits behavior, but longer
-			fractions may just look at the final digit of the fraction.</p>
+		<p>There are also variants of the above: for example, short
+			fractions may have the Digits behavior, but longer fractions may just
+			look at the final digit of the fraction.</p>
 		<h3>
 			5.1 <a name="Plural_rules_syntax" href="#Plural_rules_syntax">Plural
 				rules syntax</a>
@@ -1861,16 +1860,14 @@ h2,h3,h4,table {
 			The xml value for each pluralRule is a <em>condition</em> with a
 			boolean result that specifies whether that rule (i.e. that plural
 			form) applies to a given numeric value <em>n</em>, where n can be
-			expressed as a decimal fraction. Clients
-				of CLDR may express all the rules for a locale using the following
-				syntax:
+			expressed as a decimal fraction. Clients of CLDR may express all the
+			rules for a locale using the following syntax:
 		</p>
 		<pre>rules         = rule (';' rule)*<br>rule          = keyword ':' condition samples<br>              | 'other' ':' samples<br>keyword       = [a-z]+<br>keyword       = [a-z]+</pre>
-		<p>In CLDR, the keyword is the attribute
-			value of 'count'. Those values in CLDR are currently limited to just
-		  what is in the DTD, but clients may support other values.</p>
-		<p>The conditions themselves have the
-			following syntax.</p>
+		<p>In CLDR, the keyword is the attribute value of 'count'. Those
+			values in CLDR are currently limited to just what is in the DTD, but
+			clients may support other values.</p>
+		<p>The conditions themselves have the following syntax.</p>
 		<pre>condition     = <span class="changed"></span>and_condition ('or' and_condition)*
 samples       = ('@integer' sampleList)?<br>                ('@decimal' sampleList)?                
 and_condition = relation ('and' relation)*<br>relation      = is_relation | in_relation | within_relation <br>is_relation   = expr 'is' ('not')? value<br>in_relation   = expr (('not')? 'in' | '=' | '!=') range_list<br>within_relation = expr ('not')? 'within' range_list<br>expr          = operand (('mod' | '%') value)?
@@ -1878,11 +1875,14 @@ operand       = 'n' | 'i' | 'f' | 't' | 'v' | 'w'<br>range_list    = (range |
 sampleList    = sampleRange (',' sampleRange)* (',' ('…'|'...'))?
 sampleRange   = decimalValue '~' decimalValue
 value         = digit+
-decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9<br></pre>
+decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|9<br>
+		</pre>
 		<ul>
 			<li>Whitespace (defined as Unicode <a
 				href="http://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5Cp%7BPattern_White_Space%7D">Pattern_White_Space</a>)
-				can occur between or around any of the above tokens, with the exception of the tokens in value, digit, and decimalValue.</li>
+				can occur between or around any of the above tokens, with the
+				exception of the tokens in value, digit, and decimalValue.
+			</li>
 			<li>In the syntax, <strong>and</strong> binds more tightly than
 				<strong>or</strong>. So <strong>X or Y and Z</strong> is interpreted
 				as <strong>(X or (Y and Z))</strong>.
@@ -1890,18 +1890,19 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			<li>Each plural rule must be written to be self-contained, and
 				not depend on the ordering. Thus rules must be mutually exclusive;
 				for a given numeric value, only one rule can apply (i.e., the
-				condition can only be true for one of the pluralRule elements. 
-				Each keyword can have at most one condition.
-					The 'other' keyword must have an empty condition: it is only
-					present for samples.</li>
-			<li>The samples should be included, since they are used by client software for samples and determining whether the keyword has finite values or not.</li>
-			<li>The 'other' keyword must have no condition, and all other keywords must have a condition.</li>
+				condition can only be true for one of the pluralRule elements. Each
+				keyword can have at most one condition. The 'other' keyword must
+				have an empty condition: it is only present for samples.</li>
+			<li>The samples should be included, since they are used by
+				client software for samples and determining whether the keyword has
+				finite values or not.</li>
+			<li>The 'other' keyword must have no condition, and all other
+				keywords must have a condition.</li>
 		</ul>
 		<h4>
 			<a name="Operands" href="#Operands">5.1.1 Operands</a>
-</h4>
-		<p>The operands have the following
-			meaning:</p>
+		</h4>
+		<p>The operands have the following meaning:</p>
 		<div dir="ltr">
 			<table>
 				<tr>
@@ -1910,8 +1911,8 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 				</tr>
 				<tr>
 					<td>n</td>
-					<td>absolute value of the source number
-						(integer and decimals).</td>
+					<td>absolute value of the source number (integer and
+						decimals).</td>
 				</tr>
 				<tr>
 					<td>i</td>
@@ -1931,14 +1932,14 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 				</tr>
 				<tr>
 					<td>f</td>
-					<td>visible fractional digits in n, <em>with</em>
-						trailing zeros.
+					<td>visible fractional digits in n, <em>with</em> trailing
+						zeros.
 					</td>
 				</tr>
 				<tr>
 					<td>t</td>
-					<td>visible fractional digits in n, <em>without</em>
-						trailing zeros.
+					<td>visible fractional digits in n, <em>without</em> trailing
+						zeros.
 					</td>
 				</tr>
 			</table>
@@ -2034,30 +2035,29 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			range, while <strong>within </strong>includes all values.
 		</p>
 		<p>
-			The relations
-			can take comma-separated lists, such as: <strong>n in
-				3,5,7..15</strong>.
+			The relations can take comma-separated lists, such as: <strong>n
+				in 3,5,7..15</strong>.
 		</p>
 		<p dir="ltr">
-			The modulus (% or<strong> mod</strong>)
-			 is a remainder operation as defined in Java; for example, where <strong>n</strong>
-			= 4.3 the result of <strong>n mod 3</strong> is 1.3.</p>
-		<p>The values of relations are defined
-			according to the operand as follows. Importantly, the results may
-			depend on the decimals in the source, including trailing zeros.</p>
+			The modulus (% or<strong> mod</strong>) is a remainder operation as
+			defined in Java; for example, where <strong>n</strong> = 4.3 the
+			result of <strong>n mod 3</strong> is 1.3.
+		</p>
+		<p>The values of relations are defined according to the operand as
+			follows. Importantly, the results may depend on the decimals in the
+			source, including trailing zeros.</p>
 		<ol>
-			<li>Let the base value BV be computed from absolute
-				value of the original source number according to the operand.</li>
+			<li>Let the base value BV be computed from absolute value of the
+				original source number according to the operand.</li>
 			<li>Let R be false when the comparison contains
 				&lsquo;not&rsquo;.</li>
 			<li>Let R be !R if &nbsp;the comparison contains
 				&lsquo;within&rsquo; and the source number is not an integer.</li>
-			<li>If there is a module value MV, let BV be BV -
-				floor(BV/MV).</li>
-			<li>Let CR be the list of comparison ranges,
-				normalized that overlapping ranges are merged. Single values in the
-				rule are represented by a range with identical &lt;start<sub>i</sub>,
-				end<sub>i</sub>&gt; values.
+			<li>If there is a module value MV, let BV be BV - floor(BV/MV).</li>
+			<li>Let CR be the list of comparison ranges, normalized that
+				overlapping ranges are merged. Single values in the rule are
+				represented by a range with identical &lt;start<sub>i</sub>, end<sub>i</sub>&gt;
+				values.
 			</li>
 			<li>Iterate through CR:
 				<ul>
@@ -2067,60 +2067,54 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			</li>
 			<li>Otherwise return !R.</li>
 		</ol>
-<p></p>
-		<p>
-			Example Rules:
-		</p>
+		<p></p>
+		<p>Example Rules:</p>
 		<table border="1">
 			<tr>
 				<th>Rules</th>
 				<th>Comments</th>
 			</tr>
 			<tr>
-				<td nowrap>one: n = 1<br>
-					few: n = 2..4
+				<td nowrap>one: n = 1<br> few: n = 2..4
 				</td>
 				<td>This defines two rules, for 'one' and 'few'. The condition
-					for 'one' is &quot;n = 1&quot; which
-					means that the number must be equal to 1 for this condition to
-					pass. The condition for 'few' is &quot;n =
-					2..4&quot; which means that the number must be between 2 and 4
-					inclusive for this condition to pass. All other numbers are
-					assigned the keyword 'other' by the default rule.
-				</td>
+					for 'one' is &quot;n = 1&quot; which means that the number must be
+					equal to 1 for this condition to pass. The condition for 'few' is
+					&quot;n = 2..4&quot; which means that the number must be between 2
+					and 4 inclusive for this condition to pass. All other numbers are
+					assigned the keyword 'other' by the default rule.</td>
 			</tr>
 			<tr>
-				<td nowrap>zero: n = 0 or n != 1 and n mod 100 =
-					1..19<br> one: n = 1
+				<td nowrap>zero: n = 0 or n != 1 and n mod 100 = 1..19<br>
+					one: n = 1
 				</td>
 				<td>Each rule must not overlap with other rules. Also note that
 					a modulus is applied to n in the last rule, thus its condition
 					holds for 119, 219, 319...</td>
 			</tr>
 			<tr>
-				<td nowrap>one: n = 1<br>
-					few: n mod 10 = 2..4 and n mod 100 != 12..14
+				<td nowrap>one: n = 1<br> few: n mod 10 = 2..4 and n mod
+					100 != 12..14
 				</td>
 				<td>This illustrates conjunction and negation. The condition
 					for 'few' has two parts, both of which must be met: &quot;n mod 10
-					= 2..4&quot; and &quot;n mod 100 != 12..14&quot;. The first part applies a
-					modulus to n before the test as in the previous example. The second
-					part applies a different modulus and also uses negation, thus it
-					matches all numbers <em>not</em> in 12, 13, 14, 112, 113, 114, 212,
-					213, 214...
+					= 2..4&quot; and &quot;n mod 100 != 12..14&quot;. The first part
+					applies a modulus to n before the test as in the previous example.
+					The second part applies a different modulus and also uses negation,
+					thus it matches all numbers <em>not</em> in 12, 13, 14, 112, 113,
+					114, 212, 213, 214...
 				</td>
 			</tr>
 		</table>
 		<h4>
 			<a name="Samples" href="#Samples">5.1.3 Samples</a>
 		</h4>
-		<p>Samples are provided if sample indicator
-			(@integer or @decimal) is present on any rule. (CLDR always provides
-			samples.)</p>
-		<p>Where samples are provided, the absence of one
-			of the sample indicators indicates that no numeric values can
-			satisify that rule. For example, the rule &quot;i = 1 and v = 0&quot;
-			can only have integer samples, so @decimal must not occur.</p>
+		<p>Samples are provided if sample indicator (@integer or @decimal)
+			is present on any rule. (CLDR always provides samples.)</p>
+		<p>Where samples are provided, the absence of one of the sample
+			indicators indicates that no numeric values can satisify that rule.
+			For example, the rule &quot;i = 1 and v = 0&quot; can only have
+			integer samples, so @decimal must not occur.</p>
 		<p>
 			The sampleRanges have a special notation: <strong>start</strong>~<strong>end</strong>.
 			The <strong>start</strong> and <strong>end</strong> values must have
@@ -2129,10 +2123,10 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 				v ≤ end</strong>, and where <strong>v</strong> has the same number of decimal
 			places as <strong>start</strong> and <strong>end</strong>.
 		</p>
-		<p>Samples must indicate whether they are infinite
-			or not. The '…' marker must be present if and only infinitely many
-			values (integer or decimal) can satisfy the rule. If a set is not
-			infinite, it must list all the possible values.</p>
+		<p>Samples must indicate whether they are infinite or not. The '…'
+			marker must be present if and only infinitely many values (integer or
+			decimal) can satisfy the rule. If a set is not infinite, it must list
+			all the possible values.</p>
 		<table border="1">
 			<tr>
 				<th>Rules</th>
@@ -2148,15 +2142,14 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			</tr>
 			<tr>
 				<td nowrap>@decimal 1.3~1.5, 1.03~1.05, …</td>
-				<td>Infinite set: 1.3, 1.4, 1.5, 1.03, 1.04,
-					1.05, …</td>
+				<td>Infinite set: 1.3, 1.4, 1.5, 1.03, 1.04, 1.05, …</td>
 			</tr>
 		</table>
 		<br>
-		<p>In determining whether a set of samples is
-			infinite, leading zero integer digits and trailing zero decimals are
-			not significant. Thus &quot;i = 1 and f = 0&quot; is satisfied by 01,
-			1, 1.0, 1.00, 1.000, etc. but is still considered finite.</p>
+		<p>In determining whether a set of samples is infinite, leading
+			zero integer digits and trailing zero decimals are not significant.
+			Thus &quot;i = 1 and f = 0&quot; is satisfied by 01, 1, 1.0, 1.00,
+			1.000, etc. but is still considered finite.</p>
 		<h4>
 			<a name="Using_cardinals" href="#Using_cardinals">5.1.4 Using
 				Cardinals</a>
@@ -2183,25 +2176,39 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 				href="tr35.html#Unit_Elements">Unit Elements</a></li>
 		</ul>
 		<h3>
-			5.2 <a
-				name="Plural_Ranges" href="#Plural_Ranges">Plural Ranges</a>
+			5.2 <a name="Plural_Ranges" href="#Plural_Ranges">Plural Ranges</a>
 		</h3>
-        
-<p class="dtd">&lt;!ELEMENT pluralRanges (pluralRange*) &gt;<br>
-  &lt;!ATTLIST pluralRanges locales NMTOKENS #REQUIRED &gt;<br>
-  <br>
-  &lt;!ELEMENT pluralRange ( #PCDATA ) &gt;<br>
-  &lt;!ATTLIST pluralRange start (zero|one|two|few|many|other) #IMPLIED &gt;<br>
-  &lt;!ATTLIST pluralRange end (zero|one|two|few|many|other) #IMPLIED &gt;<br>
-  &lt;!ATTLIST pluralRange result (zero|one|two|few|many|other) #REQUIRED &gt;</p>
 
-<p>Often ranges of numbers are presented to users, such as in “Length: 3.2-4.5 centimeters”. This means any length from 3.2 cm to 4.5 cm, inclusive. However, different languages have different conventions for the pluralization given to a range: should it be “0-1 centimeter” or “0-1 centimeters”? This becomes much more complicated for languages that have many different plural forms, such as Russian or Arabic.</p>
-<p>The <strong>pluralRanges</strong> element provides information allowing an implementation to derive the plural category of a range from the plural categories of the <em>start</em> and <em>end</em> values. If there is no value for a <em>&lt;start,end&gt;</em> pair, the default result is <em>other</em>. However, where that result has been verified for a given language, it is included in the CLDR data.</p>
-<h2>
-	  6 <a name="Rule-Based_Number_Formatting"
+		<p class="dtd">
+			&lt;!ELEMENT pluralRanges (pluralRange*) &gt;<br> &lt;!ATTLIST
+			pluralRanges locales NMTOKENS #REQUIRED &gt;<br> <br>
+			&lt;!ELEMENT pluralRange ( #PCDATA ) &gt;<br> &lt;!ATTLIST
+			pluralRange start (zero|one|two|few|many|other) #IMPLIED &gt;<br>
+			&lt;!ATTLIST pluralRange end (zero|one|two|few|many|other) #IMPLIED
+			&gt;<br> &lt;!ATTLIST pluralRange result
+			(zero|one|two|few|many|other) #REQUIRED &gt;
+		</p>
+
+		<p>Often ranges of numbers are presented to users, such as in
+			“Length: 3.2-4.5 centimeters”. This means any length from 3.2 cm to
+			4.5 cm, inclusive. However, different languages have different
+			conventions for the pluralization given to a range: should it be “0-1
+			centimeter” or “0-1 centimeters”? This becomes much more complicated
+			for languages that have many different plural forms, such as Russian
+			or Arabic.</p>
+		<p>
+			The <strong>pluralRanges</strong> element provides information
+			allowing an implementation to derive the plural category of a range
+			from the plural categories of the <em>start</em> and <em>end</em>
+			values. If there is no value for a <em>&lt;start,end&gt;</em> pair,
+			the default result is <em>other</em>. However, where that result has
+			been verified for a given language, it is included in the CLDR data.
+		</p>
+		<h2>
+			6 <a name="Rule-Based_Number_Formatting"
 				href="#Rule-Based_Number_Formatting">Rule-Based Number
-		  Formatting</a>
-</h2>
+				Formatting</a>
+		</h2>
 		<p class="dtd">
 			&lt;!ELEMENT rbnf ( alias | rulesetGrouping*) &gt;<br> <br>
 			&lt;!ELEMENT rulesetGrouping ( alias | ruleset*) &gt;<br>
@@ -2214,34 +2221,86 @@ decimalValue  = value ('.' value)?<br>digit         = 0|1|2|3|4|5|6|7|8|
 			#IMPLIED &gt;<br> &lt;!ATTLIST rbnfrule decexp CDATA #IMPLIED
 			&gt;
 		</p>
+		<p>The rule-based number format (RBNF) encapsulates a set of rules
+			for mapping binary numbers to and from a readable representation.
+			They are typically used for spelling out numbers, but can also be
+			used for other number systems like roman numerals, Chinese numerals,
+			or for ordinal numbers (1st, 2nd, 3rd,...).</p>
+		<p>Where, however, the CLDR plurals or ordinals can be used, their
+			usage is recommended in preference to the RBNF data. First, the RBNF
+			data is not completely fleshed out over all languages that otherwise
+			have modern coverage. Secondly, the alternate forms are neither
+			complete, nor useful without additional information. For example, for
+			German there is spellout-cardinal-masculine, and
+			spellout-cardinal-feminine. But a complete solution would have all
+			genders (masculine/feminine/neuter), all cases (nominative,
+			accusative, dative, genitive), plus context (with strong or weak
+			determiner or none). Moreover, even for the alternate forms that do
+			exist, CLDR does not supply any data for when to use one vs another
+			(eg, when to use spellout-cardinal-masculine vs
+			spellout-cardinal-feminine). So these data are inappropriate for
+			general purpose software.</p>
 		<p>
-			The rule-based number format (RBNF) encapsulates a set of rules for
-			mapping binary numbers to and from a readable representation. They
-			are typically used for spelling out numbers, but can also be used for
-			other number systems like roman numerals, Chinese numerals, or for
-		ordinal numbers (1st, 2nd, 3rd,...). </p>
-	  <p>Where, however, the CLDR plurals or ordinals can be used, their usage is recommended in preference to the RBNF data. First,  the RBNF data is not completely fleshed out over all languages that otherwise have modern coverage. Secondly, the alternate forms are neither complete, nor useful without additional information. For example, for German there is spellout-cardinal-masculine, and spellout-cardinal-feminine. But a complete solution would have all genders (masculine/feminine/neuter), all cases (nominative, accusative, dative, genitive), plus  context (with strong or weak determiner or none). Moreover, even for the alternate forms that do exist, CLDR does not supply any data for when to use one vs another (eg, when to use spellout-cardinal-masculine vs spellout-cardinal-feminine). So these data are inappropriate for  general purpose software.</p>
-<p>There are 4 common spellout rules. Some languages may provide more than these 4 types:<br>
-    </p>
-    <ul>
-      <li><strong>numbering: </strong>This is the default used when there is no context for the number. For many languages, this may also be used for enumeration of objects, like used when pronouncing "table number one" and "table number two". It can also be used for pronouncing a math equation, like "2 - 3 = -1".</li>
-      <li><strong>numbering-year: </strong>This is used for cases where years are pronounced or written a certain way. An example in English is the year 1999, which comes out as "nineteen ninety-nine" instead of the numbering value "one thousand nine hundred ninety-nine". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.</li>
-      <li><strong>cardinal: </strong>This is used when providing the quantity of the number of objects. For many languages, there may not be a default cardinal type. Many languages require the notion of the gender and other grammatical properties so that the number and the objects being referenced are in grammatical agreement. An example of its usage is "one e-mail", "two people" or "three kilometers". Some languages may not have dedicated words for 0 or negative numbers for cardinals. In those cases, the words from the numbering type can be reused.</li>
-      <li><strong>ordinal: </strong>This is used when providing the order of the number of objects. For many languages, there may not be a default ordinal type. Many languages also require the notion of the gender for ordinal so that the ordinal number and the objects being referenced are in grammatical agreement. An example of its usage is "first place", "second e-mail" or "third house on the right". The rules for this type have undefined behavior for non-integer numbers, and values less than 1.</li>
-    </ul>
-    <p>In addition to the spellout rules, there are also a numbering system rules. Even though they may be derived from a specific culture, they are typically not translated and the rules are in <strong>root</strong>. An example of these rules are the Roman numerals where the value 8 comes out as VIII.<br>
-    </p>
-    <p>With regards to the number range supported for all these number types, the largest possible number range tries to be supported, but some languages may not have words for large numbers. For example, the old Roman numbering system can't support the value 5000 and beyond. For those unsupported cases, the default number format from CLDR is used.<br>
-    </p>
-    <p>Any rules marked as <strong>private</strong> should never be referenced externally. Frequently they only support a subrange of numbers that are used in the public rules.<br>
-    </p>
-		<p>The syntax used in the CLDR
-		  representation of rules is intended to be simply a transcription of
-		  ICU based RBNF rules into an XML compatible syntax. The rules are
-		  fairly sophisticated; for details see <i>Rule-Based Number
-		    Formatter</i> [<a href="tr35.html#RBNF">RBNF</a>].
-	    </p>
-    <p class="dtd">&lt;ruleSetGrouping&gt;</p>
+			There are 4 common spellout rules. Some languages may provide more
+			than these 4 types:<br>
+		</p>
+		<ul>
+			<li><strong>numbering: </strong>This is the default used when
+				there is no context for the number. For many languages, this may
+				also be used for enumeration of objects, like used when pronouncing
+				"table number one" and "table number two". It can also be used for
+				pronouncing a math equation, like "2 - 3 = -1".</li>
+			<li><strong>numbering-year: </strong>This is used for cases
+				where years are pronounced or written a certain way. An example in
+				English is the year 1999, which comes out as "nineteen ninety-nine"
+				instead of the numbering value "one thousand nine hundred
+				ninety-nine". The rules for this type have undefined behavior for
+				non-integer numbers, and values less than 1.</li>
+			<li><strong>cardinal: </strong>This is used when providing the
+				quantity of the number of objects. For many languages, there may not
+				be a default cardinal type. Many languages require the notion of the
+				gender and other grammatical properties so that the number and the
+				objects being referenced are in grammatical agreement. An example of
+				its usage is "one e-mail", "two people" or "three kilometers". Some
+				languages may not have dedicated words for 0 or negative numbers for
+				cardinals. In those cases, the words from the numbering type can be
+				reused.</li>
+			<li><strong>ordinal: </strong>This is used when providing the
+				order of the number of objects. For many languages, there may not be
+				a default ordinal type. Many languages also require the notion of
+				the gender for ordinal so that the ordinal number and the objects
+				being referenced are in grammatical agreement. An example of its
+				usage is "first place", "second e-mail" or "third house on the
+				right". The rules for this type have undefined behavior for
+				non-integer numbers, and values less than 1.</li>
+		</ul>
+		<p>
+			In addition to the spellout rules, there are also a numbering system
+			rules. Even though they may be derived from a specific culture, they
+			are typically not translated and the rules are in <strong>root</strong>.
+			An example of these rules are the Roman numerals where the value 8
+			comes out as VIII.<br>
+		</p>
+		<p>
+			With regards to the number range supported for all these number
+			types, the largest possible number range tries to be supported, but
+			some languages may not have words for large numbers. For example, the
+			old Roman numbering system can't support the value 5000 and beyond.
+			For those unsupported cases, the default number format from CLDR is
+			used.<br>
+		</p>
+		<p>
+			Any rules marked as <strong>private</strong> should never be
+			referenced externally. Frequently they only support a subrange of
+			numbers that are used in the public rules.<br>
+		</p>
+		<p>
+			The syntax used in the CLDR representation of rules is intended to be
+			simply a transcription of ICU based RBNF rules into an XML compatible
+			syntax. The rules are fairly sophisticated; for details see <i>Rule-Based
+				Number Formatter</i> [<a href="tr35.html#RBNF">RBNF</a>].
+		</p>
+		<p class="dtd">&lt;ruleSetGrouping&gt;</p>
 		<p>Used to group rules into functional sets for use with ICU.
 			Currently, the valid types of rule set groupings are
 			&quot;SpelloutRules&quot;, &quot;OrdinalRules&quot;, and

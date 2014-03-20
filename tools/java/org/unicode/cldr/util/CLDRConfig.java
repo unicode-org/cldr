@@ -467,4 +467,30 @@ public class CLDRConfig extends Properties {
         return name.startsWith(".") || (name.startsWith("#")); // Skip:  .svn, .BACKUP,  #backup# files.
     }
 
+    /**
+     * Get the value of the debug setting for the calling class; assuming that no debugging is wanted if the property
+     * value cannot be found
+     * @param callingClass
+     * @return
+     * @see {@link #getDebugSettingsFor(Class, boolean)}
+     */
+    public boolean getDebugSettingsFor(Class<?> callingClass) {
+        return getDebugSettingsFor(callingClass, false);
+    }
+    
+    /**
+     * Get the debug settings (whether debugging is enabled for the calling class; This will look for a property corresponding 
+     * to the canonical classname +".debug"; if that property cannot be found, the default value will be returned.
+     * @param callingClass
+     * @param defaultValue
+     * @return
+     */
+    public boolean getDebugSettingsFor(Class<?> callingClass, boolean defaultValue) {
+        // avoid NPE
+        if (callingClass==null) {
+            return defaultValue;
+        }
+       return getProperty(callingClass.getCanonicalName()+".debug", defaultValue);
+    }
+   
 }

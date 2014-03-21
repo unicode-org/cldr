@@ -8,6 +8,7 @@ import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
@@ -19,6 +20,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser;
@@ -34,15 +36,25 @@ public class CheckHtmlFiles {
     final static Options myOptions = new Options();
     final static Writer LOG = new OutputStreamWriter(System.out);
     static Pattern WELLFORMED_HEADER = Pattern.compile("\\s*(\\d+(\\.\\d+)*\\s*).*");
-    static Pattern SUPPRESS_SECTION_NUMBER = Pattern.compile("(Annex [A-Z]: .*)|Migration|References|Acknowledgments|Modifications|(Revision \\d+)");
-    static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+");
+    static Pattern SUPPRESS_SECTION_NUMBER = Pattern.compile(
+        "(Annex [A-Z]: .*)" +
+        "(Appendix [A-Z]: .*)" +
+        "|Migration( Issues)?" +
+        "|Step \\d+.*" +
+        "|Example \\d+.*" +
+        "|D\\d+\\.\\s.*" +
+        "|References" +
+        "|Acknowledge?ments" +
+        "|Modifications" +
+        "|(Revision \\d+\\.?)");
+    static Pattern SUPPRESS_REVISION = Pattern.compile("Revision \\d+\\.?");
     static Pattern SPACES = Pattern.compile("\\s+");
 
     enum MyOptions {
 //        old(".*", "/Users/markdavis/Google Drive/Backup-2012-10-09/Documents/indigo/cldr-archive/cldr-22.1/specs/ldml/tr35\\.html", "source data (regex)"),
-        target(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex)"),
+        target(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "target data (regex); ucd for Unicode docs."),
         verbose(null, null, "verbose debugging messages"),
-//        contents(".*", CldrUtility.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
+//        contents(".*", CLDRPaths.BASE_DIRECTORY + "specs/ldml/tr35(-.*)?\\.html", "generate contents"),
         // /cldr-archive
         ;
 
@@ -65,15 +77,19 @@ public class CheckHtmlFiles {
         myOptions.parse(MyOptions.target, args, true);
         verbose = MyOptions.verbose.option.doesOccur();
 
-//        if (!MyOptions.target.option.doesOccur()) { // contents
-//            Data target = new Data().getSentences(MyOptions.contents.option.getValue());
-//            return;
-//        }
+        String targetString = MyOptions.target.option.getValue();
+        if (targetString.equalsIgnoreCase("ucd")) {
+            targetString = CLDRPaths.BASE_DIRECTORY + "../unicode-draft/reports/tr(\\d+)/tr(\\d+).html";
+        }
+        Data target = new Data().getSentences(targetString);
+        if (target.count == 0) {
+            throw new IllegalArgumentException("No files matched with " + targetString);
+        }
 //        Data source = new Data().getSentences(MyOptions.old.option.getValue());
 //        String file = MyOptions.target.option.getValue();
-
+//
 //        Data target = new Data().getSentences(file);
-
+//
 //        int missingCount = 0, extraCount = 0;
 //        int line = 0;
 //        for (String sentence : source) {
@@ -252,7 +268,7 @@ public class CheckHtmlFiles {
         }
 
         public void addText(String toAppend) {
-            text += toAppend;
+            text += TransliteratorUtilities.fromHTML.transform(toAppend);
             text = SPACES.matcher(text).replaceAll(" ").trim(); // clean up all spaces; make more efficient later
         }
 
@@ -311,8 +327,10 @@ public class CheckHtmlFiles {
         Levels lastBuildLevel;
         private Set<String> errors = new LinkedHashSet<String>();
         Output<Boolean> missingLevel = new Output<Boolean>(false);
+        private String fileName;
 
-        public HeadingInfoList(int h2_START) {
+        public HeadingInfoList(String fileName, int h2_START) {
+            this.fileName = fileName;
             lastBuildLevel = new Levels(h2_START);
         }
 
@@ -415,13 +433,13 @@ public class CheckHtmlFiles {
                 System.out.println("\n*ERRORS*\n");
                 for (String error : errors) {
                     if (error.startsWith("FATAL:")) {
-                        System.out.println(error);
+                        System.out.println(fileName + "\t" + error);
                         fatalCount++;
                     }
                 }
                 if (fatalCount == 0) {
                     for (String error : errors) {
-                        System.out.println(error);
+                        System.out.println(fileName + "\t" + error);
                     }
                 }
             }
@@ -436,19 +454,36 @@ public class CheckHtmlFiles {
     static class Data implements Iterable<String> {
         List<String> sentences = new ArrayList<String>();
         Counter<String> hashedSentences = new Counter<String>();
+        int count = 0;
 
         public Data getSentences(String fileRegex) throws IOException {
-            File sourceFile = new File(fileRegex);
-            File sourceDirectory = sourceFile.getParentFile();
+            int firstParen = fileRegex.indexOf('(');
+            int lastSlash = fileRegex.lastIndexOf('/', firstParen);
+            String base = fileRegex.substring(0, lastSlash);
+            String regex = fileRegex.substring(lastSlash+1);
+            
+            //File sourceFile = new File(fileRegex);
+            File sourceDirectory = new File(base);
             if (!sourceDirectory.exists()) {
                 throw new IllegalArgumentException("Can't find " + sourceDirectory);
             }
+            String canonicalBase = sourceDirectory.getCanonicalPath();
+            Matcher m = Pattern.compile(canonicalBase + "/" + regex).matcher("");
+            System.out.println("Matcher: " + m);
 
-            int count = 0;
-            Matcher m = Pattern.compile(sourceFile.getName()).matcher("");
+            return getSentences(sourceDirectory, m); 
+        }
+        
+        public Data getSentences(File sourceDirectory, Matcher m) throws IOException {
             Matcher wsMatcher = WHITESPACE.matcher("");
+            //System.out.println("Processing:\t" + sourceDirectory);
             for (File file : sourceDirectory.listFiles()) {
-                String fileString = file.getName().toString();
+                if (file.isDirectory()) {
+                    getSentences(file, m);
+                    continue;
+                }
+                String fileString = file.getCanonicalFile().toString();
+                File fileCanonical = new File(fileString);
                 if (!m.reset(fileString).matches()) {
                     if (verbose) {
                         System.out.println("Skipping: " + RegexUtilities.showMismatch(m, fileString)
@@ -461,12 +496,12 @@ public class CheckHtmlFiles {
 
                 System.out.println("\nProcessing:\t" + sourceDirectory + "/" + fileString + "\n");
 
-                Reader in = new FileReader(new File(sourceDirectory, fileString));
+                Reader in = new FileReader(fileCanonical);
                 SimpleHtmlParser parser = new SimpleHtmlParser().setReader(in);
                 StringBuilder buffer = new StringBuilder();
                 StringBuilder content = new StringBuilder();
                 HeadingInfo heading = new HeadingInfo();
-                HeadingInfoList headingInfoList = new HeadingInfoList(H2_START);
+                HeadingInfoList headingInfoList = new HeadingInfoList(fileCanonical.getName(), H2_START);
                 String contentString;
                 boolean inHeading = false;
                 boolean inPop = false;
@@ -528,7 +563,7 @@ public class CheckHtmlFiles {
                         contentString = wsMatcher.reset(content).replaceAll(" ").replace("&nbsp;", " ");
                         buffer.append(contentString.indexOf('&') >= 0
                             ? TransliteratorUtilities.fromHTML.transform(contentString)
-                            : contentString);
+                                : contentString);
                         if (inHeading) {
                             heading.addText(contentString);
                         }
@@ -563,9 +598,6 @@ public class CheckHtmlFiles {
                 } else {
                     System.out.println("\nFix fatal errors in " + fileString + " before contents can be generated");
                 }
-            }
-            if (count == 0) {
-                throw new IllegalArgumentException("No files matched with " + m.pattern() + " in " + sourceDirectory);
             }
             return this;
         }

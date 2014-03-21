@@ -16,8 +16,22 @@ import="org.unicode.cldr.web.*"
 
 <%
 String sid = request.getParameter("s");
-CookieSession cs;
-if((CookieSession.sm==null)||(cs = CookieSession.retrieve(sid))==null||cs.user==null) {
+// use a variable to store the state whether to redirect
+boolean doRedirectToSurvey=false;
+if (sid==null||sid.isEmpty()) {
+	doRedirectToSurvey=true;
+}
+CookieSession cs=null;
+// avoid retrieving a session with a null session ID
+if (sid!=null) {
+   cs= CookieSession.retrieve(sid);
+}
+if (sid!=null) {
+	doRedirectToSurvey=(CookieSession.sm==null||
+			cs ==null||
+			cs.user==null);
+}
+if (doRedirectToSurvey) {
 	response.sendRedirect(request.getContextPath()+"/survey");
 	return;
 }

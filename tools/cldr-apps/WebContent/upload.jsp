@@ -18,26 +18,21 @@ import="org.unicode.cldr.web.*"
 String sid = request.getParameter("s");
 // use a variable to store the state whether to redirect
 boolean doRedirectToSurvey=false;
-if (sid==null||sid.isEmpty()) {
-	doRedirectToSurvey=true;
-}
 CookieSession cs=null;
-// avoid retrieving a session with a null session ID
-if (sid!=null) {
-   cs= CookieSession.retrieve(sid);
-}
-if (sid!=null) {
-	doRedirectToSurvey=(CookieSession.sm==null||
-			cs ==null||
-			cs.user==null);
+if (sid == null || sid.isEmpty()) {
+	// null SID -> redirect
+	doRedirectToSurvey = true;
+} else {
+	// SID is not null or empty -> retrieve the session
+	cs = CookieSession.retrieve(sid);
+	doRedirectToSurvey = (CookieSession.sm == null ||
+		cs == null ||
+		cs.user == null);
 }
 if (doRedirectToSurvey) {
-	response.sendRedirect(request.getContextPath()+"/survey");
+	response.sendRedirect(request.getContextPath() + "/survey");
 	return;
 }
-
-
-
 %>
 
 <div class='helpHtml'>

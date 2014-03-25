@@ -202,7 +202,8 @@ public class TestAll extends TestGroup {
                 "org.unicode.cldr.unittest.TestScriptMetadata",
                 "org.unicode.cldr.unittest.TestSupplementalInfo",
                 "org.unicode.cldr.unittest.TestTransforms",
-                "org.unicode.cldr.unittest.TestUtilities"
+                "org.unicode.cldr.unittest.TestUtilities",
+                "org.unicode.cldr.unittest.TestCLDRLocaleCoverage"
             },
             "All tests in CLDR");
     }

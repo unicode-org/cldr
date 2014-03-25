@@ -86,6 +86,7 @@ public class VoteResolver<T> {
         bhutan("Bhutan DDC"),
         breton("Office of Breton Lang"),
         cherokee("Cherokee Nation"),
+        cldr("Cldr"),
         georgia_isi("Georgia ISI"),
         gnome("Gnome Foundation"),
         google("Google"),

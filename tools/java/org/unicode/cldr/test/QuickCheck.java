@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
+import org.unicode.cldr.util.VoteResolver.Organization;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DateTimeFormats;
@@ -338,7 +339,8 @@ public class QuickCheck {
         int total = 0;
         int mismatch = 0;
         LanguageTagParser ltp = new LanguageTagParser();
-        for (String locale : StandardCodes.make().getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN))) {
+        Iterable<String> locales=StandardCodes.make().getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN));
+        for (String locale : locales ) {
             if (!ltp.set(locale).getRegion().isEmpty()) {
                 continue;
             }

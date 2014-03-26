@@ -40,13 +40,12 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
+import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.lang.UCharacter;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.util.ULocale;
 
 public class ShowLocaleCoverage {
     private static final double CORE_SIZE 
@@ -157,8 +156,9 @@ public class ShowLocaleCoverage {
     }
 
     static void printData(PrintWriter pw, Set<String> locales, Matcher matcher, boolean useOrgLevel) {
-        Set<String> checkModernLocales = STANDARD_CODES.getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN));
-        Set<String> availableLanguages = new TreeSet(factory.getAvailableLanguages());
+//        Set<String> checkModernLocales = STANDARD_CODES.getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN));
+        Set<String> checkModernLocales=STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr.name(),EnumSet.of(Level.MODERN));
+        Set<String> availableLanguages = new TreeSet<>(factory.getAvailableLanguages());
         availableLanguages.addAll(checkModernLocales);
 
         System.out.println("# Checking: " + availableLanguages);

@@ -23,6 +23,7 @@ import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.VoteResolver.Organization;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
@@ -47,7 +48,8 @@ public class GeneratePluralRanges {
         // add all the items with plural ranges
         Set<String> sorted = new TreeSet<String>(SUPPLEMENTAL.getPluralRangesLocales());
         // add the core locales
-        sorted.addAll(StandardCodes.make().getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN)));
+//        sorted.addAll(StandardCodes.make().getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN)));
+        sorted.addAll(StandardCodes.make().getLocaleCoverageLocales(Organization.cldr.name(),EnumSet.of(Level.MODERN)));
         // add any variant plural forms
         LanguageTagParser ltp = new LanguageTagParser();
         for (String locale : SUPPLEMENTAL.getPluralLocales()) {

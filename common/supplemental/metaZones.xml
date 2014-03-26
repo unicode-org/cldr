@@ -775,6 +775,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Antarctica/Syowa">
 				<usesMetazone mzone="Syowa"/>
 			</timezone>
+			<timezone type="Antarctica/Troll">
+				<usesMetazone mzone="GMT"/>
+			</timezone>
 			<timezone type="Antarctica/Vostok">
 				<usesMetazone mzone="Vostok"/>
 			</timezone>
@@ -1283,7 +1286,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone to="1990-06-30 23:00" mzone="Moscow"/>
 				<usesMetazone to="1994-04-30 21:00" from="1990-06-30 23:00" mzone="Europe_Eastern"/>
 				<usesMetazone to="1997-03-30 01:00" from="1994-04-30 21:00" mzone="Moscow"/>
-				<usesMetazone from="1997-03-30 01:00" mzone="Europe_Eastern"/>
+				<usesMetazone to="2014-03-30 00:00" from="1997-03-30 01:00" mzone="Europe_Eastern"/>
+				<usesMetazone from="2014-03-30 00:00" mzone="Moscow"/>
 			</timezone>
 			<timezone type="Europe/Skopje">
 				<usesMetazone mzone="Europe_Central"/>

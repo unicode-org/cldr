@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7de0000" typeVersion="2013i">
+		<mapTimezones otherVersion="7de0000" typeVersion="2014b">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -62,7 +62,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Mountain Standard Time" territory="001" type="America/Denver"/>
 			<mapZone other="Mountain Standard Time" territory="CA" type="America/Edmonton America/Cambridge_Bay America/Inuvik America/Yellowknife"/>
 			<mapZone other="Mountain Standard Time" territory="MX" type="America/Ojinaga"/>
-			<mapZone other="Mountain Standard Time" territory="US" type="America/Denver America/Boise America/Shiprock"/>
+			<mapZone other="Mountain Standard Time" territory="US" type="America/Denver America/Boise"/>
 			<mapZone other="Mountain Standard Time" territory="ZZ" type="MST7MDT"/>
 
 			<!-- (UTC-06:00) Central America -->
@@ -367,7 +367,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="FLE Standard Time" territory="FI" type="Europe/Helsinki"/>
 			<mapZone other="FLE Standard Time" territory="LT" type="Europe/Vilnius"/>
 			<mapZone other="FLE Standard Time" territory="LV" type="Europe/Riga"/>
-			<mapZone other="FLE Standard Time" territory="UA" type="Europe/Kiev Europe/Simferopol Europe/Uzhgorod Europe/Zaporozhye"/>
+			<mapZone other="FLE Standard Time" territory="UA" type="Europe/Kiev Europe/Uzhgorod Europe/Zaporozhye"/>
 
 			<!-- (UTC+02:00) Istanbul -->
 			<mapZone other="Turkey Standard Time" territory="001" type="Europe/Istanbul"/>
@@ -435,7 +435,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+04:00) Moscow, St. Petersburg, Volgograd -->
 			<mapZone other="Russian Standard Time" territory="001" type="Europe/Moscow"/>
-			<mapZone other="Russian Standard Time" territory="RU" type="Europe/Moscow Europe/Samara Europe/Volgograd"/>
+			<mapZone other="Russian Standard Time" territory="RU" type="Europe/Moscow Europe/Samara Europe/Simferopol Europe/Volgograd"/>
 
 			<!-- (UTC+04:00) Port Louis -->
 			<mapZone other="Mauritius Standard Time" territory="001" type="Indian/Mauritius"/>
@@ -618,7 +618,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+12:00) Auckland, Wellington -->
 			<mapZone other="New Zealand Standard Time" territory="001" type="Pacific/Auckland"/>
 			<mapZone other="New Zealand Standard Time" territory="AQ" type="Antarctica/McMurdo"/>
-			<mapZone other="New Zealand Standard Time" territory="NZ" type="Pacific/Auckland Antarctica/South_Pole"/>
+			<mapZone other="New Zealand Standard Time" territory="NZ" type="Pacific/Auckland"/>
 
 			<!-- (UTC+12:00) Coordinated Universal Time+12 -->
 			<mapZone other="UTC+12" territory="001" type="Etc/GMT-12"/>

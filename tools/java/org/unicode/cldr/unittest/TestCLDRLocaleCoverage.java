@@ -20,27 +20,43 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
      */
     public void TestCLDROrganizationPresence() {
         Set<String> cldrLocales=sc.getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN));
+        assertNotNull("Expected CLDR modern locales not to be null",cldrLocales);
         assertTrue("Expected locales for CLDR, but found none.",cldrLocales!=null && !cldrLocales.isEmpty());
     }
     /**
     * Tests the validity of the file names and of the English localeDisplayName types. 
     * Also tests for aliases outside root
     */
-    public void TestModernCLDRCoverage() {
+    public void TestGoogleSetEquality() {
         Set<String> googleLocales=sc.getLocaleCoverageLocales(Organization.google.name(),EnumSet.of(Level.MODERN));
         Set<String> cldrLocales=sc.getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN));
-        if (cldrLocales!=null) {
-            if (!cldrLocales.equals(googleLocales)) {
-                Set<String> diff1=Sets.difference(cldrLocales, googleLocales);
-                if (!diff1.isEmpty()) {
-                    warnln("The following CLDR modern locales were not also in the Google set:"+diff1.toString());
-                }
-                Set<String> diff2=Sets.difference(googleLocales, cldrLocales);
-                if (!diff2.isEmpty()) {
-                    warnln("The following Google modern locales were not also in the CLDR set:"+diff2.toString());
-                }
+        assertNotNull("Expected CLDR modern locales not to be null", cldrLocales);
+        if (!cldrLocales.equals(googleLocales)) {
+            printDifferences(googleLocales, cldrLocales,"Google","CLDR",false);
+        }
+        assertTrue("Expected Google modern and CLDR locales to contain the same elements, but they did not.", cldrLocales.equals(googleLocales));
+    }
+
+    public void TestAppleSubset() {
+        Set<String> appleLocales=sc.getLocaleCoverageLocales(Organization.apple.name(),EnumSet.of(Level.MODERN));
+        Set<String> cldrLocales=sc.getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN));
+        assertNotNull("Expected CLDR modern locales not to be null", cldrLocales);
+        if (!cldrLocales.equals(appleLocales)) {
+            printDifferences(appleLocales,cldrLocales,"Apple", "CLDR",true);
+        }
+        assertTrue("Expected CLDR modern locales to be a superset of Apple ones, but they were not.", cldrLocales.containsAll(appleLocales));
+    }
+    
+    private void printDifferences(Set<String> firstLoccaleSet, Set<String> secondLocaleSet,String firstSetName,String secondSetName,boolean supersetOnly) {
+        if (!supersetOnly) {
+            Set<String> diff1=Sets.difference(secondLocaleSet, firstLoccaleSet);
+            if (!diff1.isEmpty()) {
+                warnln("The following "+secondSetName+" modern locales were absent from the "+firstSetName+" set:"+diff1.toString());
             }
-            assertTrue("Expected Google and CLDR locales to contain the same elements, but they did not.", cldrLocales.equals(googleLocales)); 
+        }
+        Set<String> diff2=Sets.difference(firstLoccaleSet, secondLocaleSet);
+        if (!diff2.isEmpty()) {
+            warnln("The following "+firstSetName+" modern locales were absent from the "+secondSetName+" set:"+diff2.toString());
         }
     }
 }

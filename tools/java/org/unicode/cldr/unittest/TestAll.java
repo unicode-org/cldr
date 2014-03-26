@@ -132,19 +132,19 @@ public class TestAll extends TestGroup {
             StringBuilder sb = new StringBuilder();
             if (hours > 0) {
                 sb.append(hours);
-                sb.append(" hours ");
+                sb.append(hours>1?" hours ":" hour ");
             }
             if (minutes > 0) {
                 sb.append(minutes);
-                sb.append(" minutes ");
+                sb.append(minutes>1?" minutes ":" minute ");
             }
             if (seconds > 0) {
                 sb.append(seconds);
-                sb.append(" seconds ");
+                sb.append(seconds>1?" seconds ":" second ");
             }
             if (millis > 0) {
                 sb.append(millis);
-                sb.append(" milliseconds");
+                sb.append(millis>1?" milliseconds":" millisecond");
             }
             return sb.toString();
         }

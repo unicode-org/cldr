@@ -1,7 +1,5 @@
 package org.unicode.cldr.tool;
 
-import org.unicode.cldr.util.CldrUtility;
-
 /**
  * Constants specific to CLDR tools.
  * Not to be used with the Survey Tool.
@@ -10,9 +8,10 @@ import org.unicode.cldr.util.CldrUtility;
  *
  */
 public class ToolConstants {
+    public static final boolean BETA = true;
 
-    public static final String CHART_VERSION = "25";
-    public static final String LAST_CHART_VERSION = "24.0"; // must have 1 decimal
-    public static final String CHART_DISPLAY_VERSION = CHART_VERSION + (CldrUtility.BETA ? "β" : "");
+    public static final String CHART_VERSION = "26";
+    public static final String LAST_CHART_VERSION = "25.0"; // must have 1 decimal
+    public static final String CHART_DISPLAY_VERSION = CHART_VERSION + (BETA ? "β" : "");
 
 }

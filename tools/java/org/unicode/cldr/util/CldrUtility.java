@@ -54,6 +54,8 @@ import com.ibm.icu.util.TimeZone;
 
 public class CldrUtility {
 
+    public static final boolean BETA = false;
+
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
     // Constant for "∅∅∅". Indicates that a child locale has no value for a
     // path even though a parent does.

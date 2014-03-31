@@ -11,6 +11,7 @@ import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.CLDRPaths;
 
 import com.ibm.icu.dev.util.BagFormatter;
+import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R3;
 import com.ibm.icu.impl.Utility;
@@ -26,6 +27,10 @@ public class GenerateScriptMetadata {
             Info i = ScriptMetadata.getInfo(script);
             R3<Integer, String, Info> r = Row.of(i.rank, script, i);
             sorted.add(r);
+        }
+        if (ScriptMetadata.errors.size() > 0) {
+            System.err.println(CollectionUtilities.join(ScriptMetadata.errors, "\n\t"));
+            //throw new IllegalArgumentException();
         }
         for (R3<Integer, String, Info> s : sorted) {
             String script = s.get1();

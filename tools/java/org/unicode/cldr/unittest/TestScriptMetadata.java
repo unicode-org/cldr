@@ -56,10 +56,12 @@ public class TestScriptMetadata extends TestFmwkPlus {
         }
     }
 
+    //  && logKnownIssue("Cldrbug:7134","Missing script metadata for Brah")
+    
     public void TestBasic() {
         Info info0 = ScriptMetadata.getInfo(UScript.LATIN);
         if (ScriptMetadata.errors.size() != 0) {
-            if (ScriptMetadata.errors.size() == 1 && logKnownIssue("Cldrbug:7134","Missing script metadata for Brah")) {
+            if (ScriptMetadata.errors.size() == 1) {
                 logln("ScriptMetadata initialization errors\t" + ScriptMetadata.errors.size() + "\t"
                     + CollectionUtilities.join(ScriptMetadata.errors, "\n"));
             } else {

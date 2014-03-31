@@ -9,7 +9,8 @@ import java.util.Map.Entry;
 import com.ibm.icu.text.Transform;
 
 public class EnumLookup<T extends Enum<?>> {
-    private Map<String, T> map = new HashMap<String, T>();
+    private final String name;
+    private final Map<String, T> map = new HashMap<String, T>();
     private Transform<String, String> transform;
 
     public static <T extends Enum<?>> EnumLookup<T> of(Class<T> className) {
@@ -29,7 +30,10 @@ public class EnumLookup<T extends Enum<?>> {
 
     public static <T extends Enum<?>> EnumLookup<T> of(Class<T> className, Transform<String, String> t,
         Map<String, T> extras) {
-        EnumLookup<T> result = new EnumLookup<T>();
+        String name_ = className.getName();
+        int lastDot = name_.lastIndexOf('.');
+        EnumLookup<T> result = new EnumLookup<T>(name_.substring(lastDot + 1));
+
         try {
             result.transform = t = t == null ? CLEAN : t;
             Method m = className.getMethod("values", (Class<?>[]) null);
@@ -72,11 +76,12 @@ public class EnumLookup<T extends Enum<?>> {
     public T forString(String s, boolean allowNull) {
         T result = map.get(transform.transform(s));
         if (!allowNull && result == null) {
-            throw new IllegalArgumentException("Can't find match for " + s + " in " + map.keySet());
+            throw new IllegalArgumentException("Can't find match for «" + s + "» in " + map.keySet() + " in " + name);
         }
         return result;
     }
 
-    private EnumLookup() {
+    private EnumLookup(String name) {
+        this.name = name;
     }
 }

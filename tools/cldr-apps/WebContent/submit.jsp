@@ -19,30 +19,35 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	if (!request.getMethod().equals("POST")) {
+	String sid = request.getParameter("s");
+	if (!request.getMethod().equals("POST") || (sid == null)) {
 		response.sendRedirect(request.getContextPath() + "/upload.jsp");
+		return;
 	}
 
 	CLDRFile cf = null;
 
-	String sid = request.getParameter("s");
-        String email = request.getParameter("email");
+	String email = request.getParameter("email");
 	final CookieSession cs = CookieSession.retrieve(sid);
-	if (cs == null||cs.user==null) {
+	if (cs == null || cs.user == null) {
 		response.sendRedirect(request.getContextPath() + "/survey");
 		return;
 	}
-        UserRegistry.User theirU = cs.sm.reg.get(email.trim());
-        if(theirU==null || (!theirU.equals(cs.user) && !cs.user.isAdminFor(theirU))) {
-		response.sendRedirect(request.getContextPath()+"/upload.jsp?s="+sid+"&email="+email.trim()+"&emailbad=t");
+	UserRegistry.User theirU = cs.sm.reg.get(email.trim());
+	if (theirU == null
+			|| (!theirU.equals(cs.user) && !cs.user.isAdminFor(theirU))) {
+		response.sendRedirect(request.getContextPath()
+				+ "/upload.jsp?s=" + sid + "&email=" + email.trim()
+				+ "&emailbad=t");
 		return;
-        }
+	}
 	boolean isSubmit = true;
-        
-        String ident = "";
-        if(theirU.id!=cs.user.id) {
-            ident="&email="+theirU.email+"&pw="+cs.sm.reg.getPassword(null, theirU.id);
-        }
+
+	String ident = "";
+	if (theirU.id != cs.user.id) {
+		ident = "&email=" + theirU.email + "&pw="
+				+ cs.sm.reg.getPassword(null, theirU.id);
+	}
 
 	boolean doFinal = (request.getParameter("dosubmit") != null);
 

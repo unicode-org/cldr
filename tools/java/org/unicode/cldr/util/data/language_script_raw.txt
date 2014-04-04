@@ -25,6 +25,8 @@ anp	Angika	primary	Deva	Devanagari	"India, Northern Bihar; see code bh"
 aoz	Uab Meto	primary	Latn	Latin	
 ar	Arabic	primary	Arab	Arabic	
 ar	Arabic	secondary	Syrc	Syriac	http://en.wikipedia.org/wiki/Garshuni Garshuni or Karshuni are Arabic language writings that use the Syriac alphabet.
+arc	Official Aramaic	primary	Nbat	Nabataean	
+arc	Official Aramaic	primary	Palm	Palmyrene	
 arc	Imperial Aramaic	secondary	Armi	Imperial Aramaic	
 arn	Araucanian	primary	Latn	Latin	
 arp	Arapaho	primary	Latn	Latin	
@@ -82,6 +84,7 @@ bra	Braj	primary	Deva	Devanagari	http://www.ethnologue.com/14/show_lang_family.a
 brx	Bodo	primary	Deva	Devanagari	
 bs	Bosnian	primary	Cyrl	Cyrillic	
 bs	Bosnian	primary	Latn	Latin	
+bsq	Bassa	secondary	Bass	Bassa Vah	
 bss	Akoose	primary	Latn	Latin	
 bto	Rinconada Bikol	primary	Latn	Latin	
 btv	Bateri	primary	Deva	Devanagari	
@@ -95,7 +98,7 @@ bya	Batak	primary	Latn	Latin
 byn	Blin	primary	Ethi	Ethiopic	
 byv	Medumba	primary	Latn	Latin	
 bze	Jenaama Bozo	primary	Latn	Latin	
-bzx	Kelengaxo Bozo	primary	Latn	Latin	"not written with any script". Other Bozo langs use Latn
+bzx	Kelengaxo Bozo	primary	Latn	Latin	not written with any script. Other Bozo langs use Latn
 ca	Catalan	primary	Latn	Latin	
 cad	Caddo	primary	Latn	Latin	
 car	Carib	primary	Latn	Latin	Population ~10k
@@ -126,8 +129,8 @@ co	Corsican	primary	Latn	Latin
 cop	Coptic	secondary	Arab	Arabic	
 cop	Coptic	secondary	Copt	Coptic	
 cop	Coptic	secondary	Grek	Greek	
-cr	Cree	primary	Cans	Unified Canadian Aboriginal Syllabics	
 cr	Cree	primary	Latn	Latin	
+cr	Cree	primary	Cans	Unified Canadian Aboriginal Syllabics	
 crh	Crimean Turkish	primary	Cyrl	Cyrillic	
 crj	Southern East Cree	primary	Cans	Unified Canadian Aboriginal Syllabics	"Cree dialects, except for those spoken in eastern Quebec and Labrador, are traditionally written using Cree syllabics, a variant of Canadian Aboriginal syllabics, but can be written with the Latin script as well."
 crj	Southern East Cree	secondary	Latn	Latin	
@@ -138,6 +141,7 @@ crm	Moose Cree	primary	Cans	Unified Canadian Aboriginal Syllabics
 cs	Czech	primary	Latn	Latin	
 csb	Kashubian	secondary	Latn	Latin	Moribund
 csw	Swampy Cree	primary	Cans	Unified Canadian Aboriginal Syllabics	
+ctd	Tedim Chin	secondary	Pauc	Pau Cin Hau	
 cu	Church Slavonic	secondary	Cyrl	Cyrillic	
 cv	Chuvash	primary	Cyrl	Cyrillic	
 cy	Welsh	primary	Latn	Latin	
@@ -187,14 +191,15 @@ fan	Fang	primary	Latn	Latin
 ff	Fulah	primary	Latn	Latin	same as code FUL
 fi	Finnish	primary	Latn	Latin	
 fil	Filipino	primary	Latn	Latin	
+fil	Tagalog	primary	Latn	Latin	
+fil	Tagalog	primary	Latn	Latin	
 fil	Filipino	secondary	Tglg	Tagalog	Mainly pre-colonial usage
-fil	Tagalog	primary	Latn	Latin	
-fil	Tagalog	primary	Latn	Latin	
 fit	Tornedalen Finnish	primary	Latn	Latin	
 fj	Fijian	primary	Latn	Latin	
 fo	Faroese	primary	Latn	Latin	
 fon	Fon	primary	Latn	Latin	http://www.geocities.com/fon_is_fun/
 fr	French	primary	Latn	Latin	
+fr	French	secondary	Dupl	Duployan shorthand	
 frr	.	primary	Latn	Latin	
 frs	.	primary	Latn	Latin	
 fur	Friulian	primary	Latn	Latin	
@@ -238,18 +243,21 @@ hai	Haida	primary	Latn	Latin
 haw	Hawaiian	primary	Latn	Latin	
 he	Hebrew	primary	Hebr	Hebrew	
 hi	Hindi	primary	Deva	Devanagari	
+hi	Hindi	secondary	Mahj	Mahajani	
 hil	Hiligaynon	primary	Latn	Latin	
 hit	Hittite	secondary	Xsux	Cuneiform	
 hmd	Large Flowery Miao	primary	Plrd	Pollard	
 hmn	Hmong	primary	Latn	Latin	
-#hmn	Hmong	secondary	Hmng	Pahawh Hmong	
+hmn	Hmong	secondary	Hmng	Pahawh Hmong	
 hnd	Southern Hindko	primary	Arab	Arabic	
 hne	Chhattisgarhi	primary	Deva	Devanagari	
+hnj	Hmong Njua	secondary	Hmng	Pahawh Hmong	
 hnn	Hanunóo	primary	Latn	Latin	
 hnn	Hanunóo	secondary	Hano	Hanunoo	
 ho	Hiri Motu	primary	Latn	Latin	
 hoc	Ho	primary	Deva	Devanagari	
-#hoc	Ho	secondary	Wara	Warang Citi	
+hoc	Ho	secondary	Wara	Warang Citi	
+hoc	Ho	secondary	Wara	Warang Citi	
 hoj	Harauti	primary	Deva	Devanagari	
 hop	Hopi	primary	Latn	Latin	
 hr	Croatian	primary	Latn	Latin	
@@ -300,7 +308,7 @@ kea	Kabuverdianu	primary	Latn	Latin
 kfo	Koro	primary	Latn	Latin	
 kfr	Kachchi	primary	Deva	Devanagari	
 kg	Kongo	primary	Latn	Latin	
-kge	Komering	primary	Latn	Latin	(Not specified in Ethnologue, but seems highly likely)
+kge	Komering	primary	Latn	Latin	"(Not specified in Ethnologue, but seems highly likely)"
 kgp	Kaingang	primary	Latn	Latin	
 kha	Khasi	primary	Latn	Latin	http://en.wikipedia.org/wiki/Khasi_language
 kha	Khasi	secondary	Beng	Bengali	
@@ -310,8 +318,8 @@ kht	Khamti	primary	Mymr	Myanmar
 khw	Khowar	primary	Arab	Arabic	
 ki	Kikuyu	primary	Latn	Latin	
 kj	Kuanyama	primary	Latn	Latin	
-kjg	Khmu	primary	Laoo	Lao	Laoo, Latn or Duota.  Laoo proposed since Laos is principal country where Khmu is spoken.  Also a Keyman keyboard has been created for Khmu which uses Lao script.
-kjg	Khmu	primary	Laoo	Lao
+kjg	Khmu	primary	Laoo	Lao	"Laoo, Latn or Duota.  Laoo proposed since Laos is principal country where Khmu is spoken.  Also a Keyman keyboard has been created for Khmu which uses Lao script."
+kjg	Khmu	primary	Laoo	Lao	
 kjh	Khakas	primary	Cyrl	Cyrillic	
 kk	Kazakh	primary	Arab	Arabic	
 kk	Kazakh	primary	Cyrl	Cyrillic	
@@ -344,6 +352,7 @@ kum	Kumyk	primary	Cyrl	Cyrillic
 kut	Kutenai	primary	Latn	Latin	
 kv	Komi	primary	Cyrl	Cyrillic	
 kv	Komi-Zyrian	primary	Cyrl	Cyrillic	
+kv	Komi	secondary	Perm	Old Permic	
 kvr	Kerinci	primary	Latn	Latin	
 kvx	Parkari Koli	primary	Arab	Arabic	
 kw	Cornish	primary	Latn	Latin	
@@ -353,6 +362,7 @@ ky	Kirghiz	primary	Cyrl	Cyrillic
 ky	Kirghiz	primary	Latn	Latin	
 kyu	Western Kayah	primary	Kali	Kayah Li	
 la	Latin	secondary	Latn	Latin	
+lab	Linear A	primary	Lina	Linear A	
 lad	Ladino	primary	Hebr	Hebrew	
 lag	Langi	primary	Latn	Latin	
 lah	Lahnda	primary	Arab	Arabic	
@@ -363,6 +373,7 @@ lbw	Tolaki	primary	Latn	Latin
 lcp	Western Lawa	primary	Thai	Thai	
 lep	Lepcha	primary	Lepc	Lepcha (Róng)	
 lez	Lezghian	primary	Cyrl	Cyrillic	
+lez	Lezgian	secondary	Aghb	Caucasian Albanian	
 lg	Ganda	primary	Latn	Latin	
 li	Limburgish	primary	Latn	Latin	
 lif	Limbu	primary	Deva	Devanagari	
@@ -370,7 +381,7 @@ lif	Limbu	primary	Limb	Limbu
 lis	Lisu	primary	Lisu	Lisu	15924 code added recently
 lki	Laki	primary	Arab	Arabic	www.amar.org.ir
 lmn	Lambadi	primary	Telu	Telugu	
-lmo	Lombard	primary	Latn	Latin	(Not specified in Ethnologue, but seems highly likely)
+lmo	Lombard	primary	Latn	Latin	"(Not specified in Ethnologue, but seems highly likely)"
 ln	Lingala	primary	Latn	Latin	
 lo	Lao	primary	Laoo	Lao	
 lol	Mongo-Nkundu	primary	Latn	Latin	
@@ -384,7 +395,7 @@ luo	Luo	primary	Latn	Latin
 lus	Lushai	primary	Beng	Bengali	"India (Manipur, Assam); probably use Bengali"
 lut	Lushootseed	secondary	Latn	Latin	Moribund
 luy	Luyia	primary	Latn	Latin	
-luz	Southern Luri	primary	Arab	Arabic	(Not specified in Ethnologue, but seems highly likely)
+luz	Southern Luri	primary	Arab	Arabic	"(Not specified in Ethnologue, but seems highly likely)"
 lv	Latvian	primary	Latn	Latin	
 lwl	Eastern Lawa	primary	Thai	Thai	
 lzh	Phags-Pa	secondary	Phag	Phags-pa	
@@ -392,25 +403,27 @@ mad	Madurese	primary	Latn	Latin
 maf	Mafa	primary	Latn	Latin	
 mag	Magahi	primary	Deva	Devanagari	
 mai	Maithili	primary	Deva	Devanagari	
+mai	Maithili	secondary	Tirh	Tirhuta	
 mak	Makasar	primary	Latn	Latin	
 mak	Makasar	secondary	Bugi	Buginese	
-man	Eastern Maninkakan	primary	Nkoo	N'Ko	http://www.ethnologue.com/show_language.asp?code=emk
 man	Mandingo	primary	Latn	Latin	
+man	Eastern Maninkakan	primary	Nkoo	N'Ko	http://www.ethnologue.com/show_language.asp?code=emk
 mas	Masai	primary	Latn	Latin	
 maz	Central Mazahua	primary	Latn	Latin	
 mdf	Moksha	primary	Cyrl	Cyrillic	
 mdh	Maguindanao	primary	Latn	Latin	
 mdr	Mandar	primary	Latn	Latin	
 mdr	Mandar	secondary	Bugi	Buginese	
-mdt	Mbere	primary	Latn	Latin	"not written with any script". No evidence of this language being written down; were it to be written down, Latn would probably be used.
+mdt	Mbere	primary	Latn	Latin	"not written with any script. No evidence of this language being written down; were it to be written down, Latn would probably be used."
 men	Mende	primary	Latn	Latin	
+men	Mende	secondary	Mend	Mende Kikakui	
 mer	Meru	primary	Latn	Latin	
 mfe	Morisyen	primary	Latn	Latin	
 mg	Malagasy	primary	Latn	Latin	
 mgh	Makhuwa-Meetto	primary	Latn	Latin	
 mgp	Eastern Magar	primary	Deva	Devanagari	Akkha or Deva.  Pandey: 'Devanagari is the regular script for writing Magar'
-mgy	Mbunga	primary	Latn	Latin	"not written with any script". No evidence of this language being written down; were it to be written down, Latn would probably be used.
-mgy	Mbunga	primary	Latn	Latin
+mgy	Mbunga	primary	Latn	Latin	"not written with any script. No evidence of this language being written down; were it to be written down, Latn would probably be used."
+mgy	Mbunga	primary	Latn	Latin	
 mh	Marshallese	primary	Latn	Latin	
 mi	Maori	primary	Latn	Latin	
 mic	Micmac	primary	Latn	Latin	
@@ -429,8 +442,10 @@ moe	Montagnais	primary	Latn	Latin
 moh	Mohawk	primary	Latn	Latin	
 mos	Mossi	primary	Latn	Latin	
 mr	Marathi	primary	Deva	Devanagari	
+mr	Marathi	secondary	Modi	Modi	
 mrd	Western Magar	primary	Deva	Devanagari	
 mrj	Western Mari	primary	Cyrl	Cyrillic	
+mru	Mru	primary	Mroo	Mro	
 ms	Malay	primary	Arab	Arabic	
 ms	Malay	primary	Latn	Latin	
 mt	Maltese	primary	Latn	Latin	
@@ -472,7 +487,7 @@ nsk	Naskapi	secondary	Latn	Latin
 nso	Northern Sotho	primary	Latn	Latin	
 nus	Nuer	primary	Latn	Latin	
 nv	Navajo	primary	Latn	Latin	
-nxq	Naxi	primary	Latn	Latin	It can be written with either Latn or Naxi Dongba.  Latn appears to be the generally used script, Naxi Dongba only being used for religious purposes.
+nxq	Naxi	primary	Latn	Latin	"It can be written with either Latn or Naxi Dongba.  Latn appears to be the generally used script, Naxi Dongba only being used for religious purposes."
 ny	Nyanja; Chichewa; Chewa	primary	Latn	Latin	
 nym	Nyamwezi	primary	Latn	Latin	
 nyn	Nyankole	primary	Latn	Latin	
@@ -491,6 +506,7 @@ otk	Old Turkic	secondary	Orkh	Orkhon
 pa	Punjabi	primary	Arab	Arabic	
 pa	Punjabi	primary	Guru	Gurmukhi	
 pag	Pangasinan	primary	Latn	Latin	http://en.wikipedia.org/wiki/Pangasinan_language
+pal	Pahlavi	primary	Phlp	Psalter Pahlavi	
 pal	Pahlavi	secondary	Phli	Inscriptional Pahlavi	
 pam	Pampangan	primary	Latn	Latin	
 pap	Papiamento	primary	Latn	Latin	http://www.geographia.com/bonaire/bonpap01.htm
@@ -523,8 +539,8 @@ rkt	Rangpuri	primary	Beng	Bengali
 rm	Rhaeto-Romance	primary	Latn	Latin	
 rmf	Kalo Finnish Romani	primary	Latn	Latin	
 rmo	Sinte Romani	primary	Latn	Latin	
-rmt	Domari	primary	Arab	Arabic
-rmu	Tavringer Romani	primary	Latn	Latin	No information.  Based on Swedish, so if it was written down, Latn would be used.
+rmt	Domari	primary	Arab	Arabic	
+rmu	Tavringer Romani	primary	Latn	Latin	"No information.  Based on Swedish, so if it was written down, Latn would be used."
 rn	Rundi	primary	Latn	Latin	
 rng	Ronga	primary	Latn	Latin	
 ro	Romanian	primary	Latn	Latin	
@@ -540,13 +556,15 @@ rw	Kinyarwanda	primary	Latn	Latin
 rwk	Rwa	primary	Latn	Latin	
 ryu	Central Okinawan	primary	Kana	Katakana	
 sa	Sanskrit	secondary	Deva	Devanagari	
+sa	Sanskrit	secondary	Gran	Grantha	
 sa	Sanskrit	secondary	Shrd	Sharada	
+sa	Sanskrit	secondary	Sidd	Siddham	
 sa	Sanskrit	secondary	Sinh	Sinhala	
 sad	Sandawe	primary	Latn	Latin	Tanzania
 saf	Safaliba	primary	Latn	Latin	
 sah	Yakut	primary	Cyrl	Cyrillic	
-sam	Samaritan Aramaic	secondary	Samr	Samaritan	
 sam	Samaritan	secondary	Hebr	Hebrew	
+sam	Samaritan Aramaic	secondary	Samr	Samaritan	
 saq	Samburu	primary	Latn	Latin	
 sas	Sasak	primary	Latn	Latin	
 sat	Santali	primary	Latn	Latin	
@@ -562,6 +580,8 @@ sco	Scots	primary	Latn	Latin
 scs	North Slavey	primary	Latn	Latin	
 sd	Sindhi	primary	Arab	Arabic	
 sd	Sindhi	primary	Deva	Devanagari	
+sd	Sindhi	secondary	Khoj	Khojki	
+sd	Sindhi	secondary	Sind	Khudawadi	
 sdh	Southern Kurdish	primary	Arab	Arabic	www.amar.org.ir
 se	Northern Sami	primary	Latn	Latin	
 se	Northern Sami	secondary	Cyrl	Cyrillic	
@@ -592,6 +612,7 @@ so	Somali	primary	Latn	Latin
 so	Somali	secondary	Arab	Arabic	
 so	Somali	secondary	Osma	Osmanya	
 sq	Albanian	primary	Latn	Latin	
+sq	Albanian	secondary	Elba	Elbasan	
 sr	Serbian	primary	Cyrl	Cyrillic	
 sr	Serbian	primary	Latn	Latin	
 srb	Sora	primary	Latn	Latin	
@@ -613,19 +634,19 @@ swb	Comorian	primary	Arab	Arabic	http://en.wikipedia.org/wiki/Comorian_language
 swb	Comorian	secondary	Latn	Latin	http://en.wikipedia.org/wiki/Comorian_language
 swc	Congo Swahili	primary	Latn	Latin	
 sxn	Sangir	primary	Latn	Latin	
-syi	Seki	primary	Latn	Latin	"not written with any script".  Latn is generally used to write Bantu languages.
+syi	Seki	primary	Latn	Latin	not written with any script.  Latn is generally used to write Bantu languages.
 syl	Sylheti	primary	Beng	Bengali	
 syl	Sylheti	secondary	Sylo	Syloti Nagri	
 syr	Syriac	secondary	Syrc	Syriac	
 ta	Tamil	primary	Taml	Tamil	
 tab	Tabassaran	primary	Cyrl	Cyrillic	
-taj	Eastern Tamang	primary	Deva	Devanagari	Principally spoken in Nepal, so Deva is probably the main script.
+taj	Eastern Tamang	primary	Deva	Devanagari	"Principally spoken in Nepal, so Deva is probably the main script."
 taj	Eastern Tamang	secondary	Tibt	Tibetan	
 tbw	Tagbanwa	primary	Latn	Latin	
 tbw	Tagbanwa	secondary	Tagb	Tagbanwa	
 tcy	Tulu	primary	Knda	Kannada	
 tdd	Tai Nüa	primary	Tale	Tai Le	
-tdg	Western Tamang	primary	Deva	Devanagari	Deva or Tibt. Principally spoken in Nepal, so Deva is probably the main script.
+tdg	Western Tamang	primary	Deva	Devanagari	"Deva or Tibt. Principally spoken in Nepal, so Deva is probably the main script."
 tdh	Thulung	primary	Deva	Devanagari	
 te	Telugu	primary	Telu	Telugu	
 tem	Timne	primary	Latn	Latin	
@@ -713,8 +734,10 @@ xcr	Carian (Ancient)	secondary	Cari	Carian
 xh	Xhosa	primary	Latn	Latin	
 xlc	Lycian (Ancient)	secondary	Lyci	Lycian	
 xld	Lydian (Ancient)	secondary	Lydi	Lydian	
+xmn	Manichaean Middle Persian	primary	Mani	Manichaean	
 xmr	Meroitic	secondary	Merc	Meroitic Cursive	
 xmr	Meroitic	secondary	Merc	Meroitic Hieroglyphs	
+xna	Ancient North Arabian	primary	Narb	Old North Arabian	
 xog	Soga	primary	Latn	Latin	
 xpr	Inscriptional Parthian	secondary	Prti	Inscriptional Parthian	
 xsa	Sabaean	secondary	Sarb	Old S. Arabian	
@@ -739,7 +762,7 @@ zh	Chinese	primary	Hans	Simplified Han
 zh	Chinese	primary	Hant	Traditional Han	
 zh	Chinese	secondary	Bopo	Bopomofo	
 zh	Chinese	secondary	Phag	Phags-pa	
-zmi	Negeri Sembilan Malay	primary	Latn	Latin
+zmi	Negeri Sembilan Malay	primary	Latn	Latin	
 zu	Zulu	primary	Latn	Latin	
 zun	Zuni	primary	Latn	Latin	
 zza	Zaza	primary	Arab	Arabic	"Macrolanguage, probably Zaza Gorani; Indo-Iranian, probably Arabic using"

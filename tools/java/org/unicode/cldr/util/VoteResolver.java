@@ -98,6 +98,7 @@ public class VoteResolver<T> {
         kotoistus("Kotoistus (Finnish IT Ctr)"),
         lakota_lc("Lakota LC"),
         lao_dpt("Lao Posts/Telecom??"),
+        microsoft("Microsoft"),
         openinstitute("Open Inst (Cambodia)"),
         openoffice_org("Open Office"),
         oracle("Oracle"),

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -97,9 +97,31 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="9000">Ք[→→];</rbnfrule>
                 <rbnfrule value="10000">=#,##0=;</rbnfrule>
             </ruleset>
+            <ruleset type="ethiopic-p" access="private">
+                <rbnfrule value="1">=%ethiopic=;</rbnfrule>
+                <rbnfrule value="10000">←←፼[→→];</rbnfrule>
+                <rbnfrule value="100000000">←←፼→%%ethiopic-p1→;</rbnfrule>
+                <rbnfrule value="1000000000000">←←፼→%%ethiopic-p2→;</rbnfrule>
+                <rbnfrule value="10000000000000000">←←፼→%%ethiopic-p3→;</rbnfrule>
+            </ruleset>
+            <ruleset type="ethiopic-p1" access="private">
+                <rbnfrule value="0">፼;</rbnfrule>
+                <rbnfrule value="1">፼=%%ethiopic-p=;</rbnfrule>
+                <rbnfrule value="10000">←%ethiopic←፼[→%ethiopic→];</rbnfrule>
+            </ruleset>
+            <ruleset type="ethiopic-p2" access="private">
+                <rbnfrule value="0">፼፼;</rbnfrule>
+                <rbnfrule value="1">፼፼=%%ethiopic-p=;</rbnfrule>
+                <rbnfrule value="100000000">←%ethiopic←፼→%%ethiopic-p1→;</rbnfrule>
+            </ruleset>
+            <ruleset type="ethiopic-p3" access="private">
+                <rbnfrule value="0">፼፼፼;</rbnfrule>
+                <rbnfrule value="1">፼፼፼=%%ethiopic-p=;</rbnfrule>
+                <rbnfrule value="1000000000000">←%ethiopic←፼→%%ethiopic-p2→;</rbnfrule>
+            </ruleset>
             <ruleset type="ethiopic">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="x.x">←←፡→→→;</rbnfrule>
+                <rbnfrule value="x.x">←←፡→→;</rbnfrule>
                 <rbnfrule value="0">ባዶ;</rbnfrule>
                 <rbnfrule value="1">፩;</rbnfrule>
                 <rbnfrule value="2">፪;</rbnfrule>
@@ -123,12 +145,12 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="200">←←፻[→→];</rbnfrule>
                 <rbnfrule value="10000">፼[→→];</rbnfrule>
                 <rbnfrule value="20000">←←፼[→→];</rbnfrule>
-                <rbnfrule value="100000000">፼፼[→→];</rbnfrule>
-                <rbnfrule value="200000000">←←፼፼[→→];</rbnfrule>
-                <rbnfrule value="1000000000000">፼፼፼[→→];</rbnfrule>
-                <rbnfrule value="2000000000000">←←፼፼፼[→→];</rbnfrule>
-                <rbnfrule value="10000000000000000">፼፼፼፼[→→];</rbnfrule>
-                <rbnfrule value="20000000000000000">←←፼፼፼፼[→→];</rbnfrule>
+                <rbnfrule value="100000000">፼→%%ethiopic-p1→;</rbnfrule>
+                <rbnfrule value="200000000">←←፼→%%ethiopic-p1→;</rbnfrule>
+                <rbnfrule value="1000000000000">፼→%%ethiopic-p2→;</rbnfrule>
+                <rbnfrule value="2000000000000">←←፼→%%ethiopic-p2→;</rbnfrule>
+                <rbnfrule value="10000000000000000">፼→%%ethiopic-p3→;</rbnfrule>
+                <rbnfrule value="20000000000000000">←←፼→%%ethiopic-p3→;</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,###0=;</rbnfrule>
             </ruleset>
             <ruleset type="georgian">

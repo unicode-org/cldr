@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -41,10 +41,10 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="200">←← ratus[ →→];</rbnfrule>
                 <rbnfrule value="1000">seribu[ →→];</rbnfrule>
                 <rbnfrule value="2000">←← ribu[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←← juts[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←← milyar[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←← bilyun[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←← bilyar[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←← juta[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← miliar[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←← triliun[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←← kuadriliun[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0.#=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal">

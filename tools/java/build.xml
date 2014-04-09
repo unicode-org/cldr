@@ -25,9 +25,9 @@
         </path>
 
         <property name="CLDR_DIR" value="${env.CLDR_DIR}"/>
-        <property name="env.JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false"/>
-        <property name="env.JVM_EXTRA_OPTIONS" value=""/>
-        <property name="jvm_options" value="${env.JVM_OPTIONS} ${env.JVM_EXTRA_OPTIONS}"/>
+        <property name="JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false"/>
+        <property name="JVM_EXTRA_OPTIONS" value="${env.JVM_EXTRA_OPTIONS}"/>
+        <property name="jvm_options" value="${JVM_OPTIONS} ${JVM_EXTRA_OPTIONS}"/>
 
         <property name="tooltmp.dir" value="tmp"/>
 
@@ -60,6 +60,7 @@
         </path>
         <echo message="java home: ${java.home}"/>
         <echo message="java version: ${java.version}"/>
+    	<echo message="jvm_options: ${jvm_options}"/>
         <echo message="ant java version: ${ant.java.version}"/>
         <echo message="${ant.version}"/>
         <echo message="java.class.path: ${java.class.path}/"/>

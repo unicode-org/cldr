@@ -39,8 +39,6 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     private Merger<T> valueMerger;
     private final boolean allowNull = false;
     private static PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
-
-    private final static boolean DEBUG_PATTERNS=false;
     
     public enum LookupType {
         STAR_PATTERN_LOOKUP, OPTIMIZED_DIRECTORY_PATTERN_LOOKUP, STANDARD

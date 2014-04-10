@@ -1,5 +1,28 @@
 package org.unicode.cldr.util;
 
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.dev.util.XEquivalenceClass;
+import com.ibm.icu.impl.IterableComparator;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R4;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.FixedDecimalRange;
+import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.SampleType;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.VersionInfo;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
@@ -9,6 +32,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.Deque;
 import java.util.EnumMap;
 import java.util.EnumSet;
 import java.util.HashMap;
@@ -37,29 +61,6 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-
-import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.dev.util.XEquivalenceClass;
-import com.ibm.icu.impl.IterableComparator;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R4;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalRange;
-import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
-import com.ibm.icu.text.PluralRules.SampleType;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Freezable;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.util.VersionInfo;
 
 /**
  * Singleton class to provide API access to supplemental data -- in all the supplemental data files.
@@ -2212,16 +2213,21 @@ public class SupplementalDataInfo {
      * List that can hold up to MAX_LOCALES caches of locales, when one locale hasn't been used for a while it will removed and GC'd
      */
     private class CoverageCache {
-        private LinkedList<Node> localeList;
+        private final Deque<Node> localeList=new LinkedList<>();
         private final int MAX_LOCALES = 10;
 
+        /**
+         * Object to sync on for modifying the locale list
+         */
+        private final Object LOCALE_LIST_ITER_SYNC=new Object();
         /*
          * constructor
          */
         public CoverageCache() {
-            localeList = new LinkedList<Node>();
+//            localeList = new LinkedList<Node>();
         }
 
+       
         /*
          * retrieves coverage level associated with two keys if it exists in the cache, otherwise returns null
          * @param xpath
@@ -2229,16 +2235,25 @@ public class SupplementalDataInfo {
          * @return the coverage level of the above two keys
          */
         public Level get(String xpath, String loc) {
-            for (Iterator<Node> it = localeList.iterator(); it.hasNext();) {
-                Node node = it.next();
-                if (node.loc.equals(loc)) {
-                    //move node to front of list
-                    localeList.remove(node);
-                    localeList.addFirst(node);
-                    return node.map.get(xpath);
+            synchronized(LOCALE_LIST_ITER_SYNC) {
+                Iterator<Node> it=localeList.iterator();
+                Node reAddNode=null;
+                while (it.hasNext())  {
+//            for (Iterator<Node> it = localeList.iterator(); it.hasNext();) {
+                    Node node = it.next();
+                    if (node.loc.equals(loc)) {
+                        reAddNode=node;
+                        it.remove();
+                        break;
+
+                    }
                 }
+                if (reAddNode!=null) {
+                    localeList.addFirst(reAddNode);
+                    return reAddNode.map.get(xpath);
+                }
+                return null;
             }
-            return null;
         }
 
         /*
@@ -2248,22 +2263,25 @@ public class SupplementalDataInfo {
          * @param covLevel    the coverage level of the above two keys
          */
         public void put(String xpath, String loc, Level covLevel) {
-            //if locale's map is already in the cache add to it
-            for (Iterator<Node> it = localeList.iterator(); it.hasNext();) {
-                Node node = it.next();
-                if (node.loc.equals(loc)) {
-                    node.map.put(xpath, covLevel);
-                    return;
+            synchronized(LOCALE_LIST_ITER_SYNC) {
+                //if locale's map is already in the cache add to it
+//            for (Iterator<Node> it = localeList.iterator(); it.hasNext();) {
+                for (Node node: localeList) {
+//                Node node = it.next();
+                    if (node.loc.equals(loc)) {
+                        node.map.put(xpath, covLevel);
+                        return;
+                    }
                 }
-            }
 
-            //if it is not, add a new map with the coverage level, and remove the last map in the list (used most seldom) if the list is too large
-            Map<String, Level> newMap = new ConcurrentHashMap<String, Level>();
-            newMap.put(xpath, covLevel);
-            localeList.addFirst(new Node(loc, newMap));
+                //if it is not, add a new map with the coverage level, and remove the last map in the list (used most seldom) if the list is too large
+                Map<String, Level> newMap = new ConcurrentHashMap<String, Level>();
+                newMap.put(xpath, covLevel);
+                localeList.addFirst(new Node(loc, newMap));
 
-            if (localeList.size() > MAX_LOCALES) {
-                localeList.removeLast();
+                if (localeList.size() > MAX_LOCALES) {
+                    localeList.removeLast();
+                }
             }
         }
 

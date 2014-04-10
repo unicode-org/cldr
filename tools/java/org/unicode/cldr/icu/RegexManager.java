@@ -55,7 +55,7 @@ class RegexManager {
             super(pattern);
         }
 
-        public boolean find(String item, Object context) {
+        public boolean find(String item, Object context, Info info) {
             return matcher.reset(item).matches();
         }
     }
@@ -316,7 +316,7 @@ class RegexManager {
 
         public boolean findKey(Finder finder) {
             for (String key : map.keySet()) {
-                if (finder.find(key, null)) {
+                if (finder.find(key, null, null)) {
                     return true;
                 }
             }

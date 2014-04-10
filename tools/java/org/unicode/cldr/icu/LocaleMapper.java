@@ -24,8 +24,11 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
+import org.unicode.cldr.util.RegexLookup.Finder.Info;
 import org.unicode.cldr.util.SupplementalDataInfo;
 //import org.unicode.cldr.util.SupplementalDataInfo.MeasurementType;
+
+
 
 import com.ibm.icu.util.Output;
 
@@ -221,9 +224,11 @@ public class LocaleMapper extends Mapper {
 
             // Add rb paths.
             Output<Finder> matcherFound = new Output<Finder>();
-            RegexResult regexResult = matchXPath(pathConverter, cldr, xpath, matcherFound);
+            Finder.Info firstInfo=new Finder.Info();
+            RegexResult regexResult = matchXPath(pathConverter, cldr, xpath, matcherFound, firstInfo);
             if (regexResult == null) continue;
-            String[] arguments = matcherFound.value.getInfo();
+//            String[] arguments = matcherFound.value.getInfo();
+            String[] arguments=firstInfo.value;
             for (PathValueInfo info : regexResult) {
                 String rbPath = info.processRbPath(arguments);
                 validRbPaths.add(rbPath);
@@ -306,15 +311,20 @@ public class LocaleMapper extends Mapper {
      * @param cldr
      * @param path
      * @param matcherFound
+     * @param firstInfo 
      * @return the result of converting an xpath into an ICU-style path
      */
     private RegexResult matchXPath(RegexLookup<RegexResult> lookup,
         CLDRFile cldr, String path,
-        Output<Finder> matcherFound) {
+        Output<Finder> matcherFound, Info firstInfo) {
         String fullPath = cldr.getFullXPath(path);
         fullPath = fullPath == null ? path : DRAFT_PATTERN.matcher(fullPath).replaceAll("");
         List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<String>() : null;
-        RegexResult result = lookup.get(fullPath, null, null, matcherFound, debugResults);
+        Finder.Info info=new Info();
+        RegexResult result = lookup.get(fullPath, null,null, matcherFound, debugResults,info);
+        if (firstInfo!=null) {
+            firstInfo.value=info.value;
+        }
         if (debugResults != null) {
             if (result == null) {
                 RegexManager.printLookupResults(fullPath, debugResults);
@@ -343,10 +353,12 @@ public class LocaleMapper extends Mapper {
         Set<String> validRbPaths, RegexLookup<RegexResult> pathConverter,
         Map<String, CldrArray> pathValueMap) {
         Output<Finder> matcher = new Output<Finder>();
+        Finder.Info firstInfo=new Finder.Info();
         RegexResult regexResult = matchXPath(pathConverter,
-            cldrFile, xpath, matcher);
+            cldrFile, xpath, matcher, firstInfo);
         if (regexResult == null) return;
-        String[] arguments = matcher.value.getInfo();
+//        String[] arguments = matcher.value.getInfo();
+        String[] arguments=firstInfo.value;
         String cldrValue = getStringValue(cldrFile, xpath);
         for (PathValueInfo info : regexResult) {
             String rbPath = info.processRbPath(arguments);

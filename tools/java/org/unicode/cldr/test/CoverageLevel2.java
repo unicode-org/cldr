@@ -62,7 +62,7 @@ public class CoverageLevel2 {
         }
 
         @Override
-        public boolean find(String item, Object context) {
+        public boolean find(String item, Object context, Info info) {
             LocaleSpecificInfo localeSpecificInfo = (LocaleSpecificInfo) context;
             // Modified the logic to handle the case where we want specific languages and specific territories.
             // Any match in language script or territory will succeed when multiple items are present.
@@ -84,7 +84,7 @@ public class CoverageLevel2 {
                 return false;
             }
 
-            boolean result = super.find(item, context); // also sets matcher in RegexFinder
+            boolean result = super.find(item, context, info); // also sets matcher in RegexFinder
             if (!result) {
                 return false;
             }

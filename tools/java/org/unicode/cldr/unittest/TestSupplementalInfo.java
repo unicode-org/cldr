@@ -1222,9 +1222,7 @@ public class TestSupplementalInfo extends TestFmwk {
             String likelyScript = likely == null ? null : CLDRLocale.getInstance(likely).getScript();
             Map<Type, BasicLanguageData> scriptInfo = supp.getBasicLanguageDataMap(baseLanguage);
             if (scriptInfo == null) {
-                if (!logKnownIssue("cldrbug:7120", "Missing basic language data for CLDR locales")) {
-                    errln(loc + ": has no BasicLanguageData");
-                }
+                errln(loc + ": has no BasicLanguageData");
             } else {
                 BasicLanguageData data = scriptInfo.get(Type.primary);
                 if (data == null) {
@@ -1233,9 +1231,7 @@ public class TestSupplementalInfo extends TestFmwk {
                 if (data == null) {
                     errln(loc + ": has no scripts in BasicLanguageData");
                 } else if (!data.getScripts().contains(defaultScript)) {
-                    if (!logKnownIssue("cldrbug:7120", "Missing basic language data for CLDR locales")) {
-                        errln(loc + ": " + defaultScript + " not in BasicLanguageData " + data.getScripts());
-                    }
+                    errln(loc + ": " + defaultScript + " not in BasicLanguageData " + data.getScripts());
                 }
             }
 

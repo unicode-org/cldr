@@ -821,8 +821,9 @@ public class VettingViewer<T> {
                 if (path.contains("/references")) {
                     continue;
                 }
-
-                Level level = supplementalDataInfo.getCoverageLevel(path, sourceFile.getLocaleID());
+                
+                Level level=CLDRConfig.getInstance().getCoverageInfo().getCoverageLevel(path, sourceFile.getLocaleID());
+//                Level level = supplementalDataInfo.getCoverageLevel(path, sourceFile.getLocaleID());
 
                 // skip anything above the requested level
                 if (level.compareTo(usersLevel) > 0) {
@@ -1934,7 +1935,7 @@ public class VettingViewer<T> {
         } while (repeat);
     }
 
-    enum CodeChoice {
+   public enum CodeChoice {
         /** For the normal (locale) view of data **/
         newCode,
         // /** @deprecated **/
@@ -1943,7 +1944,7 @@ public class VettingViewer<T> {
         summary
     }
 
-    private static void writeFile(String myOutputDir, VettingViewer<Organization> tableView, final EnumSet<Choice> choiceSet,
+    public static void writeFile(String myOutputDir, VettingViewer<Organization> tableView, final EnumSet<Choice> choiceSet,
         String name, String localeStringID, int userNumericID,
         Level usersLevel,
         CodeChoice newCode, Organization organization)

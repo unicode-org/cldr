@@ -822,8 +822,8 @@ public class VettingViewer<T> {
                     continue;
                 }
                 
-                Level level=CLDRConfig.getInstance().getCoverageInfo().getCoverageLevel(path, sourceFile.getLocaleID());
-//                Level level = supplementalDataInfo.getCoverageLevel(path, sourceFile.getLocaleID());
+            
+                Level level = supplementalDataInfo.getCoverageLevel(path, sourceFile.getLocaleID());
 
                 // skip anything above the requested level
                 if (level.compareTo(usersLevel) > 0) {

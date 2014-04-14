@@ -17,6 +17,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.RegexFileParser.RegexLineParser;
 import org.unicode.cldr.util.RegexFileParser.VariableProcessor;
+import org.unicode.cldr.util.RegexLogger.LogType;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.RegexLookup.Finder.Info;
 
@@ -39,6 +40,8 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
     private Merger<T> valueMerger;
     private final boolean allowNull = false;
     private static PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
+    
+    private final static boolean DEBUG_PATTERNS=false;
     
     public enum LookupType {
         STAR_PATTERN_LOOKUP, OPTIMIZED_DIRECTORY_PATTERN_LOOKUP, STANDARD
@@ -107,9 +110,18 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             matcher = Pattern.compile(pattern, Pattern.COMMENTS).matcher("");
         }
 
+
         public boolean find(String item, Object context, Info info) {
             synchronized(matcher) {
                 try {
+
+                    if (DEBUG_PATTERNS) {
+                        Timer timer=new Timer();
+                        boolean result=matcher.reset(item).find();
+                        double duration=timer.getDuration()/1000000.0;
+                        logRegex(item,result,duration,LogType.FIND);
+                        return result;
+                    }
                     boolean result= matcher.reset(item).find();
                     if (result && info!=null) {
                         info.value=getInfo();
@@ -123,6 +135,14 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                 }
             }
         }
+
+        protected void logRegex(String item, boolean result,Double duration,LogType type) { 
+            if (DEBUG_PATTERNS) { 
+                String pattern=matcher.pattern().pattern(); 
+                RegexLogger.getInstance().log(pattern, item,result, duration==null?0:duration, type,this.getClass()); 
+            } 
+        } 
+
 
         private String[] getInfo() {
             synchronized(matcher) {

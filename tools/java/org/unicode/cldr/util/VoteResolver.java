@@ -542,7 +542,6 @@ public class VoteResolver<T> {
         Collator col = Collator.getInstance(ULocale.ENGLISH);
 
         public int compare(T o1, T o2) {
-            // TODO Auto-generated method stub
             return col.compare(String.valueOf(o1), String.valueOf(o2));
         }
     };

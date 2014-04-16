@@ -54,6 +54,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
@@ -61,6 +62,7 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+import org.unicode.cldr.util.VoteResolver.Organization;
 
 /**
  * Singleton class to provide API access to supplemental data -- in all the supplemental data files.
@@ -80,7 +82,7 @@ import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 public class SupplementalDataInfo {
     private static final boolean DEBUG = false;
-
+    private static final StandardCodes sc = StandardCodes.make();
     // TODO add structure for items shown by TestSupplementalData to be missing
     /*
      * [calendarData/calendar,
@@ -2575,7 +2577,17 @@ public class SupplementalDataInfo {
                     Set<CLDRLocale> localeList = new HashSet<CLDRLocale>();
                     String[] el = localeAttrib.split(" ");
                     for (int i = 0; i < el.length; i++) {
-                        localeList.add(CLDRLocale.getInstance(el[i]));
+                        if (el[i].indexOf(":") == -1) { // Just a simple locale designation
+                            localeList.add(CLDRLocale.getInstance(el[i]));
+                        } else { // Org:CoverageLevel
+                            String [] coverageLocaleParts = el[i].split(":",2);
+                            String org = coverageLocaleParts[0];
+                            String level = coverageLocaleParts[1].toUpperCase();
+                            Set<String> coverageLocales =sc.getLocaleCoverageLocales(org, EnumSet.of(Level.valueOf(level)));
+                            for (String cl : coverageLocales) {
+                                localeList.add(CLDRLocale.getInstance(cl));
+                            }
+                        }
                     }
                     locales = Collections.unmodifiableSet(localeList);
                 }
@@ -2605,7 +2617,7 @@ public class SupplementalDataInfo {
         }
 
         public boolean matches(CLDRLocale loc, PathHeader ph) {
-            if (false) System.err.println(">> testing " + loc + " / " + ph + " vs " + toString());
+            if (DEBUG) System.err.println(">> testing " + loc + " / " + ph + " vs " + toString());
             if (locales != null) {
                 if (!locales.contains(loc)) {
                     return false;

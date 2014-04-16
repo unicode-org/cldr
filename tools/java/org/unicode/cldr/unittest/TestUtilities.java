@@ -747,12 +747,17 @@ public class TestUtilities extends TestFmwk {
         assertEquals("VoteResolver.HIGH_BAR", VoteResolver.HIGH_BAR, 20);
         verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"latn\"]/group", VoteResolver.HIGH_BAR); // == 20
         verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal", VoteResolver.HIGH_BAR);
-        verifyRequiredVotes(resolver, "ast", "//ldml/numbers/symbols[@numberSystem=\"latn\"]/group", VoteResolver.HIGH_BAR);
-        verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/decimal", VoteResolver.HIGH_BAR);
-        verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/group", VoteResolver.HIGH_BAR);
-        verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/decimal", VoteResolver.HIGH_BAR);
-        verifyRequiredVotes(resolver, "ast", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/group", VoteResolver.HIGH_BAR);
-        verifyRequiredVotes(resolver, "es", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/decimal", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "hi", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/decimal", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "hi", "//ldml/numbers/symbols[@numberSystem=\"deva\"]/group", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "ast", "//ldml/numbers/symbols[@numberSystem=\"latn\"]/decimal", 4);
+        verifyRequiredVotes(resolver, "mt", "//ldml/characters/exemplarCharacters", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "mt", "//ldml/characters/exemplarCharacters[@type=\"auxiliary\"]", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "mt", "//ldml/characters/exemplarCharacters[@type=\"index\"]", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "mt", "//ldml/characters/exemplarCharacters[@type=\"punctuation\"]", 4);
+        verifyRequiredVotes(resolver, "es", "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"sun\"]", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "ast", "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/days/dayContext[@type=\"format\"]/dayWidth[@type=\"wide\"]/day[@type=\"sun\"]", 4);
+        verifyRequiredVotes(resolver, "es", "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]", VoteResolver.HIGH_BAR);
+        verifyRequiredVotes(resolver, "ast", "//ldml/dates/calendars/calendar[@type=\"gregorian\"]/months/monthContext[@type=\"format\"]/monthWidth[@type=\"wide\"]/month[@type=\"1\"]", 4);
     }
 
     public void TestVoteResolver() {

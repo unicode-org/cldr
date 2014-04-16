@@ -495,13 +495,8 @@ public class TestPathHeader extends TestFmwkPlus {
 
             // check against old
             SurveyToolStatus oldStatus = SurveyToolStatus.READ_WRITE;
-            String prettyPath = pp.getPrettyPath(path);
 
-            if (prettyPath.contains("numberingSystems") ||
-                prettyPath.contains("exemplarCharacters") ||
-                prettyPath.contains("indexCharacters")) {
-                oldStatus = SurveyToolStatus.READ_ONLY;
-            } else if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
+            if (CheckCLDR.skipShowingInSurvey.matcher(path).matches()) {
                 oldStatus = SurveyToolStatus.HIDE;
             }
 

@@ -38,6 +38,7 @@ public class IsoCurrencyParser {
         { "BOLIVIA, PLURINATIONAL STATE OF", "BO" },
         { "CONGO, THE DEMOCRATIC REPUBLIC OF", "CD" },
         { Utility.unescape("C\u00D4TE D\u2019IVOIRE"), "CI" },
+        { "CAPE VERDE", "CV" },
         { Utility.unescape("CURA\u00C7AO"), "CW" },
         { "HEARD ISLAND AND McDONALD ISLANDS", "HM" },
         { Utility.unescape("INTERNATIONAL MONETARY FUND (IMF)\u00A0"), "ZZ" },

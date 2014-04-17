@@ -1,0 +1,117 @@
+<project name="CLDR Unit Tests" default="all" basedir=".">
+    <target name="init">
+    	<!-- copied from cldr/tools/java's build.xml -->
+        <tstamp/>
+
+        <property name="src.dir" value="src"/>
+<!--        <property name="libs.dir" value="WebContent/WEB-INF/lib"/> -->
+
+        <property name="build.dir" value="build/classes"/>
+        <property name="jar.file" value="cldr-unittest.jar"/>
+        <property name="libs.dir" value="libs"/>
+        <property name="jarSrc.file" value="cldr-unittest-src.jar"/>
+        <property name="jarDocs.file" value="cldr-unittest-docs.jar"/>
+        <property name="doc.dir" value="doc"/>
+        <property name="doc.params" value=""/>
+        <!--  Load local definitions from an optional build.properties file, if available.
+              build.properties is NOT checked into CVS. -->
+        <!-- Load environment variables -->
+        <!--
+            <property environment="env"/>
+        -->
+        <property file="build.properties" />
+
+        <!-- CLDR_TOOLS defaults to ../java, override if not correct. -->
+        <property name="CLDR_TOOLS" value="../java"/>
+        <property name="CLDR_DIR" value="../../common/.."/>
+        <property name="CLDR_JAR" value="${CLDR_TOOLS}/cldr.jar"/>
+        <property file="${CLDR_TOOLS}/cldr-tools.properties"/>
+        <property name="JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false"/>
+        <property name="JVM_EXTRA_OPTIONS" value="${env.JVM_EXTRA_OPTIONS}"/>
+        <property name="jvm_options" value="${JVM_OPTIONS}"/>
+
+        <path id="project.class.path">
+            <pathelement path="${java.class.path}/"/>
+            <pathelement path="${build.dir}"/>
+            <fileset dir="${libs.dir}">
+              <include name="**/*.jar"/>
+            </fileset>
+            <pathelement path="${CLDR_TOOLS}/classes"/>
+            <fileset dir="${CLDR_TOOLS}/libs" includes="*.jar"/> <!-- all libs -->
+        </path>
+    </target>
+
+    <target name="clean" depends="init" description="remove all build targets">
+        <delete dir="${build.dir}"/>
+        <delete file="${jar.file}"/>
+        <delete file="${jarSrc.file}"/>
+        <delete file="${jarDocs.file}"/>
+        <delete dir="${doc.dir}"/>
+    </target>
+
+    <target name="jar" depends="build" description="build full cldr-unittest.jar' jar file">
+        <jar jarfile="${jar.file}"
+            compress="true"
+            includes="org/unicode/cldr/unittest/**/*"
+            basedir="${build.dir}"/>
+    </target>
+  <!-- Docs stuff -->
+    <!-- use excludefiles below when we move to ant 1.5 -->
+    <target name="docs-jar" depends="docs">
+      <jar jarfile="${jarDocs.file}"
+           compress="true"
+           includes="**/*"
+           basedir="${doc.dir}"/>
+    </target>
+    <target name="docs" depends="init" description="build user javadoc">
+	<tstamp>
+		<format property="current.year" pattern="yyyy"/>
+	</tstamp>
+        <echo message="doc params: ${doc.params}"/>
+        <mkdir dir="${doc.dir}"/>
+        <javadoc
+            packagenames="org.unicode.cldr.*"
+            sourcepath="${src.dir}"
+            destdir="${doc.dir}"
+            classpathref="project.class.path"
+            nodeprecatedlist="true"
+            windowtitle="CLDR | Java Unittest"
+            doctitle="CLDR | Java Unittest"
+            encoding="utf-8"
+            docencoding="utf-8"
+            additionalparam="${doc.params}"
+            link="http://docs.oracle.com/javase/7/docs/api"
+            bottom="&lt;font size=-1>&lt;a  target='_top' href='http://www.unicode.org/copyright.html'>Copyright &amp;copy; 2004-${current.year} Unicode, Inc. All Rights Reserved.&lt;/a>&lt;/font>"
+            source="1.7" />
+    </target>
+
+    <target name="build" depends="init" description="build web classes">
+        <javac
+            srcdir="${src.dir}"
+        	includes="org/unicode/cldr/unittest/*.java"
+            destdir="${build.dir}"
+            classpathref="project.class.path"
+            source="1.7"
+            target="1.7"
+            debug="on" deprecation="off"
+            includeantruntime="false"
+            encoding="UTF-8"/>
+    </target>
+
+    <target name="check" description="Run the standard CLDR test suite" depends="init">
+        <antcall target="_runCheck">
+            <param name="runcheck.arg" value="-n"/>
+            <param name="runcheck.jvmarg" value="${jvm_options}"/>
+        </antcall>
+    </target>
+
+   <target name="_runCheck" depends="init,build">
+        <echo message="JVM argument:   ${runcheck.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST  -Djava.awt.headless=true"/>
+        <echo message="Test argument:   ${runcheck.arg}"/>
+        <java classname="org.unicode.cldr.unittest.TestAll" fork="yes" failonerror="true" classpathref="project.class.path">
+            <arg line="${runcheck.arg}"/>
+            <jvmarg line="${runcheck.jvmarg} -DCLDR_ENVIRONMENT=UNITTEST -Djava.awt.headless=true"/>
+        </java>
+   </target>
+
+</project>

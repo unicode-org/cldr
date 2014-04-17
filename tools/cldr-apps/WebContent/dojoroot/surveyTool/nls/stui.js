@@ -261,6 +261,7 @@ define({
         section_info_DateTime:  "The Date and Time data is used to format dates and times, including intervals (eg, 'Dec 10-12'). After completing this section, you should review the overall results with Review: Date/Time.",
         section_info_Timezones:  "The Timezones data is used to display timezones in a variety of ways. They also contain a list of cities associated with timezones. After completing this section, you should review the overall results with Review: Zones.",
         section_info_Numbers:  "The Numbers data is used to format numbers and currencies, including compact numbers (eg, '3M' for 3,000,000). After completing this section, you should review the overall results with Review: Numbers.",
+        section_info_Currencies:  "The Currencies data is used to format the names of currencies, and also provides the various currency symbols. After completing this section, you should review the overall results with Review: Numbers.",
         section_info_Units:  "The Units is used for formatting measurements, such as '3 hours' or '4 kg'.",
         section_info_Misc:  "The Miscellaneous data is used to some special purpose items, such as lists (eg, 'A, B, and C') and truncated strings (eg, 'supercalifrag…cious').",
 		

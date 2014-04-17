@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <ldml>
     <identity>
-        <version number="$Revision$"/>
-        <generation date="$Date$"/>
+        <version number="$Revision: 9025 $"/>
+        <generation date="$Date: 2013-07-12 09:16:27 -0700 (Fri, 12 Jul 2013) $"/>
         <language type="es"/>
-        <territory type="419"/>
+        <territory type="003"/>
     </identity>
     <rbnf>
         <rulesetGrouping type="SpelloutRules">
@@ -23,7 +23,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-numbering">
                 <rbnfrule value="-x">menos →→;</rbnfrule>
-                <rbnfrule value="x.x">←← coma →→;</rbnfrule>
+                <rbnfrule value="x.x">←← punto →→;</rbnfrule>
                 <rbnfrule value="0">cero;</rbnfrule>
                 <rbnfrule value="1">uno;</rbnfrule>
                 <rbnfrule value="2">dos;</rbnfrule>
@@ -77,7 +77,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-masculine">
                 <rbnfrule value="-x">menos →→;</rbnfrule>
-                <rbnfrule value="x.x">←← coma →→;</rbnfrule>
+                <rbnfrule value="x.x">←← punto →→;</rbnfrule>
                 <rbnfrule value="0">cero;</rbnfrule>
                 <rbnfrule value="1">un;</rbnfrule>
                 <rbnfrule value="2">=%spellout-numbering=;</rbnfrule>
@@ -110,7 +110,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             </ruleset>
             <ruleset type="spellout-cardinal-feminine">
                 <rbnfrule value="-x">menos →→;</rbnfrule>
-                <rbnfrule value="x.x">←← coma →→;</rbnfrule>
+                <rbnfrule value="x.x">←← punto →→;</rbnfrule>
                 <rbnfrule value="0">cero;</rbnfrule>
                 <rbnfrule value="1">una;</rbnfrule>
                 <rbnfrule value="2">=%spellout-numbering=;</rbnfrule>
@@ -186,66 +186,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-ordinal-masculine-plural">
                 <rbnfrule value="-x">menos →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">cero;</rbnfrule>
-                <rbnfrule value="1">primeros;</rbnfrule>
-                <rbnfrule value="2">segundos;</rbnfrule>
-                <rbnfrule value="3">terceros;</rbnfrule>
-                <rbnfrule value="4">cuartos;</rbnfrule>
-                <rbnfrule value="5">quintos;</rbnfrule>
-                <rbnfrule value="6">sextos;</rbnfrule>
-                <rbnfrule value="7">séptimos;</rbnfrule>
-                <rbnfrule value="8">octavos;</rbnfrule>
-                <rbnfrule value="9">novenos;</rbnfrule>
-                <rbnfrule value="10">décimos;</rbnfrule>
-                <rbnfrule value="11">undécimos;</rbnfrule>
-                <rbnfrule value="12">duodécimos;</rbnfrule>
-                <rbnfrule value="13">decimo→→;</rbnfrule>
-                <rbnfrule value="20">vigésimos;</rbnfrule>
-                <rbnfrule value="21">vigésimo[ →→];</rbnfrule>
-                <rbnfrule value="30">trigésimos;</rbnfrule>
-                <rbnfrule value="31">trigésimo[ →→];</rbnfrule>
-                <rbnfrule value="40">cuadragésimos;</rbnfrule>
-                <rbnfrule value="41">cuadragésimo[ →→];</rbnfrule>
-                <rbnfrule value="50">quincuagésimos;</rbnfrule>
-                <rbnfrule value="51">quincuagésimo[ →→];</rbnfrule>
-                <rbnfrule value="60">sexagésimos;</rbnfrule>
-                <rbnfrule value="61">sexagésimo[ →→];</rbnfrule>
-                <rbnfrule value="70">septuagésimos;</rbnfrule>
-                <rbnfrule value="71">septuagésimo[ →→];</rbnfrule>
-                <rbnfrule value="80">octogésimos;</rbnfrule>
-                <rbnfrule value="81">octogésimo[ →→];</rbnfrule>
-                <rbnfrule value="90">nonagésimos;</rbnfrule>
-                <rbnfrule value="91">nonagésimo[ →→];</rbnfrule>
-                <rbnfrule value="100">centésimos;</rbnfrule>
-                <rbnfrule value="101">centésimo[ →→];</rbnfrule>
-                <rbnfrule value="200">ducentésimos;</rbnfrule>
-                <rbnfrule value="201">ducentésimo[ →→];</rbnfrule>
-                <rbnfrule value="300">tricentésimos;</rbnfrule>
-                <rbnfrule value="301">tricentésimo[ →→];</rbnfrule>
-                <rbnfrule value="400">cuadringentésimos;</rbnfrule>
-                <rbnfrule value="401">cuadringentésimo[ →→];</rbnfrule>
-                <rbnfrule value="500">quingentésimos;</rbnfrule>
-                <rbnfrule value="501">quingentésimo[ →→];</rbnfrule>
-                <rbnfrule value="600">sexcentésimos;</rbnfrule>
-                <rbnfrule value="601">sexcentésimo[ →→];</rbnfrule>
-                <rbnfrule value="700">septingentésimos;</rbnfrule>
-                <rbnfrule value="701">septingentésimo[ →→];</rbnfrule>
-                <rbnfrule value="800">octingésimos;</rbnfrule>
-                <rbnfrule value="801">octingésimo[ →→];</rbnfrule>
-                <rbnfrule value="900">noningentésimos;</rbnfrule>
-                <rbnfrule value="901">noningentésimo[ →→];</rbnfrule>
-                <rbnfrule value="1000">milésimos;</rbnfrule>
-                <rbnfrule value="1001">milésimo[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine← milésimos;</rbnfrule>
-                <rbnfrule value="2001">←%spellout-cardinal-masculine← milésimo[ →→];</rbnfrule>
-                <rbnfrule value="1000000">un millonésimos;</rbnfrule>
-                <rbnfrule value="1000001">un millonésimo[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← millonésimos;</rbnfrule>
-                <rbnfrule value="2000001">←%spellout-cardinal-masculine← millonésimo[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">un billonésimos;</rbnfrule>
-                <rbnfrule value="1000000000001">un billonésimo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billonésimos;</rbnfrule>
-                <rbnfrule value="2000000000001">←%spellout-cardinal-masculine← billonésimo[ →→];</rbnfrule>
+                <rbnfrule value="0">=%spellout-ordinal-masculine=;</rbnfrule>
+                <rbnfrule value="1">=%spellout-ordinal-masculine=s;</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=º;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine">
@@ -293,66 +235,8 @@ For terms of use, see http://www.unicode.org/copyright.html
             <ruleset type="spellout-ordinal-feminine-plural">
                 <rbnfrule value="-x">menos →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
-                <rbnfrule value="0">cero;</rbnfrule>
-                <rbnfrule value="1">primeras;</rbnfrule>
-                <rbnfrule value="2">segundas;</rbnfrule>
-                <rbnfrule value="3">terceras;</rbnfrule>
-                <rbnfrule value="4">cuartas;</rbnfrule>
-                <rbnfrule value="5">quintas;</rbnfrule>
-                <rbnfrule value="6">sextas;</rbnfrule>
-                <rbnfrule value="7">séptimas;</rbnfrule>
-                <rbnfrule value="8">octavas;</rbnfrule>
-                <rbnfrule value="9">novenas;</rbnfrule>
-                <rbnfrule value="10">décimas;</rbnfrule>
-                <rbnfrule value="11">undécimas;</rbnfrule>
-                <rbnfrule value="12">duodécimas;</rbnfrule>
-                <rbnfrule value="13">decima→→;</rbnfrule>
-                <rbnfrule value="20">vigésimas;</rbnfrule>
-                <rbnfrule value="21">vigésima[ →→];</rbnfrule>
-                <rbnfrule value="30">trigésimas;</rbnfrule>
-                <rbnfrule value="31">trigésima[ →→];</rbnfrule>
-                <rbnfrule value="40">cuadragésimas;</rbnfrule>
-                <rbnfrule value="41">cuadragésima[ →→];</rbnfrule>
-                <rbnfrule value="50">quincuagésimas;</rbnfrule>
-                <rbnfrule value="51">quincuagésima[ →→];</rbnfrule>
-                <rbnfrule value="60">sexagésimas;</rbnfrule>
-                <rbnfrule value="61">sexagésima[ →→];</rbnfrule>
-                <rbnfrule value="70">septuagésimas;</rbnfrule>
-                <rbnfrule value="71">septuagésima[ →→];</rbnfrule>
-                <rbnfrule value="80">octogésimas;</rbnfrule>
-                <rbnfrule value="81">octogésima[ →→];</rbnfrule>
-                <rbnfrule value="90">nonagésimas;</rbnfrule>
-                <rbnfrule value="91">nonagésima[ →→];</rbnfrule>
-                <rbnfrule value="100">centésimas;</rbnfrule>
-                <rbnfrule value="101">centésima[ →→];</rbnfrule>
-                <rbnfrule value="200">ducentésimas;</rbnfrule>
-                <rbnfrule value="201">ducentésima[ →→];</rbnfrule>
-                <rbnfrule value="300">tricentésimas;</rbnfrule>
-                <rbnfrule value="301">tricentésima[ →→];</rbnfrule>
-                <rbnfrule value="400">cuadringentésimas;</rbnfrule>
-                <rbnfrule value="401">cuadringentésima[ →→];</rbnfrule>
-                <rbnfrule value="500">quingentésimas;</rbnfrule>
-                <rbnfrule value="501">quingentésima[ →→];</rbnfrule>
-                <rbnfrule value="600">sexcentésimas;</rbnfrule>
-                <rbnfrule value="601">sexcentésima[ →→];</rbnfrule>
-                <rbnfrule value="700">septingentésimas;</rbnfrule>
-                <rbnfrule value="701">septingentésima[ →→];</rbnfrule>
-                <rbnfrule value="800">octingésimas;</rbnfrule>
-                <rbnfrule value="801">octingésima[ →→];</rbnfrule>
-                <rbnfrule value="900">noningentésimas;</rbnfrule>
-                <rbnfrule value="901">noningentésima[ →→];</rbnfrule>
-                <rbnfrule value="1000">milésimas;</rbnfrule>
-                <rbnfrule value="1001">milésima[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-masculine← milésimas;</rbnfrule>
-                <rbnfrule value="2001">←%spellout-cardinal-masculine← milésima[ →→];</rbnfrule>
-                <rbnfrule value="1000000">un millonésimas;</rbnfrule>
-                <rbnfrule value="1000001">un millonésima[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← millonésimas;</rbnfrule>
-                <rbnfrule value="2000001">←%spellout-cardinal-masculine← millonésima[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">un billonésimas;</rbnfrule>
-                <rbnfrule value="1000000000001">un billonésima[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billonésimas;</rbnfrule>
-                <rbnfrule value="2000000000001">←%spellout-cardinal-masculine← billonésima[ →→];</rbnfrule>
+                <rbnfrule value="0">=%spellout-ordinal-feminine=;</rbnfrule>
+                <rbnfrule value="1">=%spellout-ordinal-feminine=s;</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=ª;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine">
@@ -371,7 +255,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="10">décima;</rbnfrule>
                 <rbnfrule value="11">undécima;</rbnfrule>
                 <rbnfrule value="12">duodécima;</rbnfrule>
-                <rbnfrule value="13">decima→→;</rbnfrule>
+                <rbnfrule value="13">decimo→→;</rbnfrule>
                 <rbnfrule value="20">vigésima[ →→];</rbnfrule>
                 <rbnfrule value="30">trigésima[ →→];</rbnfrule>
                 <rbnfrule value="40">cuadragésima[ →→];</rbnfrule>
@@ -416,12 +300,9 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=º;</rbnfrule>
             </ruleset>
-            <ruleset type="dord-femabbrev" access="private">
-                <rbnfrule value="0">ª;</rbnfrule>
-            </ruleset>
             <ruleset type="digits-ordinal-feminine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-femabbrev=;</rbnfrule>
+                <rbnfrule value="0">=#,##0=ª;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>

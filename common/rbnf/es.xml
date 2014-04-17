@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -70,12 +70,8 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000">←%spellout-cardinal-masculine← mil[ →→];</rbnfrule>
                 <rbnfrule value="1000000">un millón[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-masculine← millones[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">un millardo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← millardos[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">un billón[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billiones[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">un billardo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardos[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-masculine">
@@ -107,12 +103,8 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000">←%spellout-cardinal-masculine← mil[ →→];</rbnfrule>
                 <rbnfrule value="1000000">un millón[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-masculine← millones[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">un millardo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← millardos[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">un billón[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billiones[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">un billardo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardos[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-feminine">
@@ -144,12 +136,8 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000">←%spellout-cardinal-masculine← mil[ →→];</rbnfrule>
                 <rbnfrule value="1000000">un millón[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-masculine← millones[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">un millardo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← millardos[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">un billón[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billiones[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">un billardo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardos[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine-adjective">
@@ -190,15 +178,12 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000">←%spellout-cardinal-masculine← milésimo[ →→];</rbnfrule>
                 <rbnfrule value="1000000">un millonésimo[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-masculine← millonésimo[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">un millardésimo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← millardésimo[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">un billonésimo[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billonésimo[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">un billardésimo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardésimo[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=º;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-masculine-plural">
+                <rbnfrule value="-x">menos →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-ordinal-masculine=;</rbnfrule>
                 <rbnfrule value="1">=%spellout-ordinal-masculine=s;</rbnfrule>
@@ -242,15 +227,12 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000">←%spellout-cardinal-masculine← milésimo[ →→];</rbnfrule>
                 <rbnfrule value="1000000">un millonésimo[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-masculine← millonésimo[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">un millardésimo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← millardésimo[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">un billonésimo[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billonésimo[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">un billardésimo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardésimo[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=º;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-ordinal-feminine-plural">
+                <rbnfrule value="-x">menos →→;</rbnfrule>
                 <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
                 <rbnfrule value="0">=%spellout-ordinal-feminine=;</rbnfrule>
                 <rbnfrule value="1">=%spellout-ordinal-feminine=s;</rbnfrule>
@@ -272,7 +254,7 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="10">décima;</rbnfrule>
                 <rbnfrule value="11">undécima;</rbnfrule>
                 <rbnfrule value="12">duodécima;</rbnfrule>
-                <rbnfrule value="13">decima→→;</rbnfrule>
+                <rbnfrule value="13">decimo→→;</rbnfrule>
                 <rbnfrule value="20">vigésima[ →→];</rbnfrule>
                 <rbnfrule value="30">trigésima[ →→];</rbnfrule>
                 <rbnfrule value="40">cuadragésima[ →→];</rbnfrule>
@@ -294,12 +276,8 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="2000">←%spellout-cardinal-masculine← milésima[ →→];</rbnfrule>
                 <rbnfrule value="1000000">un millonésima[ →→];</rbnfrule>
                 <rbnfrule value="2000000">←%spellout-cardinal-masculine← millonésima[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">un millardésimo[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← millardésima[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000">un billonésima[ →→];</rbnfrule>
                 <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← billonésima[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">un billardésima[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← billardésima[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=ª;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
@@ -321,12 +299,9 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="-x">−→→;</rbnfrule>
                 <rbnfrule value="0">=#,##0=º;</rbnfrule>
             </ruleset>
-            <ruleset type="dord-femabbrev" access="private">
-                <rbnfrule value="0">ª;</rbnfrule>
-            </ruleset>
             <ruleset type="digits-ordinal-feminine">
                 <rbnfrule value="-x">−→→;</rbnfrule>
-                <rbnfrule value="0">=#,##0==%%dord-femabbrev=;</rbnfrule>
+                <rbnfrule value="0">=#,##0=ª;</rbnfrule>
             </ruleset>
             <ruleset type="digits-ordinal">
                 <rbnfrule value="0">=%digits-ordinal-masculine=;</rbnfrule>

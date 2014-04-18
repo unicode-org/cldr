@@ -24,39 +24,22 @@
             <pathelement path="${libs.dir}"/>
         </path>
 
+        <property name="CLDR_TOOLS" value="."/> <!-- this is cldr-tools -->
         <property name="CLDR_DIR" value="${env.CLDR_DIR}"/>
+        <property file="${CLDR_TOOLS}/cldr-tools.properties"/>
         <property name="JVM_OPTIONS" value="-DCLDR_DIR=${CLDR_DIR} -DDEBUG=false -Dverbose=false"/>
+        <property name="env.JVM_EXTRA_OPTIONS" value=""/>
         <property name="JVM_EXTRA_OPTIONS" value="${env.JVM_EXTRA_OPTIONS}"/>
         <property name="jvm_options" value="${JVM_OPTIONS} ${JVM_EXTRA_OPTIONS}"/>
 
         <property name="tooltmp.dir" value="tmp"/>
-
-        <condition property="is.icu4j.classes.set" >
-            <or>
-                <isset property="env.ICU4J_CLASSES" />
-                <isset property="env.ICU4J_JAR" />
-            </or>
-        </condition>
-
-        <condition property="is.utilities.classes.set" >
-            <or>
-                <isset property="env.ICU4J_CLASSES" />
-                <isset property="env.UTILITIES_JAR" />
-            </or>
-        </condition>
 
         <mkdir dir="${build.dir}"/>
 
         <path id="project.class.path">
             <pathelement path="${java.class.path}/"/>
             <pathelement path="${build.dir}"/>
-            <fileset dir="${libs.dir}" includes="*.jar"/>
-            <pathelement path="${env.ICU4J_CLASSES}"/>
-            <pathelement path="${env.CLDR_CLASSES}"/>
-            <pathelement location="${env.ICU4J_JAR}"/>
-            <pathelement location="${env.CLDR_JAR}"/>
-            <pathelement location="${env.UTILITIES_JAR}"/>
-            <pathelement location="${env.XML_APIS_JAR}"/>
+            <fileset dir="${libs.dir}" includes="*.jar"/> <!-- unittest local -->
         </path>
         <echo message="java home: ${java.home}"/>
         <echo message="java version: ${java.version}"/>
@@ -64,13 +47,8 @@
         <echo message="ant java version: ${ant.java.version}"/>
         <echo message="${ant.version}"/>
         <echo message="java.class.path: ${java.class.path}/"/>
+        <echo message="java.class.path: ${java.class.path}/"/>
         <echo message="build.dir: ${build.dir}"/>
-        <echo message="env.ICU4J_CLASSES: ${env.ICU4J_CLASSES}"/>
-        <echo message="env.CLDR_CLASSES: ${env.CLDR_CLASSES}"/>
-        <echo message="env.ICU4J_JAR: ${env.ICU4J_JAR}"/>
-        <echo message="env.CLDR_JAR: ${env.CLDR_JAR}"/>
-        <echo message="env.UTILITIES_JAR: ${env.UTILITIES_JAR}"/>
-        <echo message="env.XML_APIS_JAR: ${env.XML_APIS_JAR}"/>
     </target>
 
     <!-- build everything but dist-related stuff -->
@@ -210,7 +188,7 @@
             <attribute name="Main-Class"
                        value="org.unicode.cldr.tool.Main"/>
             <attribute name="Class-Path"
-                       value="./libs/icu4j.jar ./libs/utilities.jar ./libs/xercesImpl.jar ./libs/guava-16.0.1.jar icu4j.jar utilities.jar xercesImpl.jar"/>
+                       value="./libs/${cldr.libs.icu4j} ./libs/${cldr.libs.utilities} ./libs/${cldr.libs.xerces} ./libs/${cldr.libs.guava} ${cldr.libs.icu4j} ${cldr.libs.utilities} ${cldr.libs.xerces}"/>
           </manifest>
         </jar>
     </target>
@@ -247,10 +225,12 @@
 
 
     <target name="check" description="Run the standard CLDR test suite" depends="init">
+      <echo message="*** Note! unittests are being refactored to ../cldr-unittest - please try there if 'make check' fails. See: http://unicode.org/cldr/trac/ticket/5215" />
         <antcall target="_runCheck">
             <param name="runcheck.arg" value="-n -u"/>
             <param name="runcheck.jvmarg" value="${jvm_options}"/>
         </antcall>
+      <echo message="*** Note! unittests are being refactored to ../cldr-unittest - please try there if 'make check' fails. See: http://unicode.org/cldr/trac/ticket/5215" />
     </target>
 
    <target name="_runCheck" depends="init,test">

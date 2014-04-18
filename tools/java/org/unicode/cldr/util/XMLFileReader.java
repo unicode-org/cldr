@@ -89,12 +89,54 @@ public class XMLFileReader {
         try {
             InputStream fis = new FileInputStream(fileName);
             // fis = new DebuggingInputStream(fis);
-            return read(fileName, new InputStreamReader(fis, Charset.forName("UTF-8")), handlers, validating);
+            return read(fileName, fis, handlers, validating);
         } catch (IOException e) {
             throw (IllegalArgumentException) new IllegalArgumentException("Can't read " + fileName).initCause(e);
         }
     }
 
+    /**
+     * read from a Stream
+     * @param fileName
+     * @param handlers
+     * @param validating
+     * @param fis
+     * @return
+     */
+    public XMLFileReader read(String fileName, InputStream fis, int handlers, boolean validating) {
+        return read(fileName, new InputStreamReader(fis, Charset.forName("UTF-8")), handlers, validating);
+    }
+
+    /**
+     * read from a CLDR resource
+     * @param fileName
+     * @param handlers
+     * @param validating
+     * @param fis
+     * @see CldrUtility#getInputStream(String)
+     * @return
+     */
+    public XMLFileReader readCLDRResource(String resName, int handlers, boolean validating) {
+        
+        return read(resName, CldrUtility.getInputStream(resName), handlers, validating);
+    }
+
+    /**
+     * read from an arbitrary
+     * @param fileName
+     * @param handlers
+     * @param validating
+     * @param fis
+     * @see CldrUtility#getInputStream(String)
+     * @return
+     */
+    public XMLFileReader read(String resName, Class<?> callingClass, int handlers, boolean validating) {
+        
+        return read(resName, CldrUtility.getInputStream(callingClass, resName), handlers, validating);
+    }
+
+
+    
     public XMLFileReader read(String systemID, Reader reader, int handlers, boolean validating) {
         try {
             XMLReader xmlReader = createXMLReader(validating);

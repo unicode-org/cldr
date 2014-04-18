@@ -13,12 +13,15 @@ import com.ibm.icu.impl.Utility;
 
 public class IsoCurrencyParser {
 
-    private static final String ISO_CURRENT_CODES_XML = "org/unicode/cldr/util/data/dl_iso_table_a1.xml";
+    /**
+     * Note: path is relative to CldrUtility, {@link CldrUtility#getInputStream(String)}
+     */
+    private static final String ISO_CURRENT_CODES_XML = "dl_iso_table_a1.xml";
 
     /*
      * IsoCurrencyParser doesn't currently use the historic codes list, but it could easily be modified/extended to do
      * so if we need to at some point. (JCE)
-     * private static final String ISO_HISTORIC_CODES_XML = "org/unicode/cldr/util/data/dl_iso_tables_a3.xml";
+     * private static final String ISO_HISTORIC_CODES_XML = "dl_iso_tables_a3.xml";
      */
 
     /*
@@ -26,7 +29,7 @@ public class IsoCurrencyParser {
      * Some subterritory designations that we use in CLDR, like Ascension Island or Tristan da Cunha aren't
      * used in ISO4217, so we use an extensions data file to allow our tests to validate the CLDR data properly.
      */
-    private static final String CLDR_EXTENSIONS_XML = "org/unicode/cldr/util/data/dl_cldr_extensions.xml";
+    private static final String CLDR_EXTENSIONS_XML = "dl_cldr_extensions.xml";
 
     /*
      * These corrections are country descriptions that are in the ISO4217 tables but carry a different spelling
@@ -139,9 +142,9 @@ public class IsoCurrencyParser {
 
         ISOCurrencyHandler isoCurrentHandler = new ISOCurrencyHandler();
         XMLFileReader xfr = new XMLFileReader().setHandler(isoCurrentHandler);
-        xfr.read(ISO_CURRENT_CODES_XML, -1, false);
+        xfr.readCLDRResource(ISO_CURRENT_CODES_XML, -1, false);
         if (useCLDRExtensions) {
-            xfr.read(CLDR_EXTENSIONS_XML, -1, false);
+            xfr.readCLDRResource(CLDR_EXTENSIONS_XML, -1, false);
         }
         if (exceptionList.size() != 0) {
             throw new IllegalArgumentException(exceptionList.toString());

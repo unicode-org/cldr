@@ -1109,13 +1109,36 @@ public class TestBasic extends TestFmwkPlus {
             "//supplementalData/territoryContainment/group[@type=\"419\"][@contains=\"013 029 005\"][@grouping=\"true\"]",
             "//supplementalData/territoryContainment/group[@type=\"003\"][@contains=\"021 013 029\"][@grouping=\"true\"]");
 
-        checkDtdComparatorFor(new File("org/unicode/cldr/unittest/TestBasic_ja.xml"), DtdType.ldmlICU);
+        checkDtdComparatorForResource("TestBasic_ja.xml", DtdType.ldmlICU);
     }
 
     public void TestDtdComparisonsAll() {
         for (File file : CLDRConfig.getInstance().getAllCLDRFilesEndingWith(".xml")) {
             checkDtdComparatorFor(file, null);
         }
+    }
+
+    public void checkDtdComparatorForResource(String fileToRead, DtdType overrideDtdType) {
+        MyHandler myHandler = new MyHandler(overrideDtdType);
+        XMLFileReader xfr = new XMLFileReader().setHandler(myHandler);
+        try {
+            myHandler.fileName = fileToRead;
+            xfr.read(myHandler.fileName, TestBasic.class, -1, true);
+            logln(myHandler.fileName);
+        } catch (Exception e) {
+            Throwable t = e;
+            StringBuilder b = new StringBuilder();
+            String indent = "";
+            while (t != null) {
+                b.append(indent).append(t.getMessage());
+                indent = indent.isEmpty() ? "\n\t\t" : indent + "\t";
+                t = t.getCause();
+            }
+            errln(b.toString());
+            return;
+        }
+        DtdData dtdData = DtdData.getInstance(myHandler.dtdType);
+        sortPaths(dtdData.getDtdComparator(null), myHandler.data);
     }
 
     public void checkDtdComparatorFor(File fileToRead, DtdType overrideDtdType) {

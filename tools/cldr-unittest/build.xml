@@ -43,6 +43,7 @@
 
     <target name="clean" depends="init" description="remove all build targets">
         <delete dir="${build.dir}"/>
+        <delete dir="build"/>
         <delete file="${jar.file}"/>
         <delete file="${jarSrc.file}"/>
         <delete file="${jarDocs.file}"/>
@@ -86,6 +87,7 @@
     </target>
 
     <target name="build" depends="init" description="build web classes">
+    	<mkdir dir="${build.dir}"/>
         <javac
             srcdir="${src.dir}"
         	includes="org/unicode/cldr/unittest/*.java"
@@ -98,7 +100,7 @@
             encoding="UTF-8"/>
     </target>
 
-    <target name="check" description="Run the standard CLDR test suite" depends="init">
+    <target name="check" description="Run the standard CLDR test suite" depends="init,build">
         <antcall target="_runCheck">
             <param name="runcheck.arg" value="-n"/>
             <param name="runcheck.jvmarg" value="${jvm_options}"/>

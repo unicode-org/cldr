@@ -20,7 +20,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <info iso4217="BYR" digits="0" rounding="0"/>
             <info iso4217="CAD" digits="2" rounding="0" cashRounding="5"/>
             <info iso4217="CHF" digits="2" rounding="0" cashRounding="5"/>
-            <info iso4217="CLF" digits="0" rounding="0"/>
+            <info iso4217="CLF" digits="4" rounding="0"/>
             <info iso4217="CLP" digits="0" rounding="0"/>
             <info iso4217="COP" digits="0" rounding="0"/>
             <info iso4217="CRC" digits="0" rounding="0"/>
@@ -1082,7 +1082,7 @@ CLDR adds data for one or more UN M49 numeric region code such as 150.
         <region iso3166="US">
             <currency iso4217="USD" from="1792-01-01"/>
             <currency iso4217="USN" tender="false"/>
-            <currency iso4217="USS" tender="false"/>
+            <currency iso4217="USS" to="2014-03-01" tender="false"/>
         </region>
         <region iso3166="UY">
             <currency iso4217="UYU" from="1993-03-01"/>

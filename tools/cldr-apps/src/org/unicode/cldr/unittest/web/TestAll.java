@@ -21,7 +21,6 @@ import org.apache.tomcat.dbcp.pool.KeyedObjectPoolFactory;
 import org.apache.tomcat.dbcp.pool.ObjectPool;
 import org.apache.tomcat.dbcp.pool.impl.GenericKeyedObjectPool;
 import org.apache.tomcat.dbcp.pool.impl.GenericObjectPool;
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
@@ -29,6 +28,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.web.CLDRProgressIndicator;
@@ -441,6 +441,6 @@ public class TestAll extends TestGroup {
      *            (org.unicode.cldr.unittest.web.data.name)
      */
     static public BufferedReader getUTF8Data(String name) throws java.io.IOException {
-        return FileUtilities.openFile(TestAll.class, "data/" + name);
+        return FileReaders.openFile(TestAll.class, "data/" + name);
     }
 }

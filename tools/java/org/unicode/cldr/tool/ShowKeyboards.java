@@ -16,7 +16,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.Keyboard;
 import org.unicode.cldr.draft.Keyboard.Gesture;
 import org.unicode.cldr.draft.Keyboard.Iso;
@@ -34,6 +33,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -94,7 +94,7 @@ public class ShowKeyboards {
         keyboardChartDir = MyOptions.targetDirectory.option.getValue();
         keyboardChartLayoutsDir = keyboardChartDir + "/layouts/";
 
-        FileUtilities.copyFile(ShowKeyboards.class, "keyboards-index.html", keyboardChartDir, "index.html");
+        FileCopier.copy(ShowKeyboards.class, "keyboards-index.html", keyboardChartDir, "index.html");
 
         Matcher idMatcher = Pattern.compile(idPattern).matcher("");
         try {
@@ -157,7 +157,7 @@ public class ShowKeyboards {
         }
         // logInfo.put(Row.of("k-cldr",common), keyboardId);
         try {
-            FileUtilities.copyFile(ShowKeyboards.class, "keyboards.css", keyboardChartDir, "index.css");
+            FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartDir, "index.css");
             PrintWriter out = BagFormatter.openUTF8Writer(keyboardChartDir, "chars2keyboards.html");
             String[] headerAndFooter = new String[2];
 
@@ -221,7 +221,7 @@ public class ShowKeyboards {
             }
         }
 
-        FileUtilities.copyFile(ShowKeyboards.class, "keyboards.css", keyboardChartLayoutsDir, "index.css");
+       FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartLayoutsDir, "index.css");
         PrintWriter index = BagFormatter.openUTF8Writer(keyboardChartLayoutsDir, "index.html");
         String[] headerAndFooter = new String[2];
         ShowData.getChartTemplate(

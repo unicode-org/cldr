@@ -8,8 +8,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CldrUtility.LineHandler;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.text.UTF16;
@@ -84,12 +84,12 @@ public class CountryCodeConverter {
             if (country.equals("057")) continue;
             addName(description, country);
         }
-        FileUtilities.handleFile("external/alternate_country_names.txt", new MyHandler(goodAvailableCodes));
+        CldrUtility.handleFile("external/alternate_country_names.txt", new MyHandler(goodAvailableCodes));
         nameToCountryCode = CldrUtility.protectCollection(nameToCountryCode);
         parseErrors = Collections.unmodifiableSet(parseErrors);
     }
 
-    static class MyHandler implements FileUtilities.LineHandler {
+    static class MyHandler implements LineHandler {
         private Set<String> goodAvailableCodes;
 
         public MyHandler(Set<String> goodAvailableCodes) {

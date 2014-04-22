@@ -10,11 +10,11 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.SimpleFactory;
+import org.unicode.cldr.util.StringIterables;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.util.BagFormatter;
@@ -109,7 +109,7 @@ public class FixDelimiters {
         static {
             final String instructionFile = "delimiterFixes.txt";
             System.out.println("Instruction file: " + instructionFile);
-            for (String line : FileUtilities.in(FixDelimiters.class, instructionFile)) {
+            for (String line : StringIterables.in(FixDelimiters.class, instructionFile)) {
                 int first = line.indexOf(' ');
                 int second = line.indexOf(' ', first + 1);
                 Quotes qmain = new Quotes(line.substring(0, first));

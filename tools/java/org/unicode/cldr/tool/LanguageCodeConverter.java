@@ -13,12 +13,12 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StringIterables;
 
 import com.ibm.icu.impl.Row.R2;
 import com.ibm.icu.util.ULocale;
@@ -135,8 +135,8 @@ public class LanguageCodeConverter {
         }
         // add exceptions
         LanguageTagParser ltp = new LanguageTagParser();
-        for (String line : FileUtilities.in(CldrUtility.getUTF8Data("external/alternate_language_names.txt"))) {
-            String[] parts = FileUtilities.cleanSemiFields(line);
+        for (String line : StringIterables.in(CldrUtility.getUTF8Data("external/alternate_language_names.txt"))) {
+            String[] parts = CldrUtility.cleanSemiFields(line);
             if (parts == null || parts.length == 0) continue;
             String code = parts[0];
             if (!validCodes.contains(code)) {

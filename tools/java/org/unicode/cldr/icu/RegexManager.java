@@ -15,9 +15,9 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
+import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.RegexLookup;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.RegexLookup.Merger;
@@ -543,7 +543,7 @@ class RegexManager {
                 }
             });
         xpathVariables = new HashMap<String, String>();
-        BufferedReader reader = FileUtilities.openFile(NewLdml2IcuConverter.class, converterFile);
+        BufferedReader reader = FileReaders.openFile(NewLdml2IcuConverter.class, converterFile);
         VariableReplacer variables = new VariableReplacer();
         Finder xpathMatcher = null;
         RegexResult regexResult = null;

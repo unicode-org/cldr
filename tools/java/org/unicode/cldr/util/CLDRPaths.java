@@ -1,6 +1,5 @@
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.ToolConstants;
 
 /**
@@ -61,7 +60,7 @@ public class CLDRPaths {
      * @deprecated Don't use this from any code that is run from the .JAR (SurveyTool, tests, etc).
      *             If it must be used, add a comment next to the usage to explain why it is needed.
      */
-    public static final String UTIL_DATA_DIR = FileUtilities.getRelativeFileName(
+    public static final String UTIL_DATA_DIR = FileReaders.getRelativeFileName(
         CldrUtility.class, "data/");
 
 }

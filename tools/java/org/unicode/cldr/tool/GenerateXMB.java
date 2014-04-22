@@ -26,7 +26,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CheckExemplars;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
@@ -36,6 +35,7 @@ import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathDescription;
@@ -565,7 +565,8 @@ public class GenerateXMB {
         PrintWriter out = BagFormatter.openUTF8Writer(targetDir, file + "." + extension);
 
         if (isEnglish) {
-            FileUtilities.appendFile(GenerateXMB.class, "xmb-dtd.xml", out);
+            FileCopier.copy(GenerateXMB.class, "xmb-dtd.xml", out);
+//            FileUtilities.appendFile(GenerateXMB.class, "xmb-dtd.xml", out);
             out.println("<!-- " + localeName + " -->");
             out.println("<messagebundle class='" + projectId + "'> <!-- version: " + DTD_VERSION + ", date: " + DATE
                 + " -->");
@@ -597,7 +598,9 @@ public class GenerateXMB {
             out3File.println("}");
             out3File.close();
         } else {
-            FileUtilities.appendFile(GenerateXMB.class, "wsb-dtd.xml", out);
+            
+//            FileUtilities.appendFile(GenerateXMB.class, "wsb-dtd.xml", out);
+            FileCopier.copy(GenerateXMB.class, "wsb-dtd.xml", out);
             out.println("<!-- " + localeName + " -->");
             out.println("<worldserverbundles lazarus_id='dummy' date='" + DATE + "'> <!-- version: " + DTD_VERSION
                 + " -->");

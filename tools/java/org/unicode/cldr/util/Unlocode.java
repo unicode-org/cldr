@@ -16,7 +16,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.ChainedMap.M3;
@@ -147,7 +146,7 @@ public class Unlocode {
             load(3);
             // load exceptions
             try {
-                BufferedReader br = FileUtilities.openFile(CldrUtility.class,
+                BufferedReader br = FileReaders.openFile(CldrUtility.class,
                     "data/external/alternate_locode_name.txt");
                 while (true) {
                     String line = br.readLine();
@@ -248,8 +247,8 @@ public class Unlocode {
 
     public static void loadIso() throws IOException {
         BufferedReader br =
-            FileUtilities.openFile(CldrUtility.class,
-                "data/external/subdivisionData.txt", FileUtilities.UTF8);
+            FileReaders.openFile(CldrUtility.class,
+                "data/external/subdivisionData.txt", CldrUtility.UTF8);
         while (true) {
             // Subdivision category TAB 3166-2 code TAB Subdivision name TAB Language code TAB Romanization system TAB Parent subdivision
 
@@ -296,7 +295,7 @@ public class Unlocode {
     public static void load(int file) throws IOException {
         BufferedReader br =
             //CldrUtility.getUTF8Data( 
-            FileUtilities.openFile(CldrUtility.class,
+            FileReaders.openFile(CldrUtility.class,
                 "data/external/2013-1_UNLOCODE_CodeListPart" + file + ".csv",
                 LATIN1);
         M3<String, String, Boolean> nameToAlternate = ChainedMap.of(new TreeMap<String, Object>(), new TreeMap<String, Object>(), Boolean.class);
@@ -312,7 +311,7 @@ public class Unlocode {
             if (line.isEmpty()) {
                 continue;
             }
-            String[] list = FileUtilities.splitCommaSeparated(line);
+            String[] list = CldrUtility.splitCommaSeparated(line);
             String change = list[0];
             String locSuffix = list[2];
             if (change.equals("X")) {
@@ -565,7 +564,7 @@ public class Unlocode {
     public static int loadCitiesOver1M(Relation<String, LocodeData> countryNameToCities, Set<String> errors2) throws IOException {
         int i = 1;
 
-        BufferedReader br = FileUtilities.openFile(CldrUtility.class, "data/external/Cities-Over1M.txt");
+        BufferedReader br = FileReaders.openFile(CldrUtility.class, "data/external/Cities-Over1M.txt");
         main: while (true) {
             String line = br.readLine();
             if (line == null) {
@@ -625,7 +624,7 @@ public class Unlocode {
 
     public static int loadCitiesCapitals(Relation<String, LocodeData> countryNameToCities, Set<String> errors2) throws IOException {
         int i = 1;
-        BufferedReader br = FileUtilities.openFile(CldrUtility.class, "data/external/Cities-CountryCapitals.txt");
+        BufferedReader br = FileReaders.openFile(CldrUtility.class, "data/external/Cities-CountryCapitals.txt");
         while (true) {
             String line = br.readLine();
             if (line == null) {

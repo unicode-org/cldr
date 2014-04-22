@@ -21,10 +21,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.TestTransformsSimple;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTransforms;
+import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.CLDRTransforms.ParsedTransformID;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.SimpleEquivalenceClass;
@@ -80,7 +80,7 @@ public class GenerateTransformCharts {
         String filter = CldrUtility.getProperty("filter", null);
         System.out.println("Start");
 
-        FileUtilities.copyFile(ShowData.class, "transforms-index.css", TRANSFORM_DIRECTORY, "index.css");
+        FileCopier.copy(ShowData.class, "transforms-index.css", TRANSFORM_DIRECTORY, "index.css");
 
         // PrintWriter out = new PrintWriter(System.out);
         CLDRTransforms.registerCldrTransforms(null, filter, verbose ? new PrintWriter(System.out) : null);

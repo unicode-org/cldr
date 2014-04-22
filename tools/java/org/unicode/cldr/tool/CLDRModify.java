@@ -24,7 +24,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CLDRTest;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.QuickCheck;
@@ -37,6 +36,7 @@ import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
 import org.unicode.cldr.util.DateTimeCanonicalizer.DateTimePatternType;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.Log;
 import org.unicode.cldr.util.PathHeader;
@@ -2052,7 +2052,7 @@ public class CLDRModify {
                 private void fillCache() {
                     locale2keyValues = new HashMap<ConfigMatch, LinkedHashSet<Map<ConfigKeys, ConfigMatch>>>();
                     String configFileName = options[KONFIG].value;
-                    FileUtilities.FileProcessor myReader = new FileUtilities.FileProcessor() {
+                    FileProcessor myReader = new FileProcessor() {
                         @Override
                         protected boolean handleLine(int lineCount, String line) {
                             String[] lineParts = line.trim().split("\\s*;\\s*");

@@ -10,8 +10,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.FileCopier;
+import org.unicode.cldr.util.StringArrayToMap;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.util.Calendar;
@@ -77,6 +78,7 @@ class Makefile {
         addEntry(prefix + "_SOURCE", "Ordinary resources", sources);
     }
 
+  
     public void print(String outputDir, String filename) throws IOException {
         PrintWriter out = BagFormatter.openUTF8Writer(outputDir, filename);
         String[] params = {
@@ -85,8 +87,12 @@ class Makefile {
             "%local%", filename.replace("files.mk", "local.mk"),
             "%version%", CLDRFile.GEN_VERSION
         };
-        FileUtilities.appendFile(NewLdml2IcuConverter.class, "makefile_header.txt",
-            Charset.forName("UTF-8"), params, out);
+        FileCopier.copyAndReplace(NewLdml2IcuConverter.class, "makefile_header.txt",
+            Charset.forName("UTF-8"),
+            StringArrayToMap.from(params), 
+            out);
+//        FileUtilities.appendFile(NewLdml2IcuConverter.class, "makefile_header.txt",
+//            Charset.forName("UTF-8"), params, out);
 
         for (MakefileEntry entry : entries) {
             out.println();

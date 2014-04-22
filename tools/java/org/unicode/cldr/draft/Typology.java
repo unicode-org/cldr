@@ -12,6 +12,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.SemiFileReader;
+
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.lang.UCharacter;
@@ -46,7 +48,7 @@ public class Typology {
 
     // public static Relation<String, String> pathToList = new Relation(new TreeMap(), TreeSet.class);
 
-    static class MyReader extends FileUtilities.SemiFileReader {
+    static class MyReader extends SemiFileReader {
         // 0000 Cc [Control] [X] [X] [X] <control>
         public final static Pattern SPLIT = Pattern.compile("\\s*\t\\s*");
         public final static Pattern NON_ALPHANUM = Pattern.compile("[^0-9A-Za-z]+");

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
+import org.unicode.cldr.util.FileCopier;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.impl.Utility;
@@ -63,13 +63,17 @@ public class IcuTextWriter {
         };
 
     private static String getHeader() {
-        if (headerText != null) return headerText;
-        StringWriter stringWriter = new StringWriter();
-        PrintWriter out = new PrintWriter(stringWriter);
-        FileUtilities.appendFile(NewLdml2IcuConverter.class, "ldml2icu_header.txt", out);
-        headerText = stringWriter.toString();
-        headerText = headerText.replace("%year%", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
-        return headerText;
+        if (headerText != null) {
+            return headerText;
+        }
+        try(StringWriter stringWriter = new StringWriter();) {
+            FileCopier.copy(NewLdml2IcuConverter.class, "ldml2icu_header.txt", stringWriter);
+            headerText = stringWriter.toString();
+            headerText = headerText.replace("%year%", String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+            return headerText;
+        } catch (IOException ioe) {
+            throw new IllegalArgumentException(ioe);
+        }
     }
 
     /**

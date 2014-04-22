@@ -14,7 +14,6 @@ import java.io.StringWriter;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -22,6 +21,7 @@ import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
 import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
@@ -203,7 +203,7 @@ public class TestCLDRUtils extends TestFmwk {
         String fileName = "TestCLDRLocale" + ".xml";
         logln("Reading" + fileName);
         myReader.read(TestCLDRUtils.class.getResource("data/" + fileName).toString(),
-            FileUtilities.openFile(TestCLDRUtils.class, "data/" + fileName), -1, true);
+            FileReaders.openFile(TestCLDRUtils.class, "data/" + fileName), -1, true);
     }
 
     public void TestCLDRLocaleInheritance() {

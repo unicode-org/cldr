@@ -15,12 +15,12 @@ import java.util.Set;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.ant.CLDRConverterTool;
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 /**
@@ -111,7 +111,7 @@ public class NewLdml2IcuConverter extends CLDRConverterTool {
 
     private static Map<String, String> loadMapFromFile(String filename) {
         Map<String, String> map = new HashMap<String, String>();
-        BufferedReader reader = FileUtilities.openFile(NewLdml2IcuConverter.class, filename);
+        BufferedReader reader = FileReaders.openFile(NewLdml2IcuConverter.class, filename);
         String line;
         try {
             int lineNum = 1;

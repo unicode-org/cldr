@@ -11,9 +11,9 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.IsoRegionData;
 import org.unicode.cldr.util.StandardCodes;
@@ -84,7 +84,7 @@ public class LocaleReplacements {
         }
 
         // Add overrides
-        FileUtilities.FileProcessor myReader = new FileUtilities.FileProcessor() {
+        FileProcessor myReader = new FileProcessor() {
             @Override
             protected boolean handleLine(int lineCount, String line) {
                 addType2item2reasonNreplacement(line);

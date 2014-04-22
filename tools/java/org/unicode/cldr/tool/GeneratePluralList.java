@@ -14,11 +14,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileReaders;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
 import com.ibm.icu.dev.util.BagFormatter;
@@ -52,7 +52,7 @@ public class GeneratePluralList {
     private Map<String, Map<String, String>> localesToNouns = new HashMap<String, Map<String, String>>();
 
     private void loadNouns() throws IOException {
-        BufferedReader reader = FileUtilities.openFile(GeneratePluralList.class, "fractionnum.csv");
+        BufferedReader reader = FileReaders.openFile(GeneratePluralList.class, "fractionnum.csv");
         for (String line = reader.readLine(); line != null; line = reader.readLine()) {
             String[] fields = line.split(",");
             String locale = fields[0];

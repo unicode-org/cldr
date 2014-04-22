@@ -21,7 +21,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRConfig;
@@ -31,6 +30,7 @@ import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
 import org.unicode.cldr.util.ExtractCollationRules;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -118,8 +118,8 @@ public class ShowData {
                 return;
             }
 
-            FileUtilities.copyFile(ShowData.class, "summary-index.css", options[DESTDIR].value, "index.css");
-            FileUtilities.copyFile(ShowData.class, "summary-index.html", options[DESTDIR].value, "index.html");
+            FileCopier.copy(ShowData.class, "summary-index.css", options[DESTDIR].value, "index.css");
+            FileCopier.copy(ShowData.class, "summary-index.html", options[DESTDIR].value, "index.html");
 
             ToolUtilities.registerExtraTransliterators();
 

@@ -41,6 +41,7 @@ import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
 import org.unicode.cldr.util.Iso639Data.Scope;
 import org.unicode.cldr.util.Iso639Data.Type;
+import org.unicode.cldr.util.FileCopier;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.LocaleIDParser;
@@ -91,7 +92,7 @@ public class ShowLanguages {
 
     public static void main(String[] args) throws IOException {
         System.out.println("Writing into " + CHART_TARGET_DIR);
-        org.unicode.cldr.draft.FileUtilities.copyFile(ShowLanguages.class, "index.css", CHART_TARGET_DIR);
+        FileCopier.copy(ShowLanguages.class, "index.css", CHART_TARGET_DIR);
         printLanguageData(cldrFactory, "index.html");
         // cldrFactory = Factory.make(Utility.COMMON_DIRECTORY + "../dropbox/extra2/", ".*");
         // printLanguageData(cldrFactory, "language_info2.txt");

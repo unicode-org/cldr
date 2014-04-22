@@ -1,7 +1,5 @@
 package org.unicode.cldr.util;
 
-import org.unicode.cldr.draft.FileUtilities;
-
 import com.ibm.icu.dev.util.UnicodeMap;
 
 public class ApproximateWidth {
@@ -24,7 +22,7 @@ public class ApproximateWidth {
     }
 
     static {
-        FileUtilities.SemiFileReader MyFileHander = new FileUtilities.SemiFileReader() {
+        SemiFileReader MyFileHander = new SemiFileReader() {
             @Override
             public void handleComment(String line, int commentCharPosition) {
                 if (line.contains("@missing")) {

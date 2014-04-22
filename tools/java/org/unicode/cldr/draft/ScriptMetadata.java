@@ -13,6 +13,8 @@ import java.util.Set;
 
 import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.tool.LanguageCodeConverter;
+import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.SemiFileReader;
 import org.unicode.cldr.util.StandardCodes;
 
 import com.ibm.icu.dev.util.Relation;
@@ -221,7 +223,7 @@ public class ScriptMetadata {
     public static Set<String> errors = new LinkedHashSet<String>();
     static HashMap<String, Integer> titleToColumn = new HashMap<String, Integer>();
 
-    private static class MyFileReader extends FileUtilities.SemiFileReader {
+    private static class MyFileReader extends SemiFileReader {
         private Map<String, Info> data = new HashMap<String, Info>();
 
         @Override
@@ -231,7 +233,7 @@ public class ScriptMetadata {
 
         @Override
         protected String[] splitLine(String line) {
-            return FileUtilities.splitCommaSeparated(line);
+            return CldrUtility.splitCommaSeparated(line);
         };
 
         @Override

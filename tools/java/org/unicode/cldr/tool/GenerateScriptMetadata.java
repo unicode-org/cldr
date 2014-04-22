@@ -5,10 +5,10 @@ import java.io.PrintWriter;
 import java.util.Set;
 import java.util.TreeSet;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.FileCopier;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -21,7 +21,9 @@ public class GenerateScriptMetadata {
         PrintWriter out = BagFormatter.openUTF8Writer(CLDRPaths.COMMON_DIRECTORY + "/properties",
             "scriptMetadata.txt");
         // PrintWriter out = new PrintWriter(System.out);
-        FileUtilities.appendFile(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
+//        FileUtilities.appendFile(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
+        FileCopier.copy(GenerateScriptMetadata.class, "GenerateScriptMetadata.txt", out);
+      
         Set<R3<Integer, String, Info>> sorted = new TreeSet<R3<Integer, String, Info>>();
         for (String script : ScriptMetadata.getScripts()) {
             Info i = ScriptMetadata.getInfo(script);

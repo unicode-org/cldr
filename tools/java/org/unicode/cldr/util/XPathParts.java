@@ -1156,7 +1156,7 @@ public final class XPathParts implements Freezable<XPathParts> {
     public XPathParts freeze() {
         if (!frozen) {
             // ensure that it can't be modified. Later we can fix all the call sites to check frozen.
-            List temp = new ArrayList(elements.size());
+            List<Element> temp = new ArrayList<>(elements.size());
             for (Element element : elements) {
                 temp.add(element.freeze());
             }

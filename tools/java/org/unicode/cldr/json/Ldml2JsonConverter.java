@@ -15,7 +15,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.draft.FileUtilities;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
@@ -24,6 +23,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.FileProcessor;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
@@ -125,7 +125,7 @@ public class Ldml2JsonConverter {
         this.coverageValue = Level.get(coverage).getLevel();
 
         sections = new ArrayList<JSONSection>();
-        FileUtilities.FileProcessor myReader = new FileUtilities.FileProcessor() {
+        FileProcessor myReader = new FileProcessor() {
             @Override
             protected boolean handleLine(int lineCount, String line) {
                 String[] lineParts = line.trim().split("\\s*;\\s*");

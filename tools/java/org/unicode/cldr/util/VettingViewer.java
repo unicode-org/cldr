@@ -23,9 +23,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -43,11 +40,6 @@ import org.unicode.cldr.util.StandardCodes.LocaleCoverageType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VoteResolver.Organization;
-import org.unicode.cldr.web.DataSection;
-import org.unicode.cldr.web.DataSection.DataRow;
-import org.unicode.cldr.web.ReviewHide;
-import org.unicode.cldr.web.SurveyLog;
-import org.unicode.cldr.web.WebContext;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -223,6 +215,10 @@ public class VettingViewer<T> {
         }
     }
 
+    public static OutdatedPaths getOutdatedPaths() {
+        return outdatedPaths;
+    }
+    
     static private PathHeader.Factory pathTransform;
     static final Pattern breaks = Pattern.compile("\\|");
     static final OutdatedPaths outdatedPaths = new OutdatedPaths();
@@ -490,10 +486,10 @@ public class VettingViewer<T> {
         errorChecker = new DefaultErrorStatus(cldrFactory);
     }
 
-    class WritingInfo implements Comparable<WritingInfo> {
-        final PathHeader codeOutput;
-        final Set<Choice> problems;
-        final String htmlMessage;
+    public class WritingInfo implements Comparable<WritingInfo> {
+        public final PathHeader codeOutput;
+        public final Set<Choice> problems;
+        public final String htmlMessage;
 
         public WritingInfo(PathHeader pretty, EnumSet<Choice> problems, CharSequence htmlMessage) {
             super();
@@ -777,7 +773,9 @@ public class VettingViewer<T> {
 
     
     
+    
     /**
+     * Give the list of errors
      * 
      * @param output
      * @param choices
@@ -787,47 +785,8 @@ public class VettingViewer<T> {
      * @param usersLevel
      * @param nonVettingPhase
      */
-    public JSONArray getErrorOnPath(EnumSet<Choice> choices, String localeID, T user,
-        Level usersLevel, boolean nonVettingPhase, WebContext ctx, String path) {
-
-        // Gather the relevant paths
-        // each one will be marked with the choice that it triggered.
-        Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
-            new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
-
-        CLDRFile sourceFile = cldrFactory.make(localeID, true);
-
-        // Initialize
-        CLDRFile lastSourceFile = null;
-            try {
-                lastSourceFile = cldrFactoryOld.make(localeID, true);
-            } catch (Exception e) {
-            }
-
-        EnumSet<Choice> errors = new FileInfo().
-            getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,usersLevel,
-                false, path).problems;
-        
-        JSONArray out = new JSONArray();
-        for(Object error : errors.toArray()) {
-            out.put( ((Choice)error).buttonLabel);
-        }
-        
-        return out;
-    }
-    /**
-     * Write the JSON output of all the notifications 
-     * 
-     * @param output
-     * @param choices
-     *            See the class description for more information.
-     * @param localeId
-     * @param user
-     * @param usersLevel
-     * @param nonVettingPhase
-     */
-    public void generateJSONReview(Appendable output, EnumSet<Choice> choices, String localeID, T user,
-        Level usersLevel, boolean nonVettingPhase, boolean quick, WebContext ctx) {
+    public Relation<R2<SectionId, PageId>,WritingInfo> generateFileInfoReview(Appendable output, EnumSet<Choice> choices, String localeID, T user,
+        Level usersLevel, boolean nonVettingPhase, boolean quick) {
 
         // Gather the relevant paths
         // each one will be marked with the choice that it triggered.
@@ -852,10 +811,10 @@ public class VettingViewer<T> {
         
         // now write the results out
         
-        getJSONReview(output, sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, fileInfo, quick, ctx);
+        return sorted;
     }
     
-    private class FileInfo {
+    class FileInfo {
         Counter<Choice> problemCounter = new Counter<Choice>();
         Counter<Subtype> errorSubtypeCounter = new Counter<Subtype>();
         Counter<Subtype> warningSubtypeCounter = new Counter<Subtype>();
@@ -1788,14 +1747,52 @@ public class VettingViewer<T> {
         }
     }
     
+    /**
+     * 
+     * @param output
+     * @param choices
+     *            See the class description for more information.
+     * @param localeId
+     * @param user
+     * @param usersLevel
+     * @param nonVettingPhase
+     */
+    public ArrayList<String> getErrorOnPath(EnumSet<Choice> choices, String localeID, T user,
+        Level usersLevel, boolean nonVettingPhase, String path) {
+
+        // Gather the relevant paths
+        // each one will be marked with the choice that it triggered.
+        Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
+            new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
+
+        CLDRFile sourceFile = cldrFactory.make(localeID, true);
+
+        // Initialize
+        CLDRFile lastSourceFile = null;
+            try {
+                lastSourceFile = cldrFactoryOld.make(localeID, true);
+            } catch (Exception e) {
+            }
+
+        EnumSet<Choice> errors = new FileInfo().
+            getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,usersLevel,
+                false, path).problems;
+        
+        ArrayList<String> out = new ArrayList<String>();
+        for(Object error : errors.toArray()) {
+            out.add( ((Choice)error).buttonLabel);
+        }
+        
+        return out;
+    }
    
-    private void getJSONReview(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile,
+    /*private void getJSONReview(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile,
         Relation<R2<SectionId, PageId>, WritingInfo> sorted,
         EnumSet<Choice> choices,
         String localeID,
         boolean nonVettingPhase,
         FileInfo outputFileInfo,
-        boolean quick, WebContext ctx
+        boolean quick
         ) {
         
         try {
@@ -1958,7 +1955,7 @@ public class VettingViewer<T> {
                 e.printStackTrace();
         }
     }
-
+*/
  
     private String getPageUrl(String localeId, PageId subsection) {
         return PathHeader.getPageUrl(baseUrl, localeId, subsection);

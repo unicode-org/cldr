@@ -56,7 +56,6 @@ function showReviewPage(json) {
 	//populate menu
 	var activeMenu = true;
 	$.each(menuData, function(index, element){
-		if(element.count) {
 			var html = '';
 			//active this menu first
 			if(activeMenu) {
@@ -68,10 +67,8 @@ function showReviewPage(json) {
 			
 			//inactive the one with no element
 			html += '<a href="#'+element.name+'">';
-			
 			html += element.name.replace('_',' ')+' (<span class="remaining-count">0</span>/<span class="total-count">'+element.count+'</span>)<div class="pull-right"><span class="glyphicon glyphicon-question-sign help-review-pop" data-content="'+element.description+'"></span></div></a></li>';
 			menuDom.append(html);
-		}
 	});
 	menuRoot.html(menuDom);
 	
@@ -99,9 +96,7 @@ function showReviewPage(json) {
 							html += '<tr class="data-review" data-path=\''+element.path+'\'"><td class="button-review"><a target="_blank" href="'+getUrlReview(element.id)+'"><span class="label label-info">'+element.code+'  <span class="glyphicon glyphicon-share"></span></span></a></td><td>'+element.english+'</td><td dir="'+direction+'">'+element.old+'</td><td dir="'+direction+'">'+element.winning+'</td>';
 							
 							//fix section
-							html += '<td class="button-review"><div class="tip fix-parent" title="Fix"><button type="button" class="btn btn-success fix" data-toggle="popover"><span class="glyphicon glyphicon-pencil"></span></button></div> <button type="button" class="btn btn-info hide-review tip" title="Hide"><span class="glyphicon glyphicon-eye-close"></span></button><button type="button" class="btn btn-primary tip post-review" title="Forum"><span class="glyphicon glyphicon-comment"></span></button>';
-							if(element.comment != '')
-								html += '<button class="btn btn-default help-comment"  data-html="true" data-content="'+element.comment+'"><span class="glyphicon glyphicon-info-sign"></span></button>';
+							html += '<td class="button-review"><div class="tip fix-parent" title="Fix"><button type="button" class="btn btn-success fix" data-toggle="popover"><span class="glyphicon glyphicon-pencil"></span></button></div> <button type="button" class="btn btn-info hide-review tip" title="Hide"><span class="glyphicon glyphicon-eye-close"></span></button><button type="button" class="btn btn-primary tip post-review" title="Forum"><span class="glyphicon glyphicon-comment"></span></button>';								html += '<button class="btn btn-default help-comment"  data-html="true" data-content="'+element.comment+'"><span class="glyphicon glyphicon-info-sign"></span></button>';
 							html +=	'</td></tr>';
 							
 							//fix content tr
@@ -139,6 +134,7 @@ function showReviewPage(json) {
 			});
 	});
 	refreshCounter();
+	$('.menu-review li:visible').first().addClass('active');
 	bindReviewEvents();
 	
 }
@@ -175,6 +171,8 @@ function refreshCounter() {
 		
 		element.children('.remaining-count').text(remaining);
 		element.children('.total-count').text(total);
+		if(total == 0)
+			element.closest('li').remove();
 		counterList.children('.remaining-count').text(remaining);
 		counterList.children('.total-count').text(total);
 	});

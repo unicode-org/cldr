@@ -71,6 +71,8 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale KWASIO = CLDRLocale.getInstance("nmg");
     private static final CLDRLocale HEBREW = CLDRLocale.getInstance("he");
     private static final CLDRLocale MYANMAR = CLDRLocale.getInstance("my");
+    private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
+    private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
@@ -526,6 +528,8 @@ public class DisplayAndInputProcessor {
                 value = standardizeKwasio(value);
             } else if (locale.childOf(HEBREW) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
                 value = standardizeHebrew(value);
+            } else if ((locale.childOf(SWISS_GERMAN) || locale.childOf(GERMAN_SWITZERLAND)) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
+                value = standardizeSwissGerman(value);
             } else if (locale.childOf(MYANMAR) && !path.startsWith("//ldml/characters/exemplarCharacters")) {
                 value = standardizeMyanmar(value);
             }
@@ -748,6 +752,10 @@ public class DisplayAndInputProcessor {
             builder.append(c);
         }
         return builder.toString();
+    }
+
+    private String standardizeSwissGerman(String value) {       
+        return value.replaceAll("\u00DF", "ss");
     }
 
     private String standardizeCatalan(String value) {

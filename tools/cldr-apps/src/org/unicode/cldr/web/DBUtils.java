@@ -1527,7 +1527,9 @@ public class DBUtils {
         VOTE_VALUE,
         VOTE_VALUE_ALT,
         VOTE_FLAGGED,
-        FORUM_POSTS;
+        FORUM_POSTS,
+        REVIEW_HIDE,
+        REVIEW_POST;
 
         /**
          * 

@@ -24,7 +24,7 @@
 </div>
      <% String betanotice = null; 
          if(SurveyMain.isPhaseBeta() ) {
-             betanotice = "SurveyTool is in Beta -  Any data added here will NOT go into CLDR.";
+             betanotice = "Survey Tool is in Beta -  Any data added here will NOT go into CLDR.";
              }%>
              
       <div id='betadiv' class='beta'  style='<%= (betanotice!=null)?"":"display: none"%>'>
@@ -36,6 +36,11 @@
 <div id='st_err'><!-- for ajax errs --></div>
 
 <%-- unobtrusive status box --%>
+
+<div class="alert alert-warning alert-dismissable" id="alert-info" style="display:none;">
+
+
+  <button type="button" class="close">&times;</button>
 <div id='progress' class='progress-connecting'>
                     <span style='display:none' id='specialHeader'>(Your message here)</span>
 	<span id='progress_oneword' class='oneword'>
@@ -45,8 +50,7 @@
 	&nbsp;
 	</span>
 	<button id='progress-refresh' onclick='javascript:window.location.reload(true);'>Refresh</button>
-</div>
-
+</div></div>
 <%-- pop-up stuff. --%>
 
 <%= SurveyMain.SHOWHIDE_SCRIPT %>

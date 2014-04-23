@@ -291,7 +291,7 @@ define({
 		ari_sessiondisconnect_message: "Your session has been disconnected.",
 		ari_force_reload: '[Second try: will force page reload]',
 
-		coverage_auto_msg: 'Automatic (Currently: ${surveyOrgCov})',
+		coverage_auto_msg: 'Auto - ${surveyOrgCov}',
 		coverage_core: 'Core',
 		coverage_posix: 'POSIX',
 		coverage_minimal: 'Minimal',

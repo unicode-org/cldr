@@ -3,6 +3,7 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
+import java.net.URLDecoder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -116,7 +117,7 @@ public class SurveyAjax extends HttpServlet {
         public static JSONObject wrap(UserRegistry.User u) throws JSONException {
             return new JSONObject().put("id", u.id).put("email", u.email).put("name", u.name).put("userlevel", u.userlevel)
                 .put("emailHash", u.getEmailHash())
-                .put("userlevelName", u.getLevel());
+                .put("userlevelName", u.getLevel()).put("org", u.org);
         }
 
         public static JSONObject wrap(CheckCLDR check) throws JSONException {
@@ -208,7 +209,11 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_GET_MENUS = "menus";
     public static final String WHAT_REPORT = "report";
     public static final String WHAT_SEARCH = "search";
+    public static final String WHAT_REVIEW_HIDE = "review_hide";
+    public static final String WHAT_REVIEW_ADD_POST = "add_post";
+    public static final String WHAT_REVIEW_GET_POST = "get_post";
 
+    
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
         "oldVoteRemind", "dummy" }; // list
                                     // of
@@ -387,7 +392,37 @@ public class SurveyAjax extends HttpServlet {
                     }
                 }
                 send(r2, out);
-            } else if (sess != null && !sess.isEmpty()) { // this and following:
+            } else if (what.equals(WHAT_REVIEW_HIDE)) {
+                CookieSession.checkForExpiredSessions();
+                mySession = CookieSession.retrieve(sess);
+                
+                if (mySession == null) {
+                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess);
+                } else {
+                    mySession.userDidAction();
+                    ReviewHide review = new ReviewHide();
+                    review.toggleItem(request.getParameter("choice"), Integer.parseInt(request.getParameter("path")), mySession.user.id, request.getParameter("locale"));
+                }
+                this.send(new JSONWriter(), out);
+            }   
+            else if (what.equals(WHAT_REVIEW_ADD_POST)) {
+                CookieSession.checkForExpiredSessions();
+                mySession = CookieSession.retrieve(sess);
+                
+                JSONWriter postJson = new JSONWriter();
+                if (mySession == null) {
+                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess);
+                } else {
+                    mySession.userDidAction();
+                    WebContext ctx = new WebContext(request, response);
+                    ctx.sm = sm;
+                    ctx.session = mySession;
+                    sm.fora.doForum(ctx, "");
+                }
+                
+                this.send(postJson, out);
+            } 
+            else if (sess != null && !sess.isEmpty()) { // this and following:
                                                           // session needed
                 CookieSession.checkForExpiredSessions();
                 mySession = CookieSession.retrieve(sess);
@@ -396,6 +431,7 @@ public class SurveyAjax extends HttpServlet {
                 } else {
                     if (what.equals(WHAT_VERIFY) || what.equals(WHAT_SUBMIT) || what.equals(WHAT_DELETE)) {
                         mySession.userDidAction();
+                       
                         CLDRLocale locale = CLDRLocale.getInstance(loc);
                         CheckCLDR.Options options = DataSection.getOptions(null, mySession, locale);
                         STFactory stf = sm.getSTFactory();

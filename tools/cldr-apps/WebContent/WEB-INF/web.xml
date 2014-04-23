@@ -53,6 +53,12 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet>
+		<servlet-name>FeedBack</servlet-name>
+		<servlet-class>
+			org.unicode.cldr.web.FeedBack
+		</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>v</servlet-name>
 		<jsp-file>/v.jsp</jsp-file>
 	</servlet>
@@ -101,6 +107,10 @@
 	<servlet-mapping>
 		<servlet-name>SurveyAjax</servlet-name>
 		<url-pattern>/SurveyAjax</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FeedBack</servlet-name>
+		<url-pattern>/feedback</url-pattern>
 	</servlet-mapping>
 	<resource-ref>
 		<description>

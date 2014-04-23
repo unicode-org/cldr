@@ -159,7 +159,7 @@ div.adminUserUser i {
 
 .adminSetting {
     display: table-row;
-    background-color: wheat;
+    background-color: #fcf8e3;
 }
 
 .adminSetting input {
@@ -175,7 +175,7 @@ div.adminUserUser i {
 	display: block;
     padding: 0.25em;
     color:  black;
-    background-color: wheat;
+    background-color: #fcf8e3;
     opacity: 1;
 	font: italic  small Georgia, "Times New Roman", Times, serif;
 	margin-top:  2px;
@@ -480,11 +480,12 @@ div.search div.results li a.codebox {
  background-color: #ddf;
 }
 
-.fallback {
-	background-color: #b8ffff;
-	border: 1px groove #0079cb  !important;
-}
 
+.fallback {
+	background-color:#5bc0de;
+	padding: .1em .4em .2em;
+	
+}
 .fallback_root, .fallback_code {
 	border: 1px dotted #f00 !important;
 	background-color: #FFDDDD ;
@@ -725,13 +726,13 @@ div.adminThreadStack {
 	width: 43%;
 	display:  table-cell;
 	font: small "Courier New", Courier, mono;
-	background-color: wheat;
+	background-color: #fcf8e3;
 	padding:  3px;
 }
 
 .textForTrac {
-	background-color: wheat;
-	color: wheat;
+	background-color: #fcf8e3;
+	color: #fcf8e3;
 	font-size: 1px;
 }
 
@@ -817,27 +818,19 @@ tr.warnrow {
 }
 
 .localeList {
-    display:  table;
     width:  auto;
 }
 
-.topLocaleRow:nth-child(even) {
-    background-color: #c5deed;
+/*
+.topLocaleRow:nth-child(odd) .subLocale:not(.hide):nth-child(even) {
+    background-color: #f4f4f4;
 }
-
-.topLocaleRow:nth-child(odd) {
-}
-
-.topLocaleRow:nth-child(odd) .subLocale:nth-child(even) {
-    background-color: #e4e5e5;
-}
-.topLocaleRow:nth-child(even) .subLocale:nth-child(even) {
-    background-color: #b3d1d8;
-}
+.topLocaleRow:nth-child(even) .subLocale:not(.hide):nth-child(even) {
+    background-color: #f4f4f4;
+}*/
 
 
 .localeList .topLocaleRow {
-    display:  table-row;
     width:  auto;
 }
 
@@ -849,7 +842,6 @@ tr.warnrow {
 
 .localeList a:hover {
     color:  red !important;
-    background-color: silver;
 }
 
 .topLocaleRow .topLocaleDiv {
@@ -858,26 +850,41 @@ tr.warnrow {
 .topLocaleRow .subLocaleList {
     display:  block;
     padding-left:  4em;
-    padding-bottom: 0.25em;
 }
 
 .subLocaleList .subLocale {
-    display: inline-block;
     margin-right:  0.25em;
+    display: inline-block;  
+}
+
+.topLocaleRow a {
+	display:block;
+	padding-right: 12px;
+	padding-top:6px;
+	padding-bottom:6px;
+	padding-left:5px;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.topLocaleRow a:hover {
+	background-color:#446e9b;
+	color:white !important;
+	text-decoration: none;
 }
 
 .subLocale a.locked.locName {
     color:  silver;
 }
 
-.canmodify {
-    background: url(hand.png) left no-repeat;
-    padding-left:  18px;
+.canmodify::before {
+	content:"\270f  ";
+	font-family: 'Glyphicons Halflings';
 }
 
-.topLocale a.locName {
-    padding-left:  20px;
-}
 
 .name_var {
     font-style: oblique;
@@ -913,44 +920,6 @@ tr.warnrow {
 /*
 
 margin-left: 2em; */
-}
-
-table.data {
-	width: 100%;
-}
-
-.data {
-	border-collapse: collapse;
-}
-
-table.data {
-	border-left: 2px solid #252;
-	border-right: 2px solid #252;
-	border-bottom: 3px solid #252;
-}
-
-table.data td, table.data th {
-	padding-top: 1px;
-	padding-bottom: 1px;
-	border-left: 1px solid gray;
-	border-right: 1px solid gray;
-}
-
-table.data td.noborder, table.data th.noborder {
-	border-left: none;
-	border-right: none;
-}
-
-table.data :target {
-	background-color: yellow;
-}
-
-table.data tr.r1 {
-	background-color: #fff;
-}
-
-table.data tr.r0 {
-	background-color: #eff;
 }
 
 table.list {
@@ -1066,10 +1035,16 @@ i.loadingMsg {
 	font-size: xx-large;
 	text-align: justify;
 	font-weight: bold;
-	font-variant: small-caps;
-	margin-left:  2em;
+	font-variant: caps;
 	color: #17800d;
-    text-shadow: 1px 1px 1px black;
+	font-style:normal;
+}
+
+.loadingMsg::after {
+	content: url('imgs/loader.gif');
+	position:relative;
+	top:7px;
+	left:15px;
 }
 
 .small_login_hot {
@@ -1187,10 +1162,6 @@ td.botgray {
 	border-bottom: 1px solid #ddd;
 }
 
-th.topgray, table.data tr.vother td, table.data tr.vother th {
-	border-top: 1px solid #ccf;
-}
-
 td.topgray {
 	border-top: 1px solid #ddd;
 }
@@ -1231,21 +1202,13 @@ th.partsection {
 th.partsection, th.partsection a {
 	font-weight: bold;
 	font-style: italic;
-	background-color: #9edbec;
+	background-color: #d9edf7;
 	color: #111111;
 	text-align: left;
 	z-index: 0;
     text-transform: capitalize;
 }
 
-tr.headingb {
-	background: #ddd;
-}
-
-tr.headingb th {
-	border-right: 1px solid black;
-	font-size: small;
-}
 
 tt.codebox {
 	border: 1px solid gray;
@@ -1607,6 +1570,7 @@ div#toparea img#stlogo {
 
 #toptitle {
 	font-size: medium;
+	margin-bottom:15px;
 }
 
 #toparea #toptitle {
@@ -1678,7 +1642,7 @@ border: 1px solid red; margin: 1em; padding: 1em;	 */
 	margin: 0.5em;
 	padding: 0.2em;
 	padding-left: 2em;
-	background: #e4dcd4 url(warn.png) no-repeat 0.25em center;
+	background: #f5f5f5 url(warn.png) no-repeat 0.25em center;
 }
 
 .okayText {
@@ -1720,20 +1684,6 @@ a.dcLocale {
 	font: small "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 
-.winner {
-/*	border: 4px groove #0f0;*/
-   border: 1px solid #0f0 !important;
-	background-color: #DDFFDD;
-}
-
-.value {
-	
-
-/*	border: 4px groove #0f0;*/
-   border: 1px solid #028;
-	padding: 1px;
-	background-color: #ddd;
-}
 
 table#usertable {
 	
@@ -1787,7 +1737,6 @@ table#voteinfo thead th:first-child {
 	
 	margin:  0.1em;
 	vertical-align: top;
-	border:  1px solid gray;
 }
 
 div.voteInfo_noVotes.voteInfo_td {
@@ -1804,18 +1753,13 @@ div.voteInfo_noVotes.voteInfo_td {
 	display: inline-block;
 }
 
-
-.voteInfo_valueTitle  {
-	/*margin-left: auto;
-	margin-right: auto;*/
-	text-align: center;
-	/*width: 100%;*/
-}
-
 .voteInfo_tr_heading {
-	background-color: #e0ecff;
+	font-weight:bold;
 }
 
+.voteInfo_valueTitle {
+	font-weight:bold;	
+}
 .voteInfo_iconValue  {
 	background-position: left top !important;
 	padding-left:  20px !important;
@@ -1831,30 +1775,40 @@ div.voteInfo_orgColumn {
 	border-top:  1px solid gray;
 }
 
-.voteInfo_tr {
-	display:  table-row;
-}
-
 .voteInfo_td, div.voteInfo_iconBar  {
-	display:  table-cell;
 	padding-left:  0.10em;
 	padding-right:  0.10em;
-	border-right:  1px solid #bbb;
     border-top:  1px solid gray;
+	padding-bottom: 2px;
+   	padding-top:2px;
+}
+
+.voteInfo_tr_heading td {
+	border-top: none;
 }
 
 div.voteInfo_iconBar {
-	border-right:  none !important;
+	border:  none !important;
+	display:inline-block;
+	height:20px;
+	position:relative;
+	top:2px;
 }
 
 
 .voteInfo_voterInfo, .voteInfo_voteCount {
 	border-top:  1px solid gray;
 	overflow: visible;
+	padding-left:4px;
+}
+
+.voteInfo_voterInfo {
+	width:100%;
 }
 
 .voteInfo_orgsVote {
 	font-weight: bold;
+	padding-right:3px;
 }
 
 .voteInfo_voteTitle {
@@ -1864,6 +1818,7 @@ div.voteInfo_iconBar {
 .voteInfo_orgsNonVote {
 	color: #333;
 	font-style: italic;	
+	padding-left:10px;
 }
 
 
@@ -1999,13 +1954,14 @@ p.errCodeMsg {
 
 
 .cldr_example {
-    border: 1px solid #4c4cca;
+    border: 1px solid #66666E;
+	margin-top:-1px;
+	padding:1px;
 }
 
 div.d-example {
     font: small "Lucida Grande", Lucida, Verdana, sans-serif;
-    padding:  1px;
-    background-color: #f0f0d7;
+    margin-top:7px;
 }
 
 #stchanged_loc {
@@ -2058,6 +2014,9 @@ padding:  2px;
 padding-top:  3px;
 box-shadow: 1px 1px 1px gray;
 line-height:  12px;
+position:fixed;
+top:120px;
+right: 0%;
 }
 
 body.claro div.beta {
@@ -2151,41 +2110,8 @@ span#visitors td.remain {
 }
 
 
-div#progress {
-	background-color: #e0f4ea;
-}
 
-body > div#progress {
-	position: fixed;
-	top: 0;
-	right: 0;
-	margin-left: 0.2em;
-	margin-bottom: 0.2em;
-	padding-top: 2px;
-	padding-left:  0.2em;
-	padding-bottom: 0.2em;
-	z-index: 6;
-	overflow: auto;
-	font-style: italic;
-}
 
-div#progress.progress-connecting {
-	opacity: 0.5;
-}
-
-div#progress.progress-disconnected {
-	opacity: 1;
-	background-color: #fba2a4;
-	padding-right: 4em;
-}
-
-div#progress.progress-disconnected span.oneword {
-	font-size: large;
-}
-
-div#progress span.oneword {
-	font: italic small Georgia, "Times New Roman", Times, serif;
-}
 
 table.progress-list {
 	border-collapse: collapse;
@@ -2472,34 +2398,35 @@ span.d-sort-size {
 	height: 16px;
 }
 
+
 .d-dr-approved {
 	width: 16px;
 	height: 16px;
-	background: url(approved.png) no-repeat center top;
+	background: url(approved.png) no-repeat center;
 }
 
 .d-dr-contributed {
 	width: 16px;
 	height: 16px;
-	background: url(contributed.png) no-repeat center top;
+	background: url(contributed.png) no-repeat center;
 }
 
 .d-dr-provisional {
 	width: 16px;
 	height: 16px;
-	background: url(provisional.png) no-repeat center top;
+	background: url(provisional.png) no-repeat center;
 }
 
 .d-dr-unconfirmed {
 	width: 16px;
 	height: 16px;
-	background: url(unconfirmed.png) no-repeat center top;
+	background: url(unconfirmed.png) no-repeat center;
 }
 
 .d-dr-missing {
 	width: 16px;
 	height: 16px;
-	background: url(missing.png) no-repeat center top;
+	background: url(missing.png) no-repeat center;
 }
 
 .voteDiv .winningStatus  {
@@ -2508,9 +2435,6 @@ span.d-sort-size {
 	width: inherit !important;
 }
 
-#title-locale {
-    font-size: large;
-}
 
 .voteDiv .lastReleaseStatus1 {
     background: none !important;
@@ -2576,8 +2500,8 @@ h3.voteInfo_key_title {
 }*/
 
 .d-item {
-	border: 2px solid white;
 	display:  inline-box;
+	clear:both;
 }
 
 .d-item span span {
@@ -2610,25 +2534,11 @@ tr.d-inforow td h3.span {
 	font-size: large;
 }
 
-table.data tr td {
-     border: 1px solid #d1d1c1;
-     padding:  3px;
-     margin:  3px;
- }
 
 .pu-select {
 	border: 2px double black !important;
-	padding:  2px !important;
-	margin:  2px !important;
-	padding-top: 3px !important;
-	padding-bottom: 3px !important;
-	padding-left: 3px !important;
 }
 
-
-.selectShow {
-    background-color: #f4f3ee;
-}
 
 
 .d-item-selected {
@@ -2831,16 +2741,14 @@ body.disconnected div#progress.progress-ok  button#progress-refresh {
 
 div#progress.progress-special,
 div#progress.progress-special span.oneword{
-	background-color: wheat !important;
-	font-style: italic;
 	font-weight: bold;
 	text-decoration: none;
 }
 
 div#progress, div#progress span {
-transition: background-color 0.5s;
--moz-transition: background-color 0.5s;
--webkit-transition: background-color 0.5s;
+transition: background-color 0.2s;
+-moz-transition: background-color 0.2s;
+-webkit-transition: background-color 0.2s;
 -o-transition: background-color 0.2s;
 }
 
@@ -2868,6 +2776,13 @@ transition: background-color 0.5s;
 	float: right;
 	margin:  1px solid red;
 }*/
+.d-dr-approved,.d-dr-contributed,.d-dr-unconfirmed,.d-dr-provisional,.d-dr-missing,.i-star,.i-vote, .label-icon {
+	position:relative;
+	left:5px;
+	display:inline-block;
+	vertical-align: middle;
+}
+
 
 .i-vote {
 	padding: 2px;
@@ -2923,17 +2838,16 @@ button.d-inforow-hider {
 .d-item,.d-item-warn,.d-item-err,
 td.d-change,td.d-change-err,td.d-change-warn {
 	vertical-align: top;
-	/*padding-left:  18px;*/
+	margin-top:-3px;
 }
 
 td.d-change-err, td.d-win-err, .d-item-err {
-	background: #fa9092 url(stop.png) no-repeat left bottom !important;
+	background: #fa9092 url(stop.png) no-repeat right top !important;
 	border: 2px solid red !important;
-	padding-bottom: 16px !important;
 }
 
 td.d-change-confirmonly {
-	background: #ddfafa ;
+	background: #d9edf7;
 }
 
 td.d-change-confirmonly .fnotebox {
@@ -2943,9 +2857,9 @@ td.d-change-confirmonly .fnotebox {
 }
 
 td.d-change-warn, td.d-win-warn, .d-item-warn {
-	border: 2px solid yellow !important;
-	background: #fbfea1 url(warn.png) no-repeat left bottom !important;
-	padding-bottom: 16px !important;
+	border: 2px #fbeed5  !important;
+	background: #fcf8e3 !important;
+	padding:5px;
 }
 
 td.d-win {
@@ -3092,7 +3006,10 @@ div.voterList .voterOrg {
 }
 
 #itemInfo {
-	width:  30%;
+	height:100%;
+	padding-bottom:180px;
+	min-width: 320px;
+	position:fixed;
 }
 
 button.forumShow {
@@ -3190,20 +3107,18 @@ td.v-win {
     font-size: small;
 }
 
-span.editableHere:hover {
-    background-color: yellow;
-    border:  1px solid black;
-}
 
 .menu-container {
     display:  inline;
 }
 
 .menu-container::before{
-    content: "»";
     color:  black;
 }
 
+.menu-container:first-child:before {
+	content: '';
+}
 /*
   TODO: make this dynamic.
   */
@@ -3235,7 +3150,6 @@ span.editableHere:hover {
 #LoadingMessageSection {
     text-align: center;
     padding-top:  3em;
-    font: italic bold x-large Georgia, "Times New Roman", Times, serif;
 }
 
 #loginlink {
@@ -3282,9 +3196,10 @@ span.editableHere:hover {
     background-color: #b1b56a !important;
 }
 
-.locked {
-    padding-left:  20px;
-    background: url(lock.png) no-repeat 0 top;
+.locked::before {
+    font-family:"Glyphicons Halflings";
+    content:"\e014 ";
+    margin-top:2px;
 }
 
 .mailListChunk, .mailContentChunk {

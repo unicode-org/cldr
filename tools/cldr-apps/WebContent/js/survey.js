@@ -385,12 +385,20 @@ function createChunk(text, tag, className) {
 	var chunk = document.createElement(tag);
 	if(className) {
 		chunk.className = className;
-		chunk.title=stui_str(firstword(className)+"_desc");
+		//chunk.title=stui_str(firstword(className)+"_desc");
 	}
 	if(text) {
 		chunk.appendChild(document.createTextNode(text));
 	}
 	return chunk;
+}
+
+/**
+ * Uppercase the first letter of a sentence
+ * @return {String} string with first letter uppercase
+ */
+String.prototype.ucFirst = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
 }
 
 /**
@@ -798,23 +806,22 @@ function showWord() {
 			|| (progressWord&&progressWord=="disconnected")
 			|| (progressWord&&progressWord=="error")
 			) { // top priority
-		oneword.innerHTML = stopIcon +  stui_str(progressWord);
-		p.className = "progress-disconnected";
+		popupAlert('danger',stopIcon +  stui_str(progressWord));
 		busted(); // no further processing.
 	} else if(ajaxWord) {
 		p.className = "progress-ok";
-		oneword.innerHTML = ajaxWord;
+		//popupAlert('warning',ajaxWord);
 	} else if(!progressWord || progressWord == "ok") {
 		if(specialHeader) {
 			p.className = "progress-special";
-			oneword.innerHTML = specialHeader; // only show if set
+			popupAlert('success',specialHeader);
 		} else {
 			p.className = "progress-ok";
-			oneword.innerHTML = stui_str('online');
+			popupAlert('warning',stui_str('online'));
 		}
 	} else if(progressWord=="startup") {
 		p.className = "progress-ok";
-		oneword.innerHTML = stui_str('startup');
+		popupAlert('warning',stui_str('online'));
 	}
 }
 
@@ -1883,10 +1890,11 @@ dojo.ready(function() {
 	 * @param {Function} fn 
 	 * @param {Boolean} immediate
 	 */
-	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate) {
+	window.showInPop2 = function(str, tr, hideIfLast, fn, immediate, hide) {
 //		if(hideIfLast&&lastShown==hideIfLast) {
 //			return; // keep up
 //		}
+		
 		if(unShow) {
 			unShow();
 			unShow=null;
@@ -1896,27 +1904,7 @@ dojo.ready(function() {
 			clearTimeout(hideInterval);
 			hideInterval=null;
 		}
-//		if(hideIfLast && lastShown==hideIfLast) {
-//			lastShown=null;
-//			
-//			pucontent.style.display="none";
-//			
-//			return;
-//		}
-		
-		if(tr && tr.theRow) {
-//			console.log('Hey, selecting this row..');
-			
-			if(tr.theRow.coverageValue > effectiveCoverage()) {
-//				addClass(tr,'selectShow');
-//				console.log("Hey!! I'm a " + tr.theRow.coverageValue + " but e-cov is " + effectiveCoverage());
-				// add something to popinfo?
-			} else {
-//				console.log("A-OK  - I'm a " + tr.theRow.coverageValue + " but e-cov is " + effectiveCoverage());
-			}
-		}
-		
-		
+
 		if(tr && tr.sethash) {
 			window.updateCurrentId(tr.sethash);
 		}
@@ -1929,7 +1917,7 @@ dojo.ready(function() {
 		if(tr) {
 			var theRow = tr.theRow;
 			// this also marks this row as a 'help parent'
-			theHelp = createChunk("","div","helpHtml");
+			theHelp = createChunk("","div","alert alert-info fix-popover-help vote-help");
 				
 			if(theRow.xpstrid /*&& theRow.displayHelp*/) {
 				var deferHelpSpan = document.createElement('span');
@@ -1947,8 +1935,10 @@ dojo.ready(function() {
 							handleAs:"text",
 							load: function(html) {
 								deferHelp[theRow.xpstrid] = html;
-//								console.log("Got>> " + html);
 								deferHelpSpan.innerHTML = html;
+								if(isDashboard()) {
+									fixPopoverVotePos();
+								}
 							},
 					};
 					queueXhr(xhrArgs);
@@ -1980,6 +1970,7 @@ dojo.ready(function() {
 		// If a generator fn (common case), call it.
 		if(fn!=null) {
 			unShow=fn(td);
+			
 		}
 
 		var theVoteinfo = null;
@@ -2006,14 +1997,36 @@ dojo.ready(function() {
 
 		
 		// SRL suspicious
-		removeAllChildNodes(pucontent);
-		pucontent.appendChild(td);
+		if(tr) {
+			if(isDashboard()) {
+				showHelpFixPanel(td);
+			}
+			else {
+				removeAllChildNodes(pucontent);
+				pucontent.appendChild(td);
+			}
+		}
+		else {
+			var clone = td.cloneNode(true);
+			setHelpContent(td);
+			if(!isDashboard()) {
+				removeAllChildNodes(pucontent);
+				pucontent.appendChild(clone);
+			}
+				
+		}
 		td=null;
 		
+		//for the voter
+		 $('.voteInfo_voterInfo').hover(function() {
+			 	var email = $(this).data('email').replace(' (at) ', '@');
+		    	$(this).html('<a href="mailto:'+email+'" title="'+email+'" style="color:black"><span class="glyphicon glyphicon-envelope"></span></a>');
+		    	$(this).children('a').tooltip().tooltip('show');
+		    }, function() {
+		    	$(this).html($(this).data('name'));
+		 });
+		
 	};
-	if(false) {
-		window.showInPop = window.showInPop2;
-	} else {
 		// delay before show
 		window.showInPop = function(str,tr,hideIfLast,fn,immediate) {
 			if(hideInterval) {
@@ -2028,7 +2041,7 @@ dojo.ready(function() {
 //				}, 2500);
 			}
 		};
-	}
+	
 //	window.hidePop = function() {
 //		if(hideInterval) {
 //			clearTimeout(hideInterval);
@@ -2078,8 +2091,11 @@ function testsToHtml(tests) {
 	if(!tests) return newHtml;
 	for ( var i = 0; i < tests.length; i++) {
 		var testItem = tests[i];
-		newHtml += "<p class='tr_" + testItem.type + "' title='" + testItem.type
-				+ "'>";
+		newHtml += "<p class='trInfo tr_" + testItem.type;
+		if(testItem.type == 'Warning') {
+			newHtml += ' alert alert-warning fix-popover-help';
+		}
+		newHtml += "' title='" + testItem.type+"'>";
 		if (testItem.type == 'Warning') {
 			newHtml += warnIcon;
 			// what='warn';
@@ -2229,7 +2245,7 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 	return function(td) {
 		//div.className = 'd-item-selected';
 
-		var h3 = document.createElement("h3");
+		var h3 = document.createElement("div");
 		var span = appendItem(h3, item.value, item.pClass); /* no need to pass in 'tr' - clicking this span would have no effect. */
 		setLang(span);
 		h3.className="span";
@@ -2250,6 +2266,7 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
         
 		var newDiv = document.createElement("div");
 		td.appendChild(newDiv);
+		
 		var newHtml = "";
 		
 		if (item.tests) {
@@ -2271,7 +2288,7 @@ function showItemInfoFn(theRow, item, vHash, newButton, div) {
 
 function appendExample(parent, text, loc) {
 	var div = document.createElement("div");
-	div.className="d-example";
+	div.className="d-example well well-sm";
 	div.innerHTML=text;
 	setLang(div, loc);
 	parent.appendChild(div);
@@ -2300,28 +2317,28 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 //		div.innerHTML = "<i>null: "+theRow.winningVhash+" </i>";
 		return;
 	}
-	
+	var choiceField = document.createElement("div");
+	choiceField.className = "choice-field";
 	if(newButton) {
 		newButton.value=item.value;
 		wireUpButton(newButton,tr,theRow,vHash);
-		div.appendChild(newButton);
+		choiceField.appendChild(newButton);
 	}
-	
     var subSpan = document.createElement("span");
     subSpan.className = "subSpan";
 	var span = appendItem(subSpan,item.value,item.pClass,tr);
-	div.appendChild(subSpan);
+	choiceField.appendChild(subSpan);
 	
 	setLang(span);
 	
 	if(item.isOldValue==true && !isWinner) {
-		addIcon(div,"i-star");
+		addIcon(choiceField,"i-star");
 	}
 	if(item.votes && !isWinner) {
-		addIcon(div,"i-vote");
+		addIcon(choiceField,"i-vote");
 
 		if(vHash == theRow.voteVhash && theRow.canFlagOnLosing && !theRow.rowFlagged){
-			var newIcon = addIcon(div,"i-stop"); // DEBUG
+			var newIcon = addIcon(choiceField,"i-stop"); // DEBUG
 			/*
 			listenFor(newIcon, "click", function(e) {
 				//window.blur(); // submit anything unsubmitted
@@ -2338,9 +2355,11 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 			vHash !== '' &&  // not 'no opinion'
 			theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes) {
 		var overrideTag = createChunk(theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,"span","i-override");		
-		div.appendChild(overrideTag);
+		choiceField.appendChild(overrideTag);
 	}
 	
+	div.appendChild(choiceField);
+
 	var inheritedClassName = "fallback";
 	var defaultClassName = "fallback_code";
 	
@@ -2349,7 +2368,8 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	   item.pClass.substring(0, defaultClassName.length)!=defaultClassName) {
 		cancelButton.value=item.value;
 		wireUpCancelButton(cancelButton,tr,theRow,vHash);
-		div.appendChild(cancelButton);
+		choiceField.appendChild(cancelButton);
+		$(cancelButton).tooltip();
 	}
 
     // wire up the onclick
@@ -2364,7 +2384,7 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 //		listenToPop(null,tr,example,td.showFn);
 	}
 	
-	if(tr.canChange) {
+	/*if(tr.canChange) {
 	    var oldClassName = span.className = span.className + " editableHere";
 	    ///span.title = span.title  + " " + stui_str("clickToChange");
 	    var ieb = null;
@@ -2410,8 +2430,8 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	    	return false;
 	    };
 	    
-	    listenFor(span, "mouseover", editInPlace);
-	}
+	    //listenFor(span, "mouseover", editInPlace);
+	}*/
 }
 
 function calcPClass(value, winner) {
@@ -2448,7 +2468,7 @@ function updateRow(tr, theRow) {
 		var div = tr.voteDiv = document.createElement("div");
 		tr.voteDiv.className = "voteDiv";
 		
-		tr.voteDiv.appendChild(document.createElement("hr"));
+		//tr.voteDiv.appendChild(document.createElement("hr"));
 		
 		
 		if(theRow.voteVhash && 
@@ -2482,10 +2502,7 @@ function updateRow(tr, theRow) {
 			// next, the org votes
 			var perValueContainer = div; // IF NEEDED: >>  = document.createElement("div");  perValueContainer.className = "perValueContainer";  
 			
-			if(vr.requiredVotes) {
-				var msg = stui.sub("explainRequiredVotes", {requiredVotes: vr.requiredVotes  /* , votecount: surveyUser.votecount */ });
-				perValueContainer.appendChild(createChunk(msg,"p", "helpContent"));
-			}
+			
 			
 			var n = 0;
 			while(n < vr.value_vote.length) {
@@ -2494,34 +2511,48 @@ function updateRow(tr, theRow) {
 				var vote = vr.value_vote[n++];
 				var item = tr.rawValueToItem[value]; // backlink to specific item in hash
 				if(item==null) continue;
-				var vdiv = createChunk(null, "div", "voteInfo_perValue");
-				
+				var vdiv = createChunk(null, "table", "voteInfo_perValue table table-vote");
+				console.log(n);
+				if(n > 2)
+					var valdiv = createChunk(null, "div", "value-div");
+				else
+					var valdiv = createChunk(null, "div", "value-div first")
 				// heading row
+					
 				{
 					//var valueExtra = (value==vr.winningValue)?(" voteInfo_iconValue voteInfo_winningItem d-dr-"+theRow.voteResolver.winningStatus):"";
 					//var voteExtra = (value==vr.lastReleaseValue)?(" voteInfo_lastRelease"):"";
-					var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_tr_heading");
+					var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_tr_heading");
 					if(!item.votes || Object.keys(item.votes).length==0) {
 						//vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td"));
 					} else {
-						vrow.appendChild(createChunk(stui.str("voteInfo_orgColumn"),"div","voteInfo_orgColumn voteInfo_td"));
+						vrow.appendChild(createChunk(stui.str("voteInfo_orgColumn"),"td","voteInfo_orgColumn voteInfo_td"));
 					}
 					var isection = createChunk(null, "div", "voteInfo_iconBar");
-					vrow.appendChild(isection);
+					//vrow.appendChild(isection);
 					
-					var vvalue = createChunk(null, "div", "voteInfo_valueTitle voteInfo_td"+"");
-					
+					var vvalue = createChunk("User", "td", "voteInfo_valueTitle voteInfo_td");
+					var vbadge = createChunk(vote, "span", "badge");
 					if(value==vr.winningValue) {
 						appendIcon(isection,"voteInfo_winningItem d-dr-"+theRow.voteResolver.winningStatus);
 					}
+					
 					if(value==vr.lastReleaseValue) {
 						appendIcon(isection,"voteInfo_lastRelease i-star");
 					}
 					
-					setLang(vvalue);
-					appendItem(vvalue, value, calcPClass(value, vr.winningValue), tr);
+					if(value != vr.winningValue) {
+							appendIcon(isection,"i-vote");
+					}
+					
+					setLang(valdiv);
+					appendItem(valdiv, value, calcPClass(value, vr.winningValue), tr);
+					valdiv.appendChild(isection);
 					vrow.appendChild(vvalue);
-					vrow.appendChild(createChunk(vote,"div","voteInfo_voteTitle voteInfo_td"+""));
+					
+					var cell = createChunk(null,"td","voteInfo_voteTitle voteInfo_voteCount voteInfo_td"+"");
+					cell.appendChild(vbadge);
+					vrow.appendChild(cell);
 					vdiv.appendChild(vrow);
 				}
 				
@@ -2529,16 +2560,21 @@ function updateRow(tr, theRow) {
 					if(v==null) {
 						return createChunk("(NULL)!","i","stopText");
 					}
-					var div = createChunk(v.email,"div","voteInfo_voterInfo voteInfo_td");
-					div.title = v.name + " ("+v.org+")";
+					var div = createChunk(v.name,"td","voteInfo_voterInfo voteInfo_td");
+					div.setAttribute('data-name',v.name);
+					div.setAttribute('data-email',v.email);
 					return div;
 				};
 				
 				if(!item.votes || Object.keys(item.votes).length==0) {
-					var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_orgHeading");
+					var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
 					//vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td"));
-					vrow.appendChild(createChunk(stui.str("voteInfo_noVotes"),"div","voteInfo_noVotes voteInfo_td"));
+					vrow.appendChild(createChunk(stui.str("voteInfo_noVotes"),"td","voteInfo_noVotes voteInfo_td"));
+					
+					//vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td"));
+					vrow.appendChild(createChunk(null, "td","voteInfo_noVotes voteInfo_td"));
 					vdiv.appendChild(vrow);
+					
 				} else {
 					for(org in theRow.voteResolver.orgs) {
 						var theOrg = vr.orgs[org];
@@ -2567,12 +2603,17 @@ function updateRow(tr, theRow) {
 							
 							// ORG SUBHEADING row
 							{
-								var vrow = createChunk(null, "div", "voteInfo_tr voteInfo_orgHeading");
-								vrow.appendChild(createChunk(org,"div","voteInfo_orgColumn voteInfo_td"));
-								var isection = createChunk(null, "div", "voteInfo_iconBar");
-								vrow.appendChild(isection);
+								var vrow = createChunk(null, "tr", "voteInfo_tr voteInfo_orgHeading");
+								vrow.appendChild(createChunk(org,"td","voteInfo_orgColumn voteInfo_td"));
+								//var isection = createChunk(null, "td", "voteInfo_iconBar");
+								//vrow.appendChild(isection);
 								vrow.appendChild(createVoter(item.votes[topVoter])); // voteInfo_td
-								vrow.appendChild(createChunk(orgVoteValue,"div",(orgsVote?"voteInfo_orgsVote ":"voteInfo_orgsNonVote ")+"voteInfo_voteCount voteInfo_td"));
+								if(orgsVote) {
+									var cell = createChunk(null,"td","voteInfo_orgsVote voteInfo_voteCount voteInfo_td");
+									cell.appendChild(createChunk(orgVoteValue, "span", "badge"));
+									vrow.appendChild(cell);
+								}else
+									vrow.appendChild(createChunk(orgVoteValue,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
 								vdiv.appendChild(vrow);
 							}
 							
@@ -2584,12 +2625,12 @@ function updateRow(tr, theRow) {
 								}
 								// OTHER VOTER row
 								{
-									var vrow = createChunk(null, "div", "voteInfo_tr");
-									vrow.appendChild(createChunk("","div","voteInfo_orgColumn voteInfo_td")); // spacer
-									var isection = createChunk(null, "div", "voteInfo_iconBar");
-									vrow.appendChild(isection);
+									var vrow = createChunk(null, "tr", "voteInfo_tr");
+									vrow.appendChild(createChunk("","td","voteInfo_orgColumn voteInfo_td")); // spacer
+									//var isection = createChunk(null, "td", "voteInfo_iconBar");
+									//vrow.appendChild(isection);
 									vrow.appendChild(createVoter(item.votes[voter])); // voteInfo_td
-									vrow.appendChild(createChunk(item.votes[voter].votes,"div","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
+									vrow.appendChild(createChunk(item.votes[voter].votes,"td","voteInfo_orgsNonVote voteInfo_voteCount voteInfo_td"));
 									vdiv.appendChild(vrow);
 								}
 							}
@@ -2598,8 +2639,16 @@ function updateRow(tr, theRow) {
 						}
 					}
 				}
+				
+				perValueContainer.appendChild(valdiv);
 				perValueContainer.appendChild(vdiv);
 			}
+			
+			if(vr.requiredVotes) {
+				var msg = stui.sub("explainRequiredVotes", {requiredVotes: vr.requiredVotes  /* , votecount: surveyUser.votecount */ });
+				perValueContainer.appendChild(createChunk(msg,"p", "alert alert-warning fix-popover-help"));
+			}
+			
 		} else {
 			// ? indicate approved, last release value?
 		}
@@ -2607,7 +2656,7 @@ function updateRow(tr, theRow) {
 		// KEY
 		// approved and last release status
 		{
-			var kdiv = createChunk(null,"div","voteInfo_key");
+			/*var kdiv = createChunk(null,"div","voteInfo_key");
 			tr.voteDiv.appendChild(createChunk(stui.str("voteInfo_key"),"h3","voteInfo_key_title"));
 			var disputedText = (theRow.voteResolver.isDisputed)?stui.str("winningStatus_disputed"):"";
 			kdiv.appendChild(createChunk(
@@ -2618,15 +2667,19 @@ function updateRow(tr, theRow) {
 			kdiv.appendChild(createChunk(
 					stui.sub("lastReleaseStatus_msg",
 							[ stui.str(theRow.voteResolver.lastReleaseStatus) ])
-					, "div",  /* "d-dr-"+theRow.voteResolver.lastReleaseStatus+ */ "voteInfo_lastReleaseKey voteInfo_iconValue"));
+					, "div", "i-star voteInfo_iconValue"));
 
 			
 			tr.voteDiv.appendChild(kdiv);
-
+			
+			var surlink = document.createElement("div");
+			surlink.className = "alert alert-info fix-popover-help";
+			
 			var link = createChunk(stui.str("voteInfo_moreInfo"),"a", null);
 			var theUrl = "http://cldr.unicode.org/index/survey-tool/guide#TOC-Key";
 			link.href = theUrl;
-			tr.voteDiv.appendChild(link);
+			surlink.appendChild(link);
+			tr.voteDiv.appendChild(surlink);*/
 
 		}
 
@@ -2655,7 +2708,9 @@ function updateRow(tr, theRow) {
 			tr.sethash = tr.xpstrid;
 		}
 	}
+	
 	var children = getTagChildren(tr);
+	
 	var config = surveyConfig;
 	var protoButton = dojo.byId('proto-button');
 	var cancelButton = dojo.byId('cancel-button');
@@ -2665,11 +2720,13 @@ function updateRow(tr, theRow) {
 	}
 	
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus + " d-dr-status";
+
 	if(!children[config.statuscell].isSetup) {
 		listenToPop("", tr, children[config.statuscell]);
 
 		children[config.statuscell].isSetup=true;
 	}
+
 	children[config.statuscell].title = stui.sub('draftStatus',[stui.str(theRow.confirmStatus)]);
 
 	if(theRow.hasVoted) {
@@ -2679,16 +2736,18 @@ function updateRow(tr, theRow) {
 		children[config.nocell].title=stui.voFalse;
 		children[config.nocell].className= "d-no-vo-false";
 	}
+	
+	if(config.codecell) {
 
-	children[config.codecell].appendChild(createChunk('|>'));
-			removeAllChildNodes(children[config.codecell]);
-			children[config.codecell].appendChild(createChunk('<|'));
-					removeAllChildNodes(children[config.codecell]);
-	var codeStr = theRow.code;
-	if(theRow.coverageValue==101 && !stdebug_enabled) {
-		codeStr = codeStr + " (optional)";
-	}
-	children[config.codecell].appendChild(createChunk(codeStr));
+		children[config.codecell].appendChild(createChunk('|>'));
+				removeAllChildNodes(children[config.codecell]);
+				children[config.codecell].appendChild(createChunk('<|'));
+						removeAllChildNodes(children[config.codecell]);
+		var codeStr = theRow.code;
+		if(theRow.coverageValue==101 && !stdebug_enabled) {
+			codeStr = codeStr + " (optional)";
+		}
+		children[config.codecell].appendChild(createChunk(codeStr));
 		if(tr.theTable.json.canModify) { // pointless if can't modify.
 	
 			children[config.codecell].className = "d-code";			
@@ -2706,6 +2765,8 @@ function updateRow(tr, theRow) {
 		if(theRow.extraAttributes && Object.keys(theRow.extraAttributes).length>0) {
 			appendExtraAttributes(children[config.codecell], theRow);
 		}
+		
+
 		if(stdebug_enabled) {
 			var anch = document.createElement("i");
 			anch.className="anch";
@@ -2743,7 +2804,7 @@ function updateRow(tr, theRow) {
 			children[config.codecell].isSetup = true;
 		}
 	//	tr.anch = anch;
-	
+	}
 	if(tr.iebs) {
 		for(var qq in tr.iebs) {
 			stdebug("Destroying " + tr.iebs[qq]);
@@ -2759,12 +2820,12 @@ function updateRow(tr, theRow) {
 			setLang(children[config.comparisoncell], surveyBaselineLocale);
 			if(theRow.displayExample) {
 				var theExample = appendExample(children[config.comparisoncell], theRow.displayExample, surveyBaselineLocale);
-				listenToPop(null,tr,theExample);
+				//listenToPop(null,tr,theExample);
 			}
 		} else {
 			children[config.comparisoncell].appendChild(document.createTextNode(""));
 		}
-		listenToPop(null,tr,children[config.comparisoncell]);
+		//listenToPop(null,tr,children[config.comparisoncell]);
 		children[config.comparisoncell].isSetup=true;
 	}
 	removeAllChildNodes(children[config.proposedcell]); // win
@@ -2795,20 +2856,93 @@ function updateRow(tr, theRow) {
 	} else {
 		children[config.proposedcell].showFn = function(){};  // nothing else to show
 	}
+	
 	listenToPop(null,tr,children[config.proposedcell], children[config.proposedcell].showFn);
-	listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);
+	if(config.errcell)
+		listenToPop(null,tr,children[config.errcell], children[config.proposedcell].showFn);
 	//listenFor(children[config.errcell],"mouseover",function(e){return children[config.errcell]._onmove(e);});
 	
 	var hadOtherItems  = false;
 	removeAllChildNodes(children[config.othercell]); // other
 	setLang(children[config.othercell]);
+	
+	//add button
+	var formAdd = document.createElement("form");
+	if(tr.canModify) {
+		formAdd.role = "form";
+		formAdd.className = "form-inline";
+		var buttonAdd = document.createElement("div");
+		var btn = document.createElement("button");
+		buttonAdd.className = "button-add form-group";
+		
+		toAddVoteButton(btn);
+		
+		buttonAdd.appendChild(btn);
+		formAdd.appendChild(buttonAdd);
+		
+		var input = document.createElement("input");
+		input.className = "form-control";
+		input.placeholder = 'Add a translation';
+		btn.onclick = function(e) {
+			//if no input, add one
+			if($(buttonAdd).find('input').length == 0) {
+				
+				//hide other
+				$.each($('button.vote-submit'), function() {
+					toAddVoteButton(this);
+				});
+				
+				//transform the button
+				buttonAdd.appendChild(input);
+				toSubmitVoteButton(btn).onclick = function(event) {
+					var newValue = input.value;
+					if(newValue) {
+						addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));					
+					}
+					else {
+						toAddVoteButton(btn);
+					}
+					stStopPropagation(event);
+					return false;
+				};
+				
+				input.focus();
+				
+				
+				//enter pressed
+				$(input).keydown(function (e) {
+					var newValue = $(this).val();
+					if(e.keyCode == 13) {
+						if(newValue) {
+							addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));			
+						}
+						else {
+							toAddVoteButton(btn);
+						}
+					}
+				});
+				
+			}
+			stStopPropagation(e);
+			return false;
+		};
+	}
+	
+	
+	
+	//add the other vote info
 	for(k in theRow.items) {
 		if(k == theRow.winningVhash) {
 			continue; // skip the winner
 		}
 		hadOtherItems=true;
+		children[config.othercell].appendChild(document.createElement("hr"));
 		addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton), cloneAnon(cancelButton));
 	}
+	
+	
+	
+	
 	if(!hadOtherItems /*!onIE*/) {
 		listenToPop(null, tr, children[config.othercell]);
 	}
@@ -2819,6 +2953,9 @@ function updateRow(tr, theRow) {
 		tr.myProposal=null; // not needed
 	}
 	
+	children[config.othercell].appendChild(document.createElement('hr'));
+	children[config.othercell].appendChild(formAdd);//add button	
+
 	if(canModify) {
 		removeAllChildNodes(children[config.nocell]); // no opinion
 		var noOpinion = cloneAnon(protoButton);
@@ -2831,6 +2968,11 @@ function updateRow(tr, theRow) {
     		setDisplayed(children[config.nocell], false);
     	}
 		children[config.proposedcell].className="d-change-confirmonly";
+		
+		var surlink = document.createElement("div");
+		surlink.innerHTML = '<span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;';
+		surlink.className = 'alert alert-info fix-popover-help';
+		
 		var link = createChunk(stui.str("file_a_ticket"),"a");
 		var newUrl = "http://unicode.org/cldr/trac"+"/newticket?component=data&summary="+surveyCurrentLocale+":"+theRow.xpath+"&locale="+surveyCurrentLocale+"&xpath="+theRow.xpstrid+"&version="+surveyVersion;
 		link.href = newUrl;
@@ -2842,7 +2984,8 @@ function updateRow(tr, theRow) {
 			link.href = link.href + "&description=NOT+PRODUCTION+SURVEYTOOL!";
 		}
 		children[config.proposedcell].appendChild(createChunk(stui.str("file_ticket_notice"), "i", "fnotebox"));
-		tr.ticketLink = link; 
+		surlink.appendChild(link);
+		tr.ticketLink = surlink;  
 	} else  { // no change possible
     	if(!tr.theTable.json.canModify) { // only if hidden in the header
     		setDisplayed(children[config.nocell], false);
@@ -2853,6 +2996,7 @@ function updateRow(tr, theRow) {
 	if(surveyCurrentId!== '' && surveyCurrentId === tr.id) {
 		window.showCurrentId(); // refresh again - to get the updated voting status.
 	}
+	
 }
 
 function findPartition(partitions,partitionList,curPartition,i) {
@@ -2877,6 +3021,7 @@ function insertRowsIntoTbody(theTable,tbody) {
 	var toAdd = theTable.toAdd;
 	var parRow = dojo.byId('proto-parrow');
 	removeAllChildNodes(tbody);
+	
 	var theSort = theTable.json.displaySets[theTable.curSortMode];
 	var partitions = theSort.partitions;
 	var rowList = theSort.rows;
@@ -2884,41 +3029,46 @@ function insertRowsIntoTbody(theTable,tbody) {
 	var partitionList = Object.keys(partitions);
 	var curPartition = null;
 	for(i in rowList ) {
-		var newPartition = findPartition(partitions,partitionList,curPartition,i);
-		
-		if(newPartition != curPartition) {
-			if(newPartition.name != "") {
-				var newPar = cloneAnon(parRow);
-				var newTd = getTagChildren(newPar);
-				var newHeading = getTagChildren(newTd[0]);
-				newHeading[0].innerHTML = newPartition.name;
-				newHeading[0].id = newPartition.name;
-				tbody.appendChild(newPar);
-				newPar.origClass = newPar.className;
-				newPartition.tr = newPar; // heading
-			}
-			curPartition = newPartition;
-		}
 		
 		var k = rowList[i];
 		var theRow = theRows[k];
 		
-		var theRowCov = parseInt(theRow.coverageValue);
-		if(!newPartition.minCoverage || newPartition.minCoverage > theRowCov) {
-			newPartition.minCoverage = theRowCov;
-                        if(newPartition.tr) {
-                            // only set coverage of the header if there's a header
-			    newPartition.tr.className = newPartition.origClass+" cov"+newPartition.minCoverage;
-                        }
+		//no partition in the dashboard
+		if(!isDashboard()) {
+			var newPartition = findPartition(partitions,partitionList,curPartition,i);
+			
+			if(newPartition != curPartition) {
+				if(newPartition.name != "") {
+					var newPar = cloneAnon(parRow);
+					var newTd = getTagChildren(newPar);
+					var newHeading = getTagChildren(newTd[0]);
+					newHeading[0].innerHTML = newPartition.name;
+					newHeading[0].id = newPartition.name;
+					tbody.appendChild(newPar);
+					newPar.origClass = newPar.className;
+					newPartition.tr = newPar; // heading
+				}
+				curPartition = newPartition;
+			}
+			
+			
+			
+			var theRowCov = parseInt(theRow.coverageValue);
+			if(!newPartition.minCoverage || newPartition.minCoverage > theRowCov) {
+				newPartition.minCoverage = theRowCov;
+	                        if(newPartition.tr) {
+	                            // only set coverage of the header if there's a header
+				    newPartition.tr.className = newPartition.origClass+" cov"+newPartition.minCoverage;
+	                        }
+			}
 		}
 		
 		var tr = theTable.myTRs[k];
 		if(!tr) {
-			//console.log("new " + k);
 			tr = cloneAnon(toAdd);
 			theTable.myTRs[k]=tr; // save for later use
 		}
-//		tr.id="r_"+k;
+
 		tr.rowHash = k;
 		tr.theTable = theTable;
 		if(!theRow) {
@@ -2962,7 +3112,7 @@ function setupSortmode(theTable) {
 	var itemCount = Object.keys(theTable.json.section.rows).length;
 	var size = document.createElement("span");
 	size.className="d-sort-size";
-	theSortmode.appendChild(size);
+	//theSortmode.appendChild(size);
 	var ul = document.createElement("ul");
 	if(itemCount>0) {
 		for(i in listOfLists) {
@@ -2985,7 +3135,7 @@ function setupSortmode(theTable) {
 			}
 			ul.appendChild(a);
 		}
-		theSortmode.appendChild(ul);
+		//theSortmode.appendChild(ul);
 	}
         
         theTable.json.section.itemCount = itemCount;
@@ -3111,13 +3261,14 @@ function updateCoverage(theDiv) {
  */
 function insertRows(theDiv,xpath,session,json) {
 	var theTable = theDiv.theTable;
-
 	var doInsertTable = null;
 	
 	removeAllChildNodes(theDiv);
 	window.insertLocaleSpecialNote(theDiv);
 	if(!theTable) {
 		theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
+		if(isDashboard())
+			theTable.className += ' dashboard';
 		updateCoverage(theDiv);
 		localizeFlyover(theTable);
 		theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);
@@ -3126,7 +3277,7 @@ function insertRows(theDiv,xpath,session,json) {
 			var rowChildren = getTagChildren(toAdd);
 			theTable.config = surveyConfig ={};
 			for(var c in rowChildren) {
-				rowChildren[c].title = theTable.theadChildren[c].title;
+				rowChildren[c].title = theTable.theadChildren[c].title;//console.log(theTable.theadChildren[c].title);
 				if(rowChildren[c].id) {
 					surveyConfig[rowChildren[c].id] = c;
 					stdebug("  config."+rowChildren[c].id+" = children["+c+"]");
@@ -3134,7 +3285,7 @@ function insertRows(theDiv,xpath,session,json) {
 						removeAllChildNodes(rowChildren[c]);
 						rowChildren[c].appendChild(createChunk("config."+rowChildren[c].id+"="+c));
 					}
-					rowChildren[c].id=null;
+					//rowChildren[c].id=null;
 				} else {
 					stdebug("(proto-datarow #"+c+" has no id");
 				}
@@ -3142,7 +3293,6 @@ function insertRows(theDiv,xpath,session,json) {
 			if(stdebug_enabled) stdebug("Table Config: " + JSON.stringify(theTable.config));
 		}
 		theTable.toAdd = toAdd;
-
 		if(!json.canModify) {
 			setDisplayed(theTable.theadChildren[theTable.config.nocell], false);
 		}
@@ -3193,6 +3343,7 @@ function insertRows(theDiv,xpath,session,json) {
 
 	
 	hideLoader(theDiv.loader);
+	wrapRadios();
 }
 
 function loadStui(loc) {
@@ -3418,6 +3569,8 @@ function showV() {
 			
 			if(subInfo.readonly) {
 				addClass(clickyLink, "locked");
+				addClass(subLocDiv, "hide");
+
 				if(subInfo.readonly_why) {
 					clickyLink.title = subInfo.readonly_why;
 				} else if(subInfo.dcChild) {
@@ -3428,6 +3581,8 @@ function showV() {
 			} else if(window.canmodify && subLoc in window.canmodify) {
 				addClass(clickyLink, "canmodify");
 			}
+			else
+				addClass(subLocDiv, "hide");
 			return clickyLink;
 		};
 
@@ -3620,7 +3775,7 @@ function showV() {
 //    			    //itemBox.set('value', theLocale+'//'+theId);
 //			    }
 //			}
-			document.title = document.title.split('|')[0] + " | " + theSpecial + '/' + theLocale + '/' + thePage + '/' + theId;
+			//document.title = document.title.split('|')[0] + " | " + '/' + theLocale + '/' + thePage;
 		};
 		
 		window.updateCurrentId = function updateCurrentId(id) {
@@ -3652,6 +3807,8 @@ function showV() {
 				console.log("        "+url+" loaded in "+(new Date().getTime()-otime)+"ms");
 				try {
 					handler(json);
+					//resize height
+					$('#main-row').css({height:$('#main-row>div').height()});
 				}catch(e) {
 					console.log("Error in ajax post ["+message+"]  " + e.message + " / " + e.name );
 					handleDisconnect("Exception while  loading: " + message + " - "  + e.message + ", n="+e.name, null); // in case the 2nd line doesn't work
@@ -3712,8 +3869,9 @@ function showV() {
 			    } else if(xtr.proposedcell && xtr.proposedcell.showFn) {
 			        // TODO: visible? coverage?
 			        window.showInPop("",xtr,xtr.proposedcell, xtr.proposedcell.showFn, true);
-			        console.log("Changed to " + surveyCurrentId);
-			        scrollToItem();
+			        console.log("Changed to " + surveyCurrentId);			        
+			        if(!isDashboard())
+			        	scrollToItem();
 			    } else {
 			        console.log("Warning could not load id " + surveyCurrentId + " - not setup - " + xtr.toString() + " pc=" + xtr.proposedcell + " sf = " + xtr.proposedcell.showFn);
 			    }
@@ -3724,7 +3882,7 @@ function showV() {
 		window.ariRetry = function() {
 //			if(didUnbust) {
 				ariDialog.hide();
-				flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading_reloading"), "i", "loadingMsg"));
+				//flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading_reloading"), "i", "loadingMsg"));
 				window.location.reload(true);
 //			} else {
 //				flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading_retrying"), "i", "loadingMsg"));
@@ -3768,12 +3926,11 @@ function showV() {
 		};
 		
 		function updateCoverageMenuTitle() {
-			var menuSelect = registry.byId('menu-select');
-			menuSelect.getOptions()[0].label = stui.sub('coverage_auto_msg', {surveyOrgCov: stui.str('coverage_' + surveyOrgCov)});
+			$('#coverage-info').text('('+stui.sub('coverage_auto_msg', {surveyOrgCov: stui.str('coverage_' + surveyOrgCov)})+')');
 		}
 		function updateCoverageMenuValue() 	
 		{
-			var menuSelect = registry.byId('menu-select');
+			/*var menuSelect = registry.byId('menu-select');
 			if(surveyUserCov !== null) {
 				console.log('Setting menu to value ' + surveyUserCov  );
 				menuSelect.setValue(surveyUserCov); // user cov
@@ -3781,7 +3938,7 @@ function showV() {
 				console.log('Setting menu to value auto');
 				menuSelect.setValue('auto'); // org cov
 			}
-			console.log("Menu value is now: "   + menuSelect.getValue());
+			console.log("Menu value is now: "   + menuSelect.getValue());*/
 		}
 		
 		function updateLocaleMenu() {
@@ -3838,38 +3995,50 @@ function showV() {
 			 * @method updateMenuTitles
 			 */
 			function updateMenuTitles(menuMap) {
-			    updateLocaleMenu(menuMap);
+				updateLocaleMenu(menuMap);
 				if(surveyCurrentSpecial!= null && surveyCurrentSpecial != '') {
 //					menubuttons.set(menubuttons.section /*,stui_str("section_special") */);
-					menubuttons.set(menubuttons.section,stui_str("special_"+surveyCurrentSpecial));
+					//menubuttons.set(menubuttons.section,stui_str("special_"+surveyCurrentSpecial));
+					switch(surveyCurrentSpecial) {
+						case "r_vetting_json":
+							$('#section-current').html(stui_str('Dashboard'));
+							break;
+						
+						default:
+						$('#section-current').html(stui_str("special_"+surveyCurrentSpecial));
+							break;
+					}
 					setDisplayed(titlePageContainer, false);
 				} else if(!menuMap) {
-					menubuttons.set(menubuttons.section);
+					//menubuttons.set(menubuttons.section);
 					setDisplayed(titlePageContainer, false);
 //					menubuttons.set(menubuttons.page, surveyCurrentPage); 
 				} else {
 					if(menuMap.sectionMap[window.surveyCurrentPage]) {
 						surveyCurrentSection = surveyCurrentPage; // section = page
-						menubuttons.set(menubuttons.section, menuMap.sectionMap[surveyCurrentSection].name);
+						//menubuttons.set(menubuttons.section, menuMap.sectionMap[surveyCurrentSection].name);
+						$('#section-current').html(menuMap.sectionMap[surveyCurrentSection].name);
 						setDisplayed(titlePageContainer, false); // will fix title later
 					} else if(menuMap.pageToSection[window.surveyCurrentPage]) {
 						var mySection = menuMap.pageToSection[window.surveyCurrentPage];
 						//var myPage = mySection.pageMap[window.surveyCurrentPage];
 						surveyCurrentSection = mySection.id;
-						menubuttons.set(menubuttons.section, mySection.name);
+						//menubuttons.set(menubuttons.section, mySection.name);
+						$('#section-current').html(mySection.name);
 						setDisplayed(titlePageContainer, false); // will fix title later
 //						menubuttons.set(menubuttons.page, myPage.name);
 					} else {
-						menubuttons.set(menubuttons.section, stui_str("section_general"));
+						//menubuttons.set(menubuttons.section, stui_str("section_general"));
+						$('#section-current').html(stui_str("section_general"));
 						setDisplayed(titlePageContainer, false);
 //						menubuttons.set(menubuttons.page);
 					}
 				}
-				if(surveyCurrentSpecial=='' || surveyCurrentSpecial===null) {
+				/*if(surveyCurrentSpecial=='' || surveyCurrentSpecial===null) {
 					dojo.byId('st-link').href = dojo.byId('title-locale').href = '#locales//'+surveyCurrentPage+'/'+surveyCurrentId;
 				} else {
 					dojo.byId('st-link').href = dojo.byId('title-locale').href = '#locales///';
-				}
+				}*/
 			}
 
 			/**
@@ -3914,7 +4083,7 @@ function showV() {
 										surveyCurrentPage = aSection.id;
 										surveyCurrentSpecial = '';
 										updateMenus(menuMap);
-										//updateMenuTitles(menuMap);
+										updateMenuTitles(menuMap);
 										reloadV();
 								},
 								disabled: true
@@ -3936,7 +4105,7 @@ function showV() {
 						}
 					});
 					menuSection.addChild(menuMap.forumMenu);
-										
+					
 				}
 				
 				
@@ -3964,7 +4133,7 @@ function showV() {
 						for(var zz in titlePageContainer.menus) {
 							var aMenu = titlePageContainer.menus[zz];
 							aMenu.set('label','-');
-							setDisplayed(aMenu, false);
+							//setDisplayed(aMenu, false);
 						}
 						
 
@@ -3977,8 +4146,10 @@ function showV() {
 							
 							for(var k in mySection.pages) { // use given order
 								(function(aPage) {
+		
 									var pageMenu = aPage.menuItem =  new MenuItem({
 										label: aPage.name,
+										
 										iconClass:  (aPage.id == surveyCurrentPage)?"dijitMenuItemIcon menu-x":"dijitMenuItemIcon menu-o",
 //										checked:   (aPage.id == surveyCurrentPage),
 										//    iconClass:"dijitEditorIcon dijitEditorIconSave",
@@ -3990,24 +4161,28 @@ function showV() {
 										},
 										disabled: (effectiveCoverage()<parseInt(aPage.levs[surveyCurrentLocale]))
 									});
-									menuPage.addChild(pageMenu);
+									//menuPage.addChild(pageMenu);
 								})(mySection.pages[k]);
 							}
 
 							var theButton = new DropDownButton({label: '-', dropDown: menuPage});
 
 							
-							theButton.placeAt(titlePageContainer);
-							
+							//theButton.placeAt(titlePageContainer);
+							//console.log(myPage.name);
+							//console.log(theButton);
+
 							showMenu = theButton;
 							
 							titlePageContainer.menus[mySection.id] = mySection.pagesMenu = showMenu;
 						}
 						
 						if(myPage !== null) {
-							showMenu.set('label', myPage.name);
+							//showMenu.set('label', myPage.name);
+							$('#title-page-container').html('<h1>'+myPage.name+'</h1>').show();
 						} else {
-							showMenu.set('label', stui.str('section_subpages')); // no page selected
+							//showMenu.set('label', stui.str('section_subpages')); // no page selected
+							$('#title-page-container').html('').hide();
 						}
 						setDisplayed(showMenu, true);
 						setDisplayed(titlePageContainer, true); // will fix title later
@@ -4072,7 +4247,6 @@ function showV() {
 							
 							updateCovFromJson(json);
 							
-							
 							updateCoverageMenuTitle();
 							updateCoverageMenuValue();
 							updateCoverage(flipper.get(pages.data)); // update CSS and auto menu title
@@ -4128,7 +4302,7 @@ function showV() {
 						}
 
 						unpackMenus(json);
-
+						unpackMenuSideBar(json);
 						updateMenus(_thePages);
 					});
 				}
@@ -4218,11 +4392,11 @@ function showV() {
 		 * @method reloadV
 		 */
 		window.reloadV = function reloadV() {
-			
 			if(disconnected) {
 				unbust();
 			}
 			
+			document.getElementById('DynamicDataSection').innerHTML = '';//reset the data
 			isLoading = false;
 			showers[flipper.get(pages.data).id]=function(){ console.log("reloadV()'s shower - ignoring reload request, we are in the middle of a load!"); };
 			
@@ -4246,14 +4420,14 @@ function showV() {
 			
 			// todo dont even flip if it's quick.
 			var loadingChunk;
-			flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading"), "i", "loadingMsg"));
+			//flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading"), "i", "loadingMsg"));
 			var loadingPane = flipper.get(pages.loading);
 
 			var itemLoadInfo = createChunk("","div","itemLoadInfo");			
-			loadingPane.appendChild(itemLoadInfo);
+			//loadingPane.appendChild(itemLoadInfo);
 			
 			var serverLoadInfo = createChunk("","div","serverLoadInfo");			
-			loadingPane.appendChild(serverLoadInfo);
+			//loadingPane.appendChild(serverLoadInfo);
 
 			var lastServerLoadTxt  = '';
 			var startTime = new Date().getTime();
@@ -4270,7 +4444,7 @@ function showV() {
 					var k = 0;
 					timerToKill = window.setInterval(function() {
 						k++;
-						loadingChunk.style.opacity =   0.5 + ((k%10) * 0.05);
+						//loadingChunk.style.opacity =   0.5 + ((k%10) * 0.05);
 //						console.log("Throb to " + loadingChunk.style.opacity);
 						
 						// update server load txt?
@@ -4359,7 +4533,7 @@ function showV() {
 									surveyCurrentPage= '';
 								}
 								showLoader(null);
-								flipper.flipTo(pages.other, createChunk(stui_str("loading_nocontent"),"i","loadingMsg"));
+								//flipper.flipTo(pages.other, createChunk(stui_str("loading_nocontent"),"i","loadingMsg"));
 								updateHashAndMenus(); // find out why there's no content. (locmap)
 							} else if(!json.section.rows) {
 								console.log("!json.section.rows");
@@ -4807,7 +4981,8 @@ function showV() {
 						}
 					});
 				} else if(isReport(surveyCurrentSpecial)) {
-					showInPop2(stui.str("reportGuidance"), null, null, null, true); /* show the box the first time */					
+
+					//showInPop2(stui.str("reportGuidance"), null, null, null, true, true); /* show the box the first time */					
 					require([
 					         "dojo/ready",
 					         "dojo/dom",
@@ -4828,12 +5003,12 @@ function showV() {
 								var url = contextPath + "/EmbeddedReport.jsp?x="+surveyCurrentSpecial+"&_="+surveyCurrentLocale+"&s="+surveySessionId+cacheKill();
 
 								request
-				    			.get(url, {handleAs: 'html'})
-				    			.then(function(html) {
-
+				    			.get(url, {handleAs: 'json'})
+				    			.then(function(json) {
 									hideLoader(null,stui.loading2);
 									isLoading=false;
-									flipper.flipTo(pages.other, domConstruct.toDom(html));
+									//flipper.flipTo(pages.other, '');
+									showReviewPage(json);
 								});
 					        });
 					 });
@@ -4867,6 +5042,10 @@ function showV() {
 						}
 					};
 					
+				
+					
+					
+					
 					var addTopLocale = function addTopLocale(topLoc) {
 						var topLocInfo = locmap.getLocaleInfo(topLoc);
 
@@ -4895,15 +5074,13 @@ function showV() {
 						var topLoc = locmap.locmap.topLocales[n];
 						addTopLocale(topLoc);						
 					}
-					
-					//theDiv.appendChild(createChunk(locmap.locmap.topLocales.length));
-					
-					
-					flipper.flipTo(pages.other, theDiv);
-					
+					flipper.flipTo(pages.other,null);
+				    filterAllLocale();//filter for init data
+					forceSidebar();
 					surveyCurrentLocale=null;
 					surveyCurrentSpecial='locales';
 					showInPop2(stui.str("localesInitialGuidance"), null, null, null, true); /* show the box the first time */					
+					$('#itemInfo').html('');
 				} else if(surveyCurrentSpecial=='search') {
 					// setup
 					var searchCache = window.searchCache;
@@ -5093,8 +5270,11 @@ function showV() {
 			shower(); // first load
 //			flipper.get(pages.data).shower = shower;
 			
-			// set up the "show-er" function so that if this locale gets reloaded, the page will load again
-			showers[flipper.get(pages.data).id]=shower;
+			// set up the "show-er" function so that if this locale gets reloaded, the page will load again - execept for the dashboard, where only the row get updated
+			if(!isDashboard())
+				showers[flipper.get(pages.data).id]=shower;
+			//else
+			//	showers[flipper.get(pages.data).id]= function() {popupAlert('warning','Change has been made to your locale, consider <a href="#" onclick="window.location.reload()">reloading</a> !');};
 
 		};  // end reloadV
 
@@ -5132,7 +5312,72 @@ function showV() {
 						window.canmodify = canmodify;
 					}
 					
+					//update left sidebar with locale data
+					var theDiv = document.createElement("div");
+					theDiv.className = 'localeList';
 
+					var addSubLocale;
+					
+					addSubLocale = function addSubLocale(parLocDiv, subLoc) {
+						var subLocInfo = locmap.getLocaleInfo(subLoc);
+						var subLocDiv = createChunk(null, "div", "subLocale");
+						appendLocaleLink(subLocDiv, subLoc, subLocInfo);
+						
+						parLocDiv.appendChild(subLocDiv);
+					};
+					
+					var addSubLocales = function addSubLocales(parLocDiv, subLocInfo) {
+						if(subLocInfo.sub) {
+							for(var n in subLocInfo.sub) {
+								var subLoc = subLocInfo.sub[n];
+								addSubLocale(parLocDiv, subLoc);
+							}
+						}
+					};
+					
+				
+					
+					
+					
+					var addTopLocale = function addTopLocale(topLoc) {
+						var topLocInfo = locmap.getLocaleInfo(topLoc);
+
+
+						var topLocRow = document.createElement("div");
+						topLocRow.className="topLocaleRow";
+
+						var topLocDiv = document.createElement("div");
+						topLocDiv.className="topLocale";
+						appendLocaleLink(topLocDiv, topLoc, topLocInfo);
+
+						var topLocList = document.createElement("div");
+						topLocList.className="subLocaleList";
+						
+						addSubLocales(topLocList, topLocInfo);
+						
+						topLocRow.appendChild(topLocDiv);
+						topLocRow.appendChild(topLocList);
+						theDiv.appendChild(topLocRow);
+					};
+					
+					
+					addTopLocale("root");
+					// top locales
+					for(var n in locmap.locmap.topLocales) {
+						var topLoc = locmap.locmap.topLocales[n];
+						addTopLocale(topLoc);						
+					}
+					$('#locale-list').html(theDiv.innerHTML);
+
+					if(isVisitor)
+						$('#show-read').prop('checked', true);
+					//tooltip locale
+					$('a.locName').tooltip();
+					
+					filterAllLocale();
+					//end of adding the locale data
+					
+				
 					// any special message? "oldVotesRemind":{"count":60,"pref":"oldVoteRemind24", "remind":"* | ##"}
 					if(json.oldVotesRemind && surveyCurrentSpecial!='oldvotes') {
 						var vals = { count: dojoNumber.format(json.oldVotesRemind.count) };
@@ -5205,7 +5450,7 @@ function showV() {
 						var store = [];
 
 						store.push({
-								label: '-',
+								label: 'Auto',
 								value: 'auto',
 								title: stui.str('coverage_auto_desc')
 							});
@@ -5225,38 +5470,60 @@ function showV() {
 									title: stui.str('coverage_'+ level.name + '_desc')
 							});
 						}
+						//coverage menu
+						var patternCoverage = $('#title-coverage .dropdown-menu');
+					    if(store[0].value) {
+						    $('#coverage-info').text('('+store[0].label+')');
+					    }
+						for (var index = 0; index < store.length; ++index) {
+						    var data = store[index];
+						    if(data.value) {
+							    var html = '<li><a class="coverage-list" data-value="'+data.value+'"href="#">'+data.label+'</a></li>';
+							    patternCoverage.append(html);
+						    }
+						}
+						patternCoverage.find('li a').click(function(event){
+							event.stopPropagation();
+							event.preventDefault();
+							var newValue = $(this).data('value');
+							var setUserCovTo = null;
+							if(newValue == 'auto') {
+								setUserCovTo = null; // auto
+							} else {
+								setUserCovTo = newValue;
+							}
+							if(setUserCovTo === window.surveyUserCov) {
+								console.log('No change in user cov: ' + setUserCovTo);
+							} else {
+								window.surveyUserCov = setUserCovTo;
+								var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=p_covlev&_v="+window.surveyUserCov+cacheKill(); // SurveyMain.PREF_COVLEV
+								myLoad(updurl, "updating covlev to  " + surveyUserCov, function(json) {
+									if(!verifyJson(json,'pref')) {
+										return;
+									} else {
+										unpackMenuSideBar(json);
+										console.log('Server set  covlev successfully.');
+									}
+								});
+							}
+							// still update these.
+							updateCoverage(flipper.get(pages.data)); // update CSS and 'auto' menu title
+							updateHashAndMenus(false); // TODO: why? Maybe to show an item?
+							$('#coverage-info').text('('+newValue.ucFirst()+')');
+							$(this).parents('.dropdown-menu').dropdown('toggle');
+							return false;
+
+						});
 						// TODO have to move this out of the DOM..
-						var covMenu = flipper.get(pages.data).covMenu = new Select({name: "menu-select", 
+						/*var covMenu = flipper.get(pages.data).covMenu = new Select({name: "menu-select", 
 								id: 'menu-select',
 								title: stui.str('coverage_menu_desc'),
 								options: store,
 								onChange: function(newValue) {
-									var setUserCovTo = null;
-									if(newValue == 'auto') {
-										setUserCovTo = null; // auto
-									} else {
-										setUserCovTo = newValue;
-									}
 									
-									if(setUserCovTo === window.surveyUserCov) {
-										console.log('No change in user cov: ' + setUserCovTo);
-									} else {
-										window.surveyUserCov = setUserCovTo;
-										var updurl  = contextPath + "/SurveyAjax?_="+theLocale+"&s="+surveySessionId+"&what=pref&pref=p_covlev&_v="+window.surveyUserCov+cacheKill(); // SurveyMain.PREF_COVLEV
-										myLoad(updurl, "updating covlev to  " + surveyUserCov, function(json) {
-											if(!verifyJson(json,'pref')) {
-												return;
-											} else {
-												console.log('Server set  covlev successfully.');
-											}
-										});
-									}
-									// still update these.
-									updateCoverage(flipper.get(pages.data)); // update CSS and 'auto' menu title
-									updateHashAndMenus(false); // TODO: why? Maybe to show an item?
 								}
 								});
-						covMenu.placeAt(titleCoverage);
+						covMenu.placeAt(titleCoverage);*/
 					//}	
 
 						
@@ -5308,17 +5575,29 @@ function showV() {
 function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
 	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);
     var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session +"&json=t&automatic=t";
+    
+    if(isDashboard()) {
+    	ourUrl += "&dashboard=true";
+    }
+    
     var loadHandler = function(json){
         try {
 	    		if(json&&json.dataLoadTime) {
-	    			updateIf("dynload", json.dataLoadTime);
+	    			//updateIf("dynload", json.dataLoadTime);
 	    		}
         		if(json.section.rows[tr.rowHash]) {
         			theRow = json.section.rows[tr.rowHash];
         			tr.theTable.json.section.rows[tr.rowHash] = theRow;
         			updateRow(tr, theRow);
+
+        			//style the radios
+        			wrapRadios();
+        			
         			hideLoader(tr.theTable.theDiv.loader);
         			onSuccess(theRow);
+        			if(isDashboard()) {
+        				refreshFixPanel(json);
+        			}
         		} else {
         	        tr.className = "ferrbox";
 //        	        tr.innerHTML="No content found "+tr.rowHash+ "  while  loading"; // this just obscures the row

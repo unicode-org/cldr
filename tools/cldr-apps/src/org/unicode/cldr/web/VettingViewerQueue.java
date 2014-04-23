@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import org.json.JSONArray;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
@@ -446,6 +447,43 @@ public class VettingViewerQueue {
         }
     }
 
+    public JSONArray getErrorOnPath(CLDRLocale locale, WebContext ctx, CookieSession sess, String path) {
+        String baseUrl = "http://example.com";
+        Level usersLevel;
+        Organization usersOrg;
+        if (ctx != null) {
+            baseUrl = ctx.base();
+            usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
+            sess = ctx.session;
+        } else {
+            baseUrl = (String) sess.get("BASE_URL");
+            String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
+            ;
+            usersLevel = Level.get(levelString);
+        }
+        
+        usersOrg = VoteResolver.Organization.fromString(sess.user.voterOrg());
+        
+        final String st_org = sess.user.org;
+        SurveyMain sm = CookieSession.sm;
+        VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
+            sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
+        vv.setBaseUrl(baseUrl);
+
+
+        EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
+        if (usersOrg.equals(VoteResolver.Organization.surveytool)) {
+            choiceSet = EnumSet.of(
+                VettingViewer.Choice.error,
+                VettingViewer.Choice.warning,
+                VettingViewer.Choice.hasDispute,
+                VettingViewer.Choice.notApproved);
+        }
+
+        JSONArray out = vv.getErrorOnPath(choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, ctx, path);
+        return out;
+    }
+    
     public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess) {
         String baseUrl = "http://example.com";
         Level usersLevel;
@@ -461,12 +499,13 @@ public class VettingViewerQueue {
             usersLevel = Level.get(levelString);
         }
         usersOrg = VoteResolver.Organization.fromString(sess.user.voterOrg());
-
-        writeVettingViewerOutput(locale, baseUrl, aBuffer, usersOrg, usersLevel, sess.user.org, ctx.hasField("quick"));
+        
+        writeVettingViewerOutput(locale, baseUrl, aBuffer, usersOrg, usersLevel, sess.user, ctx.hasField("quick"), ctx);
     }
 
     public void writeVettingViewerOutput(CLDRLocale locale, String baseUrl, StringBuffer aBuffer,
-        VoteResolver.Organization usersOrg, Level usersLevel, final String st_org, boolean quick) {
+        VoteResolver.Organization usersOrg, Level usersLevel, UserRegistry.User user, boolean quick, WebContext ctx) {
+        final String st_org = user.org;
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
             sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
@@ -484,7 +523,8 @@ public class VettingViewerQueue {
         }
 
         if (locale != SUMMARY_LOCALE) {
-            vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
+            //vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
+            vv.generateJSONReview(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick, ctx);
         } else {
             if (DEBUG)
                 System.err.println("Starting summary gen..");
@@ -672,13 +712,14 @@ public class VettingViewerQueue {
             BallotBox<User> ballotBox = getBox(sm, loc);
             return ballotBox.getResolver(path).getOrgVote(user);
         }
-
+        
         @Override
         public VoteStatus getStatusForUsersOrganization(CLDRFile cldrFile, String path, VoteResolver.Organization orgOfUser) {
             CLDRLocale loc = CLDRLocale.getInstance(cldrFile.getLocaleID());
             BallotBox<User> ballotBox = getBox(sm, loc);
             return ballotBox.getResolver(path).getStatusForOrganization(orgOfUser);
         }
+
     }
 
     private static int totalUsersWaiting(SurveyThread st) {

@@ -30,7 +30,7 @@ if(SurveyMain.isBusted!=null) {
     <html>
     <head>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />
-    <title>SurveyTool | Starting</title>
+    <title>Survey Tool | Starting</title>
                   <script type="application/javascript">
                   window.setTimeout(function(){
                       window.location.reload(true);                
@@ -98,7 +98,7 @@ if(false) { // if we need to redirect for some reason..
 	 // JavaScript based redirect
 	 %>
 	 <head>
-    	 <title>SurveyTool: Redirect</title>
+    	 <title>Survey Tool: Redirect</title>
 	       <script type="application/javascript">
 	        document.location='<%= url %>' + document.location.hash;
 	       </script>
@@ -111,13 +111,13 @@ if(false) { // if we need to redirect for some reason..
 				<html class='claro'>
 				<head class='claro'>
 				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-				<title>CLDR  <%= ctx.sm.getNewVersion() %> SurveyTool</title>
+				<title>CLDR  <%= ctx.sm.getNewVersion() %> Survey Tool</title>
 				</head>
 				<body>
                 <div style='float: right'>
                     <a href='<%= request.getContextPath() %>/login.jsp' id='loginlink' class='notselected'>Login…</a> 
                  </div>
-				    <h2>CLDR SurveyTool | Problem</h2>
+				    <h2>CLDR Survey Tool | Problem</h2>
 				    <div>
 				        <p><img src='stop.png' width='16'><%= status %></p>
 				    </div>
@@ -131,9 +131,9 @@ if(false) { // if we need to redirect for some reason..
  }
 %>
 <html lang='<%= SurveyMain.BASELINE_LOCALE.toLanguageTag() %>' class='claro'>
-<head class='claro'>
+<head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CLDR  <%= ctx.sm.getNewVersion() %> SurveyTool | view</title>
+<title>CLDR Survey Tool </title>
 
 <meta name='robots' content='noindex,nofollow'>
 <meta name="gigabot" content="noindex">
@@ -153,7 +153,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
   showV();
 </script>
 </head>
-<body lang='<%= SurveyMain.BASELINE_LOCALE.toLanguageTag() %>' class='claro'>
+<body lang='<%= SurveyMain.BASELINE_LOCALE.toLanguageTag() %>' data-spy="scroll" data-target="#itemInfo">
 
 <div data-dojo-type="dijit/Dialog" data-dojo-id="ariDialog" title="CLDR Survey Tool"
     execute="" data-dojo-props="onHide: function(){ariReload.style.display='';ariRetry.style.display='none';   if(disconnected) { unbust();}}">
@@ -194,37 +194,135 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 </button>
 --%>
 
- <div data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline', gutters:true, liveSplitters:true" id="borderContainer">
-    <div id="topstuff" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'top'" >
-    <% if(status!=null) { %>
+
+
+			
+         
+				
+
+<div class="navbar navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        
+        <div class="collapse navbar-collapse">
+        <p class="nav navbar-text">Survey Tool <%= ctx.sm.getNewVersion() %>
+        <%=  (ctx.sm.phase()!=SurveyMain.Phase.SUBMIT)?ctx.sm.phase().toString():"" %>
+        </p>
+          <ul class="nav navbar-nav">
+            <li><a href="<%= survURL  %>?do=options"><span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Manage</a></li>
+            
+            <li class="dropdown" id='title-coverage'>
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coverage <span id="coverage-info"></span></a>
+                      <ul class="dropdown-menu">
+                      </ul>
+           </li>
+            
+            <li id="help-menu" data-toggle="popover">
+		          <a href="#"><%= SurveyMain.GENERAL_HELP_NAME %> <b class="caret"></b></a>
+		          <ul class="nav nav-pills nav-stacked" style="display:none">
+		            <li><a href="<%= SurveyMain.GENERAL_HELP_URL %>"><%= SurveyMain.GENERAL_HELP_NAME %> <span class="glyphicon glyphicon-share"></span></a></li>
+		            <li class="nav-divider"></li>
+		            <li id="help-content"></li>
+		          </ul>
+		      </li>
+          
+          </ul>
+
+          <p class="navbar-text navbar-right">
+              <span id="flag-info"></span>
+          
+          	  <% if(ctx.session !=null && ctx.session.user != null) {
+                  boolean haveCookies = (ctx.getCookie(SurveyMain.QUERY_EMAIL)!=null&&ctx.getCookie(SurveyMain.QUERY_PASSWORD)!=null);
+                  String cookieMessage = haveCookies?"<!-- and Forget Me-->":"";
+	              %>
+	               <span class="hasTooltip" title="<%= ctx.session.user.email %>"><%= ctx.session.user.name %></span>
+	               (<%= ctx.session.user.org %>)
+	              
+	              <% Integer reducedLevelVote =ctx.session.user.getLevel().canVoteAtReducedLevel(); 
+	              	 int regularVote = ctx.session.user.getLevel().getVotes(); %>
+	              <% if(reducedLevelVote != null) { %>
+	              	<select title="vote with a reduced number of votes" id="voteReduced" name="voteReduced">
+	              		<option selected="selected" value="<%= regularVote %>"><%= regularVote %> votes</option>
+	              		<option value="<%= reducedLevelVote %>"><%= reducedLevelVote %> votes</option>
+	             		</select>
+	              	 |
+	              <% } %>
+	               (<a class='navbar-link' href='<%= survURL + "?do=logout" %>'>Logout<%= cookieMessage %></a>)
+	                <script type="text/javascript">var isVisitor = 0</script>
+	        <% } else { %>
+                   (<a href='<%= request.getContextPath() %>/login.jsp' class='navbar-link'>Login…</a>)
+      		        <script type="text/javascript">var isVisitor = 1</script>
+            		
+            <% } %>
+            
+            
+          </p>
+          
+        </div>
+      </div>
+</div>
+
+<div id="left-sidebar">
+	<div id="content-sidebar">
+		<div id="locale-info">
+			<div class="input-group input-group-sm">
+				  <span class="input-group-addon  refresh-search"><span class="glyphicon glyphicon-search"></span></span>
+				  <input type="text" class="form-control local-search" placeholder="Locale">
+			</div>
+			<span id="locale-clear" class="refresh-search">x</span>
+			
+			<div class="input-group input-group-sm" id="locale-check-group">
+					<label class="checkbox-inline">
+						      <input type="checkbox" id="show-read"> Show read-only
+					</label>
+					<label class="checkbox-inline">
+						      <input type="checkbox" id="show-locked"> Show locked
+					</label>
+			</div>
+		</div>
+		<div id="locale-list">
+			
+		</div>
+		<div id="locale-menu">
+		
+		</div>
+	</div>
+	
+	<div id="dragger">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+		<div id="dragger-info"></div>
+	</div>
+</div>
+
+
+
+<div class="container-fluid" id="main-container">
+ <div class="row menu-position">
+    <div class="col-md-12">
+    
+    
+    <%
+    if(status!=null) { %>
         <div class="v-status"><%= status %></div>
         <% } %>
 
-        <!-- top info -->
-         <%@include file="/WEB-INF/tmpl/stnotices.jspf" %>
-
+        
 
         <%-- abbreviated form of usermenu  --%>
         <div id='toptitle'>
-        <div id='title-cldr-container' class='menu-container' >
-        <a id='st-link' href='<%= /* survURL */ "#locales///" %>'>
-         <span class='title-cldr'>CLDR <%= ctx.sm.getNewVersion() %> Survey Tool
-        <%=  (ctx.sm.phase()!=SurveyMain.Phase.SUBMIT)?ctx.sm.phase().toString():"" %>
-         </span>
-         </a>
-         </div>
+        
       
-         <div id='title-locale-container' class='menu-container'>
-                <a href='#locales///' id='title-locale'></a>
-                <span id='title-dcontent-container'><a href='http://cldr.unicode.org/translation/default-content' id='title-dcontent'></a></span>
+         <div id='title-locale-container' class='menu-container' style="display:none">
+                <h1><a href='#locales///' id='title-locale'></a></h1>
+                <span id='title-dcontent-container'><a href='http://cldr.unicode.org/translation/default-content' id='title-content'></a></span>
          </div>
          
          <div id='title-section-container' class='menu-container'>
-	         <div id='title-section' data-dojo-type="dijit/form/DropDownButton">
+         	 <h1 id="section-current"></h1>
+	         <div style="display:none" id='title-section' data-dojo-type="dijit/form/DropDownButton">
 	              <span>(section)</span>
 	              <div id='menu-section' data-dojo-type="dijit/DropDownMenu"></div>
 	         </div>
-         </div>
+         </div> 
 
         <div id='title-page-container' class='menu-container'>
 <!-- 	         <div id='title-page' data-dojo-type="dijit/form/DropDownButton">
@@ -232,86 +330,51 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 	              <div id='menu-page' data-dojo-type="dijit/DropDownMenu"></div>
 	         </div>
  -->        
-  </div>
-         
-         <!--
-         <div id='title-item-container' class='menu-container'>
-             <span title="id" class='titlePart'  id='title-item'></span>
-         </div>
-         -->
+  		</div>
 
         </div> <%-- end of toptitle --%>         
-        <div id="lowerstuff">
-            <% if(ctx.session !=null && ctx.session.user != null) {
-                  boolean haveCookies = (ctx.getCookie(SurveyMain.QUERY_EMAIL)!=null&&ctx.getCookie(SurveyMain.QUERY_PASSWORD)!=null);
-                  String cookieMessage = haveCookies?"<!-- and Forget Me-->":"";
-              %>
-              <span  class='userinfo'>
-               <span class='user_email'>&lt;<%= ctx.session.user.email %>&gt;</span>
-               <span class='user_name'><%= ctx.session.user.name %></span>
-               <span class='user_org'>(<%= ctx.session.user.org %>)</span>
-              </span>
-              <% Integer reducedLevelVote =ctx.session.user.getLevel().canVoteAtReducedLevel(); 
-              	 int regularVote = ctx.session.user.getLevel().getVotes(); %>
-              <% if(reducedLevelVote != null) { %>
-              	<select title="vote with a reduced number of votes" id="voteReduced" name="voteReduced" data-dojo-type="dijit/form/Select" >
-              		<option selected="selected" value="<%= regularVote %>"><%= regularVote %> votes</option>
-              		<option value="<%= reducedLevelVote %>"><%= reducedLevelVote %> votes</option>
-             		</select>
-              	 |
-              <% } %>
-               <a class='notselected' href='<%= survURL + "?do=logout" %>'>Logout<%= cookieMessage %></a>
-               |
-            <% } else { %>
-                <a href='<%= request.getContextPath() %>/login.jsp' id='loginlink' class='notselected'>Login…</a> |
-            <% } %>
-            <a class='notselected' href='<%= survURL  %>?do=options'>
-            	Manage 
-		 	            <% if(ctx.session != null && ctx.session.user != null && UserRegistry.userIsTC(ctx.session.user) &&  sm.getSTFactory().haveFlags()) { %>
-		 	            	<img src='flag.png' border='0' title='Flagged items' />
-		 	            <% } %>
-            		</a> 
-            |
-            <a id='generalHelpLink' class='notselected'  href='<%= SurveyMain.GENERAL_HELP_URL %>'><%= SurveyMain.GENERAL_HELP_NAME %></a>
-					|
+        
+         <div id="additional-top">
+	         	        <%@include file="/WEB-INF/tmpl/stnotices.jspf" %>
+	     
+	 	</div>
+        <!-- top info -->
+       
+    </div> 
+  </div>  
 
-					<div data-dojo-type="dijit/form/DropDownButton" id="reportMenu">
-					<span>Review</span>
-					<div data-dojo-type="dijit/DropDownMenu">
-					         <% for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) { %>
-						<div data-dojo-type="dijit/MenuItem"
-							data-dojo-props="<%-- iconClass:menu-o  --%>onClick:function(){
-									<% if(m.hasQuery()) { %>
-                                                window.location='<%= survURL + "?" + m.urlQuery() %>&_=' + surveyCurrentLocale;
-                                     <% } else {
-                                    	 	// can do in 'embedded' mode
-                                    	 	%>
-                                     			surveyCurrentSpecial = '<%= m.urlStub() %>';
-                                     			surveyCurrentId = '';
-                                     			surveyCurrentPage = '';
-                                     			reloadV();
-                                     <% } %>
-                                        }"><%= m.display() %></div>
-          <% } %>
-
-						<div data-dojo-type="dijit/MenuItem"
-							data-dojo-props="onClick:function(){ surveyCurrentSpecial = 'search'; surveyCurrentId = ''; surveyCurrentPage = ''; reloadV();}">Search...</div>
-
-
-                    </div>
-                   </div>
-
-            <label id='title-coverage'>
-                Coverage:
-            </label>
-        </div> <%-- end of lowerstuff --%>
-    </div> <%-- end of topstuff --%>
-    <div data-dojo-type="dijit/layout/ContentPane" id="MainContentPane" data-dojo-props="splitter:true, region:'center'" >
-        <div id="LoadingMessageSection"><%-- Loading messages --%>Please Wait</div>
-        <div  id="DynamicDataSection" ><%-- the actual scrolling table --%></div>
-        <div id="OtherSection"><%-- other content --%></div>
+    <div class="row" id="main-row" style="padding-top:147px;">
+    	<div class="col-md-9">
+		    <div data-dojo-type="dijit/layout/ContentPane" id="MainContentPane" data-dojo-props="splitter:true, region:'center'" >
+		        <div id="LoadingMessageSection"><%-- Loading messages --%>Please Wait</div>
+		        <div  id="DynamicDataSection" ><%-- the actual scrolling table --%></div>
+		        <div id="OtherSection"><%-- other content --%></div>
+		    </div>
+	    </div>
+	    <div class="col-md-3">
+	    	<div id="itemInfo" class="right-info" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'trailing'" ></div>
+	   	</div>
+	    
     </div>
-    <div id="itemInfo" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="splitter:true, region:'trailing'" ></div>
+    
+    <jsp:include page="feedback.jsp"/>
+    <div id="ressources" style="display:none">
+    
+	</div>
+</div>
+<div id="overlay"></div>
+<div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Post</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
 </div>
 </body>
 </html>

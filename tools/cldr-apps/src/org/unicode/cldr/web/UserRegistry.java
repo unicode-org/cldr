@@ -562,6 +562,8 @@ public class UserRegistry {
         try {
             synchronized (conn) {
                 // logger.info("UserRegistry DB: initializing...");
+            
+                
                 boolean hadUserTable = DBUtils.hasTable(conn, CLDR_USERS);
                 if (!hadUserTable) {
                     sql = createUserTable(conn);
@@ -575,6 +577,8 @@ public class UserRegistry {
                     conn.commit();
                 }
 
+                //create review and post table 
+                ReviewHide.createTable(conn);
                 boolean hadInterestTable = DBUtils.hasTable(conn, CLDR_INTEREST);
                 if (!hadInterestTable) {
                     Statement s = conn.createStatement();

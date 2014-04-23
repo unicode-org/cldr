@@ -3,6 +3,12 @@
 <%@ page import="org.unicode.cldr.util.*" %>
 <!--  begin ajax_status.jsp -->
 <link rel="stylesheet" href="<%= request.getContextPath() %>/dojoroot/dijit/themes/claro/claro.css" />
+
+<!-- Bootstrap core test CSS -->
+<link href="<%= request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="<%= request.getContextPath() %>/css/redesign.css" rel="stylesheet">
 <%= VettingViewer.getHeaderStyles() %>
 
 <script type='text/javascript'>dojoConfig = {parseOnLoad: true}</script>
@@ -93,7 +99,9 @@ var TARGET_DOCS = "<%= WebContext.TARGET_DOCS %>";
 var BASELINE_LOCALE = "<%= SurveyMain.BASELINE_LOCALE %>";
 var BASELINE_LANGUAGE_NAME = "<%= SurveyMain.BASELINE_LANGUAGE_NAME %>";
 </script>
-<script type='text/javascript' src='<%= request.getContextPath() %>/js/survey.js'></script>
+
+<%--TODO Refactor to add this at the end of every page instead of top, will increase performance --%>
+<%@include file="/WEB-INF/tmpl/js_include.jsp" %>
 
 
 <%= (!SurveyMain.isUnofficial()) ? (org.unicode.cldr.util.CldrUtility.ANALYTICS) : "" %>

@@ -140,7 +140,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final String REPORT_PREFIX = "r_";
 
     private static final String R_STEPS = REPORT_PREFIX + "steps";
-    public static final String R_VETTING = REPORT_PREFIX + "vetting";
+    public static final String R_VETTING = REPORT_PREFIX + "vetting_json";
 
     public static final String SURVEYMAIN_REVISION = "SurveyMain.java $Revision$";
 
@@ -253,7 +253,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     };
 
     // ===== Configuration state
-    private static Phase currentPhase = Phase.SUBMIT;
+    private static Phase currentPhase = Phase.VETTING;
     /** set by CLDR_PHASE property. **/
     private static String oldVersion = "OLDVERSION";
     private static String newVersion = "NEWVERSION";

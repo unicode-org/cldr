@@ -8,6 +8,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -22,6 +23,9 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -39,6 +43,11 @@ import org.unicode.cldr.util.StandardCodes.LocaleCoverageType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 import org.unicode.cldr.util.VoteResolver.Organization;
+import org.unicode.cldr.web.DataSection;
+import org.unicode.cldr.web.DataSection.DataRow;
+import org.unicode.cldr.web.ReviewHide;
+import org.unicode.cldr.web.SurveyLog;
+import org.unicode.cldr.web.WebContext;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -46,6 +55,9 @@ import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Row;
 import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R3;
+import com.ibm.icu.impl.Row.R4;
+import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.Collator;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transform;
@@ -87,7 +99,7 @@ public class VettingViewer<T> {
         /**
          * There is a console-check error
          */
-        error('E', "Error", "The Survey Tool detected an error in the winning value."),
+        error('E', "Error", "The Survey Tool detected an error in the winning value.",1),
         /**
          * My choice is not the winning item
          */
@@ -95,51 +107,54 @@ public class VettingViewer<T> {
             'L',
             "Losing",
             "The value that your organization chose (overall) is either not the winning value, or doesn’t have enough votes to be approved. "
-                + "This might be due to a dispute between members of your organization."),
-        /**
-         * There is a dispute.
-         */
-        notApproved('P', "Provisional", "There are not enough votes for this item to be approved (and used)."),
-        /**
-         * There is a dispute.
-         */
-        hasDispute('D', "Disputed", "Different organizations are choosing different values. "
-            + "Please review to approve or reach consensus."),
-        /**
-         * There is a console-check warning
-         */
-        warning('W', "Warning", "The Survey Tool detected a warning about the winning value."),
-        /**
-         * The English value for the path changed AFTER the current value for
-         * the locale.
-         */
-        englishChanged('U', "Unsync’d",
-            "The English value changed at some point in CLDR, but the corresponding value for your language didn’t."),
-        /**
-         * The value changed from the last version of CLDR
-         */
-        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)"),
-        /**
-         * Given the users' coverage, some items are missing.
-         */
-        missingCoverage(
-            'M',
-            "Missing",
-            "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)"),
-        // /**
-        // * There is a console-check error
-        // */
-        // other('O', "Other", "Everything else."),
-        ;
+                + "This might be due to a dispute between members of your organization.",2),
+                /**
+                 * There is a dispute.
+                 */
+                notApproved('P', "Provisional", "There are not enough votes for this item to be approved (and used).",3),
+                /**
+                 * There is a dispute.
+                 */
+                hasDispute('D', "Disputed", "Different organizations are choosing different values. "
+                    + "Please review to approve or reach consensus.",4),
+                    /**
+                     * There is a console-check warning
+                     */
+                    warning('W', "Warning", "The Survey Tool detected a warning about the winning value.",5),
+                    /**
+                     * The English value for the path changed AFTER the current value for
+                     * the locale.
+                     */
+                    englishChanged('U', "English Changed",
+                        "The English value has changed in CLDR, but the corresponding value for your language has not. Check if any changes are needed in your language.",6),
+                        /**
+                         * The value changed from the last version of CLDR
+                         */
+                        changedOldValue('N', "New", "The winning value was altered from the last-released CLDR value. (Informational)",7),
+                        /**
+                         * Given the users' coverage, some items are missing.
+                         */
+                        missingCoverage(
+                            'M',
+                            "Missing",
+                            "Your current coverage level requires the item to be present. (During the vetting phase, this is informational: you can’t add new values.)",8),
+                            // /**
+                            // * There is a console-check error
+                            // */
+                            // other('O', "Other", "Everything else."),
+                            ;
 
         public final char abbreviation;
         public final String buttonLabel;
         public final String description;
-
-        Choice(char abbreviation, String buttonLabel, String description) {
+        public final int order;
+        
+        Choice(char abbreviation, String buttonLabel, String description, int order) {
             this.abbreviation = abbreviation;
             this.buttonLabel = TransliteratorUtilities.toHTML.transform(buttonLabel);
             this.description = TransliteratorUtilities.toHTML.transform(description);
+            this.order = order;
+            
         }
 
         public static <T extends Appendable> T appendDisplay(Set<Choice> choices, String htmlMessage, T target) {
@@ -755,15 +770,96 @@ public class VettingViewer<T> {
             getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,
                 usersLevel, quick);
 
+        
         // now write the results out
         writeTables(output, sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, fileInfo, quick);
     }
 
+    
+    
+    /**
+     * 
+     * @param output
+     * @param choices
+     *            See the class description for more information.
+     * @param localeId
+     * @param user
+     * @param usersLevel
+     * @param nonVettingPhase
+     */
+    public JSONArray getErrorOnPath(EnumSet<Choice> choices, String localeID, T user,
+        Level usersLevel, boolean nonVettingPhase, WebContext ctx, String path) {
+
+        // Gather the relevant paths
+        // each one will be marked with the choice that it triggered.
+        Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
+            new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
+
+        CLDRFile sourceFile = cldrFactory.make(localeID, true);
+
+        // Initialize
+        CLDRFile lastSourceFile = null;
+            try {
+                lastSourceFile = cldrFactoryOld.make(localeID, true);
+            } catch (Exception e) {
+            }
+
+        EnumSet<Choice> errors = new FileInfo().
+            getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,usersLevel,
+                false, path).problems;
+        
+        JSONArray out = new JSONArray();
+        for(Object error : errors.toArray()) {
+            out.put( ((Choice)error).buttonLabel);
+        }
+        
+        return out;
+    }
+    /**
+     * Write the JSON output of all the notifications 
+     * 
+     * @param output
+     * @param choices
+     *            See the class description for more information.
+     * @param localeId
+     * @param user
+     * @param usersLevel
+     * @param nonVettingPhase
+     */
+    public void generateJSONReview(Appendable output, EnumSet<Choice> choices, String localeID, T user,
+        Level usersLevel, boolean nonVettingPhase, boolean quick, WebContext ctx) {
+
+        // Gather the relevant paths
+        // each one will be marked with the choice that it triggered.
+        Relation<R2<SectionId, PageId>, WritingInfo> sorted = Relation.of(
+            new TreeMap<R2<SectionId, PageId>, Set<WritingInfo>>(), TreeSet.class);
+
+        CLDRFile sourceFile = cldrFactory.make(localeID, true);
+
+        // Initialize
+        CLDRFile lastSourceFile = null;
+        if(!quick){
+            try {
+                lastSourceFile = cldrFactoryOld.make(localeID, true);
+            } catch (Exception e) {
+            }
+        }
+
+        FileInfo fileInfo = new FileInfo().
+            getFileInfo(sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, user,
+                usersLevel, quick);
+
+        
+        // now write the results out
+        
+        getJSONReview(output, sourceFile, lastSourceFile, sorted, choices, localeID, nonVettingPhase, fileInfo, quick, ctx);
+    }
+    
     private class FileInfo {
         Counter<Choice> problemCounter = new Counter<Choice>();
         Counter<Subtype> errorSubtypeCounter = new Counter<Subtype>();
         Counter<Subtype> warningSubtypeCounter = new Counter<Subtype>();
-
+        EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
         public void addAll(FileInfo other) {
             problemCounter.addAll(other.problemCounter);
             errorSubtypeCounter.addAll(other.errorSubtypeCounter);
@@ -774,11 +870,20 @@ public class VettingViewer<T> {
             Relation<R2<SectionId, PageId>, WritingInfo> sorted,
             EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
             T user, Level usersLevel, boolean quick) {
+            return this.getFileInfo(sourceFile,lastSourceFile,sorted,
+                choices,localeID,nonVettingPhase,
+               user, usersLevel,quick, null);
+        }
+        
+        private FileInfo getFileInfo(CLDRFile sourceFile, CLDRFile lastSourceFile,
+            Relation<R2<SectionId, PageId>, WritingInfo> sorted,
+            EnumSet<Choice> choices, String localeID, boolean nonVettingPhase,
+            T user, Level usersLevel, boolean quick, String xpath) {
 
             Status status = new Status();
             errorChecker.initErrorStatus(sourceFile);
             Matcher altProposed = ALT_PROPOSED.matcher("");
-            EnumSet<Choice> problems = EnumSet.noneOf(Choice.class);
+            problems = EnumSet.noneOf(Choice.class);
 
             // now look through the paths
 
@@ -786,10 +891,10 @@ public class VettingViewer<T> {
             StringBuilder statusMessage = new StringBuilder();
             EnumSet<Subtype> subtypes = EnumSet.noneOf(Subtype.class);
             Set<String> seenSoFar = new HashSet<String>();
-
             boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
-
             for (String path : sourceFile.fullIterable()) {
+                if(xpath != null && !xpath.equals(path))
+                    continue;
                 String value = sourceFile.getWinningValue(path);
                 statusMessage.setLength(0);
                 subtypes.clear();
@@ -910,7 +1015,10 @@ public class VettingViewer<T> {
                     }
                     break;
                 }
-
+ 
+                if(xpath != null)
+                    return this;
+                
                 if (!problems.isEmpty()) {
                     // showAll ||
                     // if (showAll && problems.isEmpty()) {
@@ -1654,7 +1762,7 @@ public class VettingViewer<T> {
                         : "tv-win", HTMLType.plain);
                     // Fix?
                     // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
-                    output.append(" <td class='tv-fix'><a href='")
+                    output.append(" <td class='tv-fix'><a target='_blank' href='")
                         .append(pathInfo.getUrl(localeId)) // .append(c)baseUrl + "?_=")
                         // .append(localeID)
                         // .append("&amp;xpath=")
@@ -1679,7 +1787,179 @@ public class VettingViewer<T> {
             throw new IllegalArgumentException(e); // damn'ed checked exceptions
         }
     }
+    
+   
+    private void getJSONReview(Appendable output, CLDRFile sourceFile, CLDRFile lastSourceFile,
+        Relation<R2<SectionId, PageId>, WritingInfo> sorted,
+        EnumSet<Choice> choices,
+        String localeID,
+        boolean nonVettingPhase,
+        FileInfo outputFileInfo,
+        boolean quick, WebContext ctx
+        ) {
+        
+        try {
+            boolean latin = VettingViewer.isLatinScriptLocale(sourceFile);
+            JSONObject reviewInfo = new JSONObject(); 
+            JSONArray notificationsCount = new JSONArray();
+            List<String> notifications = new ArrayList<String>();
+            Status status = new Status();
+         
 
+               
+            for (Choice choice : choices) {
+                    notificationsCount.put(new JSONObject().put("name",choice.buttonLabel.replace(' ', '_')).put("description", choice.description).put("count", outputFileInfo.problemCounter.get(choice)));
+                    notifications.add(choice.buttonLabel);
+            }
+            
+            reviewInfo.put("notification", notificationsCount);
+            // gather information on choices on each page
+            //output.append(reviewInfo.toString());
+            
+            
+            Relation<Row.R3<SectionId, PageId, String>, Choice> choicesForHeader = Relation.of(
+                new HashMap<Row.R3<SectionId, PageId, String>, Set<Choice>>(), HashSet.class);
+
+            Relation<Row.R2<SectionId, PageId>, Choice> choicesForSection = Relation.of(
+                new HashMap<R2<SectionId, PageId>, Set<Choice>>(), HashSet.class);
+
+            Comparator<? super R4<Choice, SectionId, PageId, String>> comparator = new Comparator<Row.R4<Choice,SectionId, PageId, String>>() {
+                
+
+                @Override
+                public int compare(R4<Choice, SectionId, PageId, String> o1, R4<Choice, SectionId, PageId, String> o2) {
+                    int compChoice = o2.get0().order - o1.get0().order;
+                    if(compChoice == 0) {
+                        int compSection = o1.get1().compareTo(o2.get1());
+                        if(compSection == 0) {
+                            int compPage = o1.get2().compareTo(o2.get2());
+                            if(compPage == 0)
+                                return o1.get3().compareTo(o2.get3());
+                            else
+                                return 0;
+                        }
+                        else
+                            return compSection;
+                    }
+                    else
+                        return compChoice;
+                }
+            };
+            
+            Relation<Row.R4<Choice,SectionId, PageId, String>, WritingInfo> notificationsList = Relation.of(
+                new TreeMap<Row.R4<Choice,SectionId, PageId, String>, Set<WritingInfo>>(comparator), TreeSet.class);            
+            
+
+            //TODO we can prob do it in only one loop, but with that we can sort
+            for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
+                final Set<WritingInfo> rows = entry0.getValue();
+                for (WritingInfo pathInfo : rows) {
+                    Set<Choice> choicesForPath = pathInfo.problems;
+                    SectionId section = entry0.getKey().get0();
+                    PageId subsection = entry0.getKey().get1();
+                    for(Choice choice : choicesForPath) {
+                        //reviewInfo
+                        notificationsList.put(Row.of(choice, section, subsection, pathInfo.codeOutput.getHeader()), pathInfo);
+                    }
+                }
+                
+            }
+
+            JSONArray allNotifications = new JSONArray();
+            for(Entry<R4<Choice, SectionId, PageId, String>, Set<WritingInfo>> entry : notificationsList.keyValuesSet()) {
+                        
+                        String notificationName = entry.getKey().get0().buttonLabel.replace(' ', '_');
+                        int notificationNumber = entry.getKey().get0().order;
+                        
+                        String sectionName = entry.getKey().get1().name();
+                        String pageName = entry.getKey().get2().name();
+                        String headerName = entry.getKey().get3();
+                        
+                        if(allNotifications.optJSONObject(notificationNumber) == null) {                            
+                            allNotifications.put(notificationNumber,new JSONObject().put(notificationName, new JSONObject()));
+                        }
+                        
+                        JSONObject sections = allNotifications.getJSONObject(notificationNumber).getJSONObject(notificationName);
+                        
+                        if(sections.optJSONObject(sectionName) == null) {
+                            sections.accumulate(sectionName, new JSONObject());
+                        }
+                        JSONObject pages = sections.getJSONObject(sectionName);
+                        
+                        if(pages.optJSONObject(pageName) == null) {
+                            pages.accumulate(pageName, new JSONObject());
+                        }
+                        JSONObject header = pages.getJSONObject(pageName);
+                        
+                        JSONArray allContent = new JSONArray();
+                        //real info 
+                        for(WritingInfo info : entry.getValue()) {
+                            JSONObject content = new JSONObject();
+                            String code = info.codeOutput.getCode();
+                            String path = info.codeOutput.getOriginalPath();
+                            Set<Choice> choicesForPath = info.problems;
+                            
+                            //code
+                            content.put("code",code);
+                            content.put("path", ctx.sm.xpt.getByXpath(path));
+                                
+                            //english
+                            if (choicesForPath.contains(Choice.englishChanged)) {
+                                String winning = englishFile.getWinningValue(path);
+                                String cellValue = winning == null ? "<i>missing</i>" : TransliteratorUtilities.toHTML
+                                    .transform(winning);
+                                String previous = outdatedPaths.getPreviousEnglish(path);
+                                if (previous != null) {
+                                    cellValue += "<br><span style='color:#900'><b>OLD: </b>"
+                                        + TransliteratorUtilities.toHTML.transform(previous) + "</span>";
+                                } else {
+                                    cellValue += "<br><b><i>missing</i></b>";
+                                }
+                                content.put("english", cellValue);
+                            } else {
+                                content.put("english",englishFile.getWinningValue(path));
+                            }
+                            
+                            //old release
+                            final String oldStringValue = lastSourceFile == null ? null : lastSourceFile.getWinningValue(path);
+                            content.put("old", oldStringValue);
+                            
+                            //
+                            
+                            //winning value
+                            String newWinningValue = sourceFile.getWinningValue(path);
+                            if (CharSequences.equals(newWinningValue, oldStringValue)) {
+                                newWinningValue = "=";
+                            }
+                            content.put("winning",newWinningValue);
+                            
+                            //comment
+                            String comment = "";
+                            if (!info.htmlMessage.isEmpty()) {
+                                comment = info.htmlMessage;
+                            }
+                            content.put("comment", comment.replace("\"", "&quot;"));
+                            
+                            content.put("id", StringId.getHexId(info.codeOutput.getOriginalPath()));  
+                           allContent.put(content);
+                        }
+                        header.put(headerName, allContent);
+                        
+            }
+            reviewInfo.put("allNotifications", allNotifications);
+            
+            //hidden info 
+            ReviewHide review = new ReviewHide();
+            reviewInfo.put("hidden", review.getHiddenField(ctx.userId(), ctx.getLocale().toString()));
+            reviewInfo.put("direction", ctx.getDirectionForLocale());
+            output.append(reviewInfo.toString());
+        }
+        catch (JSONException | IOException e) {
+                e.printStackTrace();
+        }
+    }
+
+ 
     private String getPageUrl(String localeId, PageId subsection) {
         return PathHeader.getPageUrl(baseUrl, localeId, subsection);
     }

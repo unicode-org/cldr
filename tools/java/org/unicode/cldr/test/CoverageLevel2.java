@@ -28,6 +28,11 @@ public class CoverageLevel2 {
 
     // To modify the results, see /cldr/common/supplemental/coverageLevels.xml
 
+    /**
+     * Enable to get more verbose output when debugging
+     */
+    private static final boolean DEBUG_LOOKUP = false;
+    
     private RegexLookup<Level> lookup = null;
 
     enum SetMatchType {
@@ -62,7 +67,7 @@ public class CoverageLevel2 {
         }
 
         @Override
-        public boolean find(String item, Object context, Info info) {
+        public boolean find(String item, Object context) {
             LocaleSpecificInfo localeSpecificInfo = (LocaleSpecificInfo) context;
             // Modified the logic to handle the case where we want specific languages and specific territories.
             // Any match in language script or territory will succeed when multiple items are present.
@@ -84,7 +89,7 @@ public class CoverageLevel2 {
                 return false;
             }
 
-            boolean result = super.find(item, context, info); // also sets matcher in RegexFinder
+            boolean result = super.find(item, context); // also sets matcher in RegexFinder
             if (!result) {
                 return false;
             }
@@ -150,7 +155,7 @@ public class CoverageLevel2 {
         }
         synchronized (lookup) { // synchronize on the class, since the Matchers are changed during the matching process
             Level result;
-            if (false) { // for testing
+            if (DEBUG_LOOKUP) { // for testing
                 Output<String[]> checkItems = new Output<String[]>();
                 Output<Finder> matcherFound = new Output<Finder>();
                 List<String> failures = new ArrayList<String>();

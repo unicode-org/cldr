@@ -316,7 +316,7 @@ class RegexManager {
 
         public boolean findKey(Finder finder) {
             for (String key : map.keySet()) {
-                if (finder.find(key, null, null)) {
+                if (finder.find(key, null,null)) {
                     return true;
                 }
             }

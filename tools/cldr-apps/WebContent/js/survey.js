@@ -4982,7 +4982,7 @@ function showV() {
 					});
 				} else if(isReport(surveyCurrentSpecial)) {
 
-					//showInPop2(stui.str("reportGuidance"), null, null, null, true, true); /* show the box the first time */					
+					showInPop2(stui.str("reportGuidance"), null, null, null, true, true); /* show the box the first time */					
 					require([
 					         "dojo/ready",
 					         "dojo/dom",
@@ -5001,15 +5001,25 @@ function showV() {
 					        ) { ready(function(){
 					        	
 								var url = contextPath + "/EmbeddedReport.jsp?x="+surveyCurrentSpecial+"&_="+surveyCurrentLocale+"&s="+surveySessionId+cacheKill();
-
-								request
-				    			.get(url, {handleAs: 'json'})
-				    			.then(function(json) {
-									hideLoader(null,stui.loading2);
-									isLoading=false;
-									//flipper.flipTo(pages.other, '');
-									showReviewPage(json);
-								});
+								if(isDashboard()) {
+									request
+					    			.get(url, {handleAs: 'json'})
+					    			.then(function(json) {
+										hideLoader(null,stui.loading2);
+										isLoading=false;
+										showReviewPage(json);
+									});
+								}
+								else {
+									request
+					    			.get(url, {handleAs: 'html'})
+					    			.then(function(html) {
+										hideLoader(null,stui.loading2);
+										isLoading=false;
+										flipper.flipTo(pages.other, domConstruct.toDom(html));
+									});
+								}
+								
 					        });
 					 });
 				} else if(surveyCurrentSpecial == 'none') {

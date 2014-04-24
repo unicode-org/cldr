@@ -47,7 +47,7 @@
 ### Date & Time Formatting
 //ldml/dates/fields/field[@type="%A"]/displayName                           ; DateTime ; Fields ; Date Fields ; &datefield($1)
 //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]                  ; DateTime ; Fields ; &relativeDate($1) ; &numericSort($2)
-//ldml/dates/fields/field[@type="%T"]/relativeTime[@type="%P"]/relativeTimePattern[@count="%A"] ; DateTime ; Fields ; &relativeDate($1) ; &count($2-$3)
+//ldml/dates/fields/field[@type="%A"]/relativeTime[@type="%P"]/relativeTimePattern[@count="%A"] ; DateTime ; Fields ; &relativeDate($1) ; &count($2-$3)
 
 //ldml/dates/calendars/calendar[@type="%A"]/eras/eraAbbr/era[@type="%A"]                                                        ; DateTime ; &calendar($1) ; &calField(Eras:abbreviated:none) ; $2
 //ldml/dates/calendars/calendar[@type="%A"]/eras/eraNames/era[@type="%A"]                                                       ; DateTime ; &calendar($1) ; &calField(Eras:wide:none) ; $2

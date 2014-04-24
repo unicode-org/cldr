@@ -2110,6 +2110,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} years ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="year-short">
+				<displayName>yr.</displayName>
+				<relative type="-1">last yr.</relative>
+				<relative type="0">this yr.</relative>
+				<relative type="1">next yr.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} yr.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} yr.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} yr. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} yr. ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-narrow">
+				<displayName>yr.</displayName>
+				<relative type="-1">last yr.</relative>
+				<relative type="0">this yr.</relative>
+				<relative type="1">next yr.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} yr.</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} yr.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} yr.</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} yr.</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="month">
 				<displayName>Month</displayName>
 				<relative type="-1">last month</relative>
@@ -2122,6 +2150,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} month ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} months ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-short">
+				<displayName>mo.</displayName>
+				<relative type="-1">last mo.</relative>
+				<relative type="0">this mo.</relative>
+				<relative type="1">next mo.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} mo.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} mo.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} mo. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} mo. ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-narrow">
+				<displayName>mo.</displayName>
+				<relative type="-1">last mo.</relative>
+				<relative type="0">this mo.</relative>
+				<relative type="1">next mo.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} mo.</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} mo.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} mo.</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} mo.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week">
@@ -2138,6 +2194,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} weeks ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="week-short">
+				<displayName>wk.</displayName>
+				<relative type="-1">last wk.</relative>
+				<relative type="0">this wk.</relative>
+				<relative type="1">next wk.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} wk.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} wk.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} wk. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} wk. ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week-narrow">
+				<displayName>wk.</displayName>
+				<relative type="-1">last wk.</relative>
+				<relative type="0">this wk.</relative>
+				<relative type="1">next wk.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} wk.</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} wk.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} wk.</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} wk.</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="day">
 				<displayName>Day</displayName>
 				<relative type="-1">yesterday</relative>
@@ -2152,6 +2236,34 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="day-short">
+				<displayName>Day</displayName>
+				<relative type="-1">yesterday</relative>
+				<relative type="0">today</relative>
+				<relative type="1">tomorrow</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} day</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} days</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} day ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} days ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-narrow">
+				<displayName>Day</displayName>
+				<relative type="-1">yesterday</relative>
+				<relative type="0">today</relative>
+				<relative type="1">tomorrow</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} day</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} days</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} day</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} days</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="weekday">
 				<displayName>Day of the Week</displayName>
 			</field>
@@ -2160,35 +2272,105 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">this Sunday</relative>
 				<relative type="1">next Sunday</relative>
 			</field>
+			<field type="sun-short">
+				<relative type="-1">last Sun.</relative>
+				<relative type="0">this Sun.</relative>
+				<relative type="1">next Sun.</relative>
+			</field>
+			<field type="sun-narrow">
+				<relative type="-1">last Su</relative>
+				<relative type="0">this Su</relative>
+				<relative type="1">next Su</relative>
+			</field>
 			<field type="mon">
 				<relative type="-1">last Monday</relative>
 				<relative type="0">this Monday</relative>
 				<relative type="1">next Monday</relative>
+			</field>
+			<field type="mon-short">
+				<relative type="-1">last Mon.</relative>
+				<relative type="0">this Mon.</relative>
+				<relative type="1">next Mon.</relative>
+			</field>
+			<field type="mon-narrow">
+				<relative type="-1">last M</relative>
+				<relative type="0">this M</relative>
+				<relative type="1">next M</relative>
 			</field>
 			<field type="tue">
 				<relative type="-1">last Tuesday</relative>
 				<relative type="0">this Tuesday</relative>
 				<relative type="1">next Tuesday</relative>
 			</field>
+			<field type="tue-short">
+				<relative type="-1">last Tue.</relative>
+				<relative type="0">this Tue.</relative>
+				<relative type="1">next Tue.</relative>
+			</field>
+			<field type="tue-narrow">
+				<relative type="-1">last Tu</relative>
+				<relative type="0">this Tu</relative>
+				<relative type="1">next Tu</relative>
+			</field>
 			<field type="wed">
 				<relative type="-1">last Wednesday</relative>
 				<relative type="0">this Wednesday</relative>
 				<relative type="1">next Wednesday</relative>
+			</field>
+			<field type="wed-short">
+				<relative type="-1">last Wed.</relative>
+				<relative type="0">this Wed.</relative>
+				<relative type="1">next Wed.</relative>
+			</field>
+			<field type="wed-narrow">
+				<relative type="-1">last W</relative>
+				<relative type="0">this W</relative>
+				<relative type="1">next W</relative>
 			</field>
 			<field type="thu">
 				<relative type="-1">last Thursday</relative>
 				<relative type="0">this Thursday</relative>
 				<relative type="1">next Thursday</relative>
 			</field>
+			<field type="thu-short">
+				<relative type="-1">last Thu.</relative>
+				<relative type="0">this Thu.</relative>
+				<relative type="1">next Thu.</relative>
+			</field>
+			<field type="thu-narrow">
+				<relative type="-1">last Th</relative>
+				<relative type="0">this Th</relative>
+				<relative type="1">next Th</relative>
+			</field>
 			<field type="fri">
 				<relative type="-1">last Friday</relative>
 				<relative type="0">this Friday</relative>
 				<relative type="1">next Friday</relative>
 			</field>
+			<field type="fri-short">
+				<relative type="-1">last Fri.</relative>
+				<relative type="0">this Fri.</relative>
+				<relative type="1">next Fri.</relative>
+			</field>
+			<field type="fri-narrow">
+				<relative type="-1">last F</relative>
+				<relative type="0">this F</relative>
+				<relative type="1">next F</relative>
+			</field>
 			<field type="sat">
 				<relative type="-1">last Saturday</relative>
 				<relative type="0">this Saturday</relative>
 				<relative type="1">next Saturday</relative>
+			</field>
+			<field type="sat-short">
+				<relative type="-1">last Sat.</relative>
+				<relative type="0">this Sat.</relative>
+				<relative type="1">next Sat.</relative>
+			</field>
+			<field type="sat-narrow">
+				<relative type="-1">last Sa</relative>
+				<relative type="0">this Sa</relative>
+				<relative type="1">next Sa</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName>AM/PM</displayName>
@@ -2204,6 +2386,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} hours ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="hour-short">
+				<displayName>hr.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} hr.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} hr.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} hr. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} hr. ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-narrow">
+				<displayName>h</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} h</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} h</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} h</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} h</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="minute">
 				<displayName>Minute</displayName>
 				<relativeTime type="future">
@@ -2213,6 +2417,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} minute ago</relativeTimePattern>
 					<relativeTimePattern count="other">{0} minutes ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-short">
+				<displayName>min.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} min.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} min.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} min. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} min. ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-narrow">
+				<displayName>m</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} m</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} m</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} m</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} m</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
@@ -2227,6 +2453,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} seconds ago</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="second-short">
+				<displayName>sec.</displayName>
+				<relative type="0">now</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} sec.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} sec.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} sec. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} sec. ago</relativeTimePattern>
+				</relativeTime>
+                        </field>
+			<field type="second-narrow">
+				<displayName>s</displayName>
+				<relative type="0">now</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} s</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} s</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} s ago</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} s ago</relativeTimePattern>
+				</relativeTime>
+                        </field>
 			<field type="zone">
 				<displayName>Time Zone</displayName>
 			</field>

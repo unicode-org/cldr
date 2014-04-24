@@ -2316,6 +2316,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">-{0} y</relativeTimePattern>
 				</relativeTime>
 			</field>
+                        <field type="year-short">
+                          <alias source="locale" path="../field[@type='year']"/>
+                        </field>
+                        <field type="year-narrow">
+                          <alias source="locale" path="../field[@type='year-short']"/>
+                        </field>
 			<field type="month">
 				<displayName>Month</displayName>
 				<relative type="-1">last month</relative>
@@ -2328,6 +2334,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">-{0} m</relativeTimePattern>
 				</relativeTime>
 			</field>
+                        <field type="month-short">
+                          <alias source="locale" path="../field[@type='month']"/>
+                        </field>
+                        <field type="month-narrow">
+                          <alias source="locale" path="../field[@type='month-short']"/>
+                        </field>
 			<field type="week">
 				<displayName>Week</displayName>
 				<relative type="-1">last week</relative>
@@ -2340,6 +2352,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">-{0} w</relativeTimePattern>
 				</relativeTime>
 			</field>
+                        <field type="week-short">
+                          <alias source="locale" path="../field[@type='week']"/>
+                        </field>
+                        <field type="week-narrow">
+                          <alias source="locale" path="../field[@type='week-short']"/>
+                        </field>
 			<field type="day">
 				<displayName>Day</displayName>
 				<relative type="-1">yesterday</relative>
@@ -2352,6 +2370,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">-{0} d</relativeTimePattern>
 				</relativeTime>
 			</field>
+                        <field type="day-short">
+                          <alias source="locale" path="../field[@type='day']"/>
+                        </field>
+                        <field type="day-narrow">
+                          <alias source="locale" path="../field[@type='day-short']"/>
+                        </field>
 			<field type="weekday">
 				<displayName>Day of the Week</displayName>
 			</field>
@@ -2360,36 +2384,78 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">this Sunday</relative>
 				<relative type="1">next Sunday</relative>
 			</field>
+                        <field type="sun-short">
+                          <alias source="locale" path="../field[@type='sun']"/>
+                        </field>
+                        <field type="sun-narrow">
+                          <alias source="locale" path="../field[@type='sun-short']"/>
+                        </field>
 			<field type="mon">
 				<relative type="-1">last Monday</relative>
 				<relative type="0">this Monday</relative>
 				<relative type="1">next Monday</relative>
 			</field>
+                        <field type="mon-short">
+                          <alias source="locale" path="../field[@type='mon']"/>
+                        </field>
+                        <field type="mon-narrow">
+                          <alias source="locale" path="../field[@type='mon-short']"/>
+                        </field>
 			<field type="tue">
 				<relative type="-1">last Tuesday</relative>
 				<relative type="0">this Tuesday</relative>
 				<relative type="1">next Tuesday</relative>
 			</field>
+                        <field type="tue-short">
+                          <alias source="locale" path="../field[@type='tue']"/>
+                        </field>
+                        <field type="tue-narrow">
+                          <alias source="locale" path="../field[@type='tue-short']"/>
+                        </field>
 			<field type="wed">
 				<relative type="-1">last Wednesday</relative>
 				<relative type="0">this Wednesday</relative>
 				<relative type="1">next Wednesday</relative>
 			</field>
+                        <field type="wed-short">
+                          <alias source="locale" path="../field[@type='wed']"/>
+                        </field>
+                        <field type="wed-narrow">
+                          <alias source="locale" path="../field[@type='wed-short']"/>
+                        </field>
 			<field type="thu">
 				<relative type="-1">last Thursday</relative>
 				<relative type="0">this Thursday</relative>
 				<relative type="1">next Thursday</relative>
 			</field>
+                        <field type="thu-short">
+                          <alias source="locale" path="../field[@type='thu']"/>
+                        </field>
+                        <field type="thu-narrow">
+                          <alias source="locale" path="../field[@type='thu-short']"/>
+                        </field>
 			<field type="fri">
 				<relative type="-1">last Friday</relative>
 				<relative type="0">this Friday</relative>
 				<relative type="1">next Friday</relative>
 			</field>
+                        <field type="fri-short">
+                          <alias source="locale" path="../field[@type='fri']"/>
+                        </field>
+                        <field type="fri-narrow">
+                          <alias source="locale" path="../field[@type='fri-short']"/>
+                        </field>
 			<field type="sat">
 				<relative type="-1">last Saturday</relative>
 				<relative type="0">this Saturday</relative>
 				<relative type="1">next Saturday</relative>
 			</field>
+                        <field type="sat-short">
+                          <alias source="locale" path="../field[@type='sat']"/>
+                        </field>
+                        <field type="sat-narrow">
+                          <alias source="locale" path="../field[@type='sat-short']"/>
+                        </field>
 			<field type="dayperiod">
 				<displayName>Dayperiod</displayName>
 			</field>
@@ -2401,7 +2467,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relativeTime type="past">
 					<relativeTimePattern count="other">-{0} h</relativeTimePattern>
 				</relativeTime>
-			</field>
+                        </field>
+                        <field type="hour-short">
+                          <alias source="locale" path="../field[@type='hour']"/>
+                        </field>
+                        <field type="hour-narrow">
+                          <alias source="locale" path="../field[@type='hour-short']"/>
+                        </field>
 			<field type="minute">
 				<displayName>Minute</displayName>
 				<relativeTime type="future">
@@ -2411,6 +2483,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">-{0} min</relativeTimePattern>
 				</relativeTime>
 			</field>
+                        <field type="minute-short">
+                          <alias source="locale" path="../field[@type='minute']"/>
+                        </field>
+                        <field type="minute-narrow">
+                          <alias source="locale" path="../field[@type='minute-short']"/>
+                        </field>
 			<field type="second">
 				<displayName>Second</displayName>
 				<relative type="0">now</relative>
@@ -2421,6 +2499,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">-{0} s</relativeTimePattern>
 				</relativeTime>
 			</field>
+                        <field type="second-short">
+                          <alias source="locale" path="../field[@type='second']"/>
+                        </field>
+                        <field type="second-narrow">
+                          <alias source="locale" path="../field[@type='second-short']"/>
+                        </field>
 			<field type="zone">
 				<displayName>Zone</displayName>
 			</field>

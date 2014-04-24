@@ -53,8 +53,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%fullShort" value="(full|short)"/>
 		<coverageVariable key="%futurePast" value="(future|past)"/>
 		<coverageVariable key="%timeFormatItems" value="(E?(H|h)(ms?)?|ms)"/>
-		<coverageVariable key="%dayFieldTypes" value="(era|year|month|week|day|weekday|hour|minute|second|dayperiod|zone)"/>
+		<coverageVariable key="%dayFieldTypes" value="(era|year|year-short|year-narrow|month|month-short|month-narrow|week|week-short|week-narrow|day|day-short|day-narrow|weekday|hour|hour-short|hour-narrow|minute|minute-short|minute-narrow|second|second-short|second-narrow|dayperiod|zone)"/>
 		<coverageVariable key="%dayTypes" value="(sun|mon|tue|wed|thu|fri|sat)"/>
+		<coverageVariable key="%relativeDayTypes" value="(sun|sun-short|sun-narrow|mon|mon-short|mon-narrow|tue|tue-short|tue-narrow|wed|wed-short|wed-narrow|thu|thu-short|thu-narrow|fri|fri-short|fri-narrow|sat|sat-short|sat-narrow)"/>
 		<coverageVariable key="%devaLanguages" value="(mr|ne)"/>
 		<coverageVariable key="%ellipsisTypes" value="(word-)?(initial|medial|final)"/>
 		<coverageVariable key="%exemplarTypes" value="(auxiliary|index|punctuation)"/>
@@ -412,7 +413,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItemsAll']"/>
 		<coverageLevel value="80" match="dates/fields/field[@type='day']/relative[@type='(-3|-2|2|3)']"/>
-		<coverageLevel value="80" match="dates/fields/field[@type='%dayTypes']/relative[@type='(-1|0|1)']"/>
+		<coverageLevel value="80" match="dates/fields/field[@type='%relativeDayTypes']/relative[@type='(-1|0|1)']"/>
 		<coverageLevel value="80" match="dates/fields/field[@type='%relativeTimeTypes']/relativeTime[@type='%futurePast']/relativeTimePattern[@count='${Target-Plurals}']"/>		
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/generic"/>
 		<coverageLevel value="80" match="dates/timeZoneNames/metazone[@type='%metazone80']/long/standard"/>

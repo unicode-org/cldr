@@ -943,7 +943,7 @@ $Date$
 <!ATTLIST fields validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT field ( alias | (displayName*, relative*, relativeTime*, special*)) >
-<!ATTLIST field type ( era | year | month | week | day | weekday | sun | mon | tue | wed | thu | fri | sat | dayperiod | hour | minute | second | zone ) #IMPLIED >
+<!ATTLIST field type ( era | year | year-short | year-narrow | month | month-short | month-narrow | week | week-short | week-narrow | day | day-short | day-narrow | weekday | sun | sun-short | sun-narrow | mon | mon-short | mon-narrow | tue | tue-short | tue-narrow | wed | wed-short | wed-narrow | thu | thu-short | thu-narrow | fri | fri-short | fri-narrow | sat | sat-short | sat-narrow | dayperiod | hour | hour-short | hour-narrow | minute | minute-short | minute-narrow | second | second-short | second-narrow | zone ) #IMPLIED >
 <!ATTLIST field alt NMTOKENS #IMPLIED >
 <!ATTLIST field draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST field standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->

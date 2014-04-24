@@ -757,7 +757,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues elements="dayWidth" attributes="type" order="given">abbreviated narrow short wide</attributeValues>
             <attributeValues elements="default" attributes="type" type="choice">format gregorian long medium pinyin standard stroke wide</attributeValues>
             <attributeValues elements="era" attributes="type" type="regex">[0-9]+</attributeValues>
-            <attributeValues elements="field" attributes="type" order="given">era year month week day weekday dayperiod hour minute second zone sun mon tue wed thu fri sat</attributeValues>
+            <attributeValues elements="field" attributes="type" order="given">era year year-short year-narrow month month-short month-narrow week week-short week-narrow day day-short day-narrow weekday dayperiod hour hour-short hour-narrow minute minute-short minute-narrow second second-short second-narrow zone sun sun-short sun-narrow mon mon-short mon-narrow tue tue-short tue-narrow wed wed-short wed-narrow thu thu-short thu-narrow fri fri-short fri-narrow sat sat-short sat-narrow</attributeValues>
             <attributeValues elements="firstDay weekendEnd weekendStart" attributes="day" order="given">sun mon tue wed thu fri sat</attributeValues>
             <attributeValues elements="generation" attributes="date">$genDate</attributeValues>
             <attributeValues elements="group" attributes="contains type">$territory</attributeValues>

@@ -83,12 +83,26 @@
 #^//ldml/dates/.*(pattern|available|intervalFormatItem) ; V=TIMEZONE_SPECIFIC_NON_LOCATION_SHORT_FORCED PDT
 
 ^//ldml/dates/fields/field\[@type="day"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
+^//ldml/dates/fields/field\[@type="day-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
+^//ldml/dates/fields/field\[@type="day-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_DAYS 3
 ^//ldml/dates/fields/field\[@type="hour"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_HOURS 3
+^//ldml/dates/fields/field\[@type="hour-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_HOURS 3
+^//ldml/dates/fields/field\[@type="hour-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_HOURS 3
 ^//ldml/dates/fields/field\[@type="minute"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MINUTES 3
+^//ldml/dates/fields/field\[@type="minute-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MINUTES 3
+^//ldml/dates/fields/field\[@type="minute-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MINUTES 3
 ^//ldml/dates/fields/field\[@type="month"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MONTHS 3
+^//ldml/dates/fields/field\[@type="month-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MONTHS 3
+^//ldml/dates/fields/field\[@type="month-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MONTHS 3
 ^//ldml/dates/fields/field\[@type="second"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_SECONDS 3
+^//ldml/dates/fields/field\[@type="second-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_SECONDS 3
+^//ldml/dates/fields/field\[@type="second-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_SECONDS 3
 ^//ldml/dates/fields/field\[@type="week"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_WEEKS 3
+^//ldml/dates/fields/field\[@type="week-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_WEEKS 3
+^//ldml/dates/fields/field\[@type="week-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_WEEKS 3
 ^//ldml/dates/fields/field\[@type="year"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_YEARS 3
+^//ldml/dates/fields/field\[@type="year-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_YEARS 3
+^//ldml/dates/fields/field\[@type="year-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_YEARS 3
 
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Day-Of-Week"] ; {0}=BASE_FORMAT January 23; {1}=APPEND_FIELD_FORMAT Monday
 ^//ldml/dates/calendars/calendar\[@type="%A"]/dateTimeFormats/appendItems/appendItem\[@request="Timezone"] ; {0}=BASE_FORMAT 12:30; {1}=APPEND_FIELD_FORMAT Pacific Time

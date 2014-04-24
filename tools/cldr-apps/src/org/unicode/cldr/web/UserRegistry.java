@@ -577,7 +577,8 @@ public class UserRegistry {
                     conn.commit();
                 }
 
-                //create review and post table 
+                //create review and post table
+                sql="(see ReviewHide.java)";
                 ReviewHide.createTable(conn);
                 boolean hadInterestTable = DBUtils.hasTable(conn, CLDR_INTEREST);
                 if (!hadInterestTable) {

@@ -3,21 +3,15 @@ package org.unicode.cldr.web;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.logging.Logger;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.unicode.cldr.util.Log;
-import org.unicode.cldr.util.VettingViewer.Choice;
-import org.unicode.cldr.web.DBUtils.Table;
 
 
 //save hidden line 
@@ -33,16 +27,31 @@ public class ReviewHide {
     
     //create the table (path, locale, type of notifications as key to get unique line)
     public static void createTable(Connection conn) throws SQLException {
-        if(!DBUtils.hasTable(DBUtils.Table.REVIEW_HIDE.toString())) {
+        String sql = null;
+        if(!DBUtils.hasTable(DBUtils.Table.REVIEW_HIDE.toString())) try {
             Statement s;
                 s = conn.createStatement();
-                s.execute("CREATE TABLE "+DBUtils.Table.REVIEW_HIDE+" (id int not null "+DBUtils.DB_SQL_IDENTITY+", path int not null, choice varchar(20) not null, user_id int not null, locale varchar(20) not null, FOREIGN KEY (user_id) REFERENCES "+UserRegistry.CLDR_USERS+"(id) ON DELETE CASCADE)");
-                s.execute("CREATE UNIQUE INDEX " + DBUtils.Table.REVIEW_HIDE + "_id ON " + DBUtils.Table.REVIEW_HIDE + " (id) ");
+                s.execute(sql="CREATE TABLE "+DBUtils.Table.REVIEW_HIDE+" (id int not null "+DBUtils.DB_SQL_IDENTITY+", path int not null, choice varchar(20) not null, user_id int not null, locale varchar(20) not null)");
+                s.execute(sql="CREATE UNIQUE INDEX " + DBUtils.Table.REVIEW_HIDE + "_id ON " + DBUtils.Table.REVIEW_HIDE + " (id) ");
+                
+                try {
+                    s.execute(sql="ALTER TABLE " + DBUtils.Table.REVIEW_HIDE + " ADD CONSTRAINT FOREIGN KEY (user_id) REFERENCES "+UserRegistry.CLDR_USERS+"(id) ON DELETE CASCADE;");
+                } catch(SQLException se) {
+                    // This seems to require InnoDB.
+                    System.err.println("Warning: could not add Foreign Key constraint to " + DBUtils.Table.REVIEW_HIDE + " - skipping.  SQL was " + sql + ", err was " + DBUtils.unchainSqlException(se));
+                }
+                sql = null;
+                
+                
                 s.close();
                 
                 conn.commit();
                
-        
+                    sql=null;
+        } finally { 
+            if(sql != null) {
+                System.err.println("Last SQL: " + sql);
+            }
         }
     }
     

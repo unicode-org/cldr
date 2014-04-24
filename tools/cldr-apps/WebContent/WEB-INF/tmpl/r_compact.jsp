@@ -12,7 +12,7 @@
 // NEW
 CLDRFile englishFile = ctx.sm.getDiskFactory().make("en",true);
 CLDRFile nativeFile = ctx.sm.getSTFactory().make(ctx.getLocale(), true);
-org.unicode.cldr.util.VerifyCompactNumbers.showNumbers(nativeFile, true, "EUR", out);
+org.unicode.cldr.util.VerifyCompactNumbers.showNumbers(nativeFile, true, "EUR", out,ctx.sm.getSTFactory());
 /* DateTimeFormats formats = new DateTimeFormats().set(, type);
 DateTimeFormats english = new DateTimeFormats().set(englishFile,type);
 formats.addTable(english, out);

@@ -15,6 +15,7 @@ import java.util.TreeSet;
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -35,15 +36,21 @@ import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
 public class GeneratePluralRanges {
+    public GeneratePluralRanges(SupplementalDataInfo supplementalDataInfo) {
+        SUPPLEMENTAL = supplementalDataInfo;
+        prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
+    }
+    
     private static final boolean MINIMAL = true;
 
     public static void main(String[] args) {
-        GeneratePluralRanges me = new GeneratePluralRanges();
+        CLDRConfig testInfo = ToolConfig.getToolInstance();
+        GeneratePluralRanges me = new GeneratePluralRanges(testInfo.getSupplementalDataInfo());
         me.reformatPluralRanges();
-        //me.generateSamples();
+        //me.generateSamples(testInfo.getEnglish(), testInfo.getCldrFactory());
     }
 
-    private void generateSamples() {
+    private void generateSamples(CLDRFile english, Factory factory) {
         //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
         // add all the items with plural ranges
         Set<String> sorted = new TreeSet<String>(SUPPLEMENTAL.getPluralRangesLocales());
@@ -75,13 +82,13 @@ public class GeneratePluralRanges {
                 continue; // skip japanese, etc.
             }
 
-            List<RangeSample> list = getRangeInfo(locale);
+            List<RangeSample> list = getRangeInfo(factory.make(locale, true));
             if (list == null) {
                 System.out.println("Failure with " + locale);
                 continue;
             }
             for (RangeSample rangeSample : list) {
-                System.out.println(locale + "\t" + testInfo.getEnglish().getName(locale)
+                System.out.println(locale + "\t" + english.getName(locale)
                     + "\t" + rangeSample.start
                     + "\t" + rangeSample.end
                     + "\t" + (rangeSample.result == null ? "missing" : rangeSample.result)
@@ -95,7 +102,8 @@ public class GeneratePluralRanges {
         }
     }
 
-    public static List<RangeSample> getRangeInfo(String locale) {
+    public List<RangeSample> getRangeInfo(CLDRFile cldrFile) {
+        String locale = cldrFile.getLocaleID();
         if (locale.equals("iw")) {
             locale = "he";
         }
@@ -124,7 +132,6 @@ public class GeneratePluralRanges {
         Output<FixedDecimal> maxSample = new Output<FixedDecimal>();
         Output<FixedDecimal> minSample = new Output<FixedDecimal>();
 
-        CLDRFile cldrFile = testInfo.getCldrFactory().make(locale, true);
         ICUServiceBuilder icusb = new ICUServiceBuilder();
         icusb.setCldrFile(cldrFile);
         DecimalFormat nf = icusb.getNumberFormat(1);
@@ -209,10 +216,8 @@ public class GeneratePluralRanges {
             .replace("{0}", numString);
     }
 
-    static CLDRConfig testInfo = ToolConfig.getToolInstance();
-
-    private static final SupplementalDataInfo SUPPLEMENTAL = testInfo.getSupplementalDataInfo();
-    private static final PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
+    private final SupplementalDataInfo SUPPLEMENTAL;
+    private final PluralRulesFactory prf;
 
     
     public static final Comparator<Set<String>> STRING_SET_COMPARATOR = new SetComparator<String, Set<String>>();

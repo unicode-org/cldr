@@ -136,7 +136,7 @@ public class ShowLocaleCoverage {
         final String title = "Locale Coverage";
         final PrintWriter pw = new PrintWriter(new FormattedFileWriter(index, title, null, index == null));
         printData(pw, locales, matcher, useOrgLevel);
-        ShowPlurals.appendBlanksForScrolling(pw);
+        new ShowPlurals().appendBlanksForScrolling(pw);
         pw.close();
     }
 

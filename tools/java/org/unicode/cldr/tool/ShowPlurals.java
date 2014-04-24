@@ -62,7 +62,8 @@ public class ShowPlurals {
         }
     }
 
-    public static void printPluralTable(CLDRFile english, String localeFilter, Appendable appendable) throws IOException {
+    public static void printPluralTable(CLDRFile english, String localeFilter, 
+        Appendable appendable) throws IOException {
 
         final TablePrinter tablePrinter = new TablePrinter()
             .addColumn("Name", "class='source'", null, "class='source'", true).setSortPriority(0)
@@ -76,7 +77,7 @@ public class ShowPlurals {
             .addColumn("Minimal Pairs", "class='target'", null, "class='target'", true)
             .addColumn("Rules", "class='target'", null, "class='target' nowrap", true)
             .setSpanRows(false);
-
+        PluralRulesFactory prf = PluralRulesFactory.getInstance(supplementalDataInfo);
         //Map<ULocale, PluralRulesFactory.SamplePatterns> samples = PluralRulesFactory.getLocaleToSamplePatterns();
         Set<String> cardinalLocales = supplementalDataInfo.getPluralLocales(PluralType.cardinal);
         Set<String> ordinalLocales = supplementalDataInfo.getPluralLocales(PluralType.ordinal);
@@ -95,7 +96,7 @@ public class ShowPlurals {
                 }
                 final PluralInfo plurals = supplementalDataInfo.getPlurals(pluralType, locale);
                 ULocale locale2 = new ULocale(locale);
-                final SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(locale2);
+                final SamplePatterns samplePatterns = prf.getSamplePatterns(locale2);
                 //                    pluralType == PluralType.ordinal ? null 
                 //                    : CldrUtility.get(samples, locale2);
                 NumberFormat nf = NumberFormat.getInstance(locale2);

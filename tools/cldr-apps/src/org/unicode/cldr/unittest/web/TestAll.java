@@ -21,7 +21,6 @@ import org.apache.tomcat.dbcp.pool.KeyedObjectPoolFactory;
 import org.apache.tomcat.dbcp.pool.ObjectPool;
 import org.apache.tomcat.dbcp.pool.impl.GenericKeyedObjectPool;
 import org.apache.tomcat.dbcp.pool.impl.GenericObjectPool;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.util.CLDRFile;

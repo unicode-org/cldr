@@ -98,6 +98,11 @@
             debug="on" deprecation="off"
             includeantruntime="false"
             encoding="UTF-8"/>
+        <mkdir dir="${build.dir}/org/unicode/cldr/unittest"/>
+        <copy todir="${build.dir}/org/unicode/cldr/unittest">
+            <fileset dir="${src.dir}/org/unicode/cldr/unittest"
+                excludes="**/CVS/**/* **/**/*.java"/>
+        </copy>
     </target>
 
     <target name="check" description="Run the standard CLDR test suite" depends="init,build">

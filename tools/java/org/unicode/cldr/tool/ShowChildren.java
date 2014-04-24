@@ -7,7 +7,6 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
@@ -39,7 +38,7 @@ public class ShowChildren {
         }
         PrettyPath prettyPath = new PrettyPath();
 
-        final CLDRFile english = TestAll.TestInfo.getInstance().getEnglish();
+        final CLDRFile english = ToolConfig.getToolInstance().getEnglish();
         Counter<String> deviations = new Counter<String>();
 
         for (Entry<String, Set<String>> entry : parent2children.keyValuesSet()) {

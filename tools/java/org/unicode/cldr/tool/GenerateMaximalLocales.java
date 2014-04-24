@@ -20,7 +20,6 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.draft.ScriptMetadata;
 import org.unicode.cldr.draft.ScriptMetadata.Info;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
@@ -97,7 +96,7 @@ public class GenerateMaximalLocales {
     private static CLDRFile english = factory.make("en", false);
     static Relation<String, String> cldrContainerToLanguages = Relation.of(new HashMap(), HashSet.class);
     static {
-        for (CLDRLocale locale : TestInfo.getInstance().getCldrFactory().getAvailableCLDRLocales()) {
+        for (CLDRLocale locale : ToolConfig.getToolInstance().getCldrFactory().getAvailableCLDRLocales()) {
             String region = locale.getCountry();
             if (region == null || region.isEmpty() || Containment.isLeaf(region)) {
                 continue;

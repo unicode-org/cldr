@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.GeneratedPluralSamples.Info.Type;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -38,7 +38,7 @@ import com.ibm.icu.text.PluralRules.FixedDecimal;
  */
 public class GeneratedPluralSamples {
     private static final double VALUE_TO_CHECK = 7.1;
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = ToolConfig.getToolInstance();
     static Info INFO = new Info();
     private static final boolean THROW = true;
 

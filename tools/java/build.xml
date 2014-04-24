@@ -144,7 +144,7 @@
         </copy>
 	</target>
     <target name="test" depends="init,util,tool,icu" description="build tests">
-        <javac includeantruntime="false" includes="org/unicode/cldr/test/**/*.java org/unicode/cldr/unittest/**/*.java"
+        <javac includeantruntime="false" includes="org/unicode/cldr/test/**/*.java "
             excludes="**/CVS/**/*"
             srcdir="${src.dir}"
             destdir="${build.dir}"
@@ -157,12 +157,6 @@
         <mkdir dir="${build.dir}/org/unicode/cldr/test"/>
         <copy todir="${build.dir}/org/unicode/cldr/test">
             <fileset dir="${src.dir}/org/unicode/cldr/test"
-                excludes="**/CVS/**/* **/**/*.java"/>
-        </copy>
-        <!-- and unittest files -->
-        <mkdir dir="${build.dir}/org/unicode/cldr/unittest"/>
-        <copy todir="${build.dir}/org/unicode/cldr/unittest">
-            <fileset dir="${src.dir}/org/unicode/cldr/unittest"
                 excludes="**/CVS/**/* **/**/*.java"/>
         </copy>
     </target>
@@ -224,23 +218,9 @@
   </target>
 
 
-    <target name="check" description="Run the standard CLDR test suite" depends="init">
-      <echo message="*** Note! unittests are being refactored to ../cldr-unittest - please try there if 'make check' fails. See: http://unicode.org/cldr/trac/ticket/5215" />
-        <antcall target="_runCheck">
-            <param name="runcheck.arg" value="-n -u"/>
-            <param name="runcheck.jvmarg" value="${jvm_options}"/>
-        </antcall>
-      <echo message="*** Note! unittests are being refactored to ../cldr-unittest - please try there if 'make check' fails. See: http://unicode.org/cldr/trac/ticket/5215" />
+    <target name="check">
+      <fail message="*** Note! unittests have moved to ../cldr-unittest - please try there. See: http://unicode.org/cldr/trac/ticket/5215" />
     </target>
-
-   <target name="_runCheck" depends="init,test">
-        <echo message="JVM argument:   ${runcheck.jvmarg} -Djava.awt.headless=true"/>
-        <echo message="Test argument:   ${runcheck.arg}"/>
-        <java classname="org.unicode.cldr.unittest.TestAll" fork="yes" failonerror="true" classpathref="project.class.path">
-            <arg line="${runcheck.arg}"/>
-            <jvmarg line="${runcheck.jvmarg} -Djava.awt.headless=true"/>
-        </java>
-   </target>
 
 
    <target name="GenerateMaximalLocales" depends="init" description="Build likelySubtags.xml and supplementalMetadata.xml - see https://sites.google.com/site/cldr/development/updating-codes/likelysubtags">

@@ -1941,8 +1941,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public Integer[] readPXMLFiles(final File inFileList[]) {
         int nusers = 0;
         //int nlocs = 0;
-        if (CLDRConfig.getInstance().getEnvironment() != Environment.LOCAL) {
-            throw new InternalError("Error: can only do this in LOCAL"); // insanity
+        if (CLDRConfig.getInstance().getEnvironment() != Environment.SMOKETEST) {
+            throw new InternalError("Error: can only do this in SMOKETEST"); // insanity
                                                                          // check
         }
 

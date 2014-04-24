@@ -15,7 +15,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.CountryCodeConverter;
 import org.unicode.cldr.tool.LanguageCodeConverter;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.SupplementalDataInfo.OfficialStatus;
 import org.unicode.cldr.util.SupplementalDataInfo.PopulationData;
 
@@ -219,7 +219,7 @@ public class WikipediaOfficialLanguages {
     }
 
     public static void main(String[] args) {
-        TestInfo testInfo = TestInfo.getInstance();
+        CLDRConfig testInfo = ToolConfig.getToolInstance();
         CLDRFile english = testInfo.getEnglish();
         SupplementalDataInfo supplementalDataInfo = testInfo.getSupplementalDataInfo();
         StandardCodes sc = testInfo.getStandardCodes();

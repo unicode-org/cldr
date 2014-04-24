@@ -19,7 +19,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestVariantFolder.CaseVariantFolder;
+import org.unicode.cldr.util.VariantFolder.CaseVariantFolder;
 
 import com.ibm.icu.dev.util.UnicodeMap;
 import com.ibm.icu.dev.util.XEquivalenceMap;

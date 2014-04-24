@@ -13,7 +13,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.ICUServiceBuilder;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -112,7 +112,7 @@ public class GeneratePluralRanges {
             return null;
         }
         ULocale ulocale = new ULocale(locale);
-        SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(ulocale); // CldrUtility.get(samples, ulocale);
+        SamplePatterns samplePatterns = prf.getSamplePatterns(ulocale); // CldrUtility.get(samples, ulocale);
 //        if (samplePatterns == null && locale.contains("_")) {
 //            ulocale = new ULocale(ulocale.getLanguage());
 //            samplePatterns = CldrUtility.get(samples, ulocale);
@@ -209,10 +209,12 @@ public class GeneratePluralRanges {
             .replace("{0}", numString);
     }
 
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = ToolConfig.getToolInstance();
 
     private static final SupplementalDataInfo SUPPLEMENTAL = testInfo.getSupplementalDataInfo();
+    private static final PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
 
+    
     public static final Comparator<Set<String>> STRING_SET_COMPARATOR = new SetComparator<String, Set<String>>();
     public static final Comparator<Set<Count>> COUNT_SET_COMPARATOR = new SetComparator<Count, Set<Count>>();
 

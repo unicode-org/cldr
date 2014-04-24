@@ -11,9 +11,9 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
@@ -126,7 +126,7 @@ public class Misc {
 
     private static void showDefaultContent(String... strings) {
         SupplementalDataInfo sdi = SupplementalDataInfo.getInstance();
-        final TestInfo info = TestAll.TestInfo.getInstance();
+        final CLDRConfig info = ToolConfig.getToolInstance();
         CLDRFile english = info.getEnglish();
         Set<String> defaultContents = sdi.getDefaultContentLocales();
         for (String string : strings) {
@@ -228,7 +228,7 @@ public class Misc {
     }
 
     private static void showExemplarSize() {
-        final TestInfo info = TestAll.TestInfo.getInstance();
+        final CLDRConfig info = ToolConfig.getToolInstance();
         CLDRFile english = info.getEnglish();
         Factory factory = info.getCldrFactory();
         SupplementalDataInfo dataInfo = info.getSupplementalDataInfo();
@@ -481,7 +481,7 @@ public class Misc {
     }
 
     private static void showPlurals() throws IOException {
-        TestInfo testInfo = org.unicode.cldr.unittest.TestAll.TestInfo.getInstance();
+        CLDRConfig testInfo = org.unicode.cldr.tool.ToolConfig.getToolInstance();
         // for (Entry<PluralSnapshot, String> ruleEntry : info) {
         // PluralSnapshot ss = ruleEntry.getKey();
         // String rules = ruleEntry.getValue();

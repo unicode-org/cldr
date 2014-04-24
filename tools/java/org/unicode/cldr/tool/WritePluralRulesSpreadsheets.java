@@ -11,7 +11,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -36,9 +35,10 @@ public class WritePluralRulesSpreadsheets {
 
     private static void ranges() {
         SupplementalDataInfo supplemental = SupplementalDataInfo.getInstance();
+        PluralRulesFactory prf = PluralRulesFactory.getInstance(supplemental);
         Set<String> locales = StandardCodes.make().getLocaleCoverageLocales("Google"); // superset
         //Map<ULocale, PluralRulesFactory.SamplePatterns> sampleMap = PluralRulesFactory.getLocaleToSamplePatterns();
-        Factory factory = TestInfo.getInstance().getCldrFactory();
+        Factory factory = ToolConfig.getToolInstance().getCldrFactory();
 
         for (String locale : locales) {
             if (locale.equals("*")) {
@@ -46,7 +46,7 @@ public class WritePluralRulesSpreadsheets {
             }
             String rangePattern = factory.make(locale, true).getStringValue("//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"range\"]");
             PluralRules rules = supplemental.getPlurals(locale).getPluralRules();
-            SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(new ULocale(locale));
+            SamplePatterns samplePatterns = prf.getSamplePatterns(new ULocale(locale));
             Set<String> keywords = rules.getKeywords();
             //Map<String, FixedDecimal> leastMap = new LinkedHashMap<String, FixedDecimal>();
             //Map<String, FixedDecimal> greatestMap = new LinkedHashMap<String, FixedDecimal>();

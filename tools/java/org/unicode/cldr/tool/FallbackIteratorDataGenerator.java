@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
 public class FallbackIteratorDataGenerator {
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = ToolConfig.getToolInstance();
 
     public static void main(String[] args) {
         final StandardCodes sc = testInfo.getStandardCodes();

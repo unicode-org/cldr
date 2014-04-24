@@ -15,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
 import org.unicode.cldr.test.CheckCLDR;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
@@ -62,6 +63,15 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     boolean isInitted = false;
     private Properties survprops;
 
+    
+    /**
+     * Defaults to SMOKETEST for server
+     * @return
+     */
+    protected Environment getDefaultEnvironment() {
+        return Environment.SMOKETEST;
+    }
+    
     CLDRConfigImpl() {
         // TODO remove this after some time- just warn people about the old message
         final String cwt = System.getProperty("CLDR_WEB_TESTS");

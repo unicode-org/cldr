@@ -8,7 +8,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
@@ -24,11 +24,13 @@ import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
 import com.ibm.icu.util.ULocale;
 
 public class GeneratePluralConfirmation {
-    private static final TestInfo testInfo = TestInfo.getInstance();
+    private static final CLDRConfig testInfo = ToolConfig.getToolInstance();
 
     private static final StandardCodes STANDARD_CODES = testInfo.getStandardCodes();
 
     private static final SupplementalDataInfo SUPPLEMENTAL = testInfo.getSupplementalDataInfo();
+
+    private static final PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
 
     public static void main(String[] args) {
         Set<String> testLocales = new TreeSet(Arrays.asList(
@@ -122,7 +124,7 @@ public class GeneratePluralConfirmation {
             for (Entry<Count, Set<FixedDecimal>> entry : soFar.keyValuesSet()) {
                 Count count = entry.getKey();
                 for (FixedDecimal fd : entry.getValue()) {
-                    String pattern = PluralRulesFactory.getSamplePattern(ulocale, type.standardType, count);
+                    String pattern = prf.getSamplePattern(ulocale, type.standardType, count);
                     buffer.append(ulocale + "\t" + type + "\t" + count + "\t" + fd + "\t«" + pattern.replace("{0}", String.valueOf(fd)) + "»\n");
                 }
                 buffer.append("\n");

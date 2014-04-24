@@ -21,9 +21,9 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.unittest.TestVariantFolder.CanonicalFolder;
-import org.unicode.cldr.unittest.TestVariantFolder.CaseVariantFolder;
-import org.unicode.cldr.unittest.TestVariantFolder.CompatibilityFolder;
+import org.unicode.cldr.util.VariantFolder.CanonicalFolder;
+import org.unicode.cldr.util.VariantFolder.CaseVariantFolder;
+import org.unicode.cldr.util.VariantFolder.CompatibilityFolder;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;

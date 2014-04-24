@@ -201,8 +201,8 @@ public class TestTransforms extends TestFmwkPlus {
                 throw new IllegalArgumentException("Internal Error");
             }
             name = name.substring(5);
-            File fileDirectory = new File(name + "/../util/data/test/");
-            String fileDirectoryName = fileDirectory.getCanonicalPath();
+            File fileDirectory = new File(name + "/../unittest/data/transformtest/");
+            String fileDirectoryName = fileDirectory.getCanonicalPath(); // TODO: use resource, not raw file
             logln("Testing files in: " + fileDirectoryName);
 
             for (String file : fileDirectory.list()) {

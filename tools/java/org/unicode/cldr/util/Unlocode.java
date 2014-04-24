@@ -17,7 +17,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.tool.CountryCodeConverter;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.ChainedMap.M3;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
@@ -475,7 +475,7 @@ public class Unlocode {
         Set<String> errors = new TreeSet<String>();
         loadCitiesCapitals(countryNameToCities, errors);
         loadCitiesOver1M(countryNameToCities, errors);
-        SupplementalDataInfo supp = TestInfo.getInstance().getSupplementalDataInfo();
+        SupplementalDataInfo supp = ToolConfig.getToolInstance().getSupplementalDataInfo();
         Set<String> missing = new TreeSet<String>(
             supp.getBcp47Keys().get("tz"));
         Set<String> already = new TreeSet<String>();

@@ -26,7 +26,7 @@ import org.unicode.cldr.draft.Keyboard.TransformType;
 import org.unicode.cldr.draft.Keyboard.Transforms;
 import org.unicode.cldr.draft.KeyboardModifierSet;
 import org.unicode.cldr.tool.Option.Options;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
@@ -62,7 +62,7 @@ public class ShowKeyboards {
     private static final String ABOUT_KEYBOARD_CHARTS = "<p>For more information, see <a target='ABOUT_KB' href='http://cldr.unicode.org/index/charts/keyboards'>About Keyboard Charts</a>.</p>";
     private static String keyboardChartDir;
     private static String keyboardChartLayoutsDir;
-    static final TestInfo testInfo = TestInfo.getInstance();
+    static final CLDRConfig testInfo = ToolConfig.getToolInstance();
     static final Factory factory = testInfo.getCldrFactory();
 
     static final boolean SHOW_BACKGROUND = false;

@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.DtdData.Attribute;
 import org.unicode.cldr.util.DtdData.AttributeType;
@@ -201,7 +201,7 @@ public class DtdDataCheck {
                     }
                 };
                 Comparator<String> comp = dtdData.getDtdComparator(avc);
-                CLDRFile test = TestInfo.getInstance().getEnglish();
+                CLDRFile test = ToolConfig.getToolInstance().getEnglish();
                 Set<String> sorted = new TreeSet(test.getComparator());
                 CollectionUtilities.addAll(test.iterator(), sorted);
                 String[] sortedArray = sorted.toArray(new String[sorted.size()]);

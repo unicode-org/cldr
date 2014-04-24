@@ -22,7 +22,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.test.CoverageLevel2;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -101,7 +100,7 @@ public class ShowData {
 
         double deltaTime = System.currentTimeMillis();
         try {
-            TestInfo testInfo = TestInfo.getInstance();
+            CLDRConfig testInfo = ToolConfig.getToolInstance();
             UOption.parseArgs(args, options);
             String sourceDir = options[SOURCEDIR].value; // Utility.COMMON_DIRECTORY
             // + "main/";

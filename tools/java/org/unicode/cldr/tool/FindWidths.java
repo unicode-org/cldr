@@ -6,8 +6,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.ApproximateWidth;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
@@ -17,7 +17,7 @@ import org.unicode.cldr.util.PathHeader.SectionId;
 import com.ibm.icu.text.NumberFormat;
 
 public class FindWidths {
-    private static final TestInfo testInfo = TestInfo.getInstance();
+    private static final CLDRConfig testInfo = ToolConfig.getToolInstance();
     private static final org.unicode.cldr.util.Factory CLDR_FACTORY = testInfo.getCldrFactory();
     private static final double MIN_TEST_INCREASE = 1.5;
     private static final int MIN_TEST_WIDTH = 2 * ApproximateWidth.getWidth("え");

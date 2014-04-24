@@ -12,7 +12,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.tool.ToolConfig;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
@@ -26,7 +27,7 @@ import org.unicode.cldr.util.XPathParts;
 import com.ibm.icu.dev.util.Relation;
 
 public class ExtractCountItems {
-    TestInfo testInfo = TestInfo.getInstance();
+    CLDRConfig testInfo = ToolConfig.getToolInstance();
     Factory factory = testInfo.getCldrFactory();
 
     static class SampleData {

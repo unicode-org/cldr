@@ -2287,8 +2287,8 @@ public class UserRegistry {
      */
     public int readUserFile(SurveyMain sm, final File inFile) {
         int nusers = 0;
-        if (CLDRConfig.getInstance().getEnvironment() != Environment.LOCAL) {
-            throw new InternalError("Error: can only do this in LOCAL"); // insanity
+        if (CLDRConfig.getInstance().getEnvironment() != Environment.SMOKETEST) {
+            throw new InternalError("Error: can only do this in SMOKETEST"); // insanity
                                                                          // check
         }
 

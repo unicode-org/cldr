@@ -123,6 +123,7 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestPluralRanges() {
+        PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
         Set<String> localesToTest = new TreeSet<String>(SUPPLEMENTAL.getPluralRangesLocales());
         for (String locale : StandardCodes.make().getLocaleCoverageLocales("google")) { //superset
             if (locale.equals("*") || locale.contains("_")) {
@@ -160,7 +161,7 @@ public class TestSupplementalInfo extends TestFmwk {
             if (found.isEmpty()) {
                 ignoreErrln("Empty range results for " + locale);
             } else {
-                final SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(new ULocale(locale));
+                final SamplePatterns samplePatterns = prf.getSamplePatterns(new ULocale(locale));
                 for (Count result : found) {
                     String samplePattern = samplePatterns.get(PluralRules.PluralType.CARDINAL, result);
                     if (samplePattern != null && !samplePattern.contains("{0}")) {
@@ -213,11 +214,12 @@ public class TestSupplementalInfo extends TestFmwk {
     }
 
     public void TestPluralSamples2() {
-        for (ULocale locale : PluralRulesFactory.getLocales()) {
+    	PluralRulesFactory prf = PluralRulesFactory.getInstance(SUPPLEMENTAL);
+        for (ULocale locale : prf.getLocales()) {
             if (locale.toString().equals("und")) {
                 continue;
             }
-            final SamplePatterns samplePatterns = PluralRulesFactory.getSamplePatterns(locale);
+            final SamplePatterns samplePatterns = prf.getSamplePatterns(locale);
             for (PluralRules.PluralType type : PluralRules.PluralType.values()) {
                 PluralInfo rules = SUPPLEMENTAL.getPlurals(
                     SupplementalDataInfo.PluralType.fromStandardType(type),
@@ -1270,6 +1272,7 @@ public class TestSupplementalInfo extends TestFmwk {
             }
             boolean needsCoverage = testLocales.contains(locale);
             ULocale ulocale = new ULocale(locale);
+            PluralRulesFactory prf = PluralRulesFactory.getInstance(TestAll.TestInfo.getInstance().getSupplementalDataInfo());
 
             for (PluralType type : PluralType.values()) {
                 PluralInfo pluralInfo = SUPPLEMENTAL.getPlurals(type, locale, false);
@@ -1284,9 +1287,9 @@ public class TestSupplementalInfo extends TestFmwk {
                 HashSet<String> samples = new HashSet<String>();
                 EnumSet<Count> countsWithNoSamples = EnumSet.noneOf(Count.class);
                 Relation<String, Count> samplesToCounts = Relation.of(new HashMap(), LinkedHashSet.class);
-                Set<Count> countsFound = PluralRulesFactory.getSampleCounts(ulocale, type.standardType);
+                Set<Count> countsFound = prf.getSampleCounts(ulocale, type.standardType);
                 for (Count count : counts) {
-                    String pattern = PluralRulesFactory.getSamplePattern(ulocale, type.standardType, count);
+                    String pattern = prf.getSamplePattern(ulocale, type.standardType, count);
                     if (countsFound == null || !countsFound.contains(count)) {
                         countsWithNoSamples.add(count);
                     } else {

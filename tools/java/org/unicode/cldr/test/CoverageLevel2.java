@@ -5,20 +5,22 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.unicode.cldr.tool.ToolConfig;
 import org.unicode.cldr.unittest.TestAll;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.Builder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.Timer;
 import org.unicode.cldr.util.RegexLookup.Finder;
 import org.unicode.cldr.util.RegexLookup.RegexFinder;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CoverageLevelInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.CoverageVariableInfo;
-import org.unicode.cldr.util.Timer;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.util.Output;
@@ -168,13 +170,12 @@ public class CoverageLevel2 {
     public int getIntLevel(String path) {
         return getLevel(path).getLevel();
     }
-
     public static void main(String[] args) {
         // quick test
         // TODO convert to unit test
         CoverageLevel2 cv2 = CoverageLevel2.getInstance("de");
         ULocale uloc = new ULocale("de");
-        TestInfo testInfo = TestAll.TestInfo.getInstance();
+        CLDRConfig testInfo = ToolConfig.getToolInstance();
         SupplementalDataInfo supplementalDataInfo2 = testInfo.getSupplementalDataInfo();
         CLDRFile englishPaths1 = testInfo.getEnglish();
         Set<String> englishPaths = Builder.with(new TreeSet<String>()).addAll(englishPaths1).get();
@@ -202,4 +203,5 @@ public class CoverageLevel2 {
             }
         }
     }
+
 }

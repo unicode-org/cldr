@@ -3,7 +3,7 @@ package org.unicode.cldr.tool;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.DateTimeFormats;
 import org.unicode.cldr.util.Factory;
@@ -30,7 +30,7 @@ public class GenerateSeedDurations {
      * <combinationUnit type="ymd">{0}, {1}, and {2}<combinationUnit> <!-- 3 years, 11 months, and 30 days -->
      * </combinationUnits>
      */
-    static TestInfo testInfo = TestInfo.getInstance();
+    static CLDRConfig testInfo = ToolConfig.getToolInstance();
     static String[] numericUnits = {
         "ms", "Hm", "Hms"
     };

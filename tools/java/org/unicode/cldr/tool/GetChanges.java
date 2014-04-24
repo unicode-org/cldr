@@ -6,7 +6,7 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
@@ -39,7 +39,7 @@ public class GetChanges {
     }
 
     public static void main(String[] args) {
-        TestInfo testInfo = TestInfo.getInstance();
+        CLDRConfig testInfo = ToolConfig.getToolInstance();
         CLDRFile english = testInfo.getEnglish();
 
         Factory lastReleaseFactory = Factory.make(CLDRPaths.LAST_DIRECTORY + "common/main/", ".*");

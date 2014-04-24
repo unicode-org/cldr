@@ -54,8 +54,8 @@ String sql = request.getContextPath()+"/survey?sql="+vap+"";
 
 <% if(action.equals("rawload")) {
 %>
-	<% if(CLDRConfig.getInstance().getEnvironment()!=CLDRConfig.Environment.LOCAL) { %>
-	    <h1>Only available in LOCAL context. </h1>
+	<% if(CLDRConfig.getInstance().getEnvironment()!=CLDRConfig.Environment.SMOKETEST) { %>
+	    <h1>Only available in SMOKETEST context. </h1>
 	 <% } else { %>
 	 
 	 

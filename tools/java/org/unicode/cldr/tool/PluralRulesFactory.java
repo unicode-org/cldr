@@ -7,14 +7,17 @@
 package org.unicode.cldr.tool;
 
 import java.util.Collections;
+
+import org.unicode.cldr.util.Pair;
+
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -31,16 +34,39 @@ import com.ibm.icu.util.ULocale;
  */
 public abstract class PluralRulesFactory extends PluralRules.Factory {
 
+    private final SupplementalDataInfo supplementalDataInfo;
+
     public abstract boolean hasOverride(ULocale locale);
 
-    static final PluralRulesFactory NORMAL = new PluralRulesFactoryVanilla();
+    public enum Type { NORMAL, ALTERNATE };
+    public static PluralRulesFactory getInstance(SupplementalDataInfo supplementalDataInfo) {
+        return getInstance(supplementalDataInfo, Type.NORMAL);
+    }
+    private static ConcurrentHashMap<Pair<Type,String>,PluralRulesFactory> singletons = new ConcurrentHashMap<Pair<Type,String>, PluralRulesFactory>();
+    public static PluralRulesFactory getInstance(SupplementalDataInfo supplementalDataInfo, Type type) {
+        Pair<Type, String> key = new Pair<Type,String>(type,supplementalDataInfo.getDirectory().getAbsolutePath());
+        PluralRulesFactory prf = singletons.get(key);
+        if(prf==null) {
+            switch(type) {
+            case NORMAL: prf = new PluralRulesFactoryVanilla(supplementalDataInfo); break;
+            case ALTERNATE: prf = new PluralRulesFactoryWithOverrides(supplementalDataInfo); break;
+            default: throw new InternalError("Illegal type value: " + type);
+            }
+            singletons.put(key, prf);
+        }
+        return prf;
+    }
+//    static final PluralRulesFactory NORMAL = new PluralRulesFactoryVanilla();
+//    static final PluralRulesFactory ALTERNATE = new PluralRulesFactoryWithOverrides();
 
-    static final PluralRulesFactory ALTERNATE = new PluralRulesFactoryWithOverrides();
-
-    private PluralRulesFactory() {
+    private PluralRulesFactory(SupplementalDataInfo supplementalDataInfo) {
+        this.supplementalDataInfo  = supplementalDataInfo;
     }
 
     static class PluralRulesFactoryVanilla extends PluralRulesFactory {
+        private PluralRulesFactoryVanilla(SupplementalDataInfo supplementalDataInfo) {
+            super(supplementalDataInfo);
+        }
         @Override
         public boolean hasOverride(ULocale locale) {
             return false;
@@ -63,6 +89,9 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
     }
 
     static class PluralRulesFactoryWithOverrides extends PluralRulesFactory {
+        private PluralRulesFactoryWithOverrides(SupplementalDataInfo supplementalDataInfo) {
+            super(supplementalDataInfo);
+        }
         @Override
         public boolean hasOverride(ULocale locale) {
             return getPluralOverrides().containsKey(locale);
@@ -151,14 +180,14 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         }
     }
 
-    private static Map<ULocale, SamplePatterns> getLocaleToSamplePatterns() {
+    private Map<ULocale, SamplePatterns> getLocaleToSamplePatterns() {
         if (LOCALE_TO_SAMPLE_PATTERNS == null) {
             loadData();
         }
         return LOCALE_TO_SAMPLE_PATTERNS;
     }
 
-    public static SamplePatterns getSamplePatterns(ULocale uLocale) {
+    public SamplePatterns getSamplePatterns(ULocale uLocale) {
         SamplePatterns samplePatterns = getLocaleToSamplePatterns().get(uLocale);
         if (samplePatterns == null) {
             uLocale = new ULocale(uLocale.getLanguage());
@@ -170,17 +199,17 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         return samplePatterns;
     }
 
-    public static Set<ULocale> getLocales() {
+    public Set<ULocale> getLocales() {
         // TODO Auto-generated method stub
         return getLocaleToSamplePatterns().keySet();
     }
 
-    public static Set<Count> getSampleCounts(ULocale uLocale, PluralType type) {
+    public Set<Count> getSampleCounts(ULocale uLocale, PluralType type) {
         SamplePatterns samplePatterns = getSamplePatterns(uLocale);
         return samplePatterns == null ? null : samplePatterns.getCounts(type);
     }
 
-    public static String getSamplePattern(ULocale uLocale, PluralType type, Count count) {
+    public String getSamplePattern(ULocale uLocale, PluralType type, Count count) {
         SamplePatterns samplePatterns = getSamplePatterns(uLocale);
         if (samplePatterns != null) {
             String result = samplePatterns.get(type, count);
@@ -191,25 +220,25 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         return "{0} {no pattern available}";
     }
 
-    public static Map<ULocale, PluralRules> getPluralOverrides() {
+    public Map<ULocale, PluralRules> getPluralOverrides() {
         if (OVERRIDES == null) {
             loadData();
         }
         return OVERRIDES;
     }
 
-    public static Relation<ULocale, FixedDecimal> getExtraSamples() {
+    public Relation<ULocale, FixedDecimal> getExtraSamples() {
         if (EXTRA_SAMPLES == null) {
             loadData();
         }
         return EXTRA_SAMPLES;
     }
 
-    private static Map<ULocale, SamplePatterns> LOCALE_TO_SAMPLE_PATTERNS = null;
-    private static Map<ULocale, PluralRules> OVERRIDES = null;
-    private static Relation<ULocale, FixedDecimal> EXTRA_SAMPLES = null;
+    private Map<ULocale, SamplePatterns> LOCALE_TO_SAMPLE_PATTERNS = null;
+    private Map<ULocale, PluralRules> OVERRIDES = null;
+    private Relation<ULocale, FixedDecimal> EXTRA_SAMPLES = null;
 
-    private static void loadData() {
+    private void loadData() {
         LinkedHashMap<ULocale, SamplePatterns> temp = new LinkedHashMap<ULocale, SamplePatterns>();
         HashMap<ULocale, PluralRules> tempOverrides = new HashMap<ULocale, PluralRules>();
         Relation<ULocale, FixedDecimal> tempSamples = Relation.of(new HashMap<ULocale, Set<FixedDecimal>>(), HashSet.class);
@@ -226,8 +255,7 @@ public abstract class PluralRulesFactory extends PluralRules.Factory {
         }
         for (String[] row : ORDINAL_SAMPLES) {
             ULocale locale = new ULocale(row[0]);
-            PluralInfo pluralInfo = TestInfo.getInstance()
-                .getSupplementalDataInfo()
+            PluralInfo pluralInfo = supplementalDataInfo
                 .getPlurals(SupplementalDataInfo.PluralType.ordinal, row[0]);
             if (pluralInfo == null) {
                 throw new IllegalArgumentException("Can't get plural info for " + row[0]);

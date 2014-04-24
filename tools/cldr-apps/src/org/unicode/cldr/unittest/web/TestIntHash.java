@@ -3,7 +3,6 @@ package org.unicode.cldr.unittest.web;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.unicode.cldr.unittest.TestPaths;
 import org.unicode.cldr.web.IntHash;
 
 import com.ibm.icu.dev.test.TestFmwk;
@@ -12,7 +11,7 @@ public class TestIntHash extends TestFmwk {
     // static TestInfo testInfo = TestInfo.getInstance();
 
     public static void main(String[] args) {
-        new TestPaths().run(args);
+        new TestIntHash().run(args);
     }
 
     public static final int TEST_COUNT = 10000;

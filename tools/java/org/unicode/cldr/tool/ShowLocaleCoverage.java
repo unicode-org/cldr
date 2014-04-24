@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
-import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.DtdType;
@@ -50,7 +49,7 @@ import com.ibm.icu.lang.UCharacter;
 public class ShowLocaleCoverage {
     private static final double CORE_SIZE 
     = (double)(CoreItems.values().length - CoreItems.ONLY_RECOMMENDED.size());
-    public static TestInfo testInfo = TestInfo.getInstance();
+    public static CLDRConfig testInfo = ToolConfig.getToolInstance();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
     private static final CLDRFile ENGLISH = testInfo.getEnglish();
     private static final StandardCodes STANDARD_CODES = testInfo.getStandardCodes();

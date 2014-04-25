@@ -1298,13 +1298,20 @@ public class PathHeader implements Comparable<PathHeader> {
             // //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]
             functionMap.put("datefield", new Transform<String, String>() {
                 private final String[] datefield = {
-                    "era", "year", "month", "week", "day", "weekday",
-                    "hour", "dayperiod", "minute", "second", "zone"
+                    "era", 
+                    "year", "year-short", "year-narrow",
+                    "month", "month-short", "month-narrow", 
+                    "week", "week-short", "week-narrow",
+                    "day", "day-short", "day-narrow", 
+                    "weekday", "dayperiod", "zone",
+                    "hour", "hour-short", "hour-narrow",
+                    "minute", "minute-short", "minute-narrow",
+                    "second", "second-short", "second-narrow",
+                    
                 };
 
                 public String transform(String source) {
-                    String field = source.split("-")[0];
-                    order = getIndex(field, datefield);
+                    order = getIndex(source, datefield);
                     return source;
                 }
             });

@@ -28,8 +28,7 @@ public class FileCopier {
                 return;
             }
             PrintWriter pw=new PrintWriter(out);
-            try (BufferedReader br=new BufferedReader(rdr); 
-               ) {
+            try (BufferedReader br=new BufferedReader(rdr);) {
                 String line=null;
                 while ((line=br.readLine())!=null) {
                     for (String key: replacements.keySet()) {
@@ -59,14 +58,15 @@ public class FileCopier {
             copyAndReplace(new InputStreamReader(cls.getResourceAsStream(srcFile),charSet),replacements,out);
         }
         /**
-         * Append all the lines read from the Reader to the writer. Will close the reader, but leave the writer open, flushing it
+         * Append all the lines read from the Reader to the writer. Will close the reader, but leave the 
+         * writer open, flushing it
          * @param rdr
          * @param wr
          * @throws IOException
          */
         public static void copy(Reader rdr,Writer wr) throws IOException {
-            try (BufferedReader br=new BufferedReader(rdr);
-                PrintWriter pw=new PrintWriter(wr);) {
+            PrintWriter pw=new PrintWriter(wr);
+            try (BufferedReader br=new BufferedReader(rdr)) {
                 String line=null;
                 while ((line=br.readLine())!=null) {
                     pw.println(line);

@@ -870,6 +870,22 @@ fieldset[disabled] .btn-primary.active {
   content: '';
 }
 
+.subSpan [dir=rtl] {
+	padding-left: 8px;
+	padding-right: 10px;
+}
+
+.value-div[dir=rtl] .voteInfo_iconBar {
+	margin-right: 5px;
+}
+
+#MainContentPane {
+	overflow:visible;
+}
+
+#post-form textarea {
+	resize:none;
+}
 
 /* feedback part */
 #feedback {
@@ -903,4 +919,8 @@ fieldset[disabled] .btn-primary.active {
 		width:320px;
 		left:1020px;
 	}
+}
+
+#popover-vote label, .fix-parent #othercell {
+	direction:ltr;
 }

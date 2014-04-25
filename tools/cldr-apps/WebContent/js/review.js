@@ -9,7 +9,7 @@ function bindReviewEvents() {
     refreshAffix();//refresh the review menu
 }
 
-$(document).ready(function() {
+$(function() {
 	var dynamic = $('#DynamicDataSection')
 	dynamic.on('click', '.collapse-review', togglePart);
 	dynamic.on('click', 'button.fix', toggleFix);
@@ -28,6 +28,11 @@ $(document).ready(function() {
 	});
 	$(window).resize(function() {
 		$('#itemInfo').css('left',"");
+	});
+	
+	
+	$('body').on('click','.show-examples',function() { //toggle the examples
+		$('.d-example, .vote-help').slideToggle();
 	});
 
 });
@@ -115,7 +120,7 @@ function showReviewPage(json) {
 	loadingBar.hide();
 	
 	//show the alert ms
-	popupAlert('warning', 'It is important that you read <a href="#">Priority Items</a> before starting!');
+	popupAlert('warning', 'It is important that you read <a href="http://cldr.unicode.org/translation/vetting-view" target="_blank">Priority Items</a> before starting!');
 	//hack to solve anchor issue
 	$('#itemInfo .nav a').click(function(event){
 		var href = $(this).attr('href').replace('#', '');
@@ -400,7 +405,12 @@ function checkLineFix() {
 //refresh the fix panel
 function refreshFixPanel(json) {
 	var issues = json.issues;
+	var theDiv = $('#popover-vote').get(0);
+	theDiv.innerHTML = '';
+	
+	insertFixInfo(theDiv,json.pageId,surveySessionId,json); 
 	designFixPanel();
+	fixPopoverVotePos();
 	$('.fix-parent .popover-title').text(showAllProblems(issues));
 	
 	var line = $('.fix-parent .popover').closest('tr');
@@ -413,6 +423,14 @@ function refreshFixPanel(json) {
 			$(this).removeClass('success');
 	});
 
+
+	if($('.data-vertical .vote-help').length == 0) {
+		$('.data-vertical .vote-help').remove();
+		$('.data-vertical #comparisoncell .d-example').after($('.data-vote .vote-help'));
+		$('.vote-help').hide();
+	}
+	else 
+		$('.data-vote .vote-help').remove();
 	
 	line.find('button.fix').data('issues',issues);
 }
@@ -433,13 +451,6 @@ function showHelpFixPanel(cont) {
 		$('.voteDiv').prepend($('.trInfo').parent());
 	}
 	
-	if($('.data-vertical .vote-help').length == 0) {
-		$('.data-vertical .vote-help').remove();
-		$('.data-vertical #comparisoncell .d-example').after($('.data-vote .vote-help'));
-		$('.vote-help').hide();
-	}
-	else 
-		$('.data-vote .vote-help').remove();
 	
 	//move the element
 	labelizeIcon();
@@ -630,13 +641,10 @@ function designFixPanel() {
 		  .wrap('<span class="subSpan"></span>');
 	}
 	
-	var exampleButton = $('<button title="Show examples" class="btn btn-default"><span class="glyphicon glyphicon-list"></span></button>');
+	var exampleButton = $('<button title="Show examples" class="btn btn-default show-examples"><span class="glyphicon glyphicon-list"></span></button>');
 	comparisoncell.prepend(exampleButton);
 	exampleButton.tooltip();
-	exampleButton.parent().click(function() { //toggle the examples
-		$('.d-example, .vote-help').slideToggle();
-	});
-	
+
 	//clean 
 	if(!idnocell) {
 		nocell.next().remove(); //the hr
@@ -650,14 +658,16 @@ function designFixPanel() {
 	$('#popover-vote input[type="radio"]:checked').closest('.btn').removeClass('btn-default').addClass('btn-info');
 	
 	//add some help 
-	$('.fix-parent #nocell .subSpan').append('<div class="help-vote">Abstain your vote</div>');
+	$('.fix-parent #nocell .subSpan').append('<div class="help-vote"></div>');
 	$('.fix-parent #comparisoncell .subSpan .help-vote').remove();
 	$('.fix-parent #comparisoncell .subSpan').append('<div class="help-vote">English source</div>');
 	$('.fix-parent #proposedcell .subSpan').append('<div class="help-vote">Winning translation</div>');
 	$('.fix-parent #othercell .form-inline').after('<span class="subSpan"><div class="help-vote">Add a translation</div></span>');
 	if($('.fix-parent #othercell .d-item').length)
-		$('.fix-parent #othercell hr').first().after('<span class="subSpan"><div class="help-vote">Other translation</div></span>');
+		$('.fix-parent #othercell hr').first().after('<span class="subSpan"><div class="help-vote">Other translation(s)</div></span>');
 	
+	//remove unnecessary header
+	$('#popover-vote .warnText').remove();
 	
 	$('.d-example').hide();
 	fixPopoverVotePos();
@@ -684,7 +694,7 @@ function fixPopoverVotePos() {
 function wrapRadios() {
 	var radios = $('.ichoice-o, .ichoice-x');
 	radios = radios.filter(function() {return $(this).parent('.btn').length === 0;});
-	radios.wrap('<div class="btn btn-default" title="Vote for this value"></div>');
+	radios.wrap('<div class="btn btn-default" title="Vote"></div>');
 	radios.parent().parent().wrapInner('<label></label>');
 	radios.parent().tooltip();
 }

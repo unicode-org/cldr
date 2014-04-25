@@ -46,13 +46,18 @@ var sentenceFilter;
 //filter all the locale (first son, then parent so we can build the tree, and let the parent displayed if a son is matched)
 function filterAllLocale(event) {
 		if($(this).hasClass('local-search')) {
-			$('input.local-search').val($(this).val());
 			$('a.locName').removeClass('active');
 			$('#locale-list,#locale-menu').removeClass('active');
 		}
 		sentenceFilter = $('input.local-search').val().toLowerCase();
 		$('.subLocaleList .locName').each(filterLocale);//filtersublocale
 		$('.topLocale .locName').each(filterLocale);//filtertolocale
+		
+		if(event) {
+			event.preventDefault();
+			event.stopPropagation();
+		}
+		return false;
 }
 
 //filter (locked and read-only) with locale
@@ -78,7 +83,7 @@ function toggleLockedRead(event) {
 function filterLocale() {
 	var text = $(this).text().toLowerCase();
 	var parent = $(this).parent();
-	if(text.indexOf(sentenceFilter) == 0 && (checkLocaleShow($(this)))) {
+	if(text.indexOf(sentenceFilter) == 0 && (checkLocaleShow($(this), sentenceFilter.length) || sentenceFilter === text)) {
 		parent.removeClass('hide');
 		if(parent.hasClass('topLocale')) {
 			parent.parent().removeClass('hide');
@@ -103,7 +108,10 @@ function filterLocale() {
 };
 
 //should we show this locale considering the checkbox ?
-function checkLocaleShow(element) {
+function checkLocaleShow(element, size) {
+	if(size > 0)
+		return true;
+	
 	if(element.hasClass('locked') && $('#show-locked').is(':checked'))
 		return true;
 	
@@ -292,7 +300,20 @@ function setHelpContent(content) {
 
 //create/update the instruction popover
 function interceptHelpLink(event) {
-	$('#help-menu').popover('destroy').popover({placement:"bottom", html:true, content:$('#help-menu').find('ul').html(), trigger:"hover",delay:1500}).popover('show');
+	var stopper = false;
+	$('#help-menu').popover('destroy').
+	popover({placement:"bottom", 
+			 html:true, 
+			 content:$('#help-menu').find('ul').html(), 
+			 trigger:"manual",
+			 delay:1500,
+			 template: '<div class="popover" onmouseover="$(this).mouseleave(function() {$(this).fadeOut(); });"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
+
+    }).click(function(e) {
+        e.preventDefault() ;
+    }).mouseenter(function(e) {
+        $(this).popover('show');
+    }).popover('show');
 
 	event.preventDefault();
 	event.stopPropagation();

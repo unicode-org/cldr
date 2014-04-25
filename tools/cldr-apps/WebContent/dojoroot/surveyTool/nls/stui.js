@@ -131,7 +131,7 @@ define({
 
 		online: "Online",
 		disconnected: "Disconnected",
-		error_restart: "(May be due to SurveyTool restart on server)",
+		error_restart: "(May be due to Survey Tool restart on server)",
 		error: "Disconnected: Error",
 		details: "Details...",
 		startup: "Starting up...",
@@ -163,8 +163,8 @@ define({
 		lastReleaseStatus1_msg: "",
 		
 		reportGuidance: "Please see the special review page at left.",
-		dataPageInitialGuidance: "Welcome to the SurveyTool.<br>Be sure to read the <a href='http://cldr.unicode.org/index/survey-tool'>Instructions</a> carefully.  To vote for items:<br><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear for that row.</li><li>To vote for an existing item in the Proposed or Others column of that row, click on the <input type='radio'> for that item.</li><li> To vote for a value not already shown in that row, click on any other text item in the Proposed or Others column of that row. A new editing box will open, and you can enter a new value; you will automatically be voting for it once you hit RETURN on your keyboard.</li><li>To abstain (including retracting a vote), click on the <input type='radio'> in the Abstain column.</li><li>Don’t worry about incorrect values that aren't winning (eg in the Proposed column). They will disappear later on.</li></ol>",
-		generalPageInitialGuidance: "This area will show details of items as you work with the SurveyTool. <p> You may resize this pane by dragging the dividers.",
+		dataPageInitialGuidance: "Welcome to the Survey Tool.<br>Be sure to read the <a href='http://cldr.unicode.org/index/survey-tool'>Instructions</a> carefully.  To vote for items:<br><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear for that row.</li><li>To vote for an existing item in the Proposed or Others column of that row, click on the <input type='radio'> for that item.</li><li> To vote for a value not already shown in that row, click on any other text item in the Proposed or Others column of that row. A new editing box will open, and you can enter a new value; you will automatically be voting for it once you hit RETURN on your keyboard.</li><li>To abstain (including retracting a vote), click on the <input type='radio'> in the Abstain column.</li><li>Don’t worry about incorrect values that aren't winning (eg in the Proposed column). They will disappear later on.</li></ol>",
+		generalPageInitialGuidance: "This area will show details of items as you work with the Survey Tool. <p> You may resize this pane by dragging the dividers.",
 		localesInitialGuidance: "Choose a locale to get started.  <ul><li><span class='locked'>locked</span> locales may not be modified by anyone,</li><li><span class='canmodify'>hand icon</span> indicates editing allowed by you</li><li><span class='name_var'>Locales with (Variants)</span> may have specific differences to note.</li></ul><p>Don't see your locale? See: <a href='http://cldr.unicode.org/index/bug-reports#New_Locales'>Adding New Locales</a></p>",
 		
 		loginGuidance: "You may not make any changes, you are not logged in.",
@@ -265,12 +265,12 @@ define({
         section_info_Units:  "The Units is used for formatting measurements, such as '3 hours' or '4 kg'.",
         section_info_Misc:  "The Miscellaneous data is used to some special purpose items, such as lists (eg, 'A, B, and C') and truncated strings (eg, 'supercalifrag…cious').",
 		
-		forumNewPostButton: "New Post",
+		forumNewPostButton: "New Forum Post",
 		forumNewButton_desc: "Clicking this will bring up a form to reply to this particular item, in a new window. Click 'view item' after submitting to return to this item.",
 		forumNewPostFlagButton: "Flag for Review",
 		forumNewPostFlagButton_desc: "Clicking this will bring up a form to reply to this particular item, in a new window. Click 'view item' after submitting to return to this item.",
 		
-		special_general: "Please click the <b class='fakebutton'>General Info</b> button above, and choose a page to begin entering data. If you have not already done so, please read <a href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Review: Priority Items to see all the errors, warnings, and missing items in one place.",
+		special_general: "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
 
 		defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",
 		defaultContentChild_msg: "This locale, ${info.name}  supplies the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content</a></i> for <b><a class='notselected' href='#/${info.dcChild}'>${dcChildName}</a></b>. Please make sure that all the changes that you make here are appropriate for <b>${dcChildName}</b>. If there are multiple acceptable choices, please try to pick the one that would work for the most sublocales. ",           
@@ -291,7 +291,7 @@ define({
 		ari_sessiondisconnect_message: "Your session has been disconnected.",
 		ari_force_reload: '[Second try: will force page reload]',
 
-		coverage_auto_msg: 'Auto - ${surveyOrgCov}',
+		coverage_auto_msg: '${surveyOrgCov} (Default)',
 		coverage_core: 'Core',
 		coverage_posix: 'POSIX',
 		coverage_minimal: 'Minimal',
@@ -306,18 +306,18 @@ define({
 		section_mail: 'Messages',
 		
 		
-		jsonStatus_msg: "You should see your content shortly, thank you for waiting. By the way, there are ${users} logged-in users and ${guests} visitors to the SurveyTool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.",
+		jsonStatus_msg: "You should see your content shortly, thank you for waiting. By the way, there are ${users} logged-in users and ${guests} visitors to the Survey Tool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.",
 		err_what_section: "load part of this locale",
 		err_what_locmap: "load the list of locales",
-		err_what_menus: "load the SurveyTool menus",
+		err_what_menus: "load the Survey Tool menus",
 		err_what_status: "get the latest status from the server",
 		err_what_unknown: "process your request",
 		err_what_oldvotes: "fetch or import your old votes",
 		E_UNKNOWN: "An error occured while trying to '${what}', and the error code is '${code}'.\n (Sorry, the developers ought to write a more helpful error message here.)",
 		E_BAD_SECTION: "An error occured while trying to ${what}, the server could not find what was requested. \nPerhaps the URL is incorrect?",
-		E_BAD_LOCALE: "While trying to ${what}, the server told us that the locale, '${surveyCurrentLocale}',\n does not exist. It is either mistyped or has not been added to the SurveyTool.",
+		E_BAD_LOCALE: "While trying to ${what}, the server told us that the locale, '${surveyCurrentLocale}',\n does not exist. It is either mistyped or has not been added to the Survey Tool.",
 		E_NOT_STARTED: "While trying to ${what}, the server told us that it's not quite ready yet. Please wait a bit, and try reloading this page.",
-		E_SPECIAL_SECTION: "An error occured while trying to ${what}, the server said that those items aren't visible in the SurveyTool.\nPerhaps the URL is incorrect or an item was deprected?",
+		E_SPECIAL_SECTION: "An error occured while trying to ${what}, the server said that those items aren't visible in the Survey Tool.\nPerhaps the URL is incorrect or an item was deprected?",
 		E_SESSION_DISCONNECTED: "Your session was disconnected.",
 		E_NO_PERMISSION: "While trying to ${what}, the server told us that you do not have permission to do that operation. Sorry.",
 		E_NOT_LOGGED_IN: "While trying to ${what}, the server told us that you can't do that without being logged in.",

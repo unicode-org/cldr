@@ -3926,7 +3926,7 @@ function showV() {
 		};
 		
 		function updateCoverageMenuTitle() {
-			$('#coverage-info').text('('+stui.sub('coverage_auto_msg', {surveyOrgCov: stui.str('coverage_' + surveyOrgCov)})+')');
+			$('#coverage-info').text(stui.sub('coverage_auto_msg', {surveyOrgCov: stui.str('coverage_' + surveyOrgCov)}));
 		}
 		function updateCoverageMenuValue() 	
 		{
@@ -5483,7 +5483,7 @@ function showV() {
 						//coverage menu
 						var patternCoverage = $('#title-coverage .dropdown-menu');
 					    if(store[0].value) {
-						    $('#coverage-info').text('('+store[0].label+')');
+						    $('#coverage-info').text(store[0].label);
 					    }
 						for (var index = 0; index < store.length; ++index) {
 						    var data = store[index];
@@ -5519,7 +5519,7 @@ function showV() {
 							// still update these.
 							updateCoverage(flipper.get(pages.data)); // update CSS and 'auto' menu title
 							updateHashAndMenus(false); // TODO: why? Maybe to show an item?
-							$('#coverage-info').text('('+newValue.ucFirst()+')');
+							$('#coverage-info').text(newValue.ucFirst());
 							$(this).parents('.dropdown-menu').dropdown('toggle');
 							return false;
 

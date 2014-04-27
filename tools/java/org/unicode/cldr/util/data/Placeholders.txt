@@ -94,6 +94,9 @@
 ^//ldml/dates/fields/field\[@type="month"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MONTHS 3
 ^//ldml/dates/fields/field\[@type="month-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MONTHS 3
 ^//ldml/dates/fields/field\[@type="month-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_MONTHS 3
+^//ldml/dates/fields/field\[@type="quarter"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_QUARTERS 3
+^//ldml/dates/fields/field\[@type="quarter-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_QUARTERS 3
+^//ldml/dates/fields/field\[@type="quarter-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_QUARTERS 3
 ^//ldml/dates/fields/field\[@type="second"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_SECONDS 3
 ^//ldml/dates/fields/field\[@type="second-short"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_SECONDS 3
 ^//ldml/dates/fields/field\[@type="second-narrow"]/relativeTime\[@type="(future|past)"]/relativeTimePattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_SECONDS 3

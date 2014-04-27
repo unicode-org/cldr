@@ -2141,6 +2141,48 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">-{0} yr.</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="quarter">
+				<displayName>Quarter</displayName>
+				<relative type="-1">last quarter</relative>
+				<relative type="0">this quarter</relative>
+				<relative type="1">next quarter</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} quarter</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} quarters</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} quarter ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} quarters ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-short">
+				<displayName>qtr.</displayName>
+				<relative type="-1">last qtr.</relative>
+				<relative type="0">this qtr.</relative>
+				<relative type="1">next qtr.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">in {0} qtr.</relativeTimePattern>
+					<relativeTimePattern count="other">in {0} qtrs.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} qtr. ago</relativeTimePattern>
+					<relativeTimePattern count="other">{0} qtrs. ago</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-narrow">
+				<displayName>qtr.</displayName>
+				<relative type="-1">last qtr.</relative>
+				<relative type="0">this qtr.</relative>
+				<relative type="1">next qtr.</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} Q</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} Q</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} Q</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} Q</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="month">
 				<displayName>Month</displayName>
 				<relative type="-1">last month</relative>

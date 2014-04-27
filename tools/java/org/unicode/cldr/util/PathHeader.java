@@ -1300,6 +1300,7 @@ public class PathHeader implements Comparable<PathHeader> {
                 private final String[] datefield = {
                     "era", 
                     "year", "year-short", "year-narrow",
+                    "quarter", "quarter-short", "quarter-narrow", 
                     "month", "month-short", "month-narrow", 
                     "week", "week-short", "week-narrow",
                     "day", "day-short", "day-narrow", 
@@ -1318,16 +1319,22 @@ public class PathHeader implements Comparable<PathHeader> {
             // //ldml/dates/fields/field[@type="%A"]/relative[@type="%A"]
             functionMap.put("relativeDate", new Transform<String, String>() {
                 private final String[] relativeDateField = {
-                    "year", "year-short", "year-narrow", "month", "month-short", "month-narrow",
-                    "week", "week-short", "week-narrow", "day", "day-short", "day-narrow",
-                    "hour", "hour-short", "hour-narrow", "minute", "minute-short", "minute-narrow",
-                    "second", "second-short", "second-narrow", "sun", "sun-short", "sun-narrow",
+                    "year", "year-short", "year-narrow",
+                    "quarter", "quarter-short", "quarter-narrow",
+                    "month", "month-short", "month-narrow",
+                    "week", "week-short", "week-narrow",
+                    "day", "day-short", "day-narrow",
+                    "hour", "hour-short", "hour-narrow",
+                    "minute", "minute-short", "minute-narrow",
+                    "second", "second-short", "second-narrow",
+                    "sun", "sun-short", "sun-narrow",
                     "mon", "mon-short", "mon-narrow", "tue", "tue-short", "tue-narrow",
                     "wed", "wed-short", "wed-narrow", "thu", "thu-short", "thu-narrow",
                     "fri", "fri-short", "fri-narrow", "sat", "sat-short", "sat-narrow",
                 };
                 private final String[] longNames = {
                     "Year", "Year Short", "Year Narrow",
+                    "Quarter", "Quarter Short", "Quarter Narrow",
                     "Month", "Month Short", "Month Narrow",
                     "Week", "Week Short", "Week Narrow",
                     "Day", "Day Short", "Day Narrow",

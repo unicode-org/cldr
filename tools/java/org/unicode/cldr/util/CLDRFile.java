@@ -2542,13 +2542,22 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     static MapComparator<String> lengthOrder = new MapComparator<String>().add(
         "full", "long", "medium", "short").freeze();
     static MapComparator<String> dateFieldOrder = new MapComparator<String>().add(
-        "era", "year", "year-short", "year-narrow", "month", "month-short", "month-narrow",
-        "week", "week-short", "week-narrow", "day", "day-short", "day-narrow", "weekday",
-        "sun", "sun-short", "sun-narrow", "mon", "mon-short", "mon-narrow", "tue",
-        "tue-short", "tue-narrow", "wed", "wed-short", "wed-narrow", "thu", "thu-short",
-        "thu-narrow", "fri", "fri-short", "fri-narrow", "sat", "sat-short", "sat-narrow",
-        "dayperiod", "hour", "hour-short", "hour-narrow", "minute", "minute-short", "minute-narrow",
-        "second", "second-short", "second-narrow", "zone").freeze();
+        "era",
+        "year", "year-short", "year-narrow",
+        "quarter", "quarter-short", "quarter-narrow",
+        "month", "month-short", "month-narrow",
+        "week", "week-short", "week-narrow",
+        "day", "day-short", "day-narrow",
+        "weekday",
+        "sun", "sun-short", "sun-narrow", "mon", "mon-short", "mon-narrow",
+        "tue", "tue-short", "tue-narrow", "wed", "wed-short", "wed-narrow",
+        "thu", "thu-short", "thu-narrow", "fri", "fri-short", "fri-narrow",
+        "sat", "sat-short", "sat-narrow",
+        "dayperiod",
+        "hour", "hour-short", "hour-narrow",
+        "minute", "minute-short", "minute-narrow",
+        "second", "second-short", "second-narrow",
+        "zone").freeze();
     static MapComparator<String> countValueOrder = new MapComparator<String>().add(
         "0", "1", "zero", "one", "two", "few", "many", "other").freeze();
     static MapComparator<String> unitLengthOrder = new MapComparator<String>().add(

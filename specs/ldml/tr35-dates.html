@@ -1307,9 +1307,26 @@ h2,h3,h4,table {
 		<p class="dtd">
 			&lt;!ELEMENT fields ( alias | (field*, special*)) &gt;<br>
 			&lt;!ELEMENT field ( alias | (displayName*, relative*, relativeTime*,
-			special*)) &gt; &lt;!ATTLIST field type ( era | year | month | week |
-			day | weekday | sun | mon | tue | wed | thu | fri | sat | dayperiod |
-			hour | minute | second | zone ) #IMPLIED &gt;
+			special*)) &gt;<br>
+			&lt;!ATTLIST field type ( era |
+			year<span class="changed"> | year-short | year-narrow |
+			quarter | quarter-short | quarter-narrow</span> |
+			month<span class="changed"> | month-short | month-narrow</span> |
+			week<span class="changed"> | week-short | week-narrow</span> |
+			day<span class="changed"> | day-short | day-narrow</span> |
+			weekday |
+			sun<span class="changed"> | sun-short | sun-narrow</span> |
+			mon<span class="changed"> | mon-short | mon-narrow</span> |
+			tue<span class="changed"> | tue-short | tue-narrow</span> |
+			wed<span class="changed"> | wed-short | wed-narrow</span> |
+			thu<span class="changed"> | thu-short | thu-narrow</span> |
+			fri<span class="changed"> | fri-short | fri-narrow</span> |
+			sat<span class="changed"> | sat-short | sat-narrow</span> |
+			dayperiod |
+			hour<span class="changed"> | hour-short | hour-narrow</span> |
+			minute<span class="changed"> | minute-short | minute-narrow</span> |
+			second<span class="changed"> | second-short | second-narrow</span> |
+			zone ) #IMPLIED &gt;
 		</p>
 		<p class="dtd">
 			&lt;!ELEMENT relative (#PCDATA) &gt;<br> &lt;!ATTLIST relative

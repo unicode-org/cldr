@@ -14,11 +14,16 @@ $(function() {
     
     //handle sidebar
     $('#left-sidebar').hover(function(){
-    			$(this).addClass('active');
-    			toggleOverlay();
+    			if(!$('body').hasClass('disconnected') && !window.haveDialog) { // don't hover if another dialog is open.
+    				$(this).addClass('active');
+    				toggleOverlay();
+    			} else {
+    				// can't show sidebar - page is disconnected.
+    			}
     		}, 
     		function() {
-    			if(surveyCurrentLocale) {
+    			if(surveyCurrentLocale 
+    					|| surveyCurrentSpecial!='locales') { // don't stick the sidebar open if we're not in the locale chooser.
 	    			$(this).removeClass('active');
 	    			toggleOverlay();
     			}
@@ -220,7 +225,7 @@ function unpackMenuSideBar(json) {
 	
 	//forum link 
 	$('#forum-link').click(function() {
-		window.open(contextPath + '/survey?forum='+surveyCurrentLocale.substr(0,2));
+		window.open(contextPath + '/survey?forum='+locmap.getLanguage(surveyCurrentLocale));
 	});
 	
 	
@@ -262,6 +267,17 @@ function toggleOverlay(){
 	}
 }
 
+/**
+ * @method hideOverlayAndSidebar
+ * hide both the 
+ */
+function hideOverlayAndSidebar(){
+	var overlay = $('#overlay');
+	var sidebar = $('#left-sidebar');
+	overlay.removeClass('active');
+	sidebar.removeClass('active');
+	toToggleOverlay = false; //?	
+}
 
 //show the help popup in the center of the screen 
 var oldTypePopup = '';

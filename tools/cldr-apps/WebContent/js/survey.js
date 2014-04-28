@@ -12,6 +12,7 @@
 dojo.require("dojo.i18n");
 dojo.require("dojo.string");
 dojo.requireLocalization("surveyTool", "stui");
+window.haveDialog = false;
 
 /**
  * @class Object
@@ -3915,6 +3916,7 @@ function showV() {
 			updateIf('ariSubMessage', ari_submessage.replace(/\n/g,"<br>"));
 			updateIf('ariScroller',window.location + '<br>' + why.replace(/\n/g,"<br>"));
 			// TODO: update  ariMain and ariRetryBtn
+			hideOverlayAndSidebar();
 			
 			ariDialog.show();
 			var oneword = dojo.byId("progress_oneword");
@@ -5409,6 +5411,7 @@ function showV() {
 							label: stui.str("v_oldvote_remind_yes"),
 							onClick: function() {
 								updPrefTo(new Date().getTime() + (1000 * 3600));// hide for 1 hr
+								window.haveDialog = false;
 								oldVoteRemindDialog.hide();
 								surveyCurrentSpecial="oldvotes";
 								surveyCurrentLocale='';
@@ -5423,6 +5426,7 @@ function showV() {
 							onClick: function() {
 								updPrefTo(new Date().getTime() + (1000 * 86400)); // hide for 24 hours
 								oldVoteRemindDialog.hide();
+								window.haveDialog = false;
 							}                            	
 						}));
 						oldVoteRemindDialog.addChild(new Button({
@@ -5430,6 +5434,7 @@ function showV() {
 							onClick: function() {
 								updPrefTo('*'); // hide permanently
 								oldVoteRemindDialog.hide();
+								window.haveDialog = false;
 							}
 						}));
 
@@ -5438,7 +5443,9 @@ function showV() {
 							console.log("Have " + json.oldVotesRemind.count + " old votes, but will remind again in " + (parseInt(json.oldVotesRemind.remind)-now.getTime())/1000 + " seconds.");
 						} else {
 							oldVoteRemindDialog.show();
-							console.log("Showed oldVotesRemind 6");
+							window.haveDialog = true;
+		    				hideOverlayAndSidebar();
+		    				console.log("Showed oldVotesRemind 6");
 						}
 					} else {
 						stdebug("Did not need to showoldvotesremind : " + Object.keys(json).toString());

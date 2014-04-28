@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -64,24 +65,27 @@ public class SimpleFactory extends Factory {
         private final boolean resolved;
         private final DraftStatus draftStatus;
         private final String directory;
+        private final int hashCode;
 
         public CLDRCacheKey(String localeName, boolean resolved, DraftStatus draftStatus, File directory) {
             super();
             this.localeName = localeName;
             this.resolved = resolved;
             this.draftStatus = draftStatus;
+            // Parameter check: the directory/file supplied must be non-null and readable.
+            if (directory==null) {
+                throw new IllegalArgumentException("Attempt to create a CLDRCacheKey with a null directory, please supply a non-null one.");
+            }
+            if (!directory.canRead()) {
+                throw new IllegalArgumentException("The directory specified, "+directory.getPath()+", cannot be read");
+            }
             this.directory = directory.toString();
+            hashCode=Objects.hash(this.localeName,this.resolved,this.draftStatus,this.directory);
         }
 
         @Override
         public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + ((directory == null) ? 0 : directory.hashCode());
-            result = prime * result + ((draftStatus == null) ? 0 : draftStatus.hashCode());
-            result = prime * result + ((localeName == null) ? 0 : localeName.hashCode());
-            result = prime * result + (resolved ? 1231 : 1237);
-            return result;
+           return hashCode;
         }
 
         @Override
@@ -466,6 +470,13 @@ public class SimpleFactory extends Factory {
         @SuppressWarnings("rawtypes")
         final Map mapToSynchronizeOn;
         final File parentDir = getSourceDirectoryForLocale(localeName);
+        /*
+         *  Parameter check: parentDir being null means the source directory could not be found - throw exception here 
+         *  rather than running into a  NullPointerException when trying to create/store the cache key further down.
+         */
+        if (parentDir==null) {
+            throw new IllegalArgumentException("Unable to determine the source directory for locale "+localeName);
+        }
         final Object cacheKey;
         CLDRFile result; // result of the lookup / generation
         if (USE_OLD_HANDLEMAKE_CODE) {

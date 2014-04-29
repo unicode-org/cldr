@@ -55,6 +55,7 @@
 ^//ldml/units/unitLength\[@type="([^"]*)"]/compoundUnit\[@type="([^"]*)"]/compoundUnitPattern ; Special pattern used to compose forms of two units, such as meters per second. Note: before translating, be sure to read http://cldr.org/translation/units.
 
 ^//ldml/units/unitLength\[@type="([^"]*)"]/unit\[@type="([^"]*)"]/unitPattern ; [ICU Syntax] Special pattern used to compose plural for full (non-abbreviated) forms of “{1}”. Note: before translating, be sure to read http://cldr.org/translation/plurals.
+^//ldml/units/unitLength\[@type="([^"]*)"]/unit\[@type="([^"]*)"]/perUnitPattern ; Special pattern used to compose values per unit, such as “meters per {1}”. Note: before translating, be sure to read http://cldr.org/translation/units.
 
 ^//ldml/units/durationUnit\[@type="(hms|hm|ms)"] ; [ICU Syntax] Special pattern used to compose duration units. Note: before translating, be sure to read http://cldr.org/translation/plurals.
 

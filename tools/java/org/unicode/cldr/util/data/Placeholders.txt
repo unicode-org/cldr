@@ -177,6 +177,7 @@
 ^//ldml/units/unitLength\[@type="%L"]/unit\[@type="duration-year%A"]/unitPattern ; {0}=NUMBER_OF_YEARS 3
 
 ^//ldml/units/unitLength\[@type="%L"]/unit\[@type="%A"]/unitPattern\[@count="\w+"] ; locale ; {0}=NUMBER_OF_UNITS 3
+^//ldml/units/unitLength\[@type="%L"]/unit\[@type="%A"]/perUnitPattern ; locale ; {0}=NUMBER_OF_UNITS 3
 
 # ^//ldml/numbers/currencyFormats/unitPattern\[@count="(%A)"]  ;  {0}=NUMBER 3 ; {1}=UNIT hour(s)
 

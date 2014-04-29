@@ -3732,6 +3732,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-hour">
 				<unitPattern count="other">{0} h</unitPattern>
+				<perUnitPattern>{0}/h</perUnitPattern>
 			</unit>
 			<unit type="duration-millisecond">
 				<unitPattern count="other">{0} ms</unitPattern>
@@ -3744,6 +3745,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 			<unit type="duration-second">
 				<unitPattern count="other">{0} s</unitPattern>
+				<perUnitPattern>{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
 				<unitPattern count="other">{0} w</unitPattern>

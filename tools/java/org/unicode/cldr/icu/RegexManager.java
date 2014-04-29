@@ -55,8 +55,21 @@ class RegexManager {
             super(pattern);
         }
 
-        public boolean find(String item, Object context, Info info) {
-            return matcher.reset(item).matches();
+        protected boolean find(String item, Object context) {
+            synchronized (MATCHER_SYNC) {
+                boolean result=matcher.reset(item).matches();
+                if (result) {
+                    if (result) {
+                        int limit = matcher.groupCount() + 1;
+                        String[] value = new String[limit];
+                        for (int i = 0; i < limit; ++i) {
+                            value[i] = matcher.group(i);
+                        }         
+                        lastFound.value=value;
+                    }
+                }
+                return result;
+            }
         }
     }
 
@@ -246,7 +259,7 @@ class RegexManager {
         }
     }
 
-    private static String processString(String value, String[] arguments) {
+     static String processString(String value, String[] arguments) {
         if (value == null) {
             return null;
         }

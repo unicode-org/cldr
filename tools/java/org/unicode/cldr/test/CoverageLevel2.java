@@ -67,7 +67,7 @@ public class CoverageLevel2 {
         }
 
         @Override
-        public boolean find(String item, Object context) {
+        protected boolean find(String item, Object context) {
             LocaleSpecificInfo localeSpecificInfo = (LocaleSpecificInfo) context;
             // Modified the logic to handle the case where we want specific languages and specific territories.
             // Any match in language script or territory will succeed when multiple items are present.
@@ -88,33 +88,34 @@ public class CoverageLevel2 {
             if (!lstOK) {
                 return false;
             }
-
-            boolean result = super.find(item, context); // also sets matcher in RegexFinder
-            if (!result) {
-                return false;
-            }
-            if (additionalMatch != null) {
-                String groupMatch = matcher.group(1);
-                // we match on a group, so get the right one
-                switch (additionalMatch) {
-                case Target_Language:
-                    return localeSpecificInfo.targetLanguage.equals(groupMatch);
-                case Target_Scripts:
-                    return localeSpecificInfo.cvi.targetScripts.contains(groupMatch);
-                case Target_Territories:
-                    return localeSpecificInfo.cvi.targetTerritories.contains(groupMatch);
-                case Target_TimeZones:
-                    return localeSpecificInfo.cvi.targetTimeZones.contains(groupMatch);
-                case Target_Currencies:
-                    return localeSpecificInfo.cvi.targetCurrencies.contains(groupMatch);
-                    // For Target_Plurals, we have to account for the fact that the @count= part might not be in the
-                    // xpath, so we shouldn't reject the match because of that. ( i.e. The regex is usually
-                    // ([@count='${Target-Plurals}'])?
-                case Target_Plurals:
-                    return (groupMatch == null ||
+            synchronized(MATCHER_SYNC) {
+                boolean result = super.find(item, context); // also sets matcher in RegexFinder
+                if (!result) {
+                    return false;
+                }
+                if (additionalMatch != null) {
+                    String groupMatch = matcher.group(1);
+                    // we match on a group, so get the right one
+                    switch (additionalMatch) {
+                    case Target_Language:
+                        return localeSpecificInfo.targetLanguage.equals(groupMatch);
+                    case Target_Scripts:
+                        return localeSpecificInfo.cvi.targetScripts.contains(groupMatch);
+                    case Target_Territories:
+                        return localeSpecificInfo.cvi.targetTerritories.contains(groupMatch);
+                    case Target_TimeZones:
+                        return localeSpecificInfo.cvi.targetTimeZones.contains(groupMatch);
+                    case Target_Currencies:
+                        return localeSpecificInfo.cvi.targetCurrencies.contains(groupMatch);
+                        // For Target_Plurals, we have to account for the fact that the @count= part might not be in the
+                        // xpath, so we shouldn't reject the match because of that. ( i.e. The regex is usually
+                        // ([@count='${Target-Plurals}'])?
+                    case Target_Plurals:
+                        return (groupMatch == null ||
                         groupMatch.length() == 0 || localeSpecificInfo.cvi.targetPlurals.contains(groupMatch));
-                case Calendar_List:
-                    return localeSpecificInfo.cvi.calendars.contains(groupMatch);
+                    case Calendar_List:
+                        return localeSpecificInfo.cvi.calendars.contains(groupMatch);
+                    }
                 }
             }
             return true;

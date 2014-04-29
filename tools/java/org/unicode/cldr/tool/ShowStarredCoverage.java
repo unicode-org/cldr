@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -39,6 +40,7 @@ public class ShowStarredCoverage {
         Status status = new Status();
         Counter<Level> counter = new Counter();
         Factory phf = PathHeader.getFactory(config.getEnglish());
+        TreeSet<PathHeader> pathHeaders = new TreeSet();
         for (String path : file) {
             if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
                 continue;
@@ -52,6 +54,7 @@ public class ShowStarredCoverage {
                 continue;
             }
             PathHeader ph = phf.fromPath(path);
+            pathHeaders.add(ph);
             SurveyToolStatus stStatus = ph.getSurveyToolStatus();
             String starred = pathStarrer.set(path);
             String attributes = CollectionUtilities.join(pathStarrer.getAttributes(),"|");
@@ -74,6 +77,14 @@ public class ShowStarredCoverage {
                 System.out.println(count + "\t" + level 
                     + "\t" + starredStatus[0] + "\t" + starredStatus[1] 
                         + "\t" + CollectionUtilities.join(attributes.keySet(), ", "));
+            }
+        }
+        String last = "";
+        for (PathHeader ph : pathHeaders) {
+            String line = ph.getSection() + "\t" + ph.getPage() + "\t" + ph.getHeader();
+            if (!line.equals(last)) {
+                System.out.println(line);
+                last = line;
             }
         }
     }

@@ -15,7 +15,7 @@
 %L = (long|short|narrow)
 %P = (future|past)
 %S = ([^/]*+)
-%T = (millisecond|second|minute|hour|day|week|month|year)
+%T = (nanosecond|microsecond|millisecond|second|minute|hour|day|week|month|year)
 %W = (temperature|pressure)
 
 #RULES
@@ -102,11 +102,18 @@
 ### Units
 
 //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Units ; Measurement Systems ; null ; $1
+
 //ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/unitPattern[@count="%A"]                  ; Units ; Duration ; &datefield($2$3) ; &unitCount($1-$4) 
 //ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/perUnitPattern                  		; Units ; Duration ; &datefield($2$3) ; $1-per 
 
 //ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/unitPattern[@count="%A"]                      ; Units ; Length ; $2 ; &unitCount($1-$3) 
 //ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/perUnitPattern                      		; Units ; Length ; $2 ; $1-per
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="area-%A"]/unitPattern[@count="%A"]                             ; Units ; Area ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="area-%A"]/perUnitPattern                             		; Units ; Area ; $2 ; $1-per 
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="volume-%A"]/unitPattern[@count="%A"]                             ; Units ; Volume ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="volume-%A"]/perUnitPattern                             		; Units ; Volume ; $2 ; $1-per 
 
 //ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/unitPattern[@count="%A"]                        ; Units ; Mass and Weight ; $2 ; &unitCount($1-$3) 
 //ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/perUnitPattern                        		; Units ; Mass and Weight ; $2 ; $1-per 

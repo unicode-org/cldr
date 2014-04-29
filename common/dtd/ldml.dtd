@@ -1005,7 +1005,7 @@ $Date$
 <!ATTLIST finance alt NMTOKENS #IMPLIED >
 <!ATTLIST finance draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
-<!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, timeSeparator*, special*)) >
+<!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, timeSeparator*, minimumGroupingDigits*, special*)) >
 <!ATTLIST symbols alt NMTOKENS #IMPLIED >
 <!ATTLIST symbols draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST symbols standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -1094,6 +1094,11 @@ $Date$
 <!ATTLIST timeSeparator alt NMTOKENS #IMPLIED >
 <!ATTLIST timeSeparator draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
 <!ATTLIST timeSeparator references CDATA #IMPLIED >
+
+<!ELEMENT minimumGroupingDigits ( #PCDATA ) >
+<!ATTLIST minimumGroupingDigits alt NMTOKENS #IMPLIED >
+<!ATTLIST minimumGroupingDigits draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED > 
+<!ATTLIST minimumGroupingDigits references CDATA #IMPLIED >
 
 <!ELEMENT currencyDecimal ( #PCDATA ) >
 <!ATTLIST currencyDecimal alt NMTOKENS #IMPLIED >

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -12,6 +13,7 @@ import javax.xml.xpath.XPathException;
 
 import org.unicode.cldr.test.CheckDates;
 import org.unicode.cldr.test.ExampleGenerator;
+import org.unicode.cldr.tool.LikelySubtags;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
@@ -40,7 +42,7 @@ public class TestLocale extends TestFmwkPlus {
 
     static Set<Type> ALLOWED_LANGUAGE_TYPES = EnumSet.of(Type.Ancient, Type.Living, Type.Constructed, Type.Historical, Type.Extinct);
     static Set<Scope> ALLOWED_LANGUAGE_SCOPES = EnumSet.of(
-        Scope.Individual, Scope.Macrolanguage); // , Special, Collection, PrivateUse, Unknown
+            Scope.Individual, Scope.Macrolanguage); // , Special, Collection, PrivateUse, Unknown
     static Set<String> ALLOWED_SCRIPTS = testInfo.getStandardCodes().getGoodAvailableCodes(CodeType.script);
     static Set<String> ALLOWED_REGIONS = testInfo.getStandardCodes().getGoodAvailableCodes(CodeType.territory);
 
@@ -48,6 +50,41 @@ public class TestLocale extends TestFmwkPlus {
      * XPath expression that will find all alias tags
      */
     static String XPATH_ALIAS_STRING = "//alias";
+
+    public void TestLanguageRegions() {
+        if (logKnownIssue("Cldrbug:6114", "Language tags need to be canonicalized")) {
+            return;
+        }
+        LikelySubtags ls = new LikelySubtags();
+        Set<String> missingLanguageRegion = new LinkedHashSet();
+        Set<String> extraLanguageScript = new LinkedHashSet();
+        Set<String> available = testInfo.getCldrFactory().getAvailable();
+        LanguageTagParser ltp = new LanguageTagParser();
+        Set<String> defaultContents = testInfo.getSupplementalDataInfo().getDefaultContentLocales();
+        SupplementalDataInfo sdi = testInfo.getSupplementalDataInfo();
+        for (String locale : available) {
+            String base = ltp.set(locale).getLanguage();
+            String script = ltp.getScript();
+            String region = ltp.getRegion();
+            if (script.isEmpty()) {
+                continue;
+            }
+            ltp.setRegion("");
+            String baseScript = ltp.toString();
+            assertFalse("Should NOT have " + locale, defaultContents.contains(baseScript));
+
+            if (region.isEmpty()) {
+                continue;
+            }
+            ltp.setScript("");
+            ltp.setRegion(region);
+            String baseRegion = ltp.toString();
+            if (!missingLanguageRegion.contains(baseRegion) 
+                    && !assertTrue("Should have " + baseRegion, available.contains(baseRegion))) {
+                missingLanguageRegion.add(baseRegion);
+            }
+        }
+    }
 
     /**
      * Determine whether the file should be checked for aliases; this is currently not done for
@@ -210,14 +247,14 @@ public class TestLocale extends TestFmwkPlus {
                 boolean parentIsRoot = "root".equals(supplementalDataInfo.getExplicitParentLocale(locale));
                 if (parentIsRoot == isDefaultContent) {
                     errln("Inconsistency between parentLocales and defaultContents: " + locale
-                        + (parentIsRoot ? " +" : " -") + "parentIsRoot"
-                        + (isDefaultContent ? " +" : " -") + "isDefaultContent");
+                            + (parentIsRoot ? " +" : " -") + "parentIsRoot"
+                            + (isDefaultContent ? " +" : " -") + "isDefaultContent");
                 }
 
                 // we'd better have a separate likelySubtag
                 if (parentIsRoot && !hasLikelySubtag) {
                     errln("Missing likely subtags for: " + locale + " "
-                        + TestInheritance.suggestLikelySubtagFor(locale));
+                            + TestInheritance.suggestLikelySubtagFor(locale));
                 }
             }
 
@@ -226,7 +263,7 @@ public class TestLocale extends TestFmwkPlus {
             if (!hasScript && !hasRegion) {
                 if (!hasLikelySubtag) {
                     errln("Missing likely subtags for: " + locale + " "
-                        + TestInheritance.suggestLikelySubtagFor(locale));
+                            + TestInheritance.suggestLikelySubtagFor(locale));
                 }
             }
         }
@@ -235,21 +272,21 @@ public class TestLocale extends TestFmwkPlus {
     public void TestCanonicalizer() {
         LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
         String[][] tests = {
-            { "iw", "he" },
-            { "no-YU", "nb_RS" },
-            { "no", "nb" },
-            { "eng-833", "en_IM" },
-            { "mo", "ro_MD" },
-            { "mo_Cyrl", "ro_Cyrl_MD" },
-            { "mo_US", "ro_US" },
-            { "mo_Cyrl_US", "ro_Cyrl_US" },
-            { "sh", "sr_Latn" },
-            { "sh_US", "sr_Latn_US" },
-            { "sh_Cyrl", "sr_Cyrl" },
-            { "sh_Cyrl_US", "sr_Cyrl_US" },
-            { "hy_SU", "hy_AM" },
-            { "en_SU", "en_RU" },
-            { "rO-cYrl-aQ", "ro_Cyrl_AQ" },
+                { "iw", "he" },
+                { "no-YU", "nb_RS" },
+                { "no", "nb" },
+                { "eng-833", "en_IM" },
+                { "mo", "ro_MD" },
+                { "mo_Cyrl", "ro_Cyrl_MD" },
+                { "mo_US", "ro_US" },
+                { "mo_Cyrl_US", "ro_Cyrl_US" },
+                { "sh", "sr_Latn" },
+                { "sh_US", "sr_Latn_US" },
+                { "sh_Cyrl", "sr_Cyrl" },
+                { "sh_Cyrl_US", "sr_Cyrl_US" },
+                { "hy_SU", "hy_AM" },
+                { "en_SU", "en_RU" },
+                { "rO-cYrl-aQ", "ro_Cyrl_AQ" },
         };
         for (String[] pair : tests) {
             String actual = canonicalizer.transform(pair[0]);
@@ -259,16 +296,16 @@ public class TestLocale extends TestFmwkPlus {
 
     public void TestBrackets() {
         String[][] tests = {
-            { "language", "en", "Anglish (abc)", "en", "Anglish [abc]",
+                { "language", "en", "Anglish (abc)", "en", "Anglish [abc]",
                 "〖?Anglish [abc]?❬ (U.S. [ghi])❭〗〖?Anglish [abc]?❬ (Latine [def])❭〗〖?Anglish [abc]?❬ (Latine [def], U.S. [ghi])❭〗〖❬Langue: ❭?Anglish (abc)?〗" },
-            { "script", "Latn", "Latine (def)", "en_Latn", "Anglish [abc] (Latine [def])",
+                { "script", "Latn", "Latine (def)", "en_Latn", "Anglish [abc] (Latine [def])",
                 "〖❬Anglish [abc] (❭?Latine [def]?❬)❭〗〖❬Anglish [abc] (❭?Latine [def]?❬, U.S. [ghi])❭〗〖❬Scripte: ❭?Latine (def)?〗" },
-            { "territory", "US", "U.S. (ghi)", "en_Latn_US", "Anglish [abc] (Latine [def], U.S. [ghi])",
+                { "territory", "US", "U.S. (ghi)", "en_Latn_US", "Anglish [abc] (Latine [def], U.S. [ghi])",
                 "〖❬Anglish [abc] (❭?U.S. [ghi]?❬)❭〗〖❬Anglish [abc] (Latine [def], ❭?U.S. [ghi]?❬)❭〗〖❬Territorie: ❭?U.S. (ghi)?〗" },
-            { null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null },
-            { "variant", "foobar", "foo (jkl)", "en_foobar", "Anglish [abc] (foo [jkl])", null },
-            { "key", "co", "sort (mno)", "en_foobar@co=FOO", "Anglish [abc] (foo [jkl], sort [mno]=FOO)", null },
-            { "type|key", "FII|co", "sortfii (mno)", "en_foobar@co=FII", "Anglish [abc] (foo [jkl], sortfii [mno])", null },
+                { null, null, null, "en_US", "Anglish [abc] (U.S. [ghi])", null },
+                { "variant", "foobar", "foo (jkl)", "en_foobar", "Anglish [abc] (foo [jkl])", null },
+                { "key", "co", "sort (mno)", "en_foobar@co=FOO", "Anglish [abc] (foo [jkl], sort [mno]=FOO)", null },
+                { "type|key", "FII|co", "sortfii (mno)", "en_foobar@co=FII", "Anglish [abc] (foo [jkl], sortfii [mno])", null },
         };
         // load up a dummy source
         SimpleXMLSource dxs = new SimpleXMLSource("xx");
@@ -318,10 +355,10 @@ public class TestLocale extends TestFmwkPlus {
     public void TestExtendedLanguage() {
         assertEquals("Extended language translation", "Simplified Chinese", testInfo.getEnglish().getName("zh_Hans"));
         assertEquals("Extended language translation", "Simplified Chinese (Singapore)",
-            testInfo.getEnglish().getName("zh_Hans_SG"));
+                testInfo.getEnglish().getName("zh_Hans_SG"));
         assertEquals("Extended language translation", "American English", testInfo.getEnglish().getName("en-US"));
         assertEquals("Extended language translation", "American English (Arabic)",
-            testInfo.getEnglish().getName("en-Arab-US"));
+                testInfo.getEnglish().getName("en-Arab-US"));
     }
 
     public void TestNarrowEnough() {

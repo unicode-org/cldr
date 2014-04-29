@@ -13,6 +13,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.PluralSnapshot;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -91,12 +92,29 @@ public class ShowPlurals {
         Set<String> ordinalLocales = supplementalDataInfo.getPluralLocales(PluralType.ordinal);
         Set<String> all = new LinkedHashSet<String>(cardinalLocales);
         all.addAll(ordinalLocales);
+        
+        LanguageTagCanonicalizer canonicalizer = new LanguageTagCanonicalizer();
 
         for (String locale : supplementalDataInfo.getPluralLocales()) {
             if (localeFilter != null && !localeFilter.equals(locale) || locale.equals("root")) {
                 continue;
             }
             final String name = english.getName(locale);
+            String canonicalLocale = canonicalizer.transform(locale);
+            if (!locale.equals(canonicalLocale)) {
+                String redirect = "<i>=<a href='#" + canonicalLocale + "'>" + canonicalLocale + "</a></i>";
+                tablePrinter.addRow()
+                .addCell(name)
+                .addCell(locale)
+                .addCell(redirect)
+                .addCell(redirect)
+                .addCell(redirect)
+                .addCell(redirect)
+                .addCell(redirect)
+                .finishRow();
+                continue;
+            }
+
             for (PluralType pluralType : PluralType.values()) {
                 if (pluralType == PluralType.ordinal && !ordinalLocales.contains(locale)
                     || pluralType == PluralType.cardinal && !cardinalLocales.contains(locale)) {
@@ -158,7 +176,10 @@ public class ShowPlurals {
                         .finishRow();
                 }
             }
-            List<RangeSample> rangeInfoList = new GeneratePluralRanges(supplementalDataInfo).getRangeInfo(factory.make(locale, true));
+            List<RangeSample> rangeInfoList = null;
+            try {
+                rangeInfoList = new GeneratePluralRanges(supplementalDataInfo).getRangeInfo(factory.make(locale, true));
+            } catch (Exception e) {}
             if (rangeInfoList != null) {
                 for (RangeSample item : rangeInfoList) {
                     tablePrinter.addRow()

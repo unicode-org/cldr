@@ -3796,6 +3796,22 @@ public class SupplementalDataInfo {
             || isDeprecated(deprecated.get(type.toString()), element, attribute, value);
     }
 
+    public boolean isDeprecated(DtdType type, String path) {
+        XPathParts parts = XPathParts.getInstance(path);
+        for (int i = 0; i < parts.size(); ++i) {
+            String element = parts.getElement(i);
+            for (Entry<String, String> entry : parts.getAttributes(i).entrySet()) {
+                String attribute = entry.getKey();
+                String value = entry.getValue();
+                if (isDeprecated(type, element, attribute, value)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
     private boolean isDeprecated(Map<String, Relation<String, String>> map,
         String element, String attribute, String value) {
         return map == null ? false

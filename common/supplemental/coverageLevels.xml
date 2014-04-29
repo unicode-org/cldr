@@ -133,6 +133,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
 		<coverageVariable key="%wideNarrow" value="(wide|narrow)"/>
 		<coverageVariable key="%yesNo" value="(yes|no)"/>
+		<coverageVariable key="%unit" value="[-a-zA-Z0-9]++"/>
 		<!-- -->
 		<!-- Coverage levels begin here -->
 		<!-- -->
@@ -457,8 +458,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="characters/ellipsis[@type='%ellipsisTypes']"/>
 		<coverageLevel value="80" match="characters/moreInformation"/>
 		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='${Target-Plurals}']"/>
-		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/unitPattern[@count='${Target-Plurals}']"/>
-		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsOther']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/perUnitPattern"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='per']/compoundUnitPattern"/>
 		<coverageLevel value="80" match="listPatterns/listPattern[@type='duration(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>

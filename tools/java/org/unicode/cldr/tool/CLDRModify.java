@@ -2055,13 +2055,17 @@ public class CLDRModify {
                     FileProcessor myReader = new FileProcessor() {
                         @Override
                         protected boolean handleLine(int lineCount, String line) {
-                            String[] lineParts = line.trim().split("\\s*;\\s*");
+                            line = line.trim();
+//                            if (line.isEmpty()) {
+//                                return true;
+//                            }
+                            String[] lineParts = line.split("\\s*;\\s*");
                             Map<ConfigKeys, ConfigMatch> keyValue = new EnumMap<ConfigKeys, ConfigMatch>(
                                 ConfigKeys.class);
                             for (String linePart : lineParts) {
                                 int pos = linePart.indexOf('=');
                                 if (pos < 0) {
-                                    throw new IllegalArgumentException();
+                                    throw new IllegalArgumentException("Bad line: «" + line + "»");
                                 }
                                 ConfigKeys key = ConfigKeys.valueOf(linePart.substring(0, pos).trim());
                                 if (keyValue.containsKey(key)) {

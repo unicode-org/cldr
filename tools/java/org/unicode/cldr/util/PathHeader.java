@@ -276,6 +276,7 @@ public class PathHeader implements Comparable<PathHeader> {
         .getInstance(ULocale.ENGLISH);
     static {
         alphabetic.setNumericCollation(true);
+        alphabetic.freeze();
     }
     static final SupplementalDataInfo supplementalDataInfo = SupplementalDataInfo.getInstance();
     static final Map<String, String> metazoneToContinent = supplementalDataInfo
@@ -619,9 +620,8 @@ public class PathHeader implements Comparable<PathHeader> {
                         }
                         SectionPage sectionPage = pageToPathHeaders.get(result.pageId);
                         if (sectionPage == null) {
-                            pageToPathHeaders.put(result.pageId, sectionPage
-                                = new SectionPage(result.sectionId,
-                                    result.pageId));
+                            sectionPage= new SectionPage(result.sectionId, result.pageId);
+                            pageToPathHeaders.put(result.pageId, sectionPage);
                         }
                         sectionPageToPaths.put(sectionPage, path);
                     }
@@ -1519,13 +1519,14 @@ public class PathHeader implements Comparable<PathHeader> {
     private static final List<String> COUNTS = Arrays.asList("zero", "one", "two", "few", "many", "other");
 
     private static int alphabeticCompare(String aa, String bb) {
+        return alphabetic.compare(aa, bb);
         // workaround for ICU threading issue http://bugs.icu-project.org/trac/ticket/10215
-        while (true) {
-            try {
-                return alphabetic.compare(aa, bb);
-            } catch (ArrayIndexOutOfBoundsException e) {
-            }
-        }
+//        while (true) {
+//            try {
+//                return alphabetic.compare(aa, bb);
+//            } catch (IndexOutOfBoundsException e) {
+//            }
+//        }
     }
 
     public enum BaseUrl {

@@ -50,28 +50,12 @@ class RegexManager {
     private Map<String, String> xpathVariables;
     private VariableReplacer cldrVariables;
 
-    static class FullMatcher extends RegexFinder {
-        public FullMatcher(String pattern) {
-            super(pattern);
-        }
-
-        protected boolean find(String item, Object context) {
-            synchronized (MATCHER_SYNC) {
-                boolean result=matcher.reset(item).matches();
-                if (result) {
-                    if (result) {
-                        int limit = matcher.groupCount() + 1;
-                        String[] value = new String[limit];
-                        for (int i = 0; i < limit; ++i) {
-                            value[i] = matcher.group(i);
-                        }         
-                        lastFound.value=value;
-                    }
-                }
-                return result;
-            }
-        }
-    }
+//    static class FullMatcher extends RegexFinder {
+//        public FullMatcher(String pattern) {
+//            super(pattern);
+//        }
+//
+//    }
 
     /**
      * Wrapper class for functions that need to be performed on CLDR values as
@@ -379,7 +363,7 @@ class RegexManager {
     private static Transform<String, Finder> regexTransform = new Transform<String, Finder>() {
         @Override
         public Finder transform(String source) {
-            return new FullMatcher(source);
+            return new RegexFinder(source);
         }
     };
 
@@ -600,7 +584,7 @@ class RegexManager {
                             xpathConverter.add(xpathMatcher, regexResult);
                         }
                     }
-                    xpathMatcher = new FullMatcher(content[0].replace("[@", "\\[@"));
+                    xpathMatcher = new RegexFinder(content[0].replace("[@", "\\[@"));
                     regexResult = new RegexResult();
                 }
                 if (content.length > 1) {
@@ -707,7 +691,7 @@ class RegexManager {
         rbPattern.append(rbPath.substring(lastIndex));
         FallbackInfo info = new FallbackInfo(argsUsed, args.size());
         info.addItem(xpathMatcher, fallbackXpath, fallbackValue.split("\\s"));
-        fallbackConverter.add(new FullMatcher(rbPattern.toString()), info);
+        fallbackConverter.add(new RegexFinder(rbPattern.toString()), info);
     }
 
     void addFallbackValues(Map<String, CldrArray> pathValueMap) {

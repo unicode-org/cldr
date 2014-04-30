@@ -67,7 +67,7 @@ public class CoverageLevel2 {
         }
 
         @Override
-        protected boolean find(String item, Object context) {
+        public boolean find(String item, Object context, Info info) {
             LocaleSpecificInfo localeSpecificInfo = (LocaleSpecificInfo) context;
             // Modified the logic to handle the case where we want specific languages and specific territories.
             // Any match in language script or territory will succeed when multiple items are present.
@@ -88,13 +88,13 @@ public class CoverageLevel2 {
             if (!lstOK) {
                 return false;
             }
-            synchronized(MATCHER_SYNC) {
-                boolean result = super.find(item, context); // also sets matcher in RegexFinder
+                boolean result = super.find(item, context,info); // also sets matcher in RegexFinder
                 if (!result) {
                     return false;
                 }
                 if (additionalMatch != null) {
-                    String groupMatch = matcher.group(1);
+                    String groupMatch= info.value[1];
+//                    String groupMatch = matcher.group(1);
                     // we match on a group, so get the right one
                     switch (additionalMatch) {
                     case Target_Language:
@@ -117,7 +117,7 @@ public class CoverageLevel2 {
                         return localeSpecificInfo.cvi.calendars.contains(groupMatch);
                     }
                 }
-            }
+           
             return true;
         }
 

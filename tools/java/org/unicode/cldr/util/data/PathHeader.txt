@@ -17,6 +17,8 @@
 %S = ([^/]*+)
 %T = (nanosecond|microsecond|millisecond|second|minute|hour|day|week|month|year)
 %W = (temperature|pressure)
+%V = (speed|acceleration)
+%F = (electric|frequency)
 
 #RULES
 //ldml/identity/%E[@type="%A"]    ; Special ; Identity ; $1 ; $2 ; HIDE
@@ -103,29 +105,56 @@
 
 //ldml/localeDisplayNames/measurementSystemNames/measurementSystemName[@type="%A"] ; Units ; Measurement Systems ; null ; $1
 
-//ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/unitPattern[@count="%A"]                  ; Units ; Duration ; &datefield($2$3) ; &unitCount($1-$4) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/perUnitPattern                  		; Units ; Duration ; &datefield($2$3) ; $1-per 
+//ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/displayName                             ; Units ; Duration ; &datefield($2$3) ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/unitPattern[@count="%A"]                ; Units ; Duration ; &datefield($2$3) ; &unitCount($1-$4) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="duration-%T%A"]/perUnitPattern                          ; Units ; Duration ; &datefield($2$3) ; $1-per 
 
-//ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/unitPattern[@count="%A"]                      ; Units ; Length ; $2 ; &unitCount($1-$3) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/perUnitPattern                      		; Units ; Length ; $2 ; $1-per
+//ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/displayName                                 ; Units ; Length ; $2 ; $1-displayName
+//ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/unitPattern[@count="%A"]                    ; Units ; Length ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="length-%A"]/perUnitPattern                              ; Units ; Length ; $2 ; $1-per
 
-//ldml/units/unitLength[@type="%L"]/unit[@type="area-%A"]/unitPattern[@count="%A"]                             ; Units ; Area ; $2 ; &unitCount($1-$3) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="area-%A"]/perUnitPattern                             		; Units ; Area ; $2 ; $1-per 
+//ldml/units/unitLength[@type="%L"]/unit[@type="area-%A"]/displayName                                   ; Units ; Area ; $2 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="area-%A"]/unitPattern[@count="%A"]                      ; Units ; Area ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="area-%A"]/perUnitPattern                                ; Units ; Area ; $2 ; $1-per 
 
-//ldml/units/unitLength[@type="%L"]/unit[@type="volume-%A"]/unitPattern[@count="%A"]                             ; Units ; Volume ; $2 ; &unitCount($1-$3) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="volume-%A"]/perUnitPattern                             		; Units ; Volume ; $2 ; $1-per 
+//ldml/units/unitLength[@type="%L"]/unit[@type="volume-%A"]/displayName                                 ; Units ; Volume ; $2 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="volume-%A"]/unitPattern[@count="%A"]                    ; Units ; Volume ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="volume-%A"]/perUnitPattern                              ; Units ; Volume ; $2 ; $1-per 
 
-//ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/unitPattern[@count="%A"]                        ; Units ; Mass and Weight ; $2 ; &unitCount($1-$3) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/perUnitPattern                        		; Units ; Mass and Weight ; $2 ; $1-per 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%V-%A"]/displayName                                     ; Units ; Speed and Acceleration ; $2-$3 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%V-%A"]/unitPattern[@count="%A"]                        ; Units ; Speed and Acceleration ; $2-$3 ; &unitCount($1-$4) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%V-%A"]/perUnitPattern                                  ; Units ; Speed and Acceleration ; $2-$3 ; $1-per 
 
-//ldml/units/unitLength[@type="%L"]/unit[@type="%W-%A"]/unitPattern[@count="%A"]                          ; Units ; Weather ; $2-$3 ; &unitCount($1-$4) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="%W-%A"]/perUnitPattern                          		; Units ; Weather ; $2-$3 ; $1-per 
+//ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/displayName                                   ; Units ; Mass and Weight ; $2 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/unitPattern[@count="%A"]                      ; Units ; Mass and Weight ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/perUnitPattern                                ; Units ; Mass and Weight ; $2 ; $1-per 
 
-//ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/unitPattern[@count="%A"]                             ; Units ; Other Units ; $2 ; &unitCount($1-$3) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/perUnitPattern                             		; Units ; Other Units ; $2 ; $1-per 
+//ldml/units/unitLength[@type="%L"]/unit[@type="energy-%A"]/displayName                                 ; Units ; Energy ; $2 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="energy-%A"]/unitPattern[@count="%A"]                    ; Units ; Energy ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="energy-%A"]/perUnitPattern                              ; Units ; Energy ; $2 ; $1-per 
 
-//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern                          ; Units ; Compound Units ; $2 ; $1 
-//ldml/units/durationUnit[@type="(hms|hm|ms)"]                                    						  ; Units ; Duration ; Duration Patterns ; $1
+//ldml/units/unitLength[@type="%L"]/unit[@type="power-%A"]/displayName                                  ; Units ; Power ; $2 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="power-%A"]/unitPattern[@count="%A"]                     ; Units ; Power ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="power-%A"]/perUnitPattern                               ; Units ; Power ; $2 ; $1-per 
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="%F-%A"]/displayName                                     ; Units ; Electrical and Frequency ; $2-$3 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%F-%A"]/unitPattern[@count="%A"]                        ; Units ; Electrical and Frequency ; $2-$3 ; &unitCount($1-$4) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%F-%A"]/perUnitPattern                                  ; Units ; Electrical and Frequency ; $2-$3 ; $1-per 
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="%W-%A"]/displayName                                     ; Units ; Weather ; $2-$3 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%W-%A"]/unitPattern[@count="%A"]                        ; Units ; Weather ; $2-$3 ; &unitCount($1-$4) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%W-%A"]/perUnitPattern                                  ; Units ; Weather ; $2-$3 ; $1-per 
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="digital-%A"]/displayName                                ; Units ; Digital ; $2 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="digital-%A"]/unitPattern[@count="%A"]                   ; Units ; Digital ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="digital-%A"]/perUnitPattern                             ; Units ; Digital ; $2 ; $1-per 
+
+//ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/displayName                                        ; Units ; Other Units ; $2 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/unitPattern[@count="%A"]                           ; Units ; Other Units ; $2 ; &unitCount($1-$3) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%A"]/perUnitPattern                                     ; Units ; Other Units ; $2 ; $1-per 
+
+//ldml/units/unitLength[@type="%L"]/compoundUnit[@type="%A"]/compoundUnitPattern                        ; Units ; Compound Units ; $2 ; $1 
+//ldml/units/durationUnit[@type="(hms|hm|ms)"]                                                        	; Units ; Duration ; Duration Patterns ; $1
 
 ### Miscellaneous
 //ldml/listPatterns/listPattern/listPatternPart[@type="%A"] ; Misc ; Displaying Lists ; Regular Lists ; &listOrder($1)

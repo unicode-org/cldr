@@ -400,8 +400,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='%metazone60']/long/daylight"/>
 		<coverageLevel value="60" match="dates/timeZoneNames/metazone[@type='%metazone60_stdonly']/long/standard"/>
 		<coverageLevel value="60" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitDurationTypes']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="60" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitDurationTypes']/displayName"/>
 		<coverageLevel value="60" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonMetric']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="60" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonMetric']/displayName"/>
 		<coverageLevel inTerritory="US" value="60" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel inTerritory="US" value="60" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsCommonUS']/displayName"/>
 		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='%language80']"/> 
 		<coverageLevel value="80" match="localeDisplayNames/languages/language[@type='%language80'][@alt='%shortVariant']"/> 
 		<coverageLevel value="80" match="localeDisplayNames/scripts/script[@type='%script80']"/>
@@ -461,6 +464,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="characters/moreInformation"/>
 		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='${Target-Plurals}']"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/displayName"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/perUnitPattern"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='per']/compoundUnitPattern"/>
 		<coverageLevel value="80" match="listPatterns/listPattern[@type='duration(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>

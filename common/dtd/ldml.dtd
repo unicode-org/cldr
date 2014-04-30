@@ -1268,7 +1268,7 @@ $Date$
 <!ATTLIST compoundUnit references CDATA #IMPLIED >
 <!ATTLIST compoundUnit validSubLocales CDATA #IMPLIED >
 
-<!ELEMENT unit (alias | (unitPattern*, perUnitPattern*, special*)) >
+<!ELEMENT unit (alias | (displayName*, unitPattern*, perUnitPattern*, special*)) >
 <!ATTLIST unit type NMTOKEN #REQUIRED >
 <!ATTLIST unit alt NMTOKENS #IMPLIED >
 <!ATTLIST unit draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >

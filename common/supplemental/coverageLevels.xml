@@ -134,6 +134,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%wideNarrow" value="(wide|narrow)"/>
 		<coverageVariable key="%yesNo" value="(yes|no)"/>
 		<coverageVariable key="%unit" value="[-a-zA-Z0-9]++"/>
+		
+		<coverageVariable key="%notEnglish" value="(?!en)"/>
+		<coverageVariable key="%notScandinavian" value="(?!sv|nb|no)"/>
+
+		<coverageVariable key="%scandinavianUnit" value="(length-scandinavian-mile|area-square-scandinavian-mile|consumption-liter-per-scandinavian-mile)"/>
+		<coverageVariable key="%englishUnit" value="(length-fathom|length-furlong|mass-stone|volume-bushel)"/>
 		<!-- -->
 		<!-- Coverage levels begin here -->
 		<!-- -->
@@ -463,10 +469,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="characters/ellipsis[@type='%ellipsisTypes']"/>
 		<coverageLevel value="80" match="characters/moreInformation"/>
 		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='${Target-Plurals}']"/>
+
+		<coverageLevel inLanguage="%notEnglish" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%englishUnit']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel inLanguage="%notEnglish" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%englishUnit']/displayName"/>
+		<coverageLevel inLanguage="%notEnglish" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%englishUnit']/perUnitPattern"/>
+		<coverageLevel inLanguage="%notScandinavian" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%scandinavianUnit']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel inLanguage="%notScandinavian" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%scandinavianUnit']/displayName"/>
+		<coverageLevel inLanguage="%notScandinavian" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%scandinavianUnit']/perUnitPattern"/>
+		
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/displayName"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/perUnitPattern"/>
-		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/compoundUnit[@type='per']/compoundUnitPattern"/>
+				
 		<coverageLevel value="80" match="listPatterns/listPattern[@type='duration(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>

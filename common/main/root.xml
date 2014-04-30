@@ -3735,18 +3735,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ac</displayName>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
-			<unit type="volume-cubic-foot">
-				<displayName>ft³</displayName>
-				<unitPattern count="other">{0} ft³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-inch">
-				<displayName>in³</displayName>
-				<unitPattern count="other">{0} in³</unitPattern>
-			</unit>
-			<unit type="volume-cubic-yard">
-				<displayName>yd³</displayName>
-				<unitPattern count="other">{0} yd³</unitPattern>
-			</unit>
 			<unit type="area-hectare">
 				<displayName>ha</displayName>
 				<unitPattern count="other">{0} ha</unitPattern>
@@ -3775,6 +3763,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>mi²</displayName>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
+			<unit type="area-square-scandinavian-mile">
+				<unitPattern count="other">{0} smil</unitPattern>
+			</unit>
 			<unit type="area-square-yard">
 				<displayName>yd²</displayName>
 				<unitPattern count="other">{0} yd²</unitPattern>
@@ -3782,6 +3773,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="consumption-liter-per-kilometer">
 				<displayName>L/km</displayName>
 				<unitPattern count="other">{0} L/km</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-scandinavian-mile">
+				<unitPattern count="other">{0} L/smil</unitPattern>
 			</unit>
 			<unit type="consumption-mile-per-gallon">
 				<displayName>mpg</displayName>
@@ -3937,9 +3931,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>dm</displayName>
 				<unitPattern count="other">{0} dm</unitPattern>
 			</unit>
+			<unit type="length-fathom">
+				<unitPattern count="other">{0} fm</unitPattern>
+			</unit>
 			<unit type="length-foot">
 				<displayName>ft</displayName>
 				<unitPattern count="other">{0} ft</unitPattern>
+			</unit>
+			<unit type="length-furlong">
+				<unitPattern count="other">{0} fur</unitPattern>
 			</unit>
 			<unit type="length-inch">
 				<displayName>in</displayName>
@@ -3985,6 +3985,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>pm</displayName>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
+			<unit type="length-scandinavian-mile">
+				<unitPattern count="other">{0} smil</unitPattern>
+			</unit>
 			<unit type="length-yard">
 				<displayName>yd</displayName>
 				<unitPattern count="other">{0} yd</unitPattern>
@@ -4028,6 +4031,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="mass-pound">
 				<displayName>lb</displayName>
 				<unitPattern count="other">{0} lb</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<unitPattern count="other">{0} st</unitPattern>
 			</unit>
 			<unit type="mass-ton">
 				<displayName>tn</displayName>
@@ -4105,6 +4111,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ac ft</displayName>
 				<unitPattern count="other">{0} ac ft</unitPattern>
 			</unit>
+			<unit type="volume-bushel">
+				<unitPattern count="other">{0} bu</unitPattern>
+			</unit>
 			<unit type="volume-centiliter">
 				<displayName>cL</displayName>
 				<unitPattern count="other">{0} cL</unitPattern>
@@ -4112,6 +4121,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-cubic-centimeter">
 				<displayName>cm³</displayName>
 				<unitPattern count="other">{0} cm³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>ft³</displayName>
+				<unitPattern count="other">{0} ft³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>in³</displayName>
+				<unitPattern count="other">{0} in³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
 				<displayName>km³</displayName>
@@ -4124,6 +4141,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-cubic-mile">
 				<displayName>mi³</displayName>
 				<unitPattern count="other">{0} mi³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>yd³</displayName>
+				<unitPattern count="other">{0} yd³</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<unitPattern count="other">{0} c</unitPattern>
 			</unit>
 			<unit type="volume-deciliter">
 				<displayName>dL</displayName>
@@ -4160,6 +4184,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="volume-quart">
 				<displayName>qt</displayName>
 				<unitPattern count="other">{0} qt</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<unitPattern count="other">{0} tbsp</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">

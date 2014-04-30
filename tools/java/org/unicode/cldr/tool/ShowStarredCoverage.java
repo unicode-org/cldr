@@ -79,13 +79,19 @@ public class ShowStarredCoverage {
                         + "\t" + CollectionUtilities.join(attributes.keySet(), ", "));
             }
         }
-        String last = "";
+        Counter<String> pageCount = new Counter<>();
+        Counter<String> codeCount = new Counter<>();
         for (PathHeader ph : pathHeaders) {
-            String line = ph.getSection() + "\t" + ph.getPage() + "\t" + ph.getHeader();
-            if (!line.equals(last)) {
-                System.out.println(line);
-                last = line;
-            }
+            pageCount.add(ph.getSection() + "\t" + ph.getPage(), 1);
+            codeCount.add(ph.getSection() + "\t" + ph.getPage() + "\t" + ph.getHeader(), 1);
+        }
+        System.out.println("\n*Page Count");
+        for (String line : pageCount) {
+            System.out.println(pageCount.getCount(line) + "\t" + line);
+        }
+        System.out.println("\n*Code Count");
+        for (String line : codeCount) {
+            System.out.println(codeCount.getCount(line) + "\t" + line);
         }
     }
 }

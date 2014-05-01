@@ -4983,7 +4983,7 @@ function showV() {
 						}
 					});
 				} else if(isReport(surveyCurrentSpecial)) {
-
+					showLoader(theDiv.loader);
 					showInPop2(stui.str("reportGuidance"), null, null, null, true, true); /* show the box the first time */					
 					require([
 					         "dojo/ready",
@@ -5013,6 +5013,8 @@ function showV() {
 									});
 								}
 								else {
+									hideLoader(null,stui.loading2);
+
 									request
 					    			.get(url, {handleAs: 'html'})
 					    			.then(function(html) {

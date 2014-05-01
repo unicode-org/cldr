@@ -3,10 +3,13 @@
     Author     : pwauquie
 */
 
-body, .navbar-fixed-top {
+body {
 	min-width:1390px;
 }
 
+.navbar-fixed-top {
+	min-width:1024px;
+}
 
 .hasTooltip {
 	cursor: pointer;	
@@ -230,7 +233,6 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 
 .data label {
 	cursor:pointer;
-	width:100%;
 }
 
 
@@ -887,6 +889,9 @@ fieldset[disabled] .btn-primary.active {
 	resize:none;
 }
 
+.nav-bar-fixed-top {
+	min-width:1060px;
+}
 /* feedback part */
 #feedback {
 	position:fixed;

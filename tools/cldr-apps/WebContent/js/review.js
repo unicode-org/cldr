@@ -625,7 +625,7 @@ function designFixPanel() {
 
 	var nocell = $('.fix-parent #popover-vote .data-vertical #nocell');
 	var idnocell = nocell.find('input').attr('id');
-	nocell.find('label').append('<span class="subSpan">Abstain</span>');	
+	nocell.children('div').append('<span class="subSpan">Abstain</span>');	
 	
 	var statuscell = $('.fix-parent #popover-vote .data-vertical #statuscell');
 	var statusClass = statuscell.get(0).className;
@@ -694,8 +694,8 @@ function fixPopoverVotePos() {
 function wrapRadios() {
 	var radios = $('.ichoice-o, .ichoice-x');
 	radios = radios.filter(function() {return $(this).parent('.btn').length === 0;});
-	radios.wrap('<div class="btn btn-default" title="Vote"></div>');
-	radios.parent().parent().wrapInner('<label></label>');
+	radios.wrap('<label class="btn btn-default" title="Vote"></label>');
+	radios.parent().parent().wrapInner('<div></div>');
 	radios.parent().tooltip();
 }
 

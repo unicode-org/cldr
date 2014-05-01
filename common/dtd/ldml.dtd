@@ -977,7 +977,7 @@ $Date$
 
 <!-- ######################################################### -->
 
-<!ELEMENT numbers (alias | (defaultNumberingSystem*, otherNumberingSystems*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, special*)) >
+<!ELEMENT numbers (alias | (defaultNumberingSystem*, otherNumberingSystems*, minimumGroupingDigits*, symbols*, decimalFormats*, scientificFormats*, percentFormats*, currencyFormats*, currencies?, miscPatterns*, special*)) >
 <!ATTLIST numbers alt NMTOKENS #IMPLIED >
 <!ATTLIST numbers draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST numbers standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -1005,7 +1005,7 @@ $Date$
 <!ATTLIST finance alt NMTOKENS #IMPLIED >
 <!ATTLIST finance draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 
-<!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, timeSeparator*, minimumGroupingDigits*, special*)) >
+<!ELEMENT symbols (alias | (decimal*, group*, list*, percentSign*, nativeZeroDigit*, patternDigit*, plusSign*, minusSign*, exponential*, superscriptingExponent*, perMille*, infinity*, nan*, currencyDecimal*, currencyGroup*, timeSeparator*, special*)) >
 <!ATTLIST symbols alt NMTOKENS #IMPLIED >
 <!ATTLIST symbols draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST symbols standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->

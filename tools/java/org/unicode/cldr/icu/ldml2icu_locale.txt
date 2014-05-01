@@ -170,6 +170,7 @@
 //ldml/numbers/currencyFormats[@numberSystem="%D"]/unitPattern[@count="(%W)"] ; /CurrencyUnitPatterns/$1
 
 //ldml/numbers/defaultNumberingSystem ; /NumberElements/default
+//ldml/numbers/minimumGroupingDigits ; /NumberElements/minimumGroupingDigits
 //ldml/numbers/otherNumberingSystems/(%W)   ; /NumberElements/$1
 
 //ldml/numbers/symbols[@numberSystem="(%A)"]/(%W) ; /NumberElements/$1/symbols/$2

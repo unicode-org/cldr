@@ -34,7 +34,7 @@
 //ldml/characters/exemplarCharacters$                       ; Core Data ; Alphabetic Information ; Characters in Use ; Main Letters;
 //ldml/characters/exemplarCharacters[@type="%A"]            ; Core Data ; Alphabetic Information ; Characters in Use ; Others: $1;
 
-//ldml/numbers/(default)NumberingSystem                     ; Core Data ; Numbering Systems ; Numbering System ; $1
+//ldml/numbers/(default)NumberingSystem                       ; Core Data ; Numbering Systems ; Numbering System ; $1
 //ldml/numbers/otherNumberingSystems/(%E)                   ; Core Data ; Numbering Systems ; Numbering System ; $1
 
 ### Locale Display Names
@@ -88,6 +88,7 @@
 ### Numbers
 
 //ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Numbers ; Symbols ; Symbols when using &numberingSystem($1) ; &number($2)
+//ldml/numbers/minimumGroupingDigits																	; Numbers ; Symbols ; Number Formatting Patterns ; Minimum Grouping Digits
 //ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns when using &numberingSystem($2) ; &numberFormat($5-$1)
 //ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns when using &numberingSystem($1) ; &count(currencies-$2)
 //ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns when using &numberingSystem($1) ; $2

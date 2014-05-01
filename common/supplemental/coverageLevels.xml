@@ -15,6 +15,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<approvalRequirement votes="20" locales="Cldr:modern" paths="//ldml/numbers/(symbols[^/]++/(decimal|group)|decimalFormats.*)"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/(defaultNumberingSystem|otherNumberingSystems.*)"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/characters/exemplarCharacters(\[@type=.(auxiliary|index).\])?"/>
+			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/minimumGroupingDigits"/>
 			<approvalRequirement votes="20" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" 
 			   paths="//ldml/dates/calendars/calendar\[@type=.gregorian.\]/(days|months).*"/>
 			<!--  established locales - http://cldr.unicode.org/index/process#TOC-Draft-Status-of-Optimal-Field-Value -->
@@ -446,7 +447,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="numbers/symbols[@numberSystem='latn']/infinity"/>
 		<coverageLevel value="80" match="numbers/symbols[@numberSystem='latn']/nan"/>
 		<coverageLevel value="80" match="numbers/symbols[@numberSystem='latn']/timeSeparator"/>
-		<coverageLevel value="80" match="numbers/symbols[@numberSystem='latn']/minimumGroupingDigits"/>	 
+		<coverageLevel value="80" match="numbers/minimumGroupingDigits"/>	 
 		<coverageLevel inLanguage="ar" value="80" match="numbers/symbols[@numberSystem='arab']/exponential"/>
 		<coverageLevel inLanguage="ar" value="80" match="numbers/symbols[@numberSystem='arab']/superscriptingExponent"/>
 		<coverageLevel inLanguage="ar" value="80" match="numbers/symbols[@numberSystem='arab']/perMille"/>

@@ -2712,7 +2712,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                 while (rs.next()) {
                     int theirId = rs.getInt(1);
                     int theirLevel = rs.getInt(2);
-                    if (!showLocked && theirLevel >= UserRegistry.LOCKED) {
+                    if (!showLocked 
+                        && theirLevel >= UserRegistry.LOCKED
+                        && just == null /* if only one user, show regardless of lock state. */) {
                         locked++;
                         continue;
                     }

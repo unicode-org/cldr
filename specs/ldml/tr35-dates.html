@@ -709,7 +709,7 @@ h2,h3,h4,table {
 			&lt;!ELEMENT cyclicNameSets ( alias | (cyclicNameSet*, special*))
 			&gt;<br> &lt;!ELEMENT cyclicNameSet ( alias |
 			(cyclicNameContext*, special*)) &gt;<br> &lt;!ATTLIST
-			cyclicNameSet type ( years | months | days | dayParts | zodiacs )
+			cyclicNameSet type ( years | months | days | dayParts | zodiacs <span class="changed">| solarTerms </span>)
 			#REQUIRED &gt;<br> &lt;!ELEMENT cyclicNameContext ( alias |
 			(cyclicNameWidth*, special*)) &gt;<br> &lt;!ATTLIST
 			cyclicNameContext type ( format | stand-alone ) #REQUIRED &gt;<br>
@@ -748,9 +748,11 @@ h2,h3,h4,table {
 		<p>The Chinese and Hindu lunar calendars also use a 60-name cycle
 			for designating years. The Chinese lunar calendars can also use that
 			cycle for months and days, and can use 12-name cycles for designating
-			day subdivisions or zodiac names associated with years. The
-			&lt;cyclicNameSets&gt; element structure supports these special kinds
-			of name cycles; a cyclicNameSet can be provided for types "year",
+			day subdivisions or zodiac names associated with
+			years<span class="changed">; a 24-name cycle of solar terms (12 pairs of
+			minor and major terms) is used to mark intervals in the solar cycle</span>.
+			The &lt;cyclicNameSets&gt; element structure supports these special
+			kinds of name cycles; a cyclicNameSet can be provided for types "year",
 			"month", "day", "dayParts", or "zodiacs". For each cyclicNameSet,
 			there is a context and width structure similar to that for day names.
 			For a given context and width, a set of cyclicName elements provides
@@ -797,6 +799,17 @@ h2,h3,h4,table {
                 &lt;/cyclicNameWidth&gt;
             &lt;/cyclicNameContext&gt;
         &lt;/cyclicNameSet&gt;
+<span class="changed">        &lt;cyclicNameSet type="solarTerms"&gt;
+            &lt;cyclicNameContext type="format"&gt;
+                &lt;cyclicNameWidth type="abbreviated"&gt;
+                    &lt;cyclicName type="1"&gt;立春&lt;/cyclicName&gt;
+                    &lt;cyclicName type="2"&gt;雨水&lt;/cyclicName&gt;
+                    ...
+                    &lt;cyclicName type="23"&gt;小寒&lt;/cyclicName&gt;
+                    &lt;cyclicName type="24"&gt;大寒&lt;/cyclicName&gt;
+                &lt;/cyclicNameWidth&gt;
+            &lt;/cyclicNameContext&gt;
+        &lt;/cyclicNameSet&gt;</span>
     &lt;/cyclicNameSets&gt;
 </pre>
 

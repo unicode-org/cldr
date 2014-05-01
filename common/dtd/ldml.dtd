@@ -665,7 +665,7 @@ $Date$
 <!ATTLIST cyclicNameSets validSubLocales CDATA #IMPLIED >
 
 <!ELEMENT cyclicNameSet ( alias | (cyclicNameContext*, special*)) >
-<!ATTLIST cyclicNameSet type ( years | months | days | dayParts | zodiacs ) #REQUIRED >
+<!ATTLIST cyclicNameSet type ( years | months | days | dayParts | zodiacs | solarTerms ) #REQUIRED >
 <!ATTLIST cyclicNameSet alt NMTOKENS #IMPLIED >
 <!ATTLIST cyclicNameSet draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED >
 <!ATTLIST cyclicNameSet references CDATA #IMPLIED >

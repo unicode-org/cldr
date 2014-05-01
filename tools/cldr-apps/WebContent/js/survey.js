@@ -4315,6 +4315,14 @@ function showV() {
 		}
 
 		window.insertLocaleSpecialNote = function insertLocaleSpecialNote(theDiv) {
+			if(surveyBeta) {
+				var theChunk = domConstruct.toDom(stui.sub("beta_msg", { info: bund, locale: surveyCurrentLocale, msg: msg}));
+				var subDiv = document.createElement("div");
+				subDiv.appendChild(theChunk);
+				subDiv.className = 'warnText';
+				theDiv.appendChild(subDiv);
+			}
+			
 			var bund = locmap.getLocaleInfo(surveyCurrentLocale);
 			
 			if(bund) {

@@ -278,7 +278,7 @@ define({
 		defaultContent_titleLink: "content",
 		readonly_msg: "This locale may not be edited.<br/> ${msg}",
 		readonly_unknown: "Reason: Administrative Policy.",
-		
+		beta_msg: "The SurveyTool is currently in Beta. Any data added here will NOT go into CLDR.",
 		sidewaysArea_desc: "view of what the votes are in other, sister locales",
 		sideways_loading0: " ",
 		sideways_loading1: "Comparing to other locales...",

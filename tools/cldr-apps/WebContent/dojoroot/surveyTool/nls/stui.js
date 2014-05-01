@@ -32,7 +32,7 @@ define({
 		htmlvoted: "Voting",
 		htmlcode: "Code",
 		htmlbaseline: "$BASELINE_LANGUAGE_NAME",
-		htmlproposed: "Proposed",
+		htmlproposed: "Winning",
 		htmlothers: "Others",
 		htmlchange: "Change",
 		htmlnoopinion: "Abstain",
@@ -163,7 +163,7 @@ define({
 		lastReleaseStatus1_msg: "",
 		
 		reportGuidance: "Please see the special review page at left.",
-		dataPageInitialGuidance: "Welcome to the Survey Tool.<br>Be sure to read the <a href='http://cldr.unicode.org/index/survey-tool'>Instructions</a> carefully.  To vote for items:<br><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear for that row.</li><li>To vote for an existing item in the Proposed or Others column of that row, click on the <input type='radio'> for that item.</li><li> To vote for a value not already shown in that row, click on any other text item in the Proposed or Others column of that row. A new editing box will open, and you can enter a new value; you will automatically be voting for it once you hit RETURN on your keyboard.</li><li>To abstain (including retracting a vote), click on the <input type='radio'> in the Abstain column.</li><li>Don’t worry about incorrect values that aren't winning (eg in the Proposed column). They will disappear later on.</li></ol>",
+		dataPageInitialGuidance: "Welcome to the Survey Tool.<br>Be sure to read the <a href='http://cldr.unicode.org/index/survey-tool'>Instructions</a> carefully.  To vote for items:<br><ol><li>Click on a cell in the 'Code' column.</li><li>Read the details that appear for that row.</li><li>To vote for an existing item in the Winning or Others column of that row, click on the <input type='radio'> for that item.</li><li> To vote for a value not already shown in that row, click on any other text item in the Winning or Others column of that row. A new editing box will open, and you can enter a new value; you will automatically be voting for it once you hit RETURN on your keyboard.</li><li>To abstain (including retracting a vote), click on the <input type='radio'> in the Abstain column.</li><li>Don’t worry about incorrect values that aren't winning (eg in the Winning column). They will disappear later on.</li></ol>",
 		generalPageInitialGuidance: "This area will show details of items as you work with the Survey Tool. <p> You may resize this pane by dragging the dividers.",
 		localesInitialGuidance: "Choose a locale to get started.  <ul><li><span class='locked'>locked</span> locales may not be modified by anyone,</li><li><span class='canmodify'>hand icon</span> indicates editing allowed by you</li><li><span class='name_var'>Locales with (Variants)</span> may have specific differences to note.</li></ul><p>Don't see your locale? See: <a href='http://cldr.unicode.org/index/bug-reports#New_Locales'>Adding New Locales</a></p>",
 		

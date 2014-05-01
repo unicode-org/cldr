@@ -131,9 +131,9 @@
 //ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/unitPattern[@count="%A"]                      ; Units ; Mass and Weight ; $2 ; &unitCount($1-$3) 
 //ldml/units/unitLength[@type="%L"]/unit[@type="mass-%A"]/perUnitPattern                                ; Units ; Mass and Weight ; $2 ; $1-per 
 
-//ldml/units/unitLength[@type="%L"]/unit[@type="%X-%A"]/displayName                                     ; Units ; Energy and Power ; $2 ; $1-displayName 
-//ldml/units/unitLength[@type="%L"]/unit[@type="%X-%A"]/unitPattern[@count="%A"]                        ; Units ; Energy and Power ; $2 ; &unitCount($1-$3) 
-//ldml/units/unitLength[@type="%L"]/unit[@type="%X-%A"]/perUnitPattern                                  ; Units ; Energy and Power ; $2 ; $1-per 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%X-%A"]/displayName                                     ; Units ; Energy and Power ; $2-$3 ; $1-displayName 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%X-%A"]/unitPattern[@count="%A"]                        ; Units ; Energy and Power ; $2-$3 ; &unitCount($1-$4) 
+//ldml/units/unitLength[@type="%L"]/unit[@type="%X-%A"]/perUnitPattern                                  ; Units ; Energy and Power ; $2-$3 ; $1-per 
 
 //ldml/units/unitLength[@type="%L"]/unit[@type="%F-%A"]/displayName                                     ; Units ; Electrical and Frequency ; $2-$3 ; $1-displayName 
 //ldml/units/unitLength[@type="%L"]/unit[@type="%F-%A"]/unitPattern[@count="%A"]                        ; Units ; Electrical and Frequency ; $2-$3 ; &unitCount($1-$4) 

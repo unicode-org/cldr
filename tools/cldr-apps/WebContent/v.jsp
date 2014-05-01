@@ -194,15 +194,8 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 </button>
 --%>
 
-
-
-			
-         
-				
-
 <div class="navbar navbar-fixed-top" role="navigation">
       <div class="container-fluid">
-        
         <div class="collapse navbar-collapse">
         <p class="nav navbar-text">Survey Tool <%= ctx.sm.getNewVersion() %>
         <%=  (ctx.sm.phase()!=SurveyMain.Phase.SUBMIT)?ctx.sm.phase().toString():"" %>
@@ -255,6 +248,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
             		
             <% } %>
           </p>
+          	<p class='specialmessage navbar-text navbar-right'><%= sm.getSpecialHeaderText() %></p>
           
         </div>
       </div>
@@ -297,14 +291,13 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 <div class="container-fluid" id="main-container">
  <div class="row menu-position">
     <div class="col-md-12">
-    
-    
-
-        
-
         <%-- abbreviated form of usermenu  --%>
         <div id='toptitle'>
         
+				<div id="additional-top">
+					<%@include file="/WEB-INF/tmpl/stnotices.jspf"%>
+				</div>
+				<!-- top info -->
       
          <div id='title-locale-container' class='menu-container' style="display:none">
                 <h1><a href='#locales///' id='title-locale'></a></h1>
@@ -327,13 +320,8 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
  -->        
   		</div>
 
-        </div> <%-- end of toptitle --%>         
-        
-         <div id="additional-top">
-	         	        <%@include file="/WEB-INF/tmpl/stnotices.jspf" %>
-	     
-	 	</div>
-        <!-- top info -->
+        </div> <%-- end of toptitle --%>
+
        
     </div> 
   </div>  

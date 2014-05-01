@@ -52,6 +52,11 @@ tr.shown {
     height:150px;
 }
 
+p.specialmessage {
+    display:  inline;
+    font-size:  smaller;
+}
+
 .menu-review .popover{
 	color:#3399f3;
 	width:250px;
@@ -472,6 +477,24 @@ overflow:auto;
     margin-right:  3px;
 }
 
+
+div#additional-top {
+}
+
+div#additional-top div.topnotices {
+    position:  fixed;
+    left:  0;
+    top:  0;
+}
+
+div#additional-top div.beta,
+div#additional-top div.beta span#betanotice  {
+    position: inherit !important;
+    right:  inherit !important;
+    top: inherit !important;
+    background-color: #fbfac1;    
+    border:  none;
+}
 
 #locale-clear {
 	position: relative;

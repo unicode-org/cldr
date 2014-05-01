@@ -1524,7 +1524,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public String getSpecialHeader(WebContext ctx) {
         StringBuffer out = new StringBuffer();
-        String specialHeader = CLDRConfig.getInstance().getProperty("CLDR_HEADER");
+        String specialHeader = getSpecialHeaderText();
         if ((specialHeader != null) && (specialHeader.length() > 0)) {
             out.append("<div class='specialHeader'>");
             out.append(specialHeader);
@@ -1552,6 +1552,14 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.append(getProgress());
         }
         return out.toString();
+    }
+
+    /**
+     * @return
+     */
+    public String getSpecialHeaderText() {
+        String specialHeader = CLDRConfig.getInstance().getProperty("CLDR_HEADER");
+        return specialHeader;
     }
 
     /*

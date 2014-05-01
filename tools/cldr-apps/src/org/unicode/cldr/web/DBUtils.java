@@ -719,6 +719,10 @@ public class DBUtils {
         return getDBConnection();
     }
 
+    /**
+     * This connection MAY NOT be held in an object. Hold it and then close it ( DBUtils.close() )
+     * @return
+     */
     public final Connection getDBConnection() {
         return getDBConnection("");
     }

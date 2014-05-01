@@ -18,37 +18,38 @@ import org.json.JSONObject;
 public class ReviewHide {
 
     private HashMap<String, List<Integer>> hiddenField;
-    private Connection conn;
         
     public ReviewHide() {
         this.hiddenField = new HashMap<String, List<Integer>>();
-        this.conn = DBUtils.getInstance().getDBConnection(); 
     }
     
     //create the table (path, locale, type of notifications as key to get unique line)
     public static void createTable(Connection conn) throws SQLException {
         String sql = null;
+        Statement s = null;
         if(!DBUtils.hasTable(DBUtils.Table.REVIEW_HIDE.toString())) try {
-            Statement s;
-                s = conn.createStatement();
-                s.execute(sql="CREATE TABLE "+DBUtils.Table.REVIEW_HIDE+" (id int not null "+DBUtils.DB_SQL_IDENTITY+", path int not null, choice varchar(20) not null, user_id int not null, locale varchar(20) not null)");
-                s.execute(sql="CREATE UNIQUE INDEX " + DBUtils.Table.REVIEW_HIDE + "_id ON " + DBUtils.Table.REVIEW_HIDE + " (id) ");
-                
-                try {
-                    s.execute(sql="ALTER TABLE " + DBUtils.Table.REVIEW_HIDE + " ADD CONSTRAINT FOREIGN KEY (user_id) REFERENCES "+UserRegistry.CLDR_USERS+"(id) ON DELETE CASCADE;");
-                } catch(SQLException se) {
-                    // This seems to require InnoDB.
-                    System.err.println("Warning: could not add Foreign Key constraint to " + DBUtils.Table.REVIEW_HIDE + " - skipping.  SQL was " + sql + ", err was " + DBUtils.unchainSqlException(se));
-                }
-                sql = null;
-                
-                
-                s.close();
-                
-                conn.commit();
-               
-                    sql=null;
+            s = conn.createStatement();
+            s.execute(sql="CREATE TABLE "+DBUtils.Table.REVIEW_HIDE+" (id int not null "+DBUtils.DB_SQL_IDENTITY+", path int not null, choice varchar(20) not null, user_id int not null, locale varchar(20) not null)");
+            s.execute(sql="CREATE UNIQUE INDEX " + DBUtils.Table.REVIEW_HIDE + "_id ON " + DBUtils.Table.REVIEW_HIDE + " (id) ");
+
+            try {
+                s.execute(sql="ALTER TABLE " + DBUtils.Table.REVIEW_HIDE + " ADD CONSTRAINT FOREIGN KEY (user_id) REFERENCES "+UserRegistry.CLDR_USERS+"(id) ON DELETE CASCADE;");
+            } catch(SQLException se) {
+                // This seems to require InnoDB.
+                System.err.println("Warning: could not add Foreign Key constraint to " + DBUtils.Table.REVIEW_HIDE + " - skipping.  SQL was " + sql + ", err was " + DBUtils.unchainSqlException(se));
+                SurveyLog.logException(se,  "Warning: could not add Foreign Key constraint to " + DBUtils.Table.REVIEW_HIDE + " - skipping.  SQL was " + sql);
+            }
+            sql = null;
+
+
+            s.close();
+            s = null;
+
+            conn.commit();
+
+            sql=null;
         } finally { 
+            DBUtils.close(s);
             if(sql != null) {
                 System.err.println("Last SQL: " + sql);
             }
@@ -58,23 +59,31 @@ public class ReviewHide {
     //get all the field for an user and locale
     public HashMap<String, List<Integer>> getHiddenField(int userId, String locale) {
         if(this.hiddenField.isEmpty()) {
+            Connection conn = null;
+            ResultSet rs = null;
+            PreparedStatement s = null;
             try {
-                PreparedStatement s = conn.prepareStatement("SELECT * FROM "+DBUtils.Table.REVIEW_HIDE+" WHERE user_id=? AND locale=?");
-                s.setInt(1, userId);
-                s.setString(2, locale);
-                ResultSet rs = s.executeQuery();
-                while(rs.next()){       
-                        String choice = rs.getString("choice");
-                        List<Integer> paths = this.hiddenField.get(choice);
-                        if(paths == null)
-                            paths = new ArrayList<Integer>();
-                        paths.add(rs.getInt("path"));
-                        
-                        this.hiddenField.put(choice,paths);
+                try {
+                    conn = DBUtils.getInstance().getDBConnection(); 
+                    s = conn.prepareStatement("SELECT * FROM "+DBUtils.Table.REVIEW_HIDE+" WHERE user_id=? AND locale=?");
+                    s.setInt(1, userId);
+                    s.setString(2, locale);
+                    rs = s.executeQuery();
+                    while(rs.next()){       
+                            String choice = rs.getString("choice");
+                            List<Integer> paths = this.hiddenField.get(choice);
+                            if(paths == null)
+                                paths = new ArrayList<Integer>();
+                            paths.add(rs.getInt("path"));
+                            
+                            this.hiddenField.put(choice,paths);
+                    }
+                } finally {
+                    DBUtils.close(rs, s, conn);
                 }
-            } catch (SQLException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+            } catch (SQLException sqe) {
+                SurveyLog.logException(sqe, "Getting hidden fields for uid#"+userId+" in " + locale,null);
+                throw new InternalError("Error getting hidden fields: " + sqe.getMessage());
             }
         }
         
@@ -98,9 +107,13 @@ public class ReviewHide {
     //insert or delete a line to hide/show
     public void toggleItem(String choice, int path, int user, String locale) {
         try {
-            PreparedStatement ps = this.conn.prepareStatement("SELECT * FROM "+DBUtils.Table.REVIEW_HIDE+" WHERE path=? AND user_id=? AND choice=? AND locale=?");
-            PreparedStatement updateQuery;
-            ResultSet rs;
+            Connection conn = null;
+            ResultSet rs = null;
+            PreparedStatement ps = null, updateQuery = null;
+            try {
+                conn = DBUtils.getInstance().getDBConnection(); 
+                ps = conn.prepareStatement("SELECT * FROM "+DBUtils.Table.REVIEW_HIDE+" WHERE path=? AND user_id=? AND choice=? AND locale=?");
+            
             ps.setInt(1, path);
             ps.setInt(2, user);
             ps.setString(3, choice);
@@ -109,10 +122,10 @@ public class ReviewHide {
             
             if(!rs.next()) {
                 //the item is currently shown, not in the table, we can hide it
-                updateQuery = this.conn.prepareStatement("INSERT INTO "+DBUtils.Table.REVIEW_HIDE+" (path, user_id,choice,locale) VALUES(?,?,?,?)");
+                updateQuery = conn.prepareStatement("INSERT INTO "+DBUtils.Table.REVIEW_HIDE+" (path, user_id,choice,locale) VALUES(?,?,?,?)");
             }
             else {
-                updateQuery = this.conn.prepareStatement("DELETE FROM "+DBUtils.Table.REVIEW_HIDE+" WHERE path=? AND user_id=? AND choice=? AND locale=?");
+                updateQuery = conn.prepareStatement("DELETE FROM "+DBUtils.Table.REVIEW_HIDE+" WHERE path=? AND user_id=? AND choice=? AND locale=?");
             }
             
             updateQuery.setInt(1, path);
@@ -120,11 +133,13 @@ public class ReviewHide {
             updateQuery.setString(3, choice);
             updateQuery.setString(4, locale);
             updateQuery.executeUpdate();
-            this.conn.commit();
-            
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            conn.commit();
+            } finally {
+                DBUtils.close(updateQuery, rs, ps, conn);
+            }
+        } catch (SQLException sqe) {
+            SurveyLog.logException(sqe, "Setting hidden fields for uid#"+user+" in " + locale,null);
+            throw new InternalError("Error setting hidden fields: " + sqe.getMessage());
         }
   }
 }

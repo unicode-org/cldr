@@ -5719,7 +5719,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
 	
 	// vote reduced
-	var voteReduced =	dijit.registry.byId('voteReduced');
+	var voteReduced = document.getElementById("voteReduced");
 	if(voteReduced) {
 		ourUrl = ourUrl + "&voteReduced="+voteReduced.value;
 	}

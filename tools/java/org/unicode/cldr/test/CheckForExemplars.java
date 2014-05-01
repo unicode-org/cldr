@@ -61,7 +61,8 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         "/exponential",
         "/nan",
         "/inText",
-        "/orientation"
+        "/orientation",
+        "/symbol[@alt=\"narrow\"]"
     };
 
     static String[] DATE_PARTS = {

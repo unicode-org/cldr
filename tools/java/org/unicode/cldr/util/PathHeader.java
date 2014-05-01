@@ -947,6 +947,15 @@ public class PathHeader implements Comparable<PathHeader> {
                     return source;
                 }
             });
+            functionMap.put("currencySymbol", new Transform<String, String>() {
+                public String transform(String source) {
+                    order = 901;
+                    if (source.endsWith("narrow")) {
+                        order = 902;
+                    }
+                    return source;
+                }
+            });
             functionMap.put("unitCount", new Transform<String, String>() {
                 public String transform(String source) {
                     String[] unitLengths = { "long", "short", "narrow" };

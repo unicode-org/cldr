@@ -100,8 +100,8 @@
 
 //ldml/numbers/currencies/currency[@type="%A"]/displayName$                 ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name)
 //ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name-$2)
-//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="narrow"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-symbol)-narrow; READ_ONLY
-//ldml/numbers/currencies/currency[@type="%A"]/symbol                       ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-symbol)
+//ldml/numbers/currencies/currency[@type="%A"]/symbol$                      ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol)
+//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="narrow"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol-narrow)
 
 ### Units
 

@@ -87,6 +87,7 @@ public class VoteResolver<T> {
         breton("Office of Breton Lang"),
         cherokee("Cherokee Nation"),
         cldr("Cldr"),
+        gaeilge("Foras na Gaeilge"),
         georgia_isi("Georgia ISI"),
         gnome("Gnome Foundation"),
         google("Google"),

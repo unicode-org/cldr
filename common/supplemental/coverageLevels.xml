@@ -28,10 +28,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%allWidths" value="(wide|abbreviated|narrow)"/>
 		<coverageVariable key="%ampmTypes" value="(am|pm|noon|earlyMorning|morning|lateMorning|midDay|earlyAfternoon|afternoon|evening|night|weeHours)"/>
 		<coverageVariable key="%arabextLanguages" value="(fa|pa|ps|uz)"/>
-		<coverageVariable key="%calendarType100" value="(buddhist|chinese|coptic|dangi|ethiopic(-amete-alem)?|hebrew|indian|islamic(-(civil|rgsa|tbla|umalqura))?|iso8601|japanese|persian|roc)"/>
+		<coverageVariable key="%calendarType100" value="(buddhist|chinese|coptic|dangi|ethiopic(-amete-alem)?|hebrew|indian|islamic(-(civil|rgsa|tbla|umalqura))?|japanese|persian|roc)"/>
 		<coverageVariable key="%CJK_Languages" value="(ja|ko|zh)"/>
 		<coverageVariable key="%chineseCalendarTerritories" value="(CN|CX|HK|MO|SG|TW)"/>
 		<coverageVariable key="%collationType80" value="(ducet|search)"/>
+		<coverageVariable key="%collationType80ForTopLangs" value="(buddhist|chinese|hebrew|islamic|islamic-civil|japanese)"/>
+		<coverageVariable key="%collationType80TopLangs" value="(ar|de|en|es|fr|it|ja|ko|nl|pl|pt|ru|th|tr|zh)"/>
 		<coverageVariable key="%collationType100" value="(big5han|dictionary|eor|gb2312han|phonebook|phonetic|pinyin|reformed|searchjl|stroke|traditional|unihan|zhuyin)"/>
 		<coverageVariable key="%collationAlternateValues" value="(non-ignorable|shifted)"/>
 		<coverageVariable key="%collationCases" value="(upper|lower)"/>
@@ -381,6 +383,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="60" match="localeDisplayNames/scripts/script[@type='%script60']"/>
 		<coverageLevel value="60" match="localeDisplayNames/territories/territory[@type='%territory60']"/>
 		<coverageLevel inTerritory="EU" value="60" match="localeDisplayNames/territories/territory[@type='%territory60_EU']"/>
+		<coverageLevel value="60" match="localeDisplayNames/types/type[@type='iso8601'][@key='calendar']"/>
 		<coverageLevel value="60" match="numbers/currencies/currency[@type='%currency60']/symbol"/>
 		<coverageLevel value="60" match="numbers/currencies/currency[@type='%currency60']/symbol[@alt='narrow']"/>
 		<coverageLevel value="60" match="numbers/currencies/currency[@type='%currency60']/displayName"/>
@@ -420,6 +423,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="localeDisplayNames/territories/territory[@type='%territory80'][@alt='%shortVariant']"/>
 		<coverageLevel value="80" match="localeDisplayNames/keys/key[@type='%keys80']"/>
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='%collationType80'][@key='collation']"/>
+		<coverageLevel inLanguage="%collationType80TopLangs" value="80" match="localeDisplayNames/types/type[@type='%collationType80ForTopLangs'][@key='collation']"/>
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='%numberingSystem80'][@key='numbers']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItemsAll']"/>

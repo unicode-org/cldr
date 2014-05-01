@@ -35,7 +35,7 @@ public class GenerateBirth {
     private static boolean DEBUG = false;
 
     public enum Versions {
-        trunk, v24_0, v23_1, v22_1, v21_0, v2_0_1, v1_9_1, v1_8_1, v1_7_2, v1_6_1, v1_5_1, v1_4_1, v1_3_0, v1_2_0, v1_1_1;
+        trunk, v25_0, v24_0, v23_1, v22_1, v21_0, v2_0_1, v1_9_1, v1_8_1, v1_7_2, v1_6_1, v1_5_1, v1_4_1, v1_3_0, v1_2_0, v1_1_1;
         public String toString() {
             return this == Versions.trunk ? name() : name().substring(1).replace('_', '.');
         };

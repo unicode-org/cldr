@@ -294,7 +294,7 @@ public class TestCheckCLDR extends TestFmwk {
     }
 
     public void TestCheckNew() {
-        String path = "//ldml/localeDisplayNames/territories/territory[@type=\"AX\"]";
+        String path = "//ldml/dates/timeZoneNames/zone[@type=\"Europe/Dublin\"]/long/daylight";
         CheckCLDR c = new CheckNew(testInfo.getCldrFactory());
         List<CheckStatus> result = new ArrayList<CheckStatus>();
         Map<String, String> options = new HashMap<String, String>();
@@ -305,7 +305,7 @@ public class TestCheckCLDR extends TestFmwk {
                 continue;
             }
             assertEquals(null,
-                "The English value for this field changed from “Aland Islands” to “Åland Islands’, but the corresponding value for your locale didn't change.",
+                "The English value for this field changed from “Irish Summer Time” to “Irish Standard Time’, but the corresponding value for your locale didn't change.",
                 status.getMessage());
             return;
         }

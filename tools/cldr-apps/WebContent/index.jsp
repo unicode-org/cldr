@@ -13,8 +13,11 @@
 		<link rel='stylesheet' type='text/css' href='./surveytool.css' />
 	</head>
 	<body style='padding: 1em'>
+	<p>
+		<img width=0 height=0 src='loader.gif'></img><!--  to preload this gif -->
+	</p>
 
-    <% if(request.getParameter("logout")!=null) { 
+	<% if(request.getParameter("logout")!=null) { 
         WebContext.logout(request,response);
     %>
     <p>

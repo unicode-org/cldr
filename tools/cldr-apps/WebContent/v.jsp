@@ -226,10 +226,11 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 		      </li>
           
           </ul>
-
           <p class="navbar-text navbar-right">
               <span id="flag-info"></span>
-          
+            <%-- v-status has "login failed", etc --%>
+            <span class="v-status"><%= ((status!=null)?status:"") %></span>
+
           	  <% if(ctx.session !=null && ctx.session.user != null) {
                   boolean haveCookies = (ctx.getCookie(SurveyMain.QUERY_EMAIL)!=null&&ctx.getCookie(SurveyMain.QUERY_PASSWORD)!=null);
                   String cookieMessage = haveCookies?"<!-- and Forget Me-->":"";
@@ -253,8 +254,6 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
       		        <script type="text/javascript">var isVisitor = 1</script>
             		
             <% } %>
-            
-            
           </p>
           
         </div>
@@ -300,10 +299,6 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
     <div class="col-md-12">
     
     
-    <%
-    if(status!=null) { %>
-        <div class="v-status"><%= status %></div>
-        <% } %>
 
         
 

@@ -248,7 +248,8 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
             		
             <% } %>
           </p>
-          	<p class='specialmessage navbar-text navbar-right'><%= sm.getSpecialHeaderText() %></p>
+          	<p class='specialmessage navbar-text navbar-right'><%= sm.getSpecialHeaderText() %><%= SurveyMain.isUnofficial()?("<br/><span class='rolloverspan'>"+SurveyMain.getCurrev()+"</span>"):"" %>
+          	</p>
           
         </div>
       </div>

@@ -2651,19 +2651,22 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println(" <label>to");
                     ctx.println("<select name='preset_do'>");
                     ctx.println("   <option>" + LIST_ACTION_NONE + "</option>");
-                    /*
-                     * for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
-                     * ctx.println("<option class='user" +
-                     * UserRegistry.ALL_LEVELS[i] + "' ");
-                     * ctx.println(" value='"
-                     * +LIST_ACTION_SETLEVEL+UserRegistry.ALL_LEVELS[i]+"'>" +
-                     * UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i])
-                     * + "</option>"); } ctx.println("   <option>" +
-                     * LIST_ACTION_NONE + "</option>");
-                     * ctx.println("   <option value='" + LIST_ACTION_DELETE0
-                     * +"'>Delete user..</option>"); ctx.println("   <option>" +
-                     * LIST_ACTION_NONE + "</option>");
-                     */
+
+//                    for(int i=0;i<UserRegistry.ALL_LEVELS.length;i++) {
+//                        if(i != UserRegistry.LOCKED) continue; // only show 'locked'
+//                        ctx.println("<option class='user" +
+//                            UserRegistry.ALL_LEVELS[i] + "' ");
+//                        ctx.println(" value='"
+//                            +LIST_ACTION_SETLEVEL+UserRegistry.ALL_LEVELS[i]+"'>" +
+//                            UserRegistry.levelToStr(ctx, UserRegistry.ALL_LEVELS[i])
+//                            + "</option>"); 
+//                    }
+//                    ctx.println("   <option>" +
+//                        LIST_ACTION_NONE + "</option>");
+//                    ctx.println("   <option value='" + LIST_ACTION_DELETE0
+//                        +"'>Delete user..</option>"); ctx.println("   <option>" +
+//                            LIST_ACTION_NONE + "</option>");
+                     
                     ctx.println("   <option value='" + LIST_ACTION_SHOW_PASSWORD + "'>Show password URL...</option>");
                     ctx.println("   <option value='" + LIST_ACTION_SEND_PASSWORD + "'>Resend password...</option>");
                     // ctx.println("   <option value='" + LIST_ACTION_SETLOCALES
@@ -2937,9 +2940,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                             ctx.println("   <option value=''>" + LIST_ACTION_NONE +
 
                                 "</option>");
-                            if (just != null) {
+//                            if (just != null) {
                                 for (int i = 0; i < UserRegistry.ALL_LEVELS.length; i++) {
                                     int lev = UserRegistry.ALL_LEVELS[i];
+                                    if(just == null && lev != UserRegistry.LOCKED) continue; // only allow mass LOCK (for now)
                                     doChangeUserOption(
                                         ctx,
                                         lev,
@@ -2948,7 +2952,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                             && preset_do.equals(LIST_ACTION_SETLEVEL + lev));
                                 }
                                 ctx.println("   <option disabled>" + LIST_ACTION_NONE + "</option>");
-                            }
+//                            }
                             ctx.println("   <option ");
                             if ((preset_fromint == theirLevel) && preset_do.equals(LIST_ACTION_SHOW_PASSWORD)) {
                                 ctx.println(" SELECTED ");

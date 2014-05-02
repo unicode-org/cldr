@@ -142,7 +142,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%notEnglish" value="(?!en)"/>
 		<coverageVariable key="%notScandinavian" value="(?!sv|nb|no)"/>
 
-		<coverageVariable key="%scandinavianUnit" value="(length-scandinavian-mile|area-square-scandinavian-mile|consumption-liter-per-scandinavian-mile)"/>
 		<coverageVariable key="%englishUnit" value="(length-fathom|length-furlong|mass-stone|volume-bushel)"/>
 		<!-- -->
 		<!-- Coverage levels begin here -->
@@ -482,9 +481,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="%notEnglish" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%englishUnit']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel inLanguage="%notEnglish" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%englishUnit']/displayName"/>
 		<coverageLevel inLanguage="%notEnglish" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%englishUnit']/perUnitPattern"/>
-		<coverageLevel inLanguage="%notScandinavian" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%scandinavianUnit']/unitPattern[@count='${Target-Plurals}']"/>
-		<coverageLevel inLanguage="%notScandinavian" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%scandinavianUnit']/displayName"/>
-		<coverageLevel inLanguage="%notScandinavian" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%scandinavianUnit']/perUnitPattern"/>
 
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/displayName"/>

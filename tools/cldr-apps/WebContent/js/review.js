@@ -1,7 +1,7 @@
 //review page 
 //bind the event only on the review page 
 function bindReviewEvents() {
-    $('.help-comment').popover({placement: 'right', trigger: 'hover', delay: { hide: 1000 }});//show the comment column
+    $('.help-comment').popover({placement: 'right'});//show the comment column
     
     $('.help-review-pop').popover({placement: 'left', trigger: 'hover'});//help in the review menu
     $('.tip').tooltip();//show tooltip
@@ -10,7 +10,7 @@ function bindReviewEvents() {
 }
 
 $(function() {
-	var dynamic = $('#DynamicDataSection')
+	var dynamic = $('#DynamicDataSection');
 	dynamic.on('click', '.collapse-review', togglePart);
 	dynamic.on('click', 'button.fix', toggleFix);
 	dynamic.on('click', '.hide-review', toggleReviewLine);
@@ -72,7 +72,7 @@ function showReviewPage(json) {
 			
 			//inactive the one with no element
 			html += '<a href="#'+element.name+'">';
-			html += element.name.replace('_',' ')+' (<span class="remaining-count">0</span>/<span class="total-count">'+element.count+'</span>)<div class="pull-right"><span class="glyphicon glyphicon-question-sign help-review-pop" data-content="'+element.description+'"></span></div></a></li>';
+			html += element.name.replace('_',' ')+' (<span class="remaining-count">0</span>/<span class="total-count">'+element.count+'</span>)<div class="pull-right"><span class="glyphicon glyphicon-info-sign help-review-pop" data-content="'+element.description+'"></span></div></a></li>';
 			menuDom.append(html);
 	});
 	menuRoot.html(menuDom);
@@ -98,10 +98,13 @@ function showReviewPage(json) {
 							html += '<tr class="info"><td colspan="7"><b>'+catName+' - '+subCatName+'</b></td></tr>';//blue banner
 						
 						$.each(element, function(index, element){
-							html += '<tr class="data-review" data-path=\''+element.path+'\'"><td class="button-review"><a target="_blank" href="'+getUrlReview(element.id)+'"><span class="label label-info">'+element.code+'  <span class="glyphicon glyphicon-share"></span></span></a></td><td>'+element.english+'</td><td dir="'+direction+'">'+element.old+'</td><td dir="'+direction+'">'+element.winning+'</td>';
+							html += '<tr class="data-review" data-path=\''+element.path+'\'"><td class="button-review"><span class="link-main"><a target="_blank" href="'+getUrlReview(element.id)+'"><span class="label label-info">'+element.code+'  <span class="glyphicon glyphicon-share"></span></span></a></span></td><td>'+element.english+'</td><td dir="'+direction+'">'+element.old+'</td><td dir="'+direction+'">'+element.winning+'</td>';
 							
 							//fix section
-							html += '<td class="button-review"><div class="tip fix-parent" title="Fix"><button type="button" class="btn btn-success fix" data-toggle="popover"><span class="glyphicon glyphicon-pencil"></span></button></div> <button type="button" class="btn btn-info hide-review tip" title="Hide"><span class="glyphicon glyphicon-eye-close"></span></button><button type="button" class="btn btn-primary tip post-review" title="Forum"><span class="glyphicon glyphicon-comment"></span></button>';								html += '<button class="btn btn-default help-comment"  data-html="true" data-content="'+element.comment+'"><span class="glyphicon glyphicon-info-sign"></span></button>';
+							html += '<td class="button-review"><div class="tip fix-parent" title="Fix"><button type="button" class="btn btn-success fix" data-toggle="popover"><span class="glyphicon glyphicon-pencil"></span></button></div> <button type="button" class="btn btn-info hide-review tip" title="Hide"><span class="glyphicon glyphicon-eye-close"></span></button><button type="button" class="btn btn-primary tip post-review" title="Forum"><span class="glyphicon glyphicon-comment"></span></button>';
+							if(element.comment)
+								html += '<button class="btn btn-default help-comment" data-html="true" data-toggle="popover" data-content="'+element.comment+'"><span class="glyphicon glyphicon-info-sign"></span></button>';
+							
 							html +=	'</td></tr>';
 							
 							//fix content tr
@@ -232,7 +235,7 @@ function toggleFix(event) {
 	    				//display the popover
 	    				if(button.parent().find('.popover:visible').length == 0)
 	    					button.popover('destroy');
-	    				button.popover({placement:"left",html:true,content:'<div></div>', title:showAllProblems(json.issues), animation:false}).popover('show');
+	    				button.popover({placement:"left",html:true,content:'<div></div>', title:showAllProblems(json.issues) + tr.children('td').first().html(), animation:false}).popover('show');
 	    				button.data('issues', json.issues);
 	    				//check if we have to suppress the line 
 	    				button.on('hidden.bs.popover', checkLineFix);
@@ -411,7 +414,6 @@ function refreshFixPanel(json) {
 	insertFixInfo(theDiv,json.pageId,surveySessionId,json); 
 	designFixPanel();
 	fixPopoverVotePos();
-	$('.fix-parent .popover-title').text(showAllProblems(issues));
 	
 	var line = $('.fix-parent .popover').closest('tr');
 	var path = line.data('path');
@@ -422,6 +424,8 @@ function refreshFixPanel(json) {
 		else
 			$(this).removeClass('success');
 	});
+
+	$('.fix-parent .popover-title').text(showAllProblems(issues) + line.children('td').first().text());
 
 
 	if($('.data-vertical .vote-help').length == 0) {

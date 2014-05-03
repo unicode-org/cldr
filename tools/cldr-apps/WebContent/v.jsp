@@ -1,16 +1,15 @@
 <%@page import="org.unicode.cldr.web.WebContext"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <%--
 If not booted, attempt to boot..
  --%>
 <%
 final String survURL = request.getContextPath() + "/survey";
 SurveyMain sm = SurveyMain.getInstance(request);
-if(SurveyMain.isBusted!=null) {
+if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
     %>
-    <html>
     <head>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />
     <title>SurveyTool | Offline.</title>
@@ -24,28 +23,64 @@ if(SurveyMain.isBusted!=null) {
     
     <%
     return;
-} else if(sm==null || !SurveyMain.isSetup) {
+} else if(sm==null || !SurveyMain.isSetup || request.getParameter("_STARTINGUP")!=null ) {
     String url = request.getContextPath() + request.getServletPath(); // TODO add query
         %>
-    <html>
     <head>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/surveytool.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/redesign.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/css/bootstrap.min.css" />
     <title>Survey Tool | Starting</title>
+<% if(request.getParameter("_STARTINGUP")==null) { %>
                   <script type="application/javascript">
                   window.setTimeout(function(){
                       window.location.reload(true);                
                         //document.location='<%= url %>' + document.location.search +  document.location.hash;
                   },10000);
                   </script>
+ <% } %>
+                  <script type="application/javascript">
+                  var spin0 = 0;
+                  window.setInterval(function(){
+                	  spin0 = (spin0+1)%3;
+                	  var dots = document.getElementById('dots');
+                	  switch(spin0) {
+                	  case 0:
+                		  dots.innerHTML = ".";
+                		  break;
+                	  case 1:
+                		  dots.innerHTML="&nbsp;.";
+                		  break;
+                	  case 2:
+                		  dots.innerHTML="&nbsp;&nbsp;.";
+                		  break;
+                	  }
+                  },1000);
+                  </script>
+	    <link rel="stylesheet" href="<%= request.getContextPath() %>/js/jquery.autosize.min.js" />
+	    <link rel="stylesheet" href="<%= request.getContextPath() %>/js/bootstrap.min.js" />
     </head>
     <body>
-        <img src="<%= request.getContextPath() %>/STLogo.png" align=right>
-        <div id='st_err'></div>
-        <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
-        
-        <div class='finfobox'>
-        <p>        Attempting to start SurveyTool..</p>
-        </div>
+		<div class="navbar navbar-fixed-top" role="navigation">
+      		<div class="container">
+        		<div class="navbar-header">
+		       	 <p class="navbar-brand">
+					<a href="http://cldr.unicode.org">CLDR</a> SurveyTool 
+				</p>
+				</div>
+				<div class="collapse navbar-collapse  navbar-right"">
+					<ul class="nav navbar-nav">
+						<li><a href="http://cldr.unicode.org/index/survey-tool">Help</a></li>
+					</ul>
+				</div>
+		  </div>
+	</div>
+
+<div class="container">
+ <div class="starter-template" style='margin-top: 120px;'>
+         <%@include file="/WEB-INF/tmpl/ajax_status.jsp" %>
+    	<h1>Waiting for the Survey Tool to come online<span id='dots'>...</span></h1>
+        <p class="lead">The Survey Tool may be starting up.  </p>
         
         <%
             // JavaScript based redirect
@@ -54,8 +89,10 @@ if(SurveyMain.isBusted!=null) {
             <h1>
                 JavaScript is required.
             </h1></noscript>
-              If you are not redirected in a few seconds, you can click: <a id='redir' href='<%= url %>'>here</a> to retry, or <a id='redir2' href='<%= survURL %>'>here</a>.
+              If you are not redirected in a minute or two, please click 
+               <a id='redir2' href='<%= survURL %>'>this link</a> to try again.
               <script type="application/javascript">
+<% if(request.getParameter("_STARTINGUP")==null) { %>
               var newUrl = '<%= url %>' + document.location.search +  document.location.hash;
               var survURL = '<%= survURL %>';
                             document.getElementById("redir").href = newUrl;
@@ -71,18 +108,25 @@ if(SurveyMain.isBusted!=null) {
                             		        if(false)   window.setTimeout(function(){     window.location.search='?'+window.location.search.substr(1)+'&'; },5000);  }  }); 
                             	   }, 2000);
                            	   });
-
+<% } %>
                             
                             </script>
             <%
             
             if(sm!=null) {
+            	String htmlStatus = sm.startupThread.htmlStatus() ;
+            	if (htmlStatus == null) htmlStatus = "";
         %>
-                <%= sm.startupThread.htmlStatus() %>
-                <hr>
+                <%= htmlStatus %>
+        <% 
+            } %>
+            <hr>
+                    <div id='st_err'></div>
+            
+            </div>
+                </div>
             </body></html>                                
-        <%
-            }
+       <%
         return;
 }else
 %>

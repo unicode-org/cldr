@@ -25,6 +25,7 @@ import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PluralSamples;
+import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
@@ -943,5 +944,30 @@ public class TestUtilities extends TestFmwk {
                 errln("unknown command:\t" + test);
             }
         }
+    }
+    
+    void assertSpecialLocale(String loc, SpecialLocales.Type type) {
+    	assertEquals("SpecialLocales.txt for " + loc,type, SpecialLocales.getType(CLDRLocale.getInstance(loc)));
+    }
+    public void TestSpecialLocales() {
+    	assertSpecialLocale("sr",null);
+    	assertSpecialLocale("sr_Latn",SpecialLocales.Type.readonly);
+    	assertSpecialLocale("sr_Latn_BA",SpecialLocales.Type.readonly);
+    	assertSpecialLocale("en",SpecialLocales.Type.readonly);
+    	assertSpecialLocale("en_ZZ",SpecialLocales.Type.readonly);
+    	assertSpecialLocale("en_ZZ_PROGRAMMERESE",null); // not defined
+    	assertSpecialLocale("und",SpecialLocales.Type.scratch);
+    	assertSpecialLocale("und_001",null); // not defined
+    	
+    	CLDRLocale sr_Latn = CLDRLocale.getInstance("sr_Latn");
+    	CLDRLocale sr_Latn_BA = CLDRLocale.getInstance("sr_Latn_BA");
+    	logln("sr_Latn raw comment = " + SpecialLocales.getCommentRaw(sr_Latn));
+    	assertTrue("sr_Latn raw contains @ sign", SpecialLocales.getCommentRaw(sr_Latn).contains("@"));
+
+    	logln("sr_Latn comment = " + SpecialLocales.getComment(sr_Latn));
+    	assertTrue("sr_Latn comment does NOT contain @ sign", !SpecialLocales.getComment(sr_Latn).contains("@"));
+    	logln("sr_Latn_BA raw comment = " + SpecialLocales.getCommentRaw(sr_Latn_BA));
+    	assertTrue("sr_Latn_BA raw contains '@sr_Latn_BA'", SpecialLocales.getCommentRaw(sr_Latn_BA).contains("@sr_Latn_BA"));
+
     }
 }

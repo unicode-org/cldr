@@ -1321,6 +1321,8 @@ public class SurveyAjax extends HttpServlet {
                 locale.put("readonly", true);
                 String comment = SpecialLocales.getComment(loc);
                 locale.put("readonly_why", comment);
+                String commentraw = SpecialLocales.getCommentRaw(loc);
+                locale.put("readonly_why_raw", commentraw);
             } else if (dcParent != null) {
                 locale.put("readonly", true);
             }

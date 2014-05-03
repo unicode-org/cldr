@@ -249,6 +249,39 @@ LocaleMap.prototype.canonicalizeLocaleId = function canonicalizeLocaleId(locid) 
 	return locid;
 };
 
+window.linkToLocale = function linkToLocale(subLoc) {
+	return "#/"+subLoc+"/"+surveyCurrentPage+"/"+surveyCurrentId;
+};
+
+/**
+ * Linkify text like '@de' into some link to German.
+ * @function linkify
+ * @param str (html)
+ * @return linkified str (html)
+ */
+LocaleMap.prototype.linkify = function linkify(str) {
+	var out = "";
+	var re = /@([a-zA-Z0-9_]+)/g;	
+	var match;
+	var fromLast = 0;
+	while((match = re.exec(str)) != null) {
+		var bund = this.getLocaleInfo(match[1]);
+		if(bund) {
+			out = out + str.substring(fromLast,match.index); // pre match	
+			if ( match[1] == surveyCurrentLocale ) {
+				out = out + this.getLocaleName(match[1]);
+			} else {
+				out = out + "<a href='"+linkToLocale(match[1])+"' title='"+match[1]+"'>" + this.getLocaleName(match[1]) + "</a>";
+			}
+		} else {
+			out = out + match[0]; // no link.
+		}
+		fromLast = re.lastIndex;
+	}
+	out = out + str.substring(fromLast, str.length);
+	return out;
+};
+
 /**
  * Return the locale info entry
  * @method getLocaleInfo
@@ -971,7 +1004,7 @@ function updateSpecialHeader(newSpecialHeader) {
 
 function trySurveyLoad() {
 	try {
-		var url = contextPath + "/survey"+cacheKill();
+		var url = contextPath + "/survey?"+cacheKill();
 		console.log("Attempting to restart ST at " + url);
 	    dojo.xhrGet({
 	        url: url,
@@ -3561,7 +3594,7 @@ function showV() {
 				name = locmap.getLocaleName(subLoc);
 			}
 			var clickyLink = createChunk(name, "a", "locName");
-			clickyLink.href = "#/"+subLoc+"/"+surveyCurrentPage+"/"+surveyCurrentId;
+			clickyLink.href = linkToLocale(subLoc);
 			subLocDiv.appendChild(clickyLink);
 			if(subInfo.name_var) {
 				addClass(clickyLink, "name_var");
@@ -4329,11 +4362,13 @@ function showV() {
 				if(bund.readonly) {
 					var msg = null;
 					if(bund.readonly_why) {
-						msg = bund.readonly_why;
+						msg = bund.readonly_why_raw;
 					} else {
 						msg = stui.str("readonly_unknown");
 					}
-					var theChunk = domConstruct.toDom(stui.sub("readonly_msg", { info: bund, locale: surveyCurrentLocale, msg: msg}));
+					var asHtml = stui.sub("readonly_msg", { info: bund, locale: surveyCurrentLocale, msg: msg});
+					asHtml = locmap.linkify(asHtml);
+					var theChunk = domConstruct.toDom(asHtml);
 					var subDiv = document.createElement("div");
 					subDiv.appendChild(theChunk);
 					subDiv.className = 'warnText';

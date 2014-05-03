@@ -2055,9 +2055,11 @@ dojo.ready(function() {
 		 $('.voteInfo_voterInfo').hover(function() {
 			 	var email = $(this).data('email').replace(' (at) ', '@');
 		    	$(this).html('<a href="mailto:'+email+'" title="'+email+'" style="color:black"><span class="glyphicon glyphicon-envelope"></span></a>');
+		    	$(this).closest('td').css('text-align','center');
 		    	$(this).children('a').tooltip().tooltip('show');
 		    }, function() {
 		    	$(this).html($(this).data('name'));
+		    	$(this).closest('td').css('text-align','left');
 		 });
 		
 	};
@@ -2129,6 +2131,9 @@ function testsToHtml(tests) {
 		if(testItem.type == 'Warning') {
 			newHtml += ' alert alert-warning fix-popover-help';
 		}
+		else if (testItem.type == 'Error') {
+			newHtml += ' alert alert-danger fix-popover-help';
+		}
 		newHtml += "' title='" + testItem.type+"'>";
 		if (testItem.type == 'Warning') {
 			newHtml += warnIcon;
@@ -2183,7 +2188,6 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 //	stdebug("Searching for our value " + value );
 	// Find where our value went.
 	var ourItem = findItemByValue(theRow.items,value);
-	
 	var testKind = getTestKind(tests);
 	var ourDiv = null;
 	if(!ourItem) {
@@ -2208,18 +2212,25 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		var span=appendItem(h3, value, "value",tr);
 		setLang(span);
 		ourDiv.appendChild(h3);
-		
 		children[config.othercell].appendChild(tr.myProposal);
+
 	} else {
 		ourDiv = ourItem.div;
 	}
 	if(json&&!parseStatusAction(json.statusAction).vote) {
 		ourDiv.className = "d-item-err";
+		var input = $(inTd).find('.input-add');
+		if(input) {
+			input.closest('.form-group').addClass('has-error');
+			input.popover('destroy').popover({placement:'bottom',html:true, content:testsToHtml(tests),trigger:'hover'}).popover('show');
+			tr.myProposal.style.display = "none";
+		}
 		if(ourItem) {
 			str = stui.sub("StatusAction_msg",
 					[ stui_str("StatusAction_"+json.statusAction) ],"p", "");
 			showInPop(str, tr, null, null, true);
 		}
+		return;
 	} else if(json&&json.didNotSubmit) {
 		ourDiv.className = "d-item-err";
 		showInPop("(ERROR: Unknown error - did not submit this value.)", tr, null, null, true);
@@ -2850,7 +2861,7 @@ function updateRow(tr, theRow) {
 	
 	if(!children[config.comparisoncell].isSetup) {
 		if(theRow.displayName) {
-			children[config.comparisoncell].appendChild(document.createTextNode(theRow.displayName));
+			children[config.comparisoncell].appendChild(createChunk(theRow.displayName, 'span', 'subSpan'));
 			setLang(children[config.comparisoncell], surveyBaselineLocale);
 			if(theRow.displayExample) {
 				var theExample = appendExample(children[config.comparisoncell], theRow.displayExample, surveyBaselineLocale);
@@ -2915,7 +2926,7 @@ function updateRow(tr, theRow) {
 		formAdd.appendChild(buttonAdd);
 		
 		var input = document.createElement("input");
-		input.className = "form-control";
+		input.className = "form-control input-add";
 		input.placeholder = 'Add a translation';
 		btn.onclick = function(e) {
 			//if no input, add one
@@ -2928,18 +2939,7 @@ function updateRow(tr, theRow) {
 				
 				//transform the button
 				buttonAdd.appendChild(input);
-				toSubmitVoteButton(btn).onclick = function(event) {
-					var newValue = input.value;
-					if(newValue) {
-						addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));					
-					}
-					else {
-						toAddVoteButton(btn);
-					}
-					stStopPropagation(event);
-					return false;
-				};
-				
+				toSubmitVoteButton(btn);
 				input.focus();
 				
 				
@@ -2957,6 +2957,18 @@ function updateRow(tr, theRow) {
 				});
 				
 			}
+			else {
+				var newValue = input.value;
+				
+				if(newValue) {
+					addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));					
+				}
+				else {
+					toAddVoteButton(btn);
+				}
+				stStopPropagation(event);
+				return false;
+			}
 			stStopPropagation(e);
 			return false;
 		};
@@ -2970,8 +2982,8 @@ function updateRow(tr, theRow) {
 			continue; // skip the winner
 		}
 		hadOtherItems=true;
-		children[config.othercell].appendChild(document.createElement("hr"));
 		addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton), cloneAnon(cancelButton));
+		children[config.othercell].appendChild(document.createElement("hr"));
 	}
 	
 	
@@ -2986,8 +2998,8 @@ function updateRow(tr, theRow) {
 	} else {
 		tr.myProposal=null; // not needed
 	}
-	
-	children[config.othercell].appendChild(document.createElement('hr'));
+	if(isDashboard())
+		children[config.othercell].appendChild(document.createElement('hr'));
 	children[config.othercell].appendChild(formAdd);//add button	
 
 	if(canModify) {
@@ -3303,6 +3315,8 @@ function insertRows(theDiv,xpath,session,json) {
 		theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
 		if(isDashboard())
 			theTable.className += ' dashboard';
+		else
+			theTable.className += ' vetting-page';
 		updateCoverage(theDiv);
 		localizeFlyover(theTable);
 		theTable.theadChildren = getTagChildren(theTable.getElementsByTagName("tr")[0]);

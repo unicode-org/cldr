@@ -425,7 +425,7 @@ function refreshFixPanel(json) {
 			$(this).removeClass('success');
 	});
 
-	$('.fix-parent .popover-title').text(showAllProblems(issues) + line.children('td').first().text());
+	$('.fix-parent .popover-title').html(showAllProblems(issues) + line.children('td').first().html());
 
 
 	if($('.data-vertical .vote-help').length == 0) {

@@ -218,9 +218,7 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	display:inline-block;
 }
 
-.vote-submit {
-	margin-left:10px;
-}
+
 
 .data-vertical .d-item-warn {
 	border-radius:5px;
@@ -303,7 +301,11 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 }
 
 .button-add input.form-control {
-	width: 243px;
+	width: 294px;
+}
+
+.button-add .popover {
+	min-width:0px;
 }
 
 .data #statuscell {
@@ -340,7 +342,9 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	padding : 5px;
 }
 
-
+.data .d-example {
+	display:none;
+}
 /* direct override of bootstrap */
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {vertical-align:middle}
 .modal-backdrop {z-index:104000000;}
@@ -584,6 +588,18 @@ div#additional-top div.beta span#betanotice  {
 	z-index:1000000000000000000;
 }
 
+.popover {
+	z-index:100;
+}
+
+.vetting-page #othercell hr {
+	margin-top:2px;
+	margin-bottom:2px;
+}
+
+.vetting-page .button-add input  {
+		width:70%;
+}
 
 /*bootstrap overide for flat button*/
 .btn-success {

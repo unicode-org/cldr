@@ -44,6 +44,17 @@ $(function() {
         });
     });
     
+    //example on hover
+    $('body').on('mouseenter','.vetting-page .subSpan',function(){
+    	var example = $(this).closest('td').find('.d-example');
+    	if(example)
+    		$(this).popover({html:true, placement:"top",content:example.html()}).popover('show');
+    });
+    
+    $('body').on('mouseleave','.vetting-page  .subSpan',function(){
+    	$(this).popover('hide');
+    });
+    
     initFeedBack();
 });
 
@@ -374,26 +385,25 @@ function toAddVoteButton(btn) {
 	btn.title = "Add";
 	btn.type = "submit";
 	btn.innerHTML = '<span class="glyphicon glyphicon-plus"></span>';
-	$(btn).tooltip();
+	$(btn).tooltip('destroy').tooltip();
 	$(btn).closest('form').next('.subSpan').show();
 	
-	$(btn).parent().children('input, .vote-submit').remove();
+	$(btn).parent().children('input').remove();
 }
 
-//transform the add button to a submit + input
-function toSubmitVoteButton(btn, input) {
-	newBtn = document.createElement("div");
-	newBtn.innerHTML = '<span class="glyphicon glyphicon-ok-circle"></span>';
-	newBtn.className = "btn btn-success vote-submit";
-	newBtn.title = "Submit";
+//transform the add button to a submit
+function toSubmitVoteButton(btn) {
+	btn.innerHTML = '<span class="glyphicon glyphicon-ok-circle"></span>';
+	btn.className = "btn btn-success vote-submit";
+	btn.title = "Submit";
 	
 	
-	
-	$(btn).parent().append(newBtn);
+	$(btn).tooltip('destroy').tooltip();
+
 	$(btn).closest('form').next('.subSpan').hide();
-	$(newBtn).tooltip();
-	return newBtn;
+	return btn;
 }
+
 
 
 //add some label with a tooltip to every icon 

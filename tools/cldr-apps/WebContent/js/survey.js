@@ -2223,7 +2223,8 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		if(input) {
 			input.closest('.form-group').addClass('has-error');
 			input.popover('destroy').popover({placement:'bottom',html:true, content:testsToHtml(tests),trigger:'hover'}).popover('show');
-			tr.myProposal.style.display = "none";
+			if(tr.myProposal)
+				tr.myProposal.style.display = "none";
 		}
 		if(ourItem) {
 			str = stui.sub("StatusAction_msg",
@@ -2764,6 +2765,7 @@ function updateRow(tr, theRow) {
 		cancelButton = null;
 	}
 	
+	
 	children[config.statuscell].className = "d-dr-"+theRow.confirmStatus + " d-dr-status";
 
 	if(!children[config.statuscell].isSetup) {
@@ -2976,13 +2978,17 @@ function updateRow(tr, theRow) {
 	
 	
 	
+	
 	//add the other vote info
 	for(k in theRow.items) {
 		if(k == theRow.winningVhash) {
 			continue; // skip the winner
 		}
 		hadOtherItems=true;
-		addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton), cloneAnon(cancelButton));
+		if(theRow.items[k].pClass == 'fallback' || theRow.items[k].pClass == 'fallback_code' || theRow.items[k].pClass == 'alias')
+			addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton), cloneAnon(null));
+		else
+			addVitem(children[config.othercell],tr,theRow,theRow.items[k],k,cloneAnon(protoButton), cloneAnon(cancelButton));
 		children[config.othercell].appendChild(document.createElement("hr"));
 	}
 	

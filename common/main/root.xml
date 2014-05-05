@@ -3738,27 +3738,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName>G</displayName>
+				<displayName>g-force</displayName>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="acceleration-meter-per-second-squared">
 				<displayName>m/s²</displayName>
 				<unitPattern count="other">{0} m/s²</unitPattern>
 			</unit>
-			<unit type="proportion-karat">
-				<displayName>kt</displayName>
-				<unitPattern count="other">{0} kt</unitPattern>
-			</unit>
 			<unit type="angle-arc-minute">
-				<displayName>′</displayName>
+				<displayName>arcmin</displayName>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName>″</displayName>
+				<displayName>arcsec</displayName>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName>°</displayName>
+				<displayName>deg</displayName>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="angle-radian">
@@ -3766,11 +3762,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} rad</unitPattern>
 			</unit>
 			<unit type="area-acre">
-				<displayName>ac</displayName>
+				<displayName>acre</displayName>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName>ha</displayName>
+				<displayName>hectare</displayName>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-centimeter">
@@ -3850,11 +3846,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} TB</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName>d</displayName>
+				<displayName>day</displayName>
 				<unitPattern count="other">{0} d</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName>h</displayName>
+				<displayName>hr</displayName>
 				<unitPattern count="other">{0} h</unitPattern>
 				<perUnitPattern>{0}/h</perUnitPattern>
 			</unit>
@@ -3871,7 +3867,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName>m</displayName>
+				<displayName>mon</displayName>
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
 			<unit type="duration-nanosecond">
@@ -3879,20 +3875,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ns</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName>s</displayName>
+				<displayName>sec</displayName>
 				<unitPattern count="other">{0} s</unitPattern>
 				<perUnitPattern>{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName>w</displayName>
+				<displayName>wk</displayName>
 				<unitPattern count="other">{0} w</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName>y</displayName>
+				<displayName>yr</displayName>
 				<unitPattern count="other">{0} y</unitPattern>
 			</unit>
 			<unit type="electric-ampere">
-				<displayName>A</displayName>
+				<displayName>amp</displayName>
 				<unitPattern count="other">{0} A</unitPattern>
 			</unit>
 			<unit type="electric-milliampere">
@@ -3900,11 +3896,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} mA</unitPattern>
 			</unit>
 			<unit type="electric-ohm">
-				<displayName>Ω</displayName>
+				<displayName>ohm</displayName>
 				<unitPattern count="other">{0} Ω</unitPattern>
 			</unit>
 			<unit type="electric-volt">
-				<displayName>V</displayName>
+				<displayName>volt</displayName>
 				<unitPattern count="other">{0} V</unitPattern>
 			</unit>
 			<unit type="energy-calorie">
@@ -3916,7 +3912,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} Cal</unitPattern>
 			</unit>
 			<unit type="energy-joule">
-				<displayName>J</displayName>
+				<displayName>joule</displayName>
 				<unitPattern count="other">{0} J</unitPattern>
 			</unit>
 			<unit type="energy-kilocalorie">
@@ -3960,6 +3956,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} dm</unitPattern>
 			</unit>
 			<unit type="length-fathom">
+				<displayName>fm</displayName>
 				<unitPattern count="other">{0} fm</unitPattern>
 			</unit>
 			<unit type="length-foot">
@@ -3967,6 +3964,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ft</unitPattern>
 			</unit>
 			<unit type="length-furlong">
+				<displayName>fur</displayName>
 				<unitPattern count="other">{0} fur</unitPattern>
 			</unit>
 			<unit type="length-inch">
@@ -3982,7 +3980,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ly</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName>m</displayName>
+				<displayName>meter</displayName>
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
 			<unit type="length-micrometer">
@@ -4026,7 +4024,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} CD</unitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<displayName>g</displayName>
+				<displayName>gram</displayName>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
@@ -4058,6 +4056,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} lb</unitPattern>
 			</unit>
 			<unit type="mass-stone">
+				<displayName>st</displayName>
 				<unitPattern count="other">{0} st</unitPattern>
 			</unit>
 			<unit type="mass-ton">
@@ -4085,7 +4084,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} mW</unitPattern>
 			</unit>
 			<unit type="power-watt">
-				<displayName>W</displayName>
+				<displayName>watt</displayName>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
@@ -4107,6 +4106,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<unit type="pressure-pound-per-square-inch">
 				<displayName>psi</displayName>
 				<unitPattern count="other">{0} psi</unitPattern>
+			</unit>
+			<unit type="proportion-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="other">{0} kt</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
 				<displayName>km/h</displayName>
@@ -4137,6 +4140,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ac ft</unitPattern>
 			</unit>
 			<unit type="volume-bushel">
+				<displayName>bu</displayName>
 				<unitPattern count="other">{0} bu</unitPattern>
 			</unit>
 			<unit type="volume-centiliter">
@@ -4172,6 +4176,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} yd³</unitPattern>
 			</unit>
 			<unit type="volume-cup">
+				<displayName>cup</displayName>
 				<unitPattern count="other">{0} c</unitPattern>
 			</unit>
 			<unit type="volume-deciliter">
@@ -4191,7 +4196,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} hL</unitPattern>
 			</unit>
 			<unit type="volume-liter">
-				<displayName>l</displayName>
+				<displayName>liter</displayName>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 			<unit type="volume-megaliter">
@@ -4211,9 +4216,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} qt</unitPattern>
 			</unit>
 			<unit type="volume-tablespoon">
+				<displayName>tbsp</displayName>
 				<unitPattern count="other">{0} tbsp</unitPattern>
 			</unit>
 			<unit type="volume-teaspoon">
+				<displayName>tsp</displayName>
 				<unitPattern count="other">{0} tsp</unitPattern>
 			</unit>
 		</unitLength>

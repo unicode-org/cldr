@@ -3,6 +3,7 @@
  */
 package org.unicode.cldr.web;
 
+import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
@@ -137,4 +138,11 @@ public interface BallotBox<T> {
      * @param xpath
      */
     public void revoteFor(User user, String xpath) throws InvalidXPathException;
+    
+    /**
+     * Get the last mod date (if known) of the most recent vote.
+     * @param xpath
+     * @return date or null
+     */
+    public Date getLastModDate(String xpath);
 }

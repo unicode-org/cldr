@@ -19,6 +19,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -613,6 +614,14 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             }
         }
         return result;
+    }
+
+    /**
+     * Get the last modified date (if available) from a distinguished path.
+     * @return date or null if not available.
+     */
+    public Date getLastModifiedDate(String xpath) {
+        return dataSource.getChangeDateAtDPath(xpath);
     }
 
     /**
@@ -1481,9 +1490,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     // "gb2312han"};
 
     /*    *//**
-             * Value that contains a node. WARNING: this is not done yet, and may change.
-             * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
-             */
+              * Value that contains a node. WARNING: this is not done yet, and may change.
+              * In particular, we don't want to return a Node, since that is mutable, and makes caching unsafe!!
+              */
     /*
      * static public class NodeValue extends Value {
      * private Node nodeValue;

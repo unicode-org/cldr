@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
@@ -70,7 +71,7 @@ public class TestSTFactory extends TestFmwk {
         CLDRLocale locale = CLDRLocale.getInstance(file.getLocaleID());
         String currentWinner = file.getStringValue(path);
         boolean didVote = box.userDidVote(getMyUser(), path);
-        StackTraceElement them = StackTracker.currentElement(1);
+        StackTraceElement them = StackTracker.currentElement(0);
         String where = " (" + them.getFileName() + ":" + them.getLineNumber() + "): ";
 
         if (expectString == null)
@@ -106,6 +107,7 @@ public class TestSTFactory extends TestFmwk {
         String changedTo = null;
 
         CLDRLocale locale = CLDRLocale.getInstance("de");
+        CLDRLocale localeSub = CLDRLocale.getInstance("de_CH");
         {
             CLDRFile mt = fac.make(locale, false);
             BallotBox<User> box = fac.ballotBoxForLocale(locale);
@@ -128,7 +130,14 @@ public class TestSTFactory extends TestFmwk {
 
             box.voteForValue(getMyUser(), somePath, changedTo); // vote again
             expect(somePath, changedTo, true, mt, box);
-
+            
+            Date modDate = mt.getLastModifiedDate(somePath);
+            if(modDate == null) {
+                errln("@1: mod date was null!");
+            } else {
+                logln("@1: mod date " + modDate );
+            }
+            
         }
 
         // Restart STFactory.
@@ -139,10 +148,53 @@ public class TestSTFactory extends TestFmwk {
 
             expect(somePath, changedTo, true, mt, box);
 
+            {
+                Date modDate = mt.getLastModifiedDate(somePath);
+                if(modDate == null) {
+                    errln("@2: mod date was null!");
+                } else {
+                    logln("@2: mod date " + modDate );
+                }
+            }
+            CLDRFile mt2= fac.make(locale, true);
+            {
+                Date modDate = mt2.getLastModifiedDate(somePath);
+                if(modDate == null) {
+                    errln("@2a: mod date was null!");
+                } else {
+                    logln("@2a: mod date " + modDate );
+                }
+            }
+            CLDRFile mtMT = fac.make(localeSub, true);
+            {
+                Date modDate = mtMT.getLastModifiedDate(somePath);
+                if(modDate == null) {
+                    errln("@2b: mod date was null!");
+                } else {
+                    logln("@2b: mod date " + modDate );
+                }
+            }
+            CLDRFile mtMTb = fac.make(localeSub, false);
+            {
+                Date modDate = mtMTb.getLastModifiedDate(somePath);
+                if(modDate != null) {
+                    errln("@2c: mod date was " + modDate);
+                } else {
+                    logln("@2c: mod date was " + modDate );
+                }
+            }
             // unvote
             box.voteForValue(getMyUser(), somePath, null);
 
             expect(somePath, originalValue, false, mt, box);
+            {
+                Date modDate = mt.getLastModifiedDate(somePath);
+                if(modDate != null) {
+                    errln("@3: mod date was not null! " + modDate);
+                } else {
+                    logln("@3: mod date " + modDate );
+                }
+            }
         }
         fac = resetFactory();
         {

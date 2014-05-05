@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -554,6 +555,15 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
     public boolean hasValueAtDPath(String path) {
         return (getValueAtDPath(path) != null);
     }
+    
+    /**
+     * Get the Last-Change Date (if known) when the value was changed.
+     * SUBCLASSING: may be overridden. defaults to NULL.
+     * @return last change date (if known), else null
+     */
+    public Date getChangeDateAtDPath(String path) {
+        return null;
+    }
 
     /**
      * Get the full path at the given distinguishing path
@@ -779,6 +789,19 @@ public abstract class XMLSource implements Freezable<XMLSource>, Iterable<String
             return result;
         }
 
+        @Override
+        public Date getChangeDateAtDPath(String xpath) {
+            Date result = currentSource.getChangeDateAtDPath(xpath);
+            if (result != null) {
+                return result;
+            }
+            AliasLocation fullStatus = getCachedFullStatus(xpath);
+            if (fullStatus != null) {
+                result = getSource(fullStatus).getChangeDateAtDPath(fullStatus.pathWhereFound);
+            }
+            return result;
+        }
+        
         private String getFullPath(String xpath, AliasLocation fullStatus, String fullPathWhereFound) {
             String result = getFullPathAtDPathCache.get(xpath);
             if (result == null) {

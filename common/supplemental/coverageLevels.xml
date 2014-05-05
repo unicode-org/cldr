@@ -428,14 +428,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='%numberingSystem80'][@key='numbers']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/days/dayContext[@type='%contextTypes']/dayWidth[@type='short']/day[@type='%dayTypes']"/>
 		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItemsAll']"/>
-		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="80" match="dates/calendars/calendar[@type='chinese']/monthPatterns/monthPatternContext[@type='format']/cyclicNameWidth[@type='wide']/monthPattern[@type='leap']"/>
-		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="80" match="dates/calendars/calendar[@type='chinese']/monthPatterns/monthPatternContext[@type='numeric']/cyclicNameWidth[@type='all']/monthPattern[@type='leap']"/>
-		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="80" match="dates/calendars/calendar[@type='chinese']/monthPatterns/monthPatternContext[@type='stand-alone']/cyclicNameWidth[@type='narrow']/monthPattern[@type='leap']"/>
+		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="80" match="dates/calendars/calendar[@type='chinese']/monthPatterns/monthPatternContext[@type='format']/monthPatternWidth[@type='wide']/monthPattern[@type='leap']"/>
+		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="80" match="dates/calendars/calendar[@type='chinese']/monthPatterns/monthPatternContext[@type='numeric']/monthPatternWidth[@type='all']/monthPattern[@type='leap']"/>
+		<coverageLevel inLanguage="(ja|ko|vi|zh)" value="80" match="dates/calendars/calendar[@type='chinese']/monthPatterns/monthPatternContext[@type='stand-alone']/monthPatternWidth[@type='narrow']/monthPattern[@type='leap']"/>
 		<coverageLevel inLanguage="(ja|vi|zh)" value="80" match="dates/calendars/calendar[@type='chinese']/cyclicNameSets/cyclicNameSet[@type='(dayParts|years|zodiacs|solarTerms)']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']/cyclicName[@type='%cyclicNameTypes']"/>
 		<coverageLevel inLanguage="ko" value="80" match="dates/calendars/calendar[@type='chinese']/cyclicNameSets/cyclicNameSet[@type='(years|solarTerms)']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']/cyclicName[@type='%cyclicNameTypes']"/>
-		<coverageLevel inLanguage="ko" value="80" match="dates/calendars/calendar[@type='dangi']/monthPatterns/monthPatternContext[@type='format']/cyclicNameWidth[@type='wide']/monthPattern[@type='leap']"/>
-		<coverageLevel inLanguage="ko" value="80" match="dates/calendars/calendar[@type='dangi']/monthPatterns/monthPatternContext[@type='numeric']/cyclicNameWidth[@type='all']/monthPattern[@type='leap']"/>
-		<coverageLevel inLanguage="ko" value="80" match="dates/calendars/calendar[@type='dangi']/monthPatterns/monthPatternContext[@type='stand-alone']/cyclicNameWidth[@type='narrow']/monthPattern[@type='leap']"/>
+		<coverageLevel inLanguage="ko" value="80" match="dates/calendars/calendar[@type='dangi']/monthPatterns/monthPatternContext[@type='format']/monthPatternWidth[@type='wide']/monthPattern[@type='leap']"/>
+		<coverageLevel inLanguage="ko" value="80" match="dates/calendars/calendar[@type='dangi']/monthPatterns/monthPatternContext[@type='numeric']/monthPatternWidth[@type='all']/monthPattern[@type='leap']"/>
+		<coverageLevel inLanguage="ko" value="80" match="dates/calendars/calendar[@type='dangi']/monthPatterns/monthPatternContext[@type='stand-alone']/monthPatternWidth[@type='narrow']/monthPattern[@type='leap']"/>
 		<coverageLevel inLanguage="ko" value="80" match="dates/calendars/calendar[@type='dangi']/cyclicNameSets/cyclicNameSet[@type='(dayParts|years|zodiacs|solarTerms)']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']/cyclicName[@type='%cyclicNameTypes']"/>
 		<coverageLevel value="80" match="dates/fields/field[@type='day']/relative[@type='(-3|-2|2|3)']"/>
 		<coverageLevel value="80" match="dates/fields/field[@type='%relativeDayTypes']/relative[@type='(-1|0|1)']"/>
@@ -500,9 +500,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/dateTimeFormatLength[@type='%dateTimeFormatLengths']/dateTimeFormat%stdPattern"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|islamic|japanese|roc)']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='%monthTypes']"/>
-		<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|dangi)']/monthPatterns/monthPatternContext[@type='format']/cyclicNameWidth[@type='wide']/monthPattern[@type='leap']"/>
-		<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|dangi)']/monthPatterns/monthPatternContext[@type='numeric']/cyclicNameWidth[@type='all']/monthPattern[@type='leap']"/>
-		<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|dangi)']/monthPatterns/monthPatternContext[@type='stand-alone']/cyclicNameWidth[@type='narrow']/monthPattern[@type='leap']"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|dangi)']/monthPatterns/monthPatternContext[@type='format']/monthPatternWidth[@type='wide']/monthPattern[@type='leap']"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|dangi)']/monthPatterns/monthPatternContext[@type='numeric']/monthPatternWidth[@type='all']/monthPattern[@type='leap']"/>
+		<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|dangi)']/monthPatterns/monthPatternContext[@type='stand-alone']/monthPatternWidth[@type='narrow']/monthPattern[@type='leap']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(chinese|dangi)']/cyclicNameSets/cyclicNameSet[@type='(dayParts|years|zodiacs|solarTerms)']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']/cyclicName[@type='%cyclicNameTypes']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='7'][@yeartype='leap']"/>
 		<coverageLevel value="100" match="localeDisplayNames/languages/language[@type='%language100_a_m']"/>

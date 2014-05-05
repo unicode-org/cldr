@@ -13,7 +13,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<types>
-			<type type="roc" key="calendar">en: Minguo Calendar; alts: Republic of China Calendar, Republican Calendar; origin 1912</type>
+			<type type="roc" key="calendar">Minguo Calendar [translation hint: also called "Republic of China Calendar", "Republican Calendar"]</type>
 		</types>
 	</localeDisplayNames>
 	<dates>
@@ -78,5 +78,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 		</timeZoneNames>
 	</dates>
+	<units>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<displayName>days [translation hint: "day" here means a time duration of 24 hours, not a calendar day]</displayName>
+				<unitPattern count="one">{0} day</unitPattern>
+				<unitPattern count="other">{0} days</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<displayName>days [translation hint: "day" here means a time duration of 24 hours, not a calendar day]</displayName>
+				<unitPattern count="one">{0} day</unitPattern>
+				<unitPattern count="other">{0} days</unitPattern>
+			</unit>
+		</unitLength>
+	</units>
 </ldml>
 

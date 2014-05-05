@@ -3000,9 +3000,11 @@ div.voterList .voterOrg {
 .dtf-left {text-align:left;}
 .dtf-nopad {padding:0px; align:top;}
 
+
 .rolloverspan:hover {
 	color: white !important;
 	background-color: navy !important;
+	transition: background-color 0.5s ease;
 }
 
 #itemInfo {

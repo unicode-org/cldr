@@ -33,7 +33,7 @@ public class ReviewHide {
             s.execute(sql="CREATE UNIQUE INDEX " + DBUtils.Table.REVIEW_HIDE + "_id ON " + DBUtils.Table.REVIEW_HIDE + " (id) ");
 
             try {
-                s.execute(sql="ALTER TABLE " + DBUtils.Table.REVIEW_HIDE + " ADD CONSTRAINT FOREIGN KEY (user_id) REFERENCES "+UserRegistry.CLDR_USERS+"(id) ON DELETE CASCADE;");
+                s.execute(sql="ALTER TABLE " + DBUtils.Table.REVIEW_HIDE + " ADD CONSTRAINT review_hide_fk FOREIGN KEY (user_id) REFERENCES "+UserRegistry.CLDR_USERS+"(id) ON DELETE CASCADE");
             } catch(SQLException se) {
                 // This seems to require InnoDB.
                 System.err.println("Warning: could not add Foreign Key constraint to " + DBUtils.Table.REVIEW_HIDE + " - skipping.  SQL was " + sql + ", err was " + DBUtils.unchainSqlException(se));

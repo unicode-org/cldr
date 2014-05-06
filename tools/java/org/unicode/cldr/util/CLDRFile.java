@@ -32,6 +32,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -472,8 +473,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             lastFiltered = temp;
         }
 
-        for (Iterator<String> it2 = orderedSet.iterator(); it2.hasNext();) {
-            String xpath = (String) it2.next();
+        for (String xpath: orderedSet) {
+//        for (Iterator<String> it2 = orderedSet.iterator(); it2.hasNext();) {
+//            String xpath = (String) it2.next();
             if (isResolved && xpath.contains("/alias")) {
                 continue;
             }
@@ -2900,22 +2902,24 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     private static class DistinguishedXPath {
+
         public static final String stats() {
             return "distinguishingMap:" + distinguishingMap.size() + " " +
                 "normalizedPathMap:" + normalizedPathMap.size();
         }
 
-        private static Map<String, String> distinguishingMap = new HashMap<String, String>();
-        private static Map<String, String> normalizedPathMap = new HashMap<String, String>();
-        private static XPathParts distinguishingParts = new XPathParts(getAttributeOrdering(), null);
+        private static Map<String, String> distinguishingMap = new ConcurrentHashMap<String, String>();
+        private static Map<String, String> normalizedPathMap = new ConcurrentHashMap<String, String>();
+       // private static XPathParts distinguishingParts = new XPathParts(getAttributeOrdering(), null);
         static {
             distinguishingMap.put("", ""); // seed this to make the code simpler
         }
 
         public static String getDistinguishingXPath(String xpath, String[] normalizedPath, boolean nonInheriting) {
-            synchronized (distinguishingMap) {
+       //     synchronized (distinguishingMap) {
                 String result = (String) distinguishingMap.get(xpath);
                 if (result == null) {
+                    XPathParts distinguishingParts = new XPathParts(getAttributeOrdering(), null);
                     distinguishingParts.set(xpath);
                     if (distinguishingParts.getDtdData() == null) {
                         distinguishingParts.set(xpath);
@@ -2932,7 +2936,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     // so we go up to size() - 1.
 
                     // note: each successive item overrides the previous one. That's intended
-
+                    
                     for (int i = 0; i < distinguishingParts.size() - 1; ++i) {
                         // String element = distinguishingParts.getElement(i);
                         // if (atomicElements.contains(element)) break;
@@ -2941,8 +2945,9 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                         }
                         toRemove.clear();
                         Map<String, String> attributes = distinguishingParts.getAttributes(i);
-                        for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext();) {
-                            String attribute = (String) it.next();
+                        for (String attribute: attributes.keySet()) {
+                     //   for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext();) {
+                      //      String attribute = (String) it.next();
                             if (attribute.equals("draft")) {
                                 draft = (String) attributes.get(attribute);
                                 toRemove.add(attribute);
@@ -3008,7 +3013,7 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
                     }
                 }
                 return result;
-            }
+      //      }
         }
 
         public Map<String, String> getNonDistinguishingAttributes(String fullPath, Map<String, String> result,
@@ -3018,21 +3023,22 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             } else {
                 result.clear();
             }
-            synchronized (distinguishingMap) {
-                distinguishingParts.set(fullPath);
-                DtdType type = distinguishingParts.getDtdData().dtdType;
-                for (int i = 0; i < distinguishingParts.size(); ++i) {
-                    String element = distinguishingParts.getElement(i);
-                    // if (atomicElements.contains(element)) break;
-                    Map<String, String> attributes = distinguishingParts.getAttributes(i);
-                    for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext();) {
-                        String attribute = it.next();
-                        if (!isDistinguishing(type, element, attribute) && !skipList.contains(attribute)) {
-                            result.put(attribute, attributes.get(attribute));
-                        }
+            //      synchronized (distinguishingMap) {
+            XPathParts distinguishingParts = new XPathParts(getAttributeOrdering(), null);
+            distinguishingParts.set(fullPath);
+            DtdType type = distinguishingParts.getDtdData().dtdType;
+            for (int i = 0; i < distinguishingParts.size(); ++i) {
+                String element = distinguishingParts.getElement(i);
+                // if (atomicElements.contains(element)) break;
+                Map<String, String> attributes = distinguishingParts.getAttributes(i);
+                for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext();) {
+                    String attribute = it.next();
+                    if (!isDistinguishing(type, element, attribute) && !skipList.contains(attribute)) {
+                        result.put(attribute, attributes.get(attribute));
                     }
                 }
             }
+            //         }
             return result;
         }
     }
@@ -3365,22 +3371,124 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         return extraPaths;
     }
 
-    //    private static Set<String> ROOT_COUNT_OTHER = null;
-    //    private Set<String> getRootCountOther() {
-    //        if (ROOT_COUNT_OTHER == null) {
-    //            Set<String> temp = new HashSet<String>();
-    //            Factory cldrFactory = Factory.make(CldrUtility.MAIN_DIRECTORY, ".*");
-    //            CLDRFile root = cldrFactory.make("root", true);
-    //            for (String path : root) {
-    //                if (path.contains("[@count=\"other\"]")) {
-    //                    temp.add(path);
-    //                }
-    //            }
-    //            //showStars(temp, "unitLength");
-    //            ROOT_COUNT_OTHER = Collections.unmodifiableSet(temp);
-    //        }
-    //        return ROOT_COUNT_OTHER;
-    //    }
+//    private static class RawExtraPathsGenerator implements Iterable<String> {
+//        private SupplementalDataInfo supplementalData;
+//        private Set<String> extraPaths=new HashSet<>();
+//
+//        public RawExtraPathsGenerator(SupplementalDataInfo sdi,String localeID) {
+//            this.supplementalData=sdi;
+//            // units
+//            PluralInfo plurals = supplementalData.getPlurals(PluralType.cardinal, localeID);
+//            if (plurals == null && DEBUG) {
+//                System.err.println("No " + PluralType.cardinal + "  plurals for " +localeID + " in " + supplementalData.getDirectory().getAbsolutePath());
+//            }
+//            Set<Count> pluralCounts = null;
+//            if (plurals != null) {
+//                pluralCounts = plurals.getCounts();
+//                if (pluralCounts.size() != 1) {
+//                    // we get all the root paths with count
+//                    addPluralCounts(extraPaths, pluralCounts, this);
+//                    //            addPluralCounts(toAddTo, pluralCounts, getRootCountOther());
+//                    if (false) {
+//                        showStars(localeID + " toAddTo", extraPaths);
+//                    }
+//                }
+//            }
+//            // dayPeriods
+//            String locale = localeID;
+//            DayPeriodInfo dayPeriods = supplementalData.getDayPeriods(locale);
+//
+//            for (String context : new String[] { "format", "stand-alone" }) {
+//                for (String width : new String[] { "narrow", "abbreviated", "wide" }) {
+//                    if (dayPeriods != null) {
+//                        Set<DayPeriod> items = new LinkedHashSet<DayPeriod>(dayPeriods.getPeriods());
+//                        for (DayPeriod dayPeriod : items) {
+//                            // ldml/dates/calendars/calendar[@type="gregorian"]/dayPeriods/dayPeriodContext[@type="format"]/dayPeriodWidth[@type="wide"]/dayPeriod[@type="am"]
+//                            extraPaths.add("//ldml/dates/calendars/calendar[@type=\"gregorian\"]/dayPeriods/" +
+//                                "dayPeriodContext[@type=\"" + context
+//                                + "\"]/dayPeriodWidth[@type=\"" + width
+//                                + "\"]/dayPeriod[@type=\"" + dayPeriod + "\"]");
+//                        }
+//                    }
+//                }
+//            }
+//
+//            // metazones
+//            Set<String> zones = supplementalData.getAllMetazones();
+//
+//            for (String zone : zones) {
+//                for (String width : new String[] { "long", "short" }) {
+//                    for (String type : new String[] { "generic", "standard", "daylight" }) {
+//                        extraPaths.add("//ldml/dates/timeZoneNames/metazone[@type=\"" + zone + "\"]/" + width + "/" + type);
+//                    }
+//                }
+//            }
+//
+//            // Individual zone overrides
+//            final String[] overrides = {
+//                "Pacific/Honolulu\"]/short/generic",
+//                "Pacific/Honolulu\"]/short/standard",
+//                "Pacific/Honolulu\"]/short/daylight",
+//                "Europe/Dublin\"]/long/daylight",
+//                "Europe/London\"]/long/daylight"
+//            };
+//            for (String override : overrides) {
+//                extraPaths.add("//ldml/dates/timeZoneNames/zone[@type=\"" + override);
+//            }
+//
+//            // Currencies
+//            Set<String> codes = supplementalData.getBcp47Keys().getAll("cu");
+//            for (String code : codes) {
+//                String currencyCode = code.toUpperCase();
+//                extraPaths.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/symbol");
+//                extraPaths.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/displayName");
+//                if (pluralCounts != null) {
+//                    for (Count count : pluralCounts) {
+//                        extraPaths.add("//ldml/numbers/currencies/currency[@type=\"" + currencyCode + "\"]/displayName[@count=\"" + count.toString() + "\"]");
+//                    }
+//                }
+//            }
+//        }
+//
+//        @Override
+//        public Iterator<String> iterator() {
+//            return Iterators.unmodifiableIterator(extraPaths.iterator());
+//        }
+//        
+//        private void addPluralCounts(Collection<String> toAddTo,
+//            final Set<Count> pluralCounts,
+//            Iterable<String> file) {
+//            for (String path : file) {
+//                String countAttr = "[@count=\"other\"]";
+//                int countPos = path.indexOf(countAttr);
+//                if (countPos < 0) {
+//                    continue;
+//                }
+//                String start = path.substring(0, countPos) + "[@count=\"";
+//                String end = path.substring(countPos + countAttr.length()) + "\"]";
+//                for (Count count : pluralCounts) {
+//                    if (count == Count.other) {
+//                        continue;
+//                    }
+//                    toAddTo.add(start + count + end);
+//                }
+//            }
+//        }
+//        
+//        private void showStars(String title, Iterable<String> source) {
+//            PathStarrer ps = new PathStarrer();
+//            Relation<String, String> stars = Relation.of(new TreeMap<String, Set<String>>(), TreeSet.class);
+//            for (String path : source) {
+//                String skeleton = ps.set(path);
+//                stars.put(skeleton, ps.getAttributesString("|"));
+//
+//            }
+//            System.out.println(title);
+//            for (Entry<String, Set<String>> s : stars.keyValuesSet()) {
+//                System.out.println("\t" + s.getKey() + "\t" + s.getValue());
+//            }
+//        }
+//    }
 
     private Collection<String> getRawExtraPathsPrivate(Collection<String> toAddTo) {
         SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());

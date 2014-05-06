@@ -132,17 +132,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%unitLengths" value="(long|short|narrow)"/>
 		<coverageVariable key="%unitsCommonMetric" value="(length-(centi|milli|kilo)?meter|mass-(kilo)?gram|temperature-celsius|speed-kilometer-per-hour|volume-liter)"/>
 		<coverageVariable key="%unitsCommonUS" value="(length-(inch|foot|yard|mile)|mass-(ounce|pound)|temperature-fahrenheit|speed-mile-per-hour)"/>
+		<coverageVariable key="%unitsEnglish" value="(length-fathom|length-furlong|mass-stone|volume-bushel)"/>
+		<coverageVariable key="%unitsNonEnglish" value="[a-z]++-(?!(furlong|fathom|stone|bushel))([a-z]++([-a-z]++)?)"/>
 		<coverageVariable key="%unitsOther" value="(length-(picometer|light-year)|pressure-(hectopascal|inch-hg|millibar)|acceleration-g-force|angle-(degree|minute|second)|area-(acre|hectare|square-(foot|kilometer|meter|mile))|power-(horsepower|kilowatt|watt)|speed-meter-per-second|volume-cubic-(mile|kilometer))"/>
 		<coverageVariable key="%variantTypes" value="([A-Z0-9]++)"/>
 		<coverageVariable key="%wideAbbr" value="(wide|abbreviated)"/>
 		<coverageVariable key="%wideNarrow" value="(wide|narrow)"/>
-		<coverageVariable key="%yesNo" value="(yes|no)"/>
-		<coverageVariable key="%unit" value="[-a-zA-Z0-9]++"/>
-		
-		<coverageVariable key="%notEnglish" value="(?!en)"/>
-		<coverageVariable key="%notScandinavian" value="(?!sv|nb|no)"/>
-
-		<coverageVariable key="%englishUnit" value="(length-fathom|length-furlong|mass-stone|volume-bushel)"/>
+		<coverageVariable key="%yesNo" value="(yes|no)"/>		
 		<!-- -->
 		<!-- Coverage levels begin here -->
 		<!-- -->
@@ -483,14 +479,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="characters/ellipsis[@type='%ellipsisTypes']"/>
 		<coverageLevel value="80" match="characters/moreInformation"/>
 		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='${Target-Plurals}']"/>
-
-		<coverageLevel inLanguage="%notEnglish" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%englishUnit']/unitPattern[@count='${Target-Plurals}']"/>
-		<coverageLevel inLanguage="%notEnglish" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%englishUnit']/displayName"/>
-		<coverageLevel inLanguage="%notEnglish" value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%englishUnit']/perUnitPattern"/>
-
-		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/unitPattern[@count='${Target-Plurals}']"/>
-		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/displayName"/>
-		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unit']/perUnitPattern"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsNonEnglish']/displayName"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsNonEnglish']/perUnitPattern"/>
+		<coverageLevel inLanguage="en" value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel inLanguage="en" value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/displayName"/>
+		<coverageLevel inLanguage="en" value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>
 				
 		<coverageLevel value="80" match="listPatterns/listPattern[@type='duration(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
@@ -537,5 +531,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/standard"/>
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/daylight"/>
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='%metazone100_stdonly']/long/standard"/>
+		<coverageLevel value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/displayName"/>
+		<coverageLevel value="100" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>
+
 	</coverageLevels>
 </supplementalData>

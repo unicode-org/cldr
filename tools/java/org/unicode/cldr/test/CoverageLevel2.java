@@ -72,10 +72,10 @@ public class CoverageLevel2 {
             // Modified the logic to handle the case where we want specific languages and specific territories.
             // Any match in language script or territory will succeed when multiple items are present.
             boolean lstOK = false;
-            if (ci.inLanguageSet == null && ci.inScriptSet == null && ci.inTerritorySet == null) {
+            if (ci.inLanguage == null && ci.inScriptSet == null && ci.inTerritorySet == null) {
                 lstOK = true;
-            } else if (ci.inLanguageSet != null
-                && ci.inLanguageSet.contains(localeSpecificInfo.targetLanguage)) {
+            } else if (ci.inLanguage != null
+                && ci.inLanguage.matcher(localeSpecificInfo.targetLanguage).matches()) {
                 lstOK = true;
             } else if (ci.inScriptSet != null
                 && CollectionUtilities.containsSome(ci.inScriptSet, localeSpecificInfo.cvi.targetScripts)) {

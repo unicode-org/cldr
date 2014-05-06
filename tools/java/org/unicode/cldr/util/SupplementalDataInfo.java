@@ -730,8 +730,7 @@ public class SupplementalDataInfo {
     public static class CoverageLevelInfo implements Comparable<CoverageLevelInfo> {
         public final String match;
         public final Level value;
-        public final String inLanguage;
-        public final Set<String> inLanguageSet;
+        public final Pattern inLanguage;
         public final String inScript;
         public final Set<String> inScriptSet;
         public final String inTerritory;
@@ -739,10 +738,9 @@ public class SupplementalDataInfo {
         private Set<String> inTerritorySetInternal;
 
         public CoverageLevelInfo(String match, int value, String language, String script, String territory) {
-            this.inLanguage = language;
+            this.inLanguage = language != null ? Pattern.compile(language) : null;
             this.inScript = script;
             this.inTerritory = territory;
-            this.inLanguageSet = toSet(language);
             this.inScriptSet = toSet(script);
             this.inTerritorySet = toSet(territory); // MUST BE LAST, sets inTerritorySetInternal
             this.match = match;
@@ -2326,8 +2324,7 @@ public class SupplementalDataInfo {
                 String pattern = ci.match.replace('\'', '"')
                     .replace("[@", "\\[@") // make sure that attributes are quoted
                     .replace("(", "(?:") // make sure that there are no capturing groups (beyond what we generate
-                // below).
-                ;
+                    .replace("(?:?!", "(?!"); // Allow negative lookahead
                 pattern = "^//ldml/" + pattern + "$"; // for now, force a complete match
                 String variableType = null;
                 variable.reset(pattern);
@@ -2408,7 +2405,7 @@ public class SupplementalDataInfo {
             }
             // Special logic added for coverage fields that are only to be applicable
             // to certain languages
-            if (ci.inLanguage != null && !targetLanguage.matches(ci.inLanguage)) {
+            if (ci.inLanguage != null && !ci.inLanguage.matcher(targetLanguage).matches()) {
                 continue;
             }
 

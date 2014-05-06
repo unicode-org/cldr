@@ -102,7 +102,7 @@ public class TestCLDRFile extends TestFmwk {
             cldrFile = cldrFactory.make(locale, true);
             for (String path : cldrFile.fullIterable()) {
                 Level level = sdi.getCoverageLevel(path, locale);
-                if (level.compareTo(Level.MODERN) > 0) {
+                if (level.compareTo(Level.COMPREHENSIVE) > 0) {
                     continue;
                 }
                 if (path.contains("[@count=") && !path.contains("[@count=\"other\"]")) {

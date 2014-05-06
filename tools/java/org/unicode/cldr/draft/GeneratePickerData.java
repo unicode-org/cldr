@@ -451,9 +451,9 @@ class GeneratePickerData {
         out.println("package org.unicode.cldr.draft.picker;");
         out.println("// $Date$");
         out.println("public class CharData {");
-        out.println("static String[][] CHARACTERS_TO_NAME = {");
+        out.println("public static String[][] CHARACTERS_TO_NAME = {");
         out.println(buildNames());
-        out.println("  };\n" + "  static String[][][] CATEGORIES = {");
+        out.println("  };\n" + "  public static String[][][] CATEGORIES = {");
 
         out.println(categoryTable);
         out.println("  };\n" + "}");

@@ -247,7 +247,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
           <ul class="nav navbar-nav">
             <li><a href="<%= survURL  %>?do=options" target="_blank"><span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Manage</a></li>
             
-            <li class="dropdown" id='title-coverage'>
+            <li class="dropdown" id='title-coverage' style='display:none'>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coverage: <span id="coverage-info"></span></a>
                       <ul class="dropdown-menu">
                       </ul>

@@ -152,6 +152,7 @@ function interceptLocale() {
 	
 }
 
+
 //sidebar constructor
 var cachedJson; //use a cache cause the coverage can change, so we might need to update the menu
 function unpackMenuSideBar(json) {
@@ -160,6 +161,8 @@ function unpackMenuSideBar(json) {
 	}
 	else {
 		var lName = json["_v"];
+		if(!cachedJson)
+			return;
 		json = cachedJson;
 		json.covlev_org = lName;
 	}
@@ -243,6 +246,7 @@ function unpackMenuSideBar(json) {
 	
 	if(surveyCurrentLocale) {
 		$('a[data-original-title="'+surveyCurrentLocale+'"]').click();
+		$('#title-coverage').show();
 	}
 }
 
@@ -497,4 +501,3 @@ function initFeedBack() {
 	});
 
 }
-

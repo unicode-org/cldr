@@ -9,7 +9,6 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.util.UnicodeMap;
@@ -42,7 +41,7 @@ public class RadicalStroke {
             Matcher iiCore = IICORE.matcher("");
             radStrokesToRadToRemainingStrokes = new TreeMap<Integer, Map<String, Map<Integer, UnicodeSet>>>();
             remainder = ScriptCategories.parseUnicodeSet("[:script=Han:]").removeAll(GeneratePickerData.SKIP);
-            String dataDir = CLDRPaths.UCD_DIRECTORY + "/Unihan/";
+            String dataDir = DraftUtils.UCD_DIRECTORY + "/Unihan/";
 
             BufferedReader in = new BufferedReader(
                 new FileReader(

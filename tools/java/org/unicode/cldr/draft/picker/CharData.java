@@ -1,7 +1,7 @@
 package org.unicode.cldr.draft.picker;
-// $Date: 2014-03-13 07:45:45 +0100 (Thu, 13 Mar 2014) $
+// $Date: 2014-05-06 08:50:45 -0700 (Tue, 06 May 2014) $
 public class CharData {
-static String[][] CHARACTERS_TO_NAME = {
+public static String[][] CHARACTERS_TO_NAME = {
 {" ","SPACE"},
 {"-","HYPHEN-MINUS"},
 {" ","NO-BREAK SPACE"},
@@ -354,7 +354,7 @@ static String[][] CHARACTERS_TO_NAME = {
 {"󠇯","VARIATION SELECTOR-256"},
 
   };
-  static String[][][] CATEGORIES = {
+  public static String[][][] CATEGORIES = {
 {{"Symbol"},
 /*116,6*/ {"Alchemical Symbols@Other ","A2j1dA"},
 /*387,87*/ {"Arrows","%=68k11I3706:%M%G7AnTMm6e6HDk%`O728F1f4V1PNF2WF1G}58?]514M]Ol1%2l2Q%W06gQ01U:1Un2Mb>$0M"},

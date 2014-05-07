@@ -2210,7 +2210,9 @@ select.menutop-active {
 }
 
 /* visible menu, please.  */
-select.menutop-other {
+select.menutop-other,
+select.menutop-active
+ {
 	background-color: white;
 	color: black !important;
 	font-weight: normal !important;

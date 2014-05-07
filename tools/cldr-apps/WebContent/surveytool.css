@@ -2209,8 +2209,11 @@ select.menutop-active {
 	margin: 0;
 }
 
+/* visible menu, please.  */
 select.menutop-other {
-	
+	background-color: white;
+	color: black !important;
+	font-weight: normal !important;
 }
 
 #sectionmenu {

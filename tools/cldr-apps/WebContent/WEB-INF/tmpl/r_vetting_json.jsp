@@ -32,7 +32,7 @@ if(subCtx.userId() == UserRegistry.NO_USER) {
 	VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
 	boolean forceRestart = subCtx.hasField("VVFORCERESTART");
     StringBuffer sb = new StringBuffer();
-    VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx.getLocale(), sb, subCtx, subCtx.session);
+    VettingViewerQueue.getInstance().writeVettingViewerOutput(subCtx.getLocale(), sb, subCtx, subCtx.session, true);
     subCtx.println(sb.toString());
 }
 %>

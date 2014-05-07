@@ -171,6 +171,7 @@ function unpackMenuSideBar(json) {
 	var menuRoot = $('#locale-menu');
 	var level = 0;
 	var levels = json.menus.levels;
+	var reports = json.reports;
 	
 	//get the level number
 	$.each(levels, function(index, element) {
@@ -179,8 +180,14 @@ function unpackMenuSideBar(json) {
 	});
 	
 	var html = '<ul>';
-	if(!isVisitor)
-		html += '<li class="list-unstyled" id="review-link"><div>Dashboard<span class="pull-right glyphicon glyphicon-home" style="position:relative;top:2px;right:3px;"></span></div></li>';
+	if(!isVisitor) {
+		html += '<li class="list-unstyled open-menu"><div>Reports<span class="pull-right glyphicon glyphicon-chevron-right"></span></div><ul class="second-level">';
+		$.each(reports,function(index,element){
+			html += '<li class="list-unstyled review-link" data-query="'+element.hasQuery+'" data-url="'+element.url+'"><div>'+element.display+'</div></li>';
+		});
+		html += '</ul></li>';
+	
+	}
 	html += '<li class="list-unstyled" id="forum-link"><div>Forum<span class="pull-right glyphicon glyphicon-comment" style="position:relative;top:2px;right:3px;"></span></div></li>';
 	html += '</ul>';
 	
@@ -231,11 +238,19 @@ function unpackMenuSideBar(json) {
 	});
 	
 	//review link 
-	$('#review-link').click(function() {
-		window.surveyCurrentSpecial = 'r_vetting_json';
-		reloadV();
+	$('.review-link').click(function() {
 		$('#left-sidebar').removeClass('active');
 		toggleOverlay();
+		$('#OtherSection').hide();
+		if($(this).data('query')) {
+            window.location= survURL+'?'+$(this).data('url')+'&_=' + surveyCurrentLocale;
+		}
+		else {
+			window.surveyCurrentSpecial = $(this).data('url');
+			surveyCurrentId = '';
+			surveyCurrentPage = '';
+			reloadV();
+		}
 	});
 	
 	//forum link 
@@ -499,5 +514,50 @@ function initFeedBack() {
 		event.preventDefault();
 		return false;
 	});
+}
 
+
+function toggleRightPanel() {
+	var main = $('#main-row > .col-md-9');
+	if(!main.length) {
+		showRightPanel();
+	}
+	else {
+		hideRightPanel();
+	}
+}
+
+
+
+function showRightPanel() {
+	$('#main-row > .col-md-12').addClass('col-md-9').removeClass('col-md-12');
+	setTimeout(function(){$('#main-row #itemInfo').show();},400);
+}
+
+
+
+function hideRightPanel() {
+	$('#main-row > .col-md-9').addClass('col-md-12').removeClass('col-md-9');
+	$('#main-row #itemInfo').hide();
+}
+
+
+
+function toggleHeader() {
+	if($('.menu-position:visible').length)
+		hideHeader();
+	else
+		showHeader();
+}
+
+
+
+function showHeader() {
+	$('#main-row').css('padding-top','147px');
+	$('.menu-position').show();
+}
+
+function hideHeader() {
+	$('#main-row').css('padding-top','100px');
+	$('.menu-position').hide();
 }

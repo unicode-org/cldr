@@ -735,7 +735,26 @@ public class SurveyAjax extends HttpServlet {
                             CLDRLocale locale = CLDRLocale.getInstance(loc);
                             r.put("loc", loc);
                             r.put("menus", menus.toJSON(locale));
-                        }
+                            
+                            //add the report menu
+                            JSONArray reports = new JSONArray();
+                            for (SurveyMain.ReportMenu m : SurveyMain.ReportMenu.values()) {
+                                JSONObject report = new JSONObject();
+                                
+                                if(m.hasQuery()) {
+                                     report.put("url", m.urlQuery());
+                                     report.put("hasQuery", true);
+                                } else {
+                                     report.put("url", m.urlStub());
+                                     report.put("hasQuery", false);
+                                }
+                                
+                                report.put("display", m.display());
+                                reports.put(report);
+                            }
+                            
+                            r.put("reports", reports);                
+                        }   
 
                         if ("true".equals(request.getParameter("locmap"))) {
                             r.put("locmap", getJSONLocMap(sm));

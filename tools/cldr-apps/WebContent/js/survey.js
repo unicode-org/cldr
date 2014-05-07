@@ -2038,6 +2038,7 @@ dojo.ready(function() {
 			else {
 				removeAllChildNodes(pucontent);
 				pucontent.appendChild(td);
+				showRightPanel();
 			}
 		}
 		else {
@@ -6546,6 +6547,7 @@ function changeStyle(hideRegex) {
                 } else {
                     if (theStyle.display != 'table-row') {
                         theStyle.display = 'table-row';
+
                     }
                 }
             }

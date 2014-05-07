@@ -965,6 +965,10 @@ fieldset[disabled] .btn-primary.active {
 	
 }
 
+#main-row > div {
+	transition:width 0.3s ease;
+}
+
 /* media queries */
 @media (max-width: 1390px) {
 	

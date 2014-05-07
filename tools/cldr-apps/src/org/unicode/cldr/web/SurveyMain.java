@@ -140,8 +140,9 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static final String REPORT_PREFIX = "r_";
 
     private static final String R_STEPS = REPORT_PREFIX + "steps";
-    public static final String R_VETTING = REPORT_PREFIX + "vetting_json";
-
+    public static final String R_VETTING = REPORT_PREFIX + "vetting";
+    public static final String R_VETTING_JSON = REPORT_PREFIX + "vetting_json";
+    
     public static final String SURVEYMAIN_REVISION = "SurveyMain.java $Revision$";
 
     //private static final String CLDR_BULK_DIR = "CLDR_BULK_DIR";
@@ -201,7 +202,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     };
 
     public enum ReportMenu {
-        PRIORITY_ITEMS("Priority Items", SurveyMain.R_VETTING),
+        PRIORITY_ITEMS("Dashboard", SurveyMain.R_VETTING_JSON),
         PRIORITY_ITEMS_QUICK("Priority Items (Quick)", SurveyMain.R_VETTING, "quick=true"),
         DATE_TIME("Date/Time", "r_datetime", "calendar=gregorian"),
         ZONES("Zones", "r_zones"),

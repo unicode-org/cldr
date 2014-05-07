@@ -298,7 +298,6 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
         </div>
       </div>
 </div>
-
 <div id="left-sidebar">
 	<div id="content-sidebar">
 		<div id="locale-info">
@@ -404,5 +403,6 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
     </div>
   </div>
 </div>
+
 </body>
 </html>

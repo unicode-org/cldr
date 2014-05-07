@@ -676,7 +676,7 @@ public class VettingViewerQueue {
     }
 
     
-    public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess) {
+    public void writeVettingViewerOutput(CLDRLocale locale, StringBuffer aBuffer, WebContext ctx, CookieSession sess, boolean rJson) {
         String baseUrl = "http://example.com";
         Level usersLevel;
         Organization usersOrg;
@@ -692,11 +692,11 @@ public class VettingViewerQueue {
         }
         usersOrg = VoteResolver.Organization.fromString(sess.user.voterOrg());
         
-        writeVettingViewerOutput(locale, baseUrl, aBuffer, usersOrg, usersLevel, sess.user, ctx.hasField("quick"), ctx);
+        writeVettingViewerOutput(locale, baseUrl, aBuffer, usersOrg, usersLevel, sess.user, ctx.hasField("quick"), ctx, rJson);
     }
 
     public void writeVettingViewerOutput(CLDRLocale locale, String baseUrl, StringBuffer aBuffer,
-        VoteResolver.Organization usersOrg, Level usersLevel, UserRegistry.User user, boolean quick, WebContext ctx) {
+        VoteResolver.Organization usersOrg, Level usersLevel, UserRegistry.User user, boolean quick, WebContext ctx,boolean rJson) {
         final String st_org = user.org;
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
@@ -715,10 +715,12 @@ public class VettingViewerQueue {
         }
 
         if (locale != SUMMARY_LOCALE) {
-            //vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
-            Relation file = vv.generateFileInfoReview(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
-            this.getJSONReview(aBuffer, sm.getSTFactory().make(locale.getBaseName(), true), sm.getOldFactory().make(locale.getBaseName(), true), file, choiceSet, locale.getBaseName(), true, quick, ctx);
-        
+            if(rJson) {
+                Relation file = vv.generateFileInfoReview(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
+                this.getJSONReview(aBuffer, sm.getSTFactory().make(locale.getBaseName(), true), sm.getOldFactory().make(locale.getBaseName(), true), file, choiceSet, locale.getBaseName(), true, quick, ctx);
+            } 
+            else
+                vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);            
         } else {
             if (DEBUG)
                 System.err.println("Starting summary gen..");

@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.Vector;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,11 +20,14 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.ListCellRenderer;
+import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
+import javax.swing.event.ListDataListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import org.apache.xerces.dom.NotationImpl;
 import org.unicode.cldr.draft.CharacterListCompressor.Interval;
 import org.unicode.cldr.draft.PickerData;
 import org.unicode.cldr.util.CLDRFile;
@@ -88,7 +92,34 @@ public class PickerApp implements ListSelectionListener {
 		//				JLabel l = new JLabel("s+rl");
 		//				j.getContentPane().add(l);
 		frame.setLayout(new GridLayout(3, 1));
-		catList = new JList<String>(PickerData.getCategories());
+		ListModel<String> model = new ListModel<String>() {
+	        final List<String> categories = PickerData.CATEGORIES;
+
+            @Override
+            public int getSize() {
+                // TODO Auto-generated method stub
+                return categories.size();
+            }
+
+            @Override
+            public String getElementAt(int index) {
+                // TODO Auto-generated method stub
+                return categories.get(index);
+            }
+
+            @Override
+            public void addListDataListener(ListDataListener l) {
+                // never changes
+                //throw new InternalError("foo");
+            }
+
+            @Override
+            public void removeListDataListener(ListDataListener l) {
+               // throw new InternalError("foo");
+            }
+		    
+		};
+		catList = new JList<String>(model);
 		catList.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		catList.addListSelectionListener(this);
 		
@@ -134,7 +165,7 @@ public class PickerApp implements ListSelectionListener {
 			List<Interval> chars = PickerData.getStringArray(catList.getSelectedIndex(), grpList.getSelectedIndex());
 			Vector<String> stringVector  =new Vector<String>();
 			for(Interval interval : chars) {
-				for(int i=interval.getFirst();i<=interval.getLast();i++) {
+				for(int i=interval.first();i<=interval.last();i++) {
 					stringVector.add(UCharacter.toString(i));
 				}
 			}

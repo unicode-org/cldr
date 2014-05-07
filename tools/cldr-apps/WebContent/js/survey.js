@@ -5585,6 +5585,8 @@ function showV() {
 										return;
 									} else {
 										unpackMenuSideBar(json);
+										if(surveyCurrentSpecial && isReport(surveyCurrentSpecial))
+											reloadV();
 										console.log('Server set  covlev successfully.');
 									}
 								});
@@ -5594,8 +5596,8 @@ function showV() {
 							updateHashAndMenus(false); // TODO: why? Maybe to show an item?
 							$('#coverage-info').text(newValue.ucFirst());
 							$(this).parents('.dropdown-menu').dropdown('toggle');
+							
 							return false;
-
 						});
 						// TODO have to move this out of the DOM..
 						/*var covMenu = flipper.get(pages.data).covMenu = new Select({name: "menu-select", 

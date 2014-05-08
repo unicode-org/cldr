@@ -57,6 +57,7 @@ function showReviewPage(json) {
 	var hidden = json.hidden;
 	var menuDom = $(document.createElement('ul')).addClass('nav nav-pills nav-stacked affix menu-review');
 	var direction = json.direction;
+	var lastVersion = surveyVersion - 1;
 	//populate menu
 	var activeMenu = true;
 	$.each(menuData, function(index, element){
@@ -83,7 +84,7 @@ function showReviewPage(json) {
 		if(element != 'null')
 		$.each(element, function(index, element) {
 			html += '<h3 class="collapse-review"><span id="'+index+'"></span><span class="glyphicon glyphicon-chevron-down chevron"></span>'+index.replace('_',' ')+' (<span class="remaining-count">0</span>/<span class="total-count"></span>)<label class="pull-right show-items"><button class="tip btn btn-default" data-toggle="button" title="Show hidden lines"><span class="glyphicon glyphicon-eye-open"></span></button></label></h3>';
-			html += '<div class="table-wrapper" data-type="'+index+'"><table class="table table-responsive table-fixed-header table-review"><thead><tr><th>Code</th><th>English</th><th dir="'+direction+'">CLDR 24</th><th dir="'+direction+'">Winning 25</th><th dir="'+direction+'">Action</th></tr></thead><tbody>';
+			html += '<div class="table-wrapper" data-type="'+index+'"><table class="table table-responsive table-fixed-header table-review"><thead><tr><th>Code</th><th>English</th><th dir="'+direction+'">CLDR '+lastVersion+'</th><th dir="'+direction+'">Winning '+surveyVersion+'</th><th dir="'+direction+'">Action</th></tr></thead><tbody>';
 			
 			$.each(element, function(index, element) {
 				//body

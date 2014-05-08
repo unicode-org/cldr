@@ -57,7 +57,6 @@ function showReviewPage(json) {
 	var hidden = json.hidden;
 	var menuDom = $(document.createElement('ul')).addClass('nav nav-pills nav-stacked affix menu-review');
 	var direction = json.direction;
-	
 	//populate menu
 	var activeMenu = true;
 	$.each(menuData, function(index, element){

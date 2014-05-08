@@ -563,9 +563,9 @@ public class VettingViewerQueue {
             };
             
             Relation<Row.R4<Choice,SectionId, PageId, String>, WritingInfo> notificationsList = Relation.of(
-                new TreeMap<Row.R4<Choice,SectionId, PageId, String>, Set<WritingInfo>>(comparator), TreeSet.class);            
+                new TreeMap<Row.R4<Choice,SectionId, PageId, String>, Set<WritingInfo>>(), TreeSet.class);            
             
-
+ 
             //TODO we can prob do it in only one loop, but with that we can sort
             for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
                 final Set<WritingInfo> rows = entry0.getValue();
@@ -576,6 +576,8 @@ public class VettingViewerQueue {
                     for(Choice choice : choicesForPath) {
                         //reviewInfo
                         notificationsList.put(Row.of(choice, section, subsection, pathInfo.codeOutput.getHeader()), pathInfo);
+                        
+                        
                     }
                 }
                 
@@ -661,6 +663,7 @@ public class VettingViewerQueue {
                         }
                         header.put(headerName, allContent);
                         
+            
             }
             reviewInfo.put("allNotifications", allNotifications);
             

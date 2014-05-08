@@ -40,19 +40,20 @@ public class CheckForCopy extends FactoryCheckCLDR {
             "|intervalFormatItem" +
             "|exemplarCharacters\\[@type=\"(currencySymbol|index)\"]" +
             "|scientificFormat" +
-            "|timeZoneNames/(hourFormat|gmtFormat)" +
+            "|timeZoneNames/(hourFormat|gmtFormat|gmtZeroFormat)" +
             "|dayPeriod" +
-            "|(monthWidth|dayWidth)\\[@type=\"(narrow|abbreviated)\"]" +
+            "|(monthWidth|dayWidth|quarterWidth)\\[@type=\"(narrow|abbreviated)\"]" +
             "|exemplarCity" +
             "|localeDisplayNames/(scripts|territories)" +
             "|currency\\[@type=\"[A-Z]+\"]/symbol" +
-            "|commonlyUsed" +
             "|pattern" +
             "|field\\[@type=\"dayperiod\"]" +
             "|defaultNumberingSystem" +
             "|otherNumberingSystems" +
             "|exemplarCharacters" +
+            "|durationUnitPattern" +
             "|unitLength\\[@type=\"(short|narrow)\"\\]/unit\\[@type=\"[^\"]++\"\\]/unitPattern\\[@count=\"[^\"]++\"\\]" +
+            "|unitLength\\[@type=\"(short|narrow)\"\\]/unit\\[@type=\"[^\"]++\"\\]/perUnitPattern" +
             ")", true)
         .add("^//ldml/dates/calendars/calendar\\[@type=\"gregorian\"]", false)
         .add("^//ldml/dates/calendars/calendar", true);

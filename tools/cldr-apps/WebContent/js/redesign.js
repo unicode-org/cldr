@@ -310,11 +310,9 @@ function toggleOverlay(){
  * hide both the 
  */
 function hideOverlayAndSidebar(){
-	var overlay = $('#overlay');
 	var sidebar = $('#left-sidebar');
-	overlay.removeClass('active');
 	sidebar.removeClass('active');
-	toToggleOverlay = false; //?	
+	toggleOverlay();
 }
 
 //show the help popup in the center of the screen 

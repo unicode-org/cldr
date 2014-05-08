@@ -34,6 +34,7 @@ define({
 		htmlbaseline: "$BASELINE_LANGUAGE_NAME",
 		htmlproposed: "Winning",
 		htmlothers: "Others",
+		htmltoadd: "Add",
 		htmlchange: "Change",
 		htmlnoopinion: "Abstain",
 

@@ -2220,7 +2220,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	}
 	if(json&&!parseStatusAction(json.statusAction).vote) {
 		ourDiv.className = "d-item-err";
-		var input = $(inTd).find('.input-add');
+		var input = $(inTd).closest('tr').find('.input-add');
 		if(input) {
 			input.closest('.form-group').addClass('has-error');
 			input.popover('destroy').popover({placement:'bottom',html:true, content:testsToHtml(tests),trigger:'hover'}).popover('show');
@@ -2559,7 +2559,6 @@ function updateRow(tr, theRow) {
 				var item = tr.rawValueToItem[value]; // backlink to specific item in hash
 				if(item==null) continue;
 				var vdiv = createChunk(null, "table", "voteInfo_perValue table table-vote");
-				console.log(n);
 				if(n > 2)
 					var valdiv = createChunk(null, "div", "value-div");
 				else
@@ -3005,9 +3004,14 @@ function updateRow(tr, theRow) {
 	} else {
 		tr.myProposal=null; // not needed
 	}
-	if(isDashboard())
+	if(isDashboard()) {
 		children[config.othercell].appendChild(document.createElement('hr'));
-	children[config.othercell].appendChild(formAdd);//add button	
+		children[config.othercell].appendChild(formAdd);//add button	
+	}
+	else {
+		removeAllChildNodes(children[config.addcell]);
+		children[config.addcell].appendChild(formAdd);//add button	
+	}
 
 	if(canModify) {
 		removeAllChildNodes(children[config.nocell]); // no opinion
@@ -3894,7 +3898,6 @@ function showV() {
 				return false;
 			} else if(json.err_code) {
 				var msg_fmt = formatErrMsg(json, subkey);
-				console.log(msg_fmt);
 				var loadingChunk;
 				flipper.flipTo(pages.loading, loadingChunk = createChunk(msg_fmt, "p", "errCodeMsg"));
 				var retryButton = createChunk(stui.str("loading_reload"),"button");

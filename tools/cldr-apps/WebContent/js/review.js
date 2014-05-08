@@ -396,7 +396,6 @@ function checkLineFix() {
 				var html = '<tr class="info">'+info.html()+'</tr>'+newLine.wrap('<div>').parent().html()+'<tr class="empty"><td colspan="7"></td></tr>';
 				var toInsert = $('div[data-type='+element+'] > table > tbody');
 				toInsert.prepend(html);
-				console.log(html);
 			}
 		}
 	});

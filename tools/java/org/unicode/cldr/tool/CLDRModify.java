@@ -1095,6 +1095,32 @@ public class CLDRModify {
             }
         });
 
+        fixList.add('n', "add unit displayName", new CLDRFilter() {
+            @Override
+            public void handlePath(String xpath) {
+                if (xpath.indexOf("/units/unitLength[@type=\"long\"]") < 0 || xpath.indexOf("/unitPattern[@count=\"other\"]") < 0 ||
+                        xpath.indexOf("[@draft=\"unconfirmed\"]") >= 0) {
+                    return;
+                }
+                String value = cldrFileToFilter.getStringValue(xpath);
+                String newValue = null;
+                if (value.startsWith("{0}")) {
+                    newValue = value.substring(3).trim();
+                } else if (value.endsWith("{0}")) {
+                    newValue = value.substring(0, value.length()-3).trim();
+                } else {
+                    System.out.println("unitPattern-other does not start or end with \"{0}\": \"" + value + "\"");
+                    return;
+                }
+                
+                String oldFullXPath = cldrFileToFilter.getFullXPath(xpath);
+                String newFullXPath = oldFullXPath.substring(0,oldFullXPath.indexOf("unitPattern")).concat("displayName[@draft=\"provisional\"]");
+                add(newFullXPath, newValue, "create unit displayName-long from unitPattern-long-other");
+                String newFullXPathShort = newFullXPath.replace("[@type=\"long\"]", "[@type=\"short\"]");
+                add(newFullXPathShort, newValue, "create unit displayName-short from unitPattern-long-other");
+            }
+        });
+
         fixList.add('x', "retain paths", new CLDRFilter() {
             Matcher m = null;
 

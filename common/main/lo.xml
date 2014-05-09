@@ -3912,6 +3912,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>ກາລີນິງກາດສ</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>ຊີມເຟໂລໂປ</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>ມອດສໂກ</exemplarCity>
 			</zone>
@@ -4082,9 +4085,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>ເຄຍ</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>ຊີມເຟໂລໂປ</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>ຊາໂປໂລຊີ</exemplarCity>
@@ -6185,141 +6185,187 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0} ຕໍ່ {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ແຮງຈີ</displayName>
 				<unitPattern count="other">{0} ແຮງຈີ</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">ນາທີ</displayName>
 				<unitPattern count="other">{0} ນາທີ</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">ວິນາທີ</displayName>
 				<unitPattern count="other">{0} ວິນາທີ</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">ອົງສາ</displayName>
 				<unitPattern count="other">{0} ອົງສາ</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ເອເຄີ</displayName>
 				<unitPattern count="other">{0} ເອເຄີ</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ເຮັກຕາ</displayName>
 				<unitPattern count="other">{0} ເຮັກຕາ</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">ft²</displayName>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">ກິໂລຕາແມັດ</displayName>
 				<unitPattern count="other">{0} ກິໂລຕາແມັດ</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">ຕາແມັດ</displayName>
 				<unitPattern count="other">{0} ຕາແມັດ</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">ຕາໄມ</displayName>
 				<unitPattern count="other">{0} ຕາໄມ</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ມື້</displayName>
 				<unitPattern count="other">{0} ມື້</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ຊົ່ວໂມງ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">ມິນລີວິນາທີ</displayName>
 				<unitPattern count="other">{0} ມິນລີວິນາທີ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">ນາທີ</displayName>
 				<unitPattern count="other">{0} ນາທີ</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ເດືອນ</displayName>
 				<unitPattern count="other">{0} ເດືອນ</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">ວິນາທີ</displayName>
 				<unitPattern count="other">{0} ວິນາທີ</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">ອາທິດ</displayName>
 				<unitPattern count="other">{0} ອາທິດ</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">ປີ</displayName>
 				<unitPattern count="other">{0} ປີ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">ຊັງຕີແມັດ</displayName>
 				<unitPattern count="other">{0} ຊັງຕີແມັດ</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ຟຸດ</displayName>
 				<unitPattern count="other">{0} ຟຸດ</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">ນິ້ວ</displayName>
 				<unitPattern count="other">{0} ນິ້ວ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">ກິໂລແມັດ</displayName>
 				<unitPattern count="other">{0} ກິໂລແມັດ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">ປີແສງ</displayName>
 				<unitPattern count="other">{0} ປີແສງ</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">ແມັດ</displayName>
 				<unitPattern count="other">{0} ແມັດ</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">ໄມ</displayName>
 				<unitPattern count="other">{0} ໄມ</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">ມິນລິແມັດ</displayName>
 				<unitPattern count="other">{0} ມິນລິແມັດ</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">ປິໂກແມັດ</displayName>
 				<unitPattern count="other">{0} ປິໂກແມັດ</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ຫລາ</displayName>
 				<unitPattern count="other">{0} ຫລາ</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">ກຣາມ</displayName>
 				<unitPattern count="other">{0} ກຣາມ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">ກິໂລກຣາມ</displayName>
 				<unitPattern count="other">{0} ກິໂລກຣາມ</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">ອອນ</displayName>
 				<unitPattern count="other">{0} ອອນ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ປອນ</displayName>
 				<unitPattern count="other">{0} ປອນ</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ແຮງມ້າ</displayName>
 				<unitPattern count="other">{0} ແຮງມ້າ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">ກິໂລວັດ</displayName>
 				<unitPattern count="other">{0} ກິໂລວັດ</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ວັດ</displayName>
 				<unitPattern count="other">{0} ວັດ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">hPa</displayName>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">inHg</displayName>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">ມິນລິບາ</displayName>
 				<unitPattern count="other">{0} ມິນລິບາ</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">ກິໂລແມັດຕໍ່ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ກິໂລແມັດຕໍ່ຊົ່ວໂມງ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">ແມັດຕໍ່ນາທີ</displayName>
 				<unitPattern count="other">{0} ແມັດຕໍ່ນາທີ</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">ໄມຕໍ່ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ໄມຕໍ່ຊົ່ວໂມງ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">ອົງສາເຊວຊຽສ</displayName>
 				<unitPattern count="other">{0} ອົງສາເຊວຊຽສ</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">ອົງສາຟາເຣນຮາຍ</displayName>
 				<unitPattern count="other">{0} ອົງສາຟາເຣນຮາຍ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">ກິໂລແມັດກ້ອນ</displayName>
 				<unitPattern count="other">{0} ກິໂລແມັດກ້ອນ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">ໄມກ້ອນ</displayName>
 				<unitPattern count="other">{0} ໄມກ້ອນ</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">ລິດ</displayName>
 				<unitPattern count="other">{0} ລິດ</unitPattern>
 			</unit>
 		</unitLength>
@@ -6328,141 +6374,187 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ແຮງຈີ</displayName>
 				<unitPattern count="other">{0} g force</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">ນາທີ</displayName>
 				<unitPattern count="other">{0} ນທ.</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">ວິນາທີ</displayName>
 				<unitPattern count="other">{0} ວິ.</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">ອົງສາ</displayName>
 				<unitPattern count="other">{0} ອົງສາ</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ເອເຄີ</displayName>
 				<unitPattern count="other">{0} ເອເຄີ</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ເຮັກຕາ</displayName>
 				<unitPattern count="other">{0} ຮຕ.</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">ft²</displayName>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">ກິໂລຕາແມັດ</displayName>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">ຕາແມັດ</displayName>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">ຕາໄມ</displayName>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ມື້</displayName>
 				<unitPattern count="other">{0} ມື້</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ຊມ.</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">ມິນລີວິນາທີ</displayName>
 				<unitPattern count="other">{0} ມລ ວິນາທີ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">ນາທີ</displayName>
 				<unitPattern count="other">{0} ນທ.</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ເດືອນ</displayName>
 				<unitPattern count="other">{0} ດ.</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">ວິນາທີ</displayName>
 				<unitPattern count="other">{0} ວິ.</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">ອາທິດ</displayName>
 				<unitPattern count="other">{0} ອທ.</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">ປີ</displayName>
 				<unitPattern count="other">{0} ປີ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">ຊັງຕີແມັດ</displayName>
 				<unitPattern count="other">{0} ຊມ</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ຟຸດ</displayName>
 				<unitPattern count="other">{0} ຟ</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">ນິ້ວ</displayName>
 				<unitPattern count="other">{0} ນິ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">ກິໂລແມັດ</displayName>
 				<unitPattern count="other">{0} ກມ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">ປີແສງ</displayName>
 				<unitPattern count="other">{0} ປສ</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">ແມັດ</displayName>
 				<unitPattern count="other">{0} ມ</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">ໄມ</displayName>
 				<unitPattern count="other">{0} ໄມ</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">ມິນລິແມັດ</displayName>
 				<unitPattern count="other">{0} ມິນ</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">ປິໂກແມັດ</displayName>
 				<unitPattern count="other">{0} ປກມ</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ຫລາ</displayName>
 				<unitPattern count="other">{0} ຫລາ</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">ກຣາມ</displayName>
 				<unitPattern count="other">{0} ກຼ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">ກິໂລກຣາມ</displayName>
 				<unitPattern count="other">{0} ກິໂລ</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">ອອນ</displayName>
 				<unitPattern count="other">{0} ອ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ປອນ</displayName>
 				<unitPattern count="other">{0} ປ</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ແຮງມ້າ</displayName>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">ກິໂລວັດ</displayName>
 				<unitPattern count="other">{0} ກລ. ວັດ</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ວັດ</displayName>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">hPa</displayName>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">inHg</displayName>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">ມິນລິບາ</displayName>
 				<unitPattern count="other">{0} ມິນ. ບາ</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">ກິໂລແມັດຕໍ່ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ກມ/ຊມ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">ແມັດຕໍ່ນາທີ</displayName>
 				<unitPattern count="other">{0} ມ/ນທ</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">ໄມຕໍ່ຊົ່ວໂມງ</displayName>
 				<unitPattern count="other">{0} ໄມ/ຊມ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">ອົງສາເຊວຊຽສ</displayName>
 				<unitPattern count="other">{0} ອົງສາ ຊີ.</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">ອົງສາຟາເຣນຮາຍ</displayName>
 				<unitPattern count="other">{0} ອົງສາ ຟ.</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">ກິໂລແມັດກ້ອນ</displayName>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">ໄມກ້ອນ</displayName>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">ລິດ</displayName>
 				<unitPattern count="other">{0} ລິດ</unitPattern>
 			</unit>
 		</unitLength>

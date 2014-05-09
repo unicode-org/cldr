@@ -2950,6 +2950,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Kaliningradas</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Simferopolis</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Maskva</exemplarCity>
 			</zone>
@@ -3111,9 +3114,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kijevas</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopolis</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporožė</exemplarCity>
@@ -6407,276 +6407,322 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0} per {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">laisvojo kritimo pagreičių</displayName>
 				<unitPattern count="one">{0} laisvojo kritimo pagreitis</unitPattern>
 				<unitPattern count="few">{0} laisvojo kritimo pagreičiai</unitPattern>
 				<unitPattern count="many">{0} laisvojo kritimo pagreičio</unitPattern>
 				<unitPattern count="other">{0} laisvojo kritimo pagreičių</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">kampo minučių</displayName>
 				<unitPattern count="one">{0} kampo minutė</unitPattern>
 				<unitPattern count="few">{0} kampo minutės</unitPattern>
 				<unitPattern count="many">{0} kampo minutės</unitPattern>
 				<unitPattern count="other">{0} kampo minučių</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">kampo sekundžių</displayName>
 				<unitPattern count="one">{0} kampo sekundė</unitPattern>
 				<unitPattern count="few">{0} kampo sekundės</unitPattern>
 				<unitPattern count="many">{0} kampo sekundės</unitPattern>
 				<unitPattern count="other">{0} kampo sekundžių</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">laipsnių</displayName>
 				<unitPattern count="one">{0} laipsnis</unitPattern>
 				<unitPattern count="few">{0} laipsniai</unitPattern>
 				<unitPattern count="many">{0} laipsnio</unitPattern>
 				<unitPattern count="other">{0} laipsnių</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">akrų</displayName>
 				<unitPattern count="one">{0} akras</unitPattern>
 				<unitPattern count="few">{0} akrai</unitPattern>
 				<unitPattern count="many">{0} akro</unitPattern>
 				<unitPattern count="other">{0} akrų</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">hektarų</displayName>
 				<unitPattern count="one">{0} hektaras</unitPattern>
 				<unitPattern count="few">{0} hektarai</unitPattern>
 				<unitPattern count="many">{0} hektaro</unitPattern>
 				<unitPattern count="other">{0} hektarų</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">kvadratinių pėdų</displayName>
 				<unitPattern count="one">{0} kvadratinė pėda</unitPattern>
 				<unitPattern count="few">{0} kvadratinės pėdos</unitPattern>
 				<unitPattern count="many">{0} kvadratinės pėdos</unitPattern>
 				<unitPattern count="other">{0} kvadratinių pėdų</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">kvadratinių kilometrų</displayName>
 				<unitPattern count="one">{0} kvadratinis kilometras</unitPattern>
 				<unitPattern count="few">{0} kvadratiniai kilometrai</unitPattern>
 				<unitPattern count="many">{0} kvadratinio kilometro</unitPattern>
 				<unitPattern count="other">{0} kvadratinių kilometrų</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">kvadratinių metrų</displayName>
 				<unitPattern count="one">{0} kvadratinis metras</unitPattern>
 				<unitPattern count="few">{0} kvadratiniai metrai</unitPattern>
 				<unitPattern count="many">{0} kvadratinio metro</unitPattern>
 				<unitPattern count="other">{0} kvadratinių metrų</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">kvadratinių mylių</displayName>
 				<unitPattern count="one">{0} kvadratinė mylia</unitPattern>
 				<unitPattern count="few">{0} kvadratinės mylios</unitPattern>
 				<unitPattern count="many">{0} kvadratinės mylios</unitPattern>
 				<unitPattern count="other">{0} kvadratinių mylių</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">dienų</displayName>
 				<unitPattern count="one">{0} diena</unitPattern>
 				<unitPattern count="few">{0} dienos</unitPattern>
 				<unitPattern count="many">{0} dienos</unitPattern>
 				<unitPattern count="other">{0} dienų</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">valandų</displayName>
 				<unitPattern count="one">{0} valanda</unitPattern>
 				<unitPattern count="few">{0} valandos</unitPattern>
 				<unitPattern count="many">{0} valandos</unitPattern>
 				<unitPattern count="other">{0} valandų</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">milisekundzių</displayName>
 				<unitPattern count="one">{0} milisekundė</unitPattern>
 				<unitPattern count="few">{0} milisekundės</unitPattern>
 				<unitPattern count="many">{0} milisekundės</unitPattern>
 				<unitPattern count="other">{0} milisekundzių</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">minučių</displayName>
 				<unitPattern count="one">{0} minutė</unitPattern>
 				<unitPattern count="few">{0} minutės</unitPattern>
 				<unitPattern count="many">{0} minutės</unitPattern>
 				<unitPattern count="other">{0} minučių</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">mėnesių</displayName>
 				<unitPattern count="one">{0} mėnuo</unitPattern>
 				<unitPattern count="few">{0} mėnesiai</unitPattern>
 				<unitPattern count="many">{0} mėnesio</unitPattern>
 				<unitPattern count="other">{0} mėnesių</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">sekundžių</displayName>
 				<unitPattern count="one">{0} sekundė</unitPattern>
 				<unitPattern count="few">{0} sekundės</unitPattern>
 				<unitPattern count="many">{0} sekundės</unitPattern>
 				<unitPattern count="other">{0} sekundžių</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">savaičių</displayName>
 				<unitPattern count="one">{0} savaitė</unitPattern>
 				<unitPattern count="few">{0} savaitės</unitPattern>
 				<unitPattern count="many">{0} savaitės</unitPattern>
 				<unitPattern count="other">{0} savaičių</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">metų</displayName>
 				<unitPattern count="one">{0} metai</unitPattern>
 				<unitPattern count="few">{0} metai</unitPattern>
 				<unitPattern count="many">{0} metų</unitPattern>
 				<unitPattern count="other">{0} metų</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">centimetrų</displayName>
 				<unitPattern count="one">{0} centimetras</unitPattern>
 				<unitPattern count="few">{0} centimetrai</unitPattern>
 				<unitPattern count="many">{0} centimetro</unitPattern>
 				<unitPattern count="other">{0} centimetrų</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">pėdų</displayName>
 				<unitPattern count="one">{0} pėda</unitPattern>
 				<unitPattern count="few">{0} pėdos</unitPattern>
 				<unitPattern count="many">{0} pėdos</unitPattern>
 				<unitPattern count="other">{0} pėdų</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">colių</displayName>
 				<unitPattern count="one">{0} colis</unitPattern>
 				<unitPattern count="few">{0} coliai</unitPattern>
 				<unitPattern count="many">{0} colio</unitPattern>
 				<unitPattern count="other">{0} colių</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">kilometrų</displayName>
 				<unitPattern count="one">{0} kilometras</unitPattern>
 				<unitPattern count="few">{0} kilometrai</unitPattern>
 				<unitPattern count="many">{0} kilometro</unitPattern>
 				<unitPattern count="other">{0} kilometrų</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">šviesmečių</displayName>
 				<unitPattern count="one">{0} šviesmetis</unitPattern>
 				<unitPattern count="few">{0} šviesmečiai</unitPattern>
 				<unitPattern count="many">{0} šviesmečio</unitPattern>
 				<unitPattern count="other">{0} šviesmečių</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">metrų</displayName>
 				<unitPattern count="one">{0} metras</unitPattern>
 				<unitPattern count="few">{0} metrai</unitPattern>
 				<unitPattern count="many">{0} metro</unitPattern>
 				<unitPattern count="other">{0} metrų</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">mylių</displayName>
 				<unitPattern count="one">{0} mylia</unitPattern>
 				<unitPattern count="few">{0} mylios</unitPattern>
 				<unitPattern count="many">{0} mylios</unitPattern>
 				<unitPattern count="other">{0} mylių</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">milimetrų</displayName>
 				<unitPattern count="one">{0} milimetras</unitPattern>
 				<unitPattern count="few">{0} milimetrai</unitPattern>
 				<unitPattern count="many">{0} milimetro</unitPattern>
 				<unitPattern count="other">{0} milimetrų</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">pikometrų</displayName>
 				<unitPattern count="one">{0} pikometras</unitPattern>
 				<unitPattern count="few">{0} pikometrai</unitPattern>
 				<unitPattern count="many">{0} pikometro</unitPattern>
 				<unitPattern count="other">{0} pikometrų</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">jardų</displayName>
 				<unitPattern count="one">{0} jardas</unitPattern>
 				<unitPattern count="few">{0} jardai</unitPattern>
 				<unitPattern count="many">{0} jardo</unitPattern>
 				<unitPattern count="other">{0} jardų</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">gramų</displayName>
 				<unitPattern count="one">{0} gramas</unitPattern>
 				<unitPattern count="few">{0} gramai</unitPattern>
 				<unitPattern count="many">{0} gramo</unitPattern>
 				<unitPattern count="other">{0} gramų</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">kilogramų</displayName>
 				<unitPattern count="one">{0} kilogramas</unitPattern>
 				<unitPattern count="few">{0} kilogramai</unitPattern>
 				<unitPattern count="many">{0} kilogramo</unitPattern>
 				<unitPattern count="other">{0} kilogramų</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">uncijų</displayName>
 				<unitPattern count="one">{0} uncija</unitPattern>
 				<unitPattern count="few">{0} uncijos</unitPattern>
 				<unitPattern count="many">{0} uncijos</unitPattern>
 				<unitPattern count="other">{0} uncijų</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">svarų</displayName>
 				<unitPattern count="one">{0} svaras</unitPattern>
 				<unitPattern count="few">{0} svarai</unitPattern>
 				<unitPattern count="many">{0} svaro</unitPattern>
 				<unitPattern count="other">{0} svarų</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">arklio galių</displayName>
 				<unitPattern count="one">{0} arklio galia</unitPattern>
 				<unitPattern count="few">{0} arklio galios</unitPattern>
 				<unitPattern count="many">{0} arklio galios</unitPattern>
 				<unitPattern count="other">{0} arklio galių</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">kilovatų</displayName>
 				<unitPattern count="one">{0} kilovatas</unitPattern>
 				<unitPattern count="few">{0} kilovatai</unitPattern>
 				<unitPattern count="many">{0} kilovato</unitPattern>
 				<unitPattern count="other">{0} kilovatų</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">vatų</displayName>
 				<unitPattern count="one">{0} vatas</unitPattern>
 				<unitPattern count="few">{0} vatai</unitPattern>
 				<unitPattern count="many">{0} vato</unitPattern>
 				<unitPattern count="other">{0} vatų</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">hektopaskalių</displayName>
 				<unitPattern count="one">{0} hektopaskalis</unitPattern>
 				<unitPattern count="few">{0} hektopaskaliai</unitPattern>
 				<unitPattern count="many">{0} hektopaskalio</unitPattern>
 				<unitPattern count="other">{0} hektopaskalių</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">gyvsidabrio stulpelio colių</displayName>
 				<unitPattern count="one">{0} gyvsidabrio stulpelio colis</unitPattern>
 				<unitPattern count="few">{0} gyvsidabrio stulpelio coliai</unitPattern>
 				<unitPattern count="many">{0} gyvsidabrio stulpelio colio</unitPattern>
 				<unitPattern count="other">{0} gyvsidabrio stulpelio colių</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">milibarų</displayName>
 				<unitPattern count="one">{0} milibaras</unitPattern>
 				<unitPattern count="few">{0} milibarai</unitPattern>
 				<unitPattern count="many">{0} milibaro</unitPattern>
 				<unitPattern count="other">{0} milibarų</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">kilometrų per valandą</displayName>
 				<unitPattern count="one">{0} kilometras per valandą</unitPattern>
 				<unitPattern count="few">{0} kilometrai per valandą</unitPattern>
 				<unitPattern count="many">{0} kilometro per valandą</unitPattern>
 				<unitPattern count="other">{0} kilometrų per valandą</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">metrų per sekundę</displayName>
 				<unitPattern count="one">{0} metras per sekundę</unitPattern>
 				<unitPattern count="few">{0} metrai per sekundę</unitPattern>
 				<unitPattern count="many">{0} metro per sekundę</unitPattern>
 				<unitPattern count="other">{0} metrų per sekundę</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">mylių per valandą</displayName>
 				<unitPattern count="one">{0} mylia per valandą</unitPattern>
 				<unitPattern count="few">{0} mylios per valandą</unitPattern>
 				<unitPattern count="many">{0} mylios per valandą</unitPattern>
 				<unitPattern count="other">{0} mylių per valandą</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">Celsijaus laipsnių</displayName>
 				<unitPattern count="one">{0} Celsijaus laipsnis</unitPattern>
 				<unitPattern count="few">{0} Celsijaus laipsniai</unitPattern>
 				<unitPattern count="many">{0} Celsijaus laipsnio</unitPattern>
 				<unitPattern count="other">{0} Celsijaus laipsnių</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">Farenheito laipsnių</displayName>
 				<unitPattern count="one">{0} Farenheito laipsnis</unitPattern>
 				<unitPattern count="few">{0} Farenheito laipsniai</unitPattern>
 				<unitPattern count="many">{0} Farenheito laipsnio</unitPattern>
 				<unitPattern count="other">{0} Farenheito laipsnių</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">kubinių kilometrų</displayName>
 				<unitPattern count="one">{0} kubinis kilometras</unitPattern>
 				<unitPattern count="few">{0} kubiniai kilimetrai</unitPattern>
 				<unitPattern count="many">{0} kubinio kilometro</unitPattern>
 				<unitPattern count="other">{0} kubinių kilometrų</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">kubinių mylių</displayName>
 				<unitPattern count="one">{0} kubinė mylia</unitPattern>
 				<unitPattern count="few">{0} kubinės mylios</unitPattern>
 				<unitPattern count="many">{0} kubinės mylios</unitPattern>
 				<unitPattern count="other">{0} kubinių mylių</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">litrų</displayName>
 				<unitPattern count="one">{0} litras</unitPattern>
 				<unitPattern count="few">{0} litrai</unitPattern>
 				<unitPattern count="many">{0} litro</unitPattern>
@@ -6688,276 +6734,322 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">laisvojo kritimo pagreičių</displayName>
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="few">{0} G</unitPattern>
 				<unitPattern count="many">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">kampo minučių</displayName>
 				<unitPattern count="one">{0}′</unitPattern>
 				<unitPattern count="few">{0}′</unitPattern>
 				<unitPattern count="many">{0}′</unitPattern>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">kampo sekundžių</displayName>
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="few">{0}″</unitPattern>
 				<unitPattern count="many">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">laipsnių</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="few">{0}°</unitPattern>
 				<unitPattern count="many">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">akrų</displayName>
 				<unitPattern count="one">{0} akras</unitPattern>
 				<unitPattern count="few">{0} akrai</unitPattern>
 				<unitPattern count="many">{0} akro</unitPattern>
 				<unitPattern count="other">{0} akrų</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">hektarų</displayName>
 				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="few">{0} ha</unitPattern>
 				<unitPattern count="many">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">kvadratinių pėdų</displayName>
 				<unitPattern count="one">{0} kv. pėda</unitPattern>
 				<unitPattern count="few">{0} kv. pėdos</unitPattern>
 				<unitPattern count="many">{0} kv. pėdos</unitPattern>
 				<unitPattern count="other">{0} kv. pėdų</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">kvadratinių kilometrų</displayName>
 				<unitPattern count="one">{0} kv. km</unitPattern>
 				<unitPattern count="few">{0} kv. km</unitPattern>
 				<unitPattern count="many">{0} kv. km</unitPattern>
 				<unitPattern count="other">{0} kv. km</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">kvadratinių metrų</displayName>
 				<unitPattern count="one">{0} kv. m</unitPattern>
 				<unitPattern count="few">{0} kv. m</unitPattern>
 				<unitPattern count="many">{0} kv. m</unitPattern>
 				<unitPattern count="other">{0} kv. m</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">kvadratinių mylių</displayName>
 				<unitPattern count="one">{0} kv. my</unitPattern>
 				<unitPattern count="few">{0} kv. my</unitPattern>
 				<unitPattern count="many">{0} kv. my</unitPattern>
 				<unitPattern count="other">{0} kv. my</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">dienų</displayName>
 				<unitPattern count="one">{0} d.</unitPattern>
 				<unitPattern count="few">{0} d.</unitPattern>
 				<unitPattern count="many">{0} d.</unitPattern>
 				<unitPattern count="other">{0} d.</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">valandų</displayName>
 				<unitPattern count="one">{0} val.</unitPattern>
 				<unitPattern count="few">{0} val.</unitPattern>
 				<unitPattern count="many">{0} val.</unitPattern>
 				<unitPattern count="other">{0} val.</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">milisekundzių</displayName>
 				<unitPattern count="one">{0} ms</unitPattern>
 				<unitPattern count="few">{0} ms</unitPattern>
 				<unitPattern count="many">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">minučių</displayName>
 				<unitPattern count="one">{0} min.</unitPattern>
 				<unitPattern count="few">{0} min.</unitPattern>
 				<unitPattern count="many">{0} min.</unitPattern>
 				<unitPattern count="other">{0} min.</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">mėnesių</displayName>
 				<unitPattern count="one">{0} mėn.</unitPattern>
 				<unitPattern count="few">{0} mėn.</unitPattern>
 				<unitPattern count="many">{0} mėn.</unitPattern>
 				<unitPattern count="other">{0} mėn.</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">sekundžių</displayName>
 				<unitPattern count="one">{0} sek.</unitPattern>
 				<unitPattern count="few">{0} sek.</unitPattern>
 				<unitPattern count="many">{0} sek.</unitPattern>
 				<unitPattern count="other">{0} sek.</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">savaičių</displayName>
 				<unitPattern count="one">{0} sav.</unitPattern>
 				<unitPattern count="few">{0} sav.</unitPattern>
 				<unitPattern count="many">{0} sav.</unitPattern>
 				<unitPattern count="other">{0} sav.</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">metų</displayName>
 				<unitPattern count="one">{0} m.</unitPattern>
 				<unitPattern count="few">{0} m.</unitPattern>
 				<unitPattern count="many">{0} m.</unitPattern>
 				<unitPattern count="other">{0} m.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">centimetrų</displayName>
 				<unitPattern count="one">{0} cm</unitPattern>
 				<unitPattern count="few">{0} cm</unitPattern>
 				<unitPattern count="many">{0} cm</unitPattern>
 				<unitPattern count="other">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">pėdų</displayName>
 				<unitPattern count="one">{0} ft</unitPattern>
 				<unitPattern count="few">{0} ft</unitPattern>
 				<unitPattern count="many">{0} ft</unitPattern>
 				<unitPattern count="other">{0} ft</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">colių</displayName>
 				<unitPattern count="one">{0} in</unitPattern>
 				<unitPattern count="few">{0} in</unitPattern>
 				<unitPattern count="many">{0} in</unitPattern>
 				<unitPattern count="other">{0} in</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">kilometrų</displayName>
 				<unitPattern count="one">{0} km</unitPattern>
 				<unitPattern count="few">{0} km</unitPattern>
 				<unitPattern count="many">{0} km</unitPattern>
 				<unitPattern count="other">{0} km</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">šviesmečių</displayName>
 				<unitPattern count="one">{0} šm.</unitPattern>
 				<unitPattern count="few">{0} šm.</unitPattern>
 				<unitPattern count="many">{0} šm.</unitPattern>
 				<unitPattern count="other">{0} šm.</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">metrų</displayName>
 				<unitPattern count="one">{0} m</unitPattern>
 				<unitPattern count="few">{0} m</unitPattern>
 				<unitPattern count="many">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">mylių</displayName>
 				<unitPattern count="one">{0} my</unitPattern>
 				<unitPattern count="few">{0} my</unitPattern>
 				<unitPattern count="many">{0} my</unitPattern>
 				<unitPattern count="other">{0} my</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">milimetrų</displayName>
 				<unitPattern count="one">{0} mm</unitPattern>
 				<unitPattern count="few">{0} mm</unitPattern>
 				<unitPattern count="many">{0} mm</unitPattern>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">pikometrų</displayName>
 				<unitPattern count="one">{0} pm</unitPattern>
 				<unitPattern count="few">{0} pm</unitPattern>
 				<unitPattern count="many">{0} pm</unitPattern>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">jardų</displayName>
 				<unitPattern count="one">{0} yd</unitPattern>
 				<unitPattern count="few">{0} yd</unitPattern>
 				<unitPattern count="many">{0} yd</unitPattern>
 				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">gramų</displayName>
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="few">{0} g</unitPattern>
 				<unitPattern count="many">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">kilogramų</displayName>
 				<unitPattern count="one">{0} kg</unitPattern>
 				<unitPattern count="few">{0} kg</unitPattern>
 				<unitPattern count="many">{0} kg</unitPattern>
 				<unitPattern count="other">{0} kg</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">uncijų</displayName>
 				<unitPattern count="one">{0} oz</unitPattern>
 				<unitPattern count="few">{0} oz</unitPattern>
 				<unitPattern count="many">{0} oz</unitPattern>
 				<unitPattern count="other">{0} oz</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">svarų</displayName>
 				<unitPattern count="one">{0} lb</unitPattern>
 				<unitPattern count="few">{0} lb</unitPattern>
 				<unitPattern count="many">{0} lb</unitPattern>
 				<unitPattern count="other">{0} lb</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">arklio galių</displayName>
 				<unitPattern count="one">{0} AG</unitPattern>
 				<unitPattern count="few">{0} AG</unitPattern>
 				<unitPattern count="many">{0} AG</unitPattern>
 				<unitPattern count="other">{0} AG</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">kilovatų</displayName>
 				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="few">{0} kW</unitPattern>
 				<unitPattern count="many">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">vatų</displayName>
 				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="few">{0} W</unitPattern>
 				<unitPattern count="many">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">hektopaskalių</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="few">{0} hPa</unitPattern>
 				<unitPattern count="many">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">gyvsidabrio stulpelio colių</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="few">{0} inHg</unitPattern>
 				<unitPattern count="many">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">milibarų</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="few">{0} mbar</unitPattern>
 				<unitPattern count="many">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">kilometrų per valandą</displayName>
 				<unitPattern count="one">{0} km/val.</unitPattern>
 				<unitPattern count="few">{0} km/val.</unitPattern>
 				<unitPattern count="many">{0} km/val.</unitPattern>
 				<unitPattern count="other">{0} km/val.</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">metrų per sekundę</displayName>
 				<unitPattern count="one">{0} m/sek.</unitPattern>
 				<unitPattern count="few">{0} m/sek.</unitPattern>
 				<unitPattern count="many">{0} m/sek.</unitPattern>
 				<unitPattern count="other">{0} m/sek.</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">mylių per valandą</displayName>
 				<unitPattern count="one">{0} my/val.</unitPattern>
 				<unitPattern count="few">{0} my/val.</unitPattern>
 				<unitPattern count="many">{0} my/val.</unitPattern>
 				<unitPattern count="other">{0} my/val.</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">Celsijaus laipsnių</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="few">{0}°C</unitPattern>
 				<unitPattern count="many">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">Farenheito laipsnių</displayName>
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="few">{0}°F</unitPattern>
 				<unitPattern count="many">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">kubinių kilometrų</displayName>
 				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="few">{0} km³</unitPattern>
 				<unitPattern count="many">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">kubinių mylių</displayName>
 				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="few">{0} mi³</unitPattern>
 				<unitPattern count="many">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">litrų</displayName>
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="few">{0} l</unitPattern>
 				<unitPattern count="many">{0} l</unitPattern>

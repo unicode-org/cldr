@@ -515,10 +515,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="duration-second">
+				<displayName draft="provisional">秒</displayName>
 				<unitPattern count="other" draft="contributed">{0}秒</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="duration-second">
+				<displayName draft="provisional">秒</displayName>
+			</unit>
 			<unit type="length-centimeter">
 				<unitPattern count="other" draft="contributed">{0}厘米</unitPattern>
 			</unit>

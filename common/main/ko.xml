@@ -1216,6 +1216,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</calendar>
 			<calendar type="chinese">
 				<cyclicNameSets>
+					<cyclicNameSet type="solarTerms">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">입춘</cyclicName>
+								<cyclicName type="2">우수</cyclicName>
+								<cyclicName type="3">경칩</cyclicName>
+								<cyclicName type="4">춘분</cyclicName>
+								<cyclicName type="5">청명</cyclicName>
+								<cyclicName type="6">곡우</cyclicName>
+								<cyclicName type="7">입하</cyclicName>
+								<cyclicName type="8">소만</cyclicName>
+								<cyclicName type="9">망종</cyclicName>
+								<cyclicName type="10">하지</cyclicName>
+								<cyclicName type="11">소서</cyclicName>
+								<cyclicName type="12">대서</cyclicName>
+								<cyclicName type="13">입추</cyclicName>
+								<cyclicName type="14">처서</cyclicName>
+								<cyclicName type="15">백로</cyclicName>
+								<cyclicName type="16">추분</cyclicName>
+								<cyclicName type="17">한로</cyclicName>
+								<cyclicName type="18">상강</cyclicName>
+								<cyclicName type="19">입동</cyclicName>
+								<cyclicName type="20">소설</cyclicName>
+								<cyclicName type="21">대설</cyclicName>
+								<cyclicName type="22">동지</cyclicName>
+								<cyclicName type="23">소한</cyclicName>
+								<cyclicName type="24">대한</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
 					<cyclicNameSet type="years">
 						<cyclicNameContext type="format">
 							<cyclicNameWidth type="abbreviated">
@@ -1279,36 +1309,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 								<cyclicName type="58">신유</cyclicName>
 								<cyclicName type="59">임술</cyclicName>
 								<cyclicName type="60">계해</cyclicName>
-							</cyclicNameWidth>
-						</cyclicNameContext>
-					</cyclicNameSet>
-					<cyclicNameSet type="solarTerms">
-						<cyclicNameContext type="format">
-							<cyclicNameWidth type="abbreviated">
-								<cyclicName type="1">입춘</cyclicName>
-								<cyclicName type="2">우수</cyclicName>
-								<cyclicName type="3">경칩</cyclicName>
-								<cyclicName type="4">춘분</cyclicName>
-								<cyclicName type="5">청명</cyclicName>
-								<cyclicName type="6">곡우</cyclicName>
-								<cyclicName type="7">입하</cyclicName>
-								<cyclicName type="8">소만</cyclicName>
-								<cyclicName type="9">망종</cyclicName>
-								<cyclicName type="10">하지</cyclicName>
-								<cyclicName type="11">소서</cyclicName>
-								<cyclicName type="12">대서</cyclicName>
-								<cyclicName type="13">입추</cyclicName>
-								<cyclicName type="14">처서</cyclicName>
-								<cyclicName type="15">백로</cyclicName>
-								<cyclicName type="16">추분</cyclicName>
-								<cyclicName type="17">한로</cyclicName>
-								<cyclicName type="18">상강</cyclicName>
-								<cyclicName type="19">입동</cyclicName>
-								<cyclicName type="20">소설</cyclicName>
-								<cyclicName type="21">대설</cyclicName>
-								<cyclicName type="22">동지</cyclicName>
-								<cyclicName type="23">소한</cyclicName>
-								<cyclicName type="24">대한</cyclicName>
 							</cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
@@ -3609,6 +3609,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>칼리닌그라드</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>심페로폴</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>모스크바</exemplarCity>
 			</zone>
@@ -3779,9 +3782,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>키예프</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>심페로폴</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>자포로지예</exemplarCity>
@@ -5852,117 +5852,155 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{1}당 {0}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">중력가속도</displayName>
 				<unitPattern count="other">{0}중력가속도</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">분</displayName>
 				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">초</displayName>
 				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">도</displayName>
 				<unitPattern count="other" draft="contributed">{0}도</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">에이커</displayName>
 				<unitPattern count="other">{0}에이커</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">헥타르</displayName>
 				<unitPattern count="other">{0}헥타르</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">제곱피트</displayName>
 				<unitPattern count="other">{0}제곱피트</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">제곱킬로미터</displayName>
 				<unitPattern count="other">{0}제곱킬로미터</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">제곱미터</displayName>
 				<unitPattern count="other">{0}제곱미터</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">제곱마일</displayName>
 				<unitPattern count="other">{0}제곱마일</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">일</displayName>
 				<unitPattern count="other" draft="contributed">{0}일</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">시간</displayName>
 				<unitPattern count="other" draft="contributed">{0}시간</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">밀리초</displayName>
 				<unitPattern count="other" draft="contributed">{0}밀리초</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">분</displayName>
 				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">개월</displayName>
 				<unitPattern count="other" draft="contributed">{0}개월</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">초</displayName>
 				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">주</displayName>
 				<unitPattern count="other" draft="contributed">{0}주</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">년</displayName>
 				<unitPattern count="other">{0}년</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">센티미터</displayName>
 				<unitPattern count="other">{0}센티미터</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">피트</displayName>
 				<unitPattern count="other" draft="contributed">{0}피트</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">인치</displayName>
 				<unitPattern count="other" draft="contributed">{0}인치</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">킬로미터</displayName>
 				<unitPattern count="other">{0}킬로미터</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">광년</displayName>
 				<unitPattern count="other">{0}광년</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">미터</displayName>
 				<unitPattern count="other" draft="contributed">{0}미터</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">마일</displayName>
 				<unitPattern count="other" draft="contributed">{0}마일</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">밀리미터</displayName>
 				<unitPattern count="other">{0}밀리미터</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">피코미터</displayName>
 				<unitPattern count="other">{0}피코미터</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">야드</displayName>
 				<unitPattern count="other" draft="contributed">{0}야드</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">그램</displayName>
 				<unitPattern count="other" draft="contributed">{0}그램</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">킬로그램</displayName>
 				<unitPattern count="other">{0}킬로그램</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">온스</displayName>
 				<unitPattern count="other" draft="contributed">{0}온스</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">파운드</displayName>
 				<unitPattern count="other" draft="contributed">{0}파운드</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">마력</displayName>
 				<unitPattern count="other" draft="contributed">{0}마력</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">킬로와트</displayName>
 				<unitPattern count="other">{0}킬로와트</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">와트</displayName>
 				<unitPattern count="other" draft="contributed">{0}와트</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">헥토파스칼</displayName>
 				<unitPattern count="other">{0}헥토파스칼</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">수은주인치</displayName>
 				<unitPattern count="other">{0}수은주인치</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">밀리바</displayName>
 				<unitPattern count="other">{0}밀리바</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -5981,12 +6019,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">화씨 {0}도</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">세제곱킬로미터</displayName>
 				<unitPattern count="other">{0}세제곱킬로미터</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">세제곱마일</displayName>
 				<unitPattern count="other">{0}세제곱마일</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">리터</displayName>
 				<unitPattern count="other" draft="contributed">{0}리터</unitPattern>
 			</unit>
 		</unitLength>
@@ -5995,117 +6036,155 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">중력가속도</displayName>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">분</displayName>
 				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">초</displayName>
 				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">도</displayName>
 				<unitPattern count="other" draft="contributed">{0}도</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">에이커</displayName>
 				<unitPattern count="other" draft="contributed">{0}ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">헥타르</displayName>
 				<unitPattern count="other" draft="contributed">{0}ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">제곱피트</displayName>
 				<unitPattern count="other" draft="contributed">{0}ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">제곱킬로미터</displayName>
 				<unitPattern count="other" draft="contributed">{0}km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">제곱미터</displayName>
 				<unitPattern count="other" draft="contributed">{0}m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">제곱마일</displayName>
 				<unitPattern count="other" draft="contributed">{0}mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">일</displayName>
 				<unitPattern count="other" draft="contributed">{0}일</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">시간</displayName>
 				<unitPattern count="other" draft="contributed">{0}시간</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">밀리초</displayName>
 				<unitPattern count="other">{0}ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">분</displayName>
 				<unitPattern count="other" draft="contributed">{0}분</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">개월</displayName>
 				<unitPattern count="other" draft="contributed">{0}개월</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">초</displayName>
 				<unitPattern count="other" draft="contributed">{0}초</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">주</displayName>
 				<unitPattern count="other" draft="contributed">{0}주</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">년</displayName>
 				<unitPattern count="other">{0}년</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">센티미터</displayName>
 				<unitPattern count="other" draft="contributed">{0}cm</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">피트</displayName>
 				<unitPattern count="other" draft="contributed">{0}ft</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">인치</displayName>
 				<unitPattern count="other" draft="contributed">{0}in</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">킬로미터</displayName>
 				<unitPattern count="other" draft="contributed">{0}km</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">광년</displayName>
 				<unitPattern count="other">{0}ly</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">미터</displayName>
 				<unitPattern count="other" draft="contributed">{0}m</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">마일</displayName>
 				<unitPattern count="other" draft="contributed">{0}mil</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">밀리미터</displayName>
 				<unitPattern count="other" draft="contributed">{0}mm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">피코미터</displayName>
 				<unitPattern count="other" draft="contributed">{0}pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">야드</displayName>
 				<unitPattern count="other" draft="contributed">{0}yd</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">그램</displayName>
 				<unitPattern count="other" draft="contributed">{0}g</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">킬로그램</displayName>
 				<unitPattern count="other" draft="contributed">{0}kg</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">온스</displayName>
 				<unitPattern count="other" draft="contributed">{0}oz</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">파운드</displayName>
 				<unitPattern count="other" draft="contributed">{0}lb</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">마력</displayName>
 				<unitPattern count="other" draft="contributed">{0}HP</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">킬로와트</displayName>
 				<unitPattern count="other" draft="contributed">{0}kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">와트</displayName>
 				<unitPattern count="other" draft="contributed">{0}W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">헥토파스칼</displayName>
 				<unitPattern count="other" draft="contributed">{0}hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">수은주인치</displayName>
 				<unitPattern count="other" draft="contributed">{0}inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">밀리바</displayName>
 				<unitPattern count="other" draft="contributed">{0}mb</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -6124,12 +6203,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">세제곱킬로미터</displayName>
 				<unitPattern count="other" draft="contributed">{0}km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">세제곱마일</displayName>
 				<unitPattern count="other" draft="contributed">{0}mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">리터</displayName>
 				<unitPattern count="other" draft="contributed">{0}L</unitPattern>
 			</unit>
 		</unitLength>

@@ -3247,6 +3247,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Kaliningrad</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Simferopol</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskva</exemplarCity>
 			</zone>
@@ -3417,9 +3420,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kijev</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Simferopol</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporožje</exemplarCity>
@@ -6444,231 +6444,277 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ge sila</displayName>
 				<unitPattern count="one" draft="contributed">{0} ge sila</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ge sila</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ge sila</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">minuta</displayName>
 				<unitPattern count="one" draft="contributed">{0} minut</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} minuta</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} minuta</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">sekundi</displayName>
 				<unitPattern count="one" draft="contributed">{0} sekunda</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} sekunde</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} sekundi</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">stepeni</displayName>
 				<unitPattern count="one" draft="contributed">{0} stepen</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} stepena</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} stepeni</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">akera</displayName>
 				<unitPattern count="one" draft="contributed">{0} aker</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} akera</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} akera</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">hektara</displayName>
 				<unitPattern count="one" draft="contributed">{0} hektar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} hektara</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hektara</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">kvadratnih stopa</displayName>
 				<unitPattern count="one" draft="contributed">{0} kvadratna stopa</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kvadratne stope</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kvadratnih stopa</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">kvadratnih kilometara</displayName>
 				<unitPattern count="one" draft="contributed">{0} kvadratni kilometar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kvadratna kilometra</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kvadratnih kilometara</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">kvadratnih metara</displayName>
 				<unitPattern count="one" draft="contributed">{0} kvadratni metar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kvadratna metra</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kvadratnih metara</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">kvadratnih milja</displayName>
 				<unitPattern count="one" draft="contributed">{0} kvadratna milja</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kvadratne milje</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kvadratnih milja</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">dana</displayName>
 				<unitPattern count="one">{0} dan</unitPattern>
 				<unitPattern count="few">{0} dana</unitPattern>
 				<unitPattern count="other">{0} dana</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">sati</displayName>
 				<unitPattern count="one">{0} sat</unitPattern>
 				<unitPattern count="few">{0} sata</unitPattern>
 				<unitPattern count="other">{0} sati</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">milisekundi</displayName>
 				<unitPattern count="one" draft="contributed">{0} milisekunda</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} milisekunde</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} milisekundi</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">minuta</displayName>
 				<unitPattern count="one">{0} minut</unitPattern>
 				<unitPattern count="few">{0} minuta</unitPattern>
 				<unitPattern count="other">{0} minuta</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">meseci</displayName>
 				<unitPattern count="one">{0} mesec</unitPattern>
 				<unitPattern count="few">{0} meseca</unitPattern>
 				<unitPattern count="other">{0} meseci</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">sekundi</displayName>
 				<unitPattern count="one">{0} sekunda</unitPattern>
 				<unitPattern count="few">{0} sekunde</unitPattern>
 				<unitPattern count="other">{0} sekundi</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">nedelja</displayName>
 				<unitPattern count="one">{0} nedelja</unitPattern>
 				<unitPattern count="few">{0} nedelje</unitPattern>
 				<unitPattern count="other">{0} nedelja</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">godina</displayName>
 				<unitPattern count="one">{0} godina</unitPattern>
 				<unitPattern count="few">{0} godine</unitPattern>
 				<unitPattern count="other">{0} godina</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">centimetara</displayName>
 				<unitPattern count="one" draft="contributed">{0} centimetar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} centimentra</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} centimetara</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">stopa</displayName>
 				<unitPattern count="one" draft="contributed">{0} stopa</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} stope</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} stopa</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">inča</displayName>
 				<unitPattern count="one" draft="contributed">{0} inč</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} inča</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} inča</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">kilometara</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilometar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kilometra</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilometara</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">svetlosnih godina</displayName>
 				<unitPattern count="one" draft="contributed">{0} svetlosna godina</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} svetlosne godine</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} svetlosnih godina</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">metara</displayName>
 				<unitPattern count="one" draft="contributed">{0} metar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} metra</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} metara</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">milja</displayName>
 				<unitPattern count="one" draft="contributed">{0} milja</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} milje</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} milja</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">milimetara</displayName>
 				<unitPattern count="one" draft="contributed">{0} milimetar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} milimetra</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} milimetara</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">pikometara</displayName>
 				<unitPattern count="one" draft="contributed">{0} pikometar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} pikometra</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pikometara</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">jardi</displayName>
 				<unitPattern count="one" draft="contributed">{0} jard</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} jarda</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} jardi</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">grama</displayName>
 				<unitPattern count="one" draft="contributed">{0} gram</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} grama</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} grama</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">kilograma</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilogram</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kilograma</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilograma</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">unci</displayName>
 				<unitPattern count="one" draft="contributed">{0} unca</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} unce</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} unci</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">funti</displayName>
 				<unitPattern count="one" draft="contributed">{0} funta</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} funte</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} funti</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">konjskih snaga</displayName>
 				<unitPattern count="one" draft="contributed">{0} konjska snaga</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} konjske snage</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} konjskih snaga</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">kilovati</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilovat</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kilovata</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilovati</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">vati</displayName>
 				<unitPattern count="one" draft="contributed">{0} vat</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} vata</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} vati</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">hektopaskala</displayName>
 				<unitPattern count="one" draft="contributed">{0} hektopaskal</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} hektopaskala</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hektopaskala</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">inča živinog stuba</displayName>
 				<unitPattern count="one" draft="contributed">{0} inč živinog stuba</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} inča živinog stuba</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} inča živinog stuba</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">milibara</displayName>
 				<unitPattern count="one" draft="contributed">{0} milibar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} milibara</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} milibara</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">kilometara na sat</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilometar na sat</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kilometra na sat</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilometara na sat</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">metara u sekundi</displayName>
 				<unitPattern count="one" draft="contributed">{0} metar u sekundi</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} metra u sekundi</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} metara u sekundi</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">milja na sat</displayName>
 				<unitPattern count="one" draft="contributed">{0} milja na sat</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} milje na sat</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} milja na sat</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">stepeni Celzijusa</displayName>
 				<unitPattern count="one" draft="contributed">{0} stepen Celzijusa</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} stepena Celzijusa</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} stepeni Celzijusa</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">stepeni Farenhajta</displayName>
 				<unitPattern count="one" draft="contributed">{0} stepen Farenhajta</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} stepena Farenhajta</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} stepeni Farenhajta</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">kubnih kilometara</displayName>
 				<unitPattern count="one" draft="contributed">{0} kubni kilometar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kubna kilometra</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kubnih kilometara</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">kubnih milja</displayName>
 				<unitPattern count="one" draft="contributed">{0} kubni milja</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kubne milje</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kubnih milja</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">litara</displayName>
 				<unitPattern count="one" draft="contributed">{0} litar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} litra</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} litara</unitPattern>
@@ -6679,231 +6725,277 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ge sila</displayName>
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">minuta</displayName>
 				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}′</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">sekundi</displayName>
 				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">stepeni</displayName>
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">akera</displayName>
 				<unitPattern count="one" draft="contributed">{0} ac</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ac</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">hektara</displayName>
 				<unitPattern count="one" draft="contributed">{0} ha</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ha</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">kvadratnih stopa</displayName>
 				<unitPattern count="one" draft="contributed">{0} ft²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ft²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">kvadratnih kilometara</displayName>
 				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} km²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">kvadratnih metara</displayName>
 				<unitPattern count="one" draft="contributed">{0} m²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} m²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">kvadratnih milja</displayName>
 				<unitPattern count="one" draft="contributed">{0} mi²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mi²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">dana</displayName>
 				<unitPattern count="one">{0} dan</unitPattern>
 				<unitPattern count="few">{0} dana</unitPattern>
 				<unitPattern count="other">{0} dana</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">sati</displayName>
 				<unitPattern count="one">{0} sat</unitPattern>
 				<unitPattern count="few">{0} sata</unitPattern>
 				<unitPattern count="other">{0} sati</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">milisekundi</displayName>
 				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ms</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">minuta</displayName>
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="few">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">meseci</displayName>
 				<unitPattern count="one">{0} mes</unitPattern>
 				<unitPattern count="few">{0} mes</unitPattern>
 				<unitPattern count="other">{0} mes</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">sekundi</displayName>
 				<unitPattern count="one">{0} sek</unitPattern>
 				<unitPattern count="few">{0} sek</unitPattern>
 				<unitPattern count="other">{0} sek</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">nedelja</displayName>
 				<unitPattern count="one">{0} ned</unitPattern>
 				<unitPattern count="few">{0} ned</unitPattern>
 				<unitPattern count="other">{0} ned</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">godina</displayName>
 				<unitPattern count="one">{0} god</unitPattern>
 				<unitPattern count="few">{0} god</unitPattern>
 				<unitPattern count="other">{0} god</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">centimetara</displayName>
 				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} cm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">stopa</displayName>
 				<unitPattern count="one" draft="contributed">{0} st</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} st</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} st</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">inča</displayName>
 				<unitPattern count="one" draft="contributed">{0} inč</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} inča</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} inča</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">kilometara</displayName>
 				<unitPattern count="one" draft="contributed">{0} km</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} km</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} km</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">svetlosnih godina</displayName>
 				<unitPattern count="one" draft="contributed">{0} sg</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} sg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} sg</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">metara</displayName>
 				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">milja</displayName>
 				<unitPattern count="one" draft="contributed">{0} milja</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} milje</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} milja</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">milimetara</displayName>
 				<unitPattern count="one" draft="contributed">{0} mm</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">pikometara</displayName>
 				<unitPattern count="one" draft="contributed">{0} pm</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} pm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">jardi</displayName>
 				<unitPattern count="one" draft="contributed">{0} jrd</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} jrd</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} jrd</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">grama</displayName>
 				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} g</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">kilograma</displayName>
 				<unitPattern count="one" draft="contributed">{0} kg</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kg</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">unci</displayName>
 				<unitPattern count="one" draft="contributed">{0} unca</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} unce</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} unci</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">funti</displayName>
 				<unitPattern count="one" draft="contributed">{0} lb</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} lb</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} lb</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">konjskih snaga</displayName>
 				<unitPattern count="one" draft="contributed">{0} ks</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ks</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ks</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">kilovati</displayName>
 				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} kW</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">vati</displayName>
 				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">hektopaskala</displayName>
 				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} hPa</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">inča živinog stuba</displayName>
 				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} inHg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">milibara</displayName>
 				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">kilometara na sat</displayName>
 				<unitPattern count="one" draft="contributed">{0} km/h</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} km/h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} km/h</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">metara u sekundi</displayName>
 				<unitPattern count="one" draft="contributed">{0} m/s</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} m/s</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">milja na sat</displayName>
 				<unitPattern count="one" draft="contributed">{0} mi/h</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mi/h</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">stepeni Celzijusa</displayName>
 				<unitPattern count="one" draft="contributed">{0}°C</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°C</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">stepeni Farenhajta</displayName>
 				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">kubnih kilometara</displayName>
 				<unitPattern count="one" draft="contributed">{0} km³</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} km³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">kubnih milja</displayName>
 				<unitPattern count="one" draft="contributed">{0} mi³</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} mi³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">litara</displayName>
 				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} l</unitPattern>

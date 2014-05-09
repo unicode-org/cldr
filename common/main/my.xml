@@ -2270,6 +2270,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>ခါလီနင်ဂရက်</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>စင်ဖာရိုးဖို</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>မော့စ်ကို</exemplarCity>
 			</zone>
@@ -2440,9 +2443,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>ခီးအက်ဖ်</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>စင်ဖာရိုးဖို</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>ဇာဖိုရိုးစ်ဂျာ</exemplarCity>
@@ -4267,117 +4267,154 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}လျှင်{1}နှုန်း</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ဆွဲငင်အား</displayName>
 				<unitPattern count="other">{0} ဆွဲငင်အား</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">မိနစ်</displayName>
 				<unitPattern count="other">{0}မိနစ်</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">စက္ကန့်</displayName>
 				<unitPattern count="other">{0}စက္ကန့်</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">ဒီဂရီ</displayName>
 				<unitPattern count="other">{0}ဒီဂရီ</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ဧက</displayName>
 				<unitPattern count="other">{0}ဧက</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ဟက်တာ</displayName>
 				<unitPattern count="other">{0} ဟက်တာ</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">စတုရန်းပေ</displayName>
 				<unitPattern count="other">{0}စတုရန်းပေ</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">စတုရန်းကီလိုမီတာ</displayName>
 				<unitPattern count="other">{0}စတုရန်းကီလိုမီတာ</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">စတုရန်းမီတာ</displayName>
 				<unitPattern count="other">{0}စတုရန်းမီတာ</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">စတုရန်းမိုင်</displayName>
 				<unitPattern count="other">{0}စတုရန်းမိုင်</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ရက်</displayName>
 				<unitPattern count="other">{0}ရက်</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">နာရီ</displayName>
 				<unitPattern count="other">{0}နာရီ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">မီလီစက္ကန့်</displayName>
 				<unitPattern count="other">{0}မီလီစက္ကန့်</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">မိနစ်</displayName>
 				<unitPattern count="other">{0} မိနစ်</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">လ</displayName>
 				<unitPattern count="other">{0}လ</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">စက္ကန့်</displayName>
 				<unitPattern count="other">{0} စက္ကန့်</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">ပတ်</displayName>
 				<unitPattern count="other">{0}ပတ်</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">နှစ်</displayName>
 				<unitPattern count="other">{0}နှစ်</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">စင်တီမီတာ</displayName>
 				<unitPattern count="other">{0} စင်တီမီတာ</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ပေ</displayName>
 				<unitPattern count="other">{0} ပေ</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">လက်မ</displayName>
 				<unitPattern count="other">{0} လက်မ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">ကီလိုမီတာ</displayName>
 				<unitPattern count="other">{0} ကီလိုမီတာ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">အလင်းနှစ်</displayName>
 				<unitPattern count="other">{0} အလင်းနှစ်</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">မီတာ</displayName>
 				<unitPattern count="other">{0}မီတာ</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">မိုင်</displayName>
 				<unitPattern count="other">{0} မိုင်</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">မီလီမီတာ</displayName>
 				<unitPattern count="other">{0} မီလီမီတာ</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">ပီကိုမီတာ</displayName>
 				<unitPattern count="other">{0} ပီကိုမီတာ</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ကိုက်</displayName>
 				<unitPattern count="other">{0} ကိုက်</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">ဂရမ်</displayName>
 				<unitPattern count="other">{0} ဂရမ်</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">ကီလိုဂရမ်</displayName>
 				<unitPattern count="other">{0}ကီလိုဂရမ်</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">အောင်စ</displayName>
 				<unitPattern count="other">{0}အောင်စ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ပေါင်</displayName>
 				<unitPattern count="other">{0}ပေါင်</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">မြင်ကောင်ရေအား</displayName>
 				<unitPattern count="other">{0}မြင်ကောင်ရေအား</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">ကီလိုဝပ်</displayName>
 				<unitPattern count="other">{0}ကီလိုဝပ်</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ဝပ်</displayName>
 				<unitPattern count="other">{0}ဝပ်</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ဟက်တိုပါစကယ်</displayName>
 				<unitPattern count="other">{0}ဟက်တိုပါစကယ်</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="other">ပွဒါး{0}လက်မ</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">မီလီဘား</displayName>
 				<unitPattern count="other">{0}မီလီဘား</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -4390,18 +4427,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">တစ်နာရီလျှင်{0}မိုင်နှုန်း</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">စင်တီဂရိတ်</displayName>
 				<unitPattern count="other">{0}စင်တီဂရိတ်</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">ဖာရင်ဟိုက်</displayName>
 				<unitPattern count="other">{0}ဖာရင်ဟိုက်</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">ကုဗကီလိုမီတာ</displayName>
 				<unitPattern count="other">{0} ကုဗကီလိုမီတာ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">ကုဗမိုင်</displayName>
 				<unitPattern count="other">{0}ကုဗမိုင်</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">လီတာ</displayName>
 				<unitPattern count="other">{0}လီတာ</unitPattern>
 			</unit>
 		</unitLength>
@@ -4410,117 +4452,154 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ဆွဲငင်အား</displayName>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">မိနစ်</displayName>
 				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">စက္ကန့်</displayName>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">ဒီဂရီ</displayName>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ဧက</displayName>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ဟက်တာ</displayName>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">စတုရန်းပေ</displayName>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">စတုရန်းကီလိုမီတာ</displayName>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">စတုရန်းမီတာ</displayName>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">စတုရန်းမိုင်</displayName>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ရက်</displayName>
 				<unitPattern count="other">{0}ရက်</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">နာရီ</displayName>
 				<unitPattern count="other">{0}နာရီ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">မီလီစက္ကန့်</displayName>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">မိနစ်</displayName>
 				<unitPattern count="other">{0}မိနစ်</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">လ</displayName>
 				<unitPattern count="other">{0}လ</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">စက္ကန့်</displayName>
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">ပတ်</displayName>
 				<unitPattern count="other">{0}ပတ်</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">နှစ်</displayName>
 				<unitPattern count="other">{0} y</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">စင်တီမီတာ</displayName>
 				<unitPattern count="other">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ပေ</displayName>
 				<unitPattern count="other">{0} ပေ</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">လက်မ</displayName>
 				<unitPattern count="other">{0} လက်မ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">ကီလိုမီတာ</displayName>
 				<unitPattern count="other">{0} km</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">အလင်းနှစ်</displayName>
 				<unitPattern count="other">{0} အလင်းနှစ်</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">မီတာ</displayName>
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">မိုင်</displayName>
 				<unitPattern count="other">{0}မိုင်</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">မီလီမီတာ</displayName>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">ပီကိုမီတာ</displayName>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ကိုက်</displayName>
 				<unitPattern count="other">{0} ကိုက်</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">ဂရမ်</displayName>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">ကီလိုဂရမ်</displayName>
 				<unitPattern count="other">{0} kg</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">အောင်စ</displayName>
 				<unitPattern count="other">{0} oz</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ပေါင်</displayName>
 				<unitPattern count="other">{0} lb</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">မြင်ကောင်ရေအား</displayName>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">ကီလိုဝပ်</displayName>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ဝပ်</displayName>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ဟက်တိုပါစကယ်</displayName>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">မီလီဘား</displayName>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -4533,18 +4612,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">စင်တီဂရိတ်</displayName>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">ဖာရင်ဟိုက်</displayName>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">ကုဗကီလိုမီတာ</displayName>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">ကုဗမိုင်</displayName>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">လီတာ</displayName>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>

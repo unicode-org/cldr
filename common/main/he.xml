@@ -3103,6 +3103,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity draft="contributed">קלינינגרד</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity draft="contributed">סימפרופול</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>אירופה/מוסקבה</exemplarCity>
 			</zone>
@@ -3273,9 +3276,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>אירופה/קייב</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity draft="contributed">סימפרופול</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity draft="contributed">זפוריז׳יה</exemplarCity>
@@ -5255,276 +5255,322 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0} לכל {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">כוח ג׳י</displayName>
 				<unitPattern count="one" draft="contributed">כוח ג׳י {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} כוח ג׳י</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} כוח ג׳י</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} כוח ג׳י</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">דקות</displayName>
 				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} דקות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} דקות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} דקות</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">שניות</displayName>
 				<unitPattern count="one" draft="contributed">שנייה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שניות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שניות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שניות</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">מעלות</displayName>
 				<unitPattern count="one" draft="contributed">מעלה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מעלות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מעלות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מעלות</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">אקר</displayName>
 				<unitPattern count="one" draft="contributed">אקר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אקר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אקר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אקר</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">הקטאר</displayName>
 				<unitPattern count="one" draft="contributed">הקטאר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} הקטאר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} הקטאר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} הקטאר</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">רגל רבועה</displayName>
 				<unitPattern count="one" draft="contributed">רגל רבועה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} רגל רבועה</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} רגל רבועה</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} רגל רבועה</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">קילומטר רבוע</displayName>
 				<unitPattern count="one" draft="contributed">קילומטר רבוע {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קילומטר רבוע</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קילומטר רבוע</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קילומטר רבוע</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">מטר רבוע</displayName>
 				<unitPattern count="one" draft="contributed">מטר רבוע {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מטר רבוע</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מטר רבוע</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מטר רבוע</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">מייל רבוע</displayName>
 				<unitPattern count="one" draft="contributed">מייל רבוע {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מייל רבוע</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מייל רבוע</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מייל רבוע</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ימים</displayName>
 				<unitPattern count="one" draft="contributed">‏יום {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ימים</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ימים</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ימים</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">שעות</displayName>
 				<unitPattern count="one" draft="contributed">שעה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שעות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שעות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שעות</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">אלפיות שנייה</displayName>
 				<unitPattern count="one" draft="contributed">אלפית שנייה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אלפיות שנייה</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אלפיות שנייה</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אלפיות שנייה</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">דקות</displayName>
 				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} דקות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} דקות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} דקות</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">חודשים</displayName>
 				<unitPattern count="one" draft="contributed">חודש {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} חודשים</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} חודשים</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} חודשים</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">שניות</displayName>
 				<unitPattern count="one" draft="contributed">שנייה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שניות</unitPattern>
 				<unitPattern count="many" draft="contributed">‏{0} שניות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שניות</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">שבועות</displayName>
 				<unitPattern count="one" draft="contributed">שבוע {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שבועות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שבועות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שבועות</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">שנים</displayName>
 				<unitPattern count="one" draft="contributed">שנה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שנים</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שנים</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שנים</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">סנטימטר</displayName>
 				<unitPattern count="one" draft="contributed">סנטימטר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} סנטימטר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} סנטימטר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} סנטימטר</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">רגל</displayName>
 				<unitPattern count="one" draft="contributed">רגל {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} רגל</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} רגל</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} רגל</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">אינץ׳</displayName>
 				<unitPattern count="one" draft="contributed">אינץ׳ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אינץ׳</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אינץ׳</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אינץ׳</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">קילומטר</displayName>
 				<unitPattern count="one" draft="contributed">קילומטר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קילומטר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קילומטר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קילומטר</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">שנות אור</displayName>
 				<unitPattern count="one" draft="contributed">שנת אור {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שנות אור</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שנות אור</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שנות אור</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">מטר</displayName>
 				<unitPattern count="one" draft="contributed">מטר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מטר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מטר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מטר</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">מייל</displayName>
 				<unitPattern count="one" draft="contributed">מייל {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מייל</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מייל</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מייל</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">מילימטר</displayName>
 				<unitPattern count="one" draft="contributed">מילימטר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מילימטר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מילימטר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מילימטר</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">פיקומטר</displayName>
 				<unitPattern count="one" draft="contributed">פיקומטר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} פיקומטר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} פיקומטר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} פיקומטר</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">יארד</displayName>
 				<unitPattern count="one" draft="contributed">יארד {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} יארד</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} יארד</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} יארד</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">גרם</displayName>
 				<unitPattern count="one" draft="contributed">גרם {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} גרם</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} גרם</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} גרם</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">קילוגרם</displayName>
 				<unitPattern count="one" draft="contributed">קילוגרם {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קילוגרם</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קילוגרם</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קילוגרם</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">אונקיות</displayName>
 				<unitPattern count="one" draft="contributed">אונקיה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אונקיות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אונקיות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אונקיות</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ליבראות</displayName>
 				<unitPattern count="one" draft="contributed">ליברה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ליבראות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ליבראות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ליבראות</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">כוח סוס</displayName>
 				<unitPattern count="one" draft="contributed">כוח סוס {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} כוח סוס</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} כוח סוס</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} כוח סוס</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">קילוואט</displayName>
 				<unitPattern count="one" draft="contributed">קילוואט {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קילוואט</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קילוואט</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קילוואט</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ואט</displayName>
 				<unitPattern count="one" draft="contributed">ואט {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ואט</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ואט</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ואט</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">הקטופסקל</displayName>
 				<unitPattern count="one" draft="contributed">הקטופסקל {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} הקטופסקל</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} הקטופסקל</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} הקטופסקל</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">אינץ׳ כספית</displayName>
 				<unitPattern count="one" draft="contributed">אינץ׳ כספית {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אינץ׳ כספית</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אינץ׳ כספית</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אינץ׳ כספית</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">מיליבר</displayName>
 				<unitPattern count="one">{0} מיליבר</unitPattern>
 				<unitPattern count="two">{0} מיליבר</unitPattern>
 				<unitPattern count="many">{0} מיליבר</unitPattern>
 				<unitPattern count="other">{0} מיליבר</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">קילומטר לשעה</displayName>
 				<unitPattern count="one" draft="contributed">{0} קילומטר לשעה</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קילומטר לשעה</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קילומטר לשעה</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קילומטר לשעה</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">מטר לשנייה</displayName>
 				<unitPattern count="one" draft="contributed">{0} מטר לשנייה</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מטר לשנייה</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מטר לשנייה</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מטר לשנייה</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">מייל לשעה</displayName>
 				<unitPattern count="one" draft="contributed">{0} מייל לשעה</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מייל לשעה</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מייל לשעה</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מייל לשעה</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">מעלות צלזיוס</displayName>
 				<unitPattern count="one" draft="contributed">מעלת צלזיוס {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מעלות צלזיוס</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מעלות צלזיוס</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מעלות צלזיוס</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">מעלות פרנהייט</displayName>
 				<unitPattern count="one" draft="contributed">מעלת פרנהייט {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מעלות פרנהייט</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מעלות פרנהייט</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מעלות פרנהייט</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">קילומטר מעוקב</displayName>
 				<unitPattern count="one" draft="contributed">{0} קילומטר מעוקב</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קילומטר מעוקב</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קילומטר מעוקב</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קילומטר מעוקב</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">מייל מעוקב</displayName>
 				<unitPattern count="one" draft="contributed">{0} מייל מעוקב</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מייל מעוקב</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מייל מעוקב</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מייל מעוקב</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">ליטר</displayName>
 				<unitPattern count="one" draft="contributed">{0} ליטר</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ליטר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ליטר</unitPattern>
@@ -5536,276 +5582,322 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">כוח ג׳י</displayName>
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">דקות</displayName>
 				<unitPattern count="one" draft="contributed">דקה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} דקות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} דקות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} דקות</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">שניות</displayName>
 				<unitPattern count="one" draft="contributed">שנייה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שניות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שניות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שניות</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">מעלות</displayName>
 				<unitPattern count="one" draft="contributed">מעלה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מעלות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מעלות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מעלות</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">אקר</displayName>
 				<unitPattern count="one" draft="contributed">אקר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אקר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אקר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אקר</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">הקטאר</displayName>
 				<unitPattern count="one" draft="contributed">הקטאר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} הקטאר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} הקטאר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} הקטאר</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">רגל רבועה</displayName>
 				<unitPattern count="one" draft="contributed">רגל רבועה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} רגל רבועה</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} רגל רבועה</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} רגל רבועה</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">קילומטר רבוע</displayName>
 				<unitPattern count="one" draft="contributed">קמ״ר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קמ״ר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קמ״ר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קמ״ר</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">מטר רבוע</displayName>
 				<unitPattern count="one" draft="contributed">מ״ר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מ״ר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מ״ר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מ״ר</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">מייל רבוע</displayName>
 				<unitPattern count="one" draft="contributed">מייל רבוע {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מייל רבוע</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מייל רבוע</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מייל רבוע</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ימים</displayName>
 				<unitPattern count="one" draft="contributed">‏יום {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ימים</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ימים</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ימים</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">שעות</displayName>
 				<unitPattern count="one" draft="contributed">שעה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שעות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שעות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שעות</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">אלפיות שנייה</displayName>
 				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ms</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ms</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">דקות</displayName>
 				<unitPattern count="one" draft="contributed">דק׳ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} דק׳</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} דק׳</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} דק׳</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">חודשים</displayName>
 				<unitPattern count="one" draft="contributed">חודש {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} חודשים</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} חודשים</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} חודשים</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">שניות</displayName>
 				<unitPattern count="one" draft="contributed">שנ׳ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שנ׳</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שנ׳</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שנ׳</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">שבועות</displayName>
 				<unitPattern count="one" draft="contributed">שבוע {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שבועות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שבועות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שבועות</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">שנים</displayName>
 				<unitPattern count="one" draft="contributed">שנה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שנים</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שנים</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שנים</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">סנטימטר</displayName>
 				<unitPattern count="one" draft="contributed">ס״מ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ס״מ</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ס״מ</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ס״מ</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">רגל</displayName>
 				<unitPattern count="one" draft="contributed">רגל {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} רגל</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} רגל</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} רגל</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">אינץ׳</displayName>
 				<unitPattern count="one" draft="contributed">אינץ׳ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אינץ׳</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אינץ׳</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אינץ׳</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">קילומטר</displayName>
 				<unitPattern count="one" draft="contributed">ק״מ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ק״מ</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ק״מ</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ק״מ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">שנות אור</displayName>
 				<unitPattern count="one" draft="contributed">שנת אור {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} שנות אור</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} שנות אור</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} שנות אור</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">מטר</displayName>
 				<unitPattern count="one" draft="contributed">מ׳ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מ׳</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מ׳</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מ׳</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">מייל</displayName>
 				<unitPattern count="one" draft="contributed">מייל {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מייל</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מייל</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מייל</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">מילימטר</displayName>
 				<unitPattern count="one" draft="contributed">מ״מ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מ״מ</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מ״מ</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מ״מ</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">פיקומטר</displayName>
 				<unitPattern count="one" draft="contributed">פיקומטר {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} פיקומטר</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} פיקומטר</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} פיקומטר</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">יארד</displayName>
 				<unitPattern count="one" draft="contributed">יארד {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} יארד</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} יארד</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} יארד</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">גרם</displayName>
 				<unitPattern count="one" draft="contributed">גר׳ {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} גר׳</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} גר׳</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} גר׳</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">קילוגרם</displayName>
 				<unitPattern count="one" draft="contributed">ק״ג {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ק״ג</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ק״ג</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ק״ג</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">אונקיות</displayName>
 				<unitPattern count="one" draft="contributed">אונקיה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} אונקיות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} אונקיות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} אונקיות</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ליבראות</displayName>
 				<unitPattern count="one" draft="contributed">ליברה {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ליבראות</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ליבראות</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ליבראות</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">כוח סוס</displayName>
 				<unitPattern count="one" draft="contributed">כ״ס {0}</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} כ״ס</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} כ״ס</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} כ״ס</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">קילוואט</displayName>
 				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} kW</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} kW</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ואט</displayName>
 				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">הקטופסקל</displayName>
 				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} hPa</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} hPa</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">אינץ׳ כספית</displayName>
 				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} inHg</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} inHg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">מיליבר</displayName>
 				<unitPattern count="one">מיליבר {0}</unitPattern>
 				<unitPattern count="two">{0} מיליבר</unitPattern>
 				<unitPattern count="many">{0} מיליבר</unitPattern>
 				<unitPattern count="other">{0} מיליבר</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">קילומטר לשעה</displayName>
 				<unitPattern count="one" draft="contributed">{0} קמ״ש</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קמ״ש</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קמ״ש</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קמ״ש</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">מטר לשנייה</displayName>
 				<unitPattern count="one" draft="contributed">{0} מ/ש</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} מ/ש</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} מ/ש</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} מ/ש</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">מייל לשעה</displayName>
 				<unitPattern count="one" draft="contributed">{0} mph</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} mph</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} mph</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mph</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">מעלות צלזיוס</displayName>
 				<unitPattern count="one" draft="contributed">{0}°C</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}°C</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}°C</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">מעלות פרנהייט</displayName>
 				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="two" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">קילומטר מעוקב</displayName>
 				<unitPattern count="one" draft="contributed">{0} קמ״ק</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} קמ״ק</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} קמ״ק</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} קמ״ק</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">מייל מעוקב</displayName>
 				<unitPattern count="one" draft="contributed">{0} mi³</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} mi³</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} mi³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">ליטר</displayName>
 				<unitPattern count="one" draft="contributed">{0} ל׳</unitPattern>
 				<unitPattern count="two" draft="contributed">{0} ל׳</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ל׳</unitPattern>

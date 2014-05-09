@@ -2394,6 +2394,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>لینن گراد</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>سمفروپول</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>ماسکو</exemplarCity>
 			</zone>
@@ -2564,9 +2567,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>کیوو</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>سمفروپول</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>زیپوروزائی</exemplarCity>
@@ -4266,186 +4266,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0} فی {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">جی-فورس</displayName>
 				<unitPattern count="one">{0} جی-فورس</unitPattern>
 				<unitPattern count="other">{0} جی-فورس</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">منٹ</displayName>
 				<unitPattern count="one">{0} منٹ</unitPattern>
 				<unitPattern count="other">{0} منٹ</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">سیکنڈ</displayName>
 				<unitPattern count="one">{0} سیکنڈ</unitPattern>
 				<unitPattern count="other">{0} سیکنڈ</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">ڈگری</displayName>
 				<unitPattern count="one">{0} ڈگری</unitPattern>
 				<unitPattern count="other">{0} ڈگری</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ایکڑ</displayName>
 				<unitPattern count="one">{0} ایکڑ</unitPattern>
 				<unitPattern count="other">{0} ایکڑ</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ہیکٹر</displayName>
 				<unitPattern count="one">{0} ہیکٹر</unitPattern>
 				<unitPattern count="other">{0} ہیکٹر</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">سکویر فٹ</displayName>
 				<unitPattern count="one">{0} سکویر فٹ</unitPattern>
 				<unitPattern count="other">{0} سکویر فٹ</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">سکویر کلو میٹر</displayName>
 				<unitPattern count="one">{0} سکویر کلو میٹر</unitPattern>
 				<unitPattern count="other">{0} سکویر کلو میٹر</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">سکویر میٹر</displayName>
 				<unitPattern count="one">{0} سکویر میٹر</unitPattern>
 				<unitPattern count="other">{0} سکویر میٹر</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">سکویر میل</displayName>
 				<unitPattern count="one">{0} سکویر میل</unitPattern>
 				<unitPattern count="other">{0} سکویر میل</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">دن</displayName>
 				<unitPattern count="one">{0} دن</unitPattern>
 				<unitPattern count="other">{0} دن</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">گھنٹے</displayName>
 				<unitPattern count="one">{0} گھنٹہ</unitPattern>
 				<unitPattern count="other">{0} گھنٹے</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">میل سیکنڈ</displayName>
 				<unitPattern count="one">{0} ملی سیکنڈ</unitPattern>
 				<unitPattern count="other">{0} میل سیکنڈ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">منٹ</displayName>
 				<unitPattern count="one">{0} منٹ</unitPattern>
 				<unitPattern count="other">{0} منٹ</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">مہینے</displayName>
 				<unitPattern count="one">{0} مہینہ</unitPattern>
 				<unitPattern count="other">{0} مہینے</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">سیکنڈ</displayName>
 				<unitPattern count="one">{0} سیکنڈ</unitPattern>
 				<unitPattern count="other">{0} سیکنڈ</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">ہفتے</displayName>
 				<unitPattern count="one">{0} ہفتہ</unitPattern>
 				<unitPattern count="other">{0} ہفتے</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">سال</displayName>
 				<unitPattern count="one">{0} سال</unitPattern>
 				<unitPattern count="other">{0} سال</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">سینٹی میٹر</displayName>
 				<unitPattern count="one">{0} سینٹی میٹر</unitPattern>
 				<unitPattern count="other">{0} سینٹی میٹر</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">فیٹ</displayName>
 				<unitPattern count="one">{0} فیٹ</unitPattern>
 				<unitPattern count="other">{0} فیٹ</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">انچ</displayName>
 				<unitPattern count="one">{0} انچ</unitPattern>
 				<unitPattern count="other">{0} انچ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">کلو میٹر</displayName>
 				<unitPattern count="one">{0} کلو میٹر</unitPattern>
 				<unitPattern count="other">{0} کلو میٹر</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">روشنی سال</displayName>
 				<unitPattern count="one">{0} روشنی سال</unitPattern>
 				<unitPattern count="other">{0} روشنی سال</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">میٹر</displayName>
 				<unitPattern count="one">{0} میٹر</unitPattern>
 				<unitPattern count="other">{0} میٹر</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">میل</displayName>
 				<unitPattern count="one">{0} میل</unitPattern>
 				<unitPattern count="other">{0} میل</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">ملیمیٹر</displayName>
 				<unitPattern count="one">{0} ملیمیٹر</unitPattern>
 				<unitPattern count="other">{0} ملیمیٹر</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">پیکو میٹر</displayName>
 				<unitPattern count="one">{0} پیکو میٹر</unitPattern>
 				<unitPattern count="other">{0} پیکو میٹر</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">یارڈ</displayName>
 				<unitPattern count="one">{0} یارڈ</unitPattern>
 				<unitPattern count="other">{0} یارڈ</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">گرام</displayName>
 				<unitPattern count="one">{0} گرام</unitPattern>
 				<unitPattern count="other">{0} گرام</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">کلو گرام</displayName>
 				<unitPattern count="one">{0} کلو گرام</unitPattern>
 				<unitPattern count="other">{0} کلو گرام</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">ونس</displayName>
 				<unitPattern count="one">{0} ونس</unitPattern>
 				<unitPattern count="other">{0} ونس</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">پونڈ</displayName>
 				<unitPattern count="one">{0} پونڈ</unitPattern>
 				<unitPattern count="other">{0} پونڈ</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ہارس پاور</displayName>
 				<unitPattern count="one">{0} ہارس پاور</unitPattern>
 				<unitPattern count="other">{0} ہارس پاور</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">کلو واٹ</displayName>
 				<unitPattern count="one">{0} کلو واٹ</unitPattern>
 				<unitPattern count="other">{0} کلو واٹ</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">واٹ</displayName>
 				<unitPattern count="one">{0} واٹ</unitPattern>
 				<unitPattern count="other">{0} واٹ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ہیکٹو پاسکل</displayName>
 				<unitPattern count="one">{0} ہیکٹو پاسکل</unitPattern>
 				<unitPattern count="other">{0} ہیکٹو پاسکل</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">انچ مرکری</displayName>
 				<unitPattern count="one">{0} انچ مرکری</unitPattern>
 				<unitPattern count="other">{0} انچ مرکری</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">ملی بار</displayName>
 				<unitPattern count="one">{0} ملی بار</unitPattern>
 				<unitPattern count="other">{0} ملی بار</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">کلومیٹر فی گھنٹہ</displayName>
 				<unitPattern count="one">{0} کلومیٹر فی گھنٹہ</unitPattern>
 				<unitPattern count="other">{0} کلومیٹر فی گھنٹہ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">میٹر فی سیکنڈ</displayName>
 				<unitPattern count="one">{0} میٹر فی سیکنڈ</unitPattern>
 				<unitPattern count="other">{0} میٹر فی سیکنڈ</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">میل فی گھنٹہ</displayName>
 				<unitPattern count="one">{0} میل فی گھنٹہ</unitPattern>
 				<unitPattern count="other">{0} میل فی گھنٹہ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">ڈگری سیلسیس</displayName>
 				<unitPattern count="one">{0} ڈگری سیلسیس</unitPattern>
 				<unitPattern count="other">{0} ڈگری سیلسیس</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">ڈگری فارن ہائیٹ</displayName>
 				<unitPattern count="one">{0} ڈگری فارن ہائیٹ</unitPattern>
 				<unitPattern count="other">{0} ڈگری فارن ہائیٹ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">کیوبک کلو میٹر</displayName>
 				<unitPattern count="one">{0} کیوبک کلو میٹر</unitPattern>
 				<unitPattern count="other">{0} کیوبک کلو میٹر</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">کیوبک میل</displayName>
 				<unitPattern count="one">{0} کیوبک میل</unitPattern>
 				<unitPattern count="other">{0} کیوبک میل</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">لیٹر</displayName>
 				<unitPattern count="one">{0} لیٹر</unitPattern>
 				<unitPattern count="other">{0} لیٹر</unitPattern>
 			</unit>
@@ -4455,186 +4501,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">جی-فورس</displayName>
 				<unitPattern count="one">{0} جی-فورس</unitPattern>
 				<unitPattern count="other">{0} جی-فورس</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">منٹ</displayName>
 				<unitPattern count="one">{0} منٹ</unitPattern>
 				<unitPattern count="other">{0} منٹ</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">سیکنڈ</displayName>
 				<unitPattern count="one">{0}سیکنڈ</unitPattern>
 				<unitPattern count="other">{0} سیکنڈ</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">ڈگری</displayName>
 				<unitPattern count="one">{0} ڈگری</unitPattern>
 				<unitPattern count="other">{0} ڈگری</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ایکڑ</displayName>
 				<unitPattern count="one">{0} ایکڑ</unitPattern>
 				<unitPattern count="other">{0} ایکڑ</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ہیکٹر</displayName>
 				<unitPattern count="one">{0} ہیکٹر</unitPattern>
 				<unitPattern count="other">{0} ہیکٹر</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">سکویر فٹ</displayName>
 				<unitPattern count="one">{0} سکویر فٹ</unitPattern>
 				<unitPattern count="other">{0} سکویر فٹ</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">سکویر کلو میٹر</displayName>
 				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">سکویر میٹر</displayName>
 				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">سکویر میل</displayName>
 				<unitPattern count="one">{0} سکویر میل</unitPattern>
 				<unitPattern count="other">{0} سکویر میل</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">دن</displayName>
 				<unitPattern count="one">{0} دن</unitPattern>
 				<unitPattern count="other">{0} دن</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">گھنٹے</displayName>
 				<unitPattern count="one">{0} گھنٹہ</unitPattern>
 				<unitPattern count="other">{0} گھنٹے</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">میل سیکنڈ</displayName>
 				<unitPattern count="one">{0} میل سیکنڈ</unitPattern>
 				<unitPattern count="other">{0} میل سیکنڈ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">منٹ</displayName>
 				<unitPattern count="one">{0} منٹ</unitPattern>
 				<unitPattern count="other">{0} منٹ</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">مہینے</displayName>
 				<unitPattern count="one">{0} مہینہ</unitPattern>
 				<unitPattern count="other">{0} مہینے</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">سیکنڈ</displayName>
 				<unitPattern count="one">{0} سیکنڈ</unitPattern>
 				<unitPattern count="other">{0} سیکنڈ</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">ہفتے</displayName>
 				<unitPattern count="one">{0} ہفتہ</unitPattern>
 				<unitPattern count="other">{0} ہفتے</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">سال</displayName>
 				<unitPattern count="one">{0} سال</unitPattern>
 				<unitPattern count="other">{0} سال</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">سینٹی میٹر</displayName>
 				<unitPattern count="one">{0} سینٹی میٹر</unitPattern>
 				<unitPattern count="other">{0} سینٹی میٹر</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">فیٹ</displayName>
 				<unitPattern count="one">{0} فیٹ</unitPattern>
 				<unitPattern count="other">{0} فیٹ</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">انچ</displayName>
 				<unitPattern count="one">{0} انچ</unitPattern>
 				<unitPattern count="other">{0} انچ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">کلو میٹر</displayName>
 				<unitPattern count="one">{0} کلو میٹر</unitPattern>
 				<unitPattern count="other">{0} کلو میٹر</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">روشنی سال</displayName>
 				<unitPattern count="one">{0} ly</unitPattern>
 				<unitPattern count="other">{0} ly</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">میٹر</displayName>
 				<unitPattern count="one">{0} میٹر</unitPattern>
 				<unitPattern count="other">{0} میٹر</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">میل</displayName>
 				<unitPattern count="one">{0} میل</unitPattern>
 				<unitPattern count="other">{0} میل</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">ملیمیٹر</displayName>
 				<unitPattern count="one">{0} ملیمیٹر</unitPattern>
 				<unitPattern count="other">{0} ملیمیٹر</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">پیکو میٹر</displayName>
 				<unitPattern count="one">{0} پیکو میٹر</unitPattern>
 				<unitPattern count="other">{0} پیکو میٹر</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">یارڈ</displayName>
 				<unitPattern count="one">{0} یارڈ</unitPattern>
 				<unitPattern count="other">{0} یارڈ</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">گرام</displayName>
 				<unitPattern count="one">{0} گرام</unitPattern>
 				<unitPattern count="other">{0} گرام</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">کلو گرام</displayName>
 				<unitPattern count="one">{0} کلو گرام</unitPattern>
 				<unitPattern count="other">{0} کلو گرام</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">ونس</displayName>
 				<unitPattern count="one">{0} ونس</unitPattern>
 				<unitPattern count="other">{0} ونس</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">پونڈ</displayName>
 				<unitPattern count="one">{0} پونڈ</unitPattern>
 				<unitPattern count="other">{0} پونڈ</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ہارس پاور</displayName>
 				<unitPattern count="one">{0} ہارس پاور</unitPattern>
 				<unitPattern count="other">{0} ہارس پاور</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">کلو واٹ</displayName>
 				<unitPattern count="one">{0} کلو واٹ</unitPattern>
 				<unitPattern count="other">{0} کلو واٹ</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">واٹ</displayName>
 				<unitPattern count="one">{0} واٹ</unitPattern>
 				<unitPattern count="other">{0} واٹ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ہیکٹو پاسکل</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">انچ مرکری</displayName>
 				<unitPattern count="one">{0} انچ مرکری</unitPattern>
 				<unitPattern count="other">{0} انچ مرکری</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">ملی بار</displayName>
 				<unitPattern count="one">{0} ملی بار</unitPattern>
 				<unitPattern count="other">{0} ملی بار</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">کلومیٹر فی گھنٹہ</displayName>
 				<unitPattern count="one">{0} kph</unitPattern>
 				<unitPattern count="other">{0} kph</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">میٹر فی سیکنڈ</displayName>
 				<unitPattern count="one">{0} m/s</unitPattern>
 				<unitPattern count="other">{0} m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">میل فی گھنٹہ</displayName>
 				<unitPattern count="one">{0} mph</unitPattern>
 				<unitPattern count="other">{0} mph</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">ڈگری سیلسیس</displayName>
 				<unitPattern count="one">{0}‎°C</unitPattern>
 				<unitPattern count="other">{0}‎°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">ڈگری فارن ہائیٹ</displayName>
 				<unitPattern count="one">{0}‎°F</unitPattern>
 				<unitPattern count="other">{0}‎°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">کیوبک کلو میٹر</displayName>
 				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">کیوبک میل</displayName>
 				<unitPattern count="one">{0} کیوبک میل</unitPattern>
 				<unitPattern count="other">{0} کیوبک میل</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">لیٹر</displayName>
 				<unitPattern count="one">{0} لیٹر</unitPattern>
 				<unitPattern count="other">{0} لیٹر</unitPattern>
 			</unit>

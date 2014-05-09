@@ -3837,6 +3837,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Калининград</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Симферополь</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Москва</exemplarCity>
 			</zone>
@@ -4007,9 +4010,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Киев</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Симферополь</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Запорожье</exemplarCity>
@@ -6756,276 +6756,322 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0} на {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">G</displayName>
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">минуты</displayName>
 				<unitPattern count="one">{0} минута</unitPattern>
 				<unitPattern count="few">{0} минуты</unitPattern>
 				<unitPattern count="many">{0} минут</unitPattern>
 				<unitPattern count="other">{0} минуты</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">секунды</displayName>
 				<unitPattern count="one" draft="contributed">{0} секунда</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} секунды</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} секунд</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} секунды</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">градуса</displayName>
 				<unitPattern count="one" draft="contributed">{0} градус</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} градуса</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} градусов</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} градуса</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">акра</displayName>
 				<unitPattern count="one" draft="contributed">{0} акр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} акра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} акров</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} акра</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">гектара</displayName>
 				<unitPattern count="one" draft="contributed">{0} гектар</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} гектара</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} гектар</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} гектара</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">квадратных фута</displayName>
 				<unitPattern count="one" draft="contributed">{0} квадратный фут</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} квадратных фута</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} квадратных футов</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} квадратных фута</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">квадратных километра</displayName>
 				<unitPattern count="one" draft="contributed">{0} квадратный километр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} квадратных километра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} квадратных километров</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} квадратных километра</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">квадратных метра</displayName>
 				<unitPattern count="one" draft="contributed">{0} квадратный метр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} квадратных метра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} квадратных метров</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} квадратных метра</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">квадратных мили</displayName>
 				<unitPattern count="one" draft="contributed">{0} квадратная миля</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} квадратных мили</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} квадратных миль</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} квадратных мили</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">дня</displayName>
 				<unitPattern count="one">{0} день</unitPattern>
 				<unitPattern count="few">{0} дня</unitPattern>
 				<unitPattern count="many">{0} дней</unitPattern>
 				<unitPattern count="other">{0} дня</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">часа</displayName>
 				<unitPattern count="one">{0} час</unitPattern>
 				<unitPattern count="few">{0} часа</unitPattern>
 				<unitPattern count="many">{0} часов</unitPattern>
 				<unitPattern count="other">{0} часа</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">миллисекунды</displayName>
 				<unitPattern count="one">{0} миллисекунда</unitPattern>
 				<unitPattern count="few">{0} миллисекунды</unitPattern>
 				<unitPattern count="many">{0} миллисекунды</unitPattern>
 				<unitPattern count="other">{0} миллисекунды</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">минуты</displayName>
 				<unitPattern count="one">{0} минута</unitPattern>
 				<unitPattern count="few">{0} минуты</unitPattern>
 				<unitPattern count="many">{0} минут</unitPattern>
 				<unitPattern count="other">{0} минуты</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">месяца</displayName>
 				<unitPattern count="one">{0} месяц</unitPattern>
 				<unitPattern count="few">{0} месяца</unitPattern>
 				<unitPattern count="many">{0} месяцев</unitPattern>
 				<unitPattern count="other">{0} месяца</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">секунды</displayName>
 				<unitPattern count="one">{0} секунда</unitPattern>
 				<unitPattern count="few">{0} секунды</unitPattern>
 				<unitPattern count="many">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунды</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">недели</displayName>
 				<unitPattern count="one">{0} неделя</unitPattern>
 				<unitPattern count="few">{0} недели</unitPattern>
 				<unitPattern count="many">{0} недель</unitPattern>
 				<unitPattern count="other">{0} недели</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">года</displayName>
 				<unitPattern count="one" draft="contributed">{0} год</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} года</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} лет</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} года</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">сантиметра</displayName>
 				<unitPattern count="one" draft="contributed">{0} сантиметр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} сантиметра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} сантиметров</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} сантиметра</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">фута</displayName>
 				<unitPattern count="one" draft="contributed">{0} фут</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} фута</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} футов</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} фута</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">дюйма</displayName>
 				<unitPattern count="one" draft="contributed">{0} дюйм</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} дюйма</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} дюймов</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} дюйма</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">километра</displayName>
 				<unitPattern count="one" draft="contributed">{0} километр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} километра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} километров</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} километра</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">световых года</displayName>
 				<unitPattern count="one" draft="contributed">{0} световой год</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} световых года</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} световых лет</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} световых года</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">метра</displayName>
 				<unitPattern count="one" draft="contributed">{0} метр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} метра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} метров</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} метра</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">мили</displayName>
 				<unitPattern count="one" draft="contributed">{0} миля</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мили</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миль</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мили</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">миллиметра</displayName>
 				<unitPattern count="one" draft="contributed">{0} миллиметр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} миллиметра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миллиметров</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} миллиметра</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">пикометра</displayName>
 				<unitPattern count="one" draft="contributed">{0} пикометр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} пикометра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} пикометров</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} пикометра</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ярда</displayName>
 				<unitPattern count="one" draft="contributed">{0} ярд</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ярда</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ярдов</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ярда</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">грамма</displayName>
 				<unitPattern count="one" draft="contributed">{0} грамм</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} грамма</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} грамм</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} грамма</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">килограмма</displayName>
 				<unitPattern count="one" draft="contributed">{0} килограмм</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} килограмма</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} килограмм</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} килограмма</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">унции</displayName>
 				<unitPattern count="one" draft="contributed">{0} унция</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} унции</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} унций</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} унции</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">фунта</displayName>
 				<unitPattern count="one" draft="contributed">{0} фунт</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} фунта</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} фунтов</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} фунта</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">лошадиных сил</displayName>
 				<unitPattern count="one" draft="contributed">{0} лошадиная сила</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} лошадиных силы</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} лошадиных сил</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} лошадиных сил</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">киловатта</displayName>
 				<unitPattern count="one" draft="contributed">{0} киловатт</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} киловатта</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} киловатт</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} киловатта</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ватта</displayName>
 				<unitPattern count="one" draft="contributed">{0} ватт</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ватта</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ватт</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ватта</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">гектопаскаля</displayName>
 				<unitPattern count="one" draft="contributed">{0} гектопаскаль</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} гектопаскаля</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} гектопаскалей</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} гектопаскаля</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">дюйма ртутного столба</displayName>
 				<unitPattern count="one" draft="contributed">{0} дюйм ртутного столба</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} дюйма ртутного столба</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} дюймов ртутного столба</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} дюйма ртутного столба</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">миллибара</displayName>
 				<unitPattern count="one" draft="contributed">{0} миллибар</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} миллибара</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миллибар</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} миллибара</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">километра в час</displayName>
 				<unitPattern count="one" draft="contributed">{0} километр в час</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} километра в час</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} километров в час</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} километра в час</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">метра в секунду</displayName>
 				<unitPattern count="one" draft="contributed">{0} метр в секунду</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} метра в секундыу</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} метров в секунду</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} метра в секунду</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">миль в час</displayName>
 				<unitPattern count="one" draft="contributed">{0} миля в час</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мили в час</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миль в час</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} миль в час</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">градуса Цельсия</displayName>
 				<unitPattern count="one" draft="contributed">{0} градус Цельсия</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} градуса Цельсия</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} градусов Цельсия</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} градуса Цельсия</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">градуса по Фаренгейту</displayName>
 				<unitPattern count="one" draft="contributed">{0} градус по Фаренгейту</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} градуса по Фаренгейту</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} градусов по Фаренгейту</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} градуса по Фаренгейту</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">кубических километра</displayName>
 				<unitPattern count="one" draft="contributed">{0} кубический километр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кубических километра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кубических километров</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кубических километра</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">кубических мили</displayName>
 				<unitPattern count="one" draft="contributed">{0} кубическая миля</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кубических мили</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кубических мили</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кубических мили</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">литра</displayName>
 				<unitPattern count="one" draft="contributed">{0} литр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} литра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} литра</unitPattern>
@@ -7037,276 +7083,322 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">G</displayName>
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">минуты</displayName>
 				<unitPattern count="one" draft="contributed">{0}′</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}′</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}′</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">секунды</displayName>
 				<unitPattern count="one" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}″</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}″</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">градуса</displayName>
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">акра</displayName>
 				<unitPattern count="one" draft="contributed">{0} акр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} акра</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} акров</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} акра</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">гектара</displayName>
 				<unitPattern count="one" draft="contributed">{0} га</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} га</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} га</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} га</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">квадратных фута</displayName>
 				<unitPattern count="one" draft="contributed">{0} кв. фут</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кв. фута</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кв. футов</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кв. фута</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">квадратных километра</displayName>
 				<unitPattern count="one" draft="contributed">{0} км²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} км²</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} км²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} км²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">квадратных метра</displayName>
 				<unitPattern count="one" draft="contributed">{0} м²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} м²</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} м²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} м²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">квадратных мили</displayName>
 				<unitPattern count="one" draft="contributed">{0} кв. миля</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кв. мили</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кв. миль</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кв. мили</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">дня</displayName>
 				<unitPattern count="one">{0} дн</unitPattern>
 				<unitPattern count="few">{0} дн</unitPattern>
 				<unitPattern count="many">{0} дн</unitPattern>
 				<unitPattern count="other">{0} дн</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">часа</displayName>
 				<unitPattern count="one">{0} ч</unitPattern>
 				<unitPattern count="few">{0} ч</unitPattern>
 				<unitPattern count="many">{0} ч</unitPattern>
 				<unitPattern count="other">{0} ч</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">миллисекунды</displayName>
 				<unitPattern count="one">{0} мс</unitPattern>
 				<unitPattern count="few">{0} мс</unitPattern>
 				<unitPattern count="many">{0} мс</unitPattern>
 				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">минуты</displayName>
 				<unitPattern count="one">{0} мин</unitPattern>
 				<unitPattern count="few">{0} мин</unitPattern>
 				<unitPattern count="many">{0} мин</unitPattern>
 				<unitPattern count="other">{0} мин</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">месяца</displayName>
 				<unitPattern count="one">{0} мес</unitPattern>
 				<unitPattern count="few">{0} мес</unitPattern>
 				<unitPattern count="many">{0} мес</unitPattern>
 				<unitPattern count="other">{0} мес</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">секунды</displayName>
 				<unitPattern count="one">{0} с</unitPattern>
 				<unitPattern count="few">{0} с</unitPattern>
 				<unitPattern count="many">{0} с</unitPattern>
 				<unitPattern count="other">{0} с</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">недели</displayName>
 				<unitPattern count="one">{0} нед</unitPattern>
 				<unitPattern count="few">{0} нед</unitPattern>
 				<unitPattern count="many">{0} нед</unitPattern>
 				<unitPattern count="other">{0} нед</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">года</displayName>
 				<unitPattern count="one" draft="contributed">{0} г.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} года</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} лет</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} г.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">сантиметра</displayName>
 				<unitPattern count="one" draft="contributed">{0} см</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} см</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} см</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} см</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">фута</displayName>
 				<unitPattern count="one" draft="contributed">{0} фут</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} фута</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} футов</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} фута</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">дюйма</displayName>
 				<unitPattern count="one" draft="contributed">{0} дюйм</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} дюйма</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} дюймов</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} дюйма</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">километра</displayName>
 				<unitPattern count="one" draft="contributed">{0} км</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} км</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} км</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} км</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">световых года</displayName>
 				<unitPattern count="one" draft="contributed">{0} св. г.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} св. л.</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} св. л.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} св. г.</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">метра</displayName>
 				<unitPattern count="one" draft="contributed">{0} м</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} м</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} м</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} м</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">мили</displayName>
 				<unitPattern count="one" draft="contributed">{0} миля</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мили</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миль</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мили</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">миллиметра</displayName>
 				<unitPattern count="one" draft="contributed">{0} мм</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мм</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} мм</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мм</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">пикометра</displayName>
 				<unitPattern count="one" draft="contributed">{0} pm</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} pm</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} pm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ярда</displayName>
 				<unitPattern count="one" draft="contributed">{0} ярд</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ярда</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ярдов</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ярда</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">грамма</displayName>
 				<unitPattern count="one" draft="contributed">{0} гр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} гр</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} гр</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} гр</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">килограмма</displayName>
 				<unitPattern count="one" draft="contributed">{0} кг</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кг</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кг</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кг</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">унции</displayName>
 				<unitPattern count="one" draft="contributed">{0} oz</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} oz</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} oz</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} oz</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">фунта</displayName>
 				<unitPattern count="one" draft="contributed">{0} lb</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} lb</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} lb</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} lb</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">лошадиных сил</displayName>
 				<unitPattern count="one" draft="contributed">{0} л.с.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} л.с.</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} л.с.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} л.с.</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">киловатта</displayName>
 				<unitPattern count="one" draft="contributed">{0} кВт</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кВт</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кВт</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кВт</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ватта</displayName>
 				<unitPattern count="one" draft="contributed">{0} Вт</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} Вт</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} Вт</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Вт</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">гектопаскаля</displayName>
 				<unitPattern count="one" draft="contributed">{0} гПа</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} гПа</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} гПа</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} гПа</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">дюйма ртутного столба</displayName>
 				<unitPattern count="one" draft="contributed">{0} дюйм рт. ст</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} дюйма рт. ст</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} дюймов рт. ст</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} дюйма рт. ст</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">миллибара</displayName>
 				<unitPattern count="one" draft="contributed">{0} мбар</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мбар</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} мбар</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мбар</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">километра в час</displayName>
 				<unitPattern count="one" draft="contributed">{0} км/ч</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} км/ч</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} км/ч</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} км/ч</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">метра в секунду</displayName>
 				<unitPattern count="one" draft="contributed">{0} м/с</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} м/с</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} м/с</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} м/с</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">миль в час</displayName>
 				<unitPattern count="one" draft="contributed">{0} миль/час</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мили/час</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миль/час</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} миль/час</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">градуса Цельсия</displayName>
 				<unitPattern count="one">{0} °C</unitPattern>
 				<unitPattern count="few">{0} °C</unitPattern>
 				<unitPattern count="many">{0} °C</unitPattern>
 				<unitPattern count="other">{0} °C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">градуса по Фаренгейту</displayName>
 				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">кубических километра</displayName>
 				<unitPattern count="one" draft="contributed">{0} км³</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} км³</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} км³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} км³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">кубических мили</displayName>
 				<unitPattern count="one" draft="contributed">{0} куб. миля</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} куб. мили</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} куб. мили</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} куб. мили</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">литра</displayName>
 				<unitPattern count="one" draft="contributed">{0} л</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} л</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} л</unitPattern>

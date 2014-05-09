@@ -2984,6 +2984,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>კალინინგრადი</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>სიმფეროპოლი</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>მოსკოვი</exemplarCity>
 			</zone>
@@ -3154,9 +3157,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>კიევი</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>სიმფეროპოლი</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>ზაპოროჟიე</exemplarCity>
@@ -5344,186 +5344,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ინერციის ძალა</displayName>
 				<unitPattern count="one">{0} ინერციის ძალა</unitPattern>
 				<unitPattern count="other">{0} ინერციის ძალა</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">წუთი</displayName>
 				<unitPattern count="one">{0} წუთი</unitPattern>
 				<unitPattern count="other">{0} წუთი</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">წამი</displayName>
 				<unitPattern count="one">{0} წამი</unitPattern>
 				<unitPattern count="other">{0} წამი</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">გრადუსი</displayName>
 				<unitPattern count="one">{0} გრადუსი</unitPattern>
 				<unitPattern count="other">{0} გრადუსი</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">აკრი</displayName>
 				<unitPattern count="one">{0} აკრი</unitPattern>
 				<unitPattern count="other">{0} აკრი</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ჰექტარი</displayName>
 				<unitPattern count="one">{0} ჰექტარი</unitPattern>
 				<unitPattern count="other">{0} ჰექტარი</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">კვადრატული ფუტი</displayName>
 				<unitPattern count="one">{0} კვადრატული ფუტი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული ფუტი</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">კვადრატული კილომეტრი</displayName>
 				<unitPattern count="one">{0} კვადრატული კილომეტრი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული კილომეტრი</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">კვადრატული მეტრი</displayName>
 				<unitPattern count="one">{0} კვადრატული მეტრი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული მეტრი</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">კვადრატული მილი</displayName>
 				<unitPattern count="one">{0} კვადრატული მილი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული მილი</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">დღე</displayName>
 				<unitPattern count="one">{0} დღე</unitPattern>
 				<unitPattern count="other">{0} დღე</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">საათი</displayName>
 				<unitPattern count="one">{0} საათი</unitPattern>
 				<unitPattern count="other">{0} საათი</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">მილიწამი</displayName>
 				<unitPattern count="one">{0} მილიწამი</unitPattern>
 				<unitPattern count="other">{0} მილიწამი</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">წუთი</displayName>
 				<unitPattern count="one">{0} წუთი</unitPattern>
 				<unitPattern count="other">{0} წუთი</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">თვე</displayName>
 				<unitPattern count="one">{0} თვე</unitPattern>
 				<unitPattern count="other">{0} თვე</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">წამი</displayName>
 				<unitPattern count="one">{0} წამი</unitPattern>
 				<unitPattern count="other">{0} წამი</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">კვირა</displayName>
 				<unitPattern count="one">{0} კვირა</unitPattern>
 				<unitPattern count="other">{0} კვირა</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">წელი</displayName>
 				<unitPattern count="one">{0} წელი</unitPattern>
 				<unitPattern count="other">{0} წელი</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">სანტიმეტრი</displayName>
 				<unitPattern count="one">{0} სანტიმეტრი</unitPattern>
 				<unitPattern count="other">{0} სანტიმეტრი</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ფუტი</displayName>
 				<unitPattern count="one">{0} ფუტი</unitPattern>
 				<unitPattern count="other">{0} ფუტი</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">დუიმი</displayName>
 				<unitPattern count="one">{0} დუიმი</unitPattern>
 				<unitPattern count="other">{0} დუიმი</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">კილომეტრი</displayName>
 				<unitPattern count="one">{0} კილომეტრი</unitPattern>
 				<unitPattern count="other">{0} კილომეტრი</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">სინათლის წელი</displayName>
 				<unitPattern count="one">{0} სინათლის წელი</unitPattern>
 				<unitPattern count="other">{0} სინათლის წელი</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">მეტრი</displayName>
 				<unitPattern count="one">{0} მეტრი</unitPattern>
 				<unitPattern count="other">{0} მეტრი</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">მილი</displayName>
 				<unitPattern count="one">{0} მილი</unitPattern>
 				<unitPattern count="other">{0} მილი</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">მილიმეტრი</displayName>
 				<unitPattern count="one">{0} მილიმეტრი</unitPattern>
 				<unitPattern count="other">{0} მილიმეტრი</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">პიკომეტრი</displayName>
 				<unitPattern count="one">{0} პიკომეტრი</unitPattern>
 				<unitPattern count="other">{0} პიკომეტრი</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">იარდი</displayName>
 				<unitPattern count="one">{0} იარდი</unitPattern>
 				<unitPattern count="other">{0} იარდი</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">გრამი</displayName>
 				<unitPattern count="one">{0} გრამი</unitPattern>
 				<unitPattern count="other">{0} გრამი</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">კილოგრამი</displayName>
 				<unitPattern count="one">{0} კილოგრამი</unitPattern>
 				<unitPattern count="other">{0} კილოგრამი</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">უნცია</displayName>
 				<unitPattern count="one">{0} უნცია</unitPattern>
 				<unitPattern count="other">{0} უნცია</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ფუნტი</displayName>
 				<unitPattern count="one">{0} ფუნტი</unitPattern>
 				<unitPattern count="other">{0} ფუნტი</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ცხენის ძალა</displayName>
 				<unitPattern count="one">{0} ცხენის ძალა</unitPattern>
 				<unitPattern count="other">{0} ცხენის ძალა</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">კილოვატი</displayName>
 				<unitPattern count="one">{0} კილოვატი</unitPattern>
 				<unitPattern count="other">{0} კილოვატი</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ვატი</displayName>
 				<unitPattern count="one">{0} ვატი</unitPattern>
 				<unitPattern count="other">{0} ვატი</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ჰექტოპასკალი</displayName>
 				<unitPattern count="one">{0} ჰექტოპასკალი</unitPattern>
 				<unitPattern count="other">{0} ჰექტოპასკალი</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">ვერცხლისწყლის დუიმი</displayName>
 				<unitPattern count="one">{0} ვერცხლისწყლის დუიმი</unitPattern>
 				<unitPattern count="other">{0} ვერცხლისწყლის დუიმი</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">მილიბარი</displayName>
 				<unitPattern count="one">{0} მილიბარი</unitPattern>
 				<unitPattern count="other">{0} მილიბარი</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">კილომეტრი საათში</displayName>
 				<unitPattern count="one">{0} კილომეტრი საათში</unitPattern>
 				<unitPattern count="other">{0} კილომეტრი საათში</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">მეტრი წამში</displayName>
 				<unitPattern count="one">{0} მეტრი წამში</unitPattern>
 				<unitPattern count="other">{0} მეტრი წამში</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">მილი საათში</displayName>
 				<unitPattern count="one">{0} მილი საათში</unitPattern>
 				<unitPattern count="other">{0} მილი საათში</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">გრადუსი ცელსიუსით</displayName>
 				<unitPattern count="one">{0} გრადუსი ცელსიუსით</unitPattern>
 				<unitPattern count="other">{0} გრადუსი ცელსიუსით</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">გრადუსი ფარენჰეიტით</displayName>
 				<unitPattern count="one">{0} გრადუსი ფარენჰეიტით</unitPattern>
 				<unitPattern count="other">{0} გრადუსი ფარენჰეიტით</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">კუბური კილომეტრი</displayName>
 				<unitPattern count="one">{0} კუბური კილომეტრი</unitPattern>
 				<unitPattern count="other">{0} კუბური კილომეტრი</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">კუბური მილი</displayName>
 				<unitPattern count="one">{0} კუბური მილი</unitPattern>
 				<unitPattern count="other">{0} კუბური მილი</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">ლიტრი</displayName>
 				<unitPattern count="one">{0} ლიტრი</unitPattern>
 				<unitPattern count="other">{0} ლიტრი</unitPattern>
 			</unit>
@@ -5533,186 +5579,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ინერციის ძალა</displayName>
 				<unitPattern count="one">{0} ინ. ძ.</unitPattern>
 				<unitPattern count="other">{0} ინ. ძ.</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">წუთი</displayName>
 				<unitPattern count="one">{0} წთ</unitPattern>
 				<unitPattern count="other">{0} წთ</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">წამი</displayName>
 				<unitPattern count="one">{0} წმ</unitPattern>
 				<unitPattern count="other">{0} წმ</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">გრადუსი</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">აკრი</displayName>
 				<unitPattern count="one">{0} აკრი</unitPattern>
 				<unitPattern count="other">{0} აკრი</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ჰექტარი</displayName>
 				<unitPattern count="one">{0} ჰა</unitPattern>
 				<unitPattern count="other">{0} ჰა</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">კვადრატული ფუტი</displayName>
 				<unitPattern count="one">{0} ფტ²</unitPattern>
 				<unitPattern count="other">{0} ფტ²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">კვადრატული კილომეტრი</displayName>
 				<unitPattern count="one">{0} კმ²</unitPattern>
 				<unitPattern count="other">{0} კმ²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">კვადრატული მეტრი</displayName>
 				<unitPattern count="one">{0} მ²</unitPattern>
 				<unitPattern count="other">{0} მ²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">კვადრატული მილი</displayName>
 				<unitPattern count="one">{0} მილი²</unitPattern>
 				<unitPattern count="other">{0} მილი²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">დღე</displayName>
 				<unitPattern count="one">{0} დღე</unitPattern>
 				<unitPattern count="other">{0} დღე</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">საათი</displayName>
 				<unitPattern count="one">{0} სთ</unitPattern>
 				<unitPattern count="other">{0} სთ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">მილიწამი</displayName>
 				<unitPattern count="one">{0} მწ</unitPattern>
 				<unitPattern count="other">{0} მწ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">წუთი</displayName>
 				<unitPattern count="one">{0} წთ</unitPattern>
 				<unitPattern count="other">{0} წთ</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">თვე</displayName>
 				<unitPattern count="one">{0} თვე</unitPattern>
 				<unitPattern count="other">{0} თვე</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">წამი</displayName>
 				<unitPattern count="one">{0} წმ</unitPattern>
 				<unitPattern count="other">{0} წმ</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">კვირა</displayName>
 				<unitPattern count="one">{0} კვრ</unitPattern>
 				<unitPattern count="other">{0} კვრ</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">წელი</displayName>
 				<unitPattern count="one">{0} წ</unitPattern>
 				<unitPattern count="other">{0} წ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">სანტიმეტრი</displayName>
 				<unitPattern count="one">{0} სმ</unitPattern>
 				<unitPattern count="other">{0} სმ</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ფუტი</displayName>
 				<unitPattern count="one">{0} ფტ</unitPattern>
 				<unitPattern count="other">{0} ფტ</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">დუიმი</displayName>
 				<unitPattern count="one">{0} დმ</unitPattern>
 				<unitPattern count="other">{0} დმ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">კილომეტრი</displayName>
 				<unitPattern count="one">{0} კმ</unitPattern>
 				<unitPattern count="other">{0} კმ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">სინათლის წელი</displayName>
 				<unitPattern count="one">{0} სწ</unitPattern>
 				<unitPattern count="other">{0} სწ</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">მეტრი</displayName>
 				<unitPattern count="one">{0} მ</unitPattern>
 				<unitPattern count="other">{0} მ</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">მილი</displayName>
 				<unitPattern count="one">{0} მილი</unitPattern>
 				<unitPattern count="other">{0} მილი</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">მილიმეტრი</displayName>
 				<unitPattern count="one">{0} მმ</unitPattern>
 				<unitPattern count="other">{0} მმ</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">პიკომეტრი</displayName>
 				<unitPattern count="one">{0} პმ</unitPattern>
 				<unitPattern count="other">{0} პმ</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">იარდი</displayName>
 				<unitPattern count="one">{0} იარდი</unitPattern>
 				<unitPattern count="other">{0} იარდი</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">გრამი</displayName>
 				<unitPattern count="one">{0} გ</unitPattern>
 				<unitPattern count="other">{0} გ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">კილოგრამი</displayName>
 				<unitPattern count="one">{0} კგ</unitPattern>
 				<unitPattern count="other">{0} კგ</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">უნცია</displayName>
 				<unitPattern count="one">{0} უნც</unitPattern>
 				<unitPattern count="other">{0} უნც</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ფუნტი</displayName>
 				<unitPattern count="one">{0} ფნტ</unitPattern>
 				<unitPattern count="other">{0} ფნტ</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ცხენის ძალა</displayName>
 				<unitPattern count="one">{0} ცხ. ძ.</unitPattern>
 				<unitPattern count="other">{0} ცხ. ძ.</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">კილოვატი</displayName>
 				<unitPattern count="one">{0} კვტ</unitPattern>
 				<unitPattern count="other">{0} კვტ</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ვატი</displayName>
 				<unitPattern count="one">{0} ვტ</unitPattern>
 				<unitPattern count="other">{0} ვტ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ჰექტოპასკალი</displayName>
 				<unitPattern count="one">{0} ჰპა</unitPattern>
 				<unitPattern count="other">{0} ჰპა</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">ვერცხლისწყლის დუიმი</displayName>
 				<unitPattern count="one">{0} ვრც. დმ.</unitPattern>
 				<unitPattern count="other">{0} ვრც. დმ.</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">მილიბარი</displayName>
 				<unitPattern count="one">{0} მბარი</unitPattern>
 				<unitPattern count="other">{0} მბარი</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">კილომეტრი საათში</displayName>
 				<unitPattern count="one">{0} კმ/სთ</unitPattern>
 				<unitPattern count="other">{0} კმ/სთ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">მეტრი წამში</displayName>
 				<unitPattern count="one">{0} მ/წმ</unitPattern>
 				<unitPattern count="other">{0} მ/წმ</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">მილი საათში</displayName>
 				<unitPattern count="one">{0} მილი/სთ</unitPattern>
 				<unitPattern count="other">{0} მილი/სთ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">გრადუსი ცელსიუსით</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">გრადუსი ფარენჰეიტით</displayName>
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">კუბური კილომეტრი</displayName>
 				<unitPattern count="one">{0} კმ³</unitPattern>
 				<unitPattern count="other">{0} კმ³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">კუბური მილი</displayName>
 				<unitPattern count="one">{0} მილი³</unitPattern>
 				<unitPattern count="other">{0} მილი³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">ლიტრი</displayName>
 				<unitPattern count="one">{0} ლ</unitPattern>
 				<unitPattern count="other">{0}ლ</unitPattern>
 			</unit>

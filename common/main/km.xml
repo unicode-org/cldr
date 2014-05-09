@@ -2266,6 +2266,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>កាលីនីងហ្រ្គាដ</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>ស៊ីមហ្វើរ៉ុប៉ូល</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>មូស្គូ</exemplarCity>
 			</zone>
@@ -2436,9 +2439,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>កៀវ</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>ស៊ីមហ្វើរ៉ុប៉ូល</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>ហ្សាប៉ូរ៉ូហ្ស៊ីយ៉េ</exemplarCity>
@@ -4034,141 +4034,187 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}​ក្នុង​មួយ​{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">កម្លាំង​ទំនាញ</displayName>
 				<unitPattern count="other">{0} កម្លាំង​ទំនាញ</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">នាទី</displayName>
 				<unitPattern count="other">{0} នាទី</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">វិនាទី</displayName>
 				<unitPattern count="other">{0} វិនាទី</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">ដឺក្រេ</displayName>
 				<unitPattern count="other">{0} ដឺក្រេ</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">អា</displayName>
 				<unitPattern count="other">{0} អា</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ហិកតា</displayName>
 				<unitPattern count="other">{0} ហិកតា</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">ហ្វីត​ការ៉េ</displayName>
 				<unitPattern count="other">{0} ហ្វីត​ការ៉េ</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">គីឡូម៉ែត្រ​ការ៉េ</displayName>
 				<unitPattern count="other">{0} គីឡូម៉ែត្រ​ការ៉េ</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">ម៉ែត្រ​ការ៉េ</displayName>
 				<unitPattern count="other">{0} ម៉ែត្រ​ការ៉េ</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">ម៉ាយល៍​ការ៉េ</displayName>
 				<unitPattern count="other">{0} ម៉ាយល៍​ការ៉េ</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ថ្ងៃ</displayName>
 				<unitPattern count="other">{0} ថ្ងៃ</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">ម៉ោង</displayName>
 				<unitPattern count="other">{0} ម៉ោង</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">មិល្លី​វិនាទី</displayName>
 				<unitPattern count="other">{0} មិល្លី​វិនាទី</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">នាទី</displayName>
 				<unitPattern count="other">{0} នាទី</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ខែ</displayName>
 				<unitPattern count="other">{0} ខែ</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">វិនាទី</displayName>
 				<unitPattern count="other">{0} វិនាទី</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">សប្ដាហ៍</displayName>
 				<unitPattern count="other">{0} សប្ដាហ៍</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">ឆ្នាំ</displayName>
 				<unitPattern count="other">{0} ឆ្នាំ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">សង់ទីម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} សង់ទីម៉ែត្រ</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ហ្វីត</displayName>
 				<unitPattern count="other">{0} ហ្វីត</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">អ៊ិន្ឈ៍</displayName>
 				<unitPattern count="other">{0} អ៊ិន្ឈ៍</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">គីឡូម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} គីឡូម៉ែត្រ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">ឆ្នាំ​ពន្លឺ</displayName>
 				<unitPattern count="other">{0} ឆ្នាំ​ពន្លឺ</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">ម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} ម៉ែត្រ</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">ម៉ាយល៍</displayName>
 				<unitPattern count="other">{0} ម៉ាយល៍</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">មិល្លីម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} មិល្លីម៉ែត្រ</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">ពីកូម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} ពីកូម៉ែត្រ</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">យ៉ាត</displayName>
 				<unitPattern count="other">{0} យ៉ាត</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">ក្រាម</displayName>
 				<unitPattern count="other">{0} ក្រាម</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">គីឡូក្រាម</displayName>
 				<unitPattern count="other">{0} គីឡូក្រាម</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">អោនស៍</displayName>
 				<unitPattern count="other">{0} អោនស៍</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ផោន</displayName>
 				<unitPattern count="other">{0} ផោន</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">សេះ</displayName>
 				<unitPattern count="other">{0} សេះ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">គីឡូវ៉ាត់</displayName>
 				<unitPattern count="other">{0} គីឡូវ៉ាត់</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">វ៉ាត់</displayName>
 				<unitPattern count="other">{0} វ៉ាត់</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ហិចតូប៉ាស្កាល់</displayName>
 				<unitPattern count="other">{0} ហិចតូប៉ាស្កាល់</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">inHg</displayName>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">មិល្លីបារ</displayName>
 				<unitPattern count="other">{0} មិល្លីបារ</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">គីឡូម៉ែត្រ​ក្នុង​មួយ​ម៉ោង</displayName>
 				<unitPattern count="other">{0} គីឡូម៉ែត្រ​ក្នុង​មួយ​ម៉ោង</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">ម៉ែត្រ​ក្នុង​មួយ​វិនាទី</displayName>
 				<unitPattern count="other">{0} ម៉ែត្រ​ក្នុង​មួយ​វិនាទី</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">ម៉ាយល៍​ក្នុង​មួយ​ម៉ោង</displayName>
 				<unitPattern count="other">{0} ម៉ាយល៍​ក្នុង​មួយ​ម៉ោង</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">ដឺក្រេសែលស៊ីស</displayName>
 				<unitPattern count="other">{0}ដឺក្រេសែលស៊ីស</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">ដឺក្រេហ្វារិនហៃ</displayName>
 				<unitPattern count="other">{0}ដឺក្រេហ្វារិនហៃ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">គីឡូម៉ែត្រ​គីប</displayName>
 				<unitPattern count="other">{0} គីឡូម៉ែត្រ​គីប</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">ម៉ាយល៍​គីប</displayName>
 				<unitPattern count="other">{0} ម៉ាយល៍​គីប</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">លីត្រ</displayName>
 				<unitPattern count="other">{0} លីត្រ</unitPattern>
 			</unit>
 		</unitLength>
@@ -4177,141 +4223,187 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">កម្លាំង​ទំនាញ</displayName>
 				<unitPattern count="other">{0} ក.ទ.</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">នាទី</displayName>
 				<unitPattern count="other">{0} ន.</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">វិនាទី</displayName>
 				<unitPattern count="other">{0} វិ.</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">ដឺក្រេ</displayName>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">អា</displayName>
 				<unitPattern count="other">{0} អា</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ហិកតា</displayName>
 				<unitPattern count="other">{0} ហ.</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">ហ្វីត​ការ៉េ</displayName>
 				<unitPattern count="other">{0} ហ្វ².</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">គីឡូម៉ែត្រ​ការ៉េ</displayName>
 				<unitPattern count="other">{0} គ.ម².</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">ម៉ែត្រ​ការ៉េ</displayName>
 				<unitPattern count="other">{0} ម².</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">ម៉ាយល៍​ការ៉េ</displayName>
 				<unitPattern count="other">{0} ម៉².</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ថ្ងៃ</displayName>
 				<unitPattern count="other">{0} ថ្ងៃ</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">ម៉ោង</displayName>
 				<unitPattern count="other">{0} ម៉.</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">មិល្លី​វិនាទី</displayName>
 				<unitPattern count="other">{0} មិ.វិ.</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">នាទី</displayName>
 				<unitPattern count="other">{0} ន.</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ខែ</displayName>
 				<unitPattern count="other">{0} ខែ</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">វិនាទី</displayName>
 				<unitPattern count="other">{0} វិ.</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">សប្ដាហ៍</displayName>
 				<unitPattern count="other">{0} សប្ដាហ៍</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">ឆ្នាំ</displayName>
 				<unitPattern count="other">{0} ឆ្នាំ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">សង់ទីម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} ស.ម.</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ហ្វីត</displayName>
 				<unitPattern count="other">{0} ហ្វ.</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">អ៊ិន្ឈ៍</displayName>
 				<unitPattern count="other">{0} អ៊ិន្ឈ៍</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">គីឡូម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} គ.ម.</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">ឆ្នាំ​ពន្លឺ</displayName>
 				<unitPattern count="other">{0} ឆ្នាំ​ពន្លឺ</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">ម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} ម.</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">ម៉ាយល៍</displayName>
 				<unitPattern count="other">{0} ម៉.</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">មិល្លីម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} ម.ម.</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">ពីកូម៉ែត្រ</displayName>
 				<unitPattern count="other">{0} ព.ម.</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">យ៉ាត</displayName>
 				<unitPattern count="other">{0} យ៉.</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">ក្រាម</displayName>
 				<unitPattern count="other">{0} ក.</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">គីឡូក្រាម</displayName>
 				<unitPattern count="other">{0} គ.ក.</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">អោនស៍</displayName>
 				<unitPattern count="other">{0} អ.</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ផោន</displayName>
 				<unitPattern count="other">{0} ផ.</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">សេះ</displayName>
 				<unitPattern count="other">{0} សេះ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">គីឡូវ៉ាត់</displayName>
 				<unitPattern count="other">{0} គ.វ.</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">វ៉ាត់</displayName>
 				<unitPattern count="other">{0} វ.</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ហិចតូប៉ាស្កាល់</displayName>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">inHg</displayName>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">មិល្លីបារ</displayName>
 				<unitPattern count="other">{0} ម.ប.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">គីឡូម៉ែត្រ​ក្នុង​មួយ​ម៉ោង</displayName>
 				<unitPattern count="other">{0} គ.ម./ម៉</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">ម៉ែត្រ​ក្នុង​មួយ​វិនាទី</displayName>
 				<unitPattern count="other">{0} ម./វិ.</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">ម៉ាយល៍​ក្នុង​មួយ​ម៉ោង</displayName>
 				<unitPattern count="other">{0} ម៉./ម៉</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">ដឺក្រេសែលស៊ីស</displayName>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">ដឺក្រេហ្វារិនហៃ</displayName>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">គីឡូម៉ែត្រ​គីប</displayName>
 				<unitPattern count="other">{0} គ.ម³.</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">ម៉ាយល៍​គីប</displayName>
 				<unitPattern count="other">{0} ម៉³.</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">លីត្រ</displayName>
 				<unitPattern count="other">{0} ល.</unitPattern>
 			</unit>
 		</unitLength>

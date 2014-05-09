@@ -1623,32 +1623,62 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<unit type="duration-day">
+				<displayName draft="provisional">zornadis</displayName>
 				<unitPattern count="one">{0} zornade</unitPattern>
 				<unitPattern count="other">{0} zornadis</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">oris</displayName>
 				<unitPattern count="one">{0} ore</unitPattern>
 				<unitPattern count="other">{0} oris</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">minûts</displayName>
 				<unitPattern count="one">{0} minût</unitPattern>
 				<unitPattern count="other">{0} minûts</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">mês</displayName>
 				<unitPattern count="one">{0} mês</unitPattern>
 				<unitPattern count="other">{0} mês</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">seconts</displayName>
 				<unitPattern count="one">{0} secont</unitPattern>
 				<unitPattern count="other">{0} seconts</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">setemanis</displayName>
 				<unitPattern count="one">{0} setemane</unitPattern>
 				<unitPattern count="other">{0} setemanis</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">agns</displayName>
 				<unitPattern count="one">{0} an</unitPattern>
 				<unitPattern count="other">{0} agns</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<displayName draft="provisional">zornadis</displayName>
+			</unit>
+			<unit type="duration-hour">
+				<displayName draft="provisional">oris</displayName>
+			</unit>
+			<unit type="duration-minute">
+				<displayName draft="provisional">minûts</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">mês</displayName>
+			</unit>
+			<unit type="duration-second">
+				<displayName draft="provisional">seconts</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">setemanis</displayName>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="provisional">agns</displayName>
 			</unit>
 		</unitLength>
 	</units>

@@ -3013,6 +3013,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Калининград</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Симферопол</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Москва</exemplarCity>
 			</zone>
@@ -3168,9 +3171,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Кијев</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Симферопол</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Запорожје</exemplarCity>
@@ -6438,42 +6438,49 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<unit type="duration-day">
+				<displayName draft="provisional">дан</displayName>
 				<unitPattern count="one">{0} дан</unitPattern>
 				<unitPattern count="few">{0} дана</unitPattern>
 				<unitPattern count="many">{0} дана</unitPattern>
 				<unitPattern count="other">{0} дан</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">сат</displayName>
 				<unitPattern count="one">{0} сат</unitPattern>
 				<unitPattern count="few">{0} сата</unitPattern>
 				<unitPattern count="many">{0} сати</unitPattern>
 				<unitPattern count="other">{0} сат</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">минут</displayName>
 				<unitPattern count="one">{0} минут</unitPattern>
 				<unitPattern count="few">{0} минута</unitPattern>
 				<unitPattern count="many">{0} минута</unitPattern>
 				<unitPattern count="other">{0} минут</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">месец</displayName>
 				<unitPattern count="one">{0} месец</unitPattern>
 				<unitPattern count="few">{0} месеца</unitPattern>
 				<unitPattern count="many">{0} месеци</unitPattern>
 				<unitPattern count="other">{0} месец</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">секунда</displayName>
 				<unitPattern count="one">{0} секунда</unitPattern>
 				<unitPattern count="few">{0} секунде</unitPattern>
 				<unitPattern count="many">{0} секунди</unitPattern>
 				<unitPattern count="other">{0} секунда</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">недеља</displayName>
 				<unitPattern count="one">{0} недеља</unitPattern>
 				<unitPattern count="few">{0} недеље</unitPattern>
 				<unitPattern count="many">{0} недеља</unitPattern>
 				<unitPattern count="other">{0} недеља</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">година</displayName>
 				<unitPattern count="one">{0} година</unitPattern>
 				<unitPattern count="few">{0} године</unitPattern>
 				<unitPattern count="many">{0} година</unitPattern>
@@ -6482,42 +6489,49 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 		<unitLength type="short">
 			<unit type="duration-day">
+				<displayName draft="provisional">дан</displayName>
 				<unitPattern count="one">{0} дан</unitPattern>
 				<unitPattern count="few">{0} дана</unitPattern>
 				<unitPattern count="many">{0} дана</unitPattern>
 				<unitPattern count="other">{0} дан</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">сат</displayName>
 				<unitPattern count="one">{0} сат</unitPattern>
 				<unitPattern count="few">{0} сата</unitPattern>
 				<unitPattern count="many">{0} сати</unitPattern>
 				<unitPattern count="other">{0} сат</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">минут</displayName>
 				<unitPattern count="one">{0} мин</unitPattern>
 				<unitPattern count="few">{0} мин</unitPattern>
 				<unitPattern count="many">{0} мин</unitPattern>
 				<unitPattern count="other">{0} мин</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">месец</displayName>
 				<unitPattern count="one">{0} мес</unitPattern>
 				<unitPattern count="few">{0} мес</unitPattern>
 				<unitPattern count="many">{0} мес</unitPattern>
 				<unitPattern count="other">{0} мес</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">секунда</displayName>
 				<unitPattern count="one">{0} сек</unitPattern>
 				<unitPattern count="few">{0} сек</unitPattern>
 				<unitPattern count="many">{0} сек</unitPattern>
 				<unitPattern count="other">{0} сек</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">недеља</displayName>
 				<unitPattern count="one">{0} нед</unitPattern>
 				<unitPattern count="few">{0} нед</unitPattern>
 				<unitPattern count="many">{0} нед</unitPattern>
 				<unitPattern count="other">{0} нед</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">година</displayName>
 				<unitPattern count="one">{0} год</unitPattern>
 				<unitPattern count="few">{0} год</unitPattern>
 				<unitPattern count="many">{0} год</unitPattern>

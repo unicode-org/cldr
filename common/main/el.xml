@@ -2912,6 +2912,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Καλίνινγκραντ</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Συμφερόπολη</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Μόσχα</exemplarCity>
 			</zone>
@@ -3082,9 +3085,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Κίεβο</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Συμφερόπολη</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Ζαπορόζιε</exemplarCity>
@@ -5675,186 +5675,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0} ανά {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">G</displayName>
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">λεπτά</displayName>
 				<unitPattern count="one">{0} λεπτό</unitPattern>
 				<unitPattern count="other">{0} λεπτά</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">δευτερόλεπτα</displayName>
 				<unitPattern count="one">{0} δευτερόλεπτο</unitPattern>
 				<unitPattern count="other">{0} δευτερόλεπτα</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">μοίρες</displayName>
 				<unitPattern count="one">{0} μοίρα</unitPattern>
 				<unitPattern count="other">{0} μοίρες</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ακρ</displayName>
 				<unitPattern count="one">{0} ακρ</unitPattern>
 				<unitPattern count="other">{0} ακρ</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">εκτάρια</displayName>
 				<unitPattern count="one">{0} εκτάριο</unitPattern>
 				<unitPattern count="other">{0} εκτάρια</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">τετραγωνικά πόδια</displayName>
 				<unitPattern count="one">{0} τετραγωνικό πόδι</unitPattern>
 				<unitPattern count="other">{0} τετραγωνικά πόδια</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">τετραγωνικά χιλιόμετρα</displayName>
 				<unitPattern count="one">{0} τετραγωνικό χιλιόμετρο</unitPattern>
 				<unitPattern count="other">{0} τετραγωνικά χιλιόμετρα</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">τετραγωνικά μέτρα</displayName>
 				<unitPattern count="one">{0} τετραγωνικό μέτρο</unitPattern>
 				<unitPattern count="other">{0} τετραγωνικά μέτρα</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">τετραγωνικά μίλια</displayName>
 				<unitPattern count="one">{0} τετραγωνικό μίλι</unitPattern>
 				<unitPattern count="other">{0} τετραγωνικά μίλια</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ημέρες</displayName>
 				<unitPattern count="one">{0} ημέρα</unitPattern>
 				<unitPattern count="other">{0} ημέρες</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">ώρες</displayName>
 				<unitPattern count="one">{0} ώρα</unitPattern>
 				<unitPattern count="other">{0} ώρες</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">χιλιοστά του δευτερολέπτου</displayName>
 				<unitPattern count="one">{0} χιλιοστό του δευτερολέπτου</unitPattern>
 				<unitPattern count="other">{0} χιλιοστά του δευτερολέπτου</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">λεπτά</displayName>
 				<unitPattern count="one">{0} λεπτό</unitPattern>
 				<unitPattern count="other">{0} λεπτά</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">μήνες</displayName>
 				<unitPattern count="one">{0} μήνας</unitPattern>
 				<unitPattern count="other">{0} μήνες</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">δευτερόλεπτα</displayName>
 				<unitPattern count="one">{0} δευτερόλεπτο</unitPattern>
 				<unitPattern count="other">{0} δευτερόλεπτα</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">εβδομάδες</displayName>
 				<unitPattern count="one">{0} εβδομάδα</unitPattern>
 				<unitPattern count="other">{0} εβδομάδες</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">έτη</displayName>
 				<unitPattern count="one">{0} έτος</unitPattern>
 				<unitPattern count="other">{0} έτη</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">εκατοστά</displayName>
 				<unitPattern count="one">{0} εκατοστό</unitPattern>
 				<unitPattern count="other">{0} εκατοστά</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">πόδια</displayName>
 				<unitPattern count="one">{0} πόδι</unitPattern>
 				<unitPattern count="other">{0} πόδια</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">ίντσες</displayName>
 				<unitPattern count="one">{0} ίντσα</unitPattern>
 				<unitPattern count="other">{0} ίντσες</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">χιλιόμετρα</displayName>
 				<unitPattern count="one">{0} χιλιόμετρο</unitPattern>
 				<unitPattern count="other">{0} χιλιόμετρα</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">έτη φωτός</displayName>
 				<unitPattern count="one">{0} έτος φωτός</unitPattern>
 				<unitPattern count="other">{0} έτη φωτός</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">μέτρα</displayName>
 				<unitPattern count="one">{0} μέτρο</unitPattern>
 				<unitPattern count="other">{0} μέτρα</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">μίλια</displayName>
 				<unitPattern count="one">{0} μίλι</unitPattern>
 				<unitPattern count="other">{0} μίλια</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">χιλιοστόμετρα</displayName>
 				<unitPattern count="one">{0} χιλιοστόμετρο</unitPattern>
 				<unitPattern count="other">{0} χιλιοστόμετρα</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">πικόμετρα</displayName>
 				<unitPattern count="one">{0} πικόμετρο</unitPattern>
 				<unitPattern count="other">{0} πικόμετρα</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">γιάρδες</displayName>
 				<unitPattern count="one">{0} γιάρδα</unitPattern>
 				<unitPattern count="other">{0} γιάρδες</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">γραμμάρια</displayName>
 				<unitPattern count="one">{0} γραμμάριο</unitPattern>
 				<unitPattern count="other">{0} γραμμάρια</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">χιλιόγραμμα</displayName>
 				<unitPattern count="one">{0} χιλιόγραμμο</unitPattern>
 				<unitPattern count="other">{0} χιλιόγραμμα</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">ουγγιές</displayName>
 				<unitPattern count="one">{0} ουγγιά</unitPattern>
 				<unitPattern count="other">{0} ουγγιές</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">λίβρες</displayName>
 				<unitPattern count="one">{0} λίβρα</unitPattern>
 				<unitPattern count="other">{0} λίβρες</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ίπποι</displayName>
 				<unitPattern count="one">{0} ίππος</unitPattern>
 				<unitPattern count="other">{0} ίπποι</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">κιλοβάτ</displayName>
 				<unitPattern count="one">{0} κιλοβάτ</unitPattern>
 				<unitPattern count="other">{0} κιλοβάτ</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">watt</displayName>
 				<unitPattern count="one">{0} watt</unitPattern>
 				<unitPattern count="other">{0} watt</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">εκτοπασκάλ</displayName>
 				<unitPattern count="one">{0} εκτοπασκάλ</unitPattern>
 				<unitPattern count="other">{0} εκτοπασκάλ</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">ίντσες στήλης υδραργύρου</displayName>
 				<unitPattern count="one">{0} ίντσα στήλης υδραργύρου</unitPattern>
 				<unitPattern count="other">{0} ίντσες στήλης υδραργύρου</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">μιλιμπάρ</displayName>
 				<unitPattern count="one">{0} μιλιμπάρ</unitPattern>
 				<unitPattern count="other">{0} μιλιμπάρ</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">χιλιόμετρα ανά ώρα</displayName>
 				<unitPattern count="one">{0} χιλιόμετρο ανά ώρα</unitPattern>
 				<unitPattern count="other">{0} χιλιόμετρα ανά ώρα</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">μέτρα ανά δευτερόλεπτο</displayName>
 				<unitPattern count="one">{0} μέτρο ανά δευτερόλεπτο</unitPattern>
 				<unitPattern count="other">{0} μέτρα ανά δευτερόλεπτο</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">μίλια ανά ώρα</displayName>
 				<unitPattern count="one">{0} μίλι ανά ώρα</unitPattern>
 				<unitPattern count="other">{0} μίλια ανά ώρα</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">βαθμοί Κελσίου</displayName>
 				<unitPattern count="one">{0} βαθμός Κελσίου</unitPattern>
 				<unitPattern count="other">{0} βαθμοί Κελσίου</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">βαθμοί Φαρενάιτ</displayName>
 				<unitPattern count="one">{0} βαθμός Φαρενάιτ</unitPattern>
 				<unitPattern count="other">{0} βαθμοί Φαρενάιτ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">κυβικά χιλιόμετρα</displayName>
 				<unitPattern count="one">{0} κυβικό χιλιόμετρο</unitPattern>
 				<unitPattern count="other">{0} κυβικά χιλιόμετρα</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">κυβικά μίλια</displayName>
 				<unitPattern count="one">{0} κυβικό μίλι</unitPattern>
 				<unitPattern count="other">{0} κυβικά μίλια</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">λίτρα</displayName>
 				<unitPattern count="one">{0} λίτρο</unitPattern>
 				<unitPattern count="other">{0} λίτρα</unitPattern>
 			</unit>
@@ -5864,186 +5910,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">G</displayName>
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">λεπτά</displayName>
 				<unitPattern count="one">{0} λεπ.</unitPattern>
 				<unitPattern count="other">{0} λεπ.</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">δευτερόλεπτα</displayName>
 				<unitPattern count="one">{0} δευτ.</unitPattern>
 				<unitPattern count="other">{0} δευτ.</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">μοίρες</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ακρ</displayName>
 				<unitPattern count="one">{0} ac</unitPattern>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">εκτάρια</displayName>
 				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">τετραγωνικά πόδια</displayName>
 				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">τετραγωνικά χιλιόμετρα</displayName>
 				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">τετραγωνικά μέτρα</displayName>
 				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">τετραγωνικά μίλια</displayName>
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ημέρες</displayName>
 				<unitPattern count="one">{0} ημέρα</unitPattern>
 				<unitPattern count="other">{0} ημέρες</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">ώρες</displayName>
 				<unitPattern count="one">{0} ώρα</unitPattern>
 				<unitPattern count="other">{0} ώρες</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">χιλιοστά του δευτερολέπτου</displayName>
 				<unitPattern count="one">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">λεπτά</displayName>
 				<unitPattern count="one">{0} λεπ.</unitPattern>
 				<unitPattern count="other">{0} λεπ.</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">μήνες</displayName>
 				<unitPattern count="one">{0} μήν.</unitPattern>
 				<unitPattern count="other">{0} μήν.</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">δευτερόλεπτα</displayName>
 				<unitPattern count="one">{0} δευτ.</unitPattern>
 				<unitPattern count="other">{0} δευτ.</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">εβδομάδες</displayName>
 				<unitPattern count="one">{0} εβδ.</unitPattern>
 				<unitPattern count="other">{0} εβδ.</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">έτη</displayName>
 				<unitPattern count="one">{0} έτος</unitPattern>
 				<unitPattern count="other">{0} έτη</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">εκατοστά</displayName>
 				<unitPattern count="one">{0} εκ.</unitPattern>
 				<unitPattern count="other">{0} εκ.</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">πόδια</displayName>
 				<unitPattern count="one">{0} ft</unitPattern>
 				<unitPattern count="other">{0} ft</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">ίντσες</displayName>
 				<unitPattern count="one">{0} in</unitPattern>
 				<unitPattern count="other">{0} in</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">χιλιόμετρα</displayName>
 				<unitPattern count="one">{0} χλμ.</unitPattern>
 				<unitPattern count="other">{0} χλμ.</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">έτη φωτός</displayName>
 				<unitPattern count="one">{0} ly</unitPattern>
 				<unitPattern count="other">{0} ly</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">μέτρα</displayName>
 				<unitPattern count="one">{0} μ.</unitPattern>
 				<unitPattern count="other">{0} μ.</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">μίλια</displayName>
 				<unitPattern count="one">{0} mi</unitPattern>
 				<unitPattern count="other">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">χιλιοστόμετρα</displayName>
 				<unitPattern count="one">{0} χλστ.</unitPattern>
 				<unitPattern count="other">{0} χλστ.</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">πικόμετρα</displayName>
 				<unitPattern count="one">{0} pm</unitPattern>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">γιάρδες</displayName>
 				<unitPattern count="one">{0} yd</unitPattern>
 				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">γραμμάρια</displayName>
 				<unitPattern count="one">{0} γρ.</unitPattern>
 				<unitPattern count="other">{0} γρ.</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">χιλιόγραμμα</displayName>
 				<unitPattern count="one">{0} χλγρ.</unitPattern>
 				<unitPattern count="other">{0} χλγρ.</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">ουγγιές</displayName>
 				<unitPattern count="one">{0} oz</unitPattern>
 				<unitPattern count="other">{0} oz</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">λίβρες</displayName>
 				<unitPattern count="one">{0} lb</unitPattern>
 				<unitPattern count="other">{0} lb</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ίπποι</displayName>
 				<unitPattern count="one">{0} hp</unitPattern>
 				<unitPattern count="other">{0} hp</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">κιλοβάτ</displayName>
 				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">watt</displayName>
 				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">εκτοπασκάλ</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">ίντσες στήλης υδραργύρου</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">μιλιμπάρ</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">χιλιόμετρα ανά ώρα</displayName>
 				<unitPattern count="one">{0} χλμ./ώρα</unitPattern>
 				<unitPattern count="other">{0} χλμ./ώρα</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">μέτρα ανά δευτερόλεπτο</displayName>
 				<unitPattern count="one">{0} μέτρο/δευτ.</unitPattern>
 				<unitPattern count="other">{0} μέτρα/δευτ.</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">μίλια ανά ώρα</displayName>
 				<unitPattern count="one">{0} μίλι/ώρα</unitPattern>
 				<unitPattern count="other">{0} μίλια/ώρα</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">βαθμοί Κελσίου</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">βαθμοί Φαρενάιτ</displayName>
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">κυβικά χιλιόμετρα</displayName>
 				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">κυβικά μίλια</displayName>
 				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">λίτρα</displayName>
 				<unitPattern count="one">{0} λίτ.</unitPattern>
 				<unitPattern count="other">{0} λίτ.</unitPattern>
 			</unit>

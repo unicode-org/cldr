@@ -3462,6 +3462,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Калінінград</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Сімферополь</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Москва</exemplarCity>
 			</zone>
@@ -3632,9 +3635,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Київ</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Сімферополь</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Запоріжжя</exemplarCity>
@@ -6405,276 +6405,322 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0} на {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">сили тяжіння</displayName>
 				<unitPattern count="one" draft="contributed">{0} сила тяжіння</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} сили тяжіння</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} сил тяжіння</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} сили тяжіння</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">мінути</displayName>
 				<unitPattern count="one" draft="contributed">{0} мінута</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мінути</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} мінут</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мінути</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">секунди</displayName>
 				<unitPattern count="one" draft="contributed">{0} секунда</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} секунди</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} секунд</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} секунди</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">градуса</displayName>
 				<unitPattern count="one" draft="contributed">{0} градус</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} градуси</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} градусів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} градуса</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">акра</displayName>
 				<unitPattern count="one" draft="contributed">{0} акр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} акри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} акрів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} акра</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">гектара</displayName>
 				<unitPattern count="one" draft="contributed">{0} гектар</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} гектари</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} гектарів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} гектара</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">квадратного фута</displayName>
 				<unitPattern count="one" draft="contributed">{0} квадратний фут</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} квадратні фути</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} квадратних футів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} квадратного фута</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">квадратного кілометра</displayName>
 				<unitPattern count="one" draft="contributed">{0} квадратний кілометр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} квадратні кілометри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} квадратних кілометрів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} квадратного кілометра</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">квадратного метра</displayName>
 				<unitPattern count="one" draft="contributed">{0} квадратний метр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} квадратні метри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} квадратних метрів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} квадратного метра</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">квадратної милі</displayName>
 				<unitPattern count="one" draft="contributed">{0} квадратна миля</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} квадратні милі</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} квадратних миль</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} квадратної милі</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">дня</displayName>
 				<unitPattern count="one">{0} день</unitPattern>
 				<unitPattern count="few">{0} дні</unitPattern>
 				<unitPattern count="many">{0} днів</unitPattern>
 				<unitPattern count="other">{0} дня</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">години</displayName>
 				<unitPattern count="one">{0} година</unitPattern>
 				<unitPattern count="few">{0} години</unitPattern>
 				<unitPattern count="many">{0} годин</unitPattern>
 				<unitPattern count="other">{0} години</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">мілісекунди</displayName>
 				<unitPattern count="one" draft="contributed">{0} мілісекунда</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мілісекунди</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} мілісекунд</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мілісекунди</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">хвилини</displayName>
 				<unitPattern count="one">{0} хвилина</unitPattern>
 				<unitPattern count="few">{0} хвилини</unitPattern>
 				<unitPattern count="many">{0} хвилин</unitPattern>
 				<unitPattern count="other">{0} хвилини</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">місяця</displayName>
 				<unitPattern count="one">{0} місяць</unitPattern>
 				<unitPattern count="few">{0} місяці</unitPattern>
 				<unitPattern count="many">{0} місяців</unitPattern>
 				<unitPattern count="other">{0} місяця</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">секунди</displayName>
 				<unitPattern count="one">{0} секунда</unitPattern>
 				<unitPattern count="few">{0} секунди</unitPattern>
 				<unitPattern count="many">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунди</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">тижня</displayName>
 				<unitPattern count="one">{0} тиждень</unitPattern>
 				<unitPattern count="few">{0} тижні</unitPattern>
 				<unitPattern count="many">{0} тижнів</unitPattern>
 				<unitPattern count="other">{0} тижня</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">року</displayName>
 				<unitPattern count="one">{0} рік</unitPattern>
 				<unitPattern count="few">{0} роки</unitPattern>
 				<unitPattern count="many">{0} років</unitPattern>
 				<unitPattern count="other">{0} року</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">сантиметра</displayName>
 				<unitPattern count="one" draft="contributed">{0} сантиметр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} сантиметри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} сантиметрів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} сантиметра</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">фута</displayName>
 				<unitPattern count="one" draft="contributed">{0} фут</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} фути</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} футів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} фута</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">дюйма</displayName>
 				<unitPattern count="one" draft="contributed">{0} дюйм</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} дюйми</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} дюймів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} дюйма</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">кілометра</displayName>
 				<unitPattern count="one" draft="contributed">{0} кілометр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кілометри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кілометрів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кілометра</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">світлового року</displayName>
 				<unitPattern count="one" draft="contributed">{0} світловий рік</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} світлові роки</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} світлових років</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} світлового року</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">метра</displayName>
 				<unitPattern count="one" draft="contributed">{0} метр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} метри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} метрів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} метра</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">милі</displayName>
 				<unitPattern count="one" draft="contributed">{0} миля</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} милі</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миль</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} милі</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">міліметра</displayName>
 				<unitPattern count="one" draft="contributed">{0} міліметр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} міліметри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} міліметрів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} міліметра</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">пікометра</displayName>
 				<unitPattern count="one" draft="contributed">{0} пікометр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} пікометри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} пікометрів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} пікометра</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ярда</displayName>
 				<unitPattern count="one" draft="contributed">{0} ярд</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ярди</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ярдів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ярда</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">грама</displayName>
 				<unitPattern count="one" draft="contributed">{0} грам</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} грами</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} грамів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} грама</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">кілограма</displayName>
 				<unitPattern count="one" draft="contributed">{0} кілограм</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кілограми</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кілограмів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кілограма</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">унції</displayName>
 				<unitPattern count="one" draft="contributed">{0} унція</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} унції</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} унцій</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} унції</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">фунта</displayName>
 				<unitPattern count="one" draft="contributed">{0} фунт</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} фунти</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} фунтів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} фунта</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">кінської сили</displayName>
 				<unitPattern count="one" draft="contributed">{0} кінська сила</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кінські сили</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кінських сил</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кінської сили</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">кіловата</displayName>
 				<unitPattern count="one" draft="contributed">{0} кіловат</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кіловати</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кіловатів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кіловата</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">вата</displayName>
 				<unitPattern count="one" draft="contributed">{0} ват</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} вати</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ватів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} вата</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">гектопаскаля</displayName>
 				<unitPattern count="one" draft="contributed">{0} гектопаскаль</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} гектопаскалі</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} гектопаскалів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} гектопаскаля</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">дюйма ртутного стовпа</displayName>
 				<unitPattern count="one" draft="contributed">{0} дюйм ртутного стовпа</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} дюйми ртутного стовпа</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} дюймів ртутного стовпа</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} дюйма ртутного стовпа</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">мілібара</displayName>
 				<unitPattern count="one" draft="contributed">{0} мілібар</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мілібари</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} мілібарів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мілібара</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">кілометра на годину</displayName>
 				<unitPattern count="one" draft="contributed">{0} кілометр на годину</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кілометри на годину</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кілометрів на годину</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кілометра на годину</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">метра на секунду</displayName>
 				<unitPattern count="one" draft="contributed">{0} метр на секунду</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} метри на секунду</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} метрів на секунду</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} метра на секунду</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">милі на годину</displayName>
 				<unitPattern count="one" draft="contributed">{0} миля на годину</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} милі на годину</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миль на годину</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} милі на годину</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">градуса Цельсія</displayName>
 				<unitPattern count="one" draft="contributed">{0} градус Цельсія</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} градуси Цельсія</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} градусів Цельсія</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} градуса Цельсія</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">градуса Фаренгейта</displayName>
 				<unitPattern count="one" draft="contributed">{0} градус Фаренгейта</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} градуси Фаренгейта</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} градусів Фаренгейта</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} градуса Фаренгейта</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">кубічного кілометра</displayName>
 				<unitPattern count="one" draft="contributed">{0} кубічний кілометр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кубічні кілометри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кубічних кілометрів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кубічного кілометра</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">кубічної милі</displayName>
 				<unitPattern count="one" draft="contributed">{0} кубічна миля</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кубічні милі</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кубічних миль</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кубічної милі</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">літра</displayName>
 				<unitPattern count="one" draft="contributed">{0} літр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} літри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} літрів</unitPattern>
@@ -6686,276 +6732,322 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">сили тяжіння</displayName>
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">мінути</displayName>
 				<unitPattern count="one" draft="contributed">{0} мін.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мін.</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} мін.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мін.</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">секунди</displayName>
 				<unitPattern count="one" draft="contributed">{0} сек.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} сек.</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} сек.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} сек.</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">градуса</displayName>
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">акра</displayName>
 				<unitPattern count="one" draft="contributed">{0} акр</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} акри</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} акрів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} акра</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">гектара</displayName>
 				<unitPattern count="one" draft="contributed">{0} га</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} га</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} га</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} га</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">квадратного фута</displayName>
 				<unitPattern count="one" draft="contributed">{0} фут²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} фути²</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} футів²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} фута²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">квадратного кілометра</displayName>
 				<unitPattern count="one" draft="contributed">{0} км²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} км²</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} км²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} км²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">квадратного метра</displayName>
 				<unitPattern count="one" draft="contributed">{0} м²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} м²</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} м²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} м²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">квадратної милі</displayName>
 				<unitPattern count="one" draft="contributed">{0} миля²</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} милі²</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миль²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} милі²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">дня</displayName>
 				<unitPattern count="one" draft="contributed">{0} дн.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} дн.</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} дн.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} дн.</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">години</displayName>
 				<unitPattern count="one" draft="contributed">{0} год</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} год</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} год</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} год</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">мілісекунди</displayName>
 				<unitPattern count="one" draft="contributed">{0} мс</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мс</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} мс</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мс</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">хвилини</displayName>
 				<unitPattern count="one" draft="contributed">{0} хв</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} хв</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} хв</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} хв</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">місяця</displayName>
 				<unitPattern count="one">{0} міс.</unitPattern>
 				<unitPattern count="few">{0} міс.</unitPattern>
 				<unitPattern count="many">{0} міс.</unitPattern>
 				<unitPattern count="other">{0} міс.</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">секунди</displayName>
 				<unitPattern count="one" draft="contributed">{0} с</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} с</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} с</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} с</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">тижня</displayName>
 				<unitPattern count="one">{0} тиж.</unitPattern>
 				<unitPattern count="few">{0} тиж.</unitPattern>
 				<unitPattern count="many">{0} тиж.</unitPattern>
 				<unitPattern count="other">{0} тиж.</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">року</displayName>
 				<unitPattern count="one">{0} р.</unitPattern>
 				<unitPattern count="few">{0} р.</unitPattern>
 				<unitPattern count="many">{0} р.</unitPattern>
 				<unitPattern count="other">{0} р.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">сантиметра</displayName>
 				<unitPattern count="one" draft="contributed">{0} см</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} см</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} см</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} см</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">фута</displayName>
 				<unitPattern count="one" draft="contributed">{0} фут</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} фути</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} футів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} фута</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">дюйма</displayName>
 				<unitPattern count="one" draft="contributed">{0} дюйм</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} дюйми</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} дюймів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} дюйма</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">кілометра</displayName>
 				<unitPattern count="one" draft="contributed">{0} км</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} км</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} км</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} км</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">світлового року</displayName>
 				<unitPattern count="one" draft="contributed">{0} св. р.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} св. р.</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} св. р.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} св. р.</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">метра</displayName>
 				<unitPattern count="one" draft="contributed">{0} м</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} м</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} м</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} м</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">милі</displayName>
 				<unitPattern count="one" draft="contributed">{0} миля</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} милі</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миль</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} милі</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">міліметра</displayName>
 				<unitPattern count="one" draft="contributed">{0} мм</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мм</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} мм</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мм</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">пікометра</displayName>
 				<unitPattern count="one" draft="contributed">{0} пм</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} пм</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} пм</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} пм</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ярда</displayName>
 				<unitPattern count="one" draft="contributed">{0} ярд</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} ярди</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} ярдів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ярда</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">грама</displayName>
 				<unitPattern count="one" draft="contributed">{0} г</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} г</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} г</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} г</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">кілограма</displayName>
 				<unitPattern count="one" draft="contributed">{0} кг</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кг</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кг</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кг</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">унції</displayName>
 				<unitPattern count="one" draft="contributed">{0} унція</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} унції</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} унцій</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} унції</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">фунта</displayName>
 				<unitPattern count="one" draft="contributed">{0} фунт</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} фунти</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} фунтів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} фунта</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">кінської сили</displayName>
 				<unitPattern count="one" draft="contributed">{0} к.с.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} к.с.</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} к.с.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} к.с.</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">кіловата</displayName>
 				<unitPattern count="one" draft="contributed">{0} кВт</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} кВт</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} кВт</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} кВт</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">вата</displayName>
 				<unitPattern count="one" draft="contributed">{0} Вт</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} Вт</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} Вт</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} Вт</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">гектопаскаля</displayName>
 				<unitPattern count="one" draft="contributed">{0} гПа</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} гПа</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} гПа</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} гПа</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">дюйма ртутного стовпа</displayName>
 				<unitPattern count="one" draft="contributed">{0} дюйм рт. ст.</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} дюйми рт. ст.</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} дюймів рт. ст.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} дюйма рт. ст.</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">мілібара</displayName>
 				<unitPattern count="one" draft="contributed">{0} мбар</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} мбари</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} мбарів</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} мбара</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">кілометра на годину</displayName>
 				<unitPattern count="one" draft="contributed">{0} км/год</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} км/год</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} км/год</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} км/год</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">метра на секунду</displayName>
 				<unitPattern count="one" draft="contributed">{0} м/с</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} м/с</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} м/с</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} м/с</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">милі на годину</displayName>
 				<unitPattern count="one" draft="contributed">{0} миля/год</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} милі/год</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миль/год</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} милі/год</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">градуса Цельсія</displayName>
 				<unitPattern count="one" draft="contributed">{0}°C</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°C</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}°C</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">градуса Фаренгейта</displayName>
 				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="few" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="many" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">кубічного кілометра</displayName>
 				<unitPattern count="one" draft="contributed">{0} км³</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} км³</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} км³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} км³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">кубічної милі</displayName>
 				<unitPattern count="one" draft="contributed">{0} миля³</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} милі³</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} миль³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} милі³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">літра</displayName>
 				<unitPattern count="one" draft="contributed">{0} л</unitPattern>
 				<unitPattern count="few" draft="contributed">{0} л</unitPattern>
 				<unitPattern count="many" draft="contributed">{0} л</unitPattern>

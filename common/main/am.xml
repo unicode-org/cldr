@@ -2556,6 +2556,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>ካሊኒንግራድ</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>ሲምፈሮፖል</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>ሞስኮ</exemplarCity>
 			</zone>
@@ -2726,9 +2729,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>ኪየቭ</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>ሲምፈሮፖል</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>ዛፖሮዚይ</exemplarCity>
@@ -4690,186 +4690,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0} በ{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ጂ-ኃይል</displayName>
 				<unitPattern count="one">{0} ጂ-ኃይል</unitPattern>
 				<unitPattern count="other">{0} ጂ-ኃይል</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">ደቂቃ</displayName>
 				<unitPattern count="one">{0} ደቂቃ</unitPattern>
 				<unitPattern count="other">{0} ደቂቃ</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">ሰከንድ</displayName>
 				<unitPattern count="one">{0} ሰከንድ</unitPattern>
 				<unitPattern count="other">{0} ሰከንድ</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">ዲግሪ</displayName>
 				<unitPattern count="one">{0} ዲግሪ</unitPattern>
 				<unitPattern count="other">{0} ዲግሪ</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ኤክር</displayName>
 				<unitPattern count="one">{0} ኤክር</unitPattern>
 				<unitPattern count="other">{0} ኤክር</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ሄክታር</displayName>
 				<unitPattern count="one">{0} ሄክታር</unitPattern>
 				<unitPattern count="other">{0} ሄክታር</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">ካሬ ጫማ</displayName>
 				<unitPattern count="one">{0} ካሬ ጫማ</unitPattern>
 				<unitPattern count="other">{0} ካሬ ጫማ</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">ካሬ ኪሎሜትር</displayName>
 				<unitPattern count="one">{0} ካሬ ኪሎሜትር</unitPattern>
 				<unitPattern count="other">{0} ካሬ ኪሎሜትር</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">ካሬ ሜትር</displayName>
 				<unitPattern count="one">{0} ካሬ ሜትር</unitPattern>
 				<unitPattern count="other">{0} ካሬ ሜትር</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">ካሬ ማይል</displayName>
 				<unitPattern count="one">{0} ካሬ ማይል</unitPattern>
 				<unitPattern count="other">{0} ካሬ ማይል</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ቀናት</displayName>
 				<unitPattern count="one">{0} ቀናት</unitPattern>
 				<unitPattern count="other">{0} ቀናት</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">ሰዓቶች</displayName>
 				<unitPattern count="one">{0} ሰዓት</unitPattern>
 				<unitPattern count="other">{0} ሰዓቶች</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">ሚሊሰከንድ</displayName>
 				<unitPattern count="one">{0} ሚሊሰከንድ</unitPattern>
 				<unitPattern count="other">{0} ሚሊሰከንድ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">ደቂቃዎች</displayName>
 				<unitPattern count="one">{0} ደቂቃ</unitPattern>
 				<unitPattern count="other">{0} ደቂቃዎች</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ወራት</displayName>
 				<unitPattern count="one">{0} ወር</unitPattern>
 				<unitPattern count="other">{0} ወራት</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">ሰከንዶች</displayName>
 				<unitPattern count="one">{0} ሰከንድ</unitPattern>
 				<unitPattern count="other">{0} ሰከንዶች</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">ሳምንታት</displayName>
 				<unitPattern count="one">{0} ሳምንት</unitPattern>
 				<unitPattern count="other">{0} ሳምንታት</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">ዓመታት</displayName>
 				<unitPattern count="one">{0} ዓመታት</unitPattern>
 				<unitPattern count="other">{0} ዓመታት</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">ሴንቲሜትር</displayName>
 				<unitPattern count="one">{0} ሴንቲሜትር</unitPattern>
 				<unitPattern count="other">{0} ሴንቲሜትር</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ጫማ</displayName>
 				<unitPattern count="one">{0} ጫማ</unitPattern>
 				<unitPattern count="other">{0} ጫማ</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">ኢንች</displayName>
 				<unitPattern count="one">{0} ኢንች</unitPattern>
 				<unitPattern count="other">{0} ኢንች</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">ኪሎሜትር</displayName>
 				<unitPattern count="one">{0} ኪሎሜትር</unitPattern>
 				<unitPattern count="other">{0} ኪሎሜትር</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">የብርሃን ዓመት</displayName>
 				<unitPattern count="one">{0} የብርሃን ዓመት</unitPattern>
 				<unitPattern count="other">{0} የብርሃን ዓመት</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">ሜትር</displayName>
 				<unitPattern count="one">{0} ሜትር</unitPattern>
 				<unitPattern count="other">{0} ሜትር</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">ማይል</displayName>
 				<unitPattern count="one">{0} ማይል</unitPattern>
 				<unitPattern count="other">{0} ማይል</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">ሚሊሜትር</displayName>
 				<unitPattern count="one">{0} ሚሊሜትር</unitPattern>
 				<unitPattern count="other">{0} ሚሊሜትር</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">ፒኮሜትር</displayName>
 				<unitPattern count="one">{0} ፒኮሜትር</unitPattern>
 				<unitPattern count="other">{0} ፒኮሜትር</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ያርድ</displayName>
 				<unitPattern count="one">{0} ያርድ</unitPattern>
 				<unitPattern count="other">{0} ያርድ</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">ግራም</displayName>
 				<unitPattern count="one">{0} ግራም</unitPattern>
 				<unitPattern count="other">{0} ግራም</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">ኪሎግራም</displayName>
 				<unitPattern count="one">{0} ኪሎግራም</unitPattern>
 				<unitPattern count="other">{0} ኪሎግራም</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">አውንስ</displayName>
 				<unitPattern count="one">{0} አውንስ</unitPattern>
 				<unitPattern count="other">{0} አውንስ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ፓውንድ</displayName>
 				<unitPattern count="one">{0} ፓውንድ</unitPattern>
 				<unitPattern count="other">{0} ፓውንድ</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">የፈረስ ኃይል</displayName>
 				<unitPattern count="one">{0} የፈረስ ኃይል</unitPattern>
 				<unitPattern count="other">{0} የፈረስ ኃይል</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">ኪሎዋት</displayName>
 				<unitPattern count="one">{0} ኪሎዋት</unitPattern>
 				<unitPattern count="other">{0} ኪሎዋት</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ዋት</displayName>
 				<unitPattern count="one">{0} ዋት</unitPattern>
 				<unitPattern count="other">{0} ዋት</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ሄክቶፓስካል</displayName>
 				<unitPattern count="one">{0} ሄክቶፓስካል</unitPattern>
 				<unitPattern count="other">{0} ሄክቶፓስካል</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">ኢንች ሜርኩሪ</displayName>
 				<unitPattern count="one">{0} ኢንች ሜርኩሪ</unitPattern>
 				<unitPattern count="other">{0} ኢንች ሜርኩሪ</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">ሚሊባር</displayName>
 				<unitPattern count="one">{0} ሚሊባር</unitPattern>
 				<unitPattern count="other">{0} ሚሊባር</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">ኪሎሜትር በሰዓት</displayName>
 				<unitPattern count="one">{0} ኪሎሜትር በሰዓት</unitPattern>
 				<unitPattern count="other">{0} ኪሎሜትር በሰዓት</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">ሜትር በሰከንድ</displayName>
 				<unitPattern count="one">{0} ሜትር በሰከንድ</unitPattern>
 				<unitPattern count="other">{0} ሜትር በሰከንድ</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">ማይል በሰዓት</displayName>
 				<unitPattern count="one">{0} ማይል በሰዓት</unitPattern>
 				<unitPattern count="other">{0} ማይል በሰዓት</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">ዲግሪ ሴልሺየስ</displayName>
 				<unitPattern count="one">{0} ዲግሪ ሴልሺየስ</unitPattern>
 				<unitPattern count="other">{0} ዲግሪ ሴልሺየስ</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">ዲግሪ ፋራንሃይት</displayName>
 				<unitPattern count="one">{0} ዲግሪ ፋራንሃይት</unitPattern>
 				<unitPattern count="other">{0} ዲግሪ ፋራንሃይት</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">ኩቢክ ኪሎሜትር</displayName>
 				<unitPattern count="one">{0} ኩቢክ ኪሎሜትር</unitPattern>
 				<unitPattern count="other">{0} ኩቢክ ኪሎሜትር</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">ኩቢክ ማይል</displayName>
 				<unitPattern count="one">{0} ኩቢክ ማይል</unitPattern>
 				<unitPattern count="other">{0} ኩቢክ ማይል</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">ሊትር</displayName>
 				<unitPattern count="one">{0} ሊትር</unitPattern>
 				<unitPattern count="other">{0} ሊትር</unitPattern>
 			</unit>
@@ -4879,186 +4925,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ጂ-ኃይል</displayName>
 				<unitPattern count="one">{0} ጂ</unitPattern>
 				<unitPattern count="other">{0} ጂ</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">ደቂቃ</displayName>
 				<unitPattern count="one">{0} ደቂቃ</unitPattern>
 				<unitPattern count="other">{0} ደቂቃ</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">ሰከንድ</displayName>
 				<unitPattern count="one">{0} ሰከንድ</unitPattern>
 				<unitPattern count="other">{0} ሰከንድ</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">ዲግሪ</displayName>
 				<unitPattern count="one">{0}°ዲግሪ</unitPattern>
 				<unitPattern count="other">{0}°ዲግሪ</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ኤክር</displayName>
 				<unitPattern count="one">{0} ኤክር</unitPattern>
 				<unitPattern count="other">{0} ኤክር</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ሄክታር</displayName>
 				<unitPattern count="one">{0} ሄክታር</unitPattern>
 				<unitPattern count="other">{0} ሄክታር</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">ካሬ ጫማ</displayName>
 				<unitPattern count="one">{0} ካሬ ጫማ</unitPattern>
 				<unitPattern count="other">{0} ካሬ ጫማ</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">ካሬ ኪሎሜትር</displayName>
 				<unitPattern count="one">{0} ኪሜ²</unitPattern>
 				<unitPattern count="other">{0} ኪሜ²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">ካሬ ሜትር</displayName>
 				<unitPattern count="one">{0} ሜ²</unitPattern>
 				<unitPattern count="other">{0} ሜ²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">ካሬ ማይል</displayName>
 				<unitPattern count="one">{0} ካሬ ማይል</unitPattern>
 				<unitPattern count="other">{0} ካሬ ማይል</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">ቀናት</displayName>
 				<unitPattern count="one">{0} ቀናት</unitPattern>
 				<unitPattern count="other">{0} ቀናት</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">ሰዓቶች</displayName>
 				<unitPattern count="one">{0} ሰዓ</unitPattern>
 				<unitPattern count="other">{0} ሰዓ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">ሚሊሰከንድ</displayName>
 				<unitPattern count="one">{0} ሚሴ</unitPattern>
 				<unitPattern count="other">{0} ሚሴ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">ደቂቃዎች</displayName>
 				<unitPattern count="one">{0} ደቂ</unitPattern>
 				<unitPattern count="other">{0} ደቂቃ</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ወራት</displayName>
 				<unitPattern count="one">{0} ወራት</unitPattern>
 				<unitPattern count="other">{0} ወራት</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">ሰከንዶች</displayName>
 				<unitPattern count="one">{0} ሰከ</unitPattern>
 				<unitPattern count="other">{0} ሰከ</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">ሳምንታት</displayName>
 				<unitPattern count="one">{0} ሳምንት</unitPattern>
 				<unitPattern count="other">{0} ሳምንታት</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">ዓመታት</displayName>
 				<unitPattern count="one">{0} ዓመት</unitPattern>
 				<unitPattern count="other">{0} ዓመታት</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">ሴንቲሜትር</displayName>
 				<unitPattern count="one">{0} ሴሜ</unitPattern>
 				<unitPattern count="other">{0} ሴሜ</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ጫማ</displayName>
 				<unitPattern count="one">{0} ጫማ</unitPattern>
 				<unitPattern count="other">{0} ጫማ</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">ኢንች</displayName>
 				<unitPattern count="one">{0} ኢንች</unitPattern>
 				<unitPattern count="other">{0} ኢንች</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">ኪሎሜትር</displayName>
 				<unitPattern count="one">{0} ኪሜ</unitPattern>
 				<unitPattern count="other">{0} ኪሜ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">የብርሃን ዓመት</displayName>
 				<unitPattern count="one">{0} ly</unitPattern>
 				<unitPattern count="other">{0} ly</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">ሜትር</displayName>
 				<unitPattern count="one">{0} ሜ</unitPattern>
 				<unitPattern count="other">{0} ሜ</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">ማይል</displayName>
 				<unitPattern count="one">{0} ማይል</unitPattern>
 				<unitPattern count="other">{0} ማይል</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">ሚሊሜትር</displayName>
 				<unitPattern count="one">{0} ሚሜ</unitPattern>
 				<unitPattern count="other">{0} ሚሜ</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">ፒኮሜትር</displayName>
 				<unitPattern count="one">{0} ፒሜ</unitPattern>
 				<unitPattern count="other">{0} ፒሜ</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ያርድ</displayName>
 				<unitPattern count="one">{0} ያርድ</unitPattern>
 				<unitPattern count="other">{0} ያርድ</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">ግራም</displayName>
 				<unitPattern count="one">{0} ግ</unitPattern>
 				<unitPattern count="other">{0} ግ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">ኪሎግራም</displayName>
 				<unitPattern count="one">{0} ኪግ</unitPattern>
 				<unitPattern count="other">{0} ኪግ</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">አውንስ</displayName>
 				<unitPattern count="one">{0} አውንስ</unitPattern>
 				<unitPattern count="other">{0} አውንስ</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ፓውንድ</displayName>
 				<unitPattern count="one">{0} ፓውንድ</unitPattern>
 				<unitPattern count="other">{0} ፓውንድ</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">የፈረስ ኃይል</displayName>
 				<unitPattern count="one">{0} የፈረስ ኃይል</unitPattern>
 				<unitPattern count="other">{0} የፈረስ ኃይል</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">ኪሎዋት</displayName>
 				<unitPattern count="one">{0} ኪዋ</unitPattern>
 				<unitPattern count="other">{0} ኪዋ</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ዋት</displayName>
 				<unitPattern count="one">{0} ዋ</unitPattern>
 				<unitPattern count="other">{0} ዋ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ሄክቶፓስካል</displayName>
 				<unitPattern count="one">{0} ሄክቶፓስካል</unitPattern>
 				<unitPattern count="other">{0} ሄክቶፓስካል</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">ኢንች ሜርኩሪ</displayName>
 				<unitPattern count="one">{0} ኢንች ሜርኩሪ</unitPattern>
 				<unitPattern count="other">{0} ኢንች ሜርኩሪ</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">ሚሊባር</displayName>
 				<unitPattern count="one">{0} ሚባ</unitPattern>
 				<unitPattern count="other">{0} ሚባ</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">ኪሎሜትር በሰዓት</displayName>
 				<unitPattern count="one">{0} ኪሜ/ሰ</unitPattern>
 				<unitPattern count="other">{0} ኪሜ/ሰ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">ሜትር በሰከንድ</displayName>
 				<unitPattern count="one">{0} ሜ/ሴ</unitPattern>
 				<unitPattern count="other">{0} ሜ/ሴ</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">ማይል በሰዓት</displayName>
 				<unitPattern count="one">{0} ማይል/ሰ</unitPattern>
 				<unitPattern count="other">{0} ማይል/ሰ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">ዲግሪ ሴልሺየስ</displayName>
 				<unitPattern count="one">{0}°ሴ</unitPattern>
 				<unitPattern count="other">{0}°ሴ</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">ዲግሪ ፋራንሃይት</displayName>
 				<unitPattern count="one">{0}°ፋ</unitPattern>
 				<unitPattern count="other">{0}°ፋ</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">ኩቢክ ኪሎሜትር</displayName>
 				<unitPattern count="one">{0} ኪሜ³</unitPattern>
 				<unitPattern count="other">{0} ኪሜ³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">ኩቢክ ማይል</displayName>
 				<unitPattern count="one">{0} ማይል³</unitPattern>
 				<unitPattern count="other">{0} ማይል³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">ሊትር</displayName>
 				<unitPattern count="one">{0} ሊ</unitPattern>
 				<unitPattern count="other">{0} ሊ</unitPattern>
 			</unit>

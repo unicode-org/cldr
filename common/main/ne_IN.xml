@@ -127,8 +127,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<unit type="duration-week">
+				<displayName draft="provisional">सप्ताह</displayName>
 				<unitPattern count="one">{0} साता</unitPattern>
 				<unitPattern count="other">{0} सप्ताह</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-week">
+				<displayName draft="provisional">सप्ताह</displayName>
 			</unit>
 		</unitLength>
 	</units>

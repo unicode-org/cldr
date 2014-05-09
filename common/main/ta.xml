@@ -2868,6 +2868,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>கலினின்கிராடு</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>சிம்ஃபெரோபோல்</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>மாஸ்கோ</exemplarCity>
 			</zone>
@@ -3038,9 +3041,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>கீவ்</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>சிம்ஃபெரோபோல்</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>ஜபோரோஸியே</exemplarCity>
@@ -4845,186 +4845,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ஜி-ஃபோர்ஸ்</displayName>
 				<unitPattern count="one">{0} ஜி-ஃபோர்ஸ்</unitPattern>
 				<unitPattern count="other">{0} ஜி-ஃபோர்ஸ்</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">நிமிடங்கள்</displayName>
 				<unitPattern count="one">{0} நிமிடம்</unitPattern>
 				<unitPattern count="other">{0} நிமிடங்கள்</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">விநாடிகள்</displayName>
 				<unitPattern count="one">{0} விநாடி</unitPattern>
 				<unitPattern count="other">{0} விநாடிகள்</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">டிகிரி</displayName>
 				<unitPattern count="one">{0} டிகிரி</unitPattern>
 				<unitPattern count="other">{0} டிகிரி</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ஏக்கர்</displayName>
 				<unitPattern count="one">{0} ஏக்கர்</unitPattern>
 				<unitPattern count="other">{0} ஏக்கர்</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ஹெக்டேர்</displayName>
 				<unitPattern count="one">{0} ஹெக்டேர்</unitPattern>
 				<unitPattern count="other">{0} ஹெக்டேர்</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">சதுர அடி</displayName>
 				<unitPattern count="one">{0} சதுர அடி</unitPattern>
 				<unitPattern count="other">{0} சதுர அடி</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">சதுர கிலோமீட்டர்</displayName>
 				<unitPattern count="one">{0} சதுர கிலோமீட்டர்</unitPattern>
 				<unitPattern count="other">{0} சதுர கிலோமீட்டர்</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">சதுர மீட்டர்</displayName>
 				<unitPattern count="one">{0} சதுர மீட்டர்</unitPattern>
 				<unitPattern count="other">{0} சதுர மீட்டர்</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">சதுர மைல்</displayName>
 				<unitPattern count="one">{0} சதுர மைல்</unitPattern>
 				<unitPattern count="other">{0} சதுர மைல்</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">நாட்கள்</displayName>
 				<unitPattern count="one">{0} நாள்</unitPattern>
 				<unitPattern count="other">{0} நாட்கள்</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">மணிநேரம்</displayName>
 				<unitPattern count="one">{0} மணிநேரம்</unitPattern>
 				<unitPattern count="other">{0} மணிநேரம்</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">மில்லிவிநாடி</displayName>
 				<unitPattern count="one">{0} மில்லிவிநாடி</unitPattern>
 				<unitPattern count="other">{0} மில்லிவிநாடி</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">நிமிடங்கள்</displayName>
 				<unitPattern count="one">{0} நிமிடம்</unitPattern>
 				<unitPattern count="other">{0} நிமிடங்கள்</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">மாதங்கள்</displayName>
 				<unitPattern count="one">{0} மாதம்</unitPattern>
 				<unitPattern count="other">{0} மாதங்கள்</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">விநாடிகள்</displayName>
 				<unitPattern count="one">{0} வினாடி</unitPattern>
 				<unitPattern count="other">{0} விநாடிகள்</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">வாரங்கள்</displayName>
 				<unitPattern count="one">{0} வாரம்</unitPattern>
 				<unitPattern count="other">{0} வாரங்கள்</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">ஆண்டுகள்</displayName>
 				<unitPattern count="one">{0} ஆண்டு</unitPattern>
 				<unitPattern count="other">{0} ஆண்டுகள்</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">சென்டிமீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} சென்டிமீட்டர்</unitPattern>
 				<unitPattern count="other">{0} சென்டிமீட்டர்கள்</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">அடி</displayName>
 				<unitPattern count="one">{0} அடி</unitPattern>
 				<unitPattern count="other">{0} அடி</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">அங்குலங்கள்</displayName>
 				<unitPattern count="one">{0} அங்குலம்</unitPattern>
 				<unitPattern count="other">{0} அங்குலங்கள்</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">கிலோமீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} கிலோமீட்டர்</unitPattern>
 				<unitPattern count="other">{0} கிலோமீட்டர்கள்</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">ஒளி ஆண்டுகள்</displayName>
 				<unitPattern count="one">{0} ஒளி ஆண்டு</unitPattern>
 				<unitPattern count="other">{0} ஒளி ஆண்டுகள்</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">மீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} மீட்டர்</unitPattern>
 				<unitPattern count="other">{0} மீட்டர்கள்</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">மைல்கள்</displayName>
 				<unitPattern count="one">{0} மைல்</unitPattern>
 				<unitPattern count="other">{0} மைல்கள்</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">மில்லிமீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} மில்லிமீட்டர்</unitPattern>
 				<unitPattern count="other">{0} மில்லிமீட்டர்கள்</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">பைக்கோமீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} பைக்கோமீட்டர்</unitPattern>
 				<unitPattern count="other">{0} பைக்கோமீட்டர்கள்</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">நீட்டளவுகள்</displayName>
 				<unitPattern count="one">{0} நீட்டளவு</unitPattern>
 				<unitPattern count="other">{0} நீட்டளவுகள்</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">கிராம்கள்</displayName>
 				<unitPattern count="one">{0} கிராம்</unitPattern>
 				<unitPattern count="other">{0} கிராம்கள்</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">கிலோகிராம்கள்</displayName>
 				<unitPattern count="one">{0} கிலோகிராம்</unitPattern>
 				<unitPattern count="other">{0} கிலோகிராம்கள்</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">அவுன்ஸ்கள்</displayName>
 				<unitPattern count="one">{0} அவுன்ஸ்</unitPattern>
 				<unitPattern count="other">{0} அவுன்ஸ்கள்</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">பவுண்டுகள்</displayName>
 				<unitPattern count="one">{0} பவுண்டு</unitPattern>
 				<unitPattern count="other">{0} பவுண்டுகள்</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">குதிரைவேகம்</displayName>
 				<unitPattern count="one">{0} குதிரைவேகம்</unitPattern>
 				<unitPattern count="other">{0} குதிரைவேகம்</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">கிலோவாட்</displayName>
 				<unitPattern count="one">{0} கிலோவாட்</unitPattern>
 				<unitPattern count="other">{0} கிலோவாட்</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">வாட்</displayName>
 				<unitPattern count="one">{0} வாட்</unitPattern>
 				<unitPattern count="other">{0} வாட்</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ஹெக்டோபாஸ்கல்</displayName>
 				<unitPattern count="one">{0} ஹெக்டோபாஸ்கல்</unitPattern>
 				<unitPattern count="other">{0} ஹெக்டோபாஸ்கல்</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">பாதரச அங்குலம்</displayName>
 				<unitPattern count="one">{0} பாதரச அங்குலம்</unitPattern>
 				<unitPattern count="other">{0} பாதரச அங்குலம்</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">மில்லிபார்</displayName>
 				<unitPattern count="one">{0} மில்லிபார்</unitPattern>
 				<unitPattern count="other">{0} மில்லிபார்</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">கிலோமீட்டர்/மணிநேரம்</displayName>
 				<unitPattern count="one">{0} கிலோமீட்டர்/மணிநேரம்</unitPattern>
 				<unitPattern count="other">{0} கிலோமீட்டர்/மணிநேரம்</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">மீட்டர்/விநாடி</displayName>
 				<unitPattern count="one">{0} மீட்டர்/விநாடி</unitPattern>
 				<unitPattern count="other">{0} மீட்டர்/விநாடி</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">மைல்/மணிநேரம்</displayName>
 				<unitPattern count="one">{0} மைல்/மணிநேரம்</unitPattern>
 				<unitPattern count="other">{0} மைல்/மணிநேரம்</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">டிகிரி செல்சியஸ்</displayName>
 				<unitPattern count="one">{0} டிகிரி செல்சியஸ்</unitPattern>
 				<unitPattern count="other">{0} டிகிரி செல்சியஸ்</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">டிகிரி ஃபாரன்ஹீட்</displayName>
 				<unitPattern count="one">{0} டிகிரி ஃபாரன்ஹீட்</unitPattern>
 				<unitPattern count="other">{0} டிகிரி ஃபாரன்ஹீட்</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">கன கிலோமீட்டர்</displayName>
 				<unitPattern count="one">{0} கன கிலோமீட்டர்</unitPattern>
 				<unitPattern count="other">{0} கன கிலோமீட்டர்</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">கன மைல்</displayName>
 				<unitPattern count="one">{0} கன மைல்</unitPattern>
 				<unitPattern count="other">{0} கன மைல்</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">லிட்டர்</displayName>
 				<unitPattern count="one">{0} லிட்டர்</unitPattern>
 				<unitPattern count="other">{0} லிட்டர்</unitPattern>
 			</unit>
@@ -5034,186 +5080,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ஜி-ஃபோர்ஸ்</displayName>
 				<unitPattern count="one">{0} ஜி.ஃபோ.</unitPattern>
 				<unitPattern count="other">{0} ஜி.ஃபோ.</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">நிமிடங்கள்</displayName>
 				<unitPattern count="one">{0}நிமி.</unitPattern>
 				<unitPattern count="other">{0}நிமி.</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">விநாடிகள்</displayName>
 				<unitPattern count="one">{0}வி.</unitPattern>
 				<unitPattern count="other">{0}வி.</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">டிகிரி</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ஏக்கர்</displayName>
 				<unitPattern count="one">{0} ஏக்.</unitPattern>
 				<unitPattern count="other">{0} ஏக்.</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ஹெக்டேர்</displayName>
 				<unitPattern count="one">{0} ஹெக்.</unitPattern>
 				<unitPattern count="other">{0} ஹெக்.</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">சதுர அடி</displayName>
 				<unitPattern count="one">{0} ச.அ.</unitPattern>
 				<unitPattern count="other">{0} ச.அ.</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">சதுர கிலோமீட்டர்</displayName>
 				<unitPattern count="one">{0} ச.கிமீ.</unitPattern>
 				<unitPattern count="other">{0} ச.கிமீ.</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">சதுர மீட்டர்</displayName>
 				<unitPattern count="one">{0} ச.மீ.</unitPattern>
 				<unitPattern count="other">{0} ச.மீ.</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">சதுர மைல்</displayName>
 				<unitPattern count="one">{0} ச. மை.</unitPattern>
 				<unitPattern count="other">{0} ச. மை.</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">நாட்கள்</displayName>
 				<unitPattern count="one">{0} நாள்</unitPattern>
 				<unitPattern count="other">{0} நாட்கள்</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">மணிநேரம்</displayName>
 				<unitPattern count="one">{0} மணிநேரம்</unitPattern>
 				<unitPattern count="other">{0} மணிநேரம்</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">மில்லிவிநாடி</displayName>
 				<unitPattern count="one">{0} மி.வி.</unitPattern>
 				<unitPattern count="other">{0} மி.வி.</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">நிமிடங்கள்</displayName>
 				<unitPattern count="one">{0} நிமிடம்</unitPattern>
 				<unitPattern count="other">{0} நிமிடங்கள்</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">மாதங்கள்</displayName>
 				<unitPattern count="one">{0} மாதம்</unitPattern>
 				<unitPattern count="other">{0} மாதங்கள்</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">விநாடிகள்</displayName>
 				<unitPattern count="one">{0} வினாடி</unitPattern>
 				<unitPattern count="other">{0} விநாடிகள்</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">வாரங்கள்</displayName>
 				<unitPattern count="one">{0} வாரம்</unitPattern>
 				<unitPattern count="other">{0} வாரங்கள்</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">ஆண்டுகள்</displayName>
 				<unitPattern count="one">{0} ஆண்டு</unitPattern>
 				<unitPattern count="other">{0} ஆண்டுகள்</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">சென்டிமீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} செ.மீ.</unitPattern>
 				<unitPattern count="other">{0} செ.மீ.</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">அடி</displayName>
 				<unitPattern count="one">{0} அடி</unitPattern>
 				<unitPattern count="other">{0} அடி</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">அங்குலங்கள்</displayName>
 				<unitPattern count="one">{0} அங்.</unitPattern>
 				<unitPattern count="other">{0} அங்.</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">கிலோமீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} கி.மீ.</unitPattern>
 				<unitPattern count="other">{0} கி.மீ.</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">ஒளி ஆண்டுகள்</displayName>
 				<unitPattern count="one">{0} ஒ.ஆ.</unitPattern>
 				<unitPattern count="other">{0} ஒ.ஆ.</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">மீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} மீ.</unitPattern>
 				<unitPattern count="other">{0} மீ.</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">மைல்கள்</displayName>
 				<unitPattern count="one">{0} மை.</unitPattern>
 				<unitPattern count="other">{0} மை.</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">மில்லிமீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} மி.மீ.</unitPattern>
 				<unitPattern count="other">{0} மி.மீ.</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">பைக்கோமீட்டர்கள்</displayName>
 				<unitPattern count="one">{0} பை.மீ.</unitPattern>
 				<unitPattern count="other">{0} பை.மீ.</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">நீட்டளவுகள்</displayName>
 				<unitPattern count="one">{0} நீட்.</unitPattern>
 				<unitPattern count="other">{0} நீட்.</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">கிராம்கள்</displayName>
 				<unitPattern count="one">{0} கி.</unitPattern>
 				<unitPattern count="other">{0} கி.</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">கிலோகிராம்கள்</displayName>
 				<unitPattern count="one">{0} கி.கி.</unitPattern>
 				<unitPattern count="other">{0} கி.கி.</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">அவுன்ஸ்கள்</displayName>
 				<unitPattern count="one">{0} அவு.</unitPattern>
 				<unitPattern count="other">{0} அவு.</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">பவுண்டுகள்</displayName>
 				<unitPattern count="one">{0} பவு.</unitPattern>
 				<unitPattern count="other">{0} பவு.</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">குதிரைவேகம்</displayName>
 				<unitPattern count="one">{0} கு.வே.</unitPattern>
 				<unitPattern count="other">{0} கு.வே.</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">கிலோவாட்</displayName>
 				<unitPattern count="one">{0} கி.வா.</unitPattern>
 				<unitPattern count="other">{0} கி.வா.</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">வாட்</displayName>
 				<unitPattern count="one">{0} வா.</unitPattern>
 				<unitPattern count="other">{0} வா.</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ஹெக்டோபாஸ்கல்</displayName>
 				<unitPattern count="one">{0} ஹெ.பாஸ்.</unitPattern>
 				<unitPattern count="other">{0} ஹெ.பாஸ்.</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">பாதரச அங்குலம்</displayName>
 				<unitPattern count="one">{0} பா.அங்.</unitPattern>
 				<unitPattern count="other">{0} பா.அங்.</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">மில்லிபார்</displayName>
 				<unitPattern count="one">{0} மி.பா.</unitPattern>
 				<unitPattern count="other">{0} மி.பா.</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">கிலோமீட்டர்/மணிநேரம்</displayName>
 				<unitPattern count="one">{0} கி.மீ./ம.நே.</unitPattern>
 				<unitPattern count="other">{0} கி.மீ./ம.நே.</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">மீட்டர்/விநாடி</displayName>
 				<unitPattern count="one">{0} மீட்டர்/விநாடி</unitPattern>
 				<unitPattern count="other">{0} மீ/வி</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">மைல்/மணிநேரம்</displayName>
 				<unitPattern count="one">{0} மை/ம.நே.</unitPattern>
 				<unitPattern count="other">{0} மை/ம.நே.</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">டிகிரி செல்சியஸ்</displayName>
 				<unitPattern count="one">{0}°செ.</unitPattern>
 				<unitPattern count="other">{0}°செ.</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">டிகிரி ஃபாரன்ஹீட்</displayName>
 				<unitPattern count="one">{0}°ஃபா.</unitPattern>
 				<unitPattern count="other">{0}°ஃபா.</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">கன கிலோமீட்டர்</displayName>
 				<unitPattern count="one">{0} கன.கி.மீ.</unitPattern>
 				<unitPattern count="other">{0} கன.கி.மீ.</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">கன மைல்</displayName>
 				<unitPattern count="one">{0} க.மை.</unitPattern>
 				<unitPattern count="other">{0} க.மை.</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">லிட்டர்</displayName>
 				<unitPattern count="one">{0} லி.</unitPattern>
 				<unitPattern count="other">{0} லி.</unitPattern>
 			</unit>

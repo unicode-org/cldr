@@ -1428,6 +1428,36 @@ For terms of use, see http://www.unicode.org/copyright.html
 							</cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
+					<cyclicNameSet type="solarTerms">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">立春</cyclicName>
+								<cyclicName type="2">雨水</cyclicName>
+								<cyclicName type="3">啓蟄</cyclicName>
+								<cyclicName type="4">春分</cyclicName>
+								<cyclicName type="5">清明</cyclicName>
+								<cyclicName type="6">穀雨</cyclicName>
+								<cyclicName type="7">立夏</cyclicName>
+								<cyclicName type="8">小満</cyclicName>
+								<cyclicName type="9">芒種</cyclicName>
+								<cyclicName type="10">夏至</cyclicName>
+								<cyclicName type="11">小暑</cyclicName>
+								<cyclicName type="12">大暑</cyclicName>
+								<cyclicName type="13">立秋</cyclicName>
+								<cyclicName type="14">処暑</cyclicName>
+								<cyclicName type="15">白露</cyclicName>
+								<cyclicName type="16">秋分</cyclicName>
+								<cyclicName type="17">寒露</cyclicName>
+								<cyclicName type="18">霜降</cyclicName>
+								<cyclicName type="19">立冬</cyclicName>
+								<cyclicName type="20">小雪</cyclicName>
+								<cyclicName type="21">大雪</cyclicName>
+								<cyclicName type="22">冬至</cyclicName>
+								<cyclicName type="23">小寒</cyclicName>
+								<cyclicName type="24">大寒</cyclicName>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
 					<cyclicNameSet type="years">
 						<cyclicNameContext type="format">
 							<cyclicNameWidth type="abbreviated">
@@ -1509,36 +1539,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 								<cyclicName type="10">鶏</cyclicName>
 								<cyclicName type="11">犬</cyclicName>
 								<cyclicName type="12">猪</cyclicName>
-							</cyclicNameWidth>
-						</cyclicNameContext>
-					</cyclicNameSet>
-					<cyclicNameSet type="solarTerms">
-						<cyclicNameContext type="format">
-							<cyclicNameWidth type="abbreviated">
-								<cyclicName type="1">立春</cyclicName>
-								<cyclicName type="2">雨水</cyclicName>
-								<cyclicName type="3">啓蟄</cyclicName>
-								<cyclicName type="4">春分</cyclicName>
-								<cyclicName type="5">清明</cyclicName>
-								<cyclicName type="6">穀雨</cyclicName>
-								<cyclicName type="7">立夏</cyclicName>
-								<cyclicName type="8">小満</cyclicName>
-								<cyclicName type="9">芒種</cyclicName>
-								<cyclicName type="10">夏至</cyclicName>
-								<cyclicName type="11">小暑</cyclicName>
-								<cyclicName type="12">大暑</cyclicName>
-								<cyclicName type="13">立秋</cyclicName>
-								<cyclicName type="14">処暑</cyclicName>
-								<cyclicName type="15">白露</cyclicName>
-								<cyclicName type="16">秋分</cyclicName>
-								<cyclicName type="17">寒露</cyclicName>
-								<cyclicName type="18">霜降</cyclicName>
-								<cyclicName type="19">立冬</cyclicName>
-								<cyclicName type="20">小雪</cyclicName>
-								<cyclicName type="21">大雪</cyclicName>
-								<cyclicName type="22">冬至</cyclicName>
-								<cyclicName type="23">小寒</cyclicName>
-								<cyclicName type="24">大寒</cyclicName>
 							</cyclicNameWidth>
 						</cyclicNameContext>
 					</cyclicNameSet>
@@ -4869,6 +4869,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>カリーニングラード</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>シンフェロポリ</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>モスクワ</exemplarCity>
 			</zone>
@@ -5039,9 +5042,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>キエフ</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>シンフェロポリ</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>ザポリージャ</exemplarCity>
@@ -7434,117 +7434,155 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>毎{1} {0}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">G フォース</displayName>
 				<unitPattern count="other">{0} G フォース</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">分</displayName>
 				<unitPattern count="other">{0} 分</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">秒</displayName>
 				<unitPattern count="other">{0} 秒</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">度</displayName>
 				<unitPattern count="other">{0} 度</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">エーカー</displayName>
 				<unitPattern count="other">{0} エーカー</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ヘクタール</displayName>
 				<unitPattern count="other">{0} ヘクタール</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">平方フィート</displayName>
 				<unitPattern count="other">{0} 平方フィート</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">平方キロメートル</displayName>
 				<unitPattern count="other">{0} 平方キロメートル</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">平方メートル</displayName>
 				<unitPattern count="other">{0} 平方メートル</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">平方マイル</displayName>
 				<unitPattern count="other">{0} 平方マイル</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">日</displayName>
 				<unitPattern count="other">{0} 日</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">時間</displayName>
 				<unitPattern count="other">{0} 時間</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">ミリ秒</displayName>
 				<unitPattern count="other">{0} ミリ秒</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">分</displayName>
 				<unitPattern count="other">{0} 分</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">か月</displayName>
 				<unitPattern count="other">{0} か月</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">秒</displayName>
 				<unitPattern count="other">{0} 秒</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">週間</displayName>
 				<unitPattern count="other">{0} 週間</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">年</displayName>
 				<unitPattern count="other">{0} 年</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">センチメートル</displayName>
 				<unitPattern count="other">{0} センチメートル</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">フィート</displayName>
 				<unitPattern count="other">{0} フィート</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">インチ</displayName>
 				<unitPattern count="other">{0} インチ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">キロメートル</displayName>
 				<unitPattern count="other">{0} キロメートル</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">光年</displayName>
 				<unitPattern count="other">{0} 光年</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">メートル</displayName>
 				<unitPattern count="other">{0} メートル</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">マイル</displayName>
 				<unitPattern count="other">{0} マイル</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">ミリメートル</displayName>
 				<unitPattern count="other">{0} ミリメートル</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">ピコメートル</displayName>
 				<unitPattern count="other">{0} ピコメートル</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ヤード</displayName>
 				<unitPattern count="other">{0} ヤード</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">グラム</displayName>
 				<unitPattern count="other">{0} グラム</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">キログラム</displayName>
 				<unitPattern count="other">{0} キログラム</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">オンス</displayName>
 				<unitPattern count="other">{0} オンス</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ポンド</displayName>
 				<unitPattern count="other">{0} ポンド</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">馬力</displayName>
 				<unitPattern count="other">{0} 馬力</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">キロワット</displayName>
 				<unitPattern count="other">{0} キロワット</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ワット</displayName>
 				<unitPattern count="other">{0} ワット</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ヘクトパスカル</displayName>
 				<unitPattern count="other">{0} ヘクトパスカル</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">水銀柱インチ</displayName>
 				<unitPattern count="other">{0} 水銀柱インチ</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">ミリバール</displayName>
 				<unitPattern count="other">{0} ミリバール</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -7563,12 +7601,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">華氏 {0} 度</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">立方キロメートル</displayName>
 				<unitPattern count="other">{0} 立方キロメートル</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">立法マイル</displayName>
 				<unitPattern count="other">{0} 立法マイル</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">リットル</displayName>
 				<unitPattern count="other">{0} リットル</unitPattern>
 			</unit>
 		</unitLength>
@@ -7577,117 +7618,155 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">G フォース</displayName>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">分</displayName>
 				<unitPattern count="other">{0} 分</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">秒</displayName>
 				<unitPattern count="other">{0} 秒</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">度</displayName>
 				<unitPattern count="other">{0} 度</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">エーカー</displayName>
 				<unitPattern count="other">{0} エーカー</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">ヘクタール</displayName>
 				<unitPattern count="other">{0} ヘクタール</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">平方フィート</displayName>
 				<unitPattern count="other">{0} 平方フィート</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">平方キロメートル</displayName>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">平方メートル</displayName>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">平方マイル</displayName>
 				<unitPattern count="other">{0} 平方マイル</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">日</displayName>
 				<unitPattern count="other">{0} 日</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">時間</displayName>
 				<unitPattern count="other">{0} 時間</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">ミリ秒</displayName>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">分</displayName>
 				<unitPattern count="other">{0} 分</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">か月</displayName>
 				<unitPattern count="other">{0} か月</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">秒</displayName>
 				<unitPattern count="other">{0} 秒</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">週間</displayName>
 				<unitPattern count="other">{0} 週間</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">年</displayName>
 				<unitPattern count="other">{0} 年</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">センチメートル</displayName>
 				<unitPattern count="other">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">フィート</displayName>
 				<unitPattern count="other">{0} フィート</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">インチ</displayName>
 				<unitPattern count="other">{0} インチ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">キロメートル</displayName>
 				<unitPattern count="other">{0} km</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">光年</displayName>
 				<unitPattern count="other">{0} 光年</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">メートル</displayName>
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">マイル</displayName>
 				<unitPattern count="other">{0} マイル</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">ミリメートル</displayName>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">ピコメートル</displayName>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ヤード</displayName>
 				<unitPattern count="other">{0} ヤード</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">グラム</displayName>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">キログラム</displayName>
 				<unitPattern count="other">{0} kg</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">オンス</displayName>
 				<unitPattern count="other">{0} オンス</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ポンド</displayName>
 				<unitPattern count="other">{0} ポンド</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">馬力</displayName>
 				<unitPattern count="other">{0} 馬力</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">キロワット</displayName>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ワット</displayName>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">ヘクトパスカル</displayName>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">水銀柱インチ</displayName>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">ミリバール</displayName>
 				<unitPattern count="other">{0} mb</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
@@ -7706,12 +7785,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">立方キロメートル</displayName>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">立法マイル</displayName>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">リットル</displayName>
 				<unitPattern count="other">{0} l</unitPattern>
 			</unit>
 		</unitLength>

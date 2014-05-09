@@ -1295,32 +1295,62 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<unit type="duration-day">
+				<displayName draft="provisional">täg</displayName>
 				<unitPattern count="one">{0} täg</unitPattern>
 				<unitPattern count="other">{0} täg</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">stunde</displayName>
 				<unitPattern count="one">{0} stund</unitPattern>
 				<unitPattern count="other">{0} stunde</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">minüte</displayName>
 				<unitPattern count="one">{0} minüta</unitPattern>
 				<unitPattern count="other">{0} minüte</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">mánet</displayName>
 				<unitPattern count="one">{0} mánet</unitPattern>
 				<unitPattern count="other">{0} mánet</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">sekunde</displayName>
 				<unitPattern count="one">{0} sekund</unitPattern>
 				<unitPattern count="other">{0} sekunde</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">wučä</displayName>
 				<unitPattern count="one">{0} wuča</unitPattern>
 				<unitPattern count="other">{0} wučä</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">jár</displayName>
 				<unitPattern count="one">{0} jár</unitPattern>
 				<unitPattern count="other">{0} jár</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<displayName draft="provisional">täg</displayName>
+			</unit>
+			<unit type="duration-hour">
+				<displayName draft="provisional">stunde</displayName>
+			</unit>
+			<unit type="duration-minute">
+				<displayName draft="provisional">minüte</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">mánet</displayName>
+			</unit>
+			<unit type="duration-second">
+				<displayName draft="provisional">sekunde</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">wučä</displayName>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="provisional">jár</displayName>
 			</unit>
 		</unitLength>
 	</units>

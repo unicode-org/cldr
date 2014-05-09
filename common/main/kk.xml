@@ -2232,6 +2232,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Калининград</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Симферополь</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Мәскеу</exemplarCity>
 			</zone>
@@ -2402,9 +2405,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Киев</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Симферополь</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Запорожье</exemplarCity>
@@ -4273,186 +4273,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}{1}қатынасы</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">гравитациялық күш</displayName>
 				<unitPattern count="one">{0} гравитациялық күш</unitPattern>
 				<unitPattern count="other">{0} гравитациялық күш</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">минут</displayName>
 				<unitPattern count="one">{0} минут</unitPattern>
 				<unitPattern count="other">{0} минут</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">секунд</displayName>
 				<unitPattern count="one">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунд</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">градус</displayName>
 				<unitPattern count="one">{0} градус</unitPattern>
 				<unitPattern count="other">{0} градус</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">акр</displayName>
 				<unitPattern count="one">{0} акр</unitPattern>
 				<unitPattern count="other">{0} акр</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">гектар</displayName>
 				<unitPattern count="one">{0} гектар</unitPattern>
 				<unitPattern count="other">{0} гектар</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">шаршы фут</displayName>
 				<unitPattern count="one">{0} шаршы фут</unitPattern>
 				<unitPattern count="other">{0} шаршы фут</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">шаршы километр</displayName>
 				<unitPattern count="one">{0} шаршы километр</unitPattern>
 				<unitPattern count="other">{0} шаршы километр</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">шаршы метр</displayName>
 				<unitPattern count="one">{0} шаршы метр</unitPattern>
 				<unitPattern count="other">{0} шаршы метр</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">шаршы миля</displayName>
 				<unitPattern count="one">{0} шаршы миля</unitPattern>
 				<unitPattern count="other">{0} шаршы миля</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">тәулік</displayName>
 				<unitPattern count="one">{0} тәулік</unitPattern>
 				<unitPattern count="other">{0} тәулік</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">сағат</displayName>
 				<unitPattern count="one">{0} сағат</unitPattern>
 				<unitPattern count="other">{0} сағат</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">миллисекунд</displayName>
 				<unitPattern count="one">{0} миллисекунд</unitPattern>
 				<unitPattern count="other">{0} миллисекунд</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">минут</displayName>
 				<unitPattern count="one">{0} минут</unitPattern>
 				<unitPattern count="other">{0} минут</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ай</displayName>
 				<unitPattern count="one">{0} ай</unitPattern>
 				<unitPattern count="other">{0} ай</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">секунд</displayName>
 				<unitPattern count="one">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунд</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">апта</displayName>
 				<unitPattern count="one">{0} апта</unitPattern>
 				<unitPattern count="other">{0} апта</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">жыл</displayName>
 				<unitPattern count="one">{0} жыл</unitPattern>
 				<unitPattern count="other">{0} жыл</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">сантиметр</displayName>
 				<unitPattern count="one">{0} сантиметр</unitPattern>
 				<unitPattern count="other">{0} сантиметр</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">фут</displayName>
 				<unitPattern count="one">{0} фут</unitPattern>
 				<unitPattern count="other">{0} фут</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">дюйм</displayName>
 				<unitPattern count="one">{0} дюйм</unitPattern>
 				<unitPattern count="other">{0} дюйм</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">километр</displayName>
 				<unitPattern count="one">{0} километр</unitPattern>
 				<unitPattern count="other">{0} километр</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">жарық жылы</displayName>
 				<unitPattern count="one">{0} жарық жылы</unitPattern>
 				<unitPattern count="other">{0} жарық жылы</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">метр</displayName>
 				<unitPattern count="one">{0} метр</unitPattern>
 				<unitPattern count="other">{0} метр</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">миля</displayName>
 				<unitPattern count="one">{0} миля</unitPattern>
 				<unitPattern count="other">{0} миля</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">миллиметр</displayName>
 				<unitPattern count="one">{0} миллиметр</unitPattern>
 				<unitPattern count="other">{0} миллиметр</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">пикометр</displayName>
 				<unitPattern count="one">{0} пикометр</unitPattern>
 				<unitPattern count="other">{0} пикометр</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ярд</displayName>
 				<unitPattern count="one">{0} ярд</unitPattern>
 				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">грамм</displayName>
 				<unitPattern count="one">{0} грамм</unitPattern>
 				<unitPattern count="other">{0} грамм</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">килограмм</displayName>
 				<unitPattern count="one">{0} килограмм</unitPattern>
 				<unitPattern count="other">{0} килограмм</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">унция</displayName>
 				<unitPattern count="one">{0} унция</unitPattern>
 				<unitPattern count="other">{0} унция</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">фунт</displayName>
 				<unitPattern count="one">{0} фунт</unitPattern>
 				<unitPattern count="other">{0} фунт</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ат күші</displayName>
 				<unitPattern count="one">{0} ат күші</unitPattern>
 				<unitPattern count="other">{0} ат күші</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">киловатт</displayName>
 				<unitPattern count="one">{0} киловатт</unitPattern>
 				<unitPattern count="other">{0} киловатт</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ватт</displayName>
 				<unitPattern count="one">{0} ватт</unitPattern>
 				<unitPattern count="other">{0} ватт</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">гектопаскаль</displayName>
 				<unitPattern count="one">{0} гектопаскаль</unitPattern>
 				<unitPattern count="other">{0} гектопаскаль</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">сынапты бағана дюймы</displayName>
 				<unitPattern count="one">{0} сынапты бағана дюймы</unitPattern>
 				<unitPattern count="other">{0} сынапты бағана дюймы</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">миллибар</displayName>
 				<unitPattern count="one">{0} миллибар</unitPattern>
 				<unitPattern count="other">{0} миллибар</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">километр/сағат</displayName>
 				<unitPattern count="one">{0} километр/сағат</unitPattern>
 				<unitPattern count="other">{0} километр/сағат</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">метр/секунд</displayName>
 				<unitPattern count="one">{0} метр/секунд</unitPattern>
 				<unitPattern count="other">{0} метр/секунд</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">миля/сағат</displayName>
 				<unitPattern count="one">{0} миля/сағат</unitPattern>
 				<unitPattern count="other">{0} миля/сағат</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">Цельсий градусы</displayName>
 				<unitPattern count="one">{0} Цельсий градусы</unitPattern>
 				<unitPattern count="other">{0} Цельсий градусы</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">Фаренгейт бойынша градус</displayName>
 				<unitPattern count="one">{0} Фаренгейт бойынша градус</unitPattern>
 				<unitPattern count="other">{0} Фаренгейт бойынша градус</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">текше километр</displayName>
 				<unitPattern count="one">{0} текше километр</unitPattern>
 				<unitPattern count="other">{0} текше километр</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">текше миля</displayName>
 				<unitPattern count="one">{0} текше миля</unitPattern>
 				<unitPattern count="other">{0} текше миля</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">литр</displayName>
 				<unitPattern count="one">{0} литр</unitPattern>
 				<unitPattern count="other">{0} литр</unitPattern>
 			</unit>
@@ -4462,186 +4508,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">гравитациялық күш</displayName>
 				<unitPattern count="one">{0} грав. күш</unitPattern>
 				<unitPattern count="other">{0} грав. күш</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">минут</displayName>
 				<unitPattern count="one">{0}мин</unitPattern>
 				<unitPattern count="other">{0}мин</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">секунд</displayName>
 				<unitPattern count="one">{0}сек</unitPattern>
 				<unitPattern count="other">{0}сек</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">градус</displayName>
 				<unitPattern count="one">{0}градус</unitPattern>
 				<unitPattern count="other">{0}градус</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">акр</displayName>
 				<unitPattern count="one">{0} акр</unitPattern>
 				<unitPattern count="other">{0} акр</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">гектар</displayName>
 				<unitPattern count="one">{0} га</unitPattern>
 				<unitPattern count="other">{0} га</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">шаршы фут</displayName>
 				<unitPattern count="one">{0} фут²</unitPattern>
 				<unitPattern count="other">{0} фут²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">шаршы километр</displayName>
 				<unitPattern count="one">{0} км²</unitPattern>
 				<unitPattern count="other">{0} км²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">шаршы метр</displayName>
 				<unitPattern count="one">{0} м²</unitPattern>
 				<unitPattern count="other">{0} м²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">шаршы миля</displayName>
 				<unitPattern count="one">{0} миля²</unitPattern>
 				<unitPattern count="other">{0} миля²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">тәулік</displayName>
 				<unitPattern count="one">{0} тәулік</unitPattern>
 				<unitPattern count="other">{0} тәулік</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">сағат</displayName>
 				<unitPattern count="one">{0} сағат</unitPattern>
 				<unitPattern count="other">{0} сағат</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">миллисекунд</displayName>
 				<unitPattern count="one">{0} мс</unitPattern>
 				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">минут</displayName>
 				<unitPattern count="one">{0} мин</unitPattern>
 				<unitPattern count="other">{0} мин</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ай</displayName>
 				<unitPattern count="one">{0} ай</unitPattern>
 				<unitPattern count="other">{0} ай</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">секунд</displayName>
 				<unitPattern count="one">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунд</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">апта</displayName>
 				<unitPattern count="one">{0} апта</unitPattern>
 				<unitPattern count="other">{0} апта</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">жыл</displayName>
 				<unitPattern count="one">{0} ж.</unitPattern>
 				<unitPattern count="other">{0} ж.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">сантиметр</displayName>
 				<unitPattern count="one">{0} см</unitPattern>
 				<unitPattern count="other">{0} см</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">фут</displayName>
 				<unitPattern count="one">{0} фут</unitPattern>
 				<unitPattern count="other">{0} фут</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">дюйм</displayName>
 				<unitPattern count="one">{0} дюйм</unitPattern>
 				<unitPattern count="other">{0} дюйм</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">километр</displayName>
 				<unitPattern count="one">{0} км</unitPattern>
 				<unitPattern count="other">{0} км</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">жарық жылы</displayName>
 				<unitPattern count="one">{0} жарық жылы</unitPattern>
 				<unitPattern count="other">{0} жарық жылы</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">метр</displayName>
 				<unitPattern count="one">{0} м</unitPattern>
 				<unitPattern count="other">{0} м</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">миля</displayName>
 				<unitPattern count="one">{0} миля</unitPattern>
 				<unitPattern count="other">{0} миля</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">миллиметр</displayName>
 				<unitPattern count="one">{0} мм</unitPattern>
 				<unitPattern count="other">{0} мм</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">пикометр</displayName>
 				<unitPattern count="one">{0} пм</unitPattern>
 				<unitPattern count="other">{0} пм</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">ярд</displayName>
 				<unitPattern count="one">{0} ярд</unitPattern>
 				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">грамм</displayName>
 				<unitPattern count="one">{0} гр</unitPattern>
 				<unitPattern count="other">{0} гр</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">килограмм</displayName>
 				<unitPattern count="one">{0} кг</unitPattern>
 				<unitPattern count="other">{0} кг</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">унция</displayName>
 				<unitPattern count="one">{0} унция</unitPattern>
 				<unitPattern count="other">{0} унция</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">фунт</displayName>
 				<unitPattern count="one">{0} фунт</unitPattern>
 				<unitPattern count="other">{0} фунт</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ат күші</displayName>
 				<unitPattern count="one">{0} ат күші</unitPattern>
 				<unitPattern count="other">{0} ат күші</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">киловатт</displayName>
 				<unitPattern count="one">{0}кВт</unitPattern>
 				<unitPattern count="other">{0}кВт</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">ватт</displayName>
 				<unitPattern count="one">{0} Вт</unitPattern>
 				<unitPattern count="other">{0} Вт</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">гектопаскаль</displayName>
 				<unitPattern count="one">{0} гПа</unitPattern>
 				<unitPattern count="other">{0} гПа</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">сынапты бағана дюймы</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">миллибар</displayName>
 				<unitPattern count="one">{0} мб</unitPattern>
 				<unitPattern count="other">{0} мб</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">километр/сағат</displayName>
 				<unitPattern count="one">{0} км/сағ</unitPattern>
 				<unitPattern count="other">{0} км/сағ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">метр/секунд</displayName>
 				<unitPattern count="one">{0} м/с</unitPattern>
 				<unitPattern count="other">{0} м/с</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">миля/сағат</displayName>
 				<unitPattern count="one">{0} миля/сағ</unitPattern>
 				<unitPattern count="other">{0} миля/сағ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">Цельсий градусы</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">Фаренгейт бойынша градус</displayName>
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">текше километр</displayName>
 				<unitPattern count="one">{0} км³</unitPattern>
 				<unitPattern count="other">{0} км³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">текше миля</displayName>
 				<unitPattern count="one">{0} миля³</unitPattern>
 				<unitPattern count="other">{0} миля³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">литр</displayName>
 				<unitPattern count="one">{0} л</unitPattern>
 				<unitPattern count="other">{0} л</unitPattern>
 			</unit>

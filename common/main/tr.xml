@@ -2474,6 +2474,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Belgrade">
 				<exemplarCity>Belgrad</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Akmescit</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskova</exemplarCity>
 			</zone>
@@ -2539,9 +2542,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Uzhgorod">
 				<exemplarCity>Ujgorod</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Akmescit</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporojye</exemplarCity>
@@ -4808,186 +4808,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">g kuvveti</displayName>
 				<unitPattern count="one" draft="contributed">{0} g kuvveti</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} g kuvveti</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">dakika</displayName>
 				<unitPattern count="one" draft="contributed">{0} dakika</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} dakika</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">saniye</displayName>
 				<unitPattern count="one" draft="contributed">{0} saniye</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} saniye</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">derece</displayName>
 				<unitPattern count="one" draft="contributed">{0} derece</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} derece</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">akre</displayName>
 				<unitPattern count="one" draft="contributed">{0} akre</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} akre</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">hektar</displayName>
 				<unitPattern count="one" draft="contributed">{0} hektar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hektar</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">fit kare</displayName>
 				<unitPattern count="one" draft="contributed">{0} fit kare</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} fit kare</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">kilometrekare</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilometrekare</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilometrekare</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">metrekare</displayName>
 				<unitPattern count="one" draft="contributed">{0} metrekare</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} metrekare</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">mil kare</displayName>
 				<unitPattern count="one" draft="contributed">{0} mil kare</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mil kare</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">gün</displayName>
 				<unitPattern count="one" draft="contributed">{0} gün</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} gün</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">saat</displayName>
 				<unitPattern count="one" draft="contributed">{0} saat</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} saat</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">milisaniye</displayName>
 				<unitPattern count="one" draft="contributed">{0} milisaniye</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} milisaniye</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">dakika</displayName>
 				<unitPattern count="one" draft="contributed">{0} dakika</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} dakika</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ay</displayName>
 				<unitPattern count="one" draft="contributed">{0} ay</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ay</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">saniye</displayName>
 				<unitPattern count="one" draft="contributed">{0} saniye</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} saniye</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">hafta</displayName>
 				<unitPattern count="one" draft="contributed">{0} hafta</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hafta</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">yıl</displayName>
 				<unitPattern count="one" draft="contributed">{0} yıl</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} yıl</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">santimetre</displayName>
 				<unitPattern count="one" draft="contributed">{0} santimetre</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} santimetre</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">fit</displayName>
 				<unitPattern count="one" draft="contributed">{0} fit</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} fit</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">inç</displayName>
 				<unitPattern count="one" draft="contributed">{0} inç</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} inç</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">kilometre</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilometre</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilometre</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">ışık yılı</displayName>
 				<unitPattern count="one" draft="contributed">{0} ışık yılı</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ışık yılı</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">metre</displayName>
 				<unitPattern count="one" draft="contributed">{0} metre</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} metre</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">mil</displayName>
 				<unitPattern count="one" draft="contributed">{0} mil</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mil</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">milimetre</displayName>
 				<unitPattern count="one" draft="contributed">{0} milimetre</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} milimetre</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">pikometre</displayName>
 				<unitPattern count="one" draft="contributed">{0} pikometre</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pikometre</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">yarda</displayName>
 				<unitPattern count="one" draft="contributed">{0} yarda</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} yarda</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">gram</displayName>
 				<unitPattern count="one" draft="contributed">{0} gram</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} gram</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">kilogram</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilogram</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilogram</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">ons</displayName>
 				<unitPattern count="one" draft="contributed">{0} ons</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ons</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">pound</displayName>
 				<unitPattern count="one" draft="contributed">{0} pound</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pound</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">beygir gücü</displayName>
 				<unitPattern count="one" draft="contributed">{0} beygir gücü</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} beygir gücü</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">kilovat</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilovat</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilovat</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">vat</displayName>
 				<unitPattern count="one" draft="contributed">{0} vat</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} vat</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">hektopaskal</displayName>
 				<unitPattern count="one" draft="contributed">{0} hektopaskal</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hektopaskal</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">inç cıva</displayName>
 				<unitPattern count="one" draft="contributed">{0} inç cıva</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} inç cıva</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">milibar</displayName>
 				<unitPattern count="one" draft="contributed">{0} milibar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} milibar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">kilometre/saat</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilometre/saat</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilometre/saat</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">metre/saniye</displayName>
 				<unitPattern count="one" draft="contributed">{0} metre/saniye</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} metre/saniye</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">mil/saat</displayName>
 				<unitPattern count="one" draft="contributed">{0} mil/saat</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mil/saat</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">santigrat derece</displayName>
 				<unitPattern count="one" draft="contributed">{0} santigrat derece</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} santigrat derece</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">fahrenhayt derece</displayName>
 				<unitPattern count="one" draft="contributed">{0} fahrenhayt derece</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} fahrenhayt derece</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">kilometre küp</displayName>
 				<unitPattern count="one" draft="contributed">{0} kilometre küp</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kilometre küp</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">mil küp</displayName>
 				<unitPattern count="one" draft="contributed">{0} mil küp</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mil küp</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">litre</displayName>
 				<unitPattern count="one" draft="contributed">{0} litre</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} litre</unitPattern>
 			</unit>
@@ -4997,186 +5043,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern draft="contributed">{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">g kuvveti</displayName>
 				<unitPattern count="one" draft="contributed">{0} G</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">dakika</displayName>
 				<unitPattern count="one" draft="contributed">{0} dk.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} dk.</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">saniye</displayName>
 				<unitPattern count="one" draft="contributed">{0} sn.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} sn.</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">derece</displayName>
 				<unitPattern count="one" draft="contributed">{0}°</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">akre</displayName>
 				<unitPattern count="one" draft="contributed">{0} ac</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">hektar</displayName>
 				<unitPattern count="one" draft="contributed">{0} ha</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">fit kare</displayName>
 				<unitPattern count="one" draft="contributed">{0} ft²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">kilometrekare</displayName>
 				<unitPattern count="one" draft="contributed">{0} km²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">metrekare</displayName>
 				<unitPattern count="one" draft="contributed">{0} m²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">mil kare</displayName>
 				<unitPattern count="one" draft="contributed">{0} mi²</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">gün</displayName>
 				<unitPattern count="one" draft="contributed">{0} gün</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} gün</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">saat</displayName>
 				<unitPattern count="one" draft="contributed">{0} sa.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} sa.</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">milisaniye</displayName>
 				<unitPattern count="one" draft="contributed">{0} ms</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">dakika</displayName>
 				<unitPattern count="one">{0} dk.</unitPattern>
 				<unitPattern count="other">{0} dk.</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ay</displayName>
 				<unitPattern count="one" draft="contributed">{0} ay</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} ay</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">saniye</displayName>
 				<unitPattern count="one" draft="contributed">{0} sn.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} sn.</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">hafta</displayName>
 				<unitPattern count="one" draft="contributed">{0} hf.</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hf.</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">yıl</displayName>
 				<unitPattern count="one" draft="contributed">{0} yıl</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} yıl</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">santimetre</displayName>
 				<unitPattern count="one" draft="contributed">{0} cm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">fit</displayName>
 				<unitPattern count="one" draft="contributed">{0} fit</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} fit</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">inç</displayName>
 				<unitPattern count="one" draft="contributed">{0} inç</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} inç</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">kilometre</displayName>
 				<unitPattern count="one" draft="contributed">{0} km</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} km</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">ışık yılı</displayName>
 				<unitPattern count="one" draft="contributed">{0} IY</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} IY</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">metre</displayName>
 				<unitPattern count="one" draft="contributed">{0} m</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">mil</displayName>
 				<unitPattern count="one" draft="contributed">{0} mil</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mil</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">milimetre</displayName>
 				<unitPattern count="one" draft="contributed">{0} mm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">pikometre</displayName>
 				<unitPattern count="one" draft="contributed">{0} pm</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">yarda</displayName>
 				<unitPattern count="one" draft="contributed">{0} yd</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} yd</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">gram</displayName>
 				<unitPattern count="one" draft="contributed">{0} g</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">kilogram</displayName>
 				<unitPattern count="one" draft="contributed">{0} kg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kg</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">ons</displayName>
 				<unitPattern count="one" draft="contributed">{0} oz</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} oz</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">pound</displayName>
 				<unitPattern count="one" draft="contributed">{0} lb</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} lb</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">beygir gücü</displayName>
 				<unitPattern count="one" draft="contributed">{0} hp</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hp</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">kilovat</displayName>
 				<unitPattern count="one" draft="contributed">{0} kW</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">vat</displayName>
 				<unitPattern count="one" draft="contributed">{0} W</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">hektopaskal</displayName>
 				<unitPattern count="one" draft="contributed">{0} hPa</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">inç cıva</displayName>
 				<unitPattern count="one" draft="contributed">{0} inHg</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">milibar</displayName>
 				<unitPattern count="one" draft="contributed">{0} mbar</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">kilometre/saat</displayName>
 				<unitPattern count="one" draft="contributed">{0} km/sa</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} km/sa</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">metre/saniye</displayName>
 				<unitPattern count="one" draft="contributed">{0} m/sn</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} m/sn</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">mil/saat</displayName>
 				<unitPattern count="one" draft="contributed">{0} mil/sa</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mil/sa</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">santigrat derece</displayName>
 				<unitPattern count="one" draft="contributed">{0}°C</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">fahrenhayt derece</displayName>
 				<unitPattern count="one" draft="contributed">{0}°F</unitPattern>
 				<unitPattern count="other" draft="contributed">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">kilometre küp</displayName>
 				<unitPattern count="one" draft="contributed">{0} km³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">mil küp</displayName>
 				<unitPattern count="one" draft="contributed">{0} mi³</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">litre</displayName>
 				<unitPattern count="one" draft="contributed">{0} l</unitPattern>
 				<unitPattern count="other" draft="contributed">{0} l</unitPattern>
 			</unit>

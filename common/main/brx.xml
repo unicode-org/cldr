@@ -2044,6 +2044,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>कालिलीनग्राड</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>सिम्फेरोपोल</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>मॉस्को</exemplarCity>
 			</zone>
@@ -2187,9 +2190,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>कीव</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>सिम्फेरोपोल</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>झापरोझ्य</exemplarCity>
@@ -4103,32 +4103,62 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<unit type="duration-day">
+				<displayName draft="provisional">सान</displayName>
 				<unitPattern count="one">{0} सान</unitPattern>
 				<unitPattern count="other">{0} सान</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">घंटे</displayName>
 				<unitPattern count="one">{0} रिंगा</unitPattern>
 				<unitPattern count="other">{0} घंटे</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">मिन.</displayName>
 				<unitPattern count="one">{0} मिन.</unitPattern>
 				<unitPattern count="other">{0} मिन.</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">महीने</displayName>
 				<unitPattern count="one">{0} महीना</unitPattern>
 				<unitPattern count="other">{0} महीने</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">सेकं.</displayName>
 				<unitPattern count="one">{0} सेकं.</unitPattern>
 				<unitPattern count="other">{0} सेकं.</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">सप्ताह</displayName>
 				<unitPattern count="one">{0} सप्ताह</unitPattern>
 				<unitPattern count="other">{0} सप्ताह</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">साल</displayName>
 				<unitPattern count="one">{0} साल</unitPattern>
 				<unitPattern count="other">{0} साल</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<displayName draft="provisional">सान</displayName>
+			</unit>
+			<unit type="duration-hour">
+				<displayName draft="provisional">घंटे</displayName>
+			</unit>
+			<unit type="duration-minute">
+				<displayName draft="provisional">मिन.</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">महीने</displayName>
+			</unit>
+			<unit type="duration-second">
+				<displayName draft="provisional">सेकं.</displayName>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="provisional">सप्ताह</displayName>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="provisional">साल</displayName>
 			</unit>
 		</unitLength>
 	</units>

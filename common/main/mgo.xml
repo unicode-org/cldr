@@ -508,24 +508,46 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<unit type="duration-day">
+				<displayName draft="provisional">d</displayName>
 				<unitPattern count="one">{0} d</unitPattern>
 				<unitPattern count="other">{0} d</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">h</displayName>
 				<unitPattern count="one">{0} h</unitPattern>
 				<unitPattern count="other">{0} h</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">min</displayName>
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">m</displayName>
 				<unitPattern count="one">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">s</displayName>
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="duration-day">
+				<displayName draft="provisional">d</displayName>
+			</unit>
+			<unit type="duration-hour">
+				<displayName draft="provisional">h</displayName>
+			</unit>
+			<unit type="duration-minute">
+				<displayName draft="provisional">min</displayName>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="provisional">m</displayName>
+			</unit>
+			<unit type="duration-second">
+				<displayName draft="provisional">s</displayName>
 			</unit>
 		</unitLength>
 	</units>

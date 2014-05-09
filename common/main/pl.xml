@@ -2998,6 +2998,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Belgrade">
 				<exemplarCity>Belgrad</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Symferopol</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Moskwa</exemplarCity>
 			</zone>
@@ -3105,9 +3108,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kijów</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Symferopol</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporoże</exemplarCity>
@@ -5778,276 +5778,322 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0} na {1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">G</displayName>
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="few">{0} G</unitPattern>
 				<unitPattern count="many">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">minuty</displayName>
 				<unitPattern count="one">{0} minuta</unitPattern>
 				<unitPattern count="few">{0} minuty</unitPattern>
 				<unitPattern count="many">{0} minut</unitPattern>
 				<unitPattern count="other">{0} minuty</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">sekundy</displayName>
 				<unitPattern count="one">{0} sekunda</unitPattern>
 				<unitPattern count="few">{0} sekundy</unitPattern>
 				<unitPattern count="many">{0} sekund</unitPattern>
 				<unitPattern count="other">{0} sekundy</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">stopnia</displayName>
 				<unitPattern count="one">{0} stopień</unitPattern>
 				<unitPattern count="few">{0} stopnie</unitPattern>
 				<unitPattern count="many">{0} stopni</unitPattern>
 				<unitPattern count="other">{0} stopnia</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">akra</displayName>
 				<unitPattern count="one">{0} akr</unitPattern>
 				<unitPattern count="few">{0} akry</unitPattern>
 				<unitPattern count="many">{0} akrów</unitPattern>
 				<unitPattern count="other">{0} akra</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">hektara</displayName>
 				<unitPattern count="one">{0} hektar</unitPattern>
 				<unitPattern count="few">{0} hektary</unitPattern>
 				<unitPattern count="many">{0} hektarów</unitPattern>
 				<unitPattern count="other">{0} hektara</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">stopy kwadratowej</displayName>
 				<unitPattern count="one">{0} stopa kwadratowa</unitPattern>
 				<unitPattern count="few">{0} stopy kwadratowe</unitPattern>
 				<unitPattern count="many">{0} stóp kwadratowych</unitPattern>
 				<unitPattern count="other">{0} stopy kwadratowej</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">kilometra kwadratowego</displayName>
 				<unitPattern count="one">{0} kilometr kwadratowy</unitPattern>
 				<unitPattern count="few">{0} kilometry kwadratowe</unitPattern>
 				<unitPattern count="many">{0} kilometrów kwadratowych</unitPattern>
 				<unitPattern count="other">{0} kilometra kwadratowego</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">metra kwadratowego</displayName>
 				<unitPattern count="one">{0} metr kwadratowy</unitPattern>
 				<unitPattern count="few">{0} metry kwadratowe</unitPattern>
 				<unitPattern count="many">{0} metrów kwadratowych</unitPattern>
 				<unitPattern count="other">{0} metra kwadratowego</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">mili kwadratowej</displayName>
 				<unitPattern count="one">{0} mila kwadratowa</unitPattern>
 				<unitPattern count="few">{0} mile kwadratowe</unitPattern>
 				<unitPattern count="many">{0} mil kwadratowych</unitPattern>
 				<unitPattern count="other">{0} mili kwadratowej</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">dnia</displayName>
 				<unitPattern count="one">{0} dzień</unitPattern>
 				<unitPattern count="few">{0} dni</unitPattern>
 				<unitPattern count="many">{0} dni</unitPattern>
 				<unitPattern count="other">{0} dnia</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">godzin</displayName>
 				<unitPattern count="one">{0} godzina</unitPattern>
 				<unitPattern count="few">{0} godziny</unitPattern>
 				<unitPattern count="many">{0} godzin</unitPattern>
 				<unitPattern count="other">{0} godzin</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">milisekundy</displayName>
 				<unitPattern count="one">{0} milisekunda</unitPattern>
 				<unitPattern count="few">{0} milisekundy</unitPattern>
 				<unitPattern count="many">{0} milisekund</unitPattern>
 				<unitPattern count="other">{0} milisekundy</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">minuty</displayName>
 				<unitPattern count="one">{0} minuta</unitPattern>
 				<unitPattern count="few">{0} minuty</unitPattern>
 				<unitPattern count="many">{0} minut</unitPattern>
 				<unitPattern count="other">{0} minuty</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">miesiąca</displayName>
 				<unitPattern count="one">{0} miesiąc</unitPattern>
 				<unitPattern count="few">{0} miesiące</unitPattern>
 				<unitPattern count="many">{0} miesięcy</unitPattern>
 				<unitPattern count="other">{0} miesiąca</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">sekundy</displayName>
 				<unitPattern count="one">{0} sekunda</unitPattern>
 				<unitPattern count="few">{0} sekundy</unitPattern>
 				<unitPattern count="many">{0} sekund</unitPattern>
 				<unitPattern count="other">{0} sekundy</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">tygodnia</displayName>
 				<unitPattern count="one">{0} tydzień</unitPattern>
 				<unitPattern count="few">{0} tygodnie</unitPattern>
 				<unitPattern count="many">{0} tygodni</unitPattern>
 				<unitPattern count="other">{0} tygodnia</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">roku</displayName>
 				<unitPattern count="one">{0} rok</unitPattern>
 				<unitPattern count="few">{0} lata</unitPattern>
 				<unitPattern count="many">{0} lat</unitPattern>
 				<unitPattern count="other">{0} roku</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">centymetra</displayName>
 				<unitPattern count="one">{0} centymetr</unitPattern>
 				<unitPattern count="few">{0} centymetry</unitPattern>
 				<unitPattern count="many">{0} centymetrów</unitPattern>
 				<unitPattern count="other">{0} centymetra</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">stopy</displayName>
 				<unitPattern count="one">{0} stopa</unitPattern>
 				<unitPattern count="few">{0} stopy</unitPattern>
 				<unitPattern count="many">{0} stóp</unitPattern>
 				<unitPattern count="other">{0} stopy</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">cala</displayName>
 				<unitPattern count="one">{0} cal</unitPattern>
 				<unitPattern count="few">{0} cale</unitPattern>
 				<unitPattern count="many">{0} cali</unitPattern>
 				<unitPattern count="other">{0} cala</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">kilometra</displayName>
 				<unitPattern count="one">{0} kilometr</unitPattern>
 				<unitPattern count="few">{0} kilometry</unitPattern>
 				<unitPattern count="many">{0} kilometrów</unitPattern>
 				<unitPattern count="other">{0} kilometra</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">roku świetlnego</displayName>
 				<unitPattern count="one">{0} rok świetlny</unitPattern>
 				<unitPattern count="few">{0} lata świetlne</unitPattern>
 				<unitPattern count="many">{0} lat świetlnych</unitPattern>
 				<unitPattern count="other">{0} roku świetlnego</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">metra</displayName>
 				<unitPattern count="one">{0} metr</unitPattern>
 				<unitPattern count="few">{0} metry</unitPattern>
 				<unitPattern count="many">{0} metrów</unitPattern>
 				<unitPattern count="other">{0} metra</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">mili</displayName>
 				<unitPattern count="one">{0} mila</unitPattern>
 				<unitPattern count="few">{0} mile</unitPattern>
 				<unitPattern count="many">{0} mil</unitPattern>
 				<unitPattern count="other">{0} mili</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">milimetra</displayName>
 				<unitPattern count="one">{0} milimetr</unitPattern>
 				<unitPattern count="few">{0} milimetry</unitPattern>
 				<unitPattern count="many">{0} milimetrów</unitPattern>
 				<unitPattern count="other">{0} milimetra</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">pikometra</displayName>
 				<unitPattern count="one">{0} pikometr</unitPattern>
 				<unitPattern count="few">{0} pikometry</unitPattern>
 				<unitPattern count="many">{0} pikometrów</unitPattern>
 				<unitPattern count="other">{0} pikometra</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">jarda</displayName>
 				<unitPattern count="one">{0} jard</unitPattern>
 				<unitPattern count="few">{0} jardy</unitPattern>
 				<unitPattern count="many">{0} jardów</unitPattern>
 				<unitPattern count="other">{0} jarda</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">grama</displayName>
 				<unitPattern count="one">{0} gram</unitPattern>
 				<unitPattern count="few">{0} gramy</unitPattern>
 				<unitPattern count="many">{0} gramów</unitPattern>
 				<unitPattern count="other">{0} grama</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">kilograma</displayName>
 				<unitPattern count="one">{0} kilogram</unitPattern>
 				<unitPattern count="few">{0} kilogramy</unitPattern>
 				<unitPattern count="many">{0} kilogramów</unitPattern>
 				<unitPattern count="other">{0} kilograma</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">uncji</displayName>
 				<unitPattern count="one">{0} uncja</unitPattern>
 				<unitPattern count="few">{0} uncje</unitPattern>
 				<unitPattern count="many">{0} uncji</unitPattern>
 				<unitPattern count="other">{0} uncji</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">funta</displayName>
 				<unitPattern count="one">{0} funt</unitPattern>
 				<unitPattern count="few">{0} funty</unitPattern>
 				<unitPattern count="many">{0} funtów</unitPattern>
 				<unitPattern count="other">{0} funta</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">konia mechanicznego</displayName>
 				<unitPattern count="one">{0} koń mechaniczny</unitPattern>
 				<unitPattern count="few">{0} konie mechaniczne</unitPattern>
 				<unitPattern count="many">{0} koni mechanicznych</unitPattern>
 				<unitPattern count="other">{0} konia mechanicznego</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">kilowata</displayName>
 				<unitPattern count="one">{0} kilowat</unitPattern>
 				<unitPattern count="few">{0} kilowaty</unitPattern>
 				<unitPattern count="many">{0} kilowatów</unitPattern>
 				<unitPattern count="other">{0} kilowata</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">wata</displayName>
 				<unitPattern count="one">{0} wat</unitPattern>
 				<unitPattern count="few">{0} waty</unitPattern>
 				<unitPattern count="many">{0} watów</unitPattern>
 				<unitPattern count="other">{0} wata</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">hektopaskala</displayName>
 				<unitPattern count="one">{0} hektopaskal</unitPattern>
 				<unitPattern count="few">{0} hektopaskale</unitPattern>
 				<unitPattern count="many">{0} hektopaskali</unitPattern>
 				<unitPattern count="other">{0} hektopaskala</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">cala słupa rtęci</displayName>
 				<unitPattern count="one">{0} cal słupa rtęci</unitPattern>
 				<unitPattern count="few">{0} cale słupa rtęci</unitPattern>
 				<unitPattern count="many">{0} cali słupa rtęci</unitPattern>
 				<unitPattern count="other">{0} cala słupa rtęci</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">millibara</displayName>
 				<unitPattern count="one">{0} millibar</unitPattern>
 				<unitPattern count="few">{0} millibary</unitPattern>
 				<unitPattern count="many">{0} millibarów</unitPattern>
 				<unitPattern count="other">{0} millibara</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">kilometra na godzinę</displayName>
 				<unitPattern count="one">{0} kilometr na godzinę</unitPattern>
 				<unitPattern count="few">{0} kilometry na godzinę</unitPattern>
 				<unitPattern count="many">{0} kilometrów na godzinę</unitPattern>
 				<unitPattern count="other">{0} kilometra na godzinę</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">metra na sekundę</displayName>
 				<unitPattern count="one">{0} metr na sekundę</unitPattern>
 				<unitPattern count="few">{0} metry na sekundę</unitPattern>
 				<unitPattern count="many">{0} metrów na sekundę</unitPattern>
 				<unitPattern count="other">{0} metra na sekundę</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">mili na godzinę</displayName>
 				<unitPattern count="one">{0} mila na godzinę</unitPattern>
 				<unitPattern count="few">{0} mile na godzinę</unitPattern>
 				<unitPattern count="many">{0} mil na godzinę</unitPattern>
 				<unitPattern count="other">{0} mili na godzinę</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">stopnia Celsjusza</displayName>
 				<unitPattern count="one">{0} stopień Celsjusza</unitPattern>
 				<unitPattern count="few">{0} stopnie Celsjusza</unitPattern>
 				<unitPattern count="many">{0} stopni Celsjusza</unitPattern>
 				<unitPattern count="other">{0} stopnia Celsjusza</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">stopnia Fahrenheita</displayName>
 				<unitPattern count="one">{0} stopień Fahrenheita</unitPattern>
 				<unitPattern count="few">{0} stopnie Fahrenheita</unitPattern>
 				<unitPattern count="many">{0} stopni Fahrenheita</unitPattern>
 				<unitPattern count="other">{0} stopnia Fahrenheita</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">kilometra sześciennego</displayName>
 				<unitPattern count="one">{0} kilometr sześcienny</unitPattern>
 				<unitPattern count="few">{0} kilometry sześcienne</unitPattern>
 				<unitPattern count="many">{0} kilometrów sześciennych</unitPattern>
 				<unitPattern count="other">{0} kilometra sześciennego</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">mili sześciennej</displayName>
 				<unitPattern count="one">{0} mila sześcienna</unitPattern>
 				<unitPattern count="few">{0} mile sześcienne</unitPattern>
 				<unitPattern count="many">{0} mil sześciennych</unitPattern>
 				<unitPattern count="other">{0} mili sześciennej</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">litra</displayName>
 				<unitPattern count="one">{0} litr</unitPattern>
 				<unitPattern count="few">{0} litry</unitPattern>
 				<unitPattern count="many">{0} litrów</unitPattern>
@@ -6059,276 +6105,322 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">G</displayName>
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="few">{0} G</unitPattern>
 				<unitPattern count="many">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">minuty</displayName>
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="few">{0} min</unitPattern>
 				<unitPattern count="many">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">sekundy</displayName>
 				<unitPattern count="one">{0} s</unitPattern>
 				<unitPattern count="few">{0} s</unitPattern>
 				<unitPattern count="many">{0} s</unitPattern>
 				<unitPattern count="other">{0} s</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">stopnia</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="few">{0}°</unitPattern>
 				<unitPattern count="many">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">akra</displayName>
 				<unitPattern count="one">{0} ac</unitPattern>
 				<unitPattern count="few">{0} ac</unitPattern>
 				<unitPattern count="many">{0} ac</unitPattern>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">hektara</displayName>
 				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="few">{0} ha</unitPattern>
 				<unitPattern count="many">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">stopy kwadratowej</displayName>
 				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="few">{0} ft²</unitPattern>
 				<unitPattern count="many">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">kilometra kwadratowego</displayName>
 				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="few">{0} km²</unitPattern>
 				<unitPattern count="many">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">metra kwadratowego</displayName>
 				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="few">{0} m²</unitPattern>
 				<unitPattern count="many">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">mili kwadratowej</displayName>
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="few">{0} mi²</unitPattern>
 				<unitPattern count="many">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">dnia</displayName>
 				<unitPattern count="one">{0} dzień</unitPattern>
 				<unitPattern count="few">{0} dni</unitPattern>
 				<unitPattern count="many">{0} dni</unitPattern>
 				<unitPattern count="other">{0} dnia</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">godzin</displayName>
 				<unitPattern count="one">{0} godz.</unitPattern>
 				<unitPattern count="few">{0} godz.</unitPattern>
 				<unitPattern count="many">{0} godz.</unitPattern>
 				<unitPattern count="other">{0} godz.</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">milisekundy</displayName>
 				<unitPattern count="one">{0} ms</unitPattern>
 				<unitPattern count="few">{0} ms</unitPattern>
 				<unitPattern count="many">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">minuty</displayName>
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="few">{0} min</unitPattern>
 				<unitPattern count="many">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">miesiąca</displayName>
 				<unitPattern count="one">{0} mies.</unitPattern>
 				<unitPattern count="few">{0} mies.</unitPattern>
 				<unitPattern count="many">{0} mies.</unitPattern>
 				<unitPattern count="other">{0} mies.</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">sekundy</displayName>
 				<unitPattern count="one">{0} sek.</unitPattern>
 				<unitPattern count="few">{0} sek.</unitPattern>
 				<unitPattern count="many">{0} sek.</unitPattern>
 				<unitPattern count="other">{0} sek.</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">tygodnia</displayName>
 				<unitPattern count="one">{0} tydz.</unitPattern>
 				<unitPattern count="few">{0} tyg.</unitPattern>
 				<unitPattern count="many">{0} tyg.</unitPattern>
 				<unitPattern count="other">{0} tyg.</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">roku</displayName>
 				<unitPattern count="one">{0} rok</unitPattern>
 				<unitPattern count="few">{0} lata</unitPattern>
 				<unitPattern count="many">{0} lat</unitPattern>
 				<unitPattern count="other">{0} roku</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">centymetra</displayName>
 				<unitPattern count="one">{0} cm</unitPattern>
 				<unitPattern count="few">{0} cm</unitPattern>
 				<unitPattern count="many">{0} cm</unitPattern>
 				<unitPattern count="other">{0} cm</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">stopy</displayName>
 				<unitPattern count="one">{0} ft</unitPattern>
 				<unitPattern count="few">{0} ft</unitPattern>
 				<unitPattern count="many">{0} ft</unitPattern>
 				<unitPattern count="other">{0} ft</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">cala</displayName>
 				<unitPattern count="one">{0}″</unitPattern>
 				<unitPattern count="few">{0}″</unitPattern>
 				<unitPattern count="many">{0}″</unitPattern>
 				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">kilometra</displayName>
 				<unitPattern count="one">{0} km</unitPattern>
 				<unitPattern count="few">{0} km</unitPattern>
 				<unitPattern count="many">{0} km</unitPattern>
 				<unitPattern count="other">{0} km</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">roku świetlnego</displayName>
 				<unitPattern count="one">{0} ly</unitPattern>
 				<unitPattern count="few">{0} ly</unitPattern>
 				<unitPattern count="many">{0} ly</unitPattern>
 				<unitPattern count="other">{0} ly</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">metra</displayName>
 				<unitPattern count="one">{0} m</unitPattern>
 				<unitPattern count="few">{0} m</unitPattern>
 				<unitPattern count="many">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">mili</displayName>
 				<unitPattern count="one">{0} mila</unitPattern>
 				<unitPattern count="few">{0} mile</unitPattern>
 				<unitPattern count="many">{0} mil</unitPattern>
 				<unitPattern count="other">{0} mili</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">milimetra</displayName>
 				<unitPattern count="one">{0} mm</unitPattern>
 				<unitPattern count="few">{0} mm</unitPattern>
 				<unitPattern count="many">{0} mm</unitPattern>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">pikometra</displayName>
 				<unitPattern count="one">{0} pm</unitPattern>
 				<unitPattern count="few">{0} pm</unitPattern>
 				<unitPattern count="many">{0} pm</unitPattern>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">jarda</displayName>
 				<unitPattern count="one">{0} yd</unitPattern>
 				<unitPattern count="few">{0} yd</unitPattern>
 				<unitPattern count="many">{0} yd</unitPattern>
 				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">grama</displayName>
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="few">{0} g</unitPattern>
 				<unitPattern count="many">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">kilograma</displayName>
 				<unitPattern count="one">{0} kg</unitPattern>
 				<unitPattern count="few">{0} kg</unitPattern>
 				<unitPattern count="many">{0} kg</unitPattern>
 				<unitPattern count="other">{0} kg</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">uncji</displayName>
 				<unitPattern count="one">{0} oz</unitPattern>
 				<unitPattern count="few">{0} oz</unitPattern>
 				<unitPattern count="many">{0} oz</unitPattern>
 				<unitPattern count="other">{0} oz</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">funta</displayName>
 				<unitPattern count="one">{0} lb</unitPattern>
 				<unitPattern count="few">{0} lb</unitPattern>
 				<unitPattern count="many">{0} lb</unitPattern>
 				<unitPattern count="other">{0} lb</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">konia mechanicznego</displayName>
 				<unitPattern count="one">{0} KM</unitPattern>
 				<unitPattern count="few">{0} KM</unitPattern>
 				<unitPattern count="many">{0} KM</unitPattern>
 				<unitPattern count="other">{0} KM</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">kilowata</displayName>
 				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="few">{0} kW</unitPattern>
 				<unitPattern count="many">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">wata</displayName>
 				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="few">{0} W</unitPattern>
 				<unitPattern count="many">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">hektopaskala</displayName>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="few">{0} hPa</unitPattern>
 				<unitPattern count="many">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">cala słupa rtęci</displayName>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="few">{0} inHg</unitPattern>
 				<unitPattern count="many">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">millibara</displayName>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="few">{0} mbar</unitPattern>
 				<unitPattern count="many">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">kilometra na godzinę</displayName>
 				<unitPattern count="one">{0} km/h</unitPattern>
 				<unitPattern count="few">{0} km/h</unitPattern>
 				<unitPattern count="many">{0} km/h</unitPattern>
 				<unitPattern count="other">{0} km/h</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">metra na sekundę</displayName>
 				<unitPattern count="one">{0} m/s</unitPattern>
 				<unitPattern count="few">{0} m/s</unitPattern>
 				<unitPattern count="many">{0} m/s</unitPattern>
 				<unitPattern count="other">{0} m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">mili na godzinę</displayName>
 				<unitPattern count="one">{0} mi/h</unitPattern>
 				<unitPattern count="few">{0} mi/h</unitPattern>
 				<unitPattern count="many">{0} mi/h</unitPattern>
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">stopnia Celsjusza</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="few">{0}°C</unitPattern>
 				<unitPattern count="many">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">stopnia Fahrenheita</displayName>
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="few">{0}°F</unitPattern>
 				<unitPattern count="many">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">kilometra sześciennego</displayName>
 				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="few">{0} km³</unitPattern>
 				<unitPattern count="many">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">mili sześciennej</displayName>
 				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="few">{0} mi³</unitPattern>
 				<unitPattern count="many">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">litra</displayName>
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="few">{0} l</unitPattern>
 				<unitPattern count="many">{0} l</unitPattern>

@@ -2261,6 +2261,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Kaliningrad">
 				<exemplarCity>Կալինինգրադ</exemplarCity>
 			</zone>
+			<zone type="Europe/Simferopol">
+				<exemplarCity>Սիմֆերոպոլ</exemplarCity>
+			</zone>
 			<zone type="Europe/Moscow">
 				<exemplarCity>Մոսկվա</exemplarCity>
 			</zone>
@@ -2431,9 +2434,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Կիև</exemplarCity>
-			</zone>
-			<zone type="Europe/Simferopol">
-				<exemplarCity>Սիմֆերոպոլ</exemplarCity>
 			</zone>
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Զապորոժյե</exemplarCity>
@@ -4369,186 +4369,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ձգողության ուժի արագացում</displayName>
 				<unitPattern count="one">{0} ձգողության ուժի արագացում</unitPattern>
 				<unitPattern count="other">{0} ձգողության ուժի արագացում</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">րոպե</displayName>
 				<unitPattern count="one">{0} րոպե</unitPattern>
 				<unitPattern count="other">{0} րոպե</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">վայրկյան</displayName>
 				<unitPattern count="one">{0} վայրկյան</unitPattern>
 				<unitPattern count="other">{0} վայրկյան</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">աստիճան</displayName>
 				<unitPattern count="one">{0} աստիճան</unitPattern>
 				<unitPattern count="other">{0} աստիճան</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ակր</displayName>
 				<unitPattern count="one">{0} ակր</unitPattern>
 				<unitPattern count="other">{0} ակր</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">հեկտար</displayName>
 				<unitPattern count="one">{0} հեկտար</unitPattern>
 				<unitPattern count="other">{0} հեկտար</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">քառակուսի ֆուտ</displayName>
 				<unitPattern count="one">{0} քառակուսի ֆուտ</unitPattern>
 				<unitPattern count="other">{0} քառակուսի ֆուտ</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">քառակուսի կիլոմետր</displayName>
 				<unitPattern count="one">{0} քառակուսի կիլոմետր</unitPattern>
 				<unitPattern count="other">{0} քառակուսի կիլոմետր</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">քառակուսի մետր</displayName>
 				<unitPattern count="one">{0} քառակուսի մետր</unitPattern>
 				<unitPattern count="other">{0} քառակուսի մետր</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">քառակուսի մղոն</displayName>
 				<unitPattern count="one">{0} քառակուսի մղոն</unitPattern>
 				<unitPattern count="other">{0} քառակուսի մղոն</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">օր</displayName>
 				<unitPattern count="one">{0} օր</unitPattern>
 				<unitPattern count="other">{0} օր</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">ժամ</displayName>
 				<unitPattern count="one">{0} ժամ</unitPattern>
 				<unitPattern count="other">{0} ժամ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">միլիվայրկյան</displayName>
 				<unitPattern count="one">{0} միլիվայրկյան</unitPattern>
 				<unitPattern count="other">{0} միլիվայրկյան</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">րոպե</displayName>
 				<unitPattern count="one">{0} րոպե</unitPattern>
 				<unitPattern count="other">{0} րոպե</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ամիս</displayName>
 				<unitPattern count="one">{0} ամիս</unitPattern>
 				<unitPattern count="other">{0} ամիս</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">վայրկյան</displayName>
 				<unitPattern count="one">{0} վայրկյան</unitPattern>
 				<unitPattern count="other">{0} վայրկյան</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">շաբաթ</displayName>
 				<unitPattern count="one">{0} շաբաթ</unitPattern>
 				<unitPattern count="other">{0} շաբաթ</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">տարի</displayName>
 				<unitPattern count="one">{0} տարի</unitPattern>
 				<unitPattern count="other">{0} տարի</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">սանտիմետր</displayName>
 				<unitPattern count="one">{0} սանտիմետր</unitPattern>
 				<unitPattern count="other">{0} սանտիմետր</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ֆուտ</displayName>
 				<unitPattern count="one">{0} ֆուտ</unitPattern>
 				<unitPattern count="other">{0} ֆուտ</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">դյույմ</displayName>
 				<unitPattern count="one">{0} դյույմ</unitPattern>
 				<unitPattern count="other">{0} դյույմ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">կիլոմետր</displayName>
 				<unitPattern count="one">{0} կիլոմետր</unitPattern>
 				<unitPattern count="other">{0} կիլոմետր</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">լուսային տարի</displayName>
 				<unitPattern count="one">{0} լուսային տարի</unitPattern>
 				<unitPattern count="other">{0} լուսային տարի</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">մետր</displayName>
 				<unitPattern count="one">{0} մետր</unitPattern>
 				<unitPattern count="other">{0} մետր</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">մղոն</displayName>
 				<unitPattern count="one">{0} մղոն</unitPattern>
 				<unitPattern count="other">{0} մղոն</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">միլիմետր</displayName>
 				<unitPattern count="one">{0} միլիմետր</unitPattern>
 				<unitPattern count="other">{0} միլիմետր</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">պիկոմետր</displayName>
 				<unitPattern count="one">{0} պիկոմետր</unitPattern>
 				<unitPattern count="other">{0} պիկոմետր</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">յարդ</displayName>
 				<unitPattern count="one">{0} յարդ</unitPattern>
 				<unitPattern count="other">{0} յարդ</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">գրամ</displayName>
 				<unitPattern count="one">{0} գրամ</unitPattern>
 				<unitPattern count="other">{0} գրամ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">կիլոգրամ</displayName>
 				<unitPattern count="one">{0} կիլոգրամ</unitPattern>
 				<unitPattern count="other">{0} կիլոգրամ</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">ունցիա</displayName>
 				<unitPattern count="one">{0} ունցիա</unitPattern>
 				<unitPattern count="other">{0} ունցիա</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ֆունտ</displayName>
 				<unitPattern count="one">{0} ֆունտ</unitPattern>
 				<unitPattern count="other">{0} ֆունտ</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ձիաուժ</displayName>
 				<unitPattern count="one">{0} ձիաուժ</unitPattern>
 				<unitPattern count="other">{0} ձիաուժ</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">կիլովատ</displayName>
 				<unitPattern count="one">{0} կիլովատ</unitPattern>
 				<unitPattern count="other">{0} կիլովատ</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">վատ</displayName>
 				<unitPattern count="one">{0} վատ</unitPattern>
 				<unitPattern count="other">{0} վատ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">հեկտապասկալ</displayName>
 				<unitPattern count="one">{0} հեկտապասկալ</unitPattern>
 				<unitPattern count="other">{0} հեկտապասկալ</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">դյույմ սնդիկի սյուն</displayName>
 				<unitPattern count="one">{0} դյույմ սնդիկի սյուն</unitPattern>
 				<unitPattern count="other">{0} դյույմ սնդիկի սյուն</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">միլիբար</displayName>
 				<unitPattern count="one">{0} միլիբար</unitPattern>
 				<unitPattern count="other">{0} միլիբար</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">կիլոմետր / ժամ</displayName>
 				<unitPattern count="one">{0} կիլոմետր / ժամ</unitPattern>
 				<unitPattern count="other">{0} կիլոմետր / ժամ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">մետր / վայրկյան</displayName>
 				<unitPattern count="one">{0} մետր / վայրկյան</unitPattern>
 				<unitPattern count="other">{0} մետր / վայրկյան</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">մղոն / ժամ</displayName>
 				<unitPattern count="one">{0} մղոն / ժամ</unitPattern>
 				<unitPattern count="other">{0} մղոն / ժամ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">աստիճան ըստ Ցելսիուսի</displayName>
 				<unitPattern count="one">{0} աստիճան ըստ Ցելսիուսի</unitPattern>
 				<unitPattern count="other">{0} աստիճան ըստ Ցելսիուսի</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">աստիճան ըստ Ֆարենհայթի</displayName>
 				<unitPattern count="one">{0} աստիճան ըստ Ֆարենհայթի</unitPattern>
 				<unitPattern count="other">{0} աստիճան ըստ Ֆարենհայթի</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">խորանարդ կիլոմետր</displayName>
 				<unitPattern count="one">{0} խորանարդ կիլոմետր</unitPattern>
 				<unitPattern count="other">{0} խորանարդ կիլոմետր</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">խորանարդ մղոն</displayName>
 				<unitPattern count="one">{0} խորանարդ մղոն</unitPattern>
 				<unitPattern count="other">{0} խորանարդ մղոն</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">լիտր</displayName>
 				<unitPattern count="one">{0} լիտր</unitPattern>
 				<unitPattern count="other">{0} լիտր</unitPattern>
 			</unit>
@@ -4558,186 +4604,232 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
+				<displayName draft="provisional">ձգողության ուժի արագացում</displayName>
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
 			<unit type="angle-arc-minute">
+				<displayName draft="provisional">րոպե</displayName>
 				<unitPattern count="one">{0} րոպ</unitPattern>
 				<unitPattern count="other">{0} րոպ</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
+				<displayName draft="provisional">վայրկյան</displayName>
 				<unitPattern count="one">{0} վրկ</unitPattern>
 				<unitPattern count="other">{0} վրկ</unitPattern>
 			</unit>
 			<unit type="angle-degree">
+				<displayName draft="provisional">աստիճան</displayName>
 				<unitPattern count="one">{0} աստճ.</unitPattern>
 				<unitPattern count="other">{0} աստճ.</unitPattern>
 			</unit>
 			<unit type="area-acre">
+				<displayName draft="provisional">ակր</displayName>
 				<unitPattern count="one">{0} ակր</unitPattern>
 				<unitPattern count="other">{0} ակր</unitPattern>
 			</unit>
 			<unit type="area-hectare">
+				<displayName draft="provisional">հեկտար</displayName>
 				<unitPattern count="one">{0} հա</unitPattern>
 				<unitPattern count="other">{0} հա</unitPattern>
 			</unit>
 			<unit type="area-square-foot">
+				<displayName draft="provisional">քառակուսի ֆուտ</displayName>
 				<unitPattern count="one">{0} քռ. ֆտ.</unitPattern>
 				<unitPattern count="other">{0} քռ. ֆտ.</unitPattern>
 			</unit>
 			<unit type="area-square-kilometer">
+				<displayName draft="provisional">քառակուսի կիլոմետր</displayName>
 				<unitPattern count="one">{0} կմ²</unitPattern>
 				<unitPattern count="other">{0} կմ²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
+				<displayName draft="provisional">քառակուսի մետր</displayName>
 				<unitPattern count="one">{0} մ²</unitPattern>
 				<unitPattern count="other">{0} մ²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
+				<displayName draft="provisional">քառակուսի մղոն</displayName>
 				<unitPattern count="one">{0} քռ. մղ.</unitPattern>
 				<unitPattern count="other">{0} քռ. մղ.</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName draft="provisional">օր</displayName>
 				<unitPattern count="one">{0} օր</unitPattern>
 				<unitPattern count="other">{0} օր</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="provisional">ժամ</displayName>
 				<unitPattern count="one">{0} ժ.</unitPattern>
 				<unitPattern count="other">{0} ժ.</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName draft="provisional">միլիվայրկյան</displayName>
 				<unitPattern count="one">{0} մվ</unitPattern>
 				<unitPattern count="other">{0}մվ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="provisional">րոպե</displayName>
 				<unitPattern count="one">{0} րպ.</unitPattern>
 				<unitPattern count="other">{0} րպ.</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="provisional">ամիս</displayName>
 				<unitPattern count="one">{0} ամս</unitPattern>
 				<unitPattern count="other">{0} ամս</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="provisional">վայրկյան</displayName>
 				<unitPattern count="one">{0} վրկ</unitPattern>
 				<unitPattern count="other">{0} վրկ</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="provisional">շաբաթ</displayName>
 				<unitPattern count="one">{0} շբթ.</unitPattern>
 				<unitPattern count="other">{0} շբթ.</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="provisional">տարի</displayName>
 				<unitPattern count="one">{0} տր.</unitPattern>
 				<unitPattern count="other">{0} տր.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName draft="provisional">սանտիմետր</displayName>
 				<unitPattern count="one">{0} սմ</unitPattern>
 				<unitPattern count="other">{0} սմ</unitPattern>
 			</unit>
 			<unit type="length-foot">
+				<displayName draft="provisional">ֆուտ</displayName>
 				<unitPattern count="one">{0} ֆտ.</unitPattern>
 				<unitPattern count="other">{0} ֆտ.</unitPattern>
 			</unit>
 			<unit type="length-inch">
+				<displayName draft="provisional">դյույմ</displayName>
 				<unitPattern count="one">{0} դմ.</unitPattern>
 				<unitPattern count="other">{0} դմ.</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName draft="provisional">կիլոմետր</displayName>
 				<unitPattern count="one">{0} կմ</unitPattern>
 				<unitPattern count="other">{0} կմ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
+				<displayName draft="provisional">լուսային տարի</displayName>
 				<unitPattern count="one">{0} լ. տ.</unitPattern>
 				<unitPattern count="other">{0} լ. տ.</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName draft="provisional">մետր</displayName>
 				<unitPattern count="one">{0} մ</unitPattern>
 				<unitPattern count="other">{0} մ</unitPattern>
 			</unit>
 			<unit type="length-mile">
+				<displayName draft="provisional">մղոն</displayName>
 				<unitPattern count="one">{0} մղ</unitPattern>
 				<unitPattern count="other">{0} մղ</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName draft="provisional">միլիմետր</displayName>
 				<unitPattern count="one">{0} մմ</unitPattern>
 				<unitPattern count="other">{0} մմ</unitPattern>
 			</unit>
 			<unit type="length-picometer">
+				<displayName draft="provisional">պիկոմետր</displayName>
 				<unitPattern count="one">{0} պմ</unitPattern>
 				<unitPattern count="other">{0} պմ</unitPattern>
 			</unit>
 			<unit type="length-yard">
+				<displayName draft="provisional">յարդ</displayName>
 				<unitPattern count="one">{0} յդ.</unitPattern>
 				<unitPattern count="other">{0} յդ.</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName draft="provisional">գրամ</displayName>
 				<unitPattern count="one">{0} գր</unitPattern>
 				<unitPattern count="other">{0} գր</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName draft="provisional">կիլոգրամ</displayName>
 				<unitPattern count="one">{0} կգ</unitPattern>
 				<unitPattern count="other">{0} կգ</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
+				<displayName draft="provisional">ունցիա</displayName>
 				<unitPattern count="one">{0} ունց</unitPattern>
 				<unitPattern count="other">{0} ունց</unitPattern>
 			</unit>
 			<unit type="mass-pound">
+				<displayName draft="provisional">ֆունտ</displayName>
 				<unitPattern count="one">{0} ֆն.</unitPattern>
 				<unitPattern count="other">{0} ֆն.</unitPattern>
 			</unit>
 			<unit type="power-horsepower">
+				<displayName draft="provisional">ձիաուժ</displayName>
 				<unitPattern count="one">{0} ձ/ու</unitPattern>
 				<unitPattern count="other">{0} ձ/ու</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
+				<displayName draft="provisional">կիլովատ</displayName>
 				<unitPattern count="one">{0} կՎ</unitPattern>
 				<unitPattern count="other">{0} կՎ</unitPattern>
 			</unit>
 			<unit type="power-watt">
+				<displayName draft="provisional">վատ</displayName>
 				<unitPattern count="one">{0} Վ</unitPattern>
 				<unitPattern count="other">{0} Վ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
+				<displayName draft="provisional">հեկտապասկալ</displayName>
 				<unitPattern count="one">{0} հՊա</unitPattern>
 				<unitPattern count="other">{0} հՊա</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
+				<displayName draft="provisional">դյույմ սնդիկի սյուն</displayName>
 				<unitPattern count="one">{0} դյույմ ս. ս.</unitPattern>
 				<unitPattern count="other">{0} դյույմ ս. ս.</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
+				<displayName draft="provisional">միլիբար</displayName>
 				<unitPattern count="one">{0} մբ</unitPattern>
 				<unitPattern count="other">{0} մբ</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName draft="provisional">կիլոմետր / ժամ</displayName>
 				<unitPattern count="one">{0} կմ/ժ</unitPattern>
 				<unitPattern count="other">{0} կմ/ժ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
+				<displayName draft="provisional">մետր / վայրկյան</displayName>
 				<unitPattern count="one">{0} մ/վ</unitPattern>
 				<unitPattern count="other">{0} մ/վ</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
+				<displayName draft="provisional">մղոն / ժամ</displayName>
 				<unitPattern count="one">{0} մղ/ժ</unitPattern>
 				<unitPattern count="other">{0} մղ/ժ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName draft="provisional">աստիճան ըստ Ցելսիուսի</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
+				<displayName draft="provisional">աստիճան ըստ Ֆարենհայթի</displayName>
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
 			<unit type="volume-cubic-kilometer">
+				<displayName draft="provisional">խորանարդ կիլոմետր</displayName>
 				<unitPattern count="one">{0} կմ³</unitPattern>
 				<unitPattern count="other">{0} կմ³</unitPattern>
 			</unit>
 			<unit type="volume-cubic-mile">
+				<displayName draft="provisional">խորանարդ մղոն</displayName>
 				<unitPattern count="one">{0} մղ³</unitPattern>
 				<unitPattern count="other">{0} մղ³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName draft="provisional">լիտր</displayName>
 				<unitPattern count="one">{0} լ.</unitPattern>
 				<unitPattern count="other">{0} լ.</unitPattern>
 			</unit>

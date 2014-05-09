@@ -49,6 +49,8 @@ function showReviewMenu(numbers) {
 
 //handle the review page with the json
 function showReviewPage(json) {
+	
+	
 	var menuData = json.notification;
 	var notifications = json.allNotifications;
 	var menuRoot = $('#itemInfo');

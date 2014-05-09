@@ -5070,13 +5070,21 @@ function showV() {
 					        	
 								var url = contextPath + "/EmbeddedReport.jsp?x="+surveyCurrentSpecial+"&_="+surveyCurrentLocale+"&s="+surveySessionId+cacheKill();
 								if(isDashboard()) {
-									request
-					    			.get(url, {handleAs: 'json'})
-					    			.then(function(json) {
-										hideLoader(null,stui.loading2);
-										isLoading=false;
-										showReviewPage(json);
-									});
+									if(!isVisitor) {
+										request
+						    			.get(url, {handleAs: 'json'})
+						    			.then(function(json) {
+											hideLoader(null,stui.loading2);
+											isLoading=false;
+											showReviewPage(json);
+										});
+									}
+									else {
+										alert('Please login to access Dashboard');
+										surveyCurrentSpecial = '';
+										surveyCurrentLocale = '';
+										reloadV();
+									}
 								}
 								else {
 									hideLoader(null,stui.loading2);

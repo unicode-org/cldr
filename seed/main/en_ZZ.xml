@@ -80,6 +80,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</dates>
 	<units>
 		<unitLength type="long">
+			<unit type="area-acre">
+				<displayName>acres [translation hint: this refers specifically to an English acre]</displayName>
+				<unitPattern count="one">{0} acre</unitPattern>
+				<unitPattern count="other">{0} acres</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>days [translation hint: "day" here means a time duration of 24 hours, not a calendar day]</displayName>
 				<unitPattern count="one">{0} day</unitPattern>
@@ -87,6 +92,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</unit>
 		</unitLength>
 		<unitLength type="short">
+			<unit type="area-acre">
+				<displayName>acres [translation hint: this refers specifically to an English acre]</displayName>
+				<unitPattern count="one">{0} ac</unitPattern>
+				<unitPattern count="other">{0} ac</unitPattern>
+			</unit>
 			<unit type="duration-day">
 				<displayName>days [translation hint: "day" here means a time duration of 24 hours, not a calendar day]</displayName>
 				<unitPattern count="one">{0} day</unitPattern>

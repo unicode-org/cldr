@@ -59,6 +59,7 @@
 
 ^//ldml/units/unitLength\[@type="([^"]*)"]/compoundUnit\[@type="([^"]*)"]/compoundUnitPattern ; Special pattern used to compose forms of two units, such as meters per second. Note: before translating, be sure to read http://cldr.org/translation/units.
 
+^//ldml/units/unitLength\[@type="([^"]*)"]/unit\[@type="area-acre"]/displayName ; Display name ({1} form) for “area-acre”, referring specifically to an English acre. Note: before translating, be sure to read http://cldr.org/translation/plurals.
 ^//ldml/units/unitLength\[@type="([^"]*)"]/unit\[@type="duration-day"]/displayName ; Display name ({1} form) for “duration-day”, meaning a time duration of 24 hours (not a calendar day). Note: before translating, be sure to read http://cldr.org/translation/plurals.
 ^//ldml/units/unitLength\[@type="([^"]*)"]/unit\[@type="([^"]*)"]/displayName ; Display name ({1} form) for “{2}”. Note: before translating, be sure to read http://cldr.org/translation/plurals.
 ^//ldml/units/unitLength\[@type="([^"]*)"]/unit\[@type="([^"]*)"]/unitPattern ; [ICU Syntax] Special pattern used to compose plural for {1} forms of “{2}”. Note: before translating, be sure to read http://cldr.org/translation/plurals.

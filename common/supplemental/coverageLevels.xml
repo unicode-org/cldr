@@ -130,6 +130,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%transformNameTypes" value="(BGN|Numeric|Tone|UNGEGN|x-(Accents|Fullwidth|Halfwidth|Jamo|Pinyin|Publishing))"/>
 		<coverageVariable key="%unitDurationTypes" value="duration-(year|month|week|day|hour|minute|second|millisecond)"/>
 		<coverageVariable key="%unitLengths" value="(long|short|narrow)"/>
+		<coverageVariable key="%unitNonNarrowLengths" value="(long|short)"/>
 		<coverageVariable key="%unitsCommonMetric" value="(length-(centi|milli|kilo)?meter|mass-(kilo)?gram|temperature-celsius|speed-kilometer-per-hour|volume-liter)"/>
 		<coverageVariable key="%unitsCommonUS" value="(length-(inch|foot|yard|mile)|mass-(ounce|pound)|temperature-fahrenheit|speed-mile-per-hour)"/>
 		<coverageVariable key="%unitsEnglish" value="(length-fathom|length-furlong|mass-stone|volume-bushel)"/>
@@ -479,14 +480,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="80" match="characters/ellipsis[@type='%ellipsisTypes']"/>
 		<coverageLevel value="80" match="characters/moreInformation"/>
 		<coverageLevel value="80" match="numbers/decimalFormats[@numberSystem='latn']/decimalFormatLength[@type='%shortLong']/decimalFormat[@type='standard']/pattern[@type='%compactDecimalTypes'][@count='${Target-Plurals}']"/>
-		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>
-		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsNonEnglish']/displayName"/>
-		<coverageLevel value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsNonEnglish']/perUnitPattern"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%unitsNonEnglish']/displayName"/>
+		<coverageLevel value="80" match="units/unitLength[@type='%unitNonNarrowLengths']/unit[@type='%unitsNonEnglish']/perUnitPattern"/>
 		<coverageLevel inLanguage="en" value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel inLanguage="en" value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/displayName"/>
 		<coverageLevel inLanguage="en" value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>
 				
 		<coverageLevel value="80" match="listPatterns/listPattern[@type='duration(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
+
+		<coverageLevel value="100" match="units/unitLength[@type='narrow']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='japanese']/eras/eraAbbr/era[@type='%japaneseEras']"/>

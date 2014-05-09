@@ -42,7 +42,7 @@ if(ctx!=null) {
         int n = ctx.docLocale.length; // how many levels deep
         int i,j;
          for(i=(n-1);i>0;i--) {
-            boolean canModifyL = UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
+            boolean canModifyL = ctx!=null && ctx.session!=null && ctx.session.user != null && UserRegistry.userCanModifyLocale(ctx.session.user,ctx.docLocale[i]);
             ctx.print("&raquo;&nbsp; <a title='"+ctx.docLocale[i]+"' class='notselected' href=\"" + ctx.vurl(ctx.docLocale[i]) + 
                 "\">");
             ctx.print(SurveyMain.decoratedLocaleName(ctx.docLocale[i],ctx.docLocale[i].getDisplayName(),""));

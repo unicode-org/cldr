@@ -218,8 +218,8 @@ public class TestFmwkPlus extends TestFmwk {
         }
     };
 
-    @SuppressWarnings("rawtypes")
-    public static TestRelation LEQ = new TestRelation<Comparable, Comparable>() {
+    //@SuppressWarnings("rawtypes")
+    static TestRelation LEQ = new TestRelation<Comparable, Comparable>() {
         @SuppressWarnings("unchecked")
         @Override
         public boolean isTrue(Comparable a, Comparable... bs) {
@@ -231,9 +231,27 @@ public class TestFmwkPlus extends TestFmwk {
 
         @Override
         public String toString() {
-            return " < ";
+            return " ≤ ";
         }
     };
+
+    //@SuppressWarnings("rawtypes")
+    static TestRelation GEQ = new TestRelation<Comparable, Comparable>() {
+        @SuppressWarnings("unchecked")
+        @Override
+        public boolean isTrue(Comparable a, Comparable... bs) {
+            if (bs.length != 1) {
+                throw new IllegalArgumentException("Should have 2 arguments");
+            }
+            return a.compareTo(bs[0]) >= 0;
+        }
+
+        @Override
+        public String toString() {
+            return "≥ ";
+        }
+    };
+
 
     @SuppressWarnings("rawtypes")
     public static TestRelation IDENTICAL = new TestRelation<Object, Object>() {

@@ -28,8 +28,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%acctPattern" value="[@type='accounting']/pattern[@type='standard']"/>
 		<coverageVariable key="%allPlurals" value="(zero|one|two|few|many|other)"/>
 		<coverageVariable key="%allWidths" value="(wide|abbreviated|narrow)"/>
-		<coverageVariable key="%ampmTypes" value="(am|pm|noon|earlyMorning|morning|lateMorning|midDay|earlyAfternoon|afternoon|evening|night|weeHours)"/>
+		<coverageVariable key="%ampmTypes" value="(am|pm|noon)"/>
 		<coverageVariable key="%arabextLanguages" value="(fa|pa|ps|uz)"/>
+		<coverageVariable key="%calendarType80" value="(buddhist|chinese|dangi|ethiopic|hebrew|islamic|japanese|persian|roc)"/>
 		<coverageVariable key="%calendarType100" value="(buddhist|chinese|coptic|dangi|ethiopic(-amete-alem)?|hebrew|indian|islamic(-(civil|rgsa|tbla|umalqura))?|japanese|persian|roc)"/>
 		<coverageVariable key="%CJK_Languages" value="(ja|ko|zh)"/>
 		<coverageVariable key="%chineseCalendarTerritories" value="(CN|CX|HK|MO|SG|TW)"/>
@@ -487,7 +488,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="en" value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/displayName"/>
 		<coverageLevel inLanguage="en" value="80" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>
 				
-		<coverageLevel value="80" match="listPatterns/listPattern[@type='duration(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
+		<coverageLevel value="80" match="listPatterns/listPattern[@type='(duration|unit)(-(short|narrow))?']/listPatternPart[@type='(2|start|middle|end)']"/>
+		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='%wideNarrow']/dayPeriod[@type='%ampmTypes']"/>
+		<coverageLevel value="80" match="localeDisplayNames/types/type[@type='%calendarType80'][@key='calendar']"/>
+		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)']"/>
+		<coverageLevel value="80" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)'][@alt='variant']"/>
 
 		<coverageLevel value="100" match="units/unitLength[@type='narrow']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
@@ -525,11 +530,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="100" match="numbers/currencies/currency[@type='%currency100']/symbol[@alt='narrow']"/>
 		<coverageLevel value="100" match="numbers/currencies/currency[@type='%currency100']/displayName"/>
 		<coverageLevel value="100" match="numbers/currencies/currency[@type='%currency100']/displayName[@count='${Target-Plurals}']"/>
-		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)']"/>
-		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)'][@alt='variant']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='(0|1)']"/>
 		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='(0|1)'][@alt='variant']"/>
-		<coverageLevel value="100" match="dates/calendars/calendar[@type='gregorian']/dayPeriods/dayPeriodContext[@type='format']/dayPeriodWidth[@type='%wideNarrow']/dayPeriod[@type='%ampmTypes']"/>
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/generic"/>
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/standard"/>
 		<coverageLevel value="100" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/daylight"/>

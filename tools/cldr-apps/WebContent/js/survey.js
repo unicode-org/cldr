@@ -3004,6 +3004,7 @@ function updateRow(tr, theRow) {
 	} else {
 		tr.myProposal=null; // not needed
 	}
+
 	if(isDashboard()) {
 		children[config.othercell].appendChild(document.createElement('hr'));
 		children[config.othercell].appendChild(formAdd);//add button	
@@ -3322,7 +3323,7 @@ function insertRows(theDiv,xpath,session,json) {
 	
 	removeAllChildNodes(theDiv);
 	window.insertLocaleSpecialNote(theDiv);
-	if(!theTable) {
+	//recreated table in every case
 		theTable = cloneLocalizeAnon(dojo.byId('proto-datatable'));
 		if(isDashboard())
 			theTable.className += ' dashboard';
@@ -3361,9 +3362,7 @@ function insertRows(theDiv,xpath,session,json) {
 		theDiv.theTable = theTable;
 		theTable.theDiv = theDiv;
 		doInsertTable=theTable;
-	} else {
-		theDiv.appendChild(theDiv.theTable);
-	}
+
 	// append header row
 	
 	theTable.json = json;

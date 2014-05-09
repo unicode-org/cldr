@@ -87,14 +87,15 @@
 
 ### Numbers
 
-//ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Numbers ; Symbols ; Symbols when using &numberingSystem($1) ; &number($2)
-//ldml/numbers/minimumGroupingDigits																	; Numbers ; Symbols ; Number Formatting Patterns ; Minimum Grouping Digits
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns when using &numberingSystem($2) ; &numberFormat($5-$1)
-//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns when using &numberingSystem($1) ; &count(currencies-$2)
-//ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns when using &numberingSystem($1) ; $2
+//ldml/numbers/symbols[@numberSystem="%A"]/timeSeparator                                                ; Numbers ; Symbols ; Time Symbols &numberingSystem($1) ; Time Separator
+//ldml/numbers/symbols[@numberSystem="%A"]/%E                                                           ; Numbers ; Symbols ; Symbols &numberingSystem($1) ; &number($2)
+//ldml/numbers/minimumGroupingDigits																	; Numbers ; Symbols ; Grouping Control ; Minimum Grouping Digits
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength/%EFormat[@type="%A"]/pattern[@type="%A"]    ; Numbers ; Number Formatting Patterns ; Standard Patterns &numberingSystem($2) ; &numberFormat($5-$1)
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/unitPattern[@count="%A"]                             ; Numbers ; Number Formatting Patterns ; Currency Unit Patterns &numberingSystem($1) ; &count(currencies-$2)
+//ldml/numbers/miscPatterns[@numberSystem="%A"]/pattern[@type=\"%A\"]                                   ; Numbers ; Number Formatting Patterns ; Miscellaneous Patterns &numberingSystem($1) ; $2
 
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting ; Long Formats when using &numberingSystem($2) ; &count2($7-digits-$4-$8)
-//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Formats when using &numberingSystem($2) ; &count2($7-digits-$4-$8)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(long)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"]  ; Numbers ; Compact Decimal Formatting ; Long Formats &numberingSystem($2) ; &count2($7-digits-$4-$8)
+//ldml/numbers/%EFormats[@numberSystem="%A"]/%EFormatLength[@type="(short)"]/%EFormat[@type="%A"]/pattern[@type="%A"][@count="%A"] ; Numbers ; Compact Decimal Formatting ; Short Formats &numberingSystem($2) ; &count2($7-digits-$4-$8)
 
 ### Currencies
 
@@ -183,7 +184,7 @@
 //ldml/layout/inList                        ; Special ; Deprecated ; null ; inList ; DEPRECATED
 //ldml/layout/inText[@type="%A"]            ; Special ; Deprecated ; inText ; $1 ; DEPRECATED
 
-//ldml/numbers/currencyFormats[@numberSystem="%A"]/currencySpacing/%E/%E        ; Special ; Number Formatting Patterns ; Currency Spacing when using &numberingSystem($1) ; $2-$3 ; HIDE
+//ldml/numbers/currencyFormats[@numberSystem="%A"]/currencySpacing/%E/%E        ; Special ; Number Formatting Patterns ; Currency Spacing &numberingSystem($1) ; $2-$3 ; HIDE
 
 # Suppress the numbers without numbering system.
 //ldml/numbers/currencyFormats/unitPattern[@count="%A"]                     ; Special ; Deprecated ; latn ; currencies-count=$1 ; HIDE

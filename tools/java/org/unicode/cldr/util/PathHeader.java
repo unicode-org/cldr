@@ -1021,8 +1021,8 @@ public class PathHeader implements Comparable<PathHeader> {
 
                     Map<String, String> fixNames = Builder.with(new HashMap<String, String>())
                         .put("DayPeriods", "Day Periods")
-                        .put("format", "Formatting Context")
-                        .put("stand-alone", "Standalone Context")
+                        .put("format", "Formatting")
+                        .put("stand-alone", "Standalone")
                         .put("none", "")
                         .put("date", "Date Formats")
                         .put("time", "Time Formats")
@@ -1095,7 +1095,7 @@ public class PathHeader implements Comparable<PathHeader> {
                         script = likelySubtags.getLikelyScript(language);
                     }
                     String scriptName = englishFile.getName(CLDRFile.SCRIPT_NAME, script);
-                    return "Languages Using " + (script.equals("Hans") || script.equals("Hant") ? "Han Script"
+                    return "Languages in " + (script.equals("Hans") || script.equals("Hant") ? "Han Script"
                         : scriptName.endsWith(" Script") ? scriptName
                             : scriptName + " Script");
                 }
@@ -1257,6 +1257,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
             final Map<String, String> currencyToTerritoryOverrides = CldrUtility.asMap(ctto);
             final Map<String, String> subContinentToContinent = CldrUtility.asMap(sctc);
+            final List<String> fundCurrencies = Arrays.asList("CHE", "CHW", "CLF", "COU", "ECV", "MXV", "USN", "USS", "UYI", "XEU", "ZAL");
             // TODO: Put this into supplementalDataInfo ?
 
             functionMap.put("categoryFromCurrency", new Transform<String, String>() {
@@ -1264,7 +1265,13 @@ public class PathHeader implements Comparable<PathHeader> {
                     String tenderOrNot = "";
                     String territory = likelySubtags.getLikelyTerritoryFromCurrency(source0);
                     if (territory == null) {
-                        tenderOrNot = ": " + source0 + " (Not Current Tender)";
+                        String tag;
+                        if (fundCurrencies.contains(source0)) {
+                            tag = " (fund)";
+                        } else {
+                            tag = " (old)";
+                        }
+                        tenderOrNot = ": " + source0 + tag;
                     }
                     if (currencyToTerritoryOverrides.keySet().contains(source0)) {
                         territory = currencyToTerritoryOverrides.get(source0);
@@ -1304,10 +1311,13 @@ public class PathHeader implements Comparable<PathHeader> {
             });
             functionMap.put("numberingSystem", new Transform<String, String>() {
                 public String transform(String source0) {
+                    if ("latn".equals(source0)) {
+                        return "";
+                    }
                     String displayName = englishFile.getStringValue("//ldml/localeDisplayNames/types/type[@type=\""
                         + source0 +
                         "\"][@key=\"numbers\"]");
-                    return displayName == null ? source0 : displayName + " (" + source0 + ")";
+                    return "using " + ( displayName == null ? source0 : displayName + " (" + source0 + ")");
                 }
             });
             // //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]

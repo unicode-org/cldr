@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 
 public class FileProcessor {
     private int lineCount;
+    protected boolean doHash = true;
 
     protected void handleStart() {
     }
@@ -76,7 +77,7 @@ public class FileProcessor {
                     break;
                 }
                 int comment = line.indexOf("#");
-                if (comment >= 0) {
+                if (comment == 0 || doHash && comment >= 0) {
                     handleComment(line, comment);
                     line = line.substring(0, comment);
                 }

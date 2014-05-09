@@ -203,8 +203,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public enum ReportMenu {
         PRIORITY_ITEMS("Dashboard", SurveyMain.R_VETTING_JSON),
-        PRIORITY_ITEMS_QUICK("Priority Items (Quick)", SurveyMain.R_VETTING, "quick=true"),
-        DATE_TIME("Date/Time", "r_datetime", "calendar=gregorian"),
+        DATE_TIME("Date/Time", "r_datetime"),
         ZONES("Zones", "r_zones"),
         NUMBERS("Numbers", "r_compact");
 

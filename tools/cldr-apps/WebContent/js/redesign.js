@@ -181,19 +181,23 @@ function unpackMenuSideBar(json) {
 	
 	var html = '<ul>';
 	if(!isVisitor) {
-		html += '<li class="list-unstyled open-menu"><div>Reports<span class="pull-right glyphicon glyphicon-chevron-right"></span></div><ul class="second-level">';
-		
 		//put the dashboard out
 		var tmp = null;
+		var reportHtml = '';
 		$.each(reports,function(index,element){
 			if(element.url != "r_vetting_json")
-				html += '<li class="list-unstyled review-link" data-query="'+element.hasQuery+'" data-url="'+element.url+'"><div>'+element.display+'</div></li>';
+				reportHtml += '<li class="list-unstyled review-link" data-query="'+element.hasQuery+'" data-url="'+element.url+'"><div>'+element.display+'</div></li>';
 			else
 				tmp = element;
 		});
-		html += '</ul></li>';
+		
 		if(tmp)
 			html += '<li class="list-unstyled review-link" data-query="'+tmp.hasQuery+'" data-url="'+tmp.url+'"><div>'+tmp.display+'<span class="pull-right glyphicon glyphicon-home" style="position:relative;top:2px;right:1px;"></span></div></li>';
+
+		
+		html += '<li class="list-unstyled open-menu"><div>Reports<span class="pull-right glyphicon glyphicon-chevron-right"></span></div><ul class="second-level">';
+		html += reportHtml;
+		html += '</ul></li>';
 	}
 	html += '<li class="list-unstyled" id="forum-link"><div>Forum<span class="pull-right glyphicon glyphicon-comment"></span></div></li>';
 	html += '</ul>';

@@ -16,31 +16,37 @@ import org.unicode.cldr.util.ChainedMap;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.ChainedMap.M3;
 import org.unicode.cldr.util.ChainedMap.M4;
+import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.PathHeader.SurveyToolStatus;
 import org.unicode.cldr.util.PathStarrer;
+import org.unicode.cldr.util.SupplementalDataInfo;
 
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 
 public class ShowStarredCoverage {
     static final CLDRConfig config = CLDRConfig.getInstance();
+
     public static void main(String[] args) {
         M4<Level, String, String, Boolean> levelToData = ChainedMap.of(
             new TreeMap<Level,Object>(), 
             new TreeMap<String,Object>(), 
             new TreeMap<String,Object>(), 
             Boolean.class);
-        CLDRFile file = config.getCldrFactory().make("en", true);
-        String fileLocale = file.getLocaleID();
+
+        final String fileLocale = "en";
         PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         Status status = new Status();
         Counter<Level> counter = new Counter();
         Factory phf = PathHeader.getFactory(config.getEnglish());
         TreeSet<PathHeader> pathHeaders = new TreeSet();
+        SupplementalDataInfo sdi = config.getSupplementalDataInfo();
+
+        CLDRFile file = config.getCldrFactory().make(fileLocale, true);
         for (String path : file) {
             if (path.endsWith("/alias") || path.startsWith("//ldml/identity")) {
                 continue;
@@ -54,12 +60,15 @@ public class ShowStarredCoverage {
                 continue;
             }
             PathHeader ph = phf.fromPath(path);
+            CLDRLocale loc = CLDRLocale.getInstance(fileLocale);
+            int requiredVotes = sdi.getRequiredVotes(loc, ph);
+
             pathHeaders.add(ph);
             SurveyToolStatus stStatus = ph.getSurveyToolStatus();
             String starred = pathStarrer.set(path);
             String attributes = CollectionUtilities.join(pathStarrer.getAttributes(),"|");
-            Level level = config.getSupplementalDataInfo().getCoverageLevel(path, "en");
-            levelToData.put(level, starred + "|" + stStatus, attributes, Boolean.TRUE);
+            Level level = config.getSupplementalDataInfo().getCoverageLevel(path, fileLocale);
+            levelToData.put(level, starred + "|" + stStatus + "|" + requiredVotes, attributes, Boolean.TRUE);
             counter.add(level, 1);
         }
         for (Level level : Level.values()) {
@@ -74,9 +83,12 @@ public class ShowStarredCoverage {
                 if (count < 1) {
                     count = 1;
                 }
-                System.out.println(count + "\t" + level 
-                    + "\t" + starredStatus[0] + "\t" + starredStatus[1] 
-                        + "\t" + CollectionUtilities.join(attributes.keySet(), ", "));
+                System.out.println(count 
+                    + "\t" + level 
+                    + "\t" + starredStatus[0] 
+                        + "\t" + starredStatus[1]
+                            + "\t" + starredStatus[2]
+                                + "\t" + CollectionUtilities.join(attributes.keySet(), ", "));
             }
         }
         Counter<String> pageCount = new Counter<>();

@@ -48,14 +48,13 @@ function showReviewMenu(numbers) {
 
 
 //handle the review page with the json
-function showReviewPage(json) {
+function showReviewPage(json, showFn) {
 	
 	
 	var menuData = json.notification;
 	var notifications = json.allNotifications;
 	var menuRoot = $('#itemInfo');
-	var notificationsRoot = $('#DynamicDataSection');
-	var loadingBar = $('#LoadingMessageSection');
+	var notificationsRoot = $('#OtherSection');
 	var hidden = json.hidden;
 	var menuDom = $(document.createElement('ul')).addClass('nav nav-pills nav-stacked affix menu-review');
 	var direction = json.direction;
@@ -121,8 +120,7 @@ function showReviewPage(json) {
 		html += '</tbody></table></div>';
 	});
 	notificationsRoot.html(html);
-	notificationsRoot.show();
-	loadingBar.hide();
+	showFn(); // calls the flipper to flip to the 'other' page.
 	
 	//show the alert ms
 	popupAlert('warning', 'It is important that you read <a href="http://cldr.unicode.org/translation/vetting-view" target="_blank">Priority Items</a> before starting!');

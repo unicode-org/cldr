@@ -4488,57 +4488,40 @@ function showV() {
 			
 			// todo dont even flip if it's quick.
 			var loadingChunk;
-			//flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading"), "i", "loadingMsg"));
-			var loadingPane = flipper.get(pages.loading);
+			flipper.flipTo(pages.loading, loadingChunk = createChunk(stui_str("loading"), "i", "loadingMsg"));
+//			var loadingPane = flipper.get(pages.loading);
 
 			var itemLoadInfo = createChunk("","div","itemLoadInfo");			
 			//loadingPane.appendChild(itemLoadInfo);
 			
-			var serverLoadInfo = createChunk("","div","serverLoadInfo");			
-			//loadingPane.appendChild(serverLoadInfo);
-
-			var lastServerLoadTxt  = '';
-			var startTime = new Date().getTime();
-			
+//			var serverLoadInfo = createChunk("","div","serverLoadInfo");			
+//			//loadingPane.appendChild(serverLoadInfo);
 			{
 				window.setTimeout(function(){
 						 updateStatus(); // will restart regular status updates
 				}, 5000); // get a status update about 5s in.
-				
-				var timerToKill = null;
+
+				// Create a little spinner to spin "..." so the user knows we are doing something..
+				var spinChunk = createChunk("...","i","loadingMsgSpin");
+				var spin = 0;
+				var timerToKill = window.setInterval(function() {
+					 var spinTxt = '';
+					 spin++;
+					 switch(spin%3) {
+						 case 0: spinTxt = '.  '; break;
+						 case 1: spinTxt = ' . '; break;
+						 case 2: spinTxt = '  .'; break;
+					 }
+					 removeAllChildNodes(spinChunk);
+					 spinChunk.appendChild(document.createTextNode(spinTxt));						
+				}, 1000);
+
+				// Add the "..." until the Flipper flips
 				flipper.addUntilFlipped(function() {
-//					console.log("Starting throbber");
 					var frag = document.createDocumentFragment();
-					var k = 0;
-					timerToKill = window.setInterval(function() {
-						k++;
-						//loadingChunk.style.opacity =   0.5 + ((k%10) * 0.05);
-//						console.log("Throb to " + loadingChunk.style.opacity);
-						
-						// update server load txt?
-						if(lastJsonStatus) {
-							lastJsonStatus.sysloadpct =  dojoNumber.format(parseFloat( lastJsonStatus.sysload), {places: 0, type: "percent"});
-							
-							var now = new Date().getTime();
-							var waitms = now - startTime;
-							var waits = waitms / 1000.0;
-							
-							lastJsonStatus.waitTime = dojoNumber.format(waits, { round: 0, fractional: false});
-							
-							var newLoadTxt = stui.sub("jsonStatus_msg",lastJsonStatus);
-							
-							if(waits > 5 && newLoadTxt != lastServerLoadTxt) {
-								removeAllChildNodes(serverLoadInfo);
-								serverLoadInfo.appendChild(document.createTextNode(newLoadTxt));
-								lastServerLoadTxt = newLoadTxt;
-							}
-						}
-						
-					}, 100);
-					
+					frag.appendChild(spinChunk);
 					return frag;
 				}, function() {
-//					console.log("Kill throbber");
 					window.clearInterval(timerToKill);
 				});
 			}
@@ -5076,7 +5059,10 @@ function showV() {
 						    			.then(function(json) {
 											hideLoader(null,stui.loading2);
 											isLoading=false;
-											showReviewPage(json);
+											showReviewPage(json, function() {
+												// show function - flip to the 'other' page.
+												flipper.flipTo(pages.other, null);
+											});
 										});
 									}
 									else {

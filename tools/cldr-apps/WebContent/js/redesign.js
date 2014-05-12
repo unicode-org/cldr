@@ -480,7 +480,7 @@ function labelizeIcon() {
 	                 text:'Voted',
 	                 title:'This at least one vote for this value, but it is losing'
 	             }
-	             ]
+                 ];
 	
 		$.each(icons, function(index, element) {
 			$(element.selector).each(function() {

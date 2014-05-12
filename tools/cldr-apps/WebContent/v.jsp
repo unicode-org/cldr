@@ -373,7 +373,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
     <div class="row" id="main-row" style="padding-top:147px;">
     	<div class="col-md-9">
 		    <div data-dojo-type="dijit/layout/ContentPane" id="MainContentPane" data-dojo-props="splitter:true, region:'center'" >
-		        <div id="LoadingMessageSection"><%-- Loading messages --%>Please Wait</div>
+		        <div id="LoadingMessageSection"><%-- Loading messages --%>Please Wait<img src='loader.gif'></div>
 		        <div  id="DynamicDataSection" ><%-- the actual scrolling table --%></div>
 		        <div id="OtherSection"><%-- other content --%></div>
 		    </div>

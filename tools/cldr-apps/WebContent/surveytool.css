@@ -1031,21 +1031,29 @@ h2.thisItem {
 
 }
 
-i.loadingMsg {
+i.loadingMsg,
+i.loadingMsgSpin {
 	font-size: xx-large;
 	text-align: justify;
 	font-weight: bold;
 	font-variant: caps;
-	color: #17800d;
+	color: black;
 	font-style:normal;
 }
 
+i.loadingMsgSpin {
+	white-space: pre;
+	font-family: monospace;
+}
+
+/*
 #LoadingMessageSection::after {
 	content: url('loader.gif');
 	position:relative;
 	top:10px;
 	left:15px;
 }
+*/
 
 .small_login_hot {
 	font-size: larger;

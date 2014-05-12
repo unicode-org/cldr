@@ -3,10 +3,6 @@ package org.unicode.cldr.unittest;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Set;
@@ -25,20 +21,9 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
-
 public class TestTransforms extends TestFmwkPlus {
-	/**
-	 * Path to the testtransforms directory, will be
-	 * prepended with the location of the current class. 
-	 */
-	private static final String TRANSFORMTEST_DIR = "./../unittest/data/transformtest/";
-	/**
-	 * Relative path to the file containing the Casing transformations
-	 */
-    
-	TestInfo testInfo = TestInfo.getInstance();
+    TestInfo testInfo = TestInfo.getInstance();
 
- 	
     public static void main(String[] args) {
         new TestTransforms().run(args);
     }
@@ -207,55 +192,47 @@ public class TestTransforms extends TestFmwkPlus {
         }
     }
 
-    private String getRelativeFileName(String relPath) {
-    	String name = TestTransforms.class.getResource(".").toString();
-		if (!name.startsWith("file:")) {
-			throw new IllegalArgumentException("Internal Error");
-		}
-		name = name.substring(5);
-		File fileDirectory = Paths.get(name,relPath).toFile();
-		return fileDirectory.getAbsolutePath();
-    }
-    
     public void TestData() {
-    	register();
-    	try {
-    		String fileDirectoryName=getRelativeFileName(TRANSFORMTEST_DIR);
-    		File fileDirectory = new File(fileDirectoryName);
-			try (DirectoryStream<Path> ds = Files.newDirectoryStream(
-					fileDirectory.toPath(), "*.txt");) {
-//    			String fileDirectoryName = fileDirectory.getCanonicalPath(); // TODO: use resource, not raw file
-    			logln("Testing files in: " + fileDirectoryName);
-    			for (Path p: ds) {
-    				String file=p.getFileName().toString();
-    				//    		for (String file : fileDirectory.list()) {
-//    				if (!file.endsWith(".txt")) {
-//    					continue;
-//    				}
-    				logln("Testing file: " + file);
-    				String transName = file.substring(0, file.length() - 4);
-    				final Transliterator trans = Transliterator.getInstance(transName);
-    				try (BufferedReader in = BagFormatter.openUTF8Reader(fileDirectoryName, file);) {
-    					int counter = 0;
-    					String line=null;
-    					while ((line = in.readLine()) !=null) {
-    						line = line.trim();
-    						if (line.startsWith("#")) {
-    							continue;
-    						}
-    						String[] parts = line.split("\t");
-    						String source = parts[0];
-    						String expected = parts[1];
-    						String result = trans.transform(source);
-    						assertEquals(transName + " " + (++counter) + " Transform " + source, expected, result);
-    					}
-    				}
-    			}
-    			//                in.close();
-    		}
-    	} catch (IOException e) {
-    		throw new IllegalArgumentException(e);
-    	}
+        register();
+        try {
+            // get the folder name
+            String name = TestTransforms.class.getResource(".").toString();
+            if (!name.startsWith("file:")) {
+                throw new IllegalArgumentException("Internal Error");
+            }
+            name = name.substring(5);
+            File fileDirectory = new File(name + "/../unittest/data/transformtest/");
+            String fileDirectoryName = fileDirectory.getCanonicalPath(); // TODO: use resource, not raw file
+            logln("Testing files in: " + fileDirectoryName);
+
+            for (String file : fileDirectory.list()) {
+                if (!file.endsWith(".txt")) {
+                    continue;
+                }
+                logln("Testing file: " + file);
+                String transName = file.substring(0, file.length() - 4);
+                Transliterator trans = Transliterator.getInstance(transName);
+
+                BufferedReader in = BagFormatter.openUTF8Reader(fileDirectoryName, file);
+                int counter = 0;
+                while (true) {
+                    String line = in.readLine();
+                    if (line == null) break;
+                    line = line.trim();
+                    if (line.startsWith("#")) {
+                        continue;
+                    }
+                    String[] parts = line.split("\t");
+                    String source = parts[0];
+                    String expected = parts[1];
+                    String result = trans.transform(source);
+                    assertEquals(transName + " " + (++counter) + " Transform " + source, expected, result);
+                }
+                in.close();
+            }
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     enum Casing {

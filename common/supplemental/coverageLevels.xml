@@ -17,6 +17,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/(defaultNumberingSystem|otherNumberingSystems.*)"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/characters/exemplarCharacters(\[@type=.(auxiliary|index).\])?"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/minimumGroupingDigits"/>
+			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/symbols[^/]++/timeSeparator"/>
 			<approvalRequirement votes="20" locales="*" paths="//ldml/numbers/currencies/currency\[@type=.([A-Z]{3}).\]/symbol\[@alt=.narrow.\]"/>
 			<approvalRequirement votes="20" locales="ar ca cs da de el es fi fr he hi hr hu it ja ko nb nl pl pt pt_PT ro ru sk sl sr sv th tr uk vi zh zh_Hant" 
 			   paths="//ldml/dates/calendars/calendar\[@type=.gregorian.\]/(days|months).*"/>
@@ -458,21 +459,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="ar" value="80" match="numbers/symbols[@numberSystem='arab']/perMille"/>
 		<coverageLevel inLanguage="ar" value="80" match="numbers/symbols[@numberSystem='arab']/infinity"/>
 		<coverageLevel inLanguage="ar" value="80" match="numbers/symbols[@numberSystem='arab']/nan"/>
+		<coverageLevel inLanguage="ar" value="80" match="numbers/symbols[@numberSystem='arab']/timeSeparator"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="80" match="numbers/symbols[@numberSystem='arabext']/exponential"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="80" match="numbers/symbols[@numberSystem='arabext']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="80" match="numbers/symbols[@numberSystem='arabext']/perMille"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="80" match="numbers/symbols[@numberSystem='arabext']/infinity"/>
 		<coverageLevel inLanguage="%arabextLanguages" value="80" match="numbers/symbols[@numberSystem='arabext']/nan"/>
+		<coverageLevel inLanguage="%arabextLanguages" value="80" match="numbers/symbols[@numberSystem='arabext']/timeSeparator"/>
 		<coverageLevel inLanguage="%devaLanguages" value="80" match="numbers/symbols[@numberSystem='deva']/exponential"/>
 		<coverageLevel inLanguage="%devaLanguages" value="80" match="numbers/symbols[@numberSystem='deva']/superscriptingExponent"/>
 		<coverageLevel inLanguage="%devaLanguages" value="80" match="numbers/symbols[@numberSystem='deva']/perMille"/>
 		<coverageLevel inLanguage="%devaLanguages" value="80" match="numbers/symbols[@numberSystem='deva']/infinity"/>
 		<coverageLevel inLanguage="%devaLanguages" value="80" match="numbers/symbols[@numberSystem='deva']/nan"/>
+		<coverageLevel inLanguage="%devaLanguages" value="80" match="numbers/symbols[@numberSystem='deva']/timeSeparator"/>
 		<coverageLevel inLanguage="dz" value="80" match="numbers/symbols[@numberSystem='tibt']/exponential"/>
 		<coverageLevel inLanguage="dz" value="80" match="numbers/symbols[@numberSystem='tibt']/superscriptingExponent"/>
 		<coverageLevel inLanguage="dz" value="80" match="numbers/symbols[@numberSystem='tibt']/perMille"/>
 		<coverageLevel inLanguage="dz" value="80" match="numbers/symbols[@numberSystem='tibt']/infinity"/>
 		<coverageLevel inLanguage="dz" value="80" match="numbers/symbols[@numberSystem='tibt']/nan"/>
+		<coverageLevel inLanguage="dz" value="80" match="numbers/symbols[@numberSystem='tibt']/timeSeparator"/>
 		<coverageLevel value="80" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%acctPattern"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='%currency80']/symbol"/>
 		<coverageLevel value="80" match="numbers/currencies/currency[@type='%currency80']/symbol[@alt='narrow']"/>

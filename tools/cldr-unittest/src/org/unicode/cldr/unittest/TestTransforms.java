@@ -8,15 +8,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.TreeSet;
 
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.unittest.TextFileReader.ProcessableLine;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRTransforms;
 import org.unicode.cldr.util.Factory;
 
+import com.google.common.base.Splitter;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.impl.Utility;
@@ -35,10 +38,100 @@ public class TestTransforms extends TestFmwkPlus {
 	/**
 	 * Relative path to the file containing the Casing transformations
 	 */
+    private static final String CASING_TRANSFORMS = "./TestCasingTransforms.txt";
     
 	TestInfo testInfo = TestInfo.getInstance();
 
- 	
+    /**
+     * Value holder object for a line of the Transform tests. Meant to be a Data Transfer Object
+     * 
+     * @author ribnitz
+     *
+     */
+    private static class TestTransformLine {
+    	public final String source;
+    	public final String result;
+    	public final String locale;
+    	public final Casing casing;
+    	public final boolean specialCasing;
+    	
+    	public TestTransformLine(String source, String result, String locale, Casing casing,boolean special) {
+    		this.source=source;
+    		this.result=result;
+    		this.casing=casing;
+    		this.locale=locale;
+    		this.specialCasing=special;
+    	}
+    }
+    private static class TestTransformLineReader extends TextFileReader<TestTransformLine> {
+    	
+    	public TestTransformLineReader(String file) throws IOException {
+			super(file);
+		}
+
+		public Iterable<TestTransformLine> getLines() throws IOException {
+    		return getLines(new ProcessableLineImpl());
+    	}
+    }
+
+  
+	/**
+	 * Implementation doing the file parsing for the Casing transforms
+	 * @author ribnitz
+	 *
+	 */
+    private static class ProcessableLineImpl implements ProcessableLine<TestTransformLine> {
+    	private final static Splitter SEMICOLON_SPLITTER=Splitter.on(";");
+    	private final static Splitter DASH_SPLITTER=Splitter.on("-");
+    	private TestTransformLine oldValues=new TestTransformLine(null, null, null, null, true);
+    	public boolean lineNeedsProcessing(String line) {
+    		return (line!=null && line.length()>0 && !line.trim().startsWith("#"));
+    	}
+    	
+    	public TestTransformLine processLine(String line, TestTransformLine oldLine) {
+    		if (oldLine==null) {
+    			oldLine=this.oldValues;
+    		}
+    		String locale;
+    		Casing casing;
+    		// Line structure: src; locale-casing; result (; special casing)
+    		List<String> lineElements=SEMICOLON_SPLITTER.splitToList(line);
+    		String currentSource=lineElements.get(0);
+    		String src=currentSource.isEmpty()?oldLine.source:currentSource;
+    		String currentTransform=lineElements.get(1);
+    		if (!currentTransform.isEmpty()) {
+    			List<String> tmpSplit=DASH_SPLITTER.splitToList(currentTransform);
+    			locale=tmpSplit.get(0);
+    			String casingStr=tmpSplit.get(1);
+    			casing=Casing.valueOf(casingStr);
+    		} else {
+    			locale=oldLine.locale;
+    			casing=oldLine.casing;
+    		}
+    		String res=lineElements.get(2).trim();
+    		Boolean special=null;
+    		if (lineElements.size()>3) {
+    			String specialStr=lineElements.get(3).trim();
+    			if (specialStr.equals("true")||specialStr.equals("TRUE")) {
+    				special=true;
+    			} else {
+    				special=false;
+    			}
+    		}
+    		// Assume last parameter to be true, if it was not specified.
+    		if (special==null) {
+    			special=oldLine.specialCasing;
+    		}
+    		// update old values, as we may need them next time
+    		this.oldValues=new TestTransformLine(src, res, locale, casing, special);
+    		return new TestTransformLine(src, res, locale, casing, special);
+    	}
+
+    	public  TestTransformLine getOldValues() {
+    		return oldValues;
+    	}
+    }
+	
     public static void main(String[] args) {
         new TestTransforms().run(args);
     }
@@ -262,33 +355,39 @@ public class TestTransforms extends TestFmwkPlus {
         Upper, Title, Lower
     }
 
-    public void TestCasing() {
-        register();
-        String greekSource = "ΟΔΌΣ Οδός Σο ΣΟ oΣ ΟΣ σ ἕξ";
-        // Transliterator.DEBUG = true;
-        Transliterator elTitle = checkString("el", Casing.Title, "Οδός Οδός Σο Σο Oς Ος Σ Ἕξ", greekSource, true);
-        Transliterator elLower = checkString("el", Casing.Lower, "οδός οδός σο σο oς ος σ ἕξ", greekSource, true);
-        Transliterator elUpper = checkString("el", Casing.Upper, "ΟΔΟΣ ΟΔΟΣ ΣΟ ΣΟ OΣ ΟΣ Σ ΕΞ", greekSource, false);
-
-        String turkishSource = "Isiİ İsıI";
-        Transliterator trTitle = checkString("tr", Casing.Title, "Isii İsıı", turkishSource, true);
-        Transliterator trLower = checkString("tr", Casing.Lower, "ısii isıı", turkishSource, true);
-        Transliterator trUpper = checkString("tr", Casing.Upper, "ISİİ İSII", turkishSource, true);
-        Transliterator azTitle = checkString("az", Casing.Title, "Isii İsıı", turkishSource, true);
-        Transliterator azLower = checkString("az", Casing.Lower, "ısii isıı", turkishSource, true);
-        Transliterator azUpper = checkString("az", Casing.Upper, "ISİİ İSII", turkishSource, true);
-
-        if (!logKnownIssue("cldrbug:7010", "Investigate/fix lt casing transforms")) {
-            String lithuanianSource = "I Ï J J̈ Į Į̈ Ì Í Ĩ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ XI XÏ XJ XJ̈ XĮ XĮ̈";
-            Transliterator ltTitle = checkString("lt", Casing.Title,
-                "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lithuanianSource, true);
-            Transliterator ltLower = checkString("lt", Casing.Lower,
-                "i i̇̈ j j̇̈ į į̇̈ i̇̀ i̇́ i̇̃ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ xi xi̇̈ xj xj̇̈ xį xį̇̈", lithuanianSource, true);
-            Transliterator ltUpper = checkString("lt", Casing.Upper, "I Ï J J̈ Į Į̈ Ì Í Ĩ XÏ XJ̈ XĮ̈ XÌ XÍ XĨ XI XÏ XJ XJ̈ XĮ XĮ̈",
-                lithuanianSource, true);
-        }
-        String dutchSource = "IJKIJ ijkij IjkIj";
-        Transliterator nlTitle = checkString("nl", Casing.Title, "IJkij IJkij IJkij", dutchSource, true);
+    public void TestCasing() throws IOException {
+    	register();
+         String casingFileStr = getRelativeFileName(CASING_TRANSFORMS);
+         TestTransformLineReader tfr=new TestTransformLineReader(casingFileStr);
+         Iterable<TestTransformLine> ttIter=tfr.getLines();
+    	for (TestTransformLine ttl: ttIter) {
+    		checkString(ttl.locale, ttl.casing, ttl.result,ttl.source,ttl.specialCasing);
+    	}
+//        String greekSource = "ΟΔΌΣ Οδός Σο ΣΟ oΣ ΟΣ σ ἕξ";
+//        // Transliterator.DEBUG = true;
+//        Transliterator elTitle = checkString("el", Casing.Title, "Οδός Οδός Σο Σο Oς Ος Σ Ἕξ", greekSource, true);
+//        Transliterator elLower = checkString("el", Casing.Lower, "οδός οδός σο σο oς ος σ ἕξ", greekSource, true);
+//        Transliterator elUpper = checkString("el", Casing.Upper, "ΟΔΟΣ ΟΔΟΣ ΣΟ ΣΟ OΣ ΟΣ Σ ΕΞ", greekSource, false);
+//
+//        String turkishSource = "Isiİ İsıI";
+//        Transliterator trTitle = checkString("tr", Casing.Title, "Isii İsıı", turkishSource, true);
+//        Transliterator trLower = checkString("tr", Casing.Lower, "ısii isıı", turkishSource, true);
+//        Transliterator trUpper = checkString("tr", Casing.Upper, "ISİİ İSII", turkishSource, true);
+//        Transliterator azTitle = checkString("az", Casing.Title, "Isii İsıı", turkishSource, true);
+//        Transliterator azLower = checkString("az", Casing.Lower, "ısii isıı", turkishSource, true);
+//        Transliterator azUpper = checkString("az", Casing.Upper, "ISİİ İSII", turkishSource, true);
+//
+//        if (!logKnownIssue("cldrbug:7010", "Investigate/fix lt casing transforms")) {
+//            String lithuanianSource = "I Ï J J̈ Į Į̈ Ì Í Ĩ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ XI XÏ XJ XJ̈ XĮ XĮ̈";
+//            Transliterator ltTitle = checkString("lt", Casing.Title,
+//                "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lithuanianSource, true);
+//            Transliterator ltLower = checkString("lt", Casing.Lower,
+//                "i i̇̈ j j̇̈ į į̇̈ i̇̀ i̇́ i̇̃ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ xi xi̇̈ xj xj̇̈ xį xį̇̈", lithuanianSource, true);
+//            Transliterator ltUpper = checkString("lt", Casing.Upper, "I Ï J J̈ Į Į̈ Ì Í Ĩ XÏ XJ̈ XĮ̈ XÌ XÍ XĨ XI XÏ XJ XJ̈ XĮ XĮ̈",
+//                lithuanianSource, true);
+//        }
+//        String dutchSource = "IJKIJ ijkij IjkIj";
+//        Transliterator nlTitle = checkString("nl", Casing.Title, "IJkij IJkij IJkij", dutchSource, true);
         //        Transliterator nlLower = checkString("nl", Casing.Lower, "ısii isıı", turkishSource);
         //        Transliterator nlUpper = checkString("tr", Casing.Upper, "ISİİ İSII", turkishSource);
     }

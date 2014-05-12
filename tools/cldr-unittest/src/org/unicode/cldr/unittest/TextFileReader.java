@@ -1,17 +1,12 @@
 package org.unicode.cldr.unittest;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.Reader;
-import java.nio.charset.Charset;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import com.google.common.base.Charsets;
 
 /**
  * Class that reads in a file, and that provides an Iterable over its contents.
@@ -48,25 +43,24 @@ class TextFileReader<E> {
 		  */
 		 E getOldValues();
 	}
-	private final byte[] source;
-	private final Charset charset;
+	private final String source;
 	
 	/**
-	 * Initialize using the file given, assumed to use UTF-8 encoding
+	 * Initialize using the filename given, file encoding is assumed to be in UTF8.
 	 * @param file
 	 * @throws IOException
 	 */
 	public TextFileReader(String file) throws IOException {
-		this(new InputStreamReader(new FileInputStream(new File(file)),Charsets.UTF_8),Charsets.UTF_8);
+		this(new FileReader(file));
 	}
-	
+
 	/**
-	 * Initialize using the Reader and the CharSet given; a null CharSet is supposed to be UTF-8, Reader will be closed after reading
+	 * Initialize using the Reader given, encoding is assumed to be in UTF8.
 	 * @param rdr
 	 * @param cs
 	 * @throws IOException
 	 */
-	public TextFileReader(Reader rdr,Charset cs) throws IOException{
+	public TextFileReader(Reader rdr) throws IOException{
 		try (BufferedReader br=new BufferedReader(rdr)) {
 			StringBuilder sb=new StringBuilder();
 			String line=null;
@@ -75,13 +69,13 @@ class TextFileReader<E> {
 				// append a line break...
 				sb.append("\r\n");
 			}
-			source=sb.toString().getBytes();
+			source=sb.toString();
 		}
-		this.charset=(cs==null)?Charsets.UTF_8:cs;
+	
 	}
 	
 	private BufferedReader bufferedReader() {
-		return new BufferedReader(new InputStreamReader(new ByteArrayInputStream(source),this.charset));
+		return new BufferedReader(new StringReader(source));
 	}
 
 	/**

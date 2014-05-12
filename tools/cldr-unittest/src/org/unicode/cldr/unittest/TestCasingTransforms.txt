@@ -1,5 +1,6 @@
 # TestCasingTransform.txt
-# source ; transform ; result ; same as special casing (true or last value if absent)
+# source ; transform ; result ; same as special casing
+# The last parameter is optional, if it is absent, it is assumed to be true. 
 # if source or transform are empty, they will be copied from previous. this is also to for "same as special casing"
 # transform is composed of locale, a dash(-) and either Lower, Upper or Title.
 # Empty lines and those starting with (#) are ignored.
@@ -10,7 +11,7 @@
 ; el-Upper; ΟΔΟΣ ΟΔΟΣ ΣΟ ΣΟ OΣ ΟΣ Σ ΕΞ; false
 
 ## Turkish
-Isiİ İsıI; tr-Title; Isii İsıı; true
+Isiİ İsıI; tr-Title; Isii İsıı
 ; tr-Lower; ısii isıı
 ; tr-Upper; ISİİ İSII
 ; az-Title; Isii İsıı

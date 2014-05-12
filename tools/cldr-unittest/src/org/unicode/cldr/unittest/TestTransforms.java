@@ -111,11 +111,14 @@ public class TestTransforms extends TestFmwkPlus {
     		String res=lineElements.get(2).trim();
     		Boolean special=null;
     		if (lineElements.size()>3) {
-    			String specialStr=lineElements.get(3);
-    			if (specialStr.length()>0) {
-    				special=Boolean.parseBoolean(specialStr); 
+    			String specialStr=lineElements.get(3).trim();
+    			if (specialStr.equals("true")||specialStr.equals("TRUE")) {
+    				special=true;
+    			} else {
+    				special=false;
     			}
     		}
+    		// Assume last parameter to be true, if it was not specified.
     		if (special==null) {
     			special=oldLine.specialCasing;
     		}

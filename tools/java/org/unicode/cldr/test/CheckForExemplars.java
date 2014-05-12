@@ -365,6 +365,16 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                         result);
                 }
             }
+        } else if (path.contains("/gmtFormat") || path.contains("/gmtZeroFormat")) {
+                if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
+                    disallowed.removeAll(LETTER); // Allow ASCII A-Z in gmtFormat and gmtZeroFormat
+                    if (disallowed.size() > 0 ) {
+                        addMissingMessage(disallowed, CheckStatus.warningType,
+                            Subtype.charactersNotInMainOrAuxiliaryExemplars,
+                            Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
+                            result);
+                    }
+                }
         } else if (path.contains("/localeDisplayNames") && !path.contains("/localeDisplayPattern")) {
             // test first for outside of the set.
             if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {

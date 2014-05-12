@@ -1636,8 +1636,8 @@ XXX Code for transations where no currency is involved
 		<language type="is" scripts="Latn" territories="IS"/>
 		<language type="it" scripts="Latn" territories="CH IT SM"/>
 		<language type="it" territories="FR HR US VA" alt="secondary"/>
-		<language type="iu" scripts="Cans"/>
-		<language type="iu" scripts="Latn" territories="CA" alt="secondary"/>
+		<language type="iu" scripts="Cans Latn"/>
+		<language type="iu" territories="CA" alt="secondary"/>
 		<language type="izh" scripts="Latn"/>
 		<language type="ja" scripts="Jpan" territories="JP"/>
 		<language type="jam" scripts="Latn"/>
@@ -2463,7 +2463,8 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="cr_Cans" populationPercent="0.11" references="R1063"/>	<!--Cree (Unified Canadian Aboriginal Syllabics)-->
 			<languagePopulation type="crk" populationPercent="0.11" references="R1063"/>	<!--Plains Cree-->
 			<languagePopulation type="yi" populationPercent="0.045" references="R1021"/>	<!--Yiddish-->
-			<languagePopulation type="iu" writingPercent="30" populationPercent="0.042" officialStatus="official_regional" references="R1207"/>	<!--Inuktitut-->
+			<languagePopulation type="iu_Cans" writingPercent="30" populationPercent="0.042" officialStatus="official_regional" references="R1207"/>	<!--Inuktitut-->
+			<languagePopulation type="iu_Latn" writingPercent="30" populationPercent="0.042" officialStatus="official_regional" references="R1207"/>	<!--Inuktitut-->
 			<languagePopulation type="moe" populationPercent="0.033" references="R1063"/>	<!--Montagnais-->
 			<languagePopulation type="crj" populationPercent="0.021" references="R1063"/>	<!--Southern East Cree-->
 			<languagePopulation type="atj" populationPercent="0.016" references="R1063"/>	<!--Atikamekw-->

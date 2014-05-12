@@ -130,6 +130,12 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="few">v = 0 and i % 100 = 3..4 or v != 0 @integer 3, 4, 103, 104, 203, 204, 303, 304, 403, 404, 503, 504, 603, 604, 703, 704, 1003, … @decimal 0.0~1.5, 10.0, 100.0, 1000.0, 10000.0, 100000.0, 1000000.0, …</pluralRule>
             <pluralRule count="other"> @integer 0, 5~19, 100, 1000, 10000, 100000, 1000000, …</pluralRule>
         </pluralRules>
+		<pluralRules locales="dsb">
+			<pluralRule count="one">v = 0 and i % 100 = 1 or f % 100 = 1 @integer 1, 101, 201, 301, 401, 501, 601, 701, 801, 901, 1001, … @decimal 0.1, 0.101, 0.201, 0.301, 0.401, 0.501, 0.601, 0.701, 0.801, 0.901, 1.1, 1.101, 1.201, …</pluralRule>
+			<pluralRule count="two">v = 0 and i % 100 = 2 or f % 100 = 2 @integer 2, 102, 202, 302, 402, 502, 602, 702, 802, 902, 1002, … @decimal 0.2, 0.102, 0.202, 0.302, 0.402, 0.502, 0.602, 0.702, 0.802, 0.902, 1.2, 1.102, 1.202, …</pluralRule>
+			<pluralRule count="few">v = 0 and i % 100 = 3..4 or f % 100 = 3..4 @integer 3, 4, 103, 104, 203, 204, 303, 304, 403, 404, 503, 504, 603, 604, 703, 704, 803, 804, 903, 904, 1003, 1004, … @decimal 0.3, 0.4, 0.103, 0.104, 0.203, 0.204, 0.303, 0.304, 0.403, 0.404, 0.503, 0.504, 1.3, 1.4, 1.103, 1.104, …</pluralRule>
+			<pluralRule count="other"> @integer 0, 5~100, 105~200, 205~300, … @decimal 0.0, 0.5~1.0, 1.5~2.0, 0.05~1.00, 1.05~2.00, 0.005~0.100, 0.105~0.200, 0.205~0.300, 1.005~1.100, 1.105~1.200, 1.205~1.300, …</pluralRule>
+		</pluralRules>
 
         <!-- 4: one,two,many,other -->
 

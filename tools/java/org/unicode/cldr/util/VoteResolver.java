@@ -101,6 +101,7 @@ public class VoteResolver<T> {
         kotoistus("Kotoistus (Finnish IT Ctr)"),
         lakota_lc("Lakota LC"),
         lao_dpt("Lao Posts/Telecom??"),
+        longnow("The Long Now Foundation", "Long Now", "PanLex"),
         microsoft("Microsoft"),
         openinstitute("Open Inst (Cambodia)"),
         openoffice_org("Open Office"),
@@ -108,12 +109,15 @@ public class VoteResolver<T> {
         pakistan("Pakistan"),
         sil("SIL"),
         srilanka("Sri Lanka ICTA", "Sri Lanka"),
-        sun("Sun Micro"),
+        sun("Sun Micro"), // TO REMOVE
         surveytool("Survey Tool"),
-        utilika("Utilika Foundation", "Utilika"),
+        utilika("Utilika Foundation", "Utilika"), // TO REMOVE
         welsh_lc("Welsh LC"),
         wikimedia("Wikimedia Foundation"),
-        yahoo("Yahoo"), ;
+        yahoo("Yahoo"),
+        
+        // To be removed.
+        ;
 
         public final String displayName;
 

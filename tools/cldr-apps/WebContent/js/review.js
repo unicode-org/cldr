@@ -10,7 +10,7 @@ function bindReviewEvents() {
 }
 
 $(function() {
-	var dynamic = $('#DynamicDataSection');
+	var dynamic = $('#main-container');
 	dynamic.on('click', '.collapse-review', togglePart);
 	dynamic.on('click', 'button.fix', toggleFix);
 	dynamic.on('click', '.hide-review', toggleReviewLine);

@@ -1,20 +1,25 @@
 {
   "name": "cldr-stwatcher",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
-    "express": "3.1.1",
-    "jade": "*",
-    "request": "2.16.6",
-    "ping": "*",
-    "config": "0.4.x",
-    "orm": "2.0.x",
-    "nodemailer": "0.4.x",
-    "mysql": "2.x",
-    "simple-xmpp": ">=0.1.9",
-    "twilio": "*"
+      "express": "4.2.x",
+      "jade": "*",
+      "request": "2.34.x",
+      "ping": "*",
+      "config": "0.4.x",
+      "orm": "2.1.x",
+      "mysql": "2.2.xx",
+      "twilio": ">=1.6.0",
+      "nodemailer": "*",
+      "serve-favicon": "*",
+      "serve-static":"*",
+      "morgan":"*",
+      "body-parser":"*",
+      "method-override":"*",
+      "errorhandler":"*"
   }
 }

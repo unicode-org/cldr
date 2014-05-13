@@ -3021,8 +3021,7 @@ div.voterList .voterOrg {
 }
 
 #itemInfo {
-	height:100%;
-	padding-bottom:180px;
+	height:calc(100% - 200px);
 	min-width: 320px;
 	position:fixed;
 }

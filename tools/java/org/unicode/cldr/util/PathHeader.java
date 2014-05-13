@@ -966,6 +966,7 @@ public class PathHeader implements Comparable<PathHeader> {
                             continue;
                         }
                     }
+                    order = pos;
                     suborder = new SubstringOrder(pos + "-" + source); //
                     return source;
                 }
@@ -1534,7 +1535,7 @@ public class PathHeader implements Comparable<PathHeader> {
         return result == null ? "ZZ" : result;
     }
 
-    private static final List<String> COUNTS = Arrays.asList("zero", "one", "two", "few", "many", "other");
+    private static final List<String> COUNTS = Arrays.asList("displayName", "zero", "one", "two", "few", "many", "other", "per");
 
     private static int alphabeticCompare(String aa, String bb) {
         return alphabetic.compare(aa, bb);

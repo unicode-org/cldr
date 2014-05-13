@@ -297,7 +297,7 @@ public class SurveyAjax extends HttpServlet {
             if (sm == null) {
                 sendNoSurveyMain(out);
             } else if (what == null) {
-                sendError(out, "Missing parameter: " + REQ_WHAT);
+                sendError(out, "Missing parameter: " + REQ_WHAT, "E_INTERNAL");
             } else if (what.equals(WHAT_STATS_BYDAYUSERLOC)) {
                 String votesAfterString = SurveyMain.getVotesAfterString();
                 JSONWriter r = newJSONStatus(sm);
@@ -397,7 +397,7 @@ public class SurveyAjax extends HttpServlet {
                 mySession = CookieSession.retrieve(sess);
                 
                 if (mySession == null) {
-                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess);
+                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess, "E_SESSION_DISCONNECTED");
                 } else {
                     mySession.userDidAction();
                     ReviewHide review = new ReviewHide();
@@ -411,7 +411,7 @@ public class SurveyAjax extends HttpServlet {
                 
                 JSONWriter postJson = new JSONWriter();
                 if (mySession == null) {
-                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess);
+                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess, "E_SESSION_DISCONNECTED");
                 } else {
                     mySession.userDidAction();
                     WebContext ctx = new WebContext(request, response);
@@ -427,7 +427,7 @@ public class SurveyAjax extends HttpServlet {
                 CookieSession.checkForExpiredSessions();
                 mySession = CookieSession.retrieve(sess);
                 if (mySession == null) {
-                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess);
+                    sendError(out, "Missing/Expired Session (idle too long? too many users?): " + sess, "E_SESSION_DISCONNECTED");
                 } else {
                     if (what.equals(WHAT_VERIFY) || what.equals(WHAT_SUBMIT) || what.equals(WHAT_DELETE)) {
                         mySession.userDidAction();
@@ -639,7 +639,7 @@ public class SurveyAjax extends HttpServlet {
                         r.put("pref", pref);
 
                         if (!prefsList.contains(pref)) {
-                            sendError(out, "Bad or unsupported pref: " + pref);
+                            sendError(out, "Bad or unsupported pref: " + pref, "E_INTERNAL");
                         }
 
                         if (pref.equals("oldVoteRemind")) {
@@ -1127,7 +1127,7 @@ public class SurveyAjax extends HttpServlet {
 
                         send(r, out);
                     } else {
-                        sendError(out, "Unknown Session-based Request: " + what);
+                        sendError(out, "Unknown Session-based Request: " + what, "E_INTERNAL");
                     }
                 }
             } else if (what.equals("locmap")) {
@@ -1135,14 +1135,14 @@ public class SurveyAjax extends HttpServlet {
                 r.put("locmap", getJSONLocMap(sm));
                 send(r, out);
             } else {
-                sendError(out, "Unknown Request: " + what);
+                sendError(out, "Unknown Request: " + what, "E_INTERNAL");
             }
         } catch (JSONException e) {
             SurveyLog.logException(e, "Processing: " + what);
-            sendError(out, "JSONException: " + e);
+            sendError(out, "JSONException: " + e, "E_INTERNAL");
         } catch (SQLException e) {
             SurveyLog.logException(e, "Processing: " + what);
-            sendError(out, "SQLException: " + e);
+            sendError(out, "SQLException: " + e, "E_INTERNAL");
         }
     }
 
@@ -1473,10 +1473,11 @@ public class SurveyAjax extends HttpServlet {
         send(r, out);
     }
 
-    private void sendError(PrintWriter out, String string) throws IOException {
+    private void sendError(PrintWriter out, String message, String errCode) throws IOException {
         JSONWriter r = newJSON();
         r.put("SurveyOK", "0");
-        r.put("err", string);
+        r.put("err", message);
+        r.put("err_code", errCode);
         send(r, out);
     }
 

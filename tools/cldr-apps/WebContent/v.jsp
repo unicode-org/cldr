@@ -207,12 +207,13 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
         <p id='ariMessage'>
             This page is still loading. 
         </p>
-        <h3 id='ariSub'>Details:</h3>
         <p id='ariSubMessage'>
-            This page is still loading. 
+            Please wait for this page to load. 
         </p>
+        <div id="ariDetails" data-dojo-type="dijit/TitlePane" data-dojo-props="title: 'Details', open: false ">
         <p id='ariScroller'>
         </p>
+        </div>
     </div>
 
     <div class="dijitDialogPaneActionBar">
@@ -221,7 +222,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
             Report Bug…
         </button>
         --%>
-        <button id='ariMain' style='margin-right: 2em;' data-dojo-type="dijit/form/Button" type="button" onClick="window.location = survURL;">
+        <button id='ariMain' style='display: none; margin-right: 2em;' data-dojo-type="dijit/form/Button" type="button" onClick="window.location = survURL;">
             Back to Locales
         </button>
         <button id='ariRetryBtn'  data-dojo-type="dijit/form/Button" type="button" onClick="ariRetry()">

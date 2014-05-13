@@ -1048,6 +1048,7 @@ function formatErrMsg(json, subkey) {
  */
 function updateStatusBox(json) {
 	if(json.disconnected) {
+		json.err_code = 'E_DISCONNECTED';
 		handleDisconnect("Misc Disconnect", json,"disconnected"); // unknown 
 	} else if(json.err_code) {
 		console.log('json.err_code == ' + json.err_code);
@@ -3581,6 +3582,7 @@ function showV() {
 	         "dijit/form/Select",
 	         "dojox/form/BusyButton",
 	         "dijit/layout/StackContainer",
+	         "dijit/TitlePane",
 	         "dojo/hash",
 	         "dojo/topic",
 	         "dojo/dom-construct",
@@ -3605,6 +3607,7 @@ function showV() {
 	        		 Select,
 	        		 BusyButton,
 	        		 StackContainer,
+	        		 TitlePane,
 	        		 dojoHash,
 	        		 dojoTopic,
 	        		 domConstruct,
@@ -6092,7 +6095,22 @@ function loadAdminPanel() {
 						user.appendChild(createChunk("(anonymous)","div","adminUserUser"));
 					}
 					user.appendChild(createChunk("Last: " + cs.last  + "LastAction: " + cs.lastAction + ", IP: " + cs.ip + ", ttk:"+(parseInt(cs.timeTillKick)/1000).toFixed(1)+"s", "span","adminUserInfo"));
-					
+
+					var unlinkButton = createChunk(stui.str("admin_users_action_kick"), "button", "admin_users_action_kick");
+					user.appendChild(unlinkButton);
+					unlinkButton.onclick = function(e ) {
+						unlinkButton.className = 'deactivated';
+						unlinkButton.onclick = null;
+						loadOrFail("do=unlink&s="+cs.id, unlinkButton, function(json) {
+							removeAllChildNodes(unlinkButton);
+							if(json.removing==null) {
+								unlinkButton.appendChild(document.createTextNode('Already Removed'));
+							} else {
+								unlinkButton.appendChild(document.createTextNode('Removed.'));
+							}
+						});
+						return stStopPropagation(e);
+					};
 					frag2.appendChild(user);
 					
 					

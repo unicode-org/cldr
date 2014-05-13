@@ -139,6 +139,8 @@ define({
 
 		admin_users: "Users",
 		admin_users_desc: "Currently logged-in users",
+		admin_users_action_kick: "Kick",
+		admin_users_action_kick_desc: "Logout this user",
 
 		// pClass ( see DataSection.java)
 		pClass_winner: "This item is currently winning.",
@@ -291,7 +293,7 @@ define({
 		sideways_noValue: "(no value)",
 		
 
-		ari_message: 'Something went wrong!',
+		ari_message: 'Problem with the SurveyTool',
 		ari_sessiondisconnect_message: "Your session has been disconnected.",
 		ari_force_reload: '[Second try: will force page reload]',
 
@@ -317,12 +319,14 @@ define({
 		err_what_status: "get the latest status from the server",
 		err_what_unknown: "process your request",
 		err_what_oldvotes: "fetch or import your old votes",
-		E_UNKNOWN: "An error occured while trying to '${what}', and the error code is '${code}'.\n (Sorry, the developers ought to write a more helpful error message here.)",
+		E_UNKNOWN: "An error occured while trying to '${what}', and the error code is '${code}'.\n Reloading may resume your progress.",
+		E_INTERNAL: "An internal error occured trying to '${what}'. This is probably a bug in the SurveyTool.",
 		E_BAD_SECTION: "An error occured while trying to ${what}, the server could not find what was requested. \nPerhaps the URL is incorrect?",
-		E_BAD_LOCALE: "While trying to ${what}, the server told us that the locale, '${surveyCurrentLocale}',\n does not exist. It is either mistyped or has not been added to the Survey Tool.",
-		E_NOT_STARTED: "While trying to ${what}, the server told us that it's not quite ready yet. Please wait a bit, and try reloading this page.",
+		E_BAD_LOCALE: "While trying to ${what}, the server told us that the locale, '${surveyCurrentLocale}',\n does not exist. It was either mistyped or has not been added to the Survey Tool.",
+		E_NOT_STARTED: "The SurveyTool is still starting up. Please wait a bit and hit Reload.",
 		E_SPECIAL_SECTION: "An error occured while trying to ${what}, the server said that those items aren't visible in the Survey Tool.\nPerhaps the URL is incorrect or an item was deprected?",
-		E_SESSION_DISCONNECTED: "Your session was disconnected.",
+		E_SESSION_DISCONNECTED: "Your session has timed out or the SurveyTool has restarted. To continue from where you were, hit Reload.",
+		E_DISCONNECTED: "You were disconnected from the SurveyTool. To reconnect, hit Reload.",
 		E_NO_PERMISSION: "While trying to ${what}, the server told us that you do not have permission to do that operation. Sorry.",
 		E_NOT_LOGGED_IN: "While trying to ${what}, the server told us that you can't do that without being logged in.",
 		"": ""})

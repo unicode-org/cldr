@@ -110,9 +110,15 @@ function showReviewPage(json, showFn) {
 							if('old' in element) {
 								oldElement = element.old;
 							} else {
-								oldElement = ''; // TODO - markup as missing?
+								oldElement = '<i class="missing">missing</i>'; // TODO - markup as missing?
 							}
-							html += '<tr class="data-review" data-path=\''+element.path+'\'"><td class="button-review"><span class="link-main"><a target="_blank" href="'+getUrlReview(element.id)+'"><span class="label label-info">'+element.code+'  <span class="glyphicon glyphicon-share"></span></span></a></span></td><td>'+element.english+'</td><td dir="'+direction+'">'+oldElement+'</td><td dir="'+direction+'">'+element.winning+'</td>';
+							var engElement;
+							if('english' in element) {
+								engElement = element.english;
+							} else {
+								engElement = '<i class="missing">missing</i>'; // TODO - markup as missing?
+							}
+							html += '<tr class="data-review" data-path=\''+element.path+'\'"><td class="button-review"><span class="link-main"><a target="_blank" href="'+getUrlReview(element.id)+'"><span class="label label-info">'+element.code+'  <span class="glyphicon glyphicon-share"></span></span></a></span></td><td>'+engElement+'</td><td dir="'+direction+'">'+oldElement+'</td><td dir="'+direction+'">'+element.winning+'</td>';
 							
 							//fix section
 							html += '<td class="button-review"><div class="tip fix-parent" title="Fix"><button type="button" class="btn btn-success fix" data-toggle="popover"><span class="glyphicon glyphicon-pencil"></span></button></div> <button type="button" class="btn btn-info hide-review tip" title="Hide"><span class="glyphicon glyphicon-eye-close"></span></button><button type="button" class="btn btn-primary tip post-review" title="Forum"><span class="glyphicon glyphicon-comment"></span></button>';

@@ -19,7 +19,7 @@ if(cs.user!=null) {
     response.sendRedirect(request.getContextPath()+"/survey#err_alreadyloggedin");
     return;
 }
-if(email.contains("admin@")) {
+if(email.contains("admin@") || !email.contains("@") || !email.contains(".") || email.length()<5) {
     response.sendRedirect(request.getContextPath()+"/survey#err_badreq");
     return;
 }
@@ -41,13 +41,21 @@ int hashC = hashA+hashB;
 
 <title>SurveyTool | Password Reset | <%= email %></title>
 </head>
-<body>
+<body style='margin: 1em;'>
 <img src='STLogo.png' align='right' />
 <h3>SurveyTool | Password Reset | <%= email %></h3>
 
 <%
 // did they get it right?
-if(userAnswer!=null&&(sumAnswer==Integer.parseInt(userAnswer))) {
+Integer userAnswerInt = null;
+if(userAnswer!=null) {
+	try {
+		userAnswerInt = Integer.parseInt(userAnswer);
+	} catch(Throwable t) {
+		//
+	}
+}
+if(userAnswer!=null&&userAnswerInt!=null&&(sumAnswer==userAnswerInt)) {
 %>
   <b>Attempting to reset password:</b> <%= cs.sm.reg.resetPassword(email, WebContext.userIP(request)) %>
 
@@ -60,12 +68,19 @@ If the email address on file is correct, your new password should be on its way.
 	// put it in the hash
 	cs.stuff.put("sumAnswer",new Integer(hashC));
 	
+	
 	if(userAnswer!=null) {
-%>
-	<i class='ferrorbox'>Sorry, that answer was wrong.</i><br/>
-<%  } %>
+		if(userAnswerInt==null) {
+			%>
+				<i class='ferrbox' style='margin: 1em;'>Please enter your answer.</i><br/>
+			<%
+		} else {
+	%>
+		<i class='ferrbox' style='margin: 1em;'>Sorry, that answer was wrong.</i><br/>
+	<%  }
+	}%>
 
-	<div class='graybox'>
+	<div class='graybox' style='margin: 1em;'>
 		To reset your password, please solve this simple math problem:  What is the sum of 
 			<%= hashA %>
 				+

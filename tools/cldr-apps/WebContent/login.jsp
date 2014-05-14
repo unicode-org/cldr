@@ -61,8 +61,10 @@
 
 </form>
 
-<%@ include file="/WEB-INF/tmpl/testlogin.jsp" %>
-
+<%--
+	removing test login - as it was confusing.
+	 <%@ include file="/WEB-INF/tmpl/testlogin.jsp" %>
+ --%>
 
         </div>
 </div>

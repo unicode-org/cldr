@@ -5055,6 +5055,12 @@ function showV() {
 					        ) { ready(function(){
 					        	
 								var url = contextPath + "/EmbeddedReport.jsp?x="+surveyCurrentSpecial+"&_="+surveyCurrentLocale+"&s="+surveySessionId+cacheKill();
+								var errFunction = function errFunction(err) {
+									console.log("Error: loading " + url + " -> " + err);
+									hideLoader(null,stui.loading2);
+									isLoading=false;
+									flipper.flipTo(pages.other, domConstruct.toDom("<div style='padding-top: 4em; font-size: x-large !important;' class='ferrorbox warning'><span class='icon i-stop'> &nbsp; &nbsp;</span>Error: could not load: " + err + "</div>"));
+								};
 								if(isDashboard()) {
 									if(!isVisitor) {
 										request
@@ -5062,11 +5068,13 @@ function showV() {
 						    			.then(function(json) {
 											hideLoader(null,stui.loading2);
 											isLoading=false;
+											// further errors are handled in JSON
 											showReviewPage(json, function() {
 												// show function - flip to the 'other' page.
 												flipper.flipTo(pages.other, null);
 											});
-										});
+										})
+										.otherwise(errFunction);
 									}
 									else {
 										alert('Please login to access Dashboard');
@@ -5081,10 +5089,12 @@ function showV() {
 									request
 					    			.get(url, {handleAs: 'html'})
 					    			.then(function(html) {
+					    				// errors are handled as HTML.
 										hideLoader(null,stui.loading2);
 										isLoading=false;
 										flipper.flipTo(pages.other, domConstruct.toDom(html));
-									});
+									})
+									.otherwise(errFunction);
 								}
 								
 					        });

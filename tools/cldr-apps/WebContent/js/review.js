@@ -49,12 +49,19 @@ function showReviewMenu(numbers) {
 
 //handle the review page with the json
 function showReviewPage(json, showFn) {
-	
+	var notificationsRoot = $('#OtherSection');
+
+	if(json.err) {
+		// Error value. 
+		notificationsRoot.html("<div style='padding-top: 4em; font-size: x-large !important;' class='ferrorbox warning'><span class='icon i-stop'> &nbsp; &nbsp;</span>Error: could not load: " +
+					json.err +"</div>");
+		showFn(); // calls the flipper to flip to the 'other' page.
+		return;
+	}
 	
 	var menuData = json.notification;
 	var notifications = json.allNotifications;
 	var menuRoot = $('#itemInfo');
-	var notificationsRoot = $('#OtherSection');
 	var hidden = json.hidden;
 	var menuDom = $(document.createElement('ul')).addClass('nav nav-pills nav-stacked affix menu-review');
 	var direction = json.direction;
@@ -99,7 +106,13 @@ function showReviewPage(json, showFn) {
 							html += '<tr class="info"><td colspan="7"><b>'+catName+' - '+subCatName+'</b></td></tr>';//blue banner
 						
 						$.each(element, function(index, element){
-							html += '<tr class="data-review" data-path=\''+element.path+'\'"><td class="button-review"><span class="link-main"><a target="_blank" href="'+getUrlReview(element.id)+'"><span class="label label-info">'+element.code+'  <span class="glyphicon glyphicon-share"></span></span></a></span></td><td>'+element.english+'</td><td dir="'+direction+'">'+element.old+'</td><td dir="'+direction+'">'+element.winning+'</td>';
+							var oldElement;
+							if('old' in element) {
+								oldElement = element.old;
+							} else {
+								oldElement = ''; // TODO - markup as missing?
+							}
+							html += '<tr class="data-review" data-path=\''+element.path+'\'"><td class="button-review"><span class="link-main"><a target="_blank" href="'+getUrlReview(element.id)+'"><span class="label label-info">'+element.code+'  <span class="glyphicon glyphicon-share"></span></span></a></span></td><td>'+element.english+'</td><td dir="'+direction+'">'+oldElement+'</td><td dir="'+direction+'">'+element.winning+'</td>';
 							
 							//fix section
 							html += '<td class="button-review"><div class="tip fix-parent" title="Fix"><button type="button" class="btn btn-success fix" data-toggle="popover"><span class="glyphicon glyphicon-pencil"></span></button></div> <button type="button" class="btn btn-info hide-review tip" title="Hide"><span class="glyphicon glyphicon-eye-close"></span></button><button type="button" class="btn btn-primary tip post-review" title="Forum"><span class="glyphicon glyphicon-comment"></span></button>';

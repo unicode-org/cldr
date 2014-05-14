@@ -57,8 +57,8 @@ if(SurveyMain.isBusted!=null || request.getParameter("_BUSTED")!=null) {
                 	  }
                   },1000);
                   </script>
-	    <link rel="stylesheet" href="<%= request.getContextPath() %>/js/jquery.autosize.min.js" />
-	    <link rel="stylesheet" href="<%= request.getContextPath() %>/js/bootstrap.min.js" />
+	    <script src="<%= request.getContextPath() %>/js/jquery.autosize.min.js"></script>
+	    <script src="<%= request.getContextPath() %>/js/bootstrap.min.js"></script>
     </head>
     <body>
 		<div class="navbar navbar-fixed-top" role="navigation">

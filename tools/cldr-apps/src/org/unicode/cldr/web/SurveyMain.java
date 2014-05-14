@@ -4537,6 +4537,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     }
 
     private Factory gOldFactory = null;
+    private Set<CLDRLocale> gOldAvailable;
 
     /**
      * Return the actual XML file on disk
@@ -4551,6 +4552,32 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return new File(base, loc.getBaseName() + ".xml");
     }
 
+    /**
+     * Get an "old" (previous CLDR version) locale file.
+     * May return null if the locale wasn't available in that version.
+     * @param locale
+     * @param resolved
+     * @return
+     */
+    public CLDRFile getOldFile(String locale, boolean resolved) {
+        return getOldFile(CLDRLocale.getInstance(locale), resolved);
+    }
+    
+    /**
+     * Get an "old" (previous CLDR version) locale file.
+     * May return null if the locale wasn't available in that version.
+     * @param locale
+     * @param resolved
+     * @return
+     */
+    public CLDRFile getOldFile(CLDRLocale locale, boolean resolved) {
+        Factory f = getOldFactory();
+        if(gOldAvailable.contains(locale)) {
+            return f.make(locale.getBaseName(), resolved);
+        }
+        return null; // not available
+    }
+    
     /**
      * Get the factory corresponding to the old release version.
      * 
@@ -4608,6 +4635,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             }
             File roots[] = { oldCommon, oldSeed };
             gOldFactory = SimpleFactory.make(roots, ".*");
+            gOldAvailable = Collections.unmodifiableSet(gOldFactory.getAvailableCLDRLocales());
         }
         return gOldFactory;
     }

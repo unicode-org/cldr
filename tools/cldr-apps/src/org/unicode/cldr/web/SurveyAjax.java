@@ -904,7 +904,7 @@ public class SurveyAjax extends HttpServlet {
                                 oldvotes.put("dir", sm.getDirectionalityFor(locale));
                                 STFactory fac = sm.getSTFactory();
                                 //CLDRFile file = fac.make(loc, false);
-                                CLDRFile file = sm.getOldFactory().make(loc, true);
+                                CLDRFile file = sm.getOldFile(loc, true);
 
                                 if (null != request.getParameter("doSubmit")) {
                                     // submit time.

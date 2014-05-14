@@ -726,7 +726,7 @@ public class VettingViewerQueue {
         if (locale != SUMMARY_LOCALE) {
             if(rJson) {
                 Relation file = vv.generateFileInfoReview(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);
-                this.getJSONReview(aBuffer, sm.getSTFactory().make(locale.getBaseName(), true), sm.getOldFactory().make(locale.getBaseName(), true), file, choiceSet, locale.getBaseName(), true, quick, ctx);
+                this.getJSONReview(aBuffer, sm.getSTFactory().make(locale.getBaseName(), true), sm.getOldFile(locale.getBaseName(), true), file, choiceSet, locale.getBaseName(), true, quick, ctx);
             } 
             else
                 vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, quick);            

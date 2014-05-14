@@ -709,10 +709,8 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
 
         public synchronized CLDRFile getOldFile() {
             if (oldFile == null && !oldFileMissing) {
-                oldFileMissing = !sm.getOldFactory().getAvailable().contains(locale.getBaseName());
-                if (!oldFileMissing) {
-                    oldFile = sm.getOldFactory().make(locale.getBaseName(), true);
-                }
+                oldFile = sm.getOldFile(locale, true);
+                oldFileMissing = (oldFile==null); // if we get null, it's because the file wasn't available.
             }
             return oldFile;
         }

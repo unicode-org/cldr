@@ -907,9 +907,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             out.print(sysmsg("startup_footer"));
             out.println("<span id='visitors'></span>");
             out.print(getCurrev());
-            if (!SurveyMain.isUnofficial()) {
-                out.println(CldrUtility.ANALYTICS);
-            }
+            // Per CLDR TC Meeting 2014-05-14 - Turn off Google Analytics.  If we decide we need it, we can add it back.
+            //if (!SurveyMain.isUnofficial()) {
+            //    out.println(CldrUtility.ANALYTICS);
+            //}
             out.print("</body></html>");
             return false;
         } else {

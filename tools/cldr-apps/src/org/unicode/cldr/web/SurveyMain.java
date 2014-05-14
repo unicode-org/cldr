@@ -687,6 +687,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                     ctx.println(ctx.iconHtml("stop", "fail")
                         + "<b>Please go <a href='javascript:window.history.back();'>Back</a> and fill in your real name.</b>");
                 } else {
+                    ctx.println("<div style='margin: 2em;'>");
+                    ctx.println("<img src='loader.gif' align='right'>");
                     UserRegistry.User u = reg.getEmptyUser();
                     StringBuffer myRealName = new StringBuffer(real.trim());
                     StringBuilder newRealName = new StringBuilder();
@@ -713,13 +715,16 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                         u.userlevel = 999; // nice try
                     }
                     UserRegistry.User registeredUser = reg.newUser(ctx, u);
-                    ctx.println("<i>" + ctx.iconHtml("okay", "added") + "user added '" + u.name
-                        + "'. Click the following link if you aren't redirected automatically.</i>");
+                    ctx.println("<i>" + ctx.iconHtml("okay", "added") + "'" + u.name
+                        + "'. You should be logged in shortly, otherwise click this link:</i>");
+                    ctx.println("<br>");
                     registeredUser.printPasswordLink(ctx);
+                    ctx.println("<br><br><br><br><i>Note: this is a test account, and may be removed at any time.</i>");
                     ctx.addCookie(QUERY_EMAIL, u.email, TWELVE_WEEKS);
                     ctx.addCookie(QUERY_PASSWORD, u.password, TWELVE_WEEKS);
                     ctx.println("<script>document.location = '" + ctx.base() + "/survey?email=" + u.email + "&pw=" + u.password
-                        + "';</script>");
+                       + "';</script>");
+                    ctx.println("</div>");
                 }
             } else if (ctx.hasAdminPassword()) {
                 ctx.response.sendRedirect(ctx.context("AdminPanel.jsp") + "?vap=" + vap);

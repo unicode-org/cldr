@@ -106,6 +106,4 @@ var BASELINE_LANGUAGE_NAME = "<%= SurveyMain.BASELINE_LANGUAGE_NAME %>";
 <%--TODO Refactor to add this at the end of every page instead of top, will increase performance --%>
 <%@include file="/WEB-INF/tmpl/js_include.jsp" %>
 
-
-<%= (!SurveyMain.isUnofficial()) ? (org.unicode.cldr.util.CldrUtility.ANALYTICS) : "" %>
 <!--  end ajax_status.jsp -->

@@ -347,16 +347,19 @@ function toggleReviewLine() {
 
 //force to show the actual hidden line
 function toggleItems(event) {
-	
 	var input = $(this).children('button');
+	var eyes = $('.show-items > button');
     if (input.hasClass('active')) {
         $('tr').removeClass('shown');
-        $('.show-items button').removeClass('active');
+        eyes.removeClass('active');
+        eyes.tooltip('hide').attr('data-original-title','Show hidden lines').tooltip('fixTitle');
     }
     else {
         $('tr').addClass('shown');
-        $('.show-items button').addClass('active');
+        eyes.addClass('active');
+        eyes.tooltip('hide').attr('data-original-title','Hide selected lines').tooltip('fixTitle');
     }
+    input.tooltip('show');
     
     refreshAffix();
     event.stopPropagation();

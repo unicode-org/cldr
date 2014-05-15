@@ -385,7 +385,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 	    
     </div>
     
-    <jsp:include page="feedback.jsp"/>
+    <%-- <jsp:include page="feedback.jsp"/> --%>
     <div id="ressources" style="display:none">
     
 	</div>
@@ -399,7 +399,6 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
         <h4 class="modal-title">Post</h4>
       </div>
       <div class="modal-body">
-        ...
       </div>
     </div>
   </div>

@@ -22,9 +22,11 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.BallotBox;
 import org.unicode.cldr.web.BallotBox.InvalidXPathException;
+import org.unicode.cldr.web.BallotBox.VoteNotAcceptedException;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;
+import org.unicode.cldr.web.SurveyException;
 import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.UserRegistry;
@@ -99,7 +101,7 @@ public class TestSTFactory extends TestFmwk {
         return didVote ? "(I VOTED)" : "( did NOT VOTE) ";
     }
 
-    public void TestBasicVote() throws SQLException, IOException, InvalidXPathException {
+    public void TestBasicVote() throws SQLException, IOException, InvalidXPathException, VoteNotAcceptedException {
         STFactory fac = getFactory();
 
         final String somePath = "//ldml/localeDisplayNames/keys/key[@type=\"collation\"]";
@@ -282,7 +284,7 @@ public class TestSTFactory extends TestFmwk {
         }
     }
 
-    public void TestSparseVote() throws SQLException, IOException, InvalidXPathException {
+    public void TestSparseVote() throws SQLException, IOException, InvalidXPathException, SurveyException {
         STFactory fac = getFactory();
 
         final String somePath2 = "//ldml/localeDisplayNames/keys/key[@type=\"calendar\"]";
@@ -441,13 +443,12 @@ public class TestSTFactory extends TestFmwk {
                     } catch (InvalidXPathException e) {
                         // TODO Auto-generated catch block
                         errln("Error: invalid xpath exception " + xpath + " : " + e);
-                    } catch (IllegalArgumentException iae) {
+                    } catch (VoteNotAcceptedException iae) {
                         if (needException == true) {
                             logln("Caught expected: " + iae);
                         } else {
                             iae.printStackTrace();
                             errln("Unexpected exceptoin: " + iae);
-                            throw iae;
                         }
                     }
                     logln(u + " " + elem + "d for " + xpath + " = " + value);
@@ -576,7 +577,7 @@ public class TestSTFactory extends TestFmwk {
         myReader.read(TestSTFactory.class.getResource("data/" + fileName).toString(), TestAll.getUTF8Data(fileName), -1, true);
     }
 
-    public void TestVettingWithNonDistinguishing() throws SQLException, IOException, InvalidXPathException {
+    public void TestVettingWithNonDistinguishing() throws SQLException, IOException, InvalidXPathException, SurveyException {
         STFactory fac = getFactory();
 
         final String somePath2 = "//ldml/dates/calendars/calendar[@type=\"hebrew\"]/dateFormats/dateFormatLength[@type=\"full\"]/dateFormat[@type=\"standard\"]/pattern[@type=\"standard\"]";

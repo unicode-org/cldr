@@ -49,6 +49,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
 
@@ -944,22 +945,23 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
 
         @Override
-        public void unvoteFor(User user, String distinguishingXpath) throws BallotBox.InvalidXPathException {
+        public void unvoteFor(User user, String distinguishingXpath) throws BallotBox.InvalidXPathException, VoteNotAcceptedException {
             voteForValue(user, distinguishingXpath, null);
         }
 
         @Override
-        public void revoteFor(User user, String distinguishingXpath) throws BallotBox.InvalidXPathException {
+        public void revoteFor(User user, String distinguishingXpath) throws BallotBox.InvalidXPathException, VoteNotAcceptedException {
             String oldValue = getVoteValue(user, distinguishingXpath);
             voteForValue(user, distinguishingXpath, oldValue);
         }
 
-        public void voteForValue(User user, String distinguishingXpath, String value) throws InvalidXPathException {
+        @Override
+        public void voteForValue(User user, String distinguishingXpath, String value) throws InvalidXPathException, VoteNotAcceptedException {
             voteForValue(user, distinguishingXpath, value, null);
         }
 
         @Override
-        public synchronized void voteForValue(User user, String distinguishingXpath, String value, Integer withVote) throws BallotBox.InvalidXPathException {
+        public synchronized void voteForValue(User user, String distinguishingXpath, String value, Integer withVote) throws BallotBox.InvalidXPathException, BallotBox.VoteNotAcceptedException {
             if (!getPathsForFile().contains(distinguishingXpath)) {
                 throw new BallotBox.InvalidXPathException(distinguishingXpath);
             }
@@ -977,19 +979,19 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                                                                                      // counting
                                                                                      // it.
             if (denial != null) {
-                throw new IllegalArgumentException("User " + user + " cannot modify " + locale + " " + denial);
+                throw new VoteNotAcceptedException(ErrorCode.E_NO_PERMISSION,"User " + user + " cannot modify " + locale + " " + denial);
             }
 
             if (withVote != null) {
                 if (withVote == user.getLevel().getVotes()) {
                     withVote = null; // not an override
                 } else if (withVote != user.getLevel().canVoteAtReducedLevel()) {
-                    throw new IllegalArgumentException("User " + user + " cannot vote at " + withVote + " level ");
+                    throw new VoteNotAcceptedException(ErrorCode.E_NO_PERMISSION,"User " + user + " cannot vote at " + withVote + " level ");
                 }
             }
 
             if (value != null && value.length() > MAX_VAL_LEN) {
-                throw new IllegalArgumentException("Value exceeds limit of " + MAX_VAL_LEN);
+                throw new VoteNotAcceptedException(ErrorCode.E_BAD_VALUE, "Value exceeds limit of " + MAX_VAL_LEN);
             }
 
             if (!readonly) {

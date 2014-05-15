@@ -22,7 +22,7 @@ public interface BallotBox<T> {
      * @author srl
      *
      */
-    public class InvalidXPathException extends Exception {
+    public class InvalidXPathException extends SurveyException {
         /**
          * 
          */
@@ -30,8 +30,27 @@ public interface BallotBox<T> {
         public String xpath;
 
         public InvalidXPathException(String xpath) {
-            super("Invalid XPath: " + xpath);
+            super(ErrorCode.E_BAD_XPATH, "Invalid XPath: " + xpath);
             this.xpath = xpath;
+        }
+    }
+
+    /**
+     * @author srl
+     * 
+     */
+    public class VoteNotAcceptedException extends SurveyException {
+        /**
+         * 
+         */
+        private static final long serialVersionUID = 1462132656348262950L;
+
+        public VoteNotAcceptedException(ErrorCode r, String message) {
+            super(r, message);
+        }
+
+        public VoteNotAcceptedException(ErrorCode r, String message, Throwable t) {
+            super(r, message, t);
         }
     }
 
@@ -46,10 +65,12 @@ public interface BallotBox<T> {
      * @param value
      *            new string value to vote for, or null for "unvote"
      * @return the full xpath of the user's vote, or null if not applicable.
+     * @throws InvalidXPathException 
+     * @throws VoteNotAcceptedException 
      */
-    public void voteForValue(T user, String distinguishingXpath, String value, Integer withVote) throws InvalidXPathException;
+    public void voteForValue(T user, String distinguishingXpath, String value, Integer withVote) throws InvalidXPathException, VoteNotAcceptedException;
 
-    public void voteForValue(T user, String distinguishingXpath, String value) throws InvalidXPathException;
+    public void voteForValue(T user, String distinguishingXpath, String value) throws InvalidXPathException, VoteNotAcceptedException;
 
     /**
      * Delete an item. Will (eventually) throw a number of
@@ -129,15 +150,16 @@ public interface BallotBox<T> {
      * remove vote. same as voting for null
      * @param user
      * @param xpath
+     * @throws VoteNotAcceptedException 
      */
-    public void unvoteFor(User user, String xpath) throws InvalidXPathException;
+    public void unvoteFor(User user, String xpath) throws InvalidXPathException, VoteNotAcceptedException;
 
     /**
      * re-vote for the current vote. Error if no current vote.
      * @param user
      * @param xpath
      */
-    public void revoteFor(User user, String xpath) throws InvalidXPathException;
+    public void revoteFor(User user, String xpath) throws InvalidXPathException, VoteNotAcceptedException;
     
     /**
      * Get the last mod date (if known) of the most recent vote.

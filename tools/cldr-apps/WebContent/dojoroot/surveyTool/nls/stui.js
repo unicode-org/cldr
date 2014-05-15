@@ -329,6 +329,8 @@ define({
 		E_DISCONNECTED: "You were disconnected from the SurveyTool. To reconnect, hit Reload.",
 		E_NO_PERMISSION: "While trying to ${what}, the server told us that you do not have permission to do that operation. Sorry.",
 		E_NOT_LOGGED_IN: "While trying to ${what}, the server told us that you can't do that without being logged in.",
+		E_BAD_VALUE: "While trying to ${what}, the server told us that this value is not acceptable.",
+		E_BAD_XPATH: "While trying to ${what}, the server told us that this item does not exist in this locale.",
 		"": ""})
 //		"mt-MT": false
 

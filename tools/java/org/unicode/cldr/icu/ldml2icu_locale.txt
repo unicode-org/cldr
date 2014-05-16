@@ -115,6 +115,9 @@
 //ldml/dates/fields/field[@type="(%A)"]/relative[@type="(%A)"] ; /fields/$1/relative/"$2"
 //ldml/dates/fields/field[@type="(%A)"]/relativeTime[@type="(%A)"]/relativeTimePattern[@count="(%A)"] ; /fields/$1/relativeTime/$2/$3
 
+//ldml/dates/fields/field[@type="(%A)"]/alias[@source="locale"][@path="../field[@type='(%A)']"]
+     ; /fields/$1:alias ; values=/LOCALE/fields/$2
+
 //ldml/dates/timeZoneNames/(%GFormat)   ; /zoneStrings/$1
 //ldml/dates/timeZoneNames/regionFormat[@type="daylight"]   ; /zoneStrings/regionFormatDaylight
 //ldml/dates/timeZoneNames/regionFormat[@type="standard"]   ; /zoneStrings/regionFormatStandard

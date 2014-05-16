@@ -84,6 +84,7 @@ public class VoteResolver<T> {
         afghan_mcit("Afghan MCIT"),
         afrigen("Afrigen"),
         apple("Apple"),
+        bangladesh("Bangladesh Computer Council"),
         bangor_univ("Bangor Univ."),
         bhutan("Bhutan DDC"),
         breton("Office of Breton Lang"),

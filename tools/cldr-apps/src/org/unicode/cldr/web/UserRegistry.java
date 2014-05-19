@@ -1729,7 +1729,22 @@ public class UserRegistry {
     }
 
     public enum ModifyDenial {
-        DENY_NULL_USER, DENY_LOCALE_READONLY, DENY_PHASE_READONLY, DENY_ALIASLOCALE, DENY_DEFAULTCONTENT, DENY_PHASE_CLOSED, DENY_NO_RIGHTS, DENY_LOCALE_LIST
+        DENY_NULL_USER("No user specified"),
+        DENY_LOCALE_READONLY("Locale is read-only"), 
+        DENY_PHASE_READONLY("SurveyTool is in read-only mode"), 
+        DENY_ALIASLOCALE("Locale is an alias"),
+        DENY_DEFAULTCONTENT("Locale is the Default Content for another locale"), 
+        DENY_PHASE_CLOSED("SurveyTool is in 'closed' phase"), 
+        DENY_NO_RIGHTS("User does not have any voting rights"), 
+        DENY_LOCALE_LIST("User does not have rights to vote for this locale");
+        
+        ModifyDenial(String reason) {
+            this.reason = reason;
+        }
+        final String reason;
+        public String getReason() {
+            return reason;
+        }
     }
 
     public static final boolean userCanModifyLocale(User u, CLDRLocale locale) {

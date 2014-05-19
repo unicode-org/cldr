@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+{
+	final String bulkStage = request.getAttribute("BULK_STAGE").toString();
+%>
+	<div class='bulkNextInfo'>
+		<ul>
+			<li class='header'>Bulk Upload:</li>
+			<% 
+				String stages[] = { "upload", "Upload XML file",
+									"check",  "Verify valid XML",
+									"test",   "Test for CLDR errors",
+									"submit",   "Data submitted into SurveyTool"
+								};
+				for(int i=0;i<stages.length;i+=2) {
+					final String stage = stages[i+0];
+					final String name=stages[i+1];
+					final boolean active = bulkStage.equals(stage);
+					final String activeClass = active?"active":"inactive";
+			%>
+			
+				<li class='<%= activeClass %>'>
+					<h1><%= (i/2)+1%>. <%= stage %></h1>
+					<h2><%= name %></h2>
+				</li>
+			<%
+				}
+			%>
+		</ul>
+		<% if(bulkStage.equals("upload")) { %>
+		<p class='helpContent'>
+			Click the button in the bottom-right corner to proceed to the next step.
+		</p>
+		<% } %>
+	</div>
+<%
+}
+%>

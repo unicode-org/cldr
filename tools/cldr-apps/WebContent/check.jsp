@@ -122,10 +122,12 @@
 	<div class='helpHtml'>
 		Your file is being tested.
 		<br>
-		For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a> 
+		For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a>.<br/>
+		Verify that there are no errors, then click the NEXT button.
 	</div>
 
-<i>Checking upload...</i>
+<% request.setAttribute("BULK_STAGE", "check"); %>
+<%@include file="/WEB-INF/jspf/bulkinfo.jspf" %>
 
 <div style='padding: 1em;'>
 <%
@@ -157,17 +159,20 @@ cs.stuff.remove("SubmitLocale");
 <h3>Locale</h3>
  <tt class='codebox'><%= loc + "</tt> <br/>Name:  " + loc.getDisplayName(SurveyMain.BASELINE_LOCALE)  %><br/>
 <%
+UserRegistry.ModifyDenial md = UserRegistry.userCanModifyLocaleWhy(theirU,loc);
 if(!cs.sm.getLocalesSet().contains(loc)) {
 	%><h1 class='ferrbox'>Error: Locale doesn't exist in the Survey Tool.</h1><%
-} else if(!UserRegistry.userCanModifyLocale(theirU,loc)) {
-	%><h1 class='ferrbox'>Error: <%= theirU.name %>  (<%= theirU.email %>) not authorized to submit data for this locale</h1><%
+} else if(cs.sm.getReadOnlyLocales().contains(loc)) {
+	%><h1 class='ferrbox'>Error: <%= loc.getDisplayName() %> may not be modified: <%= SpecialLocales.getComment(loc) %></h1><%
+} else if(md != null) {
+	%><h1 class='ferrbox'>Error: <%= theirU.name %>  (<%= theirU.email %>) may not modify <%= loc.getDisplayName() %>: <%= md.getReason() %></h1><%
 } else {
 	cs.stuff.put("SubmitLocale",cf);
 %>
 <form action='<%= request.getContextPath()+"/submit.jsp" %>' method='POST'>
 <input  type='hidden' name='s' value='<%= sid %>'/>
 <input  type='hidden' name='email' value='<%= email %>'/>
-<input type='submit' value='Test <%= loc %> for submission...'/>
+<input type='submit' class='bulkNextButton' value='NEXT: Run CLDR tests'/>
 </form>
 
 <pre>

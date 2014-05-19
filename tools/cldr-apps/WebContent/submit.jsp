@@ -42,6 +42,7 @@
 		return;
 	}
 	boolean isSubmit = true;
+	final String submitButtonText = "NEXT: Submit as " + theirU.email;
 
 	String ident = "";
 	if (theirU.id != cs.user.id) {
@@ -147,22 +148,30 @@
 		<%=all.size()%>
 		entries.
 	</h4>
+<% request.setAttribute("BULK_STAGE", doFinal?"submit":"test"); %>
+<%@include file="/WEB-INF/jspf/bulkinfo.jspf" %>
 
 <% if(!doFinal) { %>
 	<div class='helpHtml'>
-		Please review these items carefully.
+		Please review these items carefully. The "NEXT" button will not appear until the page fully loads. Pressing NEXT will
+		submit these votes.
 		<br>
 		For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a> 
 	</div>
-	<form action='<%=request.getContextPath() + request.getServletPath()%>'
+	
+	<%-- <form action='<%=request.getContextPath() + request.getServletPath()%>'
 		method='POST'>
 		<input type='hidden' name='s' value='<%=sid%>' />
                 <input type='hidden' name='email' value='<%=theirU.email%>' /><input
-			type='submit' name='dosubmit' value='Really Submit As <%= theirU.name %> Vote' />
-	</form>
+			type='submit' name='dosubmit' value='<%= submitButtonText %>' />
+	</form> --%>
 <% } else { %>
+	<div class='bulkNextButton'>
+	<b>Submitted!</b><br/>
+	<a href="upload.jsp?s=<%=sid%>&email=<%= theirU.email %>">Another?</a>
+	</div>
 	<div class='helpHtml'>
-		Items listed have been submitted.
+		Items listed have been submitted as <%= theirU.email %>
 		<br>
 		For help, see: <a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/index/survey-tool/upload'>Using Bulk Upload</a> 
 	</div>
@@ -379,7 +388,8 @@
 			method='POST'>
 			<input type='hidden' name='s' value='<%=sid%>' />
                         <input type='hidden' name='email' value='<%=email%>' /><input
-				type='submit' name='dosubmit' value='Submit these items as my vote' />
+                class='bulkNextButton'
+				type='submit' name='dosubmit' value='<%= submitButtonText %>' />
 		</form>
 	<%
 		 }

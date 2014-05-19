@@ -3274,3 +3274,90 @@ div.st_setup  {
 	padding: 1em;
 	background-color: #ddf;
 }
+
+.bulkNextButton, .bulkNextInfo {
+	position: fixed;
+	bottom: 1em;
+	z-index: 50;
+}
+
+button.bulkNextButton:before {
+	content: ('NEXT: ');
+	margin-right: 0.5em;
+}
+
+.bulkNextButton {
+	right: 1em;
+	margin: 0.5em;
+	padding: 0.5em;
+}
+
+div.bulkNextButton {
+	background-color: white;
+	border: 1px solid black;
+}
+
+.bulkNextInfo {
+	left: 1em;
+	background-color: white;
+	margin: 0.5em;
+	padding: 0.25em;
+	border: 2px solid gray;
+}
+
+.bulkNextInfo ul {
+	display: table-row;
+	margin: 0;
+	padding:0 ;
+}
+
+.bulkNextInfo ul li {
+	display: table-cell;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.bulkNextInfo ul li.active {
+	color: black;
+	background-color: lime;
+}
+
+.bulkNextInfo ul li.inactive {
+	color: gray;
+}
+.bulkNextInfo ul li.inactive h2 {
+	display: none;
+}
+
+.bulkNextInfo li h1,
+.bulkNextInfo li h2 {
+	padding:0.25em;
+	margin:0.25em;
+}
+.bulkNextInfo li h1 {
+	font-size: large;
+}
+.bulkNextInfo li h2 {
+	font-size: smaller;	
+}
+
+.bulkNextInfo ul li.active:before,
+.bulkNextInfo ul li.inactive:before {
+	content: ('»')
+}
+
+div.bulkInputForm {
+	margin: 1em;
+	display: table;
+}
+
+div.bulkInputForm div {
+	display: table-row;
+}
+
+div.bulkInputForm div input,
+div.bulkInputForm div label {
+	display: table-cell;
+	margin-left: 1em;
+}

@@ -6337,6 +6337,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     private static Set<CLDRLocale> openLocales = null;
     private static Set<CLDRLocale> roLocales = null;
     private static Set<CLDRLocale> topLocalesSet = null;
+    static STFactory.LocaleMaxSizer localeSizer;
 
     /**
      * Get the list of locales 'open' for submission. Should be all locales that
@@ -6403,6 +6404,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         Set<CLDRLocale> s = new TreeSet<CLDRLocale>();
         Set<CLDRLocale> ro = new TreeSet<CLDRLocale>();
         Set<CLDRLocale> w = new TreeSet<CLDRLocale>();
+        STFactory.LocaleMaxSizer lms = new STFactory.LocaleMaxSizer();
 
         String onlyLocales = CLDRConfig.getInstance().getProperty("CLDR_ONLY_LOCALES", null);
         Set<String> onlySet = null;
@@ -6420,20 +6422,22 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (dot != -1) {
                 String locale = fileName.substring(0, dot);
                 CLDRLocale l = CLDRLocale.getInstance(locale);
-                s.add(l);
+                s.add(l); // all
                 SpecialLocales.Type t = (SpecialLocales.getType(l));
                 if (t == Type.scratch) {
                     w.add(l); // always added
                 } else if (t == Type.readonly || (onlySet != null && !onlySet.contains(locale))) {
-                    ro.add(l);
+                    ro.add(l); // readonly
                 } else {
-                    w.add(l);
+                    w.add(l); // writeable
                 }
+                lms.add(l);
             }
         }
         localeListSet = Collections.unmodifiableSet(s);
         roLocales = Collections.unmodifiableSet(ro);
         openLocales = Collections.unmodifiableSet(w);
+        localeSizer = lms;
     }
 
     /**

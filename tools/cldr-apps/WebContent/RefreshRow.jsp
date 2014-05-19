@@ -18,7 +18,7 @@
             String sectionName = WebContext.decodeFieldString(request.getParameter("x"));
             if(sectionName!=null&&sectionName.isEmpty()) sectionName=null;
 			String voteinfo = request.getParameter("voteinfo");
-			String vhash = request.getParameter("vhash");
+			//String vhash = request.getParameter("vhash"); /*NOTUSED*/
 			String fieldHash = request.getParameter(SurveyMain.QUERY_FIELDHASH);
 			String covlev = request.getParameter("p_covlev");
 			Level coverage = Level.OPTIONAL;

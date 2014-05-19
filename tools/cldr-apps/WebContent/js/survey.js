@@ -544,7 +544,7 @@ var processXhrQueue = function() {
 		top.load=function(){return myLoad0(top,arguments); };
 		top.err=function(){return myErr0(top,arguments); };
 		top.startTime = new Date().getTime();
-		if(top.postData) {
+		if(top.postData || top.content) {
 			stdebug("PXQ("+queueOfXhr.length+"): dispatch POST " + top.url);
 			dojo.xhrPost(top);
 		} else {
@@ -576,7 +576,10 @@ myErr0 = function(top,args) {
 	return r;
 };
 
-
+/**
+ * Queue the XHR request.  It will be a GET *unless* either postData or content are set.
+ * @param xhr
+ */
 function queueXhr(xhr) {
 	queueOfXhr.push(xhr);
 	stdebug("pushed:  PXQ="+queueOfXhr.length + ", postData: " + xhr.postData);
@@ -1028,12 +1031,13 @@ function formatErrMsg(json, subkey) {
 	if(json && json.err_code) {
 		msg_str = theCode = json.err_code;
 		if(stui.str(json.err_code) == json.err_code) {
+			console.log("** Unknown error code: " + json.err_code);
 			msg_str = "E_UNKNOWN";
 		}
 	}
 	return stui.sub(msg_str,
 			{
-				json: json, what: stui.str('err_what_'+subkey), code: theCode,
+				json: json, what: stui.str('err_what_'+subkey), code: theCode, err_data: json.err_data,
 				surveyCurrentLocale: surveyCurrentLocale,
 				surveyCurrentId: surveyCurrentId,
 				surveyCurrentSection: surveyCurrentSection,
@@ -3631,6 +3635,9 @@ function showV() {
 			var clickyLink = createChunk(name, "a", "locName");
 			clickyLink.href = linkToLocale(subLoc);
 			subLocDiv.appendChild(clickyLink);
+			if(subInfo == null) {
+				console.log("* internal: subInfo is null for " + name + " / " + subLoc);
+			}
 			if(subInfo.name_var) {
 				addClass(clickyLink, "name_var");
 			}
@@ -5676,7 +5683,8 @@ function showV() {
  */
 function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
 	showLoader(tr.theTable.theDiv.loader,stui.loadingOneRow);
-    var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session +"&json=t&automatic=t";
+	// vHash not used.
+    var ourUrl = contextPath + "/RefreshRow.jsp?what="+WHAT_GETROW+"&xpath="+theRow.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+/*"&vhash="+vHash+*/"&s="+tr.theTable.session +"&json=t&automatic=t";
     
     if(isDashboard()) {
     	ourUrl += "&dashboard=true";
@@ -5791,12 +5799,22 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 
 
 	console.log("Vote for " + tr.rowHash + " v='"+vHash+"', value='"+value+"'");
-	var ourUrl = contextPath + "/SurveyAjax?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
+	var ourContent = {
+			what: what,
+			xpath: tr.xpid,
+			"_": surveyCurrentLocale,
+			fhash: tr.rowHash,
+			vhash: vHash,
+			s: tr.theTable.session
+	};
+
+	var ourUrl = contextPath + "/SurveyAjax"; // ?what="+what+"&xpath="+tr.xpid +"&_="+surveyCurrentLocale+"&fhash="+tr.rowHash+"&vhash="+vHash+"&s="+tr.theTable.session;
 	
 	// vote reduced
 	var voteReduced = document.getElementById("voteReduced");
 	if(voteReduced) {
-		ourUrl = ourUrl + "&voteReduced="+voteReduced.value;
+		ourContent.voteReduced = voteReduced.value;
+//		ourUrl = ourUrl + "&voteReduced="+voteReduced.value;
 	}
 	
 //	tr.className='tr_checking';
@@ -5804,15 +5822,26 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		try {
 			// var newHtml = "";
 			if(json.err && json.err.length >0) {
-				tr.className='tr_err';
-				// v_tr.className="tr_err";
-				// v_tr2.className="tr_err";
-//				showLoader(tr.theTable.theDiv.loader,"Error!");
-				handleDisconnect('Error submitting a vote', json);
-				tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
-				// e_div.innerHTML = newHtml;
-				myUnDefer();
-				handleDisconnect('Error submitting a vote', json);
+				/*if(json.err_code != null) {
+					var errMsg = formatErrMsg(json, "vote");
+					console.log("Error voting: " + errMsg);
+					popupAlert("danger", errMsg);
+					// uncheck..
+					button.className='ichoice-o';
+					button.checked=false;
+					myUnDefer();
+					return; // break out, but no need to disconnect.
+				} else*/ {
+					tr.className='tr_err';
+					// v_tr.className="tr_err";
+					// v_tr2.className="tr_err";
+	//				showLoader(tr.theTable.theDiv.loader,"Error!");
+					handleDisconnect('Error submitting a vote', json);
+					tr.innerHTML = "<td colspan='4'>"+stopIcon + " Could not check value. Try reloading the page.<br>"+json.err+"</td>";
+					// e_div.innerHTML = newHtml;
+					myUnDefer();
+					handleDisconnect('Error submitting a vote', json);
+				}
 			} else {
 				if(json.submitResultRaw) { // if submitted..
 					tr.className='tr_checking2';
@@ -5876,19 +5905,20 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 		theRow.innerHTML="Error while  loading: "+err.name + " <br> " + err.message + "<div style='border: 1px solid red;'>" + ioArgs.xhr.responseText + "</div>";
 		myUnDefer();
 	};
+	//window.xhrArgs = xhrArgs;
+	//stdebug('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
+	if(box) {
+		stdebug("this is a post: " + value);
+		ourContent.value = value;
+	}
 	var xhrArgs = {
-			url: ourUrl+cacheKill(),
+			url: ourUrl,
 			handleAs:"json",
+			content: ourContent,
 			timeout: ajaxTimeout,
 			load: loadHandler,
 			error: errorHandler
 	};
-	//window.xhrArgs = xhrArgs;
-	//stdebug('xhrArgs = ' + xhrArgs + ", url: " + ourUrl);
-	if(box) {
-		stdebug("this is a psot: " + value);
-		xhrArgs.postData = value;
-	}
 	queueXhr(xhrArgs);
 }
 

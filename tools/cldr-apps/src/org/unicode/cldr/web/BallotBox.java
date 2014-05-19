@@ -7,7 +7,9 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
+import org.json.JSONObject;
 import org.unicode.cldr.util.VoteResolver;
+import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.User;
 
 /**
@@ -51,6 +53,10 @@ public interface BallotBox<T> {
 
         public VoteNotAcceptedException(ErrorCode r, String message, Throwable t) {
             super(r, message, t);
+        }
+
+        public VoteNotAcceptedException(ErrorCode r, String string, JSONObject err_data) {
+            super(r, string, err_data);
         }
     }
 

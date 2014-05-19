@@ -119,9 +119,11 @@ public class TestAll extends TestGroup {
         super(new String[] {
             // use class.getName so we are in sync with name changes and
             // removals (if not additions)
-            TestIntHash.class.getName(), TestXPathTable.class.getName(),
-            // TestCacheAndDataSource.class.getName()
-            TestSTFactory.class.getName(), TestUserSettingsData.class.getName() }, "All tests in CLDR Web");
+            TestIntHash.class.getName(), 
+            TestXPathTable.class.getName(),
+            TestMisc.class.getName(),
+            TestSTFactory.class.getName(), 
+            TestUserSettingsData.class.getName() }, "All tests in CLDR Web");
     }
 
     public static final String CLASS_TARGET_NAME = "CLDR.Web";

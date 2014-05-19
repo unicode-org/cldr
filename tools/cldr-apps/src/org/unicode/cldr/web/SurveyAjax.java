@@ -28,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
@@ -192,7 +193,13 @@ public class SurveyAjax extends HttpServlet {
         public static void putException(JSONWriter r, Throwable t) {
             r.put("err", "Exception: " + t.toString());
             if(t instanceof SurveyException) {
-                r.put("err_code", ((SurveyException) t).getErrCode());
+                SurveyException se = (SurveyException) t;
+                r.put("err_code", se.getErrCode());
+                try {
+                    se.addDataTo(r);
+                } catch (JSONException e) {
+                    r.put("err_data", e.toString());
+                }
             } else {
                 r.put("err_code", ErrorCode.E_INTERNAL);
             }
@@ -252,15 +259,22 @@ public class SurveyAjax extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         setup(request, response);
-        StringBuilder sb = new StringBuilder();
-        Reader r = request.getReader();
-        int ch;
-        while ((ch = r.read()) > -1) {
-            if (DEBUG)
-                System.err.println(" POST >> " + Integer.toHexString(ch));
-            sb.append((char) ch);
+        final String qs = request.getQueryString();
+        String value;
+        if(qs!=null && !qs.isEmpty()) {
+            StringBuilder sb = new StringBuilder();
+            Reader r = request.getReader();
+            int ch;
+            while ((ch = r.read()) > -1) {
+                if (DEBUG)
+                    System.err.println(" POST >> " + Integer.toHexString(ch));
+                sb.append((char) ch);
+            }
+            value = sb.toString();
+        } else {
+            value = request.getParameter("value"); // POST based value.
         }
-        processRequest(request, response, sb.toString());
+        processRequest(request, response, value);
     }
 
     /**
@@ -486,17 +500,19 @@ public class SurveyAjax extends HttpServlet {
                                         // System.err.println("'"+vhash+"' -> '"+val+"'");
                                         foundVhash = true;
                                     }
-                                } else {
-                                    if (val != null) {
-                                        if (DEBUG)
-                                            System.err.println("val WAS " + escapeString(val));
-                                        DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
-                                        val = daip.processInput(xp, val, exceptionList);
-                                        if (DEBUG)
-                                            System.err.println("val IS " + escapeString(val));
-                                        if (val.isEmpty()) {
-                                            otherErr = ("DAIP returned a 0 length string");
-                                        }
+                                }
+                                
+                                final String origValue2 = val;
+
+                                if (val != null) {
+                                    if (DEBUG)
+                                        System.err.println("val WAS " + escapeString(val));
+                                    DisplayAndInputProcessor daip = new DisplayAndInputProcessor(locale, false);
+                                    val = daip.processInput(xp, val, exceptionList);
+                                    if (DEBUG)
+                                        System.err.println("val IS " + escapeString(val));
+                                    if (val.isEmpty()) {
+                                        otherErr = ("DAIP returned a 0 length string");
                                     }
                                 }
 
@@ -511,7 +527,16 @@ public class SurveyAjax extends HttpServlet {
 
                                 if (exceptionList[0] != null) {
                                     result.add(new CheckStatus().setMainType(CheckStatus.errorType)
-                                        .setSubtype(Subtype.internalError).setMessage("Input Processor Exception: {0}")
+                                        .setSubtype(Subtype.internalError)
+                                        .setCause(new CheckCLDR() {
+                                            
+                                            @Override
+                                            public CheckCLDR handleCheck(String path, String fullPath, String value, Options options, List<CheckStatus> result) {
+                                                // TODO Auto-generated method stub
+                                                return null;
+                                            }
+                                        })
+                                        .setMessage("Input Processor Exception: {0}")
                                         .setParameters(exceptionList));
                                     SurveyLog.logException(exceptionList[0], "DAIP, Processing " + loc + ":" + xp + "='" + val
                                         + "' (was '" + origValue + "')");
@@ -520,7 +545,16 @@ public class SurveyAjax extends HttpServlet {
                                 if (otherErr != null) {
                                     String list[] = { otherErr };
                                     result.add(new CheckStatus().setMainType(CheckStatus.errorType)
-                                        .setSubtype(Subtype.internalError).setMessage("Input Processor Error: {0}")
+                                        .setSubtype(Subtype.internalError)
+                                        .setCause(new CheckCLDR() {
+                                            
+                                            @Override
+                                            public CheckCLDR handleCheck(String path, String fullPath, String value, Options options, List<CheckStatus> result) {
+                                                // TODO Auto-generated method stub
+                                                return null;
+                                            }
+                                        })
+                                        .setMessage("Input Processor Error: {0}")
                                         .setParameters(list));
                                     SurveyLog.logException(null, "DAIP, Processing " + loc + ":" + xp + "='" + val + "' (was '"
                                         + origValue + "'): " + otherErr);

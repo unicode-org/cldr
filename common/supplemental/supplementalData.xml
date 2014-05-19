@@ -1362,8 +1362,8 @@ XXX Code for transations where no currency is involved
 		<language type="bku" scripts="Buhd" alt="secondary"/>
 		<language type="bla" scripts="Latn"/>
 		<language type="blt" scripts="Tavt"/>
-		<language type="bm" scripts="Latn"/>
-		<language type="bm" scripts="Nkoo" territories="ML" alt="secondary"/>
+		<language type="bm" scripts="Latn Nkoo"/>
+		<language type="bm" territories="ML" alt="secondary"/>
 		<language type="bmq" scripts="Latn"/>
 		<language type="bn" scripts="Beng" territories="BD"/>
 		<language type="bn" territories="IN" alt="secondary"/>
@@ -1966,7 +1966,8 @@ XXX Code for transations where no currency is involved
 		<language type="pt" scripts="Latn" territories="AO BR CV GW MO MZ PT ST TL"/>
 		<language type="puu" scripts="Latn"/>
 		<language type="qu" scripts="Latn" territories="BO EC PE"/>
-		<language type="quc" scripts="Latn" territories="GT"/>
+		<language type="quc" scripts="Latn"/>
+		<language type="quc" territories="GT" alt="secondary"/>
 		<language type="qug" scripts="Latn"/>
 		<language type="raj" scripts="Latn"/>
 		<language type="raj" territories="IN" alt="secondary"/>
@@ -2464,16 +2465,16 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="cr_Cans" populationPercent="0.11" references="R1063"/>	<!--Cree (Unified Canadian Aboriginal Syllabics)-->
 			<languagePopulation type="crk" populationPercent="0.11" references="R1063"/>	<!--Plains Cree-->
 			<languagePopulation type="yi" populationPercent="0.045" references="R1021"/>	<!--Yiddish-->
-			<languagePopulation type="iu_Cans" writingPercent="30" populationPercent="0.042" officialStatus="official_regional" references="R1207"/>	<!--Inuktitut-->
-			<languagePopulation type="iu_Latn" writingPercent="30" populationPercent="0.042" officialStatus="official_regional" references="R1207"/>	<!--Inuktitut-->
+			<languagePopulation type="iu_Cans" writingPercent="30" populationPercent="0.042" officialStatus="official_regional" references="R1207"/>	<!--Inuktitut (Unified Canadian Aboriginal Syllabics)-->
+			<languagePopulation type="iu_Latn" writingPercent="30" populationPercent="0.042" officialStatus="official_regional" references="R1207"/>	<!--Inuktitut (Latin)-->
 			<languagePopulation type="moe" populationPercent="0.033" references="R1063"/>	<!--Montagnais-->
 			<languagePopulation type="crj" populationPercent="0.021" references="R1063"/>	<!--Southern East Cree-->
 			<languagePopulation type="atj" populationPercent="0.016" references="R1063"/>	<!--Atikamekw-->
 			<languagePopulation type="crl" populationPercent="0.015" references="R1063"/>	<!--Northern East Cree-->
 			<languagePopulation type="csw" populationPercent="0.014" references="R1063"/>	<!--Swampy Cree-->
 			<languagePopulation type="crm" populationPercent="0.013" references="R1063"/>	<!--Moose Cree-->
-			<languagePopulation type="moh" populationPercent="0.010"/>	<!--Mohawk-->
 			<languagePopulation type="ikt" writingPercent="30" populationPercent="0.011" officialStatus="official_regional" references="R1207"/>	<!--Inuinnaqtun-->
+			<languagePopulation type="moh" populationPercent="0.01" references="R1090"/>	<!--Mohawk-->
 			<languagePopulation type="dgr" populationPercent="0.0076" references="R1136"/>	<!--Dogrib-->
 			<languagePopulation type="den" populationPercent="0.0066"/>	<!--Slave-->
 			<languagePopulation type="scs" populationPercent="0.0035" references="R1172"/>	<!--North Slavey-->
@@ -2528,7 +2529,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="CL" gdp="335400000000" literacyPercent="98.6" population="17363900">	<!--Chile-->
 			<languagePopulation type="es" populationPercent="98" officialStatus="official" references="R1192"/>	<!--Spanish-->
-			<languagePopulation type="arn" populationPercent="1.4" references="R1287"/>	<!--Mapuche-->
+			<languagePopulation type="arn" populationPercent="1.5" references="R1287"/>	<!--Mapuche-->
 		</territory>
 		<territory type="CM" gdp="53160000000" literacyPercent="71.3" population="23130700">	<!--Cameroon-->
 			<languagePopulation type="fr" populationPercent="68" officialStatus="official"/>	<!--French-->
@@ -2661,7 +2662,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="EC" gdp="157600000000" literacyPercent="91.6" population="15654400">	<!--Ecuador-->
 			<languagePopulation type="es" populationPercent="96" officialStatus="official" references="R1210"/>	<!--Spanish-->
-			<languagePopulation type="qu" populationPercent="15" officialStatus="official"/>	<!--Quechua-->
+			<languagePopulation type="qu" populationPercent="17" officialStatus="official" references="R1288"/>	<!--Quechua-->
 		</territory>
 		<territory type="EE" gdp="29940000000" literacyPercent="99.8" population="1257920">	<!--Estonia-->
 			<languagePopulation type="et" populationPercent="71" officialStatus="official"/>	<!--Estonian-->
@@ -2811,6 +2812,7 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="ff" populationPercent="26"/>	<!--Fulah-->
 			<languagePopulation type="man_Nkoo" populationPercent="23"/>	<!--Mandingo (N’Ko)-->
 			<languagePopulation type="sus" populationPercent="11"/>	<!--Susu-->
+			<languagePopulation type="nqo" populationPercent="5" references="R1286"/>	<!--N’Ko-->
 			<languagePopulation type="kpe" populationPercent="3.8"/>	<!--Kpelle-->
 		</territory>
 		<territory type="GP" gdp="3513000000" literacyPercent="90" population="452776">	<!--Guadeloupe-->
@@ -2834,7 +2836,7 @@ XXX Code for transations where no currency is involved
 		</territory>
 		<territory type="GT" gdp="81510000000" literacyPercent="75.9" population="14647100">	<!--Guatemala-->
 			<languagePopulation type="es" populationPercent="93" officialStatus="official" references="R1227"/>	<!--Spanish-->
-			<languagePopulation type="quc" populationPercent="7" officialStatus="official_regional" references="R1286"/>	<!--K’iche’-->
+			<languagePopulation type="quc" populationPercent="7" officialStatus="official_regional" references="R1289"/>	<!--K'iche'-->
 		</territory>
 		<territory type="GU" gdp="4600000000" literacyPercent="99" population="161001">	<!--Guam-->
 			<languagePopulation type="en" populationPercent="38" officialStatus="de_facto_official"/>	<!--English-->
@@ -3222,13 +3224,14 @@ XXX Code for transations where no currency is involved
 			<languagePopulation type="tr" populationPercent="9.7"/>	<!--Turkish-->
 		</territory>
 		<territory type="ML" gdp="18900000000" literacyPercent="33.4" population="16455900">	<!--Mali-->
-			<languagePopulation type="bm" populationPercent="46"/>	<!--Bambara-->
+			<languagePopulation type="bm_Latn" populationPercent="46"/>	<!--Bambara (Latin)-->
 			<languagePopulation type="fr" populationPercent="46" officialStatus="official"/>	<!--French-->
 			<languagePopulation type="ffm" populationPercent="7.7"/>	<!--Maasina Fulfulde-->
 			<languagePopulation type="snk" populationPercent="5.9"/>	<!--Soninke-->
 			<languagePopulation type="mwk" populationPercent="5"/>	<!--Kita Maninkakan-->
 			<languagePopulation type="ses" populationPercent="3.4"/>	<!--Koyraboro Senni-->
 			<languagePopulation type="tmh" populationPercent="2.1"/>	<!--Tamashek-->
+			<languagePopulation type="bm_Nkoo" populationPercent="2" references="R1291"/>	<!--Bambara (N’Ko)-->
 			<languagePopulation type="khq" populationPercent="1.7"/>	<!--Koyra Chiini-->
 			<languagePopulation type="dtm" populationPercent="1.1"/>	<!--Tomo Kan Dogon-->
 			<languagePopulation type="kao" populationPercent="1"/>	<!--Xaasongaxango-->
@@ -4876,6 +4879,7 @@ XXX Code for transations where no currency is involved
 		<reference type="R1087" uri="http://www.ethnologue.com/show_language.asp?code=rkt">[missing]</reference>
 		<reference type="R1088" uri="http://www.nationsonline.org/oneworld/syria.htm">Crude estimate based on import partner data.</reference>
 		<reference type="R1089" uri="http://www.wildmadagascar.org/overview/loc/27-minorities.html">[missing]</reference>
+		<reference type="R1090" uri="http://en.wikipedia.org/wiki/Mohawk_language">[missing]</reference>
 		<reference type="R1091" uri="http://www.ethnologue.com/show_language.asp?code=dyu">[missing]</reference>
 		<reference type="R1092" uri="http://www.ethnologue.com/show_language.asp?code=lua">[missing]</reference>
 		<reference type="R1093" uri="http://www.ethnologue.com/show_language.asp?code=lub">[missing]</reference>
@@ -5071,6 +5075,10 @@ XXX Code for transations where no currency is involved
 		<reference type="R1283" uri="http://www.ethnologue.com/language/ACH/">(baseline)</reference>
 		<reference type="R1284" uri="http://news.bbc.co.uk/2/hi/europe/4475099.stm">No population figure yet on use of Latin in Vatican. Estimate 100% of Vatican residents can use Latin.</reference>
 		<reference type="R1285" uri="https://en.wikipedia.org/wiki/Lozi_language">[missing]</reference>
-		<reference type="R1286" uri="http://en.wikipedia.org/wiki/K\\&apos;iche\\&apos;_language">7% stated per Ethnologue</reference>
+		<reference type="R1286">No figures available for this language.  Estimating at 5%.</reference>
+		<reference type="R1287" uri="http://en.wikipedia.org/wiki/Mapuche_language">[missing]</reference>
+		<reference type="R1288" uri="http://en.wikipedia.org/wiki/Quechua_language">[missing]</reference>
+		<reference type="R1289" uri="http://en.wikipedia.org/wiki/K'iche'_language">[missing]</reference>
+		<reference type="R1291">No figures available for breakdown of Latin vs. N'Ko for Bambara.  The 2% figure is an estimate.</reference>
 	</references>
 </supplementalData>

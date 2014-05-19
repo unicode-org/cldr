@@ -2864,6 +2864,12 @@ function updateRow(tr, theRow) {
 	
 	if(!children[config.comparisoncell].isSetup) {
 		if(theRow.displayName) {
+			var hintPos = theRow.displayName.indexOf('[translation hint');
+			if(hintPos != -1) {
+				theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample : '');
+				theRow.displayName = theRow.displayName.substr(0, hintPos);
+			}
+			
 			children[config.comparisoncell].appendChild(createChunk(theRow.displayName, 'span', 'subSpan'));
 			setLang(children[config.comparisoncell], surveyBaselineLocale);
 			if(theRow.displayExample) {
@@ -2873,6 +2879,8 @@ function updateRow(tr, theRow) {
 		} else {
 			children[config.comparisoncell].appendChild(document.createTextNode(""));
 		}
+		
+		
 		//listenToPop(null,tr,children[config.comparisoncell]);
 		children[config.comparisoncell].isSetup=true;
 	}

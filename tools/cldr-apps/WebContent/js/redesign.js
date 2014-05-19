@@ -237,6 +237,7 @@ function unpackMenuSideBar(json) {
 		
 		$(this).children('ul').slideDown();
 		$(this).find('.glyphicon').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+		lastOpenMenu = $(this);
 	});
 	
 	//menu
@@ -273,6 +274,12 @@ function unpackMenuSideBar(json) {
 	if(surveyCurrentLocale) {
 		$('a[data-original-title="'+surveyCurrentLocale+'"]').click();
 		$('#title-coverage').show();
+	}
+	
+	//reopen the menu to the current page
+	if(surveyCurrentPage) {
+		var menu = $('#locale-menu #'+surveyCurrentPage);
+		menu.closest('.open-menu').click();
 	}
 }
 

@@ -1057,10 +1057,10 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             }
             
             // check for too-long
-            {
+            if(value!=null) {
                 final int valueLimit = SurveyMain.localeSizer.getSize(locale, distinguishingXpath);
                 final int valueLength = value.length();
-                if (value != null && valueLength > valueLimit) {
+                if (valueLength > valueLimit) {
                     NumberFormat nf = NumberFormat.getInstance();
                     throw new VoteNotAcceptedException(ErrorCode.E_BAD_VALUE, "Length "+nf.format(valueLength)+" exceeds limit of " 
                         + nf.format(valueLimit) +" - please file a bug if you need a longer value.");

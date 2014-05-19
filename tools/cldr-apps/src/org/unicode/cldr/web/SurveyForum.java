@@ -687,8 +687,8 @@ public class SurveyForum {
                 pAdd = prepare_pAdd(conn);
 
                 pAdd.setInt(1, user.id);
-                pAdd.setString(2, subj);
-                pAdd.setString(3, preparePostText(text));
+                DBUtils.setStringUTF8(pAdd, 2, subj);
+                DBUtils.setStringUTF8(pAdd, 3, preparePostText(text));
                 pAdd.setInt(4, forumNumber);
                 pAdd.setInt(5, replyTo); // record parent
                 pAdd.setString(6, locale.toString()); // real
@@ -1769,8 +1769,8 @@ public class SurveyForum {
 
                         while (rs.next() && true) {
                             int poster = rs.getInt(1);
-                            String subj = rs.getString(2);
-                            String text = rs.getString(3);
+                            String subj = DBUtils.getStringUTF8(rs, 2);
+                            String text = DBUtils.getStringUTF8(rs, 3);
                             java.sql.Timestamp lastDate = rs.getTimestamp(4); // TODO:
                                                                               // timestamp
                             int id = rs.getInt(5);

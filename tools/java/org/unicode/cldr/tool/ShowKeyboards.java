@@ -1,6 +1,5 @@
 package org.unicode.cldr.tool;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.BitSet;
@@ -95,8 +94,6 @@ public class ShowKeyboards {
         keyboardChartDir = MyOptions.targetDirectory.option.getValue();
         keyboardChartLayoutsDir = keyboardChartDir + "/layouts/";
 
-        assertDirWritable(keyboardChartDir);
-        
         FileCopier.copy(ShowKeyboards.class, "keyboards-index.html", keyboardChartDir, "index.html");
 
         Matcher idMatcher = Pattern.compile(idPattern).matcher("");
@@ -113,18 +110,6 @@ public class ShowKeyboards {
         }
         if (!layoutsOnly) {
             showRepertoire(idMatcher);
-        }
-    }
-
-    private static void assertDirWritable(String directory) {
-        File cFile=new File(directory);
-        
-        if (!cFile.canWrite()) {
-            if (!cFile.mkdirs()) {
-                throw new IllegalArgumentException("Unable to create the directory '"+directory+"' to write to");
-            } else {
-                System.out.println("Created directory '"+directory+"'");
-            }
         }
     }
 
@@ -173,9 +158,10 @@ public class ShowKeyboards {
         // logInfo.put(Row.of("k-cldr",common), keyboardId);
         try {
             FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartDir, "index.css");
+            PrintWriter out = BagFormatter.openUTF8Writer(keyboardChartDir, "chars2keyboards.html");
             String[] headerAndFooter = new String[2];
-            try (PrintWriter out = BagFormatter.openUTF8Writer(keyboardChartDir, "chars2keyboards.html");) {
-                       ShowData.getChartTemplate(
+
+            ShowData.getChartTemplate(
                 "Characters → Keyboards",
                 ToolConstants.CHART_DISPLAY_VERSION,
                 "",
@@ -186,10 +172,9 @@ public class ShowKeyboards {
             idInfo.print(out);
             // printBottom(out);
             out.println(headerAndFooter[1]);
-            }
-//            out.close();
+            out.close();
 
-            try (PrintWriter out = BagFormatter.openUTF8Writer(keyboardChartDir, "keyboards2chars.html");) {
+            out = BagFormatter.openUTF8Writer(keyboardChartDir, "keyboards2chars.html");
             ShowData.getChartTemplate(
                 "Keyboards → Characters",
                 ToolConstants.CHART_DISPLAY_VERSION,
@@ -200,9 +185,8 @@ public class ShowKeyboards {
             // printTop("Keyboards → Characters", out);
             showLocaleToCharacters(out, id2unicodeset, locale2ids);
             // printBottom(out);
-            out.println(headerAndFooter[1]); 
-            }
-//            out.close();
+            out.println(headerAndFooter[1]);
+            out.close();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
@@ -237,7 +221,6 @@ public class ShowKeyboards {
             }
         }
 
-        assertDirWritable(keyboardChartLayoutsDir);
        FileCopier.copy(ShowKeyboards.class, "keyboards.css", keyboardChartLayoutsDir, "index.css");
         PrintWriter index = BagFormatter.openUTF8Writer(keyboardChartLayoutsDir, "index.html");
         String[] headerAndFooter = new String[2];
@@ -576,14 +559,6 @@ public class ShowKeyboards {
         );
 
     public static String safeUnicodeSet(UnicodeSet unicodeSet) {
-        synchronized(ShowKeyboards.class) {
-            if (prettyPrinter==null) {
-                prettyPrinter =new PrettyPrinter()
-                .setOrdering(Collator.getInstance(ULocale.ROOT))
-                .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY)
-                    );
-            }
-        }
         return TransliteratorUtilities.toHTML.transform(prettyPrinter.format(unicodeSet));
     }
 

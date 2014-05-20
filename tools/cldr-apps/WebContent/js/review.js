@@ -403,11 +403,12 @@ function checkLineFix() {
 	
 	
 	$.each(issues, function(index, element) {
-		var otherLine = $('div[data-type='+element+'] tr[data-path='+path+']');
+		var elementRaw = element.replace(' ', '_');
+		var otherLine = $('div[data-type='+elementRaw+'] tr[data-path='+path+']');
 		if(otherLine.length == 0) { //if line not present
 			var newLine = line.clone();
 			var found = false;
-			$('div[data-type='+element+'] .info').each(function() {
+			$('div[data-type='+elementRaw+'] .info').each(function() {
 				if(info.html() == $(this).html()) {
 					$(this).after(newLine);
 					found = true;
@@ -417,7 +418,7 @@ function checkLineFix() {
 			
 			if(!found) {
 				var html = '<tr class="info">'+info.html()+'</tr>'+newLine.wrap('<div>').parent().html()+'<tr class="empty"><td colspan="7"></td></tr>';
-				var toInsert = $('div[data-type='+element+'] > table > tbody');
+				var toInsert = $('div[data-type='+elementRaw+'] > table > tbody');
 				toInsert.prepend(html);
 			}
 		}

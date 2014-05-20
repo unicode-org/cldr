@@ -84,6 +84,7 @@
 		response.sendRedirect(request.getContextPath()+"/survey");
 		return;
 	}
+	cs.userDidAction(); // mark user as not idle
 	if(email==null||email.trim().isEmpty()) {
 		response.sendRedirect(request.getContextPath()+"/upload.jsp?s="+sid);
 		return;

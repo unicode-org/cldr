@@ -33,6 +33,7 @@
 		response.sendRedirect(request.getContextPath() + "/survey");
 		return;
 	}
+	cs.userDidAction(); // mark user as not idle
 	UserRegistry.User theirU = cs.sm.reg.get(email.trim());
 	if (theirU == null
 			|| (!theirU.equals(cs.user) && !cs.user.isAdminFor(theirU))) {

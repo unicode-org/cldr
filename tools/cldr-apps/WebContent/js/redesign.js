@@ -237,7 +237,6 @@ function unpackMenuSideBar(json) {
 		
 		$(this).children('ul').slideDown();
 		$(this).find('.glyphicon').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
-		lastOpenMenu = $(this);
 	});
 	
 	//menu

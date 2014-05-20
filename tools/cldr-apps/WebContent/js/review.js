@@ -16,7 +16,7 @@ $(function() {
 	dynamic.on('click', '.hide-review', toggleReviewLine);
 	dynamic.on('click', '.show-items', toggleItems);
 	dynamic.on('click', '.post-review', openPost);
-	dynamic.on('click', '.hide-review', toggleReview);
+	dynamic.on('click', '.hide-review.done', toggleReview);
 	
 	$(window).scroll(function() {
 		var left = $(this).scrollLeft();
@@ -160,6 +160,7 @@ function showReviewPage(json, showFn) {
 				$('div[data-type="'+cat+'"] tr[data-path="'+element+'"] .hide-review').click();
 			});
 	});
+	$('.hide-review').addClass('done');
 	refreshCounter();
 	$('.menu-review li:visible').first().addClass('active');
 	bindReviewEvents();

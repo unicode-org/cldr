@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2014 Unicode, Inc. CLDR data files are interpreted
-according to the LDML specification (http://unicode.org/reports/tr35/) For
-terms of use, see http://www.unicode.org/copyright.html
--->
+<!-- Copyright © 1991-2014 Unicode, Inc. CLDR data files are interpreted 
+	according to the LDML specification (http://unicode.org/reports/tr35/) For 
+	terms of use, see http://www.unicode.org/copyright.html -->
 <ldml>
 	<identity>
-		<version number="$Revision$"/>
-		<generation date="$Date$"/>
-		<language type="dsb"/>
+		<version number="$Revision$" />
+		<generation date="$Date$" />
+		<language type="dsb" />
 	</identity>
 	<layout>
 		<orientation>
@@ -17,9 +16,9 @@ terms of use, see http://www.unicode.org/copyright.html
 		</orientation>
 	</layout>
 	<characters>
-		<exemplarCharacters>[a b c ć č {ch} d e ě f g h i j k l ł m n ń o ó p q r ŕ s ś š t u v w x y z ź ž]</exemplarCharacters>
-		<exemplarCharacters type="auxiliary">[á à ă â å ä ã ą ā æ ç ď đ é è ĕ ê ë ė ę ē ğ í ì ĭ î ï İ ī ı ĺ ľ ň ñ ò ŏ ô ö ő ø ō œ ř ş ß ť ú ù ŭ û ů ü ű ū ý ÿ ż]</exemplarCharacters>
-		<exemplarCharacters type="index">[A B C Ć Č {Ch} D E F G H I J K L Ł M N O P Q R S Ś Š T U V W X Y Z Ź Ž]</exemplarCharacters>
+		<exemplarCharacters>[a b c č ć d e ě f g h {ch} i j k ł l m n ń o ó p q r ŕ s š ś t u v w x y z ž ź]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary">[á à ă â å ä ã ą ā æ ç ď đ	ė é è ĕ ê ë ē ę ğ í ì ĭ î ï İ ī ľ ĺ ň ı ñ ò ŏ ô ö ő ø ō œ ř ş ß ť ú ù ŭ û ů ü ű ū ý ÿ ż]</exemplarCharacters>
+		<exemplarCharacters type="index">[A B C Č Ć D E F G H {Ch} I J K Ł L M N O P Q R S Š Ś T U V W X Y Z Ž Ź]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- ‐ – — , ; \: ! ? . … ' ‘ ’ ‚ &quot; “ „ « » ( ) \[ \] \{ \} § @ * / \&amp; #]</exemplarCharacters>
 	</characters>
 	<dates>
@@ -48,4 +47,3 @@ terms of use, see http://www.unicode.org/copyright.html
 		</timeZoneNames>
 	</dates>
 </ldml>
-

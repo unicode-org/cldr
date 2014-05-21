@@ -47,10 +47,10 @@ public class DisplayAndInputProcessor {
     public static final UnicodeSet TO_QUOTE = (UnicodeSet) new UnicodeSet(
         "[[:Cn:]" +
             "[:Default_Ignorable_Code_Point:]" +
-            "[:patternwhitespace:]]"
+            "[:patternwhitespace:]" +
+            "[:Me:][:Mn:]]" // add non-spacing marks
     ).freeze();
-    private static Collator DEFAULT_COMPARATOR = Collator.getInstance(ULocale.ROOT);
-    private static Collator DEFAULT_SPACE_COMPARATOR = DEFAULT_COMPARATOR.setStrength2(Collator.PRIMARY);
+
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
         .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
     private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?<![0#'])\\.(?![0#'])");
@@ -404,19 +404,13 @@ public class DisplayAndInputProcessor {
             if (spaceCol instanceof RuleBasedCollator) {
                 ((RuleBasedCollator) spaceCol).setAlternateHandlingShifted(false);
             }
-            pp = new PrettyPrinter().setOrdering(DEFAULT_COMPARATOR)
-                .setSpaceComparator(DEFAULT_SPACE_COMPARATOR)
-                .setCompressRanges(false)
+            pp = new PrettyPrinter().setOrdering(Collator.getInstance(ULocale.ROOT))
+                .setSpaceComparator(Collator.getInstance(ULocale.ROOT).setStrength2(Collator.PRIMARY))
+                .setCompressRanges(true)
                 .setToQuote(new UnicodeSet(TO_QUOTE))
                 .setOrdering(col)
                 .setSpaceComparator(spaceCol);
 
-        } else {
-            pp = new PrettyPrinter()
-                .setOrdering(DEFAULT_COMPARATOR)
-                .setSpaceComparator(DEFAULT_SPACE_COMPARATOR)
-                .setCompressRanges(false)
-                .setToQuote(new UnicodeSet(TO_QUOTE));
         }
     }
 

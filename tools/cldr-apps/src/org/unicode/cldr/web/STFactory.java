@@ -51,6 +51,7 @@ import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.XPathParts.Comments;
+import org.unicode.cldr.web.CLDRProgressIndicator.CLDRProgressTask;
 import org.unicode.cldr.web.SurveyException.ErrorCode;
 import org.unicode.cldr.web.UserRegistry.ModifyDenial;
 import org.unicode.cldr.web.UserRegistry.User;
@@ -1547,14 +1548,20 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
     public STFactory(SurveyMain sm) {
         super();
         this.sm = sm;
-        setSupplementalDirectory(sm.getDiskFactory().getSupplementalDirectory());
-
-        gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
-        gDiskTestCache.setFactory(sm.getDiskFactory(), "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
-        sm.reg.addListener(this);
-        handleUserChanged(null);
-        phf = PathHeader.getFactory(sm.getBaselineFile());
-        surveyMenus = new SurveyMenus(this, phf);
+        try (CLDRProgressTask progress = sm.openProgress("STFactory")) {
+            progress.update("setup supplemental data");
+            setSupplementalDirectory(sm.getDiskFactory().getSupplementalDirectory());
+    
+            progress.update("setup test cache");
+            gTestCache.setFactory(this, "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
+            progress.update("setup disk test cache");
+            gDiskTestCache.setFactory(sm.getDiskFactory(), "(?!.*(CheckCoverage).*).*", sm.getBaselineFile());
+            sm.reg.addListener(this);
+            progress.update("reload all users");
+            handleUserChanged(null);
+            progress.update("setup pathheader factory");
+            phf = PathHeader.getFactory(sm.getBaselineFile());
+        }
     }
 
     /**
@@ -1983,9 +1990,15 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
         }
     }
 
-    private SurveyMenus surveyMenus;
+    private SurveyMenus surveyMenus = null;
 
-    public final SurveyMenus getSurveyMenus() {
+    public final synchronized SurveyMenus getSurveyMenus() {
+        if(surveyMenus == null) {
+            try (CLDRProgressTask progress = sm.openProgress("STFactory: setup surveymenus")) {
+                progress.update("setup surveymenus");
+                surveyMenus = new SurveyMenus(this, phf);
+            }
+        }
         return surveyMenus;
     }
 

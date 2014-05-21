@@ -443,6 +443,7 @@ public class UserRegistry {
          * 
          * @param other
          * @see VoteResolver.Level.isAdminFor()
+         * @deprecated
          */
         public boolean isAdminFor(User other) {
             return getLevel().isManagerFor(getOrganization(), other.getLevel(), other.getOrganization());
@@ -896,7 +897,10 @@ public class UserRegistry {
             throw new InternalError("UserRegistry: SQL error trying to get " + email + " - " + DBUtils.unchainSqlException(se));
             // return null;
         } catch (LogoutException le) {
-            logger.log(java.util.logging.Level.SEVERE, "AUTHENTICATION FAILURE; email=" + email + "; ip=" + ip);
+            if(pass!=null) {
+                // only log this if they were actually trying to login.
+                logger.log(java.util.logging.Level.SEVERE, "AUTHENTICATION FAILURE; email=" + email + "; ip=" + ip);
+            }
             throw le; // bubble
         } catch (Throwable t) {
             logger.log(java.util.logging.Level.SEVERE, "UserRegistry: some error trying to get " + email, t);
@@ -1507,7 +1511,7 @@ public class UserRegistry {
     }
 
     public User newUser(WebContext ctx, User u) {
-
+        final boolean hushUserMessages = CLDRConfig.getInstance().getEnvironment()==Environment.UNITTEST;
         u.email = normalizeEmail(u.email);
         // prepare quotes
         u.email = u.email.replace('\'', '_').toLowerCase();
@@ -1528,7 +1532,7 @@ public class UserRegistry {
             insertStmt.setString(5, u.password);
             insertStmt.setString(6, normalizeLocaleList(u.locales));
             if (!insertStmt.execute()) {
-                logger.info("Added.");
+                if(!hushUserMessages)  logger.info("Added.");
                 conn.commit();
                 if (ctx != null)
                     ctx.println("<p>Added user.<p>");
@@ -1597,6 +1601,16 @@ public class UserRegistry {
     }
 
     /** What level can the new user be, given requested? */
+    
+    @Deprecated
+    /**
+     * 
+     * @param u
+     * @param requestedLevel
+     * @return
+     * @deprecated
+     * @see Level#canCreateOrSetLevelTo
+     */
     public static final int userCanCreateUserOfLevel(User u, int requestedLevel) {
         if (requestedLevel < 0) {
             requestedLevel = 0;
@@ -1630,18 +1644,44 @@ public class UserRegistry {
         return userIsTC(u) || userIsExactlyManager(u);
     }
 
-    /** can the user modify this particular user? */
-    static final boolean userCanModifyUser(User u, int theirId, int theirLevel) {
-        if (userIsAdmin(u))
-            return true;
-        if (!u.org.equals(CookieSession.sm.reg.getInfo(theirId).org)) {
+    /**
+     * Returns true if the manager user can change the user's userlevel
+     * @param managerUser the user doing the changing
+     * @param targetId the user being changed
+     * @param targetNewUserLevel the new userlevel of the user
+     * @return true if the action can proceed, otherwise false
+     */
+    static final boolean userCanModifyUser(User managerUser, int targetId, int targetNewUserLevel) {
+        if (targetId == ADMIN_ID) {
+            return false; // can't modify admin user
+        }
+        if (managerUser==null) {
+            return false; // no user
+        }
+        if (userIsAdmin(managerUser)) {
+            return true; // admin can modify everyone
+        }
+        final User otherUser = CookieSession.sm.reg.getInfo(targetId); // TODO static
+        if(otherUser == null) {
+            return false; // ?
+        }
+        if (!managerUser.org.equals(otherUser.org)) {
             return false;
         }
-        return (userCanModifyUsers(u) && (theirId != ADMIN_ID) && (theirId != u.id) && (theirLevel >= u.userlevel));
+        if (!userCanModifyUsers(managerUser)) {
+            return false;
+        }
+        if (targetId == managerUser.id) {
+            return false; // cannot modify self
+        }
+        if (targetNewUserLevel < managerUser.userlevel) {
+            return false; // Cannot assign a userlevel higher than the manager
+        }
+        return true;
     }
 
-    static final boolean userCanDeleteUser(User u, int theirId, int theirLevel) {
-        return (userCanModifyUser(u, theirId, theirLevel) && theirLevel > u.userlevel); // must
+    static final boolean userCanDeleteUser(User managerUser, int targetId, int targetLevel) {
+        return (userCanModifyUser(managerUser, targetId, targetLevel) && targetLevel > managerUser.userlevel); // must
                                                                                         // be
                                                                                         // at
                                                                                         // a
@@ -1649,11 +1689,11 @@ public class UserRegistry {
                                                                                         // level
     }
 
-    static final boolean userCanDoList(User u) {
-        return (userIsVetter(u));
+    static final boolean userCanDoList(User managerUser) {
+        return (userIsVetter(managerUser));
     }
 
-    static final boolean userCanCreateUsers(User u) {
+    public static final boolean userCanCreateUsers(User u) {
         return (userIsTC(u) || userIsExactlyManager(u));
     }
 

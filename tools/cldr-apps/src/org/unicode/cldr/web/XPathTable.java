@@ -23,11 +23,13 @@ import java.util.Set;
 import java.util.TreeMap;
 
 import org.unicode.cldr.icu.LDMLConstants;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.PrettyPath;
 import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
+import org.unicode.cldr.util.CLDRConfig.Environment;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
 
@@ -91,7 +93,8 @@ public class XPathTable {
             ixpaths++;
         }
         queryStmt.close();
-        System.err.println(et + ": " + ixpaths + " loaded");
+        final boolean hushMessages = CLDRConfig.getInstance().getEnvironment()==Environment.UNITTEST;
+        if(!hushMessages) System.err.println(et + ": " + ixpaths + " loaded");
     }
 
     /**

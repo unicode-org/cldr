@@ -18,6 +18,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.web.CookieSession;
 import org.unicode.cldr.web.DBUtils;
 import org.unicode.cldr.web.STFactory;
+import org.unicode.cldr.web.UserRegistry;
 import org.unicode.cldr.web.STFactory.LocaleMaxSizer;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.XPathTable;
@@ -61,5 +62,4 @@ public class TestMisc extends TestFmwk {
             assertEquals(loc+":"+xpath, (long)expectedSize, (long)lms.getSize(loc, xpath));
         }
     }
-    
 }

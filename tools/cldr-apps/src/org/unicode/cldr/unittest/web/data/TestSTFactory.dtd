@@ -8,7 +8,7 @@ THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
 Except as contained in this notice, the name of a copyright holder shall not be used in advertising or otherwise to promote the sale, use or other dealings in these Data Files or Software without prior written authorization of the copyright holder.
 -->
 
-<!ELEMENT TestSTFactory ((user | vote | unvote | verify | echo | warn | setvar)*) >
+<!ELEMENT TestSTFactory ((user | vote | unvote | verify | echo | warn | setvar | verifyUser)*) >
 <!-- <!ATTLIST TestSTFactory version CDATA #REQUIRED> -->
 
 <!ELEMENT user EMPTY >
@@ -41,3 +41,9 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT echo (#PCDATA) >
 
 <!ELEMENT warn (#PCDATA) >
+
+<!ELEMENT verifyUser (#PCDATA) >
+<!ATTLIST verifyUser name CDATA #REQUIRED>
+<!ATTLIST verifyUser action ( create | delete | modify | list ) #REQUIRED>
+<!ATTLIST verifyUser onUser CDATA #REQUIRED>
+<!ATTLIST verifyUser allowed ( true | false ) #IMPLIED>

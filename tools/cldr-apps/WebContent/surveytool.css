@@ -366,7 +366,7 @@ body {
 	padding-bottom: 3em;
 	padding-right: 0.5em;
 	margin-bottom: 180px;
-	margin-top: px;
+	/* margin-top: px; */
 }
 
 
@@ -1036,7 +1036,7 @@ i.loadingMsgSpin {
 	font-size: xx-large;
 	text-align: justify;
 	font-weight: bold;
-	font-variant: caps;
+	/* text-transform: uppercase; */
 	color: black;
 	font-style:normal;
 }
@@ -2658,11 +2658,12 @@ button.ichoice-x-ok:hover {
 
 span.i-override {
 	font-size: 	x-small; 
+	margin-left: 0.25em;
 }
 span.i-override, .voteInfo_overrideExplain {
 	font: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	background-color: lime;
-	foreground-color: navy;
+	color: navy;
 	border:  1px solid navy;
 	padding:  1px;
 }
@@ -2717,7 +2718,7 @@ textarea.errorMessage {
 div.possibleProblems {
 	border: 1px dashed olive;
 	padding: 0.2em;
-	background-color: cream;
+	background-color: #FFFDD0;
 	overflow: auto;
 }
 
@@ -3011,7 +3012,7 @@ div.voterList .voterOrg {
 .dtf-int {width:100%; height:100%}
 .dtf-fix {width:1px}
 .dtf-left {text-align:left;}
-.dtf-nopad {padding:0px; align:top;}
+.dtf-nopad {padding:0px; vertical-align:top;}
 
 
 .rolloverspan:hover {
@@ -3281,11 +3282,6 @@ div.st_setup  {
 	z-index: 50;
 }
 
-button.bulkNextButton:before {
-	content: ('NEXT: ');
-	margin-right: 0.5em;
-}
-
 .bulkNextButton {
 	right: 1em;
 	margin: 0.5em;
@@ -3342,9 +3338,9 @@ div.bulkNextButton {
 	font-size: smaller;	
 }
 
-.bulkNextInfo ul li.active:before,
-.bulkNextInfo ul li.inactive:before {
-	content: ('»')
+.bulkNextInfo ul li.active::before,
+.bulkNextInfo ul li.inactive::before {
+	content: '»';
 }
 
 div.bulkInputForm {

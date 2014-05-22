@@ -31,8 +31,8 @@
 //ldml/(.*)/alias$           ; Special ; Suppress ; Alias ; $1 ; HIDE
 
 ### Core Data
-//ldml/characters/exemplarCharacters$                       ; Core Data ; Alphabetic Information ; Characters in Use ; Main Letters;
-//ldml/characters/exemplarCharacters[@type="%A"]            ; Core Data ; Alphabetic Information ; Characters in Use ; Others: $1;
+//ldml/characters/exemplarCharacters$                       ; Core Data ; Alphabetic Information ; Characters in Use ; Main Letters; READ_ONLY
+//ldml/characters/exemplarCharacters[@type="%A"]            ; Core Data ; Alphabetic Information ; Characters in Use ; Others: $1; READ_ONLY
 
 //ldml/numbers/(default)NumberingSystem                       ; Core Data ; Numbering Systems ; Numbering System ; $1
 //ldml/numbers/otherNumberingSystems/(%E)                   ; Core Data ; Numbering Systems ; Numbering System ; $1

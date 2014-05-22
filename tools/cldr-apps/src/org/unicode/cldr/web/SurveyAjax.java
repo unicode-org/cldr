@@ -803,22 +803,22 @@ public class SurveyAjax extends HttpServlet {
 
                         if ("true".equals(request.getParameter("locmap"))) {
                             r.put("locmap", getJSONLocMap(sm));
-
+                            
+                            // list of modifyable locales
+                            JSONArray modifyableLocs = new JSONArray();
+                            Set<CLDRLocale> rolocs = sm.getReadOnlyLocales();
+                            for (CLDRLocale al : SurveyMain.getLocales()) {
+                                if (rolocs.contains(al)) continue;
+                                if (UserRegistry.userCanModifyLocale(mySession.user, al)) {
+                                    modifyableLocs.put(al.getBaseName());
+                                }
+                            }
+                            if (modifyableLocs.length() > 0) {
+                                r.put("canmodify", modifyableLocs);
+                            }
                             // any special messages?
                             if (mySession.user != null && mySession.user.canImportOldVotes()) {
-                                // list of modifyable locales
-                                JSONArray modifyableLocs = new JSONArray();
-                                Set<CLDRLocale> rolocs = sm.getReadOnlyLocales();
-                                for (CLDRLocale al : SurveyMain.getLocales()) {
-                                    if (rolocs.contains(al)) continue;
-                                    if (UserRegistry.userCanModifyLocale(mySession.user, al)) {
-                                        modifyableLocs.put(al.getBaseName());
-                                    }
-                                }
-                                if (modifyableLocs.length() > 0) {
-                                    r.put("canmodify", modifyableLocs);
-                                }
-
+                               
                                 // old votes?
                                 String oldVotesPref = getOldVotesPref();
                                 String oldVoteRemind = mySession.settings().get(oldVotesPref, null);

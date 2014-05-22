@@ -3,6 +3,7 @@ package org.unicode.cldr.unittest;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -151,7 +152,6 @@ public class TestAttributeValues extends TestFmwk {
 		public NullHandlingMatcher(Map<String,MatcherPattern> col, String key) {
 			MatcherPattern mpTemp=col.get(key);
 			if (mpTemp==null) {
-				System.out.println("The variables map does not contain any key named "+key);
 				matcher=new AlwaysMismatched();
 			} else {
 				matcher=mpTemp.matcher;
@@ -523,15 +523,18 @@ public class TestAttributeValues extends TestFmwk {
 					//new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
 		} else if ("bcp47".equals(typeAttribute)) {
 			result = getBcp47MatcherPattern(sdi, value);
-		} else if ("regex".equals(typeAttribute)||"list".equals(typeAttribute)) {
+		} else if ("regex".equals(typeAttribute)) {
+			result.matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
+		} else if ("list".equals(typeAttribute)) {
 			result.matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
 		} else if ("locale".equals(typeAttribute)) {
-			// locale: test whether we actully have languge values
+			// locale: localeMatcher will test for language values, and fail with a NPE.
 			if (variables.containsKey("$language")) {
-			result.matcher = LocaleMatcher.make();
+				result.matcher = LocaleMatcher.make();
 			} else {
 				// no language in the variables
-				int j=1;
+				System.out.println("Empty locale type element: Path: "+path);
+				result.matcher=new NullHandlingMatcher(variables, "$language");
 			}
 		} else if ("notDoneYet".equals(typeAttribute) || "notDoneYet".equals(value)) {
 			result.matcher = new RegexMatcher().set(".*", Pattern.COMMENTS);
@@ -583,26 +586,31 @@ public class TestAttributeValues extends TestFmwk {
 				handleCheck(curPath, curPath, "", results,curCldr);
 			}
 		}
+		List<CheckResult> warnings=Collections.emptyList();
+		List<CheckResult> errors=Collections.emptyList();
 		// did we get some errors?
 		if (!results.isEmpty()) {
-			Iterable<CheckResult> warnings=FluentIterable.from(results).filter(new Predicate<CheckResult>() {
+			warnings=FluentIterable.from(results).filter(new Predicate<CheckResult>() {
 
 				@Override
 				public boolean apply(CheckResult input) {
 					return input.getStatus()==ResultStatus.warning;
 				}
-			});
-			Iterable<CheckResult> errors=FluentIterable.from(results).filter(new Predicate<CheckResult>(){
+			}).toList();
+			 errors=FluentIterable.from(results).filter(new Predicate<CheckResult>(){
 
 				@Override
 				public boolean apply(CheckResult input) {
 					return input.getStatus()==ResultStatus.error;
-				}});
+				}}).toList();
 			
 		   System.out.println(getResultMessages(warnings,"warnings"));
 		   System.out.println(getResultMessages(errors, "errors"));
 		}
-		
+		boolean successful=warnings.isEmpty() && errors.isEmpty();
+		if (!successful) {
+			errln(new StringBuilder().append(errors.size()).append(" errors and ").append(warnings.size()).append("warnings").toString());
+		}
 
 	}
 
@@ -619,7 +627,7 @@ public class TestAttributeValues extends TestFmwk {
 	}
 
 	private void check(Map<String, MatcherPattern> attribute_validity, String attribute, String attributeValue,
-			List<CheckResult> result) {
+			List<CheckResult> result, String path) {
 		if (attribute_validity == null) return; // no test
 		MatcherPattern matcherPattern = attribute_validity.get(attribute);
 		if (matcherPattern == null) return; // no test
@@ -639,8 +647,8 @@ public class TestAttributeValues extends TestFmwk {
 			}
 		} else {
 			result.add(new CheckResult().setCause(this).setStatus(ResultStatus.error)
-					.setMessage("Unexpected Attribute Value {0}={1}: expected: {2}", 
-							new Object[] { attribute, attributeValue, matcherPattern.pattern }));
+					.setMessage("Unexpected Attribute Value {0}={1}: expected: {2} Path: {3}", 
+							new Object[] { attribute, attributeValue, matcherPattern.pattern,path}));
 		}
 	}
 
@@ -668,9 +676,9 @@ public class TestAttributeValues extends TestFmwk {
 				String attribute = entry.getKey();
 				String attributeValue =entry.getValue();
 				// check the common attributes first
-				check(common_attribute_validity, attribute, attributeValue, result);
+				check(common_attribute_validity, attribute, attributeValue, result, fullPath);
 				// then for the specific element
-				check(attribute_validity, attribute, attributeValue, result);
+				check(attribute_validity, attribute, attributeValue, result, fullPath);
 
 				// now for plurals
 

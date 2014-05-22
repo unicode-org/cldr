@@ -433,7 +433,7 @@ function createChunk(text, tag, className) {
  */
 String.prototype.ucFirst = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
-}
+};
 
 /**
  * Create a 'link' that goes to a function. By default it's an 'a', but could be a button, etc.
@@ -4724,20 +4724,6 @@ function showV() {
 											tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
 											var accept;
 											tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));
-/*
-											accept.appendChild(createLinkToFn("v_oldvotes_all", function() {
-												for(var k in json.oldvotes.contested) {
-													var row = json.oldvotes.contested[k];
-													row.box.checked = true;
-												}
-											}));
-											accept.appendChild(createLinkToFn("v_oldvotes_none", function() {
-												for(var k in json.oldvotes.contested) {
-													var row = json.oldvotes.contested[k];
-													row.box.checked = false;
-												}
-											}));
-*/
 											th.appendChild(tr);
 										}
 										t.appendChild(th);
@@ -4831,6 +4817,18 @@ function showV() {
 											tb.appendChild(tr);
 										}
 										t.appendChild(tb);
+										t.appendChild(createLinkToFn("v_oldvotes_all", function() {
+											for(var k in json.oldvotes[type]) {
+												var row = json.oldvotes[type][k];
+												row.box.checked = true;
+											}
+										}, "button"));
+										t.appendChild(createLinkToFn("v_oldvotes_none", function() {
+											for(var k in json.oldvotes[type]) {
+												var row = json.oldvotes[type][k];
+												row.box.checked = false;
+											}
+										}, "button"));
 										return t;
 									}
 

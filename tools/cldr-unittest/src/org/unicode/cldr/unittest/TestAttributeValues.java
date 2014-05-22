@@ -43,24 +43,37 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestAttributeValues extends TestFmwk {
 
-	static Set<String> elementOrder = new LinkedHashSet<String>();
-	static Set<String> attributeOrder = new LinkedHashSet<String>();
-	static Set<String> serialElements = new LinkedHashSet<String>();
-	static Map<String, Map<String, MatcherPattern>> element_attribute_validity = new HashMap<String, Map<String, MatcherPattern>>();
-	static Map<String, MatcherPattern> common_attribute_validity = new HashMap<String, MatcherPattern>();
-	static Map<String, MatcherPattern> variables = new HashMap<String, MatcherPattern>();
+	 private final Set<String> elementOrder = new LinkedHashSet<String>();
+	 private final Set<String> attributeOrder = new LinkedHashSet<String>();
+	 
+	 private final  Map<String, Map<String, MatcherPattern>> element_attribute_validity = new HashMap<String, Map<String, MatcherPattern>>();
+	 private final Map<String, MatcherPattern> common_attribute_validity = new HashMap<String, MatcherPattern>();
+	 final static Map<String, MatcherPattern> variables = new HashMap<String, MatcherPattern>();
 	// static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above
 	// -- to do later.
-	static boolean initialized = false;
-	static LocaleMatcher localeMatcher;
-	static Map<String, Map<String, String>> code_type_replacement = new TreeMap<String, Map<String, String>>();
-	SupplementalDataInfo supplementalData;
+	private  boolean initialized = false;
+	private LocaleMatcher localeMatcher;
+	private final Map<String, Map<String, String>> code_type_replacement = new TreeMap<String, Map<String, String>>();
+	private SupplementalDataInfo supplementalData;
 
-	boolean isEnglish;
+	private boolean isEnglish;
 	PluralInfo pluralInfo;
 
 	XPathParts parts = new XPathParts(null, null);
 	static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
+
+	private static final class CheckResultPredicate implements
+			Predicate<CheckResult> {
+		private final ResultStatus success;
+		
+		public CheckResultPredicate(ResultStatus success) {
+			this.success=success;
+		}
+		@Override
+		public boolean apply(CheckResult input) {
+			return input.getStatus()==success;
+		}
+	}
 
 	private static class MatcherPattern {
 		public String value;
@@ -72,98 +85,7 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
-	public static class RegexMatcher implements ObjectMatcher<String> {
-		private java.util.regex.Matcher matcher;
-
-		public ObjectMatcher<String> set(String pattern) {
-			matcher =PatternCache.get(pattern).matcher("");
-			return this;
-		}
-
-		public ObjectMatcher<String> set(String pattern, int flags) {
-			matcher = Pattern.compile(pattern, flags).matcher("");
-			return this;
-		}
-
-		public boolean matches(String value) {
-			matcher.reset(value.toString());
-			return matcher.matches();
-		}
-	}
-
-	public static class CollectionMatcher implements ObjectMatcher<String> {
-		private Collection<String> collection;
-
-		public ObjectMatcher<String> set(Collection<String> collection) {
-			this.collection = collection;
-			return this;
-		}
-
-		public boolean matches(String value) {
-			return collection.contains(value);
-		}
-	}
-
-	public static class OrMatcher implements ObjectMatcher<String> {
-		private ObjectMatcher<String> a;
-		private ObjectMatcher<String> b;
-
-		public ObjectMatcher<String> set(ObjectMatcher<String> a, ObjectMatcher<String> b) {
-			this.a = a;
-			this.b = b;
-			return this;
-		}
-
-		public boolean matches(String value) {
-			return a.matches(value) || b.matches(value);
-		}
-	}
-
-	public static class ListMatcher implements ObjectMatcher<String> {
-		private ObjectMatcher<String> other;
-
-		public ObjectMatcher<String> set(ObjectMatcher<String> other) {
-			this.other = other;
-			return this;
-		}
-
-		public boolean matches(String value) {
-			String[] values = value.trim().split("\\s+");
-			if (values.length == 1 && values[0].length() == 0) return true;
-			for (int i = 0; i < values.length; ++i) {
-				if (!other.matches(values[i])) {
-					return false;
-				}
-			}
-			return true;
-		}
-	}
-
-	private static class NullHandlingMatcher implements ObjectMatcher<String> {
-		private static class AlwaysMismatched implements ObjectMatcher<String> {
-			
-			@Override
-			public boolean matches(String o)  {
-				return false;
-			}
-			
-		}
-		final ObjectMatcher<String> matcher;
-		public NullHandlingMatcher(Map<String,MatcherPattern> col, String key) {
-			MatcherPattern mpTemp=col.get(key);
-			if (mpTemp==null) {
-				matcher=new AlwaysMismatched();
-			} else {
-				matcher=mpTemp.matcher;
-			}
-		}
-		@Override
-		public boolean matches(String o) {
-			return matcher.matches(o);
-		}
-		
-	}
-	public static class LocaleMatcher implements ObjectMatcher<String> {
+	private static class LocaleMatcher implements ObjectMatcher<String> {
 		ObjectMatcher<String> grandfathered = variables.get("$grandfathered").matcher;
 		ObjectMatcher<String> language = variables.get("$language").matcher;
 		ObjectMatcher<String> script = variables.get("$script").matcher;
@@ -204,7 +126,145 @@ public class TestAttributeValues extends TestFmwk {
 	}
 
 
-	static final Relation<PluralInfo.Count, String> PLURAL_EXCEPTIONS = Relation.of(
+	/**
+	 * Static class for those ObjectMatchers that are not thightly coupled.
+	 * @author ribnitz
+	 *
+	 */
+	public static class ObjectMatcherFactory {
+		public static ObjectMatcher<String> createRegexMatcher(String pattern) {
+			return new RegexMatcher().set(pattern);
+		}
+		
+		public static ObjectMatcher<String> createRegexMatcher(String pattern,int flags) {
+			return new RegexMatcher().set(pattern,flags);
+		}
+		
+		public static ObjectMatcher<String> createCollectionMatcher(Collection<String> col) {
+			return new CollectionMatcher().set(col);
+		}
+		
+		public static ObjectMatcher<String> createOrMatcher(ObjectMatcher<String> m1,ObjectMatcher<String> m2) {
+			return new OrMatcher().set(m1, m2);
+		}
+		
+		public static ObjectMatcher<String> createListMatcher(ObjectMatcher<String> matcher) {
+			return new ListMatcher().set(matcher);
+		}
+		
+		public static ObjectMatcher<String> createNullMatcher() {
+			return new NullMatcher();
+		}
+		
+		public static ObjectMatcher<String> createNullHandlingMatcher(Map<String,MatcherPattern> m, String key) {
+			return new NullHandlingMatcher(m, key);
+		}
+		
+		private static class NullMatcher implements ObjectMatcher<String> {
+			@Override
+			public boolean matches(String arg0) {
+				return false;
+			}	
+		}
+		
+		private static class RegexMatcher implements ObjectMatcher<String> {
+			private java.util.regex.Matcher matcher;
+
+			public ObjectMatcher<String> set(String pattern) {
+				matcher =PatternCache.get(pattern).matcher("");
+				return this;
+			}
+
+			public ObjectMatcher<String> set(String pattern, int flags) {
+				matcher = Pattern.compile(pattern, flags).matcher("");
+				return this;
+			}
+
+			public boolean matches(String value) {
+				matcher.reset(value.toString());
+				return matcher.matches();
+			}
+		}
+
+		private static class CollectionMatcher implements ObjectMatcher<String> {
+			private Collection<String> collection;
+
+			public ObjectMatcher<String> set(Collection<String> collection) {
+				this.collection = collection;
+				return this;
+			}
+
+			public boolean matches(String value) {
+				return collection.contains(value);
+			}
+		}
+
+		private static class OrMatcher implements ObjectMatcher<String> {
+			private ObjectMatcher<String> a;
+			private ObjectMatcher<String> b;
+
+			public ObjectMatcher<String> set(ObjectMatcher<String> a, ObjectMatcher<String> b) {
+				this.a = a;
+				this.b = b;
+				return this;
+			}
+
+			public boolean matches(String value) {
+				return a.matches(value) || b.matches(value);
+			}
+		}
+
+		private static class ListMatcher implements ObjectMatcher<String> {
+			private ObjectMatcher<String> other;
+			private static final Splitter WHITESPACE_SPLITTER=Splitter.on(PatternCache.get("\\s+"));
+			
+			public ObjectMatcher<String> set(ObjectMatcher<String> other) {
+				this.other = other;
+				return this;
+			}
+
+			public boolean matches(String value) {
+				List<String> values=WHITESPACE_SPLITTER.splitToList(value.trim());
+			//	String[] values = value.trim().split("\\s+");
+				if (values.size() == 1 && values.get(0).length() == 0) return true;
+				for (String toMatch: values) {
+//				for (int i = 0; i < values.length; ++i) {
+					if (!other.matches(toMatch)) {
+						return false;
+					}
+				}
+				return true;
+			}
+		}
+
+		private static class NullHandlingMatcher implements ObjectMatcher<String> {
+			private static class AlwaysMismatched implements ObjectMatcher<String> {
+				
+				@Override
+				public boolean matches(String o)  {
+					return false;
+				}
+				
+			}
+			final ObjectMatcher<String> matcher;
+			public NullHandlingMatcher(Map<String,MatcherPattern> col, String key) {
+				MatcherPattern mpTemp=col.get(key);
+				if (mpTemp==null) {
+					matcher=new AlwaysMismatched();
+				} else {
+					matcher=mpTemp.matcher;
+				}
+			}
+			@Override
+			public boolean matches(String o) {
+				return matcher.matches(o);
+			}
+			
+		}
+		
+	}
+
+	private static final Relation<PluralInfo.Count, String> PLURAL_EXCEPTIONS = Relation.of(
 			new EnumMap<PluralInfo.Count, Set<String>>(PluralInfo.Count.class), HashSet.class);
 	static {
 		PLURAL_EXCEPTIONS.put(PluralInfo.Count.many, "hr");
@@ -214,7 +274,7 @@ public class TestAttributeValues extends TestFmwk {
 		PLURAL_EXCEPTIONS.put(PluralInfo.Count.few, "ru");
 	}
 
-	static boolean isPluralException(Count countValue, String locale) {
+	private static boolean isPluralException(Count countValue, String locale) {
 		Set<String> exceptions = PLURAL_EXCEPTIONS.get(countValue);
 		if (exceptions == null) {
 			return false;
@@ -239,7 +299,7 @@ public class TestAttributeValues extends TestFmwk {
 	 * 
 	 * @return
 	 */
-	String getReplacement(String value, String attributeValue) {
+	private String getReplacement(String value, String attributeValue) {
 		Map<String, String> type_replacement = code_type_replacement.get(value);
 		if (type_replacement == null) {
 			return null;
@@ -247,29 +307,28 @@ public class TestAttributeValues extends TestFmwk {
 		return type_replacement.get(attributeValue);
 	}
 
-
+	/**
+	 * Rebuild the erorr reporting infrastructure, to not leave references to there
+	 * @author ribnitz
+	 *
+	 */
 	private enum ResultStatus {
-		error, warning,info;
+		error, warning;
 	}
 	private static class CheckResult {
-		Object cause;
 		ResultStatus status;
 		String message;
 		public CheckResult() {}
 
+		public CheckResult(ResultStatus status,String tmpl,Object args) {
+			this.status=status;
+			this.message=MessageFormat.format(tmpl, args);
+		}
 		public CheckResult setMessage(String msg, Object[] args) {
 			message=MessageFormat.format(msg, args);
 			return this;
 		}
 
-		public Object getCause() {
-			return cause;
-		}
-
-		public CheckResult setCause(Object cause) {
-			this.cause = cause;
-			return this;
-		}
 
 		public ResultStatus getStatus() {
 			return status;
@@ -330,7 +389,7 @@ public class TestAttributeValues extends TestFmwk {
 		}
 		if (!localeMatcher.matches(cldrFileToCheck.getLocaleID())) {
 			possibleErrors.add(
-					new CheckResult().setCause(this).setStatus(ResultStatus.error)
+					new CheckResult().setStatus(ResultStatus.error)
 					.setMessage("Invalid Locale {0}", new Object[] { cldrFileToCheck.getLocaleID() }));
 
 		}
@@ -486,7 +545,7 @@ public class TestAttributeValues extends TestFmwk {
 
 		m.value = key;
 		m.pattern = values.toString();
-		m.matcher = new CollectionMatcher().set(values);
+		m.matcher =  ObjectMatcherFactory.createCollectionMatcher(values);
 		return m;
 
 	}
@@ -502,7 +561,8 @@ public class TestAttributeValues extends TestFmwk {
 			temp.value = value;
 			result = temp;
 			if ("list".equals(typeAttribute)) {
-				temp.matcher = new ListMatcher().set(result.matcher);
+//				temp.matcher = new ListMatcher().set(result.matcher);
+				temp.matcher = ObjectMatcherFactory.createListMatcher(result.matcher);
 			}
 			return result;
 		}
@@ -518,26 +578,25 @@ public class TestAttributeValues extends TestFmwk {
 		if ("choice".equals(typeAttribute)
 				|| "given".equals(attributes.get("order"))) {
 			List<String> valueList=whitespaceSplitter.splitToList(value.trim());
-			result.matcher = new CollectionMatcher()
-			.set(valueList);
+			result.matcher =ObjectMatcherFactory.createCollectionMatcher(valueList);
 					//new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
 		} else if ("bcp47".equals(typeAttribute)) {
 			result = getBcp47MatcherPattern(sdi, value);
 		} else if ("regex".equals(typeAttribute)) {
-			result.matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
+			result.matcher = ObjectMatcherFactory.createRegexMatcher(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
 		} else if ("list".equals(typeAttribute)) {
-			result.matcher = new RegexMatcher().set(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
+			result.matcher = ObjectMatcherFactory.createRegexMatcher(value, Pattern.COMMENTS); // Pattern.COMMENTS to get whitespace
 		} else if ("locale".equals(typeAttribute)) {
 			// locale: localeMatcher will test for language values, and fail with a NPE.
 			if (variables.containsKey("$language")) {
 				result.matcher = LocaleMatcher.make();
 			} else {
 				// no language in the variables
-				System.out.println("Empty locale type element: Path: "+path);
-				result.matcher=new NullHandlingMatcher(variables, "$language");
+				System.out.println("Empty locale type element at Path: "+path);
+				result.matcher=ObjectMatcherFactory.createNullHandlingMatcher(variables, "$language");
 			}
 		} else if ("notDoneYet".equals(typeAttribute) || "notDoneYet".equals(value)) {
-			result.matcher = new RegexMatcher().set(".*", Pattern.COMMENTS);
+			result.matcher = ObjectMatcherFactory.createRegexMatcher(".*", Pattern.COMMENTS);
 		} else {
 			System.out.println("unknown type; value: <" + value + ">,\t" + typeAttribute + ",\t" + attributes + ",\t"
 					+ path);
@@ -550,7 +609,7 @@ public class TestAttributeValues extends TestFmwk {
 		for (String attribute : attributes) {
 			MatcherPattern old = attribute_validity.get(attribute);
 			if (old != null) {
-				mp.matcher = new OrMatcher().set(old.matcher, mp.matcher);
+				mp.matcher = ObjectMatcherFactory.createOrMatcher(old.matcher, mp.matcher);
 				mp.pattern = old.pattern + " OR " + mp.pattern;
 			}
 			attribute_validity.put(attribute, mp);
@@ -588,24 +647,13 @@ public class TestAttributeValues extends TestFmwk {
 		}
 		List<CheckResult> warnings=Collections.emptyList();
 		List<CheckResult> errors=Collections.emptyList();
-		// did we get some errors?
+		// did we get some errors or warnings?
 		if (!results.isEmpty()) {
-			warnings=FluentIterable.from(results).filter(new Predicate<CheckResult>() {
+			warnings=FluentIterable.from(results).filter(new CheckResultPredicate(ResultStatus.warning)).toList();
+			errors=FluentIterable.from(results).filter(new CheckResultPredicate(ResultStatus.error)).toList();
 
-				@Override
-				public boolean apply(CheckResult input) {
-					return input.getStatus()==ResultStatus.warning;
-				}
-			}).toList();
-			 errors=FluentIterable.from(results).filter(new Predicate<CheckResult>(){
-
-				@Override
-				public boolean apply(CheckResult input) {
-					return input.getStatus()==ResultStatus.error;
-				}}).toList();
-			
-		   System.out.println(getResultMessages(warnings,"warnings"));
-		   System.out.println(getResultMessages(errors, "errors"));
+			System.out.println(getResultMessages(warnings,"warnings"));
+			System.out.println(getResultMessages(errors, "errors"));
 		}
 		boolean successful=warnings.isEmpty() && errors.isEmpty();
 		if (!successful) {
@@ -614,6 +662,19 @@ public class TestAttributeValues extends TestFmwk {
 
 	}
 
+	public static Iterable<CheckResult> performCheck(CLDRFile fileToCheck,Factory fact,SupplementalDataInfo sdi) {
+		List<CheckResult> results=new ArrayList<>();
+		TestAttributeValues tav=new TestAttributeValues();
+		tav.supplementalData=sdi;
+			tav.initialize(fileToCheck, results,fact);
+			for (String curPath: fileToCheck) {
+				tav.handleCheck(curPath, curPath, "", results,fileToCheck);
+			}
+		if (results.isEmpty()) {
+			return Collections.emptyList();
+		}
+		return results;
+	}
 
 	private String getResultMessages(Iterable<CheckResult> result,String resultType) {
 		StringBuilder sb=new StringBuilder();
@@ -637,16 +698,16 @@ public class TestAttributeValues extends TestFmwk {
 		if (replacement != null) {
 			if (isEnglish) return; // don't flag English
 			if (replacement.length() == 0) {
-				result.add(new CheckResult().setCause(this).setStatus(ResultStatus.warning)
+				result.add(new CheckResult().setStatus(ResultStatus.warning)
 						.setMessage("Deprecated Attribute Value {0}={1}. Consider removing.",  
 								new Object[] { attribute, attributeValue }));
 			} else {
-				result.add(new CheckResult().setCause(this).setStatus(ResultStatus.warning)
+				result.add(new CheckResult().setStatus(ResultStatus.warning)
 						.setMessage("Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.", 
 								new Object[] { attribute, attributeValue, replacement }));
 			}
 		} else {
-			result.add(new CheckResult().setCause(this).setStatus(ResultStatus.error)
+			result.add(new CheckResult().setStatus(ResultStatus.error)
 					.setMessage("Unexpected Attribute Value {0}={1}: expected: {2} Path: {3}", 
 							new Object[] { attribute, attributeValue, matcherPattern.pattern,path}));
 		}
@@ -672,7 +733,6 @@ public class TestAttributeValues extends TestFmwk {
 
 			Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
 			for (Map.Entry<String, String> entry: attributes.entrySet()) {
-				//for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext();) {
 				String attribute = entry.getKey();
 				String attributeValue =entry.getValue();
 				// check the common attributes first
@@ -689,16 +749,16 @@ public class TestAttributeValues extends TestFmwk {
 						final Count countValue = PluralInfo.Count.valueOf(attributeValue);
 						if (!pluralInfo.getCounts().contains(countValue)
 								&& !isPluralException(countValue, locale)) {
-							result.add(new CheckResult().setCause(this).setStatus(ResultStatus.error).
-									setMessage("Illegal plural value {0}; must be one of: {1}",  
-									new Object[] { countValue, pluralInfo.getCounts() }));
-
+							result.add(
+									new CheckResult(ResultStatus.error, "Illegal plural value {0}; must be one of: {1}",
+											new Object[] { countValue, pluralInfo.getCounts() }));
 						}
 					}
 				}
 			}
 		}
 	}
+	
 	public static void main(String[] args) {
 		new TestAttributeValues().run(args);
 	}

@@ -1677,6 +1677,7 @@ function showForumStuff(frag, forumDiv, tr) {
 					listenFor(popupSelect, "change", function(e) {
 						var newLoc = popupSelect.value;
 						if(newLoc !== surveyCurrentLocale) {
+							surveyCurrentSpecial = '';
 							surveyCurrentLocale = newLoc;
 							reloadV();
 						}
@@ -1701,7 +1702,8 @@ function showForumStuff(frag, forumDiv, tr) {
 		}
 	}
 	var newButton = createChunk(stui.str(buttonTitle), "button", buttonClass);
-	frag.appendChild(newButton);
+	if(!isDashboard())
+		frag.appendChild(newButton);
 	
 	listenFor(newButton, "click", function(e) {
 		//window.blur(); // submit anything unsubmitted

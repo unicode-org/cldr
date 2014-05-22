@@ -640,8 +640,15 @@ function insertFixInfo(theDiv,xpath,session,json) {
 		if(!theRow) {
 			console.log("Missing row " + k);
 		}
+		
+		
 		updateRow(tr,theRow);
-				
+		
+		if(!tr.forumDiv) {
+			tr.forumDiv = document.createElement("div");
+			tr.forumDiv.className = "forumDiv";
+		}	
+		appendForumStuff(tr,theRow, tr.forumDiv);
 		tbody.appendChild(tr);	
 		theDiv.appendChild(doInsertTable);
 }

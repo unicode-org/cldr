@@ -460,6 +460,7 @@ public class DisplayAndInputProcessor {
      * @return
      */
     public synchronized String processForDisplay(String path, String value) {
+        value = Normalizer.compose(value, false); // Always normalize all text to NFC.
         if (path.contains("exemplarCharacters")) {
             if (value.startsWith("[") && value.endsWith("]")) {
                 value = value.substring(1, value.length() - 1);
@@ -509,6 +510,7 @@ public class DisplayAndInputProcessor {
      */
     public synchronized String processInput(String path, String value, Exception[] internalException) {
         String original = value;
+        value = Normalizer.compose(value, false); // Always normalize all input to NFC.
         if (internalException != null) {
             internalException[0] = null;
         }

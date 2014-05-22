@@ -1270,8 +1270,7 @@ function updateStatus() {
  */
 function setTimerOn() {
     updateStatus();
-//    timerID = setInterval(updateStatus, timerSpeed);
-    
+    // an interval is not used - each status update does its own timeout.
 }
 
 /**
@@ -1281,8 +1280,6 @@ function setTimerOn() {
  */
 function resetTimerSpeed(speed) {
 	timerSpeed = speed;
-//	clearInterval(timerID);
-//	timerID = setInterval(updateStatus, timerSpeed);
 }
 
 // set up window. Let Dojo call us, otherwise dojo won't load.
@@ -3662,15 +3659,15 @@ function showV() {
 			return clickyLink;
 		};
 
-		/* trace for dijit leak */
-		if(!surveyOfficial) window.TRL=function() {
-			var sec = 5;
-			console.log("Tracing dijit registry leaks every "+sec+"s");
-			window.setInterval(function() {
-				document.title = "[dijit:"+registry.length+"] | ";
-			}, 1000 * sec);
-		};
-		
+//		/* trace for dijit leak */
+//		if(!surveyOfficial) window.TRL=function() {
+//			var sec = 5;
+//			console.log("Tracing dijit registry leaks every "+sec+"s");
+//			window.setInterval(function() {
+//				document.title = "[dijit:"+registry.length+"] | ";
+//			}, 1000 * sec);
+//		};
+//		
 		/**
 		 * list of pages to use with the flipper
 		 * @property pages
@@ -4515,10 +4512,6 @@ function showV() {
 //			var serverLoadInfo = createChunk("","div","serverLoadInfo");			
 //			//loadingPane.appendChild(serverLoadInfo);
 			{
-				window.setTimeout(function(){
-						 updateStatus(); // will restart regular status updates
-				}, 5000); // get a status update about 5s in.
-
 				// Create a little spinner to spin "..." so the user knows we are doing something..
 				var spinChunk = createChunk("...","i","loadingMsgSpin");
 				var spin = 0;

@@ -4001,7 +4001,13 @@ function showV() {
 		};
 		
 		function updateCoverageMenuTitle() {
-			$('#coverage-info').text(stui.sub('coverage_auto_msg', {surveyOrgCov: stui.str('coverage_' + surveyOrgCov)}));
+			var cov = '';
+			if(surveyUserCov) {
+				$('#coverage-info').text(stui.str('coverage_' + surveyUserCov));
+			}
+			else {
+				$('#coverage-info').text(stui.sub('coverage_auto_msg', {surveyOrgCov: stui.str('coverage_' + surveyOrgCov)}));
+			}
 		}
 		function updateCoverageMenuValue() 	
 		{

@@ -18,6 +18,7 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.ObjectMatcherFactory;
+import org.unicode.cldr.unittest.ObjectMatcherFactory.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -47,9 +48,9 @@ public class TestAttributeValues extends TestFmwk {
 	 private final Set<String> elementOrder = new LinkedHashSet<String>();
 	 private final Set<String> attributeOrder = new LinkedHashSet<String>();
 	 
-	 private final  Map<String, Map<String, ObjectMatcherFactory.MatcherPattern>> element_attribute_validity = new HashMap<String, Map<String, ObjectMatcherFactory.MatcherPattern>>();
-	 private final Map<String, ObjectMatcherFactory.MatcherPattern> common_attribute_validity = new HashMap<String, ObjectMatcherFactory.MatcherPattern>();
-	 final static Map<String, ObjectMatcherFactory.MatcherPattern> variables = new HashMap<String, ObjectMatcherFactory.MatcherPattern>();
+	 private final  Map<String, Map<String, MatcherPattern>> element_attribute_validity = new HashMap<String, Map<String, MatcherPattern>>();
+	 private final Map<String, MatcherPattern> common_attribute_validity = new HashMap<String, MatcherPattern>();
+	 final static Map<String, MatcherPattern> variables = new HashMap<String, MatcherPattern>();
 	// static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above
 	// -- to do later.
 	private  boolean initialized = false;
@@ -306,7 +307,7 @@ public class TestAttributeValues extends TestFmwk {
 				// value = variableReplacer.replace(value);
 				// if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
 				Map<String, String> attributes = parts.getAttributes(-1);
-				ObjectMatcherFactory.MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
+				MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
 				if (mp != null) {
 					String id = attributes.get("id");
 					variables.put(id, mp);
@@ -316,7 +317,7 @@ public class TestAttributeValues extends TestFmwk {
 				try {
 					Map<String, String> attributes = parts.getAttributes(-1);
 
-					ObjectMatcherFactory.MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
+					MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
 					if (mp == null) {
 						// System.out.println("Failed to make matcher for: " + value + "\t" + path);
 						continue;
@@ -333,10 +334,10 @@ public class TestAttributeValues extends TestFmwk {
 //						for (int i = 0; i < elementList.length; ++i) {
 //							String element = elementList[i];
 							// System.out.println("\t" + element);
-							Map<String, ObjectMatcherFactory.MatcherPattern> attribute_validity = element_attribute_validity.get(element);
+							Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
 							if (attribute_validity == null)
 								element_attribute_validity.put(element,
-										attribute_validity = new TreeMap<String, ObjectMatcherFactory.MatcherPattern>());
+										attribute_validity = new TreeMap<String, MatcherPattern>());
 							addAttributes(attributeList, attribute_validity, mp);
 						}
 					}
@@ -384,8 +385,8 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
-	private ObjectMatcherFactory.MatcherPattern getBcp47MatcherPattern(SupplementalDataInfo sdi, String key) {
-		ObjectMatcherFactory.MatcherPattern m = new ObjectMatcherFactory.MatcherPattern();
+	private MatcherPattern getBcp47MatcherPattern(SupplementalDataInfo sdi, String key) {
+		MatcherPattern m = new MatcherPattern();
 		Relation<R2<String, String>, String> bcp47Aliases = sdi.getBcp47Aliases();
 		Set<String> values = new TreeSet<String>();
 		for (String value : sdi.getBcp47Keys().getAll(key)) {
@@ -413,12 +414,12 @@ public class TestAttributeValues extends TestFmwk {
 
 	}
 
-	private ObjectMatcherFactory.MatcherPattern getMatcherPattern(String value, Map<String, String> attributes, String path,
+	private MatcherPattern getMatcherPattern(String value, Map<String, String> attributes, String path,
 			SupplementalDataInfo sdi) {
 		String typeAttribute = attributes.get("type");
-		ObjectMatcherFactory.MatcherPattern result = variables.get(value);
+		MatcherPattern result = variables.get(value);
 		if (result != null) {
-			ObjectMatcherFactory.MatcherPattern temp = new ObjectMatcherFactory.MatcherPattern();
+			MatcherPattern temp = new MatcherPattern();
 			temp.pattern = result.pattern;
 			temp.matcher = result.matcher;
 			temp.value = value;
@@ -430,7 +431,7 @@ public class TestAttributeValues extends TestFmwk {
 			return result;
 		}
 
-		result = new ObjectMatcherFactory.MatcherPattern();
+		result = new MatcherPattern();
 		result.pattern = value;
 		result.value = value;
 		if (typeAttribute==null) {
@@ -456,7 +457,7 @@ public class TestAttributeValues extends TestFmwk {
 			} else {
 				// no language in the variables
 				System.out.println("Empty locale type element at Path: "+path);
-				result.matcher=ObjectMatcherFactory.createNullHandlingMatcher(variables, "$language");
+				result.matcher=ObjectMatcherFactory.createNullHandlingMatcher(variables, "$language",true);
 			}
 		} else if ("notDoneYet".equals(typeAttribute) || "notDoneYet".equals(value)) {
 			result.matcher = ObjectMatcherFactory.createRegexMatcher(".*", Pattern.COMMENTS);
@@ -468,9 +469,9 @@ public class TestAttributeValues extends TestFmwk {
 		return result;
 	}
 
-	private void addAttributes(Iterable<String> attributes, Map<String, ObjectMatcherFactory.MatcherPattern> attribute_validity, ObjectMatcherFactory.MatcherPattern mp) {
+	private void addAttributes(Iterable<String> attributes, Map<String, MatcherPattern> attribute_validity, MatcherPattern mp) {
 		for (String attribute : attributes) {
-			ObjectMatcherFactory.MatcherPattern old = attribute_validity.get(attribute);
+			MatcherPattern old = attribute_validity.get(attribute);
 			if (old != null) {
 				mp.matcher = ObjectMatcherFactory.createOrMatcher(old.matcher, mp.matcher);
 				mp.pattern = old.pattern + " OR " + mp.pattern;
@@ -550,10 +551,10 @@ public class TestAttributeValues extends TestFmwk {
 		return sb.toString();
 	}
 
-	private void check(Map<String, ObjectMatcherFactory.MatcherPattern> attribute_validity, String attribute, String attributeValue,
-			List<CheckResult> result, String path) {
+	private void check(Map<String, MatcherPattern> attribute_validity, String attribute, String attributeValue,
+			List<CheckResult> result, String path,String locale) {
 		if (attribute_validity == null) return; // no test
-		ObjectMatcherFactory.MatcherPattern matcherPattern = attribute_validity.get(attribute);
+		MatcherPattern matcherPattern = attribute_validity.get(attribute);
 		if (matcherPattern == null) return; // no test
 		if (matcherPattern.matcher.matches(attributeValue)) return;
 		// special check for deprecated codes
@@ -562,17 +563,22 @@ public class TestAttributeValues extends TestFmwk {
 			if (isEnglish) return; // don't flag English
 			if (replacement.length() == 0) {
 				result.add(new CheckResult().setStatus(ResultStatus.warning)
-						.setMessage("Deprecated Attribute Value {0}={1}. Consider removing.",  
-								new Object[] { attribute, attributeValue }));
+						.setMessage("Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing.",  
+								new Object[] { locale, attribute, attributeValue,locale }));
 			} else {
 				result.add(new CheckResult().setStatus(ResultStatus.warning)
-						.setMessage("Deprecated Attribute Value {0}={1}. Consider removing, and possibly modifying the related value for {2}.", 
-								new Object[] { attribute, attributeValue, replacement }));
+						.setMessage("Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and possibly modifying the related value for {3}.", 
+								new Object[] { locale, attribute, attributeValue, replacement }));
 			}
 		} else {
-			result.add(new CheckResult().setStatus(ResultStatus.error)
-					.setMessage("Unexpected Attribute Value {0}={1}: expected: {2} Path: {3}", 
-							new Object[] { attribute, attributeValue, matcherPattern.pattern,path}));
+			// for now: disregard missing variable expansions
+			String pattern= matcherPattern.pattern;
+			if (pattern!=null&&!pattern.trim().startsWith("$")) {
+				result.add(new CheckResult().setStatus(ResultStatus.error)
+						.setMessage("Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3} Path: {4}", 
+								new Object[] { locale, attribute, attributeValue, matcherPattern.pattern,path}));
+
+			}
 		}
 	}
 
@@ -594,14 +600,14 @@ public class TestAttributeValues extends TestFmwk {
 			Map<String, String> attributes = parts.getAttributes(i);
 			String element = parts.getElement(i);
 
-			Map<String, ObjectMatcherFactory.MatcherPattern> attribute_validity = element_attribute_validity.get(element);
+			Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
 			for (Map.Entry<String, String> entry: attributes.entrySet()) {
 				String attribute = entry.getKey();
 				String attributeValue =entry.getValue();
 				// check the common attributes first
-				check(common_attribute_validity, attribute, attributeValue, result, fullPath);
+				check(common_attribute_validity, attribute, attributeValue, result, fullPath,locale);
 				// then for the specific element
-				check(attribute_validity, attribute, attributeValue, result, fullPath);
+				check(attribute_validity, attribute, attributeValue, result, fullPath,locale);
 
 				// now for plurals
 

@@ -56,8 +56,8 @@ class ObjectMatcherFactory {
 	 * Create a Matcher that will never match
 	 * @return
 	 */
-	public static ObjectMatcher<String> createNullMatcher() {
-		return new NullMatcher();
+	public static ObjectMatcher<String> createNullMatcher(boolean retVal) {
+		return new DefaultingMatcher(retVal);
 	}
 
 	/**
@@ -66,16 +66,10 @@ class ObjectMatcherFactory {
 	 * @param key
 	 * @return
 	 */
-	public static ObjectMatcher<String> createNullHandlingMatcher(Map<String,ObjectMatcherFactory.MatcherPattern> m, String key) {
-		return new NullHandlingMatcher(m, key);
+	public static ObjectMatcher<String> createNullHandlingMatcher(Map<String,ObjectMatcherFactory.MatcherPattern> m, String key,boolean valueIfAbsent) {
+		return new NullHandlingMatcher(m, key,valueIfAbsent);
 	}
 
-	private static class NullMatcher implements ObjectMatcher<String> {
-		@Override
-		public boolean matches(String arg0) {
-			return false;
-		}	
-	}
 
 	private static class RegexMatcher implements ObjectMatcher<String> {
 		private java.util.regex.Matcher matcher;
@@ -147,23 +141,23 @@ class ObjectMatcherFactory {
 		}
 	}
 
-	private static class NullHandlingMatcher implements ObjectMatcher<String> {
-		private static class AlwaysMismatched implements ObjectMatcher<String> {
-
-			@Override
-			public boolean matches(String o)  {
-				return false;
-			}
-
+	private static class DefaultingMatcher implements ObjectMatcher<String> {
+		private final boolean defaultValue;
+		
+		public DefaultingMatcher(boolean val) {
+			defaultValue=val;
 		}
+		public boolean matches(String o)  {
+			return defaultValue;
+		}
+	}
+
+	private static class NullHandlingMatcher implements ObjectMatcher<String> {
+	
 		final ObjectMatcher<String> matcher;
-		public NullHandlingMatcher(Map<String,ObjectMatcherFactory.MatcherPattern> col, String key) {
+		public NullHandlingMatcher(Map<String,ObjectMatcherFactory.MatcherPattern> col, String key,boolean defaultVal) {
 			ObjectMatcherFactory.MatcherPattern mpTemp=col.get(key);
-			if (mpTemp==null) {
-				matcher=new AlwaysMismatched();
-			} else {
-				matcher=mpTemp.matcher;
-			}
+			matcher=mpTemp==null?new DefaultingMatcher(defaultVal):mpTemp.matcher;
 		}
 		@Override
 		public boolean matches(String o) {

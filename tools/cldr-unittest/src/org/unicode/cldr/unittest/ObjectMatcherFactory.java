@@ -53,10 +53,10 @@ class ObjectMatcherFactory {
 	}
 
 	/**
-	 * Create a Matcher that will never match
+	 * Create a Matcher that will always return the value provided
 	 * @return
 	 */
-	public static ObjectMatcher<String> createNullMatcher(boolean retVal) {
+	public static ObjectMatcher<String> createDefaultingMatcher(boolean retVal) {
 		return new DefaultingMatcher(retVal);
 	}
 

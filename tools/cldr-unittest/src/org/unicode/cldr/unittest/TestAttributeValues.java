@@ -17,6 +17,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.unittest.ObjectMatcherFactory;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -46,9 +47,9 @@ public class TestAttributeValues extends TestFmwk {
 	 private final Set<String> elementOrder = new LinkedHashSet<String>();
 	 private final Set<String> attributeOrder = new LinkedHashSet<String>();
 	 
-	 private final  Map<String, Map<String, MatcherPattern>> element_attribute_validity = new HashMap<String, Map<String, MatcherPattern>>();
-	 private final Map<String, MatcherPattern> common_attribute_validity = new HashMap<String, MatcherPattern>();
-	 final static Map<String, MatcherPattern> variables = new HashMap<String, MatcherPattern>();
+	 private final  Map<String, Map<String, ObjectMatcherFactory.MatcherPattern>> element_attribute_validity = new HashMap<String, Map<String, ObjectMatcherFactory.MatcherPattern>>();
+	 private final Map<String, ObjectMatcherFactory.MatcherPattern> common_attribute_validity = new HashMap<String, ObjectMatcherFactory.MatcherPattern>();
+	 final static Map<String, ObjectMatcherFactory.MatcherPattern> variables = new HashMap<String, ObjectMatcherFactory.MatcherPattern>();
 	// static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above
 	// -- to do later.
 	private  boolean initialized = false;
@@ -62,6 +63,11 @@ public class TestAttributeValues extends TestFmwk {
 	XPathParts parts = new XPathParts(null, null);
 	static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
 
+	/**
+	 * Predicate to filter the results, will return only those where the ResultStatus matches
+	 * @author ribnitz
+	 *
+	 */
 	private static final class CheckResultPredicate implements
 			Predicate<CheckResult> {
 		private final ResultStatus success;
@@ -75,16 +81,11 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
-	private static class MatcherPattern {
-		public String value;
-		ObjectMatcher<String> matcher;
-		String pattern;
-
-		public String toString() {
-			return matcher.getClass().getName() + "\t" + pattern;
-		}
-	}
-
+	/**
+	 * Tightly coupled matcher for Locales
+	 * @author ribnitz
+	 *
+	 */
 	private static class LocaleMatcher implements ObjectMatcher<String> {
 		ObjectMatcher<String> grandfathered = variables.get("$grandfathered").matcher;
 		ObjectMatcher<String> language = variables.get("$language").matcher;
@@ -125,144 +126,6 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
-
-	/**
-	 * Static class for those ObjectMatchers that are not thightly coupled.
-	 * @author ribnitz
-	 *
-	 */
-	public static class ObjectMatcherFactory {
-		public static ObjectMatcher<String> createRegexMatcher(String pattern) {
-			return new RegexMatcher().set(pattern);
-		}
-		
-		public static ObjectMatcher<String> createRegexMatcher(String pattern,int flags) {
-			return new RegexMatcher().set(pattern,flags);
-		}
-		
-		public static ObjectMatcher<String> createCollectionMatcher(Collection<String> col) {
-			return new CollectionMatcher().set(col);
-		}
-		
-		public static ObjectMatcher<String> createOrMatcher(ObjectMatcher<String> m1,ObjectMatcher<String> m2) {
-			return new OrMatcher().set(m1, m2);
-		}
-		
-		public static ObjectMatcher<String> createListMatcher(ObjectMatcher<String> matcher) {
-			return new ListMatcher().set(matcher);
-		}
-		
-		public static ObjectMatcher<String> createNullMatcher() {
-			return new NullMatcher();
-		}
-		
-		public static ObjectMatcher<String> createNullHandlingMatcher(Map<String,MatcherPattern> m, String key) {
-			return new NullHandlingMatcher(m, key);
-		}
-		
-		private static class NullMatcher implements ObjectMatcher<String> {
-			@Override
-			public boolean matches(String arg0) {
-				return false;
-			}	
-		}
-		
-		private static class RegexMatcher implements ObjectMatcher<String> {
-			private java.util.regex.Matcher matcher;
-
-			public ObjectMatcher<String> set(String pattern) {
-				matcher =PatternCache.get(pattern).matcher("");
-				return this;
-			}
-
-			public ObjectMatcher<String> set(String pattern, int flags) {
-				matcher = Pattern.compile(pattern, flags).matcher("");
-				return this;
-			}
-
-			public boolean matches(String value) {
-				matcher.reset(value.toString());
-				return matcher.matches();
-			}
-		}
-
-		private static class CollectionMatcher implements ObjectMatcher<String> {
-			private Collection<String> collection;
-
-			public ObjectMatcher<String> set(Collection<String> collection) {
-				this.collection = collection;
-				return this;
-			}
-
-			public boolean matches(String value) {
-				return collection.contains(value);
-			}
-		}
-
-		private static class OrMatcher implements ObjectMatcher<String> {
-			private ObjectMatcher<String> a;
-			private ObjectMatcher<String> b;
-
-			public ObjectMatcher<String> set(ObjectMatcher<String> a, ObjectMatcher<String> b) {
-				this.a = a;
-				this.b = b;
-				return this;
-			}
-
-			public boolean matches(String value) {
-				return a.matches(value) || b.matches(value);
-			}
-		}
-
-		private static class ListMatcher implements ObjectMatcher<String> {
-			private ObjectMatcher<String> other;
-			private static final Splitter WHITESPACE_SPLITTER=Splitter.on(PatternCache.get("\\s+"));
-			
-			public ObjectMatcher<String> set(ObjectMatcher<String> other) {
-				this.other = other;
-				return this;
-			}
-
-			public boolean matches(String value) {
-				List<String> values=WHITESPACE_SPLITTER.splitToList(value.trim());
-			//	String[] values = value.trim().split("\\s+");
-				if (values.size() == 1 && values.get(0).length() == 0) return true;
-				for (String toMatch: values) {
-//				for (int i = 0; i < values.length; ++i) {
-					if (!other.matches(toMatch)) {
-						return false;
-					}
-				}
-				return true;
-			}
-		}
-
-		private static class NullHandlingMatcher implements ObjectMatcher<String> {
-			private static class AlwaysMismatched implements ObjectMatcher<String> {
-				
-				@Override
-				public boolean matches(String o)  {
-					return false;
-				}
-				
-			}
-			final ObjectMatcher<String> matcher;
-			public NullHandlingMatcher(Map<String,MatcherPattern> col, String key) {
-				MatcherPattern mpTemp=col.get(key);
-				if (mpTemp==null) {
-					matcher=new AlwaysMismatched();
-				} else {
-					matcher=mpTemp.matcher;
-				}
-			}
-			@Override
-			public boolean matches(String o) {
-				return matcher.matches(o);
-			}
-			
-		}
-		
-	}
 
 	private static final Relation<PluralInfo.Count, String> PLURAL_EXCEPTIONS = Relation.of(
 			new EnumMap<PluralInfo.Count, Set<String>>(PluralInfo.Count.class), HashSet.class);
@@ -443,7 +306,7 @@ public class TestAttributeValues extends TestFmwk {
 				// value = variableReplacer.replace(value);
 				// if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
 				Map<String, String> attributes = parts.getAttributes(-1);
-				MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
+				ObjectMatcherFactory.MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
 				if (mp != null) {
 					String id = attributes.get("id");
 					variables.put(id, mp);
@@ -453,7 +316,7 @@ public class TestAttributeValues extends TestFmwk {
 				try {
 					Map<String, String> attributes = parts.getAttributes(-1);
 
-					MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
+					ObjectMatcherFactory.MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
 					if (mp == null) {
 						// System.out.println("Failed to make matcher for: " + value + "\t" + path);
 						continue;
@@ -470,10 +333,10 @@ public class TestAttributeValues extends TestFmwk {
 //						for (int i = 0; i < elementList.length; ++i) {
 //							String element = elementList[i];
 							// System.out.println("\t" + element);
-							Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
+							Map<String, ObjectMatcherFactory.MatcherPattern> attribute_validity = element_attribute_validity.get(element);
 							if (attribute_validity == null)
 								element_attribute_validity.put(element,
-										attribute_validity = new TreeMap<String, MatcherPattern>());
+										attribute_validity = new TreeMap<String, ObjectMatcherFactory.MatcherPattern>());
 							addAttributes(attributeList, attribute_validity, mp);
 						}
 					}
@@ -521,8 +384,8 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
-	private MatcherPattern getBcp47MatcherPattern(SupplementalDataInfo sdi, String key) {
-		MatcherPattern m = new MatcherPattern();
+	private ObjectMatcherFactory.MatcherPattern getBcp47MatcherPattern(SupplementalDataInfo sdi, String key) {
+		ObjectMatcherFactory.MatcherPattern m = new ObjectMatcherFactory.MatcherPattern();
 		Relation<R2<String, String>, String> bcp47Aliases = sdi.getBcp47Aliases();
 		Set<String> values = new TreeSet<String>();
 		for (String value : sdi.getBcp47Keys().getAll(key)) {
@@ -550,12 +413,12 @@ public class TestAttributeValues extends TestFmwk {
 
 	}
 
-	private MatcherPattern getMatcherPattern(String value, Map<String, String> attributes, String path,
+	private ObjectMatcherFactory.MatcherPattern getMatcherPattern(String value, Map<String, String> attributes, String path,
 			SupplementalDataInfo sdi) {
 		String typeAttribute = attributes.get("type");
-		MatcherPattern result = variables.get(value);
+		ObjectMatcherFactory.MatcherPattern result = variables.get(value);
 		if (result != null) {
-			MatcherPattern temp = new MatcherPattern();
+			ObjectMatcherFactory.MatcherPattern temp = new ObjectMatcherFactory.MatcherPattern();
 			temp.pattern = result.pattern;
 			temp.matcher = result.matcher;
 			temp.value = value;
@@ -567,7 +430,7 @@ public class TestAttributeValues extends TestFmwk {
 			return result;
 		}
 
-		result = new MatcherPattern();
+		result = new ObjectMatcherFactory.MatcherPattern();
 		result.pattern = value;
 		result.value = value;
 		if (typeAttribute==null) {
@@ -605,9 +468,9 @@ public class TestAttributeValues extends TestFmwk {
 		return result;
 	}
 
-	private void addAttributes(Iterable<String> attributes, Map<String, MatcherPattern> attribute_validity, MatcherPattern mp) {
+	private void addAttributes(Iterable<String> attributes, Map<String, ObjectMatcherFactory.MatcherPattern> attribute_validity, ObjectMatcherFactory.MatcherPattern mp) {
 		for (String attribute : attributes) {
-			MatcherPattern old = attribute_validity.get(attribute);
+			ObjectMatcherFactory.MatcherPattern old = attribute_validity.get(attribute);
 			if (old != null) {
 				mp.matcher = ObjectMatcherFactory.createOrMatcher(old.matcher, mp.matcher);
 				mp.pattern = old.pattern + " OR " + mp.pattern;
@@ -687,10 +550,10 @@ public class TestAttributeValues extends TestFmwk {
 		return sb.toString();
 	}
 
-	private void check(Map<String, MatcherPattern> attribute_validity, String attribute, String attributeValue,
+	private void check(Map<String, ObjectMatcherFactory.MatcherPattern> attribute_validity, String attribute, String attributeValue,
 			List<CheckResult> result, String path) {
 		if (attribute_validity == null) return; // no test
-		MatcherPattern matcherPattern = attribute_validity.get(attribute);
+		ObjectMatcherFactory.MatcherPattern matcherPattern = attribute_validity.get(attribute);
 		if (matcherPattern == null) return; // no test
 		if (matcherPattern.matcher.matches(attributeValue)) return;
 		// special check for deprecated codes
@@ -731,7 +594,7 @@ public class TestAttributeValues extends TestFmwk {
 			Map<String, String> attributes = parts.getAttributes(i);
 			String element = parts.getElement(i);
 
-			Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
+			Map<String, ObjectMatcherFactory.MatcherPattern> attribute_validity = element_attribute_validity.get(element);
 			for (Map.Entry<String, String> entry: attributes.entrySet()) {
 				String attribute = entry.getKey();
 				String attributeValue =entry.getValue();

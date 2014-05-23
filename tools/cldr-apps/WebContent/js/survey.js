@@ -1623,22 +1623,27 @@ function showForumStuff(frag, forumDiv, tr) {
 					updateIf(sidewaysControl, ""); // no sibling locales (or all null?)
 				} else {
 					var theMsg = null;
-					if(Object.keys(json.others).length == 1) {
-						theMsg = stui.str("sideways_same");
+					if(Object.keys(json.others).length <= 1) { // if 1/0 value is set
+						//theMsg = stui.str("sideways_same");
+						theMsg = "\u00A0\u00A0\u00A0"; // add spaces to align
 						addClass(sidewaysControl, "sideways_same");
 					} else {
-						theMsg = stui.str("sideways_diff");
+						//theMsg = stui.str("sideways_diff");
+						theMsg = "\u2260\u00A0"; // add unequal & space
 						addClass(sidewaysControl, "sideways_diff");
 					}
 					updateIf(sidewaysControl, ""); // remove string
+
+					var group = document.createElement("optGroup");
+					//group.setAttribute("label", name +  " (" + list.length + ")");
+					//group.setAttribute("title", title);
+					group.setAttribute("label", "Regional Variants");
+					group.setAttribute("title", "Regional Variants");
 					
 					//var popupArea = document.createElement("div");
 					//addClass(popupArea, "sideways_popup");
 					//sidewaysControl.appendChild(popupArea); // will be initially hidden
 					var appendLocaleList = function appendLocaleList(list, name, title) {
-						var group = document.createElement("optGroup");
-						group.setAttribute("label", name +  " (" + list.length + ")");
-						group.setAttribute("title", title);
 						list.sort(); // at least sort the locale ids
 						for(var l=0;l<list.length;l++) {
 							var loc = list[l];
@@ -1646,15 +1651,18 @@ function showForumStuff(frag, forumDiv, tr) {
 							item.setAttribute("value",loc);
 							var str = locmap.getRegionAndOrVariantName(loc);
 							if(loc === surveyCurrentLocale) {
-								str = str + ": " + theMsg;
+								//str = str + ": " + theMsg;
+								str = theMsg + str;
 								item.setAttribute("selected", "selected");
 								item.setAttribute("title",'"'+s+'"');
 							} else {
 				        		var bund = locmap.getLocaleInfo(loc);
+				        		str = "\u00A0\u00A0\u00A0" + str; // add spaces to align
 				        		if(bund && bund.readonly) {
 			        				addClass(item, "locked");
 			        				item.setAttribute("disabled","disabled");
 			        				item.setAttribute("title",stui.str("readonlyGuidance"));
+			        				str = str + " (default)";
 				        		} else {
 				        			item.setAttribute("title",'"'+s+'"');
 				        		}

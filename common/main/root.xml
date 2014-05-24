@@ -205,6 +205,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<cyclicNameSet type="months">
 						<alias source="locale" path="../cyclicNameSet[@type='years']"/>
 					</cyclicNameSet>
+					<cyclicNameSet type="solarTerms">
+						<cyclicNameContext type="format">
+							<cyclicNameWidth type="abbreviated">
+								<cyclicName type="1">spring begins</cyclicName>
+								<cyclicName type="2">rain water</cyclicName>
+								<cyclicName type="3">insects awaken</cyclicName>
+								<cyclicName type="4">spring equinox</cyclicName>
+								<cyclicName type="5">bright and clear</cyclicName>
+								<cyclicName type="6">grain rain</cyclicName>
+								<cyclicName type="7">summer begins</cyclicName>
+								<cyclicName type="8">grain full</cyclicName>
+								<cyclicName type="9">grain in ear</cyclicName>
+								<cyclicName type="10">summer solstice</cyclicName>
+								<cyclicName type="11">minor heat</cyclicName>
+								<cyclicName type="12">major heat</cyclicName>
+								<cyclicName type="13">autumn begins</cyclicName>
+								<cyclicName type="14">end of heat</cyclicName>
+								<cyclicName type="15">white dew</cyclicName>
+								<cyclicName type="16">autumn equinox</cyclicName>
+								<cyclicName type="17">cold dew</cyclicName>
+								<cyclicName type="18">frost descends</cyclicName>
+								<cyclicName type="19">winter begins</cyclicName>
+								<cyclicName type="20">minor snow</cyclicName>
+								<cyclicName type="21">major snow</cyclicName>
+								<cyclicName type="22">winter solstice</cyclicName>
+								<cyclicName type="23">minor cold</cyclicName>
+								<cyclicName type="24">major cold</cyclicName>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="narrow">
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+							<cyclicNameWidth type="wide">
+								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
+							</cyclicNameWidth>
+						</cyclicNameContext>
+					</cyclicNameSet>
 					<cyclicNameSet type="years">
 						<cyclicNameContext type="format">
 							<cyclicNameWidth type="abbreviated">
@@ -281,42 +317,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<cyclicNameContext type="format">
 							<cyclicNameWidth type="abbreviated">
 								<alias source="locale" path="../../../cyclicNameSet[@type='dayParts']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']"/>
-							</cyclicNameWidth>
-							<cyclicNameWidth type="narrow">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
-							</cyclicNameWidth>
-							<cyclicNameWidth type="wide">
-								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
-							</cyclicNameWidth>
-						</cyclicNameContext>
-					</cyclicNameSet>
-					<cyclicNameSet type="solarTerms">
-						<cyclicNameContext type="format">
-							<cyclicNameWidth type="abbreviated">
-								<cyclicName type="1">spring begins</cyclicName>
-								<cyclicName type="2">rain water</cyclicName>
-								<cyclicName type="3">insects awaken</cyclicName>
-								<cyclicName type="4">spring equinox</cyclicName>
-								<cyclicName type="5">bright and clear</cyclicName>
-								<cyclicName type="6">grain rain</cyclicName>
-								<cyclicName type="7">summer begins</cyclicName>
-								<cyclicName type="8">grain full</cyclicName>
-								<cyclicName type="9">grain in ear</cyclicName>
-								<cyclicName type="10">summer solstice</cyclicName>
-								<cyclicName type="11">minor heat</cyclicName>
-								<cyclicName type="12">major heat</cyclicName>
-								<cyclicName type="13">autumn begins</cyclicName>
-								<cyclicName type="14">end of heat</cyclicName>
-								<cyclicName type="15">white dew</cyclicName>
-								<cyclicName type="16">autumn equinox</cyclicName>
-								<cyclicName type="17">cold dew</cyclicName>
-								<cyclicName type="18">frost descends</cyclicName>
-								<cyclicName type="19">winter begins</cyclicName>
-								<cyclicName type="20">minor snow</cyclicName>
-								<cyclicName type="21">major snow</cyclicName>
-								<cyclicName type="22">winter solstice</cyclicName>
-								<cyclicName type="23">minor cold</cyclicName>
-								<cyclicName type="24">major cold</cyclicName>
 							</cyclicNameWidth>
 							<cyclicNameWidth type="narrow">
 								<alias source="locale" path="../cyclicNameWidth[@type='abbreviated']"/>
@@ -2623,7 +2623,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>St. Helena</exemplarCity>
 			</zone>
 			<zone type="America/Lower_Princes">
-				<exemplarCity>Lower Prince's Quarter</exemplarCity>
+				<exemplarCity>Lower Prince’s Quarter</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Beulah">
 				<exemplarCity>Beulah, North Dakota</exemplarCity>

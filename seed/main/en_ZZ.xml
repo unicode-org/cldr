@@ -13,67 +13,67 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<types>
-			<type type="roc" key="calendar">Minguo Calendar [translation hint: also called "Republic of China Calendar", "Republican Calendar"]</type>
+			<type type="roc" key="calendar">Minguo Calendar &lt;br&gt;[translation hint: also called "Republic of China Calendar", "Republican Calendar"]</type>
 		</types>
 	</localeDisplayNames>
 	<dates>
 		<timeZoneNames>
 			<metazone type="Africa_Southern">
 				<long>
-					<standard>South Africa Standard Time [translation hint: translate as just "South Africa Time"]</standard>
+					<standard>South Africa Standard Time &lt;br&gt;[translation hint: translate as just "South Africa Time"]</standard>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
 				<long>
-					<generic>Central Time [translation hint: translate as "North American Central Time"]</generic>
-					<standard>Central Standard Time [translation hint: translate as "North American Central Standard Time"]</standard>
-					<daylight>Central Daylight Time [translation hint: translate as "North American Central Daylight Time"]</daylight>
+					<generic>Central Time &lt;br&gt;[translation hint: translate as "North American Central Time"]</generic>
+					<standard>Central Standard Time &lt;br&gt;[translation hint: translate as "North American Central Standard Time"]</standard>
+					<daylight>Central Daylight Time &lt;br&gt;[translation hint: translate as "North American Central Daylight Time"]</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
-					<generic>Eastern Time [translation hint: translate as "North American Eastern Time"]</generic>
-					<standard>Eastern Standard Time [translation hint: translate as "North American Eastern Standard Time"]</standard>
-					<daylight>Eastern Daylight Time [translation hint: translate as "North American Eastern Daylight Time"]</daylight>
+					<generic>Eastern Time &lt;br&gt;[translation hint: translate as "North American Eastern Time"]</generic>
+					<standard>Eastern Standard Time &lt;br&gt;[translation hint: translate as "North American Eastern Standard Time"]</standard>
+					<daylight>Eastern Daylight Time &lt;br&gt;[translation hint: translate as "North American Eastern Daylight Time"]</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
-					<generic>Mountain Time [translation hint: translate as "North American Mountain Time"]</generic>
-					<standard>Mountain Standard Time [translation hint: translate as "North American Mountain Standard Time"]</standard>
-					<daylight>Mountain Daylight Time [translation hint: translate as "North American Mountain Daylight Time"]</daylight>
+					<generic>Mountain Time &lt;br&gt;[translation hint: translate as "North American Mountain Time"]</generic>
+					<standard>Mountain Standard Time &lt;br&gt;[translation hint: translate as "North American Mountain Standard Time"]</standard>
+					<daylight>Mountain Daylight Time &lt;br&gt;[translation hint: translate as "North American Mountain Daylight Time"]</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
-					<generic>Pacific Time [translation hint: translate as "North American Pacific Time"]</generic>
-					<standard>Pacific Standard Time [translation hint: translate as "North American Pacific Standard Time"]</standard>
-					<daylight>Pacific Daylight Time [translation hint: translate as "North American Pacific Daylight Time"]</daylight>
+					<generic>Pacific Time &lt;br&gt;[translation hint: translate as "North American Pacific Time"]</generic>
+					<standard>Pacific Standard Time &lt;br&gt;[translation hint: translate as "North American Pacific Standard Time"]</standard>
+					<daylight>Pacific Daylight Time &lt;br&gt;[translation hint: translate as "North American Pacific Daylight Time"]</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chamorro">
 				<long>
-					<standard>Chamorro Standard Time [translation hint: translate as just "Chamorro Time"]</standard>
+					<standard>Chamorro Standard Time &lt;br&gt;[translation hint: translate as just "Chamorro Time"]</standard>
 				</long>
 			</metazone>
 			<metazone type="Guam">
 				<long>
-					<standard>Guam Standard Time [translation hint: translate as just "Guam Time"]</standard>
+					<standard>Guam Standard Time &lt;br&gt;[translation hint: translate as just "Guam Time"]</standard>
 				</long>
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<standard>Gulf Standard Time [translation hint: translate as just "Gulf Time"]</standard>
+					<standard>Gulf Standard Time &lt;br&gt;[translation hint: translate as just "Gulf Time"]</standard>
 				</long>
 			</metazone>
 			<metazone type="India">
 				<long>
-					<standard>India Standard Time [translation hint: translate as just "India Time"]</standard>
+					<standard>India Standard Time &lt;br&gt;[translation hint: translate as just "India Time"]</standard>
 				</long>
 			</metazone>
 			<metazone type="Singapore">
 				<long>
-					<standard>Singapore Standard Time [translation hint: translate as just "Singapore Time"]</standard>
+					<standard>Singapore Standard Time &lt;br&gt;[translation hint: translate as just "Singapore Time"]</standard>
 				</long>
 			</metazone>
 		</timeZoneNames>
@@ -81,26 +81,76 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<unit type="area-acre">
-				<displayName>acres [translation hint: this refers specifically to an English acre]</displayName>
+				<displayName>acres &lt;br&gt;[translation hint: refers specifically to an English acre]</displayName>
 				<unitPattern count="one">{0} acre</unitPattern>
 				<unitPattern count="other">{0} acres</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName>days [translation hint: "day" here means a time duration of 24 hours, not a calendar day]</displayName>
+				<displayName>days &lt;br&gt;[translation hint: "day" here means a time duration of 24 hours, not a calendar day]</displayName>
 				<unitPattern count="one">{0} day</unitPattern>
 				<unitPattern count="other">{0} days</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>calories &lt;br&gt;[translation hint: calories as used in chemistry, not the same as food calorie]</displayName>
+				<unitPattern count="one">{0} calorie</unitPattern>
+				<unitPattern count="other">{0} calories</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>Calories &lt;br&gt;[translation hint: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Calories in the US/UK]</displayName>
+				<unitPattern count="one">{0} Calorie</unitPattern>
+				<unitPattern count="other">{0} Calories</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kilocalories &lt;br&gt;[translation hint: kilocalories for uses not specific to food energy, such as chemistry]</displayName>
+				<unitPattern count="one">{0} kilocalorie</unitPattern>
+				<unitPattern count="other">{0} kilocalories</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>stones &lt;br&gt;[translation hint: used in UK/Ireland for body weight, equal to 14 pounds]</displayName>
+				<unitPattern count="one">{0} stone</unitPattern>
+				<unitPattern count="other">{0} stones</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>tons &lt;br&gt;[translation hint: refers to U.S. short ton, not U.K. long ton or metric ton]</displayName>
+				<unitPattern count="one">{0} ton</unitPattern>
+				<unitPattern count="other">{0} tons</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
 			<unit type="area-acre">
-				<displayName>acres [translation hint: this refers specifically to an English acre]</displayName>
+				<displayName>acres &lt;br&gt;[translation hint: refers specifically to an English acre]</displayName>
 				<unitPattern count="one">{0} ac</unitPattern>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<displayName>days [translation hint: "day" here means a time duration of 24 hours, not a calendar day]</displayName>
+				<displayName>days &lt;br&gt;[translation hint: "day" here means a time duration of 24 hours, not a calendar day]</displayName>
 				<unitPattern count="one">{0} day</unitPattern>
 				<unitPattern count="other">{0} days</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>cal &lt;br&gt;[translation hint: calories as used in chemistry, not the same as food calorie]</displayName>
+				<unitPattern count="one">{0} cal</unitPattern>
+				<unitPattern count="other">{0} cal</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>Cal &lt;br&gt;[translation hint: kilocalories for food energy, may have same translation as energy-kilocalorie; displayed as Cal in the US/UK]</displayName>
+				<unitPattern count="one">{0} Cal</unitPattern>
+				<unitPattern count="other">{0} Cal</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kcal &lt;br&gt;[translation hint: kilocalories for uses not specific to food energy, such as chemistry]</displayName>
+				<unitPattern count="one">{0} kcal</unitPattern>
+				<unitPattern count="other">{0} kcal</unitPattern>
+			</unit>
+			<unit type="mass-stone">
+				<displayName>stones &lt;br&gt;[translation hint: used in UK/Ireland for body weight, equal to 14 pounds]</displayName>
+				<unitPattern count="one">{0} st</unitPattern>
+				<unitPattern count="other">{0} st</unitPattern>
+			</unit>
+			<unit type="mass-ton">
+				<displayName>tons &lt;br&gt;[translation hint: refers to U.S. short ton, not U.K. long ton or metric ton]</displayName>
+				<unitPattern count="one">{0} tn</unitPattern>
+				<unitPattern count="other">{0} tn</unitPattern>
 			</unit>
 		</unitLength>
 	</units>

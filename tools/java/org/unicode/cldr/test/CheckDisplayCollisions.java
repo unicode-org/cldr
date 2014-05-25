@@ -1,6 +1,7 @@
 package org.unicode.cldr.test;
 
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -89,6 +90,42 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private final Matcher typePattern = Pattern.compile("\\[@type=\"([^\"]*+)\"]").matcher("");
     private final Matcher attributesToIgnore = Pattern.compile("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
     private final Matcher compactNumberAttributesToIgnore = Pattern.compile("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
+    
+    // map unique path fragment to set of unique fragments for other
+    // paths with which it is OK to have a value collision
+    private static final Map<String, Set<String>> mapPathPartsToSetsForDupOK = createMapPathPartsToSets();
+    private static Map<String, Set<String>> createMapPathPartsToSets() {
+        Map<String, Set<String>> mapPathPartsToSets = new HashMap<String, Set<String>>();
+
+        // Add OK collisions for /unit[@type=\"energy-calorie\"]     
+        Set<String> set1 = new HashSet<String>();
+        set1.add("/unit[@type=\"energy-foodcalorie\"]");
+        mapPathPartsToSets.put("/unit[@type=\"energy-calorie\"]", set1);
+
+        // Add OK collisions for /unit[@type=\"energy-foodcalorie\"]   
+        Set<String> set2 = new HashSet<String>();
+        set2.add("/unit[@type=\"energy-calorie\"]");
+        set2.add("/unit[@type=\"energy-kilocalorie\"]");
+        mapPathPartsToSets.put("/unit[@type=\"energy-foodcalorie\"]", set2);
+
+        // Add OK collisions for /unit[@type=\"energy-kilocalorie\"]     
+        Set<String> set3 = new HashSet<String>();
+        set3.add("/unit[@type=\"energy-foodcalorie\"]");
+        mapPathPartsToSets.put("/unit[@type=\"energy-kilocalorie\"]", set3);
+
+        // Add OK collisions for /unit[@type=\"mass-carat\"]      
+        Set<String> set4 = new HashSet<String>();
+        set4.add("/unit[@type=\"proportion-karat\"]");
+        mapPathPartsToSets.put("/unit[@type=\"mass-carat\"]", set4);
+
+        // Add OK collisions for /unit[@type=\"proportion-karat\"]     
+        Set<String> set5 = new HashSet<String>();
+        set5.add("/unit[@type=\"mass-carat\"]");
+        mapPathPartsToSets.put("/unit[@type=\"proportion-karat\"]", set5);
+
+        // all done, return immutable version
+        return Collections.unmodifiableMap(mapPathPartsToSets);
+    }
 
     private transient final PathHeader.Factory pathHeaderFactory;
 
@@ -197,10 +234,24 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 parts.set(curVal);
                 String unit = parts.getAttributeValue(3, "type");
                 // we also break the units into two groups: durations and others.
-                if (myUnit.equals(unit)
-                    || unit != null && isDuration != unit.startsWith("duration")) {
+                if (myUnit.equals(unit) || unit != null && isDuration != unit.startsWith("duration")) {
                     iterator.remove();
                     log("Removed '" + curVal + "': COLLISON WITH UNIT  " + unit);
+                } else {
+                    // Remove allowed collisions, such as between carats and karats (same in many languages) or
+                    // between foodcalories and either calories or kilocalories
+                    for (Map.Entry<String, Set<String>> mapPathPartToSet : mapPathPartsToSetsForDupOK.entrySet()) {
+                        if (path.contains(mapPathPartToSet.getKey())) {
+                            for (String pathPart: mapPathPartToSet.getValue()) {
+                                if (curVal.contains(pathPart)) {
+                                    iterator.remove();
+                                    log("Removed '" + curVal + "': COLLISON WITH UNIT  " + unit);
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
                 }
             }
         }

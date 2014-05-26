@@ -1,6 +1,10 @@
 package org.unicode.cldr.unittest;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -32,6 +36,7 @@ import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
 import com.google.common.collect.FluentIterable;
@@ -45,13 +50,31 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestAttributeValues extends TestFmwk {
 
-	 private final Set<String> elementOrder = new LinkedHashSet<String>();
-	 private final Set<String> attributeOrder = new LinkedHashSet<String>();
-	 
-	 private final  Map<String, Map<String, MatcherPattern>> element_attribute_validity = new HashMap<String, Map<String, MatcherPattern>>();
-	 private final Map<String, MatcherPattern> common_attribute_validity = new HashMap<String, MatcherPattern>();
-	 final static Map<String, MatcherPattern> variables = new HashMap<String, MatcherPattern>();
-	// static VariableReplacer variableReplacer = new VariableReplacer(); // note: this can be coalesced with the above
+	private final static Joiner SEMICOLON_JOINER = Joiner.on(";").skipNulls();
+
+	/**
+	 * Source directories
+	 */
+	private String[] sourceDirs = new String[] { "/Users/ribnitz/Documents/workspace/cldr/common" };
+
+	/**
+	 * Output to CSV
+	 */
+	private boolean csvOutput = true;
+
+	/**
+	 * location of the CSV file
+	 */
+	private static final String CSV_FILE = "/Users/ribnitz/Documents/data_errors.csv";
+
+	private final Set<String> elementOrder = new LinkedHashSet<String>();
+	private final Set<String> attributeOrder = new LinkedHashSet<String>();
+
+	private final Map<String, Map<String, MatcherPattern>> element_attribute_validity = new HashMap<String, Map<String, MatcherPattern>>();
+	private final Map<String, MatcherPattern> common_attribute_validity = new HashMap<String, MatcherPattern>();
+	final static Map<String, MatcherPattern> variables = new HashMap<String, MatcherPattern>();
+	// static VariableReplacer variableReplacer = new VariableReplacer(); //
+	// note: this can be coalesced with the above
 	// -- to do later.
 	private  boolean initialized = false;
 	private LocaleMatcher localeMatcher;
@@ -172,19 +195,46 @@ public class TestAttributeValues extends TestFmwk {
 	}
 
 	/**
-	 * Rebuild the erorr reporting infrastructure, to not leave references to there
+	 * Rebuild the error reporting infrastructure, to not leave references to there
 	 * @author ribnitz
 	 *
 	 */
 	private enum ResultStatus {
 		error, warning;
 	}
+	
+	/**
+	 * Class for holding error reports
+	 * @author ribnitz
+	 *
+	 */
 	private static class CheckResult {
 		ResultStatus status;
 		String message;
+		String locale;
+		String path;
+		
+		public String getLocale() {
+			return locale;
+		}
+
+		public String getPath() {
+			return path;
+		}
+
+		public CheckResult setPath(String path) {
+			this.path = path;
+			return this;
+		}
+
+		public CheckResult setLocale(String locale) {
+			this.locale = locale;
+			return this;
+		}
+
 		public CheckResult() {}
 
-		public CheckResult(ResultStatus status,String tmpl,Object args) {
+		public CheckResult(ResultStatus status,String locale,String tmpl,Object args) {
 			this.status=status;
 			this.message=MessageFormat.format(tmpl, args);
 		}
@@ -208,6 +258,7 @@ public class TestAttributeValues extends TestFmwk {
 		}
 
 	}
+	
 	LocaleIDParser localeIDParser = new LocaleIDParser();
 
 	private enum Phase {
@@ -251,27 +302,40 @@ public class TestAttributeValues extends TestFmwk {
 				localeMatcher = LocaleMatcher.make();
 			}
 		}
-		if (!localeMatcher.matches(cldrFileToCheck.getLocaleID())) {
-			possibleErrors.add(
-					new CheckResult().setStatus(ResultStatus.error)
-					.setMessage("Invalid Locale {0}", new Object[] { cldrFileToCheck.getLocaleID() }));
+		String localeId= cldrFileToCheck.getLocaleID();
+		if (!localeMatcher.matches(localeId)) {
+				possibleErrors.add(
+					new CheckResult().setStatus(ResultStatus.error).setLocale(localeId)
+					.setMessage("Invalid Locale {0}", new Object[] { localeId}));
 
 		}
 	}
 
+	/**
+	 * Small helper class that wraps an Iterator, and returns it, making possible scenarios:
+	 *  for (Foo foo:new ForwardingIterable(new Iterator(...)) { ... }
+	 *  
+	 * @author ribnitz
+	 *
+	 * @param <E>
+	 */
 	private static class ForwardingIterable<E> implements Iterable<E> {
 
+		/**
+		 * The iterator to forward to
+		 */
 		private final Iterator<E> iterator;
 		
 		public ForwardingIterable(Iterator<E> anIterator) {
 			iterator=anIterator;
 		}
+		
 		@Override
 		public Iterator<E> iterator() {
 			return iterator;
 		}
-		
 	}
+	
 	private List<String> unknownFinalElements=new ArrayList<>();
 	private final Splitter whitespaceSplitter=Splitter.on(PatternCache.get("\\s+"));
 	private void getMetadata(CLDRFile metadata, SupplementalDataInfo sdi) {
@@ -480,9 +544,6 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
-	private static final String[] sourceDirs=new String[] {
-		"/Users/ribnitz/Documents/workspace/cldr/common"
-	};
 	public void TestAttributes() { 
 		CLDRConfig cldrConf=CLDRConfig.getInstance();
 		File[] sourceFiles=new File[sourceDirs.length];
@@ -500,8 +561,18 @@ public class TestAttributeValues extends TestFmwk {
 		Factory cldrFactory = SimpleFactory.make(sourceDirectories, factoryFilter)
 				.setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
 		supplementalData=cldrConf.getSupplementalDataInfo();
-		List<CheckResult> results=new ArrayList<>();
-		for (String c:cldrFactory.getAvailable()) {
+		Set<String> availableLocales=cldrFactory.getAvailable();
+	    System.out.println("Testing: en");
+	    CLDRFile rootLocale=CLDRConfig.getInstance().getEnglish();
+	    List<CheckResult> results=new ArrayList<>();
+		initialize(rootLocale, results,cldrFactory);
+		for (String curPath: rootLocale) {
+			handleCheck(curPath, curPath, "", results,rootLocale);
+		}
+//		List<CheckResult> results=new ArrayList<>();
+		Set<String> localesToTest=new HashSet<>(availableLocales);
+		localesToTest.remove(rootLocale.getLocaleID());
+		for (String c:localesToTest) {
 			System.out.println("Testing: "+c);
 			CLDRFile curCldr= cldrFactory.make(c, false);
 			initialize(curCldr, results,cldrFactory);
@@ -521,9 +592,48 @@ public class TestAttributeValues extends TestFmwk {
 		}
 		boolean successful=warnings.isEmpty() && errors.isEmpty();
 		if (!successful) {
-			errln(new StringBuilder().append(errors.size()).append(" errors and ").append(warnings.size()).append("warnings").toString());
+			if (csvOutput) {
+				StringBuilder sb = new StringBuilder();
+				compileProblemList(warnings, sb);
+				compileProblemList(errors, sb);
+				File errFile=new File(CSV_FILE);
+				if (errFile.exists()) {
+					errFile.delete();
+				}
+				try {
+					if (errFile.createNewFile()) {
+						try (Writer wr=new BufferedWriter(new FileWriter(errFile))) {
+							wr.write(sb.toString());
+						}
+					}
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			errln(new StringBuilder().append(errors.size()).append(" errors and ").append(warnings.size()).append(" warnings").toString());
 		}
 
+	}
+
+	
+	
+	private void compileProblemList(List<CheckResult> problems, StringBuilder sb) {
+		if (csvOutput) {
+			for (CheckResult problem : problems) {
+				sb.append(SEMICOLON_JOINER.join(new Object[] { 
+						problem.getStatus().name(),
+						problem.getLocale(),
+						problem.getMessage(), 
+						problem.getPath()}));
+				sb.append("\r\n");
+			}
+		} else {
+			for (CheckResult problem : problems) { 
+				sb.append(problem.getStatus()+" "+problem.getLocale()+" "+problem.getMessage());
+				sb.append("\r\n");
+			}
+		}
 	}
 
 	public static Iterable<CheckResult> performCheck(CLDRFile fileToCheck,Factory fact,SupplementalDataInfo sdi) {
@@ -560,24 +670,64 @@ public class TestAttributeValues extends TestFmwk {
 		// special check for deprecated codes
 		String replacement = getReplacement(matcherPattern.value, attributeValue);
 		if (replacement != null) {
-			if (isEnglish) return; // don't flag English
+		//	if (isEnglish) return; // don't flag English
 			if (replacement.length() == 0) {
-				result.add(new CheckResult().setStatus(ResultStatus.warning)
-						.setMessage("Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing.",  
-								new Object[] { locale, attribute, attributeValue,locale }));
+				result.add(new CheckResult()
+				.setStatus(ResultStatus.warning).
+				setLocale(locale).setPath(path)
+				.setMessage("Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing." /* Path:{3}" */,  
+						new Object[] { locale, attribute, attributeValue /*, path */}));
 			} else {
-				result.add(new CheckResult().setStatus(ResultStatus.warning)
-						.setMessage("Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and possibly modifying the related value for {3}.", 
-								new Object[] { locale, attribute, attributeValue, replacement }));
+				if (csvOutput) {
+					result.add(new CheckResult().setStatus(ResultStatus.warning)
+							.setLocale(locale)
+							.setPath(path)
+							.setMessage("Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and "
+									+ "possibly modifying the related value for {3}."/*,  Path: {4}" */, 
+									new Object[] { locale, attribute, attributeValue, replacement /*,  path */ }));
+				} else {
+					result.add(new CheckResult().setStatus(ResultStatus.warning)
+							.setLocale(locale)
+							.setPath(path)
+							.setMessage("Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and "
+									+ "possibly modifying the related value for {3}.Path: {4}", 
+									new Object[] { locale, attribute, attributeValue, replacement, path }));
+				}
 			}
 		} else {
-			// for now: disregard missing variable expansions
 			String pattern= matcherPattern.pattern;
+			// for now: disregard missing variable expansions
+				
+			
 			if (pattern!=null&&!pattern.trim().startsWith("$")) {
-				result.add(new CheckResult().setStatus(ResultStatus.error)
-						.setMessage("Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3} Path: {4}", 
-								new Object[] { locale, attribute, attributeValue, matcherPattern.pattern,path}));
-
+				// root locale?
+				if (locale.equals(CLDRConfig.getInstance().getEnglish().getLocaleID())) {
+					// root locale
+					result.add(new CheckResult()
+					.setStatus(ResultStatus.warning)
+							.setLocale(locale)
+							.setPath(path)
+							.setMessage("Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}; please add to supplemental data. Path: {4}",
+									new Object[] { locale, attribute, attributeValue, matcherPattern.pattern, path}));		
+					matcherPattern.matcher=ObjectMatcherFactory.createOrMatcher(matcherPattern.matcher,
+							ObjectMatcherFactory.createStringMatcher(attributeValue));
+				} else {
+				if (csvOutput) {
+				result.add(new CheckResult()
+				.setStatus(ResultStatus.error)
+				.setLocale(locale)
+				.setPath(path)
+				.setMessage("Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  "/*Path: {4}" */, 
+						new Object[] { locale, attribute, attributeValue, matcherPattern.pattern/*, path */}));
+				} else {
+					result.add(new CheckResult()
+					.setStatus(ResultStatus.error)
+					.setLocale(locale)
+					.setPath(path)
+					.setMessage("Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  Path: {4}" , 
+							new Object[] { locale, attribute, attributeValue, matcherPattern.pattern, path}));
+				}
+			}
 			}
 		}
 	}
@@ -619,8 +769,9 @@ public class TestAttributeValues extends TestFmwk {
 						if (!pluralInfo.getCounts().contains(countValue)
 								&& !isPluralException(countValue, locale)) {
 							result.add(
-									new CheckResult(ResultStatus.error, "Illegal plural value {0}; must be one of: {1}",
-											new Object[] { countValue, pluralInfo.getCounts() }));
+									new CheckResult(ResultStatus.error, locale,"Illegal plural value {0}; must be one"
+											+ " of: {1}",
+											new Object[] { countValue, pluralInfo.getCounts() }).setPath(path));
 						}
 					}
 				}
@@ -629,6 +780,10 @@ public class TestAttributeValues extends TestFmwk {
 	}
 	
 	public static void main(String[] args) {
-		new TestAttributeValues().run(args);
+//		if (args!=null&&args.length!=0) {
+//			UOption.parseArgs(args, options);
+//		}
+		TestAttributeValues tav=new TestAttributeValues();
+		tav.run(args);
 	}
 }

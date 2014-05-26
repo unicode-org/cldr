@@ -71,6 +71,10 @@ class ObjectMatcherFactory {
 	}
 
 
+	public static ObjectMatcher<String> createStringMatcher(String toMatch) {
+		return new StringMatcher(toMatch);
+	}
+	
 	private static class RegexMatcher implements ObjectMatcher<String> {
 		private java.util.regex.Matcher matcher;
 
@@ -174,6 +178,19 @@ class ObjectMatcherFactory {
 		public String toString() {
 			return matcher.getClass().getName() + "\t" + pattern;
 		}
+	}
+
+	private static class StringMatcher implements ObjectMatcher<String> {
+		private final String value;
+		public StringMatcher(String value) {
+			this.value=value;
+		}
+		
+		@Override
+		public boolean matches(String o) {
+			return o.equals(value);
+		}
+		
 	}
 
 }

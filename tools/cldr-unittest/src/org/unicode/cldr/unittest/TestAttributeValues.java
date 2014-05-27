@@ -24,6 +24,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.ObjectMatcherFactory;
 import org.unicode.cldr.unittest.ObjectMatcherFactory.MatcherPattern;
+import org.unicode.cldr.unittest.TestAttributeValues.CheckResult.ResultStatus;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRPaths;
@@ -207,20 +208,20 @@ public class TestAttributeValues extends TestFmwk {
 	}
 
 	/**
-	 * Rebuild the error reporting infrastructure, to not leave references to there
-	 * @author ribnitz
-	 *
-	 */
-	public enum ResultStatus {
-		error, warning;
-	}
-	
-	/**
 	 * Class for holding error reports
 	 * @author ribnitz
 	 *
 	 */
 	public static class CheckResult {
+		/**
+		 * The status of a CheckResult
+		 * @author ribnitz
+		 *
+		 */
+		public enum ResultStatus {
+			error, warning;
+		}
+
 		ResultStatus status;
 		String message;
 		String locale;
@@ -305,33 +306,12 @@ public class TestAttributeValues extends TestFmwk {
 	}
 	LocaleIDParser localeIDParser = new LocaleIDParser();
 
-	private enum Phase {
-		FINAL_TESTING,
-		BUILD,
-	}
-
-	private Phase phase;
-
-	private Phase getPhase() {
-		return phase;
-	}
-
 	private void initialize(CLDRFile cldrFileToCheck, Collection<CheckResult> possibleErrors,Factory fact) {
 
-		//	  	   }
-	//	        @Override
-	//	        public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
-			//	        		List<CheckStatus> possibleErrors) {
 		if (cldrFileToCheck==null) {
 			return;
 		}
-		//	        	if (Phase.FINAL_TESTING == getPhase() || Phase.BUILD == getPhase()) {
-		//	        		setSkipTest(false); // ok
-		//	        	} else {
-		//	        		setSkipTest(true);
-		//	        		//return this;
-		//	        		return;
-		//	        	}
+		
 
 		supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
 		pluralInfo = supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
@@ -386,7 +366,8 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 	
-	private List<String> unknownFinalElements=new ArrayList<>();
+	private Set<String> unknownFinalElements=new HashSet<>();
+	private Set<String> unhandledPaths=new HashSet<>();
 	private final static Splitter WHITESPACE_SPLTTER=Splitter.on(PatternCache.get("\\s+"));
 	
 	private void getMetadata(CLDRFile metadata, SupplementalDataInfo sdi) {
@@ -397,7 +378,7 @@ public class TestAttributeValues extends TestFmwk {
 		if (!path2.startsWith("//ldml")) {
 			ldmlComparator = null;
 		}
-		
+		String locale=metadata.getLocaleID();
 		for (String p: new ForwardingIterable<String>(metadata.iterator(null, ldmlComparator))) {
 			String value = metadata.getStringValue(p);
 			String path = metadata.getFullXPath(p);
@@ -409,8 +390,10 @@ public class TestAttributeValues extends TestFmwk {
 				attributeOrder.addAll(WHITESPACE_SPLTTER.splitToList(value.trim()));
 			} else if (lastElement.equals("suppress")) {
 				// skip for now
+				unhandledPaths.add("Unhandled path (suppress):"+path);
 			} else if (lastElement.equals("serialElements")) {
 				// skip for now
+				unhandledPaths.add("Unhandled path (serialElement):"+path);
 			} else if (lastElement.equals("attributes")) {
 				// skip for now
 			} else if (lastElement.equals("variable")) {
@@ -457,6 +440,8 @@ public class TestAttributeValues extends TestFmwk {
 				}
 			} else if (lastElement.equals("version")) {
 				// skip for now
+				// skip for now
+				unhandledPaths.add("Unhandled path (version):"+path);
 			} else if (lastElement.equals("generation")) {
 				// skip for now
 			} else if (lastElement.endsWith("Alias")) {
@@ -474,18 +459,29 @@ public class TestAttributeValues extends TestFmwk {
 				type_replacement.put(type, replacement);
 			} else if (lastElement.equals("territoryAlias")) {
 				// skip for now
+				// skip for now
+				unhandledPaths.add("Unhandled path (territoryAlaias):"+path);
 			} else if (lastElement.equals("deprecatedItems")) {
 				// skip for now
+				unhandledPaths.add("Unhandled path (deprecatedItems):"+path);
 			} else if (lastElement.endsWith("Coverage")) {
 				// skip for now
+				// skip for now
+				unhandledPaths.add("Unhandled path (Coverage):"+path);
 			} else if (lastElement.endsWith("skipDefaultLocale")) {
 				// skip for now
 			} else if (lastElement.endsWith("defaultContent")) {
 				// skip for now
+				// skip for now
+				unhandledPaths.add("Unhandled path (defaultContent):"+path);
 			} else if (lastElement.endsWith("distinguishingItems")) {
 				// skip for now
+				// skip for now
+				unhandledPaths.add("Unhandled path (distinguishingItems):"+path);
 			} else if (lastElement.endsWith("blockingItems")) {
 				// skip for now
+				// skip for now
+				unhandledPaths.add("Unhandled path (blockingItems):"+path);
 			} else {
 				System.out.println("Unknown final element: " + path);
 				unknownFinalElements.add(path);
@@ -586,6 +582,22 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
+	public void TestNoUnhandledFinalElements() {
+		assertTrue("The following final elements are unknown: "+unknownFinalElements, unknownFinalElements.isEmpty());
+	}
+	
+	public void TestNoUnhandledPaths() {
+		if (!unhandledPaths.isEmpty()) {
+			StringBuilder sb=new StringBuilder();
+			sb.append(unhandledPaths.size()+" unhandled paths:\r\n");
+			for (String p: unhandledPaths) {
+				sb.append(p);
+				sb.append("\r\n");
+			}
+			errln(sb.toString());
+		}
+	}
+	
 	public void TestAttributes() { 
 		CLDRConfig cldrConf=CLDRConfig.getInstance();
 		File[] sourceFiles=new File[sourceDirs.length];
@@ -665,7 +677,15 @@ public class TestAttributeValues extends TestFmwk {
 				sb.append(warnings.size());
 				sb.append(" warnings");
 			}
-			errln(sb.toString());
+			sb.append("\r\n");
+			if (!unhandledPaths.isEmpty()) {
+				sb.append(unhandledPaths.size()+" unhandled paths:\r\n");
+				for (String p: unhandledPaths) {
+					sb.append(p);
+					sb.append("\r\n");
+				}
+			}
+			logln(sb.toString());
 		}
 
 	}

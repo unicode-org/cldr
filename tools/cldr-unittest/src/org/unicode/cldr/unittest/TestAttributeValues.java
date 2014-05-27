@@ -211,7 +211,7 @@ public class TestAttributeValues extends TestFmwk {
 	 * @author ribnitz
 	 *
 	 */
-	private enum ResultStatus {
+	public enum ResultStatus {
 		error, warning;
 	}
 	
@@ -220,7 +220,7 @@ public class TestAttributeValues extends TestFmwk {
 	 * @author ribnitz
 	 *
 	 */
-	private static class CheckResult {
+	public static class CheckResult {
 		ResultStatus status;
 		String message;
 		String locale;
@@ -359,7 +359,7 @@ public class TestAttributeValues extends TestFmwk {
 	 * Small helper class that wraps an Iterator, and returns it, which is useful for extended loops, which may 
 	 * now get initialized:
 	 * 
-	 * for (Foo foo: new ForwardingIterable<Foo>(initializeIterator(bar))) { ... }
+	 * for (Foo foo: new ForwardingIterable<Foo>(initializeFooIterator(bar))) { ... }
 	 *
 	 * @author ribnitz
 	 *
@@ -372,6 +372,10 @@ public class TestAttributeValues extends TestFmwk {
 		 */
 		private final Iterator<E> iterator;
 		
+		/**
+		 * Construct using the iterator provided
+		 * @param anIterator
+		 */
 		public ForwardingIterable(Iterator<E> anIterator) {
 			iterator=anIterator;
 		}
@@ -384,6 +388,7 @@ public class TestAttributeValues extends TestFmwk {
 	
 	private List<String> unknownFinalElements=new ArrayList<>();
 	private final static Splitter WHITESPACE_SPLTTER=Splitter.on(PatternCache.get("\\s+"));
+	
 	private void getMetadata(CLDRFile metadata, SupplementalDataInfo sdi) {
 		// sorting is expensive, but we need it here.
 
@@ -429,7 +434,6 @@ public class TestAttributeValues extends TestFmwk {
 						continue;
 					}
 					Iterable<String> attributeList =WHITESPACE_SPLTTER.split(attributes.get("attributes").trim());
-//					String[] attributeList = (attributes.get("attributes")).trim().split("\\s+");
 					String elementsString = (String) attributes.get("elements");
 					if (elementsString == null) {
 						addAttributes(attributeList, common_attribute_validity, mp);
@@ -686,6 +690,13 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
+	/**
+	 * Perform a check of fileToCheck, providing the factory, and SupplementalDataInfo
+	 * @param fileToCheck
+	 * @param fact
+	 * @param sdi
+	 * @return an iterable over the results.
+	 */
 	public static Iterable<CheckResult> performCheck(CLDRFile fileToCheck,Factory fact,SupplementalDataInfo sdi) {
 		List<CheckResult> results=new ArrayList<>();
 		TestAttributeValues tav=new TestAttributeValues();
@@ -783,7 +794,7 @@ public class TestAttributeValues extends TestFmwk {
 	}
 	
 	
-	public void handleCheck(String path, String fullPath, String value,
+	private void handleCheck(String path, String fullPath, String value,
 			List<CheckResult> result,CLDRFile fileToCheck) {
 
 		if (fullPath == null) return; // skip paths that we don't have

@@ -140,10 +140,8 @@ class ObjectMatcherFactory {
 
 		public boolean matches(String value) {
 			List<String> values=WHITESPACE_SPLITTER.splitToList(value.trim());
-			//	String[] values = value.trim().split("\\s+");
 			if (values.size() == 1 && values.get(0).length() == 0) return true;
 			for (String toMatch: values) {
-				//				for (int i = 0; i < values.length; ++i) {
 				if (!other.matches(toMatch)) {
 					return false;
 				}

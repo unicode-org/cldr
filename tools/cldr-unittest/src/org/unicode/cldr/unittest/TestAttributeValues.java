@@ -60,7 +60,7 @@ public class TestAttributeValues extends TestFmwk {
 	/**
 	 * Output to CSV
 	 */
-	private boolean csvOutput = true;
+	private boolean csvOutput = false;
 
 	/**
 	 * location of the CSV file
@@ -312,9 +312,11 @@ public class TestAttributeValues extends TestFmwk {
 	}
 
 	/**
-	 * Small helper class that wraps an Iterator, and returns it, making possible scenarios:
-	 *  for (Foo foo:new ForwardingIterable(new Iterator(...)) { ... }
-	 *  
+	 * Small helper class that wraps an Iterator, and returns it, which is useful for extended loops, which may 
+	 * now get initialized:
+	 * 
+	 * for (Foo foo: new ForwardingIterable<Foo>(initializeIterator(bar))) { ... }
+	 *
 	 * @author ribnitz
 	 *
 	 * @param <E>
@@ -337,7 +339,7 @@ public class TestAttributeValues extends TestFmwk {
 	}
 	
 	private List<String> unknownFinalElements=new ArrayList<>();
-	private final Splitter whitespaceSplitter=Splitter.on(PatternCache.get("\\s+"));
+	private final static Splitter WHITESPACE_SPLTTER=Splitter.on(PatternCache.get("\\s+"));
 	private void getMetadata(CLDRFile metadata, SupplementalDataInfo sdi) {
 		// sorting is expensive, but we need it here.
 
@@ -348,18 +350,14 @@ public class TestAttributeValues extends TestFmwk {
 		}
 		
 		for (String p: new ForwardingIterable<String>(metadata.iterator(null, ldmlComparator))) {
-//		for (Iterator<String> it = metadata.iterator(null, ldmlComparator); it.hasNext();) {
-//			String path = it.next();
 			String value = metadata.getStringValue(p);
 			String path = metadata.getFullXPath(p);
 			parts.set(path);
 			String lastElement = parts.getElement(-1);
 			if (lastElement.equals("elementOrder")) {
-				elementOrder.addAll(whitespaceSplitter.splitToList(value.trim()));
-//				elementOrder.addAll(Arrays.asList(value.trim().split("\\s+")));
+				elementOrder.addAll(WHITESPACE_SPLTTER.splitToList(value.trim()));
 			} else if (lastElement.equals("attributeOrder")) {
-//				attributeOrder.addAll(Arrays.asList(value.trim().split("\\s+")));
-				attributeOrder.addAll(whitespaceSplitter.splitToList(value.trim()));
+				attributeOrder.addAll(WHITESPACE_SPLTTER.splitToList(value.trim()));
 			} else if (lastElement.equals("suppress")) {
 				// skip for now
 			} else if (lastElement.equals("serialElements")) {
@@ -386,17 +384,15 @@ public class TestAttributeValues extends TestFmwk {
 						// System.out.println("Failed to make matcher for: " + value + "\t" + path);
 						continue;
 					}
-					Iterable<String> attributeList =whitespaceSplitter.split(attributes.get("attributes").trim());
+					Iterable<String> attributeList =WHITESPACE_SPLTTER.split(attributes.get("attributes").trim());
 //					String[] attributeList = (attributes.get("attributes")).trim().split("\\s+");
 					String elementsString = (String) attributes.get("elements");
 					if (elementsString == null) {
 						addAttributes(attributeList, common_attribute_validity, mp);
 					} else {
-						Iterable<String> elementList=whitespaceSplitter.split(elementsString.trim());
+						Iterable<String> elementList=WHITESPACE_SPLTTER.split(elementsString.trim());
 //						String[] elementList = elementsString.trim().split("\\s+");
 						for (String element: elementList) {
-//						for (int i = 0; i < elementList.length; ++i) {
-//							String element = elementList[i];
 							// System.out.println("\t" + element);
 							Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
 							if (attribute_validity == null)
@@ -489,7 +485,6 @@ public class TestAttributeValues extends TestFmwk {
 			temp.value = value;
 			result = temp;
 			if ("list".equals(typeAttribute)) {
-//				temp.matcher = new ListMatcher().set(result.matcher);
 				temp.matcher = ObjectMatcherFactory.createListMatcher(result.matcher);
 			}
 			return result;
@@ -505,7 +500,7 @@ public class TestAttributeValues extends TestFmwk {
 		}
 		if ("choice".equals(typeAttribute)
 				|| "given".equals(attributes.get("order"))) {
-			List<String> valueList=whitespaceSplitter.splitToList(value.trim());
+			List<String> valueList=WHITESPACE_SPLTTER.splitToList(value.trim());
 			result.matcher =ObjectMatcherFactory.createCollectionMatcher(valueList);
 					//new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
 		} else if ("bcp47".equals(typeAttribute)) {
@@ -611,7 +606,19 @@ public class TestAttributeValues extends TestFmwk {
 					e.printStackTrace();
 				}
 			}
-			errln(new StringBuilder().append(errors.size()).append(" errors and ").append(warnings.size()).append(" warnings").toString());
+			StringBuilder sb=new StringBuilder();
+			if (errors.size()>0) {
+				sb.append(errors.size());
+				sb.append(" errors");
+			}
+			if (errors.size()>0 && warnings.size()>0) {
+				sb.append(" and ");
+			}
+			if (warnings.size()>0) {
+				sb.append(warnings.size());
+				sb.append(" warnings");
+			}
+			errln(sb.toString());
 		}
 
 	}
@@ -650,84 +657,133 @@ public class TestAttributeValues extends TestFmwk {
 		return results;
 	}
 
-	private String getResultMessages(Iterable<CheckResult> result,String resultType) {
+	private String getResultMessages(Collection<CheckResult> result,String resultType) {
 		StringBuilder sb=new StringBuilder();
-		sb.append("The following "+resultType+" occurred:");
-		sb.append("\r\n");
-		for (CheckResult cur: result) {
-			sb.append(cur.getMessage());
+		if (result.size()>0) {
+			sb.append("The following "+resultType+" occurred:");
 			sb.append("\r\n");
+			for (CheckResult cur: result) {
+				sb.append(cur.getMessage());
+				sb.append("\r\n");
+			}
 		}
 		return sb.toString();
 	}
 
-	private void check(Map<String, MatcherPattern> attribute_validity, String attribute, String attributeValue,
-			List<CheckResult> result, String path,String locale) {
-		if (attribute_validity == null) return; // no test
+	private void check(Map<String, MatcherPattern> attribute_validity,
+			String attribute, String attributeValue, List<CheckResult> result,
+			String path, String locale) {
+		if (attribute_validity == null)
+			return; // no test
 		MatcherPattern matcherPattern = attribute_validity.get(attribute);
-		if (matcherPattern == null) return; // no test
-		if (matcherPattern.matcher.matches(attributeValue)) return;
+		if (matcherPattern == null)
+			return; // no test
+		if (matcherPattern.matcher.matches(attributeValue))
+			return;
 		// special check for deprecated codes
-		String replacement = getReplacement(matcherPattern.value, attributeValue);
+		String replacement = getReplacement(matcherPattern.value,
+				attributeValue);
 		if (replacement != null) {
-		//	if (isEnglish) return; // don't flag English
+			// if (isEnglish) return; // don't flag English
 			if (replacement.length() == 0) {
 				result.add(new CheckResult()
-				.setStatus(ResultStatus.warning).
-				setLocale(locale).setPath(path)
-				.setMessage("Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing." /* Path:{3}" */,  
-						new Object[] { locale, attribute, attributeValue /*, path */}));
+						.setStatus(ResultStatus.warning)
+						.setLocale(locale)
+						.setPath(path)
+						.setMessage(
+								"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing. Path:{3}",
+								new Object[] { locale, attribute,
+										attributeValue, path }));
 			} else {
 				if (csvOutput) {
-					result.add(new CheckResult().setStatus(ResultStatus.warning)
+					result.add(new CheckResult()
+							.setStatus(ResultStatus.warning)
 							.setLocale(locale)
 							.setPath(path)
-							.setMessage("Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and "
-									+ "possibly modifying the related value for {3}."/*,  Path: {4}" */, 
-									new Object[] { locale, attribute, attributeValue, replacement /*,  path */ }));
+							.setMessage(
+									"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and "
+											+ "possibly modifying the related value for {3}."/*
+																							 * ,
+																							 * Path
+																							 * :
+																							 * {
+																							 * 4
+																							 * }
+																							 * "
+																							 */,
+									new Object[] { locale, attribute,
+											attributeValue, replacement /*
+																		 * ,
+																		 * path
+																		 */}));
 				} else {
-					result.add(new CheckResult().setStatus(ResultStatus.warning)
+					result.add(new CheckResult()
+							.setStatus(ResultStatus.warning)
 							.setLocale(locale)
 							.setPath(path)
-							.setMessage("Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and "
-									+ "possibly modifying the related value for {3}.Path: {4}", 
-									new Object[] { locale, attribute, attributeValue, replacement, path }));
+							.setMessage(
+									"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and "
+											+ "possibly modifying the related value for {3}.Path: {4}",
+									new Object[] { locale, attribute,
+											attributeValue, replacement, path }));
 				}
 			}
 		} else {
-			String pattern= matcherPattern.pattern;
+			String pattern = matcherPattern.pattern;
 			// for now: disregard missing variable expansions
-				
-			
-			if (pattern!=null&&!pattern.trim().startsWith("$")) {
+
+			if (pattern != null && !pattern.trim().startsWith("$")) {
 				// root locale?
-				if (locale.equals(CLDRConfig.getInstance().getEnglish().getLocaleID())) {
+				if (locale.equals(CLDRConfig.getInstance().getEnglish()
+						.getLocaleID())) {
 					// root locale
 					result.add(new CheckResult()
-					.setStatus(ResultStatus.warning)
+							.setStatus(ResultStatus.warning)
 							.setLocale(locale)
 							.setPath(path)
-							.setMessage("Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}; please add to supplemental data. Path: {4}",
-									new Object[] { locale, attribute, attributeValue, matcherPattern.pattern, path}));		
-					matcherPattern.matcher=ObjectMatcherFactory.createOrMatcher(matcherPattern.matcher,
-							ObjectMatcherFactory.createStringMatcher(attributeValue));
+							.setMessage(
+									"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}; please add to supplemental data. Path: {4}",
+									new Object[] { locale, attribute,
+											attributeValue,
+											matcherPattern.pattern, path }));
+					matcherPattern.matcher = ObjectMatcherFactory
+							.createOrMatcher(
+									matcherPattern.matcher,
+									ObjectMatcherFactory
+											.createStringMatcher(attributeValue));
 				} else {
-				if (csvOutput) {
-				result.add(new CheckResult()
-				.setStatus(ResultStatus.error)
-				.setLocale(locale)
-				.setPath(path)
-				.setMessage("Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  "/*Path: {4}" */, 
-						new Object[] { locale, attribute, attributeValue, matcherPattern.pattern/*, path */}));
-				} else {
-					result.add(new CheckResult()
-					.setStatus(ResultStatus.error)
-					.setLocale(locale)
-					.setPath(path)
-					.setMessage("Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  Path: {4}" , 
-							new Object[] { locale, attribute, attributeValue, matcherPattern.pattern, path}));
+					if (csvOutput) {
+						result.add(new CheckResult()
+								.setStatus(ResultStatus.error)
+								.setLocale(locale)
+								.setPath(path)
+								.setMessage(
+										"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  "/*
+																										 * Path
+																										 * :
+																										 * {
+																										 * 4
+																										 * }
+																										 * "
+																										 */,
+										new Object[] { locale, attribute,
+												attributeValue,
+												matcherPattern.pattern /*
+																		 * ,
+																		 * path
+																		 */}));
+					} else {
+						result.add(new CheckResult()
+								.setStatus(ResultStatus.error)
+								.setLocale(locale)
+								.setPath(path)
+								.setMessage(
+										"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  Path: {4}",
+										new Object[] { locale, attribute,
+												attributeValue,
+												matcherPattern.pattern, path }));
+					}
 				}
-			}
 			}
 		}
 	}
@@ -780,9 +836,6 @@ public class TestAttributeValues extends TestFmwk {
 	}
 	
 	public static void main(String[] args) {
-//		if (args!=null&&args.length!=0) {
-//			UOption.parseArgs(args, options);
-//		}
 		TestAttributeValues tav=new TestAttributeValues();
 		tav.run(args);
 	}

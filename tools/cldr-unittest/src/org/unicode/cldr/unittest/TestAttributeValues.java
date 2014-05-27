@@ -19,6 +19,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.unittest.ObjectMatcherFactory;
@@ -86,6 +87,17 @@ public class TestAttributeValues extends TestFmwk {
 
 	XPathParts parts = new XPathParts(null, null);
 	static final UnicodeSet DIGITS = new UnicodeSet("[0-9]").freeze();
+
+	/**
+	 * Callable returning the value of csvOutput, used to call the
+	 * factory method on CheckResult. 
+	 */
+	private class CheckCSVValuePred implements Callable<Boolean> {
+		@Override
+		public Boolean call() {
+			return csvOutput;
+		}
+	}
 
 	/**
 	 * Predicate to filter the results, will return only those where the ResultStatus matches
@@ -257,8 +269,40 @@ public class TestAttributeValues extends TestFmwk {
 			return message;
 		}
 
+		/**
+		 * Factory method, initialize with (status,locale,path); depending on the result of pred, use ether (msgSuccess,objSuccess) or
+		 * (msgFail,objFail) to construct the message.
+		 * 
+		 * @param status
+		 * @param locale
+		 * @param path
+		 * @param pred
+		 * @param msgSuccess
+		 * @param msgFail
+		 * @param objSuccess
+		 * @param objFail
+		 * @return newly constructed CheckResult or null, in the case of an error occurring on Callable invocation
+		 */
+		public static CheckResult create(ResultStatus status,String locale,String path,Callable<Boolean> pred,
+				String msgSuccess,String msgFail, Object[] objSuccess,Object[] objFail) {
+			if (pred==null) {
+				throw new IllegalArgumentException("The callable must not be null");
+			}
+			try {
+				CheckResult result=new CheckResult().setStatus(status).setLocale(locale).setPath(path);
+				if (pred.call()) {
+					result.setMessage(msgSuccess, objSuccess);
+				} else {
+					result.setMessage(msgFail, objFail);
+				}
+				return result;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
 	}
-	
 	LocaleIDParser localeIDParser = new LocaleIDParser();
 
 	private enum Phase {
@@ -502,7 +546,6 @@ public class TestAttributeValues extends TestFmwk {
 				|| "given".equals(attributes.get("order"))) {
 			List<String> valueList=WHITESPACE_SPLTTER.splitToList(value.trim());
 			result.matcher =ObjectMatcherFactory.createCollectionMatcher(valueList);
-					//new HashSet<String>(Arrays.asList(value.trim().split("\\s+"))));
 		} else if ("bcp47".equals(typeAttribute)) {
 			result = getBcp47MatcherPattern(sdi, value);
 		} else if ("regex".equals(typeAttribute)) {
@@ -695,38 +738,13 @@ public class TestAttributeValues extends TestFmwk {
 								new Object[] { locale, attribute,
 										attributeValue, path }));
 			} else {
-				if (csvOutput) {
-					result.add(new CheckResult()
-							.setStatus(ResultStatus.warning)
-							.setLocale(locale)
-							.setPath(path)
-							.setMessage(
-									"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and "
-											+ "possibly modifying the related value for {3}."/*
-																							 * ,
-																							 * Path
-																							 * :
-																							 * {
-																							 * 4
-																							 * }
-																							 * "
-																							 */,
-									new Object[] { locale, attribute,
-											attributeValue, replacement /*
-																		 * ,
-																		 * path
-																		 */}));
-				} else {
-					result.add(new CheckResult()
-							.setStatus(ResultStatus.warning)
-							.setLocale(locale)
-							.setPath(path)
-							.setMessage(
-									"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and "
-											+ "possibly modifying the related value for {3}.Path: {4}",
-									new Object[] { locale, attribute,
-											attributeValue, replacement, path }));
-				}
+				CheckResult cr=CheckResult.create(ResultStatus.warning, locale, path, new CheckCSVValuePred(), 
+						"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and possibly modifying the related "
+						+ "value for {3}.", 
+						"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and possibly modifying the related value for {3}.Path: {4}", 
+						new Object[] { locale, attribute,attributeValue, replacement}, 
+						new Object[] { locale, attribute,attributeValue, replacement, path });
+				result.add(cr);
 			}
 		} else {
 			String pattern = matcherPattern.pattern;
@@ -752,42 +770,19 @@ public class TestAttributeValues extends TestFmwk {
 									ObjectMatcherFactory
 											.createStringMatcher(attributeValue));
 				} else {
-					if (csvOutput) {
-						result.add(new CheckResult()
-								.setStatus(ResultStatus.error)
-								.setLocale(locale)
-								.setPath(path)
-								.setMessage(
-										"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  "/*
-																										 * Path
-																										 * :
-																										 * {
-																										 * 4
-																										 * }
-																										 * "
-																										 */,
-										new Object[] { locale, attribute,
-												attributeValue,
-												matcherPattern.pattern /*
-																		 * ,
-																		 * path
-																		 */}));
-					} else {
-						result.add(new CheckResult()
-								.setStatus(ResultStatus.error)
-								.setLocale(locale)
-								.setPath(path)
-								.setMessage(
-										"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  Path: {4}",
-										new Object[] { locale, attribute,
-												attributeValue,
-												matcherPattern.pattern, path }));
-					}
+					CheckResult cr=CheckResult.create(ResultStatus.error, locale, path, 
+							new CheckCSVValuePred(), 
+							"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}", 
+							"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  Path: {4}", 
+							new Object[] { locale, attribute,attributeValue, matcherPattern.pattern}, 
+							new Object[] { locale, attribute,attributeValue, matcherPattern.pattern, path });
+					result.add(cr);
 				}
 			}
 		}
 	}
-
+	
+	
 	public void handleCheck(String path, String fullPath, String value,
 			List<CheckResult> result,CLDRFile fileToCheck) {
 

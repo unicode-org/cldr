@@ -61,9 +61,11 @@ class ObjectMatcherFactory {
 	}
 
 	/**
-	 * Create a matcher based on the value accessible with key, in the map; if there is no key, use a NullMatcher.
+	 * Create a matcher based on the value accessible with key, in the map; if there is no key, use a 
+	 * DefaultingMatcher to return valueIfAbsent
 	 * @param m
 	 * @param key
+	 * @param valueIfAbsent
 	 * @return
 	 */
 	public static ObjectMatcher<String> createNullHandlingMatcher(Map<String,ObjectMatcherFactory.MatcherPattern> m, String key,boolean valueIfAbsent) {
@@ -71,6 +73,11 @@ class ObjectMatcherFactory {
 	}
 
 
+	/***
+	 * Create a matcher that will return true, if the String provided is matched; comparison is done using equals()
+	 * @param toMatch
+	 * @return
+	 */
 	public static ObjectMatcher<String> createStringMatcher(String toMatch) {
 		return new StringMatcher(toMatch);
 	}

@@ -750,7 +750,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues elements="currencyFormats decimalFormats percentFormats scientificFormats" attributes="numberSystem" type="bcp47">nu</attributeValues>
             <attributeValues elements="cyclicName" attributes="type" type="regex">[0-9]+</attributeValues>
             <attributeValues elements="cyclicNameContext" attributes="type" order="given">format stand-alone</attributeValues>
-            <attributeValues elements="cyclicNameSet" attributes="type" type="choice">years months days dayParts zodiacs</attributeValues>
+            <attributeValues elements="cyclicNameSet" attributes="type" type="choice">years months days dayParts zodiacs solarTerms</attributeValues>
             <attributeValues elements="dateFormat dateTimeFormat decimalFormat percentFormat scientificFormat timeFormat" attributes="type">$format</attributeValues>
             <attributeValues elements="dateFormatLength timeFormatLength dateTimeFormatLength decimalFormatLength scientificFormatLength percentFormatLength currencyFormatLength" attributes="type" order="given">full long medium short</attributeValues>
             <attributeValues elements="day" attributes="type" order="given">sun mon tue wed thu fri sat</attributeValues>

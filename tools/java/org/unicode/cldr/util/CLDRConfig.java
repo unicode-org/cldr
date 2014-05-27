@@ -33,6 +33,11 @@ public class CLDRConfig extends Properties {
     private static final Object CLDR_FACTORY_SYNC = new Object();
 
     /**
+     * Object to use for synchronization when interacting with Factory
+     */
+    private static final Object FULL_FACTORY_SYNC = new Object();
+
+    /**
      * Object used for synchronization when interacting with SupplementalData
      */
     private static final Object SUPPLEMENTAL_DATA_SYNC = new Object();
@@ -118,6 +123,7 @@ public class CLDRConfig extends Properties {
     private SupplementalDataInfo supplementalDataInfo;
     private StandardCodes sc;
     private Factory cldrFactory;
+    private Factory fullFactory;
     private Factory supplementalFactory;
     private CLDRFile english;
     private CLDRFile root;
@@ -172,6 +178,16 @@ public class CLDRConfig extends Properties {
             }
         }
         return cldrFactory;
+    }
+
+    public Factory getFullCldrFactory() {
+        synchronized (FULL_FACTORY_SYNC) {
+            if (fullFactory == null) {
+                File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.SEED_DIRECTORY) };
+                fullFactory = SimpleFactory.make(paths, ".*");
+            }
+        }
+        return fullFactory;
     }
 
     public Factory getSupplementalFactory() {

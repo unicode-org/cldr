@@ -5,8 +5,9 @@ package org.unicode.cldr.test;
 
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -82,7 +83,9 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale MYANMAR = CLDRLocale.getInstance("my");
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
-    private static final List<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = Arrays.asList("br","bss","gn","ha","lkt","mgo","moh","nnh","qu","quc","uk","uz");
+    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = 
+        new HashSet<String>(Arrays.asList("br","bss","cch","gn","ha","ha_Latn","lkt","mgo","moh","nnh","qu","quc","uk","uz","uz_Latn"));
+
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
         { '\u015E', '\u0218' }, { '\u015F', '\u0219' }, { '\u0162', '\u021A' },

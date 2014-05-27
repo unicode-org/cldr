@@ -1,12 +1,21 @@
 package org.unicode.cldr.unittest;
 
+import java.io.File;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.Factory;
+import org.unicode.cldr.util.SimpleFactory;
 
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.lang.CharSequences;
 import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.text.UnicodeSetIterator;
 
 public class TestDisplayAndInputProcessor extends TestFmwk {
 
@@ -170,7 +179,37 @@ public class TestDisplayAndInputProcessor extends TestFmwk {
         String value = daip.processInput(xpath, "¤ #,##0.00", null); // breaking space
         assertEquals("Breaking space not replaced", "¤ #,##0.00", value); // non-breaking space
     }
+    
+	private Boolean usesModifierApostrophe(CLDRFile testFile) {
+		char MODIFIER_LETTER_APOSTROPHE = '\u02BC';
+		String exemplarSet = testFile.getWinningValue("//ldml/characters/exemplarCharacters");
+		UnicodeSet mainExemplarSet = new UnicodeSet(exemplarSet);
+		UnicodeSetIterator usi = new UnicodeSetIterator(mainExemplarSet);
+		while (usi.next()) {
+			if (usi.codepoint == MODIFIER_LETTER_APOSTROPHE
+					|| (usi.codepoint == UnicodeSetIterator.IS_STRING && usi.getString().indexOf(MODIFIER_LETTER_APOSTROPHE) >= 0)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
+    public void TestModifierApostropheLocales() {
+        Factory f = info.getFullCldrFactory(); 
+    	Set<String> allLanguages = f.getAvailableLanguages();
+    	for ( String thisLanguage : allLanguages ) {
+    		CLDRFile thisLanguageFile = f.make(thisLanguage,true);    		
+    		if (usesModifierApostrophe(thisLanguageFile)) {
+    			if (!DisplayAndInputProcessor.LANGUAGES_USING_MODIFIER_APOSTROPHE.contains(thisLanguage)) {
+    	            errln("Language : " + thisLanguage + " uses MODIFIER_LETTER_APOSROPHE, but is not on the list in DAIP.LANGUAGES_USING_MODIFIER_APOSTROPHE");
+    			}
+    		} else {
+    			if (DisplayAndInputProcessor.LANGUAGES_USING_MODIFIER_APOSTROPHE.contains(thisLanguage)) {
+    	            errln("Language : " + thisLanguage +  "is on the list in DAIP.LANGUAGES_USING_MODIFIER_APOSTROPHE, but the main exemplars don't use this character.");
+    			}  			
+    		}
+        }
+    }
     public void TestQuoteNormalization() {
         DisplayAndInputProcessor daip = new DisplayAndInputProcessor(info.getEnglish(), false);
         String xpath = "//ldml/units/unitLength[@type=\"narrow\"]/unitPattern[@count=\"one\"]";

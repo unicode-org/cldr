@@ -5,7 +5,13 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
+import java.nio.file.FileVisitResult;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.SimpleFileVisitor;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -22,12 +28,11 @@ import java.util.TreeSet;
 import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.unittest.CheckResult.ResultStatus;
 import org.unicode.cldr.unittest.ObjectMatcherFactory;
 import org.unicode.cldr.unittest.ObjectMatcherFactory.MatcherPattern;
-import org.unicode.cldr.unittest.TestAttributeValues.CheckResult.ResultStatus;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
-import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PatternCache;
@@ -46,7 +51,6 @@ import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
 import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.text.MessageFormat;
 import com.ibm.icu.text.UnicodeSet;
 
 
@@ -57,7 +61,12 @@ public class TestAttributeValues extends TestFmwk {
 	/**
 	 * Source directories
 	 */
-	private String[] sourceDirs = new String[] { "/Users/ribnitz/Documents/workspace/cldr/common" };
+	private String[] sourceDirs = new String[] { 
+			"/Users/ribnitz/Documents/workspace/cldr/common",
+			"/Users/ribnitz/Documents/workspace/cldr/exemplars", 
+	//	"/Users/ribnitz/Documents/workspace/cldr/keyboards",
+		"/Users/ribnitz/Documents/workspace/cldr/seed"
+			};
 
 	/**
 	 * Output to CSV
@@ -163,6 +172,93 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
+	private static class FileAcceptPredicate implements Predicate<Path> {
+
+		private  String[] fnameExclusions=new String[] {
+			//	"Latn","FONIPA", "Arab","Ethi"
+		};
+		//private final static Pattern FNAME_PATTERN=PatternCache.get("[a-z]{2,3}");
+		private final static String[] EXCLUDED_PATHS = new String[] { /*"bcp47" */ };
+		private final Collection<String> excludedFiles;
+		public FileAcceptPredicate(Collection<String> excluded) {
+			excludedFiles=excluded;
+		}
+		@Override
+		public boolean apply(Path input) {
+			
+			String fname = input.getFileName()
+					.toString();
+//			int underscorePos=fname.indexOf("_");
+//			int dotPos=fname.indexOf(".");
+//			int matchPos;
+//			if (underscorePos>-1) {
+//				matchPos=underscorePos;
+//			} else {
+//				matchPos=dotPos;
+//			}
+//			if (!FNAME_PATTERN.matcher(fname.substring(0,matchPos)).matches()) {
+//				return false;
+//			}
+			if (!fname.endsWith(".xml")) {
+				return false;
+			}
+			if (excludedFiles.contains(fname)) {
+				return false;
+			}
+			for (String cur:fnameExclusions) {
+				if (fname.contains(cur)) {
+					return false;
+				}
+			}
+			boolean add=true;
+			for (int i = 0; i < input.getNameCount(); i++) {
+				if (!add) {
+					break;
+				}
+				String curPath = input.getName(i)
+						.toString();
+				for (String exc : EXCLUDED_PATHS) {
+					if (curPath.contains(exc)) {
+						add = false;
+						break;
+					}
+				}
+			}
+			return add;
+		}
+		
+	}
+	private static class LocaleSetGenerator {
+		
+		public static Set<Path> generateLocaleSet(Iterable<File> sourceFiles,
+				 final Collection<String> excludedFiles) {
+			final Set<Path> fileSet = new HashSet<>();
+			final Predicate<Path> acceptPredicate=new FileAcceptPredicate(excludedFiles);
+			for (File sourceFile : sourceFiles) {
+				try {
+					Files.walkFileTree(sourceFile.toPath(),
+							new SimpleFileVisitor<Path>() {
+
+								public FileVisitResult visitFile(
+										Path file,
+										BasicFileAttributes attrs)
+										throws IOException {
+									 
+									if (acceptPredicate.apply(file)) {
+										fileSet.add(file);
+									}
+									return FileVisitResult.CONTINUE;
+								}
+
+							});
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			return fileSet;
+		}
+	}
+	
 
 	private static final Relation<PluralInfo.Count, String> PLURAL_EXCEPTIONS = Relation.of(
 			new EnumMap<PluralInfo.Count, Set<String>>(PluralInfo.Count.class), HashSet.class);
@@ -207,103 +303,6 @@ public class TestAttributeValues extends TestFmwk {
 		return type_replacement.get(attributeValue);
 	}
 
-	/**
-	 * Class for holding error reports
-	 * @author ribnitz
-	 *
-	 */
-	public static class CheckResult {
-		/**
-		 * The status of a CheckResult
-		 * @author ribnitz
-		 *
-		 */
-		public enum ResultStatus {
-			error, warning;
-		}
-
-		ResultStatus status;
-		String message;
-		String locale;
-		String path;
-		
-		public String getLocale() {
-			return locale;
-		}
-
-		public String getPath() {
-			return path;
-		}
-
-		public CheckResult setPath(String path) {
-			this.path = path;
-			return this;
-		}
-
-		public CheckResult setLocale(String locale) {
-			this.locale = locale;
-			return this;
-		}
-
-		public CheckResult() {}
-
-		public CheckResult(ResultStatus status,String locale,String tmpl,Object args) {
-			this.status=status;
-			this.message=MessageFormat.format(tmpl, args);
-		}
-		public CheckResult setMessage(String msg, Object[] args) {
-			message=MessageFormat.format(msg, args);
-			return this;
-		}
-
-
-		public ResultStatus getStatus() {
-			return status;
-		}
-
-		public CheckResult setStatus(ResultStatus status) {
-			this.status = status;
-			return this;
-		}
-
-		public String getMessage() {
-			return message;
-		}
-
-		/**
-		 * Factory method, initialize with (status,locale,path); depending on the result of pred, use ether (msgSuccess,objSuccess) or
-		 * (msgFail,objFail) to construct the message.
-		 * 
-		 * @param status
-		 * @param locale
-		 * @param path
-		 * @param pred
-		 * @param msgSuccess
-		 * @param msgFail
-		 * @param objSuccess
-		 * @param objFail
-		 * @return newly constructed CheckResult or null, in the case of an error occurring on Callable invocation
-		 */
-		public static CheckResult create(ResultStatus status,String locale,String path,Callable<Boolean> pred,
-				String msgSuccess,String msgFail, Object[] objSuccess,Object[] objFail) {
-			if (pred==null) {
-				throw new IllegalArgumentException("The callable must not be null");
-			}
-			try {
-				CheckResult result=new CheckResult().setStatus(status).setLocale(locale).setPath(path);
-				if (pred.call()) {
-					result.setMessage(msgSuccess, objSuccess);
-				} else {
-					result.setMessage(msgFail, objFail);
-				}
-				return result;
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			return null;
-		}
-	}
 	LocaleIDParser localeIDParser = new LocaleIDParser();
 
 	private void initialize(CLDRFile cldrFileToCheck, Collection<CheckResult> possibleErrors,Factory fact) {
@@ -321,56 +320,35 @@ public class TestAttributeValues extends TestFmwk {
 			if (!initialized) {
 				//    CLDRFile metadata = getFactory().getSupplementalMetadata();
 				CLDRFile metadata = fact.getSupplementalMetadata();
-				getMetadata(metadata, supplementalData);
+				getMetadata(metadata, supplementalData, fact);
 				initialized = true;
 				localeMatcher = LocaleMatcher.make();
+				// cleaup localeList
+				Iterator<String>  lIter=localeSet.iterator();
+				while (lIter.hasNext()) {
+					String loc=lIter.next();
+					if (!localeMatcher.matches(loc)) {
+						lIter.remove();
+					}
+				}
 			}
 		}
-		String localeId= cldrFileToCheck.getLocaleID();
-		if (!localeMatcher.matches(localeId)) {
-				possibleErrors.add(
-					new CheckResult().setStatus(ResultStatus.error).setLocale(localeId)
-					.setMessage("Invalid Locale {0}", new Object[] { localeId}));
-
-		}
+//		String localeId= cldrFileToCheck.getLocaleID();
+//		if (!localeMatcher.matches(localeId)) {
+//				possibleErrors.add(
+//					new CheckResult().setStatus(ResultStatus.error).setLocale(localeId)
+//					.setMessage("Invalid Locale {0}", new Object[] { localeId,cldrFileToCheck}));
+//
+//		}
 	}
 
-	/**
-	 * Small helper class that wraps an Iterator, and returns it, which is useful for extended loops, which may 
-	 * now get initialized:
-	 * 
-	 * for (Foo foo: new ForwardingIterable<Foo>(initializeFooIterator(bar))) { ... }
-	 *
-	 * @author ribnitz
-	 *
-	 * @param <E>
-	 */
-	private static class ForwardingIterable<E> implements Iterable<E> {
-
-		/**
-		 * The iterator to forward to
-		 */
-		private final Iterator<E> iterator;
-		
-		/**
-		 * Construct using the iterator provided
-		 * @param anIterator
-		 */
-		public ForwardingIterable(Iterator<E> anIterator) {
-			iterator=anIterator;
-		}
-		
-		@Override
-		public Iterator<E> iterator() {
-			return iterator;
-		}
-	}
-	
 	private Set<String> unknownFinalElements=new HashSet<>();
 	private Set<String> unhandledPaths=new HashSet<>();
 	private final static Splitter WHITESPACE_SPLTTER=Splitter.on(PatternCache.get("\\s+"));
+
+	private Set<String> localeSet = new HashSet<>();
 	
-	private void getMetadata(CLDRFile metadata, SupplementalDataInfo sdi) {
+	private void getMetadata(CLDRFile metadata, SupplementalDataInfo sdi, Factory fact) {
 		// sorting is expensive, but we need it here.
 
 		Comparator<String> ldmlComparator = metadata.getComparator();
@@ -393,7 +371,7 @@ public class TestAttributeValues extends TestFmwk {
 				unhandledPaths.add("Unhandled path (suppress):"+path);
 			} else if (lastElement.equals("serialElements")) {
 				// skip for now
-				unhandledPaths.add("Unhandled path (serialElement):"+path);
+			//	unhandledPaths.add("Unhandled path (serialElement):"+path);
 			} else if (lastElement.equals("attributes")) {
 				// skip for now
 			} else if (lastElement.equals("variable")) {
@@ -441,7 +419,7 @@ public class TestAttributeValues extends TestFmwk {
 			} else if (lastElement.equals("version")) {
 				// skip for now
 				// skip for now
-				unhandledPaths.add("Unhandled path (version):"+path);
+				//unhandledPaths.add("Unhandled path (version):"+path);
 			} else if (lastElement.equals("generation")) {
 				// skip for now
 			} else if (lastElement.endsWith("Alias")) {
@@ -459,34 +437,54 @@ public class TestAttributeValues extends TestFmwk {
 				type_replacement.put(type, replacement);
 			} else if (lastElement.equals("territoryAlias")) {
 				// skip for now
-				// skip for now
 				unhandledPaths.add("Unhandled path (territoryAlaias):"+path);
 			} else if (lastElement.equals("deprecatedItems")) {
 				// skip for now
-				unhandledPaths.add("Unhandled path (deprecatedItems):"+path);
+				//unhandledPaths.add("Unhandled path (deprecatedItems):"+path);
 			} else if (lastElement.endsWith("Coverage")) {
 				// skip for now
 				// skip for now
 				unhandledPaths.add("Unhandled path (Coverage):"+path);
 			} else if (lastElement.endsWith("skipDefaultLocale")) {
 				// skip for now
+				unhandledPaths.add("Unhandled path (SkipdefaultLocale):"+path);
 			} else if (lastElement.endsWith("defaultContent")) {
-				// skip for now
-				// skip for now
-				unhandledPaths.add("Unhandled path (defaultContent):"+path);
+				String locPath = extractValueList(path,"locales");
+				Iterable<String> locales=WHITESPACE_SPLTTER.split(locPath);
+				Set<String> invalidLocales=new HashSet<>();
+				for (String loc: locales) {
+					if (!localeSet.contains(loc)) {
+						invalidLocales.add(loc);
+					}
+				}
+				if (!invalidLocales.isEmpty()) {
+					unhandledPaths.add(invalidLocales.size()+" invalid locales: "+Joiner.on(", ").skipNulls().join(invalidLocales)+" Path:"+path);
+				}
+			//	unhandledPaths.add("Unhandled path (defaultContent):"+path);
 			} else if (lastElement.endsWith("distinguishingItems")) {
 				// skip for now
-				// skip for now
-				unhandledPaths.add("Unhandled path (distinguishingItems):"+path);
+				//unhandledPaths.add("Unhandled path (distinguishingItems):"+path);
 			} else if (lastElement.endsWith("blockingItems")) {
 				// skip for now
-				// skip for now
-				unhandledPaths.add("Unhandled path (blockingItems):"+path);
+				//.add("Unhandled path (blockingItems):"+path);
 			} else {
 				System.out.println("Unknown final element: " + path);
 				unknownFinalElements.add(path);
 			}
 		}
+	}
+
+
+	private String extractValueList(String path,String pattern) {
+		//filter the path
+		int pathStart=path.indexOf(pattern);
+		String locPath=null;
+		if (pathStart>-1) {
+			int strStart=pathStart+pattern.length();
+			int strEnd=path.indexOf("\"",strStart+3);
+		 locPath=path.substring(strStart+2,strEnd);
+		}
+		return locPath;
 	}
 
 	private MatcherPattern getBcp47MatcherPattern(SupplementalDataInfo sdi, String key) {
@@ -597,23 +595,28 @@ public class TestAttributeValues extends TestFmwk {
 			errln(sb.toString());
 		}
 	}
-	
+	private final static Collection<String> FILE_EXCLUSIONS=Arrays.asList(new String[] {"coverageLevels.xml","pluralRanges.xml"});
 	public void TestAttributes() { 
 		CLDRConfig cldrConf=CLDRConfig.getInstance();
 		File[] sourceFiles=new File[sourceDirs.length];
 		for (int i=0;i<sourceDirs.length;i++) {
 			sourceFiles[i]=new File(sourceDirs[i]);
 		}
-
-		File[] sourceDirectories = cldrConf.getMainDataDirectories(sourceFiles);
-		String factoryFilter=null;
-		if (factoryFilter==null||factoryFilter.equals("key")) {
-			factoryFilter = "(en|ru|nl|fr|de|it|pl|es|tr|th|ja|zh|ko|ar|bg|sr|uk|ca|hr|cs|da|fil|fi|hu|id|lv|lt|nb|pt|ro|sk|sl|sv|vi|el|he|fa|hi|am|af|et|is|ms|sw|zu|bn|mr|ta|eu|gl|ur|gu|kn|ml|te|zh_Hant|pt_PT|en_GB)";
+	//	File[] sourceDirectories = cldrConf.getMainDataDirectories(sourceFiles);
+		final Iterable<Path> fileSet = LocaleSetGenerator.generateLocaleSet(Arrays.asList(sourceFiles),FILE_EXCLUSIONS);
+		final Set<File> dirs=new HashSet<>();
+		for (Path cur: fileSet) {
+			String curName=cur.getFileName().toString();
+			localeSet.add(curName.substring(0, curName.lastIndexOf(".")));
+			dirs.add(cur.getParent().toFile());
 		}
+		
+		
+		String factoryFilter="("+Joiner.on("|").join(localeSet)+")";
 		// get the factory
 		// set up the test
-		Factory cldrFactory = SimpleFactory.make(sourceDirectories, factoryFilter)
-				.setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
+		Factory cldrFactory = SimpleFactory.make(dirs.toArray(new File[0]), factoryFilter);
+		//		.setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
 		supplementalData=cldrConf.getSupplementalDataInfo();
 		Set<String> availableLocales=cldrFactory.getAvailable();
 	    System.out.println("Testing: en");
@@ -626,6 +629,7 @@ public class TestAttributeValues extends TestFmwk {
 //		List<CheckResult> results=new ArrayList<>();
 		Set<String> localesToTest=new HashSet<>(availableLocales);
 		localesToTest.remove(rootLocale.getLocaleID());
+		int numTested=1;
 		for (String c:localesToTest) {
 			System.out.println("Testing: "+c);
 			CLDRFile curCldr= cldrFactory.make(c, false);
@@ -633,6 +637,7 @@ public class TestAttributeValues extends TestFmwk {
 			for (String curPath: curCldr) {
 				handleCheck(curPath, curPath, "", results,curCldr);
 			}
+			numTested++;
 		}
 		List<CheckResult> warnings=Collections.emptyList();
 		List<CheckResult> errors=Collections.emptyList();
@@ -686,10 +691,17 @@ public class TestAttributeValues extends TestFmwk {
 				}
 			}
 			logln(sb.toString());
+			System.out.println(numTested+" CLDRFiles tested");
 		}
 
 	}
 
+
+
+	public void TestStaticInterface() {
+		CLDRConfig config=CLDRConfig.getInstance();
+		TestAttributeValues.performCheck(config.getEnglish(),config.getCldrFactory(), supplementalData);
+	}
 	
 	
 	private void compileProblemList(List<CheckResult> problems, StringBuilder sb) {
@@ -851,9 +863,11 @@ public class TestAttributeValues extends TestFmwk {
 						if (!pluralInfo.getCounts().contains(countValue)
 								&& !isPluralException(countValue, locale)) {
 							result.add(
-									new CheckResult(ResultStatus.error, locale,"Illegal plural value {0}; must be one"
-											+ " of: {1}",
-											new Object[] { countValue, pluralInfo.getCounts() }).setPath(path));
+									new CheckResult()
+										.setStatus(ResultStatus.error)
+										.setPath(path)
+										.setMessage("Locale {0}: Illegal plural value {1}; must be one of: {2} Path: {3}", 
+												new Object[] { locale, countValue, pluralInfo.getCounts(), path }));
 						}
 					}
 				}

@@ -2558,7 +2558,7 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	    	return false;
 	    };
 	    
-	    //listenFor(span, "mouseover", editInPlace);
+	    listenFor(span, "mouseover", editInPlace);
 	}*/
 }
 
@@ -3098,13 +3098,15 @@ function updateRow(tr, theRow) {
 		tr.myProposal=null; // not needed
 	}
 
-	if(isDashboard()) {
-		children[config.othercell].appendChild(document.createElement('hr'));
-		children[config.othercell].appendChild(formAdd);//add button	
-	}
-	else {
-		removeAllChildNodes(children[config.addcell]);
-		children[config.addcell].appendChild(formAdd);//add button	
+	if(tr.canChange) {
+		if(isDashboard()) {
+			children[config.othercell].appendChild(document.createElement('hr'));
+			children[config.othercell].appendChild(formAdd);//add button	
+		}
+		else {
+			removeAllChildNodes(children[config.addcell]);
+			children[config.addcell].appendChild(formAdd);//add button	
+		}
 	}
 
 	if(canModify) {

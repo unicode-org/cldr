@@ -512,7 +512,12 @@ public class UserRegistry {
     private static Map<String, VoteResolver.Organization> orgToVrOrg = new HashMap<String, VoteResolver.Organization>();
 
     public static synchronized Organization computeVROrganization(String org) {
-        VoteResolver.Organization o = orgToVrOrg.get(org);
+        VoteResolver.Organization o = Organization.fromString(org);
+        if (o == null) {
+            o = orgToVrOrg.get(org);
+        } else {
+            orgToVrOrg.put(org, o); // from Organization.fromString
+        }
         if (o == null) {
             try {
                 String arg = org.replaceAll("Utilika Foundation", "utilika")

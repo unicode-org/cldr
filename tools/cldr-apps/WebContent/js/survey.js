@@ -1622,65 +1622,127 @@ function showForumStuff(frag, forumDiv, tr) {
 				if(!json.others) {
 					updateIf(sidewaysControl, ""); // no sibling locales (or all null?)
 				} else {
-					var theMsg = null;
-					if(Object.keys(json.others).length <= 1) { // if 1/0 value is set
-						//theMsg = stui.str("sideways_same");
-						theMsg = "\u00A0\u00A0\u00A0"; // add spaces to align
-						addClass(sidewaysControl, "sideways_same");
-					} else {
-						//theMsg = stui.str("sideways_diff");
-						theMsg = "\u2260\u00A0"; // add unequal & space
-						addClass(sidewaysControl, "sideways_diff");
-					}
+//					var theMsg = null;
+//					if(Object.keys(json.others).length == 1) { // if 1/0 value is set
+//						theMsg = stui.str("sideways_same");
+//						addClass(sidewaysControl, "sideways_same");
+//					} else {
+//						theMsg = stui.str("sideways_diff");
+//						addClass(sidewaysControl, "sideways_diff");
+//					}
 					updateIf(sidewaysControl, ""); // remove string
 
 					var group = document.createElement("optGroup");
 					//group.setAttribute("label", name +  " (" + list.length + ")");
 					//group.setAttribute("title", title);
-					group.setAttribute("label", "Regional Variants");
-					group.setAttribute("title", "Regional Variants");
+					var topLocale = json.topLocale;
+					var curLocale = locmap.getRegionAndOrVariantName(topLocale);
+					group.setAttribute("label", "Regional Variants for " + curLocale);
+					group.setAttribute("title", "Regional Variants for " + curLocale);
 					
 					//var popupArea = document.createElement("div");
 					//addClass(popupArea, "sideways_popup");
 					//sidewaysControl.appendChild(popupArea); // will be initially hidden
-					var appendLocaleList = function appendLocaleList(list, name, title) {
-						list.sort(); // at least sort the locale ids
+					var appendLocaleList = function appendLocaleList(list) {
+						//list.sort(); // at least sort the locale ids
+
+						var baseValue = null;
+						// find the base locale, remove it and store its value
+						for(var l=0; l<list.length; l++){
+							var loc = list[l][0];
+							if(loc === topLocale) {
+								baseValue = list[l][1];
+								list.splice(l,1);
+								break;
+							}
+						}
+						
+						var readLocale = null;
+						// replace the default locale(read-only) with base locale, store its name for label
+						for(var l=0; l<list.length; l++){
+							var loc = list[l][0];
+							var bund = locmap.getLocaleInfo(loc);
+			        		if(bund && bund.readonly) {
+			        			readLocale = locmap.getRegionAndOrVariantName(loc);
+			        			list[l][0] = topLocale;
+			        			list[l][1] = baseValue;
+			        			break;
+							}
+						}
+						
+						var curValue = null;
+						var escape = "\u00A0\u00A0\u00A0";
+						var unequalSign = "\u2260\u00A0";
+						
+						// find the currenct locale name
+						for(var l=0;l<list.length;l++){
+							var loc = list[l][0];
+							if(loc === surveyCurrentLocale) {
+								curValue = list[l][1];
+								break;
+							}
+						};
+						
 						for(var l=0;l<list.length;l++) {
-							var loc = list[l];
+							var loc = list[l][0];
+							var title = list[l][1];
 							var item = document.createElement("option");
 							item.setAttribute("value",loc);
+							
 							var str = locmap.getRegionAndOrVariantName(loc);
+							if(loc === topLocale){
+								str = readLocale + " (= " + str + ")";
+							}
+							
 							if(loc === surveyCurrentLocale) {
 								//str = str + ": " + theMsg;
-								str = theMsg + str;
+								str = escape + str;
 								item.setAttribute("selected", "selected");
-								item.setAttribute("title",'"'+s+'"');
-							} else {
-				        		var bund = locmap.getLocaleInfo(loc);
-				        		str = "\u00A0\u00A0\u00A0" + str; // add spaces to align
-				        		if(bund && bund.readonly) {
-			        				addClass(item, "locked");
-			        				item.setAttribute("disabled","disabled");
-			        				item.setAttribute("title",stui.str("readonlyGuidance"));
-			        				str = str + " (default)";
-				        		} else {
-				        			item.setAttribute("title",'"'+s+'"');
-				        		}
-							}							
+			        			item.setAttribute("disabled","disabled");
+							}else if(title != curValue){
+								str = unequalSign + str;
+							}else{
+								str = escape + str;
+							}
+//					        	var bund = locmap.getLocaleInfo(loc);
+//					        	if(bund && bund.readonly) {
+//				        			//addClass(item, "locked");
+//				        			//item.setAttribute("disabled","disabled");
+//				        			//item.setAttribute("title",stui.str("readonlyGuidance"));
+//				        			str = str + " (= " + curLocale + ")";
+//				        			console.log(json);
+//									item.setAttribute("value", topLocale);
+//					        	} else {
+//					        			item.setAttribute("title",'"'+s+'"');
+//					        		}
+//								}
+														
 							item.appendChild(document.createTextNode(str));
 							group.appendChild(item);
 						}
 						popupSelect.appendChild(group);
-					}
+					};
+					
+					var dataList = [];
 					
 					var popupSelect = document.createElement("select");
 					for(var s in json.others) {
-						appendLocaleList(json.others[s], s, s);
+						for(var t in json.others[s]){
+							dataList.push([json.others[s][t], s]);
+						}
+						//appendLocaleList(json.others[s], s, s);
 						//console.log("k:" + s + " in " + JSON.stringify(json.others));
 					}
 					if(json.novalue) {
-						appendLocaleList(json.novalue,  stui.str("sideways_noValue"),  stui.str("sideways_noValue"));
-					}					
+						for(s in json.novalue){
+							dataList.push([json.novalue[s], stui.str("sideways_noValue")]);
+						}
+						//appendLocaleList(json.novalue,  stui.str("sideways_noValue"),  stui.str("sideways_noValue"));
+					}		
+					dataList = dataList.sort(function(a,b) {
+						return a[0] > b[0];
+				    });
+					appendLocaleList(dataList);
 					
 					listenFor(popupSelect, "change", function(e) {
 						var newLoc = popupSelect.value;

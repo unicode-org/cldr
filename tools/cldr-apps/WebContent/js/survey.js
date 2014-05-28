@@ -475,10 +475,14 @@ function createUser(user) {
 		gravatar.align='laft';		
 		div.appendChild(gravatar);
 	}
-	div.appendChild(createChunk(stui_str("userlevel_"+user.userlevelName.toLowerCase(0)),"i","userlevel_"+user.userlevelName.toLowerCase()));
-	div.appendChild(createChunk(user.name,"span","adminUserName"));
-	div.appendChild(createChunk(user.orgName + ' #'+user.id,"span","adminOrgName"));
-	div.appendChild(createChunk(user.email,"address","adminUserAddress"));
+
+	div.appendChild(div.userLevel = createChunk(stui_str("userlevel_"+user.userlevelName.toLowerCase(0)),"i","userlevel_"+user.userlevelName.toLowerCase()));
+	div.appendChild(div.userName = createChunk(user.name,"span","adminUserName"));
+	if(!user.orgName) {
+	   user.orgName = user.org;
+	}
+	div.appendChild(div.userOrg = createChunk(user.orgName + ' #'+user.id,"span","adminOrgName"));
+    div.appendChild(div.userEmail = createChunk(user.email,"address","adminUserAddress"));
 	return div;
 }
 

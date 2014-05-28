@@ -12,7 +12,6 @@ $(function() {
     
     //local chooser intercept
     $('body').on('click','.locName',interceptLocale);
-    
     //handle sidebar
     $('#left-sidebar').hover(function(){
     			if(!$('body').hasClass('disconnected') && !window.haveDialog) { // don't hover if another dialog is open.
@@ -410,7 +409,7 @@ function isDashboard() {
 function addValueVote(td, tr, theRow, newValue, newButton) {
      	tr.inputTd = td; // cause the proposed item to show up in the right box
 		handleWiredClick(tr,theRow,"",{value: newValue},newButton);
-		setTimeout(function(){$(td).prev().click();},2000);
+		//setTimeout(function(){$(td).prev().click();},2000);
 }
 
 //transform input + submit button to the add button for the "add translation"
@@ -419,6 +418,7 @@ function toAddVoteButton(btn) {
 	btn.title = "Add";
 	btn.type = "submit";
 	btn.innerHTML = '<span class="glyphicon glyphicon-plus"></span>';
+	$(btn).parent().popover('destroy');
 	$(btn).tooltip('destroy').tooltip();
 	$(btn).closest('form').next('.subSpan').show();
 	

@@ -1827,18 +1827,21 @@ function showForumStuff(frag, forumDiv, tr) {
 	{
 		// load async
 		var ourUrl = tr.forumDiv.url + "&what=forum_count" + cacheKill() ;
-		var xhrArgs = {
-				url: ourUrl,
-				handleAs:"json",
-				load: function(json) {
-					if(json && json.forum_count !== undefined) {
-						havePosts(parseInt(json.forum_count));
-					} else {
-						console.log("Some error loading post count??");
-					}
-				},
-		};
-		queueXhr(xhrArgs);
+		window.setTimeout(function() {
+			var xhrArgs = {
+					url: ourUrl,
+					handleAs:"json",
+					load: function(json) {
+						if(json && json.forum_count !== undefined) {
+							havePosts(parseInt(json.forum_count));
+						} else {
+							console.log("Some error loading post count??");
+						}
+					},
+			};
+			queueXhr(xhrArgs);	
+		}, 1900);
+
 	}
 	
 	
@@ -2203,6 +2206,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	var ourItem = findItemByValue(theRow.items,value);
 	var testKind = getTestKind(tests);
 	var ourDiv = null;
+	var wrap;
 	if(!ourItem) {
 		ourDiv = document.createElement("div");
 		var newButton = cloneAnon(dojo.byId('proto-button'));
@@ -2219,7 +2223,8 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 				tr.lastOn.className = "ichoice-o";
 			}
 			wireUpButton(newButton,tr,theRow,"[retry]", {"value":value});
-			ourDiv.appendChild(newButton);
+			wrap = wrapRadio(newButton);
+			ourDiv.appendChild(wrap);
 		}
 		var h3 = document.createElement("span");
 		var span=appendItem(h3, value, "value",tr);
@@ -2377,11 +2382,13 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 		return;
 	}
 	var choiceField = document.createElement("div");
+	var wrap;
 	choiceField.className = "choice-field";
 	if(newButton) {
 		newButton.value=item.value;
 		wireUpButton(newButton,tr,theRow,vHash);
-		choiceField.appendChild(newButton);
+		wrap = wrapRadio(newButton);
+		choiceField.appendChild(wrap);
 	}
     var subSpan = document.createElement("span");
     subSpan.className = "subSpan";
@@ -2948,11 +2955,12 @@ function updateRow(tr, theRow) {
 		formAdd.appendChild(buttonAdd);
 		
 		var input = document.createElement("input");
+		var popup;
 		input.className = "form-control input-add";
 		input.placeholder = 'Add a translation';
 		btn.onclick = function(e) {
 			//if no input, add one
-			if($(buttonAdd).find('input').length == 0) {
+			if($(buttonAdd).parent().find('input').length == 0) {
 				
 				//hide other
 				$.each($('button.vote-submit'), function() {
@@ -2960,15 +2968,18 @@ function updateRow(tr, theRow) {
 				});
 				
 				//transform the button
-				buttonAdd.appendChild(input);
 				toSubmitVoteButton(btn);
+				$(buttonAdd).popover({content:' '}).popover('show');
+				popup = $(buttonAdd).parent().find('.popover-content');
+				popup.append(input);
+				popup.closest('.popover').css('top', popup.closest('.popover').position().top - 19);
 				input.focus();
 				
 				
 				//enter pressed
 				$(input).keydown(function (e) {
 					var newValue = $(this).val();
-					if(e.keyCode == 13) {
+					if(e.keyCode == 13) { //enter pressed
 						if(newValue) {
 							addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));			
 						}
@@ -3037,9 +3048,11 @@ function updateRow(tr, theRow) {
 	if(canModify) {
 		removeAllChildNodes(children[config.nocell]); // no opinion
 		var noOpinion = cloneAnon(protoButton);
+		var wrap;
 		wireUpButton(noOpinion,tr, theRow, null);
 		noOpinion.value=null;
-		children[config.nocell].appendChild(noOpinion);
+		wrap = wrapRadio(noOpinion);
+		children[config.nocell].appendChild(wrap);
 		listenToPop(null, tr, children[config.nocell]);
 	}  else if(ticketOnly) { // ticket link
     	if(!tr.theTable.json.canModify) { // only if hidden in the header
@@ -3421,7 +3434,7 @@ function insertRows(theDiv,xpath,session,json) {
 
 	
 	hideLoader(theDiv.loader);
-	wrapRadios();
+	//wrapRadios();
 }
 
 function loadStui(loc) {
@@ -5708,8 +5721,7 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         			updateRow(tr, theRow);
 
         			//style the radios
-        			wrapRadios();
-        			
+        			//wrapRadios(tr);
         			hideLoader(tr.theTable.theDiv.loader);
         			onSuccess(theRow);
         			if(isDashboard()) {
@@ -5783,6 +5795,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 
 	// select
 	updateCurrentId(theRow.xpstrid);
+	
 	// and scroll
 	showCurrentId();
 	

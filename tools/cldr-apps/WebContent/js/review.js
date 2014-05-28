@@ -655,11 +655,11 @@ function insertFixInfo(theDiv,xpath,session,json) {
 
 //redesign the fix row
 function designFixPanel() {
-	wrapRadios();
+	//wrapRadios();
 
 	var nocell = $('.fix-parent #popover-vote .data-vertical #nocell');
 	var idnocell = nocell.find('input').attr('id');
-	nocell.children('div').append('<span class="subSpan">Abstain</span>');	
+	nocell.append('<span class="subSpan">Abstain</span>');	
 	
 	var statuscell = $('.fix-parent #popover-vote .data-vertical #statuscell');
 	var statusClass = statuscell.get(0).className;
@@ -725,8 +725,26 @@ function fixPopoverVotePos() {
 }
 
 //add to the radio button, a more button style
-function wrapRadios() {
-	var radios = $('.ichoice-o, .ichoice-x');
+
+function wrapRadio(button) {
+	//var parent = document.createElement('div');
+	var label = document.createElement('label');
+	label.title = 'Vote';
+	label.className = 'btn btn-default';
+	
+	label.appendChild(button);
+	//parent.appendChild(label);
+	$(label).tooltip();
+	return label;
+}
+
+function wrapRadios(line) {
+	var radios;
+	if(line) 
+		radios = $(line).find('.ichoice-o, .ichoice-x');
+	else
+		radios = $('.ichoice-o, .ichoice-x');
+	
 	radios = radios.filter(function() {return $(this).parent('.btn').length === 0;});
 	radios.wrap('<label class="btn btn-default" title="Vote"></label>');
 	radios.parent().parent().wrapInner('<div></div>');

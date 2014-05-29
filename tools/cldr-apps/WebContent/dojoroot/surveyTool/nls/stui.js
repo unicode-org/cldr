@@ -198,12 +198,13 @@ define({
 		voteInfo_perValue_desc: "This shows the state and voters for a particular item.",
 		voteInfo_moreInfo: "Click here for a full explanation of the icons and their meanings.",
 		// CheckCLDR.StatusAction 
-		StatusAction_msg:              "Item was not submitted: ${0}",
+		StatusAction_msg:              "Not submitted: ${0}",
+		StatusAction_popupmsg:         "Sorry, your vote for '${1}' could not be submitted: ${0}", // same as StatusAction_msg but with context
 		StatusAction_ALLOW:            "(Actually, it was allowed.)", // shouldn't happen
 		StatusAction_FORBID:           "Forbidden.",
-		StatusAction_FORBID_ERRORS:    "Item had errors.",
-		StatusAction_FORBID_READONLY:  "Read-only.",
-		StatusAction_FORBID_COVERAGE:  "Outside of coverage.",
+		StatusAction_FORBID_ERRORS:    "The item had errors.",
+		StatusAction_FORBID_READONLY:  "The item is read-only.",
+		StatusAction_FORBID_COVERAGE:  "The item is not visible by coverage rules.",
 
 		// v.jsp
 		"v-title2_desc": "Locale title",

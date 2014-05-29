@@ -2313,7 +2313,13 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		if(ourItem) {
 			str = stui.sub("StatusAction_msg",
 					[ stui_str("StatusAction_"+json.statusAction) ],"p", "");
-			showInPop(str, tr, null, null, true);
+			var str2 = stui.sub("StatusAction_popupmsg",
+					[ stui_str("StatusAction_"+json.statusAction), theRow.code  ],"p", "");
+			// show in modal popup (ouch!)
+			alert(str2);
+			
+			// show this message in a sidebar also
+			showInPop(stopIcon + str, tr, null, null, true);
 		}
 		return;
 	} else if(json&&json.didNotSubmit) {

@@ -2966,7 +2966,6 @@ function updateRow(tr, theRow) {
 			}
 			
 			if(hintPos != -1) {
-				console.log(theRow)
 				theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample : '');
 				theRow.displayName = theRow.displayName.substr(0, hintPos);
 			}

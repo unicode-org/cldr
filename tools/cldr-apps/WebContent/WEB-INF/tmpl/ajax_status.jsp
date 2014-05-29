@@ -11,7 +11,10 @@
 <link href="<%= request.getContextPath() %>/css/redesign.css" rel="stylesheet">
 <%= VettingViewer.getHeaderStyles() %>
 
-<script type='text/javascript'>dojoConfig = {parseOnLoad: true}</script>
+<script type='text/javascript'>
+dojoConfig = {
+		parseOnLoad: true,
+		};</script>
 <script type='text/javascript' src='<%= request.getContextPath()+"/dojoroot/dojo/dojo.js" %>'></script>
 <script type='text/javascript'>
 require(["dojo/parser", "dijit/layout/ContentPane", "dijit/layout/BorderContainer"]);

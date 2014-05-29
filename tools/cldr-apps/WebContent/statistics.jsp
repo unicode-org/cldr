@@ -20,9 +20,12 @@
 
 	title = "Locales by Submitted Data";
 	doingByLocaleSubmit = true;
+	final String newVersion = SurveyMain.getNewVersion();
+	final String oldVersion = SurveyMain.getOldVersion();
+	final String newVersionText = (SurveyMain.isPhaseBeta())?(newVersion+"BETA"):newVersion;
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SurveyTool Statistics | <%=title%></title>
+<title>SurveyTool <%= newVersionText %> Statistics | <%=title%></title>
 <link rel='stylesheet' type='text/css' href='./surveytool.css' />
 <script type='text/javascript' src='js/raphael.js' ></script>
 <script type='text/javascript' src='js/g.raphael.js' ></script>
@@ -47,26 +50,23 @@
 	DBUtils dbUtils = DBUtils.getInstance();
 	
     int totalItems = StatisticsUtils.getTotalItems();
-    int totalSubmitters = DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_submitters", 1*60*1000, "select count(distinct submitter) from "+DBUtils.Table.VOTE_VALUE+" "));
+    int totalNewItems = StatisticsUtils.getTotalNewItems();
+    int totalSubmitters = StatisticsUtils.getTotalSubmitters();
 	Connection conn = dbUtils.getDBConnection();
 	if (conn == null) {
 		throw new InternalError(
 				"Can't open DB connection. Note, you must use a new JNDI connection for this to work.");
 	}
 	try {
-		String limit = "";
 %>
-	<h1>SurveyTool Statistics: <%=title%></h1>
+	<h1>SurveyTool | CLDR <%= newVersionText %> Statistics: <%=title%></h1>
 	<br/>
     <%
-        String theSqlVet = "select  locale,count(*) as count from "+DBUtils.Table.VOTE_VALUE+"  where submitter is not null "
-                    + limit + " group by locale ";
+        String theSqlVet = StatisticsUtils.QUERY_ALL_VOTES;
             String theSqlData = theSqlVet;
 
-            String[][] submitsV = dbUtils.sqlQueryArrayArray(conn,
-                    theSqlVet);
-            String[][] submitsD = dbUtils.sqlQueryArrayArray(conn,
-                    theSqlData);
+            final String[][] submitsV = dbUtils.sqlQueryArrayArray(conn, theSqlData);
+            final String[][] submitsD = submitsV;
 
             String[][] submits = StatisticsUtils.calcSubmits(submitsV,
                     submitsD);
@@ -75,7 +75,7 @@
     %>
 
 
-	Total Items Submitted: <%= fmt.format( totalItems) %> in <%= fmt.format(submits.length) %> locales by <%= fmt.format(totalSubmitters)  %> submitters. <br/>
+	Total Items Submitted for <%= newVersionText %>: <%= fmt.format( totalItems) %> (<%= fmt.format(totalNewItems) %> new) in <%= fmt.format(submits.length) %> locales by <%= fmt.format(totalSubmitters)  %> submitters. <br/>
 
 
 

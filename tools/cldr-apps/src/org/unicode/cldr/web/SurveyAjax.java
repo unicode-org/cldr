@@ -218,8 +218,11 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_GETSIDEWAYS = "getsideways";
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_GETVV = "vettingviewer";
+    public static final String WHAT_STATS_BYLOC = "stats_byloc";
     public static final String WHAT_STATS_BYDAY = "stats_byday";
     public static final String WHAT_STATS_BYDAYUSERLOC = "stats_bydayuserloc";
+    public static final String WHAT_STATS_BYDAY_NEW = "stats_byday_new";
+    public static final String WHAT_STATS_BYDAYUSERLOC_NEW = "stats_bydayuserloc_new";
     public static final String WHAT_RECENT_ITEMS = "recent_items";
     public static final String WHAT_FORUM_FETCH = "forum_fetch";
     public static final String WHAT_FORUM_COUNT = "forum_count";
@@ -323,6 +326,12 @@ public class SurveyAjax extends HttpServlet {
                 sendNoSurveyMain(out);
             } else if (what == null) {
                 sendError(out, "Missing parameter: " + REQ_WHAT, ErrorCode.E_INTERNAL);
+            } else if (what.equals(WHAT_STATS_BYLOC)) {
+                JSONWriter r = newJSONStatusQuick(sm);
+                JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000, StatisticsUtils.QUERY_ALL_VOTES);
+                r.put(what, query);
+                addGeneralStats(r);
+                send(r,out);
             } else if (what.equals(WHAT_STATS_BYDAYUSERLOC)) {
                 String votesAfterString = SurveyMain.getVotesAfterString();
                 JSONWriter r = newJSONStatus(sm);
@@ -335,7 +344,30 @@ public class SurveyAjax extends HttpServlet {
                 r.put("after", votesAfterString);
                 send(r, out);
                 // select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale,count(*) from "+DBUtils.Table.VOTE_VALUE+" group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod) order by day desc limit 10000;
+            } else if (what.equals(WHAT_STATS_BYDAYUSERLOC_NEW) && DBUtils.db_Mysql) {
+                String votesAfterString = SurveyMain.getVotesAfterString();
+                JSONWriter r = newJSONStatus(sm);
+                final String day = DBUtils.db_Mysql ? "DATE_FORMAT(last_mod, '%Y-%m-%d')" : "last_mod ";
+                final String sql = "select submitter," + day + " as day,locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE
+                    + " group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod)  order by day desc";
+                JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000,
+                    sql);
+                r.put(what, query);
+                r.put("after", votesAfterString);
+                send(r, out);
+                // select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale,count(*) from "+DBUtils.Table.VOTE_VALUE+" group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod) order by day desc limit 10000;
             } else if (what.equals(WHAT_STATS_BYDAY)) {
+                JSONWriter r = newJSONStatus(sm);
+                final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
+                    + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
+                    : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
+                        + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
+                JSONObject query = DBUtils
+                    .queryToCachedJSON(what, (5 * 60 * 1000), sql);
+                r.put("byday", query);
+                r.put("after", "n/a");
+                send(r, out);
+            } else if (what.equals(WHAT_STATS_BYDAY_NEW) && DBUtils.db_Mysql) {
                 JSONWriter r = newJSONStatus(sm);
                 final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
                     + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
@@ -1191,6 +1223,16 @@ public class SurveyAjax extends HttpServlet {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "SQLException: " + e, ErrorCode.E_INTERNAL);
         }
+    }
+
+    /**
+     * @param r
+     */
+    public void addGeneralStats(JSONWriter r) {
+        r.put("total_items",StatisticsUtils.getTotalItems());
+        r.put("total_new_items",StatisticsUtils.getTotalNewItems());
+        r.put("total_submitters",StatisticsUtils.getTotalSubmitters());
+        r.put("time_now",System.currentTimeMillis());
     }
 
     private JSONArray searchResults(String q, CLDRLocale l, CookieSession mySession) {

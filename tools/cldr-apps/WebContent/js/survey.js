@@ -3833,6 +3833,312 @@ function showV() {
 		window.__FLIPPER = flipper;
 		
 		/**
+		 * Manage additional special pages
+		 * @class OtherSpecial
+		 */
+		function OtherSpecial() {
+			// nothing to do 
+		}
+		
+		/**
+		 * @function getSpecial
+		 */
+		OtherSpecial.prototype.getSpecial = function getSpecial(name) {
+			return this.pages[name];
+		};
+		
+		/**
+		 * @function parseHash
+		 */
+		OtherSpecial.prototype.parseHash = function parseHash(name, hash, pieces) {
+			var special = this.getSpecial(name);
+			if(!special) {
+				return false;
+			}
+			
+			if(special.parseHash) {
+				special.parseHash(hash, pieces); // custom parseHash function?
+			} else {
+				// default behavior
+				surveyCurrentPage='';
+				surveyCurrentId=''; // for now
+			}
+			return true;
+		};
+		
+		/**
+		 * @function showPage
+		 */
+		OtherSpecial.prototype.showPage = function showPage(name, params) {
+			var special = this.getSpecial(name);
+			if(!special) {
+				return false;
+			}
+			// populate the params a little more
+			params.otherSpecial = this;
+			params.name = name;
+			params.special = special;
+			// any other setup
+			if(special.show) {
+				special.show(params);
+			} else {
+				params.flipper.flipTo(params.pages.loading, loadingChunk = createChunk("Oops: special page '" + name + "' seems to be unimplemented.","i","ferrbox"));
+			}
+			return true;
+		};
+		
+		/**
+		 * instance of otherSpecial manager
+		 * @property otherSpecial
+		 */
+		var otherSpecial = new OtherSpecial();
+
+		/**
+		 * Additional pages
+		 * @property pages
+		 */
+		OtherSpecial.prototype.pages = {
+			"statistics": {
+				show: function show(params) {
+					showInPop2(stui.str("statisticsGuidance"), null, null, null, true); /* show the box the first time */					
+					hideLoader(null);
+					isLoading=false;					
+					var theDiv = document.createElement("div");
+					theDiv.className = params.name;
+					require(["dijit/layout/TabContainer", "dijit/layout/ContentPane", "dojo/domReady!"],
+					        function(TabContainer, ContentPane){
+					    var aContainer = params.special.aContainer;
+					    var statDiv = null;
+					    if(!aContainer) {
+					    	aContainer = new TabContainer({style:"height: 600px; width: 800px;"});
+					    	var overviewPane = new ContentPane({ title: "Statistics Overview: CLDR " + surveyVersion  , content: '(loading)' });
+						    aContainer.addChild(overviewPane);
+						    
+					    	var bydayPane = new ContentPane({ title: "By Day Graphs"});
+						    aContainer.addChild(bydayPane);
+							statDiv = document.createElement("div");
+							statDiv.id = "statistics_area";
+							bydayPane.set('content', statDiv);
+							
+							
+						   queueXhr({
+						        url: contextPath + "/SurveyAjax?&what=stats_byloc",
+					 	        handleAs:"json",
+					 	        load: function(h){
+					 	        	if(h.total_submitters) {
+					 	        		overviewPane.set('content', "Total submitters: "  + 
+					 	        				dojoNumber.format(h.total_submitters) +
+					 	        				", Total items: " + dojoNumber.format(h.total_items) 
+					 	        				+ " ("+dojoNumber.format(h.total_new_items)+" new)");
+					 	        		
+					 	        		
+					 	        		
+					 	        	} else {
+					 	        		//theResult.appendChild(createChunk("(search error)","i"));
+					 	        	}
+						        },
+						        error: function(err, ioArgs){
+						 			var msg ="Error: "+err.name + " - " + err.message;
+//				 	        		theResult.appendChild(createChunk(msg,"i"));
+						        },
+//						        postData: searchTerm
+						    });
+							
+						}
+					    if(!params.special.aContainer) {
+					    	params.special.aContainer = aContainer;
+						    aContainer.startup();
+					    }
+				    	aContainer.placeAt(theDiv);
+						
+						params.flipper.flipTo(params.pages.other, theDiv);
+						if(statDiv != null) {
+							require(["js/raphael.js", "js/g.raphael.js", "js/g.line.js", "js/g.bar.js"], function() {
+								// load raphael before calling this.
+								window.showstats(statDiv.id);
+							});
+						}
+					});
+				}
+			},
+			"search": {
+				searchCache: {},
+				show: function show(params) {
+					// setup
+					var searchCache = params.special.searchCache;
+					
+					hideLoader(null);
+					isLoading=false;					
+					var theDiv = document.createElement("div");
+					theDiv.className = 'search';
+
+					// install
+					var theInput = document.createElement("input");
+					theDiv.appendChild(theInput);
+					
+					var theSearch = createChunk(stui.str("search"), "button");
+					theDiv.appendChild(theSearch);
+					
+					var theResult = document.createElement("div");
+					theResult.className = 'results';
+					theDiv.appendChild(theResult);
+
+					
+					var newLocale = surveyCurrentLocale;
+					
+					var showResults = function showResults(searchTerm) {
+						var results=searchCache[searchTerm];
+						removeAllChildNodes(theResult);
+						if(newLocale!=surveyCurrentLocale) {
+							var newName = locmap.getLocaleName(newLocale);
+							theResult.appendChild(createChunk(newName, "h4"));
+						}
+						theResult.appendChild(createChunk(searchTerm, "h3"));
+						
+						if(results.length == 0) {
+							theResult.appendChild(createChunk(stui.str("searchNoResults", "h3", "searchNoResults")));
+						} else {
+							for(var i=0;i<results.length;i++) {
+								var result = results[i];
+								
+								var theLi = document.createElement("li");
+								
+								var appendLink = function appendLink(title, url, theClass) {
+									var theA = createChunk(title, "a");
+									if(url && newLocale!='' && newLocale!=null) {
+										theA.href = url;
+									}
+									if(theClass!=null) {
+										theA.className = theClass;
+									}
+									theLi.appendChild(theA);
+								};
+								
+								if(result.xpath) {
+									if(result.strid) {
+										codeUrl = "#/"+newLocale+"//"+result.strid;
+									}
+									appendLink(result.xpath, codeUrl, "xpath");
+								}
+								
+								if(result.ph) {
+									result.ph.strid = result.strid;
+									result = result.ph; // pick up as section
+								}
+								
+								var codeUrl = null;
+								
+								if(result.section) {
+									codeUrl =  "#/"+newLocale+"/"+result.section+"/!";
+									if(result.page) {
+										codeUrl = "#/"+newLocale+"/"+result.page+"/";
+										if(result.strid) {
+											codeUrl = "#/"+newLocale+"/"+result.page+"/"+result.strid;
+										}
+									}
+								}
+								
+								if(result.section) {
+									appendLink(result.section, codeUrl);
+									if(result.page) {
+										theLi.appendChild(createChunk("»"));
+										appendLink(result.page, codeUrl);
+										if(result.code) {
+											theLi.appendChild(createChunk("»"));
+											appendLink(result.code, codeUrl, "codebox");
+										}
+									}
+								}
+								
+								if(result.loc) {
+									appendLocaleLink(theLi, result.loc, locmap.getLocaleInfo(result.loc), true);
+								}
+								
+								theResult.appendChild(theLi);
+							}
+						}
+						
+						theResult.last = searchTerm;
+						theResult.loc = newLocale;
+					};
+					
+					var showSearchTerm = function showSearchTerm(searchTerm) {
+						if((searchTerm != theResult.last || theResult.loc != newLocale) && searchTerm != null) {
+							theResult.last = null;
+							theResult.loc = null;
+							removeAllChildNodes(theResult);
+							theResult.appendChild(createChunk(searchTerm, "h3"));
+							
+							if(!(searchTerm in searchCache)) {
+								   var xurl = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=search"; // allow cache
+								   if(newLocale!=null&&newLocale!='') {
+									   xurl = xurl + "&_="+newLocale;
+								   }
+								   queueXhr({
+								        url:xurl, // allow cache
+							 	        handleAs:"json",
+							 	        load: function(h){
+							 	        	if(h.results) {
+							 	        		searchCache[searchTerm] = h.results;
+									 			showResults(searchTerm);
+							 	        	} else {
+							 	        		theResult.appendChild(createChunk("(search error)","i"));
+							 	        	}
+								        },
+								        error: function(err, ioArgs){
+								 			var msg ="Error: "+err.name + " - " + err.message;
+						 	        		theResult.appendChild(createChunk(msg,"i"));
+								        },
+								        postData: searchTerm
+								    });
+							} else {
+								showResults(searchTerm);
+							}
+							
+
+						} else {
+							//no change;
+						}
+					};
+					
+					var searchFn = function searchFn(e) {
+						var searchTerm = theInput.value;
+						
+						if(searchTerm.indexOf(':')>0) {
+							var segs = searchTerm.split(':');
+							if(locmap.getLocaleInfo(segs[0])!=null) {
+								newLocale = segs[0];
+								// goto
+								if(segs.length==1) {
+									surveyCurrentSpecial='';
+									surveyCurrentLocale=newLocale;
+									reloadV();
+									return;
+								}
+								searchTerm = segs[1];
+							}
+						}
+						
+						showSearchTerm(searchTerm);
+
+						return stStopPropagation(e);
+					};
+					
+					listenFor(theInput, "change", searchFn);
+					listenFor(theSearch, "click", searchFn);
+
+					params.flipper.flipTo(params.pages.other, theDiv);
+					theInput.focus();
+					surveyCurrentLocale=null;
+					surveyCurrentSpecial='search';
+					showInPop2(stui.str("searchGuidance"), null, null, null, true); /* show the box the first time */					
+				}
+			}
+		};
+
+		
+		
+		/**
 		 * parse the hash string into surveyCurrent___ variables. 
 		 * @method parseHash
 		 * @param {String} id
@@ -3895,9 +4201,8 @@ function showV() {
 							surveyCurrentPage='';
 							surveyCurrentId='';
 						}
-					} else if(surveyCurrentSpecial=='search') {
-						surveyCurrentPage='';
-						surveyCurrentId=''; // for now
+					} else if(otherSpecial.parseHash(hash, pieces)) {
+						// handled by other special
 					} else {
 						surveyCurrentPage = '';
 						surveyCurrentId = '';
@@ -5277,178 +5582,8 @@ function showV() {
 					surveyCurrentSpecial='locales';
 					showInPop2(stui.str("localesInitialGuidance"), null, null, null, true); /* show the box the first time */					
 					$('#itemInfo').html('');
-				} else if(surveyCurrentSpecial=='search') {
-					// setup
-					var searchCache = window.searchCache;
-					if(!searchCache) {
-						searchCache = window.searchCache = {};
-					}
-					
-					hideLoader(null);
-					isLoading=false;					
-					var theDiv = document.createElement("div");
-					theDiv.className = 'search';
-
-					// install
-					var theInput = document.createElement("input");
-					theDiv.appendChild(theInput);
-					
-					var theSearch = createChunk(stui.str("search"), "button");
-					theDiv.appendChild(theSearch);
-					
-					var theResult = document.createElement("div");
-					theResult.className = 'results';
-					theDiv.appendChild(theResult);
-
-					
-					var newLocale = surveyCurrentLocale;
-					
-					var showResults = function showResults(searchTerm) {
-						var results=searchCache[searchTerm];
-						removeAllChildNodes(theResult);
-						if(newLocale!=surveyCurrentLocale) {
-							var newName = locmap.getLocaleName(newLocale);
-							theResult.appendChild(createChunk(newName, "h4"));
-						}
-						theResult.appendChild(createChunk(searchTerm, "h3"));
-						
-						if(results.length == 0) {
-							theResult.appendChild(createChunk(stui.str("searchNoResults", "h3", "searchNoResults")));
-						} else {
-							for(var i=0;i<results.length;i++) {
-								var result = results[i];
-								
-								var theLi = document.createElement("li");
-								
-								var appendLink = function appendLink(title, url, theClass) {
-									var theA = createChunk(title, "a");
-									if(url && newLocale!='' && newLocale!=null) {
-										theA.href = url;
-									}
-									if(theClass!=null) {
-										theA.className = theClass;
-									}
-									theLi.appendChild(theA);
-								};
-								
-								if(result.xpath) {
-									if(result.strid) {
-										codeUrl = "#/"+newLocale+"//"+result.strid;
-									}
-									appendLink(result.xpath, codeUrl, "xpath");
-								}
-								
-								if(result.ph) {
-									result.ph.strid = result.strid;
-									result = result.ph; // pick up as section
-								}
-								
-								var codeUrl = null;
-								
-								if(result.section) {
-									codeUrl =  "#/"+newLocale+"/"+result.section+"/!";
-									if(result.page) {
-										codeUrl = "#/"+newLocale+"/"+result.page+"/";
-										if(result.strid) {
-											codeUrl = "#/"+newLocale+"/"+result.page+"/"+result.strid;
-										}
-									}
-								}
-								
-								if(result.section) {
-									appendLink(result.section, codeUrl);
-									if(result.page) {
-										theLi.appendChild(createChunk("»"));
-										appendLink(result.page, codeUrl);
-										if(result.code) {
-											theLi.appendChild(createChunk("»"));
-											appendLink(result.code, codeUrl, "codebox");
-										}
-									}
-								}
-								
-								if(result.loc) {
-									appendLocaleLink(theLi, result.loc, locmap.getLocaleInfo(result.loc), true);
-								}
-								
-								theResult.appendChild(theLi);
-							}
-						}
-						
-						theResult.last = searchTerm;
-						theResult.loc = newLocale;
-					};
-					
-					var showSearchTerm = function showSearchTerm(searchTerm) {
-						if((searchTerm != theResult.last || theResult.loc != newLocale) && searchTerm != null) {
-							theResult.last = null;
-							theResult.loc = null;
-							removeAllChildNodes(theResult);
-							theResult.appendChild(createChunk(searchTerm, "h3"));
-							
-							if(!(searchTerm in searchCache)) {
-								   var xurl = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=search"; // allow cache
-								   if(newLocale!=null&&newLocale!='') {
-									   xurl = xurl + "&_="+newLocale;
-								   }
-								   queueXhr({
-								        url:xurl, // allow cache
-							 	        handleAs:"json",
-							 	        load: function(h){
-							 	        	if(h.results) {
-							 	        		searchCache[searchTerm] = h.results;
-									 			showResults(searchTerm);
-							 	        	} else {
-							 	        		theResult.appendChild(createChunk("(search error)","i"));
-							 	        	}
-								        },
-								        error: function(err, ioArgs){
-								 			var msg ="Error: "+err.name + " - " + err.message;
-						 	        		theResult.appendChild(createChunk(msg,"i"));
-								        },
-								        postData: searchTerm
-								    });
-							} else {
-								showResults(searchTerm);
-							}
-							
-
-						} else {
-							//no change;
-						}
-					};
-					
-					var searchFn = function searchFn(e) {
-						var searchTerm = theInput.value;
-						
-						if(searchTerm.indexOf(':')>0) {
-							var segs = searchTerm.split(':');
-							if(locmap.getLocaleInfo(segs[0])!=null) {
-								newLocale = segs[0];
-								// goto
-								if(segs.length==1) {
-									surveyCurrentSpecial='';
-									surveyCurrentLocale=newLocale;
-									reloadV();
-									return;
-								}
-								searchTerm = segs[1];
-							}
-						}
-						
-						showSearchTerm(searchTerm);
-
-						return stStopPropagation(e);
-					};
-					
-					listenFor(theInput, "change", searchFn);
-					listenFor(theSearch, "click", searchFn);
-
-					flipper.flipTo(pages.other, theDiv);
-					theInput.focus();
-					surveyCurrentLocale=null;
-					surveyCurrentSpecial='search';
-					showInPop2(stui.str("searchGuidance"), null, null, null, true); /* show the box the first time */					
+				} else if(otherSpecial.showPage(surveyCurrentSpecial, {flipper: flipper, pages: pages})) {
+					// handled as an otherSpecial
 				} else {
 					var msg_fmt = stui.sub("v_bad_special_msg",
 							{special: surveyCurrentSpecial });

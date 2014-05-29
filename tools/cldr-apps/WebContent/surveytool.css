@@ -931,6 +931,13 @@ table#statisticsTable {
     border-collapse: collapse;
 }
 
+#statistics_area {
+	width: 800px;
+	height: 800px;
+/*	overflow: scroll;*/
+border: 1px solid gray;
+}
+
 table#statisticsTable thead th {
     font-weight: bold;
     border-bottom: 1px solid gray

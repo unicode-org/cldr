@@ -7,6 +7,8 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class StatisticsUtils {
+    private static final int FEW_MINUTES = 10 * 60 * 1000;
+
     private static class di {
         public String s;
         public int v;
@@ -20,6 +22,8 @@ public class StatisticsUtils {
     };
 
     public static final int NO_LIMIT = -1;
+    
+    public static final String QUERY_ALL_VOTES="select  locale,count(*) as count from "+DBUtils.Table.VOTE_VALUE+"  where submitter is not null "+ "" + " group by locale ";
 
     public static String[][] calcSubmits(String[][] v, String[][] d) {
         return calcSubmits(v, d, NO_LIMIT);
@@ -75,17 +79,52 @@ public class StatisticsUtils {
         return ret;
     }
 
-    // just put some common statistics here
+    /**
+     * Total items submitted. Updated every few minutes
+     * @return
+     */
     public static int getTotalItems() {
+        final String queryName = "total_items";
+        final String querySql = "select count(*) from " + DBUtils.Table.VOTE_VALUE + " where submitter is not null";
+        return getCachedQuery(queryName, querySql);
+    }
+    
+    /**
+     * Total items submitted. Updated every few minutes
+     * @return
+     */
+    public static int getTotalNewItems() {
+        final String queryName = "total_new_items";
+        final String querySql = "select count(*) from " + DBUtils.Table.VOTE_VALUE + " as new_votes where new_votes.submitter is not null "
+            + "and not exists ( select * from "+DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getOldVersion(), false)+" as old_votes "
+                + "where new_votes.locale=old_votes.locale and new_votes.xpath=old_votes.xpath and new_votes.submitter=old_votes.submitter )";
+        return getCachedQuery(queryName, querySql);
+    }
+
+    /**
+     * Total submitters. Updated every few minutes
+     * @return
+     */
+    public static int getTotalSubmitters() {
+        final String queryName = "total_submitters";
+        final String querySql = "select count(distinct submitter) from "+DBUtils.Table.VOTE_VALUE+" ";
+        return getCachedQuery(queryName, querySql);
+    }
+    
+    /**
+     * @param queryName
+     * @param querySql
+     * @return
+     */
+    public static int getCachedQuery(final String queryName, final String querySql) {
         if (!SurveyMain.isSetup || SurveyMain.isBusted()) {
             return -2;
         }
         try {
-            return DBUtils.getFirstInt(DBUtils.queryToCachedJSON("total_items", 1 * 60 * 1000,
-                "select count(*) from " + DBUtils.Table.VOTE_VALUE + " where submitter is not null"));
+            return DBUtils.getFirstInt(DBUtils.queryToCachedJSON(queryName, FEW_MINUTES,
+                querySql));
         } catch (Throwable t) {
             return -1;
         }
     }
-
 }

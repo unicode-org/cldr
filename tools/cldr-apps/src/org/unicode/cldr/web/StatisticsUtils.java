@@ -97,7 +97,8 @@ public class StatisticsUtils {
         final String queryName = "total_new_items";
         final String querySql = "select count(*) from " + DBUtils.Table.VOTE_VALUE + " as new_votes where new_votes.submitter is not null "
             + "and not exists ( select * from "+DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getOldVersion(), false)+" as old_votes "
-                + "where new_votes.locale=old_votes.locale and new_votes.xpath=old_votes.xpath and new_votes.submitter=old_votes.submitter )";
+                + "where new_votes.locale=old_votes.locale and new_votes.xpath=old_votes.xpath and "
+                + "new_votes.submitter=old_votes.submitter and new_votes.value=old_votes.value)";
         return getCachedQuery(queryName, querySql);
     }
 

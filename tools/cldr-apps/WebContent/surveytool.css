@@ -933,9 +933,10 @@ table#statisticsTable {
 
 #statistics_area {
 	width: 800px;
-	height: 800px;
-/*	overflow: scroll;*/
-border: 1px solid gray;
+	height: 400px;
+    overflow: scroll;
+	border: 1px solid gray;
+	margin-bottom: 1em;
 }
 
 table#statisticsTable thead th {

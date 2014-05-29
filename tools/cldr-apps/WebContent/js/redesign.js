@@ -44,13 +44,13 @@ $(function() {
     });
     
     //example on hover
-    $('body').on('mouseenter','.vetting-page .subSpan',function(){
+    $('body').on('mouseenter','.vetting-page .infos-code, .vetting-page .subSpan',function(){
     	var example = $(this).closest('td').find('.d-example');
     	if(example)
     		$(this).popover({html:true, placement:"top",content:example.html()}).popover('show');
     });
     
-    $('body').on('mouseleave','.vetting-page  .subSpan',function(){
+    $('body').on('mouseleave','.vetting-page .infos-code, .vetting-page .subSpan',function(){
     	$(this).popover('hide');
     });
     

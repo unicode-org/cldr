@@ -550,21 +550,21 @@ function submitPost(event) {
 	if($('#post-form textarea[name=text]').val()) {
 		
 		$.ajax({
-	        data: form.serialize(),
-	        type: "POST",
-	        url: url,
-	        contentType: "application/x-www-form-urlencoded;",
-	        dataType: 'json',
-	        success: function(data) {
-	        	var post = $('.post').first();
-				post.before(generateHTMLPost(data));
-				
-				//reset
-				post = $('.post').first();
-				post.hide();
-				post.show('highlight', {color : "#d9edf7"});
-				$('#post-form textarea').val('');
-	        }
+				                data: form.serialize(),
+				                type: "POST",
+				                url: url,
+				                contentType: "application/x-www-form-urlencoded;",
+				                dataType: 'json',
+				                success: function(data) {
+				                        var post = $('.post').first();
+				                                post.before(generateHTMLPost(data));
+				                               
+				                                //reset
+				                                post = $('.post').first();
+				                                post.hide();
+				                                post.show('highlight', {color : "#d9edf7"});
+				                                $('#post-form textarea').val('');
+				                }
 	});
 
 	}

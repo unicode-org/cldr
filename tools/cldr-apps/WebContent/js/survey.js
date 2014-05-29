@@ -2959,7 +2959,14 @@ function updateRow(tr, theRow) {
 	if(!children[config.comparisoncell].isSetup) {
 		if(theRow.displayName) {
 			var hintPos = theRow.displayName.indexOf('[translation hint');
+			var hasExample = false;
+			
+			if(theRow.displayExample) {
+				hasExample = true;
+			}
+			
 			if(hintPos != -1) {
+				console.log(theRow)
 				theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample : '');
 				theRow.displayName = theRow.displayName.substr(0, hintPos);
 			}
@@ -2970,6 +2977,29 @@ function updateRow(tr, theRow) {
 				var theExample = appendExample(children[config.comparisoncell], theRow.displayExample, surveyBaselineLocale);
 				//listenToPop(null,tr,theExample);
 			}
+			
+			if(hintPos != -1 || hasExample) {
+				var infos = document.createElement("div");
+				infos.className = 'infos-code';
+				
+				if(hintPos != -1) {
+					var img = document.createElement("img");
+					img.src = 'hint.png';
+					img.alt = 'Translation hint';
+					infos.appendChild(img);
+				}
+				
+				if(hasExample) {
+					var img = document.createElement("img");
+					img.src = 'example.png';
+					img.alt = 'Example';
+					infos.appendChild(img);
+				}
+				
+				children[config.comparisoncell].appendChild(infos);
+			}
+			
+			
 		} else {
 			children[config.comparisoncell].appendChild(document.createTextNode(""));
 		}

@@ -1730,8 +1730,12 @@ function showForumStuff(frag, forumDiv, tr) {
 					var dataList = [];
 					
 					var popupSelect = document.createElement("select");
+					var inheritValue = null; // inherit value for no-value object
 					for(var s in json.others) {
 						for(var t in json.others[s]){
+							if(json.others[s][t] === topLocale){
+								inheritValue = s;
+							}
 							dataList.push([json.others[s][t], s]);
 						}
 						//appendLocaleList(json.others[s], s, s);
@@ -1739,7 +1743,7 @@ function showForumStuff(frag, forumDiv, tr) {
 					}
 					if(json.novalue) {
 						for(s in json.novalue){
-							dataList.push([json.novalue[s], stui.str("sideways_noValue")]);
+							dataList.push([json.novalue[s], inheritValue]);
 						}
 						//appendLocaleList(json.novalue,  stui.str("sideways_noValue"),  stui.str("sideways_noValue"));
 					}		

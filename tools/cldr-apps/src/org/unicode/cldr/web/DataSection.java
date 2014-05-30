@@ -1765,26 +1765,32 @@ public class DataSection implements JSONString {
                 }
 
                 VoteResolver<String> resolver = ballotBox.getResolver(xpath);
-                return new JSONObject()
-                    .put("xpath", xpath)
-                    .put("xpid", xpathId)
-                    .put("rowFlagged", sm.getSTFactory().getFlag(locale, xpathId) ? true : null)
-                    .put("xpstrid", XPathTable.getStringIDString(xpath))
-                    .put("winningValue", winningValue)
-                    .put("displayName", displayName)
-                    .put("displayExample", displayExample)
+                JSONObject jo = new JSONObject();
+                jo.put("xpath", xpath);
+                jo.put("xpid", xpathId);
+                jo.put("rowFlagged", sm.getSTFactory().getFlag(locale, xpathId) ? true : null);
+                jo.put("xpstrid", XPathTable.getStringIDString(xpath));
+                jo.put("winningValue", winningValue);
+                jo.put("displayName", displayName);
+                jo.put("displayExample", displayExample);
                     // .put("showstatus",
                     // (ph!=null)?ph.getSurveyToolStatus():null)
-                    .put("statusAction", getStatusAction())
+                jo.put("statusAction", getStatusAction());
                     //.put("prettyPath", getPrettyPath())
-                    .put("code", pathCode)
-                    .put("extraAttributes", getNonDistinguishingAttributes()).put("coverageValue", coverageValue)
-                    .put("hasErrors", hasErrors).put("hasWarnings", hasWarnings).put("confirmStatus", confirmStatus)
-                    .put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false)
-                    .put("winningVhash", winningVhash).put("ourVote", ourVote).put("voteVhash", voteVhash)
-                    .put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver)).put("items", itemsJson)
-                    .put("canFlagOnLosing", resolver.getRequiredVotes() == VoteResolver.HIGH_BAR)
-                    .toString();
+                jo.put("code", pathCode);
+                jo.put("extraAttributes", getNonDistinguishingAttributes());
+                jo.put("coverageValue", coverageValue);
+                jo.put("hasErrors", hasErrors);
+                jo.put("hasWarnings", hasWarnings);
+                jo.put("confirmStatus", confirmStatus);
+                jo.put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false);
+                jo.put("winningVhash", winningVhash);
+                jo.put("ourVote", ourVote);
+                jo.put("voteVhash", voteVhash);
+                jo.put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver));
+                jo.put("items", itemsJson);
+                jo.put("canFlagOnLosing", resolver.getRequiredVotes() == VoteResolver.HIGH_BAR);
+                return jo.toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in toJSONString of " + this);
                 throw new JSONException(t);

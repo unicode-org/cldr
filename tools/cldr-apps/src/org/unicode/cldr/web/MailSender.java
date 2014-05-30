@@ -45,7 +45,7 @@ public class MailSender implements Runnable {
 
     private static final String COUNTLEFTSQL = "select count(*) from " + CLDR_MAIL + " where sent_date is NULL and try_count < 3";
 
-    private final boolean DEBUG = CLDRConfig.getInstance().getProperty("CLDR_DEBUG_MAIL", false) || (SurveyMain.isUnofficial() && SurveyLog.isDebug());
+    public final boolean DEBUG = CLDRConfig.getInstance().getProperty("CLDR_DEBUG_MAIL", false) || (SurveyMain.isUnofficial() && SurveyLog.isDebug());
 
     private UserRegistry.User getUser(int user) {
         if (user < 1) user = 1;

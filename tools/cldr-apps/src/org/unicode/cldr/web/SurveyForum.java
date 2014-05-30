@@ -38,6 +38,7 @@ import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
 
+import com.ibm.icu.dev.util.ElapsedTimer;
 import com.ibm.icu.text.DateFormat;
 import com.ibm.icu.util.ULocale;
 import com.sun.syndication.feed.synd.SyndContent;
@@ -474,7 +475,6 @@ public class SurveyForum {
 
                 emailNotify(ctx, forum, base_xpath, subj, text, postId);
 
-                //System.err.println(et.toString() + " - # of users:" + emailCount);
                 if(ctx.field("isReview").equals("1")) {
                     ctx.response.resetBuffer();
                     try {
@@ -647,10 +647,13 @@ public class SurveyForum {
      * @param postId
      */
     public void emailNotify(WebContext ctx, String forum, int base_xpath, String subj, String text, Integer postId) {
-        // ElapsedTimer et = new ElapsedTimer("Sending email to " + forum);
+        ElapsedTimer et = new ElapsedTimer("Sending email to " + forum);
         // Do email-
         Set<Integer> cc_emails = new HashSet<Integer>();
         Set<Integer> bcc_emails = new HashSet<Integer>();
+        
+        // Collect list of users to send to.
+        gatherInterestedUsers(forum, cc_emails, bcc_emails);
 
         String subject = "CLDR forum post (" + CLDRLocale.getInstance(forum).getDisplayName() + " - " + forum + "): " + subj;
 
@@ -659,6 +662,10 @@ public class SurveyForum {
             + "#post" + postId + "\n"
             + "====\n\n"
             + text;
+        
+        if(MailSender.getInstance().DEBUG){
+            System.out.println(et+": Forum notify: u#"+ctx.userId()+" x"+base_xpath+" queueing cc:" + cc_emails.size() + " and bcc:"+bcc_emails.size());
+        }
 
         MailSender.getInstance().queue(ctx.userId(), cc_emails, bcc_emails, HTMLUnsafe(subject), HTMLUnsafe(body), ctx.getLocale(), base_xpath, postId);
     }

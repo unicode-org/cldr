@@ -16,6 +16,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.text.CharacterIterator;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
@@ -34,12 +35,17 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.PathUtilities;
+import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.web.UserRegistry.LogoutException;
 import org.unicode.cldr.web.UserRegistry.User;
 
 import com.ibm.icu.dev.util.ElapsedTimer;
+import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.StringCharacterIterator;
+import com.ibm.icu.text.UCharacterIterator;
+import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 import com.sun.syndication.feed.synd.SyndContent;
 import com.sun.syndication.feed.synd.SyndContentImpl;
@@ -53,6 +59,14 @@ import com.sun.syndication.io.SyndFeedOutput;
  * This class implements a discussion forum per language (ISO code)
  */
 public class SurveyForum {
+    private static UnicodeSet VALID_FOR_XML = new UnicodeSet(     // from http://www.w3.org/TR/xml/#charsets
+        0x09,0x0A,
+        0x0D,0x0D,
+        0x20,0xD7FF,
+        0xe000,0xfffd,
+        0x10000,0x10ffff
+        ).freeze();
+    
     private static java.util.logging.Logger logger;
 
     public static String DB_FORA = "sf_fora"; // forum name -> id
@@ -1780,6 +1794,9 @@ public class SurveyForum {
                             String text = DBUtils.getStringUTF8(rs, 3);
                             java.sql.Timestamp lastDate = rs.getTimestamp(4); // TODO:
                                                                               // timestamp
+                            
+                            subj = validateForXML(subj);
+                            text = validateForXML(text);
                             int id = rs.getInt(5);
                             //String forum = rs.getString(6);
                             String ploc = rs.getString(7);
@@ -1834,11 +1851,40 @@ public class SurveyForum {
 
             // System.out.println("The feed has been written to the file ["+fileName+"]");
         } catch (Throwable ie) {
+            SurveyLog.logException(ie, "getting RSS feed for " + loc + " and user " + user.toString());
             System.err.println("Error getting RSS feed: " + ie.toString());
             ie.printStackTrace();
             // todo: err
         }
         return true;
+    }
+
+    /**
+     * Make sure the string is valid XML. 
+     * @param str
+     * @return
+     */
+    private final String validateForXML(String str) {
+        if(VALID_FOR_XML.containsAll(str)) {
+            return str;
+        } else {
+            UnicodeSet tmpSet = 
+                new UnicodeSet(VALID_FOR_XML)
+                .complement()
+                .retainAll(str);
+            StringBuilder sb = new StringBuilder(str.length());
+            sb.append("((INVALID CHARS: " + tmpSet.toString() +" )) ");
+            int cp;
+            for(UCharacterIterator ui = UCharacterIterator.getInstance(str);
+                    (cp=ui.next())!=UCharacterIterator.DONE;) {
+                if(VALID_FOR_XML.contains(cp)) {
+                    sb.append(Character.toChars(cp));
+                } else {
+                    sb.append("\\x{"+Integer.toHexString(cp)+"}");
+                }
+            }
+            return sb.toString();
+        }
     }
 
     private static String shortenText(String s) {

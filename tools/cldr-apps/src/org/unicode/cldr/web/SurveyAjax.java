@@ -232,6 +232,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_REVIEW_HIDE = "review_hide";
     public static final String WHAT_REVIEW_ADD_POST = "add_post";
     public static final String WHAT_REVIEW_GET_POST = "get_post";
+    public static final String WHAT_PARTICIPATING_USERS = "participating_users";
 
     
     String settablePrefsList[] = { SurveyMain.PREF_CODES_PER_PAGE, SurveyMain.PREF_COVLEV,
@@ -1193,6 +1194,16 @@ public class SurveyAjax extends HttpServlet {
                         r.put("results", results);
 
                         send(r, out);
+                    } else if (what.equals(WHAT_PARTICIPATING_USERS)) {
+                        assertHasUser(mySession);
+                        assertIsTC(mySession);
+                        JSONWriter r = newJSONStatusQuick(sm);
+                        final String sql = "select cldr_users.id as id, cldr_users.email as email, cldr_users.org as org from cldr_users, "+DBUtils.Table.VOTE_VALUE+" where "
+                            +DBUtils.Table.VOTE_VALUE+".submitter = cldr_users.id and "+DBUtils.Table.VOTE_VALUE+".submitter is not null group by email order by cldr_users.email";
+                        JSONObject query = DBUtils.queryToCachedJSON(what, 3600 * 1000, sql); // update hourly
+                        r.put(what, query);
+                        addGeneralStats(r);
+                        send(r,out);
                     } else {
                         sendError(out, "Unknown Session-based Request: " + what, ErrorCode.E_INTERNAL);
                     }
@@ -1204,12 +1215,37 @@ public class SurveyAjax extends HttpServlet {
             } else {
                 sendError(out, "Unknown Request: " + what, ErrorCode.E_INTERNAL);
             }
+        } catch (SurveyException e) {
+            SurveyLog.logException(e, "Processing: " + what);
+            sendError(out, e);
         } catch (JSONException e) {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "JSONException: " + e, ErrorCode.E_INTERNAL);
         } catch (SQLException e) {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "SQLException: " + e, ErrorCode.E_INTERNAL);
+        }
+    }
+
+    /**
+     * Throw an exception if the user isn't TC level
+     * @param mySession
+     * @throws SurveyException
+     */
+    public void assertIsTC(CookieSession mySession) throws SurveyException {
+        if(!UserRegistry.userIsTC(mySession.user)) {
+            throw new SurveyException(ErrorCode.E_NO_PERMISSION);
+        }
+    }
+
+    /**
+     * Throw an exception if the user isn't logged in.
+     * @param mySession
+     * @throws SurveyException
+     */
+    public void assertHasUser(CookieSession mySession) throws SurveyException {
+        if(mySession.user==null) {
+            throw new SurveyException(ErrorCode.E_NOT_LOGGED_IN);
         }
     }
 
@@ -1557,6 +1593,21 @@ public class SurveyAjax extends HttpServlet {
         r.put("err_code", errCode);
         send(r, out);
     }
+
+    private void sendError(PrintWriter out, SurveyException e) throws IOException {
+        JSONWriter r = newJSON();
+        r.put("SurveyOK", "0");
+        r.put("err", e.getMessage());
+        r.put("err_code", e.getErrCode());
+        try {
+            e.addDataTo(r);
+        } catch (JSONException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+        send(r, out);
+    }
+
 
     private static void send(JSONWriter r, PrintWriter out) throws IOException {
         out.print(r.toString());

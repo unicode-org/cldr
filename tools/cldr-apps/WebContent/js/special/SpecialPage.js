@@ -29,5 +29,13 @@ define("js/special/SpecialPage.js", function() {
 		params.flipper.flipTo(params.pages.loading, loadingChunk = createChunk("Oops: special page '" + params.name + ".show' seems to be unimplemented.","i","ferrbox"));
 	};
 	
+	SpecialPage.prototype.showError = function showError(params, json, opts) {
+		if(json && json.err) {
+			params.exports.handleDisconnect(opts.message, json);
+		} else {
+			params.exports.handleDisconnect(opts.message, {err: opts.err});
+		}
+	};
+	
 	return SpecialPage;
 });

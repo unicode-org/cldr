@@ -1084,6 +1084,16 @@ i.loadingMsgSpin {
 }
 */
 
+.loaderAnimIcon {
+	background-image: url('loader.gif');
+	background-repeat: no-repeat;
+	position:relative;
+	top:10px;
+	left:15px;
+	width: 100px;
+	height: 100px;
+}
+
 .small_login_hot {
 	font-size: larger;
 	border: 7px outset maroon;

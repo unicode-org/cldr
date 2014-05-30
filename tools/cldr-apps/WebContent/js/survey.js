@@ -3940,7 +3940,10 @@ function showV() {
 				// add anything from scope..
 				
 				params.exports = {
-						appendLocaleLink: appendLocaleLink
+						// All things that should be separate AMD modules..
+						appendLocaleLink: appendLocaleLink,
+						handleDisconnect: handleDisconnect,
+						clickToSelect: clickToSelect
 				};
 				
 				special.show(params);
@@ -3951,7 +3954,7 @@ function showV() {
 				var msg_fmt = stui.sub("v_bad_special_msg",
 						{special: name });
 				params.flipper.flipTo(params.pages.loading, loadingChunk = createChunk(msg_fmt,"p","errCodeMsg"));
-				isLoading=false;				
+				isLoading=false;
 			});
 		};
 		

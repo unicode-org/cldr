@@ -348,10 +348,10 @@ public class DBUtils {
                 }
     
                 if (rs.next() == true) {
-                    System.out.println("table " + canonName + " did exist.");
+                    SurveyLog.warnOnce("table " + canonName + " did exist.");
                     return true;
                 } else {
-                    SurveyLog.debug("table " + canonName + " did not exist.");
+                    SurveyLog.warnOnce("table " + canonName + " did not exist.");
                     return false;
                 }
             } finally {

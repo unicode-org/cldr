@@ -2545,8 +2545,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         printMenu(ctx, doWhat, "coverage", "Show Vetting Participation", QUERY_DO);
 
         if (UserRegistry.userIsTC(ctx.session.user)) {
-            ctx.println("| <a class='notselected' href='" + ctx.jspUrl("tc-emaillist.jsp")
-                + "'>Email Address of Users Who Participated</a>");
+            ctx.println("| <a class='notselected' href='v#tc-emaillist'>Email Address of Users Who Participated</a>");
             ctx.print(" | ");
         }
 

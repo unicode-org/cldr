@@ -77,6 +77,7 @@ import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
 import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
 import org.unicode.cldr.util.CachingEntityResolver;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Factory.DirectoryType;
 import org.unicode.cldr.util.Factory.SourceTreeType;
@@ -5067,11 +5068,13 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
             Set<CLDRLocale> failedSuppTest = new TreeSet<CLDRLocale>();
 
+            // Initialize CoverageInfo outside the loop.
+            CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
             for (File f : getInFiles()) {
                 CLDRLocale loc = fileNameToLocale(f.getName());
 
                 try {
-                    getSupplementalDataInfo().getCoverageValue("//ldml", loc.getBaseName());
+                    covInfo.getCoverageValue("//ldml", loc.getBaseName());
                 } catch (Throwable t) {
                     SurveyLog.logException(t, "checking SDI for " + loc);
                     failedSuppTest.add(loc);

@@ -13,11 +13,13 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.Builder.CBuilder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -102,7 +104,8 @@ public class GenerateCoverageLevels {
             String source = cldrFile.getSourceLocaleID(path, null);
             Inheritance inherited = !source.equals(locale) ? Inheritance.inherited : Inheritance.actual;
 
-            Level level = supplementalData.getCoverageLevel(path, locale);
+//            Level level = supplementalData.getCoverageLevel(path, locale);
+            Level level= CLDRConfig.getInstance().getCoverageInfo().getCoverageLevel(path, locale);
 
             items.add(Row.of(level, path, inherited));
         }
@@ -524,7 +527,7 @@ public class GenerateCoverageLevels {
         Status status = new Status();
         Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
             .addAll(cldrFile.getExtraPaths()).get();
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        CoverageInfo coverageInfo=CLDRConfig.getInstance().getCoverageInfo();
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -536,7 +539,8 @@ public class GenerateCoverageLevels {
                 ? Inheritance.inherited
                 : Inheritance.actual;
 
-            Level level = sdi.getCoverageLevel(fullPath, locale);
+//            Level level = sdi.getCoverageLevel(fullPath, locale);
+            Level level= coverageInfo.getCoverageLevel(fullPath, locale);
             if (inherited == Inheritance.actual) {
                 levelData.found.add(level, 1);
             } else {

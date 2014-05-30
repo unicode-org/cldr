@@ -61,6 +61,11 @@ public class CLDRConfig extends Properties {
      * Object used for synchronization in getStandardCodes()
      */
     private static final Object GET_STANDARD_CODES_SYNC = new Object();
+    
+    /**
+     * Object used for synchronization in getCoverageInfo()
+     */
+    private static Object COVERAGE_INFO_SYNC=new Object(); 
 
     public enum Environment {
         LOCAL, // < == unknown.
@@ -119,7 +124,8 @@ public class CLDRConfig extends Properties {
     public String getInitStack() {
         return initStack;
     }
-
+  
+    private CoverageInfo coverageInfo=null;
     private SupplementalDataInfo supplementalDataInfo;
     private StandardCodes sc;
     private Factory cldrFactory;
@@ -171,6 +177,15 @@ public class CLDRConfig extends Properties {
         return sc;
     }
 
+    public CoverageInfo getCoverageInfo() { 
+        synchronized(COVERAGE_INFO_SYNC) { 
+            if (coverageInfo==null) { 
+                coverageInfo=new CoverageInfo(getSupplementalDataInfo()); 
+            } 
+        } 
+        return coverageInfo; 
+    } 
+    
     public Factory getCldrFactory() {
         synchronized (CLDR_FACTORY_SYNC) {
             if (cldrFactory == null) {

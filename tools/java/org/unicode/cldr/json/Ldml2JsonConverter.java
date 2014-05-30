@@ -16,11 +16,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.DtdData;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.FileProcessor;
@@ -242,6 +244,7 @@ public class Ldml2JsonConverter {
         } else {
             fileDtdType = DtdType.ldml;
         }
+        CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
         for (Iterator<String> it = file.iterator("", DtdData.getInstance(fileDtdType).getDtdComparator(null)); it.hasNext();) {
             int cv = Level.UNDETERMINED.getLevel();
             String path = it.next();
@@ -253,7 +256,7 @@ public class Ldml2JsonConverter {
             }
 
             if (!CLDRFile.isSupplementalName(locID) && path.startsWith("//ldml/") && !path.contains("/identity")) {
-                cv = sdi.getCoverageValue(path, locID);
+                cv= covInfo.getCoverageValue(path, locID);
             }
             if (cv > coverageValue) {
                 continue;

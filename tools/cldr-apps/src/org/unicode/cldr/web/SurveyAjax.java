@@ -37,6 +37,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
@@ -1094,7 +1095,7 @@ public class SurveyAjax extends HttpServlet {
                                     //CoverageLevel2 cov = CoverageLevel2.getInstance(sm.getSupplementalDataInfo(),loc);
 
                                     Set<String> validPaths = fac.getPathsForFile(locale);
-
+                                    CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
                                     for (Map m : rows) {
                                         String value = m.get("value").toString();
                                         if (value == null) continue; // ignore unvotes.
@@ -1110,7 +1111,7 @@ public class SurveyAjax extends HttpServlet {
                                             bad++;
                                             continue;
                                         }
-                                        if (sm.getSupplementalDataInfo().getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
+                                        if (covInfo.getCoverageValue(xpathString, loc) > Level.COMPREHENSIVE.getLevel()) {
                                             //System.err.println("SkipCov PH " + pathHeader + " =" + pathHeader.getSurveyToolStatus());
                                             bad++;
                                             continue; // out of coverage
@@ -1295,12 +1296,12 @@ public class SurveyAjax extends HttpServlet {
             }
         }
         // add any others
-
+        CoverageInfo covInfo= CLDRConfig.getInstance().getCoverageInfo();
         for (PathHeader ph : resultPh) {
             try {
                 final String originalPath = ph.getOriginalPath();
                 if (ph.getSectionId() != PathHeader.SectionId.Special &&
-                    mySession.sm.getSupplementalDataInfo().getCoverageLevel(originalPath, l.getBaseName()).getLevel() <= 100) {
+                    covInfo.getCoverageLevel(originalPath, l.getBaseName()).getLevel() <= 100) {
                     results.put(new JSONObject()
                         .put("xpath", originalPath)
                         .put("strid", mySession.sm.xpt.getStringIDString(originalPath))

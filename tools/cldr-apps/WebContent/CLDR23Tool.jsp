@@ -1,5 +1,7 @@
 <%@page import="com.ibm.icu.util.ULocale"%>
 <%@page import="com.ibm.icu.text.AlphabeticIndex"%>
+<%@page import="org.unicode.cldr.util.Level" %>
+<%@page import="org.unicode.cldr.util.CoverageInfo" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
         import="org.unicode.cldr.web.*,org.unicode.cldr.util.*, java.util.TreeSet,  com.ibm.icu.text.AlphabeticIndex"
     pageEncoding="UTF-8"%>
@@ -9,15 +11,20 @@
 
 <%!
         public boolean isValidSurveyToolVote(UserRegistry.User user, String xpath, PathHeader ph, CLDRLocale locale) {
-          SurveyMain sm = CookieSession.sm;
             
             if(ph==null) return false;
-            if(ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.DEPRECATED) return false;
+            if(ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.DEPRECATED) {
+            	return false;
+            }
             if(ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.HIDE  || 
                     ph.getSurveyToolStatus()==PathHeader.SurveyToolStatus.READ_ONLY) {
                 if(user==null || !UserRegistry.userIsTC(user)) return false;
             }
-            if(sm.getSupplementalDataInfo().getCoverageValue(xpath, locale.getBaseName())>org.unicode.cldr.util.Level.COMPREHENSIVE.getLevel()) return false;
+          	CoverageInfo cInfo=CLDRConfig.getInstance().getCoverageInfo();
+            if(cInfo.getCoverageValue(xpath, locale.getBaseName())>
+            	Level.COMPREHENSIVE.getLevel()) {
+            		return false;
+            }
             return true;
         }
 %>

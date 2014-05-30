@@ -11,8 +11,10 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.PathHeader.Factory;
@@ -138,8 +140,9 @@ public class SurveyMenus implements Iterable<SurveyMenus.Section> {
                     int min = Level.OPTIONAL.getLevel();
                     Iterable<String> iter = getPagePaths();
                     if (iter != null) {
+                        CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
                         for (String xp : iter) {
-                            int l = sdi.getCoverageValue(xp, loc.getBaseName());
+                            int l = covInfo.getCoverageValue(xp, loc.getBaseName());
                             if (l < min) {
                                 min = l;
                             }

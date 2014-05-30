@@ -11,9 +11,10 @@ import org.apache.tools.ant.Task;
 import org.unicode.cldr.ant.CLDRBuild.Paths;
 import org.unicode.cldr.icu.LDMLConstants;
 import org.unicode.cldr.icu.ResourceSplitter.SplitInfo;
+import org.unicode.cldr.util.CLDRConfig;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.StandardCodes;
-import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.XPathParts;
 import org.w3c.dom.Node;
 
@@ -214,7 +215,8 @@ public abstract class CLDRConverterTool {
 
         ArrayList<String> myXPathList = new ArrayList<String>(xpathList.size());
         StandardCodes sc = StandardCodes.make();
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(supplementalDir);
+        // Instantiate CoverageInfo outside the loop
+        CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
         // iterator of xpaths of the current CLDR file being processed
         // this map only contains xpaths of the leaf nodes
         for (int i = 0; i < xpathList.size(); i++) {
@@ -223,8 +225,8 @@ public abstract class CLDRConverterTool {
             Map<String, String> attr = parts.getAttributes(parts.size() - 1);
 
             boolean include = false;
-            for (int j = 0; j < pathList.size(); j++) {
-                Object obj = pathList.get(j);
+         
+            for (Task obj: pathList) {
                 if (obj instanceof CLDRBuild.CoverageLevel) {
                     CLDRBuild.CoverageLevel level = (CLDRBuild.CoverageLevel) obj;
                     if (level.locales != null) {
@@ -243,7 +245,7 @@ public abstract class CLDRConverterTool {
                     Level cv = Level.get(level.level);
                     // only include the xpaths that have the coverage level at least the coverage
                     // level specified by the locale
-                    if (sdi.getCoverageLevel(xpath, localeName).compareTo(cv) <= 0) {
+                    if (covInfo.getCoverageLevel(xpath, localeName).compareTo(cv) <= 0) {
                         String draftVal = attr.get(LDMLConstants.DRAFT);
                         if (level.draft != null) {
                             if (draftVal == null

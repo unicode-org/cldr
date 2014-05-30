@@ -38,6 +38,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -507,12 +508,13 @@ public class ConsoleCheckCLDR {
             }
             paths.clear();
             // CollectionUtilities.addAll(file.iterator(pathFilter), paths);
+            CoverageInfo covInfo=cldrConf.getCoverageInfo();
             for (String path : file.fullIterable()) {
                 if (pathFilter != null && !pathFilter.reset(path).find()) {
                     continue;
                 }
                 if (coverageLevel != null) {
-                    Level currentLevel = supplementalDataInfo.getCoverageLevel(path, localeID);
+                    Level currentLevel = covInfo.getCoverageLevel(path, localeID);
                     if (currentLevel.compareTo(coverageLevel) > 0) {
                         continue;
                     }

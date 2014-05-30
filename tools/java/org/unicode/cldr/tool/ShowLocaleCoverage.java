@@ -28,6 +28,7 @@ import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
@@ -142,8 +143,10 @@ public class ShowLocaleCoverage {
 
     public static void showEnglish() {
         Map<PathHeader,String> sorted = new TreeMap<>();
+        CoverageInfo coverageInfo=CLDRConfig.getInstance().getCoverageInfo();
         for (String path : ENGLISH) {
-            Level currentLevel = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(path, "en");
+//            Level currentLevel = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(path, "en");
+            Level currentLevel=coverageInfo.getCoverageLevel(path, "en");
             if (currentLevel.compareTo(Level.MINIMAL) <= 0) {
                 PathHeader ph = pathHeaderFactory.fromPath(path);
                 sorted.put(ph, currentLevel + "\t" + ENGLISH.getStringValue(path));

@@ -44,8 +44,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
@@ -716,6 +718,7 @@ public class DataSection implements JSONString {
         public String oldValue;
         private PathHeader pathHeader;
 
+     
         // the zoomout view, they must zoom
         // in.
 
@@ -1813,7 +1816,8 @@ public class DataSection implements JSONString {
 
         @Override
         public Level getCoverageLevel() {
-            return sm.getSupplementalDataInfo().getCoverageLevel(getXpath(), locale.getBaseName());
+            // access the private method of the enclosing class
+            return getCoverageInfo().getCoverageLevel(getXpath(), locale.getBaseName());
         }
 
         /**
@@ -2239,6 +2243,15 @@ public class DataSection implements JSONString {
     @Deprecated
     public static final String VETTING_PROBLEMS_LIST[] = { PARTITION_ERRORS, CHANGES_DISPUTED, PARTITION_UNCONFIRMED };
 
+    /**
+     * Field to cache the Coverage info
+     */
+    private static CoverageInfo covInfo=null;
+    
+    /**
+     * Synchronization Mutex used for accessing/setting the coverageInfo object
+     */
+    private static final Object GET_COVERAGEINFO_SYNC=new Object();
     /**
      * Warn user why these messages are showing up.
      */
@@ -2738,7 +2751,7 @@ public class DataSection implements JSONString {
                     }
                     // Filter out data that is higher than the desired coverage
                     // level
-                    int coverageValue = sm.getSupplementalDataInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
+                    int coverageValue=getCoverageInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
                     if (coverageValue > workingCoverageValue) {
                         if (coverageValue <= 100) {
                             // KEEP COUNT OF FILTERED ITEMS
@@ -2767,6 +2780,20 @@ public class DataSection implements JSONString {
                 }
             }
         } // tz
+    }
+
+    
+    /**
+     * Get the CoverageInfo object from CLDR
+     * @return
+     */
+    private CoverageInfo getCoverageInfo() {
+        synchronized(GET_COVERAGEINFO_SYNC) {
+            if (covInfo==null) {
+                covInfo=CLDRConfig.getInstance().getCoverageInfo();
+            }
+          return covInfo;
+        }
     }
 
     // ==
@@ -2995,9 +3022,8 @@ public class DataSection implements JSONString {
             int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
             String baseXpath = sm.xpt.getById(base_xpath);
 
-            // Filter out data that is higher than the desired coverage
-            // level
-            int coverageValue = sm.getSupplementalDataInfo().getCoverageValue(baseXpath, locale.getBaseName());
+            int coverageValue = getCoverageInfo().getCoverageValue(baseXpath, locale.getBaseName());
+//            int coverageValue = sm.getSupplementalDataInfo().getCoverageValue(baseXpath, locale.getBaseName());
             if (coverageValue > workingCoverageValue) {
                 if (coverageValue <= Level.COMPREHENSIVE.getLevel()) {
                     skippedDueToCoverage++;

@@ -6576,14 +6576,35 @@ function showstats(hname) {
 					
 					var header=json.byday.header;
 					var data=json.byday.data;
+					var header_new=json.byday_new.header;
+					var data_new=json.byday_new.data;
+					var labels_old = [];
+					var count_old = [];
 					var labels = [];
-					var count = [];
-					for(var i in data) {
-						labels.push(data[i][header.LAST_MOD]);
-						count.push(data[i][header.COUNT]);
+					var count_new = [];
+					for(var i in data_new) {
+						var newLabel = (data_new[i][header_new.LAST_MOD]).split(' ')[0];
+						var newCount = data_new[i][header_new.COUNT];
+						labels.push(newLabel); // labels come from new data
+						count_new.push(newCount);
+						var oldLabel = (data[i][header.LAST_MOD]).split(' ')[0];
+						if(newLabel == oldLabel) {
+							// have old data
+							var oldCount = data[i][header.COUNT];
+							if(oldCount < newCount) {
+								console.log("Preposterous: at " + newLabel + ": " + oldCount + " oldCount < " + newCount + "  newCount " );
+								count_old.push(-1);
+							} else {
+								count_old.push(oldCount - newCount);
+							}
+						} else {
+							console.log("Desync: " + newLabel + " / " + oldLabel);
+							count_old.push(-1);
+						}
 					}
 					var gdata = [];
-					gdata.push(count);
+					gdata.push(count_new);
+					gdata.push(count_old);
 					showLoader(null, "Drawing");
 					// this: 0,id,node,paper,attrs,transformations,_,prev,next,type,bar,value,events
 					// this.bar ["0", "id", "node", "paper", "attrs", "transformations", "_", "prev", "next", "type", "x", "y", "w", "h", "value"]
@@ -6599,12 +6620,15 @@ function showstats(hname) {
 					var offh = 10;
 					var toffh = 30;
 					var toffv=10+(hei/(2*labels.length));
-					console.log("Drawing in : " + hname + " - "  + count.toString());
-					r.g.hbarchart(100,offh,600,hei, gdata )
-						.hover(fin,fout);
-						//.label(labels2);
+					console.log("Drawing in : " + hname + " - "  + count_new.toString());
+					r.g.hbarchart(100,offh,600,hei, gdata,  {
+						stacked: true,
+						colors: ["#8aa717","#1751a7"]
+					})
+					.hover(fin,fout);
+	                //.label(labels2);
 					for(var i in labels) {
-						r.text(toffh,toffv+(i*(hei/labels.length)), (labels[i].split(" ")[0])+"\n"+count[i]  );
+						r.text(toffh,toffv+(i*(hei/labels.length)), (labels[i].split(" ")[0])+"\n"+count_new[i]  );
 					}
 					hideLoader(null);
 				} else {

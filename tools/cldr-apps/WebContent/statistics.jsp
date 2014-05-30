@@ -39,6 +39,10 @@
 
 <%@ include file="/WEB-INF/tmpl/ajax_status.jsp" %>
 
+<h2>Note: this is the OLD statistics page. Please help beta-test the new one by clicking <a href='v#statistics'>here</a></h2>
+
+<hr>
+
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <!-- 	| <a class='notselected' href="statistics-org.jsp">by Organization</a> -->
 <i>This page does not auto-refresh, and is only calculated every few minutes. <br>Also, the translated names may be out of date, as they are currently using the previous-version data.</i>
@@ -180,7 +184,7 @@
 
 <%-- OLD CRUFT ABOVE. 
   NEW STUFF...  ----------------------------------------------------- --%>
-	<h3>Submits by day</h3>
+	<h3>Submits by day:   NEW/CHANGED | OLD</h3>
 	<div id="dholder-holder">
 	        <div id="dholder" style="width: 600px; height: 800px;"></div>
 	</div>        

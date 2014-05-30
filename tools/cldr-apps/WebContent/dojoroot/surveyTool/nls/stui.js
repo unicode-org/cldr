@@ -264,7 +264,7 @@ define({
 		searchGuidance: "This is a basic search facility. An exact word such as 'Monday' or 'Montag' can be entered, or an XPath or string ID like 'eeaf1f975877a5d'.  An optional locale ID can be prefixed to any search term, so 'mt:Monday' or 'mt:eeaf1f975877a5d'.",
 		section_help: "Choose an item from the 'Subpages' menu to begin working with this section.",
 		
-		statisticsGuidance: "This shows some basic statistics. More information is currently available under the 'Manage' menu.",
+		statisticsGuidance: "This page is in BETA. This shows some basic statistics. More information is currently available under the 'Manage' menu.",
 		
         section_info_Core_Data:  "The Core Data is vital for proper functioning of each locale. Because changes can disrupt the survey tool, data can only be changed via tickets. Please also review the Plural Rules for your locale: they are also vital.",
         section_info_Locale_Display_Names:  "The Locale Display Names are used to format names of locales, languages, scripts, and regions (including countries).",

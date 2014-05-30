@@ -221,8 +221,6 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_STATS_BYLOC = "stats_byloc";
     public static final String WHAT_STATS_BYDAY = "stats_byday";
     public static final String WHAT_STATS_BYDAYUSERLOC = "stats_bydayuserloc";
-    public static final String WHAT_STATS_BYDAY_NEW = "stats_byday_new";
-    public static final String WHAT_STATS_BYDAYUSERLOC_NEW = "stats_bydayuserloc_new";
     public static final String WHAT_RECENT_ITEMS = "recent_items";
     public static final String WHAT_FORUM_FETCH = "forum_fetch";
     public static final String WHAT_FORUM_COUNT = "forum_count";
@@ -344,38 +342,27 @@ public class SurveyAjax extends HttpServlet {
                 r.put("after", votesAfterString);
                 send(r, out);
                 // select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale,count(*) from "+DBUtils.Table.VOTE_VALUE+" group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod) order by day desc limit 10000;
-            } else if (what.equals(WHAT_STATS_BYDAYUSERLOC_NEW) && DBUtils.db_Mysql) {
-                String votesAfterString = SurveyMain.getVotesAfterString();
-                JSONWriter r = newJSONStatus(sm);
-                final String day = DBUtils.db_Mysql ? "DATE_FORMAT(last_mod, '%Y-%m-%d')" : "last_mod ";
-                final String sql = "select submitter," + day + " as day,locale,count(*) as count from " + DBUtils.Table.VOTE_VALUE
-                    + " group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod)  order by day desc";
-                JSONObject query = DBUtils.queryToCachedJSON(what, 5 * 60 * 1000,
-                    sql);
-                r.put(what, query);
-                r.put("after", votesAfterString);
-                send(r, out);
-                // select submitter,DATE_FORMAT(last_mod, '%Y-%m-%d') as day,locale,count(*) from "+DBUtils.Table.VOTE_VALUE+" group by submitter,locale,YEAR(last_mod),MONTH(last_mod),DAYOFMONTH(last_mod) order by day desc limit 10000;
             } else if (what.equals(WHAT_STATS_BYDAY)) {
                 JSONWriter r = newJSONStatus(sm);
-                final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
-                    + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
-                    : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
-                        + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
-                JSONObject query = DBUtils
-                    .queryToCachedJSON(what, (5 * 60 * 1000), sql);
-                r.put("byday", query);
-                r.put("after", "n/a");
-                send(r, out);
-            } else if (what.equals(WHAT_STATS_BYDAY_NEW) && DBUtils.db_Mysql) {
-                JSONWriter r = newJSONStatus(sm);
-                final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
-                    + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
-                    : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
-                        + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
-                JSONObject query = DBUtils
-                    .queryToCachedJSON(what, (5 * 60 * 1000), sql);
-                r.put("byday", query);
+                {
+                    final String sql = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
+                        + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
+                        : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
+                            + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
+                    final JSONObject query = DBUtils
+                        .queryToCachedJSON(what, (5 * 60 * 1000), sql);
+                    r.put("byday", query);
+                }
+                {
+                    // exclude old votes
+                    final String sql2 = DBUtils.db_Mysql ? ("select count(*) as count ,last_mod from " + DBUtils.Table.VOTE_VALUE
+                        + " as new_votes where " + StatisticsUtils.getExcludeOldVotesSql() + " group by Year(last_mod) desc ,Month(last_mod) desc,Date(last_mod) desc") // mysql
+                        : ("select count(*) as count ,Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod) as last_mod from " + DBUtils.Table.VOTE_VALUE
+                            + " group by Date(" + DBUtils.Table.VOTE_VALUE + ".last_mod)"); // derby
+                    final JSONObject query2 = DBUtils
+                        .queryToCachedJSON(what+"_new", (5 * 60 * 1000), sql2);
+                    r.put("byday_new", query2);
+                }
                 r.put("after", "n/a");
                 send(r, out);
             } else if (what.equals(WHAT_MY_LOCALES)) {

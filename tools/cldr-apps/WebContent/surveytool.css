@@ -932,9 +932,9 @@ table#statisticsTable {
 }
 
 #statistics_area {
-	width: 800px;
+	width: 80%;
 	height: 400px;
-    overflow: scroll;
+/*    overflow: scroll;*/
 	border: 1px solid gray;
 	margin-bottom: 1em;
 }
@@ -942,6 +942,27 @@ table#statisticsTable {
 table#statisticsTable thead th {
     font-weight: bold;
     border-bottom: 1px solid gray
+}
+
+div.statistics h2 {
+	border-top: 2px solid gray
+	width: 100%;
+}
+
+div.statistics .swatch {
+	border: 1px solid black;
+	width: 1em;
+	height: 1em;
+	margin: 0.25em;
+	white-space: pre;
+}
+
+div.statistics .color0 {
+	background-color: #8aa717;	
+}
+
+div.statistics .color1 {
+	background-color: #1751a7;	
 }
 
 table#statisticsTable td.locid {

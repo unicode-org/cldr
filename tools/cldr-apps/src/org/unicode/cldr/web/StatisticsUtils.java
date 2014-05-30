@@ -95,15 +95,15 @@ public class StatisticsUtils {
      */
     public static int getTotalNewItems() {
         final String queryName = "total_new_items";
-        final String querySql = "select count(*) from " + DBUtils.Table.VOTE_VALUE + " as new_votes where new_votes.submitter is not null "
+        final String querySql = "select count(*) from " + DBUtils.Table.VOTE_VALUE + " as new_votes where new_votes.submitter is not null  and "
             + getExcludeOldVotesSql();
         return getCachedQuery(queryName, querySql);
     }
 
-    private static String getExcludeOldVotesSql() {
-        return " and not exists ( select * from "+DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getOldVersion(), false)+" as old_votes "
+    public static String getExcludeOldVotesSql() {
+        return " not exists ( select * from "+DBUtils.Table.VOTE_VALUE.forVersion(SurveyMain.getOldVersion(), false)+" as old_votes "
             + "where new_votes.locale=old_votes.locale and new_votes.xpath=old_votes.xpath and "
-            + "new_votes.submitter=old_votes.submitter and new_votes.value=old_votes.value)";
+            + "new_votes.submitter=old_votes.submitter and new_votes.value=old_votes.value) ";
     }
 
     /**

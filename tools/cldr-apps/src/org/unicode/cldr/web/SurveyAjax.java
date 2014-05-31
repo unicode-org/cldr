@@ -218,7 +218,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_GETROW = "getrow";
     public static final String WHAT_GETSIDEWAYS = "getsideways";
     public static final String WHAT_PREF = "pref";
-    public static final String WHAT_GETVV = "vettingviewer";
+    public static final String WHAT_VSUMMARY = "vsummary";
     public static final String WHAT_STATS_BYLOC = "stats_byloc";
     public static final String WHAT_STATS_BYDAY = "stats_byday";
     public static final String WHAT_STATS_BYDAYUSERLOC = "stats_bydayuserloc";
@@ -721,19 +721,23 @@ public class SurveyAjax extends HttpServlet {
                         }
                         r.put(SurveyMain.QUERY_VALUE_SUFFIX, mySession.settings().get(pref, null));
                         send(r, out);
-                    } else if (what.equals(WHAT_GETVV)) {
+                    } else if (what.equals(WHAT_VSUMMARY)) {
+                        assertCanUseVettingSummary(mySession);
+                        VettingViewerQueue.LoadingPolicy policy = VettingViewerQueue.LoadingPolicy.valueOf(request.getParameter("loadingpolicy"));
                         mySession.userDidAction();
                         JSONWriter r = newJSONStatus(sm);
                         r.put("what", what);
-
-                        CLDRLocale locale = CLDRLocale.getInstance(loc);
-
+                        r.put("loadingpolicy",policy);
                         VettingViewerQueue.Status status[] = new VettingViewerQueue.Status[1];
-                        String str = VettingViewerQueue.getInstance().getVettingViewerOutput(null, mySession, locale, status,
-                            VettingViewerQueue.LoadingPolicy.NOSTART, null);
-
+                        StringBuilder sb = new StringBuilder();
+                        JSONObject jStatus = new JSONObject();
+                        String str = VettingViewerQueue.getInstance()
+                            .getVettingViewerOutput(null, mySession, VettingViewerQueue.SUMMARY_LOCALE, status,
+                            policy, sb, jStatus);
+                        r.put("jstatus",jStatus);
                         r.put("status", status[0]);
                         r.put("ret", str);
+                        r.put("output", sb.toString());
 
                         send(r, out);
                     } else if (what.equals(WHAT_FORUM_COUNT)) {
@@ -1224,6 +1228,13 @@ public class SurveyAjax extends HttpServlet {
         } catch (SQLException e) {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "SQLException: " + e, ErrorCode.E_INTERNAL);
+        }
+    }
+
+    private void assertCanUseVettingSummary(CookieSession mySession) throws SurveyException {
+        assertHasUser(mySession);
+        if( !UserRegistry.userCanUseVettingSummary(mySession.user)) {
+            throw new SurveyException(ErrorCode.E_NO_PERMISSION);
         }
     }
 

@@ -2230,7 +2230,16 @@ table.stprogress {
 	border: 2px solid black;
 }
 
-table.stprogress td.bar {
+div.vvprogress {
+	display: run-in;
+}
+
+div.vvprogress  div {
+	height: 16px;
+	display: table-cell;
+}
+
+table.stprogress td.bar, div.vvprogress div.bar{
 	padding: 0;
 	margin: 0;
 	border-left: 2px solid black;
@@ -2238,7 +2247,7 @@ table.stprogress td.bar {
 	background: #6c31fe url(bar0.png) repeat scroll left;
 }
 
-table.stprogress td.remain {
+table.stprogress td.remain, div.vvprogress div.remain {
 	padding: 0;
 	margin: 0;
 	border-left: none;
@@ -3399,4 +3408,26 @@ div.bulkInputForm div label {
 
 .infos-code {
 	float:right;
+}
+
+.vsNav {
+	padding: .5em;
+	border-top: 2px solid gray;
+}
+
+.vsNav button {
+	padding: 2px;
+	font-size: larger;
+}
+
+span.vsStatus {
+	margin-left: 1em;
+	background-color: white;
+	display: block;
+}
+
+.vsContent.vsStale {
+	color: gray;
+	background-color: #dddddd;
+	opacity: .5;
 }

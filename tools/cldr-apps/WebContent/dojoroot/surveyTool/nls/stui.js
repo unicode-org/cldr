@@ -314,7 +314,12 @@ define({
 		coverage_menu_desc: 'Change the displayed coverage level. "Automatic" will use your organization\'s preferred value for this locale, if any.',
 
 		section_mail: 'Messages',
-		
+
+		special_vsummary: "Priority Items Summary",
+		vsummaryGuidance: "This is the vetting summary. Click Recalculate to start and be patient, this may take a while.",
+		vsReload: "Recalculate",
+		vsStop: "Stop",
+		vsContent_initial: "Click Recalculate to calculate the summary",
 		
 		jsonStatus_msg: "You should see your content shortly, thank you for waiting. By the way, there are ${users} logged-in users and ${guests} visitors to the Survey Tool. The server's workload is about ${sysloadpct} of normal capacity. You have been waiting about ${waitTime} seconds.",
 		err_what_section: "load part of this locale",

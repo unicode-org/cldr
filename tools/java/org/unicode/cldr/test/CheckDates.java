@@ -294,6 +294,15 @@ public class CheckDates extends FactoryCheckCLDR {
                     result.add(item);
                 }
             }
+            
+            String failure = flexInfo.checkValueAgainstSkeleton(path, value);
+            if (failure != null) {
+                result.add(new CheckStatus()
+                .setCause(this)
+                .setMainType(CheckStatus.errorType)
+                .setSubtype(Subtype.illegalDatePattern)
+                .setMessage(failure));
+           }
 
             final String collisionPrefix = "//ldml/dates/calendars/calendar";
             main: if (path.startsWith(collisionPrefix)) {

@@ -693,13 +693,7 @@ public class DataSection implements JSONString {
         // collator.
         public String uri = null; // URI for the type
 
-        // public DataRow toggleWith = null; // obsolete: pea is a TOGGLE ( true
-        // / false ) with another pea. Special rules apply.
-        // public boolean toggleValue = false; // obsolete:
         String[] valuesList = null; // if non null - list of acceptable values.
-        // If null, freeform input
-        // public AttributeChoice attributeChoice = null; // obsolete: is an
-        // attributed list of items
 
         public int voteType = 0; // status of THIS item
         private String winningValue;
@@ -873,61 +867,6 @@ public class DataSection implements JSONString {
             return displayName;
         }
 
-        // void updateToggle(String path, String attribute) {
-        // if(true == true) {
-        // confirmOnly = true;
-        // return; /// Disable toggles - for now.
-        // }
-        //
-        //
-        //
-        // XPathParts parts = new XPathParts(null,null);
-        // parts.initialize(path);
-        // String lelement = parts.getElement(-1);
-        // String eAtt = parts.findAttributeValue(lelement, attribute);
-        // if(eAtt == null) {
-        // System.err.println(this + " - no attribute " + attribute + " in " +
-        // path);
-        // }
-        // toggleValue = eAtt.equals("true");
-        //
-        // //System.err.println("DataRow: " + type + " , toggle of val: " +
-        // myValue + " at xpath " + path);
-        // String myValueSuffix = "[@"+attribute+"=\""+toggleValue+"\"]";
-        // String notMyValueSuffix = "[@"+attribute+"=\""+!toggleValue+"\"]";
-        //
-        // if(!type.endsWith(myValueSuffix)) {
-        // throw new InternalError("toggle: expected "+ type + " to end with " +
-        // myValueSuffix);
-        // }
-        //
-        // String typeNoValue =
-        // type.substring(0,type.length()-myValueSuffix.length());
-        // String notMyType = typeNoValue+notMyValueSuffix;
-        //
-        //
-        // DataRow notMyDataRow = getDataRow(notMyType);
-        // if(notMyDataRow.toggleWith == null) {
-        // notMyDataRow.toggleValue = !toggleValue;
-        // notMyDataRow.toggleWith = this;
-        //
-        // String my_base_xpath_string = sm.xpt.getById(base_xpath);
-        // String not_my_base_xpath_string =
-        // replaceEndWith(my_base_xpath_string, myValueSuffix,
-        // notMyValueSuffix);
-        // notMyDataRow.base_xpath =
-        // sm.xpt.getByXpath(not_my_base_xpath_string);
-        //
-        // notMyDataRow.xpathSuffix =
-        // replaceEndWith(xpathSuffix,myValueSuffix,notMyValueSuffix);
-        //
-        // //System.err.println("notMyRow.xpath = " + xpath(notMyRow));
-        // }
-        //
-        // toggleWith = notMyDataRow;
-        //
-        // }
-
         /**
          * @deprecated
          */
@@ -1063,7 +1002,9 @@ public class DataSection implements JSONString {
          * @param zoomedIn
          *            TODO
          * @param section
+         * @deprecated HTML
          */
+        @Deprecated
         void printEmptyCells(WebContext ctx, String ourAlign, boolean zoomedIn) {
             int colspan = zoomedIn ? 1 : 1;
             ctx.print("<td  colspan='" + colspan + "' class='propcolumn' align='" + ourAlign + "' dir='"
@@ -1162,6 +1103,7 @@ public class DataSection implements JSONString {
          *            TODO
          * @see #processDataRowChanges(WebContext, SurveyMain, CLDRFile,
          *      BallotBox, DataSubmissionResultHandler)
+         * @deprecated HTML (old)
          */
         public void showDataRow(WebContext ctx, UserLocaleStuff uf, boolean canModify, CheckCLDR checkCldr, boolean zoomedIn,
             EnumSet<EShowDataRowSet> options) {
@@ -3111,52 +3053,24 @@ public class DataSection implements JSONString {
                 }
             }
             if (p.oldValue != null && !p.oldValue.equals(value) && (v == null || !v.contains(p.oldValue))) {
+            	// if "oldValue" isn't already represented as an item, add it.
                 CandidateItem oldItem = p.addItem(p.oldValue);
                 oldItem.isOldValue = true;
             }
 
             p.coverageValue = coverageValue;
 
-            // DataRow superP = p; // getDataRow(type); // the 'parent' row
-            // (sans alt) - may be the same object
-            // superP.coverageValue = coverageValue;
-
-            // if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
-            // if(superP!=p) {
-            // p.zoomOnly = superP.zoomOnly = true;
-            // }
-            // }
             p.confirmOnly = confirmOnly;
 
             if (isExtraPath) {
+            	// This is an 'extra' item- it doesn't exist in xml (including root).
                 // Set up 'shim' tests, to display coverage
                 p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, options);
                 // System.err.println("Shimmed! "+xpath);
             } else if (p.inheritedValue == null) {
-                p.updateInheritedValue(ourSrc, null, null);
+            	// This item fell back from root. Make sure it has an Item, and that tests are run.
+                p.updateInheritedValue(ourSrc, checkCldr, options);
             }
-
-            // System.out.println("@@V "+type+"  v: " + value +
-            // " - base"+base_xpath+" , win: " + p.voteType);
-
-            // // Is this a toggle pair with another item?
-            // if(isToggleFor != null) {
-            // if(superP.toggleWith == null) {
-            // superP.updateToggle(fullPath, isToggleFor);
-            // }
-            // if(p.toggleWith == null) {
-            // p.updateToggle(fullPath, isToggleFor);
-            // }
-            // }
-
-            // Is it an attribute choice? (obsolete)
-            /*
-             * if(attributeChoice != null) { p.attributeChoice =
-             * attributeChoice; p.valuesList = p.attributeChoice.valuesList;
-             * 
-             * if(superP.attributeChoice == null) { superP.attributeChoice =
-             * p.attributeChoice; superP.valuesList = p.valuesList; } }
-             */
 
             if (TRACE_TIME)
                 System.err.println("n05  " + (System.currentTimeMillis() - nextTime));
@@ -3186,13 +3100,6 @@ public class DataSection implements JSONString {
             if (TRACE_TIME)
                 System.err.println("n06d  " + (System.currentTimeMillis() - nextTime));
 
-            // with xpath munging, attributeChoice items show up as code
-            // fallback. Correct it.
-            /*
-             * if(attributeChoice!=null && isInherited) {
-             * if(sourceLocale.equals(XMLSource.CODE_FALLBACK_ID)) { isInherited
-             * = false; sourceLocale = locale; } }
-             */
             // ** IF it is inherited, do NOT add any Items.
             if (isInherited && !isExtraPath) {
                 if (TRACE_TIME)
@@ -3255,12 +3162,6 @@ public class DataSection implements JSONString {
             }
             DataSection.DataRow.CandidateItem myItem = null;
 
-            /*
-             * if(p.attributeChoice != null) { String newValue =
-             * p.attributeChoice.valueOfXpath(fullPath); //
-             * System.err.println("ac:"+fullPath+" -> " + newValue); value =
-             * newValue; }
-             */
             if (TRACE_TIME)
                 System.err.println("n08  (check) " + (System.currentTimeMillis() - nextTime));
             myItem = p.addItem(value);

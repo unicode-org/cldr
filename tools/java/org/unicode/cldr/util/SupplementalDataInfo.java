@@ -1433,6 +1433,9 @@ public class SupplementalDataInfo {
                 String match = parts.containsAttribute("match") ? coverageVariables.replace(parts.getAttributeValue(-1,
                     "match")) : null;
                 String valueStr = parts.getAttributeValue(-1, "value");
+                // Ticket 7125: map the number to English. So switch from English to number for construction
+                valueStr = Integer.toString(Level.get(valueStr).getLevel());
+
                 String inLanguage = parts.containsAttribute("inLanguage") ? coverageVariables.replace(parts
                     .getAttributeValue(-1, "inLanguage")) : null;
                 String inScript = parts.containsAttribute("inScript") ? coverageVariables.replace(parts

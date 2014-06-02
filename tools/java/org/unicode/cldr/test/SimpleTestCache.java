@@ -3,10 +3,9 @@
  */
 package org.unicode.cldr.test;
 
-import java.lang.ref.Reference;
-import java.lang.ref.SoftReference;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map.Entry;
-import java.util.Vector;
 
 import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.util.CLDRConfig;
@@ -31,7 +30,7 @@ public class SimpleTestCache extends TestCache {
      * @param o
      * @return
      */
-    private Cache<CheckCLDR.Options, Reference<TestResultBundle>> cache =CacheBuilder.newBuilder().maximumSize(CLDRConfig.getInstance()
+    private Cache<CheckCLDR.Options, TestResultBundle> cache = CacheBuilder.newBuilder().maximumSize(CLDRConfig.getInstance()
         .getProperty("CLDR_TESTCACHE_SIZE", 12)).softValues().build();
     /*
      * (non-Javadoc)
@@ -44,21 +43,30 @@ public class SimpleTestCache extends TestCache {
         valueChanged(xpath, locale);
     }
 
-    private void valueChanged(String xpath, CLDRLocale locale) {
+    private void valueChanged(String xpath, final CLDRLocale locale) {
         if (DEBUG) System.err.println("BundDelLoc " + locale + " @ " + xpath);
         for (CLDRLocale sub : ((SublocaleProvider) getFactory()).subLocalesOf(locale)) {
             valueChanged(xpath, sub);
         }
-        Vector<CheckCLDR.Options> toRemove = new Vector<CheckCLDR.Options>();
-        for (CheckCLDR.Options k : cache.asMap().keySet()) {
-            if (k.getLocale() == locale) {
+        if (cache.asMap().isEmpty()) {
+            return;
+        }
+        // Filter the cache to only keep the items where the locale matches
+        List<Options> toRemove=new ArrayList<>();
+        for (Options k: cache.asMap().keySet()) {
+            if (k.getLocale().equals(locale)) {
                 toRemove.add(k);
             }
         }
-        // avoid concurrent remove
-        for (CheckCLDR.Options k : toRemove) {
-            cache.asMap().remove(k);
-            if (DEBUG) System.err.println("BundDel " + k);
+        if (!DEBUG) {
+            // no logging is done, simply invalidate all items
+            cache.invalidateAll(toRemove);
+        } else {
+            // avoid concurrent remove
+            for (CheckCLDR.Options k : toRemove) {
+                cache.invalidate(k);
+                System.err.println("BundDel " + k);
+            }
         }
     }
 
@@ -68,9 +76,11 @@ public class SimpleTestCache extends TestCache {
         stats.append("{" + this.getClass().getSimpleName() + super.toString() + " Size: " + cache.size() + " (");
         int good = 0;
         int total = 0;
-        for (Entry<Options, Reference<TestResultBundle>> k : cache.asMap().entrySet()) {
-            if (k.getValue().get() != null) good++;
-            if (DEBUG && true) stats.append("," + k.getKey() + "=" + k.getValue().get());
+        for (Entry<Options, TestResultBundle> k : cache.asMap().entrySet()) {
+            Options key= k.getKey();
+            TestResultBundle bundle=k.getValue();
+            if (bundle != null) good++;
+            if (DEBUG && true) stats.append("," + k.getKey() + "=" + key);
             total++;
         }
         stats.append(" " + good + "/" + total + "}");
@@ -79,15 +89,14 @@ public class SimpleTestCache extends TestCache {
 
     @Override
     public TestResultBundle getBundle(CheckCLDR.Options options) {
-        Reference<TestResultBundle> ref = cache.getIfPresent(options);
-        if (DEBUG && ref != null) System.err.println("Bundle refvalid: " + options + " -> " + (ref.get() != null));
-        TestResultBundle b = (ref != null ? ref.get() : null);
+        TestResultBundle b = cache.getIfPresent(options);
+        if (DEBUG && b != null) System.err.println("Bundle refvalid: " + options + " -> " + (b != null));
         if (DEBUG) System.err.println("Bundle " + b + " for " + options + " in " + this.toString());
         if (b == null) {
             // ElapsedTimer et = new ElapsedTimer("New test bundle " + locale + " opt " + options);
             b = new TestResultBundle(options);
             // System.err.println(et.toString());
-            cache.put(options, new SoftReference<TestResultBundle>(b));
+            cache.put(options,b);
         }
         return b;
     }

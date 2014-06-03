@@ -920,6 +920,11 @@ fieldset[disabled] .btn-primary.active {
 	z-index:10000000000;
 }
 
+.navbar-fixed-top .popover-content > li > a {
+	display:block;
+	padding-bottom:4px;
+}
+
 .subSpan [dir=rtl] {
 	padding-left: 8px;
 	padding-right: 10px;
@@ -961,9 +966,6 @@ fieldset[disabled] .btn-primary.active {
 	
 }
 
-#main-row > div {
-	transition:width 0.3s ease;
-}
 
 /* media queries */
 @media (max-width: 1390px) {

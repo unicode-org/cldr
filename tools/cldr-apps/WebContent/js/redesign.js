@@ -53,6 +53,8 @@ $(function() {
     	$(this).popover('hide');
     });
     resizeSidebar();
+    
+    $('body').on('click', '#toggle-right', toggleRightPanel);
     //initFeedBack();
 });
 
@@ -537,7 +539,7 @@ function toggleRightPanel() {
 
 function showRightPanel() {
 	$('#main-row > .col-md-12').addClass('col-md-9').removeClass('col-md-12');
-	setTimeout(function(){$('#main-row #itemInfo').show();},400);
+	$('#main-row #itemInfo').show();
 }
 
 

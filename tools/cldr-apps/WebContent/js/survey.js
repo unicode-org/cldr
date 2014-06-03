@@ -2123,7 +2123,6 @@ dojo.ready(function() {
 			else {
 				removeAllChildNodes(pucontent);
 				pucontent.appendChild(td);
-				showRightPanel();
 			}
 		}
 		else {

@@ -2966,7 +2966,7 @@ function updateRow(tr, theRow) {
 			}
 			
 			if(hintPos != -1) {
-				theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample : '');
+				theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample.replace(/\[translation hint.*?\]/g,"") : '');
 				theRow.displayName = theRow.displayName.substr(0, hintPos);
 			}
 			
@@ -4518,7 +4518,8 @@ function showV() {
 					}
 				}
 				
-				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),(surveyUser	===null));				
+				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),(surveyUser	===null));	
+				resizeSidebar();
 			}
 
 			if(_thePages == null || _thePages.loc != surveyCurrentLocale ) {

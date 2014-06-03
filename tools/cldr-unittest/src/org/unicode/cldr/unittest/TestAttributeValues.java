@@ -22,6 +22,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -47,6 +48,10 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
 import com.google.common.collect.FluentIterable;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
+import com.google.common.primitives.Ints;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.dev.util.CollectionUtilities.ObjectMatcher;
@@ -55,6 +60,8 @@ import com.ibm.icu.text.UnicodeSet;
 
 
 public class TestAttributeValues extends TestFmwk {
+
+	private static final Joiner COMMA_JOINER = Joiner.on(", ").skipNulls();
 
 	private final static Joiner SEMICOLON_JOINER = Joiner.on(";").skipNulls();
 
@@ -78,6 +85,21 @@ public class TestAttributeValues extends TestFmwk {
 	 */
 	private static final String CSV_FILE = "/Users/ribnitz/Documents/data_errors.csv";
 
+	/**
+	 * Set containing entries that have been deprecated, but where the time set for deprecation is not
+	 * yet reached; as a consequence, these will not trigger deprecation warnings.
+	 */
+	private static final Set<String> DEPRECATION_OVERRIDES=ImmutableSet.of(
+			"AN",
+			"SCOUSE",
+			"BOONT",
+			"HEPLOC");
+	
+	/**
+	 * Multimap containing associations of deprecated attributes; indexed by the attribute. 
+	 */
+	private final Multimap<String,DeprecatedAttributeInfo> deprecatedAttributeMap=LinkedHashMultimap.create();
+	
 	private final Set<String> elementOrder = new LinkedHashSet<String>();
 	private final Set<String> attributeOrder = new LinkedHashSet<String>();
 
@@ -310,15 +332,13 @@ public class TestAttributeValues extends TestFmwk {
 		if (cldrFileToCheck==null) {
 			return;
 		}
-		
-
+	
 		supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
 		pluralInfo = supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
 		//	        	super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
 		isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
 		synchronized (elementOrder) {
 			if (!initialized) {
-				//    CLDRFile metadata = getFactory().getSupplementalMetadata();
 				CLDRFile metadata = fact.getSupplementalMetadata();
 				getMetadata(metadata, supplementalData, fact);
 				initialized = true;
@@ -333,22 +353,15 @@ public class TestAttributeValues extends TestFmwk {
 				}
 			}
 		}
-//		String localeId= cldrFileToCheck.getLocaleID();
-//		if (!localeMatcher.matches(localeId)) {
-//				possibleErrors.add(
-//					new CheckResult().setStatus(ResultStatus.error).setLocale(localeId)
-//					.setMessage("Invalid Locale {0}", new Object[] { localeId,cldrFileToCheck}));
-//
-//		}
 	}
 
 	private Set<String> unknownFinalElements=new HashSet<>();
 	private Set<String> unhandledPaths=new HashSet<>();
-	private final static Splitter WHITESPACE_SPLTTER=Splitter.on(PatternCache.get("\\s+"));
+	private final static Splitter WHITESPACE_SPLTTER=Splitter.on(PatternCache.get("\\s+")).omitEmptyStrings();
 
 	private Set<String> localeSet = new HashSet<>();
 	
-	private void getMetadata(CLDRFile metadata, SupplementalDataInfo sdi, Factory fact) {
+	private void getMetadata(final CLDRFile metadata, SupplementalDataInfo sdi, Factory fact) {
 		// sorting is expensive, but we need it here.
 
 		Comparator<String> ldmlComparator = metadata.getComparator();
@@ -357,7 +370,15 @@ public class TestAttributeValues extends TestFmwk {
 			ldmlComparator = null;
 		}
 		String locale=metadata.getLocaleID();
-		for (String p: new ForwardingIterable<String>(metadata.iterator(null, ldmlComparator))) {
+		final Comparator<String> comp=ldmlComparator;
+		for (String p: new Iterable<String>() {
+
+			@Override
+			public Iterator<String> iterator() {
+				return metadata.iterator(null, comp);
+			}
+			
+		}) {
 			String value = metadata.getStringValue(p);
 			String path = metadata.getFullXPath(p);
 			parts.set(path);
@@ -458,7 +479,7 @@ public class TestAttributeValues extends TestFmwk {
 					}
 				}
 				if (!invalidLocales.isEmpty()) {
-					unhandledPaths.add(invalidLocales.size()+" invalid locales: "+Joiner.on(", ").skipNulls().join(invalidLocales)+" Path:"+path);
+					unhandledPaths.add(invalidLocales.size()+" invalid locales: "+COMMA_JOINER.join(invalidLocales)+" Path:"+path);
 				}
 			//	unhandledPaths.add("Unhandled path (defaultContent):"+path);
 			} else if (lastElement.endsWith("distinguishingItems")) {
@@ -613,8 +634,6 @@ public class TestAttributeValues extends TestFmwk {
 		
 		
 		String factoryFilter="("+Joiner.on("|").join(localeSet)+")";
-		// get the factory
-		// set up the test
 		Factory cldrFactory = SimpleFactory.make(dirs.toArray(new File[0]), factoryFilter);
 		//		.setSupplementalDirectory(new File(CLDRPaths.SUPPLEMENTAL_DIRECTORY));
 		supplementalData=cldrConf.getSupplementalDataInfo();
@@ -641,6 +660,11 @@ public class TestAttributeValues extends TestFmwk {
 		}
 		List<CheckResult> warnings=Collections.emptyList();
 		List<CheckResult> errors=Collections.emptyList();
+		StringBuilder sb=new StringBuilder();
+		// deprecation
+		if (!deprecatedAttributeMap.isEmpty()) {
+			listDeprecatedItems(false);
+		}
 		// did we get some errors or warnings?
 		if (!results.isEmpty()) {
 			warnings=FluentIterable.from(results).filter(new CheckResultPredicate(ResultStatus.warning)).toList();
@@ -652,7 +676,7 @@ public class TestAttributeValues extends TestFmwk {
 		boolean successful=warnings.isEmpty() && errors.isEmpty();
 		if (!successful) {
 			if (csvOutput) {
-				StringBuilder sb = new StringBuilder();
+				sb.setLength(0);
 				compileProblemList(warnings, sb);
 				compileProblemList(errors, sb);
 				File errFile=new File(CSV_FILE);
@@ -670,7 +694,7 @@ public class TestAttributeValues extends TestFmwk {
 					e.printStackTrace();
 				}
 			}
-			StringBuilder sb=new StringBuilder();
+			sb.setLength(0);
 			if (errors.size()>0) {
 				sb.append(errors.size());
 				sb.append(" errors");
@@ -696,6 +720,68 @@ public class TestAttributeValues extends TestFmwk {
 
 	}
 
+
+	private void listDeprecatedItems(boolean verbose) {
+		StringBuilder sb=new StringBuilder();
+		List<Map.Entry<String, Collection<DeprecatedAttributeInfo>>> toSort=new ArrayList<>(deprecatedAttributeMap.asMap().entrySet());
+		Collections.sort(toSort,new Comparator<Map.Entry<String, Collection<DeprecatedAttributeInfo>>>() {
+		    @Override
+		    public int compare(Map.Entry<String, Collection<DeprecatedAttributeInfo>> e1, 
+		                       Map.Entry<String, Collection<DeprecatedAttributeInfo>> e2) {
+		        return Ints.compare(e2.getValue().size(), e1.getValue().size());
+		    }
+		});
+		for (Map.Entry<String, Collection<DeprecatedAttributeInfo>> attr : toSort) {
+			Collection<DeprecatedAttributeInfo> deprecatedItems = attr
+					.getValue();
+			String key = attr.getKey();
+			int size = deprecatedItems.size();
+			sb.append("Deprecated attribute: " + key + ": "
+					+ deprecatedItems.size());
+			if (size > 1) {
+				sb.append(" entries\r\n");
+			} else {
+				sb.append(" entry\r\n");
+			}
+			DeprecatedAttributeInfo info = deprecatedItems.iterator().next();
+			Collection<String> replacements = info.getReplacements();
+			if (!replacements.isEmpty()) {
+				sb.append("Possible replacements: ");
+				sb.append(COMMA_JOINER.join(replacements));
+				//sb.append("\r\n");
+			} else {
+				sb.append("Consider removing\r\n");
+			}
+			System.out.println(sb.toString());
+			sb.setLength(0);
+
+			if (!verbose && deprecatedItems.size() > 5) {
+				sb.append(listDeprecationDetails(new ArrayList<>(
+						deprecatedItems).subList(0, 5),false));
+			} else {
+				sb.append(listDeprecationDetails(deprecatedItems,false));
+			}
+		}
+		System.out.print(sb.toString());
+		sb.setLength(0);
+	}
+	public String listDeprecationDetails(Collection<DeprecatedAttributeInfo> deprecatedItems,boolean filterAliases) {
+		StringBuilder sb=new StringBuilder();
+		if (!filterAliases) {
+			for (DeprecatedAttributeInfo info: deprecatedItems) {
+				sb.append("Locale: " + info.getLocale() + " - Path: "
+						+ info.getPath() + "\r\n");
+			}
+		} else {		
+			for (DeprecatedAttributeInfo info: deprecatedItems) {
+				if (!info.getPath().contains("Alias")) {
+					sb.append("Locale: " + info.getLocale() + " - Path: "
+							+ info.getPath() + "\r\n");
+				}
+			}
+		}
+		return sb.toString();
+	}
 
 
 	public void TestStaticInterface() {
@@ -756,6 +842,36 @@ public class TestAttributeValues extends TestFmwk {
 		return sb.toString();
 	}
 
+	private static class DeprecatedAttributeInfo {
+		private final String locale;
+		private final Set<String> replacements=new HashSet<>();
+		private final String path;
+		private final int hashCode;
+		
+		public DeprecatedAttributeInfo(String locale, String path) {
+			this(locale,path,Collections.<String> emptyList());
+		}
+		public DeprecatedAttributeInfo(String locale, String path,Collection<String> replacements) {
+			this.locale = locale;
+			this.path = path;
+			this.replacements.addAll(replacements);
+			hashCode=Objects.hash(locale,replacements,path);
+		}
+	
+		public String getLocale() {
+			return locale;
+		}
+		
+		public Collection<String> getReplacements() {
+			return Collections.unmodifiableSet(replacements);
+		}
+		
+		public String getPath() {
+			return path;
+		}	
+	}
+	
+	
 	private void check(Map<String, MatcherPattern> attribute_validity,
 			String attribute, String attributeValue, List<CheckResult> result,
 			String path, String locale) {
@@ -769,35 +885,77 @@ public class TestAttributeValues extends TestFmwk {
 		// special check for deprecated codes
 		String replacement = getReplacement(matcherPattern.value,
 				attributeValue);
+		boolean listDeprecated = shouldListDeprecated(attribute, attributeValue,path,locale);
+//		StringBuilder sb=new StringBuilder();
+//		sb.append("Deprecation overrides: ");
+//		sb.append(COMMA_JOINER.join(DEPRECATION_OVERRIDES));
+//		sb.append("\r\n");
+//		System.out.println(sb.toString());
+//		sb.setLength(0);
 		if (replacement != null) {
 			// if (isEnglish) return; // don't flag English
-			if (replacement.length() == 0) {
+			if (replacement.length() == 0) {	
+				if (listDeprecated) {
+				deprecatedAttributeMap.put(attribute+"="+attributeValue, new DeprecatedAttributeInfo(locale, path));
+				}
+//				result.add(new CheckResult()
+//						.setStatus(ResultStatus.warning)
+//						.setLocale(locale)
+//						.setPath(path)
+//						.setMessage(
+//								"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing. Path:{3}",
+//								new Object[] { locale, attribute,
+//										attributeValue, path }));
+			} else {
+				if (listDeprecated) {
+				deprecatedAttributeMap.put(attribute+"="+attributeValue, new DeprecatedAttributeInfo(locale, path,WHITESPACE_SPLTTER.splitToList(replacement)));
+				}
+//				CheckResult cr=CheckResult.create(ResultStatus.warning, locale, path, new CheckCSVValuePred(), 
+//						"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and possibly modifying the related "
+//						+ "value for {3}.", 
+//						"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and possibly modifying the related value for {3}.Path: {4}", 
+//						new Object[] { locale, attribute,attributeValue, replacement}, 
+//						new Object[] { locale, attribute,attributeValue, replacement, path });
+//				result.add(cr);
+			}
+		} else {
+			String pattern = matcherPattern.pattern;
+			Joiner joiner=Joiner.on(", ");
+			// for now: disregard missing variable expansions
+
+			if (pattern != null && !pattern.trim().startsWith("$")) {
+				// does the attributeValue contain spaces?
+				List<String> elemList=WHITESPACE_SPLTTER.splitToList(attributeValue);
+				List<String> disallowedElems=new ArrayList<>();
+				if (elemList.size()>1) {
+					Collection<String> allowedElements=WHITESPACE_SPLTTER.splitToList(matcherPattern.pattern);
+					for (String elem: elemList) {
+						if (!allowedElements.contains(elem)) {
+							disallowedElems.add(elem);
+						}
+					}
+					if (!disallowedElems.isEmpty()) {
 				result.add(new CheckResult()
 						.setStatus(ResultStatus.warning)
 						.setLocale(locale)
 						.setPath(path)
 						.setMessage(
-								"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing. Path:{3}",
+								"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}; please add to supplemental data. Path: {4}",
 								new Object[] { locale, attribute,
-										attributeValue, path }));
-			} else {
-				CheckResult cr=CheckResult.create(ResultStatus.warning, locale, path, new CheckCSVValuePred(), 
-						"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and possibly modifying the related "
-						+ "value for {3}.", 
-						"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and possibly modifying the related value for {3}.Path: {4}", 
-						new Object[] { locale, attribute,attributeValue, replacement}, 
-						new Object[] { locale, attribute,attributeValue, replacement, path });
-				result.add(cr);
-			}
-		} else {
-			String pattern = matcherPattern.pattern;
-			// for now: disregard missing variable expansions
-
-			if (pattern != null && !pattern.trim().startsWith("$")) {
+										COMMA_JOINER.join(disallowedElems),
+										COMMA_JOINER.join(allowedElements), path }));
+					}
+				} else {
 				// root locale?
 				if (locale.equals(CLDRConfig.getInstance().getEnglish()
 						.getLocaleID())) {
 					// root locale
+					String mp=null;
+					if (matcherPattern.pattern.contains(" ")) {
+						mp=Joiner.on(",").join(Splitter.on(" ").split(matcherPattern.pattern));
+					} else {
+						mp=matcherPattern.pattern;
+					}
 					result.add(new CheckResult()
 							.setStatus(ResultStatus.warning)
 							.setLocale(locale)
@@ -806,7 +964,7 @@ public class TestAttributeValues extends TestFmwk {
 									"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}; please add to supplemental data. Path: {4}",
 									new Object[] { locale, attribute,
 											attributeValue,
-											matcherPattern.pattern, path }));
+											mp, path }));
 					matcherPattern.matcher = ObjectMatcherFactory
 							.createOrMatcher(
 									matcherPattern.matcher,
@@ -817,14 +975,35 @@ public class TestAttributeValues extends TestFmwk {
 							new CheckCSVValuePred(), 
 							"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}", 
 							"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  Path: {4}", 
-							new Object[] { locale, attribute,attributeValue, matcherPattern.pattern}, 
-							new Object[] { locale, attribute,attributeValue, matcherPattern.pattern, path });
+							new Object[] { locale, attribute,attributeValue, 
+						joiner.join(WHITESPACE_SPLTTER.split(matcherPattern.pattern))}, 
+							new Object[] { locale, attribute,attributeValue,	joiner.join(WHITESPACE_SPLTTER.split(matcherPattern.pattern)), path });
 					result.add(cr);
 				}
 			}
+			}
 		}
 	}
-	
+
+	/**
+	 *  This method returning true means that the item will be listed as deprecated
+	 */
+	private boolean shouldListDeprecated(String attribute, String attributeValue,String path,String locale) {
+		boolean isMetadataAlias=path.contains("metadata/alias");
+		if (locale.equals("en")) {
+			return false;
+		}
+		if (DEPRECATION_OVERRIDES.contains(attributeValue)) {
+			return false;
+		}
+		if (attribute.equals("type") && isMetadataAlias) {
+			return false;
+		}
+		if (path.contains("currencyData")) {
+			return false;
+		}
+		return true;
+	}
 	
 	private void handleCheck(String path, String fullPath, String value,
 			List<CheckResult> result,CLDRFile fileToCheck) {
@@ -834,6 +1013,9 @@ public class TestAttributeValues extends TestFmwk {
 		String locale = fileToCheck.getSourceLocaleID(path, null);
 
 		pluralInfo = supplementalData.getPlurals(PluralType.cardinal, fileToCheck.getLocaleID());
+		PluralInfo ordinalPlurals=supplementalData.getPlurals(PluralType.ordinal,fileToCheck.getLocaleID());
+		
+		PluralInfo pInfo;
 		// skip paths that are not in the immediate locale
 		if (!fileToCheck.getLocaleID().equals(locale)) {
 			return;
@@ -854,20 +1036,44 @@ public class TestAttributeValues extends TestFmwk {
 				check(attribute_validity, attribute, attributeValue, result, fullPath,locale);
 
 				// now for plurals
-
 				if (attribute.equals("count")) {
 					if (DIGITS.containsAll(attributeValue)) {
 						// ok, keep going
 					} else {
 						final Count countValue = PluralInfo.Count.valueOf(attributeValue);
-						if (!pluralInfo.getCounts().contains(countValue)
-								&& !isPluralException(countValue, locale)) {
-							result.add(
-									new CheckResult()
+						// cardinal or ordinal?
+						String pluralType=extractValueList(fullPath, "type");
+						if (pluralType!=null&&  (pluralType.equals("cardinal")||pluralType.equals("ordinal"))) {
+							if (pluralType.equals("cardinal")) {
+								pInfo=pluralInfo; 
+							}
+							else {
+								pInfo=ordinalPlurals; 
+							}
+							Set<Count> cSet=pInfo.getCounts();
+							
+							if (cSet.size()==1) {
+								
+								// set of only one entry; this means: only check if the value is one of several allowed ones, w/o respect to the language
+								if (!Count.VALUES.contains(countValue)) {
+									result.add(
+											new CheckResult()
+											.setStatus(ResultStatus.error)
+											.setPath(path)
+											.setMessage("Locale {0}: Illegal plural value {1}; must be one of: {2} Path: {3}", 
+													new Object[] { locale, countValue, pluralInfo.getCounts(), path }));
+								}
+								
+							} else 
+							if (!cSet.contains(countValue)
+									&& !isPluralException(countValue, locale)) {
+								result.add(
+										new CheckResult()
 										.setStatus(ResultStatus.error)
 										.setPath(path)
 										.setMessage("Locale {0}: Illegal plural value {1}; must be one of: {2} Path: {3}", 
 												new Object[] { locale, countValue, pluralInfo.getCounts(), path }));
+							}
 						}
 					}
 				}

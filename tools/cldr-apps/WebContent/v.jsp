@@ -269,7 +269,6 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 		            <li id="help-content">Welcome</li>
 		          </ul>
 		   </li>
-          
           </ul>
           <p class="navbar-text navbar-right">
               <span id="flag-info"></span>

@@ -578,7 +578,6 @@ div#additional-top div.beta span#betanotice  {
 }
 .nav .popover {
 	position:fixed;
-	z-index:1000000000000000000;
 }
 
 .popover {
@@ -917,6 +916,10 @@ fieldset[disabled] .btn-primary.active {
   content: '';
 }
 
+.navbar-fixed-top {
+	z-index:10000000000;
+}
+
 .subSpan [dir=rtl] {
 	padding-left: 8px;
 	padding-right: 10px;
@@ -978,3 +981,5 @@ fieldset[disabled] .btn-primary.active {
 #popover-vote label, .fix-parent #othercell {
 	direction:ltr;
 }
+
+

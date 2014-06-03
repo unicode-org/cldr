@@ -28,6 +28,7 @@ $(function() {
 	});
 	$(window).resize(function() {
 		$('#itemInfo').css('left',"");
+		resizeSidebar()
 	});
 	
 	

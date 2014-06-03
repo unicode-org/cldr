@@ -52,9 +52,18 @@ $(function() {
     $('body').on('mouseleave','.vetting-page .infos-code, .vetting-page .subSpan',function(){
     	$(this).popover('hide');
     });
-    
-    initFeedBack();
+    resizeSidebar();
+    //initFeedBack();
 });
+
+//size the sidebar relative to the header
+function resizeSidebar() {
+	var sidebar = $('#left-sidebar');
+	var header = $('.navbar-fixed-top');
+
+	sidebar.css('height', $(window).height() - header.height());
+	sidebar.css('top', header.height());
+}
 
 //this function is used in survey.js
 var sentenceFilter;

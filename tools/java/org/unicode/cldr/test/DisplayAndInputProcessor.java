@@ -572,7 +572,11 @@ public class DisplayAndInputProcessor {
             // fix date patterns
             DateTimePatternType datetimePatternType = DateTimePatternType.fromPath(path);
             if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(datetimePatternType)) {
-                value = dtc.getCanonicalDatePattern(path, value, datetimePatternType);
+                try {
+                    value = dtc.getCanonicalDatePattern(path, value, datetimePatternType);
+                } catch (IllegalArgumentException ex) {
+                    return value;
+                }
             }
 
             if (path.startsWith("//ldml/numbers/currencies/currency") && path.contains("displayName")) {

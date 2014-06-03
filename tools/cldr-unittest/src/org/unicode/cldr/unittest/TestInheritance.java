@@ -516,7 +516,7 @@ public class TestInheritance extends TestFmwk {
     public void TestLanguageTagCanonicalizer() {
         String[][] tests = {
             { "en-POLYTONI-WHATEVER-ANYTHING-AALAND", "en_AX_ANYTHING_POLYTON_WHATEVER" },
-            { "eng-840", "en_US" },
+            { "eng-840", "en" },
             { "sh_ba", "sr_Latn_BA" },
             { "iw-arab-010", "he_Arab_AQ" },
         };

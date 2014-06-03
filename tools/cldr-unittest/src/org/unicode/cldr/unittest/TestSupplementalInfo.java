@@ -508,9 +508,13 @@ public class TestSupplementalInfo extends TestFmwkPlus {
 
             List<String> ss = new ArrayList<String>(s);
             String last = ss.get(ss.size() - 1);
-            String language = ltp.set(last).getLanguage();
-            String script = ltp.set(last).getScript();
-            String region = ltp.set(last).getRegion();
+            ltp.set(last);
+            if (!ltp.getVariants().isEmpty() || !ltp.getExtensions().isEmpty()) {
+                continue; // skip variants for now.
+            }
+            String language = ltp.getLanguage();
+            String script = ltp.getScript();
+            String region = ltp.getRegion();
             if (!script.isEmpty() && !region.isEmpty()) {
                 String noScript = ltp.setScript("").toString();
                 String noRegion = ltp.setScript(script).setRegion("").toString();

@@ -38,7 +38,7 @@ public class ShowStarredCoverage {
             new TreeMap<String,Object>(), 
             Boolean.class);
 
-        final String fileLocale = "en";
+        final String fileLocale = "fr";
         PathStarrer pathStarrer = new PathStarrer().setSubstitutionPattern("*");
         Status status = new Status();
         Counter<Level> counter = new Counter();

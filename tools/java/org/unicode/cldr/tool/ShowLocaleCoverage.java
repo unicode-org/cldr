@@ -3,9 +3,9 @@ package org.unicode.cldr.tool;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.DtdType;
@@ -26,16 +27,15 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
-import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.CoverageInfo;
+import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
-import org.unicode.cldr.util.PluralSnapshot;
-import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.PathHeader.Factory;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VettingViewer;
@@ -162,6 +162,16 @@ public class ShowLocaleCoverage {
         Set<String> checkModernLocales=STANDARD_CODES.getLocaleCoverageLocales(Organization.cldr.name(),EnumSet.of(Level.MODERN));
         Set<String> availableLanguages = new TreeSet<>(factory.getAvailableLanguages());
         availableLanguages.addAll(checkModernLocales);
+        Relation<String,String> languageToRegion = Relation.of(new TreeMap(), TreeSet.class);
+        LanguageTagParser ltp = new LanguageTagParser();
+        LanguageTagCanonicalizer ltc = new LanguageTagCanonicalizer(true);
+        for (String locale : factory.getAvailable()) {
+            String country = ltp.set(locale).getRegion();
+            if (!country.isEmpty()) {
+                languageToRegion.put(ltc.transform(ltp.getLanguageScript()), country);
+            }
+        }
+        System.out.println(CollectionUtilities.join(languageToRegion.keyValuesSet(), "\n"));
 
         System.out.println("# Checking: " + availableLanguages);
         pw.println("<p style='text-align: left'>This chart shows the coverage levels for this release. " +
@@ -177,7 +187,6 @@ public class ShowLocaleCoverage {
             MissingStatus.class), TreeSet.class, CLDRFile.getComparator(DtdType.ldml));
         Set<String> unconfirmed = new TreeSet<String>(CLDRFile.getComparator(DtdType.ldml));
 
-        LanguageTagParser ltp = new LanguageTagParser();
         //Map<String, String> likely = testInfo.getSupplementalDataInfo().getLikelySubtags();
         Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales();
         CLDRFile english = ENGLISH;
@@ -218,6 +227,11 @@ public class ShowLocaleCoverage {
         .addColumn("English Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
         .addColumn("Native Name", "class='source'", null, "class='source'", true).setBreakSpans(true)
         .addColumn("Script", "class='source'", null, "class='source'", true).setBreakSpans(true)
+        .addColumn("CLDR target", "class='source'", null, "class='source'", true).setBreakSpans(true)
+        .addColumn("Sublocales", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
+        .setCellPattern("{0,number}")
+        .addColumn("Confirmed Fields", "class='target'", null, "class='targetRight'", true).setBreakSpans(true)
+        .setCellPattern("{0,number}")
         //.addColumn("Target Level", "class='target'", null, "class='target'", true).setBreakSpans(true)
         ;
 
@@ -281,13 +295,12 @@ public class ShowLocaleCoverage {
                 String script = ltp.set(max).getScript();
 
                 String language = likelySubtags.minimize(locale);
-                // use these as a proxy for 'cldr'
-                Level currentLevel = STANDARD_CODES.getLocaleCoverageLevel("google", locale);
-                Level otherLevel = STANDARD_CODES.getLocaleCoverageLevel("apple", locale);
-                if (otherLevel.compareTo(currentLevel) > 0 
-                    && otherLevel.compareTo(Level.MODERN) <= 0) {
-                    currentLevel = otherLevel;
-                }
+                Level currentLevel = STANDARD_CODES.getLocaleCoverageLevel("cldr", locale);
+//                Level otherLevel = STANDARD_CODES.getLocaleCoverageLevel("apple", locale);
+//                if (otherLevel.compareTo(currentLevel) > 0 
+//                    && otherLevel.compareTo(Level.MODERN) <= 0) {
+//                    currentLevel = otherLevel;
+//                }
 
                 final CLDRFile file = factory.make(locale, true, minimumDraftStatus);
 
@@ -298,20 +311,30 @@ public class ShowLocaleCoverage {
                     pathHeaderFactory, foundCounter, unconfirmedCounter,
                     missingCounter, missingPaths, unconfirmed);
 
+                Set<String> sublocales = languageToRegion.get(language);
+                if (sublocales == null) {
+                    System.err.println("No Sublocales: " + language);
+                    sublocales = Collections.EMPTY_SET;
+                }
+                
+//                List s = Lists.newArrayList(file.fullIterable());
+                
                 tablePrinter
                 .addRow()
                 .addCell(language)
                 .addCell(ENGLISH.getName(language))
                 .addCell(file.getName(language))
                 .addCell(script)
-                //.addCell(currentLevel)
+                .addCell(currentLevel)
+                .addCell(sublocales.size())
                 ;
                 String header = 
                     language
                     + "\t" + ENGLISH.getName(language)
                     + "\t" + file.getName(language)
                     + "\t" + script
-                    + "\t" + currentLevel
+                    + "\t" + sublocales.size()
+                    //+ "\t" + currentLevel
                     ;
 
                 int sumFound = 0;
@@ -338,6 +361,10 @@ public class ShowLocaleCoverage {
                 double modernTotal = totals.get(Level.MODERN);
                 double modernConfirmed = confirmed.get(Level.MODERN);
 
+                tablePrinter
+                .addCell(sumFound);
+                
+                header += "\t" + sumFound;
 
                 // print the totals
 

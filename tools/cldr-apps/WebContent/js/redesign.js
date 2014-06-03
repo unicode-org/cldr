@@ -6,8 +6,7 @@ $(function() {
     $('body').on('click','#show-locked', {type:"lock"}, toggleLockedRead);
     $('body').on('click','#show-read', {type:"read"}, toggleLockedRead);
 	$('#locale-info .local-search').keyup(filterAllLocale);
-    setHelpContent('Welcome');
-    $('#help-menu > a').click(interceptHelpLink);
+    $('.pull-menu > a').click(interceptPulldownLink);
    // $('#survey-menu > a').click(interceptSurveyLink);
     
     //local chooser intercept
@@ -359,46 +358,29 @@ function setHelpContent(content) {
 	$('#help-content').html(content);
 }
 
-//create/update the instruction popover
-function interceptHelpLink(event) {
-	var stopper = false;
-	$('#help-menu').popover('destroy').
+function setManageContent(content) {
+	$('#manage-content').html(content);
+}
+
+//create/update the pull down menu popover
+function interceptPulldownLink(event) {
+	var menu = $(this).closest('.pull-menu');
+	menu.popover('destroy').
 	popover({placement:"bottom", 
 			 html:true, 
-			 content:$('#help-menu').find('ul').html(), 
+			 content:menu.children('ul').html(), 
 			 trigger:"manual",
 			 delay:1500,
 			 template: '<div class="popover" onmouseover="$(this).mouseleave(function() {$(this).fadeOut(); });"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
 
     }).click(function(e) {
         e.preventDefault() ;
-    }).mouseenter(function(e) {
-        $(this).popover('show');
     }).popover('show');
 
 	event.preventDefault();
 	event.stopPropagation();
 }
-////create/update the instruction popover
-//function interceptSurveyLink(event) {
-//	var stopper = false;
-//	$('#survey-menu').popover('destroy').
-//	popover({placement:"bottom", 
-//			 html:true, 
-//			 content:$('#survey-menu').find('ul').html(), 
-//			 trigger:"manual",
-//			 delay:1500,
-//			 template: '<div class="popover" onmouseover="$(this).mouseleave(function() {$(this).fadeOut(); });"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
-//
-//    }).click(function(e) {
-//        e.preventDefault() ;
-//    }).mouseenter(function(e) {
-//        $(this).popover('show');
-//    }).popover('show');
-//
-//	event.preventDefault();
-//	event.stopPropagation();
-//}
+
 
 //test if we are in the dashboard
 function isDashboard() {

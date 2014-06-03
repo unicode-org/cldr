@@ -246,22 +246,29 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
         <%=  (ctx.sm.phase()!=SurveyMain.Phase.SUBMIT)?ctx.sm.phase().toString():"" %>
         </p>
           <ul class="nav navbar-nav">
-            <li><a href="<%= survURL  %>?do=options" target="_blank"><span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Manage</a></li>
-            
+            <li class="pull-menu">
+		          <a href="#"><span class="glyphicon glyphicon-cog"></span> <b class="caret"></b></a>
+		          <ul class="nav nav-pills nav-stacked" style="display:none">
+		            <li><a href="<%= survURL  %>?do=options" target="_blank">Manage <span class="glyphicon glyphicon-share"></span></a></li>
+		            <li><a href="statistics.jsp" target="_blank">Statistics <span class="glyphicon glyphicon-share"></span></a></li>
+		            <li class="nav-divider"></li>
+		            <li id="manage-content"></li>
+		          </ul>
+		   </li>
             <li class="dropdown" id='title-coverage' style='display:none'>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coverage: <span id="coverage-info"></span></a>
                       <ul class="dropdown-menu">
                       </ul>
            </li>
             
-            <li id="help-menu">
+            <li id="help-menu" class="pull-menu">
 		          <a href="#"><%= SurveyMain.GENERAL_HELP_NAME %> <b class="caret"></b></a>
 		          <ul class="nav nav-pills nav-stacked" style="display:none">
 		            <li><a href="<%= SurveyMain.GENERAL_HELP_URL %>" target="_blank"><%= SurveyMain.GENERAL_HELP_NAME %> <span class="glyphicon glyphicon-share"></span></a></li>
 		            <li class="nav-divider"></li>
-		            <li id="help-content"></li>
+		            <li id="help-content">Welcome</li>
 		          </ul>
-		      </li>
+		   </li>
           
           </ul>
           <p class="navbar-text navbar-right">

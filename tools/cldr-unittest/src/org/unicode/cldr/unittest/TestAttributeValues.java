@@ -61,10 +61,25 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class TestAttributeValues extends TestFmwk {
 
+	/**
+	 * Joiner using commas (comma,space), skipping nulls
+	 */
 	private static final Joiner COMMA_JOINER = Joiner.on(", ").skipNulls();
 
+	/**
+	 * Joiner using semicolons, skipping nulls
+	 */
 	private final static Joiner SEMICOLON_JOINER = Joiner.on(";").skipNulls();
+	
+	/**
+	 * Splitter for whitespace (\\s+), omitting empty strings
+	 */
+	private final static Splitter WHITESPACE_SPLTTER=Splitter.on(PatternCache.get("\\s+")).omitEmptyStrings();
 
+	/**
+	 * Splitter for Commas, omitting empties, skipping nulls
+	 */
+	private final Splitter COMMA_SPLITTER=Splitter.on(",").omitEmptyStrings().trimResults();
 	/**
 	 * Source directories
 	 */
@@ -100,6 +115,18 @@ public class TestAttributeValues extends TestFmwk {
 	 */
 	private final Multimap<String,DeprecatedAttributeInfo> deprecatedAttributeMap=LinkedHashMultimap.create();
 	
+	/**
+	 * Set of unknown final elements
+	 */
+	private final Set<String> unknownFinalElements=new HashSet<>();
+	
+	/**
+	 * Set of unhandled paths
+	 */
+	private final Set<String> unhandledPaths=new HashSet<>();
+	
+
+	private Set<String> localeSet = new HashSet<>();
 	private final Set<String> elementOrder = new LinkedHashSet<String>();
 	private final Set<String> attributeOrder = new LinkedHashSet<String>();
 
@@ -250,6 +277,7 @@ public class TestAttributeValues extends TestFmwk {
 		}
 		
 	}
+	
 	private static class LocaleSetGenerator {
 		
 		public static Set<Path> generateLocaleSet(Iterable<File> sourceFiles,
@@ -355,11 +383,7 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
-	private Set<String> unknownFinalElements=new HashSet<>();
-	private Set<String> unhandledPaths=new HashSet<>();
-	private final static Splitter WHITESPACE_SPLTTER=Splitter.on(PatternCache.get("\\s+")).omitEmptyStrings();
-
-	private Set<String> localeSet = new HashSet<>();
+	
 	
 	private void getMetadata(final CLDRFile metadata, SupplementalDataInfo sdi, Factory fact) {
 		// sorting is expensive, but we need it here.
@@ -842,6 +866,11 @@ public class TestAttributeValues extends TestFmwk {
 		return sb.toString();
 	}
 
+	/**
+	 * Information about Deprecated attributes: locales,  path, and possibly a number of replacements
+	 * @author ribnitz
+	 *
+	 */
 	private static class DeprecatedAttributeInfo {
 		private final String locale;
 		private final Set<String> replacements=new HashSet<>();
@@ -852,6 +881,19 @@ public class TestAttributeValues extends TestFmwk {
 			this(locale,path,Collections.<String> emptyList());
 		}
 		public DeprecatedAttributeInfo(String locale, String path,Collection<String> replacements) {
+			// Sanity checks: neither locale nor path must be empty.
+			if (locale==null) {
+				throw new IllegalArgumentException("Locale must not be null");
+			}
+			if (locale.isEmpty()) {
+				throw new IllegalArgumentException("Locale must not be empty");
+			}
+			if (path==null) {
+				throw new IllegalArgumentException("Path must not be null");
+			}
+			if (path.isEmpty()) {
+				throw new IllegalArgumentException("Path must not be null");
+			}
 			this.locale = locale;
 			this.path = path;
 			this.replacements.addAll(replacements);
@@ -869,6 +911,36 @@ public class TestAttributeValues extends TestFmwk {
 		public String getPath() {
 			return path;
 		}	
+		
+		public int hashCode() {
+			return hashCode;
+		}
+		
+		public boolean equals(Object other) {
+			if (other==null) {
+				return false;
+			}
+			if (this==other) {
+				return true;
+			}
+			if (hashCode!=other.hashCode()) {
+				return false;
+			}
+			if (getClass().equals(other.getClass())) {
+				return false;
+			}
+			DeprecatedAttributeInfo o=(DeprecatedAttributeInfo)other;
+			if (!locale.equals(o.getLocale())) {
+				return false;
+			}
+			if (path!=o.getPath()) {
+				return false;
+			}
+			if (!replacements.equals(o.getReplacements())) {
+				return false;
+			}
+			return true;
+		}
 	}
 	
 	
@@ -885,102 +957,123 @@ public class TestAttributeValues extends TestFmwk {
 		// special check for deprecated codes
 		String replacement = getReplacement(matcherPattern.value,
 				attributeValue);
-		boolean listDeprecated = shouldListDeprecated(attribute, attributeValue,path,locale);
-//		StringBuilder sb=new StringBuilder();
-//		sb.append("Deprecation overrides: ");
-//		sb.append(COMMA_JOINER.join(DEPRECATION_OVERRIDES));
-//		sb.append("\r\n");
-//		System.out.println(sb.toString());
-//		sb.setLength(0);
+		boolean listDeprecated = shouldListDeprecated(attribute,
+				attributeValue, path, locale);
 		if (replacement != null) {
 			// if (isEnglish) return; // don't flag English
-			if (replacement.length() == 0) {	
+			if (replacement.length() == 0) {
 				if (listDeprecated) {
-				deprecatedAttributeMap.put(attribute+"="+attributeValue, new DeprecatedAttributeInfo(locale, path));
+					deprecatedAttributeMap.put(
+							attribute + "=" + attributeValue,
+							new DeprecatedAttributeInfo(locale, path));
 				}
-//				result.add(new CheckResult()
-//						.setStatus(ResultStatus.warning)
-//						.setLocale(locale)
-//						.setPath(path)
-//						.setMessage(
-//								"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing. Path:{3}",
-//								new Object[] { locale, attribute,
-//										attributeValue, path }));
 			} else {
 				if (listDeprecated) {
-				deprecatedAttributeMap.put(attribute+"="+attributeValue, new DeprecatedAttributeInfo(locale, path,WHITESPACE_SPLTTER.splitToList(replacement)));
+					deprecatedAttributeMap
+							.put(attribute + "=" + attributeValue,
+									new DeprecatedAttributeInfo(locale, path,
+											WHITESPACE_SPLTTER
+													.splitToList(replacement)));
 				}
-//				CheckResult cr=CheckResult.create(ResultStatus.warning, locale, path, new CheckCSVValuePred(), 
-//						"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and possibly modifying the related "
-//						+ "value for {3}.", 
-//						"Locale {0}: Deprecated Attribute Value {1}={2}. Consider removing, and possibly modifying the related value for {3}.Path: {4}", 
-//						new Object[] { locale, attribute,attributeValue, replacement}, 
-//						new Object[] { locale, attribute,attributeValue, replacement, path });
-//				result.add(cr);
 			}
 		} else {
 			String pattern = matcherPattern.pattern;
-			Joiner joiner=Joiner.on(", ");
 			// for now: disregard missing variable expansions
 
 			if (pattern != null && !pattern.trim().startsWith("$")) {
 				// does the attributeValue contain spaces?
-				List<String> elemList=WHITESPACE_SPLTTER.splitToList(attributeValue);
-				List<String> disallowedElems=new ArrayList<>();
-				if (elemList.size()>1) {
-					Collection<String> allowedElements=WHITESPACE_SPLTTER.splitToList(matcherPattern.pattern);
-					for (String elem: elemList) {
+				List<String> elemList = WHITESPACE_SPLTTER
+						.splitToList(attributeValue);
+				List<String> disallowedElems = new ArrayList<>();
+				if (elemList.size() > 1) {
+					Collection<String> allowedElements = WHITESPACE_SPLTTER
+							.splitToList(matcherPattern.pattern);
+					for (String elem : elemList) {
 						if (!allowedElements.contains(elem)) {
 							disallowedElems.add(elem);
 						}
 					}
 					if (!disallowedElems.isEmpty()) {
-				result.add(new CheckResult()
-						.setStatus(ResultStatus.warning)
-						.setLocale(locale)
-						.setPath(path)
-						.setMessage(
-								"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}; please add to supplemental data. Path: {4}",
-								new Object[] { locale, attribute,
-										COMMA_JOINER.join(disallowedElems),
-										COMMA_JOINER.join(allowedElements), path }));
+						result.add(new CheckResult()
+								.setStatus(ResultStatus.warning)
+								.setLocale(locale)
+								.setPath(path)
+								.setMessage(
+										"Locale {0}: Unexpected attribute value {1}={2}: expected: {3}; please add to supplemental data. Path: {4}",
+										new Object[] {
+												locale,
+												attribute,
+												COMMA_JOINER.join(disallowedElems),
+												COMMA_JOINER.join(allowedElements),
+												path }));
 					}
 				} else {
-				// root locale?
-				if (locale.equals(CLDRConfig.getInstance().getEnglish()
-						.getLocaleID())) {
-					// root locale
-					String mp=null;
-					if (matcherPattern.pattern.contains(" ")) {
-						mp=Joiner.on(",").join(Splitter.on(" ").split(matcherPattern.pattern));
+					// root locale?
+					if (locale.equals(CLDRConfig.getInstance().getEnglish()
+							.getLocaleID())) {
+						// root locale
+						String mp = null;
+						if (matcherPattern.pattern.contains(" ")) {
+							mp = COMMA_JOINER.join(WHITESPACE_SPLTTER.split((matcherPattern.pattern)));
+						} else {
+							mp = matcherPattern.pattern;
+						}
+						result.add(new CheckResult()
+								.setStatus(ResultStatus.warning)
+								.setLocale(locale)
+								.setPath(path)
+								.setMessage(
+										"Locale {0}: Unexpected attribute value {1}={2}: expected: {3}; please add to supplemental data. Path: {4}",
+										new Object[] { locale, attribute,
+												attributeValue, mp, path }));
+						matcherPattern.matcher = ObjectMatcherFactory
+								.createOrMatcher(
+										matcherPattern.matcher,
+										ObjectMatcherFactory
+										.createStringMatcher(attributeValue));
 					} else {
-						mp=matcherPattern.pattern;
+						// the values obtained at this point are  of the form [ A, B, C, D,..]
+						String patStr=matcherPattern.pattern;
+						List<String> values=null;
+						if (patStr.startsWith("[") && patStr.endsWith("]")) {
+							patStr=patStr.substring(1,patStr.lastIndexOf("]"));
+							
+							values=COMMA_SPLITTER.splitToList(patStr);
+						}
+						
+						/*
+						 * Some currency datasets have an entry DEFAULT which does not correspond to 
+						 * a currency. 
+						 */
+						if (!attributeValue.equals("DEFAULT")) {
+							String replacedPattern;
+							if (values!=null &&!values.isEmpty()) {
+								replacedPattern=COMMA_JOINER.join(values);
+							} else {
+								replacedPattern=matcherPattern.pattern;
+							}
+							CheckResult cr = CheckResult
+									.create(ResultStatus.error,
+											locale,
+											path,
+											new CheckCSVValuePred(),
+											"Locale {0}: Unexpected attribute value {1}={2}: expected: {3}",
+											"Locale {0}: Unexpected attribute value {1}={2}: expected: {3}  Path: {4}",
+											new Object[] {
+										locale,
+										attribute,
+										attributeValue,
+										replacedPattern },
+										new Object[] {
+										locale,
+										attribute,
+										attributeValue,
+										replacedPattern,
+										path });
+							result.add(cr);
+						}
 					}
-					result.add(new CheckResult()
-							.setStatus(ResultStatus.warning)
-							.setLocale(locale)
-							.setPath(path)
-							.setMessage(
-									"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}; please add to supplemental data. Path: {4}",
-									new Object[] { locale, attribute,
-											attributeValue,
-											mp, path }));
-					matcherPattern.matcher = ObjectMatcherFactory
-							.createOrMatcher(
-									matcherPattern.matcher,
-									ObjectMatcherFactory
-											.createStringMatcher(attributeValue));
-				} else {
-					CheckResult cr=CheckResult.create(ResultStatus.error, locale, path, 
-							new CheckCSVValuePred(), 
-							"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}", 
-							"Locale {0}: Unexpected Attribute Value {1}={2}: expected: {3}  Path: {4}", 
-							new Object[] { locale, attribute,attributeValue, 
-						joiner.join(WHITESPACE_SPLTTER.split(matcherPattern.pattern))}, 
-							new Object[] { locale, attribute,attributeValue,	joiner.join(WHITESPACE_SPLTTER.split(matcherPattern.pattern)), path });
-					result.add(cr);
 				}
-			}
 			}
 		}
 	}

@@ -519,6 +519,9 @@ public class TestInheritance extends TestFmwk {
             { "eng-840", "en" },
             { "sh_ba", "sr_Latn_BA" },
             { "iw-arab-010", "he_Arab_AQ" },
+            { "und", "und" },
+            { "und_us", "und_US" },
+            { "und_su", "und_RU" },
         };
         LanguageTagCanonicalizer canon = new LanguageTagCanonicalizer();
         for (String[] inputExpected : tests) {

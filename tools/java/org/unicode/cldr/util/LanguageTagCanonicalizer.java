@@ -39,6 +39,7 @@ public class LanguageTagCanonicalizer implements StringTransform {
     // TODO, handle variants
     public synchronized String transform(String locale) {
         ltp1.set(locale);
+
         copyFields2(LanguageTagField.language, getReplacement(LanguageTagField.language, LanguageTagField.language.get(ltp1), locale));
         copyFields2(LanguageTagField.script, getReplacement(LanguageTagField.script, LanguageTagField.script.get(ltp1), locale));
         copyFields2(LanguageTagField.region, getReplacement(LanguageTagField.region, LanguageTagField.region.get(ltp1), locale));
@@ -60,7 +61,8 @@ public class LanguageTagCanonicalizer implements StringTransform {
             }
             ltp1.setVariants(newVariants);
         }
-        return likely.minimize(ltp1.toString());
+        final String result = ltp1.toString();
+        return "und".equals(ltp1.getLanguage()) ? result : likely.minimize(result);
     }
 
     private enum LanguageTagField {

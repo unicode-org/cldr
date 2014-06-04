@@ -1,9 +1,11 @@
 package org.unicode.cldr.unittest;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Writer;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
@@ -33,12 +35,12 @@ import org.unicode.cldr.unittest.CheckResult.ResultStatus;
 import org.unicode.cldr.unittest.ObjectMatcherFactory;
 import org.unicode.cldr.unittest.ObjectMatcherFactory.MatcherPattern;
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
@@ -48,6 +50,7 @@ import com.google.common.base.Joiner;
 import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
 import com.google.common.collect.FluentIterable;
+import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
@@ -81,13 +84,13 @@ public class TestAttributeValues extends TestFmwk {
 	 */
 	private final Splitter COMMA_SPLITTER=Splitter.on(",").omitEmptyStrings().trimResults();
 	/**
-	 * Source directories
+	 * Source directories; entries that do not start with slash (/) are relative to CLDR_DIR
 	 */
 	private String[] sourceDirs = new String[] { 
-			"/Users/ribnitz/Documents/workspace/cldr/common",
-			"/Users/ribnitz/Documents/workspace/cldr/exemplars", 
-	//	"/Users/ribnitz/Documents/workspace/cldr/keyboards",
-		"/Users/ribnitz/Documents/workspace/cldr/seed"
+			"common",
+			"exemplars", 
+			"keyboards",
+			"seed"
 			};
 
 	/**
@@ -116,6 +119,101 @@ public class TestAttributeValues extends TestFmwk {
 	private final Multimap<String,DeprecatedAttributeInfo> deprecatedAttributeMap=LinkedHashMultimap.create();
 	
 	/**
+	 * Small class holding information on a deprecated items, such as the locale, a set of replacements and its path,
+	 * used as a value in the multimap deprecatedAttributeMap above.
+	 * 
+	 * @author ribnitz
+	 *
+	 */
+	private static class DeprecatedAttributeInfo {
+		private final String locale;
+		private final String pathToLocaleFile;
+		private final Set<String> replacements=new HashSet<>();
+		private final String path;
+		private final int hashCode;
+		
+		public DeprecatedAttributeInfo(String locale, String path,String pathToLocaleFile) {
+			this(locale,path,Collections.<String> emptyList(),pathToLocaleFile);
+		}
+		public DeprecatedAttributeInfo(String locale, String path,Collection<String> replacements,String pathToLocaleFile) {
+			// Sanity checks: neither locale nor path must be empty.
+			if (locale==null) {
+				throw new IllegalArgumentException("Locale must not be null");
+			}
+			if (locale.isEmpty()) {
+				throw new IllegalArgumentException("Locale must not be empty");
+			}
+			if (path==null) {
+				throw new IllegalArgumentException("Path must not be null");
+			}
+			if (path.isEmpty()) {
+				throw new IllegalArgumentException("Path must not be null");
+			}
+			this.locale = locale;
+			this.path = path;
+			this.pathToLocaleFile=pathToLocaleFile;
+			this.replacements.addAll(replacements);
+			hashCode=Objects.hash(locale,replacements,path,pathToLocaleFile);
+		}
+	
+		public String getLocale() {
+			return locale;
+		}
+		
+		public Collection<String> getReplacements() {
+			return Collections.unmodifiableSet(replacements);
+		}
+		
+		public String getPath() {
+			return path;
+		}	
+		
+		public String getPathToLocaleFile() {
+			return pathToLocaleFile;
+		}
+		
+		public int hashCode() {
+			return hashCode;
+		}
+		
+		public boolean equals(Object other) {
+			if (other==null) {
+				return false;
+			}
+			if (this==other) {
+				return true;
+			}
+			if (hashCode!=other.hashCode()) {
+				return false;
+			}
+			if (getClass().equals(other.getClass())) {
+				return false;
+			}
+			DeprecatedAttributeInfo o=(DeprecatedAttributeInfo)other;
+			if (!locale.equals(o.getLocale())) {
+				return false;
+			}
+			if (path!=o.getPath()) {
+				return false;
+			}
+			if (!replacements.equals(o.getReplacements())) {
+				return false;
+			}
+			if (pathToLocaleFile!=null) {
+				if (!pathToLocaleFile.equals(o.pathToLocaleFile)) {
+					return false;
+				}
+			} else {
+				// the pathToLocaleFile of this item is null, if the other item path isn't, they are unequal
+				if (o.pathToLocaleFile!=null) {
+					return false;
+				}
+			}
+			return true;
+		}
+	}
+	private final static Set<String> FILE_EXCLUSIONS=ImmutableSet.of("coverageLevels.xml","pluralRanges.xml");
+	/**
 	 * Set of unknown final elements
 	 */
 	private final Set<String> unknownFinalElements=new HashSet<>();
@@ -141,7 +239,6 @@ public class TestAttributeValues extends TestFmwk {
 	private final Map<String, Map<String, String>> code_type_replacement = new TreeMap<String, Map<String, String>>();
 	private SupplementalDataInfo supplementalData;
 
-	private boolean isEnglish;
 	PluralInfo pluralInfo;
 
 	XPathParts parts = new XPathParts(null, null);
@@ -214,19 +311,30 @@ public class TestAttributeValues extends TestFmwk {
 			field = lip.getRegion();
 			if (field.length() != 0 && !territory.matches(field)) return false;
 			String[] fields = lip.getVariants();
-			for (int i = 0; i < fields.length; ++i) {
-				if (!variant.matches(fields[i])) return false;
+			for (String varField: fields) {
+				if (!variant.matches(varField)) return false;
 			}
 			return true;
 		}
 	}
 
+	/**
+	 * Predicate that will result in a file in the file walk to be included in the set of Files
+	 * @author ribnitz
+	 *
+	 */
 	private static class FileAcceptPredicate implements Predicate<Path> {
 
+		/**
+		 * Filenames that should be excluded
+		 */
 		private  String[] fnameExclusions=new String[] {
 			//	"Latn","FONIPA", "Arab","Ethi"
 		};
-		//private final static Pattern FNAME_PATTERN=PatternCache.get("[a-z]{2,3}");
+		
+		/**
+		 * Path components that should be exculded
+		 */
 		private final static String[] EXCLUDED_PATHS = new String[] { /*"bcp47" */ };
 		private final Collection<String> excludedFiles;
 		public FileAcceptPredicate(Collection<String> excluded) {
@@ -235,19 +343,7 @@ public class TestAttributeValues extends TestFmwk {
 		@Override
 		public boolean apply(Path input) {
 			
-			String fname = input.getFileName()
-					.toString();
-//			int underscorePos=fname.indexOf("_");
-//			int dotPos=fname.indexOf(".");
-//			int matchPos;
-//			if (underscorePos>-1) {
-//				matchPos=underscorePos;
-//			} else {
-//				matchPos=dotPos;
-//			}
-//			if (!FNAME_PATTERN.matcher(fname.substring(0,matchPos)).matches()) {
-//				return false;
-//			}
+			String fname = input.getFileName().toString();
 			if (!fname.endsWith(".xml")) {
 				return false;
 			}
@@ -278,6 +374,11 @@ public class TestAttributeValues extends TestFmwk {
 		
 	}
 	
+	/**
+	 * Class iterating over Files, adding all matching files to Set, which is then returned.
+	 * @author ribnitz
+	 *
+	 */
 	private static class LocaleSetGenerator {
 		
 		public static Set<Path> generateLocaleSet(Iterable<File> sourceFiles,
@@ -355,26 +456,25 @@ public class TestAttributeValues extends TestFmwk {
 
 	LocaleIDParser localeIDParser = new LocaleIDParser();
 
-	private void initialize(CLDRFile cldrFileToCheck, Collection<CheckResult> possibleErrors,Factory fact) {
-
-		if (cldrFileToCheck==null) {
-			return;
+	private void initialize(Iterable<String> paths,
+			Collection<CheckResult> possibleErrors, Factory fact,
+			File supplementalDir, String localeID) {
+		supplementalData = SupplementalDataInfo.getInstance(supplementalDir);
+		if (localeID != null) {
+			pluralInfo = supplementalData.getPlurals(PluralType.cardinal,
+					localeID);
 		}
-	
-		supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
-		pluralInfo = supplementalData.getPlurals(PluralType.cardinal, cldrFileToCheck.getLocaleID());
-		//	        	super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
-		isEnglish = "en".equals(localeIDParser.set(cldrFileToCheck.getLocaleID()).getLanguage());
+		// isEnglish = "en".equals(localeIDParser.set(language));
 		synchronized (elementOrder) {
 			if (!initialized) {
-				CLDRFile metadata = fact.getSupplementalMetadata();
-				getMetadata(metadata, supplementalData, fact);
+				getMetadata(new FactoryBasedMetadataHandler(fact,supplementalData));
+				//getMetadata(fact.getSupplementalMetadata(), supplementalData,fact.getSupplementalMetadata().getComparator(),fact.getSupplementalMetadata().iterator().next());
 				initialized = true;
 				localeMatcher = LocaleMatcher.make();
-				// cleaup localeList
-				Iterator<String>  lIter=localeSet.iterator();
+				// cleanup locale list
+				Iterator<String> lIter = localeSet.iterator();
 				while (lIter.hasNext()) {
-					String loc=lIter.next();
+					String loc = lIter.next();
 					if (!localeMatcher.matches(loc)) {
 						lIter.remove();
 					}
@@ -382,24 +482,70 @@ public class TestAttributeValues extends TestFmwk {
 			}
 		}
 	}
+	
+	/**
+	 * Interface used for accessing MetaData information
+	 * @author ribnitz
+	 *
+	 */
+	private static interface MetadataInterface extends Iterable<String> {
+		Iterator<String> iterator();
+		Iterator<String> iterator(Comparator<String> comparator);
+		String getStringValue(String path);
+		String getFullXPath(String path);
+		Comparator<String> getComparator();
+		SupplementalDataInfo getSupplementalDataInfo();
+	}
+	
+	private static class FactoryBasedMetadataHandler implements MetadataInterface {
+		private final Factory factory;
+		private final SupplementalDataInfo sdi;
+		public FactoryBasedMetadataHandler(Factory aFacotry,SupplementalDataInfo sdi) {
+			factory=aFacotry;
+			this.sdi=sdi;
+		}
+		@Override
+		public Iterator<String> iterator() {
+			return factory.getSupplementalMetadata().iterator();
+		}
+		@Override
+		public Iterator<String> iterator(Comparator<String> comparator) {
+			return factory.getSupplementalMetadata().iterator(null, comparator);
+		}
+		@Override
+		public String getStringValue(String path) {
+			return factory.getSupplementalMetadata().getStringValue(path);
+		}
+		@Override
+		public Comparator<String> getComparator() {
+			return factory.getSupplementalMetadata().getComparator();
+		}
+		@Override
+		public String getFullXPath(String path) {
+			return factory.getSupplementalMetadata().getFullXPath(path);
+		}
+		@Override
+		public SupplementalDataInfo getSupplementalDataInfo() {
+			return sdi;
+		}
+		
+	}
 
-	
-	
-	private void getMetadata(final CLDRFile metadata, SupplementalDataInfo sdi, Factory fact) {
+	private void getMetadata(final MetadataInterface metadata) {
 		// sorting is expensive, but we need it here.
 
-		Comparator<String> ldmlComparator = metadata.getComparator();
-		String path2 = metadata.iterator().next();
+		String path2 =  metadata.iterator().next();
+		final Comparator<String> comp;
 		if (!path2.startsWith("//ldml")) {
-			ldmlComparator = null;
+			comp = null;
+		} else {
+			comp=metadata.getComparator();
 		}
-		String locale=metadata.getLocaleID();
-		final Comparator<String> comp=ldmlComparator;
 		for (String p: new Iterable<String>() {
 
 			@Override
 			public Iterator<String> iterator() {
-				return metadata.iterator(null, comp);
+				return metadata.iterator(comp);
 			}
 			
 		}) {
@@ -424,7 +570,7 @@ public class TestAttributeValues extends TestFmwk {
 				// value = variableReplacer.replace(value);
 				// if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
 				Map<String, String> attributes = parts.getAttributes(-1);
-				MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
+				MatcherPattern mp = getMatcherPattern(value, attributes, path, metadata.getSupplementalDataInfo());
 				if (mp != null) {
 					String id = attributes.get("id");
 					variables.put(id, mp);
@@ -434,7 +580,7 @@ public class TestAttributeValues extends TestFmwk {
 				try {
 					Map<String, String> attributes = parts.getAttributes(-1);
 
-					MatcherPattern mp = getMatcherPattern(value, attributes, path, sdi);
+					MatcherPattern mp = getMatcherPattern(value, attributes, path, metadata.getSupplementalDataInfo());
 					if (mp == null) {
 						// System.out.println("Failed to make matcher for: " + value + "\t" + path);
 						continue;
@@ -445,9 +591,7 @@ public class TestAttributeValues extends TestFmwk {
 						addAttributes(attributeList, common_attribute_validity, mp);
 					} else {
 						Iterable<String> elementList=WHITESPACE_SPLTTER.split(elementsString.trim());
-//						String[] elementList = elementsString.trim().split("\\s+");
 						for (String element: elementList) {
-							// System.out.println("\t" + element);
 							Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
 							if (attribute_validity == null)
 								element_attribute_validity.put(element,
@@ -462,7 +606,7 @@ public class TestAttributeValues extends TestFmwk {
 					e.printStackTrace();
 				}
 			} else if (lastElement.equals("version")) {
-				// skip for now
+	
 				// skip for now
 				//unhandledPaths.add("Unhandled path (version):"+path);
 			} else if (lastElement.equals("generation")) {
@@ -520,7 +664,7 @@ public class TestAttributeValues extends TestFmwk {
 	}
 
 
-	private String extractValueList(String path,String pattern) {
+	private static String extractValueList(String path,String pattern) {
 		//filter the path
 		int pathStart=path.indexOf(pattern);
 		String locPath=null;
@@ -640,14 +784,52 @@ public class TestAttributeValues extends TestFmwk {
 			errln(sb.toString());
 		}
 	}
-	private final static Collection<String> FILE_EXCLUSIONS=Arrays.asList(new String[] {"coverageLevels.xml","pluralRanges.xml"});
+
+	
+	/**
+	 * Simple PathValueHandler, simply adds the path to a set;  has an accessor for the set, and a method of clearing the set
+	 * @author ribnitz
+	 *
+	 */
+	private static class PathValueHandler extends XMLFileReader.SimpleHandler {
+		private final Set<String> paths=new LinkedHashSet<>();
+
+		@Override
+		public void handlePathValue(String path, String value) {
+			paths.add(path);
+		}
+		
+		public Set<String> getPaths() {
+			if (paths.isEmpty()) {
+				return Collections.emptySet();
+			}
+			return ImmutableSet.copyOf(paths);
+		}
+		
+		public void reset() {
+			paths.clear();
+		}
+	}
+
+	private File[] getSourceDirs() {
+		String cldrDir = System.getProperty("CLDR_DIR");
+		if (!cldrDir.endsWith("/")) {
+			cldrDir+="/";
+		}
+		File[] sourceFiles = new File[sourceDirs.length];
+		for (int i = 0; i < sourceDirs.length; i++) {
+			if (sourceDirs[i].startsWith("/")) {
+				sourceFiles[i] = new File(sourceDirs[i]); 
+			} else {
+				sourceFiles[i] = new File(cldrDir+sourceDirs[i]);
+			}
+			}
+		return sourceFiles;
+	}
+	
 	public void TestAttributes() { 
 		CLDRConfig cldrConf=CLDRConfig.getInstance();
-		File[] sourceFiles=new File[sourceDirs.length];
-		for (int i=0;i<sourceDirs.length;i++) {
-			sourceFiles[i]=new File(sourceDirs[i]);
-		}
-	//	File[] sourceDirectories = cldrConf.getMainDataDirectories(sourceFiles);
+		File[] sourceFiles=getSourceDirs();
 		final Iterable<Path> fileSet = LocaleSetGenerator.generateLocaleSet(Arrays.asList(sourceFiles),FILE_EXCLUSIONS);
 		final Set<File> dirs=new HashSet<>();
 		for (Path cur: fileSet) {
@@ -663,23 +845,28 @@ public class TestAttributeValues extends TestFmwk {
 		supplementalData=cldrConf.getSupplementalDataInfo();
 		Set<String> availableLocales=cldrFactory.getAvailable();
 	    System.out.println("Testing: en");
-	    CLDRFile rootLocale=CLDRConfig.getInstance().getEnglish();
 	    List<CheckResult> results=new ArrayList<>();
-		initialize(rootLocale, results,cldrFactory);
-		for (String curPath: rootLocale) {
-			handleCheck(curPath, curPath, "", results,rootLocale);
-		}
-//		List<CheckResult> results=new ArrayList<>();
+	    String rootLocaleID=cldrConf.getEnglish().getLocaleID();
+		initialize(cldrConf.getEnglish(), results,cldrFactory,cldrFactory.getSupplementalDirectory(),rootLocaleID);
 		Set<String> localesToTest=new HashSet<>(availableLocales);
-		localesToTest.remove(rootLocale.getLocaleID());
+		localesToTest.remove(rootLocaleID);
 		int numTested=1;
-		for (String c:localesToTest) {
+		XMLFileReader xfr=new XMLFileReader();
+		PathValueHandler pvHandler=new PathValueHandler();
+		xfr.setHandler(pvHandler);
+		for (Path p: fileSet) {
+			File f=p.toFile();
+			String fName=p.getFileName().toString();
+			String c=fName.substring(0, fName.lastIndexOf(".xml"));
+//		for (String c:localesToTest) {
 			System.out.println("Testing: "+c);
-			CLDRFile curCldr= cldrFactory.make(c, false);
-			initialize(curCldr, results,cldrFactory);
-			for (String curPath: curCldr) {
-				handleCheck(curPath, curPath, "", results,curCldr);
+			xfr.read(f.getAbsolutePath(), -1, false);
+			initialize(pvHandler.getPaths(), results,cldrFactory,cldrFactory.getSupplementalDirectory(),null);
+			for (String curPath: pvHandler.getPaths()) {
+//				handleCheck(curPath, curPath, "", results,c, f,c);
+				handleCheck(curPath, curPath, "", results, c, c, f);
 			}
+			pvHandler.reset();
 			numTested++;
 		}
 		List<CheckResult> warnings=Collections.emptyList();
@@ -789,10 +976,15 @@ public class TestAttributeValues extends TestFmwk {
 		System.out.print(sb.toString());
 		sb.setLength(0);
 	}
-	public String listDeprecationDetails(Collection<DeprecatedAttributeInfo> deprecatedItems,boolean filterAliases) {
+	
+	private String listDeprecationDetails(Collection<DeprecatedAttributeInfo> deprecatedItems,boolean filterAliases) {
 		StringBuilder sb=new StringBuilder();
 		if (!filterAliases) {
 			for (DeprecatedAttributeInfo info: deprecatedItems) {
+				String locPath=info.getPathToLocaleFile();
+				if (locPath!=null) {
+					sb.append("Locale file: "+CLDRDirFormatter.stripCLDRDir(locPath)+" ");
+				}
 				sb.append("Locale: " + info.getLocale() + " - Path: "
 						+ info.getPath() + "\r\n");
 			}
@@ -810,7 +1002,8 @@ public class TestAttributeValues extends TestFmwk {
 
 	public void TestStaticInterface() {
 		CLDRConfig config=CLDRConfig.getInstance();
-		TestAttributeValues.performCheck(config.getEnglish(),config.getCldrFactory(), supplementalData);
+		TestAttributeValues.performCheck(config.getEnglish(),config.getCldrFactory(), supplementalData,
+				config.getEnglish().getLocaleID(),null);
 	}
 	
 	
@@ -837,22 +1030,49 @@ public class TestAttributeValues extends TestFmwk {
 	 * @param fileToCheck
 	 * @param fact
 	 * @param sdi
-	 * @return an iterable over the results.
+	 * @return an Iterable over the results.
 	 */
-	public static Iterable<CheckResult> performCheck(CLDRFile fileToCheck,Factory fact,SupplementalDataInfo sdi) {
+	public static Iterable<CheckResult> performCheck(Iterable<String> paths, Factory fact,SupplementalDataInfo sdi, 
+			String localeID,String filename) {
 		List<CheckResult> results=new ArrayList<>();
 		TestAttributeValues tav=new TestAttributeValues();
 		tav.supplementalData=sdi;
-			tav.initialize(fileToCheck, results,fact);
-			for (String curPath: fileToCheck) {
-				tav.handleCheck(curPath, curPath, "", results,fileToCheck);
-			}
+		tav.initialize(paths, results, fact, fact.getSupplementalDirectory(), localeID);
+		File f=new File(filename);
+		for (String curPath: paths) {
+			tav.handleCheck(curPath, curPath, "", results,localeID,localeID,f.canRead()?f:null);
+		}
 		if (results.isEmpty()) {
 			return Collections.emptyList();
 		}
-		return results;
+		return ImmutableList.copyOf(results);
 	}
-
+	
+	/**
+	 * Static method to check a resource provided in an input stream, with the given name
+	 * @param fInStream the input stream, will be closed
+	 * @param fileName the name of the resource, if will be resolved to a filename, if provided.
+	 * @return an Iterable of CheckResult items.
+	 */
+	public static Iterable<CheckResult> performCheck(InputStream  fInStream, String fileName) {
+		XMLFileReader xfr=new XMLFileReader();
+		PathValueHandler pvHandler=new PathValueHandler();
+		xfr.setHandler(pvHandler);
+		try (BufferedInputStream in=new BufferedInputStream(fInStream)) {
+		xfr.read(fileName, fInStream, -1, false);
+		Set<String> paths=pvHandler.getPaths();
+		CLDRConfig config=CLDRConfig.getInstance();
+		return performCheck(paths, config.getCldrFactory(), config.getSupplementalDataInfo(),null,fileName);
+		} catch (IOException e) {
+			CheckResult cr=new CheckResult().setStatus(ResultStatus.error).setMessage("IOException on reading file {0}: {1}",
+					new Object[]{
+					fileName,
+					e.getStackTrace()
+			});
+			return ImmutableSet.of(cr);
+		}
+	}
+	
 	private String getResultMessages(Collection<CheckResult> result,String resultType) {
 		StringBuilder sb=new StringBuilder();
 		if (result.size()>0) {
@@ -865,88 +1085,10 @@ public class TestAttributeValues extends TestFmwk {
 		}
 		return sb.toString();
 	}
-
-	/**
-	 * Information about Deprecated attributes: locales,  path, and possibly a number of replacements
-	 * @author ribnitz
-	 *
-	 */
-	private static class DeprecatedAttributeInfo {
-		private final String locale;
-		private final Set<String> replacements=new HashSet<>();
-		private final String path;
-		private final int hashCode;
-		
-		public DeprecatedAttributeInfo(String locale, String path) {
-			this(locale,path,Collections.<String> emptyList());
-		}
-		public DeprecatedAttributeInfo(String locale, String path,Collection<String> replacements) {
-			// Sanity checks: neither locale nor path must be empty.
-			if (locale==null) {
-				throw new IllegalArgumentException("Locale must not be null");
-			}
-			if (locale.isEmpty()) {
-				throw new IllegalArgumentException("Locale must not be empty");
-			}
-			if (path==null) {
-				throw new IllegalArgumentException("Path must not be null");
-			}
-			if (path.isEmpty()) {
-				throw new IllegalArgumentException("Path must not be null");
-			}
-			this.locale = locale;
-			this.path = path;
-			this.replacements.addAll(replacements);
-			hashCode=Objects.hash(locale,replacements,path);
-		}
-	
-		public String getLocale() {
-			return locale;
-		}
-		
-		public Collection<String> getReplacements() {
-			return Collections.unmodifiableSet(replacements);
-		}
-		
-		public String getPath() {
-			return path;
-		}	
-		
-		public int hashCode() {
-			return hashCode;
-		}
-		
-		public boolean equals(Object other) {
-			if (other==null) {
-				return false;
-			}
-			if (this==other) {
-				return true;
-			}
-			if (hashCode!=other.hashCode()) {
-				return false;
-			}
-			if (getClass().equals(other.getClass())) {
-				return false;
-			}
-			DeprecatedAttributeInfo o=(DeprecatedAttributeInfo)other;
-			if (!locale.equals(o.getLocale())) {
-				return false;
-			}
-			if (path!=o.getPath()) {
-				return false;
-			}
-			if (!replacements.equals(o.getReplacements())) {
-				return false;
-			}
-			return true;
-		}
-	}
-	
 	
 	private void check(Map<String, MatcherPattern> attribute_validity,
 			String attribute, String attributeValue, List<CheckResult> result,
-			String path, String locale) {
+			String path, String locale, Path localePath) {
 		if (attribute_validity == null)
 			return; // no test
 		MatcherPattern matcherPattern = attribute_validity.get(attribute);
@@ -965,15 +1107,15 @@ public class TestAttributeValues extends TestFmwk {
 				if (listDeprecated) {
 					deprecatedAttributeMap.put(
 							attribute + "=" + attributeValue,
-							new DeprecatedAttributeInfo(locale, path));
+							new DeprecatedAttributeInfo(locale, path,localePath!=null?localePath.toFile().getAbsolutePath():null));
 				}
 			} else {
 				if (listDeprecated) {
 					deprecatedAttributeMap
 							.put(attribute + "=" + attributeValue,
 									new DeprecatedAttributeInfo(locale, path,
-											WHITESPACE_SPLTTER
-													.splitToList(replacement)));
+											WHITESPACE_SPLTTER.splitToList(replacement),
+											localePath!=null?localePath.toFile().getAbsolutePath():null));
 				}
 			}
 		} else {
@@ -985,27 +1127,48 @@ public class TestAttributeValues extends TestFmwk {
 				List<String> elemList = WHITESPACE_SPLTTER
 						.splitToList(attributeValue);
 				List<String> disallowedElems = new ArrayList<>();
+				boolean likelyRegex=false;
 				if (elemList.size() > 1) {
 					Collection<String> allowedElements = WHITESPACE_SPLTTER
 							.splitToList(matcherPattern.pattern);
-					for (String elem : elemList) {
-						if (!allowedElements.contains(elem)) {
-							disallowedElems.add(elem);
+					// is this likely a regex?
+					
+					for (String item: allowedElements) {
+						if (item.contains("[")||item.contains("]")||item.endsWith("(")) {
+							likelyRegex=true;
+							break;
+						}
+					}
+					if (likelyRegex) {
+						Pattern pat = PatternCache.get(matcherPattern.pattern);
+						for (String elem : elemList) {
+							if (!pat.matcher(elem).matches()) {
+								disallowedElems.add(elem);
+							}
+						}
+					} else {
+						for (String elem : elemList) {
+							if (!allowedElements.contains(elem)) {
+								disallowedElems.add(elem);
+							}
 						}
 					}
 					if (!disallowedElems.isEmpty()) {
+						Object[] params=new Object[] {
+							localePath!=null?CLDRDirFormatter.stripCLDRDir(localePath.toFile()):locale,
+									attribute,
+									COMMA_JOINER.join(disallowedElems),
+									COMMA_JOINER.join(allowedElements),
+									path		
+						};
 						result.add(new CheckResult()
 								.setStatus(ResultStatus.warning)
 								.setLocale(locale)
 								.setPath(path)
 								.setMessage(
-										"Locale {0}: Unexpected attribute value {1}={2}: expected: {3}; please add to supplemental data. Path: {4}",
-										new Object[] {
-												locale,
-												attribute,
-												COMMA_JOINER.join(disallowedElems),
-												COMMA_JOINER.join(allowedElements),
-												path }));
+										"Locale {0}: Unexpected attribute value {1}={2}: expected: {3}; please add to supplemental "+
+										"data. Path: {4}",
+										params ));
 					}
 				} else {
 					// root locale?
@@ -1042,7 +1205,7 @@ public class TestAttributeValues extends TestFmwk {
 						}
 						
 						/*
-						 * Some currency datasets have an entry DEFAULT which does not correspond to 
+						 * Some currency data sets have an entry DEFAULT which does not correspond to 
 						 * a currency. 
 						 */
 						if (!attributeValue.equals("DEFAULT")) {
@@ -1052,6 +1215,12 @@ public class TestAttributeValues extends TestFmwk {
 							} else {
 								replacedPattern=matcherPattern.pattern;
 							}
+							Object[] param=new Object[] {
+										localePath!=null?CLDRDirFormatter.stripCLDRDir(localePath.toFile()):locale,
+										attribute,
+										attributeValue,
+										replacedPattern,
+										path };
 							CheckResult cr = CheckResult
 									.create(ResultStatus.error,
 											locale,
@@ -1059,17 +1228,7 @@ public class TestAttributeValues extends TestFmwk {
 											new CheckCSVValuePred(),
 											"Locale {0}: Unexpected attribute value {1}={2}: expected: {3}",
 											"Locale {0}: Unexpected attribute value {1}={2}: expected: {3}  Path: {4}",
-											new Object[] {
-										locale,
-										attribute,
-										attributeValue,
-										replacedPattern },
-										new Object[] {
-										locale,
-										attribute,
-										attributeValue,
-										replacedPattern,
-										path });
+											param,param);
 							result.add(cr);
 						}
 					}
@@ -1095,22 +1254,23 @@ public class TestAttributeValues extends TestFmwk {
 		if (path.contains("currencyData")) {
 			return false;
 		}
+		if (path.contains("[@status=\"deprecated\"]")) {
+			return false;
+		}
 		return true;
 	}
 	
-	private void handleCheck(String path, String fullPath, String value,
-			List<CheckResult> result,CLDRFile fileToCheck) {
+	private void handleCheck(String path, String fullPath,String value, List<CheckResult> result, String localeId, String sourceLocaleId,File localeFile) {
 
 		if (fullPath == null) return; // skip paths that we don't have
 		if (fullPath.indexOf('[') < 0) return; // skip paths with no attributes
-		String locale = fileToCheck.getSourceLocaleID(path, null);
 
-		pluralInfo = supplementalData.getPlurals(PluralType.cardinal, fileToCheck.getLocaleID());
-		PluralInfo ordinalPlurals=supplementalData.getPlurals(PluralType.ordinal,fileToCheck.getLocaleID());
+		pluralInfo = supplementalData.getPlurals(PluralType.cardinal, sourceLocaleId);
+		PluralInfo ordinalPlurals=supplementalData.getPlurals(PluralType.ordinal,sourceLocaleId);
 		
 		PluralInfo pInfo;
 		// skip paths that are not in the immediate locale
-		if (!fileToCheck.getLocaleID().equals(locale)) {
+		if (!localeId.equals(sourceLocaleId)) {
 			return;
 		}
 		parts.set(fullPath);
@@ -1124,9 +1284,9 @@ public class TestAttributeValues extends TestFmwk {
 				String attribute = entry.getKey();
 				String attributeValue =entry.getValue();
 				// check the common attributes first
-				check(common_attribute_validity, attribute, attributeValue, result, fullPath,locale);
+				check(common_attribute_validity, attribute, attributeValue, result, fullPath,sourceLocaleId,localeFile.toPath());
 				// then for the specific element
-				check(attribute_validity, attribute, attributeValue, result, fullPath,locale);
+				check(attribute_validity, attribute, attributeValue, result, fullPath,sourceLocaleId,localeFile.toPath());
 
 				// now for plurals
 				if (attribute.equals("count")) {
@@ -1149,23 +1309,32 @@ public class TestAttributeValues extends TestFmwk {
 								
 								// set of only one entry; this means: only check if the value is one of several allowed ones, w/o respect to the language
 								if (!Count.VALUES.contains(countValue)) {
+									String strippedPath=null;
+									if (localeFile!=null) {
+										strippedPath=CLDRDirFormatter.stripCLDRDir(localeFile);
+									}
+									
 									result.add(
 											new CheckResult()
 											.setStatus(ResultStatus.error)
 											.setPath(path)
 											.setMessage("Locale {0}: Illegal plural value {1}; must be one of: {2} Path: {3}", 
-													new Object[] { locale, countValue, pluralInfo.getCounts(), path }));
+													new Object[] { strippedPath!=null?strippedPath:sourceLocaleId, countValue, pluralInfo.getCounts(), path }));
 								}
 								
 							} else 
 							if (!cSet.contains(countValue)
-									&& !isPluralException(countValue, locale)) {
+									&& !isPluralException(countValue, sourceLocaleId)) {
+								String strippedPath=null;
+								if (localeFile!=null) {
+									strippedPath=CLDRDirFormatter.stripCLDRDir(localeFile);
+								}
 								result.add(
 										new CheckResult()
 										.setStatus(ResultStatus.error)
 										.setPath(path)
 										.setMessage("Locale {0}: Illegal plural value {1}; must be one of: {2} Path: {3}", 
-												new Object[] { locale, countValue, pluralInfo.getCounts(), path }));
+												new Object[] { strippedPath!=null?strippedPath:sourceLocaleId, countValue, pluralInfo.getCounts(), path }));
 							}
 						}
 					}
@@ -1173,6 +1342,33 @@ public class TestAttributeValues extends TestFmwk {
 			}
 		}
 	}
+
+
+	private static class CLDRDirFormatter {
+		
+		public static String stripCLDRDir(String path) {
+			return stripCLDRDir(new File(path));
+		}
+		/***
+		 * Helper method that will remove the path up to the directory specified in CLDR_DIR, and replace that part with "{CLDR_DIR}/", if that part of the path matches
+		 * @param localeFile
+		 * @return
+		 */
+		public static String stripCLDRDir(File localeFile) {
+			if (localeFile==null) {
+				throw new IllegalArgumentException("Please call with non-null file");
+			}
+			//get the property
+			String cldrDir=System.getProperty("CLDR_DIR");
+			String canonical=localeFile.getAbsolutePath();
+			if (canonical.lastIndexOf(cldrDir)!=-1) { 
+				int startPos=canonical.lastIndexOf(cldrDir)+cldrDir.length();
+				return "{CLDR_DIR}/"+canonical.substring(startPos);
+			}
+			return localeFile.getAbsolutePath();
+		}
+	}
+	
 	
 	public static void main(String[] args) {
 		TestAttributeValues tav=new TestAttributeValues();

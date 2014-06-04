@@ -27,14 +27,14 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
     * Tests the validity of the file names and of the English localeDisplayName types. 
     * Also tests for aliases outside root
     */
-    public void TestGoogleSetEquality() {
+    public void TestGoogleSubset() {
         Set<String> googleLocales=sc.getLocaleCoverageLocales(Organization.google.name(),EnumSet.of(Level.MODERN));
         Set<String> cldrLocales=sc.getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN));
         assertNotNull("Expected CLDR modern locales not to be null", cldrLocales);
         if (!cldrLocales.equals(googleLocales)) {
             printDifferences(googleLocales, cldrLocales,"Google","CLDR",false);
         }
-        assertTrue("Expected Google modern and CLDR locales to contain the same elements, but they did not.", cldrLocales.equals(googleLocales));
+        assertTrue("Expected CLDR modern locales to be a superset of Google ones, but they were not.", cldrLocales.containsAll(googleLocales));
     }
 
     public void TestAppleSubset() {

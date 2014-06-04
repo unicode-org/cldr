@@ -726,7 +726,8 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <variable id="$reference" type="regex">([R|S]|RP)[0-9]+</variable>
             <variable id="$time" type="regex">([01][0-9]|2[0-4]):[0-6][0-9]</variable>
             <variable id="$uri" type="notDoneYet"/>
-            <variable id="$variableID" type="regex">[$][a-zA-Z0-9]+</variable>
+            <!--  Certain segmentation files need underscores in variable names -->
+            <variable id="$variableID" type="regex">[$][a-zA-Z0-9_]+</variable>
             <variable id="$version" type="regex">\$.*\$</variable>
             
             <attributeValues attributes="alt" type="choice">$alt</attributeValues>
@@ -761,13 +762,13 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues elements="firstDay weekendEnd weekendStart" attributes="day" order="given">sun mon tue wed thu fri sat</attributeValues>
             <attributeValues elements="generation" attributes="date">$genDate</attributeValues>
             <attributeValues elements="group" attributes="contains type">$territory</attributeValues>
-            <attributeValues elements="hours" attributes="allowed" type="regex">[HKhk]( [HKhk]{0,2})</attributeValues>
+            <attributeValues elements="hours" attributes="allowed" type="regex">[HKhk]( [HKhk])*</attributeValues>
             <attributeValues elements="hours" attributes="preferred" type="choice">H K h k</attributeValues>
             <attributeValues elements="hours" attributes="regions" type="list">$territory</attributeValues>
             <attributeValues elements="info" attributes="digits" type="regex">[0-9]+</attributeValues>
             <attributeValues elements="info" attributes="iso4217" type="bcp47">cu</attributeValues>
             <attributeValues elements="info" attributes="rounding" type="regex">[0-9]+</attributeValues>
-            <attributeValues elements="key" attributes="type" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colReorder colStrength currency numbers timezone va variableTop x</attributeValues>
+            <attributeValues elements="key" attributes="type" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colReorder colStrength currency kv numbers timezone va variableTop x</attributeValues>
             <attributeValues elements="language" attributes="scripts">$script</attributeValues>
             <attributeValues elements="language" attributes="territories">$territory</attributeValues>
             <attributeValues elements="language" attributes="type">$locale</attributeValues>

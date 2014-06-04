@@ -103,9 +103,10 @@
 			    	String baseName = name.getFirst(); /* thisLoc.getDisplayName( false, null) */
 			    	String selfName =  name.getSecond(); //CookieSession.sm.getDiskFactory().make(r[0], true).getName(r[0])
 			    	
-			    	StringBuilder selfLink = WebContext.appendContextVurl(new StringBuilder(request.getContextPath()), thisLoc, PathHeader.PageId.Languages, 
-			    			  CookieSession.sm.xpt.getStringIDString("//ldml/localeDisplayNames/languages/language[@type=\""+thisLoc.getLanguage()+"\"]"),
-			    			  "");
+			    	// Removing this since it's the "old" statistics page, and the languages page has split...
+			    	// StringBuilder selfLink = WebContext.appendContextVurl(new StringBuilder(request.getContextPath()), thisLoc, PathHeader.PageId.Languages, 
+			    	//		  CookieSession.sm.xpt.getStringIDString("//ldml/localeDisplayNames/languages/language[@type=\""+thisLoc.getLanguage()+"\"]"),
+			    	//		  "");
 			%>
 			<tr class='r<%= rank%2 %>'>
 				<td class='rank'><%=fmt.format(++rank) %></td>
@@ -114,7 +115,7 @@
 				    <a
 					href='survey?_=<%=r[0]%>'><%= baseName %></a>
 					           </td>
-                               <td dir='<%= CookieSession.sm.getHTMLDirectionFor(thisLoc) %>' class='selfname dir<%= CookieSession.sm.getHTMLDirectionFor(thisLoc)  %>'><a href='<%= selfLink %>'><%= selfName %></a></td>
+                               <td dir='<%= CookieSession.sm.getHTMLDirectionFor(thisLoc) %>' class='selfname dir<%= CookieSession.sm.getHTMLDirectionFor(thisLoc)  %>'><a><%= selfName %></a></td>
 				<td class='count'><%=fmt.format(Integer.parseInt(r[1]))%></td>
 			</tr>
 			<%

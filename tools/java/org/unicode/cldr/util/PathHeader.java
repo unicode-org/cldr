@@ -142,7 +142,11 @@ public class PathHeader implements Comparable<PathHeader> {
         Alphabetic_Information(SectionId.Core_Data, "Alphabetic Information"),
         Numbering_Systems(SectionId.Core_Data, "Numbering Systems"),
         Locale_Name_Patterns(SectionId.Locale_Display_Names, "Locale Name Patterns"),
-        Languages(SectionId.Locale_Display_Names),
+        Languages_A_D(SectionId.Locale_Display_Names,"Languages (A-D)"),
+        Languages_E_J(SectionId.Locale_Display_Names,"Languages (E-J)"),
+        Languages_K_N(SectionId.Locale_Display_Names,"Languages (K-N)"),
+        Languages_O_S(SectionId.Locale_Display_Names,"Languages (O-S)"),
+        Languages_T_Z(SectionId.Locale_Display_Names,"Languages (T-Z)"),
         Scripts(SectionId.Locale_Display_Names),
         Territories(SectionId.Locale_Display_Names),
         Locale_Variants(SectionId.Locale_Display_Names, "Locale Variants"),
@@ -1086,6 +1090,24 @@ public class PathHeader implements Comparable<PathHeader> {
                     }
                     order = 100 - info.idUsage.ordinal();
                     return info.idUsage.name;
+                }
+            });
+            functionMap.put("languageSection", new Transform<String, String>() {
+                char [] languageRangeStartPoints = { 'a', 'e', 'k', 'o', 't' };
+                char [] languageRangeEndPoints = { 'd', 'j', 'n', 's', 'z' };
+                public String transform(String source0) {
+                    char firstLetter = source0.charAt(0);
+                    for ( int i = 0 ; i < languageRangeStartPoints.length ; i++ ) {
+                        if ( firstLetter >= languageRangeStartPoints[i] && firstLetter <= languageRangeEndPoints[i] ) {
+                            return "Languages (" + Character.toUpperCase(languageRangeStartPoints[i]) + "-" + Character.toUpperCase(languageRangeEndPoints[i]) + ")";
+                        }
+                    }
+                    return "Languages";
+                }
+            });
+            functionMap.put("firstLetter", new Transform<String, String>() {
+                public String transform(String source0) {
+                    return source0.substring(0, 1).toUpperCase();
                 }
             });
             functionMap.put("scriptFromLanguage", new Transform<String, String>() {

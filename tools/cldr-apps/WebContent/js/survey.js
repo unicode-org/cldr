@@ -85,6 +85,20 @@ function addClass(obj, className) {
 }
 
 /**
+ * @method post2text 
+ */
+function post2text(text) {
+	var out=text;
+	out = out.replace(/<p>/g, '\n');
+	out = out.replace(/&quot;/g, '"');
+	out = out.replace(/&lt;/g, '<');
+	out = out.replace(/&gt;/g, '>');
+	out = out.replace(/&amp;/g, '&');
+
+	return out;
+}
+
+/**
  * Remove all subnodes
  * @method removeAllChildNodes
  * @param {Node} td
@@ -1854,12 +1868,14 @@ function showForumStuff(frag, forumDiv, tr) {
 									var subChunk = createChunk("","div","postHeaderItem");
 									subSubChunk.appendChild(subChunk);
 									subChunk.appendChild(createChunk("Subject:","b"));
-									subChunk.appendChild(createChunk(post.subject,"span","postHeader"));
+									var postSubj = post2text(post.subject);
+									subChunk.appendChild(createChunk(postSubj,"span","postHeader"));
 									subChunk.appendChild(document.createElement("br"));
 								}
 																
 								// actual text
-								subpost.appendChild(createChunk(post.text, "div","postContent"));
+								var postText = post2text(post.text);
+								subpost.appendChild(createChunk(postText, "div","postContent"));
 								
 								// reply link
 								var replyChunk = createChunk("Reply (leaves this page)","a","postReply");

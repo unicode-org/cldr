@@ -213,7 +213,8 @@ public class PathHeader implements Comparable<PathHeader> {
         Unknown(SectionId.Special),
         C_NAmerica(SectionId.Currencies, "North America (C)"), //need to add (C) to differentiate from Timezone territories
         C_SAmerica(SectionId.Currencies, "South America (C)"),
-        C_Europe(SectionId.Currencies, "Europe (C)"),
+        C_Europe(SectionId.Currencies, "Europe (Current)"),
+        C_Europe_Old(SectionId.Currencies, "Europe (Old)"),
         C_NWAfrica(SectionId.Currencies, "Northern/Western Africa (C)"),
         C_SEAfrica(SectionId.Currencies, "Southern/Eastern Africa (C)"),
         C_WCAsia(SectionId.Currencies, "Western/Central Asia (C)"),
@@ -1262,11 +1263,11 @@ public class PathHeader implements Comparable<PathHeader> {
                 { "Middle Africa", "Northern/Western Africa (C)" },
                 { "Eastern Africa", "Southern/Eastern Africa (C)" },
                 { "Southern Africa", "Southern/Eastern Africa (C)" },
-                { "Europe", "Europe (C)" },
-                { "Northern Europe", "Europe (C)" },
-                { "Western Europe", "Europe (C)" },
-                { "Eastern Europe", "Europe (C)" },
-                { "Southern Europe", "Europe (C)" },
+                { "Europe", "Europe (Current)" },
+                { "Northern Europe", "Europe (Current)" },
+                { "Western Europe", "Europe (Current)" },
+                { "Eastern Europe", "Europe (Current)" },
+                { "Southern Europe", "Europe (Current)" },
                 { "Western Asia", "Western/Central Asia (C)" },
                 { "Central Asia", "Western/Central Asia (C)" },
                 { "Eastern Asia", "Eastern/Southern Asia (C)" },
@@ -1280,7 +1281,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
             final Map<String, String> currencyToTerritoryOverrides = CldrUtility.asMap(ctto);
             final Map<String, String> subContinentToContinent = CldrUtility.asMap(sctc);
-            final List<String> fundCurrencies = Arrays.asList("CHE", "CHW", "CLF", "COU", "ECV", "MXV", "USN", "USS", "UYI", "XEU", "ZAL");
+            final Set<String> fundCurrencies = new HashSet<String>(Arrays.asList("CHE", "CHW", "CLF", "COU", "ECV", "MXV", "USN", "USS", "UYI", "XEU", "ZAL"));
             // TODO: Put this into supplementalDataInfo ?
 
             functionMap.put("categoryFromCurrency", new Transform<String, String>() {
@@ -1329,7 +1330,11 @@ public class PathHeader implements Comparable<PathHeader> {
                         subContinent = catFromTerritory.transform(territory);
                     }
 
-                    return subContinentToContinent.get(subContinent); //the continent is the last word in the territory representation
+                    String result = subContinentToContinent.get(subContinent); //the continent is the last word in the territory representation
+                    if ("Europe (Current)".equals(result) && functionMap.get("categoryFromCurrency").transform(source0).endsWith(" (old)")) {
+                            result = "Europe (Old)";
+                    }
+                    return result;
                 }
             });
             functionMap.put("numberingSystem", new Transform<String, String>() {

@@ -717,7 +717,9 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <variable id="$allow" type="regex">(verbatim)</variable>
             <variable id="$alt" type="regex">((stand-alone|variant|list|secondary|email|www|short|narrow|new|accounting)(-proposed.*)?|(proposed.*))</variable>
             <variable id="$append" type="choice">Era Year Quarter Month Week Day-Of-Week Day Hour Minute Second Timezone</variable>
-            <variable id="$date" type="regex">200[0-9]-([0-9]|1[0-2])-([12][0-9]|3[01])</variable>
+           <!--  Separate date format for currencies; some where introduced long before the 2000s -->
+            <variable id="$currencyDate" type="regex">([12][0-9][0-9][0-9])-((0[0-9])|1[0-2])-([0-2][0-9]|3[01])</variable>
+            <variable id="$date" type="regex">20[0-9][0-9]-([0-9]|1[0-2])-([12][0-9]|3[01])</variable>
             <variable id="$double" type="regex">[0-9]+(\.[0-9]+)?</variable>
             <variable id="$format" type="choice">standard</variable>
             <variable id="$fullTzid" type="notDoneYet"/>
@@ -744,7 +746,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues elements="contextTransform" attributes="type" type="choice">uiListOrMenu stand-alone</attributeValues>
             <attributeValues elements="contextTransformUsage" attributes="type" type="regex">[a-zA-Z-]+</attributeValues>
             <attributeValues elements="cp" attributes="hex" type="regex">[0-9A-Fa-f]{4,6}</attributeValues>
-            <attributeValues elements="currency" attributes="before from to">$date</attributeValues>
+            <attributeValues elements="currency" attributes="before from to">$currencyDate</attributeValues>
             <attributeValues elements="currency" attributes="iso4217" type="bcp47">cu</attributeValues>
             <attributeValues elements="currency" attributes="type" type="bcp47">cu</attributeValues>
             <attributeValues elements="currencyFormat" attributes="type" type="choice">standard accounting</attributeValues>

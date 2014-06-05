@@ -32,7 +32,7 @@ public class TestCLDRLocaleCoverage extends TestFmwkPlus {
         Set<String> cldrLocales=sc.getLocaleCoverageLocales(Organization.cldr.name(), EnumSet.of(Level.MODERN));
         assertNotNull("Expected CLDR modern locales not to be null", cldrLocales);
         if (!cldrLocales.equals(googleLocales)) {
-            printDifferences(googleLocales, cldrLocales,"Google","CLDR",false);
+            printDifferences(googleLocales, cldrLocales,"Google","CLDR",true);
         }
         assertTrue("Expected CLDR modern locales to be a superset of Google ones, but they were not.", cldrLocales.containsAll(googleLocales));
     }

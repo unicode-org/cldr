@@ -422,8 +422,8 @@ public class MailSender implements Runnable {
                     //                ourMessage.setReplyTo(replyTo);
                     //            }
                     final String header = SurveyMain.isUnofficial() ? " == UNOFFICIAL SURVEYTOOL  - This message was sent from a TEST machine== \n" : "";
-                    ourMessage.setSubject(DBUtils.getStringUTF8(rs, "subject"));
-                    ourMessage.setText(header + theFrom + DBUtils.getStringUTF8(rs, "text") + footer);
+                    ourMessage.setSubject(DBUtils.getStringUTF8(rs, "subject"), "UTF-8");
+                    ourMessage.setText(header + theFrom + DBUtils.getStringUTF8(rs, "text") + footer, "UTF-8");
 
                     if (env.getProperty("CLDR_SMTP", null) != null) {
                         Transport.send(ourMessage);

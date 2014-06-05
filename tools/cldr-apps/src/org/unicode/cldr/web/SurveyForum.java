@@ -264,8 +264,8 @@ public class SurveyForum {
                 msg = "XPath lookup failed.";
             }
         }
-        if (ctx.hasField(F_XPATH) && !ctx.hasField(F_FORUM)) {
-            forum = localeToForum(ctx.field("_"));
+        if(ctx.getLocale()!=null) {
+            forum = localeToForum(ctx.getLocale().getBaseName()); // always calculate the forum if a locale is specified
         }
         boolean loggedout = ((ctx.session == null) || (ctx.session.user == null));
         // User isnt logged in.

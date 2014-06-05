@@ -505,7 +505,7 @@ function openPost() {
 		content += '<form role="form" id="post-form">';
 		content += '<div class="form-group"><textarea name="text" class="form-control" placeholder="Write your post here"></textarea></div><button data-path="'+path+'" data-choice="'+choice+'" class="btn btn-success submit-post btn-block">Submit</button>';
 		
-		content += '<input type="hidden" name="forum" value="'+surveyCurrentLocale.substring(0,2)+'">';
+		content += '<input type="hidden" name="forum" value="true">';
 		content += '<input type="hidden" name="_" value="'+surveyCurrentLocale+'">';
 		content += '<input type="hidden" name="replyto" value="x'+path+'">';
 		content += '<input name="subj" type="hidden" value="Review">';
@@ -549,7 +549,7 @@ function submitPost(event) {
 	var url = contextPath + "/survey";
 	var form = $('#post-form');
 	if($('#post-form textarea[name=text]').val()) {
-		
+		$('#post-form button').fadeOut();
 		$.ajax({
 				                data: form.serialize(),
 				                type: "POST",

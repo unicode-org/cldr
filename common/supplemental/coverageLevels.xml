@@ -542,6 +542,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="comprehensive" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/standard"/>
 		<coverageLevel value="comprehensive" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/daylight"/>
 		<coverageLevel value="comprehensive" match="dates/timeZoneNames/metazone[@type='%metazone100_stdonly']/long/standard"/>
+		<coverageLevel value="comprehensive" match="units/unitLength[@type='narrow']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>
+		<coverageLevel value="comprehensive" match="units/unitLength[@type='narrow']/unit[@type='%unitsNonEnglish']/displayName"/>
+		<coverageLevel value="comprehensive" match="units/unitLength[@type='narrow']/unit[@type='%unitsNonEnglish']/perUnitPattern"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/displayName"/>
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='%unitLengths']/unit[@type='%unitsEnglish']/perUnitPattern"/>

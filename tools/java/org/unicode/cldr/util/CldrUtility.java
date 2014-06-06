@@ -38,7 +38,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.RegexLogger.LogType;
 
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
@@ -850,10 +849,7 @@ public class CldrUtility {
         }
 
         public boolean contains(T o) {
-            boolean result=matcher.reset(o.toString()).matches();
-            RegexLogger.getInstance().log(matcher.pattern(), o.toString(), result, LogType.MATCH, getClass());
-//            return matcher.reset(o.toString()).matches();
-            return result;
+            return matcher.reset(o.toString()).matches();
         }
     }
 
@@ -1184,16 +1180,11 @@ public class CldrUtility {
             if (line.startsWith("\uFEFF")) {
                 line = line.substring(1);
             }
-            if (readUntil!=null) {
-                boolean result=readUntil.reset(line).matches();
-                RegexLogger.getInstance().log(readUntil.pattern(), line,result,LogType.MATCH,CldrUtility.class);
-                if (result) {
-//            if (readUntil != null && readUntil.reset(line).matches()) {
-                    if (includeMatchingLine && output != null) {
-                        output.println(line);
-                    }
-                    break;
+            if (readUntil != null && readUntil.reset(line).matches()) {
+                if (includeMatchingLine && output != null) {
+                    output.println(line);
                 }
+                break;
             }
             if (output != null) {
                 output.println(line);

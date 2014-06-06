@@ -2,8 +2,6 @@ package org.unicode.cldr.tool;
 
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfig.Environment;
-import org.unicode.cldr.util.CLDRPaths;
-import org.unicode.cldr.util.CldrUtility;
 
 /**
  * Shim for CLDRConfig. It shouldn't be called outside of tool (command line) usage. 

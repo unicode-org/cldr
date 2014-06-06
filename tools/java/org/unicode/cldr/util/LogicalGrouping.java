@@ -17,7 +17,7 @@ public class LogicalGrouping {
 
     public static final String[] metazonesUsingDST = {
         "Acre", "Africa_Western", "Aktyubinsk", "Alaska", "Alaska_Hawaii", "Almaty", "Amazon",
-        "America_Central", "America_Eastern", "America_Mountain", "America_Pacific", "Anadyr",
+        "America_Central", "America_Eastern", "America_Mountain", "America_Pacific", "Anadyr", "Apia",
         "Aqtau", "Aqtobe", "Arabian", "Argentina", "Argentina_Western", "Armenia", "Ashkhabad",
         "Atlantic", "Australia_Central", "Australia_CentralWestern", "Australia_Eastern", "Australia_Western",
         "Azerbaijan", "Azores", "Baku", "Bangladesh", "Bering", "Borneo", "Brasilia", "Cape_Verde",

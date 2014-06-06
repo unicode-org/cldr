@@ -1378,8 +1378,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="America_Mountain"/>
 			</timezone>
 			<timezone type="Pacific/Apia">
-				<usesMetazone to="1983-10-30 12:00" mzone="Bering"/>
-				<usesMetazone from="1983-10-30 12:00" mzone="Samoa"/>
+				<usesMetazone mzone="Apia"/>
 			</timezone>
 			<timezone type="Pacific/Auckland">
 				<usesMetazone mzone="New_Zealand"/>
@@ -1569,6 +1568,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="America_Pacific" territory="CA" type="America/Vancouver"/>
 			<mapZone other="America_Pacific" territory="MX" type="America/Tijuana"/>
 			<mapZone other="Anadyr" territory="001" type="Asia/Anadyr"/>
+			<mapZone other="Apia" territory="001" type="Pacific/Apia"/>
 			<mapZone other="Aqtau" territory="001" type="Asia/Aqtau"/>
 			<mapZone other="Aqtobe" territory="001" type="Asia/Aqtobe"/>
 			<mapZone other="Arabian" territory="001" type="Asia/Riyadh"/>
@@ -1799,7 +1799,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Sakhalin" territory="001" type="Asia/Sakhalin"/>
 			<mapZone other="Samara" territory="001" type="Europe/Samara"/>
 			<mapZone other="Samarkand" territory="001" type="Asia/Samarkand"/>
-			<mapZone other="Samoa" territory="001" type="Pacific/Apia"/>
+			<mapZone other="Samoa" territory="001" type="Pacific/Pago_Pago"/>
 			<mapZone other="Seychelles" territory="001" type="Indian/Mahe"/>
 			<mapZone other="Shevchenko" territory="001" type="Asia/Aqtau"/>
 			<mapZone other="Singapore" territory="001" type="Asia/Singapore"/>

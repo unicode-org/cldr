@@ -148,7 +148,13 @@ public class PathHeader implements Comparable<PathHeader> {
         Languages_O_S(SectionId.Locale_Display_Names,"Languages (O-S)"),
         Languages_T_Z(SectionId.Locale_Display_Names,"Languages (T-Z)"),
         Scripts(SectionId.Locale_Display_Names),
-        Territories(SectionId.Locale_Display_Names),
+        Territories(SectionId.Locale_Display_Names,"Geographic Regions"),
+        T_NAmerica(SectionId.Locale_Display_Names, "Territories (North America)"),
+        T_SAmerica(SectionId.Locale_Display_Names, "Territories (South America)"),
+        T_Africa(SectionId.Locale_Display_Names, "Territories (Africa)"),
+        T_Europe(SectionId.Locale_Display_Names, "Territories (Europe)"),
+        T_Asia(SectionId.Locale_Display_Names, "Territories (Asia)"),
+        T_Oceania(SectionId.Locale_Display_Names, "Territories (Oceania)"),
         Locale_Variants(SectionId.Locale_Display_Names, "Locale Variants"),
         Keys(SectionId.Locale_Display_Names),
         Fields(SectionId.DateTime),
@@ -214,10 +220,10 @@ public class PathHeader implements Comparable<PathHeader> {
         C_SAmerica(SectionId.Currencies, "South America (C)"),
         C_Europe(SectionId.Currencies, "Europe (Current)"),
         C_Europe_Old(SectionId.Currencies, "Europe (Old)"),
-        C_NWAfrica(SectionId.Currencies, "Northern/Western Africa (C)"),
-        C_SEAfrica(SectionId.Currencies, "Southern/Eastern Africa (C)"),
-        C_WCAsia(SectionId.Currencies, "Western/Central Asia (C)"),
-        C_SEAsia(SectionId.Currencies, "Eastern/Southern Asia (C)"),
+        C_NWAfrica(SectionId.Currencies, "Northern/Western Africa"),
+        C_SEAfrica(SectionId.Currencies, "Southern/Eastern Africa"),
+        C_WCAsia(SectionId.Currencies, "Western/Central Asia"),
+        C_SEAsia(SectionId.Currencies, "Eastern/Southern Asia"),
         C_Oceania(SectionId.Currencies, "Oceania (C)"),
         C_Unknown(SectionId.Currencies, "Unknown Region (C)"), ;
 
@@ -1132,6 +1138,27 @@ public class PathHeader implements Comparable<PathHeader> {
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
                     }
                 });
+            functionMap.put("territorySection",new Transform<String, String>() {
+                final Set<String> specialRegions = new HashSet<String>(Arrays.asList("QO","ZZ"));
+                public String transform(String source0) {
+                    String theTerritory = source0;
+                    try {
+                        if (specialRegions.contains(theTerritory) || Integer.valueOf(theTerritory) > 0) {
+                            return "Geographic Regions";
+                        }
+                    } catch ( NumberFormatException ex ) {
+                    }
+                    String theContinent = Containment.getContinent(theTerritory);
+                    String theSubContinent;
+                    switch (Integer.valueOf(theContinent)) {
+                        case 19: // Americas - For the territorySection, we just group North America & South America
+                            theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 5 ? "005" : "003";
+                            return "Territories ("+englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent)+")";
+                        default:
+                            return "Territories ("+englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent)+")";
+                    }
+                }
+           });
             functionMap.put("categoryFromTimezone",
                 catFromTimezone = new Transform<String, String>() {
                     public String transform(String source0) {
@@ -1288,21 +1315,21 @@ public class PathHeader implements Comparable<PathHeader> {
                 { "Central America", "North America (C)" },
                 { "Caribbean", "North America (C)" },
                 { "South America", "South America (C)" },
-                { "Northern Africa", "Northern/Western Africa (C)" },
-                { "Western Africa", "Northern/Western Africa (C)" },
-                { "Middle Africa", "Northern/Western Africa (C)" },
-                { "Eastern Africa", "Southern/Eastern Africa (C)" },
-                { "Southern Africa", "Southern/Eastern Africa (C)" },
+                { "Northern Africa", "Northern/Western Africa" },
+                { "Western Africa", "Northern/Western Africa" },
+                { "Middle Africa", "Northern/Western Africa" },
+                { "Eastern Africa", "Southern/Eastern Africa" },
+                { "Southern Africa", "Southern/Eastern Africa" },
                 { "Europe", "Europe (Current)" },
                 { "Northern Europe", "Europe (Current)" },
                 { "Western Europe", "Europe (Current)" },
                 { "Eastern Europe", "Europe (Current)" },
                 { "Southern Europe", "Europe (Current)" },
-                { "Western Asia", "Western/Central Asia (C)" },
-                { "Central Asia", "Western/Central Asia (C)" },
-                { "Eastern Asia", "Eastern/Southern Asia (C)" },
-                { "Southern Asia", "Eastern/Southern Asia (C)" },
-                { "Southeast Asia", "Eastern/Southern Asia (C)" },
+                { "Western Asia", "Western/Central Asia" },
+                { "Central Asia", "Western/Central Asia" },
+                { "Eastern Asia", "Eastern/Southern Asia" },
+                { "Southern Asia", "Eastern/Southern Asia" },
+                { "Southeast Asia", "Eastern/Southern Asia" },
                 { "Australasia", "Oceania (C)" },
                 { "Melanesia", "Oceania (C)" },
                 { "Polynesia", "Oceania (C)" },

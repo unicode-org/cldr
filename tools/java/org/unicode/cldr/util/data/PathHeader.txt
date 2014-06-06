@@ -42,7 +42,7 @@
 //ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"] ; Locale Display Names ; Locale Name Patterns ; Locale Field Fallbacks ; $1
 //ldml/localeDisplayNames/languages/language[@type="%A"]       ; Locale Display Names ; &languageSection($1) ; &firstLetter($1) ; $1
 //ldml/localeDisplayNames/scripts/script[@type="%A"]           ; Locale Display Names ; Scripts ; &categoryFromScript($1) ; $1
-//ldml/localeDisplayNames/territories/territory[@type="%A"]    ; Locale Display Names ; Territories ; &categoryFromTerritory($1) ; $1
+//ldml/localeDisplayNames/territories/territory[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1) ; $1
 //ldml/localeDisplayNames/variants/variant[@type="%A"]         ; Locale Display Names ; Locale Variants ; null ; $1
 //ldml/localeDisplayNames/keys/key[@type="%A"]                 ; Locale Display Names ; Keys ; $1 ; $1
 //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]    ; Locale Display Names ; Keys ; *$2 ; $2-$1

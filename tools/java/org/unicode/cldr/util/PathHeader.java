@@ -171,7 +171,6 @@ public class PathHeader implements Comparable<PathHeader> {
         Persian(SectionId.DateTime),
         ROC(SectionId.DateTime),
         Timezone_Display_Patterns(SectionId.Timezones, "Timezone Display Patterns"),
-        Timezone_Cities(SectionId.Timezones, "Timezone Cities"),
         NAmerica(SectionId.Timezones, "North America"),
         SAmerica(SectionId.Timezones, "South America"),
         Africa(SectionId.Timezones),
@@ -1143,6 +1142,37 @@ public class PathHeader implements Comparable<PathHeader> {
                         return catFromTerritory.transform(territory);
                     }
                 });
+            functionMap.put("timeZonePage",new Transform<String, String>() {
+                Set<String> singlePageTerritories = new HashSet<String>(Arrays.asList("AQ","RU","ZZ"));
+                public String transform(String source0) {
+                    String theTerritory = Containment.getRegionFromZone(source0);
+                    if (theTerritory == null || theTerritory == "001") {
+                        theTerritory = "ZZ";
+                    }
+                    if (singlePageTerritories.contains(theTerritory)) {
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, theTerritory);
+                    }
+                    String theContinent = Containment.getContinent(theTerritory);
+                    String theSubContinent;
+                    switch (Integer.valueOf(theContinent)) {
+                        case 9: // Oceania - For the timeZonePage, we group Australasia on one page, and the rest of Oceania on the other.
+                            try {
+                                theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 53 ? "053" : "009";                                
+                            } catch ( NumberFormatException ex ) {
+                                theSubContinent = "009";
+                            }
+                            return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
+                        case 19: // Americas - For the timeZonePage, we just group North America & South America
+                            theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 5 ? "005" : "003";
+                            return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
+                       case 142: // Asia
+                            return englishFile.getName(CLDRFile.TERRITORY_NAME, Containment.getSubcontinent(theTerritory));
+                        default:
+                            return englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent);
+                    }
+                }
+           });
+
             functionMap.put("timezoneSorting", new Transform<String, String>() {
                 public String transform(String source) {
                     final List<String> codeValues = Arrays.asList(

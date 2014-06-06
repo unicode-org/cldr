@@ -76,7 +76,7 @@
 
 # Hide Etc/GMT[+-]...
 //ldml/dates/timeZoneNames/zone[@type="Etc/GMT.*"]/exemplarCity ; Special  ; Suppress ; GMT ; GMT ; HIDE
-//ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity     ; Timezones ; Timezone Cities ; &categoryFromTimezone($1/$2) ; $2
+//ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity     ; Timezones ; &timeZonePage($1/$2) ; Cities and Regions ; $2
 
 //ldml/dates/timeZoneNames/metazone[@type="%A"]/%E/%E       ; Timezones ; &metazone($1) ; $1 ; &timezoneSorting($3-$2)
 //ldml/dates/timeZoneNames/zone[@type="%A"]/%E/%E           ; Timezones ; Overrides ; $1 ; &timezoneSorting($3-$2)

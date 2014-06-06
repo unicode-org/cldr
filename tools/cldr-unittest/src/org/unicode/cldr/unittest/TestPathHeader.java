@@ -675,8 +675,8 @@ public class TestPathHeader extends TestFmwkPlus {
                 String visible = pathHeader.toString();
                 PathHeader old = uniqueness.get(visible);
                 if (pathHeader.getSectionId() == SectionId.Timezones) {
-                    final PageId pageId = pathHeader.getPageId();
-                    if (badZonePages.contains(pageId)) {
+                    final PageId pageId = pathHeader.getPageId();                    
+                    if (badZonePages.contains(pageId) && !pathHeader.getCode().equals("Unknown")) {
                         errln("Bad page ID:\t" + pageId + "\t" + pathHeader + "\t" + path);
                     }
                 }

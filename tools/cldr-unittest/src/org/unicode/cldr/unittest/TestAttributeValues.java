@@ -10,10 +10,10 @@ import java.io.Writer;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -24,6 +24,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
@@ -40,6 +41,7 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.PatternCache;
 import org.unicode.cldr.util.SimpleFactory;
 import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.AttributeValidityInfo;
 import org.unicode.cldr.util.XMLFileReader;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 import org.unicode.cldr.util.XPathParts;
@@ -51,6 +53,7 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
 import com.google.common.collect.FluentIterable;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.LinkedHashMultimap;
 import com.google.common.collect.Multimap;
@@ -67,7 +70,7 @@ public class TestAttributeValues extends TestFmwk {
 	/**
 	 * Joiner using commas (comma,space), skipping nulls
 	 */
-	private static final Joiner COMMA_JOINER = Joiner.on(", ").skipNulls();
+	private final static Joiner COMMA_JOINER = Joiner.on(", ").skipNulls();
 
 	/**
 	 * Joiner using semicolons, skipping nulls
@@ -82,7 +85,8 @@ public class TestAttributeValues extends TestFmwk {
 	/**
 	 * Splitter for Commas, omitting empties, skipping nulls
 	 */
-	private final Splitter COMMA_SPLITTER=Splitter.on(",").omitEmptyStrings().trimResults();
+	private final static Splitter COMMA_SPLITTER=Splitter.on(",").omitEmptyStrings().trimResults();
+	
 	/**
 	 * Source directories; entries that do not start with slash (/) are relative to CLDR_DIR
 	 */
@@ -147,7 +151,7 @@ public class TestAttributeValues extends TestFmwk {
 				throw new IllegalArgumentException("Path must not be null");
 			}
 			if (path.isEmpty()) {
-				throw new IllegalArgumentException("Path must not be null");
+				throw new IllegalArgumentException("Path must not be empty");
 			}
 			this.locale = locale;
 			this.path = path;
@@ -213,6 +217,7 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 	private final static Set<String> FILE_EXCLUSIONS=ImmutableSet.of("coverageLevels.xml","pluralRanges.xml");
+	
 	/**
 	 * Set of unknown final elements
 	 */
@@ -360,8 +365,7 @@ public class TestAttributeValues extends TestFmwk {
 				if (!add) {
 					break;
 				}
-				String curPath = input.getName(i)
-						.toString();
+				String curPath = input.getName(i).toString();
 				for (String exc : EXCLUDED_PATHS) {
 					if (curPath.contains(exc)) {
 						add = false;
@@ -497,6 +501,38 @@ public class TestAttributeValues extends TestFmwk {
 		SupplementalDataInfo getSupplementalDataInfo();
 	}
 	
+	private static class SupplementalMetaDataReader {
+		private final Collection<String> supplementalData;
+		public SupplementalMetaDataReader(Factory aFactory) {
+			File spuDir=aFactory.getSupplementalDirectory();
+			File supplementalMetaDataFile=Paths.get(spuDir.getAbsolutePath(), "supplementalMetaData.xml").toFile();
+			XMLFileReader xfr=new XMLFileReader();
+			PathValueHandler pvHandler=new PathValueHandler();
+			xfr.setHandler(pvHandler);
+			xfr.read(supplementalMetaDataFile.getAbsolutePath(), -1, false);
+			supplementalData=pvHandler.getPaths();
+		}
+		 
+		public Iterator<String> iterator() {
+			return Collections.unmodifiableCollection(supplementalData).iterator();
+		}
+		
+		public Iterator<String> iterator(Comparator<String> comparator) {
+			TreeSet<String> ts=new TreeSet<>(comparator);
+			ts.addAll(supplementalData);
+			return Collections.unmodifiableSet(ts).iterator();
+		}
+		
+		public String getFullXPath( String p) {
+			for (String path: supplementalData) {
+				if (path.startsWith(p)||p.contains(p)) {
+					return path;
+				}
+			}
+			return null;
+			
+		}
+	}
 	private static class FactoryBasedMetadataHandler implements MetadataInterface {
 		private final Factory factory;
 		private final SupplementalDataInfo sdi;
@@ -504,6 +540,7 @@ public class TestAttributeValues extends TestFmwk {
 			factory=aFacotry;
 			this.sdi=sdi;
 		}
+		
 		@Override
 		public Iterator<String> iterator() {
 			return factory.getSupplementalMetadata().iterator();
@@ -533,7 +570,64 @@ public class TestAttributeValues extends TestFmwk {
 
 	private void getMetadata(final MetadataInterface metadata) {
 		// sorting is expensive, but we need it here.
+		SupplementalDataInfo sdi=metadata.getSupplementalDataInfo();
+		elementOrder.addAll(sdi.getElementOrder());
+		attributeOrder.addAll(sdi.getAttributeOrder());
+	    Collection<String> defaultContentLocales=sdi.getDefaultContentLocales();
+	    Map<String, Map<String, R2<List<String>, String>>> aliases=sdi.getLocaleAliasInfo();
+	    Set<String> invalidLocales=new HashSet<>();
+	    for (String locale: defaultContentLocales) {
+	    	if (!localeSet.contains(locale)) {
+	    		invalidLocales.add(locale);
+	    	}
+	    }
+	    Map<String, R2<String, String>> validityInfo=sdi.getValidityInfo();
+//	    Map<String,VariableWithValue> vars=new HashMap<>();
+	    for (Entry<String, R2<String, String>> cur: validityInfo.entrySet()) {
+	    	String varName=cur.getKey();
+	    	String type=cur.getValue().get0();
+	    	String val=cur.getValue().get1();
+	    	//types: choice, regex, locale, 
+	    	MatcherPattern mp=getMatcherPattern(val, ImmutableMap.<String,String>of("type",type), null, sdi);
+	    	if (mp != null) {
+				variables.put(varName, mp);
+			}
+	    }
+	    Map<String,AttributeValidityInfo> attributeValidityMap=sdi.getAttributeValidity();
+	    for (Map.Entry<String,AttributeValidityInfo> entry: attributeValidityMap.entrySet()) {
+	    	String key=entry.getKey();
+	    	AttributeValidityInfo info=entry.getValue();
+	    	int jj=0;
+			MatcherPattern mp = getMatcherPattern(info.getValue(), (Map<String, String>) (info.getType()==null?Collections.emptyMap():ImmutableMap.<String,String>of("type",info.getType())), null, metadata.getSupplementalDataInfo());
+			if (mp == null) {
+				// System.out.println("Failed to make matcher for: " + value + "\t" + path);
+				continue;
+			}
+			Iterable<String> attributeList =WHITESPACE_SPLTTER.split(info.getAttributes().trim());
+			String elementsString = info.getElements();
+			if (elementsString == null) {
+				addAttributes(attributeList, common_attribute_validity, mp);
+			} else {
+				Iterable<String> elementList=WHITESPACE_SPLTTER.split(elementsString.trim());
+				for (String element: elementList) {
+					Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
+					if (attribute_validity == null)
+						element_attribute_validity.put(element,
+								attribute_validity = new TreeMap<String, MatcherPattern>());
+					addAttributes(attributeList, attribute_validity, mp);
+				}
+			}
 
+//		} catch (RuntimeException e) {
+//			int jj=1;
+////			System.err
+////			.println("Problem with: " + path + ", \t" + info.getValue());
+//			e.printStackTrace();
+//		}
+	    }
+	    if (!invalidLocales.isEmpty()) {
+	    	int jjj=1;
+	    }
 		String path2 =  metadata.iterator().next();
 		final Comparator<String> comp;
 		if (!path2.startsWith("//ldml")) {
@@ -553,11 +647,15 @@ public class TestAttributeValues extends TestFmwk {
 			String path = metadata.getFullXPath(p);
 			parts.set(path);
 			String lastElement = parts.getElement(-1);
-			if (lastElement.equals("elementOrder")) {
-				elementOrder.addAll(WHITESPACE_SPLTTER.splitToList(value.trim()));
-			} else if (lastElement.equals("attributeOrder")) {
-				attributeOrder.addAll(WHITESPACE_SPLTTER.splitToList(value.trim()));
-			} else if (lastElement.equals("suppress")) {
+			if (true) {
+				System.out.println("Path: "+path+(value!=null&&!value.isEmpty()?" value:"+value:"")+" last Element: "+lastElement);
+			}
+//			if (lastElement.equals("elementOrder")) {
+//				elementOrder.addAll(WHITESPACE_SPLTTER.splitToList(value.trim()));
+//			} else if (lastElement.equals("attributeOrder")) {
+//				attributeOrder.addAll(WHITESPACE_SPLTTER.splitToList(value.trim()));
+//			} else 
+				if (lastElement.equals("suppress")) {
 				// skip for now
 				unhandledPaths.add("Unhandled path (suppress):"+path);
 			} else if (lastElement.equals("serialElements")) {
@@ -565,47 +663,50 @@ public class TestAttributeValues extends TestFmwk {
 			//	unhandledPaths.add("Unhandled path (serialElement):"+path);
 			} else if (lastElement.equals("attributes")) {
 				// skip for now
-			} else if (lastElement.equals("variable")) {
-				// String oldValue = value;
-				// value = variableReplacer.replace(value);
-				// if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
-				Map<String, String> attributes = parts.getAttributes(-1);
-				MatcherPattern mp = getMatcherPattern(value, attributes, path, metadata.getSupplementalDataInfo());
-				if (mp != null) {
-					String id = attributes.get("id");
-					variables.put(id, mp);
-					// variableReplacer.add(id, value);
-				}
-			} else if (lastElement.equals("attributeValues")) {
-				try {
-					Map<String, String> attributes = parts.getAttributes(-1);
-
-					MatcherPattern mp = getMatcherPattern(value, attributes, path, metadata.getSupplementalDataInfo());
-					if (mp == null) {
-						// System.out.println("Failed to make matcher for: " + value + "\t" + path);
-						continue;
-					}
-					Iterable<String> attributeList =WHITESPACE_SPLTTER.split(attributes.get("attributes").trim());
-					String elementsString = (String) attributes.get("elements");
-					if (elementsString == null) {
-						addAttributes(attributeList, common_attribute_validity, mp);
-					} else {
-						Iterable<String> elementList=WHITESPACE_SPLTTER.split(elementsString.trim());
-						for (String element: elementList) {
-							Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
-							if (attribute_validity == null)
-								element_attribute_validity.put(element,
-										attribute_validity = new TreeMap<String, MatcherPattern>());
-							addAttributes(attributeList, attribute_validity, mp);
-						}
-					}
-
-				} catch (RuntimeException e) {
-					System.err
-					.println("Problem with: " + path + ", \t" + value);
-					e.printStackTrace();
-				}
-			} else if (lastElement.equals("version")) {
+			} 
+//				else if (lastElement.equals("variable")) {
+//				// String oldValue = value;
+//				// value = variableReplacer.replace(value);
+//				// if (!value.equals(oldValue)) System.out.println("\t" + oldValue + " => " + value);
+//				Map<String, String> attributes = parts.getAttributes(-1);
+//				MatcherPattern mp = getMatcherPattern(value, attributes, path, metadata.getSupplementalDataInfo());
+//				if (mp != null) {
+//					String id = attributes.get("id");
+//					variables.put(id, mp);
+//					// variableReplacer.add(id, value);
+//				}
+//			}
+//			else if (lastElement.equals("attributeValues")) {
+//				try {
+//					Map<String, String> attributes = parts.getAttributes(-1);
+//
+//					MatcherPattern mp = getMatcherPattern(value, attributes, path, metadata.getSupplementalDataInfo());
+//					if (mp == null) {
+//						// System.out.println("Failed to make matcher for: " + value + "\t" + path);
+//						continue;
+//					}
+//					Iterable<String> attributeList =WHITESPACE_SPLTTER.split(attributes.get("attributes").trim());
+//					String elementsString = (String) attributes.get("elements");
+//					if (elementsString == null) {
+//						addAttributes(attributeList, common_attribute_validity, mp);
+//					} else {
+//						Iterable<String> elementList=WHITESPACE_SPLTTER.split(elementsString.trim());
+//						for (String element: elementList) {
+//							Map<String, MatcherPattern> attribute_validity = element_attribute_validity.get(element);
+//							if (attribute_validity == null)
+//								element_attribute_validity.put(element,
+//										attribute_validity = new TreeMap<String, MatcherPattern>());
+//							addAttributes(attributeList, attribute_validity, mp);
+//						}
+//					}
+//
+//				} catch (RuntimeException e) {
+//					System.err
+//					.println("Problem with: " + path + ", \t" + value);
+//					e.printStackTrace();
+//				}
+//			}
+			else if (lastElement.equals("version")) {
 	
 				// skip for now
 				//unhandledPaths.add("Unhandled path (version):"+path);
@@ -638,14 +739,14 @@ public class TestAttributeValues extends TestFmwk {
 				// skip for now
 				unhandledPaths.add("Unhandled path (SkipdefaultLocale):"+path);
 			} else if (lastElement.endsWith("defaultContent")) {
-				String locPath = extractValueList(path,"locales");
-				Iterable<String> locales=WHITESPACE_SPLTTER.split(locPath);
-				Set<String> invalidLocales=new HashSet<>();
-				for (String loc: locales) {
-					if (!localeSet.contains(loc)) {
-						invalidLocales.add(loc);
-					}
-				}
+//				String locPath = extractValueList(path,"locales");
+//				Iterable<String> locales=WHITESPACE_SPLTTER.split(locPath);
+//				//Set<String> invalidLocales=new HashSet<>();
+//				for (String loc: locales) {
+//					if (!localeSet.contains(loc)) {
+//						invalidLocales.add(loc);
+//					}
+//				}
 				if (!invalidLocales.isEmpty()) {
 					unhandledPaths.add(invalidLocales.size()+" invalid locales: "+COMMA_JOINER.join(invalidLocales)+" Path:"+path);
 				}
@@ -664,14 +765,14 @@ public class TestAttributeValues extends TestFmwk {
 	}
 
 
-	private static String extractValueList(String path,String pattern) {
-		//filter the path
-		int pathStart=path.indexOf(pattern);
-		String locPath=null;
-		if (pathStart>-1) {
-			int strStart=pathStart+pattern.length();
-			int strEnd=path.indexOf("\"",strStart+3);
-		 locPath=path.substring(strStart+2,strEnd);
+	private static String extractValueList(String path, String pattern) {
+		// filter the path
+		int pathStart = path.indexOf(pattern);
+		String locPath = null;
+		if (pathStart > -1) {
+			int strStart = pathStart + pattern.length();
+			int strEnd = path.indexOf("\"", strStart + 3);
+			locPath = path.substring(strStart + 2, strEnd);
 		}
 		return locPath;
 	}
@@ -769,10 +870,16 @@ public class TestAttributeValues extends TestFmwk {
 		}
 	}
 
+	/**
+	 * Test case: there should be no unknown final elements
+	 */
 	public void TestNoUnhandledFinalElements() {
 		assertTrue("The following final elements are unknown: "+unknownFinalElements, unknownFinalElements.isEmpty());
 	}
 	
+	/**
+	 * Test case: there should be no unhandled paths
+	 */
 	public void TestNoUnhandledPaths() {
 		if (!unhandledPaths.isEmpty()) {
 			StringBuilder sb=new StringBuilder();
@@ -792,14 +899,14 @@ public class TestAttributeValues extends TestFmwk {
 	 *
 	 */
 	private static class PathValueHandler extends XMLFileReader.SimpleHandler {
-		private final Set<String> paths=new LinkedHashSet<>();
+		private final Collection<String> paths=new LinkedHashSet<>();
 
 		@Override
 		public void handlePathValue(String path, String value) {
 			paths.add(path);
 		}
 		
-		public Set<String> getPaths() {
+		public Collection<String> getPaths() {
 			if (paths.isEmpty()) {
 				return Collections.emptySet();
 			}
@@ -810,34 +917,32 @@ public class TestAttributeValues extends TestFmwk {
 			paths.clear();
 		}
 	}
-
-	private File[] getSourceDirs() {
+	
+	private Iterable<File> getSourceDirs() {
 		String cldrDir = System.getProperty("CLDR_DIR");
 		if (!cldrDir.endsWith("/")) {
-			cldrDir+="/";
+			cldrDir += "/";
 		}
-		File[] sourceFiles = new File[sourceDirs.length];
-		for (int i = 0; i < sourceDirs.length; i++) {
-			if (sourceDirs[i].startsWith("/")) {
-				sourceFiles[i] = new File(sourceDirs[i]); 
+		List<File> sourceFiles = new ArrayList<>();
+		for (String sd: sourceDirs) {
+			if (sd.startsWith("/")) {
+				sourceFiles.add(new File(sd));
 			} else {
-				sourceFiles[i] = new File(cldrDir+sourceDirs[i]);
+				sourceFiles.add(new File(cldrDir + sd));
 			}
-			}
+		}
 		return sourceFiles;
 	}
 	
 	public void TestAttributes() { 
 		CLDRConfig cldrConf=CLDRConfig.getInstance();
-		File[] sourceFiles=getSourceDirs();
-		final Iterable<Path> fileSet = LocaleSetGenerator.generateLocaleSet(Arrays.asList(sourceFiles),FILE_EXCLUSIONS);
+		final Iterable<Path> fileSet = LocaleSetGenerator.generateLocaleSet(getSourceDirs(),FILE_EXCLUSIONS);
 		final Set<File> dirs=new HashSet<>();
 		for (Path cur: fileSet) {
 			String curName=cur.getFileName().toString();
 			localeSet.add(curName.substring(0, curName.lastIndexOf(".")));
 			dirs.add(cur.getParent().toFile());
 		}
-		
 		
 		String factoryFilter="("+Joiner.on("|").join(localeSet)+")";
 		Factory cldrFactory = SimpleFactory.make(dirs.toArray(new File[0]), factoryFilter);
@@ -1060,7 +1165,7 @@ public class TestAttributeValues extends TestFmwk {
 		xfr.setHandler(pvHandler);
 		try (BufferedInputStream in=new BufferedInputStream(fInStream)) {
 		xfr.read(fileName, fInStream, -1, false);
-		Set<String> paths=pvHandler.getPaths();
+		Collection<String> paths=pvHandler.getPaths();
 		CLDRConfig config=CLDRConfig.getInstance();
 		return performCheck(paths, config.getCldrFactory(), config.getSupplementalDataInfo(),null,fileName);
 		} catch (IOException e) {
@@ -1099,8 +1204,7 @@ public class TestAttributeValues extends TestFmwk {
 		// special check for deprecated codes
 		String replacement = getReplacement(matcherPattern.value,
 				attributeValue);
-		boolean listDeprecated = shouldListDeprecated(attribute,
-				attributeValue, path, locale);
+		boolean listDeprecated = shouldListDeprecated(attribute,attributeValue, path, locale);
 		if (replacement != null) {
 			// if (isEnglish) return; // don't flag English
 			if (replacement.length() == 0) {
@@ -1121,24 +1225,17 @@ public class TestAttributeValues extends TestFmwk {
 		} else {
 			String pattern = matcherPattern.pattern;
 			// for now: disregard missing variable expansions
-
 			if (pattern != null && !pattern.trim().startsWith("$")) {
 				// does the attributeValue contain spaces?
 				List<String> elemList = WHITESPACE_SPLTTER
 						.splitToList(attributeValue);
 				List<String> disallowedElems = new ArrayList<>();
-				boolean likelyRegex=false;
+			
 				if (elemList.size() > 1) {
 					Collection<String> allowedElements = WHITESPACE_SPLTTER
 							.splitToList(matcherPattern.pattern);
 					// is this likely a regex?
-					
-					for (String item: allowedElements) {
-						if (item.contains("[")||item.contains("]")||item.endsWith("(")) {
-							likelyRegex=true;
-							break;
-						}
-					}
+					boolean likelyRegex = isLikelyRegex(allowedElements);
 					if (likelyRegex) {
 						Pattern pat = PatternCache.get(matcherPattern.pattern);
 						for (String elem : elemList) {
@@ -1235,6 +1332,25 @@ public class TestAttributeValues extends TestFmwk {
 				}
 			}
 		}
+	}
+
+	private final static Set<String> REGEX_INDICATORS_CONTAINMENT=ImmutableSet.of("[","]");
+	private final static Set<String> REGEX_INDICATORS_END=ImmutableSet.of("(");
+	private static boolean isLikelyRegex(Iterable<String> allowedElements) {
+		for (String item: allowedElements) {
+			for (String contained: REGEX_INDICATORS_CONTAINMENT) {
+				if (item.contains(contained)) {
+					return true;
+				}
+			}
+			for (String end: REGEX_INDICATORS_END) {
+				if (item.endsWith(end)) {
+					return true;
+				}
+			}
+			
+		}
+		return false;
 	}
 
 	/**
@@ -1344,8 +1460,22 @@ public class TestAttributeValues extends TestFmwk {
 	}
 
 
+	/***
+	 * Helper class for formatting a Path, by only listing the elements below CDLR_DIR if the path is under that directory
+	 * @author ribnitz
+	 *
+	 */
 	private static class CLDRDirFormatter {
+		/**
+		 * The CLDR_DIR property
+		 */
+		private final static String CLDR_DIR=System.getProperty("CLDR_DIR");
 		
+		/**
+		 * Strip the CLDR_DIR component from the path provided, if the path is below CLDR_DIR
+		 * @param path
+		 * @return
+		 */
 		public static String stripCLDRDir(String path) {
 			return stripCLDRDir(new File(path));
 		}
@@ -1358,11 +1488,10 @@ public class TestAttributeValues extends TestFmwk {
 			if (localeFile==null) {
 				throw new IllegalArgumentException("Please call with non-null file");
 			}
-			//get the property
-			String cldrDir=System.getProperty("CLDR_DIR");
+			
 			String canonical=localeFile.getAbsolutePath();
-			if (canonical.lastIndexOf(cldrDir)!=-1) { 
-				int startPos=canonical.lastIndexOf(cldrDir)+cldrDir.length();
+			if (canonical.lastIndexOf(CLDR_DIR)!=-1) { 
+				int startPos=canonical.lastIndexOf(CLDR_DIR)+CLDR_DIR.length();
 				return "{CLDR_DIR}/"+canonical.substring(startPos);
 			}
 			return localeFile.getAbsolutePath();

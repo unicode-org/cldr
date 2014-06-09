@@ -1195,12 +1195,12 @@ public class ExampleGenerator {
             Count count = Count.valueOf(countValue);
             Double numberSample = getExampleForPattern(numberFormat, count);
             if (numberSample == null) {
-                if (type == ExampleType.ENGLISH) {
+//                if (type == ExampleType.ENGLISH) {
                     int digits = numberFormat.getMinimumIntegerDigits();
                     return formatNumber(numberFormat, 1.2345678 * Math.pow(10, digits - 1));
-                } else {
-                    return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
-                }
+//                } else {
+//                    return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
+//                }
             } else {
                 String temp = String.valueOf(numberSample);
                 int fractionLength = temp.endsWith(".0") ? 0 : temp.length() - temp.indexOf('.') - 1;

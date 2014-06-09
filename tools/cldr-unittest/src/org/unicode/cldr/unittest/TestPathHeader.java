@@ -256,7 +256,8 @@ public class TestPathHeader extends TestFmwkPlus {
         verifyContains(PageId.Duration, filePaths, "few", false);
         verifyContains(PageId.C_NAmerica, filePaths, "many", false);
         verifyContains(PageId.C_SAmerica, filePaths, "many", false);
-        verifyContains(PageId.C_Europe, filePaths, "many", false);
+        verifyContains(PageId.C_NWEurope, filePaths, "many", false);
+        verifyContains(PageId.C_SEEurope, filePaths, "many", false);
         verifyContains(PageId.C_NAfrica, filePaths, "many", false);
         verifyContains(PageId.C_WAfrica, filePaths, "many", false);
         verifyContains(PageId.C_SAfrica, filePaths, "many", false);
@@ -273,7 +274,8 @@ public class TestPathHeader extends TestFmwkPlus {
         verifyContains(PageId.Duration, filePaths, "few", true);
         verifyContains(PageId.C_NAmerica, filePaths, "many", true);
         verifyContains(PageId.C_SAmerica, filePaths, "many", true);
-        verifyContains(PageId.C_Europe, filePaths, "many", true);
+        verifyContains(PageId.C_NWEurope, filePaths, "many", true);
+        verifyContains(PageId.C_SEEurope, filePaths, "many", true);
         verifyContains(PageId.C_NAfrica, filePaths, "many", true);
         verifyContains(PageId.C_WAfrica, filePaths, "many", true);
         verifyContains(PageId.C_SAfrica, filePaths, "many", true);

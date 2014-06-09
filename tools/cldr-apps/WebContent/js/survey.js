@@ -1650,7 +1650,7 @@ function showForumStuff(frag, forumDiv, tr) {
 					oneLocales[surveyCurrentLocale] = true;
 					updateIf(sidewaysControl, "");
 				}else{
-					//updateIf(sidewaysControl, JSON.stringify(json));
+//					updateIf(sidewaysControl, JSON.stringify(json));
 					if(!json.others) {
 						updateIf(sidewaysControl, ""); // no sibling locales (or all null?)
 					} else {
@@ -1791,28 +1791,6 @@ function showForumStuff(frag, forumDiv, tr) {
 						
 						sidewaysControl.appendChild(popupSelect);
 					}
-					if(json.novalue) {
-						for(s in json.novalue){
-							dataList.push([json.novalue[s], inheritValue]);
-						}
-						//appendLocaleList(json.novalue,  stui.str("sideways_noValue"),  stui.str("sideways_noValue"));
-					}		
-					dataList = dataList.sort(function(a,b) {
-						return a[0] > b[0];
-				    });
-					appendLocaleList(dataList);
-					
-					listenFor(popupSelect, "change", function(e) {
-						var newLoc = popupSelect.value;
-						if(newLoc !== surveyCurrentLocale) {
-							surveyCurrentSpecial = '';
-							surveyCurrentLocale = newLoc;
-							reloadV();
-						}
-						return stStopPropagation(e);
-					});
-					
-					sidewaysControl.appendChild(popupSelect);
 				}
 			});
 		}, 2000); // wait 2 seconds before loading this.

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TestSTFactory SYSTEM "TestSTFactory.dtd">
+<TestSTFactory>
+	<echo>UserRegistry test (user setup only)</echo>
+	<user name="u_vetter" org="surveytool" level="vetter" locales="*"/>
+	<user name="u_street" org="surveytool" level="street" locales="*"/>
+    <user name="u_locked" org="surveytool" level="locked" locales="*"/>
+    <user name="u_expert" org="surveytool" level="expert" locales="*"/>
+    <user name="u_manager" org="surveytool" level="manager" locales="*"/>
+    <user name="u_tc" org="surveytool" level="tc" locales="*"/>
+    <user name="u_admin" org="surveytool" level="admin" locales="*"/>
+    
+	<user name="g_vetter" org="guest" level="vetter" locales="*"/>
+	<user name="g_street" org="guest" level="street" locales="*"/>
+    <user name="g_locked" org="guest" level="locked" locales="*"/>
+    <user name="g_expert" org="guest" level="expert" locales="*"/>
+    <user name="g_manager" org="guest" level="manager" locales="*"/>
+    <user name="g_tc" org="guest" level="tc" locales="*"/>
+    <user name="g_admin" org="guest" level="admin" locales="*"/>
+    
+    <echo>Test basic permissions - u_locked</echo>
+    <verifyUser name="u_locked" onUser="u_locked"   allowed="false" action="create"/>
+    <verifyUser name="u_locked" onUser="u_street"   allowed="false" action="create"/>
+    <verifyUser name="u_locked" onUser="u_vetter"   allowed="false" action="create"/>
+    <verifyUser name="u_locked" onUser="u_manager"   allowed="false" action="create"/>
+    <verifyUser name="u_locked" onUser="u_tc"  		 allowed="false" action="create"/>
+    <verifyUser name="u_locked" onUser="u_expert"   allowed="false" action="create"/>
+    <verifyUser name="u_locked" onUser="u_admin"   allowed="false" action="create"/>
+    <verifyUser name="u_locked" onUser="g_vetter"   allowed="false" action="create"/>
+
+    <verifyUser name="u_locked" onUser="u_locked"   allowed="false" action="modify"/>
+    <verifyUser name="u_locked" onUser="u_street"   allowed="false" action="modify"/>
+    <verifyUser name="u_locked" onUser="u_vetter"   allowed="false" action="modify"/>
+    <verifyUser name="u_locked" onUser="u_manager"   allowed="false" action="modify"/>
+    <verifyUser name="u_locked" onUser="u_tc"  		 allowed="false" action="modify"/>
+    <verifyUser name="u_locked" onUser="u_expert"   allowed="false" action="modify"/>
+    <verifyUser name="u_locked" onUser="u_admin"   allowed="false" action="modify"/>
+    <verifyUser name="u_locked" onUser="g_vetter"   allowed="false" action="modify"/>
+
+    <echo>Test basic permissions - u_street</echo>
+    <verifyUser name="u_street" onUser="u_locked"   allowed="false" action="create"/>
+    <verifyUser name="u_street" onUser="u_street"   allowed="false" action="create"/>
+    <verifyUser name="u_street" onUser="u_vetter"   allowed="false" action="create"/>
+    <verifyUser name="u_street" onUser="u_manager"   allowed="false" action="create"/>
+    <verifyUser name="u_street" onUser="u_tc"  		 allowed="false" action="create"/>
+    <verifyUser name="u_street" onUser="u_expert"   allowed="false" action="create"/>
+    <verifyUser name="u_street" onUser="u_admin"   allowed="false" action="create"/>
+    <verifyUser name="u_street" onUser="g_vetter"   allowed="false" action="create"/>
+
+    <verifyUser name="u_street" onUser="u_locked"   allowed="false" action="modify"/>
+    <verifyUser name="u_street" onUser="u_street"   allowed="false" action="modify"/>
+    <verifyUser name="u_street" onUser="u_vetter"   allowed="false" action="modify"/>
+    <verifyUser name="u_street" onUser="u_manager"   allowed="false" action="modify"/>
+    <verifyUser name="u_street" onUser="u_tc"  		 allowed="false" action="modify"/>
+    <verifyUser name="u_street" onUser="u_expert"   allowed="false" action="modify"/>
+    <verifyUser name="u_street" onUser="u_admin"   allowed="false" action="modify"/>
+    <verifyUser name="u_street" onUser="g_vetter"   allowed="false" action="modify"/>
+
+    <echo>Test basic permissions - u_vetter</echo>
+    <verifyUser name="u_vetter" onUser="u_locked"   allowed="false" action="create"/>
+    <verifyUser name="u_vetter" onUser="u_street"   allowed="false" action="create"/>
+    <verifyUser name="u_vetter" onUser="u_vetter"   allowed="false" action="create"/>
+    <verifyUser name="u_vetter" onUser="u_manager"   allowed="false" action="create"/>
+    <verifyUser name="u_vetter" onUser="u_tc"  		 allowed="false" action="create"/>
+    <verifyUser name="u_vetter" onUser="u_expert"   allowed="false" action="create"/>
+    <verifyUser name="u_vetter" onUser="u_admin"   allowed="false" action="create"/>
+    <verifyUser name="u_vetter" onUser="g_vetter"   allowed="false" action="create"/>
+
+    <verifyUser name="u_vetter" onUser="u_locked"   allowed="false" action="modify"/>
+    <verifyUser name="u_vetter" onUser="u_street"   allowed="false" action="modify"/>
+    <verifyUser name="u_vetter" onUser="u_vetter"   allowed="false" action="modify"/>
+    <verifyUser name="u_vetter" onUser="u_manager"   allowed="false" action="modify"/>
+    <verifyUser name="u_vetter" onUser="u_tc"  		 allowed="false" action="modify"/>
+    <verifyUser name="u_vetter" onUser="u_expert"   allowed="false" action="modify"/>
+    <verifyUser name="u_vetter" onUser="u_admin"   allowed="false" action="modify"/>
+    <verifyUser name="u_vetter" onUser="g_vetter"   allowed="false" action="modify"/>
+    
+    <echo>Test basic permissions - u_manager</echo>
+    <!--  manager can create users -->
+    <verifyUser name="u_manager" onUser="u_locked" 	allowed="true" action="create"/>
+    <verifyUser name="u_manager" onUser="u_street" 	allowed="true" action="create"/>
+    <verifyUser name="u_manager" onUser="u_vetter" 	allowed="true" action="create"/>
+    <verifyUser name="u_manager" onUser="u_manager" allowed="true" action="create"/>
+    <!--  manager can't create tc or admin or expert -->
+    <verifyUser name="u_manager" onUser="u_tc" 		allowed="false" action="create"/>
+    <verifyUser name="u_manager" onUser="u_admin" 	allowed="false" action="create"/>
+    <verifyUser name="u_manager" onUser="u_expert" 	allowed="false" action="create"/>
+    <!--  manager can't create in other orgs -->
+    <verifyUser name="u_manager" onUser="g_vetter" 	allowed="false" action="create"/>
+
+    <verifyUser name="u_manager" onUser="u_locked"   allowed="true" action="modify"/>
+    <verifyUser name="u_manager" onUser="u_street"   allowed="true" action="modify"/>
+    <verifyUser name="u_manager" onUser="u_vetter"   allowed="true" action="modify"/>
+    <verifyUser name="u_manager" onUser="u_manager"   allowed="true" action="modify"/>
+    <verifyUser name="u_manager" onUser="u_tc"  		 allowed="false" action="modify"/>
+    <!--  can modify expert- not create -->
+    <verifyUser name="u_manager" onUser="u_expert"   allowed="true" action="modify"/>
+    <verifyUser name="u_manager" onUser="u_admin"   allowed="false" action="modify"/>
+    <verifyUser name="u_manager" onUser="g_vetter"   allowed="false" action="modify"/>
+    
+    <echo>Test basic permissions - u_tc</echo>
+    <!--  TC can create users -->
+    <verifyUser name="u_tc" onUser="u_street" 	allowed="true" action="create"/>
+    <verifyUser name="u_tc" onUser="u_locked" 	allowed="true" action="create"/>
+    <verifyUser name="u_tc" onUser="u_vetter" 	allowed="true" action="create"/>
+    <verifyUser name="u_tc" onUser="u_manager"  allowed="true" action="create"/>
+    <verifyUser name="u_tc" onUser="u_tc" 		allowed="true" action="create"/>
+    <!--  TC can't create admin or expert-->
+    <verifyUser name="u_tc" onUser="u_admin" 	allowed="false" action="create"/>
+    <verifyUser name="u_tc" onUser="u_expert" 	allowed="false" action="create"/>
+    <!--  TC can't create in other orgs -->
+    <verifyUser name="u_tc" onUser="g_vetter" 	allowed="false" action="create"/>
+
+    <verifyUser name="u_tc" onUser="u_locked"   allowed="true" action="modify"/>
+    <verifyUser name="u_tc" onUser="u_street"   allowed="true" action="modify"/>
+    <verifyUser name="u_tc" onUser="u_vetter"   allowed="true" action="modify"/>
+    <verifyUser name="u_tc" onUser="u_manager"   allowed="true" action="modify"/>
+    <verifyUser name="u_tc" onUser="u_tc"  		 allowed="true" action="modify"/>
+    <!--  can modify expert- not create -->
+    <verifyUser name="u_tc" onUser="u_expert"   allowed="true" action="modify"/>
+    <verifyUser name="u_tc" onUser="u_admin"   allowed="false" action="modify"/>
+    <verifyUser name="u_tc" onUser="g_vetter"   allowed="false" action="modify"/>
+    
+    <echo>Test basic permissions - u_admin</echo>
+    <!--  admin can create users -->
+    <verifyUser name="u_admin" onUser="u_street" 	allowed="true" action="create"/>
+    <verifyUser name="u_admin" onUser="u_locked" 	allowed="true" action="create"/>
+    <verifyUser name="u_admin" onUser="u_vetter" 	allowed="true" action="create"/>
+    <verifyUser name="u_admin" onUser="u_manager"   allowed="true" action="create"/>
+    <verifyUser name="u_admin" onUser="u_tc" 		allowed="true" action="create"/>
+    <verifyUser name="u_admin" onUser="u_admin" 	allowed="true" action="create"/>
+    <verifyUser name="u_admin" onUser="u_expert" 	allowed="true" action="create"/>
+    <verifyUser name="u_admin" onUser="g_vetter" 	allowed="true" action="create"/>
+
+    <verifyUser name="u_admin" onUser="u_locked"   allowed="true" action="modify"/>
+    <verifyUser name="u_admin" onUser="u_street"   allowed="true" action="modify"/>
+    <verifyUser name="u_admin" onUser="u_vetter"   allowed="true" action="modify"/>
+    <verifyUser name="u_admin" onUser="u_manager"   allowed="true" action="modify"/>
+    <verifyUser name="u_admin" onUser="u_tc"  		 allowed="true" action="modify"/>
+    <verifyUser name="u_admin" onUser="u_expert"   allowed="true" action="modify"/>
+    <verifyUser name="u_admin" onUser="u_admin"   allowed="true" action="modify"/>
+    <verifyUser name="u_admin" onUser="g_vetter"   allowed="true" action="modify"/>
+
+</TestSTFactory>

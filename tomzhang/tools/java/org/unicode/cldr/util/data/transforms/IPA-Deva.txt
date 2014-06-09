@@ -1,0 +1,300 @@
+# IPA to Devanagari
+# Author: Cibu Johny
+# Email: cibu@google.com
+
+# All the rules are just a replication of these basic rule set for rest of the characters:
+
+# i  ↔ इ;
+# a ↔ अ;
+# k > क ्;
+#   < a ्;
+
+# ::NULL;
+
+#  इː  ↔ ई;
+#  ्इː ↔ ी;
+#  ्इ  ↔  ि;
+#  ्अ > ;
+# ka < क;
+
+# IPA to Devanagari example: kiga > क ्इग ्अ > िकग
+# Devanagari to IPA example: kiga < ka ्इga < िकग
+
+< a ्;
+
+
+ɒ > ओ; # 0252 open back rounded
+au > औ;
+ɔw > औ;
+əw > औ;
+æ > ए; # 00E6 raised open front unrounded
+əj > ऐ;
+ɔj > ऐ;
+ɑ > अ; # 0251 open back unrounded
+ɐ > अ; # 0250 open-mid schwa
+ə > अ; # 0259 schwa
+ä > अ;
+ɔ > अ; # 0254 open-mid back rounded
+ɘ > उ; # 0258 close-mid schwa
+ɛ > ए; # 025B open-mid front unrounded
+ɜ > अ; # 025C open-mid central
+ɝ > ए; # 025D rhotacized open-mid central
+ɞ > उ; # 025E open-mid central rounded
+ɯ > उ; # 026F close back unrounded
+ʌ > अ; # 028C open-mid back unrounded
+ɵ > उ; # 0275 rounded schwa
+ʏ > उ; # 028F lax close front rounded
+ʊ > उ; # 028A lax close back rounded
+ɶ > अ; # 0276 front open rounded
+i > इ;
+ɨ > इ; # 0268 close central unrounded
+ʉ > उ; # 0289 close central rounded
+ʔ > अ; # 0294 glottal plosive
+
+aʊ ↔ औ;
+a ↔ अ;
+ɪ ↔ इ; # 026A lax close front unrounded
+u ↔ उ;
+œ ↔ ऊ; # 0153 front open-mid rounded
+ø ↔ ऎ; # 00F8 front close-mid rounded
+e ↔ ए;
+ɥ ↔ ऐ; # 0265 labial-palatal approximant
+ɤ ↔ ऒ; # 0264 close-mid back unrounded
+o ↔ ओ;
+ṛ ↔ ऋ;
+ḷ  ↔ ऌ;
+
+e < ऍ;
+o < ऑ;
+
+
+t̪ > त ्;
+ɣ > ग़ ्; # 0263 vd velar fricative
+ʑ > ज्य ्; # 0291 vd alveolopalatal fricative
+ɽ > ड़ ्; # 027D vd retroflex flap
+ʙ > ब्र ्; # 0299 vd bilabial trill
+ɖʱ > ढ ्;
+q > क़ ्;
+ʈʰ > ठ ्;
+x > ख़ ्;
+ʤʱ > झ ्;
+kʰ > ख ्;
+gʱ > घ ्;
+ʧʰ > छ ्;
+tʰ > थ ्;
+dʰ > ध ्;
+bʱ > भ ्;
+w > व़ ्;
+z >  ज़ ्;
+f > फ़ ्;
+pʰ > फ ्;
+ɕ > श ्; # 0255 vl alveolopalatal fricative
+ɗ > द ्; # 0257 vd alveolar implosive
+ɖ > ड ्; # 0256 vd retroflex plosive
+ʤ > ज ्; # 02A4 vd postalveolar affricate
+ɡ > ग ्; # 0261 vd velar plosive
+ɭ > ळ ्; # 026D vd retroflex lateral
+ŋ > ङ ्; # 014B vd velar nasal
+ɳ > ण ्; # 0273 vd retroflex nasal
+ɲ > ञ ्; # 0272 vd palatal nasal
+ʁ > ऱ ्; # 0281 vd uvular fricative
+ʂ > ष ्; # 0282 vl retroflex fricative
+ɻ > ऴ ्; # 027B vd retroflex approximant
+ʈ > ट ्; # 0288 vl retroflex plosive
+t > ट ्; # 0288 vl retroflex plosive
+ʧ > च ्; # 02A7 vl postalveolar affricate
+ʡ > ऽ ्; # 02A1 vd epiglottal plosive
+b > ब ्;
+h > ह ्;
+j > य ्;
+k > क ्;
+l > ल ्;
+m > म ्;
+n > न ्;
+p > प ्;
+r > र ्;
+s > स ्;
+v > व ्;
+
+
+
+
+ɓ > ब ्; # 0253 vd bilabial implosive
+β > व ्; # 03B2 vd bilabial fricative
+ç > श ्; # 00E7 vl palatal fricative
+ð > द ्; # 00F0 vd dental fricative
+ɚ > र ्; # 025A rhotacized schwa
+ɟ > ज ्; # 025F vd palatal plosive
+ʄ > ज ्; # 0284 vd palatal implosive
+ɠ > ग ्; # 0260 vd velar implosive
+ɢ > ग ्; # 0262 vd uvular plosive
+ʛ > ग ्; # 029B vd uvular implosive
+ɦ > ह ्; # 0266 vd glottal fricative
+ɧ > फ़ ्; # 0267 vl multiple-place fricative
+ħ > ह ्; # 0127 vl pharyngeal fricative
+ʜ > ह ्; # 029C vl epiglottal fricative
+ʝ > य ्; # 029D vd palatal fricative
+ɬ > ल ्; # 026C vl alveolar lateral fricative
+ɫ > ळ ्; # 026B velarized vd alveolar lateral
+ɮ > ल ्; # 026E vd alveolar lateral fricative
+ʟ > व ्; # 029F vd velar lateral
+ɱ > म ्; # 0271 vd labiodental nasal
+ɰ > व ्; # 0270 velar approximant
+ɴ > ङ ्; # 0274 vd uvular nasal
+ɸ > फ़ ्; # 0278 vl bilabial fricative
+θ > त ्; # 03B8 vl dental fricative
+ʘ > ट ्; # 0298 bilabial click
+ɹ > र ्; # 0279 vd (post)alveolar approximant
+ɺ > र ्; # 027A vd alveolar lateral flap
+ɾ > र ्; # 027E vd alveolar tap
+ʀ > र ्; # 0280 vd uvular trill
+ʃ > श ्; # 0283 vl postalveolar fricative
+ʋ > व ्; # 028B vd labiodental approximant
+ʍ > व ्; # 028D vl labial-velar fricative
+χ > ह ्; # 03C7 vl uvular fricative
+ʎ > य ्; # 028E vd palatal lateral
+ʐ > ष ्; # 0290 vd retroflex fricative
+ʒ > श ्; # 0292 vd postalveolar fricative
+ʕ > र ्; # 0295 vd pharyngeal fricative
+ʢ > र ्; # 02A2 vd epiglottal fricative
+ǀ > ऽ ्; # 01C0 dental click
+ǁ > ऽ ्; # 01C1 alveolar lateral click
+ǂ > ऽ ्; # 01C2 alveolar click
+ǃ > ट ्; # 01C3 retroflex click
+
+c > च ्;
+d > ड ्;
+g > ग ्;
+y > य ्;
+
+
+# if any of the following are not significant, they should just be deleted, eg X ↔;
+ 
+ˈ > ; # 02C8 (primary) stress mark
+ˌ > ; # 02CC secondary stress
+#ː > ; # 02D0 length mark
+ˑ > ; # 02D1 half-length
+ʼ > ; # 02BC ejective
+ʴ > ; # 02B4 rhotacized
+ʰ > ; # 02B0 aspirated
+ʱ > ; # 02B1 breathy-voice-aspirated
+ʲ > ; # 02B2 palatalized
+ʷ > ; # 02B7 labialized
+ˠ > ; # 02E0 velarized
+ˤ > ; # 02E4 pharyngealized
+˞ > ; # 02DE rhotacized
+̥ > ; # 0325 voiceless
+̊ > ; # 030A voiceless (use if character has descender)
+̤ > ; # 0324 breathy voiced
+̪ > ; # 032A dental
+̬ > ; # 032C voiced
+̰ > ; # 0330 creaky voiced
+̺ > ; # 033A apical
+̼ > ; # 033C linguolabial
+̻ > ; # 033B laminal
+̚ > ; # 031A not audibly released
+̹ > ; # 0339 more rounded
+̃ > ; # 0303 nasalized
+̜ > ; # 031C less rounded
+̟ > ; # 031F advanced
+̠ > ; # 0320 retracted
+̈ > ; # 0308 centralized
+̴ > ; # 0334 velarized or pharyngealized
+#ɫ ↔ ; # 026B (ready-made combination, dark l)
+̽ > ; # 033D mid-centralized
+̝ > ; # 031D raised
+̩ > ; # 0329 syllabic
+̞ > ; # 031E lowered
+̯ > ; # 032F non-syllabic
+̘ > ; # 0318 advanced tongue root
+̙ > ; # 0319 retracted tongue root
+̆ > ; # 0306 extra-short
+̋ > ; # 030B extra high tone
+́ > ; # 0301 high tone
+̄ > ; # 0304 mid tone
+̀ > ; # 0300 low tone
+̏ > ; # 030F extra low tone
+↓ > ; # 2193 downstep
+↑ > ; # 2191 upstep
+↗ > ; # 2197 global rise
+↘ > ; # 2198 global fall
+
+::NULL;
+
+अː ↔ आ;
+इː  ↔ ई;
+उː ↔ ऊ;
+ऋː↔ ॠ;
+ऌː ↔ ॡ;
+
+ ्अː ↔ ा;
+ ्इː ↔ ी;
+ ्उː ↔  ू;
+ ्ऋː ↔ ॢ;
+ ्ऌː ↔ ॣ;
+
+ ्अ > ;
+ ्इ ↔  ि;
+ ्उ ↔   ु;
+ ्ए ↔   े;
+ ्ऐ ↔   ै;
+ ्ओ ↔  ो;
+ ्औ ↔  ौ;
+ ्ऋ ↔  ृ ;
+ ्ऌ ↔  ॄ;
+
+ ्ऍ ↔  ॅ;
+ ्ऎ ↔  ॆ;
+ ्ऑ ↔ ॉ;
+ ्ऒ ↔ ॊ;
+
+m <  ँ;
+m <  ं;
+ʡ < ः;
+
+ɣa < ग़; # 0263 vd velar fricative
+ʑa < ज्य; # 0291 vd alveolopalatal fricative
+ɽa < ड़; # 027D vd retroflex flap
+ʙa < ब्र; # 0299 vd bilabial trill
+ɖʱa < ढ;
+qa < क़;
+ʈʰa < ठ;
+xa < ख़;
+ʤʱa < झ;
+kʰa < ख;
+gʱa < घ;
+ʧʰa < छ;
+tʰa < थ;
+dʰa < ध;
+bʱa < भ;
+wa < व़;
+za <  ज़;
+fa < फ़;
+pʰa < फ;
+ɕa < श; # 0255 vl alveolopalatal fricative
+ɗa < द; # 0257 vd alveolar implosive
+ɖa < ड; # 0256 vd retroflex plosive
+ʤa < ज; # 02A4 vd postalveolar affricate
+ɡa < ग; # 0261 vd velar plosive
+ɭa < ळ; # 026D vd retroflex lateral
+ŋa < ङ; # 014B vd velar nasal
+ɳa < ण; # 0273 vd retroflex nasal
+ɲa < ञ; # 0272 vd palatal nasal
+ʁa < ऱ; # 0281 vd uvular fricative
+ʂa < ष; # 0282 vl retroflex fricative
+ɻa < ऴ; # 027B vd retroflex approximant
+ʈa < ट; # 0288 vl retroflex plosive
+ʧa < च; # 02A7 vl postalveolar affricate
+ʡa < ऽ; # 02A1 vd epiglottal plosive
+ba < ब;  
+ha < ह;
+ja < य;
+ka < क;
+la < ल;
+ma < म;
+na < न;
+pa < प;
+ra < र;
+sa < स;
+t̪a < त;
+va < व;

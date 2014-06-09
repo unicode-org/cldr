@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<ldml>
+    <identity>
+        <version number="$Revision$"/>
+        <generation date="$Date$"/>
+        <language type="fi"/>
+    </identity>
+    <rbnf>
+        <rulesetGrouping type="SpelloutRules">
+            <ruleset type="spellout-numbering-year">
+                <rbnfrule value="-x">miinus →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,###0.#=;</rbnfrule>
+                <rbnfrule value="0">=%spellout-numbering=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-numbering">
+                <rbnfrule value="0">=%spellout-cardinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-cardinal">
+                <rbnfrule value="-x">miinus →→;</rbnfrule>
+                <rbnfrule value="x.x">←← pilkku →→;</rbnfrule>
+                <rbnfrule value="0">nolla;</rbnfrule>
+                <rbnfrule value="1">yksi;</rbnfrule>
+                <rbnfrule value="2">kaksi;</rbnfrule>
+                <rbnfrule value="3">kolme;</rbnfrule>
+                <rbnfrule value="4">neljä;</rbnfrule>
+                <rbnfrule value="5">viisi;</rbnfrule>
+                <rbnfrule value="6">kuusi;</rbnfrule>
+                <rbnfrule value="7">seitsemän;</rbnfrule>
+                <rbnfrule value="8">kahdeksan;</rbnfrule>
+                <rbnfrule value="9">yhdeksän;</rbnfrule>
+                <rbnfrule value="10">kymmenen;</rbnfrule>
+                <rbnfrule value="11">→→toista;</rbnfrule>
+                <rbnfrule value="20">←←kymmentä[­→→];</rbnfrule>
+                <rbnfrule value="100">sata[­→→];</rbnfrule>
+                <rbnfrule value="200">←←­sataa[­→→];</rbnfrule>
+                <rbnfrule value="1000">tuhat[­→→];</rbnfrule>
+                <rbnfrule value="2000">←←­tuhatta[­→→];</rbnfrule>
+                <rbnfrule value="1000000">←← miljoona[ →→];</rbnfrule>
+                <rbnfrule value="2000000">←← miljoonaa[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←← miljardi[ →→];</rbnfrule>
+                <rbnfrule value="2000000000">←← miljardia[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←← biljoona[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←← biljoonaa[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal-larger" access="private">
+                <rbnfrule value="0">;</rbnfrule>
+                <rbnfrule value="2">kahdes;</rbnfrule>
+                <rbnfrule value="3">=%spellout-ordinal=;</rbnfrule>
+            </ruleset>
+            <ruleset type="spellout-ordinal">
+                <rbnfrule value="-x">miinus →→;</rbnfrule>
+                <rbnfrule value="x.x">=#,##0.#=;</rbnfrule>
+                <rbnfrule value="0">nolla;</rbnfrule>
+                <rbnfrule value="1">ensimmäinen;</rbnfrule>
+                <rbnfrule value="2">toinen;</rbnfrule>
+                <rbnfrule value="3">kolmas;</rbnfrule>
+                <rbnfrule value="4">neljäs;</rbnfrule>
+                <rbnfrule value="5">viides;</rbnfrule>
+                <rbnfrule value="6">kuudes;</rbnfrule>
+                <rbnfrule value="7">seitsemäs;</rbnfrule>
+                <rbnfrule value="8">kahdeksas;</rbnfrule>
+                <rbnfrule value="9">yhdeksäs;</rbnfrule>
+                <rbnfrule value="10">kymmenes;</rbnfrule>
+                <rbnfrule value="11">yhdestoista;</rbnfrule>
+                <rbnfrule value="12">kahdestoista;</rbnfrule>
+                <rbnfrule value="13">→→toista;</rbnfrule>
+                <rbnfrule value="20">←%%spellout-ordinal-larger←kymmenes[→→];</rbnfrule>
+                <rbnfrule value="100">sadas[→→];</rbnfrule>
+                <rbnfrule value="200">←%%spellout-ordinal-larger←sadas[→→];</rbnfrule>
+                <rbnfrule value="1000">tuhannes[→→];</rbnfrule>
+                <rbnfrule value="2000">←%%spellout-ordinal-larger←tuhannes[→→];</rbnfrule>
+                <rbnfrule value="1000000">miljoonas[→→];</rbnfrule>
+                <rbnfrule value="2000000">←%%spellout-ordinal-larger← miljoonas[→→];</rbnfrule>
+                <rbnfrule value="1000000000">miljardis[→→];</rbnfrule>
+                <rbnfrule value="2000000000">←%%spellout-ordinal-larger← miljardis[→→];</rbnfrule>
+                <rbnfrule value="1000000000000">biljoonas[ →→];</rbnfrule>
+                <rbnfrule value="2000000000000">←%%spellout-ordinal-larger← biljoonas[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
+            </ruleset>
+        </rulesetGrouping>
+    </rbnf>
+</ldml>

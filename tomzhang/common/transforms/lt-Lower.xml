@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="lt" target="Lower" direction="forward">
+			<comment># Copyright (C) 2011-2013, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.</comment>
+			<comment># Introduce an explicit dot above when lowercasing capital I's and J's</comment>
+			<comment># whenever there are more accents above.</comment>
+			<comment># (of the accents used in Lithuanian: grave, acute, tilde above, and ogonek)</comment>
+			<comment># 0049; 0069 0307; 0049; 0049; lt More_Above; # LATIN CAPITAL LETTER I</comment>
+			<comment># 004A; 006A 0307; 004A; 004A; lt More_Above; # LATIN CAPITAL LETTER J</comment>
+			<comment># 012E; 012F 0307; 012E; 012E; lt More_Above; # LATIN CAPITAL LETTER I WITH OGONEK</comment>
+			<comment># 00CC; 0069 0307 0300; 00CC; 00CC; lt; # LATIN CAPITAL LETTER I WITH GRAVE</comment>
+			<comment># 00CD; 0069 0307 0301; 00CD; 00CD; lt; # LATIN CAPITAL LETTER I WITH ACUTE</comment>
+			<comment># 0128; 0069 0307 0303; 0128; 0128; lt; # LATIN CAPITAL LETTER I WITH TILDE</comment>
+			<tRule>::NFD();</tRule>
+			<tRule>I } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → i \u0307;</tRule> 
+			<tRule>J } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → j \u0307;</tRule> 
+			<tRule>Į } [^[:ccc=Not_Reordered:][:ccc=Above:]]* [:ccc=Above:] → į \u0307;</tRule> 
+			<tRule>Ì → i \u0307 \u0300;</tRule> 
+			<tRule>Í → i \u0307 \u0301;</tRule> 
+			<tRule>Ĩ → i \u0307 \u0303;</tRule> 
+			<tRule>::Any-Lower();</tRule>
+			<tRule>::NFC();</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

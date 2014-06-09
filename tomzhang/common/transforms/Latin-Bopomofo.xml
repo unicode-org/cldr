@@ -1,0 +1,1465 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="Latin" target="Bopomofo" direction="both">
+			<tRule>#--- forward filter, transforms ----</tRule>
+			<tRule># currently in reverse it only goes back to Latin with numeric tones (not sure why); ok but would rather have marks.</tRule>
+			<tRule>#</tRule>
+			<tRule>:: [[:Latin:][1-5]];		# forward filter: only modifies Latin and tone digits</tRule>
+			<tRule>:: Latin-NumericPinyin(NumericPinyin-Latin);	# tone marks in middle ↔ digits at end to use numeric below; this leaves the pinyin in NFC</tRule>
+			<tRule>#</tRule>
+			<tRule>#--- variables ----</tRule>
+			<tRule>#</tRule>
+			<tRule># basic pinyin and zhuyin consonant initials (not including vowel initials):</tRule>
+			<tRule>$pCons = [b p m f d t n l g k h j q x r z c s]; # and zh ch sh, covered for this by h already in the set</tRule>
+			<tRule>$zCons = [ㄅ-ㄙ];</tRule>
+			<tRule>#</tRule>
+			<tRule># pinyin and zhuyin minus basic consonant initials that cannot take tones by themselves</tRule>
+			<tRule># (in some cases the exclusion is only for the pinyin, not the corresponding zhuyin: zh ch sh r z c s)</tRule>
+			<tRule>$pToneOK = [[a-z] - [b p f d t l g k h j q x r z c s]]; # and minus zh ch sh, covered for this by h already in the exclusion set</tRule>
+			<tRule>$zToneOK = [[ㄅ-ㄩ] - [ㄅ ㄆ ㄈ ㄉ ㄊ ㄌ ㄍ ㄎ ㄏ ㄐ ㄑ ㄒ]];</tRule>
+			<tRule>#</tRule>
+			<tRule># basic consonant initials that can take tones by themselves</tRule>
+			<tRule># (in some cases this is only for the zhuyin, not the corresponding pinyin: ㄓ ㄔ ㄕ ㄖ ㄗ ㄘ ㄙ)</tRule>
+			<tRule># $pConsToneOK = [m n];</tRule>
+			<tRule># $zConsToneOK = [ㄇ ㄋ ㄓ ㄔ ㄕ ㄖ ㄗ ㄘ ㄙ];</tRule>
+			<tRule>#</tRule>
+			<tRule># basic numeric pinyin and zhuyin tones</tRule>
+			<tRule>$pTone = [1-5];</tRule>
+			<tRule>$zTone = [ˉˊˇˋ˙];</tRule>
+			<tRule>#</tRule>
+			<tRule>#--- clusters with initial consonant ----</tRule>
+			<tRule>#</tRule>
+			<tRule>bang }$pTone    ↔ ㄅㄤ }$zTone;</tRule>
+			<tRule> bang           →  ㄅㄤ˙;</tRule>
+			<tRule> bang1          ← ㄅㄤ;</tRule>
+			<tRule>beng }$pTone    ↔ ㄅㄥ }$zTone;</tRule>
+			<tRule> beng           →  ㄅㄥ˙;</tRule>
+			<tRule> beng1          ← ㄅㄥ;</tRule>
+			<tRule>biao }$pTone    ↔ ㄅㄧㄠ }$zTone;</tRule>
+			<tRule> biao           →  ㄅㄧㄠ˙;</tRule>
+			<tRule> biao1          ← ㄅㄧㄠ;</tRule>
+			<tRule>bian }$pTone    ↔ ㄅㄧㄢ }$zTone;</tRule>
+			<tRule> bian           →  ㄅㄧㄢ˙;</tRule>
+			<tRule> bian1          ← ㄅㄧㄢ;</tRule>
+			<tRule>bing }$pTone    ↔ ㄅㄧㄥ }$zTone;</tRule>
+			<tRule> bing           →  ㄅㄧㄥ˙;</tRule>
+			<tRule> bing1          ← ㄅㄧㄥ;</tRule>
+			<tRule>bai }$pTone     ↔ ㄅㄞ }$zTone;</tRule>
+			<tRule> bai            →  ㄅㄞ˙;</tRule>
+			<tRule> bai1           ← ㄅㄞ;</tRule>
+			<tRule>bei }$pTone     ↔ ㄅㄟ }$zTone;</tRule>
+			<tRule> bei            →  ㄅㄟ˙;</tRule>
+			<tRule> bei1           ← ㄅㄟ;</tRule>
+			<tRule>bao }$pTone     ↔ ㄅㄠ }$zTone;</tRule>
+			<tRule> bao            →  ㄅㄠ˙;</tRule>
+			<tRule> bao1           ← ㄅㄠ;</tRule>
+			<tRule>ban }$pTone     ↔ ㄅㄢ }$zTone;</tRule>
+			<tRule> ban            →  ㄅㄢ˙;</tRule>
+			<tRule> ban1           ← ㄅㄢ;</tRule>
+			<tRule>ben }$pTone     ↔ ㄅㄣ }$zTone;</tRule>
+			<tRule> ben            →  ㄅㄣ˙;</tRule>
+			<tRule> ben1           ← ㄅㄣ;</tRule>
+			<tRule>bie }$pTone     ↔ ㄅㄧㄝ }$zTone;</tRule>
+			<tRule> bie            →  ㄅㄧㄝ˙;</tRule>
+			<tRule> bie1           ← ㄅㄧㄝ;</tRule>
+			<tRule>bin }$pTone     ↔ ㄅㄧㄣ }$zTone;</tRule>
+			<tRule> bin            →  ㄅㄧㄣ˙;</tRule>
+			<tRule> bin1           ← ㄅㄧㄣ;</tRule>
+			<tRule>bun }$pTone     ↔ ㄅㄨㄣ }$zTone;</tRule>
+			<tRule> bun            →  ㄅㄨㄣ˙;</tRule>
+			<tRule> bun1           ← ㄅㄨㄣ;</tRule>
+			<tRule>ba }$pTone      ↔ ㄅㄚ }$zTone;</tRule>
+			<tRule> ba             →  ㄅㄚ˙;</tRule>
+			<tRule> ba1            ← ㄅㄚ;</tRule>
+			<tRule>bo }$pTone      ↔ ㄅㄛ }$zTone;</tRule>
+			<tRule> bo             →  ㄅㄛ˙;</tRule>
+			<tRule> bo1            ← ㄅㄛ;</tRule>
+			<tRule>bi }$pTone      ↔ ㄅㄧ }$zTone;</tRule>
+			<tRule> bi             →  ㄅㄧ˙;</tRule>
+			<tRule> bi1            ← ㄅㄧ;</tRule>
+			<tRule>bu }$pTone      ↔ ㄅㄨ }$zTone;</tRule>
+			<tRule> bu             →  ㄅㄨ˙;</tRule>
+			<tRule> bu1            ← ㄅㄨ;</tRule>
+			<tRule>#</tRule>
+			<tRule>pang }$pTone    ↔ ㄆㄤ }$zTone;</tRule>
+			<tRule> pang           →  ㄆㄤ˙;</tRule>
+			<tRule> pang1          ← ㄆㄤ;</tRule>
+			<tRule>peng }$pTone    ↔ ㄆㄥ }$zTone;</tRule>
+			<tRule> peng           →  ㄆㄥ˙;</tRule>
+			<tRule> peng1          ← ㄆㄥ;</tRule>
+			<tRule>piao }$pTone    ↔ ㄆㄧㄠ }$zTone;</tRule>
+			<tRule> piao           →  ㄆㄧㄠ˙;</tRule>
+			<tRule> piao1          ← ㄆㄧㄠ;</tRule>
+			<tRule>pian }$pTone    ↔ ㄆㄧㄢ }$zTone;</tRule>
+			<tRule> pian           →  ㄆㄧㄢ˙;</tRule>
+			<tRule> pian1          ← ㄆㄧㄢ;</tRule>
+			<tRule>ping }$pTone    ↔ ㄆㄧㄥ }$zTone;</tRule>
+			<tRule> ping           →  ㄆㄧㄥ˙;</tRule>
+			<tRule> ping1          ← ㄆㄧㄥ;</tRule>
+			<tRule>pai }$pTone     ↔ ㄆㄞ }$zTone;</tRule>
+			<tRule> pai            →  ㄆㄞ˙;</tRule>
+			<tRule> pai1           ← ㄆㄞ;</tRule>
+			<tRule>pei }$pTone     ↔ ㄆㄟ }$zTone;</tRule>
+			<tRule> pei            →  ㄆㄟ˙;</tRule>
+			<tRule> pei1           ← ㄆㄟ;</tRule>
+			<tRule>pao }$pTone     ↔ ㄆㄠ }$zTone;</tRule>
+			<tRule> pao            →  ㄆㄠ˙;</tRule>
+			<tRule> pao1           ← ㄆㄠ;</tRule>
+			<tRule>pou }$pTone     ↔ ㄆㄡ }$zTone;</tRule>
+			<tRule> pou            →  ㄆㄡ˙;</tRule>
+			<tRule> pou1           ← ㄆㄡ;</tRule>
+			<tRule>pan }$pTone     ↔ ㄆㄢ }$zTone;</tRule>
+			<tRule> pan            →  ㄆㄢ˙;</tRule>
+			<tRule> pan1           ← ㄆㄢ;</tRule>
+			<tRule>pen }$pTone     ↔ ㄆㄣ }$zTone;</tRule>
+			<tRule> pen            →  ㄆㄣ˙;</tRule>
+			<tRule> pen1           ← ㄆㄣ;</tRule>
+			<tRule>pie }$pTone     ↔ ㄆㄧㄝ }$zTone;</tRule>
+			<tRule> pie            →  ㄆㄧㄝ˙;</tRule>
+			<tRule> pie1           ← ㄆㄧㄝ;</tRule>
+			<tRule>pin }$pTone     ↔ ㄆㄧㄣ }$zTone;</tRule>
+			<tRule> pin            →  ㄆㄧㄣ˙;</tRule>
+			<tRule> pin1           ← ㄆㄧㄣ;</tRule>
+			<tRule>pa }$pTone      ↔ ㄆㄚ }$zTone;</tRule>
+			<tRule> pa             →  ㄆㄚ˙;</tRule>
+			<tRule> pa1            ← ㄆㄚ;</tRule>
+			<tRule>po }$pTone      ↔ ㄆㄛ }$zTone;</tRule>
+			<tRule> po             →  ㄆㄛ˙;</tRule>
+			<tRule> po1            ← ㄆㄛ;</tRule>
+			<tRule>pi }$pTone      ↔ ㄆㄧ }$zTone;</tRule>
+			<tRule> pi             →  ㄆㄧ˙;</tRule>
+			<tRule> pi1            ← ㄆㄧ;</tRule>
+			<tRule>pu }$pTone      ↔ ㄆㄨ }$zTone;</tRule>
+			<tRule> pu             →  ㄆㄨ˙;</tRule>
+			<tRule> pu1            ← ㄆㄨ;</tRule>
+			<tRule>#</tRule>
+			<tRule>mang }$pTone    ↔ ㄇㄤ }$zTone;</tRule>
+			<tRule> mang           →  ㄇㄤ˙;</tRule>
+			<tRule> mang1          ← ㄇㄤ;</tRule>
+			<tRule>meng }$pTone    ↔ ㄇㄥ }$zTone;</tRule>
+			<tRule> meng           →  ㄇㄥ˙;</tRule>
+			<tRule> meng1          ← ㄇㄥ;</tRule>
+			<tRule>miao }$pTone    ↔ ㄇㄧㄠ }$zTone;</tRule>
+			<tRule> miao           →  ㄇㄧㄠ˙;</tRule>
+			<tRule> miao1          ← ㄇㄧㄠ;</tRule>
+			<tRule>mian }$pTone    ↔ ㄇㄧㄢ }$zTone;</tRule>
+			<tRule> mian           →  ㄇㄧㄢ˙;</tRule>
+			<tRule> mian1          ← ㄇㄧㄢ;</tRule>
+			<tRule>ming }$pTone    ↔ ㄇㄧㄥ }$zTone;</tRule>
+			<tRule> ming           →  ㄇㄧㄥ˙;</tRule>
+			<tRule> ming1          ← ㄇㄧㄥ;</tRule>
+			<tRule>mai }$pTone     ↔ ㄇㄞ }$zTone;</tRule>
+			<tRule> mai            →  ㄇㄞ˙;</tRule>
+			<tRule> mai1           ← ㄇㄞ;</tRule>
+			<tRule>mei }$pTone     ↔ ㄇㄟ }$zTone;</tRule>
+			<tRule> mei            →  ㄇㄟ˙;</tRule>
+			<tRule> mei1           ← ㄇㄟ;</tRule>
+			<tRule>mao }$pTone     ↔ ㄇㄠ }$zTone;</tRule>
+			<tRule> mao            →  ㄇㄠ˙;</tRule>
+			<tRule> mao1           ← ㄇㄠ;</tRule>
+			<tRule>mou }$pTone     ↔ ㄇㄡ }$zTone;</tRule>
+			<tRule> mou            →  ㄇㄡ˙;</tRule>
+			<tRule> mou1           ← ㄇㄡ;</tRule>
+			<tRule>man }$pTone     ↔ ㄇㄢ }$zTone;</tRule>
+			<tRule> man            →  ㄇㄢ˙;</tRule>
+			<tRule> man1           ← ㄇㄢ;</tRule>
+			<tRule>men }$pTone     ↔ ㄇㄣ }$zTone;</tRule>
+			<tRule> men            →  ㄇㄣ˙;</tRule>
+			<tRule> men1           ← ㄇㄣ;</tRule>
+			<tRule>mie }$pTone     ↔ ㄇㄧㄝ }$zTone;</tRule>
+			<tRule> mie            →  ㄇㄧㄝ˙;</tRule>
+			<tRule> mie1           ← ㄇㄧㄝ;</tRule>
+			<tRule>miu }$pTone     ↔ ㄇㄧㄡ }$zTone;</tRule>
+			<tRule> miu            →  ㄇㄧㄡ˙;</tRule>
+			<tRule> miu1           ← ㄇㄧㄡ;</tRule>
+			<tRule>min }$pTone     ↔ ㄇㄧㄣ }$zTone;</tRule>
+			<tRule> min            →  ㄇㄧㄣ˙;</tRule>
+			<tRule> min1           ← ㄇㄧㄣ;</tRule>
+			<tRule>ma }$pTone      ↔ ㄇㄚ }$zTone;</tRule>
+			<tRule> ma             →  ㄇㄚ˙;</tRule>
+			<tRule> ma1            ← ㄇㄚ;</tRule>
+			<tRule>mo }$pTone      ↔ ㄇㄛ }$zTone;</tRule>
+			<tRule> mo             →  ㄇㄛ˙;</tRule>
+			<tRule> mo1            ← ㄇㄛ;</tRule>
+			<tRule>me }$pTone      ↔ ㄇㄜ }$zTone;</tRule>
+			<tRule> me             →  ㄇㄜ˙;</tRule>
+			<tRule> me1            ← ㄇㄜ;</tRule>
+			<tRule>mi }$pTone      ↔ ㄇㄧ }$zTone;</tRule>
+			<tRule> mi             →  ㄇㄧ˙;</tRule>
+			<tRule> mi1            ← ㄇㄧ;</tRule>
+			<tRule>mu }$pTone      ↔ ㄇㄨ }$zTone;</tRule>
+			<tRule> mu             →  ㄇㄨ˙;</tRule>
+			<tRule> mu1            ← ㄇㄨ;</tRule>
+			<tRule># m handled below</tRule>
+			<tRule>#</tRule>
+			<tRule>fang }$pTone    ↔ ㄈㄤ }$zTone;</tRule>
+			<tRule> fang           →  ㄈㄤ˙;</tRule>
+			<tRule> fang1          ← ㄈㄤ;</tRule>
+			<tRule>feng }$pTone    ↔ ㄈㄥ }$zTone;</tRule>
+			<tRule> feng           →  ㄈㄥ˙;</tRule>
+			<tRule> feng1          ← ㄈㄥ;</tRule>
+			<tRule>fiao }$pTone    ↔ ㄈㄧㄠ }$zTone;</tRule>
+			<tRule> fiao           →  ㄈㄧㄠ˙;</tRule>
+			<tRule> fiao1          ← ㄈㄧㄠ;</tRule>
+			<tRule>fei }$pTone     ↔ ㄈㄟ }$zTone;</tRule>
+			<tRule> fei            →  ㄈㄟ˙;</tRule>
+			<tRule> fei1           ← ㄈㄟ;</tRule>
+			<tRule>fou }$pTone     ↔ ㄈㄡ }$zTone;</tRule>
+			<tRule> fou            →  ㄈㄡ˙;</tRule>
+			<tRule> fou1           ← ㄈㄡ;</tRule>
+			<tRule>fan }$pTone     ↔ ㄈㄢ }$zTone;</tRule>
+			<tRule> fan            →  ㄈㄢ˙;</tRule>
+			<tRule> fan1           ← ㄈㄢ;</tRule>
+			<tRule>fen }$pTone     ↔ ㄈㄣ }$zTone;</tRule>
+			<tRule> fen            →  ㄈㄣ˙;</tRule>
+			<tRule> fen1           ← ㄈㄣ;</tRule>
+			<tRule>fa }$pTone      ↔ ㄈㄚ }$zTone;</tRule>
+			<tRule> fa             →  ㄈㄚ˙;</tRule>
+			<tRule> fa1            ← ㄈㄚ;</tRule>
+			<tRule>fo }$pTone      ↔ ㄈㄛ }$zTone;</tRule>
+			<tRule> fo             →  ㄈㄛ˙;</tRule>
+			<tRule> fo1            ← ㄈㄛ;</tRule>
+			<tRule>fu }$pTone      ↔ ㄈㄨ }$zTone;</tRule>
+			<tRule> fu             →  ㄈㄨ˙;</tRule>
+			<tRule> fu1            ← ㄈㄨ;</tRule>
+			<tRule>#</tRule>
+			<tRule>diang }$pTone   ↔ ㄉㄧㄤ }$zTone;	# (not in han-latin)</tRule>
+			<tRule> diang          →  ㄉㄧㄤ˙;</tRule>
+			<tRule> diang1         ← ㄉㄧㄤ;</tRule>
+			<tRule>dang }$pTone    ↔ ㄉㄤ }$zTone;</tRule>
+			<tRule> dang           →  ㄉㄤ˙;</tRule>
+			<tRule> dang1          ← ㄉㄤ;</tRule>
+			<tRule>deng }$pTone    ↔ ㄉㄥ }$zTone;</tRule>
+			<tRule> deng           →  ㄉㄥ˙;</tRule>
+			<tRule> deng1          ← ㄉㄥ;</tRule>
+			<tRule>diao }$pTone    ↔ ㄉㄧㄠ }$zTone;</tRule>
+			<tRule> diao           →  ㄉㄧㄠ˙;</tRule>
+			<tRule> diao1          ← ㄉㄧㄠ;</tRule>
+			<tRule>dian }$pTone    ↔ ㄉㄧㄢ }$zTone;</tRule>
+			<tRule> dian           →  ㄉㄧㄢ˙;</tRule>
+			<tRule> dian1          ← ㄉㄧㄢ;</tRule>
+			<tRule>ding }$pTone    ↔ ㄉㄧㄥ }$zTone;</tRule>
+			<tRule> ding           →  ㄉㄧㄥ˙;</tRule>
+			<tRule> ding1          ← ㄉㄧㄥ;</tRule>
+			<tRule>duan }$pTone    ↔ ㄉㄨㄢ }$zTone;</tRule>
+			<tRule> duan           →  ㄉㄨㄢ˙;</tRule>
+			<tRule> duan1          ← ㄉㄨㄢ;</tRule>
+			<tRule>dong }$pTone    ↔ ㄉㄨㄥ }$zTone;</tRule>
+			<tRule> dong           →  ㄉㄨㄥ˙;</tRule>
+			<tRule> dong1          ← ㄉㄨㄥ;</tRule>
+			<tRule>dai }$pTone     ↔ ㄉㄞ }$zTone;</tRule>
+			<tRule> dai            →  ㄉㄞ˙;</tRule>
+			<tRule> dai1           ← ㄉㄞ;</tRule>
+			<tRule>dei }$pTone     ↔ ㄉㄟ }$zTone;		# (not in han-latin)</tRule>
+			<tRule> dei            →  ㄉㄟ˙;</tRule>
+			<tRule> dei1           ← ㄉㄟ;</tRule>
+			<tRule>dao }$pTone     ↔ ㄉㄠ }$zTone;</tRule>
+			<tRule> dao            →  ㄉㄠ˙;</tRule>
+			<tRule> dao1           ← ㄉㄠ;</tRule>
+			<tRule>dou }$pTone     ↔ ㄉㄡ }$zTone;</tRule>
+			<tRule> dou            →  ㄉㄡ˙;</tRule>
+			<tRule> dou1           ← ㄉㄡ;</tRule>
+			<tRule>dan }$pTone     ↔ ㄉㄢ }$zTone;</tRule>
+			<tRule> dan            →  ㄉㄢ˙;</tRule>
+			<tRule> dan1           ← ㄉㄢ;</tRule>
+			<tRule>den }$pTone     ↔ ㄉㄣ }$zTone;</tRule>
+			<tRule> den            →  ㄉㄣ˙;</tRule>
+			<tRule> den1           ← ㄉㄣ;</tRule>
+			<tRule>dia }$pTone     ↔ ㄉㄧㄚ }$zTone;</tRule>
+			<tRule> dia            →  ㄉㄧㄚ˙;</tRule>
+			<tRule> dia1           ← ㄉㄧㄚ;</tRule>
+			<tRule>die }$pTone     ↔ ㄉㄧㄝ }$zTone;</tRule>
+			<tRule> die            →  ㄉㄧㄝ˙;</tRule>
+			<tRule> die1           ← ㄉㄧㄝ;</tRule>
+			<tRule>diu }$pTone     ↔ ㄉㄧㄡ }$zTone;</tRule>
+			<tRule> diu            →  ㄉㄧㄡ˙;</tRule>
+			<tRule> diu1           ← ㄉㄧㄡ;</tRule>
+			<tRule>din }$pTone     ↔ ㄉㄧㄣ }$zTone;</tRule>
+			<tRule> din            →  ㄉㄧㄣ˙;</tRule>
+			<tRule> din1           ← ㄉㄧㄣ;</tRule>
+			<tRule>duo }$pTone     ↔ ㄉㄨㄛ }$zTone;</tRule>
+			<tRule> duo            →  ㄉㄨㄛ˙;</tRule>
+			<tRule> duo1           ← ㄉㄨㄛ;</tRule>
+			<tRule>dui }$pTone     ↔ ㄉㄨㄟ }$zTone;</tRule>
+			<tRule> dui            →  ㄉㄨㄟ˙;</tRule>
+			<tRule> dui1           ← ㄉㄨㄟ;</tRule>
+			<tRule>dun }$pTone     ↔ ㄉㄨㄣ }$zTone;</tRule>
+			<tRule> dun            →  ㄉㄨㄣ˙;</tRule>
+			<tRule> dun1           ← ㄉㄨㄣ;</tRule>
+			<tRule>da }$pTone      ↔ ㄉㄚ }$zTone;</tRule>
+			<tRule> da             →  ㄉㄚ˙;</tRule>
+			<tRule> da1            ← ㄉㄚ;</tRule>
+			<tRule>de }$pTone      ↔ ㄉㄜ }$zTone;</tRule>
+			<tRule> de             →  ㄉㄜ˙;</tRule>
+			<tRule> de1            ← ㄉㄜ;</tRule>
+			<tRule>di }$pTone      ↔ ㄉㄧ }$zTone;</tRule>
+			<tRule> di             →  ㄉㄧ˙;</tRule>
+			<tRule> di1            ← ㄉㄧ;</tRule>
+			<tRule>du }$pTone      ↔ ㄉㄨ }$zTone;</tRule>
+			<tRule> du             →  ㄉㄨ˙;</tRule>
+			<tRule> du1            ← ㄉㄨ;</tRule>
+			<tRule>#</tRule>
+			<tRule>tang }$pTone    ↔ ㄊㄤ }$zTone;</tRule>
+			<tRule> tang           →  ㄊㄤ˙;</tRule>
+			<tRule> tang1          ← ㄊㄤ;</tRule>
+			<tRule>teng }$pTone    ↔ ㄊㄥ }$zTone;</tRule>
+			<tRule> teng           →  ㄊㄥ˙;</tRule>
+			<tRule> teng1          ← ㄊㄥ;</tRule>
+			<tRule>tiao }$pTone    ↔ ㄊㄧㄠ }$zTone;</tRule>
+			<tRule> tiao           →  ㄊㄧㄠ˙;</tRule>
+			<tRule> tiao1          ← ㄊㄧㄠ;</tRule>
+			<tRule>tian }$pTone    ↔ ㄊㄧㄢ }$zTone;</tRule>
+			<tRule> tian           →  ㄊㄧㄢ˙;</tRule>
+			<tRule> tian1          ← ㄊㄧㄢ;</tRule>
+			<tRule>ting }$pTone    ↔ ㄊㄧㄥ }$zTone;</tRule>
+			<tRule> ting           →  ㄊㄧㄥ˙;</tRule>
+			<tRule> ting1          ← ㄊㄧㄥ;</tRule>
+			<tRule>tuan }$pTone    ↔ ㄊㄨㄢ }$zTone;</tRule>
+			<tRule> tuan           →  ㄊㄨㄢ˙;</tRule>
+			<tRule> tuan1          ← ㄊㄨㄢ;</tRule>
+			<tRule>tong }$pTone    ↔ ㄊㄨㄥ }$zTone;</tRule>
+			<tRule> tong           →  ㄊㄨㄥ˙;</tRule>
+			<tRule> tong1          ← ㄊㄨㄥ;</tRule>
+			<tRule>tai }$pTone     ↔ ㄊㄞ }$zTone;</tRule>
+			<tRule> tai            →  ㄊㄞ˙;</tRule>
+			<tRule> tai1           ← ㄊㄞ;</tRule>
+			<tRule>tao }$pTone     ↔ ㄊㄠ }$zTone;</tRule>
+			<tRule> tao            →  ㄊㄠ˙;</tRule>
+			<tRule> tao1           ← ㄊㄠ;</tRule>
+			<tRule>tou }$pTone     ↔ ㄊㄡ }$zTone;</tRule>
+			<tRule> tou            →  ㄊㄡ˙;</tRule>
+			<tRule> tou1           ← ㄊㄡ;</tRule>
+			<tRule>tan }$pTone     ↔ ㄊㄢ }$zTone;</tRule>
+			<tRule> tan            →  ㄊㄢ˙;</tRule>
+			<tRule> tan1           ← ㄊㄢ;</tRule>
+			<tRule>tie }$pTone     ↔ ㄊㄧㄝ }$zTone;</tRule>
+			<tRule> tie            →  ㄊㄧㄝ˙;</tRule>
+			<tRule> tie1           ← ㄊㄧㄝ;</tRule>
+			<tRule>tuo }$pTone     ↔ ㄊㄨㄛ }$zTone;</tRule>
+			<tRule> tuo            →  ㄊㄨㄛ˙;</tRule>
+			<tRule> tuo1           ← ㄊㄨㄛ;</tRule>
+			<tRule>tui }$pTone     ↔ ㄊㄨㄟ }$zTone;</tRule>
+			<tRule> tui            →  ㄊㄨㄟ˙;</tRule>
+			<tRule> tui1           ← ㄊㄨㄟ;</tRule>
+			<tRule>tun }$pTone     ↔ ㄊㄨㄣ }$zTone;</tRule>
+			<tRule> tun            →  ㄊㄨㄣ˙;</tRule>
+			<tRule> tun1           ← ㄊㄨㄣ;</tRule>
+			<tRule>ta }$pTone      ↔ ㄊㄚ }$zTone;</tRule>
+			<tRule> ta             →  ㄊㄚ˙;</tRule>
+			<tRule> ta1            ← ㄊㄚ;</tRule>
+			<tRule>te }$pTone      ↔ ㄊㄜ }$zTone;</tRule>
+			<tRule> te             →  ㄊㄜ˙;</tRule>
+			<tRule> te1            ← ㄊㄜ;</tRule>
+			<tRule>ti }$pTone      ↔ ㄊㄧ }$zTone;</tRule>
+			<tRule> ti             →  ㄊㄧ˙;</tRule>
+			<tRule> ti1            ← ㄊㄧ;</tRule>
+			<tRule>tu }$pTone      ↔ ㄊㄨ }$zTone;</tRule>
+			<tRule> tu             →  ㄊㄨ˙;</tRule>
+			<tRule> tu1            ← ㄊㄨ;</tRule>
+			<tRule>#</tRule>
+			<tRule>niang }$pTone   ↔ ㄋㄧㄤ }$zTone;</tRule>
+			<tRule> niang          →  ㄋㄧㄤ˙;</tRule>
+			<tRule> niang1         ← ㄋㄧㄤ;</tRule>
+			<tRule>nang }$pTone    ↔ ㄋㄤ }$zTone;</tRule>
+			<tRule> nang           →  ㄋㄤ˙;</tRule>
+			<tRule> nang1          ← ㄋㄤ;</tRule>
+			<tRule>neng }$pTone    ↔ ㄋㄥ }$zTone;</tRule>
+			<tRule> neng           →  ㄋㄥ˙;</tRule>
+			<tRule> neng1          ← ㄋㄥ;</tRule>
+			<tRule>niao }$pTone    ↔ ㄋㄧㄠ }$zTone;</tRule>
+			<tRule> niao           →  ㄋㄧㄠ˙;</tRule>
+			<tRule> niao1          ← ㄋㄧㄠ;</tRule>
+			<tRule>nian }$pTone    ↔ ㄋㄧㄢ }$zTone;</tRule>
+			<tRule> nian           →  ㄋㄧㄢ˙;</tRule>
+			<tRule> nian1          ← ㄋㄧㄢ;</tRule>
+			<tRule>ning }$pTone    ↔ ㄋㄧㄥ }$zTone;</tRule>
+			<tRule> ning           →  ㄋㄧㄥ˙;</tRule>
+			<tRule> ning1          ← ㄋㄧㄥ;</tRule>
+			<tRule>nuan }$pTone    ↔ ㄋㄨㄢ }$zTone;</tRule>
+			<tRule> nuan           →  ㄋㄨㄢ˙;</tRule>
+			<tRule> nuan1          ← ㄋㄨㄢ;</tRule>
+			<tRule>nong }$pTone    ↔ ㄋㄨㄥ }$zTone;</tRule>
+			<tRule> nong           →  ㄋㄨㄥ˙;</tRule>
+			<tRule> nong1          ← ㄋㄨㄥ;</tRule>
+			<tRule>nai }$pTone     ↔ ㄋㄞ }$zTone;</tRule>
+			<tRule> nai            →  ㄋㄞ˙;</tRule>
+			<tRule> nai1           ← ㄋㄞ;</tRule>
+			<tRule>nei }$pTone     ↔ ㄋㄟ }$zTone;</tRule>
+			<tRule> nei            →  ㄋㄟ˙;</tRule>
+			<tRule> nei1           ← ㄋㄟ;</tRule>
+			<tRule>nao }$pTone     ↔ ㄋㄠ }$zTone;</tRule>
+			<tRule> nao            →  ㄋㄠ˙;</tRule>
+			<tRule> nao1           ← ㄋㄠ;</tRule>
+			<tRule>nou }$pTone     ↔ ㄋㄡ }$zTone;</tRule>
+			<tRule> nou            →  ㄋㄡ˙;</tRule>
+			<tRule> nou1           ← ㄋㄡ;</tRule>
+			<tRule>nan }$pTone     ↔ ㄋㄢ }$zTone;</tRule>
+			<tRule> nan            →  ㄋㄢ˙;</tRule>
+			<tRule> nan1           ← ㄋㄢ;</tRule>
+			<tRule>nen }$pTone     ↔ ㄋㄣ }$zTone;</tRule>
+			<tRule> nen            →  ㄋㄣ˙;</tRule>
+			<tRule> nen1           ← ㄋㄣ;</tRule>
+			<tRule>nia }$pTone     ↔ ㄋㄧㄚ }$zTone;	# (not in han-latin)</tRule>
+			<tRule> nia            →  ㄋㄧㄚ˙;</tRule>
+			<tRule> nia1           ← ㄋㄧㄚ;</tRule>
+			<tRule>nie }$pTone     ↔ ㄋㄧㄝ }$zTone;</tRule>
+			<tRule> nie            →  ㄋㄧㄝ˙;</tRule>
+			<tRule> nie1           ← ㄋㄧㄝ;</tRule>
+			<tRule>niu }$pTone     ↔ ㄋㄧㄡ }$zTone;</tRule>
+			<tRule> niu            →  ㄋㄧㄡ˙;</tRule>
+			<tRule> niu1           ← ㄋㄧㄡ;</tRule>
+			<tRule>nin }$pTone     ↔ ㄋㄧㄣ }$zTone;</tRule>
+			<tRule> nin            →  ㄋㄧㄣ˙;</tRule>
+			<tRule> nin1           ← ㄋㄧㄣ;</tRule>
+			<tRule>nuo }$pTone     ↔ ㄋㄨㄛ }$zTone;</tRule>
+			<tRule> nuo            →  ㄋㄨㄛ˙;</tRule>
+			<tRule> nuo1           ← ㄋㄨㄛ;</tRule>
+			<tRule>nun }$pTone     ↔ ㄋㄨㄣ }$zTone;</tRule>
+			<tRule> nun            →  ㄋㄨㄣ˙;</tRule>
+			<tRule> nun1           ← ㄋㄨㄣ;</tRule>
+			<tRule>nüe }$pTone     ↔ ㄋㄩㄝ }$zTone;</tRule>
+			<tRule> nüe            →  ㄋㄩㄝ˙;</tRule>
+			<tRule> nüe1           ← ㄋㄩㄝ;</tRule>
+			<tRule>nve }$pTone     → ㄋㄩㄝ;			# one-way, handle alternate spelling</tRule>
+			<tRule> nve            →  ㄋㄩㄝ˙;</tRule>
+			<tRule>nue }$pTone     → ㄋㄩㄝ;			# (not in han-latin) one-way, handle wrong u</tRule>
+			<tRule> nue            →  ㄋㄩㄝ˙;</tRule>
+			<tRule>na }$pTone      ↔ ㄋㄚ }$zTone;</tRule>
+			<tRule> na             →  ㄋㄚ˙;</tRule>
+			<tRule> na1            ← ㄋㄚ;</tRule>
+			<tRule>ne }$pTone      ↔ ㄋㄜ }$zTone;</tRule>
+			<tRule> ne             →  ㄋㄜ˙;</tRule>
+			<tRule> ne1            ← ㄋㄜ;</tRule>
+			<tRule>ni }$pTone      ↔ ㄋㄧ }$zTone;</tRule>
+			<tRule> ni             →  ㄋㄧ˙;</tRule>
+			<tRule> ni1            ← ㄋㄧ;</tRule>
+			<tRule>nu }$pTone      ↔ ㄋㄨ }$zTone;</tRule>
+			<tRule> nu             →  ㄋㄨ˙;</tRule>
+			<tRule> nu1            ← ㄋㄨ;</tRule>
+			<tRule>nü }$pTone      ↔ ㄋㄩ }$zTone;</tRule>
+			<tRule> nü             →  ㄋㄩ˙;</tRule>
+			<tRule> nü1            ← ㄋㄩ;</tRule>
+			<tRule>nv }$pTone      → ㄋㄩ;				# one-way, handle alternate spelling</tRule>
+			<tRule> nv             →  ㄋㄩ˙;</tRule>
+			<tRule># n handled below</tRule>
+			<tRule>#</tRule>
+			<tRule>liang }$pTone   ↔ ㄌㄧㄤ }$zTone;</tRule>
+			<tRule> liang          →  ㄌㄧㄤ˙;</tRule>
+			<tRule> liang1         ← ㄌㄧㄤ;</tRule>
+			<tRule>lang }$pTone    ↔ ㄌㄤ }$zTone;</tRule>
+			<tRule> lang           →  ㄌㄤ˙;</tRule>
+			<tRule> lang1          ← ㄌㄤ;</tRule>
+			<tRule>leng }$pTone    ↔ ㄌㄥ }$zTone;</tRule>
+			<tRule> leng           →  ㄌㄥ˙;</tRule>
+			<tRule> leng1          ← ㄌㄥ;</tRule>
+			<tRule>liao }$pTone    ↔ ㄌㄧㄠ }$zTone;</tRule>
+			<tRule> liao           →  ㄌㄧㄠ˙;</tRule>
+			<tRule> liao1          ← ㄌㄧㄠ;</tRule>
+			<tRule>lian }$pTone    ↔ ㄌㄧㄢ }$zTone;</tRule>
+			<tRule> lian           →  ㄌㄧㄢ˙;</tRule>
+			<tRule> lian1          ← ㄌㄧㄢ;</tRule>
+			<tRule>ling }$pTone    ↔ ㄌㄧㄥ }$zTone;</tRule>
+			<tRule> ling           →  ㄌㄧㄥ˙;</tRule>
+			<tRule> ling1          ← ㄌㄧㄥ;</tRule>
+			<tRule>luan }$pTone    ↔ ㄌㄨㄢ }$zTone;</tRule>
+			<tRule> luan           →  ㄌㄨㄢ˙;</tRule>
+			<tRule> luan1          ← ㄌㄨㄢ;</tRule>
+			<tRule>long }$pTone    ↔ ㄌㄨㄥ }$zTone;</tRule>
+			<tRule> long           →  ㄌㄨㄥ˙;</tRule>
+			<tRule> long1          ← ㄌㄨㄥ;</tRule>
+			<tRule>lüan }$pTone    ↔ ㄌㄩㄢ }$zTone;	# (not in han-latin)</tRule>
+			<tRule> lüan           →  ㄌㄩㄢ˙;</tRule>
+			<tRule> lüan1          ← ㄌㄩㄢ;</tRule>
+			<tRule>lvan }$pTone    → ㄌㄩㄢ;			# (not in han-latin) one-way, handle v alternate for ü</tRule>
+			<tRule> lvan           →  ㄌㄩㄢ˙;</tRule>
+			<tRule>lai }$pTone     ↔ ㄌㄞ }$zTone;</tRule>
+			<tRule> lai            →  ㄌㄞ˙;</tRule>
+			<tRule> lai1           ← ㄌㄞ;</tRule>
+			<tRule>lei }$pTone     ↔ ㄌㄟ }$zTone;</tRule>
+			<tRule> lei            →  ㄌㄟ˙;</tRule>
+			<tRule> lei1           ← ㄌㄟ;</tRule>
+			<tRule>lao }$pTone     ↔ ㄌㄠ }$zTone;</tRule>
+			<tRule> lao            →  ㄌㄠ˙;</tRule>
+			<tRule> lao1           ← ㄌㄠ;</tRule>
+			<tRule>lou }$pTone     ↔ ㄌㄡ }$zTone;</tRule>
+			<tRule> lou            →  ㄌㄡ˙;</tRule>
+			<tRule> lou1           ← ㄌㄡ;</tRule>
+			<tRule>lan }$pTone     ↔ ㄌㄢ }$zTone;</tRule>
+			<tRule> lan            →  ㄌㄢ˙;</tRule>
+			<tRule> lan1           ← ㄌㄢ;</tRule>
+			<tRule>lia }$pTone     ↔ ㄌㄧㄚ }$zTone;</tRule>
+			<tRule> lia            →  ㄌㄧㄚ˙;</tRule>
+			<tRule> lia1           ← ㄌㄧㄚ;</tRule>
+			<tRule>lie }$pTone     ↔ ㄌㄧㄝ }$zTone;</tRule>
+			<tRule> lie            →  ㄌㄧㄝ˙;</tRule>
+			<tRule> lie1           ← ㄌㄧㄝ;</tRule>
+			<tRule>liu }$pTone     ↔ ㄌㄧㄡ }$zTone;</tRule>
+			<tRule> liu            →  ㄌㄧㄡ˙;</tRule>
+			<tRule> liu1           ← ㄌㄧㄡ;</tRule>
+			<tRule>lin }$pTone     ↔ ㄌㄧㄣ }$zTone;</tRule>
+			<tRule> lin            →  ㄌㄧㄣ˙;</tRule>
+			<tRule> lin1           ← ㄌㄧㄣ;</tRule>
+			<tRule>luo }$pTone     ↔ ㄌㄨㄛ }$zTone;</tRule>
+			<tRule> luo            →  ㄌㄨㄛ˙;</tRule>
+			<tRule> luo1           ← ㄌㄨㄛ;</tRule>
+			<tRule>lun }$pTone     ↔ ㄌㄨㄣ }$zTone;</tRule>
+			<tRule> lun            →  ㄌㄨㄣ˙;</tRule>
+			<tRule> lun1           ← ㄌㄨㄣ;</tRule>
+			<tRule>lüe }$pTone     ↔ ㄌㄩㄝ }$zTone;</tRule>
+			<tRule> lüe            →  ㄌㄩㄝ˙;</tRule>
+			<tRule> lüe1           ← ㄌㄩㄝ;</tRule>
+			<tRule>lve }$pTone     → ㄌㄩㄝ;			# one-way, handle v alternate for ü</tRule>
+			<tRule> lve            →  ㄌㄩㄝ˙;</tRule>
+			<tRule>lue }$pTone     → ㄌㄩㄝ;			# (not in han-latin) one-way, handle wrong u</tRule>
+			<tRule> lue            →  ㄌㄩㄝ˙;</tRule>
+			<tRule>la }$pTone      ↔ ㄌㄚ }$zTone;</tRule>
+			<tRule> la             →  ㄌㄚ˙;</tRule>
+			<tRule> la1            ← ㄌㄚ;</tRule>
+			<tRule>lo }$pTone      ↔ ㄌㄛ }$zTone;</tRule>
+			<tRule> lo             →  ㄌㄛ˙;</tRule>
+			<tRule> lo1            ← ㄌㄛ;</tRule>
+			<tRule>le }$pTone      ↔ ㄌㄜ }$zTone;</tRule>
+			<tRule> le             →  ㄌㄜ˙;</tRule>
+			<tRule> le1            ← ㄌㄜ;</tRule>
+			<tRule>li }$pTone      ↔ ㄌㄧ }$zTone;</tRule>
+			<tRule> li             →  ㄌㄧ˙;</tRule>
+			<tRule> li1            ← ㄌㄧ;</tRule>
+			<tRule>lu }$pTone      ↔ ㄌㄨ }$zTone;</tRule>
+			<tRule> lu             →  ㄌㄨ˙;</tRule>
+			<tRule> lu1            ← ㄌㄨ;</tRule>
+			<tRule>lü }$pTone      ↔ ㄌㄩ }$zTone;</tRule>
+			<tRule> lü             →  ㄌㄩ˙;</tRule>
+			<tRule> lü1            ← ㄌㄩ;</tRule>
+			<tRule>lv }$pTone      → ㄌㄩ;				# one-way, handle v alternate for ü</tRule>
+			<tRule> lv             →  ㄌㄩ˙;</tRule>
+			<tRule>#</tRule>
+			<tRule>guang }$pTone   ↔ ㄍㄨㄤ }$zTone;</tRule>
+			<tRule> guang          →  ㄍㄨㄤ˙;</tRule>
+			<tRule> guang1         ← ㄍㄨㄤ;</tRule>
+			<tRule>gang }$pTone    ↔ ㄍㄤ }$zTone;</tRule>
+			<tRule> gang           →  ㄍㄤ˙;</tRule>
+			<tRule> gang1          ← ㄍㄤ;</tRule>
+			<tRule>geng }$pTone    ↔ ㄍㄥ }$zTone;</tRule>
+			<tRule> geng           →  ㄍㄥ˙;</tRule>
+			<tRule> geng1          ← ㄍㄥ;</tRule>
+			<tRule>guai }$pTone    ↔ ㄍㄨㄞ }$zTone;</tRule>
+			<tRule> guai           →  ㄍㄨㄞ˙;</tRule>
+			<tRule> guai1          ← ㄍㄨㄞ;</tRule>
+			<tRule>guan }$pTone    ↔ ㄍㄨㄢ }$zTone;</tRule>
+			<tRule> guan           →  ㄍㄨㄢ˙;</tRule>
+			<tRule> guan1          ← ㄍㄨㄢ;</tRule>
+			<tRule>gong }$pTone    ↔ ㄍㄨㄥ }$zTone;</tRule>
+			<tRule> gong           →  ㄍㄨㄥ˙;</tRule>
+			<tRule> gong1          ← ㄍㄨㄥ;</tRule>
+			<tRule>gai }$pTone     ↔ ㄍㄞ }$zTone;</tRule>
+			<tRule> gai            →  ㄍㄞ˙;</tRule>
+			<tRule> gai1           ← ㄍㄞ;</tRule>
+			<tRule>gei }$pTone     ↔ ㄍㄟ }$zTone;</tRule>
+			<tRule> gei            →  ㄍㄟ˙;</tRule>
+			<tRule> gei1           ← ㄍㄟ;</tRule>
+			<tRule>gao }$pTone     ↔ ㄍㄠ }$zTone;</tRule>
+			<tRule> gao            →  ㄍㄠ˙;</tRule>
+			<tRule> gao1           ← ㄍㄠ;</tRule>
+			<tRule>gou }$pTone     ↔ ㄍㄡ }$zTone;</tRule>
+			<tRule> gou            →  ㄍㄡ˙;</tRule>
+			<tRule> gou1           ← ㄍㄡ;</tRule>
+			<tRule>gan }$pTone     ↔ ㄍㄢ }$zTone;</tRule>
+			<tRule> gan            →  ㄍㄢ˙;</tRule>
+			<tRule> gan1           ← ㄍㄢ;</tRule>
+			<tRule>gen }$pTone     ↔ ㄍㄣ }$zTone;</tRule>
+			<tRule> gen            →  ㄍㄣ˙;</tRule>
+			<tRule> gen1           ← ㄍㄣ;</tRule>
+			<tRule>gua }$pTone     ↔ ㄍㄨㄚ }$zTone;</tRule>
+			<tRule> gua            →  ㄍㄨㄚ˙;</tRule>
+			<tRule> gua1           ← ㄍㄨㄚ;</tRule>
+			<tRule>guo }$pTone     ↔ ㄍㄨㄛ }$zTone;</tRule>
+			<tRule> guo            →  ㄍㄨㄛ˙;</tRule>
+			<tRule> guo1           ← ㄍㄨㄛ;</tRule>
+			<tRule>gui }$pTone     ↔ ㄍㄨㄟ }$zTone;</tRule>
+			<tRule> gui            →  ㄍㄨㄟ˙;</tRule>
+			<tRule> gui1           ← ㄍㄨㄟ;</tRule>
+			<tRule>gun }$pTone     ↔ ㄍㄨㄣ }$zTone;</tRule>
+			<tRule> gun            →  ㄍㄨㄣ˙;</tRule>
+			<tRule> gun1           ← ㄍㄨㄣ;</tRule>
+			<tRule>ga }$pTone      ↔ ㄍㄚ }$zTone;</tRule>
+			<tRule> ga             →  ㄍㄚ˙;</tRule>
+			<tRule> ga1            ← ㄍㄚ;</tRule>
+			<tRule>ge }$pTone      ↔ ㄍㄜ }$zTone;</tRule>
+			<tRule> ge             →  ㄍㄜ˙;</tRule>
+			<tRule> ge1            ← ㄍㄜ;</tRule>
+			<tRule>gi }$pTone      ↔ ㄍㄧ }$zTone;</tRule>
+			<tRule> gi             →  ㄍㄧ˙;</tRule>
+			<tRule> gi1            ← ㄍㄧ;</tRule>
+			<tRule>gu }$pTone      ↔ ㄍㄨ }$zTone;</tRule>
+			<tRule> gu             →  ㄍㄨ˙;</tRule>
+			<tRule> gu1            ← ㄍㄨ;</tRule>
+			<tRule>#</tRule>
+			<tRule>kuang }$pTone   ↔ ㄎㄨㄤ }$zTone;</tRule>
+			<tRule> kuang          →  ㄎㄨㄤ˙;</tRule>
+			<tRule> kuang1         ← ㄎㄨㄤ;</tRule>
+			<tRule>kang }$pTone    ↔ ㄎㄤ }$zTone;</tRule>
+			<tRule> kang           →  ㄎㄤ˙;</tRule>
+			<tRule> kang1          ← ㄎㄤ;</tRule>
+			<tRule>keng }$pTone    ↔ ㄎㄥ }$zTone;</tRule>
+			<tRule> keng           →  ㄎㄥ˙;</tRule>
+			<tRule> keng1          ← ㄎㄥ;</tRule>
+			<tRule>kuai }$pTone    ↔ ㄎㄨㄞ }$zTone;</tRule>
+			<tRule> kuai           →  ㄎㄨㄞ˙;</tRule>
+			<tRule> kuai1          ← ㄎㄨㄞ;</tRule>
+			<tRule>kuan }$pTone    ↔ ㄎㄨㄢ }$zTone;</tRule>
+			<tRule> kuan           →  ㄎㄨㄢ˙;</tRule>
+			<tRule> kuan1          ← ㄎㄨㄢ;</tRule>
+			<tRule>kong }$pTone    ↔ ㄎㄨㄥ }$zTone;</tRule>
+			<tRule> kong           →  ㄎㄨㄥ˙;</tRule>
+			<tRule> kong1          ← ㄎㄨㄥ;</tRule>
+			<tRule>kai }$pTone     ↔ ㄎㄞ }$zTone;</tRule>
+			<tRule> kai            →  ㄎㄞ˙;</tRule>
+			<tRule> kai1           ← ㄎㄞ;</tRule>
+			<tRule>kao }$pTone     ↔ ㄎㄠ }$zTone;</tRule>
+			<tRule> kao            →  ㄎㄠ˙;</tRule>
+			<tRule> kao1           ← ㄎㄠ;</tRule>
+			<tRule>kou }$pTone     ↔ ㄎㄡ }$zTone;</tRule>
+			<tRule> kou            →  ㄎㄡ˙;</tRule>
+			<tRule> kou1           ← ㄎㄡ;</tRule>
+			<tRule>kan }$pTone     ↔ ㄎㄢ }$zTone;</tRule>
+			<tRule> kan            →  ㄎㄢ˙;</tRule>
+			<tRule> kan1           ← ㄎㄢ;</tRule>
+			<tRule>ken }$pTone     ↔ ㄎㄣ }$zTone;</tRule>
+			<tRule> ken            →  ㄎㄣ˙;</tRule>
+			<tRule> ken1           ← ㄎㄣ;</tRule>
+			<tRule>kua }$pTone     ↔ ㄎㄨㄚ }$zTone;</tRule>
+			<tRule> kua            →  ㄎㄨㄚ˙;</tRule>
+			<tRule> kua1           ← ㄎㄨㄚ;</tRule>
+			<tRule>kuo }$pTone     ↔ ㄎㄨㄛ }$zTone;</tRule>
+			<tRule> kuo            →  ㄎㄨㄛ˙;</tRule>
+			<tRule> kuo1           ← ㄎㄨㄛ;</tRule>
+			<tRule>kui }$pTone     ↔ ㄎㄨㄟ }$zTone;</tRule>
+			<tRule> kui            →  ㄎㄨㄟ˙;</tRule>
+			<tRule> kui1           ← ㄎㄨㄟ;</tRule>
+			<tRule>kun }$pTone     ↔ ㄎㄨㄣ }$zTone;</tRule>
+			<tRule> kun            →  ㄎㄨㄣ˙;</tRule>
+			<tRule> kun1           ← ㄎㄨㄣ;</tRule>
+			<tRule>ka }$pTone      ↔ ㄎㄚ }$zTone;</tRule>
+			<tRule> ka             →  ㄎㄚ˙;</tRule>
+			<tRule> ka1            ← ㄎㄚ;</tRule>
+			<tRule>ke }$pTone      ↔ ㄎㄜ }$zTone;</tRule>
+			<tRule> ke             →  ㄎㄜ˙;</tRule>
+			<tRule> ke1            ← ㄎㄜ;</tRule>
+			<tRule>ku }$pTone      ↔ ㄎㄨ }$zTone;</tRule>
+			<tRule> ku             →  ㄎㄨ˙;</tRule>
+			<tRule> ku1            ← ㄎㄨ;</tRule>
+			<tRule>#</tRule>
+			<tRule>huang }$pTone   ↔ ㄏㄨㄤ }$zTone;</tRule>
+			<tRule> huang          →  ㄏㄨㄤ˙;</tRule>
+			<tRule> huang1         ← ㄏㄨㄤ;</tRule>
+			<tRule>hang }$pTone    ↔ ㄏㄤ }$zTone;</tRule>
+			<tRule> hang           →  ㄏㄤ˙;</tRule>
+			<tRule> hang1          ← ㄏㄤ;</tRule>
+			<tRule>heng }$pTone    ↔ ㄏㄥ }$zTone;</tRule>
+			<tRule> heng           →  ㄏㄥ˙;</tRule>
+			<tRule> heng1          ← ㄏㄥ;</tRule>
+			<tRule>huai }$pTone    ↔ ㄏㄨㄞ }$zTone;</tRule>
+			<tRule> huai           →  ㄏㄨㄞ˙;</tRule>
+			<tRule> huai1          ← ㄏㄨㄞ;</tRule>
+			<tRule>huan }$pTone    ↔ ㄏㄨㄢ }$zTone;</tRule>
+			<tRule> huan           →  ㄏㄨㄢ˙;</tRule>
+			<tRule> huan1          ← ㄏㄨㄢ;</tRule>
+			<tRule>hong }$pTone    ↔ ㄏㄨㄥ }$zTone;</tRule>
+			<tRule> hong           →  ㄏㄨㄥ˙;</tRule>
+			<tRule> hong1          ← ㄏㄨㄥ;</tRule>
+			<tRule>hai }$pTone     ↔ ㄏㄞ }$zTone;</tRule>
+			<tRule> hai            →  ㄏㄞ˙;</tRule>
+			<tRule> hai1           ← ㄏㄞ;</tRule>
+			<tRule>hei }$pTone     ↔ ㄏㄟ }$zTone;</tRule>
+			<tRule> hei            →  ㄏㄟ˙;</tRule>
+			<tRule> hei1           ← ㄏㄟ;</tRule>
+			<tRule>hao }$pTone     ↔ ㄏㄠ }$zTone;</tRule>
+			<tRule> hao            →  ㄏㄠ˙;</tRule>
+			<tRule> hao1           ← ㄏㄠ;</tRule>
+			<tRule>hou }$pTone     ↔ ㄏㄡ }$zTone;</tRule>
+			<tRule> hou            →  ㄏㄡ˙;</tRule>
+			<tRule> hou1           ← ㄏㄡ;</tRule>
+			<tRule>han }$pTone     ↔ ㄏㄢ }$zTone;</tRule>
+			<tRule> han            →  ㄏㄢ˙;</tRule>
+			<tRule> han1           ← ㄏㄢ;</tRule>
+			<tRule>hen }$pTone     ↔ ㄏㄣ }$zTone;</tRule>
+			<tRule> hen            →  ㄏㄣ˙;</tRule>
+			<tRule> hen1           ← ㄏㄣ;</tRule>
+			<tRule>hua }$pTone     ↔ ㄏㄨㄚ }$zTone;</tRule>
+			<tRule> hua            →  ㄏㄨㄚ˙;</tRule>
+			<tRule> hua1           ← ㄏㄨㄚ;</tRule>
+			<tRule>huo }$pTone     ↔ ㄏㄨㄛ }$zTone;</tRule>
+			<tRule> huo            →  ㄏㄨㄛ˙;</tRule>
+			<tRule> huo1           ← ㄏㄨㄛ;</tRule>
+			<tRule>hui }$pTone     ↔ ㄏㄨㄟ }$zTone;</tRule>
+			<tRule> hui            →  ㄏㄨㄟ˙;</tRule>
+			<tRule> hui1           ← ㄏㄨㄟ;</tRule>
+			<tRule>hun }$pTone     ↔ ㄏㄨㄣ }$zTone;</tRule>
+			<tRule> hun            →  ㄏㄨㄣ˙;</tRule>
+			<tRule> hun1           ← ㄏㄨㄣ;</tRule>
+			<tRule>hm }$pTone      ↔ ㄏㄇ }$zTone;</tRule>
+			<tRule> hm             →  ㄏㄇ˙;</tRule>
+			<tRule> hm1            ← ㄏㄇ;</tRule>
+			<tRule>ha }$pTone      ↔ ㄏㄚ }$zTone;</tRule>
+			<tRule> ha             →  ㄏㄚ˙;</tRule>
+			<tRule> ha1            ← ㄏㄚ;</tRule>
+			<tRule>ho }$pTone      ↔ ㄏㄛ }$zTone;</tRule>
+			<tRule> ho             →  ㄏㄛ˙;</tRule>
+			<tRule> ho1            ← ㄏㄛ;</tRule>
+			<tRule>he }$pTone      ↔ ㄏㄜ }$zTone;</tRule>
+			<tRule> he             →  ㄏㄜ˙;</tRule>
+			<tRule> he1            ← ㄏㄜ;</tRule>
+			<tRule>hu }$pTone      ↔ ㄏㄨ }$zTone;</tRule>
+			<tRule> hu             →  ㄏㄨ˙;</tRule>
+			<tRule> hu1            ← ㄏㄨ;</tRule>
+			<tRule>#</tRule>
+			<tRule>jiang }$pTone   ↔ ㄐㄧㄤ }$zTone;</tRule>
+			<tRule> jiang          →  ㄐㄧㄤ˙;</tRule>
+			<tRule> jiang1         ← ㄐㄧㄤ;</tRule>
+			<tRule>jiong }$pTone   ↔ ㄐㄩㄥ }$zTone;</tRule>
+			<tRule> jiong          →  ㄐㄩㄥ˙;</tRule>
+			<tRule> jiong1         ← ㄐㄩㄥ;</tRule>
+			<tRule>jiao }$pTone    ↔ ㄐㄧㄠ }$zTone;</tRule>
+			<tRule> jiao           →  ㄐㄧㄠ˙;</tRule>
+			<tRule> jiao1          ← ㄐㄧㄠ;</tRule>
+			<tRule>jian }$pTone    ↔ ㄐㄧㄢ }$zTone;</tRule>
+			<tRule> jian           →  ㄐㄧㄢ˙;</tRule>
+			<tRule> jian1          ← ㄐㄧㄢ;</tRule>
+			<tRule>jing }$pTone    ↔ ㄐㄧㄥ }$zTone;</tRule>
+			<tRule> jing           →  ㄐㄧㄥ˙;</tRule>
+			<tRule> jing1          ← ㄐㄧㄥ;</tRule>
+			<tRule>juan }$pTone    ↔ ㄐㄩㄢ }$zTone;</tRule>
+			<tRule> juan           →  ㄐㄩㄢ˙;</tRule>
+			<tRule> juan1          ← ㄐㄩㄢ;</tRule>
+			<tRule>jia }$pTone     ↔ ㄐㄧㄚ }$zTone;</tRule>
+			<tRule> jia            →  ㄐㄧㄚ˙;</tRule>
+			<tRule> jia1           ← ㄐㄧㄚ;</tRule>
+			<tRule>jie }$pTone     ↔ ㄐㄧㄝ }$zTone;</tRule>
+			<tRule> jie            →  ㄐㄧㄝ˙;</tRule>
+			<tRule> jie1           ← ㄐㄧㄝ;</tRule>
+			<tRule>jiu }$pTone     ↔ ㄐㄧㄡ }$zTone;</tRule>
+			<tRule> jiu            →  ㄐㄧㄡ˙;</tRule>
+			<tRule> jiu1           ← ㄐㄧㄡ;</tRule>
+			<tRule>jin }$pTone     ↔ ㄐㄧㄣ }$zTone;</tRule>
+			<tRule> jin            →  ㄐㄧㄣ˙;</tRule>
+			<tRule> jin1           ← ㄐㄧㄣ;</tRule>
+			<tRule>jue }$pTone     ↔ ㄐㄩㄝ }$zTone;</tRule>
+			<tRule> jue            →  ㄐㄩㄝ˙;</tRule>
+			<tRule> jue1           ← ㄐㄩㄝ;</tRule>
+			<tRule>jun }$pTone     ↔ ㄐㄩㄣ }$zTone;</tRule>
+			<tRule> jun            →  ㄐㄩㄣ˙;</tRule>
+			<tRule> jun1           ← ㄐㄩㄣ;</tRule>
+			<tRule>ji }$pTone      ↔ ㄐㄧ }$zTone;</tRule>
+			<tRule> ji             →  ㄐㄧ˙;</tRule>
+			<tRule> ji1            ← ㄐㄧ;</tRule>
+			<tRule>ju }$pTone      ↔ ㄐㄩ }$zTone;</tRule>
+			<tRule> ju             →  ㄐㄩ˙;</tRule>
+			<tRule> ju1            ← ㄐㄩ;</tRule>
+			<tRule>#</tRule>
+			<tRule>qiang }$pTone   ↔ ㄑㄧㄤ }$zTone;</tRule>
+			<tRule> qiang          →  ㄑㄧㄤ˙;</tRule>
+			<tRule> qiang1         ← ㄑㄧㄤ;</tRule>
+			<tRule>qiong }$pTone   ↔ ㄑㄩㄥ }$zTone;</tRule>
+			<tRule> qiong          →  ㄑㄩㄥ˙;</tRule>
+			<tRule> qiong1         ← ㄑㄩㄥ;</tRule>
+			<tRule>qiao }$pTone    ↔ ㄑㄧㄠ }$zTone;</tRule>
+			<tRule> qiao           →  ㄑㄧㄠ˙;</tRule>
+			<tRule> qiao1          ← ㄑㄧㄠ;</tRule>
+			<tRule>qian }$pTone    ↔ ㄑㄧㄢ }$zTone;</tRule>
+			<tRule> qian           →  ㄑㄧㄢ˙;</tRule>
+			<tRule> qian1          ← ㄑㄧㄢ;</tRule>
+			<tRule>qing }$pTone    ↔ ㄑㄧㄥ }$zTone;</tRule>
+			<tRule> qing           →  ㄑㄧㄥ˙;</tRule>
+			<tRule> qing1          ← ㄑㄧㄥ;</tRule>
+			<tRule>quan }$pTone    ↔ ㄑㄩㄢ }$zTone;</tRule>
+			<tRule> quan           →  ㄑㄩㄢ˙;</tRule>
+			<tRule> quan1          ← ㄑㄩㄢ;</tRule>
+			<tRule>qia }$pTone     ↔ ㄑㄧㄚ }$zTone;</tRule>
+			<tRule> qia            →  ㄑㄧㄚ˙;</tRule>
+			<tRule> qia1           ← ㄑㄧㄚ;</tRule>
+			<tRule>qie }$pTone     ↔ ㄑㄧㄝ }$zTone;</tRule>
+			<tRule> qie            →  ㄑㄧㄝ˙;</tRule>
+			<tRule> qie1           ← ㄑㄧㄝ;</tRule>
+			<tRule>qiu }$pTone     ↔ ㄑㄧㄡ }$zTone;</tRule>
+			<tRule> qiu            →  ㄑㄧㄡ˙;</tRule>
+			<tRule> qiu1           ← ㄑㄧㄡ;</tRule>
+			<tRule>qin }$pTone     ↔ ㄑㄧㄣ }$zTone;</tRule>
+			<tRule> qin            →  ㄑㄧㄣ˙;</tRule>
+			<tRule> qin1           ← ㄑㄧㄣ;</tRule>
+			<tRule>que }$pTone     ↔ ㄑㄩㄝ }$zTone;</tRule>
+			<tRule> que            →  ㄑㄩㄝ˙;</tRule>
+			<tRule> que1           ← ㄑㄩㄝ;</tRule>
+			<tRule>qun }$pTone     ↔ ㄑㄩㄣ }$zTone;</tRule>
+			<tRule> qun            →  ㄑㄩㄣ˙;</tRule>
+			<tRule> qun1           ← ㄑㄩㄣ;</tRule>
+			<tRule>qi }$pTone      ↔ ㄑㄧ }$zTone;</tRule>
+			<tRule> qi             →  ㄑㄧ˙;</tRule>
+			<tRule> qi1            ← ㄑㄧ;</tRule>
+			<tRule>qu }$pTone      ↔ ㄑㄩ }$zTone;</tRule>
+			<tRule> qu             →  ㄑㄩ˙;</tRule>
+			<tRule> qu1            ← ㄑㄩ;</tRule>
+			<tRule>#</tRule>
+			<tRule>xiang }$pTone   ↔ ㄒㄧㄤ }$zTone;</tRule>
+			<tRule> xiang          →  ㄒㄧㄤ˙;</tRule>
+			<tRule> xiang1         ← ㄒㄧㄤ;</tRule>
+			<tRule>xiong }$pTone   ↔ ㄒㄩㄥ }$zTone;</tRule>
+			<tRule> xiong          →  ㄒㄩㄥ˙;</tRule>
+			<tRule> xiong1         ← ㄒㄩㄥ;</tRule>
+			<tRule>xiao }$pTone    ↔ ㄒㄧㄠ }$zTone;</tRule>
+			<tRule> xiao           →  ㄒㄧㄠ˙;</tRule>
+			<tRule> xiao1          ← ㄒㄧㄠ;</tRule>
+			<tRule>xian }$pTone    ↔ ㄒㄧㄢ }$zTone;</tRule>
+			<tRule> xian           →  ㄒㄧㄢ˙;</tRule>
+			<tRule> xian1          ← ㄒㄧㄢ;</tRule>
+			<tRule>xing }$pTone    ↔ ㄒㄧㄥ }$zTone;</tRule>
+			<tRule> xing           →  ㄒㄧㄥ˙;</tRule>
+			<tRule> xing1          ← ㄒㄧㄥ;</tRule>
+			<tRule>xuan }$pTone    ↔ ㄒㄩㄢ }$zTone;</tRule>
+			<tRule> xuan           →  ㄒㄩㄢ˙;</tRule>
+			<tRule> xuan1          ← ㄒㄩㄢ;</tRule>
+			<tRule>xia }$pTone     ↔ ㄒㄧㄚ }$zTone;</tRule>
+			<tRule> xia            →  ㄒㄧㄚ˙;</tRule>
+			<tRule> xia1           ← ㄒㄧㄚ;</tRule>
+			<tRule>xie }$pTone     ↔ ㄒㄧㄝ }$zTone;</tRule>
+			<tRule> xie            →  ㄒㄧㄝ˙;</tRule>
+			<tRule> xie1           ← ㄒㄧㄝ;</tRule>
+			<tRule>xiu }$pTone     ↔ ㄒㄧㄡ }$zTone;</tRule>
+			<tRule> xiu            →  ㄒㄧㄡ˙;</tRule>
+			<tRule> xiu1           ← ㄒㄧㄡ;</tRule>
+			<tRule>xin }$pTone     ↔ ㄒㄧㄣ }$zTone;</tRule>
+			<tRule> xin            →  ㄒㄧㄣ˙;</tRule>
+			<tRule> xin1           ← ㄒㄧㄣ;</tRule>
+			<tRule>xue }$pTone     ↔ ㄒㄩㄝ }$zTone;</tRule>
+			<tRule> xue            →  ㄒㄩㄝ˙;</tRule>
+			<tRule> xue1           ← ㄒㄩㄝ;</tRule>
+			<tRule>xun }$pTone     ↔ ㄒㄩㄣ }$zTone;</tRule>
+			<tRule> xun            →  ㄒㄩㄣ˙;</tRule>
+			<tRule> xun1           ← ㄒㄩㄣ;</tRule>
+			<tRule>xi }$pTone      ↔ ㄒㄧ }$zTone;</tRule>
+			<tRule> xi             →  ㄒㄧ˙;</tRule>
+			<tRule> xi1            ← ㄒㄧ;</tRule>
+			<tRule>xu }$pTone      ↔ ㄒㄩ }$zTone;</tRule>
+			<tRule> xu             →  ㄒㄩ˙;</tRule>
+			<tRule> xu1            ← ㄒㄩ;</tRule>
+			<tRule>#</tRule>
+			<tRule>zhuang }$pTone  ↔ ㄓㄨㄤ }$zTone;</tRule>
+			<tRule> zhuang         →  ㄓㄨㄤ˙;</tRule>
+			<tRule> zhuang1        ← ㄓㄨㄤ;</tRule>
+			<tRule>zhang }$pTone   ↔ ㄓㄤ }$zTone;</tRule>
+			<tRule> zhang          →  ㄓㄤ˙;</tRule>
+			<tRule> zhang1         ← ㄓㄤ;</tRule>
+			<tRule>zheng }$pTone   ↔ ㄓㄥ }$zTone;</tRule>
+			<tRule> zheng          →  ㄓㄥ˙;</tRule>
+			<tRule> zheng1         ← ㄓㄥ;</tRule>
+			<tRule>zhuai }$pTone   ↔ ㄓㄨㄞ }$zTone;</tRule>
+			<tRule> zhuai          →  ㄓㄨㄞ˙;</tRule>
+			<tRule> zhuai1         ← ㄓㄨㄞ;</tRule>
+			<tRule>zhuan }$pTone   ↔ ㄓㄨㄢ }$zTone;</tRule>
+			<tRule> zhuan          →  ㄓㄨㄢ˙;</tRule>
+			<tRule> zhuan1         ← ㄓㄨㄢ;</tRule>
+			<tRule>zhong }$pTone   ↔ ㄓㄨㄥ }$zTone;</tRule>
+			<tRule> zhong          →  ㄓㄨㄥ˙;</tRule>
+			<tRule> zhong1         ← ㄓㄨㄥ;</tRule>
+			<tRule>zhai }$pTone    ↔ ㄓㄞ }$zTone;</tRule>
+			<tRule> zhai           →  ㄓㄞ˙;</tRule>
+			<tRule> zhai1          ← ㄓㄞ;</tRule>
+			<tRule>zhei }$pTone    ↔ ㄓㄟ }$zTone;		# (not in han-latin)</tRule>
+			<tRule> zhei           →  ㄓㄟ˙;</tRule>
+			<tRule> zhei1          ← ㄓㄟ;</tRule>
+			<tRule>zhao }$pTone    ↔ ㄓㄠ }$zTone;</tRule>
+			<tRule> zhao           →  ㄓㄠ˙;</tRule>
+			<tRule> zhao1          ← ㄓㄠ;</tRule>
+			<tRule>zhou }$pTone    ↔ ㄓㄡ }$zTone;</tRule>
+			<tRule> zhou           →  ㄓㄡ˙;</tRule>
+			<tRule> zhou1          ← ㄓㄡ;</tRule>
+			<tRule>zhan }$pTone    ↔ ㄓㄢ }$zTone;</tRule>
+			<tRule> zhan           →  ㄓㄢ˙;</tRule>
+			<tRule> zhan1          ← ㄓㄢ;</tRule>
+			<tRule>zhen }$pTone    ↔ ㄓㄣ }$zTone;</tRule>
+			<tRule> zhen           →  ㄓㄣ˙;</tRule>
+			<tRule> zhen1          ← ㄓㄣ;</tRule>
+			<tRule>zhua }$pTone    ↔ ㄓㄨㄚ }$zTone;</tRule>
+			<tRule> zhua           →  ㄓㄨㄚ˙;</tRule>
+			<tRule> zhua1          ← ㄓㄨㄚ;</tRule>
+			<tRule>zhuo }$pTone    ↔ ㄓㄨㄛ }$zTone;</tRule>
+			<tRule> zhuo           →  ㄓㄨㄛ˙;</tRule>
+			<tRule> zhuo1          ← ㄓㄨㄛ;</tRule>
+			<tRule>zhui }$pTone    ↔ ㄓㄨㄟ }$zTone;</tRule>
+			<tRule> zhui           →  ㄓㄨㄟ˙;</tRule>
+			<tRule> zhui1          ← ㄓㄨㄟ;</tRule>
+			<tRule>zhun }$pTone    ↔ ㄓㄨㄣ }$zTone;</tRule>
+			<tRule> zhun           →  ㄓㄨㄣ˙;</tRule>
+			<tRule> zhun1          ← ㄓㄨㄣ;</tRule>
+			<tRule>zha }$pTone     ↔ ㄓㄚ }$zTone;</tRule>
+			<tRule> zha            →  ㄓㄚ˙;</tRule>
+			<tRule> zha1           ← ㄓㄚ;</tRule>
+			<tRule>zhe }$pTone     ↔ ㄓㄜ }$zTone;</tRule>
+			<tRule> zhe            →  ㄓㄜ˙;</tRule>
+			<tRule> zhe1           ← ㄓㄜ;</tRule>
+			<tRule>zhu }$pTone     ↔ ㄓㄨ }$zTone;</tRule>
+			<tRule> zhu            →  ㄓㄨ˙;</tRule>
+			<tRule> zhu1           ← ㄓㄨ;</tRule>
+			<tRule>zhi }$pTone     ↔ ㄓ }$zTone;</tRule>
+			<tRule> zhi            →  ㄓ˙;</tRule>
+			<tRule> zhi1           ← ㄓ;</tRule>
+			<tRule>#</tRule>
+			<tRule>chuang }$pTone  ↔ ㄔㄨㄤ }$zTone;</tRule>
+			<tRule> chuang         →  ㄔㄨㄤ˙;</tRule>
+			<tRule> chuang1        ← ㄔㄨㄤ;</tRule>
+			<tRule>chang }$pTone   ↔ ㄔㄤ }$zTone;</tRule>
+			<tRule> chang          →  ㄔㄤ˙;</tRule>
+			<tRule> chang1         ← ㄔㄤ;</tRule>
+			<tRule>cheng }$pTone   ↔ ㄔㄥ }$zTone;</tRule>
+			<tRule> cheng          →  ㄔㄥ˙;</tRule>
+			<tRule> cheng1         ← ㄔㄥ;</tRule>
+			<tRule>chuai }$pTone   ↔ ㄔㄨㄞ }$zTone;</tRule>
+			<tRule> chuai          →  ㄔㄨㄞ˙;</tRule>
+			<tRule> chuai1         ← ㄔㄨㄞ;</tRule>
+			<tRule>chuan }$pTone   ↔ ㄔㄨㄢ }$zTone;</tRule>
+			<tRule> chuan          →  ㄔㄨㄢ˙;</tRule>
+			<tRule> chuan1         ← ㄔㄨㄢ;</tRule>
+			<tRule>chong }$pTone   ↔ ㄔㄨㄥ }$zTone;</tRule>
+			<tRule> chong          →  ㄔㄨㄥ˙;</tRule>
+			<tRule> chong1         ← ㄔㄨㄥ;</tRule>
+			<tRule>chai }$pTone    ↔ ㄔㄞ }$zTone;</tRule>
+			<tRule> chai           →  ㄔㄞ˙;</tRule>
+			<tRule> chai1          ← ㄔㄞ;</tRule>
+			<tRule>chao }$pTone    ↔ ㄔㄠ }$zTone;</tRule>
+			<tRule> chao           →  ㄔㄠ˙;</tRule>
+			<tRule> chao1          ← ㄔㄠ;</tRule>
+			<tRule>chou }$pTone    ↔ ㄔㄡ }$zTone;</tRule>
+			<tRule> chou           →  ㄔㄡ˙;</tRule>
+			<tRule> chou1          ← ㄔㄡ;</tRule>
+			<tRule>chan }$pTone    ↔ ㄔㄢ }$zTone;</tRule>
+			<tRule> chan           →  ㄔㄢ˙;</tRule>
+			<tRule> chan1          ← ㄔㄢ;</tRule>
+			<tRule>chen }$pTone    ↔ ㄔㄣ }$zTone;</tRule>
+			<tRule> chen           →  ㄔㄣ˙;</tRule>
+			<tRule> chen1          ← ㄔㄣ;</tRule>
+			<tRule>chua }$pTone    ↔ ㄔㄨㄚ }$zTone;</tRule>
+			<tRule> chua           →  ㄔㄨㄚ˙;</tRule>
+			<tRule> chua1          ← ㄔㄨㄚ;</tRule>
+			<tRule>chuo }$pTone    ↔ ㄔㄨㄛ }$zTone;</tRule>
+			<tRule> chuo           →  ㄔㄨㄛ˙;</tRule>
+			<tRule> chuo1          ← ㄔㄨㄛ;</tRule>
+			<tRule>chui }$pTone    ↔ ㄔㄨㄟ }$zTone;</tRule>
+			<tRule> chui           →  ㄔㄨㄟ˙;</tRule>
+			<tRule> chui1          ← ㄔㄨㄟ;</tRule>
+			<tRule>chun }$pTone    ↔ ㄔㄨㄣ }$zTone;</tRule>
+			<tRule> chun           →  ㄔㄨㄣ˙;</tRule>
+			<tRule> chun1          ← ㄔㄨㄣ;</tRule>
+			<tRule>cha }$pTone     ↔ ㄔㄚ }$zTone;</tRule>
+			<tRule> cha            →  ㄔㄚ˙;</tRule>
+			<tRule> cha1           ← ㄔㄚ;</tRule>
+			<tRule>che }$pTone     ↔ ㄔㄜ }$zTone;</tRule>
+			<tRule> che            →  ㄔㄜ˙;</tRule>
+			<tRule> che1           ← ㄔㄜ;</tRule>
+			<tRule>chu }$pTone     ↔ ㄔㄨ }$zTone;</tRule>
+			<tRule> chu            →  ㄔㄨ˙;</tRule>
+			<tRule> chu1           ← ㄔㄨ;</tRule>
+			<tRule>chi }$pTone     ↔ ㄔ }$zTone;</tRule>
+			<tRule> chi            →  ㄔ˙;</tRule>
+			<tRule> chi1           ← ㄔ;</tRule>
+			<tRule>#</tRule>
+			<tRule>shuang }$pTone  ↔ ㄕㄨㄤ }$zTone;</tRule>
+			<tRule> shuang         →  ㄕㄨㄤ˙;</tRule>
+			<tRule> shuang1        ← ㄕㄨㄤ;</tRule>
+			<tRule>shong }$pTone   ↔ ㄕㄡㄥ }$zTone;	# (not in han-latin)</tRule>
+			<tRule> shong          →  ㄕㄡㄥ˙;</tRule>
+			<tRule> shong1         ← ㄕㄡㄥ;</tRule>
+			<tRule>shang }$pTone   ↔ ㄕㄤ }$zTone;</tRule>
+			<tRule> shang          →  ㄕㄤ˙;</tRule>
+			<tRule> shang1         ← ㄕㄤ;</tRule>
+			<tRule>sheng }$pTone   ↔ ㄕㄥ }$zTone;</tRule>
+			<tRule> sheng          →  ㄕㄥ˙;</tRule>
+			<tRule> sheng1         ← ㄕㄥ;</tRule>
+			<tRule>shuai }$pTone   ↔ ㄕㄨㄞ }$zTone;</tRule>
+			<tRule> shuai          →  ㄕㄨㄞ˙;</tRule>
+			<tRule> shuai1         ← ㄕㄨㄞ;</tRule>
+			<tRule>shuan }$pTone   ↔ ㄕㄨㄢ }$zTone;</tRule>
+			<tRule> shuan          →  ㄕㄨㄢ˙;</tRule>
+			<tRule> shuan1         ← ㄕㄨㄢ;</tRule>
+			<tRule>shai }$pTone    ↔ ㄕㄞ }$zTone;</tRule>
+			<tRule> shai           →  ㄕㄞ˙;</tRule>
+			<tRule> shai1          ← ㄕㄞ;</tRule>
+			<tRule>shei }$pTone    ↔ ㄕㄟ }$zTone;		# (not in han-latin)</tRule>
+			<tRule> shei           →  ㄕㄟ˙;</tRule>
+			<tRule> shei1          ← ㄕㄟ;</tRule>
+			<tRule>shao }$pTone    ↔ ㄕㄠ }$zTone;</tRule>
+			<tRule> shao           →  ㄕㄠ˙;</tRule>
+			<tRule> shao1          ← ㄕㄠ;</tRule>
+			<tRule>shou }$pTone    ↔ ㄕㄡ }$zTone;</tRule>
+			<tRule> shou           →  ㄕㄡ˙;</tRule>
+			<tRule> shou1          ← ㄕㄡ;</tRule>
+			<tRule>shan }$pTone    ↔ ㄕㄢ }$zTone;</tRule>
+			<tRule> shan           →  ㄕㄢ˙;</tRule>
+			<tRule> shan1          ← ㄕㄢ;</tRule>
+			<tRule>shen }$pTone    ↔ ㄕㄣ }$zTone;</tRule>
+			<tRule> shen           →  ㄕㄣ˙;</tRule>
+			<tRule> shen1          ← ㄕㄣ;</tRule>
+			<tRule>shua }$pTone    ↔ ㄕㄨㄚ }$zTone;</tRule>
+			<tRule> shua           →  ㄕㄨㄚ˙;</tRule>
+			<tRule> shua1          ← ㄕㄨㄚ;</tRule>
+			<tRule>shuo }$pTone    ↔ ㄕㄨㄛ }$zTone;</tRule>
+			<tRule> shuo           →  ㄕㄨㄛ˙;</tRule>
+			<tRule> shuo1          ← ㄕㄨㄛ;</tRule>
+			<tRule>shui }$pTone    ↔ ㄕㄨㄟ }$zTone;</tRule>
+			<tRule> shui           →  ㄕㄨㄟ˙;</tRule>
+			<tRule> shui1          ← ㄕㄨㄟ;</tRule>
+			<tRule>shun }$pTone    ↔ ㄕㄨㄣ }$zTone;</tRule>
+			<tRule> shun           →  ㄕㄨㄣ˙;</tRule>
+			<tRule> shun1          ← ㄕㄨㄣ;</tRule>
+			<tRule>sha }$pTone     ↔ ㄕㄚ }$zTone;</tRule>
+			<tRule> sha            →  ㄕㄚ˙;</tRule>
+			<tRule> sha1           ← ㄕㄚ;</tRule>
+			<tRule>she }$pTone     ↔ ㄕㄜ }$zTone;</tRule>
+			<tRule> she            →  ㄕㄜ˙;</tRule>
+			<tRule> she1           ← ㄕㄜ;</tRule>
+			<tRule>shu }$pTone     ↔ ㄕㄨ }$zTone;</tRule>
+			<tRule> shu            →  ㄕㄨ˙;</tRule>
+			<tRule> shu1           ← ㄕㄨ;</tRule>
+			<tRule>shi }$pTone     ↔ ㄕ }$zTone;</tRule>
+			<tRule> shi            →  ㄕ˙;</tRule>
+			<tRule> shi1           ← ㄕ;</tRule>
+			<tRule>#</tRule>
+			<tRule>rang }$pTone    ↔ ㄖㄤ }$zTone;</tRule>
+			<tRule> rang           →  ㄖㄤ˙;</tRule>
+			<tRule> rang1          ← ㄖㄤ;</tRule>
+			<tRule>reng }$pTone    ↔ ㄖㄥ }$zTone;</tRule>
+			<tRule> reng           →  ㄖㄥ˙;</tRule>
+			<tRule> reng1          ← ㄖㄥ;</tRule>
+			<tRule>ruan }$pTone    ↔ ㄖㄨㄢ }$zTone;</tRule>
+			<tRule> ruan           →  ㄖㄨㄢ˙;</tRule>
+			<tRule> ruan1          ← ㄖㄨㄢ;</tRule>
+			<tRule>rong }$pTone    ↔ ㄖㄨㄥ }$zTone;</tRule>
+			<tRule> rong           →  ㄖㄨㄥ˙;</tRule>
+			<tRule> rong1          ← ㄖㄨㄥ;</tRule>
+			<tRule>rao }$pTone     ↔ ㄖㄠ }$zTone;</tRule>
+			<tRule> rao            →  ㄖㄠ˙;</tRule>
+			<tRule> rao1           ← ㄖㄠ;</tRule>
+			<tRule>rou }$pTone     ↔ ㄖㄡ }$zTone;</tRule>
+			<tRule> rou            →  ㄖㄡ˙;</tRule>
+			<tRule> rou1           ← ㄖㄡ;</tRule>
+			<tRule>ran }$pTone     ↔ ㄖㄢ }$zTone;</tRule>
+			<tRule> ran            →  ㄖㄢ˙;</tRule>
+			<tRule> ran1           ← ㄖㄢ;</tRule>
+			<tRule>ren }$pTone     ↔ ㄖㄣ }$zTone;</tRule>
+			<tRule> ren            →  ㄖㄣ˙;</tRule>
+			<tRule> ren1           ← ㄖㄣ;</tRule>
+			<tRule>ruo }$pTone     ↔ ㄖㄨㄛ }$zTone;</tRule>
+			<tRule> ruo            →  ㄖㄨㄛ˙;</tRule>
+			<tRule> ruo1           ← ㄖㄨㄛ;</tRule>
+			<tRule>rui }$pTone     ↔ ㄖㄨㄟ }$zTone;</tRule>
+			<tRule> rui            →  ㄖㄨㄟ˙;</tRule>
+			<tRule> rui1           ← ㄖㄨㄟ;</tRule>
+			<tRule>run }$pTone     ↔ ㄖㄨㄣ }$zTone;</tRule>
+			<tRule> run            →  ㄖㄨㄣ˙;</tRule>
+			<tRule> run1           ← ㄖㄨㄣ;</tRule>
+			<tRule>ra }$pTone      ↔ ㄖㄚ }$zTone;</tRule>
+			<tRule> ra             →  ㄖㄚ˙;</tRule>
+			<tRule> ra1            ← ㄖㄚ;</tRule>
+			<tRule>re }$pTone      ↔ ㄖㄜ }$zTone;</tRule>
+			<tRule> re             →  ㄖㄜ˙;</tRule>
+			<tRule> re1            ← ㄖㄜ;</tRule>
+			<tRule>ru }$pTone      ↔ ㄖㄨ }$zTone;</tRule>
+			<tRule> ru             →  ㄖㄨ˙;</tRule>
+			<tRule> ru1            ← ㄖㄨ;</tRule>
+			<tRule>ri }$pTone      ↔ ㄖ }$zTone;</tRule>
+			<tRule> ri             →  ㄖ˙;</tRule>
+			<tRule> ri1            ← ㄖ;</tRule>
+			<tRule>#</tRule>
+			<tRule>zang }$pTone    ↔ ㄗㄤ }$zTone;</tRule>
+			<tRule> zang           →  ㄗㄤ˙;</tRule>
+			<tRule> zang1          ← ㄗㄤ;</tRule>
+			<tRule>zeng }$pTone    ↔ ㄗㄥ }$zTone;</tRule>
+			<tRule> zeng           →  ㄗㄥ˙;</tRule>
+			<tRule> zeng1          ← ㄗㄥ;</tRule>
+			<tRule>zuan }$pTone    ↔ ㄗㄨㄢ }$zTone;</tRule>
+			<tRule> zuan           →  ㄗㄨㄢ˙;</tRule>
+			<tRule> zuan1          ← ㄗㄨㄢ;</tRule>
+			<tRule>zong }$pTone    ↔ ㄗㄨㄥ }$zTone;</tRule>
+			<tRule> zong           →  ㄗㄨㄥ˙;</tRule>
+			<tRule> zong1          ← ㄗㄨㄥ;</tRule>
+			<tRule>zai }$pTone     ↔ ㄗㄞ }$zTone;</tRule>
+			<tRule> zai            →  ㄗㄞ˙;</tRule>
+			<tRule> zai1           ← ㄗㄞ;</tRule>
+			<tRule>zei }$pTone     ↔ ㄗㄟ }$zTone;</tRule>
+			<tRule> zei            →  ㄗㄟ˙;</tRule>
+			<tRule> zei1           ← ㄗㄟ;</tRule>
+			<tRule>zao }$pTone     ↔ ㄗㄠ }$zTone;</tRule>
+			<tRule> zao            →  ㄗㄠ˙;</tRule>
+			<tRule> zao1           ← ㄗㄠ;</tRule>
+			<tRule>zou }$pTone     ↔ ㄗㄡ }$zTone;</tRule>
+			<tRule> zou            →  ㄗㄡ˙;</tRule>
+			<tRule> zou1           ← ㄗㄡ;</tRule>
+			<tRule>zan }$pTone     ↔ ㄗㄢ }$zTone;</tRule>
+			<tRule> zan            →  ㄗㄢ˙;</tRule>
+			<tRule> zan1           ← ㄗㄢ;</tRule>
+			<tRule>zen }$pTone     ↔ ㄗㄣ }$zTone;</tRule>
+			<tRule> zen            →  ㄗㄣ˙;</tRule>
+			<tRule> zen1           ← ㄗㄣ;</tRule>
+			<tRule>zuo }$pTone     ↔ ㄗㄨㄛ }$zTone;</tRule>
+			<tRule> zuo            →  ㄗㄨㄛ˙;</tRule>
+			<tRule> zuo1           ← ㄗㄨㄛ;</tRule>
+			<tRule>zui }$pTone     ↔ ㄗㄨㄟ }$zTone;</tRule>
+			<tRule> zui            →  ㄗㄨㄟ˙;</tRule>
+			<tRule> zui1           ← ㄗㄨㄟ;</tRule>
+			<tRule>zun }$pTone     ↔ ㄗㄨㄣ }$zTone;</tRule>
+			<tRule> zun            →  ㄗㄨㄣ˙;</tRule>
+			<tRule> zun1           ← ㄗㄨㄣ;</tRule>
+			<tRule>za }$pTone      ↔ ㄗㄚ }$zTone;</tRule>
+			<tRule> za             →  ㄗㄚ˙;</tRule>
+			<tRule> za1            ← ㄗㄚ;</tRule>
+			<tRule>ze }$pTone      ↔ ㄗㄜ }$zTone;</tRule>
+			<tRule> ze             →  ㄗㄜ˙;</tRule>
+			<tRule> ze1            ← ㄗㄜ;</tRule>
+			<tRule>zu }$pTone      ↔ ㄗㄨ }$zTone;</tRule>
+			<tRule> zu             →  ㄗㄨ˙;</tRule>
+			<tRule> zu1            ← ㄗㄨ;</tRule>
+			<tRule>zi }$pTone      ↔ ㄗ }$zTone;</tRule>
+			<tRule> zi             →  ㄗ˙;</tRule>
+			<tRule> zi1            ← ㄗ;</tRule>
+			<tRule>#</tRule>
+			<tRule>cang }$pTone    ↔ ㄘㄤ }$zTone;</tRule>
+			<tRule> cang           →  ㄘㄤ˙;</tRule>
+			<tRule> cang1          ← ㄘㄤ;</tRule>
+			<tRule>ceng }$pTone    ↔ ㄘㄥ }$zTone;</tRule>
+			<tRule> ceng           →  ㄘㄥ˙;</tRule>
+			<tRule> ceng1          ← ㄘㄥ;</tRule>
+			<tRule>cuan }$pTone    ↔ ㄘㄨㄢ }$zTone;</tRule>
+			<tRule> cuan           →  ㄘㄨㄢ˙;</tRule>
+			<tRule> cuan1          ← ㄘㄨㄢ;</tRule>
+			<tRule>cong }$pTone    ↔ ㄘㄨㄥ }$zTone;</tRule>
+			<tRule> cong           →  ㄘㄨㄥ˙;</tRule>
+			<tRule> cong1          ← ㄘㄨㄥ;</tRule>
+			<tRule>cai }$pTone     ↔ ㄘㄞ }$zTone;</tRule>
+			<tRule> cai            →  ㄘㄞ˙;</tRule>
+			<tRule> cai1           ← ㄘㄞ;</tRule>
+			<tRule>cao }$pTone     ↔ ㄘㄠ }$zTone;</tRule>
+			<tRule> cao            →  ㄘㄠ˙;</tRule>
+			<tRule> cao1           ← ㄘㄠ;</tRule>
+			<tRule>cou }$pTone     ↔ ㄘㄡ }$zTone;</tRule>
+			<tRule> cou            →  ㄘㄡ˙;</tRule>
+			<tRule> cou1           ← ㄘㄡ;</tRule>
+			<tRule>can }$pTone     ↔ ㄘㄢ }$zTone;</tRule>
+			<tRule> can            →  ㄘㄢ˙;</tRule>
+			<tRule> can1           ← ㄘㄢ;</tRule>
+			<tRule>cen }$pTone     ↔ ㄘㄣ }$zTone;</tRule>
+			<tRule> cen            →  ㄘㄣ˙;</tRule>
+			<tRule> cen1           ← ㄘㄣ;</tRule>
+			<tRule>cuo }$pTone     ↔ ㄘㄨㄛ }$zTone;</tRule>
+			<tRule> cuo            →  ㄘㄨㄛ˙;</tRule>
+			<tRule> cuo1           ← ㄘㄨㄛ;</tRule>
+			<tRule>cui }$pTone     ↔ ㄘㄨㄟ }$zTone;</tRule>
+			<tRule> cui            →  ㄘㄨㄟ˙;</tRule>
+			<tRule> cui1           ← ㄘㄨㄟ;</tRule>
+			<tRule>cun }$pTone     ↔ ㄘㄨㄣ }$zTone;</tRule>
+			<tRule> cun            →  ㄘㄨㄣ˙;</tRule>
+			<tRule> cun1           ← ㄘㄨㄣ;</tRule>
+			<tRule>ca }$pTone      ↔ ㄘㄚ }$zTone;</tRule>
+			<tRule> ca             →  ㄘㄚ˙;</tRule>
+			<tRule> ca1            ← ㄘㄚ;</tRule>
+			<tRule>ce }$pTone      ↔ ㄘㄜ }$zTone;</tRule>
+			<tRule> ce             →  ㄘㄜ˙;</tRule>
+			<tRule> ce1            ← ㄘㄜ;</tRule>
+			<tRule>cu }$pTone      ↔ ㄘㄨ }$zTone;</tRule>
+			<tRule> cu             →  ㄘㄨ˙;</tRule>
+			<tRule> cu1            ← ㄘㄨ;</tRule>
+			<tRule>ci }$pTone      ↔ ㄘ }$zTone;</tRule>
+			<tRule> ci             →  ㄘ˙;</tRule>
+			<tRule> ci1            ← ㄘ;</tRule>
+			<tRule>#</tRule>
+			<tRule>sang }$pTone    ↔ ㄙㄤ }$zTone;</tRule>
+			<tRule> sang           →  ㄙㄤ˙;</tRule>
+			<tRule> sang1          ← ㄙㄤ;</tRule>
+			<tRule>seng }$pTone    ↔ ㄙㄥ }$zTone;</tRule>
+			<tRule> seng           →  ㄙㄥ˙;</tRule>
+			<tRule> seng1          ← ㄙㄥ;</tRule>
+			<tRule>suan }$pTone    ↔ ㄙㄨㄢ }$zTone;</tRule>
+			<tRule> suan           →  ㄙㄨㄢ˙;</tRule>
+			<tRule> suan1          ← ㄙㄨㄢ;</tRule>
+			<tRule>song }$pTone    ↔ ㄙㄨㄥ }$zTone;</tRule>
+			<tRule> song           →  ㄙㄨㄥ˙;</tRule>
+			<tRule> song1          ← ㄙㄨㄥ;</tRule>
+			<tRule>sai }$pTone     ↔ ㄙㄞ }$zTone;</tRule>
+			<tRule> sai            →  ㄙㄞ˙;</tRule>
+			<tRule> sai1           ← ㄙㄞ;</tRule>
+			<tRule>sei }$pTone     ↔ ㄙㄟ }$zTone;		# (not in han-latin)</tRule>
+			<tRule> sei            →  ㄙㄟ˙;</tRule>
+			<tRule> sei1           ← ㄙㄟ;</tRule>
+			<tRule>sao }$pTone     ↔ ㄙㄠ }$zTone;</tRule>
+			<tRule> sao            →  ㄙㄠ˙;</tRule>
+			<tRule> sao1           ← ㄙㄠ;</tRule>
+			<tRule>sou }$pTone     ↔ ㄙㄡ }$zTone;</tRule>
+			<tRule> sou            →  ㄙㄡ˙;</tRule>
+			<tRule> sou1           ← ㄙㄡ;</tRule>
+			<tRule>san }$pTone     ↔ ㄙㄢ }$zTone;</tRule>
+			<tRule> san            →  ㄙㄢ˙;</tRule>
+			<tRule> san1           ← ㄙㄢ;</tRule>
+			<tRule>sen }$pTone     ↔ ㄙㄣ }$zTone;</tRule>
+			<tRule> sen            →  ㄙㄣ˙;</tRule>
+			<tRule> sen1           ← ㄙㄣ;</tRule>
+			<tRule>suo }$pTone     ↔ ㄙㄨㄛ }$zTone;</tRule>
+			<tRule> suo            →  ㄙㄨㄛ˙;</tRule>
+			<tRule> suo1           ← ㄙㄨㄛ;</tRule>
+			<tRule>sui }$pTone     ↔ ㄙㄨㄟ }$zTone;</tRule>
+			<tRule> sui            →  ㄙㄨㄟ˙;</tRule>
+			<tRule> sui1           ← ㄙㄨㄟ;</tRule>
+			<tRule>sun }$pTone     ↔ ㄙㄨㄣ }$zTone;</tRule>
+			<tRule> sun            →  ㄙㄨㄣ˙;</tRule>
+			<tRule> sun1           ← ㄙㄨㄣ;</tRule>
+			<tRule>sa }$pTone      ↔ ㄙㄚ }$zTone;</tRule>
+			<tRule> sa             →  ㄙㄚ˙;</tRule>
+			<tRule> sa1            ← ㄙㄚ;</tRule>
+			<tRule>se }$pTone      ↔ ㄙㄜ }$zTone;</tRule>
+			<tRule> se             →  ㄙㄜ˙;</tRule>
+			<tRule> se1            ← ㄙㄜ;</tRule>
+			<tRule>su }$pTone      ↔ ㄙㄨ }$zTone;</tRule>
+			<tRule> su             →  ㄙㄨ˙;</tRule>
+			<tRule> su1            ← ㄙㄨ;</tRule>
+			<tRule>si }$pTone      ↔ ㄙ }$zTone;</tRule>
+			<tRule> si             →  ㄙ˙;</tRule>
+			<tRule> si1            ← ㄙ;</tRule>
+			<tRule>#</tRule>
+			<tRule>#--- vowels and vowel compounds ----</tRule>
+			<tRule># most exist as syllables by themselves and they are also used as finals for initial consonants</tRule>
+			<tRule>#</tRule>
+			<tRule>yuan }$pTone    ↔ ㄩㄢ }$zTone;</tRule>
+			<tRule> yuan           →  ㄩㄢ˙;</tRule>
+			<tRule> yuan1          ← ㄩㄢ;</tRule>
+			<tRule>yong }$pTone    ↔ ㄩㄥ }$zTone;</tRule>
+			<tRule>	yong        →  ㄩㄥ˙;</tRule>
+			<tRule>	yong1       ← ㄩㄥ;</tRule>
+			<tRule>yue }$pTone     ↔ ㄩㄝ }$zTone;</tRule>
+			<tRule> yue            →  ㄩㄝ˙;</tRule>
+			<tRule> yue1           ← ㄩㄝ;</tRule>
+			<tRule>yun }$pTone     ↔ ㄩㄣ }$zTone;</tRule>
+			<tRule> yun            →  ㄩㄣ˙;</tRule>
+			<tRule> yun1           ← ㄩㄣ;</tRule>
+			<tRule>yu }$pTone      ↔ ㄩ }$zTone;</tRule>
+			<tRule> yu             →  ㄩ˙;</tRule>
+			<tRule> yu1            ← ㄩ;</tRule>
+			<tRule># iu handled below</tRule>
+			<tRule>#</tRule>
+			<tRule>yang }$pTone    ↔ ㄧㄤ }$zTone;</tRule>
+			<tRule> yang           →  ㄧㄤ˙;</tRule>
+			<tRule> yang1          ← ㄧㄤ;</tRule>
+			<tRule>ying }$pTone    ↔ ㄧㄥ }$zTone;</tRule>
+			<tRule> ying           →  ㄧㄥ˙;</tRule>
+			<tRule> ying1          ← ㄧㄥ;</tRule>
+			<tRule>yai }$pTone     ↔ ㄧㄞ }$zTone;		# (not in han-latin)</tRule>
+			<tRule> yai            →  ㄧㄞ˙;</tRule>
+			<tRule> yai1           ← ㄧㄞ;</tRule>
+			<tRule>yao }$pTone     ↔ ㄧㄠ }$zTone;</tRule>
+			<tRule> yao            →  ㄧㄠ˙;</tRule>
+			<tRule> yao1           ← ㄧㄠ;</tRule>
+			<tRule>you }$pTone     ↔ ㄧㄡ }$zTone;</tRule>
+			<tRule> you            →  ㄧㄡ˙;</tRule>
+			<tRule> you1           ← ㄧㄡ;</tRule>
+			<tRule>yan }$pTone     ↔ ㄧㄢ }$zTone;</tRule>
+			<tRule> yan            →  ㄧㄢ˙;</tRule>
+			<tRule> yan1           ← ㄧㄢ;</tRule>
+			<tRule>yin }$pTone     ↔ ㄧㄣ }$zTone;</tRule>
+			<tRule> yin            →  ㄧㄣ˙;</tRule>
+			<tRule> yin1           ← ㄧㄣ;</tRule>
+			<tRule>ya }$pTone      ↔ ㄧㄚ }$zTone;</tRule>
+			<tRule> ya             →  ㄧㄚ˙;</tRule>
+			<tRule> ya1            ← ㄧㄚ;</tRule>
+			<tRule>yo }$pTone      ↔ ㄧㄛ }$zTone;</tRule>
+			<tRule> yo             →  ㄧㄛ˙;</tRule>
+			<tRule> yo1            ← ㄧㄛ;</tRule>
+			<tRule>ye }$pTone      ↔ ㄧㄝ }$zTone;</tRule>
+			<tRule> ye             →  ㄧㄝ˙;</tRule>
+			<tRule> ye1            ← ㄧㄝ;</tRule>
+			<tRule>yi }$pTone      ↔ ㄧ }$zTone;</tRule>
+			<tRule> yi             →  ㄧ˙;</tRule>
+			<tRule> yi1            ← ㄧ;</tRule>
+			<tRule># i handled below</tRule>
+			<tRule>#</tRule>
+			<tRule>wong }$pTone    ↔ ㄨㄨㄥ }$zTone;</tRule>
+			<tRule> wong           →  ㄨㄨㄥ˙;</tRule>
+			<tRule> wong1          ← ㄨㄨㄥ;</tRule>
+			<tRule>wang }$pTone    ↔ ㄨㄤ }$zTone;</tRule>
+			<tRule> wang           →  ㄨㄤ˙;</tRule>
+			<tRule> wang1          ← ㄨㄤ;</tRule>
+			<tRule>weng }$pTone    ↔ ㄨㄥ }$zTone;</tRule>
+			<tRule> weng           →  ㄨㄥ˙;</tRule>
+			<tRule> weng1          ← ㄨㄥ;</tRule>
+			<tRule>wai }$pTone     ↔ ㄨㄞ }$zTone;</tRule>
+			<tRule> wai            →  ㄨㄞ˙;</tRule>
+			<tRule> wai1           ← ㄨㄞ;</tRule>
+			<tRule>wei }$pTone     ↔ ㄨㄟ }$zTone;</tRule>
+			<tRule> wei            →  ㄨㄟ˙;</tRule>
+			<tRule> wei1           ← ㄨㄟ;</tRule>
+			<tRule>wan }$pTone     ↔ ㄨㄢ }$zTone;</tRule>
+			<tRule> wan            →  ㄨㄢ˙;</tRule>
+			<tRule> wan1           ← ㄨㄢ;</tRule>
+			<tRule>wen }$pTone     ↔ ㄨㄣ }$zTone;</tRule>
+			<tRule> wen            →  ㄨㄣ˙;</tRule>
+			<tRule> wen1           ← ㄨㄣ;</tRule>
+			<tRule>wa }$pTone      ↔ ㄨㄚ }$zTone;</tRule>
+			<tRule> wa             →  ㄨㄚ˙;</tRule>
+			<tRule> wa1            ← ㄨㄚ;</tRule>
+			<tRule>wo }$pTone      ↔ ㄨㄛ }$zTone;</tRule>
+			<tRule> wo             →  ㄨㄛ˙;</tRule>
+			<tRule> wo1            ← ㄨㄛ;</tRule>
+			<tRule>wu }$pTone      ↔ ㄨ }$zTone;</tRule>
+			<tRule> wu             →  ㄨ˙;</tRule>
+			<tRule> wu1            ← ㄨ;</tRule>
+			<tRule># u handled below</tRule>
+			<tRule>#</tRule>
+			<tRule>ang }$pTone     ↔ ㄤ }$zTone;</tRule>
+			<tRule> ang            →  ㄤ˙;</tRule>
+			<tRule> ang1           ← ㄤ;</tRule>
+			<tRule>eng }$pTone     ↔ ㄥ }$zTone;</tRule>
+			<tRule> eng            →  ㄥ˙;</tRule>
+			<tRule> eng1           ← ㄥ;</tRule>
+			<tRule>eh }$pTone      ↔ ㄝ }$zTone;		# (not in han-latin)</tRule>
+			<tRule> eh             →  ㄝ˙;</tRule>
+			<tRule> eh1            ← ㄝ;</tRule>
+			<tRule>ea }$pTone      → ㄝ;				# (not in han-latin) one-way</tRule>
+			<tRule> ea             →  ㄝ˙;</tRule>
+			<tRule>ai }$pTone      ↔ ㄞ }$zTone;</tRule>
+			<tRule> ai             →  ㄞ˙;</tRule>
+			<tRule> ai1            ← ㄞ;</tRule>
+			<tRule>ei }$pTone      ↔ ㄟ }$zTone;</tRule>
+			<tRule> ei             →  ㄟ˙;</tRule>
+			<tRule> ei1            ← ㄟ;</tRule>
+			<tRule>ao }$pTone      ↔ ㄠ }$zTone;</tRule>
+			<tRule> ao             →  ㄠ˙;</tRule>
+			<tRule> ao1            ← ㄠ;</tRule>
+			<tRule>au }$pTone      → ㄠ;				# (not in han-latin) one-way, handle unicode spelling </tRule>
+			<tRule> au             →  ㄠ˙;</tRule>
+			<tRule>ou }$pTone      ↔ ㄡ }$zTone;</tRule>
+			<tRule> ou             →  ㄡ˙;</tRule>
+			<tRule> ou1            ← ㄡ;</tRule>
+			<tRule>an }$pTone      ↔ ㄢ }$zTone;</tRule>
+			<tRule> an             →  ㄢ˙;</tRule>
+			<tRule> an1            ← ㄢ;</tRule>
+			<tRule>en }$pTone      ↔ ㄣ }$zTone;</tRule>
+			<tRule> en             →  ㄣ˙;</tRule>
+			<tRule> en1            ← ㄣ;</tRule>
+			<tRule>er }$pTone      ↔ ㄦ }$zTone;</tRule>
+			<tRule> er             →  ㄦ˙;</tRule>
+			<tRule> er1            ← ㄦ;</tRule>
+			<tRule>a }$pTone       ↔ ㄚ }$zTone;</tRule>
+			<tRule> a              →  ㄚ˙;</tRule>
+			<tRule> a1             ← ㄚ;</tRule>
+			<tRule>o }$pTone       ↔ ㄛ }$zTone;</tRule>
+			<tRule> o              →  ㄛ˙;</tRule>
+			<tRule> o1             ← ㄛ;</tRule>
+			<tRule>e }$pTone       ↔ ㄜ }$zTone;</tRule>
+			<tRule> e              →  ㄜ˙;</tRule>
+			<tRule> e1             ← ㄜ;</tRule>
+			<tRule>#</tRule>
+			<tRule># handle unicode spellings of ㄧ,ㄨ,ㄩ above</tRule>
+			<tRule>iu }$pTone      → ㄩ;				# (not in han-latin) one-way, handle unicode spelling</tRule>
+			<tRule> iu             →  ㄩ˙;</tRule>
+			<tRule>i }$pTone       → ㄧ;				# (not in han-latin) one-way, handle unicode spelling</tRule>
+			<tRule> i              →  ㄧ˙;</tRule>
+			<tRule>u }$pTone       → ㄨ;				# (not in han-latin) one-way, handle unicode spelling</tRule>
+			<tRule> u              →  ㄨ˙;</tRule>
+			<tRule>#</tRule>
+			<tRule>#--- clusters with a single pinyin consonant that can apear in other clusters ----</tRule>
+			<tRule>#</tRule>
+			<tRule>m }$pTone       ↔ ㄇ }$zTone;</tRule>
+			<tRule> m              →  ㄇ˙;</tRule>
+			<tRule> m1             ← ㄇ;</tRule>
+			<tRule>#</tRule>
+			<tRule>n }$pTone       ↔ ㄋ }$zTone;</tRule>
+			<tRule> n              →  ㄋ˙;</tRule>
+			<tRule> n1             ← ㄋ;</tRule>
+			<tRule>#</tRule>
+			<tRule>#--- fallback mappings ----</tRule>
+			<tRule>#</tRule>
+			<tRule># separate fallback mappings for some compound finals after consonants</tRule>
+			<tRule># (different pinyin than the standalone mappings for these zhuyin sequences).</tRule>
+			<tRule>#</tRule>
+			<tRule>#-------</tRule>
+			<tRule># would be nice to have these, need to work out how;</tRule>
+			<tRule># something like the following, but need to avoid conflicts with mappings above:</tRule>
+			<tRule># $pCons{ ia }$pTone   ↔ $zCons{ ㄧㄚ }$zTone;	# fallback mapping for unambiguous compound final</tRule>
+			<tRule>#     $pCons{ ia       →  ㄧㄚ˙;</tRule>
+			<tRule>#     ia1              ← $zCons{ ㄧㄚ</tRule>
+			<tRule>#</tRule>
+			<tRule># the relevant mappings are:</tRule>
+			<tRule># ia ↔ ㄧㄚ</tRule>
+			<tRule># ie ↔ ㄧㄝ</tRule>
+			<tRule># iao ↔ ㄧㄠ</tRule>
+			<tRule># iu ↔ ㄧㄡ</tRule>
+			<tRule># ian ↔ ㄧㄢ</tRule>
+			<tRule># in ↔ ㄧㄣ</tRule>
+			<tRule># iang ↔ ㄧㄤ</tRule>
+			<tRule># ing ↔ ㄧㄥ</tRule>
+			<tRule># ua ↔ ㄨㄚ</tRule>
+			<tRule># uo ↔ ㄨㄛ</tRule>
+			<tRule># uai ↔ ㄨㄞ</tRule>
+			<tRule># ui ↔ ㄨㄟ</tRule>
+			<tRule># uang ↔ ㄨㄤ</tRule>
+			<tRule># ong ↔ ㄨㄥ</tRule>
+			<tRule># iong ↔ ㄩㄥ</tRule>
+			<tRule>#-------</tRule>
+			<tRule>#</tRule>
+			<tRule># separate fallback mappings for some initial consonants not handled above</tRule>
+			<tRule># none of the mapped consonants handled here can have tones, so this is simple</tRule>
+			<tRule>b       ↔ ㄅ;</tRule>
+			<tRule>p       ↔ ㄆ;</tRule>
+			<tRule># m     ↔ ㄇ;	# handled above</tRule>
+			<tRule>f       ↔ ㄈ;</tRule>
+			<tRule>d       ↔ ㄉ;</tRule>
+			<tRule>t       ↔ ㄊ;</tRule>
+			<tRule># n     ↔ ㄋ;	# handled above</tRule>
+			<tRule>l       ↔ ㄌ;</tRule>
+			<tRule>g       ↔ ㄍ;</tRule>
+			<tRule>k       ↔ ㄎ;</tRule>
+			<tRule>h       ↔ ㄏ;</tRule>
+			<tRule>j       ↔ ㄐ;</tRule>
+			<tRule>q       ↔ ㄑ;</tRule>
+			<tRule>x       ↔ ㄒ;</tRule>
+			<tRule>zh      → ㄓ;	# reverse mapping to zhi handled above</tRule>
+			<tRule>ch      → ㄔ;	# reverse mapping to chi handled above</tRule>
+			<tRule>sh      → ㄕ;	# reverse mapping to shi handled above</tRule>
+			<tRule>r       → ㄖ;	# reverse mapping to ri handled above</tRule>
+			<tRule>z       → ㄗ;	# reverse mapping to zi handled above</tRule>
+			<tRule>c       → ㄘ;	# reverse mapping to ci handled above</tRule>
+			<tRule>s       → ㄙ;	# reverse mapping to si handled above</tRule>
+			<tRule>#</tRule>
+			<tRule>#--- tones (except for the ummarked cases handled above) ----</tRule>
+			<tRule>#</tRule>
+			<tRule># tone 1: pinyin \u0304 or 1 ↔ zhuyin typically unmarked or use ˉ \u02C9</tRule>
+			<tRule>1 → ;		# map to nothing</tRule>
+			<tRule>1 ← ˉ	;	# transform if marked in zhuyin</tRule>
+			<tRule># did the following with rules for each cluster, above</tRule>
+			<tRule># 1 ← ;		# map nothing in zhuyin to pinyin mark</tRule>
+			<tRule>#</tRule>
+			<tRule># tones 2-4 (easy)</tRule>
+			<tRule># $pToneOK{ 2 ↔ $zToneOK{ ˊ;	# pinyin \u0301 or 2 ↔ zhuyin \u02CA</tRule>
+			<tRule># $pToneOK{ 3 ↔ $zToneOK{ ˇ;	# pinyin \u030C or 3 ↔ zhuyin \u02C7</tRule>
+			<tRule># $pToneOK{ 4 ↔ $zToneOK{ ˋ;	# pinyin \u0300 or 4 ↔ zhuyin \u02CB</tRule>
+			<tRule># actually don't need context:</tRule>
+			<tRule>2 ↔ ˊ;	# pinyin \u0301 or 2 ↔ zhuyin \u02CA</tRule>
+			<tRule>3 ↔ ˇ;	# pinyin \u030C or 3 ↔ zhuyin \u02C7</tRule>
+			<tRule>4 ↔ ˋ;	# pinyin \u0300 or 4 ↔ zhuyin \u02CB</tRule>
+			<tRule>#</tRule>
+			<tRule># tone 5 (light): pinyin typically unmarked or use 5 ↔ zhuyin ˙ \u02D9</tRule>
+			<tRule>  ← ˙;	# map to nothing</tRule>
+			<tRule>5 → ˙;	# transform if marked in pinyin</tRule>
+			<tRule># did the following with rules for each cluster above</tRule>
+			<tRule>#  → ˙;	# map nothing in pinyin to zhuyin mark</tRule>
+			<tRule>#</tRule>
+			<tRule>#--- reverse filter ----</tRule>
+			<tRule>#</tRule>
+			<tRule>:: ([[ㄅ-ㄩ][ˉˊˇˋ˙]]);		# reverse filter: only modifies basic Bopomofo and tone marks</tRule>
+		</transform>
+	</transforms>
+</supplementalData>
+

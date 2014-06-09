@@ -1,0 +1,316 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="VI60_defaultClientScript" content="JavaScript">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="keywords" content="Unicode, common locale data repository">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+
+
+<title>Unicode CLDR Survey Tool</title><link rel="stylesheet" type="text/css" href="http://www.unicode.org/webscripts/standard_styles.css"></head>
+<body style="color: rgb(51, 0, 0);">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td colspan="2">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td class="icon"><a href="http://www.unicode.org/"> <img src="http://www.unicode.org/webscripts/logo60s2.gif" alt="[Unicode]" align="middle" border="0" height="33" width="34"></a>&nbsp;&nbsp;
+<a class="bar" href="index.html"><font size="3">Common Locale Data Repository</font></a></td>
+<td class="bar"><a href="http://www.unicode.org" class="bar">Home</a>
+| <a href="http://www.unicode.org/sitemap/" class="bar">Site
+Map</a> | <a href="http://www.unicode.org/search/" class="bar">Search</a></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td colspan="2" class="gray">&nbsp;</td>
+</tr>
+<tr>
+<td class="navCol" valign="top" width="25%">
+<table class="navColTable" border="0" cellpadding="0" cellspacing="4" width="100%">
+<tbody>
+<tr>
+<td class="navColTitle">Unicode CLDR</td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="index.html">CLDR Project</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="repository_access.html">CLDR Releases (Downloads)</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="survey_tool.html">CLDR Survey Tool</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="filing_bug_reports.html">CLDR Bug Reports</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="comparison_charts.html">CLDR Charts</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="process.html">CLDR Process</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="http://www.unicode.org/reports/tr35/">UTS #35: Locale
+Data Markup Language (LDML)</a></td>
+</tr>
+<tr>
+<td class="navColTitle">Related Links</td>
+</tr>
+<tr>
+<td class="navColCell" valign="top">Join
+the <a href="http://www.unicode.org/consortium/consort.html">Unicode
+Consortium</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="http://www.unicode.org/reports/">Unicode Technical
+Reports</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="http://www.unicode.org/faq/reports_process.html">Technical
+Reports Development and Maintenance Process</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="http://www.unicode.org/consortium/utc.html">Unicode
+Technical Committee</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="http://www.unicode.org/versions/">Versions of the
+Unicode Standard</a></td>
+</tr>
+<tr>
+<td class="navColTitle">Other Publications</td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="http://www.unicode.org/standard/standard.html">The
+Unicode Standard</a></td>
+</tr>
+<tr>
+<td class="navColCell" valign="top"><a href="http://www.unicode.org/notes/">Unicode Technical Notes</a></td>
+</tr>
+</tbody>
+</table>
+<!-- BEGIN CONTENTS --></td>
+<td>
+<table>
+<tbody>
+<tr>
+<td class="contents" valign="top">
+<div class="body">
+<h1>Unicode CLDR Survey Tool</h1><br>
+<table class="sidebar" id="table2" align="right">
+<tbody>
+                        <tr>
+                            <td class="sidebarTitle" style="" colspan="3">
+                            <span style="font-size: 133%;">Key Links</span></td>
+                        </tr>
+<tr><td class="sidebar"><a href="http://unicode.org/cldr/apps/survey">Survey Tool</a></td></tr>
+<tr><td class="sidebar"><a href="http://unicode.org/cldr/data/docs/survey/windows.html">Survey
+    Tool Windows</a></td></tr>
+<tr><td class="sidebar"><a href="http://unicode.org/cldr/survey_tool_known_bugs.html">Known
+    Bugs</a></td></tr>
+<tr><td class="sidebar"><a href="http://unicode.org/cldr/data/docs/survey/walkthrough.html">Walkthrough</a></td></tr><tr><td class="sidebar"><a href="http://unicode.org/cldr/data/docs/survey/managing_users.html">Managing Users</a></td></tr><tr><td class="sidebar"><a href="http://unicode.org/cldr/data/docs/survey/vetting.html">Vetting Phase</a></td></tr><tr><td class="sidebar"><a href="http://www.unicode.org/consortium/distlist.html#cldr_list">Unicode
+    CLDR Mailing List</a></td></tr>
+<tr><td class="sidebar"><a href="http://unicode.org/cldr/survey_tool.html">Survey Tool Overview</a> (this page)</td></tr>
+</tbody>
+</table>
+<p>Most data in the
+Unicode Common Locale Data Repository is gathered and processed via
+what is called the Survey Tool, an online tool that can be used to view
+data for different languages and propose additions or changes.&nbsp;<span>This tool provides a way to propose new
+localized data, see what others have proposed, and communicate with
+them to resolve differences</span>.</p>
+During <span>each</span>
+submission period, contributors from Unicode Consortium members, other
+organizations and the public at large are invited to review the data
+for their languages and countries, and propose new translations of
+terms or modifications, including language translations entirely new to
+the repository. For the release schedule, see <a href="index.html">CLDR
+Project</a>.<p>
+In this release, new structure has been added to provide for <span>plurals,
+simple duration formats, more
+control over the formatting of locale names.&nbsp;There are a
+number of changes in the tool for usability: for example, only the
+timezone names that are important to translate are shown. There are
+also new items for translation, such as new territory codes. We would
+also
+like people to focus on getting enough votes for the unapproved items
+to
+make them
+approved.</span></p><p>
+<span>The following
+provides a brief description of the process.</span>
+</p><h2>Accounts</h2>
+<p>You don’t need an account to view data for a
+particular language. If you wish to propose changes or additions, you
+will need an account: see <a class="wikipagelink" href="http://www.unicode.org/cldr/wiki?SurveyToolAccounts">Survey
+Tool Accounts</a>.</p>
+<h2>Locale List</h2>
+The main screen of the survey tool is located at <a href="http://unicode.org/cldr/apps/survey">http://unicode.org/cldr/apps/survey</a>.
+It displays a list of languages currently available. Languages will
+vary by script (Arabic vs. Latin, or Simplified vs. Traditional
+Chinese), and occasionally by country. For historic reasons, this
+combination of language with script or country is known as a <i>locale</i>.
+<p>For each language, the content is what is
+appropriate for the most populous country, thus the content for <i>English</i>
+[en] is whatever is appropriate for the United States. Any variation by
+country for that language will be represented in a country locale: thus
+content appropriate for the Australia that differs from what is in <i>English</i>
+[en] will be in a the sublocale <i>English (Australia) </i>[en_AU].</p>
+<p>Click on the languages (optionally countries) that
+you would like to view. You can always get back to this page by
+clicking on <em>Locales</em> at the top left of the page. </p>
+<ul>
+<li>If you have permission to modify a locale,
+after the locale you will see the <img alt="The image “http://unicode.org/cldr/apps/hand.png” cannot be displayed, because it contains errors." src="http://unicode.org/cldr/apps/hand.png"> symbol. </li>
+<li>If you would like to add data for a <em>new</em>
+locale, please notify your CLDR contact (see <a class="wikipagelink" href="http://www.unicode.org/cldr/wiki?SurveyToolAccounts">Survey
+Tool Accounts</a>). He or she can add an empty locale which can
+then have data added into it.</li>
+</ul>
+<h2>Reviewing and Submitting Data</h2>
+There is a key explaining the way the windows are laid out at <a href="http://unicode.org/cldr/data/docs/survey/windows.html">Survey
+Tool Windows</a>. You should review this before starting. You
+will then start going through each section: <i>languages</i>,
+<i>scripts</i>, <i>territories</i>,
+... all the way to <i>supplemental</i>.
+<ul>
+<li>As you go through the sections, you will
+generally review the Priority items (if any), and fix or add
+translations.
+<ul>
+<li>Click on the right option, if it is there. </li>
+<li>Otherwise click on "<i>change to</i>",
+then type in the fixed or new text.</li>
+<li><em><b>Important</b>:</em>
+before you leave any page, click on the <b>Save</b> button
+to save your changes. It's also a good idea to do this if you are
+spending a lot of time on a page, just in case there is a problem.</li>
+<li>Control-F to find something on the page is
+really useful in moving around on these pages, as are Page up and Page
+down keys. You can also switch between ordering items by <b>Priority</b>
+vs <b>Code</b>.</li>
+</ul>
+</li>
+<li>More information is in the "Zoomed" view, so be
+sure to look at that if you have any questions. It's also a good idea
+to zoom in on at least one item in each section, to review any
+information for that section.</li>
+</ul>
+<p>The locale data should be in the customary form
+for the target language, in the form that is in most common usage. For
+example, for the territory name in English one would use "Switzerland"
+instead of "Swiss Confederation", and use "United Kingdom" instead of
+"The United Kingdom of Great Britain and Northern Ireland".</p>
+<h2><strong>Coverage</strong></h2>
+<p>The warnings about missing items are based on your
+<i>coverage level.</i> This level can be from <i>comprehensive</i>
+(all possible items) down to <i>basic</i> (a very minimal
+set of items). Locales that don't meet at least <i>basic</i>
+level may not be complete enough to be in the official release
+(although the data will be kept in the working repository).</p>
+<ul>
+<li>You can go to <strong>My Options</strong>
+(in the top-left corner of each page), and set your coverage level
+explicitly.</li>
+<li>If you are from a Unicode member organization,
+your default coverage level will be set for you. However, you may want
+to increase your coverage (on <strong>My Options</strong>)
+in order to get more warnings about the next-priority items.</li>
+</ul>
+<p><b>Caution: </b>these warnings are
+mechanically generated, and do not substitute for your judgment: you
+may want to translate more items based on your knowledge. For example,
+a Ukrainian speaker may want to translate the names of the neighboring
+countries, even if those are not warnings at the current coverage level.</p>
+<h2><strong>Country-Specific Information</strong></h2>
+<p>The language locale should contain the most
+broadly used data for that language, and should be appropriate for the
+most populous region; other specific region locales should only contain
+data where they need to override individual items, when the "inherited"
+language locale data would not be customary in that region.</p>
+<p>Once you've looked over all the sections in your
+language, you should go back to the <a href="http://unicode.org/cldr/apps/survey">Locale</a>
+window, and scroll back to your language. You'll see different
+countries there on the right side of your language. If there are locale
+variations in the use of your language, according to country, then you
+can change them now. You <em>only</em> need to do this for
+cases where the usage in the countries differ from the main language.</p>
+<p><span>Each
+language has the </span><span style="font-style: italic;">default content</span><span> for one of the countries using the
+language. You won't be able to edit that country locale; instead, any
+modifications should go in the main language locale.</span>&nbsp;</p>
+<h2>Resolving Differences among Translators</h2>
+<p>After the data submission phase, any differences
+in the submitted data will be resolved according to the <a href="process.html#resolution_procedure">data resolution
+process</a>. <span>However,
+even during the submission phase, you should collaborate with the other
+translators where you have questions, via email and the forums.</span></p>
+<h2>Problems?</h2>
+The tool has undergone substantial revisions based on feedback we
+received during the last release. There are still some rough edges and
+we ask for your patience with problems that occur. In particular, the
+tool is not designed to handle a large number of people working at the
+same time, so if it appears unresponsive, please try again later on
+(and save your work as you go).
+<p>If you find a problem, you may want to review <a class="wikipagelink" href="http://unicode.org/cldr/survey_tool_known_bugs.html">Known
+Bugs</a>
+to see whether it has already been reported (and whether there is a
+work-around). If not, or if you have suggestions for improvements,
+please file a bug using the Feedback link at the bottom of each window.
+If there are other issues, you can raise them on the <a href="http://www.unicode.org/consortium/distlist.html#cldr_list">Unicode
+CLDR Mailing List</a>.</p>
+<h2><a name="Special_Considerations">Special
+Considerations</a></h2>
+<h3><span><a name="Character_Repertoire">Character
+Repertoire</a></span></h3>
+<p><span>The data in the locale repository
+should contain the most appropriate choice of characters for the
+representation of the text. It may thus include Unicode characters that
+are not included in a given legacy character set. In particular, the
+data may contain curly quotes and apostrophes (such as in “can’t”), and
+similar characters such as the letter modifiers in ʻōlelo Hawaiʻi.</span></p>
+<p><span>These characters provide more
+distinctions than are available with the generic ASCII repertoire. They
+may be “downcast” to the best available characters when the data is
+imported into systems with a more limited repertoire of supported
+characters. (Downcasting information is provided with <a href="http://www.unicode.org/cldr/data/charts/supplemental/character_fallback_substitutions.html">character
+fallback substitutions</a>.)</span></p>
+<h3><span>Hong Kong, Macau</span></h3>
+<p><span>The territory codes HK and MO are to
+be translated with the native equivalent of “Hong Kong SAR China” and
+“Macao SAR China”, respectively. SAR stands for “Special Administrative
+Region” and can be represented with acronym in the target language.
+There are alternative, short versions of these that should also be
+translated; those omit the "SAR China".</span></p>
+<blockquote> </blockquote>
+</div>
+<wbr> </td>
+</tr>
+</tbody>
+</table>
+<hr width="50%">
+<div align="center">
+<center>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td><a href="http://www.unicode.org/copyright.html">
+<img src="http://www.unicode.org/img/hb_notice.gif" alt="Access to Copyright and terms of use" border="0" height="50" width="216"></a></td>
+</tr>
+</tbody>
+</table>
+<script language="Javascript" type="text/javascript" src="http://www.unicode.org/webscripts/lastModified.js">
+</script>
+</center>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</body></html>

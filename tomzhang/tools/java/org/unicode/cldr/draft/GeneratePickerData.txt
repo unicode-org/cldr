@@ -1,0 +1,90 @@
+#Input is Main:Sub~Subsub
+.*Category:(.* - [^ ]*)[ ](.*)~(.*)>$2:$1~$3
+.*Category:([^ ]*)[ ](.*)~(.*)>$2:$1~$3
+.*Category:(.*)~(.*)>$1:$2
+.*Category:([^ ]*)[ ](.*)>$2:$1
+.*Category:(.*)>$1:Miscellaneous
+
+Mark:(.*) > Modifier:$1
+
+Symbol:Latin 1 Supplement@Other Symbol~Latin-1 punctuation and symbols > Symbol:Miscellaneous
+
+Symbol:.*@Currency Symbol.* > Symbol:Currency
+Symbol:.*@Math Symbol.* > Symbol:Math
+Symbol:.*Control Pictures.* > Symbol:Control Pictures
+Symbol:.*~.*(arrows|harpoons).* > Symbol:Arrows
+
+Symbol:(.*)symbols?>Symbol:$1
+Symbol:.*(Gender|Genealogic).* > Symbol:Gender and Genealogical
+Symbol:.*Star.* > Symbol:Stars/Asterisks
+Symbol:.*(Dice|Chess|Go Markers|Playing|Checkers|Tiles).* > Symbol:Game Pieces
+Symbol:.*(Box Drawing|Block Elements|Geometric Shapes|Miscellaneous Symbols And Arrows).*>Symbol:Geometric Shapes
+Symbol:.*Musical.*>Symbol:Musical
+Symbol:.*Halfwidth And Fullwidth Forms.*>Symbol:Geometric Shapes
+Symbol:.*Optical Character Recognition.*>Symbol:Technical
+Symbol:.*(weather|astrologic|zodiac).*>Symbol:Weather and Astrological
+Symbol:.*(keyboard|\bGUI\b).*>Symbol:Keyboard and UI
+Symbol:.*Letterlike Symbols.*>Symbol:Letterlike
+Symbol:.*Modifier.*>Modifier:Spacing
+Symbol:(Specials|Dingbat|Miscellaneous symbol).*>Symbol:Miscellaneous
+Symbol:.*Miscellaneous Technical.* > Symbol:Technical
+Symbol:.*(Tai Xuan Jing|Yijing).* > Symbol:Yijing / Tai Xuan Jing
+Symbol:(.*)Historic.* > Symbol:$1Historic
+Symbol:(.*)Letterlike(.*) > Symbol:$1Technical$2
+Symbol:.*Enclosed Alphanumeric Supplement.*>Symbol:Compatibility
+
+
+
+
+#Punctuation:Other~(.*)>Punctuation:$1
+Punctuation:(Open|Close|Initial|Final)(.*)>Punctuation:Paired
+Punctuation:(Dash|Connector)~(.*)>Punctuation:Dash/Connector
+#Punctuation:.*CJK.*>Punctuation:CJK
+Punctuation:.*~(ASCII|Latin).*>Punctuation:ASCII Based
+Punctuation:(.*(Compatibility|Historic)).* > Punctuation:$1
+# rename category
+
+Number:.*(circled|parenthesized|Numbers period).* > Number:Enclosed/Dotted
+Number:.*Compatibility.*~.*(latin-1|fraction|scripts).* > Number:Fractions/Related
+Number:(.*(Compatibility|Historic)).* > Number:$1
+Number:.*(Letter|Less Common).* > Number:Other
+
+
+
+
+#Modifier:(Spacing|Enclosing)~(.*)>Modifier:$1
+
+Format & Whitespace:(Other)~(.*)>Format & Whitespace:$1
+Format & Whitespace:(.*(Historic|Compatibility))(.*) > Format & Whitespace:$1
+Format & Whitespace:.*Grapheme joiner.* > Format & Whitespace:Format
+Format & Whitespace:Other > Format & Whitespace:Variation Selector
+
+
+#(.*[^])Other(.*)>$1Other$2
+#(.*)(.*)>$1$2
+
+# remove duplication in names
+(.*)Historic - Ancient(.*) > $1Historic - Other$2
+(.*)Compatibility - Compatibility(.*) > $1Compatibility - Other$2
+
+# remove "Other"
+
+(Symbol|Punctuation|Modifier|Number|Format & Whitespace|Latin|Hangul|Han .*):(.*(Compatibility|Historic)).* > $1:$2
+
+#Merge obsolete Han
+
+##(.*CJK.*):(.*) > CJK (Han):Compatibility
+(Han .*):.*(CJK strokes|CJK radicals supplement) > $1:CJK Strokes
+(Han .*):.*Ideographic description characters > $1:Ideographic Description
+(.*)Less Common(.*)Other.* > $1Less Common
+##(.*Han.*)Compatibility(.*)Other.* > $1Other
+
+
+#Fix Thai/Lao
+Southeast Asian Scripts:(.*Compatibility - )(.*) > Southeast Asian Scripts:$2
+
+Other European Scripts:Braille.* > Symbol:Braille
+
+# Suppress all of the other third-level items after the above merges
+(.*):(.*)~.* > $1:$2
+

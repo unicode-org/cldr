@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="http://unicode.org/cldr/apps/surveytool.css">
+
+<title>System Messages for Survey Tool</title><style>
+<!--
+DIV.chat {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 4px; PADDING-TOP: 4px
+}
+DIV.in {
+	HEIGHT: 1px; TEXT-ALIGN: left
+}
+DIV.1st {
+	PADDING-TOP: 4px
+}
+-->
+</style></head>
+<body>
+
+<h1 align="center">Survey Tool System Messages</h1>
+<p>These are system messages for use in the survey tool. You can add a new row, where the <i>Path</i> is a regular expression for an XML path, and the <i>Text 
+to Insert</i> is what you want to show up as help text, or modify existing text. <b>The software that interprets this expects a particular format, so don't make 
+arbitrary changes (see the end). </b></p>
+<table id="table1" style="border-collapse: collapse;" border="1" bordercolor="#000080" cellspacing="0" width="100%">
+	<tbody><tr>
+		<th>Path</th>
+		<th>Text to Insert</th>
+	</tr>
+	<tr>
+	   <td>startup_title</td>
+	   <td>
+	       CLDR Vetting | Starting Up...
+	   </td>
+	 </tr>
+    <tr>
+        <td>startup_header</td>
+        <td>
+            <h1>
+          SurveyTool Startup in Progress
+            </h1>
+        </td>
+    </tr>
+    <tr>
+        <td>startup_wait</td>
+        <td>
+          The SurveyTool is still starting up... Please wait....
+        </td>
+    </tr>
+    <tr>
+        <td>startup_footer</td>
+        <td>
+          <hr>
+            <a href='http://www.unicode.org'>Unicode</a> | <a href='http://www.unicode.org/cldr/'>Common Locale Data Repository</a>
+| <a href='http://www.unicode.org/cldr/trac/newticket?component=survey&amp;summary=Feedback+on+BOOTING+%3F'>Report Problem in Tool</a>
+
+        </td>
+    </tr>
+</tbody></table>
+<p>The text to insert can be fairly arbitrary HTML. The software that
+reads this table will search the first column (eg between &lt;td&gt;
+and &lt;/td&gt;) and return the contents of the second column. We plan
+on adding a few variables also, for the current locale name, in
+particular. This file uses the survey tool style-sheet, so you can use
+those <span class="winner">styles</span> (and icons, like
+<a target="target=" surveytool:n:de="" class="forumlink" href="http://unicode.org/cldr/apps/survey?_=de&amp;forum=de&amp;xpath=249">
+<img alt="[stop]" style="width: 16px; height: 16px;" src="http://unicode.org/cldr/apps/stop.png" title="Errors - please zoom in" border="0"></a>) in the text 
+to insert.</p>
+<p><b>WARNING</b></p>
+<ul>
+	<li><b><i>It uses a very dumb parser, so make sure that table
+elements are matched, eg &lt;td&gt; with &lt;/td&gt;, and also that
+&lt;tr&gt;, &lt;/tr&gt;, &lt;table&gt;, and &lt;/table&gt; are on
+separate lines.</i></b></li>
+	<li><b><i>The regular expression for
+the path must match the whole path, so if it is an interior substring,
+remember to add .* on both ends.</i></b></li>
+	<li><b><i>Run TestUtilities.testExampleGenerator() to verify that everything works.</i></b></li>
+</ul>
+
+</body></html>

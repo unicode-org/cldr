@@ -1,0 +1,32 @@
+# Regex file for excluding xpaths in TestLdml2ICU.
+# Format: <xpath> ; <exclusion_type>
+# Available exclusion types:
+# - unconverted: May be converted in future, so exclude for now. If the excluded
+#   xpath is eventually converted, a warning will be shown.
+# - ignore: We don't care if the xpath is converted or not, so if the excluded
+#   xpath is converted no errors or warnings will be generated.
+
+# Variables
+%A=[^"]++
+
+//(ldml|supplementalData)/(generation|version).* ; ignore
+.*/alias[@source="locale"][@path="%A"] ; ignore
+//ldml/identity ; ignore
+//ldml/posix ; unconverted
+
+.*[@alt="variant"\]$ ; unconverted
+
+//ldml/dates/calendars/calendar[@type="%A"]/.*[@alt="variant"] ; unconverted
+
+//supplementalData/calendarData/calendar[@type="(%A)"]$ ; unconverted
+//supplementalData/codeMappings/territoryCodes[@type="%A"]$ ; unconverted
+//supplementalData/codeMappings/territoryCodes[@type="%A"][@alpha3="%A"] ; unconverted
+//supplementalData/parentLocales/.* ; unconverted
+//supplementalData/references/reference ; unconverted
+//supplementalData/territoryContainment/group[@type="%A"][@contains="%A"][@status="%A"] ; unconverted
+
+//supplementalData/metadata/alias/zoneAlias ; unconverted
+//supplementalData/metadata/alias/.*[@type="%A"][@reason="%A"] ; unconverted
+//supplementalData/metadata/(?!alias|validity) ; unconverted
+//supplementalData/metadata/validity/attributeValues.* ; unconverted
+//supplementalData/metadata/validity/variable.*[@id="(?!\$territory)%A"] ; unconverted

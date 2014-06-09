@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE supplementalData SYSTEM "../../common/dtd/ldmlSupplemental.dtd">
+<!--
+Copyright © 1991-2013 Unicode, Inc.
+CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
+For terms of use, see http://www.unicode.org/copyright.html
+-->
+<supplementalData>
+  <version number="$Revision$"/>
+	<generation date="$Date$"/>
+	<transforms>
+		<transform source="tr" target="Lower" direction="forward">
+			<comment># Copyright (C) 2011-2013, Google, Inc.; Unicode, Inc.; and others. All Rights Reserved.</comment>
+			<comment># I and i-dotless; I-dot and i are case pairs in Turkish and Azeri</comment>
+			<comment># 0130; 0069; 0130; 0130; tr; # LATIN CAPITAL LETTER I WITH DOT ABOVE</comment>
+			<tRule>İ→i;</tRule>
+			<comment># When lowercasing, remove dot_above in the sequence I + dot_above, which will turn into i.</comment>
+			<comment># This matches the behavior of the canonically equivalent I-dot_above</comment>
+			<comment># 0307; ; 0307; 0307; tr After_I; # COMBINING DOT ABOVE</comment>
+			<comment># When lowercasing, unless an I is before a dot_above, it turns into a dotless i.</comment>
+			<comment># 0049; 0131; 0049; 0049; tr Not_Before_Dot; # LATIN CAPITAL LETTER I</comment>
+			<tRule>I([^[:ccc=Not_Reordered:][:ccc=Above:]]*)\u0307 → i$1 ;</tRule>
+			<tRule>I→ı ;</tRule>
+			<tRule>::Any-Lower();</tRule>
+		</transform>
+	</transforms>
+</supplementalData>

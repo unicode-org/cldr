@@ -1,0 +1,344 @@
+# IDNA CONTEXT RULES (including BIDI)
+# Mark Davis
+# $Date$
+# Provides a table-based mechanism for determining whether a label is a U-Label or not.
+
+# For testing, this turns on a Verbose mode, that displays the resolved sets and rules.
+
+VERBOSE:true
+
+# If any of the following regex expressions is found in the label, then the label is not a valid U-Label.
+# These rules provide a machine-readable way to test that. This is intended for a reference (test) version;
+# implementations would typically use hand-coded versions that would be much more optimized.
+# The context rules are derived from http://tools.ietf.org/html/draft-ietf-idnabis-tables-05#appendix-A
+# However, they do contain quite a number of corrections and proposed changes.
+
+# FILE FORMAT
+
+# Everything at and after # is a comment, and ignored.
+# Blank lines are ignored.
+# Leading and trailing spaces are ignored.
+# There are 3 kinds of lines: titles, rules and variable definitions
+
+# A variable is defined with a line of the form $X = <unicodeSet>
+# They are a single unicodeSet (character range) according to http://www.unicode.org/reports/tr18/
+# These variables are substituted in the rules before evaluation
+
+# Rules have the following formats:
+# <before>; <at>; <result>
+# <before> ; <result>
+# Key:
+#   <before> and <at> are both regex expressions
+#   <result> is either "fail" or "next"
+# Everything other kind of line is an error
+
+# A title is of the form "Title: ...". It is just informational, but allows the test to show why a character causes a failure.
+
+# Function
+# Logically, a label is processed by iterating through its character positions
+# In each iteration, each rule is checked.
+# If <before> and <at> both match, then the result is applied as follows:
+#   fail: stop, the label is invalid
+#   next: skip to the next rule that has a "next" result (skipping any "fail" or "next2" results)
+#   next2: skip to the next rule that has a "next" or "next2" result (skipping any "fail" results)
+# If the processing reaches the end of the string, then the label is valid.
+
+# The regex expressions use Java / Perl syntax, with Unicode properties. 
+# If the regex does not support Unicode Properties (the latest version!), then explicit ranges can be substituted.
+# For example, for [:bc=nsm:], using the set on http://unicode.org/cldr/utility/list-unicodeset.jsp?a=[:bc=nsm:]
+# Interior spaces are ignored, and may be used for readability.
+
+# The expressions are limited to a basic format which should work in any regex engine (perhaps with some syntax tweeks).
+# In particular, the <before> and <at> split is used to avoid lookbehind, which can vary in results depending on regex engines.
+# <before> is matched before the current position. Logically, it is equivalent to matching label[0,n] against /.*<before>/
+# <at> is matched at the current position. Logically, it is equivalent to matching label[n,end] against /<at>.*/
+
+# ===================================
+# Mapping would be done before this table, and only for Lookup
+# ===================================
+
+Title: 4.2.2. Rejection of Characters that are not Permitted: fail if DISALLOWED or UNASSIGNED
+
+# Tables
+
+# 2.1. LetterDigits (A)
+
+$LetterDigits = [[:Ll:] [:Lu:] [:Lo:] [:Nd:] [:Lm:] [:Mn:] [:Mc:]]
+
+# 2.2. Unstable (B)
+
+$Unstable = [:^nfkc_casefolded:]
+
+# 2.3. IgnorableProperties (C) // default ignoreable or whitespace or nonchar
+
+$Ignorable = [[:di:] [:WSpace:] [:NChar:]]
+
+# 2.4. IgnorableBlocks (D)
+
+$IgnorableBlocks = [[:block=Combining_Diacritical_Marks_For_Symbols:] [:block=Musical_Symbols:] [:block=Ancient_Greek_Musical_Notation:]]
+
+# 2.5. LDH (E)
+
+$LDH = [\u002D\u0030-\u0039\u0061-\u007A]
+
+# 2.6. Exceptions (F)
+# Note: added Tatweel to these, since that seems to be the current consensus.
+
+$ExceptionDisallowed = [\u302E \u302F \u0640]
+$ExceptionPvalid = [\u00DF \u03C2 \u06FD \u06FE \u0F0B \u3007]
+$ExceptionContexto = [\u002D \u00B7 \u02B9 \u0375 \u0483 \u05F3 \u05F4 \u0660 \u0661 \u0662 \u0663 \u0664 \u0665 \u0666 \u0667 \u0668 \u0669 \u06F0 \u06F1 \u06F2 \u06F3 \u06F4 \u06F5 \u06F6 \u06F7 \u06F8 \u06F9 \u3005 \u303B \u30FB]
+   
+# 2.7. BackwardCompatible (G)
+
+$BackwardCompatibleDisallowed = []
+$BackwardCompatiblePvalid = []
+$BackwardCompatibleContexto = []
+
+# 2.8. JoinControl (H)
+
+$JoinControl = [:JoinControl:]
+
+# 2.9. OldHangulJamo (I)
+
+$OldHangulJamo = [[:HST=L:] [:HST=V:] [:HST=T:]]
+
+# 2.10. Unassigned (J)
+
+$Unassigned = [[:unassigned:] - [:nchar:]]
+
+# If .cp. .in.  Exceptions Then Exceptions(cp);
+# Else If .cp. .in.  BackwardCompatible Then BackwardCompatible(cp);
+# Else If .cp. .in.  Unassigned Then UNASSIGNED;
+# Else If .cp. .in.  LDH Then PVALID;
+# Else If .cp. .in.  JoinControl Then CONTEXTJ;
+# Else If .cp. .in.  Unstable Then DISALLOWED;
+# Else If .cp. .in.  IgnorableProperties Then DISALLOWED;
+# Else If .cp. .in.  IgnorableBlocks Then DISALLOWED;
+# Else If .cp. .in.  OldHangulJamo Then DISALLOWED;
+# Else If .cp. .in.  LetterDigits Then PVALID; 
+# Else DISALLOWED;
+
+# We compute when invalid.
+# There is no functional difference between DISALLOWED and UNASSIGNED: we can just call them invalid.
+
+# The rules in Tables obfuscates the true situation, which is that:
+#   A. some characters are always valid
+#   B. otherwise LetterDigits are valid - with some subtractions
+#   C. otherwise everything is invalid
+
+# There is no functional difference between CONTEXTJ and CONTEXTO, and none at this point from PVALID either
+# We record all of them for later
+
+$Context = [$ExceptionContexto $BackwardCompatibleContexto $JoinControl]
+
+$ValidAlways = [$ExceptionPvalid $BackwardCompatiblePvalid $LDH]
+
+$InvalidLetterDigits = [$ExceptionDisallowed $BackwardCompatibleDisallowed $Unassigned $Unstable $IgnorableProperties $IgnorableBlocks $OldHangulJamo]
+
+$Valid = [$ValidAlways $Context [$LetterDigits - $InvalidLetterDigits]]
+$Valid2 = [[:nfkc_casefolded:]-[:c:]-[:z:]-[:s:]-[:p:]-[:nl:]-[:no:]-[:me:]-[:di:]-[:HST=L:]-[:HST=V:]-[:HST=V:]-[:block=Combining_Diacritical_Marks_For_Symbols:]-[:block=Musical_Symbols:]-[:block=Ancient_Greek_Musical_Notation:]-[\u0640\u07FA\u302E\u302F\u3031-\u3035\u303B][:JoinControl:][\u00DF\u03C2\u06FD\u06FE\u0F0B\u3007][\u002D\u00B7\u0375\u05F3\u05F4\u30FB]]
+
+$Invalid = [^ $Valid]
+
+# ===================================
+
+# At this point, we have the final list of everything that is invalid, so there is a single test
+
+$Invalid ; fail
+
+# ===================================
+
+Title: 4.2.3.1. Rejection of Hyphen Sequences in U-labels // just xx--
+
+^.. ; -- ; fail
+
+# ===================================
+
+Title: 4.2.3.2. Leading Combining Marks
+
+$M = [:M:]
+
+^ ; $M ; fail
+
+# ===================================
+
+# CONTEXT: 4.2.3.3. Contextual Rules
+# The details here are all from Tables
+
+Title: Appendix A.1. HYPHEN-MINUS - Can't be at start or end; that is, ok only if medial
+
+. ; -. ; next
+- ; fail
+
+# See comment in http://www.alvestrand.no/pipermail/idna-update/2008-November/003021.html
+
+# ==========================
+
+# ZWNJ and ZWJ is the trickiest section
+# Tables is all messed up. Following UAX 31 instead, from which these are derived
+# http://www.unicode.org/reports/tr31/#Layout_and_Format_Control_Characters
+
+# There are two different kinds of rules that have to be combined.
+# We don't try a script test for Arabic, because it is not needed (and is complicated)
+
+# Variables for Arabic
+
+$T = [:Joining_Type=Transparent:]
+$R = [[:Joining_Type=Dual_Joining:][:Joining_Type=Right_Joining:]]
+$L = [[:Joining_Type=Dual_Joining:][:Joining_Type=Left_Joining:]] 
+
+# Appendix A.2. ZERO WIDTH NON-JOINER
+
+Title: A1. Allow ZWNJ in the following context: /$L $T* ZWNJ $T* $R/
+
+$L $T* ; \u200C $T* $R ; next
+
+# Variables for Indic
+
+$Lt = [:General_Category=Letter:]
+$V = [:Canonical_Combining_Class=Virama:]
+
+# $deva = [:sc=deva:]
+# $Ndeva = [^$deva]
+# $beng = [:sc=beng:]
+# $Nbeng = [^$beng]
+# $guru = [:sc=guru:]
+# $Nguru = [^$guru]
+# $noVirama = [^ $deva $beng $guru]
+
+# WARNING: There is a nasty bug in Java regex before 1.6; the work-around is to do the negations
+# above, instead of in the regexes.
+
+# To do the script test for both ZWNJ and ZWJ, use the following.
+# The first line lists all the acceptable scripts
+
+Title: ZWJ/ZWNJ apply to letter+virama
+# WARNING: rule must come after Arabic!
+
+# $noVirama ; [\u200C\u200D] ; fail
+
+# The remainder makes sure that each script is paired
+# Subsequent rules will make sure that there are two characters
+
+# $Ndeva $deva; [\u200C\u200D] ; fail
+# $Nbeng $beng; [\u200C\u200D] ; fail
+# $Nguru $guru; [\u200C\u200D] ; fail
+
+# Now we do the script-independent rules
+
+Title: A2. Allow ZWNJ in the following context: /$L $V ZWNJ/
+
+$Lt $V ; \u200C ; next2
+\u200C ; fail
+
+# Appendix A.3. ZERO WIDTH JOINER
+
+Title: B. Allow ZWJ (U+200D) in the following context:  /$L $V ZWJ/
+
+$Lt $V ; \u200D ; next2
+\u200D ; fail
+
+# ==========================
+
+Title: Appendix A.4. MIDDLE DOT
+
+l ; \u00B7 l ; next
+\u00B7 ; fail
+
+# Appendix A.5. GREEK LOWER NUMERAL SIGN (KERAIA)
+Title: The script of the following character MUST be Greek.
+$grek = [:script=greek:]
+\u0375 ; $grek ; next
+\u0375 ; fail
+
+Title: Appendix A.6. HEBREW PUNCTUATION GERESH - \u05F3 - The script of the preceding character MUST be Hebrew.
+
+$hebr = [:script=hebrew:]
+$hebr ; \u05F3 ; next
+\u05F3 ; fail
+
+Title: Appendix A.7. HEBREW PUNCTUATION GERSHAYIM - \u05F4 - The script of the preceding character MUST be Hebrew.
+
+$hebr ; \u05F4 ; next
+\u05F4 ; fail
+
+Title: Appendix A.12. KATAKANA MIDDLE DOT - \u30FB - Adjacent characters MUST be Hiragana, Katakana, or Han.
+$han = [[:script=Hiragana:][:script=Katakana:][:script=Han:]]
+$han ; \u30FB $han; next
+\u30FB ; fail
+
+Title: Appendix A.13. ARABIC-INDIC DIGITS - 0660..0669
+# Rules broken, since they simply forbid them entirely
+# Rewrite to exclude mixing with western (ASCII) or extended Arabic digits
+
+$WD = [0-9]
+$AD = [\u0660-\u0669]
+$EAD = [\u06F0-\u06F9]
+
+[$WD $EAD].*$AD ; fail
+$AD.*[$WD $EAD] ; fail
+
+Title: Appendix A.14. EXTENDED ARABIC-INDIC DIGITS
+# Rules broken, since they simply forbid them entirely
+# Rewrite to exclude mixing with western (ASCII) or Arabic digits
+
+$EAD .* [$WD $AD] ; fail
+[$WD $AD] .* $EAD ; fail
+
+# ==========================
+
+# BIDI Rules: 4.2.3.4. Labels Containing Characters Written Right to Left
+# The details here are all from http://tools.ietf.org/html/draft-ietf-idnabis-bidi-03
+
+# Note that $NSM != Non-spacing Marks in the general sense
+# See http://unicode.org/cldr/utility/unicodeset.jsp?a=[:bc=nsm:]&b=[[:me:][:mn:]]
+
+$NSM = [:bc=NSM:]
+$ESON = [[:bc=ES:][:bc=ON:]]
+$ENAN = [[:bc=EN:][:bc=AN:]]
+$RALAN = [[:bc=R:][:bc=AL:][:bc=AN:]]
+$BCL = [:bc=L:]
+$BDisallowed = [^[:bc=L:][:bc=R:][:bc=AL:][:bc=AN:][:bc=EN:][:bc=ES:][:bc=BN:][:bc=ON:][:bc=NSM:]]
+
+# Note: 
+# The only tables-valid [:bc=ES:] character is: -
+# The only tables-valid [:bc=BN:] characters are: [\u200C \u200D]
+# The only tables-valid [:bc=ON:] characters are: [・ · ʹ ͵ ʺ ˆ-ˏ ˬ ꜗ-ꜟ ꞈ ⸯ ꙿ]
+
+Title: 1.  Only characters with the BIDI properties L, R, AL, AN, EN, ES, BN, ON and NSM are allowed.
+
+# No rules really necessary, since anything else is excluded by Tables
+
+$BDisallowed ; fail
+
+Title: 2.  ES and ON are not allowed in the first position
+
+^ ; $ESON .* $RALAN ; fail
+
+Title: 3.  ES and ON, followed by zero or more NSM, is not allowed in the last position
+
+$RALAN .* ; $ESON $NSM* $ ; fail
+
+Title: 4.  If an R, AL or AN is present, no L may be present.
+
+$RALAN .* $BCL ; fail
+$BCL .* $RALAN ; fail
+
+Title: 5.  If an EN is present, no AN may be present, and vice versa.
+
+# Overlaps with A.13/14 above, not necessary to restate
+
+Title: 6.  The first character may not be an NSM.
+
+^ ; $NSM ; fail
+
+Title: 7.  The first character may not be an EN (European Number) or an AN (Arabic Number).
+
+^ ; $ENAN .* $RALAN ; fail
+
+# NOTE: all of the "not allowed in first position" rules could be combined together
+
+# ===================================
+
+# 4.2.4. Registration Validation Summary: if at least one non-ASCII then <= 59 bytes of PunyCode
+# Needs to be done outside of this table

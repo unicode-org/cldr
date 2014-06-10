@@ -474,8 +474,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
 
         for (String xpath: orderedSet) {
-//        for (Iterator<String> it2 = orderedSet.iterator(); it2.hasNext();) {
-//            String xpath = (String) it2.next();
             if (isResolved && xpath.contains("/alias")) {
                 continue;
             }

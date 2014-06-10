@@ -62,7 +62,6 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
-import org.unicode.cldr.util.VoteResolver.Organization;
 
 /**
  * Singleton class to provide API access to supplemental data -- in all the supplemental data files.

@@ -4,7 +4,7 @@ import java.util.EnumMap;
 import java.util.TreeSet;
 
 import org.unicode.cldr.util.CLDRConfig;
-import org.unicode.cldr.util.CLDRConfig;
+
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Level;

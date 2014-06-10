@@ -51,6 +51,9 @@ tr.shown {
 p.specialmessage {
     display:  inline;
     font-size:  smaller;
+    width: 210px;
+	height:34px;
+	overflow:hidden;
 }
 
 .menu-review .popover{
@@ -481,6 +484,9 @@ overflow:auto;
 
 
 div#additional-top {
+	position: fixed;
+	left: calc(50% - 250px);
+	top:140px;
 }
 
 div#additional-top div.topnotices {

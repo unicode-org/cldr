@@ -283,7 +283,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
                   String cookieMessage = haveCookies?"<!-- and Forget Me-->":"";
 	              %>
 	               <span class="hasTooltip" title="<%= ctx.session.user.email %>"><%= ctx.session.user.name %></span>
-	               (<%= ctx.session.user.org %>)
+	               <span class='glyphicon glyphicon-user tip-log' title='<%= ctx.session.user.org %>'></span>
 	              
 	              <% Integer reducedLevelVote =ctx.session.user.getLevel().canVoteAtReducedLevel(); 
 	              	 int regularVote = ctx.session.user.getLevel().getVotes(); %>
@@ -292,12 +292,12 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 	              		<option selected="selected" value="<%= regularVote %>"><%= regularVote %> votes</option>
 	              		<option value="<%= reducedLevelVote %>"><%= reducedLevelVote %> votes</option>
 	             		</select>
-	              	 |
+	              	 
 	              <% } %>
-	               (<a class='navbar-link' href='<%= survURL + "?do=logout" %>'>Logout<%= cookieMessage %></a>)
+	               | <a class='navbar-link' href='<%= survURL + "?do=logout" %>'><span class='glyphicon glyphicon-log-out tip-log' title='Logout'></span><%= cookieMessage %></a>
 	                <script type="text/javascript">var isVisitor = 0</script>
 	        <% } else { %>
-                   (<a href='<%= request.getContextPath() %>/login.jsp' class='navbar-link'>Login…</a>)
+                   | (<a href='<%= request.getContextPath() %>/login.jsp' class='navbar-link'>Login…</a>)
       		        <script type="text/javascript">var isVisitor = 1</script>
             		
             <% } %>

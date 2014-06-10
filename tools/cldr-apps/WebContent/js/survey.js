@@ -869,10 +869,10 @@ function showWord() {
 	} else if(!progressWord || progressWord == "ok") {
 		if(specialHeader) {
 			p.className = "progress-special";
-			popupAlert('success',specialHeader);
+			//popupAlert('success',specialHeader);
 		} else {
 			p.className = "progress-ok";
-			popupAlert('warning',stui_str('online'));
+			//popupAlert('warning',stui_str('online'));
 		}
 	} else if(progressWord=="startup") {
 		p.className = "progress-ok";

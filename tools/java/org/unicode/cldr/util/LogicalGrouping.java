@@ -31,7 +31,7 @@ public class LogicalGrouping {
         "Taipei", "Tashkent", "Tbilisi", "Tonga", "Turkey", "Turkmenistan", "Uralsk", "Uruguay", "Uzbekistan",
         "Vanuatu", "Vladivostok", "Volgograd", "Yakutsk", "Yekaterinburg", "Yerevan", "Yukon" };
 
-    public static final Set<String> metazonesDSTList = new HashSet<String>(Arrays.asList(metazonesUsingDST));
+    public static final Set<String> metazonesDSTSet = new HashSet<String>(Arrays.asList(metazonesUsingDST));
 
     public static final String[] days = { "sun", "mon", "tue", "wed", "thu", "fri", "sat" };
     public static final List<String> daysList = Arrays.asList(days);
@@ -51,13 +51,14 @@ public class LogicalGrouping {
         Set<String> result = new TreeSet<String>();
         if (path == null) return result;
         result.add(path);
+        // Figure out the plurals forms, as we will probably need them.
 
         XPathParts parts = new XPathParts();
 
         if (path.indexOf("/metazone") > 0) {
             parts.set(path);
             String metazoneName = parts.getAttributeValue(3, "type");
-            if (metazonesDSTList.contains(metazoneName)) {
+            if (metazonesDSTSet.contains(metazoneName)) {
                 for (String str : metazone_string_types) {
                     result.add(path.substring(0, path.lastIndexOf('/') + 1) + str);
                 }
@@ -101,6 +102,8 @@ public class LogicalGrouping {
             }
         } else if (path.indexOf("/decimalFormatLength") > 0) {
             parts.set(path);
+            PluralInfo pluralInfo = getPluralInfo(cldrFile);
+            Set<Count> pluralTypes = pluralInfo.getCounts();
             String decimalFormatLengthType = parts.size() > 3 ? parts.getAttributeValue(3, "type") : null;
             String decimalFormatPatternType = parts.size() > 5 ? parts.getAttributeValue(5, "type") : null;
             if (decimalFormatLengthType != null && decimalFormatPatternType != null &&
@@ -110,9 +113,6 @@ public class LogicalGrouping {
                 for ( int i = 0 ; i < 3 ; i++ ) {                    
                     String patType = "1" + String.format(String.format("%%0%dd", baseZeroes+i), 0); // This gives us "baseZeroes+i" zeroes at the end.
                     parts.setAttribute(5, "type", patType);
-                    // Get all plural forms of this xpath.
-                    PluralInfo pluralInfo = getPluralInfo(cldrFile);
-                    Set<Count> pluralTypes = pluralInfo.getCounts();
                     for (Count count : pluralTypes) {
                         parts.setAttribute(5, "count", count.toString());
                         result.add(parts.toString());
@@ -120,10 +120,9 @@ public class LogicalGrouping {
                 }
             }
          } else if (path.indexOf("[@count=") > 0) {
-            // Get all plural forms of this xpath.
+            parts.set(path);
             PluralInfo pluralInfo = getPluralInfo(cldrFile);
             Set<Count> pluralTypes = pluralInfo.getCounts();
-            parts.set(path);
             String lastElement = parts.getElement(-1);
             for (Count count : pluralTypes) {
                 parts.setAttribute(lastElement, "count", count.toString());

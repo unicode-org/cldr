@@ -55,7 +55,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
         // Special test during vetting phase to allow changes in a logical group when another item in the group
         // contains an error or warning.  See http://unicode.org/cldr/trac/ticket/4943.
         // I added the option lgWarningCheck so that we don't loop back on ourselves forever.
-        if (this.getPhase() != null && this.getPhase().equals(Phase.VETTING) && options.get(Options.Option.lgWarningCheck) != "true") {
+        if (Phase.VETTING.equals(this.getPhase()) && options.get(Options.Option.lgWarningCheck) != "true") {
             Options checkOptions = options.clone();
             checkOptions.set("lgWarningCheck", "true");
             List<CheckStatus> statuses = new ArrayList<CheckStatus>();
@@ -80,7 +80,7 @@ public class CheckLogicalGroupings extends CheckCLDR {
             }
         }
         
-        if (this.getPhase() != null && this.getPhase().equals(Phase.FINAL_TESTING)) {
+        if (Phase.FINAL_TESTING.equals(this.getPhase())) {
             Factory factory = PathHeader.getFactory(CheckCLDR.getDisplayInformation());
             DraftStatus myStatus = null;
             EnumMap<DraftStatus, PathHeader> draftStatuses = new EnumMap<DraftStatus, PathHeader>(DraftStatus.class);

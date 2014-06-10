@@ -173,10 +173,12 @@ function unpackMenuSideBar(json) {
 		if(!cachedJson)
 			return;
 		json = cachedJson;
-		json.covlev_org = lName;
+		json.covlev_user = lName;
 	}
+	console.log(json);
+
 	var menus = json.menus.sections;
-	var levelName = json.covlev_org;
+	var levelName = json.covlev_user;
 	var menuRoot = $('#locale-menu');
 	var level = 0;
 	var levels = json.menus.levels;
@@ -219,6 +221,9 @@ function unpackMenuSideBar(json) {
 			var pageName = element.name;
 			var pageId = element.id;
 			$.each(element.levs, function(index, element){
+				console.log('pageName : ' + menuName + pageName)
+				console.log('element : ' + parseInt(element));
+				console.log('level : ' + level);
 				if(parseInt(element) <= level)
 					html += '<li class="sidebar-chooser list-unstyled" id="'+pageId+'"><div>'+pageName+'</div></li>';
 				

@@ -221,9 +221,6 @@ function unpackMenuSideBar(json) {
 			var pageName = element.name;
 			var pageId = element.id;
 			$.each(element.levs, function(index, element){
-				console.log('pageName : ' + menuName + pageName)
-				console.log('element : ' + parseInt(element));
-				console.log('level : ' + level);
 				if(parseInt(element) <= level)
 					html += '<li class="sidebar-chooser list-unstyled" id="'+pageId+'"><div>'+pageName+'</div></li>';
 				

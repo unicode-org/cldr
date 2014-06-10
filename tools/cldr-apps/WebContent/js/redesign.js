@@ -215,7 +215,6 @@ function unpackMenuSideBar(json) {
 	html += '</ul>';
 	
 	html += '<ul>';
-	console.log(json)
 	$.each(menus, function(index, element) {
 		var menuName = element.name;
 		html += '<li class="list-unstyled open-menu"><div>'+menuName+'<span class="pull-right glyphicon glyphicon-chevron-right"></span></div><ul class="second-level">';

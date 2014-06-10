@@ -1,10 +1,13 @@
 package org.unicode.cldr.test;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Set;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.test.CheckCLDR.CheckStatus.Type;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.LogicalGrouping;
 import org.unicode.cldr.util.PathHeader;
@@ -49,6 +52,34 @@ public class CheckLogicalGroupings extends CheckCLDR {
                 .setMessage("Incomplete logical group - must enter a value for all fields in the group"));
         }
 
+        // Special test during vetting phase to allow changes in a logical group when another item in the group
+        // contains an error or warning.  See http://unicode.org/cldr/trac/ticket/4943.
+        // I added the option lgWarningCheck so that we don't loop back on ourselves forever.
+        if (this.getPhase() != null && this.getPhase().equals(Phase.VETTING) && options.get(Options.Option.lgWarningCheck) != "true") {
+            Options checkOptions = options.clone();
+            checkOptions.set("lgWarningCheck", "true");
+            List<CheckStatus> statuses = new ArrayList<CheckStatus>();
+            CompoundCheckCLDR secondaryChecker = CheckCLDR.getCheckAll(CLDRConfig.getInstance().getFullCldrFactory(),".*");
+            secondaryChecker.setCldrFileToCheck(getCldrFileToCheck(), checkOptions, statuses);
+            
+            for (String apath : paths) {
+                if (apath == path) {
+                    continue;
+                }
+                String fPath = getCldrFileToCheck().getFullXPath(apath);
+                if (fPath == null) {
+                    continue;
+                }
+                secondaryChecker.check(apath, fPath, getCldrFileToCheck().getWinningValue(apath), checkOptions, statuses);
+                if (CheckStatus.hasType(statuses, Type.Error) || CheckStatus.hasType(statuses, Type.Warning)) {
+                    result.add(new CheckStatus().setCause(this).setMainType(CheckStatus.warningType)
+                        .setSubtype(Subtype.errorOrWarningInLogicalGroup)
+                        .setMessage("Error or warning within this logical group.  May require a change on this item to make the group correct."));
+                    break;
+                }
+            }
+        }
+        
         if (this.getPhase() != null && this.getPhase().equals(Phase.FINAL_TESTING)) {
             Factory factory = PathHeader.getFactory(CheckCLDR.getDisplayInformation());
             DraftStatus myStatus = null;

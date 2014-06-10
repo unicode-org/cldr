@@ -328,7 +328,8 @@ abstract public class CheckCLDR {
         public enum Option {
             locale,
             CoverageLevel_requiredLevel("CoverageLevel.requiredLevel"),
-            CoverageLevel_localeType("CoverageLevel.localeType"), SHOW_TIMES, phase,
+            CoverageLevel_localeType("CoverageLevel.localeType"), SHOW_TIMES, phase, lgWarningCheck,
+
             CheckCoverage_skip("CheckCoverage.skip");
 
             private String key;
@@ -375,7 +376,7 @@ abstract public class CheckCLDR {
          * @param key
          * @param value
          */
-        private void set(String key, String value) {
+        public void set(String key, String value) {
             // TODO- cache the map
             for (Option o : Option.values()) {
                 if (o.getKey().equals(key)) {
@@ -419,7 +420,7 @@ abstract public class CheckCLDR {
             set(Option.CoverageLevel_localeType, localeType);
             sb.append(localeType).append('/');
             set(Option.phase, testPhase.name().toLowerCase());
-            sb.append(testPhase.name()).append('/');
+            sb.append(localeType).append('/');
             key = sb.toString().intern();
         }
 
@@ -746,6 +747,7 @@ abstract public class CheckCLDR {
             percentPatternMissingPercentSymbol, illegalNumberFormat, unexpectedAttributeValue, metazoneContainsDigit,
             tooManyGroupingSeparators, inconsistentPluralFormat,
             sameAsEnglishOrCode, dateSymbolCollision, incompleteLogicalGroup, extraMetazoneString, inconsistentDraftStatus,
+            errorOrWarningInLogicalGroup,
             valueTooWide,
             valueTooNarrow,
             nameContainsYear,

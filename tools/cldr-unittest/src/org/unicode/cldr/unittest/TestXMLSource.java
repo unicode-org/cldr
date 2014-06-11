@@ -15,7 +15,7 @@ import org.unicode.cldr.util.XPathParts.Comments;
 import com.ibm.icu.dev.test.TestFmwk;
 
 public class TestXMLSource extends TestFmwk {
-    private class DummyXMLSource extends XMLSource {
+    public static class DummyXMLSource extends XMLSource {
         Map<String, String> valueMap = CldrUtility.newConcurrentHashMap();
 
         @Override

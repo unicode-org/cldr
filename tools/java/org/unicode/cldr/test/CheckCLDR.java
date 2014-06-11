@@ -1105,6 +1105,11 @@ abstract public class CheckCLDR {
         // throw new InternalError("CheckCLDR problem: value must not be null");
         // }
         result.clear();
+        // If the item is non-winning, and either inherited or it is code-fallback, then don't run
+        // any tests on this item.  See http://unicode.org/cldr/trac/ticket/7574
+        if (value == cldrFileToCheck.getBaileyValue(path, null, null) && value != cldrFileToCheck.getWinningValue(path)) {
+            return this;
+        }
         CheckCLDR instance = handleCheck(path, fullPath, value, options, result);
         Iterator<CheckStatus> iterator = result.iterator();
         // Filter out any errors/warnings that match the filter list in CheckCLDR-exceptions.txt.

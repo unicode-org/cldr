@@ -1685,63 +1685,12 @@ function showForumStuff(frag, forumDiv, tr) {
 								}
 							}
 						}
-						
-						// display sorted sub-locales by current values
-						var appendLocaleWithValue = function appendLocaleWithValue(list){
-							var curValue = list[0][1];
-							var all_checked = false; // whether we check all sub-locales
-							for(var i=0; i<=list.length; i++){
-								var escape = "\u00A0\u00A0\u00A0";
-								var group = document.createElement("optGroup");
-								// if we check all sublocales in nested loop or finish all elements
-								if(all_checked || i == list.length){
-									break;
-								}
-								
-								curValue = list[i][1];
-								if(curValue == null){ // if there is no value set yet
-									group.setAttribute("label", "no value set yet");
-									group.setAttribute("title", "no value set yet");
-								}else{
-									group.setAttribute("label", curValue);
-									group.setAttribute("title", curValue);
-								}
-								
-								// go thorugh the following items to find those with same values
-								for(var j=i; j<=list.length; j++){
-									if(j == list.length){ // if we hit the end
-										all_checked = true;
-										popupSelect.appendChild(group);
-									}else if(list[j][1] != curValue){ // if the next one is different
-										i = j-1;
-										popupSelect.appendChild(group);
-										break;
-									}else{ // if the next one has the same value
-										var loc = list[j][0];
-										var item = document.createElement("option");
-										item.setAttribute("value",loc);
-										
-										var str = locmap.getRegionAndOrVariantName(loc);
-
-										if(loc === topLocale){
-											str = str + " (= " + readLocale + ")";
-										}
-										str = escape + str;
-										
-										if(loc === surveyCurrentLocale) {
-											item.setAttribute("selected", "selected");
-						        			item.setAttribute("disabled","disabled");
-										}
-										
-										item.appendChild(document.createTextNode(str));
-										group.appendChild(item);
-									}
-								}
-							}
-						}
 						// compare all sublocale values 
 						var appendLocaleList = function appendLocaleList(list) {
 							var group = document.createElement("optGroup");
+							var br = document.createElement("optGroup");
+							group.appendChild(br);
+							
 							group.setAttribute("label", "Regional Variants for " + curLocale);
 							group.setAttribute("title", "Regional Variants for " + curLocale);
 							
@@ -1762,7 +1711,12 @@ function showForumStuff(frag, forumDiv, tr) {
 								var loc = list[l][0];
 								var title = list[l][1];
 								var item = document.createElement("option");
-								item.setAttribute("value",loc);
+								item.setAttribute("value", loc);
+								if(title == null){
+									item.setAttribute("title", "undefined");
+								}else{
+									item.setAttribute("title", title);
+								}
 								
 								var str = locmap.getRegionAndOrVariantName(loc);
 								if(loc === topLocale){
@@ -1803,27 +1757,15 @@ function showForumStuff(frag, forumDiv, tr) {
 						}	
 						mergeReadBase(dataList);
 						
-						// firslt sort by value & display(1st by value, 2nd by locale)
-						dataList = dataList.sort(function(a,b) {
-							var a_locale = locmap.getRegionAndOrVariantName(a[0]);
-							var b_locale = locmap.getRegionAndOrVariantName(b[0]);
-							var a_value = a[1];
-							var b_value = b[1];
-							if(a_value == b_value){
-								return a_locale > b_locale;
-							}else{
-								return a_value > b_value;
-							}
-							return a[1] > b[1];
-					    });
-						appendLocaleWithValue(dataList);
-						
 						// then sort by sublocale name
 						dataList = dataList.sort(function(a,b) {
 							return locmap.getRegionAndOrVariantName(a[0]) > locmap.getRegionAndOrVariantName(b[0]);
 					    });
 						appendLocaleList(dataList);
 
+						var group = document.createElement("optGroup");
+						popupSelect.appendChild(group);
+						
 						listenFor(popupSelect, "change", function(e) {
 							var newLoc = popupSelect.value;
 							if(newLoc !== surveyCurrentLocale) {

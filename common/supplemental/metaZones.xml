@@ -1210,6 +1210,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Europe/Kaliningrad">
 				<usesMetazone to="1991-03-30 23:00" mzone="Moscow"/>
 				<usesMetazone to="2011-03-27 00:00" from="1991-03-30 23:00" mzone="Europe_Eastern"/>
+				<usesMetazone from="2011-03-27 00:00" mzone="Europe_Further_Eastern"/>
 			</timezone>
 			<timezone type="Europe/Kiev">
 				<usesMetazone to="1990-06-30 22:00" mzone="Moscow"/>
@@ -1243,6 +1244,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Europe/Minsk">
 				<usesMetazone to="1991-03-30 23:00" mzone="Moscow"/>
 				<usesMetazone to="2011-03-27 00:00" from="1991-03-30 23:00" mzone="Europe_Eastern"/>
+				<usesMetazone from="2011-03-27 00:00" mzone="Europe_Further_Eastern"/>
 			</timezone>
 			<timezone type="Europe/Monaco">
 				<usesMetazone mzone="Europe_Central"/>
@@ -1685,6 +1687,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Europe_Eastern" territory="JO" type="Asia/Amman"/>
 			<mapZone other="Europe_Eastern" territory="LB" type="Asia/Beirut"/>
 			<mapZone other="Europe_Eastern" territory="SY" type="Asia/Damascus"/>
+			<mapZone other="Europe_Further_Eastern" territory="001" type="Europe/Minsk"/>
+			<mapZone other="Europe_Further_Eastern" territory="RU" type="Europe/Kaliningrad"/>
 			<mapZone other="Europe_Western" territory="001" type="Atlantic/Canary"/>
 			<mapZone other="Europe_Western" territory="FO" type="Atlantic/Faeroe"/>
 			<mapZone other="Falkland" territory="001" type="Atlantic/Stanley"/>

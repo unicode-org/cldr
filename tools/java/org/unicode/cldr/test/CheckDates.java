@@ -410,8 +410,8 @@ public class CheckDates extends FactoryCheckCLDR {
             // }
             // }
 
-            if (path.indexOf("[@type=\"narrow\"]") >= 0 && !path.contains("dayPeriod")
-                && !path.contains("monthPatterns")) {
+            if ( path.indexOf("[@type=\"narrow\"]") >= 0 && path.contains("[@type=\"stand-alone\"]") &&
+                    !path.contains("dayPeriod") && !path.contains("monthPatterns") ) {
                 int end = isNarrowEnough(value, bi);
                 String locale = getCldrFileToCheck().getLocaleID();
                 // Per cldrbug 1456, skip the following test for Thai (or should we instead just change errorType to
@@ -1039,7 +1039,7 @@ public class CheckDates extends FactoryCheckCLDR {
         return current;
     }
 
-    static final UnicodeSet XGRAPHEME = new UnicodeSet("[[:mark:][:grapheme_extend:]]");
+    static final UnicodeSet XGRAPHEME = new UnicodeSet("[[:mark:][:grapheme_extend:][:punctuation:]]");
     static final UnicodeSet DIGIT = new UnicodeSet("[:decimal_number:]");
 
     static public class MyCheckStatus extends CheckStatus {

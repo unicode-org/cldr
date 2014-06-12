@@ -563,7 +563,7 @@ function openReply(params) {
 	var content = '';
 	content += '<form role="form" id="post-form">';
 	content += '<div class="form-group">';
-	content += '<label class="post-subj">Subject: <input name="subj" type="input" value="Re: "></label>';
+	content += '<div class="input-group"><span class="input-group-addon">Subject:</span><input class="form-control" name="subj" type="text" value="Re: "></div>';
 	content += '<textarea name="text" class="form-control" placeholder="Write your post here"></textarea></div><button class="btn btn-success submit-post btn-block">Submit</button>';
 	
 	content += '<input type="hidden" name="forum" value="true">';

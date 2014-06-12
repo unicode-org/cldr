@@ -34,6 +34,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageVariable key="%arabextLanguages" value="(fa|pa|ps|uz)"/>
 		<coverageVariable key="%calendarType80" value="(buddhist|chinese|dangi|ethiopic|hebrew|islamic|japanese|persian|roc)"/>
 		<coverageVariable key="%calendarType100" value="(buddhist|chinese|coptic|dangi|ethiopic(-amete-alem)?|hebrew|indian|islamic(-(civil|rgsa|tbla|umalqura))?|japanese|persian|roc)"/>
+		<coverageVariable key="%calendarType100ForDateFormats" value="(buddhist|chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|japanese|persian|roc)"/>
+		<coverageVariable key="%calendarTypeUniqueNonGregoMonths" value="(chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)"/>
 		<coverageVariable key="%CJK_Languages" value="(ja|ko|zh)"/>
 		<coverageVariable key="%chineseCalendarTerritories" value="(CN|CX|HK|MO|SG|TW)"/>
 		<coverageVariable key="%collationType80" value="(ducet|search)"/>
@@ -504,18 +506,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="modern" match="dates/calendars/calendar[@type='gregorian']/eras/eraNames/era[@type='(0|1)'][@alt='variant']"/>
 
 		<coverageLevel value="comprehensive" match="units/unitLength[@type='narrow']/unit[@type='%unitsNonEnglish']/unitPattern[@count='${Target-Plurals}']"/>
-		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(buddhist|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
-		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='roc']/eras/eraAbbr/era[@type='(0|1)']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='(0|1)']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='(0|1)'][@alt='variant']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(buddhist|ethiopic-amete-alem|hebrew|indian|islamic|persian)']/eras/eraAbbr/era[@type='0']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(buddhist|ethiopic-amete-alem|hebrew|indian|islamic|persian)']/eras/eraNames/era[@type='0']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(coptic|ethiopic|roc)']/eras/eraAbbr/era[@type='(0|1)']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(coptic|ethiopic|roc)']/eras/eraNames/era[@type='(0|1)']"/>
 		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='japanese']/eras/eraAbbr/era[@type='%japaneseEras']"/>
 		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(buddhist|chinese|dangi|hebrew|islamic|japanese|roc)']/dateFormats/dateFormatLength[@type='%dateTimeFormatLengths']/dateFormat%stdPattern"/>
 		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='japanese']/dateTimeFormats/dateTimeFormatLength[@type='%dateTimeFormatLengths']/dateTimeFormat%stdPattern"/>
 		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(buddhist|islamic|japanese|roc)']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
-		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(chinese|coptic|dangi|ethiopic|hebrew|indian|islamic|persian)']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='%monthTypes']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='%calendarType100ForDateFormats']/dateFormats/dateFormatLength[@type='%dateTimeFormatLengths']/dateFormat%stdPattern"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='%calendarType100ForDateFormats']/dateTimeFormats/dateTimeFormatLength[@type='%dateTimeFormatLengths']/dateTimeFormat%stdPattern"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='%calendarType100ForDateFormats']/dateTimeFormats/availableFormats/dateFormatItem[@id='%dateFormatItems']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='%calendarType100ForDateFormats']/dateTimeFormats/intervalFormats/intervalFormatItem[@id='%intervalFormatDateItems']/greatestDifference[@id='%intervalFormatGDiff']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='%calendarTypeUniqueNonGregoMonths']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='%monthTypes']"/>
+		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='7'][@yeartype='leap']"/>
 		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(chinese|dangi)']/monthPatterns/monthPatternContext[@type='format']/monthPatternWidth[@type='wide']/monthPattern[@type='leap']"/>
 		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(chinese|dangi)']/monthPatterns/monthPatternContext[@type='numeric']/monthPatternWidth[@type='all']/monthPattern[@type='leap']"/>
 		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(chinese|dangi)']/monthPatterns/monthPatternContext[@type='stand-alone']/monthPatternWidth[@type='narrow']/monthPattern[@type='leap']"/>
 		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='(chinese|dangi)']/cyclicNameSets/cyclicNameSet[@type='(dayParts|years|zodiacs|solarTerms)']/cyclicNameContext[@type='format']/cyclicNameWidth[@type='abbreviated']/cyclicName[@type='%cyclicNameTypes']"/>
-		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='hebrew']/months/monthContext[@type='%contextTypes']/monthWidth[@type='%allWidths']/month[@type='7'][@yeartype='leap']"/>
 		<coverageLevel value="comprehensive" match="localeDisplayNames/languages/language[@type='%language100_a_m']"/>
 		<coverageLevel value="comprehensive" match="localeDisplayNames/languages/language[@type='%language100_n_z']"/>
 		<coverageLevel value="comprehensive" match="localeDisplayNames/languages/language[@type='%language100_a_m'][@alt='%shortVariant']"/>
@@ -539,8 +549,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/symbol[@alt='narrow']"/>
 		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/displayName"/>
 		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/displayName[@count='${Target-Plurals}']"/>
-		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='(0|1)']"/>
-		<coverageLevel value="comprehensive" match="dates/calendars/calendar[@type='gregorian']/eras/eraNarrow/era[@type='(0|1)'][@alt='variant']"/>
 		<coverageLevel value="comprehensive" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/generic"/>
 		<coverageLevel value="comprehensive" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/standard"/>
 		<coverageLevel value="comprehensive" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/daylight"/>

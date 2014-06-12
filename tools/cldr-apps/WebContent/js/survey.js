@@ -52,6 +52,21 @@ if(!String.prototype.trim && !String.trim) {
 	};
 }
 
+function haveIntl() {
+	return (window.Intl && typeof window.Intl === "object");
+}
+
+/**
+ * Format a date and time.
+ */
+function fmtDateTime(x) {
+	var d = new Date(x);
+//	if(haveIntl()) {
+//		return d.toLocaleDateString()
+//	}
+	return d.toLocaleString();
+};
+
 /**
  * @class GLOBAL
  */
@@ -88,6 +103,9 @@ function addClass(obj, className) {
  * @method post2text 
  */
 function post2text(text) {
+	if(text===undefined || text===null) {
+		text = "(empty)";
+	}
 	var out=text;
 	out = out.replace(/<p>/g, '\n');
 	out = out.replace(/&quot;/g, '"');
@@ -474,6 +492,17 @@ function createLinkToFn(strid, fn, tag) {
 	return obj;
 }
 
+function createGravitar(user) {
+	if(user.emailHash) {
+		var gravatar = document.createElement("img");
+		gravatar.src = 'http://www.gravatar.com/avatar/'+user.emailHash+'?d=identicon&r=g&s=32';
+		gravatar.title = 'gravatar - http://www.gravatar.com';
+		return gravatar;
+	} else {
+		return document.createTextNode('');
+	}
+}
+
 /**
  * Create a DOM object referring to a user.
  * @method createUser
@@ -482,14 +511,7 @@ function createLinkToFn(strid, fn, tag) {
  */
 function createUser(user) {
 	var div = createChunk(null,"div","adminUserUser");
-	if(user.emailHash) {
-		var gravatar = document.createElement("img");
-		gravatar.src = 'http://www.gravatar.com/avatar/'+user.emailHash+'?d=identicon&r=g&s=32';
-		gravatar.title = 'gravatar - http://www.gravatar.com';
-		gravatar.align='laft';		
-		div.appendChild(gravatar);
-	}
-
+	div.appendChild(createGravitar(user));
 	div.appendChild(div.userLevel = createChunk(stui_str("userlevel_"+user.userlevelName.toLowerCase(0)),"i","userlevel_"+user.userlevelName.toLowerCase()));
 	div.appendChild(div.userName = createChunk(user.name,"span","adminUserName"));
 	if(!user.orgName) {
@@ -498,6 +520,125 @@ function createUser(user) {
 	div.appendChild(div.userOrg = createChunk(user.orgName + ' #'+user.id,"span","adminOrgName"));
     div.appendChild(div.userEmail = createChunk(user.email,"address","adminUserAddress"));
 	return div;
+}
+
+/**
+ * Create a DOM object referring to this forum post
+ * @param {Object} json - options
+ * @param {Array} j.ret - forum post data
+ * @return {Object} new DOM object
+ */
+function parseForumContent(json) {
+	var forumDiv = document.createDocumentFragment();
+	var postDivs={};
+	for(num in json.ret) {
+		var post = json.ret[num];
+//		userChunk.style.float = "right";
+//		forumDiv.appendChild(createChunk("Id:","b"));
+//		forumDiv.appendChild(document.createElement("br"));
+		
+		var subpost = createChunk("","div","well well-sm post"); // was: subpost
+		forumDiv.appendChild(subpost);
+		
+		postDivs[post.id] = subpost;
+		
+
+//		if(stdebug_enabled) {
+//			headerLine.appendChild(document.createTextNode("#"+post.id));
+//			if(post.parent != -1) {
+//				headerLine.appendChild(document.createTextNode(" p#"+post.parent));
+//			}
+//		}
+		
+//		var headerLine = createChunk("","div","postHeaderLine");
+//		subpost.appendChild(headerLine);
+		
+		var userChunk = createUser(post.posterInfo);
+		//subpost.appendChild(userChunk);
+		
+		var gravitar = createGravitar(post.posterInfo);
+		gravitar.className = "gravitar pull-left";
+		subpost.appendChild(gravitar);
+		var headingLine = createChunk("", "h4", "selected");
+		if(post.posterInfo.id == surveyUser.id) {
+			headingLine.appendChild(createChunk(stui.str("user_me"),"span", "label label-success"));
+		} else {
+			var usera = createChunk(post.posterInfo.name+' ', "a", "");
+			if(post.posterInfo.email) {
+				usera.appendChild(createChunk("","span","glyphicon glyphicon-envelope"));
+				usera.href = "mailto:"+post.posterInfo.email;
+			}
+			headingLine.appendChild(usera);
+			headingLine.appendChild(document.createTextNode(' ('+post.posterInfo.org+') '));
+		}
+		headingLine.appendChild(createChunk(post.posterInfo.userlevelName, "span", "userLevelName label-info label"));
+		var dateChunk = createChunk(fmtDateTime(post.date_long),"span","label label-primary pull-right");
+		subpost.appendChild(dateChunk);
+		
+		subpost.appendChild(headingLine);
+		
+		var subSubChunk = createChunk("","div","postHeaderInfoGroup");
+		subpost.appendChild(subSubChunk);
+		{
+			var subChunk = createChunk("","div","postHeaderItem");
+			subSubChunk.appendChild(subChunk);
+			subChunk.appendChild(createChunk(post2text(post.subject),"b","postSubject"));
+			if(post.xpath && !json.noItemLink) {
+				var itemLink = createChunk(stui.str("forum_item"), "a", "pull-right postItem glyphicon glyphicon-zoom-in");
+				itemLink.href = "#/"+surveyCurrentLocale+"//"+post.xpath;
+				subChunk.appendChild(itemLink);
+			}
+			subChunk.appendChild(document.createElement("br"));
+		}
+										
+		// actual text
+		var postText = post2text(post.text);
+		subpost.appendChild(createChunk(postText, "div","postContent"));
+		
+		// reply link
+		if(json.replyStub) {
+			var replyChunk = createChunk("Reply (leaves this page)","a","postReply");
+			replyChunk.href = json.replyStub + post.id;
+			subpost.appendChild(replyChunk);
+		} else if(json.replyButton) {
+			var replyButton = createChunk(stui.str("forum_reply"), "button", "btn btn-default btn-sm");
+			(function(post){ listenFor(replyButton, "click", function(e) {
+				openReply({
+					locale: surveyCurrentLocale,
+					//xpath: '',
+					replyTo: post.id,
+					replyData: post,
+					onReplyClose: json.onReplyClose
+				});
+				stStopPropagation(e);
+				return false;
+			});})(post);
+			subpost.appendChild(replyButton);
+		}
+	}
+	// reparent any nodes that we can
+	for(num in json.ret) {
+		var post = json.ret[num];
+		if(post.parent != -1) {
+			stdebug("reparenting " + post.id + " to " + post.parent);
+			if(postDivs[post.parent]) {
+				// delete from old location in the dom
+				forumDiv.removeChild(postDivs[post.id]);
+				if(!postDivs[post.parent].replies) {
+					// add the "replies" area
+					stdebug("ADding replies area to " + post.parent );
+					postDivs[post.parent].replies = createChunk("","div","postReplies");
+					postDivs[post.parent].appendChild(postDivs[post.parent].replies);
+				}
+				// add to new location
+				postDivs[post.parent].replies.appendChild(postDivs[post.id]);
+			} else {
+				// The parent of this post was deleted.
+				stdebug("The parent of post #" + post.id + " is " + post.parent + " but it was deleted or not visible");
+			}
+		}
+	}
+	return forumDiv;
 }
 
 /**
@@ -1052,6 +1193,9 @@ function formatErrMsg(json, subkey) {
 			console.log("** Unknown error code: " + json.err_code);
 			msg_str = "E_UNKNOWN";
 		}
+	}
+	if(json === null) {
+		json = {}; // handle cases with no input data
 	}
 	return stui.sub(msg_str,
 			{
@@ -1785,26 +1929,39 @@ function showForumStuff(frag, forumDiv, tr) {
 	
 	// prepend something
 	var buttonTitle = "forumNewPostButton";
-	var buttonClass = "forumNewButton";
+	var buttonClass = "forumNewButton btn btn-default btn-sm";
 	if(tr.theRow) {
 		if(tr.theRow.voteVhash !== tr.theRow.winningVhash 
 				&& tr.theRow.canFlagOnLosing && 
 				!tr.theRow.rowFlagged) {
 			buttonTitle = "forumNewPostFlagButton";
-			buttonClass = "forumNewPostFlagButton";
+			buttonClass = "forumNewPostFlagButton btn btn-default btn-sm";
 		}
 	}
 	var newButton = createChunk(stui.str(buttonTitle), "button", buttonClass);
-	if(!isDashboard())
+	if(!isDashboard()) {
 		frag.appendChild(newButton);
 	
-	listenFor(newButton, "click", function(e) {
-		//window.blur(); // submit anything unsubmitted
-		window.open(tr.forumDiv.postUrl);
-		stStopPropagation(e);
-		return true;
-	});
-	
+		(function(theRow){listenFor(newButton, "click", function(e) {
+				openReply({
+					locale: surveyCurrentLocale,
+					//onReplyClose: function(postModal, form, formDidChange) {if(formDidChange){console.log('Reload- changed.');reloadV();}},
+					//xpath: '',
+					xpath: theRow.xpstrid,
+					subject: theRow.code + ' ' + theRow.xpstrid,
+					//replyTo: post.id,
+					//replyData: post
+				});
+				stStopPropagation(e);
+				return false;
+		});})(tr.theRow);
+		//	listenFor(newButton, "click", function(e) {
+		//		//window.blur(); // submit anything unsubmitted
+		//		window.open(tr.forumDiv.postUrl);
+		//		stStopPropagation(e);
+		//		return true;
+		//	});
+	}	
 	var loader2 = createChunk(stui.str("loading"),"i");
 	frag.appendChild(loader2);
 
@@ -1841,49 +1998,10 @@ function showForumStuff(frag, forumDiv, tr) {
 				try {
 					if (json) {
 						if(json.ret) {
-							for(num in json.ret) {
-								var post = json.ret[num];
-//								userChunk.style.float = "right";
-//								forumDiv.appendChild(createChunk("Id:","b"));
-//								forumDiv.appendChild(document.createElement("br"));
-								
-								var subpost = createChunk("","div","subpost");
-								forumDiv.appendChild(subpost);
-								
-								var headerLine = createChunk("","div","postHeaderLine");
-								subpost.appendChild(headerLine);
-								
-								var userChunk = createUser(post.posterInfo);
-								headerLine.appendChild(userChunk);
-								
-								var subSubChunk = createChunk("","div","postHeaderInfoGroup");
-								headerLine.appendChild(subSubChunk);
-								{
-									var subChunk = createChunk("","div","postHeaderItem");
-									subSubChunk.appendChild(subChunk);
-									subChunk.appendChild(createChunk("Date:","b"));
-									subChunk.appendChild(createChunk(post.date,"span","postHeader"));
-									subChunk.appendChild(document.createElement("br"));
-								}
-								{
-									var subChunk = createChunk("","div","postHeaderItem");
-									subSubChunk.appendChild(subChunk);
-									subChunk.appendChild(createChunk("Subject:","b"));
-									var postSubj = post2text(post.subject);
-									subChunk.appendChild(createChunk(postSubj,"span","postHeader"));
-									subChunk.appendChild(document.createElement("br"));
-								}
-																
-								// actual text
-								var postText = post2text(post.text);
-								subpost.appendChild(createChunk(postText, "div","postContent"));
-								
-								// reply link
-								var replyChunk = createChunk("Reply (leaves this page)","a","postReply");
-								replyChunk.href = tr.forumDiv.replyStub + post.id;
-								subpost.appendChild(replyChunk);
-								
-							}
+							forumDiv.appendChild(parseForumContent({ret: json.ret, 
+											//replyStub: tr.forumDiv.replyStub,
+											replyButton: true,
+											noItemLink: true}));
 						}
 					}
 				} catch (e) {
@@ -3936,13 +4054,24 @@ function showV() {
 		 */
 		OtherSpecial.prototype.parseHash = function parseHash(name, hash, pieces) {
 			this.loadSpecial(name, function onSuccess(special) {
-				special.parseHash(hash.pieces);
+				special.parseHash(hash, pieces);
 			}, function onFailure(e) {
 				console.log("OtherSpecial.parseHash: Failed to load " + name + " - " + e);
 				//SpecialPage.prototype.parseHash(hash, pieces); // fallback for not-exist
 			});
 		};
-		
+
+		/**
+		 * @function handleIdChanged
+		 */
+		OtherSpecial.prototype.handleIdChanged = function handleIdChanged(name, id) {
+			this.loadSpecial(name, function onSuccess(special) {
+				special.handleIdChanged(id);
+			}, function onFailure(e) {
+				console.log("OtherSpecial.handleIdChanged: Failed to load " + name + " - " + e);
+			});
+		};
+
 		/**
 		 * @function showPage
 		 */
@@ -4174,20 +4303,24 @@ function showV() {
 		}
 
 		window.showCurrentId = function() {
-			if(surveyCurrentId != '') {
-			    var xtr = dojo.byId('r@' + surveyCurrentId);
-			    if(!xtr) {
-			        console.log("Warning could not load id " + surveyCurrentId + " does not exist");
-			        window.updateCurrentId(null);
-			    } else if(xtr.proposedcell && xtr.proposedcell.showFn) {
-			        // TODO: visible? coverage?
-			        window.showInPop("",xtr,xtr.proposedcell, xtr.proposedcell.showFn, true);
-			        console.log("Changed to " + surveyCurrentId);			        
-			        if(!isDashboard())
-			        	scrollToItem();
-			    } else {
-			        console.log("Warning could not load id " + surveyCurrentId + " - not setup - " + xtr.toString() + " pc=" + xtr.proposedcell + " sf = " + xtr.proposedcell.showFn);
-			    }
+			if(surveyCurrentSpecial && surveyCurrentSpecial != '' && !isDashboard()) {
+				otherSpecial.handleIdChanged(surveyCurrentSpecial, showCurrentId);
+			} else {
+				if(surveyCurrentId != '') {
+				    var xtr = dojo.byId('r@' + surveyCurrentId);
+				    if(!xtr) {
+				        console.log("Warning could not load id " + surveyCurrentId + " does not exist");
+				        window.updateCurrentId(null);
+				    } else if(xtr.proposedcell && xtr.proposedcell.showFn) {
+				        // TODO: visible? coverage?
+				        window.showInPop("",xtr,xtr.proposedcell, xtr.proposedcell.showFn, true);
+				        console.log("Changed to " + surveyCurrentId);			        
+				        if(!isDashboard())
+				        	scrollToItem();
+				    } else {
+				        console.log("Warning could not load id " + surveyCurrentId + " - not setup - " + xtr.toString() + " pc=" + xtr.proposedcell + " sf = " + xtr.proposedcell.showFn);
+				    }
+				}
 			}
 		};
 		
@@ -4420,9 +4553,12 @@ function showV() {
 						iconClass: "dijitMenuItemIcon", // menu-chat
 						disabled: true,
 						onClick: function(){ 
-							// TODO:  make this a real section
-							window.open(survURL + '?forum=' + locmap.getLanguage(surveyCurrentLocale));
-						}
+							surveyCurrentId = '!'; // no id if jumping pages
+							surveyCurrentPage = '';
+							surveyCurrentSpecial = 'forum';
+							updateMenus(menuMap);
+							updateMenuTitles(menuMap);
+							reloadV();						}
 					});
 					menuSection.addChild(menuMap.forumMenu);
 					

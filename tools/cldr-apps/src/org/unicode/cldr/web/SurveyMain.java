@@ -3553,7 +3553,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         // ctx.println("</form>");
     }
 
-    public void doSession(WebContext ctx) throws IOException {
+    public void doSession(WebContext ctx) throws IOException, SurveyException {
         // which
         String which = ctx.field(QUERY_SECTION);
 

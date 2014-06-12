@@ -225,6 +225,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_RECENT_ITEMS = "recent_items";
     public static final String WHAT_FORUM_FETCH = "forum_fetch";
     public static final String WHAT_FORUM_COUNT = "forum_count";
+    public static final String WHAT_FORUM_POST = "forum_post";
     public static final String WHAT_POSS_PROBLEMS = "possibleProblems";
     public static final String WHAT_GET_MENUS = "menus";
     public static final String WHAT_REPORT = "report";
@@ -300,7 +301,7 @@ public class SurveyAjax extends HttpServlet {
         // if(val != null) {
         // System.err.println("val="+val);
         // }
-        SurveyMain sm = SurveyMain.getInstance(request);
+        final SurveyMain sm = SurveyMain.getInstance(request);
         PrintWriter out = response.getWriter();
         String what = request.getParameter(REQ_WHAT);
         String sess = request.getParameter(SurveyMain.QUERY_SESSION);
@@ -760,6 +761,21 @@ public class SurveyAjax extends HttpServlet {
                         r.put("xpath", xpath);
                         r.put("ret", mySession.sm.fora.toJSON(mySession, locale, id));
 
+                        send(r, out);
+                    } else if(what.equals(WHAT_FORUM_POST)) {
+                        mySession.userDidAction();
+                        JSONWriter r = newJSONStatusQuick(sm);
+                        r.put("what", what);
+                        final String subjStr = request.getParameter("subj");
+                        final String textStr = request.getParameter("text");
+                        final String subj = SurveyForum.HTMLSafe(subjStr);
+                        final String text = SurveyForum.HTMLSafe(textStr);
+                        final int replyTo = getIntParameter(request, "replyTo", SurveyForum.NO_PARENT);
+                        final int postId = sm.fora.doPost(mySession, xpath, l, subj, text, replyTo);
+                        r.put("postId", postId);
+                        if(postId > 0) {
+                            r.put("ret", mySession.sm.fora.toJSON(mySession, l, XPathTable.NO_XPATH, postId));
+                        }
                         send(r, out);
                     } else if (what.equals("mail")) {
                         mySession.userDidAction();
@@ -1229,6 +1245,36 @@ public class SurveyAjax extends HttpServlet {
             SurveyLog.logException(e, "Processing: " + what);
             sendError(out, "SQLException: " + e, ErrorCode.E_INTERNAL);
         }
+    }
+
+    /**
+     * Get an integer parameter, with a default
+     * @param request
+     * @param fieldName
+     * @param defVal
+     * @return
+     */
+    private int getIntParameter(HttpServletRequest request, String fieldName, int defVal) {
+        final Integer v = getIntParameter(request, fieldName);
+        if(v == null) {
+            return defVal;
+        } else {
+            return v;
+        }
+    }
+
+    /**
+     * Get an integer value. Return null if missing.
+     * @param request
+     * @param fieldName
+     * @return
+     */
+    private Integer getIntParameter(HttpServletRequest request, final String fieldName) {
+        final String replyToString = request.getParameter(fieldName);
+        if(!replyToString.isEmpty()) {
+            return Integer.parseInt(replyToString);
+        }
+        return null;
     }
 
     private void assertCanUseVettingSummary(CookieSession mySession) throws SurveyException {

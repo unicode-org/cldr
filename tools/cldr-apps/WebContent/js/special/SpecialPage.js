@@ -20,7 +20,14 @@ define("js/special/SpecialPage.js", function() {
 		surveyCurrentPage='';
 		surveyCurrentId=''; // for now
 	};
-	
+
+	/**
+	 * parse a hash tag
+	 * @function parseHash
+	 */
+	SpecialPage.prototype.handleIdChanged = function handleIdChanged(id) {
+	};
+
 	/**
 	 * Show the page
 	 * @function show

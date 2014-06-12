@@ -1162,11 +1162,16 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
                     // now, outside of THAT txn, make a forum post about clearing the flag.
                     final String forum = SurveyForum.localeToForum(locale.toULocale());
                     final int forumNumber = sm.fora.getForumNumber(forum);
-                    int newPostId = sm.fora.doPostInternal(forum, forumNumber, xpathId, -1, locale, "Flag Removed", "(The flag was removed.)", false, user);
-                    //sm.fora.emailNotify(ctx, forum, base_xpath, subj, text, postId);
-                    SurveyLog.warnOnce("TODO: no email notify on flag clear. This may be OK, it could be a lot of mail.");
-                    System.out.println("NOTE: flag was removed from " + locale + " " + distinguishingXpath + " - post ID=" + newPostId + "  by "
-                        + user.toString());
+                    int newPostId;
+                    try {
+                        newPostId = sm.fora.doPostInternal(xpathId, -1, locale, "Flag Removed", "(The flag was removed.)", false, user);
+                        //sm.fora.emailNotify(ctx, forum, base_xpath, subj, text, postId);
+                        SurveyLog.warnOnce("TODO: no email notify on flag clear. This may be OK, it could be a lot of mail.");
+                        System.out.println("NOTE: flag was removed from " + locale + " " + distinguishingXpath + " - post ID=" + newPostId + "  by "
+                            + user.toString());
+                    } catch (SurveyException e) {
+                        SurveyLog.logException(e, "Error trying to post that a flag was removed from " + locale + " " + distinguishingXpath);
+                    }
                 }
 
             } else {

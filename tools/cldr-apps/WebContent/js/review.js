@@ -485,10 +485,20 @@ function showHelpFixPanel(cont) {
 }
 
 //end of fix part
-
-
-
-
+var formDidChange = false;
+// show modal
+function showPost(postModal, onClose) {
+	formDidChange=false;
+	// fire when the post window closes. Can reload posts, etc.
+	postModal.on('hidden.bs.modal', function(e) {
+		var postModal = $('#post-modal');
+		if( onClose ) {
+			var form = $('#post-form');
+			onClose(postModal, form, formDidChange);
+		}
+	});
+	postModal.modal();
+}
 
 //open a thread of post concerning this xpath
 function openPost() {
@@ -497,7 +507,7 @@ function openPost() {
 	var postModal = $('#post-modal');
 	var locale = surveyCurrentLocale;
 	var url = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=forum_fetch&xpath="+$(this).closest('tr').data('path')+"&voteinfo&_="+locale;
-	postModal.modal();
+	showPost(postModal, null);
 
 	$.get(url, function(data){
 		var content = '';
@@ -507,20 +517,33 @@ function openPost() {
 		
 		content += '<input type="hidden" name="forum" value="true">';
 		content += '<input type="hidden" name="_" value="'+surveyCurrentLocale+'">';
-		content += '<input type="hidden" name="replyto" value="x'+path+'">';
-		content += '<input name="subj" type="hidden" value="Review">';
+		content += '<input type="hidden" name="replyTo" value="-1">';
+		content += '<input type="hidden" name="data-path" value="'+path+'">';
+		content += '<input type="hidden" name="xpath" value="#'+path+'">'; // numeric
+		content += '<label class="post-subj"><input name="subj" type="hidden" value="Review"></label>';
 		content += '<input name="post" type="hidden" value="Post">';
 		content += '<input name="isReview" type="hidden" value="1">';
 		content += '</form>';
 		
-		if(post) {
-			$.each(post, function(index, element) {
-					content += generateHTMLPost(element);
-			})
-		}
+		// 'old' (HTML based) generate
+//		if(post) {
+//			$.each(post, function(index, element) {
+//					content += generateHTMLPost(element);
+//			})
+//		}
+		
+		// 'new' (dom based) generate
 		content += '<div class="post"></div>';
+		content += '<div class="forumDiv"></div>';
+			
 		postModal.find('.modal-body').html(content);
 
+		// 'new' (DOM based) generate
+		if(post) {
+			var forumDiv = parseForumContent({ret: post, noItemLink: true});
+			var postHolder = postModal.find('.modal-body').find('.forumDiv');
+			postHolder[0].appendChild(forumDiv);
+		}
 		
 		postModal.find('textarea').autosize();
 		postModal.find('.submit-post').click(submitPost);
@@ -528,6 +551,63 @@ function openPost() {
 	}, 'json');
 	
 }
+
+/**
+ * This is called by forum.js to allow an in-line reply.
+ * @method openReply
+ */
+function openReply(params) {
+	var postModal = $('#post-modal');
+	showPost(postModal, params.onReplyClose);
+
+	var content = '';
+	content += '<form role="form" id="post-form">';
+	content += '<div class="form-group">';
+	content += '<label class="post-subj">Subject: <input name="subj" type="input" value="Re: "></label>';
+	content += '<textarea name="text" class="form-control" placeholder="Write your post here"></textarea></div><button class="btn btn-success submit-post btn-block">Submit</button>';
+	
+	content += '<input type="hidden" name="forum" value="true">';
+	content += '<input type="hidden" name="_" value="'+params.locale+'">';
+	if(params.xpath) {
+		content += '<input type="hidden" name="xpath" value="'+params.xpath+'">';
+	} else {
+		content += '<input type="hidden" name="xpath" value="">';
+	}
+	if(params.replyTo) {
+		content += '<input type="hidden" name="replyTo" value="'+params.replyTo+'">';
+	} else {
+		content += '<input type="hidden" name="replyTo" value="-1">';
+	}
+	content += '</form>';
+		
+	
+	// 'new' (dom based) generate
+	content += '<div class="post"></div>';
+	content += '<div class="forumDiv"></div>';
+		
+	postModal.find('.modal-body').html(content);
+	
+	if(params.replyTo && params.replyTo >= 0 && params.replyData) {
+		var subj = post2text(params.replyData.subject);
+		if(subj.substring(0,3) != 'Re:') {
+			subj = 'Re: '+subj;
+		}
+		postModal.find('input[name=subj]')[0].value = (subj);
+	} else if(params.subject) {
+		postModal.find('input[name=subj]')[0].value = (params.subject);
+	}
+
+	if(params.replyData) {
+		var forumDiv = parseForumContent({ret: [params.replyData], noItemLink: true});
+		var postHolder = postModal.find('.modal-body').find('.forumDiv');
+		postHolder[0].appendChild(forumDiv);
+	}
+
+	postModal.find('textarea').autosize();
+	postModal.find('.submit-post').click(submitPost);
+	setTimeout(function() {postModal.find('textarea').focus();},1000);
+}
+
 
 //generate the HTML for a given post
 function generateHTMLPost(post) {
@@ -546,27 +626,51 @@ function generateHTMLPost(post) {
 //submit the post
 function submitPost(event) {
 	var locale = surveyCurrentLocale;
-	var url = contextPath + "/survey";
+	var url = contextPath + "/SurveyAjax";
 	var form = $('#post-form');
+	formDidChange=true;
 	if($('#post-form textarea[name=text]').val()) {
 		$('#post-form button').fadeOut();
-		$.ajax({
-				                data: form.serialize(),
-				                type: "POST",
-				                url: url,
-				                contentType: "application/x-www-form-urlencoded;",
-				                dataType: 'json',
-				                success: function(data) {
-				                        var post = $('.post').first();
-				                                post.before(generateHTMLPost(data));
-				                               
-				                                //reset
-				                                post = $('.post').first();
-				                                post.hide();
-				                                post.show('highlight', {color : "#d9edf7"});
-				                                $('#post-form textarea').val('');
-				                }
-	});
+		$('#post-form label').fadeOut();
+		var xpath = $('#post-form input[name=xpath]').val();
+		var ajaxParams = {
+                data: {
+                	s: surveySessionId,
+                	"_": surveyCurrentLocale,
+                	replyTo: $('#post-form input[name=replyTo]').val(),
+                	xpath: xpath,
+                	text: $('#post-form textarea[name=text]').val(),
+                	subj: $('#post-form input[name=subj]').val(), // "Review"
+                	what: "forum_post"
+                },
+                type: "POST",
+                url: url,
+                contentType: "application/x-www-form-urlencoded;",
+                dataType: 'json',
+                success: function(data) {
+                    var post = $('.post').first();
+                    if(data.err) {
+                		post.before("<p class='warn'>error: " + data.err+ "</p>");
+                    } else if(data.ret && data.ret.length>0) {
+//                        post.before(generateHTMLPost(data.ret[0])); // show the new single post
+                        var forumDiv = $('.forumDiv').first();
+                        forumDiv.before(parseForumContent({ret: data.ret, noItemLink: true}));
+                        //reset
+                        post = $('.post').first();
+                        post.hide();
+                        post.show('highlight', {color : "#d9edf7"});
+                        $('#post-form textarea').val('');
+                		$('#post-form textarea').fadeOut();
+                	} else {
+                		post.before("<i>Your post was added, #"+data.postId+" but could not be shown.</i>");
+                	}
+                },
+                failure: function(err) {
+                    var post = $('.post').first();
+            		post.before("<p class='warn'>error! " + err+ "</p>");
+                }
+		};	
+		$.ajax(ajaxParams);
 
 	}
 	event.preventDefault();

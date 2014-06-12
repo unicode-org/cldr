@@ -1343,7 +1343,6 @@ td.d-code.hasPosts {
 }
 
 div.forumDiv div.subpost {
-	border:  1px solid black;
 	background-color: #f5e3c2;
 	margin-top:  0.25em;
 	padding:  0.25em;
@@ -1387,7 +1386,7 @@ div.forumDiv .adminUserUser i {
 		margin:  0.25em !important;
 }
 
-div.postHeaderInfoGroup {
+div.postHeaderInfoGroup, .postHeaderItem {
 	display:  block;
 }
 
@@ -1403,12 +1402,23 @@ div.postHeaderLine div {
 
 div.postHeaderLine div.postHeaderItem {
 	display:  table-row;
+	font-size: smaller;
 }
 
 div.forumDiv div.subpost div.postContent {	
 	padding-top:  0.5em;
 	font: small Georgia, "Times New Roman", Times, serif;
 	white-space: pre-wrap;
+}
+
+div.postReplies {
+	margin-left: 0.5em;
+	border-left: 2px solid gray;
+	padding-left: 0.25em;
+}
+
+a.postItem {
+	margin-left: 0.25em;
 }
 
 .disabledbox {

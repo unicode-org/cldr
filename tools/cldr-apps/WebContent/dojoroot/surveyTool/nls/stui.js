@@ -276,12 +276,19 @@ define({
         section_info_Misc:  "The Miscellaneous data is used to some special purpose items, such as lists (eg, 'A, B, and C') and truncated strings (eg, 'supercalifrag…cious').",
 		
 		forumNewPostButton: "New Forum Post",
-		forumNewButton_desc: "Clicking this will bring up a form to reply to this particular item, in a new window. Click 'view item' after submitting to return to this item.",
+		forumNewButton_desc: "Clicking this will bring up a form to reply to this particular item.",
 		forumNewPostFlagButton: "Flag for Review",
-		forumNewPostFlagButton_desc: "Clicking this will bring up a form to reply to this particular item, in a new window. Click 'view item' after submitting to return to this item.",
+		forumNewPostFlagButton_desc: "Clicking this will bring up a form to reply to this particular item.",
+		
+		user_me: "Me",
 		
 		special_general: "Please hover over the sidebar to choose a section to begin entering data. If you have not already done so, please read the <a target='_blank' href='http://www.unicode.org/cldr/survey_tool.html'>Instructions</a>, particularly the Guide and the Walkthrough. You can also use the Dashboard to see all the errors, warnings, and missing items in one place.",
-
+		special_forum: "Forum Posts",
+		forum_noposts: "No posts in this forum.",
+		forum_item: "Item",
+		forum_reply: "Reply",
+		forumGuidance: "This is the forum page. This page will not reload when new posts come in, but you can use your browser's Refresh button to load new posts.",
+		generic_nolocale: "No locale chosen.",
 		defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",
 		defaultContentChild_msg: "This locale, ${info.name}  supplies the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content</a></i> for <b><a class='notselected' href='#/${info.dcChild}'>${dcChildName}</a></b>. Please make sure that all the changes that you make here are appropriate for <b>${dcChildName}</b>. If there are multiple acceptable choices, please try to pick the one that would work for the most sublocales. ",           
 		defaultContent_header_msg: "= ${dcChild}",

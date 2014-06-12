@@ -278,7 +278,10 @@ function unpackMenuSideBar(json) {
 	
 	//forum link 
 	$('#forum-link').click(function() {
-		window.open(contextPath + '/survey?forum='+locmap.getLanguage(surveyCurrentLocale));
+		window.surveyCurrentSpecial = 'forum';
+		surveyCurrentId = '';
+		surveyCurrentPage = '';
+		reloadV();
 	});
 	
 	

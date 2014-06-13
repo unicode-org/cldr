@@ -75,6 +75,7 @@ import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRLocale.CLDRFormatter;
 import org.unicode.cldr.util.CLDRLocale.FormatBehavior;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CachingEntityResolver;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
@@ -93,6 +94,7 @@ import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.SpecialLocales.Type;
 import org.unicode.cldr.util.StackTracker;
 import org.unicode.cldr.util.StandardCodes;
+import org.unicode.cldr.util.StaticCLDRURLS;
 import org.unicode.cldr.util.SupplementalDataInfo;
 import org.unicode.cldr.util.VoteResolver;
 import org.unicode.cldr.util.XMLSource;
@@ -361,7 +363,10 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
                                                                         // data
     File _vetdir = null;
 
-    private String defaultBase = "http://st.unicode.org/cldr-apps/survey"; /* base URL */
+    /**
+     * @deprecated use CLDRURLS
+     */
+    private String defaultBase = CLDRURLS.DEFAULT_BASE+"/survey"; /* base URL */
     public static String vetweb = System.getProperty("CLDR_VET_WEB"); // dir for
                                                                       // web
                                                                       // data
@@ -574,6 +579,8 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
     static Hashtable<String, Object> BAD_IPS = new Hashtable<String, Object>();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        CLDRConfigImpl.setUrls(request);
+
         if (!ensureStartup(request, response)) {
             return;
         }

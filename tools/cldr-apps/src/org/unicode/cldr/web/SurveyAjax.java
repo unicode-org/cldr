@@ -36,6 +36,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
@@ -298,6 +299,7 @@ public class SurveyAjax extends HttpServlet {
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response, String val) throws ServletException,
         IOException {
+        CLDRConfigImpl.setUrls(request);
         // if(val != null) {
         // System.err.println("val="+val);
         // }

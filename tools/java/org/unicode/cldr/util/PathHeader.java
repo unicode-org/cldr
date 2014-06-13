@@ -1647,10 +1647,22 @@ public class PathHeader implements Comparable<PathHeader> {
         }
     }
 
+    /**
+     * @deprecated, use CLDRConfig.urls().forPathHeader() instead.
+     * @param baseUrl
+     * @param locale
+     * @return
+     */
     public String getUrl(BaseUrl baseUrl, String locale) {
         return getUrl(baseUrl.base, locale);
     }
 
+    /**
+     * @deprecated, use CLDRConfig.urls().forPathHeader() instead.
+     * @param baseUrl
+     * @param locale
+     * @return
+     */
     public String getUrl(String baseUrl, String locale) {
         return getUrl(baseUrl, locale, getOriginalPath());
     }
@@ -1666,15 +1678,36 @@ public class PathHeader implements Comparable<PathHeader> {
         return str.substring(0, n + 1);
     }
 
+    /**
+     * @deprecated use CLDRConfig.urls()
+     * @param baseUrl
+     * @param locale
+     * @param path
+     * @return
+     */
     public static String getUrl(String baseUrl, String locale, String path) {
         return trimLast(baseUrl) + "v#/" + locale + "//" + StringId.getHexId(path);
     }
 
     // eg http://st.unicode.org/cldr-apps/survey?_=fr&x=Locale%20Name%20Patterns
+    /**
+     * @deprecated use CLDRConfig.urls()
+     * @param baseUrl
+     * @param locale
+     * @param subsection
+     * @return
+     */
     public static String getPageUrl(String baseUrl, String locale, PageId subsection) {
         return trimLast(baseUrl) + "v#/" + locale + "/" + subsection + "/";
     }
 
+    /**
+     * @deprecated use CLDRConfig.urls()
+     * @param baseUrl
+     * @param file
+     * @param path
+     * @return
+     */
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
         String value = file.getStringValue(path);
         if (value == null) {

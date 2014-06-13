@@ -268,7 +268,6 @@ public class VettingViewerQueue {
 
                     vv = new VettingViewer<VoteResolver.Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
                         sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
-                    vv.setBaseUrl(baseUrl);
                     progress.update("Got VettingViewer");
                     statusCode = Status.PROCESSING;
                     start = System.currentTimeMillis();
@@ -493,7 +492,6 @@ public class VettingViewerQueue {
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
             sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
-        vv.setBaseUrl(baseUrl);
 
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
@@ -716,7 +714,6 @@ public class VettingViewerQueue {
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
             sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
-        vv.setBaseUrl(baseUrl);
         // progress.update("Got VettingViewer");
         // statusCode = Status.PROCESSING;
 
@@ -840,20 +837,15 @@ public class VettingViewerQueue {
             return PRE + "Not loading. Click the Refresh button to load." + POST;
         }
 
-        String baseUrl = "http://example.com";
+        String baseUrl = null;
         Level usersLevel;
         Organization usersOrg;
         if (ctx != null) {
-            baseUrl = ctx.base();
             usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
         } else {
-            baseUrl = (String) sess.get("BASE_URL");
             String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
             ;
             usersLevel = Level.get(levelString);
-        }
-        if(baseUrl == null) {
-            baseUrl = "http://example.com";
         }
         usersOrg = sess.user.vrOrg();
 

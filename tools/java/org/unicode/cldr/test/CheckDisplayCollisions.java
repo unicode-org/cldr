@@ -13,12 +13,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.SimpleXMLSource;
-import org.unicode.cldr.util.StringId;
 import org.unicode.cldr.util.XMLSource;
 import org.unicode.cldr.util.XPathParts;
 
@@ -282,7 +282,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 if (getPhase() == Phase.FINAL_TESTING) {
                     collidingTypes.add(pathHeader.getHeaderCode()); // later make this more readable.
                 } else {
-                    collidingTypes.add("<a href=\"v#/" + getCldrFileToCheck().getLocaleID() + "/" + pathHeader.getPageId() + "/" + StringId.getHexId(pathName)
+                    collidingTypes.add("<a href=\""+ CLDRConfig.getInstance().urls().forPathHeader(getCldrFileToCheck().getLocaleID(), pathHeader)
                         + "\">" +
                         pathHeader.getHeaderCode() + "</a>");
 

@@ -11,6 +11,7 @@ import org.unicode.cldr.tool.PluralRulesFactory.SamplePatterns;
 import org.unicode.cldr.tool.ShowLanguages.FormattedFileWriter;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
@@ -32,7 +33,7 @@ import com.ibm.icu.util.ULocale;
 public class ShowPlurals {
 
     private static final String NO_PLURAL_DIFFERENCES = "<i>no plural differences</i>";
-    private static final String NOT_AVAILABLE = "<i>Not available.<br>Please <a target='_blank' href='http://unicode.org/cldr/trac/newticket'>file a ticket</a> to supply.</i>";
+    private static final String NOT_AVAILABLE = "<i>Not available.<br>Please <a target='_blank' href='"+CLDRURLS.CLDR_NEWTICKET_URL+"'>file a ticket</a> to supply.</i>";
     final SupplementalDataInfo supplementalDataInfo;
 
     public ShowPlurals() {

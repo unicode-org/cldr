@@ -82,9 +82,11 @@ function isReport(str) {
  * @param {String} className
  */
 function removeClass(obj, className) {
+	if(!obj) return obj;
 	if(obj.className.indexOf(className)>-1) {
 		obj.className = obj.className.substring(className.length+1);
 	}
+	return obj;
 }
 
 /**
@@ -94,9 +96,11 @@ function removeClass(obj, className) {
  * @param {String} className
  */
 function addClass(obj, className) {
+	if(!obj) return obj;
 	if(obj.className.indexOf(className)==-1) {
 		obj.className = className+" "+obj.className;
 	}
+	return obj;
 }
 
 /**
@@ -4427,14 +4431,31 @@ function showV() {
 		 * @param doPush {Boolean} if false, do not add to history
 		 */
 		function updateHashAndMenus(doPush) {
+			/**
+			 * 'name' - the js/special/___.js name
+			 * 'hidden' - true to hide the item
+			 * 'title' - override of menu name
+			 * @property specialItems
+			 */
+			var specialItems = [
+			    {divider: true}, // li class=nav-divider
+			    {title: 'Manage', url:'survey?do=options' }, //       <li><a href="<%= survURL  %>?do=options" target="_blank">Manage <span class="glyphicon glyphicon-share"></span></a></li>	            <li class="nav-divider"></li>
+			    {divider: true}, // li class=nav-divider
+				{name: "statistics"},
+				//{name: "search"},
+				{name: "vsummary", hidden: (surveyUser===null || !(surveyUserPerms.userCanUseVettingSummary))},
+				{name: "mail", hidden: (surveyOfficial==true || surveyUser===null)},
+				{title: "About", url: 'about.jsp?r='+surveyCurrev},
+			];
 			if(!doPush) {doPush = false;}
 			replaceHash(doPush); // update the hash
 			updateLocaleMenu();
-
-			if(surveyCurrentLocale==null) {
+			
+			if(surveyCurrentLocale==null) { // deadcode?
 				menubuttons.set(menubuttons.section);
 				if(surveyCurrentSpecial!=null) {
-					menubuttons.set(menubuttons.page, stui_str("special_"+surveyCurrentSpecial));
+					var specialId = "special_"+surveyCurrentSpecial;
+					menubuttons.set(menubuttons.page, stui_str(specialId));
 				} else {
 					menubuttons.set(menubuttons.page);
 				}
@@ -4448,6 +4469,49 @@ function showV() {
 			 * @method updateMenuTitles
 			 */
 			function updateMenuTitles(menuMap) {
+				if(menubuttons.lastspecial === undefined) {
+					menubuttons.lastspecial = null;
+					
+					// Set up the menu here?
+					var parMenu = dojo.byId("manage-list");
+					for(var k =0; k< specialItems.length; k++) {
+						var item = specialItems[k];
+						(function(item){
+							if(!item.name) {
+								item.name = 'unknown_'+k;
+							}
+							if(!item.title) {
+								item.title = stui.str('special_'+item.name);
+							}
+							if(!item.hidden) {
+								var subLi = document.createElement("li");
+								//subLi.id = "menu_special_"+item.name;
+								item.subLi = subLi;
+								if(item.divider) {
+									subLi.className = 'nav-divider';
+								} else {
+									var subA = document.createElement("a");
+									item.subA = subA;
+									subA.appendChild(document.createTextNode(item.title+' '));
+									subLi.appendChild(subA);
+									if(item.url) {
+										subA.href = item.url;
+										subA.target = '_blank';
+										subA.appendChild(createChunk('','span','glyphicon glyphicon-share manage-list-icon'));
+									} else {
+										subA.href = '#'+item.name; // for now
+									}
+								}
+								parMenu.appendChild(subLi);
+							}
+						})(item);
+					}
+				}
+				
+				if(menubuttons.lastspecial) {
+					removeClass(menubuttons.lastspecial, "selected");
+				}
+
 				updateLocaleMenu(menuMap);
 				if(surveyCurrentSpecial!= null && surveyCurrentSpecial != '') {
 //					menubuttons.set(menubuttons.section /*,stui_str("section_special") */);
@@ -4458,7 +4522,10 @@ function showV() {
 							break;
 						
 						default:
-						$('#section-current').html(stui_str("special_"+surveyCurrentSpecial));
+							var specialId = "special_"+surveyCurrentSpecial;
+							$('#section-current').html(stui_str(specialId));
+							menubuttons.lastspecial = dojo.byId('menu_'+specialId);
+							addClass(menubuttons.lastspecial, 'selected');
 							break;
 					}
 					setDisplayed(titlePageContainer, false);

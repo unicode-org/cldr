@@ -16,14 +16,17 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.ConvertLanguageData.InverseComparator;
 import org.unicode.cldr.unittest.TestAll.TestInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.DelegatingIterator;
 import org.unicode.cldr.util.EscapingUtilities;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.PathHeader;
+import org.unicode.cldr.util.PathHeader.PageId;
 import org.unicode.cldr.util.PluralSamples;
 import org.unicode.cldr.util.SpecialLocales;
 import org.unicode.cldr.util.StringId;
@@ -968,6 +971,40 @@ public class TestUtilities extends TestFmwk {
     	assertTrue("sr_Latn comment does NOT contain @ sign", !SpecialLocales.getComment(sr_Latn).contains("@"));
     	logln("sr_Latn_BA raw comment = " + SpecialLocales.getCommentRaw(sr_Latn_BA));
     	assertTrue("sr_Latn_BA raw contains '@sr_Latn_BA'", SpecialLocales.getCommentRaw(sr_Latn_BA).contains("@sr_Latn_BA"));
+
+    }
+    
+    public void TestCLDRURLS() {
+    	final String KOREAN_LANGUAGE = "//ldml/localeDisplayNames/languages/language[@type=\"ko\"]";
+    	final String KOREAN_LANGUAGE_STRID = "821c2a2fc5c206d";
+    	final CLDRLocale maltese = CLDRLocale.getInstance("mt");
+    	assertEquals("base", "http://st.unicode.org/cldr-apps", 
+    			CLDRConfig.getInstance().urls().base());
+    	assertEquals("locales list", "http://st.unicode.org/cldr-apps/v#locales///", 
+    			CLDRConfig.getInstance().urls().forSpecial(CLDRURLS.Special.Locales));
+		assertEquals("maltese", "http://st.unicode.org/cldr-apps/v#/mt//", 
+				CLDRConfig.getInstance().urls().forLocale(maltese));
+    	assertEquals("korean in maltese", "http://st.unicode.org/cldr-apps/v#/mt//"+KOREAN_LANGUAGE_STRID,
+    			CLDRConfig.getInstance().urls().forXpath(maltese, KOREAN_LANGUAGE));
+    	assertEquals("korean in maltese via stringid", "http://st.unicode.org/cldr-apps/v#/mt//"+KOREAN_LANGUAGE_STRID, 
+    			CLDRConfig.getInstance().urls().forXpathHexId(maltese, KOREAN_LANGUAGE_STRID));
+    	assertEquals("south east asia in maltese", "http://st.unicode.org/cldr-apps/v#/mt/C_SEAsia/", 
+    			CLDRConfig.getInstance().urls().forPage(maltese, PageId.C_SEAsia));
+    	try {
+			String ret = CLDRConfig.getInstance().urls().forXpathHexId(maltese, KOREAN_LANGUAGE);
+    		errln("Error- expected forXpathHexId to choke on  an xpath but got " + ret);
+    	} catch(IllegalArgumentException iae) {
+    		logln("GOOD: forXpathHexId Caught expected " + iae );
+    	}
+    	try {
+			String ret = CLDRConfig.getInstance().urls().forXpath(maltese, KOREAN_LANGUAGE_STRID);
+    		errln("Error- expected forXpath to choke on  a hexid but got " + ret);
+    	} catch(IllegalArgumentException iae) {
+    		logln("GOOD: forXpath Caught expected " + iae );
+    	}
+
+    	assertEquals("korean in maltese - absoluteUrl", "http://st.unicode.org/cldr-apps/v#/mt//"+KOREAN_LANGUAGE_STRID,
+    			CLDRConfig.getInstance().absoluteUrls().forXpath(maltese, KOREAN_LANGUAGE));
 
     }
 }

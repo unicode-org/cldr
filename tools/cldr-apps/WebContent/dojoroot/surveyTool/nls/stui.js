@@ -256,6 +256,7 @@ define({
 		section_forum: "Forum",
 		section_subpages: "Subpages",
 		special_search:  "Search",
+		special_mail: "Notifications (SMOKETEST ONLY)",
 		special_statistics: "Statistics",
 		special_r_compact: "Numbers",
 		special_r_datetime: "Datetime",

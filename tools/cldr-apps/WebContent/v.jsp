@@ -248,15 +248,12 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
           <ul class="nav navbar-nav">
             <li class="pull-menu">
 		          <a href="#"><span class="glyphicon glyphicon-cog"></span> <b class="caret"></b></a>
-		          <ul class="nav nav-pills nav-stacked" style="display:none">
-		            <li><a href="<%= survURL  %>?do=options" target="_blank">Manage <span class="glyphicon glyphicon-share"></span></a></li>
-		            <li><a href="statistics.jsp" target="_blank">Statistics <span class="glyphicon glyphicon-share"></span></a></li>
+		          <ul id='manage-list' class="nav nav-pills nav-stacked" style="display:none">
+		            <%-- "new" pages show up here (.js modules) --%>
 		            <li>
-			        	<button type="button" class="btn btn-default" id="toggle-right">Toggle <span class="glyphicon glyphicon-align-right"></span></button>
+			        	<button type="button" class="btn btn-default" id="toggle-right">Toggle Sidebar <span class="glyphicon glyphicon-align-right"></span></button>
 		            </li>
-		            <li class="nav-divider"></li>
-		            <li id="manage-content"></li>
-		          </ul>
+				  </ul>
 		   </li>
             <li class="dropdown" id='title-coverage' style='display:none'>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coverage: <span id="coverage-info"></span></a>

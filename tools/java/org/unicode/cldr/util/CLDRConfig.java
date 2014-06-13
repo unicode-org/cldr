@@ -531,5 +531,47 @@ public class CLDRConfig extends Properties {
         }
        return getProperty(callingClass.getCanonicalName()+".debug", defaultValue);
     }
-   
+    
+    /**
+     * Get the URL generator for "general purpose" (non chart) use.
+     * @return
+     */
+    public CLDRURLS urls() {
+        if(urls == null) {
+            synchronized(this) {
+                urls = internalGetUrls();
+            }
+        }
+        return urls;
+    }
+    
+    /**
+     * Get the URL generator for "absolute" (chart, email) use.
+     * By default, this is the same as urls.
+     */
+    public CLDRURLS absoluteUrls() {
+        if(absoluteUrls == null) {
+            synchronized(this) {
+                absoluteUrls = internalGetAbsoluteUrls();
+            }
+        }
+        return absoluteUrls;
+    }
+
+    /**
+     * Probably would not need to override this.
+     */
+    protected CLDRURLS internalGetAbsoluteUrls() {
+        return new StaticCLDRURLS(this.getProperty(CLDRURLS.CLDR_SURVEY_BASE, CLDRURLS.DEFAULT_BASE));
+    }
+
+    /**
+     * Override this to provide a different URL source for non-absolute URLs.
+     */
+    protected CLDRURLS internalGetUrls() {
+        return absoluteUrls();
+    }
+
+    private CLDRURLS urls = null;
+    private CLDRURLS absoluteUrls = null;
 }

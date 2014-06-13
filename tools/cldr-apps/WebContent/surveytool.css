@@ -3301,6 +3301,7 @@ h2.mailHeader {
 
 p.mailContent {
     line-height: 1em;
+    white-space: pre-line;
 }
 
 .mailListChunk li:hover {
@@ -3441,4 +3442,8 @@ span.vsStatus {
 	color: gray;
 	background-color: #dddddd;
 	opacity: .5;
+}
+
+.manage-list-icon {
+	padding-left: 0.25em;
 }

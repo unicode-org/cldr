@@ -94,8 +94,12 @@ var surveySessionId=null;
 if(myUser!=null) {
 %>
 var surveyUser=<%= myUser.toJSONString() %>;
+var surveyUserPerms = {
+		userCanUseVettingSummary: <%= UserRegistry.userCanUseVettingSummary(myUser) %>	
+};
 <% } else { %>
 var surveyUser=null;
+var surveyUserPerms={};
 <% }%>
 var warnIcon = "<%= WebContext.iconHtml(request,"warn","Test Warning") %>";
 var stopIcon = "<%= WebContext.iconHtml(request,"stop","Test Error") %>";

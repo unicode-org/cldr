@@ -503,15 +503,8 @@ public class VettingViewer<T> {
             return codeOutput.compareTo(other.codeOutput);
         }
 
-        public String getUrl(String locale) {
-            return codeOutput.getUrl(baseUrl, locale);
-            //            return baseUrl + "?_="
-            //            + locale
-            //            + "&strid="
-            //            + StringId.getHexId(codeOutput.getOriginalPath());
-            // String menu = PathUtilities.xpathToMenu(path);
-            // String url = baseUrl + "?_=" + locale + "&amp;=" + menu;
-            // return url;
+        public String getUrl(CLDRLocale locale) {
+            return urls.forPathHeader(locale, codeOutput);
         }
     }
 
@@ -1242,9 +1235,8 @@ public class VettingViewer<T> {
     private void appendNameAndCode(String name, String localeID, Appendable output) throws IOException {
         String[] names = name.split(SPLIT_CHAR);
         output
-            .append("<a href='" + PathHeader.trimLast(baseUrl) + "v#r_vetting/")
-            .append(localeID)
-            .append("/'>")
+            .append("<a href='" + urls.forSpecial(CLDRURLS.Special.Vetting,CLDRLocale.getInstance(localeID)))
+            .append("'>")
             .append(TransliteratorUtilities.toHTML.transform(names[0]))
             .append("</a>")
             .append("</th>")
@@ -1476,20 +1468,10 @@ public class VettingViewer<T> {
 
     static final NumberFormat nf = NumberFormat.getIntegerInstance(ULocale.ENGLISH);
     private Relation<String, String> reasonsToPaths;
-    private String baseUrl = null;
+    private CLDRURLS urls = CLDRConfig.getInstance().urls();
+    
     static {
         nf.setGroupingUsed(true);
-    }
-
-    /**
-     * Set the base URL, equivalent to 'http://unicode.org/cldr/apps/survey' for
-     * generated URLs.
-     * 
-     * @param url
-     * @author srl
-     */
-    public void setBaseUrl(String url) {
-        baseUrl = url;
     }
 
     /**
@@ -1647,20 +1629,21 @@ public class VettingViewer<T> {
             }
 
             final String localeId = sourceFile.getLocaleID();
+            final CLDRLocale locale = CLDRLocale.getInstance(localeId);
             int count = 0;
             for (Entry<R2<SectionId, PageId>, Set<WritingInfo>> entry0 : sorted.keyValuesSet()) {
                 SectionId section = entry0.getKey().get0();
                 PageId subsection = entry0.getKey().get1();
                 final Set<WritingInfo> rows = entry0.getValue();
 
-                rows.iterator().next().getUrl(localeId);
+                rows.iterator().next(); // getUrl(localeId); (no side effect?)
                 // http://kwanyin.unicode.org/cldr-apps/survey?_=ur&x=scripts
                 // http://unicode.org/cldr-apps/survey?_=ur&x=scripts
 
                 output.append("\n<h2 class='tv-s'>Section: ")
                     .append(section.toString())
                     .append(" — <i><a " + /*target='CLDR_ST-SECTION' */"href='")
-                    .append(getPageUrl(localeId, subsection))
+                    .append(urls.forPage(locale, subsection))
                     .append("'>Page: ")
                     .append(subsection.toString())
                     .append("</a></i> (" + rows.size() + ")</h2>\n");
@@ -1722,7 +1705,7 @@ public class VettingViewer<T> {
                     // Fix?
                     // http://unicode.org/cldr/apps/survey?_=az&xpath=%2F%2Fldml%2FlocaleDisplayNames%2Flanguages%2Flanguage%5B%40type%3D%22az%22%5D
                     output.append(" <td class='tv-fix'><a target='_blank' href='")
-                        .append(pathInfo.getUrl(localeId)) // .append(c)baseUrl + "?_=")
+                        .append(pathInfo.getUrl(locale)) // .append(c)baseUrl + "?_=")
                         // .append(localeID)
                         // .append("&amp;xpath=")
                         // .append(percentEscape.transform(path))
@@ -1956,11 +1939,6 @@ public class VettingViewer<T> {
         }
     }
 */
- 
-    private String getPageUrl(String localeId, PageId subsection) {
-        return PathHeader.getPageUrl(baseUrl, localeId, subsection);
-    }
-
     private void startTable(Set<Choice> choices, Appendable output) throws IOException {
         output.append("<table class='tv-table'>\n");
         output.append("<tr class='");
@@ -2174,7 +2152,6 @@ public class VettingViewer<T> {
             String localeStringID = LOCALE;
             int userNumericID = 666;
             Level usersLevel = Level.MODERN;
-            tableView.setBaseUrl("http://st.unicode.org/smoketest/survey");
             // http: // unicode.org/cldr-apps/survey?_=ur
 
             if (!repeat) {

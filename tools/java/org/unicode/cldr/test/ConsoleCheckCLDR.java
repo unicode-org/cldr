@@ -1188,7 +1188,7 @@ public class ConsoleCheckCLDR {
                 .addColumn("Subtype").setCellAttributes("style=\"text-align:left\" class=\"{2}\"").setSpanRows(true)
                 .addColumn("Locale").setCellAttributes("class=\"{2}\"")
                 .addColumn("Code").setCellAttributes("class=\"{2}\"")
-                .setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}&x={1}\">{0}</a>")
+                .setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}&x={1}\">{0}</a>") // TODO: use CLDRConfig.urls()
                 .addColumn("Count").setCellAttributes("class=\"{2}\"");
             for (String org : orgToLocales.keySet()) {
                 indexTablePrinter.addColumn(org.substring(0, 2));

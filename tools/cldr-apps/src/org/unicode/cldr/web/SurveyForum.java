@@ -35,6 +35,7 @@ import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.PathUtilities;
 import org.unicode.cldr.util.Utf8StringByteConverter;
 import org.unicode.cldr.util.VoteResolver;
@@ -484,7 +485,6 @@ public class SurveyForum {
 
                 // Apparently, it posted.
 
-                emailNotify(ctx, forum, base_xpath, subj, text, postId);
 
                 if(ctx.field("isReview").equals("1")) {
                     ctx.response.resetBuffer();
@@ -692,7 +692,8 @@ public class SurveyForum {
      * @param text
      * @param postId
      */
-    public void emailNotify(WebContext ctx, String forum, int base_xpath, String subj, String text, Integer postId) {
+    public void emailNotify(UserRegistry.User user, CLDRLocale locale, int base_xpath, String subj, String text, Integer postId) {
+        String forum = localeToForum(locale);
         ElapsedTimer et = new ElapsedTimer("Sending email to " + forum);
         // Do email-
         Set<Integer> cc_emails = new HashSet<Integer>();
@@ -701,19 +702,19 @@ public class SurveyForum {
         // Collect list of users to send to.
         gatherInterestedUsers(forum, cc_emails, bcc_emails);
 
-        String subject = "CLDR forum post (" + CLDRLocale.getInstance(forum).getDisplayName() + " - " + forum + "): " + subj;
+        String subject = "CLDR forum post (" + locale.getDisplayName() + " - " + locale + "): " + subj;
 
-        String body = "Do not reply to this message, instead go to http://st.unicode.org"
-            + forumUrl(ctx, forum)
-            + "#post" + postId + "\n"
-            + "====\n\n"
+        String body = "Do not reply to this message, instead go to <" 
+            + CLDRConfig.getInstance().absoluteUrls().forSpecial(CLDRURLS.Special.Forum, locale,(String)null,Integer.toString(postId))
+            
+            + ">\n====\n\n"
             + text;
         
         if(MailSender.getInstance().DEBUG){
-            System.out.println(et+": Forum notify: u#"+ctx.userId()+" x"+base_xpath+" queueing cc:" + cc_emails.size() + " and bcc:"+bcc_emails.size());
+            System.out.println(et+": Forum notify: u#"+user.id+" x"+base_xpath+" queueing cc:" + cc_emails.size() + " and bcc:"+bcc_emails.size());
         }
 
-        MailSender.getInstance().queue(ctx.userId(), cc_emails, bcc_emails, HTMLUnsafe(subject), HTMLUnsafe(body), ctx.getLocale(), base_xpath, postId);
+        MailSender.getInstance().queue(user.id, cc_emails, bcc_emails, HTMLUnsafe(subject), HTMLUnsafe(body), locale, base_xpath, postId);
     }
 
 
@@ -772,6 +773,7 @@ public class SurveyForum {
             SurveyLog.logException(se, complaint);
             throw new SurveyException(ErrorCode.E_INTERNAL, complaint);
         }
+        emailNotify(user, locale, base_xpath, subj, text, postId);
         return postId;
     }
 

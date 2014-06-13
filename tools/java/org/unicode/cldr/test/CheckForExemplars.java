@@ -366,15 +366,28 @@ public class CheckForExemplars extends FactoryCheckCLDR {
                 }
             }
         } else if (path.contains("/gmtFormat") || path.contains("/gmtZeroFormat")) {
-                if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
-                    disallowed.removeAll(LETTER); // Allow ASCII A-Z in gmtFormat and gmtZeroFormat
-                    if (disallowed.size() > 0 ) {
-                        addMissingMessage(disallowed, CheckStatus.warningType,
-                            Subtype.charactersNotInMainOrAuxiliaryExemplars,
-                            Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
-                            result);
-                    }
+            if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
+                disallowed.removeAll(LETTER); // Allow ASCII A-Z in gmtFormat and gmtZeroFormat
+                if (disallowed.size() > 0 ) {
+                    addMissingMessage(disallowed, CheckStatus.warningType,
+                        Subtype.charactersNotInMainOrAuxiliaryExemplars,
+                        Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
+                        result);
                 }
+            }
+        } else if (path.contains("/months") || path.contains("/quarters")) {
+            if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
+                disallowed.removeAll("IVXivx"); // Allow Roman-numeral letters in month or quarter names
+                if (path.contains("/calendar[@type=\"generic\"]/months")) {
+                    disallowed.removeAll("M"); // Generic-calendar month names contain 'M' and do not get modified
+                }
+                if (disallowed.size() > 0 ) {
+                    addMissingMessage(disallowed, CheckStatus.warningType,
+                        Subtype.charactersNotInMainOrAuxiliaryExemplars,
+                        Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters",
+                        result);
+                }
+            }
         } else if (path.contains("/localeDisplayNames") && !path.contains("/localeDisplayPattern")) {
             // test first for outside of the set.
             if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {

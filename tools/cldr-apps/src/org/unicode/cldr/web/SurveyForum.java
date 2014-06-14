@@ -1050,6 +1050,10 @@ public class SurveyForum {
         printForumMenu(ctx, forum);
 
         ctx.print(forumFeedIcon(ctx, forum));
+        
+        ctx.println("<h3><a href='"+ CLDRConfig.getInstance()
+            .urls().forSpecial(CLDRURLS.Special.Forum, ctx.getLocale())
+            +"'>Please visit the NEW forum pages instead.</a></h3>");
 
         ctx.println("<hr>");
         //        if (didpost) {
@@ -2088,9 +2092,9 @@ public class SurveyForum {
                     } else {
                         // all posts for xpath
                         o = DBUtils.sqlQueryArrayArrayObj(conn, "select " + getPallresultfora() + "  FROM " + DBUtils.Table.FORUM_POSTS.toString()
-                        + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =?) ORDER BY "
+                        + " WHERE (" + DBUtils.Table.FORUM_POSTS + ".forum =? AND " + DBUtils.Table.FORUM_POSTS + " .xpath =? and " + DBUtils.Table.FORUM_POSTS + ".loc=? ) ORDER BY "
                         + DBUtils.Table.FORUM_POSTS.toString()
-                        + ".last_time DESC", forumNumber, base_xpath);
+                        + ".last_time DESC", forumNumber, base_xpath,locale);
                     }
                 } else {
                     //specific POST
@@ -2116,12 +2120,16 @@ public class SurveyForum {
                         int id = (Integer) o[i][4];
                         int parent = (Integer) o[i][5];
                         int xpath = (Integer) o[i][6];
+                        String loc = (String)o[i][7];
 
                         if (lastDate.after(oldOnOrBefore) || false) {
                             JSONObject post = new JSONObject();
                             post.put("poster", poster)
                                 .put("posterInfo", SurveyAjax.JSONWriter.wrap(CookieSession.sm.reg.getInfo(poster)))
                                 .put("subject", subj2).put("text", text2).put("date", lastDate).put("date_long", lastDate.getTime()).put("id", id).put("parent", parent);
+                            if(loc != null) {
+                                post.put("locale", loc);
+                            }
                             post.put("xpath_id",xpath);
                             if(xpath >0) {
                                 post.put("xpath", sm.xpt.getStringIDString(xpath));
@@ -2162,7 +2170,7 @@ public class SurveyForum {
     private static String getPallresult() {
         return DBUtils.Table.FORUM_POSTS + ".poster," + DBUtils.Table.FORUM_POSTS + ".subj," + DBUtils.Table.FORUM_POSTS + ".text,"
             + DBUtils.Table.FORUM_POSTS.toString()
-            + ".last_time," + DBUtils.Table.FORUM_POSTS + ".id," + DBUtils.Table.FORUM_POSTS + ".forum," + DB_FORA + ".loc";
+            + ".last_time," + DBUtils.Table.FORUM_POSTS + ".id," + DBUtils.Table.FORUM_POSTS + ".forum, " + DBUtils.Table.FORUM_POSTS + ".loc ";
     }
 
     /**
@@ -2171,7 +2179,7 @@ public class SurveyForum {
     private static String getPallresultfora() {
         return DBUtils.Table.FORUM_POSTS + ".poster," + DBUtils.Table.FORUM_POSTS + ".subj," + DBUtils.Table.FORUM_POSTS + ".text,"
             + DBUtils.Table.FORUM_POSTS.toString()
-            + ".last_time," + DBUtils.Table.FORUM_POSTS + ".id,"+ DBUtils.Table.FORUM_POSTS + ".parent,"+ DBUtils.Table.FORUM_POSTS + ".xpath ";
+            + ".last_time," + DBUtils.Table.FORUM_POSTS + ".id,"+ DBUtils.Table.FORUM_POSTS + ".parent,"+ DBUtils.Table.FORUM_POSTS + ".xpath, "+DBUtils.Table.FORUM_POSTS+".loc";
     }
 
     /**

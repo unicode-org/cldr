@@ -3,7 +3,8 @@
  * Modify 'js/special/forum.js' below to reflect your special page's name.
  * @module forum
  */
-define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request"], function(SpecialPage, request) {
+define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request", "dojo/window"], 
+		function(SpecialPage, request, win) {
 	var _super;
 	
 	function Page() {
@@ -17,9 +18,8 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request"], fun
 	 * parse a hash tag
 	 * @function parseHash
 	 */
-	SpecialPage.prototype.parseHash = function parseHash(hash, pieces) {
+	Page.prototype.parseHash = function parseHash(hash, pieces) {
 		surveyCurrentPage='';
-		console.log(JSON.stringify(pieces));
 		if(pieces && pieces.length>3){
 			if(!pieces[3] || pieces[3]=='') {
 				surveyCurrentId='';
@@ -29,7 +29,37 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request"], fun
 					surveyCurrentId = '';
 				} else {
 					surveyCurrentId = id.toString();
+					this.handleIdChanged(surveyCurrentId);
 				}
+			}
+		}
+	};
+	
+	Page.prototype.handleIdChanged = function handleIdChanged(strid) {
+		if(strid && strid != '') {
+			var id = new Number(strid);
+			if(id == NaN) {
+				surveyCurrentId = '';
+			} else {
+				surveyCurrentId = id.toString();
+			}
+			var itemid = "fp"+id;
+			var pdiv = document.getElementById(itemid);
+			if(pdiv) {
+				console.log("Scrolling " + itemid);
+				win.scrollIntoView(pdiv);
+				(function(o,itemid,pdiv){
+					//if(!o.lastHighlight) {
+					//	o.lastHighlight=itemid;
+						pdiv.style["background-color"]="yellow";
+						window.setTimeout(function(){
+							pdiv.style["background-color"]=null;
+						//	o.lastHighlight=null;
+						}, 2000);
+					//}
+				})(this,itemid,pdiv);
+			} else {
+				console.log("No item "+itemid);
 			}
 		}
 	};
@@ -65,13 +95,14 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request"], fun
 					stStopPropagation(e);
 					return false;
 				});
+				ourDiv.appendChild(createChunk(stui.sub("forum_msg", { forum: locmap.getLocaleName(locmap.getLanguage(surveyCurrentLocale)),  locale: surveyCurrentLocaleName  }), "h4", ""));
 				ourDiv.appendChild(postButton);
 				ourDiv.appendChild(document.createElement('hr'));
 				if(json.ret.length == 0) {
 					ourDiv.appendChild(createChunk(stui.str("forum_noposts"),"p","helpContent"));
 				} else {
 					ourDiv.appendChild(parseForumContent({ret: json.ret,
-						replyButton: true,
+						replyButton: true,					
 						onReplyClose: function(postModal, form, formDidChange) {if(formDidChange){console.log('Reload- changed.');reloadV();}},
 						noItemLink: false}));
 				}
@@ -79,6 +110,7 @@ define("js/special/forum.js", ["js/special/SpecialPage.js", "dojo/request"], fun
 				// No longer loading
 				hideLoader(null);
 				params.flipper.flipTo(params.pages.other, ourDiv);
+				params.special.handleIdChanged(surveyCurrentId); // rescroll.
 			})
 			.otherwise(function(err) {
 	        	params.special.showError(params, null, {err: err, what: "Loading forum data"});

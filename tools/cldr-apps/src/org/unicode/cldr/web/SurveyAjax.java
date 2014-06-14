@@ -3,7 +3,6 @@ package org.unicode.cldr.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Reader;
-import java.net.URLDecoder;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,7 +27,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.unicode.cldr.test.CheckCLDR;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus;
-import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.test.DisplayAndInputProcessor;
 import org.unicode.cldr.test.TestCache.TestResultBundle;
@@ -188,6 +186,7 @@ public class SurveyAjax extends HttpServlet {
             if (pathHeader == null) return null;
             return new JSONObject().put("section", pathHeader.getSectionId().name())
                 .put("page", pathHeader.getPageId().name())
+                .put("header", pathHeader.getCode())
                 .put("code", pathHeader.getCode())
                 .put("str", pathHeader.toString());
         }
@@ -218,6 +217,7 @@ public class SurveyAjax extends HttpServlet {
     public static final String WHAT_DELETE = "delete";
     public static final String WHAT_GETROW = "getrow";
     public static final String WHAT_GETSIDEWAYS = "getsideways";
+    public static final String WHAT_GETXPATH = "getxpath";
     public static final String WHAT_PREF = "pref";
     public static final String WHAT_VSUMMARY = "vsummary";
     public static final String WHAT_STATS_BYLOC = "stats_byloc";
@@ -369,6 +369,37 @@ public class SurveyAjax extends HttpServlet {
                     r.put("byday_new", query2);
                 }
                 r.put("after", "n/a");
+                send(r, out);
+            } else if (what.equals(WHAT_GETXPATH)) {
+                JSONWriter r = newJSONStatus(sm);
+                try {
+                    int xpid = XPathTable.NO_XPATH;
+                    String xpath_path = null;
+                    String xpath_hex = null;
+                    PathHeader ph = null;
+                    if(xpath.startsWith("/")) {
+                        xpid = sm.xpt.getByXpath(xpath);
+                        xpath_path = xpath;
+                        xpath_hex = sm.xpt.getStringIDString(xpath_path);
+                    } else if(xpath.startsWith("#")) {
+                        xpid = Integer.parseInt(xpath.substring(1));
+                        xpath_path = sm.xpt.getById(xpid);
+                        xpath_hex = sm.xpt.getStringIDString(xpath_path);
+                    } else {
+                        xpath_path = sm.xpt.getByStringID(xpath);
+                        xpid = sm.xpt.getByXpath(xpath_path);
+                        xpath_hex = xpath;
+                    }
+                    
+                    JSONObject ret = new JSONObject();
+                    ret.put("path", xpath_path);
+                    ret.put("id", xpid);
+                    ret.put("hex", xpath_hex);
+                    ret.put("ph", JSONWriter.wrap(sm.getSTFactory().getPathHeader(xpath_path)));
+                    r.put(what, ret);
+                } catch (Throwable t) {
+                    sendError(out, t);
+                }
                 send(r, out);
             } else if (what.equals(WHAT_MY_LOCALES)) {
                 JSONWriter r = newJSONStatus(sm);
@@ -1651,6 +1682,17 @@ public class SurveyAjax extends HttpServlet {
         r.put("err", message);
         r.put("err_code", errCode);
         send(r, out);
+    }
+
+    private void sendError(PrintWriter out, Throwable e) throws IOException {
+        if(e instanceof SurveyException) {
+            sendError(out, (SurveyException)e);
+        } else {
+            JSONWriter r = newJSON();
+            r.put("SurveyOK", "0");
+            r.put("err", e.getMessage());
+            send(r, out);
+        }
     }
 
     private void sendError(PrintWriter out, SurveyException e) throws IOException {

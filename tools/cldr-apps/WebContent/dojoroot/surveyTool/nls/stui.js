@@ -288,6 +288,7 @@ define({
 		forum_noposts: "No posts in this forum.",
 		forum_item: "Item",
 		forum_reply: "Reply",
+		forum_msg: "Showing posts for ${forum} and all sublocales.",
 		forumGuidance: "This is the forum page. This page will not reload when new posts come in, but you can use your browser's Refresh button to load new posts.",
 		generic_nolocale: "No locale chosen.",
 		defaultContent_msg: "This locale, ${info.name}  is the <i><a target='CLDR-ST-DOCS' href='http://cldr.unicode.org/translation/default-content'>default content locale</a></i> for <b><a class='notselected' href='#/${info.dcParent}'>${dcParentName}</a></b>, and thus editing or viewing is disabled. ",

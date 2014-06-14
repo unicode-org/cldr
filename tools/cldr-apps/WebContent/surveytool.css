@@ -29,6 +29,7 @@ Color english brown
 }
 */
 
+
 /* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
 @font-face {
 font-family:'MON3 Anonta 1';
@@ -1296,6 +1297,50 @@ div.person a {
 	
 }
 
+.localeName {
+    display:  block;
+    font-size: medium;
+}
+
+.topicSubject, .postSubject {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight:  bold;
+}
+
+.forum-me {
+    font-weight:  bold;
+    font-size:  larger;
+}
+
+.post {
+    margin-bottom: 0.75em;    
+    padding-bottom:  0.25em;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-ms-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+.post, .post .postReplies {
+    background-color: #f4f5f4;
+}
+
+
+.postReplies .post {
+    margin-top: 1em;
+}
+
+.postContent {
+    white-space: pre-wrap;
+}
+
+.postContent button {
+    margin-left: 1em;
+    margin-top:  0.5em;
+}
+
+
 .reply a, div.subpost a.postReply {
 	background-color: #fff88d;
 	margin-bottom: 1em;
@@ -1413,9 +1458,36 @@ div.forumDiv div.subpost div.postContent {
 
 div.postReplies {
 	margin-left: 0.5em;
-	border-left: 2px solid gray;
-	padding-left: 0.25em;
+	padding-left: 0.5em;
+	padding-top:  0.25em;
+	margin-top:  0.25em;
 }
+
+.forumLink {
+    text-decoration: underline;
+}
+
+.forumLink:hover {
+    color: blue;
+    background-color: white;
+    cursor:  pointer;
+}
+
+div.postReplies,
+div.postReplies:hover > div.post > div.postReplies {
+	border-left: 3px solid gray;
+}
+
+div.postReplies .post {
+    margin-top: 0.25em;
+}
+
+div.postReplies:hover > div.post > div.postReplies:hover,
+div.postReplies:hover
+ {
+    border-left:  3px solid red;
+}
+
 
 a.postItem {
 	margin-left: 0.25em;

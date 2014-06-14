@@ -389,6 +389,145 @@ LocaleMap.prototype.getLanguage = function getLanguage(locid) {
 };
 
 /**
+ * @class XpathMap
+ * This manages xpid / strid / PathHeader etc mappings.
+ * It is a cache, and gets populated with data 'volunteered' by page loads, so that 
+ * hopefully it doesn't need to do any network operations on its own.
+ * However, it MAY BE capable of filling in any missing data via AJAX. This is why its operations are async.
+ */
+function XpathMap() {
+	/**
+	 * Maps strid (hash) to info struct.
+	 * The info struct is the basic unit here, it looks like the following:
+	 *   { 
+	 *       hex: '20fca8231d41',
+	 *       path: '//ldml/shoeSize',
+	 *       id:  1337,
+	 *       ph: ['foo','bar','baz']  **TBD**
+	 *   }
+	 *   
+	 *  All other hashes here are just alternate indices into this data.
+	 *  
+	 * @property XpathMap.stridToInfo
+	 */
+	this.stridToInfo = {};
+	/**
+	 * Map xpid (such as 1337) to info
+	 * @property XpathMap.xpidToInfo
+	 */
+	this.xpidToInfo = {};
+	/**
+	 * Map xpath (//ldml/...) to info.
+	 * @property XpathMap.xpathToInfo
+	 */
+	this.xpathToInfo = {};
+};
+
+/**
+ * This function will do a search and then call the onResult function. 
+ * Priority order for search:  hex, id, then path.
+ * @function get
+ * @param search {Object} the object to search for
+ * @param search.hex {String} optional - search by hex id
+ * @param search.path {String} optional - search by xpath
+ * @param search.id {Number} optional - search by number (String will be converted to Number)
+ * @param onResult - will be called with one parameter that looks like this: 
+ *  { search, err, result } -  'search' is the input param, 
+ * 'err' if non-null is any error, and 'result' if non-null is the result info struct.
+ * If there is an error, 'result' will be null. Please do not modify 'result'!
+ */
+XpathMap.prototype.get = function get(search, onResult) {
+	// see if we have anything immediately
+	result = null;
+	if(!result && search.hex) {
+		result = this.stridToInfo[search.hex];
+	}
+	if(!result && search.id) {
+		if(typeof search.id !== Number) {
+			search.id = new Number(search.id);
+		}
+		result = this.xpidToInfo[search.id];
+	}
+	if(!result && search.path) {
+		result = this.xpathToInfo[search.path];
+	}
+	if(result) {
+		onResult({search:search, result:result});
+	} else {
+		stdebug("XpathMap search failed for " + JSON.stringify(search) +  " - doing rpc");
+		var querystr = null;
+		if(search.hex) {
+			querystr = search.hex;
+		} else if(search.path) {
+			querystr = search.path;
+		} else if(search.id) {
+			querystr = "#"+search.id;
+		} else {
+			querystr = ''; // error
+		}
+		require(["dojo/request"], function(request) {
+			request
+			.get('SurveyAjax', {handleAs: 'json',
+								query: {
+									what: 'getxpath',
+									xpath: querystr
+								}})
+			.then(function(json) {
+				if(json.getxpath) {
+					xpathMap.put(json.getxpath); // store back first, then
+					onResult({search: search, result:json.getxpath}); // call
+				} else {
+					onResult({search: search, err:'no results from server'});
+				}
+			})
+			.otherwise(function(err) {
+				onResult({search: search, err:err});
+			});
+		});
+	}
+};
+
+/**
+ * Contribute some data to the map.
+ * @function contribute
+ */
+XpathMap.prototype.put = function put(info) {
+	if(!info || !info.id || !info.path || !info.hex || !info.ph) {
+		stdebug("XpathMap: rejecting incomplete contribution " + JSON.stringify(info));
+	} else if(this.stridToInfo[info.hex]) {
+		stdebug("XpathMap: rejecting duplicate contribution " + JSON.stringify(info));
+	} else {
+		this.stridToInfo[info.hex] = 
+			this.xpidToInfo[info.id] = 
+				this.xpathToInfo[info.path] =
+					info;
+		stdebug("XpathMap: adding contribution " + JSON.stringify(info));
+	}
+};
+
+/**
+ * Format a pathheader array.
+ * @function formatPathHeader
+ * @param ph {Object} pathheaer struct (Section/Page/Header/Code)
+ * @return {String}
+ */
+XpathMap.prototype.formatPathHeader = function formatPathHeader(ph) {
+	if(!ph) {
+		return '';
+	} else {
+		var phArray = [ph.section, ph.page, ph.header, ph.code];
+		return phArray.join(' | '); // type error - valid?
+	}
+};
+
+/**
+ * @class GLOBAL
+ */
+var xpathMap = new XpathMap();
+
+
+
+/**
  * Global items 
  * @class GLOBAL
  */
@@ -534,30 +673,91 @@ function createUser(user) {
  */
 function parseForumContent(json) {
 	var forumDiv = document.createDocumentFragment();
-	var postDivs={};
+
+	// json.ret has posts in reverse order (newest first).
+	var postDivs={}; //  postid -> div
+	var topicDivs={}; // xpath -> div or "#123" -> div
+	var postHash={}; // postid -> item
+
+	// first, collect the posts.
+	for (num in json.ret) {
+		postHash[json.ret[num].id]=json.ret[num];
+	}
+	
+	// now, collect the threads
+	function threadId(post) {
+		if(post.parent >= 0 && postHash[post.parent]) {
+			// if  the parent exists.
+			return threadId(postHash[post.parent]);
+		}
+		if(post.xpath) {
+			return post.locale + "|" + post.xpath; // item post
+		} else {
+			return post.locale + "|#"+post.id; // non-item post
+		}
+	}
+
+	// next, add threadIds and create the topic divs
+	for ( num in json.ret) {
+		var post = json.ret[num];
+		post.threadId = threadId(post);
+		
+		if(!topicDivs[post.threadId]) {
+			// add the topic div
+			var topicDiv = document.createElement('div');
+			topicDiv.className = 'well well-sm postTopic';
+			var topicInfo = createChunk("", "h4", "postTopicInfo");
+			if(!json.noItemLink) {
+				topicDiv.appendChild(topicInfo);
+				if(post.locale) {
+					var localeLink = createChunk(locmap.getLocaleName(post.locale), "a", "localeName");
+					if(post.locale != surveyCurrentLocale) {
+						localeLink.href = linkToLocale(post.locale);
+						//localeLink.className = localeLink.className + " label label-warning";
+					}
+					topicInfo.appendChild(localeLink);
+				}
+			}
+			if(!post.xpath) {
+				topicInfo.appendChild(createChunk(post2text(post.subject), "span", "topicSubject"));
+			} else {
+				if(!json.noItemLink) {
+					var itemLink = createChunk(stui.str("forum_item"), "a", "pull-right postItem glyphicon glyphicon-zoom-in");
+					itemLink.href = "#/"+post.locale+"//"+post.xpath;
+					topicInfo.appendChild(itemLink);
+					(function(topicInfo){
+						var loadingMsg = createChunk(stui.str("loading"), "i", "loadingMsg");
+						topicInfo.appendChild(loadingMsg);
+						xpathMap.get({hex: post.xpath}, function(o){
+						if(o.result) {
+							topicInfo.removeChild(loadingMsg);
+							var itemPh = createChunk(xpathMap.formatPathHeader(o.result.ph), "span", "topicSubject");
+							itemPh.title = o.result.path;
+							topicInfo.appendChild(itemPh);
+						}
+					});})(topicInfo);
+				}
+			}
+			topicDivs[post.threadId] = topicDiv;
+			topicDiv.id = "fthr_"+post.threadId;
+			
+			// add to the div
+			forumDiv.appendChild(topicDiv);
+		}
+	}
+	// Now, top to bottom, just create the post divs
 	for(num in json.ret) {
 		var post = json.ret[num];
-//		userChunk.style.float = "right";
-//		forumDiv.appendChild(createChunk("Id:","b"));
-//		forumDiv.appendChild(document.createElement("br"));
 		
-		var subpost = createChunk("","div","well well-sm post"); // was: subpost
-		forumDiv.appendChild(subpost);
+		var subpost = createChunk("","div","post"); // was: subpost
+		// Don't add to the DIV yet - will reparent into the topic Divs
+		///  --forumDiv.appendChild(subpost);
 		
 		postDivs[post.id] = subpost;
 		
-
-//		if(stdebug_enabled) {
-//			headerLine.appendChild(document.createTextNode("#"+post.id));
-//			if(post.parent != -1) {
-//				headerLine.appendChild(document.createTextNode(" p#"+post.parent));
-//			}
-//		}
+		subpost.id = "fp"+post.id;
 		
-//		var headerLine = createChunk("","div","postHeaderLine");
-//		subpost.appendChild(headerLine);
-		
-		var userChunk = createUser(post.posterInfo);
+//		var userChunk = createUser(post.posterInfo);
 		//subpost.appendChild(userChunk);
 		
 		var gravitar = createGravitar(post.posterInfo);
@@ -565,7 +765,7 @@ function parseForumContent(json) {
 		subpost.appendChild(gravitar);
 		var headingLine = createChunk("", "h4", "selected");
 		if(post.posterInfo.id == surveyUser.id) {
-			headingLine.appendChild(createChunk(stui.str("user_me"),"span", "label label-success"));
+			headingLine.appendChild(createChunk(stui.str("user_me"),"span", "forum-me"));
 		} else {
 			var usera = createChunk(post.posterInfo.name+' ', "a", "");
 			if(post.posterInfo.email) {
@@ -575,9 +775,27 @@ function parseForumContent(json) {
 			headingLine.appendChild(usera);
 			headingLine.appendChild(document.createTextNode(' ('+post.posterInfo.org+') '));
 		}
-		headingLine.appendChild(createChunk(post.posterInfo.userlevelName, "span", "userLevelName label-info label"));
-		var dateChunk = createChunk(fmtDateTime(post.date_long),"span","label label-primary pull-right");
-		subpost.appendChild(dateChunk);
+		var userLevelChunk;
+		headingLine.appendChild(userLevelChunk=
+			createChunk(stui.str("userlevel_"+post.posterInfo.userlevelName), "span", "userLevelName label-info label"));
+		userLevelChunk.title = stui.str("userlevel_"+post.posterInfo.userlevelName+"_desc");
+		var dateChunk = createChunk(fmtDateTime(post.date_long),"span","label label-primary pull-right forumLink");
+		(function(post) {
+			listenFor(dateChunk, "click", function(e) {
+				if(locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {
+					surveyCurrentLocale = locmap.getLanguage(post.locale);
+				}
+				surveyCurrentPage = '';
+				surveyCurrentId = post.id;
+				replaceHash(false);
+				if(surveyCurrentSpecial != 'forum') {
+					surveyCurrentSpecial = 'forum';
+					reloadV();
+				}
+				return stStopPropagation(e);
+			});
+		})(post);
+		headingLine.appendChild(dateChunk);
 		
 		subpost.appendChild(headingLine);
 		
@@ -587,24 +805,13 @@ function parseForumContent(json) {
 			var subChunk = createChunk("","div","postHeaderItem");
 			subSubChunk.appendChild(subChunk);
 			subChunk.appendChild(createChunk(post2text(post.subject),"b","postSubject"));
-			if(post.xpath && !json.noItemLink) {
-				var itemLink = createChunk(stui.str("forum_item"), "a", "pull-right postItem glyphicon glyphicon-zoom-in");
-				itemLink.href = "#/"+surveyCurrentLocale+"//"+post.xpath;
-				subChunk.appendChild(itemLink);
-			}
-			subChunk.appendChild(document.createElement("br"));
 		}
-										
+				
 		// actual text
 		var postText = post2text(post.text);
-		subpost.appendChild(createChunk(postText, "div","postContent"));
-		
-		// reply link
-		if(json.replyStub) {
-			var replyChunk = createChunk("Reply (leaves this page)","a","postReply");
-			replyChunk.href = json.replyStub + post.id;
-			subpost.appendChild(replyChunk);
-		} else if(json.replyButton) {
+		var postContent;
+		subpost.appendChild(postContent = createChunk(postText, "div","postContent"));
+		if(json.replyButton) {
 			var replyButton = createChunk(stui.str("forum_reply"), "button", "btn btn-default btn-sm");
 			(function(post){ listenFor(replyButton, "click", function(e) {
 				openReply({
@@ -619,6 +826,13 @@ function parseForumContent(json) {
 			});})(post);
 			subpost.appendChild(replyButton);
 		}
+
+		// reply link
+		if(json.replyStub) {
+			var replyChunk = createChunk("Reply (leaves this page)","a","postReply");
+			replyChunk.href = json.replyStub + post.id;
+			subpost.appendChild(replyChunk);
+		}
 	}
 	// reparent any nodes that we can
 	for(num in json.ret) {
@@ -626,8 +840,6 @@ function parseForumContent(json) {
 		if(post.parent != -1) {
 			stdebug("reparenting " + post.id + " to " + post.parent);
 			if(postDivs[post.parent]) {
-				// delete from old location in the dom
-				forumDiv.removeChild(postDivs[post.id]);
 				if(!postDivs[post.parent].replies) {
 					// add the "replies" area
 					stdebug("ADding replies area to " + post.parent );
@@ -639,8 +851,21 @@ function parseForumContent(json) {
 			} else {
 				// The parent of this post was deleted.
 				stdebug("The parent of post #" + post.id + " is " + post.parent + " but it was deleted or not visible");
+				// link it in somewhere
+				topicDivs[post.threadId].appendChild(postDivs[post.id]);
 			}
+		} else {
+			// 'top level' post, put it into the forumdiv.
+			topicDivs[post.threadId].appendChild(postDivs[post.id]);
 		}
+	}
+	
+	// Now, bubble up recent posts to the top
+	for(var num=json.ret.length-1;num>=0;num--) {
+		var post = json.ret[num];
+		var topicDiv = topicDivs[post.threadId];
+		forumDiv.removeChild(topicDiv);
+		forumDiv.insertBefore(topicDiv, forumDiv.firstChild);
 	}
 	return forumDiv;
 }
@@ -1947,14 +2172,21 @@ function showForumStuff(frag, forumDiv, tr) {
 		frag.appendChild(newButton);
 	
 		(function(theRow){listenFor(newButton, "click", function(e) {
-				openReply({
-					locale: surveyCurrentLocale,
-					//onReplyClose: function(postModal, form, formDidChange) {if(formDidChange){console.log('Reload- changed.');reloadV();}},
-					//xpath: '',
-					xpath: theRow.xpstrid,
-					subject: theRow.code + ' ' + theRow.xpstrid,
-					//replyTo: post.id,
-					//replyData: post
+				xpathMap.get({hex: theRow.xpstrid}, 
+						function(o) {
+							var subj = theRow.code + ' ' + theRow.xpstrid;
+							if(o.result && o.result.ph) {
+								subj = xpathMap.formatPathHeader(o.result.ph);
+							}
+							openReply({
+								locale: surveyCurrentLocale,
+								//onReplyClose: function(postModal, form, formDidChange) {if(formDidChange){console.log('Reload- changed.');reloadV();}},
+								//xpath: '',
+								xpath: theRow.xpstrid,
+								subject: subj,
+								//replyTo: post.id,
+								//replyData: post
+							});
 				});
 				stStopPropagation(e);
 				return false;
@@ -2067,7 +2299,7 @@ function appendForumStuff(tr, theRow, forumDiv) {
 	removeAllChildNodes(forumDiv); // we may be updating.
 	var theForum = 	locmap.getLanguage(surveyCurrentLocale);
 	forumDiv.replyStub = contextPath + "/survey?forum=" + theForum + "&_=" + surveyCurrentLocale + "&replyto=";
-	forumDiv.postUrl = forumDiv.replyStub + "x"+theRow.xpid;
+	forumDiv.postUrl = forumDiv.replyStub + "x"+theRow;
 	forumDiv.url = contextPath + "/SurveyAjax?xpath=" + theRow.xpid + "&_=" + surveyCurrentLocale + "&fhash="
 		+ theRow.rowHash + "&vhash=" + "&s=" + tr.theTable.session
 		+ "&voteinfo=t";
@@ -3410,10 +3642,22 @@ function insertRowsIntoTbody(theTable,tbody) {
 		if(!theRow) {
 			console.log("Missing row " + k);
 		}
+		// update the xpath map
+		xpathMap.put({id: theRow.xpid, 
+					  hex: theRow.xpstrid,
+					  path: theRow.xpath,
+					  ph: [
+					       surveyCurrentSection, // Section: Timezones
+					       surveyCurrentPage,    // Page: SEAsia ( id, not name )
+					       curPartition.name,    // Header: Borneo
+					       theRow.code           // Code: standard-long
+					  ]});
+		
+		// refresh the tr's contents
 		updateRow(tr,theRow);
 		
+		// add the tr to the table
 		tbody.appendChild(tr);
-
 	}
 	
 	

@@ -34,9 +34,21 @@ import org.unicode.cldr.util.CLDRConfig.Environment;
 import com.ibm.icu.dev.util.ElapsedTimer;
 
 /**
- * This class maps between full and partial xpaths, and the small integers which
+ * This class maps between full and partial xpaths, and the small integers (xpids) which
  * are actually stored in the database. It keeps an in-memory cache which is
  * populated as ids are requested.
+ * 
+ * 
+ * Definitions:
+ *    xpath:        an XPath, such as "//ldml/shoeSize"
+ *    xpid / int:   an integer 'token' value, such as 123. 
+ *                   This is old and deprecated.  
+ *                   Specific to this instance of SurveyTool. 
+ *                   This is usually what is meant by "int xpath" in code or in the database.
+ *    strid / hex:  a hexadecimal "hash" of the full xpath such as "b1dfb436c841a73". 
+ *                   This is the preferred method of condensing of xpaths.
+ *                   Note that you can't calculate the xpath from this without a look-up table.
+ *    "long" StringID:    this is the "long" form of the hex id.  Not used within the SurveyTool, some CLDR tools use it.
  */
 public class XPathTable {
     public static final String CLDR_XPATHS = "cldr_xpaths";
@@ -714,20 +726,35 @@ public class XPathTable {
         return stringToId.size();
     }
 
-    public static final long getStringID(String byId) {
-        return StringId.getId(byId);
+    /**
+     * xpath to long
+     * @param xpath
+     * @return
+     */
+    public static final long getStringID(String xpath) {
+        return StringId.getId(xpath);
     }
 
+    /**
+     * xpid to hex
+     * @param baseXpath
+     * @return
+     */
     public String getStringIDString(int baseXpath) {
         return getStringIDString(getById(baseXpath));
     }
 
-    public static final String getStringIDString(String byId) {
-        return Long.toHexString(getStringID(byId));
+    /**
+     * xpath to hex
+     * @param xpath
+     * @return
+     */
+    public static final String getStringIDString(String xpath) {
+        return Long.toHexString(getStringID(xpath));
     }
 
     /**
-     * Turn a strid into an xpath id
+     * Turn a strid into a xpid (int token)
      * @param sid
      * @return
      */

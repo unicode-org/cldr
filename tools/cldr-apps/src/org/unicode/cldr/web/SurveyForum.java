@@ -2202,7 +2202,7 @@ public class SurveyForum {
         } else {
             base_xpath = getXpathForPost(replyTo); // base_xpath is ignored on replies.
         }
-        final boolean couldFlagOnLosing = couldFlagOnLosing(mySession.user, xpath, l) && !sm.getSTFactory().getFlag(l, base_xpath);
+        final boolean couldFlagOnLosing = couldFlagOnLosing(mySession.user, sm.xpt.getById(base_xpath), l) && !sm.getSTFactory().getFlag(l, base_xpath);
 
         if (couldFlagOnLosing) {
             text = text + FLAGGED_FOR_REVIEW_HTML;

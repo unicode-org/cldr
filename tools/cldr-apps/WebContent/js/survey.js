@@ -3646,12 +3646,13 @@ function insertRowsIntoTbody(theTable,tbody) {
 		xpathMap.put({id: theRow.xpid, 
 					  hex: theRow.xpstrid,
 					  path: theRow.xpath,
-					  ph: [
-					       surveyCurrentSection, // Section: Timezones
-					       surveyCurrentPage,    // Page: SEAsia ( id, not name )
-					       curPartition.name,    // Header: Borneo
-					       theRow.code           // Code: standard-long
-					  ]});
+					  ph: {
+					       section: surveyCurrentSection, // Section: Timezones
+					       page: surveyCurrentPage,    // Page: SEAsia ( id, not name )
+					       header: curPartition.name,    // Header: Borneo
+					       code: theRow.code           // Code: standard-long
+					  	}
+					});
 		
 		// refresh the tr's contents
 		updateRow(tr,theRow);

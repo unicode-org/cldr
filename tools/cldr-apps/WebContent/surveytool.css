@@ -3519,3 +3519,28 @@ span.vsStatus {
 .manage-list-icon {
 	padding-left: 0.25em;
 }
+
+table.flaggedItems .codebox,
+table.flaggedItems .adminUserUser {
+    display:  none;
+}
+
+table.flaggedItems .r1 {
+    background-color: #f1fafa;
+}
+
+table.flaggedItems th, table.flaggedItems td {
+    padding:  0.25em;
+}
+
+table.flaggedItems .flaggedLocale {
+    
+}
+
+table.flaggedItems .flaggedPath {
+    font-weight:  normal;
+}
+
+.flaggedItemsBox {
+    margin:  1em;
+}

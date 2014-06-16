@@ -2159,24 +2159,30 @@ function showForumStuff(frag, forumDiv, tr) {
 	// prepend something
 	var buttonTitle = "forumNewPostButton";
 	var buttonClass = "forumNewButton btn btn-default btn-sm";
+	var couldFlag = false;
 	if(tr.theRow) {
 		if(tr.theRow.voteVhash !== tr.theRow.winningVhash 
+				&& tr.theRow.voteVhash !== ''
 				&& tr.theRow.canFlagOnLosing && 
 				!tr.theRow.rowFlagged) {
 			buttonTitle = "forumNewPostFlagButton";
 			buttonClass = "forumNewPostFlagButton btn btn-default btn-sm";
+			couldFlag=true;
 		}
 	}
 	var newButton = createChunk(stui.str(buttonTitle), "button", buttonClass);
 	if(!isDashboard()) {
 		frag.appendChild(newButton);
 	
-		(function(theRow){listenFor(newButton, "click", function(e) {
+		(function(theRow,couldFlag){listenFor(newButton, "click", function(e) {
 				xpathMap.get({hex: theRow.xpstrid}, 
 						function(o) {
 							var subj = theRow.code + ' ' + theRow.xpstrid;
 							if(o.result && o.result.ph) {
 								subj = xpathMap.formatPathHeader(o.result.ph);
+							}
+							if(couldFlag) {
+								subj = subj + " (Flag for review)";
 							}
 							openReply({
 								locale: surveyCurrentLocale,
@@ -2190,7 +2196,7 @@ function showForumStuff(frag, forumDiv, tr) {
 				});
 				stStopPropagation(e);
 				return false;
-		});})(tr.theRow);
+		});})(tr.theRow, couldFlag);
 		//	listenFor(newButton, "click", function(e) {
 		//		//window.blur(); // submit anything unsubmitted
 		//		window.open(tr.forumDiv.postUrl);

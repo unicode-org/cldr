@@ -631,7 +631,7 @@ function submitPost(event) {
 	formDidChange=true;
 	if($('#post-form textarea[name=text]').val()) {
 		$('#post-form button').fadeOut();
-		$('#post-form label').fadeOut();
+		$('#post-form .input-group').fadeOut(); // subject line
 		var xpath = $('#post-form input[name=xpath]').val();
 		var ajaxParams = {
                 data: {
@@ -653,8 +653,10 @@ function submitPost(event) {
                 		post.before("<p class='warn'>error: " + data.err+ "</p>");
                     } else if(data.ret && data.ret.length>0) {
 //                        post.before(generateHTMLPost(data.ret[0])); // show the new single post
-                        var forumDiv = $('.forumDiv').first();
-                        forumDiv.before(parseForumContent({ret: data.ret, noItemLink: true}));
+                    	var postModal = $('#post-modal');
+                		var postHolder = postModal.find('.modal-body').find('.post');
+                		var forumDiv = postHolder[0];
+                        forumDiv.insertBefore(parseForumContent({ret: data.ret, noItemLink: true}), forumDiv.firstChild);
                         //reset
                         post = $('.post').first();
                         post.hide();
@@ -665,7 +667,7 @@ function submitPost(event) {
                 		post.before("<i>Your post was added, #"+data.postId+" but could not be shown.</i>");
                 	}
                 },
-                failure: function(err) {
+                error: function(err) {
                     var post = $('.post').first();
             		post.before("<p class='warn'>error! " + err+ "</p>");
                 }

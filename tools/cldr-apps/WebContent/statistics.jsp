@@ -25,7 +25,7 @@
 	final String newVersionText = (SurveyMain.isPhaseBeta())?(newVersion+"BETA"):newVersion;
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>SurveyTool <%= newVersionText %> Statistics | <%=title%></title>
+<title>SurveyTool <%= newVersionText %> (Old) Statistics | <%=title%></title>
 <link rel='stylesheet' type='text/css' href='./surveytool.css' />
 <script type='text/javascript' src='js/raphael.js' ></script>
 <script type='text/javascript' src='js/g.raphael.js' ></script>
@@ -39,7 +39,7 @@
 
 <%@ include file="/WEB-INF/tmpl/ajax_status.jsp" %>
 
-<h2>Note: this is the OLD statistics page. Please help beta-test the new one by clicking <a href='v#statistics'>here</a></h2>
+<h2><a href='v#statistics'>(Switch to the NEW statistics page)</a></h2>
 
 <hr>
 

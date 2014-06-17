@@ -37,6 +37,10 @@ define("js/special/statistics.js", ["js/special/SpecialPage.js", "dojo/number",
 //		var statDiv = null;
 		if(isNew) {
 			
+			var linkToOld = createChunk("(Switch to the OLD statistics page)", "a", "notselected");
+			linkToOld.href = 'statistics.jsp';
+			theDiv.appendChild(linkToOld);
+			
 			theDiv.appendChild(createChunk("Statistics Overview", "h2"));
 			var overviewDiv = createChunk(stui.str("loading"), "p", "helpContent");
 			theDiv.appendChild(overviewDiv);

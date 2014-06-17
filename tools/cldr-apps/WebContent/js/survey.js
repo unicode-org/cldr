@@ -4365,10 +4365,24 @@ function showV() {
 		
 		/**
 		 * parse the hash string into surveyCurrent___ variables. 
+		 * Expected to update document.title also.
 		 * @method parseHash
 		 * @param {String} id
 		 */
 		window.parseHash = function parseHash(hash) {
+			function updateWindowTitle() {
+				var t=stui.str('survey_title');
+				if(surveyCurrentLocale && surveyCurrentLocale != '') {
+					t = t + ': '+locmap.getLocaleName(surveyCurrentLocale);
+				}
+				if(surveyCurrentSpecial && surveyCurrentSpecial!='') {
+					t = t + ': ' + stui.str('special_'+surveyCurrentSpecial);
+				}
+				if(surveyCurrentPage && surveyCurrentPage !='') {
+					t = t + ': ' + surveyCurrentPage;
+				}
+				document.title = t;
+			};
 			if(hash) {
 				var pieces = hash.substr(0).split("/");
 				if(pieces.length > 1) {
@@ -4436,6 +4450,12 @@ function showV() {
 				surveyCurrentId='';
 				surveyCurrentPage='';
 				surveyCurrentSection='';
+			}
+			updateWindowTitle();
+
+			// if there is no locale id, remove it from thegfvb                                                                               sidebar.
+			if($('.local-search').val()!='') {
+				searchRefresh();
 			}
 		};
 
@@ -4766,18 +4786,10 @@ function showV() {
 				if(surveyCurrentSpecial!= null && surveyCurrentSpecial != '') {
 //					menubuttons.set(menubuttons.section /*,stui_str("section_special") */);
 					//menubuttons.set(menubuttons.section,stui_str("special_"+surveyCurrentSpecial));
-					switch(surveyCurrentSpecial) {
-						case "r_vetting_json":
-							$('#section-current').html(stui_str('Dashboard'));
-							break;
-						
-						default:
-							var specialId = "special_"+surveyCurrentSpecial;
-							$('#section-current').html(stui_str(specialId));
-							menubuttons.lastspecial = dojo.byId('menu_'+specialId);
-							addClass(menubuttons.lastspecial, 'selected');
-							break;
-					}
+					var specialId = "special_"+surveyCurrentSpecial;
+					$('#section-current').html(stui_str(specialId));
+//					menubuttons.lastspecial = dojo.byId('menu_'+specialId);
+//					addClass(menubuttons.lastspecial, 'selected');
 					setDisplayed(titlePageContainer, false);
 				} else if(!menuMap) {
 					//menubuttons.set(menubuttons.section);

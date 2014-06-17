@@ -3666,8 +3666,6 @@ function insertRowsIntoTbody(theTable,tbody) {
 		// add the tr to the table
 		tbody.appendChild(tr);
 	}
-	
-	
 	//console.log("POST rows: " + Object.keys(theTable.myTRs)  + ", hitcount: " + theTable.hitCount);
 }
 
@@ -3930,6 +3928,7 @@ function insertRows(theDiv,xpath,session,json) {
 
 	
 	hideLoader(theDiv.loader);
+
 	//wrapRadios();
 }
 
@@ -5182,6 +5181,7 @@ function showV() {
 			}
 			
 			document.getElementById('DynamicDataSection').innerHTML = '';//reset the data
+			$('#nav-page').hide();
 			isLoading = false;
 			showers[flipper.get(pages.data).id]=function(){ console.log("reloadV()'s shower - ignoring reload request, we are in the middle of a load!"); };
 			
@@ -5283,7 +5283,7 @@ function showV() {
 						// (common case) this is an actual locale data page.
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
-							
+						$('#nav-page').show();
 						myLoad(url, "section", function(json) {
 							isLoading=false;
 							showLoader(theDiv.loader,stui.loading2);
@@ -5326,6 +5326,9 @@ function showV() {
 									updateCoverage(flipper.get(pages.data)); // make sure cov is set right before we show.
 									flipper.flipTo(pages.data); // TODO now? or later?
 									window.showCurrentId(); // already calls scroll
+									//refresh counter and add navigation at bottom
+									refreshCounterVetting();
+									$('.vetting-page').after($('#nav-page .nav-button').clone());
 								});
 							}
 						});
@@ -6132,7 +6135,8 @@ function showV() {
 							updateHashAndMenus(false); // TODO: why? Maybe to show an item?
 							$('#coverage-info').text(newValue.ucFirst());
 							$(this).parents('.dropdown-menu').dropdown('toggle');
-							
+							if(!isDashboard())
+								refreshCounterVetting();
 							return false;
 						});
 						// TODO have to move this out of the DOM..
@@ -6218,6 +6222,9 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         			onSuccess(theRow);
         			if(isDashboard()) {
         				refreshFixPanel(json);
+        			}
+        			else {
+        				refreshCounterVetting();
         			}
         		} else {
         	        tr.className = "ferrbox";
@@ -7122,6 +7129,129 @@ function showstats(hname) {
 	};
 	queueXhr(xhrArgs);
 	});
+}
+/**
+ * @method refreshCounterVetting
+ * Update the counter on top of the vetting page
+ */
+function refreshCounterVetting() {
+	if(isVisitor) {
+		//if the user is a visitor, don't display the counter informations
+		$('#nav-page .counter-infos, #nav-page .nav-progress').hide();
+		return;
+	}
+	
+	var inputs = $('.vetting-page input:visible:checked');
+	var total = inputs.length;
+	var abstain = inputs.filter(function() { return this.id.substr(0,2) === 'NO';}).length;
+	var voted = total - abstain;
+	
+	document.getElementById('count-total').innerHTML = total;
+	document.getElementById('count-abstain').innerHTML = abstain;
+	document.getElementById('count-voted').innerHTML = voted;
+	if(total === 0) {
+		total = 1;
+	}
+	document.getElementById('progress-voted').style.width = voted*100/total + '%';
+	document.getElementById('progress-abstain').style.width = abstain*100/total + '%';
+}
+
+/**
+ * @method chgPage
+ * Go to the next (1) or the previous page (1) during the vetting
+ * @param {Integer} shift next page (1) or previous (-1)
+ */
+function chgPage(shift) {
+	//no page, or wrong shift
+	if(!_thePages || (shift !== -1 && shift !== 1))
+		return;
+	
+	var menus = getMenusFilteredByCov();
+	var parentIndex = 0;
+	var index = 0;
+	var parent = _thePages.pageToSection[surveyCurrentPage].id;
+	
+	//get the parent index
+	for(var m in menus) {
+		var menu = menus[m];
+		if(menu.id === parent) {
+			parentIndex = parseInt(m);
+			break;
+		}
+	}
+
+	for(var m in menus[parentIndex].pagesFiltered) {
+		var menu = menus[parentIndex].pagesFiltered[m];
+		if(menu.id === surveyCurrentPage) {
+			index = parseInt(m);
+			break;
+		}
+	}
+	//go to the next one
+	index += parseInt(shift);
+
+	if(index >= menus[parentIndex].pagesFiltered.length) {
+		parentIndex++;
+		index = 0;
+		if(parentIndex >= menus.length) {
+			parentIndex = 0;
+		}
+	}
+	
+	if(index < 0) {
+		parentIndex--;
+		if(parentIndex < 0) {
+			parentIndex = menus.length - 1;
+		}
+		index = menus[parentIndex].pagesFiltered.length - 1;
+	}
+
+
+	surveyCurrentSection = menus[parentIndex].id;
+	surveyCurrentPage = menus[parentIndex].pagesFiltered[index].id;
+
+	reloadV();
+	
+	var sidebar = $('#locale-menu #'+surveyCurrentPage);
+	sidebar.closest('.open-menu').click();
+}
+
+/**
+ * @method getMenusFilteredByCov
+ * Get all the menus under this coverage
+ * @return {Array} list of all the menus under this coverage
+ */
+function getMenusFilteredByCov() {
+	if (!_thePages)
+		return;
+	//get name of current coverage
+	var cov = surveyUserCov;
+	if(!cov) {
+		cov = surveyOrgCov;
+	}
+	
+	//get the value
+	var val = covValue(cov);
+	var sections = _thePages.sections;
+	var menus = [];
+	//add filtered pages
+	for(var s in sections) {
+		var section = sections[s];
+		var pages = section.pages;
+		var sectionContent = [];
+		for(var p in pages) {
+			var page = pages[p];
+			var key = Object.keys(page.levs).pop();
+			if(parseInt(page.levs[key]) <= val)
+				sectionContent.push(page);
+		}
+		
+		if(sectionContent.length) {
+			section.pagesFiltered = sectionContent;
+			menus.push(section);
+		}
+	}
+	return menus;
 }
 
 

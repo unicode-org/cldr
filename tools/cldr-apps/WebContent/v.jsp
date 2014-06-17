@@ -251,7 +251,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 		          <ul id='manage-list' class="nav nav-pills nav-stacked" style="display:none">
 		            <%-- "new" pages show up here (.js modules) --%>
 		            <li>
-			        	<button type="button" class="btn btn-default" id="toggle-right">Toggle Sidebar <span class="glyphicon glyphicon-align-right"></span></button>
+			        	<button type="button" class="btn btn-default toggle-right">Toggle Sidebar <span class="glyphicon glyphicon-align-right"></span></button>
 		            </li>
 				  </ul>
 		   </li>
@@ -373,8 +373,30 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 
         </div> <%-- end of toptitle --%>
 
-       
-    </div> 
+       <div class='row' id='nav-page'>
+		    <div class='col-md-9'>
+			    <p class='nav-button'>
+				  <button type="button" class="btn btn-primary btn-xs" onclick='chgPage(-1)'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>
+				  <button type="button" class="btn btn-primary btn-xs" onclick='chgPage(1)'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>
+				  <button type="button" class="btn btn-default btn-xs toggle-right">Toggle Sidebar <span class="glyphicon glyphicon-align-right"></span></button>
+				
+				</p>
+		 
+			    	<div class="progress nav-progress">
+						  
+						  <div id="progress-voted" class="progress-bar progress-bar-info tip-log" title='Votes' style="width: 0%">
+						  </div>
+						  <div id="progress-abstain" class="progress-bar progress-bar-warning tip-log" title='Abstain' style="width: 0%">
+						  </div>
+					</div>
+					<div class='counter-infos'>Votes: <span id='count-voted'></span> - Abstain: <span id='count-abstain'></span> - Total: <span id='count-total'></span>
+			    	
+			    	</div>
+		    </div>
+       </div>
+    </div>
+    
+    
   </div>  
 
     <div class="row" id="main-row" style="padding-top:147px;">

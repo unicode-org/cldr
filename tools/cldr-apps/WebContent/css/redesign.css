@@ -48,6 +48,24 @@ tr.shown {
     height:150px;
 }
 
+.nav-button {
+	display:inline-block;
+}
+
+.nav-progress {
+	width:150px;
+	float:right;
+	margin-left:15px;
+}
+
+#nav-page .counter-infos {
+	float:right;
+}
+
+#DynamicDataSection .nav-button {
+	float:right;
+}
+
 p.specialmessage {
     display:  inline;
     font-size:  smaller;
@@ -565,6 +583,7 @@ div#additional-top div.beta span#betanotice  {
 
 #toptitle h1 {
 	display:inline-block;
+	font-size: 28px;
 }
 
 #toptitle h1::before {

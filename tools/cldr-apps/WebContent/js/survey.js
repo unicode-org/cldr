@@ -4453,11 +4453,10 @@ function showV() {
 			}
 			updateWindowTitle();
 
-	// This was too agressive. May need to call from a different spot.
-//			// if there is no locale id, remove it from sidebar.
-//			if($('.local-search').val()!='') {  // Should be "if surveyCurrentLocale==''" ? 
-//				searchRefresh();
-//			}
+			 // if there is no locale id, refresh the search.
+			if(!surveyCurrentLocale) {  
+				searchRefresh();
+			}
 		};
 
 

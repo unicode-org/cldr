@@ -266,7 +266,12 @@ define({
 		searchGuidance: "This is a basic search facility. An exact word such as 'Monday' or 'Montag' can be entered, or an XPath or string ID like 'eeaf1f975877a5d'.  An optional locale ID can be prefixed to any search term, so 'mt:Monday' or 'mt:eeaf1f975877a5d'.",
 		section_help: "Choose an item from the 'Subpages' menu to begin working with this section.",
 		
-		statisticsGuidance: "This shows some basic statistics. More information is currently available under the 'old' page.",
+		statisticsGuidance: "This shows some basic statistics.  Note that this page may take a couple of minutes to load completely. Data shown here may be many minutes old.",
+		stats_overview: "Statistics Overview",
+		
+		stats_byday: "Votes by Day",
+		stats_byloc: "Votes by Locale",
+		stats_recent: "Recently Submitted Items",
 		
         section_info_Core_Data:  "The Core Data is vital for proper functioning of each locale. Because changes can disrupt the survey tool, data can only be changed via tickets. Please also review the Plural Rules for your locale: they are also vital.",
         section_info_Locale_Display_Names:  "The Locale Display Names are used to format names of locales, languages, scripts, and regions (including countries).",

@@ -7413,7 +7413,13 @@ function showRecent(divName, locale, user) {
 	}
 	dojo.ready(function() {
 		loadStui();
-		var div = dojo.byId(divName);
+		var div;
+		
+		if(divName.nodeType>0 ) {
+			div = divName; 
+		} else {
+			div = dojo.byId(divName);
+		}
 		div.className = "recentList";
 		div.update = function() {
 		var ourUrl = contextPath + "/SurveyAjax?what=recent_items&_="+locale+"&user="+user+"&limit="+15;

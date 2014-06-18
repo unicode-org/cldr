@@ -10,7 +10,7 @@ import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.lang.ref.Reference;
-import java.lang.ref.WeakReference;
+import java.lang.ref.SoftReference;
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -41,6 +41,7 @@ import org.json.JSONObject;
 import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRConfigImpl;
 import org.unicode.cldr.util.CLDRLocale;
+import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.PathHeader;
 import org.unicode.cldr.util.StackTracker;
 
@@ -1391,7 +1392,7 @@ public class DBUtils {
         /**
          * Debug the cachedJSON
          */
-        final boolean CDEBUG = false && SurveyMain.isUnofficial();
+        final boolean CDEBUG = SurveyMain.isUnofficial()&&CldrUtility.getProperty("CLDR_QUERY_CACHEDEBUG", false);
         DBUtils instance = getInstance(); // don't want the cache to be static
         Reference<JSONObject> ref = instance.cachedJsonQuery.get(id);
         JSONObject result = null;
@@ -1418,11 +1419,11 @@ public class DBUtils {
             long queryms = System.currentTimeMillis() - now;
             result.put("birth", (Long) now);
             if (CDEBUG) {
-                System.out.println("cachedjson: id " + id + " fetched in " + queryms);
+                System.out.println("cachedjson: id " + id + " fetched in " + Double.toString(queryms/1000.0)+"s");
             }
             result.put("queryms", (Long) (queryms));
             result.put("id", id);
-            ref = new WeakReference<JSONObject>(result);
+            ref = new SoftReference<JSONObject>(result);
             instance.cachedJsonQuery.put(id, ref);
         }
 

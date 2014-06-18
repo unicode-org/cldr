@@ -4453,10 +4453,11 @@ function showV() {
 			}
 			updateWindowTitle();
 
-			// if there is no locale id, remove it from thegfvb                                                                               sidebar.
-			if($('.local-search').val()!='') {
-				searchRefresh();
-			}
+	// This was too agressive. May need to call from a different spot.
+//			// if there is no locale id, remove it from sidebar.
+//			if($('.local-search').val()!='') {  // Should be "if surveyCurrentLocale==''" ? 
+//				searchRefresh();
+//			}
 		};
 
 

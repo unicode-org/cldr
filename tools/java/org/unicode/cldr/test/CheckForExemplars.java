@@ -60,6 +60,7 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         "/otherNumberingSystems",
         "/exponential",
         "/nan",
+        "/scientificFormats",
         "/inText",
         "/orientation",
         "/symbol[@alt=\"narrow\"]"

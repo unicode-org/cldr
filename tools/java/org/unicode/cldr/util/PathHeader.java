@@ -969,6 +969,9 @@ public class PathHeader implements Comparable<PathHeader> {
                     if (source.endsWith("narrow")) {
                         order = 902;
                     }
+                    if (source.endsWith("variant")) {
+                        order = 903;
+                    }
                     return source;
                 }
             });

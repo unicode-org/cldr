@@ -210,7 +210,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inScript="Thai" value="minimal" match="localeDisplayNames/types/type[@type='thai'][@key='numbers']"/>
 		<coverageLevel inScript="Tibt" value="minimal" match="localeDisplayNames/types/type[@type='tibt'][@key='numbers']"/>
 		<coverageLevel inLanguage="vai" value="minimal" match="localeDisplayNames/types/type[@type='vaii'][@key='numbers']"/>
-		<coverageLevel value="minimal" match="numbers/currencies/currency[@type='%currency30']/symbol[@alt='narrow']"/>
+		<coverageLevel value="minimal" match="numbers/currencies/currency[@type='%currency30']/symbol[@alt='(narrow|variant)']"/>
 		<coverageLevel value="minimal" match="numbers/currencies/currency[@type='%currency30']/displayName"/>
 		<coverageLevel value="minimal" match="numbers/currencies/currency[@type='%currency30']/displayName[@count='${Target-Plurals}']"/>
 		<coverageLevel value="minimal" match="numbers/currencies/currency[@type='${Target-Currencies}']/symbol"/>
@@ -326,7 +326,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="basic" match="localeDisplayNames/localeDisplayPattern/localeKeyTypePattern"/>
 		<coverageLevel value="basic" match="numbers/currencyFormats[@numberSystem='latn']/unitPattern[@count='${Target-Plurals}']"/>
 		<coverageLevel value="basic" match="numbers/currencies/currency[@type='%currency40']/symbol"/>
-		<coverageLevel value="basic" match="numbers/currencies/currency[@type='%currency40']/symbol[@alt='narrow']"/>
+		<coverageLevel value="basic" match="numbers/currencies/currency[@type='%currency40']/symbol[@alt='(narrow|variant)']"/>
 		<coverageLevel value="basic" match="numbers/currencies/currency[@type='%currency40']/displayName"/>
 		<coverageLevel value="basic" match="numbers/currencies/currency[@type='%currency40']/displayName[@count='${Target-Plurals}']"/>
 		<coverageLevel value="basic" match="dates/calendars/calendar[@type='gregorian']/quarters/quarterContext[@type='%contextTypes']/quarterWidth[@type='%allWidths']/quarter[@type='%quarterTypes']"/>
@@ -390,11 +390,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inTerritory="EU" value="moderate" match="localeDisplayNames/territories/territory[@type='%territory60_EU']"/>
 		<coverageLevel value="moderate" match="localeDisplayNames/types/type[@type='iso8601'][@key='calendar']"/>
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/symbol"/>
-		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/symbol[@alt='narrow']"/>
+		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/symbol[@alt='(narrow|variant)']"/>
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/displayName"/>
 		<coverageLevel value="moderate" match="numbers/currencies/currency[@type='%currency60']/displayName[@count='${Target-Plurals}']"/>
 		<coverageLevel inTerritory="EU" value="moderate" match="numbers/currencies/currency[@type='%currency60_EU']/symbol"/>
-		<coverageLevel inTerritory="EU" value="moderate" match="numbers/currencies/currency[@type='%currency60_EU']/symbol[@alt='narrow']"/>
+		<coverageLevel inTerritory="EU" value="moderate" match="numbers/currencies/currency[@type='%currency60_EU']/symbol[@alt='(narrow|variant)']"/>
 		<coverageLevel inTerritory="EU" value="moderate" match="numbers/currencies/currency[@type='%currency60_EU']/displayName"/>
 		<coverageLevel inTerritory="EU" value="moderate" match="numbers/currencies/currency[@type='%currency60_EU']/displayName[@count='${Target-Plurals}']"/>
 		<coverageLevel value="moderate" match="dates/calendars/calendar[@type='gregorian']/dateTimeFormats/appendItems/appendItem[@request='Timezone']"/>
@@ -485,7 +485,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel inLanguage="dz" value="modern" match="numbers/symbols[@numberSystem='tibt']/timeSeparator"/>
 		<coverageLevel value="modern" match="numbers/currencyFormats[@numberSystem='latn']/currencyFormatLength/currencyFormat%acctPattern"/>
 		<coverageLevel value="modern" match="numbers/currencies/currency[@type='%currency80']/symbol"/>
-		<coverageLevel value="modern" match="numbers/currencies/currency[@type='%currency80']/symbol[@alt='narrow']"/>
+		<coverageLevel value="modern" match="numbers/currencies/currency[@type='%currency80']/symbol[@alt='(narrow|variant)']"/>
 		<coverageLevel value="modern" match="numbers/currencies/currency[@type='%currency80']/displayName"/>
 		<coverageLevel value="modern" match="numbers/currencies/currency[@type='%currency80']/displayName[@count='${Target-Plurals}']"/>
 		<coverageLevel value="modern" match="numbers/miscPatterns[@numberSystem='latn']/pattern[@type='%miscPatternTypes']"/>
@@ -546,7 +546,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<coverageLevel value="comprehensive" match="localeDisplayNames/transformNames/transformName[@type='%transformNameTypes']"/>
 		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency30']/symbol"/>
 		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/symbol"/>
-		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/symbol[@alt='narrow']"/>
+		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/symbol[@alt='(narrow|variant)']"/>
 		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/displayName"/>
 		<coverageLevel value="comprehensive" match="numbers/currencies/currency[@type='%currency100']/displayName[@count='${Target-Plurals}']"/>
 		<coverageLevel value="comprehensive" match="dates/timeZoneNames/metazone[@type='%metazone100']/long/generic"/>

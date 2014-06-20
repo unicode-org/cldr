@@ -16,20 +16,20 @@ import com.ibm.icu.text.PluralRules;
 public class LogicalGrouping {
 
     public static final String[] metazonesUsingDST = {
-        "Acre", "Africa_Western", "Aktyubinsk", "Alaska", "Alaska_Hawaii", "Almaty", "Amazon",
+        "Acre", "Africa_Western", "Alaska", "Almaty", "Amazon",
         "America_Central", "America_Eastern", "America_Mountain", "America_Pacific", "Anadyr", "Apia",
-        "Aqtau", "Aqtobe", "Arabian", "Argentina", "Argentina_Western", "Armenia", "Ashkhabad",
+        "Aqtau", "Aqtobe", "Arabian", "Argentina", "Argentina_Western", "Armenia",
         "Atlantic", "Australia_Central", "Australia_CentralWestern", "Australia_Eastern", "Australia_Western",
-        "Azerbaijan", "Azores", "Baku", "Bangladesh", "Bering", "Borneo", "Brasilia", "Cape_Verde",
-        "Chatham", "Chile", "China", "Choibalsan", "Colombia", "Cook", "Cuba", "Dushanbe", "Easter",
-        "Europe_Central", "Europe_Eastern", "Europe_Western", "Falkland", "Fiji", "Frunze", "Georgia",
-        "Greenland_Central", "Greenland_Eastern", "Greenland_Western", "Hawaii_Aleutian", "Hong_Kong", "Hovd",
-        "Iran", "Irkutsk", "Israel", "Japan", "Kamchatka", "Kizilorda", "Korea", "Krasnoyarsk", "Kuybyshev",
-        "Lord_Howe", "Macau", "Magadan", "Mauritius", "Mexico_Northwest", "Mexico_Pacific", "Mongolia", "Moscow", "New_Caledonia", "New_Zealand",
-        "Newfoundland", "Noronha", "Novosibirsk", "Omsk", "Pakistan", "Paraguay", "Peru", "Philippines",
-        "Pierre_Miquelon", "Qyzylorda", "Sakhalin", "Samara", "Samarkand", "Samoa", "Shevchenko", "Sverdlovsk",
-        "Taipei", "Tashkent", "Tbilisi", "Tonga", "Turkey", "Turkmenistan", "Uralsk", "Uruguay", "Uzbekistan",
-        "Vanuatu", "Vladivostok", "Volgograd", "Yakutsk", "Yekaterinburg", "Yerevan", "Yukon" };
+        "Azerbaijan", "Azores", "Bangladesh", "Brasilia", "Cape_Verde",
+        "Chatham", "Chile", "China", "Choibalsan", "Colombia", "Cook", "Cuba", "Easter",
+        "Europe_Central", "Europe_Eastern", "Europe_Western", "Falkland", "Fiji", "Georgia",
+        "Greenland_Eastern", "Greenland_Western", "Hawaii_Aleutian", "Hong_Kong", "Hovd",
+        "Iran", "Irkutsk", "Israel", "Japan", "Kamchatka", "Korea", "Krasnoyarsk",
+        "Lord_Howe", "Macau", "Magadan", "Mauritius", "Mexico_Northwest", "Mexico_Pacific", "Mongolia", "Moscow", "New_Caledonia",
+        "New_Zealand", "Newfoundland", "Noronha", "Novosibirsk", "Omsk", "Pakistan", "Paraguay", "Peru", "Philippines",
+        "Pierre_Miquelon", "Qyzylorda", "Sakhalin", "Samara", "Samoa",
+        "Taipei", "Tonga", "Turkmenistan", "Uruguay", "Uzbekistan",
+        "Vanuatu", "Vladivostok", "Volgograd", "Yakutsk", "Yekaterinburg" };
 
     public static final Set<String> metazonesDSTSet = new HashSet<String>(Arrays.asList(metazonesUsingDST));
 

@@ -399,6 +399,7 @@ public class SurveyAjax extends HttpServlet {
                     r.put(what, ret);
                 } catch (Throwable t) {
                     sendError(out, t);
+                    return;
                 }
                 send(r, out);
             } else if (what.equals(WHAT_MY_LOCALES)) {
@@ -1690,7 +1691,8 @@ public class SurveyAjax extends HttpServlet {
         } else {
             JSONWriter r = newJSON();
             r.put("SurveyOK", "0");
-            r.put("err", e.getMessage());
+            r.put("err", e.toString());
+            r.put("err_code", SurveyException.ErrorCode.E_INTERNAL);
             send(r, out);
         }
     }

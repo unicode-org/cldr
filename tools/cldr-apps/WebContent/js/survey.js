@@ -2570,9 +2570,10 @@ dojo.ready(function() {
 function checkLRmarker(field, dir, value){
 	if (value) {
 		if ( value.indexOf("\u200E") > -1 ||  value.indexOf("\u200F") > -1 ) {
-			value = value.replace(/\u200E/g, "&lt;LRM&gt;")
-						 .replace(/\u200F/g, "&lt;RLM&gt;");
+			value = value.replace(/\u200E/g, "<span class=\"visible-mark\">&lt;LRM&gt;</span>")
+			 			 .replace(/\u200F/g, "<span class=\"visible-mark\">&lt;RLM&gt;</span>");
 			var lrm = document.createElement("div");
+			lrm.className = "lrmarker-container";
 			lrm.innerHTML = value;
 			field.appendChild(lrm);
 		}

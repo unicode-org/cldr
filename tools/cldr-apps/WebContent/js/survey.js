@@ -2568,12 +2568,14 @@ dojo.ready(function() {
  * @param value the value of votes (check &lrm; &rlm)
  */
 function checkLRmarker(field, dir, value){
-	if ( value.indexOf("\u200E") > -1 ||  value.indexOf("\u200F") > -1 ) {
-		value = value.replace(/\u200E/g, "&lt;LRM&gt;")
-					 .replace(/\u200F/g, "&lt;RLM&gt;");
-		var lrm = document.createElement("div");
-		lrm.innerHTML = value;
-		field.appendChild(lrm);
+	if (value) {
+		if ( value.indexOf("\u200E") > -1 ||  value.indexOf("\u200F") > -1 ) {
+			value = value.replace(/\u200E/g, "&lt;LRM&gt;")
+						 .replace(/\u200F/g, "&lt;RLM&gt;");
+			var lrm = document.createElement("div");
+			lrm.innerHTML = value;
+			field.appendChild(lrm);
+		}
 	}
 }
 

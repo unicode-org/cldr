@@ -1565,7 +1565,7 @@ public class STFactory extends Factory implements BallotBoxFactory<UserRegistry.
             progress.update("reload all users");
             handleUserChanged(null);
             progress.update("setup pathheader factory");
-            phf = PathHeader.getFactory(sm.getBaselineFile());
+            phf = PathHeader.getFactory(sm.getEnglishFile());
         }
     }
 

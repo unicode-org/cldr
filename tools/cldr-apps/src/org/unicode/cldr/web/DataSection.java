@@ -2282,14 +2282,11 @@ public class DataSection implements JSONString {
         DataSection section = new DataSection(pageId, session.sm, locale, prefix, matcher, ptype);
 
         section.hasExamples = true;
-        if (SurveyMain.supplementalDataDir == null) {
-            throw new InternalError("??!! session.sm.supplementalDataDir = null");
-        }
 
         // XMLSource ourSrc = uf.resolvedSource;
         CLDRFile ourSrc = session.sm.getSTFactory().make(locale.getBaseName(), true, true);
 
-        ourSrc.setSupplementalDirectory(SurveyMain.supplementalDataDir);
+        ourSrc.setSupplementalDirectory(session.sm.getSupplementalDirectory());
         if (ctx != null) {
             section.setUserAndFileForVotelist(ctx.session != null ? ctx.session.user : null, ourSrc);
         } else if (session != null && session.user != null) {

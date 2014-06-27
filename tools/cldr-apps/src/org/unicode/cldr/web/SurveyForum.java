@@ -1012,7 +1012,7 @@ public class SurveyForum {
      * @return
      */
     public boolean couldFlagOnLosing(UserRegistry.User user, String xpath, CLDRLocale locale) {
-        if (sm.supplementalDataInfo.getRequiredVotes(locale, sm.getSTFactory().getPathHeader(xpath)) == VoteResolver.HIGH_BAR) {
+        if (sm.getSupplementalDataInfo().getRequiredVotes(locale, sm.getSTFactory().getPathHeader(xpath)) == VoteResolver.HIGH_BAR) {
             BallotBox<User> bb = sm.getSTFactory().ballotBoxForLocale(locale);
             if (bb.userDidVote(user, xpath)) {
                 VoteResolver<String> vr = bb.getResolver(xpath);

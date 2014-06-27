@@ -4675,7 +4675,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         if (gBaselineFile == null) {
             try {
                 CLDRFile file = getDiskFactory().make(BASELINE_LOCALE.toString(), true);
-                file.setSupplementalDirectory(supplementalDataDir); // so the
+                file.setSupplementalDirectory(getSupplementalDirectory()); // so the
                                                                     // icuServiceBuilder
                                                                     // doesn't
                                                                     // blow up.
@@ -4910,7 +4910,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             if (cldrfile == null) {
                 resolvedSource = getSTFactory().makeSource(locale.getBaseName(), true);
                 dbSource = resolvedSource.getUnresolving();
-                cldrfile = getSTFactory().make(locale, true).setSupplementalDirectory(supplementalDataDir);
+                cldrfile = getSTFactory().make(locale, true).setSupplementalDirectory(getSupplementalDirectory());
                 // cachedCldrFile = makeCachedCLDRFile(dbSource);
                 resolvedFile = cldrfile;
                 // XMLSource baseSource =
@@ -4990,10 +4990,6 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     XMLSource makeDBSource(CLDRLocale locale, boolean finalData, boolean resolved) {
         return getSTFactory().makeSource(locale.getBaseName(), resolved);
-    }
-
-    static CLDRFile makeCLDRFile(XMLSource dbSource) {
-        return new CLDRFile(dbSource).setSupplementalDirectory(supplementalDataDir);
     }
 
     /**
@@ -5309,15 +5305,18 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         }
     }
 
-    SupplementalDataInfo supplementalDataInfo = null;
+    private SupplementalDataInfo supplementalDataInfo = null;
 
     public synchronized final SupplementalDataInfo getSupplementalDataInfo() {
         if (supplementalDataInfo == null) {
-            supplementalDataDir = getDiskFactory().getSupplementalDirectory();
-            supplementalDataInfo = SupplementalDataInfo.getInstance(supplementalDataDir);
+            supplementalDataInfo = SupplementalDataInfo.getInstance(getSupplementalDirectory());
             supplementalDataInfo.setAsDefaultInstance();
         }
         return supplementalDataInfo;
+    }
+
+    public File getSupplementalDirectory() {
+        return getDiskFactory().getSupplementalDirectory();
     }
 
     public void showMetazones(WebContext ctx, String continent) {
@@ -7263,5 +7262,16 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public static String defaultTimezoneInfo() {
         return new SimpleDateFormat("VVVV: ZZZZ", SurveyMain.BASELINE_LOCALE).format(System.currentTimeMillis());
+    }
+
+    /**
+     * Get exactly the "en" disk file.
+     * @return
+     */
+    public CLDRFile getEnglishFile() {
+        CLDRFile english =  getDiskFactory().make(ULocale.ENGLISH.getBaseName(), true);
+        english.setSupplementalDirectory(getSupplementalDirectory());
+        english.freeze();
+        return english;
     }
 }

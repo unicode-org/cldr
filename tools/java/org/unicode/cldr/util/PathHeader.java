@@ -367,6 +367,10 @@ public class PathHeader implements Comparable<PathHeader> {
             if (englishFile == null) {
                 throw new IllegalArgumentException("English CLDRFile must not be null");
             }
+            if (!englishFile.getLocaleID().equals(ULocale.ENGLISH.getBaseName())) {
+                throw new IllegalArgumentException("PathHeader's CLDRFile must be '"+
+                            ULocale.ENGLISH.getBaseName()+"', but found '"+englishFile.getLocaleID()+"'");
+            }
             factorySingleton = new Factory(englishFile);
         }
         return factorySingleton;

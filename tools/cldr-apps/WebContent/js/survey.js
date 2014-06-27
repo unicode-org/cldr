@@ -2563,23 +2563,17 @@ dojo.ready(function() {
 
 /**
  * Check if we need LRM/RLM marker to display
- * @param span span to append if needed
+ * @param field choice field to append if needed
  * @param dir direction of current locale (control float direction0
  * @param value the value of votes (check &lrm; &rlm)
  */
-function checkLRmarker(span, dir, value){
-	var userExist = (surveyUser === null ? "without-user" : "with-user");
-	// add marker for &lrm or &rlm
-	if (value.indexOf("\u200E") > -1){ // find &lrm;
-		var lrm = document.createElement("span");
-		lrm.innerHTML  = "&lt;LRM&gt;";
-		lrm.className = dir + "-marker-" + userExist;
-		span.appendChild(lrm);
-	} else if (value.indexOf("\u200F") > -1) { // find &rlm;
-		var rlm = document.createElement("span");
-		rlm.innerHTML  = "&lt;RLM&gt;";
-		rlm.className = dir + "-marker-" + userExist;
-		span.appendChild(rlm);
+function checkLRmarker(field, dir, value){
+	if ( value.indexOf("\u200E") > -1 ||  value.indexOf("\u200F") > -1 ) {
+		value = value.replace(/\u200E/g, "&lt;LRM&gt;")
+					 .replace(/\u200F/g, "&lt;RLM&gt;");
+		var lrm = document.createElement("div");
+		lrm.innerHTML = value;
+		field.appendChild(lrm);
 	}
 }
 
@@ -2870,7 +2864,7 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	choiceField.appendChild(subSpan);
 	
 	setLang(span);
-	checkLRmarker(span, span.dir, item.value);
+	checkLRmarker(choiceField, span.dir, item.value);
 	
 	if(item.isOldValue==true && !isWinner) {
 		addIcon(choiceField,"i-star");

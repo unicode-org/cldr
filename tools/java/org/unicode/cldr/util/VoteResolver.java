@@ -108,6 +108,7 @@ public class VoteResolver<T> {
         openoffice_org("Open Office"),
         oracle("Oracle"),
         pakistan("Pakistan"),
+	rumantscha("Lia Rumantscha"),
         sil("SIL"),
         srilanka("Sri Lanka ICTA", "Sri Lanka"),
         sun("Sun Micro"), // TO REMOVE

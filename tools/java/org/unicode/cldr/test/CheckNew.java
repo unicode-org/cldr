@@ -7,11 +7,11 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 
 public class CheckNew extends CheckCLDR {
-
-    private OutdatedPaths outdatedPaths = new OutdatedPaths();
     private CLDRFile english;
+    private OutdatedPaths outdatedPaths;
 
     public CheckNew(Factory factory) {
+    	outdatedPaths = OutdatedPaths.getInstance();
         english = factory.make("en", true);
     }
 
@@ -35,7 +35,7 @@ public class CheckNew extends CheckCLDR {
     @Override
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
-
+    	
         boolean isOutdated = outdatedPaths.isOutdated(getCldrFileToCheck().getLocaleID(), path);
         if (!isOutdated) return this;
 

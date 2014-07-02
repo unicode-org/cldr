@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.ref.Reference;
+import java.lang.ref.SoftReference;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -62,6 +64,7 @@ public class OutdatedPaths {
      * @param directory
      */
     public OutdatedPaths(String directory) {
+        System.out.println("Reading outdated paths..");
         try {
             DataInputStream dataIn = openDataInput(directory, OUTDATED_DATA);
             Map<Long, PathHeader> id2header = new HashMap<Long, PathHeader>();
@@ -224,4 +227,15 @@ public class OutdatedPaths {
         Set<Long> data = localeToData.get(locale);
         return data == null ? 0 : data.size();
     }
+
+    public static OutdatedPaths getInstance() {
+        OutdatedPaths outdatedPaths = SINGLETON.get();
+        if(outdatedPaths == null) {
+            outdatedPaths = new OutdatedPaths();
+            SINGLETON = new SoftReference<OutdatedPaths>(outdatedPaths);
+        }
+        return outdatedPaths;
+    }
+
+    private static Reference<OutdatedPaths> SINGLETON = new SoftReference<OutdatedPaths>(null);
 }

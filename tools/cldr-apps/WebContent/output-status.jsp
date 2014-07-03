@@ -1,4 +1,5 @@
 <%@page import="com.ibm.icu.text.DateFormat"%>
+<%@page import="java.util.EnumSet"%>
 <%@page import="com.ibm.icu.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
@@ -14,16 +15,32 @@
 </head>
 <body>
 
+<%!
+EnumSet<OutputFileManager.Kind> showLinksFor = EnumSet.of(OutputFileManager.Kind.vxml, OutputFileManager.Kind.pxml);
+%>
 <h1>Status of File Output</h1>
+
+<p class='helpContent'>
+This page lists which output files are updated and which are not.
+The links take you directly to the XML.
+
+
 Bold = available, Shaded = missing.
 
+(timezone is <%= SurveyMain.defaultTimezoneInfo() %>)<br/>
+</p>
+<b>Types:</b>
+<ul>
+	<% for (OutputFileManager.Kind k : OutputFileManager.Kind.values()) { %>
+		<li><tt><%= k %></tt>: <%= k.getDesc() %></li>
+	<% } %>
+</ul>
 <a href="<%=request.getContextPath()%>/survey">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <%
 DateFormat df = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, SurveyMain.BASELINE_LOCALE);
 
 %>
 
-(timezone is <%= SurveyMain.defaultTimezoneInfo() %>)<br/>
 
 <%
 SurveyMain sm = CookieSession.sm;
@@ -37,6 +54,7 @@ int totals[] = new int[OutputFileManager.Kind.values().length];
 <div style='display: table-row;'>
 <table class='sqlbox' style='display: table-cell; font-size: 140%;'>
 <%
+
 
 	for(int i=0;i<totals.length;i++) {totals[i]=0;}
 int count=0;
@@ -66,6 +84,7 @@ boolean flip=false;
 			<%
 			    int j=0;
 							for(OutputFileManager.Kind kind : OutputFileManager.Kind.values()) {
+							String dir = sm.getDataDir(kind.name(), loc).getName(); // name of the parent dir - so "main"
 							//if(kind!=OutputFileManager.Kind.vxml) continue;
 							boolean nu= sm.outputFileManager.fileNeedsUpdate(locTime,loc,kind.name());
 							if(nu) totals[j]++;
@@ -74,7 +93,14 @@ boolean flip=false;
                        //     org.tmatesoft.svn.core.wc.SVNStatus s = sm.outputFileManager.svnStatus(sm.getDataFile(kind.name(), loc));
 			%>
 					<td style=' background-color: <%= nu?"#ff9999":"green" %>; font-weight: <%= nu?"regular":"bold" %>; color: <%= nu?"silver":"black" %>;'>
-						<%= kind %>
+						
+						<% if (showLinksFor.contains(kind)) { %>
+							<a href='survey/<%= kind %>/<%= dir %>/<%= loc %>.xml'>
+						<% } else { %> 
+						 	<a>  
+					 	<% } %>
+							<%= kind %>
+							</a>
 					<%--
 					   : <%= s.getNodeStatus() %>  
 					   --%>

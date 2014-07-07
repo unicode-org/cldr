@@ -392,8 +392,13 @@ public class CheckForExemplars extends FactoryCheckCLDR {
         } else if (path.contains("/localeDisplayNames") && !path.contains("/localeDisplayPattern")) {
             // test first for outside of the set.
             if (null != (disallowed = containsAllCountingParens(exemplars, exemplarsPlusAscii, value))) {
-                addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
-                    Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
+                if (path.contains("[@type=\"iso8601\"]")) {
+                    disallowed.removeAll("ISO"); // Name of ISO8601 calendar may contain "ISO" regardless of native script
+                }
+                if (disallowed.size() > 0 ) {
+                    addMissingMessage(disallowed, CheckStatus.warningType, Subtype.charactersNotInMainOrAuxiliaryExemplars,
+                        Subtype.asciiCharactersNotInMainOrAuxiliaryExemplars, "are not in the exemplar characters", result);
+                }
             }
             if (path.contains("/codePatterns")) {
                 disallowed = new UnicodeSet().addAll(value).retainAll(NUMBERS);

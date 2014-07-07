@@ -143,6 +143,23 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
         }
         
         /**
+         * Extract match related information into  the info field, if result is true, and info
+         * is not null.
+         * @param info
+         * @param result
+         */
+        private void extractInfo(Info info, boolean result) {
+            if (result && info!=null) {
+                int limit = matcher.groupCount() + 1;
+                String[] value = new String[limit];
+                for (int i = 0; i < limit; ++i) {
+                    value[i] = matcher.group(i);
+                }         
+                info.value=value;
+            }
+        }
+        
+        /**
          * Call find() on the pattern, returning additional information in the info field,
          * if it is non-null
          */
@@ -160,23 +177,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
                 }    
             }
         }
-        /**
-         * Extract match related information into  the info field, if result is true, and info
-         * is not null.
-         * @param info
-         * @param result
-         */
-        private void extractInfo(Info info, boolean result) {
-            if (result && info!=null) {
-                int limit = matcher.groupCount() + 1;
-                String[] value = new String[limit];
-                for (int i = 0; i < limit; ++i) {
-                    value[i] = matcher.group(i);
-                }         
-                info.value=value;
-            }
-        }
-           
+        
         public String toString() {
             // Use pattern here, to avoid having to synchronize on matcher
             return pattern.pattern();
@@ -254,11 +255,20 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 
             root.addToList(pattern, context, list);
             Collections.sort(list, rankComparator);
-
+            
+            boolean isFirst=true;
             if (firstInfo!=null && !list.isEmpty()) {
                 RTNode firstNode=list.get(0);
                 if (firstNode._info!=null) {
                     firstInfo.value= firstNode._info.value;
+                }
+            }
+
+            
+            for (RTNode n : list) {
+                if (isFirst) {
+                    firstInfo.value=n._info.value;
+                    isFirst=false;
                 }
             }
 
@@ -278,6 +288,8 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             Output<String[]> firstInfo=new Output<>();
             List<T> matches = getAll(pattern, context, matcherList,firstInfo); //need to get whole list because we want value that was entered first
             if (arguments != null) {
+//               arguments.value = (matcherList.size() > 0) ? matcherList.get(0).getInfo() : null;
+                arguments.value=firstInfo.value;
 //               arguments.value = (matcherList.size() > 0) ? matcherList.get(0).getInfo() : null;
                 arguments.value=firstInfo.value;
             }
@@ -319,6 +331,7 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
 //                _finder = new RegexFinder(key);
 //                _val = val;
 //                _rank = -1;
+                _info=new Info();
             }
 
             public void put(RTNode node) {
@@ -820,7 +833,6 @@ public class RegexLookup<T> implements Iterable<Map.Entry<Finder, T>> {
             Output<String[]> info=new Output<>();
 //            List<T> matches = RTEntries.getAll(source, context, matcherList,info);
             List<T> matches = storage.getAll(source, context, matcherList,info);
-           
             if (matches != null) {
                 return matches;
             }

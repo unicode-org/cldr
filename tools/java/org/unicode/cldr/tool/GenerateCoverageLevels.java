@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.EnumMap;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -13,11 +15,13 @@ import java.util.TreeSet;
 
 import org.unicode.cldr.util.Builder;
 import org.unicode.cldr.util.Builder.CBuilder;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -34,6 +38,7 @@ import com.ibm.icu.impl.Row.R5;
 import com.ibm.icu.impl.Utility;
 import com.ibm.icu.text.NumberFormat;
 import com.ibm.icu.text.Transform;
+import com.ibm.icu.util.Output;
 
 public class GenerateCoverageLevels {
     // see ShowLocaleCoverage.java
@@ -56,7 +61,7 @@ public class GenerateCoverageLevels {
     private static Map<String, R2<List<String>, String>> languageAliasInfo = supplementalData.getLocaleAliasInfo().get(
         "language");
     private static LocaleFilter localeFilter = new LocaleFilter(true);
-    private static LocaleFilter nonAliasLocaleFilter = new LocaleFilter(false);
+    private static BooleanLocaleFilter nonAliasLocaleFilter = new BooleanLocaleFilter();
 
     private static final long COLLATION_WEIGHT = 50;
     private static final Level COLLATION_LEVEL = Level.POSIX;
@@ -102,7 +107,8 @@ public class GenerateCoverageLevels {
             String source = cldrFile.getSourceLocaleID(path, null);
             Inheritance inherited = !source.equals(locale) ? Inheritance.inherited : Inheritance.actual;
 
-            Level level = supplementalData.getCoverageLevel(path, locale);
+//            Level level = supplementalData.getCoverageLevel(path, locale);
+            Level level= CLDRConfig.getInstance().getCoverageInfo().getCoverageLevel(path, locale);
 
             items.add(Row.of(level, path, inherited));
         }
@@ -284,8 +290,11 @@ public class GenerateCoverageLevels {
         LocaleLevelData mapLevelData = new LocaleLevelData();
         TreeSet<String> mainAvailableSource = new TreeSet<String>(cldrFactory.getAvailable());
         TreeSet<String> mainAvailable = new TreeSet<String>();
+        Relation<String,String> localeToVariants = Relation.of(new HashMap(), HashSet.class);
         for (String locale : mainAvailableSource) {
-            if (localeFilter.skipLocale(locale)) continue;
+            if (localeFilter.skipLocale(locale, localeToVariants)) {
+                continue;
+            }
             mainAvailable.add(locale);
         }
 
@@ -294,7 +303,7 @@ public class GenerateCoverageLevels {
         Set<String> spellout = new TreeSet<String>();
         localesFound.clear();
         for (String locale : rbnfFactory.getAvailable()) {
-            if (localeFilter.skipLocale(locale)) continue;
+            if (localeFilter.skipLocale(locale, null)) continue;
             System.out.println(locale + "\t" + english.getName(locale));
             getRBNFData(locale, rbnfFactory.make(locale, true), ordinals, spellout, localesFound);
         }
@@ -314,7 +323,7 @@ public class GenerateCoverageLevels {
         System.out.println("gathering collation data");
         localesFound.clear();
         for (String locale : collationFactory.getAvailable()) {
-            if (localeFilter.skipLocale(locale)) continue;
+            if (localeFilter.skipLocale(locale, null)) continue;
             System.out.println(locale + "\t" + english.getName(locale));
             getCollationData(locale, collationFactory.make(locale, true), localesFound);
         }
@@ -454,32 +463,47 @@ public class GenerateCoverageLevels {
         }
     }
 
-    private static class LocaleFilter implements Transform<String, Boolean> {
-        LanguageTagParser ltp = new LanguageTagParser();
-        final boolean checkAliases;
+    enum LocaleStatus {BASE, ALIAS, VARIANT, DEFAULT_CONTENTS}
+    
+    private static class LocaleFilter implements Transform<String, LocaleStatus> {
+        private final LanguageTagParser ltp = new LanguageTagParser();
+        private final boolean checkAliases;
 
         public LocaleFilter(boolean checkAliases) {
             this.checkAliases = checkAliases;
         }
 
-        private boolean skipLocale(String locale) {
-            return !transform(locale);
+        private boolean skipLocale(String locale, Relation<String, String> localeToVariants) {
+            LocaleStatus result = transform(locale);
+            if (localeToVariants != null) {
+                localeToVariants.put(ltp.getLanguageScript(), ltp.getRegion());
+            }
+            return result != LocaleStatus.BASE;
         }
 
-        public Boolean transform(String locale) {
-            if (defaultContents.contains(locale)) return Boolean.FALSE;
+        public LocaleStatus transform(String locale) {
             ltp.set(locale);
-            if (ltp.getRegion().length() != 0 || !ltp.getVariants().isEmpty()) {
-                // skip country locales
-                return Boolean.FALSE;
-            }
             if (checkAliases) {
                 String language = ltp.getLanguage();
                 if (languageAliasInfo.get(language) != null) {
-                    return Boolean.FALSE;
+                    return LocaleStatus.ALIAS;
                 }
             }
-            return Boolean.TRUE;
+            if (ltp.getRegion().length() != 0 || !ltp.getVariants().isEmpty()) {
+                // skip country locales, variants
+                return LocaleStatus.VARIANT;
+            }
+            if (defaultContents.contains(locale)) {
+                return LocaleStatus.DEFAULT_CONTENTS;
+            }
+            return LocaleStatus.BASE;
+        }
+    }
+    
+    private static class BooleanLocaleFilter implements Transform<String, Boolean> {
+        private final LocaleFilter filter = new LocaleFilter(false);
+        public Boolean transform(String locale) {
+            return filter.transform(locale) == LocaleStatus.BASE ? Boolean.TRUE : Boolean.FALSE;
         }
     }
 
@@ -508,7 +532,7 @@ public class GenerateCoverageLevels {
             if (validSubLocales != null) {
                 String[] sublocales = validSubLocales.split("\\s+");
                 for (String sublocale : sublocales) {
-                    if (localeFilter.skipLocale(locale)) continue;
+                    if (localeFilter.skipLocale(locale, null)) continue;
                     localesFound.add(sublocale);
                 }
             }
@@ -524,7 +548,7 @@ public class GenerateCoverageLevels {
         Status status = new Status();
         Set<String> sorted = Builder.with(new TreeSet<String>()).addAll(cldrFile.iterator())
             .addAll(cldrFile.getExtraPaths()).get();
-        SupplementalDataInfo sdi = SupplementalDataInfo.getInstance(CLDRPaths.DEFAULT_SUPPLEMENTAL_DIRECTORY);
+        CoverageInfo coverageInfo=CLDRConfig.getInstance().getCoverageInfo();
         for (String path : sorted) {
             if (path.endsWith("/alias")) {
                 continue;
@@ -536,7 +560,8 @@ public class GenerateCoverageLevels {
                 ? Inheritance.inherited
                 : Inheritance.actual;
 
-            Level level = sdi.getCoverageLevel(fullPath, locale);
+//            Level level = sdi.getCoverageLevel(fullPath, locale);
+            Level level= coverageInfo.getCoverageLevel(fullPath, locale);
             if (inherited == Inheritance.actual) {
                 levelData.found.add(level, 1);
             } else {

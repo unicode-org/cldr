@@ -13,9 +13,6 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.unicode.cldr.util.RegexLogger.PatternCountInterface;
-import org.unicode.cldr.util.RegexLogger.RegexLoggerInterface;
-
 import com.google.common.base.Joiner;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multimap;

@@ -6,13 +6,11 @@ $(function() {
     $('body').on('click','#show-locked', {type:"lock"}, toggleLockedRead);
     $('body').on('click','#show-read', {type:"read"}, toggleLockedRead);
 	$('#locale-info .local-search').keyup(filterAllLocale);
-    setHelpContent('Welcome');
-    $('#help-menu > a').click(interceptHelpLink);
+    $('.pull-menu > a').click(interceptPulldownLink);
    // $('#survey-menu > a').click(interceptSurveyLink);
     
     //local chooser intercept
     $('body').on('click','.locName',interceptLocale);
-    
     //handle sidebar
     $('#left-sidebar').hover(function(){
     			if(!$('body').hasClass('disconnected') && !window.haveDialog) { // don't hover if another dialog is open.
@@ -45,18 +43,41 @@ $(function() {
     });
     
     //example on hover
-    $('body').on('mouseenter','.vetting-page .subSpan',function(){
+    $('body').on('mouseenter','.vetting-page .infos-code, .vetting-page .subSpan',function(){
     	var example = $(this).closest('td').find('.d-example');
     	if(example)
     		$(this).popover({html:true, placement:"top",content:example.html()}).popover('show');
     });
     
-    $('body').on('mouseleave','.vetting-page  .subSpan',function(){
+    $('body').on('mouseleave','.vetting-page .infos-code, .vetting-page .subSpan',function(){
     	$(this).popover('hide');
     });
+    resizeSidebar();
     
-    initFeedBack();
+    $('body').on('click', '.toggle-right', toggleRightPanel);
+    $('.tip-log').tooltip({placement:'bottom'});
+    $('body').keydown(function(event) {
+    	if($(':focus').length === 0) {
+    		if(event.keyCode === 37) {
+    			chgPage(-1);
+    			event.preventDefault();
+    		} else if (event.keyCode === 39) {
+    			chgPage(1);
+    			event.preventDefault();
+    		}
+    	}
+    })
+    //initFeedBack();
 });
+
+//size the sidebar relative to the header
+function resizeSidebar() {
+	var sidebar = $('#left-sidebar');
+	var header = $('.navbar-fixed-top');
+
+	sidebar.css('height', $(window).height() - header.height());
+	sidebar.css('top', header.height());
+}
 
 //this function is used in survey.js
 var sentenceFilter;
@@ -164,10 +185,12 @@ function unpackMenuSideBar(json) {
 		if(!cachedJson)
 			return;
 		json = cachedJson;
-		json.covlev_org = lName;
+		json.covlev_user = lName;
 	}
 	var menus = json.menus.sections;
-	var levelName = json.covlev_org;
+	var levelName = json.covlev_user;
+	if(!levelName)
+		levelName = json.covlev_org;
 	var menuRoot = $('#locale-menu');
 	var level = 0;
 	var levels = json.menus.levels;
@@ -266,7 +289,10 @@ function unpackMenuSideBar(json) {
 	
 	//forum link 
 	$('#forum-link').click(function() {
-		window.open(contextPath + '/survey?forum='+locmap.getLanguage(surveyCurrentLocale));
+		window.surveyCurrentSpecial = 'forum';
+		surveyCurrentId = '';
+		surveyCurrentPage = '';
+		reloadV();
 	});
 	
 	
@@ -330,7 +356,7 @@ var oldTypePopup = '';
 function popupAlert(type, content, head, aj, dur) {
 	var ajax = (typeof aj === "undefined") ? "" : aj;
 	var header = (typeof aj === "undefined") ? "" : head; 
-	var duration = (typeof dur === "undefined") ? 3000 :dur; 
+	var duration = (typeof dur === "undefined") ? 4000 :dur; 
 	var alert = $('#progress').closest('.alert');
 	alert.removeClass('alert-warning').removeClass('alert-info').removeClass('alert-danger').removeClass('alert-success');
 	alert.addClass('alert-'+type);
@@ -360,46 +386,29 @@ function setHelpContent(content) {
 	$('#help-content').html(content);
 }
 
-//create/update the instruction popover
-function interceptHelpLink(event) {
-	var stopper = false;
-	$('#help-menu').popover('destroy').
+function setManageContent(content) {
+	$('#manage-content').html(content);
+}
+
+//create/update the pull down menu popover
+function interceptPulldownLink(event) {
+	var menu = $(this).closest('.pull-menu');
+	menu.popover('destroy').
 	popover({placement:"bottom", 
 			 html:true, 
-			 content:$('#help-menu').find('ul').html(), 
+			 content:menu.children('ul').html(), 
 			 trigger:"manual",
 			 delay:1500,
 			 template: '<div class="popover" onmouseover="$(this).mouseleave(function() {$(this).fadeOut(); });"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
 
     }).click(function(e) {
         e.preventDefault() ;
-    }).mouseenter(function(e) {
-        $(this).popover('show');
     }).popover('show');
 
 	event.preventDefault();
 	event.stopPropagation();
 }
-////create/update the instruction popover
-//function interceptSurveyLink(event) {
-//	var stopper = false;
-//	$('#survey-menu').popover('destroy').
-//	popover({placement:"bottom", 
-//			 html:true, 
-//			 content:$('#survey-menu').find('ul').html(), 
-//			 trigger:"manual",
-//			 delay:1500,
-//			 template: '<div class="popover" onmouseover="$(this).mouseleave(function() {$(this).fadeOut(); });"><div class="arrow"></div><div class="popover-inner"><h3 class="popover-title"></h3><div class="popover-content"><p></p></div></div></div>'
-//
-//    }).click(function(e) {
-//        e.preventDefault() ;
-//    }).mouseenter(function(e) {
-//        $(this).popover('show');
-//    }).popover('show');
-//
-//	event.preventDefault();
-//	event.stopPropagation();
-//}
+
 
 //test if we are in the dashboard
 function isDashboard() {
@@ -410,7 +419,7 @@ function isDashboard() {
 function addValueVote(td, tr, theRow, newValue, newButton) {
      	tr.inputTd = td; // cause the proposed item to show up in the right box
 		handleWiredClick(tr,theRow,"",{value: newValue},newButton);
-		setTimeout(function(){$(td).prev().click();},2000);
+		//setTimeout(function(){$(td).prev().click();},2000);
 }
 
 //transform input + submit button to the add button for the "add translation"
@@ -419,6 +428,7 @@ function toAddVoteButton(btn) {
 	btn.title = "Add";
 	btn.type = "submit";
 	btn.innerHTML = '<span class="glyphicon glyphicon-plus"></span>';
+	$(btn).parent().popover('destroy');
 	$(btn).tooltip('destroy').tooltip();
 	$(btn).closest('form').next('.subSpan').show();
 	
@@ -545,14 +555,14 @@ function toggleRightPanel() {
 
 
 function showRightPanel() {
-	$('#main-row > .col-md-12').addClass('col-md-9').removeClass('col-md-12');
-	setTimeout(function(){$('#main-row #itemInfo').show();},400);
+	$('#main-row > .col-md-12, #nav-page > .col-md-12').addClass('col-md-9').removeClass('col-md-12');
+	$('#main-row #itemInfo').show();
 }
 
 
 
 function hideRightPanel() {
-	$('#main-row > .col-md-9').addClass('col-md-12').removeClass('col-md-9');
+	$('#main-row > .col-md-9, #nav-page > .col-md-9').addClass('col-md-12').removeClass('col-md-9');
 	$('#main-row #itemInfo').hide();
 }
 

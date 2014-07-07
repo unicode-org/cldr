@@ -13,6 +13,7 @@
 <%@page import="org.unicode.cldr.util.CLDRFile"%>
 <%@page import="org.unicode.cldr.util.SimpleXMLSource"%>
 <%@page import="org.unicode.cldr.util.XMLSource"%>
+<%@page import="org.unicode.cldr.util.CoverageInfo" %>
 <%@page import="java.io.*"%><%@page
 	import="java.util.*,org.apache.commons.fileupload.*,org.apache.commons.fileupload.servlet.*,org.apache.commons.io.FileCleaningTracker,org.apache.commons.fileupload.util.*,org.apache.commons.fileupload.disk.*,java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -204,12 +205,14 @@
 	UserRegistry.User u = theirU;
 	CheckCLDR.Phase cPhase = CLDRConfig.getInstance().getPhase();
 	Set<String> allValidPaths = stf.getPathsForFile(loc);
-	CLDRProgressTask progress = cs.sm.openProgress("Bulk:" + loc,
-			all.size());
+	CLDRProgressTask progress = cs.sm.openProgress("Bulk:" + loc, all.size());
 	try {
+	
+		CoverageInfo coverageInfo = CLDRConfig.getInstance()
+				.getCoverageInfo();
 		for (String x : all) {
 			//progress.update(r++);
-			
+
 			String full = cf.getFullXPath(x);
 			String alt = XPathTable.getAlt(full, xppMine);
 			String valOrig = cf.getStringValue(x);
@@ -221,9 +224,8 @@
 			base = xppMine.toString();
 			//base = XPathTable.removeDraft(base, xppMine);
 			int base_xpath_id = cs.sm.xpt.getByXpath(base);
-			
+
 			String valb = baseFile.getWinningValue(base);
-			
 
 			String style = "";
 			String stylea = "";
@@ -250,98 +252,104 @@
 			XPathParts xpp = new XPathParts();
 			xpp.clear();
 			xpp.initialize(base);
-			xpp.removeAttribute(-1,LDMLConstants.ALT);
+			xpp.removeAttribute(-1, LDMLConstants.ALT);
 			String baseNoAlt = xpp.toString();
 			int root_xpath_id = cs.sm.xpt.getByXpath(baseNoAlt);
-			
+
 			int coverageValue = 0;
-			
-			try { 
-				coverageValue = sdi.getCoverageValue(base, loc.getBaseName());
-			} catch(Throwable t) {
-				SurveyLog.warnOnce("getCoverageValue failed for " + loc.getBaseName() +": " + t.getMessage());
+
+			try {
+				coverageValue = coverageInfo.getCoverageValue(base,
+						loc.getBaseName());
+			} catch (Throwable t) {
+				SurveyLog.warnOnce("getCoverageValue failed for "
+						+ loc.getBaseName() + ": " + t.getMessage());
 			}
 
 			String result = "";
 			String resultStyle = "";
 
 			String resultIcon = "okay";
-			
+
 			PathHeader ph = stf.getPathHeader(base);
-			
-			if(!allValidPaths.contains(base)) {
-                result="Item is not a valid XPath.";
-                resultIcon="stop";
-			} else if(ph==null) {
-                result="Item is not a SurveyTool-visible LDML entity.";
-                resultIcon="stop";
+
+			if (!allValidPaths.contains(base)) {
+				result = "Item is not a valid XPath.";
+				resultIcon = "stop";
+			} else if (ph == null) {
+				result = "Item is not a SurveyTool-visible LDML entity.";
+				resultIcon = "stop";
 			} else {
 				checkResult.clear();
-	            cc.check(base,checkResult, val0);
-	            
-	            SurveyToolStatus phStatus = ph.getSurveyToolStatus();
-	            
-                DataSection section = DataSection.make(null, null, cs, loc, base, null, false,
-                        Level.COMPREHENSIVE.toString());
-                section.setUserAndFileForVotelist(cs.user, null);
+				cc.check(base, checkResult, val0);
 
-               DataSection.DataRow pvi = section.getDataRow(base);
-               final Level covLev = pvi.getCoverageLevel();
-               //final int coverageValue = covLev.getLevel();
-               CheckCLDR.StatusAction showRowAction = pvi.getStatusAction();
-			
-               	if (showRowAction.isForbidden()) {
-                    result="Item may not be modified. ("+showRowAction+")";
-                    resultIcon="stop";
-               	} else {
-               			CandidateInfo ci;
-                        if (val0 == null) {
-                            ci = null; // abstention
-                        } else {
-                            ci = pvi.getItem(val0); // existing
-                                                       // item?
-                            if (ci == null) { // no, new item
-                                ci = new CandidateInfo() {
-                                    @Override
-                                    public String getValue() {
-                                        return val0;
-                                    }
+				SurveyToolStatus phStatus = ph.getSurveyToolStatus();
 
-                                    @Override
-                                    public Collection<UserInfo> getUsersVotingOn() {
-                                        return Collections.emptyList(); // No
-                                                                        // users
-                                                                        // voting
-                                                                        // -
-                                                                        // yet.
-                                    }
+				DataSection section = DataSection.make(null, null, cs, loc, base, null, false,
+						Level.COMPREHENSIVE.toString());
+				section.setUserAndFileForVotelist(cs.user, null);
 
-                                    @Override
-                                    public List<CheckCLDR.CheckStatus> getCheckStatusList() {
-                                        return checkResult;
-                                    }
-                                };
-                            }
-                        }		            
-	            CheckCLDR.StatusAction status = cPhase.getAcceptNewItemAction(ci, pvi,
-                        CheckCLDR.InputMethod.BULK, phStatus, cs.user);
-            
-	            
-	        if(status != CheckCLDR.StatusAction.ALLOW) {
-                result="Item will be skipped. ("+status+")";
-                resultIcon="stop";
-			} else {
-				if(doFinal) {
-					ballotBox.voteForValue(u, base, val0);
-					result="Vote accepted";
-					resultIcon="vote";
+				DataSection.DataRow pvi = section.getDataRow(base);
+				final Level covLev = pvi.getCoverageLevel();
+				//final int coverageValue = covLev.getLevel();
+				CheckCLDR.StatusAction showRowAction = pvi
+						.getStatusAction();
+
+				if (showRowAction.isForbidden()) {
+					result = "Item may not be modified. ("
+							+ showRowAction + ")";
+					resultIcon = "stop";
 				} else {
-					result = "Ready to submit.";
+					CandidateInfo ci;
+					if (val0 == null) {
+						ci = null; // abstention
+					} else {
+						ci = pvi.getItem(val0); // existing
+												// item?
+						if (ci == null) { // no, new item
+							ci = new CandidateInfo() {
+								@Override
+								public String getValue() {
+									return val0;
+								}
+
+								@Override
+								public Collection<UserInfo> getUsersVotingOn() {
+									return Collections.emptyList(); // No
+																	// users
+																	// voting
+																	// -
+																	// yet.
+								}
+
+								@Override
+								public List<CheckCLDR.CheckStatus> getCheckStatusList() {
+									return checkResult;
+								}
+							};
+						}
+					}
+					CheckCLDR.StatusAction status = cPhase
+							.getAcceptNewItemAction(ci, pvi,
+									CheckCLDR.InputMethod.BULK,
+									phStatus, cs.user);
+
+					if (status != CheckCLDR.StatusAction.ALLOW) {
+						result = "Item will be skipped. (" + status
+								+ ")";
+						resultIcon = "stop";
+					} else {
+						if (doFinal) {
+							ballotBox.voteForValue(u, base, val0);
+							result = "Vote accepted";
+							resultIcon = "vote";
+						} else {
+							result = "Ready to submit.";
+						}
+						updCnt++;
+					}
 				}
-				updCnt++;
 			}
-		  }
-		}
 %>
 		<tr class='r<%=(r) % 2%>'>
 			<th title='<%=base + " #" + base_xpath_id%>'

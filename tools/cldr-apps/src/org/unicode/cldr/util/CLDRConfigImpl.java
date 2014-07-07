@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.Map.Entry;
 import java.util.Properties;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONString;
@@ -21,6 +23,7 @@ import org.unicode.cldr.web.SurveyLog;
 import org.unicode.cldr.web.SurveyMain;
 import org.unicode.cldr.web.SurveyMain.Phase;
 import org.unicode.cldr.web.UserRegistry;
+import org.unicode.cldr.web.WebContext;
 
 /**
  * This is a concrete implementation of CLDRConfig customized for SurveyTool usage.
@@ -335,5 +338,30 @@ public class CLDRConfigImpl extends CLDRConfig implements JSONString {
     @Override
     public CheckCLDR.Phase getPhase() {
         return SurveyMain.phase().getCPhase();
+    }
+    
+    @Override
+    public CLDRURLS internalGetUrls() {
+        if(contextUrl == null) contextUrl = CLDRURLS.DEFAULT_PATH;
+        return new StaticCLDRURLS(this.getProperty(CLDRURLS.CLDR_SURVEY_PATH, contextUrl));
+    }
+    @Override
+    public CLDRURLS internalGetAbsoluteUrls() {
+        if(fullUrl == null) fullUrl = CLDRURLS.DEFAULT_BASE;
+        return new StaticCLDRURLS(this.getProperty(CLDRURLS.CLDR_SURVEY_BASE, fullUrl));
+    }
+
+    private static String contextUrl = null;
+    private static String fullUrl = null;
+
+    /**
+     * Must call this before using urls() or absoluteUrls()
+     * @param fromRequest
+     */
+    public static final void setUrls(HttpServletRequest fromRequest) {
+        if(fullUrl==null) {
+            contextUrl = fromRequest.getContextPath();
+            fullUrl = WebContext.contextBase(fromRequest);
+        }
     }
 }

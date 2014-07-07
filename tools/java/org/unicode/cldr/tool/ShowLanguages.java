@@ -36,6 +36,7 @@ import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.Iso639Data;
@@ -1234,7 +1235,7 @@ public class ShowLanguages {
                 parameters += "&summary=" + urlEncode(subject);
             }
             if (parameters.length() != 0) parameters = "?" + parameters;
-            return "<a target='_blank' href='http://unicode.org/cldr/trac/newticket"
+            return "<a target='_blank' href='"+CLDRURLS.CLDR_NEWTICKET_URL
                 + parameters + "'>" + text + "</a>";
         }
 

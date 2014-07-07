@@ -1,0 +1,28 @@
+<project name="CLDR Tools" default="all" basedir=".">
+  <target name="init">
+  </target>
+
+  <target name="build" depends="init" description="Build java/ (cldr-tools)">
+    <ant dir="java" inheritAll="true" target="all"/>
+  </target>
+
+  <target name="all" depends="init,build,tests" description="Build java/ and the cldr-unittests"/>
+
+  <target name="tests" depends="init,build" description="Build cldr-unittests">
+    <ant dir="cldr-unittest" inheritAll="true" target="build"/>
+  </target>
+
+  <target name="check" depends="init,tests" description="Run the cldr-unittests">
+    <ant dir="cldr-unittest" inheritAll="true" target="check"/>
+  </target>
+
+  <target name="jar" depends="init" description="Create java/cldr.jar">
+    <ant dir="java" inheritAll="true" target="jar"/>
+  </target>
+
+  <target name="clean" depends="init" description="Clean out the java and cldr-unittest projects">
+    <ant dir="java" inheritAll="true" target="clean"/>
+    <ant dir="cldr-unittest" inheritAll="true" target="clean"/>
+  </target>
+
+</project>

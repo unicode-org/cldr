@@ -124,7 +124,7 @@ public class VettingViewerQueue {
         /** Contents are available */
         READY,
         /** Stopped, due to some err */
-        STOPPED
+        STOPPED,
     };
 
     /**
@@ -140,6 +140,8 @@ public class VettingViewerQueue {
         NOSTART,
         /** Force a restart, ignoring old contents */
         FORCERESTART,
+        /** Stop. */
+        FORCESTOP
     };
 
     private static class VVOutput {
@@ -162,7 +164,7 @@ public class VettingViewerQueue {
         public Map<Pair<CLDRLocale, Organization>, VVOutput> output = new TreeMap<Pair<CLDRLocale, Organization>, VVOutput>();
     }
 
-    public static QueueEntry summaryEntry = null;
+//    public static QueueEntry summaryEntry = null;
 
     private static final Object OnlyOneVetter = new Object() {
     }; // TODO: remove.
@@ -175,14 +177,14 @@ public class VettingViewerQueue {
         VettingViewer<VoteResolver.Organization> vv;
         public int maxn;
         public int n = 0;
-        public boolean isSummary = false;
+        final public boolean isSummary;
         public long start = -1;
         public long last;
         public long rem = -1;
         private final String st_org;
         final Level usersLevel;
         final Organization usersOrg;
-        String status = "(Waiting for other users)";
+        String status = "(Waiting my spot in line)";
         public Status statusCode = Status.WAITING; // Need to start out as
                                                    // waiting.
 
@@ -197,17 +199,17 @@ public class VettingViewerQueue {
         }
 
         StringBuffer aBuffer = new StringBuffer();
-        private String baseUrl;
+        final private String baseUrl;
 
         public Task(QueueEntry entry, CLDRLocale locale, SurveyMain sm, String baseUrl, Level usersLevel,
             VoteResolver.Organization usersOrg, final String st_org) {
             super("VettingTask:" + locale.toString());
+            isSummary = isSummary(locale);
             if (DEBUG)
                 System.err.println("Creating task " + locale.toString());
 
             int baseMax = getMax(sm.getBaselineFile());
-            if (locale.toString().length() == 0) {
-                isSummary = true;
+            if (isSummary) {
                 maxn = 0;
                 List<Level> levelsToCheck = new ArrayList<Level>();
                 if (usersOrg.equals(Organization.surveytool)) {
@@ -235,6 +237,14 @@ public class VettingViewerQueue {
             this.usersOrg = usersOrg; // VoteResolver.Organization.fromString(ctx.session.user.voterOrg());
         }
 
+        /**
+         * @param locale
+         * @return
+         */
+        public boolean isSummary(CLDRLocale locale) {
+            return locale == SUMMARY_LOCALE;
+        }
+
         @Override
         public void run() throws Throwable {
             statusCode = Status.WAITING;
@@ -258,7 +268,6 @@ public class VettingViewerQueue {
 
                     vv = new VettingViewer<VoteResolver.Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
                         sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
-                    vv.setBaseUrl(baseUrl);
                     progress.update("Got VettingViewer");
                     statusCode = Status.PROCESSING;
                     start = System.currentTimeMillis();
@@ -268,18 +277,7 @@ public class VettingViewerQueue {
                         public String setRemStr(long now) {
                             double per = (double) (now - start) / (double) n;
                             rem = (long) ((maxn - n) * per);
-                            String remStr = ElapsedTimer.elapsedTime(now, now + rem) + " " + /*
-                                                                                              * "("
-                                                                                              * +
-                                                                                              * rem
-                                                                                              * +
-                                                                                              * "/"
-                                                                                              * +
-                                                                                              * per
-                                                                                              * +
-                                                                                              * ") "
-                                                                                              * +
-                                                                                              */"remaining";
+                            String remStr = ElapsedTimer.elapsedTime(now, now + rem) + " " + "remaining";
                             if (rem <= 1500) {
                                 remStr = "Finishing...";
                             }
@@ -340,7 +338,7 @@ public class VettingViewerQueue {
                             VettingViewer.Choice.notApproved);
                     }
 
-                    if (locale.toString().length() > 0) {
+                    if (!isSummary(locale)) {
                         vv.generateHtmlErrorTables(aBuffer, choiceSet, locale.getBaseName(), usersOrg, usersLevel, true, false);
                     } else {
                         if (DEBUG)
@@ -352,9 +350,15 @@ public class VettingViewerQueue {
                         entry.output.put(new Pair<CLDRLocale, Organization>(locale, usersOrg), new VVOutput(aBuffer));
                     }
                 }
+                status = "Finished.";
+                statusCode = Status.READY;
             } catch (RuntimeException re) {
+                SurveyLog.logException(re, "While VettingViewer processing " + locale );
+                status = "Exception! " + re.toString();
                 // We're done.
+                statusCode = Status.STOPPED;
             } finally {
+                // don't change the status
                 if (progress != null)
                     progress.close();
                 vv = null; // release vv
@@ -449,7 +453,7 @@ public class VettingViewerQueue {
      * present, will be written to the output
      * 
      * @see #getVettingViewerOutput(WebContext, CookieSession, CLDRLocale,
-     *      Status[], LoadingPolicy, Appendable)
+     *      Status[], LoadingPolicy, Appendable, JSONObject)
      * @param ctx
      * @param sess
      * @param locale
@@ -457,10 +461,11 @@ public class VettingViewerQueue {
      * @param forceRestart
      * @param output
      * @throws IOException
+     * @throws JSONException 
      */
     public void writeVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status,
-        LoadingPolicy forceRestart, Appendable output) throws IOException {
-        String str = getVettingViewerOutput(ctx, sess, locale, status, forceRestart, output);
+        LoadingPolicy forceRestart, Appendable output) throws IOException, JSONException {
+        String str = getVettingViewerOutput(ctx, sess, locale, status, forceRestart, output, new JSONObject());
         if (str != null) {
             output.append(str);
         }
@@ -487,7 +492,6 @@ public class VettingViewerQueue {
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
             sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
-        vv.setBaseUrl(baseUrl);
 
 
         EnumSet<VettingViewer.Choice> choiceSet = EnumSet.allOf(VettingViewer.Choice.class);
@@ -710,7 +714,6 @@ public class VettingViewerQueue {
         SurveyMain sm = CookieSession.sm;
         VettingViewer<Organization> vv = new VettingViewer<Organization>(sm.getSupplementalDataInfo(), sm.getSTFactory(),
             sm.getOldFactory(), getUsersChoice(sm), "CLDR " + SurveyMain.getOldVersion(), "Winning " + SurveyMain.getNewVersion());
-        vv.setBaseUrl(baseUrl);
         // progress.update("Got VettingViewer");
         // statusCode = Status.PROCESSING;
 
@@ -751,25 +754,30 @@ public class VettingViewerQueue {
      * @param output
      *            if there is output, it will be written here. Or not, if it's
      *            null
+     * @param jsonStatus TODO
      * @return status message
      * @throws IOException
+     * @throws JSONException 
      */
     public synchronized String getVettingViewerOutput(WebContext ctx, CookieSession sess, CLDRLocale locale, Status[] status,
-        LoadingPolicy forceRestart, Appendable output) throws IOException {
+        LoadingPolicy forceRestart, Appendable output, JSONObject jStatus) throws IOException, JSONException {
         if (sess == null)
             sess = ctx.session;
         SurveyMain sm = sess.sm;
         Pair<CLDRLocale, Organization> key = new Pair<CLDRLocale, Organization>(locale, sess.user.vrOrg());
-        boolean isSummary = locale.toString().length() == 0;
+        boolean isSummary = (locale == SUMMARY_LOCALE);
         QueueEntry entry = null;
-        if (!isSummary) {
+//        if (!isSummary) {
             entry = getEntry(sess);
-        } else {
-            entry = getSummaryEntry();
-        }
+//        } else {
+//            entry = getSummaryEntry();
+//        }
         if (status == null)
             status = new Status[1];
-        if (forceRestart != LoadingPolicy.FORCERESTART) {
+        jStatus.put("isSummary",isSummary);
+        jStatus.put("locale",locale);        
+        if (forceRestart != LoadingPolicy.FORCERESTART &&
+            forceRestart != LoadingPolicy.FORCESTOP) {
             VVOutput res = entry.output.get(key);
             if (res != null) {
                 status[0] = Status.READY;
@@ -783,24 +791,34 @@ public class VettingViewerQueue {
             entry.output.remove(key);
         }
 
+        
+        if(forceRestart == LoadingPolicy.FORCESTOP) {
+            status[0] = Status.STOPPED;
+            jStatus.put("t_running", false);
+            jStatus.put("t_statuscode", Status.STOPPED);
+            jStatus.put("t_status", "Stopped on request");
+            return "Stopped on request";
+        }
         Task t = entry.currentTask;
         CLDRLocale didKill = null;
 
         if (t != null) {
             String waiting = waitingString(t.sm.startupThread);
+            putTaskStatus(jStatus, t);
             if (t.locale.equals(locale)) {
                 status[0] = Status.PROCESSING;
                 if (t.running()) {
                     // get progress from current thread
                     status[0] = t.statusCode;
                     if (status[0] != Status.WAITING)
-                        waiting = "";
+                        waiting = "";                    
                     return PRE + "In Progress: " + waiting + t.status() + POST;
                 } else {
                     return PRE + "Stopped (refresh if stuck) " + t.status() + POST;
                 }
             } else if (forceRestart == LoadingPolicy.NOSTART) {
                 status[0] = Status.STOPPED;
+                jStatus.put("your_other_running",t.running());
                 if (t.running()) {
                     return PRE + " You have another locale being loaded: " + t.locale + POST;
                 } else {
@@ -819,14 +837,12 @@ public class VettingViewerQueue {
             return PRE + "Not loading. Click the Refresh button to load." + POST;
         }
 
-        String baseUrl = "http://example.com";
+        String baseUrl = null;
         Level usersLevel;
         Organization usersOrg;
         if (ctx != null) {
-            baseUrl = ctx.base();
             usersLevel = Level.get(ctx.getEffectiveCoverageLevel(ctx.getLocale().toString()));
         } else {
-            baseUrl = (String) sess.get("BASE_URL");
             String levelString = sess.settings().get(SurveyMain.PREF_COVLEV, WebContext.PREF_COVLEV_LIST[0]);
             ;
             usersLevel = Level.get(levelString);
@@ -841,7 +857,23 @@ public class VettingViewerQueue {
         if (didKill != null) {
             killMsg = " (Note: Stopped loading: " + didKill.toULocale().getDisplayName(SurveyMain.BASELINE_LOCALE) + ")";
         }
+        putTaskStatus(jStatus, t);
         return PRE + "Started new task: " + waitingString(t.sm.startupThread) + t.status() + "<hr/>" + killMsg + POST;
+    }
+
+    /**
+     * @param jStatus
+     * @param t
+     * @throws JSONException
+     */
+    public void putTaskStatus(JSONObject jStatus, Task t) throws JSONException {
+        jStatus.put("t_waiting", totalUsersWaiting(t.sm.startupThread));
+        jStatus.put("t_locale", t.locale);
+        jStatus.put("t_running", t.running());
+        jStatus.put("t_statuscode", t.statusCode);
+        jStatus.put("t_status", t.status);
+        jStatus.put("t_progress", t.n);
+        jStatus.put("t_progressmax", t.maxn);
     }
 
     private String waitingString(SurveyThread startupThread) {
@@ -857,6 +889,7 @@ public class VettingViewerQueue {
                 t.stop();
             }
             entry.currentTask = null;
+            t.sm.startupThread.removeTask(t); // remove from the queue
         }
     }
 
@@ -869,13 +902,13 @@ public class VettingViewerQueue {
         return entry;
     }
 
-    private synchronized QueueEntry getSummaryEntry() {
-        QueueEntry entry = summaryEntry;
-        if (summaryEntry == null) {
-            entry = summaryEntry = new QueueEntry();
-        }
-        return entry;
-    }
+//    private synchronized QueueEntry getSummaryEntry() {
+//        QueueEntry entry = summaryEntry;
+//        if (summaryEntry == null) {
+//            entry = summaryEntry = new QueueEntry();
+//        }
+//        return entry;
+//    }
 
     LruMap<CLDRLocale, BallotBox<UserRegistry.User>> ballotBoxes = new LruMap<CLDRLocale, BallotBox<User>>(8);
 

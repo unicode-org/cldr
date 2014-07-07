@@ -3,6 +3,7 @@
 	language="java" contentType="application/json; charset=UTF-8"
 	import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*,org.json.*"%><%--  Copyright (C) 2012 IBM and Others. All Rights Reserved 
 	 --%><%@ page import="java.lang.management.*"%><%
+	 CLDRConfigImpl.setUrls(request);
 	String vap = request.getParameter("vap");
 	String action = request.getParameter("do");
 	if (vap == null || action == null

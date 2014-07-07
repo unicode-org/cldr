@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>linkify XPath</title>
+<!--  must include dojo -->
+<script class='head_needed' src="//ajax.googleapis.com/ajax/libs/dojo/1.9.3/dojo/dojo.js"></script> 
+<!--  now, include cldr-xpath-linkify  -->
+<script class='head_needed' src="cldr-xpath-linkify.js"></script>
+<link class='head_needed'  rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.9.3/dijit/themes/claro/claro.css" />
+<link class='head_needed' rel="stylesheet" href="cldr-xpath-linkify.css" />
+
+</head>
+<body class='claro'>
+
+<h1>CLDR XPath Lookup Service</h1>
+
+How to use:
+
+<h2>1. put stuff in your  &lt;head&gt;</h2>
+<h3>Optional (as needed): fix up the target URL</h3>
+<textarea  cols="90" rows="10"></textarea>
+
+&lt;script&gt;
+    window.xpathLinkifyOpts = {
+        url: 'http://somehowt.example.com/cldr-apps/'
+    };
+&lt;/script&gt;
+</textarea>
+
+<h3>Mandatory</h3>
+<textarea  cols="90" rows="10" id='headstuff'>
+</textarea>
+
+<script>
+require(["dojo/query", "dojo/domReady!"],
+		function(query) {
+	var hs = query('#headstuff')[0];
+	var where=window.location.toString();
+	var baseUrl = where.substring(0,where.lastIndexOf('/')+1);
+	var str = '<head>\n';
+	var items = document.getElementsByClassName('head_needed');
+	for(var k=0;k<items.length;k++) {
+		var item = items[k];
+		str = str + '  <'+item.tagName.toLowerCase()+'';
+		if(item.rel) {
+			str = str + ' rel="'+item.rel+'"';
+		}
+		function fixLink(x) {
+			if(x.substring(0,baseUrl.length)!=baseUrl) {
+				x = x.substring(x.indexOf(':')+1);
+			}
+			return x;
+		}
+		var src = item.src;
+		if(src) {
+			str = str + ' src="' + fixLink(src) + '"';
+		}
+		var href = item.href;
+		if(href) {
+			str = str + ' href="' + fixLink(href) + '"';
+		}
+		str = str + '></'+item.tagName.toLowerCase()+'>\n';
+	}
+	str = str + '</head>\n';
+	hs.value = str;
+});
+</script>
+
+<h2>2. Create something to link to.</h2>
+
+<ul>
+	<tt>
+		&lt;span class='<b>cldr-xpath-linkify</b>'&gt;53b7f2338d33498b&lt;/span&gt;
+	</tt>
+</ul>
+
+<h2>3. Profit.</h2>
+
+<ul>
+	<span class='cldr-xpath-linkify'>53b7f2338d33498b</span>
+</ul>
+
+
+<p>
+	Mousing over these xpath objects will popup a full xpath and description. 
+	Anything with the 'cldr-xpath-linkify' class gets such a popup.
+</p>
+
+
+<h3>3. More examples.</h3>
+
+<ol>
+	<li class='cldr-xpath-linkify'>53b7f2338d33498b</li>
+	<li class='cldr-xpath-linkify'>somethinginvalid</li>
+	<li class='cldr-xpath-linkify'>5533bc5f4e8df425</li>
+</ol>
+
+
+</body>
+</html>

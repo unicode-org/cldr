@@ -756,7 +756,15 @@ public class WebContext implements Cloneable, Appendable {
      * @return base URL
      */
     public static String base(HttpServletRequest request) {
-        return schemeHostPort(request) + request.getContextPath() + request.getServletPath();
+        return contextBase(request) + request.getServletPath();
+    }
+    /**
+     * The base not including /servlet
+     * @param request
+     * @return
+     */
+    public static String contextBase(HttpServletRequest request) {
+        return schemeHostPort(request) + request.getContextPath();
     }
 
     /**

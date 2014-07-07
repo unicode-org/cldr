@@ -3,7 +3,10 @@
 String sid = request.getParameter("s");
 String surveyUrl = request.getContextPath()+"/survey";
 CookieSession cs;
-if((CookieSession.sm==null)||(cs = CookieSession.retrieve(sid))==null) {
+if(     (sid==null)|| // no "s=" parameter
+		(CookieSession.sm==null)|| // SurveyTool not initialized
+		(!CookieSession.sm.isSetup) || // or not setup
+		(cs = CookieSession.retrieve(sid))==null) { // or you don't have a valid session
 	response.sendRedirect(surveyUrl);
 	return;
 }

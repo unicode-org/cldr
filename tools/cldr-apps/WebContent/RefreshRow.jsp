@@ -1,6 +1,8 @@
 <%@page import="com.ibm.icu.dev.util.ElapsedTimer"%>
 <%@page import="java.io.PrintWriter,org.unicode.cldr.web.*"%><%@ page language="java" contentType="text/html; charset=UTF-8"
-	import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*,org.json.*"%><%--  Copyright (C) 2012 IBM and Others. All Rights Reserved  --%><%WebContext ctx = new WebContext(request, response);
+	import="com.ibm.icu.util.ULocale,org.unicode.cldr.util.*,org.json.*"%><%--  Copyright (C) 2012 IBM and Others. All Rights Reserved  --%><%
+	CLDRConfigImpl.setUrls(request);
+	WebContext ctx = new WebContext(request, response);
 	ElapsedTimer et = new ElapsedTimer();
 			String what = request.getParameter(SurveyAjax.REQ_WHAT);
 			String sess = request.getParameter(SurveyMain.QUERY_SESSION);

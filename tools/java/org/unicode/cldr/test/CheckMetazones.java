@@ -59,6 +59,6 @@ public class CheckMetazones extends CheckCLDR {
     }
 
     private boolean metazoneUsesDST(String name) {
-        return LogicalGrouping.metazonesDSTList.contains(name);
+        return LogicalGrouping.metazonesDSTSet.contains(name);
     }
 }

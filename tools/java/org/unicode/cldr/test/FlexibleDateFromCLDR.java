@@ -191,10 +191,6 @@ class FlexibleDateFromCLDR {
                 failureMap.put(path, e.getMessage());
             }
         }
-        String failure = checkValueAgainstSkeleton(path, value);
-        if (failure != null) {
-            failureMap.put(path, failure);
-        }
     }
 
     private String stripLiterals(String pattern) {

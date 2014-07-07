@@ -48,9 +48,34 @@ tr.shown {
     height:150px;
 }
 
+.nav-button {
+	display:inline-block;
+}
+
+.nav-progress {
+	width:150px;
+	float:right;
+	margin-left:15px;
+}
+
+#nav-page {
+	display:none;
+}
+
+#nav-page .counter-infos {
+	float:right;
+}
+
+#DynamicDataSection .nav-button {
+	float:right;
+}
+
 p.specialmessage {
     display:  inline;
     font-size:  smaller;
+    width: 210px;
+	height:34px;
+	overflow:hidden;
 }
 
 .menu-review .popover{
@@ -140,7 +165,7 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	
 }
 
-.fix-parent .popover {
+.fix-parent > .popover {
 	min-width:750px;
 }
 
@@ -236,8 +261,17 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 .data label {
 	cursor:pointer;
 }
-
-
+.data .lrmarker-container{
+	margin-top: 5px;
+	font-weight: bold;
+	color: black;
+}
+.data .visible-mark{
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+	color: #666666;
+	margin: 0 2.5px;
+}
 .data .subSpan {
 	margin-left:9px;
 	position:relative;
@@ -251,9 +285,6 @@ h3.collapse-review > span:first-child {position: relative; top: -220px;display: 
 	margin-top:10px;	
 }
 
-.button-add button {
-	margin-right:10px;
-}
 
 .d-win hr {
 	margin-top:10px;
@@ -484,6 +515,9 @@ overflow:auto;
 
 
 div#additional-top {
+	position: fixed;
+	left: calc(50% - 250px);
+	top:140px;
 }
 
 div#additional-top div.topnotices {
@@ -562,6 +596,7 @@ div#additional-top div.beta span#betanotice  {
 
 #toptitle h1 {
 	display:inline-block;
+	font-size: 28px;
 }
 
 #toptitle h1::before {
@@ -581,7 +616,6 @@ div#additional-top div.beta span#betanotice  {
 }
 .nav .popover {
 	position:fixed;
-	z-index:1000000000000000000;
 }
 
 .popover {
@@ -920,6 +954,15 @@ fieldset[disabled] .btn-primary.active {
   content: '';
 }
 
+.navbar-fixed-top {
+	z-index:10000000000;
+}
+
+.navbar-fixed-top .popover-content > li > a {
+	display:block;
+	padding-bottom:4px;
+}
+
 .subSpan [dir=rtl] {
 	padding-left: 8px;
 	padding-right: 10px;
@@ -935,6 +978,10 @@ fieldset[disabled] .btn-primary.active {
 
 #post-form textarea {
 	resize:none;
+}
+
+.modal-content {
+	margin-top: 100px;
 }
 
 .nav-bar-fixed-top {
@@ -961,9 +1008,6 @@ fieldset[disabled] .btn-primary.active {
 	
 }
 
-#main-row > div {
-	transition:width 0.3s ease;
-}
 
 /* media queries */
 @media (max-width: 1390px) {
@@ -981,3 +1025,5 @@ fieldset[disabled] .btn-primary.active {
 #popover-vote label, .fix-parent #othercell {
 	direction:ltr;
 }
+
+

@@ -1,5 +1,6 @@
 package org.unicode.cldr.test;
 
+import java.util.Date;
 import java.util.List;
 
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
@@ -7,11 +8,11 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.Factory;
 
 public class CheckNew extends CheckCLDR {
-
-    private OutdatedPaths outdatedPaths = new OutdatedPaths();
     private CLDRFile english;
+    private OutdatedPaths outdatedPaths;
 
     public CheckNew(Factory factory) {
+    	outdatedPaths = OutdatedPaths.getInstance();
         english = factory.make("en", true);
     }
 
@@ -36,6 +37,9 @@ public class CheckNew extends CheckCLDR {
     public CheckCLDR handleCheck(String path, String fullPath, String value, Options options,
         List<CheckStatus> result) {
 
+        Date modified = getCldrFileToCheck().getLastModifiedDate(path);
+        if (modified != null) return this;
+        
         boolean isOutdated = outdatedPaths.isOutdated(getCldrFileToCheck().getLocaleID(), path);
         if (!isOutdated) return this;
 

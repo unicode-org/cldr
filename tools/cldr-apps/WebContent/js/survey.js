@@ -52,6 +52,21 @@ if(!String.prototype.trim && !String.trim) {
 	};
 }
 
+function haveIntl() {
+	return (window.Intl && typeof window.Intl === "object");
+}
+
+/**
+ * Format a date and time.
+ */
+function fmtDateTime(x) {
+	var d = new Date(x);
+//	if(haveIntl()) {
+//		return d.toLocaleDateString()
+//	}
+	return d.toLocaleString();
+};
+
 /**
  * @class GLOBAL
  */
@@ -67,9 +82,11 @@ function isReport(str) {
  * @param {String} className
  */
 function removeClass(obj, className) {
+	if(!obj) return obj;
 	if(obj.className.indexOf(className)>-1) {
 		obj.className = obj.className.substring(className.length+1);
 	}
+	return obj;
 }
 
 /**
@@ -79,9 +96,28 @@ function removeClass(obj, className) {
  * @param {String} className
  */
 function addClass(obj, className) {
+	if(!obj) return obj;
 	if(obj.className.indexOf(className)==-1) {
 		obj.className = className+" "+obj.className;
 	}
+	return obj;
+}
+
+/**
+ * @method post2text 
+ */
+function post2text(text) {
+	if(text===undefined || text===null) {
+		text = "(empty)";
+	}
+	var out=text;
+	out = out.replace(/<p>/g, '\n');
+	out = out.replace(/&quot;/g, '"');
+	out = out.replace(/&lt;/g, '<');
+	out = out.replace(/&gt;/g, '>');
+	out = out.replace(/&amp;/g, '&');
+
+	return out;
 }
 
 /**
@@ -353,6 +389,145 @@ LocaleMap.prototype.getLanguage = function getLanguage(locid) {
 };
 
 /**
+ * @class XpathMap
+ * This manages xpid / strid / PathHeader etc mappings.
+ * It is a cache, and gets populated with data 'volunteered' by page loads, so that 
+ * hopefully it doesn't need to do any network operations on its own.
+ * However, it MAY BE capable of filling in any missing data via AJAX. This is why its operations are async.
+ */
+function XpathMap() {
+	/**
+	 * Maps strid (hash) to info struct.
+	 * The info struct is the basic unit here, it looks like the following:
+	 *   { 
+	 *       hex: '20fca8231d41',
+	 *       path: '//ldml/shoeSize',
+	 *       id:  1337,
+	 *       ph: ['foo','bar','baz']  **TBD**
+	 *   }
+	 *   
+	 *  All other hashes here are just alternate indices into this data.
+	 *  
+	 * @property XpathMap.stridToInfo
+	 */
+	this.stridToInfo = {};
+	/**
+	 * Map xpid (such as 1337) to info
+	 * @property XpathMap.xpidToInfo
+	 */
+	this.xpidToInfo = {};
+	/**
+	 * Map xpath (//ldml/...) to info.
+	 * @property XpathMap.xpathToInfo
+	 */
+	this.xpathToInfo = {};
+};
+
+/**
+ * This function will do a search and then call the onResult function. 
+ * Priority order for search:  hex, id, then path.
+ * @function get
+ * @param search {Object} the object to search for
+ * @param search.hex {String} optional - search by hex id
+ * @param search.path {String} optional - search by xpath
+ * @param search.id {Number} optional - search by number (String will be converted to Number)
+ * @param onResult - will be called with one parameter that looks like this: 
+ *  { search, err, result } -  'search' is the input param, 
+ * 'err' if non-null is any error, and 'result' if non-null is the result info struct.
+ * If there is an error, 'result' will be null. Please do not modify 'result'!
+ */
+XpathMap.prototype.get = function get(search, onResult) {
+	// see if we have anything immediately
+	result = null;
+	if(!result && search.hex) {
+		result = this.stridToInfo[search.hex];
+	}
+	if(!result && search.id) {
+		if(typeof search.id !== Number) {
+			search.id = new Number(search.id);
+		}
+		result = this.xpidToInfo[search.id];
+	}
+	if(!result && search.path) {
+		result = this.xpathToInfo[search.path];
+	}
+	if(result) {
+		onResult({search:search, result:result});
+	} else {
+		stdebug("XpathMap search failed for " + JSON.stringify(search) +  " - doing rpc");
+		var querystr = null;
+		if(search.hex) {
+			querystr = search.hex;
+		} else if(search.path) {
+			querystr = search.path;
+		} else if(search.id) {
+			querystr = "#"+search.id;
+		} else {
+			querystr = ''; // error
+		}
+		require(["dojo/request"], function(request) {
+			request
+			.get('SurveyAjax', {handleAs: 'json',
+								query: {
+									what: 'getxpath',
+									xpath: querystr
+								}})
+			.then(function(json) {
+				if(json.getxpath) {
+					xpathMap.put(json.getxpath); // store back first, then
+					onResult({search: search, result:json.getxpath}); // call
+				} else {
+					onResult({search: search, err:'no results from server'});
+				}
+			})
+			.otherwise(function(err) {
+				onResult({search: search, err:err});
+			});
+		});
+	}
+};
+
+/**
+ * Contribute some data to the map.
+ * @function contribute
+ */
+XpathMap.prototype.put = function put(info) {
+	if(!info || !info.id || !info.path || !info.hex || !info.ph) {
+		stdebug("XpathMap: rejecting incomplete contribution " + JSON.stringify(info));
+	} else if(this.stridToInfo[info.hex]) {
+		stdebug("XpathMap: rejecting duplicate contribution " + JSON.stringify(info));
+	} else {
+		this.stridToInfo[info.hex] = 
+			this.xpidToInfo[info.id] = 
+				this.xpathToInfo[info.path] =
+					info;
+		stdebug("XpathMap: adding contribution " + JSON.stringify(info));
+	}
+};
+
+/**
+ * Format a pathheader array.
+ * @function formatPathHeader
+ * @param ph {Object} pathheaer struct (Section/Page/Header/Code)
+ * @return {String}
+ */
+XpathMap.prototype.formatPathHeader = function formatPathHeader(ph) {
+	if(!ph) {
+		return '';
+	} else {
+		var phArray = [ph.section, ph.page, ph.header, ph.code];
+		return phArray.join(' | '); // type error - valid?
+	}
+};
+
+/**
+ * @class GLOBAL
+ */
+var xpathMap = new XpathMap();
+
+
+
+/**
  * Global items 
  * @class GLOBAL
  */
@@ -433,7 +608,7 @@ function createChunk(text, tag, className) {
  */
 String.prototype.ucFirst = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
-}
+};
 
 /**
  * Create a 'link' that goes to a function. By default it's an 'a', but could be a button, etc.
@@ -460,6 +635,17 @@ function createLinkToFn(strid, fn, tag) {
 	return obj;
 }
 
+function createGravitar(user) {
+	if(user.emailHash) {
+		var gravatar = document.createElement("img");
+		gravatar.src = 'http://www.gravatar.com/avatar/'+user.emailHash+'?d=identicon&r=g&s=32';
+		gravatar.title = 'gravatar - http://www.gravatar.com';
+		return gravatar;
+	} else {
+		return document.createTextNode('');
+	}
+}
+
 /**
  * Create a DOM object referring to a user.
  * @method createUser
@@ -468,18 +654,220 @@ function createLinkToFn(strid, fn, tag) {
  */
 function createUser(user) {
 	var div = createChunk(null,"div","adminUserUser");
-	if(user.emailHash) {
-		var gravatar = document.createElement("img");
-		gravatar.src = 'http://www.gravatar.com/avatar/'+user.emailHash+'?d=identicon&r=g&s=32';
-		gravatar.title = 'gravatar - http://www.gravatar.com';
-		gravatar.align='laft';		
-		div.appendChild(gravatar);
+	div.appendChild(createGravitar(user));
+	div.appendChild(div.userLevel = createChunk(stui_str("userlevel_"+user.userlevelName.toLowerCase(0)),"i","userlevel_"+user.userlevelName.toLowerCase()));
+	div.appendChild(div.userName = createChunk(user.name,"span","adminUserName"));
+	if(!user.orgName) {
+	   user.orgName = user.org;
 	}
-	div.appendChild(createChunk(stui_str("userlevel_"+user.userlevelName.toLowerCase(0)),"i","userlevel_"+user.userlevelName.toLowerCase()));
-	div.appendChild(createChunk(user.name,"span","adminUserName"));
-	div.appendChild(createChunk(user.orgName + ' #'+user.id,"span","adminOrgName"));
-	div.appendChild(createChunk(user.email,"address","adminUserAddress"));
+	div.appendChild(div.userOrg = createChunk(user.orgName + ' #'+user.id,"span","adminOrgName"));
+    div.appendChild(div.userEmail = createChunk(user.email,"address","adminUserAddress"));
 	return div;
+}
+
+/**
+ * Create a DOM object referring to this forum post
+ * @param {Object} json - options
+ * @param {Array} j.ret - forum post data
+ * @return {Object} new DOM object
+ */
+function parseForumContent(json) {
+	var forumDiv = document.createDocumentFragment();
+
+	// json.ret has posts in reverse order (newest first).
+	var postDivs={}; //  postid -> div
+	var topicDivs={}; // xpath -> div or "#123" -> div
+	var postHash={}; // postid -> item
+
+	// first, collect the posts.
+	for (num in json.ret) {
+		postHash[json.ret[num].id]=json.ret[num];
+	}
+	
+	// now, collect the threads
+	function threadId(post) {
+		if(post.parent >= 0 && postHash[post.parent]) {
+			// if  the parent exists.
+			return threadId(postHash[post.parent]);
+		}
+		if(post.xpath) {
+			return post.locale + "|" + post.xpath; // item post
+		} else {
+			return post.locale + "|#"+post.id; // non-item post
+		}
+	}
+
+	// next, add threadIds and create the topic divs
+	for ( num in json.ret) {
+		var post = json.ret[num];
+		post.threadId = threadId(post);
+		
+		if(!topicDivs[post.threadId]) {
+			// add the topic div
+			var topicDiv = document.createElement('div');
+			topicDiv.className = 'well well-sm postTopic';
+			var topicInfo = createChunk("", "h4", "postTopicInfo");
+			if(!json.noItemLink) {
+				topicDiv.appendChild(topicInfo);
+				if(post.locale) {
+					var localeLink = createChunk(locmap.getLocaleName(post.locale), "a", "localeName");
+					if(post.locale != surveyCurrentLocale) {
+						localeLink.href = linkToLocale(post.locale);
+						//localeLink.className = localeLink.className + " label label-warning";
+					}
+					topicInfo.appendChild(localeLink);
+				}
+			}
+			if(!post.xpath) {
+				topicInfo.appendChild(createChunk(post2text(post.subject), "span", "topicSubject"));
+			} else {
+				if(!json.noItemLink) {
+					var itemLink = createChunk(stui.str("forum_item"), "a", "pull-right postItem glyphicon glyphicon-zoom-in");
+					itemLink.href = "#/"+post.locale+"//"+post.xpath;
+					topicInfo.appendChild(itemLink);
+					(function(topicInfo){
+						var loadingMsg = createChunk(stui.str("loading"), "i", "loadingMsg");
+						topicInfo.appendChild(loadingMsg);
+						xpathMap.get({hex: post.xpath}, function(o){
+						if(o.result) {
+							topicInfo.removeChild(loadingMsg);
+							var itemPh = createChunk(xpathMap.formatPathHeader(o.result.ph), "span", "topicSubject");
+							itemPh.title = o.result.path;
+							topicInfo.appendChild(itemPh);
+						}
+					});})(topicInfo);
+				}
+			}
+			topicDivs[post.threadId] = topicDiv;
+			topicDiv.id = "fthr_"+post.threadId;
+			
+			// add to the div
+			forumDiv.appendChild(topicDiv);
+		}
+	}
+	// Now, top to bottom, just create the post divs
+	for(num in json.ret) {
+		var post = json.ret[num];
+		
+		var subpost = createChunk("","div","post"); // was: subpost
+		// Don't add to the DIV yet - will reparent into the topic Divs
+		///  --forumDiv.appendChild(subpost);
+		
+		postDivs[post.id] = subpost;
+		
+		subpost.id = "fp"+post.id;
+		
+//		var userChunk = createUser(post.posterInfo);
+		//subpost.appendChild(userChunk);
+		
+		var gravitar = createGravitar(post.posterInfo);
+		gravitar.className = "gravitar pull-left";
+		subpost.appendChild(gravitar);
+		var headingLine = createChunk("", "h4", "selected");
+		if(post.posterInfo.id == surveyUser.id) {
+			headingLine.appendChild(createChunk(stui.str("user_me"),"span", "forum-me"));
+		} else {
+			var usera = createChunk(post.posterInfo.name+' ', "a", "");
+			if(post.posterInfo.email) {
+				usera.appendChild(createChunk("","span","glyphicon glyphicon-envelope"));
+				usera.href = "mailto:"+post.posterInfo.email;
+			}
+			headingLine.appendChild(usera);
+			headingLine.appendChild(document.createTextNode(' ('+post.posterInfo.org+') '));
+		}
+		var userLevelChunk;
+		headingLine.appendChild(userLevelChunk=
+			createChunk(stui.str("userlevel_"+post.posterInfo.userlevelName), "span", "userLevelName label-info label"));
+		userLevelChunk.title = stui.str("userlevel_"+post.posterInfo.userlevelName+"_desc");
+		var dateChunk = createChunk(fmtDateTime(post.date_long),"span","label label-primary pull-right forumLink");
+		(function(post) {
+			listenFor(dateChunk, "click", function(e) {
+				if(locmap.getLanguage(surveyCurrentLocale) != locmap.getLanguage(post.locale)) {
+					surveyCurrentLocale = locmap.getLanguage(post.locale);
+				}
+				surveyCurrentPage = '';
+				surveyCurrentId = post.id;
+				replaceHash(false);
+				if(surveyCurrentSpecial != 'forum') {
+					surveyCurrentSpecial = 'forum';
+					reloadV();
+				}
+				return stStopPropagation(e);
+			});
+		})(post);
+		headingLine.appendChild(dateChunk);
+		
+		subpost.appendChild(headingLine);
+		
+		var subSubChunk = createChunk("","div","postHeaderInfoGroup");
+		subpost.appendChild(subSubChunk);
+		{
+			var subChunk = createChunk("","div","postHeaderItem");
+			subSubChunk.appendChild(subChunk);
+			subChunk.appendChild(createChunk(post2text(post.subject),"b","postSubject"));
+		}
+				
+		// actual text
+		var postText = post2text(post.text);
+		var postContent;
+		subpost.appendChild(postContent = createChunk(postText, "div","postContent"));
+		if(json.replyButton) {
+			var replyButton = createChunk(stui.str("forum_reply"), "button", "btn btn-default btn-sm");
+			(function(post){ listenFor(replyButton, "click", function(e) {
+				openReply({
+					locale: surveyCurrentLocale,
+					//xpath: '',
+					replyTo: post.id,
+					replyData: post,
+					onReplyClose: json.onReplyClose
+				});
+				stStopPropagation(e);
+				return false;
+			});})(post);
+			subpost.appendChild(replyButton);
+		}
+
+		// reply link
+		if(json.replyStub) {
+			var replyChunk = createChunk("Reply (leaves this page)","a","postReply");
+			replyChunk.href = json.replyStub + post.id;
+			subpost.appendChild(replyChunk);
+		}
+	}
+	// reparent any nodes that we can
+	for(num in json.ret) {
+		var post = json.ret[num];
+		if(post.parent != -1) {
+			stdebug("reparenting " + post.id + " to " + post.parent);
+			if(postDivs[post.parent]) {
+				if(!postDivs[post.parent].replies) {
+					// add the "replies" area
+					stdebug("ADding replies area to " + post.parent );
+					postDivs[post.parent].replies = createChunk("","div","postReplies");
+					postDivs[post.parent].appendChild(postDivs[post.parent].replies);
+				}
+				// add to new location
+				postDivs[post.parent].replies.appendChild(postDivs[post.id]);
+			} else {
+				// The parent of this post was deleted.
+				stdebug("The parent of post #" + post.id + " is " + post.parent + " but it was deleted or not visible");
+				// link it in somewhere
+				topicDivs[post.threadId].appendChild(postDivs[post.id]);
+			}
+		} else {
+			// 'top level' post, put it into the forumdiv.
+			topicDivs[post.threadId].appendChild(postDivs[post.id]);
+		}
+	}
+	
+	// Now, bubble up recent posts to the top
+	for(var num=json.ret.length-1;num>=0;num--) {
+		var post = json.ret[num];
+		var topicDiv = topicDivs[post.threadId];
+		forumDiv.removeChild(topicDiv);
+		forumDiv.insertBefore(topicDiv, forumDiv.firstChild);
+	}
+	return forumDiv;
 }
 
 /**
@@ -851,10 +1239,10 @@ function showWord() {
 	} else if(!progressWord || progressWord == "ok") {
 		if(specialHeader) {
 			p.className = "progress-special";
-			popupAlert('success',specialHeader);
+			//popupAlert('success',specialHeader);
 		} else {
 			p.className = "progress-ok";
-			popupAlert('warning',stui_str('online'));
+			//popupAlert('warning',stui_str('online'));
 		}
 	} else if(progressWord=="startup") {
 		p.className = "progress-ok";
@@ -1034,6 +1422,9 @@ function formatErrMsg(json, subkey) {
 			console.log("** Unknown error code: " + json.err_code);
 			msg_str = "E_UNKNOWN";
 		}
+	}
+	if(json === null) {
+		json = {}; // handle cases with no input data
 	}
 	return stui.sub(msg_str,
 			{
@@ -1270,8 +1661,7 @@ function updateStatus() {
  */
 function setTimerOn() {
     updateStatus();
-//    timerID = setInterval(updateStatus, timerSpeed);
-    
+    // an interval is not used - each status update does its own timeout.
 }
 
 /**
@@ -1281,8 +1671,6 @@ function setTimerOn() {
  */
 function resetTimerSpeed(speed) {
 	timerSpeed = speed;
-//	clearInterval(timerID);
-//	timerID = setInterval(updateStatus, timerSpeed);
 }
 
 // set up window. Let Dojo call us, otherwise dojo won't load.
@@ -1596,6 +1984,9 @@ function incrPopToken(x) {
 // timeout for showing sideways view
 var sidewaysShowTimeout = -1;
 
+// array storing all only-1 sublocale
+var oneLocales = [];
+
 /**
  * @method showForumStuff
  * called when showing the popup each time
@@ -1605,6 +1996,11 @@ var sidewaysShowTimeout = -1;
  */
 function showForumStuff(frag, forumDiv, tr) {
 	{
+		var isOneLocale = false;
+		if(oneLocales[surveyCurrentLocale]){
+			isOneLocale = true;
+		}
+		if(!isOneLocale){
 		var sidewaysControl = createChunk(stui.str("sideways_loading0"), "div", "sidewaysArea");
 		frag.appendChild(sidewaysControl);		
 		
@@ -1621,98 +2017,193 @@ function showForumStuff(frag, forumDiv, tr) {
 			
 			var url = contextPath + "/SurveyAjax?what=getsideways&_="+surveyCurrentLocale+"&s="+surveySessionId+"&xpath="+tr.theRow.xpstrid +  cacheKill();
 			myLoad(url, "sidewaysView", function(json) {
-				//updateIf(sidewaysControl, JSON.stringify(json));
-				if(!json.others) {
-					updateIf(sidewaysControl, ""); // no sibling locales (or all null?)
-				} else {
-					var theMsg = null;
-					if(Object.keys(json.others).length == 1) {
-						theMsg = stui.str("sideways_same");
-						addClass(sidewaysControl, "sideways_same");
+				// if there is 1 sublocale(+ 1 default), we do nothing
+				var locale_count = Object.keys(json.others).length + json.novalue.length;
+				if(locale_count <= 2){
+					oneLocales[surveyCurrentLocale] = true;
+					updateIf(sidewaysControl, "");
+				}else{
+//					updateIf(sidewaysControl, JSON.stringify(json));
+					if(!json.others) {
+						updateIf(sidewaysControl, ""); // no sibling locales (or all null?)
 					} else {
-						theMsg = stui.str("sideways_diff");
-						addClass(sidewaysControl, "sideways_diff");
-					}
-					updateIf(sidewaysControl, ""); // remove string
-					
-					//var popupArea = document.createElement("div");
-					//addClass(popupArea, "sideways_popup");
-					//sidewaysControl.appendChild(popupArea); // will be initially hidden
-					var appendLocaleList = function appendLocaleList(list, name, title) {
-						var group = document.createElement("optGroup");
-						group.setAttribute("label", name +  " (" + list.length + ")");
-						group.setAttribute("title", title);
-						list.sort(); // at least sort the locale ids
-						for(var l=0;l<list.length;l++) {
-							var loc = list[l];
-							var item = document.createElement("option");
-							item.setAttribute("value",loc);
-							var str = locmap.getRegionAndOrVariantName(loc);
-							if(loc === surveyCurrentLocale) {
-								str = str + ": " + theMsg;
-								item.setAttribute("selected", "selected");
-								item.setAttribute("title",'"'+s+'"');
-							} else {
-				        		var bund = locmap.getLocaleInfo(loc);
+						updateIf(sidewaysControl, ""); // remove string
+	
+						var topLocale = json.topLocale;
+						var curLocale = locmap.getRegionAndOrVariantName(topLocale);
+						var readLocale = null;
+						
+						// merge the read-only sublocale to base locale
+						var mergeReadBase = function mergeReadBase(list){
+							var baseValue = null;
+							// find the base locale, remove it and store its value
+							for(var l=0; l<list.length; l++){
+								var loc = list[l][0];
+								if(loc === topLocale) {
+									baseValue = list[l][1];
+									list.splice(l,1);
+									break;
+								}
+							}
+							
+							// replace the default locale(read-only) with base locale, store its name for label
+							for(var l=0; l<list.length; l++){
+								var loc = list[l][0];
+								var bund = locmap.getLocaleInfo(loc);
 				        		if(bund && bund.readonly) {
-			        				addClass(item, "locked");
-			        				item.setAttribute("disabled","disabled");
-			        				item.setAttribute("title",stui.str("readonlyGuidance"));
-				        		} else {
-				        			item.setAttribute("title",'"'+s+'"');
-				        		}
-							}							
-							item.appendChild(document.createTextNode(str));
-							group.appendChild(item);
+				        			readLocale = locmap.getRegionAndOrVariantName(loc);
+				        			list[l][0] = topLocale;
+				        			list[l][1] = baseValue;
+				        			break;
+								}
+							}
 						}
+						// compare all sublocale values 
+						var appendLocaleList = function appendLocaleList(list) {
+							var group = document.createElement("optGroup");
+							var br = document.createElement("optGroup");
+							group.appendChild(br);
+							
+							group.setAttribute("label", "Regional Variants for " + curLocale);
+							group.setAttribute("title", "Regional Variants for " + curLocale);
+							
+							var curValue = null;
+							var escape = "\u00A0\u00A0\u00A0";
+							var unequalSign = "\u2260\u00A0";
+							
+							// find the currenct locale name
+							for(var l=0;l<list.length;l++){
+								var loc = list[l][0];
+								if(loc === surveyCurrentLocale) {
+									curValue = list[l][1];
+									break;
+								}
+							};
+							
+							for(var l=0;l<list.length;l++) {
+								var loc = list[l][0];
+								var title = list[l][1];
+								var item = document.createElement("option");
+								item.setAttribute("value", loc);
+								if(title == null){
+									item.setAttribute("title", "undefined");
+								}else{
+									item.setAttribute("title", title);
+								}
+								
+								var str = locmap.getRegionAndOrVariantName(loc);
+								if(loc === topLocale){
+									str = str + " (= " + readLocale + ")";
+								}
+								
+								if(loc === surveyCurrentLocale) {
+									str = escape + str;
+									item.setAttribute("selected", "selected");
+				        			item.setAttribute("disabled","disabled");
+								}else if(title != curValue){
+									str = unequalSign + str;
+								}else{
+									str = escape + str;
+								}
+								item.appendChild(document.createTextNode(str));
+								group.appendChild(item);
+							}
+							popupSelect.appendChild(group);
+						};
+						
+						var dataList = [];
+						
+						var popupSelect = document.createElement("select");
+						var inheritValue = null; // inherit value for no-value object
+						for(var s in json.others) {
+							for(var t in json.others[s]){
+								if(json.others[s][t] === topLocale){
+									inheritValue = s;
+								}
+								dataList.push([json.others[s][t], s]);
+							}
+						}
+						if(json.novalue) {
+							for(s in json.novalue){
+								dataList.push([json.novalue[s], inheritValue]);
+							}
+						}	
+						mergeReadBase(dataList);
+						
+						// then sort by sublocale name
+						dataList = dataList.sort(function(a,b) {
+							return locmap.getRegionAndOrVariantName(a[0]) > locmap.getRegionAndOrVariantName(b[0]);
+					    });
+						appendLocaleList(dataList);
+
+						var group = document.createElement("optGroup");
 						popupSelect.appendChild(group);
+						
+						listenFor(popupSelect, "change", function(e) {
+							var newLoc = popupSelect.value;
+							if(newLoc !== surveyCurrentLocale) {
+								surveyCurrentLocale = newLoc;
+								reloadV();
+							}
+							return stStopPropagation(e);
+						});
+						
+						sidewaysControl.appendChild(popupSelect);
 					}
-					
-					var popupSelect = document.createElement("select");
-					for(var s in json.others) {
-						appendLocaleList(json.others[s], s, s);
-						//console.log("k:" + s + " in " + JSON.stringify(json.others));
-					}
-					if(json.novalue) {
-						appendLocaleList(json.novalue,  stui.str("sideways_noValue"),  stui.str("sideways_noValue"));
-					}					
-					
-					listenFor(popupSelect, "change", function(e) {
-						var newLoc = popupSelect.value;
-						if(newLoc !== surveyCurrentLocale) {
-							surveyCurrentLocale = newLoc;
-							reloadV();
-						}
-						return stStopPropagation(e);
-					});
-					
-					sidewaysControl.appendChild(popupSelect);
 				}
 			});
 		}, 2000); // wait 2 seconds before loading this.
+		}
 	}
 	
 	// prepend something
 	var buttonTitle = "forumNewPostButton";
-	var buttonClass = "forumNewButton";
+	var buttonClass = "forumNewButton btn btn-default btn-sm";
+	var couldFlag = false;
 	if(tr.theRow) {
 		if(tr.theRow.voteVhash !== tr.theRow.winningVhash 
+				&& tr.theRow.voteVhash !== ''
 				&& tr.theRow.canFlagOnLosing && 
 				!tr.theRow.rowFlagged) {
 			buttonTitle = "forumNewPostFlagButton";
-			buttonClass = "forumNewPostFlagButton";
+			buttonClass = "forumNewPostFlagButton btn btn-default btn-sm";
+			couldFlag=true;
 		}
 	}
 	var newButton = createChunk(stui.str(buttonTitle), "button", buttonClass);
-	frag.appendChild(newButton);
+	if(!isDashboard()) {
+		frag.appendChild(newButton);
 	
-	listenFor(newButton, "click", function(e) {
-		//window.blur(); // submit anything unsubmitted
-		window.open(tr.forumDiv.postUrl);
-		stStopPropagation(e);
-		return true;
-	});
-	
+		(function(theRow,couldFlag){listenFor(newButton, "click", function(e) {
+				xpathMap.get({hex: theRow.xpstrid}, 
+						function(o) {
+							var subj = theRow.code + ' ' + theRow.xpstrid;
+							if(o.result && o.result.ph) {
+								subj = xpathMap.formatPathHeader(o.result.ph);
+							}
+							if(couldFlag) {
+								subj = subj + " (Flag for review)";
+							}
+							openReply({
+								locale: surveyCurrentLocale,
+								//onReplyClose: function(postModal, form, formDidChange) {if(formDidChange){console.log('Reload- changed.');reloadV();}},
+								//xpath: '',
+								xpath: theRow.xpstrid,
+								subject: subj,
+								//replyTo: post.id,
+								//replyData: post
+							});
+				});
+				stStopPropagation(e);
+				return false;
+		});})(tr.theRow, couldFlag);
+		//	listenFor(newButton, "click", function(e) {
+		//		//window.blur(); // submit anything unsubmitted
+		//		window.open(tr.forumDiv.postUrl);
+		//		stStopPropagation(e);
+		//		return true;
+		//	});
+	}	
 	var loader2 = createChunk(stui.str("loading"),"i");
 	frag.appendChild(loader2);
 
@@ -1749,47 +2240,10 @@ function showForumStuff(frag, forumDiv, tr) {
 				try {
 					if (json) {
 						if(json.ret) {
-							for(num in json.ret) {
-								var post = json.ret[num];
-//								userChunk.style.float = "right";
-//								forumDiv.appendChild(createChunk("Id:","b"));
-//								forumDiv.appendChild(document.createElement("br"));
-								
-								var subpost = createChunk("","div","subpost");
-								forumDiv.appendChild(subpost);
-								
-								var headerLine = createChunk("","div","postHeaderLine");
-								subpost.appendChild(headerLine);
-								
-								var userChunk = createUser(post.posterInfo);
-								headerLine.appendChild(userChunk);
-								
-								var subSubChunk = createChunk("","div","postHeaderInfoGroup");
-								headerLine.appendChild(subSubChunk);
-								{
-									var subChunk = createChunk("","div","postHeaderItem");
-									subSubChunk.appendChild(subChunk);
-									subChunk.appendChild(createChunk("Date:","b"));
-									subChunk.appendChild(createChunk(post.date,"span","postHeader"));
-									subChunk.appendChild(document.createElement("br"));
-								}
-								{
-									var subChunk = createChunk("","div","postHeaderItem");
-									subSubChunk.appendChild(subChunk);
-									subChunk.appendChild(createChunk("Subject:","b"));
-									subChunk.appendChild(createChunk(post.subject,"span","postHeader"));
-									subChunk.appendChild(document.createElement("br"));
-								}
-																
-								// actual text
-								subpost.appendChild(createChunk(post.text, "div","postContent"));
-								
-								// reply link
-								var replyChunk = createChunk("Reply (leaves this page)","a","postReply");
-								replyChunk.href = tr.forumDiv.replyStub + post.id;
-								subpost.appendChild(replyChunk);
-								
-							}
+							forumDiv.appendChild(parseForumContent({ret: json.ret, 
+											//replyStub: tr.forumDiv.replyStub,
+											replyButton: true,
+											noItemLink: true}));
 						}
 					}
 				} catch (e) {
@@ -1820,18 +2274,21 @@ function showForumStuff(frag, forumDiv, tr) {
 	{
 		// load async
 		var ourUrl = tr.forumDiv.url + "&what=forum_count" + cacheKill() ;
-		var xhrArgs = {
-				url: ourUrl,
-				handleAs:"json",
-				load: function(json) {
-					if(json && json.forum_count !== undefined) {
-						havePosts(parseInt(json.forum_count));
-					} else {
-						console.log("Some error loading post count??");
-					}
-				},
-		};
-		queueXhr(xhrArgs);
+		window.setTimeout(function() {
+			var xhrArgs = {
+					url: ourUrl,
+					handleAs:"json",
+					load: function(json) {
+						if(json && json.forum_count !== undefined) {
+							havePosts(parseInt(json.forum_count));
+						} else {
+							console.log("Some error loading post count??");
+						}
+					},
+			};
+			queueXhr(xhrArgs);	
+		}, 1900);
+
 	}
 	
 	
@@ -1848,7 +2305,7 @@ function appendForumStuff(tr, theRow, forumDiv) {
 	removeAllChildNodes(forumDiv); // we may be updating.
 	var theForum = 	locmap.getLanguage(surveyCurrentLocale);
 	forumDiv.replyStub = contextPath + "/survey?forum=" + theForum + "&_=" + surveyCurrentLocale + "&replyto=";
-	forumDiv.postUrl = forumDiv.replyStub + "x"+theRow.xpid;
+	forumDiv.postUrl = forumDiv.replyStub + "x"+theRow;
 	forumDiv.url = contextPath + "/SurveyAjax?xpath=" + theRow.xpid + "&_=" + surveyCurrentLocale + "&fhash="
 		+ theRow.rowHash + "&vhash=" + "&s=" + tr.theTable.session
 		+ "&voteinfo=t";
@@ -2043,7 +2500,6 @@ dojo.ready(function() {
 			else {
 				removeAllChildNodes(pucontent);
 				pucontent.appendChild(td);
-				showRightPanel();
 			}
 		}
 		else {
@@ -2104,6 +2560,25 @@ dojo.ready(function() {
 		lastShown = null;
 	};
 });
+
+/**
+ * Check if we need LRM/RLM marker to display
+ * @param field choice field to append if needed
+ * @param dir direction of current locale (control float direction0
+ * @param value the value of votes (check &lrm; &rlm)
+ */
+function checkLRmarker(field, dir, value){
+	if (value) {
+		if ( value.indexOf("\u200E") > -1 ||  value.indexOf("\u200F") > -1 ) {
+			value = value.replace(/\u200E/g, "<span class=\"visible-mark\">&lt;LRM&gt;</span>")
+			 			 .replace(/\u200F/g, "<span class=\"visible-mark\">&lt;RLM&gt;</span>");
+			var lrm = document.createElement("div");
+			lrm.className = "lrmarker-container";
+			lrm.innerHTML = value;
+			field.appendChild(lrm);
+		}
+	}
+}
 
 /**
  * Append just an editable span representing a candidate voting item
@@ -2196,6 +2671,7 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 	var ourItem = findItemByValue(theRow.items,value);
 	var testKind = getTestKind(tests);
 	var ourDiv = null;
+	var wrap;
 	if(!ourItem) {
 		ourDiv = document.createElement("div");
 		var newButton = cloneAnon(dojo.byId('proto-button'));
@@ -2212,7 +2688,8 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 				tr.lastOn.className = "ichoice-o";
 			}
 			wireUpButton(newButton,tr,theRow,"[retry]", {"value":value});
-			ourDiv.appendChild(newButton);
+			wrap = wrapRadio(newButton);
+			ourDiv.appendChild(wrap);
 		}
 		var h3 = document.createElement("span");
 		var span=appendItem(h3, value, "value",tr);
@@ -2235,7 +2712,13 @@ function showProposedItem(inTd,tr,theRow,value,tests, json) {
 		if(ourItem) {
 			str = stui.sub("StatusAction_msg",
 					[ stui_str("StatusAction_"+json.statusAction) ],"p", "");
-			showInPop(str, tr, null, null, true);
+			var str2 = stui.sub("StatusAction_popupmsg",
+					[ stui_str("StatusAction_"+json.statusAction), theRow.code  ],"p", "");
+			// show in modal popup (ouch!)
+			alert(str2);
+			
+			// show this message in a sidebar also
+			showInPop(stopIcon + str, tr, null, null, true);
 		}
 		return;
 	} else if(json&&json.didNotSubmit) {
@@ -2370,11 +2853,13 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 		return;
 	}
 	var choiceField = document.createElement("div");
+	var wrap;
 	choiceField.className = "choice-field";
 	if(newButton) {
 		newButton.value=item.value;
 		wireUpButton(newButton,tr,theRow,vHash);
-		choiceField.appendChild(newButton);
+		wrap = wrapRadio(newButton);
+		choiceField.appendChild(wrap);
 	}
     var subSpan = document.createElement("span");
     subSpan.className = "subSpan";
@@ -2382,6 +2867,7 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	choiceField.appendChild(subSpan);
 	
 	setLang(span);
+	checkLRmarker(choiceField, span.dir, item.value);
 	
 	if(item.isOldValue==true && !isWinner) {
 		addIcon(choiceField,"i-star");
@@ -2482,7 +2968,7 @@ function addVitem(td, tr, theRow, item, vHash, newButton, cancelButton) {
 	    	return false;
 	    };
 	    
-	    //listenFor(span, "mouseover", editInPlace);
+	    listenFor(span, "mouseover", editInPlace);
 	}*/
 }
 
@@ -2869,8 +3355,14 @@ function updateRow(tr, theRow) {
 	if(!children[config.comparisoncell].isSetup) {
 		if(theRow.displayName) {
 			var hintPos = theRow.displayName.indexOf('[translation hint');
+			var hasExample = false;
+			
+			if(theRow.displayExample) {
+				hasExample = true;
+			}
+			
 			if(hintPos != -1) {
-				theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample : '');
+				theRow.displayExample = theRow.displayName.substr(hintPos, theRow.displayName.length) + (theRow.displayExample ? theRow.displayExample.replace(/\[translation hint.*?\]/g,"") : '');
 				theRow.displayName = theRow.displayName.substr(0, hintPos);
 			}
 			
@@ -2880,6 +3372,29 @@ function updateRow(tr, theRow) {
 				var theExample = appendExample(children[config.comparisoncell], theRow.displayExample, surveyBaselineLocale);
 				//listenToPop(null,tr,theExample);
 			}
+			
+			if(hintPos != -1 || hasExample) {
+				var infos = document.createElement("div");
+				infos.className = 'infos-code';
+				
+				if(hintPos != -1) {
+					var img = document.createElement("img");
+					img.src = 'hint.png';
+					img.alt = 'Translation hint';
+					infos.appendChild(img);
+				}
+				
+				if(hasExample) {
+					var img = document.createElement("img");
+					img.src = 'example.png';
+					img.alt = 'Example';
+					infos.appendChild(img);
+				}
+				
+				children[config.comparisoncell].appendChild(infos);
+			}
+			
+			
 		} else {
 			children[config.comparisoncell].appendChild(document.createTextNode(""));
 		}
@@ -2941,11 +3456,12 @@ function updateRow(tr, theRow) {
 		formAdd.appendChild(buttonAdd);
 		
 		var input = document.createElement("input");
+		var popup;
 		input.className = "form-control input-add";
 		input.placeholder = 'Add a translation';
 		btn.onclick = function(e) {
 			//if no input, add one
-			if($(buttonAdd).find('input').length == 0) {
+			if($(buttonAdd).parent().find('input').length == 0) {
 				
 				//hide other
 				$.each($('button.vote-submit'), function() {
@@ -2953,15 +3469,18 @@ function updateRow(tr, theRow) {
 				});
 				
 				//transform the button
-				buttonAdd.appendChild(input);
 				toSubmitVoteButton(btn);
+				$(buttonAdd).popover({content:' '}).popover('show');
+				popup = $(buttonAdd).parent().find('.popover-content');
+				popup.append(input);
+				popup.closest('.popover').css('top', popup.closest('.popover').position().top - 19);
 				input.focus();
 				
 				
 				//enter pressed
 				$(input).keydown(function (e) {
 					var newValue = $(this).val();
-					if(e.keyCode == 13) {
+					if(e.keyCode == 13) { //enter pressed
 						if(newValue) {
 							addValueVote(children[config.othercell], tr, theRow, newValue, cloneAnon(protoButton));			
 						}
@@ -3018,21 +3537,25 @@ function updateRow(tr, theRow) {
 		tr.myProposal=null; // not needed
 	}
 
-	if(isDashboard()) {
-		children[config.othercell].appendChild(document.createElement('hr'));
-		children[config.othercell].appendChild(formAdd);//add button	
-	}
-	else {
-		removeAllChildNodes(children[config.addcell]);
-		children[config.addcell].appendChild(formAdd);//add button	
+	if(tr.canChange) {
+		if(isDashboard()) {
+			children[config.othercell].appendChild(document.createElement('hr'));
+			children[config.othercell].appendChild(formAdd);//add button	
+		}
+		else {
+			removeAllChildNodes(children[config.addcell]);
+			children[config.addcell].appendChild(formAdd);//add button	
+		}
 	}
 
 	if(canModify) {
 		removeAllChildNodes(children[config.nocell]); // no opinion
 		var noOpinion = cloneAnon(protoButton);
+		var wrap;
 		wireUpButton(noOpinion,tr, theRow, null);
 		noOpinion.value=null;
-		children[config.nocell].appendChild(noOpinion);
+		wrap = wrapRadio(noOpinion);
+		children[config.nocell].appendChild(wrap);
 		listenToPop(null, tr, children[config.nocell]);
 	}  else if(ticketOnly) { // ticket link
     	if(!tr.theTable.json.canModify) { // only if hidden in the header
@@ -3145,13 +3668,24 @@ function insertRowsIntoTbody(theTable,tbody) {
 		if(!theRow) {
 			console.log("Missing row " + k);
 		}
+		// update the xpath map
+		xpathMap.put({id: theRow.xpid, 
+					  hex: theRow.xpstrid,
+					  path: theRow.xpath,
+					  ph: {
+					       section: surveyCurrentSection, // Section: Timezones
+					       page: surveyCurrentPage,    // Page: SEAsia ( id, not name )
+					       header: curPartition.name,    // Header: Borneo
+					       code: theRow.code           // Code: standard-long
+					  	}
+					});
+		
+		// refresh the tr's contents
 		updateRow(tr,theRow);
 		
+		// add the tr to the table
 		tbody.appendChild(tr);
-
 	}
-	
-	
 	//console.log("POST rows: " + Object.keys(theTable.myTRs)  + ", hitcount: " + theTable.hitCount);
 }
 
@@ -3414,7 +3948,8 @@ function insertRows(theDiv,xpath,session,json) {
 
 	
 	hideLoader(theDiv.loader);
-	wrapRadios();
+
+	//wrapRadios();
 }
 
 function loadStui(loc) {
@@ -3662,15 +4197,15 @@ function showV() {
 			return clickyLink;
 		};
 
-		/* trace for dijit leak */
-		if(!surveyOfficial) window.TRL=function() {
-			var sec = 5;
-			console.log("Tracing dijit registry leaks every "+sec+"s");
-			window.setInterval(function() {
-				document.title = "[dijit:"+registry.length+"] | ";
-			}, 1000 * sec);
-		};
-		
+//		/* trace for dijit leak */
+//		if(!surveyOfficial) window.TRL=function() {
+//			var sec = 5;
+//			console.log("Tracing dijit registry leaks every "+sec+"s");
+//			window.setInterval(function() {
+//				document.title = "[dijit:"+registry.length+"] | ";
+//			}, 1000 * sec);
+//		};
+//		
 		/**
 		 * list of pages to use with the flipper
 		 * @property pages
@@ -3739,11 +4274,135 @@ function showV() {
 		window.__FLIPPER = flipper;
 		
 		/**
+		 * Manage additional special pages
+		 * @class OtherSpecial
+		 */
+		function OtherSpecial() {
+			// cached page list
+			this.pages = {};
+		}
+		
+		/**
+		 * @function getSpecial
+		 */
+		OtherSpecial.prototype.getSpecial = function getSpecial(name) {
+			return this.pages[name];
+		};
+		
+		/**
+		 * @function loadSpecial
+		 */
+		OtherSpecial.prototype.loadSpecial = function loadSpecial(name, onSuccess, onFailure) {
+			var special = this.getSpecial(name);
+			var otherThis = this;
+			if(special) {
+				stdebug("OS: Using cached special: "+ name);
+				onSuccess(special);
+			} else if (special === null) {
+				stdebug("OS: cached NULL: " + name);
+				onFailure("Special page failed to load: " + name);
+			} else {
+				stdebug("OS: Attempting load.." + name);
+				try {
+					require(["js/special/"+name+".js"], function(specialFn) {
+						stdebug("OS: Loaded, instantiatin':" + name);
+						var special = new specialFn();
+						special.name = name;
+						otherThis.pages[name] = special; // cache for next time
+						
+						stdebug("OS: SUCCESS! " + name);
+						onSuccess(special);
+					});
+				} catch(e) {
+					stdebug("OS: Load FAIL!:" + name + " - " + e.message + " - " + e);
+					if(!otherThis.pages[name]) { // if the load didn't complete:
+						otherThis.pages[name]=null; // mark as don't retry load.
+					}
+					onFailure(e);
+				}
+			}
+		};
+		
+		/**
+		 * @function parseHash
+		 */
+		OtherSpecial.prototype.parseHash = function parseHash(name, hash, pieces) {
+			this.loadSpecial(name, function onSuccess(special) {
+				special.parseHash(hash, pieces);
+			}, function onFailure(e) {
+				console.log("OtherSpecial.parseHash: Failed to load " + name + " - " + e);
+				//SpecialPage.prototype.parseHash(hash, pieces); // fallback for not-exist
+			});
+		};
+
+		/**
+		 * @function handleIdChanged
+		 */
+		OtherSpecial.prototype.handleIdChanged = function handleIdChanged(name, id) {
+			this.loadSpecial(name, function onSuccess(special) {
+				special.handleIdChanged(id);
+			}, function onFailure(e) {
+				console.log("OtherSpecial.handleIdChanged: Failed to load " + name + " - " + e);
+			});
+		};
+
+		/**
+		 * @function showPage
+		 */
+		OtherSpecial.prototype.show = function show(name, params) {
+			this.loadSpecial(name, function onSuccess(special) {
+				// populate the params a little more
+				params.otherSpecial = this;
+				params.name = name;
+				params.special = special;
+				
+				// add anything from scope..
+				
+				params.exports = {
+						// All things that should be separate AMD modules..
+						appendLocaleLink: appendLocaleLink,
+						handleDisconnect: handleDisconnect,
+						clickToSelect: clickToSelect
+				};
+				
+				special.show(params);
+			}, function onFailure(err) {
+				
+				// extended error
+				var loadingChunk;
+				var msg_fmt = stui.sub("v_bad_special_msg",
+						{special: name });
+				params.flipper.flipTo(params.pages.loading, loadingChunk = createChunk(msg_fmt,"p","errCodeMsg"));
+				isLoading=false;
+			});
+		};
+		
+		/**
+		 * instance of otherSpecial manager
+		 * @property otherSpecial
+		 */
+		var otherSpecial = new OtherSpecial();
+		
+		/**
 		 * parse the hash string into surveyCurrent___ variables. 
+		 * Expected to update document.title also.
 		 * @method parseHash
 		 * @param {String} id
 		 */
 		window.parseHash = function parseHash(hash) {
+			function updateWindowTitle() {
+				var t=stui.str('survey_title');
+				if(surveyCurrentLocale && surveyCurrentLocale != '') {
+					t = t + ': '+locmap.getLocaleName(surveyCurrentLocale);
+				}
+				if(surveyCurrentSpecial && surveyCurrentSpecial!='') {
+					t = t + ': ' + stui.str('special_'+surveyCurrentSpecial);
+				}
+				if(surveyCurrentPage && surveyCurrentPage !='') {
+					t = t + ': ' + surveyCurrentPage;
+				}
+				document.title = t;
+			};
 			if(hash) {
 				var pieces = hash.substr(0).split("/");
 				if(pieces.length > 1) {
@@ -3801,12 +4460,8 @@ function showV() {
 							surveyCurrentPage='';
 							surveyCurrentId='';
 						}
-					} else if(surveyCurrentSpecial=='search') {
-						surveyCurrentPage='';
-						surveyCurrentId=''; // for now
 					} else {
-						surveyCurrentPage = '';
-						surveyCurrentId = '';
+						otherSpecial.parseHash(surveyCurrentSpecial, hash, pieces);
 					}
 				}
 			} else {
@@ -3815,6 +4470,12 @@ function showV() {
 				surveyCurrentId='';
 				surveyCurrentPage='';
 				surveyCurrentSection='';
+			}
+			updateWindowTitle();
+
+			 // if there is no locale id, refresh the search.
+			if(!surveyCurrentLocale) {  
+				searchRefresh();
 			}
 		};
 
@@ -3936,20 +4597,24 @@ function showV() {
 		}
 
 		window.showCurrentId = function() {
-			if(surveyCurrentId != '') {
-			    var xtr = dojo.byId('r@' + surveyCurrentId);
-			    if(!xtr) {
-			        console.log("Warning could not load id " + surveyCurrentId + " does not exist");
-			        window.updateCurrentId(null);
-			    } else if(xtr.proposedcell && xtr.proposedcell.showFn) {
-			        // TODO: visible? coverage?
-			        window.showInPop("",xtr,xtr.proposedcell, xtr.proposedcell.showFn, true);
-			        console.log("Changed to " + surveyCurrentId);			        
-			        if(!isDashboard())
-			        	scrollToItem();
-			    } else {
-			        console.log("Warning could not load id " + surveyCurrentId + " - not setup - " + xtr.toString() + " pc=" + xtr.proposedcell + " sf = " + xtr.proposedcell.showFn);
-			    }
+			if(surveyCurrentSpecial && surveyCurrentSpecial != '' && !isDashboard()) {
+				otherSpecial.handleIdChanged(surveyCurrentSpecial, showCurrentId);
+			} else {
+				if(surveyCurrentId != '') {
+				    var xtr = dojo.byId('r@' + surveyCurrentId);
+				    if(!xtr) {
+				        console.log("Warning could not load id " + surveyCurrentId + " does not exist");
+				        window.updateCurrentId(null);
+				    } else if(xtr.proposedcell && xtr.proposedcell.showFn) {
+				        // TODO: visible? coverage?
+				        window.showInPop("",xtr,xtr.proposedcell, xtr.proposedcell.showFn, true);
+				        console.log("Changed to " + surveyCurrentId);			        
+				        if(!isDashboard())
+				        	scrollToItem();
+				    } else {
+				        console.log("Warning could not load id " + surveyCurrentId + " - not setup - " + xtr.toString() + " pc=" + xtr.proposedcell + " sf = " + xtr.proposedcell.showFn);
+				    }
+				}
 			}
 		};
 		
@@ -4002,7 +4667,13 @@ function showV() {
 		};
 		
 		function updateCoverageMenuTitle() {
-			$('#coverage-info').text(stui.sub('coverage_auto_msg', {surveyOrgCov: stui.str('coverage_' + surveyOrgCov)}));
+			var cov = '';
+			if(surveyUserCov) {
+				$('#coverage-info').text(stui.str('coverage_' + surveyUserCov));
+			}
+			else {
+				$('#coverage-info').text(stui.sub('coverage_auto_msg', {surveyOrgCov: stui.str('coverage_' + surveyOrgCov)}));
+			}
 		}
 		function updateCoverageMenuValue() 	
 		{
@@ -4050,14 +4721,65 @@ function showV() {
 		 * @param doPush {Boolean} if false, do not add to history
 		 */
 		function updateHashAndMenus(doPush) {
+			/**
+			 * 'name' - the js/special/___.js name
+			 * 'hidden' - true to hide the item
+			 * 'title' - override of menu name
+			 * @property specialItems
+			 */
+			var specialItems = new Array();
+			if(surveyUser != null){
+				specialItems = [
+//				    {divider: true}, // li class=nav-divider
+//				    {title: 'Manage', url:'survey?do=options' }, 
+				    
+				    {divider: true},
+				    {title: 'My Account'}, // My Account section 
+				  
+				    {title: 'Settings', level: 2, url: surveyUserURL.myAccountSetting, display: surveyUserPerms.userExist },
+				    {title: 'Lock (Disable) My Account', level: 2, url: surveyUserURL.disableMyAccount, display: surveyUserPerms.userExist },
+	
+				    {divider: true},
+				    {title: 'My Votes'}, // My Votes section 
+				  
+				    {special: 'oldvotes', level: 2, display: surveyUserPerms.userCanImportOldVotes },
+				    {title: 'See My Recent Activity', level: 2, url: surveyUserURL.recentActivity },
+				    {title: 'Upload XML', level: 2, url: surveyUserURL.xmlUpload },
+	
+				    {divider: true},
+				    {title: 'My Organization('+organizationName+')'}, // My Organization section
+				  
+				    {special: 'vsummary', level: 2 },
+				    {title: 'List ' + org + ' Users', level: 2, url: surveyUserURL.manageUser, display: (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter) },
+				    {title: 'LOCKED: Note: your account is currently locked.', level: 2,  display: surveyUserPerms.userIsLocked, bold: true},
+				    
+				    {divider: true},
+				    {title: 'Forum'}, // Forum section
+				  
+				    {title: 'View Flagged Entries', level: 2, url: surveyUserURL.flag, display: surveyUserPerms.hasFlag, img: surveyImgInfo.flag},
+				    {title: '(no flagged items)', level: 2, display: !surveyUserPerms.hasFlag, italic: true },
+				    {title: 'RSS 2.0', level: 2, url: surveyUserURL.RSS, img: surveyImgInfo.RSS},
+				    {special: 'mail', level: 2, display: !surveyOfficial },
+				    
+				    {divider: true},
+				    {title: 'Informational'}, // Informational section
+				  
+				    {special: 'statistics', level: 2 },
+				    {title: 'About', level: 2, url: surveyUserURL.about },
+				    {title: 'Lookup a code or xpath', level: 2, url: surveyUserURL.browse, display: surveyUserPerms.hasDataSource },
+				    
+				    {divider: true}, 
+				];
+			}
 			if(!doPush) {doPush = false;}
 			replaceHash(doPush); // update the hash
 			updateLocaleMenu();
-
-			if(surveyCurrentLocale==null) {
+			
+			if(surveyCurrentLocale==null) { // deadcode?
 				menubuttons.set(menubuttons.section);
 				if(surveyCurrentSpecial!=null) {
-					menubuttons.set(menubuttons.page, stui_str("special_"+surveyCurrentSpecial));
+					var specialId = "special_"+surveyCurrentSpecial;
+					menubuttons.set(menubuttons.page, stui_str(specialId));
 				} else {
 					menubuttons.set(menubuttons.page);
 				}
@@ -4071,19 +4793,95 @@ function showV() {
 			 * @method updateMenuTitles
 			 */
 			function updateMenuTitles(menuMap) {
+				if(menubuttons.lastspecial === undefined) {
+					menubuttons.lastspecial = null;
+					
+					// Set up the menu here?
+					var parMenu = dojo.byId("manage-list");
+					for(var k =0; k< specialItems.length; k++) {
+						var item = specialItems[k];
+						(function(item){
+							if(item.display != false) {
+								var subLi = document.createElement("li");
+								if(item.special){ // special items so look up in stui.js
+									item.title = stui.str('special_' + item.special);
+									item.url = '#' + item.special;
+									item.blank = false;
+								}
+								if(item.url){	
+									var subA = document.createElement("a");
+									
+									if(item.img){ // forum may need images attached to it
+										var Img=document.createElement("img");
+										Img.setAttribute('src', item.img.src);
+										Img.setAttribute('alt', item.img.alt);
+										Img.setAttribute('title', item.img.src);
+										Img.setAttribute('border', item.img.border);
+										
+										subA.appendChild(Img);
+									}
+									subA.appendChild(document.createTextNode(item.title+' '));
+									subA.href = item.url;
+									
+									if(item.blank != false){
+										subA.target = '_blank';
+										subA.appendChild(createChunk('','span','glyphicon glyphicon-share manage-list-icon'));
+									}
+								
+									if(item.level){ // append it to appropriate levels
+										var level = item.level;
+										for(var i=0; i< level-1; i++){
+											var sublevel = document.createElement("ul");
+											sublevel.appendChild(subA);
+											subA = sublevel;
+										}
+									}
+									subLi.appendChild(subA);
+								}
+								if(!item.url && !item.divider){ // if it is pure text/html & not a divider
+									if(!item.level){
+										subLi.appendChild(document.createTextNode(item.title+' '));
+									}else{
+										var subA = null;
+										if(item.bold){
+											subA = document.createElement("b");
+										}else if(item.italic){
+											subA = document.createElement("i");
+										}else{
+											subA = document.createElement("span");
+										}
+										subA.appendChild(document.createTextNode(item.title+' '));
+										
+										var level = item.level;
+										for(var i=0; i< level-1; i++){
+											var sublevel = document.createElement("ul");
+											sublevel.appendChild(subA);
+											subA = sublevel;
+										}
+										subLi.appendChild(subA);
+									}
+								}
+								if(item.divider) {
+									subLi.className = 'nav-divider';
+								}
+								parMenu.appendChild(subLi);
+							}
+						})(item);
+					}
+				}
+				
+				if(menubuttons.lastspecial) {
+					removeClass(menubuttons.lastspecial, "selected");
+				}
+
 				updateLocaleMenu(menuMap);
 				if(surveyCurrentSpecial!= null && surveyCurrentSpecial != '') {
 //					menubuttons.set(menubuttons.section /*,stui_str("section_special") */);
 					//menubuttons.set(menubuttons.section,stui_str("special_"+surveyCurrentSpecial));
-					switch(surveyCurrentSpecial) {
-						case "r_vetting_json":
-							$('#section-current').html(stui_str('Dashboard'));
-							break;
-						
-						default:
-						$('#section-current').html(stui_str("special_"+surveyCurrentSpecial));
-							break;
-					}
+					var specialId = "special_"+surveyCurrentSpecial;
+					$('#section-current').html(stui_str(specialId));
+//					menubuttons.lastspecial = dojo.byId('menu_'+specialId);
+//					addClass(menubuttons.lastspecial, 'selected');
 					setDisplayed(titlePageContainer, false);
 				} else if(!menuMap) {
 					//menubuttons.set(menubuttons.section);
@@ -4176,9 +4974,12 @@ function showV() {
 						iconClass: "dijitMenuItemIcon", // menu-chat
 						disabled: true,
 						onClick: function(){ 
-							// TODO:  make this a real section
-							window.open(survURL + '?forum=' + locmap.getLanguage(surveyCurrentLocale));
-						}
+							surveyCurrentId = '!'; // no id if jumping pages
+							surveyCurrentPage = '';
+							surveyCurrentSpecial = 'forum';
+							updateMenus(menuMap);
+							updateMenuTitles(menuMap);
+							reloadV();						}
 					});
 					menuSection.addChild(menuMap.forumMenu);
 					
@@ -4290,7 +5091,8 @@ function showV() {
 					}
 				}
 				
-				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),(surveyUser	===null));				
+				menuMap.setCheck(menuMap.forumMenu,  (surveyCurrentSpecial == 'forum'),(surveyUser	===null));	
+				resizeSidebar();
 			}
 
 			if(_thePages == null || _thePages.loc != surveyCurrentLocale ) {
@@ -4483,6 +5285,7 @@ function showV() {
 			}
 			
 			document.getElementById('DynamicDataSection').innerHTML = '';//reset the data
+			$('#nav-page').hide();
 			isLoading = false;
 			showers[flipper.get(pages.data).id]=function(){ console.log("reloadV()'s shower - ignoring reload request, we are in the middle of a load!"); };
 			
@@ -4515,10 +5318,6 @@ function showV() {
 //			var serverLoadInfo = createChunk("","div","serverLoadInfo");			
 //			//loadingPane.appendChild(serverLoadInfo);
 			{
-				window.setTimeout(function(){
-						 updateStatus(); // will restart regular status updates
-				}, 5000); // get a status update about 5s in.
-
 				// Create a little spinner to spin "..." so the user knows we are doing something..
 				var spinChunk = createChunk("...","i","loadingMsgSpin");
 				var spin = 0;
@@ -4588,7 +5387,7 @@ function showV() {
 						// (common case) this is an actual locale data page.
 						itemLoadInfo.appendChild(document.createTextNode(locmap.getLocaleName(surveyCurrentLocale) + '/' + surveyCurrentPage + '/' + surveyCurrentId));
 						var url = contextPath + "/RefreshRow.jsp?json=t&_="+surveyCurrentLocale+"&s="+surveySessionId+"&x="+surveyCurrentPage+"&strid="+surveyCurrentId+cacheKill();
-							
+						$('#nav-page').show();
 						myLoad(url, "section", function(json) {
 							isLoading=false;
 							showLoader(theDiv.loader,stui.loading2);
@@ -4631,6 +5430,9 @@ function showV() {
 									updateCoverage(flipper.get(pages.data)); // make sure cov is set right before we show.
 									flipper.flipTo(pages.data); // TODO now? or later?
 									window.showCurrentId(); // already calls scroll
+									//refresh counter and add navigation at bottom
+									refreshCounterVetting();
+									$('.vetting-page').after($('#nav-page .nav-button').clone());
 								});
 							}
 						});
@@ -4724,20 +5526,6 @@ function showV() {
 											tr.appendChild(createChunk(stui.str("v_oldvotes_mine"),"th","v-mine"));
 											var accept;
 											tr.appendChild(accept=createChunk(stui.str("v_oldvotes_accept"),"th","v-accept"));
-/*
-											accept.appendChild(createLinkToFn("v_oldvotes_all", function() {
-												for(var k in json.oldvotes.contested) {
-													var row = json.oldvotes.contested[k];
-													row.box.checked = true;
-												}
-											}));
-											accept.appendChild(createLinkToFn("v_oldvotes_none", function() {
-												for(var k in json.oldvotes.contested) {
-													var row = json.oldvotes.contested[k];
-													row.box.checked = false;
-												}
-											}));
-*/
 											th.appendChild(tr);
 										}
 										t.appendChild(th);
@@ -4831,6 +5619,18 @@ function showV() {
 											tb.appendChild(tr);
 										}
 										t.appendChild(tb);
+										t.appendChild(createLinkToFn("v_oldvotes_all", function() {
+											for(var k in json.oldvotes[type]) {
+												var row = json.oldvotes[type][k];
+												row.box.checked = true;
+											}
+										}, "button"));
+										t.appendChild(createLinkToFn("v_oldvotes_none", function() {
+											for(var k in json.oldvotes[type]) {
+												var row = json.oldvotes[type][k];
+												row.box.checked = false;
+											}
+										}, "button"));
 										return t;
 									}
 
@@ -5183,189 +5983,8 @@ function showV() {
 					surveyCurrentSpecial='locales';
 					showInPop2(stui.str("localesInitialGuidance"), null, null, null, true); /* show the box the first time */					
 					$('#itemInfo').html('');
-				} else if(surveyCurrentSpecial=='search') {
-					// setup
-					var searchCache = window.searchCache;
-					if(!searchCache) {
-						searchCache = window.searchCache = {};
-					}
-					
-					hideLoader(null);
-					isLoading=false;					
-					var theDiv = document.createElement("div");
-					theDiv.className = 'search';
-
-					// install
-					var theInput = document.createElement("input");
-					theDiv.appendChild(theInput);
-					
-					var theSearch = createChunk(stui.str("search"), "button");
-					theDiv.appendChild(theSearch);
-					
-					var theResult = document.createElement("div");
-					theResult.className = 'results';
-					theDiv.appendChild(theResult);
-
-					
-					var newLocale = surveyCurrentLocale;
-					
-					var showResults = function showResults(searchTerm) {
-						var results=searchCache[searchTerm];
-						removeAllChildNodes(theResult);
-						if(newLocale!=surveyCurrentLocale) {
-							var newName = locmap.getLocaleName(newLocale);
-							theResult.appendChild(createChunk(newName, "h4"));
-						}
-						theResult.appendChild(createChunk(searchTerm, "h3"));
-						
-						if(results.length == 0) {
-							theResult.appendChild(createChunk(stui.str("searchNoResults", "h3", "searchNoResults")));
-						} else {
-							for(var i=0;i<results.length;i++) {
-								var result = results[i];
-								
-								var theLi = document.createElement("li");
-								
-								var appendLink = function appendLink(title, url, theClass) {
-									var theA = createChunk(title, "a");
-									if(url && newLocale!='' && newLocale!=null) {
-										theA.href = url;
-									}
-									if(theClass!=null) {
-										theA.className = theClass;
-									}
-									theLi.appendChild(theA);
-								};
-								
-								if(result.xpath) {
-									if(result.strid) {
-										codeUrl = "#/"+newLocale+"//"+result.strid;
-									}
-									appendLink(result.xpath, codeUrl, "xpath");
-								}
-								
-								if(result.ph) {
-									result.ph.strid = result.strid;
-									result = result.ph; // pick up as section
-								}
-								
-								var codeUrl = null;
-								
-								if(result.section) {
-									codeUrl =  "#/"+newLocale+"/"+result.section+"/!";
-									if(result.page) {
-										codeUrl = "#/"+newLocale+"/"+result.page+"/";
-										if(result.strid) {
-											codeUrl = "#/"+newLocale+"/"+result.page+"/"+result.strid;
-										}
-									}
-								}
-								
-								if(result.section) {
-									appendLink(result.section, codeUrl);
-									if(result.page) {
-										theLi.appendChild(createChunk("»"));
-										appendLink(result.page, codeUrl);
-										if(result.code) {
-											theLi.appendChild(createChunk("»"));
-											appendLink(result.code, codeUrl, "codebox");
-										}
-									}
-								}
-								
-								if(result.loc) {
-									appendLocaleLink(theLi, result.loc, locmap.getLocaleInfo(result.loc), true);
-								}
-								
-								theResult.appendChild(theLi);
-							}
-						}
-						
-						theResult.last = searchTerm;
-						theResult.loc = newLocale;
-					};
-					
-					var showSearchTerm = function showSearchTerm(searchTerm) {
-						if((searchTerm != theResult.last || theResult.loc != newLocale) && searchTerm != null) {
-							theResult.last = null;
-							theResult.loc = null;
-							removeAllChildNodes(theResult);
-							theResult.appendChild(createChunk(searchTerm, "h3"));
-							
-							if(!(searchTerm in searchCache)) {
-								   var xurl = contextPath + "/SurveyAjax?&s="+surveySessionId+"&what=search"; // allow cache
-								   if(newLocale!=null&&newLocale!='') {
-									   xurl = xurl + "&_="+newLocale;
-								   }
-								   queueXhr({
-								        url:xurl, // allow cache
-							 	        handleAs:"json",
-							 	        load: function(h){
-							 	        	if(h.results) {
-							 	        		searchCache[searchTerm] = h.results;
-									 			showResults(searchTerm);
-							 	        	} else {
-							 	        		theResult.appendChild(createChunk("(search error)","i"));
-							 	        	}
-								        },
-								        error: function(err, ioArgs){
-								 			var msg ="Error: "+err.name + " - " + err.message;
-						 	        		theResult.appendChild(createChunk(msg,"i"));
-								        },
-								        postData: searchTerm
-								    });
-							} else {
-								showResults(searchTerm);
-							}
-							
-
-						} else {
-							//no change;
-						}
-					};
-					
-					var searchFn = function searchFn(e) {
-						var searchTerm = theInput.value;
-						
-						if(searchTerm.indexOf(':')>0) {
-							var segs = searchTerm.split(':');
-							if(locmap.getLocaleInfo(segs[0])!=null) {
-								newLocale = segs[0];
-								// goto
-								if(segs.length==1) {
-									surveyCurrentSpecial='';
-									surveyCurrentLocale=newLocale;
-									reloadV();
-									return;
-								}
-								searchTerm = segs[1];
-							}
-						}
-						
-						showSearchTerm(searchTerm);
-
-						return stStopPropagation(e);
-					};
-					
-					listenFor(theInput, "change", searchFn);
-					listenFor(theSearch, "click", searchFn);
-
-					flipper.flipTo(pages.other, theDiv);
-					theInput.focus();
-					surveyCurrentLocale=null;
-					surveyCurrentSpecial='search';
-					showInPop2(stui.str("searchGuidance"), null, null, null, true); /* show the box the first time */					
 				} else {
-					var msg_fmt = stui.sub("v_bad_special_msg",
-							{special: surveyCurrentSpecial });
-
-					var loadingChunk;
-					flipper.flipTo(pages.loading, loadingChunk = createChunk(msg_fmt, "p", "errCodeMsg"));
-					var retryButton = createChunk(stui.str("loading_reload"),"button");
-					loadingChunk.appendChild(retryButton);
-					retryButton.onclick = function() { 	window.location.reload(true); };
-					showLoader(theDiv.loader);
-					isLoading=false;
+					otherSpecial.show(surveyCurrentSpecial, {flipper: flipper, pages: pages});
 				}
 			}; // end shower
 
@@ -5620,7 +6239,8 @@ function showV() {
 							updateHashAndMenus(false); // TODO: why? Maybe to show an item?
 							$('#coverage-info').text(newValue.ucFirst());
 							$(this).parents('.dropdown-menu').dropdown('toggle');
-							
+							if(!isDashboard())
+								refreshCounterVetting();
 							return false;
 						});
 						// TODO have to move this out of the DOM..
@@ -5701,12 +6321,14 @@ function refreshRow2(tr,theRow,vHash,onSuccess, onFailure) {
         			updateRow(tr, theRow);
 
         			//style the radios
-        			wrapRadios();
-        			
+        			//wrapRadios(tr);
         			hideLoader(tr.theTable.theDiv.loader);
         			onSuccess(theRow);
         			if(isDashboard()) {
         				refreshFixPanel(json);
+        			}
+        			else {
+        				refreshCounterVetting();
         			}
         		} else {
         	        tr.className = "ferrbox";
@@ -5776,6 +6398,7 @@ function handleWiredClick(tr,theRow,vHash,box,button,what) {
 
 	// select
 	updateCurrentId(theRow.xpstrid);
+	
 	// and scroll
 	showCurrentId();
 	
@@ -6538,14 +7161,35 @@ function showstats(hname) {
 					
 					var header=json.byday.header;
 					var data=json.byday.data;
+					var header_new=json.byday_new.header;
+					var data_new=json.byday_new.data;
+					var labels_old = [];
+					var count_old = [];
 					var labels = [];
-					var count = [];
-					for(var i in data) {
-						labels.push(data[i][header.LAST_MOD]);
-						count.push(data[i][header.COUNT]);
+					var count_new = [];
+					for(var i in data_new) {
+						var newLabel = (data_new[i][header_new.LAST_MOD]).split(' ')[0];
+						var newCount = data_new[i][header_new.COUNT];
+						labels.push(newLabel); // labels come from new data
+						count_new.push(newCount);
+						var oldLabel = (data[i][header.LAST_MOD]).split(' ')[0];
+						if(newLabel == oldLabel) {
+							// have old data
+							var oldCount = data[i][header.COUNT];
+							if(oldCount < newCount) {
+								console.log("Preposterous: at " + newLabel + ": " + oldCount + " oldCount < " + newCount + "  newCount " );
+								count_old.push(-1);
+							} else {
+								count_old.push(oldCount - newCount);
+							}
+						} else {
+							console.log("Desync: " + newLabel + " / " + oldLabel);
+							count_old.push(-1);
+						}
 					}
 					var gdata = [];
-					gdata.push(count);
+					gdata.push(count_new);
+					gdata.push(count_old);
 					showLoader(null, "Drawing");
 					// this: 0,id,node,paper,attrs,transformations,_,prev,next,type,bar,value,events
 					// this.bar ["0", "id", "node", "paper", "attrs", "transformations", "_", "prev", "next", "type", "x", "y", "w", "h", "value"]
@@ -6561,12 +7205,15 @@ function showstats(hname) {
 					var offh = 10;
 					var toffh = 30;
 					var toffv=10+(hei/(2*labels.length));
-					console.log("Drawing in : " + hname + " - "  + count.toString());
-					r.g.hbarchart(100,offh,600,hei, gdata )
-						.hover(fin,fout);
-						//.label(labels2);
+					console.log("Drawing in : " + hname + " - "  + count_new.toString());
+					r.g.hbarchart(100,offh,600,hei, gdata,  {
+						stacked: true,
+						colors: ["#8aa717","#1751a7"]
+					})
+					.hover(fin,fout);
+	                //.label(labels2);
 					for(var i in labels) {
-						r.text(toffh,toffv+(i*(hei/labels.length)), (labels[i].split(" ")[0])+"\n"+count[i]  );
+						r.text(toffh,toffv+(i*(hei/labels.length)), (labels[i].split(" ")[0])+"\n"+count_new[i]  );
 					}
 					hideLoader(null);
 				} else {
@@ -6586,6 +7233,129 @@ function showstats(hname) {
 	};
 	queueXhr(xhrArgs);
 	});
+}
+/**
+ * @method refreshCounterVetting
+ * Update the counter on top of the vetting page
+ */
+function refreshCounterVetting() {
+	if(isVisitor) {
+		//if the user is a visitor, don't display the counter informations
+		$('#nav-page .counter-infos, #nav-page .nav-progress').hide();
+		return;
+	}
+	
+	var inputs = $('.vetting-page input:visible:checked');
+	var total = inputs.length;
+	var abstain = inputs.filter(function() { return this.id.substr(0,2) === 'NO';}).length;
+	var voted = total - abstain;
+	
+	document.getElementById('count-total').innerHTML = total;
+	document.getElementById('count-abstain').innerHTML = abstain;
+	document.getElementById('count-voted').innerHTML = voted;
+	if(total === 0) {
+		total = 1;
+	}
+	document.getElementById('progress-voted').style.width = voted*100/total + '%';
+	document.getElementById('progress-abstain').style.width = abstain*100/total + '%';
+}
+
+/**
+ * @method chgPage
+ * Go to the next (1) or the previous page (1) during the vetting
+ * @param {Integer} shift next page (1) or previous (-1)
+ */
+function chgPage(shift) {
+	//no page, or wrong shift
+	if(!_thePages || (shift !== -1 && shift !== 1))
+		return;
+	
+	var menus = getMenusFilteredByCov();
+	var parentIndex = 0;
+	var index = 0;
+	var parent = _thePages.pageToSection[surveyCurrentPage].id;
+	
+	//get the parent index
+	for(var m in menus) {
+		var menu = menus[m];
+		if(menu.id === parent) {
+			parentIndex = parseInt(m);
+			break;
+		}
+	}
+
+	for(var m in menus[parentIndex].pagesFiltered) {
+		var menu = menus[parentIndex].pagesFiltered[m];
+		if(menu.id === surveyCurrentPage) {
+			index = parseInt(m);
+			break;
+		}
+	}
+	//go to the next one
+	index += parseInt(shift);
+
+	if(index >= menus[parentIndex].pagesFiltered.length) {
+		parentIndex++;
+		index = 0;
+		if(parentIndex >= menus.length) {
+			parentIndex = 0;
+		}
+	}
+	
+	if(index < 0) {
+		parentIndex--;
+		if(parentIndex < 0) {
+			parentIndex = menus.length - 1;
+		}
+		index = menus[parentIndex].pagesFiltered.length - 1;
+	}
+
+
+	surveyCurrentSection = menus[parentIndex].id;
+	surveyCurrentPage = menus[parentIndex].pagesFiltered[index].id;
+
+	reloadV();
+	
+	var sidebar = $('#locale-menu #'+surveyCurrentPage);
+	sidebar.closest('.open-menu').click();
+}
+
+/**
+ * @method getMenusFilteredByCov
+ * Get all the menus under this coverage
+ * @return {Array} list of all the menus under this coverage
+ */
+function getMenusFilteredByCov() {
+	if (!_thePages)
+		return;
+	//get name of current coverage
+	var cov = surveyUserCov;
+	if(!cov) {
+		cov = surveyOrgCov;
+	}
+	
+	//get the value
+	var val = covValue(cov);
+	var sections = _thePages.sections;
+	var menus = [];
+	//add filtered pages
+	for(var s in sections) {
+		var section = sections[s];
+		var pages = section.pages;
+		var sectionContent = [];
+		for(var p in pages) {
+			var page = pages[p];
+			var key = Object.keys(page.levs).pop();
+			if(parseInt(page.levs[key]) <= val)
+				sectionContent.push(page);
+		}
+		
+		if(sectionContent.length) {
+			section.pagesFiltered = sectionContent;
+			menus.push(section);
+		}
+	}
+	return menus;
 }
 
 
@@ -6734,7 +7504,13 @@ function showRecent(divName, locale, user) {
 	}
 	dojo.ready(function() {
 		loadStui();
-		var div = dojo.byId(divName);
+		var div;
+		
+		if(divName.nodeType>0 ) {
+			div = divName; 
+		} else {
+			div = dojo.byId(divName);
+		}
 		div.className = "recentList";
 		div.update = function() {
 		var ourUrl = contextPath + "/SurveyAjax?what=recent_items&_="+locale+"&user="+user+"&limit="+15;

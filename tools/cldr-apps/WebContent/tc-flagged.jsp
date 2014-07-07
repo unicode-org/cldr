@@ -21,10 +21,12 @@ Connection conn = null;
 %>
 <a href="<%=request.getContextPath()%>/survey?do=list">Return to the SurveyTool <img src='STLogo.png' style='float:right;' /></a>
 <hr/>
+
+<div class='flaggedItemsBox'>
 <h2><img src='flag.png' /><%= l.length %> flagged items in This  <%=  cs.sm.getNewVersion() %> Release</h2>
 
 
-<table class='data'>
+<table class='data flaggedItems'>
 <%		
 		for(Map<String,Object> m : l) {
 			CLDRLocale locale = CLDRLocale.getInstance(m.get("locale").toString());
@@ -38,16 +40,16 @@ Connection conn = null;
 	        WebContext.appendContextVurl(linkurl, locale, ph.getPageId(), strid, "");
 			%>
 			<tr class='r<%= ((n++) % 2) %>'>
-				<th><%= locale.getDisplayName() %></th>
-				<th><%= ph %><br><tt class='codebox' title='<%= xpathId %>'><%= xpath %></tt></th>
-				<td id='<%=locale.toString()+"."+xpathId%>'>
+				<td class='flaggedZoom'>
+				</td>
+				<th class='flaggedLocale'><%= locale.getDisplayName() %></th>
+				<th class='flaggedPath'><a href='<%= linkurl %>'><%= ph %></a><br><tt class='codebox' title='<%= xpathId %>'><%= xpath %></tt>
+						</th>
+				<td class='flaggedId' id='<%=locale.toString()+"."+xpathId%>'>
 					When: <%= m.get("last_mod") %>
 			           <script>
 			            dojo.byId('<%=locale.toString()+"."+xpathId%>').appendChild(createUser( <%= user.toJSONString() %> ));
 			           </script>
-				</td>
-				<td>
-					<a href='<%= linkurl %>'><img src='zoom.png' alt='[zoom]' />View...</a>
 				</td>
 			</tr>
 			<%
@@ -59,6 +61,8 @@ Connection conn = null;
 
 %>
 </table>
+
+</div>
 
 </body>
 </html>

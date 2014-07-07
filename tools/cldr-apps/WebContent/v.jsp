@@ -246,23 +246,29 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
         <%=  (ctx.sm.phase()!=SurveyMain.Phase.SUBMIT)?ctx.sm.phase().toString():"" %>
         </p>
           <ul class="nav navbar-nav">
-            <li><a href="<%= survURL  %>?do=options" target="_blank"><span class="glyphicon glyphicon-share"></span>&nbsp;&nbsp;Manage</a></li>
-            
+            <li class="pull-menu">
+		          <a href="#"><span class="glyphicon glyphicon-cog"></span> <b class="caret"></b></a>
+		          <ul id='manage-list' class="nav nav-pills nav-stacked" style="display:none">
+		            <%-- "new" pages show up here (.js modules) --%>
+		            <li>
+			        	<button type="button" class="btn btn-default toggle-right">Toggle Sidebar <span class="glyphicon glyphicon-align-right"></span></button>
+		            </li>
+				  </ul>
+		   </li>
             <li class="dropdown" id='title-coverage' style='display:none'>
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Coverage: <span id="coverage-info"></span></a>
                       <ul class="dropdown-menu">
                       </ul>
            </li>
             
-            <li id="help-menu">
+            <li id="help-menu" class="pull-menu">
 		          <a href="#"><%= SurveyMain.GENERAL_HELP_NAME %> <b class="caret"></b></a>
 		          <ul class="nav nav-pills nav-stacked" style="display:none">
 		            <li><a href="<%= SurveyMain.GENERAL_HELP_URL %>" target="_blank"><%= SurveyMain.GENERAL_HELP_NAME %> <span class="glyphicon glyphicon-share"></span></a></li>
 		            <li class="nav-divider"></li>
-		            <li id="help-content"></li>
+		            <li id="help-content">Welcome</li>
 		          </ul>
-		      </li>
-          
+		   </li>
           </ul>
           <p class="navbar-text navbar-right">
               <span id="flag-info"></span>
@@ -274,7 +280,7 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
                   String cookieMessage = haveCookies?"<!-- and Forget Me-->":"";
 	              %>
 	               <span class="hasTooltip" title="<%= ctx.session.user.email %>"><%= ctx.session.user.name %></span>
-	               (<%= ctx.session.user.org %>)
+	               <span class='glyphicon glyphicon-user tip-log' title='<%= ctx.session.user.org %>'></span>
 	              
 	              <% Integer reducedLevelVote =ctx.session.user.getLevel().canVoteAtReducedLevel(); 
 	              	 int regularVote = ctx.session.user.getLevel().getVotes(); %>
@@ -283,12 +289,12 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 	              		<option selected="selected" value="<%= regularVote %>"><%= regularVote %> votes</option>
 	              		<option value="<%= reducedLevelVote %>"><%= reducedLevelVote %> votes</option>
 	             		</select>
-	              	 |
+	              	 
 	              <% } %>
-	               (<a class='navbar-link' href='<%= survURL + "?do=logout" %>'>Logout<%= cookieMessage %></a>)
+	               | <a class='navbar-link' href='<%= survURL + "?do=logout" %>'><span class='glyphicon glyphicon-log-out tip-log' title='Logout'></span><%= cookieMessage %></a>
 	                <script type="text/javascript">var isVisitor = 0</script>
 	        <% } else { %>
-                   (<a href='<%= request.getContextPath() %>/login.jsp' class='navbar-link'>Login…</a>)
+                   | (<a href='<%= request.getContextPath() %>/login.jsp' class='navbar-link'>Login…</a>)
       		        <script type="text/javascript">var isVisitor = 1</script>
             		
             <% } %>
@@ -367,8 +373,30 @@ surveyUser =  <%= ctx.session.user.toJSONString() %>;
 
         </div> <%-- end of toptitle --%>
 
-       
-    </div> 
+       <div class='row' id='nav-page'>
+		    <div class='col-md-9'>
+			    <p class='nav-button'>
+				  <button type="button" class="btn btn-primary btn-xs" onclick='chgPage(-1)'><span class='glyphicon glyphicon-arrow-left'></span> Previous</button>
+				  <button type="button" class="btn btn-primary btn-xs" onclick='chgPage(1)'>Next <span class='glyphicon glyphicon-arrow-right'></span></button>
+				  <button type="button" class="btn btn-default btn-xs toggle-right">Toggle Sidebar <span class="glyphicon glyphicon-align-right"></span></button>
+				
+				</p>
+		 
+			    	<div class="progress nav-progress">
+						  
+						  <div id="progress-voted" class="progress-bar progress-bar-info tip-log" title='Votes' style="width: 0%">
+						  </div>
+						  <div id="progress-abstain" class="progress-bar progress-bar-warning tip-log" title='Abstain' style="width: 0%">
+						  </div>
+					</div>
+					<div class='counter-infos'>Votes: <span id='count-voted'></span> - Abstain: <span id='count-abstain'></span> - Total: <span id='count-total'></span>
+			    	
+			    	</div>
+		    </div>
+       </div>
+    </div>
+    
+    
   </div>  
 
     <div class="row" id="main-row" style="padding-top:147px;">

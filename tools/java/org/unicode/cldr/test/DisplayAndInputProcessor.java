@@ -3,8 +3,11 @@
 
 package org.unicode.cldr.test;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -53,6 +56,13 @@ public class DisplayAndInputProcessor {
 
     public static final Pattern NUMBER_FORMAT_XPATH = Pattern
         .compile("//ldml/numbers/.*Format\\[@type=\"standard\"]/pattern.*");
+    private static final Pattern APOSTROPHE_SKIP_PATHS = Pattern.compile("//ldml/("
+        + "characters/.*|"
+        + "delimiters/.*|"
+        + "dates/.+/(pattern|intervalFormatItem|dateFormatItem).*|"
+        + "units/.+/unitPattern.*|"
+        + "numbers/symbols.*|"
+        + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
     private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?<![0#'])\\.(?![0#'])");
     private static final Pattern WHITESPACE_NO_NBSP_TO_NORMALIZE = Pattern.compile("\\s+"); // string of whitespace not
     // including NBSP, i.e. [
@@ -73,6 +83,8 @@ public class DisplayAndInputProcessor {
     private static final CLDRLocale MYANMAR = CLDRLocale.getInstance("my");
     private static final CLDRLocale GERMAN_SWITZERLAND = CLDRLocale.getInstance("de_CH");
     private static final CLDRLocale SWISS_GERMAN = CLDRLocale.getInstance("gsw");
+    public static final Set<String> LANGUAGES_USING_MODIFIER_APOSTROPHE = 
+        new HashSet<String>(Arrays.asList("br","bss","cch","gn","ha","ha_Latn","lkt","mgo","moh","nnh","qu","quc","uk","uz","uz_Latn"));
 
     // Ş ş Ţ ţ  =>  Ș ș Ț ț
     private static final char[][] ROMANIAN_CONVERSIONS = {
@@ -460,6 +472,7 @@ public class DisplayAndInputProcessor {
      * @return
      */
     public synchronized String processForDisplay(String path, String value) {
+        value = Normalizer.compose(value, false); // Always normalize all text to NFC.
         if (path.contains("exemplarCharacters")) {
             if (value.startsWith("[") && value.endsWith("]")) {
                 value = value.substring(1, value.length() - 1);
@@ -488,6 +501,10 @@ public class DisplayAndInputProcessor {
                 }
             }
         }
+        // Fix up any apostrophes as appropriate (Don't do so for things like date patterns...
+        if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
+             value = normalizeApostrophes(value);
+        }
         return value;
     }
 
@@ -509,6 +526,7 @@ public class DisplayAndInputProcessor {
      */
     public synchronized String processInput(String path, String value, Exception[] internalException) {
         String original = value;
+        value = Normalizer.compose(value, false); // Always normalize all input to NFC.
         if (internalException != null) {
             internalException[0] = null;
         }
@@ -554,7 +572,11 @@ public class DisplayAndInputProcessor {
             // fix date patterns
             DateTimePatternType datetimePatternType = DateTimePatternType.fromPath(path);
             if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(datetimePatternType)) {
-                value = dtc.getCanonicalDatePattern(path, value, datetimePatternType);
+                try {
+                    value = dtc.getCanonicalDatePattern(path, value, datetimePatternType);
+                } catch (IllegalArgumentException ex) {
+                    return value;
+                }
             }
 
             if (path.startsWith("//ldml/numbers/currencies/currency") && path.contains("displayName")) {
@@ -629,6 +651,11 @@ public class DisplayAndInputProcessor {
 
             // Replace Arabic presentation forms with their nominal counterparts
             value = replaceArabicPresentationForms(value);
+
+            // Fix up any apostrophes as appropriate (Don't do so for things like date patterns...
+            if (!APOSTROPHE_SKIP_PATHS.matcher(path).matches()) {
+                 value = normalizeApostrophes(value);
+            }
             return value;
         } catch (RuntimeException e) {
             if (internalException != null) {
@@ -687,6 +714,29 @@ public class DisplayAndInputProcessor {
         return result.toString();
     }
 
+    private String normalizeApostrophes(String value) {
+        // If our DAIP always had a CLDRFile to work with, then we could just check the exemplar set in it to see.
+        // But since we don't, we just maintain the list internally and use it.
+        if (LANGUAGES_USING_MODIFIER_APOSTROPHE.contains(locale.getLanguage())) {
+            return value.replace('\'', '\u02bc');
+        } else {
+            char prev = 0;
+            StringBuilder builder = new StringBuilder();
+            for (char c : value.toCharArray()) {
+                if (c == '\'') {
+                    if (Character.isLetter(prev)) {
+                        builder.append('\u2019');
+                    } else {
+                        builder.append('\u2018');
+                    }
+                } else {
+                    builder.append(c);
+                }
+                prev = c;
+            }
+            return builder.toString();
+        }
+    }
     private String standardizeRomanian(String value) {
         StringBuilder builder = new StringBuilder();
         for (char c : value.toCharArray()) {

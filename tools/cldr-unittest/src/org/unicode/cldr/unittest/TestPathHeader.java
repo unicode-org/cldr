@@ -256,10 +256,14 @@ public class TestPathHeader extends TestFmwkPlus {
         verifyContains(PageId.Duration, filePaths, "few", false);
         verifyContains(PageId.C_NAmerica, filePaths, "many", false);
         verifyContains(PageId.C_SAmerica, filePaths, "many", false);
-        verifyContains(PageId.C_Europe, filePaths, "many", false);
-        verifyContains(PageId.C_NWAfrica, filePaths, "many", false);
-        verifyContains(PageId.C_SEAfrica, filePaths, "many", false);
-        verifyContains(PageId.C_WCAsia, filePaths, "many", false);
+        verifyContains(PageId.C_NWEurope, filePaths, "many", false);
+        verifyContains(PageId.C_SEEurope, filePaths, "many", false);
+        verifyContains(PageId.C_NAfrica, filePaths, "many", false);
+        verifyContains(PageId.C_WAfrica, filePaths, "many", false);
+        verifyContains(PageId.C_SAfrica, filePaths, "many", false);
+        verifyContains(PageId.C_EAfrica, filePaths, "many", false);
+        verifyContains(PageId.C_CAsia, filePaths, "many", false);
+        verifyContains(PageId.C_WAsia, filePaths, "many", false);
         verifyContains(PageId.C_SEAsia, filePaths, "many", false);
         verifyContains(PageId.C_Oceania, filePaths, "many", false);
         verifyContains(PageId.C_Unknown, filePaths, "many", false);
@@ -270,10 +274,14 @@ public class TestPathHeader extends TestFmwkPlus {
         verifyContains(PageId.Duration, filePaths, "few", true);
         verifyContains(PageId.C_NAmerica, filePaths, "many", true);
         verifyContains(PageId.C_SAmerica, filePaths, "many", true);
-        verifyContains(PageId.C_Europe, filePaths, "many", true);
-        verifyContains(PageId.C_NWAfrica, filePaths, "many", true);
-        verifyContains(PageId.C_SEAfrica, filePaths, "many", true);
-        verifyContains(PageId.C_WCAsia, filePaths, "many", true);
+        verifyContains(PageId.C_NWEurope, filePaths, "many", true);
+        verifyContains(PageId.C_SEEurope, filePaths, "many", true);
+        verifyContains(PageId.C_NAfrica, filePaths, "many", true);
+        verifyContains(PageId.C_WAfrica, filePaths, "many", true);
+        verifyContains(PageId.C_SAfrica, filePaths, "many", true);
+        verifyContains(PageId.C_EAfrica, filePaths, "many", true);
+        verifyContains(PageId.C_CAsia, filePaths, "many", true);
+        verifyContains(PageId.C_WAsia, filePaths, "many", true);
         verifyContains(PageId.C_SEAsia, filePaths, "many", true);
         verifyContains(PageId.C_Oceania, filePaths, "many", true);
         verifyContains(PageId.C_Unknown, filePaths, "many", true);
@@ -675,8 +683,8 @@ public class TestPathHeader extends TestFmwkPlus {
                 String visible = pathHeader.toString();
                 PathHeader old = uniqueness.get(visible);
                 if (pathHeader.getSectionId() == SectionId.Timezones) {
-                    final PageId pageId = pathHeader.getPageId();
-                    if (badZonePages.contains(pageId)) {
+                    final PageId pageId = pathHeader.getPageId();                    
+                    if (badZonePages.contains(pageId) && !pathHeader.getCode().equals("Unknown")) {
                         errln("Bad page ID:\t" + pageId + "\t" + pathHeader + "\t" + path);
                     }
                 }

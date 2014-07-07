@@ -38,6 +38,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.Level;
@@ -507,12 +508,13 @@ public class ConsoleCheckCLDR {
             }
             paths.clear();
             // CollectionUtilities.addAll(file.iterator(pathFilter), paths);
+            CoverageInfo covInfo=cldrConf.getCoverageInfo();
             for (String path : file.fullIterable()) {
                 if (pathFilter != null && !pathFilter.reset(path).find()) {
                     continue;
                 }
                 if (coverageLevel != null) {
-                    Level currentLevel = supplementalDataInfo.getCoverageLevel(path, localeID);
+                    Level currentLevel = covInfo.getCoverageLevel(path, localeID);
                     if (currentLevel.compareTo(coverageLevel) > 0) {
                         continue;
                     }
@@ -1186,7 +1188,7 @@ public class ConsoleCheckCLDR {
                 .addColumn("Subtype").setCellAttributes("style=\"text-align:left\" class=\"{2}\"").setSpanRows(true)
                 .addColumn("Locale").setCellAttributes("class=\"{2}\"")
                 .addColumn("Code").setCellAttributes("class=\"{2}\"")
-                .setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}&x={1}\">{0}</a>")
+                .setCellPattern("<a href=\"http://unicode.org/cldr/apps/survey?_={0}&x={1}\">{0}</a>") // TODO: use CLDRConfig.urls()
                 .addColumn("Count").setCellAttributes("class=\"{2}\"");
             for (String org : orgToLocales.keySet()) {
                 indexTablePrinter.addColumn(org.substring(0, 2));

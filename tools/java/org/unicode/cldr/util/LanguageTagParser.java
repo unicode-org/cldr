@@ -391,7 +391,7 @@ public class LanguageTagParser {
     }
 
     public String toString() {
-        String result = language;
+        String result = language; // optimize for the simple cases
         if (this.script.length() != 0) result += "_" + script;
         if (this.region.length() != 0) result += "_" + region;
         if (this.variants.size() != 0) {
@@ -399,6 +399,22 @@ public class LanguageTagParser {
                 result += "_" + variant;
             }
         }
+        if (this.extensions.size() != 0) {
+            for (Entry<String, String> extension : extensions.entrySet()) {
+                result += "_" + extension.getKey() + "_" + extension.getValue();
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Return just the language, script, and region (no variants or extensions)
+     * @return
+     */
+    public String toLSR() {
+        String result = language; // optimize for the simple cases
+        if (this.script.length() != 0) result += "_" + script;
+        if (this.region.length() != 0) result += "_" + region;
         return result;
     }
 

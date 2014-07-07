@@ -56,6 +56,8 @@
             includes="org/unicode/cldr/unittest/**/*"
             basedir="${build.dir}"/>
     </target>
+    <target name="tests" depends="build"/>
+    <target name="all" depends="build"/>
   <!-- Docs stuff -->
     <!-- use excludefiles below when we move to ant 1.5 -->
     <target name="docs-jar" depends="docs">

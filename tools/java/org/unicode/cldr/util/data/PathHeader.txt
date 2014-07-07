@@ -31,8 +31,8 @@
 //ldml/(.*)/alias$           ; Special ; Suppress ; Alias ; $1 ; HIDE
 
 ### Core Data
-//ldml/characters/exemplarCharacters$                       ; Core Data ; Alphabetic Information ; Characters in Use ; Main Letters;
-//ldml/characters/exemplarCharacters[@type="%A"]            ; Core Data ; Alphabetic Information ; Characters in Use ; Others: $1;
+//ldml/characters/exemplarCharacters$                       ; Core Data ; Alphabetic Information ; Characters in Use ; Main Letters; READ_ONLY
+//ldml/characters/exemplarCharacters[@type="%A"]            ; Core Data ; Alphabetic Information ; Characters in Use ; Others: $1; READ_ONLY
 
 //ldml/numbers/(default)NumberingSystem                       ; Core Data ; Numbering Systems ; Numbering System ; $1
 //ldml/numbers/otherNumberingSystems/(%E)                   ; Core Data ; Numbering Systems ; Numbering System ; $1
@@ -40,9 +40,9 @@
 ### Locale Display Names
 //ldml/localeDisplayNames/localeDisplayPattern/%E              ; Locale Display Names ; Locale Name Patterns ; Locale Formatting ; &localePattern($1)
 //ldml/localeDisplayNames/codePatterns/codePattern[@type="%A"] ; Locale Display Names ; Locale Name Patterns ; Locale Field Fallbacks ; $1
-//ldml/localeDisplayNames/languages/language[@type="%A"]       ; Locale Display Names ; Languages ; &scriptFromLanguage($1) ; $1
+//ldml/localeDisplayNames/languages/language[@type="%A"]       ; Locale Display Names ; &languageSection($1) ; &firstLetter($1) ; $1
 //ldml/localeDisplayNames/scripts/script[@type="%A"]           ; Locale Display Names ; Scripts ; &categoryFromScript($1) ; $1
-//ldml/localeDisplayNames/territories/territory[@type="%A"]    ; Locale Display Names ; Territories ; &categoryFromTerritory($1) ; $1
+//ldml/localeDisplayNames/territories/territory[@type="%A"]    ; Locale Display Names ; &territorySection($1) ; &categoryFromTerritory($1) ; $1
 //ldml/localeDisplayNames/variants/variant[@type="%A"]         ; Locale Display Names ; Locale Variants ; null ; $1
 //ldml/localeDisplayNames/keys/key[@type="%A"]                 ; Locale Display Names ; Keys ; $1 ; $1
 //ldml/localeDisplayNames/types/type[@type="%A"][@key="%A"]    ; Locale Display Names ; Keys ; *$2 ; $2-$1
@@ -76,7 +76,7 @@
 
 # Hide Etc/GMT[+-]...
 //ldml/dates/timeZoneNames/zone[@type="Etc/GMT.*"]/exemplarCity ; Special  ; Suppress ; GMT ; GMT ; HIDE
-//ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity     ; Timezones ; Timezone Cities ; &categoryFromTimezone($1/$2) ; $2
+//ldml/dates/timeZoneNames/zone[@type="%B/%A"]/exemplarCity     ; Timezones ; &timeZonePage($1/$2) ; Cities and Regions ; $2
 
 //ldml/dates/timeZoneNames/metazone[@type="%A"]/%E/%E       ; Timezones ; &metazone($1) ; $1 ; &timezoneSorting($3-$2)
 //ldml/dates/timeZoneNames/zone[@type="%A"]/%E/%E           ; Timezones ; Overrides ; $1 ; &timezoneSorting($3-$2)
@@ -103,6 +103,7 @@
 //ldml/numbers/currencies/currency[@type="%A"]/displayName[@count="%A"]     ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &count($1-name-$2)
 //ldml/numbers/currencies/currency[@type="%A"]/symbol$                      ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol)
 //ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="narrow"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol-narrow)
+//ldml/numbers/currencies/currency[@type="%A"]/symbol[@alt="variant"]        ; Currencies ; &continentFromCurrency($1) ; &categoryFromCurrency($1) ; &currencySymbol($1-symbol-variant)
 
 ### Units
 

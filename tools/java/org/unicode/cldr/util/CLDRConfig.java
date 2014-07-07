@@ -33,6 +33,11 @@ public class CLDRConfig extends Properties {
     private static final Object CLDR_FACTORY_SYNC = new Object();
 
     /**
+     * Object to use for synchronization when interacting with Factory
+     */
+    private static final Object FULL_FACTORY_SYNC = new Object();
+
+    /**
      * Object used for synchronization when interacting with SupplementalData
      */
     private static final Object SUPPLEMENTAL_DATA_SYNC = new Object();
@@ -56,6 +61,11 @@ public class CLDRConfig extends Properties {
      * Object used for synchronization in getStandardCodes()
      */
     private static final Object GET_STANDARD_CODES_SYNC = new Object();
+    
+    /**
+     * Object used for synchronization in getCoverageInfo()
+     */
+    private static Object COVERAGE_INFO_SYNC=new Object(); 
 
     public enum Environment {
         LOCAL, // < == unknown.
@@ -114,10 +124,12 @@ public class CLDRConfig extends Properties {
     public String getInitStack() {
         return initStack;
     }
-
+  
+    private CoverageInfo coverageInfo=null;
     private SupplementalDataInfo supplementalDataInfo;
     private StandardCodes sc;
     private Factory cldrFactory;
+    private Factory fullFactory;
     private Factory supplementalFactory;
     private CLDRFile english;
     private CLDRFile root;
@@ -165,6 +177,15 @@ public class CLDRConfig extends Properties {
         return sc;
     }
 
+    public CoverageInfo getCoverageInfo() { 
+        synchronized(COVERAGE_INFO_SYNC) { 
+            if (coverageInfo==null) { 
+                coverageInfo=new CoverageInfo(getSupplementalDataInfo()); 
+            } 
+        } 
+        return coverageInfo; 
+    } 
+    
     public Factory getCldrFactory() {
         synchronized (CLDR_FACTORY_SYNC) {
             if (cldrFactory == null) {
@@ -172,6 +193,16 @@ public class CLDRConfig extends Properties {
             }
         }
         return cldrFactory;
+    }
+
+    public Factory getFullCldrFactory() {
+        synchronized (FULL_FACTORY_SYNC) {
+            if (fullFactory == null) {
+                File[] paths = { new File(CLDRPaths.MAIN_DIRECTORY), new File(CLDRPaths.SEED_DIRECTORY) };
+                fullFactory = SimpleFactory.make(paths, ".*");
+            }
+        }
+        return fullFactory;
     }
 
     public Factory getSupplementalFactory() {
@@ -500,5 +531,47 @@ public class CLDRConfig extends Properties {
         }
        return getProperty(callingClass.getCanonicalName()+".debug", defaultValue);
     }
-   
+    
+    /**
+     * Get the URL generator for "general purpose" (non chart) use.
+     * @return
+     */
+    public CLDRURLS urls() {
+        if(urls == null) {
+            synchronized(this) {
+                urls = internalGetUrls();
+            }
+        }
+        return urls;
+    }
+    
+    /**
+     * Get the URL generator for "absolute" (chart, email) use.
+     * By default, this is the same as urls.
+     */
+    public CLDRURLS absoluteUrls() {
+        if(absoluteUrls == null) {
+            synchronized(this) {
+                absoluteUrls = internalGetAbsoluteUrls();
+            }
+        }
+        return absoluteUrls;
+    }
+
+    /**
+     * Probably would not need to override this.
+     */
+    protected CLDRURLS internalGetAbsoluteUrls() {
+        return new StaticCLDRURLS(this.getProperty(CLDRURLS.CLDR_SURVEY_BASE, CLDRURLS.DEFAULT_BASE));
+    }
+
+    /**
+     * Override this to provide a different URL source for non-absolute URLs.
+     */
+    protected CLDRURLS internalGetUrls() {
+        return absoluteUrls();
+    }
+
+    private CLDRURLS urls = null;
+    private CLDRURLS absoluteUrls = null;
 }

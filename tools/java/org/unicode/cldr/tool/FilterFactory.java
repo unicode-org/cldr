@@ -12,9 +12,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.Factory;
 import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.RegexFileParser;
@@ -132,9 +134,10 @@ public class FilterFactory extends Factory {
         int minLevel = StandardCodes.make()
             .getLocaleCoverageLevel(organization, rawFile.getLocaleID())
             .getLevel();
+        CoverageInfo covInfo=CLDRConfig.getInstance().getCoverageInfo();
         for (String xpath : rawFile) {
             // Locale metadata shouldn't be stripped.
-            int level = supplementalData.getCoverageValue(xpath, rawFile.getLocaleID());
+            int level=covInfo.getCoverageValue(xpath, rawFile.getLocaleID());
             if (level > minLevel) {
                 rawFile.remove(xpath);
             }

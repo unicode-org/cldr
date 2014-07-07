@@ -298,6 +298,7 @@
             source="1.7"
             target="1.7"
             debug="on" deprecation="off"
+            includeantruntime="false"
             encoding="UTF-8"/>
         <mkdir dir="${build.dir}/org/unicode/cldr/unittest/web/data"/>
         <copy todir="${build.dir}/org/unicode/cldr/unittest/web/data">

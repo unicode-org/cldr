@@ -8,6 +8,7 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.Option.Options;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
@@ -108,7 +109,7 @@ public class SearchCLDR {
         organization = myOptions.get("organization").getValue();
 
         if (myOptions.get("PathHeader").doesOccur()) {
-            PATH_HEADER_FACTORY = PathHeader.getFactory(ToolConfig.getToolInstance().getEnglish());
+            PATH_HEADER_FACTORY = PathHeader.getFactory(CLDRConfig.getInstance().getEnglish());
         }
 
         boolean showParent = myOptions.get("q-showParent").doesOccur();

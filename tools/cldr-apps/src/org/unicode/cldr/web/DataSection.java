@@ -44,8 +44,10 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRInfo.CandidateInfo;
 import org.unicode.cldr.util.CLDRInfo.PathValueInfo;
 import org.unicode.cldr.util.CLDRInfo.UserInfo;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CldrUtility;
+import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.LDMLUtilities;
 import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.PathHeader;
@@ -691,13 +693,7 @@ public class DataSection implements JSONString {
         // collator.
         public String uri = null; // URI for the type
 
-        // public DataRow toggleWith = null; // obsolete: pea is a TOGGLE ( true
-        // / false ) with another pea. Special rules apply.
-        // public boolean toggleValue = false; // obsolete:
         String[] valuesList = null; // if non null - list of acceptable values.
-        // If null, freeform input
-        // public AttributeChoice attributeChoice = null; // obsolete: is an
-        // attributed list of items
 
         public int voteType = 0; // status of THIS item
         private String winningValue;
@@ -716,6 +712,7 @@ public class DataSection implements JSONString {
         public String oldValue;
         private PathHeader pathHeader;
 
+     
         // the zoomout view, they must zoom
         // in.
 
@@ -870,61 +867,6 @@ public class DataSection implements JSONString {
             return displayName;
         }
 
-        // void updateToggle(String path, String attribute) {
-        // if(true == true) {
-        // confirmOnly = true;
-        // return; /// Disable toggles - for now.
-        // }
-        //
-        //
-        //
-        // XPathParts parts = new XPathParts(null,null);
-        // parts.initialize(path);
-        // String lelement = parts.getElement(-1);
-        // String eAtt = parts.findAttributeValue(lelement, attribute);
-        // if(eAtt == null) {
-        // System.err.println(this + " - no attribute " + attribute + " in " +
-        // path);
-        // }
-        // toggleValue = eAtt.equals("true");
-        //
-        // //System.err.println("DataRow: " + type + " , toggle of val: " +
-        // myValue + " at xpath " + path);
-        // String myValueSuffix = "[@"+attribute+"=\""+toggleValue+"\"]";
-        // String notMyValueSuffix = "[@"+attribute+"=\""+!toggleValue+"\"]";
-        //
-        // if(!type.endsWith(myValueSuffix)) {
-        // throw new InternalError("toggle: expected "+ type + " to end with " +
-        // myValueSuffix);
-        // }
-        //
-        // String typeNoValue =
-        // type.substring(0,type.length()-myValueSuffix.length());
-        // String notMyType = typeNoValue+notMyValueSuffix;
-        //
-        //
-        // DataRow notMyDataRow = getDataRow(notMyType);
-        // if(notMyDataRow.toggleWith == null) {
-        // notMyDataRow.toggleValue = !toggleValue;
-        // notMyDataRow.toggleWith = this;
-        //
-        // String my_base_xpath_string = sm.xpt.getById(base_xpath);
-        // String not_my_base_xpath_string =
-        // replaceEndWith(my_base_xpath_string, myValueSuffix,
-        // notMyValueSuffix);
-        // notMyDataRow.base_xpath =
-        // sm.xpt.getByXpath(not_my_base_xpath_string);
-        //
-        // notMyDataRow.xpathSuffix =
-        // replaceEndWith(xpathSuffix,myValueSuffix,notMyValueSuffix);
-        //
-        // //System.err.println("notMyRow.xpath = " + xpath(notMyRow));
-        // }
-        //
-        // toggleWith = notMyDataRow;
-        //
-        // }
-
         /**
          * @deprecated
          */
@@ -1060,7 +1002,9 @@ public class DataSection implements JSONString {
          * @param zoomedIn
          *            TODO
          * @param section
+         * @deprecated HTML
          */
+        @Deprecated
         void printEmptyCells(WebContext ctx, String ourAlign, boolean zoomedIn) {
             int colspan = zoomedIn ? 1 : 1;
             ctx.print("<td  colspan='" + colspan + "' class='propcolumn' align='" + ourAlign + "' dir='"
@@ -1159,6 +1103,7 @@ public class DataSection implements JSONString {
          *            TODO
          * @see #processDataRowChanges(WebContext, SurveyMain, CLDRFile,
          *      BallotBox, DataSubmissionResultHandler)
+         * @deprecated HTML (old)
          */
         public void showDataRow(WebContext ctx, UserLocaleStuff uf, boolean canModify, CheckCLDR checkCldr, boolean zoomedIn,
             EnumSet<EShowDataRowSet> options) {
@@ -1762,26 +1707,32 @@ public class DataSection implements JSONString {
                 }
 
                 VoteResolver<String> resolver = ballotBox.getResolver(xpath);
-                return new JSONObject()
-                    .put("xpath", xpath)
-                    .put("xpid", xpathId)
-                    .put("rowFlagged", sm.getSTFactory().getFlag(locale, xpathId) ? true : null)
-                    .put("xpstrid", XPathTable.getStringIDString(xpath))
-                    .put("winningValue", winningValue)
-                    .put("displayName", displayName)
-                    .put("displayExample", displayExample)
+                JSONObject jo = new JSONObject();
+                jo.put("xpath", xpath);
+                jo.put("xpid", xpathId);
+                jo.put("rowFlagged", sm.getSTFactory().getFlag(locale, xpathId) ? true : null);
+                jo.put("xpstrid", XPathTable.getStringIDString(xpath));
+                jo.put("winningValue", winningValue);
+                jo.put("displayName", displayName);
+                jo.put("displayExample", displayExample);
                     // .put("showstatus",
                     // (ph!=null)?ph.getSurveyToolStatus():null)
-                    .put("statusAction", getStatusAction())
+                jo.put("statusAction", getStatusAction());
                     //.put("prettyPath", getPrettyPath())
-                    .put("code", pathCode)
-                    .put("extraAttributes", getNonDistinguishingAttributes()).put("coverageValue", coverageValue)
-                    .put("hasErrors", hasErrors).put("hasWarnings", hasWarnings).put("confirmStatus", confirmStatus)
-                    .put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false)
-                    .put("winningVhash", winningVhash).put("ourVote", ourVote).put("voteVhash", voteVhash)
-                    .put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver)).put("items", itemsJson)
-                    .put("canFlagOnLosing", resolver.getRequiredVotes() == VoteResolver.HIGH_BAR)
-                    .toString();
+                jo.put("code", pathCode);
+                jo.put("extraAttributes", getNonDistinguishingAttributes());
+                jo.put("coverageValue", coverageValue);
+                jo.put("hasErrors", hasErrors);
+                jo.put("hasWarnings", hasWarnings);
+                jo.put("confirmStatus", confirmStatus);
+                jo.put("hasVoted", userForVotelist != null ? userHasVoted(userForVotelist.id) : false);
+                jo.put("winningVhash", winningVhash);
+                jo.put("ourVote", ourVote);
+                jo.put("voteVhash", voteVhash);
+                jo.put("voteResolver", SurveyAjax.JSONWriter.wrap(resolver));
+                jo.put("items", itemsJson);
+                jo.put("canFlagOnLosing", resolver.getRequiredVotes() == VoteResolver.HIGH_BAR);
+                return jo.toString();
             } catch (Throwable t) {
                 SurveyLog.logException(t, "Exception in toJSONString of " + this);
                 throw new JSONException(t);
@@ -1813,7 +1764,8 @@ public class DataSection implements JSONString {
 
         @Override
         public Level getCoverageLevel() {
-            return sm.getSupplementalDataInfo().getCoverageLevel(getXpath(), locale.getBaseName());
+            // access the private method of the enclosing class
+            return getCoverageInfo().getCoverageLevel(getXpath(), locale.getBaseName());
         }
 
         /**
@@ -2240,6 +2192,15 @@ public class DataSection implements JSONString {
     public static final String VETTING_PROBLEMS_LIST[] = { PARTITION_ERRORS, CHANGES_DISPUTED, PARTITION_UNCONFIRMED };
 
     /**
+     * Field to cache the Coverage info
+     */
+    private static CoverageInfo covInfo=null;
+    
+    /**
+     * Synchronization Mutex used for accessing/setting the coverageInfo object
+     */
+    private static final Object GET_COVERAGEINFO_SYNC=new Object();
+    /**
      * Warn user why these messages are showing up.
      */
     static {
@@ -2321,14 +2282,11 @@ public class DataSection implements JSONString {
         DataSection section = new DataSection(pageId, session.sm, locale, prefix, matcher, ptype);
 
         section.hasExamples = true;
-        if (SurveyMain.supplementalDataDir == null) {
-            throw new InternalError("??!! session.sm.supplementalDataDir = null");
-        }
 
         // XMLSource ourSrc = uf.resolvedSource;
         CLDRFile ourSrc = session.sm.getSTFactory().make(locale.getBaseName(), true, true);
 
-        ourSrc.setSupplementalDirectory(SurveyMain.supplementalDataDir);
+        ourSrc.setSupplementalDirectory(session.sm.getSupplementalDirectory());
         if (ctx != null) {
             section.setUserAndFileForVotelist(ctx.session != null ? ctx.session.user : null, ourSrc);
         } else if (session != null && session.user != null) {
@@ -2602,7 +2560,7 @@ public class DataSection implements JSONString {
 
         //SupplementalDataInfo sdi = sm.getSupplementalDataInfo();
         int workingCoverageValue = Level.valueOf(workingCoverageLevel.toUpperCase()).getLevel();
-        if (sectionId == SectionId.Timezones || pageId == PageId.Timezone_Cities || pageId == PageId.Timezone_Display_Patterns
+        if (sectionId == SectionId.Timezones || pageId == PageId.Timezone_Display_Patterns
             || (pageId == null && xpathPrefix.startsWith("//ldml/" + "dates/timeZoneNames"))) {
             // work on zones
             boolean isMetazones = (sectionId == SectionId.Timezones)
@@ -2738,7 +2696,7 @@ public class DataSection implements JSONString {
                     }
                     // Filter out data that is higher than the desired coverage
                     // level
-                    int coverageValue = sm.getSupplementalDataInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
+                    int coverageValue=getCoverageInfo().getCoverageValue(base_xpath_string, locale.getBaseName());
                     if (coverageValue > workingCoverageValue) {
                         if (coverageValue <= 100) {
                             // KEEP COUNT OF FILTERED ITEMS
@@ -2767,6 +2725,20 @@ public class DataSection implements JSONString {
                 }
             }
         } // tz
+    }
+
+    
+    /**
+     * Get the CoverageInfo object from CLDR
+     * @return
+     */
+    private CoverageInfo getCoverageInfo() {
+        synchronized(GET_COVERAGEINFO_SYNC) {
+            if (covInfo==null) {
+                covInfo=CLDRConfig.getInstance().getCoverageInfo();
+            }
+          return covInfo;
+        }
     }
 
     // ==
@@ -2995,9 +2967,8 @@ public class DataSection implements JSONString {
             int base_xpath = sm.xpt.xpathToBaseXpathId(xpath);
             String baseXpath = sm.xpt.getById(base_xpath);
 
-            // Filter out data that is higher than the desired coverage
-            // level
-            int coverageValue = sm.getSupplementalDataInfo().getCoverageValue(baseXpath, locale.getBaseName());
+            int coverageValue = getCoverageInfo().getCoverageValue(baseXpath, locale.getBaseName());
+//            int coverageValue = sm.getSupplementalDataInfo().getCoverageValue(baseXpath, locale.getBaseName());
             if (coverageValue > workingCoverageValue) {
                 if (coverageValue <= Level.COMPREHENSIVE.getLevel()) {
                     skippedDueToCoverage++;
@@ -3079,52 +3050,24 @@ public class DataSection implements JSONString {
                 }
             }
             if (p.oldValue != null && !p.oldValue.equals(value) && (v == null || !v.contains(p.oldValue))) {
+            	// if "oldValue" isn't already represented as an item, add it.
                 CandidateItem oldItem = p.addItem(p.oldValue);
                 oldItem.isOldValue = true;
             }
 
             p.coverageValue = coverageValue;
 
-            // DataRow superP = p; // getDataRow(type); // the 'parent' row
-            // (sans alt) - may be the same object
-            // superP.coverageValue = coverageValue;
-
-            // if (CheckCLDR.FORCE_ZOOMED_EDIT.matcher(xpath).matches()) {
-            // if(superP!=p) {
-            // p.zoomOnly = superP.zoomOnly = true;
-            // }
-            // }
             p.confirmOnly = confirmOnly;
 
             if (isExtraPath) {
+            	// This is an 'extra' item- it doesn't exist in xml (including root).
                 // Set up 'shim' tests, to display coverage
                 p.setShimTests(base_xpath, this.sm.xpt.getById(base_xpath), checkCldr, options);
                 // System.err.println("Shimmed! "+xpath);
             } else if (p.inheritedValue == null) {
-                p.updateInheritedValue(ourSrc, null, null);
+            	// This item fell back from root. Make sure it has an Item, and that tests are run.
+                p.updateInheritedValue(ourSrc, checkCldr, options);
             }
-
-            // System.out.println("@@V "+type+"  v: " + value +
-            // " - base"+base_xpath+" , win: " + p.voteType);
-
-            // // Is this a toggle pair with another item?
-            // if(isToggleFor != null) {
-            // if(superP.toggleWith == null) {
-            // superP.updateToggle(fullPath, isToggleFor);
-            // }
-            // if(p.toggleWith == null) {
-            // p.updateToggle(fullPath, isToggleFor);
-            // }
-            // }
-
-            // Is it an attribute choice? (obsolete)
-            /*
-             * if(attributeChoice != null) { p.attributeChoice =
-             * attributeChoice; p.valuesList = p.attributeChoice.valuesList;
-             * 
-             * if(superP.attributeChoice == null) { superP.attributeChoice =
-             * p.attributeChoice; superP.valuesList = p.valuesList; } }
-             */
 
             if (TRACE_TIME)
                 System.err.println("n05  " + (System.currentTimeMillis() - nextTime));
@@ -3154,13 +3097,6 @@ public class DataSection implements JSONString {
             if (TRACE_TIME)
                 System.err.println("n06d  " + (System.currentTimeMillis() - nextTime));
 
-            // with xpath munging, attributeChoice items show up as code
-            // fallback. Correct it.
-            /*
-             * if(attributeChoice!=null && isInherited) {
-             * if(sourceLocale.equals(XMLSource.CODE_FALLBACK_ID)) { isInherited
-             * = false; sourceLocale = locale; } }
-             */
             // ** IF it is inherited, do NOT add any Items.
             if (isInherited && !isExtraPath) {
                 if (TRACE_TIME)
@@ -3223,12 +3159,6 @@ public class DataSection implements JSONString {
             }
             DataSection.DataRow.CandidateItem myItem = null;
 
-            /*
-             * if(p.attributeChoice != null) { String newValue =
-             * p.attributeChoice.valueOfXpath(fullPath); //
-             * System.err.println("ac:"+fullPath+" -> " + newValue); value =
-             * newValue; }
-             */
             if (TRACE_TIME)
                 System.err.println("n08  (check) " + (System.currentTimeMillis() - nextTime));
             myItem = p.addItem(value);

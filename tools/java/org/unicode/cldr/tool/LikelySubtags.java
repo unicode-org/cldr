@@ -118,7 +118,7 @@ public class LikelySubtags {
         return new LikelySubtags(toMaximized).setFavorRegion(favorRegion).minimize(input);
     }
 
-    public String maximize(String languageTag) {
+    public synchronized String maximize(String languageTag) {
         if (languageTag == null) {
             return null;
         }
@@ -240,7 +240,8 @@ public class LikelySubtags {
         return null; // couldn't maximize
     }
 
-    public String minimize(String input) {
+    // TODO, optimize if needed by adding private routine that maximizes a LanguageTagParser instead of multiple parsings
+    public synchronized String minimize(String input) {
         String maximized = maximize(input, toMaximized);
         if (maximized == null) {
             return null;
@@ -252,6 +253,14 @@ public class LikelySubtags {
         String language = ltp.getLanguage();
         String region = ltp.getRegion();
         String script = ltp.getScript();
+        
+        // handle variants
+        List<String> var = ltp.getVariants();
+        Map<String, String> ext = ltp.getExtensions();
+        String maximizedCheck = maximized;
+        if (!var.isEmpty() || !ext.isEmpty()) {
+            maximizedCheck = ltp.toLSR();
+        }
         // try building up from shorter to longer, and find the first that matches
         // could be more optimized, but for this code we want simplest
         String[] trials = { language,
@@ -259,8 +268,16 @@ public class LikelySubtags {
             language + TAG_SEPARATOR + (!favorRegion ? region : script) };
         for (String trial : trials) {
             String newMaximized = maximize(trial, toMaximized);
-            if (maximized.equals(newMaximized)) {
-                return trial;
+            if (maximizedCheck.equals(newMaximized)) {
+                if (var.isEmpty() && ext.isEmpty()) {
+                    return trial;
+                }
+                var = new ArrayList(var);
+                ext = new LinkedHashMap(ext);
+                ltp.set(trial);
+                ltp.setVariants(var);
+                ltp.setExtensions(ext);
+                return ltp.toString();
             }
         }
         return maximized;

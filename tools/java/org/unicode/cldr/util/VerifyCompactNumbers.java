@@ -248,7 +248,7 @@ public class VerifyCompactNumbers {
             }
             out.append("<p>To correct problems in compact numbers below, please go to "
                 + PathHeader.SECTION_LINK
-                + PathHeader.getPageUrl(surveyUrl, cldrFile.getLocaleID(), PageId.Compact_Decimal_Formatting)
+                + CLDRConfig.getInstance().urls().forPage(cldrFile.getLocaleID(), PageId.Compact_Decimal_Formatting)
                 + "'><em>" + PageId.Compact_Decimal_Formatting
                 + "</em></a>.</p>");
             out.append(tablePrinter1.toString() + "\n");

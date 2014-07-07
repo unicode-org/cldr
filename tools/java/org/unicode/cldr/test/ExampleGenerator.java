@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
 import org.unicode.cldr.tool.CLDRFileTransformer;
 import org.unicode.cldr.tool.CLDRFileTransformer.LocaleTransform;
 import org.unicode.cldr.tool.LikelySubtags;
+import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRLocale;
 import org.unicode.cldr.util.CLDRPaths;
@@ -1194,12 +1195,12 @@ public class ExampleGenerator {
             Count count = Count.valueOf(countValue);
             Double numberSample = getExampleForPattern(numberFormat, count);
             if (numberSample == null) {
-                if (type == ExampleType.ENGLISH) {
+//                if (type == ExampleType.ENGLISH) {
                     int digits = numberFormat.getMinimumIntegerDigits();
                     return formatNumber(numberFormat, 1.2345678 * Math.pow(10, digits - 1));
-                } else {
-                    return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
-                }
+//                } else {
+//                    return startItalicSymbol + "Superfluous Plural Form" + endItalicSymbol;
+//                }
             } else {
                 String temp = String.valueOf(numberSample);
                 int fractionLength = temp.endsWith(".0") ? 0 : temp.length() - temp.indexOf('.') - 1;
@@ -1639,7 +1640,7 @@ public class ExampleGenerator {
 
         // now get the description
 
-        Level level = supplementalDataInfo.getCoverageLevel(xpath, cldrFile.getLocaleID());
+        Level level= CLDRConfig.getInstance().getCoverageInfo().getCoverageLevel(xpath, cldrFile.getLocaleID());
         String description = pathDescription.getDescription(xpath, value, level, null);
         if (description == null || description.equals("SKIP")) {
             return null;

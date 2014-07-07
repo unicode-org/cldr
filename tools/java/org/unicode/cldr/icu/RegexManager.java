@@ -50,12 +50,6 @@ class RegexManager {
     private Map<String, String> xpathVariables;
     private VariableReplacer cldrVariables;
 
-//    static class FullMatcher extends RegexFinder {
-//        public FullMatcher(String pattern) {
-//            super(pattern);
-//        }
-//
-//    }
 
     /**
      * Wrapper class for functions that need to be performed on CLDR values as

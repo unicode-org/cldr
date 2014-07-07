@@ -1,0 +1,10 @@
+.cldr-xpath-linkify:after {
+	content: ' (xpath)';
+	font-style: italic;
+	font-size: smaller;
+}
+
+.cldr-xpath-linkify:hover {
+	background-color: goldenrod;
+	color: navy;
+}

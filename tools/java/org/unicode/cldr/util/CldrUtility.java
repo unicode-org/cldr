@@ -38,7 +38,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.impl.Utility;
@@ -58,7 +57,6 @@ public class CldrUtility {
     public static final boolean BETA = false;
 
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
-
     public final static Pattern SEMI_SPLIT = Pattern.compile("\\s*;\\s*"); 
 
     private static final boolean HANDLEFILE_SHOW_SKIP = false; 
@@ -258,35 +256,28 @@ public class CldrUtility {
      */
     public static boolean areFileIdentical(String file1, String file2, String[] failureLines,
         LineComparer lineComparer) throws IOException {
-        BufferedReader br1 = new BufferedReader(new FileReader(file1), 32 * 1024);
-        try {
-            BufferedReader br2 = new BufferedReader(new FileReader(file2), 32 * 1024);
-            try {
-                String line1 = "";
-                String line2 = "";
-                int skip = 0;
+        try (BufferedReader br1 = new BufferedReader(new FileReader(file1), 32 * 1024);
+            BufferedReader br2 = new BufferedReader(new FileReader(file2), 32 * 1024);) {
+            String line1 = "";
+            String line2 = "";
+            int skip = 0;
 
-                while (true) {
-                    if ((skip & LineComparer.SKIP_FIRST) == 0) line1 = br1.readLine();
-                    if ((skip & LineComparer.SKIP_SECOND) == 0) line2 = br2.readLine();
-                    if (line1 == null && line2 == null) return true;
-                    if (line1 == null || line2 == null) {
-                        // System.out.println("debug");
-                    }
-                    skip = lineComparer.compare(line1, line2);
-                    if (skip == LineComparer.LINES_DIFFERENT) {
-                        break;
-                    }
+            while (true) {
+                if ((skip & LineComparer.SKIP_FIRST) == 0) line1 = br1.readLine();
+                if ((skip & LineComparer.SKIP_SECOND) == 0) line2 = br2.readLine();
+                if (line1 == null && line2 == null) return true;
+                if (line1 == null || line2 == null) {
+                    // System.out.println("debug");
                 }
-                failureLines[0] = line1 != null ? line1 : "<end of file>";
-                failureLines[1] = line2 != null ? line2 : "<end of file>";
-                return false;
-            } finally {
-                br2.close();
+                skip = lineComparer.compare(line1, line2);
+                if (skip == LineComparer.LINES_DIFFERENT) {
+                    break;
+                }
             }
-        } finally {
-            br1.close();
-        }
+            failureLines[0] = line1 != null ? line1 : "<end of file>";
+            failureLines[1] = line2 != null ? line2 : "<end of file>";
+            return false;
+        } 
     }
 
     /*
@@ -1323,4 +1314,5 @@ public class CldrUtility {
         } 
         //        in.close(); 
     } 
+    
 }

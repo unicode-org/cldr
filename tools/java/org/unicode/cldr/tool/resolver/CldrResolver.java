@@ -26,6 +26,9 @@ import org.unicode.cldr.util.LocaleIDParser;
 import org.unicode.cldr.util.LruMap;
 import org.unicode.cldr.util.SimpleXMLSource;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+
 /**
  * Class designed for the resolution of CLDR XML Files (e.g., removing aliases
  * but leaving the inheritance structure intact).
@@ -67,7 +70,13 @@ public class CldrResolver {
     // Cache for resolved CLDRFiles.
     // This is most useful for simple resolution, where the resolved locales are
     // required to resolve their children.
-    private Map<String, CLDRFile> resolvedCache = new LruMap<String, CLDRFile>(5);
+    //private Map<String, CLDRFile> resolvedCache = new LruMap<String, CLDRFile>(5);
+    
+    /**
+     * The initial size of the resolved cache
+     */
+    private final int INITIAL_RESOLVED_CACHE_SIZE=10;
+    private Cache<String,CLDRFile> resolvedCache=CacheBuilder.newBuilder().initialCapacity(INITIAL_RESOLVED_CACHE_SIZE).build();
 
     public static void main(String[] args) {
         options.parse(args, true);
@@ -209,7 +218,7 @@ public class CldrResolver {
     public CLDRFile resolveLocale(String locale) {
         // Create CLDRFile for current (base) locale
         CLDRFile base = cldrFactory.make(locale, true);
-        CLDRFile resolved = resolvedCache.get(locale);
+        CLDRFile resolved = resolvedCache.getIfPresent(locale);
         if (resolved != null) return resolved;
 
         ResolverUtils.debugPrintln("Processing " + locale + "...", 2);

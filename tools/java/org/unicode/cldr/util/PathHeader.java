@@ -142,9 +142,19 @@ public class PathHeader implements Comparable<PathHeader> {
         Alphabetic_Information(SectionId.Core_Data, "Alphabetic Information"),
         Numbering_Systems(SectionId.Core_Data, "Numbering Systems"),
         Locale_Name_Patterns(SectionId.Locale_Display_Names, "Locale Name Patterns"),
-        Languages(SectionId.Locale_Display_Names),
+        Languages_A_D(SectionId.Locale_Display_Names,"Languages (A-D)"),
+        Languages_E_J(SectionId.Locale_Display_Names,"Languages (E-J)"),
+        Languages_K_N(SectionId.Locale_Display_Names,"Languages (K-N)"),
+        Languages_O_S(SectionId.Locale_Display_Names,"Languages (O-S)"),
+        Languages_T_Z(SectionId.Locale_Display_Names,"Languages (T-Z)"),
         Scripts(SectionId.Locale_Display_Names),
-        Territories(SectionId.Locale_Display_Names),
+        Territories(SectionId.Locale_Display_Names,"Geographic Regions"),
+        T_NAmerica(SectionId.Locale_Display_Names, "Territories (North America)"),
+        T_SAmerica(SectionId.Locale_Display_Names, "Territories (South America)"),
+        T_Africa(SectionId.Locale_Display_Names, "Territories (Africa)"),
+        T_Europe(SectionId.Locale_Display_Names, "Territories (Europe)"),
+        T_Asia(SectionId.Locale_Display_Names, "Territories (Asia)"),
+        T_Oceania(SectionId.Locale_Display_Names, "Territories (Oceania)"),
         Locale_Variants(SectionId.Locale_Display_Names, "Locale Variants"),
         Keys(SectionId.Locale_Display_Names),
         Fields(SectionId.DateTime),
@@ -167,7 +177,6 @@ public class PathHeader implements Comparable<PathHeader> {
         Persian(SectionId.DateTime),
         ROC(SectionId.DateTime),
         Timezone_Display_Patterns(SectionId.Timezones, "Timezone Display Patterns"),
-        Timezone_Cities(SectionId.Timezones, "Timezone Cities"),
         NAmerica(SectionId.Timezones, "North America"),
         SAmerica(SectionId.Timezones, "South America"),
         Africa(SectionId.Timezones),
@@ -209,11 +218,18 @@ public class PathHeader implements Comparable<PathHeader> {
         Unknown(SectionId.Special),
         C_NAmerica(SectionId.Currencies, "North America (C)"), //need to add (C) to differentiate from Timezone territories
         C_SAmerica(SectionId.Currencies, "South America (C)"),
-        C_Europe(SectionId.Currencies, "Europe (C)"),
-        C_NWAfrica(SectionId.Currencies, "Northern/Western Africa (C)"),
-        C_SEAfrica(SectionId.Currencies, "Southern/Eastern Africa (C)"),
-        C_WCAsia(SectionId.Currencies, "Western/Central Asia (C)"),
-        C_SEAsia(SectionId.Currencies, "Eastern/Southern Asia (C)"),
+        C_NWEurope(SectionId.Currencies, "Northern/Western Europe"),
+        C_SEEurope(SectionId.Currencies, "Southern/Eastern Europe"),
+        C_NAfrica(SectionId.Currencies, "Northern Africa"),
+        C_WAfrica(SectionId.Currencies, "Western Africa"),
+        C_MAfrica(SectionId.Currencies, "Middle Africa"),
+        C_EAfrica(SectionId.Currencies, "Eastern Africa"),
+        C_SAfrica(SectionId.Currencies, "Southern Africa"),
+        C_WAsia(SectionId.Currencies, "Western Asia (C)"),
+        C_CAsia(SectionId.Currencies, "Central Asia (C)"),
+        C_EAsia(SectionId.Currencies, "Eastern Asia (C)"),
+        C_SAsia(SectionId.Currencies, "Southern Asia (C)"),
+        C_SEAsia(SectionId.Currencies, "Southeast Asia (C)"),
         C_Oceania(SectionId.Currencies, "Oceania (C)"),
         C_Unknown(SectionId.Currencies, "Unknown Region (C)"), ;
 
@@ -350,6 +366,10 @@ public class PathHeader implements Comparable<PathHeader> {
         if (factorySingleton == null) {
             if (englishFile == null) {
                 throw new IllegalArgumentException("English CLDRFile must not be null");
+            }
+            if (!englishFile.getLocaleID().equals(ULocale.ENGLISH.getBaseName())) {
+                throw new IllegalArgumentException("PathHeader's CLDRFile must be '"+
+                            ULocale.ENGLISH.getBaseName()+"', but found '"+englishFile.getLocaleID()+"'");
             }
             factorySingleton = new Factory(englishFile);
         }
@@ -953,6 +973,9 @@ public class PathHeader implements Comparable<PathHeader> {
                     if (source.endsWith("narrow")) {
                         order = 902;
                     }
+                    if (source.endsWith("variant")) {
+                        order = 903;
+                    }
                     return source;
                 }
             });
@@ -1088,6 +1111,24 @@ public class PathHeader implements Comparable<PathHeader> {
                     return info.idUsage.name;
                 }
             });
+            functionMap.put("languageSection", new Transform<String, String>() {
+                char [] languageRangeStartPoints = { 'a', 'e', 'k', 'o', 't' };
+                char [] languageRangeEndPoints = { 'd', 'j', 'n', 's', 'z' };
+                public String transform(String source0) {
+                    char firstLetter = source0.charAt(0);
+                    for ( int i = 0 ; i < languageRangeStartPoints.length ; i++ ) {
+                        if ( firstLetter >= languageRangeStartPoints[i] && firstLetter <= languageRangeEndPoints[i] ) {
+                            return "Languages (" + Character.toUpperCase(languageRangeStartPoints[i]) + "-" + Character.toUpperCase(languageRangeEndPoints[i]) + ")";
+                        }
+                    }
+                    return "Languages";
+                }
+            });
+            functionMap.put("firstLetter", new Transform<String, String>() {
+                public String transform(String source0) {
+                    return source0.substring(0, 1).toUpperCase();
+                }
+            });
             functionMap.put("scriptFromLanguage", new Transform<String, String>() {
                 public String transform(String source0) {
                     String language = hyphenSplitter.split(source0);
@@ -1110,6 +1151,27 @@ public class PathHeader implements Comparable<PathHeader> {
                         return englishFile.getName(CLDRFile.TERRITORY_NAME, container);
                     }
                 });
+            functionMap.put("territorySection",new Transform<String, String>() {
+                final Set<String> specialRegions = new HashSet<String>(Arrays.asList("QO","ZZ"));
+                public String transform(String source0) {
+                    String theTerritory = source0;
+                    try {
+                        if (specialRegions.contains(theTerritory) || Integer.valueOf(theTerritory) > 0) {
+                            return "Geographic Regions";
+                        }
+                    } catch ( NumberFormatException ex ) {
+                    }
+                    String theContinent = Containment.getContinent(theTerritory);
+                    String theSubContinent;
+                    switch (Integer.valueOf(theContinent)) {
+                        case 19: // Americas - For the territorySection, we just group North America & South America
+                            theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 5 ? "005" : "003";
+                            return "Territories ("+englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent)+")";
+                        default:
+                            return "Territories ("+englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent)+")";
+                    }
+                }
+           });
             functionMap.put("categoryFromTimezone",
                 catFromTimezone = new Transform<String, String>() {
                     public String transform(String source0) {
@@ -1120,6 +1182,37 @@ public class PathHeader implements Comparable<PathHeader> {
                         return catFromTerritory.transform(territory);
                     }
                 });
+            functionMap.put("timeZonePage",new Transform<String, String>() {
+                Set<String> singlePageTerritories = new HashSet<String>(Arrays.asList("AQ","RU","ZZ"));
+                public String transform(String source0) {
+                    String theTerritory = Containment.getRegionFromZone(source0);
+                    if (theTerritory == null || theTerritory == "001") {
+                        theTerritory = "ZZ";
+                    }
+                    if (singlePageTerritories.contains(theTerritory)) {
+                        return englishFile.getName(CLDRFile.TERRITORY_NAME, theTerritory);
+                    }
+                    String theContinent = Containment.getContinent(theTerritory);
+                    String theSubContinent;
+                    switch (Integer.valueOf(theContinent)) {
+                        case 9: // Oceania - For the timeZonePage, we group Australasia on one page, and the rest of Oceania on the other.
+                            try {
+                                theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 53 ? "053" : "009";                                
+                            } catch ( NumberFormatException ex ) {
+                                theSubContinent = "009";
+                            }
+                            return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
+                        case 19: // Americas - For the timeZonePage, we just group North America & South America
+                            theSubContinent = Integer.valueOf(Containment.getSubcontinent(theTerritory)) == 5 ? "005" : "003";
+                            return englishFile.getName(CLDRFile.TERRITORY_NAME, theSubContinent);
+                       case 142: // Asia
+                            return englishFile.getName(CLDRFile.TERRITORY_NAME, Containment.getSubcontinent(theTerritory));
+                        default:
+                            return englishFile.getName(CLDRFile.TERRITORY_NAME, theContinent);
+                    }
+                }
+           });
+
             functionMap.put("timezoneSorting", new Transform<String, String>() {
                 public String transform(String source) {
                     final List<String> codeValues = Arrays.asList(
@@ -1235,21 +1328,21 @@ public class PathHeader implements Comparable<PathHeader> {
                 { "Central America", "North America (C)" },
                 { "Caribbean", "North America (C)" },
                 { "South America", "South America (C)" },
-                { "Northern Africa", "Northern/Western Africa (C)" },
-                { "Western Africa", "Northern/Western Africa (C)" },
-                { "Middle Africa", "Northern/Western Africa (C)" },
-                { "Eastern Africa", "Southern/Eastern Africa (C)" },
-                { "Southern Africa", "Southern/Eastern Africa (C)" },
-                { "Europe", "Europe (C)" },
-                { "Northern Europe", "Europe (C)" },
-                { "Western Europe", "Europe (C)" },
-                { "Eastern Europe", "Europe (C)" },
-                { "Southern Europe", "Europe (C)" },
-                { "Western Asia", "Western/Central Asia (C)" },
-                { "Central Asia", "Western/Central Asia (C)" },
-                { "Eastern Asia", "Eastern/Southern Asia (C)" },
-                { "Southern Asia", "Eastern/Southern Asia (C)" },
-                { "Southeast Asia", "Eastern/Southern Asia (C)" },
+                { "Northern Africa", "Northern Africa" },
+                { "Western Africa", "Western Africa" },
+                { "Middle Africa", "Middle Africa" },
+                { "Eastern Africa", "Eastern Africa" },
+                { "Southern Africa", "Southern Africa" },
+                { "Europe", "Northern/Western Europe" },
+                { "Northern Europe", "Northern/Western Europe" },
+                { "Western Europe", "Northern/Western Europe" },
+                { "Eastern Europe", "Southern/Eastern Europe" },
+                { "Southern Europe", "Southern/Eastern Europe" },
+                { "Western Asia", "Western Asia (C)" },
+                { "Central Asia", "Central Asia (C)" },
+                { "Eastern Asia", "Eastern Asia (C)" },
+                { "Southern Asia", "Southern Asia (C)" },
+                { "Southeast Asia", "Southeast Asia (C)" },
                 { "Australasia", "Oceania (C)" },
                 { "Melanesia", "Oceania (C)" },
                 { "Polynesia", "Oceania (C)" },
@@ -1258,7 +1351,7 @@ public class PathHeader implements Comparable<PathHeader> {
 
             final Map<String, String> currencyToTerritoryOverrides = CldrUtility.asMap(ctto);
             final Map<String, String> subContinentToContinent = CldrUtility.asMap(sctc);
-            final List<String> fundCurrencies = Arrays.asList("CHE", "CHW", "CLF", "COU", "ECV", "MXV", "USN", "USS", "UYI", "XEU", "ZAL");
+            final Set<String> fundCurrencies = new HashSet<String>(Arrays.asList("CHE", "CHW", "CLF", "COU", "ECV", "MXV", "USN", "USS", "UYI", "XEU", "ZAL"));
             // TODO: Put this into supplementalDataInfo ?
 
             functionMap.put("categoryFromCurrency", new Transform<String, String>() {
@@ -1307,7 +1400,8 @@ public class PathHeader implements Comparable<PathHeader> {
                         subContinent = catFromTerritory.transform(territory);
                     }
 
-                    return subContinentToContinent.get(subContinent); //the continent is the last word in the territory representation
+                    String result = subContinentToContinent.get(subContinent); //the continent is the last word in the territory representation
+                    return result;
                 }
             });
             functionMap.put("numberingSystem", new Transform<String, String>() {
@@ -1560,10 +1654,22 @@ public class PathHeader implements Comparable<PathHeader> {
         }
     }
 
+    /**
+     * @deprecated, use CLDRConfig.urls().forPathHeader() instead.
+     * @param baseUrl
+     * @param locale
+     * @return
+     */
     public String getUrl(BaseUrl baseUrl, String locale) {
         return getUrl(baseUrl.base, locale);
     }
 
+    /**
+     * @deprecated, use CLDRConfig.urls().forPathHeader() instead.
+     * @param baseUrl
+     * @param locale
+     * @return
+     */
     public String getUrl(String baseUrl, String locale) {
         return getUrl(baseUrl, locale, getOriginalPath());
     }
@@ -1579,15 +1685,36 @@ public class PathHeader implements Comparable<PathHeader> {
         return str.substring(0, n + 1);
     }
 
+    /**
+     * @deprecated use CLDRConfig.urls()
+     * @param baseUrl
+     * @param locale
+     * @param path
+     * @return
+     */
     public static String getUrl(String baseUrl, String locale, String path) {
         return trimLast(baseUrl) + "v#/" + locale + "//" + StringId.getHexId(path);
     }
 
     // eg http://st.unicode.org/cldr-apps/survey?_=fr&x=Locale%20Name%20Patterns
+    /**
+     * @deprecated use CLDRConfig.urls()
+     * @param baseUrl
+     * @param locale
+     * @param subsection
+     * @return
+     */
     public static String getPageUrl(String baseUrl, String locale, PageId subsection) {
         return trimLast(baseUrl) + "v#/" + locale + "/" + subsection + "/";
     }
 
+    /**
+     * @deprecated use CLDRConfig.urls()
+     * @param baseUrl
+     * @param file
+     * @param path
+     * @return
+     */
     public static String getLinkedView(String baseUrl, CLDRFile file, String path) {
         String value = file.getStringValue(path);
         if (value == null) {

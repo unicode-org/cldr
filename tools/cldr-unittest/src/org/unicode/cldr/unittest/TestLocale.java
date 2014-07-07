@@ -282,9 +282,10 @@ public class TestLocale extends TestFmwkPlus {
                 { "mo_Cyrl_US", "ro_Cyrl_US" },
                 { "sh", "sr_Latn" },
                 { "sh_US", "sr_Latn_US" },
-                { "sh_Cyrl", "sr_Cyrl" },
-                { "sh_Cyrl_US", "sr_Cyrl_US" },
-                { "hy_SU", "hy_AM" },
+                { "sh_Cyrl", "sr" },
+                { "sh_Cyrl_US", "sr_US" },
+                { "hy_SU", "hy" },
+                { "hy_AM", "hy" },
                 { "en_SU", "en_RU" },
                 { "rO-cYrl-aQ", "ro_Cyrl_AQ" },
         };

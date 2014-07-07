@@ -474,8 +474,6 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
         }
 
         for (String xpath: orderedSet) {
-//        for (Iterator<String> it2 = orderedSet.iterator(); it2.hasNext();) {
-//            String xpath = (String) it2.next();
             if (isResolved && xpath.contains("/alias")) {
                 continue;
             }
@@ -3690,18 +3688,23 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
             return ldmlComparator;
         }
         switch (dtdType) {
-        default:
-            return DtdData.getInstance(dtdType).getDtdComparator(null);
         case ldml:
         case ldmlICU:
             return ldmlComparator;
+        default:
+            return DtdData.getInstance(dtdType).getDtdComparator(null);
         }
     }
 
     public Comparator<String> getComparator() {
         return getComparator(dtdType);
     }
-
+    
+    public static Comparator<String> getPathComparator(String path) {
+        DtdType fileDtdType = DtdType.fromPath(path);
+        return getComparator(fileDtdType);
+    }
+    
     public static MapComparator<String> getAttributeOrdering() {
         //return attributeOrdering;
         return DtdData.getInstance(DtdType.ldmlICU).getAttributeComparator();

@@ -29,6 +29,7 @@ Color english brown
 }
 */
 
+
 /* The following is directly includeable as per https://github.com/saturngod/mmwebfonts/issues/4 */
 @font-face {
 font-family:'MON3 Anonta 1';
@@ -366,7 +367,7 @@ body {
 	padding-bottom: 3em;
 	padding-right: 0.5em;
 	margin-bottom: 180px;
-	margin-top: px;
+	/* margin-top: px; */
 }
 
 
@@ -931,9 +932,47 @@ table#statisticsTable {
     border-collapse: collapse;
 }
 
+#statistics_area {
+	width: 80%;
+	height: 400px;
+/*    overflow: scroll;*/
+	border: 1px solid gray;
+	margin-bottom: 1em;
+}
+
 table#statisticsTable thead th {
     font-weight: bold;
     border-bottom: 1px solid gray
+}
+
+div.statistics h2 {
+	border-top: 2px solid gray;
+	width: 100%;
+	margin-top: 2em;
+}
+
+div.statistics {
+    margin-left: 1.5em;
+}
+
+div.dijitTooltipContainer.dijitTooltipContents {
+    box-sizing: inherit !important;
+}
+
+div.statistics .swatch {
+	border: 1px solid black;
+	width: 1em;
+	height: 1em;
+	margin: 0.25em;
+	white-space: pre;
+}
+
+div.statistics .color0 {
+	background-color: #8aa717;	
+}
+
+div.statistics .color1 {
+	background-color: #1751a7;	
 }
 
 table#statisticsTable td.locid {
@@ -1036,7 +1075,7 @@ i.loadingMsgSpin {
 	font-size: xx-large;
 	text-align: justify;
 	font-weight: bold;
-	font-variant: caps;
+	/* text-transform: uppercase; */
 	color: black;
 	font-style:normal;
 }
@@ -1054,6 +1093,16 @@ i.loadingMsgSpin {
 	left:15px;
 }
 */
+
+.loaderAnimIcon {
+	background-image: url('loader.gif');
+	background-repeat: no-repeat;
+	position:relative;
+	top:10px;
+	left:15px;
+	width: 100px;
+	height: 100px;
+}
 
 .small_login_hot {
 	font-size: larger;
@@ -1257,6 +1306,50 @@ div.person a {
 	
 }
 
+.localeName {
+    display:  block;
+    font-size: medium;
+}
+
+.topicSubject, .postSubject {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-weight:  bold;
+}
+
+.forum-me {
+    font-weight:  bold;
+    font-size:  larger;
+}
+
+.post {
+    margin-bottom: 0.75em;    
+    padding-bottom:  0.25em;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-ms-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+.post, .post .postReplies {
+    background-color: #f4f5f4;
+}
+
+
+.postReplies .post {
+    margin-top: 1em;
+}
+
+.postContent {
+    white-space: pre-wrap;
+}
+
+.postContent button {
+    margin-left: 1em;
+    margin-top:  0.5em;
+}
+
+
 .reply a, div.subpost a.postReply {
 	background-color: #fff88d;
 	margin-bottom: 1em;
@@ -1304,7 +1397,6 @@ td.d-code.hasPosts {
 }
 
 div.forumDiv div.subpost {
-	border:  1px solid black;
 	background-color: #f5e3c2;
 	margin-top:  0.25em;
 	padding:  0.25em;
@@ -1348,7 +1440,7 @@ div.forumDiv .adminUserUser i {
 		margin:  0.25em !important;
 }
 
-div.postHeaderInfoGroup {
+div.postHeaderInfoGroup, .postHeaderItem {
 	display:  block;
 }
 
@@ -1364,11 +1456,50 @@ div.postHeaderLine div {
 
 div.postHeaderLine div.postHeaderItem {
 	display:  table-row;
+	font-size: smaller;
 }
 
 div.forumDiv div.subpost div.postContent {	
 	padding-top:  0.5em;
 	font: small Georgia, "Times New Roman", Times, serif;
+	white-space: pre-wrap;
+}
+
+div.postReplies {
+	margin-left: 0.5em;
+	padding-left: 0.5em;
+	padding-top:  0.25em;
+	margin-top:  0.25em;
+}
+
+.forumLink {
+    text-decoration: underline;
+}
+
+.forumLink:hover {
+    color: blue;
+    background-color: white;
+    cursor:  pointer;
+}
+
+div.postReplies,
+div.postReplies:hover > div.post > div.postReplies {
+	border-left: 3px solid gray;
+}
+
+div.postReplies .post {
+    margin-top: 0.25em;
+}
+
+div.postReplies:hover > div.post > div.postReplies:hover,
+div.postReplies:hover
+ {
+    border-left:  3px solid red;
+}
+
+
+a.postItem {
+	margin-left: 0.25em;
 }
 
 .disabledbox {
@@ -1578,7 +1709,6 @@ div#toparea img#stlogo {
 
 #toptitle {
 	font-size: medium;
-	margin-bottom:15px;
 }
 
 #toparea #toptitle {
@@ -2191,7 +2321,16 @@ table.stprogress {
 	border: 2px solid black;
 }
 
-table.stprogress td.bar {
+div.vvprogress {
+	display: run-in;
+}
+
+div.vvprogress  div {
+	height: 16px;
+	display: table-cell;
+}
+
+table.stprogress td.bar, div.vvprogress div.bar{
 	padding: 0;
 	margin: 0;
 	border-left: 2px solid black;
@@ -2199,7 +2338,7 @@ table.stprogress td.bar {
 	background: #6c31fe url(bar0.png) repeat scroll left;
 }
 
-table.stprogress td.remain {
+table.stprogress td.remain, div.vvprogress div.remain {
 	padding: 0;
 	margin: 0;
 	border-left: none;
@@ -2658,11 +2797,12 @@ button.ichoice-x-ok:hover {
 
 span.i-override {
 	font-size: 	x-small; 
+	margin-left: 0.25em;
 }
 span.i-override, .voteInfo_overrideExplain {
 	font: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	background-color: lime;
-	foreground-color: navy;
+	color: navy;
 	border:  1px solid navy;
 	padding:  1px;
 }
@@ -2717,7 +2857,7 @@ textarea.errorMessage {
 div.possibleProblems {
 	border: 1px dashed olive;
 	padding: 0.2em;
-	background-color: cream;
+	background-color: #FFFDD0;
 	overflow: auto;
 }
 
@@ -3011,7 +3151,7 @@ div.voterList .voterOrg {
 .dtf-int {width:100%; height:100%}
 .dtf-fix {width:1px}
 .dtf-left {text-align:left;}
-.dtf-nopad {padding:0px; align:top;}
+.dtf-nopad {padding:0px; vertical-align:top;}
 
 
 .rolloverspan:hover {
@@ -3241,6 +3381,7 @@ h2.mailHeader {
 
 p.mailContent {
     line-height: 1em;
+    white-space: pre-line;
 }
 
 .mailListChunk li:hover {
@@ -3279,11 +3420,6 @@ div.st_setup  {
 	position: fixed;
 	bottom: 1em;
 	z-index: 50;
-}
-
-button.bulkNextButton:before {
-	content: ('NEXT: ');
-	margin-right: 0.5em;
 }
 
 .bulkNextButton {
@@ -3342,9 +3478,9 @@ div.bulkNextButton {
 	font-size: smaller;	
 }
 
-.bulkNextInfo ul li.active:before,
-.bulkNextInfo ul li.inactive:before {
-	content: ('»')
+.bulkNextInfo ul li.active::before,
+.bulkNextInfo ul li.inactive::before {
+	content: '»';
 }
 
 div.bulkInputForm {
@@ -3360,4 +3496,59 @@ div.bulkInputForm div input,
 div.bulkInputForm div label {
 	display: table-cell;
 	margin-left: 1em;
+}
+
+.infos-code {
+	float:right;
+}
+
+.vsNav {
+	padding: .5em;
+	border-top: 2px solid gray;
+}
+
+.vsNav button {
+	padding: 2px;
+	font-size: larger;
+}
+
+span.vsStatus {
+	margin-left: 1em;
+	background-color: white;
+	display: block;
+}
+
+.vsContent.vsStale {
+	color: gray;
+	background-color: #dddddd;
+	opacity: .5;
+}
+
+.manage-list-icon {
+	padding-left: 0.25em;
+}
+
+table.flaggedItems .codebox,
+table.flaggedItems .adminUserUser {
+    display:  none;
+}
+
+table.flaggedItems .r1 {
+    background-color: #f1fafa;
+}
+
+table.flaggedItems th, table.flaggedItems td {
+    padding:  0.25em;
+}
+
+table.flaggedItems .flaggedLocale {
+    
+}
+
+table.flaggedItems .flaggedPath {
+    font-weight:  normal;
+}
+
+.flaggedItemsBox {
+    margin:  1em;
 }

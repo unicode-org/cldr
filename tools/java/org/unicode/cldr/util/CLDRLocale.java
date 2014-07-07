@@ -6,7 +6,11 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.ibm.icu.text.LocaleDisplayNames;
 import com.ibm.icu.text.Transform;
 import com.ibm.icu.util.ULocale;
@@ -532,16 +536,32 @@ public final class CLDRLocale implements Comparable<CLDRLocale> {
         return displayLocale.getDisplayName(this);
     }
 
-    private static LruMap<ULocale, NameFormatter> defaultFormatters = new LruMap<ULocale, NameFormatter>(1);
+//    private static LruMap<ULocale, NameFormatter> defaultFormatters = new LruMap<ULocale, NameFormatter>(1);
+    private static Cache<ULocale, NameFormatter> defaultFormatters = CacheBuilder.newBuilder().initialCapacity(1).build();
     private static NameFormatter gDefaultFormatter = getSimpleFormatterFor(ULocale.getDefault());
 
     public static NameFormatter getSimpleFormatterFor(ULocale loc) {
-        NameFormatter nf = defaultFormatters.get(loc);
-        if (nf == null) {
-            nf = new SimpleFormatter(loc);
-            defaultFormatters.put(loc, nf);
+//        NameFormatter nf = defaultFormatters.get(loc);
+//        if (nf == null) {
+//            nf = new SimpleFormatter(loc);
+//            defaultFormatters.put(loc, nf);
+//        }
+//        return nf;
+//        return defaultFormatters.getIfPresent(loc);
+        final ULocale uLocFinal=loc;
+        try {
+            return defaultFormatters.get(loc, new Callable<NameFormatter>() {
+
+                @Override
+                public NameFormatter call() throws Exception {
+                   return new SimpleFormatter(uLocFinal);
+                }
+            });
+        } catch (ExecutionException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
         }
-        return nf;
     }
 
     public String getDisplayName(ULocale displayLocale) {

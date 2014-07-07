@@ -78,7 +78,8 @@ public class ChainedMap {
         }
 
         public M3<K2, K1, V> get(K3 key3) {
-            return new M3<K2, K1, V>((Map<?, ?>) super.handleGet(key3), super.mapConstructors, super.indexStart + 1);
+            final Map<?, ?> submap = (Map<?, ?>) super.handleGet(key3);
+            return submap == null ? null : new M3<K2, K1, V>(submap, super.mapConstructors, super.indexStart + 1);
         }
 
         @SuppressWarnings("unchecked")

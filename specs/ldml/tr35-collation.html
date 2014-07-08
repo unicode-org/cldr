@@ -227,6 +227,7 @@ h2,h3,h4,table {
 			</li>
 			<li>3 <a href="#Collation_Tailorings">Collation Tailorings</a>
 				<ul class="toc">
+					<li class="changed">3.0 <a href="#Collation_Types">Collation Types</a></li>
 					<li>3.1 <a href="#Collation_Version">Version</a></li>
 					<li>3.2 <a href="#Collation_Element">Collation Element</a></li>
 					<li>3.3 <a href="#Setting_Options">Setting Options</a>
@@ -951,8 +952,9 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			tailoring of the root order, or both.
 		</p>
 
+		<h3 class="changed">3.0 <a name="Collation_Types" href="#Collation_Types">Collation Types</a></h3>
 		<p>
-			Each locale may have multiple sort orders. The <span class="element">defaultCollation</span>
+			Each locale may have multiple sort orders <span class="changed">(types)</span>. The <span class="element">defaultCollation</span>
 			element defines the default tailoring for a locale and its
 			sublocales. For example:
 		</p>
@@ -969,6 +971,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			use, and are marked with <span class="attribute">alt</span>=&quot;<span
 				class="attributeValue">short</span>&quot;.
 		</p>
+
+		<p class="changed">A collation type name that starts with "private-", for example, "private-kana",
+		indicates an incomplete tailoring that is only intended for import into one or more other tailorings
+		(usually for sharing common rules).
+		It does not establish a complete sort order.
+		An implementation should not build data tables for a private collation type,
+		and should not include a private collation type in a list of available types.</p>
 
 		<p class="note">
 			<b>Note:</b>

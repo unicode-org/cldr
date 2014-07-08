@@ -1,28 +1,5 @@
 package org.unicode.cldr.util;
 
-import com.ibm.icu.dev.util.CollectionUtilities;
-import com.ibm.icu.dev.util.Relation;
-import com.ibm.icu.dev.util.XEquivalenceClass;
-import com.ibm.icu.impl.IterableComparator;
-import com.ibm.icu.impl.Row;
-import com.ibm.icu.impl.Row.R2;
-import com.ibm.icu.impl.Row.R4;
-import com.ibm.icu.text.DateFormat;
-import com.ibm.icu.text.MessageFormat;
-import com.ibm.icu.text.NumberFormat;
-import com.ibm.icu.text.PluralRules;
-import com.ibm.icu.text.PluralRules.FixedDecimal;
-import com.ibm.icu.text.PluralRules.FixedDecimalRange;
-import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
-import com.ibm.icu.text.PluralRules.SampleType;
-import com.ibm.icu.text.SimpleDateFormat;
-import com.ibm.icu.text.UnicodeSet;
-import com.ibm.icu.util.Freezable;
-import com.ibm.icu.util.Output;
-import com.ibm.icu.util.TimeZone;
-import com.ibm.icu.util.ULocale;
-import com.ibm.icu.util.VersionInfo;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
@@ -54,7 +31,6 @@ import java.util.regex.Pattern;
 
 import org.unicode.cldr.test.CoverageLevel2;
 import org.unicode.cldr.tool.LikelySubtags;
-import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.Builder.CBuilder;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CldrUtility.VariableReplacer;
@@ -62,6 +38,30 @@ import org.unicode.cldr.util.DayPeriodInfo.DayPeriod;
 import org.unicode.cldr.util.SupplementalDataInfo.BasicLanguageData.Type;
 import org.unicode.cldr.util.SupplementalDataInfo.NumberingSystemInfo.NumberingSystemType;
 import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo.Count;
+
+import com.google.common.base.Splitter;
+import com.ibm.icu.dev.util.CollectionUtilities;
+import com.ibm.icu.dev.util.Relation;
+import com.ibm.icu.dev.util.XEquivalenceClass;
+import com.ibm.icu.impl.IterableComparator;
+import com.ibm.icu.impl.Row;
+import com.ibm.icu.impl.Row.R2;
+import com.ibm.icu.impl.Row.R4;
+import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.MessageFormat;
+import com.ibm.icu.text.NumberFormat;
+import com.ibm.icu.text.PluralRules;
+import com.ibm.icu.text.PluralRules.FixedDecimal;
+import com.ibm.icu.text.PluralRules.FixedDecimalRange;
+import com.ibm.icu.text.PluralRules.FixedDecimalSamples;
+import com.ibm.icu.text.PluralRules.SampleType;
+import com.ibm.icu.text.SimpleDateFormat;
+import com.ibm.icu.text.UnicodeSet;
+import com.ibm.icu.util.Freezable;
+import com.ibm.icu.util.Output;
+import com.ibm.icu.util.TimeZone;
+import com.ibm.icu.util.ULocale;
+import com.ibm.icu.util.VersionInfo;
 
 /**
  * Singleton class to provide API access to supplemental data -- in all the supplemental data files.
@@ -870,6 +870,8 @@ public class SupplementalDataInfo {
     public Map<Row.R2<String, String>, String> bcp47Deprecated = new TreeMap<Row.R2<String, String>, String>();
 
     public Map<String, Row.R2<String, String>> validityInfo = new HashMap<String, Row.R2<String, String>>();
+    public Set<AttributeValidityInfo> attributeValidityInfo = new HashSet<>();
+
 
     public enum MeasurementType {
         measurementSystem, paperSize
@@ -1115,6 +1117,7 @@ public class SupplementalDataInfo {
         timeData = CldrUtility.protectCollection(timeData);
 
         validityInfo = CldrUtility.protectCollection(validityInfo);
+        attributeValidityInfo = CldrUtility.protectCollection(attributeValidityInfo);
     }
 
     // private Map<String, Map<String, String>> makeUnmodifiable(Map<String, Map<String, String>>
@@ -1595,6 +1598,9 @@ public class SupplementalDataInfo {
                         CLDRScriptCodes = Collections
                             .unmodifiableSet(new TreeSet<String>(Arrays.asList(validCodeArray)));
                     }
+                    return true;
+                } else if (level3.equals("attributeValues")) {
+                    AttributeValidityInfo.add(parts.getAttributes(-1), value, attributeValidityInfo);
                     return true;
                 }
             } else if (level2.equals("attributeOrder")) {
@@ -4129,4 +4135,53 @@ public class SupplementalDataInfo {
         return directory;
     }
 
+    public final static Splitter WHITESPACE_SPLTTER=Splitter.on(PatternCache.get("\\s+")).omitEmptyStrings();
+
+    public static class AttributeValidityInfo {
+        //<attributeValues elements="alias" attributes="path" type="path">notDoneYet</attributeValues>
+
+        final String type;
+        final Set<String> elements;
+        final Set<String> attributes;
+        final List<String> order;
+        final String value;
+
+        static void add(Map<String, String> inputAttibutes, String inputValue, Set<AttributeValidityInfo> data) {
+            data.add(new AttributeValidityInfo(
+                inputAttibutes.get("type"), 
+                inputAttibutes.get("attributes"), 
+                inputAttibutes.get("elements"), 
+                inputAttibutes.get("order"), 
+                inputValue));
+        }
+
+        public AttributeValidityInfo(String type, String attributes, String elements, String order, String value) {
+            this.type = type;
+            this.elements = elements == null ? Collections.EMPTY_SET 
+                : With.in(WHITESPACE_SPLTTER.split(elements)).toUnmodifiableCollection(new HashSet<String>());
+            this.attributes = With.in(WHITESPACE_SPLTTER.split(attributes)).toUnmodifiableCollection(new HashSet<String>());
+            this.order = With.in(WHITESPACE_SPLTTER.split(attributes)).toUnmodifiableCollection(new ArrayList<String>());
+            this.value = value;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public Set<String> getElements() {
+            return elements;
+        }
+
+        public Set<String> getAttributes() {
+            return elements;
+        }
+
+        public String getValue() {
+            return value;
+        }
+    }
+
+    public Set<AttributeValidityInfo> getAttributeValidity() {
+        return attributeValidityInfo;
+    }
 }

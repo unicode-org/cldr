@@ -717,8 +717,11 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <variable id="$allow" type="regex">(verbatim)</variable>
             <variable id="$alt" type="regex">((stand-alone|variant|list|secondary|email|www|short|narrow|new|accounting)(-proposed.*)?|(proposed.*))</variable>
             <variable id="$append" type="choice">Era Year Quarter Month Week Day-Of-Week Day Hour Minute Second Timezone</variable>
-            <variable id="$date" type="regex">200[0-9]-([0-9]|1[0-2])-([12][0-9]|3[01])</variable>
+           <!--  Separate date format for currencies; some where introduced long before the 2000s -->
+            <variable id="$currencyDate" type="regex">([12][0-9][0-9][0-9])-((0[0-9])|1[0-2])-([0-2][0-9]|3[01])</variable>
+            <variable id="$date" type="regex">20[0-9][0-9]-([0-9]|1[0-2])-([12][0-9]|3[01])</variable>
             <variable id="$double" type="regex">[0-9]+(\.[0-9]+)?</variable>
+            <variable id="$integer" type="regex">[0-9]+</variable>
             <variable id="$format" type="choice">standard</variable>
             <variable id="$fullTzid" type="notDoneYet"/>
             <variable id="$genDate" type="regex">\$.*\$</variable>
@@ -726,11 +729,14 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <variable id="$reference" type="regex">([R|S]|RP)[0-9]+</variable>
             <variable id="$time" type="regex">([01][0-9]|2[0-4]):[0-6][0-9]</variable>
             <variable id="$uri" type="notDoneYet"/>
-            <variable id="$variableID" type="regex">[$][a-zA-Z0-9]+</variable>
+            <!--  Certain segmentation files need underscores in variable names -->
+            <variable id="$variableID" type="regex">[$][a-zA-Z0-9_]+</variable>
             <variable id="$version" type="regex">\$.*\$</variable>
             
             <attributeValues attributes="alt" type="choice">$alt</attributeValues>
+            <attributeValues attributes="_q" type="choice">$integer</attributeValues>
             <attributeValues attributes="validSubLocales" type="list">$locale</attributeValues>
+            <attributeValues elements="alias" attributes="path" type="path">notDoneYet</attributeValues>
             <attributeValues elements="alias" attributes="path" type="path">notDoneYet</attributeValues>
             <attributeValues elements="alias" attributes="source" type="locale"/>
             <attributeValues elements="alias" attributes="source" type="choice">locale</attributeValues>
@@ -739,18 +745,18 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues elements="calendar" attributes="type" type="bcp47">ca</attributeValues>
             <attributeValues elements="character" attributes="value" type="regex">.</attributeValues>
             <attributeValues elements="collation" attributes="type" type="bcp47">co</attributeValues>
-            <attributeValues elements="collations" attributes="version" >$version</attributeValues>
+            <attributeValues elements="collations" attributes="version">$version</attributeValues>
             <attributeValues elements="contextTransform" attributes="type" type="choice">uiListOrMenu stand-alone</attributeValues>
             <attributeValues elements="contextTransformUsage" attributes="type" type="regex">[a-zA-Z-]+</attributeValues>
             <attributeValues elements="cp" attributes="hex" type="regex">[0-9A-Fa-f]{4,6}</attributeValues>
-            <attributeValues elements="currency" attributes="before from to">$date</attributeValues>
+            <attributeValues elements="currency" attributes="before from to">$currencyDate</attributeValues>
             <attributeValues elements="currency" attributes="iso4217" type="bcp47">cu</attributeValues>
             <attributeValues elements="currency" attributes="type" type="bcp47">cu</attributeValues>
             <attributeValues elements="currencyFormat" attributes="type" type="choice">standard accounting</attributeValues>
             <attributeValues elements="currencyFormats decimalFormats percentFormats scientificFormats" attributes="numberSystem" type="bcp47">nu</attributeValues>
             <attributeValues elements="cyclicName" attributes="type" type="regex">[0-9]+</attributeValues>
             <attributeValues elements="cyclicNameContext" attributes="type" order="given">format stand-alone</attributeValues>
-            <attributeValues elements="cyclicNameSet" attributes="type" type="choice">years months days dayParts zodiacs</attributeValues>
+            <attributeValues elements="cyclicNameSet" attributes="type" type="choice">years months days dayParts zodiacs solarTerms</attributeValues>
             <attributeValues elements="dateFormat dateTimeFormat decimalFormat percentFormat scientificFormat timeFormat" attributes="type">$format</attributeValues>
             <attributeValues elements="dateFormatLength timeFormatLength dateTimeFormatLength decimalFormatLength scientificFormatLength percentFormatLength currencyFormatLength" attributes="type" order="given">full long medium short</attributeValues>
             <attributeValues elements="day" attributes="type" order="given">sun mon tue wed thu fri sat</attributeValues>
@@ -761,13 +767,13 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues elements="firstDay weekendEnd weekendStart" attributes="day" order="given">sun mon tue wed thu fri sat</attributeValues>
             <attributeValues elements="generation" attributes="date">$genDate</attributeValues>
             <attributeValues elements="group" attributes="contains type">$territory</attributeValues>
-            <attributeValues elements="hours" attributes="allowed" type="regex">[HKhk]( [HKhk]{0,2})</attributeValues>
+            <attributeValues elements="hours" attributes="allowed" type="regex">[HKhk]( [HKhk])*</attributeValues>
             <attributeValues elements="hours" attributes="preferred" type="choice">H K h k</attributeValues>
             <attributeValues elements="hours" attributes="regions" type="list">$territory</attributeValues>
             <attributeValues elements="info" attributes="digits" type="regex">[0-9]+</attributeValues>
             <attributeValues elements="info" attributes="iso4217" type="bcp47">cu</attributeValues>
             <attributeValues elements="info" attributes="rounding" type="regex">[0-9]+</attributeValues>
-            <attributeValues elements="key" attributes="type" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colReorder colStrength currency numbers timezone va variableTop x</attributeValues>
+            <attributeValues elements="key" attributes="type" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colReorder colStrength currency kv numbers timezone va variableTop x</attributeValues>
             <attributeValues elements="language" attributes="scripts">$script</attributeValues>
             <attributeValues elements="language" attributes="territories">$territory</attributeValues>
             <attributeValues elements="language" attributes="type">$locale</attributeValues>
@@ -806,11 +812,11 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <attributeValues elements="territoryAlias" attributes="replacement type">$territory</attributeValues>
             <attributeValues elements="type" attributes="key" type="choice">calendar collation colAlternate colBackwards colCaseFirst colCaseLevel colHiraganaQuaternary colNormalization colNumeric colStrength numbers va</attributeValues> <!-- Exluded: colReorder curerncy timezone x -->
             <attributeValues elements="type" attributes="type" type="choice">arab arabext armn armnlow bali beng big5han brah buddhist cakm cham chinese coptic dangi deva dictionary ducet eor ethi ethiopic ethiopic-amete-alem finance fullwide gb2312han geor gregorian grek greklow gujr guru hanidays hanidec hans hansfin hant hantfin hebr hebrew identical indian islamic islamic-civil islamic-rgsa islamic-tbla islamic-umalqura iso8601 japanese java jpan jpanfin kali khmr knda lana lanatham laoo latn lepc limb lower mlym mong mtei mymr mymrshan native nkoo no non-ignorable olck orya osma persian phonebook phonetic pinyin posix primary quaternary reformed roc roman romanlow saur search searchjl secondary shifted shrd sora standard stroke sund takr talu taml tamldec telu tertiary thai tibt traditional unihan upper vaii yes zhuyin</attributeValues>
-            <attributeValues elements="unit" attributes="type" type="regex">(acceleration-g-force|angle-(degree|arc-minute|arc-second)|area-(acre|square-(foot|kilometer|meter|mile)|hectare)|duration-(millisecond|(day|hour|minute|month|second|week|year))|length-((pico|milli|centi|kilo)?meter|foot|inch|light-year|mile|yard)|mass-((kilo)?gram|ounce|pound)|power-(horsepower|(kilo)?watt)|pressure-(hectopascal|inch-hg|millibar)|speed-((mile|kilometer)-per-hour|meter-per-second)|temperature-(celsius|fahrenheit)|volume-(liter|cubic-(kilometer|mile)))</attributeValues>
+            <attributeValues elements="unit" attributes="type" type="regex">(acceleration-(g-force|meter-per-second-squared)|angle-(degree|arc-minute|arc-second|radian)|area-(acre|square-(centimeter|inch|foot|kilometer|meter|mile|yard)|hectare)|consumption-(liter-per-kilometer|mile-per-gallon)|digital-(kilo|mega|giga|tera)?(bit|byte)|duration-(nanosecond|microsecond|millisecond|(day|hour|minute|month|second|week|year))|electric-(milli)?(ampere|ohm|volt)|energy-(kilocalorie|calorie|foodcalorie|joule|kilojoule|kilowatt-hour)|frequency-(kilo|mega|giga)?hertz|length-(astronomical-unit|(pico|nano|micro|milli|centi|deci|kilo)?meter|fathom|foot|furlong|inch|light-year|mile|nautical-mile|parsec|yard)|light-lux|mass-(carat|(kilo|milli|micro)?gram|ounce|ounce-troy|pound|metric-ton|stone|ton)|power-(horsepower|(kilo|milli|mega|giga)?watt)|pressure-(hectopascal|inch-hg|millibar|millimeter-of-mercury|pound-per-square-inch)|proportion-karat|speed-((mile|kilometer)-per-hour|meter-per-second)|temperature-(celsius|fahrenheit|kelvin)|volume-(acre-foot|bushel|cup|fluid-ounce|(milli|deci|centi|hecto|mega)?liter|gallon|pint|quart|cubic-(centimeter|kilometer|meter|mile|inch|foot|yard)|tablespoon|teaspoon))</attributeValues>
             <attributeValues elements="variable" attributes="id">$variableID</attributeValues>
             <attributeValues elements="variant" attributes="type">$variant</attributeValues>
             <attributeValues elements="variantAlias" attributes="replacement type">$variant</attributeValues>
-            <attributeValues elements="version" attributes="number">$version</attributeValues>
+            <attributeValues elements="version" attributes="number" type="choice">$version</attributeValues>
             <attributeValues elements="weekendEnd weekendStart" attributes="time">$time</attributeValues>
             <attributeValues elements="zone" attributes="type">$tzid</attributeValues>
             <attributeValues elements="zoneFormatting" attributes="multizone">$territory</attributeValues>

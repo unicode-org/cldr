@@ -87,11 +87,33 @@ public final class With<V> implements Iterable<V>, Iterator<V> {
      * @return
      */
     public List<V> toList() {
-        ArrayList<V> result = new ArrayList<V>();
+        return toCollection(new ArrayList<V>());
+    }
+
+    /**
+     * Create a collection from whatever is left in the iterator. For example, myCollection =
+     * With.in(anIterator).toList();
+     * 
+     * @return
+     */
+    public <C extends Collection<V>> C toCollection(C output) {
         while (hasNext()) {
-            result.add(next());
+            output.add(next());
         }
-        return result;
+        return output;
+    }
+
+    /**
+     * Create a collection from whatever is left in the iterator. For example, myCollection =
+     * With.in(anIterator).toList();
+     * 
+     * @return
+     */
+    public <C extends Collection<V>> C toUnmodifiableCollection(C output) {
+        while (hasNext()) {
+            output.add(next());
+        }
+        return CldrUtility.protectCollection(output);
     }
 
     /**

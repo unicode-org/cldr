@@ -2254,10 +2254,13 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			the locale of the source, and the type is the type (if any). If the
 			source is &quot;locale&quot; it is the same locale. The type is
 			defaulted to &quot;standard&quot;.</p>
+		<p class="changed">The attribute values are BCP 47 subtags.
+			For example: source="und" (not "root") and type="phonebk" (not "phonebook").</p>
 		<p>
-			<em>Example:</em>
+			<em>Example<span class="changed">s</span>:</em>
 		</p>
-		<pre>&lt;import source=&quot;de&quot; type=&quot;phonebook&quot;/&gt;</pre>
+		<pre>&lt;import source=&quot;de&quot; type=&quot;phoneb<span class="removed">oo</span>k&quot;/&gt;
+<span class="changed">&lt;import source="und" type="search"/&gt;</span></pre>
 		<table>
 			<caption>Special-Purpose Commands</caption>
 			<tr>

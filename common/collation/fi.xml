@@ -15,9 +15,11 @@ For terms of use, see http://www.unicode.org/copyright.html
             <defaultCollation>phonebook</defaultCollation>
 			<collation type="search" >
 				<import source="und" type="search"/>
-				# Below are the rules specific to fi.
-				# These rules match standard collation below, since
-				# per Apple language group, V and W should match for search.
+				<!--
+				Below are the rules specific to fi.
+				These rules match standard collation below, since
+				per Apple language group, V and W should match for search.
+				-->
 				<import source="fi" type="standard"/>
 			</collation>
 			<collation type="standard" >

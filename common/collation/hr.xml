@@ -15,7 +15,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<collation type="search" >
 			<import source="und" type="search"/>
 			<import source="hr" type="standard"/>
-			<settings reorder="others"/>  # reset to no reordering
+			<settings reorder="others"/>  <!-- reset to no reordering -->
 		</collation>
 		<collation type="standard">
 			<settings reorder="Latn Cyrl"/>

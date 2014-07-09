@@ -14,8 +14,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<collations >
 		<collation type="search" >
 			<import source="und" type="search"/>
-			# Below are the rules specific to de.
-			# Per Apple language group, these rules match phonebook collation below.
+			<!--
+			Below are the rules specific to de.
+			Per Apple language group, these rules match phonebook collation below.
+			-->
 			<import source="de" type="phonebk"/>
 		</collation>
 		<!-- "standard" is the same as in root -->

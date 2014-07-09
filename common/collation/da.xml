@@ -15,7 +15,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<collation type="search" >
 				<import source="und" type="search"/>
 				<import source="da" type="standard"/>
-				# Don't need caseFirst="upper" for search.
+				<!-- Don't need caseFirst="upper" for search. -->
 				<settings caseFirst="off"/>
 			</collation>
 			<collation type="standard" >

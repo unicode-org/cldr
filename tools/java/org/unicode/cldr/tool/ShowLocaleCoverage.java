@@ -66,7 +66,7 @@ public class ShowLocaleCoverage {
 //        draftStatus(".+", "unconfirmed", "Filter the information to a minimum draft status."),
         organization(".+", null, "Only locales for organization"),
         version(".+", "25.0", "To get different versions"),
-        directories("(.*:)?[a-z]+(,[a-z]+)*", "common,seed", "Space-delimited list of main directories: common,seed,exemplar.\n" +
+        directories("(.*:)?[a-z]+(,[a-z]+)*", "common", "Space-delimited list of main directories: common,seed,exemplar.\n" +
         		"Optional, <baseDir>:common,seed"),
         rawData(null, null, "Output the raw data from all coverage levels");
 

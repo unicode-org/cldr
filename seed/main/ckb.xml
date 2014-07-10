@@ -11,9 +11,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="ckb"/>
 	</identity>
 	<localeDisplayNames>
-		<localeDisplayPattern>
-			<localeSeparator draft="unconfirmed">،</localeSeparator>
-		</localeDisplayPattern>
 		<languages>
 			<language type="af" draft="unconfirmed">ئه‌فریكای</language>
 			<language type="am" draft="unconfirmed">ئه‌مهه‌رینجی</language>
@@ -590,9 +587,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11" draft="unconfirmed">تشرینی دووەم</month>
 							<month type="12" draft="unconfirmed">کانونی یەکەم</month>
 						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="12" draft="unconfirmed">D</month>
-						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="unconfirmed">کانوونی دووەم</month>
 							<month type="2" draft="unconfirmed">شوبات</month>
@@ -622,9 +616,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="10" draft="unconfirmed">تشرینی یەکەم</month>
 							<month type="11" draft="unconfirmed">تشرینی دووەم</month>
 							<month type="12" draft="unconfirmed">کانونی یەکەم</month>
-						</monthWidth>
-						<monthWidth type="narrow">
-							<month type="12" draft="unconfirmed">D</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1" draft="unconfirmed">کانوونی دووەم</month>
@@ -955,12 +946,5 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 	</numbers>
-	<units>
-		<unitLength type="long">
-			<unit type="duration-day">
-				<unitPattern count="one">{0} ڕۆژ</unitPattern>
-			</unit>
-		</unitLength>
-	</units>
 </ldml>
 

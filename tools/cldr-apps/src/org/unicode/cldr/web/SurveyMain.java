@@ -171,7 +171,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
      */
     public enum Phase {
         SUBMIT("Data Submission", CheckCLDR.Phase.SUBMISSION), // SUBMISSION
-        VETTING("Vetting", CheckCLDR.Phase.VETTING), VETTING_CLOSED("Vetting Closed", CheckCLDR.Phase.VETTING), // closed
+        VETTING("Vetting", CheckCLDR.Phase.VETTING), VETTING_CLOSED("Vetting Closed", CheckCLDR.Phase.FINAL_TESTING), // closed
                                                                                                                 // after
                                                                                                                 // vetting
                                                                                                                 // -

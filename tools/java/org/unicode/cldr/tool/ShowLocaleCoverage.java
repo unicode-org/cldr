@@ -1,7 +1,9 @@
 package org.unicode.cldr.tool;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
@@ -63,7 +65,10 @@ public class ShowLocaleCoverage {
         filter(".+", ".*", "Filter the information based on id, using a regex argument."),
 //        draftStatus(".+", "unconfirmed", "Filter the information to a minimum draft status."),
         organization(".+", null, "Only locales for organization"),
-        version(".+", "25.0", "To get different versions");
+        version(".+", "25.0", "To get different versions"),
+        directories("(.*:)?[a-z]+(,[a-z]+)*", "common,seed", "Space-delimited list of main directories: common,seed,exemplar.\n" +
+        		"Optional, <baseDir>:common,seed"),
+        rawData(null, null, "Output the raw data from all coverage levels");
 
         // targetDirectory(".+", CldrUtility.CHART_DIRECTORY + "keyboards/", "The target directory."),
         // layouts(null, null, "Only create html files for keyboard layouts"),
@@ -76,17 +81,6 @@ public class ShowLocaleCoverage {
         }
     }
 
-    static final EnumSet<Level> skipPrintingLevels = EnumSet.of(
-        Level.UNDETERMINED,
-        Level.CORE,
-        Level.POSIX,
-        Level.MINIMAL,
-        Level.OPTIONAL,
-        Level.COMPREHENSIVE
-        );
-
-    private static final boolean USE_SEED = false;
-
     static RegexLookup<Boolean> SKIP_PATHS = new RegexLookup<Boolean>()
         .add("\\[@alt=\"accounting\"]", true)
         .add("\\[@alt=\"variant\"]", true)
@@ -98,7 +92,10 @@ public class ShowLocaleCoverage {
     static org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
     static DraftStatus minimumDraftStatus = DraftStatus.unconfirmed;
     static final Factory pathHeaderFactory = PathHeader.getFactory(ENGLISH);
-    
+
+    static boolean RAW_DATA = true;
+    private static Set<String> COMMON_LOCALES;
+
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.filter, args, true);
         Matcher matcher = Pattern.compile(MyOptions.filter.option.getValue()).matcher("");
@@ -117,11 +114,29 @@ public class ShowLocaleCoverage {
             factory = org.unicode.cldr.util.Factory.make(
                 CLDRPaths.ARCHIVE_DIRECTORY + "cldr-" + number + "/common/main/", ".*");
         } else {
-            if (USE_SEED) {
+            if (MyOptions.directories.option.doesOccur()) {
+                String directories = MyOptions.directories.option.getValue().trim();
                 CLDRConfig cldrConfig = CLDRConfig.getInstance();
-                factory = SimpleFactory.make(cldrConfig.getCLDRDataDirectories("common/main,seed/main"), ".*");
+                String base = null; 
+                int colonPos = directories.indexOf(':');
+                if (colonPos >= 0) {
+                    base = directories.substring(0,colonPos).trim();
+                    directories = directories.substring(colonPos+1).trim();
+                } else {
+                    base = cldrConfig.getCldrBaseDirectory().toString();
+                }
+                String[] items = directories.split(",\\s*");
+                File[] fullDirectories = new File[items.length];
+                int i = 0;
+                for (String item : items) {
+                    fullDirectories[i++] = new File(base + "/" + item + "/main");
+                }
+                factory = SimpleFactory.make(fullDirectories, ".*");
+                COMMON_LOCALES = SimpleFactory.make(base + "/" + "common" + "/main", ".*").getAvailableLanguages();
             }
         }
+
+        RAW_DATA = MyOptions.rawData.option.doesOccur();
 
         //showEnglish();
 
@@ -141,21 +156,21 @@ public class ShowLocaleCoverage {
         pw.close();
     }
 
-    public static void showEnglish() {
-        Map<PathHeader,String> sorted = new TreeMap<>();
-        CoverageInfo coverageInfo=CLDRConfig.getInstance().getCoverageInfo();
-        for (String path : ENGLISH) {
-//            Level currentLevel = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(path, "en");
-            Level currentLevel=coverageInfo.getCoverageLevel(path, "en");
-            if (currentLevel.compareTo(Level.MINIMAL) <= 0) {
-                PathHeader ph = pathHeaderFactory.fromPath(path);
-                sorted.put(ph, currentLevel + "\t" + ENGLISH.getStringValue(path));
-            }
-        }
-        for (Entry<PathHeader, String> entry : sorted.entrySet()) {
-            System.out.println(entry.getKey() + "\t" + entry.getValue());
-        }
-    }
+//    public static void showEnglish() {
+//        Map<PathHeader,String> sorted = new TreeMap<>();
+//        CoverageInfo coverageInfo=CLDRConfig.getInstance().getCoverageInfo();
+//        for (String path : ENGLISH) {
+////            Level currentLevel = SUPPLEMENTAL_DATA_INFO.getCoverageLevel(path, "en");
+//            Level currentLevel=coverageInfo.getCoverageLevel(path, "en");
+//            if (currentLevel.compareTo(Level.MINIMAL) <= 0) {
+//                PathHeader ph = pathHeaderFactory.fromPath(path);
+//                sorted.put(ph, currentLevel + "\t" + ENGLISH.getStringValue(path));
+//            }
+//        }
+//        for (Entry<PathHeader, String> entry : sorted.entrySet()) {
+//            System.out.println(entry.getKey() + "\t" + entry.getValue());
+//        }
+//    }
 
     static void printData(PrintWriter pw, Set<String> locales, Matcher matcher, boolean useOrgLevel) {
 //        Set<String> checkModernLocales = STANDARD_CODES.getLocaleCoverageLocales("google", EnumSet.of(Level.MODERN));
@@ -217,9 +232,21 @@ public class ShowLocaleCoverage {
         Counter<Level> unconfirmedCounter = new Counter<Level>();
         Counter<Level> missingCounter = new Counter<Level>();
 
-        List<Level> reversedLevels = Arrays.asList(Level.values());
-        java.util.Collections.reverse(reversedLevels);
+        List<Level> reversedLevels = new ArrayList();
+        reversedLevels.add(Level.MODERN);
+        reversedLevels.add(Level.MODERATE);
+        reversedLevels.add(Level.BASIC);
+        if (RAW_DATA) {
+            reversedLevels.add(Level.MINIMAL);
+            reversedLevels.add(Level.POSIX);
+            reversedLevels.add(Level.CORE);
+        }
 
+        System.out.print("Code\tCom?\tEnglish Name\tNative Name\tScript\tSublocales\tStrings");
+        for (Level level : reversedLevels) {
+            System.out.print("\t" + level + " %\t" + level + " UC%");
+        }
+        System.out.println("\tCore*\nCore* Missing");
         int localeCount = 0;
 
         final TablePrinter tablePrinter = new TablePrinter()
@@ -235,10 +262,8 @@ public class ShowLocaleCoverage {
         //.addColumn("Target Level", "class='target'", null, "class='target'", true).setBreakSpans(true)
         ;
 
+
         for (Level level : reversedLevels) {
-            if (skipPrintingLevels.contains(level)) {
-                continue;
-            }
             String titleLevel = level.toString();
             tablePrinter
             .addColumn(UCharacter.toTitleCase(titleLevel,null) + "%", "class='target'", null, "class='targetRight'", true)
@@ -261,9 +286,13 @@ public class ShowLocaleCoverage {
         LikelySubtags likelySubtags = new LikelySubtags();
 
         EnumMap<Level,Double> targetLevel = new EnumMap<>(Level.class);
+        targetLevel.put(Level.CORE, 2/100d);
+        targetLevel.put(Level.POSIX, 4/100d);
+        targetLevel.put(Level.MINIMAL, 6/100d);
         targetLevel.put(Level.BASIC, 16/100d);
         targetLevel.put(Level.MODERATE, 33/100d);
         targetLevel.put(Level.MODERN, 100/100d);
+
 
 //        NumberFormat percentFormat = NumberFormat.getPercentInstance(ULocale.ENGLISH);
 //        percentFormat.setMaximumFractionDigits(2);
@@ -281,10 +310,11 @@ public class ShowLocaleCoverage {
                         continue;
                     }
                 }
+                boolean isCommonLocale = COMMON_LOCALES.contains(locale);
                 if (!matcher.reset(locale).matches()) {
                     continue;
                 }
-                if (defaultContents.contains(locale) || "root".equals(locale)) {
+                if (defaultContents.contains(locale) || "root".equals(locale) || "und".equals(locale)) {
                     continue;
                 }
                 //boolean capture = locale.equals("en");
@@ -313,12 +343,12 @@ public class ShowLocaleCoverage {
 
                 Set<String> sublocales = languageToRegion.get(language);
                 if (sublocales == null) {
-                    System.err.println("No Sublocales: " + language);
+                    //System.err.println("No Sublocales: " + language);
                     sublocales = Collections.EMPTY_SET;
                 }
-                
+
 //                List s = Lists.newArrayList(file.fullIterable());
-                
+
                 tablePrinter
                 .addRow()
                 .addCell(language)
@@ -330,6 +360,7 @@ public class ShowLocaleCoverage {
                 ;
                 String header = 
                     language
+                    + "\t" + (isCommonLocale ? "C" : "")
                     + "\t" + ENGLISH.getName(language)
                     + "\t" + file.getName(language)
                     + "\t" + script
@@ -353,7 +384,7 @@ public class ShowLocaleCoverage {
                     sumFound += foundCounter.get(level);
                     sumUnconfirmed += unconfirmedCounter.get(level);
                     sumMissing += missingCounter.get(level);
-                    
+
                     confirmed.put(level, sumFound);
                     unconfirmedByLevel.put(level, sumFound + sumUnconfirmed);
                     totals.put(level, sumFound + sumUnconfirmed + sumMissing);
@@ -363,7 +394,7 @@ public class ShowLocaleCoverage {
 
                 tablePrinter
                 .addCell(sumFound);
-                
+
                 header += "\t" + sumFound;
 
                 // print the totals
@@ -371,21 +402,25 @@ public class ShowLocaleCoverage {
                 for (Level level : reversedLevels) {
                     if (useOrgLevel && currentLevel != level) {
                         continue;
-                    } else if (skipPrintingLevels.contains(level)) {
-                        continue;
                     }
                     int confirmedCoverage = confirmed.get(level);
                     int unconfirmedCoverage = unconfirmedByLevel.get(level);
                     double total = totals.get(level);
-                    
+
                     tablePrinter
                     .addCell(confirmedCoverage / total)
                     .addCell(unconfirmedCoverage / total);
-                    
-                    Double factor = targetLevel.get(level) / (total / modernTotal);
-                    header += "\t" + factor * confirmedCoverage / modernTotal
-                        + "\t" + factor * unconfirmedCoverage / modernTotal
-                        ;
+
+                    if (RAW_DATA) {
+                        header += "\t" + confirmedCoverage / total
+                            + "\t" + unconfirmedCoverage / total
+                            ;
+                    } else {
+                        Double factor = targetLevel.get(level) / (total / modernTotal);
+                        header += "\t" + factor * confirmedCoverage / modernTotal
+                            + "\t" + factor * unconfirmedCoverage / modernTotal
+                            ; 
+                    }
                 }
                 Set<String> detailedErrors = new LinkedHashSet<>();
                 Set<CoreItems> coverage = new TreeSet<>(
@@ -400,7 +435,7 @@ public class ShowLocaleCoverage {
                 .addCell(coreValue)
                 .finishRow();
 
-                System.out.println(header + "\t" + 0.01 * coreValue + "\t" + CollectionUtilities.join(missing, ", "));
+                System.out.println(header + "\t" + coreValue + "\t" + CollectionUtilities.join(missing, ", "));
 
                 // Write missing paths (for >99% and specials
 

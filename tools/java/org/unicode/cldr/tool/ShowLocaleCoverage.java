@@ -29,6 +29,7 @@ import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
+import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
@@ -53,9 +54,10 @@ public class ShowLocaleCoverage {
     private static final double CORE_SIZE 
     = (double)(CoreItems.values().length - CoreItems.ONLY_RECOMMENDED.size());
     public static CLDRConfig testInfo = ToolConfig.getToolInstance();
+    private static final StandardCodes SC = testInfo.getStandardCodes();
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = testInfo.getSupplementalDataInfo();
     private static final CLDRFile ENGLISH = testInfo.getEnglish();
-    private static final StandardCodes STANDARD_CODES = testInfo.getStandardCodes();
+    private static final StandardCodes STANDARD_CODES = SC;
     // added info using pattern in VettingViewer.
 
     final static Options myOptions = new Options();
@@ -67,8 +69,8 @@ public class ShowLocaleCoverage {
         organization(".+", null, "Only locales for organization"),
         version(".+", "25.0", "To get different versions"),
         directories("(.*:)?[a-z]+(,[a-z]+)*", "common", "Space-delimited list of main directories: common,seed,exemplar.\n" +
-        		"Optional, <baseDir>:common,seed"),
-        rawData(null, null, "Output the raw data from all coverage levels");
+            "Optional, <baseDir>:common,seed"),
+            rawData(null, null, "Output the raw data from all coverage levels");
 
         // targetDirectory(".+", CldrUtility.CHART_DIRECTORY + "keyboards/", "The target directory."),
         // layouts(null, null, "Only create html files for keyboard layouts"),
@@ -204,7 +206,7 @@ public class ShowLocaleCoverage {
 
         //Map<String, String> likely = testInfo.getSupplementalDataInfo().getLikelySubtags();
         Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales();
-        CLDRFile english = ENGLISH;
+        
 
         // Map<String,Counter<Level>> counts = new HashMap();
         //        System.out.print("Script\tEnglish\tNative\tCode\tCode*");
@@ -224,9 +226,7 @@ public class ShowLocaleCoverage {
             throw new IllegalArgumentException(e1);
         }
 
-        out.println("#Script\tEnglish Name\tNative Name\tCode\tRank\tLevel" +
-            "\tEnglish Value\tNative Value\tCorrect Value (or ‘OK’ if F is good)" +
-            "\tStatus\tSection\tPage\tHeader\tCode\tPath");
+        out.println("#LCode\tEnglish Name\tScript\tEnglish Value\tNative Value\tStatus\tST Link\tSection\tPage\tHeader\tCode\tPath");
 
         Counter<Level> foundCounter = new Counter<Level>();
         Counter<Level> unconfirmedCounter = new Counter<Level>();
@@ -310,7 +310,6 @@ public class ShowLocaleCoverage {
                         continue;
                     }
                 }
-                boolean isCommonLocale = COMMON_LOCALES.contains(locale);
                 if (!matcher.reset(locale).matches()) {
                     continue;
                 }
@@ -320,6 +319,12 @@ public class ShowLocaleCoverage {
                 //boolean capture = locale.equals("en");
                 String region = ltp.set(locale).getRegion();
                 if (!region.isEmpty()) continue; // skip regions
+
+                Level cldrLevel = SC.getLocaleCoverageLevel(Organization.cldr.toString(), locale);
+                String isCommonLocale = 
+                    cldrLevel.compareTo(Level.MODERN) == 0 ? "C*"
+                        : COMMON_LOCALES.contains(locale) ? "C"
+                            : "";
 
                 String max = likelySubtags.maximize(locale);
                 String script = ltp.set(max).getScript();
@@ -360,7 +365,7 @@ public class ShowLocaleCoverage {
                 ;
                 String header = 
                     language
-                    + "\t" + (isCommonLocale ? "C" : "")
+                    + "\t" + isCommonLocale
                     + "\t" + ENGLISH.getName(language)
                     + "\t" + file.getName(language)
                     + "\t" + script
@@ -439,14 +444,21 @@ public class ShowLocaleCoverage {
 
                 // Write missing paths (for >99% and specials
 
-                if ((modernConfirmed/modernTotal) >= 0.99d
-                    || checkModernLocales.contains(locale)) {
+                if (checkModernLocales.contains(locale)) {
                     for (String path : unconfirmed) {
-                        PathHeader ph = pathHeaderFactory.fromPath(path);
-                        String line = header + "\t" + english.getStringValue(path)
-                            + "\t" + file.getStringValue(path)
-                            + "\t" + "UNCONFIRMED"
-                            + "\t" + ph + "\t" + path;
+//                        String header2 = 
+//                            language
+//                            + "\t" + ENGLISH.getName(language)
+//                            + "\t" + script
+//                            ;
+//                        PathHeader ph = pathHeaderFactory.fromPath(path);
+//                        String line = header2 
+//                            + "\t" + ENGLISH.getStringValue(path)
+//                            + "\t" + file.getStringValue(path)
+//                            + "\t" + "UNCONFIRMED"
+//                            + "\t" + URLS.forXpath(locale, ph.getOriginalPath())
+//                            + "\t" + ph + "\t" + path;
+                        String line = spreadsheetLine(locale, script, language, "UNCONFIRMED", path, file.getStringValue(path));
                         if (SKIP_PATHS.get(path) != null) {
                             //System.out.println("\nSKIP: " + line);
                         } else {
@@ -454,13 +466,8 @@ public class ShowLocaleCoverage {
                         }
                     }
                     for (Entry<MissingStatus, String> entry : missingPaths.entrySet()) {
-                        String path = entry.getValue();
-                        PathHeader ph = pathHeaderFactory.fromPath(path);
-                        String line = header + "\t" + english.getStringValue(path)
-                            + "\t???"
-                            + "\t" + entry.getKey()
-                            + "\t" + ph + "\t" + path;
-                        if (SKIP_PATHS.get(path) != null) {
+                        String line = spreadsheetLine(locale, script, language, entry.getKey().toString(), entry.getValue(), "???");
+                        if (SKIP_PATHS.get(entry.getValue()) != null) {
                             //System.out.println("\nSKIP: " + line);
                         } else {
                             out.println(line);
@@ -490,4 +497,23 @@ public class ShowLocaleCoverage {
         //            }
         //        }
     }
+
+    public static String spreadsheetLine(String locale, String script, String language, String status, String path, String nativeValue) {
+        PathHeader ph = pathHeaderFactory.fromPath(path);
+        final String stLink = URLS.forXpath(locale, ph.getOriginalPath());
+        String englishValue = ENGLISH.getStringValue(path);
+        String line = language
+            + "\t" + ENGLISH.getName(language)
+            + "\t" + ENGLISH.getName("script", script) 
+            + "\t" + englishValue
+            + "\t" + nativeValue
+            + "\t" + status
+            + "\t" + stLink
+            + "\t" + ph 
+            + "\t" + path;
+        return line;
+    }
+
+    private static CLDRURLS URLS = CLDRConfig.getInstance().urls();
+
 }

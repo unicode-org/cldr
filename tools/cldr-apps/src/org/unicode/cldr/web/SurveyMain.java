@@ -3803,8 +3803,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
     public synchronized LocaleTree getLocaleTree() {
         if (localeTree == null) {
-            CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(getBaselineFile(), FormatBehavior.replace);
-            CLDRLocale.setDefaultFormatter(defaultFormatter);
+            CLDRFormatter defaultFormatter = setDefaultCLDRLocaleFormatter();
             LocaleTree newLocaleTree = new LocaleTree(defaultFormatter);
             File inFiles[] = getInFiles();
             if (inFiles == null) {
@@ -3830,6 +3829,15 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
             localeTree = newLocaleTree;
         }
         return localeTree;
+    }
+
+    /**
+     * @return
+     */
+    public CLDRFormatter setDefaultCLDRLocaleFormatter() {
+        CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(getEnglishFile(), FormatBehavior.replace);
+        CLDRLocale.setDefaultFormatter(defaultFormatter);
+        return defaultFormatter;
     }
 
     /**
@@ -4671,6 +4679,12 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return gOldFactory;
     }
 
+    /**
+     * This is the BASELINE FILE. (en_ZZ) - thus it contains 'translation hints'.
+     * @see {@link #BASELINE_ID}
+     * @see {@link #getEnglishFile()}
+     * @return
+     */
     public synchronized CLDRFile getBaselineFile(/* CLDRDBSource ourSrc */) {
         if (gBaselineFile == null) {
             try {
@@ -4684,8 +4698,7 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
 
                 // propagate it.
                 CheckCLDR.setDisplayInformation(gBaselineFile);
-                CLDRFormatter defaultFormatter = new CLDRLocale.CLDRFormatter(gBaselineFile, FormatBehavior.replace);
-                CLDRLocale.setDefaultFormatter(defaultFormatter);
+                CLDRFormatter defaultFormatter = setDefaultCLDRLocaleFormatter();
             } catch (Throwable t) {
                 busted("Could not load baseline locale " + BASELINE_LOCALE, t);
             }
@@ -7264,14 +7277,19 @@ public class SurveyMain extends HttpServlet implements CLDRProgressIndicator, Ex
         return new SimpleDateFormat("VVVV: ZZZZ", SurveyMain.BASELINE_LOCALE).format(System.currentTimeMillis());
     }
 
+    private static CLDRFile gEnglishFile = null;
     /**
      * Get exactly the "en" disk file.
+     * @see #getBaselineFile()
      * @return
      */
     public CLDRFile getEnglishFile() {
-        CLDRFile english =  getDiskFactory().make(ULocale.ENGLISH.getBaseName(), true);
-        english.setSupplementalDirectory(getSupplementalDirectory());
-        english.freeze();
-        return english;
+        if(gEnglishFile == null) synchronized(this) {
+            CLDRFile english =  getDiskFactory().make(ULocale.ENGLISH.getBaseName(), true);
+            english.setSupplementalDirectory(getSupplementalDirectory());
+            english.freeze();
+            gEnglishFile = english;
+        }
+        return gEnglishFile;
     }
 }

@@ -6,13 +6,25 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.test.CheckCLDR.CheckStatus;
+import org.unicode.cldr.test.CheckCLDR.Options;
 import org.unicode.cldr.test.CheckCLDR.CheckStatus.Subtype;
 import org.unicode.cldr.util.ApproximateWidth;
+import org.unicode.cldr.util.CLDRFile;
+import org.unicode.cldr.util.LanguageTagParser;
+import org.unicode.cldr.util.Level;
 import org.unicode.cldr.util.RegexLookup;
+import org.unicode.cldr.util.SupplementalDataInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralInfo;
+import org.unicode.cldr.util.SupplementalDataInfo.PluralType;
 
 public class CheckWidths extends CheckCLDR {
     // remember to add this class to the list in CheckCLDR.getCheckAll
     // to run just this test, on just locales starting with 'nl', use CheckCLDR with -fnl.* -t.*CheckWidths.*
+    private static CoverageLevel2 coverageLevel;
+    private Level requiredLevel;
+
+    SupplementalDataInfo supplementalData;
 
     private static final double EM = ApproximateWidth.getWidth("月");
 
@@ -71,7 +83,7 @@ public class CheckWidths extends CheckCLDR {
             this(d, e, displayWidth, maximum, placeholders, false);
         }
 
-        boolean hasProblem(String value, List<CheckStatus> result, CheckCLDR cause) {
+        boolean hasProblem(String value, List<CheckStatus> result, CheckCLDR cause, Boolean aliasedAndComprenehsive) {
             switch (special) {
             case QUOTES:
                 value = value.replace("'", "");
@@ -90,7 +102,7 @@ public class CheckWidths extends CheckCLDR {
                 if (valueMeasure >= warningReference) {
                     return false;
                 }
-                if (valueMeasure < errorReference && cause.getPhase() != Phase.BUILD) {
+                if (valueMeasure < errorReference && cause.getPhase() != Phase.BUILD && !aliasedAndComprenehsive) {
                     errorType = CheckStatus.errorType;
                 }
                 break;
@@ -98,7 +110,7 @@ public class CheckWidths extends CheckCLDR {
                 if (valueMeasure <= warningReference) {
                     return false;
                 }
-                if (valueMeasure > errorReference && cause.getPhase() != Phase.BUILD) {
+                if (valueMeasure > errorReference && cause.getPhase() != Phase.BUILD && !aliasedAndComprenehsive ) {
                     errorType = CheckStatus.errorType;
                 }
                 break;
@@ -228,9 +240,17 @@ public class CheckWidths extends CheckCLDR {
         // item0.check("123456789", result, this);
 
         Limit[] items = lookup.get(path);
+        CLDRFile.Status status = new CLDRFile.Status();
+        this.getCldrFileToCheck().getSourceLocaleID(path, status);
+        // This was put in specifically to deal with the fact that we added a bunch of new units in CLDR 26
+        // and didn't put the narrow forms of them into modern coverage.  If/when the narrow forms of all units
+        // are modern coverage, then we can safely remove the aliasedAndComprehensive check.  Right now if an
+        // item is aliased and coverage is comprehensive, then it can't generate anything worse than a warning.
+        Boolean aliasedAndComprenehsive = (coverageLevel.getLevel(path).compareTo(Level.COMPREHENSIVE) == 0)
+            && (status.pathWhereFound.compareTo(path) != 0);
         if (items != null) {
             for (Limit item : items) {
-                if (item.hasProblem(value, result, this)) {
+                if (item.hasProblem(value, result, this, aliasedAndComprenehsive)) {
                     if (DEBUG && !found.contains(item)) {
                         found.add(item);
                     }
@@ -238,6 +258,15 @@ public class CheckWidths extends CheckCLDR {
                 }
             }
         }
+        return this;
+    }
+    public CheckCLDR setCldrFileToCheck(CLDRFile cldrFileToCheck, Options options,
+        List<CheckStatus> possibleErrors) {
+        final String localeID = cldrFileToCheck.getLocaleID();
+        supplementalData = SupplementalDataInfo.getInstance(cldrFileToCheck.getSupplementalDirectory());
+        coverageLevel = CoverageLevel2.getInstance(supplementalData, localeID);
+
+        super.setCldrFileToCheck(cldrFileToCheck, options, possibleErrors);
         return this;
     }
 }

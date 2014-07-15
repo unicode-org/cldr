@@ -90,6 +90,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
     private final Matcher typePattern = Pattern.compile("\\[@type=\"([^\"]*+)\"]").matcher("");
     private final Matcher attributesToIgnore = Pattern.compile("\\[@(?:count|alt)=\"[^\"]*+\"]").matcher("");
     private final Matcher compactNumberAttributesToIgnore = Pattern.compile("\\[@(?:alt)=\"[^\"]*+\"]").matcher("");
+    private final Matcher compoundUnitPatterns = Pattern.compile("compoundUnitPattern").matcher("");
     
     // map unique path fragment to set of unique fragments for other
     // paths with which it is OK to have a value collision
@@ -253,8 +254,9 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
                 String curVal = iterator.next();
                 parts.set(curVal);
                 String unit = parts.getAttributeValue(3, "type");
-                // we also break the units into two groups: durations and others.
-                if (myUnit.equals(unit) || unit != null && isDuration != unit.startsWith("duration")) {
+                // we also break the units into two groups: durations and others. Also never collide with a compoundUnitPattern.
+                if (myUnit.equals(unit) || unit != null && isDuration != unit.startsWith("duration") ||
+                      compoundUnitPatterns.reset(curVal).find()) {
                     iterator.remove();
                     log("Removed '" + curVal + "': COLLISON WITH UNIT  " + unit);
                 } else {

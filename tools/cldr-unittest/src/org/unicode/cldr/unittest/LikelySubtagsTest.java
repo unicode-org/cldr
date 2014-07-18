@@ -201,11 +201,7 @@ public class LikelySubtagsTest extends TestFmwk {
                 continue;
             }
             if (i.likelyLanguage.equals("und") && !exceptions.contains(shortName)) {
-                if (logKnownIssue("Cldrbug:7134","Missing script metadata for Brah") && shortName.equals("Brah")) {
-                    logln("Script has no likely language: " + shortName);                   
-                } else {
-                    errln("Script has no likely language: " + shortName);
-                }
+            	errln("Script has no likely language: " + shortName);
             }
             toRemove.applyIntPropertyValue(UProperty.SCRIPT, script);
             current.removeAll(toRemove);

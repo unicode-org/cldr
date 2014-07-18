@@ -1149,14 +1149,6 @@ public class TestBasic extends TestFmwkPlus {
             xfr.read(myHandler.fileName, -1, true);
             logln(myHandler.fileName);
         } catch (Exception e) {
-            if (logKnownIssue("cldrbug:6743", "Bad xml files")) {
-                try {
-                    if (fileToRead.getCanonicalPath().contains("/exemplars/")) {
-                        return;
-                    }
-                } catch (IOException e1) {
-                } // skip
-            }
             Throwable t = e;
             StringBuilder b = new StringBuilder();
             String indent = "";

@@ -190,7 +190,6 @@ public class TestCLDRFile extends TestFmwk {
                 || path.contains("[@alt=\"accounting\"]")) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
             } else if (path.contains("//ldml/units/unitLength[@type=\"narrow\"]/unit")) {
-                logKnownIssue("cldrbug:7330", "just disabling for now: " + path);
                 logln("+" + engName + ", -" + locales + "\t" + path);
             } else {
                 errln("+" + engName + ", -" + locales + "\t" + path);

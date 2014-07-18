@@ -55,8 +55,6 @@ public class TestScriptMetadata extends TestFmwkPlus {
             assertTrue("Must have single, valid script " + scriptCode, scriptCode >= 0);
         }
     }
-
-    //  && logKnownIssue("Cldrbug:7134","Missing script metadata for Brah")
     
     public void TestBasic() {
         Info info0 = ScriptMetadata.getInfo(UScript.LATIN);

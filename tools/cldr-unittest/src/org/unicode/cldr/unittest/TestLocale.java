@@ -361,13 +361,4 @@ public class TestLocale extends TestFmwkPlus {
         assertEquals("Extended language translation", "American English (Arabic)",
                 testInfo.getEnglish().getName("en-Arab-US"));
     }
-
-    public void TestNarrowEnough() {
-        BreakIterator bi = BreakIterator.getCharacterInstance(ULocale.ENGLISH);
-        assertEquals("Narrow Enough", 1, CheckDates.isNarrowEnough("a", bi));
-        assertEquals("Narrow Enough", 2, CheckDates.isNarrowEnough("ab", bi));
-        assertEquals("Narrow Enough", 2, CheckDates.isNarrowEnough("abc", bi));
-        assertEquals("Narrow Enough", 4, CheckDates.isNarrowEnough("a\u0308b\u0308", bi));
-        assertEquals("Narrow Enough", 4, CheckDates.isNarrowEnough("a\u0308b\u0308c\u0308", bi));
-    }
 }

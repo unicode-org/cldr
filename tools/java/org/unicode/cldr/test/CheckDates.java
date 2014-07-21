@@ -410,23 +410,6 @@ public class CheckDates extends FactoryCheckCLDR {
             // }
             // }
 
-            if ( path.indexOf("[@type=\"narrow\"]") >= 0 && path.contains("[@type=\"stand-alone\"]") &&
-                    !path.contains("dayPeriod") && !path.contains("monthPatterns") ) {
-                int end = isNarrowEnough(value, bi);
-                String locale = getCldrFileToCheck().getLocaleID();
-                // Per cldrbug 1456, skip the following test for Thai (or should we instead just change errorType to
-                // warningType in this case?)
-                if (end != value.length() && !locale.equals("th") && !locale.startsWith("th_")) {
-                    result
-                        .add(new CheckStatus()
-                            .setCause(this)
-                            .setMainType(CheckStatus.errorType)
-                            .setSubtype(Subtype.narrowDateFieldTooWide)
-                            .setMessage(
-                                "Illegal narrow value. Must be only one grapheme cluster: \u200E{0}\u200E would be ok, but has extra \u200E{1}\u200E",
-                                new Object[] { value.substring(0, end), value.substring(end) }));
-                }
-            }
             DateTimePatternType dateTypePatternType = DateTimePatternType.fromPath(path);
             if (DateTimePatternType.STOCK_AVAILABLE_INTERVAL_PATTERNS.contains(dateTypePatternType)) {
                 boolean patternBasicallyOk = false;
@@ -1013,31 +996,6 @@ public class CheckDates extends FactoryCheckCLDR {
             .setCause(this).setMainType(CheckStatus.demoType));
     }
 
-    public static int isNarrowEnough(String value, BreakIterator bi) {
-        if (value.length() <= 1) return value.length();
-        int current = 0;
-        // skip any leading digits, for CJK
-        current = DIGIT.findIn(value, current, true);
-
-        bi.setText(value);
-        if (current != 0) bi.preceding(current + 1); // get safe spot, possibly before
-        current = bi.next();
-        if (current == BreakIterator.DONE) {
-            return value.length();
-        }
-        current = bi.next();
-        if (current == BreakIterator.DONE) {
-            return value.length();
-        }
-        // continue collecting any additional characters that are M or grapheme extend
-        current = XGRAPHEME.findIn(value, current, true);
-        // special case: allow 11 or 12
-        // current = Utility.scan(DIGIT, value, current);
-        // if (current != value.length() && DIGIT.containsAll(value) && value.length() == 2) {
-        // return value.length();
-        // }
-        return current;
-    }
 
     static final UnicodeSet XGRAPHEME = new UnicodeSet("[[:mark:][:grapheme_extend:][:punctuation:]]");
     static final UnicodeSet DIGIT = new UnicodeSet("[:decimal_number:]");

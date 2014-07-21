@@ -64,7 +64,6 @@ public class OutdatedPaths {
      * @param directory
      */
     public OutdatedPaths(String directory) {
-        System.out.println("Reading outdated paths..");
         try {
             DataInputStream dataIn = openDataInput(directory, OUTDATED_DATA);
             Map<Long, PathHeader> id2header = new HashMap<Long, PathHeader>();

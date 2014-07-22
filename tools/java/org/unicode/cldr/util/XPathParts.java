@@ -462,6 +462,19 @@ public final class XPathParts implements Freezable<XPathParts> {
         elements.add(new Element(element));
         return this;
     }
+    
+    /**
+     * Varargs version of addElement.
+     *  Usage:  xpp.addElements("ldml","localeDisplayNames")
+     * @param element
+     * @return this for chaining
+     */
+    public XPathParts addElements(String... element) {
+        for(String e : element) {
+            addElement(e);
+        }
+        return this;
+    }
 
     /**
      * Add an attribute/value pair to the current last element.

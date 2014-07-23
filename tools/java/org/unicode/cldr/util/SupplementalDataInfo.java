@@ -1146,7 +1146,7 @@ public class SupplementalDataInfo {
         }
         // HACK
         String currentScript = null;
-        for (String s : "Latn aa af agq ak asa ast bas bem bez bm br ca cgg cs cy da dav de dje dua dyo ebu ee en eo es et eu ewo ff fi fil fo fr fur fy ga gd gl gsw guz gv haw hr hu ia id ig is it jgo jmc kab kam kde kea khq ki kkj kl kln ksb ksf ksh kw lag lg lkt ln lt lu luo luy lv mas mer mfe mg mgh mgo mt mua naq nb nd nl nmg nn nnh nr nso nus nyn om pl pt rm rn ro rof rw rwk saq sbp se seh ses sg sk sl sn so sq ss ssy st sv sw swc teo tn to tr ts twq ve vi vo vun wae xh xog yav yo zu Ethi am byn ti tig wal Arab ar fa ps ur Beng as bn Cyrl be bg ky mk os ru sah uk Tibt bo dz Deva brx hi kok mr ne Cher chr Grek el Gujr gu Hebr he Armn hy Yiii ii Jpan ja Geor ka Khmr km Knda kn Kore ko Laoo lo Mlym ml Mymr my Orya or Sinh si Taml ta Telu te Tfng zgh Thai th"
+        for (String s : "Latn aa af agq ak asa ast bas bem bez bm br ca cgg cs cy da dav de dje dsb dua dyo ebu ee en eo es et eu ewo ff fi fil fo fr fur fy ga gd gl gsw guz gv haw hr hsb hu ia id ig is it jgo jmc kab kam kde kea khq ki kkj kl kln ksb ksf ksh kw lag lb lg lkt ln lt lu luo luy lv mas mer mfe mg mgh mgo mt mua naq nb nd nl nmg nn nnh nr nso nus nyn om pl pt qu rm rn ro rof rw rwk saq sbp se seh ses sg sk sl smn sn so sq ss ssy st sv sw swc teo tn to tr ts twq ve vi vo vun wae xh xog yav yo zu Ethi am byn ti tig wal Arab ar fa ps ur Beng as bn Cyrl be bg ky mk os ru sah uk Tibt bo dz Deva brx hi kok mr ne Cher chr Grek el Gujr gu Hebr he yi Armn hy Yiii ii Jpan ja Geor ka Khmr km Knda kn Kore ko Laoo lo Mlym ml Mymr my Orya or Sinh si Taml ta Telu te Tfng zgh Thai th"
             .split(" ")) {
             if (s.length() == 4) {
                 currentScript = s;

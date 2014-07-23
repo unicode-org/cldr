@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -17,46 +17,66 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
 		</localeDisplayPattern>
 		<languages>
-			<language type="ab">абхаз</language>
+			<language type="ab">абхаз тілі</language>
 			<language type="af">африкаанс</language>
+			<language type="agq">агхем</language>
+			<language type="ak">акан</language>
 			<language type="am">амхар</language>
-			<language type="ar">араб</language>
+			<language type="ar">араб тілі</language>
 			<language type="ar_001">қазіргі стандартты араб тілі</language>
-			<language type="as">ассам</language>
+			<language type="arn">мапуче</language>
+			<language type="as">ассам тілі</language>
+			<language type="asa">асу</language>
 			<language type="ay" draft="unconfirmed">Аймара</language>
-			<language type="az">әзірбайжан</language>
-			<language type="be">беларус</language>
-			<language type="bg">болгар</language>
-			<language type="bn">бенгал</language>
+			<language type="az">әзірбайжан тілі</language>
+			<language type="ba">башқұрт тілі</language>
+			<language type="be">беларус тілі</language>
+			<language type="bem">бемба</language>
+			<language type="bez">бена</language>
+			<language type="bg">болгар тілі</language>
+			<language type="bm">бамбара</language>
+			<language type="bn">бенгал тілі</language>
 			<language type="bo">тибет тілі</language>
-			<language type="br" draft="unconfirmed">брит</language>
-			<language type="bs">босния</language>
+			<language type="br">бретон тілі</language>
+			<language type="brx">бодо тілі</language>
+			<language type="bs">босния тілі</language>
 			<language type="ca">каталан</language>
-			<language type="cs">чех</language>
+			<language type="cgg">кига</language>
+			<language type="chr">чероки тілі</language>
+			<language type="ckb">сорани тілі</language>
+			<language type="co">корсикан тілі</language>
+			<language type="cs">чех тілі</language>
 			<language type="cy">валлий</language>
 			<language type="da">дат</language>
+			<language type="dav">таита</language>
 			<language type="de">неміс тілі</language>
 			<language type="de_AT">австриялық неміс тілі</language>
-			<language type="de_CH">швейцариялық ұлы неміс тілі</language>
+			<language type="de_CH">неміс тілінің швейцариялық диалекті</language>
+			<language type="dje">зарма</language>
+			<language type="dsb">төменгі лужица тілі</language>
+			<language type="dua">дуала</language>
 			<language type="dv" draft="unconfirmed">Мальдив</language>
-			<language type="dz" draft="unconfirmed">дзонг-кэ</language>
+			<language type="dyo">диола</language>
+			<language type="dz">дзонг-кэ</language>
+			<language type="ebu">ембу</language>
+			<language type="ee">эве</language>
 			<language type="efi" draft="unconfirmed">эфик</language>
-			<language type="el">грек</language>
+			<language type="el">грек тілі</language>
 			<language type="en">ағылшын тілі</language>
 			<language type="en_AU">австралиялық ағылшын тілі</language>
 			<language type="en_CA">канадалық ағылшын тілі</language>
 			<language type="en_GB">британиялық ағылшын тілі</language>
 			<language type="en_GB" alt="short">ағылшын тілі (Біріккен Корольдік)</language>
 			<language type="en_US">американдық ағылшын тілі</language>
-			<language type="en_US" alt="short">ағылшын тілі (US)</language>
+			<language type="en_US" alt="short">ағылшын тілі (АҚШ)</language>
 			<language type="eo">эсперанто</language>
 			<language type="es">испан тілі</language>
 			<language type="es_419">латын американдық испан тілі</language>
 			<language type="es_ES">ибериялық испан тілі</language>
 			<language type="es_MX">мексикалық испан тілі</language>
-			<language type="et">эстон</language>
+			<language type="et">эстон тілі</language>
 			<language type="eu">баск</language>
-			<language type="fa">парсы</language>
+			<language type="fa">парсы тілі</language>
 			<language type="fi">фин</language>
 			<language type="fil">филиппин</language>
 			<language type="fj">фиджи</language>
@@ -65,161 +85,222 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="fr_CA">канадалық француз тілі</language>
 			<language type="fr_CH">швейцариялық француз тілі</language>
 			<language type="fy">батыс фриз</language>
-			<language type="ga">ирланд</language>
+			<language type="ga">ирланд тілі</language>
+			<language type="gag">гагауз</language>
 			<language type="gd" draft="unconfirmed">Солтүстік Шотландия</language>
 			<language type="gl">гали</language>
 			<language type="gn">гуарани</language>
 			<language type="gsw">швейцариялық неміс тілі</language>
 			<language type="gu">гуджарати</language>
+			<language type="guz">гусии</language>
+			<language type="gv">мэнс</language>
 			<language type="ha">хауса</language>
 			<language type="haw">гавай</language>
 			<language type="he">иврит</language>
 			<language type="hi">хинди</language>
 			<language type="hr">хорват</language>
+			<language type="hsb">жоғарғы лужица</language>
 			<language type="ht">гаитян</language>
 			<language type="hu">венгер</language>
-			<language type="hy">армян</language>
+			<language type="hy">армян тілі</language>
 			<language type="ia" draft="unconfirmed">интерлингва</language>
-			<language type="id">индонезия</language>
+			<language type="id">индонез тілі</language>
 			<language type="ie" draft="unconfirmed">интерлингве</language>
 			<language type="ig">игбо</language>
+			<language type="ii">сычуан и тілі</language>
 			<language type="is">исланд</language>
 			<language type="it">итальян тілі</language>
+			<language type="iu">инуктитут</language>
 			<language type="ja">жапон тілі</language>
+			<language type="jgo">нгомба</language>
+			<language type="jmc">мачаме</language>
 			<language type="jv">ява</language>
-			<language type="ka">грузин</language>
+			<language type="ka">грузин тілі</language>
+			<language type="kab">кабил</language>
+			<language type="kam">камба</language>
+			<language type="kde">маконде</language>
+			<language type="kea">кабувердиана</language>
+			<language type="khq">койра чини</language>
+			<language type="ki">кикуйю</language>
 			<language type="kk">қазақ тілі</language>
+			<language type="kl">калаалисут</language>
+			<language type="kln">каленжин</language>
 			<language type="km">кхмер</language>
 			<language type="kn">каннада</language>
-			<language type="ko">кәріс</language>
-			<language type="ks">кашмир</language>
-			<language type="ku">күрд</language>
-			<language type="ky">қырғыз</language>
+			<language type="ko">кәріс тілі</language>
+			<language type="koi">коми-пермь тілі</language>
+			<language type="kok">конкани</language>
+			<language type="ks">кашмир тілі</language>
+			<language type="ksb">шамбала</language>
+			<language type="ksf">бафиа</language>
+			<language type="ku">күрд тілі</language>
+			<language type="kw">корниш</language>
+			<language type="ky">қырғыз тілі</language>
 			<language type="la">латын</language>
+			<language type="lag">ланги тілі</language>
 			<language type="lb">люксембург</language>
-			<language type="ln" draft="unconfirmed">лингала</language>
-			<language type="lo">лаос</language>
-			<language type="lt">литва</language>
-			<language type="lv">латыш</language>
+			<language type="lg">ганда</language>
+			<language type="lkt">лакота</language>
+			<language type="ln">лингала</language>
+			<language type="lo">лаос тілі</language>
+			<language type="lt">литва тілі</language>
+			<language type="lu">луба-катанга</language>
+			<language type="luo">луо</language>
+			<language type="luy">лухиа</language>
+			<language type="lv">латыш тілі</language>
+			<language type="mas">масай</language>
+			<language type="mer">меру</language>
+			<language type="mfe">морисиен</language>
 			<language type="mg">малагаси</language>
+			<language type="mgh">макуа-меетто</language>
+			<language type="mgo">мета</language>
 			<language type="mi">маори</language>
-			<language type="mk">македон</language>
+			<language type="mk">македон тілі</language>
 			<language type="ml">малайялам</language>
-			<language type="mn" draft="unconfirmed">моңғол</language>
+			<language type="mn">моңғол тілі</language>
+			<language type="moh">мохоки</language>
 			<language type="mr">маратхи</language>
 			<language type="ms">малай</language>
 			<language type="mt">мальта</language>
+			<language type="mua">мунданг</language>
 			<language type="my">бирман</language>
+			<language type="naq">нама</language>
 			<language type="nb">норвегиялық букмол</language>
-			<language type="nd" draft="unconfirmed">Солтүстік ндебел</language>
+			<language type="nd">солтүстік ндебел</language>
 			<language type="ne">непал</language>
-			<language type="nl">голланд</language>
-			<language type="nl_BE">флемиш</language>
+			<language type="nl">нидерланд тілі</language>
+			<language type="nl_BE">фламанд тілі</language>
+			<language type="nmg">квасио</language>
 			<language type="nn">норвегиялық нинорск</language>
 			<language type="no" draft="unconfirmed">норвег</language>
+			<language type="nqo">нко</language>
 			<language type="nso" draft="unconfirmed">Солтүстік сотхо</language>
+			<language type="nus">нуер</language>
 			<language type="ny" draft="unconfirmed">ньянджа</language>
+			<language type="nyn">нианколе</language>
 			<language type="oc" draft="unconfirmed">окситан</language>
+			<language type="om">оромо</language>
 			<language type="or">ория</language>
 			<language type="os" draft="unconfirmed">осетин</language>
-			<language type="pa">панджаб</language>
-			<language type="pl">поляк</language>
+			<language type="pa">пенджаб</language>
+			<language type="pl">поляк тілі</language>
 			<language type="ps">пушту</language>
 			<language type="pt">португал тілі</language>
 			<language type="pt_BR">бразилиялық португал тілі</language>
 			<language type="pt_PT">еуропалық португал тілі</language>
 			<language type="qu">кечуа</language>
+			<language type="quc">киче</language>
 			<language type="rm">романш</language>
-			<language type="rn" draft="unconfirmed">рунди</language>
+			<language type="rn">рунди</language>
 			<language type="ro">румын</language>
+			<language type="ro_MD">молдован тілі</language>
+			<language type="rof">ромбо</language>
 			<language type="ru">орыс тілі</language>
-			<language type="rw" draft="unconfirmed">киньяруанда</language>
+			<language type="rw">киньяруанда</language>
+			<language type="rwk">руа</language>
 			<language type="sa">санскрит</language>
 			<language type="sah" draft="unconfirmed">якут</language>
+			<language type="saq">самбуру</language>
+			<language type="sbp">сангу</language>
 			<language type="sd">синдхи</language>
-			<language type="se" draft="unconfirmed">Солтүстік саам</language>
-			<language type="sg" draft="unconfirmed">санго</language>
+			<language type="se">солтүстік сами</language>
+			<language type="seh">сена</language>
+			<language type="ses">койраборо сенни</language>
+			<language type="sg">санго</language>
 			<language type="sh" draft="unconfirmed">сербхорват</language>
+			<language type="shi">ташелхит</language>
 			<language type="si">сингал</language>
 			<language type="sk">словак</language>
 			<language type="sl">словен</language>
+			<language type="sma">оңтүстік саами</language>
+			<language type="smj">луле саам</language>
+			<language type="smn">инари саам</language>
+			<language type="sms">сколт саам</language>
+			<language type="sn">шона</language>
 			<language type="so">сомали</language>
 			<language type="sq">албан</language>
-			<language type="sr">серб</language>
+			<language type="sr">серб тілі</language>
 			<language type="st" draft="unconfirmed">сесото</language>
 			<language type="su">судан</language>
 			<language type="sv">швед</language>
 			<language type="sw">суахили</language>
+			<language type="swc">конго суахили тілі</language>
 			<language type="ta">тамил</language>
 			<language type="te">телугу</language>
-			<language type="tg">тәжік</language>
+			<language type="teo">тесо</language>
+			<language type="tg">тәжік тілі</language>
 			<language type="th">тай</language>
 			<language type="ti">тигринья</language>
 			<language type="tk">түрікмен</language>
 			<language type="tlh" draft="unconfirmed">клингон</language>
 			<language type="to">тонган</language>
 			<language type="tr">түрік</language>
-			<language type="tt">татар</language>
+			<language type="tt">татар тілі</language>
 			<language type="tw" draft="unconfirmed">тви</language>
-			<language type="ug">ұйғыр</language>
-			<language type="uk">украин</language>
+			<language type="twq">тасавак</language>
+			<language type="tzm">орталық атлас тамасагихт тілі</language>
+			<language type="ug">ұйғыр тілі</language>
+			<language type="uk">украин тілі</language>
 			<language type="und">белгісіз тіл</language>
 			<language type="ur">урду</language>
 			<language type="uz">өзбек</language>
+			<language type="vai">вай</language>
 			<language type="vi">вьетнам</language>
+			<language type="vun">вунджо</language>
 			<language type="wo">волоф</language>
 			<language type="xh">ксоза</language>
+			<language type="xog">сога</language>
 			<language type="yi" draft="unconfirmed">идиш</language>
 			<language type="yo">йоруба</language>
 			<language type="zgh">марокколық стандартты тамазигхт</language>
 			<language type="zh">қытай тілі</language>
-			<language type="zh_Hans">қарапайым қытай тілі</language>
-			<language type="zh_Hant">дәстүрлік қытай тілі</language>
+			<language type="zh_Hans">жеңілдетілген қытай тілі</language>
+			<language type="zh_Hant">дәстүрлі қытай тілі</language>
 			<language type="zu">зулу</language>
 			<language type="zxx">тілдік мазмұны жоқ</language>
 		</languages>
 		<scripts>
-			<script type="Arab">араб жазылуы</script>
+			<script type="Arab">араб жазуы</script>
 			<script type="Armn">армян жазуы</script>
-			<script type="Beng">бенгал</script>
-			<script type="Bopo">Бопомофо</script>
-			<script type="Brai">Брайля</script>
-			<script type="Cyrl">кириллица</script>
-			<script type="Deva">Деванагари жазуы</script>
-			<script type="Ethi">Эфиопия жазуы</script>
-			<script type="Geor">Грузин жазуы</script>
-			<script type="Grek">Грек жазуы</script>
-			<script type="Gujr">Гуджарати</script>
-			<script type="Guru">Гурмукхи</script>
-			<script type="Hang">хангул</script>
+			<script type="Beng">бенгал жазуы</script>
+			<script type="Bopo">бопомофо жазу</script>
+			<script type="Brai">Брайль жазуы</script>
+			<script type="Cyrl">кирилл жазуы</script>
+			<script type="Deva">деванагари жазуы</script>
+			<script type="Ethi">эфиоп жазу</script>
+			<script type="Geor">грузин жазуы</script>
+			<script type="Grek">грек жазуы</script>
+			<script type="Gujr">гуджарати жазуы</script>
+			<script type="Guru">гурмукхи жазуы</script>
+			<script type="Hang">хангул жазуы</script>
 			<script type="Hani">қытай жазуы</script>
-			<script type="Hans">қарапайым қытай иероглифы</script>
-			<script type="Hans" alt="stand-alone">қарапайым қытай иероглифы</script>
-			<script type="Hant">дәстүрлік қытай иероглифы</script>
+			<script type="Hans">жеңілдетілген қытай иероглифы</script>
+			<script type="Hans" alt="stand-alone">жеңілдетілген қытай иероглифы</script>
+			<script type="Hant">дәстүрлі қытай иероглифы</script>
 			<script type="Hant" alt="stand-alone">дәстүрлі қытай иероглифы</script>
-			<script type="Hebr">Иврит</script>
-			<script type="Hira">Хирагана</script>
-			<script type="Jpan">жапон</script>
-			<script type="Kana">катакана</script>
-			<script type="Khmr">Кхмер</script>
-			<script type="Knda">Каннада</script>
-			<script type="Kore">Корей жазуы</script>
-			<script type="Laoo">Лаос жазуы</script>
-			<script type="Latn">латын жазылуы</script>
-			<script type="Mlym">Малаялам</script>
-			<script type="Mong">монғол</script>
-			<script type="Mymr">Маянмар</script>
-			<script type="Orya">Ория</script>
-			<script type="Sinh">Сингаль</script>
-			<script type="Taml">Тамиль</script>
-			<script type="Telu">Телугу</script>
-			<script type="Thaa">Таана</script>
-			<script type="Thai">Тай</script>
-			<script type="Tibt">Тибет жазуы</script>
-			<script type="Zsym">Белгілер</script>
-			<script type="Zxxx">жазылуысыз</script>
+			<script type="Hebr">иврит жазуы</script>
+			<script type="Hira">хирагана жазуы</script>
+			<script type="Jpan">жапон жазуы</script>
+			<script type="Kana">катакана жазуы</script>
+			<script type="Khmr">кхмер жазуы</script>
+			<script type="Knda">каннада жазуы</script>
+			<script type="Kore">корей жазуы</script>
+			<script type="Laoo">лаос жазуы</script>
+			<script type="Latn">латын жазуы</script>
+			<script type="Mlym">малаялам жазуы</script>
+			<script type="Mong">монғол жазуы</script>
+			<script type="Mymr">маянмар жазуы</script>
+			<script type="Orya">ория жазуы</script>
+			<script type="Sinh">сингаль жазуы</script>
+			<script type="Taml">тамиль жазуы</script>
+			<script type="Telu">телугу жазуы</script>
+			<script type="Thaa">таана жазуы</script>
+			<script type="Thai">тай жазуы</script>
+			<script type="Tibt">тибет жазуы</script>
+			<script type="Zsym">таңбалар</script>
+			<script type="Zxxx">жазусыз</script>
 			<script type="Zyyy">жалпы</script>
-			<script type="Zzzz">белгісіз жазылуы</script>
+			<script type="Zzzz">белгісіз жазба</script>
 		</scripts>
 		<territories>
 			<territory type="001">Әлем</territory>
@@ -295,7 +376,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CD">Конго</territory>
 			<territory type="CD" alt="variant">Конго Демократиялық Республикасы</territory>
 			<territory type="CF">Орталық Африка Республикасы</territory>
-			<territory type="CG">Конго Республикасы</territory>
+			<territory type="CG">Конго-Браззавиль Республикасы</territory>
+			<territory type="CG" alt="variant">Конго Республикасы</territory>
 			<territory type="CH">Швейцария</territory>
 			<territory type="CI">Кот-д’Ивуар</territory>
 			<territory type="CI" alt="variant">Піл сүйегі жағалауы Республикасы</territory>
@@ -312,7 +394,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CX">Кристмас аралы</territory>
 			<territory type="CY">Кипр</territory>
 			<territory type="CZ">Чех Республикасы</territory>
-			<territory type="DE">Алмания</territory>
+			<territory type="DE">Германия</territory>
 			<territory type="DG">Диего-Гарсия</territory>
 			<territory type="DJ">Джибути</territory>
 			<territory type="DK">Дания</territory>
@@ -336,8 +418,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FO">Фарер аралдары</territory>
 			<territory type="FR">Франция</territory>
 			<territory type="GA">Габон</territory>
-			<territory type="GB">Ұлыбритания</territory>
-			<territory type="GB" alt="short">Ұлыбритания</territory>
+			<territory type="GB">Бірікккен Корольдік</territory>
+			<territory type="GB" alt="short">БК</territory>
 			<territory type="GD">Гренада</territory>
 			<territory type="GE">Грузия</territory>
 			<territory type="GF">Француз Гвианасы</territory>
@@ -349,7 +431,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="GN">Гвинея</territory>
 			<territory type="GP">Гваделупа</territory>
 			<territory type="GQ">Экваторлық Гвинея</territory>
-			<territory type="GR">Грекия</territory>
+			<territory type="GR">Греция</territory>
 			<territory type="GS">Оңтүстік Георгия және Оңтүстік Сандвичев аралы</territory>
 			<territory type="GT">Гватемала</territory>
 			<territory type="GU">Гуам</territory>
@@ -367,7 +449,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="IE">Ирландия</territory>
 			<territory type="IL">Израиль</territory>
 			<territory type="IM">Мэн аралы</territory>
-			<territory type="IN">Индия</territory>
+			<territory type="IN">Үндістан</territory>
 			<territory type="IO">Үнді мұхитындағы Британ аймағы</territory>
 			<territory type="IQ">Ирак</territory>
 			<territory type="IR">Иран</territory>
@@ -389,7 +471,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="KY">Кайман аралдары</territory>
 			<territory type="KZ">Қазақстан</territory>
 			<territory type="LA">Лаос</territory>
-			<territory type="LB">Лебанон</territory>
+			<territory type="LB">Ливан</territory>
 			<territory type="LC">Сент-Люсия</territory>
 			<territory type="LI">Лихтенштейн</territory>
 			<territory type="LK">Шри-Ланка</territory>
@@ -530,7 +612,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</variants>
 		<keys>
 			<key type="calendar">Күнтізбе</key>
-			<key type="collation">Салыстыру</key>
+			<key type="collation">Сұрыптау реті</key>
 			<key type="currency">Валюта</key>
 			<key type="numbers">Сандар</key>
 		</keys>
@@ -538,17 +620,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="arab" key="numbers">Үнді-араб сандары</type>
 			<type type="arabext" key="numbers">Үнді-араб сандарының кеңейтілген жүйесі</type>
 			<type type="armn" key="numbers">Армян сандары</type>
-			<type type="armnlow" key="numbers">Төменгі регистрдегі армян сандары</type>
+			<type type="armnlow" key="numbers">Кіші әріппен берілген армян сандары</type>
 			<type type="beng" key="numbers">Бенгал сандары</type>
-			<type type="chinese" key="calendar" draft="unconfirmed">Қытай күнтізбесі</type>
+			<type type="buddhist" key="calendar">Будда күнтізбесі</type>
+			<type type="chinese" key="calendar">Қытай күнтізбесі</type>
+			<type type="dangi" key="calendar">Данги күнтізбесі</type>
 			<type type="deva" key="numbers">Деванагари сандары</type>
 			<type type="ducet" key="collation">Әдепкі уникод сұрыптау реті</type>
 			<type type="ethi" key="numbers">Эфиопия сандары</type>
+			<type type="ethiopic" key="calendar">Эфиопия күнтізбесі</type>
 			<type type="fullwide" key="numbers">Сандардың толық пішімі</type>
 			<type type="geor" key="numbers">Грузин сандары</type>
 			<type type="gregorian" key="calendar">Грегориандық күнтізбе</type>
 			<type type="grek" key="numbers">Грек сандары</type>
-			<type type="greklow" key="numbers">Төменгі регистрдегі грек сандары</type>
+			<type type="greklow" key="numbers">Кіші әріппен берілген грек сандары</type>
 			<type type="gujr" key="numbers">Гуджарати сандары</type>
 			<type type="guru" key="numbers">Гурмукхи сандары</type>
 			<type type="hanidec" key="numbers">Қытай ондық сандары</type>
@@ -557,12 +642,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="hant" key="numbers">Дәстүрлі қытай сандары</type>
 			<type type="hantfin" key="numbers">Қаржы саласындағы дәстүрлі қытай сандары</type>
 			<type type="hebr" key="numbers">Иврит сандары</type>
+			<type type="hebrew" key="calendar">Көне еврей күнтізбесі</type>
 			<type type="indian" key="calendar" draft="unconfirmed">Үндістанның ұлттық күнтізбесі</type>
-			<type type="islamic" key="calendar" draft="unconfirmed">Ислам күнтізбесі</type>
+			<type type="islamic" key="calendar">Ислам күнтізбесі</type>
 			<type type="islamic-civil" key="calendar" draft="unconfirmed">Ислам азаматтық күнтізбесі</type>
-			<type type="japanese" key="calendar" draft="unconfirmed">Жапон күнтізбесі</type>
+			<type type="iso8601" key="calendar">ISO-8601 күнтізбесі</type>
+			<type type="japanese" key="calendar">Жапон күнтізбесі</type>
 			<type type="jpan" key="numbers">Жапон сандары</type>
-			<type type="jpanfin" key="numbers">Қаржы саласындағы жапаон сандары</type>
+			<type type="jpanfin" key="numbers">Қаржы саласындағы жапон сандары</type>
 			<type type="khmr" key="numbers">Кхмер сандары</type>
 			<type type="knda" key="numbers">Каннада сандары</type>
 			<type type="laoo" key="numbers">Лаос сандары</type>
@@ -570,9 +657,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="mlym" key="numbers">Малаялам</type>
 			<type type="mymr" key="numbers">Мьянма сандары</type>
 			<type type="orya" key="numbers">Ория сандары</type>
-			<type type="persian" key="calendar" draft="unconfirmed">Парсы күнтізбесі</type>
+			<type type="persian" key="calendar">Парсы күнтізбесі</type>
+			<type type="roc" key="calendar">Мингуо күнтізбесі</type>
 			<type type="roman" key="numbers">Рим сандары</type>
-			<type type="romanlow" key="numbers">Төменгі регистрдегі рим сандары</type>
+			<type type="romanlow" key="numbers">Кіші әріппен берілген рим сандары</type>
 			<type type="search" key="collation">Жалпы мақсаттағы іздеу</type>
 			<type type="standard" key="collation">Стандартты сұрыптау реті</type>
 			<type type="taml" key="numbers">Дәстүрлі тамил сандары</type>
@@ -583,7 +671,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</types>
 		<measurementSystemNames>
 			<measurementSystemName type="metric">метрикалық жүйе</measurementSystemName>
-			<measurementSystemName type="UK">ҰБ</measurementSystemName>
+			<measurementSystemName type="UK">БК</measurementSystemName>
 			<measurementSystemName type="US">АҚШ</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
@@ -607,7 +695,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</characters>
 	<delimiters>
 		<quotationStart>“</quotationStart>
-		<quotationEnd>”</quotationEnd>
+		<quotationEnd>&quot;</quotationEnd>
 		<alternateQuotationStart>‘</alternateQuotationStart>
 		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
@@ -813,18 +901,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="12">желт.</month>
 						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
+							<month type="1">Қ</month>
+							<month type="2">А</month>
+							<month type="3">Н</month>
+							<month type="4">С</month>
+							<month type="5">М</month>
+							<month type="6">М</month>
+							<month type="7">Ш</month>
+							<month type="8">Т</month>
+							<month type="9">Қ</month>
+							<month type="10">Қ</month>
+							<month type="11">Қ</month>
+							<month type="12">Ж</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">қаңтар</month>
@@ -842,32 +930,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">қаң.</month>
+							<month type="2">ақп.</month>
+							<month type="3">нау.</month>
+							<month type="4">сәу.</month>
+							<month type="5">мам.</month>
+							<month type="6">мау.</month>
+							<month type="7">шіл.</month>
+							<month type="8">там.</month>
+							<month type="9">қыр.</month>
+							<month type="10">қаз.</month>
+							<month type="11">қар.</month>
+							<month type="12">желт.</month>
+						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">1</month>
-							<month type="2">2</month>
-							<month type="3">3</month>
-							<month type="4">4</month>
-							<month type="5">5</month>
-							<month type="6">6</month>
-							<month type="7">7</month>
-							<month type="8">8</month>
-							<month type="9">9</month>
-							<month type="10">10</month>
-							<month type="11">11</month>
-							<month type="12">12</month>
+							<month type="1">Қ</month>
+							<month type="2">А</month>
+							<month type="3">Н</month>
+							<month type="4">С</month>
+							<month type="5">М</month>
+							<month type="6">М</month>
+							<month type="7">Ш</month>
+							<month type="8">Т</month>
+							<month type="9">Қ</month>
+							<month type="10">Қ</month>
+							<month type="11">Қ</month>
+							<month type="12">Ж</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">қаңтар</month>
+							<month type="2">ақпан</month>
+							<month type="3">наурыз</month>
+							<month type="4">сәуір</month>
+							<month type="5">мамыр</month>
+							<month type="6">маусым</month>
+							<month type="7">шілде</month>
+							<month type="8">тамыз</month>
+							<month type="9">қыркүйек</month>
+							<month type="10">қазан</month>
+							<month type="11">қараша</month>
+							<month type="12">желтоқсан</month>
 						</monthWidth>
 					</monthContext>
 				</months>
 				<days>
 					<dayContext type="format">
 						<dayWidth type="abbreviated">
-							<day type="sun">жс.</day>
-							<day type="mon">дс.</day>
-							<day type="tue">сс.</day>
-							<day type="wed">ср.</day>
-							<day type="thu">бс.</day>
-							<day type="fri">жм.</day>
-							<day type="sat">сб.</day>
+							<day type="sun">жек</day>
+							<day type="mon">дүй</day>
+							<day type="tue">сей</day>
+							<day type="wed">сәр</day>
+							<day type="thu">бей</day>
+							<day type="fri">жұма</day>
+							<day type="sat">сен</day>
 						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Ж</day>
@@ -877,6 +993,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="thu">Б</day>
 							<day type="fri">Ж</day>
 							<day type="sat">С</day>
+						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">жс</day>
+							<day type="mon">дс</day>
+							<day type="tue">сс</day>
+							<day type="wed">ср</day>
+							<day type="thu">бс</day>
+							<day type="fri">жм</day>
+							<day type="sat">сб</day>
 						</dayWidth>
 						<dayWidth type="wide">
 							<day type="sun">жексенбі</day>
@@ -889,6 +1014,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">жек</day>
+							<day type="mon">дүй</day>
+							<day type="tue">сей</day>
+							<day type="wed">сәр</day>
+							<day type="thu">бей</day>
+							<day type="fri">жұма</day>
+							<day type="sat">сб.</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">Ж</day>
 							<day type="mon">Д</day>
@@ -898,15 +1032,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<day type="fri">Ж</day>
 							<day type="sat">С</day>
 						</dayWidth>
+						<dayWidth type="short">
+							<day type="sun">жс</day>
+							<day type="mon">дс</day>
+							<day type="tue">сс</day>
+							<day type="wed">ср</day>
+							<day type="thu">бс</day>
+							<day type="fri">жм</day>
+							<day type="sat">сб</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">жексенбі</day>
+							<day type="mon">дүйсенбі</day>
+							<day type="tue">сейсенбі</day>
+							<day type="wed">сәрсенбі</day>
+							<day type="thu">бейсенбі</day>
+							<day type="fri">жұма</day>
+							<day type="sat">сенбі</day>
+						</dayWidth>
 					</dayContext>
 				</days>
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">1-тоқсан</quarter>
-							<quarter type="2">2-тоқсан</quarter>
-							<quarter type="3">3-тоқсан</quarter>
-							<quarter type="4">4-тоқсан</quarter>
+							<quarter type="1">Т1</quarter>
+							<quarter type="2">Т2</quarter>
+							<quarter type="3">Т3</quarter>
+							<quarter type="4">Т4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
@@ -923,10 +1075,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">1-тоқсан</quarter>
-							<quarter type="2">2-тоқсан</quarter>
-							<quarter type="3">3-тоқсан</quarter>
-							<quarter type="4">4-тоқсан</quarter>
+							<quarter type="1">Т1</quarter>
+							<quarter type="2">Т2</quarter>
+							<quarter type="3">Т3</quarter>
+							<quarter type="4">Т4</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1</quarter>
@@ -944,32 +1096,46 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">тт</dayPeriod>
+							<dayPeriod type="noon">тс</dayPeriod>
+							<dayPeriod type="pm">кш</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">түске дейін</dayPeriod>
-							<dayPeriod type="pm">түстен кейін</dayPeriod>
+							<dayPeriod type="am">таңертеңгі</dayPeriod>
+							<dayPeriod type="noon">түскі</dayPeriod>
+							<dayPeriod type="pm">түстен кейінгі</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
+					<eraNames>
+						<era type="0">Біздің заманымызға дейін</era>
+						<era type="0" alt="variant">Біздің заманымызға дейін</era>
+						<era type="1">Біздің заманымыз</era>
+						<era type="1" alt="variant">Жаңа заман</era>
+					</eraNames>
 					<eraAbbr>
 						<era type="0">б.з.д.</era>
+						<era type="0" alt="variant">б.з.д.</era>
 						<era type="1">б.з.</era>
+						<era type="1" alt="variant">ж.з.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
 					<dateFormatLength type="full">
 						<dateFormat>
-							<pattern>EEEE, d MMMM y 'ж'.</pattern>
+							<pattern>EEEE, d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
-							<pattern>d MMMM y 'ж'.</pattern>
+							<pattern>d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
-							<pattern>dd.MM.y</pattern>
+							<pattern>y, dd-MMM</pattern>
 						</dateFormat>
 					</dateFormatLength>
 					<dateFormatLength type="short">
@@ -1023,6 +1189,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">d, E</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -1065,15 +1232,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
 							<greatestDifference id="a">h a – h a</greatestDifference>
-							<greatestDifference id="h">h-h a</greatestDifference>
+							<greatestDifference id="h">a h-h</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
 							<greatestDifference id="H">HH-HH</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="hm">
 							<greatestDifference id="a">h:mm a – h:mm a</greatestDifference>
-							<greatestDifference id="h">h:mm-h:mm a</greatestDifference>
-							<greatestDifference id="m">h:mm-h:mm a</greatestDifference>
+							<greatestDifference id="h">a h:mm-h:mm</greatestDifference>
+							<greatestDifference id="m">a h:mm-h:mm</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hm">
 							<greatestDifference id="H">HH:mm-HH:mm</greatestDifference>
@@ -1081,8 +1248,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
-							<greatestDifference id="h">h:mm-h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm-h:mm a v</greatestDifference>
+							<greatestDifference id="h">a h:mm – h:mm v</greatestDifference>
+							<greatestDifference id="m">a h:mm – h:mm v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
 							<greatestDifference id="H">HH:mm-HH:mm v</greatestDifference>
@@ -1090,7 +1257,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="hv">
 							<greatestDifference id="a">h a – h a v</greatestDifference>
-							<greatestDifference id="h">h-h a v</greatestDifference>
+							<greatestDifference id="h">a h – h v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hv">
 							<greatestDifference id="H">HH-HH v</greatestDifference>
@@ -1158,10 +1325,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</calendars>
 		<fields>
 			<field type="era">
-				<displayName>ғасыр</displayName>
+				<displayName>Кезең</displayName>
 			</field>
 			<field type="year">
-				<displayName>жыл</displayName>
+				<displayName>Жыл</displayName>
 				<relative type="-1">былтырғы жыл</relative>
 				<relative type="0">биылғы жыл</relative>
 				<relative type="1">келесі жыл</relative>
@@ -1174,8 +1341,63 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} жыл бұрын</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="year-short">
+				<displayName>ж.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ж. кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ж. кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ж. бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ж. бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-narrow">
+				<displayName>ж.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">+{0} ж.</relativeTimePattern>
+					<relativeTimePattern count="other">+{0} ж.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">-{0} ж.</relativeTimePattern>
+					<relativeTimePattern count="other">-{0} ж.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter">
+				<displayName>Тоқсан</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} тоқсаннан кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} тоқсаннан кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} тоқсан бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} тоқсан бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-short">
+				<displayName>тоқ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} тоқ. кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} тоқ. кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} тоқ. бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} тоқ. бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-narrow">
+				<displayName>тоқ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} тоқ.кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} тоқ.кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} тоқ. бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} тоқ.бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="month">
-				<displayName>ай</displayName>
+				<displayName>Ай</displayName>
 				<relative type="-1">өткен ай</relative>
 				<relative type="0">осы ай</relative>
 				<relative type="1">келесі ай</relative>
@@ -1188,8 +1410,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} ай бұрын</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="month-short">
+				<displayName>ай</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} айдан кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} айдан кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ай бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ай бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-narrow">
+				<displayName>ай</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} айдан кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} айдан кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ай бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ай бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="week">
-				<displayName>апта</displayName>
+				<displayName>Апта</displayName>
 				<relative type="-1">өткен апта</relative>
 				<relative type="0">осы апта</relative>
 				<relative type="1">келесі апта</relative>
@@ -1200,6 +1444,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} апта бұрын</relativeTimePattern>
 					<relativeTimePattern count="other">{0} апта бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week-short">
+				<displayName>ап.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ап. кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ап. кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ап. бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ап. бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week-narrow">
+				<displayName>ап.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} ап.кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ап.кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} ап.бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} ап.бұрын</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day">
@@ -1218,49 +1484,141 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} күн бұрын</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="day-short">
+				<displayName>к</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} күннен кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} күннен кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} күн бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} күн бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-narrow">
+				<displayName>к</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} күннен кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} күннен кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} күн бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} күн бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="weekday">
-				<displayName>апта күні</displayName>
+				<displayName>Апта күні</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">өткен жексенбі</relative>
 				<relative type="0">осы жексенбі</relative>
 				<relative type="1">келесі жексенбі</relative>
 			</field>
+			<field type="sun-short">
+				<relative type="-1">өткен жек</relative>
+				<relative type="0">осы жек</relative>
+				<relative type="1">келесі жек</relative>
+			</field>
+			<field type="sun-narrow">
+				<relative type="-1">өткен жк</relative>
+				<relative type="0">осы жк</relative>
+				<relative type="1">келесі жк</relative>
+			</field>
 			<field type="mon">
 				<relative type="-1">өткен дүйсенбі</relative>
 				<relative type="0">осы дүйсенбі</relative>
 				<relative type="1">келесі дүйсенбі</relative>
+			</field>
+			<field type="mon-short">
+				<relative type="-1">өткен дүй</relative>
+				<relative type="0">осы дүй</relative>
+				<relative type="1">келесі дүй</relative>
+			</field>
+			<field type="mon-narrow">
+				<relative type="-1">өткен дс</relative>
+				<relative type="0">осы дс</relative>
+				<relative type="1">келесі дс</relative>
 			</field>
 			<field type="tue">
 				<relative type="-1">өткен сейсенбі</relative>
 				<relative type="0">осы сейсенбі</relative>
 				<relative type="1">келесі сейсенбі</relative>
 			</field>
+			<field type="tue-short">
+				<relative type="-1">өткен сейс</relative>
+				<relative type="0">осы сейс</relative>
+				<relative type="1">келесі сейс</relative>
+			</field>
+			<field type="tue-narrow">
+				<relative type="-1">өткен сс</relative>
+				<relative type="0">осы сс</relative>
+				<relative type="1">келесі сс</relative>
+			</field>
 			<field type="wed">
 				<relative type="-1">өткен сәрсенбі</relative>
 				<relative type="0">осы сәрсенбі</relative>
 				<relative type="1">келесі сәрсенбі</relative>
+			</field>
+			<field type="wed-short">
+				<relative type="-1">өткен сәрс</relative>
+				<relative type="0">осы сәрс</relative>
+				<relative type="1">келесі сәрс</relative>
+			</field>
+			<field type="wed-narrow">
+				<relative type="-1">өткен ср</relative>
+				<relative type="0">осы ср</relative>
+				<relative type="1">келесі ср</relative>
 			</field>
 			<field type="thu">
 				<relative type="-1">өткен бейсенбі</relative>
 				<relative type="0">осы бейсенбі</relative>
 				<relative type="1">келесі бейсенбі</relative>
 			</field>
+			<field type="thu-short">
+				<relative type="-1">өткен бейс</relative>
+				<relative type="0">осы бейс</relative>
+				<relative type="1">келесі бейс</relative>
+			</field>
+			<field type="thu-narrow">
+				<relative type="-1">өткен бс</relative>
+				<relative type="0">осы бс</relative>
+				<relative type="1">келесі бс</relative>
+			</field>
 			<field type="fri">
 				<relative type="-1">өткен жұма</relative>
 				<relative type="0">осы жұма</relative>
 				<relative type="1">келесі жұма</relative>
+			</field>
+			<field type="fri-short">
+				<relative type="-1">өткен жұма</relative>
+				<relative type="0">осы жұма</relative>
+				<relative type="1">келесі жұма</relative>
+			</field>
+			<field type="fri-narrow">
+				<relative type="-1">өткен жм</relative>
+				<relative type="0">осы жм</relative>
+				<relative type="1">келесі жм</relative>
 			</field>
 			<field type="sat">
 				<relative type="-1">өткен сенбі</relative>
 				<relative type="0">осы сенбі</relative>
 				<relative type="1">келесі сенбі</relative>
 			</field>
+			<field type="sat-short">
+				<relative type="-1">өткен сен</relative>
+				<relative type="0">осы сен</relative>
+				<relative type="1">келесі сен</relative>
+			</field>
+			<field type="sat-narrow">
+				<relative type="-1">өткен сб</relative>
+				<relative type="0">осы сб</relative>
+				<relative type="1">келесі сб</relative>
+			</field>
 			<field type="dayperiod">
-				<displayName>түске дейін/түстен кейін</displayName>
+				<displayName>таңертеңгі/түстен кейінгі/кешкі</displayName>
 			</field>
 			<field type="hour">
-				<displayName>сағат</displayName>
+				<displayName>Сағат</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} сағаттан кейін</relativeTimePattern>
 					<relativeTimePattern count="other">{0} сағаттан кейін</relativeTimePattern>
@@ -1270,8 +1628,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} сағат бұрын</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="hour-short">
+				<displayName>сағ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} сағаттан кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} сағаттан кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} сағат бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} сағат бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-narrow">
+				<displayName>с</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} сағ.кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} сағаттан кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} сағ.бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} сағат бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="minute">
-				<displayName>минут</displayName>
+				<displayName>Минут</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} минуттан кейін</relativeTimePattern>
 					<relativeTimePattern count="other">{0} минуттан кейін</relativeTimePattern>
@@ -1281,8 +1661,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} минут бұрын</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="minute-short">
+				<displayName>мин.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} минуттан кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} минуттан кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} минут бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} минут бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-narrow">
+				<displayName>м</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} мин.кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} мин.кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} мин.бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} минут бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="second">
-				<displayName>секунд</displayName>
+				<displayName>Секунд</displayName>
 				<relative type="0">қазір</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} секундтан кейін</relativeTimePattern>
@@ -1293,13 +1695,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} секунд бұрын</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="second-short">
+				<displayName>сек.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} секундтан кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} секундтан кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} секунд бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} секунд бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-narrow">
+				<displayName>с</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} сек.кейін</relativeTimePattern>
+					<relativeTimePattern count="other">{0} сек.кейін</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} сек.бұрын</relativeTimePattern>
+					<relativeTimePattern count="other">{0} сек.бұрын</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="zone">
-				<displayName>уақыт белдеуі</displayName>
+				<displayName>Уақыт белдеуі</displayName>
 			</field>
 		</fields>
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
-			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtFormat>ГОУ{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>{0} уақыты</regionFormat>
 			<regionFormat type="daylight">{0} күндізгі уақыты</regionFormat>
@@ -1337,6 +1761,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Antarctica/Palmer">
 				<exemplarCity>Палмер</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Troll">
+				<exemplarCity>Тролл</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Syowa">
 				<exemplarCity>Сева</exemplarCity>
@@ -1891,7 +2318,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Мэн, арал</exemplarCity>
 			</zone>
 			<zone type="Asia/Calcutta">
-				<exemplarCity>Колката</exemplarCity>
+				<exemplarCity>Калькутта</exemplarCity>
 			</zone>
 			<zone type="Indian/Chagos">
 				<exemplarCity>Чагос</exemplarCity>
@@ -2377,7 +2804,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Дили</exemplarCity>
 			</zone>
 			<zone type="Asia/Ashgabat">
-				<exemplarCity>Азхабат</exemplarCity>
+				<exemplarCity>Ашхабад</exemplarCity>
 			</zone>
 			<zone type="Africa/Tunis">
 				<exemplarCity>Тунис</exemplarCity>
@@ -2389,7 +2816,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Стамбул</exemplarCity>
 			</zone>
 			<zone type="America/Port_of_Spain">
-				<exemplarCity>Порт-оф-Спейн</exemplarCity>
+				<exemplarCity>Испания порты</exemplarCity>
 			</zone>
 			<zone type="Pacific/Funafuti">
 				<exemplarCity>Фунафути</exemplarCity>
@@ -2595,9 +3022,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Amazon">
 				<long>
-					<generic>Амазонка уақыты</generic>
-					<standard>Амазонка стандартты уақыты</standard>
-					<daylight>Амазонка жазғы уақыты</daylight>
+					<generic>Амазон уақыты</generic>
+					<standard>Амазон стандартты уақыты</standard>
+					<daylight>Амазон жазғы уақыты</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Central">
@@ -2626,6 +3053,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<generic>Тынық мұхитындағы Оңтүстік Америка уақыты</generic>
 					<standard>Тынық мұхитындағы Оңтүстік Америка стандартты уақыты</standard>
 					<daylight>Тынық мұхитындағы Оңтүстік Америка жазғы уақыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="Apia">
+				<long>
+					<generic>Апиа уақыты</generic>
+					<standard>Апиа стандартты уақыты</standard>
+					<daylight>Апиа жазғы уақыты</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -2659,7 +3093,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Atlantic">
 				<long>
 					<generic>Атлантика уақыты</generic>
-					<standard>Атлантика стандарт уақыты</standard>
+					<standard>Атлантика стандартты уақыты</standard>
 					<daylight>Атлантикалық жаздық уақыт</daylight>
 				</long>
 			</metazone>
@@ -2850,6 +3284,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard>EET</standard>
 					<daylight>EEST</daylight>
 				</short>
+			</metazone>
+			<metazone type="Europe_Further_Eastern">
+				<long>
+					<standard>Қашық Шығыс Еуропа Уақыты</standard>
+				</long>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
@@ -3100,6 +3539,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Mawson">
 				<long>
 					<standard>Моусон уақыты</standard>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Northwest">
+				<long>
+					<generic>Солтүстік Мексика Уақыты</generic>
+					<standard>Солтүстік Мексика Стандартты Уақыты</standard>
+					<daylight>Солтүстік Мексика Күндізгі Уақыты</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Pacific">
+				<long>
+					<generic>Мексика Тынық Мұхит Уақыты</generic>
+					<standard>Мексика Тынық Мұхит Стандартты Уақыты</standard>
+					<daylight>Мексика Тынық Мұхит Күндізгі Уақыты</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
@@ -3415,6 +3868,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">latn</native>
+		</otherNumberingSystems>
+		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group> </group>
@@ -3426,6 +3884,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -3439,8 +3898,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern type="1000" count="other">0 мың</pattern>
 					<pattern type="10000" count="one">00 мың</pattern>
 					<pattern type="10000" count="other">00 мың</pattern>
-					<pattern type="100000" count="one">000 мың</pattern>
-					<pattern type="100000" count="other">000 мың</pattern>
+					<pattern type="100000" count="one">000м</pattern>
+					<pattern type="100000" count="other">000М</pattern>
 					<pattern type="1000000" count="one">0 млн</pattern>
 					<pattern type="1000000" count="other">0 млн</pattern>
 					<pattern type="10000000" count="one">00 млн</pattern>
@@ -3451,14 +3910,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<pattern type="1000000000" count="other">0 млрд</pattern>
 					<pattern type="10000000000" count="one">00 млрд</pattern>
 					<pattern type="10000000000" count="other">00 млрд</pattern>
-					<pattern type="100000000000" count="one">000 млрд</pattern>
-					<pattern type="100000000000" count="other">000 млрд</pattern>
+					<pattern type="100000000000" count="one">000МЛ</pattern>
+					<pattern type="100000000000" count="other">000Б</pattern>
 					<pattern type="1000000000000" count="one">0 трлн</pattern>
 					<pattern type="1000000000000" count="other">0 трлн</pattern>
 					<pattern type="10000000000000" count="one">00 трлн</pattern>
 					<pattern type="10000000000000" count="other">00 трлн</pattern>
-					<pattern type="100000000000000" count="one">000 трлн</pattern>
-					<pattern type="100000000000000" count="other">000 трлн</pattern>
+					<pattern type="100000000000000" count="one">000T</pattern>
+					<pattern type="100000000000000" count="other">000T</pattern>
 				</decimalFormat>
 			</decimalFormatLength>
 		</decimalFormats>
@@ -3481,6 +3940,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<currencyFormat type="standard">
 					<pattern>#,##0.00 ¤</pattern>
 				</currencyFormat>
+				<currencyFormat type="accounting">
+					<pattern>#,##0.00 ¤</pattern>
+				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="one">{0} {1}</unitPattern>
 			<unitPattern count="other">{0} {1}</unitPattern>
@@ -3490,11 +3952,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Дихрам (БАЭ)</displayName>
 				<displayName count="one">Дихрам (БАЭ)</displayName>
 				<displayName count="other">Дихрам (БАЭ)</displayName>
+				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Ауғаныстан афганиі</displayName>
 				<displayName count="one">Ауғаныстан афганиі</displayName>
 				<displayName count="other">Ауғаныстан афганиі</displayName>
+				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Албания лекі</displayName>
@@ -3505,16 +3969,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Армения драмы</displayName>
 				<displayName count="one">Армения драмы</displayName>
 				<displayName count="other">Армения драмы</displayName>
+				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
-				<displayName>Нидерланды антиль гульдені</displayName>
-				<displayName count="one">Нидерланды антиль гульдені</displayName>
-				<displayName count="other">Нидерланды антиль гульдені</displayName>
+				<displayName>Нидерланд антиль гульдені</displayName>
+				<displayName count="one">Нидерланд антиль гульдені</displayName>
+				<displayName count="other">Нидерланд антиль гульдені</displayName>
+				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Ангола кванзасы</displayName>
 				<displayName count="one">Ангола кванзасы</displayName>
 				<displayName count="other">Ангола кванзасы</displayName>
+				<symbol>AOA</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Аргентина песосы</displayName>
@@ -3525,11 +3992,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Австралия доллары</displayName>
 				<displayName count="one">Австралия доллары</displayName>
 				<displayName count="other">Австралия доллары</displayName>
+				<symbol>A$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Арубан флоринсы</displayName>
 				<displayName count="one">Арубан флоринсы</displayName>
 				<displayName count="other">Арубан флоринсы</displayName>
+				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName draft="unconfirmed">Азербайджан манаты (1993–2006)</displayName>
@@ -3538,6 +4008,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Әзірбайжан манаты</displayName>
 				<displayName count="one">Әзірбайжан манаты</displayName>
 				<displayName count="other">Әзірбайжан манаты</displayName>
+				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Босния және Герцеговина айырбасталмалы маркасы</displayName>
@@ -3548,11 +4019,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Барбадос доллары</displayName>
 				<displayName count="one">Барбадос доллары</displayName>
 				<displayName count="other">Барбадос доллары</displayName>
+				<symbol>BBD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Бангладеш такасы</displayName>
 				<displayName count="one">Бангладеш такасы</displayName>
 				<displayName count="other">Бангладеш такасы</displayName>
+				<symbol>BDT</symbol>
+				<symbol alt="narrow" draft="contributed">৳</symbol>
 			</currency>
 			<currency type="BGN">
 				<displayName>Болгар леві</displayName>
@@ -3563,21 +4038,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Бахрейн динары</displayName>
 				<displayName count="one">Бахрейн динары</displayName>
 				<displayName count="other">Бахрейн динары</displayName>
+				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Бурунди франкы</displayName>
 				<displayName count="one">Бурунди франкы</displayName>
 				<displayName count="other">Бурунди франкы</displayName>
+				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Бермуд доллары</displayName>
 				<displayName count="one">Бермуд доллары</displayName>
 				<displayName count="other">Бермуд доллары</displayName>
+				<symbol>БД</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Бруней доллары</displayName>
 				<displayName count="one">Бруней доллары</displayName>
 				<displayName count="other">Бруней доллары</displayName>
+				<symbol>BND</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Боливия боливианосы</displayName>
@@ -3591,16 +4072,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Багам доллары</displayName>
 				<displayName count="one">Багам доллары</displayName>
 				<displayName count="other">Багам доллары</displayName>
+				<symbol>BSD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Бутан нгултрумы</displayName>
 				<displayName count="one">Бутан нгултрумы</displayName>
 				<displayName count="other">Бутан нгултрумы</displayName>
+				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>Ботсвана пуласы</displayName>
 				<displayName count="one">Ботсвана пуласы</displayName>
 				<displayName count="other">Ботсвана пуласы</displayName>
+				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Беларус рублі</displayName>
@@ -3611,17 +4096,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Белиз доллары</displayName>
 				<displayName count="one">Белиз доллары</displayName>
 				<displayName count="other">Белиз доллары</displayName>
+				<symbol>BZD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Канада доллары</displayName>
 				<displayName count="one">Канада доллары</displayName>
 				<displayName count="other">Канада доллары</displayName>
-				<symbol>CA$</symbol>
+				<symbol>КД$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>Конго франкы</displayName>
 				<displayName count="one">Конго франкы</displayName>
 				<displayName count="other">Конго франкы</displayName>
+				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Швейцария франкы</displayName>
@@ -3635,6 +4124,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="CNY">
 				<displayName>Қытай юаны</displayName>
+				<displayName count="one">Қытай юаны</displayName>
+				<displayName count="other">Қытай юаны</displayName>
+				<symbol>CN¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Колумбия песосы</displayName>
@@ -3645,21 +4138,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Коста-рика колоны</displayName>
 				<displayName count="one">Коста-рика колоны</displayName>
 				<displayName count="other">Коста-рика колоны</displayName>
+				<symbol>CRC</symbol>
+				<symbol alt="narrow" draft="contributed">₡</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>Куба айырбасталмалы песосы</displayName>
 				<displayName count="one">Куба айырбасталмалы песосы</displayName>
 				<displayName count="other">Куба айырбасталмалы песосы</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Куба песосы</displayName>
 				<displayName count="one">Куба песосы</displayName>
 				<displayName count="other">Куба песосы</displayName>
+				<symbol>CUP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Кабо-Верде эскудосы</displayName>
 				<displayName count="one">Кабо-Верде эскудосы</displayName>
 				<displayName count="other">Кабо-Верде эскудосы</displayName>
+				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CZK">
 				<displayName>Чех кронасы</displayName>
@@ -3670,6 +4169,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Джибути франкы</displayName>
 				<displayName count="one">Джибути франкы</displayName>
 				<displayName count="other">Джибути франкы</displayName>
+				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Дат кроны</displayName>
@@ -3680,26 +4180,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Доминикан песосы</displayName>
 				<displayName count="one">Доминикан песосы</displayName>
 				<displayName count="other">Доминикан песосы</displayName>
+				<symbol>DOP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Алжир динары</displayName>
 				<displayName count="one">Алжир динары</displayName>
 				<displayName count="other">Алжир динары</displayName>
+				<symbol>DZD</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName>Мысыр фунты</displayName>
 				<displayName count="one">Мысыр фунты</displayName>
 				<displayName count="other">Мысыр фунты</displayName>
+				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Эритрей накфасы</displayName>
 				<displayName count="one">Эритрей накфасы</displayName>
 				<displayName count="other">Эритрей накфасы</displayName>
+				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ETB">
 				<displayName>Эфиопия быры</displayName>
 				<displayName count="one">Эфиопия быры</displayName>
 				<displayName count="other">Эфиопия быры</displayName>
+				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>Еуро</displayName>
@@ -3708,6 +4214,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Фиджи доллары</displayName>
 				<displayName count="one">Фиджи доллары</displayName>
 				<displayName count="other">Фиджи доллары</displayName>
+				<symbol>FJD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>Фолкленд аралдарының фунты</displayName>
@@ -3721,11 +4229,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Грузия лариі</displayName>
 				<displayName count="one">Грузия лариі</displayName>
 				<displayName count="other">Грузия лариі</displayName>
+				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>Гана седиі</displayName>
 				<displayName count="one">Гана седиі</displayName>
 				<displayName count="other">Гана седиі</displayName>
+				<symbol>GHS</symbol>
+				<symbol alt="narrow" draft="contributed">₵</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Гибралтар фунты</displayName>
@@ -3736,16 +4247,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Гамбия даласиі</displayName>
 				<displayName count="one">Гамбия даласиі</displayName>
 				<displayName count="other">Гамбия даласиі</displayName>
+				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Гвиней франкы</displayName>
 				<displayName count="one">Гвиней франкы</displayName>
 				<displayName count="other">Гвиней франкы</displayName>
+				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GTQ">
 				<displayName>Гватемала кетсалі</displayName>
 				<displayName count="one">Гватемала кетсалі</displayName>
 				<displayName count="other">Гватемала кетсалі</displayName>
+				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Гайана доллары</displayName>
@@ -3756,11 +4270,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Гонконг доллары</displayName>
 				<displayName count="one">Гонконг доллары</displayName>
 				<displayName count="other">Гонконг доллары</displayName>
+				<symbol>HK$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Гондурас лемпираcы</displayName>
 				<displayName count="one">Гондурас лемпираcы</displayName>
 				<displayName count="other">Гондурас лемпираcы</displayName>
+				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Хорватия кунасы</displayName>
@@ -3771,6 +4288,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Гаити гурды</displayName>
 				<displayName count="one">Гаити гурды</displayName>
 				<displayName count="other">Гаити гурды</displayName>
+				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Венгер форинты</displayName>
@@ -3781,26 +4299,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Индонезия рупиі</displayName>
 				<displayName count="one">Индонезия рупиі</displayName>
 				<displayName count="other">Индонезия рупиі</displayName>
+				<symbol>IDR</symbol>
 			</currency>
 			<currency type="ILS">
 				<displayName>Израиль жаңа шекелі</displayName>
 				<displayName count="one">Израиль жаңа шекелі</displayName>
 				<displayName count="other">Израиль жаңа шекелі</displayName>
+				<symbol>₪</symbol>
+				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Үнді рупиясы</displayName>
 				<displayName count="one">Үнді рупиясы</displayName>
 				<displayName count="other">Үнді рупиясы</displayName>
+				<symbol>₹</symbol>
+				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Ирак динары</displayName>
 				<displayName count="one">Ирак динары</displayName>
 				<displayName count="other">Ирак динары</displayName>
+				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Иран риалы</displayName>
 				<displayName count="one">Иран риалы</displayName>
 				<displayName count="other">Иран риалы</displayName>
+				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>Исландия кронасы</displayName>
@@ -3811,78 +4336,105 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Ямайка доллары</displayName>
 				<displayName count="one">Ямайка доллары</displayName>
 				<displayName count="other">Ямайка доллары</displayName>
+				<symbol>JMD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Йордания динары</displayName>
 				<displayName count="one">Йордания динары</displayName>
 				<displayName count="other">Йордания динары</displayName>
+				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Жапон иені</displayName>
+				<displayName count="one">Жапон иені</displayName>
+				<displayName count="other">Жапон иені</displayName>
+				<symbol>JP¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Кения шиллингі</displayName>
 				<displayName count="one">Кения шиллингі</displayName>
 				<displayName count="other">Кения шиллингі</displayName>
+				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>Қырғызстан сомы</displayName>
 				<displayName count="one">Қырғызстан сомы</displayName>
 				<displayName count="other">Қырғызстан сомы</displayName>
+				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Камбоджа риелі</displayName>
 				<displayName count="one">Камбоджа риелі</displayName>
 				<displayName count="other">Камбоджа риелі</displayName>
+				<symbol>KHR</symbol>
+				<symbol alt="narrow" draft="contributed">៛</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Комор аралдары франкы</displayName>
 				<displayName count="one">Комор аралдары франкы</displayName>
 				<displayName count="other">Комор аралдары франкы</displayName>
+				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Солтүстік Корея воны</displayName>
 				<displayName count="one">Солтүстік Корея воны</displayName>
 				<displayName count="other">Солтүстік Корея воны</displayName>
+				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Оңтүстік Корея воны</displayName>
 				<displayName count="one">Оңтүстік Корея воны</displayName>
 				<displayName count="other">Оңтүстік Корея воны</displayName>
+				<symbol>₩</symbol>
+				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Кувейт динары</displayName>
 				<displayName count="one">Кувейт динары</displayName>
 				<displayName count="other">Кувейт динары</displayName>
+				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Кайман аралдары доллары</displayName>
 				<displayName count="one">Кайман аралдары доллары</displayName>
 				<displayName count="other">Кайман аралдары доллары</displayName>
+				<symbol>KYD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Қазақстан теңгесі</displayName>
+				<displayName count="one">Қазақстан теңгесі</displayName>
+				<displayName count="other">Қазақстан теңгесі</displayName>
 				<symbol>₸</symbol>
+				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Лаос кипі</displayName>
 				<displayName count="one">Лаос кипі</displayName>
 				<displayName count="other">Лаос кипі</displayName>
+				<symbol>LAK</symbol>
+				<symbol alt="narrow" draft="contributed">₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Ливан фунты</displayName>
 				<displayName count="one">Ливан фунты</displayName>
 				<displayName count="other">Ливан фунты</displayName>
+				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Шри-Ланка рупиясы</displayName>
 				<displayName count="one">Шри-Ланка рупиясы</displayName>
 				<displayName count="other">Шри-Ланка рупиясы</displayName>
+				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Либерия доллары</displayName>
 				<displayName count="one">Либерия доллары</displayName>
 				<displayName count="other">Либерия доллары</displayName>
+				<symbol>LRD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>Литва литы</displayName>
@@ -3898,11 +4450,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Ливия динары</displayName>
 				<displayName count="one">Ливия динары</displayName>
 				<displayName count="other">Ливия динары</displayName>
+				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Марокко дирхамы</displayName>
 				<displayName count="one">Марокко дирхамы</displayName>
 				<displayName count="other">Марокко дирхамы</displayName>
+				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Молдава лейі</displayName>
@@ -3913,6 +4467,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Малагаси ариариы</displayName>
 				<displayName count="one">Малагаси ариариы</displayName>
 				<displayName count="other">Малагаси ариариы</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Македония динары</displayName>
@@ -3923,67 +4478,83 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Мьянма кьяты</displayName>
 				<displayName count="one">Мьянма кьяты</displayName>
 				<displayName count="other">Мьянма кьяты</displayName>
+				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Моңғолия тугрикасы</displayName>
 				<displayName count="one">Моңғолия тугрикасы</displayName>
 				<displayName count="other">Моңғолия тугрикасы</displayName>
+				<symbol>MNT</symbol>
+				<symbol alt="narrow" draft="contributed">₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Макао патакасы</displayName>
 				<displayName count="one">Макао патакасы</displayName>
 				<displayName count="other">Макао патакасы</displayName>
+				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Мавритания угиясы</displayName>
 				<displayName count="one">Мавритания угиясы</displayName>
 				<displayName count="other">Мавритания угиясы</displayName>
+				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MUR">
 				<displayName>Маврикий рупиясы</displayName>
 				<displayName count="one">Маврикий рупиясы</displayName>
 				<displayName count="other">Маврикий рупиясы</displayName>
+				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Мальдив руфиясы</displayName>
 				<displayName count="one">Мальдив руфиясы</displayName>
 				<displayName count="other">Мальдив руфиясы</displayName>
+				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Малави квачасы</displayName>
 				<displayName count="one">Малави квачасы</displayName>
 				<displayName count="other">Малави квачасы</displayName>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Мексика пессосы</displayName>
 				<displayName count="one">Мексика пессосы</displayName>
 				<displayName count="other">Мексика пессосы</displayName>
 				<symbol>MX$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Малайзия ринггиті</displayName>
 				<displayName count="one">Малайзия ринггиті</displayName>
 				<displayName count="other">Малайзия ринггиті</displayName>
+				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZN">
 				<displayName>Мозамбик метикалы</displayName>
 				<displayName count="one">Мозамбик метикалы</displayName>
 				<displayName count="other">Мозамбик метикалы</displayName>
+				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Намибия доллары</displayName>
 				<displayName count="one">Намибия доллары</displayName>
 				<displayName count="other">Намибия доллары</displayName>
+				<symbol>NAD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Нигерия найрасы</displayName>
 				<displayName count="one">Нигерия найрасы</displayName>
 				<displayName count="other">Нигерия найрасы</displayName>
+				<symbol>NGN</symbol>
+				<symbol alt="narrow" draft="contributed">₦</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Никарагуа кордобасы</displayName>
 				<displayName count="one">Никарагуа кордобасы</displayName>
 				<displayName count="other">Никарагуа кордобасы</displayName>
+				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NOK">
 				<displayName>Норвегия кроны</displayName>
@@ -3994,21 +4565,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Непал рупиі</displayName>
 				<displayName count="one">Непал рупиі</displayName>
 				<displayName count="other">Непал рупиі</displayName>
+				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Жаңа Зеландия доллары</displayName>
 				<displayName count="one">Жаңа Зеландия доллары</displayName>
 				<displayName count="other">Жаңа Зеландия доллары</displayName>
+				<symbol>NZ$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Оман риалы</displayName>
 				<displayName count="one">Оман риалы</displayName>
 				<displayName count="other">Оман риалы</displayName>
+				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Панама бальбоасы</displayName>
 				<displayName count="one">Панама бальбоасы</displayName>
 				<displayName count="other">Панама бальбоасы</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Перу жаңа солі</displayName>
@@ -4019,16 +4595,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Папуа - Жаңа Гвинея кинасы</displayName>
 				<displayName count="one">Папуа - Жаңа Гвинея кинасы</displayName>
 				<displayName count="other">Папуа - Жаңа Гвинея кинасы</displayName>
+				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Филиппин песосы</displayName>
 				<displayName count="one">Филиппин песосы</displayName>
 				<displayName count="other">Филиппин песосы</displayName>
+				<symbol>PHP</symbol>
+				<symbol alt="narrow" draft="contributed">₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Пәкістан рупиі</displayName>
 				<displayName count="one">Пәкістан рупиі</displayName>
 				<displayName count="other">Пәкістан рупиі</displayName>
+				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Польша злотасы</displayName>
@@ -4044,6 +4624,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Катар риалы</displayName>
 				<displayName count="one">Катар риалы</displayName>
 				<displayName count="other">Катар риалы</displayName>
+				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RON">
 				<displayName>Румыния лейі</displayName>
@@ -4063,26 +4644,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Руанда франкы</displayName>
 				<displayName count="one">Руанда франкы</displayName>
 				<displayName count="other">Руанда франкы</displayName>
+				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Сауд Арабия риалы</displayName>
 				<displayName count="one">Сауд Арабия риалы</displayName>
 				<displayName count="other">Сауд Арабия риалы</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Соломон аралдары доллары</displayName>
 				<displayName count="one">Соломон аралдары доллары</displayName>
 				<displayName count="other">Соломон аралдары доллары</displayName>
+				<symbol>SBD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Сейшель рупиясы</displayName>
 				<displayName count="one">Сейшель рупиясы</displayName>
 				<displayName count="other">Сейшель рупиясы</displayName>
+				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Судан фунты</displayName>
 				<displayName count="one">Судан фунты</displayName>
 				<displayName count="other">Судан фунты</displayName>
+				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Швед кроны</displayName>
@@ -4093,21 +4680,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Сингапур доллары</displayName>
 				<displayName count="one">Сингапур доллары</displayName>
 				<displayName count="other">Сингапур доллары</displayName>
+				<symbol>SGD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Әулие Елена аралы фунты</displayName>
 				<displayName count="one">Әулие Елена аралы фунты</displayName>
 				<displayName count="other">Әулие Елена аралы фунты</displayName>
+				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>Сьерра-Леоне леонесы</displayName>
 				<displayName count="one">Сьерра-Леоне леонесы</displayName>
 				<displayName count="other">Сьерра-Леоне леонесы</displayName>
+				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Сомали шиллингі</displayName>
 				<displayName count="one">Сомали шиллингі</displayName>
 				<displayName count="other">Сомали шиллингі</displayName>
+				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Суринам доллары</displayName>
@@ -4118,66 +4710,84 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Оңтүстік Судан фунты</displayName>
 				<displayName count="one">Оңтүстік Судан фунты</displayName>
 				<displayName count="other">Оңтүстік Судан фунты</displayName>
+				<symbol>SSP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Сант-Томе мен Принсипи добрасы</displayName>
 				<displayName count="one">Сант-Томе мен Принсипи добрасы</displayName>
 				<displayName count="other">Сант-Томе мен Принсипи добрасы</displayName>
+				<symbol>STD</symbol>
 			</currency>
 			<currency type="SYP">
 				<displayName>Сирия фунты</displayName>
 				<displayName count="one">Сирия фунты</displayName>
 				<displayName count="other">Сирия фунты</displayName>
+				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Свазиленд лилангениі</displayName>
 				<displayName count="one">Свазиленд лилангениі</displayName>
 				<displayName count="other">Свазиленд лилангениі</displayName>
+				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Тай баты</displayName>
 				<displayName count="one">Тай баты</displayName>
 				<displayName count="other">Тай баты</displayName>
+				<symbol>฿</symbol>
+				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Тәжікстан сомониі</displayName>
 				<displayName count="one">Тәжікстан сомониі</displayName>
 				<displayName count="other">Тәжікстан сомониі</displayName>
+				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMT">
 				<displayName>Түрікменстан манаты</displayName>
 				<displayName count="one">Түрікменстан манаты</displayName>
 				<displayName count="other">Түрікменстан манаты</displayName>
+				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Тунис динары</displayName>
 				<displayName count="one">Тунис динары</displayName>
 				<displayName count="other">Тунис динары</displayName>
+				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Тонга паангасы</displayName>
 				<displayName count="one">Тонга паангасы</displayName>
 				<displayName count="other">Тонга паангасы</displayName>
+				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TRY">
 				<displayName>Түрік лирасы</displayName>
 				<displayName count="one">Түрік лирасы</displayName>
 				<displayName count="other">Түрік лирасы</displayName>
+				<symbol>TRY</symbol>
+				<symbol alt="narrow" draft="contributed">₺</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Тринидад пен Тобаго доллары</displayName>
 				<displayName count="one">Тринидад пен Тобаго доллары</displayName>
 				<displayName count="other">Тринидад пен Тобаго доллары</displayName>
+				<symbol>TTD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Жаңа Тайван доллары</displayName>
 				<displayName count="one">Жаңа Тайван доллары</displayName>
 				<displayName count="other">Жаңа Тайван доллары</displayName>
+				<symbol>NT$</symbol>
+				<symbol alt="narrow" draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Танзания шиллингі</displayName>
 				<displayName count="one">Танзания шиллингі</displayName>
 				<displayName count="other">Танзания шиллингі</displayName>
+				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Украина гривнасы</displayName>
@@ -4188,10 +4798,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Уганда шиллингі</displayName>
 				<displayName count="one">Уганда шиллингі</displayName>
 				<displayName count="other">Уганда шиллингі</displayName>
+				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>АҚШ доллары</displayName>
-				<symbol>US$</symbol>
+				<displayName count="one">АҚШ доллары</displayName>
+				<displayName count="other">АҚШ доллары</displayName>
+				<symbol>$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Уругвай песосы</displayName>
@@ -4202,6 +4816,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Өзбекстан сомы</displayName>
 				<displayName count="one">Өзбекстан сомы</displayName>
 				<displayName count="other">Өзбекстан сомы</displayName>
+				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEF">
 				<displayName>Венесуэла боливары</displayName>
@@ -4212,54 +4827,67 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>Вьетнам донгы</displayName>
 				<displayName count="one">Вьетнам донгы</displayName>
 				<displayName count="other">Вьетнам донгы</displayName>
+				<symbol>₫</symbol>
+				<symbol alt="narrow" draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Вануату ватуы</displayName>
 				<displayName count="one">Вануату ватуы</displayName>
 				<displayName count="other">Вануату ватуы</displayName>
+				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Самоа таласы</displayName>
 				<displayName count="one">Самоа таласы</displayName>
 				<displayName count="other">Самоа таласы</displayName>
+				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>КФА ВЕАС франкы</displayName>
 				<displayName count="one">КФА ВЕАС франкы</displayName>
 				<displayName count="other">КФА ВЕАС франкы</displayName>
+				<symbol>FCFA</symbol>
 			</currency>
 			<currency type="XCD">
 				<displayName>Шығыс Кариб доллары</displayName>
 				<displayName count="one">Шығыс Кариб доллары</displayName>
 				<displayName count="other">Шығыс Кариб доллары</displayName>
+				<symbol>EC$</symbol>
 			</currency>
 			<currency type="XOF">
 				<displayName>КФА ВСЕАО франкы</displayName>
 				<displayName count="one">КФА ВСЕАО франкы</displayName>
 				<displayName count="other">КФА ВСЕАО франкы</displayName>
+				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<displayName>КФП франкы</displayName>
 				<displayName count="one">КФП франкы</displayName>
 				<displayName count="other">КФП франкы</displayName>
+				<symbol>CFPF</symbol>
 			</currency>
 			<currency type="XXX">
 				<displayName>Белгісіз валюта</displayName>
+				<displayName count="one">Белгісіз валюта</displayName>
+				<displayName count="other">Белгісіз валюта</displayName>
 			</currency>
 			<currency type="YER">
 				<displayName>Йемен риалы</displayName>
 				<displayName count="one">Йемен риалы</displayName>
 				<displayName count="other">Йемен риалы</displayName>
+				<symbol>YER</symbol>
 			</currency>
 			<currency type="ZAR">
 				<displayName>Оңтүстік Африка рэнді</displayName>
 				<displayName count="one">Оңтүстік Африка рэнді</displayName>
 				<displayName count="other">Оңтүстік Африка рэнді</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName>Замбия квачасы</displayName>
 				<displayName count="one">Замбия квачасы</displayName>
 				<displayName count="other">Замбия квачасы</displayName>
+				<symbol>ZMW</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
@@ -4273,234 +4901,591 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}{1}қатынасы</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName draft="provisional">гравитациялық күш</displayName>
+				<displayName>гравитациялық күш</displayName>
 				<unitPattern count="one">{0} гравитациялық күш</unitPattern>
 				<unitPattern count="other">{0} гравитациялық күш</unitPattern>
 			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName>шаршыланған секундқа шаққан метр</displayName>
+				<unitPattern count="one">{0} метр/шаршыланған секунд</unitPattern>
+				<unitPattern count="other">{0} метр/шаршыланған секунд</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
-				<displayName draft="provisional">минут</displayName>
-				<unitPattern count="one">{0} минут</unitPattern>
+				<displayName>минут</displayName>
+				<unitPattern count="one">минут</unitPattern>
 				<unitPattern count="other">{0} минут</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName draft="provisional">секунд</displayName>
+				<displayName>секунд</displayName>
 				<unitPattern count="one">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунд</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="provisional">градус</displayName>
+				<displayName>градус</displayName>
 				<unitPattern count="one">{0} градус</unitPattern>
 				<unitPattern count="other">{0} градус</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<displayName>радиан</displayName>
+				<unitPattern count="one">{0} радиан</unitPattern>
+				<unitPattern count="other">{0} радиан</unitPattern>
+			</unit>
 			<unit type="area-acre">
-				<displayName draft="provisional">акр</displayName>
+				<displayName>акр</displayName>
 				<unitPattern count="one">{0} акр</unitPattern>
 				<unitPattern count="other">{0} акр</unitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName draft="provisional">гектар</displayName>
+				<displayName>гектар</displayName>
 				<unitPattern count="one">{0} гектар</unitPattern>
 				<unitPattern count="other">{0} гектар</unitPattern>
 			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>шаршы сантиметр</displayName>
+				<unitPattern count="one">{0} шаршы сантиметр</unitPattern>
+				<unitPattern count="other">{0} шаршы сантиметр</unitPattern>
+			</unit>
 			<unit type="area-square-foot">
-				<displayName draft="provisional">шаршы фут</displayName>
+				<displayName>шаршы фут</displayName>
 				<unitPattern count="one">{0} шаршы фут</unitPattern>
 				<unitPattern count="other">{0} шаршы фут</unitPattern>
 			</unit>
+			<unit type="area-square-inch">
+				<displayName>шаршы дюйм</displayName>
+				<unitPattern count="one">{0} шаршы дюйм</unitPattern>
+				<unitPattern count="other">{0} шаршы дюйм</unitPattern>
+			</unit>
 			<unit type="area-square-kilometer">
-				<displayName draft="provisional">шаршы километр</displayName>
+				<displayName>шаршы километр</displayName>
 				<unitPattern count="one">{0} шаршы километр</unitPattern>
 				<unitPattern count="other">{0} шаршы километр</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="provisional">шаршы метр</displayName>
+				<displayName>шаршы метр</displayName>
 				<unitPattern count="one">{0} шаршы метр</unitPattern>
 				<unitPattern count="other">{0} шаршы метр</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName draft="provisional">шаршы миля</displayName>
+				<displayName>шаршы миля</displayName>
 				<unitPattern count="one">{0} шаршы миля</unitPattern>
 				<unitPattern count="other">{0} шаршы миля</unitPattern>
 			</unit>
+			<unit type="area-square-yard">
+				<displayName>шаршы ярд</displayName>
+				<unitPattern count="one">{0} шаршы ярд</unitPattern>
+				<unitPattern count="other">{0} шаршы ярд</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>литр/километр</displayName>
+				<unitPattern count="one">{0} литр/километр</unitPattern>
+				<unitPattern count="other">{0} литр/километр</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>миля/галлон</displayName>
+				<unitPattern count="one">{0} миля/галлон</unitPattern>
+				<unitPattern count="other">{0} миля/галллон</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>бит</displayName>
+				<unitPattern count="one">{0} бит</unitPattern>
+				<unitPattern count="other">{0} бит</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>байт</displayName>
+				<unitPattern count="one">{0} байт</unitPattern>
+				<unitPattern count="other">{0} байт</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>гигабит</displayName>
+				<unitPattern count="one">{0} гигабит</unitPattern>
+				<unitPattern count="other">{0} гигабит</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>гигабайт</displayName>
+				<unitPattern count="one">{0} гигабайт</unitPattern>
+				<unitPattern count="other">{0} гигабайт</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>килобит</displayName>
+				<unitPattern count="one">{0} килобит</unitPattern>
+				<unitPattern count="other">{0} килобит</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>килобайт</displayName>
+				<unitPattern count="one">{0} килобайт</unitPattern>
+				<unitPattern count="other">{0} килобайт</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>мегабит</displayName>
+				<unitPattern count="one">{0} мегабит</unitPattern>
+				<unitPattern count="other">{0} мегабит</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>мегабайт</displayName>
+				<unitPattern count="one">{0} мегабайт</unitPattern>
+				<unitPattern count="other">{0} мегабайт</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>терабит</displayName>
+				<unitPattern count="one">{0} терабит</unitPattern>
+				<unitPattern count="other">{0} терабит</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>терабайт</displayName>
+				<unitPattern count="one">{0} терабайт</unitPattern>
+				<unitPattern count="other">{0} терабайт</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<displayName draft="provisional">тәулік</displayName>
+				<displayName>тәулік</displayName>
 				<unitPattern count="one">{0} тәулік</unitPattern>
 				<unitPattern count="other">{0} тәулік</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="provisional">сағат</displayName>
+				<displayName>сағат</displayName>
 				<unitPattern count="one">{0} сағат</unitPattern>
 				<unitPattern count="other">{0} сағат</unitPattern>
+				<perUnitPattern>{0}/h</perUnitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>микросекунд</displayName>
+				<unitPattern count="one">{0} микросекунд</unitPattern>
+				<unitPattern count="other">{0} микросекунд</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName draft="provisional">миллисекунд</displayName>
+				<displayName>миллисекунд</displayName>
 				<unitPattern count="one">{0} миллисекунд</unitPattern>
 				<unitPattern count="other">{0} миллисекунд</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="provisional">минут</displayName>
+				<displayName>минут</displayName>
 				<unitPattern count="one">{0} минут</unitPattern>
 				<unitPattern count="other">{0} минут</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="provisional">ай</displayName>
+				<displayName>ай</displayName>
 				<unitPattern count="one">{0} ай</unitPattern>
 				<unitPattern count="other">{0} ай</unitPattern>
 			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>наносекунд</displayName>
+				<unitPattern count="one">{0} наносекунд</unitPattern>
+				<unitPattern count="other">{0} наносекунд</unitPattern>
+			</unit>
 			<unit type="duration-second">
-				<displayName draft="provisional">секунд</displayName>
+				<displayName>секунд</displayName>
 				<unitPattern count="one">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунд</unitPattern>
+				<perUnitPattern>{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="provisional">апта</displayName>
+				<displayName>апта</displayName>
 				<unitPattern count="one">{0} апта</unitPattern>
 				<unitPattern count="other">{0} апта</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName draft="provisional">жыл</displayName>
+				<displayName>жыл</displayName>
 				<unitPattern count="one">{0} жыл</unitPattern>
 				<unitPattern count="other">{0} жыл</unitPattern>
 			</unit>
+			<unit type="electric-ampere">
+				<displayName>ампер</displayName>
+				<unitPattern count="one">{0} aмпер</unitPattern>
+				<unitPattern count="other">{0} aмпер</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>миллиампер</displayName>
+				<unitPattern count="one">{0} миллиампер</unitPattern>
+				<unitPattern count="other">{0} миллиампер</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>ом</displayName>
+				<unitPattern count="one">{0} oм</unitPattern>
+				<unitPattern count="other">{0} oм</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>вольт</displayName>
+				<unitPattern count="one">{0} вольт</unitPattern>
+				<unitPattern count="other">{0} вольт</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>калория</displayName>
+				<unitPattern count="one">{0} калория</unitPattern>
+				<unitPattern count="other">{0} калория</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>Калория</displayName>
+				<unitPattern count="one">{0} Калория</unitPattern>
+				<unitPattern count="other">{0} Калория</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>джоуль</displayName>
+				<unitPattern count="one">{0} джоуль</unitPattern>
+				<unitPattern count="other">{0} джоуль</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>килокалория</displayName>
+				<unitPattern count="one">{0} килокалория</unitPattern>
+				<unitPattern count="other">{0} килокалория</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName>килоджоуль</displayName>
+				<unitPattern count="one">{0} килоджуоль</unitPattern>
+				<unitPattern count="other">{0} килоджоуль</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>сағатқа шаққандағы киловатт</displayName>
+				<unitPattern count="one">{0} киловатт-сағат</unitPattern>
+				<unitPattern count="other">{0} киловатт-сағат</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>гигагерц</displayName>
+				<unitPattern count="one">{0} гигагерц</unitPattern>
+				<unitPattern count="other">{0} гигагерц</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>герц</displayName>
+				<unitPattern count="one">{0} герц</unitPattern>
+				<unitPattern count="other">{0} герц</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>килогерц</displayName>
+				<unitPattern count="one">{0} килогерц</unitPattern>
+				<unitPattern count="other">{0} килогерц</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>мегагерц</displayName>
+				<unitPattern count="one">{0} мегагерц</unitPattern>
+				<unitPattern count="other">{0} мегагерц</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>астрономиялық бірлік</displayName>
+				<unitPattern count="one">{0} a.б.</unitPattern>
+				<unitPattern count="other">{0} а.б.</unitPattern>
+			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="provisional">сантиметр</displayName>
+				<displayName>сантиметр</displayName>
 				<unitPattern count="one">{0} сантиметр</unitPattern>
 				<unitPattern count="other">{0} сантиметр</unitPattern>
 			</unit>
+			<unit type="length-decimeter">
+				<displayName>дециметр</displayName>
+				<unitPattern count="one">{0} дм</unitPattern>
+				<unitPattern count="other">{0} дм</unitPattern>
+			</unit>
 			<unit type="length-foot">
-				<displayName draft="provisional">фут</displayName>
+				<displayName>фут</displayName>
 				<unitPattern count="one">{0} фут</unitPattern>
 				<unitPattern count="other">{0} фут</unitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName draft="provisional">дюйм</displayName>
+				<displayName>дюйм</displayName>
 				<unitPattern count="one">{0} дюйм</unitPattern>
 				<unitPattern count="other">{0} дюйм</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName draft="provisional">километр</displayName>
+				<displayName>километр</displayName>
 				<unitPattern count="one">{0} километр</unitPattern>
 				<unitPattern count="other">{0} километр</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName draft="provisional">жарық жылы</displayName>
+				<displayName>жарық жылы</displayName>
 				<unitPattern count="one">{0} жарық жылы</unitPattern>
 				<unitPattern count="other">{0} жарық жылы</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName draft="provisional">метр</displayName>
+				<displayName>метр</displayName>
 				<unitPattern count="one">{0} метр</unitPattern>
 				<unitPattern count="other">{0} метр</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>микрометр</displayName>
+				<unitPattern count="one">{0} микрометр</unitPattern>
+				<unitPattern count="other">{0} микрометр</unitPattern>
+			</unit>
 			<unit type="length-mile">
-				<displayName draft="provisional">миля</displayName>
+				<displayName>миля</displayName>
 				<unitPattern count="one">{0} миля</unitPattern>
 				<unitPattern count="other">{0} миля</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName draft="provisional">миллиметр</displayName>
+				<displayName>миллиметр</displayName>
 				<unitPattern count="one">{0} миллиметр</unitPattern>
 				<unitPattern count="other">{0} миллиметр</unitPattern>
 			</unit>
+			<unit type="length-nanometer">
+				<displayName>нанометр</displayName>
+				<unitPattern count="one">{0} нанометр</unitPattern>
+				<unitPattern count="other">{0} нанометр</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>теңіз милясы</displayName>
+				<unitPattern count="one">{0} теңіз милясы</unitPattern>
+				<unitPattern count="other">{0} теңіз милясы</unitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>парсек</displayName>
+				<unitPattern count="one">{0} парсек</unitPattern>
+				<unitPattern count="other">{0} парсек</unitPattern>
+			</unit>
 			<unit type="length-picometer">
-				<displayName draft="provisional">пикометр</displayName>
+				<displayName>пикометр</displayName>
 				<unitPattern count="one">{0} пикометр</unitPattern>
 				<unitPattern count="other">{0} пикометр</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName draft="provisional">ярд</displayName>
+				<displayName>ярд</displayName>
 				<unitPattern count="one">{0} ярд</unitPattern>
 				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
+			<unit type="light-lux">
+				<displayName>люкс</displayName>
+				<unitPattern count="one">{0} люкс</unitPattern>
+				<unitPattern count="other">{0} люкс</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>карат</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="other">{0} карат</unitPattern>
+			</unit>
 			<unit type="mass-gram">
-				<displayName draft="provisional">грамм</displayName>
+				<displayName>грамм</displayName>
 				<unitPattern count="one">{0} грамм</unitPattern>
 				<unitPattern count="other">{0} грамм</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName draft="provisional">килограмм</displayName>
+				<displayName>килограмм</displayName>
 				<unitPattern count="one">{0} килограмм</unitPattern>
 				<unitPattern count="other">{0} килограмм</unitPattern>
 			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>метр тонна</displayName>
+				<unitPattern count="one">{0} метр тонна</unitPattern>
+				<unitPattern count="other">{0} метр тонна</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>микрограмм</displayName>
+				<unitPattern count="one">{0} микрограмм</unitPattern>
+				<unitPattern count="other">{0} микрограмм</unitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>миллиграмм</displayName>
+				<unitPattern count="one">{0} миллиграмм</unitPattern>
+				<unitPattern count="other">{0} миллиграмм</unitPattern>
+			</unit>
 			<unit type="mass-ounce">
-				<displayName draft="provisional">унция</displayName>
+				<displayName>унция</displayName>
 				<unitPattern count="one">{0} унция</unitPattern>
 				<unitPattern count="other">{0} унция</unitPattern>
 			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName>трой унциясы</displayName>
+				<unitPattern count="one">{0} трой унциясы</unitPattern>
+				<unitPattern count="other">{0} трой унциясы</unitPattern>
+			</unit>
 			<unit type="mass-pound">
-				<displayName draft="provisional">фунт</displayName>
+				<displayName>фунт</displayName>
 				<unitPattern count="one">{0} фунт</unitPattern>
 				<unitPattern count="other">{0} фунт</unitPattern>
 			</unit>
+			<unit type="mass-ton">
+				<displayName>тонна</displayName>
+				<unitPattern count="one">{0} тонна</unitPattern>
+				<unitPattern count="other">{0} тонна</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>гигаватт</displayName>
+				<unitPattern count="one">{0} гигаватт</unitPattern>
+				<unitPattern count="other">{0} гигаватт</unitPattern>
+			</unit>
 			<unit type="power-horsepower">
-				<displayName draft="provisional">ат күші</displayName>
+				<displayName>ат күші</displayName>
 				<unitPattern count="one">{0} ат күші</unitPattern>
 				<unitPattern count="other">{0} ат күші</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="provisional">киловатт</displayName>
+				<displayName>киловатт</displayName>
 				<unitPattern count="one">{0} киловатт</unitPattern>
 				<unitPattern count="other">{0} киловатт</unitPattern>
 			</unit>
+			<unit type="power-megawatt">
+				<displayName>мегаватт</displayName>
+				<unitPattern count="one">{0} мегаватт</unitPattern>
+				<unitPattern count="other">{0} мегаватт</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>милливатт</displayName>
+				<unitPattern count="one">{0} милливатт</unitPattern>
+				<unitPattern count="other">{0} милливатт</unitPattern>
+			</unit>
 			<unit type="power-watt">
-				<displayName draft="provisional">ватт</displayName>
+				<displayName>ватт</displayName>
 				<unitPattern count="one">{0} ватт</unitPattern>
 				<unitPattern count="other">{0} ватт</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName draft="provisional">гектопаскаль</displayName>
+				<displayName>гектопаскаль</displayName>
 				<unitPattern count="one">{0} гектопаскаль</unitPattern>
 				<unitPattern count="other">{0} гектопаскаль</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName draft="provisional">сынапты бағана дюймы</displayName>
+				<displayName>сынапты бағана дюймы</displayName>
 				<unitPattern count="one">{0} сынапты бағана дюймы</unitPattern>
 				<unitPattern count="other">{0} сынапты бағана дюймы</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName draft="provisional">миллибар</displayName>
+				<displayName>миллибар</displayName>
 				<unitPattern count="one">{0} миллибар</unitPattern>
 				<unitPattern count="other">{0} миллибар</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName>сынапты бағана миллиметрі</displayName>
+				<unitPattern count="one">{0} сынапты бағана миллиметрі</unitPattern>
+				<unitPattern count="other">{0} сынапты бағана миллиметрі</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName>шаршы дюймға шаққандағы фунт</displayName>
+				<unitPattern count="one">{0} фунт/шаршы дюйм</unitPattern>
+				<unitPattern count="other">{0} фунт/шаршы дюйм</unitPattern>
+			</unit>
+			<unit type="proportion-karat">
+				<displayName>карат</displayName>
+				<unitPattern count="one">{0} карат</unitPattern>
+				<unitPattern count="other">{0} карат</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="provisional">километр/сағат</displayName>
+				<displayName>километр/сағат</displayName>
 				<unitPattern count="one">{0} километр/сағат</unitPattern>
 				<unitPattern count="other">{0} километр/сағат</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName draft="provisional">метр/секунд</displayName>
+				<displayName>метр/секунд</displayName>
 				<unitPattern count="one">{0} метр/секунд</unitPattern>
 				<unitPattern count="other">{0} метр/секунд</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="provisional">миля/сағат</displayName>
+				<displayName>миля/сағат</displayName>
 				<unitPattern count="one">{0} миля/сағат</unitPattern>
 				<unitPattern count="other">{0} миля/сағат</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName draft="provisional">Цельсий градусы</displayName>
+				<displayName>Цельсий градусы</displayName>
 				<unitPattern count="one">{0} Цельсий градусы</unitPattern>
 				<unitPattern count="other">{0} Цельсий градусы</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName draft="provisional">Фаренгейт бойынша градус</displayName>
+				<displayName>Фаренгейт бойынша градус</displayName>
 				<unitPattern count="one">{0} Фаренгейт бойынша градус</unitPattern>
 				<unitPattern count="other">{0} Фаренгейт бойынша градус</unitPattern>
 			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>кельвин</displayName>
+				<unitPattern count="one">{0} кельвин</unitPattern>
+				<unitPattern count="other">{0} кельвин</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>акро-фут</displayName>
+				<unitPattern count="one">{0} aкро-фут</unitPattern>
+				<unitPattern count="other">{0} aкро-фут</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>сантилитр</displayName>
+				<unitPattern count="one">{0} cантилитр</unitPattern>
+				<unitPattern count="other">{0} cантилитр</unitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>текше сантиметр</displayName>
+				<unitPattern count="one">{0} текше сантиметр</unitPattern>
+				<unitPattern count="other">{0} текше сантиметр</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>текше фут</displayName>
+				<unitPattern count="one">{0} текше фут</unitPattern>
+				<unitPattern count="other">{0} текше фут</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>текше дюйм</displayName>
+				<unitPattern count="one">{0} текше дюйм</unitPattern>
+				<unitPattern count="other">{0} текше дюйм</unitPattern>
+			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName draft="provisional">текше километр</displayName>
+				<displayName>текше километр</displayName>
 				<unitPattern count="one">{0} текше километр</unitPattern>
 				<unitPattern count="other">{0} текше километр</unitPattern>
 			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>текше метр</displayName>
+				<unitPattern count="one">{0} текше метр</unitPattern>
+				<unitPattern count="other">{0} текше метр</unitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="provisional">текше миля</displayName>
+				<displayName>текше миля</displayName>
 				<unitPattern count="one">{0} текше миля</unitPattern>
 				<unitPattern count="other">{0} текше миля</unitPattern>
 			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>текше ярд</displayName>
+				<unitPattern count="one">{0} текше ярд</unitPattern>
+				<unitPattern count="other">{0} текше ярд</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>кесе</displayName>
+				<unitPattern count="one">{0} кесе</unitPattern>
+				<unitPattern count="other">{0} кесе</unitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>децилитр</displayName>
+				<unitPattern count="one">{0} децилитр</unitPattern>
+				<unitPattern count="other">{0} децилитр</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>сұйық унция</displayName>
+				<unitPattern count="one">{0} сұйық унция</unitPattern>
+				<unitPattern count="other">{0} сұйық унция</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>галлон</displayName>
+				<unitPattern count="one">{0} галлон</unitPattern>
+				<unitPattern count="other">{0} галлон</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>гектолитр</displayName>
+				<unitPattern count="one">{0} гектолитр</unitPattern>
+				<unitPattern count="other">{0} гектолитр</unitPattern>
+			</unit>
 			<unit type="volume-liter">
-				<displayName draft="provisional">литр</displayName>
+				<displayName>литр</displayName>
 				<unitPattern count="one">{0} литр</unitPattern>
 				<unitPattern count="other">{0} литр</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>мегалитр</displayName>
+				<unitPattern count="one">{0} мегалитр</unitPattern>
+				<unitPattern count="other">{0} мегалитр</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>миллилитр</displayName>
+				<unitPattern count="one">{0} миллилитр</unitPattern>
+				<unitPattern count="other">{0} миллилитр</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>пинта</displayName>
+				<unitPattern count="one">{0} пинта</unitPattern>
+				<unitPattern count="other">{0} пинта</unitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>кварта</displayName>
+				<unitPattern count="one">{0} кварта</unitPattern>
+				<unitPattern count="other">{0} кварта</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>ас қасық</displayName>
+				<unitPattern count="one">{0} ас қасық</unitPattern>
+				<unitPattern count="other">{0} ас қасық</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>шәй қасық</displayName>
+				<unitPattern count="one">{0} шәй қасық</unitPattern>
+				<unitPattern count="other">{0} шәй қасық</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
@@ -4508,234 +5493,591 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName draft="provisional">гравитациялық күш</displayName>
+				<displayName>гравитациялық күш</displayName>
 				<unitPattern count="one">{0} грав. күш</unitPattern>
 				<unitPattern count="other">{0} грав. күш</unitPattern>
 			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName>метр/сек²</displayName>
+				<unitPattern count="one">{0} м/с²</unitPattern>
+				<unitPattern count="other">{0} м/с²</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
-				<displayName draft="provisional">минут</displayName>
+				<displayName>минут</displayName>
 				<unitPattern count="one">{0}мин</unitPattern>
 				<unitPattern count="other">{0}мин</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName draft="provisional">секунд</displayName>
+				<displayName>секунд</displayName>
 				<unitPattern count="one">{0}сек</unitPattern>
 				<unitPattern count="other">{0}сек</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="provisional">градус</displayName>
+				<displayName>градус</displayName>
 				<unitPattern count="one">{0}градус</unitPattern>
 				<unitPattern count="other">{0}градус</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<displayName>радиан</displayName>
+				<unitPattern count="one">{0} рад</unitPattern>
+				<unitPattern count="other">{0} рад</unitPattern>
+			</unit>
 			<unit type="area-acre">
-				<displayName draft="provisional">акр</displayName>
+				<displayName>акр</displayName>
 				<unitPattern count="one">{0} акр</unitPattern>
 				<unitPattern count="other">{0} акр</unitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName draft="provisional">гектар</displayName>
+				<displayName>гектар</displayName>
 				<unitPattern count="one">{0} га</unitPattern>
 				<unitPattern count="other">{0} га</unitPattern>
 			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>cм²</displayName>
+				<unitPattern count="one">{0} cм²</unitPattern>
+				<unitPattern count="other">{0} cм²</unitPattern>
+			</unit>
 			<unit type="area-square-foot">
-				<displayName draft="provisional">шаршы фут</displayName>
+				<displayName>шаршы фут</displayName>
 				<unitPattern count="one">{0} фут²</unitPattern>
 				<unitPattern count="other">{0} фут²</unitPattern>
 			</unit>
+			<unit type="area-square-inch">
+				<displayName>дюйм²</displayName>
+				<unitPattern count="one">{0} дюйм²</unitPattern>
+				<unitPattern count="other">{0} дюйм²</unitPattern>
+			</unit>
 			<unit type="area-square-kilometer">
-				<displayName draft="provisional">шаршы километр</displayName>
+				<displayName>шаршы километр</displayName>
 				<unitPattern count="one">{0} км²</unitPattern>
 				<unitPattern count="other">{0} км²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="provisional">шаршы метр</displayName>
+				<displayName>шаршы метр</displayName>
 				<unitPattern count="one">{0} м²</unitPattern>
 				<unitPattern count="other">{0} м²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName draft="provisional">шаршы миля</displayName>
+				<displayName>шаршы миля</displayName>
 				<unitPattern count="one">{0} миля²</unitPattern>
 				<unitPattern count="other">{0} миля²</unitPattern>
 			</unit>
+			<unit type="area-square-yard">
+				<displayName>ярд²</displayName>
+				<unitPattern count="one">{0} ярд²</unitPattern>
+				<unitPattern count="other">{0} ярд²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>литр/км</displayName>
+				<unitPattern count="one">{0} л/км</unitPattern>
+				<unitPattern count="other">{0} л/км</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>миля/гал</displayName>
+				<unitPattern count="one">{0} м/гал</unitPattern>
+				<unitPattern count="other">{0} м/гал</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>бит</displayName>
+				<unitPattern count="one">{0} бит</unitPattern>
+				<unitPattern count="other">{0} бит</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>байт</displayName>
+				<unitPattern count="one">{0} байт</unitPattern>
+				<unitPattern count="other">{0} байт</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Гб</displayName>
+				<unitPattern count="one">{0} Гб</unitPattern>
+				<unitPattern count="other">{0} Гб</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>ГБ</displayName>
+				<unitPattern count="one">{0} ГБ</unitPattern>
+				<unitPattern count="other">{0} ГБ</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>кбит</displayName>
+				<unitPattern count="one">{0} кб</unitPattern>
+				<unitPattern count="other">{0} кб</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>кБайт</displayName>
+				<unitPattern count="one">{0} кБ</unitPattern>
+				<unitPattern count="other">{0} кБ</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Мбит</displayName>
+				<unitPattern count="one">{0} Mб</unitPattern>
+				<unitPattern count="other">{0} Mб</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>МБайт</displayName>
+				<unitPattern count="one">{0} MБ</unitPattern>
+				<unitPattern count="other">{0} MБ</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>Тбит</displayName>
+				<unitPattern count="one">{0} Tб</unitPattern>
+				<unitPattern count="other">{0} Tб</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>ТБайт</displayName>
+				<unitPattern count="one">{0} TБ</unitPattern>
+				<unitPattern count="other">{0} TБ</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<displayName draft="provisional">тәулік</displayName>
+				<displayName>тәулік</displayName>
 				<unitPattern count="one">{0} тәулік</unitPattern>
 				<unitPattern count="other">{0} тәулік</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="provisional">сағат</displayName>
+				<displayName>сағат</displayName>
 				<unitPattern count="one">{0} сағат</unitPattern>
 				<unitPattern count="other">{0} сағат</unitPattern>
+				<perUnitPattern>{0}/h</perUnitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>мкс</displayName>
+				<unitPattern count="one">{0} мкс</unitPattern>
+				<unitPattern count="other">{0} мкс</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName draft="provisional">миллисекунд</displayName>
+				<displayName>миллисекунд</displayName>
 				<unitPattern count="one">{0} мс</unitPattern>
 				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="provisional">минут</displayName>
+				<displayName>минут</displayName>
 				<unitPattern count="one">{0} мин</unitPattern>
 				<unitPattern count="other">{0} мин</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="provisional">ай</displayName>
+				<displayName>ай</displayName>
 				<unitPattern count="one">{0} ай</unitPattern>
 				<unitPattern count="other">{0} ай</unitPattern>
 			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>нс</displayName>
+				<unitPattern count="one">{0} нс</unitPattern>
+				<unitPattern count="other">{0} нс</unitPattern>
+			</unit>
 			<unit type="duration-second">
-				<displayName draft="provisional">секунд</displayName>
+				<displayName>секунд</displayName>
 				<unitPattern count="one">{0} секунд</unitPattern>
 				<unitPattern count="other">{0} секунд</unitPattern>
+				<perUnitPattern>{0}/s</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="provisional">апта</displayName>
+				<displayName>апта</displayName>
 				<unitPattern count="one">{0} апта</unitPattern>
 				<unitPattern count="other">{0} апта</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName draft="provisional">жыл</displayName>
+				<displayName>жыл</displayName>
 				<unitPattern count="one">{0} ж.</unitPattern>
 				<unitPattern count="other">{0} ж.</unitPattern>
 			</unit>
+			<unit type="electric-ampere">
+				<displayName>А</displayName>
+				<unitPattern count="one">{0} A</unitPattern>
+				<unitPattern count="other">{0} A</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>миллиампер</displayName>
+				<unitPattern count="one">{0} мA</unitPattern>
+				<unitPattern count="other">{0} мA</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>ом</displayName>
+				<unitPattern count="one">{0} ом</unitPattern>
+				<unitPattern count="other">{0} ом</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>вольт</displayName>
+				<unitPattern count="one">{0} В</unitPattern>
+				<unitPattern count="other">{0} В</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>кал</displayName>
+				<unitPattern count="one">{0} кал</unitPattern>
+				<unitPattern count="other">{0} кал</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>Кал</displayName>
+				<unitPattern count="one">{0} Кал</unitPattern>
+				<unitPattern count="other">{0} Кал</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>джоуль</displayName>
+				<unitPattern count="one">{0} дж</unitPattern>
+				<unitPattern count="other">{0} дж</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>ккал</displayName>
+				<unitPattern count="one">{0} ккал</unitPattern>
+				<unitPattern count="other">{0} ккал</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName>килоджоуль</displayName>
+				<unitPattern count="one">{0} кДж</unitPattern>
+				<unitPattern count="other">{0} кДж</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>кВт-сағ</displayName>
+				<unitPattern count="one">{0} кВт-сағ</unitPattern>
+				<unitPattern count="other">{0} кВт-сағ</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>ГГц</displayName>
+				<unitPattern count="one">{0} ГГц</unitPattern>
+				<unitPattern count="other">{0} ГГц</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>герц</displayName>
+				<unitPattern count="one">{0} Гц</unitPattern>
+				<unitPattern count="other">{0} Гц</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>кГц</displayName>
+				<unitPattern count="one">{0} кГц</unitPattern>
+				<unitPattern count="other">{0} кГц</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>МГц</displayName>
+				<unitPattern count="one">{0} MГц</unitPattern>
+				<unitPattern count="other">{0} MГц</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>а.б.</displayName>
+				<unitPattern count="one">{0} а.б.</unitPattern>
+				<unitPattern count="other">{0} а.б.</unitPattern>
+			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="provisional">сантиметр</displayName>
+				<displayName>сантиметр</displayName>
 				<unitPattern count="one">{0} см</unitPattern>
 				<unitPattern count="other">{0} см</unitPattern>
 			</unit>
+			<unit type="length-decimeter">
+				<displayName>дм</displayName>
+				<unitPattern count="one">{0} дм</unitPattern>
+				<unitPattern count="other">{0} дм</unitPattern>
+			</unit>
 			<unit type="length-foot">
-				<displayName draft="provisional">фут</displayName>
+				<displayName>фут</displayName>
 				<unitPattern count="one">{0} фут</unitPattern>
 				<unitPattern count="other">{0} фут</unitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName draft="provisional">дюйм</displayName>
+				<displayName>дюйм</displayName>
 				<unitPattern count="one">{0} дюйм</unitPattern>
 				<unitPattern count="other">{0} дюйм</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName draft="provisional">километр</displayName>
+				<displayName>километр</displayName>
 				<unitPattern count="one">{0} км</unitPattern>
 				<unitPattern count="other">{0} км</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName draft="provisional">жарық жылы</displayName>
-				<unitPattern count="one">{0} жарық жылы</unitPattern>
-				<unitPattern count="other">{0} жарық жылы</unitPattern>
+				<displayName>жарық жылы</displayName>
+				<unitPattern count="one">{0} жж</unitPattern>
+				<unitPattern count="other">{0} жж</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName draft="provisional">метр</displayName>
+				<displayName>метр</displayName>
 				<unitPattern count="one">{0} м</unitPattern>
 				<unitPattern count="other">{0} м</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>мкм</displayName>
+				<unitPattern count="one">{0} мкм</unitPattern>
+				<unitPattern count="other">{0} мкм</unitPattern>
+			</unit>
 			<unit type="length-mile">
-				<displayName draft="provisional">миля</displayName>
+				<displayName>миля</displayName>
 				<unitPattern count="one">{0} миля</unitPattern>
 				<unitPattern count="other">{0} миля</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName draft="provisional">миллиметр</displayName>
+				<displayName>миллиметр</displayName>
 				<unitPattern count="one">{0} мм</unitPattern>
 				<unitPattern count="other">{0} мм</unitPattern>
 			</unit>
+			<unit type="length-nanometer">
+				<displayName>нм</displayName>
+				<unitPattern count="one">{0} нм</unitPattern>
+				<unitPattern count="other">{0} нм</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>тмл</displayName>
+				<unitPattern count="one">{0} тмл</unitPattern>
+				<unitPattern count="other">{0} тмл</unitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>пк</displayName>
+				<unitPattern count="one">{0} пк</unitPattern>
+				<unitPattern count="other">{0} пк</unitPattern>
+			</unit>
 			<unit type="length-picometer">
-				<displayName draft="provisional">пикометр</displayName>
+				<displayName>пикометр</displayName>
 				<unitPattern count="one">{0} пм</unitPattern>
 				<unitPattern count="other">{0} пм</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName draft="provisional">ярд</displayName>
+				<displayName>ярд</displayName>
 				<unitPattern count="one">{0} ярд</unitPattern>
 				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
+			<unit type="light-lux">
+				<displayName>люкс</displayName>
+				<unitPattern count="one">{0} лк</unitPattern>
+				<unitPattern count="other">{0} лк</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>КТ</displayName>
+				<unitPattern count="one">{0} КТ</unitPattern>
+				<unitPattern count="other">{0} КТ</unitPattern>
+			</unit>
 			<unit type="mass-gram">
-				<displayName draft="provisional">грамм</displayName>
+				<displayName>грамм</displayName>
 				<unitPattern count="one">{0} гр</unitPattern>
 				<unitPattern count="other">{0} гр</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName draft="provisional">килограмм</displayName>
+				<displayName>килограмм</displayName>
 				<unitPattern count="one">{0} кг</unitPattern>
 				<unitPattern count="other">{0} кг</unitPattern>
 			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>т</displayName>
+				<unitPattern count="one">{0} т</unitPattern>
+				<unitPattern count="other">{0} т</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>мкг</displayName>
+				<unitPattern count="one">{0} мкг</unitPattern>
+				<unitPattern count="other">{0} мкг</unitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>мг</displayName>
+				<unitPattern count="one">{0} мг</unitPattern>
+				<unitPattern count="other">{0} мг</unitPattern>
+			</unit>
 			<unit type="mass-ounce">
-				<displayName draft="provisional">унция</displayName>
+				<displayName>унция</displayName>
 				<unitPattern count="one">{0} унция</unitPattern>
 				<unitPattern count="other">{0} унция</unitPattern>
 			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName>тр.ун</displayName>
+				<unitPattern count="one">{0} тр.ун</unitPattern>
+				<unitPattern count="other">{0} тр.ун</unitPattern>
+			</unit>
 			<unit type="mass-pound">
-				<displayName draft="provisional">фунт</displayName>
+				<displayName>фунт</displayName>
 				<unitPattern count="one">{0} фунт</unitPattern>
 				<unitPattern count="other">{0} фунт</unitPattern>
 			</unit>
+			<unit type="mass-ton">
+				<displayName>тонна</displayName>
+				<unitPattern count="one">{0} тн</unitPattern>
+				<unitPattern count="other">{0} тн</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>ГВт</displayName>
+				<unitPattern count="one">{0} ГВт</unitPattern>
+				<unitPattern count="other">{0} ГВт</unitPattern>
+			</unit>
 			<unit type="power-horsepower">
-				<displayName draft="provisional">ат күші</displayName>
+				<displayName>ат күші</displayName>
 				<unitPattern count="one">{0} ат күші</unitPattern>
 				<unitPattern count="other">{0} ат күші</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="provisional">киловатт</displayName>
+				<displayName>киловатт</displayName>
 				<unitPattern count="one">{0}кВт</unitPattern>
 				<unitPattern count="other">{0}кВт</unitPattern>
 			</unit>
+			<unit type="power-megawatt">
+				<displayName>МВт</displayName>
+				<unitPattern count="one">{0} МВт</unitPattern>
+				<unitPattern count="other">{0} МВт</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>мвт</displayName>
+				<unitPattern count="one">{0} мвт</unitPattern>
+				<unitPattern count="other">{0} мвт</unitPattern>
+			</unit>
 			<unit type="power-watt">
-				<displayName draft="provisional">ватт</displayName>
+				<displayName>ватт</displayName>
 				<unitPattern count="one">{0} Вт</unitPattern>
 				<unitPattern count="other">{0} Вт</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName draft="provisional">гектопаскаль</displayName>
+				<displayName>гектопаскаль</displayName>
 				<unitPattern count="one">{0} гПа</unitPattern>
 				<unitPattern count="other">{0} гПа</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName draft="provisional">сынапты бағана дюймы</displayName>
-				<unitPattern count="one">{0} inHg</unitPattern>
-				<unitPattern count="other">{0} inHg</unitPattern>
+				<displayName>сынапты бағана дюймы</displayName>
+				<unitPattern count="one">{0} с.б.д.</unitPattern>
+				<unitPattern count="other">{0} с.б.д.</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName draft="provisional">миллибар</displayName>
+				<displayName>миллибар</displayName>
 				<unitPattern count="one">{0} мб</unitPattern>
 				<unitPattern count="other">{0} мб</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName>с.б.мм.</displayName>
+				<unitPattern count="one">{0} с.б.мм.</unitPattern>
+				<unitPattern count="other">{0} с.б.мм.</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName>фт/шд</displayName>
+				<unitPattern count="one">{0} фт/шд</unitPattern>
+				<unitPattern count="other">{0} фт/шд</unitPattern>
+			</unit>
+			<unit type="proportion-karat">
+				<displayName>карат</displayName>
+				<unitPattern count="one">{0} кт</unitPattern>
+				<unitPattern count="other">{0} кт</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="provisional">километр/сағат</displayName>
+				<displayName>километр/сағат</displayName>
 				<unitPattern count="one">{0} км/сағ</unitPattern>
 				<unitPattern count="other">{0} км/сағ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName draft="provisional">метр/секунд</displayName>
+				<displayName>метр/секунд</displayName>
 				<unitPattern count="one">{0} м/с</unitPattern>
 				<unitPattern count="other">{0} м/с</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="provisional">миля/сағат</displayName>
+				<displayName>миля/сағат</displayName>
 				<unitPattern count="one">{0} миля/сағ</unitPattern>
 				<unitPattern count="other">{0} миля/сағ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName draft="provisional">Цельсий градусы</displayName>
+				<displayName>Цельсий градусы</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName draft="provisional">Фаренгейт бойынша градус</displayName>
+				<displayName>Фаренгейт бойынша градус</displayName>
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>K</displayName>
+				<unitPattern count="one">{0} К</unitPattern>
+				<unitPattern count="other">{0} К</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>акро фт</displayName>
+				<unitPattern count="one">{0} aк фт</unitPattern>
+				<unitPattern count="other">{0} aк фт</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>сл</displayName>
+				<unitPattern count="one">{0} cл</unitPattern>
+				<unitPattern count="other">{0} cл</unitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>cм³</displayName>
+				<unitPattern count="one">{0} cм³</unitPattern>
+				<unitPattern count="other">{0} cм³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>фут³</displayName>
+				<unitPattern count="one">{0} фт³</unitPattern>
+				<unitPattern count="other">{0} фт³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>дюйм³</displayName>
+				<unitPattern count="one">{0} дюйм³</unitPattern>
+				<unitPattern count="other">{0} дюйм³</unitPattern>
+			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName draft="provisional">текше километр</displayName>
+				<displayName>текше километр</displayName>
 				<unitPattern count="one">{0} км³</unitPattern>
 				<unitPattern count="other">{0} км³</unitPattern>
 			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>м³</displayName>
+				<unitPattern count="one">{0} м³</unitPattern>
+				<unitPattern count="other">{0} м³</unitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="provisional">текше миля</displayName>
+				<displayName>текше миля</displayName>
 				<unitPattern count="one">{0} миля³</unitPattern>
 				<unitPattern count="other">{0} миля³</unitPattern>
 			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>ярд³</displayName>
+				<unitPattern count="one">{0} ярд³</unitPattern>
+				<unitPattern count="other">{0} ярд³</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>кесе</displayName>
+				<unitPattern count="one">{0} к</unitPattern>
+				<unitPattern count="other">{0} к</unitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>дл</displayName>
+				<unitPattern count="one">{0} дц</unitPattern>
+				<unitPattern count="other">{0} дц</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>сқ унц</displayName>
+				<unitPattern count="one">{0} сқ унц</unitPattern>
+				<unitPattern count="other">{0} сқ унц</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>гал</displayName>
+				<unitPattern count="one">{0} гал</unitPattern>
+				<unitPattern count="other">{0} гал</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>гл</displayName>
+				<unitPattern count="one">{0} гл</unitPattern>
+				<unitPattern count="other">{0} гл</unitPattern>
+			</unit>
 			<unit type="volume-liter">
-				<displayName draft="provisional">литр</displayName>
+				<displayName>литр</displayName>
 				<unitPattern count="one">{0} л</unitPattern>
 				<unitPattern count="other">{0} л</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>МЛ</displayName>
+				<unitPattern count="one">{0} МЛ</unitPattern>
+				<unitPattern count="other">{0} МЛ</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>мЛ</displayName>
+				<unitPattern count="one">{0} мЛ</unitPattern>
+				<unitPattern count="other">{0} мЛ</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>пт</displayName>
+				<unitPattern count="one">{0} пт</unitPattern>
+				<unitPattern count="other">{0} пт</unitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>кв</displayName>
+				<unitPattern count="one">{0} кв</unitPattern>
+				<unitPattern count="other">{0} кв</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>ақ</displayName>
+				<unitPattern count="one">{0} ақ</unitPattern>
+				<unitPattern count="other">{0} ақ</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>шқ</displayName>
+				<unitPattern count="one">{0} шқ</unitPattern>
+				<unitPattern count="other">{0} шқ</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -4783,38 +6125,47 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} миля²</unitPattern>
 			</unit>
 			<unit type="duration-day">
-				<unitPattern count="one">{0} тәулік</unitPattern>
-				<unitPattern count="other">{0} тәулік</unitPattern>
+				<displayName>тәулік</displayName>
+				<unitPattern count="one">{0} т</unitPattern>
+				<unitPattern count="other">{0}т</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName>сағат</displayName>
 				<unitPattern count="one">{0} сағат</unitPattern>
 				<unitPattern count="other">{0} сағат</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName>миллисекунд</displayName>
 				<unitPattern count="one">{0} мс</unitPattern>
 				<unitPattern count="other">{0} мс</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName>минут</displayName>
 				<unitPattern count="one">{0} мин</unitPattern>
 				<unitPattern count="other">{0} мин</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName>ай</displayName>
 				<unitPattern count="one">{0} ай</unitPattern>
 				<unitPattern count="other">{0} ай</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName>секунд</displayName>
 				<unitPattern count="one">{0} сек.</unitPattern>
 				<unitPattern count="other">{0} сек.</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName>апта</displayName>
 				<unitPattern count="one">{0} апта</unitPattern>
 				<unitPattern count="other">{0} апта</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName>жыл</displayName>
 				<unitPattern count="one">{0} ж.</unitPattern>
 				<unitPattern count="other">{0} ж.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName>сантиметр</displayName>
 				<unitPattern count="one">{0} см</unitPattern>
 				<unitPattern count="other">{0} см</unitPattern>
 			</unit>
@@ -4827,6 +6178,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} дюйм</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName>километр</displayName>
 				<unitPattern count="one">{0} км</unitPattern>
 				<unitPattern count="other">{0} км</unitPattern>
 			</unit>
@@ -4835,6 +6187,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ly</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName>метр</displayName>
 				<unitPattern count="one">{0} м</unitPattern>
 				<unitPattern count="other">{0} м</unitPattern>
 			</unit>
@@ -4843,6 +6196,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} миля</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName>миллиметр</displayName>
 				<unitPattern count="one">{0} мм</unitPattern>
 				<unitPattern count="other">{0} мм</unitPattern>
 			</unit>
@@ -4855,10 +6209,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} ярд</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName>грамм</displayName>
 				<unitPattern count="one">{0} гр</unitPattern>
 				<unitPattern count="other">{0} гр</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName>килограмм</displayName>
 				<unitPattern count="one">{0} кг</unitPattern>
 				<unitPattern count="other">{0} кг</unitPattern>
 			</unit>
@@ -4895,6 +6251,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} мб</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName>километр/сағат</displayName>
 				<unitPattern count="one">{0} км/сағ</unitPattern>
 				<unitPattern count="other">{0} км/сағ</unitPattern>
 			</unit>
@@ -4907,6 +6264,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} миля/сағ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
+				<displayName>Цельсий градусы</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
@@ -4923,6 +6281,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} миля³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName>литр</displayName>
 				<unitPattern count="one">{0} л</unitPattern>
 				<unitPattern count="other">{0} л</unitPattern>
 			</unit>
@@ -4942,9 +6301,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
-			<listPatternPart type="2">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0} және {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
@@ -4964,4 +6329,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

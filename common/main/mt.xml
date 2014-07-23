@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -113,6 +113,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="el">Grieg</language>
 			<language type="elx">Elamit</language>
 			<language type="en">Ingliż</language>
+			<language type="en_AU">Ingliż Awstraljan</language>
+			<language type="en_GB">Ingliż Brittaniku</language>
+			<language type="en_GB" alt="short">Ingliż (UK)</language>
+			<language type="en_US">Ingliż Amerikan</language>
+			<language type="en_US" alt="short">Ingliż (US)</language>
 			<language type="enm">Ingliż, Medjevali</language>
 			<language type="eo">Esperanto</language>
 			<language type="es">Spanjol</language>
@@ -129,6 +134,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="fo">Fawriż</language>
 			<language type="fon">Fon</language>
 			<language type="fr">Franċiż</language>
+			<language type="fr_CA">Franċiż Kanadiż</language>
+			<language type="fr_CH">Franċiż Żvizzeru</language>
 			<language type="frm">Franċiż, Medjevali</language>
 			<language type="fro">Franċiż, Antik</language>
 			<language type="fur">Frijuljan</language>
@@ -400,7 +407,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="uga">Ugaritiku</language>
 			<language type="uk">Ukranjan</language>
 			<language type="umb">Umbundu</language>
-			<language type="und">Indeterminat</language>
+			<language type="und">Lingwa Mhux Magħrufa</language>
 			<language type="ur">Urdu</language>
 			<language type="uz">Użbek</language>
 			<language type="vai">Vai</language>
@@ -423,6 +430,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="zap">Żapotek</language>
 			<language type="zen">Żenaga</language>
 			<language type="zh">Ċiniż</language>
+			<language type="zh_Hans">Ċiniż Simplifikat</language>
 			<language type="zu">Żulu</language>
 			<language type="zun">Żuni</language>
 			<language type="zxx" draft="unconfirmed">Bla kontent lingwistiku</language>
@@ -430,17 +438,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<scripts>
 			<script type="Arab">Għarbi</script>
 			<script type="Brai" draft="unconfirmed">Braille</script>
-			<script type="Cyrl" draft="unconfirmed">Ċirilliku</script>
+			<script type="Cyrl">Ċirilliku</script>
 			<script type="Grek">Grieg</script>
-			<script type="Hans">Sempliċi</script>
-			<script type="Hans" alt="stand-alone">Ħan Sempliċi</script>
+			<script type="Hans">Simplifikat</script>
+			<script type="Hans" alt="stand-alone">Han Simplifikat</script>
 			<script type="Hant">Tradizzjonali</script>
-			<script type="Hant" alt="stand-alone">Ħan Tradizzjonali</script>
+			<script type="Hant" alt="stand-alone">Han Tradizzjonali</script>
 			<script type="Latn">Latin</script>
 			<script type="Xpeo">Persjan Antik</script>
 			<script type="Zxxx">Mhux Miktub</script>
 			<script type="Zyyy">Komuni</script>
-			<script type="Zzzz">Skritt Mhux Magħruf</script>
+			<script type="Zzzz">Kitba Mhux Magħrufa</script>
 		</scripts>
 		<territories>
 			<territory type="001">Dinja</territory>
@@ -502,7 +510,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BM">Bermuda</territory>
 			<territory type="BN">Brunej</territory>
 			<territory type="BO">Bolivja</territory>
-			<territory type="BR">Brażil</territory>
+			<territory type="BR">Il-Brażil</territory>
 			<territory type="BS">Baħamas</territory>
 			<territory type="BT">Butan</territory>
 			<territory type="BV">Bouvet Island</territory>
@@ -519,7 +527,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CK">Cook Islands</territory>
 			<territory type="CL">Ċili</territory>
 			<territory type="CM">Kamerun</territory>
-			<territory type="CN">Ċina</territory>
+			<territory type="CN">Iċ-Ċina</territory>
 			<territory type="CO">Kolumbja</territory>
 			<territory type="CR">Kosta Rika</territory>
 			<territory type="CU">Kuba</territory>
@@ -527,7 +535,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="CX">Christmas Island</territory>
 			<territory type="CY">Ċipru</territory>
 			<territory type="CZ">Repubblika Ċeka</territory>
-			<territory type="DE">Ġermanja</territory>
+			<territory type="DE">Il-Ġermanja</territory>
 			<territory type="DJ">Ġibuti</territory>
 			<territory type="DK">Danimarka</territory>
 			<territory type="DM">Dominika</territory>
@@ -548,7 +556,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FO">Gżejjer Faroe</territory>
 			<territory type="FR">Franza</territory>
 			<territory type="GA">Gabon</territory>
-			<territory type="GB">Ingilterra</territory>
+			<territory type="GB">L-Ingilterra</territory>
 			<territory type="GD">Grenada</territory>
 			<territory type="GE">Ġorġja</territory>
 			<territory type="GF">Gujana Franċiża</territory>
@@ -576,15 +584,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="IE">Irlanda</territory>
 			<territory type="IL">Iżrael</territory>
 			<territory type="IM">Isle of Man</territory>
-			<territory type="IN">Indja</territory>
+			<territory type="IN">L-Indja</territory>
 			<territory type="IO">British Indian Ocean Territory</territory>
 			<territory type="IQ">Iraq</territory>
 			<territory type="IR">Iran</territory>
 			<territory type="IS">Islanda</territory>
-			<territory type="IT">Italja</territory>
+			<territory type="IT">L-Italja</territory>
 			<territory type="JM">Ġamajka</territory>
 			<territory type="JO">Ġordan</territory>
-			<territory type="JP">Ġappun</territory>
+			<territory type="JP">Il-Ġappun</territory>
 			<territory type="KE">Kenja</territory>
 			<territory type="KG">Kirgistan</territory>
 			<territory type="KH">Kambodja</territory>
@@ -659,7 +667,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="QA">Qatar</territory>
 			<territory type="RE">Réunion</territory>
 			<territory type="RO">Rumanija</territory>
-			<territory type="RU">Russja</territory>
+			<territory type="RU">Ir-Russja</territory>
 			<territory type="RW">Rwanda</territory>
 			<territory type="SA">Għarabja Sawdita</territory>
 			<territory type="SB">Solomon Islands</territory>
@@ -699,7 +707,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="UA">Ukraina</territory>
 			<territory type="UG">Uganda</territory>
 			<territory type="UM">United States Minor Outlying Islands</territory>
-			<territory type="US">Stati Uniti</territory>
+			<territory type="US">L-Istati Uniti</territory>
 			<territory type="UY">Urugwaj</territory>
 			<territory type="UZ">Użbekistan</territory>
 			<territory type="VA">Vatikan</territory>
@@ -732,16 +740,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="big5han" key="collation">Ordni Ċiniż Tradizzjonali (Big5)</type>
 			<type type="buddhist" key="calendar">Kalendarju Buddist</type>
 			<type type="chinese" key="calendar">Kalendarju Ċiniż</type>
+			<type type="dangi" key="calendar">Kalendarju Dangi</type>
 			<type type="dictionary" key="collation" draft="unconfirmed">Ordni tad-Dizzjunarju</type>
+			<type type="ethiopic" key="calendar">Kalendarju Etjopiku</type>
 			<type type="gb2312han" key="collation">Ordni Ċiniż Sempliċi (GB2312)</type>
 			<type type="gregorian" key="calendar">Kalendarju Gregorjan</type>
 			<type type="hebrew" key="calendar">Kalendarju Ebrajk</type>
-			<type type="islamic" key="calendar">Kalendarju Islamiku</type>
+			<type type="islamic" key="calendar">Kalendarju Iżlamiku</type>
 			<type type="islamic-civil" key="calendar">Kalendarju Islamiku-Ċivili</type>
+			<type type="iso8601" key="calendar">Kalendarju ISO-8601</type>
 			<type type="japanese" key="calendar">Kalendarju Ġappuniż</type>
-			<type type="latn" key="numbers" draft="unconfirmed">Numri Oċċidentali</type>
+			<type type="latn" key="numbers">Numri tal-Punent</type>
 			<type type="phonebook" key="collation">Ordni Telefonika</type>
 			<type type="pinyin" key="collation">Ordni tal-Pinjin</type>
+			<type type="standard" key="collation">Ordni Standard</type>
 			<type type="stroke" key="collation">Ordni Maħżuża</type>
 			<type type="traditional" key="collation">Tradizzjonali</type>
 		</types>
@@ -761,12 +773,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<exemplarCharacters type="auxiliary">[c y]</exemplarCharacters>
 		<exemplarCharacters type="index" draft="contributed">[A B Ċ C D E F Ġ G {GĦ} H Ħ I {IE} J K L M N O P Q R S T U V W X Y Ż Z]</exemplarCharacters>
 		<exemplarCharacters type="punctuation">[\- , ; \: ! ? . ' ‘ ’ &quot; “ ” ( ) \[ \] \{ \}]</exemplarCharacters>
+		<ellipsis type="final">{0}…</ellipsis>
+		<ellipsis type="initial">…{0}</ellipsis>
+		<ellipsis type="medial">{0}…{1}</ellipsis>
+		<ellipsis type="word-final">{0} …</ellipsis>
+		<ellipsis type="word-initial">… {0}</ellipsis>
+		<ellipsis type="word-medial">{0} … {1}</ellipsis>
+		<moreInformation>?</moreInformation>
 	</characters>
 	<delimiters>
-		<quotationStart draft="unconfirmed">“</quotationStart>
-		<quotationEnd draft="unconfirmed">”</quotationEnd>
-		<alternateQuotationStart draft="unconfirmed">‘</alternateQuotationStart>
-		<alternateQuotationEnd draft="unconfirmed">’</alternateQuotationEnd>
+		<quotationStart>“</quotationStart>
+		<quotationEnd>”</quotationEnd>
+		<alternateQuotationStart>‘</alternateQuotationStart>
+		<alternateQuotationEnd>’</alternateQuotationEnd>
 	</delimiters>
 	<dates>
 		<calendars>
@@ -884,6 +903,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M" draft="unconfirmed">E, d 'ta'’ MMM - E, d 'ta'’ MMM y G</greatestDifference>
 							<greatestDifference id="y" draft="unconfirmed">E, d 'ta'’ MMM y - E, d 'ta'’ MMM y G</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="yMMMM">
+							<greatestDifference id="M" draft="unconfirmed">G y MMMM – MMMM</greatestDifference>
+						</intervalFormatItem>
 					</intervalFormats>
 				</dateTimeFormats>
 			</calendar>
@@ -904,6 +926,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="11">Nov</month>
 							<month type="12">Diċ</month>
 						</monthWidth>
+						<monthWidth type="narrow">
+							<month type="1">J</month>
+							<month type="2">F</month>
+							<month type="3">M</month>
+							<month type="4">A</month>
+							<month type="5">M</month>
+							<month type="6">Ġ</month>
+							<month type="7">L</month>
+							<month type="8">A</month>
+							<month type="9">S</month>
+							<month type="10">O</month>
+							<month type="11">N</month>
+							<month type="12">D</month>
+						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Jannar</month>
 							<month type="2">Frar</month>
@@ -920,19 +956,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">Jan</month>
+							<month type="2">Fra</month>
+							<month type="3">Mar</month>
+							<month type="4">Apr</month>
+							<month type="5">Mej</month>
+							<month type="6">Ġun</month>
+							<month type="7">Lul</month>
+							<month type="8">Aww</month>
+							<month type="9">Set</month>
+							<month type="10">Ott</month>
+							<month type="11">Nov</month>
+							<month type="12">Diċ</month>
+						</monthWidth>
 						<monthWidth type="narrow">
-							<month type="1">J</month>
-							<month type="2">F</month>
-							<month type="3">M</month>
-							<month type="4">A</month>
-							<month type="5">M</month>
-							<month type="6">Ġ</month>
-							<month type="7">L</month>
-							<month type="8">A</month>
-							<month type="9">S</month>
-							<month type="10">O</month>
-							<month type="11">N</month>
-							<month type="12">D</month>
+							<month type="1">Jn</month>
+							<month type="2">Fr</month>
+							<month type="3">Mz</month>
+							<month type="4">Ap</month>
+							<month type="5">Mj</month>
+							<month type="6">Ġn</month>
+							<month type="7">Lj</month>
+							<month type="8">Aw</month>
+							<month type="9">St</month>
+							<month type="10">Ob</month>
+							<month type="11">Nv</month>
+							<month type="12">Dċ</month>
 						</monthWidth>
 						<monthWidth type="wide">
 							<month type="1">Jannar</month>
@@ -981,14 +1031,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">Ħad</day>
+							<day type="mon">Tne</day>
+							<day type="tue">Tli</day>
+							<day type="wed">Erb</day>
+							<day type="thu">Ħam</day>
+							<day type="fri">Ġim</day>
+							<day type="sat">Sib</day>
+						</dayWidth>
 						<dayWidth type="narrow">
-							<day type="sun">Ħ</day>
-							<day type="mon">T</day>
-							<day type="tue">T</day>
-							<day type="wed">E</day>
-							<day type="thu">Ħ</day>
-							<day type="fri">Ġ</day>
-							<day type="sat">S</day>
+							<day type="sun">Ħd</day>
+							<day type="mon">Tn</day>
+							<day type="tue">Tl</day>
+							<day type="wed">Er</day>
+							<day type="thu">Ħm</day>
+							<day type="fri">Ġm</day>
+							<day type="sat">Sb</day>
+						</dayWidth>
+						<dayWidth type="wide">
+							<day type="sun">Il-Ħadd</day>
+							<day type="mon">It-Tnejn</day>
+							<day type="tue">It-Tlieta</day>
+							<day type="wed">L-Erbgħa</day>
+							<day type="thu">Il-Ħamis</day>
+							<day type="fri">Il-Ġimgħa</day>
+							<day type="sat">Is-Sibt</day>
 						</dayWidth>
 					</dayContext>
 				</days>
@@ -1007,10 +1075,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<quarter type="4">4</quarter>
 						</quarterWidth>
 						<quarterWidth type="wide">
-							<quarter type="1">K1</quarter>
-							<quarter type="2">K2</quarter>
-							<quarter type="3">K3</quarter>
-							<quarter type="4">K4</quarter>
+							<quarter type="1">1el kwart</quarter>
+							<quarter type="2">2ni kwart</quarter>
+							<quarter type="3">3et kwart</quarter>
+							<quarter type="4">4ba' kwart</quarter>
 						</quarterWidth>
 					</quarterContext>
 					<quarterContext type="stand-alone">
@@ -1037,8 +1105,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<dayPeriods>
 					<dayPeriodContext type="format">
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">QN</dayPeriod>
-							<dayPeriod type="pm">WN</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
@@ -1109,7 +1177,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d" draft="unconfirmed">d-d</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="h">
-							<greatestDifference id="h" draft="unconfirmed">h-h a</greatestDifference>
+							<greatestDifference id="h" draft="unconfirmed">h – h a</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="H">
 							<greatestDifference id="H" draft="unconfirmed">HH-HH</greatestDifference>
@@ -1148,10 +1216,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M" draft="unconfirmed">E, dd/MM - E, dd/MM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
-							<greatestDifference id="M" draft="unconfirmed">MMM-MMM</greatestDifference>
+							<greatestDifference id="M" draft="unconfirmed">MMM – MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMd">
-							<greatestDifference id="d" draft="unconfirmed">d 'ta'’-d 'ta'’ MMM</greatestDifference>
+							<greatestDifference id="d" draft="unconfirmed">d 'ta'’ - d 'ta'’ MMM</greatestDifference>
 							<greatestDifference id="M" draft="unconfirmed">d 'ta'’ MMM - d 'ta'’ MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMMEd">
@@ -1159,7 +1227,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M" draft="unconfirmed">E, d 'ta'’ MMM - E, d 'ta'’ MMM</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="y">
-							<greatestDifference id="y" draft="unconfirmed">y-y</greatestDifference>
+							<greatestDifference id="y" draft="unconfirmed">y – y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M" draft="unconfirmed">MM/y - MM/y</greatestDifference>
@@ -1237,6 +1305,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="mon">
 				<relative type="-1">It-Tnejn li għadda</relative>
+				<relative type="0" draft="unconfirmed">Dan It-Tnejn</relative>
 				<relative type="1">It-Tnejn li ġej</relative>
 			</field>
 			<field type="dayperiod">
@@ -1248,8 +1317,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="minute">
 				<displayName>Minuta</displayName>
 			</field>
+			<field type="minute-short">
+				<displayName draft="unconfirmed">min.</displayName>
+			</field>
+			<field type="minute-narrow">
+				<displayName draft="unconfirmed">m</displayName>
+			</field>
 			<field type="second">
 				<displayName>Sekonda</displayName>
+			</field>
+			<field type="second-short">
+				<displayName draft="unconfirmed">sek.</displayName>
+			</field>
+			<field type="second-narrow">
+				<displayName draft="unconfirmed">s</displayName>
 			</field>
 			<field type="zone">
 				<displayName>Żona</displayName>
@@ -1258,7 +1339,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<timeZoneNames>
 			<hourFormat>+HH:mm;-HH:mm</hourFormat>
 			<gmtFormat>GMT{0}</gmtFormat>
+			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>Ħin ta’ {0}</regionFormat>
+			<regionFormat type="standard">{0} Ħin Standard</regionFormat>
+			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>Belt Mhux Magħruf</exemplarCity>
 			</zone>
@@ -1302,9 +1386,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">latn</native>
+		</otherNumberingSystems>
+		<minimumGroupingDigits draft="contributed">1</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>.</decimal>
 			<group>,</group>
+			<percentSign>%</percentSign>
+			<plusSign>+</plusSign>
+			<minusSign>-</minusSign>
+			<exponential>E</exponential>
+			<superscriptingExponent>×</superscriptingExponent>
+			<perMille>‰</perMille>
+			<infinity>∞</infinity>
+			<nan>NaN</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
@@ -1315,7 +1413,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</currencyFormats>
 		<currencies>
 			<currency type="EUR">
-				<displayName>Ewro</displayName>
+				<displayName>ewro</displayName>
+				<displayName count="one">ewro</displayName>
+				<displayName count="few">ewro</displayName>
+				<displayName count="many">ewro</displayName>
+				<displayName count="other">ewro</displayName>
+				<symbol>€</symbol>
+				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Lira Maltija</displayName>
@@ -1329,12 +1433,155 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unitLength type="long">
+			<unit type="angle-arc-minute">
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="few">{0}′</unitPattern>
+				<unitPattern count="many">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>L/km</displayName>
+				<unitPattern count="one">{0} litru kull kilometru</unitPattern>
+				<unitPattern count="few">{0} litri kull kilometru</unitPattern>
+				<unitPattern count="many">{0} litri kull kilometru</unitPattern>
+				<unitPattern count="other">{0} litri kull kilometru</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>megabytes</displayName>
+				<unitPattern count="one">{0} megabyte</unitPattern>
+				<unitPattern count="few">{0} megabytes</unitPattern>
+				<unitPattern count="many">{0} megabytes</unitPattern>
+				<unitPattern count="other">{0} megabytes</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>terabits</displayName>
+				<unitPattern count="one">{0} terabit</unitPattern>
+				<unitPattern count="few">{0} terabits</unitPattern>
+				<unitPattern count="many">{0} terabits</unitPattern>
+				<unitPattern count="other">{0} terabits</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>terabytes</displayName>
+				<unitPattern count="one">{0} terabyte</unitPattern>
+				<unitPattern count="few">{0} terabytes</unitPattern>
+				<unitPattern count="many">{0} terabytes</unitPattern>
+				<unitPattern count="other">{0} terabytes</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>millisekondi</displayName>
+				<unitPattern count="one">{0} millisekonda</unitPattern>
+				<unitPattern count="few">{0} millisekondi</unitPattern>
+				<unitPattern count="many">{0} millisekondi</unitPattern>
+				<unitPattern count="other">{0} millisekondi</unitPattern>
+			</unit>
+			<unit type="light-lux">
+				<displayName>lx</displayName>
+				<unitPattern count="one">{0} lx</unitPattern>
+				<unitPattern count="few">{0} lx</unitPattern>
+				<unitPattern count="many">{0} lx</unitPattern>
+				<unitPattern count="other">{0} lx</unitPattern>
+			</unit>
+			<unit type="proportion-karat">
+				<displayName>karati</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="few">{0} kt</unitPattern>
+				<unitPattern count="many">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="short">
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>L/km</displayName>
+				<unitPattern count="one">{0} L/km</unitPattern>
+				<unitPattern count="few">{0} L/km</unitPattern>
+				<unitPattern count="many">{0} L/km</unitPattern>
+				<unitPattern count="other">{0} L/km</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<unitPattern count="one">{0} Mb</unitPattern>
+				<unitPattern count="few">{0} Mb</unitPattern>
+				<unitPattern count="many">{0} Mb</unitPattern>
+				<unitPattern count="other">{0} Mb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="one">{0} MB</unitPattern>
+				<unitPattern count="few">{0} MB</unitPattern>
+				<unitPattern count="many">{0} MB</unitPattern>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="one">{0} Tb</unitPattern>
+				<unitPattern count="few">{0} Tb</unitPattern>
+				<unitPattern count="many">{0} Tb</unitPattern>
+				<unitPattern count="other">{0} Tb</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>TB</displayName>
+				<unitPattern count="one">{0} TB</unitPattern>
+				<unitPattern count="few">{0} TB</unitPattern>
+				<unitPattern count="many">{0} TB</unitPattern>
+				<unitPattern count="other">{0} TB</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName>millisek</displayName>
+				<unitPattern count="one">{0} ms</unitPattern>
+				<unitPattern count="few">{0} ms</unitPattern>
+				<unitPattern count="many">{0} ms</unitPattern>
+				<unitPattern count="other">{0} ms</unitPattern>
+			</unit>
+			<unit type="light-lux">
+				<displayName>lx</displayName>
+				<unitPattern count="one">{0} lx</unitPattern>
+				<unitPattern count="few">{0} lx</unitPattern>
+				<unitPattern count="many">{0} lx</unitPattern>
+				<unitPattern count="other">{0} lx</unitPattern>
+			</unit>
+			<unit type="proportion-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="few">{0} kt</unitPattern>
+				<unitPattern count="many">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="narrow">
+			<unit type="duration-millisecond">
+				<displayName>millisek</displayName>
+				<unitPattern count="one">{0}ms</unitPattern>
+				<unitPattern count="few">{0}ms</unitPattern>
+				<unitPattern count="many">{0}ms</unitPattern>
+				<unitPattern count="other">{0}ms</unitPattern>
+			</unit>
+		</unitLength>
+	</units>
 	<listPatterns>
 		<listPattern>
-			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
-			<listPatternPart type="end" draft="unconfirmed">{0}, u {1}</listPatternPart>
-			<listPatternPart type="2" draft="unconfirmed">{0} u {1}</listPatternPart>
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, u {1}</listPatternPart>
+			<listPatternPart type="2">{0} u {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, u {1}</listPatternPart>
+			<listPatternPart type="2">{0} u {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
+		<listPattern type="unit-short">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, u {1}</listPatternPart>
+			<listPatternPart type="2">{0} u {1}</listPatternPart>
 		</listPattern>
 	</listPatterns>
 	<posix>
@@ -1344,4 +1591,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

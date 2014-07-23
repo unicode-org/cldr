@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -14,26 +14,48 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<localeDisplayNames>
 		<languages>
 			<language type="az" alt="short" draft="contributed">azerbajdzjanska</language>
+			<language type="bax" draft="contributed">bamunska</language>
+			<language type="bbj" draft="contributed">ghomala</language>
+			<language type="bfd" draft="contributed">bafut</language>
+			<language type="bkm" draft="contributed">bamekon</language>
+			<language type="bss" draft="contributed">bakossi</language>
+			<language type="bum" draft="contributed">boulou</language>
+			<language type="byv" draft="contributed">bagangte</language>
 			<language type="chm" draft="contributed">mari</language>
 			<language type="fj" draft="contributed">fiji</language>
 			<language type="ha" draft="contributed">hausa</language>
+			<language type="ibb" draft="contributed">ibibio</language>
 			<language type="ig" draft="contributed">igbo</language>
+			<language type="kkj" draft="contributed">mkako</language>
 			<language type="km" draft="contributed">khmer</language>
 			<language type="ks" draft="contributed">kashmiri</language>
 			<language type="ky" draft="contributed">kirgiziska</language>
 			<language type="lo" draft="contributed">lao</language>
+			<language type="maf" draft="contributed">mafa</language>
+			<language type="mye" draft="contributed">myene</language>
 			<language type="nb" draft="contributed">bokmål</language>
+			<language type="nnh" draft="contributed">bamileké-ngiemboon</language>
 			<language type="pa" draft="contributed">panjabi</language>
 			<language type="ps" draft="contributed">pashto</language>
 			<language type="te" draft="contributed">telugu</language>
 			<language type="th" draft="contributed">thai</language>
 			<language type="ti" draft="contributed">tigrinska</language>
 			<language type="und" draft="contributed">okänt språk</language>
+			<language type="ybb" draft="contributed">bamileké-jemba</language>
 		</languages>
 		<scripts>
 			<script type="Arab" alt="variant" draft="contributed">persisk-arabiska</script>
+			<script type="Bamu" draft="contributed">bamunska</script>
+			<script type="Gran" draft="contributed">gammaltamilska</script>
 			<script type="Hrkt" draft="contributed">kana</script>
+			<script type="Khoj" draft="contributed">khojkiska</script>
+			<script type="Lisu" draft="contributed">Fraser</script>
+			<script type="Merc" draft="contributed">kursiv-meroitiska</script>
 			<script type="Mero" draft="contributed">meroitiska</script>
+			<script type="Nkgb" draft="contributed">naxi geba</script>
+			<script type="Sarb" draft="contributed">fornsydarabiska</script>
+			<script type="Tirh" draft="contributed">tirhuta</script>
+			<script type="Wara" draft="contributed">varang kshiti</script>
 		</scripts>
 		<territories>
 			<territory type="035" draft="contributed">Sydöstasien</territory>
@@ -41,6 +63,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="BQ" draft="contributed">Bonaire, S:t Eustatius och Saba</territory>
 			<territory type="CD" draft="contributed">Demokratiska republiken Kongo</territory>
 			<territory type="CG" draft="contributed">Kongo</territory>
+			<territory type="CW" draft="contributed">Curaçao</territory>
 			<territory type="GB" draft="contributed">Förenade kungariket</territory>
 			<territory type="KN" draft="contributed">Saint Kitts och Nevis</territory>
 			<territory type="LC" draft="contributed">Saint Lucia</territory>
@@ -51,12 +74,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="PS" draft="contributed">Palestinska området</territory>
 			<territory type="SD" draft="contributed">Nordsudan</territory>
 			<territory type="SH" draft="contributed">Saint Helena</territory>
+			<territory type="SS" draft="contributed">Sydsudan</territory>
 			<territory type="SX" draft="contributed">Sint Martin</territory>
 			<territory type="TK" draft="contributed">Tokelauöarna</territory>
 			<territory type="US" draft="contributed">Förenta staterna</territory>
 			<territory type="VA" draft="contributed">Vatikanen</territory>
 			<territory type="VC" draft="contributed">Saint Vincent och Grenadinerna</territory>
 			<territory type="WF" draft="contributed">Wallis- och Futuna</territory>
+			<territory type="ZZ" draft="contributed">okänd region</territory>
 		</territories>
 		<variants>
 			<variant type="1996">1996 års stavning</variant>
@@ -154,6 +179,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Etc/Unknown">
 				<exemplarCity draft="contributed">(okänd tidszon)</exemplarCity>
 			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity draft="contributed">Gaborone</exemplarCity>
+			</zone>
+			<zone type="America/Tegucigalpa">
+				<exemplarCity draft="contributed">Tegucigalpa</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity draft="contributed">Lusaka</exemplarCity>
+			</zone>
 		</timeZoneNames>
 	</dates>
 	<units>
@@ -191,4 +225,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</listPattern>
 	</listPatterns>
 </ldml>
-

@@ -41,7 +41,7 @@ public class TestLocalCurrency extends TestFmwk {
         Map<String, Set<String>> localizedCurrencySymbols = new HashMap<String, Set<String>>();
         Map<String, Set<String>> regionToLocales = new HashMap<String, Set<String>>();
 
-        List<String> nonLocalizedOK = Arrays.asList("CHF", "CVE", "GEL", "KPW", "MAD", "MDL", "RON", "SDG");
+        List<String> nonLocalizedOK = Arrays.asList("AZN", "CHF", "CVE", "GEL", "HRK", "HUF", "ISK", "KPW", "LTL", "MAD", "MDL", "RON", "RSD", "SDG");
 
         Factory factory = testInfo.getCldrFactory();
         Date now = new Date();

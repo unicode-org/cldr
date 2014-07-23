@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -21,6 +21,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ae">ଅବେସ୍ତନ</language>
 			<language type="af">ଆଫ୍ରିକାନସ୍</language>
 			<language type="afh">ଆଫ୍ରିହିଲି</language>
+			<language type="agq" draft="unconfirmed">ଆଘେମ</language>
 			<language type="ain">ଆଇନୁ</language>
 			<language type="ak">ଅକନ୍</language>
 			<language type="akk">ଆକାଡିଆନ୍</language>
@@ -31,11 +32,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ang">ପୁରୁଣା ଇଁରାଜୀ</language>
 			<language type="anp">ଅଁଗୀକା</language>
 			<language type="ar">ଆରବିକ୍</language>
+			<language type="ar_001" draft="unconfirmed">ମାନକ ଆରବିକ</language>
 			<language type="arc">ଆରାମାଇକ୍</language>
 			<language type="arn">ଆରାଉକାନିଆନ୍</language>
 			<language type="arp">ଆରାପାହୋ</language>
 			<language type="arw">ଆରୱକ</language>
 			<language type="as">ଆସାମୀ</language>
+			<language type="asa" draft="unconfirmed">ଆସୁ</language>
 			<language type="ast">ଆଷ୍ଟୁରିଆନ୍</language>
 			<language type="av">ଆଭାରିକ୍</language>
 			<language type="awa">ଆୱାଧି</language>
@@ -48,6 +51,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="be">ବେଲାରୁଷିଆନ୍</language>
 			<language type="bej">ବେଜା</language>
 			<language type="bem">ବେମ୍ବା</language>
+			<language type="bez" draft="unconfirmed">ବେନା</language>
 			<language type="bg">ବୁଲଗେରିଆନ୍</language>
 			<language type="bho">ଭୋଜପୁରୀ</language>
 			<language type="bi">ବିସଲାମା</language>
@@ -79,6 +83,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="chp">ଚିପେୱାନ୍</language>
 			<language type="chr">ଚେରୋକୀ</language>
 			<language type="chy">ଚେଚେନା</language>
+			<language type="ckb" draft="unconfirmed">ସୋରାନି କୁର୍ଦିଶ</language>
 			<language type="co">କୋର୍ସିକାନ୍</language>
 			<language type="cop">କପ୍ଟିକ୍</language>
 			<language type="cr">କ୍ରୀ</language>
@@ -339,6 +344,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="rn">ରୁଣ୍ଡି</language>
 			<language type="ro">ରୋମାନିଆନ୍</language>
 			<language type="ro_MD">ମୋଲଡୋଭିଆନ୍</language>
+			<language type="rof" draft="unconfirmed">ରୋମ୍ବୋ</language>
 			<language type="rom">ରୋମାନି</language>
 			<language type="root">ମୂଳ</language>
 			<language type="ru">ରଷିଆନ୍</language>
@@ -687,6 +693,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FI">ଫିନଲ୍ୟାଣ୍ଡ</territory>
 			<territory type="FJ">ଫିଜି</territory>
 			<territory type="FK">ଫଲ୍କଲ୍ୟାଣ୍ଡ ଦ୍ବୀପପୁଞ୍ଜ</territory>
+			<territory type="FK" alt="variant" draft="unconfirmed">FK</territory>
 			<territory type="FM">ମାଇକ୍ରୋନେସିଆ</territory>
 			<territory type="FO">ଫାରୋଇ ଦ୍ବୀପପୁଞ୍ଜ</territory>
 			<territory type="FR">ଫ୍ରାନ୍ସ</territory>
@@ -848,6 +855,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="UG">ଉଗାଣ୍ଡା</territory>
 			<territory type="UM">ୟୁନାଇଟେଡ୍ ଷ୍ଟେଟସ୍ ମାଇନର୍ ଆଉଟଲେଇଂ ଦ୍ବୀପପୁଞ୍ଜ</territory>
 			<territory type="US">ଯୁକ୍ତ ରାଷ୍ଟ୍ର ଆମେରିକା</territory>
+			<territory type="US" alt="short" draft="unconfirmed">ୟୁ.ଏସ୍</territory>
 			<territory type="UY">ଉରୁଗୁଏ</territory>
 			<territory type="UZ">ଉଜବେକିସ୍ଥାନ୍</territory>
 			<territory type="VA">ଭାଟିକାନ୍</territory>
@@ -910,12 +918,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<calendar type="gregorian">
 				<months>
 					<monthContext type="format">
-						<monthWidth type="wide">
+						<monthWidth type="abbreviated">
 							<month type="1">ଜାନୁଆରୀ</month>
-							<month type="2">ଫେବ୍ରୁୟାରୀ</month>
+							<month type="2">ଫେବୃଆରୀ</month>
 							<month type="3">ମାର୍ଚ୍ଚ</month>
 							<month type="4">ଅପ୍ରେଲ</month>
-							<month type="5">ମେ</month>
+							<month type="5">ମଇ</month>
+							<month type="6">ଜୁନ</month>
+							<month type="7">ଜୁଲାଇ</month>
+							<month type="8">ଅଗଷ୍ଟ</month>
+							<month type="9">ସେପ୍ଟେମ୍ବର</month>
+							<month type="10">ଅକ୍ଟୋବର</month>
+							<month type="11">ନଭେମ୍ବର</month>
+							<month type="12">ଡିସେମ୍ବର</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ଜାନୁଆରୀ</month>
+							<month type="2">ଫେବୃଆରୀ</month>
+							<month type="3">ମାର୍ଚ୍ଚ</month>
+							<month type="4">ଅପ୍ରେଲ</month>
+							<month type="5">ମଇ</month>
 							<month type="6">ଜୁନ</month>
 							<month type="7">ଜୁଲାଇ</month>
 							<month type="8">ଅଗଷ୍ଟ</month>
@@ -926,12 +948,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</monthWidth>
 					</monthContext>
 					<monthContext type="stand-alone">
+						<monthWidth type="abbreviated">
+							<month type="1">ଜାନୁଆରୀ</month>
+							<month type="2">ଫେବୃଆରୀ</month>
+							<month type="3">ମାର୍ଚ୍ଚ</month>
+							<month type="4">ଅପ୍ରେଲ</month>
+							<month type="5">ମଇ</month>
+							<month type="6">ଜୁନ</month>
+							<month type="7">ଜୁଲାଇ</month>
+							<month type="8">ଅଗଷ୍ଟ</month>
+							<month type="9">ସେପ୍ଟେମ୍ବର</month>
+							<month type="10">ଅକ୍ଟୋବର</month>
+							<month type="11">ନଭେମ୍ବର</month>
+							<month type="12">ଡିସେମ୍ବର</month>
+						</monthWidth>
 						<monthWidth type="narrow">
 							<month type="1">ଜା</month>
 							<month type="2">ଫେ</month>
 							<month type="3">ମା</month>
 							<month type="4">ଅ</month>
-							<month type="5">ମେ</month>
+							<month type="5">ମଇ</month>
 							<month type="6">ଜୁ</month>
 							<month type="7">ଜୁ</month>
 							<month type="8">ଅ</month>
@@ -939,6 +975,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<month type="10">ଅ</month>
 							<month type="11">ନ</month>
 							<month type="12">ଡି</month>
+						</monthWidth>
+						<monthWidth type="wide">
+							<month type="1">ଜାନୁଆରୀ</month>
+							<month type="2">ଫେବୃଆରୀ</month>
+							<month type="3">ମାର୍ଚ୍ଚ</month>
+							<month type="4">ଅପ୍ରେଲ</month>
+							<month type="5">ମଇ</month>
+							<month type="6">ଜୁନ</month>
+							<month type="7">ଜୁଲାଇ</month>
+							<month type="8">ଅଗଷ୍ଟ</month>
+							<month type="9">ସେପ୍ଟେମ୍ବର</month>
+							<month type="10">ଅକ୍ଟୋବର</month>
+							<month type="11">ନଭେମ୍ବର</month>
+							<month type="12">ଡିସେମ୍ବର</month>
 						</monthWidth>
 					</monthContext>
 				</months>
@@ -964,6 +1014,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dayWidth>
 					</dayContext>
 					<dayContext type="stand-alone">
+						<dayWidth type="abbreviated">
+							<day type="sun">ରବି</day>
+							<day type="mon">ସୋମ</day>
+							<day type="tue">ମଙ୍ଗଳ</day>
+							<day type="wed">ବୁଧ</day>
+							<day type="thu">ଗୁରୁ</day>
+							<day type="fri">ଶୁକ୍ର</day>
+							<day type="sat">ଶନି</day>
+						</dayWidth>
 						<dayWidth type="narrow">
 							<day type="sun">ର</day>
 							<day type="mon">ସୋ</day>
@@ -1098,4 +1157,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

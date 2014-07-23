@@ -259,7 +259,7 @@ public class TestExampleGenerator extends TestFmwk {
 
     public void TestMiscPatterns() {
         ExampleGenerator exampleGenerator = getExampleGenerator("it");
-        checkValue("At least", "〖❬99❭+〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"atLeast\"]");
+        checkValue("At least", "〖⩾❬99❭〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"atLeast\"]");
         checkValue("Range", "〖❬99❭-❬144❭〗", exampleGenerator, "//ldml/numbers/miscPatterns[@numberSystem=\"latn\"]/pattern[@type=\"range\"]");
         //        String actual = exampleGenerator.getExampleHtml(
         //                "//ldml/numbers/miscPatterns[@type=\"arab\"]/pattern[@type=\"atLeast\"]",

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -296,6 +296,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
+				<timeFormats>
+					<timeFormatLength type="long">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss z</pattern>
+						</timeFormat>
+					</timeFormatLength>
+					<timeFormatLength type="medium">
+						<timeFormat>
+							<pattern draft="unconfirmed">HH:mm:ss</pattern>
+						</timeFormat>
+					</timeFormatLength>
+				</timeFormats>
+				<dateTimeFormats>
+					<availableFormats>
+						<dateFormatItem id="y" draft="unconfirmed">y</dateFormatItem>
+					</availableFormats>
+				</dateTimeFormats>
 			</calendar>
 		</calendars>
 		<fields>
@@ -304,6 +321,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="year">
 				<displayName draft="unconfirmed">Сыл</displayName>
+				<relative type="-1" draft="unconfirmed">ааспыт сыл</relative>
+				<relative type="0" draft="unconfirmed">бу сыл</relative>
+				<relative type="1" draft="unconfirmed">кэлэр сыл</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} сылынан</relativeTimePattern>
 				</relativeTime>
@@ -311,8 +331,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} сыл ынараа өттүгэр</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="quarter">
+				<displayName draft="unconfirmed">Чиэппэр</displayName>
+			</field>
+			<field type="quarter-short">
+				<displayName draft="unconfirmed">чпр.</displayName>
+			</field>
+			<field type="quarter-narrow">
+				<displayName draft="unconfirmed">чпр.</displayName>
+			</field>
 			<field type="month">
 				<displayName draft="unconfirmed">Ый</displayName>
+				<relative type="-1" draft="unconfirmed">ааспыт ый</relative>
+				<relative type="0" draft="unconfirmed">бу ый</relative>
+				<relative type="1" draft="unconfirmed">аныгыскы ый</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} ыйынан</relativeTimePattern>
 				</relativeTime>
@@ -322,6 +354,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</field>
 			<field type="week">
 				<displayName draft="unconfirmed">Нэдиэлэ</displayName>
+				<relative type="-1" draft="unconfirmed">ааспыт нэдиэлэ</relative>
+				<relative type="0" draft="unconfirmed">бу нэдиэлэ</relative>
+				<relative type="1" draft="unconfirmed">кэлэр нэдиэлэ</relative>
 				<relativeTime type="future">
 					<relativeTimePattern count="other">{0} нэдиэлэннэн</relativeTimePattern>
 				</relativeTime>
@@ -380,8 +415,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName draft="unconfirmed">Кэм балаһата</displayName>
 			</field>
 		</fields>
+		<timeZoneNames>
+			<zone type="Etc/Unknown">
+				<exemplarCity draft="unconfirmed">Биллибэт</exemplarCity>
+			</zone>
+		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="unconfirmed">latn</native>
+		</otherNumberingSystems>
+		<symbols numberSystem="latn">
+			<decimal draft="unconfirmed">.</decimal>
+			<group draft="unconfirmed">,</group>
+		</symbols>
 		<currencies>
 			<currency type="RUB">
 				<symbol>руб.</symbol>
@@ -444,4 +492,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</unitLength>
 	</units>
 </ldml>
-

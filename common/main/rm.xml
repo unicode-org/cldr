@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -95,8 +95,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="da" draft="contributed">danais</language>
 			<language type="dak" draft="contributed">dakota</language>
 			<language type="dar" draft="contributed">dargwa</language>
-			<language type="de" draft="contributed">tudestg</language>
-			<language type="de_AT" draft="contributed">tudestg austriac</language>
+			<language type="de">tudestg</language>
+			<language type="de_AT">tudestg austriac</language>
 			<language type="del" draft="contributed">delaware</language>
 			<language type="den" draft="contributed">slavey</language>
 			<language type="dgr" draft="contributed">dogrib</language>
@@ -118,12 +118,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU" draft="contributed">englais australian</language>
 			<language type="en_CA" draft="contributed">englais canadais</language>
 			<language type="en_GB" draft="contributed">englais britannic</language>
+			<language type="en_GB" alt="short" draft="unconfirmed">englais (GB)</language>
 			<language type="en_US" draft="contributed">englais american</language>
+			<language type="en_US" alt="short" draft="unconfirmed">englais (US)</language>
 			<language type="enm" draft="contributed">englais mesaun</language>
 			<language type="eo" draft="contributed">esperanto</language>
 			<language type="es" draft="contributed">spagnol</language>
 			<language type="es_419" draft="contributed">spagnol latinamerican</language>
 			<language type="es_ES" draft="contributed">spagnol iberic</language>
+			<language type="es_MX" draft="unconfirmed">spagnol mexican</language>
 			<language type="et" draft="contributed">eston</language>
 			<language type="eu" draft="contributed">basc</language>
 			<language type="ewo" draft="contributed">ewondo</language>
@@ -900,27 +903,40 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<key type="calendar" draft="contributed">chalender</key>
 			<key type="collation" draft="contributed">zavrada</key>
 			<key type="currency" draft="contributed">munaida</key>
+			<key type="numbers" draft="unconfirmed">dumbers</key>
 		</keys>
 		<types>
+			<type type="armn" key="numbers" draft="unconfirmed">dumbers armens</type>
+			<type type="beng" key="numbers" draft="unconfirmed">cifras bengalas</type>
 			<type type="big5han" key="collation" draft="contributed">chinaisa tradiziunala - Big5</type>
 			<type type="buddhist" key="calendar" draft="contributed">chalender budistic</type>
 			<type type="chinese" key="calendar" draft="contributed">chalender chinais</type>
+			<type type="coptic" key="calendar" draft="unconfirmed">chalender coptic</type>
+			<type type="ethiopic" key="calendar" draft="unconfirmed">chalender etiopic</type>
 			<type type="gb2312han" key="collation" draft="contributed">chinaisa simplifitgada - GB2312</type>
+			<type type="geor" key="numbers" draft="unconfirmed">dumbers georgians</type>
 			<type type="gregorian" key="calendar" draft="contributed">chalender gregorian</type>
 			<type type="hebrew" key="calendar" draft="contributed">chalender ebraic</type>
 			<type type="indian" key="calendar" draft="contributed">chalender naziunal indic</type>
 			<type type="islamic" key="calendar" draft="contributed">chalender islamic</type>
 			<type type="islamic-civil" key="calendar" draft="contributed">chalender islamic civil</type>
+			<type type="islamic-rgsa" key="calendar" draft="unconfirmed">chalender islamic (Arabia Saudita)</type>
+			<type type="islamic-umalqura" key="calendar" draft="unconfirmed">chalender islamic (Umm al-Qura)</type>
+			<type type="iso8601" key="calendar" draft="unconfirmed">chalender tenor ISO 8601</type>
 			<type type="japanese" key="calendar" draft="contributed">chalender giapunais</type>
+			<type type="latn" key="numbers" draft="unconfirmed">cifras europeicas</type>
+			<type type="persian" key="calendar" draft="unconfirmed">chalender persian</type>
 			<type type="phonebook" key="collation" draft="contributed">cudesch da telefon</type>
 			<type type="pinyin" key="collation" draft="contributed">Pinyin</type>
 			<type type="roc" key="calendar" draft="contributed">chalendar da la republica chinaisa</type>
+			<type type="standard" key="collation" draft="unconfirmed">zavrada da standard</type>
 			<type type="stroke" key="collation" draft="contributed">urden dals stritgs</type>
 			<type type="traditional" key="collation" draft="contributed">reglas tradiziunalas</type>
 		</types>
 		<measurementSystemNames>
-			<measurementSystemName type="metric" draft="contributed">unitads metrics</measurementSystemName>
-			<measurementSystemName type="US" draft="contributed">unitads americans</measurementSystemName>
+			<measurementSystemName type="metric">metric</measurementSystemName>
+			<measurementSystemName type="UK">englais</measurementSystemName>
+			<measurementSystemName type="US">american</measurementSystemName>
 		</measurementSystemNames>
 		<codePatterns>
 			<codePattern type="language" draft="contributed">Lingua: {0}</codePattern>
@@ -1814,6 +1830,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="unconfirmed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="unconfirmed">latn</native>
+		</otherNumberingSystems>
 		<symbols numberSystem="latn">
 			<decimal draft="contributed">.</decimal>
 			<group draft="contributed">’</group>
@@ -1913,6 +1933,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="AUD">
 				<displayName draft="contributed">dollar australian</displayName>
+				<displayName count="one" draft="contributed">dollar australian</displayName>
+				<displayName count="other" draft="contributed">dollar australian</displayName>
+				<symbol draft="unconfirmed">A$</symbol>
+				<symbol alt="narrow" draft="unconfirmed">$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName draft="contributed">flurin da l'Aruba</displayName>
@@ -2027,6 +2051,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="CAD">
 				<displayName draft="contributed">dollar canadais</displayName>
+				<displayName count="one" draft="contributed">dollar canadais</displayName>
+				<displayName count="other" draft="contributed">dollar canadais</displayName>
+				<symbol draft="unconfirmed">CA$</symbol>
+				<symbol alt="narrow" draft="unconfirmed">$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName draft="contributed">franc congolais</displayName>
@@ -2036,6 +2064,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="CHF">
 				<displayName draft="contributed">franc svizzer</displayName>
+				<displayName count="one" draft="contributed">franc svizzer</displayName>
+				<displayName count="other" draft="contributed">franc svizzer</displayName>
 				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CHW">
@@ -2091,6 +2121,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="DKK">
 				<displayName draft="contributed">cruna danaisa</displayName>
+				<displayName count="one" draft="contributed">cruna danaisa</displayName>
+				<displayName count="other" draft="contributed">cruna danaisa</displayName>
+				<symbol draft="unconfirmed">DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName draft="contributed">peso dominican</displayName>
@@ -2106,6 +2139,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="EEK">
 				<displayName draft="contributed">cruna estona</displayName>
+				<displayName count="one" draft="contributed">cruna estona</displayName>
+				<displayName count="other" draft="contributed">cruna estona</displayName>
+				<symbol draft="unconfirmed">EEK</symbol>
 			</currency>
 			<currency type="EGP">
 				<displayName draft="contributed">glivra egipziana</displayName>
@@ -2127,9 +2163,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="EUR">
 				<displayName draft="contributed">euro</displayName>
+				<displayName count="one" draft="contributed">euro</displayName>
+				<displayName count="other" draft="contributed">euro</displayName>
+				<symbol draft="unconfirmed">€</symbol>
+				<symbol alt="narrow" draft="unconfirmed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName draft="contributed">marc finlandais</displayName>
+				<displayName count="one" draft="contributed">marc finlandais</displayName>
+				<displayName count="other" draft="contributed">marc finlandais</displayName>
+				<symbol draft="unconfirmed">FIM</symbol>
 			</currency>
 			<currency type="FJD">
 				<displayName draft="contributed">dollar dal Fidschi</displayName>
@@ -2142,6 +2185,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="GBP">
 				<displayName draft="contributed">glivra sterlina</displayName>
+				<displayName count="one" draft="contributed">glivra sterlina</displayName>
+				<displayName count="other" draft="contributed">glivra sterlina</displayName>
+				<symbol draft="unconfirmed">£</symbol>
+				<symbol alt="narrow" draft="unconfirmed">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName draft="contributed">kupon larit georgian</displayName>
@@ -2190,6 +2237,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="HNL">
 				<displayName draft="contributed">lempira hondurian</displayName>
+				<displayName count="one" draft="contributed">lempira hondurian</displayName>
+				<displayName count="other" draft="contributed">lempira hondurian</displayName>
+				<symbol draft="unconfirmed">HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName draft="contributed">dinar croat</displayName>
@@ -2208,6 +2258,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="IEP">
 				<displayName draft="contributed">glivra indonaisa</displayName>
+				<displayName count="one" draft="contributed">glivra indonaisa</displayName>
+				<displayName count="other" draft="contributed">glivra indonaisa</displayName>
+				<symbol draft="unconfirmed">IEP</symbol>
 			</currency>
 			<currency type="ILP">
 				<displayName draft="contributed">glivra israeliana</displayName>
@@ -2229,15 +2282,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="ISJ">
 				<displayName draft="contributed">veglia cruna islandaisa</displayName>
+				<displayName count="one" draft="contributed">veglia cruna islandaisa</displayName>
+				<displayName count="other" draft="contributed">veglia cruna islandaisa</displayName>
+				<symbol draft="unconfirmed">ISJ</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName draft="contributed">cruna islandaisa</displayName>
+				<displayName count="one" draft="contributed">cruna islandaisa</displayName>
+				<displayName count="other" draft="contributed">cruna islandaisa</displayName>
+				<symbol draft="unconfirmed">ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName draft="contributed">lira taliana</displayName>
 			</currency>
 			<currency type="JMD">
 				<displayName draft="contributed">dollar giamaican</displayName>
+				<displayName count="one" draft="contributed">dollar giamaican</displayName>
+				<displayName count="other" draft="contributed">dollar giamaican</displayName>
+				<symbol draft="unconfirmed">JMD</symbol>
+				<symbol alt="narrow" draft="unconfirmed">$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName draft="contributed">dinar jordanic</displayName>
@@ -2274,6 +2337,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="KYD">
 				<displayName draft="contributed">dollar da las Inslas Cayman</displayName>
+				<displayName count="one" draft="contributed">dollar da las Inslas Cayman</displayName>
+				<displayName count="other" draft="contributed">dollar da las Inslas Cayman</displayName>
+				<symbol draft="unconfirmed">KYD</symbol>
+				<symbol alt="narrow" draft="unconfirmed">$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName draft="contributed">tenge casac</displayName>
@@ -2379,6 +2446,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="MXN">
 				<displayName draft="contributed">peso mexican</displayName>
+				<displayName count="one" draft="contributed">peso mexican</displayName>
+				<displayName count="other" draft="contributed">peso mexican</displayName>
+				<symbol draft="unconfirmed">MX$</symbol>
+				<symbol alt="narrow" draft="unconfirmed">$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName draft="contributed">peso d'argient mexican (1861–1992)</displayName>
@@ -2415,6 +2486,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="NOK">
 				<displayName draft="contributed">cruna norvegiaisa</displayName>
+				<displayName count="one" draft="contributed">cruna norvegiaisa</displayName>
+				<displayName count="other" draft="contributed">cruna norvegiaisa</displayName>
+				<symbol draft="unconfirmed">NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName draft="contributed">rupia nepalaisa</displayName>
@@ -2448,9 +2522,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="PLN">
 				<displayName draft="contributed">zloty polac</displayName>
+				<displayName count="one" draft="contributed">zloty polac</displayName>
+				<displayName count="other" draft="contributed">zloty polac</displayName>
+				<symbol draft="unconfirmed">PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName draft="contributed">zloty polac (1950–1995)</displayName>
+				<displayName count="one" draft="contributed">zloty polac (1950–1995)</displayName>
+				<displayName count="other" draft="contributed">zloty polac (1950–1995)</displayName>
 			</currency>
 			<currency type="PTE">
 				<displayName draft="contributed">escudo portugais</displayName>
@@ -2475,15 +2554,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="RUB">
 				<displayName draft="contributed">rubel russ (nov)</displayName>
+				<displayName count="one" draft="contributed">rubel russ (nov)</displayName>
+				<displayName count="other" draft="contributed">rubel russ (nov)</displayName>
+				<symbol draft="unconfirmed">RUB</symbol>
+				<symbol alt="variant" draft="unconfirmed">₽</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName draft="contributed">rubel russ (vegl)</displayName>
+				<displayName count="one" draft="contributed">rubel russ (vegl)</displayName>
+				<displayName count="other" draft="contributed">rubel russ (vegl)</displayName>
+				<symbol draft="unconfirmed">RUR</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName draft="contributed">franc ruandais</displayName>
 			</currency>
 			<currency type="SAR">
 				<displayName draft="contributed">riyal saudit</displayName>
+				<displayName count="one" draft="contributed">riyal saudit</displayName>
+				<displayName count="other" draft="contributed">riyal saudit</displayName>
+				<symbol draft="unconfirmed">SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName draft="contributed">dollar da las Salomonas</displayName>
@@ -2502,6 +2591,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="SEK">
 				<displayName draft="contributed">cruna svedaisa</displayName>
+				<displayName count="one" draft="contributed">cruna svedaisa</displayName>
+				<displayName count="other" draft="contributed">cruna svedaisa</displayName>
+				<symbol draft="unconfirmed">SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName draft="contributed">dollar dal Singapur</displayName>
@@ -2568,6 +2660,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="TRY">
 				<displayName draft="contributed">nova lira tirca</displayName>
+				<displayName count="one" draft="contributed">nova lira tirca</displayName>
+				<displayName count="other" draft="contributed">nova lira tirca</displayName>
+				<symbol draft="unconfirmed">TRY</symbol>
+				<symbol alt="narrow" draft="unconfirmed">₺</symbol>
+				<symbol alt="variant" draft="unconfirmed">TL</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName draft="contributed">dollar da Trinidad e Tobago</displayName>
@@ -2592,6 +2689,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="USD">
 				<displayName draft="contributed">dollar dals Stadis Unids da l'America</displayName>
+				<displayName count="one" draft="contributed">dollar dals Stadis Unids da l'America</displayName>
+				<displayName count="other" draft="contributed">dollar dals Stadis Unids da l'America</displayName>
+				<symbol draft="unconfirmed">$</symbol>
+				<symbol alt="narrow" draft="unconfirmed">$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName draft="contributed">dollar dals Stadis Unids da l'America (proxim di)</displayName>
@@ -2649,9 +2750,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XCD">
 				<displayName draft="contributed">dollar da la Caribica Orientala</displayName>
+				<displayName count="one" draft="contributed">dollar da la Caribica Orientala</displayName>
+				<displayName count="other" draft="contributed">dollar da la Caribica Orientala</displayName>
+				<symbol draft="unconfirmed">EC$</symbol>
 			</currency>
 			<currency type="XDR">
 				<displayName draft="contributed">dretgs da prelevaziun spezials</displayName>
+			</currency>
+			<currency type="XEU">
+				<displayName draft="unconfirmed">unitad monetara europeica</displayName>
+				<displayName count="one" draft="unconfirmed">unitad monetara europeica</displayName>
+				<displayName count="other" draft="unconfirmed">unitads monetaras europeicas</displayName>
+				<symbol draft="unconfirmed">XEU</symbol>
 			</currency>
 			<currency type="XFO">
 				<displayName draft="contributed">franc d'aur franzos</displayName>
@@ -2679,6 +2789,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XXX">
 				<displayName draft="contributed">valuta nunenconuschenta</displayName>
+				<displayName count="one" draft="contributed">valuta nunenconuschenta</displayName>
+				<displayName count="other" draft="contributed">valuta nunenconuschenta</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName draft="contributed">dinar dal Jemen</displayName>
@@ -2724,79 +2836,283 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<unit type="duration-day">
-				<displayName draft="provisional">dis</displayName>
+				<displayName draft="unconfirmed">dis</displayName>
 				<unitPattern count="one">{0} di</unitPattern>
 				<unitPattern count="other">{0} dis</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="provisional">uras</displayName>
+				<displayName draft="unconfirmed">uras</displayName>
 				<unitPattern count="one">{0} ura</unitPattern>
 				<unitPattern count="other">{0} uras</unitPattern>
 			</unit>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">millisecundas</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} millisecunda</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} millisecundas</unitPattern>
+			</unit>
 			<unit type="duration-minute">
-				<displayName draft="provisional">minutas</displayName>
+				<displayName draft="unconfirmed">minutas</displayName>
 				<unitPattern count="one">{0} minuta</unitPattern>
 				<unitPattern count="other">{0} minutas</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="provisional">mais</displayName>
+				<displayName draft="unconfirmed">mais</displayName>
 				<unitPattern count="one">{0} mais</unitPattern>
 				<unitPattern count="other">{0} mais</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName draft="provisional">secundas</displayName>
+				<displayName draft="unconfirmed">secundas</displayName>
 				<unitPattern count="one">{0} secunda</unitPattern>
 				<unitPattern count="other">{0} secundas</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="provisional">emnas</displayName>
+				<displayName draft="unconfirmed">emnas</displayName>
 				<unitPattern count="one">{0} emna</unitPattern>
 				<unitPattern count="other">{0} emnas</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName draft="provisional">onns</displayName>
+				<displayName draft="unconfirmed">onns</displayName>
 				<unitPattern count="one">{0} onn</unitPattern>
 				<unitPattern count="other">{0} onns</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName draft="unconfirmed">centimeters</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} centimeter</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} centimeters</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<displayName draft="unconfirmed">kilometers</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kilometer</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kilometers</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName draft="unconfirmed">meters</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} meter</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} meters</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<displayName draft="unconfirmed">millimeters</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} millimeter</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} millimeters</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName draft="unconfirmed">grams</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} gram</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} grams</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<displayName draft="unconfirmed">kilograms</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kilogram</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kilograms</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<displayName draft="unconfirmed">kilometers per ura</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kilometer per ura</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kilometers per ura</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<displayName draft="unconfirmed">grads celsius</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} grad celsius</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} grads celsius</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<displayName draft="unconfirmed">liters</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} liter</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} liters</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
 			<unit type="duration-day">
-				<displayName draft="provisional">dis</displayName>
+				<displayName draft="unconfirmed">dis</displayName>
 				<unitPattern count="one">{0} di</unitPattern>
 				<unitPattern count="other">{0} dis</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="provisional">uras</displayName>
+				<displayName draft="unconfirmed">uras</displayName>
 				<unitPattern count="one">{0} ura</unitPattern>
 				<unitPattern count="other">{0} uras</unitPattern>
 			</unit>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">ms</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} ms</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} ms</unitPattern>
+			</unit>
 			<unit type="duration-minute">
-				<displayName draft="provisional">minutas</displayName>
+				<displayName draft="unconfirmed">minutas</displayName>
 				<unitPattern count="one">{0} min.</unitPattern>
 				<unitPattern count="other">{0} mins.</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="provisional">mais</displayName>
+				<displayName draft="unconfirmed">mais</displayName>
 				<unitPattern count="one">{0} mais</unitPattern>
 				<unitPattern count="other">{0} mais</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<displayName draft="provisional">secundas</displayName>
+				<displayName draft="unconfirmed">secundas</displayName>
 				<unitPattern count="one">{0} sec.</unitPattern>
 				<unitPattern count="other">{0} secs.</unitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="provisional">emnas</displayName>
+				<displayName draft="unconfirmed">emnas</displayName>
 				<unitPattern count="one">{0} emna</unitPattern>
 				<unitPattern count="other">{0} emnas</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName draft="provisional">onns</displayName>
+				<displayName draft="unconfirmed">onns</displayName>
 				<unitPattern count="one">{0} onn</unitPattern>
 				<unitPattern count="other">{0} onns</unitPattern>
 			</unit>
+			<unit type="length-centimeter">
+				<displayName draft="unconfirmed">cm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} cm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} cm</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<displayName draft="unconfirmed">km</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} km</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} km</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName draft="unconfirmed">meters</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} m</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} m</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<displayName draft="unconfirmed">mm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} mm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} mm</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName draft="unconfirmed">grams</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<displayName draft="unconfirmed">kg</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kg</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kg</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<displayName draft="unconfirmed">km/h</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} km/h</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} km/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<displayName draft="unconfirmed">°C</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} °C</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} °C</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<displayName draft="unconfirmed">liters</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} l</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} l</unitPattern>
+			</unit>
 		</unitLength>
+		<unitLength type="narrow">
+			<unit type="duration-day">
+				<displayName draft="unconfirmed">di</displayName>
+				<unitPattern count="one">{0} dis</unitPattern>
+				<unitPattern count="other">{0} dis</unitPattern>
+			</unit>
+			<unit type="duration-hour">
+				<displayName draft="unconfirmed">ura</displayName>
+				<unitPattern count="one">{0} uras</unitPattern>
+				<unitPattern count="other">{0} uras</unitPattern>
+			</unit>
+			<unit type="duration-millisecond">
+				<displayName draft="unconfirmed">ms</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}ms</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}ms</unitPattern>
+			</unit>
+			<unit type="duration-minute">
+				<displayName draft="unconfirmed">min</displayName>
+				<unitPattern count="one">{0} mins.</unitPattern>
+				<unitPattern count="other">{0} mins.</unitPattern>
+			</unit>
+			<unit type="duration-month">
+				<displayName draft="unconfirmed">mais</displayName>
+				<unitPattern count="one">{0} mais</unitPattern>
+				<unitPattern count="other">{0} mais</unitPattern>
+			</unit>
+			<unit type="duration-second">
+				<displayName draft="unconfirmed">sec</displayName>
+				<unitPattern count="one">{0} secs.</unitPattern>
+				<unitPattern count="other">{0} secs.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<displayName draft="unconfirmed">emna</displayName>
+				<unitPattern count="one">{0} emnas</unitPattern>
+				<unitPattern count="other">{0} emnas</unitPattern>
+			</unit>
+			<unit type="duration-year">
+				<displayName draft="unconfirmed">onn</displayName>
+				<unitPattern count="one">{0} onns</unitPattern>
+				<unitPattern count="other">{0} onns</unitPattern>
+			</unit>
+			<unit type="length-centimeter">
+				<displayName draft="unconfirmed">cm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}cm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}cm</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<displayName draft="unconfirmed">km</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}km</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}km</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName draft="unconfirmed">meter</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}m</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}m</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<displayName draft="unconfirmed">mm</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}mm</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}mm</unitPattern>
+			</unit>
+			<unit type="mass-gram">
+				<displayName draft="unconfirmed">gram</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} g</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} g</unitPattern>
+			</unit>
+			<unit type="mass-kilogram">
+				<displayName draft="unconfirmed">kg</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} kg</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} kg</unitPattern>
+			</unit>
+			<unit type="speed-kilometer-per-hour">
+				<displayName draft="unconfirmed">km/h</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} km/h</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} km/h</unitPattern>
+			</unit>
+			<unit type="temperature-celsius">
+				<displayName draft="unconfirmed">°C</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0}°C</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0}°C</unitPattern>
+			</unit>
+			<unit type="volume-liter">
+				<displayName draft="unconfirmed">liter</displayName>
+				<unitPattern count="one" draft="unconfirmed">{0} l</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">{0} l</unitPattern>
+			</unit>
+		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern>h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern>h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern>m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
+	<listPatterns>
+		<listPattern>
+			<listPatternPart type="start" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="end" draft="unconfirmed">{0}, {1}</listPatternPart>
+			<listPatternPart type="2" draft="unconfirmed">{0}, {1}</listPatternPart>
+		</listPattern>
+	</listPatterns>
 	<posix>
 		<messages>
 			<yesstr draft="contributed">gea:g</yesstr>
@@ -2804,4 +3120,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

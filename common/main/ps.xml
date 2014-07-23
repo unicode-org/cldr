@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -348,8 +348,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<monthWidth type="wide">
 							<month type="1">وری</month>
 							<month type="2">غویی</month>
-							<month type="3">غبرګولی</month>
-							<month type="4">چنګاښ</month>
+							<month type="3">غبرگولی</month>
+							<month type="4">چنگاښ</month>
 							<month type="5">زمری</month>
 							<month type="6">وږی</month>
 							<month type="7">تله</month>
@@ -368,6 +368,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Kabul">
 				<exemplarCity>کابل</exemplarCity>
 			</zone>
+			<metazone type="Almaty">
+				<long>
+					<generic>الماتا په وخت</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Western">
+				<long>
+					<generic>لوېديزې اروپا وخت</generic>
+					<standard>∅∅∅</standard>
+					<daylight>∅∅∅</daylight>
+				</long>
+			</metazone>
+			<metazone type="GMT">
+				<long>
+					<standard>گرينويچ وخت</standard>
+				</long>
+			</metazone>
 		</timeZoneNames>
 	</dates>
 	<numbers>
@@ -403,5 +422,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 	</numbers>
+	<units>
+		<unitLength type="long">
+			<unit type="duration-day">
+				<displayName>ورځ</displayName>
+			</unit>
+			<unit type="duration-year">
+				<displayName>کالونه</displayName>
+			</unit>
+		</unitLength>
+	</units>
 </ldml>
-

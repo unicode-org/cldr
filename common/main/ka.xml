@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -59,6 +59,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="bez">ბენა</language>
 			<language type="bg">ბულგარული</language>
 			<language type="bho">ბოჯპური</language>
+			<language type="bm">ბამბარა</language>
 			<language type="bn">ბენგალური</language>
 			<language type="bo">ტიბეტური</language>
 			<language type="br">ბრეტონული</language>
@@ -70,6 +71,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="ca">კატალანური</language>
 			<language type="cay">კაიუგა</language>
 			<language type="ce">ჩეჩნური</language>
+			<language type="cgg">ჩიგა</language>
 			<language type="chb">ჩიბჩა</language>
 			<language type="chm">მარიული</language>
 			<language type="chn" draft="unconfirmed">ჩინუკი ვავა</language>
@@ -78,7 +80,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="chr">ჩეროკი</language>
 			<language type="chy" draft="unconfirmed">ჩეიენი</language>
 			<language type="ckb">სორანი ქურთული</language>
-			<language type="co" draft="unconfirmed">კორსიკული</language>
+			<language type="co">კორსიკული</language>
 			<language type="cop">კოპტური</language>
 			<language type="cr">კრი</language>
 			<language type="crh">ყირიმულ-თურქული</language>
@@ -100,12 +102,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="din">დინკა</language>
 			<language type="dje">ზარმა</language>
 			<language type="doi">დოგრი</language>
+			<language type="dsb">ქვემოსორბული</language>
 			<language type="dua">დუალა</language>
 			<language type="dum" draft="unconfirmed">საშუალო ჰოლანდიური</language>
 			<language type="dv">დივეჰი</language>
-			<language type="dyo" draft="unconfirmed">დიოლა</language>
+			<language type="dyo">დიოლა</language>
 			<language type="dyu">დიულა</language>
-			<language type="dz">ძონგხა</language>
+			<language type="dz">ძონგკხა</language>
 			<language type="ebu">ემბუ</language>
 			<language type="ee">ევე</language>
 			<language type="efi">ეფიკი</language>
@@ -143,6 +146,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="fur">ფრიულური</language>
 			<language type="fy">დასავლეთფრიზიული</language>
 			<language type="ga">ირლანდიური</language>
+			<language type="gag">გაგაუზური</language>
 			<language type="gba">გბაია</language>
 			<language type="gd">შოტლანდიური გელური</language>
 			<language type="gez">გეეზი</language>
@@ -155,13 +159,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="grc">ძველი ბერძნული</language>
 			<language type="gsw">შვეიცარიული გერმანული</language>
 			<language type="gu">გუჯარათი</language>
-			<language type="gv" draft="unconfirmed">მენური</language>
+			<language type="guz">გუსიი</language>
+			<language type="gv">მენური</language>
 			<language type="ha">ჰაუსა</language>
 			<language type="haw">ჰავაიური</language>
 			<language type="he">ებრაული</language>
 			<language type="hi">ჰინდი</language>
 			<language type="hit">ხეთური ენა</language>
 			<language type="hr">ხორვატული</language>
+			<language type="hsb">ზემოსორბული</language>
 			<language type="ht">ჰაიტიური</language>
 			<language type="hu">უნგრული</language>
 			<language type="hy">სომხური</language>
@@ -171,6 +177,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="id">ინდონეზიური</language>
 			<language type="ie">ინტერლინგი</language>
 			<language type="ig">იგბო</language>
+			<language type="ii">სიჩუანის ი</language>
 			<language type="inh">ინგუშური</language>
 			<language type="io">იდო</language>
 			<language type="is">ისლანდიური</language>
@@ -178,23 +185,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="iu">ინუკტიტუტი</language>
 			<language type="ja">იაპონური</language>
 			<language type="jbo">ლოჟბანი</language>
+			<language type="jgo">ნგომბა</language>
+			<language type="jmc">კიმაშამი</language>
 			<language type="jpr">იუდეო-სპარსული</language>
 			<language type="jrb">იუდეო-არაბული</language>
 			<language type="jv">იავური</language>
 			<language type="ka">ქართული</language>
 			<language type="kaa">ყარაყალფახური</language>
+			<language type="kab">კაბილური</language>
 			<language type="kac">კაჩინი</language>
 			<language type="kam">კამბა</language>
 			<language type="kbd">ყაბარდოული</language>
+			<language type="kde">მაკონდე</language>
 			<language type="kea">კაბუვერდიანუ</language>
 			<language type="kg">კონგო</language>
+			<language type="khq">კოირა-ჩიინი</language>
+			<language type="ki">კიკუიუ</language>
 			<language type="kk">ყაზახური</language>
-			<language type="kl">გრენლანდიური</language>
+			<language type="kl">დასავლეთ გრენლანდიური</language>
 			<language type="kln">კალენჯინი</language>
 			<language type="km">ქმერული</language>
 			<language type="kmb">კიმბუნდუ</language>
 			<language type="kn">კანადა</language>
 			<language type="ko">კორეული</language>
+			<language type="koi">კომი-პერმიაკული</language>
 			<language type="kok">კონკანი</language>
 			<language type="kos" draft="unconfirmed">კუსაიე</language>
 			<language type="kpe">კპელე</language>
@@ -204,7 +218,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="kru">კურუქი</language>
 			<language type="ks">ქაშმირული</language>
 			<language type="ksb">შამბალა</language>
-			<language type="ksf" draft="unconfirmed">ბაფია</language>
+			<language type="ksf">ბაფია</language>
 			<language type="ku">ქურთული</language>
 			<language type="kum">ყუმუხური</language>
 			<language type="kut">კუტენაი</language>
@@ -220,6 +234,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="lez">ლეზგიური</language>
 			<language type="lg">განდა</language>
 			<language type="li">ლიმბურგული</language>
+			<language type="lkt">ლაკოტა</language>
 			<language type="ln">ლინგალა</language>
 			<language type="lo">ლაოსური</language>
 			<language type="lol">მონგო</language>
@@ -236,13 +251,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="maf">მაფა</language>
 			<language type="mag">მაგაჰი</language>
 			<language type="mai">მაითილი</language>
+			<language type="mas">მასაი</language>
 			<language type="mde">მაბა</language>
 			<language type="mdf">მოქშა</language>
 			<language type="men">მენდე</language>
 			<language type="mer">მერუ</language>
+			<language type="mfe">მორისიენი</language>
 			<language type="mg">მალაგასიური</language>
 			<language type="mga" draft="unconfirmed">საშუალო ირლანდიური</language>
 			<language type="mgh">მაქუვა-მეეტო</language>
+			<language type="mgo">მეტა’ ენა</language>
 			<language type="mi">მაორი</language>
 			<language type="mic" draft="unconfirmed">მიკმაკი</language>
 			<language type="min" draft="unconfirmed">მინანგკაბაუ</language>
@@ -251,7 +269,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="mn">მონღოლური</language>
 			<language type="mnc">მანჯურიული</language>
 			<language type="mni">მანიპური</language>
-			<language type="moh" draft="unconfirmed">მოჰავკი</language>
+			<language type="moh">მოჰაუკური</language>
 			<language type="mos" draft="unconfirmed">მოორე</language>
 			<language type="mr">მარათჰი</language>
 			<language type="ms">მალაიური</language>
@@ -267,16 +285,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="nap">ნეაპოლიტანური</language>
 			<language type="naq">ნამა</language>
 			<language type="nb">ნორვეგიული ბუკმოლი</language>
+			<language type="nd">ჩრდილოეთ ნდებელე</language>
 			<language type="nds" draft="unconfirmed">ქვემოგერმანული</language>
 			<language type="ne">ნეპალური</language>
 			<language type="new">ნევარი</language>
 			<language type="nl">ნიდერლანდური</language>
 			<language type="nl_BE">ფლამანდიური</language>
+			<language type="nmg">კვასიო</language>
 			<language type="nn">ნორვეგიული ნიუნორსკი</language>
 			<language type="no">ნორვეგიული</language>
 			<language type="nog">ნოღაური</language>
 			<language type="non">ძველსკანდინავიური</language>
 			<language type="nqo">ნკო</language>
+			<language type="nus">ნუერი</language>
 			<language type="nv">ნავახო</language>
 			<language type="nwc">კლასიკური ნევარული</language>
 			<language type="ny">ნიანჯა</language>
@@ -286,6 +307,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="nzi">ნზიმა</language>
 			<language type="oc">ოქსიტანური</language>
 			<language type="oj">ოჯიბვე</language>
+			<language type="om">ორომო</language>
 			<language type="or">ორია</language>
 			<language type="os">ოსური</language>
 			<language type="pa">პენჯაბური</language>
@@ -300,6 +322,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="pt_BR">ბრაზილიური პორტუგალიური</language>
 			<language type="pt_PT">ევროპული პორტუგალიური</language>
 			<language type="qu">კეჩუა</language>
+			<language type="quc">კიჩე</language>
 			<language type="raj">რაჯასთანი</language>
 			<language type="rap">რაპანუი</language>
 			<language type="rar">რაროტონგული</language>
@@ -307,25 +330,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="rn">რუნდი</language>
 			<language type="ro">რუმინული</language>
 			<language type="ro_MD">მოლდავური</language>
+			<language type="rof">რომბო</language>
 			<language type="rom">ბოშური</language>
 			<language type="ru">რუსული</language>
+			<language type="rw">კინიარუანდა</language>
+			<language type="rwk">რუა</language>
 			<language type="sa">სანსკრიტი</language>
 			<language type="sah">იაკუტური</language>
 			<language type="sam">სამარიულ-არამეული</language>
+			<language type="saq">სამბურუ</language>
+			<language type="sbp">სანგუ</language>
 			<language type="sc">სარდინიული</language>
 			<language type="scn">სიცილიური</language>
 			<language type="sd">სინდჰური</language>
+			<language type="se">ჩრდილოეთ საამური</language>
 			<language type="see">სენეკა</language>
+			<language type="seh">სენა</language>
 			<language type="sel">სელკუპური</language>
+			<language type="ses">კოირაბორო-სენი</language>
+			<language type="sg">სანგო</language>
 			<language type="sga">ძველი ირლანდიური</language>
 			<language type="sh">სერბულ-ხორვატული</language>
-			<language type="shi" draft="unconfirmed">შილჰა</language>
+			<language type="shi">შილჰა</language>
 			<language type="shn">შანი</language>
 			<language type="shu">ჩადური არაბული</language>
 			<language type="si">სინჰალური</language>
 			<language type="sk">სლოვაკური</language>
 			<language type="sl">სლოვენური</language>
 			<language type="sm">სამოა</language>
+			<language type="sma">სამხრეთ საამური</language>
+			<language type="smj">ლულე-საამური</language>
+			<language type="smn">ინარი-საამური</language>
+			<language type="sms">სკოლტ-საამური</language>
+			<language type="sn">შონა</language>
 			<language type="so">სომალიური</language>
 			<language type="sq">ალბანური</language>
 			<language type="sr">სერბული</language>
@@ -335,10 +372,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="sv">შვედური</language>
 			<language type="sw">სუაჰილი</language>
 			<language type="swb">კომორული</language>
+			<language type="swc">კონგოს სუაჰილი</language>
 			<language type="syc">კლასიკური სირიული</language>
 			<language type="syr">სირიული</language>
 			<language type="ta">ტამილური</language>
 			<language type="te">ტელუგუ</language>
+			<language type="teo">ტესო</language>
 			<language type="tg">ტაჯიკური</language>
 			<language type="th">ტაი</language>
 			<language type="ti">თიგრინია</language>
@@ -350,7 +389,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="tr">თურქული</language>
 			<language type="tt">თათრული</language>
 			<language type="tw">თუი</language>
+			<language type="twq">ტასავაქი</language>
 			<language type="tyv">ტუვა</language>
+			<language type="tzm">ცენტრალური მოროკოს ტამაზიგხტი</language>
 			<language type="udm">უდმურტული</language>
 			<language type="ug">უიღურული</language>
 			<language type="uga">უგარითული</language>
@@ -360,10 +401,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="uz">უზბეკური</language>
 			<language type="vai">ვაი</language>
 			<language type="vi">ვიეტნამური</language>
+			<language type="vun">ვუნჯო</language>
 			<language type="wal">ველაითა</language>
 			<language type="wo">ვოლოფური</language>
 			<language type="xal">ყალმუხური</language>
 			<language type="xh">ქჰოსა</language>
+			<language type="xog">სოგა</language>
 			<language type="yi">იდიში</language>
 			<language type="yo">იორუბა</language>
 			<language type="yue">კანტონური</language>
@@ -923,12 +966,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="cham" key="numbers" draft="unconfirmed">ჩამური ციფრები</type>
 			<type type="chinese" key="calendar">ჩინური კალენდარი</type>
 			<type type="coptic" key="calendar" draft="unconfirmed">კოპტური კალენდარი</type>
-			<type type="dangi" key="calendar" draft="unconfirmed">კალენდარი დანგი</type>
+			<type type="dangi" key="calendar">კალენდარი დანგი</type>
 			<type type="deva" key="numbers">დევანაგარის ციფრები</type>
 			<type type="dictionary" key="collation" draft="unconfirmed">ლექსიკონით</type>
 			<type type="ducet" key="collation">უნიკოდის ნაგულისხმევი დახარისხების თანმიმდევრობა</type>
 			<type type="ethi" key="numbers">ეთიოპიური რიცხვები</type>
-			<type type="ethiopic" key="calendar" draft="unconfirmed">ეთიოპიური კალენდარი</type>
+			<type type="ethiopic" key="calendar">ეთიოპიური კალენდარი</type>
 			<type type="ethiopic-amete-alem" key="calendar" draft="unconfirmed">ეთიოპიური ამეთე ალემი კალენდარი</type>
 			<type type="fullwide" key="numbers">სრულსიგანიანი ციფრები</type>
 			<type type="gb2312han" key="collation">გამარტივებული ჩინური</type>
@@ -948,6 +991,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="indian" key="calendar">ინდოეთის ეროვნული კალენდარი</type>
 			<type type="islamic" key="calendar">ისლამური კალენდარი</type>
 			<type type="islamic-civil" key="calendar">ისლამური სამოქალაქო კალენდარი</type>
+			<type type="iso8601" key="calendar">ISO-8601 კალენდარი</type>
 			<type type="japanese" key="calendar">იაპონური კალენდარი</type>
 			<type type="java" key="numbers" draft="unconfirmed">იავური ციფრები</type>
 			<type type="jpan" key="numbers">იაპონური რიცხვები</type>
@@ -969,11 +1013,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="nkoo" key="numbers" draft="unconfirmed">ნკოური ციფრები</type>
 			<type type="olck" key="numbers" draft="unconfirmed">ოლ-ჩიკის ციფრები</type>
 			<type type="orya" key="numbers">ორიული ციფრები</type>
-			<type type="persian" key="calendar" draft="unconfirmed">სპარსული კალენდარი</type>
+			<type type="persian" key="calendar">სპარსული კალენდარი</type>
 			<type type="phonebook" key="collation" draft="unconfirmed">ტელეფონის წიგნით</type>
 			<type type="pinyin" key="collation" draft="unconfirmed">პინ-ინი</type>
 			<type type="reformed" key="collation" draft="unconfirmed">რეფორმირებული</type>
-			<type type="roc" key="calendar" draft="contributed">ჩინეთის რესპუბლიკის კალენდარი</type>
+			<type type="roc" key="calendar">ჩინეთის რესპუბლიკის კალენდარი</type>
 			<type type="roman" key="numbers">რომაული ციფრები</type>
 			<type type="romanlow" key="numbers">რომაული ქვედა რეგისტრის რიცხვები</type>
 			<type type="saur" key="numbers">საურაშტრული ციფრები</type>
@@ -1416,25 +1460,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="narrow">
-							<dayPeriod type="am">AM</dayPeriod>
-							<dayPeriod type="noon" draft="unconfirmed">შუადღე</dayPeriod>
-							<dayPeriod type="pm">PM</dayPeriod>
+							<dayPeriod type="am">a</dayPeriod>
+							<dayPeriod type="noon">შუადღე</dayPeriod>
+							<dayPeriod type="pm">p</dayPeriod>
 						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
-							<dayPeriod type="am">დილის</dayPeriod>
-							<dayPeriod type="noon" draft="unconfirmed">შუადღე</dayPeriod>
-							<dayPeriod type="pm">საღამოს</dayPeriod>
+							<dayPeriod type="am">AM</dayPeriod>
+							<dayPeriod type="noon">შუადღე</dayPeriod>
+							<dayPeriod type="pm">PM</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
 				</dayPeriods>
 				<eras>
 					<eraNames>
 						<era type="0">ძველი წელთაღრიცხვით</era>
+						<era type="0" alt="variant">ჩვენს ერამდე</era>
 						<era type="1">ახალი წელთაღრიცხვით</era>
+						<era type="1" alt="variant">ჩვენი ერა</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">ძვ. წ.</era>
+						<era type="0" alt="variant">ძვ. წ.</era>
 						<era type="1">ახ. წ.</era>
+						<era type="1" alt="variant">ახ. წ.</era>
 					</eraAbbr>
 				</eras>
 				<dateFormats>
@@ -1504,6 +1552,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">d E</dateFormatItem>
 						<dateFormatItem id="Ehm">E h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E HH:mm</dateFormatItem>
@@ -1926,6 +1975,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} წლის წინ</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="year-short">
+				<displayName>წ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} წელში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წელში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} წლის წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წლის წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-narrow">
+				<displayName>წ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} წელში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წელში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} წლის წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წლის წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter">
+				<displayName>კვარტალი</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} კვარტალში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} კვარტალში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} კვარტალის წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} კვარტალის წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-short">
+				<displayName>კვარტ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} კვარტალში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} კვარტალში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} კვარტ. წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} კვარტ. წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-narrow">
+				<displayName>კვარტ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} კვარტალში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} კვარტალში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} კვარტ. წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} კვარტ. წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="month">
 				<displayName>თვე</displayName>
 				<relative type="-1">გასულ თვეს</relative>
@@ -1940,11 +2044,55 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} თვის წინ</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="month-short">
+				<displayName>თვე</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} თვეში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} თვეში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} თვის წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} თვის წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-narrow">
+				<displayName>თვე</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} თვეში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} თვეში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} თვის წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} თვის წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="week">
 				<displayName>კვირა</displayName>
 				<relative type="-1">გასულ კვირაში</relative>
 				<relative type="0">ამ კვირაში</relative>
 				<relative type="1">მომავალ კვირაში</relative>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} კვირაში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} კვირაში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} კვირის წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} კვირის წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week-short">
+				<displayName>კვ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} კვირაში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} კვირაში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} კვ. წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} კვ. წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week-narrow">
+				<displayName>კვ.</displayName>
 				<relativeTime type="future">
 					<relativeTimePattern count="one">{0} კვირაში</relativeTimePattern>
 					<relativeTimePattern count="other">{0} კვირაში</relativeTimePattern>
@@ -1970,10 +2118,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} დღის წინ</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="day-short">
+				<displayName>დღე</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} დღეში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} დღეში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} დღის წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} დღის წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-narrow">
+				<displayName>დღე</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} დღეში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} დღეში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} დღის წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} დღის წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="weekday">
 				<displayName>კვირის დღე</displayName>
 			</field>
 			<field type="sun">
+				<relative type="-1">გასულ კვირას</relative>
+				<relative type="0">ამ კვირას</relative>
+				<relative type="1">მომავალ კვირას</relative>
+			</field>
+			<field type="sun-short">
+				<relative type="-1">გასულ კვირას</relative>
+				<relative type="0">ამ კვირას</relative>
+				<relative type="1">მომავალ კვირას</relative>
+			</field>
+			<field type="sun-narrow">
 				<relative type="-1">გასულ კვირას</relative>
 				<relative type="0">ამ კვირას</relative>
 				<relative type="1">მომავალ კვირას</relative>
@@ -1983,30 +2163,90 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relative type="0">ამ ორშაბათს</relative>
 				<relative type="1">მომავალ ორშაბათს</relative>
 			</field>
+			<field type="mon-short">
+				<relative type="-1">წინა ორშ.</relative>
+				<relative type="0">ამ ორშ.</relative>
+				<relative type="1">მომ. ორშ.</relative>
+			</field>
+			<field type="mon-narrow">
+				<relative type="-1">გას. ორ.</relative>
+				<relative type="0">ამ ორ.</relative>
+				<relative type="1">მომ. ორ.</relative>
+			</field>
 			<field type="tue">
 				<relative type="-1">გასულ სამშაბათს</relative>
 				<relative type="0">ამ სამშაბათს</relative>
 				<relative type="1">მომავალ სამშაბათს</relative>
+			</field>
+			<field type="tue-short">
+				<relative type="-1">წინა სამ.</relative>
+				<relative type="0">ამ სამ.</relative>
+				<relative type="1">მომ. სამ.</relative>
+			</field>
+			<field type="tue-narrow">
+				<relative type="-1">წინ სა.</relative>
+				<relative type="0">ამ სა.</relative>
+				<relative type="1">მომმ სა.</relative>
 			</field>
 			<field type="wed">
 				<relative type="-1">გასულ ოთხშაბათს</relative>
 				<relative type="0">ამ ოთხშაბათს</relative>
 				<relative type="1">მომავალ ოთხშაბათს</relative>
 			</field>
+			<field type="wed-short">
+				<relative type="-1">წინა ოთხ.</relative>
+				<relative type="0">ამ ოთხ.</relative>
+				<relative type="1">მომ. ოთხ.</relative>
+			</field>
+			<field type="wed-narrow">
+				<relative type="-1">წინა ოთ.</relative>
+				<relative type="0">ამ ოთ.</relative>
+				<relative type="1">მომ. ოთ.</relative>
+			</field>
 			<field type="thu">
 				<relative type="-1">გასულ ხუთშაბათს</relative>
 				<relative type="0">ამ ხუთშაბათს</relative>
 				<relative type="1">მომავალ ხუთშაბათს</relative>
+			</field>
+			<field type="thu-short">
+				<relative type="-1">წინა ხუთ.</relative>
+				<relative type="0">ამ ხუთ.</relative>
+				<relative type="1">მომ. ხუთ.</relative>
+			</field>
+			<field type="thu-narrow">
+				<relative type="-1">წინა ხთ.</relative>
+				<relative type="0">ამ ხთ.</relative>
+				<relative type="1">მომ. ხთ.</relative>
 			</field>
 			<field type="fri">
 				<relative type="-1">გასულ პარასკევს</relative>
 				<relative type="0">ამ პარასკევს</relative>
 				<relative type="1">მომავალ პარასკევს</relative>
 			</field>
+			<field type="fri-short">
+				<relative type="-1">წინა პარ.</relative>
+				<relative type="0">ამ პარ.</relative>
+				<relative type="1">მომ. პარ.</relative>
+			</field>
+			<field type="fri-narrow">
+				<relative type="-1">წინა პა.</relative>
+				<relative type="0">ამ პა.</relative>
+				<relative type="1">მომ. პა.</relative>
+			</field>
 			<field type="sat">
 				<relative type="-1">გასულ შაბათს</relative>
 				<relative type="0">ამ შაბათს</relative>
 				<relative type="1">მომავალ შაბათს</relative>
+			</field>
+			<field type="sat-short">
+				<relative type="-1">წინა შაბ.</relative>
+				<relative type="0">ამ შაბ.</relative>
+				<relative type="1">მომ. შაბ.</relative>
+			</field>
+			<field type="sat-narrow">
+				<relative type="-1">წინა შბ.</relative>
+				<relative type="0">ამ შა.</relative>
+				<relative type="1">მომ. შბ.</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName>დღის ნახევარი</displayName>
@@ -2022,6 +2262,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} საათის წინ</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="hour-short">
+				<displayName>სთ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} საათში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} საათში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} სთ წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} სთ წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-narrow">
+				<displayName>სთ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} საათში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} საათში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} სთ წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} სთ წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="minute">
 				<displayName>წუთი</displayName>
 				<relativeTime type="future">
@@ -2031,6 +2293,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<relativeTime type="past">
 					<relativeTimePattern count="one">{0} წუთის წინ</relativeTimePattern>
 					<relativeTimePattern count="other">{0} წუთის წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-short">
+				<displayName>წთ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} წუთში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წუთში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} წთ წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წთ წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-narrow">
+				<displayName>წთ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} წუთში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წუთში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} წთ წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წთ წინ</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
@@ -2045,6 +2329,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="other">{0} წამის წინ</relativeTimePattern>
 				</relativeTime>
 			</field>
+			<field type="second-short">
+				<displayName>წმ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} წამში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წამში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} წმ წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წმ წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-narrow">
+				<displayName>წმ.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="one">{0} წამში</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წამში</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="one">{0} წმ წინ</relativeTimePattern>
+					<relativeTimePattern count="other">{0} წმ წინ</relativeTimePattern>
+				</relativeTime>
+			</field>
 			<field type="zone">
 				<displayName>დროის სარტყელი</displayName>
 			</field>
@@ -2054,8 +2360,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat>GMT{0}</gmtFormat>
 			<gmtZeroFormat>GMT</gmtZeroFormat>
 			<regionFormat>დრო: {0}</regionFormat>
-			<regionFormat type="daylight">{0} (+1)</regionFormat>
-			<regionFormat type="standard">{0} (+0)</regionFormat>
+			<regionFormat type="daylight">{0} ზაფხულის დრო</regionFormat>
+			<regionFormat type="standard">{0} სტანდარტული დრო</regionFormat>
 			<fallbackFormat>{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>უცნობი ქალაქი</exemplarCity>
@@ -2089,6 +2395,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Antarctica/Palmer">
 				<exemplarCity>პალმერი</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Troll">
+				<exemplarCity>ტროლი</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Syowa">
 				<exemplarCity>სიოუა</exemplarCity>
@@ -2632,7 +2941,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Dublin">
 				<long>
-					<daylight>ირლანდიის ზაფხულის დრო</daylight>
+					<daylight>ირლანდიის სტანდარტული დრო</daylight>
 				</long>
 				<exemplarCity>დუბლინი</exemplarCity>
 			</zone>
@@ -3341,8 +3650,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Alaska">
 				<long>
 					<generic>ალასკის დრო</generic>
-					<standard>ალასკის სტანდარტული დრო</standard>
-					<daylight>ალასკის დროის სარტყელი</daylight>
+					<standard>ალასკას სტანდარტული დრო</standard>
+					<daylight>ალასკას ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -3356,35 +3665,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>ჩრდილოეთ ამერიკის ცენტრალური დრო</generic>
 					<standard>ჩრდილოეთ ამერიკის ცენტრალური სტანდარტული დრო</standard>
-					<daylight>ჩრდილოეთ ამერიკის ცენტრალური დროის სარტყელი</daylight>
+					<daylight>ჩრდილოეთ ამერიკის ცენტრალური ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Eastern">
 				<long>
 					<generic>ჩრდილოეთ ამერიკის აღმოსავლეთის დრო</generic>
 					<standard>ჩრდილოეთ ამერიკის აღმოსავლეთის სტანდარტული დრო</standard>
-					<daylight>ჩრდილოეთ ამერიკის აღმოსავლეთის დროის სარტყელი</daylight>
+					<daylight>ჩრდილოეთ ამერიკის აღმოსავლეთის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Mountain">
 				<long>
 					<generic>ჩრდილოეთ ამერიკის მაუნთინის დრო</generic>
 					<standard>ჩრდილოეთ ამერიკის მაუნთინის სტანდარტული დრო</standard>
-					<daylight>ჩრდილოეთ ამერიკის მაუნთინის დროის სარტყელი</daylight>
+					<daylight>ჩრდილოეთ ამერიკის მაუნთინის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="America_Pacific">
 				<long>
 					<generic>ჩრდილოეთ ამერიკის წყნარი ოკეანის დრო</generic>
 					<standard>ჩრდილოეთ ამერიკის წყნარი ოკეანის სტანდარტული დრო</standard>
-					<daylight>ჩრდილოეთ ამერიკის წყნარი ოკეანის დროის სარტყელი</daylight>
+					<daylight>ჩრდილოეთ ამერიკის წყნარი ოკეანის ზაფხულის დრო</daylight>
+				</long>
+			</metazone>
+			<metazone type="Apia">
+				<long>
+					<generic>აპიას დრო</generic>
+					<standard>აპიას სტანდარტული დრო</standard>
+					<daylight>აპიას ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
 				<long>
 					<generic>არაბეთის დრო</generic>
 					<standard>არაბეთის სტანდარტული დრო</standard>
-					<daylight>არაბეთის დროის სარტყელი</daylight>
+					<daylight>არაბეთის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
@@ -3412,35 +3728,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>ატლანტიკის ოკეანის დრო</generic>
 					<standard>ატლანტიკის ოკეანის სტანდარტული დრო</standard>
-					<daylight>ატლანტიკის ოკეანის დროის სარტყელი</daylight>
+					<daylight>ატლანტიკის ოკეანის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Central">
 				<long>
 					<generic>ცენტრალური ავსტრალიის დრო</generic>
 					<standard>ავსტრალიის ცენტრალური სტანდარტული დრო</standard>
-					<daylight>ცენტრალური ავსტრალიის დროის სარტყელი</daylight>
+					<daylight>ავსტრალიის ცენტრალური ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_CentralWestern">
 				<long>
 					<generic>ცენტრალური და დასავლეთ ავსტრალიის დრო</generic>
 					<standard>ცენტრალური და დასავლეთ ავსტრალიის სტანდარტული დრო</standard>
-					<daylight>ცენტრალური და დასავლეთ ავსტრალიის დროის სარტყელი</daylight>
+					<daylight>ცენტრალური და დასავლეთ ავსტრალიის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Eastern">
 				<long>
 					<generic>აღმოსავლეთ ავსტრალიის დრო</generic>
 					<standard>აღმოსავლეთ ავსტრალიის სტანდარტული დრო</standard>
-					<daylight>აღმოსავლეთ ავსტრალიის დროის სარტყელი</daylight>
+					<daylight>აღმოსავლეთ ავსტრალიის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
 					<generic>დასავლეთ ავსტრალიის დრო</generic>
 					<standard>დასავლეთ ავსტრალიის სტანდარტული დრო</standard>
-					<daylight>დასავლეთ ავსტრალიის დროის სარტყელი</daylight>
+					<daylight>დასავლეთ ავსტრალიის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Azerbaijan">
@@ -3502,7 +3818,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>ჩატემის დრო</generic>
 					<standard>ჩატემის სტანდარტული დრო</standard>
-					<daylight>ჩატემის დროის სარტყელი</daylight>
+					<daylight>ჩატემის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Chile">
@@ -3554,7 +3870,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>კუბის დრო</generic>
 					<standard>კუბის სტანდარტული დრო</standard>
-					<daylight>კუბის დროის სარტყელი</daylight>
+					<daylight>კუბის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Davis">
@@ -3596,6 +3912,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<generic>აღმოსავლეთ ევროპის დრო</generic>
 					<standard>აღმოსავლეთ ევროპის სტანდარტული დრო</standard>
 					<daylight>აღმოსავლეთ ევროპის ზაფხულის დრო</daylight>
+				</long>
+			</metazone>
+			<metazone type="Europe_Further_Eastern">
+				<long>
+					<standard>შორეული აღმოსავლეთ ევროპის დრო</standard>
 				</long>
 			</metazone>
 			<metazone type="Europe_Western">
@@ -3672,7 +3993,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Gulf">
 				<long>
-					<standard>გალფის დრო</standard>
+					<standard>სპარსეთის ყურის სტანდარტული დრო</standard>
 				</long>
 			</metazone>
 			<metazone type="Guyana">
@@ -3684,7 +4005,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>ჰავაის და ალეუტის დრო</generic>
 					<standard>ჰავაის და ალეუტის სტანდარტული დრო</standard>
-					<daylight>ჰავაის და ალეუტის დროის სარტყელი</daylight>
+					<daylight>ჰავაის და ალეუტის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Hong_Kong">
@@ -3749,14 +4070,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>ისრაელის დრო</generic>
 					<standard>ისრაელის სტანდარტული დრო</standard>
-					<daylight>ისრაელის დროის სარტყელი</daylight>
+					<daylight>ისრაელის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Japan">
 				<long>
 					<generic>იაპონიის დრო</generic>
 					<standard>იაპონიის სტანდარტული დრო</standard>
-					<daylight>იაპონიის დროის სარტყელი</daylight>
+					<daylight>იაპონიის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kazakhstan_Eastern">
@@ -3773,7 +4094,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>კორეის დრო</generic>
 					<standard>კორეის სტანდარტული დრო</standard>
-					<daylight>კორეის დროის სარტყელი</daylight>
+					<daylight>კორეის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Kosrae">
@@ -3802,7 +4123,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>ლორდ-ჰაუს დრო</generic>
 					<standard>ლორდ-ჰაუს სტანდარტული დრო</standard>
-					<daylight>ლორდ-ჰაუს დროის სარტყელი</daylight>
+					<daylight>ლორდ-ჰაუს ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macquarie">
@@ -3849,6 +4170,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<standard>მოუსონის დრო</standard>
 				</long>
 			</metazone>
+			<metazone type="Mexico_Northwest">
+				<long>
+					<generic>ჩრდილო-აღმოსავლეთ მექსიკის დრო</generic>
+					<standard>ჩრდილო-დასავლეთ მექსიკის დრო</standard>
+					<daylight>ჩრდილო-დასავლეთ მექსიკის ზაფხულის დრო</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Pacific">
+				<long>
+					<generic>მექსიკის წყნარი ოკეანის დრო</generic>
+					<standard>მექსიკის წყნარი ოკეანის სტანდარტული დრო</standard>
+					<daylight>მექსიკის წყნარი ოკეანის ზაფხულის დრო</daylight>
+				</long>
+			</metazone>
 			<metazone type="Mongolia">
 				<long>
 					<generic>ულან-ბატორის დრო</generic>
@@ -3889,14 +4224,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>ახალი ზელანდიის დრო</generic>
 					<standard>ახალი ზელანდიის სტანდარტული დრო</standard>
-					<daylight>ახალი ზელანდიის დროის სარტყელი</daylight>
+					<daylight>ახალი ზელანდიის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
 					<generic>ნიუფაუნდლენდის დრო</generic>
 					<standard>ნიუფაუნდლენდის სტანდარტული დრო</standard>
-					<daylight>ნიუფაუნდლენდის დროის სარტყელი</daylight>
+					<daylight>ნიუფაუნდლენდის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Niue">
@@ -3977,7 +4312,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>სენ-პიერის და მიკელონის დრო</generic>
 					<standard>სენ-პიერის და მიკელონის სტანდარტული დრო</standard>
-					<daylight>სენ-პიერის და მიკელონის დროის სარტყელი</daylight>
+					<daylight>სენ-პიერის და მიკელონის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Pitcairn">
@@ -4053,7 +4388,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic>ტაიბეის დრო</generic>
 					<standard>ტაიბეის სტანდარტული დრო</standard>
-					<daylight>ტაიბეის დროის სარტყელი</daylight>
+					<daylight>ტაიბეის ზაფხულის დრო</daylight>
 				</long>
 			</metazone>
 			<metazone type="Tajikistan">
@@ -4167,6 +4502,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<native>latn</native>
 			<traditional>geor</traditional>
 		</otherNumberingSystems>
+		<minimumGroupingDigits draft="contributed">5</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group> </group>
@@ -4179,6 +4515,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>არ არის რიცხვი</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -4277,6 +4614,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>არაბთა გაერთიანებული საამიროების დირჰამი</displayName>
 				<displayName count="one">არაბთა გაერთიანებული საამიროების დირჰამი</displayName>
 				<displayName count="other">არაბთა გაერთიანებული საამიროების დირჰამი</displayName>
+				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFA">
 				<displayName draft="contributed">ავღანი (1927–2002)</displayName>
@@ -4284,27 +4622,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="AFN">
 				<displayName>ავღანური ავღანი</displayName>
 				<displayName count="one">ავღანური ავღანი</displayName>
-				<displayName count="other">ავღანი</displayName>
+				<displayName count="other">ავღანური ავღანი</displayName>
+				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>ალბანური ლეკი</displayName>
 				<displayName count="one">ალბანური ლეკი</displayName>
 				<displayName count="other">ალბანური ლეკი</displayName>
+				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>სომხური დრამი</displayName>
 				<displayName count="one">სომხური დრამი</displayName>
 				<displayName count="other">სომხური დრამი</displayName>
+				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>ნიდერლანდების ანტილების გულდენი</displayName>
 				<displayName count="one">ნიდრელანდების ანტილიის გულდენი</displayName>
 				<displayName count="other">ნიდრელანდების ანტილიის გულდენი</displayName>
+				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>ანგოლური კვანზა</displayName>
 				<displayName count="one">ანგოლური კვანზა</displayName>
 				<displayName count="other">ანგოლური კვანზა</displayName>
+				<symbol>AOA</symbol>
 			</currency>
 			<currency type="AOK">
 				<displayName draft="contributed">ანგოლური კვანზა (1977–1990)</displayName>
@@ -4325,6 +4668,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>არგენტინული პესო</displayName>
 				<displayName count="one">არგენტინული პესო</displayName>
 				<displayName count="other">არგენტინული პესო</displayName>
+				<symbol>ARS</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName draft="contributed">ავსტრიული შილინგი</displayName>
@@ -4334,11 +4679,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">ავსტრალიური დოლარი</displayName>
 				<displayName count="other">ავსტრალიური დოლარი</displayName>
 				<symbol>AUD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>არუბანული გულდენი</displayName>
 				<displayName count="one">არუბანული გულდენი</displayName>
 				<displayName count="other">არუბანული გულდენი</displayName>
+				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName draft="contributed">აზერბაიჯანული მანათი (1993–2006)</displayName>
@@ -4347,6 +4694,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>აზერბაიჯანული მანათი</displayName>
 				<displayName count="one">აზერბაიჯანული მანათი</displayName>
 				<displayName count="other">აზერბაიჯანული მანათი</displayName>
+				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAD">
 				<displayName draft="contributed">ბოსნია-ჰერცოგოვინას დინარი</displayName>
@@ -4355,16 +4703,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ბოსნია და ჰერცოგოვინას კონვერტირებადი მარკა</displayName>
 				<displayName count="one">ბოსნია და ჰერცოგოვინას კონვერტირებადი მარკა</displayName>
 				<displayName count="other">ბოსნია და ჰერცოგოვინას კონვერტირებადი მარკა</displayName>
+				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>ბარბადოსული დოლარი</displayName>
 				<displayName count="one">ბარბადოსული დოლარი</displayName>
 				<displayName count="other">ბარბადოსული დოლარი</displayName>
+				<symbol>BBD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>ბანგლადეშური ტაკა</displayName>
 				<displayName count="one">ბანგლადეშური ტაკა</displayName>
 				<displayName count="other">ბანგლადეშური ტაკა</displayName>
+				<symbol>BDT</symbol>
+				<symbol alt="narrow" draft="contributed">৳</symbol>
 			</currency>
 			<currency type="BEC">
 				<displayName draft="contributed">ბელგიური ფრანკი (კოვერტირებადი)</displayName>
@@ -4382,31 +4735,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ბულგარული ლევი</displayName>
 				<displayName count="one">ბულგარული ლევი</displayName>
 				<displayName count="other">ბულგარული ლევი</displayName>
+				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>ბაჰრეინული დინარი</displayName>
 				<displayName count="one">ბაჰრეინული დინარი</displayName>
 				<displayName count="other">ბაჰრეინული დინარი</displayName>
+				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>ბურუნდიული ფრანკი</displayName>
 				<displayName count="one">ბურუნდიული ფრანკი</displayName>
 				<displayName count="other">ბურუნდიული ფრანკი</displayName>
+				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>ბერმუდული დოლარი</displayName>
 				<displayName count="one">ბერმუდული დოლარი</displayName>
 				<displayName count="other">ბერმუდული დოლარი</displayName>
+				<symbol>BMD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>ბრუნეული დოლარი</displayName>
 				<displayName count="one">ბრუნეული დოლარი</displayName>
 				<displayName count="other">ბრუნეული დოლარი</displayName>
+				<symbol>BND</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>ბოლივიური ბოლივიანო</displayName>
 				<displayName count="one">ბოლივიური ბოლივიანო</displayName>
 				<displayName count="other">ბოლივიური ბოლივიანო</displayName>
+				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BOP">
 				<displayName draft="contributed">ბოლივიური პესო</displayName>
@@ -4425,6 +4786,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">ბრაზილიური რეალი</displayName>
 				<displayName count="other">ბრაზილიური რეალი</displayName>
 				<symbol>R$</symbol>
+				<symbol alt="narrow" draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BRN">
 				<displayName draft="contributed">ბრაზილიური კრუზადო ნოვო</displayName>
@@ -4436,16 +4798,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ბაჰამური დოლარი</displayName>
 				<displayName count="one">ბაჰამური დოლარი</displayName>
 				<displayName count="other">ბაჰამური დოლარი</displayName>
+				<symbol>BSD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>ბუტანური ნგულტრუმი</displayName>
 				<displayName count="one">ბუტანური ნგულტრუმი</displayName>
 				<displayName count="other">ბუტანური ნგულტრუმი</displayName>
+				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
 				<displayName>ბოცვანური პულა</displayName>
 				<displayName count="one">ბოცვანური პულა</displayName>
 				<displayName count="other">ბოცვანური პულა</displayName>
+				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYB">
 				<displayName draft="contributed">ახალი ბელარუსიული რუბლი (1994–1999)</displayName>
@@ -4454,48 +4820,61 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ბელორუსული რუბლი</displayName>
 				<displayName count="one">ბელორუსული რუბლი</displayName>
 				<displayName count="other">ბელორუსული რუბლი</displayName>
+				<symbol>BYR</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>ბელიზის დოლარი</displayName>
 				<displayName count="one">ბელიზის დოლარი</displayName>
 				<displayName count="other">ბელიზის დოლარი</displayName>
+				<symbol>BZD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>კანადური დოლარი</displayName>
 				<displayName count="one">კანადური დოლარი</displayName>
 				<displayName count="other">კანადური დოლარი</displayName>
 				<symbol>CA$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>კონგოს ფრანკი</displayName>
 				<displayName count="one">კონგოს ფრანკი</displayName>
 				<displayName count="other">კონგოს ფრანკი</displayName>
+				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>შვეიცარიული ფრანკი</displayName>
 				<displayName count="one">შვეიცარიული ფრანკი</displayName>
 				<displayName count="other">შვეიცარიული ფრანკი</displayName>
+				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>ჩილეს პესო</displayName>
 				<displayName count="one">ჩილეს პესო</displayName>
-				<displayName count="other">ჩილიური პესო</displayName>
+				<displayName count="other">ჩილეს პესო</displayName>
+				<symbol>CLP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>ჩინური იუანი</displayName>
 				<displayName count="one">ჩინური უანი</displayName>
 				<displayName count="other">ჩინური უანი</displayName>
 				<symbol>CNY</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>კოლუმბიური პესო</displayName>
 				<displayName count="one">კოლუმბიური პესო</displayName>
 				<displayName count="other">კოლუმბიური პესო</displayName>
+				<symbol>COP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CRC">
 				<displayName>კოსტა-რიკული კოლონი</displayName>
 				<displayName count="one">კოსტა-რიკული კოლონი</displayName>
 				<displayName count="other">კოსტა რიკული კოლონი</displayName>
+				<symbol>CRC</symbol>
+				<symbol alt="narrow" draft="contributed">₡</symbol>
 			</currency>
 			<currency type="CSD">
 				<displayName draft="contributed">ძველი სერბიული დინარი</displayName>
@@ -4507,16 +4886,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>კუბური კონვერტირებადი პესო</displayName>
 				<displayName count="one">კუბური კონვერტირებადი პესო</displayName>
 				<displayName count="other">კუბური კონვერტირებადი პესო</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>კუბური პესო</displayName>
 				<displayName count="one">კუბური პესო</displayName>
 				<displayName count="other">კუბური პესო</displayName>
+				<symbol>CUP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>კაბო-ვერდეს ესკუდო</displayName>
 				<displayName count="one">კაბო-ვერდეს ესკუდო</displayName>
 				<displayName count="other">კაბო-ვერდეს ესკუდო</displayName>
+				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName draft="contributed">კვიპროსის გირვანქა</displayName>
@@ -4525,6 +4908,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ჩეხური კრონა</displayName>
 				<displayName count="one">ჩეხური კრონა</displayName>
 				<displayName count="other">ჩეხური კრონა</displayName>
+				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DDM">
 				<displayName draft="contributed">აღმოსავლეთ გერმანული მარკა</displayName>
@@ -4536,21 +4920,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ჯიბუტის ფრანკი</displayName>
 				<displayName count="one">ჯიბუტის ფრანკი</displayName>
 				<displayName count="other">ჯიბუტის ფრანკი</displayName>
+				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>დანიური კრონა</displayName>
 				<displayName count="one">დანიური კრონა</displayName>
 				<displayName count="other">დანიური კრონა</displayName>
+				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>დომინიკური პესო</displayName>
 				<displayName count="one">დომინიკური პესო</displayName>
 				<displayName count="other">დომინიკური პესო</displayName>
+				<symbol>DOP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>ალჟირული დინარი</displayName>
 				<displayName count="one">ალჟირული დინარი</displayName>
 				<displayName count="other">ალჟირული დინარი</displayName>
+				<symbol>DZD</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName draft="contributed">ესტონური კრუნა</displayName>
@@ -4559,11 +4948,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ეგვიპტური გირვანქა</displayName>
 				<displayName count="one">ეგვიპტური გირვანქა</displayName>
 				<displayName count="other">ეგვიპტური გირვანქა</displayName>
+				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>ერიტრეის ნაკფა</displayName>
 				<displayName count="one">ერიტრეის ნაკფა</displayName>
 				<displayName count="other">ერიტრეის ნაკფა</displayName>
+				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName draft="contributed">ესპანური პესეტა</displayName>
@@ -4572,12 +4963,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ეთიოპიური ბირი</displayName>
 				<displayName count="one">ეთიოპიური ბირი</displayName>
 				<displayName count="other">ეთიოპიური ბირი</displayName>
+				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>ევრო</displayName>
 				<displayName count="one">ევრო</displayName>
 				<displayName count="other">ევრო</displayName>
 				<symbol>€</symbol>
+				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName draft="contributed">ფინური მარკა</displayName>
@@ -4586,11 +4979,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ფიჯის დოლარი</displayName>
 				<displayName count="one">ფიჯის დოლარი</displayName>
 				<displayName count="other">ფიჯის დოლარი</displayName>
+				<symbol>FJD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="FKP">
 				<displayName>ფოლკლენდის კუნძულების ფუნტი</displayName>
 				<displayName count="one">ფოლკლენდის კუნძულების ფუნტი</displayName>
 				<displayName count="other">ფოლკლენდის კუნძულების ფუნტი</displayName>
+				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName draft="contributed">ფრანგული ფრანკი</displayName>
@@ -4600,6 +4996,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">ბრიტანული გირვანქა სტერლინგი</displayName>
 				<displayName count="other">ინგლისური გირვანქა სტერლინგი</displayName>
 				<symbol>£</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEK">
 				<displayName draft="contributed">ქართული კუპონი ლარით</displayName>
@@ -4608,26 +5005,33 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ქართული ლარი</displayName>
 				<displayName count="one">ქართული ლარი</displayName>
 				<displayName count="other">ქართული ლარი</displayName>
+				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>განური სედი</displayName>
 				<displayName count="one">განური სედი</displayName>
 				<displayName count="other">განური სედი</displayName>
+				<symbol>GHS</symbol>
+				<symbol alt="narrow" draft="contributed">₵</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>გიბრალტარული ფუნტი</displayName>
 				<displayName count="one">გიბრალტარული ფუნტი</displayName>
 				<displayName count="other">გიბრალტარული ფუნტი</displayName>
+				<symbol>GIP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>გამბიური დალასი</displayName>
 				<displayName count="one">გამბიური დალასი</displayName>
 				<displayName count="other">გამბიური დალასი</displayName>
+				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>გვინეური ფრანკი</displayName>
 				<displayName count="one">გვინეური ფრანკი</displayName>
 				<displayName count="other">გვინეური ფრანკი</displayName>
+				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName draft="contributed">ბერძნული დრაჰმა</displayName>
@@ -4636,6 +5040,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>გვატემალური კეტსალი</displayName>
 				<displayName count="one">გვატემალური კეტსალი</displayName>
 				<displayName count="other">გვატემალური კეტსალი</displayName>
+				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GWE">
 				<displayName draft="contributed">პორტუგალიური გინეა ესკუდო</displayName>
@@ -4644,17 +5049,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>გაიანური დოლარი</displayName>
 				<displayName count="one">გაიანური დოლარი</displayName>
 				<displayName count="other">გაიანური დოლარი</displayName>
+				<symbol>GYD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>ჰონკონგის დოლარი</displayName>
 				<displayName count="one">ჰონკონგის დოლარი</displayName>
-				<displayName count="other">ჰონგ კონგის დოლარი</displayName>
+				<displayName count="other">ჰონკონგის დოლარი</displayName>
 				<symbol>HKD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>ჰონდურასული ლემპირა</displayName>
 				<displayName count="one">ჰონდურასული ლემპირა</displayName>
 				<displayName count="other">ჰონდურასული ლემპირა</displayName>
+				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRD">
 				<displayName draft="contributed">ხორვატიული დინარი</displayName>
@@ -4663,21 +5072,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ხორვატული კუნა</displayName>
 				<displayName count="one">ხორვატული კუნა</displayName>
 				<displayName count="other">ხორვატული კუნა</displayName>
+				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>ჰაიტური გურდი</displayName>
 				<displayName count="one">ჰაიტური გურდი</displayName>
 				<displayName count="other">ჰაიტური გურდი</displayName>
+				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>უნგრული ფორინტი</displayName>
 				<displayName count="one">უნგრული ფორინტი</displayName>
 				<displayName count="other">უნგრული ფორინტი</displayName>
+				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>ინდონეზიური რუპია</displayName>
 				<displayName count="one">ინდონეზიური რუპია</displayName>
 				<displayName count="other">ინდონეზიური რუპია</displayName>
+				<symbol>IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName draft="contributed">ირლანდიური გირვანქა</displayName>
@@ -4687,27 +5100,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">ისრაელის ახალი შეკელი</displayName>
 				<displayName count="other">ისრაელის ახალი შეკელი</displayName>
 				<symbol>ILS</symbol>
+				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>ინდური რუპია</displayName>
 				<displayName count="one">ინდური რუპია</displayName>
 				<displayName count="other">ინდური რუპია</displayName>
 				<symbol>INR</symbol>
+				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>ერაყული დინარი</displayName>
 				<displayName count="one">ერაყული დინარი</displayName>
 				<displayName count="other">ერაყული დინარი</displayName>
+				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>ირანული რიალი</displayName>
 				<displayName count="one">ირანული რიალი</displayName>
 				<displayName count="other">ირანული რიალი</displayName>
+				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>ისლანდიური კრონა</displayName>
 				<displayName count="one">ისლანდიური კრონა</displayName>
 				<displayName count="other">ისლანდიური კრონა</displayName>
+				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName draft="contributed">იტალიური ლირა</displayName>
@@ -4716,88 +5134,111 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>იამაიკური დოლარი</displayName>
 				<displayName count="one">იამაიკური დოლარი</displayName>
 				<displayName count="other">იამაიკური დოლარი</displayName>
+				<symbol>JMD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>იორდანიული დოლარი</displayName>
 				<displayName count="one">იორდანიული დოლარი</displayName>
 				<displayName count="other">იორდანიული დოლარი</displayName>
+				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>იაპონური იენი</displayName>
 				<displayName count="one">იაპონური იენი</displayName>
 				<displayName count="other">იაპონური იენი</displayName>
 				<symbol>JPY</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>კენიური შილინგი</displayName>
 				<displayName count="one">კენიური შილინგი</displayName>
 				<displayName count="other">კენიური შილინგი</displayName>
+				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>ყირგიზული სომი</displayName>
 				<displayName count="one">ყირგიზული სომი</displayName>
 				<displayName count="other">ყირგიზული სომი</displayName>
+				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>კამბოჯური რიელი</displayName>
 				<displayName count="one">კამბოჯური რიელი</displayName>
 				<displayName count="other">კამბოჯური რიელი</displayName>
+				<symbol>KHR</symbol>
+				<symbol alt="narrow" draft="contributed">៛</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>კომორული ფრანკი</displayName>
 				<displayName count="one">კომორული ფრანკი</displayName>
 				<displayName count="other">კომორული ფრანკი</displayName>
+				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>ჩრდილოეთ კორეული ვონი</displayName>
 				<displayName count="one">ჩრდილოეთ კორეული ვონი</displayName>
 				<displayName count="other">ჩრდილოეთ კორეული ვონი</displayName>
+				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>სამხრეთ კორეული ვონი</displayName>
 				<displayName count="one">სამხრეთ კორეული ვონი</displayName>
 				<displayName count="other">სამხრეთ კორეული ვონი</displayName>
 				<symbol>KRW</symbol>
+				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>ქუვეითური დინარი</displayName>
 				<displayName count="one">ქუვეითური დინარი</displayName>
 				<displayName count="other">ქუვეითური დინარი</displayName>
+				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>კაიმანის კუნძულების დოლარი</displayName>
 				<displayName count="one">კაიმანის კუნძულების დოლარი</displayName>
 				<displayName count="other">კაიმანის კუნძულების დოლარი</displayName>
+				<symbol>KYD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>ყაზახური ტენგე</displayName>
 				<displayName count="one">ყაზახური ტენგე</displayName>
 				<displayName count="other">ყაზახური ტენგე</displayName>
+				<symbol>KZT</symbol>
+				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>ლაოსური კიპი</displayName>
 				<displayName count="one">ლაოსური კიპი</displayName>
 				<displayName count="other">ლაოსური კიპი</displayName>
+				<symbol>LAK</symbol>
+				<symbol alt="narrow" draft="contributed">₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>ლიბანური ფუნტი</displayName>
 				<displayName count="one">ლიბანური ფუნტი</displayName>
 				<displayName count="other">ლიბანური ფუნტი</displayName>
+				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>შრი-ლანკური რუპია</displayName>
 				<displayName count="one">შრი-ლანკური რუპია</displayName>
-				<displayName count="other">შრი ლანკას რუპია</displayName>
+				<displayName count="other">შრი-ლანკური რუპია</displayName>
+				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>ლიბერიული დოლარი</displayName>
 				<displayName count="one">ლიბერიული დოლარი</displayName>
 				<displayName count="other">ლიბერიული დოლარი</displayName>
+				<symbol>LRD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="LTL">
 				<displayName>ლიტვური ლიტა</displayName>
 				<displayName count="one">ლიტვური ლიტა</displayName>
 				<displayName count="other">ლიტვური ლიტა</displayName>
+				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LTT">
 				<displayName draft="contributed">ლიტვური ტალონი</displayName>
@@ -4815,6 +5256,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ლატვიური ლატი</displayName>
 				<displayName count="one">ლატვიური ლატი</displayName>
 				<displayName count="other">ლატვიური ლატი</displayName>
+				<symbol>LVL</symbol>
 			</currency>
 			<currency type="LVR">
 				<displayName draft="contributed">ლატვიური რუბლი</displayName>
@@ -4823,11 +5265,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ლიბიური დინარი</displayName>
 				<displayName count="one">ლიბიური დინარი</displayName>
 				<displayName count="other">ლიბიური დინარი</displayName>
+				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>მაროკოს დირჰამი</displayName>
 				<displayName count="one">მაროკოს დირჰამი</displayName>
 				<displayName count="other">მაროკოს დირჰამი</displayName>
+				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MAF">
 				<displayName draft="contributed">მაროკოს ფრანკი</displayName>
@@ -4836,11 +5280,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მოლდოვური ლეუ</displayName>
 				<displayName count="one">მოლდოვური ლეუ</displayName>
 				<displayName count="other">მოლდოვური ლეუ</displayName>
+				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>მადაგასკარის არიარი</displayName>
 				<displayName count="one">მადაგასკარის არიარი</displayName>
 				<displayName count="other">მადაგასკარის არიარი</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MGF">
 				<displayName draft="contributed">მადაგასკარის ფრანკი</displayName>
@@ -4849,6 +5295,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მაკედონიური დინარი</displayName>
 				<displayName count="one">მაკედონიური დინარი</displayName>
 				<displayName count="other">მაკედონიური დინარი</displayName>
+				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName draft="contributed">მალის ფრანკი</displayName>
@@ -4857,21 +5304,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მიანმარის კიატი</displayName>
 				<displayName count="one">მიანმარის კიატი</displayName>
 				<displayName count="other">მიანმარის კიატი</displayName>
+				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>მონღოლური ტუგრიკი</displayName>
 				<displayName count="one">მონღოლური ტუგრიკი</displayName>
 				<displayName count="other">მონღოლური ტუგრიკი</displayName>
+				<symbol>MNT</symbol>
+				<symbol alt="narrow" draft="contributed">₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>მაკაუს პატაკა</displayName>
 				<displayName count="one">მაკაუს პატაკა</displayName>
 				<displayName count="other">მაკაუს პატაკა</displayName>
+				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>მავრიტანული უგია</displayName>
 				<displayName count="one">მავრიტანული უგია</displayName>
 				<displayName count="other">მავრიტანული უგია</displayName>
+				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName draft="contributed">მალტის ლირა</displayName>
@@ -4883,22 +5335,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მავრიტანული რუპია</displayName>
 				<displayName count="one">მავრიტანული რუპია</displayName>
 				<displayName count="other">მავრიტანული რუპია</displayName>
+				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>მალდივური რუფია</displayName>
 				<displayName count="one">მალდივური რუფია</displayName>
 				<displayName count="other">მალდივური რუფია</displayName>
+				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>მალავიური კვაჩა</displayName>
 				<displayName count="one">მალავიური კვაჩა</displayName>
 				<displayName count="other">მალავიური კვაჩა</displayName>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>მექსიკური პესო</displayName>
 				<displayName count="one">მექსიკური პესო</displayName>
 				<displayName count="other">მექსიკური პესო</displayName>
 				<symbol>MX$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="MXP">
 				<displayName draft="contributed">მექსიკური ვერცხლის პესო (1861–1992)</displayName>
@@ -4907,6 +5363,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მალაიზიური რინგიტი</displayName>
 				<displayName count="one">მალაიზიური რინგიტი</displayName>
 				<displayName count="other">მალაიზიური რინგიტი</displayName>
+				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>მოზამბიკური ესკუდო</displayName>
@@ -4920,16 +5377,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>მოზამბიკური მეტიკალი</displayName>
 				<displayName count="one">მოზამბიკური მეტიკალი</displayName>
 				<displayName count="other">მოზამბიკური მეტიკალი</displayName>
+				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>ნამიბიური დოლარი</displayName>
 				<displayName count="one">ნამიბიური დოლარი</displayName>
 				<displayName count="other">ნამიბიური დოლარი</displayName>
+				<symbol>NAD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>ნიგერიული ნაირა</displayName>
 				<displayName count="one">ნიგერიული ნაირა</displayName>
 				<displayName count="other">ნიგერიული ნაირა</displayName>
+				<symbol>NGN</symbol>
+				<symbol alt="narrow" draft="contributed">₦</symbol>
 			</currency>
 			<currency type="NIC">
 				<displayName draft="contributed">ნიკარაგუას კორდობა</displayName>
@@ -4938,6 +5400,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ნიკარაგუული კორდობა</displayName>
 				<displayName count="one">ნიკარაგუას ოქროს კორდობა</displayName>
 				<displayName count="other">ნიკარაგუას ოქროს კორდობა</displayName>
+				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName draft="contributed">ჰოლანდიური გულდენი</displayName>
@@ -4946,27 +5409,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ნორვეგიული კრონა</displayName>
 				<displayName count="one">ნორვეგიული კრონა</displayName>
 				<displayName count="other">ნორვეგიული კრონა</displayName>
+				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>ნეპალური რუპია</displayName>
 				<displayName count="one">ნეპალური რუპია</displayName>
 				<displayName count="other">ნეპალური რუპია</displayName>
+				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>ახალი ზელანდიის დოლარი</displayName>
 				<displayName count="one">ახალი ზელანდიის დოლარი</displayName>
 				<displayName count="other">ახალი ზელანდიის დოლარი</displayName>
 				<symbol>NZD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>ომანის რიალი</displayName>
 				<displayName count="one">ომანის რიალი</displayName>
 				<displayName count="other">ომანის რიალი</displayName>
+				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>პანამური ბალბოა</displayName>
 				<displayName count="one">პანამური ბალბოა</displayName>
 				<displayName count="other">პანამური ბალბოა</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEI">
 				<displayName draft="contributed">პერუს ინტი</displayName>
@@ -4975,6 +5443,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>პერუს ახალი სოლი</displayName>
 				<displayName count="one">პერუს ახალი სოლი</displayName>
 				<displayName count="other">პერუს ახალი სოლი</displayName>
+				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PES">
 				<displayName draft="contributed">პერუს სოლი</displayName>
@@ -4983,21 +5452,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>პაპუა-ახალი გვინეის კინა</displayName>
 				<displayName count="one">პაპუა-ახალი გვინეის კინა</displayName>
 				<displayName count="other">პაპუა-ახალი გვინეის კინა</displayName>
+				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>ფილიპინური პესო</displayName>
 				<displayName count="one">ფილიპინური პესო</displayName>
 				<displayName count="other">ფილიპინური პესო</displayName>
+				<symbol>PHP</symbol>
+				<symbol alt="narrow" draft="contributed">₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>პაკისტანური რუპია</displayName>
 				<displayName count="one">პაკისტანური რუპია</displayName>
 				<displayName count="other">პაკისტანური რუპია</displayName>
+				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>პოლონური ზლოტი</displayName>
 				<displayName count="one">პოლონური ზლოტი</displayName>
 				<displayName count="other">პოლონური ზლოტი</displayName>
+				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PLZ">
 				<displayName draft="contributed">პოლონური ზლოტი (1950–1995)</displayName>
@@ -5009,11 +5483,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>პარაგვაული გუარანი</displayName>
 				<displayName count="one">პარაგვაული გუარანი</displayName>
 				<displayName count="other">პარაგვაული გუარანი</displayName>
+				<symbol>PYG</symbol>
+				<symbol alt="narrow" draft="contributed">₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>კატარის რიალი</displayName>
 				<displayName count="one">კატარის რიალი</displayName>
 				<displayName count="other">კატარის რიალი</displayName>
+				<symbol>QAR</symbol>
 			</currency>
 			<currency type="RHD">
 				<displayName draft="contributed">როდეზიული დოლარი</displayName>
@@ -5025,16 +5502,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>რუმინული ლეუ</displayName>
 				<displayName count="one">რუმინული ლეუ</displayName>
 				<displayName count="other">რუმინული ლეუ</displayName>
+				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>სერბული დინარი</displayName>
 				<displayName count="one">სერბული დინარი</displayName>
 				<displayName count="other">სერბული დინარი</displayName>
+				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>რუსული რუბლი</displayName>
 				<displayName count="one">რუსული რუბლი</displayName>
 				<displayName count="other">რუსული რუბლი</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RUR">
 				<displayName draft="contributed">რუსული რუბლი (1991–1998)</displayName>
@@ -5043,21 +5523,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>რუანდული ფრანკი</displayName>
 				<displayName count="one">რუანდული ფრანკი</displayName>
 				<displayName count="other">რუანდული ფრანკი</displayName>
+				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>საუდის არაბეთის რიალი</displayName>
 				<displayName count="one">საუდის არაბეთის რიალი</displayName>
 				<displayName count="other">საუდის არაბეთის რიალი</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>სოლომონის კუნძულების დოლარი</displayName>
 				<displayName count="one">სოლომონის კუნძულების დოლარი</displayName>
 				<displayName count="other">სოლომონის კუნძულების დოლარი</displayName>
+				<symbol>SBD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>სეიშელური რუპია</displayName>
 				<displayName count="one">სეიშელური რუპია</displayName>
 				<displayName count="other">სეიშელური რუპია</displayName>
+				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDD">
 				<displayName draft="contributed">სუდანის დინარი</displayName>
@@ -5066,6 +5551,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>სუდანური ფუნტი</displayName>
 				<displayName count="one">სუდანური ფუნტი</displayName>
 				<displayName count="other">სუდანური ფუნტი</displayName>
+				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SDP">
 				<displayName draft="contributed">სუდანის გირვანქა</displayName>
@@ -5074,31 +5560,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>შვედური კრონა</displayName>
 				<displayName count="one">შვედური კრონა</displayName>
 				<displayName count="other">შვედური კრონა</displayName>
+				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>სინგაპურის დოლარი</displayName>
 				<displayName count="one">სინგაპურის დოლარი</displayName>
 				<displayName count="other">სინგაპურის დოლარი</displayName>
+				<symbol>SGD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>წმ. ელენეს კუნძულის ფუნტი</displayName>
 				<displayName count="one">წმ. ელენეს კუნძულის ფუნტი</displayName>
 				<displayName count="other">წმ. ელენეს კუნძულის ფუნტი</displayName>
+				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SLL">
 				<displayName>სიერა-ლეონეს ლეონე</displayName>
 				<displayName count="one">სიერა-ლეონეს ლეონე</displayName>
 				<displayName count="other">სიერა-ლეონეს ლეონე</displayName>
+				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>სომალური შილინგი</displayName>
 				<displayName count="one">სომალური შილინგი</displayName>
 				<displayName count="other">სომალური შილინგი</displayName>
+				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>სურინამული დოლარი</displayName>
 				<displayName count="one">სურინამული დოლარი</displayName>
 				<displayName count="other">სურინამული დოლარი</displayName>
+				<symbol>SRD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName draft="contributed">სურინამის გულდენი</displayName>
@@ -5107,11 +5601,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>სამხრეთ სუდანური ფუნტი</displayName>
 				<displayName count="one">სამხრეთ სუდანური ფუნტი</displayName>
 				<displayName count="other">სამხრეთ სუდანური ფუნტი</displayName>
+				<symbol>SSP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>სან-ტომე და პრინსიპის დობრა</displayName>
 				<displayName count="one">სან-ტომე და პრინსიპის დობრა</displayName>
 				<displayName count="other">სან-ტომე და პრინსიპის დობრა</displayName>
+				<symbol>STD</symbol>
 			</currency>
 			<currency type="SUR">
 				<displayName draft="contributed">საბჭოთა რუბლი</displayName>
@@ -5120,17 +5617,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>სირიული ფუნტი</displayName>
 				<displayName count="one">სირიული გირვანქა</displayName>
 				<displayName count="other">სირიული გირვანქა</displayName>
+				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>სვაზილენდის ლილანგენი</displayName>
 				<displayName count="one">სვაზილენდის ლილანგენი</displayName>
 				<displayName count="other">სვაზილენდის ლილანგენი</displayName>
+				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>ტაილანდური ბატი</displayName>
 				<displayName count="one">ტაილანდური ბატი</displayName>
 				<displayName count="other">ტაილანდური ბატი</displayName>
 				<symbol>THB</symbol>
+				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJR">
 				<displayName draft="contributed">ტაჯიკური რუბლი</displayName>
@@ -5139,6 +5639,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ტაჯიკური სომონი</displayName>
 				<displayName count="one">ტაჯიკური სომონი</displayName>
 				<displayName count="other">ტაჯიკური სომონი</displayName>
+				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
 				<displayName draft="contributed">თურქმენული მანათი</displayName>
@@ -5147,16 +5648,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>თურქმენეთის მანათი</displayName>
 				<displayName count="one">თურქმენეთის მანათი</displayName>
 				<displayName count="other">თურქმენეთის მანათი</displayName>
+				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>ტუნისური დინარი</displayName>
 				<displayName count="one">ტუნისის დინარი</displayName>
 				<displayName count="other">ტუნისის დინარი</displayName>
+				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>ტონგანური პაანგა</displayName>
 				<displayName count="one">ტონგანური პაანგა</displayName>
 				<displayName count="other">ტონგანური პაანგა</displayName>
+				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TRL">
 				<displayName draft="contributed">თურქული ლირა</displayName>
@@ -5165,27 +5669,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ახალი თურქული ლირა</displayName>
 				<displayName count="one">ახალი თურქული ლირა</displayName>
 				<displayName count="other">ახალი თურქული ლირა</displayName>
+				<symbol>TRY</symbol>
+				<symbol alt="narrow" draft="contributed">₺</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>ტრინიდად და ტობაგოს დოლარი</displayName>
 				<displayName count="one">ტრინიდად და ტობაგოს დოლარი</displayName>
 				<displayName count="other">ტრინიდად და ტობაგოს დოლარი</displayName>
+				<symbol>TTD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>ტაივანური ახალი დოლარი</displayName>
 				<displayName count="one">ტაივანური ახალი დოლარი</displayName>
 				<displayName count="other">ტაივანური ახალი დოლარი</displayName>
-				<symbol>TWD</symbol>
+				<symbol>NT$</symbol>
+				<symbol alt="narrow" draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>ტანზანიური შილინგი</displayName>
 				<displayName count="one">ტანზანიური შილინგი</displayName>
 				<displayName count="other">ტანზანიური შილინგი</displayName>
+				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>უკრაინული გრივნა</displayName>
 				<displayName count="one">უკრაინული გრივნა</displayName>
 				<displayName count="other">უკრაინული გრივნა</displayName>
+				<symbol>UAH</symbol>
+				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
 			<currency type="UAK">
 				<displayName draft="contributed">უკრაინული კარბოვანეცი</displayName>
@@ -5197,12 +5709,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>უგანდური შილინგი</displayName>
 				<displayName count="one">უგანდური შილინგი</displayName>
 				<displayName count="other">უგანდური შილინგი</displayName>
+				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>აშშ დოლარი</displayName>
 				<displayName count="one">აშშ დოლარი</displayName>
 				<displayName count="other">აშშ დოლარი</displayName>
 				<symbol>US$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="USN">
 				<displayName draft="contributed">აშშ დოლარი (შემდეგი დღე)</displayName>
@@ -5217,11 +5731,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ურუგვაის პესო</displayName>
 				<displayName count="one">ურუგვაის პესო</displayName>
 				<displayName count="other">ურუგვაის პესო</displayName>
+				<symbol>UYU</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>უზბეკური სუმი</displayName>
 				<displayName count="one">უზბეკური სუმი</displayName>
 				<displayName count="other">უზბეკური სუმი</displayName>
+				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName draft="contributed">ვენესუელის ბოლივარი (1871–2008)</displayName>
@@ -5230,22 +5747,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>ვენესუელის ბოლივარი</displayName>
 				<displayName count="one">ვენესუელის ბოლივარი</displayName>
 				<displayName count="other">ვენესუელის ბოლივარი</displayName>
+				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>ვიეტნამური დონგი</displayName>
 				<displayName count="one">ვიეტნამური დონგი</displayName>
 				<displayName count="other">ვიეტნამური დონგი</displayName>
 				<symbol>VND</symbol>
+				<symbol alt="narrow" draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>ვანუატუს ვატუ</displayName>
 				<displayName count="one">ვანატუს ვატუ</displayName>
 				<displayName count="other">ვანატუს ვატუ</displayName>
+				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>სამოური ტალა</displayName>
 				<displayName count="one">დასავლეთ სამოას ტალა</displayName>
-				<displayName count="other">დასავლეთ სამოას ტალა</displayName>
+				<displayName count="other">სამოური ტალა</displayName>
+				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>CFA ფრანკი (BEAC)</displayName>
@@ -5289,7 +5810,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="XXX">
 				<displayName>უცნობი ვალუტა</displayName>
 				<displayName count="one">(ვალუტის უცნობი ერთეული)</displayName>
-				<displayName count="other">უცნობი ვალუტა</displayName>
+				<displayName count="other">(უცნობი ვალუტა)</displayName>
 			</currency>
 			<currency type="YDD">
 				<displayName draft="contributed">იემენის დინარი</displayName>
@@ -5298,6 +5819,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>იემენის რეალი</displayName>
 				<displayName count="one">იემენის რეალი</displayName>
 				<displayName count="other">იემენის რეალი</displayName>
+				<symbol>YER</symbol>
 			</currency>
 			<currency type="YUD">
 				<displayName draft="contributed">იუგოსლავიური მყარი დინარი</displayName>
@@ -5312,16 +5834,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName>სამხრეთ აფრიკული რანდი</displayName>
 				<displayName count="one">სამხრეთ აფრიკული რანდი</displayName>
 				<displayName count="other">სამხრეთ აფრიკული რანდი</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
-				<displayName>ზამბიური კვაჩა (1968–2012)</displayName>
-				<displayName count="one">ზამბიური კვაჭა (1968–2012)</displayName>
-				<displayName count="other">ზამბიური კვაჭა (1968–2012)</displayName>
+				<displayName>ზამბიური კვაჭა (1968-2012)</displayName>
+				<displayName count="one">ზამბიური კვაჭა (1968-2012)</displayName>
+				<displayName count="other">ზამბიური კვაჭა (1968-2012)</displayName>
+				<symbol>ZMK</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName>ზამბიური კვაჭა</displayName>
 				<displayName count="one">ზამბიური კვაჭა</displayName>
 				<displayName count="other">ზამბიური კვაჭა</displayName>
+				<symbol>ZMW</symbol>
 			</currency>
 			<currency type="ZRN">
 				<displayName draft="contributed">ზაირის ახალი ზაირი</displayName>
@@ -5344,234 +5869,591 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName draft="provisional">ინერციის ძალა</displayName>
+				<displayName>ინერციის ძალა</displayName>
 				<unitPattern count="one">{0} ინერციის ძალა</unitPattern>
 				<unitPattern count="other">{0} ინერციის ძალა</unitPattern>
 			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName>მეტრი კვადრატულ წამში</displayName>
+				<unitPattern count="one">{0} მ/წმ²</unitPattern>
+				<unitPattern count="other">{0} მ/წმ²</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
-				<displayName draft="provisional">წუთი</displayName>
-				<unitPattern count="one">{0} წუთი</unitPattern>
-				<unitPattern count="other">{0} წუთი</unitPattern>
+				<displayName>მინუტი</displayName>
+				<unitPattern count="one">{0} მინუტი</unitPattern>
+				<unitPattern count="other">{0} მინუტი</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName draft="provisional">წამი</displayName>
-				<unitPattern count="one">{0} წამი</unitPattern>
-				<unitPattern count="other">{0} წამი</unitPattern>
+				<displayName>სეკუნდი</displayName>
+				<unitPattern count="one">{0} სეკუნდი</unitPattern>
+				<unitPattern count="other">{0} სეკუნდი</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="provisional">გრადუსი</displayName>
+				<displayName>გრადუსი</displayName>
 				<unitPattern count="one">{0} გრადუსი</unitPattern>
 				<unitPattern count="other">{0} გრადუსი</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<displayName>რადიანი</displayName>
+				<unitPattern count="one">{0} რადიანი</unitPattern>
+				<unitPattern count="other">{0} რადიანი</unitPattern>
+			</unit>
 			<unit type="area-acre">
-				<displayName draft="provisional">აკრი</displayName>
+				<displayName>აკრი</displayName>
 				<unitPattern count="one">{0} აკრი</unitPattern>
 				<unitPattern count="other">{0} აკრი</unitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName draft="provisional">ჰექტარი</displayName>
+				<displayName>ჰექტარი</displayName>
 				<unitPattern count="one">{0} ჰექტარი</unitPattern>
 				<unitPattern count="other">{0} ჰექტარი</unitPattern>
 			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>კვადრატული სანტიმეტრი</displayName>
+				<unitPattern count="one">{0} კვადრატული სანტიმეტრი</unitPattern>
+				<unitPattern count="other">{0} კვადრატული სანტიმეტრი</unitPattern>
+			</unit>
 			<unit type="area-square-foot">
-				<displayName draft="provisional">კვადრატული ფუტი</displayName>
+				<displayName>კვადრატული ფუტი</displayName>
 				<unitPattern count="one">{0} კვადრატული ფუტი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული ფუტი</unitPattern>
 			</unit>
+			<unit type="area-square-inch">
+				<displayName>კვადრატული დუიმი</displayName>
+				<unitPattern count="one">{0} კვადრატული დუიმი</unitPattern>
+				<unitPattern count="other">{0} კვადრატული დუიმი</unitPattern>
+			</unit>
 			<unit type="area-square-kilometer">
-				<displayName draft="provisional">კვადრატული კილომეტრი</displayName>
+				<displayName>კვადრატული კილომეტრი</displayName>
 				<unitPattern count="one">{0} კვადრატული კილომეტრი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული კილომეტრი</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="provisional">კვადრატული მეტრი</displayName>
+				<displayName>კვადრატული მეტრი</displayName>
 				<unitPattern count="one">{0} კვადრატული მეტრი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული მეტრი</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName draft="provisional">კვადრატული მილი</displayName>
+				<displayName>კვადრატული მილი</displayName>
 				<unitPattern count="one">{0} კვადრატული მილი</unitPattern>
 				<unitPattern count="other">{0} კვადრატული მილი</unitPattern>
 			</unit>
+			<unit type="area-square-yard">
+				<displayName>კვადრატული იარდი</displayName>
+				<unitPattern count="one">{0} კვადრატული იარდი</unitPattern>
+				<unitPattern count="other">{0} კვადრატული იარდი</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>ლიტრი კილომეტრზე</displayName>
+				<unitPattern count="one">{0} ლიტრი კილომეტრზე</unitPattern>
+				<unitPattern count="other">{0} ლიტრი კილომეტრზე</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>მილი გალონზე</displayName>
+				<unitPattern count="one">{0} მილი გალონზე</unitPattern>
+				<unitPattern count="other">{0} მილი გალონზე</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>ბიტი</displayName>
+				<unitPattern count="one">{0} ბიტი</unitPattern>
+				<unitPattern count="other">{0} ბიტი</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>ბაიტი</displayName>
+				<unitPattern count="one">{0} ბაიტი</unitPattern>
+				<unitPattern count="other">{0} ბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>გიგაბიტი</displayName>
+				<unitPattern count="one">{0} გიგაბიტი</unitPattern>
+				<unitPattern count="other">{0} გიგაბიტი</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>გიგაბაიტი</displayName>
+				<unitPattern count="one">{0} გიგაბაიტი</unitPattern>
+				<unitPattern count="other">{0} გიგაბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>კილობიტი</displayName>
+				<unitPattern count="one">{0} კილობიტი</unitPattern>
+				<unitPattern count="other">{0} კილობიტი</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>კილობაიტი</displayName>
+				<unitPattern count="one">{0} კილობაიტი</unitPattern>
+				<unitPattern count="other">{0} კილობაიტი</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>მეგაბიტი</displayName>
+				<unitPattern count="one">{0} მეგაბიტი</unitPattern>
+				<unitPattern count="other">{0} მეგაბიტი</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>მეგაბაიტი</displayName>
+				<unitPattern count="one">{0} მეგაბაიტი</unitPattern>
+				<unitPattern count="other">{0} მეგაბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>ტერაბიტი</displayName>
+				<unitPattern count="one">{0} ტერაბიტი</unitPattern>
+				<unitPattern count="other">{0} ტერაბიტი</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>ტერაბაიტი</displayName>
+				<unitPattern count="one">{0} ტერაბაიტი</unitPattern>
+				<unitPattern count="other">{0} ტერაბაიტი</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<displayName draft="provisional">დღე</displayName>
+				<displayName>დღე</displayName>
 				<unitPattern count="one">{0} დღე</unitPattern>
 				<unitPattern count="other">{0} დღე</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="provisional">საათი</displayName>
+				<displayName>საათი</displayName>
 				<unitPattern count="one">{0} საათი</unitPattern>
 				<unitPattern count="other">{0} საათი</unitPattern>
+				<perUnitPattern>{0} საათში</perUnitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>მიკროწამი</displayName>
+				<unitPattern count="one">{0} მიკროწამი</unitPattern>
+				<unitPattern count="other">{0} მიკროწამი</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName draft="provisional">მილიწამი</displayName>
+				<displayName>მილიწამი</displayName>
 				<unitPattern count="one">{0} მილიწამი</unitPattern>
 				<unitPattern count="other">{0} მილიწამი</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="provisional">წუთი</displayName>
+				<displayName>წუთი</displayName>
 				<unitPattern count="one">{0} წუთი</unitPattern>
 				<unitPattern count="other">{0} წუთი</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="provisional">თვე</displayName>
+				<displayName>თვე</displayName>
 				<unitPattern count="one">{0} თვე</unitPattern>
 				<unitPattern count="other">{0} თვე</unitPattern>
 			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ნანოწამი</displayName>
+				<unitPattern count="one">{0} ნანოწამი</unitPattern>
+				<unitPattern count="other">{0} ნანოწამი</unitPattern>
+			</unit>
 			<unit type="duration-second">
-				<displayName draft="provisional">წამი</displayName>
+				<displayName>წამი</displayName>
 				<unitPattern count="one">{0} წამი</unitPattern>
 				<unitPattern count="other">{0} წამი</unitPattern>
+				<perUnitPattern>{0} წამში</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="provisional">კვირა</displayName>
+				<displayName>კვირა</displayName>
 				<unitPattern count="one">{0} კვირა</unitPattern>
 				<unitPattern count="other">{0} კვირა</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName draft="provisional">წელი</displayName>
+				<displayName>წელი</displayName>
 				<unitPattern count="one">{0} წელი</unitPattern>
 				<unitPattern count="other">{0} წელი</unitPattern>
 			</unit>
+			<unit type="electric-ampere">
+				<displayName>ამპერი</displayName>
+				<unitPattern count="one">{0} ა</unitPattern>
+				<unitPattern count="other">{0} ა</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>მილიამპერი</displayName>
+				<unitPattern count="one">{0} მილიამპერი</unitPattern>
+				<unitPattern count="other">{0} მილიამპერი</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>ომი</displayName>
+				<unitPattern count="one">{0} ომი</unitPattern>
+				<unitPattern count="other">{0} ომი</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>ვოლტი</displayName>
+				<unitPattern count="one">{0} ვოლტი</unitPattern>
+				<unitPattern count="other">{0} ვოლტი</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>კალორია</displayName>
+				<unitPattern count="one">{0} კალორია</unitPattern>
+				<unitPattern count="other">{0} კალორია</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>კალორია</displayName>
+				<unitPattern count="one">{0} კალორია</unitPattern>
+				<unitPattern count="other">{0} კალორია</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>ჯოული</displayName>
+				<unitPattern count="one">{0} ჯოული</unitPattern>
+				<unitPattern count="other">{0} ჯოული</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>კილოკალორია</displayName>
+				<unitPattern count="one">{0} კილოკალორია</unitPattern>
+				<unitPattern count="other">{0} კილოკალორია</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName>კილოჯოული</displayName>
+				<unitPattern count="one">{0} კილოჯოული</unitPattern>
+				<unitPattern count="other">{0} კილოჯოული</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>კილოვატ-საათი</displayName>
+				<unitPattern count="one">{0} კილოვატ-საათი</unitPattern>
+				<unitPattern count="other">{0} კილოვატ-საათი</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>გიგაჰერცი</displayName>
+				<unitPattern count="one">{0} გიგაჰერცი</unitPattern>
+				<unitPattern count="other">{0} გიგაჰერცი</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>ჰერცი</displayName>
+				<unitPattern count="one">{0} ჰერცი</unitPattern>
+				<unitPattern count="other">{0} ჰერცი</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>კილოჰერცი</displayName>
+				<unitPattern count="one">{0} კილოჰერცი</unitPattern>
+				<unitPattern count="other">{0} კილოჰერცი</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>მეგაჰერცი</displayName>
+				<unitPattern count="one">{0} მეგაჰერცი</unitPattern>
+				<unitPattern count="other">{0} მეგაჰერცი</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>ასტრონომიული ერთეული</displayName>
+				<unitPattern count="one">{0} ასტრონომიული ერთეული</unitPattern>
+				<unitPattern count="other">{0} ასტრონომიული ერთეული</unitPattern>
+			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="provisional">სანტიმეტრი</displayName>
+				<displayName>სანტიმეტრი</displayName>
 				<unitPattern count="one">{0} სანტიმეტრი</unitPattern>
 				<unitPattern count="other">{0} სანტიმეტრი</unitPattern>
 			</unit>
+			<unit type="length-decimeter">
+				<displayName>დეციმეტრი</displayName>
+				<unitPattern count="one">{0} დეციმეტრი</unitPattern>
+				<unitPattern count="other">{0} დეციმეტრი</unitPattern>
+			</unit>
 			<unit type="length-foot">
-				<displayName draft="provisional">ფუტი</displayName>
+				<displayName>ფუტი</displayName>
 				<unitPattern count="one">{0} ფუტი</unitPattern>
 				<unitPattern count="other">{0} ფუტი</unitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName draft="provisional">დუიმი</displayName>
+				<displayName>დუიმი</displayName>
 				<unitPattern count="one">{0} დუიმი</unitPattern>
 				<unitPattern count="other">{0} დუიმი</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName draft="provisional">კილომეტრი</displayName>
+				<displayName>კილომეტრი</displayName>
 				<unitPattern count="one">{0} კილომეტრი</unitPattern>
 				<unitPattern count="other">{0} კილომეტრი</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName draft="provisional">სინათლის წელი</displayName>
+				<displayName>სინათლის წელი</displayName>
 				<unitPattern count="one">{0} სინათლის წელი</unitPattern>
 				<unitPattern count="other">{0} სინათლის წელი</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName draft="provisional">მეტრი</displayName>
-				<unitPattern count="one">{0} მეტრი</unitPattern>
-				<unitPattern count="other">{0} მეტრი</unitPattern>
+				<displayName>მეტრი</displayName>
+				<unitPattern count="one">{0}მეტრი</unitPattern>
+				<unitPattern count="other">{0}მეტრი</unitPattern>
+			</unit>
+			<unit type="length-micrometer">
+				<displayName>მიკრომეტრი</displayName>
+				<unitPattern count="one">{0} მიკრომეტრი</unitPattern>
+				<unitPattern count="other">{0} მიკრომეტრი</unitPattern>
 			</unit>
 			<unit type="length-mile">
-				<displayName draft="provisional">მილი</displayName>
+				<displayName>მილი</displayName>
 				<unitPattern count="one">{0} მილი</unitPattern>
 				<unitPattern count="other">{0} მილი</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName draft="provisional">მილიმეტრი</displayName>
+				<displayName>მილიმეტრი</displayName>
 				<unitPattern count="one">{0} მილიმეტრი</unitPattern>
 				<unitPattern count="other">{0} მილიმეტრი</unitPattern>
 			</unit>
+			<unit type="length-nanometer">
+				<displayName>ნანომეტრი</displayName>
+				<unitPattern count="one">{0} ნანომეტრი</unitPattern>
+				<unitPattern count="other">{0} ნანომეტრი</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>საზღვაო მილი</displayName>
+				<unitPattern count="one">{0} საზღვაო მილი</unitPattern>
+				<unitPattern count="other">{0} საზღვაო მილი</unitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>პარსეკი</displayName>
+				<unitPattern count="one">{0} პარსეკი</unitPattern>
+				<unitPattern count="other">{0} პარსეკი</unitPattern>
+			</unit>
 			<unit type="length-picometer">
-				<displayName draft="provisional">პიკომეტრი</displayName>
+				<displayName>პიკომეტრი</displayName>
 				<unitPattern count="one">{0} პიკომეტრი</unitPattern>
 				<unitPattern count="other">{0} პიკომეტრი</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName draft="provisional">იარდი</displayName>
+				<displayName>იარდი</displayName>
 				<unitPattern count="one">{0} იარდი</unitPattern>
 				<unitPattern count="other">{0} იარდი</unitPattern>
 			</unit>
+			<unit type="light-lux">
+				<displayName>ლუქსი</displayName>
+				<unitPattern count="one">{0} ლუქსი</unitPattern>
+				<unitPattern count="other">{0} ლუქსი</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>კარატი</displayName>
+				<unitPattern count="one">{0} კარატი</unitPattern>
+				<unitPattern count="other">{0} კარატი</unitPattern>
+			</unit>
 			<unit type="mass-gram">
-				<displayName draft="provisional">გრამი</displayName>
+				<displayName>გრამი</displayName>
 				<unitPattern count="one">{0} გრამი</unitPattern>
 				<unitPattern count="other">{0} გრამი</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName draft="provisional">კილოგრამი</displayName>
+				<displayName>კილოგრამი</displayName>
 				<unitPattern count="one">{0} კილოგრამი</unitPattern>
 				<unitPattern count="other">{0} კილოგრამი</unitPattern>
 			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>მეტრული ტონა</displayName>
+				<unitPattern count="one">{0} მეტრული ტონა</unitPattern>
+				<unitPattern count="other">{0} მეტრული ტონა</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>მიკროგრამი</displayName>
+				<unitPattern count="one">მიკროგრამი</unitPattern>
+				<unitPattern count="other">{0} მიკროგრამი</unitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>მილიგრამი</displayName>
+				<unitPattern count="one">{0} მილიგრამი</unitPattern>
+				<unitPattern count="other">{0} მილიგრამი</unitPattern>
+			</unit>
 			<unit type="mass-ounce">
-				<displayName draft="provisional">უნცია</displayName>
+				<displayName>უნცია</displayName>
 				<unitPattern count="one">{0} უნცია</unitPattern>
 				<unitPattern count="other">{0} უნცია</unitPattern>
 			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName>ტრუას უნცია</displayName>
+				<unitPattern count="one">{0} ტრუას უნცია</unitPattern>
+				<unitPattern count="other">{0} ტრუას უნცია</unitPattern>
+			</unit>
 			<unit type="mass-pound">
-				<displayName draft="provisional">ფუნტი</displayName>
+				<displayName>ფუნტი</displayName>
 				<unitPattern count="one">{0} ფუნტი</unitPattern>
 				<unitPattern count="other">{0} ფუნტი</unitPattern>
 			</unit>
+			<unit type="mass-ton">
+				<displayName>ტონა</displayName>
+				<unitPattern count="one">{0} ტონა</unitPattern>
+				<unitPattern count="other">{0} ტ</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>გიგავატი</displayName>
+				<unitPattern count="one">{0} გიგავატი</unitPattern>
+				<unitPattern count="other">{0} გიგავატი</unitPattern>
+			</unit>
 			<unit type="power-horsepower">
-				<displayName draft="provisional">ცხენის ძალა</displayName>
+				<displayName>ცხენის ძალა</displayName>
 				<unitPattern count="one">{0} ცხენის ძალა</unitPattern>
 				<unitPattern count="other">{0} ცხენის ძალა</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="provisional">კილოვატი</displayName>
+				<displayName>კილოვატი</displayName>
 				<unitPattern count="one">{0} კილოვატი</unitPattern>
 				<unitPattern count="other">{0} კილოვატი</unitPattern>
 			</unit>
+			<unit type="power-megawatt">
+				<displayName>მეგავატი</displayName>
+				<unitPattern count="one">{0} მეგავატი</unitPattern>
+				<unitPattern count="other">{0} მეგავატი</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>მილივატი</displayName>
+				<unitPattern count="one">{0} მილივატი</unitPattern>
+				<unitPattern count="other">{0} მილივატი</unitPattern>
+			</unit>
 			<unit type="power-watt">
-				<displayName draft="provisional">ვატი</displayName>
+				<displayName>ვატი</displayName>
 				<unitPattern count="one">{0} ვატი</unitPattern>
 				<unitPattern count="other">{0} ვატი</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName draft="provisional">ჰექტოპასკალი</displayName>
+				<displayName>ჰექტოპასკალი</displayName>
 				<unitPattern count="one">{0} ჰექტოპასკალი</unitPattern>
 				<unitPattern count="other">{0} ჰექტოპასკალი</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName draft="provisional">ვერცხლისწყლის დუიმი</displayName>
+				<displayName>ვერცხლისწყლის დუიმი</displayName>
 				<unitPattern count="one">{0} ვერცხლისწყლის დუიმი</unitPattern>
 				<unitPattern count="other">{0} ვერცხლისწყლის დუიმი</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName draft="provisional">მილიბარი</displayName>
+				<displayName>მილიბარი</displayName>
 				<unitPattern count="one">{0} მილიბარი</unitPattern>
 				<unitPattern count="other">{0} მილიბარი</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName>მილიმეტრი ვერცხლისწყლის სვეტისა</displayName>
+				<unitPattern count="one">{0} მილიმეტრი ვერცხლისწყლის სვეტისა</unitPattern>
+				<unitPattern count="other">{0} მილიმეტრი ვერცხლისწყლის სვეტისა</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName>ფუნტი კვადრატულ დუიმზე</displayName>
+				<unitPattern count="one">{0} ფუნტი კვადრატულ დუიმზე</unitPattern>
+				<unitPattern count="other">{0} ფუნტი კვადრატულ დუიმზე</unitPattern>
+			</unit>
+			<unit type="proportion-karat">
+				<displayName>კარატი</displayName>
+				<unitPattern count="one">{0} კარატი</unitPattern>
+				<unitPattern count="other">{0} კარატი</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="provisional">კილომეტრი საათში</displayName>
+				<displayName>კილომეტრი საათში</displayName>
 				<unitPattern count="one">{0} კილომეტრი საათში</unitPattern>
 				<unitPattern count="other">{0} კილომეტრი საათში</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName draft="provisional">მეტრი წამში</displayName>
+				<displayName>მეტრი წამში</displayName>
 				<unitPattern count="one">{0} მეტრი წამში</unitPattern>
 				<unitPattern count="other">{0} მეტრი წამში</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="provisional">მილი საათში</displayName>
+				<displayName>მილი საათში</displayName>
 				<unitPattern count="one">{0} მილი საათში</unitPattern>
 				<unitPattern count="other">{0} მილი საათში</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName draft="provisional">გრადუსი ცელსიუსით</displayName>
+				<displayName>გრადუსი ცელსიუსით</displayName>
 				<unitPattern count="one">{0} გრადუსი ცელსიუსით</unitPattern>
 				<unitPattern count="other">{0} გრადუსი ცელსიუსით</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName draft="provisional">გრადუსი ფარენჰეიტით</displayName>
+				<displayName>გრადუსი ფარენჰეიტით</displayName>
 				<unitPattern count="one">{0} გრადუსი ფარენჰეიტით</unitPattern>
 				<unitPattern count="other">{0} გრადუსი ფარენჰეიტით</unitPattern>
 			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>კელვინის გრადუსი</displayName>
+				<unitPattern count="one">{0} კელვინი</unitPattern>
+				<unitPattern count="other">{0} კელვინის გრადუსი</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>აკრი-ფუტი</displayName>
+				<unitPattern count="one">{0} აკრი-ფუტი</unitPattern>
+				<unitPattern count="other">{0} აკრი-ფუტი</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>სანტილიტრი</displayName>
+				<unitPattern count="one">{0} სანტილიტრი</unitPattern>
+				<unitPattern count="other">{0} სანტილიტრი</unitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>კუბური სანტიმენტრი</displayName>
+				<unitPattern count="one">{0} კუბური სანტიმენტრი</unitPattern>
+				<unitPattern count="other">{0} კუბური სანტიმენტრი</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>კუბური ფუტი</displayName>
+				<unitPattern count="one">{0} კუბური ფუტი</unitPattern>
+				<unitPattern count="other">{0} კუბური ფუტი</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>კუბური დუიმი</displayName>
+				<unitPattern count="one">{0} კუბური დუიმი</unitPattern>
+				<unitPattern count="other">{0} კუბური დუიმი</unitPattern>
+			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName draft="provisional">კუბური კილომეტრი</displayName>
+				<displayName>კუბური კილომეტრი</displayName>
 				<unitPattern count="one">{0} კუბური კილომეტრი</unitPattern>
 				<unitPattern count="other">{0} კუბური კილომეტრი</unitPattern>
 			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>კუბური მეტრი</displayName>
+				<unitPattern count="one">{0} კუბური მეტრი</unitPattern>
+				<unitPattern count="other">{0} კუბური მეტრი</unitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="provisional">კუბური მილი</displayName>
+				<displayName>კუბური მილი</displayName>
 				<unitPattern count="one">{0} კუბური მილი</unitPattern>
 				<unitPattern count="other">{0} კუბური მილი</unitPattern>
 			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>კუბური იარდი</displayName>
+				<unitPattern count="one">{0} კუბური იარდი</unitPattern>
+				<unitPattern count="other">{0} კუბური იარდი</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>ჭიქა</displayName>
+				<unitPattern count="one">{0} ჭიქა</unitPattern>
+				<unitPattern count="other">{0} ჭიქა</unitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>დეცილიტრი</displayName>
+				<unitPattern count="one">{0} დეცილიტრი</unitPattern>
+				<unitPattern count="other">{0} დეცილიტრი</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>თხევადი უნცია</displayName>
+				<unitPattern count="one">{0} თხევადი უნცია</unitPattern>
+				<unitPattern count="other">{0} თხევადი უნცია</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>გალონი</displayName>
+				<unitPattern count="one">{0} გალონი</unitPattern>
+				<unitPattern count="other">{0} გალონი</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>ჰექტოლიტრი</displayName>
+				<unitPattern count="one">{0} ჰექტოლიტრი</unitPattern>
+				<unitPattern count="other">{0} ჰექტოლიტრი</unitPattern>
+			</unit>
 			<unit type="volume-liter">
-				<displayName draft="provisional">ლიტრი</displayName>
+				<displayName>ლიტრი</displayName>
 				<unitPattern count="one">{0} ლიტრი</unitPattern>
 				<unitPattern count="other">{0} ლიტრი</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>მეგალიტრი</displayName>
+				<unitPattern count="one">{0} მეგალიტრი</unitPattern>
+				<unitPattern count="other">{0} მეგალიტრი</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>მილილიტრი</displayName>
+				<unitPattern count="one">{0} მილილიტრი</unitPattern>
+				<unitPattern count="other">{0} მილილიტრი</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>პინტა</displayName>
+				<unitPattern count="one">{0} პინტა</unitPattern>
+				<unitPattern count="other">{0} პინტა</unitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>კვარტა</displayName>
+				<unitPattern count="one">{0} კვარტა</unitPattern>
+				<unitPattern count="other">{0} კვარტა</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>სუფრის კოვზი</displayName>
+				<unitPattern count="one">{0} სუფრის კოვზი</unitPattern>
+				<unitPattern count="other">{0} სუფრის კოვზი</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>ჩაის კოვზი</displayName>
+				<unitPattern count="one">{0} ჩაის კოვზი</unitPattern>
+				<unitPattern count="other">{0} ჩაის კოვზი</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
@@ -5579,234 +6461,591 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName draft="provisional">ინერციის ძალა</displayName>
+				<displayName>ინ. ძ.</displayName>
 				<unitPattern count="one">{0} ინ. ძ.</unitPattern>
 				<unitPattern count="other">{0} ინ. ძ.</unitPattern>
 			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName>მ/წმ²</displayName>
+				<unitPattern count="one">{0} მ/წმ²</unitPattern>
+				<unitPattern count="other">{0} მ/წმ²</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
-				<displayName draft="provisional">წუთი</displayName>
-				<unitPattern count="one">{0} წთ</unitPattern>
-				<unitPattern count="other">{0} წთ</unitPattern>
+				<displayName>მინუტი</displayName>
+				<unitPattern count="one">{0} მინუტი</unitPattern>
+				<unitPattern count="other">{0} მინუტი</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName draft="provisional">წამი</displayName>
-				<unitPattern count="one">{0} წმ</unitPattern>
-				<unitPattern count="other">{0} წმ</unitPattern>
+				<displayName>სეკუნდი</displayName>
+				<unitPattern count="one">{0} სეკუნდი</unitPattern>
+				<unitPattern count="other">{0} სეკუნდი</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="provisional">გრადუსი</displayName>
+				<displayName>გრადუსი</displayName>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<displayName>რადიანი</displayName>
+				<unitPattern count="one">{0} რად.</unitPattern>
+				<unitPattern count="other">{0} რად.</unitPattern>
+			</unit>
 			<unit type="area-acre">
-				<displayName draft="provisional">აკრი</displayName>
+				<displayName>აკრი</displayName>
 				<unitPattern count="one">{0} აკრი</unitPattern>
 				<unitPattern count="other">{0} აკრი</unitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName draft="provisional">ჰექტარი</displayName>
+				<displayName>ჰა</displayName>
 				<unitPattern count="one">{0} ჰა</unitPattern>
 				<unitPattern count="other">{0} ჰა</unitPattern>
 			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>სმ²</displayName>
+				<unitPattern count="one">{0} სმ²</unitPattern>
+				<unitPattern count="other">{0} სმ²</unitPattern>
+			</unit>
 			<unit type="area-square-foot">
-				<displayName draft="provisional">კვადრატული ფუტი</displayName>
+				<displayName>ფუტი²</displayName>
 				<unitPattern count="one">{0} ფტ²</unitPattern>
 				<unitPattern count="other">{0} ფტ²</unitPattern>
 			</unit>
+			<unit type="area-square-inch">
+				<displayName>დუიმი²</displayName>
+				<unitPattern count="one">{0} დუიმი²</unitPattern>
+				<unitPattern count="other">{0} დუიმი²</unitPattern>
+			</unit>
 			<unit type="area-square-kilometer">
-				<displayName draft="provisional">კვადრატული კილომეტრი</displayName>
+				<displayName>კმ²</displayName>
 				<unitPattern count="one">{0} კმ²</unitPattern>
 				<unitPattern count="other">{0} კმ²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="provisional">კვადრატული მეტრი</displayName>
+				<displayName>მ²</displayName>
 				<unitPattern count="one">{0} მ²</unitPattern>
 				<unitPattern count="other">{0} მ²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName draft="provisional">კვადრატული მილი</displayName>
+				<displayName>მილი²</displayName>
 				<unitPattern count="one">{0} მილი²</unitPattern>
 				<unitPattern count="other">{0} მილი²</unitPattern>
 			</unit>
+			<unit type="area-square-yard">
+				<displayName>იარდი²</displayName>
+				<unitPattern count="one">{0} იარდი²</unitPattern>
+				<unitPattern count="other">{0} იარდი²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>ლიტრი/კმ</displayName>
+				<unitPattern count="one">{0} ლ/კმ</unitPattern>
+				<unitPattern count="other">{0} ლ/კმ</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>მილი/გალ.</displayName>
+				<unitPattern count="one">{0} მილი/გალ.</unitPattern>
+				<unitPattern count="other">{0} მილი/გალ.</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>ბიტი</displayName>
+				<unitPattern count="one">{0} ბიტი</unitPattern>
+				<unitPattern count="other">{0} ბიტი</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>ბაიტი</displayName>
+				<unitPattern count="one">{0} ბაიტი</unitPattern>
+				<unitPattern count="other">{0} ბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>გბიტი</displayName>
+				<unitPattern count="one">{0} გბიტი</unitPattern>
+				<unitPattern count="other">{0} გბიტი</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>გბაიტი</displayName>
+				<unitPattern count="one">{0} გბაიტი</unitPattern>
+				<unitPattern count="other">{0} გბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>კბიტი</displayName>
+				<unitPattern count="one">{0} კბიტი</unitPattern>
+				<unitPattern count="other">{0} კბიტი</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>კილობაიტი</displayName>
+				<unitPattern count="one">{0} კბაიტი</unitPattern>
+				<unitPattern count="other">{0} კბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>მბიტი</displayName>
+				<unitPattern count="one">{0} მბიტი</unitPattern>
+				<unitPattern count="other">{0} მბიტი</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>მბაიტი</displayName>
+				<unitPattern count="one">{0} მბაიტი</unitPattern>
+				<unitPattern count="other">{0} მბაიტი</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>ტბიტი</displayName>
+				<unitPattern count="one">{0} ტბიტი</unitPattern>
+				<unitPattern count="other">{0} ტბიტი</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>ტბაიტი</displayName>
+				<unitPattern count="one">{0} ტბაიტი</unitPattern>
+				<unitPattern count="other">{0} ტბაიტი</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<displayName draft="provisional">დღე</displayName>
+				<displayName>დღე</displayName>
 				<unitPattern count="one">{0} დღე</unitPattern>
 				<unitPattern count="other">{0} დღე</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="provisional">საათი</displayName>
+				<displayName>სთ</displayName>
 				<unitPattern count="one">{0} სთ</unitPattern>
 				<unitPattern count="other">{0} სთ</unitPattern>
+				<perUnitPattern>{0}/სთ</perUnitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>მკწმ</displayName>
+				<unitPattern count="one">{0} მკწმ</unitPattern>
+				<unitPattern count="other">{0} მკწმ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName draft="provisional">მილიწამი</displayName>
-				<unitPattern count="one">{0} მწ</unitPattern>
-				<unitPattern count="other">{0} მწ</unitPattern>
+				<displayName>მწმ</displayName>
+				<unitPattern count="one">{0} მწმ</unitPattern>
+				<unitPattern count="other">{0} მწმ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="provisional">წუთი</displayName>
+				<displayName>წთ</displayName>
 				<unitPattern count="one">{0} წთ</unitPattern>
 				<unitPattern count="other">{0} წთ</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="provisional">თვე</displayName>
+				<displayName>თვე</displayName>
 				<unitPattern count="one">{0} თვე</unitPattern>
 				<unitPattern count="other">{0} თვე</unitPattern>
 			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ნწმ</displayName>
+				<unitPattern count="one">{0} ნწმ</unitPattern>
+				<unitPattern count="other">{0} ნწმ</unitPattern>
+			</unit>
 			<unit type="duration-second">
-				<displayName draft="provisional">წამი</displayName>
+				<displayName>წმ</displayName>
 				<unitPattern count="one">{0} წმ</unitPattern>
 				<unitPattern count="other">{0} წმ</unitPattern>
+				<perUnitPattern>{0}/წმ</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="provisional">კვირა</displayName>
+				<displayName>კვრ</displayName>
 				<unitPattern count="one">{0} კვრ</unitPattern>
 				<unitPattern count="other">{0} კვრ</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName draft="provisional">წელი</displayName>
+				<displayName>წ</displayName>
 				<unitPattern count="one">{0} წ</unitPattern>
 				<unitPattern count="other">{0} წ</unitPattern>
 			</unit>
+			<unit type="electric-ampere">
+				<displayName>ამპ</displayName>
+				<unitPattern count="one">{0} ა</unitPattern>
+				<unitPattern count="other">{0} ა</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>მილიამპ.</displayName>
+				<unitPattern count="one">{0} მამპ.</unitPattern>
+				<unitPattern count="other">{0} მამპ.</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>ომი</displayName>
+				<unitPattern count="one">{0} ომ</unitPattern>
+				<unitPattern count="other">{0} ომ</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>ვოლტი</displayName>
+				<unitPattern count="one">{0} ვ</unitPattern>
+				<unitPattern count="other">{0} ვ</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>კალ</displayName>
+				<unitPattern count="one">{0} კალ</unitPattern>
+				<unitPattern count="other">{0} კალ</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>კალ</displayName>
+				<unitPattern count="one">{0} კალ</unitPattern>
+				<unitPattern count="other">{0} კალ</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>ჯოული</displayName>
+				<unitPattern count="one">{0} ჯ</unitPattern>
+				<unitPattern count="other">{0} ჯ</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>კკალ</displayName>
+				<unitPattern count="one">{0} კკალ</unitPattern>
+				<unitPattern count="other">{0} კკალ</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName>კჯ</displayName>
+				<unitPattern count="one">{0} კჯ</unitPattern>
+				<unitPattern count="other">{0} კჯ</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>კვტსთ</displayName>
+				<unitPattern count="one">{0} კვტსთ</unitPattern>
+				<unitPattern count="other">{0} კვტსთ</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>გჰც.</displayName>
+				<unitPattern count="one">{0} გჰც.</unitPattern>
+				<unitPattern count="other">{0} გჰც.</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>ჰც.</displayName>
+				<unitPattern count="one">{0} ჰც.</unitPattern>
+				<unitPattern count="other">{0} ჰც.</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>კჰც.</displayName>
+				<unitPattern count="one">{0} კჰც.</unitPattern>
+				<unitPattern count="other">{0} კჰც.</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>მჰც</displayName>
+				<unitPattern count="one">{0} მჰც</unitPattern>
+				<unitPattern count="other">{0} მჰც</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>ა.ე.</displayName>
+				<unitPattern count="one">{0} ა.ე.</unitPattern>
+				<unitPattern count="other">{0} ა.ე.</unitPattern>
+			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="provisional">სანტიმეტრი</displayName>
+				<displayName>სმ</displayName>
 				<unitPattern count="one">{0} სმ</unitPattern>
 				<unitPattern count="other">{0} სმ</unitPattern>
 			</unit>
+			<unit type="length-decimeter">
+				<displayName>დმ</displayName>
+				<unitPattern count="one">{0} დმ</unitPattern>
+				<unitPattern count="other">{0} დმ</unitPattern>
+			</unit>
 			<unit type="length-foot">
-				<displayName draft="provisional">ფუტი</displayName>
+				<displayName>ფტ</displayName>
 				<unitPattern count="one">{0} ფტ</unitPattern>
 				<unitPattern count="other">{0} ფტ</unitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName draft="provisional">დუიმი</displayName>
-				<unitPattern count="one">{0} დმ</unitPattern>
-				<unitPattern count="other">{0} დმ</unitPattern>
+				<displayName>დუიმი</displayName>
+				<unitPattern count="one">{0} დუიმი</unitPattern>
+				<unitPattern count="other">{0} დუიმი</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName draft="provisional">კილომეტრი</displayName>
+				<displayName>კმ</displayName>
 				<unitPattern count="one">{0} კმ</unitPattern>
 				<unitPattern count="other">{0} კმ</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName draft="provisional">სინათლის წელი</displayName>
+				<displayName>სწ</displayName>
 				<unitPattern count="one">{0} სწ</unitPattern>
 				<unitPattern count="other">{0} სწ</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName draft="provisional">მეტრი</displayName>
+				<displayName>მ</displayName>
 				<unitPattern count="one">{0} მ</unitPattern>
 				<unitPattern count="other">{0} მ</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>მკმ</displayName>
+				<unitPattern count="one">{0} მკმ</unitPattern>
+				<unitPattern count="other">{0} მკმ</unitPattern>
+			</unit>
 			<unit type="length-mile">
-				<displayName draft="provisional">მილი</displayName>
+				<displayName>მილი</displayName>
 				<unitPattern count="one">{0} მილი</unitPattern>
 				<unitPattern count="other">{0} მილი</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName draft="provisional">მილიმეტრი</displayName>
+				<displayName>მმ</displayName>
 				<unitPattern count="one">{0} მმ</unitPattern>
 				<unitPattern count="other">{0} მმ</unitPattern>
 			</unit>
+			<unit type="length-nanometer">
+				<displayName>ნმ</displayName>
+				<unitPattern count="one">{0} ნმ</unitPattern>
+				<unitPattern count="other">{0} ნმ</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>საზღვაო მილი</displayName>
+				<unitPattern count="one">{0} საზღვ. მილი</unitPattern>
+				<unitPattern count="other">{0} საზღვ. მილი</unitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>პს</displayName>
+				<unitPattern count="one">{0} პს</unitPattern>
+				<unitPattern count="other">{0} პს</unitPattern>
+			</unit>
 			<unit type="length-picometer">
-				<displayName draft="provisional">პიკომეტრი</displayName>
+				<displayName>პმ</displayName>
 				<unitPattern count="one">{0} პმ</unitPattern>
 				<unitPattern count="other">{0} პმ</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName draft="provisional">იარდი</displayName>
+				<displayName>იარდი</displayName>
 				<unitPattern count="one">{0} იარდი</unitPattern>
 				<unitPattern count="other">{0} იარდი</unitPattern>
 			</unit>
+			<unit type="light-lux">
+				<displayName>ლუქსი</displayName>
+				<unitPattern count="one">{0} ლუქსი</unitPattern>
+				<unitPattern count="other">{0} ლუქსი</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>კარატი</displayName>
+				<unitPattern count="one">{0} კარ.</unitPattern>
+				<unitPattern count="other">{0} კარ.</unitPattern>
+			</unit>
 			<unit type="mass-gram">
-				<displayName draft="provisional">გრამი</displayName>
+				<displayName>გრამი</displayName>
 				<unitPattern count="one">{0} გ</unitPattern>
 				<unitPattern count="other">{0} გ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName draft="provisional">კილოგრამი</displayName>
+				<displayName>კილოგრამი</displayName>
 				<unitPattern count="one">{0} კგ</unitPattern>
 				<unitPattern count="other">{0} კგ</unitPattern>
 			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>მტ</displayName>
+				<unitPattern count="one">{0} მტ</unitPattern>
+				<unitPattern count="other">{0} მტ</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>მკგ</displayName>
+				<unitPattern count="one">{0} მკგ</unitPattern>
+				<unitPattern count="other">{0} მკგ</unitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>მგ</displayName>
+				<unitPattern count="one">{0} მგ</unitPattern>
+				<unitPattern count="other">{0} მგ</unitPattern>
+			</unit>
 			<unit type="mass-ounce">
-				<displayName draft="provisional">უნცია</displayName>
+				<displayName>უნცია</displayName>
 				<unitPattern count="one">{0} უნც</unitPattern>
 				<unitPattern count="other">{0} უნც</unitPattern>
 			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName>ტრუას უნცია</displayName>
+				<unitPattern count="one">{0} ტრ. უნც.</unitPattern>
+				<unitPattern count="other">{0} ტრ. უნც.</unitPattern>
+			</unit>
 			<unit type="mass-pound">
-				<displayName draft="provisional">ფუნტი</displayName>
+				<displayName>ფუნტი</displayName>
 				<unitPattern count="one">{0} ფნტ</unitPattern>
 				<unitPattern count="other">{0} ფნტ</unitPattern>
 			</unit>
+			<unit type="mass-ton">
+				<displayName>ტონა</displayName>
+				<unitPattern count="one">{0} ტ</unitPattern>
+				<unitPattern count="other">{0} ტ</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>გვტ</displayName>
+				<unitPattern count="one">{0} გვტ</unitPattern>
+				<unitPattern count="other">{0} გვტ</unitPattern>
+			</unit>
 			<unit type="power-horsepower">
-				<displayName draft="provisional">ცხენის ძალა</displayName>
+				<displayName>ცხ. ძ.</displayName>
 				<unitPattern count="one">{0} ცხ. ძ.</unitPattern>
 				<unitPattern count="other">{0} ცხ. ძ.</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="provisional">კილოვატი</displayName>
+				<displayName>კვტ</displayName>
 				<unitPattern count="one">{0} კვტ</unitPattern>
 				<unitPattern count="other">{0} კვტ</unitPattern>
 			</unit>
+			<unit type="power-megawatt">
+				<displayName>მგვტ</displayName>
+				<unitPattern count="one">{0} მგვტ</unitPattern>
+				<unitPattern count="other">{0} მგვტ</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>მლვტ</displayName>
+				<unitPattern count="one">{0} მლვტ</unitPattern>
+				<unitPattern count="other">{0} მლვტ</unitPattern>
+			</unit>
 			<unit type="power-watt">
-				<displayName draft="provisional">ვატი</displayName>
+				<displayName>ვტ</displayName>
 				<unitPattern count="one">{0} ვტ</unitPattern>
 				<unitPattern count="other">{0} ვტ</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName draft="provisional">ჰექტოპასკალი</displayName>
+				<displayName>ჰპა</displayName>
 				<unitPattern count="one">{0} ჰპა</unitPattern>
 				<unitPattern count="other">{0} ჰპა</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName draft="provisional">ვერცხლისწყლის დუიმი</displayName>
+				<displayName>ვრც. დმ.</displayName>
 				<unitPattern count="one">{0} ვრც. დმ.</unitPattern>
 				<unitPattern count="other">{0} ვრც. დმ.</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName draft="provisional">მილიბარი</displayName>
+				<displayName>მბარი</displayName>
 				<unitPattern count="one">{0} მბარი</unitPattern>
 				<unitPattern count="other">{0} მბარი</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName>მმ ვწყ. სვ.</displayName>
+				<unitPattern count="one">{0} მმ ვწყ. სვ.</unitPattern>
+				<unitPattern count="other">{0} მმ ვწყ. სვ.</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName>ფნტ. კვ. დმ.</displayName>
+				<unitPattern count="one">{0} ფნტ. კვ. დმ.</unitPattern>
+				<unitPattern count="other">{0} ფნტ. კვ. დმ.</unitPattern>
+			</unit>
+			<unit type="proportion-karat">
+				<displayName>კარატი</displayName>
+				<unitPattern count="one">{0} კარ.</unitPattern>
+				<unitPattern count="other">{0} კარ.</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="provisional">კილომეტრი საათში</displayName>
+				<displayName>კმ/სთ</displayName>
 				<unitPattern count="one">{0} კმ/სთ</unitPattern>
 				<unitPattern count="other">{0} კმ/სთ</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName draft="provisional">მეტრი წამში</displayName>
+				<displayName>მ/წმ</displayName>
 				<unitPattern count="one">{0} მ/წმ</unitPattern>
 				<unitPattern count="other">{0} მ/წმ</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="provisional">მილი საათში</displayName>
+				<displayName>მილი/სთ</displayName>
 				<unitPattern count="one">{0} მილი/სთ</unitPattern>
 				<unitPattern count="other">{0} მილი/სთ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName draft="provisional">გრადუსი ცელსიუსით</displayName>
+				<displayName>°C</displayName>
 				<unitPattern count="one">{0}°C</unitPattern>
 				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName draft="provisional">გრადუსი ფარენჰეიტით</displayName>
+				<displayName>°F</displayName>
 				<unitPattern count="one">{0}°F</unitPattern>
 				<unitPattern count="other">{0}°F</unitPattern>
 			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>K</displayName>
+				<unitPattern count="one">{0} K</unitPattern>
+				<unitPattern count="other">{0} K</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>აკრ.ფტ.</displayName>
+				<unitPattern count="one">{0} აკრ.ფტ.</unitPattern>
+				<unitPattern count="other">{0} აკრ.ფტ.</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>სლ</displayName>
+				<unitPattern count="one">{0} სლ</unitPattern>
+				<unitPattern count="other">{0} სლ</unitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>სმ³</displayName>
+				<unitPattern count="one">{0} სმ³</unitPattern>
+				<unitPattern count="other">{0} სმ³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>ფუტი³</displayName>
+				<unitPattern count="one">{0} ფტ³</unitPattern>
+				<unitPattern count="other">{0} ფტ³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>დუიმი³</displayName>
+				<unitPattern count="one">{0} დუიმი³</unitPattern>
+				<unitPattern count="other">{0} დუიმი³</unitPattern>
+			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName draft="provisional">კუბური კილომეტრი</displayName>
+				<displayName>კუბური კილომეტრი</displayName>
 				<unitPattern count="one">{0} კმ³</unitPattern>
 				<unitPattern count="other">{0} კმ³</unitPattern>
 			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>მ³</displayName>
+				<unitPattern count="one">{0} მ³</unitPattern>
+				<unitPattern count="other">{0} მ³</unitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="provisional">კუბური მილი</displayName>
+				<displayName>კუბური მილი</displayName>
 				<unitPattern count="one">{0} მილი³</unitPattern>
 				<unitPattern count="other">{0} მილი³</unitPattern>
 			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>იარდი³</displayName>
+				<unitPattern count="one">{0} იარდი³</unitPattern>
+				<unitPattern count="other">{0} იარდი³</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>ჭიქა</displayName>
+				<unitPattern count="one">{0} ჭიქა</unitPattern>
+				<unitPattern count="other">{0} ჭიქა</unitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>დლ</displayName>
+				<unitPattern count="one">{0} დლ</unitPattern>
+				<unitPattern count="other">{0} დლ</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>თხ. უნცია</displayName>
+				<unitPattern count="one">{0} თხ. უნცია</unitPattern>
+				<unitPattern count="other">{0} თხ. უნცია</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>გალონი</displayName>
+				<unitPattern count="one">{0} გალონი</unitPattern>
+				<unitPattern count="other">{0} გალონი</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>ჰლ</displayName>
+				<unitPattern count="one">{0} ჰლ</unitPattern>
+				<unitPattern count="other">{0} ჰლ</unitPattern>
+			</unit>
 			<unit type="volume-liter">
-				<displayName draft="provisional">ლიტრი</displayName>
+				<displayName>ლიტრი</displayName>
 				<unitPattern count="one">{0} ლ</unitPattern>
-				<unitPattern count="other">{0}ლ</unitPattern>
+				<unitPattern count="other">{0} ლ</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>მეგალ.</displayName>
+				<unitPattern count="one">{0} მეგალ.</unitPattern>
+				<unitPattern count="other">{0} მეგალ.</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>მილილ.</displayName>
+				<unitPattern count="one">{0} მილილ.</unitPattern>
+				<unitPattern count="other">{0} მილილ.</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>პინტა</displayName>
+				<unitPattern count="one">{0} პინტა</unitPattern>
+				<unitPattern count="other">{0} პინტა</unitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>კვარტა</displayName>
+				<unitPattern count="one">{0} კვარტა</unitPattern>
+				<unitPattern count="other">{0} კვარტა</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>ს. კოვზი</displayName>
+				<unitPattern count="one">{0} ს. კოვზი</unitPattern>
+				<unitPattern count="other">{0} ს. კოვზი</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>ჩ. კოვზი</displayName>
+				<unitPattern count="one">{0} ჩ. კოვზი</unitPattern>
+				<unitPattern count="other">{0} ჩ. კოვზი</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -5854,38 +7093,47 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} მილი²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName>დღე</displayName>
 				<unitPattern count="one">{0} დღე</unitPattern>
 				<unitPattern count="other">{0} დღე</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<unitPattern count="one">{0} სთ</unitPattern>
-				<unitPattern count="other">{0} სთ</unitPattern>
+				<displayName>საათი</displayName>
+				<unitPattern count="one">{0}სთ</unitPattern>
+				<unitPattern count="other">{0}სთ</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<unitPattern count="one">{0} მწ</unitPattern>
-				<unitPattern count="other">{0} მწ</unitPattern>
+				<displayName>მწმ</displayName>
+				<unitPattern count="one">{0} მწმ</unitPattern>
+				<unitPattern count="other">{0} მწმ</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<unitPattern count="one">{0} წთ</unitPattern>
-				<unitPattern count="other">{0} წთ</unitPattern>
+				<displayName>წთ</displayName>
+				<unitPattern count="one">{0}წთ</unitPattern>
+				<unitPattern count="other">{0}წთ</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName>თვე</displayName>
 				<unitPattern count="one">{0} თვე</unitPattern>
 				<unitPattern count="other">{0} თვე</unitPattern>
 			</unit>
 			<unit type="duration-second">
-				<unitPattern count="one">{0} წმ</unitPattern>
-				<unitPattern count="other">{0} წმ</unitPattern>
+				<displayName>წმ</displayName>
+				<unitPattern count="one">{0}წმ</unitPattern>
+				<unitPattern count="other">{0}წმ</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName>კვრ</displayName>
 				<unitPattern count="one">{0} კვრ</unitPattern>
 				<unitPattern count="other">{0} კვრ</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName>წ</displayName>
 				<unitPattern count="one">{0} წ</unitPattern>
 				<unitPattern count="other">{0} წ</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName>სმ</displayName>
 				<unitPattern count="one">{0} სმ</unitPattern>
 				<unitPattern count="other">{0} სმ</unitPattern>
 			</unit>
@@ -5898,6 +7146,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} დმ</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName>კმ</displayName>
 				<unitPattern count="one">{0} კმ</unitPattern>
 				<unitPattern count="other">{0} კმ</unitPattern>
 			</unit>
@@ -5906,6 +7155,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} სწ</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName>მ</displayName>
 				<unitPattern count="one">{0}მ</unitPattern>
 				<unitPattern count="other">{0}მ</unitPattern>
 			</unit>
@@ -5914,6 +7164,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} მილი</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName>მმ</displayName>
 				<unitPattern count="one">{0} მმ</unitPattern>
 				<unitPattern count="other">{0} მმ</unitPattern>
 			</unit>
@@ -5926,12 +7177,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} იარდი</unitPattern>
 			</unit>
 			<unit type="mass-gram">
-				<unitPattern count="one">{0} გ</unitPattern>
-				<unitPattern count="other">{0} გ</unitPattern>
+				<displayName>გრამი</displayName>
+				<unitPattern count="one">{0}გ</unitPattern>
+				<unitPattern count="other">{0}გ</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<unitPattern count="one">{0} კგ</unitPattern>
-				<unitPattern count="other">{0} კგ</unitPattern>
+				<displayName>კგ</displayName>
+				<unitPattern count="one">{0}კგ</unitPattern>
+				<unitPattern count="other">{0}კგ</unitPattern>
 			</unit>
 			<unit type="mass-ounce">
 				<unitPattern count="one">{0} უნც</unitPattern>
@@ -5966,6 +7219,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} მბრ</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName>კმ/სთ</displayName>
 				<unitPattern count="one">{0} კმ/სთ</unitPattern>
 				<unitPattern count="other">{0} კმ/სთ</unitPattern>
 			</unit>
@@ -5978,8 +7232,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} მილი/სთ</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
+				<displayName>°C</displayName>
+				<unitPattern count="one">{0}°C</unitPattern>
+				<unitPattern count="other">{0}°C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<unitPattern count="one">{0}°F</unitPattern>
@@ -5994,6 +7249,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0} მილი³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName>ლიტრი</displayName>
 				<unitPattern count="one">{0}ლ</unitPattern>
 				<unitPattern count="other">{0}ლ</unitPattern>
 			</unit>
@@ -6021,6 +7277,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="end">{0}, {1}</listPatternPart>
 			<listPatternPart type="2">{0}, {1}</listPatternPart>
 		</listPattern>
+		<listPattern type="unit-narrow">
+			<listPatternPart type="start">{0}, {1}</listPatternPart>
+			<listPatternPart type="middle">{0}, {1}</listPatternPart>
+			<listPatternPart type="end">{0}, {1}</listPatternPart>
+			<listPatternPart type="2">{0}, {1}</listPatternPart>
+		</listPattern>
 		<listPattern type="unit-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
 			<listPatternPart type="middle">{0}, {1}</listPatternPart>
@@ -6035,4 +7297,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

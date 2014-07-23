@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -11,5 +11,229 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<language type="ar"/>
 		<territory type="AE"/>
 	</identity>
+	<localeDisplayNames>
+		<languages>
+			<language type="af" draft="contributed">الأفريقانية</language>
+			<language type="agq" draft="contributed">الأغم</language>
+			<language type="az" draft="contributed">الأذربيجانية</language>
+			<language type="dje" draft="contributed">الزارمية</language>
+			<language type="es_MX" draft="contributed">الإسبانية (المكسيك)</language>
+			<language type="gag" draft="contributed">الغاغوز</language>
+			<language type="guz" draft="contributed">الغيزية</language>
+			<language type="koi" draft="contributed">كومي-بيرماياك</language>
+			<language type="lag" draft="contributed">لانجي</language>
+			<language type="lkt" draft="contributed">لاكوتا</language>
+			<language type="nmg" draft="contributed">كواسيو</language>
+			<language type="quc" draft="contributed">كيشي</language>
+			<language type="shi" draft="contributed">تكلحيت</language>
+		</languages>
+		<territories>
+			<territory type="CI" alt="variant" draft="contributed">ساحل العاج</territory>
+			<territory type="TL" alt="variant" draft="contributed">التيمور الشرقية</territory>
+		</territories>
+		<types>
+			<type type="dangi" key="calendar" draft="contributed">تقويم دانجي</type>
+			<type type="ducet" key="collation" draft="contributed">الإفتراضي Unicode ترتيب</type>
+			<type type="iso8601" key="calendar" draft="contributed">تقويم ISO-8601</type>
+		</types>
+	</localeDisplayNames>
+	<dates>
+		<calendars>
+			<calendar type="gregorian">
+				<dayPeriods>
+					<dayPeriodContext type="format">
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am" draft="contributed">ص</dayPeriod>
+							<dayPeriod type="noon" draft="contributed">ظ</dayPeriod>
+							<dayPeriod type="pm" draft="contributed">م</dayPeriod>
+						</dayPeriodWidth>
+						<dayPeriodWidth type="wide">
+							<dayPeriod type="noon" draft="contributed">ظهرا</dayPeriod>
+						</dayPeriodWidth>
+					</dayPeriodContext>
+				</dayPeriods>
+				<eras>
+					<eraNames>
+						<era type="0" alt="variant" draft="contributed">قبل الميلاد</era>
+						<era type="1" alt="variant" draft="contributed">بعد الميلاد</era>
+					</eraNames>
+					<eraAbbr>
+						<era type="0" alt="variant" draft="contributed">ق.م</era>
+						<era type="1" alt="variant" draft="contributed">ب.م</era>
+					</eraAbbr>
+				</eras>
+				<dateFormats>
+					<dateFormatLength type="medium">
+						<dateFormat>
+							<pattern draft="contributed">dd‏/MM‏/y</pattern>
+						</dateFormat>
+					</dateFormatLength>
+				</dateFormats>
+			</calendar>
+		</calendars>
+		<fields>
+			<field type="year">
+				<relative type="0" draft="contributed">هذه السنة</relative>
+			</field>
+		</fields>
+		<timeZoneNames>
+			<zone type="Europe/Dublin">
+				<long>
+					<daylight draft="contributed">توقيت ايرلندا الصيفي</daylight>
+				</long>
+			</zone>
+			<metazone type="Apia">
+				<long>
+					<generic>توقيت آبيا</generic>
+					<standard>التوقيت الرسمي لآبيا</standard>
+					<daylight>التوقيت الصيفي لأبيا</daylight>
+				</long>
+			</metazone>
+			<metazone type="Argentina_Western">
+				<long>
+					<generic>توقيت غرب الأرجنتين</generic>
+					<standard>توقيت غرب الأرجنتين الرسمي</standard>
+					<daylight>توقيت غرب الأرجنتين الصيفي</daylight>
+				</long>
+			</metazone>
+			<metazone type="French_Guiana">
+				<long>
+					<standard draft="contributed">توقيت غويانا الفرنسية</standard>
+				</long>
+			</metazone>
+		</timeZoneNames>
+	</dates>
+	<numbers>
+		<decimalFormats numberSystem="latn">
+			<decimalFormatLength type="short">
+				<decimalFormat>
+					<pattern type="1000000000" count="zero">0 بليو</pattern>
+					<pattern type="1000000000" count="one">0 بليو</pattern>
+					<pattern type="1000000000" count="two">0 بليو</pattern>
+					<pattern type="1000000000" count="few">0 بليو</pattern>
+					<pattern type="1000000000" count="many">0 بليو</pattern>
+					<pattern type="1000000000" count="other">0 بليو</pattern>
+					<pattern type="10000000000" count="zero">00 بليو</pattern>
+					<pattern type="10000000000" count="one">00 بليو</pattern>
+					<pattern type="10000000000" count="two">00 بليو</pattern>
+					<pattern type="10000000000" count="few">00 بليو</pattern>
+					<pattern type="10000000000" count="many">00 بليو</pattern>
+					<pattern type="10000000000" count="other">00 بليو</pattern>
+					<pattern type="100000000000" count="zero">000 بليو</pattern>
+					<pattern type="100000000000" count="one">000 بليو</pattern>
+					<pattern type="100000000000" count="two">000 بليو</pattern>
+					<pattern type="100000000000" count="few">000 بليو</pattern>
+					<pattern type="100000000000" count="many">000 بليو</pattern>
+					<pattern type="100000000000" count="other">000 بليو</pattern>
+					<pattern type="1000000000000" count="zero">0 ترليو</pattern>
+					<pattern type="1000000000000" count="one">0 ترليو</pattern>
+					<pattern type="1000000000000" count="two">0 ترليو</pattern>
+					<pattern type="1000000000000" count="few">0 ترليو</pattern>
+					<pattern type="1000000000000" count="many">0 ترليو</pattern>
+					<pattern type="1000000000000" count="other">0 ترليو</pattern>
+					<pattern type="10000000000000" count="zero">00 ترليو</pattern>
+					<pattern type="10000000000000" count="one">00 ترليو</pattern>
+					<pattern type="10000000000000" count="two">00 ترليو</pattern>
+					<pattern type="10000000000000" count="few">00 ترليو</pattern>
+					<pattern type="10000000000000" count="many">00 ترليو</pattern>
+					<pattern type="10000000000000" count="other">00 ترليو</pattern>
+					<pattern type="100000000000000" count="zero">000 ترليو</pattern>
+					<pattern type="100000000000000" count="one">000 ترليو</pattern>
+					<pattern type="100000000000000" count="two">000 ترليو</pattern>
+					<pattern type="100000000000000" count="few">000 ترليو</pattern>
+					<pattern type="100000000000000" count="many">000 ترليو</pattern>
+					<pattern type="100000000000000" count="other">000 ترليو</pattern>
+				</decimalFormat>
+			</decimalFormatLength>
+		</decimalFormats>
+		<scientificFormats numberSystem="arab">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="contributed">#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<scientificFormats numberSystem="latn">
+			<scientificFormatLength>
+				<scientificFormat>
+					<pattern draft="contributed">#E0</pattern>
+				</scientificFormat>
+			</scientificFormatLength>
+		</scientificFormats>
+		<currencies>
+			<currency type="BND">
+				<symbol alt="narrow" draft="contributed">$</symbol>
+			</currency>
+		</currencies>
+	</numbers>
+	<units>
+		<unitLength type="short">
+			<unit type="area-square-inch">
+				<unitPattern count="zero">{0} بوصة مربعة</unitPattern>
+				<unitPattern count="one">{0} بوصة مربعة</unitPattern>
+				<unitPattern count="two">{0} بوصة مربعة</unitPattern>
+				<unitPattern count="few">{0} بوصة مربعة</unitPattern>
+				<unitPattern count="many">{0} بوصة مربعة</unitPattern>
+				<unitPattern count="other">{0} بوصة مربعة</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<unitPattern count="zero" draft="contributed">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} بوصة مكعبة</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} بوصة مكعبة</unitPattern>
+			</unit>
+			<unit type="volume-cubic-yard">
+				<unitPattern count="zero">{0} ياردة مكعبة</unitPattern>
+				<unitPattern count="one">{0} ياردة مكعبة</unitPattern>
+				<unitPattern count="two">{0} ياردة مكعبة</unitPattern>
+				<unitPattern count="few">{0} ياردة مكعبة</unitPattern>
+				<unitPattern count="many">{0} ياردة مكعبة</unitPattern>
+				<unitPattern count="other">{0} ياردة مكعبة</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<unitPattern count="zero">{0} من ملاعق المائدة</unitPattern>
+				<unitPattern count="one">{0} ملعقة مائدة</unitPattern>
+				<unitPattern count="two">ملعقتا مائدة</unitPattern>
+				<unitPattern count="few">{0} ملاعق مائدة</unitPattern>
+				<unitPattern count="many">{0} ملعقة مائدة</unitPattern>
+				<unitPattern count="other">{0} من ملاعق المائدة</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<unitPattern count="zero" draft="contributed">{0} من ملاعق الشاي</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} ملعقة شاي</unitPattern>
+				<unitPattern count="two" draft="contributed">ملعقتا شاي</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ملاعق شاي</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ملعقة شاي</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} من ملاعق الشاي</unitPattern>
+			</unit>
+		</unitLength>
+		<unitLength type="narrow">
+			<unit type="duration-millisecond">
+				<unitPattern count="zero" draft="contributed">{0} مللي ث.</unitPattern>
+				<unitPattern count="one" draft="contributed">{0} مللي ث.</unitPattern>
+				<unitPattern count="two" draft="contributed">{0} مللي ث.</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} مللي ث.</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} مللي ث.</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} مللي ث.</unitPattern>
+			</unit>
+			<unit type="duration-week">
+				<unitPattern count="zero">{0} أسبوع</unitPattern>
+				<unitPattern count="one">{0} أسبوع</unitPattern>
+				<unitPattern count="two">{0} أسبوع</unitPattern>
+				<unitPattern count="few">{0} أسبوع</unitPattern>
+				<unitPattern count="many">{0} أسبوع</unitPattern>
+				<unitPattern count="other">{0} أسبوع</unitPattern>
+			</unit>
+			<unit type="length-millimeter">
+				<unitPattern count="zero" draft="contributed">ملم</unitPattern>
+				<unitPattern count="one" draft="contributed">ملم</unitPattern>
+				<unitPattern count="two" draft="contributed">ملم</unitPattern>
+				<unitPattern count="few" draft="contributed">{0} ملم</unitPattern>
+				<unitPattern count="many" draft="contributed">{0} ملم</unitPattern>
+				<unitPattern count="other" draft="contributed">{0} ملم</unitPattern>
+			</unit>
+		</unitLength>
+	</units>
 </ldml>
-

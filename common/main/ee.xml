@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -1192,6 +1192,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="d">E, MMM d 'lia' – E, MMM d 'lia'</greatestDifference>
 							<greatestDifference id="M">E, MMM d 'lia' – E, MMM d 'lia'</greatestDifference>
 						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y" draft="unconfirmed">G y–y</greatestDifference>
+						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">M/y – M/y G</greatestDifference>
 							<greatestDifference id="y">M/y – M/y G</greatestDifference>
@@ -1532,6 +1535,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
 						<dateFormatItem id="Ed">E d</dateFormatItem>
+						<dateFormatItem id="Ehm" draft="unconfirmed">E a 'ga' h:mm</dateFormatItem>
+						<dateFormatItem id="EHm" draft="unconfirmed">E HH:mm</dateFormatItem>
+						<dateFormatItem id="Ehms" draft="unconfirmed">E a 'ga' h:mm:ss</dateFormatItem>
+						<dateFormatItem id="EHms" draft="unconfirmed">E HH:mm:ss</dateFormatItem>
 						<dateFormatItem id="Gy">y G</dateFormatItem>
 						<dateFormatItem id="GyMMM">MMM y G</dateFormatItem>
 						<dateFormatItem id="GyMMMd">MMM d 'lia', y G</dateFormatItem>
@@ -1620,6 +1627,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<intervalFormatItem id="MMMEd">
 							<greatestDifference id="d">E, MMM d 'lia' – E, MMM d 'lia'</greatestDifference>
 							<greatestDifference id="M">E, MMM d 'lia' – E, MMM d 'lia'</greatestDifference>
+						</intervalFormatItem>
+						<intervalFormatItem id="y">
+							<greatestDifference id="y" draft="unconfirmed">y–y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yM">
 							<greatestDifference id="M">M/y – M/y</greatestDifference>
@@ -2012,6 +2022,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<relativeTimePattern count="one">ƒe {0} si va yi</relativeTimePattern>
 					<relativeTimePattern count="other">ƒe {0} si wo va yi</relativeTimePattern>
 				</relativeTime>
+			</field>
+			<field type="quarter">
+				<displayName draft="unconfirmed">kɔta</displayName>
 			</field>
 			<field type="month">
 				<displayName>ɣleti</displayName>
@@ -3942,6 +3955,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</decimalFormatLength>
 			<decimalFormatLength type="short">
 				<decimalFormat>
+					<pattern type="1000" count="one">0K</pattern>
+					<pattern type="1000" count="other">0K</pattern>
+					<pattern type="10000" count="one">00K</pattern>
+					<pattern type="10000" count="other">00K</pattern>
 					<pattern type="100000" count="one">000K</pattern>
 					<pattern type="100000" count="other">000K</pattern>
 					<pattern type="1000000" count="one">0M</pattern>
@@ -5450,32 +5467,49 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<units>
 		<unitLength type="long">
 			<unit type="duration-day">
+				<displayName draft="unconfirmed">ŋkeke</displayName>
 				<unitPattern count="one">ŋkeke {0} wo</unitPattern>
 				<unitPattern count="other">ŋkeke {0} wo</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName draft="unconfirmed">gaƒoƒo</displayName>
 				<unitPattern count="one">gaƒoƒo {0} wo</unitPattern>
 				<unitPattern count="other">gaƒoƒo {0} wo</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName draft="unconfirmed">aɖabaƒoƒo</displayName>
 				<unitPattern count="one">aɖabaƒoƒo {0} wo</unitPattern>
 				<unitPattern count="other">aɖabaƒoƒo {0} wo</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName draft="unconfirmed">ɣleti</displayName>
 				<unitPattern count="one">ɣleti {0} wo</unitPattern>
 				<unitPattern count="other">ɣleti {0} wo</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName draft="unconfirmed">sekend</displayName>
 				<unitPattern count="one">sekend {0} wo</unitPattern>
 				<unitPattern count="other">sekend {0} wo</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName draft="unconfirmed">kɔsiɖa</displayName>
 				<unitPattern count="one">kɔsiɖa {0} wo</unitPattern>
 				<unitPattern count="other">kɔsiɖa {0} wo</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName draft="unconfirmed">ƒe</displayName>
 				<unitPattern count="one">ƒe {0} wo</unitPattern>
 				<unitPattern count="other">ƒe {0} wo</unitPattern>
+			</unit>
+			<unit type="length-kilometer">
+				<displayName draft="unconfirmed">agbadroƒe</displayName>
+				<unitPattern count="one" draft="unconfirmed">agbadroƒe {0}</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">agbadroƒe {0}</unitPattern>
+			</unit>
+			<unit type="length-meter">
+				<displayName draft="unconfirmed">abɔ</displayName>
+				<unitPattern count="one" draft="unconfirmed">abɔ {0}</unitPattern>
+				<unitPattern count="other" draft="unconfirmed">abɔ {0}</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
@@ -5522,6 +5556,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">s {0}</unitPattern>
 			</unit>
 		</unitLength>
+		<durationUnit type="hm">
+			<durationUnitPattern draft="unconfirmed">'ga' h:mm</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="hms">
+			<durationUnitPattern draft="unconfirmed">'ga' h:mm:ss</durationUnitPattern>
+		</durationUnit>
+		<durationUnit type="ms">
+			<durationUnitPattern draft="unconfirmed">aɖabaƒoƒo m:ss</durationUnitPattern>
+		</durationUnit>
 	</units>
 	<listPatterns>
 		<listPattern>
@@ -5538,4 +5581,3 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</messages>
 	</posix>
 </ldml>
-

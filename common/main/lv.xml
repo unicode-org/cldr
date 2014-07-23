@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -141,6 +141,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="en_AU">Austrālijas angļu</language>
 			<language type="en_CA">Kanādas angļu</language>
 			<language type="en_GB">Lielbritānijas angļu</language>
+			<language type="en_GB" alt="short">angļu (Lielbritānija)</language>
 			<language type="en_US">ASV angļu</language>
 			<language type="en_US" alt="short">angļu (ASV)</language>
 			<language type="enm">vidusangļu</language>
@@ -172,6 +173,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="fy">rietumfrīzu</language>
 			<language type="ga">īru</language>
 			<language type="gaa">ga</language>
+			<language type="gag">gagauzu</language>
 			<language type="gay">gajo</language>
 			<language type="gba">gbaju</language>
 			<language type="gd">gēlu</language>
@@ -255,6 +257,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="kmb">kimbundu</language>
 			<language type="kn">kannadu</language>
 			<language type="ko">korejiešu</language>
+			<language type="koi">komiešu-permiešu</language>
 			<language type="kok">konkanu</language>
 			<language type="kos">kosrājiešu</language>
 			<language type="kpe">kpellu</language>
@@ -281,6 +284,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="lez">lezgīnu</language>
 			<language type="lg">gandu</language>
 			<language type="li">limburgiešu</language>
+			<language type="lkt">lakotu</language>
 			<language type="ln">lingala</language>
 			<language type="lo">laosiešu</language>
 			<language type="lol">mongu</language>
@@ -387,6 +391,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="pt_BR">Brazīlijas portugāļu</language>
 			<language type="pt_PT">Eiropas portugāļu</language>
 			<language type="qu">kečvu</language>
+			<language type="quc">kiče</language>
 			<language type="raj">radžastāņu</language>
 			<language type="rap">rapanuju</language>
 			<language type="rar">rarotongiešu</language>
@@ -431,8 +436,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="sl">slovēņu</language>
 			<language type="sm">samoāņu</language>
 			<language type="sma">dienvidsāmu</language>
-			<language type="smj">luleo sāmu</language>
-			<language type="smn">inari sāmu</language>
+			<language type="smj">Luleo sāmu</language>
+			<language type="smn">Inari sāmu</language>
 			<language type="sms">skoltsāmu</language>
 			<language type="sn">šonu</language>
 			<language type="snk">soninku</language>
@@ -722,7 +727,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FI">Somija</territory>
 			<territory type="FJ">Fidži</territory>
 			<territory type="FK">Folklenda salas</territory>
-			<territory type="FK" alt="variant">Folklenda salas (Malvinu salas)</territory>
+			<territory type="FK" alt="variant">Folklenda (Malvinu) salas</territory>
 			<territory type="FM">Mikronēzija</territory>
 			<territory type="FO">Fēru Salas</territory>
 			<territory type="FR">Francija</territory>
@@ -852,7 +857,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="RW">Ruanda</territory>
 			<territory type="SA">Saūda Arābija</territory>
 			<territory type="SB">Zālamana salas</territory>
-			<territory type="SC">Seišeļu salas</territory>
+			<territory type="SC">Šeišelu salas</territory>
 			<territory type="SD">Sudāna</territory>
 			<territory type="SE">Zviedrija</territory>
 			<territory type="SG">Singapūra</territory>
@@ -880,6 +885,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="TJ">Tadžikistāna</territory>
 			<territory type="TK">Tokelau</territory>
 			<territory type="TL">Austrumtimora</territory>
+			<territory type="TL" alt="variant">Austrumtimora</territory>
 			<territory type="TM">Turkmenistāna</territory>
 			<territory type="TN">Tunisija</territory>
 			<territory type="TO">Tonga</territory>
@@ -961,13 +967,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="buddhist" key="calendar">budistu kalendārs</type>
 			<type type="chinese" key="calendar">ķīniešu kalendārs</type>
 			<type type="coptic" key="calendar">Koptu kalendārs</type>
-			<type type="dangi" key="calendar" draft="unconfirmed">dangi kalendārs</type>
+			<type type="dangi" key="calendar">dangi kalendārs</type>
 			<type type="deva" key="numbers">Devanāgarī cipari</type>
 			<type type="dictionary" key="collation">Vārdnīcas kārtošanas secība</type>
 			<type type="ducet" key="collation">Noklusējuma unikoda kārtošanas secība</type>
 			<type type="eor" key="collation" draft="unconfirmed">kārtošanas secība daudzvalodu Eiropas dokumentiem</type>
 			<type type="ethi" key="numbers">Etiopiešu cipari</type>
-			<type type="ethiopic" key="calendar">Etiopiešu kalendārs</type>
+			<type type="ethiopic" key="calendar">etiopiešu kalendārs</type>
 			<type type="ethiopic-amete-alem" key="calendar">Etiopiešu kalendārs</type>
 			<type type="finance" key="numbers">Finanšu cipari</type>
 			<type type="fullwide" key="numbers">Pilna platuma cipari</type>
@@ -989,7 +995,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="indian" key="calendar">Indijas nacionālais kalendārs</type>
 			<type type="islamic" key="calendar">islāma kalendārs</type>
 			<type type="islamic-civil" key="calendar">islāma pilsoņu kalendārs</type>
-			<type type="iso8601" key="calendar" draft="unconfirmed">ISO 8601 kalendārs</type>
+			<type type="iso8601" key="calendar">ISO 8601 kalendārs</type>
 			<type type="japanese" key="calendar">japāņu kalendārs</type>
 			<type type="jpan" key="numbers">Japāņu cipari</type>
 			<type type="jpanfin" key="numbers">Japāņu cipari finanšu dokumentiem</type>
@@ -1010,7 +1016,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<type type="no" key="colNumeric">Kārtot ciparus atsevišķi</type>
 			<type type="non-ignorable" key="colAlternate">Kārtot simbolus</type>
 			<type type="orya" key="numbers">Oriju cipari</type>
-			<type type="persian" key="calendar">Persiešu kalendārs</type>
+			<type type="persian" key="calendar">persiešu kalendārs</type>
 			<type type="phonebook" key="collation">tālruņu grāmatas kārtošanas secība</type>
 			<type type="phonetic" key="collation">Fonētiskā kārtošanas secība</type>
 			<type type="pinyin" key="collation">piņjiņa kārtošanas secība</type>
@@ -1434,10 +1440,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<quarters>
 					<quarterContext type="format">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">C1</quarter>
-							<quarter type="2">C2</quarter>
-							<quarter type="3">C3</quarter>
-							<quarter type="4">C4</quarter>
+							<quarter type="1">1. cet.</quarter>
+							<quarter type="2">2. cet.</quarter>
+							<quarter type="3">3. cet.</quarter>
+							<quarter type="4">4. cet.</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1.</quarter>
@@ -1454,10 +1460,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
-							<quarter type="1">C1</quarter>
-							<quarter type="2">C2</quarter>
-							<quarter type="3">C3</quarter>
-							<quarter type="4">C4</quarter>
+							<quarter type="1">1. cet.</quarter>
+							<quarter type="2">2. cet.</quarter>
+							<quarter type="3">3. cet.</quarter>
+							<quarter type="4">4. cet.</quarter>
 						</quarterWidth>
 						<quarterWidth type="narrow">
 							<quarter type="1">1.</quarter>
@@ -1475,8 +1481,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</quarters>
 				<dayPeriods>
 					<dayPeriodContext type="format">
+						<dayPeriodWidth type="narrow">
+							<dayPeriod type="am">priekšp.</dayPeriod>
+							<dayPeriod type="noon">pusd.</dayPeriod>
+							<dayPeriod type="pm">pēcp.</dayPeriod>
+						</dayPeriodWidth>
 						<dayPeriodWidth type="wide">
 							<dayPeriod type="am">priekšpusdienā</dayPeriod>
+							<dayPeriod type="noon">pusdienlaikā</dayPeriod>
 							<dayPeriod type="pm">pēcpusdienā</dayPeriod>
 						</dayPeriodWidth>
 					</dayPeriodContext>
@@ -1484,11 +1496,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<eras>
 					<eraNames>
 						<era type="0">pirms mūsu ēras</era>
+						<era type="0" alt="variant">pirms mūsu ēras</era>
 						<era type="1">mūsu ērā</era>
+						<era type="1" alt="variant">mūsu ērā</era>
 					</eraNames>
 					<eraAbbr>
 						<era type="0">p.m.ē.</era>
+						<era type="0" alt="variant">p.m.ē.</era>
 						<era type="1">m.ē.</era>
+						<era type="1" alt="variant">m.ē.</era>
 					</eraAbbr>
 					<eraNarrow>
 						<era type="0">p.m.ē.</era>
@@ -1564,6 +1580,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dateTimeFormatLength>
 					<availableFormats>
 						<dateFormatItem id="d">d</dateFormatItem>
+						<dateFormatItem id="E">ccc</dateFormatItem>
 						<dateFormatItem id="Ed">E, d.</dateFormatItem>
 						<dateFormatItem id="Ehm">E, h:mm a</dateFormatItem>
 						<dateFormatItem id="EHm">E, HH:mm</dateFormatItem>
@@ -1597,7 +1614,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<dateFormatItem id="yMMMd">y. 'g'. d. MMM</dateFormatItem>
 						<dateFormatItem id="yMMMEd">E, y. 'g'. d. MMM</dateFormatItem>
 						<dateFormatItem id="yMMMM">y. 'g'. MMMM</dateFormatItem>
-						<dateFormatItem id="yQQQ">QQQ y</dateFormatItem>
+						<dateFormatItem id="yQQQ">y. 'g'. QQQ</dateFormatItem>
 						<dateFormatItem id="yQQQQ">y. 'g'. QQQQ</dateFormatItem>
 					</availableFormats>
 					<appendItems>
@@ -1627,7 +1644,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 						<intervalFormatItem id="hmv">
 							<greatestDifference id="a">h:mm a – h:mm a v</greatestDifference>
 							<greatestDifference id="h">h:mm–h:mm a v</greatestDifference>
-							<greatestDifference id="m">h:mm–h:mm a v</greatestDifference>
+							<greatestDifference id="m">h:mm–h:mm a, v</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="Hmv">
 							<greatestDifference id="H">HH:mm–HH:mm v</greatestDifference>
@@ -1750,106 +1767,319 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="year">
 				<displayName>Gads</displayName>
 				<relative type="-1">pagājušajā gadā</relative>
-				<relative type="0">šogad</relative>
-				<relative type="1">nākamgad</relative>
+				<relative type="0">šajā gadā</relative>
+				<relative type="1">nākamajā gadā</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">Pēc {0} gadiem</relativeTimePattern>
-					<relativeTimePattern count="one">Pēc {0} gada</relativeTimePattern>
-					<relativeTimePattern count="other">Pēc {0} gadiem</relativeTimePattern>
+					<relativeTimePattern count="zero">pēc {0} gadiem</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} gada</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} gadiem</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">Pirms {0} gadiem</relativeTimePattern>
-					<relativeTimePattern count="one">Pirms {0} gada</relativeTimePattern>
-					<relativeTimePattern count="other">Pirms {0} gadiem</relativeTimePattern>
+					<relativeTimePattern count="zero">pirms {0} gadiem</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} gada</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} gadiem</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-short">
+				<displayName>g.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} g.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} g.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} g.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} g.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} g.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} g.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="year-narrow">
+				<displayName>g.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} g.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} g.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} g.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} g.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} g.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} g.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter">
+				<displayName>ceturksnis</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} ceturkšņiem</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} ceturkšņa</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} ceturkšņiem</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} ceturkšņiem</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} ceturkšņa</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} ceturkšņiem</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-short">
+				<displayName>cet.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} cet.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} cet.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} cet.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} cet.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} cet.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} cet.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="quarter-narrow">
+				<displayName>cet.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} cet.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} cet.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} cet.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} cet.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} cet.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} cet.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="month">
 				<displayName>Mēnesis</displayName>
 				<relative type="-1">pagājušajā mēnesī</relative>
-				<relative type="0">šomēnes</relative>
-				<relative type="1">nākammēnes</relative>
+				<relative type="0">šajā mēnesī</relative>
+				<relative type="1">nākamajā mēnesī</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">Pēc {0} mēnešiem</relativeTimePattern>
-					<relativeTimePattern count="one">Pēc {0} mēneša</relativeTimePattern>
-					<relativeTimePattern count="other">Pēc {0} mēnešiem</relativeTimePattern>
+					<relativeTimePattern count="zero">pēc {0} mēnešiem</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} mēneša</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} mēnešiem</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">Pirms {0} mēnešiem</relativeTimePattern>
-					<relativeTimePattern count="one">Pirms {0} mēneša</relativeTimePattern>
-					<relativeTimePattern count="other">Pirms {0} mēnešiem</relativeTimePattern>
+					<relativeTimePattern count="zero">pirms {0} mēnešiem</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} mēneša</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} mēnešiem</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-short">
+				<displayName>mēn.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} mēn.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} mēn.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} mēn.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} mēn.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} mēn.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} mēn.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="month-narrow">
+				<displayName>mēn.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} mēn.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} mēn.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} mēn.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} mēn.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} mēn.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} mēn.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="week">
-				<displayName>Nedēļa</displayName>
+				<displayName>nedēļa</displayName>
 				<relative type="-1">pagājušajā nedēļā</relative>
-				<relative type="0">šonedēļ</relative>
-				<relative type="1">nākamnedēļ</relative>
+				<relative type="0">šajā nedēļā</relative>
+				<relative type="1">nākamajā nedēļā</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">Pēc {0} nedēļām</relativeTimePattern>
-					<relativeTimePattern count="one">Pēc {0} nedēļas</relativeTimePattern>
-					<relativeTimePattern count="other">Pēc {0} nedēļām</relativeTimePattern>
+					<relativeTimePattern count="zero">pēc {0} nedēļām</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} nedēļas</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} nedēļām</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">Pirms {0} nedēļām</relativeTimePattern>
-					<relativeTimePattern count="one">Pirms {0} nedēļas</relativeTimePattern>
-					<relativeTimePattern count="other">Pirms {0} nedēļām</relativeTimePattern>
+					<relativeTimePattern count="zero">pirms {0} nedēļām</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} nedēļas</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} nedēļām</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week-short">
+				<displayName>ned.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} ned.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} ned.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} ned.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} ned.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} ned.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} ned.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="week-narrow">
+				<displayName>ned.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} ned.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} ned.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} ned.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} ned.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} ned.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} ned.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="day">
-				<displayName>Diena</displayName>
+				<displayName>diena</displayName>
 				<relative type="-2">aizvakar</relative>
 				<relative type="-1">vakar</relative>
 				<relative type="0">šodien</relative>
 				<relative type="1">rīt</relative>
 				<relative type="2">parīt</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">Pēc {0} dienām</relativeTimePattern>
-					<relativeTimePattern count="one">Pēc {0} dienas</relativeTimePattern>
-					<relativeTimePattern count="other">Pēc {0} dienām</relativeTimePattern>
+					<relativeTimePattern count="zero">pēc {0} dienām</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} dienas</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} dienām</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">Pirms {0} dienām</relativeTimePattern>
-					<relativeTimePattern count="one">Pirms {0} dienas</relativeTimePattern>
-					<relativeTimePattern count="other">Pirms {0} dienām</relativeTimePattern>
+					<relativeTimePattern count="zero">pirms {0} dienām</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} dienas</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} dienām</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-short">
+				<displayName>d.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} d.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} d.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} d.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} d.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} d.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} d.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="day-narrow">
+				<displayName>d.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} d.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} d.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} d.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} d.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} d.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} d.</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="weekday">
-				<displayName>Nedēļas diena</displayName>
+				<displayName>nedēļas diena</displayName>
 			</field>
 			<field type="sun">
 				<relative type="-1">pagājušajā svētdienā</relative>
-				<relative type="0">šosvētdien</relative>
-				<relative type="1">nākamsvētdien</relative>
+				<relative type="0">šajā svētdienā</relative>
+				<relative type="1">nākamajā svētdienā</relative>
+			</field>
+			<field type="sun-short">
+				<relative type="-1">pag. svētd.</relative>
+				<relative type="0">šajā svētd.</relative>
+				<relative type="1">nāk. svētd.</relative>
+			</field>
+			<field type="sun-narrow">
+				<relative type="-1">pag. svētd.</relative>
+				<relative type="0">šajā svētd.</relative>
+				<relative type="1">nāk. svētd.</relative>
 			</field>
 			<field type="mon">
 				<relative type="-1">pagājušajā pirmdienā</relative>
-				<relative type="0">šopirmdien</relative>
-				<relative type="1">nākampirmdien</relative>
+				<relative type="0">šajā pirmdienā</relative>
+				<relative type="1">nākamajā pirmdienā</relative>
+			</field>
+			<field type="mon-short">
+				<relative type="-1">pag. pirmd.</relative>
+				<relative type="0">šajā pirmd.</relative>
+				<relative type="1">nāk. pirmd.</relative>
+			</field>
+			<field type="mon-narrow">
+				<relative type="-1">pag. pirmd.</relative>
+				<relative type="0">šajā pirmd.</relative>
+				<relative type="1">nāk. pirmd.</relative>
 			</field>
 			<field type="tue">
 				<relative type="-1">pagājušajā otrdienā</relative>
-				<relative type="0">šootrdien</relative>
+				<relative type="0">šajā otrdienā</relative>
 				<relative type="1">nākamajā otrdienā</relative>
+			</field>
+			<field type="tue-short">
+				<relative type="-1">pag. otrd.</relative>
+				<relative type="0">šajā otrd.</relative>
+				<relative type="1">nāk. otrd.</relative>
+			</field>
+			<field type="tue-narrow">
+				<relative type="-1">pag. otrd.</relative>
+				<relative type="0">šajā otrd.</relative>
+				<relative type="1">nāk. otrd.</relative>
 			</field>
 			<field type="wed">
 				<relative type="-1">pagājušajā trešdienā</relative>
-				<relative type="0">šotrešdien</relative>
+				<relative type="0">šajā trešdienā</relative>
 				<relative type="1">nākamajā trešdienā</relative>
+			</field>
+			<field type="wed-short">
+				<relative type="-1">pag. trešd.</relative>
+				<relative type="0">šajā trešd.</relative>
+				<relative type="1">nāk. trešd.</relative>
+			</field>
+			<field type="wed-narrow">
+				<relative type="-1">pag. trešd.</relative>
+				<relative type="0">šajā trešd.</relative>
+				<relative type="1">nāk. trešd.</relative>
 			</field>
 			<field type="thu">
 				<relative type="-1">pagājušajā ceturtdienā</relative>
-				<relative type="0">šoceturtdien</relative>
+				<relative type="0">šajā ceturtdienā</relative>
 				<relative type="1">nākamajā ceturtdienā</relative>
+			</field>
+			<field type="thu-short">
+				<relative type="-1">pag. ceturtd.</relative>
+				<relative type="0">šajā ceturtd.</relative>
+				<relative type="1">nāk. ceturtd.</relative>
+			</field>
+			<field type="thu-narrow">
+				<relative type="-1">pag. ceturtd.</relative>
+				<relative type="0">šajā ceturtd.</relative>
+				<relative type="1">nāk. ceturtd.</relative>
 			</field>
 			<field type="fri">
 				<relative type="-1">pagājušajā piektdienā</relative>
-				<relative type="0">šopiektdien</relative>
+				<relative type="0">šajā piektdienā</relative>
 				<relative type="1">nākamajā piektdienā</relative>
+			</field>
+			<field type="fri-short">
+				<relative type="-1">pag. piektd.</relative>
+				<relative type="0">šajā piektd.</relative>
+				<relative type="1">nāk. piektd.</relative>
+			</field>
+			<field type="fri-narrow">
+				<relative type="-1">pag. piektd.</relative>
+				<relative type="0">šajā piektd.</relative>
+				<relative type="1">nāk. piektd.</relative>
 			</field>
 			<field type="sat">
 				<relative type="-1">pagājušajā sestdienā</relative>
-				<relative type="0">šosestdien</relative>
+				<relative type="0">šajā sestdienā</relative>
 				<relative type="1">nākamajā sestdienā</relative>
+			</field>
+			<field type="sat-short">
+				<relative type="-1">pag. sestd.</relative>
+				<relative type="0">šajā sestd.</relative>
+				<relative type="1">nāk. sestd.</relative>
+			</field>
+			<field type="sat-narrow">
+				<relative type="-1">pag. sestd.</relative>
+				<relative type="0">šajā sestd.</relative>
+				<relative type="1">nāk. sestd.</relative>
 			</field>
 			<field type="dayperiod">
 				<displayName>Priekšpusdienā/pēcpusdienā</displayName>
@@ -1857,41 +2087,119 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<field type="hour">
 				<displayName>Stundas</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">Pēc {0} stundām</relativeTimePattern>
-					<relativeTimePattern count="one">Pēc {0} stundas</relativeTimePattern>
-					<relativeTimePattern count="other">Pēc {0} stundām</relativeTimePattern>
+					<relativeTimePattern count="zero">pēc {0} stundām</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} stundas</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} stundām</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">Pirms {0} stundām</relativeTimePattern>
-					<relativeTimePattern count="one">Pirms {0} stundas</relativeTimePattern>
-					<relativeTimePattern count="other">Pirms {0} stundām</relativeTimePattern>
+					<relativeTimePattern count="zero">pirms {0} stundām</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} stundas</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} stundām</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-short">
+				<displayName>st.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} st.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} st.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} st.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} st.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} st.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} st.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="hour-narrow">
+				<displayName>h</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} h</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} h</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} h</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} h</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} h</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} h</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="minute">
 				<displayName>Minūtes</displayName>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">Pēc {0} minūtēm</relativeTimePattern>
-					<relativeTimePattern count="one">Pēc {0} minūtes</relativeTimePattern>
-					<relativeTimePattern count="other">Pēc {0} minūtēm</relativeTimePattern>
+					<relativeTimePattern count="zero">pēc {0} minūtēm</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} minūtes</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} minūtēm</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">Pirms {0} minūtēm</relativeTimePattern>
-					<relativeTimePattern count="one">Pirms {0} minūtes</relativeTimePattern>
-					<relativeTimePattern count="other">Pirms {0} minūtēm</relativeTimePattern>
+					<relativeTimePattern count="zero">pirms {0} minūtēm</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} minūtes</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} minūtēm</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-short">
+				<displayName>min.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} min.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} min.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} min.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} min.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} min.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} min.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="minute-narrow">
+				<displayName>min</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} min</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} min</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} min</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} min</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} min</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} min</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="second">
 				<displayName>Sekundes</displayName>
 				<relative type="0">tagad</relative>
 				<relativeTime type="future">
-					<relativeTimePattern count="zero">Pēc {0} sekundēm</relativeTimePattern>
-					<relativeTimePattern count="one">Pēc {0} sekundes</relativeTimePattern>
-					<relativeTimePattern count="other">Pēc {0} sekundēm</relativeTimePattern>
+					<relativeTimePattern count="zero">pēc {0} sekundēm</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} sekundes</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} sekundēm</relativeTimePattern>
 				</relativeTime>
 				<relativeTime type="past">
-					<relativeTimePattern count="zero">Pirms {0} sekundēm</relativeTimePattern>
-					<relativeTimePattern count="one">Pirms {0} sekundes</relativeTimePattern>
-					<relativeTimePattern count="other">Pirms {0} sekundēm</relativeTimePattern>
+					<relativeTimePattern count="zero">pirms {0} sekundēm</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} sekundes</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} sekundēm</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-short">
+				<displayName>sek.</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} sek.</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} sek.</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} sek.</relativeTimePattern>
+				</relativeTime>
+			</field>
+			<field type="second-narrow">
+				<displayName>s</displayName>
+				<relativeTime type="future">
+					<relativeTimePattern count="zero">pēc {0} s</relativeTimePattern>
+					<relativeTimePattern count="one">pēc {0} s</relativeTimePattern>
+					<relativeTimePattern count="other">pēc {0} s</relativeTimePattern>
+				</relativeTime>
+				<relativeTime type="past">
+					<relativeTimePattern count="zero">pirms {0} s</relativeTimePattern>
+					<relativeTimePattern count="one">pirms {0} s</relativeTimePattern>
+					<relativeTimePattern count="other">pirms {0} s</relativeTimePattern>
 				</relativeTime>
 			</field>
 			<field type="zone">
@@ -1930,17 +2238,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Yerevan">
 				<exemplarCity>Erevāna</exemplarCity>
 			</zone>
+			<zone type="Africa/Luanda">
+				<exemplarCity>Luanda</exemplarCity>
+			</zone>
 			<zone type="Antarctica/Rothera">
 				<exemplarCity>Rotera</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Palmer">
-				<exemplarCity>Palmera</exemplarCity>
+				<exemplarCity>Pālmera</exemplarCity>
+			</zone>
+			<zone type="Antarctica/Troll">
+				<exemplarCity>Trolla</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Syowa">
-				<exemplarCity>Sjova</exemplarCity>
+				<exemplarCity>Šova</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Mawson">
-				<exemplarCity>Mavsona</exemplarCity>
+				<exemplarCity>Mosona</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Davis">
 				<exemplarCity>Deivisa</exemplarCity>
@@ -1949,7 +2263,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Vostoka</exemplarCity>
 			</zone>
 			<zone type="Antarctica/Casey">
-				<exemplarCity>Kesija</exemplarCity>
+				<exemplarCity>Keisi</exemplarCity>
 			</zone>
 			<zone type="Antarctica/DumontDUrville">
 				<exemplarCity>Dimondirvila</exemplarCity>
@@ -1970,7 +2284,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Ušuaja</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/La_Rioja">
-				<exemplarCity>Larioha</exemplarCity>
+				<exemplarCity>Larjoha</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/San_Luis">
 				<exemplarCity>Sanluisa</exemplarCity>
@@ -1978,14 +2292,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Catamarca">
 				<exemplarCity>Katamarka</exemplarCity>
 			</zone>
+			<zone type="America/Argentina/Salta">
+				<exemplarCity>Salta</exemplarCity>
+			</zone>
 			<zone type="America/Jujuy">
-				<exemplarCity>Žužuja</exemplarCity>
+				<exemplarCity>Huhuja</exemplarCity>
 			</zone>
 			<zone type="America/Argentina/Tucuman">
 				<exemplarCity>Tukumana</exemplarCity>
 			</zone>
 			<zone type="America/Cordoba">
-				<exemplarCity>Kordoba</exemplarCity>
+				<exemplarCity>Kordova</exemplarCity>
 			</zone>
 			<zone type="America/Buenos_Aires">
 				<exemplarCity>Buenosairesa</exemplarCity>
@@ -2000,7 +2317,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Pērta</exemplarCity>
 			</zone>
 			<zone type="Australia/Eucla">
-				<exemplarCity>Jūkla</exemplarCity>
+				<exemplarCity>Jukla</exemplarCity>
 			</zone>
 			<zone type="Australia/Darwin">
 				<exemplarCity>Dārvina</exemplarCity>
@@ -2012,13 +2329,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Brokenhila</exemplarCity>
 			</zone>
 			<zone type="Australia/Currie">
-				<exemplarCity>Kerija</exemplarCity>
+				<exemplarCity>Kari</exemplarCity>
 			</zone>
 			<zone type="Australia/Melbourne">
 				<exemplarCity>Melburna</exemplarCity>
 			</zone>
 			<zone type="Australia/Hobart">
-				<exemplarCity>Hobarta</exemplarCity>
+				<exemplarCity>Hobārta</exemplarCity>
 			</zone>
 			<zone type="Australia/Lindeman">
 				<exemplarCity>Lindemana</exemplarCity>
@@ -2033,10 +2350,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Makvori</exemplarCity>
 			</zone>
 			<zone type="Australia/Lord_Howe">
-				<exemplarCity>Lordhova</exemplarCity>
+				<exemplarCity>Lordhava</exemplarCity>
+			</zone>
+			<zone type="America/Aruba">
+				<exemplarCity>Aruba</exemplarCity>
 			</zone>
 			<zone type="Europe/Mariehamn">
 				<exemplarCity>Mariehamna</exemplarCity>
+			</zone>
+			<zone type="Asia/Baku">
+				<exemplarCity>Baku</exemplarCity>
 			</zone>
 			<zone type="Europe/Sarajevo">
 				<exemplarCity>Sarajeva</exemplarCity>
@@ -2068,6 +2391,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/St_Barthelemy">
 				<exemplarCity>Senbartelmī</exemplarCity>
 			</zone>
+			<zone type="Atlantic/Bermuda">
+				<exemplarCity>Bermuda</exemplarCity>
+			</zone>
 			<zone type="Asia/Brunei">
 				<exemplarCity>Bruneja</exemplarCity>
 			</zone>
@@ -2078,13 +2404,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Krālendeika</exemplarCity>
 			</zone>
 			<zone type="America/Eirunepe">
-				<exemplarCity>Eirenupe</exemplarCity>
+				<exemplarCity>Eirunepe</exemplarCity>
 			</zone>
 			<zone type="America/Rio_Branco">
 				<exemplarCity>Riobranko</exemplarCity>
 			</zone>
 			<zone type="America/Porto_Velho">
-				<exemplarCity>Portuvelju</exemplarCity>
+				<exemplarCity>Portuveļu</exemplarCity>
 			</zone>
 			<zone type="America/Boa_Vista">
 				<exemplarCity>Boavista</exemplarCity>
@@ -2114,10 +2440,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Baija</exemplarCity>
 			</zone>
 			<zone type="America/Fortaleza">
-				<exemplarCity>Fortalesa</exemplarCity>
+				<exemplarCity>Fortaleza</exemplarCity>
 			</zone>
 			<zone type="America/Maceio">
-				<exemplarCity>Maseio</exemplarCity>
+				<exemplarCity>Masejo</exemplarCity>
 			</zone>
 			<zone type="America/Recife">
 				<exemplarCity>Resifi</exemplarCity>
@@ -2128,6 +2454,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Nassau">
 				<exemplarCity>Naso</exemplarCity>
 			</zone>
+			<zone type="Asia/Thimphu">
+				<exemplarCity>Thimphu</exemplarCity>
+			</zone>
+			<zone type="Africa/Gaborone">
+				<exemplarCity>Gaborone</exemplarCity>
+			</zone>
 			<zone type="Europe/Minsk">
 				<exemplarCity>Minska</exemplarCity>
 			</zone>
@@ -2135,7 +2467,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Beliza</exemplarCity>
 			</zone>
 			<zone type="America/Dawson">
-				<exemplarCity>Dausona</exemplarCity>
+				<exemplarCity>Dousona</exemplarCity>
 			</zone>
 			<zone type="America/Whitehorse">
 				<exemplarCity>Vaithorsa</exemplarCity>
@@ -2162,10 +2494,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Sviftkarenta</exemplarCity>
 			</zone>
 			<zone type="America/Cambridge_Bay">
-				<exemplarCity>Kembridžbeja</exemplarCity>
+				<exemplarCity>Keimbridžbeja</exemplarCity>
 			</zone>
 			<zone type="America/Regina">
-				<exemplarCity>Regīna</exemplarCity>
+				<exemplarCity>Ridžaina</exemplarCity>
 			</zone>
 			<zone type="America/Winnipeg">
 				<exemplarCity>Vinipega</exemplarCity>
@@ -2180,7 +2512,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Rankininleta</exemplarCity>
 			</zone>
 			<zone type="America/Coral_Harbour">
-				<exemplarCity>Koralharbora</exemplarCity>
+				<exemplarCity>Atikokana</exemplarCity>
 			</zone>
 			<zone type="America/Thunder_Bay">
 				<exemplarCity>Tanderbeja</exemplarCity>
@@ -2188,17 +2520,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Nipigon">
 				<exemplarCity>Nipigona</exemplarCity>
 			</zone>
+			<zone type="America/Toronto">
+				<exemplarCity>Toronto</exemplarCity>
+			</zone>
 			<zone type="America/Iqaluit">
 				<exemplarCity>Ikaluita</exemplarCity>
 			</zone>
 			<zone type="America/Pangnirtung">
-				<exemplarCity>Pangnirtanga</exemplarCity>
+				<exemplarCity>Pannirtuna</exemplarCity>
 			</zone>
 			<zone type="America/Moncton">
 				<exemplarCity>Monktona</exemplarCity>
 			</zone>
 			<zone type="America/Halifax">
-				<exemplarCity>Halifaksa</exemplarCity>
+				<exemplarCity>Helifeksa</exemplarCity>
 			</zone>
 			<zone type="America/Goose_Bay">
 				<exemplarCity>Gūsbeja</exemplarCity>
@@ -2207,7 +2542,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Gleisbeja</exemplarCity>
 			</zone>
 			<zone type="America/Blanc-Sablon">
-				<exemplarCity>Blanksablona</exemplarCity>
+				<exemplarCity>Blansablona</exemplarCity>
 			</zone>
 			<zone type="America/St_Johns">
 				<exemplarCity>Sentdžonsa</exemplarCity>
@@ -2233,6 +2568,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Africa/Abidjan">
 				<exemplarCity>Abidžana</exemplarCity>
 			</zone>
+			<zone type="Pacific/Rarotonga">
+				<exemplarCity>Rarotonga</exemplarCity>
+			</zone>
 			<zone type="Pacific/Easter">
 				<exemplarCity>Lieldienu sala</exemplarCity>
 			</zone>
@@ -2243,13 +2581,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Duala</exemplarCity>
 			</zone>
 			<zone type="Asia/Kashgar">
-				<exemplarCity>Kašgara</exemplarCity>
+				<exemplarCity>Keškera</exemplarCity>
 			</zone>
 			<zone type="Asia/Urumqi">
 				<exemplarCity>Urumči</exemplarCity>
 			</zone>
 			<zone type="Asia/Chongqing">
-				<exemplarCity>Čuncina</exemplarCity>
+				<exemplarCity>Čuncjina</exemplarCity>
 			</zone>
 			<zone type="Asia/Shanghai">
 				<exemplarCity>Šanhaja</exemplarCity>
@@ -2257,8 +2595,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Harbin">
 				<exemplarCity>Harbina</exemplarCity>
 			</zone>
+			<zone type="America/Bogota">
+				<exemplarCity>Bogota</exemplarCity>
+			</zone>
 			<zone type="America/Costa_Rica">
 				<exemplarCity>Kostarika</exemplarCity>
+			</zone>
+			<zone type="America/Havana">
+				<exemplarCity>Havana</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Cape_Verde">
 				<exemplarCity>Kaboverde</exemplarCity>
@@ -2270,7 +2614,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Ziemsvētku sala</exemplarCity>
 			</zone>
 			<zone type="Asia/Nicosia">
-				<exemplarCity>Nikozija</exemplarCity>
+				<exemplarCity>Nikosija</exemplarCity>
 			</zone>
 			<zone type="Europe/Prague">
 				<exemplarCity>Prāga</exemplarCity>
@@ -2318,13 +2662,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Kanāriju salas</exemplarCity>
 			</zone>
 			<zone type="Africa/Ceuta">
-				<exemplarCity>Seūta</exemplarCity>
+				<exemplarCity>Seuta</exemplarCity>
 			</zone>
 			<zone type="Europe/Madrid">
 				<exemplarCity>Madride</exemplarCity>
 			</zone>
 			<zone type="Africa/Addis_Ababa">
 				<exemplarCity>Adisabeba</exemplarCity>
+			</zone>
+			<zone type="Europe/Helsinki">
+				<exemplarCity>Helsinki</exemplarCity>
 			</zone>
 			<zone type="Pacific/Fiji">
 				<exemplarCity>Fidži</exemplarCity>
@@ -2333,7 +2680,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Stenli</exemplarCity>
 			</zone>
 			<zone type="Pacific/Truk">
-				<exemplarCity>Trūka</exemplarCity>
+				<exemplarCity>Čūka</exemplarCity>
 			</zone>
 			<zone type="Pacific/Ponape">
 				<exemplarCity>Ponpeja</exemplarCity>
@@ -2359,6 +2706,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Grenada">
 				<exemplarCity>Grenāda</exemplarCity>
 			</zone>
+			<zone type="Asia/Tbilisi">
+				<exemplarCity>Tbilisi</exemplarCity>
+			</zone>
 			<zone type="America/Cayenne">
 				<exemplarCity>Kajenna</exemplarCity>
 			</zone>
@@ -2372,13 +2722,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Gibraltārs</exemplarCity>
 			</zone>
 			<zone type="America/Thule">
-				<exemplarCity>Tūle</exemplarCity>
+				<exemplarCity>Tule</exemplarCity>
 			</zone>
 			<zone type="America/Godthab">
 				<exemplarCity>Nūka</exemplarCity>
 			</zone>
 			<zone type="America/Scoresbysund">
-				<exemplarCity>Skoresbisunda</exemplarCity>
+				<exemplarCity>Itokortormita</exemplarCity>
 			</zone>
 			<zone type="America/Danmarkshavn">
 				<exemplarCity>Denmārkšavna</exemplarCity>
@@ -2391,6 +2741,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="America/Guadeloupe">
 				<exemplarCity>Gvadelupa</exemplarCity>
+			</zone>
+			<zone type="Africa/Malabo">
+				<exemplarCity>Malabo</exemplarCity>
 			</zone>
 			<zone type="Europe/Athens">
 				<exemplarCity>Atēnas</exemplarCity>
@@ -2435,11 +2788,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Makasara</exemplarCity>
 			</zone>
 			<zone type="Asia/Jayapura">
-				<exemplarCity>Džajapūra</exemplarCity>
+				<exemplarCity>Džajapura</exemplarCity>
 			</zone>
 			<zone type="Europe/Dublin">
 				<long>
-					<daylight>Īrijas vasaras laiks</daylight>
+					<daylight>Īrijas ziemas laiks</daylight>
 				</long>
 				<exemplarCity>Dublina</exemplarCity>
 			</zone>
@@ -2450,10 +2803,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Menas sala</exemplarCity>
 			</zone>
 			<zone type="Asia/Calcutta">
-				<exemplarCity>Kolkata</exemplarCity>
+				<exemplarCity>Kalkāta</exemplarCity>
 			</zone>
 			<zone type="Indian/Chagos">
-				<exemplarCity>Čagosa</exemplarCity>
+				<exemplarCity>Čagosu arhipelāgs</exemplarCity>
 			</zone>
 			<zone type="Asia/Baghdad">
 				<exemplarCity>Bagdāde</exemplarCity>
@@ -2479,6 +2832,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Tokyo">
 				<exemplarCity>Tokija</exemplarCity>
 			</zone>
+			<zone type="Africa/Nairobi">
+				<exemplarCity>Nairobi</exemplarCity>
+			</zone>
 			<zone type="Asia/Bishkek">
 				<exemplarCity>Biškeka</exemplarCity>
 			</zone>
@@ -2486,7 +2842,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Pnompeņa</exemplarCity>
 			</zone>
 			<zone type="Pacific/Enderbury">
-				<exemplarCity>Enderburija</exemplarCity>
+				<exemplarCity>Enderberija</exemplarCity>
 			</zone>
 			<zone type="Pacific/Kiritimati">
 				<exemplarCity>Kirisimasi</exemplarCity>
@@ -2516,10 +2872,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Aktau</exemplarCity>
 			</zone>
 			<zone type="Asia/Oral">
-				<exemplarCity>Orāla</exemplarCity>
+				<exemplarCity>Orala</exemplarCity>
 			</zone>
 			<zone type="Asia/Aqtobe">
-				<exemplarCity>Aktobe</exemplarCity>
+				<exemplarCity>Aktebe</exemplarCity>
 			</zone>
 			<zone type="Asia/Qyzylorda">
 				<exemplarCity>Kizilorda</exemplarCity>
@@ -2545,6 +2901,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Africa/Monrovia">
 				<exemplarCity>Monrovija</exemplarCity>
 			</zone>
+			<zone type="Africa/Maseru">
+				<exemplarCity>Maseru</exemplarCity>
+			</zone>
 			<zone type="Europe/Vilnius">
 				<exemplarCity>Viļņa</exemplarCity>
 			</zone>
@@ -2566,6 +2925,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Chisinau">
 				<exemplarCity>Kišiņeva</exemplarCity>
 			</zone>
+			<zone type="Europe/Podgorica">
+				<exemplarCity>Podgorica</exemplarCity>
+			</zone>
 			<zone type="America/Marigot">
 				<exemplarCity>Merigota</exemplarCity>
 			</zone>
@@ -2577,6 +2939,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Pacific/Majuro">
 				<exemplarCity>Madžuro</exemplarCity>
+			</zone>
+			<zone type="Europe/Skopje">
+				<exemplarCity>Skopje</exemplarCity>
+			</zone>
+			<zone type="Africa/Bamako">
+				<exemplarCity>Bamako</exemplarCity>
 			</zone>
 			<zone type="Asia/Rangoon">
 				<exemplarCity>Ranguna</exemplarCity>
@@ -2605,29 +2973,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Montserrat">
 				<exemplarCity>Montserrata</exemplarCity>
 			</zone>
+			<zone type="Europe/Malta">
+				<exemplarCity>Malta</exemplarCity>
+			</zone>
 			<zone type="Indian/Mauritius">
 				<exemplarCity>Maurīcija</exemplarCity>
 			</zone>
 			<zone type="Indian/Maldives">
-				<exemplarCity>Maldīvu salas</exemplarCity>
+				<exemplarCity>Maldīvija</exemplarCity>
 			</zone>
 			<zone type="Africa/Blantyre">
 				<exemplarCity>Blantaira</exemplarCity>
 			</zone>
 			<zone type="America/Tijuana">
-				<exemplarCity>Tihuāna</exemplarCity>
+				<exemplarCity>Tihuana</exemplarCity>
 			</zone>
 			<zone type="America/Santa_Isabel">
-				<exemplarCity>Santaizabela</exemplarCity>
+				<exemplarCity>Santaisabela</exemplarCity>
 			</zone>
 			<zone type="America/Hermosillo">
 				<exemplarCity>Ermosiljo</exemplarCity>
 			</zone>
 			<zone type="America/Mazatlan">
-				<exemplarCity>Masatlāna</exemplarCity>
+				<exemplarCity>Masatlana</exemplarCity>
 			</zone>
 			<zone type="America/Chihuahua">
-				<exemplarCity>Čihuahua</exemplarCity>
+				<exemplarCity>Čivava</exemplarCity>
 			</zone>
 			<zone type="America/Bahia_Banderas">
 				<exemplarCity>Bajabanderasa</exemplarCity>
@@ -2636,7 +3007,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Ohinaga</exemplarCity>
 			</zone>
 			<zone type="America/Monterrey">
-				<exemplarCity>Montereja</exemplarCity>
+				<exemplarCity>Monterreja</exemplarCity>
 			</zone>
 			<zone type="America/Mexico_City">
 				<exemplarCity>Mehiko</exemplarCity>
@@ -2644,14 +3015,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Matamoros">
 				<exemplarCity>Matamorosa</exemplarCity>
 			</zone>
+			<zone type="America/Merida">
+				<exemplarCity>Merida</exemplarCity>
+			</zone>
 			<zone type="America/Cancun">
-				<exemplarCity>Kankūna</exemplarCity>
+				<exemplarCity>Kankuna</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuala_Lumpur">
 				<exemplarCity>Kualalumpura</exemplarCity>
 			</zone>
 			<zone type="Asia/Kuching">
-				<exemplarCity>Kučinga</exemplarCity>
+				<exemplarCity>Kučina</exemplarCity>
+			</zone>
+			<zone type="Africa/Maputo">
+				<exemplarCity>Maputu</exemplarCity>
 			</zone>
 			<zone type="Africa/Windhoek">
 				<exemplarCity>Vindhuka</exemplarCity>
@@ -2674,8 +3051,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Amsterdam">
 				<exemplarCity>Amsterdama</exemplarCity>
 			</zone>
+			<zone type="Europe/Oslo">
+				<exemplarCity>Oslo</exemplarCity>
+			</zone>
 			<zone type="Asia/Katmandu">
 				<exemplarCity>Katmandu</exemplarCity>
+			</zone>
+			<zone type="Pacific/Nauru">
+				<exemplarCity>Nauru</exemplarCity>
+			</zone>
+			<zone type="Pacific/Niue">
+				<exemplarCity>Niue</exemplarCity>
 			</zone>
 			<zone type="Pacific/Chatham">
 				<exemplarCity>Četema</exemplarCity>
@@ -2686,17 +3072,26 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Muscat">
 				<exemplarCity>Maskata</exemplarCity>
 			</zone>
+			<zone type="America/Panama">
+				<exemplarCity>Panama</exemplarCity>
+			</zone>
+			<zone type="America/Lima">
+				<exemplarCity>Lima</exemplarCity>
+			</zone>
 			<zone type="Pacific/Tahiti">
 				<exemplarCity>Taiti</exemplarCity>
 			</zone>
 			<zone type="Pacific/Marquesas">
-				<exemplarCity>Markvesa</exemplarCity>
+				<exemplarCity>Marķīza salas</exemplarCity>
 			</zone>
 			<zone type="Pacific/Gambier">
-				<exemplarCity>Gambjera</exemplarCity>
+				<exemplarCity>Gambjē salas</exemplarCity>
 			</zone>
 			<zone type="Pacific/Port_Moresby">
 				<exemplarCity>Portmorsbi</exemplarCity>
+			</zone>
+			<zone type="Asia/Manila">
+				<exemplarCity>Manila</exemplarCity>
 			</zone>
 			<zone type="Asia/Karachi">
 				<exemplarCity>Karāči</exemplarCity>
@@ -2713,14 +3108,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Puerto_Rico">
 				<exemplarCity>Puertoriko</exemplarCity>
 			</zone>
+			<zone type="Asia/Gaza">
+				<exemplarCity>Gaza</exemplarCity>
+			</zone>
 			<zone type="Asia/Hebron">
 				<exemplarCity>Hebrona</exemplarCity>
 			</zone>
 			<zone type="Atlantic/Azores">
 				<exemplarCity>Azoru salas</exemplarCity>
 			</zone>
+			<zone type="Atlantic/Madeira">
+				<exemplarCity>Madeira</exemplarCity>
+			</zone>
 			<zone type="Europe/Lisbon">
 				<exemplarCity>Lisabona</exemplarCity>
+			</zone>
+			<zone type="Pacific/Palau">
+				<exemplarCity>Palau</exemplarCity>
 			</zone>
 			<zone type="America/Asuncion">
 				<exemplarCity>Asunsjona</exemplarCity>
@@ -2748,6 +3152,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Volgograd">
 				<exemplarCity>Volgograda</exemplarCity>
+			</zone>
+			<zone type="Europe/Samara">
+				<exemplarCity>Samara</exemplarCity>
 			</zone>
 			<zone type="Asia/Yekaterinburg">
 				<exemplarCity>Jekaterinburga</exemplarCity>
@@ -2783,7 +3190,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Ustjņera</exemplarCity>
 			</zone>
 			<zone type="Asia/Magadan">
-				<exemplarCity>Magadāna</exemplarCity>
+				<exemplarCity>Magadana</exemplarCity>
 			</zone>
 			<zone type="Asia/Kamchatka">
 				<exemplarCity>Kamčatka</exemplarCity>
@@ -2791,11 +3198,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Anadyr">
 				<exemplarCity>Anadira</exemplarCity>
 			</zone>
+			<zone type="Africa/Kigali">
+				<exemplarCity>Kigali</exemplarCity>
+			</zone>
 			<zone type="Asia/Riyadh">
 				<exemplarCity>Rijāda</exemplarCity>
 			</zone>
 			<zone type="Pacific/Guadalcanal">
 				<exemplarCity>Gvadalkanala</exemplarCity>
+			</zone>
+			<zone type="Indian/Mahe">
+				<exemplarCity>Mae</exemplarCity>
 			</zone>
 			<zone type="Africa/Khartoum">
 				<exemplarCity>Hartūma</exemplarCity>
@@ -2815,6 +3228,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Arctic/Longyearbyen">
 				<exemplarCity>Longjērbīene</exemplarCity>
 			</zone>
+			<zone type="Europe/Bratislava">
+				<exemplarCity>Bratislava</exemplarCity>
+			</zone>
 			<zone type="Africa/Freetown">
 				<exemplarCity>Frītauna</exemplarCity>
 			</zone>
@@ -2826,6 +3242,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Africa/Mogadishu">
 				<exemplarCity>Mogadīšo</exemplarCity>
+			</zone>
+			<zone type="America/Paramaribo">
+				<exemplarCity>Paramaribo</exemplarCity>
 			</zone>
 			<zone type="Africa/Juba">
 				<exemplarCity>Džūba</exemplarCity>
@@ -2842,6 +3261,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Damascus">
 				<exemplarCity>Damaska</exemplarCity>
 			</zone>
+			<zone type="Africa/Mbabane">
+				<exemplarCity>Mbabane</exemplarCity>
+			</zone>
 			<zone type="America/Grand_Turk">
 				<exemplarCity>Grandtkērka</exemplarCity>
 			</zone>
@@ -2849,7 +3271,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Ndžamena</exemplarCity>
 			</zone>
 			<zone type="Indian/Kerguelen">
-				<exemplarCity>Kergelēna</exemplarCity>
+				<exemplarCity>Kergelēna sala</exemplarCity>
+			</zone>
+			<zone type="Africa/Lome">
+				<exemplarCity>Lome</exemplarCity>
 			</zone>
 			<zone type="Asia/Bangkok">
 				<exemplarCity>Bangkoka</exemplarCity>
@@ -2857,17 +3282,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Asia/Dushanbe">
 				<exemplarCity>Dušanbe</exemplarCity>
 			</zone>
+			<zone type="Pacific/Fakaofo">
+				<exemplarCity>Fakaofo</exemplarCity>
+			</zone>
+			<zone type="Asia/Dili">
+				<exemplarCity>Dili</exemplarCity>
+			</zone>
 			<zone type="Asia/Ashgabat">
 				<exemplarCity>Ašgabata</exemplarCity>
 			</zone>
 			<zone type="Africa/Tunis">
 				<exemplarCity>Tunisa</exemplarCity>
 			</zone>
+			<zone type="Pacific/Tongatapu">
+				<exemplarCity>Tongatapu</exemplarCity>
+			</zone>
 			<zone type="Europe/Istanbul">
 				<exemplarCity>Stambula</exemplarCity>
 			</zone>
 			<zone type="America/Port_of_Spain">
 				<exemplarCity>Portofspeina</exemplarCity>
+			</zone>
+			<zone type="Pacific/Funafuti">
+				<exemplarCity>Funafuti</exemplarCity>
 			</zone>
 			<zone type="Asia/Taipei">
 				<exemplarCity>Taibei</exemplarCity>
@@ -2876,7 +3313,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Dāresalāma</exemplarCity>
 			</zone>
 			<zone type="Europe/Uzhgorod">
-				<exemplarCity>Užgoroda</exemplarCity>
+				<exemplarCity>Užhoroda</exemplarCity>
 			</zone>
 			<zone type="Europe/Kiev">
 				<exemplarCity>Kijeva</exemplarCity>
@@ -2884,14 +3321,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Europe/Zaporozhye">
 				<exemplarCity>Zaporožje</exemplarCity>
 			</zone>
+			<zone type="Africa/Kampala">
+				<exemplarCity>Kampala</exemplarCity>
+			</zone>
 			<zone type="Pacific/Midway">
-				<exemplarCity>Midveja</exemplarCity>
+				<exemplarCity>Midvejs</exemplarCity>
 			</zone>
 			<zone type="Pacific/Johnston">
-				<exemplarCity>Džonstauna</exemplarCity>
+				<exemplarCity>Džonstona atols</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wake">
-				<exemplarCity>Veika</exemplarCity>
+				<exemplarCity>Veika sala</exemplarCity>
 			</zone>
 			<zone type="America/Adak">
 				<exemplarCity>Adaka</exemplarCity>
@@ -2899,14 +3339,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Nome">
 				<exemplarCity>Noma</exemplarCity>
 			</zone>
+			<zone type="Pacific/Honolulu">
+				<exemplarCity>Honolulu</exemplarCity>
+			</zone>
 			<zone type="America/Anchorage">
 				<exemplarCity>Ankurāža</exemplarCity>
 			</zone>
 			<zone type="America/Yakutat">
 				<exemplarCity>Jakutata</exemplarCity>
 			</zone>
+			<zone type="America/Sitka">
+				<exemplarCity>Sitka</exemplarCity>
+			</zone>
 			<zone type="America/Juneau">
 				<exemplarCity>Džuno</exemplarCity>
+			</zone>
+			<zone type="America/Metlakatla">
+				<exemplarCity>Metlakatla</exemplarCity>
 			</zone>
 			<zone type="America/Los_Angeles">
 				<exemplarCity>Losandželosa</exemplarCity>
@@ -2921,13 +3370,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Denvera</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Beulah">
-				<exemplarCity>Bjula</exemplarCity>
+				<exemplarCity>Bjula, Ziemeļdakota</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/New_Salem">
-				<exemplarCity>Ņūsalema, Ziemeļdakota</exemplarCity>
+				<exemplarCity>Ņūseilema, Ziemeļdakota</exemplarCity>
 			</zone>
 			<zone type="America/North_Dakota/Center">
-				<exemplarCity>Centra, Ziemeļdakota</exemplarCity>
+				<exemplarCity>Sentera, Ziemeļdakota</exemplarCity>
 			</zone>
 			<zone type="America/Chicago">
 				<exemplarCity>Čikāga</exemplarCity>
@@ -2939,16 +3388,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Vinsensa, Indiāna</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Petersburg">
-				<exemplarCity>Pēterburga, Indiāna</exemplarCity>
+				<exemplarCity>Pītersbērga, Indiāna</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Tell_City">
-				<exemplarCity>Tellsitija, Indiāna</exemplarCity>
+				<exemplarCity>Telsitija, Indiāna</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Knox">
 				<exemplarCity>Noksa, Indiāna</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Winamac">
-				<exemplarCity>Vinimaka, Indiāna</exemplarCity>
+				<exemplarCity>Vinamaka, Indiāna</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Marengo">
 				<exemplarCity>Marengo, Indiāna</exemplarCity>
@@ -2957,19 +3406,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<exemplarCity>Indianapolisa</exemplarCity>
 			</zone>
 			<zone type="America/Louisville">
-				<exemplarCity>Luisvilla</exemplarCity>
+				<exemplarCity>Lūivila</exemplarCity>
 			</zone>
 			<zone type="America/Indiana/Vevay">
 				<exemplarCity>Vīveja, Indiāna</exemplarCity>
 			</zone>
 			<zone type="America/Kentucky/Monticello">
-				<exemplarCity>Montiselo, Kentuki</exemplarCity>
+				<exemplarCity>Montičelo, Kentuki</exemplarCity>
 			</zone>
 			<zone type="America/Detroit">
 				<exemplarCity>Detroita</exemplarCity>
 			</zone>
 			<zone type="America/New_York">
 				<exemplarCity>Ņujorka</exemplarCity>
+			</zone>
+			<zone type="America/Montevideo">
+				<exemplarCity>Montevideo</exemplarCity>
 			</zone>
 			<zone type="Asia/Samarkand">
 				<exemplarCity>Samarkanda</exemplarCity>
@@ -2986,11 +3438,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="America/Caracas">
 				<exemplarCity>Karakasa</exemplarCity>
 			</zone>
+			<zone type="America/Tortola">
+				<exemplarCity>Tortola</exemplarCity>
+			</zone>
 			<zone type="America/St_Thomas">
-				<exemplarCity>Senttomasa sala</exemplarCity>
+				<exemplarCity>Sentomasa</exemplarCity>
 			</zone>
 			<zone type="Asia/Saigon">
 				<exemplarCity>Hošimina</exemplarCity>
+			</zone>
+			<zone type="Pacific/Efate">
+				<exemplarCity>Efate</exemplarCity>
 			</zone>
 			<zone type="Pacific/Wallis">
 				<exemplarCity>Volisa</exemplarCity>
@@ -3006,6 +3464,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Africa/Johannesburg">
 				<exemplarCity>Johannesburga</exemplarCity>
+			</zone>
+			<zone type="Africa/Lusaka">
+				<exemplarCity>Lusaka</exemplarCity>
+			</zone>
+			<zone type="Africa/Harare">
+				<exemplarCity>Harare</exemplarCity>
 			</zone>
 			<metazone type="Afghanistan">
 				<long>
@@ -3024,7 +3488,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Africa_Southern">
 				<long>
-					<standard>Dienvidāfrikas laiks</standard>
+					<standard>Dienvidāfrikas ziemas laiks</standard>
 				</long>
 			</metazone>
 			<metazone type="Africa_Western">
@@ -3083,11 +3547,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<daylight>Anadiras vasaras laiks</daylight>
 				</long>
 			</metazone>
+			<metazone type="Apia">
+				<long>
+					<generic>Apijas laiks</generic>
+					<standard>Apijas ziemas laiks</standard>
+					<daylight>Apijas vasaras laiks</daylight>
+				</long>
+			</metazone>
 			<metazone type="Arabian">
 				<long>
-					<generic>Saūda Arābijas laiks</generic>
-					<standard>Saūda Arābijas ziemas laiks</standard>
-					<daylight>Saūda Arābijas vasaras laiks</daylight>
+					<generic>Arābijas pussalas laiks</generic>
+					<standard>Arābijas pussalas ziemas laiks</standard>
+					<daylight>Arābijas pussalas vasaras laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Argentina">
@@ -3141,7 +3612,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Australia_Western">
 				<long>
-					<generic>Rietumaustrālijas laiks</generic>
+					<generic>Austrālijas rietumu laiks</generic>
 					<standard>Austrālijas rietumu ziemas laiks</standard>
 					<daylight>Austrālijas rietumu vasaras laiks</daylight>
 				</long>
@@ -3311,6 +3782,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<daylight>EEST</daylight>
 				</short>
 			</metazone>
+			<metazone type="Europe_Further_Eastern">
+				<long>
+					<standard>Austrumeiropas laika josla (FET)</standard>
+				</long>
+			</metazone>
 			<metazone type="Europe_Western">
 				<long>
 					<generic>Rietumeiropas laiks</generic>
@@ -3395,7 +3871,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</metazone>
 			<metazone type="Guyana">
 				<long>
-					<standard>Gvijānas laiks</standard>
+					<standard>Gajānas laiks</standard>
 				</long>
 			</metazone>
 			<metazone type="Hawaii_Aleutian">
@@ -3526,7 +4002,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Lord_Howe">
 				<long>
 					<generic>Lorda Hava salas laiks</generic>
-					<standard>Lorda Hava salas standarta laiks</standard>
+					<standard>Lorda Hava salas ziemas laiks</standard>
 					<daylight>Lorda Hava salas vasaras laiks</daylight>
 				</long>
 			</metazone>
@@ -3538,8 +4014,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Magadan">
 				<long>
 					<generic>Magadanas laiks</generic>
-					<standard>Magadānas ziemas laiks</standard>
-					<daylight>Magadānas vasaras laiks</daylight>
+					<standard>Magadanas ziemas laiks</standard>
+					<daylight>Magadanas vasaras laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Malaysia">
@@ -3572,6 +4048,20 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Mawson">
 				<long>
 					<standard>Mosonas laiks</standard>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Northwest">
+				<long>
+					<generic>Ziemeļrietumu Meksikas laiks</generic>
+					<standard>Ziemeļrietumu Meksikas ziemas laiks</standard>
+					<daylight>Ziemeļrietumu Meksikas vasaras laiks</daylight>
+				</long>
+			</metazone>
+			<metazone type="Mexico_Pacific">
+				<long>
+					<generic>Meksikas Klusā okeāna piekrastes laiks</generic>
+					<standard>Meksikas Klusā okeāna piekrastes ziemas laiks</standard>
+					<daylight>Meksikas Klusā okeāna piekrastes vasaras laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Mongolia">
@@ -3613,14 +4103,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="New_Zealand">
 				<long>
 					<generic>Jaunzēlandes laiks</generic>
-					<standard>Jaunzēlandes standarta laiks</standard>
+					<standard>Jaunzēlandes ziemas laiks</standard>
 					<daylight>Jaunzēlandes vasaras laiks</daylight>
 				</long>
 			</metazone>
 			<metazone type="Newfoundland">
 				<long>
 					<generic>Ņūfaundlendas laiks</generic>
-					<standard>Ņūfaundlendas standarta laiks</standard>
+					<standard>Ņūfaundlendas ziemas laiks</standard>
 					<daylight>Ņūfaundlendas vasaras laiks</daylight>
 				</long>
 			</metazone>
@@ -3742,7 +4232,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<metazone type="Samoa">
 				<long>
 					<generic>Samoa laiks</generic>
-					<standard>Samoa standarta laiks</standard>
+					<standard>Samoa ziemas laiks</standard>
 					<daylight>Samoa vasaras laiks</daylight>
 				</long>
 			</metazone>
@@ -3894,6 +4384,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</timeZoneNames>
 	</dates>
 	<numbers>
+		<defaultNumberingSystem draft="contributed">latn</defaultNumberingSystem>
+		<otherNumberingSystems>
+			<native draft="contributed">latn</native>
+		</otherNumberingSystems>
+		<minimumGroupingDigits draft="contributed">3</minimumGroupingDigits>
 		<symbols numberSystem="latn">
 			<decimal>,</decimal>
 			<group> </group>
@@ -3902,10 +4397,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<plusSign>+</plusSign>
 			<minusSign>-</minusSign>
 			<exponential>E</exponential>
-			<superscriptingExponent>·</superscriptingExponent>
+			<superscriptingExponent>×</superscriptingExponent>
 			<perMille>‰</perMille>
 			<infinity>∞</infinity>
 			<nan>nav skaitlis</nan>
+			<timeSeparator draft="contributed">:</timeSeparator>
 		</symbols>
 		<decimalFormats numberSystem="latn">
 			<decimalFormatLength>
@@ -4011,10 +4507,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<currencyFormats numberSystem="latn">
 			<currencyFormatLength>
 				<currencyFormat type="standard">
-					<pattern>¤#,##0.00</pattern>
+					<pattern>¤#0.00</pattern>
 				</currencyFormat>
 				<currencyFormat type="accounting">
-					<pattern>¤#,##0.00</pattern>
+					<pattern>¤#0.00</pattern>
 				</currencyFormat>
 			</currencyFormatLength>
 			<unitPattern count="zero">{0} {1}</unitPattern>
@@ -4024,45 +4520,53 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<currencies>
 			<currency type="AED">
 				<displayName>Apvienoto Arābu Emirātu dirhēms</displayName>
-				<displayName count="zero">Apvienoto Arābu Emirātu dirhēmi</displayName>
-				<displayName count="one">Apvienoto Arābu Emirātu dirhēms</displayName>
-				<displayName count="other">Apvienoto Arābu Emirātu dirhēmi</displayName>
+				<displayName count="zero">AAE dirhēmi</displayName>
+				<displayName count="one">AAE dirhēms</displayName>
+				<displayName count="other">AAE dirhēmi</displayName>
+				<symbol>AED</symbol>
 			</currency>
 			<currency type="AFN">
 				<displayName>Afganistānas afgāns</displayName>
 				<displayName count="zero">Afganistānas afgāni</displayName>
 				<displayName count="one">Afganistānas afgāns</displayName>
 				<displayName count="other">Afganistānas afgāni</displayName>
+				<symbol>AFN</symbol>
 			</currency>
 			<currency type="ALL">
 				<displayName>Albānijas leks</displayName>
 				<displayName count="zero">Albānijas leki</displayName>
 				<displayName count="one">Albānijas leks</displayName>
 				<displayName count="other">Albānijas leki</displayName>
+				<symbol>ALL</symbol>
 			</currency>
 			<currency type="AMD">
 				<displayName>Armēnijas drams</displayName>
 				<displayName count="zero">Armēnijas drami</displayName>
 				<displayName count="one">Armēnijas drams</displayName>
 				<displayName count="other">Armēnijas drami</displayName>
+				<symbol>AMD</symbol>
 			</currency>
 			<currency type="ANG">
 				<displayName>Nīderlandes Antiļu guldenis</displayName>
 				<displayName count="zero">Nīderlandes Antiļu guldeņi</displayName>
 				<displayName count="one">Nīderlandes Antiļu guldenis</displayName>
 				<displayName count="other">Nīderlandes Antiļu guldeņi</displayName>
+				<symbol>ANG</symbol>
 			</currency>
 			<currency type="AOA">
 				<displayName>Angolas kvanza</displayName>
 				<displayName count="zero">Angolas kvanzas</displayName>
 				<displayName count="one">Angolas kvanza</displayName>
 				<displayName count="other">Angolas kvanzas</displayName>
+				<symbol>AOA</symbol>
 			</currency>
 			<currency type="ARS">
 				<displayName>Argentīnas peso</displayName>
 				<displayName count="zero">Argentīnas peso</displayName>
 				<displayName count="one">Argentīnas peso</displayName>
 				<displayName count="other">Argentīnas peso</displayName>
+				<symbol>ARS</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="ATS">
 				<displayName>Austrijas šiliņš</displayName>
@@ -4073,12 +4577,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Austrālijas dolārs</displayName>
 				<displayName count="other">Austrālijas dolāri</displayName>
 				<symbol>AU$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="AWG">
 				<displayName>Arubas guldenis</displayName>
 				<displayName count="zero">Arubas guldeņi</displayName>
 				<displayName count="one">Arubas guldenis</displayName>
 				<displayName count="other">Arubas guldeņi</displayName>
+				<symbol>AWG</symbol>
 			</currency>
 			<currency type="AZM">
 				<displayName>Azerbaidžānas manats (1993–2006)</displayName>
@@ -4091,24 +4597,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Azerbaidžānas manati</displayName>
 				<displayName count="one">Azerbaidžānas manats</displayName>
 				<displayName count="other">Azerbaidžānas manati</displayName>
+				<symbol>AZN</symbol>
 			</currency>
 			<currency type="BAM">
 				<displayName>Bosnijas un Hercogovinas marka</displayName>
 				<displayName count="zero">Bosnijas un Hercogovinas markas</displayName>
 				<displayName count="one">Bosnijas un Hercogovinas marka</displayName>
 				<displayName count="other">Bosnijas un Hercogovinas markas</displayName>
+				<symbol>BAM</symbol>
 			</currency>
 			<currency type="BBD">
 				<displayName>Barbadosas dolārs</displayName>
 				<displayName count="zero">Barbadosas dolāri</displayName>
 				<displayName count="one">Barbadosas dolārs</displayName>
 				<displayName count="other">Barbadosas dolāri</displayName>
+				<symbol>BBD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BDT">
 				<displayName>Bangladešas taka</displayName>
 				<displayName count="zero">Bangladešas takas</displayName>
 				<displayName count="one">Bangladešas taka</displayName>
 				<displayName count="other">Bangladešas takas</displayName>
+				<symbol>BDT</symbol>
+				<symbol alt="narrow" draft="contributed">৳</symbol>
 			</currency>
 			<currency type="BEF">
 				<displayName>Beļģijas franks</displayName>
@@ -4121,36 +4633,44 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Bulgārijas levas</displayName>
 				<displayName count="one">Bulgārijas leva</displayName>
 				<displayName count="other">Bulgārijas levas</displayName>
+				<symbol>BGN</symbol>
 			</currency>
 			<currency type="BHD">
 				<displayName>Bahreinas dinārs</displayName>
 				<displayName count="zero">Bahreinas dināri</displayName>
 				<displayName count="one">Bahreinas dinārs</displayName>
 				<displayName count="other">Bahreinas dināri</displayName>
+				<symbol>BHD</symbol>
 			</currency>
 			<currency type="BIF">
 				<displayName>Burundi franks</displayName>
 				<displayName count="zero">Burundi franki</displayName>
 				<displayName count="one">Burundi franks</displayName>
 				<displayName count="other">Burundi franki</displayName>
+				<symbol>BIF</symbol>
 			</currency>
 			<currency type="BMD">
 				<displayName>Bermudu dolārs</displayName>
 				<displayName count="zero">Bermudu dolāri</displayName>
 				<displayName count="one">Bermudu dolārs</displayName>
 				<displayName count="other">Bermudu dolāri</displayName>
+				<symbol>BMD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BND">
 				<displayName>Brunejas dolārs</displayName>
 				<displayName count="zero">Brunejas dolāri</displayName>
 				<displayName count="one">Brunejas dolārs</displayName>
 				<displayName count="other">Brunejas dolāri</displayName>
+				<symbol>BND</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BOB">
 				<displayName>Bolīvijas boliviano</displayName>
 				<displayName count="zero">Bolīvijas boliviano</displayName>
 				<displayName count="one">Bolīvijas boliviano</displayName>
 				<displayName count="other">Bolīvijas boliviano</displayName>
+				<symbol>BOB</symbol>
 			</currency>
 			<currency type="BRL">
 				<displayName>Brazīlijas reāls</displayName>
@@ -4158,36 +4678,45 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Brazīlijas reāls</displayName>
 				<displayName count="other">Brazīlijas reāli</displayName>
 				<symbol>R$</symbol>
+				<symbol alt="narrow" draft="contributed">R$</symbol>
 			</currency>
 			<currency type="BSD">
 				<displayName>Bahamu dolārs</displayName>
 				<displayName count="zero">Bahamu dolāri</displayName>
 				<displayName count="one">Bahamu dolārs</displayName>
 				<displayName count="other">Bahamu dolāri</displayName>
+				<symbol>BSD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="BTN">
 				<displayName>Butānas ngultrums</displayName>
 				<displayName count="zero">Butānas ngultrumi</displayName>
 				<displayName count="one">Butānas ngultrums</displayName>
 				<displayName count="other">Butānas ngultrumi</displayName>
+				<symbol>BTN</symbol>
 			</currency>
 			<currency type="BWP">
-				<displayName>Botsvānas pula</displayName>
-				<displayName count="zero">Botsvānas pulas</displayName>
-				<displayName count="one">Botsvānas pula</displayName>
-				<displayName count="other">Botsvānas pulas</displayName>
+				<displayName>Botsvanas pula</displayName>
+				<displayName count="zero">Botsvanas pulas</displayName>
+				<displayName count="one">Botsvanas pula</displayName>
+				<displayName count="other">Botsvanas pulas</displayName>
+				<symbol>BWP</symbol>
 			</currency>
 			<currency type="BYR">
 				<displayName>Baltkrievijas rubelis</displayName>
 				<displayName count="zero">Baltkrievijas rubeļi</displayName>
 				<displayName count="one">Baltkrievijas rubelis</displayName>
 				<displayName count="other">Baltkrievijas rubeļi</displayName>
+				<symbol>BYR</symbol>
+				<symbol alt="narrow" draft="contributed">р.</symbol>
 			</currency>
 			<currency type="BZD">
 				<displayName>Belizas dolārs</displayName>
 				<displayName count="zero">Belizas dolāri</displayName>
 				<displayName count="one">Belizas dolārs</displayName>
 				<displayName count="other">Belizas dolāri</displayName>
+				<symbol>BZD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CAD">
 				<displayName>Kanādas dolārs</displayName>
@@ -4195,24 +4724,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Kanādas dolārs</displayName>
 				<displayName count="other">Kanādas dolāri</displayName>
 				<symbol>CA$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CDF">
 				<displayName>KDR franks</displayName>
 				<displayName count="zero">KDR franki</displayName>
 				<displayName count="one">KDR franks</displayName>
 				<displayName count="other">KDR franki</displayName>
+				<symbol>CDF</symbol>
 			</currency>
 			<currency type="CHF">
 				<displayName>Šveices franks</displayName>
 				<displayName count="zero">Šveices franki</displayName>
 				<displayName count="one">Šveices franks</displayName>
 				<displayName count="other">Šveices franki</displayName>
+				<symbol>CHF</symbol>
 			</currency>
 			<currency type="CLP">
 				<displayName>Čīles peso</displayName>
 				<displayName count="zero">Čīles peso</displayName>
 				<displayName count="one">Čīles peso</displayName>
 				<displayName count="other">Čīles peso</displayName>
+				<symbol>CLP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CNY">
 				<displayName>Ķīnas juaņs</displayName>
@@ -4220,12 +4754,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Ķīnas juaņs</displayName>
 				<displayName count="other">Ķīnas juaņi</displayName>
 				<symbol>CN¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="COP">
 				<displayName>Kolumbijas peso</displayName>
 				<displayName count="zero">Kolumbijas peso</displayName>
 				<displayName count="one">Kolumbijas peso</displayName>
 				<displayName count="other">Kolumbijas peso</displayName>
+				<symbol>COP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="COU">
 				<displayName>Kolumbijas reāls</displayName>
@@ -4235,24 +4772,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Kostarikas koloni</displayName>
 				<displayName count="one">Kostarikas kolons</displayName>
 				<displayName count="other">Kostarikas koloni</displayName>
+				<symbol>CRC</symbol>
+				<symbol alt="narrow" draft="contributed">₡</symbol>
 			</currency>
 			<currency type="CUC">
 				<displayName>Kubas konvertējamais peso</displayName>
 				<displayName count="zero">Kubas konvertējamie peso</displayName>
 				<displayName count="one">Kubas konvertējamais peso</displayName>
 				<displayName count="other">Kubas konvertējamie peso</displayName>
+				<symbol>CUC</symbol>
 			</currency>
 			<currency type="CUP">
 				<displayName>Kubas peso</displayName>
 				<displayName count="zero">Kubas peso</displayName>
 				<displayName count="one">Kubas peso</displayName>
 				<displayName count="other">Kubas peso</displayName>
+				<symbol>CUP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="CVE">
 				<displayName>Kaboverdes eskudo</displayName>
 				<displayName count="zero">Kaboverdes eskudo</displayName>
 				<displayName count="one">Kaboverdes eskudo</displayName>
 				<displayName count="other">Kaboverdes eskudo</displayName>
+				<symbol>CVE</symbol>
 			</currency>
 			<currency type="CYP">
 				<displayName>Kipras mārciņa</displayName>
@@ -4262,6 +4805,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Čehijas kronas</displayName>
 				<displayName count="one">Čehijas krona</displayName>
 				<displayName count="other">Čehijas kronas</displayName>
+				<symbol>CZK</symbol>
 			</currency>
 			<currency type="DEM">
 				<displayName>Vācijas marka</displayName>
@@ -4271,24 +4815,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Džibutijas franki</displayName>
 				<displayName count="one">Džibutijas franks</displayName>
 				<displayName count="other">Džibutijas franki</displayName>
+				<symbol>DJF</symbol>
 			</currency>
 			<currency type="DKK">
 				<displayName>Dānijas krona</displayName>
 				<displayName count="zero">Dānijas kronas</displayName>
 				<displayName count="one">Dānijas krona</displayName>
 				<displayName count="other">Dānijas kronas</displayName>
+				<symbol>DKK</symbol>
 			</currency>
 			<currency type="DOP">
 				<displayName>Dominikānas peso</displayName>
 				<displayName count="zero">Dominikānas peso</displayName>
 				<displayName count="one">Dominikānas peso</displayName>
 				<displayName count="other">Dominikānas peso</displayName>
+				<symbol>DOP</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="DZD">
 				<displayName>Alžīrijas dinārs</displayName>
 				<displayName count="zero">Alžīrijas dināri</displayName>
 				<displayName count="one">Alžīrijas dinārs</displayName>
 				<displayName count="other">Alžīrijas dināri</displayName>
+				<symbol>DZD</symbol>
 			</currency>
 			<currency type="EEK">
 				<displayName>Igaunijas krona</displayName>
@@ -4298,12 +4847,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Ēģiptes mārciņas</displayName>
 				<displayName count="one">Ēģiptes mārciņa</displayName>
 				<displayName count="other">Ēģiptes mārciņas</displayName>
+				<symbol>EGP</symbol>
 			</currency>
 			<currency type="ERN">
 				<displayName>Eritrejas nakfa</displayName>
 				<displayName count="zero">Eritrejas nakfas</displayName>
 				<displayName count="one">Eritrejas nakfa</displayName>
 				<displayName count="other">Eritrejas nakfas</displayName>
+				<symbol>ERN</symbol>
 			</currency>
 			<currency type="ESP">
 				<displayName>Spānijas peseta</displayName>
@@ -4313,6 +4864,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Etiopijas biri</displayName>
 				<displayName count="one">Etiopijas birs</displayName>
 				<displayName count="other">Etiopijas biri</displayName>
+				<symbol>ETB</symbol>
 			</currency>
 			<currency type="EUR">
 				<displayName>eiro</displayName>
@@ -4320,6 +4872,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">eiro</displayName>
 				<displayName count="other">eiro</displayName>
 				<symbol>€</symbol>
+				<symbol alt="narrow" draft="contributed">€</symbol>
 			</currency>
 			<currency type="FIM">
 				<displayName>Somijas marka</displayName>
@@ -4329,12 +4882,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Fidži dolāri</displayName>
 				<displayName count="one">Fidži dolārs</displayName>
 				<displayName count="other">Fidži dolāri</displayName>
+				<symbol>FJD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="FKP">
-				<displayName>Folklenda salu mārciņa</displayName>
-				<displayName count="zero">Folklenda salu mārciņas</displayName>
-				<displayName count="one">Folklenda salu mārciņa</displayName>
-				<displayName count="other">Folklenda salu mārciņas</displayName>
+				<displayName>Folklenda Salu mārciņa</displayName>
+				<displayName count="zero">Folklenda Salu mārciņas</displayName>
+				<displayName count="one">Folklenda Salu mārciņa</displayName>
+				<displayName count="other">Folklenda Salu mārciņas</displayName>
+				<symbol>FKP</symbol>
 			</currency>
 			<currency type="FRF">
 				<displayName>Francijas franks</displayName>
@@ -4345,36 +4901,44 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Lielbritānijas sterliņu mārciņa</displayName>
 				<displayName count="other">Lielbritānijas sterliņu mārciņas</displayName>
 				<symbol>£</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GEL">
 				<displayName>Gruzijas lari</displayName>
 				<displayName count="zero">Gruzijas lari</displayName>
 				<displayName count="one">Gruzijas lari</displayName>
 				<displayName count="other">Gruzijas lari</displayName>
+				<symbol>GEL</symbol>
 			</currency>
 			<currency type="GHS">
 				<displayName>Ganas sedi</displayName>
 				<displayName count="zero">Ganas sedi</displayName>
 				<displayName count="one">Ganas sedi</displayName>
 				<displayName count="other">Ganas sedi</displayName>
+				<symbol>GHS</symbol>
+				<symbol alt="narrow" draft="contributed">₵</symbol>
 			</currency>
 			<currency type="GIP">
 				<displayName>Gibraltāra mārciņa</displayName>
 				<displayName count="zero">Gibraltāra mārciņas</displayName>
 				<displayName count="one">Gibraltāra mārciņa</displayName>
 				<displayName count="other">Gibraltāra mārciņas</displayName>
+				<symbol>GIP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="GMD">
 				<displayName>Gambijas dalasi</displayName>
 				<displayName count="zero">Gambijas dalasi</displayName>
 				<displayName count="one">Gambijas dalasi</displayName>
 				<displayName count="other">Gambijas dalasi</displayName>
+				<symbol>GMD</symbol>
 			</currency>
 			<currency type="GNF">
 				<displayName>Gvinejas franks</displayName>
 				<displayName count="zero">Gvinejas franki</displayName>
 				<displayName count="one">Gvinejas franks</displayName>
 				<displayName count="other">Gvinejas franki</displayName>
+				<symbol>GNF</symbol>
 			</currency>
 			<currency type="GRD">
 				<displayName>Grieķijas drahma</displayName>
@@ -4384,12 +4948,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Gvatemalas ketsali</displayName>
 				<displayName count="one">Gvatemalas ketsals</displayName>
 				<displayName count="other">Gvatemalas ketsali</displayName>
+				<symbol>GTQ</symbol>
 			</currency>
 			<currency type="GYD">
 				<displayName>Gajānas dolārs</displayName>
 				<displayName count="zero">Gajānas dolāri</displayName>
 				<displayName count="one">Gajānas dolārs</displayName>
 				<displayName count="other">Gajānas dolāri</displayName>
+				<symbol>GYD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HKD">
 				<displayName>Honkongas dolārs</displayName>
@@ -4397,36 +4964,42 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Honkongas dolārs</displayName>
 				<displayName count="other">Honkongas dolāri</displayName>
 				<symbol>HK$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="HNL">
 				<displayName>Hondurasas lempīra</displayName>
 				<displayName count="zero">Hondurasas lempīras</displayName>
 				<displayName count="one">Hondurasas lempīra</displayName>
 				<displayName count="other">Hondurasas lempīras</displayName>
+				<symbol>HNL</symbol>
 			</currency>
 			<currency type="HRK">
 				<displayName>Horvātijas kuna</displayName>
 				<displayName count="zero">Horvātijas kunas</displayName>
 				<displayName count="one">Horvātijas kuna</displayName>
 				<displayName count="other">Horvātijas kunas</displayName>
+				<symbol>HRK</symbol>
 			</currency>
 			<currency type="HTG">
 				<displayName>Haiti gurds</displayName>
 				<displayName count="zero">Haiti gurdi</displayName>
 				<displayName count="one">Haiti gurds</displayName>
 				<displayName count="other">Haiti gurdi</displayName>
+				<symbol>HTG</symbol>
 			</currency>
 			<currency type="HUF">
 				<displayName>Ungārijas forints</displayName>
 				<displayName count="zero">Ungārijas forinti</displayName>
 				<displayName count="one">Ungārijas forints</displayName>
 				<displayName count="other">Ungārijas forinti</displayName>
+				<symbol>HUF</symbol>
 			</currency>
 			<currency type="IDR">
 				<displayName>Indonēzijas rūpija</displayName>
 				<displayName count="zero">Indonēzijas rūpijas</displayName>
 				<displayName count="one">Indonēzijas rūpija</displayName>
 				<displayName count="other">Indonēzijas rūpijas</displayName>
+				<symbol>IDR</symbol>
 			</currency>
 			<currency type="IEP">
 				<displayName>Īrijas mārciņa</displayName>
@@ -4437,6 +5010,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Izraēlas šekelis</displayName>
 				<displayName count="other">Izraēlas šekeļi</displayName>
 				<symbol>₪</symbol>
+				<symbol alt="narrow" draft="contributed">₪</symbol>
 			</currency>
 			<currency type="INR">
 				<displayName>Indijas rūpija</displayName>
@@ -4444,24 +5018,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Indijas rūpija</displayName>
 				<displayName count="other">Indijas rūpijas</displayName>
 				<symbol>₹</symbol>
+				<symbol alt="narrow" draft="contributed">₹</symbol>
 			</currency>
 			<currency type="IQD">
 				<displayName>Irākas dinārs</displayName>
 				<displayName count="zero">Irākas dināri</displayName>
 				<displayName count="one">Irākas dinārs</displayName>
 				<displayName count="other">Irākas dināri</displayName>
+				<symbol>IQD</symbol>
 			</currency>
 			<currency type="IRR">
 				<displayName>Irānas riāls</displayName>
 				<displayName count="zero">Irānas riāli</displayName>
 				<displayName count="one">Irānas riāls</displayName>
 				<displayName count="other">Irānas riāli</displayName>
+				<symbol>IRR</symbol>
 			</currency>
 			<currency type="ISK">
 				<displayName>Īslandes krona</displayName>
 				<displayName count="zero">Īslandes kronas</displayName>
 				<displayName count="one">Īslandes krona</displayName>
 				<displayName count="other">Īslandes kronas</displayName>
+				<symbol>ISK</symbol>
 			</currency>
 			<currency type="ITL">
 				<displayName>Itālijas lira</displayName>
@@ -4471,12 +5049,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Jamaikas dolāri</displayName>
 				<displayName count="one">Jamaikas dolārs</displayName>
 				<displayName count="other">Jamaikas dolāri</displayName>
+				<symbol>JMD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="JOD">
 				<displayName>Jordānas dinārs</displayName>
 				<displayName count="zero">Jordānas dināri</displayName>
 				<displayName count="one">Jordānas dinārs</displayName>
 				<displayName count="other">Jordānas dināri</displayName>
+				<symbol>JOD</symbol>
 			</currency>
 			<currency type="JPY">
 				<displayName>Japānas jena</displayName>
@@ -4484,36 +5065,43 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Japānas jena</displayName>
 				<displayName count="other">Japānas jenas</displayName>
 				<symbol>¥</symbol>
+				<symbol alt="narrow" draft="contributed">¥</symbol>
 			</currency>
 			<currency type="KES">
 				<displayName>Kenijas šiliņš</displayName>
 				<displayName count="zero">Kenijas šiliņi</displayName>
 				<displayName count="one">Kenijas šiliņš</displayName>
 				<displayName count="other">Kenijas šiliņi</displayName>
+				<symbol>KES</symbol>
 			</currency>
 			<currency type="KGS">
 				<displayName>Kirgizstānas soms</displayName>
 				<displayName count="zero">Kirgizstānas somi</displayName>
 				<displayName count="one">Kirgizstānas soms</displayName>
 				<displayName count="other">Kirgizstānas somi</displayName>
+				<symbol>KGS</symbol>
 			</currency>
 			<currency type="KHR">
 				<displayName>Kambodžas riels</displayName>
 				<displayName count="zero">Kambodžas rieli</displayName>
 				<displayName count="one">Kambodžas riels</displayName>
 				<displayName count="other">Kambodžas rieli</displayName>
+				<symbol>KHR</symbol>
+				<symbol alt="narrow" draft="contributed">៛</symbol>
 			</currency>
 			<currency type="KMF">
 				<displayName>Komoru franks</displayName>
 				<displayName count="zero">Komoru franki</displayName>
 				<displayName count="one">Komoru franks</displayName>
 				<displayName count="other">Komoru franki</displayName>
+				<symbol>KMF</symbol>
 			</currency>
 			<currency type="KPW">
 				<displayName>Ziemeļkorejas vona</displayName>
 				<displayName count="zero">Ziemeļkorejas vonas</displayName>
 				<displayName count="one">Ziemeļkorejas vona</displayName>
 				<displayName count="other">Ziemeļkorejas vonas</displayName>
+				<symbol>KPW</symbol>
 			</currency>
 			<currency type="KRW">
 				<displayName>Dienvidkorejas vona</displayName>
@@ -4521,48 +5109,60 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Dienvidkorejas vona</displayName>
 				<displayName count="other">Dienvidkorejas vonas</displayName>
 				<symbol>₩</symbol>
+				<symbol alt="narrow" draft="contributed">₩</symbol>
 			</currency>
 			<currency type="KWD">
 				<displayName>Kuveitas dinārs</displayName>
 				<displayName count="zero">Kuveitas dināri</displayName>
 				<displayName count="one">Kuveitas dinārs</displayName>
 				<displayName count="other">Kuveitas dināri</displayName>
+				<symbol>KWD</symbol>
 			</currency>
 			<currency type="KYD">
 				<displayName>Kaimanu salu dolārs</displayName>
 				<displayName count="zero">Kaimanu salu dolāri</displayName>
 				<displayName count="one">Kaimanu salu dolārs</displayName>
 				<displayName count="other">Kaimanu salu dolāri</displayName>
+				<symbol>KYD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="KZT">
 				<displayName>Kazahstānas tenge</displayName>
 				<displayName count="zero">Kazahstānas tenges</displayName>
 				<displayName count="one">Kazahstānas tenge</displayName>
 				<displayName count="other">Kazahstānas tenges</displayName>
+				<symbol>KZT</symbol>
+				<symbol alt="narrow" draft="contributed">₸</symbol>
 			</currency>
 			<currency type="LAK">
 				<displayName>Laosas kips</displayName>
 				<displayName count="zero">Laosas kipi</displayName>
 				<displayName count="one">Laosas kips</displayName>
 				<displayName count="other">Laosas kipi</displayName>
+				<symbol>LAK</symbol>
+				<symbol alt="narrow" draft="contributed">₭</symbol>
 			</currency>
 			<currency type="LBP">
 				<displayName>Libānas mārciņa</displayName>
 				<displayName count="zero">Libānas mārciņas</displayName>
 				<displayName count="one">Libānas mārciņa</displayName>
 				<displayName count="other">Libānas mārciņas</displayName>
+				<symbol>LBP</symbol>
 			</currency>
 			<currency type="LKR">
 				<displayName>Šrilankas rūpija</displayName>
 				<displayName count="zero">Šrilankas rūpijas</displayName>
 				<displayName count="one">Šrilankas rūpija</displayName>
 				<displayName count="other">Šrilankas rūpijas</displayName>
+				<symbol>LKR</symbol>
 			</currency>
 			<currency type="LRD">
 				<displayName>Libērijas dolārs</displayName>
 				<displayName count="zero">Libērijas dolāri</displayName>
 				<displayName count="one">Libērijas dolārs</displayName>
 				<displayName count="other">Libērijas dolāri</displayName>
+				<symbol>LRD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="LSL">
 				<displayName>Lesoto loti</displayName>
@@ -4572,6 +5172,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Lietuvas liti</displayName>
 				<displayName count="one">Lietuvas lits</displayName>
 				<displayName count="other">Lietuvas liti</displayName>
+				<symbol>LTL</symbol>
 			</currency>
 			<currency type="LUF">
 				<displayName>Luksemburgas franks</displayName>
@@ -4591,30 +5192,35 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Lībijas dināri</displayName>
 				<displayName count="one">Lībijas dinārs</displayName>
 				<displayName count="other">Lībijas dināri</displayName>
+				<symbol>LYD</symbol>
 			</currency>
 			<currency type="MAD">
 				<displayName>Marokas dirhēms</displayName>
 				<displayName count="zero">Marokas dirhēmi</displayName>
 				<displayName count="one">Marokas dirhēms</displayName>
 				<displayName count="other">Marokas dirhēmi</displayName>
+				<symbol>MAD</symbol>
 			</currency>
 			<currency type="MDL">
 				<displayName>Moldovas leja</displayName>
 				<displayName count="zero">Moldovas lejas</displayName>
 				<displayName count="one">Moldovas leja</displayName>
 				<displayName count="other">Moldovas lejas</displayName>
+				<symbol>MDL</symbol>
 			</currency>
 			<currency type="MGA">
 				<displayName>Madagaskaras ariari</displayName>
 				<displayName count="zero">Madagaskaras ariari</displayName>
 				<displayName count="one">Madagaskaras ariari</displayName>
 				<displayName count="other">Madagaskaras ariari</displayName>
+				<symbol>MGA</symbol>
 			</currency>
 			<currency type="MKD">
 				<displayName>Maķedonijas denārs</displayName>
 				<displayName count="zero">Maķedonijas denāri</displayName>
 				<displayName count="one">Maķedonijas denārs</displayName>
 				<displayName count="other">Maķedonijas denāri</displayName>
+				<symbol>MKD</symbol>
 			</currency>
 			<currency type="MLF">
 				<displayName>CFA (Āfrikas) franks</displayName>
@@ -4624,24 +5230,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Mjanmas kjati</displayName>
 				<displayName count="one">Mjanmas kjats</displayName>
 				<displayName count="other">Mjanmas kjati</displayName>
+				<symbol>MMK</symbol>
 			</currency>
 			<currency type="MNT">
 				<displayName>Mongolijas tugriks</displayName>
 				<displayName count="zero">Mongolijas tugriki</displayName>
 				<displayName count="one">Mongolijas tugriks</displayName>
 				<displayName count="other">Mongolijas tugriki</displayName>
+				<symbol>MNT</symbol>
+				<symbol alt="narrow" draft="contributed">₮</symbol>
 			</currency>
 			<currency type="MOP">
 				<displayName>Makao pataka</displayName>
 				<displayName count="zero">Makao patakas</displayName>
 				<displayName count="one">Makao pataka</displayName>
 				<displayName count="other">Makao patakas</displayName>
+				<symbol>MOP</symbol>
 			</currency>
 			<currency type="MRO">
 				<displayName>Mauritānijas ugija</displayName>
 				<displayName count="zero">Mauritānijas ugijas</displayName>
 				<displayName count="one">Mauritānijas ugija</displayName>
 				<displayName count="other">Mauritānijas ugijas</displayName>
+				<symbol>MRO</symbol>
 			</currency>
 			<currency type="MTL">
 				<displayName>Maltas lira</displayName>
@@ -4654,18 +5265,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Maurīcijas rūpijas</displayName>
 				<displayName count="one">Maurīcijas rūpija</displayName>
 				<displayName count="other">Maurīcijas rūpijas</displayName>
+				<symbol>MUR</symbol>
 			</currency>
 			<currency type="MVR">
 				<displayName>Maldīvijas rūfija</displayName>
 				<displayName count="zero">Maldīvijas rūfijas</displayName>
 				<displayName count="one">Maldīvijas rūfija</displayName>
 				<displayName count="other">Maldīvijas rūfijas</displayName>
+				<symbol>MVR</symbol>
 			</currency>
 			<currency type="MWK">
 				<displayName>Malāvijas kvača</displayName>
 				<displayName count="zero">Malāvijas kvačas</displayName>
 				<displayName count="one">Malāvijas kvača</displayName>
 				<displayName count="other">Malāvijas kvačas</displayName>
+				<symbol>MWK</symbol>
 			</currency>
 			<currency type="MXN">
 				<displayName>Meksikas peso</displayName>
@@ -4673,12 +5287,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Meksikas peso</displayName>
 				<displayName count="other">Meksikas peso</displayName>
 				<symbol>MX$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="MYR">
 				<displayName>Malaizijas ringits</displayName>
 				<displayName count="zero">Malaizijas ringiti</displayName>
 				<displayName count="one">Malaizijas ringits</displayName>
 				<displayName count="other">Malaizijas ringiti</displayName>
+				<symbol>MYR</symbol>
 			</currency>
 			<currency type="MZE">
 				<displayName>Mozambikas eskudo</displayName>
@@ -4694,24 +5310,30 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Mozambikas metikali</displayName>
 				<displayName count="one">Mozambikas metikals</displayName>
 				<displayName count="other">Mozambikas metikali</displayName>
+				<symbol>MZN</symbol>
 			</currency>
 			<currency type="NAD">
 				<displayName>Namībijas dolārs</displayName>
 				<displayName count="zero">Namībijas dolāri</displayName>
 				<displayName count="one">Namībijas dolārs</displayName>
 				<displayName count="other">Namībijas dolāri</displayName>
+				<symbol>NAD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="NGN">
 				<displayName>Nigērijas naira</displayName>
 				<displayName count="zero">Nigērijas nairas</displayName>
 				<displayName count="one">Nigērijas naira</displayName>
 				<displayName count="other">Nigērijas nairas</displayName>
+				<symbol>NGN</symbol>
+				<symbol alt="narrow" draft="contributed">₦</symbol>
 			</currency>
 			<currency type="NIO">
 				<displayName>Nikaragvas kordoba</displayName>
 				<displayName count="zero">Nikaragvas kordobas</displayName>
 				<displayName count="one">Nikaragvas kordoba</displayName>
 				<displayName count="other">Nikaragvas kordobas</displayName>
+				<symbol>NIO</symbol>
 			</currency>
 			<currency type="NLG">
 				<displayName>Nīderlandes guldenis</displayName>
@@ -4721,12 +5343,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Norvēģijas kronas</displayName>
 				<displayName count="one">Norvēģijas krona</displayName>
 				<displayName count="other">Norvēģijas kronas</displayName>
+				<symbol>NOK</symbol>
 			</currency>
 			<currency type="NPR">
 				<displayName>Nepālas rūpija</displayName>
 				<displayName count="zero">Nepālas rūpijas</displayName>
 				<displayName count="one">Nepālas rūpija</displayName>
 				<displayName count="other">Nepālas rūpijas</displayName>
+				<symbol>NPR</symbol>
 			</currency>
 			<currency type="NZD">
 				<displayName>Jaunzēlandes dolārs</displayName>
@@ -4734,48 +5358,57 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Jaunzēlandes dolārs</displayName>
 				<displayName count="other">Jaunzēlandes dolāri</displayName>
 				<symbol>NZ$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="OMR">
 				<displayName>Omānas riāls</displayName>
 				<displayName count="zero">Omānas riāli</displayName>
 				<displayName count="one">Omānas riāls</displayName>
 				<displayName count="other">Omānas riāli</displayName>
+				<symbol>OMR</symbol>
 			</currency>
 			<currency type="PAB">
 				<displayName>Panamas balboa</displayName>
 				<displayName count="zero">Panamas balboa</displayName>
 				<displayName count="one">Panamas balboa</displayName>
 				<displayName count="other">Panamas balboa</displayName>
+				<symbol>PAB</symbol>
 			</currency>
 			<currency type="PEN">
 				<displayName>Peru jaunais sols</displayName>
 				<displayName count="zero">Peru jaunie soli</displayName>
 				<displayName count="one">Peru jaunais sols</displayName>
 				<displayName count="other">Peru jaunie soli</displayName>
+				<symbol>PEN</symbol>
 			</currency>
 			<currency type="PGK">
 				<displayName>Papua-Jaungvinejas kina</displayName>
 				<displayName count="zero">Papua-Jaungvinejas kinas</displayName>
 				<displayName count="one">Papua-Jaungvinejas kina</displayName>
 				<displayName count="other">Papua-Jaungvinejas kinas</displayName>
+				<symbol>PGK</symbol>
 			</currency>
 			<currency type="PHP">
 				<displayName>Filipīnu peso</displayName>
 				<displayName count="zero">Filipīnu peso</displayName>
 				<displayName count="one">Filipīnu peso</displayName>
 				<displayName count="other">Filipīnu peso</displayName>
+				<symbol>PHP</symbol>
+				<symbol alt="narrow" draft="contributed">₱</symbol>
 			</currency>
 			<currency type="PKR">
 				<displayName>Pakistānas rūpija</displayName>
 				<displayName count="zero">Pakistānas rūpijas</displayName>
 				<displayName count="one">Pakistānas rūpija</displayName>
 				<displayName count="other">Pakistānas rūpijas</displayName>
+				<symbol>PKR</symbol>
 			</currency>
 			<currency type="PLN">
 				<displayName>Polijas zlots</displayName>
 				<displayName count="zero">Polijas zloti</displayName>
 				<displayName count="one">Polijas zlots</displayName>
 				<displayName count="other">Polijas zloti</displayName>
+				<symbol>PLN</symbol>
 			</currency>
 			<currency type="PTE">
 				<displayName>Portugāles eskudo</displayName>
@@ -4785,12 +5418,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Paragvajas guarani</displayName>
 				<displayName count="one">Paragvajas guarani</displayName>
 				<displayName count="other">Paragvajas guarani</displayName>
+				<symbol>PYG</symbol>
+				<symbol alt="narrow" draft="contributed">₲</symbol>
 			</currency>
 			<currency type="QAR">
 				<displayName>Kataras riāls</displayName>
 				<displayName count="zero">Kataras riāli</displayName>
 				<displayName count="one">Kataras riāls</displayName>
 				<displayName count="other">Kataras riāli</displayName>
+				<symbol>QAR</symbol>
 			</currency>
 			<currency type="ROL">
 				<displayName>Rumānijas vecā leja</displayName>
@@ -4803,66 +5439,79 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Rumānijas lejas</displayName>
 				<displayName count="one">Rumānijas leja</displayName>
 				<displayName count="other">Rumānijas lejas</displayName>
+				<symbol>RON</symbol>
 			</currency>
 			<currency type="RSD">
 				<displayName>Serbijas dinārs</displayName>
 				<displayName count="zero">Serbijas dināri</displayName>
 				<displayName count="one">Serbijas dinārs</displayName>
 				<displayName count="other">Serbijas dināri</displayName>
+				<symbol>RSD</symbol>
 			</currency>
 			<currency type="RUB">
 				<displayName>Krievijas rublis</displayName>
 				<displayName count="zero">Krievijas rubļi</displayName>
 				<displayName count="one">Krievijas rublis</displayName>
 				<displayName count="other">Krievijas rubļi</displayName>
+				<symbol>RUB</symbol>
 			</currency>
 			<currency type="RWF">
 				<displayName>Ruandas franks</displayName>
 				<displayName count="zero">Ruandas franki</displayName>
 				<displayName count="one">Ruandas franks</displayName>
 				<displayName count="other">Ruandas franki</displayName>
+				<symbol>RWF</symbol>
 			</currency>
 			<currency type="SAR">
 				<displayName>Saūda riāls</displayName>
 				<displayName count="zero">Saūda riāli</displayName>
 				<displayName count="one">Saūda riāls</displayName>
 				<displayName count="other">Saūda riāli</displayName>
+				<symbol>SAR</symbol>
 			</currency>
 			<currency type="SBD">
 				<displayName>Zālamana Salu dolārs</displayName>
 				<displayName count="zero">Zālamana Salu dolāri</displayName>
 				<displayName count="one">Zālamana Salu dolārs</displayName>
 				<displayName count="other">Zālamana Salu dolāri</displayName>
+				<symbol>SBD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SCR">
 				<displayName>Seišelu salu rūpija</displayName>
 				<displayName count="zero">Seišelu salu rūpijas</displayName>
 				<displayName count="one">Seišelu salu rūpija</displayName>
 				<displayName count="other">Seišelu salu rūpijas</displayName>
+				<symbol>SCR</symbol>
 			</currency>
 			<currency type="SDG">
 				<displayName>Sudānas mārciņa</displayName>
 				<displayName count="zero">Sudānas mārciņas</displayName>
 				<displayName count="one">Sudānas mārciņa</displayName>
 				<displayName count="other">Sudānas mārciņas</displayName>
+				<symbol>SDG</symbol>
 			</currency>
 			<currency type="SEK">
 				<displayName>Zviedrijas krona</displayName>
 				<displayName count="zero">Zviedrijas kronas</displayName>
 				<displayName count="one">Zviedrijas krona</displayName>
 				<displayName count="other">Zviedrijas kronas</displayName>
+				<symbol>SEK</symbol>
 			</currency>
 			<currency type="SGD">
 				<displayName>Singapūras dolārs</displayName>
 				<displayName count="zero">Singapūras dolāri</displayName>
 				<displayName count="one">Singapūras dolārs</displayName>
 				<displayName count="other">Singapūras dolāri</displayName>
+				<symbol>SGD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SHP">
 				<displayName>Sv.Helēnas salas mārciņa</displayName>
 				<displayName count="zero">Sv.Helēnas salas mārciņas</displayName>
 				<displayName count="one">Sv.Helēnas salas mārciņa</displayName>
 				<displayName count="other">Sv.Helēnas salas mārciņas</displayName>
+				<symbol>SHP</symbol>
 			</currency>
 			<currency type="SIT">
 				<displayName>Slovēnijas tolars</displayName>
@@ -4875,18 +5524,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Sjerraleones leones</displayName>
 				<displayName count="one">Sjerraleones leone</displayName>
 				<displayName count="other">Sjerraleones leones</displayName>
+				<symbol>SLL</symbol>
 			</currency>
 			<currency type="SOS">
 				<displayName>Somālijas šiliņš</displayName>
 				<displayName count="zero">Somālijas šiliņi</displayName>
 				<displayName count="one">Somālijas šiliņš</displayName>
 				<displayName count="other">Somālijas šiliņi</displayName>
+				<symbol>SOS</symbol>
 			</currency>
 			<currency type="SRD">
 				<displayName>Surinamas dolārs</displayName>
 				<displayName count="zero">Surinamas dolāri</displayName>
 				<displayName count="one">Surinamas dolārs</displayName>
 				<displayName count="other">Surinamas dolāri</displayName>
+				<symbol>SRD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="SRG">
 				<displayName>Surinamas guldenis</displayName>
@@ -4896,12 +5549,15 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Dienvidsudānas mārciņas</displayName>
 				<displayName count="one">Dienvidsudānas mārciņa</displayName>
 				<displayName count="other">Dienvidsudānas mārciņas</displayName>
+				<symbol>SSP</symbol>
+				<symbol alt="narrow" draft="contributed">£</symbol>
 			</currency>
 			<currency type="STD">
 				<displayName>Santome un Prinsipi dobra</displayName>
 				<displayName count="zero">Santome un Prinsipi dobras</displayName>
 				<displayName count="one">Santome un Prinsipi dobra</displayName>
 				<displayName count="other">Santome un Prinsipi dobras</displayName>
+				<symbol>STD</symbol>
 			</currency>
 			<currency type="SVC">
 				<displayName>Salvadoras kolons</displayName>
@@ -4911,12 +5567,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Sīrijas mārciņas</displayName>
 				<displayName count="one">Sīrijas mārciņa</displayName>
 				<displayName count="other">Sīrijas mārciņas</displayName>
+				<symbol>SYP</symbol>
 			</currency>
 			<currency type="SZL">
 				<displayName>Svazilendas lilangeni</displayName>
 				<displayName count="zero">Svazilendas lilangeni</displayName>
 				<displayName count="one">Svazilendas lilangeni</displayName>
 				<displayName count="other">Svazilendas lilangeni</displayName>
+				<symbol>SZL</symbol>
 			</currency>
 			<currency type="THB">
 				<displayName>Taizemes bāts</displayName>
@@ -4924,48 +5582,63 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Taizemes bāts</displayName>
 				<displayName count="other">Taizemes bāti</displayName>
 				<symbol>฿</symbol>
+				<symbol alt="narrow" draft="contributed">฿</symbol>
 			</currency>
 			<currency type="TJS">
 				<displayName>Tadžikistānas somons</displayName>
 				<displayName count="zero">Tadžikistānas somoni</displayName>
 				<displayName count="one">Tadžikistānas somons</displayName>
 				<displayName count="other">Tadžikistānas somoni</displayName>
+				<symbol>TJS</symbol>
 			</currency>
 			<currency type="TMM">
-				<displayName>Turkmenistānas manats</displayName>
+				<displayName>Turkmenistānas manats (1993–2009)</displayName>
+				<displayName count="zero">Turkmenistānas manati (1993–2009)</displayName>
+				<displayName count="one">Turkmenistānas manats (1993–2009)</displayName>
+				<displayName count="other">Turkmenistānas manati (1993–2009)</displayName>
 			</currency>
 			<currency type="TMT">
-				<displayName>Turkmenistānas jaunais manats</displayName>
+				<displayName>Turkmenistānas manats</displayName>
 				<displayName count="zero">Turkmenistānas manati</displayName>
-				<displayName count="one">Turkmenistānas jaunais manats</displayName>
+				<displayName count="one">Turkmenistānas manats</displayName>
 				<displayName count="other">Turkmenistānas manati</displayName>
+				<symbol>TMT</symbol>
 			</currency>
 			<currency type="TND">
 				<displayName>Tunisijas dinārs</displayName>
 				<displayName count="zero">Tunisijas dināri</displayName>
 				<displayName count="one">Tunisijas dinārs</displayName>
 				<displayName count="other">Tunisijas dināri</displayName>
+				<symbol>TND</symbol>
 			</currency>
 			<currency type="TOP">
 				<displayName>Tongas paanga</displayName>
 				<displayName count="zero">Tongas paangas</displayName>
 				<displayName count="one">Tongas paanga</displayName>
 				<displayName count="other">Tongas paangas</displayName>
+				<symbol>TOP</symbol>
 			</currency>
 			<currency type="TRL">
-				<displayName>Turcijas lira</displayName>
+				<displayName>Turcijas lira (1922–2005)</displayName>
+				<displayName count="zero">Turcijas liras (1922–2005)</displayName>
+				<displayName count="one">Turcijas lira (1922–2005)</displayName>
+				<displayName count="other">Turcijas liras (1922–2005)</displayName>
 			</currency>
 			<currency type="TRY">
-				<displayName>Turcijas jaunā lira</displayName>
+				<displayName>Turcijas lira</displayName>
 				<displayName count="zero">Turcijas liras</displayName>
-				<displayName count="one">Turcijas jaunā lira</displayName>
+				<displayName count="one">Turcijas lira</displayName>
 				<displayName count="other">Turcijas liras</displayName>
+				<symbol>TRY</symbol>
+				<symbol alt="narrow" draft="contributed">₺</symbol>
 			</currency>
 			<currency type="TTD">
 				<displayName>Trinidādas un Tobāgo dolārs</displayName>
 				<displayName count="zero">Trinidādas un Tobāgo dolāri</displayName>
 				<displayName count="one">Trinidādas un Tobāgo dolārs</displayName>
 				<displayName count="other">Trinidādas un Tobāgo dolāri</displayName>
+				<symbol>TTD</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="TWD">
 				<displayName>Taivānas jaunais dolārs</displayName>
@@ -4973,24 +5646,29 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Taivānas jaunais dolārs</displayName>
 				<displayName count="other">Taivānas jaunie dolāri</displayName>
 				<symbol>NT$</symbol>
+				<symbol alt="narrow" draft="contributed">NT$</symbol>
 			</currency>
 			<currency type="TZS">
 				<displayName>Tanzānijas šiliņš</displayName>
 				<displayName count="zero">Tanzānijas šiliņi</displayName>
 				<displayName count="one">Tanzānijas šiliņš</displayName>
 				<displayName count="other">Tanzānijas šiliņi</displayName>
+				<symbol>TZS</symbol>
 			</currency>
 			<currency type="UAH">
 				<displayName>Ukrainas grivna</displayName>
 				<displayName count="zero">Ukrainas grivnas</displayName>
 				<displayName count="one">Ukrainas grivna</displayName>
 				<displayName count="other">Ukrainas grivnas</displayName>
+				<symbol>UAH</symbol>
+				<symbol alt="narrow" draft="contributed">₴</symbol>
 			</currency>
 			<currency type="UGX">
 				<displayName>Ugandas šiliņš</displayName>
 				<displayName count="zero">Ugandas šiliņi</displayName>
 				<displayName count="one">Ugandas šiliņš</displayName>
 				<displayName count="other">Ugandas šiliņi</displayName>
+				<symbol>UGX</symbol>
 			</currency>
 			<currency type="USD">
 				<displayName>ASV dolārs</displayName>
@@ -4998,18 +5676,22 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">ASV dolārs</displayName>
 				<displayName count="other">ASV dolāri</displayName>
 				<symbol>$</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="UYU">
 				<displayName>Urugvajas peso</displayName>
 				<displayName count="zero">Urugvajas peso</displayName>
 				<displayName count="one">Urugvajas peso</displayName>
 				<displayName count="other">Urugvajas peso</displayName>
+				<symbol>UYU</symbol>
+				<symbol alt="narrow" draft="contributed">$</symbol>
 			</currency>
 			<currency type="UZS">
 				<displayName>Uzbekistānas sums</displayName>
 				<displayName count="zero">Uzbekistānas sumi</displayName>
 				<displayName count="one">Uzbekistānas sums</displayName>
 				<displayName count="other">Uzbekistānas sumi</displayName>
+				<symbol>UZS</symbol>
 			</currency>
 			<currency type="VEB">
 				<displayName>Venecuēlas bolivārs (1871–2008)</displayName>
@@ -5022,6 +5704,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Venecuēlas bolivāri</displayName>
 				<displayName count="one">Venecuēlas bolivārs</displayName>
 				<displayName count="other">Venecuēlas bolivāri</displayName>
+				<symbol>VEF</symbol>
 			</currency>
 			<currency type="VND">
 				<displayName>Vjetnamas dongi</displayName>
@@ -5029,18 +5712,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">Vjetnamas dongi</displayName>
 				<displayName count="other">Vjetnamas dongi</displayName>
 				<symbol>₫</symbol>
+				<symbol alt="narrow" draft="contributed">₫</symbol>
 			</currency>
 			<currency type="VUV">
 				<displayName>Vanuatu vatu</displayName>
 				<displayName count="zero">Vanuatu vatu</displayName>
 				<displayName count="one">Vanuatu vatu</displayName>
 				<displayName count="other">Vanuatu vatu</displayName>
+				<symbol>VUV</symbol>
 			</currency>
 			<currency type="WST">
 				<displayName>Samoa tala</displayName>
 				<displayName count="zero">Samoa talas</displayName>
 				<displayName count="one">Samoa tala</displayName>
 				<displayName count="other">Samoa talas</displayName>
+				<symbol>WST</symbol>
 			</currency>
 			<currency type="XAF">
 				<displayName>Centrālāfrikas CFA franks</displayName>
@@ -5144,24 +5830,28 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="zero">Jemenas riāli</displayName>
 				<displayName count="one">Jemenas riāls</displayName>
 				<displayName count="other">Jemenas riāli</displayName>
+				<symbol>YER</symbol>
 			</currency>
 			<currency type="ZAR">
-				<displayName>Dienvidāfrikas rands</displayName>
-				<displayName count="zero">Dienvidāfrikas randi</displayName>
-				<displayName count="one">Dienvidāfrikas rands</displayName>
-				<displayName count="other">Dienvidāfrikas randi</displayName>
+				<displayName>Dienvidāfrikas rends</displayName>
+				<displayName count="zero">Dienvidāfrikas rendi</displayName>
+				<displayName count="one">Dienvidāfrikas rends</displayName>
+				<displayName count="other">Dienvidāfrikas rendi</displayName>
+				<symbol>ZAR</symbol>
 			</currency>
 			<currency type="ZMK">
 				<displayName>Zambijas kvača (1968–2012)</displayName>
 				<displayName count="zero">Zambijas kvačas (1968–2012)</displayName>
 				<displayName count="one">Zambijas kvača (1968–2012)</displayName>
 				<displayName count="other">Zambijas kvačas (1968–2012)</displayName>
+				<symbol>ZMK</symbol>
 			</currency>
 			<currency type="ZMW">
 				<displayName>Zambijas kvača</displayName>
 				<displayName count="zero">Zambijas kvačas</displayName>
 				<displayName count="one">Zambijas kvača</displayName>
 				<displayName count="other">Zambijas kvačas</displayName>
+				<symbol>ZMW</symbol>
 			</currency>
 			<currency type="ZWD">
 				<displayName>Zimbabves dolārs</displayName>
@@ -5174,8 +5864,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="latn">
-			<pattern type="atLeast">{0}+</pattern>
-			<pattern type="range">{0}‒{1}</pattern>
+			<pattern type="atLeast">vismaz {0}</pattern>
+			<pattern type="range">{0}–{1}</pattern>
 		</miscPatterns>
 	</numbers>
 	<units>
@@ -5184,280 +5874,708 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName draft="provisional">Brīvās krišanas paātrinājums:</displayName>
+				<displayName>Brīvās krišanas paātrinājums:</displayName>
 				<unitPattern count="zero">Brīvās krišanas paātrinājums: {0}</unitPattern>
 				<unitPattern count="one">Brīvās krišanas paātrinājums: {0}</unitPattern>
 				<unitPattern count="other">Brīvās krišanas paātrinājums: {0}</unitPattern>
 			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName>metri sekundē kvadrātā</displayName>
+				<unitPattern count="zero">{0} metri sekundē kvadrātā</unitPattern>
+				<unitPattern count="one">{0} metrs sekundē kvadrātā</unitPattern>
+				<unitPattern count="other">{0} metri sekundē kvadrātā</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
-				<displayName draft="provisional">minūtes</displayName>
-				<unitPattern count="zero">{0} minūtes</unitPattern>
-				<unitPattern count="one">{0} minūte</unitPattern>
-				<unitPattern count="other">{0} minūtes</unitPattern>
+				<displayName>leņķa minūtes</displayName>
+				<unitPattern count="zero">{0} leņķa minūtes</unitPattern>
+				<unitPattern count="one">{0} leņķa minūte</unitPattern>
+				<unitPattern count="other">{0} leņķa minūtes</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName draft="provisional">sekundes</displayName>
-				<unitPattern count="zero">{0} sekundes</unitPattern>
-				<unitPattern count="one">{0} sekunde</unitPattern>
-				<unitPattern count="other">{0} sekundes</unitPattern>
+				<displayName>leņķa sekundes</displayName>
+				<unitPattern count="zero">{0} leņķa sekundes</unitPattern>
+				<unitPattern count="one">{0} leņķa sekunde</unitPattern>
+				<unitPattern count="other">{0} leņķa sekundes</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="provisional">grādi</displayName>
+				<displayName>grādi</displayName>
 				<unitPattern count="zero">{0} grādi</unitPattern>
 				<unitPattern count="one">{0} grāds</unitPattern>
 				<unitPattern count="other">{0} grādi</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<displayName>radiāni</displayName>
+				<unitPattern count="zero">{0} radiāni</unitPattern>
+				<unitPattern count="one">{0} radiāns</unitPattern>
+				<unitPattern count="other">{0} radiāni</unitPattern>
+			</unit>
 			<unit type="area-acre">
-				<displayName draft="provisional">akri</displayName>
+				<displayName>akri</displayName>
 				<unitPattern count="zero">{0} akri</unitPattern>
 				<unitPattern count="one">{0} akrs</unitPattern>
 				<unitPattern count="other">{0} akri</unitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName draft="provisional">hektāri</displayName>
+				<displayName>hektāri</displayName>
 				<unitPattern count="zero">{0} hektāri</unitPattern>
 				<unitPattern count="one">{0} hektārs</unitPattern>
 				<unitPattern count="other">{0} hektāri</unitPattern>
 			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>kvadrātcentimetri</displayName>
+				<unitPattern count="zero">{0} kvadrātcentimetri</unitPattern>
+				<unitPattern count="one">{0} kvadrātcentimetrs</unitPattern>
+				<unitPattern count="other">{0} kvadrātcentimetri</unitPattern>
+			</unit>
 			<unit type="area-square-foot">
-				<displayName draft="provisional">kvadrātpēdas</displayName>
+				<displayName>kvadrātpēdas</displayName>
 				<unitPattern count="zero">{0} kvadrātpēdas</unitPattern>
 				<unitPattern count="one">{0} kvadrātpēda</unitPattern>
 				<unitPattern count="other">{0} kvadrātpēdas</unitPattern>
 			</unit>
+			<unit type="area-square-inch">
+				<displayName>kvadrātcollas</displayName>
+				<unitPattern count="zero">{0} kvadrātcollas</unitPattern>
+				<unitPattern count="one">{0} kvadrātcolla</unitPattern>
+				<unitPattern count="other">{0} kvadrātcollas</unitPattern>
+			</unit>
 			<unit type="area-square-kilometer">
-				<displayName draft="provisional">kvadrātkilometri</displayName>
+				<displayName>kvadrātkilometri</displayName>
 				<unitPattern count="zero">{0} kvadrātkilometri</unitPattern>
 				<unitPattern count="one">{0} kvadrātkilometrs</unitPattern>
 				<unitPattern count="other">{0} kvadrātkilometri</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="provisional">kvadrātmetri</displayName>
+				<displayName>kvadrātmetri</displayName>
 				<unitPattern count="zero">{0} kvadrātmetri</unitPattern>
 				<unitPattern count="one">{0} kvadrātmetrs</unitPattern>
 				<unitPattern count="other">{0} kvadrātmetri</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName draft="provisional">kvadrātjūdzes</displayName>
+				<displayName>kvadrātjūdzes</displayName>
 				<unitPattern count="zero">{0} kvadrātjūdzes</unitPattern>
 				<unitPattern count="one">{0} kvadrātjūdze</unitPattern>
 				<unitPattern count="other">{0} kvadrātjūdzes</unitPattern>
 			</unit>
+			<unit type="area-square-yard">
+				<displayName>kvadrātjardi</displayName>
+				<unitPattern count="zero">{0} kvadrātjardi</unitPattern>
+				<unitPattern count="one">{0} kvadrātjards</unitPattern>
+				<unitPattern count="other">{0} kvadrātjardi</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>litri uz kilometru</displayName>
+				<unitPattern count="zero">{0} litri uz kilometru</unitPattern>
+				<unitPattern count="one">{0} litrs uz kilometru</unitPattern>
+				<unitPattern count="other">{0} litri uz kilometru</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>jūdzes ar galonu</displayName>
+				<unitPattern count="zero">{0} jūdzes ar galonu</unitPattern>
+				<unitPattern count="one">{0} jūdze ar galonu</unitPattern>
+				<unitPattern count="other">{0} jūdzes ar galonu</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>biti</displayName>
+				<unitPattern count="zero">{0} biti</unitPattern>
+				<unitPattern count="one">{0} bits</unitPattern>
+				<unitPattern count="other">{0} biti</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>baiti</displayName>
+				<unitPattern count="zero">{0} baiti</unitPattern>
+				<unitPattern count="one">{0} baits</unitPattern>
+				<unitPattern count="other">{0} baiti</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>gigabiti</displayName>
+				<unitPattern count="zero">{0} gigabiti</unitPattern>
+				<unitPattern count="one">{0} gigabits</unitPattern>
+				<unitPattern count="other">{0} gigabiti</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>gigabaiti</displayName>
+				<unitPattern count="zero">{0} gigabaiti</unitPattern>
+				<unitPattern count="one">{0} gigabaits</unitPattern>
+				<unitPattern count="other">{0} gigabaiti</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>kilobiti</displayName>
+				<unitPattern count="zero">{0} kilobiti</unitPattern>
+				<unitPattern count="one">{0} kilobits</unitPattern>
+				<unitPattern count="other">{0} kilobiti</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>kilobaiti</displayName>
+				<unitPattern count="zero">{0} kilobaiti</unitPattern>
+				<unitPattern count="one">{0} kilobaits</unitPattern>
+				<unitPattern count="other">{0} kilobaiti</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>megabiti</displayName>
+				<unitPattern count="zero">{0} megabiti</unitPattern>
+				<unitPattern count="one">{0} megabits</unitPattern>
+				<unitPattern count="other">{0} megabiti</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>megabaiti</displayName>
+				<unitPattern count="zero">{0} megabaiti</unitPattern>
+				<unitPattern count="one">{0} megabaits</unitPattern>
+				<unitPattern count="other">{0} megabaits</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>terabiti</displayName>
+				<unitPattern count="zero">{0} terabiti</unitPattern>
+				<unitPattern count="one">{0} terabits</unitPattern>
+				<unitPattern count="other">{0} terabiti</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>terabaiti</displayName>
+				<unitPattern count="zero">{0} terabaiti</unitPattern>
+				<unitPattern count="one">{0} terabaits</unitPattern>
+				<unitPattern count="other">{0} terabaiti</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<displayName draft="provisional">dienas</displayName>
+				<displayName>dienas</displayName>
 				<unitPattern count="zero">{0} dienas</unitPattern>
 				<unitPattern count="one">{0} diena</unitPattern>
 				<unitPattern count="other">{0} dienas</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="provisional">stundas</displayName>
+				<displayName>stundas</displayName>
 				<unitPattern count="zero">{0} stundas</unitPattern>
 				<unitPattern count="one">{0} stunda</unitPattern>
 				<unitPattern count="other">{0} stundas</unitPattern>
+				<perUnitPattern>{0} stundā</perUnitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>mikrosekundes</displayName>
+				<unitPattern count="zero">{0} mikrosekundes</unitPattern>
+				<unitPattern count="one">{0} mikrosekunde</unitPattern>
+				<unitPattern count="other">{0} mikrosekundes</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName draft="provisional">milisekundes</displayName>
+				<displayName>milisekundes</displayName>
 				<unitPattern count="zero">{0} milisekundes</unitPattern>
 				<unitPattern count="one">{0} milisekunde</unitPattern>
 				<unitPattern count="other">{0} milisekundes</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="provisional">minūtes</displayName>
+				<displayName>minūtes</displayName>
 				<unitPattern count="zero">{0} minūtes</unitPattern>
 				<unitPattern count="one">{0} minūte</unitPattern>
 				<unitPattern count="other">{0} minūtes</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="provisional">mēneši</displayName>
+				<displayName>mēneši</displayName>
 				<unitPattern count="zero">{0} mēneši</unitPattern>
 				<unitPattern count="one">{0} mēnesis</unitPattern>
 				<unitPattern count="other">{0} mēneši</unitPattern>
 			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>nanosekundes</displayName>
+				<unitPattern count="zero">{0} nanosekundes</unitPattern>
+				<unitPattern count="one">{0} nanosekunde</unitPattern>
+				<unitPattern count="other">{0} nanosekundes</unitPattern>
+			</unit>
 			<unit type="duration-second">
-				<displayName draft="provisional">sekundes</displayName>
+				<displayName>sekundes</displayName>
 				<unitPattern count="zero">{0} sekundes</unitPattern>
 				<unitPattern count="one">{0} sekunde</unitPattern>
 				<unitPattern count="other">{0} sekundes</unitPattern>
+				<perUnitPattern>{0} sekundē</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="provisional">nedēļas</displayName>
+				<displayName>nedēļas</displayName>
 				<unitPattern count="zero">{0} nedēļas</unitPattern>
 				<unitPattern count="one">{0} nedēļa</unitPattern>
 				<unitPattern count="other">{0} nedēļas</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName draft="provisional">gadi</displayName>
+				<displayName>gadi</displayName>
 				<unitPattern count="zero">{0} gadi</unitPattern>
 				<unitPattern count="one">{0} gads</unitPattern>
 				<unitPattern count="other">{0} gadi</unitPattern>
 			</unit>
+			<unit type="electric-ampere">
+				<displayName>ampēri</displayName>
+				<unitPattern count="zero">{0} ampēri</unitPattern>
+				<unitPattern count="one">{0} ampērs</unitPattern>
+				<unitPattern count="other">{0} ampēri</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>miliampēri</displayName>
+				<unitPattern count="zero">{0} miliampēri</unitPattern>
+				<unitPattern count="one">{0} miliampērs</unitPattern>
+				<unitPattern count="other">{0} miliampēri</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>omi</displayName>
+				<unitPattern count="zero">{0} omi</unitPattern>
+				<unitPattern count="one">{0} oms</unitPattern>
+				<unitPattern count="other">{0} omi</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>volti</displayName>
+				<unitPattern count="zero">{0} volti</unitPattern>
+				<unitPattern count="one">{0} volts</unitPattern>
+				<unitPattern count="other">{0} volti</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>kalorijas</displayName>
+				<unitPattern count="zero">{0} kalorijas</unitPattern>
+				<unitPattern count="one">{0} kalorija</unitPattern>
+				<unitPattern count="other">{0} kalorijas</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>kalorijas</displayName>
+				<unitPattern count="zero">{0} kalorijas</unitPattern>
+				<unitPattern count="one">{0} kalorija</unitPattern>
+				<unitPattern count="other">{0} kalorijas</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>džouli</displayName>
+				<unitPattern count="zero">{0} džouli</unitPattern>
+				<unitPattern count="one">{0} džouls</unitPattern>
+				<unitPattern count="other">{0} džouli</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kilokalorijas</displayName>
+				<unitPattern count="zero">{0} kilokalorijas</unitPattern>
+				<unitPattern count="one">{0} kilokalorija</unitPattern>
+				<unitPattern count="other">{0} kilokalorijas</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName>kilodžouli</displayName>
+				<unitPattern count="zero">{0} kilodžouli</unitPattern>
+				<unitPattern count="one">{0} kilodžouls</unitPattern>
+				<unitPattern count="other">{0} kilodžouli</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>kilovatstundas</displayName>
+				<unitPattern count="zero">{0} kilovatstundas</unitPattern>
+				<unitPattern count="one">{0} kilovatstunda</unitPattern>
+				<unitPattern count="other">{0} kilovatstundas</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>gigaherci</displayName>
+				<unitPattern count="zero">{0} gigaherci</unitPattern>
+				<unitPattern count="one">{0} gigahercs</unitPattern>
+				<unitPattern count="other">{0} gigaherci</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>herci</displayName>
+				<unitPattern count="zero">{0} herci</unitPattern>
+				<unitPattern count="one">{0} hercs</unitPattern>
+				<unitPattern count="other">{0} herci</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>kiloherci</displayName>
+				<unitPattern count="zero">{0} kiloherci</unitPattern>
+				<unitPattern count="one">{0} kilohercs</unitPattern>
+				<unitPattern count="other">{0} kiloherci</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>megaherci</displayName>
+				<unitPattern count="zero">{0} megaherci</unitPattern>
+				<unitPattern count="one">{0} megahercs</unitPattern>
+				<unitPattern count="other">{0} megaherci</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>astronomiskās vienības</displayName>
+				<unitPattern count="zero">{0} astronomiskās vienības</unitPattern>
+				<unitPattern count="one">{0} astronomiskā vienība</unitPattern>
+				<unitPattern count="other">{0} astronomiskās vienības</unitPattern>
+			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="provisional">centimetri</displayName>
+				<displayName>centimetri</displayName>
 				<unitPattern count="zero">{0} centimetri</unitPattern>
 				<unitPattern count="one">{0} centimetrs</unitPattern>
 				<unitPattern count="other">{0} centimetri</unitPattern>
 			</unit>
+			<unit type="length-decimeter">
+				<displayName>decimetri</displayName>
+				<unitPattern count="zero">{0} decimetri</unitPattern>
+				<unitPattern count="one">{0} decimetrs</unitPattern>
+				<unitPattern count="other">{0} decimetri</unitPattern>
+			</unit>
 			<unit type="length-foot">
-				<displayName draft="provisional">pēdas</displayName>
+				<displayName>pēdas</displayName>
 				<unitPattern count="zero">{0} pēdas</unitPattern>
 				<unitPattern count="one">{0} pēda</unitPattern>
 				<unitPattern count="other">{0} pēdas</unitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName draft="provisional">collas</displayName>
+				<displayName>collas</displayName>
 				<unitPattern count="zero">{0} collas</unitPattern>
 				<unitPattern count="one">{0} colla</unitPattern>
 				<unitPattern count="other">{0} collas</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName draft="provisional">kilometri</displayName>
+				<displayName>kilometri</displayName>
 				<unitPattern count="zero">{0} kilometri</unitPattern>
 				<unitPattern count="one">{0} kilometrs</unitPattern>
 				<unitPattern count="other">{0} kilometri</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName draft="provisional">gaismas gadi</displayName>
+				<displayName>gaismas gadi</displayName>
 				<unitPattern count="zero">{0} gaismas gadi</unitPattern>
 				<unitPattern count="one">{0} gaismas gads</unitPattern>
 				<unitPattern count="other">{0} gaismas gadi</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName draft="provisional">metri</displayName>
+				<displayName>metri</displayName>
 				<unitPattern count="zero">{0} metri</unitPattern>
 				<unitPattern count="one">{0} metrs</unitPattern>
 				<unitPattern count="other">{0} metri</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>mikrometri</displayName>
+				<unitPattern count="zero">{0} mikrometri</unitPattern>
+				<unitPattern count="one">{0} mikrometrs</unitPattern>
+				<unitPattern count="other">{0} mikrometri</unitPattern>
+			</unit>
 			<unit type="length-mile">
-				<displayName draft="provisional">jūdzes</displayName>
+				<displayName>jūdzes</displayName>
 				<unitPattern count="zero">{0} jūdzes</unitPattern>
 				<unitPattern count="one">{0} jūdze</unitPattern>
 				<unitPattern count="other">{0} jūdzes</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName draft="provisional">milimetri</displayName>
+				<displayName>milimetri</displayName>
 				<unitPattern count="zero">{0} milimetri</unitPattern>
 				<unitPattern count="one">{0} milimetrs</unitPattern>
 				<unitPattern count="other">{0} milimetri</unitPattern>
 			</unit>
+			<unit type="length-nanometer">
+				<displayName>nanometri</displayName>
+				<unitPattern count="zero">{0} nanometri</unitPattern>
+				<unitPattern count="one">{0} nanometrs</unitPattern>
+				<unitPattern count="other">{0} nanometri</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>jūras jūdzes</displayName>
+				<unitPattern count="zero">{0} jūras jūdzes</unitPattern>
+				<unitPattern count="one">{0} jūras jūdze</unitPattern>
+				<unitPattern count="other">{0} jūras jūdzes</unitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>parseki</displayName>
+				<unitPattern count="zero">{0} parseki</unitPattern>
+				<unitPattern count="one">{0} parseks</unitPattern>
+				<unitPattern count="other">{0} parseki</unitPattern>
+			</unit>
 			<unit type="length-picometer">
-				<displayName draft="provisional">pikometri</displayName>
+				<displayName>pikometri</displayName>
 				<unitPattern count="zero">{0} pikometri</unitPattern>
 				<unitPattern count="one">{0} pikometrs</unitPattern>
 				<unitPattern count="other">{0} pikometri</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName draft="provisional">jardi</displayName>
+				<displayName>jardi</displayName>
 				<unitPattern count="zero">{0} jardi</unitPattern>
 				<unitPattern count="one">{0} jards</unitPattern>
 				<unitPattern count="other">{0} jardi</unitPattern>
 			</unit>
+			<unit type="light-lux">
+				<displayName>lukss</displayName>
+				<unitPattern count="zero">{0} luksi</unitPattern>
+				<unitPattern count="one">{0} lukss</unitPattern>
+				<unitPattern count="other">{0} luksi</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>karāti</displayName>
+				<unitPattern count="zero">{0} karāti</unitPattern>
+				<unitPattern count="one">{0} karāts</unitPattern>
+				<unitPattern count="other">{0} karāti</unitPattern>
+			</unit>
 			<unit type="mass-gram">
-				<displayName draft="provisional">grami</displayName>
+				<displayName>grami</displayName>
 				<unitPattern count="zero">{0} grami</unitPattern>
 				<unitPattern count="one">{0} grams</unitPattern>
 				<unitPattern count="other">{0} grami</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName draft="provisional">kilogrami</displayName>
+				<displayName>kilogrami</displayName>
 				<unitPattern count="zero">{0} kilogrami</unitPattern>
 				<unitPattern count="one">{0} kilograms</unitPattern>
 				<unitPattern count="other">{0} kilogrami</unitPattern>
 			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>metriskās tonnas</displayName>
+				<unitPattern count="zero">{0} metriskās tonnas</unitPattern>
+				<unitPattern count="one">{0} metriskā tonna</unitPattern>
+				<unitPattern count="other">{0} metriskās tonnas</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>mikrogrami</displayName>
+				<unitPattern count="zero">{0} mikrogrami</unitPattern>
+				<unitPattern count="one">{0} mikrograms</unitPattern>
+				<unitPattern count="other">{0} mikrogrami</unitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>miligrami</displayName>
+				<unitPattern count="zero">{0} miligrami</unitPattern>
+				<unitPattern count="one">{0} miligrams</unitPattern>
+				<unitPattern count="other">{0} miligrami</unitPattern>
+			</unit>
 			<unit type="mass-ounce">
-				<displayName draft="provisional">unces</displayName>
+				<displayName>unces</displayName>
 				<unitPattern count="zero">{0} unces</unitPattern>
 				<unitPattern count="one">{0} unce</unitPattern>
 				<unitPattern count="other">{0} unces</unitPattern>
 			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName>Trojas unces</displayName>
+				<unitPattern count="zero">{0} Trojas unces</unitPattern>
+				<unitPattern count="one">{0} Trojas unce</unitPattern>
+				<unitPattern count="other">{0} Trojas unces</unitPattern>
+			</unit>
 			<unit type="mass-pound">
-				<displayName draft="provisional">mārciņas</displayName>
+				<displayName>mārciņas</displayName>
 				<unitPattern count="zero">{0} mārciņas</unitPattern>
 				<unitPattern count="one">{0} mārciņa</unitPattern>
 				<unitPattern count="other">{0} mārciņas</unitPattern>
 			</unit>
+			<unit type="mass-ton">
+				<displayName>tonnas</displayName>
+				<unitPattern count="zero">{0} tonnas</unitPattern>
+				<unitPattern count="one">{0} tonna</unitPattern>
+				<unitPattern count="other">{0} tonnas</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>gigavati</displayName>
+				<unitPattern count="zero">{0} gigavati</unitPattern>
+				<unitPattern count="one">{0} gigavats</unitPattern>
+				<unitPattern count="other">{0} gigavati</unitPattern>
+			</unit>
 			<unit type="power-horsepower">
-				<displayName draft="provisional">zirgspēki</displayName>
+				<displayName>zirgspēki</displayName>
 				<unitPattern count="zero">{0} zirgspēki</unitPattern>
 				<unitPattern count="one">{0} zirgspēks</unitPattern>
 				<unitPattern count="other">{0} zirgspēki</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="provisional">kilovati</displayName>
+				<displayName>kilovati</displayName>
 				<unitPattern count="zero">{0} kilovati</unitPattern>
 				<unitPattern count="one">{0} kilovats</unitPattern>
 				<unitPattern count="other">{0} kilovati</unitPattern>
 			</unit>
+			<unit type="power-megawatt">
+				<displayName>megavati</displayName>
+				<unitPattern count="zero">{0} megavati</unitPattern>
+				<unitPattern count="one">{0} megavats</unitPattern>
+				<unitPattern count="other">{0} megavati</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>milivati</displayName>
+				<unitPattern count="zero">{0} milivati</unitPattern>
+				<unitPattern count="one">{0} milivats</unitPattern>
+				<unitPattern count="other">{0} milivati</unitPattern>
+			</unit>
 			<unit type="power-watt">
-				<displayName draft="provisional">vati</displayName>
+				<displayName>vati</displayName>
 				<unitPattern count="zero">{0} vati</unitPattern>
 				<unitPattern count="one">{0} vats</unitPattern>
 				<unitPattern count="other">{0} vati</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName draft="provisional">hektopaskāli</displayName>
+				<displayName>hektopaskāli</displayName>
 				<unitPattern count="zero">{0} hektopaskāli</unitPattern>
 				<unitPattern count="one">{0} hektopaskāls</unitPattern>
 				<unitPattern count="other">{0} hektopaskāli</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName draft="provisional">dzīvsudraba staba collas</displayName>
+				<displayName>dzīvsudraba staba collas</displayName>
 				<unitPattern count="zero">{0} dzīvsudraba staba collas</unitPattern>
 				<unitPattern count="one">{0} dzīvsudraba staba colla</unitPattern>
 				<unitPattern count="other">{0} dzīvsudraba staba collas</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName draft="provisional">milibāri</displayName>
+				<displayName>milibāri</displayName>
 				<unitPattern count="zero">{0} milibāri</unitPattern>
 				<unitPattern count="one">{0} milibārs</unitPattern>
 				<unitPattern count="other">{0} milibāri</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName>dzīvsudraba staba milimetri</displayName>
+				<unitPattern count="zero">{0} dzīvsudraba staba milimetri</unitPattern>
+				<unitPattern count="one">{0} dzīvsudraba staba milimetrs</unitPattern>
+				<unitPattern count="other">{0} dzīvsudraba staba milimetri</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName>mārciņas uz kvadrātcollu</displayName>
+				<unitPattern count="zero">{0} mārciņas uz kvadrātcollu</unitPattern>
+				<unitPattern count="one">{0} mārciņa uz kvadrātcollu</unitPattern>
+				<unitPattern count="other">{0} mārciņas uz kvadrātcollu</unitPattern>
+			</unit>
+			<unit type="proportion-karat">
+				<displayName>karāti</displayName>
+				<unitPattern count="zero">{0} karāti</unitPattern>
+				<unitPattern count="one">{0} karāts</unitPattern>
+				<unitPattern count="other">{0} karāti</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="provisional">kilometri stundā</displayName>
+				<displayName>kilometri stundā</displayName>
 				<unitPattern count="zero">{0} kilometri stundā</unitPattern>
 				<unitPattern count="one">{0} kilometrs stundā</unitPattern>
 				<unitPattern count="other">{0} kilometri stundā</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName draft="provisional">metri sekundē</displayName>
+				<displayName>metri sekundē</displayName>
 				<unitPattern count="zero">{0} metri sekundē</unitPattern>
 				<unitPattern count="one">{0} metrs sekundē</unitPattern>
 				<unitPattern count="other">{0} metri sekundē</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="provisional">jūdzes stundā</displayName>
+				<displayName>jūdzes stundā</displayName>
 				<unitPattern count="zero">{0} jūdzes stundā</unitPattern>
 				<unitPattern count="one">{0} jūdze stundā</unitPattern>
 				<unitPattern count="other">{0} jūdzes stundā</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName draft="provisional">Celsija grādi</displayName>
+				<displayName>Celsija grādi</displayName>
 				<unitPattern count="zero">{0} Celsija grādi</unitPattern>
 				<unitPattern count="one">{0} Celsija grāds</unitPattern>
 				<unitPattern count="other">{0} Celsija grādi</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName draft="provisional">Fārenheita grādi</displayName>
+				<displayName>Fārenheita grādi</displayName>
 				<unitPattern count="zero">{0} Fārenheita grādi</unitPattern>
 				<unitPattern count="one">{0} Fārenheita grāds</unitPattern>
 				<unitPattern count="other">{0} Fārenheita grādi</unitPattern>
 			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>kelvini</displayName>
+				<unitPattern count="zero">{0} kelvini</unitPattern>
+				<unitPattern count="one">{0} kelvins</unitPattern>
+				<unitPattern count="other">{0} kelvini</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>akrpēdas</displayName>
+				<unitPattern count="zero">{0} akrpēdas</unitPattern>
+				<unitPattern count="one">{0} akrpēda</unitPattern>
+				<unitPattern count="other">{0} akrpēdas</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>centilitri</displayName>
+				<unitPattern count="zero">{0} centilitri</unitPattern>
+				<unitPattern count="one">{0} centilitrs</unitPattern>
+				<unitPattern count="other">{0} centilitri</unitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>kubikcentimetri</displayName>
+				<unitPattern count="zero">{0} kubikcentimetri</unitPattern>
+				<unitPattern count="one">{0} kubikcentimetrs</unitPattern>
+				<unitPattern count="other">{0} kubikcentimetri</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>kubikpēdas</displayName>
+				<unitPattern count="zero">{0} kubikpēdas</unitPattern>
+				<unitPattern count="one">{0} kubikpēda</unitPattern>
+				<unitPattern count="other">{0} kubikpēdas</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>kubikcollas</displayName>
+				<unitPattern count="zero">{0} kubikcollas</unitPattern>
+				<unitPattern count="one">{0} kubikcolla</unitPattern>
+				<unitPattern count="other">{0} kubikcollas</unitPattern>
+			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName draft="provisional">kubikkilometri</displayName>
+				<displayName>kubikkilometri</displayName>
 				<unitPattern count="zero">{0} kubikkilometri</unitPattern>
 				<unitPattern count="one">{0} kubikkilometrs</unitPattern>
 				<unitPattern count="other">{0} kubikkilometri</unitPattern>
 			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>kubikmetri</displayName>
+				<unitPattern count="zero">{0} kubikmetri</unitPattern>
+				<unitPattern count="one">{0} kubikmetrs</unitPattern>
+				<unitPattern count="other">{0} kubikmetri</unitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="provisional">kubikjūdzes</displayName>
+				<displayName>kubikjūdzes</displayName>
 				<unitPattern count="zero">{0} kubikjūdzes</unitPattern>
 				<unitPattern count="one">{0} kubikjūdze</unitPattern>
 				<unitPattern count="other">{0} kubikjūdzes</unitPattern>
 			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>kubikjardi</displayName>
+				<unitPattern count="zero">{0} kubikjardi</unitPattern>
+				<unitPattern count="one">{0} kubikjards</unitPattern>
+				<unitPattern count="other">{0} kubikjardi</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>glāzes</displayName>
+				<unitPattern count="zero">{0} glāzes</unitPattern>
+				<unitPattern count="one">{0} glāze</unitPattern>
+				<unitPattern count="other">{0} glāzes</unitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>decilitri</displayName>
+				<unitPattern count="zero">{0} decilitri</unitPattern>
+				<unitPattern count="one">{0} decilitrs</unitPattern>
+				<unitPattern count="other">{0} decilitri</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>šķidruma unces</displayName>
+				<unitPattern count="zero">{0} šķidruma unces</unitPattern>
+				<unitPattern count="one">{0} šķidruma unce</unitPattern>
+				<unitPattern count="other">{0} šķidruma unces</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>galoni</displayName>
+				<unitPattern count="zero">{0} galoni</unitPattern>
+				<unitPattern count="one">{0} galons</unitPattern>
+				<unitPattern count="other">{0} galoni</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>hektolitri</displayName>
+				<unitPattern count="zero">{0} hektolitri</unitPattern>
+				<unitPattern count="one">{0} hektolitrs</unitPattern>
+				<unitPattern count="other">{0} hektolitri</unitPattern>
+			</unit>
 			<unit type="volume-liter">
-				<displayName draft="provisional">litri</displayName>
+				<displayName>litri</displayName>
 				<unitPattern count="zero">{0} litri</unitPattern>
 				<unitPattern count="one">{0} litrs</unitPattern>
 				<unitPattern count="other">{0} litri</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>megalitri</displayName>
+				<unitPattern count="zero">{0} megalitri</unitPattern>
+				<unitPattern count="one">{0} megalitrs</unitPattern>
+				<unitPattern count="other">{0} megalitri</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>mililitri</displayName>
+				<unitPattern count="zero">{0} mililitri</unitPattern>
+				<unitPattern count="one">{0} mililitrs</unitPattern>
+				<unitPattern count="other">{0} mililitri</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>pintes</displayName>
+				<unitPattern count="zero">{0} pintes</unitPattern>
+				<unitPattern count="one">{0} pinte</unitPattern>
+				<unitPattern count="other">{0} pintes</unitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>kvartas</displayName>
+				<unitPattern count="zero">{0} kvartas</unitPattern>
+				<unitPattern count="one">{0} kvarta</unitPattern>
+				<unitPattern count="other">{0} kvartas</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>ēdamkarotes</displayName>
+				<unitPattern count="zero">{0} ēdamkarotes</unitPattern>
+				<unitPattern count="one">{0} ēdamkarote</unitPattern>
+				<unitPattern count="other">{0} ēdamkarotes</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>tējkarotes</displayName>
+				<unitPattern count="zero">{0} tējkarotes</unitPattern>
+				<unitPattern count="one">{0} tējkarote</unitPattern>
+				<unitPattern count="other">{0} tējkarotes</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="short">
@@ -5465,280 +6583,708 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<compoundUnitPattern>{0}/{1}</compoundUnitPattern>
 			</compoundUnit>
 			<unit type="acceleration-g-force">
-				<displayName draft="provisional">Brīvās krišanas paātrinājums:</displayName>
+				<displayName>Brīvās krišanas paātrinājums:</displayName>
 				<unitPattern count="zero">{0} G</unitPattern>
 				<unitPattern count="one">{0} G</unitPattern>
 				<unitPattern count="other">{0} G</unitPattern>
 			</unit>
+			<unit type="acceleration-meter-per-second-squared">
+				<displayName>m/s²</displayName>
+				<unitPattern count="zero">{0} m/s²</unitPattern>
+				<unitPattern count="one">{0} m/s²</unitPattern>
+				<unitPattern count="other">{0} m/s²</unitPattern>
+			</unit>
 			<unit type="angle-arc-minute">
-				<displayName draft="provisional">minūtes</displayName>
-				<unitPattern count="zero">{0} min</unitPattern>
-				<unitPattern count="one">{0} min</unitPattern>
-				<unitPattern count="other">{0} min</unitPattern>
+				<displayName>′</displayName>
+				<unitPattern count="zero">{0}′</unitPattern>
+				<unitPattern count="one">{0}′</unitPattern>
+				<unitPattern count="other">{0}′</unitPattern>
 			</unit>
 			<unit type="angle-arc-second">
-				<displayName draft="provisional">sekundes</displayName>
-				<unitPattern count="zero">{0} s</unitPattern>
-				<unitPattern count="one">{0} s</unitPattern>
-				<unitPattern count="other">{0} s</unitPattern>
+				<displayName>″</displayName>
+				<unitPattern count="zero">{0}″</unitPattern>
+				<unitPattern count="one">{0}″</unitPattern>
+				<unitPattern count="other">{0}″</unitPattern>
 			</unit>
 			<unit type="angle-degree">
-				<displayName draft="provisional">grādi</displayName>
+				<displayName>°</displayName>
 				<unitPattern count="zero">{0}°</unitPattern>
 				<unitPattern count="one">{0}°</unitPattern>
 				<unitPattern count="other">{0}°</unitPattern>
 			</unit>
+			<unit type="angle-radian">
+				<displayName>rad</displayName>
+				<unitPattern count="zero">{0} rad</unitPattern>
+				<unitPattern count="one">{0} rad</unitPattern>
+				<unitPattern count="other">{0} rad</unitPattern>
+			</unit>
 			<unit type="area-acre">
-				<displayName draft="provisional">akri</displayName>
+				<displayName>ac</displayName>
 				<unitPattern count="zero">{0} ac</unitPattern>
 				<unitPattern count="one">{0} ac</unitPattern>
 				<unitPattern count="other">{0} ac</unitPattern>
 			</unit>
 			<unit type="area-hectare">
-				<displayName draft="provisional">hektāri</displayName>
+				<displayName>ha</displayName>
 				<unitPattern count="zero">{0} ha</unitPattern>
 				<unitPattern count="one">{0} ha</unitPattern>
 				<unitPattern count="other">{0} ha</unitPattern>
 			</unit>
+			<unit type="area-square-centimeter">
+				<displayName>cm²</displayName>
+				<unitPattern count="zero">{0} cm²</unitPattern>
+				<unitPattern count="one">{0} cm²</unitPattern>
+				<unitPattern count="other">{0} cm²</unitPattern>
+			</unit>
 			<unit type="area-square-foot">
-				<displayName draft="provisional">kvadrātpēdas</displayName>
+				<displayName>ft²</displayName>
 				<unitPattern count="zero">{0} ft²</unitPattern>
 				<unitPattern count="one">{0} ft²</unitPattern>
 				<unitPattern count="other">{0} ft²</unitPattern>
 			</unit>
+			<unit type="area-square-inch">
+				<displayName>in²</displayName>
+				<unitPattern count="zero">{0} in²</unitPattern>
+				<unitPattern count="one">{0} in²</unitPattern>
+				<unitPattern count="other">{0} in²</unitPattern>
+			</unit>
 			<unit type="area-square-kilometer">
-				<displayName draft="provisional">kvadrātkilometri</displayName>
+				<displayName>km²</displayName>
 				<unitPattern count="zero">{0} km²</unitPattern>
 				<unitPattern count="one">{0} km²</unitPattern>
 				<unitPattern count="other">{0} km²</unitPattern>
 			</unit>
 			<unit type="area-square-meter">
-				<displayName draft="provisional">kvadrātmetri</displayName>
+				<displayName>m²</displayName>
 				<unitPattern count="zero">{0} m²</unitPattern>
 				<unitPattern count="one">{0} m²</unitPattern>
 				<unitPattern count="other">{0} m²</unitPattern>
 			</unit>
 			<unit type="area-square-mile">
-				<displayName draft="provisional">kvadrātjūdzes</displayName>
+				<displayName>mi²</displayName>
 				<unitPattern count="zero">{0} mi²</unitPattern>
 				<unitPattern count="one">{0} mi²</unitPattern>
 				<unitPattern count="other">{0} mi²</unitPattern>
 			</unit>
+			<unit type="area-square-yard">
+				<displayName>yd²</displayName>
+				<unitPattern count="zero">{0} yd²</unitPattern>
+				<unitPattern count="one">{0} yd²</unitPattern>
+				<unitPattern count="other">{0} yd²</unitPattern>
+			</unit>
+			<unit type="consumption-liter-per-kilometer">
+				<displayName>l/km</displayName>
+				<unitPattern count="zero">{0} l/km</unitPattern>
+				<unitPattern count="one">{0} l/km</unitPattern>
+				<unitPattern count="other">{0} l/km</unitPattern>
+			</unit>
+			<unit type="consumption-mile-per-gallon">
+				<displayName>mpg</displayName>
+				<unitPattern count="zero">{0} mpg</unitPattern>
+				<unitPattern count="one">{0} mpg</unitPattern>
+				<unitPattern count="other">{0} mpg</unitPattern>
+			</unit>
+			<unit type="digital-bit">
+				<displayName>b</displayName>
+				<unitPattern count="zero">{0} b</unitPattern>
+				<unitPattern count="one">{0} b</unitPattern>
+				<unitPattern count="other">{0} b</unitPattern>
+			</unit>
+			<unit type="digital-byte">
+				<displayName>B</displayName>
+				<unitPattern count="zero">{0} B</unitPattern>
+				<unitPattern count="one">{0} B</unitPattern>
+				<unitPattern count="other">{0} B</unitPattern>
+			</unit>
+			<unit type="digital-gigabit">
+				<displayName>Gb</displayName>
+				<unitPattern count="zero">{0} Gb</unitPattern>
+				<unitPattern count="one">{0} Gb</unitPattern>
+				<unitPattern count="other">{0} Gb</unitPattern>
+			</unit>
+			<unit type="digital-gigabyte">
+				<displayName>GB</displayName>
+				<unitPattern count="zero">{0} GB</unitPattern>
+				<unitPattern count="one">{0} GB</unitPattern>
+				<unitPattern count="other">{0} GB</unitPattern>
+			</unit>
+			<unit type="digital-kilobit">
+				<displayName>Kb</displayName>
+				<unitPattern count="zero">{0} Kb</unitPattern>
+				<unitPattern count="one">{0} Kb</unitPattern>
+				<unitPattern count="other">{0} Kb</unitPattern>
+			</unit>
+			<unit type="digital-kilobyte">
+				<displayName>KB</displayName>
+				<unitPattern count="zero">{0} KB</unitPattern>
+				<unitPattern count="one">{0} KB</unitPattern>
+				<unitPattern count="other">{0} KB</unitPattern>
+			</unit>
+			<unit type="digital-megabit">
+				<displayName>Mb</displayName>
+				<unitPattern count="zero">{0} Mb</unitPattern>
+				<unitPattern count="one">{0} Mb</unitPattern>
+				<unitPattern count="other">{0} Mb</unitPattern>
+			</unit>
+			<unit type="digital-megabyte">
+				<displayName>MB</displayName>
+				<unitPattern count="zero">{0} MB</unitPattern>
+				<unitPattern count="one">{0} MB</unitPattern>
+				<unitPattern count="other">{0} MB</unitPattern>
+			</unit>
+			<unit type="digital-terabit">
+				<displayName>Tb</displayName>
+				<unitPattern count="zero">{0} Tb</unitPattern>
+				<unitPattern count="one">{0} Tb</unitPattern>
+				<unitPattern count="other">{0} Tb</unitPattern>
+			</unit>
+			<unit type="digital-terabyte">
+				<displayName>TB</displayName>
+				<unitPattern count="zero">{0} TB</unitPattern>
+				<unitPattern count="one">{0} TB</unitPattern>
+				<unitPattern count="other">{0} TB</unitPattern>
+			</unit>
 			<unit type="duration-day">
-				<displayName draft="provisional">dienas</displayName>
-				<unitPattern count="zero">{0} d</unitPattern>
-				<unitPattern count="one">{0} d</unitPattern>
-				<unitPattern count="other">{0} d</unitPattern>
+				<displayName>d.</displayName>
+				<unitPattern count="zero">{0} d.</unitPattern>
+				<unitPattern count="one">{0} d.</unitPattern>
+				<unitPattern count="other">{0} d.</unitPattern>
 			</unit>
 			<unit type="duration-hour">
-				<displayName draft="provisional">stundas</displayName>
-				<unitPattern count="zero">{0} h</unitPattern>
-				<unitPattern count="one">{0} h</unitPattern>
-				<unitPattern count="other">{0} h</unitPattern>
+				<displayName>st.</displayName>
+				<unitPattern count="zero">{0} st.</unitPattern>
+				<unitPattern count="one">{0} st.</unitPattern>
+				<unitPattern count="other">{0} st.</unitPattern>
+				<perUnitPattern>{0}/st.</perUnitPattern>
+			</unit>
+			<unit type="duration-microsecond">
+				<displayName>μs</displayName>
+				<unitPattern count="zero">{0} μs</unitPattern>
+				<unitPattern count="one">{0} μs</unitPattern>
+				<unitPattern count="other">{0} μs</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
-				<displayName draft="provisional">milisekundes</displayName>
+				<displayName>ms</displayName>
 				<unitPattern count="zero">{0} ms</unitPattern>
 				<unitPattern count="one">{0} ms</unitPattern>
 				<unitPattern count="other">{0} ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
-				<displayName draft="provisional">minūtes</displayName>
-				<unitPattern count="zero">{0} min</unitPattern>
-				<unitPattern count="one">{0} min</unitPattern>
-				<unitPattern count="other">{0} min</unitPattern>
+				<displayName>min.</displayName>
+				<unitPattern count="zero">{0} min.</unitPattern>
+				<unitPattern count="one">{0} min.</unitPattern>
+				<unitPattern count="other">{0} min.</unitPattern>
 			</unit>
 			<unit type="duration-month">
-				<displayName draft="provisional">mēneši</displayName>
+				<displayName>mēneši</displayName>
 				<unitPattern count="zero">{0} mēn.</unitPattern>
 				<unitPattern count="one">{0} mēn.</unitPattern>
 				<unitPattern count="other">{0} mēn.</unitPattern>
 			</unit>
+			<unit type="duration-nanosecond">
+				<displayName>ns</displayName>
+				<unitPattern count="zero">{0} ns</unitPattern>
+				<unitPattern count="one">{0} ns</unitPattern>
+				<unitPattern count="other">{0} ns</unitPattern>
+			</unit>
 			<unit type="duration-second">
-				<displayName draft="provisional">sekundes</displayName>
-				<unitPattern count="zero">{0} s</unitPattern>
-				<unitPattern count="one">{0} s</unitPattern>
-				<unitPattern count="other">{0} s</unitPattern>
+				<displayName>sek.</displayName>
+				<unitPattern count="zero">{0} sek.</unitPattern>
+				<unitPattern count="one">{0} sek.</unitPattern>
+				<unitPattern count="other">{0} sek.</unitPattern>
+				<perUnitPattern>{0}/sek.</perUnitPattern>
 			</unit>
 			<unit type="duration-week">
-				<displayName draft="provisional">nedēļas</displayName>
+				<displayName>ned.</displayName>
 				<unitPattern count="zero">{0} ned.</unitPattern>
 				<unitPattern count="one">{0} ned.</unitPattern>
 				<unitPattern count="other">{0} ned.</unitPattern>
 			</unit>
 			<unit type="duration-year">
-				<displayName draft="provisional">gadi</displayName>
+				<displayName>g.</displayName>
 				<unitPattern count="zero">{0} g.</unitPattern>
 				<unitPattern count="one">{0} g.</unitPattern>
 				<unitPattern count="other">{0} g.</unitPattern>
 			</unit>
+			<unit type="electric-ampere">
+				<displayName>A</displayName>
+				<unitPattern count="zero">{0} A</unitPattern>
+				<unitPattern count="one">{0} A</unitPattern>
+				<unitPattern count="other">{0} A</unitPattern>
+			</unit>
+			<unit type="electric-milliampere">
+				<displayName>mA</displayName>
+				<unitPattern count="zero">{0} mA</unitPattern>
+				<unitPattern count="one">{0} mA</unitPattern>
+				<unitPattern count="other">{0} mA</unitPattern>
+			</unit>
+			<unit type="electric-ohm">
+				<displayName>Ω</displayName>
+				<unitPattern count="zero">{0} Ω</unitPattern>
+				<unitPattern count="one">{0} Ω</unitPattern>
+				<unitPattern count="other">{0} Ω</unitPattern>
+			</unit>
+			<unit type="electric-volt">
+				<displayName>V</displayName>
+				<unitPattern count="zero">{0} V</unitPattern>
+				<unitPattern count="one">{0} V</unitPattern>
+				<unitPattern count="other">{0} V</unitPattern>
+			</unit>
+			<unit type="energy-calorie">
+				<displayName>cal</displayName>
+				<unitPattern count="zero">{0} cal</unitPattern>
+				<unitPattern count="one">{0} cal</unitPattern>
+				<unitPattern count="other">{0} cal</unitPattern>
+			</unit>
+			<unit type="energy-foodcalorie">
+				<displayName>cal</displayName>
+				<unitPattern count="zero">{0} cal</unitPattern>
+				<unitPattern count="one">{0} cal</unitPattern>
+				<unitPattern count="other">{0} cal</unitPattern>
+			</unit>
+			<unit type="energy-joule">
+				<displayName>J</displayName>
+				<unitPattern count="zero">{0} J</unitPattern>
+				<unitPattern count="one">{0} J</unitPattern>
+				<unitPattern count="other">{0} J</unitPattern>
+			</unit>
+			<unit type="energy-kilocalorie">
+				<displayName>kcal</displayName>
+				<unitPattern count="zero">{0} kcal</unitPattern>
+				<unitPattern count="one">{0} kcal</unitPattern>
+				<unitPattern count="other">{0} kcal</unitPattern>
+			</unit>
+			<unit type="energy-kilojoule">
+				<displayName>kJ</displayName>
+				<unitPattern count="zero">{0} kJ</unitPattern>
+				<unitPattern count="one">{0} kJ</unitPattern>
+				<unitPattern count="other">{0} kJ</unitPattern>
+			</unit>
+			<unit type="energy-kilowatt-hour">
+				<displayName>kWh</displayName>
+				<unitPattern count="zero">{0} kWh</unitPattern>
+				<unitPattern count="one">{0} kWh</unitPattern>
+				<unitPattern count="other">{0} kWh</unitPattern>
+			</unit>
+			<unit type="frequency-gigahertz">
+				<displayName>GHz</displayName>
+				<unitPattern count="zero">{0} GHz</unitPattern>
+				<unitPattern count="one">{0} GHz</unitPattern>
+				<unitPattern count="other">{0} GHz</unitPattern>
+			</unit>
+			<unit type="frequency-hertz">
+				<displayName>Hz</displayName>
+				<unitPattern count="zero">{0} Hz</unitPattern>
+				<unitPattern count="one">{0} Hz</unitPattern>
+				<unitPattern count="other">{0} Hz</unitPattern>
+			</unit>
+			<unit type="frequency-kilohertz">
+				<displayName>kHz</displayName>
+				<unitPattern count="zero">{0} kHz</unitPattern>
+				<unitPattern count="one">{0} kHz</unitPattern>
+				<unitPattern count="other">{0} kHz</unitPattern>
+			</unit>
+			<unit type="frequency-megahertz">
+				<displayName>MHz</displayName>
+				<unitPattern count="zero">{0} MHz</unitPattern>
+				<unitPattern count="one">{0} MHz</unitPattern>
+				<unitPattern count="other">{0} MHz</unitPattern>
+			</unit>
+			<unit type="length-astronomical-unit">
+				<displayName>a.v.</displayName>
+				<unitPattern count="zero">{0} a.v.</unitPattern>
+				<unitPattern count="one">{0} a.v.</unitPattern>
+				<unitPattern count="other">{0} a.v.</unitPattern>
+			</unit>
 			<unit type="length-centimeter">
-				<displayName draft="provisional">centimetri</displayName>
+				<displayName>cm</displayName>
 				<unitPattern count="zero">{0} cm</unitPattern>
 				<unitPattern count="one">{0} cm</unitPattern>
 				<unitPattern count="other">{0} cm</unitPattern>
 			</unit>
+			<unit type="length-decimeter">
+				<displayName>dm</displayName>
+				<unitPattern count="zero">{0} dm</unitPattern>
+				<unitPattern count="one">{0} dm</unitPattern>
+				<unitPattern count="other">{0} dm</unitPattern>
+			</unit>
 			<unit type="length-foot">
-				<displayName draft="provisional">pēdas</displayName>
+				<displayName>ft</displayName>
 				<unitPattern count="zero">{0} ft</unitPattern>
 				<unitPattern count="one">{0} ft</unitPattern>
 				<unitPattern count="other">{0} ft</unitPattern>
 			</unit>
 			<unit type="length-inch">
-				<displayName draft="provisional">collas</displayName>
-				<unitPattern count="zero">{0} in</unitPattern>
-				<unitPattern count="one">{0} in</unitPattern>
-				<unitPattern count="other">{0} in</unitPattern>
+				<displayName>c.</displayName>
+				<unitPattern count="zero">{0} c.</unitPattern>
+				<unitPattern count="one">{0} c.</unitPattern>
+				<unitPattern count="other">{0} c.</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
-				<displayName draft="provisional">kilometri</displayName>
+				<displayName>kilometri</displayName>
 				<unitPattern count="zero">{0} km</unitPattern>
 				<unitPattern count="one">{0} km</unitPattern>
 				<unitPattern count="other">{0} km</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<displayName draft="provisional">gaismas gadi</displayName>
-				<unitPattern count="zero">{0} ly</unitPattern>
-				<unitPattern count="one">{0} ly</unitPattern>
-				<unitPattern count="other">{0} ly</unitPattern>
+				<displayName>g.g.</displayName>
+				<unitPattern count="zero">{0} g.g.</unitPattern>
+				<unitPattern count="one">{0} g.g.</unitPattern>
+				<unitPattern count="other">{0} g.g.</unitPattern>
 			</unit>
 			<unit type="length-meter">
-				<displayName draft="provisional">metri</displayName>
+				<displayName>m</displayName>
 				<unitPattern count="zero">{0} m</unitPattern>
 				<unitPattern count="one">{0} m</unitPattern>
 				<unitPattern count="other">{0} m</unitPattern>
 			</unit>
+			<unit type="length-micrometer">
+				<displayName>µm</displayName>
+				<unitPattern count="zero">{0} µm</unitPattern>
+				<unitPattern count="one">{0} µm</unitPattern>
+				<unitPattern count="other">{0} µm</unitPattern>
+			</unit>
 			<unit type="length-mile">
-				<displayName draft="provisional">jūdzes</displayName>
+				<displayName>mi</displayName>
 				<unitPattern count="zero">{0} mi</unitPattern>
 				<unitPattern count="one">{0} mi</unitPattern>
 				<unitPattern count="other">{0} mi</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
-				<displayName draft="provisional">milimetri</displayName>
+				<displayName>mm</displayName>
 				<unitPattern count="zero">{0} mm</unitPattern>
 				<unitPattern count="one">{0} mm</unitPattern>
 				<unitPattern count="other">{0} mm</unitPattern>
 			</unit>
+			<unit type="length-nanometer">
+				<displayName>nm</displayName>
+				<unitPattern count="zero">{0} nm</unitPattern>
+				<unitPattern count="one">{0} nm</unitPattern>
+				<unitPattern count="other">{0} nm</unitPattern>
+			</unit>
+			<unit type="length-nautical-mile">
+				<displayName>nmi</displayName>
+				<unitPattern count="zero">{0} nmi</unitPattern>
+				<unitPattern count="one">{0} nmi</unitPattern>
+				<unitPattern count="other">{0} nmi</unitPattern>
+			</unit>
+			<unit type="length-parsec">
+				<displayName>pc</displayName>
+				<unitPattern count="zero">{0} pc</unitPattern>
+				<unitPattern count="one">{0} pc</unitPattern>
+				<unitPattern count="other">{0} pc</unitPattern>
+			</unit>
 			<unit type="length-picometer">
-				<displayName draft="provisional">pikometri</displayName>
+				<displayName>pm</displayName>
 				<unitPattern count="zero">{0} pm</unitPattern>
 				<unitPattern count="one">{0} pm</unitPattern>
 				<unitPattern count="other">{0} pm</unitPattern>
 			</unit>
 			<unit type="length-yard">
-				<displayName draft="provisional">jardi</displayName>
+				<displayName>yd</displayName>
 				<unitPattern count="zero">{0} yd</unitPattern>
 				<unitPattern count="one">{0} yd</unitPattern>
 				<unitPattern count="other">{0} yd</unitPattern>
 			</unit>
+			<unit type="light-lux">
+				<displayName>lx</displayName>
+				<unitPattern count="zero">{0} lx</unitPattern>
+				<unitPattern count="one">{0} lx</unitPattern>
+				<unitPattern count="other">{0} lx</unitPattern>
+			</unit>
+			<unit type="mass-carat">
+				<displayName>CD</displayName>
+				<unitPattern count="zero">{0} CD</unitPattern>
+				<unitPattern count="one">{0} CD</unitPattern>
+				<unitPattern count="other">{0} CD</unitPattern>
+			</unit>
 			<unit type="mass-gram">
-				<displayName draft="provisional">grami</displayName>
+				<displayName>g</displayName>
 				<unitPattern count="zero">{0} g</unitPattern>
 				<unitPattern count="one">{0} g</unitPattern>
 				<unitPattern count="other">{0} g</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
-				<displayName draft="provisional">kilogrami</displayName>
+				<displayName>kg</displayName>
 				<unitPattern count="zero">{0} kg</unitPattern>
 				<unitPattern count="one">{0} kg</unitPattern>
 				<unitPattern count="other">{0} kg</unitPattern>
 			</unit>
+			<unit type="mass-metric-ton">
+				<displayName>t</displayName>
+				<unitPattern count="zero">{0} t</unitPattern>
+				<unitPattern count="one">{0} t</unitPattern>
+				<unitPattern count="other">{0} t</unitPattern>
+			</unit>
+			<unit type="mass-microgram">
+				<displayName>µg</displayName>
+				<unitPattern count="zero">{0} µg</unitPattern>
+				<unitPattern count="one">{0} µg</unitPattern>
+				<unitPattern count="other">{0} µg</unitPattern>
+			</unit>
+			<unit type="mass-milligram">
+				<displayName>mg</displayName>
+				<unitPattern count="zero">{0} mg</unitPattern>
+				<unitPattern count="one">{0} mg</unitPattern>
+				<unitPattern count="other">{0} mg</unitPattern>
+			</unit>
 			<unit type="mass-ounce">
-				<displayName draft="provisional">unces</displayName>
+				<displayName>oz</displayName>
 				<unitPattern count="zero">{0} oz</unitPattern>
 				<unitPattern count="one">{0} oz</unitPattern>
 				<unitPattern count="other">{0} oz</unitPattern>
 			</unit>
+			<unit type="mass-ounce-troy">
+				<displayName>oz t</displayName>
+				<unitPattern count="zero">{0} oz t</unitPattern>
+				<unitPattern count="one">{0} oz t</unitPattern>
+				<unitPattern count="other">{0} oz t</unitPattern>
+			</unit>
 			<unit type="mass-pound">
-				<displayName draft="provisional">mārciņas</displayName>
+				<displayName>lb</displayName>
 				<unitPattern count="zero">{0} lb</unitPattern>
 				<unitPattern count="one">{0} lb</unitPattern>
 				<unitPattern count="other">{0} lb</unitPattern>
 			</unit>
+			<unit type="mass-ton">
+				<displayName>tonnas</displayName>
+				<unitPattern count="zero">{0} tonnas</unitPattern>
+				<unitPattern count="one">{0} tonna</unitPattern>
+				<unitPattern count="other">{0} tonnas</unitPattern>
+			</unit>
+			<unit type="power-gigawatt">
+				<displayName>GW</displayName>
+				<unitPattern count="zero">{0} GW</unitPattern>
+				<unitPattern count="one">{0} GW</unitPattern>
+				<unitPattern count="other">{0} GW</unitPattern>
+			</unit>
 			<unit type="power-horsepower">
-				<displayName draft="provisional">zirgspēki</displayName>
+				<displayName>ZS</displayName>
 				<unitPattern count="zero">{0} ZS</unitPattern>
 				<unitPattern count="one">{0} ZS</unitPattern>
 				<unitPattern count="other">{0} ZS</unitPattern>
 			</unit>
 			<unit type="power-kilowatt">
-				<displayName draft="provisional">kilovati</displayName>
+				<displayName>kW</displayName>
 				<unitPattern count="zero">{0} kW</unitPattern>
 				<unitPattern count="one">{0} kW</unitPattern>
 				<unitPattern count="other">{0} kW</unitPattern>
 			</unit>
+			<unit type="power-megawatt">
+				<displayName>MW</displayName>
+				<unitPattern count="zero">{0} MW</unitPattern>
+				<unitPattern count="one">{0} MW</unitPattern>
+				<unitPattern count="other">{0} MW</unitPattern>
+			</unit>
+			<unit type="power-milliwatt">
+				<displayName>mW</displayName>
+				<unitPattern count="zero">{0} mW</unitPattern>
+				<unitPattern count="one">{0} mW</unitPattern>
+				<unitPattern count="other">{0} mW</unitPattern>
+			</unit>
 			<unit type="power-watt">
-				<displayName draft="provisional">vati</displayName>
+				<displayName>W</displayName>
 				<unitPattern count="zero">{0} W</unitPattern>
 				<unitPattern count="one">{0} W</unitPattern>
 				<unitPattern count="other">{0} W</unitPattern>
 			</unit>
 			<unit type="pressure-hectopascal">
-				<displayName draft="provisional">hektopaskāli</displayName>
+				<displayName>hPa</displayName>
 				<unitPattern count="zero">{0} hPa</unitPattern>
 				<unitPattern count="one">{0} hPa</unitPattern>
 				<unitPattern count="other">{0} hPa</unitPattern>
 			</unit>
 			<unit type="pressure-inch-hg">
-				<displayName draft="provisional">dzīvsudraba staba collas</displayName>
+				<displayName>inHg</displayName>
 				<unitPattern count="zero">{0} inHg</unitPattern>
 				<unitPattern count="one">{0} inHg</unitPattern>
 				<unitPattern count="other">{0} inHg</unitPattern>
 			</unit>
 			<unit type="pressure-millibar">
-				<displayName draft="provisional">milibāri</displayName>
+				<displayName>mbar</displayName>
 				<unitPattern count="zero">{0} mbar</unitPattern>
 				<unitPattern count="one">{0} mbar</unitPattern>
 				<unitPattern count="other">{0} mbar</unitPattern>
 			</unit>
+			<unit type="pressure-millimeter-of-mercury">
+				<displayName>mmHg</displayName>
+				<unitPattern count="zero">{0} mmHg</unitPattern>
+				<unitPattern count="one">{0} mmHg</unitPattern>
+				<unitPattern count="other">{0} mmHg</unitPattern>
+			</unit>
+			<unit type="pressure-pound-per-square-inch">
+				<displayName>psi</displayName>
+				<unitPattern count="zero">{0} psi</unitPattern>
+				<unitPattern count="one">{0} psi</unitPattern>
+				<unitPattern count="other">{0} psi</unitPattern>
+			</unit>
+			<unit type="proportion-karat">
+				<displayName>kt</displayName>
+				<unitPattern count="zero">{0} kt</unitPattern>
+				<unitPattern count="one">{0} kt</unitPattern>
+				<unitPattern count="other">{0} kt</unitPattern>
+			</unit>
 			<unit type="speed-kilometer-per-hour">
-				<displayName draft="provisional">kilometri stundā</displayName>
-				<unitPattern count="zero">{0} km/h</unitPattern>
-				<unitPattern count="one">{0} km/h</unitPattern>
-				<unitPattern count="other">{0} km/h</unitPattern>
+				<displayName>km/st.</displayName>
+				<unitPattern count="zero">{0} km/st.</unitPattern>
+				<unitPattern count="one">{0} km/st.</unitPattern>
+				<unitPattern count="other">{0} km/st.</unitPattern>
 			</unit>
 			<unit type="speed-meter-per-second">
-				<displayName draft="provisional">metri sekundē</displayName>
+				<displayName>m/s</displayName>
 				<unitPattern count="zero">{0} m/s</unitPattern>
 				<unitPattern count="one">{0} m/s</unitPattern>
 				<unitPattern count="other">{0} m/s</unitPattern>
 			</unit>
 			<unit type="speed-mile-per-hour">
-				<displayName draft="provisional">jūdzes stundā</displayName>
+				<displayName>mi/h</displayName>
 				<unitPattern count="zero">{0} mi/h</unitPattern>
 				<unitPattern count="one">{0} mi/h</unitPattern>
 				<unitPattern count="other">{0} mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<displayName draft="provisional">Celsija grādi</displayName>
+				<displayName>°C</displayName>
 				<unitPattern count="zero">{0} °C</unitPattern>
 				<unitPattern count="one">{0} °C</unitPattern>
 				<unitPattern count="other">{0} °C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
-				<displayName draft="provisional">Fārenheita grādi</displayName>
+				<displayName>°F</displayName>
 				<unitPattern count="zero">{0} °F</unitPattern>
 				<unitPattern count="one">{0} °F</unitPattern>
 				<unitPattern count="other">{0} °F</unitPattern>
 			</unit>
+			<unit type="temperature-kelvin">
+				<displayName>K</displayName>
+				<unitPattern count="zero">{0} K</unitPattern>
+				<unitPattern count="one">{0} K</unitPattern>
+				<unitPattern count="other">{0} K</unitPattern>
+			</unit>
+			<unit type="volume-acre-foot">
+				<displayName>ac ft</displayName>
+				<unitPattern count="zero">{0} ac ft</unitPattern>
+				<unitPattern count="one">{0} ac ft</unitPattern>
+				<unitPattern count="other">{0} ac ft</unitPattern>
+			</unit>
+			<unit type="volume-centiliter">
+				<displayName>cl</displayName>
+				<unitPattern count="zero">{0} cl</unitPattern>
+				<unitPattern count="one">{0} cl</unitPattern>
+				<unitPattern count="other">{0} cl</unitPattern>
+			</unit>
+			<unit type="volume-cubic-centimeter">
+				<displayName>cm³</displayName>
+				<unitPattern count="zero">{0} cm³</unitPattern>
+				<unitPattern count="one">{0} cm³</unitPattern>
+				<unitPattern count="other">{0} cm³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-foot">
+				<displayName>ft³</displayName>
+				<unitPattern count="zero">{0} ft³</unitPattern>
+				<unitPattern count="one">{0} ft³</unitPattern>
+				<unitPattern count="other">{0} ft³</unitPattern>
+			</unit>
+			<unit type="volume-cubic-inch">
+				<displayName>in³</displayName>
+				<unitPattern count="zero">{0} in³</unitPattern>
+				<unitPattern count="one">{0} in³</unitPattern>
+				<unitPattern count="other">{0} in³</unitPattern>
+			</unit>
 			<unit type="volume-cubic-kilometer">
-				<displayName draft="provisional">kubikkilometri</displayName>
+				<displayName>km³</displayName>
 				<unitPattern count="zero">{0} km³</unitPattern>
 				<unitPattern count="one">{0} km³</unitPattern>
 				<unitPattern count="other">{0} km³</unitPattern>
 			</unit>
+			<unit type="volume-cubic-meter">
+				<displayName>m³</displayName>
+				<unitPattern count="zero">{0} m³</unitPattern>
+				<unitPattern count="one">{0} m³</unitPattern>
+				<unitPattern count="other">{0} m³</unitPattern>
+			</unit>
 			<unit type="volume-cubic-mile">
-				<displayName draft="provisional">kubikjūdzes</displayName>
+				<displayName>mi³</displayName>
 				<unitPattern count="zero">{0} mi³</unitPattern>
 				<unitPattern count="one">{0} mi³</unitPattern>
 				<unitPattern count="other">{0} mi³</unitPattern>
 			</unit>
+			<unit type="volume-cubic-yard">
+				<displayName>yd³</displayName>
+				<unitPattern count="zero">{0} yd³</unitPattern>
+				<unitPattern count="one">{0} yd³</unitPattern>
+				<unitPattern count="other">{0} yd³</unitPattern>
+			</unit>
+			<unit type="volume-cup">
+				<displayName>gl.</displayName>
+				<unitPattern count="zero">{0} gl.</unitPattern>
+				<unitPattern count="one">{0} gl.</unitPattern>
+				<unitPattern count="other">{0} gl.</unitPattern>
+			</unit>
+			<unit type="volume-deciliter">
+				<displayName>dl</displayName>
+				<unitPattern count="zero">{0} dl</unitPattern>
+				<unitPattern count="one">{0} dl</unitPattern>
+				<unitPattern count="other">{0} dl</unitPattern>
+			</unit>
+			<unit type="volume-fluid-ounce">
+				<displayName>fl oz</displayName>
+				<unitPattern count="zero">{0} fl oz</unitPattern>
+				<unitPattern count="one">{0} fl oz</unitPattern>
+				<unitPattern count="other">{0} fl oz</unitPattern>
+			</unit>
+			<unit type="volume-gallon">
+				<displayName>gal</displayName>
+				<unitPattern count="zero">{0} gal</unitPattern>
+				<unitPattern count="one">{0} gal</unitPattern>
+				<unitPattern count="other">{0} gal</unitPattern>
+			</unit>
+			<unit type="volume-hectoliter">
+				<displayName>hl</displayName>
+				<unitPattern count="zero">{0} hl</unitPattern>
+				<unitPattern count="one">{0} hl</unitPattern>
+				<unitPattern count="other">{0} hl</unitPattern>
+			</unit>
 			<unit type="volume-liter">
-				<displayName draft="provisional">litri</displayName>
+				<displayName>l</displayName>
 				<unitPattern count="zero">{0} l</unitPattern>
 				<unitPattern count="one">{0} l</unitPattern>
 				<unitPattern count="other">{0} l</unitPattern>
+			</unit>
+			<unit type="volume-megaliter">
+				<displayName>ML</displayName>
+				<unitPattern count="zero">{0} ML</unitPattern>
+				<unitPattern count="one">{0} ML</unitPattern>
+				<unitPattern count="other">{0} ML</unitPattern>
+			</unit>
+			<unit type="volume-milliliter">
+				<displayName>ml</displayName>
+				<unitPattern count="zero">{0} ml</unitPattern>
+				<unitPattern count="one">{0} ml</unitPattern>
+				<unitPattern count="other">{0} ml</unitPattern>
+			</unit>
+			<unit type="volume-pint">
+				<displayName>pt</displayName>
+				<unitPattern count="zero">{0} pt</unitPattern>
+				<unitPattern count="one">{0} pt</unitPattern>
+				<unitPattern count="other">{0} pt</unitPattern>
+			</unit>
+			<unit type="volume-quart">
+				<displayName>qt</displayName>
+				<unitPattern count="zero">{0} qt</unitPattern>
+				<unitPattern count="one">{0} qt</unitPattern>
+				<unitPattern count="other">{0} qt</unitPattern>
+			</unit>
+			<unit type="volume-tablespoon">
+				<displayName>ĒK</displayName>
+				<unitPattern count="zero">{0} ĒK</unitPattern>
+				<unitPattern count="one">{0} ĒK</unitPattern>
+				<unitPattern count="other">{0} ĒK</unitPattern>
+			</unit>
+			<unit type="volume-teaspoon">
+				<displayName>TK</displayName>
+				<unitPattern count="zero">{0} TK</unitPattern>
+				<unitPattern count="one">{0} TK</unitPattern>
+				<unitPattern count="other">{0} TK</unitPattern>
 			</unit>
 		</unitLength>
 		<unitLength type="narrow">
@@ -5796,46 +7342,55 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}mi²</unitPattern>
 			</unit>
 			<unit type="duration-day">
+				<displayName>d.</displayName>
 				<unitPattern count="zero">{0}d</unitPattern>
 				<unitPattern count="one">{0}d</unitPattern>
 				<unitPattern count="other">{0}d</unitPattern>
 			</unit>
 			<unit type="duration-hour">
+				<displayName>h</displayName>
 				<unitPattern count="zero">{0}h</unitPattern>
 				<unitPattern count="one">{0}h</unitPattern>
 				<unitPattern count="other">{0}h</unitPattern>
 			</unit>
 			<unit type="duration-millisecond">
+				<displayName>ms</displayName>
 				<unitPattern count="zero">{0}ms</unitPattern>
 				<unitPattern count="one">{0}ms</unitPattern>
 				<unitPattern count="other">{0}ms</unitPattern>
 			</unit>
 			<unit type="duration-minute">
+				<displayName>min</displayName>
 				<unitPattern count="zero">{0} min</unitPattern>
 				<unitPattern count="one">{0} min</unitPattern>
 				<unitPattern count="other">{0} min</unitPattern>
 			</unit>
 			<unit type="duration-month">
+				<displayName>mēn.</displayName>
 				<unitPattern count="zero">{0} mēn.</unitPattern>
 				<unitPattern count="one">{0} mēn.</unitPattern>
 				<unitPattern count="other">{0} mēn.</unitPattern>
 			</unit>
 			<unit type="duration-second">
+				<displayName>s</displayName>
 				<unitPattern count="zero">{0}s</unitPattern>
 				<unitPattern count="one">{0}s</unitPattern>
 				<unitPattern count="other">{0}s</unitPattern>
 			</unit>
 			<unit type="duration-week">
+				<displayName>ned.</displayName>
 				<unitPattern count="zero">{0} ned.</unitPattern>
 				<unitPattern count="one">{0} ned.</unitPattern>
 				<unitPattern count="other">{0} ned.</unitPattern>
 			</unit>
 			<unit type="duration-year">
+				<displayName>g.</displayName>
 				<unitPattern count="zero">{0}g.</unitPattern>
 				<unitPattern count="one">{0}g.</unitPattern>
 				<unitPattern count="other">{0}g.</unitPattern>
 			</unit>
 			<unit type="length-centimeter">
+				<displayName>cm</displayName>
 				<unitPattern count="zero">{0}cm</unitPattern>
 				<unitPattern count="one">{0}cm</unitPattern>
 				<unitPattern count="other">{0}cm</unitPattern>
@@ -5851,16 +7406,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}in</unitPattern>
 			</unit>
 			<unit type="length-kilometer">
+				<displayName>km</displayName>
 				<unitPattern count="zero">{0}km</unitPattern>
 				<unitPattern count="one">{0}km</unitPattern>
 				<unitPattern count="other">{0}km</unitPattern>
 			</unit>
 			<unit type="length-light-year">
-				<unitPattern count="zero">{0}ly</unitPattern>
-				<unitPattern count="one">{0}ly</unitPattern>
-				<unitPattern count="other">{0}ly</unitPattern>
+				<displayName>g.g.</displayName>
+				<unitPattern count="zero">{0}g.g.</unitPattern>
+				<unitPattern count="one">{0}g.g.</unitPattern>
+				<unitPattern count="other">{0}g.g.</unitPattern>
 			</unit>
 			<unit type="length-meter">
+				<displayName>m</displayName>
 				<unitPattern count="zero">{0}m</unitPattern>
 				<unitPattern count="one">{0}m</unitPattern>
 				<unitPattern count="other">{0}m</unitPattern>
@@ -5871,6 +7429,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}mi</unitPattern>
 			</unit>
 			<unit type="length-millimeter">
+				<displayName>mm</displayName>
 				<unitPattern count="zero">{0}mm</unitPattern>
 				<unitPattern count="one">{0}mm</unitPattern>
 				<unitPattern count="other">{0}mm</unitPattern>
@@ -5886,11 +7445,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}yd</unitPattern>
 			</unit>
 			<unit type="mass-gram">
+				<displayName>g</displayName>
 				<unitPattern count="zero">{0}g</unitPattern>
 				<unitPattern count="one">{0}g</unitPattern>
 				<unitPattern count="other">{0}g</unitPattern>
 			</unit>
 			<unit type="mass-kilogram">
+				<displayName>kg</displayName>
 				<unitPattern count="zero">{0}kg</unitPattern>
 				<unitPattern count="one">{0}kg</unitPattern>
 				<unitPattern count="other">{0}kg</unitPattern>
@@ -5936,6 +7497,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}mbar</unitPattern>
 			</unit>
 			<unit type="speed-kilometer-per-hour">
+				<displayName>km/h</displayName>
 				<unitPattern count="zero">{0}km/h</unitPattern>
 				<unitPattern count="one">{0}km/h</unitPattern>
 				<unitPattern count="other">{0}km/h</unitPattern>
@@ -5951,9 +7513,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}mi/h</unitPattern>
 			</unit>
 			<unit type="temperature-celsius">
-				<unitPattern count="zero">{0}°</unitPattern>
-				<unitPattern count="one">{0}°</unitPattern>
-				<unitPattern count="other">{0}°</unitPattern>
+				<displayName>°C</displayName>
+				<unitPattern count="zero">{0} °C</unitPattern>
+				<unitPattern count="one">{0} °C</unitPattern>
+				<unitPattern count="other">{0} °C</unitPattern>
 			</unit>
 			<unit type="temperature-fahrenheit">
 				<unitPattern count="zero">{0}°F</unitPattern>
@@ -5971,6 +7534,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<unitPattern count="other">{0}mi³</unitPattern>
 			</unit>
 			<unit type="volume-liter">
+				<displayName>l</displayName>
 				<unitPattern count="zero">{0}l</unitPattern>
 				<unitPattern count="one">{0}l</unitPattern>
 				<unitPattern count="other">{0}l</unitPattern>
@@ -6000,10 +7564,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<listPatternPart type="2">{0} un {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-narrow">
-			<listPatternPart type="start" draft="contributed">{0} {1}</listPatternPart>
-			<listPatternPart type="middle" draft="contributed">{0} {1}</listPatternPart>
-			<listPatternPart type="end" draft="contributed">{0} {1}</listPatternPart>
-			<listPatternPart type="2" draft="contributed">{0} {1}</listPatternPart>
+			<listPatternPart type="start">{0} {1}</listPatternPart>
+			<listPatternPart type="middle">{0} {1}</listPatternPart>
+			<listPatternPart type="end">{0} {1}</listPatternPart>
+			<listPatternPart type="2">{0} {1}</listPatternPart>
 		</listPattern>
 		<listPattern type="unit-short">
 			<listPatternPart type="start">{0}, {1}</listPatternPart>
@@ -6014,9 +7578,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</listPatterns>
 	<posix>
 		<messages>
-			<yesstr>jā:ja:j</yesstr>
-			<nostr>nē:ne:n</nostr>
+			<yesstr>jā:j</yesstr>
+			<nostr>nē:n</nostr>
 		</messages>
 	</posix>
 </ldml>
-

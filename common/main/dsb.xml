@@ -841,8 +841,7 @@ terms of use, see http://www.unicode.org/copyright.html
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMMEd">
 							<greatestDifference id="d">E, d. – E, d. MMM y G</greatestDifference>
-							<greatestDifference id="M">E, d. MMM – E, d. MMM y
-								G</greatestDifference>
+							<greatestDifference id="M">E, d. MMM – E, d. MMM y G</greatestDifference>
 							<greatestDifference id="y">E, d. MMM y – E, d. MMM
 								y G</greatestDifference>
 						</intervalFormatItem>
@@ -2446,6 +2445,11 @@ terms of use, see http://www.unicode.org/copyright.html
 					<standard>Srjejźoeuropski standardny cas</standard>
 					<daylight>Srjejźoeuropski lěśojski cas</daylight>
 				</long>
+				<short>
+					<generic>MEZ</generic>
+					<standard>MEZ</standard>
+					<daylight>MESZ</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Eastern">
 				<long>
@@ -2453,6 +2457,11 @@ terms of use, see http://www.unicode.org/copyright.html
 					<standard>Pódzajtšnoeuropski standardny cas</standard>
 					<daylight>Pódzajtšnoeuropski lěśojski cas</daylight>
 				</long>
+				<short>
+					<generic>OEZ</generic>
+					<standard>OEZ</standard>
+					<daylight>OESZ</daylight>
+				</short>
 			</metazone>
 			<metazone type="Europe_Western">
 				<long>
@@ -2460,6 +2469,11 @@ terms of use, see http://www.unicode.org/copyright.html
 					<standard>Pódwjacornoeuropski standardny cas</standard>
 					<daylight>Pódwjacornoeuropski lěśojski cas</daylight>
 				</long>
+				<short>
+					<generic>WEZ</generic>
+					<standard>WEZ</standard>
+					<daylight>WESZ</daylight>
+				</short>
 			</metazone>
 			<metazone type="Falkland">
 				<long>
@@ -3253,14 +3267,10 @@ terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="AOR">
 				<displayName>angolska kwanza reajustado (1995–1999)</displayName>
-				<displayName count="one">angolska kwanza reajustado
-					(1995–1999)</displayName>
-				<displayName count="two">angolskej kwanzy reajustado
-					(1995–1999)</displayName>
-				<displayName count="few">angolske kwanze reajustado
-					(1995–1999)</displayName>
-				<displayName count="other">angolskich kwanzow reajustado
-					(1995–1999)</displayName>
+				<displayName count="one">angolska kwanza reajustado (1995–1999)</displayName>
+				<displayName count="two">angolskej kwanzy reajustado (1995–1999)</displayName>
+				<displayName count="few">angolske kwanze reajustado (1995–1999)</displayName>
+				<displayName count="other">angolskich kwanzow reajustado (1995–1999)</displayName>
 			</currency>
 			<currency type="ARA">
 				<displayName>argentinski austral</displayName>
@@ -3437,8 +3447,7 @@ terms of use, see http://www.unicode.org/copyright.html
 				<displayName count="one">brazilski nowy cruzeiro (1967–1986)</displayName>
 				<displayName count="two">brazilskej nowej cruzeira (1967–1986)</displayName>
 				<displayName count="few">brazilske nowe cruzeiry (1967–1986)</displayName>
-				<displayName count="other">brazilskich nowych cruzeirow
-					(1967–1986)</displayName>
+				<displayName count="other">brazilskich nowych cruzeirow (1967–1986)</displayName>
 			</currency>
 			<currency type="BRC">
 				<displayName>brazilski cruzado (1986–1989)</displayName>

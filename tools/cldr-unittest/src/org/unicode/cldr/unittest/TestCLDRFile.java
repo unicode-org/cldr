@@ -189,8 +189,6 @@ public class TestCLDRFile extends TestFmwk {
             if (path.startsWith("//ldml/localeDisplayNames/")
                 || path.contains("[@alt=\"accounting\"]")) {
                 logln("+" + engName + ", -" + locales + "\t" + path);
-            } else if (path.contains("//ldml/units/unitLength[@type=\"narrow\"]/unit")) {
-                logln("+" + engName + ", -" + locales + "\t" + path);
             } else {
                 errln("+" + engName + ", -" + locales + "\t" + path);
             }

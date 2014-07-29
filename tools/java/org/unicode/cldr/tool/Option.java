@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import org.unicode.cldr.util.CLDRTool;
+
 /**
  * Simpler mechanism for handling options, where everything can be defined in one place.
  * 
@@ -119,6 +121,14 @@ public class Option {
 
         public Options() {
             this("");
+        }
+
+        /**
+         * Generate based on class and, optionally, CLDRTool annotation
+         * @param forClass
+         */
+        public Options(Class<?> forClass) {
+            this(forClass.getSimpleName() + ": " + getCLDRToolDescription(forClass));
         }
 
         public Options add(String string, String helpText) {
@@ -304,6 +314,20 @@ public class Option {
         }
         Option option = myOptions.get("file");
         System.out.println("\n" + option.doesOccur() + "\t" + option.getValue() + "\t" + option);
+    }
+
+    /**
+     * Helper function
+     * @param forClass
+     * @return
+     */
+    private static String getCLDRToolDescription(Class<?> forClass) {
+        CLDRTool cldrTool = forClass.getAnnotation(CLDRTool.class);
+        if( cldrTool != null  ) {
+            return cldrTool.description();
+        } else {
+            return "";
+        }
     }
 
     public String getDefaultArgument() {

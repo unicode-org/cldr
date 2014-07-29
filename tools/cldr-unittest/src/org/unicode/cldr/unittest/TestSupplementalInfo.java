@@ -1373,9 +1373,7 @@ public class TestSupplementalInfo extends TestFmwkPlus {
                     max = Math.max(max, range.dateRange.to);
                 }
                 assertRelation(timezone + " has metazone from 1970?", true, goalMin, GEQ, new Date(min));
-                if (!logKnownIssue("cldrbug:7317", "Check for missing metazones")) {
-                    assertRelation(timezone + " has metazone until way in the future?", true, goalMax, LEQ, new Date(max));
-                }
+                assertRelation(timezone + " has metazone until way in the future?", true, goalMax, LEQ, new Date(max));
             }
         }
         com.google.common.collect.Interners i;

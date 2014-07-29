@@ -255,7 +255,7 @@ public class TestTransforms extends TestFmwkPlus {
         Transliterator azLower = checkString("az", Casing.Lower, "ısii isıı", turkishSource, true);
         Transliterator azUpper = checkString("az", Casing.Upper, "ISİİ İSII", turkishSource, true);
 
-        if (!logKnownIssue("cldrbug:7010", "Investigate/fix lt casing transforms")) {
+        if (!logKnownIssue("cldrbug:7039", "Investigate/fix lt casing transforms")) {
             String lithuanianSource = "I Ï J J̈ Į Į̈ Ì Í Ĩ xi̇̈ xj̇̈ xį̇̈ xi̇̀ xi̇́ xi̇̃ XI XÏ XJ XJ̈ XĮ XĮ̈";
             Transliterator ltTitle = checkString("lt", Casing.Title,
                 "I Ï J J̈ Į Į̈ Ì Í Ĩ Xi̇̈ Xj̇̈ Xį̇̈ Xi̇̀ Xi̇́ Xi̇̃ Xi Xi̇̈ Xj Xj̇̈ Xį Xį̇̈", lithuanianSource, true);

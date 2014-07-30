@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <ldml>
-  <identity>
-    <version number="$Revision$"/>
-    <generation date="$Date$"/>
-    <language type="sok"/>
-  </identity>
-  <characters>
-    <exemplarCharacters draft="unconfirmed">[a {a\u0301} b \u0253 c d \u0257 e ɛ \u0259 g h i j k l m n {n\u0330} \u014b o ɔ p r s t u w y \u01b4]</exemplarCharacters>
-    <exemplarCharacters type="auxiliary" draft="unconfirmed">[f q v x z]</exemplarCharacters>
-  </characters>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="sok"/>
+		<script type="Latn"/>
+	</identity>
+	<characters>
+		<exemplarCharacters draft="unconfirmed">[a {a\u0301} b \u0253 c d \u0257 e ɛ \u0259 g h i j k l m n {n\u0330} \u014b o ɔ p r s t u w y \u01b4]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[f q v x z]</exemplarCharacters>
+	</characters>
 </ldml>
+

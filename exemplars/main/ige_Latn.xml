@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
-<!-- Copyright © 1991-2013 Unicode, Inc.
+<!-- Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <ldml>
-  <identity>
-    <version number="$Revision$"/>
-    <generation date="$Date$"/>
-    <language type="ige"/>
-  </identity>
-  <layout>
-    <orientation>
-      <characterOrder>left-to-right</characterOrder>
-      <lineOrder>top-to-bottom</lineOrder>
-    </orientation>
-  </layout>
-  <characters>
-    <exemplarCharacters draft="unconfirmed">[{á} a {ā} {à} b c d {é} e {è} {ẹ́} {ẹ} {ẹ̀} f g h {í} i {ì} {ị́} {ị} {ị̀} j k l m n {ó} o {ò} {ọ́} {ọ} {ọ̀} p r s t {ú} u {ù} {ụ́} {ụ} {ụ̀} v w y z]</exemplarCharacters>
-    <exemplarCharacters type="auxiliary" draft="unconfirmed">[q x]</exemplarCharacters>
-  </characters>
+	<identity>
+		<version number="$Revision$"/>
+		<generation date="$Date$"/>
+		<language type="ige"/>
+		<script type="Latn"/>
+	</identity>
+	<layout>
+		<orientation>
+			<characterOrder>left-to-right</characterOrder>
+			<lineOrder>top-to-bottom</lineOrder>
+		</orientation>
+	</layout>
+	<characters>
+		<exemplarCharacters draft="unconfirmed">[{á} a {ā} {à} b c d {é} e {è} {ẹ́} {ẹ} {ẹ̀} f g h {í} i {ì} {ị́} {ị} {ị̀} j k l m n {ó} o {ò} {ọ́} {ọ} {ọ̀} p r s t {ú} u {ù} {ụ́} {ụ} {ụ̀} v w y z]</exemplarCharacters>
+		<exemplarCharacters type="auxiliary" draft="unconfirmed">[q x]</exemplarCharacters>
+	</characters>
 </ldml>
+

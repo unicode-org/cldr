@@ -38,6 +38,19 @@ public class CLDRConfig extends Properties {
     private static final Object FULL_FACTORY_SYNC = new Object();
 
     /**
+     * Object to use for synchronization when interacting with Factory
+     */
+    private static final Object EXEMPLARS_FACTORY_SYNC = new Object();
+    /**
+     * Object to use for synchronization when interacting with Factory
+     */
+    private static final Object COLLATION_FACTORY_SYNC = new Object();
+    /**
+     * Object to use for synchronization when interacting with Factory
+     */
+    private static final Object RBNF_FACTORY_SYNC = new Object();
+
+    /**
      * Object used for synchronization when interacting with SupplementalData
      */
     private static final Object SUPPLEMENTAL_DATA_SYNC = new Object();
@@ -130,6 +143,9 @@ public class CLDRConfig extends Properties {
     private StandardCodes sc;
     private Factory cldrFactory;
     private Factory fullFactory;
+    private Factory exemplarsFactory;
+    private Factory collationFactory;
+    private Factory rbnfFactory;
     private Factory supplementalFactory;
     private CLDRFile english;
     private CLDRFile root;
@@ -193,6 +209,31 @@ public class CLDRConfig extends Properties {
             }
         }
         return cldrFactory;
+    }
+    
+    public Factory getExemplarsFactory() {
+        synchronized (EXEMPLARS_FACTORY_SYNC) {
+            if (exemplarsFactory == null) {
+                exemplarsFactory = Factory.make(CLDRPaths.EXEMPLARS_DIRECTORY, ".*");
+            }
+        }
+        return exemplarsFactory;
+    }
+    public Factory getCollationFactory() {
+        synchronized (COLLATION_FACTORY_SYNC) {
+            if (collationFactory == null) {
+                collationFactory = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*");
+            }
+        }
+        return collationFactory;
+    }
+    public Factory getRBNFFactory() {
+        synchronized (RBNF_FACTORY_SYNC) {
+            if (rbnfFactory == null) {
+                rbnfFactory = Factory.make(CLDRPaths.RBNF_DIRECTORY, ".*");
+            }
+        }
+        return rbnfFactory;
     }
 
     public Factory getFullCldrFactory() {

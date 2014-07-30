@@ -189,6 +189,7 @@ public class TestAll extends TestGroup {
                 "org.unicode.cldr.unittest.TestExternalCodeAPIs",
                 "org.unicode.cldr.unittest.TestFallbackIterator",
                 "org.unicode.cldr.unittest.TestIdentifierInfo",
+                "org.unicode.cldr.unittest.TestIdentity",
                 "org.unicode.cldr.unittest.TestInheritance",
                 "org.unicode.cldr.unittest.TestKeyboardModifierSet",
                 "org.unicode.cldr.unittest.TestLdml2ICU",

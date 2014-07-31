@@ -1906,7 +1906,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<gmtFormat draft="contributed">UTC{0}</gmtFormat>
 			<gmtZeroFormat draft="contributed">UTC</gmtZeroFormat>
 			<regionFormat draft="contributed">Heure de {0}</regionFormat>
-			<regionFormat type="daylight" draft="contributed">{0} (heure d’été)</regionFormat>
+			<regionFormat type="daylight" draft="contributed">{0} (heure avancée)</regionFormat>
 			<regionFormat type="standard" draft="contributed">{0} (heure légale)</regionFormat>
 			<fallbackFormat draft="contributed">{1} ({0})</fallbackFormat>
 			<zone type="Etc/Unknown">
@@ -2394,7 +2394,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/London">
 				<long>
-					<daylight draft="contributed">heure d’été britannique</daylight>
+					<daylight draft="contributed">heure avancée britannique</daylight>
 				</long>
 				<exemplarCity draft="contributed">Londres</exemplarCity>
 			</zone>
@@ -2487,7 +2487,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</zone>
 			<zone type="Europe/Dublin">
 				<long>
-					<daylight draft="contributed">heure d’été irlandaise</daylight>
+					<daylight draft="contributed">heure avancée irlandaise</daylight>
 				</long>
 				<exemplarCity draft="contributed">Dublin</exemplarCity>
 			</zone>
@@ -3166,6 +3166,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<zone type="Africa/Harare">
 				<exemplarCity draft="contributed">Harare</exemplarCity>
 			</zone>
+			<metazone type="Acre">
+				<long>
+					<generic>heure de l’Acre</generic>
+					<standard>heure normale de l’Acre</standard>
+					<daylight>heure avancée de l’Acre</daylight>
+				</long>
+			</metazone>
 			<metazone type="Afghanistan">
 				<long>
 					<standard draft="contributed">heure de l’Afghanistan</standard>
@@ -3198,6 +3205,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<generic draft="contributed">heure de l’Alaska</generic>
 					<standard draft="contributed">heure normale de l’Alaska</standard>
 					<daylight draft="contributed">heure avancée de l’Alaska</daylight>
+				</long>
+			</metazone>
+			<metazone type="Almaty">
+				<long>
+					<generic>heure d’Alma Ata</generic>
+					<standard>heure normale d’Alma Ata</standard>
+					<daylight>heure avancée d’Alma Ata</daylight>
 				</long>
 			</metazone>
 			<metazone type="Amazon">
@@ -3255,11 +3269,32 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<daylight>HAP</daylight>
 				</short>
 			</metazone>
+			<metazone type="Anadyr">
+				<long>
+					<generic>heure d’Anadyr</generic>
+					<standard>heure normale d’Anadyr</standard>
+					<daylight>heure avancée d’Anadyr</daylight>
+				</long>
+			</metazone>
 			<metazone type="Apia">
 				<long>
 					<generic draft="contributed">heure d’Apia</generic>
 					<standard draft="contributed">heure normale d’Apia</standard>
 					<daylight draft="contributed">heure avancée d’Apia</daylight>
+				</long>
+			</metazone>
+			<metazone type="Aqtau">
+				<long>
+					<generic>heure d’Aktaou</generic>
+					<standard>heure normale d’Aktaou</standard>
+					<daylight>heure avancée d’Aktaou</daylight>
+				</long>
+			</metazone>
+			<metazone type="Aqtobe">
+				<long>
+					<generic>heure d’Aqtöbe</generic>
+					<standard>heure normale d’Aqtöbe</standard>
+					<daylight>heure avancée d’Aqtöbe</daylight>
 				</long>
 			</metazone>
 			<metazone type="Arabian">
@@ -3641,6 +3676,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<daylight draft="contributed">heure avancée du Japon</daylight>
 				</long>
 			</metazone>
+			<metazone type="Kamchatka">
+				<long>
+					<generic>heure de Petropavlovsk-Kamchatski</generic>
+					<standard>heure normale de Petropavlovsk-Kamchatski</standard>
+					<daylight>heure avancée de Petropavlovsk-Kamchatski</daylight>
+				</long>
+			</metazone>
 			<metazone type="Kazakhstan_Eastern">
 				<long>
 					<standard draft="contributed">heure de l’Est du Kazakhstan</standard>
@@ -3685,6 +3727,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<generic draft="contributed">heure de Lord Howe</generic>
 					<standard draft="contributed">heure normale de Lord Howe</standard>
 					<daylight draft="contributed">heure avancée de Lord Howe</daylight>
+				</long>
+			</metazone>
+			<metazone type="Macau">
+				<long>
+					<generic draft="unconfirmed">heure de Macao</generic>
+					<standard draft="unconfirmed">heure normale de Macao</standard>
+					<daylight draft="unconfirmed">heure avancée de Macao</daylight>
 				</long>
 			</metazone>
 			<metazone type="Macquarie">
@@ -3912,7 +3961,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<long>
 					<generic draft="contributed">heure des Samoa</generic>
 					<standard draft="contributed">heure normale des Samoa</standard>
-					<daylight draft="contributed">heure d’été des Samoa</daylight>
+					<daylight draft="contributed">heure avancée des Samoa</daylight>
 				</long>
 			</metazone>
 			<metazone type="Seychelles">

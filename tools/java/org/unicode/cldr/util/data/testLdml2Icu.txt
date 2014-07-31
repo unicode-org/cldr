@@ -14,6 +14,7 @@
 //ldml/identity ; ignore
 //ldml/posix ; unconverted
 
+//ldml/localeDisplayNames/scripts/script[@type="%A"][@alt="variant"] ; ignore
 .*[@alt="variant"\]$ ; unconverted
 
 //ldml/dates/calendars/calendar[@type="%A"]/.*[@alt="variant"] ; unconverted

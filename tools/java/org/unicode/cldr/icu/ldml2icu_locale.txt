@@ -146,7 +146,7 @@
 
 # There is a script element with a references attribute in gd.
 //ldml/localeDisplayNames/scripts/script[@type="(%A)"]([@references="%A"])? ; /Scripts/$1
-//ldml/localeDisplayNames/scripts/script[@type="(%A)"][@alt="stand-alone"] ; /Scripts%stand-alone/$1
+//ldml/localeDisplayNames/scripts/script[@type="(%A)"][@alt="(%A)"] ; /Scripts%$2/$1
 
 //ldml/localeDisplayNames/territories/territory[@type="(%A)"] ; /Countries/$1
 //ldml/localeDisplayNames/territories/territory[@type="(%A)"][@alt="short"] ; /CountriesShort/$1
@@ -154,6 +154,7 @@
 //ldml/localeDisplayNames/transformNames/transformName[@type="(%W)"] ; /transformNames/$1
 
 //ldml/localeDisplayNames/types/type[@type="(%A)"][@key="(%A)"] ; /Types/$2/$1
+//ldml/localeDisplayNames/types/type[@type="(%A)"][@key="(%A)"][@alt="(%A)"] ; /Types%$3/$2/$1
 
 //ldml/localeDisplayNames/variants/variant[@type="(%A)"] ; /Variants/$1
 

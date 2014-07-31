@@ -3370,7 +3370,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     }
 
     private Collection<String> getRawExtraPathsPrivate(Collection<String> toAddTo) {
-        SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());
+        SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
+            // SupplementalDataInfo.getInstance(getSupplementalDirectory());
         // units
         PluralInfo plurals = supplementalData.getPlurals(PluralType.cardinal, getLocaleID());
         if (plurals == null && DEBUG) {
@@ -3548,7 +3549,8 @@ public class CLDRFile implements Freezable<CLDRFile>, Iterable<String> {
     public Set<String> getExcludedZones() {
         synchronized (this) {
             if (excludedZones == null) {
-                SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(getSupplementalDirectory());
+                SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
+                // SupplementalDataInfo.getInstance(getSupplementalDirectory());
                 excludedZones = new HashSet<String>(supplementalData.getSingleRegionZones());
                 excludedZones = Collections.unmodifiableSet(excludedZones); // protect
             }

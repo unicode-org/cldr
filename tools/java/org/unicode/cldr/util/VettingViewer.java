@@ -1369,9 +1369,10 @@ public class VettingViewer<T> {
             }
             // if there are no possible Count values for this many digits, then it is ok to be missing.
             Count c = Count.valueOf(arguments.value[4]);
-            SupplementalDataInfo supplementalDataInfo2 = SupplementalDataInfo.getInstance(sourceFile.getSupplementalDirectory());
+            SupplementalDataInfo supplementalDataInfo2 = CLDRConfig.getInstance().getSupplementalDataInfo();
+            // SupplementalDataInfo.getInstance(sourceFile.getSupplementalDirectory());
             PluralInfo plurals = supplementalDataInfo2.getPlurals(sourceFile.getLocaleID());
-            return !plurals.hasSamples(c, digits); // ok if no samples
+            return plurals == null || !plurals.hasSamples(c, digits); // ok if no samples
             // TODO: handle fractions
         default:
             throw new IllegalArgumentException();

@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.EnumMap;
 import java.util.EnumSet;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,7 @@ import org.unicode.cldr.util.CoreCoverageInfo;
 import org.unicode.cldr.util.CoreCoverageInfo.CoreItems;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.Counter;
+import org.unicode.cldr.util.Counter2;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.LanguageTagCanonicalizer;
 import org.unicode.cldr.util.LanguageTagParser;
@@ -45,12 +47,14 @@ import org.unicode.cldr.util.VettingViewer;
 import org.unicode.cldr.util.VettingViewer.MissingStatus;
 import org.unicode.cldr.util.VoteResolver.Organization;
 
+import com.google.common.collect.Ordering;
 import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.CollectionUtilities;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.lang.UCharacter;
 
 public class ShowLocaleCoverage {
+    private static final String LATEST = ToolConstants.CHART_VERSION;
     private static final double CORE_SIZE 
     = (double)(CoreItems.values().length - CoreItems.ONLY_RECOMMENDED.size());
     public static CLDRConfig testInfo = ToolConfig.getToolInstance();
@@ -66,11 +70,14 @@ public class ShowLocaleCoverage {
     enum MyOptions {
         filter(".+", ".*", "Filter the information based on id, using a regex argument."),
 //        draftStatus(".+", "unconfirmed", "Filter the information to a minimum draft status."),
+        growth("true", "true", "Compute growth data"),
         organization(".+", null, "Only locales for organization"),
-        version(".+", "25.0", "To get different versions"),
-        directories("(.*:)?[a-z]+(,[a-z]+)*", "common", "Space-delimited list of main directories: common,seed,exemplar.\n" +
+        version(".+", LATEST, "To get different versions"),
+        rawData(null, null, "Output the raw data from all coverage levels"),
+        targetDir(".*", CLDRPaths.GEN_DIRECTORY + "/statistics/", "target output file."),
+        directories("(.*:)?[a-z]+(,[a-z]+)*", "common", "Space-delimited list of main source directories: common,seed,exemplar.\n" +
             "Optional, <baseDir>:common,seed"),
-            rawData(null, null, "Output the raw data from all coverage levels");
+            ;
 
         // targetDirectory(".+", CldrUtility.CHART_DIRECTORY + "keyboards/", "The target directory."),
         // layouts(null, null, "Only create html files for keyboard layouts"),
@@ -94,19 +101,31 @@ public class ShowLocaleCoverage {
     static org.unicode.cldr.util.Factory factory = testInfo.getCldrFactory();
     static DraftStatus minimumDraftStatus = DraftStatus.unconfirmed;
     static final Factory pathHeaderFactory = PathHeader.getFactory(ENGLISH);
+    private static final boolean DEBUG = false;
 
     static boolean RAW_DATA = true;
     private static Set<String> COMMON_LOCALES;
 
     public static void main(String[] args) throws IOException {
         myOptions.parse(MyOptions.filter, args, true);
+
         Matcher matcher = Pattern.compile(MyOptions.filter.option.getValue()).matcher("");
+
+        if (MyOptions.growth.option.doesOccur()) {
+            try (PrintWriter out = !MyOptions.targetDir.option.doesOccur() ? new PrintWriter(System.out) 
+            : BagFormatter.openUTF8Writer(MyOptions.targetDir.option.getValue(), "showLocaleCoverage.txt")) {
+                doGrowth(matcher, out);
+                return;
+            }
+        }
+
         Set<String> locales = null;
         String organization = MyOptions.organization.option.getValue();
         boolean useOrgLevel = MyOptions.organization.option.doesOccur();
         if (useOrgLevel) {
             locales = STANDARD_CODES.getLocaleCoverageLocales(organization);
         }
+
 
         if (MyOptions.version.option.doesOccur()) {
             String number = MyOptions.version.option.getValue().trim();
@@ -137,12 +156,136 @@ public class ShowLocaleCoverage {
                 COMMON_LOCALES = SimpleFactory.make(base + "/" + "common" + "/main", ".*").getAvailableLanguages();
             }
         }
+        if (COMMON_LOCALES == null) {
+            COMMON_LOCALES = factory.getAvailableLanguages();
+        }
 
         RAW_DATA = MyOptions.rawData.option.doesOccur();
 
         //showEnglish();
 
         showCoverage(null, matcher, locales, useOrgLevel);
+    }
+
+    private static void doGrowth(Matcher matcher, PrintWriter out) {
+        TreeMap<String, List<Double>> growthData = new TreeMap<>(Ordering.natural().reverse()); // sort by version, descending
+        Map<String, FoundAndTotal> latestData = addGrowth(factory, matcher);
+        addCompletionList(LATEST, getCompletion(latestData, latestData), growthData);
+        if (DEBUG) System.out.println(latestData);
+        //System.out.println(growthData);
+        for (String dir : new File(CLDRPaths.ARCHIVE_DIRECTORY).list()) {
+            if (!dir.startsWith("cldr")) {
+                continue;
+            }
+            String version = getNormalizedVersion(dir);
+//            if (version.compareTo("12") < 0) {
+//                continue;
+//            }
+            org.unicode.cldr.util.Factory newFactory = org.unicode.cldr.util.Factory.make(
+                CLDRPaths.ARCHIVE_DIRECTORY + "/" + dir + "/common/main/", ".*");
+            Map<String, FoundAndTotal> currentData = addGrowth(newFactory, matcher);
+            if (DEBUG) System.out.println(version + "\t" + currentData);
+            Counter2<String> completionData = getCompletion(latestData, currentData);
+            //System.out.println(version + "\t" + completionData);
+            addCompletionList(version, completionData, growthData);
+        }
+        boolean first = true;
+        for (Entry<String, List<Double>> entry : growthData.entrySet()) {
+            if (first) {
+                for (int i = 0; i < entry.getValue().size(); ++i) {
+                    out.print("\t" + i);
+                }
+                out.println();
+                first = false;
+            }
+            out.println(entry.getKey() + "\t" + CollectionUtilities.join(entry.getValue(), "\t"));
+        }
+    }
+
+    public static String getNormalizedVersion(String dir) {
+        String rawVersion = dir.substring(dir.indexOf('-') + 1);
+        int firstDot = rawVersion.indexOf('.');
+        int secondDot = rawVersion.indexOf('.', firstDot+1);
+        if (secondDot > 0) {
+            rawVersion = rawVersion.substring(0,firstDot) + rawVersion.substring(firstDot+1,secondDot);
+        } else {
+            rawVersion = rawVersion.substring(0,firstDot);
+        }
+        return rawVersion;
+    }
+
+    public static void addCompletionList(String version, Counter2<String> completionData, TreeMap<String, List<Double>> growthData) {
+        List x = new ArrayList();
+        for (String key : completionData.getKeysetSortedByCount(false)) {
+            x.add(completionData.getCount(key));
+        }
+        growthData.put(version, x);
+        System.out.println(version + "\t" + x.size());
+    }
+
+    public static Counter2<String> getCompletion(Map<String, FoundAndTotal> latestData, Map<String, FoundAndTotal> currentData) {
+        Counter2<String> completionData = new Counter2<>();
+        for (Entry<String, FoundAndTotal> entry : latestData.entrySet()) {
+            final String locale = entry.getKey();
+            final FoundAndTotal currentRecord = currentData.get(locale);
+            if (currentRecord == null) {
+                continue;
+            }
+            double total = entry.getValue().total;
+            if (total == 0) {
+                continue;
+            }
+            double completion = currentRecord.found / total;
+            completionData.add(locale, completion);
+        }
+        return completionData;
+    }
+
+    static class FoundAndTotal {
+        final int found;
+        final int total;
+        public FoundAndTotal(Counter<Level>... counters) {
+            final int[] count = {0,0,0};
+            for (Level level : Level.values()) {
+                if (level == Level.COMPREHENSIVE || level == Level.OPTIONAL) {
+                    continue;
+                }
+                int i = 0;
+                for (Counter<Level> counter : counters) {
+                    count[i++] += counter.get(level);
+                }
+            }
+            found = count[0];
+            total = found + count[1] + count[2];
+        }
+        @Override
+        public String toString() {
+            return found + "/" + total;
+        }
+    }
+
+    private static Map<String, FoundAndTotal> addGrowth(org.unicode.cldr.util.Factory newFactory, Matcher matcher) {
+        Map<String,FoundAndTotal> data = new HashMap<>();
+        for (String locale : newFactory.getAvailableLanguages()) {
+            if (!matcher.reset(locale).matches()) {
+                continue;
+            }
+            if (SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales().contains(locale) 
+                || locale.equals("root")
+                || locale.equals("supplementalData")) {
+                continue;
+            }
+            System.out.println("\t" + locale);
+            final CLDRFile file = newFactory.make(locale, true);
+            Counter<Level> foundCounter = new Counter<Level>();
+            Counter<Level> unconfirmedCounter = new Counter<Level>();
+            Counter<Level> missingCounter = new Counter<Level>();
+            VettingViewer.getStatus(ENGLISH.fullIterable(), file,
+                pathHeaderFactory, foundCounter, unconfirmedCounter,
+                missingCounter, null, null);
+            data.put(locale, new FoundAndTotal(foundCounter, unconfirmedCounter, missingCounter));
+        }
+        return Collections.unmodifiableMap(data);
     }
 
     public static void showCoverage(PrintWriter index) throws IOException {
@@ -206,7 +349,7 @@ public class ShowLocaleCoverage {
 
         //Map<String, String> likely = testInfo.getSupplementalDataInfo().getLikelySubtags();
         Set<String> defaultContents = SUPPLEMENTAL_DATA_INFO.getDefaultContentLocales();
-        
+
 
         // Map<String,Counter<Level>> counts = new HashMap();
         //        System.out.print("Script\tEnglish\tNative\tCode\tCode*");
@@ -322,7 +465,7 @@ public class ShowLocaleCoverage {
 
                 Level cldrLevel = SC.getLocaleCoverageLevel(Organization.cldr.toString(), locale);
                 String isCommonLocale = 
-                    cldrLevel.compareTo(Level.MODERN) == 0 ? "C*"
+                    Level.MODERN == cldrLevel ? "C*"
                         : COMMON_LOCALES.contains(locale) ? "C"
                             : "";
 
@@ -337,10 +480,10 @@ public class ShowLocaleCoverage {
 //                    currentLevel = otherLevel;
 //                }
 
-                final CLDRFile file = factory.make(locale, true, minimumDraftStatus);
-
                 missingPaths.clear();
                 unconfirmed.clear();
+
+                final CLDRFile file = factory.make(locale, true, minimumDraftStatus);
 
                 VettingViewer.getStatus(ENGLISH.fullIterable(), file,
                     pathHeaderFactory, foundCounter, unconfirmedCounter,

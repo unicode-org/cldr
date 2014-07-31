@@ -490,7 +490,7 @@ public class MakeTransliterator {
      * Return true if the strings are essentially the same.
      * Differences between schwas and short vowels are counted in certain cases
      * 
-     * @param target
+     * @param targetDir
      * @param targetUsingCore
      * @param targetUsingCore2
      * @return

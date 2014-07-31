@@ -55,8 +55,8 @@ public class GenerateCoverageLevels {
     private static final Factory cldrFactory = Factory.make(MAIN_DIRECTORY, FILES);
     private static final Comparator<String> attributeComparator = CLDRFile.getAttributeOrdering();
     private static final CLDRFile english = cldrFactory.make("en", true);
-    private static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(english
-        .getSupplementalDirectory());
+    private static SupplementalDataInfo supplementalData = CLDRConfig.getInstance().getSupplementalDataInfo();
+    // SupplementalDataInfo.getInstance(english.getSupplementalDirectory());
     private static Set<String> defaultContents = supplementalData.getDefaultContentLocales();
     private static Map<String, R2<List<String>, String>> languageAliasInfo = supplementalData.getLocaleAliasInfo().get(
         "language");

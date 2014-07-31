@@ -241,13 +241,17 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
 
         // Collisions between display names and symbols for the same currency are allowed.
         if (myType == Type.CURRENCY) {
+            if (path.contains("/decimal") || path.contains("/group")) {
+                return this;
+            }
             XPathParts parts = new XPathParts().set(path);
             String currency = parts.getAttributeValue(-2, "type");
             Iterator<String> iterator = paths.iterator();
             while (iterator.hasNext()) {
                 String curVal = iterator.next();
                 parts.set(curVal);
-                if (currency.equals(parts.getAttributeValue(-2, "type"))) {
+                if (currency.equals(parts.getAttributeValue(-2, "type")) ||
+                    curVal.contains("/decimal") || curVal.contains("/group")) {
                     iterator.remove();
                     log("Removed '" + curVal + "': COLLISON WITH CURRENCY " + currency);
                 }

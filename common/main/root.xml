@@ -3405,12 +3405,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<alias source="locale" path="../currencyFormats[@numberSystem='latn']"/>
 		</currencyFormats>
 		<currencies>
+			<currency type="AOA">
+				<symbol alt="narrow">Kz</symbol>
+			</currency>
 			<currency type="ARS">
 				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="AUD">
 				<symbol>A$</symbol>
 				<symbol alt="narrow">$</symbol>
+			</currency>
+			<currency type="BAM">
+				<symbol alt="narrow">KM</symbol>
 			</currency>
 			<currency type="BBD">
 				<symbol alt="narrow">$</symbol>
@@ -3424,12 +3430,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="BND">
 				<symbol alt="narrow">$</symbol>
 			</currency>
+			<currency type="BOB">
+				<symbol alt="narrow">Bs</symbol>
+			</currency>
 			<currency type="BRL">
 				<symbol>R$</symbol>
 				<symbol alt="narrow">R$</symbol>
 			</currency>
 			<currency type="BSD">
 				<symbol alt="narrow">$</symbol>
+			</currency>
+			<currency type="BWP">
+				<symbol alt="narrow">P</symbol>
 			</currency>
 			<currency type="BYR">
 				<symbol alt="narrow">р.</symbol>
@@ -3454,11 +3466,23 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="CRC">
 				<symbol alt="narrow">₡</symbol>
 			</currency>
+			<currency type="CUC">
+				<symbol alt="narrow">$</symbol>
+			</currency>
 			<currency type="CUP">
 				<symbol alt="narrow">$</symbol>
 			</currency>
+			<currency type="CZK">
+				<symbol alt="narrow">Kč</symbol>
+			</currency>
+			<currency type="DKK">
+				<symbol alt="narrow">kr</symbol>
+			</currency>
 			<currency type="DOP">
 				<symbol alt="narrow">$</symbol>
+			</currency>
+			<currency type="EGP">
+				<symbol alt="narrow">E£</symbol>
 			</currency>
 			<currency type="ESP">
 				<symbol alt="narrow">₧</symbol>
@@ -3470,12 +3494,21 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="FJD">
 				<symbol alt="narrow">$</symbol>
 			</currency>
+			<currency type="FKP">
+				<symbol alt="narrow">£</symbol>
+			</currency>
 			<currency type="GBP">
 				<symbol>£</symbol>
 				<symbol alt="narrow">£</symbol>
 			</currency>
 			<currency type="GIP">
 				<symbol alt="narrow">£</symbol>
+			</currency>
+			<currency type="GNF">
+				<symbol alt="narrow">FG</symbol>
+			</currency>
+			<currency type="GTQ">
+				<symbol alt="narrow">Q</symbol>
 			</currency>
 			<currency type="GYD">
 				<symbol alt="narrow">$</symbol>
@@ -3484,6 +3517,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<symbol>HK$</symbol>
 				<symbol alt="narrow">$</symbol>
 			</currency>
+			<currency type="HNL">
+				<symbol alt="narrow">L</symbol>
+			</currency>
+			<currency type="HRK">
+				<symbol alt="narrow">kn</symbol>
+			</currency>
+			<currency type="HUF">
+				<symbol alt="narrow">Ft</symbol>
+			</currency>
+			<currency type="IDR">
+				<symbol alt="narrow">Rp</symbol>
+			</currency>
 			<currency type="ILS">
 				<symbol>₪</symbol>
 				<symbol alt="narrow">₪</symbol>
@@ -3491,6 +3536,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="INR">
 				<symbol>₹</symbol>
 				<symbol alt="narrow">₹</symbol>
+			</currency>
+			<currency type="ISK">
+				<symbol alt="narrow">kr</symbol>
 			</currency>
 			<currency type="JMD">
 				<symbol alt="narrow">$</symbol>
@@ -3501,6 +3549,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="KHR">
 				<symbol alt="narrow">៛</symbol>
+			</currency>
+			<currency type="KMF">
+				<symbol alt="narrow">CF</symbol>
+			</currency>
+			<currency type="KPW">
+				<symbol alt="narrow">₩</symbol>
 			</currency>
 			<currency type="KRW">
 				<symbol>₩</symbol>
@@ -3515,15 +3569,39 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="LAK">
 				<symbol alt="narrow">₭</symbol>
 			</currency>
+			<currency type="LBP">
+				<symbol alt="narrow">L£</symbol>
+			</currency>
+			<currency type="LKR">
+				<symbol alt="narrow">Rs</symbol>
+			</currency>
 			<currency type="LRD">
 				<symbol alt="narrow">$</symbol>
+			</currency>
+			<currency type="LTL">
+				<symbol alt="narrow">Lt</symbol>
+			</currency>
+			<currency type="LVL">
+				<symbol alt="narrow">Ls</symbol>
+			</currency>
+			<currency type="MGA">
+				<symbol alt="narrow">Ar</symbol>
+			</currency>
+			<currency type="MMK">
+				<symbol alt="narrow">K</symbol>
 			</currency>
 			<currency type="MNT">
 				<symbol alt="narrow">₮</symbol>
 			</currency>
+			<currency type="MUR">
+				<symbol alt="narrow">Rs</symbol>
+			</currency>
 			<currency type="MXN">
 				<symbol>MX$</symbol>
 				<symbol alt="narrow">$</symbol>
+			</currency>
+			<currency type="MYR">
+				<symbol alt="narrow">RM</symbol>
 			</currency>
 			<currency type="NAD">
 				<symbol alt="narrow">$</symbol>
@@ -3531,12 +3609,27 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="NGN">
 				<symbol alt="narrow">₦</symbol>
 			</currency>
+			<currency type="NIO">
+				<symbol alt="narrow">C$</symbol>
+			</currency>
+			<currency type="NOK">
+				<symbol alt="narrow">kr</symbol>
+			</currency>
+			<currency type="NPR">
+				<symbol alt="narrow">Rs</symbol>
+			</currency>
 			<currency type="NZD">
 				<symbol>NZ$</symbol>
 				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="PHP">
 				<symbol alt="narrow">₱</symbol>
+			</currency>
+			<currency type="PKR">
+				<symbol alt="narrow">Rs</symbol>
+			</currency>
+			<currency type="PLN">
+				<symbol alt="narrow">zł</symbol>
 			</currency>
 			<currency type="PYG">
 				<symbol alt="narrow">₲</symbol>
@@ -3547,8 +3640,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="RUR">
 				<symbol alt="narrow">р.</symbol>
 			</currency>
+			<currency type="RWF">
+				<symbol alt="narrow">RF</symbol>
+			</currency>
 			<currency type="SBD">
 				<symbol alt="narrow">$</symbol>
+			</currency>
+			<currency type="SEK">
+				<symbol alt="narrow">kr</symbol>
 			</currency>
 			<currency type="SGD">
 				<symbol alt="narrow">$</symbol>
@@ -3561,6 +3660,18 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="SSP">
 				<symbol alt="narrow">£</symbol>
+			</currency>
+			<currency type="STD">
+				<symbol alt="narrow">Db</symbol>
+			</currency>
+			<currency type="SYP">
+				<symbol alt="narrow">£</symbol>
+			</currency>
+			<currency type="THB">
+				<symbol alt="narrow">฿</symbol>
+			</currency>
+			<currency type="TOP">
+				<symbol alt="narrow">T$</symbol>
 			</currency>
 			<currency type="TRY">
 				<symbol alt="narrow">₺</symbol>
@@ -3583,6 +3694,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="UYU">
 				<symbol alt="narrow">$</symbol>
 			</currency>
+			<currency type="VEF">
+				<symbol alt="narrow">Bs</symbol>
+			</currency>
 			<currency type="VND">
 				<symbol>₫</symbol>
 				<symbol alt="narrow">₫</symbol>
@@ -3592,12 +3706,19 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</currency>
 			<currency type="XCD">
 				<symbol>EC$</symbol>
+				<symbol alt="narrow">$</symbol>
 			</currency>
 			<currency type="XOF">
 				<symbol>CFA</symbol>
 			</currency>
 			<currency type="XPF">
 				<symbol>CFPF</symbol>
+			</currency>
+			<currency type="ZAR">
+				<symbol alt="narrow">R</symbol>
+			</currency>
+			<currency type="ZMW">
+				<symbol alt="narrow">ZK</symbol>
 			</currency>
 		</currencies>
 		<miscPatterns numberSystem="arab">

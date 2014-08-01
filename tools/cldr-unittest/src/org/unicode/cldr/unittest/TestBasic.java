@@ -343,6 +343,10 @@ public class TestBasic extends TestFmwkPlus {
                     if (!parts.getElement(-1).equals("symbol")) {
                         continue;
                     }
+                    // We don't care about fallbacks for narrow currency symbols
+                    if ( "narrow".equals(parts.getAttributeValue(-1, "alt"))) {
+                        continue;
+                    }
                     String currencyType = parts.getAttributeValue(-2, "type");
 
                     UnicodeSet fishy = new UnicodeSet().addAll(value).retainAll(CHARACTERS_THAT_SHOULD_HAVE_FALLBACKS)

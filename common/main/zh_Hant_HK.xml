@@ -14,7 +14,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	</identity>
 	<localeDisplayNames>
 		<localeDisplayPattern>
-			<localePattern draft="provisional">{0} ({1})</localePattern>
+			<localePattern draft="provisional">{0}（{1}）</localePattern>
 			<localeSeparator>{0}，{1}</localeSeparator>
 			<localeKeyTypePattern>{0}：{1}</localeKeyTypePattern>
 		</localeDisplayPattern>
@@ -82,14 +82,14 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<language type="fj">斐濟文</language>
 			<language type="fo">法羅文</language>
 			<language type="fr">法文</language>
-			<language type="fr_CA" draft="contributed">法文 (加拿大)</language>
-			<language type="fr_CH" draft="provisional">法文 (瑞士)</language>
+			<language type="fr_CA" draft="contributed">法文（加拿大）</language>
+			<language type="fr_CH" draft="provisional">法文（瑞士）</language>
 			<language type="fy">西弗里西亞文</language>
 			<language type="ga">愛爾蘭文</language>
 			<language type="gag">加告茲文</language>
 			<language type="gl">加里西亞文</language>
 			<language type="gn">瓜拉尼文</language>
-			<language type="gsw" draft="contributed">德文 (瑞士)</language>
+			<language type="gsw" draft="contributed">德文（瑞士）</language>
 			<language type="gu">古吉拉特文</language>
 			<language type="guz">古西文</language>
 			<language type="gv">曼島文</language>
@@ -403,7 +403,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<territory type="FI">芬蘭</territory>
 			<territory type="FJ">斐濟</territory>
 			<territory type="FK">福克蘭群島</territory>
-			<territory type="FK" alt="variant" draft="provisional">福克蘭群島 (馬爾維納斯群島)</territory>
+			<territory type="FK" alt="variant" draft="provisional">福克蘭群島（馬爾維納斯群島）</territory>
 			<territory type="FM">密克羅尼西亞群島</territory>
 			<territory type="FO">法羅群島</territory>
 			<territory type="FR">法國</territory>
@@ -1056,8 +1056,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M" draft="contributed">d/M 至 d/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d" draft="contributed">d/M (E) 至 d/M (E)</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d/M (E) 至 d/M (E)</greatestDifference>
+							<greatestDifference id="d" draft="contributed">d/M（E） 至 d/M（E）</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d/M（E） 至 d/M（E）</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">LLL至LLL</greatestDifference>
@@ -1502,8 +1502,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="M" draft="contributed">d/M 至 d/M</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MEd">
-							<greatestDifference id="d" draft="contributed">d/M (E) 至 d/M (E)</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d/M (E) 至 d/M (E)</greatestDifference>
+							<greatestDifference id="d" draft="contributed">d/M（E） 至 d/M（E）</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d/M（E） 至 d/M（E）</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="MMM">
 							<greatestDifference id="M">LLL至LLL</greatestDifference>
@@ -1532,9 +1532,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<greatestDifference id="y" draft="contributed">d/M/y 至 d/M/y</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMEd">
-							<greatestDifference id="d" draft="contributed">d/M/y (E) 至 d/M/y (E)</greatestDifference>
-							<greatestDifference id="M" draft="contributed">d/M/y (E) 至 d/M/y (E)</greatestDifference>
-							<greatestDifference id="y" draft="contributed">d/M/y (E) 至 d/M/y (E)</greatestDifference>
+							<greatestDifference id="d" draft="contributed">d/M/y（E） 至 d/M/y（E）</greatestDifference>
+							<greatestDifference id="M" draft="contributed">d/M/y（E） 至 d/M/y（E）</greatestDifference>
+							<greatestDifference id="y" draft="contributed">d/M/y（E） 至 d/M/y（E）</greatestDifference>
 						</intervalFormatItem>
 						<intervalFormatItem id="yMMM">
 							<greatestDifference id="M">y年M月至M月</greatestDifference>
@@ -1970,7 +1970,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<regionFormat>{0}時間</regionFormat>
 			<regionFormat type="daylight">{0}夏令時間</regionFormat>
 			<regionFormat type="standard">{0}標準時間</regionFormat>
-			<fallbackFormat draft="provisional">{1} ({0})</fallbackFormat>
+			<fallbackFormat draft="provisional">{1}（{0}）</fallbackFormat>
 			<zone type="Etc/Unknown">
 				<exemplarCity>未知城市</exemplarCity>
 			</zone>

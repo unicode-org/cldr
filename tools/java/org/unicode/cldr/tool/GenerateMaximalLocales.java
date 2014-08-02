@@ -682,6 +682,10 @@ public class GenerateMaximalLocales {
         { "prg", "prg_Latn_001" },
         { "prg_Latn", "prg_Latn_001" },
         { "sbp", "sbp_Latn_TZ" },
+        { "rif", "rif_Tfng_MA" },
+        { "rif_Latn", "rif_Latn_MA" },
+        { "rif_Tfng", "rif_Tfng_MA" },
+        { "rif_MA", "rif_Tfng_MA" },
         { "shi", "shi_Tfng_MA" },
         { "shi_Tfng", "shi_Tfng_MA" },
         { "shi_MA", "shi_Tfng_MA" },
@@ -714,6 +718,8 @@ public class GenerateMaximalLocales {
         { "und_TK", "tkl_Latn_TK" },
         { "vo", "vo_Latn_001" },
         { "vo_Latn", "vo_Latn_001" },
+        { "yi", "yi_Hebr_001" },
+        { "yi_Hebr", "yi_Hebr_001" },
         { "zh_Hani", "zh_Hani_CN" },
     });
 

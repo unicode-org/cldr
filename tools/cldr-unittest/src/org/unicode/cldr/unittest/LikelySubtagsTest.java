@@ -2,7 +2,6 @@ package org.unicode.cldr.unittest;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -18,7 +17,6 @@ import org.unicode.cldr.util.LanguageTagParser;
 import org.unicode.cldr.util.StandardCodes;
 import org.unicode.cldr.util.SupplementalDataInfo;
 
-import com.google.common.base.Splitter;
 import com.ibm.icu.dev.test.TestFmwk;
 import com.ibm.icu.lang.UProperty;
 import com.ibm.icu.lang.UScript;
@@ -26,8 +24,6 @@ import com.ibm.icu.text.UnicodeSet;
 
 public class LikelySubtagsTest extends TestFmwk {
 
-    private static final Set<String> U70_SCRIPTS = new HashSet<String>(Splitter.on(", ")
-        .splitToList("Aghb, Bass, Dupl, Elba, Gran, Hmng, Khoj, Lina, Mahj, Mani, Mend, Modi, Mroo, Narb, Nbat, Palm, Pauc, Perm, Phlp, Sidd, Sind, Tirh, Wara"));
     private static final SupplementalDataInfo SUPPLEMENTAL_DATA_INFO = TestInfo.getInstance().getSupplementalDataInfo();
     static final Map<String, String> likely = SUPPLEMENTAL_DATA_INFO.getLikelySubtags();
     static final LikelySubtags LIKELY = new LikelySubtags(SUPPLEMENTAL_DATA_INFO, likely);
@@ -208,9 +204,6 @@ public class LikelySubtagsTest extends TestFmwk {
             metadataScripts.remove(shortName);
         }
         metadataScripts.removeAll(Arrays.asList("Hans", "Hant", "Jpan", "Kore")); // remove "combo" scripts
-        if (logKnownIssue("cldr:6762", "Removing scripts that aren't in ICU yet")) {
-            metadataScripts.removeAll(U70_SCRIPTS);
-        }
         if (!metadataScripts.isEmpty()) {
             errln("Script Metadata for characters not in Unicode: " + metadataScripts);
         }
@@ -280,12 +273,8 @@ public class LikelySubtagsTest extends TestFmwk {
             String langScript = likelyLanguage + "_" + script + "_";
             String likelyExpansion = likely.get(undScript);
             if (likelyExpansion == null) {
-                if (U70_SCRIPTS.contains(script)) {
-                    logKnownIssue("cldr:6762", "Removing scripts that aren't in ICU yet");
-                } else {
                     errln("Missing likely language for script (und_" + script + ")  should be something like:\t "
                         + showOverride(script, originCountry, langScript));
-                }
             } else if (!exceptions2.contains(likelyExpansion) && !likelyExpansion.startsWith(langScript)) {
 //                if (logKnownIssue("Cldrbug:7181","Missing script metadata for " + script) 
 //                    && (script.equals("Tfng") || script.equals("Brah"))) {

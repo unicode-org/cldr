@@ -301,7 +301,7 @@ public class AddPopulationData {
             public boolean handle(String line) throws ParseException {
                 // <i>total population:</i> 43.1%
                 line = line.trim();
-                if (line.contains("fl_region")) {
+                if (line.contains("class=\"fl_region")) {
                     if (!codeMatcher.reset(line).find()) {
                         throw new IllegalArgumentException("bad regex match: file changed format");
                     }

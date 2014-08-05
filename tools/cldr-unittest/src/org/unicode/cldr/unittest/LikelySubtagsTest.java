@@ -287,14 +287,14 @@ public class LikelySubtagsTest extends TestFmwk {
                         + showOverride(script, originCountry, langScript));
                 }
             } else if (!exceptions2.contains(likelyExpansion) && !likelyExpansion.startsWith(langScript)) {
-                if (logKnownIssue("Cldrbug:7181","Missing script metadata for " + script) 
-                    && (script.equals("Tfng") || script.equals("Brah"))) {
-                    logln("Wrong likely language for script (und_" + script + "). Should not be " + likelyExpansion
-                        + ", but something like:\t " + showOverride(script, originCountry, langScript));                    
-                } else {
+//                if (logKnownIssue("Cldrbug:7181","Missing script metadata for " + script) 
+//                    && (script.equals("Tfng") || script.equals("Brah"))) {
+//                    logln("Wrong likely language for script (und_" + script + "). Should not be " + likelyExpansion
+//                        + ", but something like:\t " + showOverride(script, originCountry, langScript));                    
+//                } else {
                     errln("Wrong likely language for script (und_" + script + "). Should not be " + likelyExpansion
                         + ", but something like:\t " + showOverride(script, originCountry, langScript));
-                }
+//                }
             } else {
                 logln("OK: " + undScript + " => " + likelyExpansion);
             }

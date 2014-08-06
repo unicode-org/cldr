@@ -32,11 +32,32 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 
 /**
+ * This tool is used (manually) to generate *part* of the ar.xml collation tailorings.
+ * It is used with default options.
+ * 
  * By Steven R. Loomis (srl) thx Markus Scherer
+ * 
+ * TODOS FROM MARKUS: 
+ * gets unescaped by genrb
+\\u0020 goes to the rule builder
+but it might be nice not to have \\u0020 in the comments - too much trouble?
+i think i have a better solution: if a string contains a space you can surround it with apostrophes; then \u0020 will work, and the space by itself should work too. I am not sure how that will look with bidi, but it might be an improvement
+ja.xml has   &'\u0020'😚
+'\u3000'￣   and   &'\u0023'=＃
+surround the whole string, not each space
+
+
+fyi, with the apostrophes, you *might* need to add an RLM too, as in
+LRM & RLM ' arabic space arabic ' LRM <<< presentation form
+you could try first without the RLM
+
+ * 
  */
 @CLDRTool(alias="generatedecompcollrules",description="based on decomposition, generate identical collation rules")
 public class GenerateDecompCollationRules {
     
+    private static final char SINGLEQUOTE = '\'';
+
     private final static UnicodeSet isWord = new UnicodeSet("[\\uFDF0-\\uFDFF]");
     
     private final static String RESET = "\u200E&";
@@ -58,12 +79,13 @@ public class GenerateDecompCollationRules {
             option = myOptions.add(this, argumentPattern, defaultArgument, helpText);
         }
     }
+    final static Transliterator hex = Transliterator.getInstance("any-hex");
+    final static Transliterator hexForComment = Transliterator.getInstance("[^ ] any-hex");
+    final static Transliterator name = Transliterator.getInstance("any-name");
+    final static Transliterator escapeRules = Transliterator.getInstance("nfc;[[:Mn:]] any-hex");
 
             
     public static void main(String[] args) throws IOException {
-        final Transliterator hex = Transliterator.getInstance("any-hex");
-        final Transliterator name = Transliterator.getInstance("any-name");
-        final Transliterator escapeRules = Transliterator.getInstance("nfc;[\\u0020[:Mn:]] any-hex");
         myOptions.parse(MyOptions.verbose, args, true);
         final boolean verbose = myOptions.get(MyOptions.verbose).doesOccur();
         final CLDRConfig cldrConfig = CLDRConfig.getInstance();
@@ -104,11 +126,11 @@ public class GenerateDecompCollationRules {
             } else {
 //              if(presForm.equals("\uFDFD")) { // Bismillah
 //              reg2pres.put("\u0635\u0644\u0649\u0020\u0627\u0644\u0644\u0647", presForm); // CE limit will be blown otherwise.
-                if(presForm.equals("\uFDFA")) { // SAW
-                    //              reg2pres.put("?", presForm); // CE limit will be blown otherwise.
-                } else {
+//                if(presForm.equals("\uFDFA")) { // SAW
+//                    //              reg2pres.put("?", presForm); // CE limit will be blown otherwise.
+//                } else {
                     reg2pres.put(regForm, presForm);
-                }
+//                }
             }
         }
         System.out.println("Relation size: " + reg2pres.size());
@@ -130,21 +152,21 @@ public class GenerateDecompCollationRules {
             // COMMENT
             rules.append(COMMENT)
                  .append(RESET)
-                 .append(hex.transliterate(regForm));
+                 .append(hexForComment.transliterate(regForm));
 
             for(final String presForm : presForms) {
                 rules.append(relation)
-                     .append(hex.transliterate(presForm));
+                     .append(hexForComment.transliterate(presForm));
             }
             rules.append(NL);
 
             // ACTUAL RULE
             rules.append(RESET)
-                 .append(escapeRules.transform(regForm));
+                 .append(toRule(regForm));
             
             for(final String presForm : presForms) {
                 rules.append(relation)
-                     .append(escapeRules.transform(presForm));
+                     .append(toRule(presForm));
             }
             rules.append(NL);
         }
@@ -180,5 +202,24 @@ public class GenerateDecompCollationRules {
             System.out.println("Wrote to " + CLDRPaths.GEN_DIRECTORY +"/"+filename );
         }
 
+    }
+
+    /**
+     * convert a rule to the right form for escaping.
+     * @param rule
+     * @return
+     */
+    private static String toRule(String rule) {
+        final String asHex = escapeRules.transform(rule);
+        // quote any strings with spaces
+        if(asHex.contains(" ")) {
+            final StringBuilder sb = new StringBuilder(rule.length());
+            sb.append(SINGLEQUOTE)
+              .append(asHex)
+              .append(SINGLEQUOTE);
+            return sb.toString();
+        } else {
+            return asHex;
+        }
     }
 }

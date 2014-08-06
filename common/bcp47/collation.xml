@@ -12,6 +12,7 @@ For terms of use, see http://www.unicode.org/copyright.html
     <keyword>
         <key name="co" description="Collation type key" alias="collation">
             <type name="big5han" description="Pinyin ordering for Latin, big5 charset ordering for CJK characters (used in Chinese)"/>
+            <type name="compat" description="A previous version of the ordering, for compatibility"/>
             <type name="dict" description="Dictionary style ordering (such as in Sinhala)" alias="dictionary"/>
             <type name="direct" description="Binary code point order (used in Hindi)" deprecated="true"/>
             <type name="ducet" description="The default Unicode collation element table order" since="2.0.1"/>

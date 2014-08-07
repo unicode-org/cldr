@@ -326,7 +326,7 @@ public class Option {
         if( cldrTool != null  ) {
             return cldrTool.description();
         } else {
-            return "";
+            return "(no @CLDRTool annotation)";
         }
     }
 

@@ -131,12 +131,25 @@ public class ICUServiceBuilder {
         } else {
             collationType = type;
         }
+        String path = "";
+        String importPath = "//ldml/collations/collation[@visibility=\"external\"][@type=\"" + collationType + "\"]/import[@type=\"standard\"]";
+        if (collationFile.isHere(importPath)) {
+            String fullPath = collationFile.getFullXPath(importPath);
+            XPathParts xpp = new XPathParts();
+            xpp.set(fullPath);
+            String importSource = xpp.getAttributeValue(-1, "source");
+            String importType = xpp.getAttributeValue(-1, "type");
+            CLDRLocale importLocale = CLDRLocale.getInstance(importSource);
+            CLDRFile importCollationFile = Factory.make(CLDRPaths.COLLATION_DIRECTORY, ".*").makeWithFallback(importLocale.getBaseName());
+            path = "//ldml/collations/collation[@type=\"" + importType + "\"]/cr";
+            rules = importCollationFile.getStringValue(path);
 
-        String path = "//ldml/collations/collation[@type=\"" + collationType + "\"]/cr";
-        rules = collationFile.getStringValue(path);
-
+        } else {
+            path = "//ldml/collations/collation[@type=\"" + collationType + "\"]/cr";
+            rules = collationFile.getStringValue(path);
+        }
         RuleBasedCollator col;
-        if (rules.length() > 0)
+        if (rules != null && rules.length() > 0)
             col = new RuleBasedCollator(rules);
         else
             col = (RuleBasedCollator) RuleBasedCollator.getInstance();

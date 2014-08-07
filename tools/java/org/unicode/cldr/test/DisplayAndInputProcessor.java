@@ -61,6 +61,7 @@ public class DisplayAndInputProcessor {
         + "delimiters/.*|"
         + "dates/.+/(pattern|intervalFormatItem|dateFormatItem).*|"
         + "units/.+/unitPattern.*|"
+        + "units/.+/durationUnitPattern.*|"
         + "numbers/symbols.*|"
         + "numbers/(decimal|currency|percent|scientific)Formats.+/(decimal|currency|percent|scientific)Format.*)");
     private static final Pattern NON_DECIMAL_PERIOD = Pattern.compile("(?<![0#'])\\.(?![0#'])");

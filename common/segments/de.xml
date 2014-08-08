@@ -9,150 +9,247 @@
   <segmentations>
     <segmentation type="SentenceBreak">
       <!--From ULI data, http://uli.unicode.org-->
-      <exceptions>
-        <exception draft="provisional">gedr.</exception>
-        <exception draft="provisional">Di.</exception>
-        <exception draft="provisional">Ges.</exception>
-        <exception draft="provisional">frz.</exception>
-        <exception draft="provisional">entspr.</exception>
-        <exception draft="provisional">Gebr.</exception>
-        <exception draft="provisional">erw.</exception>
-        <exception draft="provisional">Frl.</exception>
-        <exception draft="provisional">Inh.</exception>
-        <exception draft="provisional">k.u.k.</exception>
-        <exception draft="provisional">evtl.</exception>
-        <exception draft="provisional">i.B.</exception>
-        <exception draft="provisional">kgl.</exception>
-        <exception draft="provisional">o.B.</exception>
-        <exception draft="provisional">Sa.</exception>
-        <exception draft="provisional">ev.</exception>
-        <exception draft="provisional">Dez.</exception>
-        <exception draft="provisional">am.</exception>
-        <exception draft="provisional">i.R.</exception>
-        <exception draft="provisional">eigtl.</exception>
-        <exception draft="provisional">i.J.</exception>
-        <exception draft="provisional">u.U.</exception>
-        <exception draft="provisional">z.Hd.</exception>
-        <exception draft="provisional">u.A.w.g.</exception>
-        <exception draft="provisional">St.</exception>
-        <exception draft="provisional">led.</exception>
-        <exception draft="provisional">Ing.</exception>
-        <exception draft="provisional">amtl.</exception>
-        <exception draft="provisional">i.A.</exception>
-        <exception draft="provisional">Msp.</exception>
-        <exception draft="provisional">Chr.</exception>
-        <exception draft="provisional">sog.</exception>
-        <exception draft="provisional">schwäb.</exception>
-        <exception draft="provisional">Aug.</exception>
-        <exception draft="provisional">Dipl.-Ing.</exception>
-        <exception draft="provisional">Hbf.</exception>
-        <exception draft="provisional">Fa.</exception>
-        <exception draft="provisional">Mo.</exception>
-        <exception draft="provisional">n.u.Z.</exception>
-        <exception draft="provisional">Mrd.</exception>
-        <exception draft="provisional">verh.</exception>
-        <exception draft="provisional">Hr./Hrn.</exception>
-        <exception draft="provisional">Ztr.</exception>
-        <exception draft="provisional">k. u. k.</exception>
-        <exception draft="provisional">b.</exception>
-        <exception draft="provisional">kath.</exception>
-        <exception draft="provisional">i.H.</exception>
-        <exception draft="provisional">v.R.w.</exception>
-        <exception draft="provisional">o.A.</exception>
-        <exception draft="provisional">Abs.</exception>
-        <exception draft="provisional">Mär.</exception>
-        <exception draft="provisional">Dtzd.</exception>
-        <exception draft="provisional">jhrl.</exception>
-        <exception draft="provisional">s.a.</exception>
-        <exception draft="provisional">tägl.</exception>
-        <exception draft="provisional">gest.</exception>
-        <exception draft="provisional">gesch.</exception>
-        <exception draft="provisional">z.B.</exception>
-        <exception draft="provisional">Abt.</exception>
-        <exception draft="provisional">e.Wz.</exception>
-        <exception draft="provisional">v.T.</exception>
-        <exception draft="provisional">Nov.</exception>
-        <exception draft="provisional">z.</exception>
-        <exception draft="provisional">n. Chr.</exception>
-        <exception draft="provisional">u.v.a.</exception>
-        <exception draft="provisional">i.V.</exception>
-        <exception draft="provisional">ggf./ggfs.</exception>
-        <exception draft="provisional">Jan.</exception>
-        <exception draft="provisional">od.</exception>
-        <exception draft="provisional">Pfd.</exception>
-        <exception draft="provisional">a.a.O.</exception>
-        <exception draft="provisional">p.Adr.</exception>
-        <exception draft="provisional">zzgl.</exception>
-        <exception draft="provisional">v. Chr.</exception>
-        <exception draft="provisional">a.Rh.</exception>
-        <exception draft="provisional">z.Z.</exception>
-        <exception draft="provisional">m.W.</exception>
-        <exception draft="provisional">Dir.</exception>
-        <exception draft="provisional">Verf.</exception>
-        <exception draft="provisional">r.</exception>
-        <exception draft="provisional">Adr.</exception>
-        <exception draft="provisional">Sep.</exception>
-        <exception draft="provisional">Kl.</exception>
-        <exception draft="provisional">hpts.</exception>
-        <exception draft="provisional">Feb.</exception>
-        <exception draft="provisional">jew.</exception>
-        <exception draft="provisional">a.M.</exception>
-        <exception draft="provisional">Str.</exception>
-        <exception draft="provisional">exkl.</exception>
-        <exception draft="provisional">ehem.</exception>
-        <exception draft="provisional">näml.</exception>
-        <exception draft="provisional">Dipl.-Kfm.</exception>
-        <exception draft="provisional">mtl.</exception>
-        <exception draft="provisional">Hrsg.</exception>
-        <exception draft="provisional">u.Ä.</exception>
-        <exception draft="provisional">u.</exception>
-        <exception draft="provisional">Kap.</exception>
-        <exception draft="provisional">a.D.</exception>
-        <exception draft="provisional">röm.</exception>
-        <exception draft="provisional">v.u.Z.</exception>
-        <exception draft="provisional">Fr.</exception>
-        <exception draft="provisional">d.J.</exception>
-        <exception draft="provisional">Reg.-Bez.</exception>
-        <exception draft="provisional">m.E.</exception>
-        <exception draft="provisional">schles.</exception>
-        <exception draft="provisional">inkl.</exception>
-        <exception draft="provisional">geb.</exception>
-        <exception draft="provisional">e.h.</exception>
-        <exception draft="provisional">kfm.</exception>
-        <exception draft="provisional">Nr.</exception>
-        <exception draft="provisional">d.Ä.</exception>
-        <exception draft="provisional">verw.</exception>
-        <exception draft="provisional">vgl.</exception>
-        <exception draft="provisional">Do.</exception>
-        <exception draft="provisional">v.Chr.</exception>
-        <exception draft="provisional">s.</exception>
-        <exception draft="provisional">e.V.</exception>
-        <exception draft="provisional">möbl.</exception>
-        <exception draft="provisional">F.f.</exception>
-        <exception draft="provisional">a.a.S.</exception>
-        <exception draft="provisional">v. H.</exception>
-        <exception draft="provisional">Apr.</exception>
-        <exception draft="provisional">v.H.</exception>
-        <exception draft="provisional">So.</exception>
-        <exception draft="provisional">einschl.</exception>
-        <exception draft="provisional">StR.</exception>
-        <exception draft="provisional">Fam.</exception>
-        <exception draft="provisional">u.a.</exception>
-        <exception draft="provisional">schweiz.</exception>
-        <exception draft="provisional">o.g.</exception>
-        <exception draft="provisional">Kfm.</exception>
-        <exception draft="provisional">Mi.</exception>
-        <exception draft="provisional">beil.</exception>
-        <exception draft="provisional">röm.-kath.</exception>
-        <exception draft="provisional">Okt.</exception>
-        <exception draft="provisional">u.ä.</exception>
-        <exception draft="provisional">Hptst.</exception>
-        <exception draft="provisional">südd.</exception>
-        <exception draft="provisional">Mio.</exception>
-        <exception draft="provisional">Forts. f.</exception>
-        <exception draft="provisional">gek.</exception>
-        <exception draft="provisional">österr.</exception>
-      </exceptions>
+      <suppressions type="standard">
+        <suppression>Port.</suppression>
+        <suppression>Alt.</suppression>
+        <suppression>Di.</suppression>
+        <suppression>Ges.</suppression>
+        <suppression>frz.</suppression>
+        <suppression>entspr.</suppression>
+        <suppression>Gebr.</suppression>
+        <suppression>erw.</suppression>
+        <suppression>Frl.</suppression>
+        <suppression>Inh.</suppression>
+        <suppression>k.u.k.</suppression>
+        <suppression>Ca.</suppression>
+        <suppression>J.D.</suppression>
+        <suppression>Ausg.</suppression>
+        <suppression>evtl.</suppression>
+        <suppression>So.</suppression>
+        <suppression>i.B.</suppression>
+        <suppression>s.a.</suppression>
+        <suppression>kgl.</suppression>
+        <suppression>Sept.</suppression>
+        <suppression>o.B.</suppression>
+        <suppression>Sa.</suppression>
+        <suppression>ev.</suppression>
+        <suppression>Dez.</suppression>
+        <suppression>am.</suppression>
+        <suppression>i.R.</suppression>
+        <suppression>eigtl.</suppression>
+        <suppression>i.J.</suppression>
+        <suppression>u.U.</suppression>
+        <suppression>G.</suppression>
+        <suppression>z.Hd.</suppression>
+        <suppression>u.A.w.g.</suppression>
+        <suppression>Kl.</suppression>
+        <suppression>Spezif.</suppression>
+        <suppression>Obj.</suppression>
+        <suppression>Ing.</suppression>
+        <suppression>D. h.</suppression>
+        <suppression>Folg.</suppression>
+        <suppression>Akt.</suppression>
+        <suppression>i.A.</suppression>
+        <suppression>Msp.</suppression>
+        <suppression>U.U.</suppression>
+        <suppression>Chr.</suppression>
+        <suppression>R.</suppression>
+        <suppression>Einh.</suppression>
+        <suppression>schwäb.</suppression>
+        <suppression>Vgl.</suppression>
+        <suppression>Aug.</suppression>
+        <suppression>Dipl.-Ing.</suppression>
+        <suppression>W.</suppression>
+        <suppression>B.</suppression>
+        <suppression>U. U.</suppression>
+        <suppression>J.</suppression>
+        <suppression>Fa.</suppression>
+        <suppression>Mo.</suppression>
+        <suppression>n.u.Z.</suppression>
+        <suppression>Op.</suppression>
+        <suppression>Mrd.</suppression>
+        <suppression>e.h.</suppression>
+        <suppression>Hr./Hrn.</suppression>
+        <suppression>Ztr.</suppression>
+        <suppression>k. u. k.</suppression>
+        <suppression>Bibl.</suppression>
+        <suppression>d.Ä.</suppression>
+        <suppression>b.</suppression>
+        <suppression>M.</suppression>
+        <suppression>i.H.</suppression>
+        <suppression>v.R.w.</suppression>
+        <suppression>o.A.</suppression>
+        <suppression>St.</suppression>
+        <suppression>Dr.</suppression>
+        <suppression>Fn.</suppression>
+        <suppression>Abs.</suppression>
+        <suppression>Rd.</suppression>
+        <suppression>Dtzd.</suppression>
+        <suppression>Jahrh.</suppression>
+        <suppression>Z.</suppression>
+        <suppression>Std.</suppression>
+        <suppression>n. Chr.</suppression>
+        <suppression>möbl.</suppression>
+        <suppression>tägl.</suppression>
+        <suppression>gest.</suppression>
+        <suppression>gesch.</suppression>
+        <suppression>z.B.</suppression>
+        <suppression>Hbf.</suppression>
+        <suppression>Abt.</suppression>
+        <suppression>A.M.</suppression>
+        <suppression>e.Wz.</suppression>
+        <suppression>v.T.</suppression>
+        <suppression>Nov.</suppression>
+        <suppression>z.</suppression>
+        <suppression>Prot.</suppression>
+        <suppression>U.S.</suppression>
+        <suppression>Wg.</suppression>
+        <suppression>u.v.a.</suppression>
+        <suppression>Adr.</suppression>
+        <suppression>App.</suppression>
+        <suppression>ggf./ggfs.</suppression>
+        <suppression>Jan.</suppression>
+        <suppression>O.</suppression>
+        <suppression>Rel.</suppression>
+        <suppression>od.</suppression>
+        <suppression>Pfd.</suppression>
+        <suppression>a.a.O.</suppression>
+        <suppression>p.Adr.</suppression>
+        <suppression>P.</suppression>
+        <suppression>Gem.</suppression>
+        <suppression>v. Chr.</suppression>
+        <suppression>Art.</suppression>
+        <suppression>z.Z.</suppression>
+        <suppression>S.A.</suppression>
+        <suppression>i.V.</suppression>
+        <suppression>verh.</suppression>
+        <suppression>Ausschl.</suppression>
+        <suppression>m.W.</suppression>
+        <suppression>Dir.</suppression>
+        <suppression>Verf.</suppression>
+        <suppression>Sek.</suppression>
+        <suppression>r.</suppression>
+        <suppression>Chin.</suppression>
+        <suppression>Feb.</suppression>
+        <suppression>Int.</suppression>
+        <suppression>Sep.</suppression>
+        <suppression>Gesch.</suppression>
+        <suppression>schweiz.</suppression>
+        <suppression>Bed.</suppression>
+        <suppression>a.Rh.</suppression>
+        <suppression>jew.</suppression>
+        <suppression>vgl.</suppression>
+        <suppression>a.M.</suppression>
+        <suppression>Str.</suppression>
+        <suppression>exkl.</suppression>
+        <suppression>gek.</suppression>
+        <suppression>Erf.</suppression>
+        <suppression>u.Ä.</suppression>
+        <suppression>ehem.</suppression>
+        <suppression>näml.</suppression>
+        <suppression>u. Z.</suppression>
+        <suppression>v. u. Z.</suppression>
+        <suppression>sog.</suppression>
+        <suppression>C.</suppression>
+        <suppression>Dipl.-Kfm.</suppression>
+        <suppression>mtl.</suppression>
+        <suppression>Hrsg.</suppression>
+        <suppression>Qu.</suppression>
+        <suppression>röm.</suppression>
+        <suppression>u.</suppression>
+        <suppression>U.</suppression>
+        <suppression>Adj.</suppression>
+        <suppression>Kap.</suppression>
+        <suppression>hpts.</suppression>
+        <suppression>a.D.</suppression>
+        <suppression>gedr.</suppression>
+        <suppression>Best.</suppression>
+        <suppression>N.</suppression>
+        <suppression>v.u.Z.</suppression>
+        <suppression>Phys.</suppression>
+        <suppression>Fr.</suppression>
+        <suppression>d.J.</suppression>
+        <suppression>Reg.-Bez.</suppression>
+        <suppression>m.E.</suppression>
+        <suppression>schles.</suppression>
+        <suppression>Max.</suppression>
+        <suppression>Ltd.</suppression>
+        <suppression>südd.</suppression>
+        <suppression>inkl.</suppression>
+        <suppression>geb.</suppression>
+        <suppression>Ggf.</suppression>
+        <suppression>Inc.</suppression>
+        <suppression>kath.</suppression>
+        <suppression>kfm.</suppression>
+        <suppression>Nr.</suppression>
+        <suppression>Proz.</suppression>
+        <suppression>Dim.</suppression>
+        <suppression>verw.</suppression>
+        <suppression>Reg.</suppression>
+        <suppression>Dat.</suppression>
+        <suppression>Evtl.</suppression>
+        <suppression>led.</suppression>
+        <suppression>F.</suppression>
+        <suppression>Test.</suppression>
+        <suppression>Schr.</suppression>
+        <suppression>Do.</suppression>
+        <suppression>PIN.</suppression>
+        <suppression>Z. Zt.</suppression>
+        <suppression>v.Chr.</suppression>
+        <suppression>Tägl.</suppression>
+        <suppression>s.</suppression>
+        <suppression>amtl.</suppression>
+        <suppression>Temp.</suppression>
+        <suppression>Mind.</suppression>
+        <suppression>e.V.</suppression>
+        <suppression>Abw.</suppression>
+        <suppression>P.M.</suppression>
+        <suppression>F.f.</suppression>
+        <suppression>a.a.S.</suppression>
+        <suppression>Mod.</suppression>
+        <suppression>Co.</suppression>
+        <suppression>Min.</suppression>
+        <suppression>Allg.</suppression>
+        <suppression>Geograph.</suppression>
+        <suppression>Jr.</suppression>
+        <suppression>Urspr.</suppression>
+        <suppression>Apr.</suppression>
+        <suppression>Z. B.</suppression>
+        <suppression>v.H.</suppression>
+        <suppression>A.</suppression>
+        <suppression>einschl.</suppression>
+        <suppression>Trans.</suppression>
+        <suppression>zzgl.</suppression>
+        <suppression>StR.</suppression>
+        <suppression>Fam.</suppression>
+        <suppression>I.</suppression>
+        <suppression>jhrl.</suppression>
+        <suppression>u.a.</suppression>
+        <suppression>Ben.</suppression>
+        <suppression>o.g.</suppression>
+        <suppression>Kfm.</suppression>
+        <suppression>Konv.</suppression>
+        <suppression>Mi.</suppression>
+        <suppression>L.</suppression>
+        <suppression>beil.</suppression>
+        <suppression>T.</suppression>
+        <suppression>Ursprüngl.</suppression>
+        <suppression>röm.-kath.</suppression>
+        <suppression>Okt.</suppression>
+        <suppression>u.ä.</suppression>
+        <suppression>Tel.</suppression>
+        <suppression>D.</suppression>
+        <suppression>Ber.</suppression>
+        <suppression>Kop.</suppression>
+        <suppression>Mio.</suppression>
+        <suppression>Y.</suppression>
+        <suppression>U.S.A.</suppression>
+        <suppression>v. H.</suppression>
+        <suppression>Forts. f.</suppression>
+        <suppression>Rep.</suppression>
+        <suppression>Hptst.</suppression>
+        <suppression>österr.</suppression>
+      </suppressions>
     </segmentation>
   </segmentations>
 </ldml>

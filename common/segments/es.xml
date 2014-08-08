@@ -9,119 +9,172 @@
   <segmentations>
     <segmentation type="SentenceBreak">
       <!--From ULI data, http://uli.unicode.org-->
-      <exceptions>
-        <exception draft="provisional">Rdos.</exception>
-        <exception draft="provisional">JJ.OO.</exception>
-        <exception draft="provisional">Ltd.</exception>
-        <exception draft="provisional">fig.</exception>
-        <exception draft="provisional">cap.</exception>
-        <exception draft="provisional">ss.</exception>
-        <exception draft="provisional">doc.</exception>
-        <exception draft="provisional">Excmo.</exception>
-        <exception draft="provisional">Excmos.</exception>
-        <exception draft="provisional">FF.CC.</exception>
-        <exception draft="provisional">trad.</exception>
-        <exception draft="provisional">Rvdos.</exception>
-        <exception draft="provisional">ed.</exception>
-        <exception draft="provisional">Exmo.</exception>
-        <exception draft="provisional">col.</exception>
-        <exception draft="provisional">Srtas.</exception>
-        <exception draft="provisional">vid.</exception>
-        <exception draft="provisional">Sra.</exception>
-        <exception draft="provisional">ntra.</exception>
-        <exception draft="provisional">Da.</exception>
-        <exception draft="provisional">dtor.</exception>
-        <exception draft="provisional">cf.</exception>
-        <exception draft="provisional">e.g.</exception>
-        <exception draft="provisional">prov.</exception>
-        <exception draft="provisional">Emm.</exception>
-        <exception draft="provisional">Sr.</exception>
-        <exception draft="provisional">licdo.</exception>
-        <exception draft="provisional">p.ej.</exception>
-        <exception draft="provisional">bol.</exception>
-        <exception draft="provisional">figs.</exception>
-        <exception draft="provisional">Vda.</exception>
-        <exception draft="provisional">Dr.</exception>
-        <exception draft="provisional">ntro.</exception>
-        <exception draft="provisional">Reg.</exception>
-        <exception draft="provisional">O.M.</exception>
-        <exception draft="provisional">Ldo.</exception>
-        <exception draft="provisional">Drs.</exception>
-        <exception draft="provisional">Ltda.</exception>
-        <exception draft="provisional">Lcda.</exception>
-        <exception draft="provisional">Exma.</exception>
-        <exception draft="provisional">SS.MM.</exception>
-        <exception draft="provisional">Lda.</exception>
-        <exception draft="provisional">R.D.</exception>
-        <exception draft="provisional">v.gr.</exception>
-        <exception draft="provisional">vs.</exception>
-        <exception draft="provisional">Ilmas.</exception>
-        <exception draft="provisional">Rdo.</exception>
-        <exception draft="provisional">ej.</exception>
-        <exception draft="provisional">Ilmos.</exception>
-        <exception draft="provisional">Excma.</exception>
-        <exception draft="provisional">afma.</exception>
-        <exception draft="provisional">licda.</exception>
-        <exception draft="provisional">Em.</exception>
-        <exception draft="provisional">sras.</exception>
-        <exception draft="provisional">MM.</exception>
-        <exception draft="provisional">fund.</exception>
-        <exception draft="provisional">Mons.</exception>
-        <exception draft="provisional">Lcdo.</exception>
-        <exception draft="provisional">dpto.</exception>
-        <exception draft="provisional">Av.</exception>
-        <exception draft="provisional">Col.</exception>
-        <exception draft="provisional">Srta.</exception>
-        <exception draft="provisional">dptos.</exception>
-        <exception draft="provisional">D.</exception>
-        <exception draft="provisional">Rev.</exception>
-        <exception draft="provisional">Rvdmos.</exception>
-        <exception draft="provisional">Fr.</exception>
-        <exception draft="provisional">Ilmo.</exception>
-        <exception draft="provisional">afmos.</exception>
-        <exception draft="provisional">Sres.</exception>
-        <exception draft="provisional">afmas.</exception>
-        <exception draft="provisional">prof.</exception>
-        <exception draft="provisional">SS.AA.</exception>
-        <exception draft="provisional">mss.</exception>
-        <exception draft="provisional">Dña.</exception>
-        <exception draft="provisional">Rvdmo.</exception>
-        <exception draft="provisional">afmo.</exception>
-        <exception draft="provisional">ms.</exception>
-        <exception draft="provisional">Sras.</exception>
-        <exception draft="provisional">sres.</exception>
-        <exception draft="provisional">hnos.</exception>
-        <exception draft="provisional">Sta.</exception>
-        <exception draft="provisional">Sdad.</exception>
-        <exception draft="provisional">Dra.</exception>
-        <exception draft="provisional">srs.</exception>
-        <exception draft="provisional">deptos.</exception>
-        <exception draft="provisional">a.C.</exception>
-        <exception draft="provisional">bco.</exception>
-        <exception draft="provisional">Cía.</exception>
-        <exception draft="provisional">Mr.</exception>
-        <exception draft="provisional">Excmas.</exception>
-        <exception draft="provisional">Dª.</exception>
-        <exception draft="provisional">Rvdo.</exception>
-        <exception draft="provisional">d.C.</exception>
-        <exception draft="provisional">Lic.</exception>
-        <exception draft="provisional">cfr.</exception>
-        <exception draft="provisional">Corp.</exception>
-        <exception draft="provisional">Dto.</exception>
-        <exception draft="provisional">Ilma.</exception>
-        <exception draft="provisional">PP.</exception>
-        <exception draft="provisional">Exc.</exception>
-        <exception draft="provisional">Ltdo.</exception>
-        <exception draft="provisional">Mrs.</exception>
-        <exception draft="provisional">Avda.</exception>
-        <exception draft="provisional">Exmas.</exception>
-        <exception draft="provisional">mtro.</exception>
-        <exception draft="provisional">Exmos.</exception>
-        <exception draft="provisional">AA.</exception>
-        <exception draft="provisional">Sto.</exception>
-        <exception draft="provisional">depto.</exception>
-        <exception draft="provisional">c/c.</exception>
-      </exceptions>
+      <suppressions type="standard">
+        <suppression>Rdos.</suppression>
+        <suppression>JJ.OO.</suppression>
+        <suppression>Sres.</suppression>
+        <suppression>fig.</suppression>
+        <suppression>may.</suppression>
+        <suppression>RR.HH.</suppression>
+        <suppression>oct.</suppression>
+        <suppression>cap.</suppression>
+        <suppression>mié.</suppression>
+        <suppression>doc.</suppression>
+        <suppression>Excmo.</suppression>
+        <suppression>Trab.</suppression>
+        <suppression>Excmos.</suppression>
+        <suppression>Kit.</suppression>
+        <suppression>Inc.</suppression>
+        <suppression>FF.CC.</suppression>
+        <suppression>DC.</suppression>
+        <suppression>ago.</suppression>
+        <suppression>trad.</suppression>
+        <suppression>SA.</suppression>
+        <suppression>Rvdos.</suppression>
+        <suppression>ed.</suppression>
+        <suppression>Exmo.</suppression>
+        <suppression>jul.</suppression>
+        <suppression>col.</suppression>
+        <suppression>RAM.</suppression>
+        <suppression>Srtas.</suppression>
+        <suppression>ene.</suppression>
+        <suppression>Rol.</suppression>
+        <suppression>Fabric.</suppression>
+        <suppression>Comm.</suppression>
+        <suppression>vid.</suppression>
+        <suppression>Da.</suppression>
+        <suppression>dic.</suppression>
+        <suppression>ss.</suppression>
+        <suppression>abr.</suppression>
+        <suppression>ntra.</suppression>
+        <suppression>Sra.</suppression>
+        <suppression>dtor.</suppression>
+        <suppression>cf.</suppression>
+        <suppression>dom.</suppression>
+        <suppression>prov.</suppression>
+        <suppression>Emm.</suppression>
+        <suppression>Sr.</suppression>
+        <suppression>licdo.</suppression>
+        <suppression>p.ej.</suppression>
+        <suppression>bol.</suppression>
+        <suppression>figs.</suppression>
+        <suppression>Vda.</suppression>
+        <suppression>Dr.</suppression>
+        <suppression>ntro.</suppression>
+        <suppression>Desv.</suppression>
+        <suppression>O.M.</suppression>
+        <suppression>Ldo.</suppression>
+        <suppression>Drs.</suppression>
+        <suppression>sáb.</suppression>
+        <suppression>feb.</suppression>
+        <suppression>Ltda.</suppression>
+        <suppression>Lcda.</suppression>
+        <suppression>Exma.</suppression>
+        <suppression>C.V.</suppression>
+        <suppression>SS.MM.</suppression>
+        <suppression>Lda.</suppression>
+        <suppression>U.S.</suppression>
+        <suppression>hnos.</suppression>
+        <suppression>R.D.</suppression>
+        <suppression>Korn.</suppression>
+        <suppression>v.gr.</suppression>
+        <suppression>vs.</suppression>
+        <suppression>Ilmas.</suppression>
+        <suppression>Rdo.</suppression>
+        <suppression>ej.</suppression>
+        <suppression>vie.</suppression>
+        <suppression>jue.</suppression>
+        <suppression>a. C.</suppression>
+        <suppression>Ilmos.</suppression>
+        <suppression>e. c.</suppression>
+        <suppression>Excma.</suppression>
+        <suppression>afma.</suppression>
+        <suppression>licda.</suppression>
+        <suppression>Em.</suppression>
+        <suppression>K.</suppression>
+        <suppression>sras.</suppression>
+        <suppression>MM.</suppression>
+        <suppression>fund.</suppression>
+        <suppression>Mons.</suppression>
+        <suppression>Lcdo.</suppression>
+        <suppression>afmo.</suppression>
+        <suppression>C.</suppression>
+        <suppression>A.C.</suppression>
+        <suppression>dptos.</suppression>
+        <suppression>Col.</suppression>
+        <suppression>Srta.</suppression>
+        <suppression>Av.</suppression>
+        <suppression>Ant.</suppression>
+        <suppression>depto.</suppression>
+        <suppression>Var.</suppression>
+        <suppression>H.P.</suppression>
+        <suppression>D.</suppression>
+        <suppression>M.</suppression>
+        <suppression>C.P.</suppression>
+        <suppression>Rev.</suppression>
+        <suppression>Rvdmos.</suppression>
+        <suppression>Fr.</suppression>
+        <suppression>Ilmo.</suppression>
+        <suppression>afmos.</suppression>
+        <suppression>Ltd.</suppression>
+        <suppression>afmas.</suppression>
+        <suppression>prof.</suppression>
+        <suppression>lun.</suppression>
+        <suppression>SS.AA.</suppression>
+        <suppression>Sol.</suppression>
+        <suppression>nov.</suppression>
+        <suppression>mss.</suppression>
+        <suppression>Dña.</suppression>
+        <suppression>Seg.</suppression>
+        <suppression>mar.</suppression>
+        <suppression>Rvdmo.</suppression>
+        <suppression>Reg.</suppression>
+        <suppression>ms.</suppression>
+        <suppression>Sras.</suppression>
+        <suppression>sres.</suppression>
+        <suppression>U.S.A.</suppression>
+        <suppression>Sta.</suppression>
+        <suppression>Sdad.</suppression>
+        <suppression>Dra.</suppression>
+        <suppression>srs.</suppression>
+        <suppression>R.U.</suppression>
+        <suppression>deptos.</suppression>
+        <suppression>dpto.</suppression>
+        <suppression>jun.</suppression>
+        <suppression>bco.</suppression>
+        <suppression>Cía.</suppression>
+        <suppression>Id.</suppression>
+        <suppression>Mr.</suppression>
+        <suppression>e.g.</suppression>
+        <suppression>C.S.</suppression>
+        <suppression>Excmas.</suppression>
+        <suppression>Dª.</suppression>
+        <suppression>Rvdo.</suppression>
+        <suppression>Lic.</suppression>
+        <suppression>cfr.</suppression>
+        <suppression>Corp.</suppression>
+        <suppression>Dto.</suppression>
+        <suppression>Ilma.</suppression>
+        <suppression>L.</suppression>
+        <suppression>All.</suppression>
+        <suppression>PP.</suppression>
+        <suppression>d. C.</suppression>
+        <suppression>Ltdo.</suppression>
+        <suppression>mtro.</suppression>
+        <suppression>Mrs.</suppression>
+        <suppression>Desc.</suppression>
+        <suppression>Avda.</suppression>
+        <suppression>Exmas.</suppression>
+        <suppression>a. e. c.</suppression>
+        <suppression>Bien.</suppression>
+        <suppression>Exmos.</suppression>
+        <suppression>AA.</suppression>
+        <suppression>Sto.</suppression>
+        <suppression>CA.</suppression>
+        <suppression>sept.</suppression>
+        <suppression>Exc.</suppression>
+        <suppression>c/c.</suppression>
+      </suppressions>
     </segmentation>
   </segmentations>
 </ldml>

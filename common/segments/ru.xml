@@ -9,25 +9,26 @@
   <segmentations>
     <segmentation type="SentenceBreak">
       <!--From ULI data, http://uli.unicode.org-->
-      <exceptions>
-        <exception draft="provisional">руб.</exception>
-        <exception draft="provisional">янв.</exception>
-        <exception draft="provisional">тел.</exception>
-        <exception draft="provisional">до н.э.</exception>
-        <exception draft="provisional">дек.</exception>
-        <exception draft="provisional">февр.</exception>
-        <exception draft="provisional">нояб.</exception>
-        <exception draft="provisional">апр.</exception>
-        <exception draft="provisional">окт.</exception>
-        <exception draft="provisional">тыс.</exception>
-        <exception draft="provisional">авг.</exception>
-        <exception draft="provisional">проф.</exception>
-        <exception draft="provisional">сент.</exception>
-        <exception draft="provisional">н.э.</exception>
-        <exception draft="provisional">кв.</exception>
-        <exception draft="provisional">ул.</exception>
-        <exception draft="provisional">отд.</exception>
-      </exceptions>
+      <suppressions type="standard">
+        <suppression>руб.</suppression>
+        <suppression>янв.</suppression>
+        <suppression>до н. э.</suppression>
+        <suppression>сент.</suppression>
+        <suppression>тел.</suppression>
+        <suppression>дек.</suppression>
+        <suppression>февр.</suppression>
+        <suppression>нояб.</suppression>
+        <suppression>апр.</suppression>
+        <suppression>н. э.</suppression>
+        <suppression>окт.</suppression>
+        <suppression>тыс.</suppression>
+        <suppression>авг.</suppression>
+        <suppression>проф.</suppression>
+        <suppression>н.э.</suppression>
+        <suppression>кв.</suppression>
+        <suppression>ул.</suppression>
+        <suppression>отд.</suppression>
+      </suppressions>
     </segmentation>
   </segmentations>
 </ldml>

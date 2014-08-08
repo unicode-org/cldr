@@ -21,6 +21,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.DtdType;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CoverageInfo;
 import org.unicode.cldr.util.DtdData;
@@ -39,6 +40,7 @@ import com.ibm.icu.impl.Utility;
  * 
  * @author shanjian / emmons
  */
+@CLDRTool(alias="ldml2json",description="Convert CLDR data to JSON")
 public class Ldml2JsonConverter {
     private static boolean DEBUG = false;
     private static final String MAIN = "main";

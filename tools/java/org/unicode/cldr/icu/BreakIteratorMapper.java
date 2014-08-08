@@ -92,7 +92,7 @@ class BreakIteratorMapper extends Mapper {
     }
 
     /**
-     * The XML handler for collation data.  (from the CLDR side)
+     * The XML handler for break iterator data.  (from the CLDR side)
      */
     private class BreakIteratorHandler extends MapperUtils.EmptyHandler {
         private IcuData icuData;
@@ -115,7 +115,8 @@ class BreakIteratorMapper extends Mapper {
 
         @Override
         public void endElement(String uri, String localName, String qName) throws SAXException {
-            if (qName.equals("exception")) {
+            if (qName.equals("exception") || // deprecated name
+                qName.equals("suppression")) { // new name
                 value.append(Utility.escape(currentText.toString()));
                 icuData.add(segPath, value.toString());
                 currentText.setLength(0);

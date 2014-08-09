@@ -9,17 +9,25 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<identity>
 		<version number="$Revision$"/>
 		<generation date="$Date$"/>
-		<language type="mt" /> 
+		<language type="mt"/>
 	</identity>
-		<collations  >
+		<collations>
 			<collation type="standard">
-				<settings caseFirst="upper"/>
+				<settings caseFirst="upper"/><!-- DMS MSA 200:2009 -->
 				<cr><![CDATA[
-					&[before 1]c<Ċ<<<ċ
-					&[before 1]g<Ġ<<<ġ
-					&[before 1]h<GĦ<<<Għ<<<gĦ<<<għ
-					&[before 1]i<Ħ<<<ħ
-					&[before 1]z<Ż<<<ż
+# This collation follows Maltese Standard DMS MSA 200:2009
+# The document is available at:
+#  <http://www.kunsilltalmalti.gov.mt/filebank/documents/2009-10-14%20MSA%20Specification%20for%20Maltese%20locale%20(abbozz%20finali).pdf>
+# More information is available at: (search for "MSA 200")
+#  <http://www.kunsilltalmalti.gov.mt/rizorsi>
+
+&[before 1]c<ċ<<<Ċ
+&[before 1]g<ġ<<<Ġ
+# DMS 200:2009 says that "għ" shall be treated as one letter.
+&[before 1]h<għ<<<gĦ<<<Għ<<<GĦ
+# DMS 200:2009 says that "ie" shall be treated as two letters: i + e.
+&[before 1]i<ħ<<<Ħ
+&[before 1]z<ż<<<Ż
 				]]></cr>
 			</collation>
 		</collations>

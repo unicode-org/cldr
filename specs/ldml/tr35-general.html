@@ -237,7 +237,7 @@ h2,h3,h4,table {
 					<li>9.1 <a href="#Segmentation_Inheritance">Segmentation
 							Inheritance</a></li>
 					<li>9.2 <a href="#Segmentation_Exceptions">Segmentation
-							Exceptions</a></li>
+							Suppressions</a></li>
 				</ul>
 			</li>
 			<li>10 <a href="#Transforms">Transforms</a>
@@ -1692,7 +1692,8 @@ h2,h3,h4,table {
 			&gt;</p>
 		<p class="dtd">
 			&lt;!ELEMENT segmentation ( alias | (variables?, segmentRules? ,
-			exceptions?) | special*) &gt;<br> &lt;!ATTLIST segmentation type
+			exceptions?, suppressions?) | special*) &gt;
+                        <br> &lt;!ATTLIST segmentation type
 			NMTOKEN #REQUIRED &gt;
 		</p>
 		<p class="dtd">&lt;!ELEMENT variables ( alias | variable*) &gt;</p>
@@ -1705,8 +1706,12 @@ h2,h3,h4,table {
 			&lt;!ELEMENT rule ( #PCDATA ) &gt;<br> &lt;!ATTLIST rule id
 			NMTOKEN #REQUIRED &gt;
 		</p>
-		<p class="dtd">&lt;!ELEMENT exceptions ( exception* ) &gt;</p>
-		<p class="dtd">&lt;!ELEMENT exception ( #PCDATA ) &gt;</p>
+		<p class="dtd">&lt;!ELEMENT suppressions ( suppression* ) &gt;</p>
+		<p class="dtd">&lt;!ATTLIST suppressions type NMTOKEN "standard" &gt;</p>
+                <p class="dtd">&lt;!ATTLIST suppressions draft ( approved | contributed | provisional | unconfirmed ) #IMPLIED &gt;</p>
+		<p class="dtd">&lt;!ELEMENT suppression ( #PCDATA ) &gt;</p>
+		<p class="dtd"><strike>&lt;!ELEMENT exceptions ( exception* ) &gt;</strike></p>
+		<p class="dtd"><strike>&lt;!ELEMENT exception ( #PCDATA ) &gt;</strike></p>
 
 		<p>
 			The segmentations element provides for segmentation of text into
@@ -1855,12 +1860,12 @@ h2,h3,h4,table {
 
 		<h3>
 			9.2 <a name="Segmentation_Exceptions" href="#Segmentation_Exceptions">Segmentation
-				Exceptions</a>
+				Suppressions</a>
 		</h3>
 
 		<p>
-			<b>Note:</b> As of CLDR 24, the
-			<code>&lt;exceptions&gt;</code>
+			<b>Note:</b> As of CLDR 26, the
+			<code>&lt;suppressions&gt;</code>
 			data is to be considered a technology preview. Data currently in CLDR
 			was extracted from the Unicode Localization Interoperability project,
 			or ULI. See <a href="http://uli.unicode.org">http://uli.unicode.org</a>
@@ -1868,9 +1873,9 @@ h2,h3,h4,table {
 		</p>
 
 		<p>
-			The segmentation <b>exceptions</b> list provides a set of cases
+			The segmentation <b>suppressions</b> list provides a set of cases
 			which, though otherwise identified as a segment by rules, should be
-			skipped during segmentation.
+			skipped (suppressed) during segmentation.
 		</p>
 
 		<p>For example, in the English phrase "Mr. Smith", CLDR
@@ -1879,23 +1884,31 @@ h2,h3,h4,table {
 			"Mister", and not actually the end of a sentence.</p>
 
 		<p>
-			Each exception has a separate
-			<code>&lt;exception&gt;</code>
-			element, whose contents are the exceptional break to be skipped.
+			Each suppression has a separate
+			<code>&lt;suppression&gt;</code>
+			element, whose contents are the break to be skipped.
 		</p>
 
 		<p>Example:</p>
 
-		<pre>
+                <pre>
     &lt;segmentation type="SentenceBreak"&gt;
-      &lt;exceptions&gt;
-        &lt;exception draft="provisional"&gt;Maj.&lt;/exception&gt;
-        &lt;exception draft="provisional"&gt;Mr.&lt;/exception&gt;
-        &lt;exception draft="provisional"&gt;Lt.Cdr.&lt;/exception&gt;
+      &lt;suppressions type="standard" draft="provisional"&gt;
+        &lt;suppression&gt;Maj.&lt;/suppression&gt;
+        &lt;suppression&gt;Mr.&lt;/suppression&gt;
+        &lt;suppression&gt;Lt.Cdr.&lt;/suppression&gt;
 	. . .
-      &lt;/exceptions&gt;
+      &lt;/suppressions&gt;
     &lt;/segmentation&gt;
-</pre>
+                </pre>
+
+                <p>
+                  <b>Note:</b> These  elements were called
+                   <strike><code>&lt;exceptions&gt;</code></strike>
+                   and
+                   <strike><code>&lt;exception&gt;</code></strike>
+                   prior to CLDR 26, but those names are now deprecated.
+                </p>
 
 		<h2>
 			10 <a name="Transforms" href="#Transforms">Transforms</a>

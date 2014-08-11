@@ -116,6 +116,7 @@ define({
 
 		recentLoc: "Locale",
 		recentXpath: "XPath",
+		recentXpathCode: "XPath Code",
 		recentValue: "Value",
 		recentWhen: "When",
 		recentOrg: "Organization",
@@ -332,7 +333,7 @@ define({
 
 		section_mail: 'Messages',
 
-		special_vsummary: "Priority Items Summary",
+		special_vsummary: "Priority Items Summary (slow)",
 		vsummaryGuidance: "This is the vetting summary. Click Recalculate to start and be patient, this may take a while.",
 		vsReload: "Recalculate",
 		vsStop: "Stop",

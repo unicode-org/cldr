@@ -253,6 +253,11 @@ public class SupplementalMapper {
         for (Pair<String, String> pair : contents) {
             Output<Finder> matcher = new Output<Finder>();
             String fullPath = parts.set(pair.getFirst()).toString();
+            // Only convert contributed or higher data
+            if (parts.containsAttributeValue("draft", "provisional") ||
+                parts.containsAttributeValue("draft", "unconfirmed")) {
+                continue;
+            }
             List<String> debugResults = isDebugXPath(fullPath) ? new ArrayList<String>() : null;
             Output<String[]> argInfo=new Output<>();
             RegexResult regexResult = pathConverter.get(fullPath, null, argInfo, matcher, debugResults);

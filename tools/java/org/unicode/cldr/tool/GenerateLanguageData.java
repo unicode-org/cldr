@@ -27,7 +27,7 @@ import com.ibm.icu.dev.util.BagFormatter;
 import com.ibm.icu.dev.util.Relation;
 import com.ibm.icu.text.MessageFormat;
 
-@CLDRTool(alias="langdata",description="Generate a list of ISO639 language data. Use '--en' to build en.xml")
+@CLDRTool(alias="langdata",description="Generate a list of ISO639 language data. Use '--en' to build en.xml.")
 public class GenerateLanguageData {
     // static StandardCodes sc = StandardCodes.make();
     static SupplementalDataInfo supplementalData = SupplementalDataInfo.getInstance(CLDRPaths.SUPPLEMENTAL_DIRECTORY);

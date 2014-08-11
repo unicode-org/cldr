@@ -43,7 +43,7 @@ import com.ibm.icu.lang.UCharacter;
  * By Steven R. Loomis (srl) thx Markus Scherer
  *
  */
-@CLDRTool(alias="generatedecompcollrules",description="based on decomposition, generate identical/tertiary collation rules. Used to generate collation/ar.xml.")
+@CLDRTool(alias="generatedecompcollrules",description="based on decomposition, generate identical/tertiary collation rules. Used to generate collation/ar.xml.", hidden="Run manually to generate collation/ar.xml - not general purpose.")
 public class GenerateDecompCollationRules {
 
     private static final char SINGLEQUOTE = '\'';

@@ -839,13 +839,13 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Asia/Calcutta">
 				<usesMetazone mzone="India"/>
 			</timezone>
+			<timezone type="Asia/Chita">
+				<usesMetazone to="2014-10-25 16:00" mzone="Yakutsk"/>
+				<usesMetazone from="2014-10-25 16:00" mzone="Irkutsk"/>
+			</timezone>
 			<timezone type="Asia/Choibalsan">
 				<usesMetazone to="1983-03-31 16:00" mzone="Mongolia"/>
 				<usesMetazone from="1983-03-31 16:00" mzone="Choibalsan"/>
-			</timezone>
-			<timezone type="Asia/Chongqing">
-				<usesMetazone to="1980-04-30 17:00" mzone="Long_Shu"/>
-				<usesMetazone from="1980-04-30 17:00" mzone="China"/>
 			</timezone>
 			<timezone type="Asia/Colombo">
 				<usesMetazone to="1996-05-24 18:30" mzone="India"/>
@@ -874,10 +874,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Asia/Gaza">
 				<usesMetazone to="1995-12-31 22:00" mzone="Israel"/>
 				<usesMetazone from="1995-12-31 22:00" mzone="Europe_Eastern"/>
-			</timezone>
-			<timezone type="Asia/Harbin">
-				<usesMetazone to="1980-04-30 15:30" mzone="Changbai"/>
-				<usesMetazone from="1980-04-30 15:30" mzone="China"/>
 			</timezone>
 			<timezone type="Asia/Hebron">
 				<usesMetazone to="1995-12-31 22:00" mzone="Israel"/>
@@ -911,10 +907,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Asia/Karachi">
 				<usesMetazone to="1971-03-25 19:00" mzone="Karachi"/>
 				<usesMetazone from="1971-03-25 19:00" mzone="Pakistan"/>
-			</timezone>
-			<timezone type="Asia/Kashgar">
-				<usesMetazone to="1980-04-30 19:00" mzone="Kashgar"/>
-				<usesMetazone from="1980-04-30 19:00" mzone="China"/>
 			</timezone>
 			<timezone type="Asia/Katmandu">
 				<usesMetazone mzone="Nepal"/>
@@ -959,7 +951,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</timezone>
 			<timezone type="Asia/Novokuznetsk">
 				<usesMetazone to="2010-03-27 19:00" mzone="Krasnoyarsk"/>
-				<usesMetazone from="2010-03-27 19:00" mzone="Novosibirsk"/>
+				<usesMetazone to="2014-10-25 19:00" from="2010-03-27 19:00" mzone="Novosibirsk"/>
+				<usesMetazone from="2014-10-25 19:00" mzone="Krasnoyarsk"/>
 			</timezone>
 			<timezone type="Asia/Novosibirsk">
 				<usesMetazone mzone="Novosibirsk"/>
@@ -1018,6 +1011,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Asia/Singapore">
 				<usesMetazone mzone="Singapore"/>
 			</timezone>
+			<timezone type="Asia/Srednekolymsk">
+				<usesMetazone to="2014-10-25 14:00" mzone="Magadan"/>
+			</timezone>
 			<timezone type="Asia/Taipei">
 				<usesMetazone mzone="Taipei"/>
 			</timezone>
@@ -1043,8 +1039,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Mongolia"/>
 			</timezone>
 			<timezone type="Asia/Urumqi">
-				<usesMetazone to="1980-04-30 18:00" mzone="Urumqi"/>
-				<usesMetazone from="1980-04-30 18:00" mzone="China"/>
+				<usesMetazone mzone="Urumqi"/>
 			</timezone>
 			<timezone type="Asia/Ust-Nera">
 				<usesMetazone to="1981-03-31 15:00" mzone="Yakutsk"/>
@@ -1210,7 +1205,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<timezone type="Europe/Kaliningrad">
 				<usesMetazone to="1991-03-30 23:00" mzone="Moscow"/>
 				<usesMetazone to="2011-03-27 00:00" from="1991-03-30 23:00" mzone="Europe_Eastern"/>
-				<usesMetazone from="2011-03-27 00:00" mzone="Europe_Further_Eastern"/>
+				<usesMetazone to="2014-10-25 23:00" from="2011-03-27 00:00" mzone="Europe_Further_Eastern"/>
+				<usesMetazone from="2014-10-25 23:00" mzone="Europe_Eastern"/>
 			</timezone>
 			<timezone type="Europe/Kiev">
 				<usesMetazone to="1990-06-30 22:00" mzone="Moscow"/>
@@ -1274,7 +1270,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone mzone="Europe_Central"/>
 			</timezone>
 			<timezone type="Europe/Samara">
-				<usesMetazone to="1991-10-20 00:00" mzone="Kuybyshev"/>
+				<usesMetazone to="1989-03-25 22:00" mzone="Kuybyshev"/>
+				<usesMetazone from="1989-03-25 22:00" to="1991-03-30 23:00" mzone="Moscow"/>
+				<usesMetazone from="1991-03-30 23:00" to="1991-09-29 00:00" mzone="Europe_Eastern"/>
+				<usesMetazone from="1991-09-29 00:00" to="1991-10-20 00:00" mzone="Kuybyshev"/>
 				<usesMetazone from="1991-10-20 00:00" to="2010-03-27 22:00" mzone="Samara"/>
 				<usesMetazone from="2010-03-27 22:00" mzone="Moscow"/>
 			</timezone>
@@ -1328,7 +1327,8 @@ For terms of use, see http://www.unicode.org/copyright.html
 				<usesMetazone from="1999-10-31 01:00" mzone="Europe_Eastern"/>
 			</timezone>
 			<timezone type="Europe/Volgograd">
-				<usesMetazone mzone="Volgograd"/>
+				<usesMetazone to="1992-03-28 22:00" mzone="Volgograd"/>
+				<usesMetazone from="1992-03-28 22:00" mzone="Moscow"/>
 			</timezone>
 			<timezone type="Europe/Warsaw">
 				<usesMetazone mzone="Europe_Central"/>
@@ -1625,7 +1625,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Casey" territory="001" type="Antarctica/Casey"/>
 			<mapZone other="Chamorro" territory="001" type="Pacific/Saipan"/>
 			<mapZone other="Chamorro" territory="GU" type="Pacific/Guam"/>
-			<mapZone other="Changbai" territory="001" type="Asia/Harbin"/>
 			<mapZone other="Chatham" territory="001" type="Pacific/Chatham"/>
 			<mapZone other="Chile" territory="001" type="America/Santiago"/>
 			<mapZone other="Chile" territory="AQ" type="Antarctica/Palmer"/>
@@ -1743,7 +1742,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Japan" territory="001" type="Asia/Tokyo"/>
 			<mapZone other="Kamchatka" territory="001" type="Asia/Kamchatka"/>
 			<mapZone other="Karachi" territory="001" type="Asia/Karachi"/>
-			<mapZone other="Kashgar" territory="001" type="Asia/Kashgar"/>
 			<mapZone other="Kazakhstan_Eastern" territory="001" type="Asia/Almaty"/>
 			<mapZone other="Kazakhstan_Western" territory="001" type="Asia/Aqtobe"/>
 			<mapZone other="Kizilorda" territory="001" type="Asia/Qyzylorda"/>
@@ -1757,7 +1755,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Lanka" territory="001" type="Asia/Colombo"/>
 			<mapZone other="Liberia" territory="001" type="Africa/Monrovia"/>
 			<mapZone other="Line_Islands" territory="001" type="Pacific/Kiritimati"/>
-			<mapZone other="Long_Shu" territory="001" type="Asia/Chongqing"/>
 			<mapZone other="Lord_Howe" territory="001" type="Australia/Lord_Howe"/>
 			<mapZone other="Macau" territory="001" type="Asia/Macau"/>
 			<mapZone other="Macquarie" territory="001" type="Antarctica/Macquarie"/>

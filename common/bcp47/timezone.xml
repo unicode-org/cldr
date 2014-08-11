@@ -133,11 +133,11 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="clipc" description="Easter Island, Chile" alias="Pacific/Easter Chile/EasterIsland"/>
             <type name="clscl" description="Santiago, Chile" alias="America/Santiago Chile/Continental"/>
             <type name="cmdla" description="Douala, Cameroon" alias="Africa/Douala"/>
-            <type name="cnckg" description="Chongqing, China" alias="Asia/Chongqing Asia/Chungking"/>
-            <type name="cnhrb" description="Harbin, China" alias="Asia/Harbin"/>
-            <type name="cnkhg" description="Kashgar, China" alias="Asia/Kashgar"/>
-            <type name="cnsha" description="Shanghai, China" alias="Asia/Shanghai PRC"/>
-            <type name="cnurc" description="Ürümqi, China" alias="Asia/Urumqi"/>
+            <type name="cnckg" description="Chongqing, China" deprecated="true" preferred="cnsha"/>
+            <type name="cnhrb" description="Harbin, China" deprecated="true" preferred="cnsha"/>
+            <type name="cnkhg" description="Kashgar, China" deprecated="true" preferred="cnurc"/>
+            <type name="cnsha" description="Shanghai, China" alias="Asia/Shanghai Asia/Chongqing Asia/Chungking Asia/Harbin PRC"/>
+            <type name="cnurc" description="Ürümqi, China" alias="Asia/Urumqi Asia/Kashgar"/>
             <type name="cobog" description="Bogotá, Colombia" alias="America/Bogota"/>
             <type name="crsjo" description="Costa Rica" alias="America/Costa_Rica"/>
             <type name="cst6cdt" description="POSIX style time zone for US Central Time" alias="CST6CDT" since="1.8"/>
@@ -323,6 +323,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="rereu" description="Réunion" alias="Indian/Reunion"/>
             <type name="robuh" description="Bucharest, Romania" alias="Europe/Bucharest"/>
             <type name="rsbeg" description="Belgrade, Serbia" alias="Europe/Belgrade"/>
+            <type name="ruchita" description="Chita Zabaykalsky, Russia" alias="Asia/Chita" since="26"/>
             <type name="rudyr" description="Anadyr, Russia" alias="Asia/Anadyr"/>
             <type name="rugdx" description="Magadan, Russia" alias="Asia/Magadan"/>
             <type name="ruikt" description="Irkutsk, Russia" alias="Asia/Irkutsk"/>
@@ -335,6 +336,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="ruoms" description="Omsk, Russia" alias="Asia/Omsk"/>
             <type name="ruovb" description="Novosibirsk, Russia" alias="Asia/Novosibirsk"/>
             <type name="rupkc" description="Kamchatka Peninsula, Russia" alias="Asia/Kamchatka"/>
+            <type name="rusred" description="Srednekolymsk, Russia" alias="Asia/Srednekolymsk" since="26"/>
             <type name="ruunera" description="Ust-Nera Oymyakonsky, Russia" alias="Asia/Ust-Nera" since="23"/>
             <type name="ruuus" description="Sakhalin, Russia" alias="Asia/Sakhalin"/>
             <type name="ruvog" description="Volgograd, Russia" alias="Europe/Volgograd"/>

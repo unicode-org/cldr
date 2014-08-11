@@ -413,7 +413,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
 				Arctic/Longyearbyen arirj arjuj arluq armdz arrgl arsla artuc aruaq arush
 				Asia/Aden Asia/Almaty Asia/Amman Asia/Anadyr Asia/Aqtau Asia/Aqtobe
 				Asia/Ashgabat Asia/Ashkhabad Asia/Baghdad Asia/Bahrain Asia/Baku Asia/Bangkok
-				Asia/Beirut Asia/Bishkek Asia/Brunei Asia/Calcutta Asia/Choibalsan
+				Asia/Beirut Asia/Bishkek Asia/Brunei Asia/Calcutta Asia/Chita Asia/Choibalsan
 				Asia/Chongqing Asia/Chungking Asia/Colombo Asia/Dacca Asia/Damascus Asia/Dhaka
 				Asia/Dili Asia/Dubai Asia/Dushanbe Asia/Gaza Asia/Harbin Asia/Hebron
 				Asia/Ho_Chi_Minh Asia/Hong_Kong Asia/Hovd Asia/Irkutsk Asia/Istanbul
@@ -424,11 +424,11 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
 				Asia/Nicosia Asia/Novokuznetsk Asia/Novosibirsk Asia/Omsk Asia/Oral
 				Asia/Phnom_Penh Asia/Pontianak Asia/Pyongyang Asia/Qatar Asia/Qyzylorda
 				Asia/Rangoon Asia/Riyadh Asia/Saigon Asia/Sakhalin Asia/Samarkand Asia/Seoul
-				Asia/Shanghai Asia/Singapore Asia/Taipei Asia/Tashkent Asia/Tbilisi Asia/Tehran
-				Asia/Tel_Aviv Asia/Thimbu Asia/Thimphu Asia/Tokyo Asia/Ujung_Pandang
-				Asia/Ulaanbaatar Asia/Ulan_Bator Asia/Urumqi Asia/Ust-Nera Asia/Vientiane
-				Asia/Vladivostok Asia/Yakutsk Asia/Yekaterinburg Asia/Yerevan asppg
-				Atlantic/Azores Atlantic/Bermuda Atlantic/Canary Atlantic/Cape_Verde
+				Asia/Shanghai Asia/Singapore Asia/Srednekolymsk Asia/Taipei Asia/Tashkent
+				Asia/Tbilisi Asia/Tehran Asia/Tel_Aviv Asia/Thimbu Asia/Thimphu Asia/Tokyo
+				Asia/Ujung_Pandang Asia/Ulaanbaatar Asia/Ulan_Bator Asia/Urumqi Asia/Ust-Nera
+				Asia/Vientiane Asia/Vladivostok Asia/Yakutsk Asia/Yekaterinburg Asia/Yerevan
+				asppg Atlantic/Azores Atlantic/Bermuda Atlantic/Canary Atlantic/Cape_Verde
 				Atlantic/Faeroe Atlantic/Faroe Atlantic/Jan_Mayen Atlantic/Madeira
 				Atlantic/Reykjavik Atlantic/South_Georgia Atlantic/St_Helena Atlantic/Stanley
 				atvie auadl aubhq aubne audrw aueuc auhba aukns auldc auldh aumel aumqi auper
@@ -500,8 +500,9 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
 				pelim pfgmr pfnhv pfppt pgpom phmnl pkkhi plwaw pmmqc pnpcn Poland Portugal PRC
 				prsju PST8PDT ptfnc ptlis ptpdl pwror pyasu
 				qadoh
-				rereu robuh ROC ROK rsbeg rudyr rugdx ruikt rukgd rukhndg rukra rukuf rumow
-				runoz ruoms ruovb rupkc ruunera ruuus ruvog ruvvo ruyek ruyks rwkgl
+				rereu robuh ROC ROK rsbeg ruchita rudyr rugdx ruikt rukgd rukhndg rukra rukuf
+				rumow runoz ruoms ruovb rupkc rusred ruunera ruuus ruvog ruvvo ruyek ruyks
+				rwkgl
 				saruh sbhir scmaw sdkrt sesto sgsin shshn silju Singapore sjlyr skbts slfna
 				smsai sndkr somgq srpbm ssjub sttms svsal sxphi sydam szqmn
 				tcgdt tdndj tfpfr tglfw thbkk tjdyu tkfko tldil tmasb tntun totbu trist ttpos
@@ -621,13 +622,13 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
                 Asia/Ashgabat
                 Asia/Baghdad Asia/Bahrain Asia/Baku Asia/Bangkok Asia/Beirut Asia/Bishkek
                 Asia/Brunei
-                Asia/Calcutta Asia/Choibalsan Asia/Chongqing Asia/Colombo
+                Asia/Calcutta Asia/Chita Asia/Choibalsan Asia/Colombo
                 Asia/Damascus Asia/Dhaka Asia/Dili Asia/Dubai Asia/Dushanbe
                 Asia/Gaza
-                Asia/Harbin Asia/Hebron Asia/Hong_Kong Asia/Hovd
+                Asia/Hebron Asia/Hong_Kong Asia/Hovd
                 Asia/Irkutsk
                 Asia/Jakarta Asia/Jayapura Asia/Jerusalem
-                Asia/Kabul Asia/Kamchatka Asia/Karachi Asia/Kashgar Asia/Katmandu Asia/Khandyga
+                Asia/Kabul Asia/Kamchatka Asia/Karachi Asia/Katmandu Asia/Khandyga
                 Asia/Krasnoyarsk Asia/Kuala_Lumpur Asia/Kuching Asia/Kuwait
                 Asia/Macau Asia/Magadan Asia/Makassar Asia/Manila Asia/Muscat
                 Asia/Nicosia Asia/Novokuznetsk Asia/Novosibirsk
@@ -636,7 +637,7 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
                 Asia/Qatar Asia/Qyzylorda
                 Asia/Rangoon Asia/Riyadh
                 Asia/Saigon Asia/Sakhalin Asia/Samarkand Asia/Seoul Asia/Shanghai
-                Asia/Singapore
+                Asia/Singapore Asia/Srednekolymsk
                 Asia/Taipei Asia/Tashkent Asia/Tbilisi Asia/Tehran Asia/Thimphu Asia/Tokyo
                 Asia/Ulaanbaatar Asia/Urumqi Asia/Ust-Nera
                 Asia/Vientiane Asia/Vladivostok
@@ -1803,6 +1804,9 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <zoneAlias type="America/Shiprock" replacement="America/Denver" reason="deprecated"/>
             <zoneAlias type="Antarctica/South_Pole" replacement="Pacific/Auckland" reason="deprecated"/>
             <zoneAlias type="America/Montreal" replacement="America/Toronto" reason="deprecated"/>
+            <zoneAlias type="Asia/Chongqing" replacement="Asia/Shanghai" reason="deprecated"/>
+            <zoneAlias type="Asia/Harbin" replacement="Asia/Shanghai" reason="deprecated"/>
+            <zoneAlias type="Asia/Kashgar" replacement="Asia/Urumqi" reason="deprecated"/>
         </alias>
         <deprecated>
             <!-- items deprecated in ldml.dtd, ldmlSupplemental.dtd -->

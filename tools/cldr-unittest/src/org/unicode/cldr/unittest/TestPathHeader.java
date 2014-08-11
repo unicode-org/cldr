@@ -685,7 +685,13 @@ public class TestPathHeader extends TestFmwkPlus {
                 if (pathHeader.getSectionId() == SectionId.Timezones) {
                     final PageId pageId = pathHeader.getPageId();                    
                     if (badZonePages.contains(pageId) && !pathHeader.getCode().equals("Unknown")) {
-                        errln("Bad page ID:\t" + pageId + "\t" + pathHeader + "\t" + path);
+                        if ((pathHeader.getCode().equals("Chita")
+                                || pathHeader.getCode().equals("Srednekolymsk"))
+                            && logKnownIssue("cldrbug:7802", "ICU/CLDR time zone data sync problem")) {
+                            logln("Bad page ID:\t" + pageId + "\t" + pathHeader + "\t" + path);
+                        } else {
+                            errln("Bad page ID:\t" + pageId + "\t" + pathHeader + "\t" + path);
+                        }
                     }
                 }
                 if (old == null) {

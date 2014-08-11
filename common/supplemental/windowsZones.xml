@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7de0000" typeVersion="2014b">
+		<mapTimezones otherVersion="7de0002" typeVersion="2014f">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -91,7 +91,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Canada Central Standard Time" territory="001" type="America/Regina"/>
 			<mapZone other="Canada Central Standard Time" territory="CA" type="America/Regina America/Swift_Current"/>
 
-			<!-- (UTC-05:00) Bogota, Lima, Quito -->
+			<!-- (UTC-05:00) Bogota, Lima, Quito, Rio Branco -->
 			<mapZone other="SA Pacific Standard Time" territory="001" type="America/Bogota"/>
 			<mapZone other="SA Pacific Standard Time" territory="BR" type="America/Rio_Branco America/Eirunepe"/>
 			<mapZone other="SA Pacific Standard Time" territory="CA" type="America/Coral_Harbour"/>
@@ -322,6 +322,10 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<mapZone other="Namibia Standard Time" territory="001" type="Africa/Windhoek"/>
 			<mapZone other="Namibia Standard Time" territory="NA" type="Africa/Windhoek"/>
 
+			<!-- (UTC+02:00) Amman -->
+			<mapZone other="Jordan Standard Time" territory="001" type="Asia/Amman"/>
+			<mapZone other="Jordan Standard Time" territory="JO" type="Asia/Amman"/>
+
 			<!-- (UTC+02:00) Athens, Bucharest -->
 			<mapZone other="GTB Standard Time" territory="001" type="Europe/Bucharest"/>
 			<mapZone other="GTB Standard Time" territory="CY" type="Asia/Nicosia"/>
@@ -380,10 +384,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+02:00) Tripoli -->
 			<mapZone other="Libya Standard Time" territory="001" type="Africa/Tripoli"/>
 			<mapZone other="Libya Standard Time" territory="LY" type="Africa/Tripoli"/>
-
-			<!-- (UTC+03:00) Amman -->
-			<mapZone other="Jordan Standard Time" territory="001" type="Asia/Amman"/>
-			<mapZone other="Jordan Standard Time" territory="JO" type="Asia/Amman"/>
 
 			<!-- (UTC+03:00) Baghdad -->
 			<mapZone other="Arabic Standard Time" territory="001" type="Asia/Baghdad"/>
@@ -485,6 +485,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+06:00) Astana -->
 			<mapZone other="Central Asia Standard Time" territory="001" type="Asia/Almaty"/>
 			<mapZone other="Central Asia Standard Time" territory="AQ" type="Antarctica/Vostok"/>
+			<mapZone other="Central Asia Standard Time" territory="CN" type="Asia/Urumqi"/>
 			<mapZone other="Central Asia Standard Time" territory="IO" type="Indian/Chagos"/>
 			<mapZone other="Central Asia Standard Time" territory="KG" type="Asia/Bishkek"/>
 			<mapZone other="Central Asia Standard Time" territory="KZ" type="Asia/Almaty Asia/Qyzylorda"/>
@@ -522,7 +523,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi -->
 			<mapZone other="China Standard Time" territory="001" type="Asia/Shanghai"/>
-			<mapZone other="China Standard Time" territory="CN" type="Asia/Shanghai Asia/Chongqing Asia/Harbin Asia/Kashgar Asia/Urumqi"/>
+			<mapZone other="China Standard Time" territory="CN" type="Asia/Shanghai"/>
 			<mapZone other="China Standard Time" territory="HK" type="Asia/Hong_Kong"/>
 			<mapZone other="China Standard Time" territory="MO" type="Asia/Macau"/>
 
@@ -600,7 +601,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+10:00) Yakutsk -->
 			<mapZone other="Yakutsk Standard Time" territory="001" type="Asia/Yakutsk"/>
-			<mapZone other="Yakutsk Standard Time" territory="RU" type="Asia/Yakutsk Asia/Khandyga"/>
+			<mapZone other="Yakutsk Standard Time" territory="RU" type="Asia/Yakutsk Asia/Chita Asia/Khandyga"/>
 
 			<!-- (UTC+11:00) Solomon Is., New Caledonia -->
 			<mapZone other="Central Pacific Standard Time" territory="001" type="Pacific/Guadalcanal"/>
@@ -636,7 +637,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 
 			<!-- (UTC+12:00) Magadan -->
 			<mapZone other="Magadan Standard Time" territory="001" type="Asia/Magadan"/>
-			<mapZone other="Magadan Standard Time" territory="RU" type="Asia/Magadan Asia/Anadyr Asia/Kamchatka"/>
+			<mapZone other="Magadan Standard Time" territory="RU" type="Asia/Magadan Asia/Anadyr Asia/Kamchatka Asia/Srednekolymsk"/>
 
 			<!-- (UTC+13:00) Nuku'alofa -->
 			<mapZone other="Tonga Standard Time" territory="001" type="Pacific/Tongatapu"/>

@@ -643,7 +643,11 @@ public class ZoneParser {
         "Pacific/Yap",
         "Antarctica/South_Pole",
         "America/Shiprock",
-        "America/Montreal" };
+        "America/Montreal",
+        "Asia/Chongqing",
+        "Asia/Harbin",
+        "Asia/Kashgar"
+    };
     static {
         // The format is <new name>, <old name>
         String[][] FIX_UNSTABLE_TZID_DATA = new String[][] {

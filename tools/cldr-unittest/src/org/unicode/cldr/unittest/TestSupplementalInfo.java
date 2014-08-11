@@ -1363,6 +1363,12 @@ public class TestSupplementalInfo extends TestFmwkPlus {
             if (!timezone.equals(timezoneRaw) || "001".equals(region)) {
                 continue;
             }
+            if ((timezone.equals("Asia/Chongqing")
+                    || timezone.equals("Asia/Harbin")
+                    || timezone.equals("Asia/Kashgar"))
+                    && logKnownIssue("cldrbug:7802", "ICU/CLDR time zone data sync problem")) {
+                continue;
+            }
             final Set<MetaZoneRange> ranges = SUPPLEMENTAL.getMetaZoneRanges(timezone);
 
             if (assertNotNull("metazones for " + timezone, ranges)) {

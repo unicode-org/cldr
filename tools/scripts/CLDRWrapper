@@ -1,6 +1,7 @@
 #!/bin/sh
-# Copyright (C) 2004, International Business Machines Corporation
+# Copyright (C) 2004-2014, International Business Machines Corporation
 #  and others.  All Rights Reserved.
+
 #
 ######################
 ##
@@ -8,7 +9,7 @@
 ##
 ######################
 #
-# To use: put this in your 'bin' dir, 
+# To use: put this in your 'bin' dir,
 # and symlink it to XMLValidator and LDML2ICUConverter
 #
 
@@ -19,7 +20,7 @@ CLDRCLASSPATH=${HOME}/icu4j/icu4j.jar:${HOME}/icu4j/classes/
 # the command to use with java (or empty for none)
 CPCMD=
 # how to run java
-JAVA=java
+JAVA=${JAVA-java}
 
 ## Override the above settings in a ~/.cldrrc file if desired (+x)
 # example:
@@ -37,19 +38,18 @@ then
   fi
 fi
 
-
-
 # root name of this script
 ME=`basename $0`
 
-## no need to change below this line. 
-# base package 
+## no need to change below this line.
+# base package
 case $ME
 in
     "XMLValidator") PKG=org.unicode.cldr.util;;
     "ShowLanguages") PKG=org.unicode.cldr.tool;;
     "LDML2ICUConverter") PKG=org.unicode.cldr.icu;;
     "ConsoleCheckCLDR") PKG=org.unicode.cldr.test;;
+    "Ldml2JsonConverter") PKG=org.unicode.cldr.json;;
     *)  PKG=org.unicode.cldr.tool;;
 esac
 

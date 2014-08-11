@@ -11,10 +11,11 @@ import org.unicode.cldr.util.CLDRTool;
  *
  * Implement a 'main' for the CLDR jar.
  */
-@CLDRTool(alias = "main", description = "The 'main' class invoked when java -jar or doubleclicking the jar.", hidden = "Hidden so as not to list itself")
+@CLDRTool(alias = "main", description = "The 'main' class invoked when java -jar or doubleclicking the jar.", hidden = "Hidden so as not to list itself", url = Main.TOOLSURL)
 class Main {
     private static final String CLASS_SUFFIX = ".class";
     private static final String MAIN = "main";
+    public static final String TOOLSURL = "http://cldr.unicode.org/tools/";
 
     public static void main(String args[]) throws Throwable {
         if (args.length == 0) {
@@ -23,9 +24,9 @@ class Main {
             System.out.println(" (java -jar cldr.jar ) -l          -- prints a list of ALL tool/util/test classes with a 'main()' function.");
             System.out.println(" (java -jar cldr.jar ) org.unicode.cldr.util.XMLValidator  somefile.xml ...");
             System.out.println(" (java -jar cldr.jar ) validate  somefile.xml ...");
-            System.out.println("For more info: http://unicode.org/cldr");
+            System.out.println("For more info: "+TOOLSURL);
             System.out.println("CLDRFile.GEN_VERSION=" + CLDRFile.GEN_VERSION);
-            System.out.println("(Use the -l option to list un-annotated tools)");
+            System.out.println("(Use the -l option to list hidden/undocumented tools)");
             System.out.println();
             listClasses(false, null);
         } else if (args.length == 1 && args[0].equals("-l")) {
@@ -97,6 +98,8 @@ class Main {
                                     System.out.println("" + annotation.alias() + " - " + annotation.description());
                                     if (annotation.url().length() > 0) {
                                         System.out.println("   <" + annotation.url() + ">");
+                                    } else {
+                                        System.out.println("   <" + TOOLSURL +  annotation.alias() + ">");
                                     }
                                     System.out.println(" = " + className);
                                     if (annotation.hidden().length() > 0) {

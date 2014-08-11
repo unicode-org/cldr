@@ -32,6 +32,7 @@ import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.DraftStatus;
 import org.unicode.cldr.util.CLDRFile.Status;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.SimpleLineComparator;
 import org.unicode.cldr.util.DateTimeCanonicalizer;
@@ -71,6 +72,8 @@ import com.ibm.icu.util.ULocale;
  * There are some environment variables that can be used with the program <br>
  * -DSHOW_FILES=<anything> shows all create/open of files.
  */
+@CLDRTool(alias = "modify",
+          description = "Tool for applying modifications to the CLDR files. Use -h to see the options.")
 public class CLDRModify {
     private static final boolean DEBUG = false;
     static final String DEBUG_PATHS = null; // ".*currency.*";

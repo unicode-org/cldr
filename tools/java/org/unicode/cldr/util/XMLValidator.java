@@ -29,7 +29,7 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-@CLDRTool(alias = "validate", description = "Check XML files for validity", url = "http://cldr.unicode.org/development/adding-locales")
+@CLDRTool(alias = "validate", description = "Check XML files for validity")
 public class XMLValidator {
     public static boolean quiet = false;
     public static boolean parseonly = false;

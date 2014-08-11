@@ -82,8 +82,7 @@ import com.ibm.icu.util.ULocale;
  * 
  */
 @CLDRTool(alias = "check",
-    description = "Run CheckCLDR against CLDR data",
-    url = "http://cldr.unicode.org/development/building-cldr-tools/running-consolecheckcldr")
+    description = "Run CheckCLDR against CLDR data")
 public class ConsoleCheckCLDR {
     public static boolean showStackTrace = false;
     public static boolean errorsOnly = false;

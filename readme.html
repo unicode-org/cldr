@@ -27,12 +27,12 @@
  	<ul>
  	  <li>Information about <a href="http://cldr.unicode.org/index/downloads">CLDR releases and downloads</a>,
  	  including the data files and LDML specification associated with each release.
-          <li>Information about <a href="http://cldr.unicode.org/development/building-cldr-tools">Building and running CLDR Tools</a></li>
+          <li>Information about <a href="http://cldr.unicode.org/tools">Building and running CLDR Tools</a></li>
         </ul>
           <p>Tools Quickstart:</p>
             <ol>
               <li>Build <code>cldr.jar</code>:<br/>
-                <code><b>ant -f tools/java/build.xml jar</b></code>
+                <code><b>ant -f tools/build.xml jar</b></code>
               </li>
               <li>List available tools:<br/>
                 <code><b>java -jar tools/java/cldr.jar</b></code>
@@ -48,6 +48,9 @@
               </li>
               <li>Convert LDML to JSON data:<br/>
                 <code><b>java -DCLDR_DIR=<i>/path/to/cldr/data</i> -jar tools/java/cldr.jar ldml2json -r true</b></code>
+              </li>
+              <li>More info:<br/>
+                <a href="http://cldr.unicode.org/tools">CLDR Tools Website</a>
               </li>
             </pre>
           </ol>

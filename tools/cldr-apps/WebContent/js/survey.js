@@ -4749,7 +4749,7 @@ function showV() {
 				    {divider: true},
 				    {title: 'My Organization('+organizationName+')'}, // My Organization section
 				  
-				    {special: 'vsummary', level: 2 },
+				    {special: 'vsummary', level: 2, display: surveyUserPerms.userCanUseVettingSummary },
 				    {title: 'List ' + org + ' Users', level: 2, url: surveyUserURL.manageUser, display: (surveyUserPerms.userIsTC || surveyUserPerms.userIsVetter) },
 				    {title: 'LOCKED: Note: your account is currently locked.', level: 2,  display: surveyUserPerms.userIsLocked, bold: true},
 				    
@@ -7537,7 +7537,7 @@ function showRecent(divName, locale, user) {
 							frag.appendChild(rowDiv);
 							
 							rowDiv.appendChild(createChunk(stui_str("recentLoc"),"b"));
-							rowDiv.appendChild(createChunk(stui_str("recentXpath"),"b"));
+							rowDiv.appendChild(createChunk(stui_str("recentXpathCode"),"b"));
 							rowDiv.appendChild(createChunk(stui_str("recentValue"),"b"));
 							rowDiv.appendChild(createChunk(stui_str("recentWhen"),"b"));
 						}
@@ -7550,6 +7550,7 @@ function showRecent(divName, locale, user) {
 							var org = row[header.ORG];
 							var last_mod = row[header.LAST_MOD];
 							var xpath = row[header.XPATH];
+							var xpath_code = row[header.XPATH_CODE];
 							var xpath_hash = row[header.XPATH_STRHASH];
 							var value = row[header.VALUE];
 							
@@ -7558,7 +7559,8 @@ function showRecent(divName, locale, user) {
 							
                                                         rowDiv.appendChild(createLocLink(loc,locname, "recentLoc"));
 							var xpathItem;
-							rowDiv.appendChild(xpathItem = createChunk(xpath,"a","recentXpath"));
+							xpath_code = xpath_code.replace(/\t/g," / ");
+							rowDiv.appendChild(xpathItem = createChunk(xpath_code,"a","recentXpath"));
 							xpathItem.href = "survey?_="+loc+"&strid="+xpath_hash;
 							rowDiv.appendChild(createChunk(value,"span","value recentValue"));
 							rowDiv.appendChild(createChunk(last_mod,"span","recentWhen"));

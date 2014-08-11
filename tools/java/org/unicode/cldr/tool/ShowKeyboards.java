@@ -30,6 +30,7 @@ import org.unicode.cldr.util.CLDRConfig;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.Factory;
@@ -55,6 +56,7 @@ import com.ibm.icu.text.Transliterator;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
+@CLDRTool(alias="showkeyboards", description="Generate keyboard charts")
 public class ShowKeyboards {
     // TODO - fix ' > xxx
     // TODO - check for bad locale ids

@@ -1,5 +1,6 @@
 package org.unicode.cldr.tool;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -7,6 +8,7 @@ import java.io.PrintWriter;
 import org.unicode.cldr.util.CLDRPaths;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.CldrUtility.LineComparer;
+import org.unicode.cldr.util.FileReaders;
 
 import com.ibm.icu.dev.util.BagFormatter;
 
@@ -83,6 +85,22 @@ public class ToolUtilities {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Fetch data from jar
+     *
+     * @param name
+     *            a name residing in the org/unicode/cldr/tool/ directory, or loading from a jar will break.
+     */
+    public static BufferedReader getUTF8Data(String name) {
+        if (new File(name).isAbsolute()) {
+            throw new IllegalArgumentException(
+                "Path must be relative to org/unicode/cldr/tool  such as 'file.txt' or 'casing/file.txt', but got '"
+                    + name + "'.");
+        }
+
+        return FileReaders.openFile(ToolUtilities.class, name);
     }
 
     static final boolean DEBUG_SHOW_BAT = false;

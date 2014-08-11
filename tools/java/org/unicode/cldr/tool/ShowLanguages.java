@@ -36,6 +36,7 @@ import org.unicode.cldr.test.ExampleGenerator.HelpMessages;
 import org.unicode.cldr.util.CLDRFile;
 import org.unicode.cldr.util.CLDRFile.WinningChoice;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 import org.unicode.cldr.util.CLDRURLS;
 import org.unicode.cldr.util.CldrUtility;
 import org.unicode.cldr.util.Factory;
@@ -76,6 +77,7 @@ import com.ibm.icu.text.UTF16;
 import com.ibm.icu.text.UnicodeSet;
 import com.ibm.icu.util.ULocale;
 
+@CLDRTool(alias="showlanguages", description="Generate Lanugage info charts")
 public class ShowLanguages {
     public static final String CHART_TARGET_DIR = CLDRPaths.CHART_DIRECTORY + "/supplemental/";
 
@@ -661,8 +663,8 @@ public class ShowLanguages {
             PrintWriter pw2 = BagFormatter.openUTF8Writer(CHART_TARGET_DIR, filename);
             String[] replacements = { "%header%", "", "%title%", title, "%version%", ToolConstants.CHART_DISPLAY_VERSION,
                 "%date%", CldrUtility.isoFormat(new Date()), "%body%", out.toString() };
-            final String templateFileName = "../../tool/chart-template.html";
-            FileUtilities.appendBufferedReader(CldrUtility.getUTF8Data(templateFileName), pw2, replacements);
+            final String templateFileName = "chart-template.html";
+            FileUtilities.appendBufferedReader(ToolUtilities.getUTF8Data(templateFileName), pw2, replacements);
             pw2.close();
         }
 

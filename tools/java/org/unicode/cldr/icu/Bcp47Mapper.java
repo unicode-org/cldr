@@ -3,6 +3,7 @@ package org.unicode.cldr.icu;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -37,8 +38,14 @@ public class Bcp47Mapper {
             fillFromFile(filename, keyTypeData, keyMap);
         }
         // Add all the keyMap values into the IcuData file.
-        for (String key : keyMap.keySet()) {
-            keyTypeData.add("/keyMap/" + keyMap.get(key), key);
+        for (Entry<String, String> kmData : keyMap.entrySet()) {
+            String bcpKey = kmData.getKey();
+            String key = kmData.getValue();
+            if (bcpKey.equals(key)) {
+                // empty value to indicate the BCP47 key is same with the legacy key
+                bcpKey = "";
+            }
+            keyTypeData.add("/keyMap/" + key, bcpKey);
         }
         // Add aliases for timezone data.
         keyTypeData.add("/typeAlias/timezone:alias", "/ICUDATA/timezoneTypes/typeAlias/timezone");
@@ -57,6 +64,7 @@ public class Bcp47Mapper {
     private class KeywordHandler extends MapperUtils.EmptyHandler {
         private String typeAliasPrefix;
         private String typeMapPrefix;
+        private String bcpTypeAliasPrefix;
         private IcuData icuData;
         private Map<String, String> keyMap;
 
@@ -80,30 +88,56 @@ public class Bcp47Mapper {
             // <key name="tz" alias="timezone" description="Time zone key">
             // <type name="adalv" alias="Europe/Andorra" description="Andorra"/>
             // ...
+            if (attr == null) {
+                return;
+            }
+
             if (qName.equals("key")) {
-                String keyAlias = null;
-                if (attr != null) {
-                    keyAlias = attr.getValue("alias");
+                String keyName = attr.getValue("name");
+                if (keyName == null) {
+                    return;
                 }
+
+                String keyAlias = attr.getValue("alias");
                 if (keyAlias == null) {
-                    keyAlias = attr.getValue("name");
-                    System.err.println(Bcp47Mapper.class.getSimpleName() + " Note: BCP47 key " + keyAlias
-                        + " didn't have the optional alias= value, mapping " + keyAlias + "->" + keyAlias);
+                    keyAlias = keyName;
+                    System.err.println(Bcp47Mapper.class.getSimpleName() + " Info: BCP47 key " + keyName
+                        + " didn't have the optional alias= value, mapping " + keyName + "->" + keyName);
                 }
+
+                keyName = keyName.toLowerCase();
                 keyAlias = keyAlias.toLowerCase();
+
                 typeAliasPrefix = "/typeAlias/" + keyAlias + '/';
                 typeMapPrefix = "/typeMap/" + keyAlias + '/';
-                keyMap.put(attr.getValue("name"), keyAlias);
+                keyMap.put(keyName, keyAlias);
+                bcpTypeAliasPrefix = "/bcpTypeAlias/" + keyName + '/'; 
             } else if (qName.equals("type")) {
+                String typeName = attr.getValue("name");
+                if (typeName == null) {
+                    return;
+                }
+
+                // BCP47 type alias (maps deprecated type to preferred type)
+                String preferredTypeName = attr.getValue("preferred");
+                if (preferredTypeName != null) {
+                    icuData.add(bcpTypeAliasPrefix + typeName, preferredTypeName);
+                    return;
+                }
+
                 String alias = attr.getValue("alias");
-                if (alias == null) return;
-                String[] aliases = alias.split("\\s+");
-                String mainAlias = aliases[0];
-                icuData.add(typeMapPrefix + formatName(mainAlias),
-                    attr.getValue("name"));
-                for (int i = 1; i < aliases.length; i++) {
-                    icuData.add(typeAliasPrefix + formatName(aliases[i]),
-                        mainAlias);
+                if (alias == null) {
+                    // Generate type map entry using empty value
+                    // (an empty value indicates same type name
+                    // is used for both BCP47 and legacy type.
+                    icuData.add(typeMapPrefix + typeName, "");
+                } else {
+                    String[] aliases = alias.split("\\s+");
+                    String mainAlias = aliases[0];
+                    icuData.add(typeMapPrefix + formatName(mainAlias), typeName);
+                    for (int i = 1; i < aliases.length; i++) {
+                        icuData.add(typeAliasPrefix + formatName(aliases[i]), mainAlias);
+                    }
                 }
             }
         }

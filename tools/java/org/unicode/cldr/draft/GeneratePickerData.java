@@ -34,6 +34,7 @@ import org.unicode.cldr.draft.GeneratePickerData.CategoryTable.Separation;
 import org.unicode.cldr.tool.Option;
 import org.unicode.cldr.tool.Option.Options;
 import org.unicode.cldr.util.CLDRPaths;
+import org.unicode.cldr.util.CLDRTool;
 
 import com.ibm.icu.lang.UCharacter;
 import com.ibm.icu.lang.UProperty;
@@ -48,6 +49,7 @@ import com.ibm.icu.text.UnicodeSetIterator;
 import com.ibm.icu.util.LocaleData;
 import com.ibm.icu.util.ULocale;
 
+@CLDRTool(alias = "generate-picker-data", description = "Generate draft.PickerData content", hidden="generator for draft data")
 class GeneratePickerData {
     static final boolean DEBUG = true;
 
@@ -155,7 +157,7 @@ class GeneratePickerData {
     enum MyOptions {
         output(".*", CLDRPaths.BASE_DIRECTORY + "tools/java/org/unicode/cldr/draft/picker/",
             "output data directory"),
-        unicodedata(null, CLDRPaths.UCD_DIRECTORY, "Unicode Data directory"),
+        unicodedata(".*", DraftUtils.UCD_DIRECTORY, "Unicode Data directory"),
         verbose(null, null, "verbose debugging messages"),
         korean(null, null, "generate korean hangul defectives instead"), ;
         // boilerplate
@@ -169,7 +171,6 @@ class GeneratePickerData {
     public static void main(String[] args) throws Exception {
         // System.out.println(ScriptCategories.ARCHAIC);
         myOptions.parse(MyOptions.unicodedata, args, true);
-
         if (MyOptions.korean.option.doesOccur()) {
             generateHangulDefectives();
             return;
@@ -450,9 +451,9 @@ class GeneratePickerData {
         out.println("package org.unicode.cldr.draft.picker;");
         out.println("// $Date$");
         out.println("public class CharData {");
-        out.println("static String[][] CHARACTERS_TO_NAME = {");
+        out.println("public static String[][] CHARACTERS_TO_NAME = {");
         out.println(buildNames());
-        out.println("  };\n" + "  static String[][][] CATEGORIES = {");
+        out.println("  };\n" + "  public static String[][][] CATEGORIES = {");
 
         out.println(categoryTable);
         out.println("  };\n" + "}");

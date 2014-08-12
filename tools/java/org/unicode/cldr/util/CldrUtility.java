@@ -118,7 +118,7 @@ public class CldrUtility {
         boolean handle(String line) throws Exception; 
     } 
 
-    static String getPath(String path, String filename) {
+    public static String getPath(String path, String filename) {
         if (path == null) {
             return null;
         }

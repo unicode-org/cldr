@@ -227,30 +227,30 @@ h2,h3,h4,table {
 			</li>
 			<li>3 <a href="#Collation_Tailorings">Collation Tailorings</a>
 				<ul class="toc">
-					<li class="changed">3.0 <a href="#Collation_Types">Collation Types</a></li>
-					<li>3.1 <a href="#Collation_Version">Version</a></li>
-					<li>3.2 <a href="#Collation_Element">Collation Element</a></li>
-					<li>3.3 <a href="#Setting_Options">Setting Options</a>
+					<li class="changed">3.1 <a href="#Collation_Types">Collation Types</a></li>
+					<li>3.2 <a href="#Collation_Version">Version</a></li>
+					<li>3.3 <a href="#Collation_Element">Collation Element</a></li>
+					<li>3.4 <a href="#Setting_Options">Setting Options</a>
 						<ul class="toc">
 							<li>Table: <a href="#Collation_Settings">Collation
 									Settings</a></li>
 						</ul>
 					</li>
-					<li>3.4 <a href="#Rules">Collation Rule Syntax</a></li>
-					<li>3.5 <a href="#Orderings">Orderings</a></li>
-					<li>3.6 <a href="#Contractions">Contractions</a></li>
-					<li>3.7 <a href="#Expansions">Expansions</a></li>
-					<li>3.8 <a href="#Context_Before">Context Before</a></li>
-					<li>3.9 <a href="#Placing_Characters_Before_Others">Placing
+					<li>3.5 <a href="#Rules">Collation Rule Syntax</a></li>
+					<li>3.6 <a href="#Orderings">Orderings</a></li>
+					<li>3.7 <a href="#Contractions">Contractions</a></li>
+					<li>3.8 <a href="#Expansions">Expansions</a></li>
+					<li>3.9 <a href="#Context_Before">Context Before</a></li>
+					<li>3.10 <a href="#Placing_Characters_Before_Others">Placing
 							Characters Before Others</a></li>
-					<li>3.10 <a href="#Logical_Reset_Positions">Logical Reset
+					<li>3.11 <a href="#Logical_Reset_Positions">Logical Reset
 							Positions</a></li>
-					<li>3.11 <a href="#Special_Purpose_Commands">Special-Purpose
+					<li>3.12 <a href="#Special_Purpose_Commands">Special-Purpose
 							Commands</a></li>
-					<li>3.12 <a href="#Script_Reordering">Collation Reordering</a></li>
-					<li>3.13 <a href="#Case_Parameters">Case Parameters</a></li>
-					<li>3.14 <a href="#Visibility">Visibility</a></li>
-					<li>3.15 <a href="#Collation_Indexes">Collation Indexes</a></li>
+					<li>3.13 <a href="#Script_Reordering">Collation Reordering</a></li>
+					<li>3.14 <a href="#Case_Parameters">Case Parameters</a></li>
+					<li>3.15 <a href="#Visibility">Visibility</a></li>
+					<li>3.16 <a href="#Collation_Indexes">Collation Indexes</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -952,7 +952,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			tailoring of the root order, or both.
 		</p>
 
-		<h3 class="changed">3.0 <a name="Collation_Types" href="#Collation_Types">Collation Types</a></h3>
+		<h3 class="changed">3.1 <a name="Collation_Types" href="#Collation_Types">Collation Types</a></h3>
 		<p>
 			Each locale may have multiple sort orders <span class="changed">(types)</span>. The <span class="element">defaultCollation</span>
 			element defines the default tailoring for a locale and its
@@ -998,7 +998,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</ul>
 
 		<h4>
-			3.0.1 <a name="Collation_Type_Fallback"
+			3.1.1 <a name="Collation_Type_Fallback"
 				href="#Collation_Type_Fallback">Collation Type Fallback</a>
 		</h4>
 		<p>When loading a requested tailoring from its data file and the
@@ -1103,7 +1103,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</table>
 
 		<h3>
-			3.1 <a name="Collation_Version" href="#Collation_Version">Version</a>
+			3.2 <a name="Collation_Version" href="#Collation_Version">Version</a>
 		</h3>
 		<p>The version attribute is used in case a specific version of the
 			UCA is to be specified. It is optional, and is specified if the
@@ -1125,7 +1125,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</blockquote>
 
 		<h3>
-			3.2 <a name="Collation_Element" href="#Collation_Element">Collation
+			3.3 <a name="Collation_Element" href="#Collation_Element">Collation
 				Element</a>
 		</h3>
 		<p class="dtd">&lt;!ELEMENT collation (alias | ( import*,
@@ -1145,7 +1145,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 &lt;/collation&gt;</pre>
 
 		<h3>
-			3.3 <a name="Setting_Options" href="#Setting_Options">Setting
+			3.4 <a name="Setting_Options" href="#Setting_Options">Setting
 				Options</a>
 		</h3>
 		<p>
@@ -1299,7 +1299,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					of tertiary level, as a &quot;Level 2.5&quot;. To ignore accents
 					but take case into account, set strength to <strong>primary</strong>
 					and case level to <strong>on</strong>. For details, see <em>Section
-						3.13, <a href="#Case_Parameters">Case Parameters</a>
+						3.14, <a href="#Case_Parameters">Case Parameters</a>
 				</em>.
 				</td>
 			</tr>
@@ -1321,7 +1321,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					causes lower case to sort before upper case. Useful for locales
 					that have already supported ordering but require different order of
 					cases. Affects case and tertiary levels. For details, see <em>Section
-						3.13, <a href="#Case_Parameters">Case Parameters</a>
+						3.14, <a href="#Case_Parameters">Case Parameters</a>
 				</em>.
 				</td>
 			</tr>
@@ -1350,7 +1350,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 					code points in <strong>shifted</strong>. That is, the normal Level
 					4 value for a regular collation element is FFFF, as described in [<a
 					href="http://www.unicode.org/reports/tr41/#UTS10">UCA</a>], <em>Section
-						3.6, Variable Weighting</em>. This is changed to FFFE for
+						3.7, Variable Weighting</em>. This is changed to FFFE for
 					[:script=Hiragana:] characters. The strength must be greater or
 					equal than quaternary if this attribute is to have any effect.
 				</td>
@@ -1511,7 +1511,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</table>
 
 		<h4>
-			3.3.1 <a name="Common_Settings" href="#Common_Settings">Common
+			3.4.1 <a name="Common_Settings" href="#Common_Settings">Common
 				settings combinations</a>
 		</h4>
 		<p>Some commonly used parametric collation settings are available
@@ -1529,7 +1529,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</ul>
 
 		<h4>
-			3.3.2 <a name="Normalization_Setting" href="#Normalization_Setting">Notes
+			3.4.2 <a name="Normalization_Setting" href="#Normalization_Setting">Notes
 				on the normalization setting</a>
 		</h4>
 		<p>The UCA always normalizes input strings into NFD form before
@@ -1562,7 +1562,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			‘&#x25CC;&#x0344;’) as soon as they are encountered.</p>
 
 		<h4>
-			3.3.3 <a name="Variable_Top_Settings" href="#Variable_Top_Settings">Notes
+			3.4.3 <a name="Variable_Top_Settings" href="#Variable_Top_Settings">Notes
 				on variable top settings</a>
 		</h4>
 		<p>
@@ -1587,7 +1587,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			them are ignored in sorting.</p>
 
 		<h3>
-			3.4 <a name="Rules" href="#Rules">Collation Rule Syntax</a>
+			3.5 <a name="Rules" href="#Rules">Collation Rule Syntax</a>
 		</h3>
 		<p class="dtd">&lt;!ELEMENT cr #PCDATA &gt;</p>
 		<p>
@@ -1665,7 +1665,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<p>The collation syntax is case-sensitive.</p>
 
 		<h3>
-			3.5 <a name="Orderings" href="#Orderings">Orderings</a>
+			3.6 <a name="Orderings" href="#Orderings">Orderings</a>
 		</h3>
 
 		<p>The root collation mappings form the initial state. Mappings
@@ -1946,7 +1946,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			</tr>
 		</table>
 		<h3>
-			3.6 <a name="Contractions" href="#Contractions">Contractions</a>
+			3.7 <a name="Contractions" href="#Contractions">Contractions</a>
 		</h3>
 
 		<p>A multi-character relation string defines a contraction.</p>
@@ -1967,7 +1967,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</table>
 
 		<h3>
-			3.7 <a name="Expansions" href="#Expansions">Expansions</a>
+			3.8 <a name="Expansions" href="#Expansions">Expansions</a>
 		</h3>
 		<p class="dtd removed">&lt;!ELEMENT x (context?, ( p | pc | s | sc
 			| t | tc | i | ic )*, extend? ) &gt;</p>
@@ -2032,7 +2032,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 
 		<h3>
-			3.8 <a name="Context_Before" href="#Context_Before">Context
+			3.9 <a name="Context_Before" href="#Context_Before">Context
 				Before</a>
 		</h3>
 		<p>
@@ -2069,7 +2069,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			<li><code>&lt; abc | def</code></li>
 		</ul>
 		<h3>
-			3.9 <a name="Placing_Characters_Before_Others"
+			3.10 <a name="Placing_Characters_Before_Others"
 				href="#Placing_Characters_Before_Others">Placing Characters
 				Before Others</a>
 		</h3>
@@ -2090,7 +2090,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</ul>
 
 		<h3>
-			3.10 <a name="Logical_Reset_Positions"
+			3.11 <a name="Logical_Reset_Positions"
 				href="#Logical_Reset_Positions">Logical Reset Positions</a>
 		</h3>
 
@@ -2241,7 +2241,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 
 		<h3>
-			3.11 <a name="Special_Purpose_Commands"
+			3.12 <a name="Special_Purpose_Commands"
 				href="#Special_Purpose_Commands">Special-Purpose Commands</a>
 		</h3>
 		<p class="dtd">
@@ -2338,7 +2338,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 &lt;/collation&gt;</pre>
 
 		<h3>
-			3.12 <a name="Script_Reordering" href="#Script_Reordering">Collation
+			3.13 <a name="Script_Reordering" href="#Script_Reordering">Collation
 				Reordering</a>
 		</h3>
 		<p>Collation reordering allows scripts and certain other defined
@@ -2407,7 +2407,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 
 		<h4>
-			3.12.1 <a name="Interpretation_reordering"
+			3.13.1 <a name="Interpretation_reordering"
 				href="#Interpretation_reordering">Interpretation of a reordering
 				list</a>
 		</h4>
@@ -2512,7 +2512,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 
 		<h4>
-			3.12.2 <a name="Reordering_Groups_allkeys"
+			3.13.2 <a name="Reordering_Groups_allkeys"
 				href="#Reordering_Groups_allkeys">Reordering Groups for
 				allkeys.txt</a>
 		</h4>
@@ -2579,7 +2579,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 
 		<h3>
-			3.13 <a name="Case_Parameters" href="#Case_Parameters">Case
+			3.14 <a name="Case_Parameters" href="#Case_Parameters">Case
 				Parameters</a>
 		</h3>
 		<p>
@@ -2614,7 +2614,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 
 		<h4>
-			3.13.1 <a name="Case_Untailored" href="#Case_Untailored">Untailored
+			3.14.1 <a name="Case_Untailored" href="#Case_Untailored">Untailored
 				Characters</a>
 		</h4>
 		<p>For untailored characters and strings, that is, for mappings in
@@ -2638,7 +2638,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</ol>
 
 		<h4>
-			3.13.2 <a name="Case_Weights" href="#Case_Weights">Compute
+			3.14.2 <a name="Case_Weights" href="#Case_Weights">Compute
 				Modified Collation Elements</a>
 		</h4>
 		<p>
@@ -2752,7 +2752,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 
 		<h4>
-			3.13.3 <a name="Case_Tailored" href="#Case_Tailored">Tailored
+			3.14.3 <a name="Case_Tailored" href="#Case_Tailored">Tailored
 				Strings</a>
 		</h4>
 		<p>Characters and strings that are tailored have case values
@@ -2793,7 +2793,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 
 
 		<h3>
-			3.14 <a name="Visibility" href="#Visibility">Visibility</a>
+			3.15 <a name="Visibility" href="#Visibility">Visibility</a>
 		</h3>
 		<p class="dtd">&lt;!ATTLIST collation visibility ( internal |
 			external ) &quot;external&quot; &gt;</p>
@@ -2804,11 +2804,11 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 			they are partial sequences included in other collators.</p>
 
 		<h3>
-			3.15 <a name="Collation_Indexes" href="#Collation_Indexes">Collation
+			3.16 <a name="Collation_Indexes" href="#Collation_Indexes">Collation
 				Indexes</a>
 		</h3>
 		<h4>
-			3.15.1 <a name="Index_Characters" href="#Index_Characters">Index
+			3.16.1 <a name="Index_Characters" href="#Index_Characters">Index
 				Characters</a>
 		</h4>
 		<p>
@@ -2958,7 +2958,7 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		</p>
 
 		<h4>
-			3.15.2 <a name="CJK_Index_Markers" href="#CJK_Index_Markers">CJK
+			3.16.2 <a name="CJK_Index_Markers" href="#CJK_Index_Markers">CJK
 				Index Markers</a>
 		</h4>
 		<p>Special index markers have been added to the CJK collations for

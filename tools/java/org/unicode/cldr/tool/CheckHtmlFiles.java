@@ -25,12 +25,14 @@ import org.unicode.cldr.util.Counter;
 import org.unicode.cldr.util.RegexUtilities;
 import org.unicode.cldr.util.SimpleHtmlParser;
 import org.unicode.cldr.util.SimpleHtmlParser.Type;
+import org.unicode.cldr.util.CLDRTool;
 
 import com.ibm.icu.dev.util.TransliteratorUtilities;
 import com.ibm.icu.text.BreakIterator;
 import com.ibm.icu.util.Output;
 import com.ibm.icu.util.ULocale;
 
+@CLDRTool(alias="checkhtmlfiles", description="Look for errors in CLDR documentation tools", hidden="Used for CLDR process")
 public class CheckHtmlFiles {
 
     final static Options myOptions = new Options();
@@ -84,6 +86,13 @@ public class CheckHtmlFiles {
         Data target = new Data().getSentences(targetString);
         if (target.count == 0) {
             throw new IllegalArgumentException("No files matched with " + targetString);
+        } else {
+            System.out.println("*TOTAL COUNTS*  files:"+target.count+", fatal errors:"+target.totalFatalCount+", nonfatal errors:"+target.totalErrorCount);
+            if(target.totalFatalCount>0 || target.totalErrorCount>0) {
+                System.exit(1); // give an error status
+            } else {
+                System.exit(0);
+            }
         }
 //        Data source = new Data().getSentences(MyOptions.old.option.getValue());
 //        String file = MyOptions.target.option.getValue();
@@ -427,6 +436,10 @@ public class CheckHtmlFiles {
             }
         }
 
+        /**
+         * Prints out errs
+         * @return fatal err count
+         */
         public int showErrors() {
             int fatalCount = 0;
             if (!errors.isEmpty()) {
@@ -449,12 +462,21 @@ public class CheckHtmlFiles {
             }
             return fatalCount;
         }
+
+        /**
+         * @return total number of errors
+         */
+        public int totalErrorCount() {
+            return errors.size();
+        }
     }
 
     static class Data implements Iterable<String> {
         List<String> sentences = new ArrayList<String>();
         Counter<String> hashedSentences = new Counter<String>();
         int count = 0;
+        int totalErrorCount = 0;
+        int totalFatalCount = 0;
 
         public Data getSentences(String fileRegex) throws IOException {
             int firstParen = fileRegex.indexOf('(');
@@ -593,6 +615,8 @@ public class CheckHtmlFiles {
                     sentences.add(sentence);
                 }
                 int fatalCount = headingInfoList.showErrors();
+                totalFatalCount += fatalCount;
+                totalErrorCount += headingInfoList.totalErrorCount();
                 if (fatalCount == 0) {
                     headingInfoList.listContents();
                 } else {

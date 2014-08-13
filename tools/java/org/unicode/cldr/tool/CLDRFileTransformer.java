@@ -31,6 +31,9 @@ public class CLDRFileTransformer {
      */
     public enum LocaleTransform {
         sr_Latn("sr", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]"),
+        sr_Latn_BA("sr_Cyrl_BA", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]"),
+        sr_Latn_ME("sr_Cyrl_ME", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]"),
+        sr_Latn_XK("sr_Cyrl_XK", "Serbian-Latin-BGN.xml", Transliterator.FORWARD, "[:script=Cyrl:]"),
         yo_BJ("yo", "yo-yo_BJ.xml", Transliterator.FORWARD, "[:script=Latn:]");
 
         private final String inputLocale;

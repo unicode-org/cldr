@@ -205,6 +205,10 @@ public class Iso639Data {
         return toAlpha3(languageTag);
     }
 
+    public static Set<String> hasBiblio3() {
+        return toBiblio3.keySet();
+    }
+
     public static Set<String> getNames(String languageSubtag) {
         if (toNames == null) {
             getData();

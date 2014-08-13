@@ -597,6 +597,19 @@ public class CountItems {
                 + "\" reason=\"overlong\"/> <!-- " +
                 Iso639Data.getNames(target) + " -->");
         }
+        System.out.println("\t\t\t<!-- Bibliographic -->");
+        TreeMap<String,String> sorted = new TreeMap<>();
+        for (String hasBiblio : Iso639Data.hasBiblio3()) {
+            String biblio = Iso639Data.toBiblio3(hasBiblio);
+            sorted.put(biblio, hasBiblio);
+        }
+        for (Entry<String, String> entry : sorted.entrySet()) {
+            String biblio = entry.getKey();
+            String hasBiblio = entry.getValue();
+            System.out.println("\t\t\t<languageAlias type=\"" + biblio + "\" replacement=\"" + hasBiblio
+                + "\" reason=\"bibliographic\"/> <!-- " +
+                Iso639Data.getNames(hasBiblio) + " -->");
+        }
         System.out.println("<!-- end of Language alises generated with CountItems tool ...");
 
         Set<String> encompassed = Iso639Data.getEncompassed();

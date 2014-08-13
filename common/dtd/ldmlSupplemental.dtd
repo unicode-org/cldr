@@ -260,7 +260,7 @@ Except as contained in this notice, the name of a copyright holder shall not be 
 <!ELEMENT languageAlias EMPTY >
 <!ATTLIST languageAlias type NMTOKEN #IMPLIED >
 <!ATTLIST languageAlias replacement NMTOKEN #IMPLIED >
-<!ATTLIST languageAlias reason ( deprecated | overlong | macrolanguage | legacy ) #IMPLIED >
+<!ATTLIST languageAlias reason ( deprecated | overlong | macrolanguage | legacy | bibliographic ) #IMPLIED >
 
 <!ELEMENT scriptAlias EMPTY >
 <!ATTLIST scriptAlias type NMTOKEN #IMPLIED >

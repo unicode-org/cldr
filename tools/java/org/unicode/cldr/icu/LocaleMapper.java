@@ -39,7 +39,9 @@ public class LocaleMapper extends Mapper {
      * Map for converting enums to their integer values.
      */
     private static final Map<String, String> enumMap = Builder.with(new HashMap<String, String>())
-        .put("titlecase-firstword", "1").freeze();
+        .put("titlecase-firstword", "1")
+        .put("∅∅∅", "0")
+        .freeze();
 
     private static final Pattern DRAFT_PATTERN = Pattern.compile("\\[@draft=\"\\w+\"]");
     private static final Pattern TERRITORY_XPATH = Pattern.compile(

@@ -29,7 +29,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<tRule>($tone) ( [i o n u {o n} {n g}]) → $2 &amp;Pinyin-NumericPinyin($1);</tRule>
 			<tRule>($tone) → &amp;Pinyin-NumericPinyin($1);</tRule>
 			<comment># The following backs up until it finds the right vowel, then deposits the tone</comment>
-			<tRule>$vowel = [aAeEiIoOuUüÜ {ü} {Ü} ];</tRule>
+			<tRule>$vowel = [aAeEiIoOuU {ü} {Ü} vV];</tRule>
 			<tRule>$consonant = [[a-z A-Z] - [$vowel]];</tRule>
 			<tRule>$digit = [1-5];</tRule>
 			<tRule>$1 &amp;NumericPinyin-Pinyin($3) $2 ← ([aAeE]) ($vowel* $consonant*) ($digit);</tRule>

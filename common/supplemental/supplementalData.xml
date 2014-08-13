@@ -4448,7 +4448,8 @@ XXX Code for transations where no currency is involved
 
     <calendarPreferenceData>
         <calendarPreference territories="001" ordering="gregorian"/>
-        <calendarPreference territories="AE BH DJ DZ EH ER IQ JO KM KW LB LY MA MR OM PS QA SD SY TD TN YE" ordering="gregorian islamic islamic-civil islamic-tbla"/>
+        <calendarPreference territories="DJ DZ EH ER IQ JO KM LB LY MA MR OM PS SD SY TD TN YE" ordering="gregorian islamic islamic-civil islamic-tbla"/>
+        <calendarPreference territories="AE BH KW QA" ordering="gregorian islamic-umalqura islamic islamic-civil islamic-tbla"/>
         <calendarPreference territories="AF IR" ordering="persian gregorian islamic islamic-civil islamic-tbla"/>
         <calendarPreference territories="CN CX HK MO SG" ordering="gregorian chinese"/>
         <calendarPreference territories="EG" ordering="gregorian coptic islamic islamic-civil islamic-tbla"/>
@@ -4457,7 +4458,7 @@ XXX Code for transations where no currency is involved
         <calendarPreference territories="IN" ordering="gregorian indian"/>
         <calendarPreference territories="JP" ordering="gregorian japanese"/>
         <calendarPreference territories="KR" ordering="gregorian dangi"/>
-        <calendarPreference territories="SA" ordering="gregorian islamic islamic-umalqura islamic-rgsa"/>
+        <calendarPreference territories="SA" ordering="gregorian islamic-umalqura islamic islamic-rgsa"/>
         <calendarPreference territories="TH" ordering="buddhist gregorian"/>
         <calendarPreference territories="TW" ordering="gregorian roc chinese"/>
     </calendarPreferenceData>

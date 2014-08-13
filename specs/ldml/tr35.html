@@ -6797,6 +6797,22 @@ decimal?, group?, special*)) &gt;</pre>
 					</li>
 				</ul>
 			</li>
+			<li><strong>Part 5: <a href="tr35-collation.html#Contents">Collation</a></strong>
+				<ul>
+					<li><i>Section 2.6,
+						<a href="tr35-collation.html#Root_Data_File_Formats">Root Collation Data File Formats</a></i>:
+						A new section of <code>[radical ...]</code> lines in FractionalUCA.txt
+						defines a radical-stroke order of the Unified_Ideograph characters.
+						[<a href="http://unicode.org/cldr/trac/ticket/7176">#7176</a>]</li>
+					<li>Most of the mappings were removed from CJK type="unihan" tailorings,
+						assuming that the root collation order sorts
+						Han characters in Unihan radical-stroke order according to the
+						<code>[radical ...]</code> data in FractionalUCA.txt.
+						The only remaining mappings in the CJK type="unihan" tailorings
+						are those for the radicals for
+						<a href="tr35-collation.html#CJK_Index_Markers">CJK Index Markers</a>.</li>
+				</ul>
+			</li>
 		</ul>
 
 

@@ -56,10 +56,10 @@
      ; /languageData/$1/secondary/scripts ; values=$2
      ; /languageData/$1/secondary/territories ; values=$3
 
+//supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@status="deprecated"] ; /territoryContainment/deprecated/$1 ; values=$2
+//supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@status="grouping"] ; /territoryContainment/containedGroupings/$1 ; values=$2
+//supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@grouping="true"] ; /territoryContainment/grouping ; values=$1
 //supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"]; /territoryContainment/$1 ; values=$2
-//supplementalData/territoryContainment/group[@type="(%W)"][@contains="(%A)"][@grouping="true"]
-     ; /territoryContainment/$1 ; values=$2
-     ; /territoryContainment/grouping ; values=$1
 
 //supplementalData/weekData/firstDay[@day="(%W)"][@territories="(%W)"] ; /weekData/$2:intvector     ; values=$1 ; fallback=/weekData/001:intvector[0]
 //supplementalData/weekData/minDays[@count="(%N)"][@territories="(%W)"] ; /weekData/$2:intvector    ; values=$1 ; fallback=/weekData/001:intvector[1]

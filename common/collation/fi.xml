@@ -11,18 +11,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="fi" /> 
 	</identity>
-		<collations  >
-            <defaultCollation>phonebook</defaultCollation>
-			<collation type="search" >
+		<collations>
+			<collation type="search">
 				<import source="und" type="search"/>
 				<!--
 				Below are the rules specific to fi.
-				These rules match standard collation below, since
-				per Apple language group, V and W should match for search.
+				Per Apple language group, V and W should match for search.
 				-->
-				<import source="fi" type="standard"/>
+				<import source="fi" type="trad"/>
 			</collation>
-			<collation type="standard" >
+			<collation type="traditional">
+				<!-- v and w used to be only secondary-different. -->
 				<cr><![CDATA[
 					&D<<ð<<<Ð<<đ<<<Đ
 					&N<<ŋ<<<Ŋ
@@ -32,28 +31,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 					&[before 1]ǀ<å<<<Å<ä<<<Ä<<æ<<<Æ<ö<<<Ö<<ø<<<Ø<<ő<<<Ő<<õ<<<Õ<<œ<<<Œ
 				]]></cr>
 			</collation>
-			<collation type="standard" alt="proposed" draft="unconfirmed">
+			<collation type="standard">
+				<!-- Standard computer ordering: SFS-EN 13710 -->
 				<cr><![CDATA[
-					# D and U+0335
-					&D\u0335<<đ<<<Đ
-					# G and U+0335
-					&G\u0335<<ǥ<<<Ǥ
-					# N and U+0335
-					&N\u0335<<ŋ<<<Ŋ
-					# T and U+0335
-					&T\u0335<<ŧ<<<Ŧ
-					&V<<w<<<W
-					&Y<<ü<<<Ü
-					# Z and U+0335
-					&Z\u0335<<ʒ<<<Ʒ
-					&[before 1]ǀ<å<<<Å<ä<<<Ä<<æ<<<Æ<ö<<<Ö<<ø<<<Ø
-				]]></cr>
-			</collation>
-			<!-- For the phonebook collation, the only change is to collate v and w as separate characters, i.e.: -->
-			<collation type="phonebook">
-				<cr><![CDATA[
-					# D and U+0335
-					&D\u0335<<đ<<<Đ
+					# D and U+0335 COMBINING SHORT STROKE OVERLAY
+					&D\u0335<<đ<<<Đ  # root order: d\u0335=đ
 					# G and U+0335
 					&G\u0335<<ǥ<<<Ǥ
 					# N and U+0335
@@ -63,9 +45,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 					&Y<<ü<<<Ü
 					# Z and U+0335
 					&Z\u0335<<ʒ<<<Ʒ
-					# U+0291, LATIN SMALL LETTER Z WITH CURL, the last Z-like character.
 					&[before 1]ǀ<å<<<Å<ä<<<Ä<<æ<<<Æ<ö<<<Ö<<ø<<<Ø
 				]]></cr>
 			</collation>
+			<!-- Erkki wrote in CLDR ticket #6615:
+				SFS 4600, Order of characters and numerals, which is less computer-oriented
+				and also defines rules for groupings and omissions,
+				is not intended to be included in CLDR. -->
 		</collations>
 </ldml>

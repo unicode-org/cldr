@@ -11,8 +11,17 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="ja" /> 
 	</identity>
-	<collations  >
+	<collations>
 		<collation type="private-kana">
+			<!-- JIS X 4061: http://kikakurui.com/x4/X4061-1996-01.html
+				Section 4.4.10.2:
+				(1)第 1 照合属性（清濁） 清音文字＜濁音文字＜半濁音文字
+				    Voiceless < Voiced < Half-voiced (ha (は) < ba　(ば) < pa　(ぱ))
+				(2)第 2 照合属性（記号種別） 長音記号＜小文字＜繰返し記号＜大文字
+				    Length mark < small Kana < iteration mark < large Kana
+				(3)第 3 照合属性（仮名種別） 平仮名＜片仮名
+				    Hiragana < Katakana
+				-->
 			<settings strength="tertiary" reorder="Latn Kana Hani"/>
 			<cr><![CDATA[
 				&ゝ<<<<ヽ # iteration marks \u309D, \u30FD
@@ -49,7 +58,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 				=ノ|ー=ﾉ|ー=ホ|ー=ﾎ|ー=ㇹ|ー=ボ|ー=ポ|ー=モ|ー=ﾓ|ー=ョ|ー=ｮ|ー=ヨ|ー=ﾖ|ー
 				=ロ|ー=ﾛ|ー=ㇿ|ー=ヲ|ー=ｦ|ー=ヺ|ー
 
-				# The iteration mark sorts tertiary less-than the preceding character.
+				# The iteration mark sorts tertiary-between small and large Kana.
 				&[before 3]あ # A
 				<<<あ|ゝ=ぁ|ゝ
 				<<<<ア|ヽ=ｱ|ヽ=ァ|ヽ=ｧ|ヽ

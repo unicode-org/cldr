@@ -582,6 +582,7 @@ abstract public class CheckCLDR {
             .add(new CheckCurrencies())
             .add(new CheckCasing())
             .add(new CheckConsistentCasing(factory)) // this doesn't work; many spurious errors that user can't correct
+            .add(new CheckQuotes())
             .add(new CheckWidths())
             .add(new CheckPlaceHolders())
             .add(new CheckNew(factory)) // this is at the end; it will check for other certain other errors and warnings and
@@ -754,7 +755,8 @@ abstract public class CheckCLDR {
             patternCannotContainDigits, patternContainsInvalidCharacters, parenthesesNotAllowed,
             illegalNumberingSystem,
             unexpectedOrderOfEraYear,
-            invalidPlaceHolder;
+            invalidPlaceHolder,
+            asciiQuotesNotAllowed;
 
             public String toString() {
                 return TO_STRING.matcher(name()).replaceAll(" $1").toLowerCase();

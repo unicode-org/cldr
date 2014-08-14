@@ -103,7 +103,7 @@ h2,h3,h4,table {
 			</tr>
 			<tr>
 				<td>Date</td>
-				<td><span class="changed">2014-06-12</span></td>
+				<td><span class="changed">2014-08-13</span></td>
 			</tr>
 			<tr>
 				<td>This Version</td>
@@ -405,6 +405,8 @@ h2,h3,h4,table {
 						href="#Renamed_attribute_values_for_contextTransformUsage">
 							Renamed attribute values for &lt;contextTransformUsage&gt;
 							element</a></li>
+					<li class="changed">8.13 <a href="#Deprecated_subelements_of_segmentations">Deprecated
+							subelements of &lt;segmentations&gt;</a></li>
 				</ul>
 			</li>
 			<li>9 <a href="#Links_to_Other_Parts">Links to Other Parts</a></li>
@@ -5562,6 +5564,16 @@ decimal?, group?, special*)) &gt;</pre>
 			<li>"tense" was renamed to "relative"</li>
 		</ul>
 
+		<h3 class="changed">
+			<a name="Deprecated_subelements_of_segmentations"
+				href="#Deprecated_subelements_of_segmentations">8.13 Deprecated
+				subelements of &lt;segmentations&gt;</a>
+		</h3>
+		<ul class="changed">
+			<li>&lt;exceptions&gt; and &lt;exceptions&gt; were deprecated and replaced
+				with &lt;suppressions&gt; and &lt;suppression&gt;.</li>
+		</ul>
+
 		<hr>
 		<h2>
 			<a name="Links_to_Other_Parts" href="#Links_to_Other_Parts">9
@@ -6770,6 +6782,13 @@ decimal?, group?, special*)) &gt;</pre>
 							href="tr35-general.html#Unit_Elements">Unit Elements</a>,</em>
 						added &lt;displayName&gt; for &lt;unit&gt; elements.
 						[<a href="http://unicode.org/cldr/trac/ticket/7200">#7200</a>]
+					</li>
+					<li>In <em>Section 9 <a
+							href="tr35-general.html#Segmentations">Segmentations</a>,</em>
+						deprecated &lt;exceptions&gt; element and its sub-element, replaced with
+						&lt;suppressions&gt; element (which can take a type attribute) and its
+						sub-element.
+						[<a href="http://unicode.org/cldr/trac/ticket/7237">#7237</a>]
 					</li>
 				</ul>
 			</li>

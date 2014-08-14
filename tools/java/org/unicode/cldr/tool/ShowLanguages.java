@@ -1510,6 +1510,10 @@ public class ShowLanguages {
             String temp;
             for (String old : localeAliasInfo.get("language").keySet()) {
                 if (locale.startsWith(old)) {
+                    // the above is a rough check, and will fail with old=moh and locale=mo
+                    if (!locale.equals(old) && !locale.startsWith(old+"_")) {
+                        continue;
+                    }
                     temp = localeAliasInfo.get("language").get(old);
                     lpt2.setLanguage(temp.split("\\s+")[0] + locale.substring(old.length()));
                     break;

@@ -156,15 +156,19 @@ public class ShowLocaleCoverage {
                 COMMON_LOCALES = SimpleFactory.make(base + "/" + "common" + "/main", ".*").getAvailableLanguages();
             }
         }
-        if (COMMON_LOCALES == null) {
-            COMMON_LOCALES = factory.getAvailableLanguages();
-        }
+        fixCommonLocales();
 
         RAW_DATA = MyOptions.rawData.option.doesOccur();
 
         //showEnglish();
 
         showCoverage(null, matcher, locales, useOrgLevel);
+    }
+
+    public static void fixCommonLocales() {
+        if (COMMON_LOCALES == null) {
+            COMMON_LOCALES = factory.getAvailableLanguages();
+        }
     }
 
     private static void doGrowth(Matcher matcher, PrintWriter out) {
@@ -331,6 +335,9 @@ public class ShowLocaleCoverage {
                 languageToRegion.put(ltc.transform(ltp.getLanguageScript()), country);
             }
         }
+        
+        fixCommonLocales();
+
         System.out.println(CollectionUtilities.join(languageToRegion.keyValuesSet(), "\n"));
 
         System.out.println("# Checking: " + availableLanguages);

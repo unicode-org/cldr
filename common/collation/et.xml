@@ -11,11 +11,16 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<generation date="$Date$"/>
 		<language type="et" /> 
 	</identity>
-		<collations  >
-			<collation type="standard" >
+		<collations>
+			<collation type="standard">
+				<!-- v and w are separate letters as usual.
+					w is used only in load words; it is not in the Estonian alphabet.
+					http://en.wikipedia.org/wiki/Estonian_orthography
+					Dictionary of standard Estonian:
+					Alphabet: http://www.eki.ee/dict/qs/qs2013.html#tahestik
+					Place names: http://www.eki.ee/dict/qs/kohanimevalimik.pdf  -->
 				<cr><![CDATA[
 					&[before 1]T<š<<<Š<z<<<Z<ž<<<Ž
-					&v<<w<<<W
 					&[before 1]X<õ<<<Õ<ä<<<Ä<ö<<<Ö<ü<<<Ü
 				]]></cr>
 			</collation>

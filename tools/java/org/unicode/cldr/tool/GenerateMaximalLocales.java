@@ -810,7 +810,7 @@ public class GenerateMaximalLocales {
             .get("language");
         for (Entry<String, R2<List<String>, String>> str : languageAliases.entrySet()) {
             String reason = str.getValue().get1();
-            if ("overlong".equals(reason) || "macrolanguage".equals(reason)) {
+            if ("overlong".equals(reason) || "bibliographic".equals(reason) || "macrolanguage".equals(reason)) {
                 continue;
             }
             List<String> replacements = str.getValue().get0();

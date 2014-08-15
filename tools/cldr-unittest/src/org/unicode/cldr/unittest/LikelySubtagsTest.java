@@ -131,7 +131,11 @@ public class LikelySubtagsTest extends TestFmwk {
             return;
         }
         checkAdding("und_Bopo");
-        checkAdding("und_AF");
+        checkAdding("und_Brai");
+        checkAdding("und_Limb");
+        checkAdding("und_Cakm");
+        checkAdding("und_Shaw");
+
         final LanguageTagParser ltp = new LanguageTagParser();
         main: for (String language : TAGS.languages) {
             ltp.setLanguage(language);

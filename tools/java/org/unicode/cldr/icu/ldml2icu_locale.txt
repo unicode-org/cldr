@@ -199,7 +199,7 @@
 
 //ldml/units/unitLength[@type="narrow"]/unit[@type="(\w++)-(%A)"]/displayName ; /unitsNarrow/$1/$2/dnam
 //ldml/units/unitLength[@type="short"]/unit[@type="(\w++)-(%A)"]/displayName ; /unitsShort/$1/$2/dnam
-//ldml/units/unitLength[@type="long"]/unit[@type="(\w++)-(%A)"]/displayName ; /units/per/$1/$2/dnam
+//ldml/units/unitLength[@type="long"]/unit[@type="(\w++)-(%A)"]/displayName ; /units/$1/$2/dnam
 
 //ldml/units/unitLength[@type="narrow"]/unit[@type="(\w++)-(%A)"]/unitPattern[@count="(%A)"] ; /unitsNarrow/$1/$2/$3
 //ldml/units/unitLength[@type="short"]/unit[@type="(\w++)-(%A)"]/unitPattern[@count="(%A)"] ; /unitsShort/$1/$2/$3
@@ -211,6 +211,6 @@
 
 //ldml/units/unitLength[@type="narrow"]/unit[@type="(\w++)-(%A)"]/perUnitPattern ; /unitsNarrow/$1/$2/per
 //ldml/units/unitLength[@type="short"]/unit[@type="(\w++)-(%A)"]/perUnitPattern ; /unitsShort/$1/$2/per
-//ldml/units/unitLength[@type="long"]/unit[@type="(\w++)-(%A)"]/perUnitPattern ; /units/per/$1/$2/per
+//ldml/units/unitLength[@type="long"]/unit[@type="(\w++)-(%A)"]/perUnitPattern ; /units/$1/$2/per
 
 //ldml/units/durationUnit[@type="(%A)"]/durationUnitPattern ; /durationUnits/$1

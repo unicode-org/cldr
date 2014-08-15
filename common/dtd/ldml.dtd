@@ -1336,7 +1336,7 @@ $Date$
 
 <!ELEMENT collation (alias | (base?, import*, settings?, suppress_contractions?, optimize?, (cr* | rules?), special*)) >
 <!ATTLIST collation type NMTOKEN "standard" >
-<!ATTLIST collation visibility ( internal | external ) "external" > 
+<!ATTLIST collation visibility ( internal | external ) "external" >  <!-- deprecated -->
 <!ATTLIST collation alt NMTOKENS #IMPLIED >
 <!ATTLIST collation draft ( approved | contributed | provisional | unconfirmed | true | false ) #IMPLIED > <!-- true and false are deprecated. -->
 <!ATTLIST collation standard CDATA #IMPLIED > <!-- the "standard" attribute is deprecated everywhere. -->
@@ -1346,7 +1346,7 @@ $Date$
 <!ELEMENT base (alias|special) > <!-- deprecated collations/collation/base, see CLDR ticket #6332 -->
 
 <!ELEMENT import EMPTY >
-<!ATTLIST import source CDATA #REQUIRED >
+<!ATTLIST import source CDATA #REQUIRED > <!-- value "locale" is deprecated -->
 <!ATTLIST import type CDATA #IMPLIED >
 
 <!ELEMENT settings (special*) >

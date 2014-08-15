@@ -2861,13 +2861,15 @@ FDD0 0065; [, B1, 09]       # [1644.0020.0004] [0000.0061.0004]     * U+A7A1 LAT
 		<h3>
 			3.15 <a name="Visibility" href="#Visibility">Visibility</a>
 		</h3>
-		<p class="dtd">&lt;!ATTLIST collation visibility ( internal |
+		<p class="dtd removed">&lt;!ATTLIST collation visibility ( internal |
 			external ) &quot;external&quot; &gt;</p>
-		<p>Collators have external visibility by default, meaning that
+		<p><span class="removed">Collators</span> <span class="changed">Collations</span> have external visibility by default, meaning that
 			they can be displayed in a list of collation options for users to
-			choose from. Collators marked as having internal visibility should
-			not be shown in such a list. Collators are typically internal when
-			they are partial sequences included in other collators.</p>
+			choose from. <span class="removed">Collators marked as having internal visibility</span>
+			<span class="changed">A collation whose type name starts with "private-" is internal and</span>
+			should not be shown in such a list. <span class="removed">Collators</span> <span class="changed">Collations</span> are typically internal when
+			they are partial sequences included in other <span class="removed">collators</span> <span class="changed">collations</span>.
+			<span class="changed">See <i>Section 3.1, <a href="#Collation_Types">Collation Types</a></i>.</span></p>
 
 		<h3>
 			3.16 <a name="Collation_Indexes" href="#Collation_Indexes">Collation

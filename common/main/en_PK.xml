@@ -20,19 +20,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<pattern draft="contributed">EEEE d MMMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="contributed">d MMMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd-MMM-y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="contributed">dd/MM/y GGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -120,19 +110,9 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<pattern draft="contributed">EEEE d MMMM y</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type="long">
-						<dateFormat>
-							<pattern draft="contributed">d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd-MMM-y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern draft="contributed">dd/MM/y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -291,9 +271,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="PKR">
 				<symbol>Rs</symbol>
 			</currency>
-			<currency type="USD">
-				<symbol>US$</symbol>
-			</currency>
 		</currencies>
 	</numbers>
 </ldml>
+

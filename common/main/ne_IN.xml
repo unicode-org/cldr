@@ -12,44 +12,12 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<territory type="IN"/>
 	</identity>
 	<localeDisplayNames>
-		<localeDisplayPattern>
-			<localePattern>{0} ({1})</localePattern>
-			<localeSeparator>{0}, {1}</localeSeparator>
-			<localeKeyTypePattern>{0}: {1}</localeKeyTypePattern>
-		</localeDisplayPattern>
 		<languages>
-			<language type="am">अम्हारिक</language>
 			<language type="ar_001">अधुनिक प्रमाणिक अरबी</language>
-			<language type="as">आसामी</language>
-			<language type="asa">आसु</language>
-			<language type="az">अजरबैजानी</language>
-			<language type="be">वेलारूसी</language>
-			<language type="bem">बेम्बा</language>
-			<language type="bez">बेना</language>
-			<language type="bg">बुल्गेरियाली</language>
-			<language type="bm">बाम्बारा</language>
-			<language type="bo">तिब्बती</language>
-			<language type="br">ब्रेटन</language>
-			<language type="brx">बोडो</language>
-			<language type="bs">बोस्नियाली</language>
-			<language type="ca">क्याटालन</language>
-			<language type="cgg">चिगा</language>
-			<language type="chr">चेरोकी</language>
-			<language type="ckb">सोरानी कुर्दिश</language>
-			<language type="co">कोर्सिकन</language>
-			<language type="da">डेनिश</language>
-			<language type="dav">ताइता</language>
-			<language type="de">जर्मन</language>
-			<language type="dz">जोङ्खा</language>
 		</languages>
 		<measurementSystemNames>
 			<measurementSystemName type="US">अमेरिकेली</measurementSystemName>
 		</measurementSystemNames>
-		<codePatterns>
-			<codePattern type="language">{0}</codePattern>
-			<codePattern type="script">{0}</codePattern>
-			<codePattern type="territory">{0}</codePattern>
-		</codePatterns>
 	</localeDisplayNames>
 	<dates>
 		<calendars>
@@ -86,20 +54,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					</dayContext>
 				</days>
 				<quarters>
-					<quarterContext type="format">
-						<quarterWidth type="abbreviated">
-							<quarter type="1">पहिलो सत्र</quarter>
-							<quarter type="2">दोस्रो सत्र</quarter>
-							<quarter type="3">तेस्रो सत्र</quarter>
-							<quarter type="4">चौथो सत्र</quarter>
-						</quarterWidth>
-						<quarterWidth type="wide">
-							<quarter type="1">पहिलो सत्र</quarter>
-							<quarter type="2">दोस्रो सत्र</quarter>
-							<quarter type="3">तेस्रो सत्र</quarter>
-							<quarter type="4">चौथो सत्र</quarter>
-						</quarterWidth>
-					</quarterContext>
 					<quarterContext type="stand-alone">
 						<quarterWidth type="abbreviated">
 							<quarter type="1">पहिलो सत्र</quarter>
@@ -178,10 +132,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		</timeZoneNames>
 	</dates>
 	<numbers>
-		<defaultNumberingSystem draft="contributed">deva</defaultNumberingSystem>
-		<otherNumberingSystems>
-			<native draft="contributed">deva</native>
-		</otherNumberingSystems>
 		<currencies>
 			<currency type="INR">
 				<displayName>भारतीय रूपिँया</displayName>

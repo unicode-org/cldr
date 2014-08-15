@@ -15,11 +15,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 		<calendars>
 			<calendar type="generic">
 				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, d MMMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>dd MMMM y G</pattern>
@@ -28,11 +23,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd MMM y G</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>dd/MM/y GGGGG</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -131,11 +121,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 			</calendar>
 			<calendar type="gregorian">
 				<dateFormats>
-					<dateFormatLength type="full">
-						<dateFormat>
-							<pattern>EEEE, d MMMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
 					<dateFormatLength type="long">
 						<dateFormat>
 							<pattern>dd MMMM y</pattern>
@@ -144,11 +129,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 					<dateFormatLength type="medium">
 						<dateFormat>
 							<pattern>dd MMM y</pattern>
-						</dateFormat>
-					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>dd/MM/y</pattern>
 						</dateFormat>
 					</dateFormatLength>
 				</dateFormats>
@@ -252,9 +232,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<currency type="GBP">
 				<symbol>GB£</symbol>
 			</currency>
-			<currency type="USD">
-				<symbol>US$</symbol>
-			</currency>
 		</currencies>
 	</numbers>
 </ldml>
+

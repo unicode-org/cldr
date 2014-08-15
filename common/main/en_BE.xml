@@ -30,11 +30,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<pattern>dd MMM y G</pattern>
 						</dateFormat>
 					</dateFormatLength>
-					<dateFormatLength type="short">
-						<dateFormat>
-							<pattern>dd/MM/y GGGGG</pattern>
-						</dateFormat>
-					</dateFormatLength>
 				</dateFormats>
 				<dateTimeFormats>
 					<availableFormats>
@@ -159,21 +154,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 							<pattern>HH 'h' mm 'min' ss 's' zzzz</pattern>
 						</timeFormat>
 					</timeFormatLength>
-					<timeFormatLength type="long">
-						<timeFormat>
-							<pattern>HH:mm:ss z</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="medium">
-						<timeFormat>
-							<pattern>HH:mm:ss</pattern>
-						</timeFormat>
-					</timeFormatLength>
-					<timeFormatLength type="short">
-						<timeFormat>
-							<pattern>HH:mm</pattern>
-						</timeFormat>
-					</timeFormatLength>
 				</timeFormats>
 				<dateTimeFormats>
 					<availableFormats>
@@ -283,10 +263,6 @@ For terms of use, see http://www.unicode.org/copyright.html
 				</currencyFormat>
 			</currencyFormatLength>
 		</currencyFormats>
-		<currencies>
-			<currency type="USD">
-				<symbol>US$</symbol>
-			</currency>
-		</currencies>
 	</numbers>
 </ldml>
+

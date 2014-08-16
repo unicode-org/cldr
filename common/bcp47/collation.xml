@@ -52,7 +52,7 @@ For terms of use, see http://www.unicode.org/copyright.html
             <type name="false" description="No special case ordering" alias="no"/>
         </key>
 
-        <key name="kh" description="Collation parameter key for special Hiragana handling" alias="colHiraganaQuaternary">
+        <key name="kh" deprecated="true" description="Collation parameter key for special Hiragana handling" alias="colHiraganaQuaternary">
             <type name="true" description="Hiragana to be sorted before all non-variable on quaternary level" alias="yes"/>
             <type name="false" description="No special handling for Hiragana" alias="no"/>
         </key>

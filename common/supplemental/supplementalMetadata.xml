@@ -1850,8 +1850,8 @@ ldml alternate approvalRequirement approvalRequirements attributeOrder attribute
             <deprecatedItems elements="calendar" attributes="type" values="civil-arabic thai-buddhist"/>
             <deprecatedItems elements="exemplarCharacters" attributes="type" values="currencySymbol"/>
             <deprecatedItems elements="decimal group list percentSign nativeZeroDigit patternDigit plusSign minusSign exponential perMille infinity nan currencyDecimal currencyGroup" attributes="numberSystem"/>
-            <deprecatedItems elements="collation" attributes="visibility"/> <!-- collations/collation, see CLDR ticket #7662 -->
-            <deprecatedItems elements="import" attributes="source" values="locale"/> <!-- collations/collation/import, see CLDR ticket #7663 -->
+            <deprecatedItems elements="collation" attributes="visibility"/> <!-- collations/collation@visibility, see CLDR ticket #7662 -->
+            <deprecatedItems elements="import" attributes="source" values="locale"/> <!-- collations/collation/import@source="locale", see CLDR ticket #7663 -->
             <deprecatedItems elements="base"/> <!-- collations/collation/base, see CLDR ticket #6332 -->
             <!-- collation rules element (replaced by cr) and its sub-elements, see CLDR ticket #5551 -->
             <deprecatedItems elements="rules reset p pc s sc t tc q qc i ic x extend context first_variable last_variable first_tertiary_ignorable last_tertiary_ignorable first_secondary_ignorable last_secondary_ignorable first_primary_ignorable last_primary_ignorable first_non_ignorable last_non_ignorable first_trailing last_trailing"/>

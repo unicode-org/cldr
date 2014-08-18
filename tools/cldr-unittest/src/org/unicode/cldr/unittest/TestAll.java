@@ -13,6 +13,7 @@ import org.unicode.cldr.util.CldrUtility;
 
 import com.ibm.icu.dev.test.TestFmwk.TestGroup;
 import com.ibm.icu.text.DateFormat;
+import com.ibm.icu.text.SimpleDateFormat;
 import com.ibm.icu.util.VersionInfo;
 
 /**
@@ -46,7 +47,7 @@ public class TestAll extends TestGroup {
         private final DateFormat df;
 
         public SimpleFormattableDate() {
-            df = DateFormat.getDateTimeInstance();
+            df = new SimpleDateFormat("y-MM-d HH:mm:ss");
         }
 
         @Override
@@ -95,7 +96,11 @@ public class TestAll extends TestGroup {
         public void write(String s) {
             if (s.equals("\n") || s.equals("\r\n")) {
                 String ss = getFormattedDateString();
-                super.write(" " + ss + s);
+                if (ss != null) {
+                    super.write(" " + ss + s);
+                } else {
+                	super.write(s);
+                }
             } else {
                 super.write(s);
             }
@@ -151,10 +156,15 @@ public class TestAll extends TestGroup {
     }
 
     public static void main(String[] args) {
+    	final boolean doTimeStamps = false;
+    	TimeStampingPrintWriter tspw = new TimeStampingPrintWriter(System.out);
+    	if (!doTimeStamps) {
+    		tspw.setFormatableDate(new NullFormatableDate());
+    	}
         long startTime = System.currentTimeMillis();
         int errCount = CLDRConfig.getInstance()
             .setTestLog(new TestAll())
-            .run(args, new TimeStampingPrintWriter(System.out));
+            .run(args, tspw);
         long endTime = System.currentTimeMillis();
         DateDisplayBean dispBean = new DateDisplayBean(endTime - startTime);
         StringBuffer sb = new StringBuffer();

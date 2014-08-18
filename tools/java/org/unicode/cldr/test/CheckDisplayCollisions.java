@@ -53,7 +53,7 @@ public class CheckDisplayCollisions extends FactoryCheckCLDR {
         METAZONE("//ldml/dates/timeZoneNames/metazone", 6),
         DECIMAL_FORMAT("//ldml/numbers/decimalFormats", 7),
         UNITS_COMPOUND_LONG("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", 8),
-        UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"long\"]/compoundUnit", 9),
+        UNITS_COMPOUND_SHORT("//ldml/units/unitLength[@type=\"short\"]/compoundUnit", 9),
         UNITS_IGNORE("//ldml/units/unitLength[@type=\"narrow\"]", 10),
         UNITS("//ldml/units/unitLength", 11);
 

@@ -11,7 +11,7 @@ For terms of use, see http://www.unicode.org/copyright.html
 	<generation date="$Date$"/>
 
 	<windowsZones>
-		<mapTimezones otherVersion="7de0002" typeVersion="2014f">
+		<mapTimezones otherVersion="7de0006" typeVersion="2014f">
 
 			<!-- (UTC-12:00) International Date Line West -->
 			<mapZone other="Dateline Standard Time" territory="001" type="Etc/GMT+12"/>
@@ -649,6 +649,11 @@ For terms of use, see http://www.unicode.org/copyright.html
 			<!-- (UTC+13:00) Samoa -->
 			<mapZone other="Samoa Standard Time" territory="001" type="Pacific/Apia"/>
 			<mapZone other="Samoa Standard Time" territory="WS" type="Pacific/Apia"/>
+
+			<!-- (UTC+14:00) Kiritimati Island -->
+			<mapZone other="Line Islands Standard Time" territory="001" type="Pacific/Kiritimati"/>
+			<mapZone other="Line Islands Standard Time" territory="KI" type="Pacific/Kiritimati"/>
+			<mapZone other="Line Islands Standard Time" territory="ZZ" type="Etc/GMT-14"/>
 		</mapTimezones>
 	</windowsZones>
 </supplementalData>

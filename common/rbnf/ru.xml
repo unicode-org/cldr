@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE ldml SYSTEM "../../common/dtd/ldml.dtd">
 <!--
-Copyright © 1991-2013 Unicode, Inc.
+Copyright © 1991-2014 Unicode, Inc.
 CLDR data files are interpreted according to the LDML specification (http://unicode.org/reports/tr35/)
 For terms of use, see http://www.unicode.org/copyright.html
 -->
@@ -55,21 +55,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="200">←%spellout-cardinal-feminine←сти[ →→];</rbnfrule>
                 <rbnfrule value="300">←%spellout-cardinal-feminine←ста[ →→];</rbnfrule>
                 <rbnfrule value="500">←%spellout-cardinal-feminine←сот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← тысяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-feminine← тысячи[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← миллион[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← миллионы[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← миллионов[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← миллиард[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← миллиарды[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← миллиардов[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← биллион[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← биллионы[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← биллионов[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← биллиард[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← биллиарды[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← биллиардов[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{тысяча}few{тысячи}other{тысяч})[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{миллион}few{миллионы}other{миллионов})[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{миллиард}few{миллиарды}other{миллиардов})[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{биллион}few{биллионы}other{биллионов})[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{биллиард}few{биллиарды}other{биллиардов})[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-neuter">
@@ -91,21 +81,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="200">←%spellout-cardinal-feminine←сти[ →→];</rbnfrule>
                 <rbnfrule value="300">←%spellout-cardinal-feminine←ста[ →→];</rbnfrule>
                 <rbnfrule value="500">←%spellout-cardinal-feminine←сот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← тысяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-feminine← тысячи[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← миллион[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← миллионы[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← миллионов[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← миллиард[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← миллиарды[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← миллиардов[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← биллион[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← биллионы[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← биллионов[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← биллиард[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← биллиарды[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← биллиардов[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{тысяча}few{тысячи}other{тысяч})[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{миллион}few{миллионы}other{миллионов})[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{миллиард}few{миллиарды}other{миллиардов})[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{биллион}few{биллионы}other{биллионов})[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{биллиард}few{биллиарды}other{биллиардов})[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
             <ruleset type="spellout-cardinal-feminine">
@@ -127,21 +107,11 @@ For terms of use, see http://www.unicode.org/copyright.html
                 <rbnfrule value="200">←%spellout-cardinal-feminine←сти[ →→];</rbnfrule>
                 <rbnfrule value="300">←%spellout-cardinal-feminine←ста[ →→];</rbnfrule>
                 <rbnfrule value="500">←%spellout-cardinal-feminine←сот[ →→];</rbnfrule>
-                <rbnfrule value="1000">←%spellout-cardinal-feminine← тысяча[ →→];</rbnfrule>
-                <rbnfrule value="2000">←%spellout-cardinal-feminine← тысячи[ →→];</rbnfrule>
-                <rbnfrule value="5000">←%spellout-cardinal-feminine← тысяч[ →→];</rbnfrule>
-                <rbnfrule value="1000000">←%spellout-cardinal-masculine← миллион[ →→];</rbnfrule>
-                <rbnfrule value="2000000">←%spellout-cardinal-masculine← миллионы[ →→];</rbnfrule>
-                <rbnfrule value="5000000">←%spellout-cardinal-masculine← миллионов[ →→];</rbnfrule>
-                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← миллиард[ →→];</rbnfrule>
-                <rbnfrule value="2000000000">←%spellout-cardinal-masculine← миллиарды[ →→];</rbnfrule>
-                <rbnfrule value="5000000000">←%spellout-cardinal-masculine← миллиардов[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← биллион[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000">←%spellout-cardinal-masculine← биллионы[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000">←%spellout-cardinal-masculine← биллионов[ →→];</rbnfrule>
-                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← биллиард[ →→];</rbnfrule>
-                <rbnfrule value="2000000000000000">←%spellout-cardinal-masculine← биллиарды[ →→];</rbnfrule>
-                <rbnfrule value="5000000000000000">←%spellout-cardinal-masculine← биллиардов[ →→];</rbnfrule>
+                <rbnfrule value="1000">←%spellout-cardinal-feminine← $(cardinal,one{тысяча}few{тысячи}other{тысяч})[ →→];</rbnfrule>
+                <rbnfrule value="1000000">←%spellout-cardinal-masculine← $(cardinal,one{миллион}few{миллионы}other{миллионов})[ →→];</rbnfrule>
+                <rbnfrule value="1000000000">←%spellout-cardinal-masculine← $(cardinal,one{миллиард}few{миллиарды}other{миллиардов})[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000">←%spellout-cardinal-masculine← $(cardinal,one{биллион}few{биллионы}other{биллионов})[ →→];</rbnfrule>
+                <rbnfrule value="1000000000000000">←%spellout-cardinal-masculine← $(cardinal,one{биллиард}few{биллиарды}other{биллиардов})[ →→];</rbnfrule>
                 <rbnfrule value="1000000000000000000">=#,##0=;</rbnfrule>
             </ruleset>
         </rulesetGrouping>
